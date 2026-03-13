@@ -1,330 +1,291 @@
 import './style.css'
 
-const stats = [
-  { value: '100x', label: 'more hypotheses tested', note: 'Compress the full research loop into one reusable run.' },
-  { value: 'Open', label: 'source core', note: 'Inspect the stack, self-host it, and extend it without lock-in.' },
-  { value: 'Large', label: 'dataset ready', note: 'Designed for warehouses, lakes, and messy operational data.' },
+const chartData = [
+  { label: 'Feb 1', avg: 18, top: 28, bottom: 10 },
+  { label: 'Feb 8', avg: 26, top: 42, bottom: 14 },
+  { label: 'Feb 15', avg: 44, top: 72, bottom: 24 },
+  { label: 'Feb 22', avg: 78, top: 126, bottom: 40 },
+  { label: 'Mar 1', avg: 132, top: 205, bottom: 74 },
+  { label: 'Mar 8', avg: 238, top: 372, bottom: 128 },
+  { label: 'Mar 13', avg: 410, top: 655, bottom: 210 },
 ]
 
-const platformLines = [
-  ['Dataset-native ingestion', 'Warehouses, parquet, tabular exports, and document corpora in one graph.'],
-  ['Experiment orchestration', 'Parallel runs, versioned prompts, and explicit comparison across hypotheses.'],
-  ['Evidence-backed outputs', 'Citations, source traces, tables, and memos built for executive review.'],
-  ['Self-hosted by default', 'Bring your own infra, keep data residency, and avoid vendor lock-in.'],
-]
-
-const principles = [
+const workflowCards = [
   {
-    title: 'Build conviction, not dashboards',
-    body: 'alpha-research is meant for the last mile before a decision. Teams ask a question, run competing hypotheses against the same evidence, and keep a durable record of what actually changed their mind.',
+    quote: 'Market diligence in hours instead of weeks.',
+    byline: 'Example workflow',
+    detail: 'Strategy team',
   },
   {
-    title: 'Make large data operational',
-    body: 'The platform treats big, messy datasets as the raw material for research instead of forcing analysts into spreadsheet-scale workflows. Ingestion, retrieval, and synthesis are all part of the same system.',
+    quote: 'Compare pricing hypotheses without rebuilding the data pipeline.',
+    byline: 'Example workflow',
+    detail: 'Revenue operations',
   },
   {
-    title: 'Keep the stack inspectable',
-    body: 'Open-source primitives make the system debuggable. Internal teams can add their own evaluators, routing logic, and review steps without handing research process over to a closed box.',
+    quote: 'Trace every recommendation back to source evidence.',
+    byline: 'Example workflow',
+    detail: 'Investment research',
   },
-]
-
-const outcomes = [
-  ['New market thesis', 'Compare ten segments before the Monday meeting instead of picking one by intuition.'],
-  ['Pricing counterfactual', 'Simulate alternative price moves across historical cohorts and current pipeline signals.'],
-  ['Vendor diligence', 'Trace product claims back to source material and flag contradictions before procurement.'],
-  ['Decision memo', 'Export a memo with citations, supporting tables, and the exact runs behind the recommendation.'],
 ]
 
 const faqItems = [
   {
-    question: 'Is alpha-research just another RAG layer?',
+    question: 'Is it just retrieval with a nicer interface?',
     answer:
-      'No. Retrieval is one primitive in the stack, but the product is centered on experiment design, parallel comparison, evidence scoring, and decision-ready outputs.',
+      'No. Retrieval is one primitive, but the platform is built around experiment design, branching research paths, side-by-side comparison, and decision-ready exports.',
   },
   {
-    question: 'Can teams run it on their own infrastructure?',
+    question: 'What kind of data can it handle?',
     answer:
-      'Yes. The platform is designed for self-hosting so teams can keep sensitive data close to the warehouse, the lake, or their private cloud boundary.',
+      'Large datasets: warehouse tables, parquet files, document corpora, exports from internal systems, and mixed research inputs that are too large for spreadsheet workflows.',
   },
   {
-    question: 'What does open source mean here?',
+    question: 'Is it open source?',
     answer:
-      'The research platform itself is built around open-source components and extensibility. Teams can inspect the core, add their own logic, and keep control over the workflow that produces decisions.',
+      'Yes. We built alpha-research as an open-source research platform so teams can inspect the workflow, extend it, and keep their methodology under their own control.',
   },
   {
-    question: 'Who is it for?',
+    question: 'Can we run it on our own infrastructure?',
     answer:
-      'It is for operators, investors, strategists, and research leads who need to test many more hypotheses without lowering the bar for rigor.',
+      'Yes. The platform is designed for self-hosting so data can stay close to the warehouse, lake, or private cloud boundary.',
+  },
+  {
+    question: 'Who is this for?',
+    answer:
+      'Decision makers and the teams that support them: operators, strategists, investors, researchers, and product leaders who need more rigorous hypothesis testing before they act.',
   },
 ]
 
-const chartLabels = ['Day 0', 'Day 2', 'Day 4', 'Day 6', 'Day 8', 'Day 10']
-const baselineSeries = [5, 6, 6, 7, 8, 8]
-const acceleratedSeries = [8, 24, 67, 180, 410, 800]
+const workflowRows = [
+  ['Market diligence', 'Workflow'],
+  ['Pricing experiments', 'Workflow'],
+  ['Vendor evaluation', 'Workflow'],
+  ['Policy analysis', 'Workflow'],
+  ['Decision memos', 'Workflow'],
+  ['Competitive research', 'Workflow'],
+]
 
-const chartWidth = 620
-const chartHeight = 260
-const chartPadding = { top: 18, right: 18, bottom: 34, left: 18 }
-const chartInnerWidth = chartWidth - chartPadding.left - chartPadding.right
-const chartInnerHeight = chartHeight - chartPadding.top - chartPadding.bottom
-const maxValue = 800
+const chartWidth = 560
+const chartHeight = 250
+const chartPadding = { top: 18, right: 8, bottom: 36, left: 42 }
+const plotWidth = chartWidth - chartPadding.left - chartPadding.right
+const plotHeight = chartHeight - chartPadding.top - chartPadding.bottom
+const maxValue = 700
+const gridValues = [0, 200, 400, 600]
 
-const pointFor = (value: number, index: number) => {
-  const x = chartPadding.left + (index * chartInnerWidth) / (chartLabels.length - 1)
-  const y = chartPadding.top + chartInnerHeight - (value / maxValue) * chartInnerHeight
+const chartPoint = (value: number, index: number) => {
+  const x = chartPadding.left + (index * plotWidth) / (chartData.length - 1)
+  const y = chartPadding.top + plotHeight - (value / maxValue) * plotHeight
   return `${x},${y}`
 }
 
-const baselinePolyline = baselineSeries.map(pointFor).join(' ')
-const acceleratedPolyline = acceleratedSeries.map(pointFor).join(' ')
-const baselineFinalPoint = pointFor(baselineSeries[baselineSeries.length - 1], baselineSeries.length - 1)
-const acceleratedFinalPoint = pointFor(
-  acceleratedSeries[acceleratedSeries.length - 1],
-  acceleratedSeries.length - 1,
-)
+const avgLine = chartData.map((point, index) => chartPoint(point.avg, index)).join(' ')
+const topLine = chartData.map((point, index) => chartPoint(point.top, index)).join(' ')
+const bottomLine = chartData.map((point, index) => chartPoint(point.bottom, index)).join(' ')
+const lastPoint = chartData[chartData.length - 1]
+const lastCoords = chartPoint(lastPoint.avg, chartData.length - 1).split(',')
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <header class="topbar reveal" style="--delay: 0.05s">
-    <a class="brand" href="#top" aria-label="alpha-research home">
-      <span class="brand-mark">a</span>
-      <span class="brand-copy">
-        <strong>alpha-research</strong>
-        <span>Open-source research platform</span>
-      </span>
-    </a>
-    <nav class="nav" aria-label="Primary">
-      <a href="#platform">platform</a>
-      <a href="#workflow">workflow</a>
-      <a href="#faq">faq</a>
-      <a class="nav-cta" href="#source">why open</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="section hero reveal" id="top" style="--delay: 0.12s">
-      <a class="announcement" href="#source">Built for large datasets. Open-source core. Decision-ready outputs.</a>
-      <h1>Enable decision makers to test 100x more hypotheses.</h1>
-      <p class="lead">
-        alpha-research is a research platform for teams that need conviction before they move capital,
-        policy, product, or strategy.
-      </p>
-      <p class="body-copy">
-        We built an open-source system that ingests large datasets, runs competing lines of inquiry in
-        parallel, and turns the result into evidence-backed recommendations.
-      </p>
-      <div class="actions">
-        <a class="button button-primary" href="#workflow">See the research loop</a>
-        <a class="button button-secondary" href="#faq">Read the FAQ</a>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="alpha-research home">
+        <span class="brand-mark">a</span>
+      </a>
+      <div class="top-links">
+        <a href="#platform">platform</a>
+        <a href="#workflow">workflow</a>
+        <a href="#faq">faq</a>
+        <a href="#about">about</a>
+        <a class="top-button" href="#overview">overview</a>
       </div>
-      <dl class="stats-grid">
-        ${stats
-          .map(
-            (stat) => `
-              <div class="stat-card">
-                <dt>${stat.value}</dt>
-                <dd>
-                  <strong>${stat.label}</strong>
-                  <span>${stat.note}</span>
-                </dd>
-              </div>
-            `,
-          )
-          .join('')}
-      </dl>
-    </section>
+    </header>
+  </div>
 
-    <div class="section-divider" aria-hidden="true"></div>
+  <main class="page">
+    <div class="page-inner">
+      <section class="hero" id="top">
+        <a class="announcement" href="#about">
+          Large datasets, parallel runs, and citation-backed outputs. Need 100x more hypotheses per cycle? Read this.
+          <span aria-hidden="true">↗</span>
+        </a>
 
-    <section class="section reveal" style="--delay: 0.2s">
-      <div class="section-heading">
-        <h2>Hypothesis throughput over a ten-day decision cycle</h2>
+        <h1>The Alpha Research Company</h1>
+
         <p>
-          Baseline teams spend most of the cycle waiting on extraction, cleanup, and debate. alpha-research
-          keeps the question, data, and comparison framework in one place.
+          We built an open-source research platform for large datasets. Need decision makers to test 100x
+          more hypotheses before they act? You got it. Compare multiple lines of inquiry against the same
+          evidence without closing the stack.
         </p>
-      </div>
-      <div class="chart-card">
-        <div class="chart-meta">
-          <div class="legend">
-            <span class="legend-item">
-              <span class="legend-swatch legend-swatch-muted"></span>
-              Typical workflow
-            </span>
-            <span class="legend-item">
-              <span class="legend-swatch legend-swatch-accent"></span>
-              alpha-research
-            </span>
-          </div>
-          <div class="chart-callout">
-            <strong>800</strong>
-            <span>ranked and traceable hypotheses by Day 10</span>
+
+        <p>
+          Never force research into spreadsheet-scale workflows. We ingest large datasets, run experiments
+          in parallel, and export memos with citations, rankings, and explicit reasoning.
+        </p>
+
+        <div class="hero-actions">
+          <a class="primary-button" href="#workflow">
+            Test 100x more hypotheses
+            <span aria-hidden="true">→</span>
+          </a>
+          <p class="button-note">*Open-source research platform for large datasets.</p>
+        </div>
+      </section>
+
+      <section class="chart-section" id="overview">
+        <h2>Average hypotheses tested per decision cycle</h2>
+
+        <div class="chart-legend">
+          <div class="legend-item">
+            <span class="legend-dot"></span>
+            <span>410 average validated hypotheses per cycle</span>
           </div>
         </div>
-        <svg class="throughput-chart" viewBox="0 0 ${chartWidth} ${chartHeight}" role="img" aria-label="Chart comparing hypothesis throughput between a typical workflow and alpha-research">
-          <defs>
-            <linearGradient id="alpha-line" x1="0%" x2="100%" y1="0%" y2="0%">
-              <stop offset="0%" stop-color="rgba(117, 152, 63, 0.55)"></stop>
-              <stop offset="100%" stop-color="#365221"></stop>
-            </linearGradient>
-          </defs>
-          ${[0, 200, 400, 600, 800]
-            .map((value) => {
-              const y = chartPadding.top + chartInnerHeight - (value / maxValue) * chartInnerHeight
-              return `
-                <line class="grid-line" x1="${chartPadding.left}" y1="${y}" x2="${chartWidth - chartPadding.right}" y2="${y}"></line>
-                <text class="grid-label" x="${chartPadding.left}" y="${y - 6}">${value}</text>
-              `
-            })
-            .join('')}
-          <polyline class="series-muted" points="${baselinePolyline}"></polyline>
-          <polyline class="series-accent" points="${acceleratedPolyline}"></polyline>
-          <circle class="series-point-muted" cx="${baselineFinalPoint.split(',')[0]}" cy="${baselineFinalPoint.split(',')[1]}" r="4"></circle>
-          <circle class="series-point-accent" cx="${acceleratedFinalPoint.split(',')[0]}" cy="${acceleratedFinalPoint.split(',')[1]}" r="5"></circle>
-          ${chartLabels
-            .map((label, index) => {
-              const [x] = pointFor(0, index).split(',')
-              return `<text class="axis-label" x="${x}" y="${chartHeight - 8}" text-anchor="middle">${label}</text>`
-            })
-            .join('')}
-        </svg>
-      </div>
-    </section>
 
-    <div class="section-divider" aria-hidden="true"></div>
-
-    <section class="section workflow reveal" id="workflow" style="--delay: 0.28s">
-      <div class="section-heading">
-        <h2>A simple but durable research loop</h2>
-        <p>
-          The goal is not a prettier notebook. The goal is a repeatable operating system for research:
-          ingest, branch, compare, decide.
-        </p>
-      </div>
-      <div class="terminal-card">
-        <div class="terminal-bar">
-          <span class="terminal-dots" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </span>
-          <span class="terminal-path">~/alpha-research</span>
+        <div class="chart-wrap">
+          <svg class="chart" viewBox="0 0 ${chartWidth} ${chartHeight}" role="img" aria-label="Average hypotheses tested per decision cycle">
+            ${gridValues
+              .map((value) => {
+                const y = chartPadding.top + plotHeight - (value / maxValue) * plotHeight
+                return `
+                  <line class="chart-grid" x1="${chartPadding.left}" y1="${y}" x2="${chartWidth - chartPadding.right}" y2="${y}"></line>
+                  <text class="chart-y-label" x="${chartPadding.left - 10}" y="${y + 4}" text-anchor="end">${value}</text>
+                `
+              })
+              .join('')}
+            <polyline class="chart-range" points="${topLine}"></polyline>
+            <polyline class="chart-range" points="${bottomLine}"></polyline>
+            <polyline class="chart-average" points="${avgLine}"></polyline>
+            <circle class="chart-point" cx="${lastCoords[0]}" cy="${lastCoords[1]}" r="4"></circle>
+            ${chartData
+              .map((point, index) => {
+                const x = chartPadding.left + (index * plotWidth) / (chartData.length - 1)
+                return `<text class="chart-x-label" x="${x}" y="${chartHeight - 10}" text-anchor="middle">${point.label}</text>`
+              })
+              .join('')}
+          </svg>
         </div>
-        <pre><code><span class="comment"># register a large dataset and define a question set</span>
-$ alpha ingest s3://warehouse/market-intel/2026-q1
-$ alpha design --brief pricing-sensitivity --hypotheses 120
+      </section>
 
-<span class="comment"># run competing research branches against the same evidence</span>
-$ alpha run --agents 16 --compare confidence,cost,novelty
+      <section class="cli-section" id="workflow">
+        <div class="section-header">
+          <h2>A simple but powerful CLI</h2>
+          <a class="small-button" href="#platform">Read flow</a>
+        </div>
 
-<span class="comment"># export a memo with citations and the winning recommendation</span>
-$ alpha export memo --with-sources --top 12</code></pre>
-      </div>
-    </section>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="terminal-lights" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="terminal-path">~/decision-research</div>
+          </div>
 
-    <div class="section-divider" aria-hidden="true"></div>
+          <pre><code><span class="comment"># Define the question set and register the dataset</span>
+$$ alpha datasets add warehouse.exec.q1
+$$ alpha hypotheses create pricing-diligence --count 128
 
-    <section class="section reveal" id="platform" style="--delay: 0.36s">
-      <div class="section-heading">
-        <h2>What ships with the platform</h2>
-        <p>
-          Every part of the stack is designed to reduce research latency without hiding how the answer was
-          produced.
-        </p>
-      </div>
-      <div class="rail-list">
-        ${platformLines
+<span class="comment"># Run parallel branches and compare outcomes</span>
+$$ alpha runs start --agents 16 --compare confidence,novelty,cost
+
+<span class="comment"># Export a memo with sources and ranked recommendations</span>
+$$ alpha memos export pricing-diligence --citations --top 12</code></pre>
+        </div>
+      </section>
+
+      <section class="trust-section" id="platform">
+        <h2>Built for strategy teams, operators and investors</h2>
+
+        <div class="caps-row" aria-label="Team types">
+          <span>strategy</span>
+          <span>product</span>
+          <span>ops</span>
+          <span>investing</span>
+          <span>research</span>
+        </div>
+
+        ${workflowCards
           .map(
-            ([title, body]) => `
-              <article class="rail-item">
-                <h3>${title}</h3>
-                <div class="rail-rule" aria-hidden="true"></div>
-                <p>${body}</p>
+            (card) => `
+              <article class="story-card">
+                <p class="story-quote">"${card.quote}"</p>
+                <div class="story-meta">
+                  <span class="story-avatar" aria-hidden="true"></span>
+                  <span>${card.byline}, ${card.detail}</span>
+                </div>
               </article>
             `,
           )
           .join('')}
-      </div>
-    </section>
+      </section>
 
-    <div class="section-divider" aria-hidden="true"></div>
-
-    <section class="section reveal" id="source" style="--delay: 0.44s">
-      <div class="section-heading">
-        <h2>Why the stack stays open</h2>
-        <p>
-          Decision systems are only useful if teams can trust, inspect, and adapt them. Closed research
-          tooling turns methodology into guesswork.
-        </p>
-      </div>
-      <div class="principles-grid">
-        ${principles
-          .map(
-            (item) => `
-              <article class="principle-card">
-                <h3>${item.title}</h3>
-                <p>${item.body}</p>
-              </article>
-            `,
-          )
-          .join('')}
-      </div>
-    </section>
-
-    <div class="section-divider" aria-hidden="true"></div>
-
-    <section class="section reveal" style="--delay: 0.52s">
-      <div class="section-heading">
-        <h2>What changes when teams can test 100x more ideas</h2>
-        <p>
-          More hypotheses only matter when they end in clearer action. The platform is built to make the
-          output legible to decision makers, not only to researchers.
-        </p>
-      </div>
-      <div class="outcomes-grid">
-        ${outcomes
-          .map(
-            ([title, body]) => `
-              <article class="outcome-card">
-                <h3>${title}</h3>
-                <p>${body}</p>
-              </article>
-            `,
-          )
-          .join('')}
-      </div>
-    </section>
-
-    <div class="section-divider" aria-hidden="true"></div>
-
-    <section class="section reveal" id="faq" style="--delay: 0.6s">
-      <div class="section-heading">
+      <section class="faq-section" id="faq">
         <h2>FAQ</h2>
+
+        <div class="faq-list">
+          ${faqItems
+            .map(
+              (item) => `
+                <article class="faq-item">
+                  <h3>${item.question}</h3>
+                  <p>${item.answer}</p>
+                </article>
+              `,
+            )
+            .join('')}
+        </div>
+      </section>
+
+      <section class="roles-section">
+        <div class="section-header">
+          <h2>Common workflows</h2>
+          <a class="small-button" href="#about">See all</a>
+        </div>
+
+        <div class="role-list">
+          ${workflowRows
+            .map(
+              ([title, type]) => `
+                <div class="role-row">
+                  <div class="role-title">${title}</div>
+                  <div class="role-rule" aria-hidden="true"></div>
+                  <div class="role-type">${type}</div>
+                </div>
+              `,
+            )
+            .join('')}
+        </div>
+      </section>
+
+      <section class="about-section" id="about">
+        <div class="section-header">
+          <h2>Who are we?</h2>
+          <a class="small-button" href="#top">Read about AR</a>
+        </div>
+
         <p>
-          The product is opinionated about rigor, scale, and traceability. These are the questions teams
-          ask most often when they evaluate the system.
+          We built alpha-research for teams whose decisions are expensive and whose data is too large for
+          ad hoc research. The platform is open-source, self-hostable, and designed to keep methodology
+          inspectable from ingestion through final memo.
         </p>
-      </div>
-      <div class="faq-list">
-        ${faqItems
-          .map(
-            (item) => `
-              <details class="faq-item">
-                <summary>${item.question}</summary>
-                <p>${item.answer}</p>
-              </details>
-            `,
-          )
-          .join('')}
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
-  <footer class="footer reveal" style="--delay: 0.68s">
-    <p>
-      alpha-research exists to help serious teams move from raw data to defensible action faster.
-    </p>
-    <div class="footer-links">
-      <a href="#platform">platform</a>
-      <a href="#workflow">workflow</a>
-      <a href="#faq">faq</a>
+  <footer class="footer">
+    <div class="footer-inner">
+      <a class="brand footer-brand" href="#top" aria-label="alpha-research home">
+        <span class="brand-mark">a</span>
+      </a>
+      <div class="footer-copy">
+        <span>We enable decision makers to test 100x more hypotheses.</span>
+        <div class="footer-links">
+          <a href="#platform">platform</a>
+          <a href="#workflow">workflow</a>
+          <a href="#faq">faq</a>
+        </div>
+      </div>
     </div>
   </footer>
 `
