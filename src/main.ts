@@ -38,7 +38,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <a class="underlined-link" href="#about">about</a>
 
             <div class="auth-links">
-              <a class="button-small ghost-button" href="https://github.com/rprend/alpha-research" target="_blank" rel="noopener noreferrer">blog</a>
+              <a class="button-small ghost-button" href="/blog/">blog</a>
             </div>
           </div>
         </div>
@@ -118,9 +118,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
         <div class="footer-copy">
           <div class="footer-links">
-            <a href="https://github.com/rprend/alpha-research" target="_blank" rel="noopener noreferrer">blog</a>
-            <a href="https://github.com/rprend/alpha-research" target="_blank" rel="noopener noreferrer">privacy</a>
-            <a href="https://github.com/rprend/alpha-research" target="_blank" rel="noopener noreferrer">terms</a>
+            <a href="/blog/">blog</a>
+            <a href="/privacy/">privacy</a>
+            <a href="/terms/">terms</a>
           </div>
         </div>
 
