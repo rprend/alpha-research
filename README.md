@@ -12,3 +12,10 @@ We built an open-source research platform for large datasets.
 - `pnpm dev`
 - `pnpm build`
 - `pnpm preview`
+- `pnpm run cf:deploy`
+
+## Cloudflare
+
+- Pages project: `alpha-research`
+- Account: `Founders@zenobiapay.com's Account`
+- Production deploy: `pnpm run cf:deploy`
