@@ -138,6 +138,7 @@ p {
 }
 
 .hero-block,
+.powering-block,
 .about-block,
 .faq-block {
   padding: 2rem 0;
@@ -229,6 +230,51 @@ h2 {
 
 .cta-note a {
   text-decoration: underline;
+}
+
+.split-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.list-row {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding-top: 1rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.list-row:hover {
+  color: var(--muted);
+}
+
+.list-row-title {
+  font-size: 1rem;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.list-row-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.list-row-meta {
+  color: var(--muted);
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.list-note {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 1rem;
 }
 
 .faq-list {

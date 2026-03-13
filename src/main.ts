@@ -33,7 +33,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           </a>
 
           <div class="top-links">
-            <a class="underlined-link" href="https://alpha-book.org" target="_blank" rel="noopener noreferrer">alpha-book</a>
+            <a class="underlined-link" href="#powering">powering</a>
             <a class="underlined-link" href="#faq">faq</a>
             <a class="underlined-link" href="#about">about</a>
 
@@ -65,18 +65,31 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           </p>
 
           <div class="hero-links">
-            <a class="hero-button" href="https://alpha-book.org" target="_blank" rel="noopener noreferrer">
-              Explore alpha-book.org
+            <a class="hero-button" href="https://cal.com/" target="_blank" rel="noopener noreferrer">
+              Book a call
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="m12.75 15 3-3m0 0-3-3m3 3h-7.5"></path>
                 <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
               </svg>
             </a>
             <p class="cta-note">
-              <a href="https://alpha-book.org" target="_blank" rel="noopener noreferrer">alpha-book.org</a>
-              , a mirror of 75,000 public domain books, indexed and searchable.
+              Talk through a dataset, corpus, or research workflow.
             </p>
           </div>
+        </div>
+
+        <div class="powering-block" id="powering">
+          <h2 class="split-heading">
+            <span>Powering</span>
+          </h2>
+
+          <a class="list-row" href="https://alpha-book.org" target="_blank" rel="noopener noreferrer">
+            <span class="list-row-title">alpha-book.org</span>
+            <span class="list-row-rule" aria-hidden="true"></span>
+            <span class="list-row-meta">75,000 public domain books</span>
+          </a>
+
+          <p class="list-note">More coming soon.</p>
         </div>
 
         <div class="about-block" id="about">
