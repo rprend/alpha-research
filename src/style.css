@@ -367,54 +367,50 @@ h2 {
   }
 
   .nav-wrap {
-    padding: 0.8rem;
-    border-color: var(--line);
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(14px);
-    box-shadow: 0 18px 40px rgba(38, 38, 38, 0.06);
+    padding: 0;
+    border-color: transparent;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
   }
 
-  .topbar,
-  .footer-wrap {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.85rem;
+  .topbar {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 0.75rem;
   }
 
   .top-links {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: stretch;
-    justify-content: stretch;
-    gap: 0.55rem;
-    width: 100%;
+    width: auto;
+    min-width: 0;
+    flex: 1;
+    justify-content: flex-end;
+    gap: 0.35rem 0.75rem;
   }
 
   .auth-links,
   .footer-links {
-    width: 100%;
-    justify-content: stretch;
+    justify-content: flex-start;
   }
 
   .auth-links {
-    display: contents;
+    display: flex;
   }
 
   .underlined-link,
   .button-small {
-    min-height: 2.5rem;
-    padding: 0.65rem 0.85rem;
-    border: 1px solid var(--line);
-    border-radius: 0.85rem;
-    background: var(--bg);
-    justify-content: center;
-    text-decoration: none;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    justify-content: flex-start;
+    text-decoration: underline;
   }
 
   .button-small {
-    width: 100%;
-    padding-left: 0.85rem;
-    padding-right: 0.85rem;
+    width: auto;
   }
 
   .content-shell {
@@ -459,6 +455,8 @@ h2 {
   }
 
   .list-row {
+    width: 100%;
+    box-sizing: border-box;
     align-items: flex-start;
     flex-direction: column;
     gap: 0.4rem;
@@ -502,6 +500,8 @@ h2 {
   }
 
   .footer-wrap {
+    flex-direction: column;
+    align-items: stretch;
     gap: 1rem;
   }
 
@@ -519,8 +519,14 @@ h2 {
 }
 
 @media (max-width: 420px) {
+  .topbar {
+    align-items: flex-start;
+  }
+
   .top-links {
-    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    flex-basis: 100%;
+    justify-content: flex-start;
   }
 
   .footer-links {
