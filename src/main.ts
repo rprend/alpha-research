@@ -29,7 +29,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <div class="nav-wrap">
         <div class="topbar">
           <a class="logo-link" href="/" aria-label="Alpha Research home">
-            <div class="logo-mark">a</div>
+            <img
+              class="logo-mark"
+              src="/alpharesearchlogo/apple-touch-icon.png"
+              alt="Alpha Research logo"
+            />
           </a>
 
           <div class="top-links">
@@ -60,8 +64,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <h1>Alpha Research</h1>
 
           <p class="hero-lede">
-            Swarm research agents for huge datasets. Alpha Research builds research agents for large datasets
-            to answer find primary sources 100x faster.
+            Open source knowledge bases for agents.
           </p>
 
           <div class="hero-links">
@@ -95,9 +98,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <div class="about-block" id="about">
           <h2>About</h2>
           <p>
-            Alpha Research is focused on research agents that can work through large corpora and bring back
-            primary sources quickly. The emphasis is on huge datasets, source discovery, and faster research
-            loops.
+            Alpha Research builds open source knowledge bases that give agents grounded context, durable memory,
+            and better access to source material.
           </p>
         </div>
 
@@ -126,7 +128,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <footer class="footer">
       <div class="footer-wrap">
         <a class="logo-link" href="/" aria-label="Alpha Research home">
-          <div class="logo-mark">a</div>
+          <img
+            class="logo-mark"
+            src="/alpharesearchlogo/apple-touch-icon.png"
+            alt="Alpha Research logo"
+          />
         </a>
 
         <div class="footer-copy">
