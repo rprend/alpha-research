@@ -26,7 +26,7 @@ const faqItems = [
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div class="landing-page">
     <div class="nav-shell">
-      <div class="nav-wrap">
+      <div class="page-wrap nav-wrap">
         <div class="topbar">
           <a class="logo-link" href="/" aria-label="Alpha Research home">
             <img
@@ -50,7 +50,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </div>
 
     <div class="content-shell">
-      <div class="content-wrap">
+      <div class="page-wrap content-wrap">
         <div class="hero-block">
           <div class="backed-by">
             <img
@@ -126,7 +126,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </div>
 
     <footer class="footer">
-      <div class="footer-wrap">
+      <div class="page-wrap footer-wrap">
         <a class="logo-link" href="/" aria-label="Alpha Research home">
           <img
             class="logo-mark"

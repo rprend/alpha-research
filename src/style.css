@@ -52,9 +52,7 @@ p {
   flex-direction: column;
 }
 
-.content-wrap,
-.footer-wrap,
-.nav-wrap {
+.page-wrap {
   width: 100%;
   max-width: 36rem;
   margin: 0 auto;
@@ -72,9 +70,9 @@ p {
 }
 
 .topbar {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  justify-content: space-between;
   gap: 0.75rem;
   color: var(--muted);
   font-size: 0.75rem;
@@ -88,6 +86,10 @@ p {
   gap: 0.5rem;
   flex-wrap: wrap;
   justify-content: flex-end;
+}
+
+.top-links {
+  justify-self: end;
 }
 
 .logo-link {
