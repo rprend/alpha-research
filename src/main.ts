@@ -40,8 +40,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <div class="topbar">
           <a class="logo-link" href="/" aria-label="Alpha Research home">
             <img
-              class="logo-mark"
-              src="/newalpharesearchlogo/apple-touch-icon.png"
+              class="logo-wordmark"
+              src="/alpha-research-wordmark.png"
               alt="Alpha Research logo"
             />
           </a>
