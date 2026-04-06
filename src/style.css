@@ -456,6 +456,8 @@ h2 {
   }
 
   .hero-button {
+    width: auto;
+    max-width: 100%;
     min-height: 3rem;
     border-radius: 0.8rem;
   }
