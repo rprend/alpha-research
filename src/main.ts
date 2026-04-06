@@ -50,10 +50,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <a class="underlined-link" href="#powering">powering</a>
             <a class="underlined-link" href="#faq">faq</a>
             <a class="underlined-link" href="#about">about</a>
-
-            <div class="auth-links">
-              <a class="button-small ghost-button" href="/blog/">blog</a>
-            </div>
+            <a class="button-small ghost-button" href="/blog/">blog</a>
           </div>
         </div>
       </div>

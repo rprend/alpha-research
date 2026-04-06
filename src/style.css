@@ -72,27 +72,27 @@ p {
 }
 
 .topbar {
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
 }
 
 .top-links,
-.auth-links,
 .footer-links {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1.1rem;
   flex-wrap: wrap;
   justify-content: flex-end;
   min-width: 0;
 }
 
 .top-links {
-  justify-self: end;
+  margin-left: auto;
+  flex-wrap: nowrap;
+  gap: 0.9rem;
 }
 
 .logo-link {
@@ -114,7 +114,7 @@ p {
 }
 
 .logo-wordmark {
-  width: min(11.5rem, 100%);
+  width: min(8.75rem, 100%);
   height: auto;
   display: block;
   object-fit: contain;
@@ -138,10 +138,10 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 1.75rem;
-  padding: 0 0.25rem;
-  border-radius: 0.375rem;
-  font-size: 0.75rem;
+  min-height: 0;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
   white-space: nowrap;
 }
 
@@ -388,6 +388,7 @@ h2 {
   }
 
   .topbar {
+    display: grid;
     grid-template-columns: minmax(0, 1fr);
     justify-items: start;
     gap: 0.5rem 0.75rem;
@@ -396,18 +397,15 @@ h2 {
   .top-links {
     width: 100%;
     min-width: 0;
+    margin-left: 0;
     justify-self: stretch;
     justify-content: flex-start;
+    flex-wrap: wrap;
     gap: 0.35rem 0.75rem;
   }
 
-  .auth-links,
   .footer-links {
     justify-content: flex-start;
-  }
-
-  .auth-links {
-    display: flex;
   }
 
   .underlined-link,
