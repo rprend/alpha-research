@@ -68,7 +68,12 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           </p>
 
           <div class="hero-links">
-            <a class="hero-button" href="https://cal.com/" target="_blank" rel="noopener noreferrer">
+            <a
+              class="hero-button"
+              href="https://cal.com/ryan-prendergast-qsp5cw/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Book a call
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="m12.75 15 3-3m0 0-3-3m3 3h-7.5"></path>

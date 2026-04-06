@@ -99,6 +99,10 @@ p {
   text-decoration: none;
 }
 
+.topbar .logo-link {
+  margin-left: -0.22rem;
+}
+
 .logo-mark {
   width: 1.75rem;
   height: 1.75rem;
