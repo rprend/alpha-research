@@ -99,13 +99,29 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <span>Powering</span>
           </h2>
 
-          <a class="list-row" href="https://alpha-book.org" target="_blank" rel="noopener noreferrer">
-            <span class="list-row-title">alpha-book.org</span>
-            <span class="list-row-rule" aria-hidden="true"></span>
-            <span class="list-row-meta">75,000 public domain books</span>
-          </a>
+          <div class="powering-list">
+            <a class="list-row" href="https://alpha-book.org" target="_blank" rel="noopener noreferrer">
+              <div class="list-row-top">
+                <span class="list-row-title">alpha-book.org</span>
+                <span class="list-row-rule" aria-hidden="true"></span>
+                <span class="list-row-meta">75,000 public domain books</span>
+              </div>
+              <span class="list-row-subline">
+                Mirror of Project Gutenberg with 75,000 public domain books and primary sources.
+                Useful for literary research.
+              </span>
+            </a>
 
-          <p class="list-note">More coming soon.</p>
+            <a class="list-row" href="https://scenewiki.net" target="_blank" rel="noopener noreferrer">
+              <div class="list-row-top">
+                <span class="list-row-title">scenewiki.net</span>
+                <span class="list-row-rule" aria-hidden="true"></span>
+              </div>
+              <span class="list-row-subline">
+                Scrape and label an online community and build a wiki for it.
+              </span>
+            </a>
+          </div>
         </div>
 
         <div class="about-block" id="about">
