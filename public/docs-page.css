@@ -74,19 +74,26 @@ p {
   display: flex;
   align-items: center;
   gap: 1.1rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   min-width: 0;
 }
 
 .top-links {
   margin-left: auto;
   flex-wrap: nowrap;
+  gap: 0.9rem;
 }
 
 .logo-link {
   display: inline-flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   text-decoration: none;
+}
+
+.topbar .logo-link {
+  justify-content: flex-start;
 }
 
 .logo-wordmark {
@@ -227,6 +234,10 @@ h2 {
   line-height: 1.5;
 }
 
+.post-block {
+  max-width: 34rem;
+}
+
 .doc-copy p + p {
   margin-top: 0.9rem;
 }
@@ -252,6 +263,10 @@ h2 {
   flex-direction: column;
   gap: 0.25rem;
   min-width: 0;
+}
+
+.footer-links {
+  gap: 0.5rem;
 }
 
 .footer-meta {
