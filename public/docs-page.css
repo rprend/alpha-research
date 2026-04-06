@@ -3,26 +3,45 @@
 :root {
   --text: #262626;
   --muted: #737373;
+  --bg: #ffffff;
+  --page: #fafafa;
+  --card: #f5f5f5;
   --line: #e5e5e5;
-  --bg: #fafafa;
   --serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
   color: var(--text);
-  font: 16px/1.6 'Inter', sans-serif;
+  font: 16px/1.5 'Inter', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-html,
+html {
+  background: var(--page);
+  overflow-x: clip;
+}
+
 body {
   margin: 0;
-  background: var(--bg);
+  background: var(--page);
   color: var(--text);
+  overflow-x: clip;
 }
 
 a {
   color: inherit;
 }
 
+h1,
+h2,
+p {
+  margin: 0;
+}
+
 .docs-page {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .page-wrap {
@@ -50,12 +69,16 @@ a {
   font-size: 0.9rem;
 }
 
-.top-links {
+.top-links,
+.footer-links {
   display: flex;
   align-items: center;
   gap: 1.1rem;
-  margin-left: auto;
   min-width: 0;
+}
+
+.top-links {
+  margin-left: auto;
   flex-wrap: nowrap;
 }
 
@@ -73,14 +96,23 @@ a {
   object-fit: contain;
 }
 
+.logo-mark {
+  width: 1.75rem;
+  height: 1.75rem;
+  display: block;
+  object-fit: contain;
+}
+
 .underlined-link,
-.ghost-button {
+.ghost-button,
+.footer-links a {
   text-decoration: underline;
   text-underline-offset: 0.12em;
 }
 
 .underlined-link:hover,
 .ghost-button:hover,
+.footer-links a:hover,
 .entry-link:hover .entry-title {
   text-decoration: none;
 }
@@ -96,8 +128,17 @@ a {
   white-space: nowrap;
 }
 
-.page {
-  padding: 2rem 1rem 4rem;
+.content-shell {
+  padding: 2rem 1rem 3rem;
+}
+
+.content-wrap {
+  padding-top: 1.5rem;
+}
+
+.blog-block,
+.doc-block {
+  padding: 2rem 0;
 }
 
 .eyebrow {
@@ -106,41 +147,52 @@ a {
   font-size: 0.85rem;
 }
 
+h1,
+h2 {
+  font-family: var(--serif);
+  color: var(--text);
+}
+
 h1 {
-  margin: 0 0 0.75rem;
-  font: 500 2rem/1.2 var(--serif);
+  margin-bottom: 0.75rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 h2 {
-  margin: 2rem 0 0.5rem;
-  font: 500 1.2rem/1.3 var(--serif);
+  margin-bottom: 0.4rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.lede,
+.entry-summary,
+.doc-copy {
+  color: var(--muted);
 }
 
 .lede {
   margin-bottom: 1.5rem;
-  color: var(--muted);
-}
-
-p,
-li {
-  margin: 0 0 0.9rem;
+  font-size: 1rem;
 }
 
 .entry-list {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   margin-top: 1rem;
-}
-
-.entry-item {
-  border-top: 1px solid var(--line);
 }
 
 .entry-link {
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
+  width: 100%;
+  box-sizing: border-box;
   padding: 1rem 0;
+  border-top: 1px solid var(--line);
   text-decoration: none;
 }
 
@@ -163,36 +215,54 @@ li {
   background: var(--line);
 }
 
-.entry-date,
-.entry-summary,
-.doc-copy {
-  color: var(--muted);
-}
-
 .entry-date {
+  color: var(--muted);
   text-align: right;
 }
 
-.entry-summary {
+.entry-summary,
+.doc-copy p,
+.doc-copy li {
   font-size: 0.95rem;
   line-height: 1.5;
-}
-
-.doc-page {
-  max-width: 34rem;
 }
 
 .doc-copy p + p {
   margin-top: 0.9rem;
 }
 
-ul {
-  padding-left: 1.2rem;
+.footer {
+  margin-top: auto;
+  padding: 1rem;
+  background: var(--card);
+  border-top: 1px solid var(--line);
+}
+
+.footer-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  color: #525252;
+  font-size: 0.75rem;
+}
+
+.footer-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.footer-meta {
+  margin-left: auto;
+  text-align: right;
 }
 
 @media (max-width: 640px) {
   .nav-shell,
-  .page {
+  .content-shell,
+  .footer {
     padding-left: 0.9rem;
     padding-right: 0.9rem;
   }
@@ -215,8 +285,23 @@ ul {
     gap: 0.35rem 0.75rem;
   }
 
+  .content-shell {
+    padding-top: 1.35rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .content-wrap {
+    padding-top: 0.5rem;
+  }
+
+  .blog-block,
+  .doc-block {
+    padding: 1.45rem 0;
+  }
+
   h1 {
-    font-size: 1.7rem;
+    font-size: 1.45rem;
+    line-height: 1.15;
   }
 
   .entry-top {
@@ -230,6 +315,29 @@ ul {
   }
 
   .entry-date {
+    text-align: left;
+  }
+
+  .footer {
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+  }
+
+  .footer-wrap {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, max-content));
+    gap: 0.45rem 0.9rem;
+    justify-content: flex-start;
+  }
+
+  .footer-meta {
+    margin-left: 0;
     text-align: left;
   }
 }
