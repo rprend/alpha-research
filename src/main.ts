@@ -31,7 +31,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <a class="logo-link" href="/" aria-label="Alpha Research home">
             <img
               class="logo-mark"
-              src="/alpharesearchlogo/apple-touch-icon.png"
+              src="/newalpharesearchlogo/apple-touch-icon.png"
               alt="Alpha Research logo"
             />
           </a>
@@ -130,7 +130,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <a class="logo-link" href="/" aria-label="Alpha Research home">
           <img
             class="logo-mark"
-            src="/alpharesearchlogo/apple-touch-icon.png"
+            src="/newalpharesearchlogo/apple-touch-icon.png"
             alt="Alpha Research logo"
           />
         </a>

@@ -52,9 +52,9 @@ p {
   flex-direction: column;
 }
 
-.nav-shell,
 .content-wrap,
-.footer-wrap {
+.footer-wrap,
+.nav-wrap {
   width: 100%;
   max-width: 36rem;
   margin: 0 auto;
@@ -62,6 +62,7 @@ p {
 }
 
 .nav-shell {
+  width: 100%;
   padding: 1rem 1rem 0;
 }
 
