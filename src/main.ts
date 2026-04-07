@@ -132,6 +132,14 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 Agentic search and test over U.S. Census Bureau, Fannie Mae, BLS, NBER.
               </span>
             </div>
+
+            <div class="list-row list-row-static">
+              <div class="list-row-top">
+                <span class="list-row-title">Alpha Justice</span>
+                <span class="list-row-meta">coming soon</span>
+              </div>
+              <span class="list-row-subline">Every U.S. Supreme Court case.</span>
+            </div>
           </div>
         </div>
 
