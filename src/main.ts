@@ -71,7 +71,13 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <h1>Alpha Research</h1>
 
           <p class="hero-lede">
-            Open source knowledge bases for agents. We help agents work like knowledge workers and knowledge workers work faster. Need to find evidence of different types of humor in 19th century literature? Search all the books. Need to test an economics hypothesis against Census, BLS, NBER, etc data? Run that.
+            Open source knowledge bases for agents.
+            <br />
+            <br />
+            We help agents work like knowledge workers and knowledge workers work faster. Need to
+            find evidence of different types of humor in 19th century literature? Search all the
+            books. Need to test an economics hypothesis against Census, BLS, NBER, etc data? Run
+            that.
           </p>
 
           <div class="hero-links">
