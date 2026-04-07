@@ -71,7 +71,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <h1>Alpha Research</h1>
 
           <p class="hero-lede">
-            Open source knowledge bases for agents.
+            Open source knowledge bases for agents. We help agents work like knowledge workers and knowledge workers work faster. Need to find evidence of different types of humor in 19th century literature? Search all the books. Need to test an economics hypothesis against Census, BLS, NBER, etc data? Run that.
           </p>
 
           <div class="hero-links">
@@ -124,12 +124,63 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           </div>
         </div>
 
+        <div class="quote-block" id="quote">
+          <h2>Quote</h2>
+
+          <article class="tweet-card">
+            <div class="tweet-card-header">
+              <div class="tweet-avatar" aria-hidden="true">AK</div>
+              <div class="tweet-meta">
+                <span class="tweet-author">Andrej Karpathy</span>
+                <a
+                  class="tweet-handle"
+                  href="https://x.com/karpathy/status/2039805659525644595"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @karpathy
+                </a>
+              </div>
+            </div>
+
+            <div class="tweet-body">
+              <p class="tweet-title">LLM Knowledge Bases</p>
+              <p>
+                Something I'm finding very useful recently: using LLMs to build personal
+                knowledge bases for various topics of research interest. In this way, a
+                large fraction of my recent token throughput is going less into manipulating
+                code, and more into manipulating knowledge (stored as markdown and images).
+              </p>
+            </div>
+          </article>
+        </div>
+
         <div class="about-block" id="about">
-          <h2>About</h2>
-          <p>
-            Alpha Research builds open source knowledge bases that give agents grounded context, durable memory,
-            and better access to source material.
-          </p>
+          <h2>When to use Alpha Research</h2>
+          <ol class="about-list">
+            <li>
+              <span class="about-list-title">Search.</span> Looking for evidence? We compile
+              and index public plaintext and image datasets for you to access.
+            </li>
+            <li>
+              <span class="about-list-title">Hypothesis testing.</span> Suppose you're a
+              historian. You have an idea. Suppose you're an economist. You might have an
+              idea that.
+            </li>
+            <li>
+              <span class="about-list-title">Agentic knowledge workers.</span>
+            </li>
+            <li>
+              <span class="about-list-title">Fandom, wikis.</span> Online communities have
+              years of canon. Higher quality engagement and helps onboard new members to your
+              community.
+            </li>
+            <li>
+              <span class="about-list-title">Your own knowledge base.</span> Alpha Search is
+              open source. We are proud to support research institutes, museums, presidential
+              libraries, historical societies, and enterprise.
+            </li>
+          </ol>
         </div>
 
         <div class="faq-block" id="faq">
