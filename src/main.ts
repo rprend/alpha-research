@@ -99,8 +99,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <div class="powering-list">
             <a class="list-row" href="https://alpha-book.org" target="_blank" rel="noopener noreferrer">
               <div class="list-row-top">
-                <span class="list-row-title">alpha-book.org</span>
-                <span class="list-row-rule" aria-hidden="true"></span>
+                <span class="list-row-title">Alpha Book</span>
                 <span class="list-row-meta">75,000 public domain books</span>
               </div>
               <span class="list-row-subline">
@@ -111,8 +110,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
             <a class="list-row" href="https://scenewiki.net" target="_blank" rel="noopener noreferrer">
               <div class="list-row-top">
-                <span class="list-row-title">scenewiki.net</span>
-                <span class="list-row-rule" aria-hidden="true"></span>
+                <span class="list-row-title">Scene Wiki</span>
               </div>
               <span class="list-row-subline">
                 Scrape and label an online community and build a wiki for it.
@@ -122,14 +120,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <div class="list-row list-row-static">
               <div class="list-row-top">
                 <span class="list-row-title">AlphaEcon</span>
-                <span class="list-row-rule" aria-hidden="true"></span>
                 <span class="list-row-meta">coming soon</span>
               </div>
               <span class="list-row-subline">
-                <a href="https://fred.stlouisfed.org/" target="_blank" rel="noopener noreferrer">
-                  Federal Reserve
-                </a>
-                : Agentic search and test over U.S. Census Bureau, Fannie Mae, BLS, NBER.
+                Agentic search and test over U.S. Census Bureau, Fannie Mae, BLS, NBER.
               </span>
             </div>
           </div>
