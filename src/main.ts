@@ -82,15 +82,12 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               data-cal-namespace="30min"
               data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
             >
-              Book a call
+              Want a custom integration? Book a call
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="m12.75 15 3-3m0 0-3-3m3 3h-7.5"></path>
                 <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
               </svg>
             </a>
-            <p class="cta-note">
-              Talk through a dataset, corpus, or research workflow.
-            </p>
           </div>
         </div>
 
@@ -121,6 +118,20 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 Scrape and label an online community and build a wiki for it.
               </span>
             </a>
+
+            <div class="list-row list-row-static">
+              <div class="list-row-top">
+                <span class="list-row-title">AlphaEcon</span>
+                <span class="list-row-rule" aria-hidden="true"></span>
+                <span class="list-row-meta">coming soon</span>
+              </div>
+              <span class="list-row-subline">
+                <a href="https://fred.stlouisfed.org/" target="_blank" rel="noopener noreferrer">
+                  Federal Reserve
+                </a>
+                : Agentic search and test over U.S. Census Bureau, Fannie Mae, BLS, NBER.
+              </span>
+            </div>
           </div>
         </div>
 

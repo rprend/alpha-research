@@ -285,6 +285,10 @@ h2 {
   color: var(--muted);
 }
 
+.list-row-static:hover {
+  color: var(--text);
+}
+
 .list-row-top {
   display: flex;
   align-items: center;
@@ -315,6 +319,15 @@ h2 {
   color: var(--muted);
   font-size: 0.95rem;
   line-height: 1.5;
+}
+
+.list-row-subline a {
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.list-row-subline a:hover {
+  text-decoration: none;
 }
 
 .tweet-card {
