@@ -130,11 +130,13 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         </div>
 
         <div class="quote-block" id="quote">
-          <h2>Quote</h2>
-
           <article class="tweet-card">
             <div class="tweet-card-header">
-              <div class="tweet-avatar" aria-hidden="true">AK</div>
+              <img
+                class="tweet-avatar-image"
+                src="https://pbs.twimg.com/profile_images/1296667294148382721/9Pr6XrPB_400x400.jpg"
+                alt="Andrej Karpathy profile photo"
+              />
               <div class="tweet-meta">
                 <span class="tweet-author">Andrej Karpathy</span>
                 <a
@@ -149,12 +151,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             </div>
 
             <div class="tweet-body">
-              <p class="tweet-title">LLM Knowledge Bases</p>
               <p>
                 Something I'm finding very useful recently: using LLMs to build personal
                 knowledge bases for various topics of research interest. In this way, a
                 large fraction of my recent token throughput is going less into manipulating
-                code, and more into manipulating knowledge (stored as markdown and images).
+                code, and more into manipulating knowledge (stored as markdown and images)...
               </p>
             </div>
           </article>

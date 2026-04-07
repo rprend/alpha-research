@@ -334,18 +334,12 @@ h2 {
   gap: 0.75rem;
 }
 
-.tweet-avatar {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.tweet-avatar-image {
   width: 2rem;
   height: 2rem;
+  display: block;
+  object-fit: cover;
   border-radius: 999px;
-  background: #e5e5e5;
-  color: var(--text);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
   flex-shrink: 0;
 }
 
@@ -356,7 +350,6 @@ h2 {
 }
 
 .tweet-author,
-.tweet-title,
 .about-list-title {
   color: var(--text);
 }
@@ -382,11 +375,6 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-}
-
-.tweet-title {
-  font-size: 1rem;
-  font-weight: 600;
 }
 
 .tweet-body p {
