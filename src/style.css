@@ -206,6 +206,14 @@ h2 {
   font-size: 1rem;
 }
 
+.section-kicker {
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .hero-lede {
   max-width: 34rem;
 }

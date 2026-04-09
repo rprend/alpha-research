@@ -14,22 +14,27 @@ const faqItems = [
   {
     question: 'What does Alpha Research do?',
     answer:
-      'Alpha Research builds swarm research agents for large datasets. The goal is to help teams find primary sources and answer research questions much faster than a manual workflow.',
+      'We build open source tooling for knowledge workers to work faster. The Alpha Research platform enables agentic search and hypothesis testing over large databases. Starting with Project Gutenberg, we are expanding to add datasets in law, economics, history, and every other archived dataset. Our mission is to enable a new wave of quantitative humanities research.',
+  },
+  {
+    question: 'Can i use this on my private dataset?',
+    answer:
+      'Yes. Our code is open source. We will install it for you, contact us <a href="https://cal.com/ryan-prendergast-qsp5cw/30min" target="_blank" rel="noopener noreferrer">here</a>.',
   },
   {
     question: 'What kind of data is it for?',
     answer:
-      'Large datasets: archives, public-domain corpora, structured exports, research collections, and other datasets that are too large to work through manually.',
+      'Large datasets of reference text and images. Books, papers, films, photos, scans. Primary sources and archival datasets.',
   },
   {
-    question: 'What is alpha-book.org?',
+    question: 'Who do you work with?',
     answer:
-      'alpha-book.org is a mirror of 75,000 public domain books that is indexed and searchable. It is linked on this page because it is a concrete example of the kind of large corpus Alpha Research can help explore.',
+      'Individual researchers can sign up, ask questions, and test hypotheses. We are also proud to support research institutes, museums, presidential libraries, historical societies, and enterprises.',
   },
   {
-    question: 'Is Alpha Research open source?',
+    question: 'Can my agent use Alpha Book?',
     answer:
-      'Yes. Alpha Research is presented here as an open-source research system for working with large datasets and source-heavy corpora.',
+      'Yes! Copy prompt <code>Go to https://alpha-book.org/skill.md and follow the instructions there.</code>',
   },
 ]
 
@@ -74,10 +79,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             Open source knowledge bases for agents.
             <br />
             <br />
-            We help agents work like knowledge workers and knowledge workers work faster. Need to
-            find evidence of different types of humor in 19th century literature? Search all the
-            books. Need to test an economics hypothesis against Census, BLS, NBER, etc data? Run
-            that.
+            We help knowledge workers work faster with agentic knowledge bases. Need to find
+            evidence of different types of humor in 19th century literature? Search all the books.
+            Want to test an economics hypothesis against Census, BLS, and NBER, data? Run that
+            experiment
           </p>
 
           <div class="hero-links">
@@ -144,6 +149,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         </div>
 
         <div class="quote-block" id="quote">
+          <p class="section-kicker">Knowledge bases allow agents to work like knowledge workers</p>
           <article class="tweet-card">
             <div class="tweet-card-header">
               <img
@@ -179,26 +185,30 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <h2>When to use Alpha Research</h2>
           <ol class="about-list">
             <li>
-              <span class="about-list-title">Search.</span> Looking for evidence? We compile
-              and index public plaintext and image datasets for you to access.
+              <span class="about-list-title">Search.</span> Looking for evidence? We compile and
+              index public plaintext and image datasets for you to access.
             </li>
             <li>
               <span class="about-list-title">Hypothesis testing.</span> Suppose you're a
-              historian. You have an idea. Suppose you're an economist. You might have an
-              idea that.
+              historian. You are writing a thesis on grief in 19th century fiction. Alpha
+              Research finds evidence for you. Suppose you're an economist. You might have a
+              thesis "Periods of compressed time-to-sale in housing correlate with above-ask
+              transactions and predict mean reversion within 18 months.". Alpha Research runs
+              that experiment for you.
             </li>
             <li>
-              <span class="about-list-title">Agentic knowledge workers.</span>
+              <span class="about-list-title">Agentic knowledge workers.</span> Autonomous
+              research loops that plan → retrieve → filter → synthesize → verify
             </li>
             <li>
-              <span class="about-list-title">Fandom, wikis.</span> Online communities have
-              years of canon. Higher quality engagement and helps onboard new members to your
-              community.
+              <span class="about-list-title">Fandom, wikis.</span> Online communities have years
+              of canon. Drive higher quality engagement and helps onboard new members to your
+              community by building a knowledge base for a Substack or a Podcast.
             </li>
             <li>
-              <span class="about-list-title">Your own knowledge base.</span> Alpha Search is
-              open source. We are proud to support research institutes, museums, presidential
-              libraries, historical societies, and enterprise.
+              <span class="about-list-title">Alpha Search is open source.</span> We are proud to
+              support research institutes, museums, presidential libraries, historical societies,
+              and enterprise.
             </li>
           </ol>
         </div>
