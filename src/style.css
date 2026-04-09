@@ -250,9 +250,11 @@ h2 {
   width: 100%;
   min-height: 2.5rem;
   padding: 0 1rem;
+  border: 0;
   border-radius: 0.375rem;
   background: linear-gradient(180deg, var(--blue), var(--blue-dark));
   color: #fff;
+  cursor: pointer;
   font-size: 0.875rem;
   font-weight: 500;
   text-decoration: none;
