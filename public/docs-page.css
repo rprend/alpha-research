@@ -242,6 +242,58 @@ h2 {
   margin-top: 0.9rem;
 }
 
+.doc-copy h2 {
+  margin-top: 1.5rem;
+}
+
+.doc-copy a {
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.doc-copy a:hover {
+  text-decoration: none;
+}
+
+.doc-copy blockquote {
+  margin: 1.1rem 0;
+  padding: 0.95rem 1rem;
+  border-left: 3px solid var(--line);
+  background: var(--card);
+  color: var(--text);
+}
+
+.doc-copy blockquote p {
+  margin: 0;
+}
+
+.doc-copy ol,
+.doc-copy ul {
+  margin: 1rem 0;
+  padding-left: 1.3rem;
+}
+
+.doc-copy li + li {
+  margin-top: 0.6rem;
+}
+
+.doc-copy pre {
+  margin: 1rem 0;
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: #f8f8f8;
+  color: var(--text);
+  font: 0.88rem/1.45 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+}
+
+.doc-copy code {
+  font: 0.88em ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+}
+
 .footer {
   margin-top: auto;
   padding: 1rem;
