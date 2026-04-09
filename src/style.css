@@ -202,6 +202,7 @@ h2 {
 }
 
 .hero-lede,
+.hero-lede p,
 .faq-item p {
   font-size: 1rem;
 }
@@ -216,6 +217,13 @@ h2 {
 
 .hero-lede {
   max-width: 34rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-lede p {
+  margin: 0;
 }
 
 .hero-figure-image {
