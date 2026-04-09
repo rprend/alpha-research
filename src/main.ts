@@ -75,6 +75,12 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
           <h1>Alpha Research</h1>
 
+          <img
+            class="hero-figure-image"
+            src="/alpha-research-man.png"
+            alt="Illustration for Alpha Research"
+          />
+
           <p class="hero-lede">
             Open source knowledge bases for agents.
             <br />
