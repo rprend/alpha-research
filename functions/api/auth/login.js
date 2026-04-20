@@ -1,32 +1,28 @@
-import { createSessionCookie, getSessionConfig } from '../../_utils/auth.js'
+import { createLoginState, createWorkOS, getAuthConfig, getRedirectUri, normalizeReturnTo } from '../../_utils/auth.js'
 
-export async function onRequestPost(context) {
-  let body = {}
-  try {
-    body = await context.request.json()
-  } catch {
-    return Response.json({ error: 'Invalid JSON body' }, { status: 400 })
-  }
-
+export async function onRequestGet(context) {
   let config
   try {
-    config = getSessionConfig(context.env)
+    config = getAuthConfig(context.env)
   } catch (error) {
     return Response.json({ error: error.message }, { status: 503 })
   }
 
-  const email = typeof body.email === 'string' ? body.email.trim().toLowerCase() : ''
-  const password = typeof body.password === 'string' ? body.password : ''
-
-  if (email !== config.email.trim().toLowerCase() || password !== config.password) {
-    return Response.json({ error: 'Invalid credentials' }, { status: 401 })
-  }
-
-  const response = Response.json({
-    authenticated: true,
-    user: { email: config.email },
+  const url = new URL(context.request.url)
+  const returnTo = normalizeReturnTo(url.searchParams.get('return_to') ?? '/', url.origin)
+  const state = await createLoginState(config.secret, returnTo)
+  const redirectUri = getRedirectUri(context.env, context.request)
+  const workos = createWorkOS(context.env)
+  const authorizationUrl = workos.userManagement.getAuthorizationUrl({
+    provider: 'authkit',
+    clientId: config.clientId,
+    redirectUri,
+    state,
   })
-  response.headers.append('Set-Cookie', await createSessionCookie(config.secret, config.email))
-  return response
+
+  return Response.redirect(authorizationUrl, 302)
 }
 
+export async function onRequestPost(context) {
+  return onRequestGet(context)
+}

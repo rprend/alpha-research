@@ -1,6 +1,9 @@
+import { WorkOS } from '@workos-inc/node'
+
 const SESSION_COOKIE = 'ar_session'
 const SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 30
 const CLI_TOKEN_TTL_SECONDS = 60 * 10
+const LOGIN_STATE_TTL_SECONDS = 60 * 10
 
 function encodeBase64Url(input) {
   return btoa(input).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '')
@@ -32,14 +35,28 @@ async function signValue(secret, value) {
   return hexFromArrayBuffer(signature)
 }
 
-export function getSessionConfig(env) {
-  const email = env.ALPHA_RESEARCH_OWNER_EMAIL
-  const password = env.ALPHA_RESEARCH_OWNER_PASSWORD
+function nowInSeconds() {
+  return Math.floor(Date.now() / 1000)
+}
+
+export function getAuthConfig(env) {
+  const apiKey = env.WORKOS_API_KEY
+  const clientId = env.WORKOS_CLIENT_ID
   const secret = env.ALPHA_RESEARCH_SESSION_SECRET
-  if (!email || !password || !secret) {
-    throw new Error('Missing ALPHA_RESEARCH_OWNER_EMAIL, ALPHA_RESEARCH_OWNER_PASSWORD, or ALPHA_RESEARCH_SESSION_SECRET')
+  const allowedEmails = typeof env.ALPHA_RESEARCH_ALLOWED_EMAILS === 'string'
+    ? env.ALPHA_RESEARCH_ALLOWED_EMAILS.split(',').map((value) => value.trim().toLowerCase()).filter(Boolean)
+    : []
+
+  if (!apiKey || !clientId || !secret) {
+    throw new Error('Missing WORKOS_API_KEY, WORKOS_CLIENT_ID, or ALPHA_RESEARCH_SESSION_SECRET')
   }
-  return { email, password, secret }
+
+  return { apiKey, clientId, secret, allowedEmails }
+}
+
+export function createWorkOS(env) {
+  const { apiKey, clientId } = getAuthConfig(env)
+  return new WorkOS(apiKey, { clientId })
 }
 
 export function parseCookies(request) {
@@ -56,6 +73,34 @@ export function parseCookies(request) {
   )
 }
 
+export function getRedirectUri(env, request) {
+  if (env.WORKOS_REDIRECT_URI) {
+    return env.WORKOS_REDIRECT_URI
+  }
+  const url = new URL(request.url)
+  return `${url.origin}/api/auth/callback`
+}
+
+export function normalizeReturnTo(value, origin) {
+  if (!value) {
+    return '/'
+  }
+
+  if (value.startsWith('/')) {
+    return value
+  }
+
+  try {
+    const parsed = new URL(value)
+    if (parsed.origin !== origin) {
+      return '/'
+    }
+    return `${parsed.pathname}${parsed.search}${parsed.hash}`
+  } catch {
+    return '/'
+  }
+}
+
 export async function createSignedToken(secret, payload) {
   const serialized = JSON.stringify(payload)
   const encoded = encodeBase64Url(serialized)
@@ -67,16 +112,36 @@ export async function verifySignedToken(secret, token) {
   if (!token) {
     return null
   }
+
   const [encoded, providedSignature] = token.split('.')
   if (!encoded || !providedSignature) {
     return null
   }
+
   const expectedSignature = await signValue(secret, encoded)
   if (expectedSignature !== providedSignature) {
     return null
   }
+
   const payload = JSON.parse(decodeBase64Url(encoded))
-  if (typeof payload.exp !== 'number' || payload.exp < Math.floor(Date.now() / 1000)) {
+  if (typeof payload.exp !== 'number' || payload.exp < nowInSeconds()) {
+    return null
+  }
+
+  return payload
+}
+
+export async function createLoginState(secret, returnTo) {
+  return createSignedToken(secret, {
+    type: 'login_state',
+    returnTo,
+    exp: nowInSeconds() + LOGIN_STATE_TTL_SECONDS,
+  })
+}
+
+export async function readLoginState(secret, token) {
+  const payload = await verifySignedToken(secret, token)
+  if (!payload || payload.type !== 'login_state' || typeof payload.returnTo !== 'string') {
     return null
   }
   return payload
@@ -86,7 +151,7 @@ export async function createSessionCookie(secret, email) {
   const token = await createSignedToken(secret, {
     type: 'session',
     email,
-    exp: Math.floor(Date.now() / 1000) + SESSION_MAX_AGE_SECONDS,
+    exp: nowInSeconds() + SESSION_MAX_AGE_SECONDS,
   })
   return `${SESSION_COOKIE}=${encodeURIComponent(token)}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${SESSION_MAX_AGE_SECONDS}`
 }
@@ -96,7 +161,7 @@ export function clearSessionCookie() {
 }
 
 export async function readSession(request, env) {
-  const { secret } = getSessionConfig(env)
+  const { secret } = getAuthConfig(env)
   const cookies = parseCookies(request)
   const token = cookies[SESSION_COOKIE]
   if (!token) {
@@ -110,11 +175,18 @@ export async function readSession(request, env) {
 }
 
 export async function createCliToken(env, email) {
-  const { secret } = getSessionConfig(env)
+  const { secret } = getAuthConfig(env)
   return createSignedToken(secret, {
     type: 'cli',
     email,
-    exp: Math.floor(Date.now() / 1000) + CLI_TOKEN_TTL_SECONDS,
+    exp: nowInSeconds() + CLI_TOKEN_TTL_SECONDS,
   })
 }
 
+export function isAllowedEmail(env, email) {
+  const { allowedEmails } = getAuthConfig(env)
+  if (allowedEmails.length === 0) {
+    return true
+  }
+  return allowedEmails.includes(email.trim().toLowerCase())
+}

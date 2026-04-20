@@ -11,9 +11,8 @@ export async function onRequestGet(context) {
 
   const session = await readSession(context.request, context.env)
   if (!session) {
-    const loginUrl = new URL('/', url.origin)
-    loginUrl.searchParams.set('login', '1')
-    loginUrl.searchParams.set('next', url.pathname + url.search)
+    const loginUrl = new URL('/api/auth/login', url.origin)
+    loginUrl.searchParams.set('return_to', url.pathname + url.search)
     return Response.redirect(loginUrl.toString(), 302)
   }
 

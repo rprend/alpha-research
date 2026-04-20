@@ -67,9 +67,6 @@ window.Cal?.ns?.['30min']?.('ui', {
 })
 
 const authButton = document.querySelector<HTMLElement>('[data-auth-action]')
-const authBackdrop = document.querySelector<HTMLElement>('[data-auth-backdrop]')
-const authForm = document.querySelector<HTMLFormElement>('[data-auth-form]')
-const authClose = document.querySelector<HTMLElement>('[data-auth-close]')
 const authStatus = document.querySelector<HTMLElement>('[data-auth-status]')
 const url = new URL(window.location.href)
 
@@ -81,15 +78,18 @@ function setAuthStatus(message: string, isError = false) {
   authStatus.dataset.state = isError ? 'error' : 'neutral'
 }
 
-function setModalOpen(open: boolean) {
-  if (!authBackdrop) {
-    return
+function beginLogin() {
+  const returnUrl = new URL(window.location.href)
+  returnUrl.searchParams.delete('login')
+  returnUrl.searchParams.delete('auth_error')
+  const next = returnUrl.searchParams.get('next')
+  if (next) {
+    returnUrl.searchParams.delete('next')
   }
-  authBackdrop.classList.toggle('hidden', !open)
-  if (open) {
-    const input = authForm?.querySelector<HTMLInputElement>('input[name="email"]')
-    input?.focus()
-  }
+  const returnTo = next || `${returnUrl.pathname}${returnUrl.search}${returnUrl.hash}`
+  const destination = new URL('/api/auth/login', window.location.origin)
+  destination.searchParams.set('return_to', returnTo)
+  window.location.assign(destination.toString())
 }
 
 async function fetchSession() {
@@ -139,48 +139,16 @@ authButton?.addEventListener('click', async () => {
     await refreshAuthUi()
     return
   }
-  setModalOpen(true)
+  beginLogin()
 })
-
-authClose?.addEventListener('click', () => setModalOpen(false))
-authBackdrop?.addEventListener('click', (event) => {
-  if (event.target === authBackdrop) {
-    setModalOpen(false)
-  }
-})
-
-authForm?.addEventListener('submit', async (event) => {
-  event.preventDefault()
-  const formData = new FormData(authForm)
-  const email = String(formData.get('email') ?? '').trim()
-  const password = String(formData.get('password') ?? '')
-  setAuthStatus('Signing in...')
-  const response = await fetch('/api/auth/login', {
-    method: 'POST',
-    credentials: 'same-origin',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ email, password }),
-  })
-  if (!response.ok) {
-    const payload = (await response.json().catch(() => ({}))) as { error?: string }
-    setAuthStatus(payload.error ?? 'Login failed.', true)
-    return
-  }
-  setAuthStatus('Signed in.')
-  await refreshAuthUi()
-  const next = url.searchParams.get('next')
-  setModalOpen(false)
-  authForm.reset()
-  if (next) {
-    window.location.assign(next)
-    return
-  }
-})
-
-if (url.searchParams.get('login') === '1') {
-  setModalOpen(true)
-}
 
 void refreshAuthUi()
+
+const authError = url.searchParams.get('auth_error')
+if (authError) {
+  setAuthStatus(authError, true)
+}
+
+if (url.searchParams.get('login') === '1') {
+  beginLogin()
+}

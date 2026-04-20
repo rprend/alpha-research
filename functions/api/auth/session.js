@@ -1,8 +1,8 @@
-import { getSessionConfig, readSession } from '../../_utils/auth.js'
+import { getAuthConfig, readSession } from '../../_utils/auth.js'
 
 export async function onRequestGet(context) {
   try {
-    getSessionConfig(context.env)
+    getAuthConfig(context.env)
   } catch (error) {
     return Response.json({
       authenticated: false,
@@ -18,4 +18,3 @@ export async function onRequestGet(context) {
     user: session ? { email: session.email } : null,
   })
 }
-
