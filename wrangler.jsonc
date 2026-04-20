@@ -8,8 +8,7 @@
   "workers_dev": true,
   "routes": [
     {
-      "pattern": "alpharesearch.nyc",
-      "custom_domain": true
+      "pattern": "alpharesearch.nyc/*"
     }
   ],
   "assets": {
