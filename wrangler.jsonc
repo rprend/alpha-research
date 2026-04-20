@@ -8,7 +8,8 @@
   "workers_dev": true,
   "routes": [
     {
-      "pattern": "alpharesearch.nyc/*"
+      "pattern": "alpharesearch.nyc/*",
+      "zone_name": "alpharesearch.nyc"
     }
   ],
   "assets": {
