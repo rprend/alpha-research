@@ -2,6 +2,46 @@ import { readCliBearerToken } from '../_utils/auth.js'
 
 const DEFAULT_MODEL = 'gpt-5-mini'
 
+const ACTION_SCHEMA = {
+  name: 'research_cli_plan',
+  strict: true,
+  schema: {
+    type: 'object',
+    additionalProperties: false,
+    properties: {
+      action: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          type: {
+            type: 'string',
+            enum: [
+              'reply',
+              'question',
+              'login',
+              'listLocalDatasets',
+              'listRemoteDatasets',
+              'listTrackedRuns',
+              'ingestAndDeploy',
+              'deployInstance',
+              'startRun',
+            ],
+          },
+          message: { type: 'string' },
+          input: { type: 'string' },
+          mode: { type: 'string', enum: ['auto', 'tabular', 'unstructured'] },
+          name: { type: 'string' },
+          datasetId: { type: 'string' },
+          instanceId: { type: 'string' },
+          runInput: { type: 'string' },
+        },
+        required: ['type', 'message', 'input', 'mode', 'name', 'datasetId', 'instanceId', 'runInput'],
+      },
+    },
+    required: ['action'],
+  },
+}
+
 function plannerPrompt(input) {
   return [
     'You are the RESEARCH CLI planner.',
@@ -29,6 +69,12 @@ async function createPlan(env, input) {
     body: JSON.stringify({
       model: env.RESEARCH_AGENT_MODEL || DEFAULT_MODEL,
       input: plannerPrompt(input),
+      text: {
+        format: {
+          type: 'json_schema',
+          ...ACTION_SCHEMA,
+        },
+      },
     }),
   })
 
@@ -38,7 +84,26 @@ async function createPlan(env, input) {
   }
 
   const payload = await response.json()
-  const outputText = typeof payload.output_text === 'string' ? payload.output_text : ''
+  const outputParsed =
+    payload?.output_parsed ??
+    payload?.output?.find?.((entry) => entry?.type === 'message')?.content?.find?.(
+      (content) => content?.type === 'output_text' && content?.parsed,
+    )?.parsed
+
+  if (outputParsed && typeof outputParsed === 'object') {
+    return outputParsed
+  }
+
+  const outputText =
+    (typeof payload.output_text === 'string' && payload.output_text.trim()) ||
+    payload?.output
+      ?.find?.((entry) => entry?.type === 'message')
+      ?.content?.find?.((content) => content?.type === 'output_text' && typeof content?.text === 'string')
+      ?.text?.trim?.() ||
+    ''
+  if (!outputText) {
+    throw new Error('Planner returned no JSON output')
+  }
   return JSON.parse(outputText)
 }
 
