@@ -90,6 +90,9 @@
               <a class="underlined-link" href="#faq">faq</a>
               <a class="underlined-link" href="#about">about</a>
               <a class="button-small ghost-button" href="/blog/">blog</a>
+              <button class="button-small ghost-button auth-button" type="button" data-auth-action>
+                login
+              </button>
             </nav>
           </div>
         </div>
@@ -362,6 +365,29 @@
           </div>
         </div>
       </footer>
+    </div>
+    <div class="auth-modal-backdrop hidden" data-auth-backdrop>
+      <div class="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+        <div class="auth-modal-head">
+          <div>
+            <p class="auth-kicker">Owner Access</p>
+            <h2 id="auth-modal-title">Sign in to Alpha Research</h2>
+          </div>
+          <button class="auth-close" type="button" aria-label="Close login" data-auth-close>&times;</button>
+        </div>
+        <form class="auth-form" data-auth-form>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password" name="password" autocomplete="current-password" required />
+          </label>
+          <p class="auth-status" data-auth-status></p>
+          <button class="hero-button auth-submit" type="submit">Sign in</button>
+        </form>
+      </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
