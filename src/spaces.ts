@@ -3,6 +3,15 @@ type SpacesEnv = {
   DO_SPACES_REGION?: string
   DO_SPACES_ACCESS_KEY_ID?: string
   DO_SPACES_SECRET_ACCESS_KEY?: string
+  OBJECT_STORE_BUCKET?: string
+  OBJECT_STORE_REGION?: string
+  OBJECT_STORE_ACCESS_KEY_ID?: string
+  OBJECT_STORE_SECRET_ACCESS_KEY?: string
+  OBJECT_STORE_ENDPOINT?: string
+  R2_BUCKET_NAME?: string
+  R2_ACCESS_KEY_ID?: string
+  R2_SECRET_ACCESS_KEY?: string
+  R2_ENDPOINT?: string
 }
 
 type PresignOptions = {
@@ -14,14 +23,15 @@ type PresignOptions = {
 const DEFAULT_EXPIRY_SECONDS = 60 * 60
 
 function requireSpacesConfig(env: SpacesEnv) {
-  const bucket = env.DO_SPACES_BUCKET
-  const region = env.DO_SPACES_REGION ?? 'nyc3'
-  const accessKeyId = env.DO_SPACES_ACCESS_KEY_ID
-  const secretAccessKey = env.DO_SPACES_SECRET_ACCESS_KEY
+  const bucket = env.OBJECT_STORE_BUCKET ?? env.DO_SPACES_BUCKET ?? env.R2_BUCKET_NAME
+  const region = env.OBJECT_STORE_REGION ?? env.DO_SPACES_REGION ?? 'auto'
+  const accessKeyId = env.OBJECT_STORE_ACCESS_KEY_ID ?? env.DO_SPACES_ACCESS_KEY_ID ?? env.R2_ACCESS_KEY_ID
+  const secretAccessKey = env.OBJECT_STORE_SECRET_ACCESS_KEY ?? env.DO_SPACES_SECRET_ACCESS_KEY ?? env.R2_SECRET_ACCESS_KEY
+  const endpoint = env.OBJECT_STORE_ENDPOINT ?? env.R2_ENDPOINT ?? (bucket && region && env.DO_SPACES_BUCKET ? `https://${bucket}.${region}.digitaloceanspaces.com` : undefined)
   if (!bucket || !accessKeyId || !secretAccessKey) {
-    throw new Error('Missing DO_SPACES_BUCKET, DO_SPACES_ACCESS_KEY_ID, or DO_SPACES_SECRET_ACCESS_KEY')
+    throw new Error('Missing object store bucket or access credentials')
   }
-  return { bucket, region, accessKeyId, secretAccessKey }
+  return { bucket, region, accessKeyId, secretAccessKey, endpoint }
 }
 
 function isoBasic(date: Date) {
@@ -66,11 +76,14 @@ function canonicalUri(key: string) {
 
 export async function createPresignedSpacesUrl(env: SpacesEnv, options: PresignOptions) {
   const { bucket, region, accessKeyId, secretAccessKey } = requireSpacesConfig(env)
+  const { endpoint } = requireSpacesConfig(env)
   const expiresSeconds = options.expiresSeconds ?? DEFAULT_EXPIRY_SECONDS
   const now = new Date()
   const amzDate = isoBasic(now)
   const dateStamp = shortDate(now)
-  const host = `${bucket}.${region}.digitaloceanspaces.com`
+  const endpointUrl = endpoint ? new URL(endpoint) : new URL(`https://${bucket}.${region}.digitaloceanspaces.com`)
+  const host = endpointUrl.host
+  const pathPrefix = endpoint ? `/${bucket}` : ''
   const credentialScope = `${dateStamp}/${region}/s3/aws4_request`
   const credential = `${accessKeyId}/${credentialScope}`
   const query = new URLSearchParams({
@@ -86,7 +99,7 @@ export async function createPresignedSpacesUrl(env: SpacesEnv, options: PresignO
     .join('&')
   const canonicalRequest = [
     options.method,
-    canonicalUri(options.key),
+    `${pathPrefix}${canonicalUri(options.key)}`,
     canonicalQuery,
     `host:${host}\n`,
     'host',
@@ -106,6 +119,6 @@ export async function createPresignedSpacesUrl(env: SpacesEnv, options: PresignO
     bucket,
     region,
     key: options.key,
-    url: `https://${host}${canonicalUri(options.key)}?${query.toString()}`,
+    url: `${endpointUrl.protocol}//${host}${pathPrefix}${canonicalUri(options.key)}?${query.toString()}`,
   }
 }

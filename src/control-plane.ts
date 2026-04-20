@@ -29,6 +29,15 @@ type Env = {
   DO_SPACES_REGION?: string
   DO_SPACES_ACCESS_KEY_ID?: string
   DO_SPACES_SECRET_ACCESS_KEY?: string
+  OBJECT_STORE_BUCKET?: string
+  OBJECT_STORE_REGION?: string
+  OBJECT_STORE_ACCESS_KEY_ID?: string
+  OBJECT_STORE_SECRET_ACCESS_KEY?: string
+  OBJECT_STORE_ENDPOINT?: string
+  R2_BUCKET_NAME?: string
+  R2_ACCESS_KEY_ID?: string
+  R2_SECRET_ACCESS_KEY?: string
+  R2_ENDPOINT?: string
   RESEARCH_INTERNAL_RUNNER_TOKEN?: string
   RESEARCH_DATASET_REPO_REF?: string
 }
@@ -52,6 +61,20 @@ type DatasetRecord = {
   volumeRegion: string | null
   volumeMountPath: string | null
   ingestConfigJson: string | null
+  createdAt: string
+  updatedAt: string
+}
+
+type RunRecord = {
+  id: string
+  datasetId: string
+  ownerEmail: string
+  type: string
+  status: string
+  prompt: string | null
+  outputPreview: string | null
+  dropletId: string | null
+  dropletName: string | null
   createdAt: string
   updatedAt: string
 }
@@ -142,37 +165,83 @@ export class ControlPlane {
   }
 
   private datasetRowToJson(row: Record<string, unknown>) {
+    const dataset = this.parseDatasetRow(row)
+    return {
+      id: dataset.id,
+      name: dataset.name,
+      status: dataset.status,
+      deploymentStatus: dataset.deploymentStatus,
+      createdAt: dataset.createdAt,
+      updatedAt: dataset.updatedAt,
+      volume: dataset.volumeId ? {
+        id: dataset.volumeId,
+        name: dataset.volumeName,
+        region: dataset.volumeRegion,
+        mountPath: dataset.volumeMountPath,
+      } : null,
+      manifestPath: dataset.manifestPath,
+    }
+  }
+
+  private parseDatasetRow(row: Record<string, unknown>): DatasetRecord {
+    const get = (snake: string, camel: string) => row[snake] ?? row[camel]
     return {
       id: String(row.id),
       name: String(row.name),
+      ownerEmail: String(get('owner_email', 'ownerEmail')),
+      sourceType: String(get('source_type', 'sourceType')),
+      sourceFilename: get('source_filename', 'sourceFilename') ? String(get('source_filename', 'sourceFilename')) : null,
+      sourceObjectKey: get('source_object_key', 'sourceObjectKey') ? String(get('source_object_key', 'sourceObjectKey')) : null,
+      sourceSizeBytes: typeof get('source_size_bytes', 'sourceSizeBytes') === 'number' ? Number(get('source_size_bytes', 'sourceSizeBytes')) : get('source_size_bytes', 'sourceSizeBytes') ? Number(get('source_size_bytes', 'sourceSizeBytes')) : null,
+      mode: row.mode ? String(row.mode) : null,
+      description: row.description ? String(row.description) : null,
+      instanceId: get('instance_id', 'instanceId') ? String(get('instance_id', 'instanceId')) : null,
+      manifestPath: get('manifest_path', 'manifestPath') ? String(get('manifest_path', 'manifestPath')) : null,
+      deploymentStatus: String(get('deployment_status', 'deploymentStatus')),
       status: String(row.status),
-      deploymentStatus: String(row.deployment_status),
-      createdAt: String(row.created_at),
-      updatedAt: String(row.updated_at),
-      volume: row.volume_id ? {
-        id: String(row.volume_id),
-        name: String(row.volume_name),
-        region: String(row.volume_region),
-        mountPath: String(row.volume_mount_path),
-      } : null,
-      manifestPath: row.manifest_path ? String(row.manifest_path) : null,
+      volumeId: get('volume_id', 'volumeId') ? String(get('volume_id', 'volumeId')) : null,
+      volumeName: get('volume_name', 'volumeName') ? String(get('volume_name', 'volumeName')) : null,
+      volumeRegion: get('volume_region', 'volumeRegion') ? String(get('volume_region', 'volumeRegion')) : null,
+      volumeMountPath: get('volume_mount_path', 'volumeMountPath') ? String(get('volume_mount_path', 'volumeMountPath')) : null,
+      ingestConfigJson: get('ingest_config_json', 'ingestConfigJson') ? String(get('ingest_config_json', 'ingestConfigJson')) : null,
+      createdAt: String(get('created_at', 'createdAt')),
+      updatedAt: String(get('updated_at', 'updatedAt')),
     }
   }
 
   private runRowToJson(row: Record<string, unknown>) {
+    const run = this.parseRunRow(row)
+    return {
+      id: run.id,
+      datasetId: run.datasetId,
+      status: run.status,
+      createdAt: run.createdAt,
+      updatedAt: run.updatedAt,
+      prompt: run.prompt ?? undefined,
+      outputPreview: run.outputPreview ?? undefined,
+    }
+  }
+
+  private parseRunRow(row: Record<string, unknown>): RunRecord {
+    const get = (snake: string, camel: string) => row[snake] ?? row[camel]
     return {
       id: String(row.id),
-      datasetId: String(row.dataset_id),
+      datasetId: String(get('dataset_id', 'datasetId')),
+      ownerEmail: String(get('owner_email', 'ownerEmail')),
+      type: String(row.type),
       status: String(row.status),
-      createdAt: String(row.created_at),
-      updatedAt: String(row.updated_at),
-      prompt: row.prompt ? String(row.prompt) : undefined,
-      outputPreview: row.output_preview ? String(row.output_preview) : undefined,
+      prompt: row.prompt ? String(row.prompt) : null,
+      outputPreview: get('output_preview', 'outputPreview') ? String(get('output_preview', 'outputPreview')) : null,
+      dropletId: get('droplet_id', 'dropletId') ? String(get('droplet_id', 'dropletId')) : null,
+      dropletName: get('droplet_name', 'dropletName') ? String(get('droplet_name', 'dropletName')) : null,
+      createdAt: String(get('created_at', 'createdAt')),
+      updatedAt: String(get('updated_at', 'updatedAt')),
     }
   }
 
   private getDataset(id: string) {
-    return this.rows('SELECT * FROM datasets WHERE id = ? LIMIT 1', id)[0] as DatasetRecord | undefined
+    const row = this.rows('SELECT * FROM datasets WHERE id = ? LIMIT 1', id)[0]
+    return row ? this.parseDatasetRow(row) : undefined
   }
 
   private createRun(datasetId: string, ownerEmail: string, type: string, prompt?: string | null) {
@@ -482,7 +551,8 @@ export class ControlPlane {
     if (internalStatusMatch && request.method === 'POST') {
       const runId = decodeURIComponent(internalStatusMatch[1] ?? '')
       const body = await request.json() as Record<string, unknown>
-      const run = this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]
+      const runRow = this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]
+      const run = runRow ? this.parseRunRow(runRow) : null
       if (!run) {
         return respondJson({ error: 'Run not found' }, 404)
       }
@@ -499,12 +569,12 @@ export class ControlPlane {
         this.sql.exec(
           `UPDATE datasets SET deployment_status = ?, manifest_path = COALESCE(?, manifest_path), volume_mount_path = COALESCE(?, volume_mount_path), status = ?, updated_at = ?
            WHERE id = ?`,
-          body.deploymentStatus ? String(body.deploymentStatus) : 'running',
+           body.deploymentStatus ? String(body.deploymentStatus) : 'running',
           body.manifestPath ? String(body.manifestPath) : null,
           body.volumeMountPath ? String(body.volumeMountPath) : null,
           status === 'ready' ? 'ready' : status === 'failed' ? 'failed' : 'deploying',
           timestamp,
-          String(run.dataset_id),
+          run.datasetId,
         )
       }
       return respondJson({ ok: true })
