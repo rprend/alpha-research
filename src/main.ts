@@ -87,7 +87,7 @@ function beginLogin() {
     returnUrl.searchParams.delete('next')
   }
   const returnTo = next || `${returnUrl.pathname}${returnUrl.search}${returnUrl.hash}`
-  const destination = new URL('/api/auth/login', window.location.origin)
+  const destination = new URL('/api/auth/start', window.location.origin)
   destination.searchParams.set('return_to', returnTo)
   window.location.assign(destination.toString())
 }
