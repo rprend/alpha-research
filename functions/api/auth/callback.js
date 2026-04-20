@@ -11,7 +11,12 @@ function errorRedirect(requestUrl, message) {
   const url = new URL(requestUrl)
   const destination = new URL('/', url.origin)
   destination.searchParams.set('auth_error', message)
-  return Response.redirect(destination.toString(), 302)
+  return new Response(null, {
+    status: 302,
+    headers: {
+      Location: destination.toString(),
+    },
+  })
 }
 
 export async function onRequestGet(context) {
@@ -58,9 +63,13 @@ export async function onRequestGet(context) {
 
     const returnTo = normalizeReturnTo(state.returnTo, url.origin)
     const destination = new URL(returnTo, url.origin)
-    const response = Response.redirect(destination.toString(), 302)
-    response.headers.append('Set-Cookie', await createSessionCookie(config.secret, email))
-    return response
+    return new Response(null, {
+      status: 302,
+      headers: {
+        Location: destination.toString(),
+        'Set-Cookie': await createSessionCookie(config.secret, email),
+      },
+    })
   } catch (error) {
     const message = error instanceof Error ? error.message : 'WorkOS login failed.'
     return errorRedirect(context.request.url, message)

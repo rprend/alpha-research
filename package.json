@@ -7,8 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "cf:deploy": "pnpm build && CLOUDFLARE_ACCOUNT_ID=0e1651bc459f3017e816ba2263e0807a wrangler pages deploy dist --project-name alpha-research",
-    "cf:deploy:preview": "pnpm build && CLOUDFLARE_ACCOUNT_ID=0e1651bc459f3017e816ba2263e0807a wrangler pages deploy dist --project-name alpha-research --branch preview"
+    "cf:deploy": "pnpm build && CLOUDFLARE_ACCOUNT_ID=0e1651bc459f3017e816ba2263e0807a wrangler deploy",
+    "cf:deploy:preview": "pnpm build && CLOUDFLARE_ACCOUNT_ID=0e1651bc459f3017e816ba2263e0807a wrangler deploy --dry-run"
   },
   "devDependencies": {
     "typescript": "~5.9.3",

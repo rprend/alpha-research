@@ -1,5 +1,24 @@
 {
+  "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "alpha-research",
-  "pages_build_output_dir": "./dist",
-  "compatibility_date": "2026-03-13"
+  "account_id": "0e1651bc459f3017e816ba2263e0807a",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-03-13",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "routes": [
+    {
+      "pattern": "alpharesearch.nyc",
+      "custom_domain": true
+    }
+  ],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api/*",
+      "/cli/*"
+    ],
+    "not_found_handling": "single-page-application"
+  }
 }
