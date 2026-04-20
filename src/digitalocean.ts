@@ -26,8 +26,10 @@ type LaunchIngestParams = {
   volumeName: string
   volumeId: string
   sourceDownloadUrl: string
+  sourceFilename: string
   outputRoot: string
   productName: string
+  mode: string
   ingestArgs: string[]
   callbackOrigin: string
 }
@@ -110,9 +112,10 @@ function buildRunnerScript(env: DigitalOceanEnv, params: LaunchIngestParams) {
   const mountRoot = params.outputRoot.replace(/\/data\/instances$/u, '')
   const callbackEventsUrl = `${params.callbackOrigin}/api/internal/runs/${params.runId}/events`
   const callbackStatusUrl = `${params.callbackOrigin}/api/internal/runs/${params.runId}/status`
+  const downloadedSourcePath = `/tmp/alpha-research/${params.sourceFilename.replace(/[^A-Za-z0-9._-]/g, '-') || 'source-input'}`
   const cliArgs = [
-    '--mode', 'auto',
-    '--input', '/tmp/alpha-research/source-input',
+    '--mode', params.mode || 'auto',
+    '--input', downloadedSourcePath,
     '--id', params.instanceId,
     '--name', params.productName,
     '--dataset-id', params.datasetId,
@@ -195,7 +198,7 @@ mount "$DEVICE" "$MOUNT_ROOT"
 mkdir -p ${shellEscape(params.outputRoot)} ${shellEscape(`${mountRoot}/datasets/${params.datasetId}`)}
 
 post_event info "Downloading dataset source."
-curl -fsSL "$SOURCE_URL" -o /tmp/alpha-research/source-input
+curl -fsSL "$SOURCE_URL" -o ${shellEscape(downloadedSourcePath)}
 
 post_event info "Running remote normalization."
 "$VENV_PATH/bin/python" /opt/alpha-research/normalize_dataset.py ${cliArgs}

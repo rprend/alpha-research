@@ -450,8 +450,10 @@ export class ControlPlane {
         volumeName: volume.name,
         volumeId: volume.id,
         sourceDownloadUrl: getUrl.url,
+        sourceFilename: dataset.sourceFilename ?? 'source-input',
         outputRoot: `${volume.mountRoot}/data/instances`,
         productName: dataset.name,
+        mode: dataset.mode ?? 'auto',
         ingestArgs,
         callbackOrigin,
       })
