@@ -8,6 +8,8 @@ import { onRequestGet as authSessionGet } from '../functions/api/auth/session.js
 import { onRequestPost as authLogoutPost } from '../functions/api/auth/logout.js'
 // @ts-expect-error Cloudflare Worker entrypoint imports JS auth handlers.
 import { onRequestGet as cliLoginGet } from '../functions/cli/login.js'
+// @ts-expect-error Cloudflare Worker entrypoint imports JS auth handlers.
+import { onRequestPost as cliPlanPost } from '../functions/cli/plan.js'
 
 type AssetFetcher = {
   fetch(request: Request): Promise<Response>
@@ -20,6 +22,8 @@ type Env = {
   ALPHA_RESEARCH_SESSION_SECRET?: string
   ALPHA_RESEARCH_ALLOWED_EMAILS?: string
   WORKOS_REDIRECT_URI?: string
+  OPENAI_API_KEY?: string
+  RESEARCH_AGENT_MODEL?: string
 }
 
 type HandlerContext = {
@@ -56,6 +60,10 @@ export default {
 
     if (pathname === '/cli/login' && request.method === 'GET') {
       return cliLoginGet(createContext(request, env))
+    }
+
+    if (pathname === '/api/cli/plan' && request.method === 'POST') {
+      return cliPlanPost(createContext(request, env))
     }
 
     return env.ASSETS.fetch(request)

@@ -1,6 +1,6 @@
 # alpha-research
 
-Landing page scaffold for alpha-research.
+Worker-backed landing page and auth/orchestration edge for alpha-research.
 
 Purpose: enable decision makers to test 100x more hypotheses.
 
@@ -16,30 +16,34 @@ We built an open-source research platform for large datasets.
 
 ## Cloudflare
 
-- Pages project: `alpha-research`
+- Worker: `alpha-research`
 - Production domain: `alpharesearch.nyc`
 - Account: `Founders@zenobiapay.com's Account`
 - Production deploy: `pnpm run cf:deploy`
-- Pages Functions now handle auth and CLI handoff routes
+- The site now runs as a Cloudflare Worker with static assets bound through Wrangler
 
 ## Auth
 
-The landing page now includes:
+The Worker includes:
 
-- `POST /api/auth/login`
+- `GET /api/auth/start`
 - `GET /api/auth/session`
 - `POST /api/auth/logout`
+- `GET /api/auth/callback`
 - `GET /cli/login`
+- `POST /api/cli/plan`
 
-These are implemented with Cloudflare Pages Functions under `functions/`.
+These are implemented in Worker-routed handlers under `functions/` and surfaced through [src/worker.ts](/Users/ryanprendergast/Documents/Zenobia%20Pay/alpha-research/src/worker.ts).
 
-Required Cloudflare Pages secrets:
+Required Worker secrets:
 
-- `ALPHA_RESEARCH_OWNER_EMAIL`
-- `ALPHA_RESEARCH_OWNER_PASSWORD`
+- `WORKOS_API_KEY`
+- `WORKOS_CLIENT_ID`
 - `ALPHA_RESEARCH_SESSION_SECRET`
+- `WORKOS_REDIRECT_URI`
+- `OPENAI_API_KEY` for backend planning/proxying
 
-The current model is intentionally single-account and owner-only. The RESEARCH CLI opens a browser to `https://alpharesearch.nyc/cli/login`, and that endpoint mints a short-lived CLI token if the user already has a valid site session.
+The RESEARCH CLI opens a browser to `https://alpharesearch.nyc/cli/login`, and that endpoint mints a short-lived CLI token if the user already has a valid site session. The CLI planner should call `/api/cli/plan` so signed-in users do not need a local OpenAI key.
 
 ## Local Testing
 
@@ -49,9 +53,9 @@ Build the site:
 pnpm build
 ```
 
-For full auth route testing, run via Wrangler Pages dev so the `functions/` routes are active and env vars are available.
+For full auth route testing, run via Wrangler Worker dev so the routed auth handlers and worker secrets are active.
 
 ## Notes
 
-- This project uses Cloudflare Pages.
-- `wrangler.jsonc` stores Pages build/runtime configuration, but the custom domain itself is managed in Cloudflare Pages/DNS rather than declared in `wrangler.jsonc`.
+- This project now runs as a Worker with static assets.
+- `wrangler.jsonc` stores Worker route and asset configuration.

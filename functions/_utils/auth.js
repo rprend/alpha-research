@@ -183,6 +183,20 @@ export async function createCliToken(env, email) {
   })
 }
 
+export async function readCliBearerToken(request, env) {
+  const { secret } = getAuthConfig(env)
+  const header = request.headers.get('Authorization') ?? ''
+  const [scheme, token] = header.split(' ')
+  if (scheme !== 'Bearer' || !token) {
+    return null
+  }
+  const payload = await verifySignedToken(secret, token)
+  if (!payload || payload.type !== 'cli' || typeof payload.email !== 'string') {
+    return null
+  }
+  return payload
+}
+
 export function isAllowedEmail(env, email) {
   const { allowedEmails } = getAuthConfig(env)
   if (allowedEmails.length === 0) {
