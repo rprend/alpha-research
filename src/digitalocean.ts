@@ -62,6 +62,24 @@ async function doRequest<T>(env: DigitalOceanEnv, path: string, init: RequestIni
   return response.json() as Promise<T>
 }
 
+export async function deleteDroplet(env: DigitalOceanEnv, dropletId: string) {
+  const token = requireDigitalOceanToken(env)
+  const response = await fetch(`https://api.digitalocean.com/v2/droplets/${encodeURIComponent(dropletId)}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+  })
+  if (response.status === 404) {
+    return
+  }
+  if (!response.ok) {
+    const detail = await response.text().catch(() => '')
+    throw new Error(`DigitalOcean droplet delete failed (${response.status}) ${dropletId}${detail ? ` ${detail}` : ''}`)
+  }
+}
+
 export async function ensureDatasetVolume(env: DigitalOceanEnv, datasetId: string): Promise<EnsureVolumeResult> {
   const region = env.DIGITALOCEAN_REGION ?? 'nyc3'
   const name = `ar-dataset-${sanitizeName(datasetId)}`
@@ -81,7 +99,7 @@ export async function ensureDatasetVolume(env: DigitalOceanEnv, datasetId: strin
     }
   }
 
-  const size = Number(env.DIGITALOCEAN_VOLUME_SIZE_GIB ?? '250')
+  const size = Number(env.DIGITALOCEAN_VOLUME_SIZE_GIB ?? '10')
   const created = await doRequest<{ volume: { id: string } }>(env, '/volumes', {
     method: 'POST',
     body: JSON.stringify({

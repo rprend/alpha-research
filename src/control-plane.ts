@@ -1,5 +1,5 @@
 import { createPresignedSpacesUrl } from './spaces'
-import { ensureDatasetVolume, launchIngestDroplet } from './digitalocean'
+import { deleteDroplet, ensureDatasetVolume, launchIngestDroplet } from './digitalocean'
 
 type DurableObjectStateLike = {
   storage: {
@@ -401,82 +401,88 @@ export class ControlPlane {
 
     const deployMatch = pathname.match(/^\/datasets\/([^/]+)\/deploy$/u)
     if (deployMatch && request.method === 'POST') {
-      const datasetId = decodeURIComponent(deployMatch[1] ?? '')
-      const body = await request.json().catch(() => ({})) as Record<string, unknown>
-      const ownerEmail = String(body.ownerEmail ?? '')
-      const callbackOrigin = String(body.callbackOrigin ?? '')
-      const dataset = this.getDataset(datasetId)
-      if (!dataset || dataset.ownerEmail !== ownerEmail) {
-        return respondJson({ error: 'Dataset not found' }, 404)
-      }
-      if (!dataset.sourceObjectKey) {
-        return respondJson({ error: 'Dataset source has not been uploaded yet' }, 400)
-      }
-      if (!callbackOrigin) {
-        return respondJson({ error: 'Missing callbackOrigin' }, 400)
-      }
-      const volume = await ensureDatasetVolume(this.env, datasetId)
-      const getUrl = await createPresignedSpacesUrl(this.env, {
-        method: 'GET',
-        key: dataset.sourceObjectKey,
-        expiresSeconds: 60 * 60 * 24,
-      })
-      const runId = this.createRun(datasetId, ownerEmail, 'deploy')
-      this.appendRunEvent(runId, 'Provisioning DigitalOcean volume and ingest droplet.')
-      this.sql.exec(
-        `UPDATE datasets
-           SET volume_id = ?, volume_name = ?, volume_region = ?, volume_mount_path = ?, deployment_status = ?, status = ?, updated_at = ?
-         WHERE id = ?`,
-        volume.id,
-        volume.name,
-        volume.region,
-        volume.datasetMountPath,
-        'provisioning',
-        'deploying',
-        nowIso(),
-        datasetId,
-      )
-      const ingestConfig = dataset.ingestConfigJson ? JSON.parse(dataset.ingestConfigJson) as Record<string, string> : {}
-      const ingestArgs: string[] = []
-      if (ingestConfig.entityType) ingestArgs.push('--entity-type', String(ingestConfig.entityType))
-      if (ingestConfig.titleField) ingestArgs.push('--title-field', String(ingestConfig.titleField))
-      if (ingestConfig.summaryField) ingestArgs.push('--summary-field', String(ingestConfig.summaryField))
-      if (ingestConfig.textFields) ingestArgs.push('--text-fields', String(ingestConfig.textFields))
-      if (ingestConfig.dateField) ingestArgs.push('--date-field', String(ingestConfig.dateField))
-      const droplet = await launchIngestDroplet(this.env, {
-        datasetId,
-        instanceId: datasetId,
-        runId,
-        volumeName: volume.name,
-        volumeId: volume.id,
-        sourceDownloadUrl: getUrl.url,
-        sourceFilename: dataset.sourceFilename ?? 'source-input',
-        outputRoot: `${volume.mountRoot}/data/instances`,
-        productName: dataset.name,
-        mode: dataset.mode ?? 'auto',
-        ingestArgs,
-        callbackOrigin,
-      })
-      this.sql.exec(
-        `UPDATE runs SET droplet_id = ?, droplet_name = ?, status = ?, updated_at = ? WHERE id = ?`,
-        droplet.id,
-        droplet.name,
-        'running',
-        nowIso(),
-        runId,
-      )
-      this.appendRunEvent(runId, `Ingest droplet ${droplet.name} launched in ${droplet.region}.`)
-      const row = this.getDataset(datasetId)
-      return respondJson({
-        deployment: {
+      try {
+        const datasetId = decodeURIComponent(deployMatch[1] ?? '')
+        const body = await request.json().catch(() => ({})) as Record<string, unknown>
+        const ownerEmail = String(body.ownerEmail ?? '')
+        const callbackOrigin = String(body.callbackOrigin ?? '')
+        const dataset = this.getDataset(datasetId)
+        if (!dataset || dataset.ownerEmail !== ownerEmail) {
+          return respondJson({ error: 'Dataset not found' }, 404)
+        }
+        if (!dataset.sourceObjectKey) {
+          return respondJson({ error: 'Dataset source has not been uploaded yet' }, 400)
+        }
+        if (!callbackOrigin) {
+          return respondJson({ error: 'Missing callbackOrigin' }, 400)
+        }
+        const volume = await ensureDatasetVolume(this.env, datasetId)
+        const getUrl = await createPresignedSpacesUrl(this.env, {
+          method: 'GET',
+          key: dataset.sourceObjectKey,
+          expiresSeconds: 60 * 60 * 24,
+        })
+        const runId = this.createRun(datasetId, ownerEmail, 'deploy')
+        this.appendRunEvent(runId, 'Provisioning DigitalOcean volume and ingest droplet.')
+        this.sql.exec(
+          `UPDATE datasets
+             SET volume_id = ?, volume_name = ?, volume_region = ?, volume_mount_path = ?, deployment_status = ?, status = ?, updated_at = ?
+           WHERE id = ?`,
+          volume.id,
+          volume.name,
+          volume.region,
+          volume.datasetMountPath,
+          'provisioning',
+          'deploying',
+          nowIso(),
           datasetId,
-          status: 'running',
-          volume,
-          droplet,
-        },
-        run: this.runRowToJson(this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]!),
-        dataset: row ? this.datasetRowToJson(row as unknown as Record<string, unknown>) : null,
-      })
+        )
+        const ingestConfig = dataset.ingestConfigJson ? JSON.parse(dataset.ingestConfigJson) as Record<string, string> : {}
+        const ingestArgs: string[] = []
+        if (ingestConfig.entityType) ingestArgs.push('--entity-type', String(ingestConfig.entityType))
+        if (ingestConfig.titleField) ingestArgs.push('--title-field', String(ingestConfig.titleField))
+        if (ingestConfig.summaryField) ingestArgs.push('--summary-field', String(ingestConfig.summaryField))
+        if (ingestConfig.textFields) ingestArgs.push('--text-fields', String(ingestConfig.textFields))
+        if (ingestConfig.dateField) ingestArgs.push('--date-field', String(ingestConfig.dateField))
+        const droplet = await launchIngestDroplet(this.env, {
+          datasetId,
+          instanceId: datasetId,
+          runId,
+          volumeName: volume.name,
+          volumeId: volume.id,
+          sourceDownloadUrl: getUrl.url,
+          sourceFilename: dataset.sourceFilename ?? 'source-input',
+          outputRoot: `${volume.mountRoot}/data/instances`,
+          productName: dataset.name,
+          mode: dataset.mode ?? 'auto',
+          ingestArgs,
+          callbackOrigin,
+        })
+        this.sql.exec(
+          `UPDATE runs SET droplet_id = ?, droplet_name = ?, status = ?, updated_at = ? WHERE id = ?`,
+          droplet.id,
+          droplet.name,
+          'running',
+          nowIso(),
+          runId,
+        )
+        this.appendRunEvent(runId, `Ingest droplet ${droplet.name} launched in ${droplet.region}.`)
+        const row = this.getDataset(datasetId)
+        return respondJson({
+          deployment: {
+            datasetId,
+            status: 'running',
+            volume,
+            droplet,
+          },
+          run: this.runRowToJson(this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]!),
+          dataset: row ? this.datasetRowToJson(row as unknown as Record<string, unknown>) : null,
+        })
+      } catch (error) {
+        return respondJson({
+          error: error instanceof Error ? error.message : 'Deploy failed',
+        }, 500)
+      }
     }
 
     if (pathname === '/runs' && request.method === 'GET') {
@@ -578,6 +584,13 @@ export class ControlPlane {
           timestamp,
           run.datasetId,
         )
+      }
+      if ((status === 'ready' || status === 'failed') && run.dropletId) {
+        try {
+          await deleteDroplet(this.env, run.dropletId)
+        } catch {
+          // Best-effort cleanup; keep terminal run state even if droplet deletion fails.
+        }
       }
       return respondJson({ ok: true })
     }
