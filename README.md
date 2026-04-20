@@ -32,6 +32,14 @@ The Worker includes:
 - `GET /api/auth/callback`
 - `GET /cli/login`
 - `POST /api/cli/plan`
+- `GET /api/cli/me`
+- `GET/POST /api/cli/datasets`
+- `POST /api/cli/datasets/:id/source-upload`
+- `POST /api/cli/datasets/:id/source-complete`
+- `POST /api/cli/datasets/:id/deploy`
+- `GET /api/cli/runs`
+- `GET /api/cli/runs/:id`
+- `GET /api/cli/runs/:id/events`
 
 These are implemented in Worker-routed handlers under `functions/` and surfaced through [src/worker.ts](/Users/ryanprendergast/Documents/Zenobia%20Pay/alpha-research/src/worker.ts).
 
@@ -42,8 +50,38 @@ Required Worker secrets:
 - `ALPHA_RESEARCH_SESSION_SECRET`
 - `WORKOS_REDIRECT_URI`
 - `OPENAI_API_KEY` for backend planning/proxying
+- `RESEARCH_INTERNAL_RUNNER_TOKEN` for ingest runner callbacks
+
+Required Worker secrets for DigitalOcean orchestration:
+
+- `DIGITALOCEAN_API_TOKEN`
+- `DO_SPACES_BUCKET`
+- `DO_SPACES_REGION`
+- `DO_SPACES_ACCESS_KEY_ID`
+- `DO_SPACES_SECRET_ACCESS_KEY`
+
+Optional Worker vars/secrets:
+
+- `DIGITALOCEAN_REGION` default `nyc3`
+- `DIGITALOCEAN_VOLUME_SIZE_GIB` default `250`
+- `DIGITALOCEAN_VOLUME_MOUNT_ROOT` default `/mnt/alpha-research`
+- `DIGITALOCEAN_INGEST_DROPLET_SIZE` default `s-2vcpu-4gb`
+- `DIGITALOCEAN_INGEST_IMAGE` default `ubuntu-24-04-x64`
+- `DIGITALOCEAN_SSH_KEY_IDS` comma-separated key ids
+- `DIGITALOCEAN_PROJECT_ID`
+- `RESEARCH_DATASET_REPO_REF` default `codex/initial-substrate`
 
 The RESEARCH CLI opens a browser to `https://alpharesearch.nyc/cli/login`, and that endpoint mints a short-lived CLI token if the user already has a valid site session. The CLI planner should call `/api/cli/plan` so signed-in users do not need a local OpenAI key.
+
+## Remote Dataset Deploy Flow
+
+1. `research` registers dataset metadata with the Worker.
+2. The CLI requests a pre-signed Spaces upload URL and uploads the raw source file.
+3. The Worker provisions or reuses a dataset-specific DigitalOcean volume.
+4. The Worker launches a one-off ingest droplet with that volume attached.
+5. The droplet downloads the raw source file, runs `normalize_dataset.py`, and writes the normalized dataset onto the mounted volume.
+6. The droplet reports run events and final manifest location back to the Worker.
+7. The CLI persists the deploy run id and polls event/status updates on reopen.
 
 ## Local Testing
 

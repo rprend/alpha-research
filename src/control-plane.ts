@@ -1,0 +1,515 @@
+import { createPresignedSpacesUrl } from './spaces'
+import { ensureDatasetVolume, launchIngestDroplet } from './digitalocean'
+
+type DurableObjectStateLike = {
+  storage: {
+    sql: {
+      exec(query: string, ...bindings: unknown[]): Iterable<Record<string, unknown>>
+    }
+  }
+  blockConcurrencyWhile(callback: () => Promise<void> | void): Promise<void>
+}
+
+type SqlStorage = DurableObjectStateLike['storage'] & {
+  sql: {
+    exec(query: string, ...bindings: unknown[]): Iterable<Record<string, unknown>>
+  }
+}
+
+type Env = {
+  DIGITALOCEAN_API_TOKEN?: string
+  DIGITALOCEAN_REGION?: string
+  DIGITALOCEAN_VOLUME_SIZE_GIB?: string
+  DIGITALOCEAN_VOLUME_MOUNT_ROOT?: string
+  DIGITALOCEAN_INGEST_DROPLET_SIZE?: string
+  DIGITALOCEAN_INGEST_IMAGE?: string
+  DIGITALOCEAN_SSH_KEY_IDS?: string
+  DIGITALOCEAN_PROJECT_ID?: string
+  DO_SPACES_BUCKET?: string
+  DO_SPACES_REGION?: string
+  DO_SPACES_ACCESS_KEY_ID?: string
+  DO_SPACES_SECRET_ACCESS_KEY?: string
+  RESEARCH_INTERNAL_RUNNER_TOKEN?: string
+  RESEARCH_DATASET_REPO_REF?: string
+}
+
+type DatasetRecord = {
+  id: string
+  name: string
+  ownerEmail: string
+  sourceType: string
+  sourceFilename: string | null
+  sourceObjectKey: string | null
+  sourceSizeBytes: number | null
+  mode: string | null
+  description: string | null
+  instanceId: string | null
+  manifestPath: string | null
+  deploymentStatus: string
+  status: string
+  volumeId: string | null
+  volumeName: string | null
+  volumeRegion: string | null
+  volumeMountPath: string | null
+  ingestConfigJson: string | null
+  createdAt: string
+  updatedAt: string
+}
+
+function nowIso() {
+  return new Date().toISOString()
+}
+
+function respondJson(payload: unknown, status = 200) {
+  return new Response(JSON.stringify(payload), {
+    status,
+    headers: { 'Content-Type': 'application/json' },
+  })
+}
+
+function slugify(input: string) {
+  return input.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 63) || 'dataset'
+}
+
+export class ControlPlane {
+  private readonly sql: SqlStorage['sql']
+  private readonly state: DurableObjectStateLike
+  private readonly env: Env
+
+  constructor(state: DurableObjectStateLike, env: Env) {
+    this.state = state
+    this.env = env
+    this.sql = (state.storage as SqlStorage).sql
+    this.state.blockConcurrencyWhile(async () => {
+      this.init()
+    })
+  }
+
+  private init() {
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS datasets (
+        id TEXT PRIMARY KEY,
+        name TEXT NOT NULL,
+        owner_email TEXT NOT NULL,
+        source_type TEXT NOT NULL,
+        source_filename TEXT,
+        source_object_key TEXT,
+        source_size_bytes INTEGER,
+        mode TEXT,
+        description TEXT,
+        instance_id TEXT,
+        manifest_path TEXT,
+        deployment_status TEXT NOT NULL,
+        status TEXT NOT NULL,
+        volume_id TEXT,
+        volume_name TEXT,
+        volume_region TEXT,
+        volume_mount_path TEXT,
+        ingest_config_json TEXT,
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL
+      );
+    `)
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS runs (
+        id TEXT PRIMARY KEY,
+        dataset_id TEXT NOT NULL,
+        owner_email TEXT NOT NULL,
+        type TEXT NOT NULL,
+        status TEXT NOT NULL,
+        prompt TEXT,
+        output_preview TEXT,
+        droplet_id TEXT,
+        droplet_name TEXT,
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL
+      );
+    `)
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS run_events (
+        seq INTEGER PRIMARY KEY AUTOINCREMENT,
+        id TEXT NOT NULL UNIQUE,
+        run_id TEXT NOT NULL,
+        message TEXT NOT NULL,
+        level TEXT NOT NULL,
+        created_at TEXT NOT NULL
+      );
+    `)
+  }
+
+  private rows(query: string, ...bindings: unknown[]) {
+    return [...this.sql.exec(query, ...bindings)] as Array<Record<string, unknown>>
+  }
+
+  private datasetRowToJson(row: Record<string, unknown>) {
+    return {
+      id: String(row.id),
+      name: String(row.name),
+      status: String(row.status),
+      deploymentStatus: String(row.deployment_status),
+      createdAt: String(row.created_at),
+      updatedAt: String(row.updated_at),
+      volume: row.volume_id ? {
+        id: String(row.volume_id),
+        name: String(row.volume_name),
+        region: String(row.volume_region),
+        mountPath: String(row.volume_mount_path),
+      } : null,
+      manifestPath: row.manifest_path ? String(row.manifest_path) : null,
+    }
+  }
+
+  private runRowToJson(row: Record<string, unknown>) {
+    return {
+      id: String(row.id),
+      datasetId: String(row.dataset_id),
+      status: String(row.status),
+      createdAt: String(row.created_at),
+      updatedAt: String(row.updated_at),
+      prompt: row.prompt ? String(row.prompt) : undefined,
+      outputPreview: row.output_preview ? String(row.output_preview) : undefined,
+    }
+  }
+
+  private getDataset(id: string) {
+    return this.rows('SELECT * FROM datasets WHERE id = ? LIMIT 1', id)[0] as DatasetRecord | undefined
+  }
+
+  private createRun(datasetId: string, ownerEmail: string, type: string, prompt?: string | null) {
+    const id = crypto.randomUUID()
+    const timestamp = nowIso()
+    this.sql.exec(
+      `INSERT INTO runs (id, dataset_id, owner_email, type, status, prompt, created_at, updated_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      id,
+      datasetId,
+      ownerEmail,
+      type,
+      'queued',
+      prompt ?? null,
+      timestamp,
+      timestamp,
+    )
+    return id
+  }
+
+  private appendRunEvent(runId: string, message: string, level = 'info') {
+    const id = crypto.randomUUID()
+    this.sql.exec(
+      `INSERT INTO run_events (id, run_id, message, level, created_at) VALUES (?, ?, ?, ?, ?)`,
+      id,
+      runId,
+      message,
+      level,
+      nowIso(),
+    )
+    return id
+  }
+
+  async fetch(request: Request) {
+    const url = new URL(request.url)
+    const pathname = url.pathname
+
+    if (pathname === '/datasets' && request.method === 'GET') {
+      const ownerEmail = url.searchParams.get('ownerEmail')
+      if (!ownerEmail) {
+        return respondJson({ error: 'Missing ownerEmail' }, 400)
+      }
+      const rows = this.rows(
+        `SELECT * FROM datasets WHERE owner_email = ? ORDER BY updated_at DESC`,
+        ownerEmail,
+      )
+      return respondJson({ datasets: rows.map((row) => this.datasetRowToJson(row)) })
+    }
+
+    if (pathname === '/datasets' && request.method === 'POST') {
+      const body = await request.json() as Record<string, unknown>
+      const ownerEmail = String(body.ownerEmail ?? '')
+      const datasetId = slugify(String(body.datasetId ?? ''))
+      if (!ownerEmail || !datasetId) {
+        return respondJson({ error: 'Missing ownerEmail or datasetId' }, 400)
+      }
+      const timestamp = nowIso()
+      const sourceFilename = body.sourceFilename ? String(body.sourceFilename) : null
+      const mode = body.mode ? String(body.mode) : null
+      const existing = this.getDataset(datasetId)
+      if (existing && existing.ownerEmail !== ownerEmail) {
+        return respondJson({ error: 'Dataset already exists for another owner' }, 409)
+      }
+      if (existing) {
+        this.sql.exec(
+          `UPDATE datasets
+             SET name = ?, description = ?, source_type = ?, source_filename = ?, mode = ?, ingest_config_json = ?, updated_at = ?
+           WHERE id = ?`,
+          String(body.name ?? datasetId),
+          body.description ? String(body.description) : null,
+          String(body.sourceType ?? 'uploaded_source'),
+          sourceFilename,
+          mode,
+          body.ingestConfig ? JSON.stringify(body.ingestConfig) : null,
+          timestamp,
+          datasetId,
+        )
+      } else {
+        this.sql.exec(
+          `INSERT INTO datasets (
+             id, name, owner_email, source_type, source_filename, mode, description, instance_id, manifest_path,
+             deployment_status, status, volume_id, volume_name, volume_region, volume_mount_path, ingest_config_json,
+             created_at, updated_at
+           ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          datasetId,
+          String(body.name ?? datasetId),
+          ownerEmail,
+          String(body.sourceType ?? 'uploaded_source'),
+          sourceFilename,
+          mode,
+          body.description ? String(body.description) : null,
+          body.instanceId ? String(body.instanceId) : null,
+          body.manifestPath ? String(body.manifestPath) : null,
+          'draft',
+          'created',
+          null,
+          null,
+          null,
+          null,
+          body.ingestConfig ? JSON.stringify(body.ingestConfig) : null,
+          timestamp,
+          timestamp,
+        )
+      }
+      const dataset = this.getDataset(datasetId)
+      return respondJson({ dataset: this.datasetRowToJson(dataset as unknown as Record<string, unknown>) })
+    }
+
+    const sourceUploadMatch = pathname.match(/^\/datasets\/([^/]+)\/source-upload$/u)
+    if (sourceUploadMatch && request.method === 'POST') {
+      const datasetId = decodeURIComponent(sourceUploadMatch[1] ?? '')
+      const body = await request.json() as Record<string, unknown>
+      const ownerEmail = String(body.ownerEmail ?? '')
+      const dataset = this.getDataset(datasetId)
+      if (!dataset || dataset.ownerEmail !== ownerEmail) {
+        return respondJson({ error: 'Dataset not found' }, 404)
+      }
+      const sourceFilename = body.filename ? String(body.filename) : dataset.sourceFilename ?? 'dataset.bin'
+      const objectKey = `uploads/${datasetId}/${Date.now()}-${sourceFilename.replace(/[^A-Za-z0-9._-]/g, '-')}`
+      const upload = await createPresignedSpacesUrl(this.env, { method: 'PUT', key: objectKey, expiresSeconds: 60 * 60 * 4 })
+      this.sql.exec(
+        `UPDATE datasets SET source_filename = ?, source_object_key = ?, status = ?, updated_at = ? WHERE id = ?`,
+        sourceFilename,
+        objectKey,
+        'uploading',
+        nowIso(),
+        datasetId,
+      )
+      return respondJson({
+        upload: {
+          method: 'PUT',
+          url: upload.url,
+          key: objectKey,
+        },
+      })
+    }
+
+    const sourceCompleteMatch = pathname.match(/^\/datasets\/([^/]+)\/source-complete$/u)
+    if (sourceCompleteMatch && request.method === 'POST') {
+      const datasetId = decodeURIComponent(sourceCompleteMatch[1] ?? '')
+      const body = await request.json() as Record<string, unknown>
+      const ownerEmail = String(body.ownerEmail ?? '')
+      const dataset = this.getDataset(datasetId)
+      if (!dataset || dataset.ownerEmail !== ownerEmail) {
+        return respondJson({ error: 'Dataset not found' }, 404)
+      }
+      this.sql.exec(
+        `UPDATE datasets SET source_size_bytes = ?, status = ?, deployment_status = ?, updated_at = ? WHERE id = ?`,
+        typeof body.sizeBytes === 'number' ? body.sizeBytes : null,
+        'uploaded',
+        'upload_ready',
+        nowIso(),
+        datasetId,
+      )
+      return respondJson({ ok: true })
+    }
+
+    const deployMatch = pathname.match(/^\/datasets\/([^/]+)\/deploy$/u)
+    if (deployMatch && request.method === 'POST') {
+      const datasetId = decodeURIComponent(deployMatch[1] ?? '')
+      const body = await request.json().catch(() => ({})) as Record<string, unknown>
+      const ownerEmail = String(body.ownerEmail ?? '')
+      const callbackOrigin = String(body.callbackOrigin ?? '')
+      const dataset = this.getDataset(datasetId)
+      if (!dataset || dataset.ownerEmail !== ownerEmail) {
+        return respondJson({ error: 'Dataset not found' }, 404)
+      }
+      if (!dataset.sourceObjectKey) {
+        return respondJson({ error: 'Dataset source has not been uploaded yet' }, 400)
+      }
+      if (!callbackOrigin) {
+        return respondJson({ error: 'Missing callbackOrigin' }, 400)
+      }
+      const volume = await ensureDatasetVolume(this.env, datasetId)
+      const getUrl = await createPresignedSpacesUrl(this.env, {
+        method: 'GET',
+        key: dataset.sourceObjectKey,
+        expiresSeconds: 60 * 60 * 24,
+      })
+      const runId = this.createRun(datasetId, ownerEmail, 'deploy')
+      this.appendRunEvent(runId, 'Provisioning DigitalOcean volume and ingest droplet.')
+      this.sql.exec(
+        `UPDATE datasets
+           SET volume_id = ?, volume_name = ?, volume_region = ?, volume_mount_path = ?, deployment_status = ?, status = ?, updated_at = ?
+         WHERE id = ?`,
+        volume.id,
+        volume.name,
+        volume.region,
+        volume.datasetMountPath,
+        'provisioning',
+        'deploying',
+        nowIso(),
+        datasetId,
+      )
+      const ingestConfig = dataset.ingestConfigJson ? JSON.parse(dataset.ingestConfigJson) as Record<string, string> : {}
+      const ingestArgs: string[] = []
+      if (ingestConfig.entityType) ingestArgs.push('--entity-type', String(ingestConfig.entityType))
+      if (ingestConfig.titleField) ingestArgs.push('--title-field', String(ingestConfig.titleField))
+      if (ingestConfig.summaryField) ingestArgs.push('--summary-field', String(ingestConfig.summaryField))
+      if (ingestConfig.textFields) ingestArgs.push('--text-fields', String(ingestConfig.textFields))
+      if (ingestConfig.dateField) ingestArgs.push('--date-field', String(ingestConfig.dateField))
+      const droplet = await launchIngestDroplet(this.env, {
+        datasetId,
+        instanceId: datasetId,
+        runId,
+        volumeName: volume.name,
+        volumeId: volume.id,
+        sourceDownloadUrl: getUrl.url,
+        outputRoot: `${volume.mountRoot}/data/instances`,
+        productName: dataset.name,
+        ingestArgs,
+        callbackOrigin,
+      })
+      this.sql.exec(
+        `UPDATE runs SET droplet_id = ?, droplet_name = ?, status = ?, updated_at = ? WHERE id = ?`,
+        droplet.id,
+        droplet.name,
+        'running',
+        nowIso(),
+        runId,
+      )
+      this.appendRunEvent(runId, `Ingest droplet ${droplet.name} launched in ${droplet.region}.`)
+      const row = this.getDataset(datasetId)
+      return respondJson({
+        deployment: {
+          datasetId,
+          status: 'running',
+          volume,
+          droplet,
+        },
+        run: this.runRowToJson(this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]!),
+        dataset: row ? this.datasetRowToJson(row as unknown as Record<string, unknown>) : null,
+      })
+    }
+
+    if (pathname === '/runs' && request.method === 'GET') {
+      const ownerEmail = url.searchParams.get('ownerEmail')
+      const datasetId = url.searchParams.get('datasetId')
+      if (!ownerEmail) {
+        return respondJson({ error: 'Missing ownerEmail' }, 400)
+      }
+      const rows = datasetId
+        ? this.rows('SELECT * FROM runs WHERE owner_email = ? AND dataset_id = ? ORDER BY updated_at DESC', ownerEmail, datasetId)
+        : this.rows('SELECT * FROM runs WHERE owner_email = ? ORDER BY updated_at DESC', ownerEmail)
+      return respondJson({ runs: rows.map((row) => this.runRowToJson(row)) })
+    }
+
+    const runCreateMatch = pathname.match(/^\/datasets\/([^/]+)\/runs$/u)
+    if (runCreateMatch && request.method === 'POST') {
+      const datasetId = decodeURIComponent(runCreateMatch[1] ?? '')
+      const body = await request.json() as Record<string, unknown>
+      const ownerEmail = String(body.ownerEmail ?? '')
+      const dataset = this.getDataset(datasetId)
+      if (!dataset || dataset.ownerEmail !== ownerEmail) {
+        return respondJson({ error: 'Dataset not found' }, 404)
+      }
+      const prompt = String(body.prompt ?? '')
+      const runId = this.createRun(datasetId, ownerEmail, 'analysis', prompt)
+      this.appendRunEvent(runId, 'Run created. Remote analysis runner provisioning is not implemented yet.', 'warning')
+      this.sql.exec('UPDATE runs SET status = ?, updated_at = ? WHERE id = ?', 'queued', nowIso(), runId)
+      return respondJson({ run: this.runRowToJson(this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]!) })
+    }
+
+    const runMatch = pathname.match(/^\/runs\/([^/]+)$/u)
+    if (runMatch && request.method === 'GET') {
+      const runId = decodeURIComponent(runMatch[1] ?? '')
+      const row = this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]
+      if (!row) {
+        return respondJson({ error: 'Run not found' }, 404)
+      }
+      return respondJson({ run: this.runRowToJson(row) })
+    }
+
+    const runEventsMatch = pathname.match(/^\/runs\/([^/]+)\/events$/u)
+    if (runEventsMatch && request.method === 'GET') {
+      const runId = decodeURIComponent(runEventsMatch[1] ?? '')
+      const after = url.searchParams.get('after')
+      let rows
+      if (after) {
+        const afterRow = this.rows('SELECT seq FROM run_events WHERE id = ? LIMIT 1', after)[0]
+        const afterSeq = afterRow ? Number(afterRow.seq) : 0
+        rows = this.rows('SELECT id, run_id, message, level, created_at FROM run_events WHERE run_id = ? AND seq > ? ORDER BY seq ASC', runId, afterSeq)
+      } else {
+        rows = this.rows('SELECT id, run_id, message, level, created_at FROM run_events WHERE run_id = ? ORDER BY seq ASC', runId)
+      }
+      return respondJson({
+        events: rows.map((row) => ({
+          id: String(row.id),
+          runId: String(row.run_id),
+          message: String(row.message),
+          level: String(row.level) as 'info' | 'warning' | 'error',
+          createdAt: String(row.created_at),
+        })),
+      })
+    }
+
+    const internalEventMatch = pathname.match(/^\/internal\/runs\/([^/]+)\/events$/u)
+    if (internalEventMatch && request.method === 'POST') {
+      const runId = decodeURIComponent(internalEventMatch[1] ?? '')
+      const level = request.headers.get('X-Run-Level') ?? 'info'
+      const message = await request.text()
+      this.appendRunEvent(runId, message, level)
+      return respondJson({ ok: true })
+    }
+
+    const internalStatusMatch = pathname.match(/^\/internal\/runs\/([^/]+)\/status$/u)
+    if (internalStatusMatch && request.method === 'POST') {
+      const runId = decodeURIComponent(internalStatusMatch[1] ?? '')
+      const body = await request.json() as Record<string, unknown>
+      const run = this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]
+      if (!run) {
+        return respondJson({ error: 'Run not found' }, 404)
+      }
+      const timestamp = nowIso()
+      const status = String(body.status ?? 'running')
+      this.sql.exec(
+        `UPDATE runs SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+        status,
+        body.outputPreview ? String(body.outputPreview) : null,
+        timestamp,
+        runId,
+      )
+      if (body.deploymentStatus || body.manifestPath || body.volumeMountPath) {
+        this.sql.exec(
+          `UPDATE datasets SET deployment_status = ?, manifest_path = COALESCE(?, manifest_path), volume_mount_path = COALESCE(?, volume_mount_path), status = ?, updated_at = ?
+           WHERE id = ?`,
+          body.deploymentStatus ? String(body.deploymentStatus) : 'running',
+          body.manifestPath ? String(body.manifestPath) : null,
+          body.volumeMountPath ? String(body.volumeMountPath) : null,
+          status === 'ready' ? 'ready' : status === 'failed' ? 'failed' : 'deploying',
+          timestamp,
+          String(run.dataset_id),
+        )
+      }
+      return respondJson({ ok: true })
+    }
+
+    return respondJson({ error: 'Not found' }, 404)
+  }
+}
