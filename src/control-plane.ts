@@ -42,6 +42,8 @@ type Env = {
   RESEARCH_DATASET_REPO_REF?: string
   OPENAI_API_KEY?: string
   RESEARCH_AGENT_MODEL?: string
+  REMOTE_AGENT_MODEL?: string
+  REMOTE_AGENT_EXECUTOR?: string
 }
 
 type DatasetRecord = {
@@ -744,6 +746,9 @@ export class ControlPlane {
         this.sql.exec('UPDATE runs SET status = ?, updated_at = ? WHERE id = ?', 'failed', nowIso(), runId)
         return respondJson({ error: 'Dataset is not deployed and runnable yet' }, 400)
       }
+      const remoteAgentConfig = config && typeof config === 'object'
+        ? (config as Record<string, unknown>)
+        : null
       const droplet = await launchResearchDroplet(this.env, {
         datasetId,
         runId,
@@ -751,6 +756,9 @@ export class ControlPlane {
         prompt,
         configJson: config ? JSON.stringify(config) : undefined,
         artifactSpecJson: artifactSpec.length > 0 ? JSON.stringify(artifactSpec) : undefined,
+        remoteAgentSessionId: typeof remoteAgentConfig?.remoteAgentSessionId === 'string'
+          ? remoteAgentConfig.remoteAgentSessionId
+          : undefined,
         volumeName: dataset.volumeName,
         volumeId: dataset.volumeId,
         callbackOrigin: String(body.callbackOrigin ?? ''),
@@ -758,7 +766,7 @@ export class ControlPlane {
         manifestPath: dataset.manifestPath,
         sourceSizeBytes: dataset.sourceSizeBytes,
       })
-      this.appendRunEvent(runId, `Research droplet ${droplet.name} launched in ${droplet.region} (${droplet.size}).`)
+      this.appendRunEvent(runId, `Remote agent droplet ${droplet.name} launched in ${droplet.region} (${droplet.size}).`)
       this.sql.exec(
         `UPDATE runs SET droplet_id = ?, droplet_name = ?, status = ?, updated_at = ? WHERE id = ?`,
         droplet.id,

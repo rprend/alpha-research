@@ -14,6 +14,8 @@ type DigitalOceanEnv = {
   RESEARCH_DATASET_REPO_REF?: string
   OPENAI_API_KEY?: string
   RESEARCH_AGENT_MODEL?: string
+  REMOTE_AGENT_MODEL?: string
+  REMOTE_AGENT_EXECUTOR?: string
 }
 
 type EnsureVolumeResult = {
@@ -46,6 +48,7 @@ type LaunchResearchParams = {
   prompt: string
   configJson?: string
   artifactSpecJson?: string
+  remoteAgentSessionId?: string
   volumeName: string
   volumeId: string
   callbackOrigin: string
@@ -154,7 +157,7 @@ function chooseResearchDropletSize(env: DigitalOceanEnv, params: LaunchResearchP
   if (params.runType === 'query') {
     return (params.sourceSizeBytes ?? 0) > 5_000_000_000 ? medium : small
   }
-  if (params.runType === 'codex' || params.runType === 'analysis' || params.runType === 'hypothesis') {
+  if (params.runType === 'agent' || params.runType === 'analysis' || params.runType === 'hypothesis') {
     return (params.sourceSizeBytes ?? 0) > 2_000_000_000 ? large : medium
   }
   return (params.sourceSizeBytes ?? 0) > 5_000_000_000 ? large : small
@@ -281,8 +284,8 @@ post_status ready ready "$MANIFEST_PATH" "Remote normalization completed."
 
 function buildResearchRunnerScript(env: DigitalOceanEnv, params: LaunchResearchParams) {
   const imageRef = env.RESEARCH_DATASET_REPO_REF ?? 'main'
-  const runnerUrl = `https://raw.githubusercontent.com/rprend/alpha-research/${imageRef}/scripts/run_research_job.py`
-  const venvPath = '/opt/alpha-research-venv'
+  const runnerUrl = `https://raw.githubusercontent.com/rprend/alpha-research/${imageRef}/scripts/run_remote_agent.py`
+  const venvPath = '/opt/alpha-research-agent-venv'
   const mountRoot = params.datasetMountPath.replace(/\/datasets\/[^/]+$/u, '')
   const callbackEventsUrl = `${params.callbackOrigin}/api/internal/runs/${params.runId}/events`
   const callbackStatusUrl = `${params.callbackOrigin}/api/internal/runs/${params.runId}/status`
@@ -290,6 +293,7 @@ function buildResearchRunnerScript(env: DigitalOceanEnv, params: LaunchResearchP
   const promptB64 = encodeBase64(params.prompt)
   const configJsonB64 = encodeBase64(params.configJson ?? '{}')
   const artifactSpecJsonB64 = encodeBase64(params.artifactSpecJson ?? '[]')
+  const remoteAgentModel = env.REMOTE_AGENT_MODEL ?? env.RESEARCH_AGENT_MODEL ?? 'gpt-5-codex'
 
   return `#!/bin/bash
 set -euo pipefail
@@ -305,13 +309,19 @@ MANIFEST_PATH=${shellEscape(params.manifestPath)}
 RUNNER_URL=${shellEscape(runnerUrl)}
 VENV_PATH=${shellEscape(venvPath)}
 OPENAI_API_KEY=${shellEscape(env.OPENAI_API_KEY ?? '')}
-RESEARCH_AGENT_MODEL=${shellEscape(env.RESEARCH_AGENT_MODEL ?? 'gpt-5')}
+REMOTE_AGENT_MODEL=${shellEscape(remoteAgentModel)}
 RUN_ID=${shellEscape(params.runId)}
 RUN_TYPE=${shellEscape(params.runType)}
 DATASET_ID=${shellEscape(params.datasetId)}
 PROMPT_B64=${shellEscape(promptB64)}
 CONFIG_B64=${shellEscape(configJsonB64)}
 ARTIFACT_SPEC_B64=${shellEscape(artifactSpecJsonB64)}
+REMOTE_AGENT_SESSION_ID=${shellEscape(params.remoteAgentSessionId ?? '')}
+CODEX_HOME=${shellEscape(`${params.datasetMountPath}/.remote-agent/codex-home/${params.runId}`)}
+WORKSPACE_DIR=${shellEscape(`${params.datasetMountPath}/.remote-agent/workspaces/${params.runId}`)}
+ARTIFACT_DIR=${shellEscape(`${params.datasetMountPath}/.remote-agent/workspaces/${params.runId}/artifacts`)}
+LAST_MESSAGE_PATH=${shellEscape(`${params.datasetMountPath}/.remote-agent/workspaces/${params.runId}/last_message.txt`)}
+TRANSCRIPT_PATH=${shellEscape(`${params.datasetMountPath}/.remote-agent/workspaces/${params.runId}/codex-transcript.log`)}
 DEVICE="/dev/disk/by-id/scsi-0DO_Volume_${params.volumeName}"
 
 post_event() {
@@ -341,17 +351,20 @@ print(json.dumps({
 PY
 }
 
-trap 'post_event error "Remote research run failed."; post_status failed ""; exit 1' ERR
+trap 'post_event error "Remote agent run failed."; post_status failed ""; exit 1' ERR
 
-post_event info "Starting research droplet bootstrap."
+post_event info "Starting remote agent droplet bootstrap."
 apt-get update
-apt-get install -y curl python3 python3-venv ca-certificates
+apt-get install -y curl python3 python3-venv ca-certificates nodejs npm git
 python3 -m venv "$VENV_PATH"
 "$VENV_PATH/bin/pip" install --upgrade pip
 "$VENV_PATH/bin/pip" install requests
 
 mkdir -p /opt/alpha-research
-curl -fsSL "$RUNNER_URL" -o /opt/alpha-research/run_research_job.py
+curl -fsSL "$RUNNER_URL" -o /opt/alpha-research/run_remote_agent.py
+npm install -g @openai/codex
+mkdir -p "$CODEX_HOME" "$WORKSPACE_DIR" "$ARTIFACT_DIR"
+printf '%s' "$OPENAI_API_KEY" | codex login --with-api-key >/dev/null
 
 for _ in $(seq 1 60); do
   if [ -e "$DEVICE" ]; then
@@ -367,12 +380,12 @@ fi
 mkdir -p "$MOUNT_ROOT"
 mount "$DEVICE" "$MOUNT_ROOT" || true
 
-post_event info "Running remote ${params.runType} job."
+post_event info "Running remote agent executor."
 set +e
-"$VENV_PATH/bin/python" /opt/alpha-research/run_research_job.py 2>&1 | while IFS= read -r line; do
+"$VENV_PATH/bin/python" /opt/alpha-research/run_remote_agent.py 2>&1 | while IFS= read -r line; do
   echo "$line"
   case "$line" in
-    STEP*|RESULT*|ARTIFACT*|DONE*)
+    *"Remote agent"*|*"session"*|*"ERROR:"*|*"{\""* )
       post_event info "$line"
       post_status running "$line"
       ;;
@@ -384,8 +397,8 @@ if [ "$RUN_EXIT" -ne 0 ]; then
   exit "$RUN_EXIT"
 fi
 
-post_event info "Remote research run completed."
-post_status ready "Remote research run completed."
+post_event info "Remote agent run completed."
+post_status ready "Remote agent run completed."
 `
 }
 

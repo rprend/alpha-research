@@ -11,7 +11,7 @@ import { onRequestGet as cliLoginGet } from '../functions/cli/login.js'
 // @ts-expect-error Cloudflare Worker entrypoint imports JS auth handlers.
 import { onRequestPost as cliPlanPost } from '../functions/cli/plan.js'
 // @ts-expect-error Cloudflare Worker entrypoint imports JS auth helpers.
-import { readCliBearerToken } from '../functions/_utils/auth.js'
+import { readCliBearerToken, readSession } from '../functions/_utils/auth.js'
 import { ControlPlane } from './control-plane'
 
 type AssetFetcher = {
@@ -36,6 +36,8 @@ type Env = {
   WORKOS_REDIRECT_URI?: string
   OPENAI_API_KEY?: string
   RESEARCH_AGENT_MODEL?: string
+  REMOTE_AGENT_MODEL?: string
+  REMOTE_AGENT_EXECUTOR?: string
   DIGITALOCEAN_API_TOKEN?: string
   DIGITALOCEAN_REGION?: string
   DIGITALOCEAN_VOLUME_SIZE_GIB?: string
@@ -75,12 +77,18 @@ function controlPlaneStub(env: Env) {
   return env.CONTROL_PLANE.get(env.CONTROL_PLANE.idFromName('alpha-research-control-plane'))
 }
 
-async function requireCliSession(request: Request, env: Env) {
+async function requireAuthorizedSession(request: Request, env: Env) {
   const cliSession = await readCliBearerToken(request, env)
-  if (!cliSession) {
-    return null
+  if (cliSession) {
+    return cliSession
   }
-  return cliSession
+
+  const webSession = await readSession(request, env).catch(() => null)
+  if (webSession) {
+    return webSession
+  }
+
+  return null
 }
 
 function json(body: unknown, status = 200) {
@@ -96,7 +104,7 @@ async function proxyToControlPlane(env: Env, path: string, init: RequestInit) {
 }
 
 async function proxyToResponsesApi(request: Request, env: Env) {
-  const cliSession = await requireCliSession(request, env)
+  const cliSession = await requireAuthorizedSession(request, env)
   if (!cliSession) {
     return json({ error: 'Unauthorized' }, 401)
   }
@@ -132,7 +140,7 @@ async function proxyToResponsesApi(request: Request, env: Env) {
 }
 
 async function forwardCliRequest(request: Request, env: Env, path: string, init: RequestInit = {}) {
-  const cliSession = await requireCliSession(request, env)
+  const cliSession = await requireAuthorizedSession(request, env)
   if (!cliSession) {
     return json({ error: 'Unauthorized' }, 401)
   }
@@ -180,7 +188,7 @@ export default {
     }
 
     if (pathname === '/api/cli/me' && request.method === 'GET') {
-      const cliSession = await requireCliSession(request, env)
+      const cliSession = await requireAuthorizedSession(request, env)
       if (!cliSession) {
         return json({ error: 'Unauthorized' }, 401)
       }
@@ -188,7 +196,7 @@ export default {
     }
 
     if (pathname === '/api/cli/datasets' && request.method === 'GET') {
-      const cliSession = await requireCliSession(request, env)
+      const cliSession = await requireAuthorizedSession(request, env)
       if (!cliSession) {
         return json({ error: 'Unauthorized' }, 401)
       }
@@ -200,7 +208,7 @@ export default {
     }
 
     if (pathname === '/api/cli/datasets' && request.method === 'POST') {
-      const cliSession = await requireCliSession(request, env)
+      const cliSession = await requireAuthorizedSession(request, env)
       if (!cliSession) {
         return json({ error: 'Unauthorized' }, 401)
       }
@@ -222,7 +230,7 @@ export default {
       return forwardCliRequest(request, env, `/datasets/${encodeURIComponent(profileMatch[1] ?? '')}/profile`, { method: 'GET' })
     }
     if (profileMatch && request.method === 'POST') {
-      const cliSession = await requireCliSession(request, env)
+      const cliSession = await requireAuthorizedSession(request, env)
       if (!cliSession) {
         return json({ error: 'Unauthorized' }, 401)
       }
@@ -236,7 +244,7 @@ export default {
 
     const uploadMatch = pathname.match(/^\/api\/cli\/datasets\/([^/]+)\/source-upload$/u)
     if (uploadMatch && request.method === 'POST') {
-      const cliSession = await requireCliSession(request, env)
+      const cliSession = await requireAuthorizedSession(request, env)
       if (!cliSession) {
         return json({ error: 'Unauthorized' }, 401)
       }
@@ -250,7 +258,7 @@ export default {
 
     const uploadCompleteMatch = pathname.match(/^\/api\/cli\/datasets\/([^/]+)\/source-complete$/u)
     if (uploadCompleteMatch && request.method === 'POST') {
-      const cliSession = await requireCliSession(request, env)
+      const cliSession = await requireAuthorizedSession(request, env)
       if (!cliSession) {
         return json({ error: 'Unauthorized' }, 401)
       }
@@ -264,7 +272,7 @@ export default {
 
     const deployMatch = pathname.match(/^\/api\/cli\/datasets\/([^/]+)\/deploy$/u)
     if (deployMatch && request.method === 'POST') {
-      const cliSession = await requireCliSession(request, env)
+      const cliSession = await requireAuthorizedSession(request, env)
       if (!cliSession) {
         return json({ error: 'Unauthorized' }, 401)
       }
@@ -279,7 +287,7 @@ export default {
     }
 
     if (pathname === '/api/cli/runs' && request.method === 'GET') {
-      const cliSession = await requireCliSession(request, env)
+      const cliSession = await requireAuthorizedSession(request, env)
       if (!cliSession) {
         return json({ error: 'Unauthorized' }, 401)
       }
@@ -292,7 +300,7 @@ export default {
 
     const runCreateMatch = pathname.match(/^\/api\/cli\/datasets\/([^/]+)\/runs$/u)
     if (runCreateMatch && request.method === 'POST') {
-      const cliSession = await requireCliSession(request, env)
+      const cliSession = await requireAuthorizedSession(request, env)
       if (!cliSession) {
         return json({ error: 'Unauthorized' }, 401)
       }
@@ -347,7 +355,7 @@ export default {
     }
 
     if (pathname === '/api/cli/research-specs' && request.method === 'GET') {
-      const cliSession = await requireCliSession(request, env)
+      const cliSession = await requireAuthorizedSession(request, env)
       if (!cliSession) {
         return json({ error: 'Unauthorized' }, 401)
       }
@@ -359,7 +367,7 @@ export default {
     }
 
     if (pathname === '/api/cli/research-specs' && request.method === 'POST') {
-      const cliSession = await requireCliSession(request, env)
+      const cliSession = await requireAuthorizedSession(request, env)
       if (!cliSession) {
         return json({ error: 'Unauthorized' }, 401)
       }
