@@ -130,6 +130,11 @@ function isTerminalStatus(status: string | null | undefined) {
     || normalized === 'error'
 }
 
+function isVolumeBusyError(error: unknown) {
+  const message = error instanceof Error ? error.message : String(error)
+  return message.includes('storage already associated with another droplet')
+}
+
 export class ControlPlane {
   private readonly sql: SqlStorage['sql']
   private readonly state: DurableObjectStateLike
@@ -237,6 +242,15 @@ export class ControlPlane {
 
   private rows(query: string, ...bindings: unknown[]) {
     return [...this.sql.exec(query, ...bindings)] as Array<Record<string, unknown>>
+  }
+
+  private getActiveRunsForDataset(datasetId: string) {
+    return this.rows(
+      'SELECT * FROM runs WHERE dataset_id = ? ORDER BY created_at DESC',
+      datasetId,
+    )
+      .map((row) => this.parseRunRow(row))
+      .filter((run) => !isTerminalStatus(run.status))
   }
 
   private datasetRowToJson(row: Record<string, unknown>) {
@@ -724,6 +738,25 @@ export class ControlPlane {
         const runType = String(body.type ?? 'analysis')
         const config = body.config && typeof body.config === 'object' ? body.config : null
         const artifactSpec = Array.isArray(body.artifacts) ? body.artifacts : []
+        const activeRuns = this.getActiveRunsForDataset(datasetId)
+        if (activeRuns.length > 0) {
+          return respondJson({
+            error: `Dataset ${datasetId} already has an active run holding its volume.`,
+            activeRuns: activeRuns.map((run) => this.runRowToJson({
+              id: run.id,
+              dataset_id: run.datasetId,
+              owner_email: run.ownerEmail,
+              type: run.type,
+              status: run.status,
+              prompt: run.prompt,
+              output_preview: run.outputPreview,
+              droplet_id: run.dropletId,
+              droplet_name: run.dropletName,
+              created_at: run.createdAt,
+              updated_at: run.updatedAt,
+            })),
+          }, 409)
+        }
         runId = this.createRun(datasetId, ownerEmail, runType, prompt)
         this.sql.exec(
           `INSERT INTO run_metadata (run_id, config_json, artifact_spec_json) VALUES (?, ?, ?)`,
@@ -789,6 +822,22 @@ export class ControlPlane {
             nowIso(),
             runId,
           )
+        }
+        if (isVolumeBusyError(error)) {
+          const datasetId = decodeURIComponent(runCreateMatch[1] ?? '')
+          const activeRuns = this.getActiveRunsForDataset(datasetId)
+          return respondJson({
+            error: `Dataset ${datasetId} is busy because its DigitalOcean volume is attached to another droplet.`,
+            runId,
+            activeRuns: activeRuns.map((run) => ({
+              id: run.id,
+              datasetId: run.datasetId,
+              status: run.status,
+              prompt: run.prompt,
+              createdAt: run.createdAt,
+              updatedAt: run.updatedAt,
+            })),
+          }, 409)
         }
         return respondJson({
           error: message,
