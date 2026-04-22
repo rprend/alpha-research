@@ -19,9 +19,6 @@ import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
 } from '@/components/ui/card'
 import {
   DropdownMenu,
@@ -1462,15 +1459,17 @@ function DashboardApp({
             <CardContent className="px-6 py-4 text-sm text-destructive">{dataError}</CardContent>
           </Card>
         ) : null}
-        <Card className="rounded-none border border-border bg-background py-0 shadow-none">
-          <CardHeader className="border-b border-border px-6 py-5">
-            <CardTitle className="text-sm">Datasets</CardTitle>
-            <CardDescription>Your private datasets and deployed research environments.</CardDescription>
-          </CardHeader>
-          <CardContent className="px-0">
-            <DatasetTable datasets={datasets} />
-          </CardContent>
-        </Card>
+        <section className="flex flex-col gap-3">
+          <div className="px-1">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              Datasets
+            </div>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Your private datasets and deployed research environments.
+            </p>
+          </div>
+          <DatasetTable datasets={datasets} />
+        </section>
       </main>
     )
   } else if (route.view === 'runs') {
@@ -1483,19 +1482,21 @@ function DashboardApp({
             <CardContent className="px-6 py-4 text-sm text-destructive">{dataError}</CardContent>
           </Card>
         ) : null}
-        <Card className="rounded-none border border-border bg-background py-0 shadow-none">
-          <CardHeader className="border-b border-border px-6 py-5">
-            <CardTitle className="text-sm">Runs</CardTitle>
-            <CardDescription>Remote runs across your datasets.</CardDescription>
-          </CardHeader>
-          <CardContent className="px-0">
-            <RunTable
-              runs={runs}
-              datasetLookup={datasetLookup}
-              onSelectRun={(run) => updateDashboardRoute({ view: 'runs', runId: run.id, sessionId: null })}
-            />
-          </CardContent>
-        </Card>
+        <section className="flex flex-col gap-3">
+          <div className="px-1">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              Runs
+            </div>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Remote runs across your datasets.
+            </p>
+          </div>
+          <RunTable
+            runs={runs}
+            datasetLookup={datasetLookup}
+            onSelectRun={(run) => updateDashboardRoute({ view: 'runs', runId: run.id, sessionId: null })}
+          />
+        </section>
       </main>
     )
   } else if (route.view === 'terminal-sessions') {
@@ -1508,23 +1509,25 @@ function DashboardApp({
             <CardContent className="px-6 py-4 text-sm text-destructive">{dataError}</CardContent>
           </Card>
         ) : null}
-        <Card className="rounded-none border border-border bg-background py-0 shadow-none">
-          <CardHeader className="border-b border-border px-6 py-5">
-            <CardTitle className="text-sm">Terminal sessions</CardTitle>
-            <CardDescription>Persisted RESEARCH CLI sessions proxied through Alpha Research.</CardDescription>
-          </CardHeader>
-          <CardContent className="px-0">
-            <SessionTable
-              sessions={sessions}
-              onSelectSession={(selected) =>
-                updateDashboardRoute({
-                  view: 'terminal-sessions',
-                  sessionId: selected.id,
-                  runId: null,
-                })}
-            />
-          </CardContent>
-        </Card>
+        <section className="flex flex-col gap-3">
+          <div className="px-1">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              Terminal sessions
+            </div>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Persisted RESEARCH CLI sessions proxied through Alpha Research.
+            </p>
+          </div>
+          <SessionTable
+            sessions={sessions}
+            onSelectSession={(selected) =>
+              updateDashboardRoute({
+                view: 'terminal-sessions',
+                sessionId: selected.id,
+                runId: null,
+              })}
+          />
+        </section>
       </main>
     )
   } else {
@@ -1567,33 +1570,37 @@ function DashboardApp({
           </div>
         </section>
 
-        <div className="grid gap-6 xl:grid-cols-2">
-          <Card className="rounded-none border border-border bg-background py-0 shadow-none">
-            <CardHeader className="border-b border-border px-6 py-5">
-              <CardTitle className="text-sm">Recent runs</CardTitle>
-              <CardDescription>Open a run to inspect its full session timeline.</CardDescription>
-            </CardHeader>
-            <CardContent className="px-0">
-              <RunTable
-                runs={runs.slice(0, 6)}
-                datasetLookup={datasetLookup}
-                onSelectRun={(run) => updateDashboardRoute({ view: 'runs', runId: run.id, sessionId: null })}
-              />
-            </CardContent>
-          </Card>
-          <Card className="rounded-none border border-border bg-background py-0 shadow-none">
-            <CardHeader className="border-b border-border px-6 py-5">
-              <CardTitle className="text-sm">Recent terminal sessions</CardTitle>
-              <CardDescription>Open a CLI session to inspect its stored turns.</CardDescription>
-            </CardHeader>
-            <CardContent className="px-0">
-              <SessionTable
-                sessions={sessions.slice(0, 6)}
-                onSelectSession={(selected) =>
-                  updateDashboardRoute({ view: 'terminal-sessions', sessionId: selected.id, runId: null })}
-              />
-            </CardContent>
-          </Card>
+        <div className="grid gap-10 xl:grid-cols-2">
+          <section className="flex flex-col gap-3">
+            <div className="px-1">
+              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                Recent runs
+              </div>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Open a run to inspect its full session timeline.
+              </p>
+            </div>
+            <RunTable
+              runs={runs.slice(0, 6)}
+              datasetLookup={datasetLookup}
+              onSelectRun={(run) => updateDashboardRoute({ view: 'runs', runId: run.id, sessionId: null })}
+            />
+          </section>
+          <section className="flex flex-col gap-3">
+            <div className="px-1">
+              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                Recent terminal sessions
+              </div>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Open a CLI session to inspect its stored turns.
+              </p>
+            </div>
+            <SessionTable
+              sessions={sessions.slice(0, 6)}
+              onSelectSession={(selected) =>
+                updateDashboardRoute({ view: 'terminal-sessions', sessionId: selected.id, runId: null })}
+            />
+          </section>
         </div>
       </main>
     )
