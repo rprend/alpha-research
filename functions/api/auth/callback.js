@@ -67,7 +67,7 @@ export async function onRequestGet(context) {
       status: 302,
       headers: {
         Location: destination.toString(),
-        'Set-Cookie': await createSessionCookie(config.secret, email),
+        'Set-Cookie': await createSessionCookie(config.secret, email, context.request),
       },
     })
   } catch (error) {

@@ -26,6 +26,10 @@
     {
       "pattern": "alpharesearch.nyc/*",
       "zone_name": "alpharesearch.nyc"
+    },
+    {
+      "pattern": "dashboard.alpharesearch.nyc/*",
+      "zone_name": "alpharesearch.nyc"
     }
   ],
   "assets": {

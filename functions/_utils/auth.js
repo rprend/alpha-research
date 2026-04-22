@@ -81,6 +81,19 @@ export function getRedirectUri(env, request) {
   return `${url.origin}/api/auth/callback`
 }
 
+function getSharedCookieDomain(requestOrUrl) {
+  const url = typeof requestOrUrl === 'string'
+    ? new URL(requestOrUrl)
+    : new URL(requestOrUrl.url)
+  const hostname = url.hostname.toLowerCase()
+
+  if (hostname === 'alpharesearch.nyc' || hostname.endsWith('.alpharesearch.nyc')) {
+    return 'alpharesearch.nyc'
+  }
+
+  return null
+}
+
 export function normalizeReturnTo(value, origin) {
   if (!value) {
     return '/'
@@ -147,17 +160,21 @@ export async function readLoginState(secret, token) {
   return payload
 }
 
-export async function createSessionCookie(secret, email) {
+export async function createSessionCookie(secret, email, requestOrUrl) {
   const token = await createSignedToken(secret, {
     type: 'session',
     email,
     exp: nowInSeconds() + SESSION_MAX_AGE_SECONDS,
   })
-  return `${SESSION_COOKIE}=${encodeURIComponent(token)}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${SESSION_MAX_AGE_SECONDS}`
+  const domain = getSharedCookieDomain(requestOrUrl)
+  const domainAttribute = domain ? `; Domain=${domain}` : ''
+  return `${SESSION_COOKIE}=${encodeURIComponent(token)}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${SESSION_MAX_AGE_SECONDS}${domainAttribute}`
 }
 
-export function clearSessionCookie() {
-  return `${SESSION_COOKIE}=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0`
+export function clearSessionCookie(requestOrUrl) {
+  const domain = requestOrUrl ? getSharedCookieDomain(requestOrUrl) : null
+  const domainAttribute = domain ? `; Domain=${domain}` : ''
+  return `${SESSION_COOKIE}=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0${domainAttribute}`
 }
 
 export async function readSession(request, env) {
