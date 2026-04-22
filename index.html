@@ -169,19 +169,19 @@
           </section>
 
           <section class="cli-block" id="cli">
-            <p class="section-kicker">Bring Your Own Dataset</p>
-            <h2>Install the RESEARCH CLI and point it at your own corpus</h2>
+            <p class="section-kicker">For Your Own Corpus</p>
+            <h2>Bring your own dataset</h2>
             <p class="cli-lede">
-              Alpha Research is not limited to Alpha Book. You can install the RESEARCH CLI,
-              sign in with your Alpha Research account, upload an arbitrary dataset, normalize it,
-              and deploy a research-ready dataset backed by our remote infrastructure.
+              Install the RESEARCH CLI, sign in, and point it at a parquet, CSV, PDF, or text
+              corpus. The CLI uploads the raw source, normalizes it remotely, and gives you a run
+              you can reopen later.
             </p>
 
             <div class="cli-card">
               <div class="cli-card-head">
                 <div>
                   <p class="cli-card-label">Install</p>
-                  <p class="cli-card-copy">Run this in a terminal or have your agent run it for you.</p>
+                  <p class="cli-card-copy">Run this yourself or hand it to your agent.</p>
                 </div>
                 <button class="ghost-button cli-copy-button" type="button" data-copy-target="cli-install-command">
                   Copy command
@@ -193,14 +193,14 @@
             <div class="cli-card">
               <div class="cli-card-head">
                 <div>
-                  <p class="cli-card-label">Copy This Prompt To Your Agent</p>
-                  <p class="cli-card-copy">Describe your dataset at the bottom and let your agent handle install, sign-in, ingest, and deploy.</p>
+                  <p class="cli-card-label">Prompt Your Agent</p>
+                  <p class="cli-card-copy">Paste this into Codex or Claude Code and describe the dataset at the bottom.</p>
                 </div>
                 <button class="ghost-button cli-copy-button" type="button" data-copy-target="cli-agent-prompt">
                   Copy prompt
                 </button>
               </div>
-              <pre class="cli-pre" id="cli-agent-prompt"><code>Install the RESEARCH CLI and ingest my dataset.
+              <pre class="cli-pre" id="cli-agent-prompt"><code>Install the RESEARCH CLI and deploy my dataset.
 
 Run:
 curl -fsSL https://raw.githubusercontent.com/zenobia-pay/alpha-research/codex/initial-substrate/scripts/install_alpha_research.sh | bash
@@ -208,9 +208,7 @@ curl -fsSL https://raw.githubusercontent.com/zenobia-pay/alpha-research/codex/in
 Then run:
 research
 
-Sign in if needed, decide the dataset name, id, mode, and path based on my description, create the dataset, and deploy it.
-
-After deploy starts, tell me the dataset id, run id, and what is happening.
+Sign in if needed. Based on my description, choose the dataset name, id, mode, and path. Create the dataset, deploy it, and then tell me the dataset id, run id, and current status.
 
 Dataset description:
 </code></pre>
@@ -218,18 +216,17 @@ Dataset description:
 
             <div class="cli-grid">
               <article class="cli-mini-card">
-                <p class="cli-card-label">What it supports</p>
+                <p class="cli-card-label">Formats</p>
                 <p>
-                  Parquet, CSV, JSON, text corpora, markdown, HTML, PDFs, and other large
-                  research datasets that need normalization before agentic search and analysis.
+                  Parquet, CSV, JSON, markdown, HTML, PDFs, and other research corpora that need
+                  normalization before search and analysis.
                 </p>
               </article>
               <article class="cli-mini-card">
-                <p class="cli-card-label">What happens next</p>
+                <p class="cli-card-label">Runs</p>
                 <p>
-                  The CLI uploads the raw file, Alpha Research provisions storage and compute,
-                  normalizes the dataset remotely, and tracks the run so you can reopen the CLI
-                  and watch progress later.
+                  Upload starts a remote run. Alpha Research provisions storage and compute,
+                  normalizes the dataset, and keeps the run visible when you reopen the CLI.
                 </p>
               </article>
             </div>
