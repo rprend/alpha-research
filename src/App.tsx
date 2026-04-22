@@ -199,6 +199,10 @@ function truncate(value: string, maxLength: number) {
   return `${value.slice(0, maxLength - 1).trimEnd()}…`
 }
 
+function compactInlineText(value: string, maxLength: number) {
+  return truncate(value.replace(/\s+/g, ' ').trim(), maxLength)
+}
+
 function relativeTime(value: string) {
   const date = new Date(value)
   if (Number.isNaN(date.getTime())) {
@@ -327,7 +331,7 @@ function summarizeRunRecord(value: unknown) {
     datasetId ? `Dataset: \`${datasetId}\`` : null,
     type ? `Type: ${type}` : null,
     status ? `Status: ${status}` : null,
-    prompt ? `Prompt: ${truncate(prompt, 260)}` : null,
+    prompt ? `Prompt: ${compactInlineText(prompt, 320)}` : null,
   ]
     .filter(Boolean)
     .join('\n')
@@ -371,7 +375,10 @@ function summarizeFunctionCallOutput(item: Record<string, unknown>) {
   const rawOutput = typeof item.output === 'string' ? item.output : ''
   const parsedOutput = rawOutput ? tryParseJson(rawOutput) : null
   if (isRecord(parsedOutput)) {
-    const summary = typeof parsedOutput.summary === 'string' ? parsedOutput.summary : null
+    const summary =
+      typeof parsedOutput.summary === 'string'
+        ? compactInlineText(parsedOutput.summary, 220)
+        : null
     const data = isRecord(parsedOutput.data) ? parsedOutput.data : null
     const runSummary = data ? summarizeRunData(data) : null
     const datasetSummary = data ? summarizeDatasetRecord(data.dataset) : null
@@ -382,7 +389,7 @@ function summarizeFunctionCallOutput(item: Record<string, unknown>) {
   }
 
   if (rawOutput) {
-    return truncate(rawOutput, 320)
+    return compactInlineText(rawOutput, 320)
   }
 
   return null
@@ -422,8 +429,8 @@ function summarizeFunctionCall(item: Record<string, unknown>) {
       datasetId ? `Dataset: \`${datasetId}\`` : null,
       runId ? `Run: \`${runId}\`` : null,
       type ? `Run type: ${type}` : null,
-      sourceDescription ? `Source: ${truncate(sourceDescription, 220)}` : null,
-      prompt ? `Prompt: ${truncate(prompt, 420)}` : null,
+      sourceDescription ? `Source: ${compactInlineText(sourceDescription, 220)}` : null,
+      prompt ? `Prompt: ${compactInlineText(prompt, 320)}` : null,
     ].filter(Boolean)
 
     return lines.join('\n')
@@ -441,12 +448,14 @@ function summarizeResponseObject(value: Record<string, unknown>) {
     .filter(Boolean)
 
   if (calls.length > 0) {
+    if (calls.length === 1) {
+      return calls[0]
+    }
+
     return [
-      reasoningCount > 0 ? `Next step${reasoningCount > 1 ? 's' : ''}:` : null,
+      reasoningCount > 0 ? `Next step${reasoningCount > 1 ? 's' : ''}:` : 'Planned actions:',
       calls.join('\n\n'),
-    ]
-      .filter(Boolean)
-      .join('\n\n')
+    ].join('\n\n')
   }
 
   const outputText = typeof value.output_text === 'string' ? value.output_text.trim() : ''
