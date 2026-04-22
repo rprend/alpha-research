@@ -1642,21 +1642,24 @@ function DashboardApp({
         <SidebarFooter className="border-t border-sidebar-border p-3">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="h-auto justify-start gap-3 px-2 py-2">
-                <Avatar className="size-9 rounded-none border border-sidebar-border">
-                  <AvatarFallback className="rounded-none bg-sidebar-accent text-xs font-semibold tracking-[0.22em]">
+              <Button
+                variant="ghost"
+                className="h-auto w-full justify-start gap-3 rounded-xl px-3 py-3 hover:bg-sidebar-accent/60"
+              >
+                <Avatar className="size-10 border-0 shadow-none after:hidden">
+                  <AvatarFallback className="bg-muted text-sm font-medium tracking-[0.08em] text-foreground">
                     {initials}
                   </AvatarFallback>
                 </Avatar>
                 <div className="flex min-w-0 flex-1 flex-col items-start">
-                  <span className="truncate text-xs font-semibold uppercase tracking-[0.2em]">
+                  <span className="truncate text-[0.7rem] font-medium tracking-[0.14em] text-muted-foreground uppercase">
                     Account
                   </span>
-                  <span className="truncate text-sm font-normal normal-case tracking-normal text-muted-foreground">
+                  <span className="truncate text-base font-normal normal-case tracking-normal text-foreground/90">
                     {session.user?.email ?? 'Signed in'}
                   </span>
                 </div>
-                <MoreHorizontal />
+                <MoreHorizontal className="size-4 text-muted-foreground" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="rounded-none">
