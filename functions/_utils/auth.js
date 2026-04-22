@@ -81,13 +81,21 @@ export function getRedirectUri(env, request) {
   return `${url.origin}/api/auth/callback`
 }
 
+export function isAlphaResearchHost(hostname) {
+  const normalized = hostname.trim().toLowerCase()
+  return normalized === 'alpharesearch.nyc'
+    || normalized.endsWith('.alpharesearch.nyc')
+    || normalized === 'localhost'
+    || normalized === '127.0.0.1'
+}
+
 function getSharedCookieDomain(requestOrUrl) {
   const url = typeof requestOrUrl === 'string'
     ? new URL(requestOrUrl)
     : new URL(requestOrUrl.url)
   const hostname = url.hostname.toLowerCase()
 
-  if (hostname === 'alpharesearch.nyc' || hostname.endsWith('.alpharesearch.nyc')) {
+  if (isAlphaResearchHost(hostname) && hostname !== 'localhost' && hostname !== '127.0.0.1') {
     return 'alpharesearch.nyc'
   }
 
@@ -111,6 +119,26 @@ export function normalizeReturnTo(value, origin) {
     return `${parsed.pathname}${parsed.search}${parsed.hash}`
   } catch {
     return '/'
+  }
+}
+
+export function normalizeAlphaResearchReturnTo(value, origin) {
+  if (!value) {
+    return new URL('/', origin).toString()
+  }
+
+  if (value.startsWith('/')) {
+    return new URL(value, origin).toString()
+  }
+
+  try {
+    const parsed = new URL(value)
+    if (!isAlphaResearchHost(parsed.hostname)) {
+      return new URL('/', origin).toString()
+    }
+    return parsed.toString()
+  } catch {
+    return new URL('/', origin).toString()
   }
 }
 

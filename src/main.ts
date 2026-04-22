@@ -52,30 +52,33 @@ type PublicEnvironment = {
 
 const ROOT_HOST = 'alpharesearch.nyc'
 const DASHBOARD_HOST = 'dashboard.alpharesearch.nyc'
+const INSTALL_COMMAND = 'curl -fsSL https://raw.githubusercontent.com/zenobia-pay/alpha-research/codex/initial-substrate/scripts/install_alpha_research.sh | bash'
+const DASHBOARD_LABEL = 'Research Dashboard'
 const url = new URL(window.location.href)
 const isDashboardView = window.location.hostname === DASHBOARD_HOST || url.searchParams.get('view') === 'dashboard'
+const rootOrigin = window.location.hostname === 'localhost' ? window.location.origin : `https://${ROOT_HOST}`
 const dashboardOrigin = window.location.hostname === 'localhost' ? window.location.origin : `https://${DASHBOARD_HOST}`
 
 const publicEnvironments: PublicEnvironment[] = [
   {
-    name: 'Alpha Book',
-    access: 'Public',
-    coverage: '75,000 books',
-    description: 'Project Gutenberg mirror for literary and historical primary-source research.',
-    href: 'https://alpha-book.org/',
-  },
-  {
     name: 'Scene Wiki',
-    access: 'Public',
-    coverage: 'Community corpus',
-    description: 'A research environment built from scraped online community data and labeled canon.',
+    access: 'Public environment',
+    coverage: 'Live corpus',
+    description: 'A public research surface built from scraped community history and labeled canon.',
     href: 'https://scenewiki.net/',
   },
   {
     name: 'Alpha Econ',
-    access: 'Public soon',
+    access: 'Public preview',
     coverage: 'Census, BLS, NBER',
-    description: 'Economic indicators, housing data, and working papers prepared for agentic analysis.',
+    description: 'Economic data prepared for agentic analysis, hypothesis testing, and evidence gathering.',
+    state: 'Coming soon',
+  },
+  {
+    name: 'Alpha Justice',
+    access: 'Public preview',
+    coverage: 'Supreme Court archive',
+    description: 'Case-law research environment for opinion retrieval, citation tracing, and argument comparison.',
     state: 'Coming soon',
   },
 ]
@@ -112,6 +115,7 @@ function relativeTime(value: string) {
   if (Number.isNaN(date.getTime())) {
     return value
   }
+
   const diffMs = date.getTime() - Date.now()
   const absSeconds = Math.round(Math.abs(diffMs) / 1000)
   const formatter = new Intl.RelativeTimeFormat(undefined, { numeric: 'auto' })
@@ -142,6 +146,22 @@ function formatStatus(value: string | null | undefined) {
 
 function countActiveRuns(runs: RunRecord[]) {
   return runs.filter((run) => !['ready', 'completed', 'failed', 'cancelled', 'canceled', 'error'].includes(run.status.toLowerCase())).length
+}
+
+function latestUpdate(items: Array<{ updatedAt: string }>) {
+  if (items.length === 0) {
+    return 'No recent activity'
+  }
+  return relativeTime(items.map((item) => item.updatedAt).sort().at(-1) ?? '')
+}
+
+function setAuthStatus(message: string, isError = false) {
+  const authStatus = document.querySelector<HTMLElement>('[data-auth-status]')
+  if (!authStatus) {
+    return
+  }
+  authStatus.textContent = message
+  authStatus.dataset.state = isError ? 'error' : 'neutral'
 }
 
 function initCal() {
@@ -195,13 +215,17 @@ function initCal() {
   })
 }
 
-function setAuthStatus(message: string, isError = false) {
-  const authStatus = document.querySelector<HTMLElement>('[data-auth-status]')
-  if (!authStatus) {
-    return
-  }
-  authStatus.textContent = message
-  authStatus.dataset.state = isError ? 'error' : 'neutral'
+function beginDashboardBridge() {
+  const returnTo = `${window.location.pathname}${window.location.search}${window.location.hash}`
+  const destination = new URL('/api/auth/bridge', rootOrigin)
+  destination.searchParams.set('return_to', `${dashboardOrigin}${returnTo}`)
+  window.location.assign(destination.toString())
+}
+
+function beginRootDashboardLogin() {
+  const destination = new URL('/api/auth/bridge', rootOrigin)
+  destination.searchParams.set('return_to', dashboardOrigin)
+  window.location.assign(destination.toString())
 }
 
 function beginLogin() {
@@ -246,6 +270,7 @@ function bindCopyButtons() {
       if (!text) {
         return
       }
+
       try {
         await navigator.clipboard.writeText(text)
         const previous = button.textContent
@@ -307,16 +332,9 @@ async function refreshMarketingAuthUi() {
 
 function bindMarketingAuth() {
   const authButton = document.querySelector<HTMLElement>('[data-auth-action]')
-  authButton?.addEventListener('click', async () => {
-    if (authButton.dataset.state === 'authenticated') {
-      window.location.assign(dashboardOrigin)
-      return
-    }
-
-    if (window.location.hostname === ROOT_HOST) {
-      const destination = new URL(dashboardOrigin)
-      destination.searchParams.set('login', '1')
-      window.location.assign(destination.toString())
+  authButton?.addEventListener('click', () => {
+    if (authButton.dataset.state === 'authenticated' || window.location.hostname === ROOT_HOST) {
+      beginRootDashboardLogin()
       return
     }
 
@@ -326,35 +344,31 @@ function bindMarketingAuth() {
 
 function renderPublicEnvironmentCards() {
   return publicEnvironments.map((environment) => {
-    const title = escapeHtml(environment.name)
-    const access = escapeHtml(environment.access)
-    const coverage = escapeHtml(environment.coverage)
-    const description = escapeHtml(environment.description)
     const state = environment.state
-      ? `<span class="dashboard-chip dashboard-chip-muted">${escapeHtml(environment.state)}</span>`
+      ? `<span class="dash-badge dash-badge-muted">${escapeHtml(environment.state)}</span>`
       : ''
 
-    const body = `
-      <article class="dashboard-card dashboard-card-public">
-        <div class="dashboard-card-head">
+    const card = `
+      <article class="dash-card dash-card-environment">
+        <div class="dash-card-top">
           <div>
-            <p class="dashboard-card-kicker">${access}</p>
-            <h3>${title}</h3>
+            <p class="dash-label">${escapeHtml(environment.access)}</p>
+            <h3>${escapeHtml(environment.name)}</h3>
           </div>
           ${state}
         </div>
-        <p class="dashboard-card-meta">${coverage}</p>
-        <p class="dashboard-card-copy">${description}</p>
+        <p class="dash-card-meta">${escapeHtml(environment.coverage)}</p>
+        <p class="dash-card-copy">${escapeHtml(environment.description)}</p>
       </article>
     `
 
     if (!environment.href) {
-      return body
+      return card
     }
 
     return `
-      <a class="dashboard-card-link" href="${escapeHtml(environment.href)}" target="_blank" rel="noopener noreferrer">
-        ${body}
+      <a class="dash-card-link" href="${escapeHtml(environment.href)}" target="_blank" rel="noopener noreferrer">
+        ${card}
       </a>
     `
   }).join('')
@@ -363,9 +377,9 @@ function renderPublicEnvironmentCards() {
 function renderDatasetCards(datasets: DatasetRecord[]) {
   if (datasets.length === 0) {
     return `
-      <article class="dashboard-empty">
-        <h3>No private environments yet</h3>
-        <p>Create one through the RESEARCH CLI and it will show up here automatically.</p>
+      <article class="dash-empty">
+        <h3>No private datasets yet</h3>
+        <p>Create a dataset from the RESEARCH CLI and it will appear here automatically.</p>
       </article>
     `
   }
@@ -376,18 +390,18 @@ function renderDatasetCards(datasets: DatasetRecord[]) {
       || `Source type: ${dataset.sourceType}`
 
     return `
-      <article class="dashboard-card">
-        <div class="dashboard-card-head">
+      <article class="dash-card">
+        <div class="dash-card-top">
           <div>
-            <p class="dashboard-card-kicker">Private environment</p>
+            <p class="dash-label">Private dataset</p>
             <h3>${escapeHtml(dataset.name)}</h3>
           </div>
-          <span class="dashboard-chip">${escapeHtml(formatStatus(dataset.status))}</span>
+          <span class="dash-badge">${escapeHtml(formatStatus(dataset.status))}</span>
         </div>
-        <p class="dashboard-card-copy">${escapeHtml(truncate(description, 180))}</p>
-        <dl class="dashboard-meta-grid">
+        <p class="dash-card-copy">${escapeHtml(truncate(description, 180))}</p>
+        <dl class="dash-definition-grid">
           <div>
-            <dt>Dataset ID</dt>
+            <dt>ID</dt>
             <dd>${escapeHtml(dataset.id)}</dd>
           </div>
           <div>
@@ -411,9 +425,9 @@ function renderDatasetCards(datasets: DatasetRecord[]) {
 function renderRunRows(runs: RunRecord[], datasetLookup: Map<string, DatasetRecord>) {
   if (runs.length === 0) {
     return `
-      <article class="dashboard-empty dashboard-empty-wide">
+      <article class="dash-empty dash-empty-compact">
         <h3>No research runs yet</h3>
-        <p>Runs started through the RESEARCH CLI will appear here with their latest status and prompt.</p>
+        <p>Runs launched from the RESEARCH CLI will appear here with status and prompt history.</p>
       </article>
     `
   }
@@ -421,18 +435,22 @@ function renderRunRows(runs: RunRecord[], datasetLookup: Map<string, DatasetReco
   return runs.map((run) => {
     const dataset = datasetLookup.get(run.datasetId)
     const prompt = run.prompt?.trim() || run.outputPreview?.trim() || 'No prompt recorded yet.'
+
     return `
-      <article class="run-row">
-        <div class="run-row-primary">
-          <div class="run-row-titleline">
-            <h3>${escapeHtml(dataset?.name ?? run.datasetId)}</h3>
-            <span class="dashboard-chip">${escapeHtml(formatStatus(run.status))}</span>
+      <article class="dash-run-row">
+        <div class="dash-run-main">
+          <div class="dash-run-head">
+            <div>
+              <p class="dash-label">Dataset</p>
+              <h3>${escapeHtml(dataset?.name ?? run.datasetId)}</h3>
+            </div>
+            <span class="dash-badge">${escapeHtml(formatStatus(run.status))}</span>
           </div>
-          <p class="run-row-copy">${escapeHtml(truncate(prompt, 220))}</p>
+          <p class="dash-run-copy">${escapeHtml(truncate(prompt, 240))}</p>
         </div>
-        <dl class="run-row-meta">
+        <dl class="dash-run-meta">
           <div>
-            <dt>Run</dt>
+            <dt>Run ID</dt>
             <dd>${escapeHtml(run.id)}</dd>
           </div>
           <div>
@@ -453,201 +471,264 @@ function renderRunRows(runs: RunRecord[], datasetLookup: Map<string, DatasetReco
   }).join('')
 }
 
+function renderCliCard() {
+  return `
+    <section class="dash-panel" id="cli">
+      <div class="dash-panel-head">
+        <div>
+          <p class="dash-label">RESEARCH CLI</p>
+          <h2>Connect and reopen your work</h2>
+        </div>
+      </div>
+      <div class="dash-cli-card">
+        <div class="dash-cli-row">
+          <div>
+            <p class="dash-cli-label">Install</p>
+            <p class="dash-cli-copy">Bootstrap the CLI on a fresh machine.</p>
+          </div>
+          <button class="dash-inline-button" type="button" data-copy-target="dash-install-command">Copy</button>
+        </div>
+        <pre class="dash-code" id="dash-install-command"><code>${escapeHtml(INSTALL_COMMAND)}</code></pre>
+      </div>
+      <div class="dash-cli-card">
+        <div class="dash-cli-row">
+          <div>
+            <p class="dash-cli-label">Start a dataset</p>
+            <p class="dash-cli-copy">The CLI opens browser auth, registers the dataset, then creates runs you can reopen later here.</p>
+          </div>
+        </div>
+        <pre class="dash-code"><code>research</code></pre>
+      </div>
+      <div class="dash-cli-notes">
+        <div class="dash-note">
+          <strong>Browser auth</strong>
+          <span>The CLI uses <code>/cli/login</code> and the same Worker-backed session as this dashboard.</span>
+        </div>
+        <div class="dash-note">
+          <strong>Data source</strong>
+          <span>This page reads from <code>/api/cli/datasets</code> and <code>/api/cli/runs</code>, which are the same control-plane records written by the RESEARCH CLI.</span>
+        </div>
+      </div>
+    </section>
+  `
+}
+
 function renderDashboardFrame(content: string) {
   document.body.innerHTML = content
 }
 
 function renderDashboardLoading() {
-  document.title = 'Dashboard | Alpha Research'
+  document.title = `${DASHBOARD_LABEL} | Alpha Research`
   renderDashboardFrame(`
-    <div class="dashboard-page">
-      <header class="dashboard-nav-shell">
-        <div class="dashboard-shell dashboard-nav">
-          <a class="logo-link" href="https://${ROOT_HOST}/" aria-label="Alpha Research home">
-            <img class="logo-wordmark" src="/alpha-research-wordmark.png" alt="Alpha Research logo" />
-          </a>
-          <div class="dashboard-nav-actions">
-            <a class="dashboard-nav-link" href="https://${ROOT_HOST}/#cli">CLI</a>
-            <button class="dashboard-nav-button" type="button" data-dashboard-login>Sign in</button>
-          </div>
-        </div>
-      </header>
-      <main class="dashboard-main">
-        <div class="dashboard-shell">
-          <section class="dashboard-hero dashboard-hero-loading">
-            <p class="dashboard-kicker">Research CLI</p>
+    <div class="dash-app">
+      <aside class="dash-sidebar">
+        <a class="dash-brand" href="${rootOrigin}/" aria-label="Alpha Research home">
+          <img class="logo-wordmark" src="/alpha-research-wordmark.png" alt="Alpha Research logo" />
+        </a>
+      </aside>
+      <main class="dash-main">
+        <section class="dash-hero-card dash-hero-card-loading">
+          <div>
+            <p class="dash-label">Research CLI</p>
             <h1>Loading your dashboard</h1>
-            <p class="dashboard-hero-copy">Fetching datasets, research environments, and recent runs.</p>
-          </section>
-        </div>
+            <p class="dash-hero-copy">Fetching datasets, runs, and account state.</p>
+          </div>
+        </section>
       </main>
     </div>
   `)
-
-  document.querySelector<HTMLElement>('[data-dashboard-login]')?.addEventListener('click', () => {
-    beginLogin()
-  })
 }
 
 function renderDashboardSignedOut(session: SessionResponse) {
-  document.title = 'Dashboard | Alpha Research'
+  document.title = `${DASHBOARD_LABEL} | Alpha Research`
   const message = session.configured
-    ? 'Sign in to view your private datasets, shared research environments, and previous runs.'
+    ? 'Your dashboard uses the same authenticated session as the RESEARCH CLI. Continue from the root site to bridge any older root-domain login into the shared dashboard session.'
     : (session.error ?? 'Auth is not configured on this deployment.')
 
   renderDashboardFrame(`
-    <div class="dashboard-page">
-      <header class="dashboard-nav-shell">
-        <div class="dashboard-shell dashboard-nav">
-          <a class="logo-link" href="https://${ROOT_HOST}/" aria-label="Alpha Research home">
-            <img class="logo-wordmark" src="/alpha-research-wordmark.png" alt="Alpha Research logo" />
-          </a>
-          <div class="dashboard-nav-actions">
-            <a class="dashboard-nav-link" href="https://${ROOT_HOST}/">Marketing site</a>
-            <button class="dashboard-nav-button" type="button" data-dashboard-login ${session.configured ? '' : 'disabled aria-disabled="true"'}>
-              Sign in
-            </button>
+    <div class="dash-app">
+      <aside class="dash-sidebar">
+        <a class="dash-brand" href="${rootOrigin}/" aria-label="Alpha Research home">
+          <img class="logo-wordmark" src="/alpha-research-wordmark.png" alt="Alpha Research logo" />
+        </a>
+        <nav class="dash-sidebar-nav">
+          <a class="dash-sidebar-item is-active" href="#home">Home</a>
+          <a class="dash-sidebar-item" href="#public">Public</a>
+          <a class="dash-sidebar-item" href="#cli">CLI</a>
+        </nav>
+      </aside>
+      <main class="dash-main">
+        <section class="dash-hero-card" id="home">
+          <div class="dash-hero-copyblock">
+            <p class="dash-label">Research dashboard</p>
+            <h1>Datasets, environments, and runs in one place</h1>
+            <p class="dash-hero-copy">${escapeHtml(message)}</p>
+            <div class="dash-hero-actions">
+              <button class="dash-primary-button" type="button" data-dashboard-login ${session.configured ? '' : 'disabled aria-disabled="true"'}>
+                Continue to dashboard login
+              </button>
+              <a class="dash-secondary-button" href="${rootOrigin}/#cli">View CLI docs</a>
+            </div>
           </div>
-        </div>
-      </header>
-      <main class="dashboard-main">
-        <div class="dashboard-shell">
-          <section class="dashboard-hero">
-            <div class="dashboard-hero-copywrap">
-              <p class="dashboard-kicker">Research dashboard</p>
-              <h1>Datasets, environments, and runs in one place</h1>
-              <p class="dashboard-hero-copy">${escapeHtml(message)}</p>
-            </div>
-            <div class="dashboard-stat-grid">
-              <article class="dashboard-stat-card">
-                <span class="dashboard-stat-label">Public environments</span>
-                <strong>${publicEnvironments.length}</strong>
-              </article>
-              <article class="dashboard-stat-card">
-                <span class="dashboard-stat-label">Private environments</span>
-                <strong>Sign in</strong>
-              </article>
-              <article class="dashboard-stat-card">
-                <span class="dashboard-stat-label">Past runs</span>
-                <strong>Sign in</strong>
-              </article>
-            </div>
-          </section>
+          <div class="dash-stat-grid">
+            <article class="dash-stat-card">
+              <span class="dash-stat-label">Public environments</span>
+              <strong>${publicEnvironments.length}</strong>
+            </article>
+            <article class="dash-stat-card">
+              <span class="dash-stat-label">Private datasets</span>
+              <strong>Sign in</strong>
+            </article>
+            <article class="dash-stat-card">
+              <span class="dash-stat-label">Past runs</span>
+              <strong>Sign in</strong>
+            </article>
+          </div>
+        </section>
 
-          <section class="dashboard-section">
-            <div class="dashboard-section-head">
+        <section class="dash-content-grid">
+          <section class="dash-panel" id="public">
+            <div class="dash-panel-head">
               <div>
-                <p class="dashboard-section-kicker">Public</p>
+                <p class="dash-label">Public</p>
                 <h2>Shared research environments</h2>
               </div>
             </div>
-            <div class="dashboard-card-grid dashboard-card-grid-public">
+            <div class="dash-public-grid">
               ${renderPublicEnvironmentCards()}
             </div>
           </section>
-        </div>
+          ${renderCliCard()}
+        </section>
       </main>
     </div>
   `)
 
   document.querySelector<HTMLElement>('[data-dashboard-login]')?.addEventListener('click', () => {
     if (session.configured) {
-      beginLogin()
+      beginDashboardBridge()
     }
   })
+
+  bindCopyButtons()
 }
 
 function renderDashboard(session: SessionResponse, datasets: DatasetRecord[], runs: RunRecord[]) {
-  document.title = 'Dashboard | Alpha Research'
+  document.title = `${DASHBOARD_LABEL} | Alpha Research`
   const sortedDatasets = [...datasets].sort((left, right) => right.updatedAt.localeCompare(left.updatedAt))
   const sortedRuns = [...runs].sort((left, right) => right.updatedAt.localeCompare(left.updatedAt))
   const datasetLookup = new Map(sortedDatasets.map((dataset) => [dataset.id, dataset]))
+  const privateDatasets = sortedDatasets.length
+  const activeRuns = countActiveRuns(sortedRuns)
 
   renderDashboardFrame(`
-    <div class="dashboard-page">
-      <header class="dashboard-nav-shell">
-        <div class="dashboard-shell dashboard-nav">
-          <a class="logo-link" href="https://${ROOT_HOST}/" aria-label="Alpha Research home">
-            <img class="logo-wordmark" src="/alpha-research-wordmark.png" alt="Alpha Research logo" />
-          </a>
-          <div class="dashboard-nav-actions">
-            <a class="dashboard-nav-link" href="https://${ROOT_HOST}/#cli">CLI docs</a>
-            <span class="dashboard-user-pill">${escapeHtml(session.user?.email ?? '')}</span>
-            <button class="dashboard-nav-button dashboard-nav-button-secondary" type="button" data-dashboard-logout>
-              Log out
-            </button>
+    <div class="dash-app">
+      <aside class="dash-sidebar">
+        <a class="dash-brand" href="${rootOrigin}/" aria-label="Alpha Research home">
+          <img class="logo-wordmark" src="/alpha-research-wordmark.png" alt="Alpha Research logo" />
+        </a>
+
+        <nav class="dash-sidebar-nav">
+          <a class="dash-sidebar-item is-active" href="#home">Home</a>
+          <a class="dash-sidebar-item" href="#datasets">Datasets</a>
+          <a class="dash-sidebar-item" href="#runs">Runs</a>
+          <a class="dash-sidebar-item" href="#cli">CLI</a>
+        </nav>
+
+        <div class="dash-sidebar-section">
+          <p class="dash-sidebar-heading">Account</p>
+          <div class="dash-sidebar-card">
+            <span class="dash-sidebar-email">${escapeHtml(session.user?.email ?? '')}</span>
+            <span class="dash-sidebar-hint">Shared session for site + CLI</span>
+            <button class="dash-sidebar-logout" type="button" data-dashboard-logout>Log out</button>
           </div>
         </div>
-      </header>
 
-      <main class="dashboard-main">
-        <div class="dashboard-shell">
-          <section class="dashboard-hero">
-            <div class="dashboard-hero-copywrap">
-              <p class="dashboard-kicker">Research dashboard</p>
-              <h1>Your datasets, research environments, and past runs</h1>
-              <p class="dashboard-hero-copy">
-                Public environments stay visible alongside your own private corpora, so the RESEARCH CLI has a clear logged-in home.
-              </p>
+        <div class="dash-sidebar-links">
+          <a href="${rootOrigin}/#cli">Documentation</a>
+          <a href="${rootOrigin}/blog/">Blog</a>
+        </div>
+      </aside>
+
+      <main class="dash-main">
+        <section class="dash-hero-card" id="home">
+          <div class="dash-hero-copyblock">
+            <p class="dash-label">Research dashboard</p>
+            <h1>RESEARCH CLI datasets and runs, without the marketing-page clutter</h1>
+            <p class="dash-hero-copy">
+              This view is backed by the same Worker control plane the RESEARCH CLI writes to. Your private datasets come from <code>/api/cli/datasets</code> and your run history comes from <code>/api/cli/runs</code>.
+            </p>
+            <div class="dash-hero-actions">
+              <a class="dash-primary-button" href="#datasets">View datasets</a>
+              <a class="dash-secondary-button" href="#runs">View runs</a>
             </div>
-            <div class="dashboard-stat-grid">
-              <article class="dashboard-stat-card">
-                <span class="dashboard-stat-label">Public environments</span>
-                <strong>${publicEnvironments.length}</strong>
-              </article>
-              <article class="dashboard-stat-card">
-                <span class="dashboard-stat-label">Private environments</span>
-                <strong>${sortedDatasets.length}</strong>
-              </article>
-              <article class="dashboard-stat-card">
-                <span class="dashboard-stat-label">Active runs</span>
-                <strong>${countActiveRuns(sortedRuns)}</strong>
-              </article>
-              <article class="dashboard-stat-card">
-                <span class="dashboard-stat-label">Past runs</span>
-                <strong>${sortedRuns.length}</strong>
-              </article>
-            </div>
-          </section>
+          </div>
+          <div class="dash-stat-grid">
+            <article class="dash-stat-card">
+              <span class="dash-stat-label">Private datasets</span>
+              <strong>${privateDatasets}</strong>
+              <span class="dash-stat-foot">Owned by your CLI session</span>
+            </article>
+            <article class="dash-stat-card">
+              <span class="dash-stat-label">Active runs</span>
+              <strong>${activeRuns}</strong>
+              <span class="dash-stat-foot">Currently processing or deploying</span>
+            </article>
+            <article class="dash-stat-card">
+              <span class="dash-stat-label">Past runs</span>
+              <strong>${sortedRuns.length}</strong>
+              <span class="dash-stat-foot">Latest activity ${escapeHtml(latestUpdate(sortedRuns))}</span>
+            </article>
+            <article class="dash-stat-card">
+              <span class="dash-stat-label">Public environments</span>
+              <strong>${publicEnvironments.length}</strong>
+              <span class="dash-stat-foot">Shared surfaces and previews</span>
+            </article>
+          </div>
+        </section>
 
-          <div class="dashboard-grid">
-            <section class="dashboard-section">
-              <div class="dashboard-section-head">
+        <section class="dash-content-grid">
+          <div class="dash-column">
+            <section class="dash-panel" id="datasets">
+              <div class="dash-panel-head">
                 <div>
-                  <p class="dashboard-section-kicker">Public</p>
-                  <h2>Shared research environments</h2>
-                </div>
-              </div>
-              <div class="dashboard-card-grid dashboard-card-grid-public">
-                ${renderPublicEnvironmentCards()}
-              </div>
-            </section>
-
-            <section class="dashboard-section">
-              <div class="dashboard-section-head">
-                <div>
-                  <p class="dashboard-section-kicker">Private</p>
+                  <p class="dash-label">Private</p>
                   <h2>Your datasets and environments</h2>
                 </div>
               </div>
-              <div class="dashboard-card-grid">
+              <div class="dash-stack">
                 ${renderDatasetCards(sortedDatasets)}
+              </div>
+            </section>
+
+            <section class="dash-panel" id="public">
+              <div class="dash-panel-head">
+                <div>
+                  <p class="dash-label">Public</p>
+                  <h2>Shared research environments</h2>
+                </div>
+              </div>
+              <div class="dash-public-grid">
+                ${renderPublicEnvironmentCards()}
               </div>
             </section>
           </div>
 
-          <section class="dashboard-section dashboard-section-runs">
-            <div class="dashboard-section-head">
-              <div>
-                <p class="dashboard-section-kicker">History</p>
-                <h2>Past research runs</h2>
+          <div class="dash-column">
+            <section class="dash-panel" id="runs">
+              <div class="dash-panel-head">
+                <div>
+                  <p class="dash-label">Run history</p>
+                  <h2>Past research runs</h2>
+                </div>
               </div>
-            </div>
-            <div class="run-list">
-              ${renderRunRows(sortedRuns, datasetLookup)}
-            </div>
-          </section>
-        </div>
+              <div class="dash-stack">
+                ${renderRunRows(sortedRuns, datasetLookup)}
+              </div>
+            </section>
+            ${renderCliCard()}
+          </div>
+        </section>
       </main>
     </div>
   `)
@@ -657,16 +738,30 @@ function renderDashboard(session: SessionResponse, datasets: DatasetRecord[], ru
       method: 'POST',
       credentials: 'same-origin',
     })
-    window.location.assign(`https://${ROOT_HOST}/`)
+    window.location.assign(`${dashboardOrigin}?logged_out=1`)
   })
+
+  bindCopyButtons()
 }
 
 async function initDashboard() {
   renderDashboardLoading()
 
+  const loggedOut = url.searchParams.get('logged_out') === '1'
+
   try {
     const session = await fetchSession()
-    if (!session.configured || !session.authenticated || !session.user) {
+
+    if (!session.configured) {
+      renderDashboardSignedOut(session)
+      return
+    }
+
+    if (!session.authenticated || !session.user) {
+      if (!loggedOut) {
+        beginDashboardBridge()
+        return
+      }
       renderDashboardSignedOut(session)
       return
     }
@@ -700,7 +795,7 @@ async function initMarketingPage() {
   }
 
   if (url.searchParams.get('login') === '1') {
-    beginLogin()
+    beginRootDashboardLogin()
   }
 }
 

@@ -7,6 +7,8 @@ import { onRequestGet as authSessionGet } from '../functions/api/auth/session.js
 // @ts-expect-error Cloudflare Worker entrypoint imports JS auth handlers.
 import { onRequestPost as authLogoutPost } from '../functions/api/auth/logout.js'
 // @ts-expect-error Cloudflare Worker entrypoint imports JS auth handlers.
+import { onRequestGet as authBridgeGet } from '../functions/api/auth/bridge.js'
+// @ts-expect-error Cloudflare Worker entrypoint imports JS auth handlers.
 import { onRequestGet as cliLoginGet } from '../functions/cli/login.js'
 // @ts-expect-error Cloudflare Worker entrypoint imports JS auth handlers.
 import { onRequestPost as cliPlanPost } from '../functions/cli/plan.js'
@@ -167,6 +169,10 @@ export default {
 
     if (pathname === '/api/auth/session' && request.method === 'GET') {
       return authSessionGet(createContext(request, env))
+    }
+
+    if (pathname === '/api/auth/bridge' && request.method === 'GET') {
+      return authBridgeGet(createContext(request, env))
     }
 
     if (pathname === '/api/auth/logout' && request.method === 'POST') {
