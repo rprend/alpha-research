@@ -212,6 +212,28 @@ export default {
       })
     }
 
+    const datasetMatch = pathname.match(/^\/api\/cli\/datasets\/([^/]+)$/u)
+    if (datasetMatch && request.method === 'GET') {
+      return forwardCliRequest(request, env, `/datasets/${encodeURIComponent(datasetMatch[1] ?? '')}`, { method: 'GET' })
+    }
+
+    const profileMatch = pathname.match(/^\/api\/cli\/datasets\/([^/]+)\/profile$/u)
+    if (profileMatch && request.method === 'GET') {
+      return forwardCliRequest(request, env, `/datasets/${encodeURIComponent(profileMatch[1] ?? '')}/profile`, { method: 'GET' })
+    }
+    if (profileMatch && request.method === 'POST') {
+      const cliSession = await requireCliSession(request, env)
+      if (!cliSession) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      const body = await request.json().catch(() => ({}))
+      return proxyToControlPlane(env, `/datasets/${encodeURIComponent(profileMatch[1] ?? '')}/profile`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...body, ownerEmail: cliSession.email }),
+      })
+    }
+
     const uploadMatch = pathname.match(/^\/api\/cli\/datasets\/([^/]+)\/source-upload$/u)
     if (uploadMatch && request.method === 'POST') {
       const cliSession = await requireCliSession(request, env)
@@ -295,6 +317,61 @@ export default {
         request,
         env,
         `/runs/${encodeURIComponent(runEventsMatch[1] ?? '')}/events${suffix}`,
+        { method: 'GET' },
+      )
+    }
+
+    const runArtifactsMatch = pathname.match(/^\/api\/cli\/runs\/([^/]+)\/artifacts$/u)
+    if (runArtifactsMatch && request.method === 'GET') {
+      return forwardCliRequest(
+        request,
+        env,
+        `/runs/${encodeURIComponent(runArtifactsMatch[1] ?? '')}/artifacts`,
+        { method: 'GET' },
+      )
+    }
+
+    const runResultsMatch = pathname.match(/^\/api\/cli\/runs\/([^/]+)\/results$/u)
+    if (runResultsMatch && request.method === 'GET') {
+      return forwardCliRequest(
+        request,
+        env,
+        `/runs/${encodeURIComponent(runResultsMatch[1] ?? '')}/results`,
+        { method: 'GET' },
+      )
+    }
+
+    if (pathname === '/api/cli/research-specs' && request.method === 'GET') {
+      const cliSession = await requireCliSession(request, env)
+      if (!cliSession) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      const datasetId = url.searchParams.get('datasetId')
+      const suffix = datasetId ? `&datasetId=${encodeURIComponent(datasetId)}` : ''
+      return proxyToControlPlane(env, `/research-specs?ownerEmail=${encodeURIComponent(cliSession.email)}${suffix}`, {
+        method: 'GET',
+      })
+    }
+
+    if (pathname === '/api/cli/research-specs' && request.method === 'POST') {
+      const cliSession = await requireCliSession(request, env)
+      if (!cliSession) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      const body = await request.json().catch(() => ({}))
+      return proxyToControlPlane(env, '/research-specs', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...body, ownerEmail: cliSession.email }),
+      })
+    }
+
+    const researchSpecMatch = pathname.match(/^\/api\/cli\/research-specs\/([^/]+)$/u)
+    if (researchSpecMatch && request.method === 'GET') {
+      return forwardCliRequest(
+        request,
+        env,
+        `/research-specs/${encodeURIComponent(researchSpecMatch[1] ?? '')}`,
         { method: 'GET' },
       )
     }

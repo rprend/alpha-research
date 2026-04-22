@@ -65,6 +65,14 @@ type DatasetRecord = {
   updatedAt: string
 }
 
+type DatasetProfileRecord = {
+  datasetId: string
+  schemaJson: string | null
+  sampleRowsJson: string | null
+  notes: string | null
+  updatedAt: string
+}
+
 type RunRecord = {
   id: string
   datasetId: string
@@ -75,6 +83,17 @@ type RunRecord = {
   outputPreview: string | null
   dropletId: string | null
   dropletName: string | null
+  createdAt: string
+  updatedAt: string
+}
+
+type ResearchSpecRecord = {
+  id: string
+  ownerEmail: string
+  datasetId: string
+  hypothesis: string
+  specJson: string | null
+  status: string
   createdAt: string
   updatedAt: string
 }
@@ -158,6 +177,45 @@ export class ControlPlane {
         created_at TEXT NOT NULL
       );
     `)
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS dataset_profiles (
+        dataset_id TEXT PRIMARY KEY,
+        schema_json TEXT,
+        sample_rows_json TEXT,
+        notes TEXT,
+        updated_at TEXT NOT NULL
+      );
+    `)
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS research_specs (
+        id TEXT PRIMARY KEY,
+        owner_email TEXT NOT NULL,
+        dataset_id TEXT NOT NULL,
+        hypothesis TEXT NOT NULL,
+        spec_json TEXT,
+        status TEXT NOT NULL,
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL
+      );
+    `)
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS run_metadata (
+        run_id TEXT PRIMARY KEY,
+        config_json TEXT,
+        artifact_spec_json TEXT
+      );
+    `)
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS run_artifacts (
+        id TEXT PRIMARY KEY,
+        run_id TEXT NOT NULL,
+        type TEXT NOT NULL,
+        title TEXT NOT NULL,
+        url TEXT,
+        content_json TEXT,
+        created_at TEXT NOT NULL
+      );
+    `)
   }
 
   private rows(query: string, ...bindings: unknown[]) {
@@ -237,6 +295,98 @@ export class ControlPlane {
       createdAt: String(get('created_at', 'createdAt')),
       updatedAt: String(get('updated_at', 'updatedAt')),
     }
+  }
+
+  private getDatasetProfile(datasetId: string) {
+    const row = this.rows('SELECT * FROM dataset_profiles WHERE dataset_id = ? LIMIT 1', datasetId)[0]
+    if (!row) {
+      return null
+    }
+    const get = (snake: string, camel: string) => row[snake] ?? row[camel]
+    return {
+      datasetId: String(get('dataset_id', 'datasetId')),
+      schemaJson: get('schema_json', 'schemaJson') ? String(get('schema_json', 'schemaJson')) : null,
+      sampleRowsJson: get('sample_rows_json', 'sampleRowsJson') ? String(get('sample_rows_json', 'sampleRowsJson')) : null,
+      notes: row.notes ? String(row.notes) : null,
+      updatedAt: String(get('updated_at', 'updatedAt')),
+    } satisfies DatasetProfileRecord
+  }
+
+  private datasetProfileToJson(profile: DatasetProfileRecord | null) {
+    if (!profile) {
+      return null
+    }
+    return {
+      datasetId: profile.datasetId,
+      schema: profile.schemaJson ? JSON.parse(profile.schemaJson) : null,
+      sampleRows: profile.sampleRowsJson ? JSON.parse(profile.sampleRowsJson) : null,
+      notes: profile.notes,
+      updatedAt: profile.updatedAt,
+    }
+  }
+
+  private parseResearchSpecRow(row: Record<string, unknown>): ResearchSpecRecord {
+    const get = (snake: string, camel: string) => row[snake] ?? row[camel]
+    return {
+      id: String(row.id),
+      ownerEmail: String(get('owner_email', 'ownerEmail')),
+      datasetId: String(get('dataset_id', 'datasetId')),
+      hypothesis: String(row.hypothesis),
+      specJson: get('spec_json', 'specJson') ? String(get('spec_json', 'specJson')) : null,
+      status: String(row.status),
+      createdAt: String(get('created_at', 'createdAt')),
+      updatedAt: String(get('updated_at', 'updatedAt')),
+    }
+  }
+
+  private researchSpecToJson(row: Record<string, unknown>) {
+    const spec = this.parseResearchSpecRow(row)
+    return {
+      id: spec.id,
+      datasetId: spec.datasetId,
+      hypothesis: spec.hypothesis,
+      spec: spec.specJson ? JSON.parse(spec.specJson) : null,
+      status: spec.status,
+      createdAt: spec.createdAt,
+      updatedAt: spec.updatedAt,
+    }
+  }
+
+  private getRunMetadata(runId: string) {
+    const row = this.rows('SELECT * FROM run_metadata WHERE run_id = ? LIMIT 1', runId)[0]
+    if (!row) {
+      return null
+    }
+    return {
+      config: row.config_json ? JSON.parse(String(row.config_json)) : null,
+      artifactSpec: row.artifact_spec_json ? JSON.parse(String(row.artifact_spec_json)) : null,
+    }
+  }
+
+  private listRunArtifacts(runId: string) {
+    const rows = this.rows('SELECT * FROM run_artifacts WHERE run_id = ? ORDER BY created_at ASC', runId)
+    return rows.map((row) => ({
+      id: String(row.id),
+      runId: String(row.run_id),
+      type: String(row.type),
+      title: String(row.title),
+      url: row.url ? String(row.url) : undefined,
+      content: row.content_json ? JSON.parse(String(row.content_json)) : undefined,
+      createdAt: String(row.created_at),
+    }))
+  }
+
+  private createRunArtifact(runId: string, type: string, title: string, content?: unknown, url?: string | null) {
+    this.sql.exec(
+      `INSERT INTO run_artifacts (id, run_id, type, title, url, content_json, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      crypto.randomUUID(),
+      runId,
+      type,
+      title,
+      url ?? null,
+      content === undefined ? null : JSON.stringify(content),
+      nowIso(),
+    )
   }
 
   private getDataset(id: string) {
@@ -348,6 +498,51 @@ export class ControlPlane {
       }
       const dataset = this.getDataset(datasetId)
       return respondJson({ dataset: this.datasetRowToJson(dataset as unknown as Record<string, unknown>) })
+    }
+
+    const datasetMatch = pathname.match(/^\/datasets\/([^/]+)$/u)
+    if (datasetMatch && request.method === 'GET') {
+      const datasetId = decodeURIComponent(datasetMatch[1] ?? '')
+      const row = this.getDataset(datasetId)
+      if (!row) {
+        return respondJson({ error: 'Dataset not found' }, 404)
+      }
+      return respondJson({
+        dataset: {
+          ...this.datasetRowToJson(row as unknown as Record<string, unknown>),
+          ingestConfig: row.ingestConfigJson ? JSON.parse(row.ingestConfigJson) : null,
+          sourceFilename: row.sourceFilename,
+          sourceType: row.sourceType,
+          profile: this.datasetProfileToJson(this.getDatasetProfile(datasetId)),
+        },
+      })
+    }
+
+    const profileMatch = pathname.match(/^\/datasets\/([^/]+)\/profile$/u)
+    if (profileMatch && request.method === 'GET') {
+      const datasetId = decodeURIComponent(profileMatch[1] ?? '')
+      return respondJson({ profile: this.datasetProfileToJson(this.getDatasetProfile(datasetId)) })
+    }
+
+    if (profileMatch && request.method === 'POST') {
+      const datasetId = decodeURIComponent(profileMatch[1] ?? '')
+      const body = await request.json() as Record<string, unknown>
+      const timestamp = nowIso()
+      this.sql.exec(
+        `INSERT INTO dataset_profiles (dataset_id, schema_json, sample_rows_json, notes, updated_at)
+         VALUES (?, ?, ?, ?, ?)
+         ON CONFLICT(dataset_id) DO UPDATE SET
+           schema_json = excluded.schema_json,
+           sample_rows_json = excluded.sample_rows_json,
+           notes = excluded.notes,
+           updated_at = excluded.updated_at`,
+        datasetId,
+        body.schema ? JSON.stringify(body.schema) : null,
+        body.sampleRows ? JSON.stringify(body.sampleRows) : null,
+        body.notes ? String(body.notes) : null,
+        timestamp,
+      )
+      return respondJson({ profile: this.datasetProfileToJson(this.getDatasetProfile(datasetId)) })
     }
 
     const sourceUploadMatch = pathname.match(/^\/datasets\/([^/]+)\/source-upload$/u)
@@ -507,8 +702,29 @@ export class ControlPlane {
         return respondJson({ error: 'Dataset not found' }, 404)
       }
       const prompt = String(body.prompt ?? '')
-      const runId = this.createRun(datasetId, ownerEmail, 'analysis', prompt)
-      this.appendRunEvent(runId, 'Run created. Remote analysis runner provisioning is not implemented yet.', 'warning')
+      const runType = String(body.type ?? 'analysis')
+      const config = body.config && typeof body.config === 'object' ? body.config : null
+      const artifactSpec = Array.isArray(body.artifacts) ? body.artifacts : []
+      const runId = this.createRun(datasetId, ownerEmail, runType, prompt)
+      this.sql.exec(
+        `INSERT INTO run_metadata (run_id, config_json, artifact_spec_json) VALUES (?, ?, ?)`,
+        runId,
+        config ? JSON.stringify(config) : null,
+        artifactSpec.length > 0 ? JSON.stringify(artifactSpec) : null,
+      )
+      for (const artifact of artifactSpec) {
+        if (artifact && typeof artifact === 'object') {
+          const typedArtifact = artifact as Record<string, unknown>
+          this.createRunArtifact(
+            runId,
+            String(typedArtifact.type ?? 'artifact'),
+            String(typedArtifact.title ?? typedArtifact.type ?? 'artifact'),
+            typedArtifact,
+            null,
+          )
+        }
+      }
+      this.appendRunEvent(runId, `Run created with type ${runType}. Remote execution is not implemented yet.`, 'warning')
       this.sql.exec('UPDATE runs SET status = ?, updated_at = ? WHERE id = ?', 'queued', nowIso(), runId)
       return respondJson({ run: this.runRowToJson(this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]!) })
     }
@@ -544,6 +760,84 @@ export class ControlPlane {
           createdAt: String(row.created_at),
         })),
       })
+    }
+
+    const runArtifactsMatch = pathname.match(/^\/runs\/([^/]+)\/artifacts$/u)
+    if (runArtifactsMatch && request.method === 'GET') {
+      const runId = decodeURIComponent(runArtifactsMatch[1] ?? '')
+      return respondJson({ artifacts: this.listRunArtifacts(runId) })
+    }
+
+    const runResultsMatch = pathname.match(/^\/runs\/([^/]+)\/results$/u)
+    if (runResultsMatch && request.method === 'GET') {
+      const runId = decodeURIComponent(runResultsMatch[1] ?? '')
+      const runRow = this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]
+      if (!runRow) {
+        return respondJson({ error: 'Run not found' }, 404)
+      }
+      const events = this.rows(
+        'SELECT id, run_id, message, level, created_at FROM run_events WHERE run_id = ? ORDER BY seq ASC',
+        runId,
+      ).map((row) => ({
+        id: String(row.id),
+        runId: String(row.run_id),
+        message: String(row.message),
+        level: String(row.level),
+        createdAt: String(row.created_at),
+      }))
+      return respondJson({
+        run: this.runRowToJson(runRow),
+        metadata: this.getRunMetadata(runId),
+        artifacts: this.listRunArtifacts(runId),
+        events,
+      })
+    }
+
+    if (pathname === '/research-specs' && request.method === 'GET') {
+      const ownerEmail = url.searchParams.get('ownerEmail')
+      const datasetId = url.searchParams.get('datasetId')
+      if (!ownerEmail) {
+        return respondJson({ error: 'Missing ownerEmail' }, 400)
+      }
+      const rows = datasetId
+        ? this.rows('SELECT * FROM research_specs WHERE owner_email = ? AND dataset_id = ? ORDER BY updated_at DESC', ownerEmail, datasetId)
+        : this.rows('SELECT * FROM research_specs WHERE owner_email = ? ORDER BY updated_at DESC', ownerEmail)
+      return respondJson({ specs: rows.map((row) => this.researchSpecToJson(row)) })
+    }
+
+    if (pathname === '/research-specs' && request.method === 'POST') {
+      const body = await request.json() as Record<string, unknown>
+      const ownerEmail = String(body.ownerEmail ?? '')
+      const datasetId = String(body.datasetId ?? '')
+      const hypothesis = String(body.hypothesis ?? '')
+      if (!ownerEmail || !datasetId || !hypothesis) {
+        return respondJson({ error: 'Missing ownerEmail, datasetId, or hypothesis' }, 400)
+      }
+      const id = crypto.randomUUID()
+      const timestamp = nowIso()
+      this.sql.exec(
+        `INSERT INTO research_specs (id, owner_email, dataset_id, hypothesis, spec_json, status, created_at, updated_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+        id,
+        ownerEmail,
+        datasetId,
+        hypothesis,
+        body.spec ? JSON.stringify(body.spec) : null,
+        String(body.status ?? 'draft'),
+        timestamp,
+        timestamp,
+      )
+      return respondJson({ spec: this.researchSpecToJson(this.rows('SELECT * FROM research_specs WHERE id = ?', id)[0]!) })
+    }
+
+    const researchSpecMatch = pathname.match(/^\/research-specs\/([^/]+)$/u)
+    if (researchSpecMatch && request.method === 'GET') {
+      const id = decodeURIComponent(researchSpecMatch[1] ?? '')
+      const row = this.rows('SELECT * FROM research_specs WHERE id = ?', id)[0]
+      if (!row) {
+        return respondJson({ error: 'Research spec not found' }, 404)
+      }
+      return respondJson({ spec: this.researchSpecToJson(row) })
     }
 
     const internalEventMatch = pathname.match(/^\/internal\/runs\/([^/]+)\/events$/u)
