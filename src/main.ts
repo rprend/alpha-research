@@ -209,6 +209,7 @@ function beginLogin() {
 async function fetchSession() {
   const response = await fetch('/api/auth/session', {
     credentials: 'same-origin',
+    cache: 'no-store',
   })
   return response.json() as Promise<SessionResponse>
 }
@@ -216,6 +217,7 @@ async function fetchSession() {
 async function fetchJson<T>(input: string) {
   const response = await fetch(input, {
     credentials: 'same-origin',
+    cache: 'no-store',
   })
 
   if (!response.ok) {
@@ -643,8 +645,23 @@ async function initDashboard() {
         beginDashboardBridge()
         return
       }
-      renderDashboardSignedOut(session)
-      return
+
+      try {
+        const [datasets, runs] = await Promise.all([
+          fetchJson<DatasetRecord[]>('/api/cli/datasets'),
+          fetchJson<RunRecord[]>('/api/cli/runs'),
+        ])
+
+        renderDashboard({
+          authenticated: true,
+          configured: true,
+          user: { email: 'Signed in' },
+        }, datasets, runs)
+        return
+      } catch {
+        renderDashboardSignedOut(session)
+        return
+      }
     }
 
     const [datasets, runs] = await Promise.all([
