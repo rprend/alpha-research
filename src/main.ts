@@ -41,15 +41,6 @@ type RunRecord = {
   updatedAt: string
 }
 
-type PublicEnvironment = {
-  name: string
-  access: string
-  coverage: string
-  description: string
-  href?: string
-  state?: string
-}
-
 const ROOT_HOST = 'alpharesearch.nyc'
 const DASHBOARD_HOST = 'dashboard.alpharesearch.nyc'
 const INSTALL_COMMAND = 'curl -fsSL https://raw.githubusercontent.com/zenobia-pay/alpha-research/codex/initial-substrate/scripts/install_alpha_research.sh | bash'
@@ -58,30 +49,6 @@ const url = new URL(window.location.href)
 const isDashboardView = window.location.hostname === DASHBOARD_HOST || url.searchParams.get('view') === 'dashboard'
 const rootOrigin = window.location.hostname === 'localhost' ? window.location.origin : `https://${ROOT_HOST}`
 const dashboardOrigin = window.location.hostname === 'localhost' ? window.location.origin : `https://${DASHBOARD_HOST}`
-
-const publicEnvironments: PublicEnvironment[] = [
-  {
-    name: 'Scene Wiki',
-    access: 'Public environment',
-    coverage: 'Live corpus',
-    description: 'A public research surface built from scraped community history and labeled canon.',
-    href: 'https://scenewiki.net/',
-  },
-  {
-    name: 'Alpha Econ',
-    access: 'Public preview',
-    coverage: 'Census, BLS, NBER',
-    description: 'Economic data prepared for agentic analysis, hypothesis testing, and evidence gathering.',
-    state: 'Coming soon',
-  },
-  {
-    name: 'Alpha Justice',
-    access: 'Public preview',
-    coverage: 'Supreme Court archive',
-    description: 'Case-law research environment for opinion retrieval, citation tracing, and argument comparison.',
-    state: 'Coming soon',
-  },
-]
 
 function escapeHtml(value: string) {
   return value
@@ -222,9 +189,10 @@ function beginDashboardBridge() {
   window.location.assign(destination.toString())
 }
 
-function beginRootDashboardLogin() {
-  const destination = new URL('/api/auth/bridge', rootOrigin)
-  destination.searchParams.set('return_to', dashboardOrigin)
+function beginDashboardLogin() {
+  const destination = new URL('/api/auth/start', rootOrigin)
+  const bridgeReturn = `/api/auth/bridge?return_to=${encodeURIComponent(dashboardOrigin)}`
+  destination.searchParams.set('return_to', bridgeReturn)
   window.location.assign(destination.toString())
 }
 
@@ -334,44 +302,12 @@ function bindMarketingAuth() {
   const authButton = document.querySelector<HTMLElement>('[data-auth-action]')
   authButton?.addEventListener('click', () => {
     if (authButton.dataset.state === 'authenticated' || window.location.hostname === ROOT_HOST) {
-      beginRootDashboardLogin()
+      beginDashboardBridge()
       return
     }
 
     beginLogin()
   })
-}
-
-function renderPublicEnvironmentCards() {
-  return publicEnvironments.map((environment) => {
-    const state = environment.state
-      ? `<span class="dash-badge dash-badge-muted">${escapeHtml(environment.state)}</span>`
-      : ''
-
-    const card = `
-      <article class="dash-card dash-card-environment">
-        <div class="dash-card-top">
-          <div>
-            <p class="dash-label">${escapeHtml(environment.access)}</p>
-            <h3>${escapeHtml(environment.name)}</h3>
-          </div>
-          ${state}
-        </div>
-        <p class="dash-card-meta">${escapeHtml(environment.coverage)}</p>
-        <p class="dash-card-copy">${escapeHtml(environment.description)}</p>
-      </article>
-    `
-
-    if (!environment.href) {
-      return card
-    }
-
-    return `
-      <a class="dash-card-link" href="${escapeHtml(environment.href)}" target="_blank" rel="noopener noreferrer">
-        ${card}
-      </a>
-    `
-  }).join('')
 }
 
 function renderDatasetCards(datasets: DatasetRecord[]) {
@@ -542,7 +478,7 @@ function renderDashboardLoading() {
 function renderDashboardSignedOut(session: SessionResponse) {
   document.title = `${DASHBOARD_LABEL} | Alpha Research`
   const message = session.configured
-    ? 'Your dashboard uses the same authenticated session as the RESEARCH CLI. Continue from the root site to bridge any older root-domain login into the shared dashboard session.'
+    ? 'Sign in to view the datasets and runs created by the RESEARCH CLI.'
     : (session.error ?? 'Auth is not configured on this deployment.')
 
   renderDashboardFrame(`
@@ -553,7 +489,6 @@ function renderDashboardSignedOut(session: SessionResponse) {
         </a>
         <nav class="dash-sidebar-nav">
           <a class="dash-sidebar-item is-active" href="#home">Home</a>
-          <a class="dash-sidebar-item" href="#public">Public</a>
           <a class="dash-sidebar-item" href="#cli">CLI</a>
         </nav>
       </aside>
@@ -561,20 +496,16 @@ function renderDashboardSignedOut(session: SessionResponse) {
         <section class="dash-hero-card" id="home">
           <div class="dash-hero-copyblock">
             <p class="dash-label">Research dashboard</p>
-            <h1>Datasets, environments, and runs in one place</h1>
+            <h1>Datasets and runs from the RESEARCH CLI</h1>
             <p class="dash-hero-copy">${escapeHtml(message)}</p>
             <div class="dash-hero-actions">
               <button class="dash-primary-button" type="button" data-dashboard-login ${session.configured ? '' : 'disabled aria-disabled="true"'}>
-                Continue to dashboard login
+                Sign in
               </button>
               <a class="dash-secondary-button" href="${rootOrigin}/#cli">View CLI docs</a>
             </div>
           </div>
           <div class="dash-stat-grid">
-            <article class="dash-stat-card">
-              <span class="dash-stat-label">Public environments</span>
-              <strong>${publicEnvironments.length}</strong>
-            </article>
             <article class="dash-stat-card">
               <span class="dash-stat-label">Private datasets</span>
               <strong>Sign in</strong>
@@ -583,21 +514,14 @@ function renderDashboardSignedOut(session: SessionResponse) {
               <span class="dash-stat-label">Past runs</span>
               <strong>Sign in</strong>
             </article>
+            <article class="dash-stat-card">
+              <span class="dash-stat-label">CLI session</span>
+              <strong>Sign in</strong>
+            </article>
           </div>
         </section>
 
         <section class="dash-content-grid">
-          <section class="dash-panel" id="public">
-            <div class="dash-panel-head">
-              <div>
-                <p class="dash-label">Public</p>
-                <h2>Shared research environments</h2>
-              </div>
-            </div>
-            <div class="dash-public-grid">
-              ${renderPublicEnvironmentCards()}
-            </div>
-          </section>
           ${renderCliCard()}
         </section>
       </main>
@@ -606,7 +530,7 @@ function renderDashboardSignedOut(session: SessionResponse) {
 
   document.querySelector<HTMLElement>('[data-dashboard-login]')?.addEventListener('click', () => {
     if (session.configured) {
-      beginDashboardBridge()
+      beginDashboardLogin()
     }
   })
 
@@ -654,9 +578,9 @@ function renderDashboard(session: SessionResponse, datasets: DatasetRecord[], ru
         <section class="dash-hero-card" id="home">
           <div class="dash-hero-copyblock">
             <p class="dash-label">Research dashboard</p>
-            <h1>RESEARCH CLI datasets and runs, without the marketing-page clutter</h1>
+            <h1>RESEARCH CLI datasets and runs</h1>
             <p class="dash-hero-copy">
-              This view is backed by the same Worker control plane the RESEARCH CLI writes to. Your private datasets come from <code>/api/cli/datasets</code> and your run history comes from <code>/api/cli/runs</code>.
+              This view is backed by the same Worker control plane the RESEARCH CLI writes to. Private datasets come from <code>/api/cli/datasets</code> and run history comes from <code>/api/cli/runs</code>.
             </p>
             <div class="dash-hero-actions">
               <a class="dash-primary-button" href="#datasets">View datasets</a>
@@ -679,11 +603,6 @@ function renderDashboard(session: SessionResponse, datasets: DatasetRecord[], ru
               <strong>${sortedRuns.length}</strong>
               <span class="dash-stat-foot">Latest activity ${escapeHtml(latestUpdate(sortedRuns))}</span>
             </article>
-            <article class="dash-stat-card">
-              <span class="dash-stat-label">Public environments</span>
-              <strong>${publicEnvironments.length}</strong>
-              <span class="dash-stat-foot">Shared surfaces and previews</span>
-            </article>
           </div>
         </section>
 
@@ -693,7 +612,7 @@ function renderDashboard(session: SessionResponse, datasets: DatasetRecord[], ru
               <div class="dash-panel-head">
                 <div>
                   <p class="dash-label">Private</p>
-                  <h2>Your datasets and environments</h2>
+                  <h2>Your datasets</h2>
                 </div>
               </div>
               <div class="dash-stack">
@@ -701,20 +620,6 @@ function renderDashboard(session: SessionResponse, datasets: DatasetRecord[], ru
               </div>
             </section>
 
-            <section class="dash-panel" id="public">
-              <div class="dash-panel-head">
-                <div>
-                  <p class="dash-label">Public</p>
-                  <h2>Shared research environments</h2>
-                </div>
-              </div>
-              <div class="dash-public-grid">
-                ${renderPublicEnvironmentCards()}
-              </div>
-            </section>
-          </div>
-
-          <div class="dash-column">
             <section class="dash-panel" id="runs">
               <div class="dash-panel-head">
                 <div>
@@ -726,8 +631,9 @@ function renderDashboard(session: SessionResponse, datasets: DatasetRecord[], ru
                 ${renderRunRows(sortedRuns, datasetLookup)}
               </div>
             </section>
-            ${renderCliCard()}
           </div>
+
+          ${renderCliCard()}
         </section>
       </main>
     </div>
@@ -758,7 +664,7 @@ async function initDashboard() {
     }
 
     if (!session.authenticated || !session.user) {
-      if (!loggedOut) {
+      if (!loggedOut && document.referrer.includes(ROOT_HOST)) {
         beginDashboardBridge()
         return
       }
@@ -795,7 +701,7 @@ async function initMarketingPage() {
   }
 
   if (url.searchParams.get('login') === '1') {
-    beginRootDashboardLogin()
+    beginDashboardLogin()
   }
 }
 
