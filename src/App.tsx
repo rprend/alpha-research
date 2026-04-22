@@ -1,13 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import {
-  ArrowUpRight,
-  Database,
-  History,
-  LayoutDashboard,
-  LogOut,
-  MoreHorizontal,
-  TerminalSquare,
-} from 'lucide-react'
+import { ArrowUpRight, Database, History, LayoutDashboard, LogOut, MoreHorizontal } from 'lucide-react'
 
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
@@ -321,26 +313,6 @@ function useCopy(text: string) {
   return { copied, copy }
 }
 
-function CopyCommand({ text }: { text: string }) {
-  const { copied, copy } = useCopy(text)
-
-  return (
-    <div className="rounded-none border border-border bg-muted/30">
-      <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-3">
-        <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-          Command
-        </span>
-        <Button size="xs" variant="outline" onClick={copy}>
-          {copied ? 'Copied' : 'Copy'}
-        </Button>
-      </div>
-      <pre className="overflow-x-auto px-4 py-4 text-sm leading-6 text-foreground">
-        <code>{text}</code>
-      </pre>
-    </div>
-  )
-}
-
 function StatusBadge({ children }: { children: string }) {
   return (
     <Badge
@@ -556,14 +528,6 @@ function DashboardSignedOut({
                     <span>Dashboard</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <a href="#cli">
-                      <TerminalSquare />
-                      <span>CLI</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>
@@ -581,7 +545,7 @@ function DashboardSignedOut({
             </div>
           </header>
 
-          <main className="grid flex-1 gap-6 px-4 py-6 md:px-8 xl:grid-cols-[minmax(0,1fr)_22rem]">
+          <main className="flex flex-1 px-4 py-6 md:px-8">
             <Card className="min-h-[30rem] rounded-none border border-border bg-background py-0 shadow-none">
               <CardContent className="flex h-full px-0">
                 <Empty className="border-0 px-8 py-16">
@@ -592,7 +556,7 @@ function DashboardSignedOut({
                     <EmptyTitle>Sign in to open your workspace</EmptyTitle>
                     <EmptyDescription>
                       {session.configured
-                        ? 'The dashboard uses the same Alpha Research auth session as the CLI and the main site.'
+                        ? 'Sign in to view your datasets and runs.'
                         : session.error ?? 'Auth is not configured on this deployment.'}
                     </EmptyDescription>
                   </EmptyHeader>
@@ -604,8 +568,6 @@ function DashboardSignedOut({
                 </Empty>
               </CardContent>
             </Card>
-
-            <CliPanel />
           </main>
         </div>
       </SidebarInset>
@@ -613,53 +575,16 @@ function DashboardSignedOut({
   )
 }
 
-function CliPanel() {
-  return (
-    <Card
-      id="cli"
-      className="rounded-none border border-border bg-muted/20 py-0 shadow-none"
-    >
-      <CardHeader className="border-b border-border px-6 py-5">
-        <CardTitle className="text-sm">The RESEARCH CLI</CardTitle>
-        <CardDescription>
-          Install the CLI, authenticate in browser, and reopen datasets or runs from
-          this dashboard.
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="flex flex-col gap-5 px-6 py-6">
-        <div className="flex flex-col gap-2">
-          <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-            Install
-          </p>
-          <CopyCommand text={INSTALL_COMMAND} />
-        </div>
-        <Separator />
-        <div className="flex flex-col gap-2">
-          <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-            Start
-          </p>
-          <div className="rounded-none border border-border bg-background px-4 py-4 text-sm">
-            <code>research</code>
-          </div>
-        </div>
-      </CardContent>
-      <CardFooter className="border-t border-border px-6 py-4 text-sm leading-6 text-muted-foreground">
-        This page reads from <code className="mx-1">/api/cli/datasets</code> and
-        <code className="ml-1">/api/cli/runs</code>, the same control-plane records
-        written by the RESEARCH CLI.
-      </CardFooter>
-    </Card>
-  )
-}
-
 function DashboardApp({
   session,
   datasets,
   runs,
+  dataError,
 }: {
   session: SessionResponse
   datasets: DatasetRecord[]
   runs: RunRecord[]
+  dataError?: string | null
 }) {
   const datasetLookup = useMemo(
     () => new Map(datasets.map((dataset) => [dataset.id, dataset])),
@@ -707,14 +632,6 @@ function DashboardApp({
                     <a href="#runs">
                       <History />
                       <span>Runs</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <a href="#cli">
-                      <TerminalSquare />
-                      <span>CLI</span>
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -770,19 +687,13 @@ function DashboardApp({
                   Dashboard
                 </span>
                 <span className="truncate text-sm font-medium">
-                  RESEARCH CLI control plane
+                  Research workspace
                 </span>
               </div>
-              <Button variant="outline" size="sm" asChild>
-                <a href="#cli">
-                  <TerminalSquare data-icon="inline-start" />
-                  CLI install
-                </a>
-              </Button>
             </div>
           </header>
 
-          <main className="grid flex-1 gap-6 px-4 py-6 md:px-8 xl:grid-cols-[minmax(0,1fr)_22rem]">
+          <main className="grid flex-1 gap-6 px-4 py-6 md:px-8 xl:grid-cols-[minmax(0,1fr)_20rem]">
             <div className="flex min-w-0 flex-col gap-6">
               <section className="flex flex-col gap-4 border-b border-border pb-6 lg:flex-row lg:items-end lg:justify-between">
                 <div className="flex max-w-3xl flex-col gap-3">
@@ -790,11 +701,10 @@ function DashboardApp({
                     Research workspace
                   </span>
                   <h1 className="text-3xl font-semibold tracking-tight text-foreground">
-                    Datasets and runs from your CLI session.
+                    Datasets and runs from your workspace.
                   </h1>
                   <p className="max-w-2xl text-sm leading-7 text-muted-foreground">
-                    This dashboard is a thin shell over the same records the RESEARCH CLI
-                    writes. If a dataset or run exists in the API, it should exist here.
+                    Your private datasets and research runs live here.
                   </p>
                 </div>
                 <div className="grid min-w-[16rem] grid-cols-3 gap-3">
@@ -821,6 +731,14 @@ function DashboardApp({
                 </div>
               </section>
 
+              {dataError ? (
+                <Card className="rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
+                  <CardContent className="px-6 py-4 text-sm text-destructive">
+                    {dataError}
+                  </CardContent>
+                </Card>
+              ) : null}
+
               <Card
                 id="datasets"
                 className="rounded-none border border-border bg-background py-0 shadow-none"
@@ -828,8 +746,7 @@ function DashboardApp({
                 <CardHeader className="border-b border-border px-6 py-5">
                   <CardTitle className="text-sm">Datasets</CardTitle>
                   <CardDescription>
-                    Private datasets and deployed research environments created from the
-                    RESEARCH CLI.
+                    Your private datasets and deployed research environments.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="px-0">
@@ -844,7 +761,7 @@ function DashboardApp({
                 <CardHeader className="border-b border-border px-6 py-5">
                   <CardTitle className="text-sm">Past runs</CardTitle>
                   <CardDescription>
-                    Query, ingest, and analysis runs launched from the RESEARCH CLI.
+                    Query, ingest, and analysis runs.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="px-0">
@@ -854,12 +771,11 @@ function DashboardApp({
             </div>
 
             <div className="flex flex-col gap-6">
-              <CliPanel />
               <Card className="rounded-none border border-border bg-background py-0 shadow-none">
                 <CardHeader className="border-b border-border px-6 py-5">
                   <CardTitle className="text-sm">Session</CardTitle>
                   <CardDescription>
-                    Signed in through Alpha Research and reading live CLI-backed records.
+                    Signed in through Alpha Research.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col gap-4 px-6 py-6 text-sm">
@@ -901,6 +817,7 @@ function useDashboardState() {
         session: SessionResponse
         datasets: DatasetRecord[]
         runs: RunRecord[]
+        dataError?: string | null
       }
   >({ type: 'loading' })
 
@@ -954,18 +871,34 @@ function useDashboardState() {
           }
         }
 
-        const [datasets, runs] = await Promise.all([
-          fetchJson<DatasetRecord[]>('/api/cli/datasets'),
-          fetchJson<RunRecord[]>('/api/cli/runs'),
-        ])
+        try {
+          const [datasets, runs] = await Promise.all([
+            fetchJson<DatasetRecord[]>('/api/cli/datasets'),
+            fetchJson<RunRecord[]>('/api/cli/runs'),
+          ])
 
-        if (!cancelled) {
-          setState({
-            type: 'ready',
-            session,
-            datasets: [...datasets].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)),
-            runs: [...runs].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)),
-          })
+          if (!cancelled) {
+            setState({
+              type: 'ready',
+              session,
+              datasets: [...datasets].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)),
+              runs: [...runs].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)),
+              dataError: null,
+            })
+          }
+        } catch (error) {
+          if (!cancelled) {
+            setState({
+              type: 'ready',
+              session,
+              datasets: [],
+              runs: [],
+              dataError:
+                error instanceof Error
+                  ? `Signed in, but dashboard data could not load: ${error.message}`
+                  : 'Signed in, but dashboard data could not load.',
+            })
+          }
         }
       } catch (error) {
         if (!cancelled) {
@@ -1013,6 +946,7 @@ function DashboardPage() {
       session={state.session}
       datasets={state.datasets}
       runs={state.runs}
+      dataError={state.dataError}
     />
   )
 }
