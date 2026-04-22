@@ -168,18 +168,20 @@ post_status() {
   local status="$1"
   local deployment_status="$2"
   local manifest_path="$3"
-  python3 - "$status" "$deployment_status" "$manifest_path" "$MOUNT_ROOT/datasets/${params.datasetId}" <<'PY' | \\
+  local output_preview="\${4:-}"
+  python3 - "$status" "$deployment_status" "$manifest_path" "$MOUNT_ROOT/datasets/${params.datasetId}" "$output_preview" <<'PY' | \\
     curl -fsS -X POST "$CALLBACK_STATUS_URL" \\
       -H "Authorization: Bearer $RUNNER_TOKEN" \\
       -H "Content-Type: application/json" \\
       --data @- >/dev/null || true
 import json, sys
-status, deployment_status, manifest_path, volume_path = sys.argv[1:]
+status, deployment_status, manifest_path, volume_path, output_preview = sys.argv[1:]
 print(json.dumps({
   "status": status,
   "deploymentStatus": deployment_status,
   "manifestPath": manifest_path,
   "volumeMountPath": volume_path,
+  "outputPreview": output_preview or None,
 }))
 PY
 }
@@ -219,11 +221,25 @@ post_event info "Downloading dataset source."
 curl -fsSL "$SOURCE_URL" -o ${shellEscape(downloadedSourcePath)}
 
 post_event info "Running remote normalization."
-"$VENV_PATH/bin/python" /opt/alpha-research/normalize_dataset.py ${cliArgs}
+set +e
+"$VENV_PATH/bin/python" /opt/alpha-research/normalize_dataset.py ${cliArgs} 2>&1 | while IFS= read -r line; do
+  echo "$line"
+  case "$line" in
+    *"Normalized "*|*"Wrote manifest to "*|*"Ingest complete"*)
+      post_event info "$line"
+      post_status running running "" "$line"
+      ;;
+  esac
+done
+NORMALIZE_EXIT=\${PIPESTATUS[0]}
+set -e
+if [ "$NORMALIZE_EXIT" -ne 0 ]; then
+  exit "$NORMALIZE_EXIT"
+fi
 
 MANIFEST_PATH=${shellEscape(`${params.outputRoot}/${params.instanceId}/manifest.json`)}
 post_event info "Remote normalization completed."
-post_status ready ready "$MANIFEST_PATH"
+post_status ready ready "$MANIFEST_PATH" "Remote normalization completed."
 `
 }
 
