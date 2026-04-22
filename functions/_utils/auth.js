@@ -2,7 +2,7 @@ import { WorkOS } from '@workos-inc/node'
 
 const SESSION_COOKIE = 'ar_session'
 const SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 30
-const CLI_TOKEN_TTL_SECONDS = 60 * 10
+const CLI_TOKEN_TTL_SECONDS = SESSION_MAX_AGE_SECONDS
 const LOGIN_STATE_TTL_SECONDS = 60 * 10
 
 function encodeBase64Url(input) {
