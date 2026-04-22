@@ -303,6 +303,7 @@ export class ControlPlane {
     return {
       id: run.id,
       datasetId: run.datasetId,
+      type: run.type,
       status: run.status,
       createdAt: run.createdAt,
       updatedAt: run.updatedAt,

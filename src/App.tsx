@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from 'react'
-import { AssistantRuntimeProvider, useExternalStoreRuntime, type ThreadMessage } from '@assistant-ui/react'
 import {
   Bot,
   Database,
@@ -12,7 +11,6 @@ import {
   TerminalSquare,
 } from 'lucide-react'
 
-import { Thread } from '@/components/assistant-ui/thread'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -60,6 +58,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from '@/components/ui/sheet'
+import { Separator } from '@/components/ui/separator'
 import {
   Table,
   TableBody,
@@ -139,6 +138,15 @@ type RunResultsResponse = {
 }
 
 type SessionTranscriptKind = 'cli' | 'remote'
+type SessionEntryRole = 'user' | 'assistant' | 'system'
+
+type SessionEntry = {
+  id: string
+  role: SessionEntryRole
+  title?: string
+  body: string
+  createdAt: string
+}
 
 const ROOT_HOST = 'alpharesearch.nyc'
 const DASHBOARD_HOST = 'dashboard.alpharesearch.nyc'
@@ -241,37 +249,14 @@ function codeBlock(label: string, value: unknown) {
   return `### ${label}\n\n\`\`\`json\n${JSON.stringify(value, null, 2)}\n\`\`\``
 }
 
-function createUserThreadMessage(id: string, createdAt: string, text: string): ThreadMessage {
-  return {
-    id,
-    role: 'user',
-    createdAt: new Date(createdAt),
-    content: [{ type: 'text', text }],
-    attachments: [],
-    metadata: { custom: {} },
-  } as ThreadMessage
-}
-
-function createAssistantThreadMessage(
+function createSessionEntry(
   id: string,
+  role: SessionEntryRole,
   createdAt: string,
-  text: string,
-): ThreadMessage {
-  return {
-    id,
-    role: 'assistant',
-    createdAt: new Date(createdAt),
-    content: [{ type: 'text', text }],
-    attachments: [],
-    status: { type: 'complete', reason: 'stop' },
-    metadata: {
-      unstable_state: null,
-      unstable_annotations: [],
-      unstable_data: [],
-      steps: [],
-      custom: {},
-    },
-  } as ThreadMessage
+  body: string,
+  title?: string,
+): SessionEntry {
+  return { id, role, createdAt, body, title }
 }
 
 function getRemoteSessionId(artifacts: RunArtifactRecord[]) {
@@ -284,8 +269,8 @@ function buildCliTranscript(
   run: RunRecord,
   dataset: DatasetRecord | undefined,
   payload: RunResultsResponse | null,
-): ThreadMessage[] {
-  const messages: ThreadMessage[] = []
+): SessionEntry[] {
+  const messages: SessionEntry[] = []
   const details = [
     `Run id: \`${run.id}\``,
     `Dataset: \`${dataset?.name ?? run.datasetId}\``,
@@ -298,21 +283,27 @@ function buildCliTranscript(
     ? `Start a ${run.type} research run against \`${dataset?.name ?? run.datasetId}\`.\n\n${prompt}`
     : `Start a ${run.type} research run against \`${dataset?.name ?? run.datasetId}\`.`
 
-  messages.push(createUserThreadMessage(`${run.id}-cli-user`, run.createdAt, kickoff))
   messages.push(
-    createAssistantThreadMessage(
+    createSessionEntry(`${run.id}-cli-user`, 'user', run.createdAt, kickoff, 'Run request'),
+  )
+  messages.push(
+    createSessionEntry(
       `${run.id}-cli-summary`,
+      'assistant',
       run.createdAt,
       `CLI orchestration session initialized.\n\n${details.join('\n')}`,
+      'CLI session',
     ),
   )
 
   if (payload?.metadata?.config) {
     messages.push(
-      createAssistantThreadMessage(
+      createSessionEntry(
         `${run.id}-cli-config`,
+        'system',
         run.createdAt,
         codeBlock('Run config', payload.metadata.config),
+        'Stored config',
       ),
     )
   }
@@ -321,10 +312,12 @@ function buildCliTranscript(
     const icon =
       event.level === 'error' ? 'ERROR' : event.level === 'warning' ? 'WARN' : 'INFO'
     messages.push(
-      createAssistantThreadMessage(
+      createSessionEntry(
         event.id,
+        event.level === 'error' ? 'system' : 'assistant',
         event.createdAt,
         `**${icon} · ${formatCompactTime(event.createdAt)}**\n\n${event.message}`,
+        'Event',
       ),
     )
   }
@@ -338,10 +331,12 @@ function buildCliTranscript(
       return `- **${artifact.title}** · ${formatStatus(artifact.type)}${link}`
     })
     messages.push(
-      createAssistantThreadMessage(
+      createSessionEntry(
         `${run.id}-cli-artifacts`,
+        'system',
         nonSessionArtifacts.at(-1)?.createdAt ?? run.updatedAt,
         `### Artifacts\n\n${lines.join('\n')}`,
+        'Artifacts',
       ),
     )
   }
@@ -353,49 +348,57 @@ function buildRemoteTranscript(
   run: RunRecord,
   dataset: DatasetRecord | undefined,
   payload: RunResultsResponse | null,
-): ThreadMessage[] {
-  const messages: ThreadMessage[] = []
+): SessionEntry[] {
+  const messages: SessionEntry[] = []
   const remoteSessionId = getRemoteSessionId(payload?.artifacts ?? [])
   const prompt = run.prompt?.trim()
 
   messages.push(
-    createUserThreadMessage(
+    createSessionEntry(
       `${run.id}-remote-user`,
+      'user',
       run.createdAt,
       [
         `Execute the remote Codex run for dataset \`${dataset?.name ?? run.datasetId}\`.`,
         prompt ? `\n\n${prompt}` : '',
       ].join(''),
+      'Remote run request',
     ),
   )
 
   messages.push(
-    createAssistantThreadMessage(
+    createSessionEntry(
       `${run.id}-remote-session`,
+      'assistant',
       run.createdAt,
       [
         `Remote agent session attached to run \`${run.id}\`.`,
         remoteSessionId ? `\n\nSession id: \`${remoteSessionId}\`` : '',
       ].join(''),
+      'Remote session',
     ),
   )
 
   for (const event of payload?.events ?? []) {
     messages.push(
-      createAssistantThreadMessage(
+      createSessionEntry(
         `${event.id}-remote`,
+        'assistant',
         event.createdAt,
         `**${formatCompactTime(event.createdAt)}**\n\n${event.message}`,
+        'Remote event',
       ),
     )
   }
 
   if (!payload?.events.length) {
     messages.push(
-      createAssistantThreadMessage(
+      createSessionEntry(
         `${run.id}-remote-empty`,
+        'system',
         run.updatedAt,
         'No remote event log has been persisted for this run yet.',
+        'Remote log',
       ),
     )
   }
@@ -403,31 +406,81 @@ function buildRemoteTranscript(
   return messages
 }
 
-function useReadonlyThreadRuntime(messages: ThreadMessage[]) {
-  return useExternalStoreRuntime({
-    isRunning: false,
-    messages,
-    onNew: async () => {},
-  })
+function TranscriptBubble({
+  entry,
+}: {
+  entry: SessionEntry
+}) {
+  const isUser = entry.role === 'user'
+  const isSystem = entry.role === 'system'
+
+  return (
+    <article
+      className={[
+        'flex flex-col gap-2 rounded-2xl px-5 py-4',
+        isUser
+          ? 'ml-auto max-w-3xl bg-foreground text-background'
+          : isSystem
+            ? 'max-w-4xl border border-border bg-muted/30'
+            : 'max-w-4xl bg-background ring-1 ring-border/80',
+      ].join(' ')}
+    >
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center gap-2">
+          <Badge
+            variant="outline"
+            className={isUser ? 'text-background/85' : 'text-muted-foreground'}
+          >
+            {entry.title ?? formatStatus(entry.role)}
+          </Badge>
+        </div>
+        <span
+          className={[
+            'text-xs',
+            isUser ? 'text-background/70' : 'text-muted-foreground',
+          ].join(' ')}
+        >
+          {formatDateTime(entry.createdAt)}
+        </span>
+      </div>
+      <div
+        className={[
+          'prose prose-neutral max-w-none whitespace-pre-wrap break-words text-sm leading-7',
+          isUser ? 'prose-invert text-background' : 'text-foreground',
+        ].join(' ')}
+      >
+        {entry.body}
+      </div>
+    </article>
+  )
 }
 
 function RunTranscript({
-  messages,
-  title,
-  description,
+  entries,
+  emptyTitle,
+  emptyDescription,
 }: {
-  messages: ThreadMessage[]
-  title: string
-  description: string
+  entries: SessionEntry[]
+  emptyTitle: string
+  emptyDescription: string
 }) {
-  const runtime = useReadonlyThreadRuntime(messages)
+  if (entries.length === 0) {
+    return (
+      <div className="flex min-h-[28rem] items-center justify-center rounded-3xl border border-dashed border-border bg-background px-8 py-16">
+        <div className="max-w-xl text-center">
+          <div className="text-lg font-semibold">{emptyTitle}</div>
+          <p className="mt-3 text-sm leading-7 text-muted-foreground">{emptyDescription}</p>
+        </div>
+      </div>
+    )
+  }
 
   return (
-    <AssistantRuntimeProvider runtime={runtime}>
-      <div className="flex min-h-[30rem] flex-1 overflow-hidden rounded-xl border border-border bg-background">
-        <Thread readOnly welcomeTitle={title} welcomeDescription={description} />
-      </div>
-    </AssistantRuntimeProvider>
+    <div className="flex min-h-[28rem] flex-col gap-4 rounded-3xl border border-border bg-muted/20 p-6">
+      {entries.map((entry) => (
+        <TranscriptBubble key={entry.id} entry={entry} />
+      ))}
+    </div>
   )
 }
 
@@ -846,16 +899,16 @@ function RunSessionSheet({
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent side="right" className="w-full gap-0 p-0 sm:max-w-[min(88rem,92vw)]">
+        <SheetContent side="right" className="w-full gap-0 p-0 sm:max-w-[min(88rem,92vw)]">
         <SheetHeader className="gap-4 border-b border-border px-8 py-6">
           <div className="flex items-start justify-between gap-4 pr-10">
             <div className="flex min-w-0 flex-col gap-2">
-              <SheetTitle className="tracking-[0.14em]">
+              <SheetTitle className="text-left tracking-[0.08em]">
                 {run ? dataset?.name ?? run.datasetId : 'Run session'}
               </SheetTitle>
               <SheetDescription className="max-w-3xl">
                 {run
-                  ? `${formatStatus(run.type)} run ${run.id} opened as an assistant session.`
+                  ? `${formatStatus(run.type)} run ${run.id}.`
                   : 'View run logs as an assistant session.'}
               </SheetDescription>
             </div>
@@ -868,16 +921,16 @@ function RunSessionSheet({
           </div>
 
           {run ? (
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
               <StatusBadge>{formatStatus(run.status)}</StatusBadge>
               <StatusBadge>{formatStatus(run.type)}</StatusBadge>
-              <Badge variant="outline" className="rounded-none">
+              <span className="text-sm text-muted-foreground">
                 Started {formatDateTime(run.createdAt)}
-              </Badge>
+              </span>
               {remoteSessionId ? (
-                <Badge variant="outline" className="rounded-none">
+                <span className="text-sm text-muted-foreground">
                   Remote session {remoteSessionId}
-                </Badge>
+                </span>
               ) : null}
             </div>
           ) : null}
@@ -930,9 +983,9 @@ function RunSessionSheet({
             {!run ? null : view === 'remote' ? (
               remoteSessionId ? (
                 <RunTranscript
-                  messages={remoteMessages}
-                  title="Remote Codex session"
-                  description="Persisted remote-agent events for this run."
+                  entries={remoteMessages}
+                  emptyTitle="No remote session log"
+                  emptyDescription="This run has a remote session id but there are no persisted remote events yet."
                 />
               ) : (
                 <Card className="rounded-xl border border-border bg-background py-0 shadow-none">
@@ -942,11 +995,54 @@ function RunSessionSheet({
                 </Card>
               )
             ) : (
-              <RunTranscript
-                messages={cliMessages}
-                title="CLI orchestration session"
-                description="Persisted run config, events, and artifacts from the RESEARCH CLI."
-              />
+              <div className="flex flex-col gap-6">
+                {run.prompt?.trim() ? (
+                  <section className="rounded-3xl border border-border bg-background px-6 py-5">
+                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                      Prompt
+                    </div>
+                    <p className="mt-3 max-w-4xl whitespace-pre-wrap text-sm leading-7 text-foreground">
+                      {run.prompt}
+                    </p>
+                  </section>
+                ) : null}
+
+                <RunTranscript
+                  entries={cliMessages}
+                  emptyTitle="No CLI transcript yet"
+                  emptyDescription="Persisted run config, events, and artifacts from the RESEARCH CLI will appear here."
+                />
+
+                {payload?.artifacts?.length ? (
+                  <section className="rounded-3xl border border-border bg-background px-6 py-5">
+                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                      Artifacts
+                    </div>
+                    <Separator className="my-4" />
+                    <div className="space-y-3">
+                      {payload.artifacts.map((artifact) => (
+                        <div key={artifact.id} className="flex flex-wrap items-center gap-3">
+                          <span className="font-medium">{artifact.title}</span>
+                          <span className="text-sm text-muted-foreground">
+                            {formatStatus(artifact.type)}
+                          </span>
+                          {artifact.url ? (
+                            <a
+                              href={artifact.url}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+                            >
+                              Open
+                              <ExternalLink className="size-4" />
+                            </a>
+                          ) : null}
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                ) : null}
+              </div>
             )}
           </div>
         </div>
