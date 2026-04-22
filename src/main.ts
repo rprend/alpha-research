@@ -312,13 +312,13 @@ function bindMarketingAuth() {
   })
 }
 
-function renderDatasetCards(datasets: DatasetRecord[]) {
+function renderDatasetRows(datasets: DatasetRecord[]) {
   if (datasets.length === 0) {
     return `
-      <article class="dash-empty">
-        <h3>No private datasets yet</h3>
-        <p>Create a dataset from the RESEARCH CLI and it will appear here automatically.</p>
-      </article>
+      <div class="shad-empty-state">
+        <h3>No datasets yet</h3>
+        <p>Create one with the RESEARCH CLI and it will appear here automatically.</p>
+      </div>
     `
   }
 
@@ -328,34 +328,18 @@ function renderDatasetCards(datasets: DatasetRecord[]) {
       || `Source type: ${dataset.sourceType}`
 
     return `
-      <article class="dash-card">
-        <div class="dash-card-top">
-          <div>
-            <p class="dash-label">Private dataset</p>
-            <h3>${escapeHtml(dataset.name)}</h3>
+      <tr>
+        <td>
+          <div class="shad-table-main">
+            <strong>${escapeHtml(dataset.name)}</strong>
+            <span>${escapeHtml(truncate(description, 120))}</span>
           </div>
-          <span class="dash-badge">${escapeHtml(formatStatus(dataset.status))}</span>
-        </div>
-        <p class="dash-card-copy">${escapeHtml(truncate(description, 180))}</p>
-        <dl class="dash-definition-grid">
-          <div>
-            <dt>ID</dt>
-            <dd>${escapeHtml(dataset.id)}</dd>
-          </div>
-          <div>
-            <dt>Deployment</dt>
-            <dd>${escapeHtml(formatStatus(dataset.deploymentStatus))}</dd>
-          </div>
-          <div>
-            <dt>Mode</dt>
-            <dd>${escapeHtml(formatStatus(dataset.mode ?? 'default'))}</dd>
-          </div>
-          <div>
-            <dt>Updated</dt>
-            <dd>${escapeHtml(relativeTime(dataset.updatedAt))}</dd>
-          </div>
-        </dl>
-      </article>
+        </td>
+        <td>${escapeHtml(formatStatus(dataset.mode ?? 'default'))}</td>
+        <td><span class="shad-badge">${escapeHtml(formatStatus(dataset.status))}</span></td>
+        <td>${escapeHtml(formatStatus(dataset.deploymentStatus))}</td>
+        <td>${escapeHtml(relativeTime(dataset.updatedAt))}</td>
+      </tr>
     `
   }).join('')
 }
@@ -363,86 +347,66 @@ function renderDatasetCards(datasets: DatasetRecord[]) {
 function renderRunRows(runs: RunRecord[], datasetLookup: Map<string, DatasetRecord>) {
   if (runs.length === 0) {
     return `
-      <article class="dash-empty dash-empty-compact">
-        <h3>No research runs yet</h3>
+      <div class="shad-empty-state">
+        <h3>No runs yet</h3>
         <p>Runs launched from the RESEARCH CLI will appear here with status and prompt history.</p>
-      </article>
+      </div>
     `
   }
 
   return runs.map((run) => {
     const dataset = datasetLookup.get(run.datasetId)
     const prompt = run.prompt?.trim() || run.outputPreview?.trim() || 'No prompt recorded yet.'
+    const runAnchor = `run-${run.id}`
 
     return `
-      <article class="dash-run-row">
-        <div class="dash-run-main">
-          <div class="dash-run-head">
-            <div>
-              <p class="dash-label">Dataset</p>
-              <h3>${escapeHtml(dataset?.name ?? run.datasetId)}</h3>
-            </div>
-            <span class="dash-badge">${escapeHtml(formatStatus(run.status))}</span>
+      <tr id="${escapeHtml(runAnchor)}">
+        <td>
+          <div class="shad-table-main">
+            <strong>${escapeHtml(dataset?.name ?? run.datasetId)}</strong>
+            <span>${escapeHtml(truncate(prompt, 120))}</span>
+            <span><a href="#${escapeHtml(runAnchor)}">Run ${escapeHtml(run.id.slice(0, 8))}</a></span>
           </div>
-          <p class="dash-run-copy">${escapeHtml(truncate(prompt, 240))}</p>
-        </div>
-        <dl class="dash-run-meta">
-          <div>
-            <dt>Run ID</dt>
-            <dd>${escapeHtml(run.id)}</dd>
-          </div>
-          <div>
-            <dt>Type</dt>
-            <dd>${escapeHtml(formatStatus(run.type))}</dd>
-          </div>
-          <div>
-            <dt>Started</dt>
-            <dd>${escapeHtml(formatDateTime(run.createdAt))}</dd>
-          </div>
-          <div>
-            <dt>Updated</dt>
-            <dd>${escapeHtml(relativeTime(run.updatedAt))}</dd>
-          </div>
-        </dl>
-      </article>
+        </td>
+        <td>${escapeHtml(formatStatus(run.type))}</td>
+        <td><span class="shad-badge">${escapeHtml(formatStatus(run.status))}</span></td>
+        <td>${escapeHtml(formatDateTime(run.createdAt))}</td>
+        <td>${escapeHtml(relativeTime(run.updatedAt))}</td>
+      </tr>
     `
   }).join('')
 }
 
-function renderCliCard() {
+function renderCliPanel() {
   return `
-    <section class="dash-panel" id="cli">
-      <div class="dash-panel-head">
-        <div>
-          <p class="dash-label">RESEARCH CLI</p>
-          <h2>Connect and reopen your work</h2>
+    <section class="shad-card" id="cli">
+      <div class="shad-card-header">
+        <div class="shad-card-titleblock">
+          <h3>The RESEARCH CLI</h3>
+          <p>Install the CLI, authenticate in browser, and reopen datasets or runs from this dashboard.</p>
         </div>
       </div>
-      <div class="dash-cli-card">
-        <div class="dash-cli-row">
+      <div class="shad-cli-list">
+        <div class="shad-cli-row">
           <div>
-            <p class="dash-cli-label">Install</p>
-            <p class="dash-cli-copy">Bootstrap the CLI on a fresh machine.</p>
+            <p class="shad-inline-label">Install</p>
+            <p>Bootstrap the CLI on a fresh machine.</p>
           </div>
-          <button class="dash-inline-button" type="button" data-copy-target="dash-install-command">Copy</button>
+          <button class="shad-secondary-button" type="button" data-copy-target="dash-install-command">Copy</button>
         </div>
-        <pre class="dash-code" id="dash-install-command"><code>${escapeHtml(INSTALL_COMMAND)}</code></pre>
-      </div>
-      <div class="dash-cli-card">
-        <div class="dash-cli-row">
+        <pre class="shad-code" id="dash-install-command"><code>${escapeHtml(INSTALL_COMMAND)}</code></pre>
+
+        <div class="shad-cli-row">
           <div>
-            <p class="dash-cli-label">Start a dataset</p>
-            <p class="dash-cli-copy">The CLI opens browser auth, registers the dataset, then creates runs you can reopen later here.</p>
+            <p class="shad-inline-label">Start</p>
+            <p>The CLI opens browser auth, registers the dataset, and creates runs you can reopen later here.</p>
           </div>
         </div>
-        <pre class="dash-code"><code>research</code></pre>
-      </div>
-      <div class="dash-cli-notes">
-        <div class="dash-note">
+        <pre class="shad-code"><code>research</code></pre>
+
+        <div class="shad-note-list">
           <strong>Browser auth</strong>
           <span>The CLI uses <code>/cli/login</code> and the same Worker-backed session as this dashboard.</span>
-        </div>
-        <div class="dash-note">
           <strong>Data source</strong>
           <span>This page reads from <code>/api/cli/datasets</code> and <code>/api/cli/runs</code>, which are the same control-plane records written by the RESEARCH CLI.</span>
         </div>
@@ -458,20 +422,25 @@ function renderDashboardFrame(content: string) {
 function renderDashboardLoading() {
   document.title = `${DASHBOARD_LABEL} | Alpha Research`
   renderDashboardFrame(`
-    <div class="dash-app">
-      <aside class="dash-sidebar">
-        <a class="dash-brand" href="${rootOrigin}/" aria-label="Alpha Research home">
+    <div class="shad-shell">
+      <aside class="shad-sidebar">
+        <a class="shad-brand" href="${rootOrigin}/" aria-label="Alpha Research home">
           <img class="logo-wordmark" src="/alpha-research-wordmark.png" alt="Alpha Research logo" />
         </a>
+        <nav class="shad-sidebar-group">
+          <a class="shad-sidebar-link is-active" href="#home">Dashboard</a>
+          <a class="shad-sidebar-link" href="#datasets">Datasets</a>
+          <a class="shad-sidebar-link" href="#runs">Runs</a>
+          <a class="shad-sidebar-link" href="#cli">CLI</a>
+        </nav>
       </aside>
-      <main class="dash-main">
-        <section class="dash-hero-card dash-hero-card-loading">
+      <main class="shad-main">
+        <div class="shad-topbar">
           <div>
-            <p class="dash-label">Research CLI</p>
-            <h1>Loading your dashboard</h1>
-            <p class="dash-hero-copy">Fetching datasets, runs, and account state.</p>
+            <p class="shad-kicker">Research</p>
+            <h1>Loading dashboard</h1>
           </div>
-        </section>
+        </div>
       </main>
     </div>
   `)
@@ -484,34 +453,40 @@ function renderDashboardSignedOut(session: SessionResponse) {
     : (session.error ?? 'Auth is not configured on this deployment.')
 
   renderDashboardFrame(`
-    <div class="dash-app">
-      <aside class="dash-sidebar">
-        <a class="dash-brand" href="${rootOrigin}/" aria-label="Alpha Research home">
+    <div class="shad-shell">
+      <aside class="shad-sidebar">
+        <a class="shad-brand" href="${rootOrigin}/" aria-label="Alpha Research home">
           <img class="logo-wordmark" src="/alpha-research-wordmark.png" alt="Alpha Research logo" />
         </a>
-        <nav class="dash-sidebar-nav">
-          <a class="dash-sidebar-item is-active" href="#home">Home</a>
-          <a class="dash-sidebar-item" href="#cli">CLI</a>
+        <div class="shad-sidebar-label">Platform</div>
+        <nav class="shad-sidebar-group">
+          <a class="shad-sidebar-link is-active" href="#home">Dashboard</a>
+          <a class="shad-sidebar-link" href="#cli">CLI</a>
         </nav>
       </aside>
-      <main class="dash-main">
-        <section class="dash-hero-card dash-hero-card-simple" id="home">
-          <div class="dash-hero-copyblock">
-            <p class="dash-label">Research dashboard</p>
-            <h1>Datasets and runs from the RESEARCH CLI</h1>
-            <p class="dash-hero-copy">${escapeHtml(message)}</p>
-            <div class="dash-hero-actions">
-              <button class="dash-primary-button" type="button" data-dashboard-login ${session.configured ? '' : 'disabled aria-disabled="true"'}>
-                Sign in
-              </button>
-              <a class="dash-secondary-button" href="${rootOrigin}/#cli">View CLI docs</a>
+      <main class="shad-main">
+        <div class="shad-topbar">
+          <div>
+            <p class="shad-kicker">Dashboard</p>
+            <h1>RESEARCH CLI workspace</h1>
+          </div>
+        </div>
+
+        <section class="shad-card shad-empty-card" id="home">
+          <div class="shad-card-header">
+            <div class="shad-card-titleblock">
+              <h2>Sign in required</h2>
+              <p>${escapeHtml(message)}</p>
             </div>
+            <button class="shad-primary-button" type="button" data-dashboard-login ${session.configured ? '' : 'disabled aria-disabled="true"'}>
+                Sign in
+            </button>
           </div>
         </section>
 
-        <section class="dash-content-grid">
-          ${renderCliCard()}
-        </section>
+        <div class="shad-grid">
+          ${renderCliPanel()}
+        </div>
       </main>
     </div>
   `)
@@ -534,84 +509,110 @@ function renderDashboard(session: SessionResponse, datasets: DatasetRecord[], ru
   const activeRuns = countActiveRuns(sortedRuns)
 
   renderDashboardFrame(`
-    <div class="dash-app">
-      <aside class="dash-sidebar">
-        <a class="dash-brand" href="${rootOrigin}/" aria-label="Alpha Research home">
+    <div class="shad-shell">
+      <aside class="shad-sidebar">
+        <a class="shad-brand" href="${rootOrigin}/" aria-label="Alpha Research home">
           <img class="logo-wordmark" src="/alpha-research-wordmark.png" alt="Alpha Research logo" />
         </a>
 
-        <nav class="dash-sidebar-nav">
-          <a class="dash-sidebar-item is-active" href="#home">Home</a>
-          <a class="dash-sidebar-item" href="#datasets">Datasets</a>
-          <a class="dash-sidebar-item" href="#runs">Runs</a>
-          <a class="dash-sidebar-item" href="#cli">CLI</a>
+        <div class="shad-sidebar-label">Platform</div>
+        <nav class="shad-sidebar-group">
+          <a class="shad-sidebar-link is-active" href="#home">Dashboard</a>
+          <a class="shad-sidebar-link" href="#datasets">Datasets</a>
+          <a class="shad-sidebar-link" href="#runs">Runs</a>
+          <a class="shad-sidebar-link" href="#cli">CLI</a>
         </nav>
 
-        <div class="dash-sidebar-section">
-          <p class="dash-sidebar-heading">Account</p>
-          <div class="dash-sidebar-card">
-            <span class="dash-sidebar-email">${escapeHtml(session.user?.email ?? '')}</span>
-            <span class="dash-sidebar-hint">Shared session for site + CLI</span>
-            <button class="dash-sidebar-logout" type="button" data-dashboard-logout>Log out</button>
-          </div>
-        </div>
-
-        <div class="dash-sidebar-links">
-          <a href="${rootOrigin}/#cli">Documentation</a>
-          <a href="${rootOrigin}/blog/">Blog</a>
+        <div class="shad-sidebar-footer">
+          <span class="shad-user-email">${escapeHtml(session.user?.email ?? '')}</span>
+          <button class="shad-ghost-button" type="button" data-dashboard-logout>Log out</button>
         </div>
       </aside>
 
-      <main class="dash-main">
-        <section class="dash-hero-card dash-hero-card-simple" id="home">
-          <div class="dash-hero-copyblock">
-            <p class="dash-label">Research dashboard</p>
-            <h1>RESEARCH CLI datasets and runs</h1>
-            <p class="dash-hero-copy">
-              This view is backed by the same Worker control plane the RESEARCH CLI writes to. Private datasets come from <code>/api/cli/datasets</code> and run history comes from <code>/api/cli/runs</code>.
-            </p>
-            <div class="dash-hero-actions">
-              <a class="dash-primary-button" href="#datasets">View datasets</a>
-              <a class="dash-secondary-button" href="#runs">View runs</a>
+      <main class="shad-main">
+        <div class="shad-topbar" id="home">
+          <div>
+            <p class="shad-kicker">Dashboard</p>
+            <h1>Research</h1>
+          </div>
+          <div class="shad-topbar-actions">
+            <a class="shad-ghost-button" href="#cli">Quick Create</a>
+          </div>
+        </div>
+
+        <section class="shad-metric-grid">
+          <article class="shad-metric-card">
+            <div class="shad-metric-head"><span>Datasets</span><span>Private</span></div>
+            <strong>${privateDatasets}</strong>
+            <p>Datasets registered through the RESEARCH CLI.</p>
+          </article>
+          <article class="shad-metric-card">
+            <div class="shad-metric-head"><span>Active Runs</span><span>Live</span></div>
+            <strong>${activeRuns}</strong>
+            <p>Currently processing, ingesting, or deploying.</p>
+          </article>
+          <article class="shad-metric-card">
+            <div class="shad-metric-head"><span>Total Runs</span><span>History</span></div>
+            <strong>${sortedRuns.length}</strong>
+            <p>Latest activity ${escapeHtml(latestUpdate(sortedRuns))}.</p>
+          </article>
+        </section>
+
+        <div class="shad-grid">
+          <section class="shad-card" id="datasets">
+            <div class="shad-card-header">
+              <div class="shad-card-titleblock">
+                <h3>Datasets</h3>
+                <p>Your private research datasets and environments.</p>
+              </div>
             </div>
-          </div>
-          <div class="dash-inline-stats">
-            <span><strong>${privateDatasets}</strong> datasets</span>
-            <span><strong>${activeRuns}</strong> active runs</span>
-            <span><strong>${sortedRuns.length}</strong> total runs</span>
-            <span>Latest ${escapeHtml(latestUpdate(sortedRuns))}</span>
-          </div>
-        </section>
+            <div class="shad-table-wrap">
+              <table class="shad-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Mode</th>
+                    <th>Status</th>
+                    <th>Deployment</th>
+                    <th>Updated</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${renderDatasetRows(sortedDatasets)}
+                </tbody>
+              </table>
+            </div>
+          </section>
 
-        <section class="dash-content-grid">
-          <div class="dash-column">
-            <section class="dash-panel" id="datasets">
-              <div class="dash-panel-head">
-                <div>
-                  <p class="dash-label">Private</p>
-                  <h2>Your datasets</h2>
-                </div>
+          <section class="shad-card" id="runs">
+            <div class="shad-card-header">
+              <div class="shad-card-titleblock">
+                <h3>Runs</h3>
+                <p>Past research runs launched from the RESEARCH CLI.</p>
               </div>
-              <div class="dash-stack">
-                ${renderDatasetCards(sortedDatasets)}
-              </div>
-            </section>
+            </div>
+            <div class="shad-table-wrap">
+              <table class="shad-table">
+                <thead>
+                  <tr>
+                    <th>Dataset</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Started</th>
+                    <th>Updated</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${renderRunRows(sortedRuns, datasetLookup)}
+                </tbody>
+              </table>
+            </div>
+          </section>
 
-            <section class="dash-panel" id="runs">
-              <div class="dash-panel-head">
-                <div>
-                  <p class="dash-label">Run history</p>
-                  <h2>Past research runs</h2>
-                </div>
-              </div>
-              <div class="dash-stack">
-                ${renderRunRows(sortedRuns, datasetLookup)}
-              </div>
-            </section>
+          <div class="shad-side-stack">
+            ${renderCliPanel()}
           </div>
-
-          ${renderCliCard()}
-        </section>
+        </div>
       </main>
     </div>
   `)
