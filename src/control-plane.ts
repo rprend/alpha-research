@@ -159,6 +159,19 @@ function isVolumeBusyError(error: unknown) {
   return message.includes('storage already associated with another droplet')
 }
 
+const RUN_HEARTBEAT_TIMEOUT_MS = 5 * 60 * 1000
+
+function isStaleActiveRun(run: RunRecord) {
+  if (isTerminalStatus(run.status)) {
+    return false
+  }
+  const updatedAt = Date.parse(run.updatedAt)
+  if (Number.isNaN(updatedAt)) {
+    return false
+  }
+  return (Date.now() - updatedAt) > RUN_HEARTBEAT_TIMEOUT_MS
+}
+
 export class ControlPlane {
   private readonly sql: SqlStorage['sql']
   private readonly state: DurableObjectStateLike
@@ -299,6 +312,48 @@ export class ControlPlane {
 
   private rows(query: string, ...bindings: unknown[]) {
     return [...this.sql.exec(query, ...bindings)] as Array<Record<string, unknown>>
+  }
+
+  private async expireStaleRun(run: RunRecord) {
+    if (!isStaleActiveRun(run)) {
+      return false
+    }
+    this.appendRunEvent(
+      run.id,
+      'Run marked failed because the remote droplet stopped heartbeating.',
+      'error',
+    )
+    this.sql.exec(
+      `UPDATE runs SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+      'failed',
+      'Run marked failed because the remote droplet stopped heartbeating.',
+      nowIso(),
+      run.id,
+    )
+    if (run.dropletId) {
+      try {
+        await deleteDroplet(this.env, run.dropletId)
+        this.appendRunEvent(run.id, `Deleted stale droplet ${run.dropletName ?? run.dropletId}.`, 'warning')
+      } catch (error) {
+        this.appendRunEvent(
+          run.id,
+          `Failed to delete stale droplet ${run.dropletName ?? run.dropletId}: ${error instanceof Error ? error.message : String(error)}`,
+          'error',
+        )
+      }
+    }
+    return true
+  }
+
+  private async expireStaleRunsForDataset(datasetId: string) {
+    const runs = this.rows(
+      'SELECT * FROM runs WHERE dataset_id = ? ORDER BY created_at DESC',
+      datasetId,
+    )
+      .map((row) => this.parseRunRow(row))
+    for (const run of runs) {
+      await this.expireStaleRun(run)
+    }
   }
 
   private getActiveRunsForDataset(datasetId: string) {
@@ -1155,6 +1210,7 @@ export class ControlPlane {
         const cliSessionId = body.sessionId ? String(body.sessionId) : null
         const config = body.config && typeof body.config === 'object' ? body.config : null
         const artifactSpec = Array.isArray(body.artifacts) ? body.artifacts : []
+        await this.expireStaleRunsForDataset(datasetId)
         const activeRuns = this.getActiveRunsForDataset(datasetId)
         if (activeRuns.length > 0) {
           return respondJson({
