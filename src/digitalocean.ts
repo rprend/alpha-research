@@ -142,6 +142,23 @@ export async function ensureDatasetVolume(env: DigitalOceanEnv, datasetId: strin
   }
 }
 
+export async function waitForVolumeDetachment(env: DigitalOceanEnv, volumeId: string, timeoutMs = 60_000) {
+  const startedAt = Date.now()
+  while ((Date.now() - startedAt) < timeoutMs) {
+    const volume = await doRequest<{ volume?: { droplet_ids?: number[] } }>(
+      env,
+      `/volumes/${encodeURIComponent(volumeId)}`,
+      { method: 'GET' },
+    ).catch(() => null)
+    const dropletIds = volume?.volume?.droplet_ids ?? []
+    if (dropletIds.length === 0) {
+      return
+    }
+    await new Promise((resolve) => setTimeout(resolve, 3000))
+  }
+  throw new Error(`Volume ${volumeId} is still attached after waiting for detachment`)
+}
+
 function shellEscape(value: string) {
   return `'${value.replace(/'/g, `'\"'\"'`)}'`
 }

@@ -1,5 +1,5 @@
 import { createPresignedSpacesUrl } from './spaces'
-import { deleteDroplet, ensureDatasetVolume, launchIngestDroplet, launchResearchDroplet } from './digitalocean'
+import { deleteDroplet, ensureDatasetVolume, launchIngestDroplet, launchResearchDroplet, waitForVolumeDetachment } from './digitalocean'
 
 type DurableObjectStateLike = {
   storage: {
@@ -340,6 +340,10 @@ export class ControlPlane {
     if (run.dropletId) {
       try {
         await deleteDroplet(this.env, run.dropletId)
+        const dataset = this.getDataset(run.datasetId)
+        if (dataset?.volumeId) {
+          await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
+        }
         this.appendRunEvent(run.id, `Deleted stale droplet ${run.dropletName ?? run.dropletId}.`, 'warning')
       } catch (error) {
         this.appendRunEvent(
@@ -1157,6 +1161,9 @@ export class ControlPlane {
             })],
           }, 409)
         }
+        if (dataset.volumeId) {
+          await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
+        }
         const volume = await ensureDatasetVolume(this.env, datasetId)
         const getUrl = await createPresignedSpacesUrl(this.env, {
           method: 'GET',
@@ -1300,6 +1307,9 @@ export class ControlPlane {
               updated_at: blockingRun.updatedAt,
             })],
           }, 409)
+        }
+        if (dataset.volumeId) {
+          await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
         }
         runId = this.createRun(datasetId, ownerEmail, runType, prompt)
         this.acquireDatasetLease(datasetId, runId)
@@ -1492,6 +1502,10 @@ export class ControlPlane {
       if (run.dropletId) {
         try {
           await deleteDroplet(this.env, run.dropletId)
+          const dataset = this.getDataset(run.datasetId)
+          if (dataset?.volumeId) {
+            await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
+          }
           this.appendRunEvent(runId, `Cancelled run and deleted droplet ${run.dropletName ?? run.dropletId}.`, 'warning')
         } catch (error) {
           this.appendRunEvent(
@@ -1718,6 +1732,10 @@ export class ControlPlane {
       if ((status === 'ready' || status === 'failed') && run.dropletId) {
         try {
           await deleteDroplet(this.env, run.dropletId)
+          const dataset = this.getDataset(run.datasetId)
+          if (dataset?.volumeId) {
+            await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
+          }
         } catch {
           // Best-effort cleanup; keep terminal run state even if droplet deletion fails.
         }
