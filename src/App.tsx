@@ -292,6 +292,28 @@ function summarizeDatasetRecord(value: unknown) {
     .join('\n')
 }
 
+function humanizeToolName(name: string) {
+  const labels: Record<string, string> = {
+    aggregate_remote_dataset: 'Planned remote aggregation',
+    query_remote_dataset: 'Planned remote query',
+    get_run_results: 'Fetched run results',
+    list_run_artifacts: 'Checked run artifacts',
+    inspect_remote_dataset: 'Inspected dataset',
+    list_remote_datasets: 'Listed datasets',
+    start_remote_agent_run: 'Started remote Codex run',
+    continue_remote_agent_run: 'Continued remote Codex run',
+    start_remote_run: 'Started remote run',
+    deploy_remote_dataset: 'Started dataset deploy',
+    fetch_public_data: 'Planned public-data fetch',
+    run_remote_transformation: 'Planned transformation',
+    run_remote_labeling: 'Planned labeling run',
+    compare_remote_datasets: 'Compared datasets',
+  }
+
+  if (labels[name]) return labels[name]
+  return `Called \`${name}\``
+}
+
 function summarizeRunRecord(value: unknown) {
   if (!isRecord(value)) return null
   const id = typeof value.id === 'string' ? value.id : null
@@ -319,9 +341,14 @@ function summarizeRunData(value: unknown) {
   if (runSummary) sections.push(runSummary)
 
   const events = Array.isArray(value.events) ? value.events : []
-  const latestEvent = events.at(-1)
-  if (isRecord(latestEvent) && typeof latestEvent.message === 'string') {
-    sections.push(`Latest event: ${truncate(latestEvent.message, 220)}`)
+  const recentEvents = events
+    .slice(-3)
+    .map((event) =>
+      isRecord(event) && typeof event.message === 'string' ? truncate(event.message, 220) : null,
+    )
+    .filter((event): event is string => Boolean(event))
+  if (recentEvents.length > 0) {
+    sections.push(`Recent activity:\n${recentEvents.map((event) => `- ${event}`).join('\n')}`)
   }
 
   const artifacts = Array.isArray(value.artifacts) ? value.artifacts : []
@@ -348,7 +375,7 @@ function summarizeFunctionCallOutput(item: Record<string, unknown>) {
     const data = isRecord(parsedOutput.data) ? parsedOutput.data : null
     const runSummary = data ? summarizeRunData(data) : null
     const datasetSummary = data ? summarizeDatasetRecord(data.dataset) : null
-    const lines = [summary, runSummary, datasetSummary].filter(Boolean)
+    const lines = [summary, runSummary, datasetSummary].filter(Boolean) as string[]
     if (lines.length > 0) {
       return lines.join('\n\n')
     }
@@ -391,18 +418,18 @@ function summarizeFunctionCall(item: Record<string, unknown>) {
     const type = typeof parsedArgs.type === 'string' ? formatStatus(parsedArgs.type) : null
 
     const lines = [
-      `Called \`${name}\``,
+      humanizeToolName(name),
       datasetId ? `Dataset: \`${datasetId}\`` : null,
       runId ? `Run: \`${runId}\`` : null,
       type ? `Run type: ${type}` : null,
       sourceDescription ? `Source: ${truncate(sourceDescription, 220)}` : null,
-      prompt ? `Prompt: ${truncate(prompt, 280)}` : null,
+      prompt ? `Prompt: ${truncate(prompt, 420)}` : null,
     ].filter(Boolean)
 
     return lines.join('\n')
   }
 
-  return `Called \`${name}\``
+  return humanizeToolName(name)
 }
 
 function summarizeResponseObject(value: Record<string, unknown>) {
@@ -415,7 +442,7 @@ function summarizeResponseObject(value: Record<string, unknown>) {
 
   if (calls.length > 0) {
     return [
-      reasoningCount > 0 ? `Planned next step${reasoningCount > 1 ? 's' : ''}:` : null,
+      reasoningCount > 0 ? `Next step${reasoningCount > 1 ? 's' : ''}:` : null,
       calls.join('\n\n'),
     ]
       .filter(Boolean)
