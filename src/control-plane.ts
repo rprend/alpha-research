@@ -65,6 +65,8 @@ type DatasetRecord = {
   volumeRegion: string | null
   volumeMountPath: string | null
   ingestConfigJson: string | null
+  activeRunId: string | null
+  leaseAcquiredAt: string | null
   createdAt: string
   updatedAt: string
 }
@@ -207,6 +209,8 @@ export class ControlPlane {
         volume_region TEXT,
         volume_mount_path TEXT,
         ingest_config_json TEXT,
+        active_run_id TEXT,
+        lease_acquired_at TEXT,
         created_at TEXT NOT NULL,
         updated_at TEXT NOT NULL
       );
@@ -308,6 +312,8 @@ export class ControlPlane {
         session_id TEXT NOT NULL
       );
     `)
+    try { this.sql.exec('ALTER TABLE datasets ADD COLUMN active_run_id TEXT') } catch {}
+    try { this.sql.exec('ALTER TABLE datasets ADD COLUMN lease_acquired_at TEXT') } catch {}
   }
 
   private rows(query: string, ...bindings: unknown[]) {
@@ -330,6 +336,7 @@ export class ControlPlane {
       nowIso(),
       run.id,
     )
+    this.releaseDatasetLease(run.datasetId, run.id)
     if (run.dropletId) {
       try {
         await deleteDroplet(this.env, run.dropletId)
@@ -346,14 +353,25 @@ export class ControlPlane {
   }
 
   private async expireStaleRunsForDataset(datasetId: string) {
-    const runs = this.rows(
-      'SELECT * FROM runs WHERE dataset_id = ? ORDER BY created_at DESC',
-      datasetId,
-    )
-      .map((row) => this.parseRunRow(row))
-    for (const run of runs) {
-      await this.expireStaleRun(run)
+    const dataset = this.getDataset(datasetId)
+    if (!dataset?.activeRunId) {
+      return
     }
+    const row = this.rows('SELECT * FROM runs WHERE id = ? LIMIT 1', dataset.activeRunId)[0]
+    if (!row) {
+      this.releaseDatasetLease(datasetId, dataset.activeRunId)
+      return
+    }
+    await this.expireStaleRun(this.parseRunRow(row))
+  }
+
+  private getLeaseBlockingRun(datasetId: string) {
+    const dataset = this.getDataset(datasetId)
+    if (!dataset?.activeRunId) {
+      return null
+    }
+    const row = this.rows('SELECT * FROM runs WHERE id = ? LIMIT 1', dataset.activeRunId)[0]
+    return row ? this.parseRunRow(row) : null
   }
 
   private getActiveRunsForDataset(datasetId: string) {
@@ -405,6 +423,8 @@ export class ControlPlane {
       volumeRegion: get('volume_region', 'volumeRegion') ? String(get('volume_region', 'volumeRegion')) : null,
       volumeMountPath: get('volume_mount_path', 'volumeMountPath') ? String(get('volume_mount_path', 'volumeMountPath')) : null,
       ingestConfigJson: get('ingest_config_json', 'ingestConfigJson') ? String(get('ingest_config_json', 'ingestConfigJson')) : null,
+      activeRunId: get('active_run_id', 'activeRunId') ? String(get('active_run_id', 'activeRunId')) : null,
+      leaseAcquiredAt: get('lease_acquired_at', 'leaseAcquiredAt') ? String(get('lease_acquired_at', 'leaseAcquiredAt')) : null,
       createdAt: String(get('created_at', 'createdAt')),
       updatedAt: String(get('updated_at', 'updatedAt')),
     }
@@ -594,6 +614,36 @@ export class ControlPlane {
   private getDataset(id: string) {
     const row = this.rows('SELECT * FROM datasets WHERE id = ? LIMIT 1', id)[0]
     return row ? this.parseDatasetRow(row) : undefined
+  }
+
+  private acquireDatasetLease(datasetId: string, runId: string) {
+    const dataset = this.getDataset(datasetId)
+    if (!dataset) {
+      throw new Error(`Dataset ${datasetId} not found`)
+    }
+    if (dataset.activeRunId && dataset.activeRunId !== runId) {
+      throw new Error(`Dataset ${datasetId} already has an active run holding its volume.`)
+    }
+    const timestamp = nowIso()
+    this.sql.exec(
+      `UPDATE datasets SET active_run_id = ?, lease_acquired_at = ?, updated_at = ? WHERE id = ?`,
+      runId,
+      timestamp,
+      timestamp,
+      datasetId,
+    )
+  }
+
+  private releaseDatasetLease(datasetId: string, runId: string) {
+    const dataset = this.getDataset(datasetId)
+    if (!dataset || dataset.activeRunId !== runId) {
+      return
+    }
+    this.sql.exec(
+      `UPDATE datasets SET active_run_id = NULL, lease_acquired_at = NULL, updated_at = ? WHERE id = ?`,
+      nowIso(),
+      datasetId,
+    )
   }
 
   private createRun(datasetId: string, ownerEmail: string, type: string, prompt?: string | null) {
@@ -1087,6 +1137,26 @@ export class ControlPlane {
         if (!callbackOrigin) {
           return respondJson({ error: 'Missing callbackOrigin' }, 400)
         }
+        await this.expireStaleRunsForDataset(datasetId)
+        const blockingRun = this.getLeaseBlockingRun(datasetId)
+        if (blockingRun && !isTerminalStatus(blockingRun.status)) {
+          return respondJson({
+            error: `Dataset ${datasetId} already has an active run holding its volume.`,
+            activeRuns: [this.runRowToJson({
+              id: blockingRun.id,
+              dataset_id: blockingRun.datasetId,
+              owner_email: blockingRun.ownerEmail,
+              type: blockingRun.type,
+              status: blockingRun.status,
+              prompt: blockingRun.prompt,
+              output_preview: blockingRun.outputPreview,
+              droplet_id: blockingRun.dropletId,
+              droplet_name: blockingRun.dropletName,
+              created_at: blockingRun.createdAt,
+              updated_at: blockingRun.updatedAt,
+            })],
+          }, 409)
+        }
         const volume = await ensureDatasetVolume(this.env, datasetId)
         const getUrl = await createPresignedSpacesUrl(this.env, {
           method: 'GET',
@@ -1094,6 +1164,7 @@ export class ControlPlane {
           expiresSeconds: 60 * 60 * 24,
         })
         const runId = this.createRun(datasetId, ownerEmail, 'deploy')
+        this.acquireDatasetLease(datasetId, runId)
         const cliSession = body.sessionId
           ? this.updateAssistantSession(String(body.sessionId), {
               datasetId,
@@ -1159,7 +1230,7 @@ export class ControlPlane {
           `UPDATE runs SET droplet_id = ?, droplet_name = ?, status = ?, updated_at = ? WHERE id = ?`,
           droplet.id,
           droplet.name,
-          'running',
+          'booting',
           nowIso(),
           runId,
         )
@@ -1211,26 +1282,27 @@ export class ControlPlane {
         const config = body.config && typeof body.config === 'object' ? body.config : null
         const artifactSpec = Array.isArray(body.artifacts) ? body.artifacts : []
         await this.expireStaleRunsForDataset(datasetId)
-        const activeRuns = this.getActiveRunsForDataset(datasetId)
-        if (activeRuns.length > 0) {
+        const blockingRun = this.getLeaseBlockingRun(datasetId)
+        if (blockingRun && !isTerminalStatus(blockingRun.status)) {
           return respondJson({
             error: `Dataset ${datasetId} already has an active run holding its volume.`,
-            activeRuns: activeRuns.map((run) => this.runRowToJson({
-              id: run.id,
-              dataset_id: run.datasetId,
-              owner_email: run.ownerEmail,
-              type: run.type,
-              status: run.status,
-              prompt: run.prompt,
-              output_preview: run.outputPreview,
-              droplet_id: run.dropletId,
-              droplet_name: run.dropletName,
-              created_at: run.createdAt,
-              updated_at: run.updatedAt,
-            })),
+            activeRuns: [this.runRowToJson({
+              id: blockingRun.id,
+              dataset_id: blockingRun.datasetId,
+              owner_email: blockingRun.ownerEmail,
+              type: blockingRun.type,
+              status: blockingRun.status,
+              prompt: blockingRun.prompt,
+              output_preview: blockingRun.outputPreview,
+              droplet_id: blockingRun.dropletId,
+              droplet_name: blockingRun.dropletName,
+              created_at: blockingRun.createdAt,
+              updated_at: blockingRun.updatedAt,
+            })],
           }, 409)
         }
         runId = this.createRun(datasetId, ownerEmail, runType, prompt)
+        this.acquireDatasetLease(datasetId, runId)
         const linkedCliSession = cliSessionId
           ? this.updateAssistantSession(cliSessionId, {
               datasetId,
@@ -1303,7 +1375,7 @@ export class ControlPlane {
           `UPDATE runs SET droplet_id = ?, droplet_name = ?, status = ?, updated_at = ? WHERE id = ?`,
           droplet.id,
           droplet.name,
-          'running',
+          'booting',
           nowIso(),
           runId,
         )
@@ -1319,6 +1391,10 @@ export class ControlPlane {
             nowIso(),
             runId,
           )
+          const failedRun = this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]
+          if (failedRun) {
+            this.releaseDatasetLease(this.parseRunRow(failedRun).datasetId, runId)
+          }
         }
         if (isVolumeBusyError(error)) {
           const datasetId = decodeURIComponent(runCreateMatch[1] ?? '')
@@ -1435,6 +1511,7 @@ export class ControlPlane {
         timestamp,
         runId,
       )
+      this.releaseDatasetLease(run.datasetId, runId)
       if (run.type === 'deploy') {
         this.sql.exec(
           `UPDATE datasets SET deployment_status = ?, status = ?, updated_at = ? WHERE id = ?`,
@@ -1623,6 +1700,9 @@ export class ControlPlane {
         timestamp,
         runId,
       )
+      if (status === 'booting' || status === 'running') {
+        this.acquireDatasetLease(run.datasetId, runId)
+      }
       if (body.deploymentStatus || body.manifestPath || body.volumeMountPath) {
         this.sql.exec(
           `UPDATE datasets SET deployment_status = ?, manifest_path = COALESCE(?, manifest_path), volume_mount_path = COALESCE(?, volume_mount_path), status = ?, updated_at = ?
@@ -1641,6 +1721,9 @@ export class ControlPlane {
         } catch {
           // Best-effort cleanup; keep terminal run state even if droplet deletion fails.
         }
+      }
+      if (isTerminalStatus(status)) {
+        this.releaseDatasetLease(run.datasetId, runId)
       }
       return respondJson({ ok: true })
     }
