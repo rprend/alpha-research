@@ -711,71 +711,90 @@ export class ControlPlane {
 
     const runCreateMatch = pathname.match(/^\/datasets\/([^/]+)\/runs$/u)
     if (runCreateMatch && request.method === 'POST') {
-      const datasetId = decodeURIComponent(runCreateMatch[1] ?? '')
-      const body = await request.json() as Record<string, unknown>
-      const ownerEmail = String(body.ownerEmail ?? '')
-      const dataset = this.getDataset(datasetId)
-      if (!dataset || dataset.ownerEmail !== ownerEmail) {
-        return respondJson({ error: 'Dataset not found' }, 404)
-      }
-      const prompt = String(body.prompt ?? '')
-      const runType = String(body.type ?? 'analysis')
-      const config = body.config && typeof body.config === 'object' ? body.config : null
-      const artifactSpec = Array.isArray(body.artifacts) ? body.artifacts : []
-      const runId = this.createRun(datasetId, ownerEmail, runType, prompt)
-      this.sql.exec(
-        `INSERT INTO run_metadata (run_id, config_json, artifact_spec_json) VALUES (?, ?, ?)`,
-        runId,
-        config ? JSON.stringify(config) : null,
-        artifactSpec.length > 0 ? JSON.stringify(artifactSpec) : null,
-      )
-      for (const artifact of artifactSpec) {
-        if (artifact && typeof artifact === 'object') {
-          const typedArtifact = artifact as Record<string, unknown>
-          this.createRunArtifact(
+      let runId: string | null = null
+      try {
+        const datasetId = decodeURIComponent(runCreateMatch[1] ?? '')
+        const body = await request.json() as Record<string, unknown>
+        const ownerEmail = String(body.ownerEmail ?? '')
+        const dataset = this.getDataset(datasetId)
+        if (!dataset || dataset.ownerEmail !== ownerEmail) {
+          return respondJson({ error: 'Dataset not found' }, 404)
+        }
+        const prompt = String(body.prompt ?? '')
+        const runType = String(body.type ?? 'analysis')
+        const config = body.config && typeof body.config === 'object' ? body.config : null
+        const artifactSpec = Array.isArray(body.artifacts) ? body.artifacts : []
+        runId = this.createRun(datasetId, ownerEmail, runType, prompt)
+        this.sql.exec(
+          `INSERT INTO run_metadata (run_id, config_json, artifact_spec_json) VALUES (?, ?, ?)`,
+          runId,
+          config ? JSON.stringify(config) : null,
+          artifactSpec.length > 0 ? JSON.stringify(artifactSpec) : null,
+        )
+        for (const artifact of artifactSpec) {
+          if (artifact && typeof artifact === 'object') {
+            const typedArtifact = artifact as Record<string, unknown>
+            this.createRunArtifact(
+              runId,
+              String(typedArtifact.type ?? 'artifact'),
+              String(typedArtifact.title ?? typedArtifact.type ?? 'artifact'),
+              typedArtifact,
+              null,
+            )
+          }
+        }
+        if (!dataset.volumeId || !dataset.volumeName || !dataset.volumeMountPath || !dataset.manifestPath) {
+          this.appendRunEvent(runId, 'Dataset is not deployed to a runnable volume yet.', 'error')
+          this.sql.exec('UPDATE runs SET status = ?, updated_at = ? WHERE id = ?', 'failed', nowIso(), runId)
+          return respondJson({ error: 'Dataset is not deployed and runnable yet' }, 400)
+        }
+        const remoteAgentConfig = config && typeof config === 'object'
+          ? (config as Record<string, unknown>)
+          : null
+        const droplet = await launchResearchDroplet(this.env, {
+          datasetId,
+          runId,
+          runType,
+          prompt,
+          configJson: config ? JSON.stringify(config) : undefined,
+          artifactSpecJson: artifactSpec.length > 0 ? JSON.stringify(artifactSpec) : undefined,
+          remoteAgentSessionId: typeof remoteAgentConfig?.remoteAgentSessionId === 'string'
+            ? remoteAgentConfig.remoteAgentSessionId
+            : undefined,
+          volumeName: dataset.volumeName,
+          volumeId: dataset.volumeId,
+          callbackOrigin: String(body.callbackOrigin ?? ''),
+          datasetMountPath: dataset.volumeMountPath,
+          manifestPath: dataset.manifestPath,
+          sourceSizeBytes: dataset.sourceSizeBytes,
+        })
+        this.appendRunEvent(runId, `Remote agent droplet ${droplet.name} launched in ${droplet.region} (${droplet.size}).`)
+        this.sql.exec(
+          `UPDATE runs SET droplet_id = ?, droplet_name = ?, status = ?, updated_at = ? WHERE id = ?`,
+          droplet.id,
+          droplet.name,
+          'running',
+          nowIso(),
+          runId,
+        )
+        return respondJson({ run: this.runRowToJson(this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]!) })
+      } catch (error) {
+        const message = error instanceof Error ? error.message : 'Run launch failed'
+        if (runId) {
+          this.appendRunEvent(runId, `Remote agent run launch failed: ${message}`, 'error')
+          this.sql.exec(
+            `UPDATE runs SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+            'failed',
+            message,
+            nowIso(),
             runId,
-            String(typedArtifact.type ?? 'artifact'),
-            String(typedArtifact.title ?? typedArtifact.type ?? 'artifact'),
-            typedArtifact,
-            null,
           )
         }
+        return respondJson({
+          error: message,
+          runId,
+        }, 500)
       }
-      if (!dataset.volumeId || !dataset.volumeName || !dataset.volumeMountPath || !dataset.manifestPath) {
-        this.appendRunEvent(runId, 'Dataset is not deployed to a runnable volume yet.', 'error')
-        this.sql.exec('UPDATE runs SET status = ?, updated_at = ? WHERE id = ?', 'failed', nowIso(), runId)
-        return respondJson({ error: 'Dataset is not deployed and runnable yet' }, 400)
-      }
-      const remoteAgentConfig = config && typeof config === 'object'
-        ? (config as Record<string, unknown>)
-        : null
-      const droplet = await launchResearchDroplet(this.env, {
-        datasetId,
-        runId,
-        runType,
-        prompt,
-        configJson: config ? JSON.stringify(config) : undefined,
-        artifactSpecJson: artifactSpec.length > 0 ? JSON.stringify(artifactSpec) : undefined,
-        remoteAgentSessionId: typeof remoteAgentConfig?.remoteAgentSessionId === 'string'
-          ? remoteAgentConfig.remoteAgentSessionId
-          : undefined,
-        volumeName: dataset.volumeName,
-        volumeId: dataset.volumeId,
-        callbackOrigin: String(body.callbackOrigin ?? ''),
-        datasetMountPath: dataset.volumeMountPath,
-        manifestPath: dataset.manifestPath,
-        sourceSizeBytes: dataset.sourceSizeBytes,
-      })
-      this.appendRunEvent(runId, `Remote agent droplet ${droplet.name} launched in ${droplet.region} (${droplet.size}).`)
-      this.sql.exec(
-        `UPDATE runs SET droplet_id = ?, droplet_name = ?, status = ?, updated_at = ? WHERE id = ?`,
-        droplet.id,
-        droplet.name,
-        'running',
-        nowIso(),
-        runId,
-      )
-      return respondJson({ run: this.runRowToJson(this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]!) })
     }
 
     const runMatch = pathname.match(/^\/runs\/([^/]+)$/u)
