@@ -300,7 +300,7 @@ export default {
       return proxyToControlPlane(env, `/datasets/${encodeURIComponent(runCreateMatch[1] ?? '')}/runs`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...body, ownerEmail: cliSession.email }),
+        body: JSON.stringify({ ...body, ownerEmail: cliSession.email, callbackOrigin: url.origin }),
       })
     }
 
@@ -398,6 +398,20 @@ export default {
       }
       const body = await request.text()
       return proxyToControlPlane(env, `/internal/runs/${encodeURIComponent(internalStatusMatch[1] ?? '')}/status`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body,
+      })
+    }
+
+    const internalArtifactMatch = pathname.match(/^\/api\/internal\/runs\/([^/]+)\/artifacts$/u)
+    if (internalArtifactMatch && request.method === 'POST') {
+      const bearer = request.headers.get('Authorization') ?? ''
+      if (bearer !== `Bearer ${env.RESEARCH_INTERNAL_RUNNER_TOKEN ?? ''}`) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      const body = await request.text()
+      return proxyToControlPlane(env, `/internal/runs/${encodeURIComponent(internalArtifactMatch[1] ?? '')}/artifacts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body,

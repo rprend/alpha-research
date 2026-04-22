@@ -1,5 +1,5 @@
 import { createPresignedSpacesUrl } from './spaces'
-import { deleteDroplet, ensureDatasetVolume, launchIngestDroplet } from './digitalocean'
+import { deleteDroplet, ensureDatasetVolume, launchIngestDroplet, launchResearchDroplet } from './digitalocean'
 
 type DurableObjectStateLike = {
   storage: {
@@ -40,6 +40,8 @@ type Env = {
   R2_ENDPOINT?: string
   RESEARCH_INTERNAL_RUNNER_TOKEN?: string
   RESEARCH_DATASET_REPO_REF?: string
+  OPENAI_API_KEY?: string
+  RESEARCH_AGENT_MODEL?: string
 }
 
 type DatasetRecord = {
@@ -724,8 +726,34 @@ export class ControlPlane {
           )
         }
       }
-      this.appendRunEvent(runId, `Run created with type ${runType}. Remote execution is not implemented yet.`, 'warning')
-      this.sql.exec('UPDATE runs SET status = ?, updated_at = ? WHERE id = ?', 'queued', nowIso(), runId)
+      if (!dataset.volumeId || !dataset.volumeName || !dataset.volumeMountPath || !dataset.manifestPath) {
+        this.appendRunEvent(runId, 'Dataset is not deployed to a runnable volume yet.', 'error')
+        this.sql.exec('UPDATE runs SET status = ?, updated_at = ? WHERE id = ?', 'failed', nowIso(), runId)
+        return respondJson({ error: 'Dataset is not deployed and runnable yet' }, 400)
+      }
+      const droplet = await launchResearchDroplet(this.env, {
+        datasetId,
+        runId,
+        runType,
+        prompt,
+        configJson: config ? JSON.stringify(config) : undefined,
+        artifactSpecJson: artifactSpec.length > 0 ? JSON.stringify(artifactSpec) : undefined,
+        volumeName: dataset.volumeName,
+        volumeId: dataset.volumeId,
+        callbackOrigin: String(body.callbackOrigin ?? ''),
+        datasetMountPath: dataset.volumeMountPath,
+        manifestPath: dataset.manifestPath,
+        sourceSizeBytes: dataset.sourceSizeBytes,
+      })
+      this.appendRunEvent(runId, `Research droplet ${droplet.name} launched in ${droplet.region} (${droplet.size}).`)
+      this.sql.exec(
+        `UPDATE runs SET droplet_id = ?, droplet_name = ?, status = ?, updated_at = ? WHERE id = ?`,
+        droplet.id,
+        droplet.name,
+        'running',
+        nowIso(),
+        runId,
+      )
       return respondJson({ run: this.runRowToJson(this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]!) })
     }
 
@@ -846,6 +874,20 @@ export class ControlPlane {
       const level = request.headers.get('X-Run-Level') ?? 'info'
       const message = await request.text()
       this.appendRunEvent(runId, message, level)
+      return respondJson({ ok: true })
+    }
+
+    const internalArtifactMatch = pathname.match(/^\/internal\/runs\/([^/]+)\/artifacts$/u)
+    if (internalArtifactMatch && request.method === 'POST') {
+      const runId = decodeURIComponent(internalArtifactMatch[1] ?? '')
+      const body = await request.json() as Record<string, unknown>
+      this.createRunArtifact(
+        runId,
+        String(body.type ?? 'artifact'),
+        String(body.title ?? 'artifact'),
+        body.content,
+        body.url ? String(body.url) : null,
+      )
       return respondJson({ ok: true })
     }
 
