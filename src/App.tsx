@@ -1,4 +1,5 @@
 import { type ReactNode, useEffect, useMemo, useState } from 'react'
+import { AssistantRuntimeProvider, useExternalStoreRuntime, type ThreadMessage } from '@assistant-ui/react'
 import {
   Bot,
   Database,
@@ -11,6 +12,7 @@ import {
   TerminalSquare,
 } from 'lucide-react'
 
+import { Thread } from '@/components/assistant-ui/thread'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -264,6 +266,54 @@ function codeBlock(label: string, value: unknown) {
   return `### ${label}\n\n\`\`\`json\n${JSON.stringify(value, null, 2)}\n\`\`\``
 }
 
+function tryParseJson(value: string) {
+  try {
+    return JSON.parse(value)
+  } catch {
+    return null
+  }
+}
+
+function formatSessionBody(entry: SessionEntry) {
+  const parsed = tryParseJson(entry.body)
+  if (parsed !== null) {
+    return codeBlock(entry.title ?? 'Payload', parsed)
+  }
+  if (entry.title) {
+    return `### ${entry.title}\n\n${entry.body}`
+  }
+  return entry.body
+}
+
+function toThreadMessage(entry: SessionEntry): ThreadMessage {
+  if (entry.role === 'user') {
+    return {
+      id: entry.id,
+      role: 'user',
+      createdAt: new Date(entry.createdAt),
+      content: [{ type: 'text', text: formatSessionBody(entry) }],
+      attachments: [],
+      metadata: { custom: entry.title ? { title: entry.title } : {} },
+    } as ThreadMessage
+  }
+
+  return {
+    id: entry.id,
+    role: 'assistant',
+    createdAt: new Date(entry.createdAt),
+    content: [{ type: 'text', text: formatSessionBody(entry) }],
+    attachments: [],
+    status: { type: 'complete', reason: 'stop' },
+    metadata: {
+      unstable_state: null,
+      unstable_annotations: [],
+      unstable_data: [],
+      steps: [],
+      custom: entry.title ? { title: entry.title, role: entry.role } : { role: entry.role },
+    },
+  } as ThreadMessage
+}
+
 function createSessionEntry(
   id: string,
   role: SessionEntryRole,
@@ -447,56 +497,7 @@ function buildRemoteTranscript(
   return messages
 }
 
-function TranscriptBubble({
-  entry,
-}: {
-  entry: SessionEntry
-}) {
-  const isUser = entry.role === 'user'
-  const isSystem = entry.role === 'system'
-
-  return (
-    <article
-      className={[
-        'flex flex-col gap-2 rounded-2xl px-5 py-4',
-        isUser
-          ? 'ml-auto max-w-3xl bg-foreground text-background'
-          : isSystem
-            ? 'max-w-4xl border border-border bg-muted/30'
-            : 'max-w-4xl bg-background ring-1 ring-border/80',
-      ].join(' ')}
-    >
-      <div className="flex items-center justify-between gap-4">
-        <div className="flex items-center gap-2">
-          <Badge
-            variant="outline"
-            className={isUser ? 'text-background/85' : 'text-muted-foreground'}
-          >
-            {entry.title ?? formatStatus(entry.role)}
-          </Badge>
-        </div>
-        <span
-          className={[
-            'text-xs',
-            isUser ? 'text-background/70' : 'text-muted-foreground',
-          ].join(' ')}
-        >
-          {formatDateTime(entry.createdAt)}
-        </span>
-      </div>
-      <div
-        className={[
-          'prose prose-neutral max-w-none whitespace-pre-wrap break-words text-sm leading-7',
-          isUser ? 'prose-invert text-background' : 'text-foreground',
-        ].join(' ')}
-      >
-        {entry.body}
-      </div>
-    </article>
-  )
-}
-
-function RunTranscript({
+function AssistantTranscript({
   entries,
   emptyTitle,
   emptyDescription,
@@ -516,12 +517,23 @@ function RunTranscript({
     )
   }
 
+  const messages = useMemo(() => entries.map(toThreadMessage), [entries])
+  const runtime = useExternalStoreRuntime({
+    isRunning: false,
+    messages,
+    onNew: async () => {},
+  })
+
   return (
-    <div className="flex min-h-[28rem] flex-col gap-4 rounded-3xl border border-border bg-muted/20 p-6">
-      {entries.map((entry) => (
-        <TranscriptBubble key={entry.id} entry={entry} />
-      ))}
-    </div>
+    <AssistantRuntimeProvider runtime={runtime}>
+      <div className="min-h-[28rem] rounded-3xl border border-border bg-background">
+        <Thread
+          readOnly
+          welcomeTitle={emptyTitle}
+          welcomeDescription={emptyDescription}
+        />
+      </div>
+    </AssistantRuntimeProvider>
   )
 }
 
@@ -1153,7 +1165,7 @@ function RunDetailPage({
 
         {view === 'remote' ? (
           remoteSessionId ? (
-            <RunTranscript
+            <AssistantTranscript
               entries={remoteMessages}
               emptyTitle="No remote session log"
               emptyDescription="This run has a remote session id but there are no persisted remote events yet."
@@ -1177,7 +1189,7 @@ function RunDetailPage({
                 </p>
               </section>
             ) : null}
-            <RunTranscript
+            <AssistantTranscript
               entries={cliMessages}
               emptyTitle="No CLI transcript yet"
               emptyDescription="Persisted run config, events, and artifacts from the RESEARCH CLI will appear here."
@@ -1260,7 +1272,7 @@ function SessionDetailPage({ sessionId }: { sessionId: string }) {
           </Card>
         ) : null}
 
-        <RunTranscript
+        <AssistantTranscript
           entries={entries}
           emptyTitle="No terminal session turns yet"
           emptyDescription="This session exists, but no turns have been recorded yet."
