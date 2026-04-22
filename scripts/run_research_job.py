@@ -3,6 +3,7 @@ import base64
 import gzip
 import json
 import os
+from collections import defaultdict
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -28,6 +29,7 @@ CALLBACK_ARTIFACTS_URL = os.environ["CALLBACK_ARTIFACTS_URL"]
 RUNNER_TOKEN = os.environ["RUNNER_TOKEN"]
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
 MODEL = os.environ.get("RESEARCH_AGENT_MODEL", "gpt-5")
+ARTIFACTS_CREATED = 0
 
 
 def headers(content_type: str):
@@ -59,6 +61,7 @@ def post_status(status: str, output_preview: str = ""):
 
 
 def create_artifact(kind: str, title: str, content=None, url: str | None = None):
+    global ARTIFACTS_CREATED
     requests.post(
         CALLBACK_ARTIFACTS_URL,
         headers=headers("application/json"),
@@ -70,6 +73,7 @@ def create_artifact(kind: str, title: str, content=None, url: str | None = None)
         },
         timeout=20,
     ).raise_for_status()
+    ARTIFACTS_CREATED += 1
     print(f"ARTIFACT {kind}: {title}")
 
 
@@ -98,6 +102,104 @@ def sample_records(limit: int = 10):
                 if len(samples) >= limit:
                     return samples
     return samples
+
+
+def iter_records():
+    manifest = load_manifest()
+    sample_records_list = list(manifest.get("samples", {}).get("records", []))
+    sample_hashes = {json.dumps(sample, sort_keys=True, default=str) for sample in sample_records_list}
+    for sample in sample_records_list:
+        yield sample
+    for shard in manifest.get("shards", []):
+        if shard.get("kind") != "records":
+            continue
+        shard_path = MANIFEST_PATH.parent / shard["path"]
+        if shard["compression"] == "gzip":
+            fh = gzip.open(shard_path, "rt", encoding="utf-8")
+        else:
+            fh = shard_path.open("r", encoding="utf-8")
+        with fh:
+            for line in fh:
+                if not line.strip():
+                    continue
+                record = json.loads(line)
+                if json.dumps(record, sort_keys=True, default=str) in sample_hashes:
+                    continue
+                yield record
+
+
+def matches_filter(record: dict, field: str, op: str, value):
+    actual = record.get(field)
+    if op == "eq":
+        return actual == value
+    if op == "neq":
+        return actual != value
+    if op == "contains":
+        return value is not None and str(value).lower() in str(actual or "").lower()
+    if actual is None:
+        return False
+    try:
+        actual_number = float(actual)
+        value_number = float(value)
+    except Exception:
+        actual_number = None
+        value_number = None
+    if op == "gt" and actual_number is not None and value_number is not None:
+        return actual_number > value_number
+    if op == "gte" and actual_number is not None and value_number is not None:
+        return actual_number >= value_number
+    if op == "lt" and actual_number is not None and value_number is not None:
+        return actual_number < value_number
+    if op == "lte" and actual_number is not None and value_number is not None:
+        return actual_number <= value_number
+    return False
+
+
+def query_records(filters=None, select=None, sort_by=None, sort_order="desc", limit=10):
+    filters = filters or []
+    rows = []
+    scanned = 0
+    for record in iter_records():
+        scanned += 1
+        if all(matches_filter(record, item.get("field"), item.get("op", "eq"), item.get("value")) for item in filters):
+            if select:
+                projected = {field: record.get(field) for field in select}
+            else:
+                projected = record
+            rows.append(projected)
+        if scanned % 100000 == 0:
+            print(f"STEP scanned {scanned} rows for query")
+    if sort_by:
+        def sort_key(item):
+            value = item.get(sort_by) if isinstance(item, dict) else None
+            try:
+                return (0, float(value))
+            except Exception:
+                return (1, str(value or ""))
+        rows.sort(key=sort_key, reverse=(sort_order != "asc"))
+    return rows[:limit]
+
+
+def aggregate_records(group_by: str, metric_field: str, op: str = "count", limit: int = 20):
+    buckets = defaultdict(list)
+    scanned = 0
+    for record in iter_records():
+        scanned += 1
+        buckets[str(record.get(group_by, ""))].append(record.get(metric_field))
+        if scanned % 100000 == 0:
+            print(f"STEP scanned {scanned} rows for aggregate")
+    rows = []
+    for key, values in buckets.items():
+        numeric = [float(value) for value in values if value is not None]
+        if op == "avg":
+            metric = sum(numeric) / len(numeric) if numeric else None
+        elif op == "sum":
+            metric = sum(numeric) if numeric else None
+        else:
+            metric = len(values)
+        rows.append({"group": key, "metric": metric})
+    rows.sort(key=lambda item: (item["metric"] is not None, item["metric"]), reverse=True)
+    return rows[:limit]
 
 
 def inspect_dataset():
@@ -210,21 +312,51 @@ def run_agentic_job():
                 "additionalProperties": False,
             },
         },
+        {
+            "type": "function",
+            "name": "query_records",
+            "description": "Query records from the mounted dataset with simple filters, sorting, field selection, and a result limit.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "filters": {"type": "array", "items": {"type": "object"}},
+                    "select": {"type": "array", "items": {"type": "string"}},
+                    "sort_by": {"type": "string"},
+                    "sort_order": {"type": "string"},
+                    "limit": {"type": "integer"},
+                },
+                "additionalProperties": False,
+            },
+        },
+        {
+            "type": "function",
+            "name": "aggregate_records",
+            "description": "Aggregate records by a grouping field and metric field to produce top buckets.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "group_by": {"type": "string"},
+                    "metric_field": {"type": "string"},
+                    "op": {"type": "string"},
+                    "limit": {"type": "integer"},
+                },
+                "required": ["group_by", "metric_field"],
+                "additionalProperties": False,
+            },
+        },
     ]
 
-    tool_outputs = []
     response = responses_call(
         {
             "model": MODEL,
             "instructions": instructions,
             "input": {
                 "prompt": PROMPT,
-            "prompt": PROMPT,
-            "config": CONFIG,
-            "artifactSpec": ARTIFACT_SPEC,
-        },
-        "tools": tools,
-        "parallel_tool_calls": False,
+                "config": CONFIG,
+                "artifactSpec": ARTIFACT_SPEC,
+            },
+            "tools": tools,
+            "parallel_tool_calls": False,
         }
     )
 
@@ -245,6 +377,21 @@ def run_agentic_job():
             elif name == "create_artifact":
                 create_artifact(arguments["type"], arguments["title"], arguments.get("content"))
                 output = {"ok": True}
+            elif name == "query_records":
+                output = query_records(
+                    filters=arguments.get("filters") or [],
+                    select=arguments.get("select") or None,
+                    sort_by=arguments.get("sort_by"),
+                    sort_order=arguments.get("sort_order", "desc"),
+                    limit=int(arguments.get("limit", 10)),
+                )
+            elif name == "aggregate_records":
+                output = aggregate_records(
+                    group_by=arguments["group_by"],
+                    metric_field=arguments["metric_field"],
+                    op=arguments.get("op", "count"),
+                    limit=int(arguments.get("limit", 20)),
+                )
             else:
                 output = {"error": f"Unknown tool {name}"}
             tool_outputs.append(
@@ -292,6 +439,8 @@ def main():
         run_fetch_job()
     else:
         run_agentic_job()
+    if ARTIFACTS_CREATED == 0:
+        raise RuntimeError("Run completed without producing any artifacts")
     post_event("DONE run complete")
     post_status("ready", "run complete")
 

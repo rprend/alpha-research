@@ -151,6 +151,9 @@ function chooseResearchDropletSize(env: DigitalOceanEnv, params: LaunchResearchP
   const small = env.DIGITALOCEAN_RESEARCH_DROPLET_SIZE_SMALL ?? 's-2vcpu-4gb'
   const medium = env.DIGITALOCEAN_RESEARCH_DROPLET_SIZE_MEDIUM ?? 's-4vcpu-8gb'
   const large = env.DIGITALOCEAN_RESEARCH_DROPLET_SIZE_LARGE ?? 's-8vcpu-16gb'
+  if (params.runType === 'query') {
+    return (params.sourceSizeBytes ?? 0) > 5_000_000_000 ? medium : small
+  }
   if (params.runType === 'codex' || params.runType === 'analysis' || params.runType === 'hypothesis') {
     return (params.sourceSizeBytes ?? 0) > 2_000_000_000 ? large : medium
   }
