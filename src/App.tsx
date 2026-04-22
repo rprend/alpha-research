@@ -298,15 +298,46 @@ function summarizeRunRecord(value: unknown) {
   const datasetId = typeof value.datasetId === 'string' ? value.datasetId : null
   const type = typeof value.type === 'string' ? formatStatus(value.type) : null
   const status = typeof value.status === 'string' ? formatStatus(value.status) : null
+  const prompt = typeof value.prompt === 'string' ? value.prompt : null
   if (!id) return null
   return [
     `Run: \`${id}\``,
     datasetId ? `Dataset: \`${datasetId}\`` : null,
     type ? `Type: ${type}` : null,
     status ? `Status: ${status}` : null,
+    prompt ? `Prompt: ${truncate(prompt, 260)}` : null,
   ]
     .filter(Boolean)
     .join('\n')
+}
+
+function summarizeRunData(value: unknown) {
+  if (!isRecord(value)) return null
+
+  const sections: string[] = []
+  const runSummary = summarizeRunRecord(value.run)
+  if (runSummary) sections.push(runSummary)
+
+  const events = Array.isArray(value.events) ? value.events : []
+  const latestEvent = events.at(-1)
+  if (isRecord(latestEvent) && typeof latestEvent.message === 'string') {
+    sections.push(`Latest event: ${truncate(latestEvent.message, 220)}`)
+  }
+
+  const artifacts = Array.isArray(value.artifacts) ? value.artifacts : []
+  if (artifacts.length > 0) {
+    const titles = artifacts
+      .slice(0, 4)
+      .map((artifact) =>
+        isRecord(artifact) && typeof artifact.title === 'string' ? artifact.title : null,
+      )
+      .filter((title): title is string => Boolean(title))
+    if (titles.length > 0) {
+      sections.push(`Artifacts: ${titles.join(', ')}`)
+    }
+  }
+
+  return sections.length > 0 ? sections.join('\n\n') : null
 }
 
 function summarizeFunctionCallOutput(item: Record<string, unknown>) {
@@ -315,7 +346,7 @@ function summarizeFunctionCallOutput(item: Record<string, unknown>) {
   if (isRecord(parsedOutput)) {
     const summary = typeof parsedOutput.summary === 'string' ? parsedOutput.summary : null
     const data = isRecord(parsedOutput.data) ? parsedOutput.data : null
-    const runSummary = data ? summarizeRunRecord(data.run) : null
+    const runSummary = data ? summarizeRunData(data) : null
     const datasetSummary = data ? summarizeDatasetRecord(data.dataset) : null
     const lines = [summary, runSummary, datasetSummary].filter(Boolean)
     if (lines.length > 0) {
@@ -357,11 +388,13 @@ function summarizeFunctionCall(item: Record<string, unknown>) {
     const prompt = typeof parsedArgs.prompt === 'string' ? parsedArgs.prompt : null
     const sourceDescription =
       typeof parsedArgs.sourceDescription === 'string' ? parsedArgs.sourceDescription : null
+    const type = typeof parsedArgs.type === 'string' ? formatStatus(parsedArgs.type) : null
 
     const lines = [
       `Called \`${name}\``,
       datasetId ? `Dataset: \`${datasetId}\`` : null,
       runId ? `Run: \`${runId}\`` : null,
+      type ? `Run type: ${type}` : null,
       sourceDescription ? `Source: ${truncate(sourceDescription, 220)}` : null,
       prompt ? `Prompt: ${truncate(prompt, 280)}` : null,
     ].filter(Boolean)
@@ -374,13 +407,19 @@ function summarizeFunctionCall(item: Record<string, unknown>) {
 
 function summarizeResponseObject(value: Record<string, unknown>) {
   const output = Array.isArray(value.output) ? value.output : []
+  const reasoningCount = output.filter((item) => isRecord(item) && item.type === 'reasoning').length
   const calls = output
     .filter((item) => isRecord(item) && item.type === 'function_call')
     .map((item) => summarizeFunctionCall(item as Record<string, unknown>))
     .filter(Boolean)
 
   if (calls.length > 0) {
-    return calls.join('\n\n')
+    return [
+      reasoningCount > 0 ? `Planned next step${reasoningCount > 1 ? 's' : ''}:` : null,
+      calls.join('\n\n'),
+    ]
+      .filter(Boolean)
+      .join('\n\n')
   }
 
   const outputText = typeof value.output_text === 'string' ? value.output_text.trim() : ''
