@@ -402,6 +402,23 @@ export default {
       })
     }
 
+    if (pathname === '/api/cli/sessions' && request.method === 'GET') {
+      const cliSession = await requireAuthorizedSession(request, env)
+      if (!cliSession) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      const kind = url.searchParams.get('kind')
+      const runId = url.searchParams.get('runId')
+      const datasetId = url.searchParams.get('datasetId')
+      const params = new URLSearchParams({ ownerEmail: cliSession.email })
+      if (kind) params.set('kind', kind)
+      if (runId) params.set('runId', runId)
+      if (datasetId) params.set('datasetId', datasetId)
+      return proxyToControlPlane(env, `/assistant-sessions?${params.toString()}`, {
+        method: 'GET',
+      })
+    }
+
     const runCreateMatch = pathname.match(/^\/api\/cli\/datasets\/([^/]+)\/runs$/u)
     if (runCreateMatch && request.method === 'POST') {
       const cliSession = await requireAuthorizedSession(request, env)
@@ -424,6 +441,13 @@ export default {
     const runMatch = pathname.match(/^\/api\/cli\/runs\/([^/]+)$/u)
     if (runMatch && request.method === 'GET') {
       return forwardCliRequest(request, env, `/runs/${encodeURIComponent(runMatch[1] ?? '')}`, { method: 'GET' })
+    }
+
+    const sessionMatch = pathname.match(/^\/api\/cli\/sessions\/([^/]+)$/u)
+    if (sessionMatch && request.method === 'GET') {
+      return forwardCliRequest(request, env, `/assistant-sessions/${encodeURIComponent(sessionMatch[1] ?? '')}`, {
+        method: 'GET',
+      })
     }
 
     const runCancelMatch = pathname.match(/^\/api\/cli\/runs\/([^/]+)\/cancel$/u)

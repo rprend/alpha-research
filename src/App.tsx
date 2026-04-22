@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { type ReactNode, useEffect, useMemo, useState } from 'react'
 import {
   Bot,
   Database,
@@ -51,13 +51,6 @@ import {
   SidebarTrigger,
 } from '@/components/ui/sidebar'
 import { Skeleton } from '@/components/ui/skeleton'
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-} from '@/components/ui/sheet'
 import { Separator } from '@/components/ui/separator'
 import {
   Table,
@@ -140,6 +133,7 @@ type RunResultsResponse = {
 
 type SessionTranscriptKind = 'cli' | 'remote'
 type SessionEntryRole = 'user' | 'assistant' | 'system'
+type DashboardView = 'dashboard' | 'datasets' | 'runs' | 'terminal-sessions'
 
 type StoredAssistantSessionEntry = {
   id: string
@@ -158,7 +152,7 @@ type StoredAssistantSession = {
   status: string
   createdAt: string
   updatedAt: string
-  entries: StoredAssistantSessionEntry[]
+  entries?: StoredAssistantSessionEntry[]
 }
 
 type SessionEntry = {
@@ -292,7 +286,7 @@ function buildCliTranscript(
   payload: RunResultsResponse | null,
 ): SessionEntry[] {
   const storedSession = payload?.sessions?.find((session) => session.kind === 'cli_orchestration')
-  if (storedSession) {
+  if (storedSession?.entries?.length) {
     return storedSession.entries.map((entry) =>
       createSessionEntry(
         entry.id,
@@ -384,7 +378,7 @@ function buildRemoteTranscript(
   payload: RunResultsResponse | null,
 ): SessionEntry[] {
   const storedSession = payload?.sessions?.find((session) => session.kind === 'remote_codex')
-  if (storedSession) {
+  if (storedSession?.entries?.length) {
     return storedSession.entries.map((entry) =>
       createSessionEntry(
         entry.id,
@@ -545,13 +539,6 @@ function countActiveRuns(runs: RunRecord[]) {
   ).length
 }
 
-function latestUpdate(items: Array<{ updatedAt: string }>) {
-  if (items.length === 0) {
-    return 'No recent activity'
-  }
-  return relativeTime(items.map((item) => item.updatedAt).sort().at(-1) ?? '')
-}
-
 function beginDashboardBridge() {
   const returnTo = `${window.location.pathname}${window.location.search}${window.location.hash}`
   const destination = new URL('/api/auth/bridge', rootOrigin)
@@ -633,6 +620,55 @@ function normalizeRunsPayload(payload: unknown): RunRecord[] {
   return []
 }
 
+function normalizeSessionsPayload(payload: unknown): StoredAssistantSession[] {
+  if (Array.isArray(payload)) {
+    return payload as StoredAssistantSession[]
+  }
+
+  if (
+    payload &&
+    typeof payload === 'object' &&
+    'sessions' in payload &&
+    Array.isArray((payload as { sessions?: unknown }).sessions)
+  ) {
+    return (payload as { sessions: StoredAssistantSession[] }).sessions
+  }
+
+  return []
+}
+
+function getDashboardRoute() {
+  const url = new URL(window.location.href)
+  const candidate = url.searchParams.get('view')
+  const view: DashboardView =
+    candidate === 'datasets' ||
+    candidate === 'runs' ||
+    candidate === 'terminal-sessions'
+      ? candidate
+      : 'dashboard'
+
+  return {
+    view,
+    runId: url.searchParams.get('runId'),
+    sessionId: url.searchParams.get('sessionId'),
+  }
+}
+
+function updateDashboardRoute(next: {
+  view?: DashboardView
+  runId?: string | null
+  sessionId?: string | null
+}) {
+  const url = new URL(window.location.href)
+  url.searchParams.set('view', next.view ?? getDashboardRoute().view)
+  if (next.runId) url.searchParams.set('runId', next.runId)
+  else url.searchParams.delete('runId')
+  if (next.sessionId) url.searchParams.set('sessionId', next.sessionId)
+  else url.searchParams.delete('sessionId')
+  window.history.pushState({}, '', url.toString())
+  window.dispatchEvent(new PopStateEvent('popstate'))
+}
+
 function initCal() {
   ;((C, A, L) => {
     const push = (api: { q?: unknown[] }, args: IArguments | unknown[]) => {
@@ -698,6 +734,18 @@ function useCopy(text: string) {
   }
 
   return { copied, copy }
+}
+
+function useDashboardRoute() {
+  const [route, setRoute] = useState(getDashboardRoute())
+
+  useEffect(() => {
+    const sync = () => setRoute(getDashboardRoute())
+    window.addEventListener('popstate', sync)
+    return () => window.removeEventListener('popstate', sync)
+  }, [])
+
+  return route
 }
 
 function StatusBadge({ children }: { children: string }) {
@@ -858,27 +906,71 @@ function RunTable({
   )
 }
 
-function RunSessionSheet({
-  run,
-  dataset,
-  open,
-  onOpenChange,
+function SessionTable({
+  sessions,
+  onSelectSession,
 }: {
-  run: RunRecord | null
-  dataset: DatasetRecord | undefined
-  open: boolean
-  onOpenChange: (open: boolean) => void
+  sessions: StoredAssistantSession[]
+  onSelectSession: (session: StoredAssistantSession) => void
 }) {
+  if (sessions.length === 0) {
+    return (
+      <Empty className="border-t border-dashed border-border px-6 py-14">
+        <EmptyHeader>
+          <EmptyMedia variant="icon">
+            <TerminalSquare />
+          </EmptyMedia>
+          <EmptyTitle>No terminal sessions yet</EmptyTitle>
+          <EmptyDescription>
+            New RESEARCH CLI sessions will appear here as they are proxied through Alpha Research.
+          </EmptyDescription>
+        </EmptyHeader>
+      </Empty>
+    )
+  }
+
+  return (
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Session</TableHead>
+          <TableHead>Status</TableHead>
+          <TableHead>Updated</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {sessions.map((session) => (
+          <TableRow
+            key={session.id}
+            className="cursor-pointer"
+            onClick={() => onSelectSession(session)}
+          >
+            <TableCell className="align-top">
+              <div className="flex min-w-0 flex-col gap-1">
+                <span className="truncate font-medium">
+                  {session.title ?? 'RESEARCH CLI session'}
+                </span>
+                <span className="text-sm text-muted-foreground">{session.id}</span>
+              </div>
+            </TableCell>
+            <TableCell>
+              <StatusBadge>{formatStatus(session.status)}</StatusBadge>
+            </TableCell>
+            <TableCell>{relativeTime(session.updatedAt)}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  )
+}
+
+function useRunResults(run: RunRecord | null) {
   const [payload, setPayload] = useState<RunResultsResponse | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
-  const [view, setView] = useState<SessionTranscriptKind>('cli')
 
   useEffect(() => {
-    if (!open || !run) {
-      return
-    }
-
+    if (!run) return
     let cancelled = false
     let intervalId: number | undefined
 
@@ -892,209 +984,289 @@ function RunSessionSheet({
         }
       } catch (fetchError) {
         if (!cancelled) {
-          setError(
-            fetchError instanceof Error
-              ? fetchError.message
-              : 'Could not load run transcript.',
-          )
+          setError(fetchError instanceof Error ? fetchError.message : 'Could not load run transcript.')
         }
       } finally {
-        if (!cancelled) {
-          setLoading(false)
-        }
+        if (!cancelled) setLoading(false)
       }
     }
 
     void load()
-
-    if (
-      ![
-        'ready',
-        'completed',
-        'failed',
-        'cancelled',
-        'canceled',
-        'error',
-      ].includes(run.status.toLowerCase())
-    ) {
-      intervalId = window.setInterval(() => {
-        void load()
-      }, 5000)
+    if (!['ready', 'completed', 'failed', 'cancelled', 'canceled', 'error'].includes(run.status.toLowerCase())) {
+      intervalId = window.setInterval(() => void load(), 5000)
     }
-
     return () => {
       cancelled = true
-      if (intervalId) {
-        window.clearInterval(intervalId)
-      }
+      if (intervalId) window.clearInterval(intervalId)
     }
-  }, [open, run])
+  }, [run])
+
+  return { payload, error, loading }
+}
+
+function useSessionDetail(sessionId: string | null) {
+  const [session, setSession] = useState<StoredAssistantSession | null>(null)
+  const [error, setError] = useState<string | null>(null)
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    if (!sessionId) return
+    let cancelled = false
+    setLoading(true)
+    void fetchJson<{ session: StoredAssistantSession; entries: StoredAssistantSessionEntry[] }>(
+      `/api/cli/sessions/${sessionId}`,
+    )
+      .then((response) => {
+        if (cancelled) return
+        setSession({ ...response.session, entries: response.entries })
+        setError(null)
+      })
+      .catch((fetchError) => {
+        if (cancelled) return
+        setError(fetchError instanceof Error ? fetchError.message : 'Could not load session.')
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false)
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [sessionId])
+
+  return { session, error, loading }
+}
+
+function DetailHeader({
+  eyebrow,
+  title,
+  description,
+  children,
+  onBack,
+}: {
+  eyebrow: string
+  title: string
+  description: string
+  children?: ReactNode
+  onBack: () => void
+}) {
+  return (
+    <section className="flex flex-col gap-5 border-b border-border px-6 py-6 md:px-10">
+      <div className="flex flex-wrap items-start justify-between gap-4">
+        <div className="flex max-w-4xl flex-col gap-2">
+          <button
+            type="button"
+            onClick={onBack}
+            className="w-fit text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground hover:text-foreground"
+          >
+            Back
+          </button>
+          <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+            {eyebrow}
+          </span>
+          <h1 className="text-3xl font-semibold tracking-tight">{title}</h1>
+          <p className="max-w-3xl text-sm leading-7 text-muted-foreground">{description}</p>
+        </div>
+      </div>
+      {children}
+    </section>
+  )
+}
+
+function RunDetailPage({
+  run,
+  dataset,
+}: {
+  run: RunRecord
+  dataset: DatasetRecord | undefined
+}) {
+  const { payload, error, loading } = useRunResults(run)
+  const [view, setView] = useState<SessionTranscriptKind>('cli')
+  const remoteSessionId = getRemoteSessionId(payload?.artifacts ?? [])
+  const cliMessages = useMemo(() => buildCliTranscript(run, dataset, payload), [run, dataset, payload])
+  const remoteMessages = useMemo(() => buildRemoteTranscript(run, dataset, payload), [run, dataset, payload])
 
   useEffect(() => {
     setView('cli')
-  }, [run?.id])
+  }, [run.id])
 
-  const remoteSessionId = getRemoteSessionId(payload?.artifacts ?? [])
-  const cliMessages = useMemo(
-    () => (run ? buildCliTranscript(run, dataset, payload) : []),
-    [dataset, payload, run],
+  return (
+    <div className="flex min-h-0 flex-1 flex-col">
+      <DetailHeader
+        eyebrow="Run"
+        title={dataset?.name ?? run.datasetId}
+        description={`${formatStatus(run.type)} run ${run.id}.`}
+        onBack={() => updateDashboardRoute({ view: 'runs', runId: null, sessionId: null })}
+      >
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+          <StatusBadge>{formatStatus(run.status)}</StatusBadge>
+          <StatusBadge>{formatStatus(run.type)}</StatusBadge>
+          <span className="text-sm text-muted-foreground">Started {formatDateTime(run.createdAt)}</span>
+          {remoteSessionId ? (
+            <span className="text-sm text-muted-foreground">Remote session {remoteSessionId}</span>
+          ) : null}
+          {loading ? (
+            <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+              <LoaderCircle className="size-4 animate-spin" />
+              Refreshing
+            </span>
+          ) : null}
+        </div>
+      </DetailHeader>
+
+      <div className="flex flex-1 min-h-0 flex-col gap-6 bg-muted/15 px-6 py-6 md:px-10">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <Button variant={view === 'cli' ? 'default' : 'ghost'} size="sm" onClick={() => setView('cli')}>
+              <TerminalSquare />
+              CLI orchestration
+            </Button>
+            <Button
+              variant={view === 'remote' ? 'default' : 'ghost'}
+              size="sm"
+              onClick={() => setView('remote')}
+              disabled={!remoteSessionId}
+            >
+              <Bot />
+              Remote Codex
+            </Button>
+          </div>
+          {remoteSessionId ? (
+            <a
+              href={`https://chatgpt.com/codex/s/${remoteSessionId}`}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+            >
+              Open remote session
+              <ExternalLink className="size-4" />
+            </a>
+          ) : null}
+        </div>
+
+        {error ? (
+          <Card className="rounded-xl border border-destructive/30 bg-destructive/5 py-0 shadow-none">
+            <CardContent className="px-6 py-4 text-sm text-destructive">
+              Could not load run transcript: {error}
+            </CardContent>
+          </Card>
+        ) : null}
+
+        {view === 'remote' ? (
+          remoteSessionId ? (
+            <RunTranscript
+              entries={remoteMessages}
+              emptyTitle="No remote session log"
+              emptyDescription="This run has a remote session id but there are no persisted remote events yet."
+            />
+          ) : (
+            <Card className="rounded-xl border border-border bg-background py-0 shadow-none">
+              <CardContent className="px-6 py-6 text-sm text-muted-foreground">
+                This run does not have a persisted remote agent session id yet.
+              </CardContent>
+            </Card>
+          )
+        ) : (
+          <div className="flex flex-col gap-6">
+            {run.prompt?.trim() ? (
+              <section className="rounded-3xl border border-border bg-background px-6 py-5">
+                <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                  Prompt
+                </div>
+                <p className="mt-3 max-w-4xl whitespace-pre-wrap text-sm leading-7 text-foreground">
+                  {run.prompt}
+                </p>
+              </section>
+            ) : null}
+            <RunTranscript
+              entries={cliMessages}
+              emptyTitle="No CLI transcript yet"
+              emptyDescription="Persisted run config, events, and artifacts from the RESEARCH CLI will appear here."
+            />
+          </div>
+        )}
+
+        {payload?.artifacts?.length ? (
+          <section className="rounded-3xl border border-border bg-background px-6 py-5">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              Artifacts
+            </div>
+            <Separator className="my-4" />
+            <div className="space-y-3">
+              {payload.artifacts.map((artifact) => (
+                <div key={artifact.id} className="flex flex-wrap items-center gap-3">
+                  <span className="font-medium">{artifact.title}</span>
+                  <span className="text-sm text-muted-foreground">{formatStatus(artifact.type)}</span>
+                  {artifact.url ? (
+                    <a
+                      href={artifact.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+                    >
+                      Open
+                      <ExternalLink className="size-4" />
+                    </a>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+      </div>
+    </div>
   )
-  const remoteMessages = useMemo(
-    () => (run ? buildRemoteTranscript(run, dataset, payload) : []),
-    [dataset, payload, run],
+}
+
+function SessionDetailPage({ sessionId }: { sessionId: string }) {
+  const { session, error, loading } = useSessionDetail(sessionId)
+  const entries = (session?.entries ?? []).map((entry) =>
+    createSessionEntry(
+      entry.id,
+      entry.role === 'user' ? 'user' : entry.role === 'system' ? 'system' : 'assistant',
+      entry.createdAt,
+      entry.content,
+      entry.title ?? formatStatus(entry.kind),
+    ),
   )
 
   return (
-    <Sheet open={open} onOpenChange={onOpenChange}>
-        <SheetContent side="right" className="w-full gap-0 p-0 sm:max-w-[min(88rem,92vw)]">
-        <SheetHeader className="gap-4 border-b border-border px-8 py-6">
-          <div className="flex items-start justify-between gap-4 pr-10">
-            <div className="flex min-w-0 flex-col gap-2">
-              <SheetTitle className="text-left tracking-[0.08em]">
-                {run ? dataset?.name ?? run.datasetId : 'Run session'}
-              </SheetTitle>
-              <SheetDescription className="max-w-3xl">
-                {run
-                  ? `${formatStatus(run.type)} run ${run.id}.`
-                  : 'View run logs as an assistant session.'}
-              </SheetDescription>
-            </div>
-            {loading ? (
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <LoaderCircle className="size-4 animate-spin" />
-                Refreshing
-              </div>
-            ) : null}
-          </div>
-
-          {run ? (
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-              <StatusBadge>{formatStatus(run.status)}</StatusBadge>
-              <StatusBadge>{formatStatus(run.type)}</StatusBadge>
-              <span className="text-sm text-muted-foreground">
-                Started {formatDateTime(run.createdAt)}
-              </span>
-              {remoteSessionId ? (
-                <span className="text-sm text-muted-foreground">
-                  Remote session {remoteSessionId}
-                </span>
-              ) : null}
-            </div>
+    <div className="flex min-h-0 flex-1 flex-col">
+      <DetailHeader
+        eyebrow="Terminal Session"
+        title={session?.title ?? sessionId}
+        description="Persisted RESEARCH CLI orchestration turns."
+        onBack={() => updateDashboardRoute({ view: 'terminal-sessions', sessionId: null, runId: null })}
+      >
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+          <StatusBadge>{formatStatus(session?.status ?? 'active')}</StatusBadge>
+          {session ? (
+            <span className="text-sm text-muted-foreground">Updated {formatDateTime(session.updatedAt)}</span>
           ) : null}
-        </SheetHeader>
-
-        <div className="flex flex-1 min-h-0 flex-col bg-muted/15">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-8 py-4">
-            <div className="flex items-center gap-2">
-              <Button
-                variant={view === 'cli' ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => setView('cli')}
-              >
-                <TerminalSquare />
-                CLI orchestration
-              </Button>
-              <Button
-                variant={view === 'remote' ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => setView('remote')}
-                disabled={!remoteSessionId}
-              >
-                <Bot />
-                Remote Codex
-              </Button>
-            </div>
-
-            {remoteSessionId ? (
-              <a
-                href={`https://chatgpt.com/codex/s/${remoteSessionId}`}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
-              >
-                Open remote session
-                <ExternalLink className="size-4" />
-              </a>
-            ) : null}
-          </div>
-
-          <div className="flex-1 overflow-auto px-8 py-6">
-            {error ? (
-              <Card className="rounded-xl border border-destructive/30 bg-destructive/5 py-0 shadow-none">
-                <CardContent className="px-6 py-4 text-sm text-destructive">
-                  Could not load run transcript: {error}
-                </CardContent>
-              </Card>
-            ) : null}
-
-            {!run ? null : view === 'remote' ? (
-              remoteSessionId ? (
-                <RunTranscript
-                  entries={remoteMessages}
-                  emptyTitle="No remote session log"
-                  emptyDescription="This run has a remote session id but there are no persisted remote events yet."
-                />
-              ) : (
-                <Card className="rounded-xl border border-border bg-background py-0 shadow-none">
-                  <CardContent className="px-6 py-6 text-sm text-muted-foreground">
-                    This run does not have a persisted remote agent session id yet.
-                  </CardContent>
-                </Card>
-              )
-            ) : (
-              <div className="flex flex-col gap-6">
-                {run.prompt?.trim() ? (
-                  <section className="rounded-3xl border border-border bg-background px-6 py-5">
-                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                      Prompt
-                    </div>
-                    <p className="mt-3 max-w-4xl whitespace-pre-wrap text-sm leading-7 text-foreground">
-                      {run.prompt}
-                    </p>
-                  </section>
-                ) : null}
-
-                <RunTranscript
-                  entries={cliMessages}
-                  emptyTitle="No CLI transcript yet"
-                  emptyDescription="Persisted run config, events, and artifacts from the RESEARCH CLI will appear here."
-                />
-
-                {payload?.artifacts?.length ? (
-                  <section className="rounded-3xl border border-border bg-background px-6 py-5">
-                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                      Artifacts
-                    </div>
-                    <Separator className="my-4" />
-                    <div className="space-y-3">
-                      {payload.artifacts.map((artifact) => (
-                        <div key={artifact.id} className="flex flex-wrap items-center gap-3">
-                          <span className="font-medium">{artifact.title}</span>
-                          <span className="text-sm text-muted-foreground">
-                            {formatStatus(artifact.type)}
-                          </span>
-                          {artifact.url ? (
-                            <a
-                              href={artifact.url}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
-                            >
-                              Open
-                              <ExternalLink className="size-4" />
-                            </a>
-                          ) : null}
-                        </div>
-                      ))}
-                    </div>
-                  </section>
-                ) : null}
-              </div>
-            )}
-          </div>
+          {loading ? (
+            <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+              <LoaderCircle className="size-4 animate-spin" />
+              Loading
+            </span>
+          ) : null}
         </div>
-      </SheetContent>
-    </Sheet>
+      </DetailHeader>
+
+      <div className="flex flex-1 min-h-0 flex-col gap-6 bg-muted/15 px-6 py-6 md:px-10">
+        {error ? (
+          <Card className="rounded-xl border border-destructive/30 bg-destructive/5 py-0 shadow-none">
+            <CardContent className="px-6 py-4 text-sm text-destructive">
+              Could not load terminal session: {error}
+            </CardContent>
+          </Card>
+        ) : null}
+
+        <RunTranscript
+          entries={entries}
+          emptyTitle="No terminal session turns yet"
+          emptyDescription="This session exists, but no turns have been recorded yet."
+        />
+      </div>
+    </div>
   )
 }
 
@@ -1227,23 +1399,193 @@ function DashboardApp({
   session,
   datasets,
   runs,
+  sessions,
   dataError,
 }: {
   session: SessionResponse
   datasets: DatasetRecord[]
   runs: RunRecord[]
+  sessions: StoredAssistantSession[]
   dataError?: string | null
 }) {
   const datasetLookup = useMemo(
     () => new Map(datasets.map((dataset) => [dataset.id, dataset])),
     [datasets],
   )
-  const [selectedRun, setSelectedRun] = useState<RunRecord | null>(null)
+  const route = useDashboardRoute()
 
   const initials = (session.user?.email ?? 'AR')
     .split('@')[0]
     .slice(0, 2)
     .toUpperCase()
+
+  const activeRun = route.runId ? runs.find((run) => run.id === route.runId) ?? null : null
+
+  const navItems: Array<{ view: DashboardView; label: string; icon: typeof LayoutDashboard }> = [
+    { view: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+    { view: 'datasets', label: 'Datasets', icon: Database },
+    { view: 'runs', label: 'Runs', icon: History },
+    { view: 'terminal-sessions', label: 'Terminal Sessions', icon: TerminalSquare },
+  ]
+
+  let title = 'Research workspace'
+  let eyebrow = 'Dashboard'
+  let content: ReactNode
+
+  if (route.view === 'runs' && activeRun) {
+    title = 'Run detail'
+    eyebrow = 'Runs'
+    content = <RunDetailPage run={activeRun} dataset={datasetLookup.get(activeRun.datasetId)} />
+  } else if (route.view === 'terminal-sessions' && route.sessionId) {
+    title = 'Terminal session'
+    eyebrow = 'Terminal Sessions'
+    content = <SessionDetailPage sessionId={route.sessionId} />
+  } else if (route.view === 'datasets') {
+    title = 'Datasets'
+    eyebrow = 'Datasets'
+    content = (
+      <main className="flex flex-1 min-w-0 flex-col gap-6 px-4 py-6 md:px-8">
+        {dataError ? (
+          <Card className="rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
+            <CardContent className="px-6 py-4 text-sm text-destructive">{dataError}</CardContent>
+          </Card>
+        ) : null}
+        <Card className="rounded-none border border-border bg-background py-0 shadow-none">
+          <CardHeader className="border-b border-border px-6 py-5">
+            <CardTitle className="text-sm">Datasets</CardTitle>
+            <CardDescription>Your private datasets and deployed research environments.</CardDescription>
+          </CardHeader>
+          <CardContent className="px-0">
+            <DatasetTable datasets={datasets} />
+          </CardContent>
+        </Card>
+      </main>
+    )
+  } else if (route.view === 'runs') {
+    title = 'Runs'
+    eyebrow = 'Runs'
+    content = (
+      <main className="flex flex-1 min-w-0 flex-col gap-6 px-4 py-6 md:px-8">
+        {dataError ? (
+          <Card className="rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
+            <CardContent className="px-6 py-4 text-sm text-destructive">{dataError}</CardContent>
+          </Card>
+        ) : null}
+        <Card className="rounded-none border border-border bg-background py-0 shadow-none">
+          <CardHeader className="border-b border-border px-6 py-5">
+            <CardTitle className="text-sm">Runs</CardTitle>
+            <CardDescription>Remote runs across your datasets.</CardDescription>
+          </CardHeader>
+          <CardContent className="px-0">
+            <RunTable
+              runs={runs}
+              datasetLookup={datasetLookup}
+              onSelectRun={(run) => updateDashboardRoute({ view: 'runs', runId: run.id, sessionId: null })}
+            />
+          </CardContent>
+        </Card>
+      </main>
+    )
+  } else if (route.view === 'terminal-sessions') {
+    title = 'Terminal Sessions'
+    eyebrow = 'Terminal Sessions'
+    content = (
+      <main className="flex flex-1 min-w-0 flex-col gap-6 px-4 py-6 md:px-8">
+        {dataError ? (
+          <Card className="rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
+            <CardContent className="px-6 py-4 text-sm text-destructive">{dataError}</CardContent>
+          </Card>
+        ) : null}
+        <Card className="rounded-none border border-border bg-background py-0 shadow-none">
+          <CardHeader className="border-b border-border px-6 py-5">
+            <CardTitle className="text-sm">Terminal sessions</CardTitle>
+            <CardDescription>Persisted RESEARCH CLI sessions proxied through Alpha Research.</CardDescription>
+          </CardHeader>
+          <CardContent className="px-0">
+            <SessionTable
+              sessions={sessions}
+              onSelectSession={(selected) =>
+                updateDashboardRoute({
+                  view: 'terminal-sessions',
+                  sessionId: selected.id,
+                  runId: null,
+                })}
+            />
+          </CardContent>
+        </Card>
+      </main>
+    )
+  } else {
+    content = (
+      <main className="flex flex-1 min-w-0 flex-col gap-6 px-4 py-6 md:px-8">
+        {dataError ? (
+          <Card className="rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
+            <CardContent className="px-6 py-4 text-sm text-destructive">{dataError}</CardContent>
+          </Card>
+        ) : null}
+        <section className="flex flex-col gap-4 border-b border-border pb-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex max-w-3xl flex-col gap-3">
+            <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+              Research workspace
+            </span>
+            <h1 className="text-3xl font-semibold tracking-tight text-foreground">
+              Separate views for datasets, runs, and terminal sessions.
+            </h1>
+            <p className="max-w-2xl text-sm leading-7 text-muted-foreground">
+              Remote runs and local RESEARCH CLI sessions now have dedicated surfaces.
+            </p>
+          </div>
+          <div className="grid min-w-[20rem] grid-cols-4 gap-3">
+            <div className="border border-border bg-muted/20 px-4 py-4">
+              <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">Datasets</div>
+              <div className="mt-2 text-2xl font-semibold">{datasets.length}</div>
+            </div>
+            <div className="border border-border bg-muted/20 px-4 py-4">
+              <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">Runs</div>
+              <div className="mt-2 text-2xl font-semibold">{runs.length}</div>
+            </div>
+            <div className="border border-border bg-muted/20 px-4 py-4">
+              <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">Active</div>
+              <div className="mt-2 text-2xl font-semibold">{countActiveRuns(runs)}</div>
+            </div>
+            <div className="border border-border bg-muted/20 px-4 py-4">
+              <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">Terminal</div>
+              <div className="mt-2 text-2xl font-semibold">{sessions.length}</div>
+            </div>
+          </div>
+        </section>
+
+        <div className="grid gap-6 xl:grid-cols-2">
+          <Card className="rounded-none border border-border bg-background py-0 shadow-none">
+            <CardHeader className="border-b border-border px-6 py-5">
+              <CardTitle className="text-sm">Recent runs</CardTitle>
+              <CardDescription>Open a run to inspect its full session timeline.</CardDescription>
+            </CardHeader>
+            <CardContent className="px-0">
+              <RunTable
+                runs={runs.slice(0, 6)}
+                datasetLookup={datasetLookup}
+                onSelectRun={(run) => updateDashboardRoute({ view: 'runs', runId: run.id, sessionId: null })}
+              />
+            </CardContent>
+          </Card>
+          <Card className="rounded-none border border-border bg-background py-0 shadow-none">
+            <CardHeader className="border-b border-border px-6 py-5">
+              <CardTitle className="text-sm">Recent terminal sessions</CardTitle>
+              <CardDescription>Open a CLI session to inspect its stored turns.</CardDescription>
+            </CardHeader>
+            <CardContent className="px-0">
+              <SessionTable
+                sessions={sessions.slice(0, 6)}
+                onSelectSession={(selected) =>
+                  updateDashboardRoute({ view: 'terminal-sessions', sessionId: selected.id, runId: null })}
+              />
+            </CardContent>
+          </Card>
+        </div>
+      </main>
+    )
+  }
 
   return (
     <SidebarProvider defaultOpen>
@@ -1262,28 +1604,25 @@ function DashboardApp({
             <SidebarGroupLabel>Workspace</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton isActive>
-                    <LayoutDashboard />
-                    <span>Dashboard</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <a href="#datasets">
-                      <Database />
-                      <span>Datasets</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <a href="#runs">
-                      <History />
-                      <span>Runs</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
+                {navItems.map((item) => {
+                  const Icon = item.icon
+                  return (
+                    <SidebarMenuItem key={item.view}>
+                      <SidebarMenuButton
+                        isActive={route.view === item.view}
+                        onClick={() =>
+                          updateDashboardRoute({
+                            view: item.view,
+                            runId: null,
+                            sessionId: null,
+                          })}
+                      >
+                        <Icon />
+                        <span>{item.label}</span>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  )
+                })}
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>
@@ -1333,106 +1672,14 @@ function DashboardApp({
             <div className="flex min-w-0 flex-1 items-center justify-between gap-4">
               <div className="flex min-w-0 flex-col">
                 <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                  Dashboard
+                  {eyebrow}
                 </span>
-                <span className="truncate text-sm font-medium">
-                  Research workspace
-                </span>
+                <span className="truncate text-sm font-medium">{title}</span>
               </div>
             </div>
           </header>
-
-          <main className="flex flex-1 min-w-0 flex-col gap-6 px-4 py-6 md:px-8">
-              <section className="flex flex-col gap-4 border-b border-border pb-6 lg:flex-row lg:items-end lg:justify-between">
-                <div className="flex max-w-3xl flex-col gap-3">
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                    Research workspace
-                  </span>
-                  <h1 className="text-3xl font-semibold tracking-tight text-foreground">
-                    Datasets and runs from your workspace.
-                  </h1>
-                  <p className="max-w-2xl text-sm leading-7 text-muted-foreground">
-                    Your private datasets and research runs live here.
-                  </p>
-                </div>
-                <div className="grid min-w-[16rem] grid-cols-3 gap-3">
-                  <div className="border border-border bg-muted/20 px-4 py-4">
-                    <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                      Datasets
-                    </div>
-                    <div className="mt-2 text-2xl font-semibold">{datasets.length}</div>
-                  </div>
-                  <div className="border border-border bg-muted/20 px-4 py-4">
-                    <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                      Active
-                    </div>
-                    <div className="mt-2 text-2xl font-semibold">
-                      {countActiveRuns(runs)}
-                    </div>
-                  </div>
-                  <div className="border border-border bg-muted/20 px-4 py-4">
-                    <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                      Latest
-                    </div>
-                    <div className="mt-2 text-sm font-medium">{latestUpdate(runs)}</div>
-                  </div>
-                </div>
-              </section>
-
-              {dataError ? (
-                <Card className="rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
-                  <CardContent className="px-6 py-4 text-sm text-destructive">
-                    {dataError}
-                  </CardContent>
-                </Card>
-              ) : null}
-
-              <Card
-                id="datasets"
-                className="rounded-none border border-border bg-background py-0 shadow-none"
-              >
-                <CardHeader className="border-b border-border px-6 py-5">
-                  <CardTitle className="text-sm">Datasets</CardTitle>
-                  <CardDescription>
-                    Your private datasets and deployed research environments.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="px-0">
-                  <DatasetTable datasets={datasets} />
-                </CardContent>
-              </Card>
-
-              <Card
-                id="runs"
-                className="rounded-none border border-border bg-background py-0 shadow-none"
-              >
-                <CardHeader className="border-b border-border px-6 py-5">
-                  <CardTitle className="text-sm">Past runs</CardTitle>
-                  <CardDescription>
-                    Query, ingest, and analysis runs.
-                  </CardDescription>
-                </CardHeader>
-              <CardContent className="px-0">
-                  <RunTable
-                    runs={runs}
-                    datasetLookup={datasetLookup}
-                    onSelectRun={setSelectedRun}
-                  />
-                </CardContent>
-              </Card>
-          </main>
+          {content}
         </div>
-
-        <RunSessionSheet
-          run={selectedRun}
-          dataset={selectedRun ? datasetLookup.get(selectedRun.datasetId) : undefined}
-          open={Boolean(selectedRun)}
-          onOpenChange={(open) => {
-            if (!open) {
-              setSelectedRun(null)
-            }
-          }}
-        />
       </SidebarInset>
     </SidebarProvider>
   )
@@ -1447,6 +1694,7 @@ function useDashboardState() {
         session: SessionResponse
         datasets: DatasetRecord[]
         runs: RunRecord[]
+        sessions: StoredAssistantSession[]
         dataError?: string | null
       }
   >({ type: 'loading' })
@@ -1468,12 +1716,16 @@ function useDashboardState() {
 
         if (!session.authenticated || !session.user) {
           try {
-            const [datasetsPayload, runsPayload] = await Promise.all([
+            const [datasetsPayload, runsPayload, sessionsPayload] = await Promise.all([
               fetchJson<DatasetRecord[] | { datasets: DatasetRecord[] }>('/api/cli/datasets'),
               fetchJson<RunRecord[] | { runs: RunRecord[] }>('/api/cli/runs'),
+              fetchJson<StoredAssistantSession[] | { sessions: StoredAssistantSession[] }>(
+                '/api/cli/sessions?kind=cli_orchestration',
+              ),
             ])
             const datasets = normalizeDatasetsPayload(datasetsPayload)
             const runs = normalizeRunsPayload(runsPayload)
+            const sessions = normalizeSessionsPayload(sessionsPayload)
 
             if (!cancelled) {
               setState({
@@ -1487,6 +1739,7 @@ function useDashboardState() {
                   b.updatedAt.localeCompare(a.updatedAt),
                 ),
                 runs: [...runs].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)),
+                sessions: [...sessions].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)),
               })
             }
             return
@@ -1504,12 +1757,16 @@ function useDashboardState() {
         }
 
         try {
-          const [datasetsPayload, runsPayload] = await Promise.all([
+          const [datasetsPayload, runsPayload, sessionsPayload] = await Promise.all([
             fetchJson<DatasetRecord[] | { datasets: DatasetRecord[] }>('/api/cli/datasets'),
             fetchJson<RunRecord[] | { runs: RunRecord[] }>('/api/cli/runs'),
+            fetchJson<StoredAssistantSession[] | { sessions: StoredAssistantSession[] }>(
+              '/api/cli/sessions?kind=cli_orchestration',
+            ),
           ])
           const datasets = normalizeDatasetsPayload(datasetsPayload)
           const runs = normalizeRunsPayload(runsPayload)
+          const sessions = normalizeSessionsPayload(sessionsPayload)
 
           if (!cancelled) {
             setState({
@@ -1517,6 +1774,7 @@ function useDashboardState() {
               session,
               datasets: [...datasets].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)),
               runs: [...runs].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)),
+              sessions: [...sessions].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)),
               dataError: null,
             })
           }
@@ -1527,6 +1785,7 @@ function useDashboardState() {
               session,
               datasets: [],
               runs: [],
+              sessions: [],
               dataError:
                 error instanceof Error
                   ? `Signed in, but dashboard data could not load: ${error.message}`
@@ -1580,6 +1839,7 @@ function DashboardPage() {
       session={state.session}
       datasets={state.datasets}
       runs={state.runs}
+      sessions={state.sessions}
       dataError={state.dataError}
     />
   )

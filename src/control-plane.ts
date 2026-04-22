@@ -571,6 +571,32 @@ export class ControlPlane {
     ).map((row) => this.parseAssistantSessionRow(row))
   }
 
+  private listAssistantSessions(params: {
+    ownerEmail: string
+    kind?: string | null
+    runId?: string | null
+    datasetId?: string | null
+  }) {
+    const clauses = ['owner_email = ?']
+    const bindings: unknown[] = [params.ownerEmail]
+    if (params.kind) {
+      clauses.push('kind = ?')
+      bindings.push(params.kind)
+    }
+    if (params.runId) {
+      clauses.push('run_id = ?')
+      bindings.push(params.runId)
+    }
+    if (params.datasetId) {
+      clauses.push('dataset_id = ?')
+      bindings.push(params.datasetId)
+    }
+    return this.rows(
+      `SELECT * FROM assistant_sessions WHERE ${clauses.join(' AND ')} ORDER BY updated_at DESC`,
+      ...bindings,
+    ).map((row) => this.parseAssistantSessionRow(row))
+  }
+
   private listAssistantSessionEntries(sessionId: string) {
     return this.rows(
       'SELECT * FROM assistant_session_entries WHERE session_id = ? ORDER BY seq ASC',
@@ -816,6 +842,24 @@ export class ControlPlane {
         metadata: body.metadata,
       })
       return respondJson({ session: session ? this.assistantSessionToJson(session) : null })
+    }
+
+    if (pathname === '/assistant-sessions' && request.method === 'GET') {
+      const ownerEmail = url.searchParams.get('ownerEmail')
+      if (!ownerEmail) {
+        return respondJson({ error: 'Missing ownerEmail' }, 400)
+      }
+      const kind = url.searchParams.get('kind')
+      const runId = url.searchParams.get('runId')
+      const datasetId = url.searchParams.get('datasetId')
+      return respondJson({
+        sessions: this.listAssistantSessions({
+          ownerEmail,
+          kind,
+          runId,
+          datasetId,
+        }).map((session) => this.assistantSessionToJson(session)),
+      })
     }
 
     if (pathname === '/datasets' && request.method === 'POST') {
