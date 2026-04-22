@@ -290,6 +290,7 @@ function buildResearchRunnerScript(env: DigitalOceanEnv, params: LaunchResearchP
   const callbackEventsUrl = `${params.callbackOrigin}/api/internal/runs/${params.runId}/events`
   const callbackStatusUrl = `${params.callbackOrigin}/api/internal/runs/${params.runId}/status`
   const callbackArtifactsUrl = `${params.callbackOrigin}/api/internal/runs/${params.runId}/artifacts`
+  const callbackSessionEntriesUrl = `${params.callbackOrigin}/api/internal/runs/${params.runId}/session-entries`
   const promptB64 = encodeBase64(params.prompt)
   const configJsonB64 = encodeBase64(params.configJson ?? '{}')
   const artifactSpecJsonB64 = encodeBase64(params.artifactSpecJson ?? '[]')
@@ -302,6 +303,7 @@ exec > >(tee -a /var/log/alpha-research-run.log) 2>&1
 CALLBACK_EVENTS_URL=${shellEscape(callbackEventsUrl)}
 CALLBACK_STATUS_URL=${shellEscape(callbackStatusUrl)}
 CALLBACK_ARTIFACTS_URL=${shellEscape(callbackArtifactsUrl)}
+CALLBACK_SESSION_ENTRIES_URL=${shellEscape(callbackSessionEntriesUrl)}
 RUNNER_TOKEN=${shellEscape(env.RESEARCH_INTERNAL_RUNNER_TOKEN ?? '')}
 MOUNT_ROOT=${shellEscape(mountRoot)}
 DATASET_MOUNT_PATH=${shellEscape(params.datasetMountPath)}

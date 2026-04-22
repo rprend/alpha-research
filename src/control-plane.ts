@@ -102,6 +102,30 @@ type ResearchSpecRecord = {
   updatedAt: string
 }
 
+type AssistantSessionRecord = {
+  id: string
+  ownerEmail: string
+  datasetId: string | null
+  runId: string | null
+  kind: string
+  title: string | null
+  status: string
+  metadataJson: string | null
+  createdAt: string
+  updatedAt: string
+}
+
+type AssistantSessionEntryRecord = {
+  id: string
+  sessionId: string
+  role: string
+  kind: string
+  title: string | null
+  content: string
+  metadataJson: string | null
+  createdAt: string
+}
+
 function nowIso() {
   return new Date().toISOString()
 }
@@ -238,6 +262,39 @@ export class ControlPlane {
         created_at TEXT NOT NULL
       );
     `)
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS assistant_sessions (
+        id TEXT PRIMARY KEY,
+        owner_email TEXT NOT NULL,
+        dataset_id TEXT,
+        run_id TEXT,
+        kind TEXT NOT NULL,
+        title TEXT,
+        status TEXT NOT NULL,
+        metadata_json TEXT,
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL
+      );
+    `)
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS assistant_session_entries (
+        seq INTEGER PRIMARY KEY AUTOINCREMENT,
+        id TEXT NOT NULL UNIQUE,
+        session_id TEXT NOT NULL,
+        role TEXT NOT NULL,
+        kind TEXT NOT NULL,
+        title TEXT,
+        content TEXT NOT NULL,
+        metadata_json TEXT,
+        created_at TEXT NOT NULL
+      );
+    `)
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS response_session_links (
+        response_id TEXT PRIMARY KEY,
+        session_id TEXT NOT NULL
+      );
+    `)
   }
 
   private rows(query: string, ...bindings: unknown[]) {
@@ -371,6 +428,64 @@ export class ControlPlane {
     }
   }
 
+  private parseAssistantSessionRow(row: Record<string, unknown>): AssistantSessionRecord {
+    const get = (snake: string, camel: string) => row[snake] ?? row[camel]
+    return {
+      id: String(row.id),
+      ownerEmail: String(get('owner_email', 'ownerEmail')),
+      datasetId: get('dataset_id', 'datasetId') ? String(get('dataset_id', 'datasetId')) : null,
+      runId: get('run_id', 'runId') ? String(get('run_id', 'runId')) : null,
+      kind: String(row.kind),
+      title: row.title ? String(row.title) : null,
+      status: String(row.status),
+      metadataJson: get('metadata_json', 'metadataJson') ? String(get('metadata_json', 'metadataJson')) : null,
+      createdAt: String(get('created_at', 'createdAt')),
+      updatedAt: String(get('updated_at', 'updatedAt')),
+    }
+  }
+
+  private assistantSessionToJson(session: AssistantSessionRecord) {
+    return {
+      id: session.id,
+      ownerEmail: session.ownerEmail,
+      datasetId: session.datasetId,
+      runId: session.runId,
+      kind: session.kind,
+      title: session.title,
+      status: session.status,
+      metadata: session.metadataJson ? JSON.parse(session.metadataJson) : null,
+      createdAt: session.createdAt,
+      updatedAt: session.updatedAt,
+    }
+  }
+
+  private parseAssistantSessionEntryRow(row: Record<string, unknown>): AssistantSessionEntryRecord {
+    const get = (snake: string, camel: string) => row[snake] ?? row[camel]
+    return {
+      id: String(row.id),
+      sessionId: String(get('session_id', 'sessionId')),
+      role: String(row.role),
+      kind: String(row.kind),
+      title: row.title ? String(row.title) : null,
+      content: String(row.content),
+      metadataJson: get('metadata_json', 'metadataJson') ? String(get('metadata_json', 'metadataJson')) : null,
+      createdAt: String(get('created_at', 'createdAt')),
+    }
+  }
+
+  private assistantSessionEntryToJson(entry: AssistantSessionEntryRecord) {
+    return {
+      id: entry.id,
+      sessionId: entry.sessionId,
+      role: entry.role,
+      kind: entry.kind,
+      title: entry.title,
+      content: entry.content,
+      metadata: entry.metadataJson ? JSON.parse(entry.metadataJson) : null,
+      createdAt: entry.createdAt,
+    }
+  }
+
   private researchSpecToJson(row: Record<string, unknown>) {
     const spec = this.parseResearchSpecRow(row)
     return {
@@ -444,6 +559,219 @@ export class ControlPlane {
     return id
   }
 
+  private getAssistantSession(id: string) {
+    const row = this.rows('SELECT * FROM assistant_sessions WHERE id = ? LIMIT 1', id)[0]
+    return row ? this.parseAssistantSessionRow(row) : null
+  }
+
+  private listAssistantSessionsForRun(runId: string) {
+    return this.rows(
+      'SELECT * FROM assistant_sessions WHERE run_id = ? ORDER BY created_at ASC',
+      runId,
+    ).map((row) => this.parseAssistantSessionRow(row))
+  }
+
+  private listAssistantSessionEntries(sessionId: string) {
+    return this.rows(
+      'SELECT * FROM assistant_session_entries WHERE session_id = ? ORDER BY seq ASC',
+      sessionId,
+    ).map((row) => this.parseAssistantSessionEntryRow(row))
+  }
+
+  private createAssistantSession(params: {
+    id?: string
+    ownerEmail: string
+    datasetId?: string | null
+    runId?: string | null
+    kind: string
+    title?: string | null
+    status?: string
+    metadata?: unknown
+  }) {
+    const id = params.id ?? crypto.randomUUID()
+    const timestamp = nowIso()
+    this.sql.exec(
+      `INSERT OR IGNORE INTO assistant_sessions (id, owner_email, dataset_id, run_id, kind, title, status, metadata_json, created_at, updated_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      id,
+      params.ownerEmail,
+      params.datasetId ?? null,
+      params.runId ?? null,
+      params.kind,
+      params.title ?? null,
+      params.status ?? 'active',
+      params.metadata === undefined ? null : JSON.stringify(params.metadata),
+      timestamp,
+      timestamp,
+    )
+    return this.getAssistantSession(id)
+  }
+
+  private updateAssistantSession(id: string, updates: {
+    datasetId?: string | null
+    runId?: string | null
+    title?: string | null
+    status?: string
+    metadata?: unknown
+  }) {
+    const existing = this.getAssistantSession(id)
+    if (!existing) {
+      return null
+    }
+    const metadataJson =
+      updates.metadata === undefined
+        ? existing.metadataJson
+        : updates.metadata === null
+          ? null
+          : JSON.stringify(updates.metadata)
+    this.sql.exec(
+      `UPDATE assistant_sessions
+       SET dataset_id = ?, run_id = ?, title = ?, status = ?, metadata_json = ?, updated_at = ?
+       WHERE id = ?`,
+      updates.datasetId === undefined ? existing.datasetId : updates.datasetId,
+      updates.runId === undefined ? existing.runId : updates.runId,
+      updates.title === undefined ? existing.title : updates.title,
+      updates.status ?? existing.status,
+      metadataJson,
+      nowIso(),
+      id,
+    )
+    return this.getAssistantSession(id)
+  }
+
+  private appendAssistantSessionEntry(params: {
+    sessionId: string
+    role: string
+    kind: string
+    title?: string | null
+    content: string
+    metadata?: unknown
+    createdAt?: string
+  }) {
+    const id = crypto.randomUUID()
+    this.sql.exec(
+      `INSERT INTO assistant_session_entries (id, session_id, role, kind, title, content, metadata_json, created_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      id,
+      params.sessionId,
+      params.role,
+      params.kind,
+      params.title ?? null,
+      params.content,
+      params.metadata === undefined ? null : JSON.stringify(params.metadata),
+      params.createdAt ?? nowIso(),
+    )
+    this.sql.exec(`UPDATE assistant_sessions SET updated_at = ? WHERE id = ?`, nowIso(), params.sessionId)
+    return id
+  }
+
+  private resolveCliAssistantSession(params: {
+    ownerEmail: string
+    datasetId?: string | null
+    requestedSessionId?: string | null
+    previousResponseId?: string | null
+    title?: string | null
+    metadata?: unknown
+  }) {
+    if (params.requestedSessionId) {
+      const existing = this.getAssistantSession(params.requestedSessionId)
+      if (existing) {
+        return this.updateAssistantSession(existing.id, {
+          datasetId: params.datasetId ?? existing.datasetId,
+          title: params.title ?? existing.title,
+          metadata: params.metadata,
+        })
+      }
+      return this.createAssistantSession({
+        id: params.requestedSessionId,
+        ownerEmail: params.ownerEmail,
+        datasetId: params.datasetId ?? null,
+        kind: 'cli_orchestration',
+        title: params.title ?? 'RESEARCH CLI session',
+        metadata: params.metadata,
+      })
+    }
+
+    if (params.previousResponseId) {
+      const row = this.rows(
+        'SELECT session_id FROM response_session_links WHERE response_id = ? LIMIT 1',
+        params.previousResponseId,
+      )[0]
+      if (row?.session_id) {
+        const existing = this.getAssistantSession(String(row.session_id))
+        if (existing) {
+          return this.updateAssistantSession(existing.id, {
+            datasetId: params.datasetId ?? existing.datasetId,
+            title: params.title ?? existing.title,
+            metadata: params.metadata,
+          })
+        }
+      }
+    }
+
+    return this.createAssistantSession({
+      ownerEmail: params.ownerEmail,
+      datasetId: params.datasetId ?? null,
+      kind: 'cli_orchestration',
+      title: params.title ?? 'RESEARCH CLI session',
+      metadata: params.metadata,
+    })
+  }
+
+  private findRecentCliAssistantSession(ownerEmail: string, datasetId?: string | null) {
+    const withDataset = datasetId
+      ? this.rows(
+          `SELECT * FROM assistant_sessions
+           WHERE owner_email = ? AND kind = 'cli_orchestration' AND run_id IS NULL
+             AND (dataset_id = ? OR dataset_id IS NULL)
+           ORDER BY updated_at DESC
+           LIMIT 1`,
+          ownerEmail,
+          datasetId,
+        )[0]
+      : null
+    const row =
+      withDataset ??
+      this.rows(
+        `SELECT * FROM assistant_sessions
+         WHERE owner_email = ? AND kind = 'cli_orchestration' AND run_id IS NULL
+         ORDER BY updated_at DESC
+         LIMIT 1`,
+        ownerEmail,
+      )[0]
+    return row ? this.parseAssistantSessionRow(row) : null
+  }
+
+  private linkResponseToSession(responseId: string, sessionId: string) {
+    this.sql.exec(
+      `INSERT OR REPLACE INTO response_session_links (response_id, session_id) VALUES (?, ?)`,
+      responseId,
+      sessionId,
+    )
+  }
+
+  private ensureRunAssistantSession(run: RunRecord, kind: string, defaults?: {
+    title?: string | null
+    metadata?: unknown
+  }) {
+    const existing = this.rows(
+      'SELECT * FROM assistant_sessions WHERE run_id = ? AND kind = ? ORDER BY created_at ASC LIMIT 1',
+      run.id,
+      kind,
+    )[0]
+    if (existing) {
+      return this.parseAssistantSessionRow(existing)
+    }
+    return this.createAssistantSession({
+      ownerEmail: run.ownerEmail,
+      datasetId: run.datasetId,
+      runId: run.id,
+      kind,
+      title: defaults?.title ?? null,
+      metadata: defaults?.metadata,
+    })
+  }
+
   private appendRunEvent(runId: string, message: string, level = 'info') {
     const id = crypto.randomUUID()
     this.sql.exec(
@@ -471,6 +799,23 @@ export class ControlPlane {
         ownerEmail,
       )
       return respondJson({ datasets: rows.map((row) => this.datasetRowToJson(row)) })
+    }
+
+    if (pathname === '/assistant-sessions/resolve-cli' && request.method === 'POST') {
+      const body = await request.json() as Record<string, unknown>
+      const ownerEmail = String(body.ownerEmail ?? '')
+      if (!ownerEmail) {
+        return respondJson({ error: 'Missing ownerEmail' }, 400)
+      }
+      const session = this.resolveCliAssistantSession({
+        ownerEmail,
+        datasetId: body.datasetId ? String(body.datasetId) : null,
+        requestedSessionId: body.sessionId ? String(body.sessionId) : null,
+        previousResponseId: body.previousResponseId ? String(body.previousResponseId) : null,
+        title: body.title ? String(body.title) : null,
+        metadata: body.metadata,
+      })
+      return respondJson({ session: session ? this.assistantSessionToJson(session) : null })
     }
 
     if (pathname === '/datasets' && request.method === 'POST') {
@@ -650,6 +995,32 @@ export class ControlPlane {
           expiresSeconds: 60 * 60 * 24,
         })
         const runId = this.createRun(datasetId, ownerEmail, 'deploy')
+        const cliSession = body.sessionId
+          ? this.updateAssistantSession(String(body.sessionId), {
+              datasetId,
+              runId,
+              status: 'active',
+            })
+          : this.findRecentCliAssistantSession(ownerEmail, datasetId)
+        if (cliSession && !body.sessionId) {
+          this.updateAssistantSession(cliSession.id, {
+            datasetId,
+            runId,
+            status: 'active',
+          })
+        }
+        const linkedCliSessionId = body.sessionId
+          ? String(body.sessionId)
+          : cliSession?.id
+        if (linkedCliSessionId) {
+          this.appendAssistantSessionEntry({
+            sessionId: linkedCliSessionId,
+            role: 'assistant',
+            kind: 'run_launch',
+            title: 'Deploy started',
+            content: `Started deploy run ${runId} for dataset ${datasetId}.`,
+          })
+        }
         this.appendRunEvent(runId, 'Provisioning DigitalOcean volume and ingest droplet.')
         this.sql.exec(
           `UPDATE datasets
@@ -737,6 +1108,7 @@ export class ControlPlane {
         }
         const prompt = String(body.prompt ?? '')
         const runType = String(body.type ?? 'analysis')
+        const cliSessionId = body.sessionId ? String(body.sessionId) : null
         const config = body.config && typeof body.config === 'object' ? body.config : null
         const artifactSpec = Array.isArray(body.artifacts) ? body.artifacts : []
         const activeRuns = this.getActiveRunsForDataset(datasetId)
@@ -759,6 +1131,30 @@ export class ControlPlane {
           }, 409)
         }
         runId = this.createRun(datasetId, ownerEmail, runType, prompt)
+        const linkedCliSession = cliSessionId
+          ? this.updateAssistantSession(cliSessionId, {
+              datasetId,
+              runId,
+              status: 'active',
+            })
+          : this.findRecentCliAssistantSession(ownerEmail, datasetId)
+        if (linkedCliSession && !cliSessionId) {
+          this.updateAssistantSession(linkedCliSession.id, {
+            datasetId,
+            runId,
+            status: 'active',
+          })
+        }
+        const linkedCliSessionId = cliSessionId ?? linkedCliSession?.id ?? null
+        if (linkedCliSessionId) {
+          this.appendAssistantSessionEntry({
+            sessionId: linkedCliSessionId,
+            role: 'assistant',
+            kind: 'run_launch',
+            title: 'Run started',
+            content: `Started ${runType} run ${runId} for dataset ${datasetId}.`,
+          })
+        }
         this.sql.exec(
           `INSERT INTO run_metadata (run_id, config_json, artifact_spec_json) VALUES (?, ?, ?)`,
           runId,
@@ -857,6 +1253,55 @@ export class ControlPlane {
       return respondJson({ run: this.runRowToJson(row) })
     }
 
+    const assistantSessionMatch = pathname.match(/^\/assistant-sessions\/([^/]+)$/u)
+    if (assistantSessionMatch && request.method === 'GET') {
+      const sessionId = decodeURIComponent(assistantSessionMatch[1] ?? '')
+      const session = this.getAssistantSession(sessionId)
+      if (!session) {
+        return respondJson({ error: 'Session not found' }, 404)
+      }
+      return respondJson({
+        session: this.assistantSessionToJson(session),
+        entries: this.listAssistantSessionEntries(sessionId).map((entry) =>
+          this.assistantSessionEntryToJson(entry),
+        ),
+      })
+    }
+
+    if (assistantSessionMatch && request.method === 'POST') {
+      const sessionId = decodeURIComponent(assistantSessionMatch[1] ?? '')
+      const session = this.getAssistantSession(sessionId)
+      if (!session) {
+        return respondJson({ error: 'Session not found' }, 404)
+      }
+      const body = await request.json() as Record<string, unknown>
+      const content = String(body.content ?? '')
+      if (!content) {
+        return respondJson({ error: 'Missing content' }, 400)
+      }
+      const entryId = this.appendAssistantSessionEntry({
+        sessionId,
+        role: String(body.role ?? 'assistant'),
+        kind: String(body.kind ?? 'message'),
+        title: body.title ? String(body.title) : null,
+        content,
+        metadata: body.metadata,
+        createdAt: body.createdAt ? String(body.createdAt) : undefined,
+      })
+      return respondJson({ id: entryId })
+    }
+
+    if (pathname === '/assistant-sessions/link-response' && request.method === 'POST') {
+      const body = await request.json() as Record<string, unknown>
+      const responseId = String(body.responseId ?? '')
+      const sessionId = String(body.sessionId ?? '')
+      if (!responseId || !sessionId) {
+        return respondJson({ error: 'Missing responseId or sessionId' }, 400)
+      }
+      this.linkResponseToSession(responseId, sessionId)
+      return respondJson({ ok: true })
+    }
+
     const runCancelMatch = pathname.match(/^\/runs\/([^/]+)\/cancel$/u)
     if (runCancelMatch && request.method === 'POST') {
       const runId = decodeURIComponent(runCancelMatch[1] ?? '')
@@ -953,6 +1398,12 @@ export class ControlPlane {
         metadata: this.getRunMetadata(runId),
         artifacts: this.listRunArtifacts(runId),
         events,
+        sessions: this.listAssistantSessionsForRun(runId).map((session) => ({
+          ...this.assistantSessionToJson(session),
+          entries: this.listAssistantSessionEntries(session.id).map((entry) =>
+            this.assistantSessionEntryToJson(entry),
+          ),
+        })),
       })
     }
 
@@ -1010,6 +1461,34 @@ export class ControlPlane {
       const message = await request.text()
       this.appendRunEvent(runId, message, level)
       return respondJson({ ok: true })
+    }
+
+    const internalSessionEntryMatch = pathname.match(/^\/internal\/runs\/([^/]+)\/session-entries$/u)
+    if (internalSessionEntryMatch && request.method === 'POST') {
+      const runId = decodeURIComponent(internalSessionEntryMatch[1] ?? '')
+      const runRow = this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]
+      const run = runRow ? this.parseRunRow(runRow) : null
+      if (!run) {
+        return respondJson({ error: 'Run not found' }, 404)
+      }
+      const body = await request.json() as Record<string, unknown>
+      const session = this.ensureRunAssistantSession(run, String(body.sessionKind ?? 'remote_codex'), {
+        title: body.sessionTitle ? String(body.sessionTitle) : 'Remote Codex session',
+      })
+      const content = String(body.content ?? '')
+      if (!session || !content) {
+        return respondJson({ error: 'Missing session or content' }, 400)
+      }
+      const id = this.appendAssistantSessionEntry({
+        sessionId: session.id,
+        role: String(body.role ?? 'assistant'),
+        kind: String(body.kind ?? 'message'),
+        title: body.title ? String(body.title) : null,
+        content,
+        metadata: body.metadata,
+        createdAt: body.createdAt ? String(body.createdAt) : undefined,
+      })
+      return respondJson({ id })
     }
 
     const internalArtifactMatch = pathname.match(/^\/internal\/runs\/([^/]+)\/artifacts$/u)

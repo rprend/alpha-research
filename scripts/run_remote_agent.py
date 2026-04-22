@@ -24,6 +24,7 @@ TRANSCRIPT_PATH = Path(os.environ["TRANSCRIPT_PATH"])
 CALLBACK_EVENTS_URL = os.environ["CALLBACK_EVENTS_URL"]
 CALLBACK_STATUS_URL = os.environ["CALLBACK_STATUS_URL"]
 CALLBACK_ARTIFACTS_URL = os.environ["CALLBACK_ARTIFACTS_URL"]
+CALLBACK_SESSION_ENTRIES_URL = os.environ["CALLBACK_SESSION_ENTRIES_URL"]
 RUNNER_TOKEN = os.environ["RUNNER_TOKEN"]
 REMOTE_AGENT_MODEL = os.environ.get("REMOTE_AGENT_MODEL", "gpt-5-codex")
 REMOTE_AGENT_SESSION_ID = os.environ.get("REMOTE_AGENT_SESSION_ID", "").strip()
@@ -69,6 +70,23 @@ def create_artifact(kind: str, title: str, content=None, url: str | None = None)
             "title": title,
             "content": content,
             "url": url,
+        },
+        timeout=20,
+    ).raise_for_status()
+
+
+def post_session_entry(role: str, kind: str, content: str, title: str | None = None, metadata=None):
+    requests.post(
+        CALLBACK_SESSION_ENTRIES_URL,
+        headers=headers("application/json"),
+        json={
+            "sessionKind": "remote_codex",
+            "sessionTitle": "Remote Codex session",
+            "role": role,
+            "kind": kind,
+            "title": title,
+            "content": content[:20000],
+            "metadata": metadata,
         },
         timeout=20,
     ).raise_for_status()
@@ -196,6 +214,10 @@ def run_codex():
 
     post_event("Starting remote agent executor.")
     post_status("running", "Starting remote agent executor.")
+    post_session_entry("user", "prompt", PROMPT, "Remote run request", {
+        "runType": RUN_TYPE,
+        "datasetId": DATASET_ID,
+    })
 
     session_id = None
     with TRANSCRIPT_PATH.open("w", encoding="utf-8") as transcript:
@@ -218,12 +240,20 @@ def run_codex():
               session_id = match.group(1)
               create_artifact("remote_agent_session", "Remote Agent Session", {"sessionId": session_id})
               post_event(f"Remote agent session {session_id} started.")
+              post_session_entry("assistant", "session", f"Remote agent session {session_id} started.", "Session started", {
+                  "sessionId": session_id,
+              })
           if stripped.startswith("{"):
               post_event(stripped[:2000])
+              post_session_entry("assistant", "stdout", stripped[:5000], "Stdout JSON")
           elif stripped.startswith("ERROR:"):
               post_event(stripped, "error")
+              post_session_entry("system", "stderr", stripped[:5000], "Remote error")
           elif "session id:" in stripped.lower():
               post_event(stripped)
+              post_session_entry("assistant", "stdout", stripped[:5000], "Session output")
+          else:
+              post_session_entry("assistant", "stdout", stripped[:5000], "Remote output")
       return_code = process.wait()
     if return_code != 0:
         raise RuntimeError(f"codex exec failed with exit code {return_code}")

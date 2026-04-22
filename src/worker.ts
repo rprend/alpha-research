@@ -103,6 +103,43 @@ async function proxyToControlPlane(env: Env, path: string, init: RequestInit) {
   return stub.fetch(`https://control-plane${path}`, init)
 }
 
+function summarizeInput(input: unknown) {
+  if (typeof input === 'string') {
+    return input
+  }
+  return JSON.stringify(input, null, 2)
+}
+
+function extractResponseText(payload: Record<string, unknown>) {
+  const outputText = typeof payload.output_text === 'string' ? payload.output_text.trim() : ''
+  if (outputText) {
+    return outputText
+  }
+  const output = Array.isArray(payload.output) ? payload.output : []
+  const chunks: string[] = []
+  for (const entry of output) {
+    if (!entry || typeof entry !== 'object') continue
+    const content = Array.isArray((entry as { content?: unknown[] }).content)
+      ? (entry as { content: unknown[] }).content
+      : []
+    for (const item of content) {
+      if (!item || typeof item !== 'object') continue
+      if ((item as { type?: unknown }).type === 'output_text' && typeof (item as { text?: unknown }).text === 'string') {
+        chunks.push((item as { text: string }).text)
+      }
+    }
+  }
+  return chunks.join('\n\n').trim()
+}
+
+async function appendAssistantSessionEntry(env: Env, sessionId: string, body: Record<string, unknown>) {
+  await proxyToControlPlane(env, `/assistant-sessions/${encodeURIComponent(sessionId)}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  })
+}
+
 async function proxyToResponsesApi(request: Request, env: Env) {
   const cliSession = await requireAuthorizedSession(request, env)
   if (!cliSession) {
@@ -112,6 +149,39 @@ async function proxyToResponsesApi(request: Request, env: Env) {
     return json({ error: 'Missing OPENAI_API_KEY on alpha-research worker' }, 502)
   }
   const body = await request.json().catch(() => ({}))
+  const requestedSessionId = request.headers.get('X-Research-Session-Id')
+  const previousResponseId =
+    body && typeof body === 'object' && typeof (body as { previous_response_id?: unknown }).previous_response_id === 'string'
+      ? String((body as { previous_response_id: string }).previous_response_id)
+      : null
+  const datasetId =
+    body && typeof body === 'object' && typeof (body as { datasetId?: unknown }).datasetId === 'string'
+      ? String((body as { datasetId: string }).datasetId)
+      : null
+  const resolvedSessionResponse = await proxyToControlPlane(env, '/assistant-sessions/resolve-cli', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      ownerEmail: cliSession.email,
+      datasetId,
+      sessionId: requestedSessionId,
+      previousResponseId,
+      title: 'RESEARCH CLI session',
+    }),
+  })
+  const resolvedSessionPayload = await resolvedSessionResponse.json().catch(() => ({})) as {
+    session?: { id?: string }
+  }
+  const assistantSessionId = resolvedSessionPayload.session?.id
+  if (assistantSessionId) {
+    await appendAssistantSessionEntry(env, assistantSessionId, {
+      role: 'user',
+      kind: 'request',
+      title: 'CLI request',
+      content: summarizeInput(body && typeof body === 'object' ? (body as { input?: unknown }).input ?? body : body),
+      metadata: body,
+    })
+  }
   const payload = typeof body === 'object' && body
     ? {
         model: env.RESEARCH_AGENT_MODEL ?? 'gpt-5',
@@ -131,11 +201,38 @@ async function proxyToResponsesApi(request: Request, env: Env) {
   })
 
   const text = await upstream.text()
+  const headers = new Headers({
+    'Content-Type': upstream.headers.get('Content-Type') ?? 'application/json',
+  })
+  if (assistantSessionId) {
+    headers.set('X-Research-Session-Id', assistantSessionId)
+  }
+  if (upstream.ok && assistantSessionId) {
+    const upstreamPayload = JSON.parse(text) as Record<string, unknown>
+    const responseId =
+      typeof upstreamPayload.id === 'string'
+        ? upstreamPayload.id
+        : typeof upstreamPayload.response_id === 'string'
+          ? upstreamPayload.response_id
+          : null
+    await appendAssistantSessionEntry(env, assistantSessionId, {
+      role: 'assistant',
+      kind: 'response',
+      title: 'CLI response',
+      content: extractResponseText(upstreamPayload) || JSON.stringify(upstreamPayload, null, 2),
+      metadata: upstreamPayload,
+    })
+    if (responseId) {
+      await proxyToControlPlane(env, '/assistant-sessions/link-response', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ responseId, sessionId: assistantSessionId }),
+      })
+    }
+  }
   return new Response(text, {
     status: upstream.status,
-    headers: {
-      'Content-Type': upstream.headers.get('Content-Type') ?? 'application/json',
-    },
+    headers,
   })
 }
 
@@ -280,12 +377,15 @@ export default {
       if (!cliSession) {
         return json({ error: 'Unauthorized' }, 401)
       }
+      const body = await request.json().catch(() => ({}))
       return proxyToControlPlane(env, `/datasets/${encodeURIComponent(deployMatch[1] ?? '')}/deploy`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          ...body,
           ownerEmail: cliSession.email,
           callbackOrigin: url.origin,
+          sessionId: request.headers.get('X-Research-Session-Id') ?? body.sessionId,
         }),
       })
     }
@@ -312,7 +412,12 @@ export default {
       return proxyToControlPlane(env, `/datasets/${encodeURIComponent(runCreateMatch[1] ?? '')}/runs`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...body, ownerEmail: cliSession.email, callbackOrigin: url.origin }),
+        body: JSON.stringify({
+          ...body,
+          ownerEmail: cliSession.email,
+          callbackOrigin: url.origin,
+          sessionId: request.headers.get('X-Research-Session-Id') ?? body.sessionId,
+        }),
       })
     }
 
@@ -429,6 +534,20 @@ export default {
       }
       const body = await request.text()
       return proxyToControlPlane(env, `/internal/runs/${encodeURIComponent(internalArtifactMatch[1] ?? '')}/artifacts`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body,
+      })
+    }
+
+    const internalSessionEntryMatch = pathname.match(/^\/api\/internal\/runs\/([^/]+)\/session-entries$/u)
+    if (internalSessionEntryMatch && request.method === 'POST') {
+      const bearer = request.headers.get('Authorization') ?? ''
+      if (bearer !== `Bearer ${env.RESEARCH_INTERNAL_RUNNER_TOKEN ?? ''}`) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      const body = await request.text()
+      return proxyToControlPlane(env, `/internal/runs/${encodeURIComponent(internalSessionEntryMatch[1] ?? '')}/session-entries`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body,

@@ -135,10 +135,31 @@ type RunResultsResponse = {
   } | null
   artifacts: RunArtifactRecord[]
   events: RunEventRecord[]
+  sessions?: StoredAssistantSession[]
 }
 
 type SessionTranscriptKind = 'cli' | 'remote'
 type SessionEntryRole = 'user' | 'assistant' | 'system'
+
+type StoredAssistantSessionEntry = {
+  id: string
+  sessionId: string
+  role: string
+  kind: string
+  title: string | null
+  content: string
+  createdAt: string
+}
+
+type StoredAssistantSession = {
+  id: string
+  kind: string
+  title: string | null
+  status: string
+  createdAt: string
+  updatedAt: string
+  entries: StoredAssistantSessionEntry[]
+}
 
 type SessionEntry = {
   id: string
@@ -270,6 +291,19 @@ function buildCliTranscript(
   dataset: DatasetRecord | undefined,
   payload: RunResultsResponse | null,
 ): SessionEntry[] {
+  const storedSession = payload?.sessions?.find((session) => session.kind === 'cli_orchestration')
+  if (storedSession) {
+    return storedSession.entries.map((entry) =>
+      createSessionEntry(
+        entry.id,
+        entry.role === 'user' ? 'user' : entry.role === 'system' ? 'system' : 'assistant',
+        entry.createdAt,
+        entry.content,
+        entry.title ?? formatStatus(entry.kind),
+      ),
+    )
+  }
+
   const messages: SessionEntry[] = []
   const details = [
     `Run id: \`${run.id}\``,
@@ -349,6 +383,19 @@ function buildRemoteTranscript(
   dataset: DatasetRecord | undefined,
   payload: RunResultsResponse | null,
 ): SessionEntry[] {
+  const storedSession = payload?.sessions?.find((session) => session.kind === 'remote_codex')
+  if (storedSession) {
+    return storedSession.entries.map((entry) =>
+      createSessionEntry(
+        entry.id,
+        entry.role === 'user' ? 'user' : entry.role === 'system' ? 'system' : 'assistant',
+        entry.createdAt,
+        entry.content,
+        entry.title ?? formatStatus(entry.kind),
+      ),
+    )
+  }
+
   const messages: SessionEntry[] = []
   const remoteSessionId = getRemoteSessionId(payload?.artifacts ?? [])
   const prompt = run.prompt?.trim()
