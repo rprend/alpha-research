@@ -1,6 +1,18 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Database, History, LayoutDashboard, LogOut, MoreHorizontal } from 'lucide-react'
+import { AssistantRuntimeProvider, useExternalStoreRuntime, type ThreadMessage } from '@assistant-ui/react'
+import {
+  Bot,
+  Database,
+  ExternalLink,
+  History,
+  LayoutDashboard,
+  LoaderCircle,
+  LogOut,
+  MoreHorizontal,
+  TerminalSquare,
+} from 'lucide-react'
 
+import { Thread } from '@/components/assistant-ui/thread'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -41,6 +53,13 @@ import {
   SidebarTrigger,
 } from '@/components/ui/sidebar'
 import { Skeleton } from '@/components/ui/skeleton'
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+} from '@/components/ui/sheet'
 import {
   Table,
   TableBody,
@@ -90,6 +109,36 @@ type RunRecord = {
   createdAt: string
   updatedAt: string
 }
+
+type RunEventRecord = {
+  id: string
+  runId: string
+  message: string
+  level: string
+  createdAt: string
+}
+
+type RunArtifactRecord = {
+  id: string
+  runId: string
+  type: string
+  title: string
+  url?: string
+  content?: Record<string, unknown>
+  createdAt: string
+}
+
+type RunResultsResponse = {
+  run: RunRecord
+  metadata: {
+    config: unknown
+    artifactSpec: unknown
+  } | null
+  artifacts: RunArtifactRecord[]
+  events: RunEventRecord[]
+}
+
+type SessionTranscriptKind = 'cli' | 'remote'
 
 const ROOT_HOST = 'alpharesearch.nyc'
 const DASHBOARD_HOST = 'dashboard.alpharesearch.nyc'
@@ -174,6 +223,212 @@ function formatStatus(value: string | null | undefined) {
   return value
     .replaceAll(/[-_]/g, ' ')
     .replace(/\b\w/g, (letter) => letter.toUpperCase())
+}
+
+function formatCompactTime(value: string) {
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) {
+    return value
+  }
+
+  return new Intl.DateTimeFormat(undefined, {
+    hour: 'numeric',
+    minute: '2-digit',
+  }).format(date)
+}
+
+function codeBlock(label: string, value: unknown) {
+  return `### ${label}\n\n\`\`\`json\n${JSON.stringify(value, null, 2)}\n\`\`\``
+}
+
+function createUserThreadMessage(id: string, createdAt: string, text: string): ThreadMessage {
+  return {
+    id,
+    role: 'user',
+    createdAt: new Date(createdAt),
+    content: [{ type: 'text', text }],
+    attachments: [],
+    metadata: { custom: {} },
+  } as ThreadMessage
+}
+
+function createAssistantThreadMessage(
+  id: string,
+  createdAt: string,
+  text: string,
+): ThreadMessage {
+  return {
+    id,
+    role: 'assistant',
+    createdAt: new Date(createdAt),
+    content: [{ type: 'text', text }],
+    attachments: [],
+    status: { type: 'complete', reason: 'stop' },
+    metadata: {
+      unstable_state: null,
+      unstable_annotations: [],
+      unstable_data: [],
+      steps: [],
+      custom: {},
+    },
+  } as ThreadMessage
+}
+
+function getRemoteSessionId(artifacts: RunArtifactRecord[]) {
+  const artifact = artifacts.find((item) => item.type === 'remote_agent_session')
+  const sessionId = artifact?.content?.sessionId
+  return typeof sessionId === 'string' ? sessionId : null
+}
+
+function buildCliTranscript(
+  run: RunRecord,
+  dataset: DatasetRecord | undefined,
+  payload: RunResultsResponse | null,
+): ThreadMessage[] {
+  const messages: ThreadMessage[] = []
+  const details = [
+    `Run id: \`${run.id}\``,
+    `Dataset: \`${dataset?.name ?? run.datasetId}\``,
+    `Type: ${formatStatus(run.type)}`,
+    `Status: ${formatStatus(run.status)}`,
+  ]
+
+  const prompt = run.prompt?.trim()
+  const kickoff = prompt
+    ? `Start a ${run.type} research run against \`${dataset?.name ?? run.datasetId}\`.\n\n${prompt}`
+    : `Start a ${run.type} research run against \`${dataset?.name ?? run.datasetId}\`.`
+
+  messages.push(createUserThreadMessage(`${run.id}-cli-user`, run.createdAt, kickoff))
+  messages.push(
+    createAssistantThreadMessage(
+      `${run.id}-cli-summary`,
+      run.createdAt,
+      `CLI orchestration session initialized.\n\n${details.join('\n')}`,
+    ),
+  )
+
+  if (payload?.metadata?.config) {
+    messages.push(
+      createAssistantThreadMessage(
+        `${run.id}-cli-config`,
+        run.createdAt,
+        codeBlock('Run config', payload.metadata.config),
+      ),
+    )
+  }
+
+  for (const event of payload?.events ?? []) {
+    const icon =
+      event.level === 'error' ? 'ERROR' : event.level === 'warning' ? 'WARN' : 'INFO'
+    messages.push(
+      createAssistantThreadMessage(
+        event.id,
+        event.createdAt,
+        `**${icon} · ${formatCompactTime(event.createdAt)}**\n\n${event.message}`,
+      ),
+    )
+  }
+
+  const nonSessionArtifacts = (payload?.artifacts ?? []).filter(
+    (artifact) => artifact.type !== 'remote_agent_session',
+  )
+  if (nonSessionArtifacts.length > 0) {
+    const lines = nonSessionArtifacts.map((artifact) => {
+      const link = artifact.url ? ` ([open artifact](${artifact.url}))` : ''
+      return `- **${artifact.title}** · ${formatStatus(artifact.type)}${link}`
+    })
+    messages.push(
+      createAssistantThreadMessage(
+        `${run.id}-cli-artifacts`,
+        nonSessionArtifacts.at(-1)?.createdAt ?? run.updatedAt,
+        `### Artifacts\n\n${lines.join('\n')}`,
+      ),
+    )
+  }
+
+  return messages
+}
+
+function buildRemoteTranscript(
+  run: RunRecord,
+  dataset: DatasetRecord | undefined,
+  payload: RunResultsResponse | null,
+): ThreadMessage[] {
+  const messages: ThreadMessage[] = []
+  const remoteSessionId = getRemoteSessionId(payload?.artifacts ?? [])
+  const prompt = run.prompt?.trim()
+
+  messages.push(
+    createUserThreadMessage(
+      `${run.id}-remote-user`,
+      run.createdAt,
+      [
+        `Execute the remote Codex run for dataset \`${dataset?.name ?? run.datasetId}\`.`,
+        prompt ? `\n\n${prompt}` : '',
+      ].join(''),
+    ),
+  )
+
+  messages.push(
+    createAssistantThreadMessage(
+      `${run.id}-remote-session`,
+      run.createdAt,
+      [
+        `Remote agent session attached to run \`${run.id}\`.`,
+        remoteSessionId ? `\n\nSession id: \`${remoteSessionId}\`` : '',
+      ].join(''),
+    ),
+  )
+
+  for (const event of payload?.events ?? []) {
+    messages.push(
+      createAssistantThreadMessage(
+        `${event.id}-remote`,
+        event.createdAt,
+        `**${formatCompactTime(event.createdAt)}**\n\n${event.message}`,
+      ),
+    )
+  }
+
+  if (!payload?.events.length) {
+    messages.push(
+      createAssistantThreadMessage(
+        `${run.id}-remote-empty`,
+        run.updatedAt,
+        'No remote event log has been persisted for this run yet.',
+      ),
+    )
+  }
+
+  return messages
+}
+
+function useReadonlyThreadRuntime(messages: ThreadMessage[]) {
+  return useExternalStoreRuntime({
+    isRunning: false,
+    messages,
+    onNew: async () => {},
+  })
+}
+
+function RunTranscript({
+  messages,
+  title,
+  description,
+}: {
+  messages: ThreadMessage[]
+  title: string
+  description: string
+}) {
+  const runtime = useReadonlyThreadRuntime(messages)
+
+  return (
+    <AssistantRuntimeProvider runtime={runtime}>
+      <div className="flex min-h-[30rem] flex-1 overflow-hidden rounded-xl border border-border bg-background">
+        <Thread readOnly welcomeTitle={title} welcomeDescription={description} />
+      </div>
+    </AssistantRuntimeProvider>
+  )
 }
 
 function countActiveRuns(runs: RunRecord[]) {
@@ -418,9 +673,11 @@ function DatasetTable({ datasets }: { datasets: DatasetRecord[] }) {
 function RunTable({
   runs,
   datasetLookup,
+  onSelectRun,
 }: {
   runs: RunRecord[]
   datasetLookup: Map<string, DatasetRecord>
+  onSelectRun: (run: RunRecord) => void
 }) {
   if (runs.length === 0) {
     return (
@@ -457,7 +714,11 @@ function RunTable({
             'No prompt recorded yet.'
 
           return (
-            <TableRow key={run.id}>
+            <TableRow
+              key={run.id}
+              className="cursor-pointer"
+              onClick={() => onSelectRun(run)}
+            >
               <TableCell className="align-top">
                 <div className="flex min-w-0 flex-col gap-1">
                   <span className="truncate font-medium">
@@ -473,12 +734,224 @@ function RunTable({
                 <StatusBadge>{formatStatus(run.status)}</StatusBadge>
               </TableCell>
               <TableCell>{formatDateTime(run.createdAt)}</TableCell>
-              <TableCell>{relativeTime(run.updatedAt)}</TableCell>
+              <TableCell>
+                <div className="flex items-center justify-between gap-3">
+                  <span>{relativeTime(run.updatedAt)}</span>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-8 px-2"
+                    onClick={(event) => {
+                      event.stopPropagation()
+                      onSelectRun(run)
+                    }}
+                  >
+                    View session
+                  </Button>
+                </div>
+              </TableCell>
             </TableRow>
           )
         })}
       </TableBody>
     </Table>
+  )
+}
+
+function RunSessionSheet({
+  run,
+  dataset,
+  open,
+  onOpenChange,
+}: {
+  run: RunRecord | null
+  dataset: DatasetRecord | undefined
+  open: boolean
+  onOpenChange: (open: boolean) => void
+}) {
+  const [payload, setPayload] = useState<RunResultsResponse | null>(null)
+  const [error, setError] = useState<string | null>(null)
+  const [loading, setLoading] = useState(false)
+  const [view, setView] = useState<SessionTranscriptKind>('cli')
+
+  useEffect(() => {
+    if (!open || !run) {
+      return
+    }
+
+    let cancelled = false
+    let intervalId: number | undefined
+
+    const load = async () => {
+      setLoading(true)
+      try {
+        const response = await fetchJson<RunResultsResponse>(`/api/cli/runs/${run.id}/results`)
+        if (!cancelled) {
+          setPayload(response)
+          setError(null)
+        }
+      } catch (fetchError) {
+        if (!cancelled) {
+          setError(
+            fetchError instanceof Error
+              ? fetchError.message
+              : 'Could not load run transcript.',
+          )
+        }
+      } finally {
+        if (!cancelled) {
+          setLoading(false)
+        }
+      }
+    }
+
+    void load()
+
+    if (
+      ![
+        'ready',
+        'completed',
+        'failed',
+        'cancelled',
+        'canceled',
+        'error',
+      ].includes(run.status.toLowerCase())
+    ) {
+      intervalId = window.setInterval(() => {
+        void load()
+      }, 5000)
+    }
+
+    return () => {
+      cancelled = true
+      if (intervalId) {
+        window.clearInterval(intervalId)
+      }
+    }
+  }, [open, run])
+
+  useEffect(() => {
+    setView('cli')
+  }, [run?.id])
+
+  const remoteSessionId = getRemoteSessionId(payload?.artifacts ?? [])
+  const cliMessages = useMemo(
+    () => (run ? buildCliTranscript(run, dataset, payload) : []),
+    [dataset, payload, run],
+  )
+  const remoteMessages = useMemo(
+    () => (run ? buildRemoteTranscript(run, dataset, payload) : []),
+    [dataset, payload, run],
+  )
+
+  return (
+    <Sheet open={open} onOpenChange={onOpenChange}>
+      <SheetContent side="right" className="w-full gap-0 p-0 sm:max-w-[min(88rem,92vw)]">
+        <SheetHeader className="gap-4 border-b border-border px-8 py-6">
+          <div className="flex items-start justify-between gap-4 pr-10">
+            <div className="flex min-w-0 flex-col gap-2">
+              <SheetTitle className="tracking-[0.14em]">
+                {run ? dataset?.name ?? run.datasetId : 'Run session'}
+              </SheetTitle>
+              <SheetDescription className="max-w-3xl">
+                {run
+                  ? `${formatStatus(run.type)} run ${run.id} opened as an assistant session.`
+                  : 'View run logs as an assistant session.'}
+              </SheetDescription>
+            </div>
+            {loading ? (
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <LoaderCircle className="size-4 animate-spin" />
+                Refreshing
+              </div>
+            ) : null}
+          </div>
+
+          {run ? (
+            <div className="flex flex-wrap items-center gap-2">
+              <StatusBadge>{formatStatus(run.status)}</StatusBadge>
+              <StatusBadge>{formatStatus(run.type)}</StatusBadge>
+              <Badge variant="outline" className="rounded-none">
+                Started {formatDateTime(run.createdAt)}
+              </Badge>
+              {remoteSessionId ? (
+                <Badge variant="outline" className="rounded-none">
+                  Remote session {remoteSessionId}
+                </Badge>
+              ) : null}
+            </div>
+          ) : null}
+        </SheetHeader>
+
+        <div className="flex flex-1 min-h-0 flex-col bg-muted/15">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-8 py-4">
+            <div className="flex items-center gap-2">
+              <Button
+                variant={view === 'cli' ? 'default' : 'ghost'}
+                size="sm"
+                onClick={() => setView('cli')}
+              >
+                <TerminalSquare />
+                CLI orchestration
+              </Button>
+              <Button
+                variant={view === 'remote' ? 'default' : 'ghost'}
+                size="sm"
+                onClick={() => setView('remote')}
+                disabled={!remoteSessionId}
+              >
+                <Bot />
+                Remote Codex
+              </Button>
+            </div>
+
+            {remoteSessionId ? (
+              <a
+                href={`https://chatgpt.com/codex/s/${remoteSessionId}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+              >
+                Open remote session
+                <ExternalLink className="size-4" />
+              </a>
+            ) : null}
+          </div>
+
+          <div className="flex-1 overflow-auto px-8 py-6">
+            {error ? (
+              <Card className="rounded-xl border border-destructive/30 bg-destructive/5 py-0 shadow-none">
+                <CardContent className="px-6 py-4 text-sm text-destructive">
+                  Could not load run transcript: {error}
+                </CardContent>
+              </Card>
+            ) : null}
+
+            {!run ? null : view === 'remote' ? (
+              remoteSessionId ? (
+                <RunTranscript
+                  messages={remoteMessages}
+                  title="Remote Codex session"
+                  description="Persisted remote-agent events for this run."
+                />
+              ) : (
+                <Card className="rounded-xl border border-border bg-background py-0 shadow-none">
+                  <CardContent className="px-6 py-6 text-sm text-muted-foreground">
+                    This run does not have a persisted remote agent session id yet.
+                  </CardContent>
+                </Card>
+              )
+            ) : (
+              <RunTranscript
+                messages={cliMessages}
+                title="CLI orchestration session"
+                description="Persisted run config, events, and artifacts from the RESEARCH CLI."
+              />
+            )}
+          </div>
+        </div>
+      </SheetContent>
+    </Sheet>
   )
 }
 
@@ -622,6 +1095,7 @@ function DashboardApp({
     () => new Map(datasets.map((dataset) => [dataset.id, dataset])),
     [datasets],
   )
+  const [selectedRun, setSelectedRun] = useState<RunRecord | null>(null)
 
   const initials = (session.user?.email ?? 'AR')
     .split('@')[0]
@@ -795,12 +1269,27 @@ function DashboardApp({
                     Query, ingest, and analysis runs.
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="px-0">
-                  <RunTable runs={runs} datasetLookup={datasetLookup} />
+              <CardContent className="px-0">
+                  <RunTable
+                    runs={runs}
+                    datasetLookup={datasetLookup}
+                    onSelectRun={setSelectedRun}
+                  />
                 </CardContent>
               </Card>
           </main>
         </div>
+
+        <RunSessionSheet
+          run={selectedRun}
+          dataset={selectedRun ? datasetLookup.get(selectedRun.datasetId) : undefined}
+          open={Boolean(selectedRun)}
+          onOpenChange={(open) => {
+            if (!open) {
+              setSelectedRun(null)
+            }
+          }}
+        />
       </SidebarInset>
     </SidebarProvider>
   )
