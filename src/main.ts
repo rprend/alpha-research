@@ -493,7 +493,7 @@ function renderDashboardSignedOut(session: SessionResponse) {
         </nav>
       </aside>
       <main class="dash-main">
-        <section class="dash-hero-card" id="home">
+        <section class="dash-hero-card dash-hero-card-simple" id="home">
           <div class="dash-hero-copyblock">
             <p class="dash-label">Research dashboard</p>
             <h1>Datasets and runs from the RESEARCH CLI</h1>
@@ -504,20 +504,6 @@ function renderDashboardSignedOut(session: SessionResponse) {
               </button>
               <a class="dash-secondary-button" href="${rootOrigin}/#cli">View CLI docs</a>
             </div>
-          </div>
-          <div class="dash-stat-grid">
-            <article class="dash-stat-card">
-              <span class="dash-stat-label">Private datasets</span>
-              <strong>Sign in</strong>
-            </article>
-            <article class="dash-stat-card">
-              <span class="dash-stat-label">Past runs</span>
-              <strong>Sign in</strong>
-            </article>
-            <article class="dash-stat-card">
-              <span class="dash-stat-label">CLI session</span>
-              <strong>Sign in</strong>
-            </article>
           </div>
         </section>
 
@@ -575,7 +561,7 @@ function renderDashboard(session: SessionResponse, datasets: DatasetRecord[], ru
       </aside>
 
       <main class="dash-main">
-        <section class="dash-hero-card" id="home">
+        <section class="dash-hero-card dash-hero-card-simple" id="home">
           <div class="dash-hero-copyblock">
             <p class="dash-label">Research dashboard</p>
             <h1>RESEARCH CLI datasets and runs</h1>
@@ -587,22 +573,11 @@ function renderDashboard(session: SessionResponse, datasets: DatasetRecord[], ru
               <a class="dash-secondary-button" href="#runs">View runs</a>
             </div>
           </div>
-          <div class="dash-stat-grid">
-            <article class="dash-stat-card">
-              <span class="dash-stat-label">Private datasets</span>
-              <strong>${privateDatasets}</strong>
-              <span class="dash-stat-foot">Owned by your CLI session</span>
-            </article>
-            <article class="dash-stat-card">
-              <span class="dash-stat-label">Active runs</span>
-              <strong>${activeRuns}</strong>
-              <span class="dash-stat-foot">Currently processing or deploying</span>
-            </article>
-            <article class="dash-stat-card">
-              <span class="dash-stat-label">Past runs</span>
-              <strong>${sortedRuns.length}</strong>
-              <span class="dash-stat-foot">Latest activity ${escapeHtml(latestUpdate(sortedRuns))}</span>
-            </article>
+          <div class="dash-inline-stats">
+            <span><strong>${privateDatasets}</strong> datasets</span>
+            <span><strong>${activeRuns}</strong> active runs</span>
+            <span><strong>${sortedRuns.length}</strong> total runs</span>
+            <span>Latest ${escapeHtml(latestUpdate(sortedRuns))}</span>
           </div>
         </section>
 
@@ -664,7 +639,7 @@ async function initDashboard() {
     }
 
     if (!session.authenticated || !session.user) {
-      if (!loggedOut && document.referrer.includes(ROOT_HOST)) {
+      if (!loggedOut) {
         beginDashboardBridge()
         return
       }
