@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { ArrowUpRight, Database, History, LayoutDashboard, LogOut, MoreHorizontal } from 'lucide-react'
+import { Database, History, LayoutDashboard, LogOut, MoreHorizontal } from 'lucide-react'
 
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
@@ -8,7 +8,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
@@ -26,7 +25,6 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from '@/components/ui/empty'
-import { Separator } from '@/components/ui/separator'
 import {
   Sidebar,
   SidebarContent,
@@ -727,8 +725,7 @@ function DashboardApp({
             </div>
           </header>
 
-          <main className="grid flex-1 gap-6 px-4 py-6 md:px-8 xl:grid-cols-[minmax(0,1fr)_20rem]">
-            <div className="flex min-w-0 flex-col gap-6">
+          <main className="flex flex-1 min-w-0 flex-col gap-6 px-4 py-6 md:px-8">
               <section className="flex flex-col gap-4 border-b border-border pb-6 lg:flex-row lg:items-end lg:justify-between">
                 <div className="flex max-w-3xl flex-col gap-3">
                   <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
@@ -802,39 +799,6 @@ function DashboardApp({
                   <RunTable runs={runs} datasetLookup={datasetLookup} />
                 </CardContent>
               </Card>
-            </div>
-
-            <div className="flex flex-col gap-6">
-              <Card className="rounded-none border border-border bg-background py-0 shadow-none">
-                <CardHeader className="border-b border-border px-6 py-5">
-                  <CardTitle className="text-sm">Session</CardTitle>
-                  <CardDescription>
-                    Signed in through Alpha Research.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="flex flex-col gap-4 px-6 py-6 text-sm">
-                  <div className="flex items-center justify-between gap-4">
-                    <span className="text-muted-foreground">User</span>
-                    <span className="truncate font-medium">
-                      {session.user?.email ?? 'Signed in'}
-                    </span>
-                  </div>
-                  <Separator />
-                  <div className="flex items-center justify-between gap-4">
-                    <span className="text-muted-foreground">API status</span>
-                    <StatusBadge>Connected</StatusBadge>
-                  </div>
-                </CardContent>
-                <CardFooter className="border-t border-border px-6 py-4">
-                  <Button variant="outline" size="sm" asChild>
-                    <a href={rootOrigin}>
-                      Open site
-                      <ArrowUpRight data-icon="inline-end" />
-                    </a>
-                  </Button>
-                </CardFooter>
-              </Card>
-            </div>
           </main>
         </div>
       </SidebarInset>
