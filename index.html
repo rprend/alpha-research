@@ -86,6 +86,7 @@
             </a>
 
             <nav class="top-links" aria-label="Primary">
+              <a class="underlined-link" href="#cli">cli</a>
               <a class="underlined-link" href="#powering">powering</a>
               <a class="underlined-link" href="#faq">faq</a>
               <a class="underlined-link" href="#about">about</a>
@@ -148,6 +149,9 @@
             </div>
 
             <div class="hero-links">
+              <a class="hero-button hero-button-secondary" href="#cli">
+                Bring your own dataset
+              </a>
               <button
                 type="button"
                 class="hero-button"
@@ -161,6 +165,73 @@
                   <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
                 </svg>
               </button>
+            </div>
+          </section>
+
+          <section class="cli-block" id="cli">
+            <p class="section-kicker">Bring Your Own Dataset</p>
+            <h2>Install the RESEARCH CLI and point it at your own corpus</h2>
+            <p class="cli-lede">
+              Alpha Research is not limited to Alpha Book. You can install the RESEARCH CLI,
+              sign in with your Alpha Research account, upload an arbitrary dataset, normalize it,
+              and deploy a research-ready dataset backed by our remote infrastructure.
+            </p>
+
+            <div class="cli-card">
+              <div class="cli-card-head">
+                <div>
+                  <p class="cli-card-label">Install</p>
+                  <p class="cli-card-copy">Run this in a terminal or have your agent run it for you.</p>
+                </div>
+                <button class="ghost-button cli-copy-button" type="button" data-copy-target="cli-install-command">
+                  Copy command
+                </button>
+              </div>
+              <pre class="cli-pre" id="cli-install-command"><code>curl -fsSL https://raw.githubusercontent.com/zenobia-pay/alpha-research/codex/initial-substrate/scripts/install_alpha_research.sh | bash</code></pre>
+            </div>
+
+            <div class="cli-card">
+              <div class="cli-card-head">
+                <div>
+                  <p class="cli-card-label">Copy This Prompt To Your Agent</p>
+                  <p class="cli-card-copy">Describe your dataset at the bottom and let your agent handle install, sign-in, ingest, and deploy.</p>
+                </div>
+                <button class="ghost-button cli-copy-button" type="button" data-copy-target="cli-agent-prompt">
+                  Copy prompt
+                </button>
+              </div>
+              <pre class="cli-pre" id="cli-agent-prompt"><code>Install the RESEARCH CLI and ingest my dataset.
+
+Run:
+curl -fsSL https://raw.githubusercontent.com/zenobia-pay/alpha-research/codex/initial-substrate/scripts/install_alpha_research.sh | bash
+
+Then run:
+research
+
+Sign in if needed, decide the dataset name, id, mode, and path based on my description, create the dataset, and deploy it.
+
+After deploy starts, tell me the dataset id, run id, and what is happening.
+
+Dataset description:
+</code></pre>
+            </div>
+
+            <div class="cli-grid">
+              <article class="cli-mini-card">
+                <p class="cli-card-label">What it supports</p>
+                <p>
+                  Parquet, CSV, JSON, text corpora, markdown, HTML, PDFs, and other large
+                  research datasets that need normalization before agentic search and analysis.
+                </p>
+              </article>
+              <article class="cli-mini-card">
+                <p class="cli-card-label">What happens next</p>
+                <p>
+                  The CLI uploads the raw file, Alpha Research provisions storage and compute,
+                  normalizes the dataset remotely, and tracks the run so you can reopen the CLI
+                  and watch progress later.
+                </p>
+              </article>
             </div>
           </section>
 
@@ -299,8 +370,10 @@
                   <span class="faq-summary-icon" aria-hidden="true">+</span>
                 </summary>
                 <p>
-                  Yes. Our code is open source. We will install it for you, contact us
-                  <a href="https://cal.com/ryan-prendergast-qsp5cw/30min" target="_blank" rel="noopener noreferrer">here</a>.
+                  Yes. Install the RESEARCH CLI above and point it at your own dataset, or book a
+                  call
+                  <a href="https://cal.com/ryan-prendergast-qsp5cw/30min" target="_blank" rel="noopener noreferrer">here</a>
+                  if you want us to help with setup.
                 </p>
               </details>
 

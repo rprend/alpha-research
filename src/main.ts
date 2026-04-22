@@ -68,6 +68,7 @@ window.Cal?.ns?.['30min']?.('ui', {
 
 const authButton = document.querySelector<HTMLElement>('[data-auth-action]')
 const authStatus = document.querySelector<HTMLElement>('[data-auth-status]')
+const copyButtons = document.querySelectorAll<HTMLButtonElement>('[data-copy-target]')
 const url = new URL(window.location.href)
 
 function setAuthStatus(message: string, isError = false) {
@@ -152,3 +153,34 @@ if (authError) {
 if (url.searchParams.get('login') === '1') {
   beginLogin()
 }
+
+copyButtons.forEach((button) => {
+  button.addEventListener('click', async () => {
+    const targetId = button.dataset.copyTarget
+    if (!targetId) {
+      return
+    }
+    const target = document.getElementById(targetId)
+    const text = target?.textContent?.trim()
+    if (!text) {
+      return
+    }
+    try {
+      await navigator.clipboard.writeText(text)
+      const previous = button.textContent
+      button.textContent = 'Copied'
+      window.setTimeout(() => {
+        button.textContent = previous ?? 'Copy'
+      }, 1600)
+    } catch {
+      if (!target) {
+        return
+      }
+      const selection = window.getSelection()
+      const range = document.createRange()
+      range.selectNodeContents(target)
+      selection?.removeAllRanges()
+      selection?.addRange(range)
+    }
+  })
+})

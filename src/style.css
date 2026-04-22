@@ -163,6 +163,7 @@ p {
 }
 
 .hero-block,
+.cli-block,
 .powering-block,
 .quote-block,
 .about-block,
@@ -269,6 +270,16 @@ h2 {
   text-decoration: none;
 }
 
+.hero-button-secondary {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+
+.hero-button-secondary:hover {
+  background: var(--card);
+}
+
 .hero-button svg {
   width: 1rem;
   height: 1rem;
@@ -286,6 +297,88 @@ h2 {
 
 .cta-note a {
   text-decoration: underline;
+}
+
+.cli-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cli-lede {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.cli-card,
+.cli-mini-card {
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: var(--card);
+}
+
+.cli-card {
+  padding: 1rem;
+}
+
+.cli-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.cli-card-label {
+  margin: 0 0 0.2rem;
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cli-card-copy,
+.cli-mini-card p:last-child {
+  color: var(--muted);
+}
+
+.cli-card-copy {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.cli-copy-button {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.cli-pre {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  border-radius: 0.7rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--text);
+  font: 0.9rem/1.55 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.cli-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.cli-mini-card {
+  padding: 1rem;
+}
+
+.cli-mini-card p:last-child {
+  margin: 0;
+  line-height: 1.55;
 }
 
 .split-heading {
@@ -655,6 +748,7 @@ h2 {
   }
 
   .hero-block,
+  .cli-block,
   .powering-block,
   .about-block,
   .faq-block {
@@ -682,6 +776,15 @@ h2 {
     max-width: 100%;
     min-height: 3rem;
     border-radius: 0.8rem;
+  }
+
+  .cli-card-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cli-grid {
+    grid-template-columns: 1fr;
   }
 
   .cta-note {
