@@ -95,6 +95,42 @@ async function proxyToControlPlane(env: Env, path: string, init: RequestInit) {
   return stub.fetch(`https://control-plane${path}`, init)
 }
 
+async function proxyToResponsesApi(request: Request, env: Env) {
+  const cliSession = await requireCliSession(request, env)
+  if (!cliSession) {
+    return json({ error: 'Unauthorized' }, 401)
+  }
+  if (!env.OPENAI_API_KEY) {
+    return json({ error: 'Missing OPENAI_API_KEY on alpha-research worker' }, 502)
+  }
+  const body = await request.json().catch(() => ({}))
+  const payload = typeof body === 'object' && body
+    ? {
+        model: env.RESEARCH_AGENT_MODEL ?? 'gpt-5',
+        ...body,
+      }
+    : {
+        model: env.RESEARCH_AGENT_MODEL ?? 'gpt-5',
+      }
+
+  const upstream = await fetch('https://api.openai.com/v1/responses', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${env.OPENAI_API_KEY}`,
+    },
+    body: JSON.stringify(payload),
+  })
+
+  const text = await upstream.text()
+  return new Response(text, {
+    status: upstream.status,
+    headers: {
+      'Content-Type': upstream.headers.get('Content-Type') ?? 'application/json',
+    },
+  })
+}
+
 async function forwardCliRequest(request: Request, env: Env, path: string, init: RequestInit = {}) {
   const cliSession = await requireCliSession(request, env)
   if (!cliSession) {
@@ -137,6 +173,10 @@ export default {
 
     if (pathname === '/api/cli/plan' && request.method === 'POST') {
       return cliPlanPost(createContext(request, env))
+    }
+
+    if (pathname === '/api/cli/respond' && request.method === 'POST') {
+      return proxyToResponsesApi(request, env)
     }
 
     if (pathname === '/api/cli/me' && request.method === 'GET') {
