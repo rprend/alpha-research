@@ -477,6 +477,20 @@ export default {
       )
     }
 
+    const cliSessionEntryMatch = pathname.match(/^\/api\/cli\/sessions\/([^/]+)\/entries$/u)
+    if (cliSessionEntryMatch && request.method === 'POST') {
+      return forwardCliRequest(
+        request,
+        env,
+        `/assistant-sessions/${encodeURIComponent(cliSessionEntryMatch[1] ?? '')}`,
+        {
+          method: 'POST',
+          body: await request.text(),
+          headers: { 'Content-Type': 'application/json' },
+        },
+      )
+    }
+
     const runResultsMatch = pathname.match(/^\/api\/cli\/runs\/([^/]+)\/results$/u)
     if (runResultsMatch && request.method === 'GET') {
       return forwardCliRequest(

@@ -1343,18 +1343,6 @@ export class ControlPlane {
           config ? JSON.stringify(config) : null,
           artifactSpec.length > 0 ? JSON.stringify(artifactSpec) : null,
         )
-        for (const artifact of artifactSpec) {
-          if (artifact && typeof artifact === 'object') {
-            const typedArtifact = artifact as Record<string, unknown>
-            this.createRunArtifact(
-              runId,
-              String(typedArtifact.type ?? 'artifact'),
-              String(typedArtifact.title ?? typedArtifact.type ?? 'artifact'),
-              typedArtifact,
-              null,
-            )
-          }
-        }
         if (!dataset.volumeId || !dataset.volumeName || !dataset.volumeMountPath || !dataset.manifestPath) {
           this.appendRunEvent(runId, 'Dataset is not deployed to a runnable volume yet.', 'error')
           this.sql.exec('UPDATE runs SET status = ?, updated_at = ? WHERE id = ?', 'failed', nowIso(), runId)

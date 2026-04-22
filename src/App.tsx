@@ -131,7 +131,7 @@ type RunResultsResponse = {
 }
 
 type SessionTranscriptKind = 'cli' | 'remote'
-type SessionEntryRole = 'user' | 'assistant' | 'system'
+type SessionEntryRole = 'user' | 'assistant' | 'system' | 'tool'
 type DashboardView = 'dashboard' | 'datasets' | 'runs' | 'terminal-sessions'
 
 type StoredAssistantSessionEntry = {
@@ -149,6 +149,8 @@ type StoredAssistantSession = {
   kind: string
   title: string | null
   status: string
+  datasetId?: string | null
+  runId?: string | null
   createdAt: string
   updatedAt: string
   entries?: StoredAssistantSessionEntry[]
@@ -298,10 +300,10 @@ function summarizeDatasetRecord(value: unknown) {
 
 function humanizeToolName(name: string) {
   const labels: Record<string, string> = {
-    aggregate_remote_dataset: 'Planned remote aggregation',
-    query_remote_dataset: 'Planned remote query',
-    get_run_results: 'Fetched run results',
-    list_run_artifacts: 'Checked run artifacts',
+    aggregate_remote_dataset: 'Started remote aggregation',
+    query_remote_dataset: 'Started remote query',
+    get_run_results: 'Checked current run status',
+    list_run_artifacts: 'Checked produced artifacts',
     inspect_remote_dataset: 'Inspected dataset',
     list_remote_datasets: 'Listed datasets',
     start_remote_agent_run: 'Started remote Codex run',
@@ -316,6 +318,49 @@ function humanizeToolName(name: string) {
 
   if (labels[name]) return labels[name]
   return `Called \`${name}\``
+}
+
+function getRequestedArtifacts(payload: RunResultsResponse | null) {
+  return Array.isArray(payload?.metadata?.artifactSpec)
+    ? (payload?.metadata?.artifactSpec as Array<Record<string, unknown>>)
+    : []
+}
+
+function isProducedArtifact(
+  artifact: RunArtifactRecord,
+  requestedArtifacts: Array<Record<string, unknown>>,
+) {
+  if (artifact.url || artifact.type === 'remote_agent_session') {
+    return true
+  }
+  const requestedMatch = requestedArtifacts.some((requested) => {
+    const requestedType = typeof requested.type === 'string' ? requested.type : null
+    const requestedTitle = typeof requested.title === 'string' ? requested.title : null
+    return requestedType === artifact.type && requestedTitle === artifact.title
+  })
+  return !requestedMatch
+}
+
+function getProducedArtifacts(payload: RunResultsResponse | null) {
+  const requestedArtifacts = getRequestedArtifacts(payload)
+  return (payload?.artifacts ?? []).filter((artifact) => isProducedArtifact(artifact, requestedArtifacts))
+}
+
+function getLatestRunEvent(payload: RunResultsResponse | null) {
+  const events = payload?.events ?? []
+  return events.length > 0 ? events[events.length - 1] : null
+}
+
+function inferRunPhase(run: RunRecord, payload: RunResultsResponse | null) {
+  const status = run.status.toLowerCase()
+  if (status === 'queued') return 'Queued'
+  if (status === 'booting') return 'Booting'
+  if (status === 'running') return 'Running'
+  if (status === 'ready' || status === 'completed' || status === 'succeeded') return 'Done'
+  if (status === 'failed' || status === 'error') return 'Failed'
+  if (status === 'cancelled' || status === 'canceled') return 'Cancelled'
+  const latestEvent = getLatestRunEvent(payload)
+  return latestEvent ? truncate(latestEvent.message, 120) : formatStatus(run.status)
 }
 
 function summarizeRunRecord(value: unknown) {
@@ -355,16 +400,42 @@ function summarizeRunData(value: unknown) {
     sections.push(`Recent activity:\n${recentEvents.map((event) => `- ${event}`).join('\n')}`)
   }
 
+  const metadata = isRecord(value.metadata) ? value.metadata : null
+  const requestedArtifacts = Array.isArray(metadata?.artifactSpec) ? metadata?.artifactSpec as Array<Record<string, unknown>> : []
+  if (requestedArtifacts.length > 0) {
+    const titles = requestedArtifacts
+      .slice(0, 4)
+      .map((artifact) =>
+        typeof artifact.title === 'string' ? artifact.title : typeof artifact.type === 'string' ? artifact.type : null,
+      )
+      .filter((title): title is string => Boolean(title))
+    if (titles.length > 0) {
+      sections.push(`Requested artifacts: ${titles.join(', ')}`)
+    }
+  }
+
   const artifacts = Array.isArray(value.artifacts) ? value.artifacts : []
-  if (artifacts.length > 0) {
-    const titles = artifacts
+  const producedArtifacts = artifacts.filter((artifact) => {
+    if (!isRecord(artifact)) return false
+    const type = typeof artifact.type === 'string' ? artifact.type : null
+    const title = typeof artifact.title === 'string' ? artifact.title : null
+    const url = typeof artifact.url === 'string' ? artifact.url : null
+    if (url || type === 'remote_agent_session') return true
+    return !requestedArtifacts.some((requested) => {
+      const requestedType = typeof requested.type === 'string' ? requested.type : null
+      const requestedTitle = typeof requested.title === 'string' ? requested.title : null
+      return requestedType === type && requestedTitle === title
+    })
+  })
+  if (producedArtifacts.length > 0) {
+    const titles = producedArtifacts
       .slice(0, 4)
       .map((artifact) =>
         isRecord(artifact) && typeof artifact.title === 'string' ? artifact.title : null,
       )
       .filter((title): title is string => Boolean(title))
     if (titles.length > 0) {
-      sections.push(`Artifacts: ${titles.join(', ')}`)
+      sections.push(`Produced artifacts: ${titles.join(', ')}`)
     }
   }
 
@@ -497,7 +568,7 @@ function toThreadMessage(entry: SessionEntry): ThreadMessage {
 
   return {
     id: entry.id,
-    role: 'assistant',
+    role: entry.role === 'tool' ? 'tool' : 'assistant',
     createdAt: new Date(entry.createdAt),
     content: [{ type: 'text', text: formatSessionBody(entry) }],
     attachments: [],
@@ -538,7 +609,7 @@ function buildCliTranscript(
     return storedSession.entries.map((entry) =>
       createSessionEntry(
         entry.id,
-        entry.role === 'user' ? 'user' : entry.role === 'system' ? 'system' : 'assistant',
+        entry.role === 'user' ? 'user' : entry.role === 'system' ? 'system' : entry.role === 'tool' ? 'tool' : 'assistant',
         entry.createdAt,
         entry.content,
         entry.title ?? formatStatus(entry.kind),
@@ -598,11 +669,11 @@ function buildCliTranscript(
     )
   }
 
-  const nonSessionArtifacts = (payload?.artifacts ?? []).filter(
+  const producedArtifacts = getProducedArtifacts(payload).filter(
     (artifact) => artifact.type !== 'remote_agent_session',
   )
-  if (nonSessionArtifacts.length > 0) {
-    const lines = nonSessionArtifacts.map((artifact) => {
+  if (producedArtifacts.length > 0) {
+    const lines = producedArtifacts.map((artifact) => {
       const link = artifact.url ? ` ([open artifact](${artifact.url}))` : ''
       return `- **${artifact.title}** · ${formatStatus(artifact.type)}${link}`
     })
@@ -610,9 +681,9 @@ function buildCliTranscript(
       createSessionEntry(
         `${run.id}-cli-artifacts`,
         'system',
-        nonSessionArtifacts.at(-1)?.createdAt ?? run.updatedAt,
-        `### Artifacts\n\n${lines.join('\n')}`,
-        'Artifacts',
+        producedArtifacts.at(-1)?.createdAt ?? run.updatedAt,
+        `### Produced artifacts\n\n${lines.join('\n')}`,
+        'Produced artifacts',
       ),
     )
   }
@@ -630,7 +701,7 @@ function buildRemoteTranscript(
     return storedSession.entries.map((entry) =>
       createSessionEntry(
         entry.id,
-        entry.role === 'user' ? 'user' : entry.role === 'system' ? 'system' : 'assistant',
+        entry.role === 'user' ? 'user' : entry.role === 'system' ? 'system' : entry.role === 'tool' ? 'tool' : 'assistant',
         entry.createdAt,
         entry.content,
         entry.title ?? formatStatus(entry.kind),
@@ -1292,6 +1363,10 @@ function RunDetailPage({
   const { payload, error, loading } = useRunResults(run)
   const [view, setView] = useState<SessionTranscriptKind>('cli')
   const remoteSessionId = getRemoteSessionId(payload?.artifacts ?? [])
+  const requestedArtifacts = useMemo(() => getRequestedArtifacts(payload), [payload])
+  const producedArtifacts = useMemo(() => getProducedArtifacts(payload), [payload])
+  const latestEvent = useMemo(() => getLatestRunEvent(payload), [payload])
+  const phase = inferRunPhase(run, payload)
   const cliMessages = useMemo(() => buildCliTranscript(run, dataset, payload), [run, dataset, payload])
   const remoteMessages = useMemo(() => buildRemoteTranscript(run, dataset, payload), [run, dataset, payload])
 
@@ -1310,6 +1385,7 @@ function RunDetailPage({
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
           <StatusBadge>{formatStatus(run.status)}</StatusBadge>
           <StatusBadge>{formatStatus(run.type)}</StatusBadge>
+          <StatusBadge>{phase}</StatusBadge>
           <span className="text-sm text-muted-foreground">Started {formatDateTime(run.createdAt)}</span>
           {remoteSessionId ? (
             <span className="text-sm text-muted-foreground">Remote session {remoteSessionId}</span>
@@ -1353,6 +1429,32 @@ function RunDetailPage({
           ) : null}
         </div>
 
+        <section className="rounded-3xl border border-border bg-background px-6 py-5">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Phase</div>
+              <div className="mt-2 text-sm">{phase}</div>
+            </div>
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Last event</div>
+              <div className="mt-2 text-sm text-muted-foreground">
+                {latestEvent ? truncate(latestEvent.message, 180) : 'No run events yet'}
+              </div>
+            </div>
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Requested artifacts</div>
+              <div className="mt-2 text-sm">{requestedArtifacts.length}</div>
+            </div>
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Produced artifacts</div>
+              <div className="mt-2 text-sm">{producedArtifacts.filter((artifact) => artifact.type !== 'remote_agent_session').length}</div>
+            </div>
+          </div>
+          {latestEvent?.createdAt ? (
+            <div className="mt-4 text-sm text-muted-foreground">Updated {formatDateTime(latestEvent.createdAt)}</div>
+          ) : null}
+        </section>
+
         {error ? (
           <Card className="rounded-xl border border-destructive/30 bg-destructive/5 py-0 shadow-none">
             <CardContent className="px-6 py-4 text-sm text-destructive">
@@ -1395,30 +1497,57 @@ function RunDetailPage({
           </div>
         )}
 
-        {payload?.artifacts?.length ? (
+        {(requestedArtifacts.length > 0 || producedArtifacts.length > 0) ? (
           <section className="rounded-3xl border border-border bg-background px-6 py-5">
             <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               Artifacts
             </div>
             <Separator className="my-4" />
-            <div className="space-y-3">
-              {payload.artifacts.map((artifact) => (
-                <div key={artifact.id} className="flex flex-wrap items-center gap-3">
-                  <span className="font-medium">{artifact.title}</span>
-                  <span className="text-sm text-muted-foreground">{formatStatus(artifact.type)}</span>
-                  {artifact.url ? (
-                    <a
-                      href={artifact.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
-                    >
-                      Open
-                      <ExternalLink className="size-4" />
-                    </a>
-                  ) : null}
+            <div className="space-y-6">
+              {requestedArtifacts.length > 0 ? (
+                <div className="space-y-3">
+                  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                    Requested
+                  </div>
+                  {requestedArtifacts.map((artifact, index) => {
+                    const type = typeof artifact.type === 'string' ? artifact.type : 'artifact'
+                    const title =
+                      typeof artifact.title === 'string' ? artifact.title : formatStatus(type)
+                    const produced = producedArtifacts.some((candidate) => candidate.type === type && candidate.title === title)
+                    return (
+                      <div key={`${type}-${title}-${index}`} className="flex flex-wrap items-center gap-3">
+                        <span className="font-medium">{title}</span>
+                        <span className="text-sm text-muted-foreground">{formatStatus(type)}</span>
+                        <StatusBadge>{produced ? 'Produced' : 'Pending'}</StatusBadge>
+                      </div>
+                    )
+                  })}
                 </div>
-              ))}
+              ) : null}
+              {producedArtifacts.length > 0 ? (
+                <div className="space-y-3">
+                  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                    Produced
+                  </div>
+                  {producedArtifacts.map((artifact) => (
+                    <div key={artifact.id} className="flex flex-wrap items-center gap-3">
+                      <span className="font-medium">{artifact.title}</span>
+                      <span className="text-sm text-muted-foreground">{formatStatus(artifact.type)}</span>
+                      {artifact.url ? (
+                        <a
+                          href={artifact.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+                        >
+                          Open
+                          <ExternalLink className="size-4" />
+                        </a>
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
+              ) : null}
             </div>
           </section>
         ) : null}
@@ -1451,6 +1580,15 @@ function SessionDetailPage({ sessionId }: { sessionId: string }) {
           <StatusBadge>{formatStatus(session?.status ?? 'active')}</StatusBadge>
           {session ? (
             <span className="text-sm text-muted-foreground">Updated {formatDateTime(session.updatedAt)}</span>
+          ) : null}
+          {session?.runId ? (
+            <button
+              type="button"
+              className="text-sm text-muted-foreground hover:text-foreground"
+              onClick={() => updateDashboardRoute({ view: 'runs', runId: session.runId, sessionId })}
+            >
+              Open related run
+            </button>
           ) : null}
           {loading ? (
             <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
