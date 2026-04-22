@@ -263,6 +263,10 @@ function codeBlock(label: string, value: unknown) {
   return `### ${label}\n\n\`\`\`json\n${JSON.stringify(value, null, 2)}\n\`\`\``
 }
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value)
+}
+
 function tryParseJson(value: string) {
   try {
     return JSON.parse(value)
@@ -271,8 +275,130 @@ function tryParseJson(value: string) {
   }
 }
 
+function summarizeDatasetRecord(value: unknown) {
+  if (!isRecord(value)) return null
+  const id = typeof value.id === 'string' ? value.id : null
+  const name = typeof value.name === 'string' ? value.name : null
+  const status = typeof value.status === 'string' ? formatStatus(value.status) : null
+  const deploymentStatus =
+    typeof value.deploymentStatus === 'string' ? formatStatus(value.deploymentStatus) : null
+  if (!id && !name) return null
+  return [
+    name ? `Dataset: **${name}**` : id ? `Dataset: \`${id}\`` : null,
+    status ? `Status: ${status}` : null,
+    deploymentStatus ? `Deployment: ${deploymentStatus}` : null,
+  ]
+    .filter(Boolean)
+    .join('\n')
+}
+
+function summarizeRunRecord(value: unknown) {
+  if (!isRecord(value)) return null
+  const id = typeof value.id === 'string' ? value.id : null
+  const datasetId = typeof value.datasetId === 'string' ? value.datasetId : null
+  const type = typeof value.type === 'string' ? formatStatus(value.type) : null
+  const status = typeof value.status === 'string' ? formatStatus(value.status) : null
+  if (!id) return null
+  return [
+    `Run: \`${id}\``,
+    datasetId ? `Dataset: \`${datasetId}\`` : null,
+    type ? `Type: ${type}` : null,
+    status ? `Status: ${status}` : null,
+  ]
+    .filter(Boolean)
+    .join('\n')
+}
+
+function summarizeFunctionCallOutput(item: Record<string, unknown>) {
+  const rawOutput = typeof item.output === 'string' ? item.output : ''
+  const parsedOutput = rawOutput ? tryParseJson(rawOutput) : null
+  if (isRecord(parsedOutput)) {
+    const summary = typeof parsedOutput.summary === 'string' ? parsedOutput.summary : null
+    const data = isRecord(parsedOutput.data) ? parsedOutput.data : null
+    const runSummary = data ? summarizeRunRecord(data.run) : null
+    const datasetSummary = data ? summarizeDatasetRecord(data.dataset) : null
+    const lines = [summary, runSummary, datasetSummary].filter(Boolean)
+    if (lines.length > 0) {
+      return lines.join('\n\n')
+    }
+  }
+
+  if (rawOutput) {
+    return truncate(rawOutput, 320)
+  }
+
+  return null
+}
+
+function summarizeRequestArray(items: unknown[]) {
+  const parts = items
+    .map((item) => {
+      if (!isRecord(item)) return null
+      if (item.type !== 'function_call_output') return null
+      return summarizeFunctionCallOutput(item)
+    })
+    .filter((value): value is string => Boolean(value))
+
+  if (parts.length > 0) {
+    return parts.join('\n\n')
+  }
+
+  return codeBlock('Request payload', items)
+}
+
+function summarizeFunctionCall(item: Record<string, unknown>) {
+  const name = typeof item.name === 'string' ? item.name : 'tool'
+  const parsedArgs =
+    typeof item.arguments === 'string' ? tryParseJson(item.arguments) : item.arguments
+
+  if (isRecord(parsedArgs)) {
+    const datasetId = typeof parsedArgs.datasetId === 'string' ? parsedArgs.datasetId : null
+    const runId = typeof parsedArgs.runId === 'string' ? parsedArgs.runId : null
+    const prompt = typeof parsedArgs.prompt === 'string' ? parsedArgs.prompt : null
+    const sourceDescription =
+      typeof parsedArgs.sourceDescription === 'string' ? parsedArgs.sourceDescription : null
+
+    const lines = [
+      `Called \`${name}\``,
+      datasetId ? `Dataset: \`${datasetId}\`` : null,
+      runId ? `Run: \`${runId}\`` : null,
+      sourceDescription ? `Source: ${truncate(sourceDescription, 220)}` : null,
+      prompt ? `Prompt: ${truncate(prompt, 280)}` : null,
+    ].filter(Boolean)
+
+    return lines.join('\n')
+  }
+
+  return `Called \`${name}\``
+}
+
+function summarizeResponseObject(value: Record<string, unknown>) {
+  const output = Array.isArray(value.output) ? value.output : []
+  const calls = output
+    .filter((item) => isRecord(item) && item.type === 'function_call')
+    .map((item) => summarizeFunctionCall(item as Record<string, unknown>))
+    .filter(Boolean)
+
+  if (calls.length > 0) {
+    return calls.join('\n\n')
+  }
+
+  const outputText = typeof value.output_text === 'string' ? value.output_text.trim() : ''
+  if (outputText) {
+    return outputText
+  }
+
+  return codeBlock('Response payload', value)
+}
+
 function formatSessionBody(entry: SessionEntry) {
   const parsed = tryParseJson(entry.body)
+  if (Array.isArray(parsed)) {
+    return summarizeRequestArray(parsed)
+  }
+  if (isRecord(parsed) && parsed.object === 'response') {
+    return summarizeResponseObject(parsed)
+  }
   if (parsed !== null) {
     return codeBlock(entry.title ?? 'Payload', parsed)
   }
