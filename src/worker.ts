@@ -309,6 +309,11 @@ export default {
       return forwardCliRequest(request, env, `/runs/${encodeURIComponent(runMatch[1] ?? '')}`, { method: 'GET' })
     }
 
+    const runCancelMatch = pathname.match(/^\/api\/cli\/runs\/([^/]+)\/cancel$/u)
+    if (runCancelMatch && request.method === 'POST') {
+      return forwardCliRequest(request, env, `/runs/${encodeURIComponent(runCancelMatch[1] ?? '')}/cancel`, { method: 'POST' })
+    }
+
     const runEventsMatch = pathname.match(/^\/api\/cli\/runs\/([^/]+)\/events$/u)
     if (runEventsMatch && request.method === 'GET') {
       const after = url.searchParams.get('after')

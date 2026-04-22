@@ -115,6 +115,19 @@ function slugify(input: string) {
   return input.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 63) || 'dataset'
 }
 
+function isTerminalStatus(status: string | null | undefined) {
+  if (!status) {
+    return false
+  }
+  const normalized = status.toLowerCase()
+  return normalized === 'ready'
+    || normalized === 'failed'
+    || normalized === 'cancelled'
+    || normalized === 'canceled'
+    || normalized === 'completed'
+    || normalized === 'error'
+}
+
 export class ControlPlane {
   private readonly sql: SqlStorage['sql']
   private readonly state: DurableObjectStateLike
@@ -765,6 +778,51 @@ export class ControlPlane {
         return respondJson({ error: 'Run not found' }, 404)
       }
       return respondJson({ run: this.runRowToJson(row) })
+    }
+
+    const runCancelMatch = pathname.match(/^\/runs\/([^/]+)\/cancel$/u)
+    if (runCancelMatch && request.method === 'POST') {
+      const runId = decodeURIComponent(runCancelMatch[1] ?? '')
+      const row = this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]
+      if (!row) {
+        return respondJson({ error: 'Run not found' }, 404)
+      }
+      const run = this.parseRunRow(row)
+      if (isTerminalStatus(run.status)) {
+        return respondJson({ run: this.runRowToJson(row) })
+      }
+      if (run.dropletId) {
+        try {
+          await deleteDroplet(this.env, run.dropletId)
+          this.appendRunEvent(runId, `Cancelled run and deleted droplet ${run.dropletName ?? run.dropletId}.`, 'warning')
+        } catch (error) {
+          this.appendRunEvent(
+            runId,
+            `Cancel requested but droplet delete failed: ${error instanceof Error ? error.message : String(error)}`,
+            'error',
+          )
+        }
+      } else {
+        this.appendRunEvent(runId, 'Cancelled run before droplet launch.', 'warning')
+      }
+      const timestamp = nowIso()
+      this.sql.exec(
+        `UPDATE runs SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+        'cancelled',
+        'Cancelled by user.',
+        timestamp,
+        runId,
+      )
+      if (run.type === 'deploy') {
+        this.sql.exec(
+          `UPDATE datasets SET deployment_status = ?, status = ?, updated_at = ? WHERE id = ?`,
+          'cancelled',
+          'created',
+          timestamp,
+          run.datasetId,
+        )
+      }
+      return respondJson({ run: this.runRowToJson(this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]!) })
     }
 
     const runEventsMatch = pathname.match(/^\/runs\/([^/]+)\/events$/u)
