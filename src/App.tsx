@@ -1,13 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
 import {
   ArrowUpRight,
-  BookCopy,
   Database,
   History,
   LayoutDashboard,
   LogOut,
   MoreHorizontal,
-  Sparkles,
   TerminalSquare,
 } from 'lucide-react'
 
@@ -107,6 +105,18 @@ const ROOT_HOST = 'alpharesearch.nyc'
 const DASHBOARD_HOST = 'dashboard.alpharesearch.nyc'
 const INSTALL_COMMAND =
   'curl -fsSL https://raw.githubusercontent.com/zenobia-pay/alpha-research/codex/initial-substrate/scripts/install_alpha_research.sh | bash'
+const AGENT_PROMPT = `Install the RESEARCH CLI and deploy my dataset.
+
+Run:
+${INSTALL_COMMAND}
+
+Then run:
+research
+
+Sign in if needed. Based on my description, choose the dataset name, id, mode, and path. Create the dataset, deploy it, and then tell me the dataset id, run id, and current status.
+
+Dataset description:
+`
 
 const locationUrl = new URL(window.location.href)
 const isDashboardView =
@@ -1010,7 +1020,8 @@ function DashboardPage() {
 function LandingPage() {
   const [session, setSession] = useState<SessionResponse | null>(null)
   const [authError, setAuthError] = useState<string>('')
-  const { copied, copy } = useCopy(INSTALL_COMMAND)
+  const installCopy = useCopy(INSTALL_COMMAND)
+  const promptCopy = useCopy(AGENT_PROMPT)
 
   useEffect(() => {
     document.title = 'Alpha Research: Open source knowledge bases for all humanity'
@@ -1036,135 +1047,368 @@ function LandingPage() {
     : 'auth offline'
 
   return (
-    <div className="min-h-svh bg-[#fbfbf9] text-[#1f1f1c]">
-      <header className="mx-auto flex w-full max-w-6xl items-center gap-6 px-4 py-5 md:px-8">
-        <a href="/" className="shrink-0">
-          <img
-            className="h-auto w-[12rem]"
-            src="/alpha-research-wordmark.png"
-            alt="Alpha Research"
-          />
-        </a>
-        <nav className="ml-auto flex flex-wrap items-center justify-end gap-4 text-sm text-muted-foreground">
-          <a className="underline underline-offset-4" href="#cli">
-            cli
-          </a>
-          <a className="underline underline-offset-4" href="#about">
-            about
-          </a>
-          <a className="underline underline-offset-4" href="/blog/">
-            blog
-          </a>
-          <button
-            type="button"
-            className="text-sm text-primary underline underline-offset-4"
-            disabled={!session?.configured}
-            onClick={() => {
-              if (session?.authenticated) {
-                beginDashboardBridge()
-              } else {
-                beginMarketingLogin()
-              }
-            }}
-          >
-            {authLabel}
-          </button>
-        </nav>
+    <div className="landing-page">
+      <header className="nav-shell">
+        <div className="page-wrap nav-wrap">
+          <div className="topbar">
+            <a className="logo-link" href="/" aria-label="Alpha Research home">
+              <img
+                className="logo-wordmark"
+                src="/alpha-research-wordmark.png"
+                alt="Alpha Research logo"
+              />
+            </a>
+
+            <nav className="top-links" aria-label="Primary">
+              <a className="underlined-link" href="#cli">cli</a>
+              <a className="underlined-link" href="#powering">powering</a>
+              <a className="underlined-link" href="#faq">faq</a>
+              <a className="underlined-link" href="#about">about</a>
+              <a className="button-small ghost-button" href="/blog/">blog</a>
+              <button
+                className="button-small ghost-button auth-button"
+                type="button"
+                data-state={session?.authenticated ? 'authenticated' : 'anonymous'}
+                disabled={!session?.configured}
+                onClick={() => {
+                  if (session?.authenticated) {
+                    beginDashboardBridge()
+                  } else {
+                    beginMarketingLogin()
+                  }
+                }}
+              >
+                {authLabel}
+              </button>
+            </nav>
+          </div>
+        </div>
       </header>
 
-      <main className="mx-auto flex w-full max-w-6xl flex-col gap-20 px-4 pb-20 pt-10 md:px-8">
-        <section className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_26rem] lg:items-start">
-          <div className="flex flex-col gap-6">
-            <div className="inline-flex w-fit items-center gap-2 border border-border bg-background px-3 py-2 text-sm text-muted-foreground">
-              <Sparkles className="size-4" />
-              Backed by Y Combinator
+      <main className="content-shell">
+        <div className="page-wrap content-wrap">
+          <section className="hero-block">
+            <div className="backed-by">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Y_Combinator_logo.svg"
+                alt="Y Combinator logo"
+                className="yc-logo"
+              />
+              <span>Backed by YCombinator</span>
             </div>
-            <div className="flex max-w-4xl flex-col gap-5">
-              <h1 className="font-serif text-5xl leading-tight tracking-tight md:text-6xl">
-                Open source, agentic knowledge bases for humanity&apos;s knowledge.
-              </h1>
-              <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
-                Alpha Research builds open source agentic knowledge bases and the
-                RESEARCH CLI to deploy your own datasets, reopen runs, and inspect the
-                resulting research workspace in browser.
+
+            <h1>Open source, agentic knowledge bases for all of humanity&apos;s knowledge</h1>
+
+            <img
+              className="hero-figure-image"
+              src="/alpha-research-man.png"
+              alt="Illustration for Alpha Research"
+            />
+
+            <div className="hero-lede">
+              <p>
+                Alpha Research builds open source agentic knowledge bases. Our mission is to help
+                knowledge workers work 100x faster. We launched and{' '}
+                <a href="https://github.com/zenobia-pay/alphabook" target="_blank" rel="noopener noreferrer">
+                  open sourced
+                </a>{' '}
+                our first platform,{' '}
+                <a href="https://alpha-book.org/" target="_blank" rel="noopener noreferrer">
+                  Alpha Book
+                </a>{' '}
+                on a mirror of the Project Gutenberg dataset (75,000 books).
+              </p>
+              <p>
+                Knowledge work is bottlenecked in two key ways: finding evidence and testing
+                hypotheses. We make both 100x faster. We extend keyword search and RAG with general
+                coding agents, which use filesystem tools like ripgrep and reason iteratively to
+                find broad evidence. Coding agents also write ad-hoc scripts to label datasets and
+                test hypotheses.
+              </p>
+              <p>
+                Our timeline is simple: repeat Alpha Book across every public dataset of humanity&apos;s
+                knowledge. Next we&apos;ll launch Alpha Econ with US Census, BLS, NBER, etc datasets.
+                Alpha Justice with US Supreme Court Cases, and so on. We support museums, research
+                libraries, historical societies, and archives. We also do custom integration work
+                for enterprise.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <Button className="rounded-none" onClick={beginMarketingLogin}>
+
+            <div className="hero-links">
+              <a className="hero-button hero-button-secondary" href="#cli">
                 Bring your own dataset
-              </Button>
-              <Button
-                variant="outline"
-                className="rounded-none"
+              </a>
+              <button
+                type="button"
+                className="hero-button"
                 data-cal-link="ryan-prendergast-qsp5cw/30min"
                 data-cal-namespace="30min"
                 data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
               >
-                Want a custom integration?
-              </Button>
+                Want a custom integration? Book a call
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m12.75 15 3-3m0 0-3-3m3 3h-7.5"></path>
+                  <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+                </svg>
+              </button>
             </div>
-            {authError ? (
-              <p className="text-sm text-destructive">{authError}</p>
-            ) : null}
-          </div>
-          <div className="border border-border bg-background p-3">
-            <img
-              className="h-auto w-full"
-              src="/alpha-research-man.png"
-              alt="Illustration for Alpha Research"
-            />
-          </div>
-        </section>
+            {authError ? <p className="auth-status" data-state="error">{authError}</p> : null}
+          </section>
 
-        <section id="cli" className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_24rem]">
-          <Card className="rounded-none border border-border bg-background py-0 shadow-none">
-            <CardHeader className="border-b border-border px-6 py-5">
-              <CardTitle className="text-sm">Bring your own dataset</CardTitle>
-              <CardDescription>
-                Install the RESEARCH CLI, sign in, and point it at a parquet, CSV,
-                PDF, or text corpus.
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="flex flex-col gap-6 px-6 py-6">
-              <CopyCommand text={INSTALL_COMMAND} />
-              <div className="flex flex-wrap gap-3">
-                <Button variant="outline" size="sm" onClick={copy}>
-                  {copied ? 'Copied' : 'Copy install command'}
-                </Button>
-                <Button size="sm" onClick={beginMarketingLogin}>
-                  Open dashboard
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-          <div className="flex flex-col gap-4 border border-border bg-muted/20 p-6">
-            <div className="flex items-center gap-3">
-              <BookCopy className="size-5" />
-              <h2 className="text-lg font-semibold tracking-tight">Browser dashboard</h2>
-            </div>
-            <p className="text-sm leading-7 text-muted-foreground">
-              After the CLI uploads or runs research, the browser dashboard shows the
-              same datasets and past runs from the control plane.
+          <section className="cli-block" id="cli">
+            <p className="section-kicker">For Your Own Corpus</p>
+            <h2>Bring your own dataset</h2>
+            <p className="cli-lede">
+              Install the RESEARCH CLI, sign in, and point it at a parquet, CSV, PDF, or text
+              corpus. The CLI uploads the raw source, normalizes it remotely, and gives you a run
+              you can reopen later.
             </p>
-            <Button variant="outline" size="sm" asChild>
-              <a href={dashboardOrigin}>
-                Visit dashboard
-                <ArrowUpRight data-icon="inline-end" />
-              </a>
-            </Button>
-          </div>
-        </section>
 
-        <section
-          id="about"
-          className="max-w-4xl border-t border-border pt-10 text-sm leading-8 text-muted-foreground"
-        >
-          Knowledge work is bottlenecked in two key ways: finding evidence and
-          testing hypotheses. Alpha Research extends keyword search and RAG with
-          general coding agents and a browser workspace for inspecting CLI-created
-          datasets and runs.
-        </section>
+            <div className="cli-card">
+              <div className="cli-card-head">
+                <div>
+                  <p className="cli-card-label">Install</p>
+                  <p className="cli-card-copy">Run this yourself or hand it to your agent.</p>
+                </div>
+                <button className="ghost-button cli-copy-button" type="button" onClick={installCopy.copy}>
+                  {installCopy.copied ? 'Copied command' : 'Copy command'}
+                </button>
+              </div>
+              <pre className="cli-pre"><code>{INSTALL_COMMAND}</code></pre>
+            </div>
+
+            <div className="cli-card">
+              <div className="cli-card-head">
+                <div>
+                  <p className="cli-card-label">Prompt Your Agent</p>
+                  <p className="cli-card-copy">Paste this into Codex or Claude Code and describe the dataset at the bottom.</p>
+                </div>
+                <button className="ghost-button cli-copy-button" type="button" onClick={promptCopy.copy}>
+                  {promptCopy.copied ? 'Copied prompt' : 'Copy prompt'}
+                </button>
+              </div>
+              <pre className="cli-pre"><code>{AGENT_PROMPT}</code></pre>
+            </div>
+
+            <div className="cli-grid">
+              <article className="cli-mini-card">
+                <p className="cli-card-label">Formats</p>
+                <p>
+                  Parquet, CSV, JSON, markdown, HTML, PDFs, and other research corpora that need
+                  normalization before search and analysis.
+                </p>
+              </article>
+              <article className="cli-mini-card">
+                <p className="cli-card-label">Runs</p>
+                <p>
+                  Upload starts a remote run. Alpha Research provisions storage and compute,
+                  normalizes the dataset, and keeps the run visible when you reopen the CLI.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section className="powering-block" id="powering">
+            <h2 className="split-heading">
+              <span>Powering</span>
+            </h2>
+
+            <div className="powering-list">
+              <a className="list-row" href="https://alpha-book.org" target="_blank" rel="noopener noreferrer">
+                <div className="list-row-top">
+                  <span className="list-row-title">Alpha Book</span>
+                  <span className="list-row-meta">75,000 public domain books</span>
+                </div>
+                <span className="list-row-subline">
+                  Mirror of Project Gutenberg with 75,000 public domain books and primary sources.
+                  Useful for literary research.
+                </span>
+              </a>
+
+              <a className="list-row" href="https://scenewiki.net" target="_blank" rel="noopener noreferrer">
+                <div className="list-row-top">
+                  <span className="list-row-title">Scene Wiki</span>
+                </div>
+                <span className="list-row-subline">
+                  Scrape and label an online community and build a wiki for it.
+                </span>
+              </a>
+
+              <div className="list-row list-row-static">
+                <div className="list-row-top">
+                  <span className="list-row-title">AlphaEcon</span>
+                  <span className="list-row-meta">coming soon</span>
+                </div>
+                <span className="list-row-subline">
+                  Agentic search and test over U.S. Census Bureau, Fannie Mae, BLS, NBER.
+                </span>
+              </div>
+
+              <div className="list-row list-row-static">
+                <div className="list-row-top">
+                  <span className="list-row-title">Alpha Justice</span>
+                  <span className="list-row-meta">coming soon</span>
+                </div>
+                <span className="list-row-subline">Every U.S. Supreme Court case.</span>
+              </div>
+            </div>
+          </section>
+
+          <section className="quote-block" id="quote">
+            <p className="section-kicker">Knowledge bases allow agents to work like knowledge workers</p>
+            <article className="tweet-card">
+              <div className="tweet-card-header">
+                <img
+                  className="tweet-avatar-image"
+                  src="https://pbs.twimg.com/profile_images/1296667294148382721/9Pr6XrPB_400x400.jpg"
+                  alt="Andrej Karpathy profile photo"
+                />
+                <div className="tweet-meta">
+                  <span className="tweet-author">Andrej Karpathy</span>
+                  <a
+                    className="tweet-handle"
+                    href="https://x.com/karpathy/status/2039805659525644595"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    @karpathy
+                  </a>
+                </div>
+              </div>
+
+              <div className="tweet-body">
+                <p>
+                  Something I&apos;m finding very useful recently: using LLMs to build personal
+                  knowledge bases for various topics of research interest. In this way, a large
+                  fraction of my recent token throughput is going less into manipulating code, and
+                  more into manipulating knowledge (stored as markdown and images)...
+                </p>
+              </div>
+            </article>
+          </section>
+
+          <section className="about-block" id="about">
+            <h2>When to use Alpha Research</h2>
+            <ol className="about-list">
+              <li>
+                <span className="about-list-title">Search.</span> Looking for evidence? We compile and
+                index public plaintext and image datasets for you to access.
+              </li>
+              <li>
+                <span className="about-list-title">Hypothesis testing.</span> Suppose you&apos;re a
+                historian. You are writing a thesis on grief in 19th century fiction. Alpha
+                Research finds evidence for you. Suppose you&apos;re an economist. You might have a
+                thesis &quot;Periods of compressed time-to-sale in housing correlate with above-ask
+                transactions and predict mean reversion within 18 months.&quot; Alpha Research runs that
+                experiment for you.
+              </li>
+              <li>
+                <span className="about-list-title">Agentic knowledge workers.</span> Autonomous
+                research loops that plan → retrieve → filter → synthesize → verify
+              </li>
+              <li>
+                <span className="about-list-title">Fandom, wikis.</span> Online communities have years
+                of canon. Drive higher quality engagement and help onboard new members to your
+                community by building a knowledge base for a Substack or a podcast.
+              </li>
+              <li>
+                <span className="about-list-title">Alpha Search is open source.</span> We are proud to
+                support research institutes, museums, presidential libraries, historical societies,
+                and enterprise.
+              </li>
+            </ol>
+          </section>
+
+          <section className="faq-block" id="faq">
+            <h2>FAQ</h2>
+
+            <div className="faq-list">
+              <details className="faq-item">
+                <summary>
+                  <span className="faq-summary-copy">What does Alpha Research do?</span>
+                  <span className="faq-summary-icon" aria-hidden="true">+</span>
+                </summary>
+                <p>
+                  We build open source tooling for knowledge workers to work faster. The Alpha
+                  Research platform enables agentic search and hypothesis testing over large
+                  databases. Starting with Project Gutenberg, we are expanding to add datasets in
+                  law, economics, history, and every other archived dataset. Our mission is to
+                  enable a new wave of quantitative humanities research.
+                </p>
+              </details>
+
+              <details className="faq-item">
+                <summary>
+                  <span className="faq-summary-copy">Can I use this on my private dataset?</span>
+                  <span className="faq-summary-icon" aria-hidden="true">+</span>
+                </summary>
+                <p>
+                  Yes. Install the RESEARCH CLI above and point it at your own dataset, or book a
+                  call <a href="https://cal.com/ryan-prendergast-qsp5cw/30min" target="_blank" rel="noopener noreferrer">here</a> if you want us to help with setup.
+                </p>
+              </details>
+
+              <details className="faq-item">
+                <summary>
+                  <span className="faq-summary-copy">What kind of data is it for?</span>
+                  <span className="faq-summary-icon" aria-hidden="true">+</span>
+                </summary>
+                <p>
+                  Large datasets of reference text and images. Books, papers, films, photos,
+                  scans. Primary sources and archival datasets.
+                </p>
+              </details>
+
+              <details className="faq-item">
+                <summary>
+                  <span className="faq-summary-copy">Who do you work with?</span>
+                  <span className="faq-summary-icon" aria-hidden="true">+</span>
+                </summary>
+                <p>
+                  Individual researchers can sign up, ask questions, and test hypotheses. We are
+                  also proud to support research institutes, museums, presidential libraries,
+                  historical societies, and enterprises.
+                </p>
+              </details>
+
+              <details className="faq-item">
+                <summary>
+                  <span className="faq-summary-copy">Can my agent use Alpha Book?</span>
+                  <span className="faq-summary-icon" aria-hidden="true">+</span>
+                </summary>
+                <p>
+                  Yes! Copy prompt{' '}
+                  <code>Go to https://alpha-book.org/skill.md and follow the instructions there.</code>
+                </p>
+              </details>
+            </div>
+          </section>
+        </div>
       </main>
+
+      <footer className="footer">
+        <div className="page-wrap footer-wrap">
+          <a className="logo-link" href="/" aria-label="Alpha Research home">
+            <img
+              className="logo-mark"
+              src="/newalpharesearchlogo/apple-touch-icon.png"
+              alt="Alpha Research logo"
+            />
+          </a>
+
+          <div className="footer-copy">
+            <div className="footer-links">
+              <a href="/blog/">blog</a>
+              <a href="/privacy/">privacy</a>
+              <a href="/terms/">terms</a>
+            </div>
+          </div>
+
+          <div className="footer-meta">
+            <div>© 2026 Alpha Research</div>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
