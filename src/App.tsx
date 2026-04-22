@@ -246,6 +246,40 @@ async function fetchJson<T>(input: string) {
   return response.json() as Promise<T>
 }
 
+function normalizeDatasetsPayload(payload: unknown): DatasetRecord[] {
+  if (Array.isArray(payload)) {
+    return payload as DatasetRecord[]
+  }
+
+  if (
+    payload &&
+    typeof payload === 'object' &&
+    'datasets' in payload &&
+    Array.isArray((payload as { datasets?: unknown }).datasets)
+  ) {
+    return (payload as { datasets: DatasetRecord[] }).datasets
+  }
+
+  return []
+}
+
+function normalizeRunsPayload(payload: unknown): RunRecord[] {
+  if (Array.isArray(payload)) {
+    return payload as RunRecord[]
+  }
+
+  if (
+    payload &&
+    typeof payload === 'object' &&
+    'runs' in payload &&
+    Array.isArray((payload as { runs?: unknown }).runs)
+  ) {
+    return (payload as { runs: RunRecord[] }).runs
+  }
+
+  return []
+}
+
 function initCal() {
   ;((C, A, L) => {
     const push = (api: { q?: unknown[] }, args: IArguments | unknown[]) => {
@@ -838,10 +872,12 @@ function useDashboardState() {
 
         if (!session.authenticated || !session.user) {
           try {
-            const [datasets, runs] = await Promise.all([
-              fetchJson<DatasetRecord[]>('/api/cli/datasets'),
-              fetchJson<RunRecord[]>('/api/cli/runs'),
+            const [datasetsPayload, runsPayload] = await Promise.all([
+              fetchJson<DatasetRecord[] | { datasets: DatasetRecord[] }>('/api/cli/datasets'),
+              fetchJson<RunRecord[] | { runs: RunRecord[] }>('/api/cli/runs'),
             ])
+            const datasets = normalizeDatasetsPayload(datasetsPayload)
+            const runs = normalizeRunsPayload(runsPayload)
 
             if (!cancelled) {
               setState({
@@ -872,10 +908,12 @@ function useDashboardState() {
         }
 
         try {
-          const [datasets, runs] = await Promise.all([
-            fetchJson<DatasetRecord[]>('/api/cli/datasets'),
-            fetchJson<RunRecord[]>('/api/cli/runs'),
+          const [datasetsPayload, runsPayload] = await Promise.all([
+            fetchJson<DatasetRecord[] | { datasets: DatasetRecord[] }>('/api/cli/datasets'),
+            fetchJson<RunRecord[] | { runs: RunRecord[] }>('/api/cli/runs'),
           ])
+          const datasets = normalizeDatasetsPayload(datasetsPayload)
+          const runs = normalizeRunsPayload(runsPayload)
 
           if (!cancelled) {
             setState({
