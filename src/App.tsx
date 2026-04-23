@@ -132,7 +132,7 @@ type RunResultsResponse = {
 
 type SessionTranscriptKind = 'cli' | 'remote'
 type SessionEntryRole = 'user' | 'assistant' | 'system' | 'tool'
-type DashboardView = 'dashboard' | 'datasets' | 'runs' | 'terminal-sessions'
+type DashboardView = 'assistant' | 'datasets' | 'runs' | 'terminal-sessions'
 
 type StoredAssistantSessionEntry = {
   id: string
@@ -164,6 +164,12 @@ type SessionEntry = {
   body: string
   metadata?: unknown
   createdAt: string
+}
+
+type AssistantTurnResponse = {
+  sessionId: string | null
+  previousResponseId: string | null
+  reply: string
 }
 
 const ROOT_HOST = 'alpharesearch.nyc'
@@ -803,20 +809,6 @@ function AssistantTranscript({
   )
 }
 
-function countActiveRuns(runs: RunRecord[]) {
-  return runs.filter(
-    (run) =>
-      ![
-        'ready',
-        'completed',
-        'failed',
-        'cancelled',
-        'canceled',
-        'error',
-      ].includes(run.status.toLowerCase()),
-  ).length
-}
-
 function beginDashboardBridge() {
   const returnTo = `${window.location.pathname}${window.location.search}${window.location.hash}`
   const destination = new URL('/api/auth/bridge', rootOrigin)
@@ -1345,6 +1337,156 @@ function useSessionDetail(sessionId: string | null) {
   return { session, error, loading }
 }
 
+function ResearchAssistantPage({
+  sessions,
+  dataError,
+}: {
+  sessions: StoredAssistantSession[]
+  dataError?: string | null
+}) {
+  const route = useDashboardRoute()
+  const activeSessionId = route.sessionId ?? sessions[0]?.id ?? null
+  const { session, error, loading } = useSessionDetail(activeSessionId)
+  const [messages, setMessages] = useState<ThreadMessage[]>([])
+  const [isRunning, setIsRunning] = useState(false)
+  const [composerError, setComposerError] = useState<string | null>(null)
+  const [conversationState, setConversationState] = useState<{
+    sessionId: string | null
+    previousResponseId: string | null
+  }>({
+    sessionId: activeSessionId,
+    previousResponseId: null,
+  })
+
+  useEffect(() => {
+    const entries = (session?.entries ?? []).map((entry) =>
+      toThreadMessage(
+        createSessionEntry(
+          entry.id,
+          entry.role === 'user' ? 'user' : entry.role === 'system' ? 'system' : 'assistant',
+          entry.createdAt,
+          entry.content,
+          entry.title ?? formatStatus(entry.kind),
+          entry.metadata,
+        ),
+      ),
+    )
+    setMessages(entries)
+    setConversationState({
+      sessionId: session?.id ?? activeSessionId,
+      previousResponseId: extractPreviousResponseId(session?.entries ?? []),
+    })
+  }, [activeSessionId, session])
+
+  const runtime = useExternalStoreRuntime({
+    isRunning,
+    messages,
+    onNew: async (message) => {
+      const input = extractAppendMessageText(message as unknown as { content?: Array<{ type?: string; text?: string }> })
+      if (!input) return
+
+      const optimisticUser: ThreadMessage = {
+        id: `local-user-${Date.now()}`,
+        role: 'user',
+        createdAt: new Date(),
+        content: [{ type: 'text', text: input }],
+        attachments: [],
+        metadata: { custom: {} },
+      } as unknown as ThreadMessage
+
+      setMessages((current) => [...current, optimisticUser])
+      setIsRunning(true)
+      setComposerError(null)
+
+      try {
+        const result = await postAssistantTurn({
+          input,
+          sessionId: conversationState.sessionId,
+          previousResponseId: conversationState.previousResponseId,
+        })
+        const nextSessionId = result.sessionId ?? conversationState.sessionId
+        setConversationState({
+          sessionId: nextSessionId,
+          previousResponseId: result.previousResponseId,
+        })
+        if (nextSessionId) {
+          if (route.sessionId !== nextSessionId) {
+            updateDashboardRoute({ view: 'assistant', sessionId: nextSessionId, runId: null })
+          } else {
+            const response = await fetchJson<{ session: StoredAssistantSession; entries: StoredAssistantSessionEntry[] }>(
+              `/api/cli/sessions/${nextSessionId}`,
+            )
+            setMessages(
+              response.entries.map((entry) =>
+                toThreadMessage(
+                  createSessionEntry(
+                    entry.id,
+                    entry.role === 'user' ? 'user' : entry.role === 'system' ? 'system' : 'assistant',
+                    entry.createdAt,
+                    entry.content,
+                    entry.title ?? formatStatus(entry.kind),
+                    entry.metadata,
+                  ),
+                ),
+              ),
+            )
+          }
+        }
+      } catch (submitError) {
+        const messageText =
+          submitError instanceof Error ? submitError.message : 'Could not reach the RESEARCH backend.'
+        setComposerError(messageText)
+        const failureMessage: ThreadMessage = {
+          id: `local-assistant-error-${Date.now()}`,
+          role: 'assistant',
+          createdAt: new Date(),
+          content: [{ type: 'text', text: messageText }],
+          attachments: [],
+          status: { type: 'complete', reason: 'unknown' },
+          metadata: { custom: {} },
+        } as unknown as ThreadMessage
+        setMessages((current) => [...current, failureMessage])
+      } finally {
+        setIsRunning(false)
+      }
+    },
+  })
+
+  return (
+    <main className="flex min-h-0 flex-1 flex-col px-4 py-6 md:px-8">
+      {dataError ? (
+        <Card className="mb-4 rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
+          <CardContent className="px-6 py-4 text-sm text-destructive">{dataError}</CardContent>
+        </Card>
+      ) : null}
+      {composerError ? (
+        <Card className="mb-4 rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
+          <CardContent className="px-6 py-4 text-sm text-destructive">{composerError}</CardContent>
+        </Card>
+      ) : null}
+      {error && !session ? (
+        <Card className="mb-4 rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
+          <CardContent className="px-6 py-4 text-sm text-destructive">{error}</CardContent>
+        </Card>
+      ) : null}
+      <div className="min-h-0 flex-1">
+        <AssistantRuntimeProvider runtime={runtime}>
+          <div className="h-full min-h-[36rem]">
+            <Thread
+              welcomeTitle="RESEARCH CLI"
+              welcomeDescription={
+                loading
+                  ? 'Loading your current research session...'
+                  : 'Run the signed-in RESEARCH CLI from the browser. Inspect datasets, launch runs, and manage remote Codex sessions.'
+              }
+            />
+          </div>
+        </AssistantRuntimeProvider>
+      </div>
+    </main>
+  )
+}
+
 function DetailHeader({
   eyebrow,
   title,
@@ -1798,15 +1940,15 @@ function DashboardApp({
 
   const activeRun = route.runId ? runs.find((run) => run.id === route.runId) ?? null : null
 
-  const navItems: Array<{ view: DashboardView; label: string; icon: typeof LayoutDashboard }> = [
-    { view: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  const navItems: Array<{ view: DashboardView; label: string; icon: typeof Bot }> = [
+    { view: 'assistant', label: 'Assistant', icon: Bot },
     { view: 'datasets', label: 'Datasets', icon: Database },
     { view: 'runs', label: 'Runs', icon: History },
     { view: 'terminal-sessions', label: 'Terminal Sessions', icon: TerminalSquare },
   ]
 
-  let title = 'Research workspace'
-  let eyebrow = 'Dashboard'
+  let title = 'RESEARCH CLI'
+  let eyebrow = 'Assistant'
   let content: ReactNode
 
   if (route.view === 'runs' && activeRun) {
@@ -1899,79 +2041,7 @@ function DashboardApp({
       </main>
     )
   } else {
-    content = (
-      <main className="flex flex-1 min-w-0 flex-col gap-6 px-4 py-6 md:px-8">
-        {dataError ? (
-          <Card className="rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
-            <CardContent className="px-6 py-4 text-sm text-destructive">{dataError}</CardContent>
-          </Card>
-        ) : null}
-        <section className="flex flex-col gap-4 border-b border-border pb-6 lg:flex-row lg:items-end lg:justify-between">
-          <div className="flex max-w-3xl flex-col gap-3">
-            <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-              Research workspace
-            </span>
-            <h1 className="text-3xl font-semibold tracking-tight text-foreground">
-              Separate views for datasets, runs, and terminal sessions.
-            </h1>
-            <p className="max-w-2xl text-sm leading-7 text-muted-foreground">
-              Remote runs and local RESEARCH CLI sessions now have dedicated surfaces.
-            </p>
-          </div>
-          <div className="grid min-w-[20rem] grid-cols-4 gap-3">
-            <div className="border border-border bg-muted/20 px-4 py-4">
-              <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">Datasets</div>
-              <div className="mt-2 text-2xl font-semibold">{datasets.length}</div>
-            </div>
-            <div className="border border-border bg-muted/20 px-4 py-4">
-              <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">Runs</div>
-              <div className="mt-2 text-2xl font-semibold">{runs.length}</div>
-            </div>
-            <div className="border border-border bg-muted/20 px-4 py-4">
-              <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">Active</div>
-              <div className="mt-2 text-2xl font-semibold">{countActiveRuns(runs)}</div>
-            </div>
-            <div className="border border-border bg-muted/20 px-4 py-4">
-              <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">Terminal</div>
-              <div className="mt-2 text-2xl font-semibold">{sessions.length}</div>
-            </div>
-          </div>
-        </section>
-
-        <div className="grid gap-10 xl:grid-cols-2">
-          <section className="flex flex-col gap-3">
-            <div className="px-1">
-              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                Recent runs
-              </div>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Open a run to inspect its full session timeline.
-              </p>
-            </div>
-            <RunTable
-              runs={runs.slice(0, 6)}
-              datasetLookup={datasetLookup}
-              onSelectRun={(run) => updateDashboardRoute({ view: 'runs', runId: run.id, sessionId: null })}
-            />
-          </section>
-          <section className="flex flex-col gap-3">
-            <div className="px-1">
-              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                Recent terminal sessions
-              </div>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Open a CLI session to inspect its stored turns.
-              </p>
-            </div>
-            <SessionTable
-              sessions={sessions.slice(0, 6)}
-              onSelectSession={(selected) =>
-                updateDashboardRoute({ view: 'terminal-sessions', sessionId: selected.id, runId: null })}
-            />
-          </section>
-        </div>
-      </main>
-    )
+    content = <ResearchAssistantPage sessions={sessions} dataError={dataError} />
   }
 
   return (
