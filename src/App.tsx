@@ -5,7 +5,6 @@ import {
   Database,
   ExternalLink,
   History,
-  LayoutDashboard,
   LoaderCircle,
   LogOut,
   MoreHorizontal,
@@ -132,7 +131,7 @@ type RunResultsResponse = {
 
 type SessionTranscriptKind = 'cli' | 'remote'
 type SessionEntryRole = 'user' | 'assistant' | 'system' | 'tool'
-type DashboardView = 'dashboard' | 'datasets' | 'runs' | 'terminal-sessions'
+type DashboardView = 'assistant' | 'datasets' | 'runs' | 'terminal-sessions'
 
 type StoredAssistantSessionEntry = {
   id: string
@@ -141,6 +140,7 @@ type StoredAssistantSessionEntry = {
   kind: string
   title: string | null
   content: string
+  metadata?: unknown
   createdAt: string
 }
 
@@ -161,25 +161,18 @@ type SessionEntry = {
   role: SessionEntryRole
   title?: string
   body: string
+  metadata?: unknown
   createdAt: string
+}
+
+type AssistantTurnResponse = {
+  sessionId: string | null
+  previousResponseId: string | null
+  reply: string
 }
 
 const ROOT_HOST = 'alpharesearch.nyc'
 const DASHBOARD_HOST = 'dashboard.alpharesearch.nyc'
-const INSTALL_COMMAND =
-  'curl -fsSL https://raw.githubusercontent.com/zenobia-pay/alpha-research/codex/initial-substrate/scripts/install_alpha_research.sh | bash'
-const AGENT_PROMPT = `Install the RESEARCH CLI and deploy my dataset.
-
-Run:
-${INSTALL_COMMAND}
-
-Then run:
-research
-
-Sign in if needed. Based on my description, choose the dataset name, id, mode, and path. Create the dataset, deploy it, and then tell me the dataset id, run id, and current status.
-
-Dataset description:
-`
 
 const locationUrl = new URL(window.location.href)
 const isDashboardView =
@@ -606,7 +599,13 @@ function buildCliTranscript(
 ): SessionEntry[] {
   const storedSession = payload?.sessions?.find((session) => session.kind === 'cli_orchestration')
   if (storedSession?.entries?.length) {
-    return storedSession.entries.map((entry) =>
+    const hasLocalCliEntries = storedSession.entries.some((entry) =>
+      ['local_user', 'local_assistant', 'tool_call', 'tool_result', 'local_summary'].includes(entry.kind),
+    )
+    const visibleEntries = hasLocalCliEntries
+      ? storedSession.entries.filter((entry) => !['request', 'response'].includes(entry.kind))
+      : storedSession.entries
+    return visibleEntries.map((entry) =>
       createSessionEntry(
         entry.id,
         entry.role === 'user' ? 'user' : entry.role === 'system' ? 'system' : entry.role === 'tool' ? 'tool' : 'assistant',
@@ -999,22 +998,6 @@ function initCal() {
     hideEventTypeDetails: false,
     layout: 'month_view',
   })
-}
-
-function useCopy(text: string) {
-  const [copied, setCopied] = useState(false)
-
-  async function copy() {
-    try {
-      await navigator.clipboard.writeText(text)
-      setCopied(true)
-      window.setTimeout(() => setCopied(false), 1600)
-    } catch {
-      setCopied(false)
-    }
-  }
-
-  return { copied, copy }
 }
 
 function useDashboardRoute() {
@@ -2209,8 +2192,6 @@ function DashboardPage() {
 function LandingPage() {
   const [session, setSession] = useState<SessionResponse | null>(null)
   const [authError, setAuthError] = useState<string>('')
-  const installCopy = useCopy(INSTALL_COMMAND)
-  const promptCopy = useCopy(AGENT_PROMPT)
 
   useEffect(() => {
     document.title = 'Alpha Research: Open source knowledge bases for all humanity'
@@ -2249,10 +2230,7 @@ function LandingPage() {
             </a>
 
             <nav className="top-links" aria-label="Primary">
-              <a className="underlined-link" href="#cli">cli</a>
-              <a className="underlined-link" href="#powering">powering</a>
-              <a className="underlined-link" href="#faq">faq</a>
-              <a className="underlined-link" href="#about">about</a>
+              <a className="underlined-link" href="/cli/">CLI</a>
               <a className="button-small ghost-button" href="/blog/">blog</a>
               <button
                 className="button-small ghost-button auth-button"
@@ -2324,7 +2302,7 @@ function LandingPage() {
             </div>
 
             <div className="hero-links">
-              <a className="hero-button hero-button-secondary" href="#cli">
+              <a className="hero-button hero-button-secondary" href="/cli/">
                 Bring your own dataset
               </a>
               <button
@@ -2342,59 +2320,6 @@ function LandingPage() {
               </button>
             </div>
             {authError ? <p className="auth-status" data-state="error">{authError}</p> : null}
-          </section>
-
-          <section className="cli-block" id="cli">
-            <p className="section-kicker">For Your Own Corpus</p>
-            <h2>Bring your own dataset</h2>
-            <p className="cli-lede">
-              Install the RESEARCH CLI, sign in, and point it at a parquet, CSV, PDF, or text
-              corpus. The CLI uploads the raw source, normalizes it remotely, and gives you a run
-              you can reopen later.
-            </p>
-
-            <div className="cli-card">
-              <div className="cli-card-head">
-                <div>
-                  <p className="cli-card-label">Install</p>
-                  <p className="cli-card-copy">Run this yourself or hand it to your agent.</p>
-                </div>
-                <button className="ghost-button cli-copy-button" type="button" onClick={installCopy.copy}>
-                  {installCopy.copied ? 'Copied command' : 'Copy command'}
-                </button>
-              </div>
-              <pre className="cli-pre"><code>{INSTALL_COMMAND}</code></pre>
-            </div>
-
-            <div className="cli-card">
-              <div className="cli-card-head">
-                <div>
-                  <p className="cli-card-label">Prompt Your Agent</p>
-                  <p className="cli-card-copy">Paste this into Codex or Claude Code and describe the dataset at the bottom.</p>
-                </div>
-                <button className="ghost-button cli-copy-button" type="button" onClick={promptCopy.copy}>
-                  {promptCopy.copied ? 'Copied prompt' : 'Copy prompt'}
-                </button>
-              </div>
-              <pre className="cli-pre"><code>{AGENT_PROMPT}</code></pre>
-            </div>
-
-            <div className="cli-grid">
-              <article className="cli-mini-card">
-                <p className="cli-card-label">Formats</p>
-                <p>
-                  Parquet, CSV, JSON, markdown, HTML, PDFs, and other research corpora that need
-                  normalization before search and analysis.
-                </p>
-              </article>
-              <article className="cli-mini-card">
-                <p className="cli-card-label">Runs</p>
-                <p>
-                  Upload starts a remote run. Alpha Research provisions storage and compute,
-                  normalizes the dataset, and keeps the run visible when you reopen the CLI.
-                </p>
-              </article>
-            </div>
           </section>
 
           <section className="powering-block" id="powering">
@@ -2587,6 +2512,7 @@ function LandingPage() {
 
           <div className="footer-copy">
             <div className="footer-links">
+              <a href="/cli/">CLI</a>
               <a href="/blog/">blog</a>
               <a href="/privacy/">privacy</a>
               <a href="/terms/">terms</a>
