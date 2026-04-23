@@ -1576,8 +1576,8 @@ function RunDetailPage({
   const observedProgressMessages = useMemo(() => buildObservedProgressTranscript(payload), [payload])
 
   useEffect(() => {
-    setView('cli')
-  }, [run.id])
+    setView(remoteSessionId ? 'remote' : 'cli')
+  }, [run.id, remoteSessionId])
 
   return (
     <div className="flex min-h-0 flex-1 flex-col">
@@ -1618,7 +1618,7 @@ function RunDetailPage({
               disabled={!remoteSessionId}
             >
               <Bot />
-              Remote Codex
+              Run logs
             </Button>
           </div>
           {remoteSessionId ? (
