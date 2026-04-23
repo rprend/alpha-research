@@ -1435,6 +1435,16 @@ export default {
       )
     }
 
+    const runDebugViewMatch = pathname.match(/^\/api\/cli\/runs\/([^/]+)\/debug-view$/u)
+    if (runDebugViewMatch && request.method === 'GET') {
+      return forwardCliRequest(
+        request,
+        env,
+        `/runs/${encodeURIComponent(runDebugViewMatch[1] ?? '')}/debug-view`,
+        { method: 'GET' },
+      )
+    }
+
     if (pathname === '/api/cli/research-specs' && request.method === 'GET') {
       const cliSession = await requireAuthorizedSession(request, env)
       if (!cliSession) {
