@@ -1453,7 +1453,7 @@ function ResearchAssistantPage({
   })
 
   return (
-    <main className="flex min-h-0 flex-1 flex-col px-4 py-6 md:px-8">
+    <main className="flex min-h-0 flex-1 flex-col overflow-hidden px-4 py-6 md:px-8">
       {dataError ? (
         <Card className="mb-4 rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
           <CardContent className="px-6 py-4 text-sm text-destructive">{dataError}</CardContent>
@@ -1469,9 +1469,9 @@ function ResearchAssistantPage({
           <CardContent className="px-6 py-4 text-sm text-destructive">{error}</CardContent>
         </Card>
       ) : null}
-      <div className="min-h-0 flex-1">
+      <div className="min-h-0 flex-1 overflow-hidden">
         <AssistantRuntimeProvider runtime={runtime}>
-          <div className="h-full min-h-[36rem]">
+          <div className="h-full min-h-0">
             <Thread
               welcomeTitle="RESEARCH CLI"
               welcomeDescription={
@@ -1816,8 +1816,8 @@ function DashboardLoading() {
           </SidebarGroup>
         </SidebarContent>
       </Sidebar>
-      <SidebarInset className="bg-background">
-        <div className="flex min-h-svh flex-col">
+      <SidebarInset className="min-h-0 overflow-hidden bg-background">
+        <div className="flex h-svh min-h-0 flex-col overflow-hidden">
           <header className="flex h-16 items-center gap-3 border-b border-border px-4 md:px-8">
             <SidebarTrigger variant="ghost" size="icon-sm" />
             <div className="flex flex-col">
@@ -1872,8 +1872,8 @@ function DashboardSignedOut({
           </SidebarGroup>
         </SidebarContent>
       </Sidebar>
-      <SidebarInset className="bg-background">
-        <div className="flex min-h-svh flex-col">
+      <SidebarInset className="min-h-0 overflow-hidden bg-background">
+        <div className="flex h-svh min-h-0 flex-col overflow-hidden">
           <header className="flex h-16 items-center gap-3 border-b border-border px-4 md:px-8">
             <SidebarTrigger variant="ghost" size="icon-sm" />
             <div className="flex flex-col">
@@ -2125,8 +2125,8 @@ function DashboardApp({
         </SidebarFooter>
       </Sidebar>
 
-      <SidebarInset className="bg-background">
-        <div className="flex min-h-svh flex-col">
+      <SidebarInset className="min-h-0 overflow-hidden bg-background">
+        <div className="flex h-svh min-h-0 flex-col overflow-hidden">
           <header className="flex h-16 items-center gap-3 border-b border-border px-4 md:px-8">
             <SidebarTrigger variant="ghost" size="icon-sm" />
             <div className="flex min-w-0 flex-1 items-center justify-between gap-4">
