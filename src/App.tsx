@@ -613,10 +613,19 @@ function buildCliTranscript(
 ): SessionEntry[] {
   const storedSession = payload?.sessions?.find((session) => session.kind === 'cli_orchestration')
   if (storedSession?.entries?.length) {
-    const hasLocalCliEntries = storedSession.entries.some((entry) =>
-      ['local_user', 'local_assistant', 'tool_call', 'tool_result', 'local_summary'].includes(entry.kind),
+    const hasStructuredCliEntries = storedSession.entries.some((entry) =>
+      [
+        'local_user',
+        'local_assistant',
+        'tool_call',
+        'tool_result',
+        'local_summary',
+        'run_launch',
+        'dataset_summary',
+        'run_summary',
+      ].includes(entry.kind),
     )
-    const visibleEntries = hasLocalCliEntries
+    const visibleEntries = hasStructuredCliEntries
       ? storedSession.entries.filter((entry) => !['request', 'response'].includes(entry.kind))
       : storedSession.entries
     return visibleEntries.map((entry) =>
