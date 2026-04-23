@@ -5,9 +5,14 @@ type DigitalOceanEnv = {
   DIGITALOCEAN_VOLUME_MOUNT_ROOT?: string
   DIGITALOCEAN_INGEST_DROPLET_SIZE?: string
   DIGITALOCEAN_INGEST_IMAGE?: string
+  DIGITALOCEAN_RESEARCH_RUNNER_IMAGE?: string
   DIGITALOCEAN_RESEARCH_DROPLET_SIZE_SMALL?: string
   DIGITALOCEAN_RESEARCH_DROPLET_SIZE_MEDIUM?: string
   DIGITALOCEAN_RESEARCH_DROPLET_SIZE_LARGE?: string
+  DIGITALOCEAN_RESEARCH_WARM_POOL_SIZE_SMALL?: string
+  DIGITALOCEAN_RESEARCH_WARM_POOL_SIZE_MEDIUM?: string
+  DIGITALOCEAN_RESEARCH_WARM_POOL_SIZE_LARGE?: string
+  RESEARCH_CONTROL_ORIGIN?: string
   DIGITALOCEAN_SSH_KEY_IDS?: string
   DIGITALOCEAN_PROJECT_ID?: string
   RESEARCH_INTERNAL_RUNNER_TOKEN?: string
@@ -83,6 +88,22 @@ async function doRequest<T>(env: DigitalOceanEnv, path: string, init: RequestIni
     throw new Error(`DigitalOcean API request failed (${response.status}) ${path}${detail ? ` ${detail}` : ''}`)
   }
   return response.json() as Promise<T>
+}
+
+async function doRequestNoContent(env: DigitalOceanEnv, path: string, init: RequestInit = {}) {
+  const token = requireDigitalOceanToken(env)
+  const response = await fetch(`https://api.digitalocean.com/v2${path}`, {
+    ...init,
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+      ...(init.headers ?? {}),
+    },
+  })
+  if (!response.ok) {
+    const detail = await response.text().catch(() => '')
+    throw new Error(`DigitalOcean API request failed (${response.status}) ${path}${detail ? ` ${detail}` : ''}`)
+  }
 }
 
 export async function deleteDroplet(env: DigitalOceanEnv, dropletId: string) {
@@ -167,6 +188,14 @@ function encodeBase64(value: string) {
   return btoa(unescape(encodeURIComponent(value)))
 }
 
+function resolveImageRef(value: string | undefined, fallback: string) {
+  const candidate = (value ?? '').trim()
+  if (!candidate) {
+    return fallback
+  }
+  return /^\d+$/u.test(candidate) ? Number(candidate) : candidate
+}
+
 function chooseResearchDropletSize(env: DigitalOceanEnv, params: LaunchResearchParams) {
   const small = env.DIGITALOCEAN_RESEARCH_DROPLET_SIZE_SMALL ?? 's-2vcpu-4gb'
   const medium = env.DIGITALOCEAN_RESEARCH_DROPLET_SIZE_MEDIUM ?? 's-4vcpu-8gb'
@@ -178,6 +207,26 @@ function chooseResearchDropletSize(env: DigitalOceanEnv, params: LaunchResearchP
     return (params.sourceSizeBytes ?? 0) > 2_000_000_000 ? large : medium
   }
   return (params.sourceSizeBytes ?? 0) > 5_000_000_000 ? large : small
+}
+
+export function inferResearchSizeClass(params: LaunchResearchParams) {
+  if (params.runType === 'query') {
+    return (params.sourceSizeBytes ?? 0) > 5_000_000_000 ? 'medium' : 'small'
+  }
+  if (params.runType === 'agent' || params.runType === 'analysis' || params.runType === 'hypothesis') {
+    return (params.sourceSizeBytes ?? 0) > 2_000_000_000 ? 'large' : 'medium'
+  }
+  return (params.sourceSizeBytes ?? 0) > 5_000_000_000 ? 'large' : 'small'
+}
+
+function desiredWarmPoolSize(env: DigitalOceanEnv, sizeClass: 'small' | 'medium' | 'large') {
+  if (sizeClass === 'small') {
+    return Math.max(0, Number(env.DIGITALOCEAN_RESEARCH_WARM_POOL_SIZE_SMALL ?? '1'))
+  }
+  if (sizeClass === 'medium') {
+    return Math.max(0, Number(env.DIGITALOCEAN_RESEARCH_WARM_POOL_SIZE_MEDIUM ?? '1'))
+  }
+  return Math.max(0, Number(env.DIGITALOCEAN_RESEARCH_WARM_POOL_SIZE_LARGE ?? '0'))
 }
 
 function buildIngestRunnerScript(env: DigitalOceanEnv, params: LaunchIngestParams) {
@@ -201,6 +250,7 @@ function buildIngestRunnerScript(env: DigitalOceanEnv, params: LaunchIngestParam
   return `#!/bin/bash
 set -euo pipefail
 exec > >(tee -a /var/log/alpha-research-ingest.log) 2>&1
+set -a
 
 CALLBACK_EVENTS_URL=${shellEscape(callbackEventsUrl)}
 CALLBACK_STATUS_URL=${shellEscape(callbackStatusUrl)}
@@ -210,6 +260,7 @@ SOURCE_URL=${shellEscape(params.sourceDownloadUrl)}
 NORMALIZE_URL=${shellEscape(normalizeUrl)}
 VENV_PATH=${shellEscape(venvPath)}
 DEVICE="/dev/disk/by-id/scsi-0DO_Volume_${params.volumeName}"
+set +a
 
 post_event() {
   local level="$1"
@@ -301,7 +352,6 @@ post_status ready ready "$MANIFEST_PATH" "Remote normalization completed."
 
 function buildResearchRunnerScript(env: DigitalOceanEnv, params: LaunchResearchParams) {
   const runnerUrl = `${params.callbackOrigin}/api/internal/runner-scripts/remote-agent.py`
-  const venvPath = '/opt/alpha-research-agent-venv'
   const mountRoot = params.datasetMountPath.replace(/\/datasets\/[^/]+$/u, '')
   const callbackEventsUrl = `${params.callbackOrigin}/api/internal/runs/${params.runId}/events`
   const callbackStatusUrl = `${params.callbackOrigin}/api/internal/runs/${params.runId}/status`
@@ -315,6 +365,7 @@ function buildResearchRunnerScript(env: DigitalOceanEnv, params: LaunchResearchP
     '#!/bin/bash',
     'set -euo pipefail',
     'exec > >(tee -a /var/log/alpha-research-run.log) 2>&1',
+    'set -a',
     '',
     `CALLBACK_EVENTS_URL=${shellEscape(callbackEventsUrl)}`,
     `CALLBACK_STATUS_URL=${shellEscape(callbackStatusUrl)}`,
@@ -325,7 +376,6 @@ function buildResearchRunnerScript(env: DigitalOceanEnv, params: LaunchResearchP
     `DATASET_MOUNT_PATH=${shellEscape(params.datasetMountPath)}`,
     `MANIFEST_PATH=${shellEscape(params.manifestPath)}`,
     `RUNNER_URL=${shellEscape(runnerUrl)}`,
-    `VENV_PATH=${shellEscape(venvPath)}`,
     `OPENAI_API_KEY=${shellEscape(env.OPENAI_API_KEY ?? '')}`,
     `REMOTE_AGENT_MODEL=${shellEscape(remoteAgentModel)}`,
     `RUN_ID=${shellEscape(params.runId)}`,
@@ -343,6 +393,7 @@ function buildResearchRunnerScript(env: DigitalOceanEnv, params: LaunchResearchP
     'RUN_LOG_PATH="/var/log/alpha-research-run.log"',
     'CLOUD_INIT_LOG_PATH="/var/log/cloud-init-output.log"',
     `DEVICE="/dev/disk/by-id/scsi-0DO_Volume_${params.volumeName}"`,
+    'set +a',
     '',
     'post_event() {',
     '  local level="$1"',
@@ -424,17 +475,11 @@ function buildResearchRunnerScript(env: DigitalOceanEnv, params: LaunchResearchP
     `trap 'LOG_JSON="$(post_log_artifacts)"; post_json_artifact "remote_agent_bootstrap_log" "Remote Agent Bootstrap Log" "$LOG_JSON"; post_event error "Remote agent run failed."; post_status failed ""; exit 1' ERR`,
     '',
     'post_event info "Starting remote agent droplet bootstrap."',
-    'apt-get update',
-    'apt-get install -y curl python3 python3-venv ca-certificates nodejs npm git',
-    'python3 -m venv "$VENV_PATH"',
-    '"$VENV_PATH/bin/pip" install --upgrade pip',
-    '"$VENV_PATH/bin/pip" install requests',
-    '',
+    'command -v python3 >/dev/null 2>&1',
+    'command -v codex >/dev/null 2>&1',
+    'if ! command -v python >/dev/null 2>&1; then ln -sf "$(command -v python3)" /usr/local/bin/python; fi',
     'mkdir -p /opt/alpha-research',
     'curl -fsSL -H "Authorization: Bearer $RUNNER_TOKEN" "$RUNNER_URL" -o /opt/alpha-research/run_remote_agent.py',
-    'npm install -g @openai/codex',
-    'mkdir -p "$CODEX_HOME" "$WORKSPACE_DIR" "$ARTIFACT_DIR"',
-    `printf '%s' "$OPENAI_API_KEY" | codex login --with-api-key >/dev/null`,
     '',
     'for _ in $(seq 1 60); do',
     '  if [ -e "$DEVICE" ]; then',
@@ -449,10 +494,12 @@ function buildResearchRunnerScript(env: DigitalOceanEnv, params: LaunchResearchP
     'fi',
     'mkdir -p "$MOUNT_ROOT"',
     'mount "$DEVICE" "$MOUNT_ROOT" || true',
+    'mkdir -p "$CODEX_HOME" "$WORKSPACE_DIR" "$ARTIFACT_DIR"',
+    `printf '%s' "$OPENAI_API_KEY" | codex login --with-api-key >/dev/null`,
     '',
     'post_event info "Running remote agent executor."',
     'set +e',
-    '"$VENV_PATH/bin/python" /opt/alpha-research/run_remote_agent.py 2>&1 | while IFS= read -r line; do',
+    'python3 /opt/alpha-research/run_remote_agent.py 2>&1 | while IFS= read -r line; do',
     '  echo "$line"',
     '  case "$line" in',
     '    *"Remote agent"*|*"session"*|*"ERROR:"*|*"{\\""* )',
@@ -474,10 +521,214 @@ function buildResearchRunnerScript(env: DigitalOceanEnv, params: LaunchResearchP
   ].join('\n')
 }
 
+function buildWarmPoolRunnerScript(env: DigitalOceanEnv, sizeClass: 'small' | 'medium' | 'large') {
+  const controlOrigin = env.RESEARCH_CONTROL_ORIGIN ?? 'https://alpharesearch.nyc'
+  const runnerUrl = `${controlOrigin}/api/internal/runner-scripts/remote-agent.py`
+  const mountRoot = env.DIGITALOCEAN_VOLUME_MOUNT_ROOT ?? '/mnt/alpha-research'
+  return [
+    '#!/bin/bash',
+    'set -euo pipefail',
+    'exec > >(tee -a /var/log/alpha-research-pool.log) 2>&1',
+    'set -a',
+    `CONTROL_ORIGIN=${shellEscape(controlOrigin)}`,
+    `RUNNER_TOKEN=${shellEscape(env.RESEARCH_INTERNAL_RUNNER_TOKEN ?? '')}`,
+    `RUNNER_URL=${shellEscape(runnerUrl)}`,
+    `OPENAI_API_KEY=${shellEscape(env.OPENAI_API_KEY ?? '')}`,
+    `REMOTE_AGENT_MODEL=${shellEscape(env.REMOTE_AGENT_MODEL ?? env.RESEARCH_AGENT_MODEL ?? 'gpt-5-codex')}`,
+    `POOL_SIZE_CLASS=${shellEscape(sizeClass)}`,
+    `MOUNT_ROOT=${shellEscape(mountRoot)}`,
+    'POOL_DROPLET_ID="$(curl -fsS http://169.254.169.254/metadata/v1/id)"',
+    'POOL_DROPLET_NAME="$(curl -fsS http://169.254.169.254/metadata/v1/hostname)"',
+    'set +a',
+    '',
+    'command -v python3 >/dev/null 2>&1',
+    'command -v codex >/dev/null 2>&1',
+    'if ! command -v python >/dev/null 2>&1; then ln -sf "$(command -v python3)" /usr/local/bin/python; fi',
+    'mkdir -p /opt/alpha-research',
+    `printf '%s' "$OPENAI_API_KEY" | codex login --with-api-key >/dev/null`,
+    '',
+    'heartbeat() {',
+    '  python3 - "$POOL_DROPLET_ID" "$POOL_DROPLET_NAME" "$POOL_SIZE_CLASS" <<\'PY\' | \\',
+    '    curl -fsS -X POST "$CONTROL_ORIGIN/api/internal/runner-pool/heartbeat" \\',
+    '      -H "Authorization: Bearer $RUNNER_TOKEN" \\',
+    '      -H "Content-Type: application/json" \\',
+    '      --data @- >/dev/null',
+    'import json, sys',
+    'droplet_id, droplet_name, size_class = sys.argv[1:]',
+    'print(json.dumps({',
+    '  "dropletId": droplet_id,',
+    '  "dropletName": droplet_name,',
+    '  "sizeClass": size_class,',
+    '}))',
+    'PY',
+    '}',
+    '',
+    'complete_assignment() {',
+    '  local run_id="$1"',
+    '  python3 - "$run_id" <<\'PY\' | \\',
+    '    curl -fsS -X POST "$CONTROL_ORIGIN/api/internal/runner-pool/droplets/$POOL_DROPLET_ID/complete" \\',
+    '      -H "Authorization: Bearer $RUNNER_TOKEN" \\',
+    '      -H "Content-Type: application/json" \\',
+    '      --data @- >/dev/null || true',
+    'import json, sys',
+    'print(json.dumps({"runId": sys.argv[1]}))',
+    'PY',
+    '}',
+    '',
+    'while true; do',
+    '  heartbeat || true',
+    '  ASSIGNMENT_JSON="$(curl -fsS -H "Authorization: Bearer $RUNNER_TOKEN" "$CONTROL_ORIGIN/api/internal/runner-pool/droplets/$POOL_DROPLET_ID/assignment" || echo "{}")"',
+    '  eval "$(python3 - "$ASSIGNMENT_JSON" <<\'PY\'',
+    'import json, shlex, sys',
+    'payload = json.loads(sys.argv[1] or "{}")',
+    'assignment = payload.get("assignment") or {}',
+    'fields = {',
+    '  "RUN_ID": assignment.get("runId", ""),',
+    '  "RUN_TYPE": assignment.get("runType", ""),',
+    '  "DATASET_ID": assignment.get("datasetId", ""),',
+    '  "DATASET_MOUNT_PATH": assignment.get("datasetMountPath", ""),',
+    '  "MANIFEST_PATH": assignment.get("manifestPath", ""),',
+    '  "PROMPT_B64": assignment.get("promptB64", ""),',
+    '  "CONFIG_B64": assignment.get("configB64", ""),',
+    '  "ARTIFACT_SPEC_B64": assignment.get("artifactSpecB64", ""),',
+    '  "REMOTE_AGENT_SESSION_ID": assignment.get("remoteAgentSessionId", ""),',
+    '  "VOLUME_NAME": assignment.get("volumeName", ""),',
+    '}',
+    'for key, value in fields.items():',
+    '    print(f"export {key}={shlex.quote(str(value))}")',
+    'PY',
+    ')"',
+    '  if [ -z "${RUN_ID:-}" ]; then',
+    '    sleep 5',
+    '    continue',
+    '  fi',
+    '  export CALLBACK_EVENTS_URL="$CONTROL_ORIGIN/api/internal/runs/$RUN_ID/events"',
+    '  export CALLBACK_STATUS_URL="$CONTROL_ORIGIN/api/internal/runs/$RUN_ID/status"',
+    '  export CALLBACK_ARTIFACTS_URL="$CONTROL_ORIGIN/api/internal/runs/$RUN_ID/artifacts"',
+    '  export CALLBACK_SESSION_ENTRIES_URL="$CONTROL_ORIGIN/api/internal/runs/$RUN_ID/session-entries"',
+    '  export CODEX_HOME="$DATASET_MOUNT_PATH/.remote-agent/codex-home/$RUN_ID"',
+    '  export WORKSPACE_DIR="$DATASET_MOUNT_PATH/.remote-agent/workspaces/$RUN_ID"',
+    '  export ARTIFACT_DIR="$DATASET_MOUNT_PATH/.remote-agent/workspaces/$RUN_ID/artifacts"',
+    '  export LAST_MESSAGE_PATH="$DATASET_MOUNT_PATH/.remote-agent/workspaces/$RUN_ID/last_message.txt"',
+    '  export TRANSCRIPT_PATH="$DATASET_MOUNT_PATH/.remote-agent/workspaces/$RUN_ID/codex-transcript.log"',
+    '  export RUN_LOG_PATH="/var/log/alpha-research-run.log"',
+    '  export CLOUD_INIT_LOG_PATH="/var/log/cloud-init-output.log"',
+    '  export DEVICE="/dev/disk/by-id/scsi-0DO_Volume_$VOLUME_NAME"',
+    '  mkdir -p /opt/alpha-research',
+    '  curl -fsSL -H "Authorization: Bearer $RUNNER_TOKEN" "$RUNNER_URL" -o /opt/alpha-research/run_remote_agent.py',
+    '  for _ in $(seq 1 60); do',
+    '    if [ -e "$DEVICE" ]; then',
+    '      break',
+    '    fi',
+    '    sleep 2',
+    '  done',
+    '  mkdir -p "$MOUNT_ROOT"',
+    '  mount "$DEVICE" "$MOUNT_ROOT" || true',
+    '  mkdir -p "$CODEX_HOME" "$WORKSPACE_DIR" "$ARTIFACT_DIR"',
+    `  printf '%s' "$OPENAI_API_KEY" | codex login --with-api-key >/dev/null`,
+    '  set +e',
+    '  python3 /opt/alpha-research/run_remote_agent.py',
+    '  RUN_EXIT=$?',
+    '  set -e',
+    '  sync || true',
+    '  umount "$MOUNT_ROOT" || true',
+    '  complete_assignment "$RUN_ID"',
+    '  unset RUN_ID RUN_TYPE DATASET_ID DATASET_MOUNT_PATH MANIFEST_PATH PROMPT_B64 CONFIG_B64 ARTIFACT_SPEC_B64 REMOTE_AGENT_SESSION_ID VOLUME_NAME',
+    '  if [ "$RUN_EXIT" -ne 0 ]; then',
+    '    sleep 2',
+    '  fi',
+    'done',
+  ].join('\n')
+}
+
+async function listWarmPoolDroplets(env: DigitalOceanEnv, sizeClass: 'small' | 'medium' | 'large') {
+  const tag = `alpha-research-pool-${sizeClass}`
+  const response = await doRequest<{ droplets?: Array<{ id: number; name: string; status: string }> }>(
+    env,
+    `/droplets?tag_name=${encodeURIComponent(tag)}`,
+    { method: 'GET' },
+  ).catch(() => ({ droplets: [] }))
+  return response.droplets ?? []
+}
+
+async function createWarmPoolDroplet(env: DigitalOceanEnv, sizeClass: 'small' | 'medium' | 'large') {
+  const region = env.DIGITALOCEAN_REGION ?? 'nyc3'
+  const image = resolveImageRef(env.DIGITALOCEAN_RESEARCH_RUNNER_IMAGE ?? env.DIGITALOCEAN_INGEST_IMAGE, 'ubuntu-24-04-x64')
+  const size = sizeClass === 'small'
+    ? (env.DIGITALOCEAN_RESEARCH_DROPLET_SIZE_SMALL ?? 's-2vcpu-4gb')
+    : sizeClass === 'medium'
+      ? (env.DIGITALOCEAN_RESEARCH_DROPLET_SIZE_MEDIUM ?? 's-4vcpu-8gb')
+      : (env.DIGITALOCEAN_RESEARCH_DROPLET_SIZE_LARGE ?? 's-8vcpu-16gb')
+  const sshKeys = (env.DIGITALOCEAN_SSH_KEY_IDS ?? '')
+    .split(',')
+    .map((value) => value.trim())
+    .filter(Boolean)
+    .map((value) => Number(value))
+    .filter((value) => Number.isFinite(value))
+  const dropletName = `ar-pool-${sizeClass}-${Date.now().toString().slice(-6)}`
+  const droplet = await doRequest<{ droplet: { id: number; name: string } }>(env, '/droplets', {
+    method: 'POST',
+    body: JSON.stringify({
+      name: dropletName,
+      region,
+      size,
+      image,
+      ssh_keys: sshKeys,
+      backups: false,
+      ipv6: false,
+      monitoring: true,
+      tags: ['alpha-research', 'research-runner-pool', `alpha-research-pool-${sizeClass}`],
+      user_data: buildWarmPoolRunnerScript(env, sizeClass),
+    }),
+  })
+  if (env.DIGITALOCEAN_PROJECT_ID) {
+    await doRequest(env, `/projects/${encodeURIComponent(env.DIGITALOCEAN_PROJECT_ID)}/resources`, {
+      method: 'POST',
+      body: JSON.stringify({
+        resources: [`do:droplet:${droplet.droplet.id}`],
+      }),
+    }).catch(() => undefined)
+  }
+}
+
+export async function ensureWarmResearchPool(env: DigitalOceanEnv, sizeClass: 'small' | 'medium' | 'large') {
+  const desired = desiredWarmPoolSize(env, sizeClass)
+  if (desired <= 0) {
+    return
+  }
+  const warmDroplets = await listWarmPoolDroplets(env, sizeClass)
+  const deficit = Math.max(0, desired - warmDroplets.length)
+  for (let index = 0; index < deficit; index += 1) {
+    await createWarmPoolDroplet(env, sizeClass).catch(() => undefined)
+  }
+}
+
+export async function attachVolumeToDroplet(env: DigitalOceanEnv, volumeId: string, dropletId: string, region?: string) {
+  await doRequestNoContent(env, `/volumes/${encodeURIComponent(volumeId)}/actions`, {
+    method: 'POST',
+    body: JSON.stringify({
+      type: 'attach',
+      droplet_id: Number(dropletId),
+      ...(region ? { region } : {}),
+    }),
+  })
+}
+
+export async function detachVolumeByDroplet(env: DigitalOceanEnv, volumeId: string, dropletId: string, region?: string) {
+  await doRequestNoContent(env, `/volumes/${encodeURIComponent(volumeId)}/actions`, {
+    method: 'POST',
+    body: JSON.stringify({
+      type: 'detach',
+      droplet_id: Number(dropletId),
+      ...(region ? { region } : {}),
+    }),
+  })
+}
+
 export async function launchIngestDroplet(env: DigitalOceanEnv, params: LaunchIngestParams) {
   const region = env.DIGITALOCEAN_REGION ?? 'nyc3'
   const dropletName = `ar-ingest-${sanitizeName(params.datasetId)}-${Date.now().toString().slice(-6)}`
-  const image = env.DIGITALOCEAN_INGEST_IMAGE ?? 'ubuntu-24-04-x64'
+  const image = resolveImageRef(env.DIGITALOCEAN_INGEST_IMAGE, 'ubuntu-24-04-x64')
   const size = env.DIGITALOCEAN_INGEST_DROPLET_SIZE ?? 's-2vcpu-4gb'
   const sshKeys = (env.DIGITALOCEAN_SSH_KEY_IDS ?? '')
     .split(',')
@@ -522,7 +773,7 @@ export async function launchIngestDroplet(env: DigitalOceanEnv, params: LaunchIn
 export async function launchResearchDroplet(env: DigitalOceanEnv, params: LaunchResearchParams) {
   const region = env.DIGITALOCEAN_REGION ?? 'nyc3'
   const dropletName = `ar-run-${sanitizeName(params.datasetId)}-${Date.now().toString().slice(-6)}`
-  const image = env.DIGITALOCEAN_INGEST_IMAGE ?? 'ubuntu-24-04-x64'
+  const image = resolveImageRef(env.DIGITALOCEAN_RESEARCH_RUNNER_IMAGE ?? env.DIGITALOCEAN_INGEST_IMAGE, 'ubuntu-24-04-x64')
   const size = chooseResearchDropletSize(env, params)
   const sshKeys = (env.DIGITALOCEAN_SSH_KEY_IDS ?? '')
     .split(',')

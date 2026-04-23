@@ -1,5 +1,15 @@
 import { createPresignedSpacesUrl } from './spaces'
-import { deleteDroplet, ensureDatasetVolume, launchIngestDroplet, launchResearchDroplet, waitForVolumeDetachment } from './digitalocean'
+import {
+  attachVolumeToDroplet,
+  deleteDroplet,
+  detachVolumeByDroplet,
+  ensureDatasetVolume,
+  ensureWarmResearchPool,
+  inferResearchSizeClass,
+  launchIngestDroplet,
+  launchResearchDroplet,
+  waitForVolumeDetachment,
+} from './digitalocean'
 
 type DurableObjectStateLike = {
   storage: {
@@ -23,6 +33,14 @@ type Env = {
   DIGITALOCEAN_VOLUME_MOUNT_ROOT?: string
   DIGITALOCEAN_INGEST_DROPLET_SIZE?: string
   DIGITALOCEAN_INGEST_IMAGE?: string
+  DIGITALOCEAN_RESEARCH_RUNNER_IMAGE?: string
+  DIGITALOCEAN_RESEARCH_DROPLET_SIZE_SMALL?: string
+  DIGITALOCEAN_RESEARCH_DROPLET_SIZE_MEDIUM?: string
+  DIGITALOCEAN_RESEARCH_DROPLET_SIZE_LARGE?: string
+  DIGITALOCEAN_RESEARCH_WARM_POOL_SIZE_SMALL?: string
+  DIGITALOCEAN_RESEARCH_WARM_POOL_SIZE_MEDIUM?: string
+  DIGITALOCEAN_RESEARCH_WARM_POOL_SIZE_LARGE?: string
+  RESEARCH_CONTROL_ORIGIN?: string
   DIGITALOCEAN_SSH_KEY_IDS?: string
   DIGITALOCEAN_PROJECT_ID?: string
   DO_SPACES_BUCKET?: string
@@ -128,6 +146,17 @@ type AssistantSessionEntryRecord = {
   createdAt: string
 }
 
+type RunnerPoolRecord = {
+  dropletId: string
+  dropletName: string
+  sizeClass: string
+  status: string
+  assignedRunId: string | null
+  lastHeartbeatAt: string
+  createdAt: string
+  updatedAt: string
+}
+
 function nowIso() {
   return new Date().toISOString()
 }
@@ -141,6 +170,10 @@ function respondJson(payload: unknown, status = 200) {
 
 function slugify(input: string) {
   return input.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 63) || 'dataset'
+}
+
+function encodeBase64(value: string) {
+  return btoa(unescape(encodeURIComponent(value)))
 }
 
 function isTerminalStatus(status: string | null | undefined) {
@@ -162,6 +195,7 @@ function isVolumeBusyError(error: unknown) {
 }
 
 const RUN_HEARTBEAT_TIMEOUT_MS = 5 * 60 * 1000
+const RUNNER_POOL_HEARTBEAT_TIMEOUT_MS = 90 * 1000
 
 function isStaleActiveRun(run: RunRecord) {
   if (isTerminalStatus(run.status)) {
@@ -312,6 +346,18 @@ export class ControlPlane {
         session_id TEXT NOT NULL
       );
     `)
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS runner_pool (
+        droplet_id TEXT PRIMARY KEY,
+        droplet_name TEXT NOT NULL,
+        size_class TEXT NOT NULL,
+        status TEXT NOT NULL,
+        assigned_run_id TEXT,
+        last_heartbeat_at TEXT NOT NULL,
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL
+      );
+    `)
     try { this.sql.exec('ALTER TABLE datasets ADD COLUMN active_run_id TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE datasets ADD COLUMN lease_acquired_at TEXT') } catch {}
   }
@@ -339,16 +385,26 @@ export class ControlPlane {
     this.releaseDatasetLease(run.datasetId, run.id)
     if (run.dropletId) {
       try {
-        await deleteDroplet(this.env, run.dropletId)
         const dataset = this.getDataset(run.datasetId)
-        if (dataset?.volumeId) {
-          await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
+        const pooledRunner = this.getRunnerPoolEntry(run.dropletId)
+        if (pooledRunner) {
+          if (dataset?.volumeId) {
+            await detachVolumeByDroplet(this.env, dataset.volumeId, run.dropletId, dataset.volumeRegion ?? this.env.DIGITALOCEAN_REGION).catch(() => undefined)
+            await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
+          }
+          this.clearRunnerPoolEntryAssignment(run.dropletId)
+          this.appendRunEvent(run.id, `Released pooled runner ${pooledRunner.dropletName}.`, 'warning')
+        } else {
+          await deleteDroplet(this.env, run.dropletId)
+          if (dataset?.volumeId) {
+            await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
+          }
+          this.appendRunEvent(run.id, `Deleted stale droplet ${run.dropletName ?? run.dropletId}.`, 'warning')
         }
-        this.appendRunEvent(run.id, `Deleted stale droplet ${run.dropletName ?? run.dropletId}.`, 'warning')
       } catch (error) {
         this.appendRunEvent(
           run.id,
-          `Failed to delete stale droplet ${run.dropletName ?? run.dropletId}: ${error instanceof Error ? error.message : String(error)}`,
+          `Failed to clean up stale runner ${run.dropletName ?? run.dropletId}: ${error instanceof Error ? error.message : String(error)}`,
           'error',
         )
       }
@@ -385,6 +441,94 @@ export class ControlPlane {
     )
       .map((row) => this.parseRunRow(row))
       .filter((run) => !isTerminalStatus(run.status))
+  }
+
+  private parseRunnerPoolRow(row: Record<string, unknown>): RunnerPoolRecord {
+    return {
+      dropletId: String(row.droplet_id ?? row.dropletId),
+      dropletName: String(row.droplet_name ?? row.dropletName),
+      sizeClass: String(row.size_class ?? row.sizeClass),
+      status: String(row.status),
+      assignedRunId: row.assigned_run_id ?? row.assignedRunId ? String(row.assigned_run_id ?? row.assignedRunId) : null,
+      lastHeartbeatAt: String(row.last_heartbeat_at ?? row.lastHeartbeatAt),
+      createdAt: String(row.created_at ?? row.createdAt),
+      updatedAt: String(row.updated_at ?? row.updatedAt),
+    }
+  }
+
+  private getRunnerPoolEntry(dropletId: string) {
+    const row = this.rows('SELECT * FROM runner_pool WHERE droplet_id = ? LIMIT 1', dropletId)[0]
+    return row ? this.parseRunnerPoolRow(row) : null
+  }
+
+  private isRunnerPoolAlive(entry: RunnerPoolRecord) {
+    const lastHeartbeat = Date.parse(entry.lastHeartbeatAt)
+    return Number.isFinite(lastHeartbeat) && (Date.now() - lastHeartbeat) <= RUNNER_POOL_HEARTBEAT_TIMEOUT_MS
+  }
+
+  private registerRunnerPoolHeartbeat(dropletId: string, dropletName: string, sizeClass: string) {
+    const now = nowIso()
+    const existing = this.getRunnerPoolEntry(dropletId)
+    if (existing) {
+      this.sql.exec(
+        `UPDATE runner_pool
+           SET droplet_name = ?, size_class = ?, status = ?, last_heartbeat_at = ?, updated_at = ?
+         WHERE droplet_id = ?`,
+        dropletName,
+        sizeClass,
+        existing.assignedRunId ? 'busy' : 'idle',
+        now,
+        now,
+        dropletId,
+      )
+      return
+    }
+    this.sql.exec(
+      `INSERT INTO runner_pool (
+         droplet_id, droplet_name, size_class, status, assigned_run_id, last_heartbeat_at, created_at, updated_at
+       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      dropletId,
+      dropletName,
+      sizeClass,
+      'idle',
+      null,
+      now,
+      now,
+      now,
+    )
+  }
+
+  private findIdleRunnerPoolEntry(sizeClass: string) {
+    const entries = this.rows(
+      `SELECT * FROM runner_pool
+       WHERE size_class = ? AND (assigned_run_id IS NULL OR assigned_run_id = '')
+       ORDER BY updated_at ASC`,
+      sizeClass,
+    ).map((row) => this.parseRunnerPoolRow(row))
+    return entries.find((entry) => this.isRunnerPoolAlive(entry)) ?? null
+  }
+
+  private assignRunnerPoolEntry(dropletId: string, runId: string) {
+    this.sql.exec(
+      `UPDATE runner_pool
+         SET assigned_run_id = ?, status = ?, updated_at = ?
+       WHERE droplet_id = ?`,
+      runId,
+      'busy',
+      nowIso(),
+      dropletId,
+    )
+  }
+
+  private clearRunnerPoolEntryAssignment(dropletId: string) {
+    this.sql.exec(
+      `UPDATE runner_pool
+         SET assigned_run_id = NULL, status = ?, updated_at = ?
+       WHERE droplet_id = ?`,
+      'idle',
+      nowIso(),
+      dropletId,
+    )
   }
 
   private datasetRowToJson(row: Record<string, unknown>) {
@@ -1351,7 +1495,15 @@ export class ControlPlane {
         const remoteAgentConfig = config && typeof config === 'object'
           ? (config as Record<string, unknown>)
           : null
-        const droplet = await launchResearchDroplet(this.env, {
+        this.appendRunEvent(runId, 'Preparing remote agent droplet launch.')
+        this.sql.exec(
+          `UPDATE runs SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+          'booting',
+          'Preparing remote agent droplet launch.',
+          nowIso(),
+          runId,
+        )
+        const launchParams = {
           datasetId,
           runId,
           runType,
@@ -1367,16 +1519,39 @@ export class ControlPlane {
           datasetMountPath: dataset.volumeMountPath,
           manifestPath: dataset.manifestPath,
           sourceSizeBytes: dataset.sourceSizeBytes,
-        })
-        this.appendRunEvent(runId, `Remote agent droplet ${droplet.name} launched in ${droplet.region} (${droplet.size}).`)
-        this.sql.exec(
-          `UPDATE runs SET droplet_id = ?, droplet_name = ?, status = ?, updated_at = ? WHERE id = ?`,
-          droplet.id,
-          droplet.name,
-          'booting',
-          nowIso(),
-          runId,
-        )
+        }
+        const sizeClass = inferResearchSizeClass(launchParams)
+        let assignedPoolRunner = this.findIdleRunnerPoolEntry(sizeClass)
+        if (!assignedPoolRunner) {
+          await ensureWarmResearchPool(this.env, sizeClass)
+          assignedPoolRunner = this.findIdleRunnerPoolEntry(sizeClass)
+        }
+        if (assignedPoolRunner) {
+          await attachVolumeToDroplet(this.env, dataset.volumeId, assignedPoolRunner.dropletId, dataset.volumeRegion ?? this.env.DIGITALOCEAN_REGION)
+          this.assignRunnerPoolEntry(assignedPoolRunner.dropletId, runId)
+          this.appendRunEvent(runId, `Assigned warm runner ${assignedPoolRunner.dropletName} (${assignedPoolRunner.sizeClass}).`)
+          this.sql.exec(
+            `UPDATE runs SET droplet_id = ?, droplet_name = ?, status = ?, updated_at = ? WHERE id = ?`,
+            assignedPoolRunner.dropletId,
+            assignedPoolRunner.dropletName,
+            'booting',
+            nowIso(),
+            runId,
+          )
+          await ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
+        } else {
+          const droplet = await launchResearchDroplet(this.env, launchParams)
+          this.appendRunEvent(runId, `Remote agent droplet ${droplet.name} launched in ${droplet.region} (${droplet.size}).`)
+          this.sql.exec(
+            `UPDATE runs SET droplet_id = ?, droplet_name = ?, status = ?, updated_at = ? WHERE id = ?`,
+            droplet.id,
+            droplet.name,
+            'booting',
+            nowIso(),
+            runId,
+          )
+          await ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
+        }
         return respondJson({ run: this.runRowToJson(this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]!) })
       } catch (error) {
         const message = error instanceof Error ? error.message : 'Run launch failed'
@@ -1489,12 +1664,22 @@ export class ControlPlane {
       }
       if (run.dropletId) {
         try {
-          await deleteDroplet(this.env, run.dropletId)
           const dataset = this.getDataset(run.datasetId)
-          if (dataset?.volumeId) {
-            await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
+          const pooledRunner = this.getRunnerPoolEntry(run.dropletId)
+          if (pooledRunner) {
+            if (dataset?.volumeId) {
+              await detachVolumeByDroplet(this.env, dataset.volumeId, run.dropletId, dataset.volumeRegion ?? this.env.DIGITALOCEAN_REGION).catch(() => undefined)
+              await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
+            }
+            this.clearRunnerPoolEntryAssignment(run.dropletId)
+            this.appendRunEvent(runId, `Cancelled run and released pooled runner ${pooledRunner.dropletName}.`, 'warning')
+          } else {
+            await deleteDroplet(this.env, run.dropletId)
+            if (dataset?.volumeId) {
+              await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
+            }
+            this.appendRunEvent(runId, `Cancelled run and deleted droplet ${run.dropletName ?? run.dropletId}.`, 'warning')
           }
-          this.appendRunEvent(runId, `Cancelled run and deleted droplet ${run.dropletName ?? run.dropletId}.`, 'warning')
         } catch (error) {
           this.appendRunEvent(
             runId,
@@ -1633,6 +1818,78 @@ export class ControlPlane {
       return respondJson({ spec: this.researchSpecToJson(row) })
     }
 
+    if (pathname === '/internal/runner-pool/heartbeat' && request.method === 'POST') {
+      const body = await request.json() as Record<string, unknown>
+      const dropletId = String(body.dropletId ?? '')
+      const dropletName = String(body.dropletName ?? '')
+      const sizeClass = String(body.sizeClass ?? '')
+      if (!dropletId || !dropletName || !sizeClass) {
+        return respondJson({ error: 'Missing dropletId, dropletName, or sizeClass' }, 400)
+      }
+      this.registerRunnerPoolHeartbeat(dropletId, dropletName, sizeClass)
+      return respondJson({ ok: true })
+    }
+
+    const poolAssignmentMatch = pathname.match(/^\/internal\/runner-pool\/droplets\/([^/]+)\/assignment$/u)
+    if (poolAssignmentMatch && request.method === 'GET') {
+      const dropletId = decodeURIComponent(poolAssignmentMatch[1] ?? '')
+      const runner = this.getRunnerPoolEntry(dropletId)
+      if (!runner) {
+        return respondJson({ assignment: null })
+      }
+      this.registerRunnerPoolHeartbeat(dropletId, runner.dropletName, runner.sizeClass)
+      if (!runner.assignedRunId) {
+        return respondJson({ assignment: null })
+      }
+      const runRow = this.rows('SELECT * FROM runs WHERE id = ? LIMIT 1', runner.assignedRunId)[0]
+      if (!runRow) {
+        this.clearRunnerPoolEntryAssignment(dropletId)
+        return respondJson({ assignment: null })
+      }
+      const run = this.parseRunRow(runRow)
+      if (isTerminalStatus(run.status)) {
+        this.clearRunnerPoolEntryAssignment(dropletId)
+        return respondJson({ assignment: null })
+      }
+      const dataset = this.getDataset(run.datasetId)
+      if (!dataset?.volumeName || !dataset.volumeMountPath || !dataset.manifestPath) {
+        return respondJson({ assignment: null })
+      }
+      const metadata = this.getRunMetadata(run.id)
+      const config = metadata?.config ?? {}
+      const artifacts = metadata?.artifactSpec ?? []
+      const remoteAgentSessionId = typeof (config as Record<string, unknown>).remoteAgentSessionId === 'string'
+        ? String((config as Record<string, unknown>).remoteAgentSessionId)
+        : ''
+      return respondJson({
+        assignment: {
+          runId: run.id,
+          runType: run.type,
+          datasetId: run.datasetId,
+          prompt: run.prompt ?? '',
+          promptB64: encodeBase64(run.prompt ?? ''),
+          configB64: encodeBase64(JSON.stringify(config ?? {})),
+          artifactSpecB64: encodeBase64(JSON.stringify(artifacts ?? [])),
+          remoteAgentSessionId,
+          volumeName: dataset.volumeName,
+          datasetMountPath: dataset.volumeMountPath,
+          manifestPath: dataset.manifestPath,
+        },
+      })
+    }
+
+    const poolCompleteMatch = pathname.match(/^\/internal\/runner-pool\/droplets\/([^/]+)\/complete$/u)
+    if (poolCompleteMatch && request.method === 'POST') {
+      const dropletId = decodeURIComponent(poolCompleteMatch[1] ?? '')
+      const body = await request.json() as Record<string, unknown>
+      const runId = String(body.runId ?? '')
+      const runner = this.getRunnerPoolEntry(dropletId)
+      if (runner && (!runId || runner.assignedRunId === runId)) {
+        this.clearRunnerPoolEntryAssignment(dropletId)
+      }
+      return respondJson({ ok: true })
+    }
+
     const internalEventMatch = pathname.match(/^\/internal\/runs\/([^/]+)\/events$/u)
     if (internalEventMatch && request.method === 'POST') {
       const runId = decodeURIComponent(internalEventMatch[1] ?? '')
@@ -1719,10 +1976,19 @@ export class ControlPlane {
       }
       if ((status === 'ready' || status === 'failed') && run.dropletId) {
         try {
-          await deleteDroplet(this.env, run.dropletId)
           const dataset = this.getDataset(run.datasetId)
-          if (dataset?.volumeId) {
-            await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
+          const pooledRunner = this.getRunnerPoolEntry(run.dropletId)
+          if (pooledRunner) {
+            if (dataset?.volumeId) {
+              await detachVolumeByDroplet(this.env, dataset.volumeId, run.dropletId, dataset.volumeRegion ?? this.env.DIGITALOCEAN_REGION).catch(() => undefined)
+              await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
+            }
+            this.clearRunnerPoolEntryAssignment(run.dropletId)
+          } else {
+            await deleteDroplet(this.env, run.dropletId)
+            if (dataset?.volumeId) {
+              await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
+            }
           }
         } catch {
           // Best-effort cleanup; keep terminal run state even if droplet deletion fails.
