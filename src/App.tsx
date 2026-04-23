@@ -2089,9 +2089,9 @@ function DashboardApp({
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
-                className="h-auto w-full justify-start gap-3 rounded-xl px-3 py-3 hover:bg-sidebar-accent/60"
+                className="h-auto w-full min-w-0 justify-start gap-3 overflow-hidden rounded-xl px-3 py-3 hover:bg-sidebar-accent/60"
               >
-                <Avatar className="size-10 border-0 shadow-none after:hidden">
+                <Avatar className="size-10 shrink-0 border-0 shadow-none after:hidden">
                   <AvatarFallback className="bg-muted text-sm font-medium tracking-[0.08em] text-foreground">
                     {initials}
                   </AvatarFallback>
@@ -2104,7 +2104,7 @@ function DashboardApp({
                     {session.user?.email ?? 'Signed in'}
                   </span>
                 </div>
-                <MoreHorizontal className="size-4 text-muted-foreground" />
+                <MoreHorizontal className="size-4 shrink-0 text-muted-foreground" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="rounded-none">
