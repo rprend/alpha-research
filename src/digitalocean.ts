@@ -300,8 +300,7 @@ post_status ready ready "$MANIFEST_PATH" "Remote normalization completed."
 }
 
 function buildResearchRunnerScript(env: DigitalOceanEnv, params: LaunchResearchParams) {
-  const imageRef = env.RESEARCH_DATASET_REPO_REF ?? 'main'
-  const runnerUrl = `https://raw.githubusercontent.com/rprend/alpha-research/${imageRef}/scripts/run_remote_agent.py`
+  const runnerUrl = `${params.callbackOrigin}/api/internal/runner-scripts/remote-agent.py`
   const venvPath = '/opt/alpha-research-agent-venv'
   const mountRoot = params.datasetMountPath.replace(/\/datasets\/[^/]+$/u, '')
   const callbackEventsUrl = `${params.callbackOrigin}/api/internal/runs/${params.runId}/events`
@@ -432,7 +431,7 @@ function buildResearchRunnerScript(env: DigitalOceanEnv, params: LaunchResearchP
     '"$VENV_PATH/bin/pip" install requests',
     '',
     'mkdir -p /opt/alpha-research',
-    'curl -fsSL "$RUNNER_URL" -o /opt/alpha-research/run_remote_agent.py',
+    'curl -fsSL -H "Authorization: Bearer $RUNNER_TOKEN" "$RUNNER_URL" -o /opt/alpha-research/run_remote_agent.py',
     'npm install -g @openai/codex',
     'mkdir -p "$CODEX_HOME" "$WORKSPACE_DIR" "$ARTIFACT_DIR"',
     `printf '%s' "$OPENAI_API_KEY" | codex login --with-api-key >/dev/null`,

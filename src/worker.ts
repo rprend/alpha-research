@@ -15,6 +15,7 @@ import { onRequestPost as cliPlanPost } from '../functions/cli/plan.js'
 // @ts-expect-error Cloudflare Worker entrypoint imports JS auth helpers.
 import { readCliBearerToken, readSession } from '../functions/_utils/auth.js'
 import { ControlPlane } from './control-plane'
+import { remoteAgentRunnerScript } from './remote-agent-runner-script'
 
 type AssetFetcher = {
   fetch(request: Request): Promise<Response>
@@ -156,6 +157,16 @@ function json(body: unknown, status = 200) {
     status,
     headers: { 'Content-Type': 'application/json' },
   })
+}
+
+function requireInternalRunnerToken(request: Request, env: Env) {
+  const expected = env.RESEARCH_INTERNAL_RUNNER_TOKEN?.trim()
+  if (!expected) {
+    return false
+  }
+  const authorization = request.headers.get('Authorization') ?? ''
+  const actual = authorization.startsWith('Bearer ') ? authorization.slice('Bearer '.length).trim() : ''
+  return actual === expected
 }
 
 async function proxyToControlPlane(env: Env, path: string, init: RequestInit) {
@@ -1187,6 +1198,16 @@ export default {
 
     if (pathname === '/api/cli/respond' && request.method === 'POST') {
       return proxyToResponsesApi(request, env)
+    }
+
+    if (pathname === '/api/internal/runner-scripts/remote-agent.py' && request.method === 'GET') {
+      if (!requireInternalRunnerToken(request, env)) {
+        return new Response('Unauthorized', { status: 401 })
+      }
+      return new Response(remoteAgentRunnerScript, {
+        status: 200,
+        headers: { 'Content-Type': 'text/x-python; charset=utf-8' },
+      })
     }
 
     if (pathname === '/api/cli/assistant/respond' && request.method === 'POST') {
