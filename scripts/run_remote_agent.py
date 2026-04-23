@@ -5,6 +5,8 @@ import os
 import re
 import subprocess
 import sys
+import threading
+import time
 from pathlib import Path
 
 import requests
@@ -31,6 +33,7 @@ REMOTE_AGENT_SESSION_ID = os.environ.get("REMOTE_AGENT_SESSION_ID", "").strip()
 
 
 SESSION_ID_RE = re.compile(r"session id:\s*([0-9a-fA-F-]{36})")
+HEARTBEAT_INTERVAL_SECONDS = int(os.environ.get("REMOTE_AGENT_HEARTBEAT_SECONDS", "45"))
 
 
 def headers(content_type: str):
@@ -92,6 +95,48 @@ def post_session_entry(role: str, kind: str, content: str, title: str | None = N
     ).raise_for_status()
 
 
+def safe_post_event(message: str, level: str = "info"):
+    try:
+        post_event(message, level)
+    except Exception:
+        pass
+
+
+def safe_post_status(status: str, output_preview: str = ""):
+    try:
+        post_status(status, output_preview)
+    except Exception:
+        pass
+
+
+def summarize_codex_json_line(line: str) -> str | None:
+    try:
+        payload = json.loads(line)
+    except Exception:
+        return None
+    item = payload.get("item") if isinstance(payload, dict) else None
+    if not isinstance(item, dict):
+        return None
+    item_type = item.get("type")
+    item_status = item.get("status")
+    if item_type == "command_execution":
+        command = str(item.get("command") or "").replace("\n", " ")
+        command = command[:160]
+        if item_status == "in_progress":
+            return f"Running command: {command}"
+        if item_status == "completed":
+            return f"Completed command: {command}"
+        if item_status == "failed":
+            return f"Command failed: {command}"
+    if item_type == "todo_list":
+        todos = item.get("items")
+        if isinstance(todos, list):
+            incomplete = [str(todo.get("text")) for todo in todos if isinstance(todo, dict) and not todo.get("completed")]
+            if incomplete:
+                return f"Next: {incomplete[0]}"
+    return None
+
+
 def build_remote_agent_prompt():
     artifact_contract = "\n".join(
         [
@@ -106,6 +151,7 @@ def build_remote_agent_prompt():
             "",
             "You may inspect files, run shell commands, write scripts, and produce result files.",
             "Use the mounted dataset and manifest to understand the corpus before acting.",
+            "For any command or script expected to run longer than 30 seconds, print progress at least every 30 seconds.",
             "If you generate deliverables, write them into the artifact directory.",
             "Required outputs:",
             "- summary.md: a concise human-readable summary of what you found or built",
@@ -220,6 +266,21 @@ def run_codex():
     })
 
     session_id = None
+    started_at = time.monotonic()
+    last_output_at = started_at
+    last_status = "Starting remote agent executor."
+    stop_heartbeat = threading.Event()
+
+    def heartbeat_loop():
+        while not stop_heartbeat.wait(HEARTBEAT_INTERVAL_SECONDS):
+            elapsed = int(time.monotonic() - started_at)
+            idle_for = int(time.monotonic() - last_output_at)
+            preview = f"Remote agent running for {elapsed}s. Last activity {idle_for}s ago. {last_status}"
+            safe_post_status("running", preview[:500])
+            safe_post_event(f"Remote agent heartbeat: {preview[:500]}")
+
+    heartbeat_thread = threading.Thread(target=heartbeat_loop, daemon=True)
+    heartbeat_thread.start()
     with TRANSCRIPT_PATH.open("w", encoding="utf-8") as transcript:
       process = subprocess.Popen(
           command,
@@ -235,6 +296,7 @@ def run_codex():
           stripped = line.strip()
           if not stripped:
               continue
+          last_output_at = time.monotonic()
           match = SESSION_ID_RE.search(stripped)
           if match and not session_id:
               session_id = match.group(1)
@@ -244,6 +306,10 @@ def run_codex():
                   "sessionId": session_id,
               })
           if stripped.startswith("{"):
+              summary = summarize_codex_json_line(stripped)
+              if summary:
+                  last_status = summary
+                  safe_post_status("running", summary)
               post_event(stripped[:2000])
               post_session_entry("assistant", "stdout", stripped[:5000], "Stdout JSON")
           elif stripped.startswith("ERROR:"):
@@ -255,6 +321,8 @@ def run_codex():
           else:
               post_session_entry("assistant", "stdout", stripped[:5000], "Remote output")
       return_code = process.wait()
+      stop_heartbeat.set()
+      heartbeat_thread.join(timeout=2)
     if return_code != 0:
         raise RuntimeError(f"codex exec failed with exit code {return_code}")
     return session_id

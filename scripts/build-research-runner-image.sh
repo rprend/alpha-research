@@ -62,18 +62,22 @@ ssh -o StrictHostKeyChecking=no "root@${BUILDER_IP}" <<'EOF'
 set -euo pipefail
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
-apt-get install -y ca-certificates curl git python3 python3-pip
+apt-get install -y ca-certificates curl git build-essential python3 python3-dev python3-pip python3-venv
 curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
 apt-get install -y nodejs
 npm install -g @openai/codex
-python3 -m pip install --break-system-packages requests
+python3 -m pip install --break-system-packages requests pandas pyarrow duckdb
 ln -sf "$(command -v python3)" /usr/local/bin/python
 mkdir -p /opt/alpha-research
 cat >/opt/alpha-research/README.txt <<'TXT'
 Alpha Research runner image
 - python3
+- python3-venv
 - python -> python3
 - requests
+- pandas
+- pyarrow
+- duckdb
 - nodejs
 - codex
 TXT

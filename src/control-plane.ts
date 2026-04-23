@@ -1053,13 +1053,19 @@ export class ControlPlane {
 
   private appendRunEvent(runId: string, message: string, level = 'info') {
     const id = crypto.randomUUID()
+    const timestamp = nowIso()
     this.sql.exec(
       `INSERT INTO run_events (id, run_id, message, level, created_at) VALUES (?, ?, ?, ?, ?)`,
       id,
       runId,
       message,
       level,
-      nowIso(),
+      timestamp,
+    )
+    this.sql.exec(
+      `UPDATE runs SET updated_at = ? WHERE id = ?`,
+      timestamp,
+      runId,
     )
     return id
   }
