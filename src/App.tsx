@@ -5,6 +5,7 @@ import {
   Database,
   ExternalLink,
   History,
+  LayoutDashboard,
   LoaderCircle,
   LogOut,
   MoreHorizontal,
@@ -131,7 +132,7 @@ type RunResultsResponse = {
 
 type SessionTranscriptKind = 'cli' | 'remote'
 type SessionEntryRole = 'user' | 'assistant' | 'system' | 'tool'
-type DashboardView = 'assistant' | 'datasets' | 'runs' | 'terminal-sessions'
+type DashboardView = 'dashboard' | 'datasets' | 'runs' | 'terminal-sessions'
 
 type StoredAssistantSessionEntry = {
   id: string
@@ -163,12 +164,6 @@ type SessionEntry = {
   body: string
   metadata?: unknown
   createdAt: string
-}
-
-type AssistantTurnResponse = {
-  sessionId: string | null
-  previousResponseId: string | null
-  reply: string
 }
 
 const ROOT_HOST = 'alpharesearch.nyc'
@@ -582,8 +577,9 @@ function createSessionEntry(
   createdAt: string,
   body: string,
   title?: string,
+  metadata?: unknown,
 ): SessionEntry {
-  return { id, role, createdAt, body, title }
+  return { id, role, createdAt, body, title, metadata }
 }
 
 function getRemoteSessionId(artifacts: RunArtifactRecord[]) {
@@ -612,6 +608,7 @@ function buildCliTranscript(
         entry.createdAt,
         entry.content,
         entry.title ?? formatStatus(entry.kind),
+        entry.metadata,
       ),
     )
   }
@@ -704,6 +701,7 @@ function buildRemoteTranscript(
         entry.createdAt,
         entry.content,
         entry.title ?? formatStatus(entry.kind),
+        entry.metadata,
       ),
     )
   }
@@ -917,15 +915,62 @@ function normalizeSessionsPayload(payload: unknown): StoredAssistantSession[] {
   return []
 }
 
+function extractAppendMessageText(message: {
+  content?: Array<{ type?: string; text?: string }>
+}) {
+  return (message.content ?? [])
+    .filter((part) => part.type === 'text' && typeof part.text === 'string')
+    .map((part) => part.text?.trim() ?? '')
+    .filter(Boolean)
+    .join('\n\n')
+    .trim()
+}
+
+function extractPreviousResponseId(entries: StoredAssistantSessionEntry[]) {
+  for (let index = entries.length - 1; index >= 0; index -= 1) {
+    const entry = entries[index]
+    if (!entry) continue
+    if (!entry.metadata || typeof entry.metadata !== 'object') continue
+    const previousResponseId = (entry.metadata as { previousResponseId?: unknown }).previousResponseId
+    if (typeof previousResponseId === 'string' && previousResponseId) {
+      return previousResponseId
+    }
+  }
+  return null
+}
+
+async function postAssistantTurn(body: {
+  input: string
+  sessionId?: string | null
+  previousResponseId?: string | null
+}) {
+  const response = await fetch('/api/cli/assistant/respond', {
+    method: 'POST',
+    credentials: 'same-origin',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      input: body.input,
+      sessionId: body.sessionId ?? undefined,
+      previousResponseId: body.previousResponseId ?? undefined,
+    }),
+  })
+  if (!response.ok) {
+    const text = await response.text().catch(() => '')
+    throw new Error(text || `Request failed: ${response.status}`)
+  }
+  return response.json() as Promise<AssistantTurnResponse>
+}
+
 function getDashboardRoute() {
   const url = new URL(window.location.href)
   const candidate = url.searchParams.get('view')
   const view: DashboardView =
+    candidate === 'assistant' ||
     candidate === 'datasets' ||
     candidate === 'runs' ||
     candidate === 'terminal-sessions'
       ? candidate
-      : 'dashboard'
+      : 'assistant'
 
   return {
     view,
@@ -1548,6 +1593,7 @@ function SessionDetailPage({ sessionId }: { sessionId: string }) {
       entry.createdAt,
       entry.content,
       entry.title ?? formatStatus(entry.kind),
+      entry.metadata,
     ),
   )
 

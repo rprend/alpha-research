@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/newalpharesearchlogo/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/newalpharesearchlogo/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/newalpharesearchlogo/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/newalpharesearchlogo/apple-touch-icon.png" />
+    <link rel="manifest" href="/newalpharesearchlogo/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Install the Alpha Research CLI, bring your own dataset, and run agentic search and analysis on your own corpus."
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://alpharesearch.nyc/cli/" />
+    <meta property="og:site_name" content="Alpha Research" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CLI | Alpha Research" />
+    <meta
+      property="og:description"
+      content="Install the Alpha Research CLI, bring your own dataset, and run agentic search and analysis on your own corpus."
+    />
+    <meta property="og:url" content="https://alpharesearch.nyc/cli/" />
+    <meta property="og:image" content="https://alpharesearch.nyc/social/alpha-research-og.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Alpha Research social preview image" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CLI | Alpha Research" />
+    <meta
+      name="twitter:description"
+      content="Install the Alpha Research CLI, bring your own dataset, and run agentic search and analysis on your own corpus."
+    />
+    <meta name="twitter:image" content="https://alpharesearch.nyc/social/alpha-research-og.png" />
+    <meta name="twitter:image:alt" content="Alpha Research social preview image" />
+    <title>CLI | Alpha Research</title>
+    <link rel="stylesheet" href="/docs-page.css" />
+  </head>
+  <body>
+    <div class="docs-page">
+      <header class="nav-shell">
+        <div class="page-wrap nav-wrap">
+          <div class="topbar">
+            <a class="logo-link" href="/" aria-label="Alpha Research home">
+              <img class="logo-wordmark" src="/alpha-research-wordmark.png" alt="Alpha Research logo" />
+            </a>
+
+            <nav class="top-links" aria-label="Primary">
+              <a class="underlined-link" href="/cli/">CLI</a>
+              <a class="button-small ghost-button" href="/blog/">blog</a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <main class="content-shell">
+        <div class="page-wrap content-wrap">
+          <section class="cli-block">
+            <div class="eyebrow">For Your Own Corpus</div>
+            <h1>Bring your own dataset</h1>
+            <p class="cli-lede">
+              Install the RESEARCH CLI, sign in, and point it at a parquet, CSV, PDF, or text
+              corpus. The CLI uploads the raw source, normalizes it remotely, and gives you a run
+              you can reopen later.
+            </p>
+
+            <div class="cli-card">
+              <div class="cli-card-head">
+                <div>
+                  <p class="cli-card-label">Install</p>
+                  <p class="cli-card-copy">Run this yourself or hand it to your agent.</p>
+                </div>
+              </div>
+              <pre class="cli-pre"><code>curl -fsSL https://raw.githubusercontent.com/zenobia-pay/alpha-research/codex/initial-substrate/scripts/install_alpha_research.sh | bash</code></pre>
+            </div>
+
+            <div class="cli-card">
+              <div class="cli-card-head">
+                <div>
+                  <p class="cli-card-label">Prompt Your Agent</p>
+                  <p class="cli-card-copy">Paste this into Codex or Claude Code and describe the dataset at the bottom.</p>
+                </div>
+              </div>
+              <pre class="cli-pre"><code>Install the RESEARCH CLI and deploy my dataset.
+
+Run:
+curl -fsSL https://raw.githubusercontent.com/zenobia-pay/alpha-research/codex/initial-substrate/scripts/install_alpha_research.sh | bash
+
+Then run:
+research
+
+Sign in if needed. Based on my description, choose the dataset name, id, mode, and path. Create the dataset, deploy it, and then tell me the dataset id, run id, and current status.
+
+Dataset description:</code></pre>
+            </div>
+
+            <div class="cli-grid">
+              <article class="cli-mini-card">
+                <p class="cli-card-label">Formats</p>
+                <p>
+                  Parquet, CSV, JSON, markdown, HTML, PDFs, and other research corpora that need
+                  normalization before search and analysis.
+                </p>
+              </article>
+              <article class="cli-mini-card">
+                <p class="cli-card-label">Runs</p>
+                <p>
+                  Upload starts a remote run. Alpha Research provisions storage and compute,
+                  normalizes the dataset, and keeps the run visible when you reopen the CLI.
+                </p>
+              </article>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="page-wrap footer-wrap">
+          <a class="logo-link" href="/" aria-label="Alpha Research home">
+            <img class="logo-mark" src="/newalpharesearchlogo/apple-touch-icon.png" alt="Alpha Research logo" />
+          </a>
+
+          <div class="footer-copy">
+            <div class="footer-links">
+              <a href="/cli/">CLI</a>
+              <a href="/blog/">blog</a>
+              <a href="/privacy/">privacy</a>
+              <a href="/terms/">terms</a>
+            </div>
+          </div>
+
+          <div class="footer-meta">
+            <div>© 2026 Alpha Research</div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

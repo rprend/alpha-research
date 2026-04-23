@@ -69,6 +69,66 @@ type HandlerContext = {
   env: Env
 }
 
+type AgentToolResult = {
+  summary: string
+  data?: unknown
+}
+
+type ResponseFunctionCall = {
+  type: 'function_call'
+  call_id?: string
+  name?: string
+  arguments?: string
+}
+
+type ResponseMessage = {
+  type?: string
+  content?: Array<{
+    type?: string
+    text?: string
+  }>
+}
+
+type ResponsesApiPayload = {
+  id?: string
+  output_text?: string
+  output?: Array<ResponseFunctionCall | ResponseMessage | Record<string, unknown>>
+}
+
+type AgentToolDefinition = {
+  name: string
+  description: string
+  parameters: Record<string, unknown>
+  execute: (input: Record<string, unknown>, sessionId: string | null) => Promise<AgentToolResult>
+}
+
+const WEB_DASHBOARD_ORIGIN = 'https://dashboard.alpharesearch.nyc'
+const MAX_TOOL_ROUNDS = 12
+const ASYNC_RUN_START_TOOLS = new Set([
+  'start_remote_run',
+  'query_remote_dataset',
+  'aggregate_remote_dataset',
+  'fetch_public_data',
+  'start_remote_agent_run',
+  'continue_remote_agent_run',
+  'run_remote_transformation',
+  'run_remote_labeling',
+])
+
+const RESEARCH_AGENT_INSTRUCTIONS = [
+  'You are RESEARCH, a CLI agent for helping knowledge workers work faster.',
+  'You help them create and manage remote research environments with large datasets, design experiments, and get the results.',
+  'You manage the creation, operation, and prompting of other agents on remote cloud environments.',
+  '',
+  'In the web app, act like the RESEARCH CLI running remotely for the signed-in user.',
+  'Use the provided tools instead of giving generic advice.',
+  'Prefer lightweight dataset queries before launching heavy transforms or analyses when the user wants examples, top records, or simple slices.',
+  'Do not answer with generic numbered menus when you can inspect the user datasets or runs and propose one concrete next action.',
+  'When you start a remote run, do not wait for completion unless the user explicitly asks you to wait.',
+  'Be concise. After tool work completes, summarize the result and current status.',
+  'Only ask the user a question if a required tool input cannot be resolved from tools or prior results.',
+].join('\n')
+
 function createContext(request: Request, env: Env): HandlerContext {
   return { request, env }
 }
@@ -103,6 +163,18 @@ async function proxyToControlPlane(env: Env, path: string, init: RequestInit) {
   return stub.fetch(`https://control-plane${path}`, init)
 }
 
+async function proxyToControlPlaneJson<T>(env: Env, path: string, init: RequestInit) {
+  const response = await proxyToControlPlane(env, path, init)
+  const text = await response.text()
+  if (!response.ok) {
+    throw new Error(`Control plane request failed (${response.status}) for ${path}.${text ? ` ${text}` : ''}`)
+  }
+  if (!text) {
+    return undefined as T
+  }
+  return JSON.parse(text) as T
+}
+
 function summarizeInput(input: unknown) {
   if (typeof input === 'string') {
     return input
@@ -130,6 +202,49 @@ function extractResponseText(payload: Record<string, unknown>) {
     }
   }
   return chunks.join('\n\n').trim()
+}
+
+function extractFunctionCalls(payload: ResponsesApiPayload) {
+  return (payload.output ?? []).filter(
+    (item): item is ResponseFunctionCall =>
+      typeof item === 'object' && item !== null && (item as ResponseFunctionCall).type === 'function_call',
+  )
+}
+
+function parseJsonArguments(rawArguments: string | undefined) {
+  if (!rawArguments) {
+    return {}
+  }
+  try {
+    const parsed = JSON.parse(rawArguments)
+    if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+      return parsed as Record<string, unknown>
+    }
+  } catch {
+    // fall through
+  }
+  throw new Error(`Invalid tool arguments: ${rawArguments}`)
+}
+
+function buildToolSchema(tool: AgentToolDefinition) {
+  return {
+    type: 'function',
+    name: tool.name,
+    description: tool.description,
+    parameters: tool.parameters,
+  }
+}
+
+function dashboardRunUrl(runId: string) {
+  return `${WEB_DASHBOARD_ORIGIN}?view=runs&runId=${encodeURIComponent(runId)}`
+}
+
+function requireString(input: Record<string, unknown>, key: string) {
+  const value = input[key]
+  if (typeof value !== 'string' || !value.trim()) {
+    throw new Error(`Missing required string: ${key}`)
+  }
+  return value.trim()
 }
 
 async function appendAssistantSessionEntry(env: Env, sessionId: string, body: Record<string, unknown>) {
@@ -236,6 +351,792 @@ async function proxyToResponsesApi(request: Request, env: Env) {
   })
 }
 
+async function callResponsesApi(env: Env, body: Record<string, unknown>) {
+  if (!env.OPENAI_API_KEY) {
+    throw new Error('Missing OPENAI_API_KEY on alpha-research worker')
+  }
+
+  const upstream = await fetch('https://api.openai.com/v1/responses', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${env.OPENAI_API_KEY}`,
+    },
+    body: JSON.stringify({
+      model: env.RESEARCH_AGENT_MODEL ?? 'gpt-5',
+      ...body,
+    }),
+  })
+
+  const text = await upstream.text()
+  if (!upstream.ok) {
+    throw new Error(`Responses API request failed (${upstream.status}).${text ? ` ${text}` : ''}`)
+  }
+
+  return JSON.parse(text) as ResponsesApiPayload
+}
+
+function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefinition[] {
+  return [
+    {
+      name: 'list_remote_datasets',
+      description: 'List datasets registered on the remote Alpha Research control plane.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {},
+      },
+      async execute() {
+        const payload = await proxyToControlPlaneJson<{ datasets: Array<Record<string, unknown>> }>(
+          env,
+          `/datasets?ownerEmail=${encodeURIComponent(ownerEmail)}`,
+          { method: 'GET' },
+        )
+        const count = payload.datasets.length
+        return {
+          summary: count > 0 ? `Found ${count} remote dataset${count === 1 ? '' : 's'}.` : 'No remote datasets found.',
+          data: payload,
+        }
+      },
+    },
+    {
+      name: 'inspect_remote_dataset',
+      description: 'Inspect a remote dataset including ingest config, deployment metadata, schema profile, and sample rows when available.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: { datasetId: { type: 'string' } },
+        required: ['datasetId'],
+      },
+      async execute(input) {
+        const datasetId = requireString(input, 'datasetId')
+        const payload = await proxyToControlPlaneJson<{ dataset: Record<string, unknown> }>(
+          env,
+          `/datasets/${encodeURIComponent(datasetId)}`,
+          { method: 'GET' },
+        )
+        return {
+          summary: `Inspected remote dataset ${datasetId}.`,
+          data: payload,
+        }
+      },
+    },
+    {
+      name: 'compare_remote_datasets',
+      description: 'Compare multiple remote datasets by schema, ingest config, deployment status, and profile metadata.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          datasetIds: {
+            type: 'array',
+            items: { type: 'string' },
+            minItems: 2,
+          },
+        },
+        required: ['datasetIds'],
+      },
+      async execute(input) {
+        const datasetIds = Array.isArray(input.datasetIds) ? input.datasetIds.map(String) : []
+        const datasets = await Promise.all(
+          datasetIds.map(async (datasetId) => {
+            const payload = await proxyToControlPlaneJson<{ dataset: Record<string, unknown> }>(
+              env,
+              `/datasets/${encodeURIComponent(datasetId)}`,
+              { method: 'GET' },
+            )
+            return payload.dataset
+          }),
+        )
+        return {
+          summary: `Compared ${datasets.length} remote datasets.`,
+          data: { datasets },
+        }
+      },
+    },
+    {
+      name: 'list_tracked_runs',
+      description: 'List RESEARCH runs for the signed-in account, including in-progress deploy or query runs.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {},
+      },
+      async execute() {
+        const payload = await proxyToControlPlaneJson<{ runs: Array<Record<string, unknown>> }>(
+          env,
+          `/runs?ownerEmail=${encodeURIComponent(ownerEmail)}`,
+          { method: 'GET' },
+        )
+        return {
+          summary:
+            payload.runs.length > 0
+              ? `Found ${payload.runs.length} tracked run${payload.runs.length === 1 ? '' : 's'}.`
+              : 'No tracked runs yet.',
+          data: payload,
+        }
+      },
+    },
+    {
+      name: 'list_research_specs',
+      description: 'List saved research specs or hypothesis plans for a dataset or account.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: { datasetId: { type: 'string' } },
+      },
+      async execute(input) {
+        const datasetId = typeof input.datasetId === 'string' ? input.datasetId : null
+        const suffix = datasetId ? `&datasetId=${encodeURIComponent(datasetId)}` : ''
+        const payload = await proxyToControlPlaneJson<{ specs: Array<Record<string, unknown>> }>(
+          env,
+          `/research-specs?ownerEmail=${encodeURIComponent(ownerEmail)}${suffix}`,
+          { method: 'GET' },
+        )
+        return {
+          summary:
+            payload.specs.length > 0
+              ? `Found ${payload.specs.length} research spec${payload.specs.length === 1 ? '' : 's'}.`
+              : 'No research specs found.',
+          data: payload,
+        }
+      },
+    },
+    {
+      name: 'create_research_spec',
+      description: 'Create a structured research or hypothesis plan for a dataset, including subset, shaping, labeling, and result artifact requirements.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          datasetId: { type: 'string' },
+          hypothesis: { type: 'string' },
+          spec: { type: 'object' },
+          status: { type: 'string' },
+        },
+        required: ['datasetId', 'hypothesis'],
+      },
+      async execute(input) {
+        const payload = await proxyToControlPlaneJson<{ spec: Record<string, unknown> }>(env, '/research-specs', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ownerEmail,
+            datasetId: requireString(input, 'datasetId'),
+            hypothesis: requireString(input, 'hypothesis'),
+            spec: input.spec && typeof input.spec === 'object' ? input.spec : undefined,
+            status: typeof input.status === 'string' ? input.status : undefined,
+          }),
+        })
+        return {
+          summary: `Created research spec ${String(payload.spec.id ?? 'unknown')}.`,
+          data: payload,
+        }
+      },
+    },
+    {
+      name: 'update_remote_dataset_profile',
+      description: 'Attach schema, sample rows, and notes to a remote dataset so future hypothesis planning can inspect the dataset content.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          datasetId: { type: 'string' },
+          schema: {},
+          sampleRows: {},
+          notes: { type: 'string' },
+        },
+        required: ['datasetId'],
+      },
+      async execute(input) {
+        const datasetId = requireString(input, 'datasetId')
+        const payload = await proxyToControlPlaneJson<{ profile: Record<string, unknown> }>(
+          env,
+          `/datasets/${encodeURIComponent(datasetId)}/profile`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ownerEmail,
+              schema: input.schema,
+              sampleRows: input.sampleRows,
+              notes: typeof input.notes === 'string' ? input.notes : undefined,
+            }),
+          },
+        )
+        return {
+          summary: `Updated profile for remote dataset ${datasetId}.`,
+          data: payload,
+        }
+      },
+    },
+    {
+      name: 'deploy_remote_dataset',
+      description: 'Provision remote infrastructure and start normalization for a registered dataset.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: { datasetId: { type: 'string' } },
+        required: ['datasetId'],
+      },
+      async execute(input, sessionId) {
+        const datasetId = requireString(input, 'datasetId')
+        const payload = await proxyToControlPlaneJson<Record<string, unknown>>(
+          env,
+          `/datasets/${encodeURIComponent(datasetId)}/deploy`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ownerEmail,
+              sessionId,
+            }),
+          },
+        )
+        return {
+          summary: `Started deployment for ${datasetId}.`,
+          data: payload,
+        }
+      },
+    },
+    {
+      name: 'start_remote_run',
+      description: 'Start a structured remote agent run against a dataset, including hypothesis tests, public-data fetches, transformations, labeling jobs, and artifact requests.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          datasetId: { type: 'string' },
+          prompt: { type: 'string' },
+          type: { type: 'string', enum: ['analysis', 'fetch', 'transform', 'label', 'hypothesis', 'agent'] },
+          config: { type: 'object' },
+          artifacts: { type: 'array', items: { type: 'object' } },
+        },
+        required: ['datasetId', 'prompt'],
+      },
+      async execute(input, sessionId) {
+        const datasetId = requireString(input, 'datasetId')
+        const prompt = requireString(input, 'prompt')
+        const payload = await proxyToControlPlaneJson<{ run: { id: string } }>(
+          env,
+          `/datasets/${encodeURIComponent(datasetId)}/runs`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ownerEmail,
+              sessionId,
+              prompt,
+              type: typeof input.type === 'string' ? input.type : undefined,
+              config: input.config && typeof input.config === 'object' ? input.config : undefined,
+              artifacts: Array.isArray(input.artifacts) ? input.artifacts : undefined,
+            }),
+          },
+        )
+        return {
+          summary: `Started run ${payload.run.id} on ${datasetId}. Dashboard: ${dashboardRunUrl(payload.run.id)}`,
+          data: payload,
+        }
+      },
+    },
+    {
+      name: 'query_remote_dataset',
+      description: 'Run a lightweight remote query against a deployed dataset and return immediately with a run id and dashboard link.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          datasetId: { type: 'string' },
+          prompt: { type: 'string' },
+        },
+        required: ['datasetId', 'prompt'],
+      },
+      async execute(input, sessionId) {
+        const datasetId = requireString(input, 'datasetId')
+        const prompt = requireString(input, 'prompt')
+        const payload = await proxyToControlPlaneJson<{ run: { id: string } }>(
+          env,
+          `/datasets/${encodeURIComponent(datasetId)}/runs`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ownerEmail,
+              sessionId,
+              prompt,
+              type: 'query',
+              artifacts: [{ type: 'query_result', title: 'Query Result' }],
+            }),
+          },
+        )
+        return {
+          summary: `Started query run ${payload.run.id}. Dashboard: ${dashboardRunUrl(payload.run.id)}`,
+          data: payload,
+        }
+      },
+    },
+    {
+      name: 'aggregate_remote_dataset',
+      description: 'Run a lightweight remote aggregation against a deployed dataset and return immediately with a run id and dashboard link.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          datasetId: { type: 'string' },
+          prompt: { type: 'string' },
+        },
+        required: ['datasetId', 'prompt'],
+      },
+      async execute(input, sessionId) {
+        const datasetId = requireString(input, 'datasetId')
+        const prompt = requireString(input, 'prompt')
+        const payload = await proxyToControlPlaneJson<{ run: { id: string } }>(
+          env,
+          `/datasets/${encodeURIComponent(datasetId)}/runs`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ownerEmail,
+              sessionId,
+              prompt,
+              type: 'query',
+              artifacts: [{ type: 'aggregate_result', title: 'Aggregate Result' }],
+            }),
+          },
+        )
+        return {
+          summary: `Started aggregate run ${payload.run.id}. Dashboard: ${dashboardRunUrl(payload.run.id)}`,
+          data: payload,
+        }
+      },
+    },
+    {
+      name: 'fetch_public_data',
+      description: 'Queue a remote public-data acquisition run that fetches internet data into a research environment.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          datasetId: { type: 'string' },
+          sourceDescription: { type: 'string' },
+          prompt: { type: 'string' },
+        },
+        required: ['datasetId', 'sourceDescription'],
+      },
+      async execute(input, sessionId) {
+        const datasetId = requireString(input, 'datasetId')
+        const sourceDescription = requireString(input, 'sourceDescription')
+        const payload = await proxyToControlPlaneJson<{ run: { id: string } }>(
+          env,
+          `/datasets/${encodeURIComponent(datasetId)}/runs`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ownerEmail,
+              sessionId,
+              prompt: typeof input.prompt === 'string' ? input.prompt : `Fetch public data: ${sourceDescription}`,
+              type: 'fetch',
+              config: { sourceDescription },
+            }),
+          },
+        )
+        return {
+          summary: `Queued public-data fetch run ${payload.run.id}. Dashboard: ${dashboardRunUrl(payload.run.id)}`,
+          data: payload,
+        }
+      },
+    },
+    {
+      name: 'start_remote_agent_run',
+      description: 'Start a remote agent run on a dataset-attached cloud environment and track its results.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          datasetId: { type: 'string' },
+          prompt: { type: 'string' },
+          artifacts: { type: 'array', items: { type: 'object' } },
+        },
+        required: ['datasetId', 'prompt'],
+      },
+      async execute(input, sessionId) {
+        const datasetId = requireString(input, 'datasetId')
+        const prompt = requireString(input, 'prompt')
+        const payload = await proxyToControlPlaneJson<{ run: { id: string } }>(
+          env,
+          `/datasets/${encodeURIComponent(datasetId)}/runs`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ownerEmail,
+              sessionId,
+              prompt,
+              type: 'agent',
+              artifacts: Array.isArray(input.artifacts) ? input.artifacts : undefined,
+            }),
+          },
+        )
+        return {
+          summary: `Queued remote agent run ${payload.run.id}. Dashboard: ${dashboardRunUrl(payload.run.id)}`,
+          data: payload,
+        }
+      },
+    },
+    {
+      name: 'continue_remote_agent_run',
+      description: 'Continue a previous remote agent run by resuming its remote agent session with a follow-up prompt.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          runId: { type: 'string' },
+          prompt: { type: 'string' },
+          artifacts: { type: 'array', items: { type: 'object' } },
+        },
+        required: ['runId', 'prompt'],
+      },
+      async execute(input, sessionId) {
+        const runId = requireString(input, 'runId')
+        const previous = await proxyToControlPlaneJson<{
+          run: { datasetId: string }
+          artifacts: Array<{ type: string; content?: Record<string, unknown> }>
+        }>(env, `/runs/${encodeURIComponent(runId)}/results`, { method: 'GET' })
+        const sessionArtifact = previous.artifacts.find((artifact) => artifact.type === 'remote_agent_session')
+        const remoteAgentSessionId =
+          sessionArtifact && sessionArtifact.content && typeof sessionArtifact.content.sessionId === 'string'
+            ? sessionArtifact.content.sessionId
+            : ''
+        if (!remoteAgentSessionId) {
+          throw new Error(`Run ${runId} does not have a resumable remote agent session.`)
+        }
+        const payload = await proxyToControlPlaneJson<{ run: { id: string } }>(
+          env,
+          `/datasets/${encodeURIComponent(previous.run.datasetId)}/runs`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ownerEmail,
+              sessionId,
+              prompt: requireString(input, 'prompt'),
+              type: 'agent',
+              config: { remoteAgentSessionId, parentRunId: runId },
+              artifacts: Array.isArray(input.artifacts) ? input.artifacts : undefined,
+            }),
+          },
+        )
+        return {
+          summary: `Queued continuation of remote agent session ${remoteAgentSessionId} as run ${payload.run.id}. Dashboard: ${dashboardRunUrl(payload.run.id)}`,
+          data: payload,
+        }
+      },
+    },
+    {
+      name: 'run_remote_transformation',
+      description: 'Queue a remote transformation run that reshapes or filters data inside an existing research environment.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          datasetId: { type: 'string' },
+          prompt: { type: 'string' },
+          scriptOutline: { type: 'string' },
+        },
+        required: ['datasetId', 'prompt'],
+      },
+      async execute(input, sessionId) {
+        const datasetId = requireString(input, 'datasetId')
+        const payload = await proxyToControlPlaneJson<{ run: { id: string } }>(
+          env,
+          `/datasets/${encodeURIComponent(datasetId)}/runs`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ownerEmail,
+              sessionId,
+              prompt: requireString(input, 'prompt'),
+              type: 'transform',
+              config: {
+                scriptOutline: typeof input.scriptOutline === 'string' ? input.scriptOutline : undefined,
+              },
+            }),
+          },
+        )
+        return {
+          summary: `Queued transformation run ${payload.run.id}. Dashboard: ${dashboardRunUrl(payload.run.id)}`,
+          data: payload,
+        }
+      },
+    },
+    {
+      name: 'run_remote_labeling',
+      description: 'Queue a remote labeling or enrichment run, including the explicit LLM prompt to use for labeling data points.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          datasetId: { type: 'string' },
+          prompt: { type: 'string' },
+          labelingPrompt: { type: 'string' },
+        },
+        required: ['datasetId', 'labelingPrompt'],
+      },
+      async execute(input, sessionId) {
+        const datasetId = requireString(input, 'datasetId')
+        const labelingPrompt = requireString(input, 'labelingPrompt')
+        const payload = await proxyToControlPlaneJson<{ run: { id: string } }>(
+          env,
+          `/datasets/${encodeURIComponent(datasetId)}/runs`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ownerEmail,
+              sessionId,
+              prompt: typeof input.prompt === 'string' ? input.prompt : `Run labeling job: ${labelingPrompt}`,
+              type: 'label',
+              config: { labelingPrompt },
+            }),
+          },
+        )
+        return {
+          summary: `Queued labeling run ${payload.run.id}. Dashboard: ${dashboardRunUrl(payload.run.id)}`,
+          data: payload,
+        }
+      },
+    },
+    {
+      name: 'get_run_results',
+      description: 'Retrieve a finished or in-progress run together with structured metadata, artifact requests, and accumulated events.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: { runId: { type: 'string' } },
+        required: ['runId'],
+      },
+      async execute(input) {
+        const runId = requireString(input, 'runId')
+        const payload = await proxyToControlPlaneJson<Record<string, unknown>>(
+          env,
+          `/runs/${encodeURIComponent(runId)}/results`,
+          { method: 'GET' },
+        )
+        const status =
+          payload && typeof payload === 'object' && payload.run && typeof (payload.run as { status?: unknown }).status === 'string'
+            ? String((payload.run as { status: string }).status)
+            : 'unknown'
+        return {
+          summary: `Fetched results for run ${runId}. Status: ${status}.`,
+          data: payload,
+        }
+      },
+    },
+    {
+      name: 'list_run_artifacts',
+      description: 'List requested or completed artifacts for a run, such as charts, tables, or result bundles.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: { runId: { type: 'string' } },
+        required: ['runId'],
+      },
+      async execute(input) {
+        const runId = requireString(input, 'runId')
+        const payload = await proxyToControlPlaneJson<Record<string, unknown>>(
+          env,
+          `/runs/${encodeURIComponent(runId)}/artifacts`,
+          { method: 'GET' },
+        )
+        return {
+          summary: `Checked produced artifacts for run ${runId}.`,
+          data: payload,
+        }
+      },
+    },
+    {
+      name: 'cancel_remote_run',
+      description: 'Cancel an in-progress remote run and terminate its cloud droplet when possible.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: { runId: { type: 'string' } },
+        required: ['runId'],
+      },
+      async execute(input) {
+        const runId = requireString(input, 'runId')
+        const payload = await proxyToControlPlaneJson<Record<string, unknown>>(
+          env,
+          `/runs/${encodeURIComponent(runId)}/cancel`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ownerEmail }),
+          },
+        )
+        return {
+          summary: `Cancelled remote run ${runId}.`,
+          data: payload,
+        }
+      },
+    },
+  ]
+}
+
+async function runResearchAssistantTurn(request: Request, env: Env) {
+  const cliSession = await requireAuthorizedSession(request, env)
+  if (!cliSession) {
+    return json({ error: 'Unauthorized' }, 401)
+  }
+
+  const body = await request.json().catch(() => ({})) as {
+    input?: unknown
+    sessionId?: unknown
+    datasetId?: unknown
+    previousResponseId?: unknown
+    previous_response_id?: unknown
+  }
+  const input = typeof body.input === 'string' ? body.input.trim() : ''
+  if (!input) {
+    return json({ error: 'Missing input' }, 400)
+  }
+
+  const requestedSessionId = typeof body.sessionId === 'string' ? body.sessionId : null
+  const datasetId = typeof body.datasetId === 'string' ? body.datasetId : null
+  let previousResponseId =
+    typeof body.previousResponseId === 'string'
+      ? body.previousResponseId
+      : typeof body.previous_response_id === 'string'
+        ? body.previous_response_id
+        : null
+
+  const resolvedSession = await proxyToControlPlaneJson<{ session?: { id?: string } }>(
+    env,
+    '/assistant-sessions/resolve-cli',
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ownerEmail: cliSession.email,
+        datasetId,
+        sessionId: requestedSessionId,
+        previousResponseId,
+        title: 'RESEARCH CLI session',
+      }),
+    },
+  )
+  const sessionId = resolvedSession.session?.id ?? requestedSessionId ?? null
+  if (sessionId) {
+    await appendAssistantSessionEntry(env, sessionId, {
+      role: 'user',
+      kind: 'request',
+      title: 'Web request',
+      content: input,
+      metadata: { datasetId },
+    })
+  }
+
+  const tools = createResearchAgentTools(env, cliSession.email)
+  const toolsByName = new Map(tools.map((tool) => [tool.name, tool]))
+  let response = await callResponsesApi(env, {
+    instructions: RESEARCH_AGENT_INSTRUCTIONS,
+    input,
+    previous_response_id: previousResponseId ?? undefined,
+    tools: tools.map(buildToolSchema),
+    parallel_tool_calls: false,
+  })
+
+  for (let round = 0; round < MAX_TOOL_ROUNDS; round += 1) {
+    if (response.id) {
+      previousResponseId = response.id
+    }
+    const functionCalls = extractFunctionCalls(response)
+    if (functionCalls.length === 0) {
+      const reply = extractResponseText(response as Record<string, unknown>) || 'Done.'
+      if (sessionId) {
+        await appendAssistantSessionEntry(env, sessionId, {
+          role: 'assistant',
+          kind: 'local_summary',
+          title: 'Assistant',
+          content: reply,
+          metadata: { previousResponseId },
+        })
+      }
+      return json({
+        sessionId,
+        previousResponseId,
+        reply,
+      })
+    }
+
+    const toolOutputs: Array<{ type: 'function_call_output'; call_id: string; output: string }> = []
+    for (const call of functionCalls) {
+      const toolName = typeof call.name === 'string' ? call.name : ''
+      const tool = toolsByName.get(toolName)
+      if (!tool) {
+        throw new Error(`Model requested unknown tool: ${toolName}`)
+      }
+      const parsedArguments = parseJsonArguments(call.arguments)
+      if (sessionId) {
+        await appendAssistantSessionEntry(env, sessionId, {
+          role: 'system',
+          kind: 'tool_call',
+          title: tool.name,
+          content: `Calling ${tool.name}`,
+          metadata: { name: tool.name, arguments: parsedArguments },
+        })
+      }
+      const result = await tool.execute(parsedArguments, sessionId)
+      if (sessionId) {
+        await appendAssistantSessionEntry(env, sessionId, {
+          role: 'system',
+          kind: 'tool_result',
+          title: tool.name,
+          content: result.summary,
+          metadata: { name: tool.name, data: result.data },
+        })
+      }
+      if (ASYNC_RUN_START_TOOLS.has(tool.name)) {
+        if (sessionId) {
+          await appendAssistantSessionEntry(env, sessionId, {
+            role: 'assistant',
+            kind: 'local_summary',
+            title: 'Assistant',
+            content: result.summary,
+            metadata: { previousResponseId },
+          })
+        }
+        return json({
+          sessionId,
+          previousResponseId,
+          reply: result.summary,
+        })
+      }
+      toolOutputs.push({
+        type: 'function_call_output',
+        call_id: call.call_id ?? tool.name,
+        output: JSON.stringify({
+          ok: true,
+          summary: result.summary,
+          data: result.data,
+        }),
+      })
+    }
+
+    response = await callResponsesApi(env, {
+      previous_response_id: previousResponseId ?? undefined,
+      input: toolOutputs,
+      tools: tools.map(buildToolSchema),
+      parallel_tool_calls: false,
+    })
+  }
+
+  throw new Error('Research assistant hit the tool round limit.')
+}
+
 async function forwardCliRequest(request: Request, env: Env, path: string, init: RequestInit = {}) {
   const cliSession = await requireAuthorizedSession(request, env)
   if (!cliSession) {
@@ -286,6 +1187,10 @@ export default {
 
     if (pathname === '/api/cli/respond' && request.method === 'POST') {
       return proxyToResponsesApi(request, env)
+    }
+
+    if (pathname === '/api/cli/assistant/respond' && request.method === 'POST') {
+      return runResearchAssistantTurn(request, env)
     }
 
     if (pathname === '/api/cli/me' && request.method === 'GET') {
