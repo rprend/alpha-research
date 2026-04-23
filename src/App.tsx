@@ -5,7 +5,6 @@ import {
   Database,
   ExternalLink,
   History,
-  LayoutDashboard,
   LoaderCircle,
   LogOut,
   MoreHorizontal,
@@ -1807,14 +1806,42 @@ function DashboardLoading() {
               <SidebarMenu>
                 <SidebarMenuItem>
                   <SidebarMenuButton isActive>
-                    <LayoutDashboard />
-                    <span>Dashboard</span>
+                    <Bot />
+                    <span>Assistant</span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton>
+                    <Database />
+                    <span>Datasets</span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton>
+                    <History />
+                    <span>Runs</span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton>
+                    <TerminalSquare />
+                    <span>Terminal Sessions</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>
         </SidebarContent>
+        <SidebarFooter className="border-t border-sidebar-border p-3">
+          <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-xl px-3 py-3">
+            <Skeleton className="size-10 rounded-full" />
+            <div className="flex min-w-0 flex-col gap-2">
+              <Skeleton className="h-3 w-20 rounded-none" />
+              <Skeleton className="h-5 w-full rounded-none" />
+            </div>
+            <Skeleton className="size-4 rounded-none" />
+          </div>
+        </SidebarFooter>
       </Sidebar>
       <SidebarInset className="min-h-0 overflow-hidden bg-background">
         <div className="flex h-svh min-h-0 flex-col overflow-hidden">
@@ -1822,18 +1849,26 @@ function DashboardLoading() {
             <SidebarTrigger variant="ghost" size="icon-sm" />
             <div className="flex flex-col">
               <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                Dashboard
+                Assistant
               </span>
-              <span className="text-sm font-medium">Loading research workspace</span>
+              <span className="text-sm font-medium">Loading RESEARCH CLI</span>
             </div>
           </header>
-          <div className="grid flex-1 gap-6 px-4 py-6 md:px-8 xl:grid-cols-[minmax(0,1fr)_22rem]">
-            <div className="flex flex-col gap-6">
-              <Skeleton className="h-16 rounded-none" />
-              <Skeleton className="h-[22rem] rounded-none" />
-              <Skeleton className="h-[22rem] rounded-none" />
+          <div className="flex min-h-0 flex-1 flex-col overflow-hidden px-4 py-6 md:px-8">
+            <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-3xl bg-background">
+              <div className="mx-auto flex w-full max-w-[44rem] flex-1 flex-col gap-6 overflow-hidden px-4 pt-4">
+                <div className="my-auto flex flex-col gap-8 pb-8">
+                  <div className="space-y-3">
+                    <Skeleton className="h-10 w-64 rounded-none" />
+                    <Skeleton className="h-7 w-[30rem] max-w-full rounded-none" />
+                  </div>
+                  <div className="space-y-4">
+                    <Skeleton className="h-24 w-[34rem] max-w-full rounded-[24px]" />
+                    <Skeleton className="ml-auto h-32 w-[28rem] max-w-full rounded-[24px]" />
+                  </div>
+                </div>
+              </div>
             </div>
-            <Skeleton className="h-[18rem] rounded-none" />
           </div>
         </div>
       </SidebarInset>
@@ -1863,8 +1898,8 @@ function DashboardSignedOut({
               <SidebarMenu>
                 <SidebarMenuItem>
                   <SidebarMenuButton isActive>
-                    <LayoutDashboard />
-                    <span>Dashboard</span>
+                    <Bot />
+                    <span>Assistant</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               </SidebarMenu>
@@ -1878,35 +1913,31 @@ function DashboardSignedOut({
             <SidebarTrigger variant="ghost" size="icon-sm" />
             <div className="flex flex-col">
               <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                Dashboard
+                Assistant
               </span>
               <span className="text-sm font-medium">RESEARCH CLI workspace</span>
             </div>
           </header>
 
-          <main className="flex flex-1 px-4 py-6 md:px-8">
-            <Card className="min-h-[30rem] rounded-none border border-border bg-background py-0 shadow-none">
-              <CardContent className="flex h-full px-0">
-                <Empty className="border-0 px-8 py-16">
-                  <EmptyHeader>
-                    <EmptyMedia variant="icon">
-                      <LayoutDashboard />
-                    </EmptyMedia>
-                    <EmptyTitle>Sign in to open your workspace</EmptyTitle>
-                    <EmptyDescription>
-                      {session.configured
-                        ? 'Sign in to view your datasets and runs.'
-                        : session.error ?? 'Auth is not configured on this deployment.'}
-                    </EmptyDescription>
-                  </EmptyHeader>
-                  <EmptyContent>
-                    <Button onClick={beginDashboardLogin} disabled={!session.configured}>
-                      Sign in
-                    </Button>
-                  </EmptyContent>
-                </Empty>
-              </CardContent>
-            </Card>
+          <main className="flex min-h-0 flex-1 items-center justify-center px-4 py-6 md:px-8">
+            <Empty className="border-0 px-8 py-12">
+              <EmptyHeader>
+                <EmptyMedia variant="icon">
+                  <Bot />
+                </EmptyMedia>
+                <EmptyTitle>Sign in to open your workspace</EmptyTitle>
+                <EmptyDescription>
+                  {session.configured
+                    ? 'Sign in to start a RESEARCH CLI session and view your datasets, runs, and terminal history.'
+                    : session.error ?? 'Auth is not configured on this deployment.'}
+                </EmptyDescription>
+              </EmptyHeader>
+              <EmptyContent>
+                <Button onClick={beginDashboardLogin} disabled={!session.configured}>
+                  Sign in
+                </Button>
+              </EmptyContent>
+            </Empty>
           </main>
         </div>
       </SidebarInset>
