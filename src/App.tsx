@@ -242,6 +242,13 @@ function formatStatus(value: string | null | undefined) {
   if (!value) {
     return 'Unknown'
   }
+  const normalized = value.toLowerCase()
+  if (normalized === 'ready') {
+    return 'Completed Successfully'
+  }
+  if (normalized === 'uploading') {
+    return 'Source Uploaded / Processing'
+  }
   return value
     .replaceAll(/[-_]/g, ' ')
     .replace(/\b\w/g, (letter) => letter.toUpperCase())
@@ -285,8 +292,8 @@ function summarizeDatasetRecord(value: unknown) {
   if (!id && !name) return null
   return [
     name ? `Dataset: **${name}**` : id ? `Dataset: \`${id}\`` : null,
-    status ? `Status: ${status}` : null,
-    deploymentStatus ? `Deployment: ${deploymentStatus}` : null,
+    deploymentStatus ? `Environment: ${deploymentStatus}` : null,
+    status ? `Source state: ${status}` : null,
   ]
     .filter(Boolean)
     .join('\n')
