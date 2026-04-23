@@ -2326,11 +2326,7 @@ function LandingPage() {
     }
   }, [])
 
-  const authLabel = session?.configured
-    ? session.authenticated && session.user
-      ? 'Dashboard'
-      : 'login'
-    : 'auth offline'
+  const authLabel = session?.authenticated && session.user ? 'Dashboard' : 'login'
 
   return (
     <div className="landing-page">
@@ -2342,6 +2338,8 @@ function LandingPage() {
                 className="logo-wordmark"
                 src="/alpha-research-wordmark.png"
                 alt="Alpha Research logo"
+                width="1505"
+                height="300"
               />
             </a>
 
@@ -2352,7 +2350,7 @@ function LandingPage() {
                 className="button-small ghost-button auth-button"
                 type="button"
                 data-state={session?.authenticated ? 'authenticated' : 'anonymous'}
-                disabled={!session?.configured}
+                disabled={session?.configured === false}
                 onClick={() => {
                   if (session?.authenticated) {
                     beginDashboardBridge()
@@ -2386,6 +2384,8 @@ function LandingPage() {
               className="hero-figure-image"
               src="/alpha-research-man.png"
               alt="Illustration for Alpha Research"
+              width="1456"
+              height="816"
             />
 
             <div className="hero-lede">

@@ -245,6 +245,10 @@
   white-space: nowrap;
 }
 
+.auth-button {
+  min-width: 5.75rem;
+}
+
 .auth-button[data-state='authenticated'] {
   min-height: 2rem;
   padding: 0 0.8rem;
@@ -343,6 +347,7 @@
 .hero-figure-image {
   display: block;
   width: min(100%, 28rem);
+  aspect-ratio: 1456 / 816;
   height: auto;
   margin: 0 0 1.15rem;
   border-radius: 1rem;
