@@ -1568,7 +1568,7 @@ function RunDetailPage({
         </div>
       </DetailHeader>
 
-      <div className="flex flex-1 min-h-0 flex-col gap-6 bg-muted/15 px-6 py-6 md:px-10">
+      <div className="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto bg-muted/15 px-6 py-6 md:px-10">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <Button variant={view === 'cli' ? 'default' : 'ghost'} size="sm" onClick={() => setView('cli')}>
@@ -1769,7 +1769,7 @@ function SessionDetailPage({ sessionId }: { sessionId: string }) {
         </div>
       </DetailHeader>
 
-      <div className="flex flex-1 min-h-0 flex-col gap-6 bg-muted/15 px-6 py-6 md:px-10">
+      <div className="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto bg-muted/15 px-6 py-6 md:px-10">
         {error ? (
           <Card className="rounded-xl border border-destructive/30 bg-destructive/5 py-0 shadow-none">
             <CardContent className="px-6 py-4 text-sm text-destructive">
