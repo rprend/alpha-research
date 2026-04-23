@@ -243,6 +243,7 @@ h2 {
   color: var(--muted);
   line-height: 1.6;
   max-width: 34rem;
+  margin-bottom: 2.4rem;
 }
 
 .cli-card,
@@ -256,9 +257,13 @@ h2 {
   padding: 0;
 }
 
+.cli-card:first-of-type {
+  margin-top: 0.25rem;
+}
+
 .cli-card + .cli-card,
 .cli-grid {
-  margin-top: 1.5rem;
+  margin-top: 2.25rem;
 }
 
 .cli-card-head {
@@ -266,15 +271,15 @@ h2 {
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
 }
 
 .cli-card-label {
-  margin: 0 0 0.2rem;
+  margin: 0 0 0.28rem;
   color: var(--text);
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -285,19 +290,25 @@ h2 {
 
 .cli-card-copy {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
 
 .cli-pre {
   margin: 0;
-  padding: 0.9rem 1rem;
+  padding: 1.1rem 1.2rem 1.15rem;
   overflow-x: auto;
-  border-radius: 0.7rem;
-  background: #fcfcfc;
-  border: 1px solid var(--line);
-  color: var(--text);
-  font: 0.84rem/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+  border-radius: 1rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(248, 248, 248, 0.94));
+  border: 1px solid #e6e1db;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 1px 2px rgba(38, 38, 38, 0.03);
+  color: #2b2a28;
+  font: 0.82rem/1.72 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
     monospace;
+  letter-spacing: -0.01em;
   white-space: pre-wrap;
   word-break: break-word;
 }
