@@ -247,11 +247,13 @@
 
 .auth-button {
   min-width: 5.75rem;
+  min-height: 2rem;
+  padding: 0 0.8rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
 }
 
 .auth-button[data-state='authenticated'] {
-  min-height: 2rem;
-  padding: 0 0.8rem;
   border: 1px solid #d8dbec;
   border-radius: 999px;
   background: #f4f6ff;
