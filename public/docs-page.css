@@ -247,18 +247,18 @@ h2 {
 
 .cli-card,
 .cli-mini-card {
-  border: 1px solid #ededed;
-  border-radius: 0.9rem;
-  background: #f7f7f7;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .cli-card {
-  padding: 0.9rem;
+  padding: 0;
 }
 
 .cli-card + .cli-card,
 .cli-grid {
-  margin-top: 0.85rem;
+  margin-top: 1.5rem;
 }
 
 .cli-card-head {
@@ -266,7 +266,7 @@ h2 {
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.5rem;
 }
 
 .cli-card-label {
@@ -290,26 +290,16 @@ h2 {
 
 .cli-pre {
   margin: 0;
-  padding: 0.75rem 0.9rem;
+  padding: 0.9rem 1rem;
   overflow-x: auto;
   border-radius: 0.7rem;
-  background: #fff;
+  background: #fcfcfc;
   border: 1px solid var(--line);
   color: var(--text);
   font: 0.84rem/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
     monospace;
   white-space: pre-wrap;
   word-break: break-word;
-}
-
-.cli-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.85rem;
-}
-
-.cli-mini-card {
-  padding: 0.9rem;
 }
 
 .post-block {
@@ -443,10 +433,6 @@ h2 {
   .doc-block,
   .cli-block {
     padding: 1.45rem 0;
-  }
-
-  .cli-grid {
-    grid-template-columns: 1fr;
   }
 
   h1 {
