@@ -58,6 +58,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { deriveRunProgress } from '@/user-progress'
 
 declare global {
   interface Window {
@@ -342,6 +343,11 @@ function getProducedArtifacts(payload: RunResultsResponse | null) {
 function getLatestRunEvent(payload: RunResultsResponse | null) {
   const events = payload?.events ?? []
   return events.length > 0 ? events[events.length - 1] : null
+}
+
+function getLatestDerivedRunProgress(payload: RunResultsResponse | null) {
+  const derived = deriveRunProgress(payload?.events ?? [])
+  return derived.length > 0 ? derived[derived.length - 1] : null
 }
 
 function inferRunPhase(run: RunRecord, payload: RunResultsResponse | null) {
@@ -766,6 +772,18 @@ function buildRemoteTranscript(
   }
 
   return messages
+}
+
+function buildObservedProgressTranscript(payload: RunResultsResponse | null): SessionEntry[] {
+  return deriveRunProgress(payload?.events ?? []).map((entry) =>
+    createSessionEntry(
+      `progress-${entry.id}`,
+      entry.level === 'error' ? 'system' : 'assistant',
+      entry.createdAt,
+      `**${formatCompactTime(entry.createdAt)}**\n\n${entry.text}`,
+      formatStatus(entry.kind),
+    ),
+  )
 }
 
 function AssistantTranscript({
@@ -1535,9 +1553,11 @@ function RunDetailPage({
   const requestedArtifacts = useMemo(() => getRequestedArtifacts(payload), [payload])
   const producedArtifacts = useMemo(() => getProducedArtifacts(payload), [payload])
   const latestEvent = useMemo(() => getLatestRunEvent(payload), [payload])
+  const latestDerivedProgress = useMemo(() => getLatestDerivedRunProgress(payload), [payload])
   const phase = inferRunPhase(run, payload)
   const cliMessages = useMemo(() => buildCliTranscript(run, dataset, payload), [run, dataset, payload])
   const remoteMessages = useMemo(() => buildRemoteTranscript(run, dataset, payload), [run, dataset, payload])
+  const observedProgressMessages = useMemo(() => buildObservedProgressTranscript(payload), [payload])
 
   useEffect(() => {
     setView('cli')
@@ -1607,7 +1627,7 @@ function RunDetailPage({
             <div>
               <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Last event</div>
               <div className="mt-2 text-sm text-muted-foreground">
-                {latestEvent ? truncate(latestEvent.message, 180) : 'No run events yet'}
+                {latestDerivedProgress ? latestDerivedProgress.text : latestEvent ? truncate(latestEvent.message, 180) : 'No run events yet'}
               </div>
             </div>
             <div>
@@ -1634,11 +1654,18 @@ function RunDetailPage({
 
         {view === 'remote' ? (
           remoteSessionId ? (
-            <AssistantTranscript
-              entries={remoteMessages}
-              emptyTitle="No remote session log"
-              emptyDescription="This run has a remote session id but there are no persisted remote events yet."
-            />
+            <div className="flex flex-col gap-6">
+              <AssistantTranscript
+                entries={observedProgressMessages}
+                emptyTitle="No observed progress yet"
+                emptyDescription="Derived AlphaBook-style progress updates will appear here once the run emits meaningful remote events."
+              />
+              <AssistantTranscript
+                entries={remoteMessages}
+                emptyTitle="No remote session log"
+                emptyDescription="This run has a remote session id but there are no persisted remote events yet."
+              />
+            </div>
           ) : (
             <Card className="rounded-xl border border-border bg-background py-0 shadow-none">
               <CardContent className="px-6 py-6 text-sm text-muted-foreground">
