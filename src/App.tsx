@@ -606,6 +606,16 @@ function getRemoteSessionId(artifacts: RunArtifactRecord[]) {
   return typeof sessionId === 'string' ? sessionId : null
 }
 
+function hasRemoteRunLogs(payload: RunResultsResponse | null) {
+  const remoteSession = payload?.sessions?.find((session) => session.kind === 'remote_codex')
+  if (remoteSession?.entries?.length) {
+    return true
+  }
+  return (payload?.artifacts ?? []).some(
+    (artifact) => artifact.type === 'remote_agent_transcript' || artifact.type === 'remote_agent_session',
+  )
+}
+
 function buildCliTranscript(
   run: RunRecord,
   dataset: DatasetRecord | undefined,
@@ -1566,6 +1576,7 @@ function RunDetailPage({
   const { payload, error, loading } = useRunResults(run)
   const [view, setView] = useState<SessionTranscriptKind>('cli')
   const remoteSessionId = getRemoteSessionId(payload?.artifacts ?? [])
+  const hasRemoteLogs = useMemo(() => hasRemoteRunLogs(payload), [payload])
   const requestedArtifacts = useMemo(() => getRequestedArtifacts(payload), [payload])
   const producedArtifacts = useMemo(() => getProducedArtifacts(payload), [payload])
   const latestEvent = useMemo(() => getLatestRunEvent(payload), [payload])
@@ -1576,8 +1587,8 @@ function RunDetailPage({
   const observedProgressMessages = useMemo(() => buildObservedProgressTranscript(payload), [payload])
 
   useEffect(() => {
-    setView(remoteSessionId ? 'remote' : 'cli')
-  }, [run.id, remoteSessionId])
+    setView(hasRemoteLogs ? 'remote' : 'cli')
+  }, [run.id, hasRemoteLogs])
 
   return (
     <div className="flex min-h-0 flex-1 flex-col">
@@ -1615,7 +1626,7 @@ function RunDetailPage({
               variant={view === 'remote' ? 'default' : 'ghost'}
               size="sm"
               onClick={() => setView('remote')}
-              disabled={!remoteSessionId}
+              disabled={!hasRemoteLogs}
             >
               <Bot />
               Run logs
@@ -1669,7 +1680,7 @@ function RunDetailPage({
         ) : null}
 
         {view === 'remote' ? (
-          remoteSessionId ? (
+          hasRemoteLogs ? (
             <div className="flex flex-col gap-6">
               <AssistantTranscript
                 entries={observedProgressMessages}

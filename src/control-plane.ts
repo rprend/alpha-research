@@ -1771,6 +1771,50 @@ export class ControlPlane {
       })
     }
 
+    const runDebugViewMatch = pathname.match(/^\/runs\/([^/]+)\/debug-view$/u)
+    if (runDebugViewMatch && request.method === 'GET') {
+      const runId = decodeURIComponent(runDebugViewMatch[1] ?? '')
+      const runRow = this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]
+      if (!runRow) {
+        return respondJson({ error: 'Run not found' }, 404)
+      }
+      const run = this.runRowToJson(runRow)
+      const artifacts = this.listRunArtifacts(runId)
+      const sessions = this.listAssistantSessionsForRun(runId).map((session) => ({
+        ...this.assistantSessionToJson(session),
+        entries: this.listAssistantSessionEntries(session.id).map((entry) =>
+          this.assistantSessionEntryToJson(entry),
+        ),
+      }))
+      const remoteSessionArtifact = artifacts.find((artifact) => artifact.type === 'remote_agent_session')
+      const remoteSessionId =
+        remoteSessionArtifact && typeof remoteSessionArtifact.content?.sessionId === 'string'
+          ? remoteSessionArtifact.content.sessionId
+          : null
+      const hasRemoteLogs =
+        sessions.some((session) => session.kind === 'remote_codex' && (session.entries?.length ?? 0) > 0)
+        || artifacts.some((artifact) => artifact.type === 'remote_agent_transcript' || artifact.type === 'remote_agent_session')
+      return respondJson({
+        run,
+        debugView: {
+          remoteSessionId,
+          hasRemoteLogs,
+          defaultView: hasRemoteLogs ? 'remote' : 'cli',
+          artifactTypes: artifacts.map((artifact) => ({
+            id: artifact.id,
+            title: artifact.title,
+            type: artifact.type,
+          })),
+          sessionKinds: sessions.map((session) => ({
+            id: session.id,
+            kind: session.kind,
+            status: session.status,
+            entryCount: session.entries?.length ?? 0,
+          })),
+        },
+      })
+    }
+
     if (pathname === '/research-specs' && request.method === 'GET') {
       const ownerEmail = url.searchParams.get('ownerEmail')
       const datasetId = url.searchParams.get('datasetId')
