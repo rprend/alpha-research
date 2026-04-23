@@ -319,9 +319,9 @@ exec > >(tee -a /var/log/alpha-research-run.log) 2>&1
 
 CALLBACK_EVENTS_URL=${shellEscape(callbackEventsUrl)}
 CALLBACK_STATUS_URL=${shellEscape(callbackStatusUrl)}
-CALLBACK_ARTIFACTS_URL=${shellEscape(callbackArtifactsUrl)}
-CALLBACK_SESSION_ENTRIES_URL=${shellEscape(callbackSessionEntriesUrl)}
-RUNNER_TOKEN=${shellEscape(env.RESEARCH_INTERNAL_RUNNER_TOKEN ?? '')}
+	CALLBACK_ARTIFACTS_URL=${shellEscape(callbackArtifactsUrl)}
+	CALLBACK_SESSION_ENTRIES_URL=${shellEscape(callbackSessionEntriesUrl)}
+	RUNNER_TOKEN=${shellEscape(env.RESEARCH_INTERNAL_RUNNER_TOKEN ?? '')}
 MOUNT_ROOT=${shellEscape(mountRoot)}
 DATASET_MOUNT_PATH=${shellEscape(params.datasetMountPath)}
 MANIFEST_PATH=${shellEscape(params.manifestPath)}
@@ -340,8 +340,10 @@ CODEX_HOME=${shellEscape(`${params.datasetMountPath}/.remote-agent/codex-home/${
 WORKSPACE_DIR=${shellEscape(`${params.datasetMountPath}/.remote-agent/workspaces/${params.runId}`)}
 ARTIFACT_DIR=${shellEscape(`${params.datasetMountPath}/.remote-agent/workspaces/${params.runId}/artifacts`)}
 LAST_MESSAGE_PATH=${shellEscape(`${params.datasetMountPath}/.remote-agent/workspaces/${params.runId}/last_message.txt`)}
-TRANSCRIPT_PATH=${shellEscape(`${params.datasetMountPath}/.remote-agent/workspaces/${params.runId}/codex-transcript.log`)}
-DEVICE="/dev/disk/by-id/scsi-0DO_Volume_${params.volumeName}"
+	TRANSCRIPT_PATH=${shellEscape(`${params.datasetMountPath}/.remote-agent/workspaces/${params.runId}/codex-transcript.log`)}
+	RUN_LOG_PATH="/var/log/alpha-research-run.log"
+	CLOUD_INIT_LOG_PATH="/var/log/cloud-init-output.log"
+	DEVICE="/dev/disk/by-id/scsi-0DO_Volume_${params.volumeName}"
 
 post_event() {
   local level="$1"
@@ -353,7 +355,7 @@ post_event() {
     --data "$message" >/dev/null || true
 }
 
-post_status() {
+	post_status() {
   local status="$1"
   local output_preview="\${2:-}"
   python3 - "$status" "$output_preview" <<'PY' | \\
@@ -368,9 +370,59 @@ print(json.dumps({
   "outputPreview": output_preview or None,
 }))
 PY
-}
+	}
 
-trap 'post_event error "Remote agent run failed."; post_status failed ""; exit 1' ERR
+	post_json_artifact() {
+	  local artifact_type="$1"
+	  local artifact_title="$2"
+	  local artifact_json="$3"
+	  python3 - "$artifact_type" "$artifact_title" "$artifact_json" <<'PY' | \
+	    curl -fsS -X POST "$CALLBACK_ARTIFACTS_URL" \
+	      -H "Authorization: Bearer $RUNNER_TOKEN" \
+	      -H "Content-Type: application/json" \
+	      --data @- >/dev/null || true
+	import json, sys
+	artifact_type, artifact_title, artifact_json = sys.argv[1:]
+	print(json.dumps({
+	  "type": artifact_type,
+	  "title": artifact_title,
+	  "content": json.loads(artifact_json),
+	}))
+	PY
+	}
+
+	post_log_artifacts() {
+	  python3 - "$RUN_LOG_PATH" "$CLOUD_INIT_LOG_PATH" <<'PY'
+	import json
+	import os
+	import sys
+
+	def read_tail(path: str, max_chars: int = 50000):
+	    if not path or not os.path.exists(path):
+	        return None
+	    try:
+	        with open(path, "r", encoding="utf-8", errors="replace") as handle:
+	            content = handle.read()
+	        return {
+	            "path": path,
+	            "text": content[-max_chars:],
+	        }
+	    except Exception as exc:
+	        return {
+	            "path": path,
+	            "error": str(exc),
+	        }
+
+	run_log = read_tail(sys.argv[1])
+	cloud_init_log = read_tail(sys.argv[2])
+	print(json.dumps({
+	    "run_log": run_log,
+	    "cloud_init_log": cloud_init_log,
+	}))
+	PY
+	}
+
+	trap 'LOG_JSON="$(post_log_artifacts)"; post_json_artifact "remote_agent_bootstrap_log" "Remote Agent Bootstrap Log" "$LOG_JSON"; post_event error "Remote agent run failed."; post_status failed ""; exit 1' ERR
 
 post_event info "Starting remote agent droplet bootstrap."
 apt-get update
@@ -412,13 +464,15 @@ set +e
 done
 RUN_EXIT=\${PIPESTATUS[0]}
 set -e
-if [ "$RUN_EXIT" -ne 0 ]; then
-  exit "$RUN_EXIT"
-fi
+	if [ "$RUN_EXIT" -ne 0 ]; then
+	  exit "$RUN_EXIT"
+	fi
 
-post_event info "Remote agent run completed."
-post_status ready "Remote agent run completed."
-`
+	LOG_JSON="$(post_log_artifacts)"
+	post_json_artifact "remote_agent_bootstrap_log" "Remote Agent Bootstrap Log" "$LOG_JSON"
+	post_event info "Remote agent run completed."
+	post_status ready "Remote agent run completed."
+	`
 }
 
 export async function launchIngestDroplet(env: DigitalOceanEnv, params: LaunchIngestParams) {
