@@ -312,167 +312,167 @@ function buildResearchRunnerScript(env: DigitalOceanEnv, params: LaunchResearchP
   const configJsonB64 = encodeBase64(params.configJson ?? '{}')
   const artifactSpecJsonB64 = encodeBase64(params.artifactSpecJson ?? '[]')
   const remoteAgentModel = env.REMOTE_AGENT_MODEL ?? env.RESEARCH_AGENT_MODEL ?? 'gpt-5-codex'
-
-  return `#!/bin/bash
-set -euo pipefail
-exec > >(tee -a /var/log/alpha-research-run.log) 2>&1
-
-CALLBACK_EVENTS_URL=${shellEscape(callbackEventsUrl)}
-CALLBACK_STATUS_URL=${shellEscape(callbackStatusUrl)}
-	CALLBACK_ARTIFACTS_URL=${shellEscape(callbackArtifactsUrl)}
-	CALLBACK_SESSION_ENTRIES_URL=${shellEscape(callbackSessionEntriesUrl)}
-	RUNNER_TOKEN=${shellEscape(env.RESEARCH_INTERNAL_RUNNER_TOKEN ?? '')}
-MOUNT_ROOT=${shellEscape(mountRoot)}
-DATASET_MOUNT_PATH=${shellEscape(params.datasetMountPath)}
-MANIFEST_PATH=${shellEscape(params.manifestPath)}
-RUNNER_URL=${shellEscape(runnerUrl)}
-VENV_PATH=${shellEscape(venvPath)}
-OPENAI_API_KEY=${shellEscape(env.OPENAI_API_KEY ?? '')}
-REMOTE_AGENT_MODEL=${shellEscape(remoteAgentModel)}
-RUN_ID=${shellEscape(params.runId)}
-RUN_TYPE=${shellEscape(params.runType)}
-DATASET_ID=${shellEscape(params.datasetId)}
-PROMPT_B64=${shellEscape(promptB64)}
-CONFIG_B64=${shellEscape(configJsonB64)}
-ARTIFACT_SPEC_B64=${shellEscape(artifactSpecJsonB64)}
-REMOTE_AGENT_SESSION_ID=${shellEscape(params.remoteAgentSessionId ?? '')}
-CODEX_HOME=${shellEscape(`${params.datasetMountPath}/.remote-agent/codex-home/${params.runId}`)}
-WORKSPACE_DIR=${shellEscape(`${params.datasetMountPath}/.remote-agent/workspaces/${params.runId}`)}
-ARTIFACT_DIR=${shellEscape(`${params.datasetMountPath}/.remote-agent/workspaces/${params.runId}/artifacts`)}
-LAST_MESSAGE_PATH=${shellEscape(`${params.datasetMountPath}/.remote-agent/workspaces/${params.runId}/last_message.txt`)}
-	TRANSCRIPT_PATH=${shellEscape(`${params.datasetMountPath}/.remote-agent/workspaces/${params.runId}/codex-transcript.log`)}
-	RUN_LOG_PATH="/var/log/alpha-research-run.log"
-	CLOUD_INIT_LOG_PATH="/var/log/cloud-init-output.log"
-	DEVICE="/dev/disk/by-id/scsi-0DO_Volume_${params.volumeName}"
-
-post_event() {
-  local level="$1"
-  local message="$2"
-  curl -fsS -X POST "$CALLBACK_EVENTS_URL" \\
-    -H "Authorization: Bearer $RUNNER_TOKEN" \\
-    -H "Content-Type: text/plain; charset=utf-8" \\
-    -H "X-Run-Level: $level" \\
-    --data "$message" >/dev/null || true
-}
-
-	post_status() {
-  local status="$1"
-  local output_preview="\${2:-}"
-  python3 - "$status" "$output_preview" <<'PY' | \\
-    curl -fsS -X POST "$CALLBACK_STATUS_URL" \\
-      -H "Authorization: Bearer $RUNNER_TOKEN" \\
-      -H "Content-Type: application/json" \\
-      --data @- >/dev/null || true
-import json, sys
-status, output_preview = sys.argv[1:]
-print(json.dumps({
-  "status": status,
-  "outputPreview": output_preview or None,
-}))
-PY
-	}
-
-	post_json_artifact() {
-	  local artifact_type="$1"
-	  local artifact_title="$2"
-	  local artifact_json="$3"
-	  python3 - "$artifact_type" "$artifact_title" "$artifact_json" <<'PY' | \
-	    curl -fsS -X POST "$CALLBACK_ARTIFACTS_URL" \
-	      -H "Authorization: Bearer $RUNNER_TOKEN" \
-	      -H "Content-Type: application/json" \
-	      --data @- >/dev/null || true
-	import json, sys
-	artifact_type, artifact_title, artifact_json = sys.argv[1:]
-	print(json.dumps({
-	  "type": artifact_type,
-	  "title": artifact_title,
-	  "content": json.loads(artifact_json),
-	}))
-	PY
-	}
-
-	post_log_artifacts() {
-	  python3 - "$RUN_LOG_PATH" "$CLOUD_INIT_LOG_PATH" <<'PY'
-	import json
-	import os
-	import sys
-
-	def read_tail(path: str, max_chars: int = 50000):
-	    if not path or not os.path.exists(path):
-	        return None
-	    try:
-	        with open(path, "r", encoding="utf-8", errors="replace") as handle:
-	            content = handle.read()
-	        return {
-	            "path": path,
-	            "text": content[-max_chars:],
-	        }
-	    except Exception as exc:
-	        return {
-	            "path": path,
-	            "error": str(exc),
-	        }
-
-	run_log = read_tail(sys.argv[1])
-	cloud_init_log = read_tail(sys.argv[2])
-	print(json.dumps({
-	    "run_log": run_log,
-	    "cloud_init_log": cloud_init_log,
-	}))
-	PY
-	}
-
-	trap 'LOG_JSON="$(post_log_artifacts)"; post_json_artifact "remote_agent_bootstrap_log" "Remote Agent Bootstrap Log" "$LOG_JSON"; post_event error "Remote agent run failed."; post_status failed ""; exit 1' ERR
-
-post_event info "Starting remote agent droplet bootstrap."
-apt-get update
-apt-get install -y curl python3 python3-venv ca-certificates nodejs npm git
-python3 -m venv "$VENV_PATH"
-"$VENV_PATH/bin/pip" install --upgrade pip
-"$VENV_PATH/bin/pip" install requests
-
-mkdir -p /opt/alpha-research
-curl -fsSL "$RUNNER_URL" -o /opt/alpha-research/run_remote_agent.py
-npm install -g @openai/codex
-mkdir -p "$CODEX_HOME" "$WORKSPACE_DIR" "$ARTIFACT_DIR"
-printf '%s' "$OPENAI_API_KEY" | codex login --with-api-key >/dev/null
-
-for _ in $(seq 1 60); do
-  if [ -e "$DEVICE" ]; then
-    break
-  fi
-  sleep 2
-done
-if [ ! -e "$DEVICE" ]; then
-  post_event error "Volume device not found."
-  post_status failed ""
-  exit 1
-fi
-mkdir -p "$MOUNT_ROOT"
-mount "$DEVICE" "$MOUNT_ROOT" || true
-
-post_event info "Running remote agent executor."
-set +e
-"$VENV_PATH/bin/python" /opt/alpha-research/run_remote_agent.py 2>&1 | while IFS= read -r line; do
-  echo "$line"
-  case "$line" in
-    *"Remote agent"*|*"session"*|*"ERROR:"*|*"{\""* )
-      post_event info "$line"
-      post_status running "$line"
-      ;;
-  esac
-done
-RUN_EXIT=\${PIPESTATUS[0]}
-set -e
-	if [ "$RUN_EXIT" -ne 0 ]; then
-	  exit "$RUN_EXIT"
-	fi
-
-	LOG_JSON="$(post_log_artifacts)"
-	post_json_artifact "remote_agent_bootstrap_log" "Remote Agent Bootstrap Log" "$LOG_JSON"
-	post_event info "Remote agent run completed."
-	post_status ready "Remote agent run completed."
-	`
+  return [
+    '#!/bin/bash',
+    'set -euo pipefail',
+    'exec > >(tee -a /var/log/alpha-research-run.log) 2>&1',
+    '',
+    `CALLBACK_EVENTS_URL=${shellEscape(callbackEventsUrl)}`,
+    `CALLBACK_STATUS_URL=${shellEscape(callbackStatusUrl)}`,
+    `CALLBACK_ARTIFACTS_URL=${shellEscape(callbackArtifactsUrl)}`,
+    `CALLBACK_SESSION_ENTRIES_URL=${shellEscape(callbackSessionEntriesUrl)}`,
+    `RUNNER_TOKEN=${shellEscape(env.RESEARCH_INTERNAL_RUNNER_TOKEN ?? '')}`,
+    `MOUNT_ROOT=${shellEscape(mountRoot)}`,
+    `DATASET_MOUNT_PATH=${shellEscape(params.datasetMountPath)}`,
+    `MANIFEST_PATH=${shellEscape(params.manifestPath)}`,
+    `RUNNER_URL=${shellEscape(runnerUrl)}`,
+    `VENV_PATH=${shellEscape(venvPath)}`,
+    `OPENAI_API_KEY=${shellEscape(env.OPENAI_API_KEY ?? '')}`,
+    `REMOTE_AGENT_MODEL=${shellEscape(remoteAgentModel)}`,
+    `RUN_ID=${shellEscape(params.runId)}`,
+    `RUN_TYPE=${shellEscape(params.runType)}`,
+    `DATASET_ID=${shellEscape(params.datasetId)}`,
+    `PROMPT_B64=${shellEscape(promptB64)}`,
+    `CONFIG_B64=${shellEscape(configJsonB64)}`,
+    `ARTIFACT_SPEC_B64=${shellEscape(artifactSpecJsonB64)}`,
+    `REMOTE_AGENT_SESSION_ID=${shellEscape(params.remoteAgentSessionId ?? '')}`,
+    `CODEX_HOME=${shellEscape(`${params.datasetMountPath}/.remote-agent/codex-home/${params.runId}`)}`,
+    `WORKSPACE_DIR=${shellEscape(`${params.datasetMountPath}/.remote-agent/workspaces/${params.runId}`)}`,
+    `ARTIFACT_DIR=${shellEscape(`${params.datasetMountPath}/.remote-agent/workspaces/${params.runId}/artifacts`)}`,
+    `LAST_MESSAGE_PATH=${shellEscape(`${params.datasetMountPath}/.remote-agent/workspaces/${params.runId}/last_message.txt`)}`,
+    `TRANSCRIPT_PATH=${shellEscape(`${params.datasetMountPath}/.remote-agent/workspaces/${params.runId}/codex-transcript.log`)}`,
+    'RUN_LOG_PATH="/var/log/alpha-research-run.log"',
+    'CLOUD_INIT_LOG_PATH="/var/log/cloud-init-output.log"',
+    `DEVICE="/dev/disk/by-id/scsi-0DO_Volume_${params.volumeName}"`,
+    '',
+    'post_event() {',
+    '  local level="$1"',
+    '  local message="$2"',
+    '  curl -fsS -X POST "$CALLBACK_EVENTS_URL" \\',
+    '    -H "Authorization: Bearer $RUNNER_TOKEN" \\',
+    '    -H "Content-Type: text/plain; charset=utf-8" \\',
+    '    -H "X-Run-Level: $level" \\',
+    '    --data "$message" >/dev/null || true',
+    '}',
+    '',
+    'post_status() {',
+    '  local status="$1"',
+    '  local output_preview="${2:-}"',
+    `  python3 - "$status" "$output_preview" <<'PY' | \\`,
+    '    curl -fsS -X POST "$CALLBACK_STATUS_URL" \\',
+    '      -H "Authorization: Bearer $RUNNER_TOKEN" \\',
+    '      -H "Content-Type: application/json" \\',
+    '      --data @- >/dev/null || true',
+    'import json, sys',
+    'status, output_preview = sys.argv[1:]',
+    'print(json.dumps({',
+    '  "status": status,',
+    '  "outputPreview": output_preview or None,',
+    '}))',
+    'PY',
+    '}',
+    '',
+    'post_json_artifact() {',
+    '  local artifact_type="$1"',
+    '  local artifact_title="$2"',
+    '  local artifact_json="$3"',
+    `  python3 - "$artifact_type" "$artifact_title" "$artifact_json" <<'PY' | \\`,
+    '    curl -fsS -X POST "$CALLBACK_ARTIFACTS_URL" \\',
+    '      -H "Authorization: Bearer $RUNNER_TOKEN" \\',
+    '      -H "Content-Type: application/json" \\',
+    '      --data @- >/dev/null || true',
+    'import json, sys',
+    'artifact_type, artifact_title, artifact_json = sys.argv[1:]',
+    'print(json.dumps({',
+    '  "type": artifact_type,',
+    '  "title": artifact_title,',
+    '  "content": json.loads(artifact_json),',
+    '}))',
+    'PY',
+    '}',
+    '',
+    'post_log_artifacts() {',
+    `  python3 - "$RUN_LOG_PATH" "$CLOUD_INIT_LOG_PATH" <<'PY'`,
+    'import json',
+    'import os',
+    'import sys',
+    '',
+    'def read_tail(path: str, max_chars: int = 50000):',
+    '    if not path or not os.path.exists(path):',
+    '        return None',
+    '    try:',
+    '        with open(path, "r", encoding="utf-8", errors="replace") as handle:',
+    '            content = handle.read()',
+    '        return {',
+    '            "path": path,',
+    '            "text": content[-max_chars:],',
+    '        }',
+    '    except Exception as exc:',
+    '        return {',
+    '            "path": path,',
+    '            "error": str(exc),',
+    '        }',
+    '',
+    'run_log = read_tail(sys.argv[1])',
+    'cloud_init_log = read_tail(sys.argv[2])',
+    'print(json.dumps({',
+    '    "run_log": run_log,',
+    '    "cloud_init_log": cloud_init_log,',
+    '}))',
+    'PY',
+    '}',
+    '',
+    `trap 'LOG_JSON="$(post_log_artifacts)"; post_json_artifact "remote_agent_bootstrap_log" "Remote Agent Bootstrap Log" "$LOG_JSON"; post_event error "Remote agent run failed."; post_status failed ""; exit 1' ERR`,
+    '',
+    'post_event info "Starting remote agent droplet bootstrap."',
+    'apt-get update',
+    'apt-get install -y curl python3 python3-venv ca-certificates nodejs npm git',
+    'python3 -m venv "$VENV_PATH"',
+    '"$VENV_PATH/bin/pip" install --upgrade pip',
+    '"$VENV_PATH/bin/pip" install requests',
+    '',
+    'mkdir -p /opt/alpha-research',
+    'curl -fsSL "$RUNNER_URL" -o /opt/alpha-research/run_remote_agent.py',
+    'npm install -g @openai/codex',
+    'mkdir -p "$CODEX_HOME" "$WORKSPACE_DIR" "$ARTIFACT_DIR"',
+    `printf '%s' "$OPENAI_API_KEY" | codex login --with-api-key >/dev/null`,
+    '',
+    'for _ in $(seq 1 60); do',
+    '  if [ -e "$DEVICE" ]; then',
+    '    break',
+    '  fi',
+    '  sleep 2',
+    'done',
+    'if [ ! -e "$DEVICE" ]; then',
+    '  post_event error "Volume device not found."',
+    '  post_status failed ""',
+    '  exit 1',
+    'fi',
+    'mkdir -p "$MOUNT_ROOT"',
+    'mount "$DEVICE" "$MOUNT_ROOT" || true',
+    '',
+    'post_event info "Running remote agent executor."',
+    'set +e',
+    '"$VENV_PATH/bin/python" /opt/alpha-research/run_remote_agent.py 2>&1 | while IFS= read -r line; do',
+    '  echo "$line"',
+    '  case "$line" in',
+    '    *"Remote agent"*|*"session"*|*"ERROR:"*|*"{\\""* )',
+    '      post_event info "$line"',
+    '      post_status running "$line"',
+    '      ;;',
+    '  esac',
+    'done',
+    'RUN_EXIT=${PIPESTATUS[0]}',
+    'set -e',
+    'if [ "$RUN_EXIT" -ne 0 ]; then',
+    '  exit "$RUN_EXIT"',
+    'fi',
+    '',
+    'LOG_JSON="$(post_log_artifacts)"',
+    'post_json_artifact "remote_agent_bootstrap_log" "Remote Agent Bootstrap Log" "$LOG_JSON"',
+    'post_event info "Remote agent run completed."',
+    'post_status ready "Remote agent run completed."',
+  ].join('\n')
 }
 
 export async function launchIngestDroplet(env: DigitalOceanEnv, params: LaunchIngestParams) {
