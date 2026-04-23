@@ -2089,14 +2089,14 @@ function DashboardApp({
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
-                className="h-auto w-full min-w-0 justify-start gap-3 overflow-hidden rounded-xl px-3 py-3 hover:bg-sidebar-accent/60"
+                className="grid h-auto w-full min-w-0 grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 overflow-hidden rounded-xl px-3 py-3 text-left hover:bg-sidebar-accent/60"
               >
                 <Avatar className="size-10 shrink-0 border-0 shadow-none after:hidden">
                   <AvatarFallback className="bg-muted text-sm font-medium tracking-[0.08em] text-foreground">
                     {initials}
                   </AvatarFallback>
                 </Avatar>
-                <div className="flex min-w-0 flex-1 flex-col items-start">
+                <div className="flex min-w-0 flex-col items-start pr-2">
                   <span className="truncate text-[0.7rem] font-medium tracking-[0.14em] text-muted-foreground uppercase">
                     Account
                   </span>
