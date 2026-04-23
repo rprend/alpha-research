@@ -151,6 +151,8 @@ def build_remote_agent_prompt():
             "",
             "You may inspect files, run shell commands, write scripts, and produce result files.",
             "Use the mounted dataset and manifest to understand the corpus before acting.",
+            "If the manifest path does not exist yet, this is a new environment: create the dataset files, then write a manifest at the manifest path.",
+            "For public-data environment creation, fetch data from the internet into the mounted dataset path, normalize it into durable Parquet/CSV/JSON files, and document source URLs, retrieval timestamps, schemas, and refresh instructions in the manifest.",
             "For any command or script expected to run longer than 30 seconds, print progress at least every 30 seconds.",
             "If you generate deliverables, write them into the artifact directory.",
             "Required outputs:",

@@ -1598,6 +1598,235 @@ export class ControlPlane {
       }
     }
 
+    const publicEnvironmentMatch = pathname.match(/^\/datasets\/([^/]+)\/public-environment$/u)
+    if (publicEnvironmentMatch && request.method === 'POST') {
+      let runId: string | null = null
+      try {
+        const datasetId = decodeURIComponent(publicEnvironmentMatch[1] ?? '')
+        const body = await request.json().catch(() => ({})) as Record<string, unknown>
+        const ownerEmail = String(body.ownerEmail ?? '')
+        const callbackOrigin = String(body.callbackOrigin ?? '')
+        const name = body.name ? String(body.name) : datasetId
+        const description = body.description ? String(body.description) : null
+        const sourceDescription = String(body.sourceDescription ?? '')
+        const prompt = String(body.prompt ?? sourceDescription)
+        const artifactSpec = Array.isArray(body.artifacts) ? body.artifacts : []
+        if (!ownerEmail || !datasetId) {
+          return respondJson({ error: 'Missing ownerEmail or datasetId' }, 400)
+        }
+        if (!sourceDescription || !prompt) {
+          return respondJson({ error: 'Missing sourceDescription or prompt' }, 400)
+        }
+        if (!callbackOrigin) {
+          return respondJson({ error: 'Missing callbackOrigin' }, 400)
+        }
+        const existingDataset = this.getDataset(datasetId)
+        if (existingDataset && existingDataset.ownerEmail !== ownerEmail) {
+          return respondJson({ error: 'Dataset already exists for another owner' }, 409)
+        }
+        const timestamp = nowIso()
+        if (existingDataset) {
+          this.sql.exec(
+            `UPDATE datasets
+               SET name = ?, description = ?, source_type = ?, source_filename = ?, mode = ?, updated_at = ?
+             WHERE id = ?`,
+            name,
+            description,
+            'public_data',
+            'internet',
+            'tabular',
+            timestamp,
+            datasetId,
+          )
+        } else {
+          this.sql.exec(
+            `INSERT INTO datasets (
+               id, name, owner_email, source_type, source_filename, mode, description, instance_id, manifest_path,
+               deployment_status, status, volume_id, volume_name, volume_region, volume_mount_path, ingest_config_json,
+               created_at, updated_at
+             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            datasetId,
+            name,
+            ownerEmail,
+            'public_data',
+            'internet',
+            'tabular',
+            description,
+            null,
+            null,
+            'draft',
+            'created',
+            null,
+            null,
+            null,
+            null,
+            null,
+            timestamp,
+            timestamp,
+          )
+        }
+        await this.expireStaleRunsForDataset(datasetId)
+        const blockingRun = this.getLeaseBlockingRun(datasetId)
+        if (blockingRun && !isTerminalStatus(blockingRun.status)) {
+          return respondJson({
+            error: `Dataset ${datasetId} already has an active run holding its volume.`,
+            activeRuns: [this.runRowToJson({
+              id: blockingRun.id,
+              dataset_id: blockingRun.datasetId,
+              owner_email: blockingRun.ownerEmail,
+              type: blockingRun.type,
+              status: blockingRun.status,
+              prompt: blockingRun.prompt,
+              output_preview: blockingRun.outputPreview,
+              droplet_id: blockingRun.dropletId,
+              droplet_name: blockingRun.dropletName,
+              created_at: blockingRun.createdAt,
+              updated_at: blockingRun.updatedAt,
+            })],
+          }, 409)
+        }
+        const datasetBeforeVolume = this.getDataset(datasetId)
+        if (datasetBeforeVolume?.volumeId) {
+          await waitForVolumeDetachment(this.env, datasetBeforeVolume.volumeId).catch(() => undefined)
+        }
+        const volume = await ensureDatasetVolume(this.env, datasetId)
+        const manifestPath = `${volume.datasetMountPath}/manifest.json`
+        runId = this.createRun(datasetId, ownerEmail, 'environment', prompt)
+        this.acquireDatasetLease(datasetId, runId)
+        const cliSession = body.sessionId
+          ? this.updateAssistantSession(String(body.sessionId), {
+              datasetId,
+              runId,
+              status: 'active',
+            })
+          : this.findRecentCliAssistantSession(ownerEmail, datasetId)
+        if (cliSession && !body.sessionId) {
+          this.updateAssistantSession(cliSession.id, {
+            datasetId,
+            runId,
+            status: 'active',
+          })
+        }
+        const linkedCliSessionId = body.sessionId ? String(body.sessionId) : cliSession?.id
+        if (linkedCliSessionId) {
+          this.appendAssistantSessionEntry({
+            sessionId: linkedCliSessionId,
+            role: 'assistant',
+            kind: 'run_launch',
+            title: 'Environment build started',
+            content: `Started public-data environment run ${runId} for dataset ${datasetId}.`,
+          })
+        }
+        const config = {
+          environmentBootstrap: true,
+          sourceDescription,
+          manifestPath,
+        }
+        this.sql.exec(
+          `INSERT INTO run_metadata (run_id, config_json, artifact_spec_json) VALUES (?, ?, ?)`,
+          runId,
+          JSON.stringify(config),
+          artifactSpec.length > 0 ? JSON.stringify(artifactSpec) : null,
+        )
+        this.sql.exec(
+          `UPDATE datasets
+             SET volume_id = ?, volume_name = ?, volume_region = ?, volume_mount_path = ?, manifest_path = ?, deployment_status = ?, status = ?, updated_at = ?
+           WHERE id = ?`,
+          volume.id,
+          volume.name,
+          volume.region,
+          volume.datasetMountPath,
+          manifestPath,
+          'provisioning',
+          'deploying',
+          nowIso(),
+          datasetId,
+        )
+        this.appendRunEvent(runId, 'Provisioning public-data research environment volume and remote agent.')
+        this.sql.exec(
+          `UPDATE runs SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+          'booting',
+          'Provisioning public-data research environment.',
+          nowIso(),
+          runId,
+        )
+        const launchParams = {
+          datasetId,
+          runId,
+          runType: 'environment',
+          prompt,
+          configJson: JSON.stringify(config),
+          artifactSpecJson: artifactSpec.length > 0 ? JSON.stringify(artifactSpec) : undefined,
+          volumeName: volume.name,
+          volumeId: volume.id,
+          callbackOrigin,
+          datasetMountPath: volume.datasetMountPath,
+          manifestPath,
+          sourceSizeBytes: null,
+        }
+        const sizeClass = inferResearchSizeClass(launchParams)
+        let assignedPoolRunner = this.findIdleRunnerPoolEntry(sizeClass)
+        if (!assignedPoolRunner) {
+          await ensureWarmResearchPool(this.env, sizeClass)
+          assignedPoolRunner = this.findIdleRunnerPoolEntry(sizeClass)
+        }
+        if (assignedPoolRunner) {
+          await attachVolumeToDroplet(this.env, volume.id, assignedPoolRunner.dropletId, volume.region)
+          this.assignRunnerPoolEntry(assignedPoolRunner.dropletId, runId)
+          this.appendRunEvent(runId, `Assigned warm runner ${assignedPoolRunner.dropletName} (${assignedPoolRunner.sizeClass}).`)
+          this.sql.exec(
+            `UPDATE runs SET droplet_id = ?, droplet_name = ?, status = ?, updated_at = ? WHERE id = ?`,
+            assignedPoolRunner.dropletId,
+            assignedPoolRunner.dropletName,
+            'booting',
+            nowIso(),
+            runId,
+          )
+          await ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
+        } else {
+          const droplet = await launchResearchDroplet(this.env, launchParams)
+          this.appendRunEvent(runId, `Remote agent droplet ${droplet.name} launched in ${droplet.region} (${droplet.size}).`)
+          this.sql.exec(
+            `UPDATE runs SET droplet_id = ?, droplet_name = ?, status = ?, updated_at = ? WHERE id = ?`,
+            droplet.id,
+            droplet.name,
+            'booting',
+            nowIso(),
+            runId,
+          )
+          await ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
+        }
+        const row = this.getDataset(datasetId)
+        return respondJson({
+          dataset: row ? this.datasetRowToJson(row as unknown as Record<string, unknown>) : null,
+          environment: {
+            datasetId,
+            status: 'running',
+            volume,
+            manifestPath,
+          },
+          run: this.runRowToJson(this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]!),
+        })
+      } catch (error) {
+        const message = error instanceof Error ? error.message : 'Public-data environment launch failed'
+        if (runId) {
+          this.appendRunEvent(runId, `Public-data environment launch failed: ${message}`, 'error')
+          this.sql.exec(
+            `UPDATE runs SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+            'failed',
+            message,
+            nowIso(),
+            runId,
+          )
+          const failedRun = this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]
+          if (failedRun) {
+            this.releaseDatasetLease(this.parseRunRow(failedRun).datasetId, runId)
+          }
+        }
+        return respondJson({ error: message, runId }, 500)
+      }
+    }
+
     const runMatch = pathname.match(/^\/runs\/([^/]+)$/u)
     if (runMatch && request.method === 'GET') {
       const runId = decodeURIComponent(runMatch[1] ?? '')
@@ -2020,6 +2249,24 @@ export class ControlPlane {
           body.manifestPath ? String(body.manifestPath) : null,
           body.volumeMountPath ? String(body.volumeMountPath) : null,
           status === 'ready' ? 'ready' : status === 'failed' ? 'failed' : 'deploying',
+          timestamp,
+          run.datasetId,
+        )
+      }
+      const metadata = this.getRunMetadata(runId)
+      const config = metadata?.config && typeof metadata.config === 'object'
+        ? metadata.config as Record<string, unknown>
+        : null
+      if (config?.environmentBootstrap && (status === 'ready' || status === 'failed')) {
+        const dataset = this.getDataset(run.datasetId)
+        const manifestPath = typeof config.manifestPath === 'string'
+          ? config.manifestPath
+          : dataset?.manifestPath ?? (dataset?.volumeMountPath ? `${dataset.volumeMountPath}/manifest.json` : null)
+        this.sql.exec(
+          `UPDATE datasets SET deployment_status = ?, status = ?, manifest_path = COALESCE(?, manifest_path), updated_at = ? WHERE id = ?`,
+          status === 'ready' ? 'ready' : 'failed',
+          status === 'ready' ? 'ready' : 'failed',
+          manifestPath,
           timestamp,
           run.datasetId,
         )

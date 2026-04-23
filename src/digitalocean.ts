@@ -203,7 +203,7 @@ function chooseResearchDropletSize(env: DigitalOceanEnv, params: LaunchResearchP
   if (params.runType === 'query') {
     return (params.sourceSizeBytes ?? 0) > 5_000_000_000 ? medium : small
   }
-  if (params.runType === 'agent' || params.runType === 'analysis' || params.runType === 'hypothesis') {
+  if (params.runType === 'agent' || params.runType === 'analysis' || params.runType === 'hypothesis' || params.runType === 'environment') {
     return (params.sourceSizeBytes ?? 0) > 2_000_000_000 ? large : medium
   }
   return (params.sourceSizeBytes ?? 0) > 5_000_000_000 ? large : small
@@ -213,7 +213,7 @@ export function inferResearchSizeClass(params: LaunchResearchParams) {
   if (params.runType === 'query') {
     return (params.sourceSizeBytes ?? 0) > 5_000_000_000 ? 'medium' : 'small'
   }
-  if (params.runType === 'agent' || params.runType === 'analysis' || params.runType === 'hypothesis') {
+  if (params.runType === 'agent' || params.runType === 'analysis' || params.runType === 'hypothesis' || params.runType === 'environment') {
     return (params.sourceSizeBytes ?? 0) > 2_000_000_000 ? 'large' : 'medium'
   }
   return (params.sourceSizeBytes ?? 0) > 5_000_000_000 ? 'large' : 'small'
@@ -492,6 +492,9 @@ function buildResearchRunnerScript(env: DigitalOceanEnv, params: LaunchResearchP
     '  post_status failed ""',
     '  exit 1',
     'fi',
+    'if ! blkid "$DEVICE" >/dev/null 2>&1; then',
+    '  mkfs.ext4 -F "$DEVICE"',
+    'fi',
     'mkdir -p "$MOUNT_ROOT"',
     'mount "$DEVICE" "$MOUNT_ROOT" || true',
     'mkdir -p "$CODEX_HOME" "$WORKSPACE_DIR" "$ARTIFACT_DIR"',
@@ -622,6 +625,15 @@ function buildWarmPoolRunnerScript(env: DigitalOceanEnv, sizeClass: 'small' | 'm
     '    fi',
     '    sleep 2',
     '  done',
+    '  if [ ! -e "$DEVICE" ]; then',
+    '    post_status failed "Volume device not found."',
+    '    complete_assignment "$RUN_ID"',
+    '    unset RUN_ID RUN_TYPE DATASET_ID DATASET_MOUNT_PATH MANIFEST_PATH PROMPT_B64 CONFIG_B64 ARTIFACT_SPEC_B64 REMOTE_AGENT_SESSION_ID VOLUME_NAME',
+    '    continue',
+    '  fi',
+    '  if ! blkid "$DEVICE" >/dev/null 2>&1; then',
+    '    mkfs.ext4 -F "$DEVICE"',
+    '  fi',
     '  mkdir -p "$MOUNT_ROOT"',
     '  mount "$DEVICE" "$MOUNT_ROOT" || true',
     '  mkdir -p "$CODEX_HOME" "$WORKSPACE_DIR" "$ARTIFACT_DIR"',
