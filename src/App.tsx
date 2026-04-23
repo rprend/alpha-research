@@ -2231,7 +2231,7 @@ function LandingPage() {
 
   const authLabel = session?.configured
     ? session.authenticated && session.user
-      ? session.user.email
+      ? 'Dashboard'
       : 'login'
     : 'auth offline'
 
