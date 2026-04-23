@@ -323,6 +323,14 @@ h2 {
   text-decoration: none;
 }
 
+.doc-copy img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 1.1rem 0 1.25rem;
+  border-radius: 0.9rem;
+}
+
 .doc-copy blockquote {
   margin: 1.1rem 0;
   padding: 0.95rem 1rem;
