@@ -1453,7 +1453,12 @@ function useSessionDetail(sessionId: string | null) {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    if (!sessionId) return
+    if (!sessionId) {
+      setSession(null)
+      setError(null)
+      setLoading(false)
+      return
+    }
     let cancelled = false
     setLoading(true)
     void fetchJson<{ session: StoredAssistantSession; entries: StoredAssistantSessionEntry[] }>(
