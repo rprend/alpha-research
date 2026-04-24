@@ -1610,12 +1610,8 @@ function ResearchAssistantPage({
         <AssistantRuntimeProvider runtime={runtime}>
           <div className="h-full min-h-0">
             <Thread
-              welcomeTitle="RESEARCH CLI"
-              welcomeDescription={
-                loading
-                  ? 'Loading your current research session...'
-                  : 'Run the signed-in RESEARCH CLI from the browser. Inspect datasets, launch runs, and manage remote Codex sessions.'
-              }
+              welcomeTitle={loading ? '' : 'RESEARCH CLI'}
+              welcomeDescription={loading ? '' : 'Run the signed-in RESEARCH CLI from the browser. Inspect datasets, launch runs, and manage remote Codex sessions.'}
             />
           </div>
         </AssistantRuntimeProvider>
