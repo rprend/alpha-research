@@ -4,11 +4,13 @@ import {
   Bot,
   Database,
   ExternalLink,
+  FileText,
   History,
   LoaderCircle,
   LogOut,
   MoreHorizontal,
   TerminalSquare,
+  X,
 } from 'lucide-react'
 
 import { Thread } from '@/components/assistant-ui/thread'
@@ -49,7 +51,6 @@ import {
   SidebarTrigger,
 } from '@/components/ui/sidebar'
 import { Skeleton } from '@/components/ui/skeleton'
-import { Separator } from '@/components/ui/separator'
 import {
   Table,
   TableBody,
@@ -130,7 +131,6 @@ type RunResultsResponse = {
   sessions?: StoredAssistantSession[]
 }
 
-type SessionTranscriptKind = 'cli' | 'remote'
 type SessionEntryRole = 'user' | 'assistant' | 'system' | 'tool'
 type DashboardView = 'assistant' | 'datasets' | 'runs' | 'terminal-sessions'
 
@@ -345,28 +345,6 @@ function isProducedArtifact(
 function getProducedArtifacts(payload: RunResultsResponse | null) {
   const requestedArtifacts = getRequestedArtifacts(payload)
   return (payload?.artifacts ?? []).filter((artifact) => isProducedArtifact(artifact, requestedArtifacts))
-}
-
-function getLatestRunEvent(payload: RunResultsResponse | null) {
-  const events = payload?.events ?? []
-  return events.length > 0 ? events[events.length - 1] : null
-}
-
-function getLatestDerivedRunProgress(payload: RunResultsResponse | null) {
-  const derived = deriveRunProgress(payload?.events ?? [])
-  return derived.length > 0 ? derived[derived.length - 1] : null
-}
-
-function inferRunPhase(run: RunRecord, payload: RunResultsResponse | null) {
-  const status = run.status.toLowerCase()
-  if (status === 'queued') return 'Queued'
-  if (status === 'booting') return 'Booting'
-  if (status === 'running') return 'Running'
-  if (status === 'ready' || status === 'completed' || status === 'succeeded') return 'Done'
-  if (status === 'failed' || status === 'error') return 'Failed'
-  if (status === 'cancelled' || status === 'canceled') return 'Cancelled'
-  const latestEvent = getLatestRunEvent(payload)
-  return latestEvent ? truncate(latestEvent.message, 120) : formatStatus(run.status)
 }
 
 function summarizeRunRecord(value: unknown) {
@@ -816,14 +794,16 @@ function AssistantTranscript({
   entries,
   emptyTitle,
   emptyDescription,
+  unframed = false,
 }: {
   entries: SessionEntry[]
   emptyTitle: string
   emptyDescription: string
+  unframed?: boolean
 }) {
   if (entries.length === 0) {
     return (
-      <div className="flex min-h-[28rem] items-center justify-center rounded-3xl border border-dashed border-border bg-background px-8 py-16">
+      <div className={unframed ? 'flex min-h-[28rem] items-center justify-center px-8 py-16' : 'flex min-h-[28rem] items-center justify-center rounded-3xl border border-dashed border-border bg-background px-8 py-16'}>
         <div className="max-w-xl text-center">
           <div className="text-lg font-semibold">{emptyTitle}</div>
           <p className="mt-3 text-sm leading-7 text-muted-foreground">{emptyDescription}</p>
@@ -841,7 +821,7 @@ function AssistantTranscript({
 
   return (
     <AssistantRuntimeProvider runtime={runtime}>
-      <div className="min-h-[28rem] rounded-3xl border border-border bg-background">
+      <div className={unframed ? 'min-h-[28rem]' : 'min-h-[28rem] rounded-3xl border border-border bg-background'}>
         <Thread
           readOnly
           welcomeTitle={emptyTitle}
@@ -1566,6 +1546,174 @@ function DetailHeader({
   )
 }
 
+function RunArtifactsSheet({
+  open,
+  onClose,
+  requestedArtifacts,
+  producedArtifacts,
+  selectedArtifactId,
+  onSelectArtifact,
+  remoteSessionId,
+}: {
+  open: boolean
+  onClose: () => void
+  requestedArtifacts: Array<Record<string, unknown>>
+  producedArtifacts: RunArtifactRecord[]
+  selectedArtifactId: string | null
+  onSelectArtifact: (artifactId: string) => void
+  remoteSessionId: string | null
+}) {
+  const visibleArtifacts = producedArtifacts.filter(
+    (artifact) => artifact.type !== 'remote_agent_session',
+  )
+  const selectedArtifact =
+    visibleArtifacts.find((artifact) => artifact.id === selectedArtifactId) ??
+    visibleArtifacts[0] ??
+    null
+
+  return (
+    <div
+      className={[
+        'fixed inset-0 z-50 transition',
+        open ? 'pointer-events-auto' : 'pointer-events-none',
+      ].join(' ')}
+      aria-hidden={!open}
+    >
+      <button
+        type="button"
+        className={[
+          'absolute inset-0 bg-foreground/10 transition-opacity',
+          open ? 'opacity-100' : 'opacity-0',
+        ].join(' ')}
+        onClick={onClose}
+        aria-label="Close artifacts"
+      />
+      <aside
+        className={[
+          'absolute right-0 top-0 flex h-full w-full max-w-[42rem] flex-col bg-background shadow-2xl transition-transform duration-200',
+          open ? 'translate-x-0' : 'translate-x-full',
+        ].join(' ')}
+        aria-label="Run artifacts"
+      >
+        <div className="flex h-14 shrink-0 items-center justify-between px-5">
+          <div className="flex min-w-0 items-center gap-3">
+            <FileText className="size-4 text-muted-foreground" />
+            <div className="truncate text-sm font-medium">Artifacts</div>
+          </div>
+          <Button type="button" variant="ghost" size="icon-sm" onClick={onClose} aria-label="Close artifacts">
+            <X className="size-4" />
+          </Button>
+        </div>
+
+        <div className="grid min-h-0 flex-1 grid-rows-[auto_minmax(0,1fr)] gap-5 px-5 pb-5">
+          <div className="space-y-2">
+            {remoteSessionId ? (
+              <a
+                href={`https://chatgpt.com/codex/s/${remoteSessionId}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+              >
+                Open remote session
+                <ExternalLink className="size-4" />
+              </a>
+            ) : null}
+            {requestedArtifacts.length > 0 ? (
+              <div className="flex flex-wrap gap-2">
+                {requestedArtifacts.map((artifact, index) => {
+                  const type = typeof artifact.type === 'string' ? artifact.type : 'artifact'
+                  const title =
+                    typeof artifact.title === 'string' ? artifact.title : formatStatus(type)
+                  const produced = visibleArtifacts.some(
+                    (candidate) => candidate.type === type && candidate.title === title,
+                  )
+                  return (
+                    <span
+                      key={`${type}-${title}-${index}`}
+                      className="inline-flex items-center gap-2 bg-muted px-2.5 py-1 text-xs text-muted-foreground"
+                    >
+                      {title}
+                      <StatusBadge>{produced ? 'Produced' : 'Pending'}</StatusBadge>
+                    </span>
+                  )
+                })}
+              </div>
+            ) : null}
+          </div>
+
+          <div className="grid min-h-0 gap-5 md:grid-cols-[16rem_minmax(0,1fr)]">
+            <div className="min-h-0 overflow-y-auto">
+              {visibleArtifacts.length > 0 ? (
+                <div className="flex flex-col gap-1">
+                  {visibleArtifacts.map((artifact) => (
+                    <button
+                      key={artifact.id}
+                      type="button"
+                      className={[
+                        'grid gap-1 px-3 py-2 text-left text-sm hover:bg-muted',
+                        selectedArtifact?.id === artifact.id ? 'bg-muted' : '',
+                      ].join(' ')}
+                      onClick={() => onSelectArtifact(artifact.id)}
+                    >
+                      <span className="truncate font-medium">{artifact.title}</span>
+                      <span className="truncate text-xs text-muted-foreground">
+                        {formatStatus(artifact.type)}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              ) : (
+                <div className="px-3 py-2 text-sm text-muted-foreground">No produced artifacts yet.</div>
+              )}
+            </div>
+
+            <div className="min-h-0 overflow-hidden bg-muted/30">
+              {selectedArtifact ? (
+                <div className="flex h-full min-h-0 flex-col">
+                  <div className="flex shrink-0 items-center justify-between gap-3 px-4 py-3">
+                    <div className="min-w-0">
+                      <div className="truncate text-sm font-medium">{selectedArtifact.title}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {formatDateTime(selectedArtifact.createdAt)}
+                      </div>
+                    </div>
+                    {selectedArtifact.url ? (
+                      <a
+                        href={selectedArtifact.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex shrink-0 items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+                      >
+                        Open
+                        <ExternalLink className="size-4" />
+                      </a>
+                    ) : null}
+                  </div>
+                  {selectedArtifact.url ? (
+                    <iframe
+                      title={selectedArtifact.title}
+                      src={selectedArtifact.url}
+                      className="min-h-0 flex-1 bg-background"
+                    />
+                  ) : (
+                    <pre className="min-h-0 flex-1 overflow-auto px-4 py-3 text-xs leading-5 text-muted-foreground">
+                      {JSON.stringify(selectedArtifact.content ?? {}, null, 2)}
+                    </pre>
+                  )}
+                </div>
+              ) : (
+                <div className="flex h-full items-center justify-center px-6 text-center text-sm text-muted-foreground">
+                  Select an artifact to preview it here.
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  )
+}
+
 function RunDetailPage({
   run,
   dataset,
@@ -1574,207 +1722,83 @@ function RunDetailPage({
   dataset: DatasetRecord | undefined
 }) {
   const { payload, error, loading } = useRunResults(run)
-  const [view, setView] = useState<SessionTranscriptKind>('cli')
+  const [artifactsOpen, setArtifactsOpen] = useState(false)
+  const [selectedArtifactId, setSelectedArtifactId] = useState<string | null>(null)
   const remoteSessionId = getRemoteSessionId(payload?.artifacts ?? [])
   const hasRemoteLogs = useMemo(() => hasRemoteRunLogs(payload), [payload])
   const requestedArtifacts = useMemo(() => getRequestedArtifacts(payload), [payload])
   const producedArtifacts = useMemo(() => getProducedArtifacts(payload), [payload])
-  const latestEvent = useMemo(() => getLatestRunEvent(payload), [payload])
-  const latestDerivedProgress = useMemo(() => getLatestDerivedRunProgress(payload), [payload])
-  const phase = inferRunPhase(run, payload)
   const cliMessages = useMemo(() => buildCliTranscript(run, dataset, payload), [run, dataset, payload])
   const remoteMessages = useMemo(() => buildRemoteTranscript(run, dataset, payload), [run, dataset, payload])
   const observedProgressMessages = useMemo(() => buildObservedProgressTranscript(payload), [payload])
+  const visibleProducedArtifacts = useMemo(
+    () => producedArtifacts.filter((artifact) => artifact.type !== 'remote_agent_session'),
+    [producedArtifacts],
+  )
+  const transcriptEntries = useMemo(
+    () => (hasRemoteLogs ? [...observedProgressMessages, ...remoteMessages] : cliMessages),
+    [cliMessages, hasRemoteLogs, observedProgressMessages, remoteMessages],
+  )
+  const artifactCount = visibleProducedArtifacts.length
 
   useEffect(() => {
-    setView(hasRemoteLogs ? 'remote' : 'cli')
-  }, [run.id, hasRemoteLogs])
+    const selectedArtifactStillExists = visibleProducedArtifacts.some(
+      (artifact) => artifact.id === selectedArtifactId,
+    )
+    if (!selectedArtifactStillExists) {
+      setSelectedArtifactId(visibleProducedArtifacts[0]?.id ?? null)
+    }
+  }, [selectedArtifactId, visibleProducedArtifacts])
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
-      <DetailHeader
-        eyebrow="Run"
-        title={dataset?.name ?? run.datasetId}
-        description={`${formatStatus(run.type)} run ${run.id}.`}
-        onBack={() => updateDashboardRoute({ view: 'runs', runId: null, sessionId: null })}
+    <div className="relative flex min-h-0 flex-1 flex-col bg-background">
+      <Button
+        type="button"
+        variant="ghost"
+        size="icon"
+        className="absolute right-4 top-4 z-30 bg-background/90 shadow-sm backdrop-blur md:right-6 md:top-6"
+        onClick={() => setArtifactsOpen(true)}
+        aria-label="Open artifacts"
       >
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-          <StatusBadge>{formatStatus(run.status)}</StatusBadge>
-          <StatusBadge>{formatStatus(run.type)}</StatusBadge>
-          <StatusBadge>{phase}</StatusBadge>
-          <span className="text-sm text-muted-foreground">Started {formatDateTime(run.createdAt)}</span>
-          {remoteSessionId ? (
-            <span className="text-sm text-muted-foreground">Remote session {remoteSessionId}</span>
-          ) : null}
-          {loading ? (
-            <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-              <LoaderCircle className="size-4 animate-spin" />
-              Refreshing
-            </span>
-          ) : null}
-        </div>
-      </DetailHeader>
+        <FileText className="size-5" />
+        {artifactCount > 0 ? (
+          <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center bg-primary text-[11px] font-medium text-primary-foreground">
+            {artifactCount}
+          </span>
+        ) : null}
+      </Button>
 
-      <div className="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto bg-muted/15 px-6 py-6 md:px-10">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <Button variant={view === 'cli' ? 'default' : 'ghost'} size="sm" onClick={() => setView('cli')}>
-              <TerminalSquare />
-              CLI orchestration
-            </Button>
-            <Button
-              variant={view === 'remote' ? 'default' : 'ghost'}
-              size="sm"
-              onClick={() => setView('remote')}
-              disabled={!hasRemoteLogs}
-            >
-              <Bot />
-              Run logs
-            </Button>
-          </div>
-          {remoteSessionId ? (
-            <a
-              href={`https://chatgpt.com/codex/s/${remoteSessionId}`}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
-            >
-              Open remote session
-              <ExternalLink className="size-4" />
-            </a>
-          ) : null}
-        </div>
-
-        <section className="rounded-3xl border border-border bg-background px-6 py-5">
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            <div>
-              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Phase</div>
-              <div className="mt-2 text-sm">{phase}</div>
-            </div>
-            <div>
-              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Last event</div>
-              <div className="mt-2 text-sm text-muted-foreground">
-                {latestDerivedProgress ? latestDerivedProgress.text : latestEvent ? truncate(latestEvent.message, 180) : 'No run events yet'}
-              </div>
-            </div>
-            <div>
-              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Requested artifacts</div>
-              <div className="mt-2 text-sm">{requestedArtifacts.length}</div>
-            </div>
-            <div>
-              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Produced artifacts</div>
-              <div className="mt-2 text-sm">{producedArtifacts.filter((artifact) => artifact.type !== 'remote_agent_session').length}</div>
-            </div>
-          </div>
-          {latestEvent?.createdAt ? (
-            <div className="mt-4 text-sm text-muted-foreground">Updated {formatDateTime(latestEvent.createdAt)}</div>
-          ) : null}
-        </section>
-
+      <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-4 py-6 md:px-8">
         {error ? (
-          <Card className="rounded-xl border border-destructive/30 bg-destructive/5 py-0 shadow-none">
-            <CardContent className="px-6 py-4 text-sm text-destructive">
-              Could not load run transcript: {error}
-            </CardContent>
-          </Card>
-        ) : null}
-
-        {view === 'remote' ? (
-          hasRemoteLogs ? (
-            <div className="flex flex-col gap-6">
-              <AssistantTranscript
-                entries={observedProgressMessages}
-                emptyTitle="No observed progress yet"
-                emptyDescription="Derived AlphaBook-style progress updates will appear here once the run emits meaningful remote events."
-              />
-              <AssistantTranscript
-                entries={remoteMessages}
-                emptyTitle="No remote session log"
-                emptyDescription="This run has a remote session id but there are no persisted remote events yet."
-              />
-            </div>
-          ) : (
-            <Card className="rounded-xl border border-border bg-background py-0 shadow-none">
-              <CardContent className="px-6 py-6 text-sm text-muted-foreground">
-                This run does not have a persisted remote agent session id yet.
-              </CardContent>
-            </Card>
-          )
-        ) : (
-          <div className="flex flex-col gap-6">
-            {run.prompt?.trim() ? (
-              <section className="rounded-3xl border border-border bg-background px-6 py-5">
-                <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                  Prompt
-                </div>
-                <p className="mt-3 max-w-4xl whitespace-pre-wrap text-sm leading-7 text-foreground">
-                  {run.prompt}
-                </p>
-              </section>
-            ) : null}
-            <AssistantTranscript
-              entries={cliMessages}
-              emptyTitle="No CLI transcript yet"
-              emptyDescription="Persisted run config, events, and artifacts from the RESEARCH CLI will appear here."
-            />
+          <div className="mx-auto mb-4 w-full max-w-[46rem] bg-destructive/5 px-4 py-3 text-sm text-destructive">
+            Could not load run transcript: {error}
           </div>
-        )}
-
-        {(requestedArtifacts.length > 0 || producedArtifacts.length > 0) ? (
-          <section className="rounded-3xl border border-border bg-background px-6 py-5">
-            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-              Artifacts
-            </div>
-            <Separator className="my-4" />
-            <div className="space-y-6">
-              {requestedArtifacts.length > 0 ? (
-                <div className="space-y-3">
-                  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                    Requested
-                  </div>
-                  {requestedArtifacts.map((artifact, index) => {
-                    const type = typeof artifact.type === 'string' ? artifact.type : 'artifact'
-                    const title =
-                      typeof artifact.title === 'string' ? artifact.title : formatStatus(type)
-                    const produced = producedArtifacts.some((candidate) => candidate.type === type && candidate.title === title)
-                    return (
-                      <div key={`${type}-${title}-${index}`} className="flex flex-wrap items-center gap-3">
-                        <span className="font-medium">{title}</span>
-                        <span className="text-sm text-muted-foreground">{formatStatus(type)}</span>
-                        <StatusBadge>{produced ? 'Produced' : 'Pending'}</StatusBadge>
-                      </div>
-                    )
-                  })}
-                </div>
-              ) : null}
-              {producedArtifacts.length > 0 ? (
-                <div className="space-y-3">
-                  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                    Produced
-                  </div>
-                  {producedArtifacts.map((artifact) => (
-                    <div key={artifact.id} className="flex flex-wrap items-center gap-3">
-                      <span className="font-medium">{artifact.title}</span>
-                      <span className="text-sm text-muted-foreground">{formatStatus(artifact.type)}</span>
-                      {artifact.url ? (
-                        <a
-                          href={artifact.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
-                        >
-                          Open
-                          <ExternalLink className="size-4" />
-                        </a>
-                      ) : null}
-                    </div>
-                  ))}
-                </div>
-              ) : null}
-            </div>
-          </section>
         ) : null}
+
+        <div className="mx-auto flex w-full max-w-[46rem] flex-1 flex-col">
+          {loading ? (
+            <div className="mb-2 flex justify-end text-muted-foreground">
+              <LoaderCircle className="size-4 animate-spin" aria-label="Refreshing run" />
+            </div>
+          ) : null}
+          <AssistantTranscript
+            entries={transcriptEntries}
+            emptyTitle="No run transcript yet"
+            emptyDescription="Persisted run turns and events will appear here."
+            unframed
+          />
+        </div>
       </div>
+
+      <RunArtifactsSheet
+        open={artifactsOpen}
+        onClose={() => setArtifactsOpen(false)}
+        requestedArtifacts={requestedArtifacts}
+        producedArtifacts={producedArtifacts}
+        selectedArtifactId={selectedArtifactId}
+        onSelectArtifact={setSelectedArtifactId}
+        remoteSessionId={remoteSessionId}
+      />
     </div>
   )
 }
@@ -2035,6 +2059,7 @@ function DashboardApp({
   let title = 'RESEARCH CLI'
   let eyebrow = 'Assistant'
   let content: ReactNode
+  const hideContentHeader = route.view === 'runs' && activeRun
 
   if (route.view === 'runs' && activeRun) {
     title = 'Run detail'
@@ -2212,17 +2237,19 @@ function DashboardApp({
 
       <SidebarInset className="min-h-0 overflow-hidden bg-background">
         <div className="flex h-svh min-h-0 flex-col overflow-hidden">
-          <header className="flex h-16 items-center gap-3 border-b border-border px-4 md:px-8">
-            <SidebarTrigger variant="ghost" size="icon-sm" />
-            <div className="flex min-w-0 flex-1 items-center justify-between gap-4">
-              <div className="flex min-w-0 flex-col">
-                <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                  {eyebrow}
-                </span>
-                <span className="truncate text-sm font-medium">{title}</span>
+          {hideContentHeader ? null : (
+            <header className="flex h-16 items-center gap-3 border-b border-border px-4 md:px-8">
+              <SidebarTrigger variant="ghost" size="icon-sm" />
+              <div className="flex min-w-0 flex-1 items-center justify-between gap-4">
+                <div className="flex min-w-0 flex-col">
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                    {eyebrow}
+                  </span>
+                  <span className="truncate text-sm font-medium">{title}</span>
+                </div>
               </div>
-            </div>
-          </header>
+            </header>
+          )}
           {content}
         </div>
       </SidebarInset>
