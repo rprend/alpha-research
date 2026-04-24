@@ -569,9 +569,9 @@ function toThreadMessage(entry: SessionEntry): ThreadMessage {
       id: entry.id,
       role: 'user',
       createdAt: new Date(entry.createdAt),
-      content: [{ type: 'text', text: formatSessionBody(entry) }],
+      content: [{ type: 'text', text: entry.body }],
       attachments: [],
-      metadata: { custom: entry.title ? { title: entry.title } : {} },
+      metadata: { custom: {} },
     } as ThreadMessage
   }
 
