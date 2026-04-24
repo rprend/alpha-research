@@ -48,7 +48,6 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from '@/components/ui/sidebar'
-import { Skeleton } from '@/components/ui/skeleton'
 import {
   Table,
   TableBody,
@@ -2112,77 +2111,16 @@ function SessionDetailPage({ sessionId }: { sessionId: string }) {
 
 function DashboardLoading() {
   return (
-    <SidebarProvider>
-      <Sidebar collapsible="icon" variant="sidebar">
-        <SidebarHeader className="border-b border-sidebar-border px-3 py-4">
-          <img
-            className="block h-[29px] w-36 object-contain object-left"
-            src="/alpha-research-wordmark.png"
-            alt="Alpha Research"
-            width="1505"
-            height="300"
-          />
-        </SidebarHeader>
-        <SidebarContent>
-          <SidebarGroup>
-            <SidebarGroupLabel>Chats</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton isActive>
-                    <span>New chat</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                {Array.from({ length: 4 }).map((_, index) => (
-                  <SidebarMenuItem key={index}>
-                    <SidebarMenuButton>
-                      <Skeleton className="h-4 w-full rounded-none" />
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-        </SidebarContent>
-        <SidebarFooter className="border-t border-sidebar-border p-3">
-          <SidebarMenu className="mb-2">
-            <SidebarMenuItem>
-              <SidebarMenuButton>
-                <Database />
-                <span>Datasets</span>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          </SidebarMenu>
-          <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-xl px-3 py-3">
-            <div className="flex min-w-0 flex-col gap-2">
-              <Skeleton className="h-3 w-20 rounded-none" />
-              <Skeleton className="h-5 w-full rounded-none" />
-            </div>
-            <Skeleton className="size-4 rounded-none" />
-          </div>
-        </SidebarFooter>
-      </Sidebar>
-      <SidebarInset className="min-h-0 overflow-hidden overscroll-none bg-background">
-        <div className="flex h-svh min-h-0 flex-col overflow-hidden overscroll-none">
-          <div className="flex min-h-0 flex-1 flex-col overflow-hidden px-4 py-6 md:px-8">
-            <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-3xl bg-background">
-              <div className="mx-auto flex w-full max-w-[44rem] flex-1 flex-col gap-6 overflow-hidden px-4 pt-4">
-                <div className="my-auto flex flex-col gap-8 pb-8">
-                  <div className="space-y-3">
-                    <Skeleton className="h-10 w-64 rounded-none" />
-                    <Skeleton className="h-7 w-[30rem] max-w-full rounded-none" />
-                  </div>
-                  <div className="space-y-4">
-                    <Skeleton className="h-24 w-[34rem] max-w-full rounded-[24px]" />
-                    <Skeleton className="ml-auto h-32 w-[28rem] max-w-full rounded-[24px]" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </SidebarInset>
-    </SidebarProvider>
+    <DashboardApp
+      session={{
+        authenticated: true,
+        configured: true,
+        user: { email: 'Signed in' },
+      }}
+      datasets={[]}
+      runs={[]}
+      sessions={[]}
+    />
   )
 }
 
