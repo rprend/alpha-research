@@ -8,9 +8,7 @@ import {
   History,
   LoaderCircle,
   LogOut,
-  MessageSquare,
   MoreHorizontal,
-  Plus,
   TerminalSquare,
   X,
 } from 'lucide-react'
@@ -1941,8 +1939,8 @@ function DashboardLoading() {
           </div>
         </SidebarFooter>
       </Sidebar>
-      <SidebarInset className="min-h-0 overflow-hidden bg-background">
-        <div className="flex h-svh min-h-0 flex-col overflow-hidden">
+      <SidebarInset className="min-h-0 overflow-hidden overscroll-none bg-background">
+        <div className="flex h-svh min-h-0 flex-col overflow-hidden overscroll-none">
           <header className="flex h-16 items-center gap-3 border-b border-border px-4 md:px-8">
             <SidebarTrigger variant="ghost" size="icon-sm" />
             <div className="flex flex-col">
@@ -2005,8 +2003,8 @@ function DashboardSignedOut({
           </SidebarGroup>
         </SidebarContent>
       </Sidebar>
-      <SidebarInset className="min-h-0 overflow-hidden bg-background">
-        <div className="flex h-svh min-h-0 flex-col overflow-hidden">
+      <SidebarInset className="min-h-0 overflow-hidden overscroll-none bg-background">
+        <div className="flex h-svh min-h-0 flex-col overflow-hidden overscroll-none">
           <header className="flex h-16 items-center gap-3 border-b border-border px-4 md:px-8">
             <SidebarTrigger variant="ghost" size="icon-sm" />
             <div className="flex flex-col">
@@ -2176,7 +2174,6 @@ function DashboardApp({
                         sessionId: null,
                       })}
                   >
-                    <Plus />
                     <span>New chat</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -2191,7 +2188,6 @@ function DashboardApp({
                           sessionId: chatSession.id,
                         })}
                     >
-                      <MessageSquare />
                       <span className="truncate">
                         {readableSessionTitle(chatSession.title)}
                       </span>
@@ -2254,8 +2250,8 @@ function DashboardApp({
         </SidebarFooter>
       </Sidebar>
 
-      <SidebarInset className="min-h-0 overflow-hidden bg-background">
-        <div className="flex h-svh min-h-0 flex-col overflow-hidden">
+      <SidebarInset className="min-h-0 overflow-hidden overscroll-none bg-background">
+        <div className="flex h-svh min-h-0 flex-col overflow-hidden overscroll-none">
           {content}
         </div>
       </SidebarInset>
@@ -2402,6 +2398,13 @@ function DashboardPage() {
 
   useEffect(() => {
     document.title = 'Research Dashboard | Alpha Research'
+    document.documentElement.classList.add('dashboard-scroll-lock')
+    document.body.classList.add('dashboard-scroll-lock')
+
+    return () => {
+      document.documentElement.classList.remove('dashboard-scroll-lock')
+      document.body.classList.remove('dashboard-scroll-lock')
+    }
   }, [])
 
   if (state.type === 'loading') {

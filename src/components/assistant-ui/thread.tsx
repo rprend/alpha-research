@@ -75,7 +75,7 @@ export const Thread: FC<ThreadProps> = ({
         turnAnchor="top"
         data-slot="aui_thread-viewport"
         className={cn(
-          "relative flex flex-1 flex-col overflow-x-auto overflow-y-scroll scroll-smooth",
+          "relative flex flex-1 flex-col overflow-x-auto overflow-y-scroll overscroll-contain scroll-smooth",
           initialScrollReady ? "opacity-100" : "opacity-0",
         )}
       >

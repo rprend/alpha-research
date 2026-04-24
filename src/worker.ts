@@ -30,13 +30,8 @@ type DurableObjectNamespaceLike = {
   get(id: unknown): DurableObjectStub
 }
 
-type AiBinding = {
-  run<I = unknown, O = unknown>(model: string, input: I): Promise<O>
-}
-
 type Env = {
   ASSETS: AssetFetcher
-  AI?: AiBinding
   WORKOS_API_KEY?: string
   WORKOS_CLIENT_ID?: string
   ALPHA_RESEARCH_SESSION_SECRET?: string
@@ -44,7 +39,6 @@ type Env = {
   WORKOS_REDIRECT_URI?: string
   OPENAI_API_KEY?: string
   RESEARCH_AGENT_MODEL?: string
-  SESSION_TITLE_MODEL?: string
   DIGITALOCEAN_API_TOKEN?: string
   DIGITALOCEAN_REGION?: string
   DIGITALOCEAN_VOLUME_SIZE_GIB?: string
@@ -118,7 +112,6 @@ type AgentToolDefinition = {
 }
 
 const WEB_DASHBOARD_ORIGIN = 'https://dashboard.alpharesearch.nyc'
-const DEFAULT_SESSION_TITLE_MODEL = '@cf/zai-org/glm-4.7-flash'
 const MAX_TOOL_ROUNDS = 12
 const ASYNC_RUN_START_TOOLS = new Set([
   'start_remote_run',
@@ -228,53 +221,6 @@ function fallbackSessionTitleFromMessage(message: string) {
   return normalized.slice(0, 64).trim() || 'Untitled chat'
 }
 
-function normalizeWorkersAiText(payload: unknown): string {
-  const extract = (value: unknown, depth = 0): string => {
-    if (depth > 4 || value == null) return ''
-    if (typeof value === 'string') return value.trim()
-    if (Array.isArray(value)) return value.map((entry) => extract(entry, depth + 1)).filter(Boolean).join(' ').trim()
-    if (typeof value !== 'object') return ''
-
-    const record = value as Record<string, unknown>
-    for (const key of ['response', 'result', 'text', 'output_text', 'content', 'generated_text']) {
-      const extracted = extract(record[key], depth + 1)
-      if (extracted) return extracted
-    }
-    for (const key of ['choices', 'message']) {
-      const extracted = extract(record[key], depth + 1)
-      if (extracted) return extracted
-    }
-    return ''
-  }
-
-  return extract(payload)
-}
-
-async function createSessionTitle(env: Env, message: string) {
-  const fallback = fallbackSessionTitleFromMessage(message)
-  if (!env.AI) {
-    return fallback
-  }
-
-  try {
-    const payload = await env.AI.run(env.SESSION_TITLE_MODEL ?? DEFAULT_SESSION_TITLE_MODEL, {
-      messages: [
-        {
-          role: 'system',
-          content:
-            'Write a short, specific chat title from the user prompt. No emoji. No quotes. No punctuation prefix. Maximum 7 words.',
-        },
-        { role: 'user', content: message.slice(0, 4000) },
-      ],
-      max_tokens: 24,
-    })
-    return normalizeGeneratedSessionTitle(normalizeWorkersAiText(payload)) ?? fallback
-  } catch (error) {
-    console.warn('Failed to generate assistant session title', error)
-    return fallback
-  }
-}
-
 function extractResponseText(payload: Record<string, unknown>) {
   const outputText = typeof payload.output_text === 'string' ? payload.output_text.trim() : ''
   if (outputText) {
@@ -369,8 +315,7 @@ async function proxyToResponsesApi(request: Request, env: Env) {
   const sessionTitle =
     requestedSessionId || previousResponseId
       ? undefined
-      : await createSessionTitle(
-          env,
+      : fallbackSessionTitleFromMessage(
           summarizeInput(body && typeof body === 'object' ? (body as { input?: unknown }).input ?? body : body),
         )
   const resolvedSessionResponse = await proxyToControlPlane(env, '/assistant-sessions/resolve-cli', {
@@ -1112,7 +1057,7 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
       : typeof body.previous_response_id === 'string'
         ? body.previous_response_id
         : null
-  const sessionTitle = requestedSessionId || previousResponseId ? undefined : await createSessionTitle(env, input)
+  const sessionTitle = requestedSessionId || previousResponseId ? undefined : fallbackSessionTitleFromMessage(input)
 
   const resolvedSession = await proxyToControlPlaneJson<{ session?: { id?: string } }>(
     env,
