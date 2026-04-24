@@ -605,6 +605,17 @@ function getRemoteAgentTranscriptArtifact(payload: RunResultsResponse | null) {
   return { artifact, text }
 }
 
+function getRemoteAgentSummaryArtifact(payload: RunResultsResponse | null) {
+  const artifact = (payload?.artifacts ?? []).find(
+    (artifact) => artifact.type === 'remote_agent_summary',
+  )
+  const text = artifact?.content?.text
+  if (!artifact || typeof text !== 'string' || !text.trim()) {
+    return null
+  }
+  return { artifact, text }
+}
+
 function buildCliTranscript(
   run: RunRecord,
   dataset: DatasetRecord | undefined,
@@ -720,7 +731,7 @@ function buildRemoteTranscript(
 ): SessionEntry[] {
   const storedSession = payload?.sessions?.find((session) => session.kind === 'remote_codex')
   if (storedSession?.entries?.length) {
-    return storedSession.entries.map((entry) =>
+    const entries = storedSession.entries.map((entry) =>
       createSessionEntry(
         entry.id,
         entry.role === 'user' ? 'user' : entry.role === 'system' ? 'system' : entry.role === 'tool' ? 'tool' : 'assistant',
@@ -730,11 +741,26 @@ function buildRemoteTranscript(
         entry.metadata,
       ),
     )
+    const hasSynthesis = storedSession.entries.some((entry) => entry.kind === 'final_summary')
+    const summaryArtifact = getRemoteAgentSummaryArtifact(payload)
+    if (!hasSynthesis && summaryArtifact) {
+      entries.push(
+        createSessionEntry(
+          `${run.id}-remote-summary-artifact`,
+          'assistant',
+          summaryArtifact.artifact.createdAt,
+          summaryArtifact.text,
+          'Synthesis',
+        ),
+      )
+    }
+    return entries
   }
 
   const transcriptArtifact = getRemoteAgentTranscriptArtifact(payload)
+  const summaryArtifact = getRemoteAgentSummaryArtifact(payload)
   if (transcriptArtifact) {
-    return [
+    const entries = [
       createSessionEntry(
         `${run.id}-remote-transcript-artifact`,
         'assistant',
@@ -743,6 +769,18 @@ function buildRemoteTranscript(
         transcriptArtifact.artifact.title,
       ),
     ]
+    if (summaryArtifact) {
+      entries.push(
+        createSessionEntry(
+          `${run.id}-remote-summary-artifact`,
+          'assistant',
+          summaryArtifact.artifact.createdAt,
+          summaryArtifact.text,
+          'Synthesis',
+        ),
+      )
+    }
+    return entries
   }
 
   const messages: SessionEntry[] = []
