@@ -2662,7 +2662,7 @@ function LandingPage() {
             </a>
 
             <nav className="top-links" aria-label="Primary">
-              <a className="underlined-link" href="/cli/">CLI</a>
+              <a className="underlined-link" href="/cli/">RResearch</a>
               <a className="button-small ghost-button" href="/blog/">blog</a>
               <button
                 className="button-small ghost-button auth-button"
@@ -2946,7 +2946,7 @@ function LandingPage() {
 
           <div className="footer-copy">
             <div className="footer-links">
-              <a href="/cli/">CLI</a>
+              <a href="/cli/">RResearch</a>
               <a href="/blog/">blog</a>
               <a href="/privacy/">privacy</a>
               <a href="/terms/">terms</a>
