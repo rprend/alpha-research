@@ -33,7 +33,7 @@ import {
   RefreshCwIcon,
   SquareIcon,
 } from "lucide-react";
-import type { FC } from "react";
+import { useLayoutEffect, useRef, useState, type FC } from "react";
 
 type ThreadProps = {
   readOnly?: boolean;
@@ -46,6 +46,21 @@ export const Thread: FC<ThreadProps> = ({
   welcomeTitle = "Hello there!",
   welcomeDescription = "How can I help you today?",
 }) => {
+  const viewportRef = useRef<HTMLDivElement | null>(null);
+  const [initialScrollReady, setInitialScrollReady] = useState(!readOnly);
+
+  useLayoutEffect(() => {
+    if (!readOnly) return;
+    const viewport = viewportRef.current;
+    if (!viewport) {
+      setInitialScrollReady(true);
+      return;
+    }
+
+    viewport.scrollTop = viewport.scrollHeight;
+    setInitialScrollReady(true);
+  }, [readOnly]);
+
   return (
     <ThreadPrimitive.Root
       className="aui-root aui-thread-root @container flex h-full flex-col bg-background"
@@ -56,9 +71,13 @@ export const Thread: FC<ThreadProps> = ({
       }}
     >
       <ThreadPrimitive.Viewport
-        turnAnchor={readOnly ? "bottom" : "top"}
+        ref={viewportRef}
+        turnAnchor="top"
         data-slot="aui_thread-viewport"
-        className="relative flex flex-1 flex-col overflow-x-auto overflow-y-scroll scroll-smooth"
+        className={cn(
+          "relative flex flex-1 flex-col overflow-x-auto overflow-y-scroll scroll-smooth",
+          initialScrollReady ? "opacity-100" : "opacity-0",
+        )}
       >
         <div className="mx-auto flex w-full max-w-(--thread-max-width) flex-1 flex-col px-4 pt-4">
           <AuiIf condition={(s) => s.thread.isEmpty}>
