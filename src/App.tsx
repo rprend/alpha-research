@@ -8,7 +8,9 @@ import {
   History,
   LoaderCircle,
   LogOut,
+  MessageSquare,
   MoreHorizontal,
+  Plus,
   TerminalSquare,
   X,
 } from 'lucide-react'
@@ -531,6 +533,12 @@ function formatSessionBody(entry: SessionEntry) {
   }
   if (parsed !== null) {
     return codeBlock(entry.title ?? 'Payload', parsed)
+  }
+  if (entry.title === 'Run started') {
+    const runId = entry.body.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/iu)?.[0]
+    if (runId) {
+      return `### ${entry.title}\n\n${entry.body}\n\n[Open run](${dashboardOrigin}?view=runs&runId=${encodeURIComponent(runId)})`
+    }
   }
   if (entry.title) {
     return `### ${entry.title}\n\n${entry.body}`
@@ -1423,14 +1431,12 @@ function useSessionDetail(sessionId: string | null) {
 }
 
 function ResearchAssistantPage({
-  sessions,
   dataError,
 }: {
-  sessions: StoredAssistantSession[]
   dataError?: string | null
 }) {
   const route = useDashboardRoute()
-  const activeSessionId = route.sessionId ?? sessions[0]?.id ?? null
+  const activeSessionId = route.sessionId ?? null
   const { session, error, loading } = useSessionDetail(activeSessionId)
   const [messages, setMessages] = useState<ThreadMessage[]>([])
   const [isRunning, setIsRunning] = useState(false)
@@ -2052,13 +2058,6 @@ function DashboardApp({
 
   const activeRun = route.runId ? runs.find((run) => run.id === route.runId) ?? null : null
 
-  const navItems: Array<{ view: DashboardView; label: string; icon: typeof Bot }> = [
-    { view: 'assistant', label: 'Assistant', icon: Bot },
-    { view: 'datasets', label: 'Datasets', icon: Database },
-    { view: 'runs', label: 'Runs', icon: History },
-    { view: 'terminal-sessions', label: 'Terminal Sessions', icon: TerminalSquare },
-  ]
-
   let title = 'RESEARCH CLI'
   let eyebrow = 'Assistant'
   let content: ReactNode
@@ -2156,7 +2155,7 @@ function DashboardApp({
       </main>
     )
   } else {
-    content = <ResearchAssistantPage sessions={sessions} dataError={dataError} />
+    content = <ResearchAssistantPage dataError={dataError} />
   }
 
   return (
@@ -2173,33 +2172,62 @@ function DashboardApp({
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupLabel>Workspace</SidebarGroupLabel>
+            <SidebarGroupLabel>Chats</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
-                {navItems.map((item) => {
-                  const Icon = item.icon
-                  return (
-                    <SidebarMenuItem key={item.view}>
-                      <SidebarMenuButton
-                        isActive={route.view === item.view}
-                        onClick={() =>
-                          updateDashboardRoute({
-                            view: item.view,
-                            runId: null,
-                            sessionId: null,
-                          })}
-                      >
-                        <Icon />
-                        <span>{item.label}</span>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  )
-                })}
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    isActive={route.view === 'assistant' && !route.sessionId}
+                    onClick={() =>
+                      updateDashboardRoute({
+                        view: 'assistant',
+                        runId: null,
+                        sessionId: null,
+                      })}
+                  >
+                    <Plus />
+                    <span>New chat</span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                {sessions.map((chatSession) => (
+                  <SidebarMenuItem key={chatSession.id}>
+                    <SidebarMenuButton
+                      isActive={route.view === 'assistant' && route.sessionId === chatSession.id}
+                      onClick={() =>
+                        updateDashboardRoute({
+                          view: 'assistant',
+                          runId: null,
+                          sessionId: chatSession.id,
+                        })}
+                    >
+                      <MessageSquare />
+                      <span className="truncate">
+                        {chatSession.title ?? 'RESEARCH CLI session'}
+                      </span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>
         </SidebarContent>
         <SidebarFooter className="border-t border-sidebar-border p-3">
+          <SidebarMenu className="mb-2">
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                isActive={route.view === 'datasets'}
+                onClick={() =>
+                  updateDashboardRoute({
+                    view: 'datasets',
+                    runId: null,
+                    sessionId: null,
+                  })}
+              >
+                <Database />
+                <span>Datasets</span>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
