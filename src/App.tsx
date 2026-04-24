@@ -1504,6 +1504,17 @@ function ResearchAssistantPage({
   })
   const conversationStateRef = useRef(conversationState)
   const routeSessionIdRef = useRef(route.sessionId)
+  const refreshSessionMessages = async (sessionId: string) => {
+    const response = await fetchJson<{ session: StoredAssistantSession; entries: StoredAssistantSessionEntry[] }>(
+      `/api/cli/sessions/${sessionId}`,
+    )
+    setMessages(sessionEntriesToThreadMessages(response.entries))
+    updateConversationState({
+      sessionId,
+      previousResponseId: extractPreviousResponseId(response.entries),
+    })
+    return response
+  }
 
   useEffect(() => {
     routeSessionIdRef.current = route.sessionId
@@ -1548,10 +1559,20 @@ function ResearchAssistantPage({
       try {
         const currentConversation = conversationStateRef.current
         const currentSessionId = currentConversation.sessionId ?? routeSessionIdRef.current
+        let refreshInterval: number | null = null
+        if (currentSessionId) {
+          refreshInterval = window.setInterval(() => {
+            void refreshSessionMessages(currentSessionId).catch(() => undefined)
+          }, 1200)
+        }
         const result = await postAssistantTurn({
           input,
           sessionId: currentSessionId,
           previousResponseId: currentConversation.previousResponseId,
+        }).finally(() => {
+          if (refreshInterval) {
+            window.clearInterval(refreshInterval)
+          }
         })
         const nextSessionId = result.sessionId ?? currentSessionId
         updateConversationState({
@@ -1559,10 +1580,7 @@ function ResearchAssistantPage({
           previousResponseId: result.previousResponseId,
         })
         if (nextSessionId) {
-          const response = await fetchJson<{ session: StoredAssistantSession; entries: StoredAssistantSessionEntry[] }>(
-            `/api/cli/sessions/${nextSessionId}`,
-          )
-          setMessages(sessionEntriesToThreadMessages(response.entries))
+          await refreshSessionMessages(nextSessionId)
           window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
           if (routeSessionIdRef.current !== nextSessionId) {
             updateDashboardRoute({ view: 'assistant', sessionId: nextSessionId, runId: null })
