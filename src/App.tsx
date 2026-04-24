@@ -47,7 +47,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-  SidebarTrigger,
 } from '@/components/ui/sidebar'
 import { Skeleton } from '@/components/ui/skeleton'
 import {
@@ -1914,40 +1913,35 @@ function DashboardLoading() {
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupLabel>Workspace</SidebarGroupLabel>
+            <SidebarGroupLabel>Chats</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 <SidebarMenuItem>
                   <SidebarMenuButton isActive>
-                    <Bot />
-                    <span>Assistant</span>
+                    <span>New chat</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <SidebarMenuButton>
-                    <Database />
-                    <span>Datasets</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <SidebarMenuButton>
-                    <History />
-                    <span>Runs</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <SidebarMenuButton>
-                    <TerminalSquare />
-                    <span>Terminal Sessions</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
+                {Array.from({ length: 4 }).map((_, index) => (
+                  <SidebarMenuItem key={index}>
+                    <SidebarMenuButton>
+                      <Skeleton className="h-4 w-full rounded-none" />
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>
         </SidebarContent>
         <SidebarFooter className="border-t border-sidebar-border p-3">
-          <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-xl px-3 py-3">
-            <Skeleton className="size-10 rounded-full" />
+          <SidebarMenu className="mb-2">
+            <SidebarMenuItem>
+              <SidebarMenuButton>
+                <Database />
+                <span>Datasets</span>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+          <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-xl px-3 py-3">
             <div className="flex min-w-0 flex-col gap-2">
               <Skeleton className="h-3 w-20 rounded-none" />
               <Skeleton className="h-5 w-full rounded-none" />
@@ -1958,15 +1952,6 @@ function DashboardLoading() {
       </Sidebar>
       <SidebarInset className="min-h-0 overflow-hidden overscroll-none bg-background">
         <div className="flex h-svh min-h-0 flex-col overflow-hidden overscroll-none">
-          <header className="flex h-16 items-center gap-3 border-b border-border px-4 md:px-8">
-            <SidebarTrigger variant="ghost" size="icon-sm" />
-            <div className="flex flex-col">
-              <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                Assistant
-              </span>
-              <span className="text-sm font-medium">Loading RESEARCH CLI</span>
-            </div>
-          </header>
           <div className="flex min-h-0 flex-1 flex-col overflow-hidden px-4 py-6 md:px-8">
             <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-3xl bg-background">
               <div className="mx-auto flex w-full max-w-[44rem] flex-1 flex-col gap-6 overflow-hidden px-4 pt-4">
@@ -2006,32 +1991,31 @@ function DashboardSignedOut({
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupLabel>Workspace</SidebarGroupLabel>
+            <SidebarGroupLabel>Chats</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 <SidebarMenuItem>
                   <SidebarMenuButton isActive>
-                    <Bot />
-                    <span>Assistant</span>
+                    <span>New chat</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>
         </SidebarContent>
+        <SidebarFooter className="border-t border-sidebar-border p-3">
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton>
+                <Database />
+                <span>Datasets</span>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarFooter>
       </Sidebar>
       <SidebarInset className="min-h-0 overflow-hidden overscroll-none bg-background">
         <div className="flex h-svh min-h-0 flex-col overflow-hidden overscroll-none">
-          <header className="flex h-16 items-center gap-3 border-b border-border px-4 md:px-8">
-            <SidebarTrigger variant="ghost" size="icon-sm" />
-            <div className="flex flex-col">
-              <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                Assistant
-              </span>
-              <span className="text-sm font-medium">RESEARCH CLI workspace</span>
-            </div>
-          </header>
-
           <main className="flex min-h-0 flex-1 items-center justify-center px-4 py-6 md:px-8">
             <Empty className="border-0 px-8 py-12">
               <EmptyHeader>
