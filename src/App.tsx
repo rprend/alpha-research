@@ -2252,9 +2252,6 @@ function DashboardApp({
                 className="grid h-auto w-full min-w-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 overflow-hidden rounded-xl px-3 py-3 text-left hover:bg-sidebar-accent/60"
               >
                 <div className="flex min-w-0 flex-col items-start pr-2">
-                  <span className="truncate text-[0.7rem] font-medium tracking-[0.14em] text-muted-foreground uppercase">
-                    Account
-                  </span>
                   <span className="truncate text-base font-normal normal-case tracking-normal text-foreground/90">
                     {session.user?.email ?? 'Signed in'}
                   </span>
