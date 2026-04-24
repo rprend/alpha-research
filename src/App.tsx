@@ -590,8 +590,19 @@ function hasRemoteRunLogs(payload: RunResultsResponse | null) {
     return true
   }
   return (payload?.artifacts ?? []).some(
-    (artifact) => artifact.type === 'remote_agent_transcript' || artifact.type === 'remote_agent_session',
+    (artifact) => artifact.type === 'remote_agent_transcript',
+  ) || Boolean(getRemoteSessionId(payload?.artifacts ?? []) && payload?.events.length)
+}
+
+function getRemoteAgentTranscriptArtifact(payload: RunResultsResponse | null) {
+  const artifact = (payload?.artifacts ?? []).find(
+    (artifact) => artifact.type === 'remote_agent_transcript',
   )
+  const text = artifact?.content?.text
+  if (!artifact || typeof text !== 'string' || !text.trim()) {
+    return null
+  }
+  return { artifact, text }
 }
 
 function buildCliTranscript(
@@ -719,6 +730,19 @@ function buildRemoteTranscript(
         entry.metadata,
       ),
     )
+  }
+
+  const transcriptArtifact = getRemoteAgentTranscriptArtifact(payload)
+  if (transcriptArtifact) {
+    return [
+      createSessionEntry(
+        `${run.id}-remote-transcript-artifact`,
+        'assistant',
+        transcriptArtifact.artifact.createdAt,
+        codeBlock('Remote Codex stdout', transcriptArtifact.text),
+        transcriptArtifact.artifact.title,
+      ),
+    ]
   }
 
   const messages: SessionEntry[] = []
@@ -1510,42 +1534,6 @@ function ResearchAssistantPage({
   )
 }
 
-function DetailHeader({
-  eyebrow,
-  title,
-  description,
-  children,
-  onBack,
-}: {
-  eyebrow: string
-  title: string
-  description: string
-  children?: ReactNode
-  onBack: () => void
-}) {
-  return (
-    <section className="flex flex-col gap-5 border-b border-border px-6 py-6 md:px-10">
-      <div className="flex flex-wrap items-start justify-between gap-4">
-        <div className="flex max-w-4xl flex-col gap-2">
-          <button
-            type="button"
-            onClick={onBack}
-            className="w-fit text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground hover:text-foreground"
-          >
-            Back
-          </button>
-          <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-            {eyebrow}
-          </span>
-          <h1 className="text-3xl font-semibold tracking-tight">{title}</h1>
-          <p className="max-w-3xl text-sm leading-7 text-muted-foreground">{description}</p>
-        </div>
-      </div>
-      {children}
-    </section>
-  )
-}
-
 function RunArtifactsSheet({
   open,
   onClose,
@@ -1817,50 +1805,27 @@ function SessionDetailPage({ sessionId }: { sessionId: string }) {
   )
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
-      <DetailHeader
-        eyebrow="Terminal Session"
-        title={session?.title ?? sessionId}
-        description="Persisted RESEARCH CLI orchestration turns."
-        onBack={() => updateDashboardRoute({ view: 'terminal-sessions', sessionId: null, runId: null })}
-      >
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-          <StatusBadge>{formatStatus(session?.status ?? 'active')}</StatusBadge>
-          {session ? (
-            <span className="text-sm text-muted-foreground">Updated {formatDateTime(session.updatedAt)}</span>
-          ) : null}
-          {session?.runId ? (
-            <button
-              type="button"
-              className="text-sm text-muted-foreground hover:text-foreground"
-              onClick={() => updateDashboardRoute({ view: 'runs', runId: session.runId, sessionId })}
-            >
-              Open related run
-            </button>
-          ) : null}
-          {loading ? (
-            <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-              <LoaderCircle className="size-4 animate-spin" />
-              Loading
-            </span>
-          ) : null}
-        </div>
-      </DetailHeader>
-
-      <div className="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto bg-muted/15 px-6 py-6 md:px-10">
+    <div className="flex min-h-0 flex-1 flex-col bg-background">
+      <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-4 py-6 md:px-8">
         {error ? (
-          <Card className="rounded-xl border border-destructive/30 bg-destructive/5 py-0 shadow-none">
-            <CardContent className="px-6 py-4 text-sm text-destructive">
-              Could not load terminal session: {error}
-            </CardContent>
-          </Card>
+          <div className="mx-auto mb-4 w-full max-w-[46rem] bg-destructive/5 px-4 py-3 text-sm text-destructive">
+            Could not load terminal session: {error}
+          </div>
         ) : null}
 
-        <AssistantTranscript
-          entries={entries}
-          emptyTitle="No terminal session turns yet"
-          emptyDescription="This session exists, but no turns have been recorded yet."
-        />
+        <div className="mx-auto flex w-full max-w-[46rem] flex-1 flex-col">
+          {loading ? (
+            <div className="mb-2 flex justify-end text-muted-foreground">
+              <LoaderCircle className="size-4 animate-spin" aria-label="Loading terminal session" />
+            </div>
+          ) : null}
+          <AssistantTranscript
+            entries={entries}
+            emptyTitle="No terminal session turns yet"
+            emptyDescription="This session exists, but no turns have been recorded yet."
+            unframed
+          />
+        </div>
       </div>
     </div>
   )
@@ -2059,7 +2024,9 @@ function DashboardApp({
   let title = 'RESEARCH CLI'
   let eyebrow = 'Assistant'
   let content: ReactNode
-  const hideContentHeader = route.view === 'runs' && activeRun
+  const hideContentHeader =
+    (route.view === 'runs' && activeRun) ||
+    (route.view === 'terminal-sessions' && route.sessionId)
 
   if (route.view === 'runs' && activeRun) {
     title = 'Run detail'
