@@ -1185,7 +1185,7 @@ function StatusBadge({ children }: { children: string }) {
   )
 }
 
-function DatasetTable({ datasets }: { datasets: DatasetRecord[] }) {
+function DatasetGallery({ datasets }: { datasets: DatasetRecord[] }) {
   if (datasets.length === 0) {
     return (
       <Empty className="border-t border-dashed border-border px-6 py-14">
@@ -1203,44 +1203,61 @@ function DatasetTable({ datasets }: { datasets: DatasetRecord[] }) {
   }
 
   return (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHead>Name</TableHead>
-          <TableHead>Mode</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Deploy</TableHead>
-          <TableHead>Updated</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {datasets.map((dataset) => {
-          const description =
-            dataset.description?.trim() ||
-            dataset.sourceFilename?.trim() ||
-            `Source type: ${dataset.sourceType}`
+    <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+      {datasets.map((dataset) => {
+        const description =
+          dataset.description?.trim() ||
+          dataset.sourceFilename?.trim() ||
+          `Source type: ${dataset.sourceType}`
+        const sourceLabel = dataset.sourceFilename?.trim() || formatStatus(dataset.sourceType)
 
-          return (
-            <TableRow key={dataset.id}>
-              <TableCell className="align-top">
-                <div className="flex min-w-0 flex-col gap-1">
-                  <span className="truncate font-medium">{dataset.name}</span>
-                  <span className="max-w-[30rem] text-sm whitespace-normal text-muted-foreground">
-                    {truncate(description, 120)}
-                  </span>
+        return (
+          <Card
+            key={dataset.id}
+            className="min-h-56 rounded-lg border-border/70 bg-background py-0 shadow-none transition-colors hover:border-foreground/25"
+          >
+            <CardContent className="flex h-full min-w-0 flex-col gap-5 p-5">
+              <div className="flex min-w-0 items-start justify-between gap-3">
+                <div className="flex min-w-0 flex-col gap-2">
+                  <div className="truncate text-base font-semibold">{dataset.name}</div>
+                  <div className="text-sm leading-6 text-muted-foreground">
+                    {truncate(description, 160)}
+                  </div>
                 </div>
-              </TableCell>
-              <TableCell>{formatStatus(dataset.mode ?? 'default')}</TableCell>
-              <TableCell>
                 <StatusBadge>{formatStatus(dataset.status)}</StatusBadge>
-              </TableCell>
-              <TableCell>{formatStatus(dataset.deploymentStatus)}</TableCell>
-              <TableCell>{relativeTime(dataset.updatedAt)}</TableCell>
-            </TableRow>
-          )
-        })}
-      </TableBody>
-    </Table>
+              </div>
+
+              <div className="mt-auto grid gap-3 text-sm">
+                <div className="grid grid-cols-[6.5rem_minmax(0,1fr)] items-baseline gap-3">
+                  <span className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">
+                    Source
+                  </span>
+                  <span className="truncate">{sourceLabel}</span>
+                </div>
+                <div className="grid grid-cols-[6.5rem_minmax(0,1fr)] items-baseline gap-3">
+                  <span className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">
+                    Mode
+                  </span>
+                  <span>{formatStatus(dataset.mode ?? 'default')}</span>
+                </div>
+                <div className="grid grid-cols-[6.5rem_minmax(0,1fr)] items-baseline gap-3">
+                  <span className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">
+                    Deploy
+                  </span>
+                  <span>{formatStatus(dataset.deploymentStatus)}</span>
+                </div>
+                <div className="grid grid-cols-[6.5rem_minmax(0,1fr)] items-baseline gap-3">
+                  <span className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">
+                    Updated
+                  </span>
+                  <span>{relativeTime(dataset.updatedAt)}</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        )
+      })}
+    </div>
   )
 }
 
@@ -2089,7 +2106,7 @@ function DashboardApp({
               Your private datasets and deployed research environments.
             </p>
           </div>
-          <DatasetTable datasets={datasets} />
+          <DatasetGallery datasets={datasets} />
         </section>
       </main>
     )
