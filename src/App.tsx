@@ -888,6 +888,13 @@ function AssistantTranscript({
   emptyDescription: string
   unframed?: boolean
 }) {
+  const messages = useMemo(() => entries.map(toThreadMessage), [entries])
+  const runtime = useExternalStoreRuntime({
+    isRunning: false,
+    messages,
+    onNew: async () => {},
+  })
+
   if (entries.length === 0) {
     return (
       <div className={unframed ? 'flex min-h-[28rem] items-center justify-center px-8 py-16' : 'flex min-h-[28rem] items-center justify-center rounded-3xl border border-dashed border-border bg-background px-8 py-16'}>
@@ -899,16 +906,9 @@ function AssistantTranscript({
     )
   }
 
-  const messages = useMemo(() => entries.map(toThreadMessage), [entries])
-  const runtime = useExternalStoreRuntime({
-    isRunning: false,
-    messages,
-    onNew: async () => {},
-  })
-
   return (
     <AssistantRuntimeProvider runtime={runtime}>
-      <div className={unframed ? 'min-h-[28rem]' : 'min-h-[28rem] rounded-3xl border border-border bg-background'}>
+      <div className={unframed ? 'flex min-h-0 flex-1 flex-col' : 'flex min-h-0 flex-1 flex-col rounded-3xl border border-border bg-background'}>
         <Thread
           readOnly
           welcomeTitle={emptyTitle}
@@ -1846,14 +1846,14 @@ function RunDetailPage({
         ) : null}
       </Button>
 
-      <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-4 py-6 md:px-8">
+      <div className="flex min-h-0 flex-1 flex-col overflow-hidden px-4 py-6 md:px-8">
         {error ? (
           <div className="mx-auto mb-4 w-full max-w-[46rem] bg-destructive/5 px-4 py-3 text-sm text-destructive">
             Could not load run transcript: {error}
           </div>
         ) : null}
 
-        <div className="mx-auto flex w-full max-w-[46rem] flex-1 flex-col">
+        <div className="mx-auto flex min-h-0 w-full max-w-[46rem] flex-1 flex-col">
           {loading ? (
             <div className="mb-2 flex justify-end text-muted-foreground">
               <LoaderCircle className="size-4 animate-spin" aria-label="Refreshing run" />
