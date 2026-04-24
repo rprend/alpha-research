@@ -264,6 +264,15 @@ function readableSessionTitle(value: string | null | undefined) {
   return normalized || 'Untitled chat'
 }
 
+function readableRunTitle(run: RunRecord | undefined, runId: string) {
+  if (!run) {
+    return `Run ${runId.slice(0, 8)}`
+  }
+  const type = formatStatus(run.type)
+  const status = formatStatus(run.status)
+  return `${type} · ${status}`
+}
+
 function formatCompactTime(value: string) {
   const date = new Date(value)
   if (Number.isNaN(date.getTime())) {
@@ -1032,6 +1041,21 @@ function extractPreviousResponseId(entries: StoredAssistantSessionEntry[]) {
   return null
 }
 
+function sessionEntriesToThreadMessages(entries: StoredAssistantSessionEntry[]) {
+  return entries.map((entry) =>
+    toThreadMessage(
+      createSessionEntry(
+        entry.id,
+        entry.role === 'user' ? 'user' : entry.role === 'system' ? 'system' : 'assistant',
+        entry.createdAt,
+        entry.content,
+        entry.title ?? formatStatus(entry.kind),
+        entry.metadata,
+      ),
+    ),
+  )
+}
+
 async function postAssistantTurn(body: {
   input: string
   sessionId?: string | null
@@ -1472,19 +1496,7 @@ function ResearchAssistantPage({
   }
 
   useEffect(() => {
-    const entries = (session?.entries ?? []).map((entry) =>
-      toThreadMessage(
-        createSessionEntry(
-          entry.id,
-          entry.role === 'user' ? 'user' : entry.role === 'system' ? 'system' : 'assistant',
-          entry.createdAt,
-          entry.content,
-          entry.title ?? formatStatus(entry.kind),
-          entry.metadata,
-        ),
-      ),
-    )
-    setMessages(entries)
+    setMessages(sessionEntriesToThreadMessages(session?.entries ?? []))
     updateConversationState({
       sessionId: session?.id ?? activeSessionId,
       previousResponseId: extractPreviousResponseId(session?.entries ?? []),
@@ -1525,27 +1537,14 @@ function ResearchAssistantPage({
           previousResponseId: result.previousResponseId,
         })
         if (nextSessionId) {
+          const response = await fetchJson<{ session: StoredAssistantSession; entries: StoredAssistantSessionEntry[] }>(
+            `/api/cli/sessions/${nextSessionId}`,
+          )
+          setMessages(sessionEntriesToThreadMessages(response.entries))
+          window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
           if (routeSessionIdRef.current !== nextSessionId) {
             updateDashboardRoute({ view: 'assistant', sessionId: nextSessionId, runId: null })
             routeSessionIdRef.current = nextSessionId
-          } else {
-            const response = await fetchJson<{ session: StoredAssistantSession; entries: StoredAssistantSessionEntry[] }>(
-              `/api/cli/sessions/${nextSessionId}`,
-            )
-            setMessages(
-              response.entries.map((entry) =>
-                toThreadMessage(
-                  createSessionEntry(
-                    entry.id,
-                    entry.role === 'user' ? 'user' : entry.role === 'system' ? 'system' : 'assistant',
-                    entry.createdAt,
-                    entry.content,
-                    entry.title ?? formatStatus(entry.kind),
-                    entry.metadata,
-                  ),
-                ),
-              ),
-            )
           }
         }
       } catch (submitError) {
@@ -2059,6 +2058,10 @@ function DashboardApp({
     () => new Map(datasets.map((dataset) => [dataset.id, dataset])),
     [datasets],
   )
+  const runLookup = useMemo(
+    () => new Map(runs.map((run) => [run.id, run])),
+    [runs],
+  )
   const route = useDashboardRoute()
 
   const activeRun = route.runId ? runs.find((run) => run.id === route.runId) ?? null : null
@@ -2178,23 +2181,42 @@ function DashboardApp({
                     <span>New chat</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
-                {sessions.map((chatSession) => (
-                  <SidebarMenuItem key={chatSession.id}>
-                    <SidebarMenuButton
-                      isActive={route.view === 'assistant' && route.sessionId === chatSession.id}
-                      onClick={() =>
-                        updateDashboardRoute({
-                          view: 'assistant',
-                          runId: null,
-                          sessionId: chatSession.id,
-                        })}
-                    >
-                      <span className="truncate">
-                        {readableSessionTitle(chatSession.title)}
-                      </span>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
+                {sessions.map((chatSession) => {
+                  const attachedRun = chatSession.runId ? runLookup.get(chatSession.runId) : undefined
+                  return (
+                    <SidebarMenuItem key={chatSession.id}>
+                      <SidebarMenuButton
+                        isActive={route.view === 'assistant' && route.sessionId === chatSession.id}
+                        onClick={() =>
+                          updateDashboardRoute({
+                            view: 'assistant',
+                            runId: null,
+                            sessionId: chatSession.id,
+                          })}
+                      >
+                        <span className="truncate">
+                          {readableSessionTitle(chatSession.title)}
+                        </span>
+                      </SidebarMenuButton>
+                      {chatSession.runId ? (
+                        <SidebarMenuButton
+                          className="ml-3 h-7 text-xs text-muted-foreground"
+                          isActive={route.view === 'runs' && route.runId === chatSession.runId}
+                          onClick={() =>
+                            updateDashboardRoute({
+                              view: 'runs',
+                              runId: chatSession.runId,
+                              sessionId: null,
+                            })}
+                        >
+                          <span className="truncate">
+                            {readableRunTitle(attachedRun, chatSession.runId)}
+                          </span>
+                        </SidebarMenuButton>
+                      ) : null}
+                    </SidebarMenuItem>
+                  )
+                })}
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>
@@ -2385,9 +2407,14 @@ function useDashboardState() {
     }
 
     void load()
+    const handleRefresh = () => {
+      void load()
+    }
+    window.addEventListener('alpha-research-dashboard-refresh', handleRefresh)
 
     return () => {
       cancelled = true
+      window.removeEventListener('alpha-research-dashboard-refresh', handleRefresh)
     }
   }, [])
 
