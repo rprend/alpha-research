@@ -1324,14 +1324,15 @@ export default {
       })
     }
 
-    const publicEnvironmentMatch = pathname.match(/^\/api\/cli\/datasets\/([^/]+)\/public-environment$/u)
+    const publicEnvironmentMatch = pathname.match(/^\/api\/cli\/datasets\/([^/]+)\/(?:public-environment|research-environment)$/u)
     if (publicEnvironmentMatch && request.method === 'POST') {
       const cliSession = await requireAuthorizedSession(request, env)
       if (!cliSession) {
         return json({ error: 'Unauthorized' }, 401)
       }
       const body = await request.json().catch(() => ({}))
-      return proxyToControlPlane(env, `/datasets/${encodeURIComponent(publicEnvironmentMatch[1] ?? '')}/public-environment`, {
+      const endpoint = pathname.endsWith('/research-environment') ? 'research-environment' : 'public-environment'
+      return proxyToControlPlane(env, `/datasets/${encodeURIComponent(publicEnvironmentMatch[1] ?? '')}/${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

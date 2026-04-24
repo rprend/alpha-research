@@ -539,6 +539,7 @@ function buildWarmPoolRunnerScript(env: DigitalOceanEnv, sizeClass: 'small' | 'm
     `OPENAI_API_KEY=${shellEscape(env.OPENAI_API_KEY ?? '')}`,
     `REMOTE_AGENT_MODEL=${shellEscape(env.REMOTE_AGENT_MODEL ?? env.RESEARCH_AGENT_MODEL ?? 'gpt-5-codex')}`,
     `POOL_SIZE_CLASS=${shellEscape(sizeClass)}`,
+    `POOL_REGION=${shellEscape(env.DIGITALOCEAN_REGION ?? 'nyc3')}`,
     `MOUNT_ROOT=${shellEscape(mountRoot)}`,
     'POOL_DROPLET_ID="$(curl -fsS http://169.254.169.254/metadata/v1/id)"',
     'POOL_DROPLET_NAME="$(curl -fsS http://169.254.169.254/metadata/v1/hostname)"',
@@ -551,17 +552,18 @@ function buildWarmPoolRunnerScript(env: DigitalOceanEnv, sizeClass: 'small' | 'm
     `printf '%s' "$OPENAI_API_KEY" | codex login --with-api-key >/dev/null`,
     '',
     'heartbeat() {',
-    '  python3 - "$POOL_DROPLET_ID" "$POOL_DROPLET_NAME" "$POOL_SIZE_CLASS" <<\'PY\' | \\',
+    '  python3 - "$POOL_DROPLET_ID" "$POOL_DROPLET_NAME" "$POOL_SIZE_CLASS" "$POOL_REGION" <<\'PY\' | \\',
     '    curl -fsS -X POST "$CONTROL_ORIGIN/api/internal/runner-pool/heartbeat" \\',
     '      -H "Authorization: Bearer $RUNNER_TOKEN" \\',
     '      -H "Content-Type: application/json" \\',
     '      --data @- >/dev/null',
     'import json, sys',
-    'droplet_id, droplet_name, size_class = sys.argv[1:]',
+    'droplet_id, droplet_name, size_class, region = sys.argv[1:]',
     'print(json.dumps({',
     '  "dropletId": droplet_id,',
     '  "dropletName": droplet_name,',
     '  "sizeClass": size_class,',
+    '  "region": region,',
     '}))',
     'PY',
     '}',
@@ -655,12 +657,13 @@ function buildWarmPoolRunnerScript(env: DigitalOceanEnv, sizeClass: 'small' | 'm
 
 async function listWarmPoolDroplets(env: DigitalOceanEnv, sizeClass: 'small' | 'medium' | 'large') {
   const tag = `alpha-research-pool-${sizeClass}`
-  const response = await doRequest<{ droplets?: Array<{ id: number; name: string; status: string }> }>(
+  const region = env.DIGITALOCEAN_REGION ?? 'nyc3'
+  const response = await doRequest<{ droplets?: Array<{ id: number; name: string; status: string; region?: { slug?: string } }> }>(
     env,
     `/droplets?tag_name=${encodeURIComponent(tag)}`,
     { method: 'GET' },
   ).catch(() => ({ droplets: [] }))
-  return response.droplets ?? []
+  return (response.droplets ?? []).filter((droplet) => droplet.region?.slug === region)
 }
 
 async function createWarmPoolDroplet(env: DigitalOceanEnv, sizeClass: 'small' | 'medium' | 'large') {

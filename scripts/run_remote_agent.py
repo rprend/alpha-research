@@ -30,6 +30,10 @@ CALLBACK_SESSION_ENTRIES_URL = os.environ["CALLBACK_SESSION_ENTRIES_URL"]
 RUNNER_TOKEN = os.environ["RUNNER_TOKEN"]
 REMOTE_AGENT_MODEL = os.environ.get("REMOTE_AGENT_MODEL", "gpt-5-codex")
 REMOTE_AGENT_SESSION_ID = os.environ.get("REMOTE_AGENT_SESSION_ID", "").strip()
+try:
+    RUN_CONFIG = json.loads(base64.b64decode(os.environ.get("CONFIG_B64", "e30=")).decode("utf-8"))
+except Exception:
+    RUN_CONFIG = {}
 
 
 SESSION_ID_RE = re.compile(r"session id:\s*([0-9a-fA-F-]{36})")
@@ -138,6 +142,25 @@ def summarize_codex_json_line(line: str) -> str | None:
 
 
 def build_remote_agent_prompt():
+    private_sources = RUN_CONFIG.get("privateSources") if isinstance(RUN_CONFIG, dict) else None
+    public_sources = RUN_CONFIG.get("publicSources") if isinstance(RUN_CONFIG, dict) else None
+    source_instructions = []
+    if isinstance(private_sources, list) and private_sources:
+        source_instructions.extend([
+            "Private uploaded sources are listed in run_config.json under privateSources.",
+            f"Download each private source into {DATASET_MOUNT_PATH / 'sources' / 'private'} before normalizing it.",
+            "Treat private source download URLs as sensitive temporary credentials; do not copy them into final artifacts or the manifest.",
+            "In the manifest, record private source filenames, sizes, schemas, and provenance notes, but not presigned URLs.",
+        ])
+    if isinstance(public_sources, list) and public_sources:
+        source_instructions.extend([
+            "Public source hints are listed in run_config.json under publicSources.",
+            "Fetch the public/API data needed for the requested environment and document source URLs, retrieval timestamps, schemas, and refresh instructions in the manifest.",
+        ])
+    if not source_instructions:
+        source_instructions.append(
+            "For public-data environment creation, fetch data from the internet into the mounted dataset path, normalize it into durable Parquet/CSV/JSON files, and document source URLs, retrieval timestamps, schemas, and refresh instructions in the manifest."
+        )
     artifact_contract = "\n".join(
         [
             "You are executing an Alpha Research remote agent run inside a dataset-attached cloud workspace.",
@@ -152,7 +175,8 @@ def build_remote_agent_prompt():
             "You may inspect files, run shell commands, write scripts, and produce result files.",
             "Use the mounted dataset and manifest to understand the corpus before acting.",
             "If the manifest path does not exist yet, this is a new environment: create the dataset files, then write a manifest at the manifest path.",
-            "For public-data environment creation, fetch data from the internet into the mounted dataset path, normalize it into durable Parquet/CSV/JSON files, and document source URLs, retrieval timestamps, schemas, and refresh instructions in the manifest.",
+            f"Run config path: {WORKSPACE_DIR / 'run_config.json'}",
+            *source_instructions,
             "For any command or script expected to run longer than 30 seconds, print progress at least every 30 seconds.",
             "If you generate deliverables, write them into the artifact directory.",
             "Required outputs:",
@@ -231,6 +255,7 @@ def collect_artifacts():
 def run_codex():
     WORKSPACE_DIR.mkdir(parents=True, exist_ok=True)
     ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
+    (WORKSPACE_DIR / "run_config.json").write_text(json.dumps(RUN_CONFIG, indent=2), encoding="utf-8")
     dataset_link = WORKSPACE_DIR / "dataset"
     if not dataset_link.exists():
         dataset_link.symlink_to(DATASET_MOUNT_PATH, target_is_directory=True)

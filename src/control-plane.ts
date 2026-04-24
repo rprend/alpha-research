@@ -150,6 +150,7 @@ type RunnerPoolRecord = {
   dropletId: string
   dropletName: string
   sizeClass: string
+  region: string | null
   status: string
   assignedRunId: string | null
   lastHeartbeatAt: string
@@ -352,12 +353,14 @@ export class ControlPlane {
         droplet_name TEXT NOT NULL,
         size_class TEXT NOT NULL,
         status TEXT NOT NULL,
+        region TEXT,
         assigned_run_id TEXT,
         last_heartbeat_at TEXT NOT NULL,
         created_at TEXT NOT NULL,
         updated_at TEXT NOT NULL
       );
     `)
+    try { this.sql.exec('ALTER TABLE runner_pool ADD COLUMN region TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE datasets ADD COLUMN active_run_id TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE datasets ADD COLUMN lease_acquired_at TEXT') } catch {}
   }
@@ -448,6 +451,7 @@ export class ControlPlane {
       dropletId: String(row.droplet_id ?? row.dropletId),
       dropletName: String(row.droplet_name ?? row.dropletName),
       sizeClass: String(row.size_class ?? row.sizeClass),
+      region: row.region ? String(row.region) : null,
       status: String(row.status),
       assignedRunId: row.assigned_run_id ?? row.assignedRunId ? String(row.assigned_run_id ?? row.assignedRunId) : null,
       lastHeartbeatAt: String(row.last_heartbeat_at ?? row.lastHeartbeatAt),
@@ -466,16 +470,17 @@ export class ControlPlane {
     return Number.isFinite(lastHeartbeat) && (Date.now() - lastHeartbeat) <= RUNNER_POOL_HEARTBEAT_TIMEOUT_MS
   }
 
-  private registerRunnerPoolHeartbeat(dropletId: string, dropletName: string, sizeClass: string) {
+  private registerRunnerPoolHeartbeat(dropletId: string, dropletName: string, sizeClass: string, region: string | null) {
     const now = nowIso()
     const existing = this.getRunnerPoolEntry(dropletId)
     if (existing) {
       this.sql.exec(
         `UPDATE runner_pool
-           SET droplet_name = ?, size_class = ?, status = ?, last_heartbeat_at = ?, updated_at = ?
+           SET droplet_name = ?, size_class = ?, region = ?, status = ?, last_heartbeat_at = ?, updated_at = ?
          WHERE droplet_id = ?`,
         dropletName,
         sizeClass,
+        region,
         existing.assignedRunId ? 'busy' : 'idle',
         now,
         now,
@@ -485,11 +490,12 @@ export class ControlPlane {
     }
     this.sql.exec(
       `INSERT INTO runner_pool (
-         droplet_id, droplet_name, size_class, status, assigned_run_id, last_heartbeat_at, created_at, updated_at
-       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+         droplet_id, droplet_name, size_class, region, status, assigned_run_id, last_heartbeat_at, created_at, updated_at
+       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       dropletId,
       dropletName,
       sizeClass,
+      region,
       'idle',
       null,
       now,
@@ -499,11 +505,13 @@ export class ControlPlane {
   }
 
   private findIdleRunnerPoolEntry(sizeClass: string) {
+    const region = this.env.DIGITALOCEAN_REGION ?? 'nyc3'
     const entries = this.rows(
       `SELECT * FROM runner_pool
-       WHERE size_class = ? AND (assigned_run_id IS NULL OR assigned_run_id = '')
+       WHERE size_class = ? AND region = ? AND (assigned_run_id IS NULL OR assigned_run_id = '')
        ORDER BY updated_at ASC`,
       sizeClass,
+      region,
     ).map((row) => this.parseRunnerPoolRow(row))
     return entries.find((entry) => this.isRunnerPoolAlive(entry)) ?? null
   }
@@ -1544,7 +1552,7 @@ export class ControlPlane {
             nowIso(),
             runId,
           )
-          await ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
+          void ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
         } else {
           const droplet = await launchResearchDroplet(this.env, launchParams)
           this.appendRunEvent(runId, `Remote agent droplet ${droplet.name} launched in ${droplet.region} (${droplet.size}).`)
@@ -1556,7 +1564,7 @@ export class ControlPlane {
             nowIso(),
             runId,
           )
-          await ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
+          void ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
         }
         return respondJson({ run: this.runRowToJson(this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]!) })
       } catch (error) {
@@ -1598,7 +1606,7 @@ export class ControlPlane {
       }
     }
 
-    const publicEnvironmentMatch = pathname.match(/^\/datasets\/([^/]+)\/public-environment$/u)
+    const publicEnvironmentMatch = pathname.match(/^\/datasets\/([^/]+)\/(?:public-environment|research-environment)$/u)
     if (publicEnvironmentMatch && request.method === 'POST') {
       let runId: string | null = null
       try {
@@ -1611,15 +1619,52 @@ export class ControlPlane {
         const sourceDescription = String(body.sourceDescription ?? '')
         const prompt = String(body.prompt ?? sourceDescription)
         const artifactSpec = Array.isArray(body.artifacts) ? body.artifacts : []
+        const publicSources = Array.isArray(body.publicSources) ? body.publicSources : []
+        const uploadedSourceInputs = Array.isArray(body.privateSources)
+          ? body.privateSources
+          : Array.isArray(body.uploadedSources)
+            ? body.uploadedSources
+            : []
         if (!ownerEmail || !datasetId) {
           return respondJson({ error: 'Missing ownerEmail or datasetId' }, 400)
         }
-        if (!sourceDescription || !prompt) {
-          return respondJson({ error: 'Missing sourceDescription or prompt' }, 400)
+        if (!prompt || (!sourceDescription && publicSources.length === 0 && uploadedSourceInputs.length === 0)) {
+          return respondJson({ error: 'Missing sourceDescription, publicSources, privateSources, or prompt' }, 400)
         }
         if (!callbackOrigin) {
           return respondJson({ error: 'Missing callbackOrigin' }, 400)
         }
+        const privateSources = []
+        for (const source of uploadedSourceInputs) {
+          if (!source || typeof source !== 'object') continue
+          const inputSource = source as Record<string, unknown>
+          const key = String(inputSource.key ?? '')
+          if (!key.startsWith(`uploads/${datasetId}/`)) {
+            return respondJson({ error: `Invalid private source key for dataset ${datasetId}` }, 400)
+          }
+          const download = await createPresignedSpacesUrl(this.env, {
+            method: 'GET',
+            key,
+            expiresSeconds: 60 * 60 * 24 * 7,
+          })
+          privateSources.push({
+            key,
+            filename: inputSource.filename ? String(inputSource.filename) : key.split('/').pop() ?? 'source',
+            sizeBytes: typeof inputSource.sizeBytes === 'number' ? inputSource.sizeBytes : null,
+            description: inputSource.description ? String(inputSource.description) : null,
+            downloadUrl: download.url,
+          })
+        }
+        const sourceType = privateSources.length > 0 && (publicSources.length > 0 || sourceDescription)
+          ? 'mixed_data'
+          : privateSources.length > 0
+            ? 'private_data'
+            : 'public_data'
+        const sourceFilename = sourceType === 'mixed_data'
+          ? 'mixed'
+          : sourceType === 'private_data'
+            ? 'private-uploads'
+            : 'internet'
         const existingDataset = this.getDataset(datasetId)
         if (existingDataset && existingDataset.ownerEmail !== ownerEmail) {
           return respondJson({ error: 'Dataset already exists for another owner' }, 409)
@@ -1628,12 +1673,12 @@ export class ControlPlane {
         if (existingDataset) {
           this.sql.exec(
             `UPDATE datasets
-               SET name = ?, description = ?, source_type = ?, source_filename = ?, mode = ?, updated_at = ?
+             SET name = ?, description = ?, source_type = ?, source_filename = ?, mode = ?, updated_at = ?
              WHERE id = ?`,
             name,
             description,
-            'public_data',
-            'internet',
+            sourceType,
+            sourceFilename,
             'tabular',
             timestamp,
             datasetId,
@@ -1648,8 +1693,8 @@ export class ControlPlane {
             datasetId,
             name,
             ownerEmail,
-            'public_data',
-            'internet',
+            sourceType,
+            sourceFilename,
             'tabular',
             description,
             null,
@@ -1720,6 +1765,8 @@ export class ControlPlane {
         const config = {
           environmentBootstrap: true,
           sourceDescription,
+          publicSources,
+          privateSources,
           manifestPath,
         }
         this.sql.exec(
@@ -1742,7 +1789,12 @@ export class ControlPlane {
           nowIso(),
           datasetId,
         )
-        this.appendRunEvent(runId, 'Provisioning public-data research environment volume and remote agent.')
+        const privateSourceCount = privateSources.length
+        const publicSourceCount = publicSources.length
+        this.appendRunEvent(
+          runId,
+          `Provisioning research environment volume and remote agent (${publicSourceCount} public source hint${publicSourceCount === 1 ? '' : 's'}, ${privateSourceCount} private upload${privateSourceCount === 1 ? '' : 's'}).`,
+        )
         this.sql.exec(
           `UPDATE runs SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
           'booting',
@@ -1782,7 +1834,7 @@ export class ControlPlane {
             nowIso(),
             runId,
           )
-          await ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
+          void ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
         } else {
           const droplet = await launchResearchDroplet(this.env, launchParams)
           this.appendRunEvent(runId, `Remote agent droplet ${droplet.name} launched in ${droplet.region} (${droplet.size}).`)
@@ -1794,7 +1846,7 @@ export class ControlPlane {
             nowIso(),
             runId,
           )
-          await ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
+          void ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
         }
         const row = this.getDataset(datasetId)
         return respondJson({
@@ -2102,10 +2154,11 @@ export class ControlPlane {
       const dropletId = String(body.dropletId ?? '')
       const dropletName = String(body.dropletName ?? '')
       const sizeClass = String(body.sizeClass ?? '')
+      const region = body.region ? String(body.region) : null
       if (!dropletId || !dropletName || !sizeClass) {
         return respondJson({ error: 'Missing dropletId, dropletName, or sizeClass' }, 400)
       }
-      this.registerRunnerPoolHeartbeat(dropletId, dropletName, sizeClass)
+      this.registerRunnerPoolHeartbeat(dropletId, dropletName, sizeClass, region)
       return respondJson({ ok: true })
     }
 
@@ -2116,7 +2169,7 @@ export class ControlPlane {
       if (!runner) {
         return respondJson({ assignment: null })
       }
-      this.registerRunnerPoolHeartbeat(dropletId, runner.dropletName, runner.sizeClass)
+      this.registerRunnerPoolHeartbeat(dropletId, runner.dropletName, runner.sizeClass, runner.region)
       if (!runner.assignedRunId) {
         return respondJson({ assignment: null })
       }
