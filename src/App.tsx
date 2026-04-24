@@ -1908,9 +1908,11 @@ function DashboardLoading() {
       <Sidebar collapsible="icon" variant="sidebar">
         <SidebarHeader className="border-b border-sidebar-border px-3 py-4">
           <img
-            className="h-auto w-36"
+            className="block h-[29px] w-36 object-contain object-left"
             src="/alpha-research-wordmark.png"
             alt="Alpha Research"
+            width="1505"
+            height="300"
           />
         </SidebarHeader>
         <SidebarContent>
@@ -1986,9 +1988,11 @@ function DashboardSignedOut({
       <Sidebar collapsible="icon" variant="sidebar">
         <SidebarHeader className="border-b border-sidebar-border px-3 py-4">
           <img
-            className="h-auto w-36"
+            className="block h-[29px] w-36 object-contain object-left"
             src="/alpha-research-wordmark.png"
             alt="Alpha Research"
+            width="1505"
+            height="300"
           />
         </SidebarHeader>
         <SidebarContent>
@@ -2160,9 +2164,11 @@ function DashboardApp({
         <SidebarHeader className="border-b border-sidebar-border px-3 py-4">
           <a href={rootOrigin} className="flex items-center">
             <img
-              className="h-auto w-36"
+              className="block h-[29px] w-36 object-contain object-left"
               src="/alpha-research-wordmark.png"
               alt="Alpha Research"
+              width="1505"
+              height="300"
             />
           </a>
         </SidebarHeader>
