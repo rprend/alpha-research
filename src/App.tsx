@@ -1624,7 +1624,7 @@ function ResearchAssistantPage({
   )
 }
 
-function RunArtifactsSheet({
+function RunArtifactsPanel({
   open,
   onClose,
   requestedArtifacts,
@@ -1649,101 +1649,86 @@ function RunArtifactsSheet({
     visibleArtifacts[0] ??
     null
 
+  if (!open) {
+    return null
+  }
+
   return (
-    <div
-      className={[
-        'fixed inset-0 z-50 transition',
-        open ? 'pointer-events-auto' : 'pointer-events-none',
-      ].join(' ')}
-      aria-hidden={!open}
+    <aside
+      className="flex h-full min-h-0 w-full shrink-0 flex-col border-l border-border bg-background md:w-[42rem] xl:w-[46rem]"
+      aria-label="Run artifacts"
     >
-      <button
-        type="button"
-        className={[
-          'absolute inset-0 bg-foreground/10 transition-opacity',
-          open ? 'opacity-100' : 'opacity-0',
-        ].join(' ')}
-        onClick={onClose}
-        aria-label="Close artifacts"
-      />
-      <aside
-        className={[
-          'absolute right-0 top-0 flex h-full w-full max-w-[42rem] flex-col bg-background shadow-2xl transition-transform duration-200',
-          open ? 'translate-x-0' : 'translate-x-full',
-        ].join(' ')}
-        aria-label="Run artifacts"
-      >
-        <div className="flex h-14 shrink-0 items-center justify-between px-5">
-          <div className="flex min-w-0 items-center gap-3">
-            <FileText className="size-4 text-muted-foreground" />
-            <div className="truncate text-sm font-medium">Artifacts</div>
-          </div>
-          <Button type="button" variant="ghost" size="icon-sm" onClick={onClose} aria-label="Close artifacts">
-            <X className="size-4" />
-          </Button>
+      <div className="flex h-14 shrink-0 items-center justify-between border-b border-border px-5">
+        <div className="flex min-w-0 items-center gap-3">
+          <FileText className="size-4 text-muted-foreground" />
+          <div className="truncate text-sm font-medium">Artifacts</div>
+        </div>
+        <Button type="button" variant="ghost" size="icon-sm" onClick={onClose} aria-label="Close artifacts">
+          <X className="size-4" />
+        </Button>
+      </div>
+
+      <div className="grid min-h-0 flex-1 grid-rows-[auto_minmax(0,1fr)] gap-5 px-5 py-5">
+        <div className="space-y-2">
+          {remoteSessionId ? (
+            <a
+              href={`https://chatgpt.com/codex/s/${remoteSessionId}`}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+            >
+              Open remote session
+              <ExternalLink className="size-4" />
+            </a>
+          ) : null}
+          {requestedArtifacts.length > 0 ? (
+            <div className="flex flex-wrap gap-2">
+              {requestedArtifacts.map((artifact, index) => {
+                const type = typeof artifact.type === 'string' ? artifact.type : 'artifact'
+                const title =
+                  typeof artifact.title === 'string' ? artifact.title : formatStatus(type)
+                const produced = visibleArtifacts.some(
+                  (candidate) => candidate.type === type && candidate.title === title,
+                )
+                return (
+                  <span
+                    key={`${type}-${title}-${index}`}
+                    className="inline-flex items-center gap-2 bg-muted px-2.5 py-1 text-xs text-muted-foreground"
+                  >
+                    {title}
+                    <StatusBadge>{produced ? 'Produced' : 'Pending'}</StatusBadge>
+                  </span>
+                )
+              })}
+            </div>
+          ) : null}
         </div>
 
-        <div className="grid min-h-0 flex-1 grid-rows-[auto_minmax(0,1fr)] gap-5 px-5 pb-5">
-          <div className="space-y-2">
-            {remoteSessionId ? (
-              <a
-                href={`https://chatgpt.com/codex/s/${remoteSessionId}`}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
-              >
-                Open remote session
-                <ExternalLink className="size-4" />
-              </a>
-            ) : null}
-            {requestedArtifacts.length > 0 ? (
-              <div className="flex flex-wrap gap-2">
-                {requestedArtifacts.map((artifact, index) => {
-                  const type = typeof artifact.type === 'string' ? artifact.type : 'artifact'
-                  const title =
-                    typeof artifact.title === 'string' ? artifact.title : formatStatus(type)
-                  const produced = visibleArtifacts.some(
-                    (candidate) => candidate.type === type && candidate.title === title,
-                  )
-                  return (
-                    <span
-                      key={`${type}-${title}-${index}`}
-                      className="inline-flex items-center gap-2 bg-muted px-2.5 py-1 text-xs text-muted-foreground"
-                    >
-                      {title}
-                      <StatusBadge>{produced ? 'Produced' : 'Pending'}</StatusBadge>
+        <div className="grid min-h-0 gap-5 md:grid-cols-[16rem_minmax(0,1fr)]">
+          <div className="min-h-0 overflow-y-auto">
+            {visibleArtifacts.length > 0 ? (
+              <div className="flex flex-col gap-1">
+                {visibleArtifacts.map((artifact) => (
+                  <button
+                    key={artifact.id}
+                    type="button"
+                    className={[
+                      'grid gap-1 px-3 py-2 text-left text-sm hover:bg-muted',
+                      selectedArtifact?.id === artifact.id ? 'bg-muted' : '',
+                    ].join(' ')}
+                    onClick={() => onSelectArtifact(artifact.id)}
+                  >
+                    <span className="truncate font-medium">{artifact.title}</span>
+                    <span className="truncate text-xs text-muted-foreground">
+                      {formatStatus(artifact.type)}
                     </span>
-                  )
-                })}
+                  </button>
+                ))}
               </div>
-            ) : null}
+            ) : (
+              <div className="px-3 py-2 text-sm text-muted-foreground">No produced artifacts yet.</div>
+            )}
           </div>
-
-          <div className="grid min-h-0 gap-5 md:grid-cols-[16rem_minmax(0,1fr)]">
-            <div className="min-h-0 overflow-y-auto">
-              {visibleArtifacts.length > 0 ? (
-                <div className="flex flex-col gap-1">
-                  {visibleArtifacts.map((artifact) => (
-                    <button
-                      key={artifact.id}
-                      type="button"
-                      className={[
-                        'grid gap-1 px-3 py-2 text-left text-sm hover:bg-muted',
-                        selectedArtifact?.id === artifact.id ? 'bg-muted' : '',
-                      ].join(' ')}
-                      onClick={() => onSelectArtifact(artifact.id)}
-                    >
-                      <span className="truncate font-medium">{artifact.title}</span>
-                      <span className="truncate text-xs text-muted-foreground">
-                        {formatStatus(artifact.type)}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              ) : (
-                <div className="px-3 py-2 text-sm text-muted-foreground">No produced artifacts yet.</div>
-              )}
-            </div>
 
             <div className="min-h-0 overflow-hidden bg-muted/30">
               {selectedArtifact ? (
@@ -1785,10 +1770,9 @@ function RunArtifactsSheet({
                 </div>
               )}
             </div>
-          </div>
         </div>
-      </aside>
-    </div>
+      </div>
+    </aside>
   )
 }
 
@@ -1829,31 +1813,32 @@ function RunDetailPage({
   }, [selectedArtifactId, visibleProducedArtifacts])
 
   return (
-    <div className="relative flex min-h-0 flex-1 flex-col bg-background">
-      <Button
-        type="button"
-        variant="ghost"
-        size="icon"
-        className="absolute right-4 top-4 z-30 bg-background/90 shadow-sm backdrop-blur md:right-6 md:top-6"
-        onClick={() => setArtifactsOpen(true)}
-        aria-label="Open artifacts"
-      >
-        <FileText className="size-5" />
-        {artifactCount > 0 ? (
-          <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center bg-primary text-[11px] font-medium text-primary-foreground">
-            {artifactCount}
-          </span>
-        ) : null}
-      </Button>
-
-      <div className="flex min-h-0 flex-1 flex-col overflow-hidden px-4 py-6 md:px-8">
-        {error ? (
-          <div className="mx-auto mb-4 w-full max-w-[46rem] bg-destructive/5 px-4 py-3 text-sm text-destructive">
-            Could not load run transcript: {error}
-          </div>
+    <div className="flex min-h-0 flex-1 bg-background">
+      <div className="relative flex min-w-0 flex-1 flex-col overflow-hidden px-4 py-6 md:px-8">
+        {!artifactsOpen ? (
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            className="absolute right-4 top-4 z-30 bg-background/90 shadow-sm backdrop-blur md:right-6 md:top-6"
+            onClick={() => setArtifactsOpen(true)}
+            aria-label="Open artifacts"
+          >
+            <FileText className="size-5" />
+            {artifactCount > 0 ? (
+              <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center bg-primary text-[11px] font-medium text-primary-foreground">
+                {artifactCount}
+              </span>
+            ) : null}
+          </Button>
         ) : null}
 
         <div className="mx-auto flex min-h-0 w-full max-w-[46rem] flex-1 flex-col">
+          {error ? (
+            <div className="mb-4 w-full bg-destructive/5 px-4 py-3 text-sm text-destructive">
+              Could not load run transcript: {error}
+            </div>
+          ) : null}
           {loading ? (
             <div className="mb-2 flex justify-end text-muted-foreground">
               <LoaderCircle className="size-4 animate-spin" aria-label="Refreshing run" />
@@ -1868,7 +1853,7 @@ function RunDetailPage({
         </div>
       </div>
 
-      <RunArtifactsSheet
+      <RunArtifactsPanel
         open={artifactsOpen}
         onClose={() => setArtifactsOpen(false)}
         requestedArtifacts={requestedArtifacts}
