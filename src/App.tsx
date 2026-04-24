@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect, useMemo, useState } from 'react'
+import { type ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 import { AssistantRuntimeProvider, useExternalStoreRuntime, type ThreadMessage } from '@assistant-ui/react'
 import {
   Bot,
@@ -1457,6 +1457,20 @@ function ResearchAssistantPage({
     sessionId: activeSessionId,
     previousResponseId: null,
   })
+  const conversationStateRef = useRef(conversationState)
+  const routeSessionIdRef = useRef(route.sessionId)
+
+  useEffect(() => {
+    routeSessionIdRef.current = route.sessionId
+  }, [route.sessionId])
+
+  const updateConversationState = (next: {
+    sessionId: string | null
+    previousResponseId: string | null
+  }) => {
+    conversationStateRef.current = next
+    setConversationState(next)
+  }
 
   useEffect(() => {
     const entries = (session?.entries ?? []).map((entry) =>
@@ -1472,7 +1486,7 @@ function ResearchAssistantPage({
       ),
     )
     setMessages(entries)
-    setConversationState({
+    updateConversationState({
       sessionId: session?.id ?? activeSessionId,
       previousResponseId: extractPreviousResponseId(session?.entries ?? []),
     })
@@ -1499,19 +1513,22 @@ function ResearchAssistantPage({
       setComposerError(null)
 
       try {
+        const currentConversation = conversationStateRef.current
+        const currentSessionId = currentConversation.sessionId ?? routeSessionIdRef.current
         const result = await postAssistantTurn({
           input,
-          sessionId: conversationState.sessionId,
-          previousResponseId: conversationState.previousResponseId,
+          sessionId: currentSessionId,
+          previousResponseId: currentConversation.previousResponseId,
         })
-        const nextSessionId = result.sessionId ?? conversationState.sessionId
-        setConversationState({
+        const nextSessionId = result.sessionId ?? currentSessionId
+        updateConversationState({
           sessionId: nextSessionId,
           previousResponseId: result.previousResponseId,
         })
         if (nextSessionId) {
-          if (route.sessionId !== nextSessionId) {
+          if (routeSessionIdRef.current !== nextSessionId) {
             updateDashboardRoute({ view: 'assistant', sessionId: nextSessionId, runId: null })
+            routeSessionIdRef.current = nextSessionId
           } else {
             const response = await fetchJson<{ session: StoredAssistantSession; entries: StoredAssistantSessionEntry[] }>(
               `/api/cli/sessions/${nextSessionId}`,

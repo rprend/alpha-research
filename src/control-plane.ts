@@ -994,6 +994,14 @@ export class ControlPlane {
           })
         }
       }
+      const recent = this.findRecentCliAssistantSession(params.ownerEmail, params.datasetId)
+      if (recent) {
+        return this.updateAssistantSession(recent.id, {
+          datasetId: params.datasetId ?? recent.datasetId,
+          title: params.title ?? recent.title,
+          metadata: params.metadata,
+        })
+      }
     }
 
     return this.createAssistantSession({
