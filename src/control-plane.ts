@@ -544,6 +544,11 @@ export class ControlPlane {
     return {
       id: dataset.id,
       name: dataset.name,
+      sourceType: dataset.sourceType,
+      sourceFilename: dataset.sourceFilename,
+      sourceSizeBytes: dataset.sourceSizeBytes,
+      mode: dataset.mode,
+      description: dataset.description,
       status: dataset.status,
       deploymentStatus: dataset.deploymentStatus,
       createdAt: dataset.createdAt,
@@ -1338,6 +1343,12 @@ export class ControlPlane {
         })
         const runId = this.createRun(datasetId, ownerEmail, 'deploy')
         this.acquireDatasetLease(datasetId, runId)
+        this.sql.exec(
+          `INSERT INTO run_metadata (run_id, config_json, artifact_spec_json) VALUES (?, ?, ?)`,
+          runId,
+          JSON.stringify({ callbackOrigin, datasetDescribeCandidate: true }),
+          null,
+        )
         const cliSession = body.sessionId
           ? this.updateAssistantSession(String(body.sessionId), {
               datasetId,
@@ -1776,6 +1787,7 @@ export class ControlPlane {
           publicSources,
           privateSources,
           manifestPath,
+          callbackOrigin,
         }
         this.sql.exec(
           `INSERT INTO run_metadata (run_id, config_json, artifact_spec_json) VALUES (?, ?, ?)`,
@@ -2354,6 +2366,44 @@ export class ControlPlane {
       }
       if (isTerminalStatus(status)) {
         this.releaseDatasetLease(run.datasetId, runId)
+      }
+      if (
+        status === 'ready' &&
+        run.type !== 'describe' &&
+        (run.type === 'deploy' || config?.environmentBootstrap) &&
+        typeof config?.callbackOrigin === 'string' &&
+        config.callbackOrigin
+      ) {
+        const existingDescribe = this.rows(
+          `SELECT id FROM runs
+           WHERE dataset_id = ? AND type = ? AND created_at >= ?
+           LIMIT 1`,
+          run.datasetId,
+          'describe',
+          run.createdAt,
+        )[0]
+        if (!existingDescribe) {
+          const describePrompt = [
+            `Describe dataset ${run.datasetId}.`,
+            'Inspect the mounted files, manifest, schemas, row counts, sizes, partitions, date ranges, important columns, sample rows, limitations, provenance, and recommended query/use cases.',
+            'Produce a comprehensive briefing for humans, plus a structured JSON profile.',
+          ].join('\n')
+          await this.fetch(new Request(`https://control-plane.local/datasets/${encodeURIComponent(run.datasetId)}/runs`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ownerEmail: run.ownerEmail,
+              callbackOrigin: config.callbackOrigin,
+              type: 'describe',
+              prompt: describePrompt,
+              artifacts: [
+                { type: 'markdown', title: 'Dataset Briefing' },
+                { type: 'json', title: 'Dataset Profile' },
+              ],
+              config: { describeDataset: true },
+            }),
+          }))
+        }
       }
       return respondJson({ ok: true })
     }

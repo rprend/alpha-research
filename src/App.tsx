@@ -81,10 +81,20 @@ type DatasetRecord = {
   name: string
   sourceType: string
   sourceFilename: string | null
+  sourceSizeBytes?: number | null
   mode: string | null
   description: string | null
+  manifestPath?: string | null
   deploymentStatus: string
   status: string
+  volume?: { id: string; name: string; region: string | null; mountPath: string | null } | null
+  ingestConfig?: unknown
+  profile?: {
+    schema?: unknown
+    sampleRows?: unknown
+    notes?: string | null
+    updatedAt?: string
+  } | null
   createdAt: string
   updatedAt: string
 }
@@ -271,6 +281,25 @@ function readableRunTitle(run: RunRecord | undefined, runId: string) {
   const type = formatStatus(run.type)
   const status = formatStatus(run.status)
   return `${type} · ${status}`
+}
+
+function formatBytes(value: number | null | undefined) {
+  if (!value || !Number.isFinite(value)) {
+    return 'Unknown'
+  }
+  const units = ['B', 'KB', 'MB', 'GB', 'TB']
+  let amount = value
+  let unitIndex = 0
+  while (amount >= 1024 && unitIndex < units.length - 1) {
+    amount /= 1024
+    unitIndex += 1
+  }
+  return `${amount >= 10 || unitIndex === 0 ? amount.toFixed(0) : amount.toFixed(1)} ${units[unitIndex]}`
+}
+
+function isPublicDataset(dataset: DatasetRecord) {
+  const text = `${dataset.name} ${dataset.sourceType} ${dataset.description ?? ''}`.toLowerCase()
+  return text.includes('public') || ['public_data', 'mixed_data', 'research_environment'].includes(dataset.sourceType)
 }
 
 function formatCompactTime(value: string) {
@@ -1092,6 +1121,7 @@ function getDashboardRoute() {
   return {
     view,
     runId: url.searchParams.get('runId'),
+    datasetId: url.searchParams.get('datasetId'),
     sessionId: url.searchParams.get('sessionId'),
   }
 }
@@ -1099,12 +1129,15 @@ function getDashboardRoute() {
 function updateDashboardRoute(next: {
   view?: DashboardView
   runId?: string | null
+  datasetId?: string | null
   sessionId?: string | null
 }) {
   const url = new URL(window.location.href)
   url.searchParams.set('view', next.view ?? getDashboardRoute().view)
   if (next.runId) url.searchParams.set('runId', next.runId)
   else url.searchParams.delete('runId')
+  if (next.datasetId) url.searchParams.set('datasetId', next.datasetId)
+  else url.searchParams.delete('datasetId')
   if (next.sessionId) url.searchParams.set('sessionId', next.sessionId)
   else url.searchParams.delete('sessionId')
   window.history.pushState({}, '', url.toString())
@@ -1185,7 +1218,13 @@ function StatusBadge({ children }: { children: string }) {
   )
 }
 
-function DatasetGallery({ datasets }: { datasets: DatasetRecord[] }) {
+function DatasetFeed({
+  datasets,
+  onSelectDataset,
+}: {
+  datasets: DatasetRecord[]
+  onSelectDataset: (dataset: DatasetRecord) => void
+}) {
   if (datasets.length === 0) {
     return (
       <Empty className="border-t border-dashed border-border px-6 py-14">
@@ -1201,63 +1240,206 @@ function DatasetGallery({ datasets }: { datasets: DatasetRecord[] }) {
       </Empty>
     )
   }
+  const publicDatasets = datasets.filter(isPublicDataset)
+  const privateDatasets = datasets.filter((dataset) => !isPublicDataset(dataset))
 
   return (
-    <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-      {datasets.map((dataset) => {
-        const description =
-          dataset.description?.trim() ||
-          dataset.sourceFilename?.trim() ||
-          `Source type: ${dataset.sourceType}`
-        const sourceLabel = dataset.sourceFilename?.trim() || formatStatus(dataset.sourceType)
-
-        return (
-          <Card
-            key={dataset.id}
-            className="min-h-56 rounded-lg border-border/70 bg-background py-0 shadow-none transition-colors hover:border-foreground/25"
-          >
-            <CardContent className="flex h-full min-w-0 flex-col gap-5 p-5">
-              <div className="flex min-w-0 items-start justify-between gap-3">
-                <div className="flex min-w-0 flex-col gap-2">
-                  <div className="truncate text-base font-semibold">{dataset.name}</div>
-                  <div className="text-sm leading-6 text-muted-foreground">
-                    {truncate(description, 160)}
-                  </div>
-                </div>
-                <StatusBadge>{formatStatus(dataset.status)}</StatusBadge>
-              </div>
-
-              <div className="mt-auto grid gap-3 text-sm">
-                <div className="grid grid-cols-[6.5rem_minmax(0,1fr)] items-baseline gap-3">
-                  <span className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">
-                    Source
-                  </span>
-                  <span className="truncate">{sourceLabel}</span>
-                </div>
-                <div className="grid grid-cols-[6.5rem_minmax(0,1fr)] items-baseline gap-3">
-                  <span className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">
-                    Mode
-                  </span>
-                  <span>{formatStatus(dataset.mode ?? 'default')}</span>
-                </div>
-                <div className="grid grid-cols-[6.5rem_minmax(0,1fr)] items-baseline gap-3">
-                  <span className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">
-                    Deploy
-                  </span>
-                  <span>{formatStatus(dataset.deploymentStatus)}</span>
-                </div>
-                <div className="grid grid-cols-[6.5rem_minmax(0,1fr)] items-baseline gap-3">
-                  <span className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">
-                    Updated
-                  </span>
-                  <span>{relativeTime(dataset.updatedAt)}</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        )
-      })}
+    <div className="mx-auto flex w-full max-w-5xl flex-col gap-14">
+      <DatasetFeedSection title="Your datasets" datasets={privateDatasets} onSelectDataset={onSelectDataset} />
+      <DatasetFeedSection title="Public datasets" datasets={publicDatasets} onSelectDataset={onSelectDataset} />
     </div>
+  )
+}
+
+function DatasetFeedSection({
+  title,
+  datasets,
+  onSelectDataset,
+}: {
+  title: string
+  datasets: DatasetRecord[]
+  onSelectDataset: (dataset: DatasetRecord) => void
+}) {
+  if (datasets.length === 0) {
+    return null
+  }
+  return (
+    <section className="flex flex-col gap-4">
+      <div className="border-b border-border pb-3 text-xl font-medium">{title}</div>
+      <div className="grid gap-x-16 gap-y-7 md:grid-cols-2">
+        {datasets.map((dataset) => {
+          const description =
+            dataset.description?.trim() ||
+            dataset.sourceFilename?.trim() ||
+            `Source type: ${formatStatus(dataset.sourceType)}`
+          return (
+            <button
+              key={dataset.id}
+              type="button"
+              className="grid grid-cols-[3.25rem_minmax(0,1fr)_auto] items-center gap-4 rounded-lg px-3 py-3 text-left transition-colors hover:bg-muted/70"
+              onClick={() => onSelectDataset(dataset)}
+            >
+              <div className="flex size-13 items-center justify-center rounded-xl bg-muted text-muted-foreground">
+                <Database className="size-6" />
+              </div>
+              <div className="min-w-0">
+                <div className="truncate text-base font-semibold">{dataset.name}</div>
+                <div className="truncate text-sm text-muted-foreground">{description}</div>
+              </div>
+              <StatusBadge>{formatStatus(dataset.deploymentStatus)}</StatusBadge>
+            </button>
+          )
+        })}
+      </div>
+    </section>
+  )
+}
+
+async function startDatasetDescribeRun(datasetId: string) {
+  const response = await fetch(`/api/cli/datasets/${encodeURIComponent(datasetId)}/runs`, {
+    method: 'POST',
+    credentials: 'same-origin',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      type: 'describe',
+      prompt: [
+        `Describe dataset ${datasetId}.`,
+        'Inspect the mounted files, manifest, schemas, row counts, sizes, partitions, date ranges, important columns, sample rows, limitations, provenance, and recommended query/use cases.',
+        'Produce a comprehensive briefing for humans, plus a structured JSON profile.',
+      ].join('\n'),
+      artifacts: [
+        { type: 'markdown', title: 'Dataset Briefing' },
+        { type: 'json', title: 'Dataset Profile' },
+      ],
+      config: { describeDataset: true },
+    }),
+  })
+  if (!response.ok) {
+    const text = await response.text().catch(() => '')
+    throw new Error(text || `Describe run failed: ${response.status}`)
+  }
+  return response.json() as Promise<{ run: RunRecord }>
+}
+
+function DatasetDetailPage({
+  dataset,
+  runs,
+  onBack,
+  onOpenRun,
+}: {
+  dataset: DatasetRecord
+  runs: RunRecord[]
+  onBack: () => void
+  onOpenRun: (run: RunRecord) => void
+}) {
+  const [detail, setDetail] = useState<DatasetRecord | null>(null)
+  const [error, setError] = useState<string | null>(null)
+  const [startingDescribe, setStartingDescribe] = useState(false)
+  const describeRun = runs.find((run) => run.datasetId === dataset.id && run.type === 'describe') ?? null
+  const current = detail ?? dataset
+
+  useEffect(() => {
+    let cancelled = false
+    setError(null)
+    void fetchJson<{ dataset: DatasetRecord }>(`/api/cli/datasets/${encodeURIComponent(dataset.id)}`)
+      .then((payload) => {
+        if (!cancelled) setDetail(payload.dataset)
+      })
+      .catch((fetchError) => {
+        if (!cancelled) setError(fetchError instanceof Error ? fetchError.message : 'Could not load dataset.')
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [dataset.id])
+
+  const canDescribe = current.deploymentStatus === 'ready' && current.status === 'ready'
+
+  return (
+    <main className="min-h-0 flex-1 overflow-y-auto px-4 py-8 md:px-8">
+      <div className="mx-auto flex w-full max-w-5xl flex-col gap-10">
+        <button type="button" className="w-fit text-sm text-muted-foreground hover:text-foreground" onClick={onBack}>
+          Back to datasets
+        </button>
+        <section className="flex flex-col gap-5">
+          <div className="flex size-16 items-center justify-center rounded-2xl bg-muted text-muted-foreground">
+            <Database className="size-8" />
+          </div>
+          <div>
+            <h1 className="text-4xl font-semibold tracking-normal">{current.name}</h1>
+            <p className="mt-3 max-w-3xl text-lg leading-8 text-muted-foreground">
+              {current.description || current.sourceFilename || `A ${formatStatus(current.sourceType)} dataset registered in Alpha Research.`}
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <StatusBadge>{formatStatus(current.status)}</StatusBadge>
+            <StatusBadge>{formatStatus(current.deploymentStatus)}</StatusBadge>
+            <StatusBadge>{formatStatus(current.sourceType)}</StatusBadge>
+          </div>
+        </section>
+
+        {error ? <div className="bg-destructive/5 px-4 py-3 text-sm text-destructive">{error}</div> : null}
+
+        <section className="grid gap-4 md:grid-cols-2">
+          {[
+            ['Size', formatBytes(current.sourceSizeBytes)],
+            ['Source file', current.sourceFilename ?? 'Unknown'],
+            ['Mode', formatStatus(current.mode ?? 'default')],
+            ['Manifest', current.manifestPath ?? 'Not available'],
+            ['Volume', current.volume?.mountPath ?? 'Not mounted'],
+            ['Updated', formatDateTime(current.updatedAt)],
+          ].map(([label, value]) => (
+            <div key={label} className="rounded-lg border border-border px-5 py-4">
+              <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">{label}</div>
+              <div className="mt-2 break-words text-sm">{value}</div>
+            </div>
+          ))}
+        </section>
+
+        <section className="flex flex-col gap-4">
+          <div className="flex items-center justify-between gap-4 border-b border-border pb-3">
+            <div className="text-xl font-medium">Dataset briefing</div>
+            <Button
+              type="button"
+              variant="outline"
+              disabled={!canDescribe || startingDescribe}
+              onClick={async () => {
+                setStartingDescribe(true)
+                try {
+                  const payload = await startDatasetDescribeRun(current.id)
+                  window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
+                  onOpenRun(payload.run)
+                } catch (describeError) {
+                  setError(describeError instanceof Error ? describeError.message : 'Could not start describe job.')
+                } finally {
+                  setStartingDescribe(false)
+                }
+              }}
+            >
+              {startingDescribe ? 'Starting...' : 'Describe dataset'}
+            </Button>
+          </div>
+          <div className="rounded-lg border border-border p-5">
+            {describeRun ? (
+              <button type="button" className="text-left" onClick={() => onOpenRun(describeRun)}>
+                <div className="font-medium">{formatStatus(describeRun.status)} describe job</div>
+                <div className="mt-1 text-sm text-muted-foreground">{describeRun.outputPreview || `Updated ${relativeTime(describeRun.updatedAt)}`}</div>
+              </button>
+            ) : (
+              <p className="text-sm leading-7 text-muted-foreground">
+                No briefing has been generated yet. A describe job inspects the mounted dataset and writes a comprehensive briefing with structure, size, provenance, caveats, and recommended uses.
+                {!canDescribe ? ' This dataset needs a ready deployed environment before the describe workflow can run.' : ''}
+              </p>
+            )}
+          </div>
+        </section>
+
+        <section className="grid gap-4 md:grid-cols-2">
+          <pre className="max-h-96 overflow-auto rounded-lg border border-border p-4 text-xs text-muted-foreground">{JSON.stringify(current.profile ?? {}, null, 2)}</pre>
+          <pre className="max-h-96 overflow-auto rounded-lg border border-border p-4 text-xs text-muted-foreground">{JSON.stringify(current.ingestConfig ?? {}, null, 2)}</pre>
+        </section>
+      </div>
+    </main>
   )
 }
 
@@ -2090,6 +2272,7 @@ function DashboardApp({
   const route = useDashboardRoute()
 
   const activeRun = route.runId ? runs.find((run) => run.id === route.runId) ?? null : null
+  const activeDataset = route.datasetId ? datasets.find((dataset) => dataset.id === route.datasetId) ?? null : null
 
   let content: ReactNode
 
@@ -2097,24 +2280,40 @@ function DashboardApp({
     content = <RunDetailPage run={activeRun} dataset={datasetLookup.get(activeRun.datasetId)} />
   } else if (route.view === 'terminal-sessions' && route.sessionId) {
     content = <SessionDetailPage sessionId={route.sessionId} />
+  } else if (route.view === 'datasets' && activeDataset) {
+    content = (
+      <DatasetDetailPage
+        dataset={activeDataset}
+        runs={runs}
+        onBack={() => updateDashboardRoute({ view: 'datasets', datasetId: null, runId: null, sessionId: null })}
+        onOpenRun={(run) => updateDashboardRoute({ view: 'runs', runId: run.id, datasetId: null, sessionId: null })}
+      />
+    )
   } else if (route.view === 'datasets') {
     content = (
-      <main className="flex flex-1 min-w-0 flex-col gap-6 px-4 py-6 md:px-8">
+      <main className="flex flex-1 min-w-0 flex-col gap-10 overflow-y-auto px-4 py-10 md:px-8">
         {dataError ? (
           <Card className="rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
             <CardContent className="px-6 py-4 text-sm text-destructive">{dataError}</CardContent>
           </Card>
         ) : null}
-        <section className="flex flex-col gap-3">
-          <div className="px-1">
-            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-              Datasets
-            </div>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Your private datasets and deployed research environments.
-            </p>
-          </div>
-          <DatasetGallery datasets={datasets} />
+        <section className="mx-auto flex w-full max-w-5xl flex-col gap-3">
+          <h1 className="text-4xl font-semibold tracking-normal">Datasets</h1>
+          <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
+            Browse private research environments and public datasets. Open a dataset for structure, size, provenance, profile details, and generated briefings.
+          </p>
+        </section>
+        <section>
+          <DatasetFeed
+            datasets={datasets}
+            onSelectDataset={(dataset) =>
+              updateDashboardRoute({
+                view: 'datasets',
+                datasetId: dataset.id,
+                runId: null,
+                sessionId: null,
+              })}
+          />
         </section>
       </main>
     )
