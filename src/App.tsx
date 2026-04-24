@@ -16,7 +16,6 @@ import {
 } from 'lucide-react'
 
 import { Thread } from '@/components/assistant-ui/thread'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
@@ -254,6 +253,18 @@ function formatStatus(value: string | null | undefined) {
   return value
     .replaceAll(/[-_]/g, ' ')
     .replace(/\b\w/g, (letter) => letter.toUpperCase())
+}
+
+function readableSessionTitle(value: string | null | undefined) {
+  const normalized = (value ?? '')
+    .replace(/[\p{Extended_Pictographic}\uFE0F]/gu, '')
+    .replace(/^["'#\s]+|["'\s]+$/g, '')
+    .replace(/^[-:;,.|/\\\s]+/g, '')
+    .replace(/^RESEARCH CLI session$/i, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+
+  return normalized || 'Untitled chat'
 }
 
 function formatCompactTime(value: string) {
@@ -1342,7 +1353,7 @@ function SessionTable({
             <TableCell className="align-top">
               <div className="flex min-w-0 flex-col gap-1">
                 <span className="truncate font-medium">
-                  {session.title ?? 'RESEARCH CLI session'}
+                  {readableSessionTitle(session.title)}
                 </span>
                 <span className="text-sm text-muted-foreground">{session.id}</span>
               </div>
@@ -2051,11 +2062,6 @@ function DashboardApp({
   )
   const route = useDashboardRoute()
 
-  const initials = (session.user?.email ?? 'AR')
-    .split('@')[0]
-    .slice(0, 2)
-    .toUpperCase()
-
   const activeRun = route.runId ? runs.find((run) => run.id === route.runId) ?? null : null
 
   let title = 'RESEARCH CLI'
@@ -2202,7 +2208,7 @@ function DashboardApp({
                     >
                       <MessageSquare />
                       <span className="truncate">
-                        {chatSession.title ?? 'RESEARCH CLI session'}
+                        {readableSessionTitle(chatSession.title)}
                       </span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
@@ -2232,13 +2238,8 @@ function DashboardApp({
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
-                className="grid h-auto w-full min-w-0 grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 overflow-hidden rounded-xl px-3 py-3 text-left hover:bg-sidebar-accent/60"
+                className="grid h-auto w-full min-w-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 overflow-hidden rounded-xl px-3 py-3 text-left hover:bg-sidebar-accent/60"
               >
-                <Avatar className="size-10 shrink-0 border-0 shadow-none after:hidden">
-                  <AvatarFallback className="bg-muted text-sm font-medium tracking-[0.08em] text-foreground">
-                    {initials}
-                  </AvatarFallback>
-                </Avatar>
                 <div className="flex min-w-0 flex-col items-start pr-2">
                   <span className="truncate text-[0.7rem] font-medium tracking-[0.14em] text-muted-foreground uppercase">
                     Account
