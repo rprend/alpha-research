@@ -1889,7 +1889,7 @@ function SessionDetailPage({ sessionId }: { sessionId: string }) {
 function DashboardLoading() {
   return (
     <SidebarProvider>
-      <Sidebar collapsible="icon" variant="inset">
+      <Sidebar collapsible="icon" variant="sidebar">
         <SidebarHeader className="border-b border-sidebar-border px-3 py-4">
           <img
             className="h-auto w-36"
@@ -1981,7 +1981,7 @@ function DashboardSignedOut({
 }) {
   return (
     <SidebarProvider>
-      <Sidebar collapsible="icon" variant="inset">
+      <Sidebar collapsible="icon" variant="sidebar">
         <SidebarHeader className="border-b border-sidebar-border px-3 py-4">
           <img
             className="h-auto w-36"
@@ -2151,7 +2151,7 @@ function DashboardApp({
 
   return (
     <SidebarProvider defaultOpen>
-      <Sidebar collapsible="icon" variant="inset">
+      <Sidebar collapsible="icon" variant="sidebar">
         <SidebarHeader className="border-b border-sidebar-border px-3 py-4">
           <a href={rootOrigin} className="flex items-center">
             <img
