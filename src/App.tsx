@@ -2064,24 +2064,13 @@ function DashboardApp({
 
   const activeRun = route.runId ? runs.find((run) => run.id === route.runId) ?? null : null
 
-  let title = 'RESEARCH CLI'
-  let eyebrow = 'Assistant'
   let content: ReactNode
-  const hideContentHeader =
-    (route.view === 'runs' && activeRun) ||
-    (route.view === 'terminal-sessions' && route.sessionId)
 
   if (route.view === 'runs' && activeRun) {
-    title = 'Run detail'
-    eyebrow = 'Runs'
     content = <RunDetailPage run={activeRun} dataset={datasetLookup.get(activeRun.datasetId)} />
   } else if (route.view === 'terminal-sessions' && route.sessionId) {
-    title = 'Terminal session'
-    eyebrow = 'Terminal Sessions'
     content = <SessionDetailPage sessionId={route.sessionId} />
   } else if (route.view === 'datasets') {
-    title = 'Datasets'
-    eyebrow = 'Datasets'
     content = (
       <main className="flex flex-1 min-w-0 flex-col gap-6 px-4 py-6 md:px-8">
         {dataError ? (
@@ -2103,8 +2092,6 @@ function DashboardApp({
       </main>
     )
   } else if (route.view === 'runs') {
-    title = 'Runs'
-    eyebrow = 'Runs'
     content = (
       <main className="flex flex-1 min-w-0 flex-col gap-6 px-4 py-6 md:px-8">
         {dataError ? (
@@ -2130,8 +2117,6 @@ function DashboardApp({
       </main>
     )
   } else if (route.view === 'terminal-sessions') {
-    title = 'Terminal Sessions'
-    eyebrow = 'Terminal Sessions'
     content = (
       <main className="flex flex-1 min-w-0 flex-col gap-6 px-4 py-6 md:px-8">
         {dataError ? (
@@ -2271,19 +2256,6 @@ function DashboardApp({
 
       <SidebarInset className="min-h-0 overflow-hidden bg-background">
         <div className="flex h-svh min-h-0 flex-col overflow-hidden">
-          {hideContentHeader ? null : (
-            <header className="flex h-16 items-center gap-3 border-b border-border px-4 md:px-8">
-              <SidebarTrigger variant="ghost" size="icon-sm" />
-              <div className="flex min-w-0 flex-1 items-center justify-between gap-4">
-                <div className="flex min-w-0 flex-col">
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                    {eyebrow}
-                  </span>
-                  <span className="truncate text-sm font-medium">{title}</span>
-                </div>
-              </div>
-            </header>
-          )}
           {content}
         </div>
       </SidebarInset>
