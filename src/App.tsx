@@ -1668,8 +1668,10 @@ function useSessionDetail(sessionId: string | null) {
 
 function ResearchAssistantPage({
   dataError,
+  datasets,
 }: {
   dataError?: string | null
+  datasets: DatasetRecord[]
 }) {
   const route = useDashboardRoute()
   const activeSessionId = route.sessionId ?? null
@@ -1812,6 +1814,12 @@ function ResearchAssistantPage({
             <Thread
               welcomeTitle={loading ? '' : 'RESEARCH CLI'}
               welcomeDescription={loading ? '' : 'Run the signed-in RESEARCH CLI from the browser. Inspect datasets, launch runs, and manage remote Codex sessions.'}
+              datasets={datasets.map((dataset) => ({
+                id: dataset.id,
+                name: dataset.name,
+                description: dataset.description || dataset.sourceFilename,
+                status: dataset.status,
+              }))}
             />
           </div>
         </AssistantRuntimeProvider>
@@ -2372,7 +2380,7 @@ function DashboardApp({
       </main>
     )
   } else {
-    content = <ResearchAssistantPage dataError={dataError} />
+    content = <ResearchAssistantPage dataError={dataError} datasets={datasets} />
   }
 
   return (

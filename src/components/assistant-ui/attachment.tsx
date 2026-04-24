@@ -1,7 +1,7 @@
 "use client";
 
 import { type PropsWithChildren, useEffect, useState, type FC } from "react";
-import { XIcon, PlusIcon, FileText } from "lucide-react";
+import { Database, FileUp, XIcon, PlusIcon, FileText } from "lucide-react";
 import {
   AttachmentPrimitive,
   ComposerPrimitive,
@@ -23,7 +23,25 @@ import {
 } from "@/components/ui/dialog";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { TooltipIconButton } from "@/components/assistant-ui/tooltip-icon-button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
+
+export type ComposerDatasetOption = {
+  id: string;
+  name: string;
+  description?: string | null;
+  status?: string | null;
+};
 
 const useFileSrc = (file: File | undefined) => {
   const [src, setSrc] = useState<string | undefined>(undefined);
@@ -205,19 +223,82 @@ export const ComposerAttachments: FC = () => {
   );
 };
 
-export const ComposerAddAttachment: FC = () => {
+function insertDatasetReference(dataset: ComposerDatasetOption) {
+  const input = document.querySelector<HTMLTextAreaElement>(".aui-composer-input");
+  if (!input) return;
+
+  const reference = `Use dataset ${dataset.name} (${dataset.id}). `;
+  const start = input.selectionStart ?? input.value.length;
+  const end = input.selectionEnd ?? input.value.length;
+  const prefix = start > 0 && !/\s$/u.test(input.value.slice(0, start)) ? " " : "";
+  input.setRangeText(`${prefix}${reference}`, start, end, "end");
+  input.dispatchEvent(new InputEvent("input", { bubbles: true, inputType: "insertText", data: reference }));
+  input.focus();
+}
+
+export const ComposerAddAttachment: FC<{
+  datasets?: ComposerDatasetOption[];
+}> = ({ datasets = [] }) => {
+  const visibleDatasets = datasets.slice(0, 12);
+
   return (
-    <ComposerPrimitive.AddAttachment asChild>
-      <TooltipIconButton
-        tooltip="Add Attachment"
-        side="bottom"
-        variant="ghost"
-        size="icon"
-        className="aui-composer-add-attachment size-8 rounded-full p-1 font-semibold text-xs hover:bg-muted-foreground/15 dark:border-muted-foreground/15 dark:hover:bg-muted-foreground/30"
-        aria-label="Add Attachment"
-      >
-        <PlusIcon className="aui-attachment-add-icon size-5 stroke-[1.5px]" />
-      </TooltipIconButton>
-    </ComposerPrimitive.AddAttachment>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <TooltipIconButton
+          tooltip="Add"
+          side="bottom"
+          variant="ghost"
+          size="icon"
+          className="aui-composer-add-attachment size-8 rounded-full p-1 font-semibold text-xs hover:bg-muted-foreground/15 dark:border-muted-foreground/15 dark:hover:bg-muted-foreground/30"
+          aria-label="Add"
+        >
+          <PlusIcon className="aui-attachment-add-icon size-5 stroke-[1.5px]" />
+        </TooltipIconButton>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="start" side="top" className="w-72 rounded-2xl p-2">
+        <ComposerPrimitive.AddAttachment asChild>
+          <DropdownMenuItem className="rounded-xl px-3 py-3 text-base font-normal normal-case tracking-normal">
+            <FileUp className="size-5" />
+            Add photos & files
+          </DropdownMenuItem>
+        </ComposerPrimitive.AddAttachment>
+        <DropdownMenuSeparator />
+        <DropdownMenuSub>
+          <DropdownMenuSubTrigger className="rounded-xl px-3 py-3 text-base font-normal normal-case tracking-normal">
+            <Database className="size-5" />
+            Datasets
+          </DropdownMenuSubTrigger>
+          <DropdownMenuSubContent className="w-80 rounded-2xl p-2">
+            <DropdownMenuLabel className="px-3 py-2 text-base font-normal tracking-normal text-muted-foreground normal-case">
+              {datasets.length} available datasets
+            </DropdownMenuLabel>
+            {visibleDatasets.length > 0 ? (
+              visibleDatasets.map((dataset) => (
+                <DropdownMenuItem
+                  key={dataset.id}
+                  className="rounded-xl px-3 py-3 text-base font-normal normal-case tracking-normal"
+                  onSelect={() => insertDatasetReference(dataset)}
+                >
+                  <Database className="size-5" />
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate">{dataset.name}</span>
+                    <span className="block truncate text-sm text-muted-foreground">
+                      {dataset.description || dataset.id}
+                    </span>
+                  </span>
+                </DropdownMenuItem>
+              ))
+            ) : (
+              <DropdownMenuItem
+                disabled
+                className="rounded-xl px-3 py-3 text-base font-normal normal-case tracking-normal"
+              >
+                No datasets yet
+              </DropdownMenuItem>
+            )}
+          </DropdownMenuSubContent>
+        </DropdownMenuSub>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };

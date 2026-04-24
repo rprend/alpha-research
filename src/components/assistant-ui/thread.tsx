@@ -1,6 +1,7 @@
 import {
   ComposerAddAttachment,
   ComposerAttachments,
+  type ComposerDatasetOption,
   UserMessageAttachments,
 } from "@/components/assistant-ui/attachment";
 import { MarkdownText } from "@/components/assistant-ui/markdown-text";
@@ -39,12 +40,14 @@ type ThreadProps = {
   readOnly?: boolean;
   welcomeTitle?: string;
   welcomeDescription?: string;
+  datasets?: ComposerDatasetOption[];
 };
 
 export const Thread: FC<ThreadProps> = ({
   readOnly = false,
   welcomeTitle = "Hello there!",
   welcomeDescription = "How can I help you today?",
+  datasets = [],
 }) => {
   const viewportRef = useRef<HTMLDivElement | null>(null);
   const [initialScrollReady, setInitialScrollReady] = useState(!readOnly);
@@ -99,7 +102,7 @@ export const Thread: FC<ThreadProps> = ({
 
           <ThreadPrimitive.ViewportFooter className="aui-thread-viewport-footer sticky bottom-0 mt-auto flex flex-col gap-4 overflow-visible rounded-t-(--composer-radius) bg-background pb-4 md:pb-6">
             <ThreadScrollToBottom />
-            {!readOnly ? <Composer /> : null}
+            {!readOnly ? <Composer datasets={datasets} /> : null}
           </ThreadPrimitive.ViewportFooter>
         </div>
       </ThreadPrimitive.Viewport>
@@ -178,7 +181,7 @@ const ThreadSuggestionItem: FC = () => {
   );
 };
 
-const Composer: FC = () => {
+const Composer: FC<{ datasets: ComposerDatasetOption[] }> = ({ datasets }) => {
   return (
     <ComposerPrimitive.Root className="aui-composer-root relative flex w-full flex-col">
       <ComposerPrimitive.AttachmentDropzone asChild>
@@ -194,17 +197,17 @@ const Composer: FC = () => {
             autoFocus
             aria-label="Message input"
           />
-          <ComposerAction />
+          <ComposerAction datasets={datasets} />
         </div>
       </ComposerPrimitive.AttachmentDropzone>
     </ComposerPrimitive.Root>
   );
 };
 
-const ComposerAction: FC = () => {
+const ComposerAction: FC<{ datasets: ComposerDatasetOption[] }> = ({ datasets }) => {
   return (
     <div className="aui-composer-action-wrapper relative flex items-center justify-between">
-      <ComposerAddAttachment />
+      <ComposerAddAttachment datasets={datasets} />
       <AuiIf condition={(s) => !s.thread.isRunning}>
         <ComposerPrimitive.Send asChild>
           <TooltipIconButton
