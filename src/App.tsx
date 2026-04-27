@@ -14,6 +14,16 @@ import {
 } from 'lucide-react'
 
 import { Thread } from '@/components/assistant-ui/thread'
+import {
+  getHarnessDataset,
+  getHarnessRunResults,
+  getHarnessSession,
+  harnessDatasets,
+  harnessRuns,
+  harnessSession,
+  harnessSessions,
+  isHarnessMode,
+} from '@/harness-data'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
@@ -185,7 +195,8 @@ const DASHBOARD_HOST = 'dashboard.alpharesearch.nyc'
 const locationUrl = new URL(window.location.href)
 const isDashboardView =
   window.location.hostname === DASHBOARD_HOST ||
-  locationUrl.searchParams.get('view') === 'dashboard'
+  locationUrl.searchParams.get('view') === 'dashboard' ||
+  locationUrl.searchParams.get('harness') === '1'
 const rootOrigin =
   window.location.hostname === 'localhost'
     ? window.location.origin
@@ -974,6 +985,9 @@ function beginMarketingLogin() {
 }
 
 async function fetchSession() {
+  if (isHarnessMode()) {
+    return harnessSession
+  }
   const response = await fetch('/api/auth/session', {
     credentials: 'same-origin',
     cache: 'no-store',
@@ -982,6 +996,34 @@ async function fetchSession() {
 }
 
 async function fetchJson<T>(input: string) {
+  if (isHarnessMode()) {
+    if (input === '/api/cli/datasets') {
+      return { datasets: harnessDatasets } as T
+    }
+    if (input === '/api/cli/runs') {
+      return { runs: harnessRuns } as T
+    }
+    if (input.startsWith('/api/cli/sessions?')) {
+      return { sessions: harnessSessions } as T
+    }
+    const datasetMatch = input.match(/^\/api\/cli\/datasets\/([^/]+)$/u)
+    if (datasetMatch) {
+      const dataset = getHarnessDataset(decodeURIComponent(datasetMatch[1] ?? ''))
+      if (!dataset) throw new Error('Harness dataset not found.')
+      return { dataset } as T
+    }
+    const runResultsMatch = input.match(/^\/api\/cli\/runs\/([^/]+)\/results$/u)
+    if (runResultsMatch) {
+      return getHarnessRunResults(decodeURIComponent(runResultsMatch[1] ?? '')) as T
+    }
+    const sessionMatch = input.match(/^\/api\/cli\/sessions\/([^/]+)$/u)
+    if (sessionMatch) {
+      const session = getHarnessSession(decodeURIComponent(sessionMatch[1] ?? ''))
+      if (!session) throw new Error('Harness session not found.')
+      return { session, entries: session.entries ?? [] } as T
+    }
+  }
+
   const response = await fetch(input, {
     credentials: 'same-origin',
     cache: 'no-store',
@@ -1089,6 +1131,14 @@ async function postAssistantTurn(body: {
   sessionId?: string | null
   previousResponseId?: string | null
 }) {
+  if (isHarnessMode()) {
+    return {
+      sessionId: body.sessionId ?? 'session-harness-cli',
+      previousResponseId: `harness-response-${Date.now()}`,
+      reply: 'Harness mode recorded the request without calling the production assistant.',
+    }
+  }
+
   const response = await fetch('/api/cli/assistant/respond', {
     method: 'POST',
     credentials: 'same-origin',
@@ -1295,6 +1345,11 @@ function DatasetFeedSection({
 }
 
 async function startDatasetDescribeRun(datasetId: string) {
+  if (isHarnessMode()) {
+    const run = harnessRuns.find((candidate) => candidate.datasetId === datasetId) ?? harnessRuns[0]
+    return { run }
+  }
+
   const response = await fetch(`/api/cli/datasets/${encodeURIComponent(datasetId)}/runs`, {
     method: 'POST',
     credentials: 'same-origin',

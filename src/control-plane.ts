@@ -2086,7 +2086,18 @@ export class ControlPlane {
         return respondJson({ error: 'Run not found' }, 404)
       }
       const run = this.runRowToJson(runRow)
+      const metadata = this.getRunMetadata(runId)
       const artifacts = this.listRunArtifacts(runId)
+      const events = this.rows(
+        'SELECT id, run_id, message, level, created_at FROM run_events WHERE run_id = ? ORDER BY seq ASC',
+        runId,
+      ).map((row) => ({
+        id: String(row.id),
+        runId: String(row.run_id),
+        message: String(row.message),
+        level: String(row.level),
+        createdAt: String(row.created_at),
+      }))
       const sessions = this.listAssistantSessionsForRun(runId).map((session) => ({
         ...this.assistantSessionToJson(session),
         entries: this.listAssistantSessionEntries(session.id).map((entry) =>
@@ -2101,12 +2112,34 @@ export class ControlPlane {
       const hasRemoteLogs =
         sessions.some((session) => session.kind === 'remote_codex' && (session.entries?.length ?? 0) > 0)
         || artifacts.some((artifact) => artifact.type === 'remote_agent_transcript' || artifact.type === 'remote_agent_session')
+      const lastEvent = events.at(-1) ?? null
+      const updatedAtMs = Date.parse(String(run.updatedAt))
+      const heartbeatAgeSeconds = Number.isFinite(updatedAtMs)
+        ? Math.max(0, Math.round((Date.now() - updatedAtMs) / 1000))
+        : null
+      const terminal = isTerminalStatus(String(run.status))
       return respondJson({
         run,
         debugView: {
           remoteSessionId,
           hasRemoteLogs,
           defaultView: hasRemoteLogs ? 'remote' : 'cli',
+          terminal,
+          health: terminal
+            ? String(run.status).toLowerCase()
+            : heartbeatAgeSeconds !== null && heartbeatAgeSeconds > Math.round(RUN_HEARTBEAT_TIMEOUT_MS / 1000)
+              ? 'stale'
+              : 'active',
+          heartbeatAgeSeconds,
+          eventCount: events.length,
+          lastEvent,
+          requestedArtifacts: Array.isArray(metadata?.artifactSpec) ? metadata.artifactSpec : [],
+          producedArtifacts: artifacts.map((artifact) => ({
+            id: artifact.id,
+            title: artifact.title,
+            type: artifact.type,
+            createdAt: artifact.createdAt,
+          })),
           artifactTypes: artifacts.map((artifact) => ({
             id: artifact.id,
             title: artifact.title,
