@@ -29,6 +29,7 @@ type EnsureVolumeResult = {
   region: string
   mountRoot: string
   datasetMountPath: string
+  sizeGigabytes: number | null
 }
 
 type LaunchIngestParams = {
@@ -60,6 +61,12 @@ type LaunchResearchParams = {
   datasetMountPath: string
   manifestPath: string
   sourceSizeBytes?: number | null
+}
+
+type ResearchRunResources = {
+  profile?: string
+  runnerSize?: string
+  workspaceDiskGb?: number
 }
 
 function requireDigitalOceanToken(env: DigitalOceanEnv) {
@@ -128,28 +135,34 @@ export async function ensureDatasetVolume(env: DigitalOceanEnv, datasetId: strin
   const region = env.DIGITALOCEAN_REGION ?? 'nyc3'
   const name = `ar-dataset-${sanitizeName(datasetId)}`
   const mountRoot = env.DIGITALOCEAN_VOLUME_MOUNT_ROOT ?? '/mnt/alpha-research'
-  const list = await doRequest<{ volumes?: Array<{ id: string; name: string }> }>(
+  const requestedSize = Number(env.DIGITALOCEAN_VOLUME_SIZE_GIB ?? '10')
+  const list = await doRequest<{ volumes?: Array<{ id: string; name: string; size_gigabytes?: number }> }>(
     env,
     `/volumes?name=${encodeURIComponent(name)}&region=${encodeURIComponent(region)}`,
   )
   const existing = list.volumes?.[0]
   if (existing) {
+    const existingSize = typeof existing.size_gigabytes === 'number' ? existing.size_gigabytes : null
+    if (existingSize !== null && existingSize < requestedSize) {
+      await resizeDatasetVolume(env, existing.id, requestedSize, region)
+      await waitForVolumeSize(env, existing.id, requestedSize)
+    }
     return {
       id: existing.id,
       name,
       region,
       mountRoot,
       datasetMountPath: `${mountRoot}/datasets/${datasetId}`,
+      sizeGigabytes: existingSize === null ? null : Math.max(existingSize, requestedSize),
     }
   }
 
-  const size = Number(env.DIGITALOCEAN_VOLUME_SIZE_GIB ?? '10')
   const created = await doRequest<{ volume: { id: string } }>(env, '/volumes', {
     method: 'POST',
     body: JSON.stringify({
       name,
       region,
-      size_gigabytes: size,
+      size_gigabytes: requestedSize,
       description: `Alpha Research dataset ${datasetId}`,
     }),
   })
@@ -160,7 +173,54 @@ export async function ensureDatasetVolume(env: DigitalOceanEnv, datasetId: strin
     region,
     mountRoot,
     datasetMountPath: `${mountRoot}/datasets/${datasetId}`,
+    sizeGigabytes: requestedSize,
   }
+}
+
+export function requestedWorkspaceDiskGb(params: Pick<LaunchResearchParams, 'configJson'>) {
+  const resources = parseResearchRunResources(params)
+  const value = resources.workspaceDiskGb
+  if (typeof value !== 'number' || !Number.isFinite(value) || value <= 0) {
+    return null
+  }
+  return Math.ceil(value)
+}
+
+export async function ensureDatasetVolumeWorkspace(env: DigitalOceanEnv, datasetId: string, workspaceDiskGb: number | null) {
+  const previousSize = env.DIGITALOCEAN_VOLUME_SIZE_GIB
+  const requestedSize = Math.max(
+    Number(previousSize ?? '10'),
+    typeof workspaceDiskGb === 'number' && Number.isFinite(workspaceDiskGb) ? Math.ceil(workspaceDiskGb) : 0,
+  )
+  return ensureDatasetVolume({ ...env, DIGITALOCEAN_VOLUME_SIZE_GIB: String(requestedSize) }, datasetId)
+}
+
+async function resizeDatasetVolume(env: DigitalOceanEnv, volumeId: string, sizeGigabytes: number, region: string) {
+  await doRequestNoContent(env, `/volumes/${encodeURIComponent(volumeId)}/actions`, {
+    method: 'POST',
+    body: JSON.stringify({
+      type: 'resize',
+      size_gigabytes: sizeGigabytes,
+      region,
+    }),
+  })
+}
+
+async function waitForVolumeSize(env: DigitalOceanEnv, volumeId: string, sizeGigabytes: number, timeoutMs = 120_000) {
+  const startedAt = Date.now()
+  while ((Date.now() - startedAt) < timeoutMs) {
+    const volume = await doRequest<{ volume?: { size_gigabytes?: number } }>(
+      env,
+      `/volumes/${encodeURIComponent(volumeId)}`,
+      { method: 'GET' },
+    ).catch(() => null)
+    const currentSize = volume?.volume?.size_gigabytes
+    if (typeof currentSize === 'number' && currentSize >= sizeGigabytes) {
+      return
+    }
+    await new Promise((resolve) => setTimeout(resolve, 3000))
+  }
+  throw new Error(`Volume ${volumeId} did not resize to ${sizeGigabytes}GiB before timeout`)
 }
 
 export async function waitForVolumeDetachment(env: DigitalOceanEnv, volumeId: string, timeoutMs = 60_000) {
@@ -196,7 +256,32 @@ function resolveImageRef(value: string | undefined, fallback: string) {
   return /^\d+$/u.test(candidate) ? Number(candidate) : candidate
 }
 
+function parseResearchRunResources(params: Pick<LaunchResearchParams, 'configJson'>): ResearchRunResources {
+  if (!params.configJson) {
+    return {}
+  }
+  try {
+    const config = JSON.parse(params.configJson) as Record<string, unknown>
+    const resources = config.resources
+    if (!resources || typeof resources !== 'object') {
+      return {}
+    }
+    const input = resources as Record<string, unknown>
+    return {
+      profile: typeof input.profile === 'string' ? input.profile : undefined,
+      runnerSize: typeof input.runnerSize === 'string' ? input.runnerSize.trim() : undefined,
+      workspaceDiskGb: typeof input.workspaceDiskGb === 'number' ? input.workspaceDiskGb : undefined,
+    }
+  } catch {
+    return {}
+  }
+}
+
 function chooseResearchDropletSize(env: DigitalOceanEnv, params: LaunchResearchParams) {
+  const resources = parseResearchRunResources(params)
+  if (resources.runnerSize) {
+    return resources.runnerSize
+  }
   const small = env.DIGITALOCEAN_RESEARCH_DROPLET_SIZE_SMALL ?? 's-2vcpu-4gb'
   const medium = env.DIGITALOCEAN_RESEARCH_DROPLET_SIZE_MEDIUM ?? 's-4vcpu-8gb'
   const large = env.DIGITALOCEAN_RESEARCH_DROPLET_SIZE_LARGE ?? 's-8vcpu-16gb'
@@ -210,6 +295,13 @@ function chooseResearchDropletSize(env: DigitalOceanEnv, params: LaunchResearchP
 }
 
 export function inferResearchSizeClass(params: LaunchResearchParams) {
+  const resources = parseResearchRunResources(params)
+  if (resources.runnerSize) {
+    const explicitSize = resources.runnerSize
+    if (explicitSize === 's-2vcpu-4gb') return 'small'
+    if (explicitSize === 's-4vcpu-8gb') return 'medium'
+    return 'large'
+  }
   if (params.runType === 'query') {
     return (params.sourceSizeBytes ?? 0) > 5_000_000_000 ? 'medium' : 'small'
   }
@@ -217,6 +309,11 @@ export function inferResearchSizeClass(params: LaunchResearchParams) {
     return (params.sourceSizeBytes ?? 0) > 2_000_000_000 ? 'large' : 'medium'
   }
   return (params.sourceSizeBytes ?? 0) > 5_000_000_000 ? 'large' : 'small'
+}
+
+export function requiresDedicatedResearchRunner(params: LaunchResearchParams) {
+  const resources = parseResearchRunResources(params)
+  return Boolean(resources.runnerSize || resources.workspaceDiskGb)
 }
 
 function desiredWarmPoolSize(env: DigitalOceanEnv, sizeClass: 'small' | 'medium' | 'large') {
@@ -322,6 +419,7 @@ if ! blkid "$DEVICE" >/dev/null 2>&1; then
 fi
 mkdir -p "$MOUNT_ROOT"
 mount "$DEVICE" "$MOUNT_ROOT"
+resize2fs "$DEVICE" || true
 mkdir -p ${shellEscape(params.outputRoot)} ${shellEscape(`${mountRoot}/datasets/${params.datasetId}`)}
 
 post_event info "Downloading dataset source."
@@ -497,6 +595,7 @@ function buildResearchRunnerScript(env: DigitalOceanEnv, params: LaunchResearchP
     'fi',
     'mkdir -p "$MOUNT_ROOT"',
     'mount "$DEVICE" "$MOUNT_ROOT" || true',
+    'resize2fs "$DEVICE" || true',
     'mkdir -p "$CODEX_HOME" "$WORKSPACE_DIR" "$ARTIFACT_DIR"',
     `printf '%s' "$OPENAI_API_KEY" | codex login --with-api-key >/dev/null`,
     '',
@@ -638,6 +737,7 @@ function buildWarmPoolRunnerScript(env: DigitalOceanEnv, sizeClass: 'small' | 'm
     '  fi',
     '  mkdir -p "$MOUNT_ROOT"',
     '  mount "$DEVICE" "$MOUNT_ROOT" || true',
+    '  resize2fs "$DEVICE" || true',
     '  mkdir -p "$CODEX_HOME" "$WORKSPACE_DIR" "$ARTIFACT_DIR"',
     `  printf '%s' "$OPENAI_API_KEY" | codex login --with-api-key >/dev/null`,
     '  set +e',

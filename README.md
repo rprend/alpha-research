@@ -66,6 +66,9 @@ Optional Worker vars/secrets:
 - `DIGITALOCEAN_VOLUME_SIZE_GIB` default `250`
 - `DIGITALOCEAN_VOLUME_MOUNT_ROOT` default `/mnt/alpha-research`
 - `DIGITALOCEAN_INGEST_DROPLET_SIZE` default `s-2vcpu-4gb`
+- `DIGITALOCEAN_RESEARCH_DROPLET_SIZE_SMALL` default `s-2vcpu-4gb`
+- `DIGITALOCEAN_RESEARCH_DROPLET_SIZE_MEDIUM` default `s-4vcpu-8gb`
+- `DIGITALOCEAN_RESEARCH_DROPLET_SIZE_LARGE` default `s-8vcpu-16gb`
 - `DIGITALOCEAN_INGEST_IMAGE` default `ubuntu-24-04-x64`
 - `DIGITALOCEAN_SSH_KEY_IDS` comma-separated key ids
 - `DIGITALOCEAN_PROJECT_ID`
@@ -82,6 +85,8 @@ The RESEARCH CLI opens a browser to `https://alpharesearch.nyc/cli/login`, and t
 5. The droplet downloads the raw source file, runs `normalize_dataset.py`, and writes the normalized dataset onto the mounted volume.
 6. The droplet reports run events and final manifest location back to the Worker.
 7. The CLI persists the deploy run id and polls event/status updates on reopen.
+
+Remote research runs can request resources through `config.resources`. The control plane honors `runnerSize` as the exact DigitalOcean droplet size and `workspaceDiskGb` as the minimum attached workspace volume size before the runner starts.
 
 ## Local Testing
 

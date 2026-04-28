@@ -23,6 +23,23 @@ The control plane in `src/control-plane.ts` owns durable state for datasets, run
 - Stale heartbeats fail the run and release the dataset lease.
 - All state transitions that matter to a human should append a run event.
 
+## Runner Resource Contract
+
+Run metadata can include `config.resources`:
+
+```json
+{
+  "runnerSize": "s-8vcpu-16gb",
+  "workspaceDiskGb": 500
+}
+```
+
+When present, the control plane must honor it before launching the remote agent:
+
+- `runnerSize` is the DigitalOcean droplet size used for the run.
+- `workspaceDiskGb` is the minimum dataset/workspace volume capacity; existing smaller volumes are resized before attachment.
+- Explicit resource requests use a dedicated runner, not the warm pool, because pooled runners are only keyed by coarse size class.
+
 ## Boundary Rules
 
 - External providers are accessed through provider modules, not UI code.

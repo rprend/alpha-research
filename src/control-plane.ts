@@ -4,10 +4,13 @@ import {
   deleteDroplet,
   detachVolumeByDroplet,
   ensureDatasetVolume,
+  ensureDatasetVolumeWorkspace,
   ensureWarmResearchPool,
   inferResearchSizeClass,
   launchIngestDroplet,
   launchResearchDroplet,
+  requestedWorkspaceDiskGb,
+  requiresDedicatedResearchRunner,
   waitForVolumeDetachment,
 } from './digitalocean'
 
@@ -1553,9 +1556,26 @@ export class ControlPlane {
           manifestPath: dataset.manifestPath,
           sourceSizeBytes: dataset.sourceSizeBytes,
         }
+        const requestedWorkspaceGb = requestedWorkspaceDiskGb(launchParams)
+        if (requestedWorkspaceGb !== null) {
+          this.appendRunEvent(runId, `Ensuring workspace volume capacity is at least ${requestedWorkspaceGb}GiB.`)
+          const volume = await ensureDatasetVolumeWorkspace(this.env, datasetId, requestedWorkspaceGb)
+          if (volume.id !== dataset.volumeId) {
+            this.sql.exec(
+              `UPDATE datasets SET volume_id = ?, volume_name = ?, volume_region = ?, volume_mount_path = ?, updated_at = ? WHERE id = ?`,
+              volume.id,
+              volume.name,
+              volume.region,
+              volume.datasetMountPath,
+              nowIso(),
+              datasetId,
+            )
+          }
+        }
         const sizeClass = inferResearchSizeClass(launchParams)
-        let assignedPoolRunner = this.findIdleRunnerPoolEntry(sizeClass)
-        if (!assignedPoolRunner) {
+        const useDedicatedRunner = requiresDedicatedResearchRunner(launchParams)
+        let assignedPoolRunner = useDedicatedRunner ? null : this.findIdleRunnerPoolEntry(sizeClass)
+        if (!assignedPoolRunner && !useDedicatedRunner) {
           await ensureWarmResearchPool(this.env, sizeClass)
           assignedPoolRunner = this.findIdleRunnerPoolEntry(sizeClass)
         }
@@ -1583,7 +1603,9 @@ export class ControlPlane {
             nowIso(),
             runId,
           )
-          void ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
+          if (!useDedicatedRunner) {
+            void ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
+          }
         }
         return respondJson({ run: this.runRowToJson(this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]!) })
       } catch (error) {
@@ -1788,6 +1810,9 @@ export class ControlPlane {
           privateSources,
           manifestPath,
           callbackOrigin,
+          ...(body.resources && typeof body.resources === 'object'
+            ? { resources: body.resources }
+            : {}),
         }
         this.sql.exec(
           `INSERT INTO run_metadata (run_id, config_json, artifact_spec_json) VALUES (?, ?, ?)`,
@@ -1836,9 +1861,28 @@ export class ControlPlane {
           manifestPath,
           sourceSizeBytes: null,
         }
+        const requestedWorkspaceGb = requestedWorkspaceDiskGb(launchParams)
+        if (requestedWorkspaceGb !== null) {
+          this.appendRunEvent(runId, `Ensuring workspace volume capacity is at least ${requestedWorkspaceGb}GiB.`)
+          const resizedVolume = await ensureDatasetVolumeWorkspace(this.env, datasetId, requestedWorkspaceGb)
+          if (resizedVolume.id !== volume.id || resizedVolume.sizeGigabytes !== volume.sizeGigabytes) {
+            this.sql.exec(
+              `UPDATE datasets
+                 SET volume_id = ?, volume_name = ?, volume_region = ?, volume_mount_path = ?, updated_at = ?
+               WHERE id = ?`,
+              resizedVolume.id,
+              resizedVolume.name,
+              resizedVolume.region,
+              resizedVolume.datasetMountPath,
+              nowIso(),
+              datasetId,
+            )
+          }
+        }
         const sizeClass = inferResearchSizeClass(launchParams)
-        let assignedPoolRunner = this.findIdleRunnerPoolEntry(sizeClass)
-        if (!assignedPoolRunner) {
+        const useDedicatedRunner = requiresDedicatedResearchRunner(launchParams)
+        let assignedPoolRunner = useDedicatedRunner ? null : this.findIdleRunnerPoolEntry(sizeClass)
+        if (!assignedPoolRunner && !useDedicatedRunner) {
           await ensureWarmResearchPool(this.env, sizeClass)
           assignedPoolRunner = this.findIdleRunnerPoolEntry(sizeClass)
         }
@@ -1866,7 +1910,9 @@ export class ControlPlane {
             nowIso(),
             runId,
           )
-          void ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
+          if (!useDedicatedRunner) {
+            void ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
+          }
         }
         const row = this.getDataset(datasetId)
         return respondJson({
