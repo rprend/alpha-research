@@ -351,27 +351,61 @@ function profileText(profile: unknown, key: string) {
 }
 
 function renderBriefingMarkdown(markdown: string) {
-  return markdown.split(/\n{2,}/).map((block, index) => {
-    const trimmed = block.trim()
-    if (!trimmed) return null
+  const nodes: ReactNode[] = []
+  let paragraph: string[] = []
+  let bullets: string[] = []
+
+  const flushParagraph = () => {
+    if (paragraph.length === 0) return
+    nodes.push(
+      <p key={`p-${nodes.length}`} className="my-3 whitespace-pre-wrap text-sm leading-7 text-muted-foreground">
+        {paragraph.join('\n')}
+      </p>,
+    )
+    paragraph = []
+  }
+  const flushBullets = () => {
+    if (bullets.length === 0) return
+    nodes.push(
+      <ul key={`ul-${nodes.length}`} className="my-3 list-disc space-y-1 pl-5 text-sm leading-7 text-muted-foreground">
+        {bullets.map((item, index) => <li key={index}>{item}</li>)}
+      </ul>,
+    )
+    bullets = []
+  }
+
+  for (const line of markdown.split('\n')) {
+    const trimmed = line.trim()
+    if (!trimmed) {
+      flushParagraph()
+      flushBullets()
+      continue
+    }
     const heading = trimmed.match(/^(#{1,3})\s+(.+)$/u)
     if (heading) {
+      flushParagraph()
+      flushBullets()
       const level = heading[1]?.length ?? 2
       const text = heading[2] ?? ''
-      if (level === 1) return <h2 key={index} className="mt-6 text-2xl font-semibold first:mt-0">{text}</h2>
-      return <h3 key={index} className="mt-5 text-lg font-semibold first:mt-0">{text}</h3>
-    }
-    if (/^[-*]\s+/mu.test(trimmed)) {
-      return (
-        <ul key={index} className="my-3 list-disc space-y-1 pl-5 text-sm leading-7 text-muted-foreground">
-          {trimmed.split('\n').map((line, lineIndex) => (
-            <li key={lineIndex}>{line.replace(/^[-*]\s+/u, '')}</li>
-          ))}
-        </ul>
+      nodes.push(
+        level === 1
+          ? <h2 key={`h-${nodes.length}`} className="mt-6 text-2xl font-semibold first:mt-0">{text}</h2>
+          : <h3 key={`h-${nodes.length}`} className="mt-5 text-lg font-semibold first:mt-0">{text}</h3>,
       )
+      continue
     }
-    return <p key={index} className="my-3 whitespace-pre-wrap text-sm leading-7 text-muted-foreground">{trimmed}</p>
-  })
+    const bullet = trimmed.match(/^[-*]\s+(.+)$/u)
+    if (bullet) {
+      flushParagraph()
+      bullets.push(bullet[1] ?? '')
+      continue
+    }
+    flushBullets()
+    paragraph.push(trimmed)
+  }
+  flushParagraph()
+  flushBullets()
+  return nodes
 }
 
 function tryParseJson(value: string) {
