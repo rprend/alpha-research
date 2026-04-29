@@ -1,10 +1,17 @@
-import { type ReactNode, useEffect, useMemo, useRef, useState } from 'react'
+import { type CSSProperties, type PointerEvent as ReactPointerEvent, type ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 import { AssistantRuntimeProvider, useExternalStoreRuntime, type ThreadMessage } from '@assistant-ui/react'
 import {
   Bot,
+  ChevronDown,
+  ChevronRight,
   Database,
   ExternalLink,
+  FileCode,
+  FileJson,
   FileText,
+  Folder,
+  FolderOpen,
+  GripVertical,
   History,
   LoaderCircle,
   LogOut,
@@ -141,6 +148,13 @@ type RunArtifactRecord = {
   url?: string
   content?: Record<string, unknown>
   createdAt: string
+}
+
+type FileTreeNode = {
+  name: string
+  path: string
+  children: Map<string, FileTreeNode>
+  artifact?: RunArtifactRecord
 }
 
 type RunResultsResponse = {
@@ -479,6 +493,67 @@ function isProducedArtifact(
 function getProducedArtifacts(payload: RunResultsResponse | null) {
   const requestedArtifacts = getRequestedArtifacts(payload)
   return (payload?.artifacts ?? []).filter((artifact) => isProducedArtifact(artifact, requestedArtifacts))
+}
+
+function artifactPath(artifact: RunArtifactRecord) {
+  const path = artifact.content?.path
+  if (typeof path === 'string' && path.trim()) {
+    return path.replace(/^.*\/artifacts\//u, '').replace(/^\/+/u, '')
+  }
+  return artifact.title
+}
+
+function artifactText(artifact: RunArtifactRecord) {
+  const text = artifact.content?.text
+  if (typeof text === 'string') return text
+  const preview = artifact.content?.preview
+  if (typeof preview === 'string') return preview
+  if (typeof artifact.content === 'string') return artifact.content
+  return JSON.stringify(artifact.content ?? {}, null, 2)
+}
+
+function artifactLanguage(path: string, artifact: RunArtifactRecord) {
+  const extension = path.split('.').pop()?.toLowerCase()
+  if (artifact.type === 'structured_result' || extension === 'json') return 'json'
+  if (extension === 'md' || extension === 'markdown') return 'markdown'
+  if (extension === 'py') return 'python'
+  if (extension === 'ts' || extension === 'tsx') return 'typescript'
+  if (extension === 'js' || extension === 'jsx') return 'javascript'
+  if (extension === 'sql') return 'sql'
+  if (extension === 'csv') return 'csv'
+  if (extension === 'sh') return 'bash'
+  if (extension === 'html') return 'html'
+  if (extension === 'css') return 'css'
+  return 'text'
+}
+
+function fileIconFor(path: string, artifact?: RunArtifactRecord) {
+  const language = artifact ? artifactLanguage(path, artifact) : path.split('.').pop()?.toLowerCase()
+  if (language === 'json') return <FileJson className="size-4 text-orange-600" />
+  if (['python', 'typescript', 'javascript', 'sql', 'bash', 'html', 'css'].includes(language ?? '')) {
+    return <FileCode className="size-4 text-blue-600" />
+  }
+  return <FileText className="size-4 text-muted-foreground" />
+}
+
+function buildArtifactFileTree(artifacts: RunArtifactRecord[]) {
+  const root: FileTreeNode = { name: 'All files', path: '', children: new Map() }
+  for (const artifact of artifacts) {
+    const parts = artifactPath(artifact).split('/').filter(Boolean)
+    if (parts.length === 0) continue
+    let cursor = root
+    parts.forEach((part, index) => {
+      const path = [...parts.slice(0, index), part].join('/')
+      const existing = cursor.children.get(part)
+      const next: FileTreeNode = existing ?? { name: part, path, children: new Map() }
+      if (index === parts.length - 1) {
+        next.artifact = artifact
+      }
+      cursor.children.set(part, next)
+      cursor = next
+    })
+  }
+  return root
 }
 
 function summarizeRunRecord(value: unknown) {
@@ -2022,13 +2097,120 @@ function RunArtifactsPanel({
   onSelectArtifact: (artifactId: string) => void
   remoteSessionId: string | null
 }) {
+  const panelRef = useRef<HTMLElement | null>(null)
+  const [panelWidth, setPanelWidth] = useState(660)
+  const [treeWidth, setTreeWidth] = useState(260)
+  const [expandedPaths, setExpandedPaths] = useState<Set<string>>(() => new Set(['']))
   const visibleArtifacts = producedArtifacts.filter(
     (artifact) => artifact.type !== 'remote_agent_session',
   )
+  const tree = useMemo(() => buildArtifactFileTree(visibleArtifacts), [visibleArtifacts])
   const selectedArtifact =
     visibleArtifacts.find((artifact) => artifact.id === selectedArtifactId) ??
     visibleArtifacts[0] ??
     null
+  const selectedPath = selectedArtifact ? artifactPath(selectedArtifact) : null
+
+  useEffect(() => {
+    setExpandedPaths((current) => {
+      const next = new Set(current)
+      for (const artifact of visibleArtifacts) {
+        const parts = artifactPath(artifact).split('/').filter(Boolean)
+        if (parts.length <= 1) continue
+        for (let index = 1; index < parts.length; index += 1) {
+          next.add(parts.slice(0, index).join('/'))
+        }
+      }
+      return next
+    })
+  }, [visibleArtifacts])
+
+  const beginPanelResize = (event: ReactPointerEvent<HTMLDivElement>) => {
+    event.preventDefault()
+    const startX = event.clientX
+    const startWidth = panelWidth
+    const onPointerMove = (moveEvent: PointerEvent) => {
+      const next = Math.min(Math.max(startWidth - (moveEvent.clientX - startX), 420), window.innerWidth - 320)
+      setPanelWidth(next)
+    }
+    const onPointerUp = () => {
+      window.removeEventListener('pointermove', onPointerMove)
+      window.removeEventListener('pointerup', onPointerUp)
+    }
+    window.addEventListener('pointermove', onPointerMove)
+    window.addEventListener('pointerup', onPointerUp)
+  }
+
+  const beginTreeResize = (event: ReactPointerEvent<HTMLDivElement>) => {
+    event.preventDefault()
+    const startX = event.clientX
+    const startWidth = treeWidth
+    const onPointerMove = (moveEvent: PointerEvent) => {
+      const containerWidth = panelRef.current?.clientWidth ?? panelWidth
+      const next = Math.min(Math.max(startWidth + (moveEvent.clientX - startX), 180), containerWidth - 260)
+      setTreeWidth(next)
+    }
+    const onPointerUp = () => {
+      window.removeEventListener('pointermove', onPointerMove)
+      window.removeEventListener('pointerup', onPointerUp)
+    }
+    window.addEventListener('pointermove', onPointerMove)
+    window.addEventListener('pointerup', onPointerUp)
+  }
+
+  const toggleExpanded = (path: string) => {
+    setExpandedPaths((current) => {
+      const next = new Set(current)
+      if (next.has(path)) next.delete(path)
+      else next.add(path)
+      return next
+    })
+  }
+
+  const renderTreeNode = (node: FileTreeNode, depth = 0): ReactNode => {
+    const children = Array.from(node.children.values()).sort((a, b) => {
+      if (a.artifact && !b.artifact) return 1
+      if (!a.artifact && b.artifact) return -1
+      return a.name.localeCompare(b.name)
+    })
+    const isExpanded = expandedPaths.has(node.path)
+    const isDirectory = children.length > 0 && !node.artifact
+    if (node.path === '') {
+      return children.map((child) => renderTreeNode(child, depth))
+    }
+    if (isDirectory) {
+      return (
+        <div key={node.path}>
+          <button
+            type="button"
+            className="flex h-8 w-full min-w-0 items-center gap-2 px-2 text-left text-sm hover:bg-muted"
+            style={{ paddingLeft: `${8 + depth * 16}px` }}
+            onClick={() => toggleExpanded(node.path)}
+          >
+            {isExpanded ? <ChevronDown className="size-4 text-muted-foreground" /> : <ChevronRight className="size-4 text-muted-foreground" />}
+            {isExpanded ? <FolderOpen className="size-4 text-muted-foreground" /> : <Folder className="size-4 text-muted-foreground" />}
+            <span className="truncate">{node.name}</span>
+          </button>
+          {isExpanded ? children.map((child) => renderTreeNode(child, depth + 1)) : null}
+        </div>
+      )
+    }
+    return (
+      <button
+        key={node.path}
+        type="button"
+        className={[
+          'flex h-8 w-full min-w-0 items-center gap-2 px-2 text-left text-sm hover:bg-muted',
+          selectedPath === node.path ? 'bg-muted font-medium' : '',
+        ].join(' ')}
+        style={{ paddingLeft: `${28 + depth * 16}px` }}
+        onClick={() => node.artifact && onSelectArtifact(node.artifact.id)}
+      >
+        {fileIconFor(node.path, node.artifact)}
+        <span className="truncate">{node.name}</span>
+      </button>
+    )
+  }
 
   if (!open) {
     return null
@@ -2036,124 +2218,114 @@ function RunArtifactsPanel({
 
   return (
     <aside
-      className="flex h-full min-h-0 w-full shrink-0 flex-col border-l border-border bg-background md:w-[42rem] xl:w-[46rem]"
+      ref={panelRef}
+      className="relative flex h-full min-h-0 w-full shrink-0 flex-col border-l border-border bg-background md:w-[var(--run-panel-width)]"
+      style={{ '--run-panel-width': `${panelWidth}px` } as CSSProperties}
       aria-label="Run artifacts"
     >
-      <div className="flex h-14 shrink-0 items-center justify-between border-b border-border px-5">
-        <div className="flex min-w-0 items-center gap-3">
-          <FileText className="size-4 text-muted-foreground" />
-          <div className="truncate text-sm font-medium">Artifacts</div>
-        </div>
-        <Button type="button" variant="ghost" size="icon-sm" onClick={onClose} aria-label="Close artifacts">
-          <X className="size-4" />
-        </Button>
+      <div
+        role="separator"
+        aria-orientation="vertical"
+        className="absolute -left-1 top-0 z-20 flex h-full w-2 cursor-col-resize items-center justify-center hover:bg-primary/10"
+        onPointerDown={beginPanelResize}
+      >
+        <GripVertical className="size-4 text-muted-foreground/60" />
       </div>
 
-      <div className="grid min-h-0 flex-1 grid-rows-[auto_minmax(0,1fr)] gap-5 px-5 py-5">
-        <div className="space-y-2">
+      <div className="flex h-12 shrink-0 items-center justify-between border-b border-border px-4">
+        <div className="flex min-w-0 items-center gap-3">
+          <FileText className="size-4 text-muted-foreground" />
+          <div className="truncate text-sm font-medium">All files</div>
+          {requestedArtifacts.length > 0 ? (
+            <span className="text-xs text-muted-foreground">
+              {visibleArtifacts.length}/{requestedArtifacts.length} produced
+            </span>
+          ) : null}
+        </div>
+        <div className="flex items-center gap-2">
           {remoteSessionId ? (
             <a
               href={`https://chatgpt.com/codex/s/${remoteSessionId}`}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+              className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
             >
-              Open remote session
-              <ExternalLink className="size-4" />
+              Session
+              <ExternalLink className="size-3.5" />
             </a>
           ) : null}
-          {requestedArtifacts.length > 0 ? (
-            <div className="flex flex-wrap gap-2">
-              {requestedArtifacts.map((artifact, index) => {
-                const type = typeof artifact.type === 'string' ? artifact.type : 'artifact'
-                const title =
-                  typeof artifact.title === 'string' ? artifact.title : formatStatus(type)
-                const produced = visibleArtifacts.some(
-                  (candidate) => candidate.type === type && candidate.title === title,
-                )
-                return (
-                  <span
-                    key={`${type}-${title}-${index}`}
-                    className="inline-flex items-center gap-2 bg-muted px-2.5 py-1 text-xs text-muted-foreground"
-                  >
-                    {title}
-                    <StatusBadge>{produced ? 'Produced' : 'Pending'}</StatusBadge>
-                  </span>
-                )
-              })}
-            </div>
-          ) : null}
-        </div>
-
-        <div className="grid min-h-0 gap-5 md:grid-cols-[16rem_minmax(0,1fr)]">
-          <div className="min-h-0 overflow-y-auto">
-            {visibleArtifacts.length > 0 ? (
-              <div className="flex flex-col gap-1">
-                {visibleArtifacts.map((artifact) => (
-                  <button
-                    key={artifact.id}
-                    type="button"
-                    className={[
-                      'grid gap-1 px-3 py-2 text-left text-sm hover:bg-muted',
-                      selectedArtifact?.id === artifact.id ? 'bg-muted' : '',
-                    ].join(' ')}
-                    onClick={() => onSelectArtifact(artifact.id)}
-                  >
-                    <span className="truncate font-medium">{artifact.title}</span>
-                    <span className="truncate text-xs text-muted-foreground">
-                      {formatStatus(artifact.type)}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            ) : (
-              <div className="px-3 py-2 text-sm text-muted-foreground">No produced artifacts yet.</div>
-            )}
-          </div>
-
-            <div className="min-h-0 overflow-hidden bg-muted/30">
-              {selectedArtifact ? (
-                <div className="flex h-full min-h-0 flex-col">
-                  <div className="flex shrink-0 items-center justify-between gap-3 px-4 py-3">
-                    <div className="min-w-0">
-                      <div className="truncate text-sm font-medium">{selectedArtifact.title}</div>
-                      <div className="text-xs text-muted-foreground">
-                        {formatDateTime(selectedArtifact.createdAt)}
-                      </div>
-                    </div>
-                    {selectedArtifact.url ? (
-                      <a
-                        href={selectedArtifact.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex shrink-0 items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
-                      >
-                        Open
-                        <ExternalLink className="size-4" />
-                      </a>
-                    ) : null}
-                  </div>
-                  {selectedArtifact.url ? (
-                    <iframe
-                      title={selectedArtifact.title}
-                      src={selectedArtifact.url}
-                      className="min-h-0 flex-1 bg-background"
-                    />
-                  ) : (
-                    <pre className="min-h-0 flex-1 overflow-auto px-4 py-3 text-xs leading-5 text-muted-foreground">
-                      {JSON.stringify(selectedArtifact.content ?? {}, null, 2)}
-                    </pre>
-                  )}
-                </div>
-              ) : (
-                <div className="flex h-full items-center justify-center px-6 text-center text-sm text-muted-foreground">
-                  Select an artifact to preview it here.
-                </div>
-              )}
-            </div>
+          <Button type="button" variant="ghost" size="icon-sm" onClick={onClose} aria-label="Close files">
+            <X className="size-4" />
+          </Button>
         </div>
       </div>
+
+      <div className="grid min-h-0 flex-1 grid-cols-[var(--tree-width)_8px_minmax(0,1fr)]" style={{ '--tree-width': `${treeWidth}px` } as CSSProperties}>
+        <div className="min-h-0 overflow-y-auto py-2">
+          {visibleArtifacts.length > 0 ? renderTreeNode(tree) : (
+            <div className="px-4 py-3 text-sm text-muted-foreground">No produced files yet.</div>
+          )}
+        </div>
+        <div
+          role="separator"
+          aria-orientation="vertical"
+          className="flex cursor-col-resize items-center justify-center border-x border-border hover:bg-primary/10"
+          onPointerDown={beginTreeResize}
+        >
+          <GripVertical className="size-4 text-muted-foreground/60" />
+        </div>
+        <FilePreview artifact={selectedArtifact} />
+      </div>
     </aside>
+  )
+}
+
+function FilePreview({ artifact }: { artifact: RunArtifactRecord | null }) {
+  if (!artifact) {
+    return (
+      <div className="flex h-full items-center justify-center px-6 text-center text-sm text-muted-foreground">
+        Select a file to preview it here.
+      </div>
+    )
+  }
+
+  const path = artifactPath(artifact)
+  const language = artifactLanguage(path, artifact)
+  const text = artifactText(artifact)
+
+  return (
+    <div className="flex min-h-0 flex-col overflow-hidden">
+      <div className="flex h-12 shrink-0 items-center justify-between gap-3 border-b border-border px-4">
+        <div className="min-w-0">
+          <div className="truncate text-sm font-medium">{path}</div>
+          <div className="text-xs text-muted-foreground">{formatStatus(artifact.type)} · {formatDateTime(artifact.createdAt)}</div>
+        </div>
+        {artifact.url ? (
+          <a
+            href={artifact.url}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex shrink-0 items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+          >
+            Open
+            <ExternalLink className="size-3.5" />
+          </a>
+        ) : null}
+      </div>
+      {artifact.url ? (
+        <iframe title={artifact.title} src={artifact.url} className="min-h-0 flex-1 bg-background" />
+      ) : language === 'markdown' ? (
+        <article className="min-h-0 flex-1 overflow-auto px-5 py-4">
+          {renderBriefingMarkdown(text)}
+        </article>
+      ) : (
+        <pre className="min-h-0 flex-1 overflow-auto px-4 py-3 text-xs leading-5 text-muted-foreground">
+          {language === 'json' && typeof artifact.content !== 'string'
+            ? JSON.stringify(artifact.content?.text ? tryParseJson(String(artifact.content.text)) ?? artifact.content : artifact.content, null, 2)
+            : text}
+        </pre>
+      )}
+    </div>
   )
 }
 

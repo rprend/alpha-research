@@ -7,7 +7,7 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Start and continue RESEARCH CLI assistant sessions from the browser.
 - Browse registered datasets and inspect deployment/profile state.
 - Track remote runs by dataset, type, prompt, status, and timestamps.
-- Open run details with observed progress, remote Codex transcript, and artifacts.
+- Open run details with observed progress, remote Codex transcript, and a resizable file explorer/viewer for produced run artifacts.
 - Inspect terminal sessions proxied through Alpha Research.
 
 ## Harness Mode
@@ -24,6 +24,6 @@ Harness mode bypasses production auth/data requirements and renders seeded datas
 
 - Open the dashboard in harness mode.
 - Verify datasets, runs, and terminal sessions render.
-- Open a seeded run and inspect progress/artifacts.
+- Open a seeded run and inspect progress, produced files, and rendered markdown/JSON/code previews.
 - Use screenshots or DOM snapshots to validate UI changes.
 - Only use production APIs when the task explicitly requires production behavior.
