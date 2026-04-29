@@ -1494,6 +1494,12 @@ function DatasetDetailPage({
   const tableCount = profileArrayCount(structuredProfile, 'tables')
   const formatCount = profileArrayCount(structuredProfile, 'formats')
   const limitationCount = profileArrayCount(structuredProfile, 'limitations')
+  const profileMetrics = [
+    ['Sources', sourceCount],
+    ['Tables', tableCount],
+    ['Formats', formatCount],
+    ['Limitations', limitationCount],
+  ].filter((entry): entry is [string, number] => typeof entry[1] === 'number')
   const profileSummary = profileText(structuredProfile, 'summary')
 
   return (
@@ -1502,38 +1508,27 @@ function DatasetDetailPage({
         <button type="button" className="w-fit text-sm text-muted-foreground hover:text-foreground" onClick={onBack}>
           Back to datasets
         </button>
-        <section className="flex flex-col gap-5">
-          <div className="flex size-16 items-center justify-center rounded-2xl bg-muted text-muted-foreground">
-            <Database className="size-8" />
-          </div>
+        <section className="flex flex-col gap-4">
           <div>
             <h1 className="text-4xl font-semibold tracking-normal">{current.name}</h1>
             <p className="mt-3 max-w-3xl text-lg leading-8 text-muted-foreground">
               {current.description || current.sourceFilename || `A ${formatStatus(current.sourceType)} dataset registered in Alpha Research.`}
             </p>
           </div>
-          <div className="flex flex-wrap gap-2">
-            <StatusBadge>{formatStatus(current.status)}</StatusBadge>
-            <StatusBadge>{formatStatus(current.deploymentStatus)}</StatusBadge>
-            <StatusBadge>{formatStatus(current.sourceType)}</StatusBadge>
-          </div>
         </section>
 
         {error ? <div className="bg-destructive/5 px-4 py-3 text-sm text-destructive">{error}</div> : null}
 
-        <section className="grid gap-4 md:grid-cols-4">
-          {[
-            ['Sources', sourceCount === null ? 'Pending' : sourceCount.toLocaleString()],
-            ['Tables', tableCount === null ? 'Pending' : tableCount.toLocaleString()],
-            ['Formats', formatCount === null ? 'Pending' : formatCount.toLocaleString()],
-            ['Limitations', limitationCount === null ? 'Pending' : limitationCount.toLocaleString()],
-          ].map(([label, value]) => (
-            <div key={label} className="rounded-lg border border-border px-5 py-4">
-              <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">{label}</div>
-              <div className="mt-2 break-words text-2xl font-semibold">{value}</div>
-            </div>
-          ))}
-        </section>
+        {profileMetrics.length > 0 ? (
+          <section className="grid gap-4 md:grid-cols-4">
+            {profileMetrics.map(([label, value]) => (
+              <div key={label} className="rounded-lg border border-border px-5 py-4">
+                <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">{label}</div>
+                <div className="mt-2 break-words text-2xl font-semibold">{value.toLocaleString()}</div>
+              </div>
+            ))}
+          </section>
+        ) : null}
 
         <section className="flex flex-col gap-4">
           <div className="flex items-center justify-between gap-4 border-b border-border pb-3">
@@ -2418,6 +2413,8 @@ function DashboardApp({
         onOpenRun={(run) => updateDashboardRoute({ view: 'runs', runId: run.id, datasetId: null, sessionId: null })}
       />
     )
+  } else if (route.view === 'datasets' && route.datasetId && !dataError) {
+    content = <main className="min-h-0 flex-1 overflow-y-auto px-4 py-8 md:px-8" />
   } else if (route.view === 'datasets') {
     content = (
       <main className="flex flex-1 min-w-0 flex-col gap-10 overflow-y-auto px-4 py-10 md:px-8">
