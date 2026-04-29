@@ -430,7 +430,7 @@ function renderPreviewMarkdown(markdown: string) {
   const flushParagraph = () => {
     if (paragraph.length === 0) return
     nodes.push(
-      <p key={`p-${nodes.length}`} className="my-5 whitespace-pre-wrap text-[1.42rem] leading-[1.72] text-neutral-600">
+      <p key={`p-${nodes.length}`} className="my-4 whitespace-pre-wrap text-[1.18rem] leading-[1.7] text-neutral-600">
         {paragraph.join('\n')}
       </p>,
     )
@@ -439,7 +439,7 @@ function renderPreviewMarkdown(markdown: string) {
   const flushBullets = () => {
     if (bullets.length === 0) return
     nodes.push(
-      <ul key={`ul-${nodes.length}`} className="my-5 list-disc space-y-4 pl-9 text-[1.42rem] leading-[1.72] text-neutral-600">
+      <ul key={`ul-${nodes.length}`} className="my-4 list-disc space-y-3 pl-7 text-[1.18rem] leading-[1.7] text-neutral-600">
         {bullets.map((item, index) => <li key={index}>{item}</li>)}
       </ul>,
     )
@@ -461,8 +461,8 @@ function renderPreviewMarkdown(markdown: string) {
       const text = heading[2] ?? ''
       nodes.push(
         level === 1
-          ? <h1 key={`h-${nodes.length}`} className="mt-12 text-5xl font-semibold leading-tight tracking-normal first:mt-0">{text}</h1>
-          : <h2 key={`h-${nodes.length}`} className="mt-10 text-3xl font-semibold leading-tight tracking-normal first:mt-0">{text}</h2>,
+          ? <h1 key={`h-${nodes.length}`} className="mt-9 text-4xl font-semibold leading-tight tracking-normal first:mt-0">{text}</h1>
+          : <h2 key={`h-${nodes.length}`} className="mt-8 text-2xl font-semibold leading-tight tracking-normal first:mt-0">{text}</h2>,
       )
       continue
     }
@@ -2369,18 +2369,7 @@ function FilePreview({
 
   return (
     <div className="flex min-h-0 flex-col overflow-hidden">
-      <div className="flex h-16 shrink-0 items-center justify-between gap-3 border-b border-border px-7">
-        <div className="flex min-w-0 items-center gap-4">
-          <div className="flex min-w-0 items-center gap-3 text-muted-foreground">
-            <FileText className="size-5" />
-            <span className="truncate text-lg font-medium">Summary</span>
-          </div>
-          <div className="h-6 w-px bg-border" />
-          <div className="flex min-w-0 items-center gap-3">
-            {fileIconFor(path, artifact)}
-            <span className="truncate text-lg font-medium text-muted-foreground">{path.split('/').pop() ?? path}</span>
-          </div>
-        </div>
+      <div className="flex h-12 shrink-0 items-center justify-end gap-3 border-b border-border px-5">
         <div className="flex shrink-0 items-center gap-3">
           {remoteSessionId ? (
             <a
@@ -2398,27 +2387,16 @@ function FilePreview({
           </Button>
         </div>
       </div>
-
-      <div className="flex h-14 shrink-0 items-center justify-between gap-3 border-b border-border px-7">
-        <div className="flex min-w-0 items-center gap-2 text-lg">
-          <span className="truncate text-muted-foreground">run artifacts</span>
-          <ChevronRight className="size-5 text-muted-foreground" />
-          <span className="truncate font-semibold">{path}</span>
-        </div>
-        <div className="shrink-0 text-xs text-muted-foreground">
-          {formatStatus(artifact.type)} · {formatDateTime(artifact.createdAt)}
-        </div>
-      </div>
       {artifact.url ? (
         <iframe title={artifact.title} src={artifact.url} className="min-h-0 flex-1 bg-background" />
       ) : language === 'markdown' ? (
-        <article className="min-h-0 flex-1 overflow-auto px-10 py-10">
-          <div className="max-w-[42rem]">
+        <article className="min-h-0 flex-1 overflow-auto px-8 py-8">
+          <div className="max-w-[38rem]">
             {renderPreviewMarkdown(text)}
           </div>
         </article>
       ) : (
-        <pre className="min-h-0 flex-1 overflow-auto px-10 py-8 text-[0.95rem] leading-7 text-neutral-700">
+        <pre className="min-h-0 flex-1 overflow-auto px-8 py-6 text-[0.9rem] leading-6 text-neutral-700">
           {language === 'json' ? artifactJsonPreview(artifact) : text}
         </pre>
       )}
