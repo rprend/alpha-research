@@ -2337,10 +2337,7 @@ function RunArtifactsPanel({
         </div>
         <div className="flex min-h-0 flex-col">
           <div className="flex h-16 shrink-0 items-center justify-between border-b border-border px-7">
-            <div className="flex min-w-0 items-center gap-2">
-              <div className="truncate text-xl font-semibold tracking-normal">All files</div>
-              <ChevronDown className="size-5 text-muted-foreground" />
-            </div>
+            <div className="truncate text-xl font-semibold tracking-normal">All files</div>
             {requestedArtifacts.length > 0 ? (
               <span className="text-xs text-muted-foreground">
                 {visibleArtifacts.length}/{requestedArtifacts.length}
