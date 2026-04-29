@@ -422,6 +422,64 @@ function renderBriefingMarkdown(markdown: string) {
   return nodes
 }
 
+function renderPreviewMarkdown(markdown: string) {
+  const nodes: ReactNode[] = []
+  let paragraph: string[] = []
+  let bullets: string[] = []
+
+  const flushParagraph = () => {
+    if (paragraph.length === 0) return
+    nodes.push(
+      <p key={`p-${nodes.length}`} className="my-5 whitespace-pre-wrap text-[1.42rem] leading-[1.72] text-neutral-600">
+        {paragraph.join('\n')}
+      </p>,
+    )
+    paragraph = []
+  }
+  const flushBullets = () => {
+    if (bullets.length === 0) return
+    nodes.push(
+      <ul key={`ul-${nodes.length}`} className="my-5 list-disc space-y-4 pl-9 text-[1.42rem] leading-[1.72] text-neutral-600">
+        {bullets.map((item, index) => <li key={index}>{item}</li>)}
+      </ul>,
+    )
+    bullets = []
+  }
+
+  for (const line of markdown.split('\n')) {
+    const trimmed = line.trim()
+    if (!trimmed) {
+      flushParagraph()
+      flushBullets()
+      continue
+    }
+    const heading = trimmed.match(/^(#{1,3})\s+(.+)$/u)
+    if (heading) {
+      flushParagraph()
+      flushBullets()
+      const level = heading[1]?.length ?? 2
+      const text = heading[2] ?? ''
+      nodes.push(
+        level === 1
+          ? <h1 key={`h-${nodes.length}`} className="mt-12 text-5xl font-semibold leading-tight tracking-normal first:mt-0">{text}</h1>
+          : <h2 key={`h-${nodes.length}`} className="mt-10 text-3xl font-semibold leading-tight tracking-normal first:mt-0">{text}</h2>,
+      )
+      continue
+    }
+    const bullet = trimmed.match(/^[-*]\s+(.+)$/u)
+    if (bullet) {
+      flushParagraph()
+      bullets.push(bullet[1] ?? '')
+      continue
+    }
+    flushBullets()
+    paragraph.push(trimmed)
+  }
+  flushParagraph()
+  flushBullets()
+  return nodes
+}
+
 function tryParseJson(value: string) {
   try {
     return JSON.parse(value)
@@ -512,6 +570,18 @@ function artifactText(artifact: RunArtifactRecord) {
   return JSON.stringify(artifact.content ?? {}, null, 2)
 }
 
+function artifactJsonPreview(artifact: RunArtifactRecord) {
+  if (typeof artifact.content === 'string') return artifact.content
+  if (artifact.content?.text && typeof artifact.content.text === 'string') {
+    return JSON.stringify(tryParseJson(artifact.content.text) ?? artifact.content.text, null, 2)
+  }
+  if (artifact.content && typeof artifact.content === 'object') {
+    const { path: _path, ...rest } = artifact.content
+    return JSON.stringify(rest, null, 2)
+  }
+  return JSON.stringify(artifact.content ?? {}, null, 2)
+}
+
 function artifactLanguage(path: string, artifact: RunArtifactRecord) {
   const extension = path.split('.').pop()?.toLowerCase()
   if (artifact.type === 'structured_result' || extension === 'json') return 'json'
@@ -529,11 +599,11 @@ function artifactLanguage(path: string, artifact: RunArtifactRecord) {
 
 function fileIconFor(path: string, artifact?: RunArtifactRecord) {
   const language = artifact ? artifactLanguage(path, artifact) : path.split('.').pop()?.toLowerCase()
-  if (language === 'json') return <FileJson className="size-4 text-orange-600" />
+  if (language === 'json') return <FileJson className="size-5 text-orange-600" />
   if (['python', 'typescript', 'javascript', 'sql', 'bash', 'html', 'css'].includes(language ?? '')) {
-    return <FileCode className="size-4 text-blue-600" />
+    return <FileCode className="size-5 text-blue-600" />
   }
-  return <FileText className="size-4 text-muted-foreground" />
+  return <FileText className="size-5 text-muted-foreground" />
 }
 
 function buildArtifactFileTree(artifacts: RunArtifactRecord[]) {
@@ -2098,8 +2168,8 @@ function RunArtifactsPanel({
   remoteSessionId: string | null
 }) {
   const panelRef = useRef<HTMLElement | null>(null)
-  const [panelWidth, setPanelWidth] = useState(660)
-  const [treeWidth, setTreeWidth] = useState(260)
+  const [panelWidth, setPanelWidth] = useState(900)
+  const [treeWidth, setTreeWidth] = useState(360)
   const [expandedPaths, setExpandedPaths] = useState<Set<string>>(() => new Set(['']))
   const visibleArtifacts = producedArtifacts.filter(
     (artifact) => artifact.type !== 'remote_agent_session',
@@ -2130,7 +2200,7 @@ function RunArtifactsPanel({
     const startX = event.clientX
     const startWidth = panelWidth
     const onPointerMove = (moveEvent: PointerEvent) => {
-      const next = Math.min(Math.max(startWidth - (moveEvent.clientX - startX), 420), window.innerWidth - 320)
+      const next = Math.min(Math.max(startWidth - (moveEvent.clientX - startX), 600), window.innerWidth - 280)
       setPanelWidth(next)
     }
     const onPointerUp = () => {
@@ -2147,7 +2217,7 @@ function RunArtifactsPanel({
     const startWidth = treeWidth
     const onPointerMove = (moveEvent: PointerEvent) => {
       const containerWidth = panelRef.current?.clientWidth ?? panelWidth
-      const next = Math.min(Math.max(startWidth + (moveEvent.clientX - startX), 180), containerWidth - 260)
+      const next = Math.min(Math.max(startWidth - (moveEvent.clientX - startX), 260), containerWidth - 360)
       setTreeWidth(next)
     }
     const onPointerUp = () => {
@@ -2183,12 +2253,12 @@ function RunArtifactsPanel({
         <div key={node.path}>
           <button
             type="button"
-            className="flex h-8 w-full min-w-0 items-center gap-2 px-2 text-left text-sm hover:bg-muted"
-            style={{ paddingLeft: `${8 + depth * 16}px` }}
+            className="flex h-10 w-full min-w-0 items-center gap-3 px-2 text-left text-[1.08rem] leading-none hover:bg-muted"
+            style={{ paddingLeft: `${20 + depth * 18}px` }}
             onClick={() => toggleExpanded(node.path)}
           >
-            {isExpanded ? <ChevronDown className="size-4 text-muted-foreground" /> : <ChevronRight className="size-4 text-muted-foreground" />}
-            {isExpanded ? <FolderOpen className="size-4 text-muted-foreground" /> : <Folder className="size-4 text-muted-foreground" />}
+            {isExpanded ? <ChevronDown className="size-5 text-muted-foreground" /> : <ChevronRight className="size-5 text-muted-foreground" />}
+            {isExpanded ? <FolderOpen className="size-5 text-muted-foreground" /> : <Folder className="size-5 text-muted-foreground" />}
             <span className="truncate">{node.name}</span>
           </button>
           {isExpanded ? children.map((child) => renderTreeNode(child, depth + 1)) : null}
@@ -2200,10 +2270,10 @@ function RunArtifactsPanel({
         key={node.path}
         type="button"
         className={[
-          'flex h-8 w-full min-w-0 items-center gap-2 px-2 text-left text-sm hover:bg-muted',
-          selectedPath === node.path ? 'bg-muted font-medium' : '',
+          'flex h-11 w-full min-w-0 items-center gap-4 px-2 text-left text-[1.08rem] leading-none hover:bg-muted',
+          selectedPath === node.path ? 'bg-muted/80 font-semibold' : '',
         ].join(' ')}
-        style={{ paddingLeft: `${28 + depth * 16}px` }}
+        style={{ paddingLeft: `${24 + depth * 18}px` }}
         onClick={() => node.artifact && onSelectArtifact(node.artifact.id)}
       >
         {fileIconFor(node.path, node.artifact)}
@@ -2219,7 +2289,7 @@ function RunArtifactsPanel({
   return (
     <aside
       ref={panelRef}
-      className="relative flex h-full min-h-0 w-full shrink-0 flex-col border-l border-border bg-background md:w-[var(--run-panel-width)]"
+      className="relative flex h-full min-h-0 w-full shrink-0 border-l border-border bg-background md:w-[var(--run-panel-width)]"
       style={{ '--run-panel-width': `${panelWidth}px` } as CSSProperties}
       aria-label="Run artifacts"
     >
@@ -2229,20 +2299,89 @@ function RunArtifactsPanel({
         className="absolute -left-1 top-0 z-20 flex h-full w-2 cursor-col-resize items-center justify-center hover:bg-primary/10"
         onPointerDown={beginPanelResize}
       >
-        <GripVertical className="size-4 text-muted-foreground/60" />
+        <GripVertical className="size-3 text-muted-foreground/50" />
       </div>
 
-      <div className="flex h-12 shrink-0 items-center justify-between border-b border-border px-4">
-        <div className="flex min-w-0 items-center gap-3">
-          <FileText className="size-4 text-muted-foreground" />
-          <div className="truncate text-sm font-medium">All files</div>
-          {requestedArtifacts.length > 0 ? (
-            <span className="text-xs text-muted-foreground">
-              {visibleArtifacts.length}/{requestedArtifacts.length} produced
-            </span>
-          ) : null}
+      <div className="grid min-h-0 flex-1 grid-cols-[minmax(0,1fr)_8px_var(--tree-width)]" style={{ '--tree-width': `${treeWidth}px` } as CSSProperties}>
+        <FilePreview artifact={selectedArtifact} onClose={onClose} remoteSessionId={remoteSessionId} />
+        <div
+          role="separator"
+          aria-orientation="vertical"
+          className="flex cursor-col-resize items-center justify-center border-x border-border bg-background hover:bg-primary/10"
+          onPointerDown={beginTreeResize}
+        >
+          <GripVertical className="size-3 text-muted-foreground/50" />
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex min-h-0 flex-col">
+          <div className="flex h-16 shrink-0 items-center justify-between border-b border-border px-7">
+            <div className="flex min-w-0 items-center gap-2">
+              <div className="truncate text-xl font-semibold tracking-normal">All files</div>
+              <ChevronDown className="size-5 text-muted-foreground" />
+            </div>
+            {requestedArtifacts.length > 0 ? (
+              <span className="text-xs text-muted-foreground">
+                {visibleArtifacts.length}/{requestedArtifacts.length}
+              </span>
+            ) : null}
+          </div>
+          <div className="min-h-0 overflow-y-auto py-5">
+            {visibleArtifacts.length > 0 ? renderTreeNode(tree) : (
+              <div className="px-7 py-3 text-sm text-muted-foreground">No produced files yet.</div>
+            )}
+          </div>
+        </div>
+      </div>
+    </aside>
+  )
+}
+
+function FilePreview({
+  artifact,
+  onClose,
+  remoteSessionId,
+}: {
+  artifact: RunArtifactRecord | null
+  onClose: () => void
+  remoteSessionId: string | null
+}) {
+  if (!artifact) {
+    return (
+      <div className="flex h-full flex-col">
+        <div className="flex h-16 shrink-0 items-center justify-between border-b border-border px-7">
+          <div className="flex min-w-0 items-center gap-3 text-muted-foreground">
+            <FileText className="size-5" />
+            <span className="text-lg">No file selected</span>
+          </div>
+          <Button type="button" variant="ghost" size="icon-sm" onClick={onClose} aria-label="Close files">
+            <X className="size-5" />
+          </Button>
+        </div>
+        <div className="flex flex-1 items-center justify-center px-6 text-center text-sm text-muted-foreground">
+          Select a file to preview it here.
+        </div>
+      </div>
+    )
+  }
+
+  const path = artifactPath(artifact)
+  const language = artifactLanguage(path, artifact)
+  const text = artifactText(artifact)
+
+  return (
+    <div className="flex min-h-0 flex-col overflow-hidden">
+      <div className="flex h-16 shrink-0 items-center justify-between gap-3 border-b border-border px-7">
+        <div className="flex min-w-0 items-center gap-4">
+          <div className="flex min-w-0 items-center gap-3 text-muted-foreground">
+            <FileText className="size-5" />
+            <span className="truncate text-lg font-medium">Summary</span>
+          </div>
+          <div className="h-6 w-px bg-border" />
+          <div className="flex min-w-0 items-center gap-3">
+            {fileIconFor(path, artifact)}
+            <span className="truncate text-lg font-medium text-muted-foreground">{path.split('/').pop() ?? path}</span>
+          </div>
+        </div>
+        <div className="flex shrink-0 items-center gap-3">
           {remoteSessionId ? (
             <a
               href={`https://chatgpt.com/codex/s/${remoteSessionId}`}
@@ -2255,74 +2394,32 @@ function RunArtifactsPanel({
             </a>
           ) : null}
           <Button type="button" variant="ghost" size="icon-sm" onClick={onClose} aria-label="Close files">
-            <X className="size-4" />
+            <X className="size-5" />
           </Button>
         </div>
       </div>
 
-      <div className="grid min-h-0 flex-1 grid-cols-[var(--tree-width)_8px_minmax(0,1fr)]" style={{ '--tree-width': `${treeWidth}px` } as CSSProperties}>
-        <div className="min-h-0 overflow-y-auto py-2">
-          {visibleArtifacts.length > 0 ? renderTreeNode(tree) : (
-            <div className="px-4 py-3 text-sm text-muted-foreground">No produced files yet.</div>
-          )}
+      <div className="flex h-14 shrink-0 items-center justify-between gap-3 border-b border-border px-7">
+        <div className="flex min-w-0 items-center gap-2 text-lg">
+          <span className="truncate text-muted-foreground">run artifacts</span>
+          <ChevronRight className="size-5 text-muted-foreground" />
+          <span className="truncate font-semibold">{path}</span>
         </div>
-        <div
-          role="separator"
-          aria-orientation="vertical"
-          className="flex cursor-col-resize items-center justify-center border-x border-border hover:bg-primary/10"
-          onPointerDown={beginTreeResize}
-        >
-          <GripVertical className="size-4 text-muted-foreground/60" />
+        <div className="shrink-0 text-xs text-muted-foreground">
+          {formatStatus(artifact.type)} · {formatDateTime(artifact.createdAt)}
         </div>
-        <FilePreview artifact={selectedArtifact} />
-      </div>
-    </aside>
-  )
-}
-
-function FilePreview({ artifact }: { artifact: RunArtifactRecord | null }) {
-  if (!artifact) {
-    return (
-      <div className="flex h-full items-center justify-center px-6 text-center text-sm text-muted-foreground">
-        Select a file to preview it here.
-      </div>
-    )
-  }
-
-  const path = artifactPath(artifact)
-  const language = artifactLanguage(path, artifact)
-  const text = artifactText(artifact)
-
-  return (
-    <div className="flex min-h-0 flex-col overflow-hidden">
-      <div className="flex h-12 shrink-0 items-center justify-between gap-3 border-b border-border px-4">
-        <div className="min-w-0">
-          <div className="truncate text-sm font-medium">{path}</div>
-          <div className="text-xs text-muted-foreground">{formatStatus(artifact.type)} · {formatDateTime(artifact.createdAt)}</div>
-        </div>
-        {artifact.url ? (
-          <a
-            href={artifact.url}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex shrink-0 items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
-          >
-            Open
-            <ExternalLink className="size-3.5" />
-          </a>
-        ) : null}
       </div>
       {artifact.url ? (
         <iframe title={artifact.title} src={artifact.url} className="min-h-0 flex-1 bg-background" />
       ) : language === 'markdown' ? (
-        <article className="min-h-0 flex-1 overflow-auto px-5 py-4">
-          {renderBriefingMarkdown(text)}
+        <article className="min-h-0 flex-1 overflow-auto px-10 py-10">
+          <div className="max-w-[42rem]">
+            {renderPreviewMarkdown(text)}
+          </div>
         </article>
       ) : (
-        <pre className="min-h-0 flex-1 overflow-auto px-4 py-3 text-xs leading-5 text-muted-foreground">
-          {language === 'json' && typeof artifact.content !== 'string'
-            ? JSON.stringify(artifact.content?.text ? tryParseJson(String(artifact.content.text)) ?? artifact.content : artifact.content, null, 2)
-            : text}
+        <pre className="min-h-0 flex-1 overflow-auto px-10 py-8 text-[0.95rem] leading-7 text-neutral-700">
+          {language === 'json' ? artifactJsonPreview(artifact) : text}
         </pre>
       )}
     </div>
