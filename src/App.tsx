@@ -102,6 +102,12 @@ type DatasetRecord = {
     schema?: unknown
     sampleRows?: unknown
     notes?: string | null
+    briefingMarkdown?: string | null
+    profile?: unknown
+    briefingArtifactId?: string | null
+    profileArtifactId?: string | null
+    describedRunId?: string | null
+    describedAt?: string | null
     updatedAt?: string
   } | null
   createdAt: string
@@ -330,6 +336,42 @@ function codeBlock(label: string, value: unknown) {
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
+}
+
+function profileArrayCount(profile: unknown, key: string) {
+  if (!isRecord(profile)) return null
+  const value = profile[key]
+  return Array.isArray(value) ? value.length : null
+}
+
+function profileText(profile: unknown, key: string) {
+  if (!isRecord(profile)) return null
+  const value = profile[key]
+  return typeof value === 'string' && value.trim() ? value.trim() : null
+}
+
+function renderBriefingMarkdown(markdown: string) {
+  return markdown.split(/\n{2,}/).map((block, index) => {
+    const trimmed = block.trim()
+    if (!trimmed) return null
+    const heading = trimmed.match(/^(#{1,3})\s+(.+)$/u)
+    if (heading) {
+      const level = heading[1]?.length ?? 2
+      const text = heading[2] ?? ''
+      if (level === 1) return <h2 key={index} className="mt-6 text-2xl font-semibold first:mt-0">{text}</h2>
+      return <h3 key={index} className="mt-5 text-lg font-semibold first:mt-0">{text}</h3>
+    }
+    if (/^[-*]\s+/mu.test(trimmed)) {
+      return (
+        <ul key={index} className="my-3 list-disc space-y-1 pl-5 text-sm leading-7 text-muted-foreground">
+          {trimmed.split('\n').map((line, lineIndex) => (
+            <li key={lineIndex}>{line.replace(/^[-*]\s+/u, '')}</li>
+          ))}
+        </ul>
+      )
+    }
+    return <p key={index} className="my-3 whitespace-pre-wrap text-sm leading-7 text-muted-foreground">{trimmed}</p>
+  })
 }
 
 function tryParseJson(value: string) {
@@ -1358,8 +1400,10 @@ async function startDatasetDescribeRun(datasetId: string) {
       type: 'describe',
       prompt: [
         `Describe dataset ${datasetId}.`,
-        'Inspect the mounted files, manifest, schemas, row counts, sizes, partitions, date ranges, important columns, sample rows, limitations, provenance, and recommended query/use cases.',
-        'Produce a comprehensive briefing for humans, plus a structured JSON profile.',
+        'Produce a durable documentation briefing for humans. Do not include query instructions, starter analyses, or suggestions for how to use agents; this is a dataset documentation task only.',
+        'Inspect mounted files, manifests, source registries, table catalogs, Parquet/CSV/JSON/DuckDB files, README files, data dictionaries, QA reports, schemas, sample rows, provenance, source URLs, formats, time coverage, geography coverage, transformations, validation status, limitations, and known gaps.',
+        'Create Dataset Briefing markdown with sections: Overview; Data Inventory; Sources; Schemas; Time Coverage; Geography Coverage; Formats; Transformations & Derived Fields; Quality & Validation; Limitations & Known Gaps.',
+        'Create Dataset Profile JSON with summary, sources, tables, schemas/columns, timeCoverage, geographyCoverage, formats, transformations, quality, limitations, and generatedAt.',
       ].join('\n'),
       artifacts: [
         { type: 'markdown', title: 'Dataset Briefing' },
@@ -1408,6 +1452,15 @@ function DatasetDetailPage({
   }, [dataset.id])
 
   const canDescribe = current.deploymentStatus === 'ready' && current.status === 'ready'
+  const briefingMarkdown = current.profile?.briefingMarkdown || current.profile?.notes || ''
+  const structuredProfile = current.profile?.profile
+  const describedAt = current.profile?.describedAt ?? current.profile?.updatedAt ?? null
+  const describeIsRunning = describeRun ? !['ready', 'failed', 'cancelled', 'canceled'].includes(describeRun.status.toLowerCase()) : false
+  const sourceCount = profileArrayCount(structuredProfile, 'sources')
+  const tableCount = profileArrayCount(structuredProfile, 'tables')
+  const formatCount = profileArrayCount(structuredProfile, 'formats')
+  const limitationCount = profileArrayCount(structuredProfile, 'limitations')
+  const profileSummary = profileText(structuredProfile, 'summary')
 
   return (
     <main className="min-h-0 flex-1 overflow-y-auto px-4 py-8 md:px-8">
@@ -1434,18 +1487,16 @@ function DatasetDetailPage({
 
         {error ? <div className="bg-destructive/5 px-4 py-3 text-sm text-destructive">{error}</div> : null}
 
-        <section className="grid gap-4 md:grid-cols-2">
+        <section className="grid gap-4 md:grid-cols-4">
           {[
-            ['Size', formatBytes(current.sourceSizeBytes)],
-            ['Source file', current.sourceFilename ?? 'Unknown'],
-            ['Mode', formatStatus(current.mode ?? 'default')],
-            ['Manifest', current.manifestPath ?? 'Not available'],
-            ['Volume', current.volume?.mountPath ?? 'Not mounted'],
-            ['Updated', formatDateTime(current.updatedAt)],
+            ['Sources', sourceCount === null ? 'Pending' : sourceCount.toLocaleString()],
+            ['Tables', tableCount === null ? 'Pending' : tableCount.toLocaleString()],
+            ['Formats', formatCount === null ? 'Pending' : formatCount.toLocaleString()],
+            ['Limitations', limitationCount === null ? 'Pending' : limitationCount.toLocaleString()],
           ].map(([label, value]) => (
             <div key={label} className="rounded-lg border border-border px-5 py-4">
               <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">{label}</div>
-              <div className="mt-2 break-words text-sm">{value}</div>
+              <div className="mt-2 break-words text-2xl font-semibold">{value}</div>
             </div>
           ))}
         </section>
@@ -1473,25 +1524,68 @@ function DatasetDetailPage({
               {startingDescribe ? 'Starting...' : 'Describe dataset'}
             </Button>
           </div>
+          {describedAt ? (
+            <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+              <FileText className="size-4" />
+              <span>Briefing generated {formatDateTime(describedAt)}</span>
+              {describeIsRunning ? <StatusBadge>Refreshing</StatusBadge> : null}
+            </div>
+          ) : null}
+          {profileSummary ? (
+            <div className="rounded-lg border border-border bg-muted/30 p-5 text-sm leading-7 text-muted-foreground">
+              {profileSummary}
+            </div>
+          ) : null}
           <div className="rounded-lg border border-border p-5">
-            {describeRun ? (
+            {briefingMarkdown ? (
+              <article className="max-w-none">{renderBriefingMarkdown(briefingMarkdown)}</article>
+            ) : describeRun ? (
               <button type="button" className="text-left" onClick={() => onOpenRun(describeRun)}>
-                <div className="font-medium">{formatStatus(describeRun.status)} describe job</div>
-                <div className="mt-1 text-sm text-muted-foreground">{describeRun.outputPreview || `Updated ${relativeTime(describeRun.updatedAt)}`}</div>
+                <div className="font-medium">
+                  {describeIsRunning ? 'Generating dataset briefing...' : `${formatStatus(describeRun.status)} describe job`}
+                </div>
+                <div className="mt-1 text-sm text-muted-foreground">
+                  {describeIsRunning
+                    ? 'The remote Codex agent is inspecting files, sources, schemas, time coverage, geography coverage, formats, QA, and limitations. Raw executor logs are hidden here.'
+                    : describeRun.status === 'ready'
+                      ? 'Describe completed but no Dataset Briefing artifact has been persisted yet. Open the run to inspect artifacts.'
+                      : describeRun.outputPreview || `Updated ${relativeTime(describeRun.updatedAt)}`}
+                </div>
               </button>
             ) : (
               <p className="text-sm leading-7 text-muted-foreground">
-                No briefing has been generated yet. A describe job inspects the mounted dataset and writes a comprehensive briefing with structure, size, provenance, caveats, and recommended uses.
+                No briefing has been generated yet. A describe job launches a remote Codex agent to inspect the mounted dataset and write a detailed document covering data inventory, sources, schemas, time coverage, geography coverage, formats, transformations, QA status, limitations, and known gaps.
                 {!canDescribe ? ' This dataset needs a ready deployed environment before the describe workflow can run.' : ''}
               </p>
             )}
           </div>
         </section>
 
-        <section className="grid gap-4 md:grid-cols-2">
-          <pre className="max-h-96 overflow-auto rounded-lg border border-border p-4 text-xs text-muted-foreground">{JSON.stringify(current.profile ?? {}, null, 2)}</pre>
-          <pre className="max-h-96 overflow-auto rounded-lg border border-border p-4 text-xs text-muted-foreground">{JSON.stringify(current.ingestConfig ?? {}, null, 2)}</pre>
-        </section>
+        <details className="rounded-lg border border-border p-5">
+          <summary className="cursor-pointer text-sm font-medium">Debug details</summary>
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            {[
+              ['Source file', current.sourceFilename ?? 'Unknown'],
+              ['Mode', formatStatus(current.mode ?? 'default')],
+              ['Manifest', current.manifestPath ?? 'Not available'],
+              ['Volume', current.volume?.mountPath ?? 'Not mounted'],
+              ['Size', formatBytes(current.sourceSizeBytes)],
+              ['Updated', formatDateTime(current.updatedAt)],
+              ['Describe run', describeRun?.id ?? current.profile?.describedRunId ?? 'None'],
+              ['Briefing artifact', current.profile?.briefingArtifactId ?? 'None'],
+              ['Profile artifact', current.profile?.profileArtifactId ?? 'None'],
+            ].map(([label, value]) => (
+              <div key={label} className="rounded-lg bg-muted/40 px-4 py-3">
+                <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">{label}</div>
+                <div className="mt-2 break-words text-sm">{value}</div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            <pre className="max-h-96 overflow-auto rounded-lg border border-border p-4 text-xs text-muted-foreground">{JSON.stringify(current.profile ?? {}, null, 2)}</pre>
+            <pre className="max-h-96 overflow-auto rounded-lg border border-border p-4 text-xs text-muted-foreground">{JSON.stringify(current.ingestConfig ?? {}, null, 2)}</pre>
+          </div>
+        </details>
       </div>
     </main>
   )

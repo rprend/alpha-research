@@ -30,6 +30,10 @@ type SqlStorage = DurableObjectStateLike['storage'] & {
   }
 }
 
+function isPlainRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value)
+}
+
 type Env = {
   DIGITALOCEAN_API_TOKEN?: string
   DIGITALOCEAN_REGION?: string
@@ -98,6 +102,12 @@ type DatasetProfileRecord = {
   schemaJson: string | null
   sampleRowsJson: string | null
   notes: string | null
+  briefingMarkdown: string | null
+  profileJson: string | null
+  briefingArtifactId: string | null
+  profileArtifactId: string | null
+  describedRunId: string | null
+  describedAt: string | null
   updatedAt: string
 }
 
@@ -285,6 +295,12 @@ export class ControlPlane {
         schema_json TEXT,
         sample_rows_json TEXT,
         notes TEXT,
+        briefing_markdown TEXT,
+        profile_json TEXT,
+        briefing_artifact_id TEXT,
+        profile_artifact_id TEXT,
+        described_run_id TEXT,
+        described_at TEXT,
         updated_at TEXT NOT NULL
       );
     `)
@@ -367,6 +383,12 @@ export class ControlPlane {
     try { this.sql.exec('ALTER TABLE runner_pool ADD COLUMN region TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE datasets ADD COLUMN active_run_id TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE datasets ADD COLUMN lease_acquired_at TEXT') } catch {}
+    try { this.sql.exec('ALTER TABLE dataset_profiles ADD COLUMN briefing_markdown TEXT') } catch {}
+    try { this.sql.exec('ALTER TABLE dataset_profiles ADD COLUMN profile_json TEXT') } catch {}
+    try { this.sql.exec('ALTER TABLE dataset_profiles ADD COLUMN briefing_artifact_id TEXT') } catch {}
+    try { this.sql.exec('ALTER TABLE dataset_profiles ADD COLUMN profile_artifact_id TEXT') } catch {}
+    try { this.sql.exec('ALTER TABLE dataset_profiles ADD COLUMN described_run_id TEXT') } catch {}
+    try { this.sql.exec('ALTER TABLE dataset_profiles ADD COLUMN described_at TEXT') } catch {}
   }
 
   private rows(query: string, ...bindings: unknown[]) {
@@ -438,6 +460,11 @@ export class ControlPlane {
       return null
     }
     const row = this.rows('SELECT * FROM runs WHERE id = ? LIMIT 1', dataset.activeRunId)[0]
+    return row ? this.parseRunRow(row) : null
+  }
+
+  private getRun(runId: string) {
+    const row = this.rows('SELECT * FROM runs WHERE id = ? LIMIT 1', runId)[0]
     return row ? this.parseRunRow(row) : null
   }
 
@@ -637,6 +664,12 @@ export class ControlPlane {
       schemaJson: get('schema_json', 'schemaJson') ? String(get('schema_json', 'schemaJson')) : null,
       sampleRowsJson: get('sample_rows_json', 'sampleRowsJson') ? String(get('sample_rows_json', 'sampleRowsJson')) : null,
       notes: row.notes ? String(row.notes) : null,
+      briefingMarkdown: get('briefing_markdown', 'briefingMarkdown') ? String(get('briefing_markdown', 'briefingMarkdown')) : null,
+      profileJson: get('profile_json', 'profileJson') ? String(get('profile_json', 'profileJson')) : null,
+      briefingArtifactId: get('briefing_artifact_id', 'briefingArtifactId') ? String(get('briefing_artifact_id', 'briefingArtifactId')) : null,
+      profileArtifactId: get('profile_artifact_id', 'profileArtifactId') ? String(get('profile_artifact_id', 'profileArtifactId')) : null,
+      describedRunId: get('described_run_id', 'describedRunId') ? String(get('described_run_id', 'describedRunId')) : null,
+      describedAt: get('described_at', 'describedAt') ? String(get('described_at', 'describedAt')) : null,
       updatedAt: String(get('updated_at', 'updatedAt')),
     } satisfies DatasetProfileRecord
   }
@@ -650,6 +683,12 @@ export class ControlPlane {
       schema: profile.schemaJson ? JSON.parse(profile.schemaJson) : null,
       sampleRows: profile.sampleRowsJson ? JSON.parse(profile.sampleRowsJson) : null,
       notes: profile.notes,
+      briefingMarkdown: profile.briefingMarkdown,
+      profile: profile.profileJson ? JSON.parse(profile.profileJson) : null,
+      briefingArtifactId: profile.briefingArtifactId,
+      profileArtifactId: profile.profileArtifactId,
+      describedRunId: profile.describedRunId,
+      describedAt: profile.describedAt,
       updatedAt: profile.updatedAt,
     }
   }
@@ -764,15 +803,97 @@ export class ControlPlane {
   }
 
   private createRunArtifact(runId: string, type: string, title: string, content?: unknown, url?: string | null) {
+    const artifactId = crypto.randomUUID()
     this.sql.exec(
       `INSERT INTO run_artifacts (id, run_id, type, title, url, content_json, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)`,
-      crypto.randomUUID(),
+      artifactId,
       runId,
       type,
       title,
       url ?? null,
       content === undefined ? null : JSON.stringify(content),
       nowIso(),
+    )
+    this.persistDescribeArtifactToDatasetProfile(runId, artifactId, type, title, content)
+    return artifactId
+  }
+
+  private persistDescribeArtifactToDatasetProfile(
+    runId: string,
+    artifactId: string,
+    type: string,
+    title: string,
+    content: unknown,
+  ) {
+    const run = this.getRun(runId)
+    if (!run || run.type !== 'describe') {
+      return
+    }
+    const normalizedTitle = title.trim().toLowerCase()
+    const textContent = isPlainRecord(content) && typeof content.text === 'string'
+      ? content.text
+      : typeof content === 'string'
+        ? content
+        : null
+    const isBriefing =
+      normalizedTitle === 'dataset briefing' ||
+      normalizedTitle === 'dataset briefing.md' ||
+      normalizedTitle === 'summary.md'
+    const isProfile =
+      normalizedTitle === 'dataset profile' ||
+      normalizedTitle === 'dataset profile.json' ||
+      normalizedTitle === 'result.json' ||
+      type === 'structured_result'
+
+    if (!isBriefing && !isProfile) {
+      return
+    }
+
+    const existing = this.getDatasetProfile(run.datasetId)
+    const briefingMarkdown = isBriefing && textContent
+      ? textContent
+      : existing?.briefingMarkdown ?? null
+    const profileJson = isProfile && content !== undefined
+      ? JSON.stringify(content)
+      : existing?.profileJson ?? null
+    const timestamp = nowIso()
+    this.sql.exec(
+      `INSERT INTO dataset_profiles (
+         dataset_id,
+         schema_json,
+         sample_rows_json,
+         notes,
+         briefing_markdown,
+         profile_json,
+         briefing_artifact_id,
+         profile_artifact_id,
+         described_run_id,
+         described_at,
+         updated_at
+       )
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+       ON CONFLICT(dataset_id) DO UPDATE SET
+         schema_json = excluded.schema_json,
+         sample_rows_json = excluded.sample_rows_json,
+         notes = excluded.notes,
+         briefing_markdown = excluded.briefing_markdown,
+         profile_json = excluded.profile_json,
+         briefing_artifact_id = excluded.briefing_artifact_id,
+         profile_artifact_id = excluded.profile_artifact_id,
+         described_run_id = excluded.described_run_id,
+         described_at = excluded.described_at,
+         updated_at = excluded.updated_at`,
+      run.datasetId,
+      existing?.schemaJson ?? null,
+      existing?.sampleRowsJson ?? null,
+      existing?.notes ?? null,
+      briefingMarkdown,
+      profileJson,
+      isBriefing ? artifactId : existing?.briefingArtifactId ?? null,
+      isProfile ? artifactId : existing?.profileArtifactId ?? null,
+      runId,
+      timestamp,
+      timestamp,
     )
   }
 
@@ -1290,17 +1411,41 @@ export class ControlPlane {
       const body = await request.json() as Record<string, unknown>
       const timestamp = nowIso()
       this.sql.exec(
-        `INSERT INTO dataset_profiles (dataset_id, schema_json, sample_rows_json, notes, updated_at)
-         VALUES (?, ?, ?, ?, ?)
+        `INSERT INTO dataset_profiles (
+           dataset_id,
+           schema_json,
+           sample_rows_json,
+           notes,
+           briefing_markdown,
+           profile_json,
+           briefing_artifact_id,
+           profile_artifact_id,
+           described_run_id,
+           described_at,
+           updated_at
+         )
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
          ON CONFLICT(dataset_id) DO UPDATE SET
            schema_json = excluded.schema_json,
            sample_rows_json = excluded.sample_rows_json,
            notes = excluded.notes,
+           briefing_markdown = excluded.briefing_markdown,
+           profile_json = excluded.profile_json,
+           briefing_artifact_id = excluded.briefing_artifact_id,
+           profile_artifact_id = excluded.profile_artifact_id,
+           described_run_id = excluded.described_run_id,
+           described_at = excluded.described_at,
            updated_at = excluded.updated_at`,
         datasetId,
         body.schema ? JSON.stringify(body.schema) : null,
         body.sampleRows ? JSON.stringify(body.sampleRows) : null,
         body.notes ? String(body.notes) : null,
+        body.briefingMarkdown ? String(body.briefingMarkdown) : null,
+        body.profile && typeof body.profile === 'object' ? JSON.stringify(body.profile) : null,
+        body.briefingArtifactId ? String(body.briefingArtifactId) : null,
+        body.profileArtifactId ? String(body.profileArtifactId) : null,
+        body.describedRunId ? String(body.describedRunId) : null,
+        body.describedAt ? String(body.describedAt) : null,
         timestamp,
       )
       return respondJson({ profile: this.datasetProfileToJson(this.getDatasetProfile(datasetId)) })
@@ -2521,8 +2666,10 @@ export class ControlPlane {
         if (!existingDescribe) {
           const describePrompt = [
             `Describe dataset ${run.datasetId}.`,
-            'Inspect the mounted files, manifest, schemas, row counts, sizes, partitions, date ranges, important columns, sample rows, limitations, provenance, and recommended query/use cases.',
-            'Produce a comprehensive briefing for humans, plus a structured JSON profile.',
+            'Produce a durable documentation briefing for humans. Do not include query instructions, starter analyses, or suggestions for how to use agents; this is a dataset documentation task only.',
+            'Inspect mounted files, manifests, source registries, table catalogs, Parquet/CSV/JSON/DuckDB files, README files, data dictionaries, QA reports, schemas, sample rows, provenance, source URLs, formats, time coverage, geography coverage, transformations, validation status, limitations, and known gaps.',
+            'Create Dataset Briefing markdown with sections: Overview; Data Inventory; Sources; Schemas; Time Coverage; Geography Coverage; Formats; Transformations & Derived Fields; Quality & Validation; Limitations & Known Gaps.',
+            'Create Dataset Profile JSON with summary, sources, tables, schemas/columns, timeCoverage, geographyCoverage, formats, transformations, quality, limitations, and generatedAt.',
           ].join('\n')
           await this.fetch(new Request(`https://control-plane.local/datasets/${encodeURIComponent(run.datasetId)}/runs`, {
             method: 'POST',
@@ -2536,7 +2683,7 @@ export class ControlPlane {
                 { type: 'markdown', title: 'Dataset Briefing' },
                 { type: 'json', title: 'Dataset Profile' },
               ],
-              config: { describeDataset: true },
+              config: { describeDataset: true, callbackOrigin: config.callbackOrigin },
             }),
           }))
         }
