@@ -131,6 +131,24 @@ export async function deleteDroplet(env: DigitalOceanEnv, dropletId: string) {
   }
 }
 
+export async function deleteVolume(env: DigitalOceanEnv, volumeId: string) {
+  const token = requireDigitalOceanToken(env)
+  const response = await fetch(`https://api.digitalocean.com/v2/volumes/${encodeURIComponent(volumeId)}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+  })
+  if (response.status === 404) {
+    return
+  }
+  if (!response.ok) {
+    const detail = await response.text().catch(() => '')
+    throw new Error(`DigitalOcean volume delete failed (${response.status}) ${volumeId}${detail ? ` ${detail}` : ''}`)
+  }
+}
+
 export async function ensureDatasetVolume(env: DigitalOceanEnv, datasetId: string): Promise<EnsureVolumeResult> {
   const region = env.DIGITALOCEAN_REGION ?? 'nyc3'
   const name = `ar-dataset-${sanitizeName(datasetId)}`

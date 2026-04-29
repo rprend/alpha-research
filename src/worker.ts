@@ -344,14 +344,7 @@ async function proxyToResponsesApi(request: Request, env: Env) {
       metadata: body,
     })
   }
-  const payload = typeof body === 'object' && body
-    ? {
-        model: env.RESEARCH_AGENT_MODEL ?? 'gpt-5',
-        ...body,
-      }
-    : {
-        model: env.RESEARCH_AGENT_MODEL ?? 'gpt-5',
-      }
+  const payload = buildResponsesPayload(env, body)
 
   const upstream = await fetch('https://api.openai.com/v1/responses', {
     method: 'POST',
@@ -409,10 +402,7 @@ async function callResponsesApi(env: Env, body: Record<string, unknown>) {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${env.OPENAI_API_KEY}`,
     },
-    body: JSON.stringify({
-      model: env.RESEARCH_AGENT_MODEL ?? 'gpt-5',
-      ...body,
-    }),
+    body: JSON.stringify(buildResponsesPayload(env, body)),
   })
 
   const text = await upstream.text()
@@ -421,6 +411,17 @@ async function callResponsesApi(env: Env, body: Record<string, unknown>) {
   }
 
   return JSON.parse(text) as ResponsesApiPayload
+}
+
+function buildResponsesPayload(env: Env, body: unknown) {
+  const input = body && typeof body === 'object' ? body as Record<string, unknown> : {}
+  return {
+    model: env.RESEARCH_AGENT_MODEL ?? 'gpt-5',
+    reasoning: { effort: 'low' },
+    text: { verbosity: 'low' },
+    max_output_tokens: 4096,
+    ...input,
+  }
 }
 
 function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefinition[] {
@@ -1287,6 +1288,17 @@ export default {
     const datasetMatch = pathname.match(/^\/api\/cli\/datasets\/([^/]+)$/u)
     if (datasetMatch && request.method === 'GET') {
       return forwardCliRequest(request, env, `/datasets/${encodeURIComponent(datasetMatch[1] ?? '')}`, { method: 'GET' })
+    }
+    if (datasetMatch && request.method === 'DELETE') {
+      const cliSession = await requireAuthorizedSession(request, env)
+      if (!cliSession) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      return proxyToControlPlane(
+        env,
+        `/datasets/${encodeURIComponent(datasetMatch[1] ?? '')}?ownerEmail=${encodeURIComponent(cliSession.email)}`,
+        { method: 'DELETE' },
+      )
     }
 
     const profileMatch = pathname.match(/^\/api\/cli\/datasets\/([^/]+)\/profile$/u)

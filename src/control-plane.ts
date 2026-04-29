@@ -2,6 +2,7 @@ import { createPresignedSpacesUrl } from './spaces'
 import {
   attachVolumeToDroplet,
   deleteDroplet,
+  deleteVolume,
   detachVolumeByDroplet,
   ensureDatasetVolume,
   ensureDatasetVolumeWorkspace,
@@ -1205,6 +1206,62 @@ export class ControlPlane {
     }
 
     const datasetMatch = pathname.match(/^\/datasets\/([^/]+)$/u)
+    if (datasetMatch && request.method === 'DELETE') {
+      const datasetId = decodeURIComponent(datasetMatch[1] ?? '')
+      const ownerEmail = url.searchParams.get('ownerEmail')
+      if (!ownerEmail) {
+        return respondJson({ error: 'Missing ownerEmail' }, 400)
+      }
+      const dataset = this.getDataset(datasetId)
+      if (!dataset) {
+        return respondJson({ ok: true, deleted: false })
+      }
+      if (dataset.ownerEmail !== ownerEmail) {
+        return respondJson({ error: 'Dataset not found' }, 404)
+      }
+      await this.expireStaleRunsForDataset(datasetId)
+      const blockingRun = this.getLeaseBlockingRun(datasetId)
+      if (blockingRun && !isTerminalStatus(blockingRun.status)) {
+        return respondJson({
+          error: `Dataset ${datasetId} has active run ${blockingRun.id}. Cancel it before deleting the dataset.`,
+          activeRuns: [this.runRowToJson({
+            id: blockingRun.id,
+            dataset_id: blockingRun.datasetId,
+            owner_email: blockingRun.ownerEmail,
+            type: blockingRun.type,
+            status: blockingRun.status,
+            prompt: blockingRun.prompt,
+            output_preview: blockingRun.outputPreview,
+            droplet_id: blockingRun.dropletId,
+            droplet_name: blockingRun.dropletName,
+            created_at: blockingRun.createdAt,
+            updated_at: blockingRun.updatedAt,
+          })],
+        }, 409)
+      }
+      const runRows = this.rows('SELECT * FROM runs WHERE dataset_id = ?', datasetId)
+      for (const runRow of runRows) {
+        const run = this.parseRunRow(runRow)
+        if (run.dropletId) {
+          await deleteDroplet(this.env, run.dropletId).catch(() => undefined)
+        }
+      }
+      if (dataset.volumeId) {
+        await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
+        await deleteVolume(this.env, dataset.volumeId)
+      }
+      this.sql.exec('DELETE FROM response_session_links WHERE session_id IN (SELECT id FROM assistant_sessions WHERE dataset_id = ?)', datasetId)
+      this.sql.exec('DELETE FROM assistant_session_entries WHERE session_id IN (SELECT id FROM assistant_sessions WHERE dataset_id = ?)', datasetId)
+      this.sql.exec('DELETE FROM assistant_sessions WHERE dataset_id = ?', datasetId)
+      this.sql.exec('DELETE FROM research_specs WHERE dataset_id = ?', datasetId)
+      this.sql.exec('DELETE FROM dataset_profiles WHERE dataset_id = ?', datasetId)
+      this.sql.exec('DELETE FROM run_artifacts WHERE run_id IN (SELECT id FROM runs WHERE dataset_id = ?)', datasetId)
+      this.sql.exec('DELETE FROM run_metadata WHERE run_id IN (SELECT id FROM runs WHERE dataset_id = ?)', datasetId)
+      this.sql.exec('DELETE FROM run_events WHERE run_id IN (SELECT id FROM runs WHERE dataset_id = ?)', datasetId)
+      this.sql.exec('DELETE FROM runs WHERE dataset_id = ?', datasetId)
+      this.sql.exec('DELETE FROM datasets WHERE id = ?', datasetId)
+      return respondJson({ ok: true, deleted: true, datasetId })
+    }
     if (datasetMatch && request.method === 'GET') {
       const datasetId = decodeURIComponent(datasetMatch[1] ?? '')
       const row = this.getDataset(datasetId)
