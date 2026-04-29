@@ -2326,7 +2326,7 @@ function RunArtifactsPanel({
       </div>
 
       <div className="grid min-h-0 flex-1 grid-cols-[minmax(0,1fr)_8px_var(--tree-width)]" style={{ '--tree-width': `${treeWidth}px` } as CSSProperties}>
-        <FilePreview artifact={selectedArtifact} onClose={onClose} remoteSessionId={remoteSessionId} />
+        <FilePreview artifact={selectedArtifact} remoteSessionId={remoteSessionId} />
         <div
           role="separator"
           aria-orientation="vertical"
@@ -2338,11 +2338,16 @@ function RunArtifactsPanel({
         <div className="flex min-h-0 flex-col">
           <div className="flex h-16 shrink-0 items-center justify-between border-b border-border px-7">
             <div className="truncate text-xl font-semibold tracking-normal">All files</div>
-            {requestedArtifacts.length > 0 ? (
-              <span className="text-xs text-muted-foreground">
-                {visibleArtifacts.length}/{requestedArtifacts.length}
-              </span>
-            ) : null}
+            <div className="flex shrink-0 items-center gap-3">
+              {requestedArtifacts.length > 0 ? (
+                <span className="text-xs text-muted-foreground">
+                  {visibleArtifacts.length}/{requestedArtifacts.length}
+                </span>
+              ) : null}
+              <Button type="button" variant="ghost" size="icon-sm" onClick={onClose} aria-label="Close files">
+                <X className="size-5" />
+              </Button>
+            </div>
           </div>
           <div className="min-h-0 overflow-y-auto py-5">
             {visibleArtifacts.length > 0 ? renderTreeNode(tree) : (
@@ -2357,11 +2362,9 @@ function RunArtifactsPanel({
 
 function FilePreview({
   artifact,
-  onClose,
   remoteSessionId,
 }: {
   artifact: RunArtifactRecord | null
-  onClose: () => void
   remoteSessionId: string | null
 }) {
   if (!artifact) {
@@ -2372,9 +2375,6 @@ function FilePreview({
             <FileText className="size-5" />
             <span className="text-lg">No file selected</span>
           </div>
-          <Button type="button" variant="ghost" size="icon-sm" onClick={onClose} aria-label="Close files">
-            <X className="size-5" />
-          </Button>
         </div>
         <div className="flex flex-1 items-center justify-center px-6 text-center text-sm text-muted-foreground">
           Select a file to preview it here.
@@ -2402,9 +2402,6 @@ function FilePreview({
               <ExternalLink className="size-3.5" />
             </a>
           ) : null}
-          <Button type="button" variant="ghost" size="icon-sm" onClick={onClose} aria-label="Close files">
-            <X className="size-5" />
-          </Button>
         </div>
       </div>
       {artifact.url ? (
