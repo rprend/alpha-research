@@ -2,12 +2,11 @@ import { type CSSProperties, type PointerEvent as ReactPointerEvent, type ReactN
 import { AssistantRuntimeProvider, useExternalStoreRuntime, type ThreadMessage } from '@assistant-ui/react'
 import {
   Bot,
+  Braces,
   ChevronDown,
   ChevronRight,
   Database,
   ExternalLink,
-  FileCode,
-  FileJson,
   FileText,
   Folder,
   FolderOpen,
@@ -16,7 +15,9 @@ import {
   LoaderCircle,
   LogOut,
   MoreHorizontal,
+  Table2,
   TerminalSquare,
+  Zap,
   X,
 } from 'lucide-react'
 
@@ -599,11 +600,33 @@ function artifactLanguage(path: string, artifact: RunArtifactRecord) {
 
 function fileIconFor(path: string, artifact?: RunArtifactRecord) {
   const language = artifact ? artifactLanguage(path, artifact) : path.split('.').pop()?.toLowerCase()
-  if (language === 'json') return <FileJson className="size-5 text-orange-600" />
-  if (['python', 'typescript', 'javascript', 'sql', 'bash', 'html', 'css'].includes(language ?? '')) {
-    return <FileCode className="size-5 text-blue-600" />
+  if (language === 'markdown') {
+    return (
+      <span
+        aria-hidden="true"
+        className="flex w-7 shrink-0 items-center justify-center font-mono text-[0.95rem] font-bold leading-none text-emerald-600"
+      >
+        M
+      </span>
+    )
   }
-  return <FileText className="size-5 text-muted-foreground" />
+  if (language === 'json') return <Braces className="size-5 w-7 shrink-0 text-orange-600" />
+  if (language === 'csv') return <Table2 className="size-5 w-7 shrink-0 text-amber-600" />
+  if (language === 'typescript' || language === 'javascript') return <Zap className="size-5 w-7 shrink-0 text-violet-600" />
+  if (language === 'python' || language === 'sql' || language === 'bash') {
+    return <TerminalSquare className="size-5 w-7 shrink-0 text-blue-600" />
+  }
+  if (language === 'html' || language === 'css') {
+    return (
+      <span
+        aria-hidden="true"
+        className="flex w-7 shrink-0 items-center justify-center font-mono text-[1rem] font-bold leading-none text-orange-500"
+      >
+        #
+      </span>
+    )
+  }
+  return <FileText className="size-5 w-7 shrink-0 text-muted-foreground" />
 }
 
 function buildArtifactFileTree(artifacts: RunArtifactRecord[]) {
