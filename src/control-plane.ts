@@ -202,6 +202,7 @@ function isTerminalStatus(status: string | null | undefined) {
     || normalized === 'canceled'
     || normalized === 'completed'
     || normalized === 'error'
+    || normalized === 'worker_unreachable'
 }
 
 function isVolumeBusyError(error: unknown) {
@@ -401,13 +402,13 @@ export class ControlPlane {
     }
     this.appendRunEvent(
       run.id,
-      'Run marked failed because the remote droplet stopped heartbeating.',
-      'error',
+      'Run marked worker_unreachable because the remote droplet stopped heartbeating before reporting a terminal result.',
+      'warning',
     )
     this.sql.exec(
       `UPDATE runs SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
-      'failed',
-      'Run marked failed because the remote droplet stopped heartbeating.',
+      'worker_unreachable',
+      'Worker heartbeat timed out before the run reported a terminal result.',
       nowIso(),
       run.id,
     )
@@ -2625,7 +2626,7 @@ export class ControlPlane {
           run.datasetId,
         )
       }
-      if ((status === 'ready' || status === 'failed') && run.dropletId) {
+      if (isTerminalStatus(status) && run.dropletId) {
         try {
           const dataset = this.getDataset(run.datasetId)
           const pooledRunner = this.getRunnerPoolEntry(run.dropletId)

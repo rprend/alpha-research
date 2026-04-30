@@ -285,6 +285,9 @@ function formatStatus(value: string | null | undefined) {
   if (normalized === 'ready') {
     return 'Completed Successfully'
   }
+  if (normalized === 'worker_unreachable') {
+    return 'Worker Unreachable'
+  }
   if (normalized === 'uploading') {
     return 'Source Uploaded / Processing'
   }
@@ -1657,7 +1660,7 @@ function DatasetDetailPage({
   const briefingMarkdown = current.profile?.briefingMarkdown || current.profile?.notes || ''
   const structuredProfile = current.profile?.profile
   const describedAt = current.profile?.describedAt ?? current.profile?.updatedAt ?? null
-  const describeIsRunning = describeRun ? !['ready', 'failed', 'cancelled', 'canceled'].includes(describeRun.status.toLowerCase()) : false
+  const describeIsRunning = describeRun ? !['ready', 'failed', 'cancelled', 'canceled', 'worker_unreachable'].includes(describeRun.status.toLowerCase()) : false
   const sourceCount = profileArrayCount(structuredProfile, 'sources')
   const tableCount = profileArrayCount(structuredProfile, 'tables')
   const formatCount = profileArrayCount(structuredProfile, 'formats')
@@ -1962,7 +1965,7 @@ function useRunResults(run: RunRecord | null) {
     }
 
     void load()
-    if (!['ready', 'completed', 'failed', 'cancelled', 'canceled', 'error'].includes(run.status.toLowerCase())) {
+    if (!['ready', 'completed', 'failed', 'cancelled', 'canceled', 'error', 'worker_unreachable'].includes(run.status.toLowerCase())) {
       intervalId = window.setInterval(() => void load(), 5000)
     }
     return () => {

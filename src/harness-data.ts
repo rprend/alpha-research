@@ -141,9 +141,9 @@ export const harnessRuns = [
     id: 'run-harness-failed',
     datasetId: 'dataset-alpha-book',
     type: 'query',
-    status: 'failed',
+    status: 'worker_unreachable',
     prompt: 'Find novels that reference railways before 1850.',
-    outputPreview: 'Run marked failed because the remote droplet stopped heartbeating.',
+    outputPreview: 'Worker heartbeat timed out before the run reported a terminal result.',
     createdAt: iso(240),
     updatedAt: iso(180),
   },
@@ -316,8 +316,8 @@ const harnessEvents = [
   {
     id: 'event-harness-failed-1',
     runId: 'run-harness-failed',
-    message: 'Run marked failed because the remote droplet stopped heartbeating.',
-    level: 'error',
+    message: 'Run marked worker_unreachable because the remote droplet stopped heartbeating before reporting a terminal result.',
+    level: 'warning',
     createdAt: iso(180),
   },
 ]
@@ -371,7 +371,7 @@ export function getHarnessDebugView(runId: string) {
       remoteSessionId,
       hasRemoteLogs: results.sessions.some((session) => session.kind === 'remote_codex'),
       defaultView: 'remote',
-      terminal: ['ready', 'completed', 'failed', 'cancelled', 'canceled', 'error'].includes(results.run.status),
+      terminal: ['ready', 'completed', 'failed', 'cancelled', 'canceled', 'error', 'worker_unreachable'].includes(results.run.status),
       eventCount: results.events.length,
       lastEvent,
       requestedArtifacts: results.metadata.artifactSpec,
@@ -386,7 +386,7 @@ export function getHarnessDebugView(runId: string) {
         status: session.status,
         entryCount: session.entries?.length ?? 0,
       })),
-      health: results.run.status === 'running' ? 'active' : results.run.status === 'failed' ? 'failed' : 'terminal',
+      health: results.run.status === 'running' ? 'active' : results.run.status,
     },
   }
 }

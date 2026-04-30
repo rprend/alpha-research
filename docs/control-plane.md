@@ -19,8 +19,8 @@ The control plane in `src/control-plane.ts` owns durable state for datasets, run
 
 - New work starts as `queued` or `running`.
 - Runner callbacks append events and update status.
-- Terminal statuses are `ready`, `completed`, `failed`, `cancelled`, `canceled`, or `error`.
-- Stale heartbeats fail the run and release the dataset lease.
+- Terminal statuses are `ready`, `completed`, `failed`, `cancelled`, `canceled`, `error`, or `worker_unreachable`.
+- Stale heartbeats mark the run `worker_unreachable` and release the dataset lease. They do not mark the product execution `failed` unless the worker reported `failed`.
 - All state transitions that matter to a human should append a run event.
 
 ## Runner Resource Contract
