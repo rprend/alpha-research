@@ -711,17 +711,18 @@ function getRequestedArtifacts(payload: RunResultsResponse | null) {
 
 function isProducedArtifact(
   artifact: RunArtifactRecord,
-  requestedArtifacts: Array<Record<string, unknown>>,
+  _requestedArtifacts: Array<Record<string, unknown>>,
 ) {
+  if (artifact.type === 'remote_agent_summary') {
+    return false
+  }
   if (artifact.url || artifact.type === 'remote_agent_session') {
     return true
   }
-  const requestedMatch = requestedArtifacts.some((requested) => {
-    const requestedType = typeof requested.type === 'string' ? requested.type : null
-    const requestedTitle = typeof requested.title === 'string' ? requested.title : null
-    return requestedType === artifact.type && requestedTitle === artifact.title
-  })
-  return !requestedMatch
+  if (typeof artifact.content?.path === 'string' && artifact.content.path.trim().length > 0) {
+    return true
+  }
+  return Boolean(artifact.content)
 }
 
 function getProducedArtifacts(payload: RunResultsResponse | null) {
@@ -795,6 +796,33 @@ function getDatasetProfileArtifact(artifacts: RunArtifactRecord[]) {
     const path = artifactPath(artifact).toLowerCase()
     return artifact.type === 'json' || artifact.type === 'structured_result' || title.includes('profile') || path.endsWith('result.json')
   }) ?? null
+}
+
+function artifactRoleMeta(
+  artifact: RunArtifactRecord,
+  primaryArtifactId: string | null,
+  profileArtifactId: string | null,
+) {
+  if (artifact.id === primaryArtifactId) {
+    return {
+      label: 'Answer',
+      description: 'User-facing result to read first.',
+    }
+  }
+  if (artifact.id === profileArtifactId) {
+    return {
+      label: 'Structured',
+      description: 'Machine-readable companion for downstream tooling.',
+    }
+  }
+  return {
+    label: 'Support',
+    description: 'Supporting file captured during the run.',
+  }
+}
+
+function isTerminalSuccessfulRun(run: RunRecord) {
+  return ['ready', 'completed'].includes(run.status.toLowerCase())
 }
 
 function fileIconFor(path: string, artifact?: RunArtifactRecord) {
@@ -2807,6 +2835,8 @@ function RunArtifactsPanel({
   selectedArtifactId,
   onSelectArtifact,
   remoteSessionId,
+  primaryArtifactId,
+  profileArtifactId,
 }: {
   open: boolean
   onClose: () => void
@@ -2815,6 +2845,8 @@ function RunArtifactsPanel({
   selectedArtifactId: string | null
   onSelectArtifact: (artifactId: string) => void
   remoteSessionId: string | null
+  primaryArtifactId: string | null
+  profileArtifactId: string | null
 }) {
   const panelRef = useRef<HTMLElement | null>(null)
   const [panelWidth, setPanelWidth] = useState(900)
@@ -2919,14 +2951,31 @@ function RunArtifactsPanel({
         key={node.path}
         type="button"
         className={[
-          'flex h-11 w-full min-w-0 items-center gap-4 px-2 text-left text-[1.08rem] leading-none hover:bg-muted',
-          selectedPath === node.path ? 'bg-muted/80 font-semibold' : '',
+          'flex min-h-14 w-full min-w-0 items-center gap-4 px-3 py-2 text-left hover:bg-muted',
+          selectedPath === node.path ? 'bg-primary/10 font-semibold ring-1 ring-primary/20' : '',
         ].join(' ')}
         style={{ paddingLeft: `${24 + depth * 18}px` }}
         onClick={() => node.artifact && onSelectArtifact(node.artifact.id)}
       >
         {fileIconFor(node.path, node.artifact)}
-        <span className="truncate">{node.name}</span>
+        <div className="flex min-w-0 flex-1 items-center justify-between gap-3">
+          <div className="min-w-0">
+            <div className="truncate text-[1rem] leading-5">{node.name}</div>
+            {node.artifact ? (
+              <div className="truncate text-xs text-muted-foreground">
+                {artifactRoleMeta(node.artifact, primaryArtifactId, profileArtifactId).description}
+              </div>
+            ) : null}
+          </div>
+          {node.artifact ? (
+            <Badge
+              variant={selectedPath === node.path ? 'default' : 'secondary'}
+              className="shrink-0 rounded-full px-2 py-0.5 text-[10px] tracking-[0.12em]"
+            >
+              {artifactRoleMeta(node.artifact, primaryArtifactId, profileArtifactId).label}
+            </Badge>
+          ) : null}
+        </div>
       </button>
     )
   }
@@ -2952,7 +3001,12 @@ function RunArtifactsPanel({
       </div>
 
       <div className="grid min-h-0 flex-1 grid-cols-[minmax(0,1fr)_8px_var(--tree-width)]" style={{ '--tree-width': `${treeWidth}px` } as CSSProperties}>
-        <FilePreview artifact={selectedArtifact} remoteSessionId={remoteSessionId} />
+        <FilePreview
+          artifact={selectedArtifact}
+          remoteSessionId={remoteSessionId}
+          primaryArtifactId={primaryArtifactId}
+          profileArtifactId={profileArtifactId}
+        />
         <div
           role="separator"
           aria-orientation="vertical"
@@ -2963,7 +3017,10 @@ function RunArtifactsPanel({
         </div>
         <div className="flex min-h-0 flex-col">
           <div className="flex h-16 shrink-0 items-center justify-between border-b border-border px-7">
-            <div className="truncate text-xl font-semibold tracking-normal">All files</div>
+            <div>
+              <div className="truncate text-xl font-semibold tracking-normal">Artifacts</div>
+              <div className="text-xs text-muted-foreground">Answer first, then structured and supporting files.</div>
+            </div>
             <div className="flex shrink-0 items-center gap-3">
               {requestedArtifacts.length > 0 ? (
                 <span className="text-xs text-muted-foreground">
@@ -2989,9 +3046,13 @@ function RunArtifactsPanel({
 function FilePreview({
   artifact,
   remoteSessionId,
+  primaryArtifactId,
+  profileArtifactId,
 }: {
   artifact: RunArtifactRecord | null
   remoteSessionId: string | null
+  primaryArtifactId: string | null
+  profileArtifactId: string | null
 }) {
   if (!artifact) {
     return (
@@ -3012,23 +3073,31 @@ function FilePreview({
   const path = artifactPath(artifact)
   const language = artifactLanguage(path, artifact)
   const text = artifactText(artifact)
+  const role = artifactRoleMeta(artifact, primaryArtifactId, profileArtifactId)
 
   return (
     <div className="flex min-h-0 flex-col overflow-hidden">
-      <div className="flex h-12 shrink-0 items-center justify-end gap-3 border-b border-border px-5">
-        <div className="flex shrink-0 items-center gap-3">
-          {remoteSessionId ? (
-            <a
-              href={`https://chatgpt.com/codex/s/${remoteSessionId}`}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
-            >
-              Session
-              <ExternalLink className="size-3.5" />
-            </a>
-          ) : null}
+      <div className="flex min-h-16 shrink-0 items-center justify-between gap-4 border-b border-border px-5 py-3">
+        <div className="min-w-0">
+          <div className="flex min-w-0 items-center gap-3">
+            <div className="truncate text-base font-semibold">{path}</div>
+            <Badge variant="secondary" className="rounded-full px-2 py-0.5 text-[10px] tracking-[0.12em]">
+              {role.label}
+            </Badge>
+          </div>
+          <div className="truncate text-xs text-muted-foreground">{role.description}</div>
         </div>
+        {remoteSessionId ? (
+          <a
+            href={`https://chatgpt.com/codex/s/${remoteSessionId}`}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex shrink-0 items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+          >
+            Remote session
+            <ExternalLink className="size-3.5" />
+          </a>
+        ) : null}
       </div>
       {artifact.url ? (
         <iframe title={artifact.title} src={artifact.url} className="min-h-0 flex-1 bg-background" />
@@ -3094,6 +3163,11 @@ function RunDetailPage({
   )
   const artifactCount = visibleProducedArtifacts.length
   const isDescribeRun = run.type === 'describe'
+  const isCompletedRun = isTerminalSuccessfulRun(run)
+  const supportingArtifactCount = visibleProducedArtifacts.filter(
+    (artifact) => artifact.id !== primaryBriefingArtifact?.id && artifact.id !== primaryProfileArtifact?.id,
+  ).length
+  const primaryArtifactName = primaryBriefingArtifact ? artifactPath(primaryBriefingArtifact) : null
   const describeStatusTitle = run.status === 'running'
     ? 'Generating dataset briefing'
     : ['ready', 'completed'].includes(run.status)
@@ -3117,25 +3191,70 @@ function RunDetailPage({
   return (
     <div className="flex min-h-0 flex-1 bg-background">
       <div className="relative flex min-w-0 flex-1 flex-col overflow-hidden px-4 py-6 md:px-8">
-        {!artifactsOpen ? (
+        {!artifactsOpen && artifactCount > 0 ? (
           <Button
             type="button"
-            variant="ghost"
-            size="icon"
-            className="absolute right-4 top-4 z-30 bg-background/90 shadow-sm backdrop-blur md:right-6 md:top-6"
+            variant="outline"
+            className="absolute right-4 top-4 z-30 gap-2 bg-background/95 shadow-sm backdrop-blur md:right-6 md:top-6"
             onClick={() => setArtifactsOpen(true)}
-            aria-label="Open artifacts"
+            aria-label={`Open artifacts (${artifactCount})`}
           >
             <FileText className="size-5" />
-            {artifactCount > 0 ? (
-              <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center bg-primary text-[11px] font-medium text-primary-foreground">
-                {artifactCount}
-              </span>
-            ) : null}
+            <span>Open artifacts ({artifactCount})</span>
           </Button>
         ) : null}
 
         <div className="mx-auto flex min-h-0 w-full max-w-[46rem] flex-1 flex-col">
+          {isCompletedRun && artifactCount > 0 ? (
+            <section className="mb-6 rounded-2xl border border-emerald-200 bg-emerald-50/60 p-5">
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-wrap items-center gap-2">
+                  <CheckCircle2 className="size-5 text-emerald-700" aria-hidden="true" />
+                  <h2 className="text-xl font-semibold tracking-normal">Run finished</h2>
+                  <StatusBadge>{formatStatus(run.status)}</StatusBadge>
+                </div>
+                <p className="text-sm leading-6 text-foreground/80">
+                  {primaryArtifactName
+                    ? `Read ${primaryArtifactName} for the answer first. ${primaryProfileArtifact ? `${artifactPath(primaryProfileArtifact)} is the machine-readable companion.` : 'Supporting files stay attached to this run as artifacts.'}`
+                    : 'Artifacts from the finished run are attached here.'}
+                </p>
+                <div className="grid gap-3 md:grid-cols-3">
+                  <div className="rounded-xl border border-emerald-200 bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Primary result</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">{primaryArtifactName ?? 'No primary answer file detected yet.'}</div>
+                  </div>
+                  <div className="rounded-xl border border-emerald-200 bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Structured companion</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">
+                      {primaryProfileArtifact ? artifactPath(primaryProfileArtifact) : 'No machine-readable companion detected.'}
+                    </div>
+                  </div>
+                  <div className="rounded-xl border border-emerald-200 bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Supporting files</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">
+                      {supportingArtifactCount} supporting file{supportingArtifactCount === 1 ? '' : 's'}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  {primaryBriefingArtifact ? (
+                    <Button
+                      type="button"
+                      onClick={() => {
+                        setSelectedArtifactId(primaryBriefingArtifact.id)
+                        setArtifactsOpen(true)
+                      }}
+                    >
+                      Open answer
+                    </Button>
+                  ) : null}
+                  <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
+                    Open artifacts ({artifactCount})
+                  </Button>
+                </div>
+              </div>
+            </section>
+          ) : null}
           {isDescribeRun ? (
             <section className="mb-6 rounded-2xl border border-border bg-muted/20 p-5">
               <div className="flex flex-col gap-4">
@@ -3206,12 +3325,24 @@ function RunDetailPage({
               <LoaderCircle className="size-4 animate-spin" aria-label="Refreshing run" />
             </div>
           ) : null}
-          <AssistantTranscript
-            entries={transcriptEntries}
-            emptyTitle="No run transcript yet"
-            emptyDescription="Persisted run turns and events will appear here."
-            unframed
-          />
+          <section className="flex min-h-0 flex-1 flex-col">
+            <div className="mb-3 flex items-start justify-between gap-4">
+              <div>
+                <h2 className="text-base font-semibold">Observed progress and transcript</h2>
+                <p className="text-sm text-muted-foreground">
+                  {isCompletedRun
+                    ? 'These entries show how the run executed. The answer and file outputs are summarized above.'
+                    : 'Watch run progress here while artifacts and final results are still being produced.'}
+                </p>
+              </div>
+            </div>
+            <AssistantTranscript
+              entries={transcriptEntries}
+              emptyTitle="No run transcript yet"
+              emptyDescription="Persisted run turns and events will appear here."
+              unframed
+            />
+          </section>
         </div>
       </div>
 
@@ -3223,6 +3354,8 @@ function RunDetailPage({
         selectedArtifactId={selectedArtifactId}
         onSelectArtifact={setSelectedArtifactId}
         remoteSessionId={remoteSessionId}
+        primaryArtifactId={primaryBriefingArtifact?.id ?? null}
+        profileArtifactId={primaryProfileArtifact?.id ?? null}
       />
     </div>
   )

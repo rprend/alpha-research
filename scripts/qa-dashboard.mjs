@@ -105,6 +105,26 @@ async function assertDescribeRunSteering() {
   }
 }
 
+async function assertCompletedRunArtifactsSteering() {
+  const browser = await chromium.launch({ headless: true })
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+    await page.goto(`${baseUrl}/?harness=1&view=runs&runId=run-harness-completed`, { waitUntil: 'domcontentloaded' })
+    await page.getByRole('heading', { name: 'Run finished' }).waitFor({ timeout: 15000 })
+    await page.getByText('Read summary.md for the answer first.', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByText('Primary result', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('summary.md', { exact: true }).first().waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Open answer' }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Open artifacts (3)' }).first().click()
+    await page.getByText('Artifacts', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('User-facing result to read first.', { exact: true }).first().waitFor({ timeout: 15000 })
+    await page.getByText('Machine-readable companion for downstream tooling.', { exact: true }).first().waitFor({ timeout: 15000 })
+    await page.getByText('Observed progress and transcript', { exact: true }).waitFor({ timeout: 15000 })
+  } finally {
+    await browser.close()
+  }
+}
+
 async function assertRenderedRunsInventory() {
   const browser = await chromium.launch({ headless: true })
   try {
@@ -154,6 +174,7 @@ try {
   await assertRenderedDatasetInventory()
   await assertRenderedDatasetDetail()
   await assertDescribeRunSteering()
+  await assertCompletedRunArtifactsSteering()
   await assertRenderedRunsInventory()
   console.log(`Dashboard harness smoke passed at ${baseUrl}`)
 } catch (error) {
