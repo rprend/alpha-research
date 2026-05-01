@@ -1,5 +1,6 @@
 import { existsSync } from 'node:fs'
 import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises'
+import { openSync } from 'node:fs'
 import { spawn, spawnSync } from 'node:child_process'
 import { basename, join, resolve } from 'node:path'
 
@@ -187,19 +188,15 @@ async function startCodex({ cwd, model, promptPath, logPath, detach }) {
     model,
     '-C',
     cwd,
-    await readFile(promptPath, 'utf8'),
   ]
   if (detach) {
-    const child = spawn('codex', args, {
+    const outFd = openSync(logPath, 'a')
+    const child = spawn('sh', ['-c', 'prompt="$1"; shift; codex "$@" < "$prompt"', 'codex-remediate', promptPath, ...args], {
       cwd,
       env: process.env,
       detached: true,
-      stdio: ['ignore', 'pipe', 'pipe'],
+      stdio: ['ignore', outFd, outFd],
     })
-    const { createWriteStream } = await import('node:fs')
-    const stream = createWriteStream(logPath, { flags: 'a' })
-    child.stdout.pipe(stream)
-    child.stderr.pipe(stream)
     child.unref()
     return { pid: child.pid, code: null }
   }
@@ -207,8 +204,9 @@ async function startCodex({ cwd, model, promptPath, logPath, detach }) {
   const child = spawn('codex', args, {
     cwd,
     env: process.env,
-    stdio: ['ignore', 'pipe', 'pipe'],
+    stdio: ['pipe', 'pipe', 'pipe'],
   })
+  child.stdin.end(await readFile(promptPath, 'utf8'))
   let output = ''
   child.stdout.on('data', (chunk) => { output += chunk.toString() })
   child.stderr.on('data', (chunk) => { output += chunk.toString() })
