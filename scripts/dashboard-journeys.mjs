@@ -49,6 +49,8 @@ export const DASHBOARD_JOURNEYS = [
     judgeQuestion: 'Did the dashboard take a user who only knows they came here to do research and steer them toward a clear first action without CLI or run-lifecycle knowledge?',
     steps: [
       { type: 'waitForText', text: 'New chat', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Start a new research chat', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Browse datasets', timeoutMs: 15000 },
       { type: 'wait', ms: 1000 },
     ],
   }),

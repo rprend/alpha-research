@@ -10,6 +10,14 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Open run details with observed progress, remote Codex transcript, and a resizable file explorer/viewer for produced run artifacts.
 - Inspect terminal sessions proxied through Alpha Research.
 
+## Assistant Home Expectations
+
+- The signed-in assistant home is browser-first, not CLI-first. It should orient a user who only knows they want to do research.
+- The page should expose one explicit first action: start a new research chat.
+- The page should explain the surface model in plain language: chat for asking, datasets for source material, recent work for continuation.
+- Signed-in account state must be visible without hunting in footer chrome.
+- Recent items should read like understandable work records, not raw run-lifecycle labels.
+
 ## Harness Mode
 
 The dashboard supports a deterministic local harness mode for agent QA:

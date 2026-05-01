@@ -3,6 +3,7 @@ import { AssistantRuntimeProvider, useExternalStoreRuntime, type ThreadMessage }
 import {
   Bot,
   Braces,
+  CheckCircle2,
   ChevronDown,
   ChevronRight,
   Database,
@@ -308,13 +309,22 @@ function readableSessionTitle(value: string | null | undefined) {
   return normalized || 'Untitled chat'
 }
 
-function readableRunTitle(run: RunRecord | undefined, runId: string) {
-  if (!run) {
-    return `Run ${runId.slice(0, 8)}`
-  }
-  const type = formatStatus(run.type)
-  const status = formatStatus(run.status)
-  return `${type} · ${status}`
+function readableSessionKind(kind: string | null | undefined) {
+  if (!kind) return 'Chat'
+  if (kind === 'cli_orchestration') return 'Chat'
+  if (kind === 'remote_codex') return 'Remote session'
+  return formatStatus(kind)
+}
+
+function sessionSummaryLine(
+  session: StoredAssistantSession,
+  dataset: DatasetRecord | undefined,
+  run: RunRecord | undefined,
+) {
+  const kind = readableSessionKind(session.kind)
+  const target = dataset?.name ?? (run ? formatStatus(run.type) : null)
+  const updated = relativeTime(session.updatedAt)
+  return [kind, target ? `about ${target}` : null, updated].filter(Boolean).join(' · ')
 }
 
 function formatBytes(value: number | null | undefined) {
@@ -2034,9 +2044,22 @@ function useSessionDetail(sessionId: string | null) {
 function ResearchAssistantPage({
   dataError,
   datasets,
+  sessionUser,
+  recentSessions,
+  onOpenDatasets,
+  onOpenRecentWork,
 }: {
   dataError?: string | null
   datasets: DatasetRecord[]
+  sessionUser: SessionResponse['user']
+  recentSessions: Array<{
+    id: string
+    title: string
+    kind: string
+    summary: string
+  }>
+  onOpenDatasets: () => void
+  onOpenRecentWork: (sessionId: string) => void
 }) {
   const route = useDashboardRoute()
   const activeSessionId = route.sessionId ?? null
@@ -2177,8 +2200,18 @@ function ResearchAssistantPage({
         <AssistantRuntimeProvider runtime={runtime}>
           <div className="h-full min-h-0">
             <Thread
-              welcomeTitle={loading ? '' : 'RESEARCH CLI'}
-              welcomeDescription={loading ? '' : 'Run the signed-in RESEARCH CLI from the browser. Inspect datasets, launch runs, and manage remote Codex sessions.'}
+              welcomeTitle={loading ? '' : 'Research workspace'}
+              welcomeDescription={loading ? '' : 'Start with chat, browse datasets, or reopen recent work.'}
+              welcomePanel={loading ? null : (
+                <AssistantOrientationPanel
+                  email={sessionUser?.email ?? 'Signed in'}
+                  datasetCount={datasets.length}
+                  recentSessions={recentSessions}
+                  onOpenDatasets={onOpenDatasets}
+                  onOpenRecentWork={onOpenRecentWork}
+                />
+              )}
+              composerPlaceholder="Start a new research chat by asking a question or describing the data you need..."
               datasets={datasets.map((dataset) => ({
                 id: dataset.id,
                 name: dataset.name,
@@ -2190,6 +2223,118 @@ function ResearchAssistantPage({
         </AssistantRuntimeProvider>
       </div>
     </main>
+  )
+}
+
+function AssistantOrientationPanel({
+  email,
+  datasetCount,
+  recentSessions,
+  onOpenDatasets,
+  onOpenRecentWork,
+}: {
+  email: string
+  datasetCount: number
+  recentSessions: Array<{
+    id: string
+    title: string
+    kind: string
+    summary: string
+  }>
+  onOpenDatasets: () => void
+  onOpenRecentWork: (sessionId: string) => void
+}) {
+  const topSessions = recentSessions.slice(0, 2)
+
+  return (
+    <section className="mx-auto flex w-full max-w-4xl flex-col gap-6">
+      <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        <Badge variant="secondary" className="gap-2 text-emerald-700">
+          <CheckCircle2 className="size-3.5" />
+          Signed in
+        </Badge>
+        <span>{email}</span>
+      </div>
+      <div className="max-w-3xl space-y-3">
+        <h1 className="text-3xl font-semibold tracking-normal md:text-4xl">
+          Start a new research chat.
+        </h1>
+        <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
+          Ask a question in chat when you want the assistant to plan research, inspect data, or propose the next run. Use datasets to inspect source material. Reopen recent work when you want to continue something you already started.
+        </p>
+      </div>
+      <div className="grid gap-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
+        <Card className="rounded-[24px] border border-border/70 bg-card/80 py-0 shadow-none">
+          <CardContent className="flex flex-col gap-5 px-6 py-6">
+            <div className="space-y-2">
+              <Badge variant="secondary">Start here</Badge>
+              <h2 className="text-2xl font-semibold tracking-normal">Ask the assistant to help you research</h2>
+              <p className="text-sm leading-7 text-muted-foreground">
+                The chat below is the main entry point. Start with a question, a topic, or the dataset you want help with. The assistant can clarify the task before it launches work.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Button
+                type="button"
+                onClick={() => document.querySelector<HTMLTextAreaElement>('textarea[aria-label=\"Message input\"]')?.focus()}
+              >
+                Start a new research chat
+              </Button>
+              <Button type="button" variant="outline" onClick={onOpenDatasets}>
+                Browse datasets
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+        <div className="grid gap-4">
+          <Card className="rounded-[24px] border border-border/70 bg-card/80 py-0 shadow-none">
+            <CardContent className="px-6 py-6">
+              <div className="flex items-start gap-3">
+                <Database className="mt-0.5 size-5 text-muted-foreground" />
+                <div className="space-y-2">
+                  <h2 className="text-base font-semibold tracking-normal">Datasets</h2>
+                  <p className="text-sm leading-6 text-muted-foreground">
+                    {datasetCount} dataset{datasetCount === 1 ? '' : 's'} available. Use datasets to inspect source material, readiness, and briefings before you ask a deeper question.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="rounded-[24px] border border-border/70 bg-card/80 py-0 shadow-none">
+            <CardContent className="px-6 py-6">
+              <div className="flex items-start gap-3">
+                <History className="mt-0.5 size-5 text-muted-foreground" />
+                <div className="min-w-0 flex-1 space-y-2">
+                  <h2 className="text-base font-semibold tracking-normal">Recent work</h2>
+                  {topSessions.length > 0 ? (
+                    <div className="space-y-3">
+                      {topSessions.map((recentSession) => (
+                        <button
+                          key={recentSession.id}
+                          type="button"
+                          className="block w-full rounded-xl border border-border/70 px-3 py-3 text-left transition-colors hover:bg-muted/50"
+                          onClick={() => onOpenRecentWork(recentSession.id)}
+                        >
+                          <div className="flex items-center gap-2">
+                            <Badge variant="secondary">{readableSessionKind(recentSession.kind)}</Badge>
+                            <span className="truncate text-sm font-medium text-foreground">{recentSession.title}</span>
+                          </div>
+                          <p className="mt-1 text-xs leading-5 text-muted-foreground">{recentSession.summary}</p>
+                        </button>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-sm leading-6 text-muted-foreground">
+                      No prior work yet. Start with chat or browse datasets for source material.
+                    </p>
+                  )}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
   )
 }
 
@@ -2678,6 +2823,14 @@ function DashboardApp({
     [runs],
   )
   const route = useDashboardRoute()
+  const recentAssistantSessions = useMemo(
+    () => sessions.map((currentSession) => ({
+      ...currentSession,
+      dataset: currentSession.datasetId ? datasetLookup.get(currentSession.datasetId) : undefined,
+      run: currentSession.runId ? runLookup.get(currentSession.runId) : undefined,
+    })),
+    [datasetLookup, runLookup, sessions],
+  )
 
   const activeRun = route.runId ? runs.find((run) => run.id === route.runId) ?? null : null
   const activeDataset = route.datasetId ? datasets.find((dataset) => dataset.id === route.datasetId) ?? null : null
@@ -2782,7 +2935,32 @@ function DashboardApp({
       </main>
     )
   } else {
-    content = <ResearchAssistantPage dataError={dataError} datasets={datasets} />
+    content = (
+      <ResearchAssistantPage
+        dataError={dataError}
+        datasets={datasets}
+        sessionUser={session.user}
+        recentSessions={recentAssistantSessions.map((currentSession) => ({
+          id: currentSession.id,
+          title: readableSessionTitle(currentSession.title),
+          kind: currentSession.kind,
+          summary: sessionSummaryLine(currentSession, currentSession.dataset, currentSession.run),
+        }))}
+        onOpenDatasets={() =>
+          updateDashboardRoute({
+            view: 'datasets',
+            datasetId: null,
+            runId: null,
+            sessionId: null,
+          })}
+        onOpenRecentWork={(sessionId) =>
+          updateDashboardRoute({
+            view: 'assistant',
+            sessionId,
+            runId: null,
+          })}
+      />
+    )
   }
 
   return (
@@ -2801,7 +2979,7 @@ function DashboardApp({
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupLabel>Chats</SidebarGroupLabel>
+            <SidebarGroupLabel>Research chats</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 <SidebarMenuItem>
@@ -2817,11 +2995,11 @@ function DashboardApp({
                     <span>New chat</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
-                {sessions.map((chatSession) => {
-                  const attachedRun = chatSession.runId ? runLookup.get(chatSession.runId) : undefined
+                {recentAssistantSessions.map((chatSession) => {
                   return (
                     <SidebarMenuItem key={chatSession.id}>
                       <SidebarMenuButton
+                        className="h-auto items-start py-2"
                         isActive={route.view === 'assistant' && route.sessionId === chatSession.id}
                         onClick={() =>
                           updateDashboardRoute({
@@ -2830,26 +3008,18 @@ function DashboardApp({
                             sessionId: chatSession.id,
                           })}
                       >
-                        <span className="truncate">
-                          {readableSessionTitle(chatSession.title)}
+                        <span className="flex min-w-0 flex-col items-start gap-1">
+                          <span className="flex items-center gap-2">
+                            <Badge variant="secondary">{readableSessionKind(chatSession.kind)}</Badge>
+                            <span className="truncate">
+                              {readableSessionTitle(chatSession.title)}
+                            </span>
+                          </span>
+                          <span className="truncate text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
+                            {sessionSummaryLine(chatSession, chatSession.dataset, chatSession.run)}
+                          </span>
                         </span>
                       </SidebarMenuButton>
-                      {chatSession.runId ? (
-                        <SidebarMenuButton
-                          className="ml-3 h-7 text-xs text-muted-foreground"
-                          isActive={route.view === 'runs' && route.runId === chatSession.runId}
-                          onClick={() =>
-                            updateDashboardRoute({
-                              view: 'runs',
-                              runId: chatSession.runId,
-                              sessionId: null,
-                            })}
-                        >
-                          <span className="truncate">
-                            {readableRunTitle(attachedRun, chatSession.runId)}
-                          </span>
-                        </SidebarMenuButton>
-                      ) : null}
                     </SidebarMenuItem>
                   )
                 })}
@@ -2871,6 +3041,9 @@ function DashboardApp({
               >
                 <Database />
                 <span>Datasets</span>
+                <span className="ml-auto text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
+                  {datasets.length}
+                </span>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
@@ -2881,6 +3054,9 @@ function DashboardApp({
                 className="grid h-auto w-full min-w-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 overflow-hidden rounded-xl px-3 py-3 text-left hover:bg-sidebar-accent/60"
               >
                 <div className="flex min-w-0 flex-col items-start pr-2">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">
+                    Signed in
+                  </span>
                   <span className="truncate text-base font-normal normal-case tracking-normal text-foreground/90">
                     {session.user?.email ?? 'Signed in'}
                   </span>
