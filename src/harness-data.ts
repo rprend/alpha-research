@@ -109,6 +109,9 @@ export const harnessDatasets = [
     volume: null,
     ingestConfig: {
       publicSources: ['census', 'bls'],
+      sourceDateRange: 'Source dates currently span January 2024 through March 2026.',
+      coverageSummary: 'National labor and household indicators are present, but no state or metro breakout is loaded yet.',
+      knownGaps: 'Dataset briefing is unavailable until the public-data environment finishes deploying.',
     },
     profile: null,
     createdAt: iso(860),

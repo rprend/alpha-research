@@ -122,6 +122,19 @@ type DatasetRecord = {
   updatedAt: string
 }
 
+type DatasetFreshnessSummary = {
+  trustLabel: string
+  trustTone: 'default' | 'secondary' | 'destructive' | 'outline'
+  headline: string
+  reason: string
+  actionLabel: string
+  actionHint: string
+  sourceCoverage: string
+  ingestFreshness: string
+  deploymentReadiness: string
+  knownGaps: string
+}
+
 type RunRecord = {
   id: string
   datasetId: string
@@ -366,6 +379,128 @@ function profileText(profile: unknown, key: string) {
   if (!isRecord(profile)) return null
   const value = profile[key]
   return typeof value === 'string' && value.trim() ? value.trim() : null
+}
+
+function ingestText(config: unknown, key: string) {
+  if (!isRecord(config)) return null
+  const value = config[key]
+  return typeof value === 'string' && value.trim() ? value.trim() : null
+}
+
+function ingestStringArray(config: unknown, key: string) {
+  if (!isRecord(config)) return []
+  const value = config[key]
+  if (!Array.isArray(value)) return []
+  return value.filter((entry): entry is string => typeof entry === 'string' && entry.trim().length > 0)
+}
+
+function statusTone(status: string): 'default' | 'secondary' | 'destructive' | 'outline' {
+  switch (status) {
+    case 'ready':
+      return 'default'
+    case 'blocked':
+      return 'destructive'
+    case 'processing':
+      return 'secondary'
+    default:
+      return 'outline'
+  }
+}
+
+function datasetFreshnessSummary(
+  dataset: DatasetRecord,
+  canDescribe: boolean,
+  describeIsRunning: boolean,
+  describedAt: string | null,
+): DatasetFreshnessSummary {
+  const sourceDateRange = ingestText(dataset.ingestConfig, 'sourceDateRange') ?? profileText(dataset.profile?.profile, 'timeCoverage')
+  const coverageSummary = ingestText(dataset.ingestConfig, 'coverageSummary')
+  const knownGaps = ingestText(dataset.ingestConfig, 'knownGaps') ?? profileText(dataset.profile?.profile, 'coverageGaps')
+  const readyForAnalysis = canDescribe && Boolean(dataset.profile?.briefingMarkdown)
+  const deploymentBlocked = dataset.deploymentStatus !== 'ready'
+  const processing = describeIsRunning || ['running', 'processing', 'queued', 'uploading'].includes(dataset.status.toLowerCase()) || ['running', 'processing', 'queued'].includes(dataset.deploymentStatus.toLowerCase())
+  const blocked = !readyForAnalysis && deploymentBlocked
+  const trustStatus = readyForAnalysis ? 'ready' : blocked ? 'blocked' : processing ? 'processing' : 'review'
+  const publicSources = ingestStringArray(dataset.ingestConfig, 'publicSources')
+  const sourceCoverage =
+    sourceDateRange && coverageSummary
+      ? `${sourceDateRange}. ${coverageSummary}`
+      : sourceDateRange
+        ? sourceDateRange
+        : coverageSummary
+          ? coverageSummary
+          : publicSources.length > 0
+            ? `Includes ${publicSources.map((source) => source.toUpperCase()).join(' and ')} public sources.`
+            : 'Source coverage has not been documented yet.'
+  const ingestFreshness = describedAt
+    ? `Last dataset briefing: ${formatDateTime(describedAt)}`
+    : `Last dataset update: ${formatDateTime(dataset.updatedAt)}`
+  const deploymentReadiness = dataset.deploymentStatus === 'ready'
+    ? 'Environment is deployed and the dataset can be inspected.'
+    : processing
+      ? 'Environment setup is still running, so readiness checks are incomplete.'
+      : 'Environment is not deployed, so the dashboard cannot verify readiness yet.'
+  const actionLabel = canDescribe ? 'Describe dataset' : 'Describe unavailable'
+  const actionHint = canDescribe
+    ? 'Generate or refresh the dataset briefing.'
+    : processing
+      ? 'Wait for processing to finish before generating the briefing.'
+      : 'Deploy the dataset environment before generating the briefing.'
+
+  if (trustStatus === 'ready') {
+    return {
+      trustLabel: 'Ready to use',
+      trustTone: statusTone(trustStatus),
+      headline: 'Current enough for analysis',
+      reason: 'Freshness, source coverage, and the latest briefing are available on this page.',
+      actionLabel,
+      actionHint,
+      sourceCoverage,
+      ingestFreshness,
+      deploymentReadiness,
+      knownGaps: knownGaps ?? 'No critical gaps are called out in the current briefing.',
+    }
+  }
+  if (trustStatus === 'blocked') {
+    return {
+      trustLabel: 'Not ready',
+      trustTone: statusTone(trustStatus),
+      headline: 'Trust decision is blocked',
+      reason: 'The dataset environment is not deployed, so Alpha Research cannot confirm whether this data is current enough to use.',
+      actionLabel,
+      actionHint,
+      sourceCoverage,
+      ingestFreshness,
+      deploymentReadiness,
+      knownGaps: knownGaps ?? 'Coverage gaps cannot be verified until the dataset environment is available.',
+    }
+  }
+  if (trustStatus === 'processing') {
+    return {
+      trustLabel: 'Processing',
+      trustTone: statusTone(trustStatus),
+      headline: 'Freshness check still in progress',
+      reason: 'The dataset was updated recently, but readiness checks are still running.',
+      actionLabel,
+      actionHint,
+      sourceCoverage,
+      ingestFreshness,
+      deploymentReadiness,
+      knownGaps: knownGaps ?? 'Coverage and limitations will appear after processing completes.',
+    }
+  }
+  return {
+    trustLabel: 'Needs review',
+    trustTone: statusTone(trustStatus),
+    headline: 'Review before using this dataset',
+    reason: 'Some readiness information is present, but the dashboard cannot yet make a clean trust recommendation.',
+    actionLabel,
+    actionHint,
+    sourceCoverage,
+    ingestFreshness,
+    deploymentReadiness,
+    knownGaps: knownGaps ?? 'Known gaps have not been documented yet.',
+  }
 }
 
 function renderBriefingMarkdown(markdown: string) {
@@ -1520,10 +1655,16 @@ function useDashboardRoute() {
   return route
 }
 
-function StatusBadge({ children }: { children: string }) {
+function StatusBadge({
+  children,
+  variant = 'outline',
+}: {
+  children: string
+  variant?: 'default' | 'secondary' | 'destructive' | 'outline'
+}) {
   return (
     <Badge
-      variant="outline"
+      variant={variant}
       className="rounded-none border-border bg-background px-2.5 py-1 text-[11px] tracking-[0.18em]"
     >
       {children}
@@ -1689,6 +1830,10 @@ function DatasetDetailPage({
     ['Limitations', limitationCount],
   ].filter((entry): entry is [string, number] => typeof entry[1] === 'number')
   const profileSummary = profileText(structuredProfile, 'summary')
+  const freshness = datasetFreshnessSummary(current, canDescribe, describeIsRunning, describedAt)
+  const sourceDateRange = ingestText(current.ingestConfig, 'sourceDateRange')
+  const coverageSummary = ingestText(current.ingestConfig, 'coverageSummary')
+  const knownGaps = ingestText(current.ingestConfig, 'knownGaps')
 
   return (
     <main className="min-h-0 flex-1 overflow-y-auto px-4 py-8 md:px-8">
@@ -1702,6 +1847,38 @@ function DatasetDetailPage({
             <p className="mt-3 max-w-3xl text-lg leading-8 text-muted-foreground">
               {current.description || current.sourceFilename || `A ${formatStatus(current.sourceType)} dataset registered in Alpha Research.`}
             </p>
+          </div>
+        </section>
+
+        <section className="rounded-xl border border-border bg-muted/20 p-6">
+          <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+            <div className="space-y-3">
+              <div className="flex flex-wrap items-center gap-3">
+                <StatusBadge variant={freshness.trustTone}>{freshness.trustLabel}</StatusBadge>
+                <span className="text-sm text-muted-foreground">{freshness.ingestFreshness}</span>
+              </div>
+              <div>
+                <h2 className="text-2xl font-semibold tracking-normal">{freshness.headline}</h2>
+                <p className="mt-2 max-w-3xl text-sm leading-7 text-muted-foreground">{freshness.reason}</p>
+              </div>
+            </div>
+            <div className="min-w-0 rounded-lg border border-border bg-background px-4 py-3 text-sm">
+              <div className="font-medium">{freshness.actionLabel}</div>
+              <div className="mt-1 text-muted-foreground">{freshness.actionHint}</div>
+            </div>
+          </div>
+          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {[
+              ['Source date coverage', freshness.sourceCoverage],
+              ['Deployment status', freshness.deploymentReadiness],
+              ['Known gaps', freshness.knownGaps],
+              ['Dataset size', formatBytes(current.sourceSizeBytes)],
+            ].map(([label, value]) => (
+              <div key={label} className="rounded-lg border border-border bg-background px-4 py-3">
+                <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">{label}</div>
+                <div className="mt-2 text-sm leading-6 text-foreground/90">{value}</div>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -1725,6 +1902,8 @@ function DatasetDetailPage({
               type="button"
               variant="outline"
               disabled={!canDescribe || startingDescribe}
+              aria-label={canDescribe ? 'Describe dataset' : `${freshness.actionLabel}: ${freshness.actionHint}`}
+              title={!canDescribe ? freshness.actionHint : undefined}
               onClick={async () => {
                 setStartingDescribe(true)
                 try {
@@ -1741,6 +1920,11 @@ function DatasetDetailPage({
               {startingDescribe ? 'Starting...' : 'Describe dataset'}
             </Button>
           </div>
+          {!canDescribe ? (
+            <div className="rounded-lg border border-border bg-muted/20 px-4 py-3 text-sm text-muted-foreground">
+              {freshness.actionHint}
+            </div>
+          ) : null}
           {describedAt ? (
             <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
               <FileText className="size-4" />
@@ -1770,22 +1954,31 @@ function DatasetDetailPage({
                 </div>
               </button>
             ) : (
-              <p className="text-sm leading-7 text-muted-foreground">
-                No briefing has been generated yet. A describe job launches a remote Codex agent to inspect the mounted dataset and write a detailed document covering data inventory, sources, schemas, time coverage, geography coverage, formats, transformations, QA status, limitations, and known gaps.
-                {!canDescribe ? ' This dataset needs a ready deployed environment before the describe workflow can run.' : ''}
-              </p>
+              <div className="space-y-2">
+                <p className="text-sm leading-7 text-muted-foreground">
+                  No dataset briefing has been generated yet.
+                </p>
+                <p className="text-sm leading-7 text-muted-foreground">
+                  {canDescribe
+                    ? 'Run Describe dataset to generate a plain-language briefing with freshness, source coverage, limitations, and analysis readiness.'
+                    : freshness.reason}
+                </p>
+              </div>
             )}
           </div>
         </section>
 
         <details className="rounded-lg border border-border p-5">
-          <summary className="cursor-pointer text-sm font-medium">Debug details</summary>
+          <summary className="cursor-pointer text-sm font-medium">Developer details</summary>
           <div className="mt-4 grid gap-4 md:grid-cols-2">
             {[
               ['Source file', current.sourceFilename ?? 'Unknown'],
               ['Mode', formatStatus(current.mode ?? 'default')],
               ['Manifest', current.manifestPath ?? 'Not available'],
-              ['Volume', current.volume?.mountPath ?? 'Not mounted'],
+              ['Source date coverage', sourceDateRange ?? 'Not available'],
+              ['Coverage summary', coverageSummary ?? 'Not available'],
+              ['Known gaps', knownGaps ?? 'Not available'],
+              ['Dataset mount', current.volume?.mountPath ?? 'Not mounted'],
               ['Size', formatBytes(current.sourceSizeBytes)],
               ['Updated', formatDateTime(current.updatedAt)],
               ['Describe run', describeRun?.id ?? current.profile?.describedRunId ?? 'None'],
