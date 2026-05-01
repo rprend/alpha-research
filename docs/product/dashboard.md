@@ -20,6 +20,8 @@ VITE_ALPHA_RESEARCH_HARNESS=1 pnpm dev
 
 Harness mode bypasses production auth/data requirements and renders seeded datasets, runs, artifacts, events, and sessions. It is intended for Codex/browser validation and should stay deterministic.
 
+When dashboard data fails after authentication, the signed-in shell must remain visible and the active view must render a dedicated failure state with retry and support/status guidance. Data-load failures must not reuse verified-empty copy such as `No datasets yet`.
+
 ## Expected Agent Workflows
 
 - Open the dashboard in harness mode.
