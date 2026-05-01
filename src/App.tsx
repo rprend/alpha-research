@@ -2085,6 +2085,13 @@ function ResearchAssistantPage({
     })
   }, [activeSessionId, session])
 
+  const assistantDatasets = datasets.map((dataset) => ({
+    id: dataset.id,
+    name: dataset.name,
+    description: dataset.description || dataset.sourceFilename,
+    status: dataset.status,
+  }))
+
   const runtime = useExternalStoreRuntime({
     isRunning,
     messages,
@@ -2177,19 +2184,119 @@ function ResearchAssistantPage({
         <AssistantRuntimeProvider runtime={runtime}>
           <div className="h-full min-h-0">
             <Thread
-              welcomeTitle={loading ? '' : 'RESEARCH CLI'}
-              welcomeDescription={loading ? '' : 'Run the signed-in RESEARCH CLI from the browser. Inspect datasets, launch runs, and manage remote Codex sessions.'}
-              datasets={datasets.map((dataset) => ({
-                id: dataset.id,
-                name: dataset.name,
-                description: dataset.description || dataset.sourceFilename,
-                status: dataset.status,
-              }))}
+              welcomeTitle=""
+              welcomeDescription=""
+              welcomeContent={loading ? null : <PlanFirstWelcome datasets={assistantDatasets} />}
+              composerPlaceholder="Describe the question you want to scope. I’ll draft a plan before running anything."
+              datasets={assistantDatasets}
             />
           </div>
         </AssistantRuntimeProvider>
       </div>
     </main>
+  )
+}
+
+function seedAssistantComposer(value: string) {
+  const input = document.querySelector<HTMLTextAreaElement>('.aui-composer-input')
+  if (!input) return
+  input.focus()
+  input.value = value
+  input.setSelectionRange(value.length, value.length)
+  input.dispatchEvent(new Event('input', { bubbles: true }))
+}
+
+function PlanFirstWelcome({
+  datasets,
+}: {
+  datasets: Array<{
+    id: string
+    name: string
+    description?: string | null
+    status?: string | null
+  }>
+}) {
+  const recommendedDataset = datasets.find((dataset) => dataset.status === 'ready') ?? datasets[0] ?? null
+  const starterPrompts = [
+    'Compare housing market stress signals and tell me which metrics are worth tracking first.',
+    'Scope an earnings-quality investigation and recommend the dataset, sample, and charts.',
+    'I have a messy idea. Help me choose the right dataset and draft a low-cost research plan.',
+    'What is interesting here? Propose three research angles and tell me which one is cheapest to validate.',
+  ]
+
+  return (
+    <section className="w-full px-1 py-6 md:py-8" aria-label="Research planning starter">
+      <div className="mx-auto flex w-full max-w-4xl flex-col gap-5">
+        <div className="max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            Plan first
+          </p>
+          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-foreground">
+            Turn a vague research idea into a scoped plan you can approve
+          </h1>
+          <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
+            Start with the broad question. Alpha Research should suggest the goal, likely dataset,
+            sample shape, outputs, and cost tradeoffs before any expensive work starts.
+          </p>
+        </div>
+
+        <div className="grid gap-4 lg:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.95fr)]">
+          <div className="rounded-3xl border border-border bg-card p-5">
+            <div className="text-sm font-semibold text-foreground">Suggested research starters</div>
+            <div className="mt-4 grid gap-3 md:grid-cols-2">
+              {starterPrompts.map((prompt) => (
+                <button
+                  key={prompt}
+                  type="button"
+                  onClick={() => seedAssistantComposer(prompt)}
+                  className="rounded-2xl border border-border bg-background px-4 py-4 text-left text-sm leading-6 text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                >
+                  {prompt}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-emerald-200 bg-emerald-50 p-5 text-emerald-950">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-800">
+              Before anything expensive
+            </div>
+            <div className="mt-3 text-lg font-semibold">
+              Proposed plan preview
+            </div>
+            <div className="mt-4 space-y-3 text-sm leading-6">
+              <p><strong>Goal:</strong> clarify the question, define one decision metric, and choose a cheap first pass.</p>
+              <p><strong>Likely dataset:</strong> {recommendedDataset ? `${recommendedDataset.name} for a first scoped pass.` : 'Choose a dataset after we narrow the question.'}</p>
+              <p><strong>Expected outputs:</strong> a recommended metric, sample strategy, chart list, and a go/no-go launch prompt.</p>
+              <p><strong>Confirmation step:</strong> review the plan, edit scope or dataset, then approve the run.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-3xl border border-border bg-background p-5">
+          <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+            <div>
+              <div className="text-sm font-semibold text-foreground">Dataset context</div>
+              <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                Use the attached workspace when it fits. If not, ask for a better dataset before launching work.
+              </p>
+            </div>
+            {recommendedDataset ? (
+              <div className="rounded-2xl border border-border bg-muted/40 px-4 py-3 text-sm leading-6">
+                <div className="font-medium text-foreground">{recommendedDataset.name}</div>
+                <div className="text-muted-foreground">
+                  {recommendedDataset.description || recommendedDataset.id}
+                </div>
+              </div>
+            ) : (
+              <div className="rounded-2xl border border-dashed border-border px-4 py-3 text-sm text-muted-foreground">
+                No dataset attached yet
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }
 

@@ -23,6 +23,7 @@ Harness mode bypasses production auth/data requirements and renders seeded datas
 ## Expected Agent Workflows
 
 - Open the dashboard in harness mode.
+- On a fresh assistant chat, verify the page starts with a plan-first research intake state rather than generic product marketing. The landing view should offer concrete starter prompts, show likely dataset context, and make confirmation-before-run explicit.
 - Verify datasets, runs, and terminal sessions render.
 - Open a seeded run and inspect progress, produced files, and rendered markdown/JSON/code previews.
 - Use screenshots or DOM snapshots to validate UI changes.
