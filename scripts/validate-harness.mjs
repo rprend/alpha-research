@@ -23,6 +23,7 @@ const requiredPackageScripts = [
   'qa:dashboard',
   'journey:dashboard:capture',
   'journey:dashboard:judge',
+  'journey:dashboard:remediate',
   'cf:deploy:preview',
 ]
 
@@ -78,6 +79,7 @@ for (const script of [
   'scripts/dashboard-journey-capture.mjs',
   'scripts/dashboard-journey-judge.mjs',
   'scripts/dashboard-journey-report.mjs',
+  'scripts/dashboard-journey-remediate.mjs',
 ]) {
   assert(existsSync(join(root, script)), `Missing dashboard journey script: ${script}`)
 }

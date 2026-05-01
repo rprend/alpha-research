@@ -73,6 +73,48 @@ To judge exact run directories instead of latest-by-journey:
 pnpm run journey:dashboard:judge -- --runs=.tmp/dashboard-journey-runs/D01/20260501T120000Z
 ```
 
+## Remediation Contract
+
+After capture and judge have produced `briefing.md` files, generate remediation jobs:
+
+```bash
+pnpm run journey:dashboard:remediate -- --dry-run
+```
+
+By default, dry run writes one prompt per journey under:
+
+```text
+.tmp/dashboard-journey-remediation/jobs/<journey-id>/prompt.md
+```
+
+Each prompt includes the journey definition, captured run metadata, the full judge briefing, and instructions to update Alpha Research so the journey aligns with expectations in future runs.
+
+To execute Codex jobs in isolated git worktrees:
+
+```bash
+pnpm run journey:dashboard:remediate -- --execute --journeys=D11,D12
+```
+
+To start background jobs and return immediately:
+
+```bash
+pnpm run journey:dashboard:remediate -- --detach --only-verdicts=fail
+```
+
+The worktree mode creates one branch and worktree per journey:
+
+```text
+.tmp/dashboard-journey-remediation/worktrees/<journey-id>/
+codex/dashboard-journey-<journey-id>-remediation
+```
+
+Job status and Codex logs are written next to the generated prompt:
+
+```text
+.tmp/dashboard-journey-remediation/jobs/<journey-id>/status.json
+.tmp/dashboard-journey-remediation/jobs/<journey-id>/codex.log
+```
+
 ## Global Rubric
 
 For every dashboard journey, judge:

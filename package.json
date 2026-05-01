@@ -11,6 +11,7 @@
     "qa:dashboard": "pnpm build && node scripts/qa-dashboard.mjs",
     "journey:dashboard:capture": "node scripts/dashboard-journey-capture.mjs",
     "journey:dashboard:judge": "node scripts/dashboard-journey-judge.mjs",
+    "journey:dashboard:remediate": "node scripts/dashboard-journey-remediate.mjs",
     "preview": "vite preview",
     "cf:deploy": "pnpm build && CLOUDFLARE_ACCOUNT_ID=0e1651bc459f3017e816ba2263e0807a wrangler deploy",
     "cf:deploy:preview": "pnpm build && CLOUDFLARE_ACCOUNT_ID=0e1651bc459f3017e816ba2263e0807a wrangler deploy --dry-run"
