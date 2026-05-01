@@ -27,7 +27,7 @@ function parseArgs() {
     remediationRoot: resolve(remediationArg ?? DEFAULT_REMEDIATION_ROOT),
     explicitRuns: runsArg ? runsArg.split(',').map((item) => resolve(item.trim())).filter(Boolean) : [],
     model: modelArg ?? process.env.DASHBOARD_JOURNEY_REMEDIATION_MODEL ?? 'gpt-5.4',
-    mode: modeArg ?? 'worktree',
+    mode: modeArg ?? 'current',
     onlyVerdicts: onlyVerdictsArg ? onlyVerdictsArg.split(',').map((item) => item.trim().toLowerCase()).filter(Boolean) : null,
     execute,
     detach,
@@ -156,7 +156,7 @@ Requirements:
 - Add or update tests, harness data, journey scenarios, or docs when behavior changes.
 - Run the relevant validation before finishing. At minimum, run \`pnpm build\` and \`pnpm test\`; run \`pnpm run qa:dashboard\` if the UI changed.
 - If this journey cannot be fully fixed in this repository, implement the highest-value repository-local fix and document the remaining external blocker in your final response.
-- Commit your changes in this worktree with a concise message.
+- Commit your changes in the current checkout with a concise message.
 
 Do not merely summarize the issue. Make the code/product changes needed to get the journey working as expected.`
 }
@@ -217,6 +217,12 @@ async function startCodex({ cwd, model, promptPath, logPath, detach }) {
 
 async function main() {
   const options = parseArgs()
+  if (!['current', 'worktree'].includes(options.mode)) {
+    throw new Error(`Unsupported remediation mode "${options.mode}". Use --mode=current or --mode=worktree.`)
+  }
+  if (options.detach && options.mode !== 'worktree') {
+    throw new Error('Detached remediation requires --mode=worktree. Use --execute for sequential current-branch remediation.')
+  }
   await mkdir(options.remediationRoot, { recursive: true })
   const selected = []
 

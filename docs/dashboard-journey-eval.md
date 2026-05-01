@@ -89,19 +89,27 @@ By default, dry run writes one prompt per journey under:
 
 Each prompt includes the journey definition, captured run metadata, the full judge briefing, and instructions to update Alpha Research so the journey aligns with expectations in future runs.
 
-To execute Codex jobs in isolated git worktrees:
+To execute Codex jobs sequentially in the current checkout:
 
 ```bash
 pnpm run journey:dashboard:remediate -- --execute --journeys=D11,D12
 ```
 
-To start background jobs and return immediately:
+Each journey runs to completion before the next journey starts. This is the default remediation mode so the resulting commits stack on the current branch instead of creating many branches to integrate later.
+
+To opt into isolated git worktrees:
 
 ```bash
-pnpm run journey:dashboard:remediate -- --detach --only-verdicts=fail
+pnpm run journey:dashboard:remediate -- --execute --mode=worktree --journeys=D11,D12
 ```
 
-The worktree mode creates one branch and worktree per journey:
+To start background jobs and return immediately, use explicit worktree mode:
+
+```bash
+pnpm run journey:dashboard:remediate -- --detach --mode=worktree --only-verdicts=fail
+```
+
+Worktree mode creates one branch and worktree per journey:
 
 ```text
 .tmp/dashboard-journey-remediation/worktrees/<journey-id>/
