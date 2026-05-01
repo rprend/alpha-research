@@ -130,3 +130,9 @@ Current journey coverage:
 - `D28` Open Dashboard Link From CLI
 - `D29` Open Remote Codex Session
 - `D30` Mobile Run Check-In
+- `D31` Public Homepage Product Understanding
+- `D32` CLI Install And Bring-Your-Own-Dataset
+- `D33` Skeptical Researcher Proof Check
+- `D34` Request Human Setup Help
+- `D35` Blog Visitor Converts To Product Interest
+- `D36` Privacy And Trust Before Data Use
