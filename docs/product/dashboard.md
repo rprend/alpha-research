@@ -10,6 +10,13 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Open run details with observed progress, remote Codex transcript, and a resizable file explorer/viewer for produced run artifacts.
 - Inspect terminal sessions proxied through Alpha Research.
 
+## Dataset Inventory Expectations
+
+- The datasets page should answer three questions at a glance: what this dataset is about, whether it is usable now, and whether it is public or private.
+- Dataset cards should use user-language readiness labels such as `Ready for research` or `Still building`, not raw lifecycle wording alone.
+- Inventory copy in harness mode should still read like product copy, not internal QA or fixture text.
+- Private and public groupings should remain visible even when one group is empty so absence is not ambiguous.
+
 ## Assistant Home Expectations
 
 - The signed-in assistant home is browser-first, not CLI-first. It should orient a user who only knows they want to do research.

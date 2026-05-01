@@ -40,7 +40,7 @@ async function assertRoute(path, expectedText) {
 }
 
 async function assertRenderedOrientation() {
-    const browser = await chromium.launch({ headless: true })
+  const browser = await chromium.launch({ headless: true })
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=assistant`, { waitUntil: 'domcontentloaded' })
@@ -49,6 +49,22 @@ async function assertRenderedOrientation() {
     await page.getByText('Signed in', { exact: false }).first().waitFor({ timeout: 15000 })
     await page.getByRole('heading', { name: 'Recent work' }).waitFor({ timeout: 15000 })
     await page.getByText('Chat', { exact: false }).first().waitFor({ timeout: 15000 })
+  } finally {
+    await browser.close()
+  }
+}
+
+async function assertRenderedDatasetInventory() {
+  const browser = await chromium.launch({ headless: true })
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+    await page.goto(`${baseUrl}/?harness=1&view=datasets`, { waitUntil: 'domcontentloaded' })
+    await page.getByRole('heading', { name: 'Datasets' }).waitFor({ timeout: 15000 })
+    await page.getByText('Your datasets', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Public datasets', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Ready for research', { exact: false }).first().waitFor({ timeout: 15000 })
+    await page.getByText('Still building', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('View dataset details', { exact: true }).first().waitFor({ timeout: 15000 })
   } finally {
     await browser.close()
   }
@@ -80,6 +96,7 @@ try {
   await assertRoute('/?harness=1&view=datasets', '<div id="app">')
   await assertRoute('/?harness=1&view=runs', '<div id="app">')
   await assertRenderedOrientation()
+  await assertRenderedDatasetInventory()
   console.log(`Dashboard harness smoke passed at ${baseUrl}`)
 } catch (error) {
   console.error(output)

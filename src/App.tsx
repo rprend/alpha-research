@@ -102,6 +102,9 @@ type DatasetRecord = {
   sourceSizeBytes?: number | null
   mode: string | null
   description: string | null
+  inventorySummary?: string | null
+  inventoryUseCase?: string | null
+  inventoryReadinessNote?: string | null
   manifestPath?: string | null
   deploymentStatus: string
   status: string
@@ -342,8 +345,57 @@ function formatBytes(value: number | null | undefined) {
 }
 
 function isPublicDataset(dataset: DatasetRecord) {
+  const mode = dataset.mode?.toLowerCase()
+  if (mode === 'public') return true
+  if (mode === 'private') return false
   const text = `${dataset.name} ${dataset.sourceType} ${dataset.description ?? ''}`.toLowerCase()
-  return text.includes('public') || ['public_data', 'mixed_data', 'research_environment'].includes(dataset.sourceType)
+  return text.includes('public') || ['public_data', 'mixed_data', 'research_environment', 'public_corpus', 'public_api'].includes(dataset.sourceType)
+}
+
+function datasetInventoryStatus(dataset: DatasetRecord) {
+  const deploymentStatus = dataset.deploymentStatus.toLowerCase()
+  const status = dataset.status.toLowerCase()
+
+  if (deploymentStatus === 'ready' && status === 'ready') {
+    return {
+      label: 'Ready for research',
+      detail: dataset.inventoryReadinessNote ?? 'Open now for profiling, documentation, or analysis.',
+    }
+  }
+
+  if (deploymentStatus === 'processing' || status === 'running' || status === 'uploading') {
+    return {
+      label: 'Still building',
+      detail: dataset.inventoryReadinessNote ?? 'Ingestion is still running, so schema and records may change.',
+    }
+  }
+
+  if (deploymentStatus === 'failed' || status === 'failed' || status === 'worker_unreachable') {
+    return {
+      label: 'Needs attention',
+      detail: dataset.inventoryReadinessNote ?? 'This dataset needs a retry before it is safe to use.',
+    }
+  }
+
+  return {
+    label: 'Checking readiness',
+    detail: dataset.inventoryReadinessNote ?? 'Alpha Research is still verifying whether this dataset is ready.',
+  }
+}
+
+function datasetInventoryDescription(dataset: DatasetRecord) {
+  const description = dataset.inventorySummary?.trim() || dataset.description?.trim()
+  if (description) return description
+  if (dataset.sourceFilename?.trim()) return `Uploaded from ${dataset.sourceFilename.trim()}.`
+  return `A ${formatStatus(dataset.sourceType)} dataset in Alpha Research.`
+}
+
+function datasetInventoryUseCase(dataset: DatasetRecord) {
+  const explicit = dataset.inventoryUseCase?.trim()
+  if (explicit) return explicit
+  const profileSummary = profileText(dataset.profile?.profile, 'summary')
+  if (profileSummary) return `Best for: ${profileSummary}`
+  return null
 }
 
 function formatCompactTime(value: string) {
@@ -1568,52 +1620,85 @@ function DatasetFeed({
 
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-14">
-      <DatasetFeedSection title="Your datasets" datasets={privateDatasets} onSelectDataset={onSelectDataset} />
-      <DatasetFeedSection title="Public datasets" datasets={publicDatasets} onSelectDataset={onSelectDataset} />
+      <DatasetFeedSection
+        title="Your datasets"
+        summary={`${privateDatasets.length} private dataset${privateDatasets.length === 1 ? '' : 's'} visible only to your workspace.`}
+        emptyMessage="No private datasets yet. Upload a source or create a research environment from the CLI and it will appear here."
+        datasets={privateDatasets}
+        onSelectDataset={onSelectDataset}
+      />
+      <DatasetFeedSection
+        title="Public datasets"
+        summary={`${publicDatasets.length} shared dataset${publicDatasets.length === 1 ? '' : 's'} available to explore without uploading your own files.`}
+        emptyMessage="No public datasets are available right now."
+        datasets={publicDatasets}
+        onSelectDataset={onSelectDataset}
+      />
     </div>
   )
 }
 
 function DatasetFeedSection({
   title,
+  summary,
+  emptyMessage,
   datasets,
   onSelectDataset,
 }: {
   title: string
+  summary: string
+  emptyMessage: string
   datasets: DatasetRecord[]
   onSelectDataset: (dataset: DatasetRecord) => void
 }) {
-  if (datasets.length === 0) {
-    return null
-  }
   return (
     <section className="flex flex-col gap-4">
-      <div className="border-b border-border pb-3 text-xl font-medium">{title}</div>
-      <div className="grid gap-x-16 gap-y-7 md:grid-cols-2">
-        {datasets.map((dataset) => {
-          const description =
-            dataset.description?.trim() ||
-            dataset.sourceFilename?.trim() ||
-            `Source type: ${formatStatus(dataset.sourceType)}`
-          return (
-            <button
-              key={dataset.id}
-              type="button"
-              className="grid grid-cols-[3.25rem_minmax(0,1fr)_auto] items-center gap-4 rounded-lg px-3 py-3 text-left transition-colors hover:bg-muted/70"
-              onClick={() => onSelectDataset(dataset)}
-            >
-              <div className="flex size-13 items-center justify-center rounded-xl bg-muted text-muted-foreground">
-                <Database className="size-6" />
-              </div>
-              <div className="min-w-0">
-                <div className="truncate text-base font-semibold">{dataset.name}</div>
-                <div className="truncate text-sm text-muted-foreground">{description}</div>
-              </div>
-              <StatusBadge>{formatStatus(dataset.deploymentStatus)}</StatusBadge>
-            </button>
-          )
-        })}
+      <div className="flex flex-col gap-1 border-b border-border pb-3">
+        <div className="text-xl font-medium">{title}</div>
+        <p className="text-sm text-muted-foreground">{summary}</p>
       </div>
+      {datasets.length === 0 ? (
+        <Card className="rounded-2xl border border-dashed bg-muted/25 shadow-none">
+          <CardContent className="px-5 py-5 text-sm text-muted-foreground">{emptyMessage}</CardContent>
+        </Card>
+      ) : (
+        <div className="grid gap-5 md:grid-cols-2">
+          {datasets.map((dataset) => {
+            const description = datasetInventoryDescription(dataset)
+            const useCase = datasetInventoryUseCase(dataset)
+            const readiness = datasetInventoryStatus(dataset)
+            return (
+              <button
+                key={dataset.id}
+                type="button"
+                className="grid min-h-56 grid-rows-[auto_1fr_auto] gap-4 rounded-2xl border border-border bg-card p-5 text-left shadow-sm transition-colors hover:bg-muted/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                onClick={() => onSelectDataset(dataset)}
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-start gap-4">
+                    <div className="flex size-13 shrink-0 items-center justify-center rounded-xl bg-muted text-muted-foreground">
+                      <Database className="size-6" />
+                    </div>
+                    <div className="space-y-2">
+                      <div className="text-base font-semibold">{dataset.name}</div>
+                      {useCase ? <p className="text-sm font-medium text-foreground/80">{useCase}</p> : null}
+                    </div>
+                  </div>
+                  <StatusBadge>{readiness.label}</StatusBadge>
+                </div>
+                <div className="space-y-3">
+                  <p className="text-sm leading-6 text-muted-foreground">{description}</p>
+                  <p className="text-sm text-foreground/75">{readiness.detail}</p>
+                </div>
+                <div className="flex items-center justify-between gap-3 text-sm font-medium text-foreground">
+                  <span>View dataset details</span>
+                  <ChevronRight className="size-4" aria-hidden="true" />
+                </div>
+              </button>
+            )
+          })}
+        </div>
+      )}
     </section>
   )
 }
@@ -2863,7 +2948,7 @@ function DashboardApp({
         <section className="mx-auto flex w-full max-w-5xl flex-col gap-3">
           <h1 className="text-4xl font-semibold tracking-normal">Datasets</h1>
           <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-            Browse private research environments and public datasets. Open a dataset for structure, size, provenance, profile details, and generated briefings.
+            See what data is available, what each dataset covers, and whether it is ready to use. Open any dataset for provenance, schema, profile details, and generated briefings.
           </p>
         </section>
         <section>
