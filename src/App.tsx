@@ -133,6 +133,8 @@ type RunRecord = {
   status: string
   prompt: string | null
   outputPreview: string | null
+  artifactCount?: number
+  sessionCount?: number
   createdAt: string
   updatedAt: string
 }
@@ -298,6 +300,98 @@ function formatStatus(value: string | null | undefined) {
   return value
     .replaceAll(/[-_]/g, ' ')
     .replace(/\b\w/g, (letter) => letter.toUpperCase())
+}
+
+function getRunStatusTone(status: string | null | undefined) {
+  const normalized = status?.toLowerCase() ?? ''
+  if (normalized === 'ready') {
+    return 'success'
+  }
+  if (normalized === 'running') {
+    return 'active'
+  }
+  if (normalized === 'worker_unreachable' || normalized === 'failed' || normalized === 'error') {
+    return 'warning'
+  }
+  return 'neutral'
+}
+
+function getRunPriorityMeta(run: RunRecord) {
+  const normalized = run.status.toLowerCase()
+  if (normalized === 'worker_unreachable') {
+    return {
+      rank: 0,
+      label: 'Needs attention',
+      summary: 'Worker stopped responding before the run finished.',
+      detail: 'Open the session to inspect logs, partial output, or retry context.',
+      actionLabel: 'Open recovery path',
+    }
+  }
+  if (normalized === 'running') {
+    return {
+      rank: 1,
+      label: 'Watch',
+      summary: 'Still running.',
+      detail: `Last activity ${relativeTime(run.updatedAt)}.`,
+      actionLabel: 'Watch live run',
+    }
+  }
+  if (normalized === 'ready') {
+    const hasArtifacts = (run.artifactCount ?? 0) > 0
+    return {
+      rank: 2,
+      label: hasArtifacts ? 'Ready to review' : 'Complete',
+      summary: hasArtifacts ? 'Completed with outputs ready.' : 'Completed successfully.',
+      detail: hasArtifacts
+        ? `${run.artifactCount} artifact${run.artifactCount === 1 ? '' : 's'} available to inspect.`
+        : 'Open the session for transcript and result details.',
+      actionLabel: hasArtifacts ? 'Open outputs' : 'Open session',
+    }
+  }
+  return {
+    rank: 3,
+    label: 'Check status',
+    summary: formatStatus(run.status),
+    detail: 'Open the session for more detail.',
+    actionLabel: 'Open session',
+  }
+}
+
+function getRunOutputSignal(run: RunRecord) {
+  const artifactCount = run.artifactCount ?? 0
+  if (artifactCount > 0) {
+    return `${artifactCount} artifact${artifactCount === 1 ? '' : 's'} ready`
+  }
+  if (run.status.toLowerCase() === 'ready') {
+    return 'No artifacts recorded yet'
+  }
+  if ((run.sessionCount ?? 0) > 0) {
+    return `${run.sessionCount} session${run.sessionCount === 1 ? '' : 's'} attached`
+  }
+  return 'No outputs yet'
+}
+
+function getRunInventorySummary(runs: RunRecord[]) {
+  const counts = {
+    attention: 0,
+    active: 0,
+    complete: 0,
+    outputs: 0,
+  }
+  for (const run of runs) {
+    const normalized = run.status.toLowerCase()
+    if (normalized === 'worker_unreachable' || normalized === 'failed' || normalized === 'error') {
+      counts.attention += 1
+    } else if (normalized === 'running') {
+      counts.active += 1
+    } else if (normalized === 'ready') {
+      counts.complete += 1
+    }
+    if ((run.artifactCount ?? 0) > 0) {
+      counts.outputs += 1
+    }
+  }
+  return counts
 }
 
 function readableSessionTitle(value: string | null | undefined) {
@@ -1633,6 +1727,23 @@ function StatusBadge({ children }: { children: string }) {
   )
 }
 
+function RunPriorityBadge({ label, tone }: { label: string; tone: 'success' | 'active' | 'warning' | 'neutral' }) {
+  const classes = {
+    success: 'border-emerald-200 bg-emerald-50 text-emerald-900',
+    active: 'border-sky-200 bg-sky-50 text-sky-900',
+    warning: 'border-amber-300 bg-amber-100 text-amber-950',
+    neutral: 'border-border bg-muted/40 text-foreground',
+  }
+  return (
+    <Badge
+      variant="outline"
+      className={`rounded-none px-2.5 py-1 text-[11px] tracking-[0.12em] ${classes[tone]}`}
+    >
+      {label}
+    </Badge>
+  )
+}
+
 function DatasetFeed({
   datasets,
   onSelectDataset,
@@ -2122,66 +2233,137 @@ function RunTable({
     )
   }
 
-  return (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHead>Dataset</TableHead>
-          <TableHead>Type</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Started</TableHead>
-          <TableHead>Updated</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {runs.map((run) => {
-          const prompt =
-            run.prompt?.trim() ||
-            run.outputPreview?.trim() ||
-            'No prompt recorded yet.'
+  const sortedRuns = [...runs].sort((a, b) => {
+    const priorityDelta = getRunPriorityMeta(a).rank - getRunPriorityMeta(b).rank
+    if (priorityDelta !== 0) {
+      return priorityDelta
+    }
+    return b.updatedAt.localeCompare(a.updatedAt)
+  })
+  const summary = getRunInventorySummary(sortedRuns)
 
-          return (
-            <TableRow
-              key={run.id}
-              className="cursor-pointer"
-              onClick={() => onSelectRun(run)}
-            >
-              <TableCell className="align-top">
-                <div className="flex min-w-0 flex-col gap-1">
-                  <span className="truncate font-medium">
-                    {datasetLookup.get(run.datasetId)?.name ?? run.datasetId}
-                  </span>
-                  <span className="max-w-[30rem] text-sm whitespace-normal text-muted-foreground">
-                    {truncate(prompt, 120)}
-                  </span>
-                </div>
-              </TableCell>
-              <TableCell>{formatStatus(run.type)}</TableCell>
-              <TableCell>
-                <StatusBadge>{formatStatus(run.status)}</StatusBadge>
-              </TableCell>
-              <TableCell>{formatDateTime(run.createdAt)}</TableCell>
-              <TableCell>
-                <div className="flex items-center justify-between gap-3">
-                  <span>{relativeTime(run.updatedAt)}</span>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="h-8 px-2"
-                    onClick={(event) => {
-                      event.stopPropagation()
-                      onSelectRun(run)
-                    }}
-                  >
-                    View session
-                  </Button>
-                </div>
-              </TableCell>
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="grid gap-3 md:grid-cols-4">
+        <Card className="rounded-none border-border shadow-none">
+          <CardContent className="px-4 py-4">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Needs attention</div>
+            <div className="mt-2 text-3xl font-semibold">{summary.attention}</div>
+            <p className="mt-1 text-sm text-muted-foreground">Runs that stopped or need recovery.</p>
+          </CardContent>
+        </Card>
+        <Card className="rounded-none border-border shadow-none">
+          <CardContent className="px-4 py-4">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Running now</div>
+            <div className="mt-2 text-3xl font-semibold">{summary.active}</div>
+            <p className="mt-1 text-sm text-muted-foreground">Active work still worth watching.</p>
+          </CardContent>
+        </Card>
+        <Card className="rounded-none border-border shadow-none">
+          <CardContent className="px-4 py-4">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Completed</div>
+            <div className="mt-2 text-3xl font-semibold">{summary.complete}</div>
+            <p className="mt-1 text-sm text-muted-foreground">Runs that reached a terminal success state.</p>
+          </CardContent>
+        </Card>
+        <Card className="rounded-none border-border shadow-none">
+          <CardContent className="px-4 py-4">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Outputs ready</div>
+            <div className="mt-2 text-3xl font-semibold">{summary.outputs}</div>
+            <p className="mt-1 text-sm text-muted-foreground">Completed work with artifacts available.</p>
+          </CardContent>
+        </Card>
+      </div>
+      <div className="rounded-none border border-border">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>What needs attention</TableHead>
+              <TableHead>Type</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead>Started</TableHead>
+              <TableHead>Updated</TableHead>
+              <TableHead>Next step</TableHead>
             </TableRow>
-          )
-        })}
-      </TableBody>
-    </Table>
+          </TableHeader>
+          <TableBody>
+            {sortedRuns.map((run) => {
+              const priority = getRunPriorityMeta(run)
+              const statusTone = getRunStatusTone(run.status)
+              const prompt =
+                run.prompt?.trim() ||
+                run.outputPreview?.trim() ||
+                'No prompt recorded yet.'
+
+              return (
+                <TableRow
+                  key={run.id}
+                  className="cursor-pointer align-top"
+                  onClick={() => onSelectRun(run)}
+                >
+                  <TableCell className="align-top">
+                    <div className="flex min-w-0 flex-col gap-2">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <RunPriorityBadge label={priority.label} tone={statusTone} />
+                        <span className="font-medium">{priority.summary}</span>
+                      </div>
+                      <span className="truncate font-medium">
+                        {datasetLookup.get(run.datasetId)?.name ?? run.datasetId}
+                      </span>
+                      <span className="max-w-[38rem] text-sm whitespace-normal text-foreground/85">
+                        {truncate(prompt, 180)}
+                      </span>
+                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
+                        <span>{priority.detail}</span>
+                        <span aria-hidden="true">•</span>
+                        <span>{getRunOutputSignal(run)}</span>
+                        {run.sessionCount ? (
+                          <>
+                            <span aria-hidden="true">•</span>
+                            <span>{run.sessionCount} linked session{run.sessionCount === 1 ? '' : 's'}</span>
+                          </>
+                        ) : null}
+                      </div>
+                    </div>
+                  </TableCell>
+                  <TableCell>{formatStatus(run.type)}</TableCell>
+                  <TableCell>
+                    <div className="flex flex-col gap-2">
+                      <StatusBadge>{formatStatus(run.status)}</StatusBadge>
+                      {run.status.toLowerCase() === 'worker_unreachable' ? (
+                        <span className="max-w-48 text-sm leading-5 text-muted-foreground">
+                          The worker stopped responding before reporting a final result.
+                        </span>
+                      ) : null}
+                    </div>
+                  </TableCell>
+                  <TableCell>{formatDateTime(run.createdAt)}</TableCell>
+                  <TableCell>
+                    <div className="flex min-w-28 flex-col gap-1">
+                      <span>{relativeTime(run.updatedAt)}</span>
+                      <span className="text-sm text-muted-foreground">{formatDateTime(run.updatedAt)}</span>
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="h-9 rounded-none border-foreground/20 px-3 font-medium"
+                      onClick={(event) => {
+                        event.stopPropagation()
+                        onSelectRun(run)
+                      }}
+                    >
+                      {priority.actionLabel}
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              )
+            })}
+          </TableBody>
+        </Table>
+      </div>
+    </div>
   )
 }
 
@@ -3204,7 +3386,10 @@ function DashboardApp({
 
   const activeRun = route.runId ? runs.find((run) => run.id === route.runId) ?? null : null
   const activeDataset = route.datasetId ? datasets.find((dataset) => dataset.id === route.datasetId) ?? null : null
-  const showResearchChats = !(route.view === 'datasets' && activeDataset)
+  const showResearchChats = !(
+    (route.view === 'datasets' && activeDataset) ||
+    (route.view === 'runs' && !activeRun)
+  )
 
   let content: ReactNode
 
@@ -3264,8 +3449,8 @@ function DashboardApp({
             <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               Runs
             </div>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Remote runs across your datasets.
+            <p className="mt-2 max-w-3xl text-sm text-muted-foreground">
+              Triage recent work across datasets. Runs that need attention or still have live activity float to the top so you can decide what to open next.
             </p>
           </div>
           <RunTable

@@ -634,6 +634,8 @@ export class ControlPlane {
       updatedAt: run.updatedAt,
       prompt: run.prompt ?? undefined,
       outputPreview: run.outputPreview ?? undefined,
+      artifactCount: this.getRunArtifactCount(run.id),
+      sessionCount: this.getRunSessionCount(run.id),
     }
   }
 
@@ -801,6 +803,16 @@ export class ControlPlane {
       content: row.content_json ? JSON.parse(String(row.content_json)) : undefined,
       createdAt: String(row.created_at),
     }))
+  }
+
+  private getRunArtifactCount(runId: string) {
+    const row = this.rows('SELECT COUNT(*) AS count FROM run_artifacts WHERE run_id = ?', runId)[0]
+    return Number(row?.count ?? 0)
+  }
+
+  private getRunSessionCount(runId: string) {
+    const row = this.rows('SELECT COUNT(*) AS count FROM assistant_sessions WHERE run_id = ?', runId)[0]
+    return Number(row?.count ?? 0)
   }
 
   private createRunArtifact(runId: string, type: string, title: string, content?: unknown, url?: string | null) {
