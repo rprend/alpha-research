@@ -27,3 +27,7 @@ Harness mode bypasses production auth/data requirements and renders seeded datas
 - Open a seeded run and inspect progress, produced files, and rendered markdown/JSON/code previews.
 - Use screenshots or DOM snapshots to validate UI changes.
 - Only use production APIs when the task explicitly requires production behavior.
+
+## Journey Evaluation
+
+Dashboard journey evaluation extends harness validation with canonical UX journeys in `docs/dashboard-journey-eval.md`. Run capture with `pnpm run journey:dashboard:capture` to collect deployed-dashboard screenshots, visible text snapshots, DOM snapshots, and videos. Run judging separately with `pnpm run journey:dashboard:judge` so product evidence collection stays independent from recommendation generation.

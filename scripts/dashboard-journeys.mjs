@@ -1,0 +1,140 @@
+export const DASHBOARD_JOURNEYS = [
+  {
+    id: 'D01',
+    title: 'Dashboard Orientation',
+    path: '/?harness=1&view=assistant',
+    intention: 'The user opens the dashboard without knowing where to start.',
+    correctOutcome: 'The dashboard should make the assistant, existing chats, datasets, and account state understandable without requiring CLI knowledge.',
+    judgeFor: 'Is the starting state clear, does it avoid empty-feeling chrome, and can the user identify a useful next action?',
+    steps: [
+      { type: 'waitForText', text: 'New chat', timeoutMs: 15000 },
+      { type: 'wait', ms: 1000 },
+    ],
+  },
+  {
+    id: 'D02',
+    title: 'Dataset Inventory',
+    path: '/?harness=1&view=datasets',
+    intention: 'The user wants to see what datasets are available before choosing work.',
+    correctOutcome: 'The dashboard lists datasets with names, descriptions, readiness, and enough grouping to distinguish public and private data.',
+    judgeFor: 'Is the inventory scannable, are statuses plain enough, and are dataset cards informative without over-indexing on internal ids?',
+    steps: [
+      { type: 'waitForText', text: 'Datasets', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Alpha Book Sample', timeoutMs: 15000 },
+      { type: 'wait', ms: 1000 },
+    ],
+  },
+  {
+    id: 'D03',
+    title: 'Dataset Detail And Briefing',
+    path: '/?harness=1&view=datasets&datasetId=dataset-alpha-book',
+    intention: 'The user opens a ready dataset to understand whether it is fit for research.',
+    correctOutcome: 'The dataset detail view should show description, briefing, profile metrics, provenance, schema, limitations, and a clear describe action.',
+    judgeFor: 'Can a normal user understand what the dataset contains, what is known, what is missing, and what action the button will take?',
+    steps: [
+      { type: 'waitForText', text: 'Alpha Book Sample', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Dataset briefing', timeoutMs: 15000 },
+      { type: 'wait', ms: 1000 },
+    ],
+  },
+  {
+    id: 'D04',
+    title: 'Start Dataset Describe From Detail',
+    path: '/?harness=1&view=datasets&datasetId=dataset-alpha-book',
+    intention: 'The user wants the dashboard to generate or refresh a dataset briefing.',
+    correctOutcome: 'Clicking Describe dataset should visibly transition into a run view with run progress, transcript, and artifact expectations.',
+    judgeFor: 'Is the transition understandable, are async state and expected artifacts obvious, and does the user know where the result will appear?',
+    steps: [
+      { type: 'waitForText', text: 'Describe dataset', timeoutMs: 15000 },
+      { type: 'clickText', text: 'Describe dataset' },
+      { type: 'waitForText', text: 'Dataset briefing completed', timeoutMs: 15000 },
+      { type: 'wait', ms: 1000 },
+    ],
+  },
+  {
+    id: 'D05',
+    title: 'Runs Inventory',
+    path: '/?harness=1&view=runs',
+    intention: 'The user wants to monitor recent work across datasets.',
+    correctOutcome: 'The runs page should show dataset, prompt summary, type, status, start/update times, and a clear path into the run session.',
+    judgeFor: 'Is status clear enough to tell completed, running, and uncertain runs apart, and is the table easy to scan?',
+    steps: [
+      { type: 'waitForText', text: 'Runs', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Alpha Book Sample', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Alpha Econ Prototype', timeoutMs: 15000 },
+      { type: 'wait', ms: 1000 },
+    ],
+  },
+  {
+    id: 'D06',
+    title: 'Completed Run Transcript And Artifacts',
+    path: '/?harness=1&view=runs&runId=run-harness-completed',
+    intention: 'The user opens a completed run and expects to understand what happened and what artifacts exist.',
+    correctOutcome: 'The run detail should show observed progress, remote transcript, produced artifact count, and artifact contents when opened.',
+    judgeFor: 'Are transcript entries readable, are artifact names prominent, and is the artifacts affordance discoverable?',
+    steps: [
+      { type: 'wait', ms: 1000 },
+      { type: 'clickLabel', label: 'Open artifacts' },
+      { type: 'waitForText', text: 'summary.md', timeoutMs: 15000 },
+      { type: 'wait', ms: 1000 },
+    ],
+  },
+  {
+    id: 'D07',
+    title: 'Running Run Status',
+    path: '/?harness=1&view=runs&runId=run-harness-running',
+    intention: 'The user opens an in-progress run and wants to know whether it is alive.',
+    correctOutcome: 'The dashboard should show active progress, last event, running status, and avoid making the run look complete or stalled without evidence.',
+    judgeFor: 'Is the running state visible, does refresh/spinner behavior help, and can the user infer what is happening now?',
+    steps: [
+      { type: 'waitForText', text: 'fetching public data sources', timeoutMs: 15000 },
+      { type: 'wait', ms: 1500 },
+    ],
+  },
+  {
+    id: 'D08',
+    title: 'Terminal Session Continuity',
+    path: '/?harness=1&view=terminal-sessions&sessionId=session-harness-remote',
+    intention: 'The user wants to inspect the persisted terminal transcript behind a run.',
+    correctOutcome: 'The dashboard should render the remote session transcript with command/result context and without forcing the user to know a raw Codex session id.',
+    judgeFor: 'Is the transcript readable, is command output distinguishable from synthesis, and are ids or implementation terms de-emphasized?',
+    steps: [
+      { type: 'waitForText', text: 'Command completed', timeoutMs: 15000 },
+      { type: 'waitForText', text: '75,000 records', timeoutMs: 15000 },
+      { type: 'wait', ms: 1000 },
+    ],
+  },
+]
+
+export function getDashboardJourney(id) {
+  return DASHBOARD_JOURNEYS.find((journey) => journey.id === id) ?? null
+}
+
+export function markdownForDashboardJourney(journey) {
+  return [
+    `# ${journey.id}: ${journey.title}`,
+    '',
+    '## URL Path',
+    '',
+    `\`${journey.path}\``,
+    '',
+    '## Intention',
+    '',
+    journey.intention,
+    '',
+    '## Correct Outcome',
+    '',
+    journey.correctOutcome,
+    '',
+    '## Judge For',
+    '',
+    journey.judgeFor,
+    '',
+    '## Capture Steps',
+    '',
+    '```json',
+    JSON.stringify(journey.steps, null, 2),
+    '```',
+    '',
+  ].join('\n')
+}

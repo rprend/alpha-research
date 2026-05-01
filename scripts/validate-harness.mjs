@@ -12,6 +12,7 @@ const requiredDocs = [
   'docs/observability.md',
   'docs/run-lifecycle.md',
   'docs/quality.md',
+  'docs/dashboard-journey-eval.md',
   'docs/exec-plans/active/harness-engineering-foundation.md',
 ]
 
@@ -20,6 +21,8 @@ const requiredPackageScripts = [
   'test',
   'test:harness',
   'qa:dashboard',
+  'journey:dashboard:capture',
+  'journey:dashboard:judge',
   'cf:deploy:preview',
 ]
 
@@ -55,5 +58,23 @@ for (const token of [
 
 const controlPlaneSource = readFileSync(join(root, 'src/control-plane.ts'), 'utf8')
 assert(controlPlaneSource.includes('/debug-view'), 'Run debug endpoint is missing.')
+
+const dashboardJourneySource = readFileSync(join(root, 'scripts/dashboard-journeys.mjs'), 'utf8')
+for (const token of [
+  'DASHBOARD_JOURNEYS',
+  'Dashboard Orientation',
+  'Dataset Inventory',
+  'Completed Run Transcript And Artifacts',
+]) {
+  assert(dashboardJourneySource.includes(token), `Missing dashboard journey coverage: ${token}`)
+}
+
+for (const script of [
+  'scripts/dashboard-journey-capture.mjs',
+  'scripts/dashboard-journey-judge.mjs',
+  'scripts/dashboard-journey-report.mjs',
+]) {
+  assert(existsSync(join(root, script)), `Missing dashboard journey script: ${script}`)
+}
 
 console.log('Harness contract validation passed.')
