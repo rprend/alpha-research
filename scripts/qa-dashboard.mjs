@@ -70,6 +70,25 @@ async function assertRenderedDatasetInventory() {
   }
 }
 
+async function assertRenderedDatasetDetail() {
+  const browser = await chromium.launch({ headless: true })
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+    await page.goto(`${baseUrl}/?harness=1&view=datasets&datasetId=dataset-alpha-book`, { waitUntil: 'domcontentloaded' })
+    await page.getByRole('heading', { name: 'Alpha Book Sample' }).waitFor({ timeout: 15000 })
+    await page.getByText('Trust summary', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Source provenance', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Refresh briefing' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Sample rows' }).waitFor({ timeout: 15000 })
+    await page.getByText('Developer details', { exact: true }).waitFor({ timeout: 15000 })
+    if (await page.getByText('Alpha Book research planning', { exact: true }).count()) {
+      throw new Error('Dataset detail should not show unrelated chat history in the primary sidebar.')
+    }
+  } finally {
+    await browser.close()
+  }
+}
+
 const child = spawn(
   'pnpm',
   ['preview', '--host', '127.0.0.1', '--port', String(port)],
@@ -97,6 +116,7 @@ try {
   await assertRoute('/?harness=1&view=runs', '<div id="app">')
   await assertRenderedOrientation()
   await assertRenderedDatasetInventory()
+  await assertRenderedDatasetDetail()
   console.log(`Dashboard harness smoke passed at ${baseUrl}`)
 } catch (error) {
   console.error(output)

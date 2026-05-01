@@ -430,6 +430,22 @@ function profileText(profile: unknown, key: string) {
   return typeof value === 'string' && value.trim() ? value.trim() : null
 }
 
+function profileArray(profile: unknown, key: string) {
+  if (!isRecord(profile)) return []
+  const value = profile[key]
+  return Array.isArray(value) ? value : []
+}
+
+function profileRecord(profile: unknown, key: string) {
+  if (!isRecord(profile)) return null
+  const value = profile[key]
+  return isRecord(value) ? value : null
+}
+
+function formatList(value: string[]) {
+  return value.filter(Boolean).join(', ')
+}
+
 function renderBriefingMarkdown(markdown: string) {
   const nodes: ReactNode[] = []
   let paragraph: string[] = []
@@ -1777,13 +1793,85 @@ function DatasetDetailPage({
   const tableCount = profileArrayCount(structuredProfile, 'tables')
   const formatCount = profileArrayCount(structuredProfile, 'formats')
   const limitationCount = profileArrayCount(structuredProfile, 'limitations')
+  const profileSources = profileArray(structuredProfile, 'sources')
+  const profileTables = profileArray(structuredProfile, 'tables')
+  const profileFormats = profileArray(structuredProfile, 'formats')
+  const profileLimitations = profileArray(structuredProfile, 'limitations')
+  const schemaRecord = profileRecord(current.profile, 'schema')
+  const schemaColumns = Array.isArray(schemaRecord?.columns)
+    ? schemaRecord.columns.filter((value): value is string => typeof value === 'string' && value.trim().length > 0)
+    : []
+  const sampleRows = Array.isArray(current.profile?.sampleRows)
+    ? current.profile.sampleRows.filter((row): row is Record<string, unknown> => isRecord(row)).slice(0, 3)
+    : []
+  const primarySource = profileSources
+    .map((item) => profileText(item, 'provider') ?? profileText(item, 'name') ?? profileText(item, 'source'))
+    .find(Boolean) ?? null
+  const freshness = describedAt ?? current.updatedAt
   const profileMetrics = [
-    ['Sources', sourceCount],
-    ['Tables', tableCount],
-    ['Formats', formatCount],
-    ['Limitations', limitationCount],
-  ].filter((entry): entry is [string, number] => typeof entry[1] === 'number')
+    {
+      label: 'Source',
+      value: sourceCount ? `${sourceCount} source${sourceCount === 1 ? '' : 's'}` : 'No source summary',
+      detail: primarySource ?? 'Provider not summarized yet.',
+    },
+    {
+      label: 'Tables',
+      value: tableCount ? `${tableCount} table${tableCount === 1 ? '' : 's'}` : 'No tables listed',
+      detail: profileTables
+        .map((item) => {
+          const name = profileText(item, 'name') ?? 'Unnamed table'
+          const rows = typeof item.rowCount === 'number'
+            ? item.rowCount
+            : typeof item.rows === 'number'
+              ? item.rows
+              : null
+          return rows ? `${name} (${rows.toLocaleString()} rows)` : name
+        })
+        .filter(Boolean)
+        .join(', ') || 'Table inventory not summarized yet.',
+    },
+    {
+      label: 'Formats',
+      value: formatCount ? `${formatCount} format${formatCount === 1 ? '' : 's'}` : 'No formats listed',
+      detail: formatList(profileFormats.map((item) => (typeof item === 'string' ? item.toUpperCase() : '')).filter(Boolean)) || 'Format summary not available yet.',
+    },
+    {
+      label: 'Limitations',
+      value: limitationCount ? `${limitationCount} known limit${limitationCount === 1 ? '' : 's'}` : 'No limitations listed',
+      detail: typeof profileLimitations[0] === 'string' ? profileLimitations[0] : 'No explicit limitation summary yet.',
+    },
+  ]
   const profileSummary = profileText(structuredProfile, 'summary')
+  const fitHeadline = current.inventoryUseCase?.replace(/^Best for:\s*/i, '').trim() || profileSummary
+  const fitVerdict = limitationCount
+    ? `Useful for ${fitHeadline ?? 'initial exploration'}, but review the known limits before trusting final results.`
+    : `Ready for ${fitHeadline ?? 'research use'} with no major limits highlighted in the current profile.`
+  const describeButtonLabel = briefingMarkdown ? 'Refresh briefing' : 'Describe dataset'
+  const describeHelperText = briefingMarkdown
+    ? 'Regenerate the briefing if the source data or profile has changed.'
+    : 'Generate a plain-language briefing covering provenance, schema, coverage, and limits.'
+  const provenanceItems = [
+    {
+      label: 'Source provenance',
+      value: primarySource
+        ? `${primarySource}${current.mode?.toLowerCase() === 'public' ? ' public dataset' : ' dataset'}`
+        : current.sourceFilename
+          ? `Imported from ${current.sourceFilename}`
+          : 'Provenance summary not available yet.',
+    },
+    {
+      label: 'Last refreshed',
+      value: freshness ? formatDateTime(freshness) : 'Unknown',
+    },
+    {
+      label: 'Coverage and completeness',
+      value: profileLimitations.length > 0
+        ? String(profileLimitations[0])
+        : current.ingestConfig && isRecord(current.ingestConfig) && typeof current.ingestConfig.rowCount === 'number'
+          ? `${current.ingestConfig.rowCount.toLocaleString()} rows summarized in the current profile.`
+          : 'Coverage notes are not available yet.',
+    },
+  ]
 
   return (
     <main className="min-h-0 flex-1 overflow-y-auto px-4 py-8 md:px-8">
@@ -1802,20 +1890,36 @@ function DatasetDetailPage({
 
         {error ? <div className="bg-destructive/5 px-4 py-3 text-sm text-destructive">{error}</div> : null}
 
-        {profileMetrics.length > 0 ? (
-          <section className="grid gap-4 md:grid-cols-4">
-            {profileMetrics.map(([label, value]) => (
-              <div key={label} className="rounded-lg border border-border px-5 py-4">
-                <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">{label}</div>
-                <div className="mt-2 break-words text-2xl font-semibold">{value.toLocaleString()}</div>
-              </div>
-            ))}
-          </section>
-        ) : null}
-
-        <section className="flex flex-col gap-4">
-          <div className="flex items-center justify-between gap-4 border-b border-border pb-3">
-            <div className="text-xl font-medium">Dataset briefing</div>
+        <section className="grid gap-4 rounded-2xl border border-border bg-muted/20 p-6 lg:grid-cols-[minmax(0,1fr)_280px]">
+          <div className="space-y-5">
+            <div className="space-y-2">
+              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Trust summary</div>
+              <h2 className="text-2xl font-semibold tracking-normal">{fitVerdict}</h2>
+              <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
+                {profileSummary ?? 'Open the dataset briefing to review what is inside, where it came from, and what could make it a poor fit.'}
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-3">
+              {provenanceItems.map((item) => (
+                <div key={item.label} className="rounded-xl border border-border bg-background/80 px-4 py-4">
+                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">{item.label}</div>
+                  <div className="mt-2 text-sm leading-6 text-foreground/85">{item.value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex flex-col justify-between gap-4 rounded-xl border border-border bg-background p-5">
+            <div className="space-y-2">
+              <h2 className="text-sm font-medium">Dataset briefing</h2>
+              <p className="text-sm leading-6 text-muted-foreground">{describeHelperText}</p>
+              {describedAt ? (
+                <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+                  <FileText className="size-4" />
+                  <span>Last generated {formatDateTime(describedAt)}</span>
+                  {describeIsRunning ? <StatusBadge>Refreshing</StatusBadge> : null}
+                </div>
+              ) : null}
+            </div>
             <Button
               type="button"
               variant="outline"
@@ -1833,21 +1937,28 @@ function DatasetDetailPage({
                 }
               }}
             >
-              {startingDescribe ? 'Starting...' : 'Describe dataset'}
+              {startingDescribe ? 'Starting...' : describeButtonLabel}
             </Button>
           </div>
-          {describedAt ? (
-            <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-              <FileText className="size-4" />
-              <span>Briefing generated {formatDateTime(describedAt)}</span>
-              {describeIsRunning ? <StatusBadge>Refreshing</StatusBadge> : null}
-            </div>
-          ) : null}
-          {profileSummary ? (
-            <div className="rounded-lg border border-border bg-muted/30 p-5 text-sm leading-7 text-muted-foreground">
-              {profileSummary}
-            </div>
-          ) : null}
+        </section>
+
+        {profileMetrics.length > 0 ? (
+          <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {profileMetrics.map((metric) => (
+              <div key={metric.label} className="rounded-xl border border-border px-5 py-4">
+                <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">{metric.label}</div>
+                <div className="mt-2 break-words text-lg font-semibold">{metric.value}</div>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">{metric.detail}</p>
+              </div>
+            ))}
+          </section>
+        ) : null}
+
+        <section className="flex flex-col gap-4">
+          <div className="flex items-center justify-between gap-4 border-b border-border pb-3">
+            <h2 className="text-xl font-medium">Dataset briefing</h2>
+            <div className="text-sm text-muted-foreground">Read top to bottom for provenance, coverage, schema, and known gaps.</div>
+          </div>
           <div className="rounded-lg border border-border p-5">
             {briefingMarkdown ? (
               <article className="max-w-none">{renderBriefingMarkdown(briefingMarkdown)}</article>
@@ -1873,16 +1984,68 @@ function DatasetDetailPage({
           </div>
         </section>
 
+        {(schemaColumns.length > 0 || sampleRows.length > 0) ? (
+          <section className="grid gap-6 xl:grid-cols-[320px_minmax(0,1fr)]">
+            <div className="rounded-xl border border-border p-5">
+              <h2 className="text-lg font-medium">Schema</h2>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                Core fields visible in the current profile.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {schemaColumns.map((column) => (
+                  <span key={column} className="rounded-full border border-border px-3 py-1 text-sm text-foreground/85">
+                    {column}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-xl border border-border p-5">
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <h2 className="text-lg font-medium">Sample rows</h2>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    Quick examples so you can confirm the dataset contains the kind of records you expect.
+                  </p>
+                </div>
+              </div>
+              {sampleRows.length > 0 ? (
+                <div className="mt-4 overflow-x-auto">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        {Object.keys(sampleRows[0] ?? {}).map((column) => (
+                          <TableHead key={column}>{column}</TableHead>
+                        ))}
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {sampleRows.map((row, index) => (
+                        <TableRow key={index}>
+                          {Object.keys(sampleRows[0] ?? {}).map((column) => (
+                            <TableCell key={column}>{String(row[column] ?? '—')}</TableCell>
+                          ))}
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
+              ) : null}
+            </div>
+          </section>
+        ) : null}
+
         <details className="rounded-lg border border-border p-5">
-          <summary className="cursor-pointer text-sm font-medium">Debug details</summary>
+          <summary className="cursor-pointer text-sm font-medium">Developer details</summary>
+          <p className="mt-3 text-sm leading-6 text-muted-foreground">
+            Lifecycle metadata and raw payloads used for debugging dataset ingestion and describe runs.
+          </p>
           <div className="mt-4 grid gap-4 md:grid-cols-2">
             {[
               ['Source file', current.sourceFilename ?? 'Unknown'],
-              ['Mode', formatStatus(current.mode ?? 'default')],
-              ['Manifest', current.manifestPath ?? 'Not available'],
-              ['Volume', current.volume?.mountPath ?? 'Not mounted'],
-              ['Size', formatBytes(current.sourceSizeBytes)],
-              ['Updated', formatDateTime(current.updatedAt)],
+              ['Manifest path', current.manifestPath ?? 'Not available'],
+              ['Mounted volume', current.volume?.mountPath ?? 'Not mounted'],
+              ['Dataset size', formatBytes(current.sourceSizeBytes)],
+              ['Dataset updated', formatDateTime(current.updatedAt)],
               ['Describe run', describeRun?.id ?? current.profile?.describedRunId ?? 'None'],
               ['Briefing artifact', current.profile?.briefingArtifactId ?? 'None'],
               ['Profile artifact', current.profile?.profileArtifactId ?? 'None'],
@@ -2919,6 +3082,7 @@ function DashboardApp({
 
   const activeRun = route.runId ? runs.find((run) => run.id === route.runId) ?? null : null
   const activeDataset = route.datasetId ? datasets.find((dataset) => dataset.id === route.datasetId) ?? null : null
+  const showResearchChats = !(route.view === 'datasets' && activeDataset)
 
   let content: ReactNode
 
@@ -3063,54 +3227,56 @@ function DashboardApp({
           </a>
         </SidebarHeader>
         <SidebarContent>
-          <SidebarGroup>
-            <SidebarGroupLabel>Research chats</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton
-                    isActive={route.view === 'assistant' && !route.sessionId}
-                    onClick={() =>
-                      updateDashboardRoute({
-                        view: 'assistant',
-                        runId: null,
-                        sessionId: null,
-                      })}
-                  >
-                    <span>New chat</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                {recentAssistantSessions.map((chatSession) => {
-                  return (
-                    <SidebarMenuItem key={chatSession.id}>
-                      <SidebarMenuButton
-                        className="h-auto items-start py-2"
-                        isActive={route.view === 'assistant' && route.sessionId === chatSession.id}
-                        onClick={() =>
-                          updateDashboardRoute({
-                            view: 'assistant',
-                            runId: null,
-                            sessionId: chatSession.id,
-                          })}
-                      >
-                        <span className="flex min-w-0 flex-col items-start gap-1">
-                          <span className="flex items-center gap-2">
-                            <Badge variant="secondary">{readableSessionKind(chatSession.kind)}</Badge>
-                            <span className="truncate">
-                              {readableSessionTitle(chatSession.title)}
+          {showResearchChats ? (
+            <SidebarGroup>
+              <SidebarGroupLabel>Research chats</SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton
+                      isActive={route.view === 'assistant' && !route.sessionId}
+                      onClick={() =>
+                        updateDashboardRoute({
+                          view: 'assistant',
+                          runId: null,
+                          sessionId: null,
+                        })}
+                    >
+                      <span>New chat</span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  {recentAssistantSessions.map((chatSession) => {
+                    return (
+                      <SidebarMenuItem key={chatSession.id}>
+                        <SidebarMenuButton
+                          className="h-auto items-start py-2"
+                          isActive={route.view === 'assistant' && route.sessionId === chatSession.id}
+                          onClick={() =>
+                            updateDashboardRoute({
+                              view: 'assistant',
+                              runId: null,
+                              sessionId: chatSession.id,
+                            })}
+                        >
+                          <span className="flex min-w-0 flex-col items-start gap-1">
+                            <span className="flex items-center gap-2">
+                              <Badge variant="secondary">{readableSessionKind(chatSession.kind)}</Badge>
+                              <span className="truncate">
+                                {readableSessionTitle(chatSession.title)}
+                              </span>
+                            </span>
+                            <span className="truncate text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
+                              {sessionSummaryLine(chatSession, chatSession.dataset, chatSession.run)}
                             </span>
                           </span>
-                          <span className="truncate text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
-                            {sessionSummaryLine(chatSession, chatSession.dataset, chatSession.run)}
-                          </span>
-                        </span>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  )
-                })}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
+                        </SidebarMenuButton>
+                      </SidebarMenuItem>
+                    )
+                  })}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+          ) : null}
         </SidebarContent>
         <SidebarFooter className="border-t border-sidebar-border p-3">
           <SidebarMenu className="mb-2">

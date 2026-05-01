@@ -17,6 +17,15 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Inventory copy in harness mode should still read like product copy, not internal QA or fixture text.
 - Private and public groupings should remain visible even when one group is empty so absence is not ambiguous.
 
+## Dataset Detail Expectations
+
+- The dataset detail page should answer trust-and-fit questions before it exposes implementation details.
+- The top of the page should state what the dataset is good for, where it came from, how fresh it is, and the main limitation.
+- Summary metrics should explain the actual source, tables, formats, and limits, not only show counts.
+- The primary reading path should include the human-readable briefing, visible schema fields, and sample rows.
+- Describe actions should explain whether they generate or refresh the briefing.
+- Run ids, artifact ids, manifest paths, raw JSON payloads, and similar debugging material belong in a collapsed developer-only section.
+
 ## Assistant Home Expectations
 
 - The signed-in assistant home is browser-first, not CLI-first. It should orient a user who only knows they want to do research.
