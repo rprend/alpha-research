@@ -84,4 +84,16 @@ for (const script of [
   assert(existsSync(join(root, script)), `Missing dashboard journey script: ${script}`)
 }
 
+const launchPostSource = readFileSync(join(root, 'public/blog/launching-alpha-research/index.html'), 'utf8')
+for (const token of [
+  'Try Alpha Book',
+  'Open Dashboard',
+  'What to do next',
+  'CLI (RResearch)',
+  'How the product surfaces fit together',
+  'Typical path:',
+]) {
+  assert(launchPostSource.includes(token), `Launch post is missing required journey steering copy: ${token}`)
+}
+
 console.log('Harness contract validation passed.')
