@@ -164,7 +164,7 @@ export const harnessRuns = [
     type: 'describe',
     status: 'ready',
     prompt: 'Describe the Alpha Book sample and identify research-ready fields.',
-    outputPreview: 'Dataset briefing completed with schema and provenance.',
+    outputPreview: 'Dataset briefing ready with a markdown briefing and structured dataset profile.',
     createdAt: iso(80),
     updatedAt: iso(22),
   },
@@ -216,7 +216,7 @@ export const harnessSessions = [
         role: 'assistant',
         kind: 'assistant_message',
         title: 'Assistant response',
-        content: 'I created a describe run and will track artifacts in the run view.',
+        content: 'I created a describe run. The run view will show progress, transcript updates, and the generated briefing artifacts.',
         createdAt: iso(88),
       },
     ],
@@ -246,7 +246,7 @@ export const harnessSessions = [
         role: 'assistant',
         kind: 'final_summary',
         title: 'Synthesis',
-        content: 'Created summary.md and result.json in the artifact directory.',
+        content: 'Created the Dataset Briefing markdown and Dataset Profile JSON artifacts.',
         createdAt: iso(22),
       },
     ],
@@ -276,7 +276,7 @@ const harnessArtifacts = [
     id: 'artifact-harness-briefing',
     runId: 'run-harness-completed',
     type: 'file',
-    title: 'summary.md',
+    title: 'Dataset Briefing',
     content: {
       path: '/workspace/artifacts/summary.md',
       text: [
@@ -296,7 +296,7 @@ const harnessArtifacts = [
     id: 'artifact-harness-result',
     runId: 'run-harness-completed',
     type: 'structured_result',
-    title: 'result.json',
+    title: 'Dataset Profile',
     content: {
       path: '/workspace/artifacts/result.json',
       rowCount: 75000,
@@ -388,8 +388,8 @@ export function getHarnessRunResults(runId: string) {
     metadata: {
       config: { harness: true },
       artifactSpec: [
-        { type: 'remote_agent_summary', title: 'Remote Agent Summary' },
-        { type: 'structured_result', title: 'result.json' },
+        { type: 'markdown', title: 'Dataset Briefing' },
+        { type: 'json', title: 'Dataset Profile' },
       ],
     },
     artifacts: harnessArtifacts.filter((artifact) => artifact.runId === runId),

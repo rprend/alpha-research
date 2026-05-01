@@ -89,6 +89,22 @@ async function assertRenderedDatasetDetail() {
   }
 }
 
+async function assertDescribeRunSteering() {
+  const browser = await chromium.launch({ headless: true })
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+    await page.goto(`${baseUrl}/?harness=1&view=datasets&datasetId=dataset-alpha-book`, { waitUntil: 'domcontentloaded' })
+    await page.getByRole('button', { name: 'Refresh briefing' }).click()
+    await page.getByRole('heading', { name: 'Dataset briefing ready' }).waitFor({ timeout: 15000 })
+    await page.getByText('The durable briefing stays attached to this run as an artifact', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Open briefing artifact' }).waitFor({ timeout: 15000 })
+    await page.getByText('Dataset Briefing', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Dataset Profile', { exact: true }).waitFor({ timeout: 15000 })
+  } finally {
+    await browser.close()
+  }
+}
+
 const child = spawn(
   'pnpm',
   ['preview', '--host', '127.0.0.1', '--port', String(port)],
@@ -117,6 +133,7 @@ try {
   await assertRenderedOrientation()
   await assertRenderedDatasetInventory()
   await assertRenderedDatasetDetail()
+  await assertDescribeRunSteering()
   console.log(`Dashboard harness smoke passed at ${baseUrl}`)
 } catch (error) {
   console.error(output)

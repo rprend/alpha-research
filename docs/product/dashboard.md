@@ -23,7 +23,7 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - The top of the page should state what the dataset is good for, where it came from, how fresh it is, and the main limitation.
 - Summary metrics should explain the actual source, tables, formats, and limits, not only show counts.
 - The primary reading path should include the human-readable briefing, visible schema fields, and sample rows.
-- Describe actions should explain whether they generate or refresh the briefing.
+- Describe actions should explain whether they generate or refresh the briefing, that they start async work, and that the resulting briefing/profile artifacts will appear in the run view and dataset detail.
 - Run ids, artifact ids, manifest paths, raw JSON payloads, and similar debugging material belong in a collapsed developer-only section.
 
 ## Assistant Home Expectations
@@ -49,6 +49,7 @@ Harness mode bypasses production auth/data requirements and renders seeded datas
 - Open the dashboard in harness mode.
 - Verify datasets, runs, and terminal sessions render.
 - Open a seeded run and inspect progress, produced files, and rendered markdown/JSON/code previews.
+- For dataset describe runs, confirm the run view calls out the briefing destination and exposes a primary `Open briefing artifact` action without requiring the artifact drawer icon.
 - Use screenshots or DOM snapshots to validate UI changes.
 - Only use production APIs when the task explicitly requires production behavior.
 

@@ -679,6 +679,30 @@ function artifactLanguage(path: string, artifact: RunArtifactRecord) {
   return 'text'
 }
 
+function isMarkdownArtifact(artifact: RunArtifactRecord) {
+  const path = artifactPath(artifact).toLowerCase()
+  if (artifact.type === 'markdown') return true
+  return path.endsWith('.md') || path.endsWith('.markdown')
+}
+
+function getDatasetBriefingArtifact(artifacts: RunArtifactRecord[]) {
+  return artifacts.find((artifact) => {
+    if (!isMarkdownArtifact(artifact)) return false
+    const title = artifact.title.toLowerCase()
+    const path = artifactPath(artifact).toLowerCase()
+    const text = artifactText(artifact)
+    return title.includes('briefing') || path.includes('summary.md') || text.includes('# Dataset Briefing')
+  }) ?? null
+}
+
+function getDatasetProfileArtifact(artifacts: RunArtifactRecord[]) {
+  return artifacts.find((artifact) => {
+    const title = artifact.title.toLowerCase()
+    const path = artifactPath(artifact).toLowerCase()
+    return artifact.type === 'json' || artifact.type === 'structured_result' || title.includes('profile') || path.endsWith('result.json')
+  }) ?? null
+}
+
 function fileIconFor(path: string, artifact?: RunArtifactRecord) {
   const language = artifact ? artifactLanguage(path, artifact) : path.split('.').pop()?.toLowerCase()
   if (language === 'markdown') {
@@ -1850,6 +1874,9 @@ function DatasetDetailPage({
   const describeHelperText = briefingMarkdown
     ? 'Regenerate the briefing if the source data or profile has changed.'
     : 'Generate a plain-language briefing covering provenance, schema, coverage, and limits.'
+  const describeDestinationText = briefingMarkdown
+    ? 'Starts a fresh async run and opens the run view so you can watch progress, transcript updates, and the new briefing artifact.'
+    : 'Starts an async run and opens the run view with progress, transcript updates, and the generated briefing artifact.'
   const provenanceItems = [
     {
       label: 'Source provenance',
@@ -1919,6 +1946,10 @@ function DatasetDetailPage({
                   {describeIsRunning ? <StatusBadge>Refreshing</StatusBadge> : null}
                 </div>
               ) : null}
+              <p className="text-sm leading-6 text-muted-foreground">{describeDestinationText}</p>
+              <div className="rounded-xl border border-dashed border-border bg-muted/25 px-4 py-3 text-sm text-muted-foreground">
+                Expected artifacts: <span className="font-medium text-foreground">Dataset Briefing</span> and <span className="font-medium text-foreground">Dataset Profile</span>.
+              </div>
             </div>
             <Button
               type="button"
@@ -2855,11 +2886,42 @@ function RunDetailPage({
     () => producedArtifacts.filter((artifact) => artifact.type !== 'remote_agent_session'),
     [producedArtifacts],
   )
+  const primaryBriefingArtifact = useMemo(
+    () => getDatasetBriefingArtifact(visibleProducedArtifacts),
+    [visibleProducedArtifacts],
+  )
+  const primaryProfileArtifact = useMemo(
+    () => getDatasetProfileArtifact(visibleProducedArtifacts),
+    [visibleProducedArtifacts],
+  )
+  const expectedArtifactNames = useMemo(() => {
+    const requested = requestedArtifacts
+      .map((artifact) =>
+        typeof artifact.title === 'string'
+          ? artifact.title
+          : typeof artifact.type === 'string'
+            ? formatStatus(artifact.type)
+            : null,
+      )
+      .filter((value): value is string => Boolean(value))
+    return requested.length > 0 ? requested : ['Dataset Briefing', 'Dataset Profile']
+  }, [requestedArtifacts])
   const transcriptEntries = useMemo(
     () => (hasRemoteLogs ? [...observedProgressMessages, ...remoteMessages] : cliMessages),
     [cliMessages, hasRemoteLogs, observedProgressMessages, remoteMessages],
   )
   const artifactCount = visibleProducedArtifacts.length
+  const isDescribeRun = run.type === 'describe'
+  const describeStatusTitle = run.status === 'running'
+    ? 'Generating dataset briefing'
+    : ['ready', 'completed'].includes(run.status)
+      ? 'Dataset briefing ready'
+      : `${formatStatus(run.status)} dataset briefing run`
+  const describeStatusCopy = run.status === 'running'
+    ? 'Alpha Research is inspecting the dataset and writing durable documentation. Stay on this run to watch progress and open the generated briefing when it lands.'
+    : ['ready', 'completed'].includes(run.status)
+      ? 'The documentation run finished. Open the briefing artifact for the durable write-up, then use the profile artifact for the structured summary.'
+      : run.outputPreview || 'This describe run did not complete normally. Inspect the transcript and artifacts for recovery details.'
 
   useEffect(() => {
     const selectedArtifactStillExists = visibleProducedArtifacts.some(
@@ -2892,6 +2954,66 @@ function RunDetailPage({
         ) : null}
 
         <div className="mx-auto flex min-h-0 w-full max-w-[46rem] flex-1 flex-col">
+          {isDescribeRun ? (
+            <section className="mb-6 rounded-2xl border border-border bg-muted/20 p-5">
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h2 className="text-xl font-semibold tracking-normal">{describeStatusTitle}</h2>
+                    <StatusBadge>{formatStatus(run.status)}</StatusBadge>
+                  </div>
+                  <p className="text-sm leading-6 text-muted-foreground">{describeStatusCopy}</p>
+                </div>
+                <div className="grid gap-3 md:grid-cols-2">
+                  <div className="rounded-xl border border-border bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Destination</div>
+                    <p className="mt-2 text-sm leading-6 text-foreground/85">
+                      The durable briefing stays attached to this run as an artifact and also updates the dataset detail page.
+                    </p>
+                  </div>
+                  <div className="rounded-xl border border-border bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Expected artifacts</div>
+                    <ul className="mt-2 space-y-2 text-sm leading-6 text-foreground/85">
+                      {expectedArtifactNames.map((name) => (
+                        <li key={name}>{name}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  {primaryBriefingArtifact ? (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => {
+                        setSelectedArtifactId(primaryBriefingArtifact.id)
+                        setArtifactsOpen(true)
+                      }}
+                    >
+                      Open briefing artifact
+                    </Button>
+                  ) : null}
+                  {primaryProfileArtifact ? (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => {
+                        setSelectedArtifactId(primaryProfileArtifact.id)
+                        setArtifactsOpen(true)
+                      }}
+                    >
+                      Open profile artifact
+                    </Button>
+                  ) : null}
+                  {!primaryBriefingArtifact && artifactCount > 0 ? (
+                    <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
+                      Open artifacts
+                    </Button>
+                  ) : null}
+                </div>
+              </div>
+            </section>
+          ) : null}
           {error ? (
             <div className="mb-4 w-full bg-destructive/5 px-4 py-3 text-sm text-destructive">
               Could not load run transcript: {error}
