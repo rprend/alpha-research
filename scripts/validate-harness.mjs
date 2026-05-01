@@ -65,6 +65,9 @@ for (const token of [
   'Dashboard Orientation',
   'Dataset Inventory',
   'Completed Run Transcript And Artifacts',
+  'User Mind',
+  'Choose The Right Dataset',
+  'Mobile Run Check-In',
 ]) {
   assert(dashboardJourneySource.includes(token), `Missing dashboard journey coverage: ${token}`)
 }

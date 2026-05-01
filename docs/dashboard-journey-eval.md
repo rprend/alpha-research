@@ -91,34 +91,42 @@ For every dashboard journey, judge:
 
 The canonical journey definitions live in `scripts/dashboard-journeys.mjs`.
 
-### D01: Dashboard Orientation
+Each journey is deliberately framed in two layers:
 
-The user opens the dashboard without knowing where to start. Judge whether the assistant, existing chats, datasets, and account state are understandable without CLI knowledge.
+- Product step: the product job Alpha Research needs to help the user accomplish.
+- User mind: what the user actually knows, assumes, fears, and does not know when they arrive.
 
-### D02: Dataset Inventory
+Judging should evaluate whether the rendered dashboard moves the user from the entry mental state toward the correct product step. For example, `D11: Choose The Right Dataset` is not judged as “does a dataset list exist?” It is judged as “does the page help a user who only knows they want to study housing affordability choose or discover the right data without knowing dataset ids?”
 
-The user wants to see what datasets are available before choosing work. Judge whether dataset names, descriptions, grouping, and readiness are scannable.
+Current journey coverage:
 
-### D03: Dataset Detail And Briefing
-
-The user opens a ready dataset to understand research fitness. Judge whether description, briefing, profile metrics, provenance, schema, limitations, and describe action are clear.
-
-### D04: Start Dataset Describe From Detail
-
-The user clicks `Describe dataset`. Judge whether the transition into run monitoring is understandable and whether artifact expectations are visible.
-
-### D05: Runs Inventory
-
-The user wants to monitor recent work across datasets. Judge whether completed, running, and uncertain states are easy to distinguish.
-
-### D06: Completed Run Transcript And Artifacts
-
-The user opens a completed run and then opens artifacts. Judge transcript readability, artifact discoverability, names, and content preview.
-
-### D07: Running Run Status
-
-The user opens an in-progress run. Judge whether the dashboard shows aliveness, last activity, and current work without implying false certainty.
-
-### D08: Terminal Session Continuity
-
-The user opens a persisted terminal session. Judge whether command output and synthesis are readable and whether raw ids or implementation terms are over-emphasized.
+- `D01` Dashboard Orientation
+- `D02` Dataset Inventory
+- `D03` Dataset Detail And Briefing
+- `D04` Start Dataset Describe From Detail
+- `D05` Runs Inventory
+- `D06` Completed Run Transcript And Artifacts
+- `D07` Running Run Status
+- `D08` Terminal Session Continuity
+- `D09` First-Time Signed-In Landing
+- `D10` No Datasets Yet
+- `D11` Choose The Right Dataset
+- `D12` Ask A Question Against A Dataset
+- `D13` Convert Vague Intent Into A Plan
+- `D14` Launch A Well-Specified Run
+- `D15` Is My Run Alive
+- `D16` Why Is This Run Stuck
+- `D17` Failed Run Salvage
+- `D18` Inspect Produced Artifacts
+- `D19` Original Prompt Traceability
+- `D20` Resume Last Research Thread
+- `D21` Compare Recent Runs
+- `D22` Dataset Freshness
+- `D23` Data Trust And Provenance
+- `D24` Signed-Out Dashboard Visit
+- `D25` Signed In But Data Fails To Load
+- `D26` Busy Dataset Conflict
+- `D27` Cancel A Running Job
+- `D28` Open Dashboard Link From CLI
+- `D29` Open Remote Codex Session
+- `D30` Mobile Run Check-In

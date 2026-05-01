@@ -86,6 +86,10 @@ async function captureSnapshot({ page, outDir, screenshotsDir, snapshotsDir, eve
 
 async function runStep(page, step, events, startedAt) {
   events.push(JSON.stringify({ atMs: Date.now() - startedAt, type: 'step', step }))
+  if (step.type === 'viewport') {
+    await page.setViewportSize({ width: step.width, height: step.height })
+    return
+  }
   if (step.type === 'wait') {
     await page.waitForTimeout(step.ms)
     return

@@ -50,14 +50,16 @@ Read:
 - video metadata in metadata.json when available
 
 Your job:
-1. Reconstruct what the user experienced from the screenshots and visible-text snapshots first, then use DOM snapshots/events to verify exact text.
-2. Decide whether the dashboard chose the right interaction and state: orientation, inventory, detail, run monitoring, artifact inspection, or terminal transcript.
-3. Identify every confusing moment visible to a normal user. Be concrete and reference screenshot or snapshot filenames.
-4. Separate product confusion from dataset confusion, auth confusion, run lifecycle confusion, artifact confusion, and visual/UI readability problems.
-5. Judge whether displayed information was too sparse, right-sized, or too dense for this journey.
-6. Return a Markdown briefing with:
+1. Start from the Journey definition. Treat Product Step and User Mind as separate: the product step is what Alpha Research needs to accomplish; the user mind is what the user actually knows, fears, assumes, and does not know on entry.
+2. Reconstruct what the user experienced from the screenshots and visible-text snapshots first, then use DOM snapshots/events to verify exact text.
+3. Decide whether the dashboard steered the user from their entry mental state toward the correct product step.
+4. Identify every confusing moment visible to a normal user. Be concrete and reference screenshot or snapshot filenames.
+5. Separate product confusion from dataset confusion, auth confusion, run lifecycle confusion, artifact confusion, and visual/UI readability problems.
+6. Judge whether displayed information was too sparse, right-sized, or too dense for this journey.
+7. Return a Markdown briefing with:
    - Verdict: Pass, Partial, or Fail.
    - User input burden.
+   - User mind assessment: what the product correctly inferred or failed to infer about the user.
    - Correct behavior assessment.
    - Confusing moments ordered by severity.
    - Missing information that would have helped.

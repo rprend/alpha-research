@@ -87,7 +87,8 @@ export async function writeDashboardJourneyIndex(outRoot) {
         <header>
           <p class="eyebrow">${escapeHtml(journey.id)} · ${escapeHtml(run.runId)}</p>
           <h2>${escapeHtml(journey.title)}</h2>
-          <p>${escapeHtml(journey.intention)}</p>
+          <p><strong>Product step:</strong> ${escapeHtml(journey.productStep ?? journey.intention)}</p>
+          <p><strong>User mind:</strong> ${escapeHtml(journey.userMind ?? journey.intention)}</p>
         </header>
         <div class="meta">
           <span>${escapeHtml(run.metadata?.url ?? run.input?.url ?? '')}</span>
@@ -125,6 +126,7 @@ export async function writeDashboardJourneyIndex(outRoot) {
       .eyebrow { margin: 0 0 6px; color: #777; font-size: 12px; text-transform: uppercase; letter-spacing: .12em; }
       h2 { margin: 0 0 8px; font-size: 20px; }
       p { margin: 0; line-height: 1.5; }
+      strong { font-weight: 650; }
       .meta { display: flex; flex-wrap: wrap; gap: 8px; color: #555; font-size: 12px; }
       .meta span { border: 1px solid #ddd; padding: 4px 7px; border-radius: 999px; background: #fafafa; }
       img { width: 100%; border: 1px solid #ddd; border-radius: 6px; background: #eee; }

@@ -1244,13 +1244,30 @@ async function fetchSession() {
 
 async function fetchJson<T>(input: string) {
   if (isHarnessMode()) {
+    const harnessScenario = new URL(window.location.href).searchParams.get('scenario')
+    if (harnessScenario === 'data-error' && (
+      input === '/api/cli/datasets' ||
+      input === '/api/cli/runs' ||
+      input.startsWith('/api/cli/sessions?')
+    )) {
+      throw new Error('Harness scenario: dashboard data could not load.')
+    }
     if (input === '/api/cli/datasets') {
+      if (harnessScenario === 'empty') {
+        return { datasets: [] } as T
+      }
       return { datasets: harnessDatasets } as T
     }
     if (input === '/api/cli/runs') {
+      if (harnessScenario === 'empty') {
+        return { runs: [] } as T
+      }
       return { runs: harnessRuns } as T
     }
     if (input.startsWith('/api/cli/sessions?')) {
+      if (harnessScenario === 'empty') {
+        return { sessions: [] } as T
+      }
       return { sessions: harnessSessions } as T
     }
     const datasetMatch = input.match(/^\/api\/cli\/datasets\/([^/]+)$/u)
