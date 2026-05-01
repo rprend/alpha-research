@@ -34,12 +34,14 @@ import {
   RefreshCwIcon,
   SquareIcon,
 } from "lucide-react";
-import { useLayoutEffect, useRef, useState, type FC } from "react";
+import { useLayoutEffect, useRef, useState, type FC, type ReactNode } from "react";
 
 type ThreadProps = {
   readOnly?: boolean;
   welcomeTitle?: string;
   welcomeDescription?: string;
+  welcome?: ReactNode;
+  composerPlaceholder?: string;
   datasets?: ComposerDatasetOption[];
 };
 
@@ -47,6 +49,8 @@ export const Thread: FC<ThreadProps> = ({
   readOnly = false,
   welcomeTitle = "Hello there!",
   welcomeDescription = "How can I help you today?",
+  welcome,
+  composerPlaceholder = "Send a message...",
   datasets = [],
 }) => {
   const viewportRef = useRef<HTMLDivElement | null>(null);
@@ -84,11 +88,13 @@ export const Thread: FC<ThreadProps> = ({
       >
         <div className="mx-auto flex w-full max-w-(--thread-max-width) flex-1 flex-col px-4 pt-4">
           <AuiIf condition={(s) => s.thread.isEmpty}>
-            <ThreadWelcome
-              title={welcomeTitle}
-              description={welcomeDescription}
-              readOnly={readOnly}
-            />
+            {welcome ?? (
+              <ThreadWelcome
+                title={welcomeTitle}
+                description={welcomeDescription}
+                readOnly={readOnly}
+              />
+            )}
           </AuiIf>
 
           <div
@@ -102,7 +108,7 @@ export const Thread: FC<ThreadProps> = ({
 
           <ThreadPrimitive.ViewportFooter className="aui-thread-viewport-footer sticky bottom-0 mt-auto flex flex-col gap-4 overflow-visible rounded-t-(--composer-radius) bg-background pb-4 md:pb-6">
             <ThreadScrollToBottom />
-            {!readOnly ? <Composer datasets={datasets} /> : null}
+            {!readOnly ? <Composer datasets={datasets} placeholder={composerPlaceholder} /> : null}
           </ThreadPrimitive.ViewportFooter>
         </div>
       </ThreadPrimitive.Viewport>
@@ -181,7 +187,7 @@ const ThreadSuggestionItem: FC = () => {
   );
 };
 
-const Composer: FC<{ datasets: ComposerDatasetOption[] }> = ({ datasets }) => {
+const Composer: FC<{ datasets: ComposerDatasetOption[]; placeholder: string }> = ({ datasets, placeholder }) => {
   return (
     <ComposerPrimitive.Root className="aui-composer-root relative flex w-full flex-col">
       <ComposerPrimitive.AttachmentDropzone asChild>
@@ -191,7 +197,7 @@ const Composer: FC<{ datasets: ComposerDatasetOption[] }> = ({ datasets }) => {
         >
           <ComposerAttachments />
           <ComposerPrimitive.Input
-            placeholder="Send a message..."
+            placeholder={placeholder}
             className="aui-composer-input max-h-32 min-h-10 w-full resize-none bg-transparent px-1.75 py-1 text-sm outline-none placeholder:text-muted-foreground/80"
             rows={1}
             autoFocus

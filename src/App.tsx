@@ -5,6 +5,7 @@ import {
   Braces,
   ChevronDown,
   ChevronRight,
+  CircleArrowOutUpRight,
   Database,
   ExternalLink,
   FileText,
@@ -14,7 +15,10 @@ import {
   History,
   LoaderCircle,
   LogOut,
+  Orbit,
   MoreHorizontal,
+  PanelRightOpen,
+  Rocket,
   Table2,
   TerminalSquare,
   Zap,
@@ -36,6 +40,9 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
   Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
   CardContent,
 } from '@/components/ui/card'
 import {
@@ -306,15 +313,6 @@ function readableSessionTitle(value: string | null | undefined) {
     .trim()
 
   return normalized || 'Untitled chat'
-}
-
-function readableRunTitle(run: RunRecord | undefined, runId: string) {
-  if (!run) {
-    return `Run ${runId.slice(0, 8)}`
-  }
-  const type = formatStatus(run.type)
-  const status = formatStatus(run.status)
-  return `${type} · ${status}`
 }
 
 function formatBytes(value: number | null | undefined) {
@@ -2034,9 +2032,11 @@ function useSessionDetail(sessionId: string | null) {
 function ResearchAssistantPage({
   dataError,
   datasets,
+  runs,
 }: {
   dataError?: string | null
   datasets: DatasetRecord[]
+  runs: RunRecord[]
 }) {
   const route = useDashboardRoute()
   const activeSessionId = route.sessionId ?? null
@@ -2084,6 +2084,28 @@ function ResearchAssistantPage({
       previousResponseId: extractPreviousResponseId(session?.entries ?? []),
     })
   }, [activeSessionId, session])
+
+  const readyDatasets = useMemo(
+    () => datasets.filter((dataset) => dataset.status.toLowerCase() === 'ready'),
+    [datasets],
+  )
+  const launchDataset = readyDatasets[0] ?? datasets[0] ?? null
+  const launchProfile = launchDataset?.profile?.profile
+  const launchSchema = isRecord(launchDataset?.profile?.schema)
+    ? launchDataset?.profile?.schema
+    : null
+  const launchColumns = Array.isArray(launchSchema?.columns)
+    ? launchSchema.columns.filter((value): value is string => typeof value === 'string').slice(0, 4)
+    : []
+  const launchTables = profileArrayCount(launchProfile, 'tables')
+  const launchFormats = Array.isArray((launchProfile as Record<string, unknown> | null)?.formats)
+    ? ((launchProfile as Record<string, unknown>).formats as string[]).slice(0, 3)
+    : []
+  const latestDatasetRun = launchDataset
+    ? runs
+      .filter((run) => run.datasetId === launchDataset.id)
+      .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0] ?? null
+    : null
 
   const runtime = useExternalStoreRuntime({
     isRunning,
@@ -2177,8 +2199,20 @@ function ResearchAssistantPage({
         <AssistantRuntimeProvider runtime={runtime}>
           <div className="h-full min-h-0">
             <Thread
-              welcomeTitle={loading ? '' : 'RESEARCH CLI'}
-              welcomeDescription={loading ? '' : 'Run the signed-in RESEARCH CLI from the browser. Inspect datasets, launch runs, and manage remote Codex sessions.'}
+              welcomeTitle={loading ? '' : 'Launch a research run'}
+              welcomeDescription={loading ? '' : 'Start from a complete spec. Alpha Research preserves the request, asks only for field mismatches, and then moves into a traceable run.'}
+              welcome={
+                loading ? null : (
+                  <AssistantLaunchWelcome
+                    dataset={launchDataset}
+                    latestDatasetRun={latestDatasetRun}
+                    columnPreview={launchColumns}
+                    launchTables={launchTables}
+                    launchFormats={launchFormats}
+                  />
+                )
+              }
+              composerPlaceholder="Describe the run to launch: dataset, variables, time window, method, and outputs"
               datasets={datasets.map((dataset) => ({
                 id: dataset.id,
                 name: dataset.name,
@@ -2190,6 +2224,207 @@ function ResearchAssistantPage({
         </AssistantRuntimeProvider>
       </div>
     </main>
+  )
+}
+
+function AssistantLaunchWelcome({
+  dataset,
+  latestDatasetRun,
+  columnPreview,
+  launchTables,
+  launchFormats,
+}: {
+  dataset: DatasetRecord | null
+  latestDatasetRun: RunRecord | null
+  columnPreview: string[]
+  launchTables: number | null
+  launchFormats: string[]
+}) {
+  return (
+    <div className="my-auto flex w-full flex-col gap-6 py-8">
+      <div className="max-w-3xl px-2">
+        <Badge variant="secondary" className="mb-3 text-[0.68rem] tracking-[0.18em]">
+          Prepared Run
+        </Badge>
+        <h1 className="text-3xl font-semibold tracking-normal text-foreground">
+          Launch a well-specified run
+        </h1>
+        <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
+          Enter the full analysis request once. Alpha Research will preserve the dataset, variables,
+          time window, method, and output expectations, then move the work into a traceable async run.
+        </p>
+      </div>
+
+      <div className="grid gap-4 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)]">
+        <Card className="gap-5 border border-border/70 bg-background/95 py-6 shadow-none">
+          <CardHeader className="gap-2 px-6">
+            <div className="flex items-center justify-between gap-3">
+              <CardTitle className="text-base font-semibold uppercase tracking-[0.16em] text-foreground">
+                Active Dataset
+              </CardTitle>
+              {dataset ? <StatusBadge>{formatStatus(dataset.status)}</StatusBadge> : null}
+            </div>
+            <CardDescription className="text-sm leading-6">
+              Confirm the dataset once, then launch from the composer below.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4 px-6">
+            {dataset ? (
+              <>
+                <div>
+                  <div className="text-lg font-medium text-foreground">{dataset.name}</div>
+                  <div className="mt-1 text-sm text-muted-foreground">
+                    {dataset.description ?? dataset.sourceFilename ?? dataset.id}
+                  </div>
+                </div>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <LaunchFact
+                    icon={<Database className="size-4" />}
+                    label="Dataset id"
+                    value={dataset.id}
+                  />
+                  <LaunchFact
+                    icon={<Table2 className="size-4" />}
+                    label="Tables"
+                    value={launchTables ? String(launchTables) : 'Profile ready'}
+                  />
+                  <LaunchFact
+                    icon={<Braces className="size-4" />}
+                    label="Fields"
+                    value={columnPreview.length > 0 ? columnPreview.join(', ') : 'Open dataset to inspect fields'}
+                  />
+                  <LaunchFact
+                    icon={<FileText className="size-4" />}
+                    label="Formats"
+                    value={launchFormats.length > 0 ? launchFormats.join(', ') : 'Structured dataset'}
+                  />
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() =>
+                      updateDashboardRoute({
+                        view: 'datasets',
+                        datasetId: dataset.id,
+                        runId: null,
+                        sessionId: null,
+                      })}
+                  >
+                    Inspect dataset
+                  </Button>
+                  {latestDatasetRun ? (
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      onClick={() =>
+                        updateDashboardRoute({
+                          view: 'runs',
+                          runId: latestDatasetRun.id,
+                          datasetId: null,
+                          sessionId: null,
+                        })}
+                    >
+                      Open latest run
+                    </Button>
+                  ) : null}
+                </div>
+              </>
+            ) : (
+              <p className="text-sm leading-6 text-muted-foreground">
+                Attach or select a dataset before launching a run.
+              </p>
+            )}
+          </CardContent>
+        </Card>
+
+        <Card className="gap-5 border border-border/70 bg-muted/20 py-6 shadow-none">
+          <CardHeader className="gap-2 px-6">
+            <CardTitle className="text-base font-semibold uppercase tracking-[0.16em] text-foreground">
+              After You Launch
+            </CardTitle>
+            <CardDescription className="text-sm leading-6">
+              The next state should be visible immediately instead of hiding behind generic chat copy.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-3 px-6 text-sm leading-6 text-muted-foreground">
+            <LaunchChecklist
+              icon={<Rocket className="size-4 text-foreground" />}
+              label="Run id and status"
+              detail="A run starts quickly or the assistant asks only for unresolved field mappings."
+            />
+            <LaunchChecklist
+              icon={<FileText className="size-4 text-foreground" />}
+              label="Expected artifacts"
+              detail="The run will track outputs like summary.md, result.json, tables, and charts."
+            />
+            <LaunchChecklist
+              icon={<PanelRightOpen className="size-4 text-foreground" />}
+              label="Destination"
+              detail="Open the run view to monitor progress and inspect produced files."
+            />
+            <LaunchChecklist
+              icon={<CircleArrowOutUpRight className="size-4 text-foreground" />}
+              label="Requirement preservation"
+              detail="Dataset, variables, time window, method, and output intent stay attached to the run."
+            />
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="grid gap-3 px-2 text-sm text-muted-foreground md:grid-cols-2">
+        <div className="flex items-start gap-3 rounded-xl border border-dashed border-border/70 px-4 py-3">
+          <Orbit className="mt-0.5 size-4 shrink-0 text-foreground" />
+          <p>Use the composer below to launch the run. If any field names do not match, the assistant should resolve only those mismatches.</p>
+        </div>
+        <div className="flex items-start gap-3 rounded-xl border border-dashed border-border/70 px-4 py-3">
+          <History className="mt-0.5 size-4 shrink-0 text-foreground" />
+          <p>Past chats stay available, but they should not obscure the current run state once new work starts.</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function LaunchFact({
+  icon,
+  label,
+  value,
+}: {
+  icon: ReactNode
+  label: string
+  value: string
+}) {
+  return (
+    <div className="rounded-xl border border-border/70 bg-muted/20 px-3 py-3">
+      <div className="flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+        {icon}
+        <span>{label}</span>
+      </div>
+      <div className="mt-2 text-sm leading-6 text-foreground">{value}</div>
+    </div>
+  )
+}
+
+function LaunchChecklist({
+  icon,
+  label,
+  detail,
+}: {
+  icon: ReactNode
+  label: string
+  detail: string
+}) {
+  return (
+    <div className="flex items-start gap-3">
+      <div className="mt-0.5 shrink-0">{icon}</div>
+      <div>
+        <div className="font-medium text-foreground">{label}</div>
+        <div>{detail}</div>
+      </div>
+    </div>
   )
 }
 
@@ -2673,10 +2908,6 @@ function DashboardApp({
     () => new Map(datasets.map((dataset) => [dataset.id, dataset])),
     [datasets],
   )
-  const runLookup = useMemo(
-    () => new Map(runs.map((run) => [run.id, run])),
-    [runs],
-  )
   const route = useDashboardRoute()
 
   const activeRun = route.runId ? runs.find((run) => run.id === route.runId) ?? null : null
@@ -2782,7 +3013,7 @@ function DashboardApp({
       </main>
     )
   } else {
-    content = <ResearchAssistantPage dataError={dataError} datasets={datasets} />
+    content = <ResearchAssistantPage dataError={dataError} datasets={datasets} runs={runs} />
   }
 
   return (
@@ -2818,7 +3049,6 @@ function DashboardApp({
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 {sessions.map((chatSession) => {
-                  const attachedRun = chatSession.runId ? runLookup.get(chatSession.runId) : undefined
                   return (
                     <SidebarMenuItem key={chatSession.id}>
                       <SidebarMenuButton
@@ -2834,22 +3064,6 @@ function DashboardApp({
                           {readableSessionTitle(chatSession.title)}
                         </span>
                       </SidebarMenuButton>
-                      {chatSession.runId ? (
-                        <SidebarMenuButton
-                          className="ml-3 h-7 text-xs text-muted-foreground"
-                          isActive={route.view === 'runs' && route.runId === chatSession.runId}
-                          onClick={() =>
-                            updateDashboardRoute({
-                              view: 'runs',
-                              runId: chatSession.runId,
-                              sessionId: null,
-                            })}
-                        >
-                          <span className="truncate">
-                            {readableRunTitle(attachedRun, chatSession.runId)}
-                          </span>
-                        </SidebarMenuButton>
-                      ) : null}
                     </SidebarMenuItem>
                   )
                 })}

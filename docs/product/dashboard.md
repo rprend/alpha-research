@@ -5,6 +5,7 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 ## Primary Jobs
 
 - Start and continue RESEARCH CLI assistant sessions from the browser.
+- Give prepared users a launch-ready assistant entry that surfaces active dataset context, preserved run requirements, and where run status/artifacts will appear after submit.
 - Browse registered datasets and inspect deployment/profile state.
 - Track remote runs by dataset, type, prompt, status, and timestamps.
 - Open run details with observed progress, remote Codex transcript, and a resizable file explorer/viewer for produced run artifacts.
