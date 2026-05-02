@@ -380,7 +380,8 @@
 
 .hero-highlight-card,
 .hero-demo-card,
-.hero-evidence-card {
+.hero-evidence-card,
+.hero-setup-card {
   border: 1px solid rgba(61, 79, 143, 0.12);
   border-radius: 1.25rem;
   background: rgba(255, 255, 255, 0.88);
@@ -414,6 +415,45 @@
 .hero-demo-card,
 .hero-evidence-card {
   padding: 1.2rem;
+}
+
+.hero-setup-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.95fr);
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1.2rem;
+  background: linear-gradient(135deg, rgba(238, 241, 255, 0.92), rgba(255, 255, 255, 0.92));
+}
+
+.hero-setup-copy h2 {
+  margin: 0 0 0.55rem;
+}
+
+.hero-setup-copy p,
+.hero-setup-note {
+  margin: 0;
+  color: #4d4d4d;
+  line-height: 1.6;
+}
+
+.hero-setup-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1rem;
+  border: 1px solid rgba(61, 79, 143, 0.1);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.hero-setup-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin: 0;
+  padding-left: 1.15rem;
+  color: #2f2f2f;
 }
 
 .hero-demo-card {
@@ -972,6 +1012,7 @@
 
   .hero-highlights,
   .hero-proof-grid,
+  .hero-setup-card,
   .proof-strip,
   .proof-case-study,
   .cli-grid {

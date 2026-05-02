@@ -104,6 +104,7 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - The primary CTA for a new visitor should help them understand or inspect the product before sales or consulting language takes over.
 - The page should show at least one concrete example workflow or output artifact above the fold so skeptical researchers can map claims to real work.
 - Hosted public examples, CLI self-serve for private datasets, and optional human setup help should be visibly distinct paths rather than blended into one generic pitch.
+- For visitors with private, proprietary, or enterprise data, the first viewport should also expose a human-assisted setup path with clear booking/contact actions and a short explanation of what the setup help covers.
 - The homepage should include an explicit proof path for skeptical visitors: dataset, example question, and inspectable output/artifact.
 - Live examples and planned datasets should be visually separated and labeled so roadmap items do not read like current proof.
 - The page should tell a skeptical visitor what to inspect next in a clear sequence before asking them to sign in or talk to sales.

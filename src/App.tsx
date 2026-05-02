@@ -6046,7 +6046,37 @@ function LandingPage() {
               </article>
             </div>
 
+            <article className="hero-setup-card" aria-labelledby="setup-help-heading">
+              <div className="hero-setup-copy">
+                <span className="hero-demo-label">Private, proprietary, or enterprise data</span>
+                <h2 id="setup-help-heading">Talk to a human before you commit to self-serve setup.</h2>
+                <p>
+                  Setup help covers private dataset fit, ingestion approach, access model, and the
+                  first research workflow for libraries, research institutes, archives, and enterprise teams.
+                </p>
+              </div>
+              <div className="hero-setup-details" aria-label="What setup help includes">
+                <ul className="hero-setup-list">
+                  <li>Private and institutional corpus review</li>
+                  <li>Setup call for ingestion, permissions, and rollout questions</li>
+                  <li>Direct contact if you want to discuss the use case before booking</li>
+                </ul>
+                <p className="hero-setup-note">
+                  Start here if you need confidentiality context, want to confirm product fit, or
+                  expect a custom integration.
+                </p>
+              </div>
+            </article>
+
             <div className="hero-links">
+              <a
+                className="hero-button"
+                href="https://cal.com/ryan-prendergast-qsp5cw/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book a setup call
+              </a>
               <a className="hero-button" href="#proof">
                 Inspect a real research run
               </a>
@@ -6059,12 +6089,15 @@ function LandingPage() {
                 See Alpha Book example
               </a>
               <a className="hero-button hero-button-secondary" href="/cli/">
-                Bring your own dataset with the CLI
+                Self-serve with the RESEARCH CLI
+              </a>
+              <a className="hero-button hero-button-secondary" href="mailto:ryan@zenobiapay.com">
+                Email the team
               </a>
             </div>
             <p className="hero-support-copy">
-              Working with private or institutional data? We support self-serve CLI setup and
-              custom integrations for libraries, museums, research groups, and enterprise teams.
+              Working with private or institutional data? Choose the setup call if you want help
+              scoping private data, setup effort, or enterprise requirements before using the CLI.
             </p>
             {authError ? <p className="auth-status" data-state="error">{authError}</p> : null}
           </section>
@@ -6267,9 +6300,23 @@ Saved artifacts
                   <span className="faq-summary-icon" aria-hidden="true">+</span>
                 </summary>
                 <p>
-                  Yes. Install the RESEARCH CLI and point it at your own dataset, or book a call{' '}
-                  <a href="https://cal.com/ryan-prendergast-qsp5cw/30min" target="_blank" rel="noopener noreferrer">here</a>{' '}
-                  if you want help with setup for a private or institutional corpus.
+                  Yes. You can self-serve with the RESEARCH CLI, or book a setup call if you want
+                  help validating private-data fit, planning ingestion, or scoping an institutional
+                  or enterprise rollout.
+                </p>
+              </details>
+
+              <details className="faq-item">
+                <summary>
+                  <span className="faq-summary-copy">What happens on a setup call?</span>
+                  <span className="faq-summary-icon" aria-hidden="true">+</span>
+                </summary>
+                <p>
+                  We review the dataset shape, privacy or access constraints, what research outputs
+                  you need, and whether the right next step is the self-serve CLI or a custom setup
+                  path. You can also email{' '}
+                  <a href="mailto:ryan@zenobiapay.com">ryan@zenobiapay.com</a>{' '}
+                  if you want to start with a direct question instead of booking time.
                 </p>
               </details>
 
@@ -6323,6 +6370,8 @@ Saved artifacts
           <div className="footer-copy">
             <div className="footer-links">
               <a href="/cli/">RESEARCH CLI</a>
+              <a href="https://cal.com/ryan-prendergast-qsp5cw/30min" target="_blank" rel="noopener noreferrer">book setup call</a>
+              <a href="mailto:ryan@zenobiapay.com">contact</a>
               <a href="/blog/">blog</a>
               <a href="/privacy/">privacy</a>
               <a href="/terms/">terms</a>
