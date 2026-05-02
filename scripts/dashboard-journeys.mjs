@@ -584,7 +584,8 @@ export const DASHBOARD_JOURNEYS = [
     steps: [
       { type: 'wait', ms: 1000 },
       { type: 'clickLabel', label: 'Open artifacts' },
-      { type: 'waitForText', text: 'Session', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Advanced debugging', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Open remote Codex session', timeoutMs: 15000 },
       { type: 'wait', ms: 1000 },
     ],
   }),

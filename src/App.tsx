@@ -4235,6 +4235,7 @@ function RunArtifactsPanel({
     orderedArtifacts[0] ??
     null
   const selectedPath = selectedArtifact ? artifactPath(selectedArtifact) : null
+  const remoteSessionHref = remoteSessionId ? `https://chatgpt.com/codex/s/${remoteSessionId}` : null
 
   const beginPanelResize = (event: ReactPointerEvent<HTMLDivElement>) => {
     event.preventDefault()
@@ -4377,6 +4378,28 @@ function RunArtifactsPanel({
                 </div>
               </div>
             </div>
+            {remoteSessionHref ? (
+              <div className="mt-4 rounded-xl border border-border bg-background px-4 py-4">
+                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Advanced debugging</div>
+                <div className="mt-2 flex flex-wrap items-center justify-between gap-3">
+                  <div className="min-w-0">
+                    <div className="text-sm font-semibold text-foreground">Remote Codex session available</div>
+                    <p className="mt-1 max-w-2xl text-sm leading-6 text-muted-foreground">
+                      Optional. Open the underlying Codex transcript and tool output only if you need deeper debugging beyond this run summary and its saved artifacts.
+                    </p>
+                  </div>
+                  <a
+                    href={remoteSessionHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-foreground underline-offset-4 hover:underline"
+                  >
+                    Open remote Codex session
+                    <ExternalLink className="size-3.5" />
+                  </a>
+                </div>
+              </div>
+            ) : null}
             {expectedArtifacts.length > 0 ? (
               <div className="mt-4 space-y-2">
                 <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Expected outputs</div>
@@ -4466,6 +4489,7 @@ function FilePreview({
   const language = artifactLanguage(path, artifact)
   const text = artifactText(artifact)
   const role = artifactRoleMeta(artifact, primaryArtifactId, profileArtifactId)
+  const remoteSessionHref = remoteSessionId ? `https://chatgpt.com/codex/s/${remoteSessionId}` : null
 
   return (
     <div className="flex min-h-0 flex-col overflow-hidden">
@@ -4490,17 +4514,6 @@ function FilePreview({
             Download
             <ExternalLink className="size-3.5" />
           </a>
-          {remoteSessionId ? (
-            <a
-              href={`https://chatgpt.com/codex/s/${remoteSessionId}`}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
-            >
-              Remote session
-              <ExternalLink className="size-3.5" />
-            </a>
-          ) : null}
         </div>
       </div>
       <div className="border-b border-border bg-muted/30 px-5 py-3">
@@ -4509,6 +4522,11 @@ function FilePreview({
         {runPrompt ? (
           <p className="mt-2 text-xs leading-5 text-muted-foreground">
             Requested for: {compactInlineText(runPrompt, 220)}
+          </p>
+        ) : null}
+        {remoteSessionHref ? (
+          <p className="mt-2 text-xs leading-5 text-muted-foreground">
+            Advanced debugging remains optional. This file is the normal review path; the remote Codex session is only for deeper transcript and tool inspection.
           </p>
         ) : null}
       </div>
