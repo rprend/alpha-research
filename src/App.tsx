@@ -413,6 +413,16 @@ function readableSessionKind(kind: string | null | undefined) {
   return formatStatus(kind)
 }
 
+function assistantStarterPrompts(datasets: DatasetRecord[]) {
+  const sampleDataset = datasets.find((dataset) => isPublicDataset(dataset) && dataset.status.toLowerCase() === 'ready')
+  return [
+    'What can Alpha Research help me do with the data already here?',
+    sampleDataset
+      ? `Use ${sampleDataset.name} to show me what a good first research question looks like.`
+      : 'Show me what a good first research question looks like.',
+  ]
+}
+
 function sessionStatusDescription(status: string | null | undefined) {
   const normalized = status?.toLowerCase() ?? ''
   if (normalized === 'ready') return 'Transcript complete'
@@ -2611,25 +2621,17 @@ function ResearchAssistantPage({
   dataError,
   datasets,
   sessionUser,
-  recentSessions,
   onOpenDatasets,
-  onOpenRecentWork,
 }: {
   dataError?: string | null
   datasets: DatasetRecord[]
   sessionUser: SessionResponse['user']
-  recentSessions: Array<{
-    id: string
-    title: string
-    kind: string
-    summary: string
-  }>
   onOpenDatasets: () => void
-  onOpenRecentWork: (sessionId: string) => void
 }) {
   const route = useDashboardRoute()
   const activeSessionId = route.sessionId ?? null
   const { session, error, loading } = useSessionDetail(activeSessionId)
+  const starterPrompts = useMemo(() => assistantStarterPrompts(datasets), [datasets])
   const [messages, setMessages] = useState<ThreadMessage[]>([])
   const [isRunning, setIsRunning] = useState(false)
   const [composerError, setComposerError] = useState<string | null>(null)
@@ -2771,10 +2773,9 @@ function ResearchAssistantPage({
               welcomePanel={loading ? null : (
                 <AssistantOrientationPanel
                   email={sessionUser?.email ?? 'Signed in'}
-                  datasetCount={datasets.length}
-                  recentSessions={recentSessions}
+                  datasets={datasets}
+                  starterPrompts={starterPrompts}
                   onOpenDatasets={onOpenDatasets}
-                  onOpenRecentWork={onOpenRecentWork}
                 />
               )}
               composerPlaceholder="Start a new research chat by asking a question or describing the data you need..."
@@ -2794,23 +2795,29 @@ function ResearchAssistantPage({
 
 function AssistantOrientationPanel({
   email,
-  datasetCount,
-  recentSessions,
+  datasets,
+  starterPrompts,
   onOpenDatasets,
-  onOpenRecentWork,
 }: {
   email: string
-  datasetCount: number
-  recentSessions: Array<{
-    id: string
-    title: string
-    kind: string
-    summary: string
-  }>
+  datasets: DatasetRecord[]
+  starterPrompts: string[]
   onOpenDatasets: () => void
-  onOpenRecentWork: (sessionId: string) => void
 }) {
-  const topSessions = recentSessions.slice(0, 2)
+  const publicDatasets = datasets.filter(isPublicDataset)
+  const privateDatasets = datasets.filter((dataset) => !isPublicDataset(dataset))
+  const readyPublicDatasets = publicDatasets.filter((dataset) => dataset.status.toLowerCase() === 'ready')
+  const readyPrivateDatasets = privateDatasets.filter((dataset) => dataset.status.toLowerCase() === 'ready')
+  const sampleDataset = readyPublicDatasets[0] ?? null
+  const focusComposerWithPrompt = (prompt: string) => {
+    const composer = document.querySelector<HTMLTextAreaElement>('textarea[aria-label="Message input"]')
+    if (!composer) return
+    composer.focus()
+    const setter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value')?.set
+    setter?.call(composer, prompt)
+    composer.dispatchEvent(new Event('input', { bubbles: true }))
+    composer.setSelectionRange(prompt.length, prompt.length)
+  }
 
   return (
     <section className="mx-auto flex w-full max-w-4xl flex-col gap-6">
@@ -2826,17 +2833,17 @@ function AssistantOrientationPanel({
           Start a new research chat.
         </h1>
         <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-          Ask a question in chat when you want the assistant to plan research, inspect data, or propose the next run. Use datasets to inspect source material. Reopen recent work when you want to continue something you already started.
+          Ask a question in chat when you want the assistant to plan research, inspect data, or propose the next run. Use datasets when you want to inspect source material first.
         </p>
       </div>
       <div className="grid gap-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
         <Card className="rounded-[24px] border border-border/70 bg-card/80 py-0 shadow-none">
-          <CardContent className="flex flex-col gap-5 px-6 py-6">
+          <CardContent className="flex flex-col gap-4 px-6 py-6">
             <div className="space-y-2">
               <Badge variant="secondary">Start here</Badge>
               <h2 className="text-2xl font-semibold tracking-normal">Ask the assistant to help you research</h2>
               <p className="text-sm leading-7 text-muted-foreground">
-                The chat below is the main entry point. Start with a question, a topic, or the dataset you want help with. The assistant can clarify the task before it launches work.
+                The chat below is the main entry point. You can start here without CLI setup. Ask a question, name a topic, or mention a dataset and the assistant will clarify the next step before it launches work.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -2850,8 +2857,32 @@ function AssistantOrientationPanel({
                 Browse datasets
               </Button>
             </div>
-          </CardContent>
-        </Card>
+            <div className="rounded-2xl border border-border/70 bg-muted/30 p-4 text-sm leading-6 text-muted-foreground">
+              <span className="font-medium text-foreground">What happens next:</span> your first question turns into a scoped plan, a dataset recommendation, or an initial answer with the next analysis step.
+            </div>
+            <div className="space-y-3 rounded-2xl border border-border/70 bg-muted/30 p-4">
+              <div className="space-y-1">
+                <h3 className="text-sm font-semibold tracking-normal">Example first prompts</h3>
+                <p className="text-sm leading-6 text-muted-foreground">
+                  Use one of these if you want a concrete starting point.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {starterPrompts.map((prompt) => (
+                  <Button
+                    key={prompt}
+                    type="button"
+                    variant="outline"
+                    className="h-auto whitespace-normal rounded-full px-4 py-2 text-left normal-case"
+                    onClick={() => focusComposerWithPrompt(prompt)}
+                  >
+                    {prompt}
+                  </Button>
+                ))}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         <div className="grid gap-4">
           <Card className="rounded-[24px] border border-border/70 bg-card/80 py-0 shadow-none">
             <CardContent className="px-6 py-6">
@@ -2860,40 +2891,17 @@ function AssistantOrientationPanel({
                 <div className="space-y-2">
                   <h2 className="text-base font-semibold tracking-normal">Datasets</h2>
                   <p className="text-sm leading-6 text-muted-foreground">
-                    {datasetCount} dataset{datasetCount === 1 ? '' : 's'} available. Use datasets to inspect source material, readiness, and briefings before you ask a deeper question.
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          <Card className="rounded-[24px] border border-border/70 bg-card/80 py-0 shadow-none">
-            <CardContent className="px-6 py-6">
-              <div className="flex items-start gap-3">
-                <History className="mt-0.5 size-5 text-muted-foreground" />
-                <div className="min-w-0 flex-1 space-y-2">
-                  <h2 className="text-base font-semibold tracking-normal">Recent work</h2>
-                  {topSessions.length > 0 ? (
-                    <div className="space-y-3">
-                      {topSessions.map((recentSession) => (
-                        <button
-                          key={recentSession.id}
-                          type="button"
-                          className="block w-full rounded-xl border border-border/70 px-3 py-3 text-left transition-colors hover:bg-muted/50"
-                          onClick={() => onOpenRecentWork(recentSession.id)}
-                        >
-                          <div className="flex items-center gap-2">
-                            <Badge variant="secondary">{readableSessionKind(recentSession.kind)}</Badge>
-                            <span className="truncate text-sm font-medium text-foreground">{recentSession.title}</span>
-                          </div>
-                          <p className="mt-1 text-xs leading-5 text-muted-foreground">{recentSession.summary}</p>
-                        </button>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="text-sm leading-6 text-muted-foreground">
-                      No prior work yet. Start with chat or browse datasets for source material.
+                    {sampleDataset
+                      ? `${sampleDataset.name} is ready as sample data if you want to see how Alpha Research works before using your own material.`
+                      : 'No sample dataset is ready yet, but you can still start by asking a question in chat.'} {readyPrivateDatasets.length > 0
+                      ? `Your workspace also has ${readyPrivateDatasets.length} private dataset${readyPrivateDatasets.length === 1 ? '' : 's'} ready for deeper work.`
+                      : 'You do not need to upload data before asking a first question.'}
                     </p>
-                  )}
+                    {sampleDataset ? (
+                      <div className="rounded-2xl border border-border/70 bg-muted/30 px-4 py-3 text-sm leading-6 text-muted-foreground">
+                        <span className="font-medium text-foreground">Sample data ready:</span> {sampleDataset.name} is available if you want to see how Alpha Research answers against a prepared dataset.
+                      </div>
+                    ) : null}
                 </div>
               </div>
             </CardContent>
@@ -3720,6 +3728,7 @@ function DashboardApp({
     [runs],
   )
   const route = useDashboardRoute()
+  const [showRecentChatsExpanded, setShowRecentChatsExpanded] = useState(route.view === 'assistant' && Boolean(route.sessionId))
   const recentAssistantSessions = useMemo(
     () => sessions.map((currentSession) => ({
       ...currentSession,
@@ -3735,6 +3744,12 @@ function DashboardApp({
     (route.view === 'datasets' && activeDataset) ||
     (route.view === 'runs' && !activeRun)
   )
+
+  useEffect(() => {
+    if (route.view === 'assistant' && route.sessionId) {
+      setShowRecentChatsExpanded(true)
+    }
+  }, [route.sessionId, route.view])
 
   let content: ReactNode
 
@@ -3844,24 +3859,12 @@ function DashboardApp({
         dataError={dataError}
         datasets={datasets}
         sessionUser={session.user}
-        recentSessions={recentAssistantSessions.map((currentSession) => ({
-          id: currentSession.id,
-          title: readableSessionTitle(currentSession.title),
-          kind: currentSession.kind,
-          summary: sessionSummaryLine(currentSession, currentSession.dataset, currentSession.run),
-        }))}
         onOpenDatasets={() =>
           updateDashboardRoute({
             view: 'datasets',
             datasetId: null,
             runId: null,
             sessionId: null,
-          })}
-        onOpenRecentWork={(sessionId) =>
-          updateDashboardRoute({
-            view: 'assistant',
-            sessionId,
-            runId: null,
           })}
       />
     )
@@ -3900,7 +3903,18 @@ function DashboardApp({
                       <span>New chat</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
-                  {recentAssistantSessions.map((chatSession) => {
+                  {recentAssistantSessions.length > 0 ? (
+                    <SidebarMenuItem>
+                      <SidebarMenuButton
+                        className="h-8 text-xs text-muted-foreground"
+                        onClick={() => setShowRecentChatsExpanded((current) => !current)}
+                      >
+                        <History />
+                        <span>{showRecentChatsExpanded ? 'Hide recent chats' : `Show recent chats (${recentAssistantSessions.length})`}</span>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ) : null}
+                  {showRecentChatsExpanded ? recentAssistantSessions.map((chatSession) => {
                     return (
                       <SidebarMenuItem key={chatSession.id}>
                         <SidebarMenuButton
@@ -3927,7 +3941,7 @@ function DashboardApp({
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                     )
-                  })}
+                  }) : null}
                 </SidebarMenu>
               </SidebarGroupContent>
             </SidebarGroup>

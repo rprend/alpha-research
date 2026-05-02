@@ -46,9 +46,14 @@ async function assertRenderedOrientation() {
     await page.goto(`${baseUrl}/?harness=1&view=assistant`, { waitUntil: 'domcontentloaded' })
     await page.getByRole('heading', { name: 'Start a new research chat.' }).waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'Browse datasets' }).waitFor({ timeout: 15000 })
+    await page.getByText('You can start here without CLI setup.', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByText('Sample data ready:', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'What can Alpha Research help me do with the data already here?' }).waitFor({ timeout: 15000 })
     await page.getByText('Signed in', { exact: false }).first().waitFor({ timeout: 15000 })
-    await page.getByRole('heading', { name: 'Recent work' }).waitFor({ timeout: 15000 })
-    await page.getByText('Chat', { exact: false }).first().waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Show recent chats (2)' }).waitFor({ timeout: 15000 })
+    if (await page.getByText('Remote session', { exact: false }).first().isVisible().catch(() => false)) {
+      throw new Error('First signed-in landing should not foreground recent session rows before the user opens recent work.')
+    }
   } finally {
     await browser.close()
   }

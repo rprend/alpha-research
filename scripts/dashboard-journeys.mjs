@@ -203,7 +203,8 @@ export const DASHBOARD_JOURNEYS = [
     evidenceToCapture: ['Assistant landing state.', 'Sidebar recents.', 'Dataset navigation.', 'Visible next action.'],
     judgeQuestion: 'Did the first signed-in screen make Alpha Research feel immediately usable to someone who has not learned its internal model?',
     steps: [
-      { type: 'waitForText', text: 'New chat', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Start a new research chat.', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Browse datasets', timeoutMs: 15000 },
       { type: 'wait', ms: 1000 },
     ],
   }),
