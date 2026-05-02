@@ -1095,6 +1095,13 @@ function artifactText(artifact: RunArtifactRecord) {
   return JSON.stringify(artifact.content ?? {}, null, 2)
 }
 
+function formatArtifactListLabel(names: string[]) {
+  if (names.length === 0) return 'None'
+  if (names.length === 1) return names[0]
+  if (names.length === 2) return `${names[0]} and ${names[1]}`
+  return `${names.slice(0, -1).join(', ')}, and ${names.at(-1)}`
+}
+
 function artifactJsonPreview(artifact: RunArtifactRecord) {
   if (typeof artifact.content === 'string') return artifact.content
   if (artifact.content?.text && typeof artifact.content.text === 'string') {
@@ -3985,6 +3992,10 @@ function RunDetailPage({
     () => getRequestedArtifactStatus(requestedArtifacts, producedArtifacts),
     [producedArtifacts, requestedArtifacts],
   )
+  const producedArtifactNames = useMemo(
+    () => visibleProducedArtifacts.map((artifact) => artifactPath(artifact)),
+    [visibleProducedArtifacts],
+  )
   const transcriptEntries = useMemo(
     () => (hasRemoteLogs ? [...observedProgressMessages, ...remoteMessages] : cliMessages),
     [cliMessages, hasRemoteLogs, observedProgressMessages, remoteMessages],
@@ -4020,6 +4031,14 @@ function RunDetailPage({
     : ['ready', 'completed'].includes(run.status)
       ? 'The documentation run finished. Open the briefing artifact for the durable write-up, then use the profile artifact for the structured summary.'
       : run.outputPreview || 'This describe run did not complete normally. Inspect the transcript and artifacts for recovery details.'
+  const firstEventAt = payload?.events[0]?.createdAt ?? run.createdAt
+  const latestEventAt = payload?.events.at(-1)?.createdAt ?? run.updatedAt
+  const latestEventMessage = payload?.events.at(-1)?.message?.trim() ?? run.outputPreview?.trim() ?? 'No run event was recorded.'
+  const completedRunSummary = isCompletedRun
+    ? primaryArtifactName
+      ? `${formatStatus(run.type)} finished for ${dataset?.name ?? run.datasetId}. Read ${primaryArtifactName} first to confirm the answer still matches the original request.`
+      : `${formatStatus(run.type)} finished for ${dataset?.name ?? run.datasetId}. Review the run summary and attached outputs to confirm scope.`
+    : null
 
   useEffect(() => {
     const selectedArtifactStillExists = visibleProducedArtifacts.some(
@@ -4085,6 +4104,93 @@ function RunDetailPage({
               )}
             </div>
           </section>
+          {isCompletedRun ? (
+            <section className="mb-6 rounded-2xl border border-border bg-muted/20 p-5">
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-wrap items-center gap-2">
+                  <h2 className="text-xl font-semibold tracking-normal">Run summary</h2>
+                  <StatusBadge>{formatStatus(run.status)}</StatusBadge>
+                </div>
+                <p className="text-sm leading-6 text-foreground/85">{completedRunSummary}</p>
+                <div className="rounded-xl border border-border bg-background px-4 py-4">
+                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Original prompt</div>
+                  <p className="mt-2 text-sm leading-6 text-foreground">{run.prompt?.trim() || 'No original prompt was preserved for this run.'}</p>
+                </div>
+                <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+                  <div className="rounded-xl border border-border bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Dataset</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">{dataset?.name ?? run.datasetId}</div>
+                  </div>
+                  <div className="rounded-xl border border-border bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Run type</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">{formatStatus(run.type)}</div>
+                  </div>
+                  <div className="rounded-xl border border-border bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Started</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">{relativeTime(run.createdAt)}</div>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{formatDateTime(run.createdAt)}</p>
+                  </div>
+                  <div className="rounded-xl border border-border bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Latest evidence</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">{relativeTime(latestEventAt)}</div>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{formatDateTime(latestEventAt)}</p>
+                  </div>
+                </div>
+                <div className="grid gap-3 md:grid-cols-2">
+                  <div className="rounded-xl border border-border bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Requested artifacts</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">
+                      {expectedArtifactNames.length} requested output{expectedArtifactNames.length === 1 ? '' : 's'}
+                    </div>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{formatArtifactListLabel(expectedArtifactNames)}</p>
+                  </div>
+                  <div className="rounded-xl border border-border bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Produced artifacts</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">
+                      {producedArtifactNames.length} saved output{producedArtifactNames.length === 1 ? '' : 's'}
+                    </div>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{formatArtifactListLabel(producedArtifactNames)}</p>
+                  </div>
+                </div>
+                <div className="rounded-xl border border-border bg-background px-4 py-4">
+                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Requested vs produced</div>
+                  <div className="mt-3 space-y-2">
+                    {expectedArtifactStatus.map((artifact) => (
+                      <div
+                        key={artifact.name}
+                        className="flex items-start justify-between gap-3 rounded-xl border border-border bg-muted/20 px-4 py-3"
+                      >
+                        <div className="min-w-0">
+                          <div className="text-sm font-medium text-foreground">{artifact.name}</div>
+                          <div className="text-xs text-muted-foreground">
+                            {artifact.producedArtifact
+                              ? `Produced as ${artifactPath(artifact.producedArtifact)}.`
+                              : 'Requested for this run, but no saved file matches it.'}
+                          </div>
+                        </div>
+                        <Badge variant={artifact.producedArtifact ? 'secondary' : 'outline'} className="shrink-0 rounded-full px-2 py-0.5 text-[10px] tracking-[0.12em]">
+                          {artifact.producedArtifact ? 'Produced' : 'Missing'}
+                        </Badge>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="rounded-xl border border-border bg-background px-4 py-4">
+                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Timeline evidence</div>
+                  <div className="mt-3 grid gap-3 md:grid-cols-2">
+                    <div>
+                      <div className="text-sm font-semibold text-foreground">Run opened</div>
+                      <p className="mt-1 text-sm leading-6 text-muted-foreground">{formatDateTime(firstEventAt)}</p>
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold text-foreground">Latest recorded event</div>
+                      <p className="mt-1 text-sm leading-6 text-foreground/85">{latestEventMessage}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          ) : null}
           {isCompletedRun && artifactCount > 0 ? (
             <section className="mb-6 rounded-2xl border border-emerald-200 bg-emerald-50/60 p-5">
               <div className="flex flex-col gap-4">
@@ -4337,7 +4443,7 @@ function RunDetailPage({
                 <h2 className="text-base font-semibold">Observed progress and transcript</h2>
                 <p className="text-sm text-muted-foreground">
                   {isCompletedRun
-                    ? 'These entries show how the run executed. The answer and file outputs are summarized above.'
+                    ? 'Use the run summary above to audit scope. The entries below are supporting execution evidence and transcript branches.'
                     : isRunningRun && runningSummary
                       ? `${runningSummary.statusDetail} Technical details stay below while artifacts and final results are still being produced.`
                       : isUncertainRun
