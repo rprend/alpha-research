@@ -125,6 +125,24 @@ async function assertCompletedRunArtifactsSteering() {
   }
 }
 
+async function assertRunningRunStatusSteering() {
+  const browser = await chromium.launch({ headless: true })
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+    await page.goto(`${baseUrl}/?harness=1&view=runs&runId=run-harness-running`, { waitUntil: 'domcontentloaded' })
+    await page.getByRole('heading', { name: 'Alpha Econ Prototype is still running' }).waitFor({ timeout: 15000 })
+    await page.getByText('The runner is fetching public data sources and assembling the housing and labor environment.', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Auto-refreshing every 5 seconds', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('You do not need to refresh this page manually.', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Safe to leave this open while the run continues.', { exact: true }).waitFor({ timeout: 15000 })
+    if (await page.getByText('Stored config', { exact: true }).count()) {
+      throw new Error('Running run detail should not foreground stored config while the user is waiting on live work.')
+    }
+  } finally {
+    await browser.close()
+  }
+}
+
 async function assertRenderedRunsInventory() {
   const browser = await chromium.launch({ headless: true })
   try {
@@ -175,6 +193,7 @@ try {
   await assertRenderedDatasetDetail()
   await assertDescribeRunSteering()
   await assertCompletedRunArtifactsSteering()
+  await assertRunningRunStatusSteering()
   await assertRenderedRunsInventory()
   console.log(`Dashboard harness smoke passed at ${baseUrl}`)
 } catch (error) {

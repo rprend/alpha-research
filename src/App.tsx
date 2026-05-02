@@ -504,6 +504,48 @@ function formatCompactTime(value: string) {
   }).format(date)
 }
 
+function summarizeActiveRunEvent(message: string, run: RunRecord) {
+  const trimmed = message.trim()
+  const heartbeatMatch = trimmed.match(/^Remote agent heartbeat:\s*(.+)$/iu)
+  if (heartbeatMatch) {
+    const detail = heartbeatMatch[1]?.trim().replace(/[.]+$/u, '') ?? ''
+    if (/fetching public data sources/iu.test(detail) && run.type === 'public_environment') {
+      return 'The runner is fetching public data sources and assembling the housing and labor environment.'
+    }
+    return detail
+      ? `The runner is actively working: ${detail}.`
+      : 'The runner is actively working on the current step.'
+  }
+  if (/^Assigned warm runner\b/iu.test(trimmed)) {
+    return 'A research runner picked up this job and started working.'
+  }
+  return trimmed
+}
+
+function buildRunningRunSummary(
+  run: RunRecord,
+  payload: RunResultsResponse | null,
+  dataset: DatasetRecord | undefined,
+) {
+  const progressEntries = deriveRunProgress(payload?.events ?? [])
+  const lastProgress = progressEntries.at(-1) ?? null
+  const lastEvent = payload?.events.at(-1) ?? null
+  const previousEvent = payload?.events.length ? payload.events.at(-2) ?? null : null
+  const lastActivityAt = lastProgress?.createdAt ?? lastEvent?.createdAt ?? run.updatedAt
+  const currentActivity = lastProgress?.text
+    ?? (lastEvent ? summarizeActiveRunEvent(lastEvent.message, run) : run.outputPreview?.trim())
+    ?? 'Alpha Research is still working on this run.'
+  const previousActivity = previousEvent ? summarizeActiveRunEvent(previousEvent.message, run) : null
+
+  return {
+    title: `${dataset?.name ?? 'This run'} is still running`,
+    currentActivity,
+    lastActivityAt,
+    previousActivity,
+    statusDetail: `Last meaningful update ${relativeTime(lastActivityAt)}.`,
+  }
+}
+
 function codeBlock(label: string, value: unknown) {
   return `### ${label}\n\n\`\`\`json\n${JSON.stringify(value, null, 2)}\n\`\`\``
 }
@@ -1211,7 +1253,7 @@ function buildCliTranscript(
     ),
   )
 
-  if (payload?.metadata?.config) {
+  if (payload?.metadata?.config && run.status.toLowerCase() !== 'running') {
     messages.push(
       createSessionEntry(
         `${run.id}-cli-config`,
@@ -3164,6 +3206,11 @@ function RunDetailPage({
   const artifactCount = visibleProducedArtifacts.length
   const isDescribeRun = run.type === 'describe'
   const isCompletedRun = isTerminalSuccessfulRun(run)
+  const isRunningRun = run.status.toLowerCase() === 'running'
+  const runningSummary = useMemo(
+    () => (isRunningRun ? buildRunningRunSummary(run, payload, dataset) : null),
+    [dataset, isRunningRun, payload, run],
+  )
   const supportingArtifactCount = visibleProducedArtifacts.filter(
     (artifact) => artifact.id !== primaryBriefingArtifact?.id && artifact.id !== primaryProfileArtifact?.id,
   ).length
@@ -3255,6 +3302,51 @@ function RunDetailPage({
               </div>
             </section>
           ) : null}
+          {isRunningRun && runningSummary ? (
+            <section className="mb-6 rounded-2xl border border-sky-200 bg-sky-50/70 p-5">
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <LoaderCircle className="size-5 animate-spin text-sky-700" aria-hidden="true" />
+                    <h2 className="text-xl font-semibold tracking-normal">{runningSummary.title}</h2>
+                    <StatusBadge>{formatStatus(run.status)}</StatusBadge>
+                  </div>
+                  <p className="text-sm leading-6 text-foreground/80">
+                    {runningSummary.currentActivity}
+                  </p>
+                </div>
+                <div className="grid gap-3 md:grid-cols-3">
+                  <div className="rounded-xl border border-sky-200 bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Last update</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">{relativeTime(runningSummary.lastActivityAt)}</div>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                      {formatDateTime(runningSummary.lastActivityAt)}
+                    </p>
+                  </div>
+                  <div className="rounded-xl border border-sky-200 bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Refresh</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">Auto-refreshing every 5 seconds</div>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                      You do not need to refresh this page manually.
+                    </p>
+                  </div>
+                  <div className="rounded-xl border border-sky-200 bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Action needed</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">None right now</div>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                      Safe to leave this open while the run continues.
+                    </p>
+                  </div>
+                </div>
+                {runningSummary.previousActivity ? (
+                  <div className="rounded-xl border border-sky-200 bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Just before this</div>
+                    <p className="mt-2 text-sm leading-6 text-foreground/85">{runningSummary.previousActivity}</p>
+                  </div>
+                ) : null}
+              </div>
+            </section>
+          ) : null}
           {isDescribeRun ? (
             <section className="mb-6 rounded-2xl border border-border bg-muted/20 p-5">
               <div className="flex flex-col gap-4">
@@ -3332,7 +3424,9 @@ function RunDetailPage({
                 <p className="text-sm text-muted-foreground">
                   {isCompletedRun
                     ? 'These entries show how the run executed. The answer and file outputs are summarized above.'
-                    : 'Watch run progress here while artifacts and final results are still being produced.'}
+                    : isRunningRun && runningSummary
+                      ? `${runningSummary.statusDetail} Technical details stay below while artifacts and final results are still being produced.`
+                      : 'Watch run progress here while artifacts and final results are still being produced.'}
                 </p>
               </div>
             </div>
