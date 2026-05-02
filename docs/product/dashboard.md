@@ -105,6 +105,14 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - The page should show at least one concrete example workflow or output artifact above the fold so skeptical researchers can map claims to real work.
 - Hosted public examples, CLI self-serve for private datasets, and optional human setup help should be visibly distinct paths rather than blended into one generic pitch.
 
+## Public CLI Page Expectations
+
+- The public CLI page must lead with the exact install command, not product framing or agent prompt copy.
+- The first screen should explain prerequisites, browser sign-in behavior, dataset input shape, and what success looks like after `research` starts.
+- The page must say plainly what stays local, what gets uploaded when a dataset is created, and where resulting dataset ids, run ids, logs, and artifacts will appear.
+- Copyable install and agent-prompt affordances should be visible and keyboard-accessible.
+- Agent-assisted setup should stay secondary to the self-serve install-and-run path.
+
 ## Harness Mode
 
 The dashboard supports a deterministic local harness mode for agent QA:

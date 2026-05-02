@@ -90,6 +90,42 @@ async function assertLandingPageUnderstanding() {
   }
 }
 
+async function assertCliInstallJourneySteering() {
+  const browser = await chromium.launch({ headless: true })
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+    await page.goto(`${baseUrl}/cli/`, { waitUntil: 'domcontentloaded' })
+    await page.getByRole('heading', { name: 'Bring your own dataset' }).waitFor({ timeout: 15000 })
+    await page.getByText('exact install command', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Copy install command' }).waitFor({ timeout: 15000 })
+    await page.getByText('macOS or Linux terminal', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByText('git', { exact: true }).first().waitFor({ timeout: 15000 })
+    await page.getByText('node', { exact: true }).first().waitFor({ timeout: 15000 })
+    await page.getByText('npm', { exact: true }).first().waitFor({ timeout: 15000 })
+    await page.getByText('1. Install', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('2. Authenticate', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('3. Point At Dataset', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('alpharesearch.nyc/cli/login', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Privacy and trust' }).waitFor({ timeout: 15000 })
+    await page.getByText('does not upload your dataset', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByText('uploads the source file you choose', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByText('dataset id, run id, and current status', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByRole('link', { name: 'Open dashboard datasets and runs' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Dataset Examples' }).waitFor({ timeout: 15000 })
+    await page.getByText('accessions.csv', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByText('data.example.gov/api/permits', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByText('Use with Codex or Claude Code', { exact: true }).waitFor({ timeout: 15000 })
+    if (await page.getByText('Sign in if needed.', { exact: true }).count()) {
+      throw new Error('CLI page should replace the vague auth wording with explicit browser-login guidance.')
+    }
+    if (await page.getByText('prior art', { exact: false }).count()) {
+      throw new Error('CLI page should prioritize install and dataset onboarding over broad marketing language.')
+    }
+  } finally {
+    await browser.close()
+  }
+}
+
 async function assertWellSpecifiedRunLaunch() {
   const browser = await chromium.launch({ headless: true })
   try {
@@ -546,6 +582,7 @@ try {
   await assertRoute('/?harness=1&view=datasets', '<div id="app">')
   await assertRoute('/?harness=1&view=runs', '<div id="app">')
   await assertLandingPageUnderstanding()
+  await assertCliInstallJourneySteering()
   await assertRenderedOrientation()
   await assertWellSpecifiedRunLaunch()
   await assertRenderedDatasetInventory()
