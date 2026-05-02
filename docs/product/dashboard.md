@@ -11,6 +11,8 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Completed run detail should lead with the result hierarchy: a plain-language finished state, the primary answer artifact, the structured companion if present, and a labeled `Artifacts (n)` control.
 - Running run detail should lead with liveness: an explicit `Run is alive` verdict, the current phase in plain English, humanized heartbeat recency, an explicit auto-refresh cue, and a clear `no action needed` reassurance unless the product has evidence of trouble.
 - Stalled or uncertain run detail should lead with diagnosis: a plain-language verdict such as `Worker lost connection`, the last evidence timestamp, explicit artifact presence or absence, and labeled next actions such as `Retry in chat`, `Inspect artifacts`, or `Show debug details`.
+- Failed or uncertain run detail should preserve salvage value before raw logs: separate `What completed`, `What is missing`, `Can you trust saved output?`, `What happened`, and `Recommended next move`.
+- The artifacts surface for a failed or uncertain run must list expected outputs even when no files were produced, so the user can see what was recovered versus what was lost.
 - Inspect terminal sessions proxied through Alpha Research.
 
 ## Terminal Session Expectations

@@ -1,6 +1,7 @@
 import { type CSSProperties, type PointerEvent as ReactPointerEvent, type ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 import { AssistantRuntimeProvider, useExternalStoreRuntime, type ThreadMessage } from '@assistant-ui/react'
 import {
+  AlertTriangle,
   Bot,
   Braces,
   CheckCircle2,
@@ -794,6 +795,18 @@ function buildStuckRunSummary(
   const outputsDetail = artifactCount > 0
     ? `You can inspect the saved output${artifactCount === 1 ? '' : 's'} before retrying.`
     : `Alpha Research did not record ${expectedArtifactNames.length === 1 ? expectedArtifactNames[0] : 'the expected outputs'} before the worker stopped responding.`
+  const completedLabel = artifactCount > 0
+    ? `${artifactCount} saved artifact${artifactCount === 1 ? '' : 's'}`
+    : 'No requested outputs completed'
+  const missingLabel = expectedArtifactNames.length > 0
+    ? expectedArtifactNames.join(', ')
+    : 'No expected outputs were listed for this run.'
+  const trustLabel = artifactCount > 0
+    ? 'Saved artifacts are durable, but the run did not confirm that the full request finished.'
+    : 'No durable output was saved before the worker lost contact.'
+  const nextStepLabel = artifactCount > 0
+    ? 'Inspect the saved artifacts first, then retry only if the missing work still matters.'
+    : `Retry the same request for ${dataset?.name ?? 'this dataset'} after reviewing the failure details.`
 
   return {
     title: evidence.title,
@@ -803,6 +816,10 @@ function buildStuckRunSummary(
     evidenceAt,
     outputsLabel,
     outputsDetail,
+    completedLabel,
+    missingLabel,
+    trustLabel,
+    nextStepLabel,
     recommendation: artifactCount > 0
       ? 'Inspect the saved artifacts first, then retry only if they do not answer the question.'
       : `Safe next move: retry the same request for ${dataset?.name ?? 'this dataset'} after reviewing the latest evidence.`,
@@ -1014,6 +1031,24 @@ function getRequestedArtifacts(payload: RunResultsResponse | null) {
     : []
 }
 
+function requestedArtifactName(artifact: Record<string, unknown>, fallbackIndex: number) {
+  if (typeof artifact.title === 'string' && artifact.title.trim()) {
+    return artifact.title.trim()
+  }
+  if (typeof artifact.type === 'string' && artifact.type.trim()) {
+    return formatStatus(artifact.type)
+  }
+  return `Expected output ${fallbackIndex + 1}`
+}
+
+function artifactMatchesRequestedArtifact(artifact: RunArtifactRecord, requestedArtifact: Record<string, unknown>) {
+  const requestedTitle = typeof requestedArtifact.title === 'string' ? requestedArtifact.title.trim().toLowerCase() : null
+  const requestedType = typeof requestedArtifact.type === 'string' ? requestedArtifact.type.trim().toLowerCase() : null
+  const artifactTitle = artifact.title.trim().toLowerCase()
+  const artifactType = artifact.type.trim().toLowerCase()
+  return (requestedTitle && artifactTitle === requestedTitle) || (requestedType && artifactType === requestedType)
+}
+
 function isProducedArtifact(
   artifact: RunArtifactRecord,
   _requestedArtifacts: Array<Record<string, unknown>>,
@@ -1033,6 +1068,23 @@ function isProducedArtifact(
 function getProducedArtifacts(payload: RunResultsResponse | null) {
   const requestedArtifacts = getRequestedArtifacts(payload)
   return (payload?.artifacts ?? []).filter((artifact) => isProducedArtifact(artifact, requestedArtifacts))
+}
+
+function getRequestedArtifactStatus(
+  requestedArtifacts: Array<Record<string, unknown>>,
+  producedArtifacts: RunArtifactRecord[],
+) {
+  return requestedArtifacts.map((requestedArtifact, index) => {
+    const producedArtifact = producedArtifacts.find((artifact) =>
+      artifactMatchesRequestedArtifact(artifact, requestedArtifact),
+    ) ?? null
+    return {
+      name: requestedArtifactName(requestedArtifact, index),
+      requestedArtifact,
+      producedArtifact,
+      status: producedArtifact ? 'produced' : 'missing',
+    } as const
+  })
 }
 
 function artifactPath(artifact: RunArtifactRecord) {
@@ -3549,6 +3601,7 @@ function RunArtifactsPanel({
   onClose,
   requestedArtifacts,
   producedArtifacts,
+  expectedArtifacts,
   selectedArtifactId,
   onSelectArtifact,
   remoteSessionId,
@@ -3559,6 +3612,7 @@ function RunArtifactsPanel({
   onClose: () => void
   requestedArtifacts: Array<Record<string, unknown>>
   producedArtifacts: RunArtifactRecord[]
+  expectedArtifacts: Array<{ name: string; producedArtifact: RunArtifactRecord | null; status: 'produced' | 'missing' }>
   selectedArtifactId: string | null
   onSelectArtifact: (artifactId: string) => void
   remoteSessionId: string | null
@@ -3572,6 +3626,7 @@ function RunArtifactsPanel({
   const visibleArtifacts = producedArtifacts.filter(
     (artifact) => artifact.type !== 'remote_agent_session',
   )
+  const missingArtifacts = expectedArtifacts.filter((artifact) => artifact.status === 'missing')
   const tree = useMemo(() => buildArtifactFileTree(visibleArtifacts), [visibleArtifacts])
   const selectedArtifact =
     visibleArtifacts.find((artifact) => artifact.id === selectedArtifactId) ??
@@ -3704,7 +3759,7 @@ function RunArtifactsPanel({
   return (
     <aside
       ref={panelRef}
-      className="relative flex h-full min-h-0 w-full shrink-0 border-l border-border bg-background md:w-[var(--run-panel-width)]"
+      className="absolute inset-y-0 right-0 z-40 flex h-full min-h-0 w-full shrink-0 border-l border-border bg-background shadow-2xl md:w-[var(--run-panel-width)]"
       style={{ '--run-panel-width': `${panelWidth}px` } as CSSProperties}
       aria-label="Run artifacts"
     >
@@ -3733,10 +3788,14 @@ function RunArtifactsPanel({
           <GripVertical className="size-3 text-muted-foreground/50" />
         </div>
         <div className="flex min-h-0 flex-col">
-          <div className="flex h-16 shrink-0 items-center justify-between border-b border-border px-7">
+          <div className="flex min-h-16 shrink-0 items-center justify-between border-b border-border px-7 py-3">
             <div>
               <div className="truncate text-xl font-semibold tracking-normal">Artifacts</div>
-              <div className="text-xs text-muted-foreground">Answer first, then structured and supporting files.</div>
+              <div className="text-xs text-muted-foreground">
+                {visibleArtifacts.length > 0
+                  ? 'Saved outputs first. Missing outputs stay listed so you can see what was not recovered.'
+                  : 'This run did not save any durable files. Expected outputs stay listed so you can see what was lost.'}
+              </div>
             </div>
             <div className="flex shrink-0 items-center gap-3">
               {requestedArtifacts.length > 0 ? (
@@ -3749,9 +3808,50 @@ function RunArtifactsPanel({
               </Button>
             </div>
           </div>
+          <div className="border-b border-border px-7 py-5">
+            <div className="grid gap-3 md:grid-cols-2">
+              <div className="rounded-xl border border-border bg-background px-4 py-4">
+                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Produced</div>
+                <div className="mt-2 text-sm font-semibold text-foreground">
+                  {visibleArtifacts.length > 0 ? `${visibleArtifacts.length} file${visibleArtifacts.length === 1 ? '' : 's'} saved` : 'None saved'}
+                </div>
+              </div>
+              <div className="rounded-xl border border-border bg-background px-4 py-4">
+                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Missing</div>
+                <div className="mt-2 text-sm font-semibold text-foreground">
+                  {missingArtifacts.length > 0 ? `${missingArtifacts.length} expected output${missingArtifacts.length === 1 ? '' : 's'} missing` : 'No expected outputs missing'}
+                </div>
+              </div>
+            </div>
+            {expectedArtifacts.length > 0 ? (
+              <div className="mt-4 space-y-2">
+                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Expected outputs</div>
+                <div className="space-y-2">
+                  {expectedArtifacts.map((artifact) => (
+                    <div
+                      key={artifact.name}
+                      className="flex items-start justify-between gap-3 rounded-xl border border-border bg-background px-4 py-3"
+                    >
+                      <div className="min-w-0">
+                        <div className="text-sm font-medium text-foreground">{artifact.name}</div>
+                        <div className="text-xs text-muted-foreground">
+                          {artifact.producedArtifact
+                            ? `Recovered as ${artifactPath(artifact.producedArtifact)}.`
+                            : 'Not saved before the run stopped.'}
+                        </div>
+                      </div>
+                      <Badge variant={artifact.producedArtifact ? 'secondary' : 'outline'} className="shrink-0 rounded-full px-2 py-0.5 text-[10px] tracking-[0.12em]">
+                        {artifact.producedArtifact ? 'Produced' : 'Missing'}
+                      </Badge>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+          </div>
           <div className="min-h-0 overflow-y-auto py-5">
             {visibleArtifacts.length > 0 ? renderTreeNode(tree) : (
-              <div className="px-7 py-3 text-sm text-muted-foreground">No produced files yet.</div>
+              <div className="px-7 py-3 text-sm text-muted-foreground">No recoverable files were saved for this run.</div>
             )}
           </div>
         </div>
@@ -3776,12 +3876,12 @@ function FilePreview({
       <div className="flex h-full flex-col">
         <div className="flex h-16 shrink-0 items-center justify-between border-b border-border px-7">
           <div className="flex min-w-0 items-center gap-3 text-muted-foreground">
-            <FileText className="size-5" />
-            <span className="text-lg">No file selected</span>
+            <AlertTriangle className="size-5" />
+            <span className="text-lg">No recoverable file selected</span>
           </div>
         </div>
         <div className="flex flex-1 items-center justify-center px-6 text-center text-sm text-muted-foreground">
-          Select a file to preview it here.
+          This run did not finish cleanly. If any files were saved, select one from the list to inspect what can still be used.
         </div>
       </div>
     )
@@ -3864,16 +3964,14 @@ function RunDetailPage({
   )
   const expectedArtifactNames = useMemo(() => {
     const requested = requestedArtifacts
-      .map((artifact) =>
-        typeof artifact.title === 'string'
-          ? artifact.title
-          : typeof artifact.type === 'string'
-            ? formatStatus(artifact.type)
-            : null,
-      )
+      .map((artifact, index) => requestedArtifactName(artifact, index))
       .filter((value): value is string => Boolean(value))
     return requested.length > 0 ? requested : ['Dataset Briefing', 'Dataset Profile']
   }, [requestedArtifacts])
+  const expectedArtifactStatus = useMemo(
+    () => getRequestedArtifactStatus(requestedArtifacts, producedArtifacts),
+    [producedArtifacts, requestedArtifacts],
+  )
   const transcriptEntries = useMemo(
     () => (hasRemoteLogs ? [...observedProgressMessages, ...remoteMessages] : cliMessages),
     [cliMessages, hasRemoteLogs, observedProgressMessages, remoteMessages],
@@ -4093,6 +4191,18 @@ function RunDetailPage({
                 </div>
                 <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
                   <div className="rounded-xl border border-amber-300 bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">What completed</div>
+                    <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.completedLabel}</p>
+                  </div>
+                  <div className="rounded-xl border border-amber-300 bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">What is missing</div>
+                    <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.missingLabel}</p>
+                  </div>
+                  <div className="rounded-xl border border-amber-300 bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Can you trust saved output?</div>
+                    <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.trustLabel}</p>
+                  </div>
+                  <div className="rounded-xl border border-amber-300 bg-background px-4 py-4">
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">What happened</div>
                     <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.evidence}</p>
                   </div>
@@ -4108,7 +4218,7 @@ function RunDetailPage({
                   </div>
                   <div className="rounded-xl border border-amber-300 bg-background px-4 py-4">
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Recommended next move</div>
-                    <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.recommendation}</p>
+                    <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.nextStepLabel}</p>
                   </div>
                 </div>
                 <div className="rounded-xl border border-amber-300 bg-background px-4 py-4">
@@ -4128,11 +4238,9 @@ function RunDetailPage({
                   >
                     Retry in chat
                   </Button>
-                  {artifactCount > 0 ? (
-                    <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
-                      Inspect artifacts ({artifactCount})
-                    </Button>
-                  ) : null}
+                  <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
+                    Open artifacts
+                  </Button>
                   <Button type="button" variant="outline" onClick={() => setDetailsOpen(true)}>
                     Open debug evidence
                   </Button>
@@ -4302,6 +4410,7 @@ function RunDetailPage({
         onClose={() => setArtifactsOpen(false)}
         requestedArtifacts={requestedArtifacts}
         producedArtifacts={producedArtifacts}
+        expectedArtifacts={expectedArtifactStatus}
         selectedArtifactId={selectedArtifactId}
         onSelectArtifact={setSelectedArtifactId}
         remoteSessionId={remoteSessionId}
@@ -4425,6 +4534,7 @@ function SessionDetailPage({
         onClose={() => setArtifactsOpen(false)}
         requestedArtifacts={[]}
         producedArtifacts={linkedArtifacts}
+        expectedArtifacts={[]}
         selectedArtifactId={selectedArtifactId}
         onSelectArtifact={setSelectedArtifactId}
         remoteSessionId={null}
