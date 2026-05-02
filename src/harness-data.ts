@@ -159,6 +159,8 @@ export const harnessDatasets = [
     manifestPath: '/mnt/alpha-research/dataset-alpha-econ/manifest.json',
     deploymentStatus: 'processing',
     status: 'running',
+    activeRunId: 'run-harness-running',
+    leaseAcquiredAt: iso(12),
     volume: null,
     ingestConfig: {
       publicSources: ['census', 'bls'],

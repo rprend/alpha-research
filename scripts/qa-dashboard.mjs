@@ -199,23 +199,26 @@ async function assertRenderedDatasetDetail() {
   }
 }
 
-async function assertDatasetFreshnessSteering() {
+async function assertBusyDatasetConflictSteering() {
   const browser = await chromium.launch({ headless: true })
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=datasets&datasetId=dataset-alpha-econ`, { waitUntil: 'domcontentloaded' })
     await page.getByRole('heading', { name: 'Alpha Econ Prototype' }).waitFor({ timeout: 15000 })
-    await page.getByText('Not ready', { exact: true }).first().waitFor({ timeout: 15000 })
-    await page.getByRole('heading', { name: 'Not ready for analysis yet.' }).waitFor({ timeout: 15000 })
+    await page.getByText('Dataset is busy', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Another run is already using this dataset.' }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'run-harness-running' }).waitFor({ timeout: 15000 })
+    await page.getByText('Environment build in progress', { exact: true }).first().waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'View blocking run' }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Refresh status' }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Cancel blocking run' }).waitFor({ timeout: 15000 })
     await page.getByText('Source coverage', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Freshness and deployment', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Known gaps', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Briefing status', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Deployed dataset files are not mounted yet.', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('No briefing yet because the dataset is not ready enough to describe.', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('The deployed dataset files are not mounted yet, so the briefing and analysis remain blocked.', { exact: false }).first().waitFor({ timeout: 15000 })
+    await page.getByText('New work is blocked until environment build in progress finishes or is cancelled.', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'Describe dataset' }).waitFor({ timeout: 15000 })
-    await page.getByText('No dataset briefing is available yet.', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Dataset briefing is blocked by an active run.', { exact: true }).waitFor({ timeout: 15000 })
   } finally {
     await browser.close()
   }
@@ -483,7 +486,7 @@ try {
   await assertRenderedEmptyDatasetSetup()
   await assertAuthenticatedDatasetLoadFailure()
   await assertRenderedDatasetDetail()
-  await assertDatasetFreshnessSteering()
+  await assertBusyDatasetConflictSteering()
   await assertDatasetScopedAskRouting()
   await assertDescribeRunSteering()
   await assertCompletedRunArtifactsSteering()

@@ -119,6 +119,8 @@ type DatasetRecord = {
   manifestPath?: string | null
   deploymentStatus: string
   status: string
+  activeRunId?: string | null
+  leaseAcquiredAt?: string | null
   volume?: { id: string; name: string; region: string | null; mountPath: string | null } | null
   ingestConfig?: unknown
   profile?: {
@@ -690,6 +692,30 @@ function datasetDetailTrustState(dataset: DatasetRecord, hasBriefing: boolean) {
     actionState: 'Readiness not confirmed',
     actionDetail: limitation ?? 'Wait for a completed readiness check before you rely on this dataset.',
   }
+}
+
+function isTerminalRunStatus(status: string) {
+  return ['ready', 'completed', 'failed', 'cancelled', 'canceled', 'error', 'worker_unreachable'].includes(status.toLowerCase())
+}
+
+function datasetBlockingRun(dataset: DatasetRecord, runs: RunRecord[], describeRunId: string | null) {
+  const activeRun = dataset.activeRunId
+    ? runs.find((run) => run.id === dataset.activeRunId)
+    : null
+  if (activeRun && !isTerminalRunStatus(activeRun.status) && activeRun.id !== describeRunId) {
+    return activeRun
+  }
+
+  return runs
+    .filter((run) => run.datasetId === dataset.id && run.id !== describeRunId && !isTerminalRunStatus(run.status))
+    .sort((left, right) => right.updatedAt.localeCompare(left.updatedAt))[0] ?? null
+}
+
+function runStatusLabel(run: RunRecord) {
+  if (run.type === 'public_environment' || run.type === 'research_environment' || run.type === 'deploy') {
+    return 'Environment build in progress'
+  }
+  return `${formatStatus(run.status)} ${formatStatus(run.type)} run`
 }
 
 function datasetInventoryDescription(dataset: DatasetRecord) {
@@ -2728,6 +2754,26 @@ async function startDatasetDescribeRun(datasetId: string) {
   return response.json() as Promise<{ run: RunRecord }>
 }
 
+async function cancelRun(runId: string) {
+  if (isHarnessMode()) {
+    const run = harnessRuns.find((candidate) => candidate.id === runId)
+    if (!run) {
+      throw new Error('Harness run not found.')
+    }
+    return { run: { ...run, status: 'cancelled', outputPreview: 'Cancelled by user.' } }
+  }
+
+  const response = await fetch(`/api/cli/runs/${encodeURIComponent(runId)}/cancel`, {
+    method: 'POST',
+    credentials: 'same-origin',
+  })
+  if (!response.ok) {
+    const text = await response.text().catch(() => '')
+    throw new Error(text || `Cancel run failed: ${response.status}`)
+  }
+  return response.json() as Promise<{ run: RunRecord }>
+}
+
 function DatasetDetailPage({
   dataset,
   runs,
@@ -2744,6 +2790,7 @@ function DatasetDetailPage({
   const [detail, setDetail] = useState<DatasetRecord | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [startingDescribe, setStartingDescribe] = useState(false)
+  const [cancellingBlockingRun, setCancellingBlockingRun] = useState(false)
   const [questionDraft, setQuestionDraft] = useState('')
   const describeRun = runs.find((run) => run.datasetId === dataset.id && run.type === 'describe') ?? null
   const current = detail ?? dataset
@@ -2763,7 +2810,8 @@ function DatasetDetailPage({
     }
   }, [dataset.id])
 
-  const canDescribe = current.deploymentStatus === 'ready' && current.status === 'ready'
+  const blockingRun = datasetBlockingRun(current, runs, describeRun?.id ?? null)
+  const canDescribe = current.deploymentStatus === 'ready' && current.status === 'ready' && !blockingRun
   const briefingMarkdown = current.profile?.briefingMarkdown || current.profile?.notes || ''
   const structuredProfile = current.profile?.profile
   const describedAt = current.profile?.describedAt ?? current.profile?.updatedAt ?? null
@@ -2856,10 +2904,14 @@ function DatasetDetailPage({
     ? describedAt
       ? `Dataset briefing available. Last generated ${formatDateTime(describedAt)}.`
       : 'Dataset briefing available.'
+    : blockingRun
+      ? `New work is blocked until ${runStatusLabel(blockingRun).toLowerCase()} finishes or is cancelled.`
     : canDescribe
       ? 'No briefing yet. You can generate one now.'
       : 'No briefing yet because the dataset is not ready enough to describe.'
-  const describeActionDetail = !canDescribe
+  const describeActionDetail = blockingRun
+    ? `This dataset is locked by ${runStatusLabel(blockingRun).toLowerCase()}. Open that run to inspect progress, wait for it to finish, or cancel it if this work is no longer needed.`
+    : !canDescribe
     ? trustState.actionDetail
     : briefingMarkdown
       ? 'Starts a fresh async run to refresh the briefing.'
@@ -2880,6 +2932,74 @@ function DatasetDetailPage({
         </section>
 
         {error ? <div className="bg-destructive/5 px-4 py-3 text-sm text-destructive">{error}</div> : null}
+
+        {blockingRun ? (
+          <section className="rounded-2xl border border-amber-300 bg-amber-50 px-6 py-6" aria-labelledby="dataset-busy-heading">
+            <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+              <div className="space-y-3">
+                <div className="flex flex-wrap items-center gap-3">
+                  <RunPriorityBadge label="Dataset is busy" tone="warning" />
+                  <RunPriorityBadge label={runStatusLabel(blockingRun)} tone="warning" />
+                </div>
+                <div className="space-y-2">
+                  <h2 id="dataset-busy-heading" className="text-2xl font-semibold tracking-normal text-amber-950">
+                    Another run is already using this dataset.
+                  </h2>
+                  <p className="max-w-3xl text-sm leading-7 text-amber-950/90">
+                    Do not start duplicate work yet. Alpha Research already has active work on <span className="font-medium">{current.name}</span>, so new work stays blocked until that run finishes or is cancelled.
+                  </p>
+                </div>
+                <div className="grid gap-3 md:grid-cols-2">
+                  <div className="rounded-xl border border-amber-200 bg-background/90 px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-amber-900/70">Blocking run</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">{blockingRun.id}</div>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{runStatusLabel(blockingRun)}</p>
+                  </div>
+                  <div className="rounded-xl border border-amber-200 bg-background/90 px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-amber-900/70">Last activity</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">{relativeTime(blockingRun.updatedAt)}</div>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                      Started {formatDateTime(blockingRun.createdAt)}.
+                    </p>
+                  </div>
+                </div>
+                <p className="max-w-3xl text-sm leading-7 text-amber-950/90">
+                  Next actions: inspect the blocking run, wait here and refresh status, or cancel the run if this build should stop. Queueing a follow-up run is not available from this screen yet.
+                </p>
+              </div>
+              <div className="flex shrink-0 flex-col gap-3">
+                <Button type="button" onClick={() => onOpenRun(blockingRun)}>
+                  View blocking run
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))}
+                >
+                  Refresh status
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  disabled={cancellingBlockingRun}
+                  onClick={async () => {
+                    setCancellingBlockingRun(true)
+                    try {
+                      await cancelRun(blockingRun.id)
+                      window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
+                    } catch (cancelError) {
+                      setError(cancelError instanceof Error ? cancelError.message : 'Could not cancel blocking run.')
+                    } finally {
+                      setCancellingBlockingRun(false)
+                    }
+                  }}
+                >
+                  {cancellingBlockingRun ? 'Cancelling...' : 'Cancel blocking run'}
+                </Button>
+              </div>
+            </div>
+          </section>
+        ) : null}
 
         <section className="grid gap-4 rounded-2xl border border-border bg-muted/20 p-6 lg:grid-cols-[minmax(0,1fr)_280px]">
           <div className="space-y-5">
@@ -3097,6 +3217,15 @@ function DatasetDetailPage({
           <div className="rounded-lg border border-border p-5">
             {briefingMarkdown ? (
               <article className="max-w-none">{renderBriefingMarkdown(briefingMarkdown)}</article>
+            ) : blockingRun ? (
+              <div className="space-y-3">
+                <p className="text-sm leading-7 text-muted-foreground">
+                  Dataset briefing is blocked by an active run.
+                </p>
+                <p className="text-sm leading-7 text-muted-foreground">
+                  Open <button type="button" className="font-medium text-foreground underline underline-offset-4" onClick={() => onOpenRun(blockingRun)}>{blockingRun.id}</button> to inspect the environment build, wait for it to finish, or cancel it before you retry describing this dataset.
+                </p>
+              </div>
             ) : describeRun ? (
               <button type="button" className="text-left" onClick={() => onOpenRun(describeRun)}>
                 <div className="font-medium">

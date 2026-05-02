@@ -585,6 +585,8 @@ export class ControlPlane {
       deploymentStatus: dataset.deploymentStatus,
       createdAt: dataset.createdAt,
       updatedAt: dataset.updatedAt,
+      activeRunId: dataset.activeRunId,
+      leaseAcquiredAt: dataset.leaseAcquiredAt,
       volume: dataset.volumeId ? {
         id: dataset.volumeId,
         name: dataset.volumeName,

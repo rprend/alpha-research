@@ -64,6 +64,7 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - The primary reading path should include the human-readable briefing, visible schema fields, and sample rows, with at least one sample preview visible above the long briefing.
 - Describe actions should explain whether they generate or refresh the briefing, that they start async work, and that the resulting briefing/profile artifacts will appear in the run view and dataset detail.
 - Disabled describe actions should state exactly why they are blocked and whether the blocker is infrastructure readiness, ingest completeness, or another trust issue.
+- If another active run is holding the dataset lease, that busy/conflict state should take precedence over generic readiness copy. The page should identify the blocking run, explain why duplicate work is blocked, and surface the available inspect, wait/refresh, cancel, or queue-next actions without requiring developer details.
 - Run ids, artifact ids, manifest paths, raw JSON payloads, and similar debugging material belong in a collapsed developer-only section.
 
 ## Assistant Home Expectations
