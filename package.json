@@ -8,6 +8,8 @@
     "build": "tsc && vite build",
     "test": "pnpm run test:harness",
     "test:harness": "node scripts/validate-harness.mjs",
+    "test:infra": "node scripts/validate-infrastructure-contract.mjs",
+    "smoke:infra:live": "node scripts/live-infrastructure-smoke.mjs",
     "qa:dashboard": "pnpm build && node scripts/qa-dashboard.mjs",
     "journey:dashboard:capture": "node scripts/dashboard-journey-capture.mjs",
     "journey:dashboard:judge": "node scripts/dashboard-journey-judge.mjs",

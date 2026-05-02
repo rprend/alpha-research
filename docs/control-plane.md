@@ -51,3 +51,17 @@ When present, the control plane must honor it before launching the remote agent:
 - External providers are accessed through provider modules, not UI code.
 - Runner callbacks are authenticated with `RESEARCH_INTERNAL_RUNNER_TOKEN`.
 - Artifacts are stored through `run_artifacts`; transcripts should be captured as artifacts or assistant session entries.
+
+## Infrastructure Test Cases
+
+Run the deterministic contract checks with `pnpm run test:infra`. Run the live deployed smoke test with `pnpm run smoke:infra:live` when a RESEARCH CLI session and `doctl` context are available.
+
+- Object-store canonical and standard-analysis resource profiles parse `storageMode`, `datasetAccess`, and `publishMode`.
+- Object-store profiles skip shared dataset volume resize unless the profile is `large-ingest`.
+- Skipped volume resize writes a durable run event for auditability.
+- Failed public/research environment launches update both dataset `deployment_status` and `status` to `failed`.
+- Runner launch, status, event, and artifact callback routes remain wired.
+- Live canonical datasets `econ`, `sociology`, `philosophy`, `history`, `literature`, `political-science`, `anthropology`, `linguistics`, and `classics` are present and ready.
+- New canonical dataset volumes stay at the default 10GiB size; `econ` is allowed as a legacy 500GiB exception until it is migrated safely.
+- Completed canonical environment runs have persisted events and artifacts, including the resize-skip event.
+- No environment runner droplets remain active after successful completion.

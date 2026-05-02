@@ -20,6 +20,8 @@ const requiredPackageScripts = [
   'build',
   'test',
   'test:harness',
+  'test:infra',
+  'smoke:infra:live',
   'qa:dashboard',
   'journey:dashboard:capture',
   'journey:dashboard:judge',
@@ -76,6 +78,8 @@ assert(
 for (const token of ['storageMode', 'datasetAccess', 'publishMode']) {
   assert(digitalOceanSource.includes(token), `DigitalOcean resource parser is missing ${token}.`)
 }
+assert(existsSync(join(root, 'scripts/validate-infrastructure-contract.mjs')), 'Missing infrastructure contract validation script.')
+assert(existsSync(join(root, 'scripts/live-infrastructure-smoke.mjs')), 'Missing live infrastructure smoke script.')
 
 const dashboardJourneySource = readFileSync(join(root, 'scripts/dashboard-journeys.mjs'), 'utf8')
 for (const token of [
