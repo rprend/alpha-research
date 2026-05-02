@@ -8,6 +8,7 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Browse registered datasets and inspect deployment/profile state.
 - Track remote runs by dataset, type, prompt, status, and timestamps.
 - Open run details with observed progress, remote Codex transcript, and a resizable file explorer/viewer for produced run artifacts.
+- Direct run links from CLI or other surfaces should land on a run header that immediately shows the dataset, run type, status, prompt, run id, and produced artifact names without requiring extra navigation.
 - Completed run detail should lead with the result hierarchy: a plain-language finished state, the primary answer artifact, the structured companion if present, and a labeled `Artifacts (n)` control.
 - Completed run detail should also keep an always-visible audit summary above the transcript: original prompt, dataset, run type, status, requested artifacts, produced artifacts, and the latest timeline evidence.
 - The artifact panel for completed runs should read like a results view, not a raw file browser: show the original request, promote the canonical answer first, surface `result.json` when present, label supporting files separately, and provide a direct download affordance on the selected artifact.

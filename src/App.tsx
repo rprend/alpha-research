@@ -521,10 +521,21 @@ function sessionSummaryLine(
   dataset: DatasetRecord | undefined,
   run: RunRecord | undefined,
 ) {
+  const sessionKindLabel =
+    session.kind === 'cli_orchestration'
+      ? 'CLI handoff'
+      : session.kind === 'remote_codex'
+        ? 'Remote transcript'
+        : readableSessionKind(session.kind)
   const target = dataset?.name ?? (run ? formatStatus(run.type) : null)
   const status = sessionStatusDescription(session.status)
   const updated = `Last active ${relativeTime(session.updatedAt)}`
-  return [target ? `About ${target}` : null, status, updated].filter(Boolean).join(' · ')
+  return [sessionKindLabel, target ? `About ${target}` : null, status, updated].filter(Boolean).join(' · ')
+}
+
+function summarizePromptForHeader(prompt: string | null | undefined) {
+  if (!prompt?.trim()) return 'No original prompt was preserved for this run.'
+  return compactInlineText(prompt, 220)
 }
 
 function latestSessionEntry(
@@ -3539,10 +3550,10 @@ function SessionArtifactLinks({
           type="button"
           variant="outline"
           size="sm"
-          className="h-8 rounded-none"
+          className="h-auto max-w-full justify-start rounded-full px-3 py-2 text-left"
           onClick={() => onOpenArtifact(artifact.id)}
         >
-          {artifactPath(artifact)}
+          <span className="truncate">{artifactPath(artifact)}</span>
         </Button>
       ))}
     </div>
@@ -4643,25 +4654,37 @@ function RunDetailPage({
   return (
     <div className="flex min-h-0 flex-1 bg-background">
       <div className="relative flex min-w-0 flex-1 flex-col overflow-hidden px-4 py-6 md:px-8">
-        {!artifactsOpen && artifactCount > 0 ? (
-          <Button
-            type="button"
-            variant="outline"
-            className="absolute right-4 top-4 z-30 gap-2 bg-background/95 shadow-sm backdrop-blur md:right-6 md:top-6"
-            onClick={() => setArtifactsOpen(true)}
-            aria-label={`Open artifacts (${artifactCount})`}
-          >
-            <FileText className="size-5" />
-            <span>Open artifacts ({artifactCount})</span>
-          </Button>
-        ) : null}
-
         <div className="mx-auto flex min-h-0 w-full max-w-[46rem] flex-1 flex-col">
           <section className="mb-6 rounded-2xl border border-border bg-card/70 p-5">
             <div className="flex flex-col gap-4">
-              <div className="flex flex-wrap items-center gap-2">
-                <Badge variant="secondary">{dataset?.name ?? 'Run'}</Badge>
-                <StatusBadge>{formatStatus(currentRun.status)}</StatusBadge>
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div className="min-w-0 space-y-3">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Badge variant="secondary">{dataset?.name ?? 'Run'}</Badge>
+                    <StatusBadge>{formatStatus(currentRun.status)}</StatusBadge>
+                    <Badge variant="outline">{formatStatus(currentRun.type)}</Badge>
+                  </div>
+                  <div>
+                    <h1 className="text-2xl font-semibold tracking-normal">
+                      {dataset?.name ?? currentRun.datasetId} · {formatStatus(currentRun.type)} run
+                    </h1>
+                    <p className="mt-2 text-sm leading-6 text-foreground/85">
+                      {summarizePromptForHeader(currentRun.prompt)}
+                    </p>
+                  </div>
+                </div>
+                {artifactCount > 0 ? (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="shrink-0 gap-2"
+                    onClick={() => setArtifactsOpen(true)}
+                    aria-label={`Open artifacts (${artifactCount})`}
+                  >
+                    <FileText className="size-4" />
+                    <span>Open artifacts ({artifactCount})</span>
+                  </Button>
+                ) : null}
               </div>
               {isRunningRun ? (
                 <div className="space-y-2 text-sm leading-6 text-muted-foreground">
@@ -4679,6 +4702,10 @@ function RunDetailPage({
                   <div className="rounded-xl border border-border bg-background px-4 py-4">
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Run id</div>
                     <div className="mt-2 break-all text-sm font-semibold text-foreground">{currentRun.id}</div>
+                  </div>
+                  <div className="rounded-xl border border-border bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Prompt</div>
+                    <p className="mt-2 text-sm leading-6 text-foreground/85">{summarizePromptForHeader(currentRun.prompt)}</p>
                   </div>
                   <div className="rounded-xl border border-border bg-background px-4 py-4">
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Expected artifacts</div>
@@ -4766,6 +4793,30 @@ function RunDetailPage({
                     ))}
                   </div>
                 </div>
+                {artifactCount > 0 ? (
+                  <div className="rounded-xl border border-border bg-background px-4 py-4">
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <div>
+                        <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Artifacts ({artifactCount})</div>
+                        <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                          Open the exact files produced by this run without leaving the page.
+                        </p>
+                      </div>
+                      <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
+                        View artifact panel
+                      </Button>
+                    </div>
+                    <div className="mt-3">
+                      <SessionArtifactLinks
+                        artifacts={visibleProducedArtifacts}
+                        onOpenArtifact={(artifactId) => {
+                          setSelectedArtifactId(artifactId)
+                          setArtifactsOpen(true)
+                        }}
+                      />
+                    </div>
+                  </div>
+                ) : null}
                 <div className="rounded-xl border border-border bg-background px-4 py-4">
                   <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Timeline evidence</div>
                   <div className="mt-3 grid gap-3 md:grid-cols-2">
