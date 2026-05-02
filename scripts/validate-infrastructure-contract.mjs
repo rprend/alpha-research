@@ -21,6 +21,8 @@ for (const token of [
   'storageMode?: string',
   'datasetAccess?: string',
   'publishMode?: string',
+  'EXA_API_KEY?: string',
+  'CANONICAL_DATASET_SLACK_WEBHOOK_URL?: string',
   "resources.storageMode === 'object-store-versioned'",
   "resources.profile !== 'large-ingest'",
   'usesVersionedObjectStoreResources',
@@ -52,6 +54,12 @@ assert(
 assert(
   controlPlaneSource.includes('/artifacts') && controlPlaneSource.includes('/events') && controlPlaneSource.includes('/status'),
   'Runner event, status, and artifact callback endpoints must remain wired.',
+)
+
+assert(
+  digitalOceanSource.includes('CANONICAL_DATASET_SLACK_WEBHOOK_URL=${shellEscape') &&
+    digitalOceanSource.includes('EXA_API_KEY=${shellEscape'),
+  'Remote runner must forward Exa and canonical Slack webhook secrets to dataset-improvement jobs.',
 )
 
 for (const requiredDocFragment of [

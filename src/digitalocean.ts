@@ -21,6 +21,9 @@ type DigitalOceanEnv = {
   RESEARCH_AGENT_MODEL?: string
   REMOTE_AGENT_MODEL?: string
   REMOTE_AGENT_EXECUTOR?: string
+  EXA_API_KEY?: string
+  CANONICAL_DATASET_SLACK_WEBHOOK_URL?: string
+  SLACK_WEBHOOK_URL?: string
 }
 
 type EnsureVolumeResult = {
@@ -507,6 +510,8 @@ function buildResearchRunnerScript(env: DigitalOceanEnv, params: LaunchResearchP
     `MANIFEST_PATH=${shellEscape(params.manifestPath)}`,
     `RUNNER_URL=${shellEscape(runnerUrl)}`,
     `OPENAI_API_KEY=${shellEscape(env.OPENAI_API_KEY ?? '')}`,
+    `EXA_API_KEY=${shellEscape(env.EXA_API_KEY ?? '')}`,
+    `CANONICAL_DATASET_SLACK_WEBHOOK_URL=${shellEscape(env.CANONICAL_DATASET_SLACK_WEBHOOK_URL ?? env.SLACK_WEBHOOK_URL ?? '')}`,
     `REMOTE_AGENT_MODEL=${shellEscape(remoteAgentModel)}`,
     `RUN_ID=${shellEscape(params.runId)}`,
     `RUN_TYPE=${shellEscape(params.runType)}`,
@@ -668,6 +673,8 @@ function buildWarmPoolRunnerScript(env: DigitalOceanEnv, sizeClass: 'small' | 'm
     `RUNNER_TOKEN=${shellEscape(env.RESEARCH_INTERNAL_RUNNER_TOKEN ?? '')}`,
     `RUNNER_URL=${shellEscape(runnerUrl)}`,
     `OPENAI_API_KEY=${shellEscape(env.OPENAI_API_KEY ?? '')}`,
+    `EXA_API_KEY=${shellEscape(env.EXA_API_KEY ?? '')}`,
+    `CANONICAL_DATASET_SLACK_WEBHOOK_URL=${shellEscape(env.CANONICAL_DATASET_SLACK_WEBHOOK_URL ?? env.SLACK_WEBHOOK_URL ?? '')}`,
     `REMOTE_AGENT_MODEL=${shellEscape(env.REMOTE_AGENT_MODEL ?? env.RESEARCH_AGENT_MODEL ?? 'gpt-5-codex')}`,
     `POOL_SIZE_CLASS=${shellEscape(sizeClass)}`,
     `POOL_REGION=${shellEscape(env.DIGITALOCEAN_REGION ?? 'nyc3')}`,

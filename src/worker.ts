@@ -70,6 +70,9 @@ type Env = {
   R2_ENDPOINT?: string
   RESEARCH_INTERNAL_RUNNER_TOKEN?: string
   RESEARCH_DATASET_REPO_REF?: string
+  EXA_API_KEY?: string
+  CANONICAL_DATASET_SLACK_WEBHOOK_URL?: string
+  SLACK_WEBHOOK_URL?: string
   CONTROL_PLANE: DurableObjectNamespaceLike
 }
 

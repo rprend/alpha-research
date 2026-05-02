@@ -71,6 +71,9 @@ type Env = {
   RESEARCH_AGENT_MODEL?: string
   REMOTE_AGENT_MODEL?: string
   REMOTE_AGENT_EXECUTOR?: string
+  EXA_API_KEY?: string
+  CANONICAL_DATASET_SLACK_WEBHOOK_URL?: string
+  SLACK_WEBHOOK_URL?: string
 }
 
 type DatasetRecord = {
