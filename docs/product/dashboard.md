@@ -30,9 +30,11 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 
 - The runs page should behave like a triage surface, not a neutral event log.
 - Default ordering should put risky or still-active work ahead of stale completed work.
-- Every row should make the underlying question legible even when the same dataset appears multiple times.
+- Every row should lead with the underlying question or run title so repeated dataset names do not read like duplicates.
 - Status styling should encode urgency and explain unclear failure states such as `Worker Unreachable` in plain language.
+- Runs inventory should expose an explicit outcome/result signal such as `Artifacts ready`, `No outputs recovered`, or `Watching for outputs`, not just raw status.
 - Completed runs should indicate whether artifacts or linked sessions exist so a user can tell if there is anything worth opening.
+- When several successful runs are visible, the newest completed candidate should be called out explicitly.
 - In-progress runs should read like live monitors rather than developer inspectors; raw config, run ids, runner ids, and other diagnostics belong in collapsed or secondary treatment.
 - The primary action to open the run should read like the next step, not like incidental table chrome.
 

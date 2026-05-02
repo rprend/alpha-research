@@ -337,10 +337,13 @@ async function assertRenderedRunsInventory() {
     await page.getByText('Needs attention', { exact: true }).first().waitFor({ timeout: 15000 })
     await page.getByText('Running now', { exact: true }).first().waitFor({ timeout: 15000 })
     await page.getByText('Outputs ready', { exact: true }).first().waitFor({ timeout: 15000 })
+    await page.getByText('Latest completed', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Describe the Alpha Book sample and identify research-ready fields.', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Worker stopped responding before the run finished.', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('4 artifacts ready', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Open recovery path' }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Open outputs' }).waitFor({ timeout: 15000 })
+    await page.getByText('Connection to the worker dropped before a final result was reported.', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Inspect recovery' }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Inspect outputs' }).waitFor({ timeout: 15000 })
     if (await page.getByText('Alpha Book research planning', { exact: true }).count()) {
       throw new Error('Runs inventory should de-emphasize the research chat sidebar during triage.')
     }

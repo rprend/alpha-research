@@ -328,7 +328,7 @@ function getRunPriorityMeta(run: RunRecord) {
       label: 'Needs attention',
       summary: 'Worker stopped responding before the run finished.',
       detail: 'Open the session to inspect logs, partial output, or retry context.',
-      actionLabel: 'Open recovery path',
+      actionLabel: 'Inspect recovery',
     }
   }
   if (normalized === 'running') {
@@ -349,7 +349,7 @@ function getRunPriorityMeta(run: RunRecord) {
       detail: hasArtifacts
         ? `${run.artifactCount} artifact${run.artifactCount === 1 ? '' : 's'} available to inspect.`
         : 'Open the session for transcript and result details.',
-      actionLabel: hasArtifacts ? 'Open outputs' : 'Open session',
+      actionLabel: hasArtifacts ? 'Inspect outputs' : 'Inspect run',
     }
   }
   return {
@@ -357,7 +357,7 @@ function getRunPriorityMeta(run: RunRecord) {
     label: 'Check status',
     summary: formatStatus(run.status),
     detail: 'Open the session for more detail.',
-    actionLabel: 'Open session',
+    actionLabel: 'Inspect run',
   }
 }
 
@@ -373,6 +373,55 @@ function getRunOutputSignal(run: RunRecord) {
     return `${run.sessionCount} session${run.sessionCount === 1 ? '' : 's'} attached`
   }
   return 'No outputs yet'
+}
+
+function getRunOutcomeMeta(run: RunRecord) {
+  const artifactCount = run.artifactCount ?? 0
+  const sessionCount = run.sessionCount ?? 0
+  const normalized = run.status.toLowerCase()
+
+  if (normalized === 'worker_unreachable') {
+    return artifactCount > 0
+      ? {
+          label: 'Partial outputs recovered',
+          detail: `${artifactCount} artifact${artifactCount === 1 ? '' : 's'} saved before the worker disconnected.`,
+        }
+      : {
+          label: 'No outputs recovered',
+          detail: 'The worker disconnected before Alpha Research received a final result or saved files.',
+        }
+  }
+
+  if (normalized === 'running') {
+    return {
+      label: 'Watching for outputs',
+      detail: artifactCount > 0
+        ? `${artifactCount} early artifact${artifactCount === 1 ? '' : 's'} saved while the run is still active.`
+        : 'No artifacts yet. Open the run to watch progress and latest activity.',
+    }
+  }
+
+  if (normalized === 'ready') {
+    if (artifactCount > 0) {
+      return {
+        label: artifactCount === 1 ? '1 artifact ready' : `${artifactCount} artifacts ready`,
+        detail: sessionCount > 0
+          ? `${sessionCount} linked session${sessionCount === 1 ? '' : 's'} and saved outputs are ready to inspect.`
+          : 'Saved outputs are ready to inspect.',
+      }
+    }
+    return {
+      label: 'Result available',
+      detail: sessionCount > 0
+        ? `${sessionCount} linked session${sessionCount === 1 ? '' : 's'} captured the outcome even though no durable files were saved.`
+        : 'The run finished successfully, but no durable files were recorded.',
+    }
+  }
+
+  return {
+    label: getRunOutputSignal(run),
+    detail: run.outputPreview?.trim() || 'Open the run for more detail.',
+  }
 }
 
 function getRunInventorySummary(runs: RunRecord[]) {
@@ -2951,6 +3000,9 @@ function RunTable({
     return b.updatedAt.localeCompare(a.updatedAt)
   })
   const summary = getRunInventorySummary(sortedRuns)
+  const latestCompletedRunId = sortedRuns
+    .filter((run) => run.status.toLowerCase() === 'ready')
+    .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0]?.id ?? null
 
   return (
     <div className="flex flex-col gap-4">
@@ -2988,17 +3040,17 @@ function RunTable({
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>What needs attention</TableHead>
-              <TableHead>Type</TableHead>
+              <TableHead>Run to compare</TableHead>
+              <TableHead>Outcome</TableHead>
               <TableHead>Status</TableHead>
-              <TableHead>Started</TableHead>
-              <TableHead>Updated</TableHead>
+              <TableHead>Freshness</TableHead>
               <TableHead>Next step</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {sortedRuns.map((run) => {
               const priority = getRunPriorityMeta(run)
+              const outcome = getRunOutcomeMeta(run)
               const statusTone = getRunStatusTone(run.status)
               const prompt =
                 run.prompt?.trim() ||
@@ -3015,42 +3067,47 @@ function RunTable({
                     <div className="flex min-w-0 flex-col gap-2">
                       <div className="flex flex-wrap items-center gap-2">
                         <RunPriorityBadge label={priority.label} tone={statusTone} />
-                        <span className="font-medium">{priority.summary}</span>
+                        {run.id === latestCompletedRunId ? (
+                          <RunPriorityBadge label="Latest completed" tone="success" />
+                        ) : null}
                       </div>
-                      <span className="truncate font-medium">
-                        {datasetLookup.get(run.datasetId)?.name ?? run.datasetId}
-                      </span>
-                      <span className="max-w-[38rem] text-sm whitespace-normal text-foreground/85">
+                      <span className="max-w-[38rem] text-base leading-6 font-medium whitespace-normal text-foreground">
                         {truncate(prompt, 180)}
                       </span>
+                      <span className="truncate text-sm text-muted-foreground">
+                        {datasetLookup.get(run.datasetId)?.name ?? run.datasetId}
+                      </span>
                       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
-                        <span>{priority.detail}</span>
+                        <span>{formatStatus(run.type)}</span>
                         <span aria-hidden="true">•</span>
-                        <span>{getRunOutputSignal(run)}</span>
-                        {run.sessionCount ? (
-                          <>
-                            <span aria-hidden="true">•</span>
-                            <span>{run.sessionCount} linked session{run.sessionCount === 1 ? '' : 's'}</span>
-                          </>
-                        ) : null}
+                        <span>{priority.summary}</span>
+                        <span aria-hidden="true">•</span>
+                        <span>{priority.detail}</span>
                       </div>
                     </div>
                   </TableCell>
-                  <TableCell>{formatStatus(run.type)}</TableCell>
+                  <TableCell>
+                    <div className="flex flex-col gap-2">
+                      <span className="font-medium">{outcome.label}</span>
+                      <span className="max-w-64 text-sm leading-6 text-muted-foreground">
+                        {outcome.detail}
+                      </span>
+                    </div>
+                  </TableCell>
                   <TableCell>
                     <div className="flex flex-col gap-2">
                       <StatusBadge>{formatStatus(run.status)}</StatusBadge>
                       {run.status.toLowerCase() === 'worker_unreachable' ? (
                         <span className="max-w-48 text-sm leading-5 text-muted-foreground">
-                          The worker stopped responding before reporting a final result.
+                          Connection to the worker dropped before a final result was reported.
                         </span>
                       ) : null}
                     </div>
                   </TableCell>
-                  <TableCell>{formatDateTime(run.createdAt)}</TableCell>
                   <TableCell>
                     <div className="flex min-w-28 flex-col gap-1">
                       <span>{relativeTime(run.updatedAt)}</span>
+                      <span className="text-sm text-muted-foreground">Started {relativeTime(run.createdAt)}</span>
                       <span className="text-sm text-muted-foreground">{formatDateTime(run.updatedAt)}</span>
                     </div>
                   </TableCell>
