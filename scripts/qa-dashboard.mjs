@@ -66,6 +66,30 @@ async function assertRenderedOrientation() {
   }
 }
 
+async function assertLandingPageUnderstanding() {
+  const browser = await chromium.launch({ headless: true })
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+    await page.goto(baseUrl, { waitUntil: 'domcontentloaded' })
+    await page.getByText('Open-source research platform', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Ask questions across large datasets, then inspect the evidence and outputs.' }).waitFor({ timeout: 15000 })
+    await page.getByText('hosted research app plus an open-source CLI', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByRole('link', { name: 'See Alpha Book example' }).waitFor({ timeout: 15000 })
+    await page.getByRole('link', { name: 'Bring your own dataset with the CLI' }).waitFor({ timeout: 15000 })
+    await page.getByText('What it is', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('What Alpha Research returns', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Private dataset path via CLI', { exact: true }).waitFor({ timeout: 15000 })
+    if (await page.getByText('RResearch', { exact: true }).count()) {
+      throw new Error('Landing page should not use the legacy RResearch label in primary navigation.')
+    }
+    if (await page.getByText('Open source, agentic knowledge bases for all of humanity\'s knowledge', { exact: true }).count()) {
+      throw new Error('Landing page hero should use the clarified product definition, not the old abstract headline.')
+    }
+  } finally {
+    await browser.close()
+  }
+}
+
 async function assertWellSpecifiedRunLaunch() {
   const browser = await chromium.launch({ headless: true })
   try {
@@ -521,6 +545,7 @@ try {
   await assertRoute('/?harness=1', '<div id="app">')
   await assertRoute('/?harness=1&view=datasets', '<div id="app">')
   await assertRoute('/?harness=1&view=runs', '<div id="app">')
+  await assertLandingPageUnderstanding()
   await assertRenderedOrientation()
   await assertWellSpecifiedRunLaunch()
   await assertRenderedDatasetInventory()

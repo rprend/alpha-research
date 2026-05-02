@@ -4,6 +4,7 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 
 ## Primary Jobs
 
+- Explain the public product clearly before sign-in: Alpha Research is a research platform plus CLI for asking questions over large datasets, reviewing evidence, and running traceable analyses on public or private corpora.
 - Start and continue RESEARCH CLI assistant sessions from the browser.
 - Browse registered datasets and inspect deployment/profile state.
 - Track remote runs by dataset, type, prompt, status, and timestamps.
@@ -95,6 +96,14 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - If the user opened a deep link to a dashboard, run, dataset, or session, the sign-in flow should preserve that destination and say so in plain language.
 - Signed-out views should mute or remove workspace navigation chrome that implies the dashboard loaded successfully.
 - The signed-out path should not probe protected dashboard data endpoints before redirecting or rendering the gate.
+
+## Public Homepage Expectations
+
+- The first viewport must answer four questions without prior context: what Alpha Research is, who it is for, what kind of output it produces, and what the next step should be.
+- Public homepage copy should avoid ambiguous branding or unexplained sub-brands in primary navigation and hero content.
+- The primary CTA for a new visitor should help them understand or inspect the product before sales or consulting language takes over.
+- The page should show at least one concrete example workflow or output artifact above the fold so skeptical researchers can map claims to real work.
+- Hosted public examples, CLI self-serve for private datasets, and optional human setup help should be visibly distinct paths rather than blended into one generic pitch.
 
 ## Harness Mode
 
