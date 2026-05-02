@@ -10,8 +10,6 @@ import {
   Database,
   ExternalLink,
   FileText,
-  Folder,
-  FolderOpen,
   GripVertical,
   History,
   LoaderCircle,
@@ -168,13 +166,6 @@ type RunArtifactRecord = {
   url?: string
   content?: Record<string, unknown>
   createdAt: string
-}
-
-type FileTreeNode = {
-  name: string
-  path: string
-  children: Map<string, FileTreeNode>
-  artifact?: RunArtifactRecord
 }
 
 type RunResultsResponse = {
@@ -1162,20 +1153,52 @@ function artifactRoleMeta(
 ) {
   if (artifact.id === primaryArtifactId) {
     return {
-      label: 'Answer',
-      description: 'User-facing result to read first.',
+      label: 'Final result',
+      description: 'Canonical answer to the run request. Read this first.',
     }
   }
   if (artifact.id === profileArtifactId) {
     return {
-      label: 'Structured',
-      description: 'Machine-readable companion for downstream tooling.',
+      label: 'Structured data',
+      description: 'Machine-readable companion with the durable result data.',
     }
   }
   return {
-    label: 'Support',
-    description: 'Supporting file captured during the run.',
+    label: 'Supporting file',
+    description: 'Intermediate or implementation file captured during the run.',
   }
+}
+
+function artifactSortRank(
+  artifact: RunArtifactRecord,
+  primaryArtifactId: string | null,
+  profileArtifactId: string | null,
+) {
+  if (artifact.id === primaryArtifactId) return 0
+  if (artifact.id === profileArtifactId) return 1
+  return 2
+}
+
+function artifactDownloadFilename(artifact: RunArtifactRecord) {
+  const path = artifactPath(artifact).trim()
+  if (path) {
+    const parts = path.split('/').filter(Boolean)
+    return parts[parts.length - 1] ?? artifact.title
+  }
+  return artifact.title || 'artifact'
+}
+
+function artifactDownloadHref(artifact: RunArtifactRecord) {
+  if (artifact.url) return artifact.url
+  const path = artifactPath(artifact)
+  const language = artifactLanguage(path, artifact)
+  const body = language === 'json' ? artifactJsonPreview(artifact) : artifactText(artifact)
+  const mimeType = language === 'json'
+    ? 'application/json;charset=utf-8'
+    : language === 'markdown'
+      ? 'text/markdown;charset=utf-8'
+      : 'text/plain;charset=utf-8'
+  return `data:${mimeType},${encodeURIComponent(body)}`
 }
 
 function isTerminalSuccessfulRun(run: RunRecord) {
@@ -1211,26 +1234,6 @@ function fileIconFor(path: string, artifact?: RunArtifactRecord) {
     )
   }
   return <FileText className="size-5 w-7 shrink-0 text-muted-foreground" />
-}
-
-function buildArtifactFileTree(artifacts: RunArtifactRecord[]) {
-  const root: FileTreeNode = { name: 'All files', path: '', children: new Map() }
-  for (const artifact of artifacts) {
-    const parts = artifactPath(artifact).split('/').filter(Boolean)
-    if (parts.length === 0) continue
-    let cursor = root
-    parts.forEach((part, index) => {
-      const path = [...parts.slice(0, index), part].join('/')
-      const existing = cursor.children.get(part)
-      const next: FileTreeNode = existing ?? { name: part, path, children: new Map() }
-      if (index === parts.length - 1) {
-        next.artifact = artifact
-      }
-      cursor.children.set(part, next)
-      cursor = next
-    })
-  }
-  return root
 }
 
 function summarizeRunRecord(value: unknown) {
@@ -3599,6 +3602,7 @@ function AssistantOrientationPanel({
 function RunArtifactsPanel({
   open,
   onClose,
+  runPrompt,
   requestedArtifacts,
   producedArtifacts,
   expectedArtifacts,
@@ -3610,6 +3614,7 @@ function RunArtifactsPanel({
 }: {
   open: boolean
   onClose: () => void
+  runPrompt: string | null
   requestedArtifacts: Array<Record<string, unknown>>
   producedArtifacts: RunArtifactRecord[]
   expectedArtifacts: Array<{ name: string; producedArtifact: RunArtifactRecord | null; status: 'produced' | 'missing' }>
@@ -3622,31 +3627,31 @@ function RunArtifactsPanel({
   const panelRef = useRef<HTMLElement | null>(null)
   const [panelWidth, setPanelWidth] = useState(900)
   const [treeWidth, setTreeWidth] = useState(360)
-  const [expandedPaths, setExpandedPaths] = useState<Set<string>>(() => new Set(['']))
   const visibleArtifacts = producedArtifacts.filter(
     (artifact) => artifact.type !== 'remote_agent_session',
   )
   const missingArtifacts = expectedArtifacts.filter((artifact) => artifact.status === 'missing')
-  const tree = useMemo(() => buildArtifactFileTree(visibleArtifacts), [visibleArtifacts])
+  const orderedArtifacts = useMemo(
+    () => [...visibleArtifacts].sort((a, b) => {
+      const rankDelta = artifactSortRank(a, primaryArtifactId, profileArtifactId) - artifactSortRank(b, primaryArtifactId, profileArtifactId)
+      if (rankDelta !== 0) return rankDelta
+      return artifactPath(a).localeCompare(artifactPath(b))
+    }),
+    [primaryArtifactId, profileArtifactId, visibleArtifacts],
+  )
+  const resultArtifacts = useMemo(
+    () => orderedArtifacts.filter((artifact) => artifactSortRank(artifact, primaryArtifactId, profileArtifactId) < 2),
+    [orderedArtifacts, primaryArtifactId, profileArtifactId],
+  )
+  const supportingArtifacts = useMemo(
+    () => orderedArtifacts.filter((artifact) => artifactSortRank(artifact, primaryArtifactId, profileArtifactId) === 2),
+    [orderedArtifacts, primaryArtifactId, profileArtifactId],
+  )
   const selectedArtifact =
-    visibleArtifacts.find((artifact) => artifact.id === selectedArtifactId) ??
-    visibleArtifacts[0] ??
+    orderedArtifacts.find((artifact) => artifact.id === selectedArtifactId) ??
+    orderedArtifacts[0] ??
     null
   const selectedPath = selectedArtifact ? artifactPath(selectedArtifact) : null
-
-  useEffect(() => {
-    setExpandedPaths((current) => {
-      const next = new Set(current)
-      for (const artifact of visibleArtifacts) {
-        const parts = artifactPath(artifact).split('/').filter(Boolean)
-        if (parts.length <= 1) continue
-        for (let index = 1; index < parts.length; index += 1) {
-          next.add(parts.slice(0, index).join('/'))
-        }
-      }
-      return next
-    })
-  }, [visibleArtifacts])
 
   const beginPanelResize = (event: ReactPointerEvent<HTMLDivElement>) => {
     event.preventDefault()
@@ -3681,72 +3686,31 @@ function RunArtifactsPanel({
     window.addEventListener('pointerup', onPointerUp)
   }
 
-  const toggleExpanded = (path: string) => {
-    setExpandedPaths((current) => {
-      const next = new Set(current)
-      if (next.has(path)) next.delete(path)
-      else next.add(path)
-      return next
-    })
-  }
-
-  const renderTreeNode = (node: FileTreeNode, depth = 0): ReactNode => {
-    const children = Array.from(node.children.values()).sort((a, b) => {
-      if (a.artifact && !b.artifact) return 1
-      if (!a.artifact && b.artifact) return -1
-      return a.name.localeCompare(b.name)
-    })
-    const isExpanded = expandedPaths.has(node.path)
-    const isDirectory = children.length > 0 && !node.artifact
-    if (node.path === '') {
-      return children.map((child) => renderTreeNode(child, depth))
-    }
-    if (isDirectory) {
-      return (
-        <div key={node.path}>
-          <button
-            type="button"
-            className="flex h-10 w-full min-w-0 items-center gap-3 px-2 text-left text-[1.08rem] leading-none hover:bg-muted"
-            style={{ paddingLeft: `${20 + depth * 18}px` }}
-            onClick={() => toggleExpanded(node.path)}
-          >
-            {isExpanded ? <ChevronDown className="size-5 text-muted-foreground" /> : <ChevronRight className="size-5 text-muted-foreground" />}
-            {isExpanded ? <FolderOpen className="size-5 text-muted-foreground" /> : <Folder className="size-5 text-muted-foreground" />}
-            <span className="truncate">{node.name}</span>
-          </button>
-          {isExpanded ? children.map((child) => renderTreeNode(child, depth + 1)) : null}
-        </div>
-      )
-    }
+  const renderArtifactButton = (artifact: RunArtifactRecord) => {
+    const path = artifactPath(artifact)
+    const role = artifactRoleMeta(artifact, primaryArtifactId, profileArtifactId)
     return (
       <button
-        key={node.path}
+        key={artifact.id}
         type="button"
         className={[
           'flex min-h-14 w-full min-w-0 items-center gap-4 px-3 py-2 text-left hover:bg-muted',
-          selectedPath === node.path ? 'bg-primary/10 font-semibold ring-1 ring-primary/20' : '',
+          selectedPath === path ? 'bg-primary/10 font-semibold ring-1 ring-primary/20' : '',
         ].join(' ')}
-        style={{ paddingLeft: `${24 + depth * 18}px` }}
-        onClick={() => node.artifact && onSelectArtifact(node.artifact.id)}
+        onClick={() => onSelectArtifact(artifact.id)}
       >
-        {fileIconFor(node.path, node.artifact)}
+        {fileIconFor(path, artifact)}
         <div className="flex min-w-0 flex-1 items-center justify-between gap-3">
           <div className="min-w-0">
-            <div className="truncate text-[1rem] leading-5">{node.name}</div>
-            {node.artifact ? (
-              <div className="truncate text-xs text-muted-foreground">
-                {artifactRoleMeta(node.artifact, primaryArtifactId, profileArtifactId).description}
-              </div>
-            ) : null}
+            <div className="truncate text-[1rem] leading-5">{path}</div>
+            <div className="truncate text-xs text-muted-foreground">{role.description}</div>
           </div>
-          {node.artifact ? (
-            <Badge
-              variant={selectedPath === node.path ? 'default' : 'secondary'}
-              className="shrink-0 rounded-full px-2 py-0.5 text-[10px] tracking-[0.12em]"
-            >
-              {artifactRoleMeta(node.artifact, primaryArtifactId, profileArtifactId).label}
-            </Badge>
-          ) : null}
+          <Badge
+            variant={selectedPath === path ? 'default' : 'secondary'}
+            className="shrink-0 rounded-full px-2 py-0.5 text-[10px] tracking-[0.12em]"
+          >
+            {role.label}
+          </Badge>
         </div>
       </button>
     )
@@ -3778,6 +3742,7 @@ function RunArtifactsPanel({
           remoteSessionId={remoteSessionId}
           primaryArtifactId={primaryArtifactId}
           profileArtifactId={profileArtifactId}
+          runPrompt={runPrompt}
         />
         <div
           role="separator"
@@ -3790,10 +3755,10 @@ function RunArtifactsPanel({
         <div className="flex min-h-0 flex-col">
           <div className="flex min-h-16 shrink-0 items-center justify-between border-b border-border px-7 py-3">
             <div>
-              <div className="truncate text-xl font-semibold tracking-normal">Artifacts</div>
+              <div className="truncate text-xl font-semibold tracking-normal">Results and artifacts</div>
               <div className="text-xs text-muted-foreground">
                 {visibleArtifacts.length > 0
-                  ? 'Saved outputs first. Missing outputs stay listed so you can see what was not recovered.'
+                  ? 'Final outputs are promoted first so you can read the answer before browsing supporting files.'
                   : 'This run did not save any durable files. Expected outputs stay listed so you can see what was lost.'}
               </div>
             </div>
@@ -3809,6 +3774,12 @@ function RunArtifactsPanel({
             </div>
           </div>
           <div className="border-b border-border px-7 py-5">
+            {runPrompt ? (
+              <div className="mb-4 rounded-xl border border-border bg-muted/40 px-4 py-4">
+                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Original request</div>
+                <p className="mt-2 text-sm leading-6 text-foreground/85">{runPrompt}</p>
+              </div>
+            ) : null}
             <div className="grid gap-3 md:grid-cols-2">
               <div className="rounded-xl border border-border bg-background px-4 py-4">
                 <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Produced</div>
@@ -3836,8 +3807,8 @@ function RunArtifactsPanel({
                         <div className="text-sm font-medium text-foreground">{artifact.name}</div>
                         <div className="text-xs text-muted-foreground">
                           {artifact.producedArtifact
-                            ? `Recovered as ${artifactPath(artifact.producedArtifact)}.`
-                            : 'Not saved before the run stopped.'}
+                            ? `Available as ${artifactPath(artifact.producedArtifact)}.`
+                            : 'Expected for this run, but not saved before the run stopped.'}
                         </div>
                       </div>
                       <Badge variant={artifact.producedArtifact ? 'secondary' : 'outline'} className="shrink-0 rounded-full px-2 py-0.5 text-[10px] tracking-[0.12em]">
@@ -3850,7 +3821,26 @@ function RunArtifactsPanel({
             ) : null}
           </div>
           <div className="min-h-0 overflow-y-auto py-5">
-            {visibleArtifacts.length > 0 ? renderTreeNode(tree) : (
+            {visibleArtifacts.length > 0 ? (
+              <div className="space-y-5 px-5">
+                {resultArtifacts.length > 0 ? (
+                  <section>
+                    <div className="px-2 pb-2 text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Final outputs</div>
+                    <div className="space-y-2">
+                      {resultArtifacts.map((artifact) => renderArtifactButton(artifact))}
+                    </div>
+                  </section>
+                ) : null}
+                {supportingArtifacts.length > 0 ? (
+                  <section>
+                    <div className="px-2 pb-2 text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Supporting files</div>
+                    <div className="space-y-2">
+                      {supportingArtifacts.map((artifact) => renderArtifactButton(artifact))}
+                    </div>
+                  </section>
+                ) : null}
+              </div>
+            ) : (
               <div className="px-7 py-3 text-sm text-muted-foreground">No recoverable files were saved for this run.</div>
             )}
           </div>
@@ -3865,11 +3855,13 @@ function FilePreview({
   remoteSessionId,
   primaryArtifactId,
   profileArtifactId,
+  runPrompt,
 }: {
   artifact: RunArtifactRecord | null
   remoteSessionId: string | null
   primaryArtifactId: string | null
   profileArtifactId: string | null
+  runPrompt: string | null
 }) {
   if (!artifact) {
     return (
@@ -3897,23 +3889,44 @@ function FilePreview({
       <div className="flex min-h-16 shrink-0 items-center justify-between gap-4 border-b border-border px-5 py-3">
         <div className="min-w-0">
           <div className="flex min-w-0 items-center gap-3">
-            <div className="truncate text-base font-semibold">{path}</div>
+            <div className="truncate text-base font-semibold">{artifact.title}</div>
             <Badge variant="secondary" className="rounded-full px-2 py-0.5 text-[10px] tracking-[0.12em]">
               {role.label}
             </Badge>
           </div>
-          <div className="truncate text-xs text-muted-foreground">{role.description}</div>
+          <div className="truncate text-xs text-muted-foreground">{path}</div>
         </div>
-        {remoteSessionId ? (
+        <div className="flex shrink-0 items-center gap-3">
           <a
-            href={`https://chatgpt.com/codex/s/${remoteSessionId}`}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex shrink-0 items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+            href={artifactDownloadHref(artifact)}
+            download={artifactDownloadFilename(artifact)}
+            target={artifact.url ? '_blank' : undefined}
+            rel={artifact.url ? 'noreferrer' : undefined}
+            className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
           >
-            Remote session
+            Download
             <ExternalLink className="size-3.5" />
           </a>
+          {remoteSessionId ? (
+            <a
+              href={`https://chatgpt.com/codex/s/${remoteSessionId}`}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+            >
+              Remote session
+              <ExternalLink className="size-3.5" />
+            </a>
+          ) : null}
+        </div>
+      </div>
+      <div className="border-b border-border bg-muted/30 px-5 py-3">
+        <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">How to use this file</div>
+        <p className="mt-1 text-sm leading-6 text-foreground/85">{role.description}</p>
+        {runPrompt ? (
+          <p className="mt-2 text-xs leading-5 text-muted-foreground">
+            Requested for: {compactInlineText(runPrompt, 220)}
+          </p>
         ) : null}
       </div>
       {artifact.url ? (
@@ -4408,6 +4421,7 @@ function RunDetailPage({
       <RunArtifactsPanel
         open={artifactsOpen}
         onClose={() => setArtifactsOpen(false)}
+        runPrompt={run.prompt}
         requestedArtifacts={requestedArtifacts}
         producedArtifacts={producedArtifacts}
         expectedArtifacts={expectedArtifactStatus}
@@ -4532,6 +4546,7 @@ function SessionDetailPage({
       <RunArtifactsPanel
         open={artifactsOpen}
         onClose={() => setArtifactsOpen(false)}
+        runPrompt={sessionRun?.prompt ?? null}
         requestedArtifacts={[]}
         producedArtifacts={linkedArtifacts}
         expectedArtifacts={[]}

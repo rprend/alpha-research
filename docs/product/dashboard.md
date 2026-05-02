@@ -9,6 +9,7 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Track remote runs by dataset, type, prompt, status, and timestamps.
 - Open run details with observed progress, remote Codex transcript, and a resizable file explorer/viewer for produced run artifacts.
 - Completed run detail should lead with the result hierarchy: a plain-language finished state, the primary answer artifact, the structured companion if present, and a labeled `Artifacts (n)` control.
+- The artifact panel for completed runs should read like a results view, not a raw file browser: show the original request, promote the canonical answer first, surface `result.json` when present, label supporting files separately, and provide a direct download affordance on the selected artifact.
 - Running run detail should lead with liveness: an explicit `Run is alive` verdict, the current phase in plain English, humanized heartbeat recency, an explicit auto-refresh cue, and a clear `no action needed` reassurance unless the product has evidence of trouble.
 - Stalled or uncertain run detail should lead with diagnosis: a plain-language verdict such as `Worker lost connection`, the last evidence timestamp, explicit artifact presence or absence, and labeled next actions such as `Retry in chat`, `Inspect artifacts`, or `Show debug details`.
 - Failed or uncertain run detail should preserve salvage value before raw logs: separate `What completed`, `What is missing`, `Can you trust saved output?`, `What happened`, and `Recommended next move`.
