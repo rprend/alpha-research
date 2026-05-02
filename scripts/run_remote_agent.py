@@ -43,6 +43,11 @@ RUN_STATUS_PATH = RUN_STATE_DIR / "status.json"
 CALLBACK_RETRY_SECONDS = [0, 1, 2, 5]
 
 
+def session_title() -> str:
+    run_label = RUN_TYPE.replace("_", " ").replace("-", " ").strip().title() or "Remote"
+    return f"{run_label} run terminal session"
+
+
 def headers(content_type: str):
     return {
         "Authorization": f"Bearer {RUNNER_TOKEN}",
@@ -144,7 +149,7 @@ def post_session_entry(role: str, kind: str, content: str, title: str | None = N
             CALLBACK_SESSION_ENTRIES_URL,
             {
                 "sessionKind": "remote_codex",
-                "sessionTitle": "Remote Codex session",
+                "sessionTitle": session_title(),
                 "role": role,
                 "kind": kind,
                 "title": title,

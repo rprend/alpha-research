@@ -413,6 +413,14 @@ function readableSessionKind(kind: string | null | undefined) {
   return formatStatus(kind)
 }
 
+function sessionStatusDescription(status: string | null | undefined) {
+  const normalized = status?.toLowerCase() ?? ''
+  if (normalized === 'ready') return 'Transcript complete'
+  if (normalized === 'running' || normalized === 'active' || normalized === 'booting') return 'Syncing transcript'
+  if (normalized === 'failed' || normalized === 'error' || normalized === 'worker_unreachable') return 'Needs debugging'
+  return formatStatus(status)
+}
+
 function sessionSummaryLine(
   session: StoredAssistantSession,
   dataset: DatasetRecord | undefined,
@@ -2495,6 +2503,33 @@ function SessionTable({
   )
 }
 
+function SessionArtifactLinks({
+  artifacts,
+  onOpenArtifact,
+}: {
+  artifacts: RunArtifactRecord[]
+  onOpenArtifact: (artifactId: string) => void
+}) {
+  if (artifacts.length === 0) return null
+
+  return (
+    <div className="flex flex-wrap gap-2">
+      {artifacts.map((artifact) => (
+        <Button
+          key={artifact.id}
+          type="button"
+          variant="outline"
+          size="sm"
+          className="h-8 rounded-none"
+          onClick={() => onOpenArtifact(artifact.id)}
+        >
+          {artifactPath(artifact)}
+        </Button>
+      ))}
+    </div>
+  )
+}
+
 function useRunResults(run: RunRecord | null) {
   const [payload, setPayload] = useState<RunResultsResponse | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -3455,8 +3490,19 @@ function RunDetailPage({
   )
 }
 
-function SessionDetailPage({ sessionId }: { sessionId: string }) {
+function SessionDetailPage({
+  sessionId,
+  run,
+  dataset,
+}: {
+  sessionId: string
+  run: RunRecord | null
+  dataset: DatasetRecord | undefined
+}) {
   const { session, error, loading } = useSessionDetail(sessionId)
+  const { payload } = useRunResults(run)
+  const [artifactsOpen, setArtifactsOpen] = useState(false)
+  const [selectedArtifactId, setSelectedArtifactId] = useState<string | null>(null)
   const entries = (session?.entries ?? []).map((entry) =>
     createSessionEntry(
       entry.id,
@@ -3467,6 +3513,24 @@ function SessionDetailPage({ sessionId }: { sessionId: string }) {
       entry.metadata,
     ),
   )
+  const sessionRun = payload?.run ?? run ?? null
+  const linkedArtifacts = useMemo(
+    () => (payload?.artifacts ?? []).filter((artifact) => artifact.type !== 'remote_agent_session'),
+    [payload?.artifacts],
+  )
+  const primaryArtifactCandidates = useMemo(
+    () => linkedArtifacts.filter((artifact) => {
+      const path = artifactPath(artifact)
+      return path.endsWith('summary.md') || path.endsWith('result.json')
+    }),
+    [linkedArtifacts],
+  )
+
+  useEffect(() => {
+    if (selectedArtifactId) return
+    if (primaryArtifactCandidates.length === 0) return
+    setSelectedArtifactId(primaryArtifactCandidates[0]?.id ?? null)
+  }, [primaryArtifactCandidates, selectedArtifactId])
 
   return (
     <div className="flex min-h-0 flex-1 flex-col bg-background">
@@ -3478,19 +3542,73 @@ function SessionDetailPage({ sessionId }: { sessionId: string }) {
         ) : null}
 
         <div className="mx-auto flex w-full max-w-[46rem] flex-1 flex-col">
+          <section className="mb-5 rounded-none border border-border/70 bg-muted/20 px-4 py-4">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-2">
+                  <Badge variant="secondary">{readableSessionKind(session?.kind ?? 'remote_codex')}</Badge>
+                  <StatusBadge>{sessionStatusDescription(session?.status ?? run?.status ?? null)}</StatusBadge>
+                </div>
+                <h1 className="mt-3 text-xl font-semibold tracking-normal">
+                  {readableSessionTitle(session?.title ?? 'Remote session')}
+                </h1>
+                <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
+                  {sessionRun
+                    ? `This transcript belongs to the ${formatStatus(sessionRun.type)} run${dataset ? ` for ${dataset.name}` : ''}. Review the command trail here and open artifacts when you need the durable outputs.`
+                    : 'This transcript shows the persisted command trail for a remote research session.'}
+                </p>
+              </div>
+              <div className="min-w-[12rem] space-y-2 text-sm">
+                <div>
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">Last activity</div>
+                  <div className="mt-1 font-medium text-foreground">{relativeTime(session?.updatedAt ?? run?.updatedAt ?? '')}</div>
+                  <div className="text-muted-foreground">{formatDateTime(session?.updatedAt ?? run?.updatedAt ?? '')}</div>
+                </div>
+                {sessionRun ? (
+                  <div>
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">Run</div>
+                    <div className="mt-1 font-medium text-foreground">{formatStatus(sessionRun.type)}</div>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+            {primaryArtifactCandidates.length > 0 ? (
+              <div className="mt-4 border-t border-border/70 pt-4">
+                <div className="mb-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                  Outputs from this session
+                </div>
+                <SessionArtifactLinks artifacts={primaryArtifactCandidates} onOpenArtifact={(artifactId) => {
+                  setSelectedArtifactId(artifactId)
+                  setArtifactsOpen(true)
+                }} />
+              </div>
+            ) : null}
+          </section>
           {loading ? (
-            <div className="mb-2 flex justify-end text-muted-foreground">
+            <div className="mb-2 flex items-center gap-2 text-sm text-muted-foreground">
               <LoaderCircle className="size-4 animate-spin" aria-label="Loading terminal session" />
+              <span>Syncing transcript…</span>
             </div>
           ) : null}
           <AssistantTranscript
             entries={entries}
-            emptyTitle="No terminal session turns yet"
-            emptyDescription="This session exists, but no turns have been recorded yet."
+            emptyTitle="Transcript syncing"
+            emptyDescription="This session is connected to a run and is still collecting terminal turns. Check back here for command output and agent updates."
             unframed
           />
         </div>
       </div>
+      <RunArtifactsPanel
+        open={artifactsOpen}
+        onClose={() => setArtifactsOpen(false)}
+        requestedArtifacts={[]}
+        producedArtifacts={linkedArtifacts}
+        selectedArtifactId={selectedArtifactId}
+        onSelectArtifact={setSelectedArtifactId}
+        remoteSessionId={null}
+        primaryArtifactId={primaryArtifactCandidates.find((artifact) => artifactPath(artifact).endsWith('summary.md'))?.id ?? null}
+        profileArtifactId={primaryArtifactCandidates.find((artifact) => artifactPath(artifact).endsWith('result.json'))?.id ?? null}
+      />
     </div>
   )
 }
@@ -3623,7 +3741,10 @@ function DashboardApp({
   if (route.view === 'runs' && activeRun) {
     content = <RunDetailPage run={activeRun} dataset={datasetLookup.get(activeRun.datasetId)} />
   } else if (route.view === 'terminal-sessions' && route.sessionId) {
-    content = <SessionDetailPage sessionId={route.sessionId} />
+    const activeSession = sessions.find((currentSession) => currentSession.id === route.sessionId) ?? null
+    const activeSessionRun = activeSession?.runId ? runLookup.get(activeSession.runId) ?? null : null
+    const activeSessionDataset = activeSession?.datasetId ? datasetLookup.get(activeSession.datasetId) : undefined
+    content = <SessionDetailPage sessionId={route.sessionId} run={activeSessionRun} dataset={activeSessionDataset} />
   } else if (route.view === 'datasets' && activeDataset) {
     content = (
       <DatasetDetailPage

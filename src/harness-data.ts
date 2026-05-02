@@ -230,7 +230,7 @@ export const harnessSessions = [
   {
     id: 'session-harness-remote',
     kind: 'remote_codex',
-    title: 'Remote Codex session',
+    title: 'Describe run terminal session',
     status: 'ready',
     datasetId: 'dataset-alpha-book',
     runId: 'run-harness-completed',
@@ -252,7 +252,7 @@ export const harnessSessions = [
         role: 'assistant',
         kind: 'final_summary',
         title: 'Synthesis',
-        content: 'Created the Dataset Briefing markdown and Dataset Profile JSON artifacts.',
+        content: 'Created `summary.md` and `result.json` for this describe run. Open the session outputs above to inspect the durable files.',
         createdAt: iso(22),
       },
     ],

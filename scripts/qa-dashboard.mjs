@@ -163,6 +163,25 @@ async function assertRenderedRunsInventory() {
   }
 }
 
+async function assertTerminalSessionContinuity() {
+  const browser = await chromium.launch({ headless: true })
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+    await page.goto(`${baseUrl}/?harness=1&view=terminal-sessions&sessionId=session-harness-remote`, { waitUntil: 'domcontentloaded' })
+    await page.getByRole('heading', { name: 'Describe run terminal session' }).waitFor({ timeout: 15000 })
+    await page.getByText('Transcript complete', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('This transcript belongs to the Describe run for Alpha Book Sample.', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByText('Outputs from this session', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'summary.md' }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'result.json' }).waitFor({ timeout: 15000 })
+    if (await page.getByText('No terminal session turns yet', { exact: true }).count()) {
+      throw new Error('Terminal session detail should not present a dead-end empty-state message.')
+    }
+  } finally {
+    await browser.close()
+  }
+}
+
 const child = spawn(
   'pnpm',
   ['preview', '--host', '127.0.0.1', '--port', String(port)],
@@ -195,6 +214,7 @@ try {
   await assertCompletedRunArtifactsSteering()
   await assertRunningRunStatusSteering()
   await assertRenderedRunsInventory()
+  await assertTerminalSessionContinuity()
   console.log(`Dashboard harness smoke passed at ${baseUrl}`)
 } catch (error) {
   console.error(output)

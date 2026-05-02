@@ -12,6 +12,14 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Running run detail should lead with liveness: `Running`, a plain-English current step, humanized recency, an explicit auto-refresh cue, and a clear `no action needed` reassurance unless the product has evidence of trouble.
 - Inspect terminal sessions proxied through Alpha Research.
 
+## Terminal Session Expectations
+
+- The terminal session page should read like continuity for a run, not like detached infrastructure logs.
+- Before turns arrive, the page should show a syncing/loading state instead of implying the session is empty or missing.
+- The header should explain what run the session belongs to, when it last updated, and whether the transcript is still syncing or complete.
+- Command/output/synthesis content should remain easy to scan, while raw session ids stay secondary.
+- If the session produced durable outputs such as `summary.md` or `result.json`, the page should expose direct artifact affordances without forcing the user to infer where those files live.
+
 ## Runs Inventory Expectations
 
 - The runs page should behave like a triage surface, not a neutral event log.
