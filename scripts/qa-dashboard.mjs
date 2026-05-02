@@ -50,6 +50,9 @@ async function assertRenderedOrientation() {
     await page.getByText('You can start here without CLI setup.', { exact: false }).waitFor({ timeout: 15000 })
     await page.getByText('Recommended plan', { exact: false }).waitFor({ timeout: 15000 })
     await page.getByRole('heading', { name: 'Before running anything expensive' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Launch a well-specified run' }).waitFor({ timeout: 15000 })
+    await page.getByText('Run launch expectations', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Use complete spec' }).waitFor({ timeout: 15000 })
     await page.getByText('Operational choices to confirm', { exact: false }).waitFor({ timeout: 15000 })
     await page.getByText('Sample data ready:', { exact: false }).waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'Is the housing market in trouble? Turn that into a concrete plan using City Housing Archive.' }).waitFor({ timeout: 15000 })
@@ -58,6 +61,32 @@ async function assertRenderedOrientation() {
     if (await page.getByText('Remote session', { exact: false }).first().isVisible().catch(() => false)) {
       throw new Error('First signed-in landing should not foreground recent session rows before the user opens recent work.')
     }
+  } finally {
+    await browser.close()
+  }
+}
+
+async function assertWellSpecifiedRunLaunch() {
+  const browser = await chromium.launch({ headless: true })
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+    await page.goto(`${baseUrl}/?harness=1&view=assistant`, { waitUntil: 'domcontentloaded' })
+    await page.getByRole('heading', { name: 'Launch a well-specified run' }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Use complete spec' }).click()
+    await page.getByLabel('Message input').evaluate((node) => {
+      if (!(node instanceof HTMLTextAreaElement)) {
+        throw new Error('Expected message input to be a textarea.')
+      }
+      if (!node.value.includes('Dataset: City Housing Archive')) {
+        throw new Error(`Prepared spec was not inserted into the composer: ${node.value}`)
+      }
+    })
+    await page.getByLabel('Send message').click()
+    await page.getByText('run-harness-specified', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Running', { exact: true }).first().waitFor({ timeout: 15000 })
+    await page.getByText('Executive Summary, Cohort Comparison Table, Spec Preservation Record', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('The durable answer files stay attached to this run.', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByText('The runner preserved the launch specification and is checking the requested fields against the dataset schema before analysis starts.', { exact: true }).waitFor({ timeout: 15000 })
   } finally {
     await browser.close()
   }
@@ -283,6 +312,7 @@ try {
   await assertRoute('/?harness=1&view=datasets', '<div id="app">')
   await assertRoute('/?harness=1&view=runs', '<div id="app">')
   await assertRenderedOrientation()
+  await assertWellSpecifiedRunLaunch()
   await assertRenderedDatasetInventory()
   await assertTopicGuidedDatasetSelection()
   await assertRenderedEmptyDatasetSetup()

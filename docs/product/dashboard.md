@@ -57,6 +57,7 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 
 - The signed-in assistant home is browser-first, not CLI-first. It should orient a user who only knows they want to do research.
 - The page should expose one explicit first action: draft a plan before work starts.
+- The same page should also support prepared users who already have a full research specification: it should explain that a complete spec can be pasted directly, that only field-resolution questions should interrupt launch, and that the next state will show run id, status, expected artifacts, and destination.
 - The page should explain the surface model in plain language: chat for asking, datasets for source material, recent work for continuation.
 - The page should explicitly reassure the user that they can start in the dashboard without CLI setup.
 - The page should show whether sample data is ready and what that sample is for.

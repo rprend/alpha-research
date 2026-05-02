@@ -405,15 +405,135 @@ export function getHarnessRunResults(runId: string) {
     run,
     metadata: {
       config: { harness: true },
-      artifactSpec: [
-        { type: 'markdown', title: 'Dataset Briefing' },
-        { type: 'json', title: 'Dataset Profile' },
-      ],
+      artifactSpec:
+        runId === 'run-harness-specified'
+          ? [
+              { type: 'markdown', title: 'Executive Summary' },
+              { type: 'csv', title: 'Cohort Comparison Table' },
+              { type: 'json', title: 'Spec Preservation Record' },
+            ]
+          : [
+              { type: 'markdown', title: 'Dataset Briefing' },
+              { type: 'json', title: 'Dataset Profile' },
+            ],
     },
     artifacts: harnessArtifacts.filter((artifact) => artifact.runId === runId),
     events: harnessEvents.filter((event) => event.runId === runId),
     sessions: harnessSessions.filter((session) => session.runId === runId),
   }
+}
+
+function nowIso() {
+  return new Date().toISOString()
+}
+
+function promptSignals(text: string) {
+  return {
+    hasVariables: /\bvariables?\b|\bcolumns?\b|\bfields?\b|\bcompare\b|\bsegment\b/iu.test(text),
+    hasTimeWindow: /\b20\d{2}\b|\bbetween\b|\bfrom\b|\bto\b|\bwindow\b|\bq[1-4]\b|\bmonth\b|\byear\b/iu.test(text),
+    hasMethod: /\bregression\b|\bdifference[- ]in[- ]differences\b|\bcohort\b|\btrend\b|\bmodel\b|\bmethod\b|\bpanel\b/iu.test(text),
+    hasOutput: /\bartifacts?\b|\boutput\b|\bmemo\b|\bchart\b|\btable\b|\bcsv\b|\bsummary\b/iu.test(text),
+  }
+}
+
+export function isHarnessPreparedRunPrompt(prompt: string) {
+  const normalized = prompt.trim()
+  if (!normalized) return false
+  const hasDataset = harnessDatasets.some((dataset) => normalized.toLowerCase().includes(dataset.name.toLowerCase()))
+    || /\bdataset\b:/iu.test(normalized)
+  const signals = promptSignals(normalized)
+  const signalCount = Object.values(signals).filter(Boolean).length
+  return hasDataset && signalCount >= 3
+}
+
+export function launchHarnessPreparedRun(prompt: string) {
+  const dataset =
+    harnessDatasets.find((candidate) => prompt.toLowerCase().includes(candidate.name.toLowerCase()))
+    ?? harnessDatasets.find((candidate) => candidate.id === 'dataset-city-housing-archive')
+    ?? harnessDatasets[0]
+
+  const runId = 'run-harness-specified'
+  const sessionId = 'session-harness-specified'
+  const createdAt = nowIso()
+  const runIndex = harnessRuns.findIndex((candidate) => candidate.id === runId)
+  const sessionIndex = harnessSessions.findIndex((candidate) => candidate.id === sessionId)
+
+  const run = {
+    id: runId,
+    datasetId: dataset.id,
+    type: 'analysis',
+    status: 'running',
+    prompt,
+    outputPreview: 'Run accepted. Preserving the requested design and preparing the first analysis pass.',
+    artifactCount: 0,
+    sessionCount: 1,
+    createdAt,
+    updatedAt: createdAt,
+  }
+
+  const session = {
+    id: sessionId,
+    kind: 'cli_orchestration',
+    title: 'Prepared launch request',
+    status: 'running',
+    datasetId: dataset.id,
+    runId,
+    createdAt,
+    updatedAt: createdAt,
+    entries: [
+      {
+        id: 'entry-harness-specified-user',
+        sessionId,
+        role: 'user',
+        kind: 'prompt',
+        title: 'Prepared research request',
+        content: prompt,
+        createdAt,
+      },
+      {
+        id: 'entry-harness-specified-run',
+        sessionId,
+        role: 'assistant',
+        kind: 'run_started',
+        title: 'Run started',
+        content: `Started run ${runId} for ${dataset.name}. The dashboard will show status, expected artifacts, and destination on the run page.`,
+        metadata: { runId },
+        createdAt,
+      },
+    ],
+  }
+
+  const events = [
+    {
+      id: 'event-harness-specified-1',
+      runId,
+      message: 'Assigned warm runner alpha-research-warm-medium-2.',
+      level: 'info',
+      createdAt,
+    },
+    {
+      id: 'event-harness-specified-2',
+      runId,
+      message: 'Remote agent heartbeat: validating requested fields against the dataset schema and preserving the launch specification.',
+      level: 'info',
+      createdAt,
+    },
+  ]
+
+  if (runIndex >= 0) harnessRuns.splice(runIndex, 1, run)
+  else harnessRuns.unshift(run)
+
+  if (sessionIndex >= 0) harnessSessions.splice(sessionIndex, 1, session)
+  else harnessSessions.unshift(session)
+
+  for (let index = harnessEvents.length - 1; index >= 0; index -= 1) {
+    if (harnessEvents[index]?.runId === runId) {
+      harnessEvents.splice(index, 1)
+    }
+  }
+  harnessEvents.push(...events)
+
+  return { runId, sessionId, datasetId: dataset.id }
 }
 
 export function getHarnessDebugView(runId: string) {

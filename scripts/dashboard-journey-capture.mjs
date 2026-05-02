@@ -102,6 +102,10 @@ async function runStep(page, step, events, startedAt) {
     await page.getByText(step.text, { exact: false }).first().click()
     return
   }
+  if (step.type === 'fillLabel') {
+    await page.getByLabel(step.label).fill(step.value)
+    return
+  }
   if (step.type === 'clickLabel') {
     await page.getByLabel(step.label).click()
     return

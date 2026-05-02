@@ -301,6 +301,15 @@ export const DASHBOARD_JOURNEYS = [
     judgeQuestion: 'Did the product respect a complete research specification and move quickly into traceable async work?',
     steps: [
       { type: 'waitForText', text: 'New chat', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Launch a well-specified run', timeoutMs: 15000 },
+      {
+        type: 'fillLabel',
+        label: 'Message input',
+        value: 'Dataset: City Housing Archive\nVariables: monthly rent, lease start date, neighborhood, bedrooms, concession flag\nTime window: 2019-2024\nMethod: compare rent growth cohorts before and after concession spikes, then test whether neighborhood-level supply shifts explain outliers\nOutputs: one executive summary, one cohort comparison table, and one CSV with the retained analysis dataset',
+      },
+      { type: 'clickLabel', label: 'Send message' },
+      { type: 'waitForText', text: 'run-harness-specified', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Executive Summary', timeoutMs: 15000 },
       { type: 'wait', ms: 1000 },
     ],
   }),

@@ -32,6 +32,8 @@ import {
   harnessSession,
   harnessSessions,
   isHarnessMode,
+  isHarnessPreparedRunPrompt,
+  launchHarnessPreparedRun,
 } from '@/harness-data'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -437,6 +439,19 @@ function assistantStarterPrompts(datasets: DatasetRecord[]) {
   ]
 }
 
+function preparedRunStarterPrompt(datasets: DatasetRecord[]) {
+  const dataset =
+    datasets.find((candidate) => candidate.id === 'dataset-city-housing-archive')
+    ?? datasets.find((candidate) => candidate.status.toLowerCase() === 'ready')
+    ?? null
+  const datasetName = dataset?.name ?? 'the selected dataset'
+  return `Dataset: ${datasetName}
+Variables: monthly rent, lease start date, neighborhood, bedrooms, concession flag
+Time window: 2019-2024
+Method: compare rent growth cohorts before and after concession spikes, then test whether neighborhood-level supply shifts explain outliers
+Outputs: one executive summary, one cohort comparison table, and one CSV with the retained analysis dataset`
+}
+
 function sessionStatusDescription(status: string | null | undefined) {
   const normalized = status?.toLowerCase() ?? ''
   if (normalized === 'ready') return 'Transcript complete'
@@ -658,6 +673,9 @@ function summarizeActiveRunEvent(message: string, run: RunRecord) {
     const detail = heartbeatMatch[1]?.trim().replace(/[.]+$/u, '') ?? ''
     if (/fetching public data sources/iu.test(detail) && run.type === 'public_environment') {
       return 'The runner is fetching public data sources and assembling the housing and labor environment.'
+    }
+    if (/validating requested fields against the dataset schema/iu.test(detail)) {
+      return 'The runner preserved the launch specification and is checking the requested fields against the dataset schema before analysis starts.'
     }
     return detail
       ? `The runner is actively working: ${detail}.`
@@ -1788,6 +1806,24 @@ function extractPreviousResponseId(entries: StoredAssistantSessionEntry[]) {
   return null
 }
 
+function extractStartedRunId(entries: StoredAssistantSessionEntry[]) {
+  for (let index = entries.length - 1; index >= 0; index -= 1) {
+    const entry = entries[index]
+    if (!entry) continue
+    if (entry.metadata && typeof entry.metadata === 'object') {
+      const runId = (entry.metadata as { runId?: unknown }).runId
+      if (typeof runId === 'string' && runId.trim()) {
+        return runId
+      }
+    }
+    const inlineRunId = entry.content.match(/\brun-[a-z0-9-]+\b/iu)?.[0]
+    if (inlineRunId) {
+      return inlineRunId
+    }
+  }
+  return null
+}
+
 function sessionEntriesToThreadMessages(entries: StoredAssistantSessionEntry[]) {
   return entries.map((entry) =>
     toThreadMessage(
@@ -1810,6 +1846,14 @@ async function postAssistantTurn(body: {
   previousResponseId?: string | null
 }) {
   if (isHarnessMode()) {
+    if (isHarnessPreparedRunPrompt(body.input)) {
+      const launched = launchHarnessPreparedRun(body.input)
+      return {
+        sessionId: launched.sessionId,
+        previousResponseId: `harness-response-${Date.now()}`,
+        reply: `Started ${launched.runId}.`,
+      }
+    }
     return {
       sessionId: body.sessionId ?? 'session-harness-cli',
       previousResponseId: `harness-response-${Date.now()}`,
@@ -3084,8 +3128,14 @@ function ResearchAssistantPage({
           previousResponseId: result.previousResponseId,
         })
         if (nextSessionId) {
-          await refreshSessionMessages(nextSessionId)
+          const refreshed = await refreshSessionMessages(nextSessionId)
           window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
+          const startedRunId = extractStartedRunId(refreshed.entries)
+          if (startedRunId) {
+            updateDashboardRoute({ view: 'runs', runId: startedRunId, sessionId: null })
+            routeSessionIdRef.current = null
+            return
+          }
           if (routeSessionIdRef.current !== nextSessionId) {
             updateDashboardRoute({ view: 'assistant', sessionId: nextSessionId, runId: null })
             routeSessionIdRef.current = nextSessionId
@@ -3147,7 +3197,7 @@ function ResearchAssistantPage({
               composerPlaceholder={
                 scopedDataset
                   ? `Ask a question about ${scopedDataset.name}. Dataset context is attached automatically...`
-                  : 'Start a new research chat by asking a question or describing the data you need...'
+                  : 'Ask a question, or paste a complete run spec with dataset, variables, time window, method, and outputs...'
               }
               datasets={datasets.map((dataset) => ({
                 id: dataset.id,
@@ -3183,6 +3233,8 @@ function AssistantOrientationPanel({
   const readyPublicDatasets = publicDatasets.filter((dataset) => dataset.status.toLowerCase() === 'ready')
   const readyPrivateDatasets = privateDatasets.filter((dataset) => dataset.status.toLowerCase() === 'ready')
   const sampleDataset = readyPublicDatasets[0] ?? null
+  const preparedDataset = scopedDataset ?? readyPrivateDatasets[0] ?? readyPublicDatasets[0] ?? null
+  const preparedPrompt = preparedRunStarterPrompt(datasets)
   const planPreview = buildAssistantPlanPreview(datasets, scopedDataset)
   const focusComposerWithPrompt = (prompt: string) => focusAssistantComposer(prompt)
   const scopedPrompts = scopedDataset ? datasetQuestionPrompts(scopedDataset) : starterPrompts
@@ -3316,6 +3368,51 @@ function AssistantOrientationPanel({
                 ))}
                 </div>
               </div>
+            {!scopedDataset ? (
+              <div className="space-y-3 rounded-2xl border border-sky-200 bg-sky-50/70 p-4">
+                <div className="space-y-1">
+                  <Badge variant="secondary" className="text-sky-700">Prepared users</Badge>
+                  <h3 className="text-sm font-semibold tracking-normal">Launch a well-specified run</h3>
+                  <p className="text-sm leading-6 text-muted-foreground">
+                    If you already know the dataset, variables, time window, method, and outputs, paste the full spec here. Alpha Research should preserve the request, ask only field-resolution questions when needed, and move straight into a traceable run.
+                  </p>
+                </div>
+                <div className="grid gap-3 md:grid-cols-2">
+                  <div className="rounded-2xl border border-sky-200/80 bg-background/90 p-4">
+                    <h4 className="text-sm font-semibold tracking-normal">Run launch expectations</h4>
+                    <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-muted-foreground">
+                      <li>Preserve the exact research design in the run prompt.</li>
+                      <li>Stop only for field mismatches or missing dataset resolution.</li>
+                      <li>After launch, show the run id, live status, expected artifacts, and destination.</li>
+                    </ul>
+                  </div>
+                  <div className="rounded-2xl border border-sky-200/80 bg-background/90 p-4">
+                    <h4 className="text-sm font-semibold tracking-normal">Active dataset context</h4>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                      {preparedDataset
+                        ? `${preparedDataset.name} is ready in this workspace and is the fastest path to a prepared launch.`
+                        : 'No ready dataset is visible yet, so the assistant should resolve dataset selection before it launches work.'}
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                      Destination: the run page, where status, transcript updates, and expected artifacts stay attached to the same run record.
+                    </p>
+                  </div>
+                </div>
+                <div className="rounded-2xl border border-sky-200/80 bg-background/90 p-4">
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                      <h4 className="text-sm font-semibold tracking-normal">Paste a complete launch spec</h4>
+                      <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                        The composer accepts a full spec directly. This sample includes dataset, variables, time window, method, and outputs.
+                      </p>
+                    </div>
+                    <Button type="button" variant="outline" onClick={() => focusComposerWithPrompt(preparedPrompt)}>
+                      Use complete spec
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            ) : null}
             </CardContent>
           </Card>
         <div className="grid gap-4">
@@ -3683,6 +3780,9 @@ function RunDetailPage({
   )
   const artifactCount = visibleProducedArtifacts.length
   const isDescribeRun = run.type === 'describe'
+  const runDestinationCopy = isDescribeRun
+    ? 'The durable briefing stays attached to this run and also updates the dataset detail page.'
+    : 'The durable answer files stay attached to this run. Open artifacts here when they arrive, and use the transcript below for execution detail.'
   const isCompletedRun = isTerminalSuccessfulRun(run)
   const isRunningRun = run.status.toLowerCase() === 'running'
   const runningSummary = useMemo(
@@ -3730,6 +3830,31 @@ function RunDetailPage({
         ) : null}
 
         <div className="mx-auto flex min-h-0 w-full max-w-[46rem] flex-1 flex-col">
+          <section className="mb-6 rounded-2xl border border-border bg-card/70 p-5">
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <Badge variant="secondary">{dataset?.name ?? 'Run'}</Badge>
+                <StatusBadge>{formatStatus(run.status)}</StatusBadge>
+              </div>
+              <div className="grid gap-3 md:grid-cols-3">
+                <div className="rounded-xl border border-border bg-background px-4 py-4">
+                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Run id</div>
+                  <div className="mt-2 break-all text-sm font-semibold text-foreground">{run.id}</div>
+                </div>
+                <div className="rounded-xl border border-border bg-background px-4 py-4">
+                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Expected artifacts</div>
+                  <div className="mt-2 text-sm font-semibold text-foreground">{expectedArtifactNames.length}</div>
+                  <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                    {expectedArtifactNames.join(', ')}
+                  </p>
+                </div>
+                <div className="rounded-xl border border-border bg-background px-4 py-4">
+                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Destination</div>
+                  <p className="mt-2 text-sm leading-6 text-foreground/85">{runDestinationCopy}</p>
+                </div>
+              </div>
+            </div>
+          </section>
           {isCompletedRun && artifactCount > 0 ? (
             <section className="mb-6 rounded-2xl border border-emerald-200 bg-emerald-50/60 p-5">
               <div className="flex flex-col gap-4">
