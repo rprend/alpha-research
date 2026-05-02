@@ -51,14 +51,17 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 ## Dataset Detail Expectations
 
 - The dataset detail page should answer trust-and-fit questions before it exposes implementation details.
+- For processing or recently refreshed datasets, the top of the page should give an explicit trust verdict such as `Ready to use`, `Not ready`, or `Processing`, plus a plain-language reason.
 - The top of the dataset page should also expose a dataset-scoped ask path so users can move directly from “this is the data” to “ask a grounded question about it.”
 - Dataset-scoped asking should state plainly that the current dataset is attached automatically and the user does not need to copy an id or restate context.
 - If the initial question is broad, the assistant should clarify scope before launching expensive work; the dataset page should say that up front.
 - Before the user leaves the dataset page, the UI should explain the likely outputs from asking: direct answer, scoped plan, or a run with transcript and artifacts when work starts.
 - The top of the page should state what the dataset is good for, where it came from, how fresh it is, and the main limitation.
+- The trust path should surface source coverage, last ingest/update wording, deployment availability, known gaps, and briefing availability without forcing the user to open developer details.
 - Summary metrics should explain the actual source, tables, formats, and limits, not only show counts.
 - The primary reading path should include the human-readable briefing, visible schema fields, and sample rows.
 - Describe actions should explain whether they generate or refresh the briefing, that they start async work, and that the resulting briefing/profile artifacts will appear in the run view and dataset detail.
+- Disabled describe actions should state exactly why they are blocked and whether the blocker is infrastructure readiness, ingest completeness, or another trust issue.
 - Run ids, artifact ids, manifest paths, raw JSON payloads, and similar debugging material belong in a collapsed developer-only section.
 
 ## Assistant Home Expectations

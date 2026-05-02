@@ -632,6 +632,66 @@ function datasetInventoryStatus(dataset: DatasetRecord) {
   }
 }
 
+function datasetDetailTrustState(dataset: DatasetRecord, hasBriefing: boolean) {
+  const deploymentStatus = dataset.deploymentStatus.toLowerCase()
+  const status = dataset.status.toLowerCase()
+  const hasMountedData = Boolean(dataset.volume?.mountPath)
+  const limitation = dataset.inventoryLimitations?.find((item) => item.trim())?.trim() ?? null
+
+  if (deploymentStatus === 'ready' && status === 'ready') {
+    return {
+      badge: 'Ready to use',
+      headline: 'Current enough to start analysis.',
+      tone: 'success' as const,
+      explanation: dataset.inventoryReadinessNote ?? 'This dataset is ready for research in its current deployed state.',
+      actionState: hasBriefing ? 'Briefing ready' : 'Briefing recommended',
+      actionDetail: hasBriefing
+        ? 'The latest briefing is available below.'
+        : 'Generate a briefing if you want a refreshed summary before analysis.',
+    }
+  }
+
+  if (deploymentStatus === 'processing' || status === 'running' || status === 'uploading') {
+    const blockedByInfrastructure = !hasMountedData
+    const blockedReason = blockedByInfrastructure
+      ? limitation
+        ? `The deployed dataset files are not mounted yet, so the briefing and analysis remain blocked. ${limitation}`
+        : 'The deployed dataset files are not mounted yet, so the briefing and analysis remain blocked.'
+      : limitation
+        ?? 'Schema, coverage, or records may still change while ingestion finishes.'
+    return {
+      badge: blockedByInfrastructure ? 'Not ready' : 'Processing',
+      headline: blockedByInfrastructure ? 'Not ready for analysis yet.' : 'Still processing before it is safe to trust.',
+      tone: 'warning' as const,
+      explanation: blockedByInfrastructure
+        ? 'Alpha Research is still preparing the deployed dataset environment, so the current data cannot be verified yet.'
+        : dataset.inventoryReadinessNote ?? 'Alpha Research is still ingesting and validating this dataset.',
+      actionState: blockedByInfrastructure ? 'Waiting on dataset environment' : 'Waiting on ingest completion',
+      actionDetail: blockedReason,
+    }
+  }
+
+  if (deploymentStatus === 'failed' || status === 'failed' || status === 'worker_unreachable') {
+    return {
+      badge: 'Needs review',
+      headline: 'Do not trust this dataset until the failure is resolved.',
+      tone: 'warning' as const,
+      explanation: dataset.inventoryReadinessNote ?? 'Alpha Research hit a dataset preparation problem that needs attention.',
+      actionState: 'Blocked by failure',
+      actionDetail: limitation ?? 'Open developer details to inspect the failure state before retrying.',
+    }
+  }
+
+  return {
+    badge: 'Checking readiness',
+    headline: 'Readiness is still being verified.',
+    tone: 'neutral' as const,
+    explanation: dataset.inventoryReadinessNote ?? 'Alpha Research is still determining whether this dataset is safe to use.',
+    actionState: 'Readiness not confirmed',
+    actionDetail: limitation ?? 'Wait for a completed readiness check before you rely on this dataset.',
+  }
+}
+
 function datasetInventoryDescription(dataset: DatasetRecord) {
   const description = dataset.inventorySummary?.trim() || dataset.description?.trim()
   if (description) return description
@@ -2701,6 +2761,24 @@ function DatasetDetailPage({
           : 'Coverage notes are not available yet.',
     },
   ]
+  const trustState = datasetDetailTrustState(current, Boolean(briefingMarkdown))
+  const sourceCoverage = current.inventoryCoverage?.trim() ?? 'Coverage summary is not available yet.'
+  const freshnessSummary = current.inventoryFreshness?.trim() ?? (freshness ? `Last refreshed ${formatDateTime(freshness)}.` : 'Freshness summary is not available yet.')
+  const sourceStatus = current.volume?.mountPath
+    ? 'Deployed dataset files are mounted and available.'
+    : 'Deployed dataset files are not mounted yet.'
+  const briefingStatus = briefingMarkdown
+    ? describedAt
+      ? `Dataset briefing available. Last generated ${formatDateTime(describedAt)}.`
+      : 'Dataset briefing available.'
+    : canDescribe
+      ? 'No briefing yet. You can generate one now.'
+      : 'No briefing yet because the dataset is not ready enough to describe.'
+  const describeDisabledReason = !canDescribe
+    ? trustState.actionDetail
+    : briefingMarkdown
+      ? 'Starts a fresh async run to refresh the briefing.'
+      : 'Starts an async run to create the first briefing.'
 
   return (
     <main className="min-h-0 flex-1 overflow-y-auto px-4 py-8 md:px-8">
@@ -2791,9 +2869,16 @@ function DatasetDetailPage({
           <div className="space-y-5">
             <div className="space-y-2">
               <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Trust summary</div>
-              <h2 className="text-2xl font-semibold tracking-normal">{fitVerdict}</h2>
+              <div className="flex flex-wrap items-center gap-3">
+                <RunPriorityBadge label={trustState.badge} tone={trustState.tone} />
+                <RunPriorityBadge label={trustState.actionState} tone={trustState.tone === 'success' ? 'neutral' : trustState.tone} />
+              </div>
+              <h2 className="text-2xl font-semibold tracking-normal">{trustState.headline}</h2>
               <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
-                {profileSummary ?? 'Open the dataset briefing to review what is inside, where it came from, and what could make it a poor fit.'}
+                {trustState.explanation}
+              </p>
+              <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
+                {profileSummary ?? fitVerdict}
               </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-3">
@@ -2803,6 +2888,25 @@ function DatasetDetailPage({
                   <div className="mt-2 text-sm leading-6 text-foreground/85">{item.value}</div>
                 </div>
               ))}
+            </div>
+            <div className="grid gap-3 md:grid-cols-2">
+              <div className="rounded-xl border border-border bg-background/80 px-4 py-4">
+                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Source coverage</div>
+                <p className="mt-2 text-sm leading-6 text-foreground/85">{sourceCoverage}</p>
+              </div>
+              <div className="rounded-xl border border-border bg-background/80 px-4 py-4">
+                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Freshness and deployment</div>
+                <p className="mt-2 text-sm leading-6 text-foreground/85">{freshnessSummary}</p>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">{sourceStatus}</p>
+              </div>
+              <div className="rounded-xl border border-border bg-background/80 px-4 py-4">
+                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Known gaps</div>
+                <p className="mt-2 text-sm leading-6 text-foreground/85">{trustState.actionDetail}</p>
+              </div>
+              <div className="rounded-xl border border-border bg-background/80 px-4 py-4">
+                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Briefing status</div>
+                <p className="mt-2 text-sm leading-6 text-foreground/85">{briefingStatus}</p>
+              </div>
             </div>
           </div>
           <div className="flex flex-col justify-between gap-4 rounded-xl border border-border bg-background p-5">
@@ -2817,6 +2921,15 @@ function DatasetDetailPage({
                 </div>
               ) : null}
               <p className="text-sm leading-6 text-muted-foreground">{describeDestinationText}</p>
+              <div
+                className={`rounded-xl border px-4 py-3 text-sm ${
+                  canDescribe
+                    ? 'border-border bg-muted/25 text-muted-foreground'
+                    : 'border-amber-300 bg-amber-50 text-amber-950'
+                }`}
+              >
+                {describeDisabledReason}
+              </div>
               <div className="rounded-xl border border-dashed border-border bg-muted/25 px-4 py-3 text-sm text-muted-foreground">
                 Expected artifacts: <span className="font-medium text-foreground">Dataset Briefing</span> and <span className="font-medium text-foreground">Dataset Profile</span>.
               </div>
@@ -2877,10 +2990,16 @@ function DatasetDetailPage({
                 </div>
               </button>
             ) : (
-              <p className="text-sm leading-7 text-muted-foreground">
-                No briefing has been generated yet. A describe job launches a remote Codex agent to inspect the mounted dataset and write a detailed document covering data inventory, sources, schemas, time coverage, geography coverage, formats, transformations, QA status, limitations, and known gaps.
-                {!canDescribe ? ' This dataset needs a ready deployed environment before the describe workflow can run.' : ''}
-              </p>
+              <div className="space-y-3">
+                <p className="text-sm leading-7 text-muted-foreground">
+                  No dataset briefing is available yet.
+                </p>
+                <p className="text-sm leading-7 text-muted-foreground">
+                  {canDescribe
+                    ? 'Generate one to get a plain-language summary of provenance, coverage, schema, and known gaps before analysis.'
+                    : `${trustState.headline} ${trustState.actionDetail}`}
+                </p>
+              </div>
             )}
           </div>
         </section>
