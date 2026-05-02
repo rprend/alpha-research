@@ -1020,10 +1020,6 @@ function profileRecord(profile: unknown, key: string) {
   return isRecord(value) ? value : null
 }
 
-function formatList(value: string[]) {
-  return value.filter(Boolean).join(', ')
-}
-
 function renderBriefingMarkdown(markdown: string) {
   const nodes: ReactNode[] = []
   let paragraph: string[] = []
@@ -2674,13 +2670,9 @@ function DatasetDetailPage({
   const structuredProfile = current.profile?.profile
   const describedAt = current.profile?.describedAt ?? current.profile?.updatedAt ?? null
   const describeIsRunning = describeRun ? !['ready', 'failed', 'cancelled', 'canceled', 'worker_unreachable'].includes(describeRun.status.toLowerCase()) : false
-  const sourceCount = profileArrayCount(structuredProfile, 'sources')
-  const tableCount = profileArrayCount(structuredProfile, 'tables')
-  const formatCount = profileArrayCount(structuredProfile, 'formats')
   const limitationCount = profileArrayCount(structuredProfile, 'limitations')
   const profileSources = profileArray(structuredProfile, 'sources')
   const profileTables = profileArray(structuredProfile, 'tables')
-  const profileFormats = profileArray(structuredProfile, 'formats')
   const profileLimitations = profileArray(structuredProfile, 'limitations')
   const schemaRecord = profileRecord(current.profile, 'schema')
   const schemaColumns = Array.isArray(schemaRecord?.columns)
@@ -2693,44 +2685,61 @@ function DatasetDetailPage({
     .map((item) => profileText(item, 'provider') ?? profileText(item, 'name') ?? profileText(item, 'source'))
     .find(Boolean) ?? null
   const freshness = describedAt ?? current.updatedAt
-  const profileMetrics = [
-    {
-      label: 'Source',
-      value: sourceCount ? `${sourceCount} source${sourceCount === 1 ? '' : 's'}` : 'No source summary',
-      detail: primarySource ?? 'Provider not summarized yet.',
-    },
-    {
-      label: 'Tables',
-      value: tableCount ? `${tableCount} table${tableCount === 1 ? '' : 's'}` : 'No tables listed',
-      detail: profileTables
-        .map((item) => {
-          const name = profileText(item, 'name') ?? 'Unnamed table'
-          const rows = typeof item.rowCount === 'number'
-            ? item.rowCount
-            : typeof item.rows === 'number'
-              ? item.rows
-              : null
-          return rows ? `${name} (${rows.toLocaleString()} rows)` : name
-        })
-        .filter(Boolean)
-        .join(', ') || 'Table inventory not summarized yet.',
-    },
-    {
-      label: 'Formats',
-      value: formatCount ? `${formatCount} format${formatCount === 1 ? '' : 's'}` : 'No formats listed',
-      detail: formatList(profileFormats.map((item) => (typeof item === 'string' ? item.toUpperCase() : '')).filter(Boolean)) || 'Format summary not available yet.',
-    },
-    {
-      label: 'Limitations',
-      value: limitationCount ? `${limitationCount} known limit${limitationCount === 1 ? '' : 's'}` : 'No limitations listed',
-      detail: typeof profileLimitations[0] === 'string' ? profileLimitations[0] : 'No explicit limitation summary yet.',
-    },
-  ]
   const profileSummary = profileText(structuredProfile, 'summary')
   const fitHeadline = current.inventoryUseCase?.replace(/^Best for:\s*/i, '').trim() || profileSummary
   const fitVerdict = limitationCount
     ? `Useful for ${fitHeadline ?? 'initial exploration'}, but review the known limits before trusting final results.`
     : `Ready for ${fitHeadline ?? 'research use'} with no major limits highlighted in the current profile.`
+  const primaryTable = profileTables.find((item) => isRecord(item)) ?? null
+  const primaryTableName = primaryTable ? profileText(primaryTable, 'name') ?? 'Primary table' : null
+  const primaryTableRows = primaryTable && typeof primaryTable['rows'] === 'number'
+    ? primaryTable['rows']
+    : primaryTable && typeof primaryTable['rowCount'] === 'number'
+      ? primaryTable['rowCount']
+      : isRecord(current.ingestConfig) && typeof current.ingestConfig['rowCount'] === 'number'
+        ? current.ingestConfig['rowCount']
+        : null
+  const validationSummary = primaryTableRows && schemaColumns.length > 0
+    ? `${primaryTableRows.toLocaleString()} rows and ${schemaColumns.length} required fields are present in the current profile.`
+    : primaryTableRows
+      ? `${primaryTableRows.toLocaleString()} rows are present in the current profile.`
+      : schemaColumns.length > 0
+        ? `${schemaColumns.length} core fields are listed in the current profile.`
+        : 'Validation summary is not available yet.'
+  const schemaPreview = schemaColumns.length > 0
+    ? `${schemaColumns.slice(0, 4).join(', ')}${schemaColumns.length > 4 ? `, +${schemaColumns.length - 4} more` : ''}`
+    : 'Schema preview is not available yet.'
+  const primaryLimitation = typeof profileLimitations[0] === 'string'
+    ? profileLimitations[0]
+    : current.inventoryLimitations?.[0] ?? 'No explicit limitations are summarized yet.'
+  const transformationSummary = briefingMarkdown.toLowerCase().includes('transformations')
+    ? 'Metadata is preserved and text references are normalized into stable paths.'
+    : 'Transformation summary is not available yet.'
+  const representativenessSummary = primaryLimitation.toLowerCase().includes('sample')
+    ? 'This is a curated sample for fast exploration, not a full-corpus source of record.'
+    : 'Representativeness notes are not available yet.'
+  const trustSummaryItems = [
+    {
+      label: 'Source',
+      value: primarySource ?? current.sourceFilename ?? 'Source not summarized yet.',
+      detail: current.mode?.toLowerCase() === 'public' ? 'Public source dataset' : 'Workspace dataset',
+    },
+    {
+      label: 'Validated',
+      value: validationSummary,
+      detail: primaryTableName ? `Checked against ${primaryTableName}.` : 'Checked against the current dataset profile.',
+    },
+    {
+      label: 'Schema',
+      value: schemaPreview,
+      detail: 'Use this to confirm the core fields before analysis.',
+    },
+    {
+      label: 'Caveat',
+      value: primaryLimitation,
+      detail: representativenessSummary,
+    },
+  ]
   const questionPrompts = datasetQuestionPrompts(current)
   const describeButtonLabel = briefingMarkdown ? 'Refresh briefing' : 'Describe dataset'
   const describeHelperText = briefingMarkdown
@@ -2739,28 +2748,6 @@ function DatasetDetailPage({
   const describeDestinationText = briefingMarkdown
     ? 'Starts a fresh async run and opens the run view so you can watch progress, transcript updates, and the new briefing artifact.'
     : 'Starts an async run and opens the run view with progress, transcript updates, and the generated briefing artifact.'
-  const provenanceItems = [
-    {
-      label: 'Source provenance',
-      value: primarySource
-        ? `${primarySource}${current.mode?.toLowerCase() === 'public' ? ' public dataset' : ' dataset'}`
-        : current.sourceFilename
-          ? `Imported from ${current.sourceFilename}`
-          : 'Provenance summary not available yet.',
-    },
-    {
-      label: 'Last refreshed',
-      value: freshness ? formatDateTime(freshness) : 'Unknown',
-    },
-    {
-      label: 'Coverage and completeness',
-      value: profileLimitations.length > 0
-        ? String(profileLimitations[0])
-        : current.ingestConfig && isRecord(current.ingestConfig) && typeof current.ingestConfig.rowCount === 'number'
-          ? `${current.ingestConfig.rowCount.toLocaleString()} rows summarized in the current profile.`
-          : 'Coverage notes are not available yet.',
-    },
-  ]
   const trustState = datasetDetailTrustState(current, Boolean(briefingMarkdown))
   const sourceCoverage = current.inventoryCoverage?.trim() ?? 'Coverage summary is not available yet.'
   const freshnessSummary = current.inventoryFreshness?.trim() ?? (freshness ? `Last refreshed ${formatDateTime(freshness)}.` : 'Freshness summary is not available yet.')
@@ -2774,12 +2761,11 @@ function DatasetDetailPage({
     : canDescribe
       ? 'No briefing yet. You can generate one now.'
       : 'No briefing yet because the dataset is not ready enough to describe.'
-  const describeDisabledReason = !canDescribe
+  const describeActionDetail = !canDescribe
     ? trustState.actionDetail
     : briefingMarkdown
       ? 'Starts a fresh async run to refresh the briefing.'
       : 'Starts an async run to create the first briefing.'
-
   return (
     <main className="min-h-0 flex-1 overflow-y-auto px-4 py-8 md:px-8">
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-10">
@@ -2796,6 +2782,146 @@ function DatasetDetailPage({
         </section>
 
         {error ? <div className="bg-destructive/5 px-4 py-3 text-sm text-destructive">{error}</div> : null}
+
+        <section className="grid gap-4 rounded-2xl border border-border bg-muted/20 p-6 lg:grid-cols-[minmax(0,1fr)_280px]">
+          <div className="space-y-5">
+            <div className="space-y-2">
+              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Trust summary</div>
+              <div className="flex flex-wrap items-center gap-3">
+                <RunPriorityBadge label={trustState.badge} tone={trustState.tone} />
+                <RunPriorityBadge label={trustState.actionState} tone={trustState.tone === 'success' ? 'neutral' : trustState.tone} />
+              </div>
+              <h2 className="text-2xl font-semibold tracking-normal">{trustState.headline}</h2>
+              <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
+                {profileSummary ?? fitVerdict}
+              </p>
+            </div>
+            <div className="grid gap-3 md:grid-cols-2">
+              {trustSummaryItems.map((item) => (
+                <div key={item.label} className="rounded-xl border border-border bg-background/80 px-4 py-4">
+                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">{item.label}</div>
+                  <div className="mt-2 text-sm leading-6 text-foreground/90">{item.value}</div>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.detail}</p>
+                </div>
+              ))}
+            </div>
+            <div className="grid gap-3 md:grid-cols-2">
+              <div className="rounded-xl border border-border bg-background/80 px-4 py-4">
+                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Source coverage</div>
+                <p className="mt-2 text-sm leading-6 text-foreground/85">{sourceCoverage}</p>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">{transformationSummary}</p>
+              </div>
+              <div className="rounded-xl border border-border bg-background/80 px-4 py-4">
+                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Freshness and deployment</div>
+                <p className="mt-2 text-sm leading-6 text-foreground/85">{freshnessSummary}</p>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">{sourceStatus}</p>
+              </div>
+              <div className="rounded-xl border border-border bg-background/80 px-4 py-4">
+                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Known gaps</div>
+                <p className="mt-2 text-sm leading-6 text-foreground/85">{trustState.actionDetail}</p>
+              </div>
+              <div className="rounded-xl border border-border bg-background/80 px-4 py-4">
+                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Briefing status</div>
+                <p className="mt-2 text-sm leading-6 text-foreground/85">{briefingStatus}</p>
+              </div>
+            </div>
+            {(schemaColumns.length > 0 || sampleRows.length > 0) ? (
+              <div className="grid gap-4 xl:grid-cols-[280px_minmax(0,1fr)]">
+                <div className="rounded-xl border border-border bg-background/80 p-5">
+                  <h2 className="text-lg font-medium">Schema</h2>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    Core fields visible in the current profile.
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {schemaColumns.map((column) => (
+                      <span key={column} className="rounded-full border border-border px-3 py-1 text-sm text-foreground/85">
+                        {column}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="rounded-xl border border-border bg-background/80 p-5">
+                  <div>
+                    <h2 className="text-lg font-medium">Sample rows</h2>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                      Quick examples so you can confirm the dataset contains the kind of records you expect.
+                    </p>
+                  </div>
+                  {sampleRows.length > 0 ? (
+                    <div className="mt-4 overflow-x-auto">
+                      <Table>
+                        <TableHeader>
+                          <TableRow>
+                            {Object.keys(sampleRows[0] ?? {}).map((column) => (
+                              <TableHead key={column}>{column}</TableHead>
+                            ))}
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          {sampleRows.map((row, index) => (
+                            <TableRow key={index}>
+                              {Object.keys(sampleRows[0] ?? {}).map((column) => (
+                                <TableCell key={column}>{String(row[column] ?? '—')}</TableCell>
+                              ))}
+                            </TableRow>
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+            ) : null}
+          </div>
+          <div className="flex flex-col justify-between gap-4 rounded-xl border border-border bg-background p-5">
+            <div className="space-y-2">
+              <h2 className="text-sm font-medium">Dataset briefing</h2>
+              <p className="text-sm leading-6 text-muted-foreground">{describeHelperText}</p>
+              {describedAt ? (
+                <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+                  <FileText className="size-4" />
+                  <span>Last generated {formatDateTime(describedAt)}</span>
+                  {describeIsRunning ? <StatusBadge>Refreshing</StatusBadge> : null}
+                </div>
+              ) : null}
+              <p className="text-sm leading-6 text-muted-foreground">{describeDestinationText}</p>
+              <div className="rounded-xl border border-border bg-muted/25 px-4 py-3 text-sm text-foreground/85">
+                <span className="font-medium text-foreground">Trust verdict:</span> {trustState.explanation}
+              </div>
+              <div
+                className={`rounded-xl border px-4 py-3 text-sm ${
+                  canDescribe
+                    ? 'border-border bg-muted/25 text-muted-foreground'
+                    : 'border-amber-300 bg-amber-50 text-amber-950'
+                }`}
+              >
+                {describeActionDetail}
+              </div>
+              <div className="rounded-xl border border-dashed border-border bg-muted/25 px-4 py-3 text-sm text-muted-foreground">
+                Expected artifacts: <span className="font-medium text-foreground">Dataset Briefing</span> and <span className="font-medium text-foreground">Dataset Profile</span>.
+              </div>
+            </div>
+            <Button
+              type="button"
+              variant="outline"
+              disabled={!canDescribe || startingDescribe}
+              onClick={async () => {
+                setStartingDescribe(true)
+                try {
+                  const payload = await startDatasetDescribeRun(current.id)
+                  window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
+                  onOpenRun(payload.run)
+                } catch (describeError) {
+                  setError(describeError instanceof Error ? describeError.message : 'Could not start describe job.')
+                } finally {
+                  setStartingDescribe(false)
+                }
+              }}
+            >
+              {startingDescribe ? 'Starting...' : describeButtonLabel}
+            </Button>
+          </div>
+        </section>
 
         <section className="grid gap-4 rounded-3xl border border-border bg-background p-6 shadow-sm lg:grid-cols-[minmax(0,1fr)_280px]">
           <div className="space-y-5">
@@ -2865,109 +2991,6 @@ function DatasetDetailPage({
           </div>
         </section>
 
-        <section className="grid gap-4 rounded-2xl border border-border bg-muted/20 p-6 lg:grid-cols-[minmax(0,1fr)_280px]">
-          <div className="space-y-5">
-            <div className="space-y-2">
-              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Trust summary</div>
-              <div className="flex flex-wrap items-center gap-3">
-                <RunPriorityBadge label={trustState.badge} tone={trustState.tone} />
-                <RunPriorityBadge label={trustState.actionState} tone={trustState.tone === 'success' ? 'neutral' : trustState.tone} />
-              </div>
-              <h2 className="text-2xl font-semibold tracking-normal">{trustState.headline}</h2>
-              <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
-                {trustState.explanation}
-              </p>
-              <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
-                {profileSummary ?? fitVerdict}
-              </p>
-            </div>
-            <div className="grid gap-3 sm:grid-cols-3">
-              {provenanceItems.map((item) => (
-                <div key={item.label} className="rounded-xl border border-border bg-background/80 px-4 py-4">
-                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">{item.label}</div>
-                  <div className="mt-2 text-sm leading-6 text-foreground/85">{item.value}</div>
-                </div>
-              ))}
-            </div>
-            <div className="grid gap-3 md:grid-cols-2">
-              <div className="rounded-xl border border-border bg-background/80 px-4 py-4">
-                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Source coverage</div>
-                <p className="mt-2 text-sm leading-6 text-foreground/85">{sourceCoverage}</p>
-              </div>
-              <div className="rounded-xl border border-border bg-background/80 px-4 py-4">
-                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Freshness and deployment</div>
-                <p className="mt-2 text-sm leading-6 text-foreground/85">{freshnessSummary}</p>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">{sourceStatus}</p>
-              </div>
-              <div className="rounded-xl border border-border bg-background/80 px-4 py-4">
-                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Known gaps</div>
-                <p className="mt-2 text-sm leading-6 text-foreground/85">{trustState.actionDetail}</p>
-              </div>
-              <div className="rounded-xl border border-border bg-background/80 px-4 py-4">
-                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Briefing status</div>
-                <p className="mt-2 text-sm leading-6 text-foreground/85">{briefingStatus}</p>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col justify-between gap-4 rounded-xl border border-border bg-background p-5">
-            <div className="space-y-2">
-              <h2 className="text-sm font-medium">Dataset briefing</h2>
-              <p className="text-sm leading-6 text-muted-foreground">{describeHelperText}</p>
-              {describedAt ? (
-                <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-                  <FileText className="size-4" />
-                  <span>Last generated {formatDateTime(describedAt)}</span>
-                  {describeIsRunning ? <StatusBadge>Refreshing</StatusBadge> : null}
-                </div>
-              ) : null}
-              <p className="text-sm leading-6 text-muted-foreground">{describeDestinationText}</p>
-              <div
-                className={`rounded-xl border px-4 py-3 text-sm ${
-                  canDescribe
-                    ? 'border-border bg-muted/25 text-muted-foreground'
-                    : 'border-amber-300 bg-amber-50 text-amber-950'
-                }`}
-              >
-                {describeDisabledReason}
-              </div>
-              <div className="rounded-xl border border-dashed border-border bg-muted/25 px-4 py-3 text-sm text-muted-foreground">
-                Expected artifacts: <span className="font-medium text-foreground">Dataset Briefing</span> and <span className="font-medium text-foreground">Dataset Profile</span>.
-              </div>
-            </div>
-            <Button
-              type="button"
-              variant="outline"
-              disabled={!canDescribe || startingDescribe}
-              onClick={async () => {
-                setStartingDescribe(true)
-                try {
-                  const payload = await startDatasetDescribeRun(current.id)
-                  window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
-                  onOpenRun(payload.run)
-                } catch (describeError) {
-                  setError(describeError instanceof Error ? describeError.message : 'Could not start describe job.')
-                } finally {
-                  setStartingDescribe(false)
-                }
-              }}
-            >
-              {startingDescribe ? 'Starting...' : describeButtonLabel}
-            </Button>
-          </div>
-        </section>
-
-        {profileMetrics.length > 0 ? (
-          <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {profileMetrics.map((metric) => (
-              <div key={metric.label} className="rounded-xl border border-border px-5 py-4">
-                <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">{metric.label}</div>
-                <div className="mt-2 break-words text-lg font-semibold">{metric.value}</div>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">{metric.detail}</p>
-              </div>
-            ))}
-          </section>
-        ) : null}
-
         <section className="flex flex-col gap-4">
           <div className="flex items-center justify-between gap-4 border-b border-border pb-3">
             <h2 className="text-xl font-medium">Dataset briefing</h2>
@@ -3003,56 +3026,6 @@ function DatasetDetailPage({
             )}
           </div>
         </section>
-
-        {(schemaColumns.length > 0 || sampleRows.length > 0) ? (
-          <section className="grid gap-6 xl:grid-cols-[320px_minmax(0,1fr)]">
-            <div className="rounded-xl border border-border p-5">
-              <h2 className="text-lg font-medium">Schema</h2>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                Core fields visible in the current profile.
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {schemaColumns.map((column) => (
-                  <span key={column} className="rounded-full border border-border px-3 py-1 text-sm text-foreground/85">
-                    {column}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="rounded-xl border border-border p-5">
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <h2 className="text-lg font-medium">Sample rows</h2>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                    Quick examples so you can confirm the dataset contains the kind of records you expect.
-                  </p>
-                </div>
-              </div>
-              {sampleRows.length > 0 ? (
-                <div className="mt-4 overflow-x-auto">
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        {Object.keys(sampleRows[0] ?? {}).map((column) => (
-                          <TableHead key={column}>{column}</TableHead>
-                        ))}
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {sampleRows.map((row, index) => (
-                        <TableRow key={index}>
-                          {Object.keys(sampleRows[0] ?? {}).map((column) => (
-                            <TableCell key={column}>{String(row[column] ?? '—')}</TableCell>
-                          ))}
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
-              ) : null}
-            </div>
-          </section>
-        ) : null}
 
         <details className="rounded-lg border border-border p-5">
           <summary className="cursor-pointer text-sm font-medium">Developer details</summary>

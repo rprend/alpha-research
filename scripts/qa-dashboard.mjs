@@ -152,15 +152,23 @@ async function assertRenderedDatasetDetail() {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=datasets&datasetId=dataset-alpha-book`, { waitUntil: 'domcontentloaded' })
     await page.getByRole('heading', { name: 'Alpha Book Sample' }).waitFor({ timeout: 15000 })
+    await page.getByText('Project Gutenberg book metadata with title, author, year, and normalized text references.', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Trust summary', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Validated', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('75,000 rows and 4 required fields are present in the current profile.', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Caveat', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('This is a curated sample for fast exploration, not a full-corpus source of record.', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Sample rows' }).waitFor({ timeout: 15000 })
+    await page.getByText('Pride and Prejudice', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Ask about this dataset', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'Ask about Alpha Book Sample' }).waitFor({ timeout: 15000 })
     await page.getByText('do not need to copy a dataset id', { exact: false }).waitFor({ timeout: 15000 })
     await page.getByText('clarify scope', { exact: false }).waitFor({ timeout: 15000 })
-    await page.getByText('Trust summary', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Source provenance', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'Refresh briefing' }).waitFor({ timeout: 15000 })
-    await page.getByRole('heading', { name: 'Sample rows' }).waitFor({ timeout: 15000 })
     await page.getByText('Developer details', { exact: true }).waitFor({ timeout: 15000 })
+    if (await page.getByText('harness QA', { exact: false }).count()) {
+      throw new Error('Dataset detail should not surface harness QA wording in the trust path.')
+    }
     if (await page.getByText('Alpha Book research planning', { exact: true }).count()) {
       throw new Error('Dataset detail should not show unrelated chat history in the primary sidebar.')
     }

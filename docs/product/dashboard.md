@@ -58,8 +58,9 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Before the user leaves the dataset page, the UI should explain the likely outputs from asking: direct answer, scoped plan, or a run with transcript and artifacts when work starts.
 - The top of the page should state what the dataset is good for, where it came from, how fresh it is, and the main limitation.
 - The trust path should surface source coverage, last ingest/update wording, deployment availability, known gaps, and briefing availability without forcing the user to open developer details.
-- Summary metrics should explain the actual source, tables, formats, and limits, not only show counts.
-- The primary reading path should include the human-readable briefing, visible schema fields, and sample rows.
+- The trust summary should lead the page before dataset-scoped asking so a careful user can decide to trust or reject the dataset without scrolling through the full briefing first.
+- Summary metrics should explain the actual source, validation checks, schema, and caveats in user language, not only show counts.
+- The primary reading path should include the human-readable briefing, visible schema fields, and sample rows, with at least one sample preview visible above the long briefing.
 - Describe actions should explain whether they generate or refresh the briefing, that they start async work, and that the resulting briefing/profile artifacts will appear in the run view and dataset detail.
 - Disabled describe actions should state exactly why they are blocked and whether the blocker is infrastructure readiness, ingest completeness, or another trust issue.
 - Run ids, artifact ids, manifest paths, raw JSON payloads, and similar debugging material belong in a collapsed developer-only section.
