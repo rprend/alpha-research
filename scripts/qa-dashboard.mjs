@@ -75,6 +75,24 @@ async function assertRenderedDatasetInventory() {
   }
 }
 
+async function assertRenderedEmptyDatasetSetup() {
+  const browser = await chromium.launch({ headless: true })
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+    await page.goto(`${baseUrl}/?harness=1&view=datasets&scenario=empty`, { waitUntil: 'domcontentloaded' })
+    await page.getByRole('heading', { name: 'Datasets' }).waitFor({ timeout: 15000 })
+    await page.getByText('Expected for a new workspace', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Set up your first dataset', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Nothing failed here.', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByText('research datasets create --name "My first dataset"', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByRole('link', { name: 'Open CLI setup' }).waitFor({ timeout: 15000 })
+    await page.getByText('A file or source to ingest', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByText('A short description of what the data covers', { exact: false }).waitFor({ timeout: 15000 })
+  } finally {
+    await browser.close()
+  }
+}
+
 async function assertRenderedDatasetDetail() {
   const browser = await chromium.launch({ headless: true })
   try {
@@ -214,6 +232,7 @@ try {
   await assertRoute('/?harness=1&view=runs', '<div id="app">')
   await assertRenderedOrientation()
   await assertRenderedDatasetInventory()
+  await assertRenderedEmptyDatasetSetup()
   await assertRenderedDatasetDetail()
   await assertDescribeRunSteering()
   await assertCompletedRunArtifactsSteering()

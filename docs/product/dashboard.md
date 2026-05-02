@@ -36,6 +36,8 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Dataset cards should use user-language readiness labels such as `Ready for research` or `Still building`, not raw lifecycle wording alone.
 - Inventory copy in harness mode should still read like product copy, not internal QA or fixture text.
 - Private and public groupings should remain visible even when one group is empty so absence is not ambiguous.
+- A zero-dataset workspace should read as a normal starting state, not an error or sync mystery.
+- The zero-dataset state should show the fastest setup path, the exact inputs required next, and a direct CLI or setup-help handoff without forcing prior product knowledge.
 
 ## Dataset Detail Expectations
 

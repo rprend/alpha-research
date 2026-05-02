@@ -1832,6 +1832,85 @@ function RunPriorityBadge({ label, tone }: { label: string; tone: 'success' | 'a
   )
 }
 
+const FIRST_DATASET_COMMAND = 'research datasets create --name "My first dataset" --file ./data.csv --description "What this data covers and the question I want to answer"'
+
+function DatasetsEmptyState() {
+  return (
+    <Empty className="border-t border-dashed border-border px-6 py-14 text-left">
+      <EmptyHeader className="max-w-3xl items-start gap-3">
+        <EmptyMedia variant="icon">
+          <Database />
+        </EmptyMedia>
+        <Badge variant="secondary" className="gap-2 text-emerald-700">
+          <CheckCircle2 className="size-3.5" />
+          Expected for a new workspace
+        </Badge>
+        <EmptyTitle className="text-left normal-case tracking-normal">Set up your first dataset</EmptyTitle>
+        <EmptyDescription className="max-w-2xl text-left text-sm leading-7">
+          Nothing failed here. To get to first value, register one file or source and add a short description of
+          what it covers or what you want to analyze. The RESEARCH CLI will create the dataset and then it will show
+          up in this dashboard.
+        </EmptyDescription>
+      </EmptyHeader>
+      <EmptyContent className="max-w-3xl items-stretch gap-4 text-left">
+        <div className="grid gap-4 md:grid-cols-2">
+          <Card className="rounded-[24px] border border-border/70 bg-card/80 py-0 shadow-none">
+            <CardContent className="flex h-full flex-col gap-3 px-6 py-6">
+              <div className="space-y-1">
+                <h2 className="text-base font-semibold tracking-normal">Fastest path</h2>
+                <p className="text-sm leading-6 text-muted-foreground">
+                  Use the CLI if you already have a local file or source URL ready.
+                </p>
+              </div>
+              <pre className="overflow-x-auto rounded-2xl border border-border/70 bg-muted/30 p-4 text-xs leading-6 text-foreground">
+                <code>{FIRST_DATASET_COMMAND}</code>
+              </pre>
+              <p className="text-xs leading-6 text-muted-foreground">
+                Replace the file path and description with your own source. The description should explain what the
+                data contains or the question you want to research.
+              </p>
+              <div className="flex flex-wrap gap-3 pt-1">
+                <Button asChild>
+                  <a href="/cli/">
+                    Open CLI setup
+                    <ExternalLink className="size-3.5" />
+                  </a>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="rounded-[24px] border border-border/70 bg-muted/25 py-0 shadow-none">
+            <CardContent className="flex h-full flex-col gap-3 px-6 py-6">
+              <div className="space-y-1">
+                <h2 className="text-base font-semibold tracking-normal">What you need</h2>
+                <p className="text-sm leading-6 text-muted-foreground">
+                  The first dataset setup only needs two inputs.
+                </p>
+              </div>
+              <ol className="space-y-3 text-sm leading-6 text-foreground">
+                <li>1. A file or source to ingest, such as a CSV, JSON export, or source URL.</li>
+                <li>2. A short description of what the data covers and what you want to analyze.</li>
+              </ol>
+              <p className="text-xs leading-6 text-muted-foreground">
+                After creation, the dataset appears here with readiness status so you can open it, inspect provenance,
+                and launch research runs.
+              </p>
+              <div className="flex flex-wrap gap-3 pt-1">
+                <Button asChild variant="outline">
+                  <a href="https://cal.com/ryan-prendergast-qsp5cw/30min" target="_blank" rel="noopener noreferrer">
+                    Get setup help
+                    <ExternalLink className="size-3.5" />
+                  </a>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </EmptyContent>
+    </Empty>
+  )
+}
+
 function DatasetFeed({
   datasets,
   onSelectDataset,
@@ -1840,19 +1919,7 @@ function DatasetFeed({
   onSelectDataset: (dataset: DatasetRecord) => void
 }) {
   if (datasets.length === 0) {
-    return (
-      <Empty className="border-t border-dashed border-border px-6 py-14">
-        <EmptyHeader>
-          <EmptyMedia variant="icon">
-            <Database />
-          </EmptyMedia>
-          <EmptyTitle>No datasets yet</EmptyTitle>
-          <EmptyDescription>
-            Create a dataset with the RESEARCH CLI and it will appear here automatically.
-          </EmptyDescription>
-        </EmptyHeader>
-      </Empty>
-    )
+    return <DatasetsEmptyState />
   }
   const publicDatasets = datasets.filter(isPublicDataset)
   const privateDatasets = datasets.filter((dataset) => !isPublicDataset(dataset))
@@ -3772,6 +3839,7 @@ function DashboardApp({
   } else if (route.view === 'datasets' && route.datasetId && !dataError) {
     content = <main className="min-h-0 flex-1 overflow-y-auto px-4 py-8 md:px-8" />
   } else if (route.view === 'datasets') {
+    const hasDatasets = datasets.length > 0
     content = (
       <main className="flex flex-1 min-w-0 flex-col gap-10 overflow-y-auto px-4 py-10 md:px-8">
         {dataError ? (
@@ -3782,7 +3850,9 @@ function DashboardApp({
         <section className="mx-auto flex w-full max-w-5xl flex-col gap-3">
           <h1 className="text-4xl font-semibold tracking-normal">Datasets</h1>
           <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-            See what data is available, what each dataset covers, and whether it is ready to use. Open any dataset for provenance, schema, profile details, and generated briefings.
+            {hasDatasets
+              ? 'See what data is available, what each dataset covers, and whether it is ready to use. Open any dataset for provenance, schema, profile details, and generated briefings.'
+              : 'New workspaces start here. Add one file or source plus a short description, then come back here to inspect readiness, provenance, and the first research-ready dataset.'}
           </p>
         </section>
         <section>
