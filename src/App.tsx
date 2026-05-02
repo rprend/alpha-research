@@ -939,7 +939,14 @@ function buildRunningRunSummary(
     lastEventLabel: lastEvent?.message?.trim() ?? currentActivity,
     previousActivity,
     statusDetail: `Last meaningful update ${relativeTime(lastActivityAt)}.`,
+    actionLabel: artifactCountFromPayload(payload) > 0
+      ? 'No action needed unless you want to inspect saved output.'
+      : 'No action needed. Alpha Research is still working.',
   }
+}
+
+function artifactCountFromPayload(payload: RunResultsResponse | null) {
+  return (payload?.artifacts ?? []).filter((artifact) => artifact.type !== 'remote_agent_session').length
 }
 
 function isUncertainRunStatus(status: string | null | undefined) {
@@ -2004,6 +2011,7 @@ function AssistantTranscript({
           readOnly
           welcomeTitle={emptyTitle}
           welcomeDescription={emptyDescription}
+          showScrollToBottom={false}
         />
       </div>
     </AssistantRuntimeProvider>
@@ -4691,29 +4699,32 @@ function RunDetailPage({
                     </p>
                   </div>
                 </div>
-                {artifactCount > 0 ? (
-                  <Button
-                    type="button"
-                    variant="outline"
-                    className="shrink-0 gap-2"
-                    onClick={() => setArtifactsOpen(true)}
-                    aria-label={`Open artifacts (${artifactCount})`}
-                  >
-                    <FileText className="size-4" />
-                    <span>Open artifacts ({artifactCount})</span>
-                  </Button>
-                ) : null}
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="shrink-0 gap-2"
+                  onClick={() => setArtifactsOpen(true)}
+                  aria-label={artifactCount > 0 ? `Open artifacts (${artifactCount})` : 'Artifacts'}
+                >
+                  <FileText className="size-4" />
+                  <span>{artifactCount > 0 ? `Open artifacts (${artifactCount})` : 'Artifacts'}</span>
+                </Button>
               </div>
               {isRunningRun ? (
                 <div className="space-y-2 text-sm leading-6 text-muted-foreground">
+                  <p>{runningSummary?.actionLabel ?? 'Alpha Research will keep refreshing this page while work continues.'}</p>
                   <p>
-                    Monitoring live run <span className="font-medium text-foreground">{currentRun.id}</span>. Alpha Research will keep refreshing this page while work continues.
+                    Monitoring live run <span className="font-medium text-foreground">{currentRun.id}</span>.
                   </p>
                   <div>
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Expected outputs</div>
                     <p>{expectedArtifactNames.join(', ')}</p>
                   </div>
-                  <p>{runDestinationCopy}</p>
+                  <p>
+                    {artifactCount > 0
+                      ? runDestinationCopy
+                      : `Artifacts will appear here as soon as this run saves durable output. ${runDestinationCopy}`}
+                  </p>
                 </div>
               ) : (
                 <div className="grid gap-3 md:grid-cols-3">
@@ -4973,7 +4984,9 @@ function RunDetailPage({
                 ) : null}
                 <div className="rounded-xl border border-sky-200 bg-background px-4 py-4">
                   <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Latest evidence</div>
-                  <p className="mt-2 text-sm leading-6 text-foreground/85">{runningSummary.lastEventLabel}</p>
+                  <div className="mt-2 text-sm font-semibold text-foreground">{relativeTime(runningSummary.lastActivityAt)}</div>
+                  <p className="mt-1 text-sm leading-6 text-muted-foreground">{formatDateTime(runningSummary.lastActivityAt)}</p>
+                  <p className="mt-3 text-sm leading-6 text-foreground/85">{runningSummary.lastEventLabel}</p>
                 </div>
               </div>
             </section>

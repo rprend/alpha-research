@@ -43,6 +43,7 @@ type ThreadProps = {
   welcomePanel?: ReactNode;
   composerPlaceholder?: string;
   datasets?: ComposerDatasetOption[];
+  showScrollToBottom?: boolean;
 };
 
 export const Thread: FC<ThreadProps> = ({
@@ -52,6 +53,7 @@ export const Thread: FC<ThreadProps> = ({
   welcomePanel,
   composerPlaceholder = "Send a message...",
   datasets = [],
+  showScrollToBottom = true,
 }) => {
   const viewportRef = useRef<HTMLDivElement | null>(null);
   const [initialScrollReady, setInitialScrollReady] = useState(!readOnly);
@@ -106,7 +108,7 @@ export const Thread: FC<ThreadProps> = ({
           </div>
 
           <ThreadPrimitive.ViewportFooter className="aui-thread-viewport-footer sticky bottom-0 mt-auto flex flex-col gap-4 overflow-visible rounded-t-(--composer-radius) bg-background pb-4 md:pb-6">
-            <ThreadScrollToBottom />
+            {showScrollToBottom ? <ThreadScrollToBottom /> : null}
             {!readOnly ? <Composer datasets={datasets} placeholder={composerPlaceholder} /> : null}
           </ThreadPrimitive.ViewportFooter>
         </div>

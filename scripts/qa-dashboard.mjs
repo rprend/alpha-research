@@ -349,6 +349,26 @@ async function assertRunningRunStatusSteering() {
   }
 }
 
+async function assertMobileRunCheckInSteering() {
+  const browser = await chromium.launch({ headless: true })
+  try {
+    const page = await browser.newPage({ viewport: { width: 390, height: 844 } })
+    await page.goto(`${baseUrl}/?harness=1&view=runs&runId=run-harness-running`, { waitUntil: 'domcontentloaded' })
+    await page.getByRole('heading', { name: 'Run is alive' }).waitFor({ timeout: 15000 })
+    await page.getByText('No action needed', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByText('Current phase', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Fetching public data sources', { exact: true }).first().waitFor({ timeout: 15000 })
+    await page.getByText('Last heartbeat', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Latest evidence', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: /Open artifacts|Artifacts/i }).waitFor({ timeout: 15000 })
+    if (await page.getByLabel('Scroll to bottom').count()) {
+      throw new Error('Mobile run check-in should not foreground the transcript scroll utility.')
+    }
+  } finally {
+    await browser.close()
+  }
+}
+
 async function assertResumeLastResearchThread() {
   const browser = await chromium.launch({ headless: true })
   try {
@@ -513,6 +533,7 @@ try {
   await assertDescribeRunSteering()
   await assertCompletedRunArtifactsSteering()
   await assertRunningRunStatusSteering()
+  await assertMobileRunCheckInSteering()
   await assertResumeLastResearchThread()
   await assertStuckRunSteering()
   await assertRenderedRunsInventory()
