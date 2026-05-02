@@ -29,16 +29,22 @@ Run metadata can include `config.resources`:
 
 ```json
 {
+  "profile": "canonical-public",
   "runnerSize": "s-8vcpu-16gb",
-  "workspaceDiskGb": 500
+  "workspaceDiskGb": 50,
+  "storageMode": "object-store-versioned",
+  "datasetAccess": "read-only-version",
+  "publishMode": "versioned"
 }
 ```
 
 When present, the control plane must honor it before launching the remote agent:
 
 - `runnerSize` is the DigitalOcean droplet size used for the run.
-- `workspaceDiskGb` is the minimum dataset/workspace volume capacity; existing smaller volumes are resized before attachment.
-- Explicit resource requests use a dedicated runner, not the warm pool, because pooled runners are only keyed by coarse size class.
+- For legacy volume-backed resources, `workspaceDiskGb` is the minimum dataset/workspace volume capacity; existing smaller volumes are resized before attachment.
+- For `storageMode: "object-store-versioned"`, `workspaceDiskGb` is runner scratch intent, not a shared dataset volume resize. Canonical public and standard analysis profiles must not resize the dataset volume; `large-ingest` is the only object-store profile that may request a large volume-backed ingest workspace.
+- Explicit `runnerSize` requests use a dedicated runner, not the warm pool, because pooled runners are only keyed by coarse size class.
+- Failed public/research environment launches must move the dataset to `failed` so stale provisioning rows are visible and retryable.
 
 ## Boundary Rules
 

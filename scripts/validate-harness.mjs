@@ -59,6 +59,23 @@ for (const token of [
 
 const controlPlaneSource = readFileSync(join(root, 'src/control-plane.ts'), 'utf8')
 assert(controlPlaneSource.includes('/debug-view'), 'Run debug endpoint is missing.')
+assert(
+  controlPlaneSource.includes('Using versioned object-store resource policy; shared dataset volume resize is skipped.'),
+  'Control plane must record when object-store resource profiles skip shared volume resize.',
+)
+assert(
+  controlPlaneSource.includes('UPDATE datasets SET deployment_status = ?, status = ?, updated_at = ? WHERE id = ?'),
+  'Failed environment launches must update dataset deployment/status.',
+)
+
+const digitalOceanSource = readFileSync(join(root, 'src/digitalocean.ts'), 'utf8')
+assert(
+  digitalOceanSource.includes("resources.storageMode === 'object-store-versioned' && resources.profile !== 'large-ingest'"),
+  'Object-store resource profiles must not resize shared dataset volumes except large-ingest.',
+)
+for (const token of ['storageMode', 'datasetAccess', 'publishMode']) {
+  assert(digitalOceanSource.includes(token), `DigitalOcean resource parser is missing ${token}.`)
+}
 
 const dashboardJourneySource = readFileSync(join(root, 'scripts/dashboard-journeys.mjs'), 'utf8')
 for (const token of [

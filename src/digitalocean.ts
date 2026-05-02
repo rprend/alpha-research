@@ -67,6 +67,9 @@ type ResearchRunResources = {
   profile?: string
   runnerSize?: string
   workspaceDiskGb?: number
+  storageMode?: string
+  datasetAccess?: string
+  publishMode?: string
 }
 
 function requireDigitalOceanToken(env: DigitalOceanEnv) {
@@ -195,10 +198,18 @@ export async function ensureDatasetVolume(env: DigitalOceanEnv, datasetId: strin
   }
 }
 
+export function usesVersionedObjectStoreResources(params: Pick<LaunchResearchParams, 'configJson'>) {
+  const resources = parseResearchRunResources(params)
+  return resources.storageMode === 'object-store-versioned'
+}
+
 export function requestedWorkspaceDiskGb(params: Pick<LaunchResearchParams, 'configJson'>) {
   const resources = parseResearchRunResources(params)
   const value = resources.workspaceDiskGb
   if (typeof value !== 'number' || !Number.isFinite(value) || value <= 0) {
+    return null
+  }
+  if (resources.storageMode === 'object-store-versioned' && resources.profile !== 'large-ingest') {
     return null
   }
   return Math.ceil(value)
@@ -289,6 +300,9 @@ function parseResearchRunResources(params: Pick<LaunchResearchParams, 'configJso
       profile: typeof input.profile === 'string' ? input.profile : undefined,
       runnerSize: typeof input.runnerSize === 'string' ? input.runnerSize.trim() : undefined,
       workspaceDiskGb: typeof input.workspaceDiskGb === 'number' ? input.workspaceDiskGb : undefined,
+      storageMode: typeof input.storageMode === 'string' ? input.storageMode.trim() : undefined,
+      datasetAccess: typeof input.datasetAccess === 'string' ? input.datasetAccess.trim() : undefined,
+      publishMode: typeof input.publishMode === 'string' ? input.publishMode.trim() : undefined,
     }
   } catch {
     return {}

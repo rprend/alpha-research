@@ -12,6 +12,7 @@ import {
   launchResearchDroplet,
   requestedWorkspaceDiskGb,
   requiresDedicatedResearchRunner,
+  usesVersionedObjectStoreResources,
   waitForVolumeDetachment,
 } from './digitalocean'
 
@@ -1788,6 +1789,8 @@ export class ControlPlane {
               datasetId,
             )
           }
+        } else if (usesVersionedObjectStoreResources(launchParams)) {
+          this.appendRunEvent(runId, 'Using versioned object-store resource policy; shared dataset volume resize is skipped.')
         }
         const sizeClass = inferResearchSizeClass(launchParams)
         const useDedicatedRunner = requiresDedicatedResearchRunner(launchParams)
@@ -1867,8 +1870,10 @@ export class ControlPlane {
     const publicEnvironmentMatch = pathname.match(/^\/datasets\/([^/]+)\/(?:public-environment|research-environment)$/u)
     if (publicEnvironmentMatch && request.method === 'POST') {
       let runId: string | null = null
+      let environmentDatasetId: string | null = null
       try {
         const datasetId = decodeURIComponent(publicEnvironmentMatch[1] ?? '')
+        environmentDatasetId = datasetId
         const body = await request.json().catch(() => ({})) as Record<string, unknown>
         const ownerEmail = String(body.ownerEmail ?? '')
         const callbackOrigin = String(body.callbackOrigin ?? '')
@@ -2095,6 +2100,8 @@ export class ControlPlane {
               datasetId,
             )
           }
+        } else if (usesVersionedObjectStoreResources(launchParams)) {
+          this.appendRunEvent(runId, 'Using versioned object-store resource policy; shared dataset volume resize is skipped.')
         }
         const sizeClass = inferResearchSizeClass(launchParams)
         const useDedicatedRunner = requiresDedicatedResearchRunner(launchParams)
@@ -2157,6 +2164,15 @@ export class ControlPlane {
           if (failedRun) {
             this.releaseDatasetLease(this.parseRunRow(failedRun).datasetId, runId)
           }
+        }
+        if (environmentDatasetId) {
+          this.sql.exec(
+            `UPDATE datasets SET deployment_status = ?, status = ?, updated_at = ? WHERE id = ?`,
+            'failed',
+            'failed',
+            nowIso(),
+            environmentDatasetId,
+          )
         }
         return respondJson({ error: message, runId }, 500)
       }
