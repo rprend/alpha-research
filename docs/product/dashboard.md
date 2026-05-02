@@ -72,6 +72,7 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Signed-in account state must be visible without hunting in footer chrome.
 - Recent items should read like understandable work records, not raw run-lifecycle labels.
 - Recent work should stay secondary on first visit and not crowd out onboarding copy.
+- Reopened assistant threads should lead with a compact continuity card: human-readable title, last activity time, dataset or corpus target, linked run status, a short recap, and explicit actions to continue the thread or inspect results without remembering ids.
 
 ## Harness Mode
 

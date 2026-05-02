@@ -272,6 +272,31 @@ async function assertRunningRunStatusSteering() {
   }
 }
 
+async function assertResumeLastResearchThread() {
+  const browser = await chromium.launch({ headless: true })
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+    await page.goto(`${baseUrl}/?harness=1&view=assistant&sessionId=session-harness-cli`, { waitUntil: 'domcontentloaded' })
+    await page.getByText('Continue last thread', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Alpha Book research planning' }).waitFor({ timeout: 15000 })
+    await page.getByText('Last active', { exact: false }).first().waitFor({ timeout: 15000 })
+    await page.getByText('Research target', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Alpha Book Sample', { exact: true }).first().waitFor({ timeout: 15000 })
+    await page.getByText('Linked run', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Describe for Alpha Book Sample', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('4 saved outputs', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByText('Session recap', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('The corpus is ready for search, literary classification, and provenance-aware sampling.', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Open linked run' }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Open briefing artifact' }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Ask a follow-up' }).waitFor({ timeout: 15000 })
+    await page.getByText('Most recent', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('About Alpha Book Sample · Transcript complete', { exact: false }).first().waitFor({ timeout: 15000 })
+  } finally {
+    await browser.close()
+  }
+}
+
 async function assertStuckRunSteering() {
   const browser = await chromium.launch({ headless: true })
   try {
@@ -329,7 +354,7 @@ async function assertTerminalSessionContinuity() {
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=terminal-sessions&sessionId=session-harness-remote`, { waitUntil: 'domcontentloaded' })
-    await page.getByRole('heading', { name: 'Describe run terminal session' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Alpha Book describe terminal session' }).waitFor({ timeout: 15000 })
     await page.getByText('Transcript complete', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('This transcript belongs to the Describe run for Alpha Book Sample.', { exact: false }).waitFor({ timeout: 15000 })
     await page.getByText('Outputs from this session', { exact: true }).waitFor({ timeout: 15000 })
@@ -378,6 +403,7 @@ try {
   await assertDescribeRunSteering()
   await assertCompletedRunArtifactsSteering()
   await assertRunningRunStatusSteering()
+  await assertResumeLastResearchThread()
   await assertStuckRunSteering()
   await assertRenderedRunsInventory()
   await assertTerminalSessionContinuity()

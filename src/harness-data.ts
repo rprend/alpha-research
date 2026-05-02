@@ -234,7 +234,7 @@ export const harnessSessions = [
         role: 'assistant',
         kind: 'assistant_message',
         title: 'Assistant response',
-        content: 'I created a describe run. The run view will show progress, transcript updates, and the generated briefing artifacts.',
+        content: 'I created a describe run for Alpha Book Sample. The linked run contains the briefing artifacts, and the first useful next step is to open the dataset briefing before asking the next research question.',
         createdAt: iso(88),
       },
     ],
@@ -242,7 +242,7 @@ export const harnessSessions = [
   {
     id: 'session-harness-remote',
     kind: 'remote_codex',
-    title: 'Describe run terminal session',
+    title: 'Alpha Book describe terminal session',
     status: 'ready',
     datasetId: 'dataset-alpha-book',
     runId: 'run-harness-completed',
