@@ -44,18 +44,9 @@ async function assertRenderedOrientation() {
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=assistant`, { waitUntil: 'domcontentloaded' })
-    await page.getByRole('heading', { name: 'Draft a research plan before you run anything.' }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Draft a plan' }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Browse datasets' }).waitFor({ timeout: 15000 })
-    await page.getByText('You can start here without CLI setup.', { exact: false }).waitFor({ timeout: 15000 })
-    await page.getByText('Recommended plan', { exact: false }).waitFor({ timeout: 15000 })
-    await page.getByRole('heading', { name: 'Before running anything expensive' }).waitFor({ timeout: 15000 })
-    await page.getByRole('heading', { name: 'Launch a well-specified run' }).waitFor({ timeout: 15000 })
-    await page.getByText('Run launch expectations', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Use complete spec' }).waitFor({ timeout: 15000 })
-    await page.getByText('Operational choices to confirm', { exact: false }).waitFor({ timeout: 15000 })
-    await page.getByText('Sample data ready:', { exact: false }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Is the housing market in trouble? Turn that into a concrete plan using City Housing Archive.' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'RESEARCH CLI' }).waitFor({ timeout: 15000 })
+    await page.getByText('Run the signed-in RESEARCH CLI from the browser.', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByPlaceholder('Send a message...').waitFor({ timeout: 15000 })
     await page.getByText('Signed in', { exact: false }).first().waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'Show recent chats (2)' }).waitFor({ timeout: 15000 })
     if (await page.getByText('Remote session', { exact: false }).first().isVisible().catch(() => false)) {
@@ -206,16 +197,14 @@ async function assertWellSpecifiedRunLaunch() {
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=assistant`, { waitUntil: 'domcontentloaded' })
-    await page.getByRole('heading', { name: 'Launch a well-specified run' }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Use complete spec' }).click()
-    await page.getByLabel('Message input').evaluate((node) => {
-      if (!(node instanceof HTMLTextAreaElement)) {
-        throw new Error('Expected message input to be a textarea.')
-      }
-      if (!node.value.includes('Dataset: City Housing Archive')) {
-        throw new Error(`Prepared spec was not inserted into the composer: ${node.value}`)
-      }
-    })
+    await page.getByRole('heading', { name: 'RESEARCH CLI' }).waitFor({ timeout: 15000 })
+    await page.getByLabel('Message input').fill([
+      'Dataset: City Housing Archive',
+      'Variables: monthly rent, lease start date, neighborhood, bedrooms, concession flag',
+      'Time window: 2019-2024',
+      'Method: compare rent growth cohorts before and after concession spikes, then test whether neighborhood-level supply shifts explain outliers',
+      'Outputs: one executive summary, one cohort comparison table, and one CSV with the retained analysis dataset',
+    ].join('\n'))
     await page.getByLabel('Send message').click()
     await page.getByText('run-harness-specified', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Running', { exact: true }).first().waitFor({ timeout: 15000 })
@@ -366,9 +355,8 @@ async function assertDatasetScopedAskRouting() {
     await page.goto(`${baseUrl}/?harness=1&view=datasets&datasetId=dataset-alpha-book`, { waitUntil: 'domcontentloaded' })
     await page.getByLabel('Your research question').fill('Which authors look most useful to compare first?')
     await page.getByRole('button', { name: 'Ask about Alpha Book Sample' }).click()
-    await page.getByRole('heading', { name: 'Ask about Alpha Book Sample' }).waitFor({ timeout: 15000 })
-    await page.getByText('already attached to this chat', { exact: false }).waitFor({ timeout: 15000 })
-    await page.getByText('clarify broad requests before it launches any expensive work', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'RESEARCH CLI' }).waitFor({ timeout: 15000 })
+    await page.getByText('Run the signed-in RESEARCH CLI from the browser.', { exact: false }).waitFor({ timeout: 15000 })
     await page.getByLabel('Message input').waitFor({ timeout: 15000 })
     await page.getByLabel('Message input').evaluate((node) => {
       if (!(node instanceof HTMLTextAreaElement)) {
@@ -447,7 +435,7 @@ async function assertCompletedRunArtifactsSteering() {
     await page.getByRole('link', { name: 'Download' }).waitFor({ timeout: 15000 })
     await page.getByRole('link', { name: 'Open remote Codex session' }).first().waitFor({ timeout: 15000 })
     await page.getByText('Advanced debugging remains optional. This file is the normal review path; the remote Codex session is only for deeper transcript and tool inspection.', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Branch 2 of 2', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('2 / 2', { exact: true }).waitFor({ timeout: 15000 })
   } finally {
     await browser.close()
   }

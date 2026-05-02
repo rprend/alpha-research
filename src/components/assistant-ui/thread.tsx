@@ -34,26 +34,20 @@ import {
   RefreshCwIcon,
   SquareIcon,
 } from "lucide-react";
-import { useLayoutEffect, useRef, useState, type FC, type ReactNode } from "react";
+import { useLayoutEffect, useRef, useState, type FC } from "react";
 
 type ThreadProps = {
   readOnly?: boolean;
   welcomeTitle?: string;
   welcomeDescription?: string;
-  welcomePanel?: ReactNode;
-  composerPlaceholder?: string;
   datasets?: ComposerDatasetOption[];
-  showScrollToBottom?: boolean;
 };
 
 export const Thread: FC<ThreadProps> = ({
   readOnly = false,
   welcomeTitle = "Hello there!",
   welcomeDescription = "How can I help you today?",
-  welcomePanel,
-  composerPlaceholder = "Send a message...",
   datasets = [],
-  showScrollToBottom = true,
 }) => {
   const viewportRef = useRef<HTMLDivElement | null>(null);
   const [initialScrollReady, setInitialScrollReady] = useState(!readOnly);
@@ -93,7 +87,6 @@ export const Thread: FC<ThreadProps> = ({
             <ThreadWelcome
               title={welcomeTitle}
               description={welcomeDescription}
-              panel={welcomePanel}
               readOnly={readOnly}
             />
           </AuiIf>
@@ -108,8 +101,8 @@ export const Thread: FC<ThreadProps> = ({
           </div>
 
           <ThreadPrimitive.ViewportFooter className="aui-thread-viewport-footer sticky bottom-0 mt-auto flex flex-col gap-4 overflow-visible rounded-t-(--composer-radius) bg-background pb-4 md:pb-6">
-            {showScrollToBottom ? <ThreadScrollToBottom /> : null}
-            {!readOnly ? <Composer datasets={datasets} placeholder={composerPlaceholder} /> : null}
+            <ThreadScrollToBottom />
+            {!readOnly ? <Composer datasets={datasets} /> : null}
           </ThreadPrimitive.ViewportFooter>
         </div>
       </ThreadPrimitive.Viewport>
@@ -143,21 +136,8 @@ const ThreadScrollToBottom: FC = () => {
 const ThreadWelcome: FC<{
   title: string;
   description: string;
-  panel?: ReactNode;
   readOnly: boolean;
-}> = ({ title, description, panel, readOnly }) => {
-  if (panel) {
-    return (
-      <div className="aui-thread-welcome-root my-auto flex grow flex-col">
-        <div className="aui-thread-welcome-center flex w-full grow flex-col items-center justify-center">
-          <div className="aui-thread-welcome-message flex size-full flex-col justify-center px-2 pb-6 pt-2 md:px-4">
-            {panel}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
+}> = ({ title, description, readOnly }) => {
   return (
     <div className="aui-thread-welcome-root my-auto flex grow flex-col">
       <div className="aui-thread-welcome-center flex w-full grow flex-col items-center justify-center">
@@ -201,7 +181,7 @@ const ThreadSuggestionItem: FC = () => {
   );
 };
 
-const Composer: FC<{ datasets: ComposerDatasetOption[]; placeholder: string }> = ({ datasets, placeholder }) => {
+const Composer: FC<{ datasets: ComposerDatasetOption[] }> = ({ datasets }) => {
   return (
     <ComposerPrimitive.Root className="aui-composer-root relative flex w-full flex-col">
       <ComposerPrimitive.AttachmentDropzone asChild>
@@ -211,7 +191,7 @@ const Composer: FC<{ datasets: ComposerDatasetOption[]; placeholder: string }> =
         >
           <ComposerAttachments />
           <ComposerPrimitive.Input
-            placeholder={placeholder}
+            placeholder="Send a message..."
             className="aui-composer-input max-h-32 min-h-10 w-full resize-none bg-transparent px-1.75 py-1 text-sm outline-none placeholder:text-muted-foreground/80"
             rows={1}
             autoFocus
@@ -441,12 +421,8 @@ const BranchPicker: FC<BranchPickerPrimitive.Root.Props> = ({
           <ChevronLeftIcon />
         </TooltipIconButton>
       </BranchPickerPrimitive.Previous>
-      <span
-        className="aui-branch-picker-state font-medium"
-        aria-label="Transcript branch position"
-      >
-        Branch <BranchPickerPrimitive.Number /> of{" "}
-        <BranchPickerPrimitive.Count />
+      <span className="aui-branch-picker-state font-medium">
+        <BranchPickerPrimitive.Number /> / <BranchPickerPrimitive.Count />
       </span>
       <BranchPickerPrimitive.Next asChild>
         <TooltipIconButton tooltip="Next">
