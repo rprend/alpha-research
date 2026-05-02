@@ -105,6 +105,10 @@ type DatasetRecord = {
   inventorySummary?: string | null
   inventoryUseCase?: string | null
   inventoryReadinessNote?: string | null
+  inventoryCoverage?: string | null
+  inventoryFreshness?: string | null
+  inventoryLimitations?: string[] | null
+  inventoryTopics?: string[] | null
   manifestPath?: string | null
   deploymentStatus: string
   status: string
@@ -508,6 +512,65 @@ function datasetInventoryUseCase(dataset: DatasetRecord) {
   const profileSummary = profileText(dataset.profile?.profile, 'summary')
   if (profileSummary) return `Best for: ${profileSummary}`
   return null
+}
+
+function normalizeTopicLabel(topic: string) {
+  return topic
+    .split(/[-_]+/g)
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ')
+}
+
+function topicKeywords(topic: string) {
+  return topic
+    .toLowerCase()
+    .split(/[^a-z0-9]+/g)
+    .map((value) => value.trim())
+    .filter((value) => value.length > 2)
+}
+
+function datasetTopicMatchScore(dataset: DatasetRecord, topic: string | null) {
+  if (!topic) return 0
+  const keywords = topicKeywords(topic)
+  if (keywords.length === 0) return 0
+  const haystack = [
+    dataset.name,
+    dataset.description,
+    dataset.inventorySummary,
+    dataset.inventoryUseCase,
+    dataset.inventoryCoverage,
+    dataset.inventoryFreshness,
+    dataset.inventoryReadinessNote,
+    ...(dataset.inventoryTopics ?? []),
+    ...(dataset.inventoryLimitations ?? []),
+  ]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase()
+
+  let score = 0
+  for (const keyword of keywords) {
+    if (haystack.includes(keyword)) score += 2
+  }
+  if (dataset.status.toLowerCase() === 'ready') score += 3
+  if (dataset.deploymentStatus.toLowerCase() === 'ready') score += 2
+  if (!isPublicDataset(dataset)) score += 1
+  return score
+}
+
+function datasetRecommendationReason(dataset: DatasetRecord, topic: string | null) {
+  const label = topic ? normalizeTopicLabel(topic) : 'this topic'
+  const readiness = datasetInventoryStatus(dataset)
+  const useCase = dataset.inventoryUseCase?.replace(/^Best for:\s*/i, '').trim()
+  return [
+    useCase ? `${useCase}.` : `${dataset.name} is the closest dataset match for ${label}.`,
+    dataset.inventoryCoverage ? `Coverage: ${dataset.inventoryCoverage}.` : null,
+    `Readiness: ${readiness.label.toLowerCase()}${readiness.detail ? `, ${readiness.detail.charAt(0).toLowerCase()}${readiness.detail.slice(1)}` : ''}`,
+  ]
+    .filter(Boolean)
+    .join(' ')
 }
 
 function formatCompactTime(value: string) {
@@ -1720,6 +1783,7 @@ function getDashboardRoute() {
     runId: url.searchParams.get('runId'),
     datasetId: url.searchParams.get('datasetId'),
     sessionId: url.searchParams.get('sessionId'),
+    topic: url.searchParams.get('topic'),
   }
 }
 
@@ -1913,9 +1977,11 @@ function DatasetsEmptyState() {
 
 function DatasetFeed({
   datasets,
+  topic,
   onSelectDataset,
 }: {
   datasets: DatasetRecord[]
+  topic: string | null
   onSelectDataset: (dataset: DatasetRecord) => void
 }) {
   if (datasets.length === 0) {
@@ -1923,14 +1989,72 @@ function DatasetFeed({
   }
   const publicDatasets = datasets.filter(isPublicDataset)
   const privateDatasets = datasets.filter((dataset) => !isPublicDataset(dataset))
+  const rankedDatasets = [...datasets]
+    .map((dataset) => ({ dataset, score: datasetTopicMatchScore(dataset, topic) }))
+    .sort((left, right) => right.score - left.score)
+  const recommendedDataset = rankedDatasets.find((entry) => entry.score > 0)?.dataset ?? null
+  const topicLabel = topic ? normalizeTopicLabel(topic) : null
 
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-14">
+      {topicLabel ? (
+        <section className="grid gap-5 lg:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.9fr)]">
+          <Card className="rounded-[28px] border border-border/70 bg-card py-0 shadow-sm">
+            <CardContent className="flex flex-col gap-4 px-6 py-6 md:px-7">
+              <div className="space-y-2">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                  Dataset guide
+                </p>
+                <h2 className="text-2xl font-semibold tracking-normal">Best datasets for {topicLabel}</h2>
+                <p className="max-w-2xl text-sm leading-7 text-muted-foreground">
+                  Compare datasets by subject fit, coverage, freshness, and readiness. Start with one recommended
+                  next action instead of guessing from dataset names alone.
+                </p>
+              </div>
+              {recommendedDataset ? (
+                <div className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-5">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <RunPriorityBadge label="Recommended next step" tone="success" />
+                    <span className="text-sm font-medium text-emerald-950">Open {recommendedDataset.name}</span>
+                  </div>
+                  <p className="mt-3 text-sm leading-7 text-emerald-950/90">
+                    {datasetRecommendationReason(recommendedDataset, topic)}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    <Button type="button" onClick={() => onSelectDataset(recommendedDataset)}>
+                      Open recommended dataset
+                    </Button>
+                  </div>
+                </div>
+              ) : (
+                <div className="rounded-2xl border border-amber-300 bg-amber-50 p-5">
+                  <p className="text-sm leading-7 text-amber-950">
+                    Alpha Research does not see a strong ready match for {topicLabel} yet. Ask the agent to find a
+                    public source or upload a dataset that covers this topic.
+                  </p>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+          <Card className="rounded-[28px] border border-border/70 bg-muted/20 py-0 shadow-none">
+            <CardContent className="flex h-full flex-col gap-4 px-6 py-6">
+              <h3 className="text-base font-semibold tracking-normal">How to compare datasets</h3>
+              <ul className="space-y-3 text-sm leading-6 text-muted-foreground">
+                <li>Subject fit: Does the summary clearly match {topicLabel.toLowerCase()}?</li>
+                <li>Readiness: Ready now means you can open and analyze it immediately.</li>
+                <li>Coverage: Check geography, time range, and whether it is public or private.</li>
+                <li>Limitations: Use the gaps callout to decide whether to upload or ask for another source.</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </section>
+      ) : null}
       <DatasetFeedSection
         title="Your datasets"
         summary={`${privateDatasets.length} private dataset${privateDatasets.length === 1 ? '' : 's'} visible only to your workspace.`}
         emptyMessage="No private datasets yet. Upload a source or create a research environment from the CLI and it will appear here."
         datasets={privateDatasets}
+        topic={topic}
         onSelectDataset={onSelectDataset}
       />
       <DatasetFeedSection
@@ -1938,6 +2062,7 @@ function DatasetFeed({
         summary={`${publicDatasets.length} shared dataset${publicDatasets.length === 1 ? '' : 's'} available to explore without uploading your own files.`}
         emptyMessage="No public datasets are available right now."
         datasets={publicDatasets}
+        topic={topic}
         onSelectDataset={onSelectDataset}
       />
     </div>
@@ -1949,14 +2074,20 @@ function DatasetFeedSection({
   summary,
   emptyMessage,
   datasets,
+  topic,
   onSelectDataset,
 }: {
   title: string
   summary: string
   emptyMessage: string
   datasets: DatasetRecord[]
+  topic: string | null
   onSelectDataset: (dataset: DatasetRecord) => void
 }) {
+  const sortedDatasets = topic
+    ? [...datasets].sort((left, right) => datasetTopicMatchScore(right, topic) - datasetTopicMatchScore(left, topic))
+    : datasets
+
   return (
     <section className="flex flex-col gap-4">
       <div className="flex flex-col gap-1 border-b border-border pb-3">
@@ -1969,10 +2100,14 @@ function DatasetFeedSection({
         </Card>
       ) : (
         <div className="grid gap-5 md:grid-cols-2">
-          {datasets.map((dataset) => {
+          {sortedDatasets.map((dataset) => {
             const description = datasetInventoryDescription(dataset)
             const useCase = datasetInventoryUseCase(dataset)
             const readiness = datasetInventoryStatus(dataset)
+            const coverage = dataset.inventoryCoverage?.trim() ?? null
+            const freshness = dataset.inventoryFreshness?.trim() ?? null
+            const limitation = dataset.inventoryLimitations?.find((item) => item.trim())?.trim() ?? null
+            const matchScore = datasetTopicMatchScore(dataset, topic)
             return (
               <button
                 key={dataset.id}
@@ -1994,6 +2129,14 @@ function DatasetFeedSection({
                 </div>
                 <div className="space-y-3">
                   <p className="text-sm leading-6 text-muted-foreground">{description}</p>
+                  {matchScore > 0 && topic ? (
+                    <p className="text-sm font-medium text-foreground">Relevant to {normalizeTopicLabel(topic)}</p>
+                  ) : null}
+                  <div className="grid gap-2 text-sm leading-6 text-foreground/80">
+                    {coverage ? <p><span className="font-medium text-foreground">Coverage:</span> {coverage}</p> : null}
+                    {freshness ? <p><span className="font-medium text-foreground">Freshness:</span> {freshness}</p> : null}
+                    {limitation ? <p><span className="font-medium text-foreground">Limitation:</span> {limitation}</p> : null}
+                  </div>
                   <p className="text-sm text-foreground/75">{readiness.detail}</p>
                 </div>
                 <div className="flex items-center justify-between gap-3 text-sm font-medium text-foreground">
@@ -3858,6 +4001,7 @@ function DashboardApp({
         <section>
           <DatasetFeed
             datasets={datasets}
+            topic={route.topic}
             onSelectDataset={(dataset) =>
               updateDashboardRoute({
                 view: 'datasets',

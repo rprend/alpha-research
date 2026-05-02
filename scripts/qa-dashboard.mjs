@@ -64,12 +64,32 @@ async function assertRenderedDatasetInventory() {
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=datasets`, { waitUntil: 'domcontentloaded' })
-    await page.getByRole('heading', { name: 'Datasets' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Datasets', exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Your datasets', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Public datasets', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Ready for research', { exact: false }).first().waitFor({ timeout: 15000 })
     await page.getByText('Still building', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('View dataset details', { exact: true }).first().waitFor({ timeout: 15000 })
+  } finally {
+    await browser.close()
+  }
+}
+
+async function assertTopicGuidedDatasetSelection() {
+  const browser = await chromium.launch({ headless: true })
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+    await page.goto(`${baseUrl}/?harness=1&view=datasets&topic=housing-affordability`, { waitUntil: 'domcontentloaded' })
+    await page.getByRole('heading', { name: 'Datasets', exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Best datasets for Housing Affordability', exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Recommended next step', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Open City Housing Archive', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Coverage:', { exact: false }).first().waitFor({ timeout: 15000 })
+    await page.getByText('Freshness:', { exact: false }).first().waitFor({ timeout: 15000 })
+    await page.getByText('Limitation:', { exact: false }).first().waitFor({ timeout: 15000 })
+    await page.getByText('Relevant to Housing Affordability', { exact: true }).first().waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Open recommended dataset' }).click()
+    await page.getByRole('heading', { name: 'City Housing Archive' }).waitFor({ timeout: 15000 })
   } finally {
     await browser.close()
   }
@@ -232,6 +252,7 @@ try {
   await assertRoute('/?harness=1&view=runs', '<div id="app">')
   await assertRenderedOrientation()
   await assertRenderedDatasetInventory()
+  await assertTopicGuidedDatasetSelection()
   await assertRenderedEmptyDatasetSetup()
   await assertRenderedDatasetDetail()
   await assertDescribeRunSteering()
