@@ -419,12 +419,21 @@ function readableSessionKind(kind: string | null | undefined) {
 }
 
 function assistantStarterPrompts(datasets: DatasetRecord[]) {
+  const housingDataset = datasets.find(
+    (dataset) =>
+      dataset.status.toLowerCase() === 'ready'
+      && `${dataset.name} ${dataset.description ?? ''} ${(dataset.inventoryTopics ?? []).join(' ')}`.toLowerCase().includes('housing'),
+  )
   const sampleDataset = datasets.find((dataset) => isPublicDataset(dataset) && dataset.status.toLowerCase() === 'ready')
   return [
-    'What can Alpha Research help me do with the data already here?',
+    housingDataset
+      ? `Is the housing market in trouble? Turn that into a concrete plan using ${housingDataset.name}.`
+      : 'Is the housing market in trouble? Turn that into a concrete plan.',
     sampleDataset
-      ? `Use ${sampleDataset.name} to show me what a good first research question looks like.`
-      : 'Show me what a good first research question looks like.',
+      ? `Show me a scoped first-pass research plan using ${sampleDataset.name} before you run anything expensive.`
+      : 'Show me a scoped first-pass research plan before you run anything expensive.',
+    'Compare a few plausible outcome metrics and tell me which one you would test first.',
+    'What can Alpha Research help me do with the data already here?',
   ]
 }
 
@@ -529,6 +538,35 @@ function datasetQuestionPrompts(dataset: DatasetRecord) {
     basePrompts.unshift(`Using ${columns[0]} and ${columns[1]}, what is a strong first analysis?`)
   }
   return basePrompts.slice(0, 3)
+}
+
+function buildAssistantPlanPreview(datasets: DatasetRecord[], scopedDataset: DatasetRecord | null) {
+  const readyDatasets = datasets.filter((dataset) => dataset.status.toLowerCase() === 'ready')
+  const recommendedDataset = scopedDataset
+    ?? readyDatasets.find((dataset) => !isPublicDataset(dataset))
+    ?? readyDatasets[0]
+    ?? null
+  const fallbackDataset = readyDatasets.find((dataset) => dataset.id !== recommendedDataset?.id) ?? null
+  const recommendedReason = recommendedDataset
+    ? datasetRecommendationReason(recommendedDataset, recommendedDataset.inventoryTopics?.[0] ?? null)
+    : 'Ask the question in chat first and Alpha Research will recommend the right dataset before any run starts.'
+
+  return {
+    goalOptions: [
+      'Pressure test whether a market, company, or segment is weakening.',
+      'Find the first trend, cohort, or anomaly worth deeper work.',
+      'Decide which dataset and output artifact fit the question.',
+    ],
+    operationalChoices: [
+      'Outcome: choose one primary metric before analysis starts.',
+      'Method: start with a lightweight plan, not a full run.',
+      'Outputs: confirm the chart, memo, or table you want first.',
+    ],
+    confirmationCopy: 'Before running anything expensive, Alpha Research should show you this plan, let you edit it, and ask for confirmation.',
+    recommendedDataset,
+    fallbackDataset,
+    recommendedReason,
+  }
 }
 
 function focusAssistantComposer(prompt?: string) {
@@ -3145,16 +3183,17 @@ function AssistantOrientationPanel({
   const readyPublicDatasets = publicDatasets.filter((dataset) => dataset.status.toLowerCase() === 'ready')
   const readyPrivateDatasets = privateDatasets.filter((dataset) => dataset.status.toLowerCase() === 'ready')
   const sampleDataset = readyPublicDatasets[0] ?? null
+  const planPreview = buildAssistantPlanPreview(datasets, scopedDataset)
   const focusComposerWithPrompt = (prompt: string) => focusAssistantComposer(prompt)
   const scopedPrompts = scopedDataset ? datasetQuestionPrompts(scopedDataset) : starterPrompts
-  const heading = scopedDataset ? `Ask about ${scopedDataset.name}` : 'Start a new research chat.'
+  const heading = scopedDataset ? `Ask about ${scopedDataset.name}` : 'Draft a research plan before you run anything.'
   const description = scopedDataset
     ? `${scopedDataset.name} is already attached to this chat. Ask a question in plain language and the assistant should clarify broad requests before it launches any expensive work.`
-    : 'Ask a question in chat when you want the assistant to plan research, inspect data, or propose the next run. Use datasets when you want to inspect source material first.'
-  const cardHeading = scopedDataset ? `Dataset-scoped chat for ${scopedDataset.name}` : 'Ask the assistant to help you research'
+    : 'Start with a vague question, a domain hunch, or a messy idea. Alpha Research should turn it into a scoped plan with a likely dataset, outcome metric, and output before any expensive work starts.'
+  const cardHeading = scopedDataset ? `Dataset-scoped chat for ${scopedDataset.name}` : 'Proposed first-pass plan'
   const cardBody = scopedDataset
     ? 'No dataset id copy is required here. Start with a question, and expect either a direct answer, a scoped plan, or a clarification if the request is still too broad to run safely.'
-    : 'The chat below is the main entry point. You can start here without CLI setup. Ask a question, name a topic, or mention a dataset and the assistant will clarify the next step before it launches work.'
+    : 'The chat below is the main entry point. You can start here without CLI setup. The assistant should absorb vague intent, propose operational choices, and wait for approval before it launches a costly run.'
 
   return (
     <section className="mx-auto flex w-full max-w-4xl flex-col gap-6">
@@ -3188,7 +3227,7 @@ function AssistantOrientationPanel({
                 type="button"
                 onClick={() => focusAssistantComposer(draft ?? undefined)}
               >
-                {scopedDataset ? `Ask about ${scopedDataset.name}` : 'Start a new research chat'}
+                {scopedDataset ? `Ask about ${scopedDataset.name}` : 'Draft a plan'}
               </Button>
               <Button type="button" variant="outline" onClick={onOpenDatasets}>
                 Browse datasets
@@ -3197,8 +3236,65 @@ function AssistantOrientationPanel({
             <div className="rounded-2xl border border-border/70 bg-muted/30 p-4 text-sm leading-6 text-muted-foreground">
               <span className="font-medium text-foreground">What happens next:</span> {scopedDataset
                 ? 'your first question stays attached to this dataset, and the assistant should ask a clarifying question before launching work if the request is still underspecified.'
-                : 'your first question turns into a scoped plan, a dataset recommendation, or an initial answer with the next analysis step.'}
+                : 'your first question turns into a scoped plan, a dataset recommendation, and a confirmation step before any expensive run begins.'}
             </div>
+            {!scopedDataset ? (
+              <div className="space-y-3 rounded-2xl border border-emerald-200 bg-emerald-50/70 p-4">
+                <div className="space-y-1">
+                  <Badge variant="secondary" className="text-emerald-700">Recommended plan</Badge>
+                  <h3 className="text-sm font-semibold tracking-normal text-foreground">Before running anything expensive</h3>
+                  <p className="text-sm leading-6 text-muted-foreground">
+                    {planPreview.confirmationCopy}
+                  </p>
+                </div>
+                <div className="grid gap-3 md:grid-cols-3">
+                  <div className="rounded-2xl border border-emerald-200/80 bg-background/90 p-3">
+                    <div className="flex items-center gap-2 text-sm font-semibold">
+                      <Zap className="size-4 text-emerald-700" />
+                      Goal
+                    </div>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">{planPreview.goalOptions[0]}</p>
+                  </div>
+                  <div className="rounded-2xl border border-emerald-200/80 bg-background/90 p-3">
+                    <div className="flex items-center gap-2 text-sm font-semibold">
+                      <Database className="size-4 text-emerald-700" />
+                      Likely dataset
+                    </div>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                      {planPreview.recommendedDataset ? `${planPreview.recommendedDataset.name}. ${planPreview.recommendedReason}` : planPreview.recommendedReason}
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-emerald-200/80 bg-background/90 p-3">
+                    <div className="flex items-center gap-2 text-sm font-semibold">
+                      <FileText className="size-4 text-emerald-700" />
+                      Output
+                    </div>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">Start with one memo, one chart, or one comparison table so the user can approve scope quickly.</p>
+                  </div>
+                </div>
+                <div className="grid gap-3 md:grid-cols-2">
+                  <div className="rounded-2xl border border-border/70 bg-background/80 p-4">
+                    <h4 className="text-sm font-semibold tracking-normal">Operational choices to confirm</h4>
+                    <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-muted-foreground">
+                      {planPreview.operationalChoices.map((choice) => (
+                        <li key={choice}>{choice}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="rounded-2xl border border-border/70 bg-background/80 p-4">
+                    <h4 className="text-sm font-semibold tracking-normal">Dataset context in this workspace</h4>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                      {planPreview.recommendedDataset
+                        ? `${planPreview.recommendedDataset.name} is the best first stop for this style of question.`
+                        : 'No ready dataset is attached yet, so the assistant should recommend one or explain what data is missing.'}
+                      {planPreview.fallbackDataset
+                        ? ` If that is not the right fit, ${planPreview.fallbackDataset.name} is the next likely option.`
+                        : ''}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ) : null}
             <div className="space-y-3 rounded-2xl border border-border/70 bg-muted/30 p-4">
               <div className="space-y-1">
                 <h3 className="text-sm font-semibold tracking-normal">Example first prompts</h3>

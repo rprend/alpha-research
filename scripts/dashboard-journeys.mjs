@@ -280,6 +280,9 @@ export const DASHBOARD_JOURNEYS = [
     judgeQuestion: 'Did the product absorb vague intent and steer the user toward a concrete plan they can approve?',
     steps: [
       { type: 'waitForText', text: 'New chat', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Draft a research plan before you run anything.', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Recommended plan', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Before running anything expensive', timeoutMs: 15000 },
       { type: 'wait', ms: 1000 },
     ],
   }),

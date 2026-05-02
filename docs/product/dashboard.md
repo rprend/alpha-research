@@ -56,11 +56,12 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 ## Assistant Home Expectations
 
 - The signed-in assistant home is browser-first, not CLI-first. It should orient a user who only knows they want to do research.
-- The page should expose one explicit first action: start a new research chat.
+- The page should expose one explicit first action: draft a plan before work starts.
 - The page should explain the surface model in plain language: chat for asking, datasets for source material, recent work for continuation.
 - The page should explicitly reassure the user that they can start in the dashboard without CLI setup.
 - The page should show whether sample data is ready and what that sample is for.
 - The page should include example first prompts so the user can see what a successful first action looks like.
+- For vague-intent journeys, the page should surface a compact proposed-plan block with likely dataset context, operational choices, and explicit confirmation language before expensive work.
 - Signed-in account state must be visible without hunting in footer chrome.
 - Recent items should read like understandable work records, not raw run-lifecycle labels.
 - Recent work should stay secondary on first visit and not crowd out onboarding copy.

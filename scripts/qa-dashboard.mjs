@@ -44,11 +44,15 @@ async function assertRenderedOrientation() {
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=assistant`, { waitUntil: 'domcontentloaded' })
-    await page.getByRole('heading', { name: 'Start a new research chat.' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Draft a research plan before you run anything.' }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Draft a plan' }).waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'Browse datasets' }).waitFor({ timeout: 15000 })
     await page.getByText('You can start here without CLI setup.', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByText('Recommended plan', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Before running anything expensive' }).waitFor({ timeout: 15000 })
+    await page.getByText('Operational choices to confirm', { exact: false }).waitFor({ timeout: 15000 })
     await page.getByText('Sample data ready:', { exact: false }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'What can Alpha Research help me do with the data already here?' }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Is the housing market in trouble? Turn that into a concrete plan using City Housing Archive.' }).waitFor({ timeout: 15000 })
     await page.getByText('Signed in', { exact: false }).first().waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'Show recent chats (2)' }).waitFor({ timeout: 15000 })
     if (await page.getByText('Remote session', { exact: false }).first().isVisible().catch(() => false)) {
