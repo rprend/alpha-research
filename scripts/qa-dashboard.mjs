@@ -401,6 +401,34 @@ async function assertTerminalSessionContinuity() {
   }
 }
 
+async function assertSignedOutDashboardGate() {
+  const browser = await chromium.launch({ headless: true })
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+    await page.goto(`${baseUrl}/?logged_out=1&view=dashboard&datasetId=dataset-alpha-book`, { waitUntil: 'domcontentloaded' })
+    await page.getByText('Sign in to continue to your dataset', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText("You're signed out. Sign in to keep going, and we'll bring you back to your dataset after login.", { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Sign in' }).waitFor({ timeout: 15000 })
+    if (await page.getByText('Chats', { exact: true }).count()) {
+      throw new Error('Signed-out dashboard gate should not expose workspace sidebar chrome.')
+    }
+    const [request] = await Promise.all([
+      page.waitForRequest((candidate) => candidate.url().includes('/api/auth/start')),
+      page.getByRole('button', { name: 'Sign in' }).click(),
+    ])
+    const loginUrl = new URL(request.url())
+    const bridgeReturn = loginUrl.searchParams.get('return_to')
+    if (!bridgeReturn?.includes('/api/auth/bridge?return_to=')) {
+      throw new Error(`Signed-out dashboard gate did not route through the auth bridge: ${request.url()}`)
+    }
+    if (!bridgeReturn.includes(encodeURIComponent(`${baseUrl}/?view=dashboard&datasetId=dataset-alpha-book`))) {
+      throw new Error(`Signed-out dashboard gate did not preserve the requested destination: ${request.url()}`)
+    }
+  } finally {
+    await browser.close()
+  }
+}
+
 const child = spawn(
   'pnpm',
   ['preview', '--host', '127.0.0.1', '--port', String(port)],
@@ -441,6 +469,7 @@ try {
   await assertStuckRunSteering()
   await assertRenderedRunsInventory()
   await assertTerminalSessionContinuity()
+  await assertSignedOutDashboardGate()
   console.log(`Dashboard harness smoke passed at ${baseUrl}`)
 } catch (error) {
   console.error(output)

@@ -1972,10 +1972,22 @@ function beginDashboardBridge() {
   window.location.assign(destination.toString())
 }
 
+function getDashboardAuthReturnUrl(options?: { loggedOut?: boolean }) {
+  const returnUrl = new URL(window.location.href)
+  returnUrl.searchParams.delete('login')
+  returnUrl.searchParams.delete('auth_error')
+  if (options?.loggedOut) {
+    returnUrl.searchParams.set('logged_out', '1')
+  } else {
+    returnUrl.searchParams.delete('logged_out')
+  }
+  return returnUrl.toString()
+}
+
 function beginDashboardLogin() {
   const destination = new URL('/api/auth/start', rootOrigin)
   const bridgeReturn = `/api/auth/bridge?return_to=${encodeURIComponent(
-    dashboardOrigin,
+    getDashboardAuthReturnUrl(),
   )}`
   destination.searchParams.set('return_to', bridgeReturn)
   window.location.assign(destination.toString())
@@ -2058,6 +2070,26 @@ async function fetchJson<T>(input: string) {
   }
 
   return response.json() as Promise<T>
+}
+
+function describeSignedOutDestination() {
+  const route = getDashboardRoute()
+  if (route.runId) {
+    return 'your run'
+  }
+  if (route.datasetId) {
+    return 'your dataset'
+  }
+  if (route.sessionId) {
+    return 'your research session'
+  }
+  if (route.view === 'datasets') {
+    return 'your datasets'
+  }
+  if (route.view === 'runs') {
+    return 'your runs'
+  }
+  return 'your dashboard'
 }
 
 function normalizeDatasetsPayload(payload: unknown): DatasetRecord[] {
@@ -5013,68 +5045,40 @@ function DashboardSignedOut({
 }: {
   session: SessionResponse
 }) {
+  const destinationLabel = describeSignedOutDestination()
+
   return (
-    <SidebarProvider>
-      <Sidebar collapsible="icon" variant="sidebar">
-        <SidebarHeader className="border-b border-sidebar-border px-3 py-4">
-          <img
-            className="block h-[29px] w-36 object-contain object-left"
-            src="/alpha-research-wordmark.png"
-            alt="Alpha Research"
-            width="1505"
-            height="300"
-          />
-        </SidebarHeader>
-        <SidebarContent>
-          <SidebarGroup>
-            <SidebarGroupLabel>Chats</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton isActive>
-                    <span>New chat</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-        </SidebarContent>
-        <SidebarFooter className="border-t border-sidebar-border p-3">
-          <SidebarMenu>
-            <SidebarMenuItem>
-              <SidebarMenuButton>
-                <Database />
-                <span>Datasets</span>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          </SidebarMenu>
-        </SidebarFooter>
-      </Sidebar>
-      <SidebarInset className="min-h-0 overflow-hidden overscroll-none bg-background">
-        <div className="flex h-svh min-h-0 flex-col overflow-hidden overscroll-none">
-          <main className="flex min-h-0 flex-1 items-center justify-center px-4 py-6 md:px-8">
-            <Empty className="border-0 px-8 py-12">
-              <EmptyHeader>
-                <EmptyMedia variant="icon">
-                  <Bot />
-                </EmptyMedia>
-                <EmptyTitle>Sign in to open your workspace</EmptyTitle>
-                <EmptyDescription>
-                  {session.configured
-                    ? 'Sign in to start a RESEARCH CLI session and view your datasets, runs, and terminal history.'
-                    : session.error ?? 'Auth is not configured on this deployment.'}
-                </EmptyDescription>
-              </EmptyHeader>
-              <EmptyContent>
-                <Button onClick={beginDashboardLogin} disabled={!session.configured}>
-                  Sign in
-                </Button>
-              </EmptyContent>
-            </Empty>
-          </main>
-        </div>
-      </SidebarInset>
-    </SidebarProvider>
+    <div className="flex min-h-svh flex-col bg-background">
+      <header className="border-b border-border px-4 py-4 md:px-8">
+        <img
+          className="block h-[29px] w-36 object-contain object-left"
+          src="/alpha-research-wordmark.png"
+          alt="Alpha Research"
+          width="1505"
+          height="300"
+        />
+      </header>
+      <main className="flex flex-1 items-center justify-center px-4 py-8 md:px-8">
+        <Empty className="w-full max-w-xl border-0 px-0 py-0">
+          <EmptyHeader>
+            <EmptyMedia variant="icon">
+              <Bot />
+            </EmptyMedia>
+            <EmptyTitle>Sign in to continue to {destinationLabel}</EmptyTitle>
+            <EmptyDescription>
+              {session.configured
+                ? `You're signed out. Sign in to keep going, and we'll bring you back to ${destinationLabel} after login.`
+                : session.error ?? 'Auth is not configured on this deployment.'}
+            </EmptyDescription>
+          </EmptyHeader>
+          <EmptyContent>
+            <Button onClick={beginDashboardLogin} disabled={!session.configured}>
+              Sign in
+            </Button>
+          </EmptyContent>
+        </Empty>
+      </main>
+    </div>
   )
 }
 
@@ -5384,7 +5388,7 @@ function DashboardApp({
                     method: 'POST',
                     credentials: 'same-origin',
                   })
-                  window.location.assign(`${dashboardOrigin}?logged_out=1`)
+                  window.location.assign(getDashboardAuthReturnUrl({ loggedOut: true }))
                 }}
               >
                 <LogOut />
@@ -5434,45 +5438,15 @@ function useDashboardState() {
         }
 
         if (!session.authenticated || !session.user) {
-          try {
-            const [datasetsPayload, runsPayload, sessionsPayload] = await Promise.all([
-              fetchJson<DatasetRecord[] | { datasets: DatasetRecord[] }>('/api/cli/datasets'),
-              fetchJson<RunRecord[] | { runs: RunRecord[] }>('/api/cli/runs'),
-              fetchJson<StoredAssistantSession[] | { sessions: StoredAssistantSession[] }>(
-                '/api/cli/sessions?kind=cli_orchestration',
-              ),
-            ])
-            const datasets = normalizeDatasetsPayload(datasetsPayload)
-            const runs = normalizeRunsPayload(runsPayload)
-            const sessions = normalizeSessionsPayload(sessionsPayload)
-
-            if (!cancelled) {
-              setState({
-                type: 'ready',
-                session: {
-                  authenticated: true,
-                  configured: true,
-                  user: { email: session.user?.email ?? 'Signed in' },
-                },
-                datasets: [...datasets].sort((a, b) =>
-                  b.updatedAt.localeCompare(a.updatedAt),
-                ),
-                runs: [...runs].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)),
-                sessions: [...sessions].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)),
-              })
-            }
-            return
-          } catch {
-            if (!loggedOut) {
-              beginDashboardBridge()
-              return
-            }
-
-            if (!cancelled) {
-              setState({ type: 'signed-out', session })
-            }
+          if (!loggedOut) {
+            beginDashboardBridge()
             return
           }
+
+          if (!cancelled) {
+            setState({ type: 'signed-out', session })
+          }
+          return
         }
 
         try {

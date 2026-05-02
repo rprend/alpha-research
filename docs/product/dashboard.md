@@ -80,6 +80,16 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Recent work should stay secondary on first visit and not crowd out onboarding copy.
 - Reopened assistant threads should lead with a compact continuity card: human-readable title, last activity time, dataset or corpus target, linked run status, a short recap, and explicit actions to continue the thread or inspect results without remembering ids.
 
+## Signed-Out Gate Expectations
+
+- A signed-out dashboard visit should read as a recoverable gate, not a broken or partially loaded workspace.
+- The title and supporting copy should say plainly that the user is signed out and that sign-in is required.
+- The primary action should be one clear `Sign in` button.
+- Signed-out copy should avoid internal terms such as RESEARCH CLI sessions or terminal history unless that context is essential to the recovery step.
+- If the user opened a deep link to a dashboard, run, dataset, or session, the sign-in flow should preserve that destination and say so in plain language.
+- Signed-out views should mute or remove workspace navigation chrome that implies the dashboard loaded successfully.
+- The signed-out path should not probe protected dashboard data endpoints before redirecting or rendering the gate.
+
 ## Harness Mode
 
 The dashboard supports a deterministic local harness mode for agent QA:
