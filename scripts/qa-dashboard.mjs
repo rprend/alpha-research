@@ -133,7 +133,7 @@ async function assertRenderedEmptyDatasetSetup() {
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=datasets&scenario=empty`, { waitUntil: 'domcontentloaded' })
-    await page.getByRole('heading', { name: 'Datasets' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Datasets', exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Expected for a new workspace', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Set up your first dataset', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Nothing failed here.', { exact: false }).waitFor({ timeout: 15000 })
@@ -141,6 +141,28 @@ async function assertRenderedEmptyDatasetSetup() {
     await page.getByRole('link', { name: 'Open CLI setup' }).waitFor({ timeout: 15000 })
     await page.getByText('A file or source to ingest', { exact: false }).waitFor({ timeout: 15000 })
     await page.getByText('A short description of what the data covers', { exact: false }).waitFor({ timeout: 15000 })
+  } finally {
+    await browser.close()
+  }
+}
+
+async function assertAuthenticatedDatasetLoadFailure() {
+  const browser = await chromium.launch({ headless: true })
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+    await page.goto(`${baseUrl}/?harness=1&view=datasets&scenario=data-error`, { waitUntil: 'domcontentloaded' })
+    await page.getByRole('heading', { name: 'Datasets', exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Data temporarily unavailable', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'We could not load your datasets.' }).waitFor({ timeout: 15000 })
+    await page.getByText('Your account is still signed in', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Retry' }).waitFor({ timeout: 15000 })
+    await page.getByRole('link', { name: 'Contact support' }).waitFor({ timeout: 15000 })
+    if (await page.getByText('No datasets yet', { exact: true }).count()) {
+      throw new Error('Dataset fetch failure should not render the normal empty-workspace state.')
+    }
+    if (await page.getByText('Harness scenario', { exact: false }).count()) {
+      throw new Error('Dataset fetch failure should not leak harness wording into user-facing copy.')
+    }
   } finally {
     await browser.close()
   }
@@ -459,6 +481,7 @@ try {
   await assertRenderedDatasetInventory()
   await assertTopicGuidedDatasetSelection()
   await assertRenderedEmptyDatasetSetup()
+  await assertAuthenticatedDatasetLoadFailure()
   await assertRenderedDatasetDetail()
   await assertDatasetFreshnessSteering()
   await assertDatasetScopedAskRouting()

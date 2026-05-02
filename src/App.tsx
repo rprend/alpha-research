@@ -2374,6 +2374,20 @@ function RunPriorityBadge({ label, tone }: { label: string; tone: 'success' | 'a
 }
 
 const FIRST_DATASET_COMMAND = 'research datasets create --name "My first dataset" --file ./data.csv --description "What this data covers and the question I want to answer"'
+const DASHBOARD_SUPPORT_URL = 'https://cal.com/ryan-prendergast-qsp5cw/30min'
+
+function dashboardDataErrorSummary(error: unknown) {
+  if (error instanceof Error) {
+    const message = error.message.toLowerCase()
+    if (message.includes('403') || message.includes('forbidden') || message.includes('permission')) {
+      return 'Alpha Research could not verify that this account can access dashboard data right now.'
+    }
+    if (message.includes('401') || message.includes('unauthorized')) {
+      return 'Your sign-in succeeded, but Alpha Research could not verify dashboard access right now.'
+    }
+  }
+  return 'Alpha Research could not load dashboard data right now.'
+}
 
 function DatasetsEmptyState() {
   return (
@@ -2452,15 +2466,67 @@ function DatasetsEmptyState() {
   )
 }
 
+function DatasetsDataErrorState({
+  message,
+  onRetry,
+}: {
+  message: string
+  onRetry: () => void
+}) {
+  return (
+    <Card className="rounded-[28px] border border-destructive/30 bg-destructive/5 py-0 shadow-none">
+      <CardContent className="flex flex-col gap-6 px-6 py-6 md:px-7">
+        <div className="flex flex-col gap-4">
+          <Badge variant="secondary" className="w-fit gap-2 text-destructive">
+            <AlertTriangle className="size-3.5" />
+            Data temporarily unavailable
+          </Badge>
+          <div className="space-y-2">
+            <h2 className="text-2xl font-semibold tracking-normal">We could not load your datasets.</h2>
+            <p className="max-w-3xl text-sm leading-7 text-foreground">
+              {message} Your account is still signed in, but this page cannot confirm whether the workspace is empty,
+              permission-restricted, or temporarily unavailable until the data request succeeds.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-border/70 bg-background/80 p-4">
+            <p className="text-sm leading-7 text-muted-foreground">
+              Retry to fetch datasets again. If the problem continues, contact support so we can check service health
+              or workspace access with you.
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          <Button type="button" onClick={onRetry}>
+            Retry
+          </Button>
+          <Button asChild type="button" variant="outline">
+            <a href={DASHBOARD_SUPPORT_URL} target="_blank" rel="noopener noreferrer">
+              Contact support
+              <ExternalLink className="size-3.5" />
+            </a>
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
 function DatasetFeed({
   datasets,
   topic,
   onSelectDataset,
+  dataError,
+  onRetry,
 }: {
   datasets: DatasetRecord[]
   topic: string | null
   onSelectDataset: (dataset: DatasetRecord) => void
+  dataError?: string | null
+  onRetry?: () => void
 }) {
+  if (dataError) {
+    return <DatasetsDataErrorState message={dataError} onRetry={onRetry ?? (() => {})} />
+  }
   if (datasets.length === 0) {
     return <DatasetsEmptyState />
   }
@@ -5159,15 +5225,12 @@ function DashboardApp({
     const hasDatasets = datasets.length > 0
     content = (
       <main className="flex flex-1 min-w-0 flex-col gap-10 overflow-y-auto px-4 py-10 md:px-8">
-        {dataError ? (
-          <Card className="rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
-            <CardContent className="px-6 py-4 text-sm text-destructive">{dataError}</CardContent>
-          </Card>
-        ) : null}
         <section className="mx-auto flex w-full max-w-5xl flex-col gap-3">
           <h1 className="text-4xl font-semibold tracking-normal">Datasets</h1>
           <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-            {hasDatasets
+            {dataError
+              ? 'You are signed in, but Alpha Research cannot verify dataset availability until dashboard data loads successfully.'
+              : hasDatasets
               ? 'See what data is available, what each dataset covers, and whether it is ready to use. Open any dataset for provenance, schema, profile details, and generated briefings.'
               : 'New workspaces start here. Add one file or source plus a short description, then come back here to inspect readiness, provenance, and the first research-ready dataset.'}
           </p>
@@ -5176,6 +5239,8 @@ function DashboardApp({
           <DatasetFeed
             datasets={datasets}
             topic={route.topic}
+            dataError={dataError}
+            onRetry={() => window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))}
             onSelectDataset={(dataset) =>
               updateDashboardRoute({
                 view: 'datasets',
@@ -5480,9 +5545,7 @@ function useDashboardState() {
               runs: [],
               sessions: [],
               dataError:
-                error instanceof Error
-                  ? `Signed in, but dashboard data could not load: ${error.message}`
-                  : 'Signed in, but dashboard data could not load.',
+                dashboardDataErrorSummary(error),
             })
           }
         }

@@ -47,6 +47,7 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - When the dashboard receives a topic hint such as `?topic=housing-affordability`, the page should pivot from neutral inventory to guided selection: show a topic-aware header, rank likely matches, explain coverage/freshness/limitations, and recommend one next action without requiring dataset ids.
 - A zero-dataset workspace should read as a normal starting state, not an error or sync mystery.
 - The zero-dataset state should show the fastest setup path, the exact inputs required next, and a direct CLI or setup-help handoff without forcing prior product knowledge.
+- An authenticated data-load failure must not reuse zero-dataset copy or layout. The page should say that sign-in succeeded, that dataset availability could not be verified, and that retry/support actions are available.
 
 ## Dataset Detail Expectations
 
