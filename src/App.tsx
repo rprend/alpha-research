@@ -3385,71 +3385,99 @@ function RunTable({
           </CardContent>
         </Card>
       </div>
-      <div className="flex flex-col gap-8">
-        {sortedRuns.map((run) => {
-          const priority = getRunPriorityMeta(run)
-          const outcome = getRunOutcomeMeta(run)
-          const statusTone = getRunStatusTone(run.status)
-          const prompt =
-            run.prompt?.trim() ||
-            run.outputPreview?.trim() ||
-            'No prompt recorded yet.'
+      <div className="rounded-none border border-border">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Run to compare</TableHead>
+              <TableHead>Outcome</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead>Freshness</TableHead>
+              <TableHead>Next step</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {sortedRuns.map((run) => {
+              const priority = getRunPriorityMeta(run)
+              const outcome = getRunOutcomeMeta(run)
+              const statusTone = getRunStatusTone(run.status)
+              const prompt =
+                run.prompt?.trim() ||
+                run.outputPreview?.trim() ||
+                'No prompt recorded yet.'
 
-          return (
-            <button
-              key={run.id}
-              type="button"
-              className="grid w-full gap-4 text-left md:grid-cols-[minmax(0,1.3fr)_minmax(12rem,0.7fr)_minmax(10rem,0.55fr)]"
-              onClick={() => onSelectRun(run)}
-            >
-              <div className="min-w-0 space-y-2">
-                <div className="flex flex-wrap items-center gap-2">
-                  <RunPriorityBadge label={priority.label} tone={statusTone} />
-                  {run.id === latestCompletedRunId ? (
-                    <RunPriorityBadge label="Latest completed" tone="success" />
-                  ) : null}
-                </div>
-                <div className="max-w-[44rem] text-lg font-medium leading-7 text-foreground">
-                  {truncate(prompt, 180)}
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  {datasetLookup.get(run.datasetId)?.name ?? run.datasetId}
-                </div>
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
-                  <span>{formatStatus(run.type)}</span>
-                  <span aria-hidden="true">•</span>
-                  <span>{priority.summary}</span>
-                  <span aria-hidden="true">•</span>
-                  <span>{priority.detail}</span>
-                </div>
-              </div>
-              <div className="space-y-2">
-                <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                  {formatStatus(run.status)}
-                </div>
-                <div className="font-medium">{outcome.label}</div>
-                <p className="text-sm leading-6 text-muted-foreground">
-                  {outcome.detail}
-                </p>
-                {run.status.toLowerCase() === 'worker_unreachable' ? (
-                  <p className="text-sm leading-6 text-muted-foreground">
-                    Connection to the worker dropped before a final result was reported.
-                  </p>
-                ) : null}
-              </div>
-              <div className="space-y-2 text-sm">
-                <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                  {relativeTime(run.updatedAt)}
-                </div>
-                <p className="leading-6 text-muted-foreground">Started {relativeTime(run.createdAt)}</p>
-                <p className="leading-6 text-muted-foreground">{formatDateTime(run.updatedAt)}</p>
-                <span className="inline-flex pt-2 text-xs font-semibold uppercase tracking-[0.18em] text-foreground">
-                  {priority.actionLabel}
-                </span>
-              </div>
-            </button>
-          )
-        })}
+              return (
+                <TableRow
+                  key={run.id}
+                  className="cursor-pointer align-top"
+                  onClick={() => onSelectRun(run)}
+                >
+                  <TableCell className="align-top">
+                    <div className="flex min-w-0 flex-col gap-2">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <RunPriorityBadge label={priority.label} tone={statusTone} />
+                        {run.id === latestCompletedRunId ? (
+                          <RunPriorityBadge label="Latest completed" tone="success" />
+                        ) : null}
+                      </div>
+                      <span className="max-w-[38rem] text-base leading-6 font-medium whitespace-normal text-foreground">
+                        {truncate(prompt, 180)}
+                      </span>
+                      <span className="truncate text-sm text-muted-foreground">
+                        {datasetLookup.get(run.datasetId)?.name ?? run.datasetId}
+                      </span>
+                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
+                        <span>{formatStatus(run.type)}</span>
+                        <span aria-hidden="true">•</span>
+                        <span>{priority.summary}</span>
+                        <span aria-hidden="true">•</span>
+                        <span>{priority.detail}</span>
+                      </div>
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex flex-col gap-2">
+                      <span className="font-medium">{outcome.label}</span>
+                      <span className="max-w-64 text-sm leading-6 text-muted-foreground">
+                        {outcome.detail}
+                      </span>
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex flex-col gap-2">
+                      <StatusBadge>{formatStatus(run.status)}</StatusBadge>
+                      {run.status.toLowerCase() === 'worker_unreachable' ? (
+                        <span className="max-w-48 text-sm leading-5 text-muted-foreground">
+                          Connection to the worker dropped before a final result was reported.
+                        </span>
+                      ) : null}
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex min-w-28 flex-col gap-1">
+                      <span>{relativeTime(run.updatedAt)}</span>
+                      <span className="text-sm text-muted-foreground">Started {relativeTime(run.createdAt)}</span>
+                      <span className="text-sm text-muted-foreground">{formatDateTime(run.updatedAt)}</span>
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="h-9 rounded-none border-foreground/20 px-3 font-medium"
+                      onClick={(event) => {
+                        event.stopPropagation()
+                        onSelectRun(run)
+                      }}
+                    >
+                      {priority.actionLabel}
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              )
+            })}
+          </TableBody>
+        </Table>
       </div>
     </div>
   )
@@ -5595,8 +5623,7 @@ function DashboardApp({
   }
 
   return (
-    <div className="dashboard-minimal">
-      <SidebarProvider defaultOpen>
+    <SidebarProvider defaultOpen>
       <Sidebar collapsible="icon" variant="sidebar">
         <SidebarHeader className="border-b border-sidebar-border px-3 py-4">
           <a href={rootOrigin} className="flex items-center">
@@ -5740,8 +5767,7 @@ function DashboardApp({
           {content}
         </div>
       </SidebarInset>
-      </SidebarProvider>
-    </div>
+    </SidebarProvider>
   )
 }
 
