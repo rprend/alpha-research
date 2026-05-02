@@ -177,13 +177,20 @@ h2 {
 
 .lede,
 .entry-summary,
-.doc-copy {
+.doc-copy,
+.doc-lede {
   color: var(--muted);
 }
 
 .lede {
   margin-bottom: 1.5rem;
   font-size: 1rem;
+}
+
+.doc-lede {
+  margin-bottom: 1.4rem;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .entry-list {
@@ -238,6 +245,28 @@ h2 {
 .doc-copy {
   display: grid;
   gap: 1rem;
+}
+
+.privacy-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0 0 1.5rem;
+}
+
+.privacy-summary-card {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.82);
+  padding: 1rem;
+}
+
+.privacy-summary-card h2 {
+  margin-bottom: 0.45rem;
+}
+
+.privacy-summary-card p {
+  color: var(--muted);
 }
 
 .blog-kicker,
@@ -698,7 +727,8 @@ h2 {
   }
 
   .cli-steps,
-  .cli-callout-grid {
+  .cli-callout-grid,
+  .privacy-summary {
     grid-template-columns: minmax(0, 1fr);
   }
 

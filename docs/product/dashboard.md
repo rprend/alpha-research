@@ -117,6 +117,14 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Copyable install and agent-prompt affordances should be visible and keyboard-accessible.
 - Agent-assisted setup should stay secondary to the self-serve install-and-run path.
 
+## Public Privacy Page Expectations
+
+- The privacy page must answer current-state trust questions in plain English before a user signs in or uploads anything.
+- The first viewport should make three things explicit: what is collected today, what is not collected on the public page, and how to contact Alpha Research before sharing sensitive data.
+- The page should explain public-site logging separately from dashboard or CLI-authenticated product storage.
+- If retention windows or deletion workflows are not yet self-serve, the page should say that directly instead of using placeholder future-policy language.
+- Public trust pages should avoid ambiguous or legacy branding in primary navigation.
+
 ## Harness Mode
 
 The dashboard supports a deterministic local harness mode for agent QA:

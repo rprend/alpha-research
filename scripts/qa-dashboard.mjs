@@ -147,6 +147,34 @@ async function assertCliInstallJourneySteering() {
   }
 }
 
+async function assertPrivacyTrustJourneySteering() {
+  const browser = await chromium.launch({ headless: true })
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+    await page.goto(`${baseUrl}/privacy/`, { waitUntil: 'domcontentloaded' })
+    await page.getByRole('heading', { name: 'Privacy' }).waitFor({ timeout: 15000 })
+    await page.getByText('Before you connect a dataset or sign in', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Collected today' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Not collected on this page' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Questions or sensitive use cases' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Cloudflare and operational logging' }).waitFor({ timeout: 15000 })
+    await page.getByText('IP address, browser or device metadata, requested URL, timestamp', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByText('does not publish a fixed retention window', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'What changes when you sign in or use the CLI' }).waitFor({ timeout: 15000 })
+    await page.getByText('datasets, runs, artifacts, and saved sessions', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByRole('link', { name: 'Email ryan@zenobiapay.com' }).waitFor({ timeout: 15000 })
+    await page.getByRole('link', { name: 'Back to the RESEARCH CLI setup page' }).waitFor({ timeout: 15000 })
+    if (await page.getByText('RResearch', { exact: true }).count()) {
+      throw new Error('Privacy page should not use the legacy RResearch label.')
+    }
+    if (await page.getByText('If Alpha Research later adds product features', { exact: false }).count()) {
+      throw new Error('Privacy page should answer current-state trust questions, not defer to a placeholder future-policy sentence.')
+    }
+  } finally {
+    await browser.close()
+  }
+}
+
 async function assertBlogLaunchJourneySteering() {
   const browser = await chromium.launch({ headless: true })
   try {
@@ -630,6 +658,7 @@ try {
   await assertRoute('/?harness=1&view=runs', '<div id="app">')
   await assertLandingPageUnderstanding()
   await assertCliInstallJourneySteering()
+  await assertPrivacyTrustJourneySteering()
   await assertBlogLaunchJourneySteering()
   await assertRenderedOrientation()
   await assertWellSpecifiedRunLaunch()
