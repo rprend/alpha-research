@@ -147,6 +147,32 @@ async function assertCliInstallJourneySteering() {
   }
 }
 
+async function assertBlogLaunchJourneySteering() {
+  const browser = await chromium.launch({ headless: true })
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+    await page.goto(`${baseUrl}/blog/launching-alpha-research/`, { waitUntil: 'domcontentloaded' })
+    await page.getByRole('heading', { name: 'Alpha Book is live, and there are three clear ways to try it.' }).waitFor({ timeout: 15000 })
+    await page.getByText('Alpha Research is the company. Alpha Book is the first live research dataset.', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByRole('link', { name: 'Try Alpha Book' }).waitFor({ timeout: 15000 })
+    await page.getByRole('link', { name: 'Open dashboard' }).first().waitFor({ timeout: 15000 })
+    await page.getByRole('link', { name: 'Use the RESEARCH CLI' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'What to do after reading' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Alpha Book', exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Dashboard', exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'RESEARCH CLI', exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('link', { name: 'Open dashboard datasets and runs' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Use Alpha Book with your coding agent' }).waitFor({ timeout: 15000 })
+    await page.getByText('Expected result:', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByRole('link', { name: 'Open Alpha Book skill instructions' }).waitFor({ timeout: 15000 })
+    if (await page.getByText('RResearch', { exact: true }).count()) {
+      throw new Error('Launch blog page should not use the legacy RResearch label.')
+    }
+  } finally {
+    await browser.close()
+  }
+}
+
 async function assertWellSpecifiedRunLaunch() {
   const browser = await chromium.launch({ headless: true })
   try {
@@ -604,6 +630,7 @@ try {
   await assertRoute('/?harness=1&view=runs', '<div id="app">')
   await assertLandingPageUnderstanding()
   await assertCliInstallJourneySteering()
+  await assertBlogLaunchJourneySteering()
   await assertRenderedOrientation()
   await assertWellSpecifiedRunLaunch()
   await assertRenderedDatasetInventory()

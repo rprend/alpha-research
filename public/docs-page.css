@@ -235,6 +235,140 @@ h2 {
   line-height: 1.5;
 }
 
+.doc-copy {
+  display: grid;
+  gap: 1rem;
+}
+
+.blog-kicker,
+.blog-surface-eyebrow {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.blog-intro-card,
+.blog-flow-card,
+.blog-agent-card {
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: #fff;
+}
+
+.blog-intro-card {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  box-shadow: 0 20px 45px rgba(38, 38, 38, 0.06);
+}
+
+.blog-intro-card h2,
+.blog-flow-card h2,
+.blog-agent-card h2 {
+  margin: 0;
+}
+
+.blog-intro-lede,
+.blog-flow-header p,
+.blog-surface-card p,
+.blog-agent-note {
+  color: var(--muted);
+}
+
+.blog-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.blog-primary-cta,
+.blog-secondary-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--text);
+  text-decoration: none;
+}
+
+.blog-primary-cta {
+  background: var(--text);
+  color: #fff;
+}
+
+.blog-secondary-cta {
+  background: #fff;
+  color: var(--text);
+}
+
+.blog-step-list {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--muted);
+}
+
+.blog-step-list strong {
+  color: var(--text);
+}
+
+.blog-flow-card,
+.blog-agent-card {
+  padding: 1.25rem;
+  margin: 0.4rem 0 0.6rem;
+}
+
+.blog-flow-header {
+  margin-bottom: 1rem;
+}
+
+.blog-surface-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.blog-surface-card {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: var(--card);
+}
+
+.blog-surface-card h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.blog-surface-card a {
+  color: var(--text);
+  text-underline-offset: 0.12em;
+}
+
+.blog-agent-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.blog-agent-actions {
+  display: grid;
+  gap: 0.8rem;
+}
+
 .cli-block {
   padding: 2rem 0;
 }
@@ -566,6 +700,16 @@ h2 {
   .cli-steps,
   .cli-callout-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .blog-surface-grid,
+  .blog-agent-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .blog-primary-cta,
+  .blog-secondary-cta {
+    width: 100%;
   }
 
   .cli-pre-single-line {
