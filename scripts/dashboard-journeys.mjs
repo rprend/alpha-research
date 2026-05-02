@@ -345,7 +345,7 @@ export const DASHBOARD_JOURNEYS = [
     evidenceToCapture: ['Failed/stale run transcript.', 'Warning event.', 'Status label.', 'Artifact availability.'],
     judgeQuestion: 'Did the product explain a stuck-looking run in plain language and give the user a next move?',
     steps: [
-      { type: 'waitForText', text: 'Worker Unreachable', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Worker lost connection', timeoutMs: 15000 },
       { type: 'wait', ms: 1000 },
     ],
   }),
@@ -363,7 +363,7 @@ export const DASHBOARD_JOURNEYS = [
     evidenceToCapture: ['Failure transcript.', 'Artifact panel state.', 'Requested versus produced artifacts.', 'Recovery language.'],
     judgeQuestion: 'Did the failed run page preserve value by showing what can be salvaged and what should happen next?',
     steps: [
-      { type: 'waitForText', text: 'Worker Unreachable', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Worker lost connection', timeoutMs: 15000 },
       { type: 'clickLabel', label: 'Open artifacts' },
       { type: 'wait', ms: 1000 },
     ],

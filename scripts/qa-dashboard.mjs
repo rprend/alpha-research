@@ -250,6 +250,28 @@ async function assertRunningRunStatusSteering() {
   }
 }
 
+async function assertStuckRunSteering() {
+  const browser = await chromium.launch({ headless: true })
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+    await page.goto(`${baseUrl}/?harness=1&view=runs&runId=run-harness-failed`, { waitUntil: 'domcontentloaded' })
+    await page.getByRole('heading', { name: 'Worker lost connection' }).waitFor({ timeout: 15000 })
+    await page.getByText('The worker stopped responding before it reported whether the run finished.', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Latest evidence', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('No artifacts recorded', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Retry in chat' }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Open debug evidence' }).waitFor({ timeout: 15000 })
+    if (await page.getByText('CLI orchestration session initialized.', { exact: true }).count()) {
+      throw new Error('Stuck run detail should not lead with CLI orchestration internals.')
+    }
+    if (await page.getByText('Stored config', { exact: true }).count()) {
+      throw new Error('Stuck run detail should not foreground stored config.')
+    }
+  } finally {
+    await browser.close()
+  }
+}
+
 async function assertRenderedRunsInventory() {
   const browser = await chromium.launch({ headless: true })
   try {
@@ -324,6 +346,7 @@ try {
   await assertDescribeRunSteering()
   await assertCompletedRunArtifactsSteering()
   await assertRunningRunStatusSteering()
+  await assertStuckRunSteering()
   await assertRenderedRunsInventory()
   await assertTerminalSessionContinuity()
   console.log(`Dashboard harness smoke passed at ${baseUrl}`)

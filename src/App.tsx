@@ -304,7 +304,7 @@ function formatStatus(value: string | null | undefined) {
     return 'Completed Successfully'
   }
   if (normalized === 'worker_unreachable') {
-    return 'Worker Unreachable'
+    return 'Worker Lost Connection'
   }
   if (normalized === 'uploading') {
     return 'Source Uploaded / Processing'
@@ -731,6 +731,81 @@ function buildRunningRunSummary(
     lastEventLabel: lastEvent?.message?.trim() ?? currentActivity,
     previousActivity,
     statusDetail: `Last meaningful update ${relativeTime(lastActivityAt)}.`,
+  }
+}
+
+function isUncertainRunStatus(status: string | null | undefined) {
+  const normalized = status?.toLowerCase() ?? ''
+  return normalized === 'worker_unreachable' || normalized === 'failed' || normalized === 'error'
+}
+
+function summarizeStuckRunEvidence(message: string, run: RunRecord) {
+  const trimmed = message.trim()
+  if (/worker_unreachable/iu.test(trimmed) || /stopped heartbeating/iu.test(trimmed)) {
+    return {
+      title: 'Worker lost connection',
+      summary: 'The worker stopped responding before it reported whether the run finished.',
+      evidence: 'Alpha Research stopped receiving worker heartbeats before any terminal result arrived.',
+      recovery: 'This run is now stuck in an uncertain terminal state. Check artifacts or debug details, then retry if you still need the result.',
+    }
+  }
+  if (/timed out/iu.test(trimmed)) {
+    return {
+      title: 'Run timed out',
+      summary: 'The run hit a time limit before it could finish.',
+      evidence: trimmed,
+      recovery: 'Inspect any artifacts that were produced, then retry with a narrower request if needed.',
+    }
+  }
+  if (run.status.toLowerCase() === 'failed') {
+    return {
+      title: 'Run failed',
+      summary: 'The run stopped before producing a confirmed result.',
+      evidence: trimmed,
+      recovery: 'Use the debug details below to inspect the failure and retry once the cause is clear.',
+    }
+  }
+  return {
+    title: 'Run needs diagnosis',
+    summary: run.outputPreview?.trim() || 'This run stopped before the dashboard could confirm a final result.',
+    evidence: trimmed,
+    recovery: 'Review the latest evidence below, then decide whether to retry or inspect the technical details.',
+  }
+}
+
+function buildStuckRunSummary(
+  run: RunRecord,
+  payload: RunResultsResponse | null,
+  dataset: DatasetRecord | undefined,
+  artifactCount: number,
+  expectedArtifactNames: string[],
+) {
+  const lastEvent = payload?.events.at(-1) ?? null
+  const evidenceAt = lastEvent?.createdAt ?? run.updatedAt
+  const evidence = lastEvent ? summarizeStuckRunEvidence(lastEvent.message, run) : {
+    title: 'Run lost progress updates',
+    summary: 'This run stopped updating before Alpha Research could confirm a result.',
+    evidence: run.outputPreview?.trim() || 'No terminal evidence beyond the run status is available yet.',
+    recovery: 'Inspect debug details, then retry if you still need the answer.',
+  }
+  const outputsLabel = artifactCount > 0
+    ? `${artifactCount} artifact${artifactCount === 1 ? '' : 's'} attached`
+    : 'No artifacts recorded'
+  const outputsDetail = artifactCount > 0
+    ? `You can inspect the saved output${artifactCount === 1 ? '' : 's'} before retrying.`
+    : `Alpha Research did not record ${expectedArtifactNames.length === 1 ? expectedArtifactNames[0] : 'the expected outputs'} before the worker stopped responding.`
+
+  return {
+    title: evidence.title,
+    summary: evidence.summary,
+    evidence: evidence.evidence,
+    recovery: evidence.recovery,
+    evidenceAt,
+    outputsLabel,
+    outputsDetail,
+    recommendation: artifactCount > 0
+      ? 'Inspect the saved artifacts first, then retry only if they do not answer the question.'
+      : `Safe next move: retry the same request for ${dataset?.name ?? 'this dataset'} after reviewing the latest evidence.`,
   }
 }
 
@@ -1431,17 +1506,19 @@ function buildCliTranscript(
   messages.push(
     createSessionEntry(`${run.id}-cli-user`, 'user', run.createdAt, kickoff, 'Run request'),
   )
-  messages.push(
-    createSessionEntry(
-      `${run.id}-cli-summary`,
-      'assistant',
-      run.createdAt,
-      `CLI orchestration session initialized.\n\n${details.join('\n')}`,
-      'CLI session',
-    ),
-  )
+  if (!isUncertainRunStatus(run.status)) {
+    messages.push(
+      createSessionEntry(
+        `${run.id}-cli-summary`,
+        'assistant',
+        run.createdAt,
+        `CLI orchestration session initialized.\n\n${details.join('\n')}`,
+        'CLI session',
+      ),
+    )
+  }
 
-  if (payload?.metadata?.config && run.status.toLowerCase() !== 'running') {
+  if (payload?.metadata?.config && run.status.toLowerCase() !== 'running' && !isUncertainRunStatus(run.status)) {
     messages.push(
       createSessionEntry(
         `${run.id}-cli-config`,
@@ -3809,9 +3886,14 @@ function RunDetailPage({
     : 'The durable answer files stay attached to this run. Open artifacts here when they arrive, and use the transcript below for execution detail.'
   const isCompletedRun = isTerminalSuccessfulRun(run)
   const isRunningRun = run.status.toLowerCase() === 'running'
+  const isUncertainRun = isUncertainRunStatus(run.status)
   const runningSummary = useMemo(
     () => (isRunningRun ? buildRunningRunSummary(run, payload, dataset) : null),
     [dataset, isRunningRun, payload, run],
+  )
+  const stuckSummary = useMemo(
+    () => (isUncertainRun ? buildStuckRunSummary(run, payload, dataset, artifactCount, expectedArtifactNames) : null),
+    [artifactCount, dataset, expectedArtifactNames, isUncertainRun, payload, run],
   )
   const supportingArtifactCount = visibleProducedArtifacts.filter(
     (artifact) => artifact.id !== primaryBriefingArtifact?.id && artifact.id !== primaryProfileArtifact?.id,
@@ -3998,6 +4080,66 @@ function RunDetailPage({
               </div>
             </section>
           ) : null}
+          {isUncertainRun && stuckSummary ? (
+            <section className="mb-6 rounded-2xl border border-amber-300 bg-amber-50/80 p-5">
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Zap className="size-5 text-amber-700" aria-hidden="true" />
+                    <h2 className="text-xl font-semibold tracking-normal">{stuckSummary.title}</h2>
+                    <StatusBadge>{formatStatus(run.status)}</StatusBadge>
+                  </div>
+                  <p className="text-sm leading-6 text-foreground/85">{stuckSummary.summary}</p>
+                </div>
+                <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+                  <div className="rounded-xl border border-amber-300 bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">What happened</div>
+                    <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.evidence}</p>
+                  </div>
+                  <div className="rounded-xl border border-amber-300 bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Latest evidence</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">{relativeTime(stuckSummary.evidenceAt)}</div>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{formatDateTime(stuckSummary.evidenceAt)}</p>
+                  </div>
+                  <div className="rounded-xl border border-amber-300 bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Outputs</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">{stuckSummary.outputsLabel}</div>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{stuckSummary.outputsDetail}</p>
+                  </div>
+                  <div className="rounded-xl border border-amber-300 bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Recommended next move</div>
+                    <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.recommendation}</p>
+                  </div>
+                </div>
+                <div className="rounded-xl border border-amber-300 bg-background px-4 py-4">
+                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">What you can do</div>
+                  <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.recovery}</p>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  <Button
+                    type="button"
+                    onClick={() => updateDashboardRoute({
+                      view: 'assistant',
+                      datasetId: run.datasetId,
+                      runId: null,
+                      sessionId: null,
+                      draft: run.prompt?.trim() || null,
+                    })}
+                  >
+                    Retry in chat
+                  </Button>
+                  {artifactCount > 0 ? (
+                    <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
+                      Inspect artifacts ({artifactCount})
+                    </Button>
+                  ) : null}
+                  <Button type="button" variant="outline" onClick={() => setDetailsOpen(true)}>
+                    Open debug evidence
+                  </Button>
+                </div>
+              </div>
+            </section>
+          ) : null}
           {isDescribeRun ? (
             <section className="mb-6 rounded-2xl border border-border bg-muted/20 p-5">
               <div className="flex flex-col gap-4">
@@ -4077,7 +4219,9 @@ function RunDetailPage({
                     ? 'These entries show how the run executed. The answer and file outputs are summarized above.'
                     : isRunningRun && runningSummary
                       ? `${runningSummary.statusDetail} Technical details stay below while artifacts and final results are still being produced.`
-                      : 'Watch run progress here while artifacts and final results are still being produced.'}
+                      : isUncertainRun
+                        ? 'Read the diagnosis above first. The entries below are raw execution evidence for debugging or handoff.'
+                        : 'Watch run progress here while artifacts and final results are still being produced.'}
                 </p>
               </div>
             </div>
@@ -4088,7 +4232,7 @@ function RunDetailPage({
               unframed
             />
           </section>
-          {isRunningRun ? (
+          {isRunningRun || isUncertainRun ? (
             <section className="mt-6">
               <Collapsible open={detailsOpen} onOpenChange={setDetailsOpen}>
                 <div className="rounded-2xl border border-border bg-card/50">
@@ -4097,12 +4241,14 @@ function RunDetailPage({
                       type="button"
                       variant="ghost"
                       className="flex w-full items-center justify-between rounded-2xl px-5 py-4 text-left"
-                      aria-label={detailsOpen ? 'Hide run details' : 'Show run details'}
+                      aria-label={detailsOpen ? (isUncertainRun ? 'Hide debug details' : 'Hide run details') : (isUncertainRun ? 'Show debug details' : 'Show run details')}
                     >
                       <div>
-                        <div className="text-sm font-semibold text-foreground">Run details</div>
+                        <div className="text-sm font-semibold text-foreground">{isUncertainRun ? 'Debug details' : 'Run details'}</div>
                         <p className="text-sm text-muted-foreground">
-                          Technical metadata and expected outputs for debugging or handoff.
+                          {isUncertainRun
+                            ? 'Technical evidence, latest event wording, and expected outputs for debugging or handoff.'
+                            : 'Technical metadata and expected outputs for debugging or handoff.'}
                         </p>
                       </div>
                       {detailsOpen ? <ChevronDown className="size-4 shrink-0" /> : <ChevronRight className="size-4 shrink-0" />}
@@ -4126,6 +4272,23 @@ function RunDetailPage({
                         <p className="mt-2 text-sm leading-6 text-foreground/85">{runDestinationCopy}</p>
                       </div>
                     </div>
+                    {isUncertainRun && stuckSummary ? (
+                      <div className="mt-3 grid gap-3 md:grid-cols-2">
+                        <div className="rounded-xl border border-border bg-background px-4 py-4">
+                          <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Raw lifecycle status</div>
+                          <div className="mt-2 text-sm font-semibold text-foreground">{run.status}</div>
+                          <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                            This is the control-plane label behind the plain-language diagnosis above.
+                          </p>
+                        </div>
+                        <div className="rounded-xl border border-border bg-background px-4 py-4">
+                          <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Latest raw event</div>
+                          <p className="mt-2 text-sm leading-6 text-foreground/85">
+                            {payload?.events.at(-1)?.message?.trim() ?? 'No raw event was recorded for this run.'}
+                          </p>
+                        </div>
+                      </div>
+                    ) : null}
                   </CollapsibleContent>
                 </div>
               </Collapsible>
