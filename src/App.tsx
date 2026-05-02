@@ -52,6 +52,14 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
+import {
   Empty,
   EmptyContent,
   EmptyDescription,
@@ -2760,7 +2768,10 @@ async function cancelRun(runId: string) {
     if (!run) {
       throw new Error('Harness run not found.')
     }
-    return { run: { ...run, status: 'cancelled', outputPreview: 'Cancelled by user.' } }
+    run.status = 'cancelled'
+    run.outputPreview = 'Cancelled by user. Saved artifacts and transcript evidence remain available.'
+    run.updatedAt = new Date().toISOString()
+    return { run: { ...run } }
   }
 
   const response = await fetch(`/api/cli/runs/${encodeURIComponent(runId)}/cancel`, {
@@ -4517,12 +4528,15 @@ function RunDetailPage({
   const { payload, error, loading } = useRunResults(run)
   const [artifactsOpen, setArtifactsOpen] = useState(false)
   const [selectedArtifactId, setSelectedArtifactId] = useState<string | null>(null)
+  const [cancelDialogOpen, setCancelDialogOpen] = useState(false)
+  const [cancellingRun, setCancellingRun] = useState(false)
+  const [currentRun, setCurrentRun] = useState(run)
   const remoteSessionId = getRemoteSessionId(payload?.artifacts ?? [])
   const hasRemoteLogs = useMemo(() => hasRemoteRunLogs(payload), [payload])
   const requestedArtifacts = useMemo(() => getRequestedArtifacts(payload), [payload])
   const producedArtifacts = useMemo(() => getProducedArtifacts(payload), [payload])
-  const cliMessages = useMemo(() => buildCliTranscript(run, dataset, payload), [run, dataset, payload])
-  const remoteMessages = useMemo(() => buildRemoteTranscript(run, dataset, payload), [run, dataset, payload])
+  const cliMessages = useMemo(() => buildCliTranscript(currentRun, dataset, payload), [currentRun, dataset, payload])
+  const remoteMessages = useMemo(() => buildRemoteTranscript(currentRun, dataset, payload), [currentRun, dataset, payload])
   const observedProgressMessages = useMemo(() => buildObservedProgressTranscript(payload), [payload])
   const visibleProducedArtifacts = useMemo(
     () => producedArtifacts.filter((artifact) => artifact.type !== 'remote_agent_session'),
@@ -4555,44 +4569,67 @@ function RunDetailPage({
     [cliMessages, hasRemoteLogs, observedProgressMessages, remoteMessages],
   )
   const artifactCount = visibleProducedArtifacts.length
-  const isDescribeRun = run.type === 'describe'
+  const isDescribeRun = currentRun.type === 'describe'
   const [detailsOpen, setDetailsOpen] = useState(false)
   const runDestinationCopy = isDescribeRun
     ? 'The durable briefing stays attached to this run and also updates the dataset detail page.'
     : 'The durable answer files stay attached to this run. Open artifacts here when they arrive, and use the transcript below for execution detail.'
-  const isCompletedRun = isTerminalSuccessfulRun(run)
-  const isRunningRun = run.status.toLowerCase() === 'running'
-  const isUncertainRun = isUncertainRunStatus(run.status)
+  const isCompletedRun = isTerminalSuccessfulRun(currentRun)
+  const isRunningRun = currentRun.status.toLowerCase() === 'running'
+  const isUncertainRun = isUncertainRunStatus(currentRun.status)
   const runningSummary = useMemo(
-    () => (isRunningRun ? buildRunningRunSummary(run, payload, dataset) : null),
-    [dataset, isRunningRun, payload, run],
+    () => (isRunningRun ? buildRunningRunSummary(currentRun, payload, dataset) : null),
+    [currentRun, dataset, isRunningRun, payload],
   )
   const stuckSummary = useMemo(
-    () => (isUncertainRun ? buildStuckRunSummary(run, payload, dataset, artifactCount, expectedArtifactNames) : null),
-    [artifactCount, dataset, expectedArtifactNames, isUncertainRun, payload, run],
+    () => (isUncertainRun ? buildStuckRunSummary(currentRun, payload, dataset, artifactCount, expectedArtifactNames) : null),
+    [artifactCount, currentRun, dataset, expectedArtifactNames, isUncertainRun, payload],
   )
   const supportingArtifactCount = visibleProducedArtifacts.filter(
     (artifact) => artifact.id !== primaryBriefingArtifact?.id && artifact.id !== primaryProfileArtifact?.id,
   ).length
   const primaryArtifactName = primaryBriefingArtifact ? artifactPath(primaryBriefingArtifact) : null
-  const describeStatusTitle = run.status === 'running'
+  const describeStatusTitle = currentRun.status === 'running'
     ? 'Generating dataset briefing'
-    : ['ready', 'completed'].includes(run.status)
+    : ['ready', 'completed'].includes(currentRun.status)
       ? 'Dataset briefing ready'
-      : `${formatStatus(run.status)} dataset briefing run`
-  const describeStatusCopy = run.status === 'running'
+      : `${formatStatus(currentRun.status)} dataset briefing run`
+  const describeStatusCopy = currentRun.status === 'running'
     ? 'Alpha Research is inspecting the dataset and writing durable documentation. Stay on this run to watch progress and open the generated briefing when it lands.'
-    : ['ready', 'completed'].includes(run.status)
+    : ['ready', 'completed'].includes(currentRun.status)
       ? 'The documentation run finished. Open the briefing artifact for the durable write-up, then use the profile artifact for the structured summary.'
-      : run.outputPreview || 'This describe run did not complete normally. Inspect the transcript and artifacts for recovery details.'
-  const firstEventAt = payload?.events[0]?.createdAt ?? run.createdAt
-  const latestEventAt = payload?.events.at(-1)?.createdAt ?? run.updatedAt
-  const latestEventMessage = payload?.events.at(-1)?.message?.trim() ?? run.outputPreview?.trim() ?? 'No run event was recorded.'
+      : currentRun.outputPreview || 'This describe run did not complete normally. Inspect the transcript and artifacts for recovery details.'
+  const firstEventAt = payload?.events[0]?.createdAt ?? currentRun.createdAt
+  const latestEventAt = payload?.events.at(-1)?.createdAt ?? currentRun.updatedAt
+  const latestEventMessage = payload?.events.at(-1)?.message?.trim() ?? currentRun.outputPreview?.trim() ?? 'No run event was recorded.'
   const completedRunSummary = isCompletedRun
     ? primaryArtifactName
-      ? `${formatStatus(run.type)} finished for ${dataset?.name ?? run.datasetId}. Read ${primaryArtifactName} first to confirm the answer still matches the original request.`
-      : `${formatStatus(run.type)} finished for ${dataset?.name ?? run.datasetId}. Review the run summary and attached outputs to confirm scope.`
+      ? `${formatStatus(currentRun.type)} finished for ${dataset?.name ?? currentRun.datasetId}. Read ${primaryArtifactName} first to confirm the answer still matches the original request.`
+      : `${formatStatus(currentRun.type)} finished for ${dataset?.name ?? currentRun.datasetId}. Review the run summary and attached outputs to confirm scope.`
     : null
+
+  useEffect(() => {
+    setCurrentRun(run)
+  }, [run])
+
+  useEffect(() => {
+    if (payload?.run) {
+      setCurrentRun(payload.run)
+    }
+  }, [payload])
+
+  const handleCancelRun = async () => {
+    setCancellingRun(true)
+    try {
+      const response = await cancelRun(currentRun.id)
+      setCurrentRun(response.run)
+      setCancelDialogOpen(false)
+    } catch (cancelError) {
+      console.error(cancelError)
+    } finally {
+      setCancellingRun(false)
+    }
+  }
 
   useEffect(() => {
     const selectedArtifactStillExists = visibleProducedArtifacts.some(
@@ -4624,12 +4661,12 @@ function RunDetailPage({
             <div className="flex flex-col gap-4">
               <div className="flex flex-wrap items-center gap-2">
                 <Badge variant="secondary">{dataset?.name ?? 'Run'}</Badge>
-                <StatusBadge>{formatStatus(run.status)}</StatusBadge>
+                <StatusBadge>{formatStatus(currentRun.status)}</StatusBadge>
               </div>
               {isRunningRun ? (
                 <div className="space-y-2 text-sm leading-6 text-muted-foreground">
                   <p>
-                    Monitoring live run <span className="font-medium text-foreground">{run.id}</span>. Alpha Research will keep refreshing this page while work continues.
+                    Monitoring live run <span className="font-medium text-foreground">{currentRun.id}</span>. Alpha Research will keep refreshing this page while work continues.
                   </p>
                   <div>
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Expected outputs</div>
@@ -4641,7 +4678,7 @@ function RunDetailPage({
                 <div className="grid gap-3 md:grid-cols-3">
                   <div className="rounded-xl border border-border bg-background px-4 py-4">
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Run id</div>
-                    <div className="mt-2 break-all text-sm font-semibold text-foreground">{run.id}</div>
+                    <div className="mt-2 break-all text-sm font-semibold text-foreground">{currentRun.id}</div>
                   </div>
                   <div className="rounded-xl border border-border bg-background px-4 py-4">
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Expected artifacts</div>
@@ -4673,11 +4710,11 @@ function RunDetailPage({
                 <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
                   <div className="rounded-xl border border-border bg-background px-4 py-4">
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Dataset</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">{dataset?.name ?? run.datasetId}</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">{dataset?.name ?? currentRun.datasetId}</div>
                   </div>
                   <div className="rounded-xl border border-border bg-background px-4 py-4">
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Run type</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">{formatStatus(run.type)}</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">{formatStatus(currentRun.type)}</div>
                   </div>
                   <div className="rounded-xl border border-border bg-background px-4 py-4">
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Started</div>
@@ -4751,7 +4788,7 @@ function RunDetailPage({
                 <div className="flex flex-wrap items-center gap-2">
                   <CheckCircle2 className="size-5 text-emerald-700" aria-hidden="true" />
                   <h2 className="text-xl font-semibold tracking-normal">Run finished</h2>
-                  <StatusBadge>{formatStatus(run.status)}</StatusBadge>
+                  <StatusBadge>{formatStatus(currentRun.status)}</StatusBadge>
                 </div>
                 <p className="text-sm leading-6 text-foreground/80">
                   {primaryArtifactName
@@ -4802,7 +4839,7 @@ function RunDetailPage({
                   <div className="flex flex-wrap items-center gap-2">
                     <LoaderCircle className="size-5 animate-spin text-sky-700" aria-hidden="true" />
                     <h2 className="text-xl font-semibold tracking-normal">{runningSummary.title}</h2>
-                    <StatusBadge>{formatStatus(run.status)}</StatusBadge>
+                    <StatusBadge>{formatStatus(currentRun.status)}</StatusBadge>
                   </div>
                   <p className="text-sm leading-6 text-foreground/80">
                     {runningSummary.currentActivity}
@@ -4831,11 +4868,32 @@ function RunDetailPage({
                     </p>
                   </div>
                   <div className="rounded-xl border border-sky-200 bg-background px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Action needed</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">None right now</div>
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Output retention</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">{artifactCount > 0 ? `${artifactCount} saved output${artifactCount === 1 ? '' : 's'}` : 'No saved outputs yet'}</div>
                     <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                      Safe to leave this open while the run continues.
+                      Cancel keeps any saved artifacts and transcript evidence already attached to this run.
                     </p>
+                  </div>
+                </div>
+                <div className="rounded-xl border border-rose-200 bg-background px-4 py-4">
+                  <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                    <div className="min-w-0">
+                      <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Stop this job</div>
+                      <div className="mt-2 text-sm font-semibold text-foreground">Cancel if this run is wrong or too expensive to keep running.</div>
+                      <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                        Cancellation is not reversible. Alpha Research will stop the active worker, preserve any artifacts already saved, and keep this run visible as cancelled for later review.
+                      </p>
+                    </div>
+                    <div className="flex shrink-0 flex-wrap gap-3">
+                      {artifactCount > 0 ? (
+                        <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
+                          Review saved output
+                        </Button>
+                      ) : null}
+                      <Button type="button" variant="destructive" onClick={() => setCancelDialogOpen(true)}>
+                        Cancel run
+                      </Button>
+                    </div>
                   </div>
                 </div>
                 {runningSummary.previousActivity ? (
@@ -4858,7 +4916,7 @@ function RunDetailPage({
                   <div className="flex flex-wrap items-center gap-2">
                     <Zap className="size-5 text-amber-700" aria-hidden="true" />
                     <h2 className="text-xl font-semibold tracking-normal">{stuckSummary.title}</h2>
-                    <StatusBadge>{formatStatus(run.status)}</StatusBadge>
+                    <StatusBadge>{formatStatus(currentRun.status)}</StatusBadge>
                   </div>
                   <p className="text-sm leading-6 text-foreground/85">{stuckSummary.summary}</p>
                 </div>
@@ -4903,10 +4961,10 @@ function RunDetailPage({
                     type="button"
                     onClick={() => updateDashboardRoute({
                       view: 'assistant',
-                      datasetId: run.datasetId,
+                      datasetId: currentRun.datasetId,
                       runId: null,
                       sessionId: null,
-                      draft: run.prompt?.trim() || null,
+                      draft: currentRun.prompt?.trim() || null,
                     })}
                   >
                     Retry in chat
@@ -4927,7 +4985,7 @@ function RunDetailPage({
                 <div className="flex flex-col gap-2">
                   <div className="flex flex-wrap items-center gap-2">
                     <h2 className="text-xl font-semibold tracking-normal">{describeStatusTitle}</h2>
-                    <StatusBadge>{formatStatus(run.status)}</StatusBadge>
+                    <StatusBadge>{formatStatus(currentRun.status)}</StatusBadge>
                   </div>
                   <p className="text-sm leading-6 text-muted-foreground">{describeStatusCopy}</p>
                 </div>
@@ -5039,7 +5097,7 @@ function RunDetailPage({
                     <div className="grid gap-3 md:grid-cols-3">
                       <div className="rounded-xl border border-border bg-background px-4 py-4">
                         <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Run id</div>
-                        <div className="mt-2 break-all text-sm font-semibold text-foreground">{run.id}</div>
+                        <div className="mt-2 break-all text-sm font-semibold text-foreground">{currentRun.id}</div>
                       </div>
                       <div className="rounded-xl border border-border bg-background px-4 py-4">
                         <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Expected artifacts</div>
@@ -5081,7 +5139,7 @@ function RunDetailPage({
       <RunArtifactsPanel
         open={artifactsOpen}
         onClose={() => setArtifactsOpen(false)}
-        runPrompt={run.prompt}
+        runPrompt={currentRun.prompt}
         requestedArtifacts={requestedArtifacts}
         producedArtifacts={producedArtifacts}
         expectedArtifacts={expectedArtifactStatus}
@@ -5091,6 +5149,35 @@ function RunDetailPage({
         primaryArtifactId={primaryBriefingArtifact?.id ?? null}
         profileArtifactId={primaryProfileArtifact?.id ?? null}
       />
+      <Dialog open={cancelDialogOpen} onOpenChange={setCancelDialogOpen}>
+        <DialogContent aria-describedby="cancel-run-description">
+          <DialogHeader>
+            <DialogTitle>Cancel Run</DialogTitle>
+            <DialogDescription id="cancel-run-description">
+              Stop this job if it is wrong or no longer worth the time or cost. Cancellation cannot be undone.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-3 text-sm leading-6 text-foreground/85">
+            <p>What stays available after cancel:</p>
+            <ul className="list-disc space-y-1 pl-5 text-muted-foreground">
+              <li>Any artifacts already saved to this run</li>
+              <li>Observed progress and transcript evidence already recorded</li>
+              <li>The cancelled run record for later review or handoff</li>
+            </ul>
+            <p className="text-muted-foreground">
+              What stops immediately: active worker time, new artifacts, and further progress on this run.
+            </p>
+          </div>
+          <DialogFooter>
+            <Button type="button" variant="outline" onClick={() => setCancelDialogOpen(false)} disabled={cancellingRun}>
+              Keep running
+            </Button>
+            <Button type="button" variant="destructive" onClick={() => void handleCancelRun()} disabled={cancellingRun}>
+              {cancellingRun ? 'Cancelling...' : 'Confirm cancel'}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }

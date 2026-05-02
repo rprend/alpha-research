@@ -190,8 +190,8 @@ export const harnessRuns = [
     type: 'public_environment',
     status: 'running',
     prompt: 'Build a public-data environment for housing and labor indicators.',
-    outputPreview: 'Remote agent running. Last activity 90s ago.',
-    artifactCount: 0,
+    outputPreview: 'Remote agent running. One source inventory snapshot is already saved.',
+    artifactCount: 1,
     sessionCount: 0,
     createdAt: iso(12),
     updatedAt: iso(2),
@@ -274,6 +274,21 @@ export const harnessSessions = [
 ]
 
 const harnessArtifacts = [
+  {
+    id: 'artifact-harness-running-inventory',
+    runId: 'run-harness-running',
+    type: 'file',
+    title: 'Source Inventory Snapshot',
+    content: {
+      path: '/workspace/artifacts/source-inventory.json',
+      text: JSON.stringify({
+        providers: ['census', 'bls'],
+        status: 'partial',
+        note: 'Saved before final housing tables finish ingesting.',
+      }, null, 2),
+    },
+    createdAt: iso(3),
+  },
   {
     id: 'artifact-harness-session',
     runId: 'run-harness-completed',
