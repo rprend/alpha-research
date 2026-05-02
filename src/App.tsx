@@ -75,6 +75,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { Input } from '@/components/ui/input'
 import { deriveRunProgress } from '@/user-progress'
 
 declare global {
@@ -512,6 +513,33 @@ function datasetInventoryUseCase(dataset: DatasetRecord) {
   const profileSummary = profileText(dataset.profile?.profile, 'summary')
   if (profileSummary) return `Best for: ${profileSummary}`
   return null
+}
+
+function datasetQuestionPrompts(dataset: DatasetRecord) {
+  const columns = Array.isArray(profileRecord(dataset.profile, 'schema')?.columns)
+    ? (profileRecord(dataset.profile, 'schema')?.columns as unknown[])
+        .filter((value): value is string => typeof value === 'string' && value.trim().length > 0)
+        .slice(0, 4)
+    : []
+  const basePrompts = [
+    `What patterns should I look at first in ${dataset.name}?`,
+    `What question is ${dataset.name} well suited to answer?`,
+  ]
+  if (columns.length >= 2) {
+    basePrompts.unshift(`Using ${columns[0]} and ${columns[1]}, what is a strong first analysis?`)
+  }
+  return basePrompts.slice(0, 3)
+}
+
+function focusAssistantComposer(prompt?: string) {
+  const composer = document.querySelector<HTMLTextAreaElement>('textarea[aria-label="Message input"]')
+  if (!composer) return
+  composer.focus()
+  if (typeof prompt !== 'string') return
+  const setter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value')?.set
+  setter?.call(composer, prompt)
+  composer.dispatchEvent(new Event('input', { bubbles: true }))
+  composer.setSelectionRange(prompt.length, prompt.length)
 }
 
 function normalizeTopicLabel(topic: string) {
@@ -1740,6 +1768,7 @@ function sessionEntriesToThreadMessages(entries: StoredAssistantSessionEntry[]) 
 async function postAssistantTurn(body: {
   input: string
   sessionId?: string | null
+  datasetId?: string | null
   previousResponseId?: string | null
 }) {
   if (isHarnessMode()) {
@@ -1757,6 +1786,7 @@ async function postAssistantTurn(body: {
     body: JSON.stringify({
       input: body.input,
       sessionId: body.sessionId ?? undefined,
+      datasetId: body.datasetId ?? undefined,
       previousResponseId: body.previousResponseId ?? undefined,
     }),
   })
@@ -1784,6 +1814,7 @@ function getDashboardRoute() {
     datasetId: url.searchParams.get('datasetId'),
     sessionId: url.searchParams.get('sessionId'),
     topic: url.searchParams.get('topic'),
+    draft: url.searchParams.get('draft'),
   }
 }
 
@@ -1792,6 +1823,7 @@ function updateDashboardRoute(next: {
   runId?: string | null
   datasetId?: string | null
   sessionId?: string | null
+  draft?: string | null
 }) {
   const url = new URL(window.location.href)
   url.searchParams.set('view', next.view ?? getDashboardRoute().view)
@@ -1801,6 +1833,8 @@ function updateDashboardRoute(next: {
   else url.searchParams.delete('datasetId')
   if (next.sessionId) url.searchParams.set('sessionId', next.sessionId)
   else url.searchParams.delete('sessionId')
+  if (typeof next.draft === 'string' && next.draft.trim()) url.searchParams.set('draft', next.draft)
+  else url.searchParams.delete('draft')
   window.history.pushState({}, '', url.toString())
   window.dispatchEvent(new PopStateEvent('popstate'))
 }
@@ -2190,15 +2224,18 @@ function DatasetDetailPage({
   runs,
   onBack,
   onOpenRun,
+  onAskDataset,
 }: {
   dataset: DatasetRecord
   runs: RunRecord[]
   onBack: () => void
   onOpenRun: (run: RunRecord) => void
+  onAskDataset: (dataset: DatasetRecord, prompt?: string) => void
 }) {
   const [detail, setDetail] = useState<DatasetRecord | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [startingDescribe, setStartingDescribe] = useState(false)
+  const [questionDraft, setQuestionDraft] = useState('')
   const describeRun = runs.find((run) => run.datasetId === dataset.id && run.type === 'describe') ?? null
   const current = detail ?? dataset
 
@@ -2279,6 +2316,7 @@ function DatasetDetailPage({
   const fitVerdict = limitationCount
     ? `Useful for ${fitHeadline ?? 'initial exploration'}, but review the known limits before trusting final results.`
     : `Ready for ${fitHeadline ?? 'research use'} with no major limits highlighted in the current profile.`
+  const questionPrompts = datasetQuestionPrompts(current)
   const describeButtonLabel = briefingMarkdown ? 'Refresh briefing' : 'Describe dataset'
   const describeHelperText = briefingMarkdown
     ? 'Regenerate the briefing if the source data or profile has changed.'
@@ -2325,6 +2363,74 @@ function DatasetDetailPage({
         </section>
 
         {error ? <div className="bg-destructive/5 px-4 py-3 text-sm text-destructive">{error}</div> : null}
+
+        <section className="grid gap-4 rounded-3xl border border-border bg-background p-6 shadow-sm lg:grid-cols-[minmax(0,1fr)_280px]">
+          <div className="space-y-5">
+            <div className="space-y-2">
+              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Ask about this dataset</div>
+              <h2 className="text-2xl font-semibold tracking-normal">Start a grounded question without re-explaining the data.</h2>
+              <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
+                Alpha Research will attach <span className="font-medium text-foreground">{current.name}</span> automatically, so you do not need to copy a dataset id or restate where you are starting from.
+              </p>
+            </div>
+            <form
+              className="space-y-3"
+              onSubmit={(event) => {
+                event.preventDefault()
+                onAskDataset(current, questionDraft)
+              }}
+            >
+              <label htmlFor="dataset-question" className="text-sm font-medium text-foreground">
+                Your research question
+              </label>
+              <Input
+                id="dataset-question"
+                value={questionDraft}
+                onChange={(event) => setQuestionDraft(event.target.value)}
+                placeholder={`Ask about ${current.name}, for example: which authors change the most over time?`}
+                className="h-12"
+              />
+              <div className="flex flex-wrap gap-3">
+                <Button type="submit">
+                  Ask about {current.name}
+                </Button>
+                <Button type="button" variant="outline" onClick={() => onAskDataset(current)}>
+                  Open dataset-scoped chat
+                </Button>
+              </div>
+            </form>
+            <div className="space-y-3 rounded-2xl border border-border/70 bg-muted/25 p-4">
+              <div className="text-sm font-semibold">Good first prompts</div>
+              <div className="flex flex-wrap gap-2">
+                {questionPrompts.map((prompt) => (
+                  <Button
+                    key={prompt}
+                    type="button"
+                    variant="outline"
+                    className="h-auto whitespace-normal rounded-full px-4 py-2 text-left normal-case"
+                    onClick={() => setQuestionDraft(prompt)}
+                  >
+                    {prompt}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col gap-4 rounded-2xl border border-border bg-muted/20 p-5">
+            <div className="space-y-2">
+              <h3 className="text-sm font-medium">What happens next</h3>
+              <p className="text-sm leading-6 text-muted-foreground">
+                Broad questions stay in chat first. The assistant should clarify scope, outputs, or method before it starts expensive work.
+              </p>
+            </div>
+            <div className="rounded-xl border border-dashed border-border bg-background px-4 py-3 text-sm text-muted-foreground">
+              If work starts, expect a scoped answer first, then a run with transcript and artifacts only when the request is specific enough.
+            </div>
+            <div className="rounded-xl border border-dashed border-border bg-background px-4 py-3 text-sm text-muted-foreground">
+              Expected outputs can include a written answer, a research plan, or run artifacts such as tables, charts, and summaries.
+            </div>
+          </div>
+        </section>
 
         <section className="grid gap-4 rounded-2xl border border-border bg-muted/20 p-6 lg:grid-cols-[minmax(0,1fr)_280px]">
           <div className="space-y-5">
@@ -2840,6 +2946,7 @@ function ResearchAssistantPage({
 }) {
   const route = useDashboardRoute()
   const activeSessionId = route.sessionId ?? null
+  const scopedDataset = route.datasetId ? datasets.find((dataset) => dataset.id === route.datasetId) ?? null : null
   const { session, error, loading } = useSessionDetail(activeSessionId)
   const starterPrompts = useMemo(() => assistantStarterPrompts(datasets), [datasets])
   const [messages, setMessages] = useState<ThreadMessage[]>([])
@@ -2886,6 +2993,14 @@ function ResearchAssistantPage({
     })
   }, [activeSessionId, session])
 
+  useEffect(() => {
+    if (route.view !== 'assistant' || route.sessionId || !route.draft) return
+    const frame = window.requestAnimationFrame(() => {
+      focusAssistantComposer(route.draft ?? undefined)
+    })
+    return () => window.cancelAnimationFrame(frame)
+  }, [route.draft, route.sessionId, route.view])
+
   const runtime = useExternalStoreRuntime({
     isRunning,
     messages,
@@ -2918,6 +3033,7 @@ function ResearchAssistantPage({
         const result = await postAssistantTurn({
           input,
           sessionId: currentSessionId,
+          datasetId: scopedDataset?.id ?? null,
           previousResponseId: currentConversation.previousResponseId,
         }).finally(() => {
           if (refreshInterval) {
@@ -2985,10 +3101,16 @@ function ResearchAssistantPage({
                   email={sessionUser?.email ?? 'Signed in'}
                   datasets={datasets}
                   starterPrompts={starterPrompts}
+                  scopedDataset={scopedDataset}
+                  draft={route.draft}
                   onOpenDatasets={onOpenDatasets}
                 />
               )}
-              composerPlaceholder="Start a new research chat by asking a question or describing the data you need..."
+              composerPlaceholder={
+                scopedDataset
+                  ? `Ask a question about ${scopedDataset.name}. Dataset context is attached automatically...`
+                  : 'Start a new research chat by asking a question or describing the data you need...'
+              }
               datasets={datasets.map((dataset) => ({
                 id: dataset.id,
                 name: dataset.name,
@@ -3007,11 +3129,15 @@ function AssistantOrientationPanel({
   email,
   datasets,
   starterPrompts,
+  scopedDataset,
+  draft,
   onOpenDatasets,
 }: {
   email: string
   datasets: DatasetRecord[]
   starterPrompts: string[]
+  scopedDataset: DatasetRecord | null
+  draft: string | null
   onOpenDatasets: () => void
 }) {
   const publicDatasets = datasets.filter(isPublicDataset)
@@ -3019,15 +3145,16 @@ function AssistantOrientationPanel({
   const readyPublicDatasets = publicDatasets.filter((dataset) => dataset.status.toLowerCase() === 'ready')
   const readyPrivateDatasets = privateDatasets.filter((dataset) => dataset.status.toLowerCase() === 'ready')
   const sampleDataset = readyPublicDatasets[0] ?? null
-  const focusComposerWithPrompt = (prompt: string) => {
-    const composer = document.querySelector<HTMLTextAreaElement>('textarea[aria-label="Message input"]')
-    if (!composer) return
-    composer.focus()
-    const setter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value')?.set
-    setter?.call(composer, prompt)
-    composer.dispatchEvent(new Event('input', { bubbles: true }))
-    composer.setSelectionRange(prompt.length, prompt.length)
-  }
+  const focusComposerWithPrompt = (prompt: string) => focusAssistantComposer(prompt)
+  const scopedPrompts = scopedDataset ? datasetQuestionPrompts(scopedDataset) : starterPrompts
+  const heading = scopedDataset ? `Ask about ${scopedDataset.name}` : 'Start a new research chat.'
+  const description = scopedDataset
+    ? `${scopedDataset.name} is already attached to this chat. Ask a question in plain language and the assistant should clarify broad requests before it launches any expensive work.`
+    : 'Ask a question in chat when you want the assistant to plan research, inspect data, or propose the next run. Use datasets when you want to inspect source material first.'
+  const cardHeading = scopedDataset ? `Dataset-scoped chat for ${scopedDataset.name}` : 'Ask the assistant to help you research'
+  const cardBody = scopedDataset
+    ? 'No dataset id copy is required here. Start with a question, and expect either a direct answer, a scoped plan, or a clarification if the request is still too broad to run safely.'
+    : 'The chat below is the main entry point. You can start here without CLI setup. Ask a question, name a topic, or mention a dataset and the assistant will clarify the next step before it launches work.'
 
   return (
     <section className="mx-auto flex w-full max-w-4xl flex-col gap-6">
@@ -3040,10 +3167,10 @@ function AssistantOrientationPanel({
       </div>
       <div className="max-w-3xl space-y-3">
         <h1 className="text-3xl font-semibold tracking-normal md:text-4xl">
-          Start a new research chat.
+          {heading}
         </h1>
         <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-          Ask a question in chat when you want the assistant to plan research, inspect data, or propose the next run. Use datasets when you want to inspect source material first.
+          {description}
         </p>
       </div>
       <div className="grid gap-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
@@ -3051,34 +3178,36 @@ function AssistantOrientationPanel({
           <CardContent className="flex flex-col gap-4 px-6 py-6">
             <div className="space-y-2">
               <Badge variant="secondary">Start here</Badge>
-              <h2 className="text-2xl font-semibold tracking-normal">Ask the assistant to help you research</h2>
+              <h2 className="text-2xl font-semibold tracking-normal">{cardHeading}</h2>
               <p className="text-sm leading-7 text-muted-foreground">
-                The chat below is the main entry point. You can start here without CLI setup. Ask a question, name a topic, or mention a dataset and the assistant will clarify the next step before it launches work.
+                {cardBody}
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
               <Button
                 type="button"
-                onClick={() => document.querySelector<HTMLTextAreaElement>('textarea[aria-label=\"Message input\"]')?.focus()}
+                onClick={() => focusAssistantComposer(draft ?? undefined)}
               >
-                Start a new research chat
+                {scopedDataset ? `Ask about ${scopedDataset.name}` : 'Start a new research chat'}
               </Button>
               <Button type="button" variant="outline" onClick={onOpenDatasets}>
                 Browse datasets
               </Button>
             </div>
             <div className="rounded-2xl border border-border/70 bg-muted/30 p-4 text-sm leading-6 text-muted-foreground">
-              <span className="font-medium text-foreground">What happens next:</span> your first question turns into a scoped plan, a dataset recommendation, or an initial answer with the next analysis step.
+              <span className="font-medium text-foreground">What happens next:</span> {scopedDataset
+                ? 'your first question stays attached to this dataset, and the assistant should ask a clarifying question before launching work if the request is still underspecified.'
+                : 'your first question turns into a scoped plan, a dataset recommendation, or an initial answer with the next analysis step.'}
             </div>
             <div className="space-y-3 rounded-2xl border border-border/70 bg-muted/30 p-4">
               <div className="space-y-1">
                 <h3 className="text-sm font-semibold tracking-normal">Example first prompts</h3>
                 <p className="text-sm leading-6 text-muted-foreground">
-                  Use one of these if you want a concrete starting point.
+                  {scopedDataset ? 'These stay grounded in the dataset you opened.' : 'Use one of these if you want a concrete starting point.'}
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
-                {starterPrompts.map((prompt) => (
+                {scopedPrompts.map((prompt) => (
                   <Button
                     key={prompt}
                     type="button"
@@ -3977,6 +4106,14 @@ function DashboardApp({
         runs={runs}
         onBack={() => updateDashboardRoute({ view: 'datasets', datasetId: null, runId: null, sessionId: null })}
         onOpenRun={(run) => updateDashboardRoute({ view: 'runs', runId: run.id, datasetId: null, sessionId: null })}
+        onAskDataset={(selectedDataset, prompt) =>
+          updateDashboardRoute({
+            view: 'assistant',
+            datasetId: selectedDataset.id,
+            runId: null,
+            sessionId: null,
+            draft: prompt?.trim() || null,
+          })}
       />
     )
   } else if (route.view === 'datasets' && route.datasetId && !dataError) {

@@ -119,6 +119,10 @@ async function assertRenderedDatasetDetail() {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=datasets&datasetId=dataset-alpha-book`, { waitUntil: 'domcontentloaded' })
     await page.getByRole('heading', { name: 'Alpha Book Sample' }).waitFor({ timeout: 15000 })
+    await page.getByText('Ask about this dataset', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Ask about Alpha Book Sample' }).waitFor({ timeout: 15000 })
+    await page.getByText('do not need to copy a dataset id', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByText('clarify scope', { exact: false }).waitFor({ timeout: 15000 })
     await page.getByText('Trust summary', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Source provenance', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'Refresh briefing' }).waitFor({ timeout: 15000 })
@@ -127,6 +131,30 @@ async function assertRenderedDatasetDetail() {
     if (await page.getByText('Alpha Book research planning', { exact: true }).count()) {
       throw new Error('Dataset detail should not show unrelated chat history in the primary sidebar.')
     }
+  } finally {
+    await browser.close()
+  }
+}
+
+async function assertDatasetScopedAskRouting() {
+  const browser = await chromium.launch({ headless: true })
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+    await page.goto(`${baseUrl}/?harness=1&view=datasets&datasetId=dataset-alpha-book`, { waitUntil: 'domcontentloaded' })
+    await page.getByLabel('Your research question').fill('Which authors look most useful to compare first?')
+    await page.getByRole('button', { name: 'Ask about Alpha Book Sample' }).click()
+    await page.getByRole('heading', { name: 'Ask about Alpha Book Sample' }).waitFor({ timeout: 15000 })
+    await page.getByText('already attached to this chat', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByText('clarify broad requests before it launches any expensive work', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByLabel('Message input').waitFor({ timeout: 15000 })
+    await page.getByLabel('Message input').evaluate((node) => {
+      if (!(node instanceof HTMLTextAreaElement)) {
+        throw new Error('Expected message input to be a textarea.')
+      }
+      if (node.value !== 'Which authors look most useful to compare first?') {
+        throw new Error(`Unexpected draft value: ${node.value}`)
+      }
+    })
   } finally {
     await browser.close()
   }
@@ -255,6 +283,7 @@ try {
   await assertTopicGuidedDatasetSelection()
   await assertRenderedEmptyDatasetSetup()
   await assertRenderedDatasetDetail()
+  await assertDatasetScopedAskRouting()
   await assertDescribeRunSteering()
   await assertCompletedRunArtifactsSteering()
   await assertRunningRunStatusSteering()

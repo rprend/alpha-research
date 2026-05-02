@@ -1088,11 +1088,41 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
     })
   }
 
+  let assistantInput = input
+  if (datasetId) {
+    try {
+      const datasetPayload = await proxyToControlPlaneJson<{ dataset?: Record<string, unknown> }>(
+        env,
+        `/datasets/${encodeURIComponent(datasetId)}`,
+        { method: 'GET' },
+      )
+      const dataset = datasetPayload.dataset
+      const datasetName = dataset && typeof dataset.name === 'string' ? dataset.name : datasetId
+      const datasetDescription = dataset && typeof dataset.description === 'string' ? dataset.description.trim() : ''
+      assistantInput = [
+        `Current dataset context: ${datasetName} (${datasetId}).`,
+        datasetDescription ? `Dataset summary: ${datasetDescription}` : null,
+        'The user started from this dataset page, so treat this dataset as the default context and do not ask them to restate the dataset id.',
+        'If the request is broad or ambiguous, clarify scope before inspecting more data or starting an expensive run.',
+        '',
+        `User request: ${input}`,
+      ].filter(Boolean).join('\n')
+    } catch {
+      assistantInput = [
+        `Current dataset context: ${datasetId}.`,
+        'The user started from this dataset page, so treat this dataset as the default context and do not ask them to restate the dataset id.',
+        'If the request is broad or ambiguous, clarify scope before inspecting more data or starting an expensive run.',
+        '',
+        `User request: ${input}`,
+      ].join('\n')
+    }
+  }
+
   const tools = createResearchAgentTools(env, cliSession.email)
   const toolsByName = new Map(tools.map((tool) => [tool.name, tool]))
   let response = await callResponsesApi(env, {
     instructions: RESEARCH_AGENT_INSTRUCTIONS,
-    input,
+    input: assistantInput,
     previous_response_id: previousResponseId ?? undefined,
     tools: tools.map(buildToolSchema),
     parallel_tool_calls: false,

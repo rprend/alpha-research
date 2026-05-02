@@ -43,6 +43,10 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 ## Dataset Detail Expectations
 
 - The dataset detail page should answer trust-and-fit questions before it exposes implementation details.
+- The top of the dataset page should also expose a dataset-scoped ask path so users can move directly from “this is the data” to “ask a grounded question about it.”
+- Dataset-scoped asking should state plainly that the current dataset is attached automatically and the user does not need to copy an id or restate context.
+- If the initial question is broad, the assistant should clarify scope before launching expensive work; the dataset page should say that up front.
+- Before the user leaves the dataset page, the UI should explain the likely outputs from asking: direct answer, scoped plan, or a run with transcript and artifacts when work starts.
 - The top of the page should state what the dataset is good for, where it came from, how fresh it is, and the main limitation.
 - Summary metrics should explain the actual source, tables, formats, and limits, not only show counts.
 - The primary reading path should include the human-readable briefing, visible schema fields, and sample rows.

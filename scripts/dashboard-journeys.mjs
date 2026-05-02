@@ -260,7 +260,8 @@ export const DASHBOARD_JOURNEYS = [
     judgeQuestion: 'Did the dataset page help the user move from “this is the data” to “ask a grounded question about it” without manual context transfer?',
     steps: [
       { type: 'waitForText', text: 'Alpha Book Sample', timeoutMs: 15000 },
-      { type: 'waitForText', text: 'Dataset briefing', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Ask about this dataset', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Ask about Alpha Book Sample', timeoutMs: 15000 },
       { type: 'wait', ms: 1000 },
     ],
   }),
