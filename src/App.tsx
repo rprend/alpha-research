@@ -42,6 +42,11 @@ import {
   CardContent,
 } from '@/components/ui/card'
 import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from '@/components/ui/collapsible'
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -687,6 +692,20 @@ function summarizeActiveRunEvent(message: string, run: RunRecord) {
   return trimmed
 }
 
+function summarizeRunningPhase(activity: string) {
+  const trimmed = activity.trim().replace(/[.]+$/u, '')
+  if (/fetching public data sources/iu.test(trimmed)) {
+    return 'Fetching public data sources'
+  }
+  if (/validating requested fields/iu.test(trimmed)) {
+    return 'Validating requested fields'
+  }
+  if (/preserved the launch specification/iu.test(trimmed)) {
+    return 'Preserving launch specification'
+  }
+  return trimmed
+}
+
 function buildRunningRunSummary(
   run: RunRecord,
   payload: RunResultsResponse | null,
@@ -700,12 +719,16 @@ function buildRunningRunSummary(
   const currentActivity = lastProgress?.text
     ?? (lastEvent ? summarizeActiveRunEvent(lastEvent.message, run) : run.outputPreview?.trim())
     ?? 'Alpha Research is still working on this run.'
+  const phase = summarizeRunningPhase(currentActivity)
   const previousActivity = previousEvent ? summarizeActiveRunEvent(previousEvent.message, run) : null
 
   return {
-    title: `${dataset?.name ?? 'This run'} is still running`,
+    title: 'Run is alive',
+    statusTitle: `${dataset?.name ?? 'This run'} is still running`,
+    phase,
     currentActivity,
     lastActivityAt,
+    lastEventLabel: lastEvent?.message?.trim() ?? currentActivity,
     previousActivity,
     statusDetail: `Last meaningful update ${relativeTime(lastActivityAt)}.`,
   }
@@ -3780,6 +3803,7 @@ function RunDetailPage({
   )
   const artifactCount = visibleProducedArtifacts.length
   const isDescribeRun = run.type === 'describe'
+  const [detailsOpen, setDetailsOpen] = useState(false)
   const runDestinationCopy = isDescribeRun
     ? 'The durable briefing stays attached to this run and also updates the dataset detail page.'
     : 'The durable answer files stay attached to this run. Open artifacts here when they arrive, and use the transcript below for execution detail.'
@@ -3836,23 +3860,36 @@ function RunDetailPage({
                 <Badge variant="secondary">{dataset?.name ?? 'Run'}</Badge>
                 <StatusBadge>{formatStatus(run.status)}</StatusBadge>
               </div>
-              <div className="grid gap-3 md:grid-cols-3">
-                <div className="rounded-xl border border-border bg-background px-4 py-4">
-                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Run id</div>
-                  <div className="mt-2 break-all text-sm font-semibold text-foreground">{run.id}</div>
-                </div>
-                <div className="rounded-xl border border-border bg-background px-4 py-4">
-                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Expected artifacts</div>
-                  <div className="mt-2 text-sm font-semibold text-foreground">{expectedArtifactNames.length}</div>
-                  <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                    {expectedArtifactNames.join(', ')}
+              {isRunningRun ? (
+                <div className="space-y-2 text-sm leading-6 text-muted-foreground">
+                  <p>
+                    Monitoring live run <span className="font-medium text-foreground">{run.id}</span>. Alpha Research will keep refreshing this page while work continues.
                   </p>
+                  <div>
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Expected outputs</div>
+                    <p>{expectedArtifactNames.join(', ')}</p>
+                  </div>
+                  <p>{runDestinationCopy}</p>
                 </div>
-                <div className="rounded-xl border border-border bg-background px-4 py-4">
-                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Destination</div>
-                  <p className="mt-2 text-sm leading-6 text-foreground/85">{runDestinationCopy}</p>
+              ) : (
+                <div className="grid gap-3 md:grid-cols-3">
+                  <div className="rounded-xl border border-border bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Run id</div>
+                    <div className="mt-2 break-all text-sm font-semibold text-foreground">{run.id}</div>
+                  </div>
+                  <div className="rounded-xl border border-border bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Expected artifacts</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">{expectedArtifactNames.length}</div>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                      {expectedArtifactNames.join(', ')}
+                    </p>
+                  </div>
+                  <div className="rounded-xl border border-border bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Destination</div>
+                    <p className="mt-2 text-sm leading-6 text-foreground/85">{runDestinationCopy}</p>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </section>
           {isCompletedRun && artifactCount > 0 ? (
@@ -3918,9 +3955,16 @@ function RunDetailPage({
                     {runningSummary.currentActivity}
                   </p>
                 </div>
-                <div className="grid gap-3 md:grid-cols-3">
+                <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
                   <div className="rounded-xl border border-sky-200 bg-background px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Last update</div>
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Current phase</div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">{runningSummary.phase}</div>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                      {runningSummary.statusTitle}
+                    </p>
+                  </div>
+                  <div className="rounded-xl border border-sky-200 bg-background px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Last heartbeat</div>
                     <div className="mt-2 text-sm font-semibold text-foreground">{relativeTime(runningSummary.lastActivityAt)}</div>
                     <p className="mt-1 text-sm leading-6 text-muted-foreground">
                       {formatDateTime(runningSummary.lastActivityAt)}
@@ -3947,6 +3991,10 @@ function RunDetailPage({
                     <p className="mt-2 text-sm leading-6 text-foreground/85">{runningSummary.previousActivity}</p>
                   </div>
                 ) : null}
+                <div className="rounded-xl border border-sky-200 bg-background px-4 py-4">
+                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Latest evidence</div>
+                  <p className="mt-2 text-sm leading-6 text-foreground/85">{runningSummary.lastEventLabel}</p>
+                </div>
               </div>
             </section>
           ) : null}
@@ -4040,6 +4088,49 @@ function RunDetailPage({
               unframed
             />
           </section>
+          {isRunningRun ? (
+            <section className="mt-6">
+              <Collapsible open={detailsOpen} onOpenChange={setDetailsOpen}>
+                <div className="rounded-2xl border border-border bg-card/50">
+                  <CollapsibleTrigger asChild>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="flex w-full items-center justify-between rounded-2xl px-5 py-4 text-left"
+                      aria-label={detailsOpen ? 'Hide run details' : 'Show run details'}
+                    >
+                      <div>
+                        <div className="text-sm font-semibold text-foreground">Run details</div>
+                        <p className="text-sm text-muted-foreground">
+                          Technical metadata and expected outputs for debugging or handoff.
+                        </p>
+                      </div>
+                      {detailsOpen ? <ChevronDown className="size-4 shrink-0" /> : <ChevronRight className="size-4 shrink-0" />}
+                    </Button>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="border-t border-border px-5 py-5">
+                    <div className="grid gap-3 md:grid-cols-3">
+                      <div className="rounded-xl border border-border bg-background px-4 py-4">
+                        <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Run id</div>
+                        <div className="mt-2 break-all text-sm font-semibold text-foreground">{run.id}</div>
+                      </div>
+                      <div className="rounded-xl border border-border bg-background px-4 py-4">
+                        <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Expected artifacts</div>
+                        <div className="mt-2 text-sm font-semibold text-foreground">{expectedArtifactNames.length}</div>
+                        <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                          {expectedArtifactNames.join(', ')}
+                        </p>
+                      </div>
+                      <div className="rounded-xl border border-border bg-background px-4 py-4">
+                        <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Destination</div>
+                        <p className="mt-2 text-sm leading-6 text-foreground/85">{runDestinationCopy}</p>
+                      </div>
+                    </div>
+                  </CollapsibleContent>
+                </div>
+              </Collapsible>
+            </section>
+          ) : null}
         </div>
       </div>
 

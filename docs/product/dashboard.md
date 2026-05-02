@@ -9,7 +9,7 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Track remote runs by dataset, type, prompt, status, and timestamps.
 - Open run details with observed progress, remote Codex transcript, and a resizable file explorer/viewer for produced run artifacts.
 - Completed run detail should lead with the result hierarchy: a plain-language finished state, the primary answer artifact, the structured companion if present, and a labeled `Artifacts (n)` control.
-- Running run detail should lead with liveness: `Running`, a plain-English current step, humanized recency, an explicit auto-refresh cue, and a clear `no action needed` reassurance unless the product has evidence of trouble.
+- Running run detail should lead with liveness: an explicit `Run is alive` verdict, the current phase in plain English, humanized heartbeat recency, an explicit auto-refresh cue, and a clear `no action needed` reassurance unless the product has evidence of trouble.
 - Inspect terminal sessions proxied through Alpha Research.
 
 ## Terminal Session Expectations
@@ -27,7 +27,7 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Every row should make the underlying question legible even when the same dataset appears multiple times.
 - Status styling should encode urgency and explain unclear failure states such as `Worker Unreachable` in plain language.
 - Completed runs should indicate whether artifacts or linked sessions exist so a user can tell if there is anything worth opening.
-- In-progress runs should read like live monitors rather than developer inspectors; raw config, runner ids, and other diagnostics belong in collapsed or secondary treatment.
+- In-progress runs should read like live monitors rather than developer inspectors; raw config, run ids, runner ids, and other diagnostics belong in collapsed or secondary treatment.
 - The primary action to open the run should read like the next step, not like incidental table chrome.
 
 ## Dataset Inventory Expectations
