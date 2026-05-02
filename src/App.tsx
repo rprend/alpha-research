@@ -5932,7 +5932,7 @@ function LandingPage() {
     }
   }, [])
 
-  const authLabel = session?.authenticated && session.user ? 'Dashboard' : 'login'
+  const authLabel = session?.authenticated && session.user ? 'Dashboard' : 'Sign in'
 
   return (
     <div className="landing-page">
@@ -6033,12 +6033,25 @@ function LandingPage() {
                   <span>Open-source code</span>
                   <span>Private dataset path via CLI</span>
                 </div>
+                <div className="hero-evidence-links">
+                  <a href="#proof">Inspect proof on this page</a>
+                  <a
+                    href="https://github.com/zenobia-pay/alphabook"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Inspect code
+                  </a>
+                </div>
               </article>
             </div>
 
             <div className="hero-links">
+              <a className="hero-button" href="#proof">
+                Inspect a real research run
+              </a>
               <a
-                className="hero-button"
+                className="hero-button hero-button-secondary"
                 href="https://alpha-book.org/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -6054,6 +6067,96 @@ function LandingPage() {
               custom integrations for libraries, museums, research groups, and enterprise teams.
             </p>
             {authError ? <p className="auth-status" data-state="error">{authError}</p> : null}
+          </section>
+
+          <section className="proof-block" id="proof" aria-labelledby="proof-heading">
+            <div className="proof-header">
+              <p className="section-kicker">Proof, not promises</p>
+              <h2 id="proof-heading">Inspect a concrete dataset, question, and output path before you install anything.</h2>
+              <p className="proof-summary">
+                Start with a real public corpus, inspect the kind of evidence Alpha Research returns,
+                then decide whether to keep evaluating the product or bring your own data.
+              </p>
+            </div>
+
+            <div className="proof-strip" aria-label="Proof path">
+              <article className="proof-step-card">
+                <span className="proof-step-eyebrow">1. Dataset</span>
+                <h3>Alpha Book</h3>
+                <p>Project Gutenberg mirror with 75,000 public-domain books and source passages you can inspect.</p>
+                <a href="https://alpha-book.org/" target="_blank" rel="noopener noreferrer">Open dataset example</a>
+              </article>
+
+              <article className="proof-step-card">
+                <span className="proof-step-eyebrow">2. Question</span>
+                <h3>Hypothesis-driven query</h3>
+                <p>Ask a bounded research question, collect cited passages, and save the run for follow-up analysis.</p>
+                <a href="/cli/">See the private-dataset CLI path</a>
+              </article>
+
+              <article className="proof-step-card">
+                <span className="proof-step-eyebrow">3. Output</span>
+                <h3>Inspectable artifacts</h3>
+                <p>Review cited passages, saved tables, analysis notes, and code-backed outputs instead of a one-shot answer.</p>
+                <a href="https://github.com/zenobia-pay/alphabook" target="_blank" rel="noopener noreferrer">Inspect the open-source implementation</a>
+              </article>
+            </div>
+
+            <div className="proof-case-study">
+              <article className="proof-artifact-card" aria-labelledby="artifact-preview-heading">
+                <div className="proof-artifact-header">
+                  <div>
+                    <span className="hero-demo-label">Example artifact preview</span>
+                    <h3 id="artifact-preview-heading">What a useful research output looks like</h3>
+                  </div>
+                  <span className="proof-artifact-badge">Inspectable output</span>
+                </div>
+
+                <div className="proof-artifact-grid">
+                  <div className="proof-artifact-panel">
+                    <span className="proof-panel-label">Input</span>
+                    <p>Question: “How does grief change across 19th century British novels?”</p>
+                  </div>
+                  <div className="proof-artifact-panel">
+                    <span className="proof-panel-label">Method</span>
+                    <p>Search the corpus, gather candidate passages, filter by topic, then save the evidence bundle.</p>
+                  </div>
+                  <div className="proof-artifact-panel proof-artifact-panel-wide">
+                    <span className="proof-panel-label">Output preview</span>
+                    <pre className="proof-output-preview">
+{`run-summary.md
+
+Claim
+- Grief shifts from private shock to social negotiation across the sampled novels.
+
+Evidence
+- "She could not speak..." — Jane Austen, Persuasion
+- "His sorrow took the form..." — Elizabeth Gaskell, North and South
+
+Saved artifacts
+- cited-passages.csv
+- notes.md
+- result.json`}
+                    </pre>
+                  </div>
+                </div>
+              </article>
+
+              <article className="proof-credibility-card" aria-labelledby="credibility-heading">
+                <span className="hero-demo-label">Why trust this?</span>
+                <h3 id="credibility-heading">Clear path from claim to evidence</h3>
+                <ul className="proof-credibility-list">
+                  <li>Live public example dataset: Alpha Book on Project Gutenberg.</li>
+                  <li>Inspectable product path: dataset, question, and saved artifacts are explicit.</li>
+                  <li>Open-source implementation: review the code behind the public example.</li>
+                  <li>Private-dataset path: use the CLI when the public example matches your workflow.</li>
+                </ul>
+                <div className="proof-credibility-links">
+                  <a href="https://alpha-book.org/" target="_blank" rel="noopener noreferrer">Inspect the live example</a>
+                  <a href="https://github.com/zenobia-pay/alphabook" target="_blank" rel="noopener noreferrer">Review the code</a>
+                </div>
+              </article>
+            </div>
           </section>
 
           <section className="about-block" id="about">
@@ -6076,14 +6179,14 @@ function LandingPage() {
 
           <section className="powering-block" id="powering">
             <h2 className="split-heading">
-              <span>Examples and datasets</span>
+              <span>Live examples and planned coverage</span>
             </h2>
 
             <div className="powering-list">
               <a className="list-row" href="https://alpha-book.org" target="_blank" rel="noopener noreferrer">
                 <div className="list-row-top">
                   <span className="list-row-title">Alpha Book</span>
-                  <span className="list-row-meta">75,000 public domain books</span>
+                  <span className="list-row-meta">live now · 75,000 public domain books</span>
                 </div>
                 <span className="list-row-subline">
                   Search a Project Gutenberg mirror, inspect passages, and gather evidence for literary research.
@@ -6093,6 +6196,7 @@ function LandingPage() {
               <a className="list-row" href="https://scenewiki.net" target="_blank" rel="noopener noreferrer">
                 <div className="list-row-top">
                   <span className="list-row-title">Scene Wiki</span>
+                  <span className="list-row-meta">live now</span>
                 </div>
                 <span className="list-row-subline">
                   Build a searchable wiki for a fandom, podcast archive, or online community.
@@ -6102,7 +6206,7 @@ function LandingPage() {
               <div className="list-row list-row-static">
                 <div className="list-row-top">
                   <span className="list-row-title">Economics datasets</span>
-                  <span className="list-row-meta">next up</span>
+                  <span className="list-row-meta">planned</span>
                 </div>
                 <span className="list-row-subline">
                   Planned coverage for U.S. Census Bureau, Fannie Mae, BLS, and NBER-style research workflows.
@@ -6122,17 +6226,20 @@ function LandingPage() {
           <section className="quote-block" id="quote">
             <p className="section-kicker">Open source and inspectable</p>
             <article className="tweet-card">
-              <h2>Why skeptical researchers keep reading</h2>
+              <h2>What to inspect next</h2>
               <p className="quote-block-copy">
-                Alpha Research is not just a prompt box. It is designed to leave behind inspectable
-                evidence: cited passages, saved tables, scripts, and run artifacts that make the work auditable.
+                Alpha Research is designed to leave behind inspectable evidence: cited passages,
+                saved tables, scripts, and run artifacts that make the work auditable.
               </p>
               <div className="quote-link-row">
                 <a href="https://github.com/zenobia-pay/alphabook" target="_blank" rel="noopener noreferrer">
-                  View open-source code
+                  1. View open-source code
                 </a>
                 <a href="https://alpha-book.org/" target="_blank" rel="noopener noreferrer">
-                  Open the live Alpha Book example
+                  2. Open the live Alpha Book example
+                </a>
+                <a href="/cli/">
+                  3. Bring your own dataset with the CLI
                 </a>
               </div>
             </article>
