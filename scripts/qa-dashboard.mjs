@@ -72,20 +72,21 @@ async function assertLandingPageUnderstanding() {
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(baseUrl, { waitUntil: 'domcontentloaded' })
-    await page.getByText('Open-source research platform', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByRole('heading', { name: 'Ask questions across large datasets, then inspect the evidence and outputs.' }).waitFor({ timeout: 15000 })
-    await page.getByText('hosted research app plus an open-source CLI', { exact: false }).waitFor({ timeout: 15000 })
-    await page.getByRole('link', { name: 'See Alpha Book example' }).waitFor({ timeout: 15000 })
-    await page.getByRole('link', { name: 'Bring your own dataset with the CLI' }).waitFor({ timeout: 15000 })
-    await page.getByText('What it is', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('What Alpha Research returns', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Private dataset path via CLI', { exact: true }).waitFor({ timeout: 15000 })
-    if (await page.getByText('RResearch', { exact: true }).count()) {
-      throw new Error('Landing page should not use the legacy RResearch label in primary navigation.')
-    }
-    if (await page.getByText('Open source, agentic knowledge bases for all of humanity\'s knowledge', { exact: true }).count()) {
-      throw new Error('Landing page hero should use the clarified product definition, not the old abstract headline.')
-    }
+    await page.getByRole('heading', { name: 'Open source, agentic knowledge bases for all of humanity\'s knowledge' }).waitFor({ timeout: 15000 })
+    await page.locator('img.hero-figure-image[alt="Illustration for Alpha Research"]').waitFor({ timeout: 15000 })
+    await page.getByText('Alpha Research builds open source agentic knowledge bases.', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByRole('link', { name: 'RResearch' }).first().waitFor({ timeout: 15000 })
+    await page.getByRole('link', { name: 'Bring your own dataset' }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Want a custom integration? Book a call' }).waitFor({ timeout: 15000 })
+    await page.getByText('Powering', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('AlphaEcon', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Knowledge bases allow agents to work like knowledge workers', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Andrej Karpathy', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'When to use Alpha Research' }).waitFor({ timeout: 15000 })
+    await assertPageTextMissing(page, 'What it is', 'Landing page should not render the intermediate card-based homepage.')
+    await assertPageTextMissing(page, 'Who it is for', 'Landing page should not render the intermediate card-based homepage.')
+    await assertPageTextMissing(page, 'Why it matters', 'Landing page should not render the intermediate card-based homepage.')
+    await assertPageTextMissing(page, 'What Alpha Research returns', 'Landing page should not render the intermediate workflow card.')
   } finally {
     await browser.close()
   }

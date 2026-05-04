@@ -5244,7 +5244,7 @@ function LandingPage() {
   const [authError, setAuthError] = useState<string>('')
 
   useEffect(() => {
-    document.title = 'Alpha Research | Research platform for datasets and private archives'
+    document.title = 'Alpha Research: Open source knowledge bases for all humanity'
     initCal()
     void fetchSession()
       .then((result) => setSession(result))
@@ -5278,7 +5278,7 @@ function LandingPage() {
             </a>
 
             <nav className="top-links" aria-label="Primary">
-              <a className="underlined-link" href="/cli/">RESEARCH CLI</a>
+              <a className="underlined-link" href="/cli/">RResearch</a>
               <a className="button-small ghost-button" href="/blog/">blog</a>
               <button
                 className="button-small ghost-button auth-button"
@@ -5312,99 +5312,69 @@ function LandingPage() {
               <span>Backed by YCombinator</span>
             </div>
 
-            <p className="hero-kicker">Open-source research platform</p>
-            <h1>Ask questions across large datasets, then inspect the evidence and outputs.</h1>
-            <p className="hero-summary">
-              Alpha Research is a hosted research app plus an open-source CLI for researchers,
-              analysts, libraries, and archives. Use it on public corpora like Project Gutenberg
-              or point it at your own private dataset.
-            </p>
+            <h1>Open source, agentic knowledge bases for all of humanity&apos;s knowledge</h1>
 
-            <div className="hero-highlights" aria-label="What Alpha Research helps you do">
-              <article className="hero-highlight-card">
-                <h2>What it is</h2>
-                <p>An app and CLI for agentic search, evidence collection, and hypothesis testing.</p>
-              </article>
-              <article className="hero-highlight-card">
-                <h2>Who it is for</h2>
-                <p>Researchers and data teams working with books, papers, scans, images, and archival data.</p>
-              </article>
-              <article className="hero-highlight-card">
-                <h2>Why it matters</h2>
-                <p>You get cited evidence, reusable artifacts, and traceable runs instead of vague chat answers.</p>
-              </article>
-            </div>
+            <img
+              className="hero-figure-image"
+              src="/alpha-research-man.png"
+              alt="Illustration for Alpha Research"
+              width="1456"
+              height="816"
+            />
 
-            <div className="hero-proof-grid">
-              <article className="hero-demo-card" aria-label="Example Alpha Research workflow">
-                <div className="hero-demo-query">
-                  <span className="hero-demo-label">Example question</span>
-                  <p>How does grief change across 19th century British novels?</p>
-                </div>
-                <div className="hero-demo-arrow" aria-hidden="true">→</div>
-                <div className="hero-demo-result">
-                  <span className="hero-demo-label">What Alpha Research returns</span>
-                  <ul className="hero-demo-list">
-                    <li>Cited passages from relevant books</li>
-                    <li>A reusable dataset slice for follow-up analysis</li>
-                    <li>Saved run artifacts you can inspect and share</li>
-                  </ul>
-                </div>
-              </article>
-
-              <article className="hero-evidence-card" aria-label="Current proof points">
-                <span className="hero-demo-label">Live now</span>
-                <h2>Alpha Book</h2>
-                <p>75,000 Project Gutenberg books mirrored for research-grade search and evidence review.</p>
-                <div className="hero-evidence-metrics">
-                  <span>Hosted example dataset</span>
-                  <span>Open-source code</span>
-                  <span>Private dataset path via CLI</span>
-                </div>
-              </article>
+            <div className="hero-lede">
+              <p>
+                Alpha Research builds open source agentic knowledge bases. Our mission is to help
+                knowledge workers work 100x faster. We launched and{' '}
+                <a href="https://github.com/zenobia-pay/alphabook" target="_blank" rel="noopener noreferrer">
+                  open sourced
+                </a>{' '}
+                our first platform,{' '}
+                <a href="https://alpha-book.org/" target="_blank" rel="noopener noreferrer">
+                  Alpha Book
+                </a>{' '}
+                on a mirror of the Project Gutenberg dataset (75,000 books).
+              </p>
+              <p>
+                Knowledge work is bottlenecked in two key ways: finding evidence and testing
+                hypotheses. We make both 100x faster. We extend keyword search and RAG with general
+                coding agents, which use filesystem tools like ripgrep and reason iteratively to
+                find broad evidence. Coding agents also write ad-hoc scripts to label datasets and
+                test hypotheses.
+              </p>
+              <p>
+                Our timeline is simple: repeat Alpha Book across every public dataset of humanity&apos;s
+                knowledge. Next we&apos;ll launch Alpha Econ with US Census, BLS, NBER, etc datasets.
+                Alpha Justice with US Supreme Court Cases, and so on. We support museums, research
+                libraries, historical societies, and archives. We also do custom integration work
+                for enterprise.
+              </p>
             </div>
 
             <div className="hero-links">
-              <a
-                className="hero-button"
-                href="https://alpha-book.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                See Alpha Book example
-              </a>
               <a className="hero-button hero-button-secondary" href="/cli/">
-                Bring your own dataset with the CLI
+                Bring your own dataset
               </a>
+              <button
+                type="button"
+                className="hero-button"
+                data-cal-link="ryan-prendergast-qsp5cw/30min"
+                data-cal-namespace="30min"
+                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+              >
+                Want a custom integration? Book a call
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m12.75 15 3-3m0 0-3-3m3 3h-7.5"></path>
+                  <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+                </svg>
+              </button>
             </div>
-            <p className="hero-support-copy">
-              Working with private or institutional data? We support self-serve CLI setup and
-              custom integrations for libraries, museums, research groups, and enterprise teams.
-            </p>
             {authError ? <p className="auth-status" data-state="error">{authError}</p> : null}
-          </section>
-
-          <section className="about-block" id="about">
-            <h2>How researchers use Alpha Research</h2>
-            <ol className="about-list">
-              <li>
-                <span className="about-list-title">Search for evidence.</span> Ask a question over a
-                prepared corpus and inspect the exact passages, images, or records that support the answer.
-              </li>
-              <li>
-                <span className="about-list-title">Test a hypothesis.</span> Use coding agents to
-                label data, run one-off analyses, and save the resulting artifacts for later review.
-              </li>
-              <li>
-                <span className="about-list-title">Work with public or private data.</span> Start on
-                a hosted public dataset, or use the CLI to connect your own files and archives.
-              </li>
-            </ol>
           </section>
 
           <section className="powering-block" id="powering">
             <h2 className="split-heading">
-              <span>Examples and datasets</span>
+              <span>Powering</span>
             </h2>
 
             <div className="powering-list">
@@ -5414,7 +5384,8 @@ function LandingPage() {
                   <span className="list-row-meta">75,000 public domain books</span>
                 </div>
                 <span className="list-row-subline">
-                  Search a Project Gutenberg mirror, inspect passages, and gather evidence for literary research.
+                  Mirror of Project Gutenberg with 75,000 public domain books and primary sources.
+                  Useful for literary research.
                 </span>
               </a>
 
@@ -5423,47 +5394,93 @@ function LandingPage() {
                   <span className="list-row-title">Scene Wiki</span>
                 </div>
                 <span className="list-row-subline">
-                  Build a searchable wiki for a fandom, podcast archive, or online community.
+                  Scrape and label an online community and build a wiki for it.
                 </span>
               </a>
 
               <div className="list-row list-row-static">
                 <div className="list-row-top">
-                  <span className="list-row-title">Economics datasets</span>
-                  <span className="list-row-meta">next up</span>
+                  <span className="list-row-title">AlphaEcon</span>
+                  <span className="list-row-meta">coming soon</span>
                 </div>
                 <span className="list-row-subline">
-                  Planned coverage for U.S. Census Bureau, Fannie Mae, BLS, and NBER-style research workflows.
+                  Agentic search and test over U.S. Census Bureau, Fannie Mae, BLS, NBER.
                 </span>
               </div>
 
               <div className="list-row list-row-static">
                 <div className="list-row-top">
-                  <span className="list-row-title">Legal and archival corpora</span>
-                  <span className="list-row-meta">planned</span>
+                  <span className="list-row-title">Alpha Justice</span>
+                  <span className="list-row-meta">coming soon</span>
                 </div>
-                <span className="list-row-subline">Supreme Court cases, primary sources, scans, and institutional archives.</span>
+                <span className="list-row-subline">Every U.S. Supreme Court case.</span>
               </div>
             </div>
           </section>
 
           <section className="quote-block" id="quote">
-            <p className="section-kicker">Open source and inspectable</p>
+            <p className="section-kicker">Knowledge bases allow agents to work like knowledge workers</p>
             <article className="tweet-card">
-              <h2>Why skeptical researchers keep reading</h2>
-              <p className="quote-block-copy">
-                Alpha Research is not just a prompt box. It is designed to leave behind inspectable
-                evidence: cited passages, saved tables, scripts, and run artifacts that make the work auditable.
-              </p>
-              <div className="quote-link-row">
-                <a href="https://github.com/zenobia-pay/alphabook" target="_blank" rel="noopener noreferrer">
-                  View open-source code
-                </a>
-                <a href="https://alpha-book.org/" target="_blank" rel="noopener noreferrer">
-                  Open the live Alpha Book example
-                </a>
+              <div className="tweet-card-header">
+                <img
+                  className="tweet-avatar-image"
+                  src="https://pbs.twimg.com/profile_images/1296667294148382721/9Pr6XrPB_400x400.jpg"
+                  alt="Andrej Karpathy profile photo"
+                />
+                <div className="tweet-meta">
+                  <span className="tweet-author">Andrej Karpathy</span>
+                  <a
+                    className="tweet-handle"
+                    href="https://x.com/karpathy/status/2039805659525644595"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    @karpathy
+                  </a>
+                </div>
+              </div>
+
+              <div className="tweet-body">
+                <p>
+                  Something I&apos;m finding very useful recently: using LLMs to build personal
+                  knowledge bases for various topics of research interest. In this way, a large
+                  fraction of my recent token throughput is going less into manipulating code, and
+                  more into manipulating knowledge (stored as markdown and images)...
+                </p>
               </div>
             </article>
+          </section>
+
+          <section className="about-block" id="about">
+            <h2>When to use Alpha Research</h2>
+            <ol className="about-list">
+              <li>
+                <span className="about-list-title">Search.</span> Looking for evidence? We compile and
+                index public plaintext and image datasets for you to access.
+              </li>
+              <li>
+                <span className="about-list-title">Hypothesis testing.</span> Suppose you&apos;re a
+                historian. You are writing a thesis on grief in 19th century fiction. Alpha
+                Research finds evidence for you. Suppose you&apos;re an economist. You might have a
+                thesis &quot;Periods of compressed time-to-sale in housing correlate with above-ask
+                transactions and predict mean reversion within 18 months.&quot; Alpha Research runs that
+                experiment for you.
+              </li>
+              <li>
+                <span className="about-list-title">Agentic knowledge workers.</span> Autonomous
+                research loops that plan → retrieve → filter → synthesize → verify
+              </li>
+              <li>
+                <span className="about-list-title">Fandom, wikis.</span> Online communities have years
+                of canon. Drive higher quality engagement and help onboard new members to your
+                community by building a knowledge base for a Substack or a podcast.
+              </li>
+              <li>
+                <span className="about-list-title">Alpha Search is open source.</span> We are proud to
+                support research institutes, museums, presidential libraries, historical societies,
+                and enterprise.
+              </li>
+            </ol>
           </section>
 
           <section className="faq-block" id="faq">
@@ -5476,9 +5493,11 @@ function LandingPage() {
                   <span className="faq-summary-icon" aria-hidden="true">+</span>
                 </summary>
                 <p>
-                  Alpha Research is a research platform and CLI for searching large datasets,
-                  collecting evidence, and running hypothesis-driven analysis. You can use hosted
-                  public corpora such as Alpha Book or connect your own private dataset.
+                  We build open source tooling for knowledge workers to work faster. The Alpha
+                  Research platform enables agentic search and hypothesis testing over large
+                  databases. Starting with Project Gutenberg, we are expanding to add datasets in
+                  law, economics, history, and every other archived dataset. Our mission is to
+                  enable a new wave of quantitative humanities research.
                 </p>
               </details>
 
@@ -5488,9 +5507,8 @@ function LandingPage() {
                   <span className="faq-summary-icon" aria-hidden="true">+</span>
                 </summary>
                 <p>
-                  Yes. Install the RESEARCH CLI and point it at your own dataset, or book a call{' '}
-                  <a href="https://cal.com/ryan-prendergast-qsp5cw/30min" target="_blank" rel="noopener noreferrer">here</a>{' '}
-                  if you want help with setup for a private or institutional corpus.
+                  Yes. Install the RESEARCH CLI above and point it at your own dataset, or book a
+                  call <a href="https://cal.com/ryan-prendergast-qsp5cw/30min" target="_blank" rel="noopener noreferrer">here</a> if you want us to help with setup.
                 </p>
               </details>
 
@@ -5500,8 +5518,8 @@ function LandingPage() {
                   <span className="faq-summary-icon" aria-hidden="true">+</span>
                 </summary>
                 <p>
-                  Large reference datasets made of text and images: books, papers, photos, scans,
-                  court cases, catalog records, and other primary-source archives.
+                  Large datasets of reference text and images. Books, papers, films, photos,
+                  scans. Primary sources and archival datasets.
                 </p>
               </details>
 
@@ -5511,8 +5529,9 @@ function LandingPage() {
                   <span className="faq-summary-icon" aria-hidden="true">+</span>
                 </summary>
                 <p>
-                  Individual researchers can start with hosted public datasets or the CLI. We also
-                  work with libraries, museums, archives, research institutes, and enterprise teams.
+                  Individual researchers can sign up, ask questions, and test hypotheses. We are
+                  also proud to support research institutes, museums, presidential libraries,
+                  historical societies, and enterprises.
                 </p>
               </details>
 
@@ -5543,7 +5562,7 @@ function LandingPage() {
 
           <div className="footer-copy">
             <div className="footer-links">
-              <a href="/cli/">RESEARCH CLI</a>
+              <a href="/cli/">RResearch</a>
               <a href="/blog/">blog</a>
               <a href="/privacy/">privacy</a>
               <a href="/terms/">terms</a>
