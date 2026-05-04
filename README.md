@@ -98,6 +98,33 @@ pnpm build
 
 For full auth route testing, run via Wrangler Worker dev so the routed auth handlers and worker secrets are active.
 
+## Codex Plugin
+
+The local Codex plugin for Alpha Research is bundled with the dataset/CLI repo, not this Worker repo:
+
+```bash
+cd "/Users/ryanprendergast/Documents/Zenobia Pay/alpha-datasets"
+npm install
+npm run build
+mkdir -p ~/.codex/plugins
+rm -rf ~/.codex/plugins/alpha-research
+cp -R plugins/alpha-research ~/.codex/plugins/alpha-research
+```
+
+The plugin MCP server imports the built RESEARCH CLI runtime and uses the saved `research login` session. Its `.mcp.json` sets `ALPHA_RESEARCH_REPO_ROOT` to the local `alpha-datasets` checkout, so build that repo before opening a new Codex thread with the plugin enabled.
+
+Smoke-test the installed server manually:
+
+```bash
+ALPHA_RESEARCH_REPO_ROOT="/Users/ryanprendergast/Documents/Zenobia Pay/alpha-datasets" \
+  node ~/.codex/plugins/alpha-research/mcp/server.js <<'EOF'
+{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}
+{"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}
+EOF
+```
+
+The plugin must not print session tokens, auth headers, or signed upload/download URLs. See `docs/codex-plugin-smoke-report.md` for the latest live-account verification transcript.
+
 ## Notes
 
 - This project now runs as a Worker with static assets.
