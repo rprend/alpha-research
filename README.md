@@ -100,24 +100,28 @@ For full auth route testing, run via Wrangler Worker dev so the routed auth hand
 
 ## Codex Plugin
 
-The local Codex plugin for Alpha Research is bundled with the dataset/CLI repo, not this Worker repo:
+The Alpha Research Codex plugin is published as a Codex plugin marketplace:
 
 ```bash
-cd "/Users/ryanprendergast/Documents/Zenobia Pay/alpha-datasets"
-npm install
-npm run build
-mkdir -p ~/.codex/plugins
-rm -rf ~/.codex/plugins/alpha-research
-cp -R plugins/alpha-research ~/.codex/plugins/alpha-research
+codex plugin marketplace add rprend/alpha-research-codex-plugin
 ```
 
-The plugin MCP server imports the built RESEARCH CLI runtime and uses the saved `research login` session. Its `.mcp.json` sets `ALPHA_RESEARCH_REPO_ROOT` to the local `alpha-datasets` checkout, so build that repo before opening a new Codex thread with the plugin enabled.
+Then open the Codex desktop app plugin page, find **Alpha Research**, and install or enable it.
 
-Smoke-test the installed server manually:
+The marketplace repository is:
+
+```text
+https://github.com/rprend/alpha-research-codex-plugin
+```
+
+The plugin MCP server is standalone and uses the saved `research login` session at `~/.research/session.json`. It does not require a local `alpha-datasets` checkout.
+
+Smoke-test a checkout of the marketplace manually:
 
 ```bash
-ALPHA_RESEARCH_REPO_ROOT="/Users/ryanprendergast/Documents/Zenobia Pay/alpha-datasets" \
-  node ~/.codex/plugins/alpha-research/mcp/server.js <<'EOF'
+git clone https://github.com/rprend/alpha-research-codex-plugin.git
+cd alpha-research-codex-plugin
+node plugins/alpha-research/mcp/server.js <<'EOF'
 {"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}
 {"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}
 EOF
