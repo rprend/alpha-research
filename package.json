@@ -10,6 +10,8 @@
     "test:harness": "node scripts/validate-harness.mjs",
     "test:infra": "node scripts/validate-infrastructure-contract.mjs",
     "smoke:infra:live": "node scripts/live-infrastructure-smoke.mjs",
+    "canonical:improve:dry-run": "node scripts/canonical-improvement-job.mjs --dry-run",
+    "canonical:improve": "node scripts/canonical-improvement-job.mjs",
     "qa:dashboard": "pnpm build && node scripts/qa-dashboard.mjs",
     "journey:dashboard:capture": "node scripts/dashboard-journey-capture.mjs",
     "journey:dashboard:judge": "node scripts/dashboard-journey-judge.mjs",
