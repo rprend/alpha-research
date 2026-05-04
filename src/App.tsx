@@ -1511,7 +1511,16 @@ function summarizeResponseObject(value: Record<string, unknown>) {
   return codeBlock('Response payload', value)
 }
 
+function stripRawFunctionCallOutputBlock(value: string) {
+  if (!value.includes('function_call_output')) return value
+  const markerIndex = value.indexOf('function_call_output')
+  const blockStart = value.lastIndexOf('[', markerIndex)
+  if (blockStart === -1) return value
+  return value.slice(0, blockStart).trim()
+}
+
 function formatSessionBody(entry: SessionEntry) {
+  const body = stripRawFunctionCallOutputBlock(entry.body)
   const parsed = tryParseJson(entry.body)
   if (Array.isArray(parsed)) {
     return summarizeRequestArray(parsed)
@@ -1523,15 +1532,15 @@ function formatSessionBody(entry: SessionEntry) {
     return codeBlock(entry.title ?? 'Payload', parsed)
   }
   if (entry.title === 'Run started') {
-    const runId = entry.body.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/iu)?.[0]
+    const runId = body.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/iu)?.[0]
     if (runId) {
-      return `### ${entry.title}\n\n${entry.body}\n\n[Open run](${dashboardOrigin}?view=runs&runId=${encodeURIComponent(runId)})`
+      return `### ${entry.title}\n\n${body}\n\n[Open run](${dashboardOrigin}?view=runs&runId=${encodeURIComponent(runId)})`
     }
   }
   if (entry.title) {
-    return `### ${entry.title}\n\n${entry.body}`
+    return `### ${entry.title}\n\n${body}`
   }
-  return entry.body
+  return body
 }
 
 function toThreadMessage(entry: SessionEntry): ThreadMessage {

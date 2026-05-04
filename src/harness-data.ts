@@ -261,6 +261,15 @@ export const harnessSessions = [
         createdAt: iso(74),
       },
       {
+        id: 'entry-harness-tool-output',
+        sessionId: 'session-harness-remote',
+        role: 'tool',
+        kind: 'tool_result',
+        title: 'list_remote_datasets',
+        content: 'Found 10 remote datasets. Top matches for "alpha-book":\n\nAlpha Book Sample (ready, score 6) - name overlap\n[\n  {\n    "type": "function_call_output",\n    "call_id": "call_harness_raw_tool_output",\n    "output": "{\\"ok\\":true,\\"summary\\":\\"Found 10 remote datasets.\\"}"\n  }\n]',
+        createdAt: iso(73),
+      },
+      {
         id: 'entry-harness-summary',
         sessionId: 'session-harness-remote',
         role: 'assistant',

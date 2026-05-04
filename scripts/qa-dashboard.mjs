@@ -422,6 +422,7 @@ async function assertCompletedRunArtifactsSteering() {
     await assertPageTextMissing(page, 'Requested vs produced', 'Run summary should not render the old card-heavy artifact audit on the main page.')
     await assertPageTextMissing(page, 'Run finished', 'Run summary should not duplicate completion in a second card.')
     await assertPageTextMissing(page, 'Primary result', 'Run summary should not use extra result cards for the primary artifact.')
+    await assertPageTextMissing(page, 'function_call_output', 'Run transcript should not expose raw function-call output JSON.')
     await page.getByRole('button', { name: 'Open artifacts (3)' }).first().click()
     const artifactsPanel = page.getByLabel('Run artifacts')
     await artifactsPanel.getByText('Results and artifacts', { exact: true }).waitFor({ timeout: 15000 })
