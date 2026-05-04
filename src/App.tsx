@@ -258,6 +258,20 @@ function compactInlineText(value: string, maxLength: number) {
   return truncate(value.replace(/\s+/g, ' ').trim(), maxLength)
 }
 
+function looksLikeRawToolOutput(value: string | null | undefined) {
+  const text = value?.trim() ?? ''
+  if (!text) return false
+  return (
+    text.includes('function_call_output') ||
+    text.includes('"call_id"') ||
+    text.includes('"{\\"ok\\":') ||
+    text.startsWith('[ { "type":') ||
+    text.startsWith('[{"type":') ||
+    text.startsWith('{"ok":') ||
+    text.startsWith('{ "ok":')
+  )
+}
+
 function relativeTime(value: string) {
   const date = new Date(value)
   if (Number.isNaN(date.getTime())) {
@@ -466,6 +480,7 @@ function readableSessionTitle(value: string | null | undefined) {
     .replace(/\s+/g, ' ')
     .trim()
 
+  if (looksLikeRawToolOutput(normalized)) return 'Untitled chat'
   return normalized || 'Untitled chat'
 }
 
@@ -489,16 +504,13 @@ function sessionSummaryLine(
   dataset: DatasetRecord | undefined,
   run: RunRecord | undefined,
 ) {
-  const sessionKindLabel =
-    session.kind === 'cli_orchestration'
-      ? 'CLI handoff'
-      : session.kind === 'remote_codex'
-        ? 'Remote transcript'
-        : readableSessionKind(session.kind)
-  const target = dataset?.name ?? (run ? formatStatus(run.type) : null)
-  const status = sessionStatusDescription(session.status)
-  const updated = `Last active ${relativeTime(session.updatedAt)}`
-  return [sessionKindLabel, target ? `About ${target}` : null, status, updated].filter(Boolean).join(' · ')
+  if (dataset?.description?.trim() && !looksLikeRawToolOutput(dataset.description)) {
+    return compactInlineText(dataset.description, 72)
+  }
+  if (run?.prompt?.trim() && !looksLikeRawToolOutput(run.prompt)) {
+    return compactInlineText(run.prompt, 72)
+  }
+  return `Last active ${relativeTime(session.updatedAt)}`
 }
 
 function summarizePromptForHeader(prompt: string | null | undefined) {
@@ -522,50 +534,8 @@ function latestSessionEntry(
 
 function sessionPrimaryResearchPrompt(entries: StoredAssistantSessionEntry[] | undefined) {
   const prompt = latestSessionEntry(entries, (entry) => entry.role === 'user' && entry.content.trim().length > 0)
-  return prompt ? compactInlineText(prompt.content, 140) : null
-}
-
-function sessionRecapText(
-  session: StoredAssistantSession,
-  payload: RunResultsResponse | null,
-) {
-  const summaryArtifact = getRemoteAgentSummaryArtifact(payload)
-  if (summaryArtifact?.text) {
-    return compactInlineText(summaryArtifact.text, 180)
-  }
-  const assistantReply = latestSessionEntry(
-    session.entries,
-    (entry) => entry.role === 'assistant' && entry.content.trim().length > 0,
-  )
-  return assistantReply ? compactInlineText(assistantReply.content, 180) : 'Resume this thread from the saved transcript below.'
-}
-
-function sessionNextRecommendedAction(
-  run: RunRecord | null,
-  payload: RunResultsResponse | null,
-) {
-  const artifacts = (payload?.artifacts ?? []).filter((artifact) => artifact.type !== 'remote_agent_session')
-  const briefingArtifact = getDatasetBriefingArtifact(artifacts)
-  if (briefingArtifact) {
-    return `Open ${artifactPath(briefingArtifact)} to refresh the findings, then continue the thread with a follow-up question.`
-  }
-  if (run && isTerminalSuccessfulRun(run)) {
-    return 'Inspect the linked run to review outputs, then continue this thread with the next research question.'
-  }
-  if (run && run.status.toLowerCase() === 'running') {
-    return 'Open the linked run to watch progress, then return here when you are ready to continue.'
-  }
-  return 'Continue the thread from the composer below. Alpha Research will keep this prior context attached.'
-}
-
-function sessionRunSummaryLine(
-  run: RunRecord | null,
-  payload: RunResultsResponse | null,
-) {
-  if (!run) return 'No linked run was preserved for this thread.'
-  const artifactCount = (payload?.artifacts ?? []).filter((artifact) => artifact.type !== 'remote_agent_session').length
-  const artifactCopy = artifactCount > 0 ? `${artifactCount} saved output${artifactCount === 1 ? '' : 's'}` : 'No saved outputs yet'
-  return `${formatStatus(run.type)} · ${formatStatus(run.status)} · ${artifactCopy}`
+  if (!prompt || looksLikeRawToolOutput(prompt.content)) return null
+  return compactInlineText(prompt.content, 96)
 }
 
 function formatBytes(value: number | null | undefined) {
@@ -3586,23 +3556,14 @@ function useSessionDetail(sessionId: string | null) {
 function ResearchAssistantPage({
   dataError,
   datasets,
-  runs,
 }: {
   dataError?: string | null
   datasets: DatasetRecord[]
-  runs: RunRecord[]
 }) {
   const route = useDashboardRoute()
   const activeSessionId = route.sessionId ?? null
   const scopedDataset = route.datasetId ? datasets.find((dataset) => dataset.id === route.datasetId) ?? null : null
   const { session, error, loading } = useSessionDetail(activeSessionId)
-  const linkedRun = session?.runId ? runs.find((run) => run.id === session.runId) ?? null : null
-  const linkedDataset = session?.datasetId
-    ? datasets.find((dataset) => dataset.id === session.datasetId) ?? null
-    : linkedRun
-      ? datasets.find((dataset) => dataset.id === linkedRun.datasetId) ?? null
-      : scopedDataset
-  const linkedRunResults = useRunResults(linkedRun)
   const [messages, setMessages] = useState<ThreadMessage[]>([])
   const [isRunning, setIsRunning] = useState(false)
   const [composerError, setComposerError] = useState<string | null>(null)
@@ -3751,14 +3712,6 @@ function ResearchAssistantPage({
         </Card>
       ) : null}
       <div className="min-h-0 flex-1 overflow-hidden">
-        {session ? (
-          <AssistantResumeContextCard
-            session={session}
-            dataset={linkedDataset}
-            run={linkedRun}
-            runResults={linkedRunResults.payload}
-          />
-        ) : null}
         <AssistantRuntimeProvider runtime={runtime}>
           <div className="h-full min-h-0">
             <Thread
@@ -3775,105 +3728,6 @@ function ResearchAssistantPage({
         </AssistantRuntimeProvider>
       </div>
     </main>
-  )
-}
-
-function AssistantResumeContextCard({
-  session,
-  dataset,
-  run,
-  runResults,
-}: {
-  session: StoredAssistantSession
-  dataset: DatasetRecord | null
-  run: RunRecord | null
-  runResults: RunResultsResponse | null
-}) {
-  const prompt = sessionPrimaryResearchPrompt(session.entries)
-  const recap = sessionRecapText(session, runResults)
-  const nextAction = sessionNextRecommendedAction(run, runResults)
-  const artifacts = (runResults?.artifacts ?? []).filter((artifact) => artifact.type !== 'remote_agent_session')
-  const briefingArtifact = getDatasetBriefingArtifact(artifacts)
-  const latestAt = session.updatedAt
-
-  return (
-    <section className="mx-auto mb-4 w-full max-w-5xl">
-      <Card className="rounded-[24px] border border-border/70 bg-card/90 py-0 shadow-none">
-        <CardContent className="flex flex-col gap-5 px-6 py-6">
-          <div className="flex flex-wrap items-start justify-between gap-4">
-            <div className="space-y-2">
-              <div className="flex flex-wrap items-center gap-2">
-                <Badge variant="secondary">Continue last thread</Badge>
-                <StatusBadge>{sessionStatusDescription(session.status)}</StatusBadge>
-              </div>
-              <div>
-                <h1 className="text-2xl font-semibold tracking-normal">{readableSessionTitle(session.title)}</h1>
-                <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                  Last active {relativeTime(latestAt)} on {formatDateTime(latestAt)}.
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {run ? (
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={() => updateDashboardRoute({ view: 'runs', runId: run.id, sessionId: null })}
-                >
-                  Open linked run
-                </Button>
-              ) : null}
-              {briefingArtifact && run ? (
-                <Button
-                  type="button"
-                  onClick={() => updateDashboardRoute({ view: 'runs', runId: run.id, sessionId: null })}
-                >
-                  Open briefing artifact
-                </Button>
-              ) : (
-                <Button type="button" onClick={() => focusAssistantComposer()}>
-                  Continue thread
-                </Button>
-              )}
-            </div>
-          </div>
-
-          <div className="grid gap-3 md:grid-cols-4">
-            <div className="rounded-2xl border border-border/70 bg-background/90 px-4 py-4 md:col-span-2">
-              <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Research target</div>
-              <div className="mt-2 text-sm font-semibold text-foreground">{dataset?.name ?? 'Saved session context'}</div>
-              <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                {prompt ?? 'Prior messages are loaded below so you can continue without remembering ids.'}
-              </p>
-            </div>
-            <div className="rounded-2xl border border-border/70 bg-background/90 px-4 py-4">
-              <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Linked run</div>
-              <div className="mt-2 text-sm font-semibold text-foreground">
-                {run ? `${formatStatus(run.type)} for ${dataset?.name ?? 'this research target'}` : 'Not linked'}
-              </div>
-              <p className="mt-1 text-sm leading-6 text-muted-foreground">{sessionRunSummaryLine(run, runResults)}</p>
-            </div>
-            <div className="rounded-2xl border border-border/70 bg-background/90 px-4 py-4">
-              <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Next step</div>
-              <div className="mt-2 text-sm font-semibold text-foreground">
-                {briefingArtifact ? artifactPath(briefingArtifact) : run ? 'Review run outputs' : 'Continue the chat'}
-              </div>
-              <p className="mt-1 text-sm leading-6 text-muted-foreground">{nextAction}</p>
-            </div>
-          </div>
-
-          <div className="grid gap-3 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
-            <div className="rounded-2xl border border-emerald-200 bg-emerald-50/70 px-4 py-4">
-              <div className="text-xs font-medium uppercase tracking-[0.16em] text-emerald-700">Session recap</div>
-              <p className="mt-2 text-sm leading-6 text-foreground/90">{recap}</p>
-            </div>
-            <Button type="button" variant="outline" className="justify-center" onClick={() => focusAssistantComposer()}>
-              Ask a follow-up
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-    </section>
   )
 }
 
@@ -5296,7 +5150,6 @@ function DashboardApp({
       <ResearchAssistantPage
         dataError={dataError}
         datasets={datasets}
-        runs={runs}
       />
     )
   }
@@ -5346,12 +5199,12 @@ function DashboardApp({
                     </SidebarMenuItem>
                   ) : null}
                   {showRecentChatsExpanded ? recentAssistantSessions.map((chatSession) => {
-                    const isMostRecent = recentAssistantSessions[0]?.id === chatSession.id
                     const sessionPrompt = sessionPrimaryResearchPrompt(chatSession.entries)
+                    const subtitle = sessionPrompt ?? sessionSummaryLine(chatSession, chatSession.dataset, chatSession.run)
                     return (
                       <SidebarMenuItem key={chatSession.id}>
                         <SidebarMenuButton
-                          className="h-auto items-start py-2"
+                          className="h-auto items-start py-2.5"
                           isActive={route.view === 'assistant' && route.sessionId === chatSession.id}
                           onClick={() =>
                             updateDashboardRoute({
@@ -5360,21 +5213,12 @@ function DashboardApp({
                               sessionId: chatSession.id,
                             })}
                         >
-                          <span className="flex min-w-0 flex-col items-start gap-1">
-                            <span className="flex items-center gap-2">
-                              <Badge variant="secondary">{chatSession.dataset?.name ?? readableSessionKind(chatSession.kind)}</Badge>
-                              {isMostRecent ? <Badge variant="secondary">Most recent</Badge> : null}
-                            </span>
+                          <span className="flex min-w-0 flex-col items-start gap-1.5">
                             <span className="truncate text-sm font-medium normal-case tracking-normal text-foreground">
                               {readableSessionTitle(chatSession.title)}
                             </span>
-                            {sessionPrompt ? (
-                              <span className="line-clamp-2 text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
-                                {sessionPrompt}
-                              </span>
-                            ) : null}
-                            <span className="truncate text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
-                              {sessionSummaryLine(chatSession, chatSession.dataset, chatSession.run)}
+                            <span className="line-clamp-1 text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
+                              {subtitle}
                             </span>
                           </span>
                         </SidebarMenuButton>

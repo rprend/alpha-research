@@ -39,6 +39,13 @@ async function assertRoute(path, expectedText) {
   }
 }
 
+async function assertPageTextMissing(page, forbiddenText, message) {
+  const bodyText = await page.locator('body').innerText()
+  if (bodyText.includes(forbiddenText)) {
+    throw new Error(message ?? `Page unexpectedly displayed "${forbiddenText}".`)
+  }
+}
+
 async function assertRenderedOrientation() {
   const browser = await chromium.launch({ headless: true })
   try {
@@ -52,6 +59,12 @@ async function assertRenderedOrientation() {
     if (await page.getByText('Remote session', { exact: false }).first().isVisible().catch(() => false)) {
       throw new Error('First signed-in landing should not foreground recent session rows before the user opens recent work.')
     }
+    await page.getByRole('button', { name: 'Show recent chats (2)' }).click()
+    await page.getByText('Alpha Book research planning', { exact: true }).waitFor({ timeout: 15000 })
+    await assertPageTextMissing(page, 'Most recent', 'Recent chat rows should not show recency badges.')
+    await assertPageTextMissing(page, 'CLI handoff', 'Recent chat rows should not show CLI handoff metadata.')
+    await assertPageTextMissing(page, 'Syncing transcript', 'Recent chat rows should not show transcript sync metadata.')
+    await assertPageTextMissing(page, 'function_call_output', 'Recent chat rows should not expose raw tool output.')
   } finally {
     await browser.close()
   }
@@ -497,21 +510,18 @@ async function assertResumeLastResearchThread() {
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=assistant&sessionId=session-harness-cli`, { waitUntil: 'domcontentloaded' })
-    await page.getByText('Continue last thread', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByRole('heading', { name: 'Alpha Book research planning' }).waitFor({ timeout: 15000 })
-    await page.getByText('Last active', { exact: false }).first().waitFor({ timeout: 15000 })
-    await page.getByText('Research target', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Alpha Book Sample', { exact: true }).first().waitFor({ timeout: 15000 })
-    await page.getByText('Linked run', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Describe for Alpha Book Sample', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('4 saved outputs', { exact: false }).waitFor({ timeout: 15000 })
-    await page.getByText('Session recap', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('The corpus is ready for search, literary classification, and provenance-aware sampling.', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Open linked run' }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Open briefing artifact' }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Ask a follow-up' }).waitFor({ timeout: 15000 })
-    await page.getByText('Most recent', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('About Alpha Book Sample · Transcript complete', { exact: false }).first().waitFor({ timeout: 15000 })
+    await page.getByText('Describe this corpus and suggest first research questions.', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('I created a describe run for Alpha Book Sample.', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByPlaceholder('Send a message...').waitFor({ timeout: 15000 })
+    await assertPageTextMissing(page, 'Continue last thread', 'Selected chats should open directly into the transcript, not a resume card.')
+    await assertPageTextMissing(page, 'Research target', 'Assistant resume card labels should not be visible.')
+    await assertPageTextMissing(page, 'Linked run', 'Assistant resume card labels should not be visible.')
+    await assertPageTextMissing(page, 'Next step', 'Assistant resume card labels should not be visible.')
+    await assertPageTextMissing(page, 'Session recap', 'Assistant resume card labels should not be visible.')
+    await assertPageTextMissing(page, 'Most recent', 'Sidebar recent chat rows should not show recency badges.')
+    await assertPageTextMissing(page, 'CLI handoff', 'Sidebar recent chat rows should not show generated session metadata.')
+    await assertPageTextMissing(page, 'Syncing transcript', 'Sidebar recent chat rows should not show generated session metadata.')
+    await assertPageTextMissing(page, 'function_call_output', 'Sidebar and resume surfaces should not expose raw tool output.')
   } finally {
     await browser.close()
   }
