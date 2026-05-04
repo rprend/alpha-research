@@ -55,12 +55,9 @@ async function assertRenderedOrientation() {
     await page.getByText('Run the signed-in RESEARCH CLI from the browser.', { exact: false }).waitFor({ timeout: 15000 })
     await page.getByPlaceholder('Send a message...').waitFor({ timeout: 15000 })
     await page.getByText('Signed in', { exact: false }).first().waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Show recent chats (2)' }).waitFor({ timeout: 15000 })
-    if (await page.getByText('Remote session', { exact: false }).first().isVisible().catch(() => false)) {
-      throw new Error('First signed-in landing should not foreground recent session rows before the user opens recent work.')
-    }
-    await page.getByRole('button', { name: 'Show recent chats (2)' }).click()
     await page.getByText('Alpha Book research planning', { exact: true }).waitFor({ timeout: 15000 })
+    await assertPageTextMissing(page, 'Show recent chats', 'Recent chats should be visible without a disclosure toggle.')
+    await assertPageTextMissing(page, 'Hide recent chats', 'Recent chats should be visible without a disclosure toggle.')
     await assertPageTextMissing(page, 'Most recent', 'Recent chat rows should not show recency badges.')
     await assertPageTextMissing(page, 'CLI handoff', 'Recent chat rows should not show CLI handoff metadata.')
     await assertPageTextMissing(page, 'Syncing transcript', 'Recent chat rows should not show transcript sync metadata.')

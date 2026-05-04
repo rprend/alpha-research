@@ -499,43 +499,9 @@ function sessionStatusDescription(status: string | null | undefined) {
   return formatStatus(status)
 }
 
-function sessionSummaryLine(
-  session: StoredAssistantSession,
-  dataset: DatasetRecord | undefined,
-  run: RunRecord | undefined,
-) {
-  if (dataset?.description?.trim() && !looksLikeRawToolOutput(dataset.description)) {
-    return compactInlineText(dataset.description, 72)
-  }
-  if (run?.prompt?.trim() && !looksLikeRawToolOutput(run.prompt)) {
-    return compactInlineText(run.prompt, 72)
-  }
-  return `Last active ${relativeTime(session.updatedAt)}`
-}
-
 function summarizePromptForHeader(prompt: string | null | undefined) {
   if (!prompt?.trim()) return 'No original prompt was preserved for this run.'
   return compactInlineText(prompt, 220)
-}
-
-function latestSessionEntry(
-  entries: StoredAssistantSessionEntry[] | undefined,
-  predicate: (entry: StoredAssistantSessionEntry) => boolean,
-) {
-  const collection = entries ?? []
-  for (let index = collection.length - 1; index >= 0; index -= 1) {
-    const entry = collection[index]
-    if (entry && predicate(entry)) {
-      return entry
-    }
-  }
-  return null
-}
-
-function sessionPrimaryResearchPrompt(entries: StoredAssistantSessionEntry[] | undefined) {
-  const prompt = latestSessionEntry(entries, (entry) => entry.role === 'user' && entry.content.trim().length > 0)
-  if (!prompt || looksLikeRawToolOutput(prompt.content)) return null
-  return compactInlineText(prompt.content, 96)
 }
 
 function formatBytes(value: number | null | undefined) {
@@ -4866,7 +4832,6 @@ function DashboardApp({
     [runs],
   )
   const route = useDashboardRoute()
-  const [showRecentChatsExpanded, setShowRecentChatsExpanded] = useState(route.view === 'assistant' && Boolean(route.sessionId))
   const recentAssistantSessions = useMemo(
     () => sessions.map((currentSession) => ({
       ...currentSession,
@@ -4882,12 +4847,6 @@ function DashboardApp({
     (route.view === 'datasets' && activeDataset) ||
     (route.view === 'runs' && !activeRun)
   )
-
-  useEffect(() => {
-    if (route.view === 'assistant' && route.sessionId) {
-      setShowRecentChatsExpanded(true)
-    }
-  }, [route.sessionId, route.view])
 
   let content: ReactNode
 
@@ -5044,24 +5003,10 @@ function DashboardApp({
                       <span>New chat</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
-                  {recentAssistantSessions.length > 0 ? (
-                    <SidebarMenuItem>
-                      <SidebarMenuButton
-                        className="h-8 text-xs text-muted-foreground"
-                        onClick={() => setShowRecentChatsExpanded((current) => !current)}
-                      >
-                        <History />
-                        <span>{showRecentChatsExpanded ? 'Hide recent chats' : `Show recent chats (${recentAssistantSessions.length})`}</span>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  ) : null}
-                  {showRecentChatsExpanded ? recentAssistantSessions.map((chatSession) => {
-                    const sessionPrompt = sessionPrimaryResearchPrompt(chatSession.entries)
-                    const subtitle = sessionPrompt ?? sessionSummaryLine(chatSession, chatSession.dataset, chatSession.run)
-                    return (
+                  {recentAssistantSessions.map((chatSession) => (
                       <SidebarMenuItem key={chatSession.id}>
                         <SidebarMenuButton
-                          className="h-auto items-start py-2.5"
+                          className="h-9"
                           isActive={route.view === 'assistant' && route.sessionId === chatSession.id}
                           onClick={() =>
                             updateDashboardRoute({
@@ -5070,18 +5015,12 @@ function DashboardApp({
                               sessionId: chatSession.id,
                             })}
                         >
-                          <span className="flex min-w-0 flex-col items-start gap-1.5">
-                            <span className="truncate text-sm font-medium normal-case tracking-normal text-foreground">
-                              {readableSessionTitle(chatSession.title)}
-                            </span>
-                            <span className="line-clamp-1 text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
-                              {subtitle}
-                            </span>
+                          <span className="min-w-0 truncate text-sm font-medium normal-case tracking-normal text-foreground">
+                            {readableSessionTitle(chatSession.title)}
                           </span>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
-                    )
-                  }) : null}
+                  ))}
                 </SidebarMenu>
               </SidebarGroupContent>
             </SidebarGroup>
