@@ -75,37 +75,16 @@ async function assertLandingPageUnderstanding() {
     await page.getByText('Open-source research platform', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByRole('heading', { name: 'Ask questions across large datasets, then inspect the evidence and outputs.' }).waitFor({ timeout: 15000 })
     await page.getByText('hosted research app plus an open-source CLI', { exact: false }).waitFor({ timeout: 15000 })
-    await page.getByRole('heading', { name: 'Talk to a human before you commit to self-serve setup.' }).waitFor({ timeout: 15000 })
-    await page.getByText('Private, proprietary, or enterprise data', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Setup help covers private dataset fit, ingestion approach, access model, and the first research workflow', { exact: false }).waitFor({ timeout: 15000 })
-    await page.getByText('Private and institutional corpus review', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByRole('link', { name: 'Book a setup call' }).waitFor({ timeout: 15000 })
-    await page.getByRole('link', { name: 'Self-serve with the RESEARCH CLI' }).waitFor({ timeout: 15000 })
-    await page.getByRole('link', { name: 'Email the team' }).waitFor({ timeout: 15000 })
-    await page.getByRole('link', { name: 'Inspect a real research run' }).waitFor({ timeout: 15000 })
     await page.getByRole('link', { name: 'See Alpha Book example' }).waitFor({ timeout: 15000 })
+    await page.getByRole('link', { name: 'Bring your own dataset with the CLI' }).waitFor({ timeout: 15000 })
     await page.getByText('What it is', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('What Alpha Research returns', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Private dataset path via CLI', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByRole('heading', { name: 'Inspect a concrete dataset, question, and output path before you install anything.' }).waitFor({ timeout: 15000 })
-    await page.getByText('Proof, not promises', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Example artifact preview', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('What a useful research output looks like', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText(/run-summary\.md/, { exact: false }).waitFor({ timeout: 15000 })
-    await page.getByText(/cited-passages\.csv/, { exact: false }).waitFor({ timeout: 15000 })
-    await page.getByText('Live examples and planned coverage', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('live now · 75,000 public domain books', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('planned', { exact: true }).first().waitFor({ timeout: 15000 })
-    await page.getByText('What happens on a setup call?', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Sign in' }).waitFor({ timeout: 15000 })
     if (await page.getByText('RResearch', { exact: true }).count()) {
       throw new Error('Landing page should not use the legacy RResearch label in primary navigation.')
     }
     if (await page.getByText('Open source, agentic knowledge bases for all of humanity\'s knowledge', { exact: true }).count()) {
       throw new Error('Landing page hero should use the clarified product definition, not the old abstract headline.')
-    }
-    if (await page.getByRole('button', { name: 'login' }).count()) {
-      throw new Error('Landing page should not foreground the vague legacy login label.')
     }
   } finally {
     await browser.close()

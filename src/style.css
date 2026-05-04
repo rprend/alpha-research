@@ -380,8 +380,7 @@
 
 .hero-highlight-card,
 .hero-demo-card,
-.hero-evidence-card,
-.hero-setup-card {
+.hero-evidence-card {
   border: 1px solid rgba(61, 79, 143, 0.12);
   border-radius: 1.25rem;
   background: rgba(255, 255, 255, 0.88);
@@ -415,45 +414,6 @@
 .hero-demo-card,
 .hero-evidence-card {
   padding: 1.2rem;
-}
-
-.hero-setup-card {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.95fr);
-  gap: 1rem;
-  margin-top: 1rem;
-  padding: 1.2rem;
-  background: linear-gradient(135deg, rgba(238, 241, 255, 0.92), rgba(255, 255, 255, 0.92));
-}
-
-.hero-setup-copy h2 {
-  margin: 0 0 0.55rem;
-}
-
-.hero-setup-copy p,
-.hero-setup-note {
-  margin: 0;
-  color: #4d4d4d;
-  line-height: 1.6;
-}
-
-.hero-setup-details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-  padding: 1rem;
-  border: 1px solid rgba(61, 79, 143, 0.1);
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.hero-setup-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-  margin: 0;
-  padding-left: 1.15rem;
-  color: #2f2f2f;
 }
 
 .hero-demo-card {
@@ -521,22 +481,6 @@
   font-size: 0.84rem;
 }
 
-.hero-evidence-links,
-.proof-credibility-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1rem;
-  margin-top: 1rem;
-}
-
-.hero-evidence-links a,
-.proof-step-card a,
-.proof-credibility-links a {
-  color: #2d3c78;
-  text-decoration: underline;
-  text-underline-offset: 0.12em;
-}
-
 .hero-links {
   display: flex;
   flex-wrap: wrap;
@@ -592,134 +536,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
-}
-
-.proof-block {
-  padding: 2rem 0;
-}
-
-.proof-header {
-  max-width: 48rem;
-}
-
-.proof-summary {
-  margin: 0;
-  color: #575757;
-  line-height: 1.6;
-}
-
-.proof-strip,
-.proof-case-study,
-.proof-artifact-grid {
-  display: grid;
-  gap: 1rem;
-}
-
-.proof-strip {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 1.25rem;
-}
-
-.proof-step-card,
-.proof-artifact-card,
-.proof-credibility-card {
-  border: 1px solid rgba(61, 79, 143, 0.12);
-  border-radius: 1.25rem;
-  background: rgba(255, 255, 255, 0.88);
-  box-shadow: 0 20px 60px rgba(32, 42, 84, 0.06);
-  backdrop-filter: blur(8px);
-}
-
-.proof-step-card,
-.proof-credibility-card {
-  padding: 1.1rem;
-}
-
-.proof-step-eyebrow,
-.proof-panel-label {
-  color: #3d4f8f;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.proof-step-card h3,
-.proof-artifact-card h3,
-.proof-credibility-card h3 {
-  margin: 0.35rem 0 0.45rem;
-  font-family: "Newsreader", ui-serif, Georgia, serif;
-  font-size: 1.45rem;
-  line-height: 1.1;
-  color: #262626;
-}
-
-.proof-step-card p,
-.proof-credibility-card li,
-.proof-artifact-panel p {
-  margin: 0;
-  color: #575757;
-  line-height: 1.55;
-}
-
-.proof-case-study {
-  grid-template-columns: minmax(0, 1.45fr) minmax(18rem, 0.85fr);
-  margin-top: 1rem;
-}
-
-.proof-artifact-card {
-  padding: 1.2rem;
-}
-
-.proof-artifact-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.proof-artifact-badge {
-  padding: 0.45rem 0.7rem;
-  border-radius: 999px;
-  background: #edf1ff;
-  color: #33407d;
-  font-size: 0.8rem;
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-.proof-artifact-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.proof-artifact-panel {
-  padding: 1rem;
-  border: 1px solid #e7eaf5;
-  background: #fcfcfe;
-}
-
-.proof-artifact-panel-wide {
-  grid-column: 1 / -1;
-}
-
-.proof-output-preview {
-  margin: 0.5rem 0 0;
-  padding: 1rem;
-  overflow-x: auto;
-  border: 1px solid #e5e5e5;
-  background: #fff;
-  color: #262626;
-  font: 0.84rem/1.55 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, monospace;
-  white-space: pre-wrap;
-}
-
-.proof-credibility-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-  margin: 0;
-  padding-left: 1.15rem;
 }
 
 .cli-lede {
@@ -1012,18 +828,11 @@
 
   .hero-highlights,
   .hero-proof-grid,
-  .hero-setup-card,
-  .proof-strip,
-  .proof-case-study,
   .cli-grid {
     grid-template-columns: 1fr;
   }
 
   .hero-demo-card {
-    grid-template-columns: 1fr;
-  }
-
-  .proof-artifact-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1040,17 +849,10 @@
     width: 100%;
   }
 
-  .proof-artifact-header,
   .list-row-top {
     align-items: flex-start;
     flex-direction: column;
     gap: 0.15rem;
-  }
-
-  .proof-artifact-badge,
-  .list-row-meta {
-    white-space: normal;
-    text-align: left;
   }
 
   .footer-meta {
