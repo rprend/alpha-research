@@ -4163,9 +4163,6 @@ function RunDetailPage({
     () => (isUncertainRun ? buildStuckRunSummary(currentRun, payload, dataset, artifactCount, expectedArtifactNames) : null),
     [artifactCount, currentRun, dataset, expectedArtifactNames, isUncertainRun, payload],
   )
-  const supportingArtifactCount = visibleProducedArtifacts.filter(
-    (artifact) => artifact.id !== primaryBriefingArtifact?.id && artifact.id !== primaryProfileArtifact?.id,
-  ).length
   const primaryArtifactName = primaryBriefingArtifact ? artifactPath(primaryBriefingArtifact) : null
   const describeStatusTitle = currentRun.status === 'running'
     ? 'Generating dataset briefing'
@@ -4177,7 +4174,6 @@ function RunDetailPage({
     : ['ready', 'completed'].includes(currentRun.status)
       ? 'The documentation run finished. Open the briefing artifact for the durable write-up, then use the profile artifact for the structured summary.'
       : currentRun.outputPreview || 'This describe run did not complete normally. Inspect the transcript and artifacts for recovery details.'
-  const firstEventAt = payload?.events[0]?.createdAt ?? currentRun.createdAt
   const latestEventAt = payload?.events.at(-1)?.createdAt ?? currentRun.updatedAt
   const latestEventMessage = payload?.events.at(-1)?.message?.trim() ?? currentRun.outputPreview?.trim() ?? 'No run event was recorded.'
   const completedRunSummary = isCompletedRun
@@ -4220,236 +4216,97 @@ function RunDetailPage({
 
   return (
     <div className="flex min-h-0 flex-1 bg-background">
-      <div className="relative flex min-w-0 flex-1 flex-col overflow-hidden px-4 py-6 md:px-8">
-        <div className="mx-auto flex min-h-0 w-full max-w-[46rem] flex-1 flex-col">
-          <section className="mb-6 rounded-2xl border border-border bg-card/70 p-5">
-            <div className="flex flex-col gap-4">
-              <div className="flex flex-wrap items-start justify-between gap-4">
-                <div className="min-w-0 space-y-3">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <Badge variant="secondary">{dataset?.name ?? 'Run'}</Badge>
-                    <StatusBadge>{formatStatus(currentRun.status)}</StatusBadge>
-                    <Badge variant="outline">{formatStatus(currentRun.type)}</Badge>
-                  </div>
-                  <div>
-                    <h1 className="text-2xl font-semibold tracking-normal">
-                      {dataset?.name ?? currentRun.datasetId} · {formatStatus(currentRun.type)} run
-                    </h1>
-                    <p className="mt-2 text-sm leading-6 text-foreground/85">
-                      {summarizePromptForHeader(currentRun.prompt)}
-                    </p>
-                  </div>
+      <div className="relative min-w-0 flex-1 overflow-y-auto px-4 py-6 md:px-8" data-run-detail-scroll>
+        <div className="mx-auto flex w-full max-w-[52rem] flex-col">
+          <section className="mb-6 border-b border-border pb-5">
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div className="min-w-0">
+                <div className="mb-3 flex flex-wrap items-center gap-2">
+                  <StatusBadge>{formatStatus(currentRun.status)}</StatusBadge>
+                  <Badge variant="outline">{formatStatus(currentRun.type)}</Badge>
                 </div>
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="shrink-0 gap-2"
-                  onClick={() => setArtifactsOpen(true)}
-                  aria-label={artifactCount > 0 ? `Open artifacts (${artifactCount})` : 'Artifacts'}
-                >
-                  <FileText className="size-4" />
-                  <span>{artifactCount > 0 ? `Open artifacts (${artifactCount})` : 'Artifacts'}</span>
-                </Button>
+                <h1 className="text-2xl font-semibold tracking-normal">
+                  {dataset?.name ?? currentRun.datasetId} · {formatStatus(currentRun.type)} run
+                </h1>
+                <p className="mt-2 max-w-3xl text-sm leading-6 text-foreground/85">
+                  {summarizePromptForHeader(currentRun.prompt)}
+                </p>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Run id <span className="font-medium text-foreground">{currentRun.id}</span>
+                </p>
+                {expectedArtifactNames.length > 0 ? (
+                  <p className="mt-1 text-xs text-muted-foreground">{expectedArtifactNames.join(', ')}</p>
+                ) : null}
+                {isRunningRun ? (
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                    {runningSummary?.actionLabel ?? 'Alpha Research will keep refreshing this page while work continues.'}
+                  </p>
+                ) : null}
               </div>
-              {isRunningRun ? (
-                <div className="space-y-2 text-sm leading-6 text-muted-foreground">
-                  <p>{runningSummary?.actionLabel ?? 'Alpha Research will keep refreshing this page while work continues.'}</p>
-                  <p>
-                    Monitoring live run <span className="font-medium text-foreground">{currentRun.id}</span>.
-                  </p>
-                  <div>
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Expected outputs</div>
-                    <p>{expectedArtifactNames.join(', ')}</p>
-                  </div>
-                  <p>
-                    {artifactCount > 0
-                      ? runDestinationCopy
-                      : `Artifacts will appear here as soon as this run saves durable output. ${runDestinationCopy}`}
-                  </p>
-                </div>
-              ) : (
-                <div className="grid gap-3 md:grid-cols-3">
-                  <div className="rounded-xl border border-border bg-background px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Run id</div>
-                    <div className="mt-2 break-all text-sm font-semibold text-foreground">{currentRun.id}</div>
-                  </div>
-                  <div className="rounded-xl border border-border bg-background px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Prompt</div>
-                    <p className="mt-2 text-sm leading-6 text-foreground/85">{summarizePromptForHeader(currentRun.prompt)}</p>
-                  </div>
-                  <div className="rounded-xl border border-border bg-background px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Expected artifacts</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">{expectedArtifactNames.length}</div>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                      {expectedArtifactNames.join(', ')}
-                    </p>
-                  </div>
-                  <div className="rounded-xl border border-border bg-background px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Destination</div>
-                    <p className="mt-2 text-sm leading-6 text-foreground/85">{runDestinationCopy}</p>
-                  </div>
-                </div>
-              )}
+              <Button
+                type="button"
+                variant="outline"
+                className="shrink-0 gap-2"
+                onClick={() => setArtifactsOpen(true)}
+                aria-label={artifactCount > 0 ? `Open artifacts (${artifactCount})` : 'Artifacts'}
+              >
+                <FileText className="size-4" />
+                <span>{artifactCount > 0 ? `Open artifacts (${artifactCount})` : 'Artifacts'}</span>
+              </Button>
             </div>
           </section>
           {isCompletedRun ? (
-            <section className="mb-6 rounded-2xl border border-border bg-muted/20 p-5">
+            <section className="mb-6 border-b border-border pb-6">
               <div className="flex flex-col gap-4">
-                <div className="flex flex-wrap items-center gap-2">
+                <div>
                   <h2 className="text-xl font-semibold tracking-normal">Run summary</h2>
-                  <StatusBadge>{formatStatus(run.status)}</StatusBadge>
+                  <p className="mt-2 text-sm leading-6 text-foreground/85">{completedRunSummary}</p>
                 </div>
-                <p className="text-sm leading-6 text-foreground/85">{completedRunSummary}</p>
-                <div className="rounded-xl border border-border bg-background px-4 py-4">
-                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Original prompt</div>
-                  <p className="mt-2 text-sm leading-6 text-foreground">{run.prompt?.trim() || 'No original prompt was preserved for this run.'}</p>
-                </div>
-                <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-                  <div className="rounded-xl border border-border bg-background px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Dataset</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">{dataset?.name ?? currentRun.datasetId}</div>
-                  </div>
-                  <div className="rounded-xl border border-border bg-background px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Run type</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">{formatStatus(currentRun.type)}</div>
-                  </div>
-                  <div className="rounded-xl border border-border bg-background px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Started</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">{relativeTime(run.createdAt)}</div>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{formatDateTime(run.createdAt)}</p>
-                  </div>
-                  <div className="rounded-xl border border-border bg-background px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Latest evidence</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">{relativeTime(latestEventAt)}</div>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{formatDateTime(latestEventAt)}</p>
-                  </div>
-                </div>
-                <div className="grid gap-3 md:grid-cols-2">
-                  <div className="rounded-xl border border-border bg-background px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Requested artifacts</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">
-                      {expectedArtifactNames.length} requested output{expectedArtifactNames.length === 1 ? '' : 's'}
+                <div className="text-sm leading-6">
+                  <div className="grid gap-x-8 gap-y-2 sm:grid-cols-[10rem_minmax(0,1fr)]">
+                    <div className="text-muted-foreground">Original prompt</div>
+                    <div className="text-foreground">{run.prompt?.trim() || 'No original prompt was preserved for this run.'}</div>
+                    <div className="text-muted-foreground">Dataset</div>
+                    <div className="text-foreground">{dataset?.name ?? currentRun.datasetId}</div>
+                    <div className="text-muted-foreground">Started</div>
+                    <div className="text-foreground">{relativeTime(run.createdAt)} · {formatDateTime(run.createdAt)}</div>
+                    <div className="text-muted-foreground">Latest evidence</div>
+                    <div className="text-foreground">{relativeTime(latestEventAt)} · {latestEventMessage}</div>
+                    <div className="text-muted-foreground">Outputs</div>
+                    <div className="text-foreground">
+                      {producedArtifactNames.length > 0
+                        ? formatArtifactListLabel(producedArtifactNames)
+                        : 'No saved outputs were found.'}
                     </div>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{formatArtifactListLabel(expectedArtifactNames)}</p>
-                  </div>
-                  <div className="rounded-xl border border-border bg-background px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Produced artifacts</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">
-                      {producedArtifactNames.length} saved output{producedArtifactNames.length === 1 ? '' : 's'}
-                    </div>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{formatArtifactListLabel(producedArtifactNames)}</p>
-                  </div>
-                </div>
-                <div className="rounded-xl border border-border bg-background px-4 py-4">
-                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Requested vs produced</div>
-                  <div className="mt-3 space-y-2">
-                    {expectedArtifactStatus.map((artifact) => (
-                      <div
-                        key={artifact.name}
-                        className="flex items-start justify-between gap-3 rounded-xl border border-border bg-muted/20 px-4 py-3"
-                      >
-                        <div className="min-w-0">
-                          <div className="text-sm font-medium text-foreground">{artifact.name}</div>
-                          <div className="text-xs text-muted-foreground">
-                            {artifact.producedArtifact
-                              ? `Produced as ${artifactPath(artifact.producedArtifact)}.`
-                              : 'Requested for this run, but no saved file matches it.'}
-                          </div>
-                        </div>
-                        <Badge variant={artifact.producedArtifact ? 'secondary' : 'outline'} className="shrink-0 rounded-full px-2 py-0.5 text-[10px] tracking-[0.12em]">
-                          {artifact.producedArtifact ? 'Produced' : 'Missing'}
-                        </Badge>
-                      </div>
-                    ))}
                   </div>
                 </div>
                 {artifactCount > 0 ? (
-                  <div className="rounded-xl border border-border bg-background px-4 py-4">
-                    <div className="flex flex-wrap items-center justify-between gap-3">
-                      <div>
-                        <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Artifacts ({artifactCount})</div>
-                        <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                          Open the exact files produced by this run without leaving the page.
-                        </p>
-                      </div>
+                  <div className="flex flex-col gap-3">
+                    <div className="flex flex-wrap gap-3">
+                      {primaryBriefingArtifact ? (
+                        <Button
+                          type="button"
+                          onClick={() => {
+                            setSelectedArtifactId(primaryBriefingArtifact.id)
+                            setArtifactsOpen(true)
+                          }}
+                        >
+                          Open answer
+                        </Button>
+                      ) : null}
                       <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
-                        View artifact panel
+                        Open artifacts ({artifactCount})
                       </Button>
                     </div>
-                    <div className="mt-3">
-                      <SessionArtifactLinks
-                        artifacts={visibleProducedArtifacts}
-                        onOpenArtifact={(artifactId) => {
-                          setSelectedArtifactId(artifactId)
-                          setArtifactsOpen(true)
-                        }}
-                      />
-                    </div>
-                  </div>
-                ) : null}
-                <div className="rounded-xl border border-border bg-background px-4 py-4">
-                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Timeline evidence</div>
-                  <div className="mt-3 grid gap-3 md:grid-cols-2">
-                    <div>
-                      <div className="text-sm font-semibold text-foreground">Run opened</div>
-                      <p className="mt-1 text-sm leading-6 text-muted-foreground">{formatDateTime(firstEventAt)}</p>
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-foreground">Latest recorded event</div>
-                      <p className="mt-1 text-sm leading-6 text-foreground/85">{latestEventMessage}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          ) : null}
-          {isCompletedRun && artifactCount > 0 ? (
-            <section className="mb-6 rounded-2xl border border-emerald-200 bg-emerald-50/60 p-5">
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-wrap items-center gap-2">
-                  <CheckCircle2 className="size-5 text-emerald-700" aria-hidden="true" />
-                  <h2 className="text-xl font-semibold tracking-normal">Run finished</h2>
-                  <StatusBadge>{formatStatus(currentRun.status)}</StatusBadge>
-                </div>
-                <p className="text-sm leading-6 text-foreground/80">
-                  {primaryArtifactName
-                    ? `Read ${primaryArtifactName} for the answer first. ${primaryProfileArtifact ? `${artifactPath(primaryProfileArtifact)} is the machine-readable companion.` : 'Supporting files stay attached to this run as artifacts.'}`
-                    : 'Artifacts from the finished run are attached here.'}
-                </p>
-                <div className="grid gap-3 md:grid-cols-3">
-                  <div className="rounded-xl border border-emerald-200 bg-background px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Primary result</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">{primaryArtifactName ?? 'No primary answer file detected yet.'}</div>
-                  </div>
-                  <div className="rounded-xl border border-emerald-200 bg-background px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Structured companion</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">
-                      {primaryProfileArtifact ? artifactPath(primaryProfileArtifact) : 'No machine-readable companion detected.'}
-                    </div>
-                  </div>
-                  <div className="rounded-xl border border-emerald-200 bg-background px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Supporting files</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">
-                      {supportingArtifactCount} supporting file{supportingArtifactCount === 1 ? '' : 's'}
-                    </div>
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  {primaryBriefingArtifact ? (
-                    <Button
-                      type="button"
-                      onClick={() => {
-                        setSelectedArtifactId(primaryBriefingArtifact.id)
+                    <SessionArtifactLinks
+                      artifacts={visibleProducedArtifacts}
+                      onOpenArtifact={(artifactId) => {
+                        setSelectedArtifactId(artifactId)
                         setArtifactsOpen(true)
                       }}
-                    >
-                      Open answer
-                    </Button>
-                  ) : null}
-                  <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
-                    Open artifacts ({artifactCount})
-                  </Button>
-                </div>
+                    />
+                  </div>
+                ) : null}
               </div>
             </section>
           ) : null}
