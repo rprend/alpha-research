@@ -232,6 +232,7 @@ type AssistantTurnResponse = {
 
 const ROOT_HOST = 'alpharesearch.nyc'
 const DASHBOARD_HOST = 'dashboard.alpharesearch.nyc'
+const CANONICAL_DATASETS_PATH = '/canonical-datasets/'
 
 const locationUrl = new URL(window.location.href)
 const isDashboardView =
@@ -2539,6 +2540,15 @@ function DatasetFeed({
       <DatasetFeedSection
         title="Public datasets"
         summary={`${publicDatasets.length} shared dataset${publicDatasets.length === 1 ? '' : 's'} available to explore without uploading your own files.`}
+        action={
+          <a
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground underline underline-offset-4 hover:no-underline"
+            href={CANONICAL_DATASETS_PATH}
+          >
+            Canonical briefings
+            <ExternalLink className="size-3.5" aria-hidden="true" />
+          </a>
+        }
         emptyMessage="No public datasets are available right now."
         datasets={publicDatasets}
         topic={topic}
@@ -2551,6 +2561,7 @@ function DatasetFeed({
 function DatasetFeedSection({
   title,
   summary,
+  action,
   emptyMessage,
   datasets,
   topic,
@@ -2558,6 +2569,7 @@ function DatasetFeedSection({
 }: {
   title: string
   summary: string
+  action?: ReactNode
   emptyMessage: string
   datasets: DatasetRecord[]
   topic: string | null
@@ -2569,9 +2581,12 @@ function DatasetFeedSection({
 
   return (
     <section className="flex flex-col gap-4">
-      <div className="flex flex-col gap-1 border-b border-border pb-3">
-        <div className="text-xl font-medium">{title}</div>
-        <p className="text-sm text-muted-foreground">{summary}</p>
+      <div className="flex flex-col gap-3 border-b border-border pb-3 sm:flex-row sm:items-end sm:justify-between">
+        <div className="flex flex-col gap-1">
+          <div className="text-xl font-medium">{title}</div>
+          <p className="text-sm text-muted-foreground">{summary}</p>
+        </div>
+        {action ? <div className="shrink-0">{action}</div> : null}
       </div>
       {datasets.length === 0 ? (
         <Card className="rounded-2xl border border-dashed bg-muted/25 shadow-none">
@@ -5054,6 +5069,14 @@ function DashboardApp({
                 </span>
               </SidebarMenuButton>
             </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton asChild tooltip="Canonical briefings">
+                <a href={CANONICAL_DATASETS_PATH}>
+                  <FileText />
+                  <span>Canonical briefings</span>
+                </a>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
           </SidebarMenu>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -5279,6 +5302,7 @@ function LandingPage() {
 
             <nav className="top-links" aria-label="Primary">
               <a className="underlined-link" href="/cli/">RResearch</a>
+              <a className="button-small ghost-button" href={CANONICAL_DATASETS_PATH}>datasets</a>
               <a className="button-small ghost-button" href="/blog/">blog</a>
               <button
                 className="button-small ghost-button auth-button"
@@ -5563,6 +5587,7 @@ function LandingPage() {
           <div className="footer-copy">
             <div className="footer-links">
               <a href="/cli/">RResearch</a>
+              <a href={CANONICAL_DATASETS_PATH}>datasets</a>
               <a href="/blog/">blog</a>
               <a href="/privacy/">privacy</a>
               <a href="/terms/">terms</a>
