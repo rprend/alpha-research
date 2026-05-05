@@ -232,7 +232,7 @@ type AssistantTurnResponse = {
 
 const ROOT_HOST = 'alpharesearch.nyc'
 const DASHBOARD_HOST = 'dashboard.alpharesearch.nyc'
-const CANONICAL_DATASETS_PATH = '/canonical-datasets/'
+const DOCS_ORIGIN = 'https://docs.alpharesearch.nyc'
 
 const locationUrl = new URL(window.location.href)
 const isDashboardView =
@@ -2543,9 +2543,9 @@ function DatasetFeed({
         action={
           <a
             className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground underline underline-offset-4 hover:no-underline"
-            href={CANONICAL_DATASETS_PATH}
+            href={`${DOCS_ORIGIN}/public-datasets`}
           >
-            Canonical briefings
+            Dataset docs
             <ExternalLink className="size-3.5" aria-hidden="true" />
           </a>
         }
@@ -5070,10 +5070,10 @@ function DashboardApp({
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <SidebarMenuButton asChild tooltip="Canonical briefings">
-                <a href={CANONICAL_DATASETS_PATH}>
+              <SidebarMenuButton asChild tooltip="Docs">
+                <a href={DOCS_ORIGIN}>
                   <FileText />
-                  <span>Canonical briefings</span>
+                  <span>Docs</span>
                 </a>
               </SidebarMenuButton>
             </SidebarMenuItem>
@@ -5302,7 +5302,7 @@ function LandingPage() {
 
             <nav className="top-links" aria-label="Primary">
               <a className="underlined-link" href="/cli/">RResearch</a>
-              <a className="button-small ghost-button" href={CANONICAL_DATASETS_PATH}>datasets</a>
+              <a className="button-small ghost-button" href={DOCS_ORIGIN}>docs</a>
               <a className="button-small ghost-button" href="/blog/">blog</a>
               <button
                 className="button-small ghost-button auth-button"
@@ -5587,7 +5587,7 @@ function LandingPage() {
           <div className="footer-copy">
             <div className="footer-links">
               <a href="/cli/">RResearch</a>
-              <a href={CANONICAL_DATASETS_PATH}>datasets</a>
+              <a href={DOCS_ORIGIN}>docs</a>
               <a href="/blog/">blog</a>
               <a href="/privacy/">privacy</a>
               <a href="/terms/">terms</a>
