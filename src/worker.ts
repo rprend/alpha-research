@@ -115,6 +115,7 @@ type AgentToolDefinition = {
 }
 
 const WEB_DASHBOARD_ORIGIN = 'https://dashboard.alpharesearch.nyc'
+const DOCS_HOST = 'docs.alpharesearch.nyc'
 const MAX_TOOL_ROUNDS = 12
 const ASYNC_RUN_START_TOOLS = new Set([
   'start_remote_run',
@@ -170,6 +171,54 @@ function json(body: unknown, status = 200) {
     status,
     headers: { 'Content-Type': 'application/json' },
   })
+}
+
+function contentTypeForPath(pathname: string) {
+  if (pathname.endsWith('.html')) return 'text/html; charset=utf-8'
+  if (pathname.endsWith('.mintlify')) return 'text/html; charset=utf-8'
+  if (pathname.endsWith('.css')) return 'text/css; charset=utf-8'
+  if (pathname.endsWith('.js')) return 'application/javascript; charset=utf-8'
+  if (pathname.endsWith('.svg')) return 'image/svg+xml'
+  if (pathname.endsWith('.png')) return 'image/png'
+  if (pathname.endsWith('.ico')) return 'image/x-icon'
+  if (pathname.endsWith('.xml')) return 'application/xml; charset=utf-8'
+  if (pathname.endsWith('.json') || pathname.endsWith('.webmanifest')) return 'application/json; charset=utf-8'
+  return null
+}
+
+async function fetchDocsAsset(request: Request, env: Env, url: URL) {
+  const candidates = docsAssetCandidates(url.pathname)
+  for (const candidate of candidates) {
+    const assetUrl = new URL(request.url)
+    assetUrl.pathname = `/docs-site${candidate}`
+    const response = await env.ASSETS.fetch(new Request(assetUrl, request))
+    if (response.status !== 404) {
+      const headers = new Headers(response.headers)
+      const contentType = contentTypeForPath(candidate)
+      if (contentType) {
+        headers.set('Content-Type', contentType)
+      }
+      return new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers,
+      })
+    }
+  }
+  const fallbackUrl = new URL(request.url)
+  fallbackUrl.pathname = '/docs-site/index.html'
+  return env.ASSETS.fetch(new Request(fallbackUrl, request))
+}
+
+function docsAssetCandidates(pathname: string) {
+  if (pathname === '/' || pathname === '') {
+    return ['/__page.mintlify', '/index/__page.mintlify']
+  }
+  const normalized = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname
+  if (/\.[^/]+$/u.test(normalized)) {
+    return [normalized]
+  }
+  return [`${normalized}/__page.mintlify`, `${normalized}/index/__page.mintlify`]
 }
 
 function requireInternalRunnerToken(request: Request, env: Env) {
@@ -1236,6 +1285,10 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url)
     const pathname = url.pathname
+
+    if (url.hostname === DOCS_HOST) {
+      return fetchDocsAsset(request, env, url)
+    }
 
     if (pathname === '/api/auth/start') {
       return request.method === 'POST'
