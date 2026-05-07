@@ -116,6 +116,37 @@ type AgentToolDefinition = {
 
 const WEB_DASHBOARD_ORIGIN = 'https://dashboard.alpharesearch.nyc'
 const DOCS_HOST = 'docs.alpharesearch.nyc'
+const DOCS_PAGE_PATHS = new Set([
+  '/',
+  '/cli/authentication',
+  '/cli/common-commands',
+  '/cli/debug-runs',
+  '/cli/index',
+  '/cli/install',
+  '/dashboard/datasets',
+  '/dashboard/index',
+  '/dashboard/runs',
+  '/dashboard/terminal-sessions',
+  '/index',
+  '/product-tests-site',
+  '/public-datasets/anthropology',
+  '/public-datasets/classics',
+  '/public-datasets/econ',
+  '/public-datasets/history',
+  '/public-datasets/index',
+  '/public-datasets/linguistics',
+  '/public-datasets/literature',
+  '/public-datasets/philosophy',
+  '/public-datasets/political-science',
+  '/public-datasets/sociology',
+  '/reference/mintlify-deployment',
+  '/ways-to-use/index',
+  '/ways-to-use/local-development',
+  '/ways-to-use/private-datasets',
+  '/ways-to-use/public-datasets',
+  '/ways-to-use/research-runs',
+])
+const DOCS_SECTION_INDEX_PATHS = new Set(['/cli', '/dashboard', '/public-datasets', '/ways-to-use'])
 const MAX_TOOL_ROUNDS = 12
 const ASYNC_RUN_START_TOOLS = new Set([
   'start_remote_run',
@@ -218,7 +249,17 @@ function docsAssetCandidates(pathname: string) {
   if (/\.[^/]+$/u.test(normalized)) {
     return [normalized]
   }
-  return [`${normalized}/__page.mintlify`, `${normalized}/index/__page.mintlify`]
+  if (DOCS_SECTION_INDEX_PATHS.has(normalized)) {
+    return [`${normalized}/index/__page.mintlify`]
+  }
+  if (DOCS_PAGE_PATHS.has(normalized)) {
+    return [`${normalized}/__page.mintlify`]
+  }
+  const indexPath = `${normalized}/index`
+  if (DOCS_PAGE_PATHS.has(indexPath)) {
+    return [`${indexPath}/__page.mintlify`]
+  }
+  return ['/__page.mintlify']
 }
 
 function requireInternalRunnerToken(request: Request, env: Env) {
