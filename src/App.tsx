@@ -365,69 +365,6 @@ function getRunPriorityMeta(run: RunRecord) {
   }
 }
 
-function getRunOutputSignal(run: RunRecord) {
-  const artifactCount = run.artifactCount ?? 0
-  if (artifactCount > 0) {
-    return `${artifactCount} artifact${artifactCount === 1 ? '' : 's'} ready`
-  }
-  if (run.status.toLowerCase() === 'ready') {
-    return 'No artifacts recorded yet'
-  }
-  if ((run.sessionCount ?? 0) > 0) {
-    return `${run.sessionCount} session${run.sessionCount === 1 ? '' : 's'} attached`
-  }
-  return 'No outputs yet'
-}
-
-function getRunOutcomeMeta(run: RunRecord) {
-  const artifactCount = run.artifactCount ?? 0
-  const sessionCount = run.sessionCount ?? 0
-  const normalized = run.status.toLowerCase()
-
-  if (normalized === 'worker_unreachable') {
-    return artifactCount > 0
-      ? {
-          label: 'Partial outputs recovered',
-          detail: `${artifactCount} artifact${artifactCount === 1 ? '' : 's'} saved before the worker disconnected.`,
-        }
-      : {
-          label: 'No outputs recovered',
-          detail: 'The worker disconnected before Alpha Research received a final result or saved files.',
-        }
-  }
-
-  if (normalized === 'running') {
-    return {
-      label: 'Watching for outputs',
-      detail: artifactCount > 0
-        ? `${artifactCount} early artifact${artifactCount === 1 ? '' : 's'} saved while the run is still active.`
-        : 'No artifacts yet. Open the run to watch progress and latest activity.',
-    }
-  }
-
-  if (normalized === 'ready') {
-    if (artifactCount > 0) {
-      return {
-        label: artifactCount === 1 ? '1 artifact ready' : `${artifactCount} artifacts ready`,
-        detail: sessionCount > 0
-          ? `${sessionCount} linked session${sessionCount === 1 ? '' : 's'} and saved outputs are ready to inspect.`
-          : 'Saved outputs are ready to inspect.',
-      }
-    }
-    return {
-      label: 'Result available',
-      detail: sessionCount > 0
-        ? `${sessionCount} linked session${sessionCount === 1 ? '' : 's'} captured the outcome even though no durable files were saved.`
-        : 'The run finished successfully, but no durable files were recorded.',
-    }
-  }
-
-  return {
-    label: getRunOutputSignal(run),
-    detail: run.outputPreview?.trim() || 'Open the run for more detail.',
-  }
-}
-
 function readableSessionTitle(value: string | null | undefined) {
   const normalized = (value ?? '')
     .replace(/[\p{Extended_Pictographic}\uFE0F]/gu, '')
@@ -3127,96 +3064,41 @@ function RunTable({
     return b.updatedAt.localeCompare(a.updatedAt)
   })
   return (
-    <div className="flex flex-col gap-4">
-      <div className="border-y border-border">
-        <Table className="table-fixed">
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[40%] border-r border-border bg-muted/20 px-3 py-2">Run</TableHead>
-              <TableHead className="w-[18%] border-r border-border bg-muted/20 px-3 py-2">Outcome</TableHead>
-              <TableHead className="w-[14%] border-r border-border bg-muted/20 px-3 py-2">Status</TableHead>
-              <TableHead className="w-[17%] border-r border-border bg-muted/20 px-3 py-2">Updated</TableHead>
-              <TableHead className="w-[11%] bg-muted/20 px-3 py-2 text-right">Open</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {sortedRuns.map((run) => {
-              const priority = getRunPriorityMeta(run)
-              const outcome = getRunOutcomeMeta(run)
-              const prompt =
-                run.prompt?.trim() ||
-                run.outputPreview?.trim() ||
-                'No prompt recorded yet.'
+    <div className="flex flex-col">
+      {sortedRuns.map((run) => {
+        const normalizedStatus = run.status.toLowerCase()
+        const isFailedRun = normalizedStatus === 'worker_unreachable' || normalizedStatus === 'failed' || normalizedStatus === 'error'
+        const isActiveRun = normalizedStatus === 'running'
+        const prompt =
+          run.prompt?.trim() ||
+          run.outputPreview?.trim() ||
+          'No prompt recorded yet.'
 
-              return (
-                <TableRow
-                  key={run.id}
-                  className="cursor-pointer align-top hover:bg-muted/25"
-                  onClick={() => onSelectRun(run)}
-                >
-                  <TableCell className="border-r border-border px-3 py-2 align-top">
-                    <div className="flex min-w-0 flex-col gap-1.5">
-                      <span className="block min-w-0 truncate text-sm font-medium text-foreground" title={prompt}>
-                        {truncate(prompt, 140)}
-                      </span>
-                      <span className="block min-w-0 truncate text-xs text-muted-foreground">
-                        {datasetLookup.get(run.datasetId)?.name ?? run.datasetId}
-                      </span>
-                    </div>
-                  </TableCell>
-                  <TableCell className="border-r border-border px-3 py-2 align-top">
-                    <div className="flex min-w-0 flex-col gap-1">
-                      <span className="truncate text-sm font-medium">{outcome.label}</span>
-                      <span className="line-clamp-2 text-xs leading-5 text-muted-foreground" title={outcome.detail}>
-                        {truncate(outcome.detail, 96)}
-                      </span>
-                    </div>
-                  </TableCell>
-                  <TableCell className="border-r border-border px-3 py-2 align-top">
-                    <div className="flex min-w-0 flex-col gap-1.5">
-                      <span
-                        className="block min-w-0 truncate text-[11px] font-semibold uppercase tracking-[0.18em]"
-                        title={formatStatus(run.status)}
-                      >
-                        {formatStatus(run.status)}
-                      </span>
-                      {run.status.toLowerCase() === 'worker_unreachable' ? (
-                        <span className="line-clamp-2 text-xs leading-5 text-muted-foreground">
-                          Connection to the worker dropped before a final result was reported.
-                        </span>
-                      ) : null}
-                    </div>
-                  </TableCell>
-                  <TableCell className="border-r border-border px-3 py-2 align-top">
-                    <div className="flex min-w-0 flex-col gap-1 text-sm">
-                      <span className="truncate">{relativeTime(run.updatedAt)}</span>
-                      <span className="truncate text-xs text-muted-foreground">Started {relativeTime(run.createdAt)}</span>
-                      <span className="truncate text-xs text-muted-foreground" title={formatDateTime(run.updatedAt)}>
-                        {formatDateTime(run.updatedAt)}
-                      </span>
-                    </div>
-                  </TableCell>
-                  <TableCell className="px-3 py-2 text-right align-top">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="h-8 max-w-full rounded-none border-foreground/20 px-2 text-xs font-medium"
-                      title={priority.actionLabel}
-                      aria-label={priority.actionLabel}
-                      onClick={(event) => {
-                        event.stopPropagation()
-                        onSelectRun(run)
-                      }}
-                    >
-                      <span className="truncate">Open</span>
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              )
-            })}
-          </TableBody>
-        </Table>
-      </div>
+        return (
+          <button
+            key={run.id}
+            type="button"
+            className="flex w-full min-w-0 items-center gap-3 px-1 py-3 text-left hover:bg-muted/35"
+            onClick={() => onSelectRun(run)}
+          >
+            <span className="flex size-5 shrink-0 items-center justify-center">
+              {isFailedRun ? (
+                <X className="size-4 text-destructive" aria-label="Failed" />
+              ) : isActiveRun ? (
+                <LoaderCircle className="size-4 animate-spin text-muted-foreground" aria-label="Running" />
+              ) : null}
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block truncate text-sm font-medium text-foreground" title={prompt}>
+                {truncate(prompt, 180)}
+              </span>
+              <span className="block truncate text-xs text-muted-foreground">
+                {datasetLookup.get(run.datasetId)?.name ?? run.datasetId}
+              </span>
+            </span>
+          </button>
+        )
+      })}
     </div>
   )
 }
