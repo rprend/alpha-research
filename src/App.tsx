@@ -14,7 +14,6 @@ import {
   History,
   LoaderCircle,
   LogOut,
-  MoreHorizontal,
   Table2,
   TerminalSquare,
   Zap,
@@ -5091,9 +5090,9 @@ function DashboardApp({
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
-                className="grid h-auto w-full min-w-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 overflow-hidden rounded-xl px-3 py-3 text-left hover:bg-sidebar-accent/60"
+                className="flex h-auto w-full min-w-0 items-center justify-start overflow-hidden rounded-xl px-3 py-3 text-left hover:bg-sidebar-accent/60"
               >
-                <div className="flex min-w-0 flex-col items-start pr-2">
+                <div className="flex min-w-0 flex-col items-start">
                   <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">
                     Signed in
                   </span>
@@ -5101,7 +5100,6 @@ function DashboardApp({
                     {session.user?.email ?? 'Signed in'}
                   </span>
                 </div>
-                <MoreHorizontal className="size-4 shrink-0 text-muted-foreground" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="rounded-none">
