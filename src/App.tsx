@@ -3836,6 +3836,13 @@ function RunDetailPage({
     <div className="flex min-h-0 flex-1 bg-background">
       <div className="relative min-w-0 flex-1 overflow-y-auto px-4 py-6 md:px-8" data-run-detail-scroll>
         <div className="mx-auto flex w-full max-w-[52rem] flex-col">
+          {artifactCount > 0 ? (
+            <div className="mb-4 flex justify-end">
+              <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
+                Artifacts
+              </Button>
+            </div>
+          ) : null}
           {isCompletedRun && primaryBriefingArtifact ? (
             <article className="mb-8 text-[0.95rem] leading-7 text-foreground">
               {renderPreviewMarkdown(artifactText(primaryBriefingArtifact))}
@@ -3848,11 +3855,6 @@ function RunDetailPage({
                 <p className="text-sm leading-6 text-foreground/85">{runningSummary.currentActivity}</p>
               </div>
               <div className="flex flex-wrap gap-3">
-                {artifactCount > 0 ? (
-                  <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
-                    Artifacts
-                  </Button>
-                ) : null}
                 <Button type="button" variant="destructive" onClick={() => setCancelDialogOpen(true)}>
                   Cancel
                 </Button>
@@ -3874,9 +3876,6 @@ function RunDetailPage({
                   })}
                 >
                   Retry
-                </Button>
-                <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
-                  Artifacts
                 </Button>
               </div>
             </section>
