@@ -4034,8 +4034,7 @@ function DashboardApp({
   const activeRun = route.runId ? runs.find((run) => run.id === route.runId) ?? null : null
   const activeDataset = route.datasetId ? datasets.find((dataset) => dataset.id === route.datasetId) ?? null : null
   const showResearchChats = !(
-    (route.view === 'datasets' && activeDataset) ||
-    (route.view === 'runs' && !activeRun)
+    route.view === 'datasets' && activeDataset
   )
 
   let content: ReactNode
