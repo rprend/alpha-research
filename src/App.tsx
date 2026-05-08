@@ -3275,15 +3275,15 @@ function RunTable({
             <p className="mt-1 text-sm text-muted-foreground">Completed work with artifacts available.</p>
         </div>
       </div>
-      <div>
-        <Table>
+      <div className="border-y border-border">
+        <Table className="table-fixed">
           <TableHeader>
             <TableRow>
-              <TableHead>Run to compare</TableHead>
-              <TableHead>Outcome</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Freshness</TableHead>
-              <TableHead>Next step</TableHead>
+              <TableHead className="w-[40%] border-r border-border bg-muted/20 px-3 py-2">Run</TableHead>
+              <TableHead className="w-[18%] border-r border-border bg-muted/20 px-3 py-2">Outcome</TableHead>
+              <TableHead className="w-[14%] border-r border-border bg-muted/20 px-3 py-2">Status</TableHead>
+              <TableHead className="w-[17%] border-r border-border bg-muted/20 px-3 py-2">Updated</TableHead>
+              <TableHead className="w-[11%] bg-muted/20 px-3 py-2 text-right">Open</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -3299,68 +3299,75 @@ function RunTable({
               return (
                 <TableRow
                   key={run.id}
-                  className="cursor-pointer align-top"
+                  className="cursor-pointer align-top hover:bg-muted/25"
                   onClick={() => onSelectRun(run)}
                 >
-                  <TableCell className="align-top">
-                    <div className="flex min-w-0 flex-col gap-2">
-                      <div className="flex flex-wrap items-center gap-2">
+                  <TableCell className="border-r border-border px-3 py-2 align-top">
+                    <div className="flex min-w-0 flex-col gap-1.5">
+                      <div className="flex min-w-0 items-center gap-1.5 overflow-hidden">
                         <RunPriorityBadge label={priority.label} tone={statusTone} />
                         {run.id === latestCompletedRunId ? (
                           <RunPriorityBadge label="Latest completed" tone="success" />
                         ) : null}
                       </div>
-                      <span className="max-w-[38rem] text-base leading-6 font-medium whitespace-normal text-foreground">
-                        {truncate(prompt, 180)}
+                      <span className="block min-w-0 truncate text-sm font-medium text-foreground" title={prompt}>
+                        {truncate(prompt, 140)}
                       </span>
-                      <span className="truncate text-sm text-muted-foreground">
+                      <span className="block min-w-0 truncate text-xs text-muted-foreground">
                         {datasetLookup.get(run.datasetId)?.name ?? run.datasetId}
                       </span>
-                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
+                      <div className="flex min-w-0 items-center gap-1.5 overflow-hidden text-xs text-muted-foreground">
                         <span>{formatStatus(run.type)}</span>
-                        <span aria-hidden="true">•</span>
-                        <span>{priority.summary}</span>
-                        <span aria-hidden="true">•</span>
-                        <span>{priority.detail}</span>
+                        <span aria-hidden="true" className="shrink-0">/</span>
+                        <span className="min-w-0 truncate">{priority.summary}</span>
                       </div>
                     </div>
                   </TableCell>
-                  <TableCell>
-                    <div className="flex flex-col gap-2">
-                      <span className="font-medium">{outcome.label}</span>
-                      <span className="max-w-64 text-sm leading-6 text-muted-foreground">
-                        {outcome.detail}
+                  <TableCell className="border-r border-border px-3 py-2 align-top">
+                    <div className="flex min-w-0 flex-col gap-1">
+                      <span className="truncate text-sm font-medium">{outcome.label}</span>
+                      <span className="line-clamp-2 text-xs leading-5 text-muted-foreground" title={outcome.detail}>
+                        {truncate(outcome.detail, 96)}
                       </span>
                     </div>
                   </TableCell>
-                  <TableCell>
-                    <div className="flex flex-col gap-2">
-                      <StatusBadge>{formatStatus(run.status)}</StatusBadge>
+                  <TableCell className="border-r border-border px-3 py-2 align-top">
+                    <div className="flex min-w-0 flex-col gap-1.5">
+                      <span
+                        className="block min-w-0 truncate text-[11px] font-semibold uppercase tracking-[0.18em]"
+                        title={formatStatus(run.status)}
+                      >
+                        {formatStatus(run.status)}
+                      </span>
                       {run.status.toLowerCase() === 'worker_unreachable' ? (
-                        <span className="max-w-48 text-sm leading-5 text-muted-foreground">
+                        <span className="line-clamp-2 text-xs leading-5 text-muted-foreground">
                           Connection to the worker dropped before a final result was reported.
                         </span>
                       ) : null}
                     </div>
                   </TableCell>
-                  <TableCell>
-                    <div className="flex min-w-28 flex-col gap-1">
-                      <span>{relativeTime(run.updatedAt)}</span>
-                      <span className="text-sm text-muted-foreground">Started {relativeTime(run.createdAt)}</span>
-                      <span className="text-sm text-muted-foreground">{formatDateTime(run.updatedAt)}</span>
+                  <TableCell className="border-r border-border px-3 py-2 align-top">
+                    <div className="flex min-w-0 flex-col gap-1 text-sm">
+                      <span className="truncate">{relativeTime(run.updatedAt)}</span>
+                      <span className="truncate text-xs text-muted-foreground">Started {relativeTime(run.createdAt)}</span>
+                      <span className="truncate text-xs text-muted-foreground" title={formatDateTime(run.updatedAt)}>
+                        {formatDateTime(run.updatedAt)}
+                      </span>
                     </div>
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="px-3 py-2 text-right align-top">
                     <Button
                       variant="outline"
                       size="sm"
-                      className="h-9 rounded-none border-foreground/20 px-3 font-medium"
+                      className="h-8 max-w-full rounded-none border-foreground/20 px-2 text-xs font-medium"
+                      title={priority.actionLabel}
+                      aria-label={priority.actionLabel}
                       onClick={(event) => {
                         event.stopPropagation()
                         onSelectRun(run)
                       }}
                     >
-                      {priority.actionLabel}
+                      <span className="truncate">Open</span>
                     </Button>
                   </TableCell>
                 </TableRow>
