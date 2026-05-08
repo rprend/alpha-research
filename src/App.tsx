@@ -448,29 +448,6 @@ function getRunOutcomeMeta(run: RunRecord) {
   }
 }
 
-function getRunInventorySummary(runs: RunRecord[]) {
-  const counts = {
-    attention: 0,
-    active: 0,
-    complete: 0,
-    outputs: 0,
-  }
-  for (const run of runs) {
-    const normalized = run.status.toLowerCase()
-    if (normalized === 'worker_unreachable' || normalized === 'failed' || normalized === 'error') {
-      counts.attention += 1
-    } else if (normalized === 'running') {
-      counts.active += 1
-    } else if (normalized === 'ready') {
-      counts.complete += 1
-    }
-    if ((run.artifactCount ?? 0) > 0) {
-      counts.outputs += 1
-    }
-  }
-  return counts
-}
-
 function readableSessionTitle(value: string | null | undefined) {
   const normalized = (value ?? '')
     .replace(/[\p{Extended_Pictographic}\uFE0F]/gu, '')
@@ -3245,35 +3222,12 @@ function RunTable({
     }
     return b.updatedAt.localeCompare(a.updatedAt)
   })
-  const summary = getRunInventorySummary(sortedRuns)
   const latestCompletedRunId = sortedRuns
     .filter((run) => run.status.toLowerCase() === 'ready')
     .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0]?.id ?? null
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="grid gap-x-8 gap-y-5 border-b border-border pb-6 md:grid-cols-4">
-        <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Needs attention</div>
-            <div className="mt-2 text-3xl font-semibold">{summary.attention}</div>
-            <p className="mt-1 text-sm text-muted-foreground">Runs that stopped or need recovery.</p>
-        </div>
-        <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Running now</div>
-            <div className="mt-2 text-3xl font-semibold">{summary.active}</div>
-            <p className="mt-1 text-sm text-muted-foreground">Active work still worth watching.</p>
-        </div>
-        <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Completed</div>
-            <div className="mt-2 text-3xl font-semibold">{summary.complete}</div>
-            <p className="mt-1 text-sm text-muted-foreground">Runs that reached a terminal success state.</p>
-        </div>
-        <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Outputs ready</div>
-            <div className="mt-2 text-3xl font-semibold">{summary.outputs}</div>
-            <p className="mt-1 text-sm text-muted-foreground">Completed work with artifacts available.</p>
-        </div>
-      </div>
       <div className="border-y border-border">
         <Table className="table-fixed">
           <TableHeader>
@@ -3315,11 +3269,6 @@ function RunTable({
                       <span className="block min-w-0 truncate text-xs text-muted-foreground">
                         {datasetLookup.get(run.datasetId)?.name ?? run.datasetId}
                       </span>
-                      <div className="flex min-w-0 items-center gap-1.5 overflow-hidden text-xs text-muted-foreground">
-                        <span>{formatStatus(run.type)}</span>
-                        <span aria-hidden="true" className="shrink-0">/</span>
-                        <span className="min-w-0 truncate">{priority.summary}</span>
-                      </div>
                     </div>
                   </TableCell>
                   <TableCell className="border-r border-border px-3 py-2 align-top">
@@ -4942,9 +4891,6 @@ function DashboardApp({
             <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               Runs
             </div>
-            <p className="mt-2 max-w-3xl text-sm text-muted-foreground">
-              Triage recent work across datasets. Runs that need attention or still have live activity float to the top so you can decide what to open next.
-            </p>
           </div>
           <RunTable
             runs={runs}
