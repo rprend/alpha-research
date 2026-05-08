@@ -5,7 +5,6 @@ import {
   Bot,
   Braces,
   CheckCircle2,
-  ChevronDown,
   ChevronRight,
   Database,
   ExternalLink,
@@ -39,11 +38,6 @@ import {
   Card,
   CardContent,
 } from '@/components/ui/card'
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from '@/components/ui/collapsible'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -460,11 +454,6 @@ function sessionStatusDescription(status: string | null | undefined) {
   if (normalized === 'running' || normalized === 'active' || normalized === 'booting') return 'Syncing transcript'
   if (normalized === 'failed' || normalized === 'error' || normalized === 'worker_unreachable') return 'Needs debugging'
   return formatStatus(status)
-}
-
-function summarizePromptForHeader(prompt: string | null | undefined) {
-  if (!prompt?.trim()) return 'No original prompt was preserved for this run.'
-  return compactInlineText(prompt, 220)
 }
 
 function formatBytes(value: number | null | undefined) {
@@ -1125,13 +1114,6 @@ function artifactText(artifact: RunArtifactRecord) {
   if (typeof preview === 'string') return preview
   if (typeof artifact.content === 'string') return artifact.content
   return JSON.stringify(artifact.content ?? {}, null, 2)
-}
-
-function formatArtifactListLabel(names: string[]) {
-  if (names.length === 0) return 'None'
-  if (names.length === 1) return names[0]
-  if (names.length === 2) return `${names[0]} and ${names[1]}`
-  return `${names.slice(0, -1).join(', ')}, and ${names.at(-1)}`
 }
 
 function artifactJsonPreview(artifact: RunArtifactRecord) {
@@ -3802,20 +3784,11 @@ function RunDetailPage({
       .filter((value): value is string => Boolean(value))
     return requested.length > 0 ? requested : ['Dataset Briefing', 'Dataset Profile']
   }, [requestedArtifacts])
-  const producedArtifactNames = useMemo(
-    () => visibleProducedArtifacts.map((artifact) => artifactPath(artifact)),
-    [visibleProducedArtifacts],
-  )
   const transcriptEntries = useMemo(
     () => (hasRemoteLogs ? [...observedProgressMessages, ...remoteMessages] : cliMessages),
     [cliMessages, hasRemoteLogs, observedProgressMessages, remoteMessages],
   )
   const artifactCount = visibleProducedArtifacts.length
-  const isDescribeRun = currentRun.type === 'describe'
-  const [detailsOpen, setDetailsOpen] = useState(false)
-  const runDestinationCopy = isDescribeRun
-    ? 'The durable briefing stays attached to this run and also updates the dataset detail page.'
-    : 'The durable answer files stay attached to this run. Open artifacts here when they arrive, and use the transcript below for execution detail.'
   const isCompletedRun = isTerminalSuccessfulRun(currentRun)
   const isRunningRun = currentRun.status.toLowerCase() === 'running'
   const isUncertainRun = isUncertainRunStatus(currentRun.status)
@@ -3827,25 +3800,6 @@ function RunDetailPage({
     () => (isUncertainRun ? buildStuckRunSummary(currentRun, payload, dataset, artifactCount, expectedArtifactNames) : null),
     [artifactCount, currentRun, dataset, expectedArtifactNames, isUncertainRun, payload],
   )
-  const primaryArtifactName = primaryBriefingArtifact ? artifactPath(primaryBriefingArtifact) : null
-  const describeStatusTitle = currentRun.status === 'running'
-    ? 'Generating dataset briefing'
-    : ['ready', 'completed'].includes(currentRun.status)
-      ? 'Dataset briefing ready'
-      : `${formatStatus(currentRun.status)} dataset briefing run`
-  const describeStatusCopy = currentRun.status === 'running'
-    ? 'Alpha Research is inspecting the dataset and writing durable documentation. Stay on this run to watch progress and open the generated briefing when it lands.'
-    : ['ready', 'completed'].includes(currentRun.status)
-      ? 'The documentation run finished. Open the briefing artifact for the durable write-up, then use the profile artifact for the structured summary.'
-      : currentRun.outputPreview || 'This describe run did not complete normally. Inspect the transcript and artifacts for recovery details.'
-  const latestEventAt = payload?.events.at(-1)?.createdAt ?? currentRun.updatedAt
-  const latestEventMessage = payload?.events.at(-1)?.message?.trim() ?? currentRun.outputPreview?.trim() ?? 'No run event was recorded.'
-  const completedRunSummary = isCompletedRun
-    ? primaryArtifactName
-      ? `${formatStatus(currentRun.type)} finished for ${dataset?.name ?? currentRun.datasetId}. Read ${primaryArtifactName} first to confirm the answer still matches the original request.`
-      : `${formatStatus(currentRun.type)} finished for ${dataset?.name ?? currentRun.datasetId}. Review the run summary and attached outputs to confirm scope.`
-    : null
-
   useEffect(() => {
     setCurrentRun(run)
   }, [run])
@@ -3882,304 +3836,48 @@ function RunDetailPage({
     <div className="flex min-h-0 flex-1 bg-background">
       <div className="relative min-w-0 flex-1 overflow-y-auto px-4 py-6 md:px-8" data-run-detail-scroll>
         <div className="mx-auto flex w-full max-w-[52rem] flex-col">
-          <section className="mb-6 border-b border-border pb-5">
-            <div className="flex flex-wrap items-start justify-between gap-4">
-              <div className="min-w-0">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <StatusBadge>{formatStatus(currentRun.status)}</StatusBadge>
-                  <Badge variant="outline">{formatStatus(currentRun.type)}</Badge>
-                </div>
-                <h1 className="text-2xl font-semibold tracking-normal">
-                  {dataset?.name ?? currentRun.datasetId} · {formatStatus(currentRun.type)} run
-                </h1>
-                <p className="mt-2 max-w-3xl text-sm leading-6 text-foreground/85">
-                  {summarizePromptForHeader(currentRun.prompt)}
-                </p>
-                <p className="mt-2 text-xs text-muted-foreground">
-                  Run id <span className="font-medium text-foreground">{currentRun.id}</span>
-                </p>
-                {expectedArtifactNames.length > 0 ? (
-                  <p className="mt-1 text-xs text-muted-foreground">{expectedArtifactNames.join(', ')}</p>
-                ) : null}
-                {isRunningRun ? (
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                    {runningSummary?.actionLabel ?? 'Alpha Research will keep refreshing this page while work continues.'}
-                  </p>
-                ) : null}
-              </div>
-              <Button
-                type="button"
-                variant="outline"
-                className="shrink-0 gap-2"
-                onClick={() => setArtifactsOpen(true)}
-                aria-label={artifactCount > 0 ? `Open artifacts (${artifactCount})` : 'Artifacts'}
-              >
-                <FileText className="size-4" />
-                <span>{artifactCount > 0 ? `Open artifacts (${artifactCount})` : 'Artifacts'}</span>
-              </Button>
-            </div>
-          </section>
-          {isCompletedRun ? (
-            <section className="mb-6 border-b border-border pb-6">
-              <div className="flex flex-col gap-4">
-                <div>
-                  <h2 className="text-xl font-semibold tracking-normal">Run summary</h2>
-                  <p className="mt-2 text-sm leading-6 text-foreground/85">{completedRunSummary}</p>
-                </div>
-                <div className="text-sm leading-6">
-                  <div className="grid gap-x-8 gap-y-2 sm:grid-cols-[10rem_minmax(0,1fr)]">
-                    <div className="text-muted-foreground">Original prompt</div>
-                    <div className="text-foreground">{run.prompt?.trim() || 'No original prompt was preserved for this run.'}</div>
-                    <div className="text-muted-foreground">Dataset</div>
-                    <div className="text-foreground">{dataset?.name ?? currentRun.datasetId}</div>
-                    <div className="text-muted-foreground">Started</div>
-                    <div className="text-foreground">{relativeTime(run.createdAt)} · {formatDateTime(run.createdAt)}</div>
-                    <div className="text-muted-foreground">Latest evidence</div>
-                    <div className="text-foreground">{relativeTime(latestEventAt)} · {latestEventMessage}</div>
-                    <div className="text-muted-foreground">Outputs</div>
-                    <div className="text-foreground">
-                      {producedArtifactNames.length > 0
-                        ? formatArtifactListLabel(producedArtifactNames)
-                        : 'No saved outputs were found.'}
-                    </div>
-                  </div>
-                </div>
-                {artifactCount > 0 ? (
-                  <div className="flex flex-col gap-3">
-                    <div className="flex flex-wrap gap-3">
-                      {primaryBriefingArtifact ? (
-                        <Button
-                          type="button"
-                          onClick={() => {
-                            setSelectedArtifactId(primaryBriefingArtifact.id)
-                            setArtifactsOpen(true)
-                          }}
-                        >
-                          Open answer
-                        </Button>
-                      ) : null}
-                      <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
-                        Open artifacts ({artifactCount})
-                      </Button>
-                    </div>
-                    <SessionArtifactLinks
-                      artifacts={visibleProducedArtifacts}
-                      onOpenArtifact={(artifactId) => {
-                        setSelectedArtifactId(artifactId)
-                        setArtifactsOpen(true)
-                      }}
-                    />
-                  </div>
-                ) : null}
-              </div>
-            </section>
+          {isCompletedRun && primaryBriefingArtifact ? (
+            <article className="mb-8 text-[0.95rem] leading-7 text-foreground">
+              {renderPreviewMarkdown(artifactText(primaryBriefingArtifact))}
+            </article>
           ) : null}
           {isRunningRun && runningSummary ? (
-            <section className="mb-6 border-b border-border pb-6">
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-col gap-2">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <LoaderCircle className="size-5 animate-spin text-sky-700" aria-hidden="true" />
-                    <h2 className="text-xl font-semibold tracking-normal">{runningSummary.title}</h2>
-                    <StatusBadge>{formatStatus(currentRun.status)}</StatusBadge>
-                  </div>
-                  <p className="text-sm leading-6 text-foreground/80">
-                    {runningSummary.currentActivity}
-                  </p>
-                </div>
-                <div className="grid gap-x-8 gap-y-5 md:grid-cols-2 xl:grid-cols-4">
-                  <div>
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Current phase</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">{runningSummary.phase}</div>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                      {runningSummary.statusTitle}
-                    </p>
-                  </div>
-                  <div>
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Last heartbeat</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">{relativeTime(runningSummary.lastActivityAt)}</div>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                      {formatDateTime(runningSummary.lastActivityAt)}
-                    </p>
-                  </div>
-                  <div>
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Refresh</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">Auto-refreshing every 5 seconds</div>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                      You do not need to refresh this page manually.
-                    </p>
-                  </div>
-                  <div>
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Output retention</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">{artifactCount > 0 ? `${artifactCount} saved output${artifactCount === 1 ? '' : 's'}` : 'No saved outputs yet'}</div>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                      Cancel keeps any saved artifacts and transcript evidence already attached to this run.
-                    </p>
-                  </div>
-                </div>
-                <div className="border-t border-border pt-5">
-                  <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-                    <div className="min-w-0">
-                      <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Stop this job</div>
-                      <div className="mt-2 text-sm font-semibold text-foreground">Cancel if this run is wrong or too expensive to keep running.</div>
-                      <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                        Cancellation is not reversible. Alpha Research will stop the active worker, preserve any artifacts already saved, and keep this run visible as cancelled for later review.
-                      </p>
-                    </div>
-                    <div className="flex shrink-0 flex-wrap gap-3">
-                      {artifactCount > 0 ? (
-                        <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
-                          Review saved output
-                        </Button>
-                      ) : null}
-                      <Button type="button" variant="destructive" onClick={() => setCancelDialogOpen(true)}>
-                        Cancel run
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-                {runningSummary.previousActivity ? (
-                  <div className="border-t border-border pt-5">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Just before this</div>
-                    <p className="mt-2 text-sm leading-6 text-foreground/85">{runningSummary.previousActivity}</p>
-                  </div>
+            <section className="mb-8 flex flex-col gap-4">
+              <div className="flex items-start gap-3">
+                <LoaderCircle className="mt-1 size-4 shrink-0 animate-spin text-muted-foreground" aria-hidden="true" />
+                <p className="text-sm leading-6 text-foreground/85">{runningSummary.currentActivity}</p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                {artifactCount > 0 ? (
+                  <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
+                    Artifacts
+                  </Button>
                 ) : null}
-                <div className="border-t border-border pt-5">
-                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Latest evidence</div>
-                  <div className="mt-2 text-sm font-semibold text-foreground">{relativeTime(runningSummary.lastActivityAt)}</div>
-                  <p className="mt-1 text-sm leading-6 text-muted-foreground">{formatDateTime(runningSummary.lastActivityAt)}</p>
-                  <p className="mt-3 text-sm leading-6 text-foreground/85">{runningSummary.lastEventLabel}</p>
-                </div>
+                <Button type="button" variant="destructive" onClick={() => setCancelDialogOpen(true)}>
+                  Cancel
+                </Button>
               </div>
             </section>
           ) : null}
           {isUncertainRun && stuckSummary ? (
-            <section className="mb-6 border-b border-border pb-6">
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-col gap-2">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <Zap className="size-5 text-amber-700" aria-hidden="true" />
-                    <h2 className="text-xl font-semibold tracking-normal">{stuckSummary.title}</h2>
-                    <StatusBadge>{formatStatus(currentRun.status)}</StatusBadge>
-                  </div>
-                  <p className="text-sm leading-6 text-foreground/85">{stuckSummary.summary}</p>
-                </div>
-                <div className="grid gap-x-8 gap-y-5 md:grid-cols-2 xl:grid-cols-4">
-                  <div>
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">What completed</div>
-                    <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.completedLabel}</p>
-                  </div>
-                  <div>
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">What is missing</div>
-                    <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.missingLabel}</p>
-                  </div>
-                  <div>
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Can you trust saved output?</div>
-                    <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.trustLabel}</p>
-                  </div>
-                  <div>
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">What happened</div>
-                    <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.evidence}</p>
-                  </div>
-                  <div>
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Latest evidence</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">{relativeTime(stuckSummary.evidenceAt)}</div>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{formatDateTime(stuckSummary.evidenceAt)}</p>
-                  </div>
-                  <div>
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Outputs</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">{stuckSummary.outputsLabel}</div>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{stuckSummary.outputsDetail}</p>
-                  </div>
-                  <div>
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Recommended next move</div>
-                    <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.nextStepLabel}</p>
-                  </div>
-                </div>
-                <div className="border-t border-border pt-5">
-                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">What you can do</div>
-                  <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.recovery}</p>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  <Button
-                    type="button"
-                    onClick={() => updateDashboardRoute({
-                      view: 'assistant',
-                      datasetId: currentRun.datasetId,
-                      runId: null,
-                      sessionId: null,
-                      draft: currentRun.prompt?.trim() || null,
-                    })}
-                  >
-                    Retry in chat
-                  </Button>
-                  <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
-                    Open artifacts
-                  </Button>
-                  <Button type="button" variant="outline" onClick={() => setDetailsOpen(true)}>
-                    Open debug evidence
-                  </Button>
-                </div>
-              </div>
-            </section>
-          ) : null}
-          {isDescribeRun ? (
-            <section className="mb-6 border-b border-border pb-6">
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-col gap-2">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <h2 className="text-xl font-semibold tracking-normal">{describeStatusTitle}</h2>
-                    <StatusBadge>{formatStatus(currentRun.status)}</StatusBadge>
-                  </div>
-                  <p className="text-sm leading-6 text-muted-foreground">{describeStatusCopy}</p>
-                </div>
-                <div className="grid gap-x-8 gap-y-5 md:grid-cols-2">
-                  <div>
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Destination</div>
-                    <p className="mt-2 text-sm leading-6 text-foreground/85">
-                      The durable briefing stays attached to this run as an artifact and also updates the dataset detail page.
-                    </p>
-                  </div>
-                  <div>
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Expected artifacts</div>
-                    <ul className="mt-2 space-y-2 text-sm leading-6 text-foreground/85">
-                      {expectedArtifactNames.map((name) => (
-                        <li key={name}>{name}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  {primaryBriefingArtifact ? (
-                    <Button
-                      type="button"
-                      variant="outline"
-                      onClick={() => {
-                        setSelectedArtifactId(primaryBriefingArtifact.id)
-                        setArtifactsOpen(true)
-                      }}
-                    >
-                      Open briefing artifact
-                    </Button>
-                  ) : null}
-                  {primaryProfileArtifact ? (
-                    <Button
-                      type="button"
-                      variant="outline"
-                      onClick={() => {
-                        setSelectedArtifactId(primaryProfileArtifact.id)
-                        setArtifactsOpen(true)
-                      }}
-                    >
-                      Open profile artifact
-                    </Button>
-                  ) : null}
-                  {!primaryBriefingArtifact && artifactCount > 0 ? (
-                    <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
-                      Open artifacts
-                    </Button>
-                  ) : null}
-                </div>
+            <section className="mb-8 flex flex-col gap-4">
+              <p className="text-sm leading-6 text-foreground/85">{stuckSummary.summary}</p>
+              <div className="flex flex-wrap gap-3">
+                <Button
+                  type="button"
+                  onClick={() => updateDashboardRoute({
+                    view: 'assistant',
+                    datasetId: currentRun.datasetId,
+                    runId: null,
+                    sessionId: null,
+                    draft: currentRun.prompt?.trim() || null,
+                  })}
+                >
+                  Retry
+                </Button>
+                <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
+                  Artifacts
+                </Button>
               </div>
             </section>
           ) : null}
@@ -4194,20 +3892,6 @@ function RunDetailPage({
             </div>
           ) : null}
           <section className="flex min-h-0 flex-1 flex-col">
-            <div className="mb-3 flex items-start justify-between gap-4">
-              <div>
-                <h2 className="text-base font-semibold">Observed progress and transcript</h2>
-                <p className="text-sm text-muted-foreground">
-                  {isCompletedRun
-                    ? 'Use the run summary above to audit scope. The entries below are supporting execution evidence and transcript branches.'
-                    : isRunningRun && runningSummary
-                      ? `${runningSummary.statusDetail} Technical details stay below while artifacts and final results are still being produced.`
-                      : isUncertainRun
-                        ? 'Read the diagnosis above first. The entries below are raw execution evidence for debugging or handoff.'
-                        : 'Watch run progress here while artifacts and final results are still being produced.'}
-                </p>
-              </div>
-            </div>
             <AssistantTranscript
               entries={transcriptEntries}
               emptyTitle="No run transcript yet"
@@ -4215,68 +3899,6 @@ function RunDetailPage({
               unframed
             />
           </section>
-          {isRunningRun || isUncertainRun ? (
-            <section className="mt-6">
-              <Collapsible open={detailsOpen} onOpenChange={setDetailsOpen}>
-                <div className="border-t border-border">
-                  <CollapsibleTrigger asChild>
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      className="flex w-full items-center justify-between rounded-2xl px-5 py-4 text-left"
-                      aria-label={detailsOpen ? (isUncertainRun ? 'Hide debug details' : 'Hide run details') : (isUncertainRun ? 'Show debug details' : 'Show run details')}
-                    >
-                      <div>
-                        <div className="text-sm font-semibold text-foreground">{isUncertainRun ? 'Debug details' : 'Run details'}</div>
-                        <p className="text-sm text-muted-foreground">
-                          {isUncertainRun
-                            ? 'Technical evidence, latest event wording, and expected outputs for debugging or handoff.'
-                            : 'Technical metadata and expected outputs for debugging or handoff.'}
-                        </p>
-                      </div>
-                      {detailsOpen ? <ChevronDown className="size-4 shrink-0" /> : <ChevronRight className="size-4 shrink-0" />}
-                    </Button>
-                  </CollapsibleTrigger>
-                  <CollapsibleContent className="px-5 py-5">
-                    <div className="grid gap-x-8 gap-y-5 md:grid-cols-3">
-                      <div>
-                        <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Run id</div>
-                        <div className="mt-2 break-all text-sm font-semibold text-foreground">{currentRun.id}</div>
-                      </div>
-                      <div>
-                        <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Expected artifacts</div>
-                        <div className="mt-2 text-sm font-semibold text-foreground">{expectedArtifactNames.length}</div>
-                        <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                          {expectedArtifactNames.join(', ')}
-                        </p>
-                      </div>
-                      <div>
-                        <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Destination</div>
-                        <p className="mt-2 text-sm leading-6 text-foreground/85">{runDestinationCopy}</p>
-                      </div>
-                    </div>
-                    {isUncertainRun && stuckSummary ? (
-                      <div className="mt-5 grid gap-x-8 gap-y-5 border-t border-border pt-5 md:grid-cols-2">
-                        <div>
-                          <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Raw lifecycle status</div>
-                          <div className="mt-2 text-sm font-semibold text-foreground">{run.status}</div>
-                          <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                            This is the control-plane label behind the plain-language diagnosis above.
-                          </p>
-                        </div>
-                        <div>
-                          <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Latest raw event</div>
-                          <p className="mt-2 text-sm leading-6 text-foreground/85">
-                            {payload?.events.at(-1)?.message?.trim() ?? 'No raw event was recorded for this run.'}
-                          </p>
-                        </div>
-                      </div>
-                    ) : null}
-                  </CollapsibleContent>
-                </div>
-              </Collapsible>
-            </section>
-          ) : null}
         </div>
       </div>
 
