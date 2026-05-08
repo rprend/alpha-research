@@ -3253,37 +3253,29 @@ function RunTable({
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="grid gap-3 md:grid-cols-4">
-        <Card className="rounded-none border-border shadow-none">
-          <CardContent className="px-4 py-4">
+      <div className="grid gap-x-8 gap-y-5 border-b border-border pb-6 md:grid-cols-4">
+        <div>
             <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Needs attention</div>
             <div className="mt-2 text-3xl font-semibold">{summary.attention}</div>
             <p className="mt-1 text-sm text-muted-foreground">Runs that stopped or need recovery.</p>
-          </CardContent>
-        </Card>
-        <Card className="rounded-none border-border shadow-none">
-          <CardContent className="px-4 py-4">
+        </div>
+        <div>
             <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Running now</div>
             <div className="mt-2 text-3xl font-semibold">{summary.active}</div>
             <p className="mt-1 text-sm text-muted-foreground">Active work still worth watching.</p>
-          </CardContent>
-        </Card>
-        <Card className="rounded-none border-border shadow-none">
-          <CardContent className="px-4 py-4">
+        </div>
+        <div>
             <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Completed</div>
             <div className="mt-2 text-3xl font-semibold">{summary.complete}</div>
             <p className="mt-1 text-sm text-muted-foreground">Runs that reached a terminal success state.</p>
-          </CardContent>
-        </Card>
-        <Card className="rounded-none border-border shadow-none">
-          <CardContent className="px-4 py-4">
+        </div>
+        <div>
             <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Outputs ready</div>
             <div className="mt-2 text-3xl font-semibold">{summary.outputs}</div>
             <p className="mt-1 text-sm text-muted-foreground">Completed work with artifacts available.</p>
-          </CardContent>
-        </Card>
+        </div>
       </div>
-      <div className="rounded-none border border-border">
+      <div>
         <Table>
           <TableHeader>
             <TableRow>
@@ -4301,7 +4293,7 @@ function RunDetailPage({
             </section>
           ) : null}
           {isRunningRun && runningSummary ? (
-            <section className="mb-6 rounded-2xl border border-sky-200 bg-sky-50/70 p-5">
+            <section className="mb-6 border-b border-border pb-6">
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-2">
                   <div className="flex flex-wrap items-center gap-2">
@@ -4313,29 +4305,29 @@ function RunDetailPage({
                     {runningSummary.currentActivity}
                   </p>
                 </div>
-                <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-                  <div className="rounded-xl border border-sky-200 bg-background px-4 py-4">
+                <div className="grid gap-x-8 gap-y-5 md:grid-cols-2 xl:grid-cols-4">
+                  <div>
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Current phase</div>
                     <div className="mt-2 text-sm font-semibold text-foreground">{runningSummary.phase}</div>
                     <p className="mt-1 text-sm leading-6 text-muted-foreground">
                       {runningSummary.statusTitle}
                     </p>
                   </div>
-                  <div className="rounded-xl border border-sky-200 bg-background px-4 py-4">
+                  <div>
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Last heartbeat</div>
                     <div className="mt-2 text-sm font-semibold text-foreground">{relativeTime(runningSummary.lastActivityAt)}</div>
                     <p className="mt-1 text-sm leading-6 text-muted-foreground">
                       {formatDateTime(runningSummary.lastActivityAt)}
                     </p>
                   </div>
-                  <div className="rounded-xl border border-sky-200 bg-background px-4 py-4">
+                  <div>
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Refresh</div>
                     <div className="mt-2 text-sm font-semibold text-foreground">Auto-refreshing every 5 seconds</div>
                     <p className="mt-1 text-sm leading-6 text-muted-foreground">
                       You do not need to refresh this page manually.
                     </p>
                   </div>
-                  <div className="rounded-xl border border-sky-200 bg-background px-4 py-4">
+                  <div>
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Output retention</div>
                     <div className="mt-2 text-sm font-semibold text-foreground">{artifactCount > 0 ? `${artifactCount} saved output${artifactCount === 1 ? '' : 's'}` : 'No saved outputs yet'}</div>
                     <p className="mt-1 text-sm leading-6 text-muted-foreground">
@@ -4343,7 +4335,7 @@ function RunDetailPage({
                     </p>
                   </div>
                 </div>
-                <div className="rounded-xl border border-rose-200 bg-background px-4 py-4">
+                <div className="border-t border-border pt-5">
                   <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
                     <div className="min-w-0">
                       <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Stop this job</div>
@@ -4365,12 +4357,12 @@ function RunDetailPage({
                   </div>
                 </div>
                 {runningSummary.previousActivity ? (
-                  <div className="rounded-xl border border-sky-200 bg-background px-4 py-4">
+                  <div className="border-t border-border pt-5">
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Just before this</div>
                     <p className="mt-2 text-sm leading-6 text-foreground/85">{runningSummary.previousActivity}</p>
                   </div>
                 ) : null}
-                <div className="rounded-xl border border-sky-200 bg-background px-4 py-4">
+                <div className="border-t border-border pt-5">
                   <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Latest evidence</div>
                   <div className="mt-2 text-sm font-semibold text-foreground">{relativeTime(runningSummary.lastActivityAt)}</div>
                   <p className="mt-1 text-sm leading-6 text-muted-foreground">{formatDateTime(runningSummary.lastActivityAt)}</p>
@@ -4380,7 +4372,7 @@ function RunDetailPage({
             </section>
           ) : null}
           {isUncertainRun && stuckSummary ? (
-            <section className="mb-6 rounded-2xl border border-amber-300 bg-amber-50/80 p-5">
+            <section className="mb-6 border-b border-border pb-6">
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-2">
                   <div className="flex flex-wrap items-center gap-2">
@@ -4390,39 +4382,39 @@ function RunDetailPage({
                   </div>
                   <p className="text-sm leading-6 text-foreground/85">{stuckSummary.summary}</p>
                 </div>
-                <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-                  <div className="rounded-xl border border-amber-300 bg-background px-4 py-4">
+                <div className="grid gap-x-8 gap-y-5 md:grid-cols-2 xl:grid-cols-4">
+                  <div>
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">What completed</div>
                     <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.completedLabel}</p>
                   </div>
-                  <div className="rounded-xl border border-amber-300 bg-background px-4 py-4">
+                  <div>
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">What is missing</div>
                     <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.missingLabel}</p>
                   </div>
-                  <div className="rounded-xl border border-amber-300 bg-background px-4 py-4">
+                  <div>
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Can you trust saved output?</div>
                     <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.trustLabel}</p>
                   </div>
-                  <div className="rounded-xl border border-amber-300 bg-background px-4 py-4">
+                  <div>
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">What happened</div>
                     <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.evidence}</p>
                   </div>
-                  <div className="rounded-xl border border-amber-300 bg-background px-4 py-4">
+                  <div>
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Latest evidence</div>
                     <div className="mt-2 text-sm font-semibold text-foreground">{relativeTime(stuckSummary.evidenceAt)}</div>
                     <p className="mt-1 text-sm leading-6 text-muted-foreground">{formatDateTime(stuckSummary.evidenceAt)}</p>
                   </div>
-                  <div className="rounded-xl border border-amber-300 bg-background px-4 py-4">
+                  <div>
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Outputs</div>
                     <div className="mt-2 text-sm font-semibold text-foreground">{stuckSummary.outputsLabel}</div>
                     <p className="mt-1 text-sm leading-6 text-muted-foreground">{stuckSummary.outputsDetail}</p>
                   </div>
-                  <div className="rounded-xl border border-amber-300 bg-background px-4 py-4">
+                  <div>
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Recommended next move</div>
                     <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.nextStepLabel}</p>
                   </div>
                 </div>
-                <div className="rounded-xl border border-amber-300 bg-background px-4 py-4">
+                <div className="border-t border-border pt-5">
                   <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">What you can do</div>
                   <p className="mt-2 text-sm leading-6 text-foreground/85">{stuckSummary.recovery}</p>
                 </div>
@@ -4450,7 +4442,7 @@ function RunDetailPage({
             </section>
           ) : null}
           {isDescribeRun ? (
-            <section className="mb-6 rounded-2xl border border-border bg-muted/20 p-5">
+            <section className="mb-6 border-b border-border pb-6">
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-2">
                   <div className="flex flex-wrap items-center gap-2">
@@ -4459,14 +4451,14 @@ function RunDetailPage({
                   </div>
                   <p className="text-sm leading-6 text-muted-foreground">{describeStatusCopy}</p>
                 </div>
-                <div className="grid gap-3 md:grid-cols-2">
-                  <div className="rounded-xl border border-border bg-background px-4 py-4">
+                <div className="grid gap-x-8 gap-y-5 md:grid-cols-2">
+                  <div>
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Destination</div>
                     <p className="mt-2 text-sm leading-6 text-foreground/85">
                       The durable briefing stays attached to this run as an artifact and also updates the dataset detail page.
                     </p>
                   </div>
-                  <div className="rounded-xl border border-border bg-background px-4 py-4">
+                  <div>
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Expected artifacts</div>
                     <ul className="mt-2 space-y-2 text-sm leading-6 text-foreground/85">
                       {expectedArtifactNames.map((name) => (
@@ -4544,7 +4536,7 @@ function RunDetailPage({
           {isRunningRun || isUncertainRun ? (
             <section className="mt-6">
               <Collapsible open={detailsOpen} onOpenChange={setDetailsOpen}>
-                <div className="rounded-2xl border border-border bg-card/50">
+                <div className="border-t border-border">
                   <CollapsibleTrigger asChild>
                     <Button
                       type="button"
@@ -4563,34 +4555,34 @@ function RunDetailPage({
                       {detailsOpen ? <ChevronDown className="size-4 shrink-0" /> : <ChevronRight className="size-4 shrink-0" />}
                     </Button>
                   </CollapsibleTrigger>
-                  <CollapsibleContent className="border-t border-border px-5 py-5">
-                    <div className="grid gap-3 md:grid-cols-3">
-                      <div className="rounded-xl border border-border bg-background px-4 py-4">
+                  <CollapsibleContent className="px-5 py-5">
+                    <div className="grid gap-x-8 gap-y-5 md:grid-cols-3">
+                      <div>
                         <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Run id</div>
                         <div className="mt-2 break-all text-sm font-semibold text-foreground">{currentRun.id}</div>
                       </div>
-                      <div className="rounded-xl border border-border bg-background px-4 py-4">
+                      <div>
                         <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Expected artifacts</div>
                         <div className="mt-2 text-sm font-semibold text-foreground">{expectedArtifactNames.length}</div>
                         <p className="mt-1 text-sm leading-6 text-muted-foreground">
                           {expectedArtifactNames.join(', ')}
                         </p>
                       </div>
-                      <div className="rounded-xl border border-border bg-background px-4 py-4">
+                      <div>
                         <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Destination</div>
                         <p className="mt-2 text-sm leading-6 text-foreground/85">{runDestinationCopy}</p>
                       </div>
                     </div>
                     {isUncertainRun && stuckSummary ? (
-                      <div className="mt-3 grid gap-3 md:grid-cols-2">
-                        <div className="rounded-xl border border-border bg-background px-4 py-4">
+                      <div className="mt-5 grid gap-x-8 gap-y-5 border-t border-border pt-5 md:grid-cols-2">
+                        <div>
                           <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Raw lifecycle status</div>
                           <div className="mt-2 text-sm font-semibold text-foreground">{run.status}</div>
                           <p className="mt-1 text-sm leading-6 text-muted-foreground">
                             This is the control-plane label behind the plain-language diagnosis above.
                           </p>
                         </div>
-                        <div className="rounded-xl border border-border bg-background px-4 py-4">
+                        <div>
                           <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Latest raw event</div>
                           <p className="mt-2 text-sm leading-6 text-foreground/85">
                             {payload?.events.at(-1)?.message?.trim() ?? 'No raw event was recorded for this run.'}
@@ -4933,7 +4925,7 @@ function DashboardApp({
     )
   } else if (route.view === 'runs') {
     content = (
-      <main className="flex flex-1 min-w-0 flex-col gap-6 px-4 py-6 md:px-8">
+      <main className="flex min-h-0 flex-1 min-w-0 flex-col gap-6 overflow-y-auto px-4 py-6 md:px-8">
         {dataError ? (
           <Card className="rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
             <CardContent className="px-6 py-4 text-sm text-destructive">{dataError}</CardContent>
@@ -5070,11 +5062,21 @@ function DashboardApp({
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <SidebarMenuButton asChild tooltip="Docs">
-                <a href={DOCS_ORIGIN}>
-                  <FileText />
-                  <span>Docs</span>
-                </a>
+              <SidebarMenuButton
+                tooltip="Runs"
+                isActive={route.view === 'runs'}
+                onClick={() =>
+                  updateDashboardRoute({
+                    view: 'runs',
+                    runId: null,
+                    sessionId: null,
+                  })}
+              >
+                <History />
+                <span>Runs</span>
+                <span className="ml-auto text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
+                  {runs.length}
+                </span>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
