@@ -542,7 +542,6 @@ async function assertRenderedRunsInventory() {
     await page.getByRole('columnheader', { name: 'Run' }).waitFor({ timeout: 15000 })
     await page.getByRole('columnheader', { name: 'Outcome' }).waitFor({ timeout: 15000 })
     await page.getByRole('columnheader', { name: 'Status' }).waitFor({ timeout: 15000 })
-    await page.getByText('Latest completed', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Describe the Alpha Book sample and identify research-ready fields.', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('No outputs recovered', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('4 artifacts ready', { exact: true }).waitFor({ timeout: 15000 })

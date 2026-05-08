@@ -330,20 +330,6 @@ function formatStatus(value: string | null | undefined) {
     .replace(/\b\w/g, (letter) => letter.toUpperCase())
 }
 
-function getRunStatusTone(status: string | null | undefined) {
-  const normalized = status?.toLowerCase() ?? ''
-  if (normalized === 'ready') {
-    return 'success'
-  }
-  if (normalized === 'running') {
-    return 'active'
-  }
-  if (normalized === 'worker_unreachable' || normalized === 'failed' || normalized === 'error') {
-    return 'warning'
-  }
-  return 'neutral'
-}
-
 function getRunPriorityMeta(run: RunRecord) {
   const normalized = run.status.toLowerCase()
   if (normalized === 'worker_unreachable') {
@@ -3222,10 +3208,6 @@ function RunTable({
     }
     return b.updatedAt.localeCompare(a.updatedAt)
   })
-  const latestCompletedRunId = sortedRuns
-    .filter((run) => run.status.toLowerCase() === 'ready')
-    .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0]?.id ?? null
-
   return (
     <div className="flex flex-col gap-4">
       <div className="border-y border-border">
@@ -3243,7 +3225,6 @@ function RunTable({
             {sortedRuns.map((run) => {
               const priority = getRunPriorityMeta(run)
               const outcome = getRunOutcomeMeta(run)
-              const statusTone = getRunStatusTone(run.status)
               const prompt =
                 run.prompt?.trim() ||
                 run.outputPreview?.trim() ||
@@ -3257,12 +3238,6 @@ function RunTable({
                 >
                   <TableCell className="border-r border-border px-3 py-2 align-top">
                     <div className="flex min-w-0 flex-col gap-1.5">
-                      <div className="flex min-w-0 items-center gap-1.5 overflow-hidden">
-                        <RunPriorityBadge label={priority.label} tone={statusTone} />
-                        {run.id === latestCompletedRunId ? (
-                          <RunPriorityBadge label="Latest completed" tone="success" />
-                        ) : null}
-                      </div>
                       <span className="block min-w-0 truncate text-sm font-medium text-foreground" title={prompt}>
                         {truncate(prompt, 140)}
                       </span>
