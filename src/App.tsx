@@ -3049,11 +3049,9 @@ function DatasetDetailPage({
 
 function RunTable({
   runs,
-  datasetLookup,
   onSelectRun,
 }: {
   runs: RunRecord[]
-  datasetLookup: Map<string, DatasetRecord>
   onSelectRun: (run: RunRecord) => void
 }) {
   const sortedRuns = [...runs].sort((a, b) => {
@@ -3078,22 +3076,21 @@ function RunTable({
           <button
             key={run.id}
             type="button"
-            className="flex w-full min-w-0 items-center gap-3 px-1 py-3 text-left hover:bg-muted/35"
+            className="flex w-full min-w-0 items-center gap-2 px-1 py-2 text-left hover:bg-muted/35"
             onClick={() => onSelectRun(run)}
           >
-            <span className="flex size-5 shrink-0 items-center justify-center">
+            <span className="flex size-5 shrink-0 items-center justify-center text-muted-foreground">
               {isFailedRun ? (
                 <X className="size-4 text-destructive" aria-label="Failed" />
               ) : isActiveRun ? (
                 <LoaderCircle className="size-4 animate-spin text-muted-foreground" aria-label="Running" />
-              ) : null}
+              ) : (
+                <span aria-hidden="true">-</span>
+              )}
             </span>
             <span className="min-w-0 flex-1">
               <span className="block truncate text-sm font-medium text-foreground" title={prompt}>
                 {truncate(prompt, 180)}
-              </span>
-              <span className="block truncate text-xs text-muted-foreground">
-                {datasetLookup.get(run.datasetId)?.name ?? run.datasetId}
               </span>
             </span>
           </button>
@@ -4108,7 +4105,7 @@ function DashboardApp({
             <CardContent className="px-6 py-4 text-sm text-destructive">{dataError}</CardContent>
           </Card>
         ) : null}
-        <section className="flex flex-col gap-3">
+        <section className="mx-auto flex w-full max-w-2xl flex-col gap-3">
           <div className="px-1">
             <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               Runs
@@ -4116,7 +4113,6 @@ function DashboardApp({
           </div>
           <RunTable
             runs={runs}
-            datasetLookup={datasetLookup}
             onSelectRun={(run) => updateDashboardRoute({ view: 'runs', runId: run.id, sessionId: null })}
           />
         </section>
