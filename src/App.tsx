@@ -73,6 +73,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
+  SidebarTrigger,
+  useSidebar,
 } from '@/components/ui/sidebar'
 import {
   Table,
@@ -1053,6 +1055,10 @@ function artifactText(artifact: RunArtifactRecord) {
   return JSON.stringify(artifact.content ?? {}, null, 2)
 }
 
+function hasArtifactText(artifact: RunArtifactRecord) {
+  return typeof artifact.content?.text === 'string' && artifact.content.text.trim().length > 0
+}
+
 function artifactJsonPreview(artifact: RunArtifactRecord) {
   if (typeof artifact.content === 'string') return artifact.content
   if (artifact.content?.text && typeof artifact.content.text === 'string') {
@@ -1080,6 +1086,11 @@ function artifactLanguage(path: string, artifact: RunArtifactRecord) {
   return 'text'
 }
 
+function isHtmlArtifact(artifact: RunArtifactRecord) {
+  const path = artifactPath(artifact).toLowerCase()
+  return artifact.type === 'html_report' || path.endsWith('.html') || path.endsWith('.htm')
+}
+
 function isMarkdownArtifact(artifact: RunArtifactRecord) {
   const path = artifactPath(artifact).toLowerCase()
   if (artifact.type === 'markdown') return true
@@ -1087,6 +1098,15 @@ function isMarkdownArtifact(artifact: RunArtifactRecord) {
 }
 
 function getDatasetBriefingArtifact(artifacts: RunArtifactRecord[]) {
+  const htmlArtifacts = artifacts.filter((artifact) => {
+    if (!isHtmlArtifact(artifact)) return false
+    const title = artifact.title.toLowerCase()
+    const path = artifactPath(artifact).toLowerCase()
+    return title.includes('report') || path.endsWith('report.html') || path.endsWith('index.html')
+  })
+  const htmlArtifact = htmlArtifacts.find((artifact) => artifact.url || hasArtifactText(artifact)) ?? htmlArtifacts[0]
+  if (htmlArtifact) return htmlArtifact
+
   return artifacts.find((artifact) => {
     if (!isMarkdownArtifact(artifact)) return false
     const title = artifact.title.toLowerCase()
@@ -1132,8 +1152,16 @@ function artifactDownloadHref(artifact: RunArtifactRecord) {
     ? 'application/json;charset=utf-8'
     : language === 'markdown'
       ? 'text/markdown;charset=utf-8'
-      : 'text/plain;charset=utf-8'
+      : language === 'html'
+        ? 'text/html;charset=utf-8'
+        : 'text/plain;charset=utf-8'
   return `data:${mimeType},${encodeURIComponent(body)}`
+}
+
+function artifactHtmlHref(artifact: RunArtifactRecord) {
+  if (artifact.url) return artifact.url
+  if (!hasArtifactText(artifact)) return null
+  return artifactDownloadHref(artifact)
 }
 
 function isTerminalSuccessfulRun(run: RunRecord) {
@@ -2685,7 +2713,7 @@ function DatasetDetailPage({
         </button>
         <section className="flex flex-col gap-4">
           <div>
-            <h1 className="text-4xl font-semibold tracking-normal">{current.name}</h1>
+            <h1 className="text-3xl font-semibold tracking-normal md:text-4xl">{current.name}</h1>
             <p className="mt-3 max-w-3xl text-lg leading-8 text-muted-foreground">
               {current.description || current.sourceFilename || `A ${formatStatus(current.sourceType)} dataset registered in Alpha Research.`}
             </p>
@@ -2762,7 +2790,7 @@ function DatasetDetailPage({
           </section>
         ) : null}
 
-        <section className="grid gap-4 rounded-2xl border border-border bg-muted/20 p-6 lg:grid-cols-[minmax(0,1fr)_280px]">
+        <section className="grid gap-4 rounded-2xl border border-border bg-muted/20 p-4 md:p-6 lg:grid-cols-[minmax(0,1fr)_280px]">
           <div className="space-y-5">
             <div className="space-y-2">
               <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Trust summary</div>
@@ -2902,7 +2930,7 @@ function DatasetDetailPage({
           </div>
         </section>
 
-        <section className="grid gap-4 rounded-3xl border border-border bg-background p-6 shadow-sm lg:grid-cols-[minmax(0,1fr)_280px]">
+        <section className="grid gap-4 rounded-3xl border border-border bg-background p-4 shadow-sm md:p-6 lg:grid-cols-[minmax(0,1fr)_280px]">
           <div className="space-y-5">
             <div className="space-y-2">
               <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Ask about this dataset</div>
@@ -2971,7 +2999,7 @@ function DatasetDetailPage({
         </section>
 
         <section className="flex flex-col gap-4">
-          <div className="flex items-center justify-between gap-4 border-b border-border pb-3">
+        <div className="flex flex-col gap-2 border-b border-border pb-3 md:flex-row md:items-center md:justify-between md:gap-4">
             <h2 className="text-xl font-medium">Dataset briefing</h2>
             <div className="text-sm text-muted-foreground">Read top to bottom for provenance, coverage, schema, and known gaps.</div>
           </div>
@@ -3124,37 +3152,39 @@ function SessionTable({
   }
 
   return (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHead>Session</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Updated</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {sessions.map((session) => (
-          <TableRow
-            key={session.id}
-            className="cursor-pointer"
-            onClick={() => onSelectSession(session)}
-          >
-            <TableCell className="align-top">
-              <div className="flex min-w-0 flex-col gap-1">
-                <span className="truncate font-medium">
-                  {readableSessionTitle(session.title)}
-                </span>
-                <span className="text-sm text-muted-foreground">{session.id}</span>
-              </div>
-            </TableCell>
-            <TableCell>
-              <StatusBadge>{formatStatus(session.status)}</StatusBadge>
-            </TableCell>
-            <TableCell>{relativeTime(session.updatedAt)}</TableCell>
+    <div className="overflow-x-auto">
+      <Table className="min-w-[36rem]">
+        <TableHeader>
+          <TableRow>
+            <TableHead>Session</TableHead>
+            <TableHead>Status</TableHead>
+            <TableHead>Updated</TableHead>
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+        </TableHeader>
+        <TableBody>
+          {sessions.map((session) => (
+            <TableRow
+              key={session.id}
+              className="cursor-pointer"
+              onClick={() => onSelectSession(session)}
+            >
+              <TableCell className="align-top">
+                <div className="flex min-w-0 flex-col gap-1">
+                  <span className="truncate font-medium">
+                    {readableSessionTitle(session.title)}
+                  </span>
+                  <span className="text-sm text-muted-foreground">{session.id}</span>
+                </div>
+              </TableCell>
+              <TableCell>
+                <StatusBadge>{formatStatus(session.status)}</StatusBadge>
+              </TableCell>
+              <TableCell>{relativeTime(session.updatedAt)}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
   )
 }
 
@@ -3542,23 +3572,23 @@ function RunArtifactsPanel({
       <div
         role="separator"
         aria-orientation="vertical"
-        className="absolute -left-1 top-0 z-20 flex h-full w-2 cursor-col-resize items-center justify-center hover:bg-primary/10"
+        className="absolute -left-1 top-0 z-20 hidden h-full w-2 cursor-col-resize items-center justify-center hover:bg-primary/10 md:flex"
         onPointerDown={beginPanelResize}
       >
         <GripVertical className="size-3 text-muted-foreground/50" />
       </div>
 
-      <div className="grid min-h-0 flex-1 grid-cols-[minmax(0,1fr)_8px_var(--tree-width)]" style={{ '--tree-width': `${treeWidth}px` } as CSSProperties}>
+      <div className="grid min-h-0 flex-1 grid-rows-[minmax(0,1fr)_auto] md:grid-cols-[minmax(0,1fr)_8px_var(--tree-width)] md:grid-rows-none" style={{ '--tree-width': `${treeWidth}px` } as CSSProperties}>
         <FilePreview artifact={selectedArtifact} />
         <div
           role="separator"
           aria-orientation="vertical"
-          className="flex cursor-col-resize items-center justify-center bg-background hover:bg-primary/10"
+          className="hidden cursor-col-resize items-center justify-center bg-background hover:bg-primary/10 md:flex"
           onPointerDown={beginTreeResize}
         >
           <GripVertical className="size-3 text-muted-foreground/50" />
         </div>
-        <div className="flex min-h-0 flex-col">
+        <div className="flex max-h-56 min-h-0 flex-col border-t border-border md:max-h-none md:border-t-0">
           <div className="flex h-12 shrink-0 items-center justify-end px-4">
             <Button type="button" variant="ghost" size="icon-sm" onClick={onClose} aria-label="Close files">
               <X className="size-5" />
@@ -3617,6 +3647,14 @@ function FilePreview({
             {renderPreviewMarkdown(text)}
           </div>
         </article>
+      ) : language === 'html' ? (
+        artifactHtmlHref(artifact) ? (
+          <iframe title={artifact.title} src={artifactHtmlHref(artifact) ?? undefined} className="min-h-0 flex-1 bg-background" />
+        ) : (
+          <div className="min-h-0 flex-1 px-8 py-6 text-sm text-muted-foreground">
+            HTML report content was not captured for this artifact. Re-run the report to regenerate the embedded HTML preview.
+          </div>
+        )
       ) : (
         <pre className="min-h-0 flex-1 overflow-auto px-8 py-6 text-[0.9rem] leading-6 text-neutral-700">
           {language === 'json' ? artifactJsonPreview(artifact) : text}
@@ -3724,7 +3762,21 @@ function RunDetailPage({
           ) : null}
           {isCompletedRun && primaryBriefingArtifact ? (
             <article className="mb-8 text-[0.95rem] leading-7 text-foreground">
-              {renderPreviewMarkdown(artifactText(primaryBriefingArtifact))}
+              {artifactLanguage(artifactPath(primaryBriefingArtifact), primaryBriefingArtifact) === 'html' ? (
+                artifactHtmlHref(primaryBriefingArtifact) ? (
+                  <iframe
+                    title={primaryBriefingArtifact.title}
+                    src={artifactHtmlHref(primaryBriefingArtifact) ?? undefined}
+                    className="h-[70vh] w-full border border-border bg-background"
+                  />
+                ) : (
+                  <div className="border border-border px-6 py-5 text-sm text-muted-foreground">
+                    HTML report content was not captured for this artifact. Re-run the report to regenerate the embedded HTML preview.
+                  </div>
+                )
+              ) : (
+                renderPreviewMarkdown(artifactText(primaryBriefingArtifact))
+              )}
             </article>
           ) : null}
           {isRunningRun && runningSummary ? (
@@ -4000,6 +4052,197 @@ function DashboardSignedOut({
   )
 }
 
+type DashboardRouteState = ReturnType<typeof getDashboardRoute>
+
+function DashboardMobileHeader({
+  route,
+}: {
+  route: DashboardRouteState
+}) {
+  const title =
+    route.view === 'datasets'
+      ? 'Datasets'
+      : route.view === 'runs'
+        ? 'Runs'
+        : route.view === 'terminal-sessions'
+          ? 'Sessions'
+          : 'Research chat'
+
+  return (
+    <header className="flex h-14 shrink-0 items-center gap-3 border-b border-border bg-background px-3 md:hidden">
+      <SidebarTrigger className="size-10 shrink-0" aria-label="Open dashboard navigation" />
+      <div className="min-w-0">
+        <div className="truncate text-sm font-semibold">{title}</div>
+        <div className="truncate text-xs text-muted-foreground">Alpha Research</div>
+      </div>
+    </header>
+  )
+}
+
+function DashboardSidebar({
+  route,
+  session,
+  datasets,
+  runs,
+  recentAssistantSessions,
+  showResearchChats,
+}: {
+  route: DashboardRouteState
+  session: SessionResponse
+  datasets: DatasetRecord[]
+  runs: RunRecord[]
+  recentAssistantSessions: Array<StoredAssistantSession & {
+    dataset?: DatasetRecord
+    run?: RunRecord
+  }>
+  showResearchChats: boolean
+}) {
+  const { isMobile, setOpenMobile } = useSidebar()
+  const navigate = (next: {
+    view?: DashboardView
+    datasetId?: string | null
+    runId?: string | null
+    sessionId?: string | null
+    draft?: string | null
+    topic?: string | null
+  }) => {
+    updateDashboardRoute(next)
+    if (isMobile) {
+      setOpenMobile(false)
+    }
+  }
+
+  return (
+    <Sidebar collapsible="icon" variant="sidebar">
+      <SidebarHeader className="border-b border-sidebar-border px-3 py-4">
+        <a href={rootOrigin} className="flex items-center">
+          <img
+            className="block h-[29px] w-36 object-contain object-left"
+            src="/alpha-research-wordmark.png"
+            alt="Alpha Research"
+            width="1505"
+            height="300"
+          />
+        </a>
+      </SidebarHeader>
+      <SidebarContent>
+        {showResearchChats ? (
+          <SidebarGroup>
+            <SidebarGroupLabel>Research chats</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    isActive={route.view === 'assistant' && !route.sessionId}
+                    onClick={() =>
+                      navigate({
+                        view: 'assistant',
+                        runId: null,
+                        sessionId: null,
+                      })}
+                  >
+                    <span>New chat</span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                {recentAssistantSessions.map((chatSession) => (
+                  <SidebarMenuItem key={chatSession.id}>
+                    <SidebarMenuButton
+                      className="h-10 md:h-9"
+                      isActive={route.view === 'assistant' && route.sessionId === chatSession.id}
+                      onClick={() =>
+                        navigate({
+                          view: 'assistant',
+                          runId: null,
+                          sessionId: chatSession.id,
+                        })}
+                    >
+                      <span className="min-w-0 truncate text-sm font-medium normal-case tracking-normal text-foreground">
+                        {readableSessionTitle(chatSession.title)}
+                      </span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        ) : null}
+      </SidebarContent>
+      <SidebarFooter className="border-t border-sidebar-border p-3">
+        <SidebarMenu className="mb-2">
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              className="h-11 md:h-8"
+              isActive={route.view === 'datasets'}
+              onClick={() =>
+                navigate({
+                  view: 'datasets',
+                  runId: null,
+                  sessionId: null,
+                })}
+            >
+              <Database />
+              <span>Datasets</span>
+              <span className="ml-auto text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
+                {datasets.length}
+              </span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              className="h-11 md:h-8"
+              tooltip="Runs"
+              isActive={route.view === 'runs'}
+              onClick={() =>
+                navigate({
+                  view: 'runs',
+                  runId: null,
+                  sessionId: null,
+                })}
+            >
+              <History />
+              <span>Runs</span>
+              <span className="ml-auto text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
+                {runs.length}
+              </span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="ghost"
+              className="flex h-auto w-full min-w-0 items-center justify-start overflow-hidden rounded-xl px-3 py-3 text-left hover:bg-sidebar-accent/60"
+            >
+              <div className="flex min-w-0 flex-col items-start">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">
+                  Signed in
+                </span>
+                <span className="truncate text-base font-normal normal-case tracking-normal text-foreground/90">
+                  {session.user?.email ?? 'Signed in'}
+                </span>
+              </div>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="rounded-none">
+            <DropdownMenuItem
+              onClick={async () => {
+                await fetch('/api/auth/logout', {
+                  method: 'POST',
+                  credentials: 'same-origin',
+                })
+                window.location.assign(getDashboardAuthReturnUrl({ loggedOut: true }))
+              }}
+            >
+              <LogOut />
+              Log out
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </SidebarFooter>
+    </Sidebar>
+  )
+}
+
 function DashboardApp({
   session,
   datasets,
@@ -4157,134 +4400,18 @@ function DashboardApp({
 
   return (
     <SidebarProvider defaultOpen>
-      <Sidebar collapsible="icon" variant="sidebar">
-        <SidebarHeader className="border-b border-sidebar-border px-3 py-4">
-          <a href={rootOrigin} className="flex items-center">
-            <img
-              className="block h-[29px] w-36 object-contain object-left"
-              src="/alpha-research-wordmark.png"
-              alt="Alpha Research"
-              width="1505"
-              height="300"
-            />
-          </a>
-        </SidebarHeader>
-        <SidebarContent>
-          {showResearchChats ? (
-            <SidebarGroup>
-              <SidebarGroupLabel>Research chats</SidebarGroupLabel>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton
-                      isActive={route.view === 'assistant' && !route.sessionId}
-                      onClick={() =>
-                        updateDashboardRoute({
-                          view: 'assistant',
-                          runId: null,
-                          sessionId: null,
-                        })}
-                    >
-                      <span>New chat</span>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                  {recentAssistantSessions.map((chatSession) => (
-                      <SidebarMenuItem key={chatSession.id}>
-                        <SidebarMenuButton
-                          className="h-9"
-                          isActive={route.view === 'assistant' && route.sessionId === chatSession.id}
-                          onClick={() =>
-                            updateDashboardRoute({
-                              view: 'assistant',
-                              runId: null,
-                              sessionId: chatSession.id,
-                            })}
-                        >
-                          <span className="min-w-0 truncate text-sm font-medium normal-case tracking-normal text-foreground">
-                            {readableSessionTitle(chatSession.title)}
-                          </span>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                  ))}
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </SidebarGroup>
-          ) : null}
-        </SidebarContent>
-        <SidebarFooter className="border-t border-sidebar-border p-3">
-          <SidebarMenu className="mb-2">
-            <SidebarMenuItem>
-              <SidebarMenuButton
-                isActive={route.view === 'datasets'}
-                onClick={() =>
-                  updateDashboardRoute({
-                    view: 'datasets',
-                    runId: null,
-                    sessionId: null,
-                  })}
-              >
-                <Database />
-                <span>Datasets</span>
-                <span className="ml-auto text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
-                  {datasets.length}
-                </span>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-              <SidebarMenuButton
-                tooltip="Runs"
-                isActive={route.view === 'runs'}
-                onClick={() =>
-                  updateDashboardRoute({
-                    view: 'runs',
-                    runId: null,
-                    sessionId: null,
-                  })}
-              >
-                <History />
-                <span>Runs</span>
-                <span className="ml-auto text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
-                  {runs.length}
-                </span>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          </SidebarMenu>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="ghost"
-                className="flex h-auto w-full min-w-0 items-center justify-start overflow-hidden rounded-xl px-3 py-3 text-left hover:bg-sidebar-accent/60"
-              >
-                <div className="flex min-w-0 flex-col items-start">
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">
-                    Signed in
-                  </span>
-                  <span className="truncate text-base font-normal normal-case tracking-normal text-foreground/90">
-                    {session.user?.email ?? 'Signed in'}
-                  </span>
-                </div>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="rounded-none">
-              <DropdownMenuItem
-                onClick={async () => {
-                  await fetch('/api/auth/logout', {
-                    method: 'POST',
-                    credentials: 'same-origin',
-                  })
-                  window.location.assign(getDashboardAuthReturnUrl({ loggedOut: true }))
-                }}
-              >
-                <LogOut />
-                Log out
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </SidebarFooter>
-      </Sidebar>
+      <DashboardSidebar
+        route={route}
+        session={session}
+        datasets={datasets}
+        runs={runs}
+        recentAssistantSessions={recentAssistantSessions}
+        showResearchChats={showResearchChats}
+      />
 
       <SidebarInset className="min-h-0 overflow-hidden overscroll-none bg-background">
         <div className="flex h-svh min-h-0 flex-col overflow-hidden overscroll-none">
+          <DashboardMobileHeader route={route} />
           {content}
         </div>
       </SidebarInset>
