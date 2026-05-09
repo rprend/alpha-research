@@ -523,7 +523,11 @@ export function launchHarnessPreparedRun(prompt: string) {
         kind: 'run_started',
         title: 'Run started',
         content: `Started run ${runId} for ${dataset.name}. The dashboard will show status, expected artifacts, and destination on the run page.`,
-        metadata: { runId },
+        metadata: {
+          runId,
+          status: 'Running',
+          expectedArtifacts: 'Executive Summary, Cohort Comparison Table, Spec Preservation Record',
+        },
         createdAt,
       },
     ],

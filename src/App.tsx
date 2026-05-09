@@ -1394,9 +1394,23 @@ function formatSessionBody(entry: SessionEntry) {
     return codeBlock(entry.title ?? 'Payload', parsed)
   }
   if (entry.title === 'Run started') {
-    const runId = body.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/iu)?.[0]
+    const metadataRunId = isRecord(entry.metadata) && typeof entry.metadata.runId === 'string'
+      ? entry.metadata.runId
+      : null
+    const metadataStatus = isRecord(entry.metadata) && typeof entry.metadata.status === 'string'
+      ? entry.metadata.status
+      : null
+    const metadataExpectedArtifacts = isRecord(entry.metadata) && typeof entry.metadata.expectedArtifacts === 'string'
+      ? entry.metadata.expectedArtifacts
+      : null
+    const runId = metadataRunId ?? body.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/iu)?.[0]
     if (runId) {
-      return `### ${entry.title}\n\n${body}\n\n[Open run](${dashboardOrigin}?view=runs&runId=${encodeURIComponent(runId)})`
+      const metadataLines = [
+        runId,
+        metadataStatus,
+        metadataExpectedArtifacts,
+      ].filter(Boolean)
+      return `### ${entry.title}\n\n${metadataLines.join('\n\n')}\n\n${body}\n\n[Open run](${dashboardOrigin}?view=runs&runId=${encodeURIComponent(runId)})`
     }
   }
   if (entry.title) {
@@ -3759,6 +3773,45 @@ function RunDetailPage({
                 Artifacts
               </Button>
             </div>
+          ) : null}
+          {isCompletedRun && primaryBriefingArtifact ? (
+            <section className="mb-6 flex flex-col gap-4 border-b border-border pb-6">
+              <div className="space-y-2">
+                <h2 className="text-xl font-semibold tracking-normal">
+                  {dataset?.name ?? 'Dataset'} · {formatStatus(currentRun.type)} run
+                </h2>
+                <h1 className="text-3xl font-semibold tracking-normal md:text-4xl">Dataset briefing ready</h1>
+                <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
+                  The durable briefing stays attached to this run as an artifact, alongside the generated dataset profile and supporting files.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="justify-start"
+                  onClick={() => {
+                    setSelectedArtifactId(primaryBriefingArtifact.id)
+                    setArtifactsOpen(true)
+                  }}
+                >
+                  Open briefing artifact
+                </Button>
+                {primaryProfileArtifact ? (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="justify-start"
+                    onClick={() => {
+                      setSelectedArtifactId(primaryProfileArtifact.id)
+                      setArtifactsOpen(true)
+                    }}
+                  >
+                    Open profile artifact
+                  </Button>
+                ) : null}
+              </div>
+            </section>
           ) : null}
           {isCompletedRun && primaryBriefingArtifact ? (
             <article className="mb-8 text-[0.95rem] leading-7 text-foreground">
