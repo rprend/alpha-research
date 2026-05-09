@@ -935,7 +935,7 @@ function renderPreviewMarkdown(markdown: string) {
       const text = heading[2] ?? ''
       nodes.push(
         level === 1
-          ? <h1 key={`h-${nodes.length}`} className="mt-9 text-4xl font-semibold leading-tight tracking-normal first:mt-0">{text}</h1>
+          ? <h1 key={`h-${nodes.length}`} className="mt-9 text-3xl font-semibold leading-tight tracking-normal first:mt-0 md:text-4xl">{text}</h1>
           : <h2 key={`h-${nodes.length}`} className="mt-8 text-2xl font-semibold leading-tight tracking-normal first:mt-0">{text}</h2>,
       )
       continue
@@ -2455,7 +2455,7 @@ function DatasetFeedSection({
     : datasets
 
   return (
-    <section className="flex flex-col gap-4">
+    <section className="flex min-w-0 flex-col gap-4">
       <div className="flex flex-col gap-3 border-b border-border pb-3 sm:flex-row sm:items-end sm:justify-between">
         <div className="flex flex-col gap-1">
           <div className="text-xl font-medium">{title}</div>
@@ -2468,7 +2468,7 @@ function DatasetFeedSection({
           <CardContent className="px-5 py-5 text-sm text-muted-foreground">{emptyMessage}</CardContent>
         </Card>
       ) : (
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid min-w-0 gap-5 md:grid-cols-2">
           {sortedDatasets.map((dataset) => {
             const description = datasetInventoryDescription(dataset)
             const useCase = datasetInventoryUseCase(dataset)
@@ -2481,27 +2481,29 @@ function DatasetFeedSection({
               <button
                 key={dataset.id}
                 type="button"
-                className="grid min-h-56 grid-rows-[auto_1fr_auto] gap-4 rounded-2xl border border-border bg-card p-5 text-left shadow-sm transition-colors hover:bg-muted/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="grid min-h-56 w-full min-w-0 grid-rows-[auto_1fr_auto] gap-4 rounded-2xl border border-border bg-card p-4 text-left shadow-sm transition-colors hover:bg-muted/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:p-5"
                 onClick={() => onSelectDataset(dataset)}
               >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-start gap-4">
+                <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                  <div className="flex min-w-0 items-start gap-4">
                     <div className="flex size-13 shrink-0 items-center justify-center rounded-xl bg-muted text-muted-foreground">
                       <Database className="size-6" />
                     </div>
-                    <div className="space-y-2">
+                    <div className="min-w-0 space-y-2">
                       <div className="text-base font-semibold">{dataset.name}</div>
                       {useCase ? <p className="text-sm font-medium text-foreground/80">{useCase}</p> : null}
                     </div>
                   </div>
-                  <StatusBadge>{readiness.label}</StatusBadge>
+                  <div className="max-w-full sm:shrink-0">
+                    <StatusBadge>{readiness.label}</StatusBadge>
+                  </div>
                 </div>
-                <div className="space-y-3">
+                <div className="min-w-0 space-y-3">
                   <p className="text-sm leading-6 text-muted-foreground">{description}</p>
                   {matchScore > 0 && topic ? (
                     <p className="text-sm font-medium text-foreground">Relevant to {normalizeTopicLabel(topic)}</p>
                   ) : null}
-                  <div className="grid gap-2 text-sm leading-6 text-foreground/80">
+                  <div className="grid min-w-0 gap-2 text-sm leading-6 text-foreground/80">
                     {coverage ? <p><span className="font-medium text-foreground">Coverage:</span> {coverage}</p> : null}
                     {freshness ? <p><span className="font-medium text-foreground">Freshness:</span> {freshness}</p> : null}
                     {limitation ? <p><span className="font-medium text-foreground">Limitation:</span> {limitation}</p> : null}
@@ -2804,8 +2806,8 @@ function DatasetDetailPage({
           </section>
         ) : null}
 
-        <section className="grid gap-4 rounded-2xl border border-border bg-muted/20 p-4 md:p-6 lg:grid-cols-[minmax(0,1fr)_280px]">
-          <div className="space-y-5">
+        <section className="grid min-w-0 gap-4 rounded-2xl border border-border bg-muted/20 p-4 md:p-6 lg:grid-cols-[minmax(0,1fr)_280px]">
+          <div className="min-w-0 space-y-5">
             <div className="space-y-2">
               <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Trust summary</div>
               <div className="flex flex-wrap items-center gap-3">
@@ -2817,51 +2819,51 @@ function DatasetDetailPage({
                 {profileSummary ?? fitVerdict}
               </p>
             </div>
-            <div className="grid gap-3 md:grid-cols-2">
+            <div className="grid min-w-0 gap-3 md:grid-cols-2">
               {trustSummaryItems.map((item) => (
-                <div key={item.label} className="rounded-xl border border-border bg-background/80 px-4 py-4">
+                <div key={item.label} className="min-w-0 rounded-xl border border-border bg-background/80 px-4 py-4">
                   <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">{item.label}</div>
                   <div className="mt-2 text-sm leading-6 text-foreground/90">{item.value}</div>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.detail}</p>
                 </div>
               ))}
             </div>
-            <div className="grid gap-3 md:grid-cols-2">
-              <div className="rounded-xl border border-border bg-background/80 px-4 py-4">
+            <div className="grid min-w-0 gap-3 md:grid-cols-2">
+              <div className="min-w-0 rounded-xl border border-border bg-background/80 px-4 py-4">
                 <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Source coverage</div>
                 <p className="mt-2 text-sm leading-6 text-foreground/85">{sourceCoverage}</p>
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">{transformationSummary}</p>
               </div>
-              <div className="rounded-xl border border-border bg-background/80 px-4 py-4">
+              <div className="min-w-0 rounded-xl border border-border bg-background/80 px-4 py-4">
                 <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Freshness and deployment</div>
                 <p className="mt-2 text-sm leading-6 text-foreground/85">{freshnessSummary}</p>
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">{sourceStatus}</p>
               </div>
-              <div className="rounded-xl border border-border bg-background/80 px-4 py-4">
+              <div className="min-w-0 rounded-xl border border-border bg-background/80 px-4 py-4">
                 <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Known gaps</div>
                 <p className="mt-2 text-sm leading-6 text-foreground/85">{trustState.actionDetail}</p>
               </div>
-              <div className="rounded-xl border border-border bg-background/80 px-4 py-4">
+              <div className="min-w-0 rounded-xl border border-border bg-background/80 px-4 py-4">
                 <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Briefing status</div>
                 <p className="mt-2 text-sm leading-6 text-foreground/85">{briefingStatus}</p>
               </div>
             </div>
             {(schemaColumns.length > 0 || sampleRows.length > 0) ? (
-              <div className="grid gap-4 xl:grid-cols-[280px_minmax(0,1fr)]">
-                <div className="rounded-xl border border-border bg-background/80 p-5">
+              <div className="grid min-w-0 gap-4 xl:grid-cols-[280px_minmax(0,1fr)]">
+                <div className="min-w-0 rounded-xl border border-border bg-background/80 p-5">
                   <h2 className="text-lg font-medium">Schema</h2>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">
                     Core fields visible in the current profile.
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {schemaColumns.map((column) => (
-                      <span key={column} className="rounded-full border border-border px-3 py-1 text-sm text-foreground/85">
+                      <span key={column} className="max-w-full break-words rounded-full border border-border px-3 py-1 text-sm text-foreground/85">
                         {column}
                       </span>
                     ))}
                   </div>
                 </div>
-                <div className="rounded-xl border border-border bg-background/80 p-5">
+                <div className="min-w-0 rounded-xl border border-border bg-background/80 p-5">
                   <div>
                     <h2 className="text-lg font-medium">Sample rows</h2>
                     <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -2894,7 +2896,7 @@ function DatasetDetailPage({
               </div>
             ) : null}
           </div>
-          <div className="flex flex-col justify-between gap-4 rounded-xl border border-border bg-background p-5">
+          <div className="min-w-0 rounded-xl border border-border bg-background p-5 lg:flex lg:flex-col lg:justify-between lg:gap-4">
             <div className="space-y-2">
               <h2 className="text-sm font-medium">Dataset briefing</h2>
               <p className="text-sm leading-6 text-muted-foreground">{describeHelperText}</p>
@@ -2944,8 +2946,8 @@ function DatasetDetailPage({
           </div>
         </section>
 
-        <section className="grid gap-4 rounded-3xl border border-border bg-background p-4 shadow-sm md:p-6 lg:grid-cols-[minmax(0,1fr)_280px]">
-          <div className="space-y-5">
+        <section className="grid min-w-0 gap-4 rounded-3xl border border-border bg-background p-4 shadow-sm md:p-6 lg:grid-cols-[minmax(0,1fr)_280px]">
+          <div className="min-w-0 space-y-5">
             <div className="space-y-2">
               <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Ask about this dataset</div>
               <h2 className="text-2xl font-semibold tracking-normal">Start a grounded question without re-explaining the data.</h2>
@@ -2987,7 +2989,7 @@ function DatasetDetailPage({
                     key={prompt}
                     type="button"
                     variant="outline"
-                    className="h-auto whitespace-normal rounded-full px-4 py-2 text-left normal-case"
+                    className="h-auto max-w-full whitespace-normal rounded-xl px-4 py-2 text-left normal-case sm:rounded-full"
                     onClick={() => setQuestionDraft(prompt)}
                   >
                     {prompt}
@@ -2996,7 +2998,7 @@ function DatasetDetailPage({
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-4 rounded-2xl border border-border bg-muted/20 p-5">
+          <div className="min-w-0 rounded-2xl border border-border bg-muted/20 p-5 lg:flex lg:flex-col lg:gap-4">
             <div className="space-y-2">
               <h3 className="text-sm font-medium">What happens next</h3>
               <p className="text-sm leading-6 text-muted-foreground">
