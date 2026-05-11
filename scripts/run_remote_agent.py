@@ -42,6 +42,15 @@ HEARTBEAT_INTERVAL_SECONDS = int(os.environ.get("REMOTE_AGENT_HEARTBEAT_SECONDS"
 RUN_STATE_DIR = Path(os.environ.get("RUN_STATE_DIR", str(DATASET_MOUNT_PATH / ".remote-agent" / "runs" / RUN_ID)))
 RUN_STATUS_PATH = Path(os.environ.get("RUN_STATUS_PATH", str(RUN_STATE_DIR / "status.json")))
 CALLBACK_RETRY_SECONDS = [0, 1, 2, 5]
+INLINE_BINARY_EXTENSIONS = {
+    ".gif": "image/gif",
+    ".jpeg": "image/jpeg",
+    ".jpg": "image/jpeg",
+    ".pdf": "application/pdf",
+    ".png": "image/png",
+    ".webp": "image/webp",
+}
+MAX_INLINE_BINARY_BYTES = 5 * 1024 * 1024
 
 
 def session_title() -> str:
@@ -284,6 +293,18 @@ def artifact_content_for_path(path: Path):
             return {"path": str(path), "preview": path.read_text()[:5000]}
     if suffix in {".html", ".htm", ".md", ".txt", ".csv", ".sql", ".py", ".sh", ".svg"}:
         return {"path": str(path), "text": path.read_text()[:20000]}
+    if suffix in INLINE_BINARY_EXTENSIONS:
+        size = path.stat().st_size
+        content = {
+            "path": str(path),
+            "mimeType": INLINE_BINARY_EXTENSIONS[suffix],
+            "sizeBytes": size,
+        }
+        if size <= MAX_INLINE_BINARY_BYTES:
+            content["base64"] = base64.b64encode(path.read_bytes()).decode("ascii")
+        else:
+            content["note"] = "binary-too-large-for-inline-preview"
+        return content
     return {"path": str(path), "note": "binary-or-unsupported-preview"}
 
 
@@ -295,7 +316,7 @@ def infer_artifact_type(path: Path):
         return "table"
     if suffix in {".html", ".htm"}:
         return "html_report"
-    if suffix in {".png", ".svg"}:
+    if suffix in {".gif", ".jpeg", ".jpg", ".png", ".svg", ".webp"}:
         return "chart"
     if suffix in {".py", ".sql", ".sh"}:
         return "script"

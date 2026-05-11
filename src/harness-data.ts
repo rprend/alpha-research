@@ -395,6 +395,32 @@ const harnessArtifacts = [
     createdAt: iso(22),
   },
   {
+    id: 'artifact-harness-chart',
+    runId: 'run-harness-completed',
+    type: 'chart',
+    title: 'coverage.png',
+    content: {
+      path: '/workspace/artifacts/coverage.png',
+      mimeType: 'image/png',
+      base64: 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/p9sAAAAASUVORK5CYII=',
+      sizeBytes: 68,
+    },
+    createdAt: iso(22),
+  },
+  {
+    id: 'artifact-harness-pdf',
+    runId: 'run-harness-completed',
+    type: 'file',
+    title: 'preregistration.pdf',
+    content: {
+      path: '/workspace/artifacts/analysis/preregistration.pdf',
+      mimeType: 'application/pdf',
+      sizeBytes: 2048,
+      note: 'binary-too-large-for-inline-preview',
+    },
+    createdAt: iso(22),
+  },
+  {
     id: 'artifact-harness-script',
     runId: 'run-harness-completed',
     type: 'script',

@@ -404,6 +404,11 @@ async function assertCompletedRunArtifactsSteering() {
     await artifactsPanel.getByText('report.html', { exact: true }).first().waitFor({ timeout: 15000 })
     await artifactsPanel.locator('button', { hasText: 'work.md' }).first().waitFor({ timeout: 15000 })
     await artifactsPanel.locator('button', { hasText: 'result.json' }).first().waitFor({ timeout: 15000 })
+    await artifactsPanel.locator('button', { hasText: 'coverage.png' }).first().click()
+    await artifactsPanel.locator('img[alt="coverage.png"]').waitFor({ timeout: 15000 })
+    await artifactsPanel.locator('button', { hasText: 'preregistration.pdf' }).first().click()
+    await artifactsPanel.getByRole('heading', { name: 'PDF artifact' }).waitFor({ timeout: 15000 })
+    await artifactsPanel.getByRole('link', { name: 'Open PDF' }).waitFor({ timeout: 15000 })
     await artifactsPanel.locator('button', { hasText: 'scripts/inspect_manifest.py' }).first().waitFor({ timeout: 15000 })
     await page.getByText('2 / 2', { exact: true }).waitFor({ timeout: 15000 })
   } finally {

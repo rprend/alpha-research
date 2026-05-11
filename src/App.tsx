@@ -1133,6 +1133,8 @@ function artifactLanguage(path: string, artifact: RunArtifactRecord) {
   if (extension === 'csv') return 'csv'
   if (extension === 'sh') return 'bash'
   if (extension === 'html') return 'html'
+  if (extension === 'pdf') return 'pdf'
+  if (['png', 'jpg', 'jpeg', 'gif', 'webp'].includes(extension ?? '')) return 'image'
   if (extension === 'css') return 'css'
   return 'text'
 }
@@ -1212,6 +1214,17 @@ function artifactDownloadHref(artifact: RunArtifactRecord) {
   if (artifact.url) return artifact.url
   const path = artifactPath(artifact)
   const language = artifactLanguage(path, artifact)
+  if (language === 'pdf' || language === 'image') {
+    const base64 = artifact.content?.base64
+    if (typeof base64 === 'string' && base64.trim()) {
+      const mimeType = typeof artifact.content?.mimeType === 'string'
+        ? artifact.content.mimeType
+        : language === 'pdf'
+          ? 'application/pdf'
+          : `image/${path.split('.').pop()?.toLowerCase() === 'jpg' ? 'jpeg' : path.split('.').pop()?.toLowerCase() || 'png'}`
+      return `data:${mimeType};base64,${base64.trim()}`
+    }
+  }
   const body = language === 'json' ? artifactJsonPreview(artifact) : artifactText(artifact)
   const mimeType = language === 'json'
     ? 'application/json;charset=utf-8'
@@ -1219,6 +1232,10 @@ function artifactDownloadHref(artifact: RunArtifactRecord) {
       ? 'text/markdown;charset=utf-8'
       : language === 'html'
         ? 'text/html;charset=utf-8'
+        : language === 'pdf'
+          ? 'application/pdf'
+          : language === 'image'
+            ? 'application/octet-stream'
         : 'text/plain;charset=utf-8'
   return `data:${mimeType},${encodeURIComponent(body)}`
 }
@@ -4165,6 +4182,7 @@ function FilePreview({
   const path = artifactPath(artifact)
   const language = artifactLanguage(path, artifact)
   const text = artifactText(artifact)
+  const downloadHref = artifactDownloadHref(artifact)
 
   return (
     <div className="flex min-h-0 flex-col overflow-hidden">
@@ -4173,8 +4191,18 @@ function FilePreview({
           <div className="truncate text-base font-semibold">{path}</div>
         </div>
         <div className="flex shrink-0 items-center gap-3">
+          {language === 'pdf' || language === 'image' ? (
+            <a
+              href={downloadHref}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+            >
+              Open
+            </a>
+          ) : null}
           <a
-            href={artifactDownloadHref(artifact)}
+            href={downloadHref}
             download={artifactDownloadFilename(artifact)}
             target={artifact.url ? '_blank' : undefined}
             rel={artifact.url ? 'noreferrer' : undefined}
@@ -4185,7 +4213,51 @@ function FilePreview({
           </a>
         </div>
       </div>
-      {artifact.url ? (
+      {language === 'image' && typeof artifact.content?.base64 === 'string' ? (
+        <div className="min-h-0 flex-1 overflow-auto bg-muted/10 p-6">
+          <img
+            src={downloadHref}
+            alt={artifact.title}
+            className="mx-auto max-h-full max-w-full border border-border bg-background object-contain"
+          />
+        </div>
+      ) : language === 'image' ? (
+        <div className="flex min-h-0 flex-1 items-center justify-center px-8 py-6">
+          <div className="max-w-md border border-border bg-muted/10 px-6 py-5 text-center">
+            <FileText className="mx-auto mb-3 size-8 text-muted-foreground" aria-hidden="true" />
+            <h3 className="text-base font-semibold">Image artifact</h3>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              This image was saved as an artifact, but its bytes were not captured for inline preview. Open or download it from the artifact controls.
+            </p>
+            <div className="mt-4 flex justify-center gap-2">
+              <Button type="button" size="sm" variant="outline" asChild>
+                <a href={downloadHref} target="_blank" rel="noreferrer">Open image</a>
+              </Button>
+              <Button type="button" size="sm" variant="ghost" asChild>
+                <a href={downloadHref} download={artifactDownloadFilename(artifact)}>Download</a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      ) : language === 'pdf' ? (
+        <div className="flex min-h-0 flex-1 items-center justify-center px-8 py-6">
+          <div className="max-w-md border border-border bg-muted/10 px-6 py-5 text-center">
+            <FileText className="mx-auto mb-3 size-8 text-muted-foreground" aria-hidden="true" />
+            <h3 className="text-base font-semibold">PDF artifact</h3>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              PDF files are saved as artifacts, but the dashboard does not inline them because browser PDF support is inconsistent in the embedded panel.
+            </p>
+            <div className="mt-4 flex justify-center gap-2">
+              <Button type="button" size="sm" variant="outline" asChild>
+                <a href={downloadHref} target="_blank" rel="noreferrer">Open PDF</a>
+              </Button>
+              <Button type="button" size="sm" variant="ghost" asChild>
+                <a href={downloadHref} download={artifactDownloadFilename(artifact)}>Download</a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      ) : artifact.url ? (
         <iframe title={artifact.title} src={artifact.url} className="min-h-0 flex-1 bg-background" />
       ) : language === 'markdown' ? (
         <article className="min-h-0 flex-1 overflow-auto px-8 py-6">
