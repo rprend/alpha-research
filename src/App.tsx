@@ -1148,13 +1148,10 @@ function isMarkdownArtifact(artifact: RunArtifactRecord) {
 }
 
 function getDatasetBriefingArtifact(artifacts: RunArtifactRecord[]) {
-  const htmlArtifacts = artifacts.filter((artifact) => {
-    if (!isHtmlArtifact(artifact)) return false
-    const title = artifact.title.toLowerCase()
-    const path = artifactPath(artifact).toLowerCase()
-    return title.includes('report') || path.endsWith('report.html') || path.endsWith('index.html')
-  })
-  const htmlArtifact = htmlArtifacts.find((artifact) => artifact.url || hasArtifactText(artifact)) ?? htmlArtifacts[0]
+  const htmlArtifacts = artifacts.filter(isHtmlArtifact)
+  const htmlArtifact =
+    htmlArtifacts.find((artifact) => artifact.url || hasArtifactText(artifact))
+    ?? htmlArtifacts[0]
   if (htmlArtifact) return htmlArtifact
 
   return artifacts.find((artifact) => {
