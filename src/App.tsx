@@ -3701,6 +3701,8 @@ function ResearchAssistantPage({
   const [messages, setMessages] = useState<ThreadMessage[]>([])
   const [isRunning, setIsRunning] = useState(false)
   const [composerError, setComposerError] = useState<string | null>(null)
+  const [artifactsOpen, setArtifactsOpen] = useState(false)
+  const [selectedArtifactId, setSelectedArtifactId] = useState<string | null>(null)
   const [conversationState, setConversationState] = useState<{
     sessionId: string | null
     previousResponseId: string | null
@@ -3749,6 +3751,33 @@ function ResearchAssistantPage({
     })
     return () => window.cancelAnimationFrame(frame)
   }, [route.draft, route.sessionId, route.view])
+
+  const activeAssistantRunId = useMemo(
+    () => session?.runId ?? extractStartedRunId(session?.entries ?? []),
+    [session],
+  )
+  const { payload: activeRunPayload } = useRunResultsById(activeAssistantRunId)
+  const assistantArtifacts = useMemo(
+    () => getProducedArtifacts(activeRunPayload).filter((artifact) => artifact.type !== 'remote_agent_session'),
+    [activeRunPayload],
+  )
+  const primaryBriefingArtifact = useMemo(
+    () => getDatasetBriefingArtifact(assistantArtifacts),
+    [assistantArtifacts],
+  )
+  const primaryProfileArtifact = useMemo(
+    () => getDatasetProfileArtifact(assistantArtifacts),
+    [assistantArtifacts],
+  )
+
+  useEffect(() => {
+    const selectedArtifactStillExists = assistantArtifacts.some(
+      (artifact) => artifact.id === selectedArtifactId,
+    )
+    if (!selectedArtifactStillExists) {
+      setSelectedArtifactId(assistantArtifacts[0]?.id ?? null)
+    }
+  }, [assistantArtifacts, selectedArtifactId])
 
   const runtime = useExternalStoreRuntime({
     isRunning,
@@ -3828,73 +3857,90 @@ function ResearchAssistantPage({
   })
 
   return (
-    <main className="flex min-h-0 flex-1 flex-col overflow-hidden px-4 py-6 md:px-8">
-      {dataError ? (
-        <Card className="mb-4 rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
-          <CardContent className="px-6 py-4 text-sm text-destructive">{dataError}</CardContent>
-        </Card>
-      ) : null}
-      {composerError ? (
-        <Card className="mb-4 rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
-          <CardContent className="px-6 py-4 text-sm text-destructive">{composerError}</CardContent>
-        </Card>
-      ) : null}
-      {error && !session ? (
-        <Card className="mb-4 rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
-          <CardContent className="px-6 py-4 text-sm text-destructive">{error}</CardContent>
-        </Card>
-      ) : null}
-      <div className="min-h-0 flex-1 overflow-hidden">
+    <main className="dashboard-assistant-page">
+      <section className="dashboard-assistant-thread">
+        {dataError ? (
+          <Card className="mb-4 rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
+            <CardContent className="px-6 py-4 text-sm text-destructive">{dataError}</CardContent>
+          </Card>
+        ) : null}
+        {composerError ? (
+          <Card className="mb-4 rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
+            <CardContent className="px-6 py-4 text-sm text-destructive">{composerError}</CardContent>
+          </Card>
+        ) : null}
+        {error && !session ? (
+          <Card className="mb-4 rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
+            <CardContent className="px-6 py-4 text-sm text-destructive">{error}</CardContent>
+          </Card>
+        ) : null}
         <AssistantRuntimeProvider runtime={runtime}>
-          <div className="h-full min-h-0">
-            <Thread
-              welcomeTitle="What do you want to research?"
-              welcomeDescription=""
-              welcomeImageSrc="/alpha-book-man.png"
-              showWelcome={!activeSessionId}
-              datasets={datasets.map((dataset) => ({
-                id: dataset.id,
-                name: dataset.name,
-                description: dataset.description || dataset.sourceFilename,
-                status: dataset.status,
-              }))}
-              renderAssistantBlock={(custom) => {
-                if (custom.plannedRemoteRun === true) {
-                  const datasetId = typeof custom.datasetId === 'string' ? custom.datasetId : null
-                  const prompt = typeof custom.prompt === 'string' ? custom.prompt : null
-                  const sessionId = conversationStateRef.current.sessionId ?? routeSessionIdRef.current
-                  if (datasetId && prompt && sessionId) {
-                    return (
-                      <RemoteRunPlanApprovalBlock
-                        datasetId={datasetId}
-                        prompt={prompt}
-                        onApprove={async () => {
-                          await approveRemoteRunPlan(sessionId)
-                          const refreshed = await refreshSessionMessages(sessionId)
-                          window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
-                          const startedRunId = extractStartedRunId(refreshed.entries)
-                          if (startedRunId) {
-                            updateDashboardRoute({ view: 'assistant', sessionId, runId: null })
-                            routeSessionIdRef.current = sessionId
-                          }
-                        }}
-                      />
-                    )
-                  }
+          <Thread
+            welcomeTitle="What do you want to research?"
+            welcomeDescription=""
+            welcomeImageSrc="/alpha-book-man.png"
+            showWelcome={!activeSessionId}
+            datasets={datasets.map((dataset) => ({
+              id: dataset.id,
+              name: dataset.name,
+              description: dataset.description || dataset.sourceFilename,
+              status: dataset.status,
+            }))}
+            renderAssistantBlock={(custom) => {
+              if (custom.plannedRemoteRun === true) {
+                const datasetId = typeof custom.datasetId === 'string' ? custom.datasetId : null
+                const prompt = typeof custom.prompt === 'string' ? custom.prompt : null
+                const sessionId = conversationStateRef.current.sessionId ?? routeSessionIdRef.current
+                if (datasetId && prompt && sessionId) {
+                  return (
+                    <RemoteRunPlanApprovalBlock
+                      datasetId={datasetId}
+                      prompt={prompt}
+                      onApprove={async () => {
+                        await approveRemoteRunPlan(sessionId)
+                        const refreshed = await refreshSessionMessages(sessionId)
+                        window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
+                        const startedRunId = extractStartedRunId(refreshed.entries)
+                        if (startedRunId) {
+                          updateDashboardRoute({ view: 'assistant', sessionId, runId: null })
+                          routeSessionIdRef.current = sessionId
+                        }
+                      }}
+                    />
+                  )
                 }
-                const runId = typeof custom.runId === 'string' ? custom.runId : null
-                if (!runId) return null
-                return (
-                  <RemoteRunBlock
-                    runId={runId}
-                    initialStatus={typeof custom.status === 'string' ? custom.status : null}
-                  />
-                )
-              }}
-            />
-          </div>
+              }
+              const runId = typeof custom.runId === 'string' ? custom.runId : null
+              if (!runId) return null
+              return (
+                <RemoteRunBlock
+                  runId={runId}
+                  initialStatus={typeof custom.status === 'string' ? custom.status : null}
+                />
+              )
+            }}
+          />
         </AssistantRuntimeProvider>
-      </div>
+      </section>
+      {assistantArtifacts.length > 0 ? (
+        <RunOutputsRail
+          artifacts={assistantArtifacts}
+          selectedArtifactId={selectedArtifactId}
+          onOpenArtifact={(artifactId) => {
+            setSelectedArtifactId(artifactId)
+            setArtifactsOpen(true)
+          }}
+        />
+      ) : null}
+      <RunArtifactsPanel
+        open={artifactsOpen}
+        onClose={() => setArtifactsOpen(false)}
+        producedArtifacts={assistantArtifacts}
+        selectedArtifactId={selectedArtifactId}
+        onSelectArtifact={setSelectedArtifactId}
+        primaryArtifactId={primaryBriefingArtifact?.id ?? null}
+        profileArtifactId={primaryProfileArtifact?.id ?? null}
+      />
     </main>
   )
 }

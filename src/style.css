@@ -594,6 +594,36 @@
   backdrop-filter: blur(14px);
 }
 
+.dashboard-assistant-page {
+  position: relative;
+  min-height: 0;
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(1rem, 1fr) minmax(0, 46rem) minmax(11rem, 14rem);
+  column-gap: clamp(1rem, 3vw, 3.5rem);
+  overflow: hidden;
+  padding: 0 clamp(1rem, 2vw, 2rem);
+}
+
+.dashboard-assistant-thread {
+  grid-column: 2;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.dashboard-assistant-page .dashboard-outputs-rail {
+  grid-column: 3;
+  grid-row: 1;
+  width: 100%;
+  padding: 1.4rem 0.5rem 1rem 0;
+  align-items: stretch;
+}
+
+.dashboard-assistant-page .dashboard-outputs-list {
+  max-height: calc(100vh - 7rem);
+}
+
 .dashboard-shell .aui-thread-root {
   --aui-corner-radius: 24px;
   background: transparent;
@@ -608,6 +638,45 @@
   border-color: var(--dashboard-shell-border);
   background: rgba(255, 255, 255, 0.92);
   box-shadow: var(--dashboard-shadow);
+}
+
+.dashboard-assistant-page [data-slot="aui_thread-viewport"] > div {
+  padding-top: 3.4rem;
+}
+
+.dashboard-assistant-page [data-slot="aui_message-group"] {
+  gap: 3rem;
+  margin-bottom: 8rem;
+}
+
+.dashboard-assistant-page [data-slot="aui_assistant-message-root"],
+.dashboard-assistant-page [data-slot="aui_user-message-root"] {
+  font-size: 1.03rem;
+  line-height: 1.48;
+}
+
+.dashboard-assistant-page [data-slot="aui_user-message-root"] {
+  display: block;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.dashboard-assistant-page .aui-user-message-content-wrapper {
+  max-width: 100%;
+}
+
+.dashboard-assistant-page .aui-user-message-content {
+  background: transparent !important;
+  padding: 0;
+}
+
+.dashboard-assistant-page [data-slot="aui_assistant-message-content"] {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.dashboard-assistant-page .aui-thread-viewport-footer {
+  max-width: min(44rem, 100%);
 }
 
 .dashboard-shell .aui-composer-send {
@@ -727,6 +796,11 @@
   color: var(--dashboard-ink);
 }
 
+.dashboard-output-link.is-active {
+  outline: 1px solid rgba(37, 99, 235, 0.9);
+  outline-offset: -1px;
+}
+
 .dashboard-output-link:hover .dashboard-output-link-name,
 .dashboard-output-link.is-active .dashboard-output-link-name {
   color: rgba(38, 38, 38, 0.72);
@@ -750,6 +824,17 @@
 @media (min-width: 900px) {
   .dashboard-outputs-rail {
     display: flex;
+  }
+}
+
+@media (max-width: 899px) {
+  .dashboard-assistant-page {
+    display: flex;
+    padding: 0 1rem;
+  }
+
+  .dashboard-assistant-thread {
+    flex: 1;
   }
 }
 
