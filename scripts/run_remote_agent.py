@@ -51,6 +51,7 @@ INLINE_BINARY_EXTENSIONS = {
     ".webp": "image/webp",
 }
 MAX_INLINE_BINARY_BYTES = 5 * 1024 * 1024
+MAX_TEXT_ARTIFACT_BYTES = 2 * 1024 * 1024
 
 
 def session_title() -> str:
@@ -275,7 +276,11 @@ def build_remote_agent_prompt():
             f"Write every output to {ARTIFACT_DIR}.",
             "Iterate on the research task until the answer is complete.",
             "Keep work.md updated as your running log: what you tried, what worked, what failed, and what remains.",
-            "Stop only after you have written report.html with the full final answer, including methods, evidence, results, caveats, and any charts or tables needed to understand the work.",
+            "Stop only after you have written report.html as a polished, decision-ready research report, not a progress summary.",
+            "The report must read like a serious applied research paper or expert memo for a senior stakeholder. It should develop the argument in prose, quantify claims, explain identification and measurement choices, interpret evidence, and make limitations explicit.",
+            "Include an abstract or executive takeaway, research question, data description, methodology, results, robustness/validation, limitations, implications, and concrete next steps. Use tables and figures where they improve comprehension.",
+            "Do not merely list generated files, scripts, assets, or implementation steps. Put implementation details in work.md unless they are directly relevant to the research finding.",
+            "If the evidence is insufficient for a strong conclusion, say so plainly and explain what additional data or analysis is needed rather than padding the report.",
             "Write result.json too if you produce structured results.",
             "",
             "Research request:",
@@ -292,7 +297,18 @@ def artifact_content_for_path(path: Path):
         except Exception:
             return {"path": str(path), "preview": path.read_text()[:5000]}
     if suffix in {".html", ".htm", ".md", ".txt", ".csv", ".sql", ".py", ".sh", ".svg"}:
-        return {"path": str(path), "text": path.read_text()[:20000]}
+        text = path.read_text()
+        encoded = text.encode("utf-8")
+        if len(encoded) <= MAX_TEXT_ARTIFACT_BYTES:
+            return {"path": str(path), "text": text, "sizeBytes": len(encoded)}
+        preview = encoded[:MAX_TEXT_ARTIFACT_BYTES].decode("utf-8", errors="ignore")
+        return {
+            "path": str(path),
+            "text": preview,
+            "sizeBytes": len(encoded),
+            "truncated": True,
+            "note": "text-artifact-exceeded-callback-preview-limit",
+        }
     if suffix in INLINE_BINARY_EXTENSIONS:
         size = path.stat().st_size
         content = {
