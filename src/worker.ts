@@ -129,16 +129,8 @@ const DOCS_PAGE_PATHS = new Set([
   '/dashboard/terminal-sessions',
   '/index',
   '/product-tests-site',
-  '/public-datasets/anthropology',
-  '/public-datasets/classics',
   '/public-datasets/econ',
-  '/public-datasets/history',
   '/public-datasets/index',
-  '/public-datasets/linguistics',
-  '/public-datasets/literature',
-  '/public-datasets/philosophy',
-  '/public-datasets/political-science',
-  '/public-datasets/sociology',
   '/reference/mintlify-deployment',
   '/ways-to-use/index',
   '/ways-to-use/local-development',
@@ -147,6 +139,16 @@ const DOCS_PAGE_PATHS = new Set([
   '/ways-to-use/research-runs',
 ])
 const DOCS_SECTION_INDEX_PATHS = new Set(['/cli', '/dashboard', '/public-datasets', '/ways-to-use'])
+const OBSOLETE_PUBLIC_DATASET_SLUGS = new Set([
+  'anthropology',
+  'classics',
+  'history',
+  'linguistics',
+  'literature',
+  'philosophy',
+  'political-science',
+  'sociology',
+])
 const MAX_TOOL_ROUNDS = 12
 const ASYNC_RUN_START_TOOLS = new Set([
   'start_remote_run',
@@ -218,6 +220,12 @@ function contentTypeForPath(pathname: string) {
 }
 
 async function fetchDocsAsset(request: Request, env: Env, url: URL) {
+  if (isObsoletePublicDatasetPath(url.pathname)) {
+    return new Response('Not found. The only canonical public dataset is econ.', {
+      status: 404,
+      headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+    })
+  }
   const candidates = docsAssetCandidates(url.pathname)
   for (const candidate of candidates) {
     const assetUrl = new URL(request.url)
@@ -239,6 +247,11 @@ async function fetchDocsAsset(request: Request, env: Env, url: URL) {
   const fallbackUrl = new URL(request.url)
   fallbackUrl.pathname = '/docs-site/index.html'
   return env.ASSETS.fetch(new Request(fallbackUrl, request))
+}
+
+function isObsoletePublicDatasetPath(pathname: string) {
+  const match = pathname.match(/^\/public-datasets\/([^/.]+)(?:\/(?:index\.html?)?)?$/u)
+  return match ? OBSOLETE_PUBLIC_DATASET_SLUGS.has(match[1] ?? '') : false
 }
 
 function docsAssetCandidates(pathname: string) {
@@ -1582,6 +1595,16 @@ export default {
       return forwardCliRequest(request, env, `/assistant-sessions/${encodeURIComponent(sessionMatch[1] ?? '')}`, {
         method: 'GET',
       })
+    }
+
+    const sessionDebugViewMatch = pathname.match(/^\/api\/cli\/sessions\/([^/]+)\/debug-view$/u)
+    if (sessionDebugViewMatch && request.method === 'GET') {
+      return forwardCliRequest(
+        request,
+        env,
+        `/assistant-sessions/${encodeURIComponent(sessionDebugViewMatch[1] ?? '')}/debug-view`,
+        { method: 'GET' },
+      )
     }
 
     const runCancelMatch = pathname.match(/^\/api\/cli\/runs\/([^/]+)\/cancel$/u)
