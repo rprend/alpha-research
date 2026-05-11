@@ -367,6 +367,8 @@ def run_codex():
     command = [
         "codex",
         "exec",
+        "--enable",
+        "goals",
         "--skip-git-repo-check",
         "--dangerously-bypass-approvals-and-sandbox",
         "--json",
