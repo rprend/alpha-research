@@ -730,6 +730,7 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               ownerEmail,
+              callbackOrigin: WEB_DASHBOARD_ORIGIN,
               sessionId,
             }),
           },
@@ -766,6 +767,7 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               ownerEmail,
+              callbackOrigin: WEB_DASHBOARD_ORIGIN,
               sessionId,
               prompt,
               type: typeof input.type === 'string' ? input.type : undefined,
@@ -803,6 +805,7 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               ownerEmail,
+              callbackOrigin: WEB_DASHBOARD_ORIGIN,
               sessionId,
               prompt,
               type: 'query',
@@ -839,6 +842,7 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               ownerEmail,
+              callbackOrigin: WEB_DASHBOARD_ORIGIN,
               sessionId,
               prompt,
               type: 'query',
@@ -876,6 +880,7 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               ownerEmail,
+              callbackOrigin: WEB_DASHBOARD_ORIGIN,
               sessionId,
               prompt: typeof input.prompt === 'string' ? input.prompt : `Fetch public data: ${sourceDescription}`,
               type: 'fetch',
@@ -913,6 +918,7 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               ownerEmail,
+              callbackOrigin: WEB_DASHBOARD_ORIGIN,
               sessionId,
               prompt,
               type: 'agent',
@@ -961,6 +967,7 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               ownerEmail,
+              callbackOrigin: WEB_DASHBOARD_ORIGIN,
               sessionId,
               prompt: requireString(input, 'prompt'),
               type: 'agent',
@@ -998,6 +1005,7 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               ownerEmail,
+              callbackOrigin: WEB_DASHBOARD_ORIGIN,
               sessionId,
               prompt: requireString(input, 'prompt'),
               type: 'transform',
@@ -1037,6 +1045,7 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               ownerEmail,
+              callbackOrigin: WEB_DASHBOARD_ORIGIN,
               sessionId,
               prompt: typeof input.prompt === 'string' ? input.prompt : `Run labeling job: ${labelingPrompt}`,
               type: 'label',
@@ -1376,7 +1385,10 @@ export default {
     }
 
     if (pathname === '/api/cli/assistant/respond' && request.method === 'POST') {
-      return runResearchAssistantTurn(request, env)
+      return runResearchAssistantTurn(request, env).catch((error) => {
+        const message = error instanceof Error ? error.message : 'Research assistant request failed'
+        return json({ error: message }, 500)
+      })
     }
 
     if (pathname === '/api/cli/me' && request.method === 'GET') {
