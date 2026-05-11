@@ -3851,6 +3851,7 @@ function ResearchAssistantPage({
               welcomeTitle="What do you want to research?"
               welcomeDescription=""
               welcomeImageSrc="/alpha-book-man.png"
+              showWelcome={!activeSessionId}
               datasets={datasets.map((dataset) => ({
                 id: dataset.id,
                 name: dataset.name,
@@ -4514,20 +4515,10 @@ function SessionDetailPage({
   )
 }
 
-function DashboardLoading() {
-  return (
-    <div className="dashboard-shell dashboard-loading-shell flex min-h-svh w-full bg-background">
-      <aside className="dashboard-loading-sidebar" aria-hidden="true">
-        <div className="dashboard-loading-wordmark" />
-        <div className="dashboard-loading-line is-primary" />
-        <div className="dashboard-loading-line" />
-        <div className="dashboard-loading-line" />
-      </aside>
-      <main className="dashboard-loading-main" aria-label="Loading dashboard">
-        <LoaderCircle className="size-5 animate-spin text-muted-foreground" />
-      </main>
-    </div>
-  )
+const DASHBOARD_BOOT_SESSION: SessionResponse = {
+  authenticated: true,
+  configured: true,
+  user: { email: '' },
 }
 
 function DashboardSignedOut({
@@ -5062,7 +5053,14 @@ function DashboardPage() {
   }, [])
 
   if (state.type === 'loading') {
-    return <DashboardLoading />
+    return (
+      <DashboardApp
+        session={DASHBOARD_BOOT_SESSION}
+        datasets={[]}
+        runs={[]}
+        sessions={[]}
+      />
+    )
   }
 
   if (state.type === 'signed-out') {

@@ -41,6 +41,7 @@ type ThreadProps = {
   welcomeTitle?: string;
   welcomeDescription?: string;
   welcomeImageSrc?: string;
+  showWelcome?: boolean;
   datasets?: ComposerDatasetOption[];
   renderAssistantBlock?: (custom: Record<string, unknown>) => ReactNode;
 };
@@ -50,6 +51,7 @@ export const Thread: FC<ThreadProps> = ({
   welcomeTitle = "Hello there!",
   welcomeDescription = "How can I help you today?",
   welcomeImageSrc,
+  showWelcome = true,
   datasets = [],
   renderAssistantBlock,
 }) => {
@@ -87,7 +89,7 @@ export const Thread: FC<ThreadProps> = ({
         )}
       >
         <div className="mx-auto flex w-full max-w-(--thread-max-width) flex-1 flex-col px-4 pt-4">
-          <AuiIf condition={(s) => s.thread.isEmpty}>
+          <AuiIf condition={(s) => showWelcome && s.thread.isEmpty}>
             <ThreadWelcome
               title={welcomeTitle}
               description={welcomeDescription}
