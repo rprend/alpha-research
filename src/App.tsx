@@ -1383,6 +1383,29 @@ function stripRawFunctionCallOutputBlock(value: string) {
 
 function formatSessionBody(entry: SessionEntry) {
   const body = stripRawFunctionCallOutputBlock(entry.body)
+  const toolName = isRecord(entry.metadata) && typeof entry.metadata.name === 'string'
+    ? entry.metadata.name
+    : entry.title
+  if (entry.title && entry.metadata && isRecord(entry.metadata)) {
+    if (entry.title !== 'Assistant' && entry.metadata.name && entry.body.startsWith('Calling ')) {
+      const args = isRecord(entry.metadata.arguments) ? entry.metadata.arguments : null
+      const details = args ? `\n\n${codeBlock('Arguments', args)}` : ''
+      return `### ${humanizeToolName(String(toolName))}\n\nStarting tool call.${details}`
+    }
+    if (entry.metadata.error && typeof entry.metadata.error === 'string') {
+      const args = isRecord(entry.metadata.arguments) ? entry.metadata.arguments : null
+      const details = args ? `\n\n${codeBlock('Arguments', args)}` : ''
+      return `### ${humanizeToolName(String(toolName))} failed\n\n${entry.metadata.error}${details}`
+    }
+    if (entry.metadata.data !== undefined) {
+      const data = entry.metadata.data
+      const runId = isRecord(data) && isRecord(data.run) && typeof data.run.id === 'string'
+        ? data.run.id
+        : null
+      const runLink = runId ? `\n\n[Open run](${dashboardOrigin}?view=runs&runId=${encodeURIComponent(runId)})` : ''
+      return `### ${humanizeToolName(String(toolName))}\n\n${body}${runLink}`
+    }
+  }
   const parsed = tryParseJson(entry.body)
   if (Array.isArray(parsed)) {
     return summarizeRequestArray(parsed)
@@ -2047,7 +2070,11 @@ async function postAssistantTurn(body: {
   })
   if (!response.ok) {
     const text = await response.text().catch(() => '')
-    throw new Error(text || `Request failed: ${response.status}`)
+    const parsed = text ? tryParseJson(text) : null
+    const message = isRecord(parsed) && typeof parsed.error === 'string'
+      ? parsed.error
+      : text || `Request failed: ${response.status}`
+    throw new Error(message)
   }
   return response.json() as Promise<AssistantTurnResponse>
 }
