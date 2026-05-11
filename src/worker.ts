@@ -475,7 +475,7 @@ async function datasetContentsForPrompt(env: Env, datasetId: string) {
   return truncatePromptSection(contents, DATASET_PROMPT_TOTAL_LIMIT)
 }
 
-async function buildRemoteRunPromptFromSessionHistory(env: Env, sessionId: string) {
+async function buildRemoteRunPromptFromSessionHistory(env: Env, sessionId: string, datasetId: string) {
   const payload = await proxyToControlPlaneJson<{ entries?: Array<Record<string, unknown>> }>(
     env,
     `/assistant-sessions/${encodeURIComponent(sessionId)}`,
@@ -485,8 +485,14 @@ async function buildRemoteRunPromptFromSessionHistory(env: Env, sessionId: strin
   if (!chatHistory.trim()) {
     throw new Error('Cannot plan a remote run without chat history.')
   }
+  const datasetPromptContents = await datasetContentsForPrompt(env, datasetId).catch(() => '')
   const plannerPrompt = [
     'Write a prompt for a remote Alpha Research run based on this chat history.',
+    '',
+    `The run will execute against dataset ${datasetId}.`,
+    datasetPromptContents || 'No dataset profile content is available; still make the run prompt explicitly inspect the mounted dataset before analysis.',
+    '',
+    'The remote run prompt must mention the dataset and require checking the mounted dataset files, schema, samples, and briefing before drawing conclusions.',
     '',
     'Return only the task-specific research request that should be appended after the standard Modal runner prompt.',
     '',
@@ -970,7 +976,7 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
           throw new Error('Cannot plan a remote run without an assistant session.')
         }
         const datasetId = requireString(input, 'datasetId')
-        const { prompt, chatHistory } = await buildRemoteRunPromptFromSessionHistory(env, sessionId)
+        const { prompt, chatHistory } = await buildRemoteRunPromptFromSessionHistory(env, sessionId, datasetId)
         return {
           summary: `Prepared a remote run prompt for ${datasetId}. Review it below, then use the approval control to start the run.\n\n${prompt}`,
           data: {
@@ -1404,7 +1410,7 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
         : null
   const sessionTitle = requestedSessionId || previousResponseId ? undefined : fallbackSessionTitleFromMessage(input)
 
-  const resolvedSession = await proxyToControlPlaneJson<{ session?: { id?: string } }>(
+  const resolvedSession = await proxyToControlPlaneJson<{ session?: { id?: string; datasetId?: string | null } }>(
     env,
     '/assistant-sessions/resolve-cli',
     {
@@ -1420,32 +1426,33 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
     },
   )
   const sessionId = resolvedSession.session?.id ?? requestedSessionId ?? null
+  const effectiveDatasetId = datasetId ?? resolvedSession.session?.datasetId ?? null
   if (sessionId) {
     await appendAssistantSessionEntry(env, sessionId, {
       role: 'user',
       kind: 'request',
       title: 'Web request',
       content: input,
-      metadata: { datasetId },
+      metadata: { datasetId: effectiveDatasetId },
     })
   }
 
   let assistantInput = input
-  if (datasetId) {
+  if (effectiveDatasetId) {
     try {
       const datasetPayload = await proxyToControlPlaneJson<{ dataset?: Record<string, unknown> }>(
         env,
-        `/datasets/${encodeURIComponent(datasetId)}`,
+        `/datasets/${encodeURIComponent(effectiveDatasetId)}`,
         { method: 'GET' },
       )
       const dataset = datasetPayload.dataset
-      const datasetName = dataset && typeof dataset.name === 'string' ? dataset.name : datasetId
+      const datasetName = dataset && typeof dataset.name === 'string' ? dataset.name : effectiveDatasetId
       const datasetDescription = dataset && typeof dataset.description === 'string' ? dataset.description.trim() : ''
-      const datasetPromptContents = await datasetContentsForPrompt(env, datasetId)
+      const datasetPromptContents = await datasetContentsForPrompt(env, effectiveDatasetId)
       assistantInput = [
-        `Current dataset context: ${datasetName} (${datasetId}).`,
+        `Current dataset context: ${datasetName} (${effectiveDatasetId}).`,
         datasetDescription ? `Dataset summary: ${datasetDescription}` : null,
-        'The user started from this dataset page, so treat this dataset as the default context and do not ask them to restate the dataset id.',
+        'The user started from this dataset page or reopened a dataset-linked session, so treat this dataset as the default context and do not ask them to restate the dataset id.',
         datasetPromptContents || null,
         'Use the dataset context above before asking the user for schema, coverage, field availability, briefing, or dataset identity details.',
         'If the request is broad or ambiguous, propose a concrete scoped next step with assumptions before asking for more information.',
@@ -1454,8 +1461,8 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
       ].filter(Boolean).join('\n')
     } catch {
       assistantInput = [
-        `Current dataset context: ${datasetId}.`,
-        'The user started from this dataset page, so treat this dataset as the default context and do not ask them to restate the dataset id.',
+        `Current dataset context: ${effectiveDatasetId}.`,
+        'The user started from this dataset page or reopened a dataset-linked session, so treat this dataset as the default context and do not ask them to restate the dataset id.',
         'If the request is broad or ambiguous, propose a concrete scoped next step with assumptions before asking for more information.',
         '',
         `User request: ${input}`,
