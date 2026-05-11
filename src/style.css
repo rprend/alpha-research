@@ -746,9 +746,11 @@
 }
 
 .dashboard-assistant-page .inline-html-run-block {
-  justify-self: center;
-  width: min(54rem, calc(100vw - 5rem));
-  max-width: calc(100vw - 5rem);
+  position: relative;
+  left: 50%;
+  width: min(54rem, calc(100vw - 5rem)) !important;
+  max-width: min(54rem, calc(100vw - 5rem)) !important;
+  transform: translateX(-50%);
 }
 
 .dashboard-assistant-page .inline-html-run-frame {
@@ -762,8 +764,10 @@
 
 @media (max-width: 899px) {
   .dashboard-assistant-page .inline-html-run-block {
-    width: min(100%, calc(100vw - 2rem));
-    max-width: calc(100vw - 2rem);
+    left: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none;
   }
 
   .dashboard-assistant-page .inline-html-run-frame {
