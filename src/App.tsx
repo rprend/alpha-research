@@ -2137,7 +2137,7 @@ function sessionEntriesToThreadMessages(entries: StoredAssistantSessionEntry[]) 
       entry.title ?? formatStatus(entry.kind),
       entry.metadata,
     )
-    const runId = sessionEntry.role === 'assistant' ? inferSessionEntryRunId(sessionEntry) : null
+    const runId = sessionEntry.role !== 'user' ? inferSessionEntryRunId(sessionEntry) : null
     if (runId) {
       if (renderedRunIds.has(runId)) continue
       renderedRunIds.add(runId)
