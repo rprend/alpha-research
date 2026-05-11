@@ -487,7 +487,9 @@ async function buildRemoteRunPromptFromSessionHistory(env: Env, sessionId: strin
   const plannerPrompt = [
     'Write a prompt for a remote Alpha Research run based on this chat history.',
     '',
-    'The prompt will be sent to a remote coding/research agent running inside the dataset environment. Make it self-contained, specific, and execution-ready. Preserve the user\'s intent and constraints. Do not add requirements the user did not ask for. Return only the prompt text.',
+    'Return only the task-specific research request that should be appended after the standard Modal runner prompt.',
+    'Preserve the user\'s intent and constraints, but do not add runtime boilerplate, dataset-environment framing, output-file requirements, or phrases like "You are operating inside".',
+    'Do not mention work.md, report.html, /data, /workspace, /results, Modal, Codex, runner setup, manifests, or artifact directories; the runner prompt provides those instructions.',
     '',
     'Chat history:',
     '<chat_history>',
