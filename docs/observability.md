@@ -13,7 +13,7 @@ Alpha Research needs observability that Codex can query and reason about.
 ## Target Signals
 
 - Structured JSON logs from Worker routes and runner scripts
-- Metrics for run queue time, launch time, duration, failures, stale heartbeats, artifact count, and runner pool health
+- Metrics for run queue time, launch time, duration, failures, stale heartbeats, artifact count, and Modal worker health
 - Trace ids propagated across dashboard, Worker, control plane, and remote runner callbacks
 - Local dev observability stack for agent QA
 

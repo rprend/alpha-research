@@ -13,63 +13,49 @@ function read(path) {
   return readFileSync(join(root, path), 'utf8')
 }
 
-const digitalOceanSource = read('src/digitalocean.ts')
 const controlPlaneSource = read('src/control-plane.ts')
 const modalSource = read('src/modal.ts')
 const modalWorkerSource = read('modal_workers/agent_worker.py')
 const remoteRunnerSource = read('scripts/run_remote_agent.py')
 const runnerDocs = read('docs/control-plane.md')
+const workerSource = read('src/worker.ts')
 
-for (const token of [
-  'storageMode?: string',
-  'datasetAccess?: string',
-  'publishMode?: string',
-  'EXA_API_KEY?: string',
-  'CANONICAL_DATASET_SLACK_WEBHOOK_URL?: string',
-  "resources.storageMode === 'object-store-versioned'",
-  "resources.profile !== 'large-ingest'",
-  'usesVersionedObjectStoreResources',
+const retiredProviderName = ['Digital', 'Ocean'].join('')
+const retiredProviderEnvPrefix = retiredProviderName.toUpperCase()
+const retiredProviderModuleName = retiredProviderName.toLowerCase()
+const retiredCliName = ['do', 'ctl'].join('')
+const retiredPoolPath = ['runner', 'pool'].join('-')
+const retiredMachineName = ['drop', 'let'].join('')
+
+for (const forbidden of [
+  retiredProviderName,
+  retiredProviderEnvPrefix,
+  retiredProviderModuleName,
+  retiredCliName,
+  retiredPoolPath,
+  retiredMachineName,
 ]) {
-  assert(digitalOceanSource.includes(token), `DigitalOcean resource contract is missing ${token}.`)
+  assert(!controlPlaneSource.includes(forbidden), `Control plane still references retired provider term: ${forbidden}`)
+  assert(!workerSource.includes(forbidden), `Worker still references retired provider term: ${forbidden}`)
 }
 
 assert(
-  digitalOceanSource.includes('return null') &&
-    digitalOceanSource.includes("resources.storageMode === 'object-store-versioned' && resources.profile !== 'large-ingest'"),
-  'Object-store canonical/analysis profiles must not request shared dataset volume resize.',
+  controlPlaneSource.includes('launchModalResearchJob') &&
+    controlPlaneSource.includes('Submitting remote agent job to Modal.') &&
+    controlPlaneSource.includes('Preparing Modal agent job.'),
+  'Control plane must launch remote runs through Modal.',
 )
 
 assert(
-  controlPlaneSource.includes('Using versioned object-store resource policy; shared dataset volume resize is skipped.'),
-  'Control plane must persist a run event when shared dataset volume resize is skipped.',
-)
-
-assert(
-  controlPlaneSource.includes('UPDATE datasets SET deployment_status = ?, status = ?, updated_at = ? WHERE id = ?'),
-  'Environment launch failures must mark the dataset failed.',
-)
-
-assert(
-  controlPlaneSource.includes('this.appendRunEvent(runId, `Remote agent droplet ${droplet.name} launched'),
-  'Remote runner launches must append durable run events.',
-)
-
-assert(
-  controlPlaneSource.includes('REMOTE_AGENT_EXECUTOR') &&
-    controlPlaneSource.includes('launchModalResearchJob') &&
-    controlPlaneSource.includes('Submitting remote agent job to Modal.'),
-  'Control plane must support Modal remote agent launches behind REMOTE_AGENT_EXECUTOR=modal.',
+  controlPlaneSource.includes('datasetReadOnly: true') &&
+    controlPlaneSource.includes('datasetReadOnly: false') &&
+    controlPlaneSource.includes('/data/datasets/'),
+  'Control plane must distinguish read-only analysis jobs from writable dataset jobs on the Modal dataset mount.',
 )
 
 assert(
   controlPlaneSource.includes('/artifacts') && controlPlaneSource.includes('/events') && controlPlaneSource.includes('/status'),
   'Runner event, status, and artifact callback endpoints must remain wired.',
-)
-
-assert(
-  digitalOceanSource.includes('CANONICAL_DATASET_SLACK_WEBHOOK_URL=${shellEscape') &&
-    digitalOceanSource.includes('EXA_API_KEY=${shellEscape'),
-  'Remote runner must forward Exa and canonical Slack webhook secrets to dataset-improvement jobs.',
 )
 
 for (const token of [
@@ -93,6 +79,7 @@ for (const token of [
   'Secret.from_name(SECRET_NAME)',
   'OPENAI_API_KEY',
   'run_codex_job',
+  'run_dataset_job',
   'submit_codex_job',
 ]) {
   assert(modalWorkerSource.includes(token), `Modal worker contract is missing ${token}.`)
@@ -106,11 +93,9 @@ assert(
 )
 
 for (const requiredDocFragment of [
-  'For `storageMode: "object-store-versioned"`',
-  'Canonical public and standard analysis profiles must not resize the dataset volume',
-  'Failed public/research environment launches must move the dataset to `failed`',
-  '`REMOTE_AGENT_EXECUTOR=modal` routes ordinary research runs to the Modal worker provider',
+  'Modal jobs mount the shared public dataset volume at `/data`',
   'Modal runner state and outputs are written under `/results/<job id>`',
+  'Workers must not write credentials into prompts, logs, artifacts, or mounted volumes',
 ]) {
   assert(runnerDocs.includes(requiredDocFragment), `Control-plane docs are missing: ${requiredDocFragment}`)
 }

@@ -63,22 +63,14 @@ const controlPlaneSource = readFileSync(join(root, 'src/control-plane.ts'), 'utf
 assert(controlPlaneSource.includes('/debug-view'), 'Run debug endpoint is missing.')
 assert(controlPlaneSource.includes('/assistant-sessions/') && controlPlaneSource.includes('latestError'), 'Session debug endpoint is missing.')
 assert(
-  controlPlaneSource.includes('Using versioned object-store resource policy; shared dataset volume resize is skipped.'),
-  'Control plane must record when object-store resource profiles skip shared volume resize.',
-)
-assert(
   controlPlaneSource.includes('UPDATE datasets SET deployment_status = ?, status = ?, updated_at = ? WHERE id = ?'),
   'Failed environment launches must update dataset deployment/status.',
 )
-
-const digitalOceanSource = readFileSync(join(root, 'src/digitalocean.ts'), 'utf8')
 assert(
-  digitalOceanSource.includes("resources.storageMode === 'object-store-versioned' && resources.profile !== 'large-ingest'"),
-  'Object-store resource profiles must not resize shared dataset volumes except large-ingest.',
+  controlPlaneSource.includes('launchModalResearchJob') &&
+    controlPlaneSource.includes('Submitting remote agent job to Modal.'),
+  'Control plane must submit remote runs through Modal.',
 )
-for (const token of ['storageMode', 'datasetAccess', 'publishMode']) {
-  assert(digitalOceanSource.includes(token), `DigitalOcean resource parser is missing ${token}.`)
-}
 assert(existsSync(join(root, 'scripts/validate-infrastructure-contract.mjs')), 'Missing infrastructure contract validation script.')
 assert(existsSync(join(root, 'scripts/live-infrastructure-smoke.mjs')), 'Missing live infrastructure smoke script.')
 

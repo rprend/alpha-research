@@ -393,7 +393,7 @@ const harnessEvents = [
   {
     id: 'event-harness-1',
     runId: 'run-harness-completed',
-    message: 'Preparing remote agent droplet launch.',
+    message: 'Preparing Modal agent job.',
     level: 'info',
     createdAt: iso(79),
   },
@@ -428,7 +428,7 @@ const harnessEvents = [
   {
     id: 'event-harness-failed-1',
     runId: 'run-harness-failed',
-    message: 'Run marked worker_unreachable because the remote droplet stopped heartbeating before reporting a terminal result.',
+    message: 'Run marked worker_unreachable because the Modal worker stopped heartbeating before reporting a terminal result.',
     level: 'warning',
     createdAt: iso(180),
   },

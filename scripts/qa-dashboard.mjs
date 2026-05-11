@@ -478,7 +478,7 @@ async function assertStuckRunSteering() {
     await page.goto(`${baseUrl}/?harness=1&view=runs&runId=run-harness-failed`, { waitUntil: 'domcontentloaded' })
     await page.getByText('The worker stopped responding before it reported whether the run finished.', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'Retry' }).waitFor({ timeout: 15000 })
-    await page.getByText('Run marked worker_unreachable because the remote droplet stopped heartbeating before reporting a terminal result.', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Run marked worker_unreachable because the Modal worker stopped heartbeating before reporting a terminal result.', { exact: true }).waitFor({ timeout: 15000 })
     if (await page.getByText('CLI orchestration session initialized.', { exact: true }).count()) {
       throw new Error('Stuck run detail should not lead with CLI orchestration internals.')
     }

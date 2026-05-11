@@ -92,18 +92,7 @@ def _write_direct_job_summary(artifact_dir: Path, prompt: str, return_code: int)
     )
 
 
-@app.function(
-    image=image,
-    volumes={
-        str(DATASET_MOUNT): dataset_volume.read_only(),
-        str(RESULTS_MOUNT): results_volume,
-    },
-    secrets=[modal.Secret.from_name(SECRET_NAME)],
-    cpu=4,
-    memory=8192,
-    timeout=3600,
-)
-def run_codex_job(job_id: str, prompt: str, extra_context: dict[str, Any] | None = None) -> dict[str, Any]:
+def _run_codex_job(job_id: str, prompt: str, extra_context: dict[str, Any] | None = None) -> dict[str, Any]:
     extra_context = extra_context or {}
     if not os.environ.get("OPENAI_API_KEY"):
         raise RuntimeError("Missing OPENAI_API_KEY in Modal Secret agent-keys")
@@ -125,7 +114,9 @@ def run_codex_job(job_id: str, prompt: str, extra_context: dict[str, Any] | None
     run_id = _optional_str(extra_context, "runId", safe_job_id)
     run_type = _optional_str(extra_context, "runType", "analysis")
     dataset_id = _optional_str(extra_context, "datasetId", "agent-dataset")
-    manifest_path = _optional_str(extra_context, "manifestPath", str(DATASET_MOUNT / "manifest.json"))
+    dataset_mount_path = _optional_str(extra_context, "datasetMountPath", str(DATASET_MOUNT))
+    dataset_read_only = bool(extra_context.get("datasetReadOnly", True))
+    manifest_path = _optional_str(extra_context, "manifestPath", f"{dataset_mount_path.rstrip('/')}/manifest.json")
     remote_model = _optional_str(extra_context, "remoteAgentModel", os.environ.get("REMOTE_AGENT_MODEL", "gpt-5-codex"))
     runner_token = _optional_str(extra_context, "runnerToken", os.environ.get("RUNNER_TOKEN", ""))
     config = extra_context.get("config") if isinstance(extra_context.get("config"), dict) else {}
@@ -138,8 +129,8 @@ def run_codex_job(job_id: str, prompt: str, extra_context: dict[str, Any] | None
             "RUN_TYPE": run_type,
             "DATASET_ID": dataset_id,
             "PROMPT_B64": _b64_text(prompt),
-            "DATASET_MOUNT_PATH": str(DATASET_MOUNT),
-            "DATASET_READ_ONLY": "true",
+            "DATASET_MOUNT_PATH": dataset_mount_path,
+            "DATASET_READ_ONLY": "true" if dataset_read_only else "false",
             "MANIFEST_PATH": manifest_path,
             "CODEX_HOME": str(codex_home),
             "WORKSPACE_DIR": str(workspace_dir),
@@ -170,12 +161,44 @@ def run_codex_job(job_id: str, prompt: str, extra_context: dict[str, Any] | None
         "jobId": safe_job_id,
         "runId": run_id,
         "returnCode": process.returncode,
-        "datasetMountPath": str(DATASET_MOUNT),
+        "datasetMountPath": dataset_mount_path,
         "workspacePath": str(workspace_dir),
         "resultPath": str(artifact_dir),
         "statusPath": str(status_path),
         "transcriptPath": str(transcript_path),
     }
+
+
+@app.function(
+    image=image,
+    volumes={
+        str(DATASET_MOUNT): dataset_volume.read_only(),
+        str(RESULTS_MOUNT): results_volume,
+    },
+    secrets=[modal.Secret.from_name(SECRET_NAME)],
+    cpu=4,
+    memory=8192,
+    timeout=3600,
+)
+def run_codex_job(job_id: str, prompt: str, extra_context: dict[str, Any] | None = None) -> dict[str, Any]:
+    extra_context = {**(extra_context or {}), "datasetReadOnly": True}
+    return _run_codex_job(job_id, prompt, extra_context)
+
+
+@app.function(
+    image=image,
+    volumes={
+        str(DATASET_MOUNT): dataset_volume,
+        str(RESULTS_MOUNT): results_volume,
+    },
+    secrets=[modal.Secret.from_name(SECRET_NAME)],
+    cpu=4,
+    memory=8192,
+    timeout=7200,
+)
+def run_dataset_job(job_id: str, prompt: str, extra_context: dict[str, Any] | None = None) -> dict[str, Any]:
+    extra_context = {**(extra_context or {}), "datasetReadOnly": False}
+    return _run_codex_job(job_id, prompt, extra_context)
 
 
 @app.function(image=image, secrets=[modal.Secret.from_name(SECRET_NAME)])
@@ -205,7 +228,9 @@ async def submit_codex_job(request: Request) -> dict[str, Any]:
         if key not in {"jobId", "prompt", "extraContext"} and key not in extra_context:
             extra_context[key] = value
 
-    call = run_codex_job.spawn(job_id, prompt, extra_context)
+    dataset_read_only = bool(extra_context.get("datasetReadOnly", True))
+    function = run_codex_job if dataset_read_only else run_dataset_job
+    call = function.spawn(job_id, prompt, extra_context)
     return {
         "jobId": _safe_job_id(job_id),
         "callId": call.object_id,

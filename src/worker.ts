@@ -40,29 +40,9 @@ type Env = {
   OPENAI_API_KEY?: string
   RESEARCH_AGENT_MODEL?: string
   REMOTE_AGENT_MODEL?: string
-  REMOTE_AGENT_EXECUTOR?: string
   MODAL_AGENT_ENDPOINT_URL?: string
   MODAL_AGENT_SUBMIT_TOKEN?: string
-  DIGITALOCEAN_API_TOKEN?: string
-  DIGITALOCEAN_REGION?: string
-  DIGITALOCEAN_VOLUME_SIZE_GIB?: string
-  DIGITALOCEAN_VOLUME_MOUNT_ROOT?: string
-  DIGITALOCEAN_INGEST_DROPLET_SIZE?: string
-  DIGITALOCEAN_INGEST_IMAGE?: string
-  DIGITALOCEAN_RESEARCH_RUNNER_IMAGE?: string
-  DIGITALOCEAN_RESEARCH_DROPLET_SIZE_SMALL?: string
-  DIGITALOCEAN_RESEARCH_DROPLET_SIZE_MEDIUM?: string
-  DIGITALOCEAN_RESEARCH_DROPLET_SIZE_LARGE?: string
-  DIGITALOCEAN_RESEARCH_WARM_POOL_SIZE_SMALL?: string
-  DIGITALOCEAN_RESEARCH_WARM_POOL_SIZE_MEDIUM?: string
-  DIGITALOCEAN_RESEARCH_WARM_POOL_SIZE_LARGE?: string
   RESEARCH_CONTROL_ORIGIN?: string
-  DIGITALOCEAN_SSH_KEY_IDS?: string
-  DIGITALOCEAN_PROJECT_ID?: string
-  DO_SPACES_BUCKET?: string
-  DO_SPACES_REGION?: string
-  DO_SPACES_ACCESS_KEY_ID?: string
-  DO_SPACES_SECRET_ACCESS_KEY?: string
   OBJECT_STORE_BUCKET?: string
   OBJECT_STORE_REGION?: string
   OBJECT_STORE_ACCESS_KEY_ID?: string
@@ -1368,7 +1348,7 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
     },
     {
       name: 'cancel_remote_run',
-      description: 'Cancel an in-progress remote run and terminate its cloud droplet when possible.',
+      description: 'Cancel an in-progress remote run and release its dataset lease.',
       parameters: {
         type: 'object',
         additionalProperties: false,
@@ -2084,44 +2064,6 @@ export default {
       }
       const body = await request.text()
       return proxyToControlPlane(env, `/internal/runs/${encodeURIComponent(internalSessionEntryMatch[1] ?? '')}/session-entries`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body,
-      })
-    }
-
-    if (pathname === '/api/internal/runner-pool/heartbeat' && request.method === 'POST') {
-      const bearer = request.headers.get('Authorization') ?? ''
-      if (bearer !== `Bearer ${env.RESEARCH_INTERNAL_RUNNER_TOKEN ?? ''}`) {
-        return json({ error: 'Unauthorized' }, 401)
-      }
-      const body = await request.text()
-      return proxyToControlPlane(env, '/internal/runner-pool/heartbeat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body,
-      })
-    }
-
-    const internalPoolAssignmentMatch = pathname.match(/^\/api\/internal\/runner-pool\/droplets\/([^/]+)\/assignment$/u)
-    if (internalPoolAssignmentMatch && request.method === 'GET') {
-      const bearer = request.headers.get('Authorization') ?? ''
-      if (bearer !== `Bearer ${env.RESEARCH_INTERNAL_RUNNER_TOKEN ?? ''}`) {
-        return json({ error: 'Unauthorized' }, 401)
-      }
-      return proxyToControlPlane(env, `/internal/runner-pool/droplets/${encodeURIComponent(internalPoolAssignmentMatch[1] ?? '')}/assignment`, {
-        method: 'GET',
-      })
-    }
-
-    const internalPoolCompleteMatch = pathname.match(/^\/api\/internal\/runner-pool\/droplets\/([^/]+)\/complete$/u)
-    if (internalPoolCompleteMatch && request.method === 'POST') {
-      const bearer = request.headers.get('Authorization') ?? ''
-      if (bearer !== `Bearer ${env.RESEARCH_INTERNAL_RUNNER_TOKEN ?? ''}`) {
-        return json({ error: 'Unauthorized' }, 401)
-      }
-      const body = await request.text()
-      return proxyToControlPlane(env, `/internal/runner-pool/droplets/${encodeURIComponent(internalPoolCompleteMatch[1] ?? '')}/complete`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body,

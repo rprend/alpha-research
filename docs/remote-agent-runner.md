@@ -1,6 +1,6 @@
 # Remote Agent Runner Contract
 
-`scripts/run_remote_agent.py` executes Codex inside a dataset-attached cloud workspace. It is used by the legacy DigitalOcean runner and by Modal workers.
+`scripts/run_remote_agent.py` executes Codex inside a Modal worker with the shared dataset mounted at `/data`.
 
 ## Required Inputs
 
@@ -33,7 +33,7 @@ If Codex exits successfully but the required deliverable files are missing, the 
 
 ## Heartbeats
 
-Long-running work should send status and event heartbeats at least every `REMOTE_AGENT_HEARTBEAT_SECONDS` seconds. Before posting each status callback, the runner writes durable worker status to `RUN_STATUS_PATH` when provided, otherwise `<dataset mount>/.remote-agent/runs/<run id>/status.json` for legacy DigitalOcean runs.
+Long-running work should send status and event heartbeats at least every `REMOTE_AGENT_HEARTBEAT_SECONDS` seconds. Before posting each status callback, the runner writes durable worker status to `RUN_STATUS_PATH` when provided.
 
 Modal runs must set `RUN_STATE_DIR` or `RUN_STATUS_PATH` under `/results/<job id>/` because the shared dataset volume is read-only.
 

@@ -4,7 +4,6 @@ type ModalEnv = {
   RESEARCH_INTERNAL_RUNNER_TOKEN?: string
   RESEARCH_AGENT_MODEL?: string
   REMOTE_AGENT_MODEL?: string
-  REMOTE_AGENT_EXECUTOR?: string
 }
 
 export type LaunchModalResearchParams = {
@@ -18,6 +17,8 @@ export type LaunchModalResearchParams = {
   callbackOrigin: string
   datasetMountPath: string
   manifestPath: string
+  datasetReadOnly?: boolean
+  extraContext?: Record<string, unknown>
 }
 
 export type ModalLaunchResult = {
@@ -60,10 +61,6 @@ function parseJsonArray(value: string | undefined) {
   }
 }
 
-export function shouldUseModalResearchRunner(env: ModalEnv) {
-  return (env.REMOTE_AGENT_EXECUTOR ?? '').trim().toLowerCase() === 'modal'
-}
-
 export async function launchModalResearchJob(
   env: ModalEnv,
   params: LaunchModalResearchParams,
@@ -87,6 +84,7 @@ export async function launchModalResearchJob(
         datasetId: params.datasetId,
         manifestPath: params.manifestPath || '/data/manifest.json',
         datasetMountPath: params.datasetMountPath || '/data',
+        datasetReadOnly: params.datasetReadOnly ?? true,
         remoteAgentSessionId: params.remoteAgentSessionId ?? '',
         remoteAgentModel: env.REMOTE_AGENT_MODEL ?? env.RESEARCH_AGENT_MODEL ?? 'gpt-5-codex',
         runnerToken: env.RESEARCH_INTERNAL_RUNNER_TOKEN ?? '',
@@ -96,6 +94,7 @@ export async function launchModalResearchJob(
         callbackSessionEntriesUrl: `${callbackOrigin}/api/internal/runs/${params.runId}/session-entries`,
         config: parseJsonObject(params.configJson),
         artifacts: parseJsonArray(params.artifactSpecJson),
+        ...(params.extraContext ?? {}),
       },
     }),
   })
