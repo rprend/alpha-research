@@ -19,7 +19,7 @@
 
 ## Required Outputs
 
-Every successful run must produce deliverable files in `ARTIFACT_DIR`. Bookkeeping artifacts such as the remote agent summary, transcript, or session id prove that the worker ran, but they do not count as task completion.
+Every successful run must produce deliverable files in `ARTIFACT_DIR`. Bookkeeping artifacts such as the remote agent summary, transcript, or session id prove that the worker ran, but they do not count as task completion. The Modal results volume is a staging area only; completed artifacts are copied into the Cloudflare R2 artifact bucket through the control-plane artifact callback and indexed in `run_artifacts`.
 
 The required filesystem outputs are:
 
@@ -29,6 +29,8 @@ The required filesystem outputs are:
 - optional tables, charts, scripts, and notebooks in `ARTIFACT_DIR`
 
 If Codex exits successfully but the required deliverable files are missing, the runner must mark the run `failed` rather than `ready`.
+
+After upload, the dashboard reads artifact metadata from the control plane and artifact bytes from the authenticated `/api/cli/artifacts/:artifactId/content` route. Dashboard rendering must not depend on the Modal worker or a live Modal container after a run reaches `ready`.
 
 ## Heartbeats
 

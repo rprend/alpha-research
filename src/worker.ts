@@ -58,6 +58,7 @@ type Env = {
   CANONICAL_DATASET_SLACK_WEBHOOK_URL?: string
   SLACK_WEBHOOK_URL?: string
   CONTROL_PLANE: DurableObjectNamespaceLike
+  ARTIFACT_BUCKET?: unknown
 }
 
 type HandlerContext = {
@@ -1941,6 +1942,16 @@ export default {
         request,
         env,
         `/runs/${encodeURIComponent(runArtifactsMatch[1] ?? '')}/artifacts`,
+        { method: 'GET' },
+      )
+    }
+
+    const artifactContentMatch = pathname.match(/^\/api\/cli\/artifacts\/([^/]+)\/content$/u)
+    if (artifactContentMatch && request.method === 'GET') {
+      return forwardCliRequest(
+        request,
+        env,
+        `/artifacts/${encodeURIComponent(artifactContentMatch[1] ?? '')}/content`,
         { method: 'GET' },
       )
     }

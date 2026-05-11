@@ -4213,7 +4213,7 @@ function FilePreview({
           </a>
         </div>
       </div>
-      {language === 'image' && typeof artifact.content?.base64 === 'string' ? (
+      {language === 'image' && (typeof artifact.content?.base64 === 'string' || artifact.url) ? (
         <div className="min-h-0 flex-1 overflow-auto bg-muted/10 p-6">
           <img
             src={downloadHref}

@@ -16,8 +16,102 @@ type SqlStorage = DurableObjectStateLike['storage'] & {
   }
 }
 
+type R2ObjectBodyLike = {
+  body: ReadableStream<Uint8Array> | null
+  httpMetadata?: {
+    contentType?: string
+  }
+  writeHttpMetadata(headers: Headers): void
+}
+
+type R2BucketLike = {
+  get(key: string): Promise<R2ObjectBodyLike | null>
+  put(
+    key: string,
+    value: ArrayBuffer | ArrayBufferView | string | ReadableStream,
+    options?: { httpMetadata?: { contentType?: string } },
+  ): Promise<unknown>
+}
+
 function isPlainRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
+}
+
+function artifactPathFromContent(content: unknown, fallback: string) {
+  if (isPlainRecord(content) && typeof content.path === 'string' && content.path.trim()) {
+    return content.path.trim()
+  }
+  return fallback
+}
+
+function artifactExtension(path: string) {
+  const filename = path.split(/[\\/]/u).filter(Boolean).at(-1) ?? path
+  const index = filename.lastIndexOf('.')
+  return index >= 0 ? filename.slice(index).toLowerCase() : ''
+}
+
+function artifactMimeType(type: string, title: string, content: unknown) {
+  if (isPlainRecord(content) && typeof content.mimeType === 'string' && content.mimeType.trim()) {
+    return content.mimeType.trim()
+  }
+  const extension = artifactExtension(artifactPathFromContent(content, title))
+  if (type === 'structured_result' || extension === '.json') return 'application/json; charset=utf-8'
+  if (extension === '.html' || extension === '.htm') return 'text/html; charset=utf-8'
+  if (extension === '.md' || extension === '.markdown') return 'text/markdown; charset=utf-8'
+  if (extension === '.csv') return 'text/csv; charset=utf-8'
+  if (extension === '.txt') return 'text/plain; charset=utf-8'
+  if (extension === '.svg') return 'image/svg+xml; charset=utf-8'
+  if (extension === '.png') return 'image/png'
+  if (extension === '.jpg' || extension === '.jpeg') return 'image/jpeg'
+  if (extension === '.gif') return 'image/gif'
+  if (extension === '.webp') return 'image/webp'
+  if (extension === '.pdf') return 'application/pdf'
+  return 'application/octet-stream'
+}
+
+function artifactCanUseUrl(type: string, title: string, content: unknown) {
+  const mimeType = artifactMimeType(type, title, content).toLowerCase()
+  return mimeType.startsWith('text/html')
+    || mimeType.startsWith('image/')
+    || mimeType.startsWith('application/pdf')
+}
+
+function sanitizeObjectKeySegment(value: string) {
+  return value.replace(/[^A-Za-z0-9._/-]+/gu, '-').replace(/\/+/gu, '/').replace(/^\/+|\/+$/gu, '') || 'artifact'
+}
+
+function base64ToBytes(value: string) {
+  const binary = atob(value)
+  const bytes = new Uint8Array(binary.length)
+  for (let index = 0; index < binary.length; index += 1) {
+    bytes[index] = binary.charCodeAt(index)
+  }
+  return bytes
+}
+
+function artifactBodyBytes(type: string, title: string, content: unknown) {
+  if (isPlainRecord(content) && typeof content.base64 === 'string' && content.base64.trim()) {
+    return base64ToBytes(content.base64.trim())
+  }
+  if (isPlainRecord(content) && typeof content.text === 'string') {
+    return new TextEncoder().encode(content.text)
+  }
+  if (isPlainRecord(content) && typeof content.preview === 'string') {
+    return new TextEncoder().encode(content.preview)
+  }
+  if (typeof content === 'string') {
+    return new TextEncoder().encode(content)
+  }
+  if (type === 'structured_result' || artifactExtension(title) === '.json') {
+    return new TextEncoder().encode(JSON.stringify(content ?? {}, null, 2))
+  }
+  return null
+}
+
+function artifactPreviewContent(content: unknown) {
+  if (!isPlainRecord(content)) return content
+  const { base64: _base64, ...rest } = content
+  return rest
 }
 
 type Env = {
@@ -41,6 +135,7 @@ type Env = {
   EXA_API_KEY?: string
   CANONICAL_DATASET_SLACK_WEBHOOK_URL?: string
   SLACK_WEBHOOK_URL?: string
+  ARTIFACT_BUCKET?: R2BucketLike
 }
 
 type DatasetRecord = {
@@ -637,19 +732,47 @@ export class ControlPlane {
     return Number(row?.count ?? 0)
   }
 
-  private createRunArtifact(runId: string, type: string, title: string, content?: unknown, url?: string | null) {
+  private async createStoredRunArtifact(runId: string, type: string, title: string, content?: unknown, url?: string | null) {
     const artifactId = crypto.randomUUID()
+    const mimeType = artifactMimeType(type, title, content)
+    const body = artifactBodyBytes(type, title, content)
+    let storedContent = artifactPreviewContent(content)
+    let artifactUrl = url ?? null
+
+    if (!artifactUrl && this.env.ARTIFACT_BUCKET && body) {
+      const sourcePath = artifactPathFromContent(content, title)
+      const filename = sourcePath.split(/[\\/]/u).filter(Boolean).at(-1) ?? title
+      const key = `runs/${sanitizeObjectKeySegment(runId)}/artifacts/${artifactId}/${sanitizeObjectKeySegment(filename)}`
+      await this.env.ARTIFACT_BUCKET.put(key, body, { httpMetadata: { contentType: mimeType } })
+      const sizeBytes = body.byteLength
+      const baseContent = isPlainRecord(storedContent) ? storedContent : {}
+      storedContent = {
+        ...baseContent,
+        path: artifactPathFromContent(content, title),
+        mimeType,
+        sizeBytes,
+        storage: {
+          provider: 'cloudflare-r2',
+          bucket: 'ARTIFACT_BUCKET',
+          key,
+        },
+      }
+      if (artifactCanUseUrl(type, title, content)) {
+        artifactUrl = `/api/cli/artifacts/${encodeURIComponent(artifactId)}/content`
+      }
+    }
+
     this.sql.exec(
       `INSERT INTO run_artifacts (id, run_id, type, title, url, content_json, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)`,
       artifactId,
       runId,
       type,
       title,
-      url ?? null,
-      content === undefined ? null : JSON.stringify(content),
+      artifactUrl,
+      storedContent === undefined ? null : JSON.stringify(storedContent),
       nowIso(),
     )
-    this.persistDescribeArtifactToDatasetProfile(runId, artifactId, type, title, content)
+    this.persistDescribeArtifactToDatasetProfile(runId, artifactId, type, title, storedContent)
     return artifactId
   }
 
@@ -2071,6 +2194,35 @@ export class ControlPlane {
       })
     }
 
+    const artifactContentMatch = pathname.match(/^\/artifacts\/([^/]+)\/content$/u)
+    if (artifactContentMatch && request.method === 'GET') {
+      const artifactId = decodeURIComponent(artifactContentMatch[1] ?? '')
+      const row = this.rows('SELECT * FROM run_artifacts WHERE id = ? LIMIT 1', artifactId)[0]
+      if (!row) {
+        return respondJson({ error: 'Artifact not found' }, 404)
+      }
+      const content = row.content_json ? JSON.parse(String(row.content_json)) : null
+      const storage = isPlainRecord(content) && isPlainRecord(content.storage) ? content.storage : null
+      const key = storage && typeof storage.key === 'string' ? storage.key : null
+      if (!key || !this.env.ARTIFACT_BUCKET) {
+        return respondJson({ error: 'Artifact content is not available in object storage' }, 404)
+      }
+      const object = await this.env.ARTIFACT_BUCKET.get(key)
+      if (!object || !object.body) {
+        return respondJson({ error: 'Artifact object not found' }, 404)
+      }
+      const headers = new Headers()
+      object.writeHttpMetadata(headers)
+      if (!headers.has('Content-Type')) {
+        const mimeType = isPlainRecord(content) && typeof content.mimeType === 'string'
+          ? content.mimeType
+          : 'application/octet-stream'
+        headers.set('Content-Type', mimeType)
+      }
+      headers.set('Cache-Control', 'private, max-age=300')
+      return new Response(object.body, { headers })
+    }
+
     const runArtifactsMatch = pathname.match(/^\/runs\/([^/]+)\/artifacts$/u)
     if (runArtifactsMatch && request.method === 'GET') {
       const runId = decodeURIComponent(runArtifactsMatch[1] ?? '')
@@ -2273,14 +2425,14 @@ export class ControlPlane {
     if (internalArtifactMatch && request.method === 'POST') {
       const runId = decodeURIComponent(internalArtifactMatch[1] ?? '')
       const body = await request.json() as Record<string, unknown>
-      this.createRunArtifact(
+      const id = await this.createStoredRunArtifact(
         runId,
         String(body.type ?? 'artifact'),
         String(body.title ?? 'artifact'),
         body.content,
         body.url ? String(body.url) : null,
       )
-      return respondJson({ ok: true })
+      return respondJson({ ok: true, id })
     }
 
     const internalStatusMatch = pathname.match(/^\/internal\/runs\/([^/]+)\/status$/u)

@@ -35,7 +35,7 @@ Remote run metadata can include `config.resources`, but the control plane always
 
 - External providers are accessed through provider modules, not UI code.
 - Runner callbacks are authenticated with `RESEARCH_INTERNAL_RUNNER_TOKEN`.
-- Artifacts are stored through `run_artifacts`; transcripts should be captured as artifacts or assistant session entries.
+- Artifacts are indexed through `run_artifacts`; completed artifact bytes are stored in the Cloudflare R2 artifact bucket and served back through authenticated dashboard routes. Transcripts should be captured as artifacts or assistant session entries. Modal result paths are worker staging paths, not browser-accessible artifact URLs.
 - Remote Codex runners may receive `EXA_API_KEY` and `CANONICAL_DATASET_SLACK_WEBHOOK_URL` as environment variables for canonical dataset-improvement jobs. Workers must not write credentials into prompts, logs, artifacts, or mounted volumes.
 - Modal worker submission uses `MODAL_AGENT_ENDPOINT_URL` and optional `MODAL_AGENT_SUBMIT_TOKEN`. These values are control-plane secrets and must not be exposed to frontend code.
 

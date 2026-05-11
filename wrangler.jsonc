@@ -9,6 +9,12 @@
   "ai": {
     "binding": "AI"
   },
+  "r2_buckets": [
+    {
+      "binding": "ARTIFACT_BUCKET",
+      "bucket_name": "alpha-research-artifacts"
+    }
+  ],
   "durable_objects": {
     "bindings": [
       {
