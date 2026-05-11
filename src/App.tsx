@@ -1142,6 +1142,22 @@ function isHtmlArtifact(artifact: RunArtifactRecord) {
   return artifact.type === 'html_report' || path.endsWith('.html') || path.endsWith('.htm')
 }
 
+function isRootReportArtifact(artifact: RunArtifactRecord) {
+  const path = artifactPath(artifact).replace(/\\/gu, '/').toLowerCase()
+  const parts = path.split('/').filter(Boolean)
+  const filename = parts.at(-1) ?? ''
+  return filename === 'report.html' && artifact.title.toLowerCase() === 'report.html'
+}
+
+function isFrameworkTemplateArtifact(artifact: RunArtifactRecord) {
+  const path = artifactPath(artifact).replace(/\\/gu, '/').toLowerCase()
+  const text = hasArtifactText(artifact) ? artifactText(artifact).slice(0, 2000).toLowerCase() : ''
+  return /(^|\/)templates?\//u.test(path)
+    || /(^|\/)apps?\/.*\.html$/u.test(path)
+    || text.includes('{% extends ')
+    || text.includes('{{ formfields')
+}
+
 function isMarkdownArtifact(artifact: RunArtifactRecord) {
   const path = artifactPath(artifact).toLowerCase()
   if (artifact.type === 'markdown') return true
@@ -1151,7 +1167,8 @@ function isMarkdownArtifact(artifact: RunArtifactRecord) {
 function getDatasetBriefingArtifact(artifacts: RunArtifactRecord[]) {
   const htmlArtifacts = artifacts.filter(isHtmlArtifact)
   const htmlArtifact =
-    htmlArtifacts.find((artifact) => artifact.url || hasArtifactText(artifact))
+    htmlArtifacts.find((artifact) => isRootReportArtifact(artifact) && (artifact.url || hasArtifactText(artifact)))
+    ?? htmlArtifacts.find((artifact) => !isFrameworkTemplateArtifact(artifact) && (artifact.url || hasArtifactText(artifact)))
     ?? htmlArtifacts[0]
   if (htmlArtifact) return htmlArtifact
 

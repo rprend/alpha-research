@@ -312,6 +312,24 @@ const harnessArtifacts = [
     createdAt: iso(78),
   },
   {
+    id: 'artifact-harness-template',
+    runId: 'run-harness-completed',
+    type: 'html_report',
+    title: 'Withdrawal Choice.html',
+    content: {
+      path: '/workspace/artifacts/econ_recession_experiments_v1/apps/otree_bankrun/templates/WithdrawalChoice.html',
+      text: [
+        "{% extends 'global/Page.html' %}",
+        '{% block title %}Withdrawal Choice{% endblock %}',
+        '{% block content %}',
+        '{{ payoff_summary }}',
+        '{{ formfields }}',
+        '{% endblock %}',
+      ].join('\n'),
+    },
+    createdAt: iso(21),
+  },
+  {
     id: 'artifact-harness-report',
     runId: 'run-harness-completed',
     type: 'html_report',
