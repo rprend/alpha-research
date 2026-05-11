@@ -1402,6 +1402,22 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
           reply: result.summary,
         })
       }
+      if (tool.name === 'plan_remote_run') {
+        if (sessionId) {
+          await appendAssistantSessionEntry(env, sessionId, {
+            role: 'assistant',
+            kind: 'local_summary',
+            title: 'Assistant',
+            content: result.summary,
+            metadata: { previousResponseId, plannedRemoteRun: true },
+          })
+        }
+        return json({
+          sessionId,
+          previousResponseId,
+          reply: result.summary,
+        })
+      }
       toolOutputs.push({
         type: 'function_call_output',
         call_id: call.call_id ?? tool.name,
