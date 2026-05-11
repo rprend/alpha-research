@@ -1001,6 +1001,35 @@ function humanizeToolName(name: string) {
   return `Called \`${name}\``
 }
 
+function humanizeArgumentName(name: string) {
+  return name
+    .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+    .replace(/[_-]+/g, ' ')
+    .replace(/\b\w/g, (letter) => letter.toUpperCase())
+}
+
+function formatArgumentValue(value: unknown): string {
+  if (typeof value === 'string') return value
+  if (typeof value === 'number' || typeof value === 'boolean') return String(value)
+  if (value === null || value === undefined) return 'None'
+  if (Array.isArray(value)) {
+    return value.map((item) => formatArgumentValue(item)).join(', ')
+  }
+  if (isRecord(value)) {
+    return Object.entries(value)
+      .map(([key, item]) => `${humanizeArgumentName(key)}: ${formatArgumentValue(item)}`)
+      .join('; ')
+  }
+  return String(value)
+}
+
+function formatToolArguments(args: Record<string, unknown>) {
+  const lines = Object.entries(args).map(([key, value]) => {
+    return `- **${humanizeArgumentName(key)}:** ${formatArgumentValue(value)}`
+  })
+  return lines.length > 0 ? `\n\n**Arguments**\n\n${lines.join('\n')}` : ''
+}
+
 function getRequestedArtifacts(payload: RunResultsResponse | null) {
   return Array.isArray(payload?.metadata?.artifactSpec)
     ? (payload?.metadata?.artifactSpec as Array<Record<string, unknown>>)
@@ -1389,12 +1418,12 @@ function formatSessionBody(entry: SessionEntry) {
   if (entry.title && entry.metadata && isRecord(entry.metadata)) {
     if (entry.title !== 'Assistant' && entry.metadata.name && entry.body.startsWith('Calling ')) {
       const args = isRecord(entry.metadata.arguments) ? entry.metadata.arguments : null
-      const details = args ? `\n\n${codeBlock('Arguments', args)}` : ''
+      const details = args ? formatToolArguments(args) : ''
       return `### ${humanizeToolName(String(toolName))}\n\nStarting tool call.${details}`
     }
     if (entry.metadata.error && typeof entry.metadata.error === 'string') {
       const args = isRecord(entry.metadata.arguments) ? entry.metadata.arguments : null
-      const details = args ? `\n\n${codeBlock('Arguments', args)}` : ''
+      const details = args ? formatToolArguments(args) : ''
       return `### ${humanizeToolName(String(toolName))} failed\n\n${entry.metadata.error}${details}`
     }
     if (entry.metadata.data !== undefined) {
