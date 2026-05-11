@@ -1014,6 +1014,47 @@ export class ControlPlane {
     ).map((row) => this.parseAssistantSessionEntryRow(row))
   }
 
+  private runEventsForRun(runId: string) {
+    return this.rows(
+      'SELECT id, run_id, message, level, created_at FROM run_events WHERE run_id = ? ORDER BY seq ASC',
+      runId,
+    ).map((row) => ({
+      id: String(row.id),
+      runId: String(row.run_id),
+      message: String(row.message),
+      level: String(row.level),
+      createdAt: String(row.created_at),
+    }))
+  }
+
+  private collectRunIdsFromSession(session: AssistantSessionRecord, entries: ReturnType<ControlPlane['assistantSessionEntryToJson']>[]) {
+    const runIds = new Set<string>()
+    if (session.runId) {
+      runIds.add(session.runId)
+    }
+    for (const entry of entries) {
+      const metadata = entry.metadata
+      if (isPlainRecord(metadata)) {
+        const data = metadata.data
+        if (isPlainRecord(data) && isPlainRecord(data.run) && typeof data.run.id === 'string') {
+          runIds.add(data.run.id)
+        }
+        if (typeof metadata.runId === 'string') {
+          runIds.add(metadata.runId)
+        }
+      }
+      const matches = String(entry.content ?? '').matchAll(/\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b/giu)
+      for (const match of matches) {
+        const candidate = match[0]
+        const row = this.rows('SELECT id FROM runs WHERE id = ? LIMIT 1', candidate)[0]
+        if (row) {
+          runIds.add(candidate)
+        }
+      }
+    }
+    return [...runIds]
+  }
+
   private createAssistantSession(params: {
     id?: string
     ownerEmail: string
@@ -2239,20 +2280,27 @@ export class ControlPlane {
       const entries = this.listAssistantSessionEntries(sessionId).map((entry) =>
         this.assistantSessionEntryToJson(entry),
       )
-      const runRow = session.runId ? this.rows('SELECT * FROM runs WHERE id = ?', session.runId)[0] : null
-      const run = runRow ? this.runRowToJson(runRow) : null
-      const runEvents = session.runId
-        ? this.rows(
-            'SELECT id, run_id, message, level, created_at FROM run_events WHERE run_id = ? ORDER BY seq ASC',
-            session.runId,
-          ).map((row) => ({
-            id: String(row.id),
-            runId: String(row.run_id),
-            message: String(row.message),
-            level: String(row.level),
-            createdAt: String(row.created_at),
-          }))
-        : []
+      const attachedRunIds = this.collectRunIdsFromSession(session, entries)
+      const attachedRuns = attachedRunIds.map((runId) => {
+        const runRow = this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]
+        if (!runRow) {
+          return null
+        }
+        return {
+          run: this.runRowToJson(runRow),
+          metadata: this.getRunMetadata(runId),
+          events: this.runEventsForRun(runId),
+          artifacts: this.listRunArtifacts(runId),
+          sessions: this.listAssistantSessionsForRun(runId).map((attachedSession) => ({
+            ...this.assistantSessionToJson(attachedSession),
+            entries: this.listAssistantSessionEntries(attachedSession.id).map((entry) =>
+              this.assistantSessionEntryToJson(entry),
+            ),
+          })),
+        }
+      }).filter((run): run is NonNullable<typeof run> => run !== null)
+      const run = attachedRuns[0]?.run ?? null
+      const runEvents = attachedRuns.flatMap((attachedRun) => attachedRun.events)
       const errorEntries = entries.filter((entry) => {
         const content = String(entry.content ?? '')
         return entry.role === 'system'
@@ -2265,10 +2313,14 @@ export class ControlPlane {
       return respondJson({
         session: this.assistantSessionToJson(session),
         entries,
+        chatHistory: entries,
         run,
         runEvents,
+        attachedRuns,
         debugView: {
           linkedRunId: session.runId,
+          attachedRunIds,
+          attachedRunCount: attachedRuns.length,
           entryCount: entries.length,
           errorEntryCount: errorEntries.length,
           latestError: lastErrorEntry
