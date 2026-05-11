@@ -30,7 +30,7 @@ The required filesystem outputs are:
 
 If Codex exits successfully but the required deliverable files are missing, the runner must mark the run `failed` rather than `ready`.
 
-`report.html` is the user-facing research deliverable. It must read like a polished applied research report or expert memo for a senior stakeholder, not a run inventory. It should explain the research question, data, methods, evidence, results, validation, limitations, implications, and next steps in prose, with tables and figures where they help. File lists, implementation notes, and command logs belong in `work.md` unless they directly support a research finding.
+`report.html` is the user-facing research deliverable. It must read like a polished applied research report or expert memo for a senior stakeholder. It should explain the research question, data, methods, evidence, results, validation, limitations, implications, and next steps in prose. It should make liberal use of tables and figures to summarize data, compare estimates, show uncertainty, display robustness checks, and make the empirical logic easy to inspect. File lists, implementation notes, and command logs belong in `work.md` unless they directly support a research finding.
 
 After upload, the dashboard reads artifact metadata from the control plane and artifact bytes from the authenticated `/api/cli/artifacts/:artifactId/content` route. Dashboard rendering must not depend on the Modal worker or a live Modal container after a run reaches `ready`.
 
