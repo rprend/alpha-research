@@ -51,8 +51,8 @@ async function assertRenderedOrientation() {
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=assistant`, { waitUntil: 'domcontentloaded' })
-    await page.getByRole('heading', { name: 'RESEARCH CLI' }).waitFor({ timeout: 15000 })
-    await page.getByText('Run the signed-in RESEARCH CLI from the browser.', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'What do you want to research?' }).waitFor({ timeout: 15000 })
+    await page.locator('img.aui-thread-welcome-image[src="/alpha-book-man.png"]').waitFor({ timeout: 15000 })
     await page.getByPlaceholder('Send a message...').waitFor({ timeout: 15000 })
     await page.getByText('Signed in', { exact: false }).first().waitFor({ timeout: 15000 })
     await page.getByText('Alpha Book research planning', { exact: true }).waitFor({ timeout: 15000 })
@@ -187,7 +187,7 @@ async function assertWellSpecifiedRunLaunch() {
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=assistant`, { waitUntil: 'domcontentloaded' })
-    await page.getByRole('heading', { name: 'RESEARCH CLI' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'What do you want to research?' }).waitFor({ timeout: 15000 })
     await page.getByLabel('Message input').fill([
       'Dataset: City Housing Archive',
       'Variables: monthly rent, lease start date, neighborhood, bedrooms, concession flag',
@@ -346,8 +346,8 @@ async function assertDatasetScopedAskRouting() {
     await page.goto(`${baseUrl}/?harness=1&view=datasets&datasetId=dataset-alpha-book`, { waitUntil: 'domcontentloaded' })
     await page.getByLabel('Your research question').fill('Which authors look most useful to compare first?')
     await page.getByRole('button', { name: 'Ask about Alpha Book Sample' }).click()
-    await page.getByRole('heading', { name: 'RESEARCH CLI' }).waitFor({ timeout: 15000 })
-    await page.getByText('Run the signed-in RESEARCH CLI from the browser.', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'What do you want to research?' }).waitFor({ timeout: 15000 })
+    await page.locator('img.aui-thread-welcome-image[src="/alpha-book-man.png"]').waitFor({ timeout: 15000 })
     await page.getByLabel('Message input').waitFor({ timeout: 15000 })
     await page.getByLabel('Message input').evaluate((node) => {
       if (!(node instanceof HTMLTextAreaElement)) {

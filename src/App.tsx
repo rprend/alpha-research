@@ -13,6 +13,7 @@ import {
   History,
   LoaderCircle,
   LogOut,
+  MessageSquarePlus,
   Table2,
   TerminalSquare,
   Zap,
@@ -3847,8 +3848,9 @@ function ResearchAssistantPage({
         <AssistantRuntimeProvider runtime={runtime}>
           <div className="h-full min-h-0">
             <Thread
-              welcomeTitle={loading ? '' : 'RESEARCH CLI'}
-              welcomeDescription={loading ? '' : 'Run the signed-in RESEARCH CLI from the browser. Inspect datasets, launch runs, and manage remote Codex sessions.'}
+              welcomeTitle={loading ? '' : 'What do you want to research?'}
+              welcomeDescription=""
+              welcomeImageSrc={loading ? undefined : '/alpha-book-man.png'}
               datasets={datasets.map((dataset) => ({
                 id: dataset.id,
                 name: dataset.name,
@@ -4634,20 +4636,13 @@ function DashboardSidebar({
   return (
     <Sidebar collapsible="icon" variant="sidebar" className="dashboard-sidebar">
       <SidebarHeader className="dashboard-sidebar-header border-b border-sidebar-border px-3 py-4">
-        <a href={rootOrigin} className="flex items-center">
-          <img
-            className="dashboard-wordmark block h-[29px] w-36 object-contain object-left"
-            src="/alpha-research-wordmark.png"
-            alt="Alpha Research"
-            width="1505"
-            height="300"
-          />
+        <a href={rootOrigin} className="dashboard-wordmark-link flex items-center">
+          <span className="dashboard-wordmark-text">alpha research</span>
         </a>
       </SidebarHeader>
       <SidebarContent className="dashboard-sidebar-content">
         {showResearchChats ? (
           <SidebarGroup className="dashboard-sidebar-group">
-            <SidebarGroupLabel className="dashboard-sidebar-label">Research chats</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu className="dashboard-sidebar-menu">
                 <SidebarMenuItem>
@@ -4661,9 +4656,15 @@ function DashboardSidebar({
                         sessionId: null,
                       })}
                   >
-                    <Bot />
+                    <MessageSquarePlus />
                     <span>New chat</span>
                   </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem className="dashboard-recents-heading">
+                  <SidebarGroupLabel className="dashboard-sidebar-label">
+                    <span>Recents</span>
+                    <span>{recentAssistantSessions.length} chats</span>
+                  </SidebarGroupLabel>
                 </SidebarMenuItem>
                 {recentAssistantSessions.map((chatSession) => (
                   <SidebarMenuItem key={chatSession.id}>

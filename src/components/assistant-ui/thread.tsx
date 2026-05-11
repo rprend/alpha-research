@@ -40,6 +40,7 @@ type ThreadProps = {
   readOnly?: boolean;
   welcomeTitle?: string;
   welcomeDescription?: string;
+  welcomeImageSrc?: string;
   datasets?: ComposerDatasetOption[];
   renderAssistantBlock?: (custom: Record<string, unknown>) => ReactNode;
 };
@@ -48,6 +49,7 @@ export const Thread: FC<ThreadProps> = ({
   readOnly = false,
   welcomeTitle = "Hello there!",
   welcomeDescription = "How can I help you today?",
+  welcomeImageSrc,
   datasets = [],
   renderAssistantBlock,
 }) => {
@@ -89,6 +91,7 @@ export const Thread: FC<ThreadProps> = ({
             <ThreadWelcome
               title={welcomeTitle}
               description={welcomeDescription}
+              imageSrc={welcomeImageSrc}
               readOnly={readOnly}
             />
           </AuiIf>
@@ -140,18 +143,28 @@ const ThreadScrollToBottom: FC = () => {
 const ThreadWelcome: FC<{
   title: string;
   description: string;
+  imageSrc?: string;
   readOnly: boolean;
-}> = ({ title, description, readOnly }) => {
+}> = ({ title, description, imageSrc, readOnly }) => {
   return (
     <div className="aui-thread-welcome-root my-auto flex grow flex-col">
       <div className="aui-thread-welcome-center flex w-full grow flex-col items-center justify-center">
         <div className="aui-thread-welcome-message flex size-full flex-col justify-center px-4">
+          {imageSrc ? (
+            <img
+              src={imageSrc}
+              alt=""
+              className="aui-thread-welcome-image aui-thread-welcome-message-inner fade-in slide-in-from-bottom-1 animate-in mb-5 w-full max-w-xl rounded-2xl object-cover duration-200"
+            />
+          ) : null}
           <h1 className="aui-thread-welcome-message-inner fade-in slide-in-from-bottom-1 animate-in fill-mode-both font-semibold text-2xl duration-200">
             {title}
           </h1>
-          <p className="aui-thread-welcome-message-inner fade-in slide-in-from-bottom-1 animate-in fill-mode-both text-muted-foreground text-xl delay-75 duration-200">
-            {description}
-          </p>
+          {description ? (
+            <p className="aui-thread-welcome-message-inner fade-in slide-in-from-bottom-1 animate-in fill-mode-both text-muted-foreground text-xl delay-75 duration-200">
+              {description}
+            </p>
+          ) : null}
         </div>
       </div>
       {!readOnly ? <ThreadSuggestions /> : null}
