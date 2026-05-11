@@ -1419,6 +1419,41 @@ function stripRawFunctionCallOutputBlock(value: string) {
   return value.slice(0, blockStart).trim()
 }
 
+const UUID_RUN_ID_PATTERN = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/iu
+const NAMED_RUN_ID_PATTERN = /\brun-[a-z0-9-]+\b/iu
+
+function extractRunIdFromText(value: string | null | undefined) {
+  if (!value) return null
+  const dashboardRunId = value.match(/[?&]runId=([^&\s)]+)/u)?.[1]
+  if (dashboardRunId) {
+    try {
+      return decodeURIComponent(dashboardRunId)
+    } catch {
+      return dashboardRunId
+    }
+  }
+  return value.match(NAMED_RUN_ID_PATTERN)?.[0] ?? value.match(UUID_RUN_ID_PATTERN)?.[0] ?? null
+}
+
+function inferSessionEntryRunId(entry: SessionEntry) {
+  if (isRecord(entry.metadata)) {
+    if (typeof entry.metadata.runId === 'string' && entry.metadata.runId.trim()) {
+      return entry.metadata.runId.trim()
+    }
+    const data = entry.metadata.data
+    if (isRecord(data)) {
+      const nestedRunId =
+        isRecord(data.run) && typeof data.run.id === 'string'
+          ? data.run.id
+          : typeof data.runId === 'string'
+            ? data.runId
+            : null
+      if (nestedRunId?.trim()) return nestedRunId.trim()
+    }
+  }
+  return extractRunIdFromText(entry.body)
+}
+
 function formatSessionBody(entry: SessionEntry) {
   const body = stripRawFunctionCallOutputBlock(entry.body)
   const toolName = isRecord(entry.metadata) && typeof entry.metadata.name === 'string'
@@ -1481,15 +1516,17 @@ function formatSessionBody(entry: SessionEntry) {
 }
 
 function toThreadMessage(entry: SessionEntry): ThreadMessage {
+  const inferredRunId = inferSessionEntryRunId(entry)
   const metadataCustom = isRecord(entry.metadata)
     ? {
         title: entry.title,
         role: entry.role,
+        ...(inferredRunId ? { runId: inferredRunId } : {}),
         ...entry.metadata,
       }
     : entry.title
-      ? { title: entry.title, role: entry.role }
-      : { role: entry.role }
+      ? { title: entry.title, role: entry.role, ...(inferredRunId ? { runId: inferredRunId } : {}) }
+      : { role: entry.role, ...(inferredRunId ? { runId: inferredRunId } : {}) }
   if (entry.role === 'user') {
     return {
       id: entry.id,
@@ -2059,7 +2096,7 @@ function extractStartedRunId(entries: StoredAssistantSessionEntry[]) {
         return runId
       }
     }
-    const inlineRunId = entry.content.match(/\brun-[a-z0-9-]+\b/iu)?.[0]
+    const inlineRunId = extractRunIdFromText(entry.content)
     if (inlineRunId) {
       return inlineRunId
     }
