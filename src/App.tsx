@@ -303,6 +303,18 @@ function relativeTime(value: string) {
   return formatter.format(Math.round(diffMs / 86400000), 'day')
 }
 
+function elapsedRunTime(value: string | null | undefined) {
+  if (!value) return null
+  const timestamp = Date.parse(value)
+  if (Number.isNaN(timestamp)) return null
+  const elapsedSeconds = Math.max(0, Math.floor((Date.now() - timestamp) / 1000))
+  if (elapsedSeconds < 60) {
+    return `Running for ${elapsedSeconds} second${elapsedSeconds === 1 ? '' : 's'}`
+  }
+  const elapsedMinutes = Math.floor(elapsedSeconds / 60)
+  return `Running for ${elapsedMinutes} minute${elapsedMinutes === 1 ? '' : 's'}`
+}
+
 function formatDateTime(value: string) {
   const date = new Date(value)
   if (Number.isNaN(date.getTime())) {
@@ -3505,6 +3517,7 @@ function RemoteRunBlock({
     .map((event) => stripMarkdownForInline(event.message))
     .filter((line, index, lines) => line && lines.indexOf(line) === index)
     .slice(-5)
+  const elapsedLabel = isRunning ? elapsedRunTime(run?.createdAt) : null
 
   const handleCancel = async () => {
     setCancelling(true)
@@ -3538,6 +3551,9 @@ function RemoteRunBlock({
         ) : null}
         {isRunning ? (
           <div className="space-y-4">
+            {elapsedLabel ? (
+              <p className="text-sm text-muted-foreground">{elapsedLabel}</p>
+            ) : null}
             <div className="space-y-2 text-sm leading-6">
               {latestLines.length > 0 ? (
                 latestLines.map((line) => <p key={line}>{line}</p>)
