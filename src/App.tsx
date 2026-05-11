@@ -4033,6 +4033,48 @@ function RunArtifactsPanel({
   )
 }
 
+function RunOutputsRail({
+  artifacts,
+  selectedArtifactId,
+  onOpenArtifact,
+}: {
+  artifacts: RunArtifactRecord[]
+  selectedArtifactId: string | null
+  onOpenArtifact: (artifactId: string) => void
+}) {
+  return (
+    <aside className="dashboard-outputs-rail" aria-label="Outputs">
+      <div className="dashboard-outputs-toggle">
+        <span className="dashboard-outputs-toggle-copy">
+          <span className="dashboard-outputs-label">Outputs</span>
+          <span className="dashboard-outputs-count">{artifacts.length}</span>
+        </span>
+      </div>
+      <div className="dashboard-outputs-list" role="list">
+        {artifacts.map((artifact) => {
+          const path = artifactPath(artifact)
+          return (
+            <button
+              key={artifact.id}
+              type="button"
+              className={[
+                'dashboard-output-link',
+                selectedArtifactId === artifact.id ? 'is-active' : '',
+              ].join(' ')}
+              role="listitem"
+              onClick={() => onOpenArtifact(artifact.id)}
+              title={path}
+            >
+              {fileIconFor(path, artifact)}
+              <span className="dashboard-output-link-name">{path}</span>
+            </button>
+          )
+        })}
+      </div>
+    </aside>
+  )
+}
+
 function FilePreview({
   artifact,
 }: {
@@ -4176,11 +4218,11 @@ function RunDetailPage({
   }, [selectedArtifactId, visibleProducedArtifacts])
 
   return (
-    <div className="flex min-h-0 flex-1 bg-background">
+    <div className="dashboard-run-detail flex min-h-0 flex-1 bg-background">
       <div className="relative min-w-0 flex-1 overflow-y-auto px-4 py-6 md:px-8" data-run-detail-scroll>
         <div className="mx-auto flex w-full max-w-[52rem] flex-col">
           {artifactCount > 0 ? (
-            <div className="mb-4 flex justify-end">
+            <div className="dashboard-artifacts-action mb-4 flex justify-end">
               <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
                 Artifacts
               </Button>
@@ -4296,6 +4338,16 @@ function RunDetailPage({
           </section>
         </div>
       </div>
+      {artifactCount > 0 ? (
+        <RunOutputsRail
+          artifacts={visibleProducedArtifacts}
+          selectedArtifactId={selectedArtifactId}
+          onOpenArtifact={(artifactId) => {
+            setSelectedArtifactId(artifactId)
+            setArtifactsOpen(true)
+          }}
+        />
+      ) : null}
 
       <RunArtifactsPanel
         open={artifactsOpen}
@@ -4534,7 +4586,7 @@ function DashboardMobileHeader({
           : 'Research chat'
 
   return (
-    <header className="flex h-14 shrink-0 items-center gap-3 border-b border-border bg-background px-3 md:hidden">
+    <header className="dashboard-mobile-header flex h-14 shrink-0 items-center gap-3 border-b border-border bg-background px-3 md:hidden">
       <SidebarTrigger className="size-10 shrink-0" aria-label="Open dashboard navigation" />
       <div className="min-w-0">
         <div className="truncate text-sm font-semibold">{title}</div>
@@ -4549,6 +4601,7 @@ function DashboardSidebar({
   session,
   datasets,
   runs,
+  terminalSessionCount,
   recentAssistantSessions,
   showResearchChats,
 }: {
@@ -4556,6 +4609,7 @@ function DashboardSidebar({
   session: SessionResponse
   datasets: DatasetRecord[]
   runs: RunRecord[]
+  terminalSessionCount: number
   recentAssistantSessions: Array<StoredAssistantSession & {
     dataset?: DatasetRecord
     run?: RunRecord
@@ -4578,11 +4632,11 @@ function DashboardSidebar({
   }
 
   return (
-    <Sidebar collapsible="icon" variant="sidebar">
-      <SidebarHeader className="border-b border-sidebar-border px-3 py-4">
+    <Sidebar collapsible="icon" variant="sidebar" className="dashboard-sidebar">
+      <SidebarHeader className="dashboard-sidebar-header border-b border-sidebar-border px-3 py-4">
         <a href={rootOrigin} className="flex items-center">
           <img
-            className="block h-[29px] w-36 object-contain object-left"
+            className="dashboard-wordmark block h-[29px] w-36 object-contain object-left"
             src="/alpha-research-wordmark.png"
             alt="Alpha Research"
             width="1505"
@@ -4590,14 +4644,15 @@ function DashboardSidebar({
           />
         </a>
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="dashboard-sidebar-content">
         {showResearchChats ? (
-          <SidebarGroup>
-            <SidebarGroupLabel>Research chats</SidebarGroupLabel>
+          <SidebarGroup className="dashboard-sidebar-group">
+            <SidebarGroupLabel className="dashboard-sidebar-label">Research chats</SidebarGroupLabel>
             <SidebarGroupContent>
-              <SidebarMenu>
+              <SidebarMenu className="dashboard-sidebar-menu">
                 <SidebarMenuItem>
                   <SidebarMenuButton
+                    className="dashboard-nav-button dashboard-new-chat"
                     isActive={route.view === 'assistant' && !route.sessionId}
                     onClick={() =>
                       navigate({
@@ -4606,13 +4661,14 @@ function DashboardSidebar({
                         sessionId: null,
                       })}
                   >
+                    <Bot />
                     <span>New chat</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 {recentAssistantSessions.map((chatSession) => (
                   <SidebarMenuItem key={chatSession.id}>
                     <SidebarMenuButton
-                      className="h-10 md:h-9"
+                      className="dashboard-nav-button dashboard-recent-chat h-10 md:h-9"
                       isActive={route.view === 'assistant' && route.sessionId === chatSession.id}
                       onClick={() =>
                         navigate({
@@ -4632,11 +4688,11 @@ function DashboardSidebar({
           </SidebarGroup>
         ) : null}
       </SidebarContent>
-      <SidebarFooter className="border-t border-sidebar-border p-3">
-        <SidebarMenu className="mb-2">
+      <SidebarFooter className="dashboard-sidebar-footer border-t border-sidebar-border p-3">
+        <SidebarMenu className="dashboard-sidebar-menu mb-2">
           <SidebarMenuItem>
             <SidebarMenuButton
-              className="h-11 md:h-8"
+              className="dashboard-nav-button h-11 md:h-8"
               isActive={route.view === 'datasets'}
               onClick={() =>
                 navigate({
@@ -4654,7 +4710,7 @@ function DashboardSidebar({
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton
-              className="h-11 md:h-8"
+              className="dashboard-nav-button h-11 md:h-8"
               tooltip="Runs"
               isActive={route.view === 'runs'}
               onClick={() =>
@@ -4671,12 +4727,31 @@ function DashboardSidebar({
               </span>
             </SidebarMenuButton>
           </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              className="dashboard-nav-button h-11 md:h-8"
+              tooltip="Terminal sessions"
+              isActive={route.view === 'terminal-sessions'}
+              onClick={() =>
+                navigate({
+                  view: 'terminal-sessions',
+                  runId: null,
+                  sessionId: null,
+                })}
+            >
+              <TerminalSquare />
+              <span>Sessions</span>
+              <span className="ml-auto text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
+                {terminalSessionCount}
+              </span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
         </SidebarMenu>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
               variant="ghost"
-              className="flex h-auto w-full min-w-0 items-center justify-start overflow-hidden rounded-xl px-3 py-3 text-left hover:bg-sidebar-accent/60"
+              className="dashboard-account-button flex h-auto w-full min-w-0 items-center justify-start overflow-hidden rounded-xl px-3 py-3 text-left hover:bg-sidebar-accent/60"
             >
               <div className="flex min-w-0 flex-col items-start">
                 <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">
@@ -4864,18 +4939,19 @@ function DashboardApp({
   }
 
   return (
-    <SidebarProvider defaultOpen>
+    <SidebarProvider defaultOpen className="dashboard-shell">
       <DashboardSidebar
         route={route}
         session={session}
         datasets={datasets}
         runs={runs}
+        terminalSessionCount={sessions.length}
         recentAssistantSessions={recentAssistantSessions}
         showResearchChats={showResearchChats}
       />
 
-      <SidebarInset className="min-h-0 overflow-hidden overscroll-none bg-background">
-        <div className="flex h-svh min-h-0 flex-col overflow-hidden overscroll-none">
+      <SidebarInset className="dashboard-main-inset min-h-0 overflow-hidden overscroll-none bg-background">
+        <div className="dashboard-main-panel flex h-svh min-h-0 flex-col overflow-hidden overscroll-none">
           <DashboardMobileHeader route={route} />
           {content}
         </div>
