@@ -258,72 +258,21 @@ def format_codex_session_entry(line: str):
 
 
 def build_remote_agent_prompt():
-    private_sources = RUN_CONFIG.get("privateSources") if isinstance(RUN_CONFIG, dict) else None
-    public_sources = RUN_CONFIG.get("publicSources") if isinstance(RUN_CONFIG, dict) else None
-    source_instructions = []
-    if DATASET_READ_ONLY:
-        source_instructions.extend([
-            f"The dataset mount at {DATASET_MOUNT_PATH} is read-only. Do not create, modify, delete, or move files under it.",
-            f"Use {WORKSPACE_DIR} for temporary scripts, caches, and scratch files.",
-            f"Write all final outputs and bookkeeping artifacts under {ARTIFACT_DIR}.",
-            "If the manifest path is missing, report that as an input readiness issue instead of writing a new manifest under the dataset.",
-        ])
-    elif isinstance(private_sources, list) and private_sources:
-        source_instructions.extend([
-            "Private uploaded sources are listed in run_config.json under privateSources.",
-            f"Download each private source into {DATASET_MOUNT_PATH / 'sources' / 'private'} before normalizing it.",
-            "Treat private source download URLs as sensitive temporary credentials; do not copy them into final artifacts or the manifest.",
-            "In the manifest, record private source filenames, sizes, schemas, and provenance notes, but not presigned URLs.",
-        ])
-    if isinstance(public_sources, list) and public_sources:
-        source_instructions.extend([
-            "Public source hints are listed in run_config.json under publicSources.",
-            "Fetch the public/API data needed for the requested environment and document source URLs, retrieval timestamps, schemas, and refresh instructions in the manifest.",
-        ])
-    if not source_instructions:
-        source_instructions.append(
-            "For public-data environment creation, fetch data from the internet into the mounted dataset path, normalize it into durable Parquet/CSV/JSON files, and document source URLs, retrieval timestamps, schemas, and refresh instructions in the manifest."
-        )
-    manifest_instruction = (
-        "If the manifest path does not exist, treat the dataset as not ready and explain the missing manifest in the artifact directory."
-        if DATASET_READ_ONLY
-        else "If the manifest path does not exist yet, this is a new environment: create the dataset files, then write a manifest at the manifest path."
-    )
-    artifact_contract = "\n".join(
+    return "\n".join(
         [
-            "You are executing an Alpha Research remote agent run inside a dataset-attached cloud workspace.",
-            f"Run type: {RUN_TYPE}",
-            f"Dataset id: {DATASET_ID}",
-            f"Dataset mount path: {DATASET_MOUNT_PATH}",
-            f"Manifest path: {MANIFEST_PATH}",
-            f"Workspace path: {WORKSPACE_DIR}",
-            f"The dataset is also available at {WORKSPACE_DIR / 'dataset'} inside the workspace.",
-            f"Artifact directory: {ARTIFACT_DIR}",
+            "You are running one Alpha Research job.",
+            f"Read the shared dataset from {DATASET_MOUNT_PATH}.",
+            f"Use {WORKSPACE_DIR} for scratch work.",
+            f"Write every output to {ARTIFACT_DIR}.",
+            "Iterate on the research task until the answer is complete.",
+            "Keep work.md updated as your running log: what you tried, what worked, what failed, and what remains.",
+            "Stop only after you have written report.html with the full final answer, including methods, evidence, results, caveats, and any charts or tables needed to understand the work.",
+            "Write result.json too if you produce structured results.",
             "",
-            "You may inspect files, run shell commands, write scripts, and produce result files.",
-            "Use the mounted dataset and manifest to understand the corpus before acting.",
-            manifest_instruction,
-            f"Run config path: {WORKSPACE_DIR / 'run_config.json'}",
-            *source_instructions,
-            "For any command or script expected to run longer than 30 seconds, print progress at least every 30 seconds.",
-            "If you generate deliverables, write them into the artifact directory.",
-            "Required outputs:",
-            "- work.md: ongoing work log with completed work, current status, blockers, and exact next commands if more work remains",
-            "- report.html: the primary human-readable deliverable for the run",
-            "- result.json: structured machine-readable output when appropriate",
-            "Optional outputs:",
-            "- tables as .csv",
-            "- charts as .png or .svg",
-            "- scripts as .py, .sql, or .sh",
-            "",
-            "At the end, make sure work.md and report.html exist. If you create structured results, also write result.json.",
-            "In your final response, state exactly which files you created in the artifact directory.",
-            "",
-            "User request:",
+            "Research request:",
             PROMPT,
         ]
     )
-    return artifact_contract
 
 
 def artifact_content_for_path(path: Path):
@@ -400,12 +349,9 @@ def expected_primary_artifact_name():
 
 
 def build_codex_goal():
-    expected_primary = expected_primary_artifact_name()
     return (
-        "/goal Execute the user's requested Alpha Research run rather than only planning it. "
-        f"Keep ongoing progress in work.md under {ARTIFACT_DIR}. "
-        f"Before finishing, write the main output as {expected_primary} in {ARTIFACT_DIR}. "
-        "If full completion is too large for one turn, work.md must contain completed work, blockers, and exact next commands."
+        "/goal Complete the research run. Iterate, keep work.md current, "
+        "and stop only after writing the final report.html."
     )
 
 
