@@ -405,6 +405,7 @@ def expected_primary_artifact_name():
 def run_codex():
     WORKSPACE_DIR.mkdir(parents=True, exist_ok=True)
     ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
+    CODEX_HOME.mkdir(parents=True, exist_ok=True)
     (WORKSPACE_DIR / "run_config.json").write_text(json.dumps(RUN_CONFIG, indent=2), encoding="utf-8")
     dataset_link = WORKSPACE_DIR / "dataset"
     if not dataset_link.exists():
@@ -434,6 +435,19 @@ def run_codex():
     env["DATASET_MOUNT_PATH"] = str(DATASET_MOUNT_PATH)
     env["MANIFEST_PATH"] = str(MANIFEST_PATH)
     env["RUN_TYPE"] = RUN_TYPE
+
+    api_key = env.get("OPENAI_API_KEY", "").strip()
+    if api_key:
+        login = subprocess.run(
+            ["codex", "login", "--with-api-key"],
+            input=f"{api_key}\n",
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            text=True,
+            env=env,
+        )
+        if login.returncode != 0:
+            raise RuntimeError("codex api-key login failed")
 
     post_event("Starting remote agent executor.")
     post_status("running", "Starting remote agent executor.")

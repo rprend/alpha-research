@@ -39,7 +39,9 @@ def main() -> int:
     if not isinstance(extra_context, dict):
         raise SystemExit("--extra-context-json must decode to an object")
 
-    from modal_workers.agent_worker import run_codex_job
+    import modal
+
+    run_codex_job = modal.Function.from_name("alpha-research-agent-workers", "run_codex_job")
 
     if args.async_submit:
         call = run_codex_job.spawn(args.job_id, args.prompt, extra_context)
