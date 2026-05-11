@@ -3501,6 +3501,7 @@ function RemoteRunBlock({
   initialStatus?: string | null
 }) {
   const { payload, error, loading } = useRunResultsById(runId)
+  const htmlFrameRef = useRef<HTMLIFrameElement | null>(null)
   const [cancelling, setCancelling] = useState(false)
   const [cancelError, setCancelError] = useState<string | null>(null)
   const run = payload?.run ?? null
@@ -3509,6 +3510,11 @@ function RemoteRunBlock({
   const producedArtifacts = getProducedArtifacts(payload).filter((artifact) => artifact.type !== 'remote_agent_session')
   const primaryArtifact = getDatasetBriefingArtifact(producedArtifacts)
   const resultArtifact = getDatasetProfileArtifact(producedArtifacts)
+  const primaryArtifactPath = primaryArtifact ? artifactPath(primaryArtifact) : ''
+  const isPrimaryHtml = primaryArtifact
+    ? artifactLanguage(primaryArtifactPath, primaryArtifact) === 'html'
+    : false
+  const primaryHtmlHref = primaryArtifact && isPrimaryHtml ? artifactHtmlHref(primaryArtifact) : null
   const latestLines = (payload?.events ?? [])
     .slice(-8)
     .map((event) => stripMarkdownForInline(event.message))
@@ -3529,9 +3535,13 @@ function RemoteRunBlock({
     }
   }
 
+  const handleFullscreen = () => {
+    void htmlFrameRef.current?.requestFullscreen?.()
+  }
+
   return (
-    <section className="my-3 overflow-hidden border border-border bg-background" data-inline-run-block>
-      <div className="space-y-3 px-4 py-4">
+    <section className="my-3 w-full overflow-hidden border border-border bg-background md:w-[min(72rem,calc(100vw-20rem))]" data-inline-run-block>
+      <div className={primaryArtifact && isPrimaryHtml ? 'space-y-0' : 'space-y-3 px-4 py-4'}>
         {error ? (
           <div className="rounded-md bg-destructive/5 px-3 py-2 text-sm text-destructive">
             Could not load inline run: {error}
@@ -3566,37 +3576,50 @@ function RemoteRunBlock({
                 {cancelling ? 'Cancelling...' : 'Cancel'}
               </Button>
               <Button type="button" size="sm" variant="ghost" asChild>
-                <a href={`${dashboardOrigin}?view=runs&runId=${encodeURIComponent(runId)}`}>Open full run</a>
+                <a href={`${dashboardOrigin}?view=runs&runId=${encodeURIComponent(runId)}`}>Run logs</a>
               </Button>
             </div>
           </div>
         ) : primaryArtifact ? (
-          <div className="space-y-3">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <div>
-                <div className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">Result</div>
-                <h3 className="mt-1 text-base font-semibold">{artifactPath(primaryArtifact)}</h3>
-              </div>
-              <Button type="button" size="sm" variant="outline" asChild>
-                <a href={artifactDownloadHref(primaryArtifact)} download={artifactDownloadFilename(primaryArtifact)}>Download</a>
-              </Button>
-            </div>
-            {artifactLanguage(artifactPath(primaryArtifact), primaryArtifact) === 'html' ? (
-              artifactHtmlHref(primaryArtifact) ? (
-                <iframe
-                  title={primaryArtifact.title}
-                  src={artifactHtmlHref(primaryArtifact) ?? undefined}
-                  className="h-[34rem] w-full border border-border bg-background"
-                />
+          <div className={isPrimaryHtml ? 'space-y-0' : 'space-y-3'}>
+            {isPrimaryHtml ? (
+              primaryHtmlHref ? (
+                <>
+                  <div className="flex flex-wrap justify-end gap-2 border-b border-border p-2">
+                    <Button type="button" size="sm" variant="ghost" onClick={handleFullscreen}>
+                      Fullscreen
+                    </Button>
+                    <Button type="button" size="sm" variant="ghost" asChild>
+                      <a href={`${dashboardOrigin}?view=runs&runId=${encodeURIComponent(runId)}`}>Run logs</a>
+                    </Button>
+                    <Button type="button" size="sm" variant="ghost" asChild>
+                      <a href={artifactDownloadHref(primaryArtifact)} download={artifactDownloadFilename(primaryArtifact)}>Download</a>
+                    </Button>
+                  </div>
+                  <iframe
+                    ref={htmlFrameRef}
+                    title={primaryArtifact.title}
+                    src={primaryHtmlHref}
+                    className="h-[78vh] min-h-[46rem] w-full bg-background"
+                  />
+                </>
               ) : (
                 <div className="border border-border px-4 py-3 text-sm text-muted-foreground">
                   HTML report content was not captured for inline preview.
                 </div>
               )
             ) : (
-              <article className="max-h-[34rem] overflow-auto border border-border px-4 py-4 text-sm leading-6">
+              <>
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <h3 className="text-base font-semibold">{primaryArtifactPath}</h3>
+                  <Button type="button" size="sm" variant="outline" asChild>
+                    <a href={artifactDownloadHref(primaryArtifact)} download={artifactDownloadFilename(primaryArtifact)}>Download</a>
+                  </Button>
+                </div>
+                <article className="max-h-[34rem] overflow-auto border border-border px-4 py-4 text-sm leading-6">
                 {renderPreviewMarkdown(artifactText(primaryArtifact))}
               </article>
+              </>
             )}
           </div>
         ) : resultArtifact ? (

@@ -201,7 +201,7 @@ async function assertWellSpecifiedRunLaunch() {
       throw new Error('Launching a well-specified run should keep the user in the assistant session.')
     }
     await page.locator('[data-inline-run-block]').waitFor({ timeout: 15000 })
-    await page.getByRole('link', { name: 'Open full run' }).waitFor({ timeout: 15000 })
+    await page.getByRole('link', { name: 'Run logs' }).waitFor({ timeout: 15000 })
   } finally {
     await browser.close()
   }
