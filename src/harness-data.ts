@@ -280,7 +280,7 @@ export const harnessSessions = [
         role: 'assistant',
         kind: 'final_summary',
         title: 'Synthesis',
-        content: 'Created `summary.md` and `result.json` for this describe run. Open the session outputs above to inspect the durable files.',
+        content: 'Created `report.html`, `work.md`, and `result.json` for this describe run. Open the session outputs above to inspect the durable files.',
         createdAt: iso(22),
       },
     ],
@@ -349,7 +349,7 @@ const harnessArtifacts = [
     type: 'file',
     title: 'Dataset Briefing',
     content: {
-      path: '/workspace/artifacts/summary.md',
+      path: '/workspace/artifacts/work.md',
       text: [
         '# Dataset Briefing',
         '',

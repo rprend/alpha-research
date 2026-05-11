@@ -402,7 +402,7 @@ async function assertCompletedRunArtifactsSteering() {
     await page.getByRole('button', { name: 'Artifacts' }).first().click()
     const artifactsPanel = page.getByLabel('Run artifacts')
     await artifactsPanel.getByText('report.html', { exact: true }).first().waitFor({ timeout: 15000 })
-    await artifactsPanel.locator('button', { hasText: 'summary.md' }).first().waitFor({ timeout: 15000 })
+    await artifactsPanel.locator('button', { hasText: 'work.md' }).first().waitFor({ timeout: 15000 })
     await artifactsPanel.locator('button', { hasText: 'result.json' }).first().waitFor({ timeout: 15000 })
     await artifactsPanel.locator('button', { hasText: 'scripts/inspect_manifest.py' }).first().waitFor({ timeout: 15000 })
     await page.getByText('2 / 2', { exact: true }).waitFor({ timeout: 15000 })
@@ -512,7 +512,7 @@ async function assertTerminalSessionContinuity() {
     await page.getByText('Transcript complete', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('This transcript belongs to the Describe run for Alpha Book Sample.', { exact: false }).waitFor({ timeout: 15000 })
     await page.getByText('Outputs from this session', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'summary.md' }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'work.md' }).waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'result.json' }).waitFor({ timeout: 15000 })
     if (await page.getByText('No terminal session turns yet', { exact: true }).count()) {
       throw new Error('Terminal session detail should not present a dead-end empty-state message.')

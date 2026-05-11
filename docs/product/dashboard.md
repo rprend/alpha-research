@@ -30,7 +30,7 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Before turns arrive, the page should show a syncing/loading state instead of implying the session is empty or missing.
 - The header should explain what run the session belongs to, when it last updated, and whether the transcript is still syncing or complete.
 - Command/output/synthesis content should remain easy to scan, while raw session ids stay secondary.
-- If the session produced durable outputs such as `summary.md` or `result.json`, the page should expose direct artifact affordances without forcing the user to infer where those files live.
+- If the session produced durable outputs such as `work.md` or `result.json`, the page should expose direct artifact affordances without forcing the user to infer where those files live.
 
 ## Runs Inventory Expectations
 

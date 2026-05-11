@@ -148,7 +148,7 @@ export const DASHBOARD_JOURNEYS = [
     steps: [
       { type: 'wait', ms: 1000 },
       { type: 'clickLabel', label: 'Open artifacts' },
-      { type: 'waitForText', text: 'summary.md', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'work.md', timeoutMs: 15000 },
       { type: 'wait', ms: 1000 },
     ],
   }),
@@ -384,7 +384,7 @@ export const DASHBOARD_JOURNEYS = [
     steps: [
       { type: 'wait', ms: 1000 },
       { type: 'clickLabel', label: 'Open artifacts' },
-      { type: 'waitForText', text: 'summary.md', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'work.md', timeoutMs: 15000 },
       { type: 'wait', ms: 1000 },
     ],
   }),

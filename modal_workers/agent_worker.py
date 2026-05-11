@@ -71,16 +71,16 @@ def _optional_str(extra_context: dict[str, Any], key: str, default: str = "") ->
     return str(value)
 
 
-def _write_direct_job_summary(artifact_dir: Path, prompt: str, return_code: int) -> None:
-    summary_path = artifact_dir / "summary.md"
-    if summary_path.exists():
+def _write_direct_job_work_log(artifact_dir: Path, prompt: str, return_code: int) -> None:
+    work_path = artifact_dir / "work.md"
+    if work_path.exists():
         return
-    summary_path.write_text(
+    work_path.write_text(
         "\n".join(
             [
                 "# Modal Codex Job",
                 "",
-                f"Codex exited with code `{return_code}` before writing `summary.md`.",
+                f"Codex exited with code `{return_code}` before writing `work.md`.",
                 "",
                 "Prompt:",
                 "",
@@ -154,7 +154,7 @@ def _run_codex_job(job_id: str, prompt: str, extra_context: dict[str, Any] | Non
     command = ["python3", str(RUNNER_PATH)]
     process = subprocess.run(command, cwd=str(workspace_dir), env=env, text=True)
     if not extra_context.get("callbackStatusUrl"):
-        _write_direct_job_summary(artifact_dir, prompt, process.returncode)
+        _write_direct_job_work_log(artifact_dir, prompt, process.returncode)
     results_volume.commit()
 
     return {

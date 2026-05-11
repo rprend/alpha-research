@@ -1160,7 +1160,7 @@ function getDatasetBriefingArtifact(artifacts: RunArtifactRecord[]) {
     const title = artifact.title.toLowerCase()
     const path = artifactPath(artifact).toLowerCase()
     const text = artifactText(artifact)
-    return title.includes('briefing') || path.includes('summary.md') || text.includes('# Dataset Briefing')
+    return title.includes('briefing') || path.includes('work.md') || text.includes('# Dataset Briefing')
   }) ?? null
 }
 
@@ -4471,7 +4471,7 @@ function SessionDetailPage({
   const primaryArtifactCandidates = useMemo(
     () => linkedArtifacts.filter((artifact) => {
       const path = artifactPath(artifact)
-      return path.endsWith('summary.md') || path.endsWith('result.json')
+      return path.endsWith('work.md') || path.endsWith('result.json')
     }),
     [linkedArtifacts],
   )
@@ -4554,7 +4554,7 @@ function SessionDetailPage({
         producedArtifacts={linkedArtifacts}
         selectedArtifactId={selectedArtifactId}
         onSelectArtifact={setSelectedArtifactId}
-        primaryArtifactId={primaryArtifactCandidates.find((artifact) => artifactPath(artifact).endsWith('summary.md'))?.id ?? null}
+        primaryArtifactId={primaryArtifactCandidates.find((artifact) => artifactPath(artifact).endsWith('work.md'))?.id ?? null}
         profileArtifactId={primaryArtifactCandidates.find((artifact) => artifactPath(artifact).endsWith('result.json'))?.id ?? null}
       />
     </div>

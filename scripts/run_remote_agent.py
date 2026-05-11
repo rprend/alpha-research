@@ -308,15 +308,15 @@ def build_remote_agent_prompt():
             "For any command or script expected to run longer than 30 seconds, print progress at least every 30 seconds.",
             "If you generate deliverables, write them into the artifact directory.",
             "Required outputs:",
-            "- summary.md: a concise human-readable summary of what you found or built, unless the user explicitly requests a self-contained HTML report",
-            "- report.html: the primary human-readable deliverable when the user explicitly requests a self-contained HTML report",
+            "- work.md: ongoing work log with completed work, current status, blockers, and exact next commands if more work remains",
+            "- report.html: the primary human-readable deliverable for the run",
             "- result.json: structured machine-readable output when appropriate",
             "Optional outputs:",
             "- tables as .csv",
             "- charts as .png or .svg",
             "- scripts as .py, .sql, or .sh",
             "",
-            "At the end, make sure the requested primary human-readable artifact exists: report.html for self-contained HTML report requests, otherwise summary.md. If you create structured results, also write result.json.",
+            "At the end, make sure work.md and report.html exist. If you create structured results, also write result.json.",
             "In your final response, state exactly which files you created in the artifact directory.",
             "",
             "User request:",
@@ -396,19 +396,16 @@ def collect_deliverable_paths():
 
 
 def expected_primary_artifact_name():
-    prompt = PROMPT.lower()
-    if "report.html" in prompt or "html report" in prompt or "self-contained html" in prompt:
-        return "report.html"
-    return "summary.md"
+    return "report.html"
 
 
 def build_codex_goal():
     expected_primary = expected_primary_artifact_name()
     return (
         "/goal Execute the user's requested Alpha Research run rather than only planning it. "
-        f"Before finishing, write {expected_primary} in {ARTIFACT_DIR}. "
-        f"If full completion is too large for one turn, write an interim {expected_primary} "
-        "with completed work, blockers, and exact next commands."
+        f"Keep ongoing progress in work.md under {ARTIFACT_DIR}. "
+        f"Before finishing, write the main output as {expected_primary} in {ARTIFACT_DIR}. "
+        "If full completion is too large for one turn, work.md must contain completed work, blockers, and exact next commands."
     )
 
 
@@ -544,6 +541,8 @@ def main():
     expected_primary = expected_primary_artifact_name()
     if not any(path.name == expected_primary for path in deliverables):
         raise RuntimeError(f"Remote agent run completed without required primary artifact: {expected_primary}")
+    if not any(path.name == "work.md" for path in deliverables):
+        raise RuntimeError("Remote agent run completed without required ongoing work log: work.md")
     summary = f"Remote agent run completed with {len(deliverables)} deliverable artifact(s)."
     if session_id:
         summary += f" Session: {session_id}."

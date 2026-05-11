@@ -673,7 +673,7 @@ export class ControlPlane {
     const isBriefing =
       normalizedTitle === 'dataset briefing' ||
       normalizedTitle === 'dataset briefing.md' ||
-      normalizedTitle === 'summary.md'
+      normalizedTitle === 'work.md'
     const isProfile =
       normalizedTitle === 'dataset profile' ||
       normalizedTitle === 'dataset profile.json' ||
@@ -1449,7 +1449,7 @@ export class ControlPlane {
           `Download the source file from run_config.json sourceDownloadUrl to ${datasetMountPath}/sources/raw/${dataset.sourceFilename ?? 'source-input'}.`,
           'Normalize or profile the source into useful files under the dataset directory.',
           `Write a manifest at ${manifestPath}.`,
-          'Write summary.md in the artifact directory describing what was deployed.',
+          'Write work.md in the artifact directory describing what was deployed, and report.html as the primary human-readable output.',
           'Do not write secrets or presigned URLs into dataset files or artifacts.',
         ].join('\n')
         const modalJob = await launchModalResearchJob(this.env, {

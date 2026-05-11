@@ -21,11 +21,10 @@
 
 Every successful run must produce deliverable files in `ARTIFACT_DIR`. Bookkeeping artifacts such as the remote agent summary, transcript, or session id prove that the worker ran, but they do not count as task completion.
 
-The required primary filesystem output is:
+The required filesystem outputs are:
 
-- `report.html` when the prompt requests `report.html`, an HTML report, or a self-contained HTML output
-- `summary.md` otherwise
-
+- `report.html` as the primary human-readable deliverable
+- `work.md` as the ongoing work log with completed work, current status, blockers, and exact next commands if more work remains
 - `result.json` when structured data is appropriate
 - optional tables, charts, scripts, and notebooks in `ARTIFACT_DIR`
 

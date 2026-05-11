@@ -22,10 +22,10 @@ Bundled plugin source: /Users/ryanprendergast/Documents/Zenobia Pay/alpha-datase
 | 3 | `research_get_dataset` | `econ`: status `ready`, deployment `ready`, manifest `/mnt/alpha-research/datasets/econ/manifest.json`. |
 | 4 | `research_list_runs` | Returned 105 recent runs. Most recent: `c101d29f-cfa0-4337-ad74-98bb3a6c43d0` (sociology, agent, ready). |
 | 5 | `research_get_run_results` | Inspected `d53cee89-3aea-4103-9f15-968cc89d13f0`: status `ready`, artifacts 5, events 148. |
-| 6 | `research_list_run_artifacts` | Listed 5 artifacts for `d53cee89-3aea-4103-9f15-968cc89d13f0`: remote_agent_summary:Remote Agent Summary, remote_agent_transcript:Remote Agent Transcript, structured_result:meta_summary.json, structured_result:result.json, file:summary.md. |
+| 6 | `research_list_run_artifacts` | Listed 5 artifacts for `d53cee89-3aea-4103-9f15-968cc89d13f0`: remote_agent_summary:Remote Agent Summary, remote_agent_transcript:Remote Agent Transcript, structured_result:meta_summary.json, structured_result:result.json, file:work.md. |
 | 7 | `research_start_run` | Started tiny `analysis` smoke run `f6bd72f3-c4ff-4f36-a7d8-0f9a440136bd` on `econ` with manifest/profile-only prompt. |
 | 8 | `research_wait_for_run` | Run reached terminal status `ready` at `2026-05-04T19:23:47.974Z`; output preview: "Remote agent run completed with 4 artifact(s).". |
-| 9 | `research_list_run_artifacts` | Listed 4 artifacts for smoke run: remote_agent_summary:Remote Agent Summary, remote_agent_transcript:Remote Agent Transcript, structured_result:result.json, file:summary.md. |
+| 9 | `research_list_run_artifacts` | Listed 4 artifacts for smoke run: remote_agent_summary:Remote Agent Summary, remote_agent_transcript:Remote Agent Transcript, structured_result:result.json, file:work.md. |
 
 ## Notes
 

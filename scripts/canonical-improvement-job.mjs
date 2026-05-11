@@ -133,7 +133,7 @@ function buildPrompt(dataset) {
     'Do not expose secrets in logs, artifacts, prompts, summaries, commands, or files.',
     '',
     'Required artifact files:',
-    '- summary.md with the selected improvement, what evidence was inspected, whether Exa was usable, whether Slack notification was attempted, and any exact skip reason.',
+    '- work.md with the selected improvement, what evidence was inspected, whether Exa was usable, whether Slack notification was attempted, and any exact skip reason.',
     '- result.json with datasetId, improvementType, exaVerified, slackVerifiedOrSkipped, changedFiles, and followUp.',
     '',
     'Keep the proof bounded: do not rewrite large dataset files, do not start nested agents, and prefer documentation/profile improvements over heavy transforms.',
