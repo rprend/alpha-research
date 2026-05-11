@@ -150,6 +150,12 @@ const ASYNC_RUN_START_TOOLS = new Set([
   'run_remote_transformation',
   'run_remote_labeling',
 ])
+const MODEL_HIDDEN_RESEARCH_AGENT_TOOLS = new Set([
+  'fetch_public_data',
+  'start_remote_agent_run',
+  'run_remote_transformation',
+  'run_remote_labeling',
+])
 
 const RESEARCH_AGENT_INSTRUCTIONS = [
   'You are RESEARCH, a CLI agent for helping knowledge workers work faster.',
@@ -162,7 +168,8 @@ const RESEARCH_AGENT_INSTRUCTIONS = [
   'Do not inspect datasets or runs just to recover from unclear input.',
   'Prefer lightweight dataset queries before launching heavy transforms or analyses when the user wants examples, top records, or simple slices.',
   'Do not answer with generic numbered menus when you can inspect the user datasets or runs and propose one concrete next action.',
-  'When you start a remote run, do not wait for completion unless the user explicitly asks you to wait.',
+  'Remote runs require approval. When the user asks to launch remote work, call plan_remote_run first. That tool generates the exact prompt from this session\'s chat history. Show the generated prompt to the user and ask for approval or edits. Do not call start_remote_run until the user clearly approves the generated prompt.',
+  'When the user approves, call start_remote_run with the approved prompt exactly as shown or edited. After starting the run, do not wait for completion unless the user explicitly asks you to wait.',
   'Be concise. After tool work completes, summarize the result and current status.',
   'Ask the user a question when their intent is unclear or a required tool input cannot be resolved from prior context.',
 ].join('\n')
@@ -385,6 +392,54 @@ function requireString(input: Record<string, unknown>, key: string) {
     throw new Error(`Missing required string: ${key}`)
   }
   return value.trim()
+}
+
+function sessionEntryToPlainText(entry: Record<string, unknown>) {
+  const role = typeof entry.role === 'string' ? entry.role : 'entry'
+  const title = typeof entry.title === 'string' && entry.title.trim() ? ` (${entry.title.trim()})` : ''
+  const content = typeof entry.content === 'string' ? entry.content.trim() : ''
+  if (!content) return ''
+  return `${role}${title}:\n${content}`
+}
+
+function entriesToPlainTextChatHistory(entries: Array<Record<string, unknown>>) {
+  return entries
+    .filter((entry) => {
+      const kind = typeof entry.kind === 'string' ? entry.kind : ''
+      const content = typeof entry.content === 'string' ? entry.content : ''
+      return kind !== 'tool_call' || content !== 'Calling plan_remote_run'
+    })
+    .map(sessionEntryToPlainText)
+    .filter(Boolean)
+    .join('\n\n')
+}
+
+async function buildRemoteRunPromptFromSessionHistory(env: Env, sessionId: string) {
+  const payload = await proxyToControlPlaneJson<{ entries?: Array<Record<string, unknown>> }>(
+    env,
+    `/assistant-sessions/${encodeURIComponent(sessionId)}`,
+    { method: 'GET' },
+  )
+  const chatHistory = entriesToPlainTextChatHistory(payload.entries ?? [])
+  if (!chatHistory.trim()) {
+    throw new Error('Cannot plan a remote run without chat history.')
+  }
+  const plannerPrompt = [
+    'Write a prompt for a remote Alpha Research run based on this chat history.',
+    '',
+    'The prompt will be sent to a remote coding/research agent running inside the dataset environment. Make it self-contained, specific, and execution-ready. Preserve the user\'s intent and constraints. Do not add requirements the user did not ask for. Return only the prompt text.',
+    '',
+    'Chat history:',
+    '<chat_history>',
+    chatHistory,
+    '</chat_history>',
+  ].join('\n')
+  const response = await callResponsesApi(env, { input: plannerPrompt })
+  const prompt = extractResponseText(response as Record<string, unknown>)
+  if (!prompt) {
+    throw new Error('Planner did not return a prompt.')
+  }
+  return { prompt, chatHistory }
 }
 
 async function appendAssistantSessionEntry(env: Env, sessionId: string, body: Record<string, unknown>) {
@@ -748,17 +803,41 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
       },
     },
     {
+      name: 'plan_remote_run',
+      description: 'Generate a draft remote-run prompt from the current chat history for user review. This does not start a run.',
+      parameters: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          datasetId: { type: 'string' },
+        },
+        required: ['datasetId'],
+      },
+      async execute(input, sessionId) {
+        if (!sessionId) {
+          throw new Error('Cannot plan a remote run without an assistant session.')
+        }
+        const datasetId = requireString(input, 'datasetId')
+        const { prompt, chatHistory } = await buildRemoteRunPromptFromSessionHistory(env, sessionId)
+        return {
+          summary: `Prepared a remote run prompt for ${datasetId}. Review and approve it before I start the run.\n\n${prompt}`,
+          data: {
+            datasetId,
+            prompt,
+            chatHistoryLength: chatHistory.length,
+          },
+        }
+      },
+    },
+    {
       name: 'start_remote_run',
-      description: 'Start a structured remote agent run against a dataset, including hypothesis tests, public-data fetches, transformations, labeling jobs, and artifact requests.',
+      description: 'Start a structured remote agent run using a prompt the user has already reviewed and approved.',
       parameters: {
         type: 'object',
         additionalProperties: false,
         properties: {
           datasetId: { type: 'string' },
           prompt: { type: 'string' },
-          type: { type: 'string', enum: ['analysis', 'fetch', 'transform', 'label', 'hypothesis', 'agent'] },
-          config: { type: 'object' },
-          artifacts: { type: 'array', items: { type: 'object' } },
         },
         required: ['datasetId', 'prompt'],
       },
@@ -776,9 +855,6 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
               callbackOrigin: WEB_DASHBOARD_ORIGIN,
               sessionId,
               prompt,
-              type: typeof input.type === 'string' ? input.type : undefined,
-              config: input.config && typeof input.config === 'object' ? input.config : undefined,
-              artifacts: Array.isArray(input.artifacts) ? input.artifacts : undefined,
             }),
           },
         )
@@ -1226,7 +1302,9 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
     }
   }
 
-  const tools = createResearchAgentTools(env, cliSession.email)
+  const tools = createResearchAgentTools(env, cliSession.email).filter(
+    (tool) => !MODEL_HIDDEN_RESEARCH_AGENT_TOOLS.has(tool.name),
+  )
   const toolsByName = new Map(tools.map((tool) => [tool.name, tool]))
   let response = await callResponsesApi(env, {
     instructions: RESEARCH_AGENT_INSTRUCTIONS,

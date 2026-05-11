@@ -987,6 +987,7 @@ function humanizeToolName(name: string) {
     list_run_artifacts: 'Checked produced artifacts',
     inspect_remote_dataset: 'Inspected dataset',
     list_remote_datasets: 'Listed datasets',
+    plan_remote_run: 'Planned remote run',
     start_remote_agent_run: 'Started remote Codex run',
     continue_remote_agent_run: 'Continued remote Codex run',
     start_remote_run: 'Started remote run',
