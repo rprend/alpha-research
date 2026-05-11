@@ -3697,7 +3697,7 @@ function ResearchAssistantPage({
   const route = useDashboardRoute()
   const activeSessionId = route.sessionId ?? null
   const scopedDataset = route.datasetId ? datasets.find((dataset) => dataset.id === route.datasetId) ?? null : null
-  const { session, error, loading } = useSessionDetail(activeSessionId)
+  const { session, error } = useSessionDetail(activeSessionId)
   const [messages, setMessages] = useState<ThreadMessage[]>([])
   const [isRunning, setIsRunning] = useState(false)
   const [composerError, setComposerError] = useState<string | null>(null)
@@ -3848,9 +3848,9 @@ function ResearchAssistantPage({
         <AssistantRuntimeProvider runtime={runtime}>
           <div className="h-full min-h-0">
             <Thread
-              welcomeTitle={loading ? '' : 'What do you want to research?'}
+              welcomeTitle="What do you want to research?"
               welcomeDescription=""
-              welcomeImageSrc={loading ? undefined : '/alpha-book-man.png'}
+              welcomeImageSrc="/alpha-book-man.png"
               datasets={datasets.map((dataset) => ({
                 id: dataset.id,
                 name: dataset.name,
@@ -4516,16 +4516,17 @@ function SessionDetailPage({
 
 function DashboardLoading() {
   return (
-    <DashboardApp
-      session={{
-        authenticated: true,
-        configured: true,
-        user: { email: 'Signed in' },
-      }}
-      datasets={[]}
-      runs={[]}
-      sessions={[]}
-    />
+    <div className="dashboard-shell dashboard-loading-shell flex min-h-svh w-full bg-background">
+      <aside className="dashboard-loading-sidebar" aria-hidden="true">
+        <div className="dashboard-loading-wordmark" />
+        <div className="dashboard-loading-line is-primary" />
+        <div className="dashboard-loading-line" />
+        <div className="dashboard-loading-line" />
+      </aside>
+      <main className="dashboard-loading-main" aria-label="Loading dashboard">
+        <LoaderCircle className="size-5 animate-spin text-muted-foreground" />
+      </main>
+    </div>
   )
 }
 

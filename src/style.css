@@ -594,6 +594,46 @@
   backdrop-filter: blur(14px);
 }
 
+.dashboard-loading-shell {
+  background:
+    radial-gradient(circle at top left, rgba(50, 58, 133, 0.08), transparent 24%),
+    linear-gradient(180deg, #fcfcfb 0%, #fafafa 100%);
+}
+
+.dashboard-loading-sidebar {
+  width: 16rem;
+  padding: 1.35rem 1.1rem;
+  border-right: 1px solid rgba(38, 38, 38, 0.08);
+  background: linear-gradient(180deg, rgba(250, 250, 250, 0.96), rgba(245, 245, 245, 0.92));
+}
+
+.dashboard-loading-wordmark {
+  width: 10.5rem;
+  height: 2.1rem;
+  border-radius: 0.25rem;
+  background: rgba(38, 38, 38, 0.08);
+}
+
+.dashboard-loading-line {
+  height: 1rem;
+  margin-top: 1rem;
+  border-radius: 0.25rem;
+  background: rgba(38, 38, 38, 0.06);
+}
+
+.dashboard-loading-line.is-primary {
+  width: 8rem;
+  margin-top: 2.2rem;
+}
+
+.dashboard-loading-main {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
 .dashboard-shell .aui-thread-root {
   --aui-corner-radius: 24px;
   background: transparent;
