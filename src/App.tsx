@@ -1429,8 +1429,9 @@ function stripRawFunctionCallOutputBlock(value: string) {
   return value.slice(0, blockStart).trim()
 }
 
-const UUID_RUN_ID_PATTERN = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/iu
 const NAMED_RUN_ID_PATTERN = /\brun-[a-z0-9-]+\b/iu
+const EXPLICIT_UUID_RUN_ID_PATTERN =
+  /\b(?:run|run id|started run|open run|dashboard)\s*:?\s*(?:`|\[)?([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\b/iu
 
 function extractRunIdFromText(value: string | null | undefined) {
   if (!value) return null
@@ -1442,11 +1443,14 @@ function extractRunIdFromText(value: string | null | undefined) {
       return dashboardRunId
     }
   }
-  return value.match(NAMED_RUN_ID_PATTERN)?.[0] ?? value.match(UUID_RUN_ID_PATTERN)?.[0] ?? null
+  return value.match(NAMED_RUN_ID_PATTERN)?.[0] ?? value.match(EXPLICIT_UUID_RUN_ID_PATTERN)?.[1] ?? null
 }
 
 function inferSessionEntryRunId(entry: SessionEntry) {
   if (isRecord(entry.metadata)) {
+    if (entry.metadata.plannedRemoteRun === true) {
+      return null
+    }
     if (typeof entry.metadata.runId === 'string' && entry.metadata.runId.trim()) {
       return entry.metadata.runId.trim()
     }
@@ -1531,8 +1535,8 @@ function toThreadMessage(entry: SessionEntry): ThreadMessage {
     ? {
         title: entry.title,
         role: entry.role,
-        ...(inferredRunId ? { runId: inferredRunId } : {}),
         ...entry.metadata,
+        ...(inferredRunId ? { runId: inferredRunId } : {}),
       }
     : entry.title
       ? { title: entry.title, role: entry.role, ...(inferredRunId ? { runId: inferredRunId } : {}) }
@@ -2118,6 +2122,13 @@ function sessionEntriesToThreadMessages(entries: StoredAssistantSessionEntry[]) 
   const renderedRunIds = new Set<string>()
   const messages: ThreadMessage[] = []
   for (const entry of entries) {
+    const metadata = isRecord(entry.metadata) ? entry.metadata : null
+    if (
+      metadata?.name === 'plan_remote_run' &&
+      entry.content.startsWith('Calling ')
+    ) {
+      continue
+    }
     const sessionEntry = createSessionEntry(
       entry.id,
       entry.role === 'user' ? 'user' : entry.role === 'system' ? 'system' : entry.role === 'tool' ? 'tool' : 'assistant',
