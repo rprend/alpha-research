@@ -3540,7 +3540,7 @@ function RemoteRunBlock({
   }
 
   return (
-    <section className="my-3 w-full overflow-hidden border border-border bg-background md:w-[min(72rem,calc(100vw-20rem))]" data-inline-run-block>
+    <section className="my-3 w-full max-w-full overflow-hidden border border-border bg-background" data-inline-run-block>
       <div className={primaryArtifact && isPrimaryHtml ? 'space-y-0' : 'space-y-3 px-4 py-4'}>
         {error ? (
           <div className="rounded-md bg-destructive/5 px-3 py-2 text-sm text-destructive">
