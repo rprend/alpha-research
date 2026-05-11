@@ -2229,6 +2229,72 @@ export class ControlPlane {
       return respondJson({ id: entryId })
     }
 
+    const assistantSessionDebugViewMatch = pathname.match(/^\/assistant-sessions\/([^/]+)\/debug-view$/u)
+    if (assistantSessionDebugViewMatch && request.method === 'GET') {
+      const sessionId = decodeURIComponent(assistantSessionDebugViewMatch[1] ?? '')
+      const session = this.getAssistantSession(sessionId)
+      if (!session) {
+        return respondJson({ error: 'Session not found' }, 404)
+      }
+      const entries = this.listAssistantSessionEntries(sessionId).map((entry) =>
+        this.assistantSessionEntryToJson(entry),
+      )
+      const runRow = session.runId ? this.rows('SELECT * FROM runs WHERE id = ?', session.runId)[0] : null
+      const run = runRow ? this.runRowToJson(runRow) : null
+      const runEvents = session.runId
+        ? this.rows(
+            'SELECT id, run_id, message, level, created_at FROM run_events WHERE run_id = ? ORDER BY seq ASC',
+            session.runId,
+          ).map((row) => ({
+            id: String(row.id),
+            runId: String(row.run_id),
+            message: String(row.message),
+            level: String(row.level),
+            createdAt: String(row.created_at),
+          }))
+        : []
+      const errorEntries = entries.filter((entry) => {
+        const content = String(entry.content ?? '')
+        return entry.role === 'system'
+          || entry.kind.includes('error')
+          || entry.kind.includes('tool_result')
+          || /(?:^|\b)(error|failed|409|holding its volume|busy|unauthorized)(?:\b|$)/iu.test(content)
+      })
+      const lastErrorEntry = errorEntries.at(-1) ?? null
+      const lastRunError = runEvents.filter((event) => event.level === 'error').at(-1) ?? null
+      return respondJson({
+        session: this.assistantSessionToJson(session),
+        entries,
+        run,
+        runEvents,
+        debugView: {
+          linkedRunId: session.runId,
+          entryCount: entries.length,
+          errorEntryCount: errorEntries.length,
+          latestError: lastErrorEntry
+            ? {
+                source: 'assistant_session',
+                entryId: lastErrorEntry.id,
+                kind: lastErrorEntry.kind,
+                title: lastErrorEntry.title,
+                content: lastErrorEntry.content,
+                metadata: lastErrorEntry.metadata,
+                createdAt: lastErrorEntry.createdAt,
+              }
+            : lastRunError
+              ? {
+                  source: 'run_event',
+                  eventId: lastRunError.id,
+                  content: lastRunError.message,
+                  createdAt: lastRunError.createdAt,
+                }
+              : null,
+          runEventCount: runEvents.length,
+          lastRunEvent: runEvents.at(-1) ?? null,
+        },
+      })
+    }
+
     if (pathname === '/assistant-sessions/link-response' && request.method === 'POST') {
       const body = await request.json() as Record<string, unknown>
       const responseId = String(body.responseId ?? '')

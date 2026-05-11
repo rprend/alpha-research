@@ -61,6 +61,7 @@ for (const token of [
 
 const controlPlaneSource = readFileSync(join(root, 'src/control-plane.ts'), 'utf8')
 assert(controlPlaneSource.includes('/debug-view'), 'Run debug endpoint is missing.')
+assert(controlPlaneSource.includes('/assistant-sessions/') && controlPlaneSource.includes('latestError'), 'Session debug endpoint is missing.')
 assert(
   controlPlaneSource.includes('Using versioned object-store resource policy; shared dataset volume resize is skipped.'),
   'Control plane must record when object-store resource profiles skip shared volume resize.',
