@@ -23,13 +23,14 @@ WORKSPACE_DIR = Path(os.environ["WORKSPACE_DIR"])
 ARTIFACT_DIR = Path(os.environ["ARTIFACT_DIR"])
 LAST_MESSAGE_PATH = Path(os.environ["LAST_MESSAGE_PATH"])
 TRANSCRIPT_PATH = Path(os.environ["TRANSCRIPT_PATH"])
-CALLBACK_EVENTS_URL = os.environ["CALLBACK_EVENTS_URL"]
-CALLBACK_STATUS_URL = os.environ["CALLBACK_STATUS_URL"]
-CALLBACK_ARTIFACTS_URL = os.environ["CALLBACK_ARTIFACTS_URL"]
-CALLBACK_SESSION_ENTRIES_URL = os.environ["CALLBACK_SESSION_ENTRIES_URL"]
-RUNNER_TOKEN = os.environ["RUNNER_TOKEN"]
+CALLBACK_EVENTS_URL = os.environ.get("CALLBACK_EVENTS_URL", "")
+CALLBACK_STATUS_URL = os.environ.get("CALLBACK_STATUS_URL", "")
+CALLBACK_ARTIFACTS_URL = os.environ.get("CALLBACK_ARTIFACTS_URL", "")
+CALLBACK_SESSION_ENTRIES_URL = os.environ.get("CALLBACK_SESSION_ENTRIES_URL", "")
+RUNNER_TOKEN = os.environ.get("RUNNER_TOKEN", "")
 REMOTE_AGENT_MODEL = os.environ.get("REMOTE_AGENT_MODEL", "gpt-5-codex")
 REMOTE_AGENT_SESSION_ID = os.environ.get("REMOTE_AGENT_SESSION_ID", "").strip()
+DATASET_READ_ONLY = os.environ.get("DATASET_READ_ONLY", "").lower() in {"1", "true", "yes"}
 try:
     RUN_CONFIG = json.loads(base64.b64decode(os.environ.get("CONFIG_B64", "e30=")).decode("utf-8"))
 except Exception:
@@ -38,8 +39,8 @@ except Exception:
 
 SESSION_ID_RE = re.compile(r"session id:\s*([0-9a-fA-F-]{36})")
 HEARTBEAT_INTERVAL_SECONDS = int(os.environ.get("REMOTE_AGENT_HEARTBEAT_SECONDS", "45"))
-RUN_STATE_DIR = DATASET_MOUNT_PATH / ".remote-agent" / "runs" / RUN_ID
-RUN_STATUS_PATH = RUN_STATE_DIR / "status.json"
+RUN_STATE_DIR = Path(os.environ.get("RUN_STATE_DIR", str(DATASET_MOUNT_PATH / ".remote-agent" / "runs" / RUN_ID)))
+RUN_STATUS_PATH = Path(os.environ.get("RUN_STATUS_PATH", str(RUN_STATE_DIR / "status.json")))
 CALLBACK_RETRY_SECONDS = [0, 1, 2, 5]
 
 
@@ -76,6 +77,8 @@ def write_worker_status(status: str, output_preview: str = "", phase: str = "", 
 
 
 def post_json_with_retries(url: str, payload=None, content_type: str = "application/json", extra_headers=None, data=None):
+    if not url:
+        return
     last_error = None
     for delay in CALLBACK_RETRY_SECONDS:
         if delay:
@@ -258,7 +261,14 @@ def build_remote_agent_prompt():
     private_sources = RUN_CONFIG.get("privateSources") if isinstance(RUN_CONFIG, dict) else None
     public_sources = RUN_CONFIG.get("publicSources") if isinstance(RUN_CONFIG, dict) else None
     source_instructions = []
-    if isinstance(private_sources, list) and private_sources:
+    if DATASET_READ_ONLY:
+        source_instructions.extend([
+            f"The dataset mount at {DATASET_MOUNT_PATH} is read-only. Do not create, modify, delete, or move files under it.",
+            f"Use {WORKSPACE_DIR} for temporary scripts, caches, and scratch files.",
+            f"Write all final outputs and bookkeeping artifacts under {ARTIFACT_DIR}.",
+            "If the manifest path is missing, report that as an input readiness issue instead of writing a new manifest under the dataset.",
+        ])
+    elif isinstance(private_sources, list) and private_sources:
         source_instructions.extend([
             "Private uploaded sources are listed in run_config.json under privateSources.",
             f"Download each private source into {DATASET_MOUNT_PATH / 'sources' / 'private'} before normalizing it.",
@@ -274,6 +284,11 @@ def build_remote_agent_prompt():
         source_instructions.append(
             "For public-data environment creation, fetch data from the internet into the mounted dataset path, normalize it into durable Parquet/CSV/JSON files, and document source URLs, retrieval timestamps, schemas, and refresh instructions in the manifest."
         )
+    manifest_instruction = (
+        "If the manifest path does not exist, treat the dataset as not ready and explain the missing manifest in the artifact directory."
+        if DATASET_READ_ONLY
+        else "If the manifest path does not exist yet, this is a new environment: create the dataset files, then write a manifest at the manifest path."
+    )
     artifact_contract = "\n".join(
         [
             "You are executing an Alpha Research remote agent run inside a dataset-attached cloud workspace.",
@@ -287,7 +302,7 @@ def build_remote_agent_prompt():
             "",
             "You may inspect files, run shell commands, write scripts, and produce result files.",
             "Use the mounted dataset and manifest to understand the corpus before acting.",
-            "If the manifest path does not exist yet, this is a new environment: create the dataset files, then write a manifest at the manifest path.",
+            manifest_instruction,
             f"Run config path: {WORKSPACE_DIR / 'run_config.json'}",
             *source_instructions,
             "For any command or script expected to run longer than 30 seconds, print progress at least every 30 seconds.",

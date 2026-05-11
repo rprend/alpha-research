@@ -40,7 +40,7 @@ Run metadata can include `config.resources`:
 
 When present, the control plane must honor it before launching the remote agent:
 
-- `runnerSize` is the DigitalOcean droplet size used for the run.
+- `runnerSize` is the provider-specific runner size used for the run. For legacy DigitalOcean runs, it is the droplet size.
 - For legacy volume-backed resources, `workspaceDiskGb` is the minimum dataset/workspace volume capacity; existing smaller volumes are resized before attachment.
 - For `storageMode: "object-store-versioned"`, `workspaceDiskGb` is runner scratch intent, not a shared dataset volume resize. Canonical public and standard analysis profiles must not resize the dataset volume; `large-ingest` is the only object-store profile that may request a large volume-backed ingest workspace.
 - Explicit `runnerSize` requests use a dedicated runner, not the warm pool, because pooled runners are only keyed by coarse size class.
@@ -52,6 +52,8 @@ When present, the control plane must honor it before launching the remote agent:
 - Runner callbacks are authenticated with `RESEARCH_INTERNAL_RUNNER_TOKEN`.
 - Artifacts are stored through `run_artifacts`; transcripts should be captured as artifacts or assistant session entries.
 - Remote Codex runners may receive `EXA_API_KEY` and `CANONICAL_DATASET_SLACK_WEBHOOK_URL` as environment variables for canonical dataset-improvement jobs. These are worker secrets and must not be written into prompts, artifacts, logs, or repository files.
+- `REMOTE_AGENT_EXECUTOR=modal` routes ordinary research runs to the Modal worker provider. Modal jobs mount the shared public dataset volume at `/data`, use `/workspace` for writable scratch, and write final outputs plus worker state under `/results/<job id>/`.
+- Modal worker submission uses `MODAL_AGENT_ENDPOINT_URL` and optional `MODAL_AGENT_SUBMIT_TOKEN`. These values are control-plane secrets and must not be exposed to frontend code.
 
 ## Infrastructure Test Cases
 
@@ -63,6 +65,8 @@ Run the deterministic contract checks with `pnpm run test:infra`. Run the live d
 - Failed public/research environment launches update both dataset `deployment_status` and `status` to `failed`.
 - Runner launch, status, event, and artifact callback routes remain wired.
 - Remote runner bootstrap forwards Exa and canonical Slack webhook secrets so dataset-improvement jobs can search the web and notify the owner without embedding credentials in prompts.
+- Modal provider files exist and keep `/data` read-only for ordinary workers.
+- Modal runner state and outputs are written under `/results/<job id>`, not under `/data`.
 - Live canonical datasets `econ`, `sociology`, `philosophy`, `history`, `literature`, `political-science`, `anthropology`, `linguistics`, and `classics` are present and ready.
 - New canonical dataset volumes stay at the default 10GiB size; `econ` is allowed as a legacy 500GiB exception until it is migrated safely.
 - Completed canonical environment runs have persisted events and artifacts, including the resize-skip event.
