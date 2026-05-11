@@ -603,7 +603,7 @@
   min-height: 0;
   flex: 1;
   display: grid;
-  grid-template-columns: minmax(1rem, 1fr) minmax(0, 44rem) minmax(11rem, 14rem);
+  grid-template-columns: minmax(1rem, 0.75fr) minmax(0, 44rem) minmax(1.5rem, 0.25fr) minmax(11rem, 14rem);
   column-gap: clamp(1rem, 2.8vw, 3rem);
   overflow: hidden;
   padding: 0 clamp(1rem, 2vw, 2rem);
@@ -617,7 +617,7 @@
 }
 
 .dashboard-assistant-page .dashboard-outputs-rail {
-  grid-column: 3;
+  grid-column: 4;
   grid-row: 1;
   width: 100%;
   padding: 1.4rem 0.5rem 1rem 0;
