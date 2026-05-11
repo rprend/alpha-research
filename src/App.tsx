@@ -254,6 +254,14 @@ function compactInlineText(value: string, maxLength: number) {
   return truncate(value.replace(/\s+/g, ' ').trim(), maxLength)
 }
 
+function stripMarkdownForInline(value: string) {
+  return value
+    .replace(/```[\s\S]*?```/gu, (block) => block.replace(/```[a-z0-9_-]*\n?/iu, '').replace(/```$/u, '').trim())
+    .replace(/[#*_`>\[\]]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
 function looksLikeRawToolOutput(value: string | null | undefined) {
   const text = value?.trim() ?? ''
   if (!text) return false
@@ -1463,7 +1471,7 @@ function formatSessionBody(entry: SessionEntry) {
         metadataStatus,
         metadataExpectedArtifacts,
       ].filter(Boolean)
-      return `### ${entry.title}\n\n${metadataLines.join('\n\n')}\n\n${body}\n\n[Open run](${dashboardOrigin}?view=runs&runId=${encodeURIComponent(runId)})`
+      return `### ${entry.title}\n\n${metadataLines.join('\n\n')}\n\n${body}`
     }
   }
   if (entry.title) {
@@ -1473,6 +1481,15 @@ function formatSessionBody(entry: SessionEntry) {
 }
 
 function toThreadMessage(entry: SessionEntry): ThreadMessage {
+  const metadataCustom = isRecord(entry.metadata)
+    ? {
+        title: entry.title,
+        role: entry.role,
+        ...entry.metadata,
+      }
+    : entry.title
+      ? { title: entry.title, role: entry.role }
+      : { role: entry.role }
   if (entry.role === 'user') {
     return {
       id: entry.id,
@@ -1496,7 +1513,7 @@ function toThreadMessage(entry: SessionEntry): ThreadMessage {
       unstable_annotations: [],
       unstable_data: [],
       steps: [],
-      custom: entry.title ? { title: entry.title, role: entry.role } : { role: entry.role },
+      custom: metadataCustom,
     },
   } as ThreadMessage
 }
@@ -2055,7 +2072,7 @@ function sessionEntriesToThreadMessages(entries: StoredAssistantSessionEntry[]) 
     toThreadMessage(
       createSessionEntry(
         entry.id,
-        entry.role === 'user' ? 'user' : entry.role === 'system' ? 'system' : 'assistant',
+        entry.role === 'user' ? 'user' : entry.role === 'system' ? 'system' : entry.role === 'tool' ? 'tool' : 'assistant',
         entry.createdAt,
         entry.content,
         entry.title ?? formatStatus(entry.kind),
@@ -3328,6 +3345,52 @@ function useRunResults(run: RunRecord | null) {
   return { payload, error, loading }
 }
 
+function useRunResultsById(runId: string | null) {
+  const [payload, setPayload] = useState<RunResultsResponse | null>(null)
+  const [error, setError] = useState<string | null>(null)
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    if (!runId) {
+      setPayload(null)
+      setError(null)
+      setLoading(false)
+      return
+    }
+    let cancelled = false
+    let intervalId: number | undefined
+
+    const load = async () => {
+      setLoading(true)
+      try {
+        const response = await fetchJson<RunResultsResponse>(`/api/cli/runs/${encodeURIComponent(runId)}/results`)
+        if (cancelled) return
+        setPayload(response)
+        setError(null)
+        if (isTerminalRunStatus(response.run.status) && intervalId) {
+          window.clearInterval(intervalId)
+          intervalId = undefined
+        }
+      } catch (fetchError) {
+        if (!cancelled) {
+          setError(fetchError instanceof Error ? fetchError.message : 'Could not load run.')
+        }
+      } finally {
+        if (!cancelled) setLoading(false)
+      }
+    }
+
+    void load()
+    intervalId = window.setInterval(() => void load(), 5000)
+    return () => {
+      cancelled = true
+      if (intervalId) window.clearInterval(intervalId)
+    }
+  }, [runId])
+
+  return { payload, error, loading }
+}
+
 function useSessionDetail(sessionId: string | null) {
   const [session, setSession] = useState<StoredAssistantSession | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -3363,6 +3426,179 @@ function useSessionDetail(sessionId: string | null) {
   }, [sessionId])
 
   return { session, error, loading }
+}
+
+function RemoteRunBlock({
+  runId,
+  initialStatus,
+  expectedArtifacts,
+}: {
+  runId: string
+  initialStatus?: string | null
+  expectedArtifacts?: string | null
+}) {
+  const { payload, error, loading } = useRunResultsById(runId)
+  const [cancelling, setCancelling] = useState(false)
+  const [cancelError, setCancelError] = useState<string | null>(null)
+  const run = payload?.run ?? null
+  const status = run?.status ?? initialStatus ?? 'running'
+  const isRunning = !isTerminalRunStatus(status)
+  const producedArtifacts = getProducedArtifacts(payload).filter((artifact) => artifact.type !== 'remote_agent_session')
+  const primaryArtifact = getDatasetBriefingArtifact(producedArtifacts)
+  const resultArtifact = getDatasetProfileArtifact(producedArtifacts)
+  const remoteEntries = run
+    ? buildRemoteTranscript(run, undefined, payload).filter((entry) => entry.role !== 'user').slice(-5)
+    : []
+  const progressEntries = buildObservedProgressTranscript(payload).slice(-5)
+  const eventEntries = run && payload
+    ? payload.events.flatMap((event) => [
+        createSessionEntry(
+          `event-${event.id}-summary`,
+          event.level === 'error' ? 'system' : 'assistant',
+          event.createdAt,
+          summarizeActiveRunEvent(event.message, run),
+          'Run activity',
+        ),
+        createSessionEntry(
+          `event-${event.id}-raw`,
+          event.level === 'error' ? 'system' : 'assistant',
+          event.createdAt,
+          event.message,
+          'Remote event',
+        ),
+      ]).slice(-5)
+    : []
+  const latestEntries = (progressEntries.length > 0 ? progressEntries : eventEntries.length > 0 ? eventEntries : remoteEntries).slice(-5)
+
+  const handleCancel = async () => {
+    setCancelling(true)
+    setCancelError(null)
+    try {
+      await cancelRun(runId)
+      window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
+    } catch (cancelRunError) {
+      setCancelError(cancelRunError instanceof Error ? cancelRunError.message : 'Could not cancel run.')
+    } finally {
+      setCancelling(false)
+    }
+  }
+
+  return (
+    <section className="my-3 overflow-hidden rounded-lg border border-border bg-background" data-inline-run-block>
+      <div className="flex flex-wrap items-start justify-between gap-3 border-b border-border bg-muted/25 px-4 py-3">
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center gap-2">
+            {isRunning ? (
+              <LoaderCircle className="size-4 animate-spin text-muted-foreground" aria-label="Run active" />
+            ) : ['failed', 'error', 'worker_unreachable'].includes(status.toLowerCase()) ? (
+              <AlertTriangle className="size-4 text-destructive" aria-label="Run failed" />
+            ) : (
+              <CheckCircle2 className="size-4 text-emerald-600" aria-label="Run complete" />
+            )}
+            <span className="text-sm font-semibold">Remote run</span>
+            <StatusBadge>{formatStatus(status)}</StatusBadge>
+          </div>
+          <div className="mt-2 break-words text-xs text-muted-foreground">
+            {run ? `${formatStatus(run.type)} run on ${run.datasetId}` : `Run ${runId}`}
+          </div>
+          <div className="mt-1 break-all font-mono text-xs text-muted-foreground">{runId}</div>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {isRunning ? (
+            <Button type="button" size="sm" variant="outline" onClick={() => void handleCancel()} disabled={cancelling}>
+              {cancelling ? 'Cancelling...' : 'Cancel'}
+            </Button>
+          ) : null}
+          <Button type="button" size="sm" variant="ghost" asChild>
+            <a href={`${dashboardOrigin}?view=runs&runId=${encodeURIComponent(runId)}`}>Open full run</a>
+          </Button>
+        </div>
+      </div>
+
+      <div className="space-y-4 px-4 py-4">
+        {error ? (
+          <div className="rounded-md bg-destructive/5 px-3 py-2 text-sm text-destructive">
+            Could not load inline run: {error}
+          </div>
+        ) : null}
+        {cancelError ? (
+          <div className="rounded-md bg-destructive/5 px-3 py-2 text-sm text-destructive">{cancelError}</div>
+        ) : null}
+        {loading && !payload ? (
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <LoaderCircle className="size-4 animate-spin" aria-hidden="true" />
+            <span>Loading run state...</span>
+          </div>
+        ) : null}
+        {isRunning ? (
+          <div className="space-y-3">
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">Latest activity</div>
+              {latestEntries.length > 0 ? (
+                <ol className="mt-2 space-y-2">
+                  {latestEntries.map((entry) => (
+                    <li key={entry.id} className="rounded-md bg-muted/30 px-3 py-2 text-sm leading-6">
+                      <div className="text-xs font-medium text-muted-foreground">{entry.title ?? 'Activity'} · {relativeTime(entry.createdAt)}</div>
+                      <div className="mt-1 line-clamp-3 whitespace-pre-wrap">{stripMarkdownForInline(entry.body)}</div>
+                    </li>
+                  ))}
+                </ol>
+              ) : (
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Waiting for the remote agent to report tool calls and command output.
+                </p>
+              )}
+            </div>
+            {expectedArtifacts ? (
+              <p className="text-xs leading-5 text-muted-foreground">
+                Expected outputs: <span>{expectedArtifacts}</span>
+              </p>
+            ) : null}
+          </div>
+        ) : primaryArtifact ? (
+          <div className="space-y-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">Result</div>
+                <h3 className="mt-1 text-base font-semibold">{artifactPath(primaryArtifact)}</h3>
+              </div>
+              <Button type="button" size="sm" variant="outline" asChild>
+                <a href={artifactDownloadHref(primaryArtifact)} download={artifactDownloadFilename(primaryArtifact)}>Download</a>
+              </Button>
+            </div>
+            {artifactLanguage(artifactPath(primaryArtifact), primaryArtifact) === 'html' ? (
+              artifactHtmlHref(primaryArtifact) ? (
+                <iframe
+                  title={primaryArtifact.title}
+                  src={artifactHtmlHref(primaryArtifact) ?? undefined}
+                  className="h-[34rem] w-full border border-border bg-background"
+                />
+              ) : (
+                <div className="border border-border px-4 py-3 text-sm text-muted-foreground">
+                  HTML report content was not captured for inline preview.
+                </div>
+              )
+            ) : (
+              <article className="max-h-[34rem] overflow-auto border border-border px-4 py-4 text-sm leading-6">
+                {renderPreviewMarkdown(artifactText(primaryArtifact))}
+              </article>
+            )}
+          </div>
+        ) : resultArtifact ? (
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">Result</div>
+            <pre className="mt-2 max-h-[28rem] overflow-auto rounded-md border border-border bg-muted/20 p-3 text-xs leading-5">
+              {artifactJsonPreview(resultArtifact)}
+            </pre>
+          </div>
+        ) : (
+          <p className="text-sm text-muted-foreground">
+            The run is {formatStatus(status).toLowerCase()}, but no human-readable artifact is attached yet.
+          </p>
+        )}
+      </div>
+    </section>
+  )
 }
 
 function ResearchAssistantPage({
@@ -3477,9 +3713,8 @@ function ResearchAssistantPage({
           window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
           const startedRunId = extractStartedRunId(refreshed.entries)
           if (startedRunId) {
-            updateDashboardRoute({ view: 'runs', runId: startedRunId, sessionId: null })
-            routeSessionIdRef.current = null
-            return
+            updateDashboardRoute({ view: 'assistant', sessionId: nextSessionId, runId: null })
+            routeSessionIdRef.current = nextSessionId
           }
           if (routeSessionIdRef.current !== nextSessionId) {
             updateDashboardRoute({ view: 'assistant', sessionId: nextSessionId, runId: null })
@@ -3535,6 +3770,17 @@ function ResearchAssistantPage({
                 description: dataset.description || dataset.sourceFilename,
                 status: dataset.status,
               }))}
+              renderAssistantBlock={(custom) => {
+                const runId = typeof custom.runId === 'string' ? custom.runId : null
+                if (!runId) return null
+                return (
+                  <RemoteRunBlock
+                    runId={runId}
+                    initialStatus={typeof custom.status === 'string' ? custom.status : null}
+                    expectedArtifacts={typeof custom.expectedArtifacts === 'string' ? custom.expectedArtifacts : null}
+                  />
+                )
+              }}
             />
           </div>
         </AssistantRuntimeProvider>

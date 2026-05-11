@@ -442,6 +442,35 @@ async function buildRemoteRunPromptFromSessionHistory(env: Env, sessionId: strin
   return { prompt, chatHistory }
 }
 
+function isRecordValue(value: unknown): value is Record<string, unknown> {
+  return value !== null && typeof value === 'object' && !Array.isArray(value)
+}
+
+function looksLikeRemoteRunApproval(value: string) {
+  const normalized = value.trim().toLowerCase()
+  return /\b(?:approve|approved|yes|yep|looks good|go ahead|start(?: it| the run)?|run it|kick it off|ship it|do it)\b/u.test(normalized)
+}
+
+async function hasApprovedRemoteRunPlan(env: Env, sessionId: string) {
+  const payload = await proxyToControlPlaneJson<{ entries?: Array<Record<string, unknown>> }>(
+    env,
+    `/assistant-sessions/${encodeURIComponent(sessionId)}`,
+    { method: 'GET' },
+  )
+  const entries = payload.entries ?? []
+  const latestPlanIndex = entries.findLastIndex((entry) =>
+    isRecordValue(entry.metadata) && entry.metadata.plannedRemoteRun === true,
+  )
+  if (latestPlanIndex === -1) {
+    return false
+  }
+  return entries.slice(latestPlanIndex + 1).some((entry) =>
+    entry.role === 'user' &&
+    typeof entry.content === 'string' &&
+    looksLikeRemoteRunApproval(entry.content),
+  )
+}
+
 async function appendAssistantSessionEntry(env: Env, sessionId: string, body: Record<string, unknown>) {
   await proxyToControlPlane(env, `/assistant-sessions/${encodeURIComponent(sessionId)}`, {
     method: 'POST',
@@ -842,6 +871,12 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
         required: ['datasetId', 'prompt'],
       },
       async execute(input, sessionId) {
+        if (!sessionId || !(await hasApprovedRemoteRunPlan(env, sessionId))) {
+          return {
+            summary: 'I need to show you the planned remote-run prompt and get your approval before I can start the run.',
+            data: { approvalRequired: true },
+          }
+        }
         const datasetId = requireString(input, 'datasetId')
         const prompt = requireString(input, 'prompt')
         const payload = await proxyToControlPlaneJson<{ run: { id: string } }>(
@@ -1387,6 +1422,26 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
         })
       }
       if (ASYNC_RUN_START_TOOLS.has(tool.name)) {
+        if (
+          tool.name === 'start_remote_run' &&
+          isRecordValue(result.data) &&
+          result.data.approvalRequired === true
+        ) {
+          if (sessionId) {
+            await appendAssistantSessionEntry(env, sessionId, {
+              role: 'assistant',
+              kind: 'local_summary',
+              title: 'Assistant',
+              content: result.summary,
+              metadata: { previousResponseId, approvalRequired: true },
+            })
+          }
+          return json({
+            sessionId,
+            previousResponseId,
+            reply: result.summary,
+          })
+        }
         if (sessionId) {
           await appendAssistantSessionEntry(env, sessionId, {
             role: 'assistant',

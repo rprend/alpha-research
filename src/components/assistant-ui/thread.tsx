@@ -34,13 +34,14 @@ import {
   RefreshCwIcon,
   SquareIcon,
 } from "lucide-react";
-import { useLayoutEffect, useRef, useState, type FC } from "react";
+import { useLayoutEffect, useRef, useState, type FC, type ReactNode } from "react";
 
 type ThreadProps = {
   readOnly?: boolean;
   welcomeTitle?: string;
   welcomeDescription?: string;
   datasets?: ComposerDatasetOption[];
+  renderAssistantBlock?: (custom: Record<string, unknown>) => ReactNode;
 };
 
 export const Thread: FC<ThreadProps> = ({
@@ -48,6 +49,7 @@ export const Thread: FC<ThreadProps> = ({
   welcomeTitle = "Hello there!",
   welcomeDescription = "How can I help you today?",
   datasets = [],
+  renderAssistantBlock,
 }) => {
   const viewportRef = useRef<HTMLDivElement | null>(null);
   const [initialScrollReady, setInitialScrollReady] = useState(!readOnly);
@@ -96,7 +98,7 @@ export const Thread: FC<ThreadProps> = ({
             className="mb-10 flex flex-col gap-y-8 empty:hidden"
           >
             <ThreadPrimitive.Messages>
-              {() => <ThreadMessage />}
+              {() => <ThreadMessage renderAssistantBlock={renderAssistantBlock} />}
             </ThreadPrimitive.Messages>
           </div>
 
@@ -110,13 +112,15 @@ export const Thread: FC<ThreadProps> = ({
   );
 };
 
-const ThreadMessage: FC = () => {
+const ThreadMessage: FC<{
+  renderAssistantBlock?: (custom: Record<string, unknown>) => ReactNode;
+}> = ({ renderAssistantBlock }) => {
   const role = useAuiState((s) => s.message.role);
   const isEditing = useAuiState((s) => s.message.composer.isEditing);
 
   if (isEditing) return <EditComposer />;
   if (role === "user") return <UserMessage />;
-  return <AssistantMessage />;
+  return <AssistantMessage renderAssistantBlock={renderAssistantBlock} />;
 };
 
 const ThreadScrollToBottom: FC = () => {
@@ -250,7 +254,16 @@ const MessageError: FC = () => {
   );
 };
 
-const AssistantMessage: FC = () => {
+const AssistantMessage: FC<{
+  renderAssistantBlock?: (custom: Record<string, unknown>) => ReactNode;
+}> = ({ renderAssistantBlock }) => {
+  const custom = useAuiState((s) => {
+    const metadata = s.message.metadata as { custom?: unknown } | undefined;
+    return metadata?.custom && typeof metadata.custom === "object" && !Array.isArray(metadata.custom)
+      ? metadata.custom as Record<string, unknown>
+      : {};
+  });
+  const customBlock = renderAssistantBlock?.(custom);
   // reserves space for action bar and compensates with `-mb` for consistent msg spacing
   // keeps hovered action bar from shifting layout (autohide doesn't support absolute positioning well)
   // for pt-[n] use -mb-[n + 6] & min-h-[n + 6] to preserve compensation
@@ -267,12 +280,14 @@ const AssistantMessage: FC = () => {
         data-slot="aui_assistant-message-content"
         className="wrap-break-word px-2 text-foreground leading-relaxed"
       >
-        <MessagePrimitive.Parts
-          components={{
-            Text: MarkdownText,
-            tools: { Fallback: ToolFallback },
-          }}
-        />
+        {customBlock ?? (
+          <MessagePrimitive.Parts
+            components={{
+              Text: MarkdownText,
+              tools: { Fallback: ToolFallback },
+            }}
+          />
+        )}
         <MessageError />
       </div>
 

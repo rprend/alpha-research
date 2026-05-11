@@ -8,6 +8,7 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Start and continue RESEARCH CLI assistant sessions from the browser.
 - Browse registered datasets and inspect deployment/profile state.
 - Track remote runs by dataset, type, prompt, status, and timestamps.
+- When an assistant session starts a remote run, keep the user in the session and render the run as an inline live block that shows current status, latest tool/command activity, cancel affordance while active, and the final human-readable artifact when complete.
 - Open run details with observed progress, remote Codex transcript, and a resizable file explorer/viewer for produced run artifacts.
 - Direct run links from CLI or other surfaces should land on a run header that immediately shows the dataset, run type, status, prompt, run id, and produced artifact names without requiring extra navigation.
 - Completed run detail should lead with the result hierarchy: a plain-language finished state, the primary answer artifact, the structured companion if present, and a labeled `Artifacts (n)` control.
@@ -78,6 +79,7 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - The page should expose one explicit first action: draft a plan before work starts.
 - Remote run launches from assistant chat should be approval-gated: first generate a plain-text prompt from the session history, show it to the user, and only start the run after explicit approval.
 - The same page should also support prepared users who already have a full research specification: it should explain that a complete spec can be pasted directly, that only field-resolution questions should interrupt launch, and that the next state will show run id, status, expected artifacts, and destination.
+- Run-launch responses should not redirect away from chat. The run block in the assistant transcript is the primary review path; full run pages remain secondary debugging and deep-link surfaces.
 - The page should explain the surface model in plain language: chat for asking, datasets for source material, recent work for continuation.
 - The page should explicitly reassure the user that they can start in the dashboard without CLI setup.
 - The page should show whether sample data is ready and what that sample is for.
