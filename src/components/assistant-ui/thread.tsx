@@ -44,6 +44,7 @@ type ThreadProps = {
   showWelcome?: boolean;
   datasets?: ComposerDatasetOption[];
   renderAssistantBlock?: (custom: Record<string, unknown>) => ReactNode;
+  scrollToBottomKey?: string | number | null;
 };
 
 export const Thread: FC<ThreadProps> = ({
@@ -54,9 +55,16 @@ export const Thread: FC<ThreadProps> = ({
   showWelcome = true,
   datasets = [],
   renderAssistantBlock,
+  scrollToBottomKey = null,
 }) => {
   const viewportRef = useRef<HTMLDivElement | null>(null);
   const [initialScrollReady, setInitialScrollReady] = useState(!readOnly);
+
+  const scrollViewportToBottom = () => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+    viewport.scrollTop = viewport.scrollHeight;
+  };
 
   useLayoutEffect(() => {
     if (!readOnly) return;
@@ -66,9 +74,23 @@ export const Thread: FC<ThreadProps> = ({
       return;
     }
 
-    viewport.scrollTop = viewport.scrollHeight;
+    scrollViewportToBottom();
     setInitialScrollReady(true);
   }, [readOnly]);
+
+  useLayoutEffect(() => {
+    if (scrollToBottomKey === null) return;
+    scrollViewportToBottom();
+    const firstFrame = window.requestAnimationFrame(() => {
+      scrollViewportToBottom();
+      window.requestAnimationFrame(scrollViewportToBottom);
+    });
+    const timeout = window.setTimeout(scrollViewportToBottom, 250);
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      window.clearTimeout(timeout);
+    };
+  }, [scrollToBottomKey]);
 
   return (
     <ThreadPrimitive.Root
