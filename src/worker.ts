@@ -243,23 +243,23 @@ async function fetchDocsAsset(request: Request, env: Env, url: URL) {
 
 function docsAssetCandidates(pathname: string) {
   if (pathname === '/' || pathname === '') {
-    return ['/__page.mintlify', '/index/__page.mintlify']
+    return ['/', '/index.html', '/__page.mintlify', '/index/__page.mintlify']
   }
   const normalized = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname
   if (/\.[^/]+$/u.test(normalized)) {
     return [normalized]
   }
   if (DOCS_SECTION_INDEX_PATHS.has(normalized)) {
-    return [`${normalized}/index/__page.mintlify`]
+    return [`${normalized}/index/`, `${normalized}/index/index.html`, `${normalized}/index/__page.mintlify`]
   }
   if (DOCS_PAGE_PATHS.has(normalized)) {
-    return [`${normalized}/__page.mintlify`]
+    return [`${normalized}/`, `${normalized}/index.html`, `${normalized}/__page.mintlify`]
   }
   const indexPath = `${normalized}/index`
   if (DOCS_PAGE_PATHS.has(indexPath)) {
-    return [`${indexPath}/__page.mintlify`]
+    return [`${indexPath}/`, `${indexPath}/index.html`, `${indexPath}/__page.mintlify`]
   }
-  return ['/__page.mintlify']
+  return ['/', '/index.html', '/__page.mintlify']
 }
 
 function requireInternalRunnerToken(request: Request, env: Env) {
