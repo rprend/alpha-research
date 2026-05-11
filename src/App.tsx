@@ -3799,12 +3799,18 @@ function ResearchAssistantPage({
   }, [activeSessionId, session])
 
   useEffect(() => {
-    if (route.view !== 'assistant' || route.sessionId || !route.draft) return
+    if (route.view !== 'assistant') return
     const frame = window.requestAnimationFrame(() => {
-      focusAssistantComposer(route.draft ?? undefined)
+      focusAssistantComposer(!route.sessionId && route.draft ? route.draft : undefined)
     })
-    return () => window.cancelAnimationFrame(frame)
-  }, [route.draft, route.sessionId, route.view])
+    const timeout = window.setTimeout(() => {
+      focusAssistantComposer(!route.sessionId && route.draft ? route.draft : undefined)
+    }, 150)
+    return () => {
+      window.cancelAnimationFrame(frame)
+      window.clearTimeout(timeout)
+    }
+  }, [route.draft, route.sessionId, route.view, session?.id])
 
   const activeAssistantRunId = useMemo(
     () => session?.runId ?? extractStartedRunId(session?.entries ?? []),
