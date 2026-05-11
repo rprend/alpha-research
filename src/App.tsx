@@ -3552,7 +3552,10 @@ function RemoteRunBlock({
         {isRunning ? (
           <div className="space-y-4">
             {elapsedLabel ? (
-              <p className="text-sm text-muted-foreground">{elapsedLabel}</p>
+              <p className="flex items-center gap-2 text-sm text-muted-foreground">
+                <LoaderCircle className="size-4 animate-spin" aria-hidden="true" />
+                <span>{elapsedLabel}</span>
+              </p>
             ) : null}
             <div className="space-y-2 text-sm leading-6">
               {latestLines.length > 0 ? (
