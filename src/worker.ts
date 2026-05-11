@@ -168,8 +168,8 @@ const RESEARCH_AGENT_INSTRUCTIONS = [
   'Do not inspect datasets or runs just to recover from unclear input.',
   'Prefer lightweight dataset queries before launching heavy transforms or analyses when the user wants examples, top records, or simple slices.',
   'Do not answer with generic numbered menus when you can inspect the user datasets or runs and propose one concrete next action.',
-  'Remote runs require approval. When the user asks to launch remote work, call plan_remote_run first. That tool generates the exact prompt from this session\'s chat history. Show the generated prompt to the user and ask for approval or edits. Do not call start_remote_run until the user clearly approves the generated prompt.',
-  'When the user approves, call start_remote_run with the approved prompt exactly as shown or edited. After starting the run, do not wait for completion unless the user explicitly asks you to wait.',
+  'Remote runs require explicit approval. When the user asks to launch remote work, call plan_remote_run first. That tool generates the exact prompt from this session\'s chat history. The dashboard will render an approval control for the generated prompt.',
+  'Do not call start_remote_run unless the dashboard has recorded explicit approval for the latest generated remote-run prompt. After starting the run, do not wait for completion unless the user explicitly asks you to wait.',
   'Be concise. After tool work completes, summarize the result and current status.',
   'Ask the user a question when their intent is unclear or a required tool input cannot be resolved from prior context.',
 ].join('\n')
@@ -446,11 +446,6 @@ function isRecordValue(value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === 'object' && !Array.isArray(value)
 }
 
-function looksLikeRemoteRunApproval(value: string) {
-  const normalized = value.trim().toLowerCase()
-  return /\b(?:approve|approved|yes|yep|looks good|go ahead|start(?: it| the run)?|run it|kick it off|ship it|do it)\b/u.test(normalized)
-}
-
 async function hasApprovedRemoteRunPlan(env: Env, sessionId: string) {
   const payload = await proxyToControlPlaneJson<{ entries?: Array<Record<string, unknown>> }>(
     env,
@@ -466,9 +461,76 @@ async function hasApprovedRemoteRunPlan(env: Env, sessionId: string) {
   }
   return entries.slice(latestPlanIndex + 1).some((entry) =>
     entry.role === 'user' &&
-    typeof entry.content === 'string' &&
-    looksLikeRemoteRunApproval(entry.content),
+    isRecordValue(entry.metadata) &&
+    entry.metadata.approvedRemoteRunPlan === true,
   )
+}
+
+function latestRemoteRunPlan(entries: Array<Record<string, unknown>>) {
+  for (let index = entries.length - 1; index >= 0; index -= 1) {
+    const entry = entries[index]
+    const metadata = isRecordValue(entry.metadata) ? entry.metadata : null
+    if (!metadata || metadata.plannedRemoteRun !== true) continue
+    const datasetId = typeof metadata.datasetId === 'string' ? metadata.datasetId : null
+    const prompt = typeof metadata.prompt === 'string' ? metadata.prompt : null
+    if (datasetId && prompt) {
+      return { datasetId, prompt }
+    }
+  }
+  return null
+}
+
+async function approveLatestRemoteRunPlan(env: Env, ownerEmail: string, sessionId: string) {
+  const sessionPayload = await proxyToControlPlaneJson<{ entries?: Array<Record<string, unknown>> }>(
+    env,
+    `/assistant-sessions/${encodeURIComponent(sessionId)}`,
+    { method: 'GET' },
+  )
+  const plan = latestRemoteRunPlan(sessionPayload.entries ?? [])
+  if (!plan) {
+    throw new Error('No pending remote-run plan found for this session.')
+  }
+  await appendAssistantSessionEntry(env, sessionId, {
+    role: 'user',
+    kind: 'approval',
+    title: 'Approved remote run plan',
+    content: 'Approved remote run plan.',
+    metadata: {
+      approvedRemoteRunPlan: true,
+      datasetId: plan.datasetId,
+      prompt: plan.prompt,
+    },
+  })
+  const payload = await proxyToControlPlaneJson<{ run: { id: string } }>(
+    env,
+    `/datasets/${encodeURIComponent(plan.datasetId)}/runs`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ownerEmail,
+        callbackOrigin: WEB_DASHBOARD_ORIGIN,
+        sessionId,
+        prompt: plan.prompt,
+      }),
+    },
+  )
+  const summary = `Started run ${payload.run.id} on ${plan.datasetId}. Dashboard: ${dashboardRunUrl(payload.run.id)}`
+  await appendAssistantSessionEntry(env, sessionId, {
+    role: 'system',
+    kind: 'tool_result',
+    title: 'start_remote_run',
+    content: summary,
+    metadata: { name: 'start_remote_run', data: payload },
+  })
+  await appendAssistantSessionEntry(env, sessionId, {
+    role: 'assistant',
+    kind: 'local_summary',
+    title: 'Assistant',
+    content: summary,
+    metadata: { approvedRemoteRunPlan: true, runId: payload.run.id },
+  })
+  return { ...payload, summary }
 }
 
 async function appendAssistantSessionEntry(env: Env, sessionId: string, body: Record<string, unknown>) {
@@ -849,7 +911,7 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
         const datasetId = requireString(input, 'datasetId')
         const { prompt, chatHistory } = await buildRemoteRunPromptFromSessionHistory(env, sessionId)
         return {
-          summary: `Prepared a remote run prompt for ${datasetId}. Review and approve it before I start the run.\n\n${prompt}`,
+          summary: `Prepared a remote run prompt for ${datasetId}. Review it below, then use the approval control to start the run.\n\n${prompt}`,
           data: {
             datasetId,
             prompt,
@@ -873,7 +935,7 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
       async execute(input, sessionId) {
         if (!sessionId || !(await hasApprovedRemoteRunPlan(env, sessionId))) {
           return {
-            summary: 'I need to show you the planned remote-run prompt and get your approval before I can start the run.',
+            summary: 'I need to show you the planned remote-run prompt and get explicit approval before I can start the run.',
             data: { approvalRequired: true },
           }
         }
@@ -1464,7 +1526,11 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
             kind: 'local_summary',
             title: 'Assistant',
             content: result.summary,
-            metadata: { previousResponseId, plannedRemoteRun: true },
+            metadata: {
+              previousResponseId,
+              plannedRemoteRun: true,
+              ...(isRecordValue(result.data) ? result.data : {}),
+            },
           })
         }
         return json({
@@ -1759,6 +1825,21 @@ export default {
       return forwardCliRequest(request, env, `/assistant-sessions/${encodeURIComponent(sessionMatch[1] ?? '')}`, {
         method: 'GET',
       })
+    }
+
+    const sessionRemoteRunApprovalMatch = pathname.match(/^\/api\/cli\/sessions\/([^/]+)\/remote-run-plan\/approve$/u)
+    if (sessionRemoteRunApprovalMatch && request.method === 'POST') {
+      const cliSession = await requireAuthorizedSession(request, env)
+      if (!cliSession) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      const sessionId = decodeURIComponent(sessionRemoteRunApprovalMatch[1] ?? '')
+      return approveLatestRemoteRunPlan(env, cliSession.email, sessionId)
+        .then((payload) => json(payload))
+        .catch((error) => {
+          const message = error instanceof Error ? error.message : 'Could not approve remote-run plan'
+          return json({ error: message }, 400)
+        })
     }
 
     const sessionDebugViewMatch = pathname.match(/^\/api\/cli\/sessions\/([^/]+)\/debug-view$/u)

@@ -2126,6 +2126,18 @@ async function postAssistantTurn(body: {
   return response.json() as Promise<AssistantTurnResponse>
 }
 
+async function approveRemoteRunPlan(sessionId: string) {
+  const response = await fetch(`/api/cli/sessions/${encodeURIComponent(sessionId)}/remote-run-plan/approve`, {
+    method: 'POST',
+    credentials: 'same-origin',
+  })
+  const payload = await response.json().catch(() => ({})) as { error?: string }
+  if (!response.ok) {
+    throw new Error(payload.error ?? 'Could not approve remote-run plan.')
+  }
+  return payload
+}
+
 function getDashboardRoute() {
   const url = new URL(window.location.href)
   const candidate = url.searchParams.get('view')
@@ -3601,6 +3613,53 @@ function RemoteRunBlock({
   )
 }
 
+function RemoteRunPlanApprovalBlock({
+  datasetId,
+  prompt,
+  onApprove,
+}: {
+  datasetId: string
+  prompt: string
+  onApprove: () => Promise<void>
+}) {
+  const [approving, setApproving] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  const handleApprove = async () => {
+    setApproving(true)
+    setError(null)
+    try {
+      await onApprove()
+    } catch (approvalError) {
+      setError(approvalError instanceof Error ? approvalError.message : 'Could not approve remote-run plan.')
+    } finally {
+      setApproving(false)
+    }
+  }
+
+  return (
+    <section className="my-3 overflow-hidden rounded-lg border border-border bg-background">
+      <div className="border-b border-border bg-muted/25 px-4 py-3">
+        <div className="text-sm font-semibold">Remote run plan</div>
+        <div className="mt-1 font-mono text-xs text-muted-foreground">{datasetId}</div>
+      </div>
+      <div className="space-y-4 px-4 py-4">
+        <pre className="max-h-[28rem] overflow-auto whitespace-pre-wrap rounded-md border border-border bg-muted/20 p-3 text-sm leading-6">
+          {prompt}
+        </pre>
+        {error ? (
+          <div className="rounded-md bg-destructive/5 px-3 py-2 text-sm text-destructive">{error}</div>
+        ) : null}
+        <div className="flex flex-wrap gap-2">
+          <Button type="button" onClick={() => void handleApprove()} disabled={approving}>
+            {approving ? 'Approving...' : 'Approve and start run'}
+          </Button>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function ResearchAssistantPage({
   dataError,
   datasets,
@@ -3771,6 +3830,29 @@ function ResearchAssistantPage({
                 status: dataset.status,
               }))}
               renderAssistantBlock={(custom) => {
+                if (custom.plannedRemoteRun === true) {
+                  const datasetId = typeof custom.datasetId === 'string' ? custom.datasetId : null
+                  const prompt = typeof custom.prompt === 'string' ? custom.prompt : null
+                  const sessionId = conversationStateRef.current.sessionId ?? routeSessionIdRef.current
+                  if (datasetId && prompt && sessionId) {
+                    return (
+                      <RemoteRunPlanApprovalBlock
+                        datasetId={datasetId}
+                        prompt={prompt}
+                        onApprove={async () => {
+                          await approveRemoteRunPlan(sessionId)
+                          const refreshed = await refreshSessionMessages(sessionId)
+                          window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
+                          const startedRunId = extractStartedRunId(refreshed.entries)
+                          if (startedRunId) {
+                            updateDashboardRoute({ view: 'assistant', sessionId, runId: null })
+                            routeSessionIdRef.current = sessionId
+                          }
+                        }}
+                      />
+                    )
+                  }
+                }
                 const runId = typeof custom.runId === 'string' ? custom.runId : null
                 if (!runId) return null
                 return (
