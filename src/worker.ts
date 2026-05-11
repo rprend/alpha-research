@@ -358,6 +358,23 @@ function extractFunctionCalls(payload: ResponsesApiPayload) {
   )
 }
 
+async function closeToolCallResponse(
+  env: Env,
+  previousResponseId: string | null,
+  toolOutput: { type: 'function_call_output'; call_id: string; output: string },
+) {
+  const response = await callResponsesApi(env, {
+    previous_response_id: previousResponseId ?? undefined,
+    input: [toolOutput],
+    tool_choice: 'none',
+  })
+  const pendingFunctionCalls = extractFunctionCalls(response)
+  if (pendingFunctionCalls.length > 0) {
+    throw new Error('Responses API returned another function call while closing a tool-only assistant turn.')
+  }
+  return response.id ?? previousResponseId
+}
+
 function parseJsonArguments(rawArguments: string | undefined) {
   if (!rawArguments) {
     return {}
@@ -667,11 +684,6 @@ function buildResponsesPayload(env: Env, body: unknown) {
     max_output_tokens: 4096,
     ...input,
   }
-}
-
-function isMissingResponsesToolOutputError(error: unknown) {
-  const message = error instanceof Error ? error.message : String(error)
-  return message.includes('No tool output found for function call')
 }
 
 function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefinition[] {
@@ -1408,36 +1420,13 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
     (tool) => !MODEL_HIDDEN_RESEARCH_AGENT_TOOLS.has(tool.name),
   )
   const toolsByName = new Map(tools.map((tool) => [tool.name, tool]))
-  let response: ResponsesApiPayload
-  try {
-    response = await callResponsesApi(env, {
-      instructions: RESEARCH_AGENT_INSTRUCTIONS,
-      input: assistantInput,
-      previous_response_id: previousResponseId ?? undefined,
-      tools: tools.map(buildToolSchema),
-      parallel_tool_calls: false,
-    })
-  } catch (error) {
-    if (!previousResponseId || !isMissingResponsesToolOutputError(error)) {
-      throw error
-    }
-    if (sessionId) {
-      await appendAssistantSessionEntry(env, sessionId, {
-        role: 'system',
-        kind: 'response_chain_recovered',
-        title: 'Response chain recovered',
-        content: 'Recovered from a stale Responses API function-call state by starting a fresh response chain for this turn.',
-        metadata: { stalePreviousResponseId: previousResponseId },
-      })
-    }
-    previousResponseId = null
-    response = await callResponsesApi(env, {
-      instructions: RESEARCH_AGENT_INSTRUCTIONS,
-      input: assistantInput,
-      tools: tools.map(buildToolSchema),
-      parallel_tool_calls: false,
-    })
-  }
+  let response = await callResponsesApi(env, {
+    instructions: RESEARCH_AGENT_INSTRUCTIONS,
+    input: assistantInput,
+    previous_response_id: previousResponseId ?? undefined,
+    tools: tools.map(buildToolSchema),
+    parallel_tool_calls: false,
+  })
 
   for (let round = 0; round < MAX_TOOL_ROUNDS; round += 1) {
     if (response.id) {
@@ -1521,15 +1510,7 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
         }),
       }
       if (ASYNC_RUN_START_TOOLS.has(tool.name)) {
-        const continuationResponse = await callResponsesApi(env, {
-          previous_response_id: previousResponseId ?? undefined,
-          input: [toolOutput],
-          tools: tools.map(buildToolSchema),
-          parallel_tool_calls: false,
-        })
-        if (continuationResponse.id) {
-          previousResponseId = continuationResponse.id
-        }
+        previousResponseId = await closeToolCallResponse(env, previousResponseId, toolOutput)
         if (
           tool.name === 'start_remote_run' &&
           isRecordValue(result.data) &&
@@ -1566,15 +1547,7 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
         })
       }
       if (tool.name === 'plan_remote_run') {
-        const continuationResponse = await callResponsesApi(env, {
-          previous_response_id: previousResponseId ?? undefined,
-          input: [toolOutput],
-          tools: tools.map(buildToolSchema),
-          parallel_tool_calls: false,
-        })
-        if (continuationResponse.id) {
-          previousResponseId = continuationResponse.id
-        }
+        previousResponseId = await closeToolCallResponse(env, previousResponseId, toolOutput)
         if (sessionId) {
           await appendAssistantSessionEntry(env, sessionId, {
             role: 'assistant',
