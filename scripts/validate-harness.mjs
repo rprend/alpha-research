@@ -82,6 +82,28 @@ for (const token of ['storageMode', 'datasetAccess', 'publishMode']) {
 assert(existsSync(join(root, 'scripts/validate-infrastructure-contract.mjs')), 'Missing infrastructure contract validation script.')
 assert(existsSync(join(root, 'scripts/live-infrastructure-smoke.mjs')), 'Missing live infrastructure smoke script.')
 
+const workerSource = readFileSync(join(root, 'src/worker.ts'), 'utf8')
+assert(workerSource.includes("name: 'plan_remote_run'"), 'Assistant is missing the remote run planning tool.')
+assert(
+  workerSource.includes('Write a prompt for a remote Alpha Research run based on this chat history.'),
+  'Remote run planner must generate prompts from plain-text chat history.',
+)
+assert(
+  workerSource.includes("content !== 'Calling plan_remote_run'"),
+  'Remote run planner should use stored chat history without its own tool-call entry.',
+)
+assert(
+  workerSource.includes("!MODEL_HIDDEN_RESEARCH_AGENT_TOOLS.has(tool.name)"),
+  'Duplicate remote execution tools must be hidden from the main assistant tool list.',
+)
+assert(
+  workerSource.includes("'fetch_public_data'") &&
+    workerSource.includes("'start_remote_agent_run'") &&
+    workerSource.includes("'run_remote_transformation'") &&
+    workerSource.includes("'run_remote_labeling'"),
+  'Expected duplicate remote execution tools are not covered by the hidden-tool list.',
+)
+
 const dashboardJourneySource = readFileSync(join(root, 'scripts/dashboard-journeys.mjs'), 'utf8')
 for (const token of [
   'DASHBOARD_JOURNEYS',

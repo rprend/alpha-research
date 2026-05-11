@@ -17,11 +17,17 @@
 
 ## Required Outputs
 
-Every successful run must produce at least one artifact registration when callbacks are available. The preferred filesystem outputs are:
+Every successful run must produce deliverable files in `ARTIFACT_DIR`. Bookkeeping artifacts such as the remote agent summary, transcript, or session id prove that the worker ran, but they do not count as task completion.
 
-- `summary.md`
+The required primary filesystem output is:
+
+- `report.html` when the prompt requests `report.html`, an HTML report, or a self-contained HTML output
+- `summary.md` otherwise
+
 - `result.json` when structured data is appropriate
 - optional tables, charts, scripts, and notebooks in `ARTIFACT_DIR`
+
+If Codex exits successfully but the required deliverable files are missing, the runner must mark the run `failed` rather than `ready`.
 
 ## Heartbeats
 

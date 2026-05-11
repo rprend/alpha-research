@@ -293,14 +293,15 @@ def build_remote_agent_prompt():
             "For any command or script expected to run longer than 30 seconds, print progress at least every 30 seconds.",
             "If you generate deliverables, write them into the artifact directory.",
             "Required outputs:",
-            "- summary.md: a concise human-readable summary of what you found or built",
+            "- summary.md: a concise human-readable summary of what you found or built, unless the user explicitly requests a self-contained HTML report",
+            "- report.html: the primary human-readable deliverable when the user explicitly requests a self-contained HTML report",
             "- result.json: structured machine-readable output when appropriate",
             "Optional outputs:",
             "- tables as .csv",
             "- charts as .png or .svg",
             "- scripts as .py, .sql, or .sh",
             "",
-            "At the end, make sure summary.md exists. If you create structured results, also write result.json.",
+            "At the end, make sure the requested primary human-readable artifact exists: report.html for self-contained HTML report requests, otherwise summary.md. If you create structured results, also write result.json.",
             "In your final response, state exactly which files you created in the artifact directory.",
             "",
             "User request:",
@@ -317,7 +318,7 @@ def artifact_content_for_path(path: Path):
             return json.loads(path.read_text())
         except Exception:
             return {"path": str(path), "preview": path.read_text()[:5000]}
-    if suffix in {".md", ".txt", ".csv", ".sql", ".py", ".sh", ".svg"}:
+    if suffix in {".html", ".htm", ".md", ".txt", ".csv", ".sql", ".py", ".sh", ".svg"}:
         return {"path": str(path), "text": path.read_text()[:20000]}
     return {"path": str(path), "note": "binary-or-unsupported-preview"}
 
@@ -328,6 +329,8 @@ def infer_artifact_type(path: Path):
         return "structured_result"
     if suffix == ".csv":
         return "table"
+    if suffix in {".html", ".htm"}:
+        return "html_report"
     if suffix in {".png", ".svg"}:
         return "chart"
     if suffix in {".py", ".sql", ".sh"}:
@@ -365,6 +368,23 @@ def collect_artifacts():
             )
             created.append(path.name)
     return created
+
+
+def collect_deliverable_paths():
+    if not ARTIFACT_DIR.exists():
+        return []
+    return [
+        path
+        for path in sorted(ARTIFACT_DIR.rglob("*"))
+        if path.is_file()
+    ]
+
+
+def expected_primary_artifact_name():
+    prompt = PROMPT.lower()
+    if "report.html" in prompt or "html report" in prompt or "self-contained html" in prompt:
+        return "report.html"
+    return "summary.md"
 
 
 def run_codex():
@@ -476,9 +496,16 @@ def run_codex():
 def main():
     session_id = run_codex()
     created = collect_artifacts()
-    if not created:
-        raise RuntimeError("Remote agent run completed without producing any artifacts")
-    summary = f"Remote agent run completed with {len(created)} artifact(s)."
+    deliverables = collect_deliverable_paths()
+    if not deliverables:
+        raise RuntimeError(
+            "Remote agent run completed without producing deliverables in ARTIFACT_DIR; "
+            "bookkeeping artifacts do not count as completion"
+        )
+    expected_primary = expected_primary_artifact_name()
+    if not any(path.name == expected_primary for path in deliverables):
+        raise RuntimeError(f"Remote agent run completed without required primary artifact: {expected_primary}")
+    summary = f"Remote agent run completed with {len(deliverables)} deliverable artifact(s)."
     if session_id:
         summary += f" Session: {session_id}."
     post_event(summary)
