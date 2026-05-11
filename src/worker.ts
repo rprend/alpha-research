@@ -315,6 +315,17 @@ function fallbackSessionTitleFromMessage(message: string) {
   return normalized.slice(0, 64).trim() || 'Untitled chat'
 }
 
+function clampSessionTitleWords(value: string) {
+  const normalized = normalizeGeneratedSessionTitle(value)
+  if (!normalized) return null
+  const words = normalized
+    .replace(/[^\p{L}\p{N}\s'-]/gu, ' ')
+    .split(/\s+/u)
+    .filter(Boolean)
+    .slice(0, 4)
+  return words.join(' ').trim() || null
+}
+
 function extractResponseText(payload: Record<string, unknown>) {
   const outputText = typeof payload.output_text === 'string' ? payload.output_text.trim() : ''
   if (outputText) {
@@ -608,6 +619,33 @@ async function appendAssistantSessionEntry(env: Env, sessionId: string, body: Re
   })
 }
 
+async function updateAssistantSessionTitle(env: Env, sessionId: string, title: string) {
+  await proxyToControlPlane(env, `/assistant-sessions/${encodeURIComponent(sessionId)}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ title }),
+  })
+}
+
+async function generateAssistantSessionTitle(env: Env, userMessage: string, assistantResponse: string) {
+  const prompt = [
+    'Create a concise title for this chat.',
+    'Use fewer than 5 words.',
+    'Return only the title. No punctuation unless needed.',
+    '',
+    'First user message:',
+    userMessage,
+    '',
+    'First assistant response:',
+    assistantResponse,
+  ].join('\n')
+  const response = await callResponsesApi(env, {
+    input: prompt,
+    tool_choice: 'none',
+  })
+  return clampSessionTitleWords(extractResponseText(response as Record<string, unknown>))
+}
+
 async function proxyToResponsesApi(request: Request, env: Env) {
   const cliSession = await requireAuthorizedSession(request, env)
   if (!cliSession) {
@@ -626,12 +664,12 @@ async function proxyToResponsesApi(request: Request, env: Env) {
     body && typeof body === 'object' && typeof (body as { datasetId?: unknown }).datasetId === 'string'
       ? String((body as { datasetId: string }).datasetId)
       : null
+  const isNewSession = !requestedSessionId && !previousResponseId
+  const initialUserMessage = summarizeInput(body && typeof body === 'object' ? (body as { input?: unknown }).input ?? body : body)
   const sessionTitle =
-    requestedSessionId || previousResponseId
-      ? undefined
-      : fallbackSessionTitleFromMessage(
-          summarizeInput(body && typeof body === 'object' ? (body as { input?: unknown }).input ?? body : body),
-        )
+    isNewSession
+      ? fallbackSessionTitleFromMessage(initialUserMessage)
+      : undefined
   const resolvedSessionResponse = await proxyToControlPlane(env, '/assistant-sessions/resolve-cli', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -689,6 +727,13 @@ async function proxyToResponsesApi(request: Request, env: Env) {
       content: extractResponseText(upstreamPayload) || JSON.stringify(upstreamPayload, null, 2),
       metadata: upstreamPayload,
     })
+    const assistantResponseText = extractResponseText(upstreamPayload)
+    if (isNewSession && assistantResponseText) {
+      const generatedTitle = await generateAssistantSessionTitle(env, initialUserMessage, assistantResponseText).catch(() => null)
+      if (generatedTitle) {
+        await updateAssistantSessionTitle(env, assistantSessionId, generatedTitle)
+      }
+    }
     if (responseId) {
       await proxyToControlPlane(env, '/assistant-sessions/link-response', {
         method: 'POST',
@@ -1408,7 +1453,8 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
       : typeof body.previous_response_id === 'string'
         ? body.previous_response_id
         : null
-  const sessionTitle = requestedSessionId || previousResponseId ? undefined : fallbackSessionTitleFromMessage(input)
+  const isNewSession = !requestedSessionId && !previousResponseId
+  const sessionTitle = isNewSession ? fallbackSessionTitleFromMessage(input) : undefined
 
   const resolvedSession = await proxyToControlPlaneJson<{ session?: { id?: string; datasetId?: string | null } }>(
     env,
@@ -1487,6 +1533,12 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
           content: reply,
           metadata: { previousResponseId },
         })
+        if (isNewSession) {
+          const generatedTitle = await generateAssistantSessionTitle(env, input, reply).catch(() => null)
+          if (generatedTitle) {
+            await updateAssistantSessionTitle(env, sessionId, generatedTitle)
+          }
+        }
       }
       return json({
         sessionId,
@@ -1568,6 +1620,12 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
               content: result.summary,
               metadata: { previousResponseId, approvalRequired: true },
             })
+            if (isNewSession) {
+              const generatedTitle = await generateAssistantSessionTitle(env, input, result.summary).catch(() => null)
+              if (generatedTitle) {
+                await updateAssistantSessionTitle(env, sessionId, generatedTitle)
+              }
+            }
           }
           return json({
             sessionId,
@@ -1583,6 +1641,12 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
             content: result.summary,
             metadata: { previousResponseId },
           })
+          if (isNewSession) {
+            const generatedTitle = await generateAssistantSessionTitle(env, input, result.summary).catch(() => null)
+            if (generatedTitle) {
+              await updateAssistantSessionTitle(env, sessionId, generatedTitle)
+            }
+          }
         }
         return json({
           sessionId,
@@ -1604,6 +1668,12 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
               ...(isRecordValue(result.data) ? result.data : {}),
             },
           })
+          if (isNewSession) {
+            const generatedTitle = await generateAssistantSessionTitle(env, input, result.summary).catch(() => null)
+            if (generatedTitle) {
+              await updateAssistantSessionTitle(env, sessionId, generatedTitle)
+            }
+          }
         }
         return json({
           sessionId,

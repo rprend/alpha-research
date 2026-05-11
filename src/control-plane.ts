@@ -2050,6 +2050,23 @@ export class ControlPlane {
       return respondJson({ id: entryId })
     }
 
+    if (assistantSessionMatch && request.method === 'PATCH') {
+      const sessionId = decodeURIComponent(assistantSessionMatch[1] ?? '')
+      const session = this.getAssistantSession(sessionId)
+      if (!session) {
+        return respondJson({ error: 'Session not found' }, 404)
+      }
+      const body = await request.json() as Record<string, unknown>
+      const updated = this.updateAssistantSession(sessionId, {
+        datasetId: body.datasetId === undefined ? undefined : body.datasetId ? String(body.datasetId) : null,
+        runId: body.runId === undefined ? undefined : body.runId ? String(body.runId) : null,
+        title: body.title === undefined ? undefined : body.title ? String(body.title) : null,
+        status: body.status === undefined ? undefined : String(body.status),
+        metadata: body.metadata,
+      })
+      return respondJson({ session: updated ? this.assistantSessionToJson(updated) : null })
+    }
+
     const assistantSessionDebugViewMatch = pathname.match(/^\/assistant-sessions\/([^/]+)\/debug-view$/u)
     if (assistantSessionDebugViewMatch && request.method === 'GET') {
       const sessionId = decodeURIComponent(assistantSessionDebugViewMatch[1] ?? '')

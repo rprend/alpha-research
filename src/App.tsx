@@ -4756,6 +4756,8 @@ function DashboardSidebar({
   showResearchChats: boolean
 }) {
   const { isMobile, setOpenMobile } = useSidebar()
+  const isActiveSessionRun = (chatSession: { run?: RunRecord }) =>
+    Boolean(chatSession.run && !isTerminalRunStatus(chatSession.run.status))
   const navigate = (next: {
     view?: DashboardView
     datasetId?: string | null
@@ -4815,6 +4817,12 @@ function DashboardSidebar({
                           sessionId: chatSession.id,
                         })}
                     >
+                      {isActiveSessionRun(chatSession) ? (
+                        <LoaderCircle
+                          className="size-3.5 shrink-0 animate-spin text-muted-foreground"
+                          aria-label="Active run"
+                        />
+                      ) : null}
                       <span className="min-w-0 truncate text-sm font-medium normal-case tracking-normal text-foreground">
                         {readableSessionTitle(chatSession.title)}
                       </span>

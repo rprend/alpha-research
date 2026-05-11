@@ -89,6 +89,8 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Recent items should read like understandable work records, not raw run-lifecycle labels.
 - Recent work should stay secondary on first visit and not crowd out onboarding copy.
 - Reopened assistant threads should lead with a compact continuity card: human-readable title, last activity time, dataset or corpus target, linked run status, a short recap, and explicit actions to continue the thread or inspect results without remembering ids.
+- New assistant threads should be renamed after the first user message and assistant response with a model-generated title under five words; active linked runs should show a lightweight spinner in recent chats.
+- The assistant transcript scroll target should include the empty gutter around the main message column so users do not need to hover directly over text to scroll a session.
 
 ## Signed-Out Gate Expectations
 
