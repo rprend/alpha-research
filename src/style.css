@@ -667,6 +667,10 @@
   line-height: 1.5;
 }
 
+.dashboard-assistant-page [data-slot="aui_assistant-message-root"]:has(.inline-html-run-block) {
+  max-width: min(54rem, calc(100vw - 5rem));
+}
+
 .dashboard-assistant-page [data-slot="aui_user-message-root"] {
   display: block;
   padding-left: 0.5rem;
@@ -746,11 +750,8 @@
 }
 
 .dashboard-assistant-page .inline-html-run-block {
-  position: relative;
-  left: 50%;
-  width: min(54rem, calc(100vw - 5rem)) !important;
-  max-width: min(54rem, calc(100vw - 5rem)) !important;
-  transform: translateX(-50%);
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 .dashboard-assistant-page .inline-html-run-frame {
@@ -764,10 +765,8 @@
 
 @media (max-width: 899px) {
   .dashboard-assistant-page .inline-html-run-block {
-    left: 0;
     width: 100% !important;
     max-width: 100% !important;
-    transform: none;
   }
 
   .dashboard-assistant-page .inline-html-run-frame {
