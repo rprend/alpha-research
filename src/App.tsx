@@ -4603,7 +4603,6 @@ function DashboardSidebar({
   session,
   datasets,
   runs,
-  terminalSessionCount,
   recentAssistantSessions,
   showResearchChats,
 }: {
@@ -4611,7 +4610,6 @@ function DashboardSidebar({
   session: SessionResponse
   datasets: DatasetRecord[]
   runs: RunRecord[]
-  terminalSessionCount: number
   recentAssistantSessions: Array<StoredAssistantSession & {
     dataset?: DatasetRecord
     run?: RunRecord
@@ -4725,25 +4723,6 @@ function DashboardSidebar({
               <span>Runs</span>
               <span className="ml-auto text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
                 {runs.length}
-              </span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-          <SidebarMenuItem>
-            <SidebarMenuButton
-              className="dashboard-nav-button h-11 md:h-8"
-              tooltip="Terminal sessions"
-              isActive={route.view === 'terminal-sessions'}
-              onClick={() =>
-                navigate({
-                  view: 'terminal-sessions',
-                  runId: null,
-                  sessionId: null,
-                })}
-            >
-              <TerminalSquare />
-              <span>Sessions</span>
-              <span className="ml-auto text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
-                {terminalSessionCount}
               </span>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -4946,7 +4925,6 @@ function DashboardApp({
         session={session}
         datasets={datasets}
         runs={runs}
-        terminalSessionCount={sessions.length}
         recentAssistantSessions={recentAssistantSessions}
         showResearchChats={showResearchChats}
       />
