@@ -311,6 +311,8 @@ const AssistantMessage: FC<{
     <MessagePrimitive.Root
       data-slot="aui_assistant-message-root"
       data-role="assistant"
+      fillClampThreshold="0px"
+      fillClampOffset="9999px"
       className="fade-in slide-in-from-bottom-1 relative animate-in duration-150"
     >
       <div
