@@ -3669,14 +3669,14 @@ function RemoteRunPlanApprovalBlock({
         <div className="text-sm font-semibold">Remote run plan</div>
         <div className="mt-1 font-mono text-xs text-muted-foreground">{datasetId}</div>
       </div>
-      <div className="space-y-4 px-4 py-4">
-        <pre className="max-h-[28rem] overflow-auto whitespace-pre-wrap rounded-md border border-border bg-muted/20 p-3 text-sm leading-6">
+      <div className="space-y-4">
+        <pre className="max-h-[28rem] overflow-auto whitespace-pre-wrap px-4 py-4 text-sm leading-6">
           {prompt}
         </pre>
         {error ? (
-          <div className="rounded-md bg-destructive/5 px-3 py-2 text-sm text-destructive">{error}</div>
+          <div className="mx-4 bg-destructive/5 px-3 py-2 text-sm text-destructive">{error}</div>
         ) : null}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 px-4 pb-4">
           <Button type="button" onClick={() => void handleApprove()} disabled={approving}>
             {approving ? 'Approving...' : 'Approve and start run'}
           </Button>
