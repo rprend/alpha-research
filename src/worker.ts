@@ -488,8 +488,6 @@ async function buildRemoteRunPromptFromSessionHistory(env: Env, sessionId: strin
     'Write a prompt for a remote Alpha Research run based on this chat history.',
     '',
     'Return only the task-specific research request that should be appended after the standard Modal runner prompt.',
-    'Preserve the user\'s intent and constraints, but do not add runtime boilerplate, dataset-environment framing, output-file requirements, or phrases like "You are operating inside".',
-    'Do not mention work.md, report.html, /data, /workspace, /results, Modal, Codex, runner setup, manifests, or artifact directories; the runner prompt provides those instructions.',
     '',
     'Chat history:',
     '<chat_history>',
