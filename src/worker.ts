@@ -164,10 +164,11 @@ const RESEARCH_AGENT_INSTRUCTIONS = [
   '',
   'In the web app, act like the RESEARCH CLI running remotely for the signed-in user.',
   'Use tools only when the user is asking for a concrete action or factual state that requires remote data.',
-  'If the user input is gibberish, a greeting, or too vague to identify an action, do not call tools. Ask a concise clarifying question instead.',
-  'Do not inspect datasets or runs just to recover from unclear input.',
-  'Prefer lightweight dataset queries before launching heavy transforms or analyses when the user wants examples, top records, or simple slices.',
-  'Do not answer with generic numbered menus when you can inspect the user datasets or runs and propose one concrete next action.',
+  'If the user input is gibberish, a greeting, or too vague to identify a research/data action, do not call tools. Ask one concise clarifying question instead.',
+  'When a dataset is named, implied, or attached to the current page/session, use the provided dataset context first. Do not ask the user for dataset ids, schema, coverage, or briefing facts that are already present in the prompt.',
+  'If the request is underspecified but the dataset context supports a likely next step, propose one concrete default action with assumptions instead of asking a multi-question menu.',
+  'Prefer lightweight dataset queries before launching heavy transforms or analyses when the user wants examples, top records, simple slices, schema checks, or field availability.',
+  'Do not answer with generic numbered menus when you can inspect the user datasets or runs, use provided dataset context, and propose one concrete next action.',
   'Remote runs require explicit approval. When the user asks to launch remote work, call plan_remote_run first. That tool generates the exact prompt from this session\'s chat history. The dashboard will render an approval control for the generated prompt.',
   'Do not call start_remote_run unless the dashboard has recorded explicit approval for the latest generated remote-run prompt. After starting the run, do not wait for completion unless the user explicitly asks you to wait.',
   'Be concise. After tool work completes, summarize the result and current status.',
@@ -429,6 +430,64 @@ function entriesToPlainTextChatHistory(entries: Array<Record<string, unknown>>) 
     .map(sessionEntryToPlainText)
     .filter(Boolean)
     .join('\n\n')
+}
+
+const DATASET_PROMPT_SECTION_LIMIT = 12_000
+const DATASET_PROMPT_TOTAL_LIMIT = 28_000
+
+function truncatePromptSection(value: string, limit: number) {
+  if (value.length <= limit) {
+    return value
+  }
+  return `${value.slice(0, limit).trimEnd()}\n\n[Truncated to ${limit} characters for prompt context.]`
+}
+
+function promptContextValueToText(value: unknown) {
+  if (value === null || value === undefined) {
+    return ''
+  }
+  if (typeof value === 'string') {
+    return value.trim()
+  }
+  return JSON.stringify(value, null, 2)
+}
+
+function datasetPromptSection(tag: string, value: unknown) {
+  const text = promptContextValueToText(value)
+  if (!text) {
+    return ''
+  }
+  return [
+    `<${tag}>`,
+    truncatePromptSection(text, DATASET_PROMPT_SECTION_LIMIT),
+    `</${tag}>`,
+  ].join('\n')
+}
+
+async function datasetContentsForPrompt(env: Env, datasetId: string) {
+  const payload = await proxyToControlPlaneJson<{ profile?: Record<string, unknown> | null }>(
+    env,
+    `/datasets/${encodeURIComponent(datasetId)}/profile`,
+    { method: 'GET' },
+  )
+  const profile = payload.profile
+  if (!profile) {
+    return ''
+  }
+  const sections = [
+    datasetPromptSection('dataset_briefing_markdown', profile.briefingMarkdown),
+    datasetPromptSection('dataset_profile_json', profile.profile),
+    datasetPromptSection('dataset_schema_json', profile.schema),
+    datasetPromptSection('dataset_sample_rows_json', profile.sampleRows),
+    datasetPromptSection('dataset_notes', profile.notes),
+  ].filter(Boolean)
+
+  if (sections.length === 0) {
+    return ''
+  }
+
+  const contents = ['Dataset context files:', ...sections].join('\n\n')
+  return truncatePromptSection(contents, DATASET_PROMPT_TOTAL_LIMIT)
 }
 
 async function buildRemoteRunPromptFromSessionHistory(env: Env, sessionId: string) {
@@ -1397,11 +1456,14 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
       const dataset = datasetPayload.dataset
       const datasetName = dataset && typeof dataset.name === 'string' ? dataset.name : datasetId
       const datasetDescription = dataset && typeof dataset.description === 'string' ? dataset.description.trim() : ''
+      const datasetPromptContents = await datasetContentsForPrompt(env, datasetId)
       assistantInput = [
         `Current dataset context: ${datasetName} (${datasetId}).`,
         datasetDescription ? `Dataset summary: ${datasetDescription}` : null,
         'The user started from this dataset page, so treat this dataset as the default context and do not ask them to restate the dataset id.',
-        'If the request is broad or ambiguous, clarify scope before inspecting more data or starting an expensive run.',
+        datasetPromptContents || null,
+        'Use the dataset context above before asking the user for schema, coverage, field availability, briefing, or dataset identity details.',
+        'If the request is broad or ambiguous, propose a concrete scoped next step with assumptions before asking for more information.',
         '',
         `User request: ${input}`,
       ].filter(Boolean).join('\n')
@@ -1409,7 +1471,7 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
       assistantInput = [
         `Current dataset context: ${datasetId}.`,
         'The user started from this dataset page, so treat this dataset as the default context and do not ask them to restate the dataset id.',
-        'If the request is broad or ambiguous, clarify scope before inspecting more data or starting an expensive run.',
+        'If the request is broad or ambiguous, propose a concrete scoped next step with assumptions before asking for more information.',
         '',
         `User request: ${input}`,
       ].join('\n')
