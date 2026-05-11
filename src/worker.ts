@@ -485,12 +485,12 @@ async function buildRemoteRunPromptFromSessionHistory(env: Env, sessionId: strin
   if (!chatHistory.trim()) {
     throw new Error('Cannot plan a remote run without chat history.')
   }
-  const datasetPromptContents = await datasetContentsForPrompt(env, datasetId).catch(() => '')
+  const datasetPromptContents = await datasetContentsForPrompt(env, datasetId)
   const plannerPrompt = [
     'Write a prompt for a remote Alpha Research run based on this chat history.',
     '',
     `The run will execute against dataset ${datasetId}.`,
-    datasetPromptContents || 'No dataset profile content is available; still make the run prompt explicitly inspect the mounted dataset before analysis.',
+    datasetPromptContents,
     '',
     'The remote run prompt must mention the dataset and require checking the mounted dataset files, schema, samples, and briefing before drawing conclusions.',
     '',
@@ -1426,48 +1426,38 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
     },
   )
   const sessionId = resolvedSession.session?.id ?? requestedSessionId ?? null
-  const effectiveDatasetId = datasetId ?? resolvedSession.session?.datasetId ?? null
+  const sessionDatasetId = resolvedSession.session?.datasetId ?? null
   if (sessionId) {
     await appendAssistantSessionEntry(env, sessionId, {
       role: 'user',
       kind: 'request',
       title: 'Web request',
       content: input,
-      metadata: { datasetId: effectiveDatasetId },
+      metadata: { datasetId: sessionDatasetId },
     })
   }
 
   let assistantInput = input
-  if (effectiveDatasetId) {
-    try {
-      const datasetPayload = await proxyToControlPlaneJson<{ dataset?: Record<string, unknown> }>(
-        env,
-        `/datasets/${encodeURIComponent(effectiveDatasetId)}`,
-        { method: 'GET' },
-      )
-      const dataset = datasetPayload.dataset
-      const datasetName = dataset && typeof dataset.name === 'string' ? dataset.name : effectiveDatasetId
-      const datasetDescription = dataset && typeof dataset.description === 'string' ? dataset.description.trim() : ''
-      const datasetPromptContents = await datasetContentsForPrompt(env, effectiveDatasetId)
-      assistantInput = [
-        `Current dataset context: ${datasetName} (${effectiveDatasetId}).`,
-        datasetDescription ? `Dataset summary: ${datasetDescription}` : null,
-        'The user started from this dataset page or reopened a dataset-linked session, so treat this dataset as the default context and do not ask them to restate the dataset id.',
-        datasetPromptContents || null,
-        'Use the dataset context above before asking the user for schema, coverage, field availability, briefing, or dataset identity details.',
-        'If the request is broad or ambiguous, propose a concrete scoped next step with assumptions before asking for more information.',
-        '',
-        `User request: ${input}`,
-      ].filter(Boolean).join('\n')
-    } catch {
-      assistantInput = [
-        `Current dataset context: ${effectiveDatasetId}.`,
-        'The user started from this dataset page or reopened a dataset-linked session, so treat this dataset as the default context and do not ask them to restate the dataset id.',
-        'If the request is broad or ambiguous, propose a concrete scoped next step with assumptions before asking for more information.',
-        '',
-        `User request: ${input}`,
-      ].join('\n')
-    }
+  if (sessionDatasetId) {
+    const datasetPayload = await proxyToControlPlaneJson<{ dataset?: Record<string, unknown> }>(
+      env,
+      `/datasets/${encodeURIComponent(sessionDatasetId)}`,
+      { method: 'GET' },
+    )
+    const dataset = datasetPayload.dataset
+    const datasetName = dataset && typeof dataset.name === 'string' ? dataset.name : sessionDatasetId
+    const datasetDescription = dataset && typeof dataset.description === 'string' ? dataset.description.trim() : ''
+    const datasetPromptContents = await datasetContentsForPrompt(env, sessionDatasetId)
+    assistantInput = [
+      `Current dataset context: ${datasetName} (${sessionDatasetId}).`,
+      datasetDescription ? `Dataset summary: ${datasetDescription}` : null,
+      'Treat this dataset as the session context and do not ask the user to restate the dataset id.',
+      datasetPromptContents,
+      'Use the dataset context above before asking the user for schema, coverage, field availability, briefing, or dataset identity details.',
+      'If the request is broad or ambiguous, propose a concrete scoped next step with assumptions before asking for more information.',
+      '',
+      `User request: ${input}`,
+    ].filter(Boolean).join('\n')
   }
 
   const tools = createResearchAgentTools(env, cliSession.email).filter(

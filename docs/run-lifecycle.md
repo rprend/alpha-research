@@ -31,7 +31,7 @@ The control plane is the source of truth for dashboard run rows, events, artifac
 
 Assistant session entries with `metadata.runId` are treated as live run anchors. The dashboard should keep the user in the session after launch, poll `/api/cli/runs/<run id>/results`, show recent remote session/tool activity, and render final human-readable output inline. The full run page remains available for audit and debugging deep links.
 
-Dataset-linked assistant sessions must preserve dataset context after reload or deep link navigation. When an assistant turn resolves an existing session, the backend should use the session's stored `datasetId` if the current request body does not include one, then include dataset profile context before answering or planning a remote run.
+Assistant sessions are the source of truth for conversational context. When a turn resolves to a session, prompt construction should use that resolved session's `datasetId` and include dataset profile context before answering or planning a remote run.
 
 ## Agent Debug Checklist
 
