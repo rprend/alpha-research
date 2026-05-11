@@ -1483,7 +1483,25 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
           metadata: { name: tool.name, data: result.data },
         })
       }
+      const toolOutput = {
+        type: 'function_call_output' as const,
+        call_id: call.call_id ?? tool.name,
+        output: JSON.stringify({
+          ok: true,
+          summary: result.summary,
+          data: result.data,
+        }),
+      }
       if (ASYNC_RUN_START_TOOLS.has(tool.name)) {
+        const continuationResponse = await callResponsesApi(env, {
+          previous_response_id: previousResponseId ?? undefined,
+          input: [toolOutput],
+          tools: tools.map(buildToolSchema),
+          parallel_tool_calls: false,
+        })
+        if (continuationResponse.id) {
+          previousResponseId = continuationResponse.id
+        }
         if (
           tool.name === 'start_remote_run' &&
           isRecordValue(result.data) &&
@@ -1520,6 +1538,15 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
         })
       }
       if (tool.name === 'plan_remote_run') {
+        const continuationResponse = await callResponsesApi(env, {
+          previous_response_id: previousResponseId ?? undefined,
+          input: [toolOutput],
+          tools: tools.map(buildToolSchema),
+          parallel_tool_calls: false,
+        })
+        if (continuationResponse.id) {
+          previousResponseId = continuationResponse.id
+        }
         if (sessionId) {
           await appendAssistantSessionEntry(env, sessionId, {
             role: 'assistant',
@@ -1539,15 +1566,7 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
           reply: result.summary,
         })
       }
-      toolOutputs.push({
-        type: 'function_call_output',
-        call_id: call.call_id ?? tool.name,
-        output: JSON.stringify({
-          ok: true,
-          summary: result.summary,
-          data: result.data,
-        }),
-      })
+      toolOutputs.push(toolOutput)
     }
 
     response = await callResponsesApi(env, {
