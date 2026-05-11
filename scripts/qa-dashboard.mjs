@@ -196,9 +196,6 @@ async function assertWellSpecifiedRunLaunch() {
       'Outputs: one executive summary, one cohort comparison table, and one CSV with the retained analysis dataset',
     ].join('\n'))
     await page.getByLabel('Send message').click()
-    await page.getByText('run-harness-specified', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Running', { exact: true }).first().waitFor({ timeout: 15000 })
-    await page.getByText('Executive Summary, Cohort Comparison Table, Spec Preservation Record', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Remote agent heartbeat: validating requested fields against the dataset schema and preserving the launch specification.', { exact: false }).waitFor({ timeout: 15000 })
     if (new URL(page.url()).searchParams.get('view') !== 'assistant') {
       throw new Error('Launching a well-specified run should keep the user in the assistant session.')

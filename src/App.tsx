@@ -2105,18 +2105,25 @@ function extractStartedRunId(entries: StoredAssistantSessionEntry[]) {
 }
 
 function sessionEntriesToThreadMessages(entries: StoredAssistantSessionEntry[]) {
-  return entries.map((entry) =>
-    toThreadMessage(
-      createSessionEntry(
-        entry.id,
-        entry.role === 'user' ? 'user' : entry.role === 'system' ? 'system' : entry.role === 'tool' ? 'tool' : 'assistant',
-        entry.createdAt,
-        entry.content,
-        entry.title ?? formatStatus(entry.kind),
-        entry.metadata,
-      ),
-    ),
-  )
+  const renderedRunIds = new Set<string>()
+  const messages: ThreadMessage[] = []
+  for (const entry of entries) {
+    const sessionEntry = createSessionEntry(
+      entry.id,
+      entry.role === 'user' ? 'user' : entry.role === 'system' ? 'system' : entry.role === 'tool' ? 'tool' : 'assistant',
+      entry.createdAt,
+      entry.content,
+      entry.title ?? formatStatus(entry.kind),
+      entry.metadata,
+    )
+    const runId = sessionEntry.role === 'assistant' ? inferSessionEntryRunId(sessionEntry) : null
+    if (runId) {
+      if (renderedRunIds.has(runId)) continue
+      renderedRunIds.add(runId)
+    }
+    messages.push(toThreadMessage(sessionEntry))
+  }
+  return messages
 }
 
 async function postAssistantTurn(body: {
@@ -3480,11 +3487,9 @@ function useSessionDetail(sessionId: string | null) {
 function RemoteRunBlock({
   runId,
   initialStatus,
-  expectedArtifacts,
 }: {
   runId: string
   initialStatus?: string | null
-  expectedArtifacts?: string | null
 }) {
   const { payload, error, loading } = useRunResultsById(runId)
   const [cancelling, setCancelling] = useState(false)
@@ -3495,29 +3500,11 @@ function RemoteRunBlock({
   const producedArtifacts = getProducedArtifacts(payload).filter((artifact) => artifact.type !== 'remote_agent_session')
   const primaryArtifact = getDatasetBriefingArtifact(producedArtifacts)
   const resultArtifact = getDatasetProfileArtifact(producedArtifacts)
-  const remoteEntries = run
-    ? buildRemoteTranscript(run, undefined, payload).filter((entry) => entry.role !== 'user').slice(-5)
-    : []
-  const progressEntries = buildObservedProgressTranscript(payload).slice(-5)
-  const eventEntries = run && payload
-    ? payload.events.flatMap((event) => [
-        createSessionEntry(
-          `event-${event.id}-summary`,
-          event.level === 'error' ? 'system' : 'assistant',
-          event.createdAt,
-          summarizeActiveRunEvent(event.message, run),
-          'Run activity',
-        ),
-        createSessionEntry(
-          `event-${event.id}-raw`,
-          event.level === 'error' ? 'system' : 'assistant',
-          event.createdAt,
-          event.message,
-          'Remote event',
-        ),
-      ]).slice(-5)
-    : []
-  const latestEntries = (progressEntries.length > 0 ? progressEntries : eventEntries.length > 0 ? eventEntries : remoteEntries).slice(-5)
+  const latestLines = (payload?.events ?? [])
+    .slice(-8)
+    .map((event) => stripMarkdownForInline(event.message))
+    .filter((line, index, lines) => line && lines.indexOf(line) === index)
+    .slice(-5)
 
   const handleCancel = async () => {
     setCancelling(true)
@@ -3533,38 +3520,8 @@ function RemoteRunBlock({
   }
 
   return (
-    <section className="my-3 overflow-hidden rounded-lg border border-border bg-background" data-inline-run-block>
-      <div className="flex flex-wrap items-start justify-between gap-3 border-b border-border bg-muted/25 px-4 py-3">
-        <div className="min-w-0">
-          <div className="flex flex-wrap items-center gap-2">
-            {isRunning ? (
-              <LoaderCircle className="size-4 animate-spin text-muted-foreground" aria-label="Run active" />
-            ) : ['failed', 'error', 'worker_unreachable'].includes(status.toLowerCase()) ? (
-              <AlertTriangle className="size-4 text-destructive" aria-label="Run failed" />
-            ) : (
-              <CheckCircle2 className="size-4 text-emerald-600" aria-label="Run complete" />
-            )}
-            <span className="text-sm font-semibold">Remote run</span>
-            <StatusBadge>{formatStatus(status)}</StatusBadge>
-          </div>
-          <div className="mt-2 break-words text-xs text-muted-foreground">
-            {run ? `${formatStatus(run.type)} run on ${run.datasetId}` : `Run ${runId}`}
-          </div>
-          <div className="mt-1 break-all font-mono text-xs text-muted-foreground">{runId}</div>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {isRunning ? (
-            <Button type="button" size="sm" variant="outline" onClick={() => void handleCancel()} disabled={cancelling}>
-              {cancelling ? 'Cancelling...' : 'Cancel'}
-            </Button>
-          ) : null}
-          <Button type="button" size="sm" variant="ghost" asChild>
-            <a href={`${dashboardOrigin}?view=runs&runId=${encodeURIComponent(runId)}`}>Open full run</a>
-          </Button>
-        </div>
-      </div>
-
-      <div className="space-y-4 px-4 py-4">
+    <section className="my-3 overflow-hidden border border-border bg-background" data-inline-run-block>
+      <div className="space-y-3 px-4 py-4">
         {error ? (
           <div className="rounded-md bg-destructive/5 px-3 py-2 text-sm text-destructive">
             Could not load inline run: {error}
@@ -3576,33 +3533,26 @@ function RemoteRunBlock({
         {loading && !payload ? (
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <LoaderCircle className="size-4 animate-spin" aria-hidden="true" />
-            <span>Loading run state...</span>
+            <span>Loading run...</span>
           </div>
         ) : null}
         {isRunning ? (
-          <div className="space-y-3">
-            <div>
-              <div className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">Latest activity</div>
-              {latestEntries.length > 0 ? (
-                <ol className="mt-2 space-y-2">
-                  {latestEntries.map((entry) => (
-                    <li key={entry.id} className="rounded-md bg-muted/30 px-3 py-2 text-sm leading-6">
-                      <div className="text-xs font-medium text-muted-foreground">{entry.title ?? 'Activity'} · {relativeTime(entry.createdAt)}</div>
-                      <div className="mt-1 line-clamp-3 whitespace-pre-wrap">{stripMarkdownForInline(entry.body)}</div>
-                    </li>
-                  ))}
-                </ol>
+          <div className="space-y-4">
+            <div className="space-y-2 text-sm leading-6">
+              {latestLines.length > 0 ? (
+                latestLines.map((line) => <p key={line}>{line}</p>)
               ) : (
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Waiting for the remote agent to report tool calls and command output.
-                </p>
+                <p className="text-muted-foreground">Starting remote run...</p>
               )}
             </div>
-            {expectedArtifacts ? (
-              <p className="text-xs leading-5 text-muted-foreground">
-                Expected outputs: <span>{expectedArtifacts}</span>
-              </p>
-            ) : null}
+            <div className="flex flex-wrap gap-2">
+              <Button type="button" size="sm" variant="outline" onClick={() => void handleCancel()} disabled={cancelling}>
+                {cancelling ? 'Cancelling...' : 'Cancel'}
+              </Button>
+              <Button type="button" size="sm" variant="ghost" asChild>
+                <a href={`${dashboardOrigin}?view=runs&runId=${encodeURIComponent(runId)}`}>Open full run</a>
+              </Button>
+            </div>
           </div>
         ) : primaryArtifact ? (
           <div className="space-y-3">
@@ -3896,7 +3846,6 @@ function ResearchAssistantPage({
                   <RemoteRunBlock
                     runId={runId}
                     initialStatus={typeof custom.status === 'string' ? custom.status : null}
-                    expectedArtifacts={typeof custom.expectedArtifacts === 'string' ? custom.expectedArtifacts : null}
                   />
                 )
               }}
