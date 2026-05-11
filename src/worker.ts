@@ -139,16 +139,6 @@ const DOCS_PAGE_PATHS = new Set([
   '/ways-to-use/research-runs',
 ])
 const DOCS_SECTION_INDEX_PATHS = new Set(['/cli', '/dashboard', '/public-datasets', '/ways-to-use'])
-const OBSOLETE_PUBLIC_DATASET_SLUGS = new Set([
-  'anthropology',
-  'classics',
-  'history',
-  'linguistics',
-  'literature',
-  'philosophy',
-  'political-science',
-  'sociology',
-])
 const MAX_TOOL_ROUNDS = 12
 const ASYNC_RUN_START_TOOLS = new Set([
   'start_remote_run',
@@ -220,8 +210,8 @@ function contentTypeForPath(pathname: string) {
 }
 
 async function fetchDocsAsset(request: Request, env: Env, url: URL) {
-  if (isObsoletePublicDatasetPath(url.pathname)) {
-    return new Response('Not found. The only canonical public dataset is econ.', {
+  if (isUnknownPublicDatasetPath(url.pathname)) {
+    return new Response('Not found.', {
       status: 404,
       headers: { 'Content-Type': 'text/plain; charset=utf-8' },
     })
@@ -249,9 +239,12 @@ async function fetchDocsAsset(request: Request, env: Env, url: URL) {
   return env.ASSETS.fetch(new Request(fallbackUrl, request))
 }
 
-function isObsoletePublicDatasetPath(pathname: string) {
-  const match = pathname.match(/^\/public-datasets\/([^/.]+)(?:\/(?:index\.html?)?)?$/u)
-  return match ? OBSOLETE_PUBLIC_DATASET_SLUGS.has(match[1] ?? '') : false
+function isUnknownPublicDatasetPath(pathname: string) {
+  const normalized = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname
+  if (!normalized.startsWith('/public-datasets/') || /\.[^/]+$/u.test(normalized)) {
+    return false
+  }
+  return !DOCS_PAGE_PATHS.has(normalized) && !DOCS_PAGE_PATHS.has(`${normalized}/index`)
 }
 
 function docsAssetCandidates(pathname: string) {
@@ -1283,7 +1276,29 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
           metadata: { name: tool.name, arguments: parsedArguments },
         })
       }
-      const result = await tool.execute(parsedArguments, sessionId)
+      let result: AgentToolResult
+      try {
+        result = await tool.execute(parsedArguments, sessionId)
+      } catch (error) {
+        const message = error instanceof Error ? error.message : 'Tool call failed'
+        if (sessionId) {
+          await appendAssistantSessionEntry(env, sessionId, {
+            role: 'system',
+            kind: 'tool_error',
+            title: tool.name,
+            content: message,
+            metadata: { name: tool.name, arguments: parsedArguments, error: message },
+          })
+          await appendAssistantSessionEntry(env, sessionId, {
+            role: 'assistant',
+            kind: 'local_summary',
+            title: 'Assistant',
+            content: `I could not complete ${tool.name}: ${message}`,
+            metadata: { previousResponseId, error: message, toolName: tool.name },
+          })
+        }
+        throw error
+      }
       if (sessionId) {
         await appendAssistantSessionEntry(env, sessionId, {
           role: 'system',
