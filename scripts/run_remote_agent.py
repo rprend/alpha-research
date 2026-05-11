@@ -402,6 +402,16 @@ def expected_primary_artifact_name():
     return "summary.md"
 
 
+def build_codex_goal():
+    expected_primary = expected_primary_artifact_name()
+    return (
+        "/goal Execute the user's requested Alpha Research run rather than only planning it. "
+        f"Before finishing, write {expected_primary} in {ARTIFACT_DIR}. "
+        f"If full completion is too large for one turn, write an interim {expected_primary} "
+        "with completed work, blockers, and exact next commands."
+    )
+
+
 def run_codex():
     WORKSPACE_DIR.mkdir(parents=True, exist_ok=True)
     ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
@@ -410,7 +420,7 @@ def run_codex():
     dataset_link = WORKSPACE_DIR / "dataset"
     if not dataset_link.exists():
         dataset_link.symlink_to(DATASET_MOUNT_PATH, target_is_directory=True)
-    prompt_text = build_remote_agent_prompt()
+    prompt_text = f"{build_codex_goal()}\n\n{build_remote_agent_prompt()}"
     command = [
         "codex",
         "exec",
