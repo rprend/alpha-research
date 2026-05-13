@@ -5,7 +5,6 @@ import remarkGfm from 'remark-gfm'
 import {
   AlertTriangle,
   BookOpen,
-  Bot,
   Braces,
   Building2,
   ChartColumn,
@@ -1870,16 +1869,6 @@ async function createBillingCheckoutSession() {
   return payload
 }
 
-async function createBillingPortalSession() {
-  const response = await fetch('/api/billing/manage', {
-    method: 'POST',
-    credentials: 'same-origin',
-  })
-  const payload = await response.json().catch(() => ({})) as { url?: string | null; error?: string }
-  if (!response.ok) throw new Error(payload.error ?? 'Could not open billing management.')
-  return payload
-}
-
 function parseBillingLimitState(error: unknown): BillingLimitState | null {
   if (!(error instanceof Error)) return null
   const parsed = tryParseJson(error.message)
@@ -1910,10 +1899,6 @@ function formatBillingWindowDate(value: string | null) {
   const timestamp = Date.parse(value)
   if (Number.isNaN(timestamp)) return null
   return new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(timestamp)
-}
-
-function formatTierLabel(tier: 'free' | 'studio') {
-  return tier === 'studio' ? 'Pro' : 'Free'
 }
 
 function describeSignedOutDestination() {
@@ -4272,7 +4257,7 @@ function DashboardSidebar({
   runs,
   recentAssistantSessions,
   showResearchChats,
-  onOpenBilling,
+  onOpenPaywall,
 }: {
   route: DashboardRouteState
   session: SessionResponse
@@ -4283,7 +4268,7 @@ function DashboardSidebar({
     run?: RunRecord
   }>
   showResearchChats: boolean
-  onOpenBilling: () => void
+  onOpenPaywall: () => void
 }) {
   const { isMobile, setOpenMobile } = useSidebar()
   const isActiveSessionRun = (chatSession: { run?: RunRecord }) =>
@@ -4411,25 +4396,13 @@ function DashboardSidebar({
               className="dashboard-account-button flex h-auto w-full min-w-0 items-center justify-start overflow-hidden rounded-xl px-3 py-3 text-left hover:bg-sidebar-accent/60"
             >
               <div className="flex min-w-0 flex-col items-start">
-                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">
-                  Signed in
-                </span>
                 <span className="truncate text-base font-normal normal-case tracking-normal text-foreground/90">
-                  {session.user?.email ?? 'Signed in'}
+                  {session.user?.email ?? 'Account'}
                 </span>
-                {session.billing ? (
-                  <span className="mt-1 truncate text-xs text-muted-foreground">
-                    {formatTierLabel(session.billing.subscription.tier)} · {formatCompactCreditAmount(session.billing.usage.remainingCredits)} left
-                  </span>
-                ) : null}
               </div>
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="rounded-none">
-            <DropdownMenuItem onClick={onOpenBilling}>
-              <Zap />
-              {session.billing?.subscription.checkoutEligible ? 'Upgrade to Pro' : 'Manage billing'}
-            </DropdownMenuItem>
             <DropdownMenuItem
               onClick={async () => {
                 await fetch('/api/auth/logout', {
@@ -4444,6 +4417,15 @@ function DashboardSidebar({
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+        <button type="button" className="dashboard-upgrade-row" onClick={onOpenPaywall}>
+          <Zap aria-hidden="true" />
+          <span>Upgrade to Pro</span>
+          {session.billing ? (
+            <span className="dashboard-upgrade-usage">
+              {formatCompactCreditAmount(session.billing.usage.remainingCredits)} left
+            </span>
+          ) : null}
+        </button>
       </SidebarFooter>
     </Sidebar>
   )
@@ -4643,14 +4625,7 @@ function DashboardApp({
         runs={runs}
         recentAssistantSessions={recentAssistantSessions}
         showResearchChats={showResearchChats}
-        onOpenBilling={async () => {
-          if (session.billing?.subscription.checkoutEligible) {
-            openBillingDialog()
-            return
-          }
-          const portal = await createBillingPortalSession()
-          if (portal.url) window.location.assign(portal.url)
-        }}
+        onOpenPaywall={openBillingDialog}
       />
 
       <SidebarInset className="dashboard-main-inset min-h-0 overflow-hidden overscroll-none bg-background">
