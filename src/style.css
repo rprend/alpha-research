@@ -651,23 +651,27 @@
   max-width: 100%;
   align-items: center;
   gap: 0.45rem;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  color: var(--dashboard-ink);
+  border: 1px solid var(--dashboard-ink-strong);
+  border-radius: 999px;
+  background: var(--dashboard-ink-strong);
+  padding: 0.52rem 0.82rem;
+  color: #fff;
   font: inherit;
-  font-size: 1rem;
+  font-size: 0.94rem;
   font-weight: 500;
   line-height: 1.2;
   text-align: left;
 }
 
 .dashboard-signed-out-login:hover {
-  color: #000;
+  background: #000;
+  color: #fff;
 }
 
 .dashboard-signed-out-login:disabled {
-  color: rgba(38, 38, 38, 0.34);
+  border-color: rgba(38, 38, 38, 0.18);
+  background: rgba(38, 38, 38, 0.18);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .dashboard-signed-out-login svg {
@@ -1003,79 +1007,6 @@
     opacity: 1;
     transform: translateY(-0.16rem);
   }
-}
-
-.dashboard-signed-out-assistant-page {
-  align-items: stretch;
-  grid-template-columns: minmax(1rem, 0.7fr) minmax(0, 52rem) minmax(1rem, 0.7fr);
-}
-
-.dashboard-signed-out-assistant-page .dashboard-assistant-thread {
-  grid-column: 1 / -1;
-}
-
-.dashboard-signed-out-book {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(0.9rem, 2.2vw, 1.6rem);
-  padding: clamp(1.25rem, 3vw, 2.6rem) 0;
-}
-
-.dashboard-signed-out-copy {
-  width: min(36rem, 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.7rem;
-  text-align: center;
-}
-
-.dashboard-signed-out-kicker {
-  margin: 0;
-  color: rgba(38, 38, 38, 0.48);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.dashboard-signed-out-copy h1 {
-  max-width: 10ch;
-  margin: 0;
-  color: var(--dashboard-ink-strong);
-  font-family: "Newsreader", ui-serif, Georgia, serif;
-  font-size: clamp(3.6rem, 7.2vw, 6.8rem);
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 0.86;
-}
-
-.dashboard-signed-out-copy p:not(.dashboard-signed-out-kicker) {
-  max-width: 31rem;
-  margin: 0;
-  color: var(--dashboard-ink-soft);
-  font-size: clamp(0.98rem, 1.2vw, 1.12rem);
-  line-height: 1.55;
-}
-
-.dashboard-signed-out-figure {
-  order: -1;
-  width: min(46rem, 88%);
-  opacity: 0.96;
-  pointer-events: none;
-}
-
-.dashboard-signed-out-figure img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 48svh;
-  object-fit: contain;
-  filter: drop-shadow(0 28px 42px rgba(38, 38, 38, 0.1));
 }
 
 .dashboard-shell .aui-composer-send {

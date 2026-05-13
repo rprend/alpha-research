@@ -4578,26 +4578,25 @@ function DashboardSidebar({
 }
 
 function SignedOutAssistantPage() {
+  const messages = useMemo<ThreadMessage[]>(() => [], [])
+  const runtime = useExternalStoreRuntime({
+    isRunning: false,
+    messages,
+    onNew: async () => {
+      beginDashboardLogin()
+    },
+  })
+
   return (
-    <main className="dashboard-assistant-page dashboard-signed-out-assistant-page">
+    <main className="dashboard-assistant-page">
       <section className="dashboard-assistant-thread">
-        <div className="dashboard-signed-out-book">
-          <div className="dashboard-signed-out-copy">
-            <p className="dashboard-signed-out-kicker">Signed out</p>
-            <h1>Alpha Book</h1>
-            <p>
-              Sign in to continue with your datasets, remote runs, and research chats.
-            </p>
-          </div>
-          <div className="dashboard-signed-out-figure" aria-hidden="true">
-            <img
-              src="/alpha-book-man.png"
-              alt=""
-              width="1456"
-              height="816"
-            />
-          </div>
-        </div>
+        <AssistantRuntimeProvider runtime={runtime}>
+          <Thread
+            welcomeTitle="What do you want to research?"
+            welcomeDescription=""
+            welcomeImageSrc="/alpha-book-man.png"
+          />
+        </AssistantRuntimeProvider>
       </section>
     </main>
   )
@@ -4713,7 +4712,7 @@ function DashboardApp({
 
   const activeRun = route.runId ? runs.find((run) => run.id === route.runId) ?? null : null
   const activeDataset = route.datasetId ? datasets.find((dataset) => dataset.id === route.datasetId) ?? null : null
-  const showResearchChats = !signedOut
+  const showResearchChats = true
   const [billingLimitState, setBillingLimitState] = useState<BillingLimitState | null>(null)
   const [isStartingCheckout, setIsStartingCheckout] = useState(false)
   const [isManagingSubscription, setIsManagingSubscription] = useState(false)

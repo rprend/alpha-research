@@ -530,14 +530,12 @@ async function assertSignedOutDashboardGate() {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?logged_out=1&view=dashboard&datasetId=dataset-alpha-book`, { waitUntil: 'domcontentloaded' })
     await page.getByRole('link', { name: 'alpha research' }).waitFor({ timeout: 15000 })
-    await page.getByRole('heading', { name: 'Alpha Book' }).waitFor({ timeout: 15000 })
-    await page.getByText('Signed out', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'New chat' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'What do you want to research?' }).waitFor({ timeout: 15000 })
+    await page.getByLabel('Message input').waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'Sign in' }).waitFor({ timeout: 15000 })
-    if (await page.getByRole('button', { name: 'New chat' }).count()) {
-      throw new Error('Signed-out dashboard should not render empty chat navigation.')
-    }
-    if (await page.getByLabel('Message input').count()) {
-      throw new Error('Signed-out dashboard should not render a disabled composer.')
+    if (await page.getByRole('heading', { name: 'Alpha Book' }).count()) {
+      throw new Error('Signed-out dashboard should not render a separate Alpha Book gate.')
     }
     if (await page.getByRole('button', { name: /Datasets/ }).count()) {
       throw new Error('Signed-out dashboard should not render footer dataset navigation.')
