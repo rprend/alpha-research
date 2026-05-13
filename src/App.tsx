@@ -1901,26 +1901,6 @@ function formatBillingWindowDate(value: string | null) {
   return new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(timestamp)
 }
 
-function describeSignedOutDestination() {
-  const route = getDashboardRoute()
-  if (route.runId) {
-    return 'your run'
-  }
-  if (route.datasetId) {
-    return 'your dataset'
-  }
-  if (route.sessionId) {
-    return 'your research session'
-  }
-  if (route.view === 'datasets') {
-    return 'your datasets'
-  }
-  if (route.view === 'runs') {
-    return 'your runs'
-  }
-  return 'your dashboard'
-}
-
 function normalizeDatasetsPayload(payload: unknown): DatasetRecord[] {
   if (Array.isArray(payload)) {
     return payload as DatasetRecord[]
@@ -4122,40 +4102,14 @@ function DashboardSignedOut({
 }: {
   session: SessionResponse
 }) {
-  const destinationLabel = describeSignedOutDestination()
-
   return (
-    <div className="flex min-h-svh flex-col bg-background">
-      <header className="border-b border-border px-4 py-4 md:px-8">
-        <img
-          className="block h-[29px] w-36 object-contain object-left"
-          src="/alpha-research-wordmark.png"
-          alt="Alpha Research"
-          width="1505"
-          height="300"
-        />
-      </header>
-      <main className="flex flex-1 items-center justify-center px-4 py-8 md:px-8">
-        <Empty className="w-full max-w-xl border-0 px-0 py-0">
-          <EmptyHeader>
-            <EmptyMedia variant="icon">
-              <Bot />
-            </EmptyMedia>
-            <EmptyTitle>Sign in to continue to {destinationLabel}</EmptyTitle>
-            <EmptyDescription>
-              {session.configured
-                ? `You're signed out. Sign in to keep going, and we'll bring you back to ${destinationLabel} after login.`
-                : session.error ?? 'Auth is not configured on this deployment.'}
-            </EmptyDescription>
-          </EmptyHeader>
-          <EmptyContent>
-            <Button onClick={beginDashboardLogin} disabled={!session.configured}>
-              Sign in
-            </Button>
-          </EmptyContent>
-        </Empty>
-      </main>
-    </div>
+    <DashboardApp
+      session={session}
+      datasets={[]}
+      runs={[]}
+      sessions={[]}
+      signedOut
+    />
   )
 }
 
@@ -4258,6 +4212,7 @@ function DashboardSidebar({
   recentAssistantSessions,
   showResearchChats,
   onOpenPaywall,
+  signedOut = false,
 }: {
   route: DashboardRouteState
   session: SessionResponse
@@ -4269,6 +4224,7 @@ function DashboardSidebar({
   }>
   showResearchChats: boolean
   onOpenPaywall: () => void
+  signedOut?: boolean
 }) {
   const { isMobile, setOpenMobile } = useSidebar()
   const isActiveSessionRun = (chatSession: { run?: RunRecord }) =>
@@ -4389,45 +4345,79 @@ function DashboardSidebar({
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button
-              variant="ghost"
-              className="dashboard-account-button flex h-auto w-full min-w-0 items-center justify-start overflow-hidden rounded-xl px-3 py-3 text-left hover:bg-sidebar-accent/60"
-            >
-              <div className="flex min-w-0 flex-col items-start">
-                <span className="truncate text-base font-normal normal-case tracking-normal text-foreground/90">
-                  {session.user?.email ?? 'Account'}
+        {signedOut ? null : (
+          <>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  className="dashboard-account-button flex h-auto w-full min-w-0 items-center justify-start overflow-hidden rounded-xl px-3 py-3 text-left hover:bg-sidebar-accent/60"
+                >
+                  <div className="flex min-w-0 flex-col items-start">
+                    <span className="truncate text-base font-normal normal-case tracking-normal text-foreground/90">
+                      {session.user?.email ?? 'Account'}
+                    </span>
+                  </div>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="rounded-none">
+                <DropdownMenuItem
+                  onClick={async () => {
+                    await fetch('/api/auth/logout', {
+                      method: 'POST',
+                      credentials: 'same-origin',
+                    })
+                    window.location.assign(getDashboardAuthReturnUrl({ loggedOut: true }))
+                  }}
+                >
+                  <LogOut />
+                  Log out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <button type="button" className="dashboard-upgrade-row" onClick={onOpenPaywall}>
+              <Zap aria-hidden="true" />
+              <span>Upgrade to Pro</span>
+              {session.billing ? (
+                <span className="dashboard-upgrade-usage">
+                  {formatCompactCreditAmount(session.billing.usage.remainingCredits)} left
                 </span>
-              </div>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="rounded-none">
-            <DropdownMenuItem
-              onClick={async () => {
-                await fetch('/api/auth/logout', {
-                  method: 'POST',
-                  credentials: 'same-origin',
-                })
-                window.location.assign(getDashboardAuthReturnUrl({ loggedOut: true }))
-              }}
-            >
-              <LogOut />
-              Log out
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-        <button type="button" className="dashboard-upgrade-row" onClick={onOpenPaywall}>
-          <Zap aria-hidden="true" />
-          <span>Upgrade to Pro</span>
-          {session.billing ? (
-            <span className="dashboard-upgrade-usage">
-              {formatCompactCreditAmount(session.billing.usage.remainingCredits)} left
-            </span>
-          ) : null}
-        </button>
+              ) : null}
+            </button>
+          </>
+        )}
       </SidebarFooter>
     </Sidebar>
+  )
+}
+
+function SignedOutAssistantPage({
+  session,
+}: {
+  session: SessionResponse
+}) {
+  return (
+    <main className="dashboard-assistant-page dashboard-signed-out-assistant-page">
+      <section className="dashboard-assistant-thread">
+        <div className="dashboard-signed-out-composer-wrap">
+          <div className="dashboard-signed-out-composer" data-slot="aui_composer-shell">
+            <textarea
+              aria-label="Message input"
+              className="dashboard-signed-out-input"
+              placeholder="What do you want to research?"
+              rows={1}
+              readOnly
+              onFocus={(event) => event.currentTarget.blur()}
+            />
+            <div className="dashboard-signed-out-actions">
+              <Button onClick={beginDashboardLogin} disabled={!session.configured}>
+                Sign in
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   )
 }
 
@@ -4438,6 +4428,7 @@ function DashboardApp({
   sessions,
   dataError,
   isLoading,
+  signedOut = false,
 }: {
   session: SessionResponse
   datasets: DatasetRecord[]
@@ -4445,6 +4436,7 @@ function DashboardApp({
   sessions: StoredAssistantSession[]
   dataError?: string | null
   isLoading?: boolean
+  signedOut?: boolean
 }) {
   const datasetLookup = useMemo(
     () => new Map(datasets.map((dataset) => [dataset.id, dataset])),
@@ -4507,7 +4499,9 @@ function DashboardApp({
 
   let content: ReactNode
 
-  if (route.view === 'runs' && activeRun) {
+  if (signedOut) {
+    content = <SignedOutAssistantPage session={session} />
+  } else if (route.view === 'runs' && activeRun) {
     content = <RunDetailPage run={activeRun} dataset={datasetLookup.get(activeRun.datasetId)} />
   } else if (route.view === 'terminal-sessions' && route.sessionId) {
     const activeSession = sessions.find((currentSession) => currentSession.id === route.sessionId) ?? null
@@ -4626,6 +4620,7 @@ function DashboardApp({
         recentAssistantSessions={recentAssistantSessions}
         showResearchChats={showResearchChats}
         onOpenPaywall={openBillingDialog}
+        signedOut={signedOut}
       />
 
       <SidebarInset className="dashboard-main-inset min-h-0 overflow-hidden overscroll-none bg-background">

@@ -477,11 +477,15 @@ async function assertSignedOutDashboardGate() {
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?logged_out=1&view=dashboard&datasetId=dataset-alpha-book`, { waitUntil: 'domcontentloaded' })
-    await page.getByText('Sign in to continue to your dataset', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText("You're signed out. Sign in to keep going, and we'll bring you back to your dataset after login.", { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('link', { name: 'alpha research' }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'New chat' }).waitFor({ timeout: 15000 })
+    await page.getByLabel('Message input').waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'Sign in' }).waitFor({ timeout: 15000 })
-    if (await page.getByText('Chats', { exact: true }).count()) {
-      throw new Error('Signed-out dashboard gate should not expose workspace sidebar chrome.')
+    if (await page.getByText('Sign in to continue', { exact: false }).count()) {
+      throw new Error('Signed-out dashboard should not render the old explanatory gate.')
+    }
+    if (await page.locator('[data-slot="empty-media"]').count()) {
+      throw new Error('Signed-out dashboard should not render an empty-state icon.')
     }
     const [request] = await Promise.all([
       page.waitForRequest((candidate) => candidate.url().includes('/api/auth/start')),

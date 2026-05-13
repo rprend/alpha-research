@@ -746,6 +746,60 @@
   max-width: min(44rem, 100%);
 }
 
+.dashboard-signed-out-assistant-page {
+  align-items: stretch;
+}
+
+.dashboard-signed-out-composer-wrap {
+  min-height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 3rem 0 1.5rem;
+}
+
+.dashboard-signed-out-composer {
+  width: min(44rem, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1px solid var(--dashboard-shell-border);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 10px;
+  box-shadow: var(--dashboard-shadow);
+}
+
+.dashboard-signed-out-input {
+  min-height: 2.5rem;
+  max-height: 8rem;
+  width: 100%;
+  resize: none;
+  border: 0;
+  background: transparent;
+  padding: 0.25rem 0.4375rem;
+  color: var(--dashboard-ink);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  outline: none;
+}
+
+.dashboard-signed-out-input::placeholder {
+  color: rgba(38, 38, 38, 0.48);
+}
+
+.dashboard-signed-out-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dashboard-signed-out-actions .button,
+.dashboard-signed-out-actions button {
+  border-radius: 999px;
+  background: var(--dashboard-ink-strong);
+  color: #fff;
+}
+
 .dashboard-shell .aui-composer-send {
   background: var(--dashboard-ink-strong) !important;
   color: #fff !important;

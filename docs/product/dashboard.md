@@ -85,11 +85,11 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 ## Signed-Out Gate Expectations
 
 - A signed-out dashboard visit should read as a recoverable gate, not a broken or partially loaded workspace.
-- The title and supporting copy should say plainly that the user is signed out and that sign-in is required.
-- The primary action should be one clear `Sign in` button.
+- Signed-out dashboard visits should stay inside the main product shell, with the sidebar and new-chat composer visible.
+- The primary action should be one clear `Sign in` button on the new-chat page.
 - Signed-out copy should avoid internal terms such as RESEARCH CLI sessions or terminal history unless that context is essential to the recovery step.
 - If the user opened a deep link to a dashboard, run, dataset, or session, the sign-in flow should preserve that destination and say so in plain language.
-- Signed-out views should mute or remove workspace navigation chrome that implies the dashboard loaded successfully.
+- Signed-out views should avoid extra labels, icons, and explanatory blocks that make the state feel separate from the product.
 - The signed-out path should not probe protected dashboard data endpoints before redirecting or rendering the gate.
 
 ## Public Homepage Expectations
