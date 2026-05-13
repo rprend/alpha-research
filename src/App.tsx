@@ -4673,17 +4673,6 @@ function DashboardSettingsPage({
             </div>
           </div>
         </section>
-        <section className="dashboard-settings-section" aria-labelledby="settings-workspace-heading">
-          <div className="dashboard-settings-section-heading">
-            <h2 id="settings-workspace-heading">Workspace</h2>
-          </div>
-          <div className="dashboard-settings-row">
-            <div>
-              <h3>Default view</h3>
-              <p>Research chat</p>
-            </div>
-          </div>
-        </section>
       </section>
     </main>
   )

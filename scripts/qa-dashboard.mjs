@@ -68,7 +68,12 @@ async function assertRenderedOrientation() {
     await page.getByText('Manage account access, subscription, and workspace defaults.', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByRole('heading', { name: 'Account' }).waitFor({ timeout: 15000 })
     await page.getByRole('heading', { name: 'Subscription' }).waitFor({ timeout: 15000 })
-    await page.getByRole('heading', { name: 'Workspace' }).waitFor({ timeout: 15000 })
+    if (await page.getByRole('heading', { name: 'Workspace' }).count()) {
+      throw new Error('Settings page should not render the removed Workspace section.')
+    }
+    if (await page.getByText('Default view', { exact: true }).count()) {
+      throw new Error('Settings page should not render the removed default view row.')
+    }
     await page.locator('.dashboard-settings-section', { hasText: 'Subscription' }).getByRole('button', { name: 'Upgrade to Pro' }).waitFor({ timeout: 15000 })
     if (await page.locator('.dashboard-settings-page [data-slot="card"]').count()) {
       throw new Error('Settings page should use row sections, not card surfaces.')
