@@ -4716,21 +4716,8 @@ function DashboardApp({
   } else if (route.view === 'datasets' && route.datasetId && !dataError) {
     content = <main className="min-h-0 flex-1 overflow-y-auto px-4 py-8 md:px-8" />
   } else if (route.view === 'datasets') {
-    const hasDatasets = datasets.length > 0
     content = (
-      <main className="flex flex-1 min-w-0 flex-col gap-10 overflow-y-auto px-4 py-10 md:px-8">
-        <section className="mx-auto flex w-full max-w-5xl flex-col gap-3">
-          <h1 className="text-4xl font-semibold tracking-normal">Datasets</h1>
-          <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-            {dataError
-              ? 'You are signed in, but Alpha Research cannot verify dataset availability until dashboard data loads successfully.'
-              : isLoading
-              ? 'Loading available datasets, coverage, and readiness.'
-              : hasDatasets
-              ? 'See what data is available, what each dataset covers, and whether it is ready to use. Open any dataset for provenance, schema, profile details, and generated briefings.'
-              : 'New workspaces start here. Add one file or source plus a short description, then come back here to inspect readiness, provenance, and the first research-ready dataset.'}
-          </p>
-        </section>
+      <main className="flex flex-1 min-w-0 flex-col overflow-y-auto px-4 py-8 md:px-8">
         <section>
           <DatasetFeed
             datasets={datasets}
