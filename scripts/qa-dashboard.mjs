@@ -56,6 +56,35 @@ async function assertRenderedOrientation() {
     await page.getByPlaceholder('Send a message...').waitFor({ timeout: 15000 })
     await page.getByText('harness@alpharesearch.local', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: /Upgrade to Pro/ }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: /Upgrade to Pro/ }).click()
+    await page.getByRole('dialog', { name: 'Upgrade to Pro' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Choose your plan' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Free usage' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'For regular usage' }).waitFor({ timeout: 15000 })
+    await assertPageTextMissing(page, 'Free includes monthly usage for lighter research', 'Paywall should not render the removed explanatory sentence.')
+    const planColumnCount = await page.locator('.billing-plan-card').count()
+    if (planColumnCount !== 2) {
+      throw new Error(`Paywall should render exactly two tier columns, found ${planColumnCount}.`)
+    }
+    const paywallStyles = await page.locator('.billing-limit-panel').evaluate((panel) => {
+      const grid = panel.querySelector('.billing-plan-grid')
+      const cards = [...panel.querySelectorAll('.billing-plan-card')]
+      return {
+        panelBackground: getComputedStyle(panel).backgroundColor,
+        gridColumns: grid ? getComputedStyle(grid).gridTemplateColumns : '',
+        cardBackgrounds: cards.map((card) => getComputedStyle(card).backgroundColor),
+      }
+    })
+    if (!paywallStyles.gridColumns.includes('px') || paywallStyles.gridColumns.split(' ').length < 2) {
+      throw new Error(`Paywall tier cards should render as columns, got "${paywallStyles.gridColumns}".`)
+    }
+    if (paywallStyles.panelBackground !== 'rgb(255, 255, 255)') {
+      throw new Error(`Paywall panel should be opaque white, got "${paywallStyles.panelBackground}".`)
+    }
+    if (paywallStyles.cardBackgrounds.some((color) => color === 'rgba(0, 0, 0, 0)' || color === 'transparent')) {
+      throw new Error('Paywall tier cards should not be transparent.')
+    }
+    await page.locator('.billing-limit-close').click()
     await page.getByRole('button', { name: 'New chat' }).waitFor({ timeout: 15000 })
     await assertPageTextMissing(page, 'Show recent chats', 'Recent chats should be visible without a disclosure toggle.')
     await assertPageTextMissing(page, 'Hide recent chats', 'Recent chats should be visible without a disclosure toggle.')

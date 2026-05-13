@@ -8,6 +8,23 @@ export const harnessSession = {
   authenticated: true,
   configured: true,
   user: { email: 'harness@alpharesearch.local' },
+  billing: {
+    subscription: {
+      tier: 'free' as const,
+      status: 'active',
+      checkoutEligible: true,
+      cancelAtPeriodEnd: false,
+      currentPeriodStart: null,
+      currentPeriodEnd: null,
+    },
+    usage: {
+      monthlyCredits: 1_000_000,
+      usedCredits: 0,
+      remainingCredits: 1_000_000,
+      windowStartedAt: iso(60 * 24 * 7),
+      windowEndsAt: '2026-05-13T16:00:00.000Z',
+    },
+  },
 }
 
 export const harnessDatasets = [

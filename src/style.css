@@ -716,8 +716,8 @@
 }
 
 .dashboard-assistant-page [data-slot="aui_message-group"] {
-  gap: 3rem;
-  margin-bottom: 8rem;
+  gap: 1.25rem;
+  margin-bottom: 6rem;
 }
 
 .dashboard-assistant-page [data-slot="aui_assistant-message-root"],
@@ -726,8 +726,8 @@
   margin-right: auto;
   width: 100%;
   max-width: var(--thread-max-width);
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
   font-size: 1.04rem;
   line-height: 1.5;
 }
@@ -737,20 +737,21 @@
 }
 
 .dashboard-assistant-page [data-slot="aui_user-message-root"] {
-  display: block;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  justify-content: flex-end;
 }
 
-.dashboard-assistant-page .aui-user-message-content-wrapper {
-  max-width: 100%;
+.dashboard-assistant-page .aui-user-message-stack {
+  max-width: min(82%, 34rem);
   min-width: 0;
+  align-items: flex-end;
 }
 
 .dashboard-assistant-page .aui-user-message-content {
-  background: transparent !important;
-  border-radius: 0;
-  padding: 0;
+  background: #f0f0ee !important;
+  border-radius: 1.125rem;
+  padding: 0.55rem 0.85rem;
   color: var(--dashboard-ink);
 }
 
@@ -772,6 +773,43 @@
 
 .dashboard-assistant-page .aui-thread-viewport-footer {
   max-width: min(44rem, 100%);
+}
+
+.dashboard-assistant-page [data-slot="aui_running-indicator"] {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: var(--thread-max-width);
+}
+
+.dashboard-assistant-page .aui-running-dot {
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--foreground) 48%, transparent);
+  animation: aui-running-dot 1.15s ease-in-out infinite;
+}
+
+.dashboard-assistant-page .aui-running-dot:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.dashboard-assistant-page .aui-running-dot:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+@keyframes aui-running-dot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+
+  40% {
+    opacity: 1;
+    transform: translateY(-0.16rem);
+  }
 }
 
 .dashboard-signed-out-assistant-page {
@@ -1320,19 +1358,19 @@
   position: absolute;
   inset: 0;
   border: 0;
-  background: rgba(23, 23, 23, 0.38);
-  backdrop-filter: blur(2px);
+  background: rgba(23, 23, 23, 0.52);
+  backdrop-filter: blur(3px);
 }
 
 .billing-limit-panel {
   position: relative;
-  width: min(860px, calc(100vw - 32px));
-  border: 1px solid hsl(var(--border));
-  border-radius: 0;
-  background: hsl(var(--background));
-  color: hsl(var(--foreground));
-  padding: 28px;
-  box-shadow: 0 32px 90px rgba(28, 22, 17, 0.24);
+  width: min(920px, calc(100vw - 32px));
+  border: 1px solid #d8d8d8;
+  border-radius: 2px;
+  background: #fff;
+  color: #171717;
+  padding: 32px;
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.34);
 }
 
 .billing-limit-header {
@@ -1374,16 +1412,9 @@
 }
 
 .billing-limit-copy {
-  margin-top: 20px;
+  margin-top: 24px;
   display: grid;
-  gap: 20px;
-}
-
-.billing-limit-copy p {
-  margin: 0;
-  font-size: 0.98rem;
-  line-height: 1.6;
-  color: hsl(var(--foreground));
+  gap: 18px;
 }
 
 .billing-limit-summary {
@@ -1394,7 +1425,7 @@
 
 .billing-limit-summary span {
   display: inline-block;
-  color: hsl(var(--foreground));
+  color: #171717;
   font-size: 0.88rem;
   font-weight: 600;
 }
@@ -1402,23 +1433,29 @@
 .billing-plan-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: 18px;
 }
 
 .billing-plan-card {
   display: flex;
-  min-height: 210px;
+  min-height: 250px;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   align-content: start;
-  padding: 22px;
-  border: 1px solid hsl(var(--border));
-  background: hsl(var(--card));
+  padding: 24px;
+  border: 1px solid #d4d4d4;
+  background: #fff;
+  box-shadow: 0 1px 0 rgba(23, 23, 23, 0.06);
 }
 
 .billing-plan-card.is-current {
-  border-color: hsl(var(--foreground) / 0.34);
-  box-shadow: inset 0 0 0 1px hsl(var(--foreground) / 0.16);
+  border-color: #171717;
+  box-shadow: inset 0 0 0 1px #171717;
+}
+
+.billing-plan-card-pro {
+  border-color: #171717;
+  background: #fafafa;
 }
 
 .billing-plan-card h3,
@@ -1428,18 +1465,19 @@
 }
 
 .billing-plan-card h3 {
-  font-size: 1.45rem;
+  font-size: 1.35rem;
   line-height: 1.12;
+  font-weight: 650;
   letter-spacing: 0;
 }
 
 .billing-plan-price {
-  font-size: 1.02rem;
+  font-size: 1.05rem;
   font-weight: 700;
 }
 
 .billing-plan-allowance {
-  color: hsl(var(--muted-foreground));
+  color: #525252;
   font-size: 0.95rem;
 }
 
@@ -1461,9 +1499,9 @@
 }
 
 .billing-limit-button-primary {
-  border: 1px solid hsl(var(--primary));
-  background: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  border: 1px solid #171717;
+  background: #171717;
+  color: #fff;
 }
 
 @media (max-width: 700px) {

@@ -1382,7 +1382,7 @@ function formatSessionBody(entry: SessionEntry) {
       return `### ${entry.title}\n\n${metadataLines.join('\n\n')}\n\n${body}`
     }
   }
-  if (entry.title) {
+  if (entry.title && entry.title !== 'Assistant') {
     return `### ${entry.title}\n\n${body}`
   }
   return body
@@ -4197,11 +4197,6 @@ function BillingLimitDialog({
           </button>
         </div>
         <div className="billing-limit-copy">
-          <p>
-            {blocked
-              ? 'Subscribe to Alpha Research Pro for pro access to the research dashboard and remote agent runs.'
-              : 'Free includes monthly usage for lighter research. Pro unlocks more room for regular, heavier sessions.'}
-          </p>
           {currentUsageSummary || windowEndDate ? (
             <div className="billing-limit-summary">
               {currentUsageSummary ? <span>{currentUsageSummary}</span> : null}
