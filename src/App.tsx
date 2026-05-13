@@ -4358,7 +4358,19 @@ function DashboardSidebar({
         ) : null}
       </SidebarContent>
       <SidebarFooter className="dashboard-sidebar-footer p-3">
-        {signedOut ? null : (
+        {signedOut ? (
+          <div className="dashboard-settings-footer dashboard-signed-out-footer">
+            <button
+              type="button"
+              className="dashboard-signed-out-login"
+              onClick={beginDashboardLogin}
+              disabled={!session.configured}
+            >
+              <UserCircle aria-hidden="true" />
+              <span>Sign in</span>
+            </button>
+          </div>
+        ) : (
           <div className="dashboard-settings-footer">
             <div className="dashboard-settings-actions">
               <DropdownMenu>
@@ -4448,29 +4460,25 @@ function DashboardSidebar({
   )
 }
 
-function SignedOutAssistantPage({
-  session,
-}: {
-  session: SessionResponse
-}) {
+function SignedOutAssistantPage() {
   return (
     <main className="dashboard-assistant-page dashboard-signed-out-assistant-page">
       <section className="dashboard-assistant-thread">
-        <div className="dashboard-signed-out-composer-wrap">
-          <div className="dashboard-signed-out-composer" data-slot="aui_composer-shell">
-            <textarea
-              aria-label="Message input"
-              className="dashboard-signed-out-input"
-              placeholder="What do you want to research?"
-              rows={1}
-              readOnly
-              onFocus={(event) => event.currentTarget.blur()}
+        <div className="dashboard-signed-out-book">
+          <div className="dashboard-signed-out-copy">
+            <p className="dashboard-signed-out-kicker">Signed out</p>
+            <h1>Alpha Book</h1>
+            <p>
+              Sign in to continue with your datasets, remote runs, and research chats.
+            </p>
+          </div>
+          <div className="dashboard-signed-out-figure" aria-hidden="true">
+            <img
+              src="/alpha-book-man.png"
+              alt=""
+              width="1456"
+              height="816"
             />
-            <div className="dashboard-signed-out-actions">
-              <Button onClick={beginDashboardLogin} disabled={!session.configured}>
-                Sign in
-              </Button>
-            </div>
           </div>
         </div>
       </section>
@@ -4588,7 +4596,7 @@ function DashboardApp({
 
   const activeRun = route.runId ? runs.find((run) => run.id === route.runId) ?? null : null
   const activeDataset = route.datasetId ? datasets.find((dataset) => dataset.id === route.datasetId) ?? null : null
-  const showResearchChats = true
+  const showResearchChats = !signedOut
   const [billingLimitState, setBillingLimitState] = useState<BillingLimitState | null>(null)
   const [isStartingCheckout, setIsStartingCheckout] = useState(false)
   const [isManagingSubscription, setIsManagingSubscription] = useState(false)
@@ -4645,7 +4653,7 @@ function DashboardApp({
   let content: ReactNode
 
   if (signedOut) {
-    content = <SignedOutAssistantPage session={session} />
+    content = <SignedOutAssistantPage />
   } else if (route.view === 'runs' && activeRun) {
     content = <RunDetailPage run={activeRun} dataset={datasetLookup.get(activeRun.datasetId)} />
   } else if (route.view === 'terminal-sessions' && route.sessionId) {
