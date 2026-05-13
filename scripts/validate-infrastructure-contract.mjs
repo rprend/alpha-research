@@ -122,8 +122,10 @@ assert(
     workerSource.includes('billing-check') &&
     workerSource.includes('billing-events') &&
     controlPlaneSource.includes('/billing-events') &&
-    controlPlaneSource.includes('this.billingOverview(run.ownerEmail)'),
-  'Remote Codex OpenAI traffic must be proxied and billed against the run owner.',
+    controlPlaneSource.includes('this.billingOverviewForRun(run)') &&
+    controlPlaneSource.includes('canonical-dataset-bootstrap') &&
+    controlPlaneSource.includes('PLATFORM_DATASET_OWNER_EMAIL'),
+  'Remote Codex OpenAI traffic must be proxied and billed against the run owner or service-owned run allowance.',
 )
 
 assert(

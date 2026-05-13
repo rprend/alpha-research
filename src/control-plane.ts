@@ -732,6 +732,32 @@ export class ControlPlane {
     }
   }
 
+  private billingOverviewForRun(run: RunRecord, now = Date.now()) {
+    if (run.ownerEmail === PLATFORM_DATASET_OWNER_EMAIL && run.type === 'canonical-dataset-bootstrap') {
+      const window = billingWindow(now)
+      const spendRow = this.rows(
+        'SELECT COALESCE(SUM(cost_usd), 0) AS total_cost_usd FROM billing_events WHERE user_id = ? AND created_at >= ?',
+        run.ownerEmail,
+        window.startedAt,
+      )[0]
+      const spendUsd = Number(spendRow?.total_cost_usd ?? 0)
+      const usedCredits = creditsFromUsd(Number.isFinite(spendUsd) ? spendUsd : 0)
+      return {
+        allowed: true,
+        tier: 'studio' as const,
+        subscriptionStatus: 'active' as const,
+        limitCredits: Number.MAX_SAFE_INTEGER,
+        usedCredits,
+        remainingCredits: Number.MAX_SAFE_INTEGER,
+        spendUsd,
+        windowStartedAt: window.startedAt,
+        windowEndsAt: window.endsAt,
+        checkoutEligible: false,
+      }
+    }
+    return this.billingOverview(run.ownerEmail, now)
+  }
+
   private trackBillingEvent(userId: string, event: BillingUsageEventInput & { sessionId?: string | null; runId?: string | null; source?: string | null }) {
     const inputTokens = Math.max(0, Math.trunc(event.inputTokens ?? 0))
     const outputTokens = Math.max(0, Math.trunc(event.outputTokens ?? 0))
@@ -3120,7 +3146,7 @@ export class ControlPlane {
       if (!run) {
         return respondJson({ error: 'Run not found' }, 404)
       }
-      return respondJson({ overview: this.billingOverview(run.ownerEmail) })
+      return respondJson({ overview: this.billingOverviewForRun(run) })
     }
 
     const internalBillingEventMatch = pathname.match(/^\/internal\/runs\/([^/]+)\/billing-events$/u)
