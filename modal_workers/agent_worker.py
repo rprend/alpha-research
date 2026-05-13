@@ -17,6 +17,7 @@ APP_NAME = "alpha-research-agent-workers"
 DATASET_VOLUME_NAME = os.environ.get("MODAL_DATASET_VOLUME_NAME", "agent-dataset")
 RESULTS_VOLUME_NAME = os.environ.get("MODAL_RESULTS_VOLUME_NAME", "agent-results")
 SECRET_NAME = os.environ.get("MODAL_AGENT_SECRET_NAME", "agent-keys")
+CANONICAL_SLACK_SECRET_NAME = os.environ.get("MODAL_CANONICAL_SLACK_SECRET_NAME", "canonical-dataset-slack")
 
 DATASET_MOUNT = Path("/data")
 RESULTS_MOUNT = Path("/results")
@@ -27,6 +28,10 @@ app = modal.App(APP_NAME)
 
 dataset_volume = modal.Volume.from_name(DATASET_VOLUME_NAME, create_if_missing=True)
 results_volume = modal.Volume.from_name(RESULTS_VOLUME_NAME, create_if_missing=True)
+worker_secrets = [
+    modal.Secret.from_name(SECRET_NAME),
+    modal.Secret.from_name(CANONICAL_SLACK_SECRET_NAME),
+]
 
 image = (
     modal.Image.debian_slim(python_version="3.12")
@@ -175,7 +180,7 @@ def _run_codex_job(job_id: str, prompt: str, extra_context: dict[str, Any] | Non
         str(DATASET_MOUNT): dataset_volume.read_only(),
         str(RESULTS_MOUNT): results_volume,
     },
-    secrets=[modal.Secret.from_name(SECRET_NAME)],
+    secrets=worker_secrets,
     cpu=4,
     memory=8192,
     timeout=3600,
@@ -191,7 +196,7 @@ def run_codex_job(job_id: str, prompt: str, extra_context: dict[str, Any] | None
         str(DATASET_MOUNT): dataset_volume,
         str(RESULTS_MOUNT): results_volume,
     },
-    secrets=[modal.Secret.from_name(SECRET_NAME)],
+    secrets=worker_secrets,
     cpu=4,
     memory=8192,
     timeout=7200,
@@ -201,7 +206,7 @@ def run_dataset_job(job_id: str, prompt: str, extra_context: dict[str, Any] | No
     return _run_codex_job(job_id, prompt, extra_context)
 
 
-@app.function(image=image, secrets=[modal.Secret.from_name(SECRET_NAME)])
+@app.function(image=image, secrets=worker_secrets)
 @modal.fastapi_endpoint(method="POST")
 async def submit_codex_job(request: Request) -> dict[str, Any]:
     token = os.environ.get("MODAL_SUBMIT_TOKEN", "").strip()

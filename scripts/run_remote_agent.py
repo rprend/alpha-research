@@ -276,7 +276,6 @@ def build_remote_agent_prompt():
         required_artifacts = RUN_CONFIG.get("requiredArtifacts")
         if not isinstance(required_artifacts, list) or not required_artifacts:
             required_artifacts = [
-                "work.md",
                 "dataset_briefing.md",
                 "improvement_plan.md",
                 "improvement_result.json",
@@ -294,7 +293,7 @@ def build_remote_agent_prompt():
                 f"Write the dataset manifest to {MANIFEST_PATH}.",
                 "This is employee-side dataset maintenance, not an end-user research run.",
                 "Do not write report.html unless it is explicitly requested; dataset_briefing.md is the primary human-readable deliverable.",
-                "Keep work.md updated as your running log: what you downloaded, what you skipped, what failed, and what remains.",
+                "work.md is optional bookkeeping for bootstrap jobs; do not let it displace the required dataset briefing and inventory artifacts.",
                 f"Before stopping, write these artifacts exactly: {', '.join(str(item) for item in required_artifacts)}.",
                 "Send Slack progress/final briefings if CANONICAL_DATASET_SLACK_WEBHOOK_URL is present.",
                 "Never write secrets into prompts, logs, artifacts, transcripts, or mounted dataset files.",
@@ -426,8 +425,8 @@ def expected_primary_artifact_name():
 def build_codex_goal():
     if RUN_TYPE == "canonical-dataset-bootstrap":
         return (
-            "/goal Complete the canonical dataset bootstrap. Iterate, keep work.md current, "
-            "and stop only after writing dataset_briefing.md and the required inventory artifacts."
+            "/goal Complete the canonical dataset bootstrap. Iterate until dataset_briefing.md "
+            "and the required inventory artifacts are written."
         )
     return (
         "/goal Complete the research run. Iterate, keep work.md current, "
@@ -569,7 +568,7 @@ def main():
     expected_primary = expected_primary_artifact_name()
     if not any(path.name == expected_primary for path in deliverables):
         raise RuntimeError(f"Remote agent run completed without required primary artifact: {expected_primary}")
-    if not any(path.name == "work.md" for path in deliverables):
+    if RUN_TYPE != "canonical-dataset-bootstrap" and not any(path.name == "work.md" for path in deliverables):
         raise RuntimeError("Remote agent run completed without required ongoing work log: work.md")
     required_artifacts = RUN_CONFIG.get("requiredArtifacts")
     if RUN_TYPE == "canonical-dataset-bootstrap" and isinstance(required_artifacts, list):

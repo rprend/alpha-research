@@ -82,11 +82,13 @@ for (const token of [
 for (const token of [
   'Volume.from_name(DATASET_VOLUME_NAME',
   'Volume.from_name(RESULTS_VOLUME_NAME',
+  'CANONICAL_SLACK_SECRET_NAME',
   'dataset_volume.read_only()',
   '"/data"',
   '"/results"',
   '"/workspace"',
   'Secret.from_name(SECRET_NAME)',
+  'Secret.from_name(CANONICAL_SLACK_SECRET_NAME)',
   'OPENAI_API_KEY',
   'run_codex_job',
   'run_dataset_job',

@@ -165,7 +165,6 @@ type Env = {
 
 const PLATFORM_DATASET_OWNER_EMAIL = 'platform@alpharesearch.nyc'
 const CANONICAL_BOOTSTRAP_REQUIRED_ARTIFACTS = [
-  'work.md',
   'dataset_briefing.md',
   'improvement_plan.md',
   'improvement_result.json',
