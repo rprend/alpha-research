@@ -118,6 +118,12 @@ assert(
   'Assistant title generation must run outside the critical path with Worker waitUntil.',
 )
 assert(
+  workerSource.includes('RESEARCH_AGENT_REASONING_EFFORT') &&
+    workerSource.includes("env.RESEARCH_AGENT_MODEL ?? 'gpt-5.2'") &&
+    workerSource.includes("model.includes('gpt-5.2') || model.includes('gpt-5.1') ? 'none' : 'minimal'"),
+  'Assistant should default to the lowest supported reasoning effort for lower first-token latency.',
+)
+assert(
   workerSource.includes('resetPreviousResponseId') &&
     workerSource.includes('compacted_session_history') &&
     workerSource.includes('SESSION_CONTEXT_RECENT_ENTRY_LIMIT'),
