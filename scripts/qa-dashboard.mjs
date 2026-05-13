@@ -65,7 +65,14 @@ async function assertRenderedOrientation() {
     await page.getByText('100% usage remaining', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByRole('menuitem', { name: 'Settings' }).click()
     await page.getByRole('heading', { name: 'Settings' }).waitFor({ timeout: 15000 })
-    await page.getByText('Account and plan details for this dashboard.', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Manage account access, subscription, and workspace defaults.', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Account' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Subscription' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Workspace' }).waitFor({ timeout: 15000 })
+    await page.locator('.dashboard-settings-section', { hasText: 'Subscription' }).getByRole('button', { name: 'Upgrade to Pro' }).waitFor({ timeout: 15000 })
+    if (await page.locator('.dashboard-settings-page [data-slot="card"]').count()) {
+      throw new Error('Settings page should use row sections, not card surfaces.')
+    }
     await page.getByRole('button', { name: 'New chat' }).click()
     await page.getByRole('heading', { name: 'What do you want to research?' }).waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: /Upgrade to Pro/ }).waitFor({ timeout: 15000 })

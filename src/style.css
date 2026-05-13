@@ -734,6 +734,104 @@
   backdrop-filter: blur(14px);
 }
 
+.dashboard-settings-page {
+  background: transparent;
+}
+
+.dashboard-settings-shell {
+  width: 100%;
+  max-width: 64rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.dashboard-settings-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  border-bottom: 1px solid var(--dashboard-shell-border);
+  padding-bottom: 1.25rem;
+}
+
+.dashboard-settings-heading h1 {
+  margin: 0;
+  color: var(--dashboard-ink);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.dashboard-settings-heading p {
+  max-width: 38rem;
+  margin: 0;
+  color: var(--dashboard-ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.dashboard-settings-section {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(38, 38, 38, 0.1);
+}
+
+.dashboard-settings-section-heading {
+  padding: 0.9rem 0 0.55rem;
+}
+
+.dashboard-settings-section-heading h2 {
+  margin: 0;
+  color: var(--dashboard-ink);
+  font-size: 0.82rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dashboard-settings-row {
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid rgba(38, 38, 38, 0.08);
+  padding: 0.85rem 0;
+}
+
+.dashboard-settings-row h3 {
+  margin: 0;
+  color: var(--dashboard-ink);
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.dashboard-settings-row p {
+  margin: 0.2rem 0 0;
+  color: var(--dashboard-ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.dashboard-settings-action {
+  flex: 0 0 auto;
+  border: 1px solid var(--dashboard-ink);
+  border-radius: 999px;
+  background: var(--dashboard-ink);
+  color: #fff;
+  padding: 0.55rem 0.9rem;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.dashboard-settings-action:disabled {
+  cursor: wait;
+  opacity: 0.58;
+}
+
 .dashboard-assistant-page {
   position: relative;
   min-height: 0;

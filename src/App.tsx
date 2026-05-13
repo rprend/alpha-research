@@ -1873,6 +1873,16 @@ async function createBillingCheckoutSession() {
   return payload
 }
 
+async function createBillingManageSession() {
+  const response = await fetch('/api/billing/manage', {
+    method: 'POST',
+    credentials: 'same-origin',
+  })
+  const payload = await response.json().catch(() => ({})) as { url?: string | null; error?: string }
+  if (!response.ok) throw new Error(payload.error ?? 'Could not open subscription management.')
+  return payload
+}
+
 function parseBillingLimitState(error: unknown): BillingLimitState | null {
   if (!(error instanceof Error)) return null
   const parsed = tryParseJson(error.message)
@@ -4457,37 +4467,72 @@ function SignedOutAssistantPage({
 
 function DashboardSettingsPage({
   session,
+  onManageSubscription,
+  isManagingSubscription,
 }: {
   session: SessionResponse
+  onManageSubscription: () => void
+  isManagingSubscription: boolean
 }) {
   const tierLabel = session.billing?.subscription.tier === 'studio' ? 'Pro' : 'Free'
   const usageLabel = formatUsageRemainingPercent(session.billing)
   const renewalLabel = formatBillingWindowDate(session.billing?.usage.windowEndsAt ?? null)
+  const subscriptionAction = session.billing?.subscription.checkoutEligible === false ? 'Manage subscription' : 'Upgrade to Pro'
 
   return (
-    <main className="flex min-h-0 flex-1 min-w-0 flex-col gap-6 overflow-y-auto px-4 py-6 md:px-8">
-      <section className="flex flex-col gap-2">
-        <h1 className="text-2xl font-medium tracking-normal">Settings</h1>
-        <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
-          Account and plan details for this dashboard.
-        </p>
-      </section>
-      <section className="grid gap-4 md:grid-cols-2">
-        <Card className="rounded-none border border-border bg-card py-0 shadow-none">
-          <CardContent className="flex flex-col gap-2 px-5 py-5">
-            <h2 className="text-sm font-semibold tracking-normal">Account</h2>
-            <p className="break-all text-sm text-muted-foreground">{session.user?.email ?? 'Signed in'}</p>
-          </CardContent>
-        </Card>
-        <Card className="rounded-none border border-border bg-card py-0 shadow-none">
-          <CardContent className="flex flex-col gap-2 px-5 py-5">
-            <h2 className="text-sm font-semibold tracking-normal">Plan</h2>
-            <p className="text-sm text-muted-foreground">{tierLabel}</p>
-            <p className="text-sm text-muted-foreground">
-              {usageLabel}{renewalLabel ? ` · Resets ${renewalLabel}` : ''}
-            </p>
-          </CardContent>
-        </Card>
+    <main className="dashboard-settings-page flex min-h-0 flex-1 min-w-0 flex-col overflow-y-auto px-4 py-6 md:px-8">
+      <section className="dashboard-settings-shell">
+        <div className="dashboard-settings-heading">
+          <h1>Settings</h1>
+          <p>Manage account access, subscription, and workspace defaults.</p>
+        </div>
+        <section className="dashboard-settings-section" aria-labelledby="settings-account-heading">
+          <div className="dashboard-settings-section-heading">
+            <h2 id="settings-account-heading">Account</h2>
+          </div>
+          <div className="dashboard-settings-row">
+            <div>
+              <h3>Email</h3>
+              <p>{session.user?.email ?? 'Signed in'}</p>
+            </div>
+          </div>
+        </section>
+        <section className="dashboard-settings-section" aria-labelledby="settings-subscription-heading">
+          <div className="dashboard-settings-section-heading">
+            <h2 id="settings-subscription-heading">Subscription</h2>
+          </div>
+          <div className="dashboard-settings-row">
+            <div>
+              <h3>Plan</h3>
+              <p>{tierLabel}</p>
+            </div>
+            <button
+              type="button"
+              className="dashboard-settings-action"
+              onClick={onManageSubscription}
+              disabled={isManagingSubscription}
+            >
+              {isManagingSubscription ? 'Opening...' : subscriptionAction}
+            </button>
+          </div>
+          <div className="dashboard-settings-row">
+            <div>
+              <h3>Usage</h3>
+              <p>{usageLabel}{renewalLabel ? ` · Resets ${renewalLabel}` : ''}</p>
+            </div>
+          </div>
+        </section>
+        <section className="dashboard-settings-section" aria-labelledby="settings-workspace-heading">
+          <div className="dashboard-settings-section-heading">
+            <h2 id="settings-workspace-heading">Workspace</h2>
+          </div>
+          <div className="dashboard-settings-row">
+            <div>
+              <h3>Default view</h3>
+              <p>Research chat</p>
+            </div>
+          </div>
+        </section>
       </section>
     </main>
   )
@@ -4533,6 +4578,7 @@ function DashboardApp({
   const showResearchChats = true
   const [billingLimitState, setBillingLimitState] = useState<BillingLimitState | null>(null)
   const [isStartingCheckout, setIsStartingCheckout] = useState(false)
+  const [isManagingSubscription, setIsManagingSubscription] = useState(false)
 
   function openBillingDialog() {
     const billing = session.billing
@@ -4557,6 +4603,20 @@ function DashboardApp({
       if (session.url) window.location.assign(session.url)
     } finally {
       setIsStartingCheckout(false)
+    }
+  }
+
+  async function beginSubscriptionManagement() {
+    if (isManagingSubscription || isStartingCheckout) return
+    const billing = session.billing
+    setIsManagingSubscription(true)
+    try {
+      const nextSession = billing?.subscription.checkoutEligible === false
+        ? await createBillingManageSession()
+        : await createBillingCheckoutSession()
+      if (nextSession.url) window.location.assign(nextSession.url)
+    } finally {
+      setIsManagingSubscription(false)
     }
   }
 
@@ -4665,7 +4725,13 @@ function DashboardApp({
       </main>
     )
   } else if (route.view === 'settings') {
-    content = <DashboardSettingsPage session={session} />
+    content = (
+      <DashboardSettingsPage
+        session={session}
+        onManageSubscription={() => void beginSubscriptionManagement()}
+        isManagingSubscription={isManagingSubscription}
+      />
+    )
   } else {
     content = (
       <ResearchAssistantPage
