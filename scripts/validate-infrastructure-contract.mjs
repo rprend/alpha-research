@@ -132,10 +132,12 @@ assert(
 
 assert(
   remoteRunnerSource.includes('OPENAI_PROXY_BASE_URL') &&
-    remoteRunnerSource.includes('openai_base_url') &&
+    remoteRunnerSource.includes('model_provider="alpha-research-openai"') &&
+    remoteRunnerSource.includes('wire_api="responses"') &&
+    remoteRunnerSource.includes('supports_websockets=false') &&
     remoteRunnerSource.includes('CODEX_API_KEY') &&
     remoteRunnerSource.includes('Missing OPENAI_PROXY_BASE_URL'),
-  'Remote runner must fail closed and point Codex at the metered OpenAI proxy.',
+  'Remote runner must fail closed and point Codex at the metered OpenAI proxy over HTTP Responses.',
 )
 
 assert(

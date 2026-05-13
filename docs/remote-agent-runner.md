@@ -59,7 +59,7 @@ Callback delivery is reporting, not execution. Event, session, artifact, and sta
 
 ## Billing Contract
 
-Remote Codex model traffic must go through the metered OpenAI proxy at `OPENAI_PROXY_BASE_URL`. The runner must fail before starting Codex if `OPENAI_PROXY_BASE_URL` or `RUNNER_TOKEN` is missing. Codex uses `RUNNER_TOKEN` as its API key and `openai_base_url` as the proxy base URL; the real OpenAI API key stays on the Cloudflare Worker.
+Remote Codex model traffic must go through the metered OpenAI proxy at `OPENAI_PROXY_BASE_URL`. The runner must fail before starting Codex if `OPENAI_PROXY_BASE_URL` or `RUNNER_TOKEN` is missing. Codex uses `RUNNER_TOKEN` as its API key and a named OpenAI-compatible Responses provider with `supports_websockets=false`; the real OpenAI API key stays on the Cloudflare Worker. Do not point remote runs at Codex's default OpenAI provider with only `openai_base_url`, because Codex may attempt the Responses WebSocket transport and the Alpha Research metering proxy only supports HTTP Responses requests.
 
 The proxy checks the run owner's billing allowance before each model request. Successful model responses must include OpenAI usage and must be recorded as `remote_codex_runner` billing events against the run owner. If usage cannot be extracted or the billing event cannot be recorded, the proxy returns a metering failure and the run stops instead of continuing unmetered.
 

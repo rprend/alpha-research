@@ -82,7 +82,9 @@ for (const token of [
   'Remote agent run completed without required primary artifact',
   'deliverable artifact(s)',
   'OPENAI_PROXY_BASE_URL',
-  'openai_base_url',
+  'alpha-research-openai',
+  'wire_api',
+  'supports_websockets=false',
   'remote Codex runs must use the metered OpenAI proxy',
 ]) {
   assert(remoteRunnerSource.includes(token), `Remote runner completion guard is missing: ${token}`)
