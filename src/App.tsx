@@ -422,20 +422,6 @@ function sessionStatusDescription(status: string | null | undefined) {
   return formatStatus(status)
 }
 
-function formatBytes(value: number | null | undefined) {
-  if (!value || !Number.isFinite(value)) {
-    return 'Unknown'
-  }
-  const units = ['B', 'KB', 'MB', 'GB', 'TB']
-  let amount = value
-  let unitIndex = 0
-  while (amount >= 1024 && unitIndex < units.length - 1) {
-    amount /= 1024
-    unitIndex += 1
-  }
-  return `${amount >= 10 || unitIndex === 0 ? amount.toFixed(0) : amount.toFixed(1)} ${units[unitIndex]}`
-}
-
 function isPublicDataset(dataset: DatasetRecord) {
   const mode = dataset.mode?.toLowerCase()
   if (mode === 'public') return true
@@ -481,26 +467,6 @@ function datasetInventoryStatus(dataset: DatasetRecord) {
 
 function isTerminalRunStatus(status: string) {
   return ['ready', 'completed', 'failed', 'cancelled', 'canceled', 'error', 'worker_unreachable'].includes(status.toLowerCase())
-}
-
-function datasetBlockingRun(dataset: DatasetRecord, runs: RunRecord[], describeRunId: string | null) {
-  const activeRun = dataset.activeRunId
-    ? runs.find((run) => run.id === dataset.activeRunId)
-    : null
-  if (activeRun && !isTerminalRunStatus(activeRun.status) && activeRun.id !== describeRunId) {
-    return activeRun
-  }
-
-  return runs
-    .filter((run) => run.datasetId === dataset.id && run.id !== describeRunId && !isTerminalRunStatus(run.status))
-    .sort((left, right) => right.updatedAt.localeCompare(left.updatedAt))[0] ?? null
-}
-
-function runStatusLabel(run: RunRecord) {
-  if (run.type === 'public_environment' || run.type === 'research_environment' || run.type === 'deploy') {
-    return 'Environment build in progress'
-  }
-  return `${formatStatus(run.status)} ${formatStatus(run.type)} run`
 }
 
 function datasetInventoryUseCase(dataset: DatasetRecord) {
@@ -766,18 +732,6 @@ function profileText(profile: unknown, key: string) {
   if (!isRecord(profile)) return null
   const value = profile[key]
   return typeof value === 'string' && value.trim() ? value.trim() : null
-}
-
-function profileArray(profile: unknown, key: string) {
-  if (!isRecord(profile)) return []
-  const value = profile[key]
-  return Array.isArray(value) ? value : []
-}
-
-function profileRecord(profile: unknown, key: string) {
-  if (!isRecord(profile)) return null
-  const value = profile[key]
-  return isRecord(value) ? value : null
 }
 
 function renderPreviewMarkdown(markdown: string) {
@@ -2653,19 +2607,13 @@ async function cancelRun(runId: string) {
 
 function DatasetDetailPage({
   dataset,
-  runs,
   onBack,
-  onOpenRun,
 }: {
   dataset: DatasetRecord
-  runs: RunRecord[]
   onBack: () => void
-  onOpenRun: (run: RunRecord) => void
 }) {
   const [detail, setDetail] = useState<DatasetRecord | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const [cancellingBlockingRun, setCancellingBlockingRun] = useState(false)
-  const describeRun = runs.find((run) => run.datasetId === dataset.id && run.type === 'describe') ?? null
   const current = detail ?? dataset
 
   useEffect(() => {
@@ -2683,327 +2631,28 @@ function DatasetDetailPage({
     }
   }, [dataset.id])
 
-  const blockingRun = datasetBlockingRun(current, runs, describeRun?.id ?? null)
   const structuredProfile = current.profile?.profile
-  const describedAt = current.profile?.describedAt ?? current.profile?.updatedAt ?? null
-  const profileSources = profileArray(structuredProfile, 'sources')
-  const profileTables = profileArray(structuredProfile, 'tables')
-  const profileLimitations = profileArray(structuredProfile, 'limitations')
-  const schemaRecord = profileRecord(current.profile, 'schema')
-  const schemaColumns = Array.isArray(schemaRecord?.columns)
-    ? schemaRecord.columns.filter((value): value is string => typeof value === 'string' && value.trim().length > 0)
-    : []
-  const sampleRows = Array.isArray(current.profile?.sampleRows)
-    ? current.profile.sampleRows.filter((row): row is Record<string, unknown> => isRecord(row)).slice(0, 3)
-    : []
   const profileSummary = profileText(structuredProfile, 'summary')
-  const primaryTable = profileTables.find((item) => isRecord(item)) ?? null
-  const primaryTableName = primaryTable ? profileText(primaryTable, 'name') ?? 'Primary table' : null
-  const primaryTableRows = primaryTable && typeof primaryTable['rows'] === 'number'
-    ? primaryTable['rows']
-    : primaryTable && typeof primaryTable['rowCount'] === 'number'
-      ? primaryTable['rowCount']
-      : isRecord(current.ingestConfig) && typeof current.ingestConfig['rowCount'] === 'number'
-        ? current.ingestConfig['rowCount']
-        : null
-  const primaryLimitation = typeof profileLimitations[0] === 'string'
-    ? profileLimitations[0]
-    : current.inventoryLimitations?.[0] ?? null
+  const inventoryBriefingText =
+    current.profile?.briefingMarkdown?.trim() ||
+    current.profile?.notes?.trim() ||
+    current.inventorySummary?.trim() ||
+    profileSummary ||
+    current.description?.trim() ||
+    'No inventory description is available yet.'
   return (
     <main className="min-h-0 flex-1 overflow-y-auto px-4 py-8 md:px-8">
-      <div className="mx-auto flex w-full max-w-5xl flex-col gap-10">
+      <div className="mx-auto flex w-full max-w-4xl flex-col gap-8">
         <button type="button" className="w-fit text-sm text-muted-foreground hover:text-foreground" onClick={onBack}>
           Back to datasets
         </button>
-        <section className="flex flex-col gap-4">
-          <div>
-            <h1 className="text-3xl font-semibold tracking-normal md:text-4xl">{current.name}</h1>
-            <p className="mt-3 max-w-3xl text-lg leading-8 text-muted-foreground">
-              {current.description || current.sourceFilename || `A ${formatStatus(current.sourceType)} dataset registered in Alpha Research.`}
-            </p>
-          </div>
-        </section>
+        <h1 className="text-3xl font-semibold tracking-normal md:text-4xl">{current.name}</h1>
 
         {error ? <div className="bg-destructive/5 px-4 py-3 text-sm text-destructive">{error}</div> : null}
 
-        {blockingRun ? (
-          <section className="rounded-2xl border border-amber-300 bg-amber-50 px-6 py-6" aria-labelledby="dataset-busy-heading">
-            <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
-              <div className="space-y-3">
-                <div className="flex flex-wrap items-center gap-3">
-                  <RunPriorityBadge label="Dataset is busy" tone="warning" />
-                  <RunPriorityBadge label={runStatusLabel(blockingRun)} tone="warning" />
-                </div>
-                <div className="space-y-2">
-                  <h2 id="dataset-busy-heading" className="text-2xl font-semibold tracking-normal text-amber-950">
-                    Another run is already using this dataset.
-                  </h2>
-                  <p className="max-w-3xl text-sm leading-7 text-amber-950/90">
-                    Do not start duplicate work yet. Alpha Research already has active work on <span className="font-medium">{current.name}</span>, so new work stays blocked until that run finishes or is cancelled.
-                  </p>
-                </div>
-                <div className="grid gap-3 md:grid-cols-2">
-                  <div className="rounded-xl border border-amber-200 bg-background/90 px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-amber-900/70">Blocking run</div>
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      className="mt-2 h-auto justify-start px-0 py-0 text-sm font-semibold text-foreground hover:bg-transparent"
-                      onClick={() => onOpenRun(blockingRun)}
-                    >
-                      {blockingRun.id}
-                    </Button>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{runStatusLabel(blockingRun)}</p>
-                  </div>
-                  <div className="rounded-xl border border-amber-200 bg-background/90 px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-amber-900/70">Last activity</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">{relativeTime(blockingRun.updatedAt)}</div>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                      Started {formatDateTime(blockingRun.createdAt)}.
-                    </p>
-                  </div>
-                </div>
-                <p className="max-w-3xl text-sm leading-7 text-amber-950/90">
-                  Next actions: inspect the blocking run, wait here and refresh status, or cancel the run if this build should stop. Queueing a follow-up run is not available from this screen yet.
-                </p>
-              </div>
-              <div className="flex shrink-0 flex-col gap-3">
-                <Button type="button" onClick={() => onOpenRun(blockingRun)}>
-                  View blocking run
-                </Button>
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={() => window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))}
-                >
-                  Refresh status
-                </Button>
-                <Button
-                  type="button"
-                  variant="outline"
-                  disabled={cancellingBlockingRun}
-                  onClick={async () => {
-                    setCancellingBlockingRun(true)
-                    try {
-                      await cancelRun(blockingRun.id)
-                      window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
-                    } catch (cancelError) {
-                      setError(cancelError instanceof Error ? cancelError.message : 'Could not cancel blocking run.')
-                    } finally {
-                      setCancellingBlockingRun(false)
-                    }
-                  }}
-                >
-                  {cancellingBlockingRun ? 'Cancelling...' : 'Cancel blocking run'}
-                </Button>
-              </div>
-            </div>
-          </section>
-        ) : null}
-
-        <section className="grid min-w-0 gap-4 rounded-2xl border border-border bg-muted/20 p-4 md:p-6">
-          <div className="min-w-0 space-y-5">
-            <div className="space-y-2">
-              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Dataset inventory</div>
-              <h2 className="text-2xl font-semibold tracking-normal">Inventory</h2>
-              <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
-                {current.inventorySummary?.trim() || profileSummary || current.description || 'Current dataset metadata and mounted source inventory.'}
-              </p>
-            </div>
-            <div className="overflow-hidden rounded-xl border border-border bg-background">
-              <Table>
-                <TableBody>
-                  {[
-                    ['Dataset ID', current.id],
-                    ['Source type', formatStatus(current.sourceType)],
-                    ['Source file', current.sourceFilename ?? 'Not recorded'],
-                    ['Mode', current.mode ? formatStatus(current.mode) : 'Not recorded'],
-                    ['Dataset status', formatStatus(current.status)],
-                    ['Deployment status', formatStatus(current.deploymentStatus)],
-                    ['Dataset size', formatBytes(current.sourceSizeBytes)],
-                    ['Manifest path', current.manifestPath ?? 'Not recorded'],
-                    ['Mounted volume', current.volume?.mountPath ?? 'Not mounted'],
-                    ['Updated', formatDateTime(current.updatedAt)],
-                    ['Profile updated', current.profile?.updatedAt ? formatDateTime(current.profile.updatedAt) : 'Not recorded'],
-                    ['Described at', describedAt ? formatDateTime(describedAt) : 'Not recorded'],
-                  ].map(([label, value]) => (
-                    <TableRow key={label}>
-                      <TableCell className="w-48 align-top text-sm font-medium text-muted-foreground">{label}</TableCell>
-                      <TableCell className="break-words text-sm text-foreground">{value}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-            {(current.inventoryUseCase || current.inventoryCoverage || current.inventoryFreshness || primaryLimitation) ? (
-              <div className="grid min-w-0 gap-3 md:grid-cols-2">
-                {current.inventoryUseCase ? (
-                  <div className="min-w-0 rounded-xl border border-border bg-background/80 px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Use case</div>
-                    <p className="mt-2 text-sm leading-6 text-foreground/85">{current.inventoryUseCase.replace(/^Best for:\s*/i, '')}</p>
-                  </div>
-                ) : null}
-                {current.inventoryCoverage ? (
-                  <div className="min-w-0 rounded-xl border border-border bg-background/80 px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Coverage</div>
-                    <p className="mt-2 text-sm leading-6 text-foreground/85">{current.inventoryCoverage}</p>
-                  </div>
-                ) : null}
-                {current.inventoryFreshness ? (
-                  <div className="min-w-0 rounded-xl border border-border bg-background/80 px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Freshness</div>
-                    <p className="mt-2 text-sm leading-6 text-foreground/85">{current.inventoryFreshness}</p>
-                  </div>
-                ) : null}
-                {primaryLimitation ? (
-                  <div className="min-w-0 rounded-xl border border-border bg-background/80 px-4 py-4">
-                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Limitations</div>
-                    <p className="mt-2 text-sm leading-6 text-foreground/85">{primaryLimitation}</p>
-                  </div>
-                ) : null}
-              </div>
-            ) : null}
-            {profileSources.length > 0 ? (
-              <div className="min-w-0 rounded-xl border border-border bg-background/80 p-5">
-                <h2 className="text-lg font-medium">Sources</h2>
-                <div className="mt-4 overflow-x-auto">
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead>Name</TableHead>
-                        <TableHead>Provider</TableHead>
-                        <TableHead>Detail</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {profileSources.map((source, index) => (
-                        <TableRow key={index}>
-                          <TableCell>{profileText(source, 'name') ?? profileText(source, 'source') ?? `Source ${index + 1}`}</TableCell>
-                          <TableCell>{profileText(source, 'provider') ?? '-'}</TableCell>
-                          <TableCell>{profileText(source, 'description') ?? profileText(source, 'coverage') ?? '-'}</TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
-              </div>
-            ) : null}
-            {profileTables.length > 0 ? (
-              <div className="min-w-0 rounded-xl border border-border bg-background/80 p-5">
-                <h2 className="text-lg font-medium">Tables</h2>
-                <div className="mt-4 overflow-x-auto">
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead>Name</TableHead>
-                        <TableHead>Rows</TableHead>
-                        <TableHead>Detail</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {profileTables.map((table, index) => {
-                        const rowCount = isRecord(table) && typeof table['rows'] === 'number'
-                          ? table['rows']
-                          : isRecord(table) && typeof table['rowCount'] === 'number'
-                            ? table['rowCount']
-                            : null
-                        return (
-                          <TableRow key={index}>
-                            <TableCell>{profileText(table, 'name') ?? `Table ${index + 1}`}</TableCell>
-                            <TableCell>{rowCount === null ? '-' : rowCount.toLocaleString()}</TableCell>
-                            <TableCell>{profileText(table, 'description') ?? profileText(table, 'coverage') ?? '-'}</TableCell>
-                          </TableRow>
-                        )
-                      })}
-                    </TableBody>
-                  </Table>
-                </div>
-              </div>
-            ) : primaryTableName || primaryTableRows ? (
-              <div className="min-w-0 rounded-xl border border-border bg-background/80 px-4 py-4">
-                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Primary table</div>
-                <p className="mt-2 text-sm leading-6 text-foreground/85">
-                  {primaryTableName ?? 'Primary table'}{primaryTableRows ? `, ${primaryTableRows.toLocaleString()} rows` : ''}
-                </p>
-              </div>
-            ) : null}
-            {(schemaColumns.length > 0 || sampleRows.length > 0) ? (
-              <div className="grid min-w-0 gap-4 xl:grid-cols-[280px_minmax(0,1fr)]">
-                <div className="min-w-0 rounded-xl border border-border bg-background/80 p-5">
-                  <h2 className="text-lg font-medium">Schema</h2>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                    Core fields visible in the current profile.
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {schemaColumns.map((column) => (
-                      <span key={column} className="max-w-full break-words rounded-full border border-border px-3 py-1 text-sm text-foreground/85">
-                        {column}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div className="min-w-0 rounded-xl border border-border bg-background/80 p-5">
-                  <div>
-                    <h2 className="text-lg font-medium">Sample rows</h2>
-                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                      Quick examples so you can confirm the dataset contains the kind of records you expect.
-                    </p>
-                  </div>
-                  {sampleRows.length > 0 ? (
-                    <div className="mt-4 overflow-x-auto">
-                      <Table>
-                        <TableHeader>
-                          <TableRow>
-                            {Object.keys(sampleRows[0] ?? {}).map((column) => (
-                              <TableHead key={column}>{column}</TableHead>
-                            ))}
-                          </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                          {sampleRows.map((row, index) => (
-                            <TableRow key={index}>
-                              {Object.keys(sampleRows[0] ?? {}).map((column) => (
-                                <TableCell key={column}>{String(row[column] ?? '—')}</TableCell>
-                              ))}
-                            </TableRow>
-                          ))}
-                        </TableBody>
-                      </Table>
-                    </div>
-                  ) : null}
-                </div>
-              </div>
-            ) : null}
-          </div>
-        </section>
-
-        <details className="rounded-lg border border-border p-5">
-          <summary className="cursor-pointer text-sm font-medium">Developer details</summary>
-          <p className="mt-3 text-sm leading-6 text-muted-foreground">
-            Lifecycle metadata and raw payloads used for debugging dataset ingestion and describe runs.
-          </p>
-          <div className="mt-4 grid gap-4 md:grid-cols-2">
-            {[
-              ['Source file', current.sourceFilename ?? 'Unknown'],
-              ['Manifest path', current.manifestPath ?? 'Not available'],
-              ['Mounted volume', current.volume?.mountPath ?? 'Not mounted'],
-              ['Dataset size', formatBytes(current.sourceSizeBytes)],
-              ['Dataset updated', formatDateTime(current.updatedAt)],
-              ['Describe run', describeRun?.id ?? current.profile?.describedRunId ?? 'None'],
-              ['Briefing artifact', current.profile?.briefingArtifactId ?? 'None'],
-              ['Profile artifact', current.profile?.profileArtifactId ?? 'None'],
-            ].map(([label, value]) => (
-              <div key={label} className="rounded-lg bg-muted/40 px-4 py-3">
-                <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">{label}</div>
-                <div className="mt-2 break-words text-sm">{value}</div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-4 grid gap-4 md:grid-cols-2">
-            <pre className="max-h-96 overflow-auto rounded-lg border border-border p-4 text-xs text-muted-foreground">{JSON.stringify(current.profile ?? {}, null, 2)}</pre>
-            <pre className="max-h-96 overflow-auto rounded-lg border border-border p-4 text-xs text-muted-foreground">{JSON.stringify(current.ingestConfig ?? {}, null, 2)}</pre>
-          </div>
-        </details>
+        <article className="whitespace-pre-wrap text-base leading-8 text-foreground">
+          {inventoryBriefingText}
+        </article>
       </div>
     </main>
   )
@@ -4708,9 +4357,7 @@ function DashboardApp({
     content = (
       <DatasetDetailPage
         dataset={activeDataset}
-        runs={runs}
         onBack={() => updateDashboardRoute({ view: 'datasets', datasetId: null, runId: null, sessionId: null })}
-        onOpenRun={(run) => updateDashboardRoute({ view: 'runs', runId: run.id, datasetId: null, sessionId: null })}
       />
     )
   } else if (route.view === 'datasets' && route.datasetId && !dataError) {

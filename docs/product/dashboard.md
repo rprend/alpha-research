@@ -57,13 +57,11 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 
 ## Dataset Detail Expectations
 
-- The dataset detail page should lead with the inventory itself: dataset id, source/deployment metadata, mounted volume, profile timestamps, sources, tables, schema, and sample rows.
-- The detail page should not add trust-summary filler, briefing status filler, starter prompts, or dataset-scoped asking instructions around the inventory.
-- Dataset-level coverage, freshness, use case, and limitations should appear only when the dataset record or profile actually provides them.
-- The primary reading path should make source and table inventory scannable without requiring the user to open developer details.
+- The dataset detail page should render the dataset inventory briefing text itself as plain text.
+- The detail page should not add trust-summary filler, briefing status filler, starter prompts, dataset-scoped asking instructions, file tables, metadata tables, cards, borders, or background panels around the inventory briefing.
+- If an inventory briefing is not available yet, the page may fall back to the inventory summary, profile summary, or dataset description as plain text.
 - The left sidebar recent chat history should remain visible on dataset detail pages so the user can navigate back to prior sessions while inspecting a dataset.
-- If another active run is holding the dataset lease, that busy/conflict state should take precedence over generic readiness copy. The page should identify the blocking run, explain why duplicate work is blocked, and surface the available inspect, wait/refresh, cancel, or queue-next actions without requiring developer details.
-- Run ids, artifact ids, manifest paths, raw JSON payloads, and similar debugging material belong in a collapsed developer-only section.
+- Another active run on the same dataset should not add a blocking conflict card to the dataset detail page.
 
 ## Assistant Home Expectations
 

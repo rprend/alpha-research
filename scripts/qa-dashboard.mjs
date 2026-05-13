@@ -289,19 +289,13 @@ async function assertRenderedDatasetDetail() {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=datasets&datasetId=dataset-alpha-book`, { waitUntil: 'domcontentloaded' })
     await page.getByRole('heading', { name: 'Alpha Book Sample' }).waitFor({ timeout: 15000 })
-    await page.getByText('Project Gutenberg book metadata with title, author, year, and normalized text references.', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Dataset inventory', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByRole('heading', { name: 'Inventory' }).waitFor({ timeout: 15000 })
-    await page.getByText('Dataset ID', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('dataset-alpha-book', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Deployment status', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByRole('heading', { name: 'Sources' }).waitFor({ timeout: 15000 })
-    await page.getByRole('heading', { name: 'Tables' }).waitFor({ timeout: 15000 })
-    await page.getByText('Sample only, not the full Gutenberg corpus', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByRole('heading', { name: 'Sample rows' }).waitFor({ timeout: 15000 })
-    await page.getByText('Pride and Prejudice', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Developer details', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Recents', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Project Gutenberg metadata sample', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByText('books.csv: 75,000 rows at one row per work.', { exact: false }).waitFor({ timeout: 15000 })
+    await page.getByText('This is a curated sample for fast exploration, not the full Gutenberg corpus or a representative census of all works.', { exact: true }).waitFor({ timeout: 15000 })
+    await assertPageTextMissing(page, 'Dataset ID', 'Dataset detail should not render metadata tables above the inventory briefing.')
+    await assertPageTextMissing(page, 'Developer details', 'Dataset detail should not render developer payload boxes.')
+    await assertPageTextMissing(page, 'Sample rows', 'Dataset detail should not render sample-row tables.')
+    await page.getByRole('button', { name: 'New chat' }).waitFor({ timeout: 15000 })
     if (await page.getByText('harness QA', { exact: false }).count()) {
       throw new Error('Dataset detail should not surface harness QA wording in the inventory path.')
     }
@@ -310,23 +304,19 @@ async function assertRenderedDatasetDetail() {
   }
 }
 
-async function assertBusyDatasetConflictSteering() {
+async function assertBusyDatasetDetailDoesNotShowConflictCard() {
   const browser = await chromium.launch({ headless: true })
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=datasets&datasetId=dataset-alpha-econ`, { waitUntil: 'domcontentloaded' })
     await page.getByRole('heading', { name: 'Alpha Econ Prototype' }).waitFor({ timeout: 15000 })
-    await page.getByText('Dataset is busy', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByRole('heading', { name: 'Another run is already using this dataset.' }).waitFor({ timeout: 15000 })
-    await page.getByText('run-harness-running', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Environment build in progress', { exact: true }).first().waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'View blocking run' }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Refresh status' }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Cancel blocking run' }).waitFor({ timeout: 15000 })
-    await page.getByText('Dataset inventory', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByRole('heading', { name: 'Inventory' }).waitFor({ timeout: 15000 })
-    await page.getByText('Dataset status', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Deployment status', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Public economic indicators being assembled for questions about jobs, wages, inflation, and regional change.', { exact: true }).waitFor({ timeout: 15000 })
+    await assertPageTextMissing(page, 'Dataset is busy', 'Dataset detail should not render a busy-dataset conflict card.')
+    await assertPageTextMissing(page, 'Another run is already using this dataset.', 'Dataset detail should not block inventory reading for active work on the same dataset.')
+    await assertPageTextMissing(page, 'View blocking run', 'Dataset detail should not render blocking-run actions.')
+    await assertPageTextMissing(page, 'Cancel blocking run', 'Dataset detail should not render blocking-run cancellation actions.')
+    await assertPageTextMissing(page, 'Dataset status', 'Dataset detail should not render metadata tables around the inventory text.')
+    await assertPageTextMissing(page, 'Deployment status', 'Dataset detail should not render metadata tables around the inventory text.')
   } finally {
     await browser.close()
   }
@@ -545,7 +535,7 @@ try {
   await assertRenderedEmptyDatasetSetup()
   await assertAuthenticatedDatasetLoadFailure()
   await assertRenderedDatasetDetail()
-  await assertBusyDatasetConflictSteering()
+  await assertBusyDatasetDetailDoesNotShowConflictCard()
   await assertCompletedRunArtifactsSteering()
   await assertRunningRunStatusSteering()
   await assertMobileRunCheckInSteering()
