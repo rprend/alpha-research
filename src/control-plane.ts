@@ -3111,6 +3111,9 @@ export class ControlPlane {
       if (!run) {
         return respondJson({ error: 'Run not found' }, 404)
       }
+      if (isTerminalStatus(run.status)) {
+        return respondJson({ run: this.runRowToJson(runRow!), ignored: true })
+      }
       const timestamp = nowIso()
       const status = String(body.status ?? 'running')
       this.sql.exec(

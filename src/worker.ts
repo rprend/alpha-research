@@ -145,6 +145,8 @@ const ASYNC_RUN_START_TOOLS = new Set([
   'run_remote_labeling',
 ])
 const MODEL_HIDDEN_RESEARCH_AGENT_TOOLS = new Set([
+  'query_remote_dataset',
+  'aggregate_remote_dataset',
   'fetch_public_data',
   'start_remote_agent_run',
   'run_remote_transformation',
@@ -1215,6 +1217,12 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
         required: ['datasetId', 'prompt'],
       },
       async execute(input, sessionId) {
+        if (!sessionId || !(await hasApprovedRemoteRunPlan(env, sessionId))) {
+          return {
+            summary: 'I need to show you the planned remote-run prompt and get explicit approval before I can start a remote query.',
+            data: { approvalRequired: true },
+          }
+        }
         const datasetId = requireString(input, 'datasetId')
         const prompt = requireString(input, 'prompt')
         const payload = await proxyToControlPlaneJson<{ run: { id: string } }>(
@@ -1252,6 +1260,12 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
         required: ['datasetId', 'prompt'],
       },
       async execute(input, sessionId) {
+        if (!sessionId || !(await hasApprovedRemoteRunPlan(env, sessionId))) {
+          return {
+            summary: 'I need to show you the planned remote-run prompt and get explicit approval before I can start a remote aggregation.',
+            data: { approvalRequired: true },
+          }
+        }
         const datasetId = requireString(input, 'datasetId')
         const prompt = requireString(input, 'prompt')
         const payload = await proxyToControlPlaneJson<{ run: { id: string } }>(

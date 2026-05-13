@@ -114,6 +114,8 @@ assert(
 )
 assert(
   workerSource.includes("'fetch_public_data'") &&
+    workerSource.includes("'query_remote_dataset'") &&
+    workerSource.includes("'aggregate_remote_dataset'") &&
     workerSource.includes("'start_remote_agent_run'") &&
     workerSource.includes("'run_remote_transformation'") &&
     workerSource.includes("'run_remote_labeling'"),
