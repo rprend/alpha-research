@@ -78,6 +78,8 @@ type HandlerContext = {
 type AgentToolResult = {
   summary: string
   data?: unknown
+  modelData?: unknown
+  storedData?: unknown
 }
 
 type ResponseFunctionCall = {
@@ -134,6 +136,8 @@ const DOCS_PAGE_PATHS = new Set([
 ])
 const DOCS_SECTION_INDEX_PATHS = new Set(['/cli', '/dashboard', '/public-datasets', '/ways-to-use'])
 const MAX_TOOL_ROUNDS = 12
+const MAX_AGENT_TOOL_DATA_CHARS = 24_000
+const MAX_STORED_TOOL_METADATA_CHARS = 12_000
 const ASYNC_RUN_START_TOOLS = new Set([
   'start_remote_run',
   'continue_remote_agent_run',
@@ -761,6 +765,131 @@ function truncatePromptSection(value: string, limit: number) {
   return `${value.slice(0, limit).trimEnd()}\n\n[Truncated to ${limit} characters for prompt context.]`
 }
 
+function truncateJsonPreview(value: unknown, limit = MAX_AGENT_TOOL_DATA_CHARS) {
+  return JSON.stringify(value, null, 2).slice(0, limit)
+}
+
+function compactRun(run: unknown) {
+  if (!isRecordValue(run)) return run
+  return {
+    id: run.id,
+    datasetId: run.datasetId,
+    type: run.type,
+    status: run.status,
+    title: run.title,
+    description: run.description,
+    outputPreview: run.outputPreview,
+    artifactCount: run.artifactCount,
+    sessionCount: run.sessionCount,
+    createdAt: run.createdAt,
+    updatedAt: run.updatedAt,
+  }
+}
+
+function compactRunEvent(event: unknown) {
+  if (!isRecordValue(event)) return event
+  return {
+    id: event.id,
+    runId: event.runId,
+    level: event.level,
+    message: event.message,
+    createdAt: event.createdAt,
+  }
+}
+
+function compactArtifact(artifact: unknown) {
+  if (!isRecordValue(artifact)) return artifact
+  const content = isRecordValue(artifact.content) ? artifact.content : null
+  return {
+    id: artifact.id,
+    runId: artifact.runId,
+    type: artifact.type,
+    title: artifact.title,
+    url: artifact.url,
+    createdAt: artifact.createdAt,
+    content: content
+      ? {
+          path: content.path,
+          mimeType: content.mimeType,
+          sizeBytes: content.sizeBytes,
+          truncated: content.truncated,
+          note: content.note,
+        }
+      : undefined,
+  }
+}
+
+function compactSession(session: unknown) {
+  if (!isRecordValue(session)) return session
+  const entries = Array.isArray(session.entries) ? session.entries : []
+  return {
+    id: session.id,
+    kind: session.kind,
+    status: session.status,
+    title: session.title,
+    createdAt: session.createdAt,
+    updatedAt: session.updatedAt,
+    entryCount: entries.length,
+    lastEntries: entries.slice(-8).map((entry) => {
+      if (!isRecordValue(entry)) return entry
+      const content = typeof entry.content === 'string' ? entry.content : ''
+      return {
+        id: entry.id,
+        role: entry.role,
+        kind: entry.kind,
+        title: entry.title,
+        content: truncatePromptSection(content, 1200),
+        createdAt: entry.createdAt,
+      }
+    }),
+  }
+}
+
+function compactRunsPayload(payload: unknown) {
+  if (!isRecordValue(payload)) return payload
+  const runs = Array.isArray(payload.runs) ? payload.runs : []
+  return {
+    ...payload,
+    runs: runs.slice(0, 25).map(compactRun),
+    totalRuns: runs.length,
+    truncated: runs.length > 25,
+  }
+}
+
+function compactRunResultsPayload(payload: unknown) {
+  if (!isRecordValue(payload)) return payload
+  const events = Array.isArray(payload.events) ? payload.events : []
+  const artifacts = Array.isArray(payload.artifacts) ? payload.artifacts : []
+  const sessions = Array.isArray(payload.sessions) ? payload.sessions : []
+  return {
+    run: compactRun(payload.run),
+    metadata: payload.metadata,
+    events: events.slice(-20).map(compactRunEvent),
+    artifacts: artifacts.map(compactArtifact),
+    sessions: sessions.map(compactSession),
+    eventCount: events.length,
+  }
+}
+
+function boundedToolData(value: unknown, limit: number) {
+  if (value === undefined) return undefined
+  const json = JSON.stringify(value)
+  if (json.length <= limit) return value
+  return {
+    truncated: true,
+    originalSizeBytes: json.length,
+    preview: truncateJsonPreview(value, limit),
+  }
+}
+
+function toolModelData(result: AgentToolResult) {
+  return boundedToolData(result.modelData !== undefined ? result.modelData : result.data, MAX_AGENT_TOOL_DATA_CHARS)
+}
+
+function toolStoredData(result: AgentToolResult) {
+  return boundedToolData(result.storedData !== undefined ? result.storedData : toolModelData(result), MAX_STORED_TOOL_METADATA_CHARS)
+}
+
 function promptContextValueToText(value: unknown) {
   if (value === null || value === undefined) {
     return ''
@@ -1216,6 +1345,8 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
               ? `Found ${payload.runs.length} tracked run${payload.runs.length === 1 ? '' : 's'}.`
               : 'No tracked runs yet.',
           data: payload,
+          modelData: compactRunsPayload(payload),
+          storedData: compactRunsPayload(payload),
         }
       },
     },
@@ -1483,6 +1614,8 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
         return {
           summary: `Fetched results for run ${runId}. Status: ${status}.`,
           data: payload,
+          modelData: compactRunResultsPayload(payload),
+          storedData: compactRunResultsPayload(payload),
         }
       },
     },
@@ -1706,21 +1839,23 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
         throw error
       }
       if (sessionId) {
+        const storedData = toolStoredData(result)
         await appendAssistantSessionEntry(env, sessionId, {
           role: 'system',
           kind: 'tool_result',
           title: tool.name,
           content: result.summary,
-          metadata: { name: tool.name, data: result.data },
+          metadata: storedData === undefined ? { name: tool.name } : { name: tool.name, data: storedData },
         })
       }
+      const modelData = toolModelData(result)
       const toolOutput = {
         type: 'function_call_output' as const,
         call_id: call.call_id ?? tool.name,
         output: JSON.stringify({
           ok: true,
           summary: result.summary,
-          data: result.data,
+          data: modelData,
         }),
       }
       if (ASYNC_RUN_START_TOOLS.has(tool.name)) {
