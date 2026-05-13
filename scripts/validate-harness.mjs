@@ -98,7 +98,25 @@ assert(
   'Worker must meter remote Codex OpenAI traffic before returning successful model responses.',
 )
 assert(workerSource.includes('async function datasetContentsForPrompt'), 'Assistant is missing dataset prompt context helper.')
+assert(workerSource.includes('async function datasetsInventoryForPrompt'), 'Assistant is missing static dataset inventory prompt context.')
 assert(workerSource.includes('async function buildAssistantModelContext'), 'Assistant is missing centralized model context builder.')
+assert(
+  workerSource.includes('assistant_request_trace') &&
+    workerSource.includes('createAssistantTrace') &&
+    workerSource.includes('traceMark'),
+  'Assistant routes must emit structured request tracing.',
+)
+assert(
+  workerSource.includes('text/event-stream') &&
+    workerSource.includes('callResponsesApiStreaming') &&
+    workerSource.includes("send('text_delta'"),
+  'Assistant routes must support streaming text deltas.',
+)
+assert(
+  workerSource.includes('scheduleAssistantSessionTitleUpdate') &&
+    workerSource.includes('ctx.waitUntil(task)'),
+  'Assistant title generation must run outside the critical path with Worker waitUntil.',
+)
 assert(
   workerSource.includes('resetPreviousResponseId') &&
     workerSource.includes('compacted_session_history') &&

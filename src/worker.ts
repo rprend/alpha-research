@@ -75,6 +75,10 @@ type HandlerContext = {
   env: Env
 }
 
+type WorkerExecutionContext = {
+  waitUntil(promise: Promise<unknown>): void
+}
+
 type AgentToolResult = {
   summary: string
   data?: unknown
@@ -1422,6 +1426,22 @@ async function updateAssistantSessionTitle(env: Env, sessionId: string, title: s
   })
 }
 
+function scheduleAssistantSessionTitleUpdate(
+  ctx: WorkerExecutionContext | null,
+  env: Env,
+  sessionId: string,
+  userMessage: string,
+  assistantResponse: string,
+) {
+  const task = generateAssistantSessionTitle(env, userMessage, assistantResponse)
+    .then((generatedTitle) => generatedTitle ? updateAssistantSessionTitle(env, sessionId, generatedTitle) : undefined)
+    .catch(() => undefined)
+  if (ctx) {
+    ctx.waitUntil(task)
+  }
+  return task
+}
+
 async function generateAssistantSessionTitle(env: Env, userMessage: string, assistantResponse: string) {
   const prompt = [
     'Create a concise title for this chat.',
@@ -1441,7 +1461,7 @@ async function generateAssistantSessionTitle(env: Env, userMessage: string, assi
   return clampSessionTitleWords(extractResponseText(response as Record<string, unknown>))
 }
 
-async function proxyToResponsesApi(request: Request, env: Env) {
+async function proxyToResponsesApi(request: Request, env: Env, ctx: WorkerExecutionContext | null = null) {
   const trace = createAssistantTrace('/api/cli/responses')
   const cliSession = await requireAuthorizedSession(request, env)
   traceMark(trace, 'authorized', { ok: Boolean(cliSession) })
@@ -1543,6 +1563,30 @@ async function proxyToResponsesApi(request: Request, env: Env) {
               model: typeof payload.model === 'string' ? payload.model : env.RESEARCH_AGENT_MODEL ?? 'gpt-5',
               responsePayload: usagePayload,
             })
+            const responseId =
+              typeof usagePayload.id === 'string'
+                ? usagePayload.id
+                : typeof usagePayload.response_id === 'string'
+                  ? usagePayload.response_id
+                  : null
+            const assistantResponseText = extractResponseText(usagePayload)
+            await appendAssistantSessionEntry(env, assistantSessionId, {
+              role: 'assistant',
+              kind: 'response',
+              title: 'CLI response',
+              content: assistantResponseText || JSON.stringify(usagePayload, null, 2),
+              metadata: usagePayload,
+            })
+            if (isNewSession && assistantResponseText) {
+              scheduleAssistantSessionTitleUpdate(ctx, env, assistantSessionId, initialUserMessage, assistantResponseText)
+            }
+            if (responseId) {
+              await proxyToControlPlane(env, '/assistant-sessions/link-response', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ responseId, sessionId: assistantSessionId }),
+              })
+            }
           }
           traceMark(trace, 'openai_stream_completed', {
             responseId: typeof usagePayload?.id === 'string' ? usagePayload.id : null,
@@ -1589,9 +1633,7 @@ async function proxyToResponsesApi(request: Request, env: Env) {
     })
     const assistantResponseText = extractResponseText(upstreamPayload)
     if (isNewSession && assistantResponseText) {
-      void generateAssistantSessionTitle(env, initialUserMessage, assistantResponseText)
-        .then((generatedTitle) => generatedTitle ? updateAssistantSessionTitle(env, assistantSessionId, generatedTitle) : undefined)
-        .catch(() => undefined)
+      scheduleAssistantSessionTitleUpdate(ctx, env, assistantSessionId, initialUserMessage, assistantResponseText)
     }
     if (responseId) {
       await proxyToControlPlane(env, '/assistant-sessions/link-response', {
@@ -2174,7 +2216,7 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
   ]
 }
 
-async function runResearchAssistantTurn(request: Request, env: Env) {
+async function runResearchAssistantTurn(request: Request, env: Env, ctx: WorkerExecutionContext | null = null) {
   const trace = createAssistantTrace('/api/cli/assistant/respond')
   const wantsStream = request.headers.get('Accept')?.includes('text/event-stream')
   const cliSession = await requireAuthorizedSession(request, env)
@@ -2213,6 +2255,7 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
         try {
           const result = await runResearchAssistantTurnCore({
             env,
+            ctx,
             cliSession,
             input,
             requestedSessionId: typeof body.sessionId === 'string' ? body.sessionId : null,
@@ -2254,6 +2297,7 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
   try {
     const result = await runResearchAssistantTurnCore({
       env,
+      ctx,
       cliSession,
       input,
       requestedSessionId: typeof body.sessionId === 'string' ? body.sessionId : null,
@@ -2280,6 +2324,7 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
 
 async function runResearchAssistantTurnCore(params: {
   env: Env
+  ctx: WorkerExecutionContext | null
   cliSession: { email: string }
   input: string
   requestedSessionId: string | null
@@ -2289,7 +2334,7 @@ async function runResearchAssistantTurnCore(params: {
   onEvent?: (event: string, data: unknown) => void
   onTextDelta?: (delta: string) => void | Promise<void>
 }) {
-  const { env, cliSession, input, requestedSessionId, datasetId, trace } = params
+  const { env, ctx, cliSession, input, requestedSessionId, datasetId, trace } = params
   let previousResponseId = params.previousResponseId
 
   const isNewSession = !requestedSessionId && !previousResponseId
@@ -2409,9 +2454,7 @@ async function runResearchAssistantTurnCore(params: {
           metadata: { previousResponseId, context: contextDecisions },
         })
         if (isNewSession) {
-          void generateAssistantSessionTitle(env, input, reply)
-            .then((generatedTitle) => generatedTitle ? updateAssistantSessionTitle(env, sessionId, generatedTitle) : undefined)
-            .catch(() => undefined)
+          scheduleAssistantSessionTitleUpdate(ctx, env, sessionId, input, reply)
         }
       }
       return {
@@ -2499,9 +2542,7 @@ async function runResearchAssistantTurnCore(params: {
               metadata: { previousResponseId, approvalRequired: true, context: contextDecisions },
             })
             if (isNewSession) {
-              void generateAssistantSessionTitle(env, input, result.summary)
-                .then((generatedTitle) => generatedTitle ? updateAssistantSessionTitle(env, sessionId, generatedTitle) : undefined)
-                .catch(() => undefined)
+              scheduleAssistantSessionTitleUpdate(ctx, env, sessionId, input, result.summary)
             }
           }
           return {
@@ -2519,9 +2560,7 @@ async function runResearchAssistantTurnCore(params: {
             metadata: { previousResponseId, context: contextDecisions },
           })
           if (isNewSession) {
-            void generateAssistantSessionTitle(env, input, result.summary)
-              .then((generatedTitle) => generatedTitle ? updateAssistantSessionTitle(env, sessionId, generatedTitle) : undefined)
-              .catch(() => undefined)
+            scheduleAssistantSessionTitleUpdate(ctx, env, sessionId, input, result.summary)
           }
         }
         return {
@@ -2546,9 +2585,7 @@ async function runResearchAssistantTurnCore(params: {
             },
           })
           if (isNewSession) {
-            void generateAssistantSessionTitle(env, input, result.summary)
-              .then((generatedTitle) => generatedTitle ? updateAssistantSessionTitle(env, sessionId, generatedTitle) : undefined)
-              .catch(() => undefined)
+            scheduleAssistantSessionTitleUpdate(ctx, env, sessionId, input, result.summary)
           }
         }
         return {
@@ -2596,7 +2633,7 @@ async function forwardCliRequest(request: Request, env: Env, path: string, init:
 }
 
 export default {
-  async fetch(request: Request, env: Env): Promise<Response> {
+  async fetch(request: Request, env: Env, ctx: WorkerExecutionContext): Promise<Response> {
     const url = new URL(request.url)
     const pathname = url.pathname
 
@@ -2776,7 +2813,7 @@ export default {
     }
 
     if (pathname === '/api/cli/respond' && request.method === 'POST') {
-      return proxyToResponsesApi(request, env)
+      return proxyToResponsesApi(request, env, ctx)
     }
 
     if (pathname === '/api/internal/runner-scripts/remote-agent.py' && request.method === 'GET') {
@@ -2790,7 +2827,7 @@ export default {
     }
 
     if (pathname === '/api/cli/assistant/respond' && request.method === 'POST') {
-      return runResearchAssistantTurn(request, env).catch((error) => {
+      return runResearchAssistantTurn(request, env, ctx).catch((error) => {
         const message = error instanceof Error ? error.message : 'Research assistant request failed'
         return json({ error: message }, 500)
       })
