@@ -577,51 +577,79 @@
   font-size: 0.94rem;
 }
 
-.dashboard-account-button {
-  border-radius: 0;
-  color: var(--dashboard-ink);
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.dashboard-account-button:hover {
-  background: rgba(255, 255, 255, 0.58);
-}
-
-.dashboard-upgrade-row {
+.dashboard-profile-row {
   display: flex;
   width: 100%;
-  min-height: 42px;
+  min-height: 72px;
   align-items: center;
-  gap: 0.65rem;
-  border: 0;
+  gap: 0.9rem;
   border-top: 1px solid rgba(38, 38, 38, 0.1);
-  border-radius: 0;
-  background: transparent;
+  padding: 0.9rem 0 0.25rem;
+}
+
+.dashboard-profile-avatar {
+  width: 3.25rem;
+  height: 3.25rem;
   color: var(--dashboard-ink);
-  padding: 10px 0 0;
+}
+
+.dashboard-profile-avatar [data-slot="avatar-fallback"] {
+  background: #f5f5f5;
+  color: var(--dashboard-ink);
+  font-weight: 600;
+}
+
+.dashboard-profile-copy {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.08rem;
+}
+
+.dashboard-profile-name,
+.dashboard-profile-upgrade {
+  max-width: 100%;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  padding: 0;
   font: inherit;
-  font-size: 0.95rem;
-  font-weight: 500;
   text-align: left;
 }
 
-.dashboard-upgrade-row:hover {
-  background: rgba(255, 255, 255, 0.58);
+.dashboard-profile-name {
+  color: var(--dashboard-ink);
+  font-size: 1.08rem;
+  line-height: 1.25;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.dashboard-upgrade-row svg {
-  width: 1rem;
-  height: 1rem;
-  flex: 0 0 auto;
+.dashboard-profile-name:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
-.dashboard-upgrade-usage {
-  margin-left: auto;
-  min-width: 0;
-  color: var(--dashboard-ink-soft);
-  font-size: 0.78rem;
-  font-weight: 400;
+.dashboard-profile-upgrade {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  color: rgba(38, 38, 38, 0.56);
+  font-size: 0.98rem;
+  line-height: 1.3;
+}
+
+.dashboard-profile-upgrade:hover {
+  color: var(--dashboard-ink);
+}
+
+.dashboard-profile-usage {
+  color: rgba(38, 38, 38, 0.46);
+  font-size: 0.76rem;
   white-space: nowrap;
 }
 

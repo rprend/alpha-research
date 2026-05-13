@@ -42,6 +42,10 @@ import {
   launchHarnessPreparedRun,
 } from '@/harness-data'
 import { Badge } from '@/components/ui/badge'
+import {
+  Avatar,
+  AvatarFallback,
+} from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -185,6 +189,8 @@ type RunRecord = {
   datasetId: string
   type: string
   status: string
+  title?: string | null
+  description?: string | null
   prompt: string | null
   outputPreview: string | null
   artifactCount?: number
@@ -1901,6 +1907,20 @@ function formatBillingWindowDate(value: string | null) {
   return new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(timestamp)
 }
 
+function getSessionUserInitials(user: SessionResponse['user']) {
+  const displayName = user?.email || 'Account'
+  const nameParts = displayName
+    .split(/\s+/)
+    .map((part) => part.trim())
+    .filter(Boolean)
+
+  if (nameParts.length > 1) {
+    return `${nameParts[0][0]}${nameParts[nameParts.length - 1][0]}`.toUpperCase()
+  }
+
+  return displayName.slice(0, 2).toUpperCase()
+}
+
 function normalizeDatasetsPayload(payload: unknown): DatasetRecord[] {
   if (Array.isArray(payload)) {
     return payload as DatasetRecord[]
@@ -2589,6 +2609,28 @@ function datasetListIcon(dataset: DatasetRecord): LucideIcon {
   return Database
 }
 
+function runListIcon(run: RunRecord): LucideIcon {
+  const text = `${run.title ?? ''} ${run.type} ${run.prompt ?? ''} ${run.outputPreview ?? ''}`.toLowerCase()
+  if (text.includes('describe') || text.includes('briefing') || text.includes('profile')) return FileText
+  if (text.includes('environment') || text.includes('public data') || text.includes('source')) return Globe2
+  if (text.includes('query') || text.includes('find') || text.includes('search')) return Braces
+  if (text.includes('aggregate') || text.includes('trend') || text.includes('compare')) return ChartColumn
+  return TerminalSquare
+}
+
+function runListTitle(run: RunRecord) {
+  return run.title?.trim() || compactInlineText(run.prompt || `${formatStatus(run.type)} run`, 80)
+}
+
+function runListDescription(run: RunRecord) {
+  return (
+    run.description?.trim() ||
+    run.outputPreview?.trim() ||
+    run.prompt?.trim() ||
+    'Remote run queued for this dataset.'
+  )
+}
+
 function currentDatasetIsReady(dataset: DatasetRecord) {
   return dataset.deploymentStatus.toLowerCase() === 'ready' && dataset.status.toLowerCase() === 'ready'
 }
@@ -2686,11 +2728,21 @@ function DatasetDetailPage({
 
 function RunTable({
   runs,
+  datasets,
   onSelectRun,
 }: {
   runs: RunRecord[]
+  datasets: DatasetRecord[]
   onSelectRun: (run: RunRecord) => void
 }) {
+  if (runs.length === 0) {
+    return (
+      <div className="py-2 text-sm text-muted-foreground">
+        No remote runs yet. Start one from a dataset or ask the research agent to prepare a remote run.
+      </div>
+    )
+  }
+  const datasetLookup = new Map(datasets.map((dataset) => [dataset.id, dataset]))
   const sortedRuns = [...runs].sort((a, b) => {
     const priorityDelta = getRunPriorityMeta(a).rank - getRunPriorityMeta(b).rank
     if (priorityDelta !== 0) {
@@ -2699,37 +2751,53 @@ function RunTable({
     return b.updatedAt.localeCompare(a.updatedAt)
   })
   return (
-    <div className="flex flex-col">
+    <div className="grid min-w-0 gap-x-16 gap-y-12 md:grid-cols-2">
       {sortedRuns.map((run) => {
         const normalizedStatus = run.status.toLowerCase()
         const isFailedRun = normalizedStatus === 'worker_unreachable' || normalizedStatus === 'failed' || normalizedStatus === 'error'
         const isActiveRun = normalizedStatus === 'running'
-        const prompt =
-          run.prompt?.trim() ||
-          run.outputPreview?.trim() ||
-          'No prompt recorded yet.'
+        const title = runListTitle(run)
+        const description = runListDescription(run)
+        const Icon = runListIcon(run)
+        const dataset = datasetLookup.get(run.datasetId)
 
         return (
           <button
             key={run.id}
             type="button"
-            className="flex w-full min-w-0 items-center gap-2 px-1 py-2 text-left hover:bg-muted/35"
+            className="group grid w-full min-w-0 grid-cols-[3.5rem_minmax(0,1fr)_2.5rem] items-center gap-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             onClick={() => onSelectRun(run)}
           >
-            <span className="flex size-5 shrink-0 items-center justify-center text-muted-foreground">
+            <div className="relative flex size-13 shrink-0 items-center justify-center rounded-xl border border-border text-foreground transition-colors group-hover:border-foreground/25">
+              <Icon className="size-6" aria-hidden="true" />
               {isFailedRun ? (
-                <X className="size-4 text-destructive" aria-label="Failed" />
+                <X className="absolute -right-1 -top-1 size-4 rounded-full bg-background text-destructive" aria-label="Failed" />
               ) : isActiveRun ? (
-                <LoaderCircle className="size-4 animate-spin text-muted-foreground" aria-label="Running" />
+                <LoaderCircle className="absolute -right-1 -top-1 size-4 animate-spin rounded-full bg-background text-muted-foreground" aria-label="Running" />
+              ) : null}
+            </div>
+            <div className="min-w-0">
+              <div className="truncate text-base font-semibold tracking-normal text-foreground" title={title}>{title}</div>
+              <p className="mt-1 truncate text-sm leading-6 text-muted-foreground" title={description}>
+                {description}
+              </p>
+              <div className="mt-1 flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1 text-xs leading-5 text-muted-foreground">
+                <span className="truncate">{dataset?.name ?? run.datasetId}</span>
+                <span aria-hidden="true">·</span>
+                <span>{formatStatus(run.type)}</span>
+                <span aria-hidden="true">·</span>
+                <span>{relativeTime(run.updatedAt)}</span>
+              </div>
+            </div>
+            <div className="flex justify-end text-muted-foreground" aria-label={formatStatus(run.status)}>
+              {isActiveRun ? (
+                <LoaderCircle className="size-5 animate-spin text-muted-foreground/70" aria-hidden="true" />
+              ) : isFailedRun ? (
+                <X className="size-5 text-destructive/80" aria-hidden="true" />
               ) : (
-                <span aria-hidden="true">-</span>
+                <ChevronRight className="size-5 text-muted-foreground/70 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
               )}
-            </span>
-            <span className="min-w-0 flex-1">
-              <span className="block truncate text-sm font-medium text-foreground" title={prompt}>
-                {truncate(prompt, 180)}
-              </span>
-            </span>
+            </div>
           </button>
         )
       })}
@@ -4124,7 +4192,7 @@ function DashboardMobileHeader({
     route.view === 'datasets'
       ? 'Datasets'
       : route.view === 'runs'
-        ? 'Runs'
+        ? 'Remote runs'
         : route.view === 'terminal-sessions'
           ? 'Sessions'
           : 'Research chat'
@@ -4227,6 +4295,8 @@ function DashboardSidebar({
   signedOut?: boolean
 }) {
   const { isMobile, setOpenMobile } = useSidebar()
+  const userEmail = session.user?.email ?? 'Account'
+  const userInitials = getSessionUserInitials(session.user)
   const isActiveSessionRun = (chatSession: { run?: RunRecord }) =>
     Boolean(chatSession.run && !isTerminalRunStatus(chatSession.run.status))
   const navigate = (next: {
@@ -4328,7 +4398,7 @@ function DashboardSidebar({
           <SidebarMenuItem>
             <SidebarMenuButton
               className="dashboard-nav-button h-11 md:h-8"
-              tooltip="Runs"
+              tooltip="Remote runs"
               isActive={route.view === 'runs'}
               onClick={() =>
                 navigate({
@@ -4338,7 +4408,7 @@ function DashboardSidebar({
                 })}
             >
               <History />
-              <span>Runs</span>
+              <span>Remote runs</span>
               <span className="ml-auto mr-3 text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
                 {runs.length}
               </span>
@@ -4346,45 +4416,52 @@ function DashboardSidebar({
           </SidebarMenuItem>
         </SidebarMenu>
         {signedOut ? null : (
-          <>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  className="dashboard-account-button flex h-auto w-full min-w-0 items-center justify-start overflow-hidden rounded-xl px-3 py-3 text-left hover:bg-sidebar-accent/60"
-                >
-                  <div className="flex min-w-0 flex-col items-start">
-                    <span className="truncate text-base font-normal normal-case tracking-normal text-foreground/90">
-                      {session.user?.email ?? 'Account'}
-                    </span>
-                  </div>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="rounded-none">
-                <DropdownMenuItem
-                  onClick={async () => {
-                    await fetch('/api/auth/logout', {
-                      method: 'POST',
-                      credentials: 'same-origin',
-                    })
-                    window.location.assign(getDashboardAuthReturnUrl({ loggedOut: true }))
-                  }}
-                >
-                  <LogOut />
-                  Log out
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <button type="button" className="dashboard-upgrade-row" onClick={onOpenPaywall}>
-              <Zap aria-hidden="true" />
-              <span>Upgrade to Pro</span>
-              {session.billing ? (
-                <span className="dashboard-upgrade-usage">
-                  {formatCompactCreditAmount(session.billing.usage.remainingCredits)} left
-                </span>
-              ) : null}
-            </button>
-          </>
+          <div className="dashboard-profile-row">
+            <Avatar className="dashboard-profile-avatar">
+              <AvatarFallback>{userInitials}</AvatarFallback>
+            </Avatar>
+            <div className="dashboard-profile-copy">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button
+                    type="button"
+                    className="dashboard-profile-name"
+                    aria-label={`${userEmail} account menu`}
+                    title={userEmail}
+                  >
+                    {userEmail}
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="rounded-none">
+                  <DropdownMenuItem
+                    onClick={async () => {
+                      await fetch('/api/auth/logout', {
+                        method: 'POST',
+                        credentials: 'same-origin',
+                      })
+                      window.location.assign(getDashboardAuthReturnUrl({ loggedOut: true }))
+                    }}
+                  >
+                    <LogOut />
+                    Log out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              <button
+                type="button"
+                className="dashboard-profile-upgrade"
+                onClick={onOpenPaywall}
+                aria-label="Upgrade to Pro"
+              >
+                <span>Upgrade to Pro</span>
+                {session.billing ? (
+                  <span className="dashboard-profile-usage">
+                    {formatCompactCreditAmount(session.billing.usage.remainingCredits)} left
+                  </span>
+                ) : null}
+              </button>
+            </div>
+          </div>
         )}
       </SidebarFooter>
     </Sidebar>
@@ -4559,14 +4636,18 @@ function DashboardApp({
             <CardContent className="px-6 py-4 text-sm text-destructive">{dataError}</CardContent>
           </Card>
         ) : null}
-        <section className="mx-auto flex w-full max-w-2xl flex-col gap-3">
-          <div className="px-1">
-            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-              Runs
+        <section className="mx-auto flex w-full max-w-5xl flex-col gap-7">
+          <div className="flex flex-col gap-3 border-b border-border pb-5 sm:flex-row sm:items-end sm:justify-between">
+            <div className="flex flex-col gap-1">
+              <h1 className="text-2xl font-medium tracking-normal">Remote runs</h1>
+              <p className="text-sm text-muted-foreground">
+                Recent cloud research jobs, labeled by what happened and where the durable outputs landed.
+              </p>
             </div>
           </div>
           <RunTable
             runs={runs}
+            datasets={datasets}
             onSelectRun={(run) => updateDashboardRoute({ view: 'runs', runId: run.id, sessionId: null })}
           />
         </section>

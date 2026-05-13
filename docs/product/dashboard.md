@@ -35,8 +35,11 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 ## Runs Inventory Expectations
 
 - The runs page should behave like a triage surface, not a neutral event log.
+- The runs page is labeled `Remote runs` in navigation and page headers.
+- The runs page should share the dataset inventory structure: section header, two-column icon-led rows, title, one-sentence description, dataset, type, and freshness.
 - Default ordering should put risky or still-active work ahead of stale completed work.
 - Every row should lead with the underlying question or run title so repeated dataset names do not read like duplicates.
+- Each run should persist a generated title and one-sentence description; active runs may use prompt-based fallbacks, and terminal callbacks should refresh the label from the run prompt, status/output preview, recent events, artifacts, and dataset context.
 - Status styling should encode urgency and explain unclear failure states such as `Worker Unreachable` in plain language.
 - Runs inventory should expose an explicit outcome/result signal such as `Artifacts ready`, `No outputs recovered`, or `Watching for outputs`, not just raw status.
 - Completed runs should indicate whether artifacts or linked sessions exist so a user can tell if there is anything worth opening.

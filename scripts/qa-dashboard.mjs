@@ -445,9 +445,11 @@ async function assertRenderedRunsInventory() {
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=runs`, { waitUntil: 'domcontentloaded' })
-    await page.getByText('Describe the Alpha Book sample and identify research-ready fields.', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Build a public-data environment for housing and labor indicators.', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Find novels that reference railways before 1850.', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Remote runs' }).waitFor({ timeout: 15000 })
+    await page.getByText('Alpha Book Briefing', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('The run produced a dataset briefing and structured profile for the Alpha Book sample.', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Housing Labor Environment', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Railway Novel Search', { exact: true }).waitFor({ timeout: 15000 })
   } finally {
     await browser.close()
   }

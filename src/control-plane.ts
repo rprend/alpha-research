@@ -124,6 +124,21 @@ function artifactPreviewContent(content: unknown) {
   return rest
 }
 
+function formatRunType(value: string) {
+  return value
+    .replace(/[_-]+/gu, ' ')
+    .replace(/\s+/gu, ' ')
+    .trim()
+    .replace(/\b\p{L}/gu, (letter) => letter.toUpperCase())
+    || 'Remote'
+}
+
+type ResponsesApiPayload = {
+  id?: string
+  output_text?: string
+  output?: Array<Record<string, unknown>>
+}
+
 type Env = {
   RESEARCH_CONTROL_ORIGIN?: string
   OBJECT_STORE_BUCKET?: string
@@ -146,6 +161,76 @@ type Env = {
   CANONICAL_DATASET_SLACK_WEBHOOK_URL?: string
   SLACK_WEBHOOK_URL?: string
   ARTIFACT_BUCKET?: R2BucketLike
+}
+
+function normalizeGeneratedRunTitle(value: string) {
+  return value
+    .replace(/^["'`]+|["'`.]+$/gu, '')
+    .replace(/\s+/gu, ' ')
+    .trim()
+}
+
+function clampGeneratedRunTitle(value: string) {
+  const normalized = normalizeGeneratedRunTitle(value)
+  if (!normalized) return null
+  const words = normalized
+    .replace(/[^\p{L}\p{N}\s'-]/gu, ' ')
+    .split(/\s+/u)
+    .filter(Boolean)
+    .slice(0, 8)
+  return words.join(' ').trim() || null
+}
+
+function clampGeneratedRunDescription(value: string) {
+  const normalized = value
+    .replace(/^["'`]+|["'`]+$/gu, '')
+    .replace(/\s+/gu, ' ')
+    .trim()
+  if (!normalized) return null
+  const firstSentence = normalized.match(/^.+?[.!?](?:\s|$)/u)?.[0]?.trim() ?? normalized
+  return firstSentence.length > 180 ? `${firstSentence.slice(0, 179).trimEnd()}…` : firstSentence
+}
+
+function extractResponseText(payload: ResponsesApiPayload) {
+  const outputText = typeof payload.output_text === 'string' ? payload.output_text.trim() : ''
+  if (outputText) return outputText
+  const output = Array.isArray(payload.output) ? payload.output : []
+  const chunks: string[] = []
+  for (const entry of output) {
+    const content = Array.isArray(entry.content) ? entry.content : []
+    for (const item of content) {
+      if (!item || typeof item !== 'object') continue
+      if ((item as { type?: unknown }).type === 'output_text' && typeof (item as { text?: unknown }).text === 'string') {
+        chunks.push((item as { text: string }).text)
+      }
+    }
+  }
+  return chunks.join('\n\n').trim()
+}
+
+async function callResponsesApi(env: Env, body: Record<string, unknown>) {
+  if (!env.OPENAI_API_KEY) {
+    throw new Error('Missing OPENAI_API_KEY on alpha-research control plane')
+  }
+  const upstream = await fetch('https://api.openai.com/v1/responses', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${env.OPENAI_API_KEY}`,
+    },
+    body: JSON.stringify({
+      model: env.RESEARCH_AGENT_MODEL ?? 'gpt-5',
+      reasoning: { effort: 'low' },
+      text: { verbosity: 'low' },
+      max_output_tokens: 512,
+      ...body,
+    }),
+  })
+  const text = await upstream.text()
+  if (!upstream.ok) {
+    throw new Error(`Responses API request failed (${upstream.status}).${text ? ` ${text}` : ''}`)
+  }
+  return JSON.parse(text) as ResponsesApiPayload
 }
 
 type DatasetRecord = {
@@ -193,6 +278,8 @@ type RunRecord = {
   ownerEmail: string
   type: string
   status: string
+  title: string | null
+  description: string | null
   prompt: string | null
   outputPreview: string | null
   workerId: string | null
@@ -326,6 +413,8 @@ export class ControlPlane {
         owner_email TEXT NOT NULL,
         type TEXT NOT NULL,
         status TEXT NOT NULL,
+        title TEXT,
+        description TEXT,
         prompt TEXT,
         output_preview TEXT,
         worker_id TEXT,
@@ -466,6 +555,8 @@ export class ControlPlane {
     try { this.sql.exec('ALTER TABLE datasets ADD COLUMN lease_acquired_at TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE runs ADD COLUMN worker_id TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE runs ADD COLUMN worker_name TEXT') } catch {}
+    try { this.sql.exec('ALTER TABLE runs ADD COLUMN title TEXT') } catch {}
+    try { this.sql.exec('ALTER TABLE runs ADD COLUMN description TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE dataset_profiles ADD COLUMN briefing_markdown TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE dataset_profiles ADD COLUMN profile_json TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE dataset_profiles ADD COLUMN briefing_artifact_id TEXT') } catch {}
@@ -731,6 +822,8 @@ export class ControlPlane {
       datasetId: run.datasetId,
       type: run.type,
       status: run.status,
+      title: run.title ?? undefined,
+      description: run.description ?? undefined,
       createdAt: run.createdAt,
       updatedAt: run.updatedAt,
       prompt: run.prompt ?? undefined,
@@ -748,6 +841,8 @@ export class ControlPlane {
       ownerEmail: String(get('owner_email', 'ownerEmail')),
       type: String(row.type),
       status: String(row.status),
+      title: row.title ? String(row.title) : null,
+      description: row.description ? String(row.description) : null,
       prompt: row.prompt ? String(row.prompt) : null,
       outputPreview: get('output_preview', 'outputPreview') ? String(get('output_preview', 'outputPreview')) : null,
       workerId: get('worker_id', 'workerId') ? String(get('worker_id', 'workerId')) : null,
@@ -1077,19 +1172,94 @@ export class ControlPlane {
   private createRun(datasetId: string, ownerEmail: string, type: string, prompt?: string | null) {
     const id = crypto.randomUUID()
     const timestamp = nowIso()
+    const title = this.fallbackRunTitle(type, prompt)
+    const description = this.fallbackRunDescription(type, prompt)
     this.sql.exec(
-      `INSERT INTO runs (id, dataset_id, owner_email, type, status, prompt, created_at, updated_at)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO runs (id, dataset_id, owner_email, type, status, title, description, prompt, created_at, updated_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       id,
       datasetId,
       ownerEmail,
       type,
       'queued',
+      title,
+      description,
       prompt ?? null,
       timestamp,
       timestamp,
     )
     return id
+  }
+
+  private fallbackRunTitle(type: string, prompt?: string | null) {
+    const normalizedPrompt = prompt?.replace(/\s+/gu, ' ').trim()
+    if (normalizedPrompt) {
+      return clampGeneratedRunTitle(normalizedPrompt) ?? `${formatRunType(type)} run`
+    }
+    return `${formatRunType(type)} run`
+  }
+
+  private fallbackRunDescription(type: string, prompt?: string | null) {
+    const normalizedPrompt = prompt?.replace(/\s+/gu, ' ').trim()
+    if (normalizedPrompt) {
+      return clampGeneratedRunDescription(normalizedPrompt)
+    }
+    return `Remote ${formatRunType(type).toLowerCase()} run queued for this dataset.`
+  }
+
+  private async generateRunLabel(runId: string) {
+    if (!this.env.OPENAI_API_KEY) return
+    const row = this.rows('SELECT * FROM runs WHERE id = ? LIMIT 1', runId)[0]
+    const run = row ? this.parseRunRow(row) : null
+    if (!run) return
+    const dataset = this.getDataset(run.datasetId)
+    const artifacts = this.listRunArtifacts(runId)
+    const events = this.runEventsForRun(runId).slice(-8)
+    const happened = [
+      `Dataset: ${dataset?.name ?? run.datasetId}`,
+      `Run type: ${formatRunType(run.type)}`,
+      `Status: ${formatRunType(run.status)}`,
+      run.prompt ? `Original request: ${run.prompt}` : null,
+      run.outputPreview ? `Latest result: ${run.outputPreview}` : null,
+      artifacts.length > 0 ? `Artifacts: ${artifacts.map((artifact) => artifact.title).join(', ')}` : null,
+      events.length > 0 ? `Recent timeline: ${events.map((event) => event.message).join(' | ')}` : null,
+    ].filter(Boolean).join('\n')
+    const prompt = [
+      'Add a title for this run based on what happened:',
+      happened,
+      '',
+      'Return compact JSON with keys "title" and "description".',
+      'The title should be fewer than 8 words.',
+      'The description should be one sentence in plain user language.',
+      'Do not include ids unless they are the subject of the work.',
+    ].join('\n')
+    const response = await callResponsesApi(this.env, {
+      input: prompt,
+      tool_choice: 'none',
+    })
+    const text = extractResponseText(response)
+    let parsed: Record<string, unknown> | null = null
+    try {
+      parsed = JSON.parse(text) as Record<string, unknown>
+    } catch {
+      parsed = null
+    }
+    const titleSource = typeof parsed?.title === 'string' ? parsed.title : text
+    const descriptionSource = typeof parsed?.description === 'string' ? parsed.description : ''
+    const title = clampGeneratedRunTitle(titleSource)
+    const description = clampGeneratedRunDescription(descriptionSource)
+    if (!title && !description) return
+    this.sql.exec(
+      `UPDATE runs
+          SET title = COALESCE(?, title),
+              description = COALESCE(?, description),
+              updated_at = ?
+        WHERE id = ?`,
+      title,
+      description,
+      nowIso(),
+      runId,
+    )
   }
 
   private getAssistantSession(id: string) {
@@ -2698,6 +2868,15 @@ export class ControlPlane {
       )
       if (status === 'booting' || status === 'running') {
         this.acquireDatasetLease(run.datasetId, runId)
+      }
+      if (['ready', 'failed', 'cancelled', 'worker_unreachable'].includes(status)) {
+        await this.generateRunLabel(runId).catch((error) => {
+          this.appendRunEvent(
+            runId,
+            `Run label generation skipped: ${error instanceof Error ? error.message : 'unknown error'}`,
+            'warning',
+          )
+        })
       }
       if (body.deploymentStatus || body.manifestPath || body.volumeMountPath) {
         this.sql.exec(
