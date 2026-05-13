@@ -895,7 +895,7 @@ function isProducedArtifact(
   artifact: RunArtifactRecord,
   _requestedArtifacts: Array<Record<string, unknown>>,
 ) {
-  if (artifact.type === 'remote_agent_summary') {
+  if (isBookkeepingArtifact(artifact)) {
     return false
   }
   if (artifact.url || artifact.type === 'remote_agent_session') {
@@ -910,6 +910,18 @@ function isProducedArtifact(
 function getProducedArtifacts(payload: RunResultsResponse | null) {
   const requestedArtifacts = getRequestedArtifacts(payload)
   return (payload?.artifacts ?? []).filter((artifact) => isProducedArtifact(artifact, requestedArtifacts))
+}
+
+function isBookkeepingArtifact(artifact: RunArtifactRecord) {
+  const title = artifact.title.toLowerCase()
+  const path = artifactPath(artifact).replace(/\\/gu, '/').toLowerCase()
+  const filename = path.split('/').filter(Boolean).at(-1) ?? title
+  return artifact.type === 'remote_agent_session'
+    || artifact.type === 'remote_agent_summary'
+    || artifact.type === 'remote_agent_transcript'
+    || filename === 'status.json'
+    || filename === 'codex-transcript.log'
+    || filename === 'last-message.txt'
 }
 
 function artifactPath(artifact: RunArtifactRecord) {
@@ -1010,7 +1022,7 @@ function getDatasetProfileArtifact(artifacts: RunArtifactRecord[]) {
   return artifacts.find((artifact) => {
     const title = artifact.title.toLowerCase()
     const path = artifactPath(artifact).toLowerCase()
-    return artifact.type === 'json' || artifact.type === 'structured_result' || title.includes('profile') || path.endsWith('result.json')
+    return title.includes('profile') || path.endsWith('result.json')
   }) ?? null
 }
 
