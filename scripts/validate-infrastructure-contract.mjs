@@ -114,6 +114,7 @@ assert(
 
 assert(
   workerSource.includes('/openai') &&
+    workerSource.includes('normalizeOpenAIProxyPath') &&
     workerSource.includes('remote_codex_runner') &&
     workerSource.includes('remote_codex_metering_failed') &&
     workerSource.includes('billing-check') &&
@@ -121,6 +122,12 @@ assert(
     controlPlaneSource.includes('/billing-events') &&
     controlPlaneSource.includes('this.billingOverview(run.ownerEmail)'),
   'Remote Codex OpenAI traffic must be proxied and billed against the run owner.',
+)
+
+assert(
+  modalSource.includes('/openai/v1') &&
+    runnerDocs.includes('/api/internal/runs/:runId/openai/v1/*'),
+  'Remote Codex OpenAI proxy base URL must include /v1 so Codex reaches OpenAI-compatible endpoints.',
 )
 
 assert(

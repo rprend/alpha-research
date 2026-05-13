@@ -432,6 +432,11 @@ function isMeteredOpenAIRequest(pathname: string, method: string) {
     )
 }
 
+function normalizeOpenAIProxyPath(proxyPath: string) {
+  const trimmed = proxyPath.replace(/^\/+/, '')
+  return trimmed.startsWith('v1/') ? trimmed : `v1/${trimmed}`
+}
+
 async function trackRemoteOpenAIUsage(env: Env, args: {
   runId: string
   source: string
@@ -519,7 +524,7 @@ async function proxyRemoteOpenAIRequest(request: Request, env: Env, runId: strin
     } catch {}
   }
 
-  const upstreamUrl = new URL(`https://api.openai.com/${proxyPath}`)
+  const upstreamUrl = new URL(`https://api.openai.com/${normalizeOpenAIProxyPath(proxyPath)}`)
   upstreamUrl.search = url.search
   const upstreamHeaders = new Headers(request.headers)
   upstreamHeaders.set('Authorization', `Bearer ${env.OPENAI_API_KEY}`)
