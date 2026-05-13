@@ -1236,6 +1236,11 @@ async function callResponsesApi(env: Env, body: Record<string, unknown>) {
   return JSON.parse(text) as ResponsesApiPayload
 }
 
+function isContextLengthError(error: unknown) {
+  const message = error instanceof Error ? error.message : String(error)
+  return message.includes('context_length_exceeded') || message.includes('exceeds the context window')
+}
+
 function buildResponsesPayload(env: Env, body: unknown) {
   const input = body && typeof body === 'object' ? body as Record<string, unknown> : {}
   return {
@@ -1753,13 +1758,31 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
 
   const tools = createResearchAgentTools(env, cliSession.email)
   const toolsByName = new Map(tools.map((tool) => [tool.name, tool]))
-  let response = await callResponsesApi(env, {
-    instructions: RESEARCH_AGENT_INSTRUCTIONS,
-    input: assistantInput,
-    previous_response_id: previousResponseId ?? undefined,
-    tools: tools.map(buildToolSchema),
-    parallel_tool_calls: false,
-  })
+  let response: ResponsesApiPayload
+  try {
+    response = await callResponsesApi(env, {
+      instructions: RESEARCH_AGENT_INSTRUCTIONS,
+      input: assistantInput,
+      previous_response_id: previousResponseId ?? undefined,
+      tools: tools.map(buildToolSchema),
+      parallel_tool_calls: false,
+    })
+  } catch (error) {
+    if (!previousResponseId || !isContextLengthError(error)) {
+      throw error
+    }
+    previousResponseId = null
+    response = await callResponsesApi(env, {
+      instructions: RESEARCH_AGENT_INSTRUCTIONS,
+      input: [
+        'The prior Responses thread became too large to continue directly. Continue using the current assistant session, dataset context, and tools.',
+        '',
+        assistantInput,
+      ].join('\n'),
+      tools: tools.map(buildToolSchema),
+      parallel_tool_calls: false,
+    })
+  }
   await trackOpenAIUsage(env, {
     userId: cliSession.email,
     sessionId,
