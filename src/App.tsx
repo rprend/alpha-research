@@ -1,5 +1,7 @@
 import { type CSSProperties, type PointerEvent as ReactPointerEvent, type ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 import { AssistantRuntimeProvider, useExternalStoreRuntime, type ThreadMessage } from '@assistant-ui/react'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import {
   AlertTriangle,
   BookOpen,
@@ -767,61 +769,30 @@ function profileText(profile: unknown, key: string) {
 }
 
 function renderPreviewMarkdown(markdown: string) {
-  const nodes: ReactNode[] = []
-  let paragraph: string[] = []
-  let bullets: string[] = []
-
-  const flushParagraph = () => {
-    if (paragraph.length === 0) return
-    nodes.push(
-      <p key={`p-${nodes.length}`} className="my-4 whitespace-pre-wrap text-[1.18rem] leading-[1.7] text-neutral-600">
-        {paragraph.join('\n')}
-      </p>,
-    )
-    paragraph = []
-  }
-  const flushBullets = () => {
-    if (bullets.length === 0) return
-    nodes.push(
-      <ul key={`ul-${nodes.length}`} className="my-4 list-disc space-y-3 pl-7 text-[1.18rem] leading-[1.7] text-neutral-600">
-        {bullets.map((item, index) => <li key={index}>{item}</li>)}
-      </ul>,
-    )
-    bullets = []
-  }
-
-  for (const line of markdown.split('\n')) {
-    const trimmed = line.trim()
-    if (!trimmed) {
-      flushParagraph()
-      flushBullets()
-      continue
-    }
-    const heading = trimmed.match(/^(#{1,3})\s+(.+)$/u)
-    if (heading) {
-      flushParagraph()
-      flushBullets()
-      const level = heading[1]?.length ?? 2
-      const text = heading[2] ?? ''
-      nodes.push(
-        level === 1
-          ? <h1 key={`h-${nodes.length}`} className="mt-9 text-3xl font-semibold leading-tight tracking-normal first:mt-0 md:text-4xl">{text}</h1>
-          : <h2 key={`h-${nodes.length}`} className="mt-8 text-2xl font-semibold leading-tight tracking-normal first:mt-0">{text}</h2>,
-      )
-      continue
-    }
-    const bullet = trimmed.match(/^[-*]\s+(.+)$/u)
-    if (bullet) {
-      flushParagraph()
-      bullets.push(bullet[1] ?? '')
-      continue
-    }
-    flushBullets()
-    paragraph.push(trimmed)
-  }
-  flushParagraph()
-  flushBullets()
-  return nodes
+  return (
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      components={{
+        h1: ({ ...props }) => <h1 className="mt-9 text-3xl font-semibold leading-tight tracking-normal first:mt-0 md:text-4xl" {...props} />,
+        h2: ({ ...props }) => <h2 className="mt-8 text-2xl font-semibold leading-tight tracking-normal first:mt-0" {...props} />,
+        h3: ({ ...props }) => <h3 className="mt-7 text-xl font-semibold leading-tight tracking-normal first:mt-0" {...props} />,
+        h4: ({ ...props }) => <h4 className="mt-6 text-lg font-semibold leading-tight tracking-normal first:mt-0" {...props} />,
+        p: ({ ...props }) => <p className="my-4 whitespace-pre-wrap text-[1.18rem] leading-[1.7] text-neutral-600" {...props} />,
+        ul: ({ ...props }) => <ul className="my-4 list-disc space-y-3 pl-7 text-[1.18rem] leading-[1.7] text-neutral-600" {...props} />,
+        ol: ({ ...props }) => <ol className="my-4 list-decimal space-y-3 pl-7 text-[1.18rem] leading-[1.7] text-neutral-600" {...props} />,
+        li: ({ ...props }) => <li className="pl-1" {...props} />,
+        code: ({ ...props }) => <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-[0.95em] text-foreground" {...props} />,
+        pre: ({ ...props }) => <pre className="my-5 overflow-x-auto rounded-md bg-muted p-4 text-sm leading-6" {...props} />,
+        blockquote: ({ ...props }) => <blockquote className="my-5 border-l-2 border-border pl-4 text-muted-foreground" {...props} />,
+        a: ({ ...props }) => <a className="font-medium underline underline-offset-4" {...props} />,
+        table: ({ ...props }) => <table className="my-5 w-full border-collapse text-left text-sm" {...props} />,
+        th: ({ ...props }) => <th className="border-b border-border px-3 py-2 font-semibold" {...props} />,
+        td: ({ ...props }) => <td className="border-b border-border px-3 py-2 align-top" {...props} />,
+      }}
+    >
+      {markdown}
+    </ReactMarkdown>
+  )
 }
 
 function tryParseJson(value: string) {
