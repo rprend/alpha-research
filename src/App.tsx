@@ -15,7 +15,6 @@ import {
   FileText,
   Globe2,
   GripVertical,
-  History,
   Library,
   LoaderCircle,
   LogOut,
@@ -42,10 +41,6 @@ import {
   launchHarnessPreparedRun,
 } from '@/harness-data'
 import { Badge } from '@/components/ui/badge'
-import {
-  Avatar,
-  AvatarFallback,
-} from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -55,6 +50,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import {
@@ -229,7 +225,7 @@ type RunResultsResponse = {
 }
 
 type SessionEntryRole = 'user' | 'assistant' | 'system' | 'tool'
-type DashboardView = 'assistant' | 'datasets' | 'runs' | 'terminal-sessions'
+type DashboardView = 'assistant' | 'datasets' | 'runs' | 'terminal-sessions' | 'settings'
 
 type StoredAssistantSessionEntry = {
   id: string
@@ -1907,18 +1903,12 @@ function formatBillingWindowDate(value: string | null) {
   return new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(timestamp)
 }
 
-function getSessionUserInitials(user: SessionResponse['user']) {
-  const displayName = user?.email || 'Account'
-  const nameParts = displayName
-    .split(/\s+/)
-    .map((part) => part.trim())
-    .filter(Boolean)
-
-  if (nameParts.length > 1) {
-    return `${nameParts[0][0]}${nameParts[nameParts.length - 1][0]}`.toUpperCase()
+function formatUsageRemainingPercent(billing: BillingOverview | null | undefined) {
+  if (!billing || billing.usage.monthlyCredits <= 0) {
+    return 'Usage unavailable'
   }
-
-  return displayName.slice(0, 2).toUpperCase()
+  const percent = Math.max(0, Math.min(100, (billing.usage.remainingCredits / billing.usage.monthlyCredits) * 100))
+  return `${Math.round(percent)}% usage remaining`
 }
 
 function normalizeDatasetsPayload(payload: unknown): DatasetRecord[] {
@@ -2109,7 +2099,8 @@ function getDashboardRoute() {
     candidate === 'assistant' ||
     candidate === 'datasets' ||
     candidate === 'runs' ||
-    candidate === 'terminal-sessions'
+    candidate === 'terminal-sessions' ||
+    candidate === 'settings'
       ? candidate
       : 'assistant'
 
@@ -4157,7 +4148,9 @@ function DashboardMobileHeader({
         ? 'Remote runs'
         : route.view === 'terminal-sessions'
           ? 'Sessions'
-          : 'Research chat'
+          : route.view === 'settings'
+            ? 'Settings'
+            : 'Research chat'
 
   return (
     <header className="dashboard-mobile-header flex h-14 shrink-0 items-center gap-3 border-b border-border bg-background px-3 md:hidden">
@@ -4232,8 +4225,6 @@ function BillingLimitDialog({
 function DashboardSidebar({
   route,
   session,
-  datasets,
-  runs,
   recentAssistantSessions,
   showResearchChats,
   onOpenPaywall,
@@ -4241,8 +4232,6 @@ function DashboardSidebar({
 }: {
   route: DashboardRouteState
   session: SessionResponse
-  datasets: DatasetRecord[]
-  runs: RunRecord[]
   recentAssistantSessions: Array<StoredAssistantSession & {
     dataset?: DatasetRecord
     run?: RunRecord
@@ -4253,7 +4242,7 @@ function DashboardSidebar({
 }) {
   const { isMobile, setOpenMobile } = useSidebar()
   const userEmail = session.user?.email ?? 'Account'
-  const userInitials = getSessionUserInitials(session.user)
+  const usageRemainingLabel = formatUsageRemainingPercent(session.billing)
   const isActiveSessionRun = (chatSession: { run?: RunRecord }) =>
     Boolean(chatSession.run && !isTerminalRunStatus(chatSession.run.status))
   const navigate = (next: {
@@ -4333,63 +4322,55 @@ function DashboardSidebar({
         ) : null}
       </SidebarContent>
       <SidebarFooter className="dashboard-sidebar-footer border-t border-sidebar-border p-3">
-        <SidebarMenu className="dashboard-sidebar-menu mb-2">
-          <SidebarMenuItem>
-            <SidebarMenuButton
-              className="dashboard-nav-button h-11 md:h-8"
-              isActive={route.view === 'datasets'}
-              onClick={() =>
-                navigate({
-                  view: 'datasets',
-                  runId: null,
-                  sessionId: null,
-                })}
-            >
-              <Database />
-              <span>Datasets</span>
-              <span className="ml-auto mr-3 text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
-                {datasets.length}
-              </span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-          <SidebarMenuItem>
-            <SidebarMenuButton
-              className="dashboard-nav-button h-11 md:h-8"
-              tooltip="Remote runs"
-              isActive={route.view === 'runs'}
-              onClick={() =>
-                navigate({
-                  view: 'runs',
-                  runId: null,
-                  sessionId: null,
-                })}
-            >
-              <History />
-              <span>Remote runs</span>
-              <span className="ml-auto mr-3 text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
-                {runs.length}
-              </span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
         {signedOut ? null : (
-          <div className="dashboard-profile-row">
-            <Avatar className="dashboard-profile-avatar">
-              <AvatarFallback>{userInitials}</AvatarFallback>
-            </Avatar>
-            <div className="dashboard-profile-copy">
+          <div className="dashboard-settings-footer">
+            <div className="dashboard-settings-actions">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <button
                     type="button"
-                    className="dashboard-profile-name"
-                    aria-label={`${userEmail} account menu`}
-                    title={userEmail}
+                    className="dashboard-settings-trigger"
+                    aria-label="Open settings menu"
                   >
-                    {userEmail}
+                    Settings
                   </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="rounded-none">
+                <DropdownMenuContent align="end" className="dashboard-settings-menu rounded-none">
+                  <div className="dashboard-settings-menu-row dashboard-settings-menu-email">{userEmail}</div>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem
+                    onClick={() =>
+                      navigate({
+                        view: 'runs',
+                        runId: null,
+                        sessionId: null,
+                      })}
+                  >
+                    Remote runs
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    onClick={() =>
+                      navigate({
+                        view: 'datasets',
+                        runId: null,
+                        sessionId: null,
+                      })}
+                  >
+                    Datasets
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <div className="dashboard-settings-menu-row">{usageRemainingLabel}</div>
+                  <DropdownMenuItem
+                    onClick={() =>
+                      navigate({
+                        view: 'settings',
+                        runId: null,
+                        sessionId: null,
+                      })}
+                  >
+                    Settings
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
                   <DropdownMenuItem
                     onClick={async () => {
                       await fetch('/api/auth/logout', {
@@ -4411,11 +4392,6 @@ function DashboardSidebar({
                 aria-label="Upgrade to Pro"
               >
                 <span>Upgrade to Pro</span>
-                {session.billing ? (
-                  <span className="dashboard-profile-usage">
-                    {formatCompactCreditAmount(session.billing.usage.remainingCredits)} left
-                  </span>
-                ) : null}
               </button>
             </div>
           </div>
@@ -4450,6 +4426,44 @@ function SignedOutAssistantPage({
             </div>
           </div>
         </div>
+      </section>
+    </main>
+  )
+}
+
+function DashboardSettingsPage({
+  session,
+}: {
+  session: SessionResponse
+}) {
+  const tierLabel = session.billing?.subscription.tier === 'studio' ? 'Pro' : 'Free'
+  const usageLabel = formatUsageRemainingPercent(session.billing)
+  const renewalLabel = formatBillingWindowDate(session.billing?.usage.windowEndsAt ?? null)
+
+  return (
+    <main className="flex min-h-0 flex-1 min-w-0 flex-col gap-6 overflow-y-auto px-4 py-6 md:px-8">
+      <section className="flex flex-col gap-2">
+        <h1 className="text-2xl font-medium tracking-normal">Settings</h1>
+        <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
+          Account and plan details for this dashboard.
+        </p>
+      </section>
+      <section className="grid gap-4 md:grid-cols-2">
+        <Card className="rounded-none border border-border bg-card py-0 shadow-none">
+          <CardContent className="flex flex-col gap-2 px-5 py-5">
+            <h2 className="text-sm font-semibold tracking-normal">Account</h2>
+            <p className="break-all text-sm text-muted-foreground">{session.user?.email ?? 'Signed in'}</p>
+          </CardContent>
+        </Card>
+        <Card className="rounded-none border border-border bg-card py-0 shadow-none">
+          <CardContent className="flex flex-col gap-2 px-5 py-5">
+            <h2 className="text-sm font-semibold tracking-normal">Plan</h2>
+            <p className="text-sm text-muted-foreground">{tierLabel}</p>
+            <p className="text-sm text-muted-foreground">
+              {usageLabel}{renewalLabel ? ` · Resets ${renewalLabel}` : ''}
+            </p>
+          </CardContent>
+        </Card>
       </section>
     </main>
   )
@@ -4626,6 +4640,8 @@ function DashboardApp({
         </section>
       </main>
     )
+  } else if (route.view === 'settings') {
+    content = <DashboardSettingsPage session={session} />
   } else {
     content = (
       <ResearchAssistantPage
@@ -4640,8 +4656,6 @@ function DashboardApp({
       <DashboardSidebar
         route={route}
         session={session}
-        datasets={datasets}
-        runs={runs}
         recentAssistantSessions={recentAssistantSessions}
         showResearchChats={showResearchChats}
         onOpenPaywall={openBillingDialog}

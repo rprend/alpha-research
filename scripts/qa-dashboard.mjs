@@ -54,8 +54,25 @@ async function assertRenderedOrientation() {
     await page.getByRole('heading', { name: 'What do you want to research?' }).waitFor({ timeout: 15000 })
     await page.locator('img.aui-thread-welcome-image[src="/alpha-book-man.png"]').waitFor({ timeout: 15000 })
     await page.getByPlaceholder('Send a message...').waitFor({ timeout: 15000 })
+    if (await page.locator('.dashboard-profile-avatar').count()) {
+      throw new Error('Dashboard footer should not render the old profile avatar circle.')
+    }
+    await page.getByRole('button', { name: 'Open settings menu' }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'Open settings menu' }).click()
     await page.getByText('harness@alpharesearch.local', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('menuitem', { name: 'Remote runs' }).waitFor({ timeout: 15000 })
+    await page.getByRole('menuitem', { name: 'Datasets' }).waitFor({ timeout: 15000 })
+    await page.getByText('100% usage remaining', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('menuitem', { name: 'Settings' }).click()
+    await page.getByRole('heading', { name: 'Settings' }).waitFor({ timeout: 15000 })
+    await page.getByText('Account and plan details for this dashboard.', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'New chat' }).click()
+    await page.getByRole('heading', { name: 'What do you want to research?' }).waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: /Upgrade to Pro/ }).waitFor({ timeout: 15000 })
+    const upgradeCursor = await page.locator('.dashboard-profile-upgrade').evaluate((element) => getComputedStyle(element).cursor)
+    if (upgradeCursor !== 'grab') {
+      throw new Error(`Upgrade footer action should use cursor: grab, got "${upgradeCursor}".`)
+    }
     await page.getByRole('button', { name: /Upgrade to Pro/ }).click()
     await page.getByRole('dialog', { name: 'Upgrade to Pro' }).waitFor({ timeout: 15000 })
     await page.getByRole('heading', { name: 'Choose your plan' }).waitFor({ timeout: 15000 })
@@ -509,8 +526,12 @@ async function assertSignedOutDashboardGate() {
     await page.getByRole('button', { name: 'New chat' }).waitFor({ timeout: 15000 })
     await page.getByLabel('Message input').waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'Sign in' }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: /Datasets/ }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: /Remote runs/ }).waitFor({ timeout: 15000 })
+    if (await page.getByRole('button', { name: /Datasets/ }).count()) {
+      throw new Error('Signed-out dashboard should not render footer dataset navigation.')
+    }
+    if (await page.getByRole('button', { name: /Remote runs/ }).count()) {
+      throw new Error('Signed-out dashboard should not render footer run navigation.')
+    }
     if (await page.getByText('Sign in to continue', { exact: false }).count()) {
       throw new Error('Signed-out dashboard should not render the old explanatory gate.')
     }
