@@ -13,6 +13,7 @@ import {
   Database,
   ExternalLink,
   FileText,
+  Gauge,
   Globe2,
   GripVertical,
   Library,
@@ -20,8 +21,10 @@ import {
   LogOut,
   MessageSquarePlus,
   ScrollText,
+  Settings as SettingsIcon,
   Table2,
   TerminalSquare,
+  UserCircle,
   type LucideIcon,
   Zap,
   X,
@@ -50,7 +53,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import {
@@ -4321,7 +4323,7 @@ function DashboardSidebar({
           </SidebarGroup>
         ) : null}
       </SidebarContent>
-      <SidebarFooter className="dashboard-sidebar-footer border-t border-sidebar-border p-3">
+      <SidebarFooter className="dashboard-sidebar-footer p-3">
         {signedOut ? null : (
           <div className="dashboard-settings-footer">
             <div className="dashboard-settings-actions">
@@ -4332,35 +4334,17 @@ function DashboardSidebar({
                     className="dashboard-settings-trigger"
                     aria-label="Open settings menu"
                   >
+                    <SettingsIcon aria-hidden="true" />
                     Settings
                   </button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="dashboard-settings-menu rounded-none">
-                  <div className="dashboard-settings-menu-row dashboard-settings-menu-email">{userEmail}</div>
-                  <DropdownMenuSeparator />
+                  <div className="dashboard-settings-menu-row dashboard-settings-menu-email">
+                    <UserCircle aria-hidden="true" />
+                    <span>{userEmail}</span>
+                  </div>
                   <DropdownMenuItem
-                    onClick={() =>
-                      navigate({
-                        view: 'runs',
-                        runId: null,
-                        sessionId: null,
-                      })}
-                  >
-                    Remote runs
-                  </DropdownMenuItem>
-                  <DropdownMenuItem
-                    onClick={() =>
-                      navigate({
-                        view: 'datasets',
-                        runId: null,
-                        sessionId: null,
-                      })}
-                  >
-                    Datasets
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <div className="dashboard-settings-menu-row">{usageRemainingLabel}</div>
-                  <DropdownMenuItem
+                    className="dashboard-settings-menu-item"
                     onClick={() =>
                       navigate({
                         view: 'settings',
@@ -4368,10 +4352,39 @@ function DashboardSidebar({
                         sessionId: null,
                       })}
                   >
+                    <SettingsIcon aria-hidden="true" />
                     Settings
                   </DropdownMenuItem>
-                  <DropdownMenuSeparator />
                   <DropdownMenuItem
+                    className="dashboard-settings-menu-item"
+                    onClick={() =>
+                      navigate({
+                        view: 'runs',
+                        runId: null,
+                        sessionId: null,
+                      })}
+                  >
+                    <TerminalSquare aria-hidden="true" />
+                    Remote runs
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    className="dashboard-settings-menu-item"
+                    onClick={() =>
+                      navigate({
+                        view: 'datasets',
+                        runId: null,
+                        sessionId: null,
+                      })}
+                  >
+                    <Database aria-hidden="true" />
+                    Datasets
+                  </DropdownMenuItem>
+                  <div className="dashboard-settings-menu-row">
+                    <Gauge aria-hidden="true" />
+                    <span>{usageRemainingLabel}</span>
+                  </div>
+                  <DropdownMenuItem
+                    className="dashboard-settings-menu-item"
                     onClick={async () => {
                       await fetch('/api/auth/logout', {
                         method: 'POST',
@@ -4380,7 +4393,7 @@ function DashboardSidebar({
                       window.location.assign(getDashboardAuthReturnUrl({ loggedOut: true }))
                     }}
                   >
-                    <LogOut />
+                    <LogOut aria-hidden="true" />
                     Log out
                   </DropdownMenuItem>
                 </DropdownMenuContent>
