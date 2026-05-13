@@ -2742,12 +2742,8 @@ function DatasetDetailPage({
 
         {error ? <div className="bg-destructive/5 px-4 py-3 text-sm text-destructive">{error}</div> : null}
 
-        <article className="text-base leading-8 text-foreground">
-          {inventoryBriefingText.split('\n').map((line, index) => (
-            line.trim()
-              ? <p key={`${index}-${line.slice(0, 12)}`} className="whitespace-pre-wrap">{line}</p>
-              : <div key={`gap-${index}`} className="h-4" />
-          ))}
+        <article className="max-w-none">
+          {renderPreviewMarkdown(inventoryBriefingText)}
         </article>
       </div>
     </main>
