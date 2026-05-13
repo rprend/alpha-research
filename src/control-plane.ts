@@ -517,6 +517,26 @@ export class ControlPlane {
       );
     `)
     this.sql.exec(`
+      CREATE INDEX IF NOT EXISTS idx_assistant_sessions_owner_kind_updated
+      ON assistant_sessions (owner_email, kind, updated_at DESC);
+    `)
+    this.sql.exec(`
+      CREATE INDEX IF NOT EXISTS idx_assistant_sessions_owner_kind_run_updated
+      ON assistant_sessions (owner_email, kind, run_id, updated_at DESC);
+    `)
+    this.sql.exec(`
+      CREATE INDEX IF NOT EXISTS idx_assistant_sessions_owner_kind_dataset_updated
+      ON assistant_sessions (owner_email, kind, dataset_id, updated_at DESC);
+    `)
+    this.sql.exec(`
+      CREATE INDEX IF NOT EXISTS idx_assistant_sessions_run_kind_created
+      ON assistant_sessions (run_id, kind, created_at ASC);
+    `)
+    this.sql.exec(`
+      CREATE INDEX IF NOT EXISTS idx_assistant_session_entries_session_seq
+      ON assistant_session_entries (session_id, seq ASC);
+    `)
+    this.sql.exec(`
       CREATE TABLE IF NOT EXISTS response_session_links (
         response_id TEXT PRIMARY KEY,
         session_id TEXT NOT NULL
