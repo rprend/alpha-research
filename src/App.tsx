@@ -3022,6 +3022,7 @@ function RemoteRunBlock({
   const run = payload?.run ?? null
   const status = run?.status ?? initialStatus ?? 'running'
   const isRunning = !isTerminalRunStatus(status)
+  const isCancelled = status.toLowerCase() === 'cancelled' || status.toLowerCase() === 'canceled'
   const producedArtifacts = getProducedArtifacts(payload).filter((artifact) => artifact.type !== 'remote_agent_session')
   const primaryArtifact = getDatasetBriefingArtifact(producedArtifacts)
   const resultArtifact = getDatasetProfileArtifact(producedArtifacts)
@@ -3080,7 +3081,12 @@ function RemoteRunBlock({
         ) : null}
         {isRunning ? (
           <div className="space-y-4">
-            {elapsedLabel ? (
+            {cancelling ? (
+              <p className="flex items-center gap-2 text-sm text-muted-foreground" aria-live="polite">
+                <LoaderCircle className="size-4 animate-spin" aria-hidden="true" />
+                <span>Cancelling run...</span>
+              </p>
+            ) : elapsedLabel ? (
               <p className="flex items-center gap-2 text-sm text-muted-foreground">
                 <LoaderCircle className="size-4 animate-spin" aria-hidden="true" />
                 <span>{elapsedLabel}</span>
@@ -3095,7 +3101,12 @@ function RemoteRunBlock({
             </div>
             <div className="flex flex-wrap gap-2">
               <Button type="button" size="sm" variant="outline" onClick={() => void handleCancel()} disabled={cancelling}>
-                {cancelling ? 'Cancelling...' : 'Cancel'}
+                {cancelling ? (
+                  <span className="inline-flex items-center gap-2">
+                    <LoaderCircle className="size-3.5 animate-spin" aria-hidden="true" />
+                    Cancelling...
+                  </span>
+                ) : 'Cancel'}
               </Button>
               <Button type="button" size="sm" variant="ghost" asChild>
                 <a href={`${dashboardOrigin}?view=runs&runId=${encodeURIComponent(runId)}`}>Run logs</a>
@@ -3155,7 +3166,7 @@ function RemoteRunBlock({
           </div>
         ) : (
           <p className="text-sm text-muted-foreground">
-            The run is {formatStatus(status).toLowerCase()}, but no human-readable artifact is attached yet.
+            {isCancelled ? 'Run cancelled.' : `The run is ${formatStatus(status).toLowerCase()}, but no human-readable artifact is attached yet.`}
           </p>
         )}
       </div>
