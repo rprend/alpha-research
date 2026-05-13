@@ -213,13 +213,13 @@ async function assertRenderedDatasetInventory() {
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=datasets`, { waitUntil: 'domcontentloaded' })
-    await page.getByRole('heading', { name: 'Datasets', exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Your datasets', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Public datasets', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: /City Housing Archive/ }).waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: /Alpha Book Sample/ }).waitFor({ timeout: 15000 })
     await page.getByLabel('Ready for research').first().waitFor({ timeout: 15000 })
     await page.getByLabel('Still building').waitFor({ timeout: 15000 })
+    await assertPageTextMissing(page, 'See what data is available', 'Dataset inventory should not render the old page intro copy.')
   } finally {
     await browser.close()
   }
@@ -230,7 +230,6 @@ async function assertTopicGuidedDatasetSelection() {
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=datasets&topic=housing-affordability`, { waitUntil: 'domcontentloaded' })
-    await page.getByRole('heading', { name: 'Datasets', exact: true }).waitFor({ timeout: 15000 })
     await page.getByRole('heading', { name: 'Best datasets for Housing Affordability', exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Recommended next step', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Open City Housing Archive', { exact: true }).waitFor({ timeout: 15000 })
@@ -249,7 +248,6 @@ async function assertRenderedEmptyDatasetSetup() {
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=datasets&scenario=empty`, { waitUntil: 'domcontentloaded' })
-    await page.getByRole('heading', { name: 'Datasets', exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Expected for a new workspace', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Set up your first dataset', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Nothing failed here.', { exact: false }).waitFor({ timeout: 15000 })
@@ -267,7 +265,6 @@ async function assertAuthenticatedDatasetLoadFailure() {
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=datasets&scenario=data-error`, { waitUntil: 'domcontentloaded' })
-    await page.getByRole('heading', { name: 'Datasets', exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Data temporarily unavailable', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByRole('heading', { name: 'We could not load your datasets.' }).waitFor({ timeout: 15000 })
     await page.getByText('Your account is still signed in', { exact: false }).waitFor({ timeout: 15000 })
@@ -483,12 +480,8 @@ async function assertSignedOutDashboardGate() {
     await page.getByRole('button', { name: 'New chat' }).waitFor({ timeout: 15000 })
     await page.getByLabel('Message input').waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'Sign in' }).waitFor({ timeout: 15000 })
-    if (await page.getByRole('button', { name: /Datasets/ }).count()) {
-      throw new Error('Signed-out dashboard should not render the footer Datasets navigation.')
-    }
-    if (await page.getByRole('button', { name: /Remote runs/ }).count()) {
-      throw new Error('Signed-out dashboard should not render the footer Remote runs navigation.')
-    }
+    await page.getByRole('button', { name: /Datasets/ }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: /Remote runs/ }).waitFor({ timeout: 15000 })
     if (await page.getByText('Sign in to continue', { exact: false }).count()) {
       throw new Error('Signed-out dashboard should not render the old explanatory gate.')
     }

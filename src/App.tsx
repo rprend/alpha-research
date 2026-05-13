@@ -15,6 +15,7 @@ import {
   FileText,
   Globe2,
   GripVertical,
+  History,
   Library,
   LoaderCircle,
   LogOut,
@@ -4235,6 +4236,8 @@ function BillingLimitDialog({
 function DashboardSidebar({
   route,
   session,
+  datasets,
+  runs,
   recentAssistantSessions,
   showResearchChats,
   onOpenPaywall,
@@ -4242,6 +4245,8 @@ function DashboardSidebar({
 }: {
   route: DashboardRouteState
   session: SessionResponse
+  datasets: DatasetRecord[]
+  runs: RunRecord[]
   recentAssistantSessions: Array<StoredAssistantSession & {
     dataset?: DatasetRecord
     run?: RunRecord
@@ -4332,6 +4337,45 @@ function DashboardSidebar({
         ) : null}
       </SidebarContent>
       <SidebarFooter className="dashboard-sidebar-footer border-t border-sidebar-border p-3">
+        <SidebarMenu className="dashboard-sidebar-menu mb-2">
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              className="dashboard-nav-button h-11 md:h-8"
+              isActive={route.view === 'datasets'}
+              onClick={() =>
+                navigate({
+                  view: 'datasets',
+                  runId: null,
+                  sessionId: null,
+                })}
+            >
+              <Database />
+              <span>Datasets</span>
+              <span className="ml-auto mr-3 text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
+                {datasets.length}
+              </span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              className="dashboard-nav-button h-11 md:h-8"
+              tooltip="Remote runs"
+              isActive={route.view === 'runs'}
+              onClick={() =>
+                navigate({
+                  view: 'runs',
+                  runId: null,
+                  sessionId: null,
+                })}
+            >
+              <History />
+              <span>Remote runs</span>
+              <span className="ml-auto mr-3 text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
+                {runs.length}
+              </span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
         {signedOut ? null : (
           <div className="dashboard-profile-row">
             <Avatar className="dashboard-profile-avatar">
@@ -4512,21 +4556,8 @@ function DashboardApp({
   } else if (route.view === 'datasets' && route.datasetId && !dataError) {
     content = <main className="min-h-0 flex-1 overflow-y-auto px-4 py-8 md:px-8" />
   } else if (route.view === 'datasets') {
-    const hasDatasets = datasets.length > 0
     content = (
       <main className="flex flex-1 min-w-0 flex-col gap-10 overflow-y-auto px-4 py-10 md:px-8">
-        <section className="mx-auto flex w-full max-w-5xl flex-col gap-3">
-          <h1 className="text-4xl font-semibold tracking-normal">Datasets</h1>
-          <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-            {dataError
-              ? 'You are signed in, but Alpha Research cannot verify dataset availability until dashboard data loads successfully.'
-              : isLoading
-                ? 'Loading available datasets, coverage, and readiness.'
-                : hasDatasets
-                  ? 'See what data is available, what each dataset covers, and whether it is ready to use. Open any dataset for provenance, schema, profile details, and generated briefings.'
-                  : 'New workspaces start here. Add one file or source plus a short description, then come back here to inspect readiness, provenance, and the first research-ready dataset.'}
-          </p>
-        </section>
         <section>
           <DatasetFeed
             datasets={datasets}
@@ -4613,6 +4644,8 @@ function DashboardApp({
       <DashboardSidebar
         route={route}
         session={session}
+        datasets={datasets}
+        runs={runs}
         recentAssistantSessions={recentAssistantSessions}
         showResearchChats={showResearchChats}
         onOpenPaywall={openBillingDialog}
