@@ -960,7 +960,7 @@
 .dashboard-assistant-page .aui-assistant-message-footer,
 .dashboard-assistant-page [data-slot="aui_assistant-message-footer"] {
   min-height: 1.5rem;
-  margin-top: 0.25rem;
+  margin-top: 0.65rem;
 }
 
 .dashboard-assistant-page .aui-user-action-bar-wrapper {

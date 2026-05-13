@@ -878,9 +878,9 @@ function formatArgumentValue(value: unknown): string {
 
 function formatToolArguments(args: Record<string, unknown>) {
   const lines = Object.entries(args).map(([key, value]) => {
-    return `- **${humanizeArgumentName(key)}:** ${formatArgumentValue(value)}`
+    return `- ${humanizeArgumentName(key)} : ${formatArgumentValue(value)}`
   })
-  return lines.length > 0 ? `\n\n**Arguments**\n\n${lines.join('\n')}` : ''
+  return lines.length > 0 ? `\n${lines.join('\n')}` : ''
 }
 
 function getRequestedArtifacts(payload: RunResultsResponse | null) {
@@ -1354,7 +1354,7 @@ function formatSessionBody(entry: SessionEntry) {
     if (entry.title !== 'Assistant' && entry.metadata.name && entry.body.startsWith('Calling ')) {
       const args = isRecord(entry.metadata.arguments) ? entry.metadata.arguments : null
       const details = args ? formatToolArguments(args) : ''
-      return `### ${humanizeToolName(String(toolName))}\n\nStarting tool call.${details}`
+      return `### ${humanizeToolName(String(toolName))}${details}`
     }
     if (entry.metadata.error && typeof entry.metadata.error === 'string') {
       const args = isRecord(entry.metadata.arguments) ? entry.metadata.arguments : null
