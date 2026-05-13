@@ -16,6 +16,9 @@ import { onRequestPost as cliPlanPost } from '../functions/cli/plan.js'
 import { readCliBearerToken, readSession } from '../functions/_utils/auth.js'
 import { ControlPlane } from './control-plane'
 import { remoteAgentRunnerScript } from './remote-agent-runner-script'
+import { openAIUsageFromResponse, type BillingCheckResult } from './billing'
+import { subscriptionRecordFromStripe, type StripeConfig, type SubscriptionRecord } from './stripe'
+import Stripe from 'stripe'
 
 type AssetFetcher = {
   fetch(request: Request): Promise<Response>
@@ -57,6 +60,11 @@ type Env = {
   EXA_API_KEY?: string
   CANONICAL_DATASET_SLACK_WEBHOOK_URL?: string
   SLACK_WEBHOOK_URL?: string
+  STRIPE_SECRET_KEY?: string
+  STRIPE_PUBLISHABLE_KEY?: string
+  STRIPE_WEBHOOK_SECRET?: string
+  STRIPE_PRODUCT_ID?: string
+  STRIPE_PRICE_ID?: string
   CONTROL_PLANE: DurableObjectNamespaceLike
   ARTIFACT_BUCKET?: unknown
 }
@@ -286,6 +294,102 @@ async function proxyToControlPlaneJson<T>(env: Env, path: string, init: RequestI
     return undefined as T
   }
   return JSON.parse(text) as T
+}
+
+function stripeConfig(env: Env): StripeConfig | null {
+  if (!env.STRIPE_SECRET_KEY || !env.STRIPE_PRODUCT_ID || !env.STRIPE_PRICE_ID) return null
+  return {
+    client: new Stripe(env.STRIPE_SECRET_KEY),
+    publishableKey: env.STRIPE_PUBLISHABLE_KEY,
+    webhookSecret: env.STRIPE_WEBHOOK_SECRET,
+    productId: env.STRIPE_PRODUCT_ID,
+    priceId: env.STRIPE_PRICE_ID,
+  }
+}
+
+async function billingSnapshot(env: Env, userId: string) {
+  return proxyToControlPlaneJson<{ overview: BillingCheckResult; subscription: (SubscriptionRecord & { createdAt?: string }) | null }>(
+    env,
+    `/billing?userId=${encodeURIComponent(userId)}`,
+    { method: 'GET' },
+  )
+}
+
+async function billingOverview(env: Env, userId: string) {
+  const { overview } = await billingSnapshot(env, userId)
+  return overview
+}
+
+function billingLimitResponse(check: BillingCheckResult) {
+  return json({
+    error: 'Usage limit exceeded.',
+    code: 'billing_limit_exceeded',
+    tier: check.tier,
+    subscriptionStatus: check.subscriptionStatus,
+    limitCredits: check.limitCredits,
+    usedCredits: check.usedCredits,
+    remainingCredits: check.remainingCredits,
+    spendUsd: check.spendUsd,
+    windowStartedAt: check.windowStartedAt,
+    windowEndsAt: check.windowEndsAt,
+    checkoutEligible: check.checkoutEligible,
+  }, 402)
+}
+
+async function requireBillingAllowance(env: Env, userId: string) {
+  const check = await billingOverview(env, userId)
+  return check.allowed ? null : billingLimitResponse(check)
+}
+
+async function trackOpenAIUsage(env: Env, args: {
+  userId: string
+  sessionId?: string | null
+  runId?: string | null
+  source: string
+  operation: string
+  model: string
+  responsePayload: Record<string, unknown>
+}) {
+  const usage = openAIUsageFromResponse(args.responsePayload)
+  if (!usage) return
+  await proxyToControlPlane(env, '/billing/track', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      userId: args.userId,
+      sessionId: args.sessionId ?? null,
+      runId: args.runId ?? null,
+      source: args.source,
+      event: {
+        provider: 'openai',
+        model: args.model,
+        operation: args.operation,
+        requestId: typeof args.responsePayload.id === 'string' ? args.responsePayload.id : null,
+        responseJson: { id: args.responsePayload.id, usage: args.responsePayload.usage },
+        ...usage,
+      },
+    }),
+  }).catch(() => undefined)
+}
+
+function publicBillingResponse(snapshot: { overview: BillingCheckResult; subscription: (SubscriptionRecord & { createdAt?: string }) | null }) {
+  return {
+    subscription: {
+      tier: snapshot.overview.tier,
+      status: snapshot.overview.subscriptionStatus,
+      checkoutEligible: snapshot.overview.checkoutEligible,
+      cancelAtPeriodEnd: snapshot.subscription?.cancelAtPeriodEnd ?? false,
+      currentPeriodStart: snapshot.subscription?.currentPeriodStart ?? null,
+      currentPeriodEnd: snapshot.subscription?.currentPeriodEnd ?? null,
+    },
+    usage: {
+      usedCredits: snapshot.overview.usedCredits,
+      monthlyCredits: snapshot.overview.limitCredits,
+      remainingCredits: snapshot.overview.remainingCredits,
+      windowStartedAt: snapshot.overview.windowStartedAt,
+      windowEndsAt: snapshot.overview.windowEndsAt,
+    },
+  }
 }
 
 function summarizeInput(input: unknown) {
@@ -559,6 +663,10 @@ function latestRemoteRunPlan(entries: Array<Record<string, unknown>>) {
 }
 
 async function approveLatestRemoteRunPlan(env: Env, ownerEmail: string, sessionId: string) {
+  const billingBlock = await requireBillingAllowance(env, ownerEmail)
+  if (billingBlock) {
+    throw new Error('Usage limit exceeded. Upgrade to Pro to start another remote run.')
+  }
   const sessionPayload = await proxyToControlPlaneJson<{ entries?: Array<Record<string, unknown>> }>(
     env,
     `/assistant-sessions/${encodeURIComponent(sessionId)}`,
@@ -654,6 +762,8 @@ async function proxyToResponsesApi(request: Request, env: Env) {
   if (!env.OPENAI_API_KEY) {
     return json({ error: 'Missing OPENAI_API_KEY on alpha-research worker' }, 502)
   }
+  const billingBlock = await requireBillingAllowance(env, cliSession.email)
+  if (billingBlock) return billingBlock
   const body = await request.json().catch(() => ({}))
   const requestedSessionId = request.headers.get('X-Research-Session-Id')
   const previousResponseId =
@@ -714,6 +824,14 @@ async function proxyToResponsesApi(request: Request, env: Env) {
   }
   if (upstream.ok && assistantSessionId) {
     const upstreamPayload = JSON.parse(text) as Record<string, unknown>
+    await trackOpenAIUsage(env, {
+      userId: cliSession.email,
+      sessionId: assistantSessionId,
+      source: 'cli_responses_proxy',
+      operation: 'responses.create',
+      model: typeof payload.model === 'string' ? payload.model : env.RESEARCH_AGENT_MODEL ?? 'gpt-5',
+      responsePayload: upstreamPayload,
+    })
     const responseId =
       typeof upstreamPayload.id === 'string'
         ? upstreamPayload.id
@@ -1432,6 +1550,8 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
   if (!cliSession) {
     return json({ error: 'Unauthorized' }, 401)
   }
+  const billingBlock = await requireBillingAllowance(env, cliSession.email)
+  if (billingBlock) return billingBlock
 
   const body = await request.json().catch(() => ({})) as {
     input?: unknown
@@ -1516,6 +1636,14 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
     previous_response_id: previousResponseId ?? undefined,
     tools: tools.map(buildToolSchema),
     parallel_tool_calls: false,
+  })
+  await trackOpenAIUsage(env, {
+    userId: cliSession.email,
+    sessionId,
+    source: 'research_assistant',
+    operation: 'responses.create',
+    model: env.RESEARCH_AGENT_MODEL ?? 'gpt-5',
+    responsePayload: response as Record<string, unknown>,
   })
 
   for (let round = 0; round < MAX_TOOL_ROUNDS; round += 1) {
@@ -1690,6 +1818,14 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
       tools: tools.map(buildToolSchema),
       parallel_tool_calls: false,
     })
+    await trackOpenAIUsage(env, {
+      userId: cliSession.email,
+      sessionId,
+      source: 'research_assistant',
+      operation: 'responses.tool_followup',
+      model: env.RESEARCH_AGENT_MODEL ?? 'gpt-5',
+      responsePayload: response as Record<string, unknown>,
+    })
   }
 
   throw new Error('Research assistant hit the tool round limit.')
@@ -1728,7 +1864,148 @@ export default {
     }
 
     if (pathname === '/api/auth/session' && request.method === 'GET') {
-      return authSessionGet(createContext(request, env))
+      const response = await authSessionGet(createContext(request, env))
+      const payload = await response.json().catch(() => null) as Record<string, unknown> | null
+      if (!payload || response.status !== 200 || payload.authenticated !== true || !isRecordValue(payload.user)) {
+        return json(payload ?? { authenticated: false }, response.status)
+      }
+      const email = typeof payload.user.email === 'string' ? payload.user.email : ''
+      const billing = email ? publicBillingResponse(await billingSnapshot(env, email)) : null
+      return json({ ...payload, billing }, response.status)
+    }
+
+    if (pathname === '/api/billing' && request.method === 'GET') {
+      const session = await requireAuthorizedSession(request, env)
+      if (!session) return json({ error: 'Unauthorized' }, 401)
+      return json(publicBillingResponse(await billingSnapshot(env, session.email)))
+    }
+
+    if (pathname === '/api/billing/checkout' && request.method === 'POST') {
+      const session = await requireAuthorizedSession(request, env)
+      if (!session) return json({ error: 'Unauthorized' }, 401)
+      const stripe = stripeConfig(env)
+      if (!stripe) return json({ error: 'Stripe billing is not configured.' }, 501)
+      const snapshot = await billingSnapshot(env, session.email)
+      if (!snapshot.overview.checkoutEligible) return json({ error: 'This account already has a paid subscription.' }, 400)
+      const checkout = await stripe.client.checkout.sessions.create({
+        mode: 'subscription',
+        line_items: [{ price: stripe.priceId, quantity: 1 }],
+        success_url: `${new URL(request.url).origin}?view=dashboard&checkout=success`,
+        cancel_url: `${new URL(request.url).origin}?view=dashboard&checkout=canceled`,
+        allow_promotion_codes: true,
+        client_reference_id: session.email,
+        customer: snapshot.subscription?.stripeCustomerId ?? undefined,
+        customer_email: snapshot.subscription?.stripeCustomerId ? undefined : session.email,
+        metadata: { userId: session.email },
+        subscription_data: { metadata: { userId: session.email } },
+      })
+      await proxyToControlPlane(env, '/subscriptions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          userId: session.email,
+          stripeCustomerId: typeof checkout.customer === 'string' ? checkout.customer : snapshot.subscription?.stripeCustomerId ?? null,
+          stripeSubscriptionId: typeof checkout.subscription === 'string' ? checkout.subscription : snapshot.subscription?.stripeSubscriptionId ?? null,
+          stripeProductId: stripe.productId,
+          stripePriceId: stripe.priceId,
+          checkoutSessionId: checkout.id,
+          tier: snapshot.subscription?.tier ?? 'free',
+          status: snapshot.subscription?.status ?? 'incomplete',
+          cancelAtPeriodEnd: snapshot.subscription?.cancelAtPeriodEnd ?? false,
+          currentPeriodStart: snapshot.subscription?.currentPeriodStart ?? null,
+          currentPeriodEnd: snapshot.subscription?.currentPeriodEnd ?? null,
+          metadata: { ...(snapshot.subscription?.metadata ?? {}), lastCheckoutSessionId: checkout.id },
+          createdAt: snapshot.subscription?.createdAt,
+        }),
+      })
+      return json({ url: checkout.url })
+    }
+
+    if (pathname === '/api/billing/manage' && request.method === 'POST') {
+      const session = await requireAuthorizedSession(request, env)
+      if (!session) return json({ error: 'Unauthorized' }, 401)
+      const stripe = stripeConfig(env)
+      if (!stripe) return json({ error: 'Stripe billing is not configured.' }, 501)
+      const snapshot = await billingSnapshot(env, session.email)
+      const stripeCustomerId = snapshot.subscription?.stripeCustomerId ?? null
+      if (!stripeCustomerId) return json({ error: 'This account does not have a billable subscription to manage.' }, 400)
+      const portal = await stripe.client.billingPortal.sessions.create({
+        customer: stripeCustomerId,
+        return_url: `${new URL(request.url).origin}?view=dashboard`,
+      })
+      return json({ url: portal.url })
+    }
+
+    if (pathname === '/api/stripe/webhook' && request.method === 'POST') {
+      const stripe = stripeConfig(env)
+      if (!stripe?.webhookSecret) return json({ error: 'Stripe webhook signing secret is not configured.' }, 501)
+      const signature = request.headers.get('stripe-signature')
+      if (!signature) return json({ error: 'Missing Stripe signature.' }, 400)
+      const rawBody = await request.text()
+      let event: Stripe.Event
+      try {
+        event = stripe.client.webhooks.constructEvent(rawBody, signature, stripe.webhookSecret)
+      } catch (error) {
+        return json({ error: error instanceof Error ? error.message : 'Invalid Stripe signature.' }, 400)
+      }
+      if (event.type === 'checkout.session.completed') {
+        const checkout = event.data.object
+        const userId = checkout.metadata?.userId ?? checkout.client_reference_id ?? null
+        if (checkout.mode === 'subscription' && userId && typeof checkout.subscription === 'string') {
+          const subscription = await stripe.client.subscriptions.retrieve(checkout.subscription)
+          await proxyToControlPlane(env, '/subscriptions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(subscriptionRecordFromStripe({
+              userId,
+              subscription,
+              config: stripe,
+              stripeCustomerId: typeof checkout.customer === 'string' ? checkout.customer : null,
+              checkoutSessionId: checkout.id,
+              metadata: { webhookEvent: event.type },
+            })),
+          })
+        }
+      }
+      if (
+        event.type === 'customer.subscription.created'
+        || event.type === 'customer.subscription.updated'
+        || event.type === 'customer.subscription.deleted'
+      ) {
+        const subscription = event.data.object
+        const existingBySubscription = await proxyToControlPlaneJson<{ subscription: (SubscriptionRecord & { createdAt?: string }) | null }>(
+          env,
+          `/subscriptions/lookup?stripeSubscriptionId=${encodeURIComponent(subscription.id)}`,
+          { method: 'GET' },
+        )
+        const existingByCustomer = typeof subscription.customer === 'string'
+          ? await proxyToControlPlaneJson<{ subscription: (SubscriptionRecord & { createdAt?: string }) | null }>(
+              env,
+              `/subscriptions/lookup?stripeCustomerId=${encodeURIComponent(subscription.customer)}`,
+              { method: 'GET' },
+            )
+          : { subscription: null }
+        const existing = existingBySubscription.subscription ?? existingByCustomer.subscription
+        const userId = subscription.metadata.userId ?? existing?.userId ?? null
+        if (userId) {
+          await proxyToControlPlane(env, '/subscriptions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ...subscriptionRecordFromStripe({
+                userId,
+                subscription,
+                config: stripe,
+                stripeCustomerId: typeof subscription.customer === 'string' ? subscription.customer : existing?.stripeCustomerId ?? null,
+                checkoutSessionId: existing?.checkoutSessionId ?? null,
+                metadata: { ...(existing?.metadata ?? {}), webhookEvent: event.type },
+              }),
+              createdAt: existing?.createdAt,
+            }),
+          })
+        }
+      }
+      return json({ received: true })
     }
 
     if (pathname === '/api/auth/bridge' && request.method === 'GET') {
@@ -1936,6 +2213,8 @@ export default {
       if (!cliSession) {
         return json({ error: 'Unauthorized' }, 401)
       }
+      const billingBlock = await requireBillingAllowance(env, cliSession.email)
+      if (billingBlock) return billingBlock
       const body = await request.json().catch(() => ({}))
       return proxyToControlPlane(env, `/datasets/${encodeURIComponent(runCreateMatch[1] ?? '')}/runs`, {
         method: 'POST',

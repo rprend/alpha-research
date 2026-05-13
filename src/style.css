@@ -1188,6 +1188,167 @@
   color: #a32626;
 }
 
+.billing-limit-shell {
+  position: fixed;
+  inset: 0;
+  z-index: 2200;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.billing-limit-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(23, 23, 23, 0.18);
+}
+
+.billing-limit-panel {
+  position: relative;
+  width: min(860px, calc(100vw - 32px));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  padding: 24px 24px 20px;
+  box-shadow: 0 32px 90px rgba(28, 22, 17, 0.16);
+}
+
+.billing-limit-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.billing-limit-header h2 {
+  margin: 0;
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.billing-limit-close,
+.billing-limit-button {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: hsl(var(--foreground));
+}
+
+.billing-limit-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  flex: 0 0 auto;
+}
+
+.billing-limit-close svg {
+  width: 16px;
+  height: 16px;
+}
+
+.billing-limit-copy {
+  margin-top: 18px;
+  display: grid;
+  gap: 18px;
+}
+
+.billing-limit-copy p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: hsl(var(--foreground));
+}
+
+.billing-limit-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.billing-limit-summary span {
+  display: inline-block;
+  color: hsl(var(--foreground));
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.billing-plan-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 24px;
+}
+
+.billing-plan-card {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 18px 0 0;
+  border-top: 1px solid hsl(var(--border));
+  background: transparent;
+}
+
+.billing-plan-card.is-current {
+  border-top-color: hsl(var(--foreground) / 0.28);
+}
+
+.billing-plan-kicker {
+  margin: 0;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.billing-plan-card h3,
+.billing-plan-price,
+.billing-plan-allowance {
+  margin: 0;
+}
+
+.billing-plan-card h3 {
+  font-size: 1.7rem;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.billing-plan-price {
+  font-size: 1.02rem;
+  font-weight: 700;
+}
+
+.billing-plan-allowance {
+  color: hsl(var(--muted-foreground));
+  font-size: 0.95rem;
+}
+
+.billing-plan-current-state {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.billing-limit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 20px;
+  font-size: 0.96rem;
+  font-weight: 700;
+}
+
+.billing-limit-button-primary {
+  border: 1px solid hsl(var(--primary));
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
 @media (max-width: 700px) {
   .topbar {
     display: grid;
@@ -1221,5 +1382,13 @@
   .footer-meta {
     margin-left: 0;
     text-align: left;
+  }
+
+  .billing-limit-panel {
+    padding: 24px 20px 20px;
+  }
+
+  .billing-plan-grid {
+    grid-template-columns: 1fr;
   }
 }

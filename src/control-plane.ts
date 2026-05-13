@@ -1,5 +1,15 @@
 import { createPresignedObjectStoreUrl } from './spaces'
 import { launchModalResearchJob } from './modal'
+import {
+  FREE_MONTHLY_CREDITS,
+  STUDIO_MONTHLY_CREDITS,
+  billingWindow,
+  computeUsageCostUsd,
+  creditsFromUsd,
+  hasPaidAccess,
+  type BillingUsageEventInput,
+} from './billing'
+import type { SubscriptionRecord } from './stripe'
 
 type DurableObjectStateLike = {
   storage: {
@@ -412,6 +422,46 @@ export class ControlPlane {
         session_id TEXT NOT NULL
       );
     `)
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS subscriptions (
+        user_id TEXT PRIMARY KEY,
+        stripe_customer_id TEXT UNIQUE,
+        stripe_subscription_id TEXT UNIQUE,
+        stripe_product_id TEXT,
+        stripe_price_id TEXT,
+        checkout_session_id TEXT,
+        tier TEXT NOT NULL,
+        status TEXT NOT NULL,
+        cancel_at_period_end INTEGER NOT NULL DEFAULT 0,
+        current_period_start TEXT,
+        current_period_end TEXT,
+        metadata_json TEXT NOT NULL DEFAULT '{}',
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL
+      );
+    `)
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS billing_events (
+        id TEXT PRIMARY KEY,
+        user_id TEXT NOT NULL,
+        session_id TEXT,
+        run_id TEXT,
+        source TEXT NOT NULL,
+        provider TEXT NOT NULL,
+        model TEXT NOT NULL,
+        operation TEXT NOT NULL,
+        input_tokens INTEGER NOT NULL,
+        output_tokens INTEGER NOT NULL,
+        total_tokens INTEGER NOT NULL,
+        cached_input_tokens INTEGER NOT NULL,
+        cost_usd REAL NOT NULL,
+        request_id TEXT,
+        request_json TEXT,
+        response_json TEXT,
+        metadata_json TEXT NOT NULL DEFAULT '{}',
+        created_at TEXT NOT NULL
+      );
+    `)
     try { this.sql.exec('ALTER TABLE datasets ADD COLUMN active_run_id TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE datasets ADD COLUMN lease_acquired_at TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE runs ADD COLUMN worker_id TEXT') } catch {}
@@ -437,6 +487,140 @@ export class ControlPlane {
 
   private rows(query: string, ...bindings: unknown[]) {
     return [...this.sql.exec(query, ...bindings)] as Array<Record<string, unknown>>
+  }
+
+  private subscriptionRowToJson(row: Record<string, unknown>): SubscriptionRecord & { createdAt: string; updatedAt: string } {
+    return {
+      userId: String(row.user_id ?? row.userId ?? ''),
+      stripeCustomerId: row.stripe_customer_id ? String(row.stripe_customer_id) : null,
+      stripeSubscriptionId: row.stripe_subscription_id ? String(row.stripe_subscription_id) : null,
+      stripeProductId: row.stripe_product_id ? String(row.stripe_product_id) : null,
+      stripePriceId: row.stripe_price_id ? String(row.stripe_price_id) : null,
+      checkoutSessionId: row.checkout_session_id ? String(row.checkout_session_id) : null,
+      tier: row.tier === 'studio' ? 'studio' : 'free',
+      status: String(row.status ?? 'free') as SubscriptionRecord['status'],
+      cancelAtPeriodEnd: Number(row.cancel_at_period_end ?? 0) === 1,
+      currentPeriodStart: row.current_period_start ? String(row.current_period_start) : null,
+      currentPeriodEnd: row.current_period_end ? String(row.current_period_end) : null,
+      metadata: row.metadata_json ? JSON.parse(String(row.metadata_json)) : {},
+      createdAt: String(row.created_at ?? ''),
+      updatedAt: String(row.updated_at ?? ''),
+    }
+  }
+
+  private getSubscriptionByUserId(userId: string) {
+    const row = this.rows('SELECT * FROM subscriptions WHERE user_id = ? LIMIT 1', userId)[0]
+    return row ? this.subscriptionRowToJson(row) : null
+  }
+
+  private getSubscriptionByStripeSubscriptionId(stripeSubscriptionId: string) {
+    const row = this.rows('SELECT * FROM subscriptions WHERE stripe_subscription_id = ? LIMIT 1', stripeSubscriptionId)[0]
+    return row ? this.subscriptionRowToJson(row) : null
+  }
+
+  private getSubscriptionByStripeCustomerId(stripeCustomerId: string) {
+    const row = this.rows('SELECT * FROM subscriptions WHERE stripe_customer_id = ? LIMIT 1', stripeCustomerId)[0]
+    return row ? this.subscriptionRowToJson(row) : null
+  }
+
+  private upsertSubscription(input: SubscriptionRecord & { createdAt?: string; updatedAt?: string }) {
+    const existing = this.getSubscriptionByUserId(input.userId)
+    const createdAt = input.createdAt ?? existing?.createdAt ?? nowIso()
+    const updatedAt = input.updatedAt ?? nowIso()
+    this.sql.exec(
+      `INSERT INTO subscriptions (
+         user_id, stripe_customer_id, stripe_subscription_id, stripe_product_id, stripe_price_id, checkout_session_id,
+         tier, status, cancel_at_period_end, current_period_start, current_period_end, metadata_json, created_at, updated_at
+       )
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+       ON CONFLICT(user_id) DO UPDATE SET
+         stripe_customer_id = excluded.stripe_customer_id,
+         stripe_subscription_id = excluded.stripe_subscription_id,
+         stripe_product_id = excluded.stripe_product_id,
+         stripe_price_id = excluded.stripe_price_id,
+         checkout_session_id = excluded.checkout_session_id,
+         tier = excluded.tier,
+         status = excluded.status,
+         cancel_at_period_end = excluded.cancel_at_period_end,
+         current_period_start = excluded.current_period_start,
+         current_period_end = excluded.current_period_end,
+         metadata_json = excluded.metadata_json,
+         updated_at = excluded.updated_at`,
+      input.userId,
+      input.stripeCustomerId,
+      input.stripeSubscriptionId,
+      input.stripeProductId,
+      input.stripePriceId,
+      input.checkoutSessionId,
+      input.tier,
+      input.status,
+      input.cancelAtPeriodEnd ? 1 : 0,
+      input.currentPeriodStart,
+      input.currentPeriodEnd,
+      JSON.stringify(input.metadata ?? {}),
+      createdAt,
+      updatedAt,
+    )
+    return this.getSubscriptionByUserId(input.userId)
+  }
+
+  private billingOverview(userId: string, now = Date.now()) {
+    const window = billingWindow(now)
+    const subscription = this.getSubscriptionByUserId(userId)
+    const paid = hasPaidAccess(subscription, now)
+    const tier = paid ? 'studio' : 'free'
+    const monthlyCredits = paid ? STUDIO_MONTHLY_CREDITS : FREE_MONTHLY_CREDITS
+    const spendRow = this.rows(
+      'SELECT COALESCE(SUM(cost_usd), 0) AS total_cost_usd, COUNT(*) AS event_count FROM billing_events WHERE user_id = ? AND created_at >= ?',
+      userId,
+      window.startedAt,
+    )[0]
+    const spendUsd = Number(spendRow?.total_cost_usd ?? 0)
+    const usedCredits = creditsFromUsd(Number.isFinite(spendUsd) ? spendUsd : 0)
+    return {
+      allowed: usedCredits <= monthlyCredits,
+      tier,
+      subscriptionStatus: subscription?.status ?? 'free',
+      limitCredits: monthlyCredits,
+      usedCredits,
+      remainingCredits: Math.max(0, monthlyCredits - usedCredits),
+      spendUsd,
+      windowStartedAt: window.startedAt,
+      windowEndsAt: window.endsAt,
+      checkoutEligible: !paid,
+    }
+  }
+
+  private trackBillingEvent(userId: string, event: BillingUsageEventInput & { sessionId?: string | null; runId?: string | null; source?: string | null }) {
+    const inputTokens = Math.max(0, Math.trunc(event.inputTokens ?? 0))
+    const outputTokens = Math.max(0, Math.trunc(event.outputTokens ?? 0))
+    const cachedInputTokens = Math.max(0, Math.trunc(event.cachedInputTokens ?? 0))
+    const totalTokens = Math.max(0, Math.trunc(event.totalTokens ?? inputTokens + outputTokens))
+    this.sql.exec(
+      `INSERT OR IGNORE INTO billing_events (
+         id, user_id, session_id, run_id, source, provider, model, operation, input_tokens, output_tokens, total_tokens,
+         cached_input_tokens, cost_usd, request_id, request_json, response_json, metadata_json, created_at
+       )
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      event.eventId ?? crypto.randomUUID(),
+      userId,
+      event.sessionId ?? null,
+      event.runId ?? null,
+      event.source ?? 'dashboard',
+      event.provider,
+      event.model,
+      event.operation,
+      inputTokens,
+      outputTokens,
+      totalTokens,
+      cachedInputTokens,
+      computeUsageCostUsd({ ...event, inputTokens, outputTokens, totalTokens, cachedInputTokens }),
+      event.requestId ?? null,
+      event.requestJson ? JSON.stringify(event.requestJson) : null,
+      event.responseJson ? JSON.stringify(event.responseJson) : null,
+      JSON.stringify(event.metadata ?? {}),
+      event.createdAt ?? nowIso(),
+    )
   }
 
   private async expireStaleRun(run: RunRecord) {
@@ -1218,6 +1402,48 @@ export class ControlPlane {
   async fetch(request: Request) {
     const url = new URL(request.url)
     const pathname = url.pathname
+
+    if (pathname === '/billing' && request.method === 'GET') {
+      const userId = url.searchParams.get('userId')
+      if (!userId) return respondJson({ error: 'Missing userId' }, 400)
+      const overview = this.billingOverview(userId)
+      const subscription = this.getSubscriptionByUserId(userId)
+      return respondJson({ overview, subscription })
+    }
+
+    if (pathname === '/billing/track' && request.method === 'POST') {
+      const body = await request.json() as Record<string, unknown>
+      const userId = typeof body.userId === 'string' ? body.userId : ''
+      const event = isPlainRecord(body.event) ? body.event as BillingUsageEventInput : null
+      if (!userId || !event) return respondJson({ error: 'Missing userId or event' }, 400)
+      this.trackBillingEvent(userId, {
+        ...event,
+        sessionId: typeof body.sessionId === 'string' ? body.sessionId : null,
+        runId: typeof body.runId === 'string' ? body.runId : null,
+        source: typeof body.source === 'string' ? body.source : 'dashboard',
+      })
+      return respondJson({ ok: true })
+    }
+
+    if (pathname === '/subscriptions' && request.method === 'POST') {
+      const body = await request.json() as SubscriptionRecord & { createdAt?: string; updatedAt?: string }
+      if (!body.userId) return respondJson({ error: 'Missing userId' }, 400)
+      return respondJson({ subscription: this.upsertSubscription(body) })
+    }
+
+    if (pathname === '/subscriptions/lookup' && request.method === 'GET') {
+      const userId = url.searchParams.get('userId')
+      const stripeCustomerId = url.searchParams.get('stripeCustomerId')
+      const stripeSubscriptionId = url.searchParams.get('stripeSubscriptionId')
+      const subscription = userId
+        ? this.getSubscriptionByUserId(userId)
+        : stripeSubscriptionId
+          ? this.getSubscriptionByStripeSubscriptionId(stripeSubscriptionId)
+          : stripeCustomerId
+            ? this.getSubscriptionByStripeCustomerId(stripeCustomerId)
+            : null
+      return respondJson({ subscription })
+    }
 
     if (pathname === '/datasets' && request.method === 'GET') {
       const ownerEmail = url.searchParams.get('ownerEmail')

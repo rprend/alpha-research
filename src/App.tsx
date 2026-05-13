@@ -108,7 +108,37 @@ type SessionResponse = {
   authenticated: boolean
   configured: boolean
   user: { email: string } | null
+  billing?: BillingOverview | null
   error?: string
+}
+
+type BillingOverview = {
+  subscription: {
+    tier: 'free' | 'studio'
+    status: string
+    checkoutEligible: boolean
+    cancelAtPeriodEnd: boolean
+    currentPeriodStart: string | null
+    currentPeriodEnd: string | null
+  }
+  usage: {
+    usedCredits: number
+    monthlyCredits: number
+    remainingCredits: number
+    windowStartedAt: string
+    windowEndsAt: string
+  }
+}
+
+type BillingLimitState = {
+  tier: 'free' | 'studio'
+  subscriptionStatus: string | null
+  limitCredits: number | null
+  usedCredits: number | null
+  remainingCredits: number | null
+  windowStartedAt: string | null
+  windowEndsAt: string | null
+  checkoutEligible: boolean
 }
 
 type DatasetRecord = {
@@ -235,6 +265,8 @@ type AssistantTurnResponse = {
 const ROOT_HOST = 'alpharesearch.nyc'
 const DASHBOARD_HOST = 'dashboard.alpharesearch.nyc'
 const DOCS_ORIGIN = 'https://docs.alpharesearch.nyc'
+const FREE_TIER_MONTHLY_CREDITS = 1_000_000
+const PRO_TIER_MONTHLY_CREDITS = 15_000_000
 
 const locationUrl = new URL(window.location.href)
 const isDashboardView =
@@ -1850,10 +1882,67 @@ async function fetchJson<T>(input: string) {
   })
 
   if (!response.ok) {
-    throw new Error(`Request failed: ${response.status}`)
+    const text = await response.text().catch(() => '')
+    throw new Error(text || `Request failed: ${response.status}`)
   }
 
   return response.json() as Promise<T>
+}
+
+async function createBillingCheckoutSession() {
+  const response = await fetch('/api/billing/checkout', {
+    method: 'POST',
+    credentials: 'same-origin',
+  })
+  const payload = await response.json().catch(() => ({})) as { url?: string | null; error?: string }
+  if (!response.ok) throw new Error(payload.error ?? 'Could not start checkout.')
+  return payload
+}
+
+async function createBillingPortalSession() {
+  const response = await fetch('/api/billing/manage', {
+    method: 'POST',
+    credentials: 'same-origin',
+  })
+  const payload = await response.json().catch(() => ({})) as { url?: string | null; error?: string }
+  if (!response.ok) throw new Error(payload.error ?? 'Could not open billing management.')
+  return payload
+}
+
+function parseBillingLimitState(error: unknown): BillingLimitState | null {
+  if (!(error instanceof Error)) return null
+  const parsed = tryParseJson(error.message)
+  const payload = isRecord(parsed) ? parsed : null
+  if (payload?.code !== 'billing_limit_exceeded') return null
+  return {
+    tier: payload.tier === 'studio' ? 'studio' : 'free',
+    subscriptionStatus: typeof payload.subscriptionStatus === 'string' ? payload.subscriptionStatus : null,
+    limitCredits: typeof payload.limitCredits === 'number' ? payload.limitCredits : null,
+    usedCredits: typeof payload.usedCredits === 'number' ? payload.usedCredits : null,
+    remainingCredits: typeof payload.remainingCredits === 'number' ? payload.remainingCredits : null,
+    windowStartedAt: typeof payload.windowStartedAt === 'string' ? payload.windowStartedAt : null,
+    windowEndsAt: typeof payload.windowEndsAt === 'string' ? payload.windowEndsAt : null,
+    checkoutEligible: payload.checkoutEligible === true,
+  }
+}
+
+function formatCompactCreditAmount(value: number | null | undefined) {
+  if (typeof value !== 'number' || !Number.isFinite(value)) return null
+  return `${new Intl.NumberFormat('en-US', {
+    notation: 'compact',
+    maximumFractionDigits: value >= 1_000_000 ? 1 : 0,
+  }).format(Math.max(0, Math.round(value)))} credits`
+}
+
+function formatBillingWindowDate(value: string | null) {
+  if (!value) return null
+  const timestamp = Date.parse(value)
+  if (Number.isNaN(timestamp)) return null
+  return new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(timestamp)
+}
+
+function formatTierLabel(tier: 'free' | 'studio') {
+  return tier === 'studio' ? 'Pro' : 'Free'
 }
 
 function describeSignedOutDestination() {
@@ -2034,6 +2123,9 @@ async function postAssistantTurn(body: {
   if (!response.ok) {
     const text = await response.text().catch(() => '')
     const parsed = text ? tryParseJson(text) : null
+    if (isRecord(parsed) && parsed.code === 'billing_limit_exceeded') {
+      throw new Error(JSON.stringify(parsed))
+    }
     const message = isRecord(parsed) && typeof parsed.error === 'string'
       ? parsed.error
       : text || `Request failed: ${response.status}`
@@ -2650,8 +2742,12 @@ function DatasetDetailPage({
 
         {error ? <div className="bg-destructive/5 px-4 py-3 text-sm text-destructive">{error}</div> : null}
 
-        <article className="whitespace-pre-wrap text-base leading-8 text-foreground">
-          {inventoryBriefingText}
+        <article className="text-base leading-8 text-foreground">
+          {inventoryBriefingText.split('\n').map((line, index) => (
+            line.trim()
+              ? <p key={`${index}-${line.slice(0, 12)}`} className="whitespace-pre-wrap">{line}</p>
+              : <div key={`gap-${index}`} className="h-4" />
+          ))}
         </article>
       </div>
     </main>
@@ -3279,8 +3375,14 @@ function ResearchAssistantPage({
           }
         }
       } catch (submitError) {
+        const billingLimit = parseBillingLimitState(submitError)
+        if (billingLimit) {
+          window.dispatchEvent(new CustomEvent('alpha-research-billing-limit', { detail: billingLimit }))
+        }
         const messageText =
-          submitError instanceof Error ? submitError.message : 'Could not reach the RESEARCH backend.'
+          billingLimit
+            ? 'Usage limit reached. Upgrade to Pro to keep going.'
+            : submitError instanceof Error ? submitError.message : 'Could not reach the RESEARCH backend.'
         setComposerError(messageText)
         const failureMessage: ThreadMessage = {
           id: `local-assistant-error-${Date.now()}`,
@@ -4134,6 +4236,72 @@ function DashboardMobileHeader({
   )
 }
 
+function BillingLimitDialog({
+  state,
+  onClose,
+  onSubscribe,
+  subscribing,
+}: {
+  state: BillingLimitState
+  onClose: () => void
+  onSubscribe: () => void
+  subscribing: boolean
+}) {
+  const limit = formatCompactCreditAmount(state.limitCredits)
+  const used = formatCompactCreditAmount(state.usedCredits)
+  const windowEndDate = formatBillingWindowDate(state.windowEndsAt)
+  const blocked = typeof state.remainingCredits === 'number' ? state.remainingCredits <= 0 : false
+  const currentUsageSummary = used && limit ? `${used} used of ${limit} this month` : limit ? `${limit} included this month` : null
+
+  return (
+    <div className="billing-limit-shell" role="dialog" aria-modal="true" aria-label="Upgrade to Pro">
+      <button type="button" className="billing-limit-backdrop" aria-label="Close usage limit dialog" onClick={onClose} />
+      <section className="billing-limit-panel">
+        <div className="billing-limit-header">
+          <h2>{blocked ? 'Upgrade to Pro to keep going' : 'Choose your plan'}</h2>
+          <button type="button" className="billing-limit-close" aria-label="Close usage limit dialog" onClick={onClose}>
+            <X />
+          </button>
+        </div>
+        <div className="billing-limit-copy">
+          <p>
+            {blocked
+              ? 'Subscribe to Alpha Research Pro for pro access to the research dashboard and remote agent runs.'
+              : 'Free includes monthly usage for lighter research. Pro unlocks more room for regular, heavier sessions.'}
+          </p>
+          {currentUsageSummary || windowEndDate ? (
+            <div className="billing-limit-summary">
+              {currentUsageSummary ? <span>{currentUsageSummary}</span> : null}
+              {windowEndDate ? <span>Resets {windowEndDate}</span> : null}
+            </div>
+          ) : null}
+          <div className="billing-plan-grid">
+            <article className={`billing-plan-card ${state.tier === 'free' ? 'is-current' : ''}`}>
+              <p className="billing-plan-kicker">Free Tier</p>
+              <h3>Free usage</h3>
+              <p className="billing-plan-price">$0 / month</p>
+              <p className="billing-plan-allowance">{formatCompactCreditAmount(FREE_TIER_MONTHLY_CREDITS)}</p>
+            </article>
+            <article className={`billing-plan-card billing-plan-card-pro ${state.tier === 'studio' ? 'is-current' : ''}`}>
+              <p className="billing-plan-kicker">Pro Tier</p>
+              <h3>For regular usage</h3>
+              <p className="billing-plan-price">$500 / month</p>
+              <p className="billing-plan-allowance">{formatCompactCreditAmount(PRO_TIER_MONTHLY_CREDITS)}</p>
+              {state.checkoutEligible ? (
+                <button type="button" className="billing-limit-button billing-limit-button-primary" onClick={onSubscribe} disabled={subscribing}>
+                  {subscribing ? 'Redirecting...' : 'Upgrade to Pro'}
+                </button>
+              ) : (
+                <div className="billing-plan-current-state">You're already on Pro.</div>
+              )}
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
 function DashboardSidebar({
   route,
   session,
@@ -4141,6 +4309,7 @@ function DashboardSidebar({
   runs,
   recentAssistantSessions,
   showResearchChats,
+  onOpenBilling,
 }: {
   route: DashboardRouteState
   session: SessionResponse
@@ -4151,6 +4320,7 @@ function DashboardSidebar({
     run?: RunRecord
   }>
   showResearchChats: boolean
+  onOpenBilling: () => void
 }) {
   const { isMobile, setOpenMobile } = useSidebar()
   const isActiveSessionRun = (chatSession: { run?: RunRecord }) =>
@@ -4284,10 +4454,19 @@ function DashboardSidebar({
                 <span className="truncate text-base font-normal normal-case tracking-normal text-foreground/90">
                   {session.user?.email ?? 'Signed in'}
                 </span>
+                {session.billing ? (
+                  <span className="mt-1 truncate text-xs text-muted-foreground">
+                    {formatTierLabel(session.billing.subscription.tier)} · {formatCompactCreditAmount(session.billing.usage.remainingCredits)} left
+                  </span>
+                ) : null}
               </div>
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="rounded-none">
+            <DropdownMenuItem onClick={onOpenBilling}>
+              <Zap />
+              {session.billing?.subscription.checkoutEligible ? 'Upgrade to Pro' : 'Manage billing'}
+            </DropdownMenuItem>
             <DropdownMenuItem
               onClick={async () => {
                 await fetch('/api/auth/logout', {
@@ -4343,6 +4522,43 @@ function DashboardApp({
   const activeRun = route.runId ? runs.find((run) => run.id === route.runId) ?? null : null
   const activeDataset = route.datasetId ? datasets.find((dataset) => dataset.id === route.datasetId) ?? null : null
   const showResearchChats = true
+  const [billingLimitState, setBillingLimitState] = useState<BillingLimitState | null>(null)
+  const [isStartingCheckout, setIsStartingCheckout] = useState(false)
+
+  function openBillingDialog() {
+    const billing = session.billing
+    if (!billing) return
+    setBillingLimitState({
+      tier: billing.subscription.tier,
+      subscriptionStatus: billing.subscription.status,
+      limitCredits: billing.usage.monthlyCredits,
+      usedCredits: billing.usage.usedCredits,
+      remainingCredits: billing.usage.remainingCredits,
+      windowStartedAt: billing.usage.windowStartedAt,
+      windowEndsAt: billing.usage.windowEndsAt,
+      checkoutEligible: billing.subscription.checkoutEligible,
+    })
+  }
+
+  async function beginSubscriptionCheckout() {
+    if (isStartingCheckout) return
+    setIsStartingCheckout(true)
+    try {
+      const session = await createBillingCheckoutSession()
+      if (session.url) window.location.assign(session.url)
+    } finally {
+      setIsStartingCheckout(false)
+    }
+  }
+
+  useEffect(() => {
+    const handleBillingLimit = (event: Event) => {
+      const detail = (event as CustomEvent<BillingLimitState>).detail
+      if (detail) setBillingLimitState(detail)
+    }
+    window.addEventListener('alpha-research-billing-limit', handleBillingLimit)
+    return () => window.removeEventListener('alpha-research-billing-limit', handleBillingLimit)
+  }, [])
 
   let content: ReactNode
 
@@ -4363,8 +4579,21 @@ function DashboardApp({
   } else if (route.view === 'datasets' && route.datasetId && !dataError) {
     content = <main className="min-h-0 flex-1 overflow-y-auto px-4 py-8 md:px-8" />
   } else if (route.view === 'datasets') {
+    const hasDatasets = datasets.length > 0
     content = (
-      <main className="flex flex-1 min-w-0 flex-col overflow-y-auto px-4 py-8 md:px-8">
+      <main className="flex flex-1 min-w-0 flex-col gap-10 overflow-y-auto px-4 py-10 md:px-8">
+        <section className="mx-auto flex w-full max-w-5xl flex-col gap-3">
+          <h1 className="text-4xl font-semibold tracking-normal">Datasets</h1>
+          <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
+            {dataError
+              ? 'You are signed in, but Alpha Research cannot verify dataset availability until dashboard data loads successfully.'
+              : isLoading
+                ? 'Loading available datasets, coverage, and readiness.'
+                : hasDatasets
+                  ? 'See what data is available, what each dataset covers, and whether it is ready to use. Open any dataset for provenance, schema, profile details, and generated briefings.'
+                  : 'New workspaces start here. Add one file or source plus a short description, then come back here to inspect readiness, provenance, and the first research-ready dataset.'}
+          </p>
+        </section>
         <section>
           <DatasetFeed
             datasets={datasets}
@@ -4451,6 +4680,14 @@ function DashboardApp({
         runs={runs}
         recentAssistantSessions={recentAssistantSessions}
         showResearchChats={showResearchChats}
+        onOpenBilling={async () => {
+          if (session.billing?.subscription.checkoutEligible) {
+            openBillingDialog()
+            return
+          }
+          const portal = await createBillingPortalSession()
+          if (portal.url) window.location.assign(portal.url)
+        }}
       />
 
       <SidebarInset className="dashboard-main-inset min-h-0 overflow-hidden overscroll-none bg-background">
@@ -4459,6 +4696,14 @@ function DashboardApp({
           {content}
         </div>
       </SidebarInset>
+      {billingLimitState ? (
+        <BillingLimitDialog
+          state={billingLimitState}
+          onClose={() => setBillingLimitState(null)}
+          onSubscribe={() => void beginSubscriptionCheckout()}
+          subscribing={isStartingCheckout}
+        />
+      ) : null}
     </SidebarProvider>
   )
 }
