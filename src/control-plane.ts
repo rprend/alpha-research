@@ -1069,7 +1069,7 @@ export class ControlPlane {
   private persistDescribeArtifactToDatasetProfile(
     runId: string,
     artifactId: string,
-    type: string,
+    _type: string,
     title: string,
     content: unknown,
   ) {
@@ -1086,12 +1086,12 @@ export class ControlPlane {
     const isBriefing =
       normalizedTitle === 'dataset briefing' ||
       normalizedTitle === 'dataset briefing.md' ||
+      normalizedTitle === 'dataset_briefing.md' ||
       normalizedTitle === 'work.md'
     const isProfile =
       normalizedTitle === 'dataset profile' ||
       normalizedTitle === 'dataset profile.json' ||
-      normalizedTitle === 'result.json' ||
-      type === 'structured_result'
+      normalizedTitle === 'result.json'
 
     if (!isBriefing && !isProfile) {
       return
@@ -1632,8 +1632,13 @@ export class ControlPlane {
         return respondJson({ error: 'Missing ownerEmail' }, 400)
       }
       const rows = this.rows(
-        `SELECT * FROM datasets WHERE owner_email = ? ORDER BY updated_at DESC`,
+        `SELECT * FROM datasets
+         WHERE owner_email = ?
+            OR (owner_email = ? AND mode = ?)
+         ORDER BY updated_at DESC`,
         ownerEmail,
+        PLATFORM_DATASET_OWNER_EMAIL,
+        'canonical_public',
       )
       return respondJson({ datasets: rows.map((row) => this.datasetRowToJson(row)) })
     }
