@@ -81,11 +81,20 @@ for (const token of [
   'bookkeeping artifacts do not count as completion',
   'Remote agent run completed without required primary artifact',
   'deliverable artifact(s)',
+  'OPENAI_PROXY_BASE_URL',
+  'openai_base_url',
+  'remote Codex runs must use the metered OpenAI proxy',
 ]) {
   assert(remoteRunnerSource.includes(token), `Remote runner completion guard is missing: ${token}`)
 }
 
 const workerSource = readFileSync(join(root, 'src/worker.ts'), 'utf8')
+assert(
+  workerSource.includes('proxyRemoteOpenAIRequest') &&
+    workerSource.includes('remote_codex_runner') &&
+    workerSource.includes('remote_codex_metering_failed'),
+  'Worker must meter remote Codex OpenAI traffic before returning successful model responses.',
+)
 assert(workerSource.includes('async function datasetContentsForPrompt'), 'Assistant is missing dataset prompt context helper.')
 assert(
   workerSource.includes('Dataset context files:') &&

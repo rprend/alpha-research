@@ -92,6 +92,7 @@ export async function launchModalResearchJob(
         callbackStatusUrl: `${callbackOrigin}/api/internal/runs/${params.runId}/status`,
         callbackArtifactsUrl: `${callbackOrigin}/api/internal/runs/${params.runId}/artifacts`,
         callbackSessionEntriesUrl: `${callbackOrigin}/api/internal/runs/${params.runId}/session-entries`,
+        openAIProxyBaseUrl: `${callbackOrigin}/api/internal/runs/${params.runId}/openai`,
         config: parseJsonObject(params.configJson),
         artifacts: parseJsonArray(params.artifactSpecJson),
         ...(params.extraContext ?? {}),

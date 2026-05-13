@@ -99,8 +99,6 @@ def _write_direct_job_work_log(artifact_dir: Path, prompt: str, return_code: int
 
 def _run_codex_job(job_id: str, prompt: str, extra_context: dict[str, Any] | None = None) -> dict[str, Any]:
     extra_context = extra_context or {}
-    if not os.environ.get("OPENAI_API_KEY"):
-        raise RuntimeError("Missing OPENAI_API_KEY in Modal Secret agent-keys")
     safe_job_id = _safe_job_id(job_id)
     workspace_dir = WORKSPACE_ROOT / safe_job_id
     artifact_dir = RESULTS_MOUNT / safe_job_id
@@ -124,6 +122,7 @@ def _run_codex_job(job_id: str, prompt: str, extra_context: dict[str, Any] | Non
     manifest_path = _optional_str(extra_context, "manifestPath", f"{dataset_mount_path.rstrip('/')}/manifest.json")
     remote_model = _optional_str(extra_context, "remoteAgentModel", os.environ.get("REMOTE_AGENT_MODEL", "gpt-5-codex"))
     runner_token = _optional_str(extra_context, "runnerToken", os.environ.get("RUNNER_TOKEN", ""))
+    openai_proxy_base_url = _optional_str(extra_context, "openAIProxyBaseUrl")
     config = extra_context.get("config") if isinstance(extra_context.get("config"), dict) else {}
     artifact_spec = extra_context.get("artifacts") if isinstance(extra_context.get("artifacts"), list) else []
 
@@ -148,6 +147,7 @@ def _run_codex_job(job_id: str, prompt: str, extra_context: dict[str, Any] | Non
             "CALLBACK_STATUS_URL": _optional_str(extra_context, "callbackStatusUrl"),
             "CALLBACK_ARTIFACTS_URL": _optional_str(extra_context, "callbackArtifactsUrl"),
             "CALLBACK_SESSION_ENTRIES_URL": _optional_str(extra_context, "callbackSessionEntriesUrl"),
+            "OPENAI_PROXY_BASE_URL": openai_proxy_base_url,
             "RUNNER_TOKEN": runner_token,
             "REMOTE_AGENT_MODEL": remote_model,
             "REMOTE_AGENT_SESSION_ID": _optional_str(extra_context, "remoteAgentSessionId"),

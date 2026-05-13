@@ -371,6 +371,221 @@ async function trackOpenAIUsage(env: Env, args: {
   }).catch(() => undefined)
 }
 
+function openAIUsagePayloadFromJson(payload: Record<string, unknown>) {
+  return openAIUsageFromResponse(payload) ? payload : null
+}
+
+function openAIUsagePayloadFromEventStream(text: string) {
+  let usagePayload: Record<string, unknown> | null = null
+  for (const line of text.split(/\r?\n/u)) {
+    if (!line.startsWith('data:')) continue
+    const data = line.slice('data:'.length).trim()
+    if (!data || data === '[DONE]') continue
+    try {
+      const parsed = JSON.parse(data) as unknown
+      if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) continue
+      const record = parsed as Record<string, unknown>
+      if (openAIUsageFromResponse(record)) {
+        usagePayload = record
+        continue
+      }
+      const response = record.response
+      if (response && typeof response === 'object' && !Array.isArray(response)) {
+        const responseRecord = response as Record<string, unknown>
+        if (openAIUsageFromResponse(responseRecord)) {
+          usagePayload = responseRecord
+        }
+      }
+    } catch {
+      continue
+    }
+  }
+  return usagePayload
+}
+
+function openAIUsagePayloadFromText(text: string, contentType: string | null) {
+  if (contentType?.includes('text/event-stream')) {
+    return openAIUsagePayloadFromEventStream(text)
+  }
+  try {
+    const parsed = JSON.parse(text) as unknown
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return null
+    return openAIUsagePayloadFromJson(parsed as Record<string, unknown>)
+  } catch {
+    return null
+  }
+}
+
+function remoteOpenAIOperation(pathname: string) {
+  if (pathname.endsWith('/responses')) return 'responses.create'
+  if (pathname.endsWith('/chat/completions')) return 'chat.completions.create'
+  if (pathname.endsWith('/embeddings')) return 'embeddings.create'
+  return `openai.${pathname.split('/v1/')[1]?.replaceAll('/', '.') || 'request'}`
+}
+
+function isMeteredOpenAIRequest(pathname: string, method: string) {
+  return method === 'POST'
+    && (
+      pathname.endsWith('/responses')
+      || pathname.endsWith('/chat/completions')
+      || pathname.endsWith('/embeddings')
+    )
+}
+
+async function trackRemoteOpenAIUsage(env: Env, args: {
+  runId: string
+  source: string
+  operation: string
+  model: string
+  requestPayload: Record<string, unknown> | null
+  responsePayload: Record<string, unknown>
+}) {
+  const usage = openAIUsageFromResponse(args.responsePayload)
+  if (!usage) return false
+  const responseId = typeof args.responsePayload.id === 'string'
+    ? args.responsePayload.id
+    : typeof args.responsePayload.response_id === 'string'
+      ? args.responsePayload.response_id
+      : null
+  const responseModel = typeof args.responsePayload.model === 'string' ? args.responsePayload.model : null
+  const response = await proxyToControlPlane(
+    env,
+    `/internal/runs/${encodeURIComponent(args.runId)}/billing-events`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        source: args.source,
+        event: {
+          provider: 'openai',
+          model: responseModel ?? args.model,
+          operation: args.operation,
+          requestId: responseId,
+          requestJson: args.requestPayload,
+          responseJson: { id: args.responsePayload.id, usage: args.responsePayload.usage },
+          metadata: { strictMeteredProxy: true },
+          ...usage,
+        },
+      }),
+    },
+  )
+  return response.ok
+}
+
+async function postInternalRunEvent(env: Env, runId: string, message: string, level = 'info') {
+  await proxyToControlPlane(env, `/internal/runs/${encodeURIComponent(runId)}/events`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain', 'X-Run-Level': level },
+    body: message,
+  }).catch(() => undefined)
+}
+
+async function proxyRemoteOpenAIRequest(request: Request, env: Env, runId: string, proxyPath: string) {
+  if (!requireInternalRunnerToken(request, env)) {
+    return json({ error: 'Unauthorized' }, 401)
+  }
+  if (!env.OPENAI_API_KEY) {
+    return json({ error: 'Missing OPENAI_API_KEY on alpha-research worker' }, 502)
+  }
+
+  const url = new URL(request.url)
+  const isMetered = isMeteredOpenAIRequest(url.pathname, request.method)
+  if (isMetered) {
+    const billingResponse = await proxyToControlPlane(
+      env,
+      `/internal/runs/${encodeURIComponent(runId)}/billing-check`,
+      { method: 'GET' },
+    )
+    const billingText = await billingResponse.text()
+    if (!billingResponse.ok) {
+      return json({ error: billingText || 'Billing check failed.' }, billingResponse.status)
+    }
+    const billing = billingText ? JSON.parse(billingText) as { overview?: BillingCheckResult } : {}
+    if (billing.overview && !billing.overview.allowed) {
+      return billingLimitResponse(billing.overview)
+    }
+  }
+
+  const requestText = request.method === 'GET' || request.method === 'HEAD'
+    ? null
+    : await request.text()
+  let requestPayload: Record<string, unknown> | null = null
+  if (requestText) {
+    try {
+      const parsed = JSON.parse(requestText) as unknown
+      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+        requestPayload = parsed as Record<string, unknown>
+      }
+    } catch {}
+  }
+
+  const upstreamUrl = new URL(`https://api.openai.com/${proxyPath}`)
+  upstreamUrl.search = url.search
+  const upstreamHeaders = new Headers(request.headers)
+  upstreamHeaders.set('Authorization', `Bearer ${env.OPENAI_API_KEY}`)
+  upstreamHeaders.delete('Host')
+  upstreamHeaders.delete('Content-Length')
+  const upstream = await fetch(upstreamUrl, {
+    method: request.method,
+    headers: upstreamHeaders,
+    body: requestText,
+  })
+  const responseText = await upstream.text()
+  const responseHeaders = new Headers(upstream.headers)
+  responseHeaders.delete('content-encoding')
+  responseHeaders.delete('content-length')
+
+  if (!isMetered || !upstream.ok) {
+    return new Response(responseText, {
+      status: upstream.status,
+      statusText: upstream.statusText,
+      headers: responseHeaders,
+    })
+  }
+
+  const usagePayload = openAIUsagePayloadFromText(responseText, upstream.headers.get('Content-Type'))
+  if (!usagePayload) {
+    await postInternalRunEvent(
+      env,
+      runId,
+      `Remote Codex metering failed: OpenAI ${remoteOpenAIOperation(url.pathname)} response did not include usage.`,
+      'error',
+    )
+    return json({
+      error: 'Remote Codex metering failed because the OpenAI response did not include usage.',
+      code: 'remote_codex_metering_failed',
+    }, 502)
+  }
+
+  const requestModel = typeof requestPayload?.model === 'string' ? requestPayload.model : env.REMOTE_AGENT_MODEL ?? env.RESEARCH_AGENT_MODEL ?? 'gpt-5-codex'
+  const tracked = await trackRemoteOpenAIUsage(env, {
+    runId,
+    source: 'remote_codex_runner',
+    operation: remoteOpenAIOperation(url.pathname),
+    model: requestModel,
+    requestPayload,
+    responsePayload: usagePayload,
+  })
+  if (!tracked) {
+    await postInternalRunEvent(
+      env,
+      runId,
+      `Remote Codex metering failed: billing event could not be recorded for ${remoteOpenAIOperation(url.pathname)}.`,
+      'error',
+    )
+    return json({
+      error: 'Remote Codex metering failed because the billing event could not be recorded.',
+      code: 'remote_codex_metering_failed',
+    }, 502)
+  }
+
+  return new Response(responseText, {
+    status: upstream.status,
+    statusText: upstream.statusText,
+    headers: responseHeaders,
+  })
+}
+
 function publicBillingResponse(snapshot: { overview: BillingCheckResult; subscription: (SubscriptionRecord & { createdAt?: string }) | null }) {
   return {
     subscription: {
@@ -2153,6 +2368,16 @@ export default {
         env,
         `/research-specs/${encodeURIComponent(researchSpecMatch[1] ?? '')}`,
         { method: 'GET' },
+      )
+    }
+
+    const internalOpenAIMatch = pathname.match(/^\/api\/internal\/runs\/([^/]+)\/openai\/(.+)$/u)
+    if (internalOpenAIMatch) {
+      return proxyRemoteOpenAIRequest(
+        request,
+        env,
+        decodeURIComponent(internalOpenAIMatch[1] ?? ''),
+        internalOpenAIMatch[2] ?? '',
       )
     }
 

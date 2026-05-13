@@ -36,6 +36,7 @@ Remote run metadata can include `config.resources`, but the control plane always
 
 - External providers are accessed through provider modules, not UI code.
 - Runner callbacks are authenticated with `RESEARCH_INTERNAL_RUNNER_TOKEN`.
+- Remote Codex model traffic must go through the metered OpenAI proxy at `/api/internal/runs/:runId/openai/v1/*`. The Worker validates `RESEARCH_INTERNAL_RUNNER_TOKEN`, checks the run owner's allowance before model calls, forwards to OpenAI with the platform key, and records usage through `/internal/runs/:runId/billing-events`.
 - Admin canonical dataset bootstrap requests are authenticated with `ALPHA_RESEARCH_ADMIN_TOKEN` and must not depend on a user CLI session.
 - Artifacts are indexed through `run_artifacts`; completed artifact bytes are stored in the Cloudflare R2 artifact bucket and served back through authenticated dashboard routes. Transcripts should be captured as artifacts or assistant session entries. Modal result paths are worker staging paths, not browser-accessible artifact URLs.
 - Remote Codex runners may receive `EXA_API_KEY` and `CANONICAL_DATASET_SLACK_WEBHOOK_URL` as environment variables for canonical dataset-improvement and bootstrap jobs. Modal mounts the canonical Slack webhook through a separate `canonical-dataset-slack` secret so dataset maintenance jobs can send or queue source-download alerts without depending on user sessions. Workers must not write credentials into prompts, logs, artifacts, or mounted volumes.
@@ -47,6 +48,7 @@ Run the deterministic contract checks with `pnpm run test:infra`. Run the live d
 
 - Failed public/research environment launches update both dataset `deployment_status` and `status` to `failed`.
 - Runner launch, status, event, and artifact callback routes remain wired.
+- Remote Codex OpenAI proxying remains strict: missing usage or a failed billing write stops the run instead of allowing unmetered execution.
 - Remote runner bootstrap forwards Exa and canonical Slack webhook secrets so dataset-improvement jobs can search the web and notify the owner without embedding credentials in prompts.
 - Canonical dataset bootstrap is exposed through `/api/admin/canonical-datasets/bootstrap`, uses Modal writable dataset jobs, and requires `dataset_briefing.md` rather than `report.html`.
 - Modal provider files exist and keep `/data` read-only for ordinary workers.

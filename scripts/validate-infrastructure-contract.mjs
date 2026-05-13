@@ -75,6 +75,7 @@ for (const token of [
   'callbackStatusUrl',
   'callbackArtifactsUrl',
   'callbackSessionEntriesUrl',
+  'openAIProxyBaseUrl',
 ]) {
   assert(modalSource.includes(token), `Modal provider contract is missing ${token}.`)
 }
@@ -89,7 +90,7 @@ for (const token of [
   '"/workspace"',
   'Secret.from_name(SECRET_NAME)',
   'Secret.from_name(CANONICAL_SLACK_SECRET_NAME)',
-  'OPENAI_API_KEY',
+  'OPENAI_PROXY_BASE_URL',
   'run_codex_job',
   'run_dataset_job',
   'submit_codex_job',
@@ -105,6 +106,25 @@ assert(
 )
 
 assert(
+  workerSource.includes('/openai') &&
+    workerSource.includes('remote_codex_runner') &&
+    workerSource.includes('remote_codex_metering_failed') &&
+    workerSource.includes('billing-check') &&
+    workerSource.includes('billing-events') &&
+    controlPlaneSource.includes('/billing-events') &&
+    controlPlaneSource.includes('this.billingOverview(run.ownerEmail)'),
+  'Remote Codex OpenAI traffic must be proxied and billed against the run owner.',
+)
+
+assert(
+  remoteRunnerSource.includes('OPENAI_PROXY_BASE_URL') &&
+    remoteRunnerSource.includes('openai_base_url') &&
+    remoteRunnerSource.includes('CODEX_API_KEY') &&
+    remoteRunnerSource.includes('Missing OPENAI_PROXY_BASE_URL'),
+  'Remote runner must fail closed and point Codex at the metered OpenAI proxy.',
+)
+
+assert(
   remoteRunnerSource.includes('RUN_TYPE == "canonical-dataset-bootstrap"') &&
     remoteRunnerSource.includes('dataset_briefing.md') &&
     remoteRunnerSource.includes('Do not write report.html unless it is explicitly requested'),
@@ -115,6 +135,7 @@ for (const requiredDocFragment of [
   'Modal jobs mount the shared public dataset volume at `/data`',
   'Modal runner state and outputs are written under `/results/<job id>`',
   'Workers must not write credentials into prompts, logs, artifacts, or mounted volumes',
+  'Remote Codex model traffic must go through the metered OpenAI proxy',
   'Admin canonical dataset bootstrap requests are authenticated with `ALPHA_RESEARCH_ADMIN_TOKEN`',
 ]) {
   assert(runnerDocs.includes(requiredDocFragment), `Control-plane docs are missing: ${requiredDocFragment}`)

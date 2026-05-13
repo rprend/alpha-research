@@ -3084,6 +3084,40 @@ export class ControlPlane {
       return respondJson({ ok: true })
     }
 
+    const internalBillingCheckMatch = pathname.match(/^\/internal\/runs\/([^/]+)\/billing-check$/u)
+    if (internalBillingCheckMatch && request.method === 'GET') {
+      const runId = decodeURIComponent(internalBillingCheckMatch[1] ?? '')
+      const runRow = this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]
+      const run = runRow ? this.parseRunRow(runRow) : null
+      if (!run) {
+        return respondJson({ error: 'Run not found' }, 404)
+      }
+      return respondJson({ overview: this.billingOverview(run.ownerEmail) })
+    }
+
+    const internalBillingEventMatch = pathname.match(/^\/internal\/runs\/([^/]+)\/billing-events$/u)
+    if (internalBillingEventMatch && request.method === 'POST') {
+      const runId = decodeURIComponent(internalBillingEventMatch[1] ?? '')
+      const runRow = this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]
+      const run = runRow ? this.parseRunRow(runRow) : null
+      if (!run) {
+        return respondJson({ error: 'Run not found' }, 404)
+      }
+      const body = await request.json() as Record<string, unknown>
+      const event = isPlainRecord(body.event) ? body.event as BillingUsageEventInput : null
+      if (!event) {
+        return respondJson({ error: 'Missing event' }, 400)
+      }
+      const session = this.listAssistantSessionsForRun(run.id)[0] ?? null
+      this.trackBillingEvent(run.ownerEmail, {
+        ...event,
+        sessionId: session?.id ?? null,
+        runId: run.id,
+        source: typeof body.source === 'string' ? body.source : 'remote_codex_runner',
+      })
+      return respondJson({ ok: true })
+    }
+
     const internalSessionEntryMatch = pathname.match(/^\/internal\/runs\/([^/]+)\/session-entries$/u)
     if (internalSessionEntryMatch && request.method === 'POST') {
       const runId = decodeURIComponent(internalSessionEntryMatch[1] ?? '')

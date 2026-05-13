@@ -15,6 +15,7 @@
 - optional `RUN_STATE_DIR` or `RUN_STATUS_PATH`
 - optional `DATASET_READ_ONLY=true`
 - callback URLs for events, status, artifacts, and session entries
+- `OPENAI_PROXY_BASE_URL`
 - `RUNNER_TOKEN`
 
 ## Required Outputs
@@ -56,6 +57,12 @@ On failure, the runner must:
 
 Callback delivery is reporting, not execution. Event, session, artifact, and status callbacks retry briefly; if they remain unavailable, the runner records the callback error in the durable worker status file and does not turn that reporting failure into a product run failure.
 
+## Billing Contract
+
+Remote Codex model traffic must go through the metered OpenAI proxy at `OPENAI_PROXY_BASE_URL`. The runner must fail before starting Codex if `OPENAI_PROXY_BASE_URL` or `RUNNER_TOKEN` is missing. Codex uses `RUNNER_TOKEN` as its API key and `openai_base_url` as the proxy base URL; the real OpenAI API key stays on the Cloudflare Worker.
+
+The proxy checks the run owner's billing allowance before each model request. Successful model responses must include OpenAI usage and must be recorded as `remote_codex_runner` billing events against the run owner. If usage cannot be extracted or the billing event cannot be recorded, the proxy returns a metering failure and the run stops instead of continuing unmetered.
+
 ## Modal Runner Contract
 
 Modal workers mount public datasets at `/data`, results at `/results`, and use `/workspace` for writable scratch. Ordinary agent workers treat `/data` as read-only and must not write manifests, status files, temporary files, transcripts, or outputs there.
@@ -70,6 +77,6 @@ For Modal jobs:
 - `LAST_MESSAGE_PATH=/results/<job id>/last-message.txt`
 - `TRANSCRIPT_PATH=/results/<job id>/codex-transcript.log`
 
-Secrets come from Modal Secrets, especially `OPENAI_API_KEY` in `agent-keys`. Secrets are environment variables only and must not be written into prompts, logs, callback payloads, artifacts, transcripts, or mounted volumes.
+Secrets come from Modal Secrets. Remote Codex runs do not receive the real OpenAI API key; they receive only the runner token and the metered proxy URL. Secrets are environment variables only and must not be written into prompts, logs, callback payloads, artifacts, transcripts, or mounted volumes.
 
 Use `pnpm modal:deploy` to deploy the Modal app, `pnpm modal:submit -- --job-id <id> --prompt <prompt>` for direct smoke jobs, and `pnpm modal:sync-dataset -- --dataset-id <id> --source <local path>` to upload public datasets into `agent-dataset:/datasets/<id>/`.

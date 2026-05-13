@@ -27,6 +27,7 @@ CALLBACK_EVENTS_URL = os.environ.get("CALLBACK_EVENTS_URL", "")
 CALLBACK_STATUS_URL = os.environ.get("CALLBACK_STATUS_URL", "")
 CALLBACK_ARTIFACTS_URL = os.environ.get("CALLBACK_ARTIFACTS_URL", "")
 CALLBACK_SESSION_ENTRIES_URL = os.environ.get("CALLBACK_SESSION_ENTRIES_URL", "")
+OPENAI_PROXY_BASE_URL = os.environ.get("OPENAI_PROXY_BASE_URL", "").rstrip("/")
 RUNNER_TOKEN = os.environ.get("RUNNER_TOKEN", "")
 REMOTE_AGENT_MODEL = os.environ.get("REMOTE_AGENT_MODEL", "gpt-5-codex")
 REMOTE_AGENT_SESSION_ID = os.environ.get("REMOTE_AGENT_SESSION_ID", "").strip()
@@ -435,6 +436,10 @@ def build_codex_goal():
 
 
 def run_codex():
+    if not OPENAI_PROXY_BASE_URL:
+        raise RuntimeError("Missing OPENAI_PROXY_BASE_URL; remote Codex runs must use the metered OpenAI proxy")
+    if not RUNNER_TOKEN:
+        raise RuntimeError("Missing RUNNER_TOKEN; remote Codex runs must authenticate to the metered OpenAI proxy")
     WORKSPACE_DIR.mkdir(parents=True, exist_ok=True)
     ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
     CODEX_HOME.mkdir(parents=True, exist_ok=True)
@@ -451,6 +456,8 @@ def run_codex():
         "--skip-git-repo-check",
         "--dangerously-bypass-approvals-and-sandbox",
         "--json",
+        "-c",
+        f"openai_base_url={json.dumps(OPENAI_PROXY_BASE_URL)}",
         "--output-last-message",
         str(LAST_MESSAGE_PATH),
         "-C",
@@ -469,19 +476,19 @@ def run_codex():
     env["DATASET_MOUNT_PATH"] = str(DATASET_MOUNT_PATH)
     env["MANIFEST_PATH"] = str(MANIFEST_PATH)
     env["RUN_TYPE"] = RUN_TYPE
+    env["OPENAI_API_KEY"] = RUNNER_TOKEN
+    env["CODEX_API_KEY"] = RUNNER_TOKEN
 
-    api_key = env.get("OPENAI_API_KEY", "").strip()
-    if api_key:
-        login = subprocess.run(
-            ["codex", "login", "--with-api-key"],
-            input=f"{api_key}\n",
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-            text=True,
-            env=env,
-        )
-        if login.returncode != 0:
-            raise RuntimeError("codex api-key login failed")
+    login = subprocess.run(
+        ["codex", "login", "--with-api-key"],
+        input=f"{RUNNER_TOKEN}\n",
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        text=True,
+        env=env,
+    )
+    if login.returncode != 0:
+        raise RuntimeError("codex metered-proxy login failed")
 
     post_event("Starting remote agent executor.")
     post_status("running", "Starting remote agent executor.")
