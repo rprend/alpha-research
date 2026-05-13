@@ -2991,48 +2991,132 @@ function DatasetDetailPage({
           </section>
         ) : null}
 
-        <section className="grid min-w-0 gap-4 rounded-2xl border border-border bg-muted/20 p-4 md:p-6 lg:grid-cols-[minmax(0,1fr)_280px]">
+        <section className="grid min-w-0 gap-4 rounded-2xl border border-border bg-muted/20 p-4 md:p-6">
           <div className="min-w-0 space-y-5">
             <div className="space-y-2">
-              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Trust summary</div>
-              <div className="flex flex-wrap items-center gap-3">
-                <RunPriorityBadge label={trustState.badge} tone={trustState.tone} />
-                <RunPriorityBadge label={trustState.actionState} tone={trustState.tone === 'success' ? 'neutral' : trustState.tone} />
-              </div>
-              <h2 className="text-2xl font-semibold tracking-normal">{trustState.headline}</h2>
+              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Dataset inventory</div>
+              <h2 className="text-2xl font-semibold tracking-normal">Inventory</h2>
               <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
-                {profileSummary ?? fitVerdict}
+                {current.inventorySummary?.trim() || profileSummary || current.description || 'Current dataset metadata and mounted source inventory.'}
               </p>
             </div>
-            <div className="grid min-w-0 gap-3 md:grid-cols-2">
-              {trustSummaryItems.map((item) => (
-                <div key={item.label} className="min-w-0 rounded-xl border border-border bg-background/80 px-4 py-4">
-                  <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">{item.label}</div>
-                  <div className="mt-2 text-sm leading-6 text-foreground/90">{item.value}</div>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.detail}</p>
+            <div className="overflow-hidden rounded-xl border border-border bg-background">
+              <Table>
+                <TableBody>
+                  {[
+                    ['Dataset ID', current.id],
+                    ['Source type', formatStatus(current.sourceType)],
+                    ['Source file', current.sourceFilename ?? 'Not recorded'],
+                    ['Mode', current.mode ? formatStatus(current.mode) : 'Not recorded'],
+                    ['Dataset status', formatStatus(current.status)],
+                    ['Deployment status', formatStatus(current.deploymentStatus)],
+                    ['Dataset size', formatBytes(current.sourceSizeBytes)],
+                    ['Manifest path', current.manifestPath ?? 'Not recorded'],
+                    ['Mounted volume', current.volume?.mountPath ?? 'Not mounted'],
+                    ['Updated', formatDateTime(current.updatedAt)],
+                    ['Profile updated', current.profile?.updatedAt ? formatDateTime(current.profile.updatedAt) : 'Not recorded'],
+                    ['Described at', describedAt ? formatDateTime(describedAt) : 'Not recorded'],
+                  ].map(([label, value]) => (
+                    <TableRow key={label}>
+                      <TableCell className="w-48 align-top text-sm font-medium text-muted-foreground">{label}</TableCell>
+                      <TableCell className="break-words text-sm text-foreground">{value}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+            {(current.inventoryUseCase || current.inventoryCoverage || current.inventoryFreshness || primaryLimitation) ? (
+              <div className="grid min-w-0 gap-3 md:grid-cols-2">
+                {current.inventoryUseCase ? (
+                  <div className="min-w-0 rounded-xl border border-border bg-background/80 px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Use case</div>
+                    <p className="mt-2 text-sm leading-6 text-foreground/85">{current.inventoryUseCase.replace(/^Best for:\s*/i, '')}</p>
+                  </div>
+                ) : null}
+                {current.inventoryCoverage ? (
+                  <div className="min-w-0 rounded-xl border border-border bg-background/80 px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Coverage</div>
+                    <p className="mt-2 text-sm leading-6 text-foreground/85">{current.inventoryCoverage}</p>
+                  </div>
+                ) : null}
+                {current.inventoryFreshness ? (
+                  <div className="min-w-0 rounded-xl border border-border bg-background/80 px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Freshness</div>
+                    <p className="mt-2 text-sm leading-6 text-foreground/85">{current.inventoryFreshness}</p>
+                  </div>
+                ) : null}
+                {primaryLimitation ? (
+                  <div className="min-w-0 rounded-xl border border-border bg-background/80 px-4 py-4">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Limitations</div>
+                    <p className="mt-2 text-sm leading-6 text-foreground/85">{primaryLimitation}</p>
+                  </div>
+                ) : null}
+              </div>
+            ) : null}
+            {profileSources.length > 0 ? (
+              <div className="min-w-0 rounded-xl border border-border bg-background/80 p-5">
+                <h2 className="text-lg font-medium">Sources</h2>
+                <div className="mt-4 overflow-x-auto">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Name</TableHead>
+                        <TableHead>Provider</TableHead>
+                        <TableHead>Detail</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {profileSources.map((source, index) => (
+                        <TableRow key={index}>
+                          <TableCell>{profileText(source, 'name') ?? profileText(source, 'source') ?? `Source ${index + 1}`}</TableCell>
+                          <TableCell>{profileText(source, 'provider') ?? '-'}</TableCell>
+                          <TableCell>{profileText(source, 'description') ?? profileText(source, 'coverage') ?? '-'}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
                 </div>
-              ))}
-            </div>
-            <div className="grid min-w-0 gap-3 md:grid-cols-2">
-              <div className="min-w-0 rounded-xl border border-border bg-background/80 px-4 py-4">
-                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Source coverage</div>
-                <p className="mt-2 text-sm leading-6 text-foreground/85">{sourceCoverage}</p>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">{transformationSummary}</p>
               </div>
-              <div className="min-w-0 rounded-xl border border-border bg-background/80 px-4 py-4">
-                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Freshness and deployment</div>
-                <p className="mt-2 text-sm leading-6 text-foreground/85">{freshnessSummary}</p>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">{sourceStatus}</p>
+            ) : null}
+            {profileTables.length > 0 ? (
+              <div className="min-w-0 rounded-xl border border-border bg-background/80 p-5">
+                <h2 className="text-lg font-medium">Tables</h2>
+                <div className="mt-4 overflow-x-auto">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Name</TableHead>
+                        <TableHead>Rows</TableHead>
+                        <TableHead>Detail</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {profileTables.map((table, index) => {
+                        const rowCount = isRecord(table) && typeof table['rows'] === 'number'
+                          ? table['rows']
+                          : isRecord(table) && typeof table['rowCount'] === 'number'
+                            ? table['rowCount']
+                            : null
+                        return (
+                          <TableRow key={index}>
+                            <TableCell>{profileText(table, 'name') ?? `Table ${index + 1}`}</TableCell>
+                            <TableCell>{rowCount === null ? '-' : rowCount.toLocaleString()}</TableCell>
+                            <TableCell>{profileText(table, 'description') ?? profileText(table, 'coverage') ?? '-'}</TableCell>
+                          </TableRow>
+                        )
+                      })}
+                    </TableBody>
+                  </Table>
+                </div>
               </div>
+            ) : primaryTableName || primaryTableRows ? (
               <div className="min-w-0 rounded-xl border border-border bg-background/80 px-4 py-4">
-                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Known gaps</div>
-                <p className="mt-2 text-sm leading-6 text-foreground/85">{trustState.actionDetail}</p>
+                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Primary table</div>
+                <p className="mt-2 text-sm leading-6 text-foreground/85">
+                  {primaryTableName ?? 'Primary table'}{primaryTableRows ? `, ${primaryTableRows.toLocaleString()} rows` : ''}
+                </p>
               </div>
-              <div className="min-w-0 rounded-xl border border-border bg-background/80 px-4 py-4">
-                <div className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">Briefing status</div>
-                <p className="mt-2 text-sm leading-6 text-foreground/85">{briefingStatus}</p>
-              </div>
-            </div>
+            ) : null}
             {(schemaColumns.length > 0 || sampleRows.length > 0) ? (
               <div className="grid min-w-0 gap-4 xl:grid-cols-[280px_minmax(0,1fr)]">
                 <div className="min-w-0 rounded-xl border border-border bg-background/80 p-5">
@@ -4863,8 +4947,8 @@ function DashboardSidebar({
                 })}
             >
               <Database />
-              <span>Datasets</span>
-              <span className="ml-auto text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
+              <span className="dashboard-nav-label">Datasets</span>
+              <span className="dashboard-nav-count">
                 {datasets.length}
               </span>
             </SidebarMenuButton>
@@ -4882,8 +4966,8 @@ function DashboardSidebar({
                 })}
             >
               <History />
-              <span>Runs</span>
-              <span className="ml-auto text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
+              <span className="dashboard-nav-label">Runs</span>
+              <span className="dashboard-nav-count">
                 {runs.length}
               </span>
             </SidebarMenuButton>
@@ -4958,9 +5042,7 @@ function DashboardApp({
 
   const activeRun = route.runId ? runs.find((run) => run.id === route.runId) ?? null : null
   const activeDataset = route.datasetId ? datasets.find((dataset) => dataset.id === route.datasetId) ?? null : null
-  const showResearchChats = !(
-    route.view === 'datasets' && activeDataset
-  )
+  const showResearchChats = true
 
   let content: ReactNode
 

@@ -528,13 +528,43 @@
   border-bottom: 0;
   background: transparent;
   color: var(--dashboard-ink-soft);
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
   text-align: left;
   transition:
     color 140ms ease,
     background-color 140ms ease,
     border-color 140ms ease;
+}
+
+.dashboard-nav-button svg {
+  color: currentColor;
+  opacity: 0.86;
+}
+
+.dashboard-nav-label {
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dashboard-nav-count {
+  display: inline-flex;
+  min-width: 1.85rem;
+  height: 1.35rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(38, 38, 38, 0.08);
+  background: rgba(255, 255, 255, 0.54);
+  padding: 0 0.42rem;
+  color: var(--dashboard-ink-soft);
+  font-size: 0.69rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
 }
 
 .dashboard-nav-button:hover {
@@ -544,8 +574,16 @@
 
 .dashboard-nav-button[data-active="true"] {
   color: var(--dashboard-ink-strong);
-  background: transparent;
-  box-shadow: inset -2px 0 0 rgba(17, 17, 17, 0.72);
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow:
+    inset 2px 0 0 rgba(17, 17, 17, 0.72),
+    inset 0 0 0 1px rgba(38, 38, 38, 0.06);
+}
+
+.dashboard-nav-button[data-active="true"] .dashboard-nav-count {
+  border-color: rgba(17, 17, 17, 0.14);
+  background: rgba(17, 17, 17, 0.06);
+  color: var(--dashboard-ink);
 }
 
 .dashboard-new-chat {
