@@ -55,7 +55,7 @@ async function assertRenderedOrientation() {
     await page.locator('img.aui-thread-welcome-image[src="/alpha-book-man.png"]').waitFor({ timeout: 15000 })
     await page.getByPlaceholder('Send a message...').waitFor({ timeout: 15000 })
     await page.getByText('Signed in', { exact: false }).first().waitFor({ timeout: 15000 })
-    await page.getByText('Alpha Book research planning', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: 'New chat' }).waitFor({ timeout: 15000 })
     await assertPageTextMissing(page, 'Show recent chats', 'Recent chats should be visible without a disclosure toggle.')
     await assertPageTextMissing(page, 'Hide recent chats', 'Recent chats should be visible without a disclosure toggle.')
     await assertPageTextMissing(page, 'Most recent', 'Recent chat rows should not show recency badges.')
@@ -215,9 +215,10 @@ async function assertRenderedDatasetInventory() {
     await page.getByRole('heading', { name: 'Datasets', exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Your datasets', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Public datasets', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Ready for research', { exact: false }).first().waitFor({ timeout: 15000 })
-    await page.getByText('Still building', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('View dataset details', { exact: true }).first().waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: /City Housing Archive/ }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: /Alpha Book Sample/ }).waitFor({ timeout: 15000 })
+    await page.getByLabel('Ready for research').first().waitFor({ timeout: 15000 })
+    await page.getByLabel('Still building').waitFor({ timeout: 15000 })
   } finally {
     await browser.close()
   }
@@ -232,9 +233,8 @@ async function assertTopicGuidedDatasetSelection() {
     await page.getByRole('heading', { name: 'Best datasets for Housing Affordability', exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Recommended next step', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Open City Housing Archive', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Coverage:', { exact: false }).first().waitFor({ timeout: 15000 })
-    await page.getByText('Freshness:', { exact: false }).first().waitFor({ timeout: 15000 })
-    await page.getByText('Limitation:', { exact: false }).first().waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: /City Housing Archive/ }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: /Alpha Econ Prototype/ }).waitFor({ timeout: 15000 })
     await page.getByText('Relevant to Housing Affordability', { exact: true }).first().waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'Open recommended dataset' }).click()
     await page.getByRole('heading', { name: 'City Housing Archive' }).waitFor({ timeout: 15000 })
@@ -290,24 +290,20 @@ async function assertRenderedDatasetDetail() {
     await page.goto(`${baseUrl}/?harness=1&view=datasets&datasetId=dataset-alpha-book`, { waitUntil: 'domcontentloaded' })
     await page.getByRole('heading', { name: 'Alpha Book Sample' }).waitFor({ timeout: 15000 })
     await page.getByText('Project Gutenberg book metadata with title, author, year, and normalized text references.', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Trust summary', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Validated', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('75,000 rows and 4 required fields are present in the current profile.', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Caveat', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('This is a curated sample for fast exploration, not a full-corpus source of record.', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Dataset inventory', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Inventory' }).waitFor({ timeout: 15000 })
+    await page.getByText('Dataset ID', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('dataset-alpha-book', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Deployment status', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Sources' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Tables' }).waitFor({ timeout: 15000 })
+    await page.getByText('Sample only, not the full Gutenberg corpus', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByRole('heading', { name: 'Sample rows' }).waitFor({ timeout: 15000 })
     await page.getByText('Pride and Prejudice', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Ask about this dataset', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Ask about Alpha Book Sample' }).waitFor({ timeout: 15000 })
-    await page.getByText('do not need to copy a dataset id', { exact: false }).waitFor({ timeout: 15000 })
-    await page.getByText('clarify scope', { exact: false }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Refresh briefing' }).waitFor({ timeout: 15000 })
     await page.getByText('Developer details', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Recents', { exact: true }).waitFor({ timeout: 15000 })
     if (await page.getByText('harness QA', { exact: false }).count()) {
-      throw new Error('Dataset detail should not surface harness QA wording in the trust path.')
-    }
-    if (await page.getByText('Alpha Book research planning', { exact: true }).count()) {
-      throw new Error('Dataset detail should not show unrelated chat history in the primary sidebar.')
+      throw new Error('Dataset detail should not surface harness QA wording in the inventory path.')
     }
   } finally {
     await browser.close()
@@ -322,57 +318,15 @@ async function assertBusyDatasetConflictSteering() {
     await page.getByRole('heading', { name: 'Alpha Econ Prototype' }).waitFor({ timeout: 15000 })
     await page.getByText('Dataset is busy', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByRole('heading', { name: 'Another run is already using this dataset.' }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'run-harness-running' }).waitFor({ timeout: 15000 })
+    await page.getByText('run-harness-running', { exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Environment build in progress', { exact: true }).first().waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'View blocking run' }).waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'Refresh status' }).waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'Cancel blocking run' }).waitFor({ timeout: 15000 })
-    await page.getByText('Source coverage', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Freshness and deployment', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Known gaps', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Briefing status', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('New work is blocked until environment build in progress finishes or is cancelled.', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Describe dataset' }).waitFor({ timeout: 15000 })
-    await page.getByText('Dataset briefing is blocked by an active run.', { exact: true }).waitFor({ timeout: 15000 })
-  } finally {
-    await browser.close()
-  }
-}
-
-async function assertDatasetScopedAskRouting() {
-  const browser = await chromium.launch({ headless: true })
-  try {
-    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
-    await page.goto(`${baseUrl}/?harness=1&view=datasets&datasetId=dataset-alpha-book`, { waitUntil: 'domcontentloaded' })
-    await page.getByLabel('Your research question').fill('Which authors look most useful to compare first?')
-    await page.getByRole('button', { name: 'Ask about Alpha Book Sample' }).click()
-    await page.getByRole('heading', { name: 'What do you want to research?' }).waitFor({ timeout: 15000 })
-    await page.locator('img.aui-thread-welcome-image[src="/alpha-book-man.png"]').waitFor({ timeout: 15000 })
-    await page.getByLabel('Message input').waitFor({ timeout: 15000 })
-    await page.getByLabel('Message input').evaluate((node) => {
-      if (!(node instanceof HTMLTextAreaElement)) {
-        throw new Error('Expected message input to be a textarea.')
-      }
-      if (node.value !== 'Which authors look most useful to compare first?') {
-        throw new Error(`Unexpected draft value: ${node.value}`)
-      }
-    })
-  } finally {
-    await browser.close()
-  }
-}
-
-async function assertDescribeRunSteering() {
-  const browser = await chromium.launch({ headless: true })
-  try {
-    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
-    await page.goto(`${baseUrl}/?harness=1&view=datasets&datasetId=dataset-alpha-book`, { waitUntil: 'domcontentloaded' })
-    await page.getByRole('button', { name: 'Refresh briefing' }).click()
-    await page.getByRole('heading', { name: 'Dataset briefing ready' }).waitFor({ timeout: 15000 })
-    await page.getByText('The durable briefing stays attached to this run as an artifact', { exact: false }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Open briefing artifact' }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Open briefing artifact' }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Open profile artifact' }).waitFor({ timeout: 15000 })
+    await page.getByText('Dataset inventory', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Inventory' }).waitFor({ timeout: 15000 })
+    await page.getByText('Dataset status', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Deployment status', { exact: true }).waitFor({ timeout: 15000 })
   } finally {
     await browser.close()
   }
@@ -556,7 +510,7 @@ async function assertSignedOutDashboardGate() {
 }
 
 const child = spawn(
-  'pnpm',
+  './node_modules/.bin/vite',
   ['preview', '--host', '127.0.0.1', '--port', String(port)],
   {
     stdio: ['ignore', 'pipe', 'pipe'],
@@ -592,8 +546,6 @@ try {
   await assertAuthenticatedDatasetLoadFailure()
   await assertRenderedDatasetDetail()
   await assertBusyDatasetConflictSteering()
-  await assertDatasetScopedAskRouting()
-  await assertDescribeRunSteering()
   await assertCompletedRunArtifactsSteering()
   await assertRunningRunStatusSteering()
   await assertMobileRunCheckInSteering()

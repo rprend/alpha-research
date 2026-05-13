@@ -2,20 +2,27 @@ import { type CSSProperties, type PointerEvent as ReactPointerEvent, type ReactN
 import { AssistantRuntimeProvider, useExternalStoreRuntime, type ThreadMessage } from '@assistant-ui/react'
 import {
   AlertTriangle,
+  BookOpen,
   Bot,
   Braces,
+  Building2,
+  ChartColumn,
   CheckCircle2,
   ChevronRight,
   Database,
   ExternalLink,
   FileText,
+  Globe2,
   GripVertical,
   History,
+  Library,
   LoaderCircle,
   LogOut,
   MessageSquarePlus,
+  ScrollText,
   Table2,
   TerminalSquare,
+  type LucideIcon,
   Zap,
   X,
 } from 'lucide-react'
@@ -85,7 +92,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { Input } from '@/components/ui/input'
 import { deriveRunProgress } from '@/user-progress'
 
 declare global {
@@ -446,6 +452,7 @@ function datasetInventoryStatus(dataset: DatasetRecord) {
     return {
       label: 'Ready for research',
       detail: dataset.inventoryReadinessNote ?? 'Open now for profiling, documentation, or analysis.',
+      tone: 'success' as const,
     }
   }
 
@@ -453,6 +460,7 @@ function datasetInventoryStatus(dataset: DatasetRecord) {
     return {
       label: 'Still building',
       detail: dataset.inventoryReadinessNote ?? 'Ingestion is still running, so schema and records may change.',
+      tone: 'warning' as const,
     }
   }
 
@@ -460,72 +468,14 @@ function datasetInventoryStatus(dataset: DatasetRecord) {
     return {
       label: 'Needs attention',
       detail: dataset.inventoryReadinessNote ?? 'This dataset needs a retry before it is safe to use.',
+      tone: 'warning' as const,
     }
   }
 
   return {
     label: 'Checking readiness',
     detail: dataset.inventoryReadinessNote ?? 'Alpha Research is still verifying whether this dataset is ready.',
-  }
-}
-
-function datasetDetailTrustState(dataset: DatasetRecord, hasBriefing: boolean) {
-  const deploymentStatus = dataset.deploymentStatus.toLowerCase()
-  const status = dataset.status.toLowerCase()
-  const hasMountedData = Boolean(dataset.volume?.mountPath)
-  const limitation = dataset.inventoryLimitations?.find((item) => item.trim())?.trim() ?? null
-
-  if (deploymentStatus === 'ready' && status === 'ready') {
-    return {
-      badge: 'Ready to use',
-      headline: 'Current enough to start analysis.',
-      tone: 'success' as const,
-      explanation: dataset.inventoryReadinessNote ?? 'This dataset is ready for research in its current deployed state.',
-      actionState: hasBriefing ? 'Briefing ready' : 'Briefing recommended',
-      actionDetail: hasBriefing
-        ? 'The latest briefing is available below.'
-        : 'Generate a briefing if you want a refreshed summary before analysis.',
-    }
-  }
-
-  if (deploymentStatus === 'processing' || status === 'running' || status === 'uploading') {
-    const blockedByInfrastructure = !hasMountedData
-    const blockedReason = blockedByInfrastructure
-      ? limitation
-        ? `The deployed dataset files are not mounted yet, so the briefing and analysis remain blocked. ${limitation}`
-        : 'The deployed dataset files are not mounted yet, so the briefing and analysis remain blocked.'
-      : limitation
-        ?? 'Schema, coverage, or records may still change while ingestion finishes.'
-    return {
-      badge: blockedByInfrastructure ? 'Not ready' : 'Processing',
-      headline: blockedByInfrastructure ? 'Not ready for analysis yet.' : 'Still processing before it is safe to trust.',
-      tone: 'warning' as const,
-      explanation: blockedByInfrastructure
-        ? 'Alpha Research is still preparing the deployed dataset environment, so the current data cannot be verified yet.'
-        : dataset.inventoryReadinessNote ?? 'Alpha Research is still ingesting and validating this dataset.',
-      actionState: blockedByInfrastructure ? 'Waiting on dataset environment' : 'Waiting on ingest completion',
-      actionDetail: blockedReason,
-    }
-  }
-
-  if (deploymentStatus === 'failed' || status === 'failed' || status === 'worker_unreachable') {
-    return {
-      badge: 'Needs review',
-      headline: 'Do not trust this dataset until the failure is resolved.',
-      tone: 'warning' as const,
-      explanation: dataset.inventoryReadinessNote ?? 'Alpha Research hit a dataset preparation problem that needs attention.',
-      actionState: 'Blocked by failure',
-      actionDetail: limitation ?? 'Open developer details to inspect the failure state before retrying.',
-    }
-  }
-
-  return {
-    badge: 'Checking readiness',
-    headline: 'Readiness is still being verified.',
     tone: 'neutral' as const,
-    explanation: dataset.inventoryReadinessNote ?? 'Alpha Research is still determining whether this dataset is safe to use.',
-    actionState: 'Readiness not confirmed',
-    actionDetail: limitation ?? 'Wait for a completed readiness check before you rely on this dataset.',
   }
 }
 
@@ -553,35 +503,12 @@ function runStatusLabel(run: RunRecord) {
   return `${formatStatus(run.status)} ${formatStatus(run.type)} run`
 }
 
-function datasetInventoryDescription(dataset: DatasetRecord) {
-  const description = dataset.inventorySummary?.trim() || dataset.description?.trim()
-  if (description) return description
-  if (dataset.sourceFilename?.trim()) return `Uploaded from ${dataset.sourceFilename.trim()}.`
-  return `A ${formatStatus(dataset.sourceType)} dataset in Alpha Research.`
-}
-
 function datasetInventoryUseCase(dataset: DatasetRecord) {
   const explicit = dataset.inventoryUseCase?.trim()
   if (explicit) return explicit
   const profileSummary = profileText(dataset.profile?.profile, 'summary')
   if (profileSummary) return `Best for: ${profileSummary}`
   return null
-}
-
-function datasetQuestionPrompts(dataset: DatasetRecord) {
-  const columns = Array.isArray(profileRecord(dataset.profile, 'schema')?.columns)
-    ? (profileRecord(dataset.profile, 'schema')?.columns as unknown[])
-        .filter((value): value is string => typeof value === 'string' && value.trim().length > 0)
-        .slice(0, 4)
-    : []
-  const basePrompts = [
-    `What patterns should I look at first in ${dataset.name}?`,
-    `What question is ${dataset.name} well suited to answer?`,
-  ]
-  if (columns.length >= 2) {
-    basePrompts.unshift(`Using ${columns[0]} and ${columns[1]}, what is a strong first analysis?`)
-  }
-  return basePrompts.slice(0, 3)
 }
 
 function focusAssistantComposer(prompt?: string) {
@@ -835,12 +762,6 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
 }
 
-function profileArrayCount(profile: unknown, key: string) {
-  if (!isRecord(profile)) return null
-  const value = profile[key]
-  return Array.isArray(value) ? value.length : null
-}
-
 function profileText(profile: unknown, key: string) {
   if (!isRecord(profile)) return null
   const value = profile[key]
@@ -857,64 +778,6 @@ function profileRecord(profile: unknown, key: string) {
   if (!isRecord(profile)) return null
   const value = profile[key]
   return isRecord(value) ? value : null
-}
-
-function renderBriefingMarkdown(markdown: string) {
-  const nodes: ReactNode[] = []
-  let paragraph: string[] = []
-  let bullets: string[] = []
-
-  const flushParagraph = () => {
-    if (paragraph.length === 0) return
-    nodes.push(
-      <p key={`p-${nodes.length}`} className="my-3 whitespace-pre-wrap text-sm leading-7 text-muted-foreground">
-        {paragraph.join('\n')}
-      </p>,
-    )
-    paragraph = []
-  }
-  const flushBullets = () => {
-    if (bullets.length === 0) return
-    nodes.push(
-      <ul key={`ul-${nodes.length}`} className="my-3 list-disc space-y-1 pl-5 text-sm leading-7 text-muted-foreground">
-        {bullets.map((item, index) => <li key={index}>{item}</li>)}
-      </ul>,
-    )
-    bullets = []
-  }
-
-  for (const line of markdown.split('\n')) {
-    const trimmed = line.trim()
-    if (!trimmed) {
-      flushParagraph()
-      flushBullets()
-      continue
-    }
-    const heading = trimmed.match(/^(#{1,3})\s+(.+)$/u)
-    if (heading) {
-      flushParagraph()
-      flushBullets()
-      const level = heading[1]?.length ?? 2
-      const text = heading[2] ?? ''
-      nodes.push(
-        level === 1
-          ? <h2 key={`h-${nodes.length}`} className="mt-6 text-2xl font-semibold first:mt-0">{text}</h2>
-          : <h3 key={`h-${nodes.length}`} className="mt-5 text-lg font-semibold first:mt-0">{text}</h3>,
-      )
-      continue
-    }
-    const bullet = trimmed.match(/^[-*]\s+(.+)$/u)
-    if (bullet) {
-      flushParagraph()
-      bullets.push(bullet[1] ?? '')
-      continue
-    }
-    flushBullets()
-    paragraph.push(trimmed)
-  }
-  flushParagraph()
-  flushBullets()
-  return nodes
 }
 
 function renderPreviewMarkdown(markdown: string) {
@@ -2640,64 +2503,55 @@ function DatasetFeedSection({
     : datasets
 
   return (
-    <section className="flex min-w-0 flex-col gap-4">
-      <div className="flex flex-col gap-3 border-b border-border pb-3 sm:flex-row sm:items-end sm:justify-between">
+    <section className="flex min-w-0 flex-col gap-7">
+      <div className="flex flex-col gap-3 border-b border-border pb-5 sm:flex-row sm:items-end sm:justify-between">
         <div className="flex flex-col gap-1">
-          <div className="text-xl font-medium">{title}</div>
+          <div className="text-2xl font-medium tracking-normal">{title}</div>
           <p className="text-sm text-muted-foreground">{summary}</p>
         </div>
         {action ? <div className="shrink-0">{action}</div> : null}
       </div>
       {datasets.length === 0 ? (
-        <Card className="rounded-2xl border border-dashed bg-muted/25 shadow-none">
-          <CardContent className="px-5 py-5 text-sm text-muted-foreground">{emptyMessage}</CardContent>
-        </Card>
+        <div className="py-2 text-sm text-muted-foreground">{emptyMessage}</div>
       ) : (
-        <div className="grid min-w-0 gap-5 md:grid-cols-2">
+        <div className="grid min-w-0 gap-x-16 gap-y-12 md:grid-cols-2">
           {sortedDatasets.map((dataset) => {
-            const description = datasetInventoryDescription(dataset)
-            const useCase = datasetInventoryUseCase(dataset)
+            const description = datasetListDescription(dataset)
             const readiness = datasetInventoryStatus(dataset)
-            const coverage = dataset.inventoryCoverage?.trim() ?? null
-            const freshness = dataset.inventoryFreshness?.trim() ?? null
-            const limitation = dataset.inventoryLimitations?.find((item) => item.trim())?.trim() ?? null
             const matchScore = datasetTopicMatchScore(dataset, topic)
+            const Icon = datasetListIcon(dataset)
             return (
               <button
                 key={dataset.id}
                 type="button"
-                className="grid min-h-56 w-full min-w-0 grid-rows-[auto_1fr_auto] gap-4 rounded-2xl border border-border bg-card p-4 text-left shadow-sm transition-colors hover:bg-muted/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:p-5"
+                className="group grid w-full min-w-0 grid-cols-[3.5rem_minmax(0,1fr)_2.5rem] items-center gap-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 onClick={() => onSelectDataset(dataset)}
               >
-                <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
-                  <div className="flex min-w-0 items-start gap-4">
-                    <div className="flex size-13 shrink-0 items-center justify-center rounded-xl bg-muted text-muted-foreground">
-                      <Database className="size-6" />
-                    </div>
-                    <div className="min-w-0 space-y-2">
-                      <div className="text-base font-semibold">{dataset.name}</div>
-                      {useCase ? <p className="text-sm font-medium text-foreground/80">{useCase}</p> : null}
-                    </div>
-                  </div>
-                  <div className="max-w-full sm:shrink-0">
-                    <StatusBadge>{readiness.label}</StatusBadge>
-                  </div>
+                <div className="flex size-13 shrink-0 items-center justify-center rounded-xl border border-border text-foreground transition-colors group-hover:border-foreground/25">
+                  <Icon className="size-6" aria-hidden="true" />
                 </div>
-                <div className="min-w-0 space-y-3">
-                  <p className="text-sm leading-6 text-muted-foreground">{description}</p>
+                <div className="min-w-0">
+                  <div className="truncate text-base font-semibold tracking-normal text-foreground">{dataset.name}</div>
+                  <p className="mt-1 truncate text-sm leading-6 text-muted-foreground">{description}</p>
                   {matchScore > 0 && topic ? (
-                    <p className="text-sm font-medium text-foreground">Relevant to {normalizeTopicLabel(topic)}</p>
+                    <p className="mt-1 truncate text-sm font-medium text-foreground">Relevant to {normalizeTopicLabel(topic)}</p>
                   ) : null}
-                  <div className="grid min-w-0 gap-2 text-sm leading-6 text-foreground/80">
-                    {coverage ? <p><span className="font-medium text-foreground">Coverage:</span> {coverage}</p> : null}
-                    {freshness ? <p><span className="font-medium text-foreground">Freshness:</span> {freshness}</p> : null}
-                    {limitation ? <p><span className="font-medium text-foreground">Limitation:</span> {limitation}</p> : null}
-                  </div>
-                  <p className="text-sm text-foreground/75">{readiness.detail}</p>
+                  {topic ? (
+                    <div className="mt-2 space-y-1 text-xs leading-5 text-muted-foreground">
+                      {dataset.inventoryCoverage ? <p className="truncate">Coverage: {dataset.inventoryCoverage}</p> : null}
+                      {dataset.inventoryFreshness ? <p className="truncate">Freshness: {dataset.inventoryFreshness}</p> : null}
+                      {dataset.inventoryLimitations?.[0] ? <p className="truncate">Limitation: {dataset.inventoryLimitations[0]}</p> : null}
+                    </div>
+                  ) : null}
                 </div>
-                <div className="flex items-center justify-between gap-3 text-sm font-medium text-foreground">
-                  <span>View dataset details</span>
-                  <ChevronRight className="size-4" aria-hidden="true" />
+                <div className="flex justify-end text-muted-foreground" aria-label={readiness.label}>
+                  {currentDatasetIsReady(dataset) ? (
+                    <CheckCircle2 className="size-5 text-muted-foreground/70" aria-hidden="true" />
+                  ) : currentDatasetIsBuilding(dataset) ? (
+                    <LoaderCircle className="size-5 animate-spin text-muted-foreground/70" aria-hidden="true" />
+                  ) : (
+                    <ChevronRight className="size-5 text-muted-foreground/70 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                  )}
                 </div>
               </button>
             )
@@ -2708,37 +2562,34 @@ function DatasetFeedSection({
   )
 }
 
-async function startDatasetDescribeRun(datasetId: string) {
-  if (isHarnessMode()) {
-    const run = harnessRuns.find((candidate) => candidate.datasetId === datasetId) ?? harnessRuns[0]
-    return { run }
-  }
+function datasetListIcon(dataset: DatasetRecord): LucideIcon {
+  const text = `${dataset.name} ${dataset.description ?? ''} ${dataset.inventoryTopics?.join(' ') ?? ''}`.toLowerCase()
+  if (text.includes('housing') || text.includes('rent') || text.includes('city')) return Building2
+  if (text.includes('book') || text.includes('literature') || text.includes('author')) return BookOpen
+  if (text.includes('econ') || text.includes('wage') || text.includes('labor') || text.includes('inflation')) return ChartColumn
+  if (text.includes('history') || text.includes('archive')) return ScrollText
+  if (text.includes('public') || text.includes('census')) return Globe2
+  if (text.includes('corpus') || text.includes('library')) return Library
+  return Database
+}
 
-  const response = await fetch(`/api/cli/datasets/${encodeURIComponent(datasetId)}/runs`, {
-    method: 'POST',
-    credentials: 'same-origin',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      type: 'describe',
-      prompt: [
-        `Describe dataset ${datasetId}.`,
-        'Produce a durable documentation briefing for humans. Do not include query instructions, starter analyses, or suggestions for how to use agents; this is a dataset documentation task only.',
-        'Inspect mounted files, manifests, source registries, table catalogs, Parquet/CSV/JSON/DuckDB files, README files, data dictionaries, QA reports, schemas, sample rows, provenance, source URLs, formats, time coverage, geography coverage, transformations, validation status, limitations, and known gaps.',
-        'Create Dataset Briefing markdown with sections: Overview; Data Inventory; Sources; Schemas; Time Coverage; Geography Coverage; Formats; Transformations & Derived Fields; Quality & Validation; Limitations & Known Gaps.',
-        'Create Dataset Profile JSON with summary, sources, tables, schemas/columns, timeCoverage, geographyCoverage, formats, transformations, quality, limitations, and generatedAt.',
-      ].join('\n'),
-      artifacts: [
-        { type: 'markdown', title: 'Dataset Briefing' },
-        { type: 'json', title: 'Dataset Profile' },
-      ],
-      config: { describeDataset: true },
-    }),
-  })
-  if (!response.ok) {
-    const text = await response.text().catch(() => '')
-    throw new Error(text || `Describe run failed: ${response.status}`)
-  }
-  return response.json() as Promise<{ run: RunRecord }>
+function currentDatasetIsReady(dataset: DatasetRecord) {
+  return dataset.deploymentStatus.toLowerCase() === 'ready' && dataset.status.toLowerCase() === 'ready'
+}
+
+function currentDatasetIsBuilding(dataset: DatasetRecord) {
+  const deploymentStatus = dataset.deploymentStatus.toLowerCase()
+  const status = dataset.status.toLowerCase()
+  return deploymentStatus === 'processing' || status === 'running' || status === 'uploading'
+}
+
+function datasetListDescription(dataset: DatasetRecord) {
+  return (
+    dataset.inventorySummary?.trim() ||
+    datasetInventoryUseCase(dataset)?.replace(/^Best for:\s*/i, '').trim() ||
+    dataset.description?.trim() ||
+    datasetInventoryStatus(dataset).detail
+  )
 }
 
 async function cancelRun(runId: string) {
@@ -2769,19 +2620,15 @@ function DatasetDetailPage({
   runs,
   onBack,
   onOpenRun,
-  onAskDataset,
 }: {
   dataset: DatasetRecord
   runs: RunRecord[]
   onBack: () => void
   onOpenRun: (run: RunRecord) => void
-  onAskDataset: (dataset: DatasetRecord, prompt?: string) => void
 }) {
   const [detail, setDetail] = useState<DatasetRecord | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const [startingDescribe, setStartingDescribe] = useState(false)
   const [cancellingBlockingRun, setCancellingBlockingRun] = useState(false)
-  const [questionDraft, setQuestionDraft] = useState('')
   const describeRun = runs.find((run) => run.datasetId === dataset.id && run.type === 'describe') ?? null
   const current = detail ?? dataset
 
@@ -2801,12 +2648,8 @@ function DatasetDetailPage({
   }, [dataset.id])
 
   const blockingRun = datasetBlockingRun(current, runs, describeRun?.id ?? null)
-  const canDescribe = current.deploymentStatus === 'ready' && current.status === 'ready' && !blockingRun
-  const briefingMarkdown = current.profile?.briefingMarkdown || current.profile?.notes || ''
   const structuredProfile = current.profile?.profile
   const describedAt = current.profile?.describedAt ?? current.profile?.updatedAt ?? null
-  const describeIsRunning = describeRun ? !['ready', 'failed', 'cancelled', 'canceled', 'worker_unreachable'].includes(describeRun.status.toLowerCase()) : false
-  const limitationCount = profileArrayCount(structuredProfile, 'limitations')
   const profileSources = profileArray(structuredProfile, 'sources')
   const profileTables = profileArray(structuredProfile, 'tables')
   const profileLimitations = profileArray(structuredProfile, 'limitations')
@@ -2817,15 +2660,7 @@ function DatasetDetailPage({
   const sampleRows = Array.isArray(current.profile?.sampleRows)
     ? current.profile.sampleRows.filter((row): row is Record<string, unknown> => isRecord(row)).slice(0, 3)
     : []
-  const primarySource = profileSources
-    .map((item) => profileText(item, 'provider') ?? profileText(item, 'name') ?? profileText(item, 'source'))
-    .find(Boolean) ?? null
-  const freshness = describedAt ?? current.updatedAt
   const profileSummary = profileText(structuredProfile, 'summary')
-  const fitHeadline = current.inventoryUseCase?.replace(/^Best for:\s*/i, '').trim() || profileSummary
-  const fitVerdict = limitationCount
-    ? `Useful for ${fitHeadline ?? 'initial exploration'}, but review the known limits before trusting final results.`
-    : `Ready for ${fitHeadline ?? 'research use'} with no major limits highlighted in the current profile.`
   const primaryTable = profileTables.find((item) => isRecord(item)) ?? null
   const primaryTableName = primaryTable ? profileText(primaryTable, 'name') ?? 'Primary table' : null
   const primaryTableRows = primaryTable && typeof primaryTable['rows'] === 'number'
@@ -2835,77 +2670,9 @@ function DatasetDetailPage({
       : isRecord(current.ingestConfig) && typeof current.ingestConfig['rowCount'] === 'number'
         ? current.ingestConfig['rowCount']
         : null
-  const validationSummary = primaryTableRows && schemaColumns.length > 0
-    ? `${primaryTableRows.toLocaleString()} rows and ${schemaColumns.length} required fields are present in the current profile.`
-    : primaryTableRows
-      ? `${primaryTableRows.toLocaleString()} rows are present in the current profile.`
-      : schemaColumns.length > 0
-        ? `${schemaColumns.length} core fields are listed in the current profile.`
-        : 'Validation summary is not available yet.'
-  const schemaPreview = schemaColumns.length > 0
-    ? `${schemaColumns.slice(0, 4).join(', ')}${schemaColumns.length > 4 ? `, +${schemaColumns.length - 4} more` : ''}`
-    : 'Schema preview is not available yet.'
   const primaryLimitation = typeof profileLimitations[0] === 'string'
     ? profileLimitations[0]
-    : current.inventoryLimitations?.[0] ?? 'No explicit limitations are summarized yet.'
-  const transformationSummary = briefingMarkdown.toLowerCase().includes('transformations')
-    ? 'Metadata is preserved and text references are normalized into stable paths.'
-    : 'Transformation summary is not available yet.'
-  const representativenessSummary = primaryLimitation.toLowerCase().includes('sample')
-    ? 'This is a curated sample for fast exploration, not a full-corpus source of record.'
-    : 'Representativeness notes are not available yet.'
-  const trustSummaryItems = [
-    {
-      label: 'Source',
-      value: primarySource ?? current.sourceFilename ?? 'Source not summarized yet.',
-      detail: current.mode?.toLowerCase() === 'public' ? 'Public source dataset' : 'Workspace dataset',
-    },
-    {
-      label: 'Validated',
-      value: validationSummary,
-      detail: primaryTableName ? `Checked against ${primaryTableName}.` : 'Checked against the current dataset profile.',
-    },
-    {
-      label: 'Schema',
-      value: schemaPreview,
-      detail: 'Use this to confirm the core fields before analysis.',
-    },
-    {
-      label: 'Caveat',
-      value: primaryLimitation,
-      detail: representativenessSummary,
-    },
-  ]
-  const questionPrompts = datasetQuestionPrompts(current)
-  const describeButtonLabel = briefingMarkdown ? 'Refresh briefing' : 'Describe dataset'
-  const describeHelperText = briefingMarkdown
-    ? 'Regenerate the briefing if the source data or profile has changed.'
-    : 'Generate a plain-language briefing covering provenance, schema, coverage, and limits.'
-  const describeDestinationText = briefingMarkdown
-    ? 'Starts a fresh async run and opens the run view so you can watch progress, transcript updates, and the new briefing artifact.'
-    : 'Starts an async run and opens the run view with progress, transcript updates, and the generated briefing artifact.'
-  const trustState = datasetDetailTrustState(current, Boolean(briefingMarkdown))
-  const sourceCoverage = current.inventoryCoverage?.trim() ?? 'Coverage summary is not available yet.'
-  const freshnessSummary = current.inventoryFreshness?.trim() ?? (freshness ? `Last refreshed ${formatDateTime(freshness)}.` : 'Freshness summary is not available yet.')
-  const sourceStatus = current.volume?.mountPath
-    ? 'Deployed dataset files are mounted and available.'
-    : 'Deployed dataset files are not mounted yet.'
-  const briefingStatus = briefingMarkdown
-    ? describedAt
-      ? `Dataset briefing available. Last generated ${formatDateTime(describedAt)}.`
-      : 'Dataset briefing available.'
-    : blockingRun
-      ? `New work is blocked until ${runStatusLabel(blockingRun).toLowerCase()} finishes or is cancelled.`
-    : canDescribe
-      ? 'No briefing yet. You can generate one now.'
-      : 'No briefing yet because the dataset is not ready enough to describe.'
-  const describeActionDetail = blockingRun
-    ? `This dataset is locked by ${runStatusLabel(blockingRun).toLowerCase()}. Open that run to inspect progress, wait for it to finish, or cancel it if this work is no longer needed.`
-    : !canDescribe
-    ? trustState.actionDetail
-    : briefingMarkdown
-      ? 'Starts a fresh async run to refresh the briefing.'
-      : 'Starts an async run to create the first briefing.'
+    : current.inventoryLimitations?.[0] ?? null
   return (
     <main className="min-h-0 flex-1 overflow-y-auto px-4 py-8 md:px-8">
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-10">
@@ -2942,7 +2709,14 @@ function DatasetDetailPage({
                 <div className="grid gap-3 md:grid-cols-2">
                   <div className="rounded-xl border border-amber-200 bg-background/90 px-4 py-4">
                     <div className="text-xs font-medium uppercase tracking-[0.16em] text-amber-900/70">Blocking run</div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">{blockingRun.id}</div>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="mt-2 h-auto justify-start px-0 py-0 text-sm font-semibold text-foreground hover:bg-transparent"
+                      onClick={() => onOpenRun(blockingRun)}
+                    >
+                      {blockingRun.id}
+                    </Button>
                     <p className="mt-1 text-sm leading-6 text-muted-foreground">{runStatusLabel(blockingRun)}</p>
                   </div>
                   <div className="rounded-xl border border-amber-200 bg-background/90 px-4 py-4">
@@ -3164,167 +2938,6 @@ function DatasetDetailPage({
                 </div>
               </div>
             ) : null}
-          </div>
-          <div className="min-w-0 rounded-xl border border-border bg-background p-5 lg:flex lg:flex-col lg:justify-between lg:gap-4">
-            <div className="space-y-2">
-              <h2 className="text-sm font-medium">Dataset briefing</h2>
-              <p className="text-sm leading-6 text-muted-foreground">{describeHelperText}</p>
-              {describedAt ? (
-                <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-                  <FileText className="size-4" />
-                  <span>Last generated {formatDateTime(describedAt)}</span>
-                  {describeIsRunning ? <StatusBadge>Refreshing</StatusBadge> : null}
-                </div>
-              ) : null}
-              <p className="text-sm leading-6 text-muted-foreground">{describeDestinationText}</p>
-              <div className="rounded-xl border border-border bg-muted/25 px-4 py-3 text-sm text-foreground/85">
-                <span className="font-medium text-foreground">Trust verdict:</span> {trustState.explanation}
-              </div>
-              <div
-                className={`rounded-xl border px-4 py-3 text-sm ${
-                  canDescribe
-                    ? 'border-border bg-muted/25 text-muted-foreground'
-                    : 'border-amber-300 bg-amber-50 text-amber-950'
-                }`}
-              >
-                {describeActionDetail}
-              </div>
-              <div className="rounded-xl border border-dashed border-border bg-muted/25 px-4 py-3 text-sm text-muted-foreground">
-                Expected artifacts: <span className="font-medium text-foreground">Dataset Briefing</span> and <span className="font-medium text-foreground">Dataset Profile</span>.
-              </div>
-            </div>
-            <Button
-              type="button"
-              variant="outline"
-              disabled={!canDescribe || startingDescribe}
-              onClick={async () => {
-                setStartingDescribe(true)
-                try {
-                  const payload = await startDatasetDescribeRun(current.id)
-                  window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
-                  onOpenRun(payload.run)
-                } catch (describeError) {
-                  setError(describeError instanceof Error ? describeError.message : 'Could not start describe job.')
-                } finally {
-                  setStartingDescribe(false)
-                }
-              }}
-            >
-              {startingDescribe ? 'Starting...' : describeButtonLabel}
-            </Button>
-          </div>
-        </section>
-
-        <section className="grid min-w-0 gap-4 rounded-3xl border border-border bg-background p-4 shadow-sm md:p-6 lg:grid-cols-[minmax(0,1fr)_280px]">
-          <div className="min-w-0 space-y-5">
-            <div className="space-y-2">
-              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Ask about this dataset</div>
-              <h2 className="text-2xl font-semibold tracking-normal">Start a grounded question without re-explaining the data.</h2>
-              <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
-                Alpha Research will attach <span className="font-medium text-foreground">{current.name}</span> automatically, so you do not need to copy a dataset id or restate where you are starting from.
-              </p>
-            </div>
-            <form
-              className="space-y-3"
-              onSubmit={(event) => {
-                event.preventDefault()
-                onAskDataset(current, questionDraft)
-              }}
-            >
-              <label htmlFor="dataset-question" className="text-sm font-medium text-foreground">
-                Your research question
-              </label>
-              <Input
-                id="dataset-question"
-                value={questionDraft}
-                onChange={(event) => setQuestionDraft(event.target.value)}
-                placeholder={`Ask about ${current.name}, for example: which authors change the most over time?`}
-                className="h-12"
-              />
-              <div className="flex flex-wrap gap-3">
-                <Button type="submit">
-                  Ask about {current.name}
-                </Button>
-                <Button type="button" variant="outline" onClick={() => onAskDataset(current)}>
-                  Open dataset-scoped chat
-                </Button>
-              </div>
-            </form>
-            <div className="space-y-3 rounded-2xl border border-border/70 bg-muted/25 p-4">
-              <div className="text-sm font-semibold">Good first prompts</div>
-              <div className="flex flex-wrap gap-2">
-                {questionPrompts.map((prompt) => (
-                  <Button
-                    key={prompt}
-                    type="button"
-                    variant="outline"
-                    className="h-auto max-w-full whitespace-normal rounded-xl px-4 py-2 text-left normal-case sm:rounded-full"
-                    onClick={() => setQuestionDraft(prompt)}
-                  >
-                    {prompt}
-                  </Button>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="min-w-0 rounded-2xl border border-border bg-muted/20 p-5 lg:flex lg:flex-col lg:gap-4">
-            <div className="space-y-2">
-              <h3 className="text-sm font-medium">What happens next</h3>
-              <p className="text-sm leading-6 text-muted-foreground">
-                Broad questions stay in chat first. The assistant should clarify scope, outputs, or method before it starts expensive work.
-              </p>
-            </div>
-            <div className="rounded-xl border border-dashed border-border bg-background px-4 py-3 text-sm text-muted-foreground">
-              If work starts, expect a scoped answer first, then a run with transcript and artifacts only when the request is specific enough.
-            </div>
-            <div className="rounded-xl border border-dashed border-border bg-background px-4 py-3 text-sm text-muted-foreground">
-              Expected outputs can include a written answer, a research plan, or run artifacts such as tables, charts, and summaries.
-            </div>
-          </div>
-        </section>
-
-        <section className="flex flex-col gap-4">
-        <div className="flex flex-col gap-2 border-b border-border pb-3 md:flex-row md:items-center md:justify-between md:gap-4">
-            <h2 className="text-xl font-medium">Dataset briefing</h2>
-            <div className="text-sm text-muted-foreground">Read top to bottom for provenance, coverage, schema, and known gaps.</div>
-          </div>
-          <div className="rounded-lg border border-border p-5">
-            {briefingMarkdown ? (
-              <article className="max-w-none">{renderBriefingMarkdown(briefingMarkdown)}</article>
-            ) : blockingRun ? (
-              <div className="space-y-3">
-                <p className="text-sm leading-7 text-muted-foreground">
-                  Dataset briefing is blocked by an active run.
-                </p>
-                <p className="text-sm leading-7 text-muted-foreground">
-                  Open <button type="button" className="font-medium text-foreground underline underline-offset-4" onClick={() => onOpenRun(blockingRun)}>{blockingRun.id}</button> to inspect the environment build, wait for it to finish, or cancel it before you retry describing this dataset.
-                </p>
-              </div>
-            ) : describeRun ? (
-              <button type="button" className="text-left" onClick={() => onOpenRun(describeRun)}>
-                <div className="font-medium">
-                  {describeIsRunning ? 'Generating dataset briefing...' : `${formatStatus(describeRun.status)} describe job`}
-                </div>
-                <div className="mt-1 text-sm text-muted-foreground">
-                  {describeIsRunning
-                    ? 'The remote Codex agent is inspecting files, sources, schemas, time coverage, geography coverage, formats, QA, and limitations. Raw executor logs are hidden here.'
-                    : describeRun.status === 'ready'
-                      ? 'Describe completed but no Dataset Briefing artifact has been persisted yet. Open the run to inspect artifacts.'
-                      : describeRun.outputPreview || `Updated ${relativeTime(describeRun.updatedAt)}`}
-                </div>
-              </button>
-            ) : (
-              <div className="space-y-3">
-                <p className="text-sm leading-7 text-muted-foreground">
-                  No dataset briefing is available yet.
-                </p>
-                <p className="text-sm leading-7 text-muted-foreground">
-                  {canDescribe
-                    ? 'Generate one to get a plain-language summary of provenance, coverage, schema, and known gaps before analysis.'
-                    : `${trustState.headline} ${trustState.actionDetail}`}
-                </p>
-              </div>
-            )}
           </div>
         </section>
 
@@ -5060,14 +4673,6 @@ function DashboardApp({
         runs={runs}
         onBack={() => updateDashboardRoute({ view: 'datasets', datasetId: null, runId: null, sessionId: null })}
         onOpenRun={(run) => updateDashboardRoute({ view: 'runs', runId: run.id, datasetId: null, sessionId: null })}
-        onAskDataset={(selectedDataset, prompt) =>
-          updateDashboardRoute({
-            view: 'assistant',
-            datasetId: selectedDataset.id,
-            runId: null,
-            sessionId: null,
-            draft: prompt?.trim() || null,
-          })}
       />
     )
   } else if (route.view === 'datasets' && route.datasetId && !dataError) {

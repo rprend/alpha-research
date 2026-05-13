@@ -57,19 +57,11 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 
 ## Dataset Detail Expectations
 
-- The dataset detail page should answer trust-and-fit questions before it exposes implementation details.
-- For processing or recently refreshed datasets, the top of the page should give an explicit trust verdict such as `Ready to use`, `Not ready`, or `Processing`, plus a plain-language reason.
-- The top of the dataset page should also expose a dataset-scoped ask path so users can move directly from “this is the data” to “ask a grounded question about it.”
-- Dataset-scoped asking should state plainly that the current dataset is attached automatically and the user does not need to copy an id or restate context.
-- If the initial question is broad, the assistant should clarify scope before launching expensive work; the dataset page should say that up front.
-- Before the user leaves the dataset page, the UI should explain the likely outputs from asking: direct answer, scoped plan, or a run with transcript and artifacts when work starts.
-- The top of the page should state what the dataset is good for, where it came from, how fresh it is, and the main limitation.
-- The trust path should surface source coverage, last ingest/update wording, deployment availability, known gaps, and briefing availability without forcing the user to open developer details.
-- The trust summary should lead the page before dataset-scoped asking so a careful user can decide to trust or reject the dataset without scrolling through the full briefing first.
-- Summary metrics should explain the actual source, validation checks, schema, and caveats in user language, not only show counts.
-- The primary reading path should include the human-readable briefing, visible schema fields, and sample rows, with at least one sample preview visible above the long briefing.
-- Describe actions should explain whether they generate or refresh the briefing, that they start async work, and that the resulting briefing/profile artifacts will appear in the run view and dataset detail.
-- Disabled describe actions should state exactly why they are blocked and whether the blocker is infrastructure readiness, ingest completeness, or another trust issue.
+- The dataset detail page should lead with the inventory itself: dataset id, source/deployment metadata, mounted volume, profile timestamps, sources, tables, schema, and sample rows.
+- The detail page should not add trust-summary filler, briefing status filler, starter prompts, or dataset-scoped asking instructions around the inventory.
+- Dataset-level coverage, freshness, use case, and limitations should appear only when the dataset record or profile actually provides them.
+- The primary reading path should make source and table inventory scannable without requiring the user to open developer details.
+- The left sidebar recent chat history should remain visible on dataset detail pages so the user can navigate back to prior sessions while inspecting a dataset.
 - If another active run is holding the dataset lease, that busy/conflict state should take precedence over generic readiness copy. The page should identify the blocking run, explain why duplicate work is blocked, and surface the available inspect, wait/refresh, cancel, or queue-next actions without requiring developer details.
 - Run ids, artifact ids, manifest paths, raw JSON payloads, and similar debugging material belong in a collapsed developer-only section.
 
