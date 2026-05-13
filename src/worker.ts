@@ -136,21 +136,7 @@ const DOCS_SECTION_INDEX_PATHS = new Set(['/cli', '/dashboard', '/public-dataset
 const MAX_TOOL_ROUNDS = 12
 const ASYNC_RUN_START_TOOLS = new Set([
   'start_remote_run',
-  'query_remote_dataset',
-  'aggregate_remote_dataset',
-  'fetch_public_data',
-  'start_remote_agent_run',
   'continue_remote_agent_run',
-  'run_remote_transformation',
-  'run_remote_labeling',
-])
-const MODEL_HIDDEN_RESEARCH_AGENT_TOOLS = new Set([
-  'query_remote_dataset',
-  'aggregate_remote_dataset',
-  'fetch_public_data',
-  'start_remote_agent_run',
-  'run_remote_transformation',
-  'run_remote_labeling',
 ])
 
 const RESEARCH_AGENT_INSTRUCTIONS = [
@@ -1205,168 +1191,6 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
       },
     },
     {
-      name: 'query_remote_dataset',
-      description: 'Run a lightweight remote query against a deployed dataset and return immediately with a run id and dashboard link.',
-      parameters: {
-        type: 'object',
-        additionalProperties: false,
-        properties: {
-          datasetId: { type: 'string' },
-          prompt: { type: 'string' },
-        },
-        required: ['datasetId', 'prompt'],
-      },
-      async execute(input, sessionId) {
-        if (!sessionId || !(await hasApprovedRemoteRunPlan(env, sessionId))) {
-          return {
-            summary: 'I need to show you the planned remote-run prompt and get explicit approval before I can start a remote query.',
-            data: { approvalRequired: true },
-          }
-        }
-        const datasetId = requireString(input, 'datasetId')
-        const prompt = requireString(input, 'prompt')
-        const payload = await proxyToControlPlaneJson<{ run: { id: string } }>(
-          env,
-          `/datasets/${encodeURIComponent(datasetId)}/runs`,
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              ownerEmail,
-              callbackOrigin: WEB_DASHBOARD_ORIGIN,
-              sessionId,
-              prompt,
-              type: 'query',
-              artifacts: [{ type: 'query_result', title: 'Query Result' }],
-            }),
-          },
-        )
-        return {
-          summary: `Started query run ${payload.run.id}. Dashboard: ${dashboardRunUrl(payload.run.id)}`,
-          data: payload,
-        }
-      },
-    },
-    {
-      name: 'aggregate_remote_dataset',
-      description: 'Run a lightweight remote aggregation against a deployed dataset and return immediately with a run id and dashboard link.',
-      parameters: {
-        type: 'object',
-        additionalProperties: false,
-        properties: {
-          datasetId: { type: 'string' },
-          prompt: { type: 'string' },
-        },
-        required: ['datasetId', 'prompt'],
-      },
-      async execute(input, sessionId) {
-        if (!sessionId || !(await hasApprovedRemoteRunPlan(env, sessionId))) {
-          return {
-            summary: 'I need to show you the planned remote-run prompt and get explicit approval before I can start a remote aggregation.',
-            data: { approvalRequired: true },
-          }
-        }
-        const datasetId = requireString(input, 'datasetId')
-        const prompt = requireString(input, 'prompt')
-        const payload = await proxyToControlPlaneJson<{ run: { id: string } }>(
-          env,
-          `/datasets/${encodeURIComponent(datasetId)}/runs`,
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              ownerEmail,
-              callbackOrigin: WEB_DASHBOARD_ORIGIN,
-              sessionId,
-              prompt,
-              type: 'query',
-              artifacts: [{ type: 'aggregate_result', title: 'Aggregate Result' }],
-            }),
-          },
-        )
-        return {
-          summary: `Started aggregate run ${payload.run.id}. Dashboard: ${dashboardRunUrl(payload.run.id)}`,
-          data: payload,
-        }
-      },
-    },
-    {
-      name: 'fetch_public_data',
-      description: 'Queue a remote public-data acquisition run that fetches internet data into a research environment.',
-      parameters: {
-        type: 'object',
-        additionalProperties: false,
-        properties: {
-          datasetId: { type: 'string' },
-          sourceDescription: { type: 'string' },
-          prompt: { type: 'string' },
-        },
-        required: ['datasetId', 'sourceDescription'],
-      },
-      async execute(input, sessionId) {
-        const datasetId = requireString(input, 'datasetId')
-        const sourceDescription = requireString(input, 'sourceDescription')
-        const payload = await proxyToControlPlaneJson<{ run: { id: string } }>(
-          env,
-          `/datasets/${encodeURIComponent(datasetId)}/runs`,
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              ownerEmail,
-              callbackOrigin: WEB_DASHBOARD_ORIGIN,
-              sessionId,
-              prompt: typeof input.prompt === 'string' ? input.prompt : `Fetch public data: ${sourceDescription}`,
-              type: 'fetch',
-              config: { sourceDescription },
-            }),
-          },
-        )
-        return {
-          summary: `Queued public-data fetch run ${payload.run.id}. Dashboard: ${dashboardRunUrl(payload.run.id)}`,
-          data: payload,
-        }
-      },
-    },
-    {
-      name: 'start_remote_agent_run',
-      description: 'Start a remote agent run on a dataset-attached cloud environment and track its results.',
-      parameters: {
-        type: 'object',
-        additionalProperties: false,
-        properties: {
-          datasetId: { type: 'string' },
-          prompt: { type: 'string' },
-          artifacts: { type: 'array', items: { type: 'object' } },
-        },
-        required: ['datasetId', 'prompt'],
-      },
-      async execute(input, sessionId) {
-        const datasetId = requireString(input, 'datasetId')
-        const prompt = requireString(input, 'prompt')
-        const payload = await proxyToControlPlaneJson<{ run: { id: string } }>(
-          env,
-          `/datasets/${encodeURIComponent(datasetId)}/runs`,
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              ownerEmail,
-              callbackOrigin: WEB_DASHBOARD_ORIGIN,
-              sessionId,
-              prompt,
-              type: 'agent',
-              artifacts: Array.isArray(input.artifacts) ? input.artifacts : undefined,
-            }),
-          },
-        )
-        return {
-          summary: `Queued remote agent run ${payload.run.id}. Dashboard: ${dashboardRunUrl(payload.run.id)}`,
-          data: payload,
-        }
-      },
-    },
-    {
       name: 'continue_remote_agent_run',
       description: 'Continue a previous remote agent run by resuming its remote agent session with a follow-up prompt.',
       parameters: {
@@ -1412,83 +1236,6 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
         )
         return {
           summary: `Queued continuation of remote agent session ${remoteAgentSessionId} as run ${payload.run.id}. Dashboard: ${dashboardRunUrl(payload.run.id)}`,
-          data: payload,
-        }
-      },
-    },
-    {
-      name: 'run_remote_transformation',
-      description: 'Queue a remote transformation run that reshapes or filters data inside an existing research environment.',
-      parameters: {
-        type: 'object',
-        additionalProperties: false,
-        properties: {
-          datasetId: { type: 'string' },
-          prompt: { type: 'string' },
-          scriptOutline: { type: 'string' },
-        },
-        required: ['datasetId', 'prompt'],
-      },
-      async execute(input, sessionId) {
-        const datasetId = requireString(input, 'datasetId')
-        const payload = await proxyToControlPlaneJson<{ run: { id: string } }>(
-          env,
-          `/datasets/${encodeURIComponent(datasetId)}/runs`,
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              ownerEmail,
-              callbackOrigin: WEB_DASHBOARD_ORIGIN,
-              sessionId,
-              prompt: requireString(input, 'prompt'),
-              type: 'transform',
-              config: {
-                scriptOutline: typeof input.scriptOutline === 'string' ? input.scriptOutline : undefined,
-              },
-            }),
-          },
-        )
-        return {
-          summary: `Queued transformation run ${payload.run.id}. Dashboard: ${dashboardRunUrl(payload.run.id)}`,
-          data: payload,
-        }
-      },
-    },
-    {
-      name: 'run_remote_labeling',
-      description: 'Queue a remote labeling or enrichment run, including the explicit LLM prompt to use for labeling data points.',
-      parameters: {
-        type: 'object',
-        additionalProperties: false,
-        properties: {
-          datasetId: { type: 'string' },
-          prompt: { type: 'string' },
-          labelingPrompt: { type: 'string' },
-        },
-        required: ['datasetId', 'labelingPrompt'],
-      },
-      async execute(input, sessionId) {
-        const datasetId = requireString(input, 'datasetId')
-        const labelingPrompt = requireString(input, 'labelingPrompt')
-        const payload = await proxyToControlPlaneJson<{ run: { id: string } }>(
-          env,
-          `/datasets/${encodeURIComponent(datasetId)}/runs`,
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              ownerEmail,
-              callbackOrigin: WEB_DASHBOARD_ORIGIN,
-              sessionId,
-              prompt: typeof input.prompt === 'string' ? input.prompt : `Run labeling job: ${labelingPrompt}`,
-              type: 'label',
-              config: { labelingPrompt },
-            }),
-          },
-        )
-        return {
-          summary: `Queued labeling run ${payload.run.id}. Dashboard: ${dashboardRunUrl(payload.run.id)}`,
           data: payload,
         }
       },
@@ -1651,9 +1398,7 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
     ].filter(Boolean).join('\n')
   }
 
-  const tools = createResearchAgentTools(env, cliSession.email).filter(
-    (tool) => !MODEL_HIDDEN_RESEARCH_AGENT_TOOLS.has(tool.name),
-  )
+  const tools = createResearchAgentTools(env, cliSession.email)
   const toolsByName = new Map(tools.map((tool) => [tool.name, tool]))
   let response = await callResponsesApi(env, {
     instructions: RESEARCH_AGENT_INSTRUCTIONS,

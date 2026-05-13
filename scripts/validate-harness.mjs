@@ -109,17 +109,17 @@ assert(
   'Remote run planner should use stored chat history without its own tool-call entry.',
 )
 assert(
-  workerSource.includes("!MODEL_HIDDEN_RESEARCH_AGENT_TOOLS.has(tool.name)"),
-  'Duplicate remote execution tools must be hidden from the main assistant tool list.',
+  !workerSource.includes('MODEL_HIDDEN_RESEARCH_AGENT_TOOLS'),
+  'Hidden duplicate remote execution tools should be deleted instead of filtered out.',
 )
 assert(
-  workerSource.includes("'fetch_public_data'") &&
-    workerSource.includes("'query_remote_dataset'") &&
-    workerSource.includes("'aggregate_remote_dataset'") &&
-    workerSource.includes("'start_remote_agent_run'") &&
-    workerSource.includes("'run_remote_transformation'") &&
-    workerSource.includes("'run_remote_labeling'"),
-  'Expected duplicate remote execution tools are not covered by the hidden-tool list.',
+  !workerSource.includes("name: 'fetch_public_data'") &&
+    !workerSource.includes("name: 'query_remote_dataset'") &&
+    !workerSource.includes("name: 'aggregate_remote_dataset'") &&
+    !workerSource.includes("name: 'start_remote_agent_run'") &&
+    !workerSource.includes("name: 'run_remote_transformation'") &&
+    !workerSource.includes("name: 'run_remote_labeling'"),
+  'Duplicate remote execution tools must not be registered as assistant tools.',
 )
 
 const dashboardJourneySource = readFileSync(join(root, 'scripts/dashboard-journeys.mjs'), 'utf8')

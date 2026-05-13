@@ -33,7 +33,7 @@ Assistant session entries with `metadata.runId` are treated as live run anchors.
 
 Assistant sessions are the source of truth for conversational context. When a turn resolves to a session, prompt construction should use that resolved session's `datasetId` and include dataset profile context before answering or planning a remote run.
 
-Remote execution from the assistant must go through the remote-run planning and approval flow. Direct query and aggregation run tools are not exposed to the model during normal assistant turns, and their server handlers still require an approved remote-run plan before creating a run.
+Remote execution from the assistant must go through the remote-run planning and approval flow. Duplicate direct-execution tools such as query, aggregation, fetch, transformation, labeling, and generic agent-run launchers should not be registered as assistant tools.
 
 Cancelling a run moves it to a terminal status. Later runner status callbacks for that run are ignored so a heartbeat or completion callback cannot move a cancelled run back to running or ready.
 
