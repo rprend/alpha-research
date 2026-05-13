@@ -4560,8 +4560,8 @@ function DashboardSidebar({
                 })}
             >
               <Database />
-              <span className="dashboard-nav-label">Datasets</span>
-              <span className="dashboard-nav-count">
+              <span>Datasets</span>
+              <span className="ml-auto mr-3 text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
                 {datasets.length}
               </span>
             </SidebarMenuButton>
@@ -4579,8 +4579,8 @@ function DashboardSidebar({
                 })}
             >
               <History />
-              <span className="dashboard-nav-label">Runs</span>
-              <span className="dashboard-nav-count">
+              <span>Runs</span>
+              <span className="ml-auto mr-3 text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
                 {runs.length}
               </span>
             </SidebarMenuButton>
