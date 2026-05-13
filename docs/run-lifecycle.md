@@ -44,6 +44,7 @@ The control plane stores durable session and run records. Those records are not 
 For every assistant turn, `runResearchAssistantTurn` resolves the session, appends the user request, then calls `buildAssistantModelContext`. That builder decides what enters the model prompt:
 
 - Current user request.
+- Static dataset inventory for the signed-in account, with dataset ids, names, status, and one-sentence summaries.
 - Dataset header and bounded dataset profile sections when the session has a dataset.
 - Compact assistant session history with recent entries included and older entries represented by counts.
 - A reset decision for `previous_response_id`.
@@ -53,6 +54,12 @@ For every assistant turn, `runResearchAssistantTurn` resolves the session, appen
 Tool results must expose bounded model/storage views. Full run results, artifacts, transcripts, and debug payloads remain available through run/debug endpoints, but tool output sent back to Responses uses compact result data. Assistant session entry metadata is also bounded before storage so remote callbacks or future tools cannot persist unbounded model-adjacent state.
 
 Remote-run planning uses the same compact chat-history policy. The planner receives a bounded, recent session view plus dataset context, not the full assistant entry table or run transcript.
+
+## Assistant Streaming And Tracing
+
+The dashboard assistant endpoint supports `Accept: text/event-stream`. It streams session resolution, text deltas, tool calls/results, and a final payload while still storing the durable assistant entry after the turn completes. The generic CLI Responses proxy preserves OpenAI event streams instead of buffering them before returning, so CLI clients can receive first-token output promptly.
+
+Assistant routes emit structured `assistant_request_trace` logs with timing marks for auth, billing, session resolution, dataset inventory/profile loading, context construction, OpenAI response timing, and completion/error status. Trace logs must not include secrets or full prompts.
 
 ## Agent Debug Checklist
 

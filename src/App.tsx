@@ -267,6 +267,14 @@ type AssistantTurnResponse = {
   reply: string
 }
 
+function findSseEventBoundary(buffer: string) {
+  const lf = buffer.indexOf('\n\n')
+  const crlf = buffer.indexOf('\r\n\r\n')
+  if (lf === -1) return crlf === -1 ? null : { index: crlf, length: 4 }
+  if (crlf === -1) return { index: lf, length: 2 }
+  return lf < crlf ? { index: lf, length: 2 } : { index: crlf, length: 4 }
+}
+
 const ROOT_HOST = 'alpharesearch.nyc'
 const DASHBOARD_HOST = 'dashboard.alpharesearch.nyc'
 const DOCS_ORIGIN = 'https://docs.alpharesearch.nyc'
@@ -2062,6 +2070,8 @@ async function postAssistantTurn(body: {
   sessionId?: string | null
   datasetId?: string | null
   previousResponseId?: string | null
+  onSessionResolved?: (payload: { sessionId?: string | null; datasetId?: string | null }) => void
+  onTextDelta?: (delta: string) => void
 }) {
   if (isHarnessMode()) {
     if (isHarnessPreparedRunPrompt(body.input)) {
@@ -2082,7 +2092,7 @@ async function postAssistantTurn(body: {
   const response = await fetch('/api/cli/assistant/respond', {
     method: 'POST',
     credentials: 'same-origin',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', Accept: 'text/event-stream' },
     body: JSON.stringify({
       input: body.input,
       sessionId: body.sessionId ?? undefined,
@@ -2101,7 +2111,75 @@ async function postAssistantTurn(body: {
       : text || `Request failed: ${response.status}`
     throw new Error(message)
   }
-  return response.json() as Promise<AssistantTurnResponse>
+  if (!response.headers.get('Content-Type')?.includes('text/event-stream')) {
+    return response.json() as Promise<AssistantTurnResponse>
+  }
+
+  if (!response.body) {
+    throw new Error('Assistant response did not include a stream.')
+  }
+  const decoder = new TextDecoder()
+  const reader = response.body.getReader()
+  let buffer = ''
+  let finalPayload: AssistantTurnResponse | null = null
+  const handleEvent = (rawEvent: string) => {
+    const lines = rawEvent.split(/\r?\n/u)
+    const event = lines.find((line) => line.startsWith('event:'))?.slice('event:'.length).trim() ?? 'message'
+    const data = lines
+      .filter((line) => line.startsWith('data:'))
+      .map((line) => line.slice('data:'.length).trimStart())
+      .join('\n')
+    if (!data) return
+    const payload = JSON.parse(data) as unknown
+    if (event === 'text_delta' && isRecord(payload) && typeof payload.delta === 'string') {
+      body.onTextDelta?.(payload.delta)
+      return
+    }
+    if (event === 'session_resolved' && isRecord(payload)) {
+      body.onSessionResolved?.({
+        sessionId: typeof payload.sessionId === 'string' ? payload.sessionId : null,
+        datasetId: typeof payload.datasetId === 'string' ? payload.datasetId : null,
+      })
+      return
+    }
+    if (event === 'final' && isRecord(payload)) {
+      finalPayload = {
+        sessionId: typeof payload.sessionId === 'string' ? payload.sessionId : null,
+        previousResponseId: typeof payload.previousResponseId === 'string' ? payload.previousResponseId : null,
+        reply: typeof payload.reply === 'string' ? payload.reply : '',
+      }
+      return
+    }
+    if (event === 'error' && isRecord(payload)) {
+      throw new Error(typeof payload.error === 'string' ? payload.error : 'Assistant stream failed.')
+    }
+  }
+  const drainBuffer = (flush = false) => {
+    while (true) {
+      const boundary = findSseEventBoundary(buffer)
+      if (!boundary) break
+      const rawEvent = buffer.slice(0, boundary.index)
+      buffer = buffer.slice(boundary.index + boundary.length)
+      handleEvent(rawEvent)
+    }
+    if (flush && buffer.trim()) {
+      handleEvent(buffer)
+      buffer = ''
+    }
+  }
+
+  while (true) {
+    const { done, value } = await reader.read()
+    if (done) break
+    buffer += decoder.decode(value, { stream: true })
+    drainBuffer()
+  }
+  buffer += decoder.decode()
+  drainBuffer(true)
+  if (!finalPayload) {
+    throw new Error('Assistant stream ended before a final response.')
+  }
+  return finalPayload
 }
 
 async function approveRemoteRunPlan(sessionId: string) {
@@ -3371,17 +3449,56 @@ function ResearchAssistantPage({
             void refreshSessionMessages(currentSessionId).catch(() => undefined)
           }, 1200)
         }
+        const streamingAssistantId = `local-assistant-stream-${Date.now()}`
+        let streamedReply = ''
+        let resolvedStreamSessionId = currentSessionId
+        setMessages((current) => [
+          ...current,
+          {
+            id: streamingAssistantId,
+            role: 'assistant',
+            createdAt: new Date(),
+            content: [{ type: 'text', text: '' }],
+            attachments: [],
+            status: { type: 'running' },
+            metadata: { custom: {} },
+          } as unknown as ThreadMessage,
+        ])
         const result = await postAssistantTurn({
           input,
           sessionId: currentSessionId,
           datasetId: scopedDataset?.id ?? null,
           previousResponseId: currentConversation.previousResponseId,
+          onSessionResolved: (payload) => {
+            resolvedStreamSessionId = payload.sessionId ?? resolvedStreamSessionId
+          },
+          onTextDelta: (delta) => {
+            streamedReply += delta
+            setMessages((current) => current.map((item) => {
+              if (item.id !== streamingAssistantId) return item
+              return {
+                ...item,
+                content: [{ type: 'text', text: streamedReply }],
+              } as unknown as ThreadMessage
+            }))
+          },
         }).finally(() => {
           if (refreshInterval) {
             window.clearInterval(refreshInterval)
           }
         })
-        const nextSessionId = result.sessionId ?? currentSessionId
+        const nextSessionId = result.sessionId ?? resolvedStreamSessionId ?? currentSessionId
+        if (!streamedReply && result.reply) {
+          streamedReply = result.reply
+        }
+        setMessages((current) => current.map((item) => {
+          if (item.id !== streamingAssistantId) return item
+          return {
+            ...item,
+            content: [{ type: 'text', text: streamedReply }],
+            status: { type: 'complete', reason: 'stop' },
+          } as unknown as ThreadMessage
+        }))
         updateConversationState({
           sessionId: nextSessionId,
           previousResponseId: result.previousResponseId,

@@ -100,7 +100,15 @@ type ResponseMessage = {
 type ResponsesApiPayload = {
   id?: string
   output_text?: string
+  usage?: unknown
   output?: Array<ResponseFunctionCall | ResponseMessage | Record<string, unknown>>
+}
+
+type AssistantTrace = {
+  id: string
+  route: string
+  startedAt: number
+  marks: Array<{ name: string; elapsedMs: number; data?: Record<string, unknown> }>
 }
 
 type AgentToolDefinition = {
@@ -142,6 +150,7 @@ const SESSION_CONTEXT_RECENT_ENTRY_LIMIT = 16
 const SESSION_CONTEXT_TOTAL_LIMIT = 36_000
 const SESSION_CONTEXT_ENTRY_LIMIT = 2_000
 const REMOTE_RUN_CHAT_HISTORY_LIMIT = 32_000
+const DATASET_INVENTORY_CONTEXT_LIMIT = 10_000
 const ASYNC_RUN_START_TOOLS = new Set([
   'start_remote_run',
   'continue_remote_agent_run',
@@ -155,6 +164,7 @@ const RESEARCH_AGENT_INSTRUCTIONS = [
   'In the web app, act like the RESEARCH CLI running remotely for the signed-in user.',
   'Use tools only when the user is asking for a concrete action or factual state that requires remote data.',
   'If the user input is gibberish, a greeting, or too vague to identify a research/data action, do not call tools. Ask one concise clarifying question instead.',
+  'The prompt may include a static dataset inventory. Use that inventory as the first source for dataset names, ids, and one-sentence coverage summaries before calling list_remote_datasets.',
   'When a dataset is named, implied, or attached to the current page/session, use the provided dataset context first. Do not ask the user for dataset ids, schema, coverage, or briefing facts that are already present in the prompt.',
   'If the request is underspecified but the dataset context supports a likely next step, propose one concrete default action with assumptions instead of asking a multi-question menu.',
   'Prefer lightweight dataset queries before launching heavy transforms or analyses when the user wants examples, top records, simple slices, schema checks, or field availability.',
@@ -192,6 +202,49 @@ function json(body: unknown, status = 200) {
     status,
     headers: { 'Content-Type': 'application/json' },
   })
+}
+
+function createAssistantTrace(route: string): AssistantTrace {
+  return {
+    id: crypto.randomUUID(),
+    route,
+    startedAt: Date.now(),
+    marks: [],
+  }
+}
+
+function traceMark(trace: AssistantTrace | null, name: string, data?: Record<string, unknown>) {
+  if (!trace) return
+  trace.marks.push({
+    name,
+    elapsedMs: Date.now() - trace.startedAt,
+    ...(data ? { data } : {}),
+  })
+}
+
+function flushAssistantTrace(trace: AssistantTrace | null, status: 'ok' | 'error', data?: Record<string, unknown>) {
+  if (!trace) return
+  console.log(JSON.stringify({
+    type: 'assistant_request_trace',
+    traceId: trace.id,
+    route: trace.route,
+    status,
+    totalMs: Date.now() - trace.startedAt,
+    marks: trace.marks,
+    ...(data ? { data } : {}),
+  }))
+}
+
+function sseEncode(event: string, data: unknown) {
+  return `event: ${event}\ndata: ${JSON.stringify(data)}\n\n`
+}
+
+function findSseEventBoundary(buffer: string) {
+  const lf = buffer.indexOf('\n\n')
+  const crlf = buffer.indexOf('\r\n\r\n')
+  if (lf === -1) return crlf === -1 ? null : { index: crlf, length: 4 }
+  if (crlf === -1) return { index: lf, length: 2 }
+  return lf < crlf ? { index: lf, length: 2 } : { index: crlf, length: 4 }
 }
 
 function contentTypeForPath(pathname: string) {
@@ -543,11 +596,76 @@ async function proxyRemoteOpenAIRequest(request: Request, env: Env, runId: strin
     headers: upstreamHeaders,
     body: requestText,
   })
-  const responseText = await upstream.text()
   const responseHeaders = new Headers(upstream.headers)
   responseHeaders.delete('content-encoding')
   responseHeaders.delete('content-length')
 
+  const contentType = upstream.headers.get('Content-Type')
+  if (contentType?.includes('text/event-stream') && upstream.body) {
+    if (!isMetered || !upstream.ok) {
+      return new Response(upstream.body, {
+        status: upstream.status,
+        statusText: upstream.statusText,
+        headers: responseHeaders,
+      })
+    }
+    const chunks: string[] = []
+    const decoder = new TextDecoder()
+    const requestModel = typeof requestPayload?.model === 'string' ? requestPayload.model : env.REMOTE_AGENT_MODEL ?? env.RESEARCH_AGENT_MODEL ?? 'gpt-5-codex'
+    const stream = new ReadableStream<Uint8Array>({
+      async start(controller) {
+        const reader = upstream.body!.getReader()
+        try {
+          while (true) {
+            const { done, value } = await reader.read()
+            if (done) break
+            chunks.push(decoder.decode(value, { stream: true }))
+            controller.enqueue(value)
+          }
+          chunks.push(decoder.decode())
+          const responseText = chunks.join('')
+          const usagePayload = openAIUsagePayloadFromText(responseText, contentType)
+          if (!usagePayload) {
+            await postInternalRunEvent(
+              env,
+              runId,
+              `Remote Codex metering failed: OpenAI ${remoteOpenAIOperation(url.pathname)} stream did not include usage.`,
+              'error',
+            )
+          } else {
+            const tracked = await trackRemoteOpenAIUsage(env, {
+              runId,
+              source: 'remote_codex_runner',
+              operation: remoteOpenAIOperation(url.pathname),
+              model: requestModel,
+              requestPayload,
+              responsePayload: usagePayload,
+            })
+            if (!tracked) {
+              await postInternalRunEvent(
+                env,
+                runId,
+                `Remote Codex metering failed: billing event could not be recorded for ${remoteOpenAIOperation(url.pathname)} stream.`,
+                'error',
+              )
+            }
+          }
+          controller.close()
+        } catch (error) {
+          controller.error(error)
+        } finally {
+          reader.releaseLock()
+        }
+      },
+    })
+    return new Response(stream, {
+      status: upstream.status,
+      statusText: upstream.statusText,
+      headers: responseHeaders,
+    })
+  }
+
+  const responseText = await upstream.text()
   if (!isMetered || !upstream.ok) {
     return new Response(responseText, {
       status: upstream.status,
@@ -677,6 +795,31 @@ function extractResponseText(payload: Record<string, unknown>) {
     }
   }
   return chunks.join('\n\n').trim()
+}
+
+function prependStringInputContext(input: unknown, context: string) {
+  if (!context.trim()) return input
+  if (typeof input === 'string') {
+    return `${context}\n\n${input}`
+  }
+  if (Array.isArray(input)) {
+    return [
+      {
+        role: 'system',
+        content: context,
+      },
+      ...input,
+    ]
+  }
+  return input
+}
+
+async function addDatasetInventoryToResponsesBody(env: Env, ownerEmail: string, body: unknown, trace?: AssistantTrace | null) {
+  if (!body || typeof body !== 'object' || Array.isArray(body)) return body
+  const record = { ...(body as Record<string, unknown>) }
+  const context = await datasetsInventoryForPrompt(env, ownerEmail, trace)
+  record.input = prependStringInputContext(record.input, context)
+  return record
 }
 
 function extractFunctionCalls(payload: ResponsesApiPayload) {
@@ -834,12 +977,51 @@ async function datasetHeaderForPrompt(env: Env, datasetId: string) {
   ].filter(Boolean).join('\n')
 }
 
+function datasetSummaryLine(dataset: Record<string, unknown>) {
+  const id = typeof dataset.id === 'string' ? dataset.id : 'unknown'
+  const name = typeof dataset.name === 'string' && dataset.name.trim() ? dataset.name.trim() : id
+  const description = typeof dataset.description === 'string' ? dataset.description.trim() : ''
+  const status = typeof dataset.status === 'string'
+    ? dataset.status
+    : typeof dataset.deploymentStatus === 'string'
+      ? dataset.deploymentStatus
+      : null
+  const summary = description || 'Registered Alpha Research dataset.'
+  return `${name} (${id})${status ? ` [${status}]` : ''}: ${summary.replace(/\s+/g, ' ')}`
+}
+
+async function datasetsInventoryForPrompt(env: Env, ownerEmail: string, trace?: AssistantTrace | null) {
+  const startedAt = Date.now()
+  const payload = await proxyToControlPlaneJson<{ datasets?: Array<Record<string, unknown>> }>(
+    env,
+    `/datasets?ownerEmail=${encodeURIComponent(ownerEmail)}`,
+    { method: 'GET' },
+  )
+  const datasets = payload.datasets ?? []
+  traceMark(trace ?? null, 'datasets_inventory_loaded', {
+    datasetCount: datasets.length,
+    elapsedMs: Date.now() - startedAt,
+  })
+  if (datasets.length === 0) {
+    return 'Available datasets:\n<datasets>\nNo datasets are registered for this account.\n</datasets>'
+  }
+  const body = datasets.map(datasetSummaryLine).join('\n')
+  return [
+    'Available datasets. Use these summaries before calling dataset-listing tools:',
+    '<datasets>',
+    truncatePromptSection(body, DATASET_INVENTORY_CONTEXT_LIMIT),
+    '</datasets>',
+  ].join('\n')
+}
+
 async function buildAssistantModelContext(params: {
   env: Env
+  ownerEmail: string
   sessionId: string | null
   datasetId: string | null
   userInput: string
   previousResponseId: string | null
+  trace?: AssistantTrace | null
 }) {
   const sections: string[] = []
   const decisions: Record<string, unknown> = {
@@ -847,11 +1029,23 @@ async function buildAssistantModelContext(params: {
     resetPreviousResponseId: false,
     reason: 'direct_thread',
   }
+  sections.push(await datasetsInventoryForPrompt(params.env, params.ownerEmail, params.trace))
   if (params.datasetId) {
+    const startedAt = Date.now()
     sections.push(await datasetHeaderForPrompt(params.env, params.datasetId))
+    traceMark(params.trace ?? null, 'session_dataset_context_loaded', {
+      datasetId: params.datasetId,
+      elapsedMs: Date.now() - startedAt,
+    })
   }
   if (params.sessionId) {
+    const startedAt = Date.now()
     const entries = await assistantSessionEntriesForContext(params.env, params.sessionId)
+    traceMark(params.trace ?? null, 'session_entries_loaded', {
+      sessionId: params.sessionId,
+      entryCount: entries.length,
+      elapsedMs: Date.now() - startedAt,
+    })
     const lastEntry = entries.at(-1)
     const historyEntries =
       lastEntry &&
@@ -884,6 +1078,11 @@ async function buildAssistantModelContext(params: {
   }
   sections.push(`User request: ${params.userInput}`)
   const input = sections.filter(Boolean).join('\n\n')
+  traceMark(params.trace ?? null, 'model_context_built', {
+    inputChars: input.length,
+    usedPreviousResponseId: Boolean(params.previousResponseId),
+    resetPreviousResponseId: decisions.resetPreviousResponseId,
+  })
   return {
     input,
     previousResponseId: decisions.resetPreviousResponseId ? null : params.previousResponseId,
@@ -1243,15 +1442,23 @@ async function generateAssistantSessionTitle(env: Env, userMessage: string, assi
 }
 
 async function proxyToResponsesApi(request: Request, env: Env) {
+  const trace = createAssistantTrace('/api/cli/responses')
   const cliSession = await requireAuthorizedSession(request, env)
+  traceMark(trace, 'authorized', { ok: Boolean(cliSession) })
   if (!cliSession) {
+    flushAssistantTrace(trace, 'error', { error: 'unauthorized' })
     return json({ error: 'Unauthorized' }, 401)
   }
   if (!env.OPENAI_API_KEY) {
+    flushAssistantTrace(trace, 'error', { error: 'missing_openai_key' })
     return json({ error: 'Missing OPENAI_API_KEY on alpha-research worker' }, 502)
   }
   const billingBlock = await requireBillingAllowance(env, cliSession.email)
-  if (billingBlock) return billingBlock
+  traceMark(trace, 'billing_checked')
+  if (billingBlock) {
+    flushAssistantTrace(trace, 'error', { error: 'billing_limit' })
+    return billingBlock
+  }
   const body = await request.json().catch(() => ({}))
   const requestedSessionId = request.headers.get('X-Research-Session-Id')
   const previousResponseId =
@@ -1282,6 +1489,7 @@ async function proxyToResponsesApi(request: Request, env: Env) {
   const resolvedSessionPayload = await resolvedSessionResponse.json().catch(() => ({})) as {
     session?: { id?: string }
   }
+  traceMark(trace, 'session_resolved', { sessionId: resolvedSessionPayload.session?.id ?? null, isNewSession })
   const assistantSessionId = resolvedSessionPayload.session?.id
   if (assistantSessionId) {
     await appendAssistantSessionEntry(env, assistantSessionId, {
@@ -1292,7 +1500,8 @@ async function proxyToResponsesApi(request: Request, env: Env) {
       metadata: body,
     })
   }
-  const payload = buildResponsesPayload(env, body)
+  const enrichedBody = await addDatasetInventoryToResponsesBody(env, cliSession.email, body, trace)
+  const payload = buildResponsesPayload(env, enrichedBody)
 
   const upstream = await fetch('https://api.openai.com/v1/responses', {
     method: 'POST',
@@ -1303,13 +1512,58 @@ async function proxyToResponsesApi(request: Request, env: Env) {
     body: JSON.stringify(payload),
   })
 
-  const text = await upstream.text()
   const headers = new Headers({
     'Content-Type': upstream.headers.get('Content-Type') ?? 'application/json',
   })
   if (assistantSessionId) {
     headers.set('X-Research-Session-Id', assistantSessionId)
   }
+  if (headers.get('Content-Type')?.includes('text/event-stream') && upstream.body) {
+    const decoder = new TextDecoder()
+    const chunks: string[] = []
+    const stream = new ReadableStream<Uint8Array>({
+      async start(controller) {
+        const reader = upstream.body!.getReader()
+        try {
+          while (true) {
+            const { done, value } = await reader.read()
+            if (done) break
+            chunks.push(decoder.decode(value, { stream: true }))
+            controller.enqueue(value)
+          }
+          chunks.push(decoder.decode())
+          const text = chunks.join('')
+          const usagePayload = openAIUsagePayloadFromText(text, headers.get('Content-Type'))
+          if (upstream.ok && assistantSessionId && usagePayload) {
+            await trackOpenAIUsage(env, {
+              userId: cliSession.email,
+              sessionId: assistantSessionId,
+              source: 'cli_responses_proxy',
+              operation: 'responses.create',
+              model: typeof payload.model === 'string' ? payload.model : env.RESEARCH_AGENT_MODEL ?? 'gpt-5',
+              responsePayload: usagePayload,
+            })
+          }
+          traceMark(trace, 'openai_stream_completed', {
+            responseId: typeof usagePayload?.id === 'string' ? usagePayload.id : null,
+          })
+          flushAssistantTrace(trace, upstream.ok ? 'ok' : 'error', { streamed: true })
+          controller.close()
+        } catch (error) {
+          flushAssistantTrace(trace, 'error', { error: error instanceof Error ? error.message : String(error), streamed: true })
+          controller.error(error)
+        } finally {
+          reader.releaseLock()
+        }
+      },
+    })
+    return new Response(stream, {
+      status: upstream.status,
+      headers,
+    })
+  }
+
+  const text = await upstream.text()
   if (upstream.ok && assistantSessionId) {
     const upstreamPayload = JSON.parse(text) as Record<string, unknown>
     await trackOpenAIUsage(env, {
@@ -1335,10 +1589,9 @@ async function proxyToResponsesApi(request: Request, env: Env) {
     })
     const assistantResponseText = extractResponseText(upstreamPayload)
     if (isNewSession && assistantResponseText) {
-      const generatedTitle = await generateAssistantSessionTitle(env, initialUserMessage, assistantResponseText).catch(() => null)
-      if (generatedTitle) {
-        await updateAssistantSessionTitle(env, assistantSessionId, generatedTitle)
-      }
+      void generateAssistantSessionTitle(env, initialUserMessage, assistantResponseText)
+        .then((generatedTitle) => generatedTitle ? updateAssistantSessionTitle(env, assistantSessionId, generatedTitle) : undefined)
+        .catch(() => undefined)
     }
     if (responseId) {
       await proxyToControlPlane(env, '/assistant-sessions/link-response', {
@@ -1348,6 +1601,7 @@ async function proxyToResponsesApi(request: Request, env: Env) {
       })
     }
   }
+  flushAssistantTrace(trace, upstream.ok ? 'ok' : 'error', { streamed: false, status: upstream.status })
   return new Response(text, {
     status: upstream.status,
     headers,
@@ -1374,6 +1628,111 @@ async function callResponsesApi(env: Env, body: Record<string, unknown>) {
   }
 
   return JSON.parse(text) as ResponsesApiPayload
+}
+
+async function callResponsesApiStreaming(
+  env: Env,
+  body: Record<string, unknown>,
+  onTextDelta: (delta: string) => void | Promise<void>,
+  trace?: AssistantTrace | null,
+) {
+  if (!env.OPENAI_API_KEY) {
+    throw new Error('Missing OPENAI_API_KEY on alpha-research worker')
+  }
+
+  const upstream = await fetch('https://api.openai.com/v1/responses', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${env.OPENAI_API_KEY}`,
+    },
+    body: JSON.stringify(buildResponsesPayload(env, { ...body, stream: true })),
+  })
+
+  if (!upstream.ok) {
+    const text = await upstream.text()
+    throw new Error(`Responses API request failed (${upstream.status}).${text ? ` ${text}` : ''}`)
+  }
+  if (!upstream.body) {
+    throw new Error('Responses API streaming response did not include a body.')
+  }
+
+  const decoder = new TextDecoder()
+  const reader = upstream.body.getReader()
+  let buffer = ''
+  let firstDelta = false
+  let completed: ResponsesApiPayload | null = null
+  let lastResponse: ResponsesApiPayload | null = null
+
+  const handleEventData = async (data: string) => {
+    if (!data || data === '[DONE]') return
+    const parsed = JSON.parse(data) as Record<string, unknown>
+    const type = typeof parsed.type === 'string' ? parsed.type : ''
+    const delta = typeof parsed.delta === 'string'
+      ? parsed.delta
+      : typeof parsed.text === 'string' && type.endsWith('.delta')
+        ? parsed.text
+        : ''
+    if (delta) {
+      if (!firstDelta) {
+        firstDelta = true
+        traceMark(trace ?? null, 'openai_first_text_delta')
+      }
+      await onTextDelta(delta)
+    }
+    const response = parsed.response
+    if (response && typeof response === 'object' && !Array.isArray(response)) {
+      lastResponse = response as ResponsesApiPayload
+      if (type === 'response.completed') {
+        completed = response as ResponsesApiPayload
+      }
+    }
+  }
+
+  const drainBuffer = async (flush = false) => {
+    while (true) {
+      const boundary = findSseEventBoundary(buffer)
+      if (!boundary) break
+      const rawEvent = buffer.slice(0, boundary.index)
+      buffer = buffer.slice(boundary.index + boundary.length)
+      const dataLines = rawEvent
+        .split(/\r?\n/u)
+        .filter((line) => line.startsWith('data:'))
+        .map((line) => line.slice('data:'.length).trimStart())
+      if (dataLines.length > 0) {
+        await handleEventData(dataLines.join('\n'))
+      }
+    }
+    if (flush && buffer.trim()) {
+      const dataLines = buffer
+        .split(/\r?\n/u)
+        .filter((line) => line.startsWith('data:'))
+        .map((line) => line.slice('data:'.length).trimStart())
+      if (dataLines.length > 0) {
+        await handleEventData(dataLines.join('\n'))
+      }
+      buffer = ''
+    }
+  }
+
+  try {
+    while (true) {
+      const { done, value } = await reader.read()
+      if (done) break
+      buffer += decoder.decode(value, { stream: true })
+      await drainBuffer()
+    }
+    buffer += decoder.decode()
+    await drainBuffer(true)
+  } finally {
+    reader.releaseLock()
+  }
+
+  const response = completed ?? lastResponse
+  if (!response) {
+    throw new Error('Responses API streaming response did not include a completed response.')
+  }
+  return response
 }
 
 function isContextLengthError(error: unknown) {
@@ -1816,12 +2175,20 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
 }
 
 async function runResearchAssistantTurn(request: Request, env: Env) {
+  const trace = createAssistantTrace('/api/cli/assistant/respond')
+  const wantsStream = request.headers.get('Accept')?.includes('text/event-stream')
   const cliSession = await requireAuthorizedSession(request, env)
+  traceMark(trace, 'authorized', { ok: Boolean(cliSession) })
   if (!cliSession) {
+    flushAssistantTrace(trace, 'error', { error: 'unauthorized' })
     return json({ error: 'Unauthorized' }, 401)
   }
   const billingBlock = await requireBillingAllowance(env, cliSession.email)
-  if (billingBlock) return billingBlock
+  traceMark(trace, 'billing_checked')
+  if (billingBlock) {
+    flushAssistantTrace(trace, 'error', { error: 'billing_limit' })
+    return billingBlock
+  }
 
   const body = await request.json().catch(() => ({})) as {
     input?: unknown
@@ -1832,20 +2199,103 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
   }
   const input = typeof body.input === 'string' ? body.input.trim() : ''
   if (!input) {
+    flushAssistantTrace(trace, 'error', { error: 'missing_input' })
     return json({ error: 'Missing input' }, 400)
   }
 
-  const requestedSessionId = typeof body.sessionId === 'string' ? body.sessionId : null
-  const datasetId = typeof body.datasetId === 'string' ? body.datasetId : null
-  let previousResponseId =
-    typeof body.previousResponseId === 'string'
-      ? body.previousResponseId
-      : typeof body.previous_response_id === 'string'
-        ? body.previous_response_id
-        : null
+  if (wantsStream) {
+    const stream = new ReadableStream<Uint8Array>({
+      async start(controller) {
+        const encoder = new TextEncoder()
+        const send = (event: string, data: unknown) => {
+          controller.enqueue(encoder.encode(sseEncode(event, data)))
+        }
+        try {
+          const result = await runResearchAssistantTurnCore({
+            env,
+            cliSession,
+            input,
+            requestedSessionId: typeof body.sessionId === 'string' ? body.sessionId : null,
+            datasetId: typeof body.datasetId === 'string' ? body.datasetId : null,
+            previousResponseId:
+              typeof body.previousResponseId === 'string'
+                ? body.previousResponseId
+                : typeof body.previous_response_id === 'string'
+                  ? body.previous_response_id
+                  : null,
+            trace,
+            onEvent: send,
+            onTextDelta: (delta) => send('text_delta', { delta }),
+          })
+          send('final', result)
+          flushAssistantTrace(trace, 'ok', {
+            sessionId: result.sessionId,
+            previousResponseId: result.previousResponseId,
+            streamed: true,
+          })
+          controller.close()
+        } catch (error) {
+          const message = error instanceof Error ? error.message : 'Research assistant request failed'
+          send('error', { error: message })
+          flushAssistantTrace(trace, 'error', { error: message, streamed: true })
+          controller.close()
+        }
+      },
+    })
+    return new Response(stream, {
+      headers: {
+        'Content-Type': 'text/event-stream; charset=utf-8',
+        'Cache-Control': 'no-cache, no-transform',
+        Connection: 'keep-alive',
+      },
+    })
+  }
+
+  try {
+    const result = await runResearchAssistantTurnCore({
+      env,
+      cliSession,
+      input,
+      requestedSessionId: typeof body.sessionId === 'string' ? body.sessionId : null,
+      datasetId: typeof body.datasetId === 'string' ? body.datasetId : null,
+      previousResponseId:
+        typeof body.previousResponseId === 'string'
+          ? body.previousResponseId
+          : typeof body.previous_response_id === 'string'
+            ? body.previous_response_id
+            : null,
+      trace,
+    })
+    flushAssistantTrace(trace, 'ok', {
+      sessionId: result.sessionId,
+      previousResponseId: result.previousResponseId,
+      streamed: false,
+    })
+    return json(result)
+  } catch (error) {
+    flushAssistantTrace(trace, 'error', { error: error instanceof Error ? error.message : String(error) })
+    throw error
+  }
+}
+
+async function runResearchAssistantTurnCore(params: {
+  env: Env
+  cliSession: { email: string }
+  input: string
+  requestedSessionId: string | null
+  datasetId: string | null
+  previousResponseId: string | null
+  trace: AssistantTrace
+  onEvent?: (event: string, data: unknown) => void
+  onTextDelta?: (delta: string) => void | Promise<void>
+}) {
+  const { env, cliSession, input, requestedSessionId, datasetId, trace } = params
+  let previousResponseId = params.previousResponseId
+
   const isNewSession = !requestedSessionId && !previousResponseId
   const sessionTitle = isNewSession ? fallbackSessionTitleFromMessage(input) : undefined
 
+  const resolveStartedAt = Date.now()
   const resolvedSession = await proxyToControlPlaneJson<{ session?: { id?: string; datasetId?: string | null } }>(
     env,
     '/assistant-sessions/resolve-cli',
@@ -1861,8 +2311,16 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
       }),
     },
   )
+  traceMark(trace, 'session_resolved', {
+    elapsedMs: Date.now() - resolveStartedAt,
+    requestedSessionId,
+    resolvedSessionId: resolvedSession.session?.id ?? null,
+    datasetId: resolvedSession.session?.datasetId ?? null,
+    isNewSession,
+  })
   const sessionId = resolvedSession.session?.id ?? requestedSessionId ?? null
   const sessionDatasetId = resolvedSession.session?.datasetId ?? null
+  params.onEvent?.('session_resolved', { sessionId, datasetId: sessionDatasetId, traceId: trace.id })
   if (sessionId) {
     await appendAssistantSessionEntry(env, sessionId, {
       role: 'user',
@@ -1871,14 +2329,17 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
       content: input,
       metadata: { datasetId: sessionDatasetId },
     })
+    traceMark(trace, 'user_entry_appended', { sessionId })
   }
 
   const contextBuild = await buildAssistantModelContext({
     env,
+    ownerEmail: cliSession.email,
     sessionId,
     datasetId: sessionDatasetId,
     userInput: input,
     previousResponseId,
+    trace,
   })
   const assistantInput = contextBuild.input
   const contextDecisions = { ...contextBuild.decisions }
@@ -1888,13 +2349,18 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
   const toolsByName = new Map(tools.map((tool) => [tool.name, tool]))
   let response: ResponsesApiPayload
   try {
-    response = await callResponsesApi(env, {
+    const requestBody = {
       instructions: RESEARCH_AGENT_INSTRUCTIONS,
       input: assistantInput,
       previous_response_id: previousResponseId ?? undefined,
       tools: tools.map(buildToolSchema),
       parallel_tool_calls: false,
-    })
+    }
+    traceMark(trace, 'openai_request_started', { operation: 'responses.create' })
+    response = params.onTextDelta
+      ? await callResponsesApiStreaming(env, requestBody, params.onTextDelta, trace)
+      : await callResponsesApi(env, requestBody)
+    traceMark(trace, 'openai_response_completed', { responseId: response.id ?? null })
   } catch (error) {
     if (!previousResponseId || !isContextLengthError(error)) {
       throw error
@@ -1903,7 +2369,7 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
     contextDecisions.usedPreviousResponseId = false
     contextDecisions.resetPreviousResponseId = true
     contextDecisions.reason = 'openai_context_length_retry'
-    response = await callResponsesApi(env, {
+    const retryBody = {
       instructions: RESEARCH_AGENT_INSTRUCTIONS,
       input: [
         'The prior Responses thread became too large to continue directly. Continue using the current assistant session, dataset context, and tools.',
@@ -1912,7 +2378,11 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
       ].join('\n'),
       tools: tools.map(buildToolSchema),
       parallel_tool_calls: false,
-    })
+    }
+    response = params.onTextDelta
+      ? await callResponsesApiStreaming(env, retryBody, params.onTextDelta, trace)
+      : await callResponsesApi(env, retryBody)
+    traceMark(trace, 'openai_context_retry_completed', { responseId: response.id ?? null })
   }
   await trackOpenAIUsage(env, {
     userId: cliSession.email,
@@ -1939,17 +2409,16 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
           metadata: { previousResponseId, context: contextDecisions },
         })
         if (isNewSession) {
-          const generatedTitle = await generateAssistantSessionTitle(env, input, reply).catch(() => null)
-          if (generatedTitle) {
-            await updateAssistantSessionTitle(env, sessionId, generatedTitle)
-          }
+          void generateAssistantSessionTitle(env, input, reply)
+            .then((generatedTitle) => generatedTitle ? updateAssistantSessionTitle(env, sessionId, generatedTitle) : undefined)
+            .catch(() => undefined)
         }
       }
-      return json({
+      return {
         sessionId,
         previousResponseId,
         reply,
-      })
+      }
     }
 
     const toolOutputs: Array<{ type: 'function_call_output'; call_id: string; output: string }> = []
@@ -1969,6 +2438,7 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
           metadata: { name: tool.name, arguments: parsedArguments },
         })
       }
+      params.onEvent?.('tool_call', { name: tool.name, arguments: parsedArguments })
       let result: AgentToolResult
       try {
         result = await tool.execute(parsedArguments, sessionId)
@@ -2002,6 +2472,7 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
           metadata: storedData === undefined ? { name: tool.name } : { name: tool.name, data: storedData },
         })
       }
+      params.onEvent?.('tool_result', { name: tool.name, summary: result.summary })
       const modelData = toolModelData(result)
       const toolOutput = {
         type: 'function_call_output' as const,
@@ -2028,17 +2499,16 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
               metadata: { previousResponseId, approvalRequired: true, context: contextDecisions },
             })
             if (isNewSession) {
-              const generatedTitle = await generateAssistantSessionTitle(env, input, result.summary).catch(() => null)
-              if (generatedTitle) {
-                await updateAssistantSessionTitle(env, sessionId, generatedTitle)
-              }
+              void generateAssistantSessionTitle(env, input, result.summary)
+                .then((generatedTitle) => generatedTitle ? updateAssistantSessionTitle(env, sessionId, generatedTitle) : undefined)
+                .catch(() => undefined)
             }
           }
-          return json({
+          return {
             sessionId,
             previousResponseId,
             reply: result.summary,
-          })
+          }
         }
         if (sessionId) {
           await appendAssistantSessionEntry(env, sessionId, {
@@ -2049,17 +2519,16 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
             metadata: { previousResponseId, context: contextDecisions },
           })
           if (isNewSession) {
-            const generatedTitle = await generateAssistantSessionTitle(env, input, result.summary).catch(() => null)
-            if (generatedTitle) {
-              await updateAssistantSessionTitle(env, sessionId, generatedTitle)
-            }
+            void generateAssistantSessionTitle(env, input, result.summary)
+              .then((generatedTitle) => generatedTitle ? updateAssistantSessionTitle(env, sessionId, generatedTitle) : undefined)
+              .catch(() => undefined)
           }
         }
-        return json({
+        return {
           sessionId,
           previousResponseId,
           reply: result.summary,
-        })
+        }
       }
       if (tool.name === 'plan_remote_run') {
         previousResponseId = await closeToolCallResponse(env, previousResponseId, toolOutput)
@@ -2077,27 +2546,29 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
             },
           })
           if (isNewSession) {
-            const generatedTitle = await generateAssistantSessionTitle(env, input, result.summary).catch(() => null)
-            if (generatedTitle) {
-              await updateAssistantSessionTitle(env, sessionId, generatedTitle)
-            }
+            void generateAssistantSessionTitle(env, input, result.summary)
+              .then((generatedTitle) => generatedTitle ? updateAssistantSessionTitle(env, sessionId, generatedTitle) : undefined)
+              .catch(() => undefined)
           }
         }
-        return json({
+        return {
           sessionId,
           previousResponseId,
           reply: result.summary,
-        })
+        }
       }
       toolOutputs.push(toolOutput)
     }
 
-    response = await callResponsesApi(env, {
+    const followupBody = {
       previous_response_id: previousResponseId ?? undefined,
       input: toolOutputs,
       tools: tools.map(buildToolSchema),
       parallel_tool_calls: false,
-    })
+    }
+    response = params.onTextDelta
+      ? await callResponsesApiStreaming(env, followupBody, params.onTextDelta, trace)
+      : await callResponsesApi(env, followupBody)
     await trackOpenAIUsage(env, {
       userId: cliSession.email,
       sessionId,
