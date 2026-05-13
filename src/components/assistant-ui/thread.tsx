@@ -122,11 +122,12 @@ export const Thread: FC<ThreadProps> = ({
 
           <div
             data-slot="aui_message-group"
-            className="mb-10 flex flex-col gap-y-8 empty:hidden"
+            className="mb-10 flex flex-col gap-y-4 empty:hidden"
           >
             <ThreadPrimitive.Messages>
               {() => <ThreadMessage renderAssistantBlock={renderAssistantBlock} />}
             </ThreadPrimitive.Messages>
+            <ThreadRunningIndicator />
           </div>
 
           <ThreadPrimitive.ViewportFooter className="aui-thread-viewport-footer sticky bottom-0 mt-auto flex flex-col gap-4 overflow-visible rounded-t-(--composer-radius) bg-background pb-4 md:pb-6">
@@ -148,6 +149,23 @@ const ThreadMessage: FC<{
   if (isEditing) return <EditComposer />;
   if (role === "user") return <UserMessage />;
   return <AssistantMessage renderAssistantBlock={renderAssistantBlock} />;
+};
+
+const ThreadRunningIndicator: FC = () => {
+  const isRunning = useAuiState((s) => s.thread.isRunning);
+  if (!isRunning) return null;
+
+  return (
+    <div
+      data-slot="aui_running-indicator"
+      aria-label="Assistant is working"
+      className="aui-running-indicator fade-in slide-in-from-bottom-1 flex animate-in items-center gap-1 px-2 py-1 duration-150"
+    >
+      <span className="aui-running-dot" />
+      <span className="aui-running-dot" />
+      <span className="aui-running-dot" />
+    </div>
+  );
 };
 
 const ThreadScrollToBottom: FC = () => {
@@ -393,12 +411,11 @@ const UserMessage: FC = () => {
   return (
     <MessagePrimitive.Root
       data-slot="aui_user-message-root"
-      className="aui-user-message-root fade-in slide-in-from-bottom-1 grid animate-in auto-rows-auto grid-cols-[minmax(72px,1fr)_auto] content-start gap-y-2 px-2 duration-150 [&:where(>*)]:col-start-2"
+      className="aui-user-message-root fade-in slide-in-from-bottom-1 flex animate-in justify-end px-2 duration-150"
       data-role="user"
     >
-      <UserMessageAttachments />
-
-      <div className="aui-user-message-content-wrapper relative col-start-2 min-w-0">
+      <div className="aui-user-message-stack relative flex max-w-[82%] flex-col items-end gap-2">
+        <UserMessageAttachments />
         <div className="aui-user-message-content wrap-break-word peer rounded-2xl bg-muted px-4 py-2.5 text-foreground empty:hidden">
           <MessagePrimitive.Parts />
         </div>
@@ -406,11 +423,6 @@ const UserMessage: FC = () => {
           <UserActionBar />
         </div>
       </div>
-
-      <BranchPicker
-        data-slot="aui_user-branch-picker"
-        className="col-span-full col-start-1 row-start-3 -mr-1 justify-end"
-      />
     </MessagePrimitive.Root>
   );
 };

@@ -40,6 +40,7 @@ The Worker includes:
 - `GET /api/cli/runs`
 - `GET /api/cli/runs/:id`
 - `GET /api/cli/runs/:id/events`
+- `POST /api/admin/canonical-datasets/bootstrap`
 
 These are implemented in Worker-routed handlers under `functions/` and surfaced through [src/worker.ts](/Users/ryanprendergast/Documents/Zenobia%20Pay/alpha-research/src/worker.ts).
 
@@ -53,6 +54,7 @@ Required Worker secrets:
 - `RESEARCH_INTERNAL_RUNNER_TOKEN` for ingest runner callbacks
 - `MODAL_AGENT_ENDPOINT_URL` for remote worker submission
 - `MODAL_AGENT_SUBMIT_TOKEN` when the Modal endpoint requires a bearer token
+- `ALPHA_RESEARCH_ADMIN_TOKEN` for service/admin canonical dataset bootstrap calls
 - object-store credentials: `OBJECT_STORE_BUCKET`, `OBJECT_STORE_ENDPOINT`, `OBJECT_STORE_ACCESS_KEY_ID`, and `OBJECT_STORE_SECRET_ACCESS_KEY`
 
 Optional Worker vars/secrets:
@@ -71,6 +73,8 @@ The RESEARCH CLI opens a browser to `https://alpharesearch.nyc/cli/login`, and t
 7. The CLI persists the deploy run id and polls event/status updates on reopen.
 
 Remote research jobs run on Modal with `/data` mounted read-only for analysis, `/workspace` as writable scratch, and `/results/<job_id>/` for final outputs.
+
+Canonical public datasets are added through `POST /api/admin/canonical-datasets/bootstrap` with a bearer `ALPHA_RESEARCH_ADMIN_TOKEN`. The endpoint creates or updates the platform-owned dataset row, provisions `/data/datasets/<dataset_id>` on the shared Modal dataset volume, and starts a service-owned `canonical-dataset-bootstrap` Codex job. These jobs write dataset maintenance artifacts such as `dataset_briefing.md`, source inventories, docs mirrors, and Slack briefings rather than user-facing `report.html` research reports.
 
 ## Local Testing
 

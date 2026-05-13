@@ -29,12 +29,14 @@ Remote run metadata can include `config.resources`, but the control plane always
 
 - Ordinary analysis jobs receive `/data` as read-only and must write deliverables under `/results/<job id>/`.
 - Dataset deploy and environment jobs may write normalized dataset files under `/data/datasets/<dataset id>`.
+- Admin canonical dataset bootstrap jobs are service-owned `canonical-dataset-bootstrap` runs. They create or update platform-owned public dataset rows, write to `/data/datasets/<dataset id>`, and use `dataset_briefing.md` plus inventories/docs mirrors as the primary artifact contract instead of user research `report.html`.
 - Failed public/research environment launches must move the dataset to `failed` so stale provisioning rows are visible and retryable.
 
 ## Boundary Rules
 
 - External providers are accessed through provider modules, not UI code.
 - Runner callbacks are authenticated with `RESEARCH_INTERNAL_RUNNER_TOKEN`.
+- Admin canonical dataset bootstrap requests are authenticated with `ALPHA_RESEARCH_ADMIN_TOKEN` and must not depend on a user CLI session.
 - Artifacts are indexed through `run_artifacts`; completed artifact bytes are stored in the Cloudflare R2 artifact bucket and served back through authenticated dashboard routes. Transcripts should be captured as artifacts or assistant session entries. Modal result paths are worker staging paths, not browser-accessible artifact URLs.
 - Remote Codex runners may receive `EXA_API_KEY` and `CANONICAL_DATASET_SLACK_WEBHOOK_URL` as environment variables for canonical dataset-improvement jobs. Workers must not write credentials into prompts, logs, artifacts, or mounted volumes.
 - Modal worker submission uses `MODAL_AGENT_ENDPOINT_URL` and optional `MODAL_AGENT_SUBMIT_TOKEN`. These values are control-plane secrets and must not be exposed to frontend code.
@@ -46,6 +48,7 @@ Run the deterministic contract checks with `pnpm run test:infra`. Run the live d
 - Failed public/research environment launches update both dataset `deployment_status` and `status` to `failed`.
 - Runner launch, status, event, and artifact callback routes remain wired.
 - Remote runner bootstrap forwards Exa and canonical Slack webhook secrets so dataset-improvement jobs can search the web and notify the owner without embedding credentials in prompts.
+- Canonical dataset bootstrap is exposed through `/api/admin/canonical-datasets/bootstrap`, uses Modal writable dataset jobs, and requires `dataset_briefing.md` rather than `report.html`.
 - Modal provider files exist and keep `/data` read-only for ordinary workers.
 - Modal runner state and outputs are written under `/results/<job id>`, not under `/data`.
 - Live canonical datasets `econ`, `sociology`, `philosophy`, `history`, `literature`, `political-science`, `anthropology`, `linguistics`, and `classics` are present and ready.

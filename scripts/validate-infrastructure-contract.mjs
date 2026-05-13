@@ -54,6 +54,16 @@ assert(
 )
 
 assert(
+  workerSource.includes('/api/admin/canonical-datasets/bootstrap') &&
+    workerSource.includes('ALPHA_RESEARCH_ADMIN_TOKEN') &&
+    controlPlaneSource.includes('/admin/canonical-datasets/bootstrap') &&
+    controlPlaneSource.includes("runType: 'canonical-dataset-bootstrap'") &&
+    controlPlaneSource.includes('userSessionRequired: false') &&
+    controlPlaneSource.includes('PLATFORM_DATASET_OWNER_EMAIL'),
+  'Admin canonical dataset bootstrap endpoint must be service-owned, authenticated, and routed to Modal.',
+)
+
+assert(
   controlPlaneSource.includes('/artifacts') && controlPlaneSource.includes('/events') && controlPlaneSource.includes('/status'),
   'Runner event, status, and artifact callback endpoints must remain wired.',
 )
@@ -92,10 +102,18 @@ assert(
   'Remote runner must support Modal state paths and read-only dataset prompts.',
 )
 
+assert(
+  remoteRunnerSource.includes('RUN_TYPE == "canonical-dataset-bootstrap"') &&
+    remoteRunnerSource.includes('dataset_briefing.md') &&
+    remoteRunnerSource.includes('Do not write report.html unless it is explicitly requested'),
+  'Remote runner must treat canonical dataset bootstrap as a dataset-maintenance job, not a report.html research run.',
+)
+
 for (const requiredDocFragment of [
   'Modal jobs mount the shared public dataset volume at `/data`',
   'Modal runner state and outputs are written under `/results/<job id>`',
   'Workers must not write credentials into prompts, logs, artifacts, or mounted volumes',
+  'Admin canonical dataset bootstrap requests are authenticated with `ALPHA_RESEARCH_ADMIN_TOKEN`',
 ]) {
   assert(runnerDocs.includes(requiredDocFragment), `Control-plane docs are missing: ${requiredDocFragment}`)
 }

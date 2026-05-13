@@ -163,6 +163,18 @@ type Env = {
   ARTIFACT_BUCKET?: R2BucketLike
 }
 
+const PLATFORM_DATASET_OWNER_EMAIL = 'platform@alpharesearch.nyc'
+const CANONICAL_BOOTSTRAP_REQUIRED_ARTIFACTS = [
+  'work.md',
+  'dataset_briefing.md',
+  'improvement_plan.md',
+  'improvement_result.json',
+  'candidate_sources.csv',
+  'source_inventory.json',
+  'slack_briefing.md',
+  'docs_mirror_manifest.json',
+]
+
 function normalizeGeneratedRunTitle(value: string) {
   return value
     .replace(/^["'`]+|["'`.]+$/gu, '')
@@ -1660,6 +1672,248 @@ export class ControlPlane {
           datasetId,
         }).map((session) => this.assistantSessionToJson(session)),
       })
+    }
+
+    if (pathname === '/admin/canonical-datasets/bootstrap' && request.method === 'POST') {
+      let runId: string | null = null
+      let canonicalDatasetId: string | null = null
+      try {
+        const body = await request.json().catch(() => ({})) as Record<string, unknown>
+        const datasetId = slugify(String(body.datasetId ?? body.id ?? body.name ?? ''))
+        canonicalDatasetId = datasetId
+        const name = String(body.name ?? datasetId)
+        const callbackOrigin = String(body.callbackOrigin ?? '')
+        const starterPrompt = String(body.starterPrompt ?? body.prompt ?? '').trim()
+        const fieldBrief = body.fieldBrief ? String(body.fieldBrief) : ''
+        const sourceType = String(body.sourceType ?? 'public_data')
+        const resources = body.resources && typeof body.resources === 'object' ? body.resources : {}
+        const requiredEnvironment = Array.isArray(body.requiredEnvironment)
+          ? body.requiredEnvironment.map((value) => String(value)).filter(Boolean)
+          : ['CANONICAL_DATASET_SLACK_WEBHOOK_URL']
+        const optionalEnvironment = Array.isArray(body.optionalEnvironment)
+          ? body.optionalEnvironment.map((value) => String(value)).filter(Boolean)
+          : ['EXA_API_KEY']
+        const requiredArtifacts = Array.isArray(body.requiredArtifacts) && body.requiredArtifacts.length > 0
+          ? body.requiredArtifacts.map((value) => String(value)).filter(Boolean)
+          : CANONICAL_BOOTSTRAP_REQUIRED_ARTIFACTS
+        const docsMirrors = Array.isArray(body.docsMirrors) ? body.docsMirrors : []
+        if (!datasetId) {
+          return respondJson({ error: 'Missing datasetId' }, 400)
+        }
+        if (!starterPrompt) {
+          return respondJson({ error: 'Missing prompt or starterPrompt' }, 400)
+        }
+        if (!callbackOrigin) {
+          return respondJson({ error: 'Missing callbackOrigin' }, 400)
+        }
+        const timestamp = nowIso()
+        const datasetMountPath = `/data/datasets/${datasetId}`
+        const manifestPath = `${datasetMountPath}/manifest.json`
+        const description = body.description
+          ? String(body.description)
+          : fieldBrief || `Canonical public ${name} dataset maintained by Alpha Research.`
+        const existingDataset = this.getDataset(datasetId)
+        if (existingDataset && existingDataset.ownerEmail !== PLATFORM_DATASET_OWNER_EMAIL) {
+          return respondJson({ error: 'Dataset already exists for another owner' }, 409)
+        }
+        if (existingDataset) {
+          await this.expireStaleRunsForDataset(datasetId)
+          const blockingRun = this.getLeaseBlockingRun(datasetId)
+          if (blockingRun && !isTerminalStatus(blockingRun.status)) {
+            return respondJson({
+              error: `Dataset ${datasetId} already has active canonical bootstrap run ${blockingRun.id}.`,
+              activeRuns: [this.runRowToJson({
+                id: blockingRun.id,
+                dataset_id: blockingRun.datasetId,
+                owner_email: blockingRun.ownerEmail,
+                type: blockingRun.type,
+                status: blockingRun.status,
+                prompt: blockingRun.prompt,
+                output_preview: blockingRun.outputPreview,
+                worker_id: blockingRun.workerId,
+                worker_name: blockingRun.workerName,
+                created_at: blockingRun.createdAt,
+                updated_at: blockingRun.updatedAt,
+              })],
+            }, 409)
+          }
+          this.sql.exec(
+            `UPDATE datasets
+             SET name = ?, description = ?, source_type = ?, source_filename = ?, mode = ?, manifest_path = ?, updated_at = ?
+             WHERE id = ?`,
+            name,
+            description,
+            sourceType,
+            'canonical-public-sources',
+            'canonical_public',
+            manifestPath,
+            timestamp,
+            datasetId,
+          )
+        } else {
+          this.sql.exec(
+            `INSERT INTO datasets (
+               id, name, owner_email, source_type, source_filename, mode, description, instance_id, manifest_path,
+               deployment_status, status, volume_id, volume_name, volume_region, volume_mount_path, ingest_config_json,
+               created_at, updated_at
+             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            datasetId,
+            name,
+            PLATFORM_DATASET_OWNER_EMAIL,
+            sourceType,
+            'canonical-public-sources',
+            'canonical_public',
+            description,
+            null,
+            manifestPath,
+            'draft',
+            'created',
+            null,
+            null,
+            null,
+            null,
+            null,
+            timestamp,
+            timestamp,
+          )
+        }
+
+        const prompt = [
+          `Bootstrap the canonical public dataset "${name}" (${datasetId}) in ${datasetMountPath}.`,
+          'This is platform dataset maintenance, not an end-user research report.',
+          `Dataset brief: ${fieldBrief || description}`,
+          '',
+          'Use provider-native public files when license-compatible. Classify every candidate source as active_fetchable, deferred_fetchable, license_review, credential_required, or reject.',
+          'Write raw files, source registries, inventories, docs mirrors, and durable dataset briefing files under the dataset directory.',
+          `Write the manifest at ${manifestPath}.`,
+          `Write these deliverable artifacts to ARTIFACT_DIR: ${requiredArtifacts.join(', ')}.`,
+          'Send a concise Slack briefing if CANONICAL_DATASET_SLACK_WEBHOOK_URL is present. Do not write secrets into prompts, logs, artifacts, transcripts, or the dataset volume.',
+          '',
+          'Starter instructions:',
+          starterPrompt,
+        ].join('\n')
+        const config = {
+          environmentBootstrap: true,
+          canonicalDatasetBootstrap: true,
+          sourceDescription: description,
+          publicSources: Array.isArray(body.publicSources) ? body.publicSources : [],
+          manifestPath,
+          callbackOrigin,
+          resources,
+          requiredEnvironment,
+          optionalEnvironment,
+          requiredArtifacts,
+          docsMirrors,
+          execution: {
+            provider: 'modal',
+            jobKind: 'canonical-dataset-bootstrap',
+            codexRunOwner: 'service',
+            userSessionRequired: false,
+          },
+        }
+        const artifactSpec = requiredArtifacts.map((artifactName) => ({
+          type: artifactName.endsWith('.json')
+            ? 'json'
+            : artifactName.endsWith('.csv')
+              ? 'table'
+              : 'markdown',
+          title: artifactName,
+        }))
+        runId = this.createRun(datasetId, PLATFORM_DATASET_OWNER_EMAIL, 'canonical-dataset-bootstrap', prompt)
+        this.acquireDatasetLease(datasetId, runId)
+        this.sql.exec(
+          `INSERT INTO run_metadata (run_id, config_json, artifact_spec_json) VALUES (?, ?, ?)`,
+          runId,
+          JSON.stringify(config),
+          JSON.stringify(artifactSpec),
+        )
+        this.sql.exec(
+          `UPDATE datasets
+             SET volume_id = ?, volume_name = ?, volume_region = ?, volume_mount_path = ?, manifest_path = ?, deployment_status = ?, status = ?, updated_at = ?
+           WHERE id = ?`,
+          'agent-dataset',
+          'agent-dataset',
+          'modal',
+          datasetMountPath,
+          manifestPath,
+          'provisioning',
+          'deploying',
+          nowIso(),
+          datasetId,
+        )
+        this.appendRunEvent(runId, 'Submitting service-owned canonical dataset bootstrap job to Modal.')
+        this.sql.exec(
+          `UPDATE runs SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+          'booting',
+          'Submitting Modal canonical dataset bootstrap job.',
+          nowIso(),
+          runId,
+        )
+        const modalJob = await launchModalResearchJob(this.env, {
+          datasetId,
+          runId,
+          runType: 'canonical-dataset-bootstrap',
+          prompt,
+          configJson: JSON.stringify(config),
+          artifactSpecJson: JSON.stringify(artifactSpec),
+          callbackOrigin,
+          datasetMountPath,
+          manifestPath,
+          datasetReadOnly: false,
+          extraContext: {
+            serviceOwned: true,
+            userSessionRequired: false,
+          },
+        })
+        this.appendRunEvent(runId, `Modal canonical dataset bootstrap job ${modalJob.id} submitted; results will be written to ${modalJob.resultPath}.`)
+        this.sql.exec(
+          `UPDATE runs SET worker_id = ?, worker_name = ?, status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+          modalJob.id,
+          modalJob.name,
+          'booting',
+          'Modal canonical dataset bootstrap job submitted.',
+          nowIso(),
+          runId,
+        )
+        const dataset = this.getDataset(datasetId)
+        return respondJson({
+          dataset: dataset ? this.datasetRowToJson(dataset as unknown as Record<string, unknown>) : null,
+          run: this.runRowToJson(this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]!),
+          modal: {
+            provider: 'modal',
+            jobId: modalJob.id,
+            resultPath: modalJob.resultPath,
+            callId: modalJob.callId,
+          },
+          dashboardUrl: `${callbackOrigin}?view=runs&runId=${encodeURIComponent(runId)}`,
+        })
+      } catch (error) {
+        const message = error instanceof Error ? error.message : 'Canonical dataset bootstrap launch failed'
+        if (runId) {
+          this.appendRunEvent(runId, `Canonical dataset bootstrap launch failed: ${message}`, 'error')
+          this.sql.exec(
+            `UPDATE runs SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+            'failed',
+            message,
+            nowIso(),
+            runId,
+          )
+          const failedRun = this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]
+          if (failedRun) {
+            this.releaseDatasetLease(this.parseRunRow(failedRun).datasetId, runId)
+          }
+        }
+        if (canonicalDatasetId) {
+          this.sql.exec(
+            `UPDATE datasets SET deployment_status = ?, status = ?, updated_at = ? WHERE id = ?`,
+            'failed',
+            'failed',
+            nowIso(),
+            canonicalDatasetId,
+          )
+        }
+        return respondJson({ error: message, runId }, 500)
+      }
     }
 
     if (pathname === '/datasets' && request.method === 'POST') {

@@ -35,6 +35,10 @@ try:
     RUN_CONFIG = json.loads(base64.b64decode(os.environ.get("CONFIG_B64", "e30=")).decode("utf-8"))
 except Exception:
     RUN_CONFIG = {}
+try:
+    ARTIFACT_SPEC = json.loads(base64.b64decode(os.environ.get("ARTIFACT_SPEC_B64", "W10=")).decode("utf-8"))
+except Exception:
+    ARTIFACT_SPEC = []
 
 
 SESSION_ID_RE = re.compile(r"session id:\s*([0-9a-fA-F-]{36})")
@@ -268,6 +272,37 @@ def format_codex_session_entry(line: str):
 
 
 def build_remote_agent_prompt():
+    if RUN_TYPE == "canonical-dataset-bootstrap":
+        required_artifacts = RUN_CONFIG.get("requiredArtifacts")
+        if not isinstance(required_artifacts, list) or not required_artifacts:
+            required_artifacts = [
+                "work.md",
+                "dataset_briefing.md",
+                "improvement_plan.md",
+                "improvement_result.json",
+                "candidate_sources.csv",
+                "source_inventory.json",
+                "slack_briefing.md",
+                "docs_mirror_manifest.json",
+            ]
+        return "\n".join(
+            [
+                "You are running one Alpha Research platform dataset bootstrap job.",
+                f"Create or update the canonical dataset at {DATASET_MOUNT_PATH}.",
+                f"Use {WORKSPACE_DIR} for scratch work.",
+                f"Write run deliverables to {ARTIFACT_DIR}.",
+                f"Write the dataset manifest to {MANIFEST_PATH}.",
+                "This is employee-side dataset maintenance, not an end-user research run.",
+                "Do not write report.html unless it is explicitly requested; dataset_briefing.md is the primary human-readable deliverable.",
+                "Keep work.md updated as your running log: what you downloaded, what you skipped, what failed, and what remains.",
+                f"Before stopping, write these artifacts exactly: {', '.join(str(item) for item in required_artifacts)}.",
+                "Send Slack progress/final briefings if CANONICAL_DATASET_SLACK_WEBHOOK_URL is present.",
+                "Never write secrets into prompts, logs, artifacts, transcripts, or mounted dataset files.",
+                "",
+                "Dataset bootstrap request:",
+                PROMPT,
+            ]
+        )
     return "\n".join(
         [
             "You are running one Alpha Research job.",
@@ -383,10 +418,17 @@ def collect_deliverable_paths():
 
 
 def expected_primary_artifact_name():
+    if RUN_TYPE == "canonical-dataset-bootstrap":
+        return "dataset_briefing.md"
     return "report.html"
 
 
 def build_codex_goal():
+    if RUN_TYPE == "canonical-dataset-bootstrap":
+        return (
+            "/goal Complete the canonical dataset bootstrap. Iterate, keep work.md current, "
+            "and stop only after writing dataset_briefing.md and the required inventory artifacts."
+        )
     return (
         "/goal Complete the research run. Iterate, keep work.md current, "
         "and stop only after writing the final report.html."
@@ -529,6 +571,18 @@ def main():
         raise RuntimeError(f"Remote agent run completed without required primary artifact: {expected_primary}")
     if not any(path.name == "work.md" for path in deliverables):
         raise RuntimeError("Remote agent run completed without required ongoing work log: work.md")
+    required_artifacts = RUN_CONFIG.get("requiredArtifacts")
+    if RUN_TYPE == "canonical-dataset-bootstrap" and isinstance(required_artifacts, list):
+        missing = [
+            str(name)
+            for name in required_artifacts
+            if isinstance(name, str) and name and not any(path.name == name for path in deliverables)
+        ]
+        if missing:
+            raise RuntimeError(
+                "Canonical dataset bootstrap completed without required artifact(s): "
+                + ", ".join(missing)
+            )
     summary = f"Remote agent run completed with {len(deliverables)} deliverable artifact(s)."
     if session_id:
         summary += f" Session: {session_id}."

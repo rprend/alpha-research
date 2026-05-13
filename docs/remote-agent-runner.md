@@ -32,6 +32,8 @@ If Codex exits successfully but the required deliverable files are missing, the 
 
 `report.html` is the user-facing research deliverable. It must read like a polished applied research report or expert memo for a senior stakeholder. It should explain the research question, data, methods, evidence, results, validation, limitations, implications, and next steps in prose. It should make liberal use of tables and figures to summarize data, compare estimates, show uncertainty, display robustness checks, and make the empirical logic easy to inspect. File lists, implementation notes, and command logs belong in `work.md` unless they directly support a research finding.
 
+`canonical-dataset-bootstrap` jobs are the exception to the user-facing report contract. They are employee-side dataset maintenance jobs and must complete with `dataset_briefing.md`, `work.md`, source inventories, docs mirror manifests, and any required JSON/CSV artifacts specified in run config. They should not write `report.html` unless the bootstrap prompt explicitly asks for one.
+
 After upload, the dashboard reads artifact metadata from the control plane and artifact bytes from the authenticated `/api/cli/artifacts/:artifactId/content` route. Dashboard rendering must not depend on the Modal worker or a live Modal container after a run reaches `ready`.
 
 ## Heartbeats

@@ -38,6 +38,7 @@ type Env = {
   WORKOS_API_KEY?: string
   WORKOS_CLIENT_ID?: string
   ALPHA_RESEARCH_SESSION_SECRET?: string
+  ALPHA_RESEARCH_ADMIN_TOKEN?: string
   ALPHA_RESEARCH_ALLOWED_EMAILS?: string
   WORKOS_REDIRECT_URI?: string
   OPENAI_API_KEY?: string
@@ -271,6 +272,16 @@ function docsAssetCandidates(pathname: string) {
 
 function requireInternalRunnerToken(request: Request, env: Env) {
   const expected = env.RESEARCH_INTERNAL_RUNNER_TOKEN?.trim()
+  if (!expected) {
+    return false
+  }
+  const authorization = request.headers.get('Authorization') ?? ''
+  const actual = authorization.startsWith('Bearer ') ? authorization.slice('Bearer '.length).trim() : ''
+  return actual === expected
+}
+
+function requireAdminToken(request: Request, env: Env) {
+  const expected = env.ALPHA_RESEARCH_ADMIN_TOKEN?.trim()
   if (!expected) {
     return false
   }
@@ -2042,6 +2053,21 @@ export default {
       return runResearchAssistantTurn(request, env).catch((error) => {
         const message = error instanceof Error ? error.message : 'Research assistant request failed'
         return json({ error: message }, 500)
+      })
+    }
+
+    if (pathname === '/api/admin/canonical-datasets/bootstrap' && request.method === 'POST') {
+      if (!requireAdminToken(request, env)) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      const body = await request.json().catch(() => ({}))
+      return proxyToControlPlane(env, '/admin/canonical-datasets/bootstrap', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...body,
+          callbackOrigin: url.origin,
+        }),
       })
     }
 
