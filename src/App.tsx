@@ -2536,7 +2536,6 @@ function DatasetFeed({
       ) : null}
       <DatasetFeedSection
         title="Your datasets"
-        summary={`${privateDatasets.length} private dataset${privateDatasets.length === 1 ? '' : 's'} visible only to your workspace.`}
         emptyMessage="No private datasets yet. Upload a source or create a research environment from the CLI and it will appear here."
         datasets={privateDatasets}
         topic={topic}
@@ -2544,7 +2543,6 @@ function DatasetFeed({
       />
       <DatasetFeedSection
         title="Public datasets"
-        summary={`${publicDatasets.length} shared dataset${publicDatasets.length === 1 ? '' : 's'} available to explore without uploading your own files.`}
         action={
           <a
             className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground underline underline-offset-4 hover:no-underline"
@@ -2573,7 +2571,7 @@ function DatasetFeedSection({
   onSelectDataset,
 }: {
   title: string
-  summary: string
+  summary?: string
   action?: ReactNode
   emptyMessage: string
   datasets: DatasetRecord[]
@@ -2589,7 +2587,7 @@ function DatasetFeedSection({
       <div className="flex flex-col gap-3 border-b border-border pb-5 sm:flex-row sm:items-end sm:justify-between">
         <div className="flex flex-col gap-1">
           <div className="text-2xl font-medium tracking-normal">{title}</div>
-          <p className="text-sm text-muted-foreground">{summary}</p>
+          {summary ? <p className="text-sm text-muted-foreground">{summary}</p> : null}
         </div>
         {action ? <div className="shrink-0">{action}</div> : null}
       </div>
