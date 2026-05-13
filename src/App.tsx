@@ -2326,6 +2326,37 @@ function DatasetsEmptyState() {
   )
 }
 
+function DatasetsLoadingState() {
+  const rows = ['w-44', 'w-52', 'w-40', 'w-48']
+  return (
+    <div className="mx-auto flex w-full max-w-5xl flex-col gap-14" aria-label="Loading datasets">
+      {['Your datasets', 'Public datasets'].map((title, sectionIndex) => (
+        <section key={title} className="flex min-w-0 flex-col gap-7">
+          <div className="flex flex-col gap-3 border-b border-border pb-5">
+            <div className="text-2xl font-medium tracking-normal">{title}</div>
+            <div className="h-4 w-72 max-w-full animate-pulse bg-muted" />
+          </div>
+          <div className="grid min-w-0 gap-x-16 gap-y-12 md:grid-cols-2">
+            {rows.slice(0, sectionIndex === 0 ? 2 : 4).map((width, index) => (
+              <div
+                key={`${title}-${index}`}
+                className="grid w-full min-w-0 grid-cols-[3.5rem_minmax(0,1fr)_2.5rem] items-center gap-4"
+              >
+                <div className="size-13 animate-pulse rounded-xl border border-border bg-muted/45" />
+                <div className="min-w-0 space-y-2">
+                  <div className={`h-4 ${width} max-w-full animate-pulse bg-muted`} />
+                  <div className="h-3 w-full max-w-sm animate-pulse bg-muted/80" />
+                </div>
+                <div className="ml-auto size-5 animate-pulse rounded-full bg-muted" />
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  )
+}
+
 function DatasetsDataErrorState({
   message,
   onRetry,
@@ -2377,15 +2408,20 @@ function DatasetFeed({
   onSelectDataset,
   dataError,
   onRetry,
+  isLoading,
 }: {
   datasets: DatasetRecord[]
   topic: string | null
   onSelectDataset: (dataset: DatasetRecord) => void
   dataError?: string | null
   onRetry?: () => void
+  isLoading?: boolean
 }) {
   if (dataError) {
     return <DatasetsDataErrorState message={dataError} onRetry={onRetry ?? (() => {})} />
+  }
+  if (isLoading) {
+    return <DatasetsLoadingState />
   }
   if (datasets.length === 0) {
     return <DatasetsEmptyState />
@@ -4628,12 +4664,14 @@ function DashboardApp({
   runs,
   sessions,
   dataError,
+  isLoading,
 }: {
   session: SessionResponse
   datasets: DatasetRecord[]
   runs: RunRecord[]
   sessions: StoredAssistantSession[]
   dataError?: string | null
+  isLoading?: boolean
 }) {
   const datasetLookup = useMemo(
     () => new Map(datasets.map((dataset) => [dataset.id, dataset])),
@@ -4686,6 +4724,8 @@ function DashboardApp({
           <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
             {dataError
               ? 'You are signed in, but Alpha Research cannot verify dataset availability until dashboard data loads successfully.'
+              : isLoading
+              ? 'Loading available datasets, coverage, and readiness.'
               : hasDatasets
               ? 'See what data is available, what each dataset covers, and whether it is ready to use. Open any dataset for provenance, schema, profile details, and generated briefings.'
               : 'New workspaces start here. Add one file or source plus a short description, then come back here to inspect readiness, provenance, and the first research-ready dataset.'}
@@ -4696,6 +4736,7 @@ function DashboardApp({
             datasets={datasets}
             topic={route.topic}
             dataError={dataError}
+            isLoading={isLoading}
             onRetry={() => window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))}
             onSelectDataset={(dataset) =>
               updateDashboardRoute({
@@ -4916,6 +4957,7 @@ function DashboardPage() {
         datasets={[]}
         runs={[]}
         sessions={[]}
+        isLoading
       />
     )
   }
