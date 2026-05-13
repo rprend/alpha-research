@@ -4624,7 +4624,7 @@ function DashboardSettingsPage({
     ? 'Upgrade to Pro'
     : manageEligible
       ? 'Manage subscription'
-      : 'Pro active'
+      : 'Admin granted'
   const subscriptionActionDisabled = isManagingSubscription || (!checkoutEligible && !manageEligible)
 
   return (
@@ -4652,7 +4652,10 @@ function DashboardSettingsPage({
           <div className="dashboard-settings-row">
             <div>
               <h3>Plan</h3>
-              <p>{tierLabel}</p>
+              <p>
+                {tierLabel}
+                {!checkoutEligible && !manageEligible ? ' · Active' : ''}
+              </p>
             </div>
             <button
               type="button"
