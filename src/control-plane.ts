@@ -1842,6 +1842,7 @@ export class ControlPlane {
           'Starter instructions:',
           starterPrompt,
         ].join('\n')
+        const requestedExecution = isPlainRecord(body.execution) ? body.execution : {}
         const config = {
           environmentBootstrap: true,
           canonicalDatasetBootstrap: true,
@@ -1859,6 +1860,7 @@ export class ControlPlane {
             jobKind: 'canonical-dataset-bootstrap',
             codexRunOwner: 'service',
             userSessionRequired: false,
+            ...requestedExecution,
           },
         }
         const artifactSpec = requiredArtifacts.map((artifactName) => ({

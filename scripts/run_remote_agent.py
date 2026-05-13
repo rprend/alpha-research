@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 import base64
+import fcntl
 import json
 import os
+import pty
 import re
+import select
+import struct
 import subprocess
 import sys
 import threading
 import time
+import termios
 from pathlib import Path
 
 import requests
@@ -435,27 +440,35 @@ def build_codex_goal():
     )
 
 
-def run_codex():
-    if not OPENAI_PROXY_BASE_URL:
-        raise RuntimeError("Missing OPENAI_PROXY_BASE_URL; remote Codex runs must use the metered OpenAI proxy")
-    if not RUNNER_TOKEN:
-        raise RuntimeError("Missing RUNNER_TOKEN; remote Codex runs must authenticate to the metered OpenAI proxy")
-    WORKSPACE_DIR.mkdir(parents=True, exist_ok=True)
-    ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
-    CODEX_HOME.mkdir(parents=True, exist_ok=True)
-    (WORKSPACE_DIR / "run_config.json").write_text(json.dumps(RUN_CONFIG, indent=2), encoding="utf-8")
-    dataset_link = WORKSPACE_DIR / "dataset"
-    if not dataset_link.exists():
-        dataset_link.symlink_to(DATASET_MOUNT_PATH, target_is_directory=True)
-    prompt_text = f"{build_codex_goal()}\n\n{build_remote_agent_prompt()}"
-    command = [
-        "codex",
-        "exec",
-        "--enable",
-        "goals",
-        "--skip-git-repo-check",
-        "--dangerously-bypass-approvals-and-sandbox",
-        "--json",
+def codex_execution_config():
+    execution = RUN_CONFIG.get("execution")
+    return execution if isinstance(execution, dict) else {}
+
+
+def requested_codex_mode() -> str:
+    mode = codex_execution_config().get("codexMode")
+    return str(mode).strip().lower() if mode else "exec"
+
+
+def requested_codex_args() -> list[str]:
+    args = codex_execution_config().get("codexArgs")
+    if isinstance(args, list):
+        return [str(item) for item in args if str(item)]
+    return ["--dangerously-bypass-approvals-and-sandbox"]
+
+
+def prompt_envelope_text(remote_prompt: str) -> str:
+    envelope = codex_execution_config().get("promptEnvelope")
+    if isinstance(envelope, dict) and envelope.get("type") == "goal_command":
+        command = str(envelope.get("command") or "/goal").strip() or "/goal"
+        if command == "/goal":
+            return f"{build_codex_goal()}\n\n{remote_prompt}"
+        return f"{command}\n\n{remote_prompt}"
+    return f"{build_codex_goal()}\n\n{remote_prompt}"
+
+
+def codex_provider_args() -> list[str]:
+    return [
         "-c",
         'model_provider="alpha-research-openai"',
         "-c",
@@ -476,17 +489,138 @@ def run_codex():
         "model_providers.alpha-research-openai.request_max_retries=2",
         "-c",
         "model_providers.alpha-research-openai.stream_idle_timeout_ms=300000",
+    ]
+
+
+def build_codex_command(prompt_text: str) -> list[str]:
+    mode = requested_codex_mode()
+    if mode == "tui":
+        return [
+            "codex",
+            "--enable",
+            "goals",
+            "--no-alt-screen",
+            *requested_codex_args(),
+            *codex_provider_args(),
+            "-C",
+            str(WORKSPACE_DIR),
+            "-m",
+            REMOTE_AGENT_MODEL,
+            prompt_text,
+        ]
+    return [
+        "codex",
+        "exec",
+        "--enable",
+        "goals",
+        "--skip-git-repo-check",
+        *requested_codex_args(),
+        "--json",
+        *codex_provider_args(),
         "--output-last-message",
         str(LAST_MESSAGE_PATH),
         "-C",
         str(WORKSPACE_DIR),
         "-m",
         REMOTE_AGENT_MODEL,
+        prompt_text,
     ]
+
+
+def terminal_query_response(chunk: bytes) -> bytes:
+    response = b""
+    if b"Continue anyway? [y/N]" in chunk:
+        response += b"y\r"
+    if b"Do you trust the contents of this directory?" in chunk or b"Press enter to continue" in chunk:
+        response += b"\r"
+    if b"\x1b[6n" in chunk:
+        response += b"\x1b[1;1R"
+    if b"\x1b[?u" in chunk:
+        response += b"\x1b[?0u"
+    if b"\x1b[c" in chunk:
+        response += b"\x1b[?1;2c"
+    if b"\x1b]10;?" in chunk:
+        response += b"\x1b]10;rgb:ffff/ffff/ffff\x1b\\"
+    if b"\x1b]11;?" in chunk:
+        response += b"\x1b]11;rgb:0000/0000/0000\x1b\\"
+    return response
+
+
+def iter_process_output(command: list[str], env: dict[str, str]):
+    if requested_codex_mode() != "tui":
+        process = subprocess.Popen(
+            command,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            env=env,
+        )
+        assert process.stdout is not None
+        for line in process.stdout:
+            yield line
+        yield process.wait()
+        return
+
+    master_fd, slave_fd = pty.openpty()
+    winsize = struct.pack("HHHH", 40, 120, 0, 0)
+    fcntl.ioctl(slave_fd, termios.TIOCSWINSZ, winsize)
+    try:
+        process = subprocess.Popen(
+            command,
+            stdin=slave_fd,
+            stdout=slave_fd,
+            stderr=slave_fd,
+            text=False,
+            env=env,
+            close_fds=True,
+        )
+    finally:
+        os.close(slave_fd)
+
+    try:
+        while True:
+            ready, _, _ = select.select([master_fd], [], [], 0.5)
+            if ready:
+                try:
+                    chunk = os.read(master_fd, 4096)
+                except OSError:
+                    chunk = b""
+                if chunk:
+                    response = terminal_query_response(chunk)
+                    if response:
+                        os.write(master_fd, response)
+                    yield chunk.decode("utf-8", errors="replace")
+            return_code = process.poll()
+            if return_code is not None:
+                yield return_code
+                return
+    finally:
+        os.close(master_fd)
+
+
+def run_codex():
+    if not OPENAI_PROXY_BASE_URL:
+        raise RuntimeError("Missing OPENAI_PROXY_BASE_URL; remote Codex runs must use the metered OpenAI proxy")
+    if not RUNNER_TOKEN:
+        raise RuntimeError("Missing RUNNER_TOKEN; remote Codex runs must authenticate to the metered OpenAI proxy")
+    WORKSPACE_DIR.mkdir(parents=True, exist_ok=True)
+    ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
+    CODEX_HOME.mkdir(parents=True, exist_ok=True)
+    (WORKSPACE_DIR / "run_config.json").write_text(json.dumps(RUN_CONFIG, indent=2), encoding="utf-8")
+    dataset_link = WORKSPACE_DIR / "dataset"
+    if not dataset_link.exists():
+        dataset_link.symlink_to(DATASET_MOUNT_PATH, target_is_directory=True)
+    prompt_text = prompt_envelope_text(build_remote_agent_prompt())
+    command = build_codex_command(prompt_text)
     if REMOTE_AGENT_SESSION_ID:
-        command.extend(["resume", REMOTE_AGENT_SESSION_ID, prompt_text])
-    else:
-        command.append(prompt_text)
+        if requested_codex_mode() == "tui":
+            command = [
+                *command,
+                "resume",
+                REMOTE_AGENT_SESSION_ID,
+            ]
+        else:
+            command = [*command[:-1], "resume", REMOTE_AGENT_SESSION_ID, prompt_text]
 
     env = os.environ.copy()
     env["CODEX_HOME"] = str(CODEX_HOME)
@@ -496,6 +630,8 @@ def run_codex():
     env["RUN_TYPE"] = RUN_TYPE
     env["OPENAI_API_KEY"] = RUNNER_TOKEN
     env["CODEX_API_KEY"] = RUNNER_TOKEN
+    env["TERM"] = "xterm-256color"
+    env["COLORTERM"] = "truecolor"
 
     login = subprocess.run(
         ["codex", "login", "--with-api-key"],
@@ -508,8 +644,9 @@ def run_codex():
     if login.returncode != 0:
         raise RuntimeError("codex metered-proxy login failed")
 
-    post_event("Starting remote agent executor.")
-    post_status("running", "Starting remote agent executor.")
+    executor_label = "TUI" if requested_codex_mode() == "tui" else "executor"
+    post_event(f"Starting remote agent {executor_label}.")
+    post_status("running", f"Starting remote agent {executor_label}.")
     post_session_entry("user", "prompt", PROMPT, "Remote run request", {
         "runType": RUN_TYPE,
         "datasetId": DATASET_ID,
@@ -518,7 +655,7 @@ def run_codex():
     session_id = None
     started_at = time.monotonic()
     last_output_at = started_at
-    last_status = "Starting remote agent executor."
+    last_status = f"Starting remote agent {executor_label}."
     stop_heartbeat = threading.Event()
 
     def heartbeat_loop():
@@ -532,15 +669,12 @@ def run_codex():
     heartbeat_thread = threading.Thread(target=heartbeat_loop, daemon=True)
     heartbeat_thread.start()
     with TRANSCRIPT_PATH.open("w", encoding="utf-8") as transcript:
-      process = subprocess.Popen(
-          command,
-          stdout=subprocess.PIPE,
-          stderr=subprocess.STDOUT,
-          text=True,
-          env=env,
-      )
-      assert process.stdout is not None
-      for line in process.stdout:
+      return_code = 0
+      for output in iter_process_output(command, env):
+          if isinstance(output, int):
+              return_code = output
+              break
+          line = output
           transcript.write(line)
           transcript.flush()
           stripped = line.strip()
@@ -573,11 +707,10 @@ def run_codex():
               post_session_entry("assistant", "stdout", stripped[:5000], "Session output")
           else:
               post_session_entry("assistant", "stdout", stripped[:5000], "Remote output")
-      return_code = process.wait()
       stop_heartbeat.set()
       heartbeat_thread.join(timeout=2)
     if return_code != 0:
-        raise RuntimeError(f"codex exec failed with exit code {return_code}")
+        raise RuntimeError(f"codex {requested_codex_mode()} failed with exit code {return_code}")
     return session_id
 
 

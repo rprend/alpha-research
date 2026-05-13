@@ -1,6 +1,7 @@
 # Remote Agent Runner Contract
 
 `scripts/run_remote_agent.py` executes Codex inside a Modal worker with the shared dataset mounted at `/data`.
+By default it uses `codex exec` for non-interactive research runs. Canonical bootstrap configs may request `execution.codexMode = "tui"`; in that mode the runner launches the interactive Codex TUI under a PTY with `--dangerously-bypass-approvals-and-sandbox` and sends the configured `/goal` envelope plus the full bootstrap prompt as the initial prompt.
 
 ## Required Inputs
 

@@ -149,6 +149,15 @@ assert(
   'Remote runner must treat canonical dataset bootstrap as a dataset-maintenance job, not a report.html research run.',
 )
 
+assert(
+  controlPlaneSource.includes('requestedExecution') &&
+    remoteRunnerSource.includes('requested_codex_mode') &&
+    remoteRunnerSource.includes('pty.openpty()') &&
+    remoteRunnerSource.includes('prompt_envelope_text') &&
+    remoteRunnerSource.includes('codex {requested_codex_mode()} failed with exit code'),
+  'Canonical bootstrap runner must pass through execution config and support Codex TUI mode.',
+)
+
 for (const requiredDocFragment of [
   'Modal jobs mount the shared public dataset volume at `/data`',
   'Modal runner state and outputs are written under `/results/<job id>`',
