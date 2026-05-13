@@ -3045,6 +3045,7 @@ function RemoteRunBlock({
   const status = run?.status ?? initialStatus ?? 'running'
   const isRunning = !isTerminalRunStatus(status)
   const isCancelled = status.toLowerCase() === 'cancelled' || status.toLowerCase() === 'canceled'
+  const isFailed = ['failed', 'error', 'worker_unreachable'].includes(status.toLowerCase())
   const producedArtifacts = getProducedArtifacts(payload).filter((artifact) => artifact.type !== 'remote_agent_session')
   const primaryArtifact = getDatasetBriefingArtifact(producedArtifacts)
   const resultArtifact = getDatasetProfileArtifact(producedArtifacts)
@@ -3187,8 +3188,8 @@ function RemoteRunBlock({
             </pre>
           </div>
         ) : (
-          <p className="text-sm text-muted-foreground">
-            {isCancelled ? 'Run cancelled.' : `The run is ${formatStatus(status).toLowerCase()}, but no human-readable artifact is attached yet.`}
+          <p className={`text-sm ${isFailed ? 'font-medium text-destructive' : 'text-muted-foreground'}`}>
+            {isCancelled ? 'Run cancelled.' : isFailed ? 'This run failed' : `This run is ${formatStatus(status).toLowerCase()}.`}
           </p>
         )}
       </div>
