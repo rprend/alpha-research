@@ -3423,6 +3423,7 @@ function ResearchAssistantPage({
             welcomeImageSrc="/alpha-book-man.png"
             showWelcome={!activeSessionId}
             scrollToBottomKey={activeSessionId && messages.length > 0 ? `${activeSessionId}:${messages.length}` : null}
+            showRunningIndicator={isRunning}
             datasets={datasets.map((dataset) => ({
               id: dataset.id,
               name: dataset.name,

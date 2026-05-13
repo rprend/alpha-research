@@ -45,6 +45,7 @@ type ThreadProps = {
   datasets?: ComposerDatasetOption[];
   renderAssistantBlock?: (custom: Record<string, unknown>) => ReactNode;
   scrollToBottomKey?: string | number | null;
+  showRunningIndicator?: boolean;
 };
 
 export const Thread: FC<ThreadProps> = ({
@@ -56,6 +57,7 @@ export const Thread: FC<ThreadProps> = ({
   datasets = [],
   renderAssistantBlock,
   scrollToBottomKey = null,
+  showRunningIndicator = false,
 }) => {
   const viewportRef = useRef<HTMLDivElement | null>(null);
   const [initialScrollReady, setInitialScrollReady] = useState(!readOnly);
@@ -127,7 +129,7 @@ export const Thread: FC<ThreadProps> = ({
             <ThreadPrimitive.Messages>
               {() => <ThreadMessage renderAssistantBlock={renderAssistantBlock} />}
             </ThreadPrimitive.Messages>
-            <ThreadRunningIndicator />
+            <ThreadRunningIndicator show={showRunningIndicator} />
           </div>
 
           <ThreadPrimitive.ViewportFooter className="aui-thread-viewport-footer sticky bottom-0 mt-auto flex flex-col gap-4 overflow-visible rounded-t-(--composer-radius) bg-background pb-4 md:pb-6">
@@ -151,9 +153,8 @@ const ThreadMessage: FC<{
   return <AssistantMessage renderAssistantBlock={renderAssistantBlock} />;
 };
 
-const ThreadRunningIndicator: FC = () => {
-  const isRunning = useAuiState((s) => s.thread.isRunning);
-  if (!isRunning) return null;
+const ThreadRunningIndicator: FC<{ show: boolean }> = ({ show }) => {
+  if (!show) return null;
 
   return (
     <div
