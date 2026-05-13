@@ -728,6 +728,7 @@ function publicBillingResponse(snapshot: { overview: BillingCheckResult; subscri
       tier: snapshot.overview.tier,
       status: snapshot.overview.subscriptionStatus,
       checkoutEligible: snapshot.overview.checkoutEligible,
+      manageEligible: Boolean(snapshot.subscription?.stripeCustomerId),
       cancelAtPeriodEnd: snapshot.subscription?.cancelAtPeriodEnd ?? false,
       currentPeriodStart: snapshot.subscription?.currentPeriodStart ?? null,
       currentPeriodEnd: snapshot.subscription?.currentPeriodEnd ?? null,

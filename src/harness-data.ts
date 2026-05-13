@@ -13,6 +13,7 @@ export const harnessSession = {
       tier: 'free' as const,
       status: 'active',
       checkoutEligible: true,
+      manageEligible: false,
       cancelAtPeriodEnd: false,
       currentPeriodStart: null,
       currentPeriodEnd: null,

@@ -120,6 +120,7 @@ type BillingOverview = {
     tier: 'free' | 'studio'
     status: string
     checkoutEligible: boolean
+    manageEligible: boolean
     cancelAtPeriodEnd: boolean
     currentPeriodStart: string | null
     currentPeriodEnd: string | null
@@ -4396,6 +4397,7 @@ function DashboardSidebar({
   const { isMobile, setOpenMobile } = useSidebar()
   const userEmail = session.user?.email ?? 'Account'
   const usageRemainingLabel = formatUsageRemainingPercent(session.billing)
+  const canUpgrade = session.billing?.subscription.checkoutEligible === true
   const isActiveSessionRun = (chatSession: { run?: RunRecord }) =>
     Boolean(chatSession.run && !isTerminalRunStatus(chatSession.run.status))
   const navigate = (next: {
@@ -4561,14 +4563,16 @@ function DashboardSidebar({
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <button
-                type="button"
-                className="dashboard-profile-upgrade"
-                onClick={onOpenPaywall}
-                aria-label="Upgrade to Pro"
-              >
-                <span>Upgrade to Pro</span>
-              </button>
+              {canUpgrade ? (
+                <button
+                  type="button"
+                  className="dashboard-profile-upgrade"
+                  onClick={onOpenPaywall}
+                  aria-label="Upgrade to Pro"
+                >
+                  <span>Upgrade to Pro</span>
+                </button>
+              ) : null}
             </div>
           </div>
         )}
@@ -4614,7 +4618,14 @@ function DashboardSettingsPage({
   const tierLabel = session.billing?.subscription.tier === 'studio' ? 'Pro' : 'Free'
   const usageLabel = formatUsageRemainingPercent(session.billing)
   const renewalLabel = formatBillingWindowDate(session.billing?.usage.windowEndsAt ?? null)
-  const subscriptionAction = session.billing?.subscription.checkoutEligible === false ? 'Manage subscription' : 'Upgrade to Pro'
+  const checkoutEligible = session.billing?.subscription.checkoutEligible === true
+  const manageEligible = session.billing?.subscription.manageEligible === true
+  const subscriptionAction = checkoutEligible
+    ? 'Upgrade to Pro'
+    : manageEligible
+      ? 'Manage subscription'
+      : 'Pro active'
+  const subscriptionActionDisabled = isManagingSubscription || (!checkoutEligible && !manageEligible)
 
   return (
     <main className="dashboard-settings-page flex min-h-0 flex-1 min-w-0 flex-col overflow-y-auto px-4 py-6 md:px-8">
@@ -4647,7 +4658,7 @@ function DashboardSettingsPage({
               type="button"
               className="dashboard-settings-action"
               onClick={onManageSubscription}
-              disabled={isManagingSubscription}
+              disabled={subscriptionActionDisabled}
             >
               {isManagingSubscription ? 'Opening...' : subscriptionAction}
             </button>
@@ -4746,9 +4757,10 @@ function DashboardApp({
   async function beginSubscriptionManagement() {
     if (isManagingSubscription || isStartingCheckout) return
     const billing = session.billing
+    if (billing?.subscription.checkoutEligible === false && billing.subscription.manageEligible !== true) return
     setIsManagingSubscription(true)
     try {
-      const nextSession = billing?.subscription.checkoutEligible === false
+      const nextSession = billing?.subscription.manageEligible === true
         ? await createBillingManageSession()
         : await createBillingCheckoutSession()
       if (nextSession.url) window.location.assign(nextSession.url)
