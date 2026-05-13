@@ -1170,6 +1170,11 @@ export class ControlPlane {
     return row ? this.parseDatasetRow(row) : undefined
   }
 
+  private canOwnerRunDataset(dataset: DatasetRecord, ownerEmail: string) {
+    return dataset.ownerEmail === ownerEmail ||
+      (dataset.ownerEmail === PLATFORM_DATASET_OWNER_EMAIL && dataset.mode === 'canonical_public')
+  }
+
   private acquireDatasetLease(datasetId: string, runId: string) {
     const dataset = this.getDataset(datasetId)
     if (!dataset) {
@@ -2314,7 +2319,7 @@ export class ControlPlane {
         const body = await request.json() as Record<string, unknown>
         const ownerEmail = String(body.ownerEmail ?? '')
         const dataset = this.getDataset(datasetId)
-        if (!dataset || dataset.ownerEmail !== ownerEmail) {
+        if (!dataset || !this.canOwnerRunDataset(dataset, ownerEmail)) {
           return respondJson({ error: 'Dataset not found' }, 404)
         }
         const prompt = String(body.prompt ?? '')

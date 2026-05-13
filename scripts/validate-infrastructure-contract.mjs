@@ -64,6 +64,13 @@ assert(
 )
 
 assert(
+  controlPlaneSource.includes('canOwnerRunDataset') &&
+    controlPlaneSource.includes("dataset.mode === 'canonical_public'") &&
+    controlPlaneSource.includes('!this.canOwnerRunDataset(dataset, ownerEmail)'),
+  'Canonical public datasets must be runnable by authenticated users, not only by the platform owner.',
+)
+
+assert(
   controlPlaneSource.includes('/artifacts') && controlPlaneSource.includes('/events') && controlPlaneSource.includes('/status'),
   'Runner event, status, and artifact callback endpoints must remain wired.',
 )
