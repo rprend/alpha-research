@@ -119,8 +119,8 @@ assert(
 )
 assert(
   workerSource.includes('RESEARCH_AGENT_REASONING_EFFORT') &&
-    workerSource.includes("env.RESEARCH_AGENT_MODEL ?? 'gpt-5.2'") &&
-    workerSource.includes("model.includes('gpt-5.2') || model.includes('gpt-5.1') ? 'none' : 'minimal'"),
+    workerSource.includes("env.RESEARCH_AGENT_MODEL ?? 'gpt-5.5'") &&
+    workerSource.includes("model.includes('gpt-5.5') || model.includes('gpt-5.2') || model.includes('gpt-5.1') ? 'none' : 'minimal'"),
   'Assistant should default to the lowest supported reasoning effort for lower first-token latency.',
 )
 assert(

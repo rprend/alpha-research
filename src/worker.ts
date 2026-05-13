@@ -1785,9 +1785,9 @@ function isContextLengthError(error: unknown) {
 
 function buildResponsesPayload(env: Env, body: unknown) {
   const input = body && typeof body === 'object' ? body as Record<string, unknown> : {}
-  const model = typeof input.model === 'string' ? input.model : env.RESEARCH_AGENT_MODEL ?? 'gpt-5.2'
+  const model = typeof input.model === 'string' ? input.model : env.RESEARCH_AGENT_MODEL ?? 'gpt-5.5'
   const configuredEffort = env.RESEARCH_AGENT_REASONING_EFFORT?.trim()
-  const reasoningEffort = configuredEffort || (model.includes('gpt-5.2') || model.includes('gpt-5.1') ? 'none' : 'minimal')
+  const reasoningEffort = configuredEffort || (model.includes('gpt-5.5') || model.includes('gpt-5.2') || model.includes('gpt-5.1') ? 'none' : 'minimal')
   return {
     model,
     reasoning: { effort: reasoningEffort },
