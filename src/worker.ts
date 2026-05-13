@@ -2852,6 +2852,46 @@ export default {
       })
     }
 
+    if (pathname === '/api/admin/subscriptions/grant' && request.method === 'POST') {
+      if (!requireAdminToken(request, env)) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      const body = await request.json().catch(() => ({})) as Record<string, unknown>
+      const userId = typeof body.userId === 'string'
+        ? body.userId.trim().toLowerCase()
+        : typeof body.email === 'string'
+          ? body.email.trim().toLowerCase()
+          : ''
+      if (!userId) {
+        return json({ error: 'Missing userId or email' }, 400)
+      }
+      const now = new Date()
+      const currentPeriodEnd = new Date(now)
+      currentPeriodEnd.setUTCFullYear(currentPeriodEnd.getUTCFullYear() + 1)
+      return proxyToControlPlane(env, '/subscriptions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          userId,
+          stripeCustomerId: null,
+          stripeSubscriptionId: null,
+          stripeProductId: env.STRIPE_PRODUCT_ID ?? null,
+          stripePriceId: env.STRIPE_PRICE_ID ?? null,
+          checkoutSessionId: null,
+          tier: 'studio',
+          status: 'active',
+          cancelAtPeriodEnd: false,
+          currentPeriodStart: now.toISOString(),
+          currentPeriodEnd: currentPeriodEnd.toISOString(),
+          metadata: {
+            source: 'admin_grant',
+            grantedBy: 'ALPHA_RESEARCH_ADMIN_TOKEN',
+            grantedAt: now.toISOString(),
+          },
+        }),
+      })
+    }
+
     if (pathname === '/api/cli/me' && request.method === 'GET') {
       const cliSession = await requireAuthorizedSession(request, env)
       if (!cliSession) {

@@ -41,6 +41,7 @@ The Worker includes:
 - `GET /api/cli/runs/:id`
 - `GET /api/cli/runs/:id/events`
 - `POST /api/admin/canonical-datasets/bootstrap`
+- `POST /api/admin/subscriptions/grant`
 
 These are implemented in Worker-routed handlers under `functions/` and surfaced through [src/worker.ts](/Users/ryanprendergast/Documents/Zenobia%20Pay/alpha-research/src/worker.ts).
 
@@ -75,6 +76,8 @@ The RESEARCH CLI opens a browser to `https://alpharesearch.nyc/cli/login`, and t
 Remote research jobs run on Modal with `/data` mounted read-only for analysis, `/workspace` as writable scratch, and `/results/<job_id>/` for final outputs.
 
 Canonical public datasets are added through `POST /api/admin/canonical-datasets/bootstrap` with a bearer `ALPHA_RESEARCH_ADMIN_TOKEN`. The endpoint creates or updates the platform-owned dataset row, provisions `/data/datasets/<dataset_id>` on the shared Modal dataset volume, and starts a service-owned `canonical-dataset-bootstrap` Codex job. These jobs write dataset maintenance artifacts such as `dataset_briefing.md`, source inventories, docs mirrors, and Slack briefings rather than user-facing `report.html` research reports.
+
+Admin subscription grants are added through `POST /api/admin/subscriptions/grant` with the same bearer token. The endpoint accepts `email` or `userId` and writes an active Pro subscription record for the account.
 
 ## Local Testing
 

@@ -55,12 +55,14 @@ assert(
 
 assert(
   workerSource.includes('/api/admin/canonical-datasets/bootstrap') &&
+    workerSource.includes('/api/admin/subscriptions/grant') &&
     workerSource.includes('ALPHA_RESEARCH_ADMIN_TOKEN') &&
     controlPlaneSource.includes('/admin/canonical-datasets/bootstrap') &&
+    controlPlaneSource.includes('/subscriptions') &&
     controlPlaneSource.includes("runType: 'canonical-dataset-bootstrap'") &&
     controlPlaneSource.includes('userSessionRequired: false') &&
     controlPlaneSource.includes('PLATFORM_DATASET_OWNER_EMAIL'),
-  'Admin canonical dataset bootstrap endpoint must be service-owned, authenticated, and routed to Modal.',
+  'Admin canonical dataset bootstrap and subscription grant endpoints must be authenticated and routed through the control plane.',
 )
 
 assert(
@@ -152,7 +154,7 @@ for (const requiredDocFragment of [
   'Modal runner state and outputs are written under `/results/<job id>`',
   'Workers must not write credentials into prompts, logs, artifacts, or mounted volumes',
   'Remote Codex model traffic must go through the metered OpenAI proxy',
-  'Admin canonical dataset bootstrap requests are authenticated with `ALPHA_RESEARCH_ADMIN_TOKEN`',
+  'Admin canonical dataset bootstrap requests and subscription grants are authenticated with `ALPHA_RESEARCH_ADMIN_TOKEN`',
 ]) {
   assert(runnerDocs.includes(requiredDocFragment), `Control-plane docs are missing: ${requiredDocFragment}`)
 }
