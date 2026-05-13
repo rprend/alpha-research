@@ -37,6 +37,12 @@ If Codex exits successfully but the required deliverable files are missing, the 
 
 After upload, the dashboard reads artifact metadata from the control plane and artifact bytes from the authenticated `/api/cli/artifacts/:artifactId/content` route. Dashboard rendering must not depend on the Modal worker or a live Modal container after a run reaches `ready`.
 
+## Resume Contract
+
+A run is resumable only when the runner captured a Codex session id and uploaded a `remote_agent_session` artifact with `content.sessionId`. Continuation starts a new control-plane run with `config.remoteAgentSessionId` and invokes `codex resume` against that session.
+
+Partial artifacts, transcripts, session entries, and run events are salvage context, but they are not proof that the original Codex session can be resumed. When a failed run has no `remote_agent_session` artifact, the assistant and dashboard should describe it as retryable from saved context rather than resumable.
+
 ## Heartbeats
 
 Long-running work should send status and event heartbeats at least every `REMOTE_AGENT_HEARTBEAT_SECONDS` seconds. Before posting each status callback, the runner writes durable worker status to `RUN_STATUS_PATH` when provided.

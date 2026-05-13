@@ -1154,6 +1154,9 @@ function compactArtifact(artifact: unknown) {
     createdAt: artifact.createdAt,
     content: content
       ? {
+          sessionId: artifact.type === 'remote_agent_session' && typeof content.sessionId === 'string'
+            ? content.sessionId
+            : undefined,
           path: content.path,
           mimeType: content.mimeType,
           sizeBytes: content.sizeBytes,
@@ -1162,6 +1165,17 @@ function compactArtifact(artifact: unknown) {
         }
       : undefined,
   }
+}
+
+function remoteAgentSessionIdFromArtifacts(artifacts: unknown[]) {
+  for (const artifact of artifacts) {
+    if (!isRecordValue(artifact) || artifact.type !== 'remote_agent_session') continue
+    const content = isRecordValue(artifact.content) ? artifact.content : null
+    if (typeof content?.sessionId === 'string' && content.sessionId.trim()) {
+      return content.sessionId.trim()
+    }
+  }
+  return null
 }
 
 function compactSession(session: unknown) {
@@ -1206,6 +1220,7 @@ function compactRunResultsPayload(payload: unknown) {
   const events = Array.isArray(payload.events) ? payload.events : []
   const artifacts = Array.isArray(payload.artifacts) ? payload.artifacts : []
   const sessions = Array.isArray(payload.sessions) ? payload.sessions : []
+  const remoteAgentSessionId = remoteAgentSessionIdFromArtifacts(artifacts)
   return {
     run: compactRun(payload.run),
     metadata: payload.metadata,
@@ -1213,6 +1228,8 @@ function compactRunResultsPayload(payload: unknown) {
     artifacts: artifacts.map(compactArtifact),
     sessions: sessions.map(compactSession),
     eventCount: events.length,
+    resumable: Boolean(remoteAgentSessionId),
+    remoteAgentSessionId,
   }
 }
 
@@ -2094,7 +2111,7 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
     },
     {
       name: 'continue_remote_agent_run',
-      description: 'Continue a previous remote agent run by resuming its remote agent session with a follow-up prompt.',
+      description: 'Resume a previous remote agent run only when get_run_results reported resumable=true, using its captured remote agent session with a follow-up prompt.',
       parameters: {
         type: 'object',
         additionalProperties: false,
@@ -2117,7 +2134,9 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
             ? sessionArtifact.content.sessionId
             : ''
         if (!remoteAgentSessionId) {
-          throw new Error(`Run ${runId} does not have a resumable remote agent session.`)
+          throw new Error(
+            `Run ${runId} is not resumable because no remote agent session was captured. Start a new run instead and use the prior run's saved artifacts, transcript, and events as context.`,
+          )
         }
         const payload = await proxyToControlPlaneJson<{ run: { id: string } }>(
           env,
@@ -2144,7 +2163,7 @@ function createResearchAgentTools(env: Env, ownerEmail: string): AgentToolDefini
     },
     {
       name: 'get_run_results',
-      description: 'Retrieve a finished or in-progress run together with structured metadata, artifact requests, and accumulated events.',
+      description: 'Retrieve a run with status, artifacts, events, and resumability metadata. The resumable flag is the authority for whether continue_remote_agent_run can resume the same remote agent session.',
       parameters: {
         type: 'object',
         additionalProperties: false,
