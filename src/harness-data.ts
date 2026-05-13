@@ -180,7 +180,7 @@ export const harnessRuns = [
     title: 'Alpha Book Briefing',
     description: 'The run produced a dataset briefing and structured profile for the Alpha Book sample.',
     prompt: 'Describe the Alpha Book sample and identify research-ready fields.',
-    outputPreview: 'Dataset briefing ready with a markdown briefing and structured dataset profile.',
+    outputPreview: 'Run completed with a markdown briefing and structured dataset profile.',
     artifactCount: 4,
     sessionCount: 2,
     createdAt: iso(80),

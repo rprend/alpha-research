@@ -138,7 +138,6 @@ Harness mode bypasses production auth/data requirements and renders seeded datas
 - Open the dashboard in harness mode.
 - Verify datasets, runs, and terminal sessions render.
 - Open a seeded run and inspect progress, produced files, and rendered markdown/JSON/code previews.
-- For dataset describe runs, confirm the run view calls out the briefing destination and exposes a primary `Open briefing artifact` action without requiring the artifact drawer icon.
 - For completed runs with artifacts, confirm the page explicitly tells the user which file to read first and labels supporting artifacts as secondary.
 - Use screenshots or DOM snapshots to validate UI changes.
 - Only use production APIs when the task explicitly requires production behavior.

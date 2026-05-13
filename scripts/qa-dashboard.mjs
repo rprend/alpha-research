@@ -328,9 +328,6 @@ async function assertCompletedRunArtifactsSteering() {
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
     await page.goto(`${baseUrl}/?harness=1&view=runs&runId=run-harness-completed`, { waitUntil: 'domcontentloaded' })
-    await page.getByRole('heading', { name: 'Alpha Book Sample · Describe run' }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Open briefing artifact' }).waitFor({ timeout: 15000 })
-    await page.getByRole('button', { name: 'Open profile artifact' }).waitFor({ timeout: 15000 })
     await page.locator('iframe[title="report.html"]').waitFor({ timeout: 15000 })
     const viewportCanScroll = await page.evaluate(() => document.scrollingElement ? document.scrollingElement.scrollHeight > document.scrollingElement.clientHeight : false)
     const runPaneCanScroll = await page.locator('main').evaluate((main) => {
@@ -343,6 +340,9 @@ async function assertCompletedRunArtifactsSteering() {
     await assertPageTextMissing(page, 'Requested vs produced', 'Run summary should not render the old card-heavy artifact audit on the main page.')
     await assertPageTextMissing(page, 'Run finished', 'Run summary should not duplicate completion in a second card.')
     await assertPageTextMissing(page, 'Primary result', 'Run summary should not use extra result cards for the primary artifact.')
+    await assertPageTextMissing(page, 'Dataset briefing ready', 'Run summary should not render the removed briefing-ready callout.')
+    await assertPageTextMissing(page, 'Open briefing artifact', 'Run summary should not render the removed briefing artifact shortcut.')
+    await assertPageTextMissing(page, 'Open profile artifact', 'Run summary should not render the removed profile artifact shortcut.')
     await assertPageTextMissing(page, 'function_call_output', 'Run transcript should not expose raw function-call output JSON.')
     await page.getByRole('button', { name: 'Artifacts' }).first().click()
     const artifactsPanel = page.getByLabel('Run artifacts')
@@ -483,6 +483,12 @@ async function assertSignedOutDashboardGate() {
     await page.getByRole('button', { name: 'New chat' }).waitFor({ timeout: 15000 })
     await page.getByLabel('Message input').waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'Sign in' }).waitFor({ timeout: 15000 })
+    if (await page.getByRole('button', { name: /Datasets/ }).count()) {
+      throw new Error('Signed-out dashboard should not render the footer Datasets navigation.')
+    }
+    if (await page.getByRole('button', { name: /Remote runs/ }).count()) {
+      throw new Error('Signed-out dashboard should not render the footer Remote runs navigation.')
+    }
     if (await page.getByText('Sign in to continue', { exact: false }).count()) {
       throw new Error('Signed-out dashboard should not render the old explanatory gate.')
     }

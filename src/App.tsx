@@ -15,7 +15,6 @@ import {
   FileText,
   Globe2,
   GripVertical,
-  History,
   Library,
   LoaderCircle,
   LogOut,
@@ -3876,45 +3875,6 @@ function RunDetailPage({
             </div>
           ) : null}
           {isCompletedRun && primaryBriefingArtifact ? (
-            <section className="mb-6 flex flex-col gap-4 border-b border-border pb-6">
-              <div className="space-y-2">
-                <h2 className="text-xl font-semibold tracking-normal">
-                  {dataset?.name ?? 'Dataset'} · {formatStatus(currentRun.type)} run
-                </h2>
-                <h1 className="text-3xl font-semibold tracking-normal md:text-4xl">Dataset briefing ready</h1>
-                <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
-                  The durable briefing stays attached to this run as an artifact, alongside the generated dataset profile and supporting files.
-                </p>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="justify-start"
-                  onClick={() => {
-                    setSelectedArtifactId(primaryBriefingArtifact.id)
-                    setArtifactsOpen(true)
-                  }}
-                >
-                  Open briefing artifact
-                </Button>
-                {primaryProfileArtifact ? (
-                  <Button
-                    type="button"
-                    variant="outline"
-                    className="justify-start"
-                    onClick={() => {
-                      setSelectedArtifactId(primaryProfileArtifact.id)
-                      setArtifactsOpen(true)
-                    }}
-                  >
-                    Open profile artifact
-                  </Button>
-                ) : null}
-              </div>
-            </section>
-          ) : null}
-          {isCompletedRun && primaryBriefingArtifact ? (
             <article className="mb-8 text-[0.95rem] leading-7 text-foreground">
               {artifactLanguage(artifactPath(primaryBriefingArtifact), primaryBriefingArtifact) === 'html' ? (
                 artifactHtmlHref(primaryBriefingArtifact) ? (
@@ -4275,8 +4235,6 @@ function BillingLimitDialog({
 function DashboardSidebar({
   route,
   session,
-  datasets,
-  runs,
   recentAssistantSessions,
   showResearchChats,
   onOpenPaywall,
@@ -4284,8 +4242,6 @@ function DashboardSidebar({
 }: {
   route: DashboardRouteState
   session: SessionResponse
-  datasets: DatasetRecord[]
-  runs: RunRecord[]
   recentAssistantSessions: Array<StoredAssistantSession & {
     dataset?: DatasetRecord
     run?: RunRecord
@@ -4376,45 +4332,6 @@ function DashboardSidebar({
         ) : null}
       </SidebarContent>
       <SidebarFooter className="dashboard-sidebar-footer border-t border-sidebar-border p-3">
-        <SidebarMenu className="dashboard-sidebar-menu mb-2">
-          <SidebarMenuItem>
-            <SidebarMenuButton
-              className="dashboard-nav-button h-11 md:h-8"
-              isActive={route.view === 'datasets'}
-              onClick={() =>
-                navigate({
-                  view: 'datasets',
-                  runId: null,
-                  sessionId: null,
-                })}
-            >
-              <Database />
-              <span>Datasets</span>
-              <span className="ml-auto mr-3 text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
-                {datasets.length}
-              </span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-          <SidebarMenuItem>
-            <SidebarMenuButton
-              className="dashboard-nav-button h-11 md:h-8"
-              tooltip="Remote runs"
-              isActive={route.view === 'runs'}
-              onClick={() =>
-                navigate({
-                  view: 'runs',
-                  runId: null,
-                  sessionId: null,
-                })}
-            >
-              <History />
-              <span>Remote runs</span>
-              <span className="ml-auto mr-3 text-[11px] font-normal normal-case tracking-normal text-muted-foreground">
-                {runs.length}
-              </span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
         {signedOut ? null : (
           <div className="dashboard-profile-row">
             <Avatar className="dashboard-profile-avatar">
@@ -4696,8 +4613,6 @@ function DashboardApp({
       <DashboardSidebar
         route={route}
         session={session}
-        datasets={datasets}
-        runs={runs}
         recentAssistantSessions={recentAssistantSessions}
         showResearchChats={showResearchChats}
         onOpenPaywall={openBillingDialog}
