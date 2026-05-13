@@ -43,8 +43,27 @@ type R2BucketLike = {
   ): Promise<unknown>
 }
 
+const ASSISTANT_SESSION_CONTENT_STORAGE_LIMIT = 60_000
+const ASSISTANT_SESSION_METADATA_STORAGE_LIMIT = 24_000
+
 function isPlainRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
+}
+
+function truncateStoredText(value: string, limit: number) {
+  if (value.length <= limit) return value
+  return `${value.slice(0, limit).trimEnd()}\n\n[Truncated by control-plane storage guard at ${limit} characters.]`
+}
+
+function boundedMetadataForStorage(value: unknown) {
+  if (value === undefined) return undefined
+  const json = JSON.stringify(value)
+  if (json.length <= ASSISTANT_SESSION_METADATA_STORAGE_LIMIT) return value
+  return {
+    truncated: true,
+    originalSizeBytes: json.length,
+    preview: truncateStoredText(json, ASSISTANT_SESSION_METADATA_STORAGE_LIMIT),
+  }
 }
 
 function artifactPathFromContent(content: unknown, fallback: string) {
@@ -1455,6 +1474,8 @@ export class ControlPlane {
     createdAt?: string
   }) {
     const id = crypto.randomUUID()
+    const content = truncateStoredText(params.content, ASSISTANT_SESSION_CONTENT_STORAGE_LIMIT)
+    const metadata = boundedMetadataForStorage(params.metadata)
     this.sql.exec(
       `INSERT INTO assistant_session_entries (id, session_id, role, kind, title, content, metadata_json, created_at)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
@@ -1463,8 +1484,8 @@ export class ControlPlane {
       params.role,
       params.kind,
       params.title ?? null,
-      params.content,
-      params.metadata === undefined ? null : JSON.stringify(params.metadata),
+      content,
+      metadata === undefined ? null : JSON.stringify(metadata),
       params.createdAt ?? nowIso(),
     )
     this.sql.exec(`UPDATE assistant_sessions SET updated_at = ? WHERE id = ?`, nowIso(), params.sessionId)

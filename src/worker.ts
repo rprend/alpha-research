@@ -138,6 +138,10 @@ const DOCS_SECTION_INDEX_PATHS = new Set(['/cli', '/dashboard', '/public-dataset
 const MAX_TOOL_ROUNDS = 12
 const MAX_AGENT_TOOL_DATA_CHARS = 24_000
 const MAX_STORED_TOOL_METADATA_CHARS = 12_000
+const SESSION_CONTEXT_RECENT_ENTRY_LIMIT = 16
+const SESSION_CONTEXT_TOTAL_LIMIT = 36_000
+const SESSION_CONTEXT_ENTRY_LIMIT = 2_000
+const REMOTE_RUN_CHAT_HISTORY_LIMIT = 32_000
 const ASYNC_RUN_START_TOOLS = new Set([
   'start_remote_run',
   'continue_remote_agent_run',
@@ -743,16 +747,152 @@ function sessionEntryToPlainText(entry: Record<string, unknown>) {
   return `${role}${title}:\n${content}`
 }
 
-function entriesToPlainTextChatHistory(entries: Array<Record<string, unknown>>) {
-  return entries
+function entryCountsByKind(entries: Array<Record<string, unknown>>) {
+  const counts: Record<string, number> = {}
+  for (const entry of entries) {
+    const kind = typeof entry.kind === 'string' && entry.kind.trim() ? entry.kind.trim() : 'message'
+    counts[kind] = (counts[kind] ?? 0) + 1
+  }
+  return counts
+}
+
+function contextEntryText(entry: Record<string, unknown>, entryLimit = SESSION_CONTEXT_ENTRY_LIMIT) {
+  return truncatePromptSection(sessionEntryToPlainText(entry), entryLimit)
+}
+
+function compactSessionChatHistory(
+  entries: Array<Record<string, unknown>>,
+  options: {
+    totalLimit: number
+    recentEntryLimit: number
+    entryLimit?: number
+    includeToolResults?: boolean
+  },
+) {
+  const includeToolResults = options.includeToolResults ?? true
+  const eligibleEntries = entries
     .filter((entry) => {
       const kind = typeof entry.kind === 'string' ? entry.kind : ''
       const content = typeof entry.content === 'string' ? entry.content : ''
-      return kind !== 'tool_call' || content !== 'Calling plan_remote_run'
+      if (kind === 'tool_call') return false
+      if (!includeToolResults && (kind === 'tool_result' || kind === 'tool_error')) return false
+      return content !== 'Calling plan_remote_run'
     })
-    .map(sessionEntryToPlainText)
-    .filter(Boolean)
-    .join('\n\n')
+  const recentEntries = eligibleEntries.slice(-options.recentEntryLimit)
+  const omittedEntries = eligibleEntries.slice(0, Math.max(0, eligibleEntries.length - recentEntries.length))
+  const sections: string[] = []
+  if (omittedEntries.length > 0) {
+    sections.push([
+      `Earlier session context omitted from this model view: ${omittedEntries.length} entr${omittedEntries.length === 1 ? 'y' : 'ies'}.`,
+      `Omitted entry kinds: ${JSON.stringify(entryCountsByKind(omittedEntries))}.`,
+    ].join('\n'))
+  }
+  sections.push(...recentEntries.map((entry) => contextEntryText(entry, options.entryLimit)))
+  return {
+    text: truncatePromptSection(sections.filter(Boolean).join('\n\n'), options.totalLimit),
+    totalEntries: eligibleEntries.length,
+    includedEntries: recentEntries.length,
+    omittedEntries: omittedEntries.length,
+    truncated: omittedEntries.length > 0 || sections.join('\n\n').length > options.totalLimit,
+  }
+}
+
+function entriesToPlainTextChatHistory(entries: Array<Record<string, unknown>>) {
+  return compactSessionChatHistory(entries, {
+    totalLimit: REMOTE_RUN_CHAT_HISTORY_LIMIT,
+    recentEntryLimit: SESSION_CONTEXT_RECENT_ENTRY_LIMIT,
+    includeToolResults: false,
+  }).text
+}
+
+async function assistantSessionEntriesForContext(env: Env, sessionId: string) {
+  const payload = await proxyToControlPlaneJson<{ entries?: Array<Record<string, unknown>> }>(
+    env,
+    `/assistant-sessions/${encodeURIComponent(sessionId)}`,
+    { method: 'GET' },
+  )
+  return payload.entries ?? []
+}
+
+async function datasetHeaderForPrompt(env: Env, datasetId: string) {
+  const datasetPayload = await proxyToControlPlaneJson<{ dataset?: Record<string, unknown> }>(
+    env,
+    `/datasets/${encodeURIComponent(datasetId)}`,
+    { method: 'GET' },
+  )
+  const dataset = datasetPayload.dataset
+  const datasetName = dataset && typeof dataset.name === 'string' ? dataset.name : datasetId
+  const datasetDescription = dataset && typeof dataset.description === 'string' ? dataset.description.trim() : ''
+  const datasetPromptContents = await datasetContentsForPrompt(env, datasetId)
+  return [
+    `Current dataset context: ${datasetName} (${datasetId}).`,
+    datasetDescription ? `Dataset summary: ${datasetDescription}` : null,
+    'Treat this dataset as the session context and do not ask the user to restate the dataset id.',
+    datasetPromptContents,
+    'Use the dataset context above before asking the user for schema, coverage, field availability, briefing, or dataset identity details.',
+    'If the request is broad or ambiguous, propose a concrete scoped next step with assumptions before asking for more information.',
+  ].filter(Boolean).join('\n')
+}
+
+async function buildAssistantModelContext(params: {
+  env: Env
+  sessionId: string | null
+  datasetId: string | null
+  userInput: string
+  previousResponseId: string | null
+}) {
+  const sections: string[] = []
+  const decisions: Record<string, unknown> = {
+    usedPreviousResponseId: Boolean(params.previousResponseId),
+    resetPreviousResponseId: false,
+    reason: 'direct_thread',
+  }
+  if (params.datasetId) {
+    sections.push(await datasetHeaderForPrompt(params.env, params.datasetId))
+  }
+  if (params.sessionId) {
+    const entries = await assistantSessionEntriesForContext(params.env, params.sessionId)
+    const lastEntry = entries.at(-1)
+    const historyEntries =
+      lastEntry &&
+      lastEntry.role === 'user' &&
+      typeof lastEntry.content === 'string' &&
+      lastEntry.content.trim() === params.userInput.trim()
+        ? entries.slice(0, -1)
+        : entries
+    const compactHistory = compactSessionChatHistory(historyEntries, {
+      totalLimit: SESSION_CONTEXT_TOTAL_LIMIT,
+      recentEntryLimit: SESSION_CONTEXT_RECENT_ENTRY_LIMIT,
+    })
+    decisions.sessionEntries = compactHistory.totalEntries
+    decisions.includedSessionEntries = compactHistory.includedEntries
+    decisions.omittedSessionEntries = compactHistory.omittedEntries
+    decisions.compactedSessionHistory = compactHistory.truncated
+    if (compactHistory.text) {
+      sections.push([
+        'Compact assistant session context:',
+        '<assistant_session_context>',
+        compactHistory.text,
+        '</assistant_session_context>',
+      ].join('\n'))
+    }
+    if (params.previousResponseId && compactHistory.truncated) {
+      decisions.usedPreviousResponseId = false
+      decisions.resetPreviousResponseId = true
+      decisions.reason = 'compacted_session_history'
+    }
+  }
+  sections.push(`User request: ${params.userInput}`)
+  const input = sections.filter(Boolean).join('\n\n')
+  return {
+    input,
+    previousResponseId: decisions.resetPreviousResponseId ? null : params.previousResponseId,
+    decisions,
+  }
+}
+
+function entriesToPlainTextChatHistoryForPlanner(entries: Array<Record<string, unknown>>) {
+  return entriesToPlainTextChatHistory(entries)
 }
 
 const DATASET_PROMPT_SECTION_LIMIT = 12_000
@@ -944,7 +1084,7 @@ async function buildRemoteRunPromptFromSessionHistory(env: Env, sessionId: strin
     `/assistant-sessions/${encodeURIComponent(sessionId)}`,
     { method: 'GET' },
   )
-  const chatHistory = entriesToPlainTextChatHistory(payload.entries ?? [])
+  const chatHistory = entriesToPlainTextChatHistoryForPlanner(payload.entries ?? [])
   if (!chatHistory.trim()) {
     throw new Error('Cannot plan a remote run without chat history.')
   }
@@ -1733,28 +1873,16 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
     })
   }
 
-  let assistantInput = input
-  if (sessionDatasetId) {
-    const datasetPayload = await proxyToControlPlaneJson<{ dataset?: Record<string, unknown> }>(
-      env,
-      `/datasets/${encodeURIComponent(sessionDatasetId)}`,
-      { method: 'GET' },
-    )
-    const dataset = datasetPayload.dataset
-    const datasetName = dataset && typeof dataset.name === 'string' ? dataset.name : sessionDatasetId
-    const datasetDescription = dataset && typeof dataset.description === 'string' ? dataset.description.trim() : ''
-    const datasetPromptContents = await datasetContentsForPrompt(env, sessionDatasetId)
-    assistantInput = [
-      `Current dataset context: ${datasetName} (${sessionDatasetId}).`,
-      datasetDescription ? `Dataset summary: ${datasetDescription}` : null,
-      'Treat this dataset as the session context and do not ask the user to restate the dataset id.',
-      datasetPromptContents,
-      'Use the dataset context above before asking the user for schema, coverage, field availability, briefing, or dataset identity details.',
-      'If the request is broad or ambiguous, propose a concrete scoped next step with assumptions before asking for more information.',
-      '',
-      `User request: ${input}`,
-    ].filter(Boolean).join('\n')
-  }
+  const contextBuild = await buildAssistantModelContext({
+    env,
+    sessionId,
+    datasetId: sessionDatasetId,
+    userInput: input,
+    previousResponseId,
+  })
+  const assistantInput = contextBuild.input
+  const contextDecisions = { ...contextBuild.decisions }
+  previousResponseId = contextBuild.previousResponseId
 
   const tools = createResearchAgentTools(env, cliSession.email)
   const toolsByName = new Map(tools.map((tool) => [tool.name, tool]))
@@ -1772,6 +1900,9 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
       throw error
     }
     previousResponseId = null
+    contextDecisions.usedPreviousResponseId = false
+    contextDecisions.resetPreviousResponseId = true
+    contextDecisions.reason = 'openai_context_length_retry'
     response = await callResponsesApi(env, {
       instructions: RESEARCH_AGENT_INSTRUCTIONS,
       input: [
@@ -1805,7 +1936,7 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
           kind: 'local_summary',
           title: 'Assistant',
           content: reply,
-          metadata: { previousResponseId },
+          metadata: { previousResponseId, context: contextDecisions },
         })
         if (isNewSession) {
           const generatedTitle = await generateAssistantSessionTitle(env, input, reply).catch(() => null)
@@ -1856,7 +1987,7 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
             kind: 'local_summary',
             title: 'Assistant',
             content: `I could not complete ${tool.name}: ${message}`,
-            metadata: { previousResponseId, error: message, toolName: tool.name },
+            metadata: { previousResponseId, error: message, toolName: tool.name, context: contextDecisions },
           })
         }
         throw error
@@ -1894,7 +2025,7 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
               kind: 'local_summary',
               title: 'Assistant',
               content: result.summary,
-              metadata: { previousResponseId, approvalRequired: true },
+              metadata: { previousResponseId, approvalRequired: true, context: contextDecisions },
             })
             if (isNewSession) {
               const generatedTitle = await generateAssistantSessionTitle(env, input, result.summary).catch(() => null)
@@ -1915,7 +2046,7 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
             kind: 'local_summary',
             title: 'Assistant',
             content: result.summary,
-            metadata: { previousResponseId },
+            metadata: { previousResponseId, context: contextDecisions },
           })
           if (isNewSession) {
             const generatedTitle = await generateAssistantSessionTitle(env, input, result.summary).catch(() => null)
@@ -1940,6 +2071,7 @@ async function runResearchAssistantTurn(request: Request, env: Env) {
             content: result.summary,
             metadata: {
               previousResponseId,
+              context: contextDecisions,
               plannedRemoteRun: true,
               ...(isRecordValue(result.data) ? result.data : {}),
             },

@@ -98,6 +98,13 @@ assert(
   'Worker must meter remote Codex OpenAI traffic before returning successful model responses.',
 )
 assert(workerSource.includes('async function datasetContentsForPrompt'), 'Assistant is missing dataset prompt context helper.')
+assert(workerSource.includes('async function buildAssistantModelContext'), 'Assistant is missing centralized model context builder.')
+assert(
+  workerSource.includes('resetPreviousResponseId') &&
+    workerSource.includes('compacted_session_history') &&
+    workerSource.includes('SESSION_CONTEXT_RECENT_ENTRY_LIMIT'),
+  'Assistant context builder must record proactive previous_response_id reset decisions.',
+)
 assert(
   workerSource.includes('Dataset context files:') &&
     workerSource.includes('dataset_briefing_markdown') &&
@@ -118,6 +125,16 @@ assert(
 assert(
   workerSource.includes("content !== 'Calling plan_remote_run'"),
   'Remote run planner should use stored chat history without its own tool-call entry.',
+)
+assert(
+  workerSource.includes('REMOTE_RUN_CHAT_HISTORY_LIMIT') &&
+    workerSource.includes('entriesToPlainTextChatHistoryForPlanner'),
+  'Remote run planner must use bounded chat history.',
+)
+assert(
+  controlPlaneSource.includes('ASSISTANT_SESSION_CONTENT_STORAGE_LIMIT') &&
+    controlPlaneSource.includes('boundedMetadataForStorage'),
+  'Control plane must enforce assistant session entry storage bounds.',
 )
 assert(
   !workerSource.includes('MODEL_HIDDEN_RESEARCH_AGENT_TOOLS'),

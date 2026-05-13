@@ -37,6 +37,23 @@ Remote execution from the assistant must go through the remote-run planning and 
 
 Cancelling a run moves it to a terminal status. Later runner status callbacks for that run are ignored so a heartbeat or completion callback cannot move a cancelled run back to running or ready.
 
+## Context Lifecycle
+
+The control plane stores durable session and run records. Those records are not the model context. Assistant turns must build an explicit model view in the Worker before calling Responses.
+
+For every assistant turn, `runResearchAssistantTurn` resolves the session, appends the user request, then calls `buildAssistantModelContext`. That builder decides what enters the model prompt:
+
+- Current user request.
+- Dataset header and bounded dataset profile sections when the session has a dataset.
+- Compact assistant session history with recent entries included and older entries represented by counts.
+- A reset decision for `previous_response_id`.
+
+`previous_response_id` is an optimization for short continuity, not the source of truth. If the compact session view had to omit or truncate prior entries, the Worker proactively drops `previous_response_id` and reconstructs context from durable session records. If OpenAI still reports a context-length error, the Worker retries once without `previous_response_id` and records that decision in the local summary metadata.
+
+Tool results must expose bounded model/storage views. Full run results, artifacts, transcripts, and debug payloads remain available through run/debug endpoints, but tool output sent back to Responses uses compact result data. Assistant session entry metadata is also bounded before storage so remote callbacks or future tools cannot persist unbounded model-adjacent state.
+
+Remote-run planning uses the same compact chat-history policy. The planner receives a bounded, recent session view plus dataset context, not the full assistant entry table or run transcript.
+
 ## Agent Debug Checklist
 
 - Fetch run results.
