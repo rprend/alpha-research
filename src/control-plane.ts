@@ -1,5 +1,5 @@
 import { createPresignedObjectStoreUrl } from './spaces'
-import { launchModalResearchJob } from './modal'
+import { launchModalRemoteAgentExecution, launchModalResearchJob } from './modal'
 import {
   FREE_MONTHLY_CREDITS,
   STUDIO_MONTHLY_CREDITS,
@@ -318,6 +318,22 @@ type RunRecord = {
   updatedAt: string
 }
 
+type RemoteAgentExecutionRecord = {
+  id: string
+  ownerType: string
+  datasetId: string | null
+  kind: string
+  status: string
+  prompt: string
+  outputPreview: string | null
+  workerId: string | null
+  workerName: string | null
+  modalJson: string | null
+  metadataJson: string | null
+  createdAt: string
+  updatedAt: string
+}
+
 type ResearchSpecRecord = {
   id: string
   ownerEmail: string
@@ -501,6 +517,44 @@ export class ControlPlane {
       CREATE TABLE IF NOT EXISTS run_artifacts (
         id TEXT PRIMARY KEY,
         run_id TEXT NOT NULL,
+        type TEXT NOT NULL,
+        title TEXT NOT NULL,
+        url TEXT,
+        content_json TEXT,
+        created_at TEXT NOT NULL
+      );
+    `)
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS remote_agent_executions (
+        id TEXT PRIMARY KEY,
+        owner_type TEXT NOT NULL,
+        dataset_id TEXT,
+        kind TEXT NOT NULL,
+        status TEXT NOT NULL,
+        prompt TEXT NOT NULL,
+        output_preview TEXT,
+        worker_id TEXT,
+        worker_name TEXT,
+        modal_json TEXT,
+        metadata_json TEXT,
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL
+      );
+    `)
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS remote_agent_execution_events (
+        seq INTEGER PRIMARY KEY AUTOINCREMENT,
+        id TEXT NOT NULL UNIQUE,
+        execution_id TEXT NOT NULL,
+        message TEXT NOT NULL,
+        level TEXT NOT NULL,
+        created_at TEXT NOT NULL
+      );
+    `)
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS remote_agent_execution_artifacts (
+        id TEXT PRIMARY KEY,
+        execution_id TEXT NOT NULL,
         type TEXT NOT NULL,
         title TEXT NOT NULL,
         url TEXT,
@@ -909,6 +963,45 @@ export class ControlPlane {
     }
   }
 
+  private parseRemoteAgentExecutionRow(row: Record<string, unknown>): RemoteAgentExecutionRecord {
+    const get = (snake: string, camel: string) => row[snake] ?? row[camel]
+    return {
+      id: String(row.id),
+      ownerType: String(get('owner_type', 'ownerType') ?? 'admin'),
+      datasetId: get('dataset_id', 'datasetId') ? String(get('dataset_id', 'datasetId')) : null,
+      kind: String(row.kind ?? 'manual'),
+      status: String(row.status ?? 'queued'),
+      prompt: String(row.prompt ?? ''),
+      outputPreview: get('output_preview', 'outputPreview') ? String(get('output_preview', 'outputPreview')) : null,
+      workerId: get('worker_id', 'workerId') ? String(get('worker_id', 'workerId')) : null,
+      workerName: get('worker_name', 'workerName') ? String(get('worker_name', 'workerName')) : null,
+      modalJson: get('modal_json', 'modalJson') ? String(get('modal_json', 'modalJson')) : null,
+      metadataJson: get('metadata_json', 'metadataJson') ? String(get('metadata_json', 'metadataJson')) : null,
+      createdAt: String(get('created_at', 'createdAt')),
+      updatedAt: String(get('updated_at', 'updatedAt')),
+    }
+  }
+
+  private remoteAgentExecutionToJson(row: Record<string, unknown>) {
+    const execution = this.parseRemoteAgentExecutionRow(row)
+    return {
+      id: execution.id,
+      ownerType: execution.ownerType,
+      datasetId: execution.datasetId,
+      kind: execution.kind,
+      status: execution.status,
+      prompt: execution.prompt,
+      outputPreview: execution.outputPreview,
+      workerId: execution.workerId,
+      workerName: execution.workerName,
+      modal: execution.modalJson ? JSON.parse(execution.modalJson) : null,
+      metadata: execution.metadataJson ? JSON.parse(execution.metadataJson) : null,
+      artifactCount: this.getRemoteAgentExecutionArtifactCount(execution.id),
+      createdAt: execution.createdAt,
+      updatedAt: execution.updatedAt,
+    }
+  }
+
   private parseRunRow(row: Record<string, unknown>): RunRecord {
     const get = (snake: string, camel: string) => row[snake] ?? row[camel]
     return {
@@ -1080,6 +1173,98 @@ export class ControlPlane {
   private getRunArtifactCount(runId: string) {
     const row = this.rows('SELECT COUNT(*) AS count FROM run_artifacts WHERE run_id = ?', runId)[0]
     return Number(row?.count ?? 0)
+  }
+
+  private getRemoteAgentExecutionArtifactCount(executionId: string) {
+    const row = this.rows('SELECT COUNT(*) AS count FROM remote_agent_execution_artifacts WHERE execution_id = ?', executionId)[0]
+    return Number(row?.count ?? 0)
+  }
+
+  private appendRemoteAgentExecutionEvent(executionId: string, message: string, level = 'info') {
+    this.sql.exec(
+      `INSERT INTO remote_agent_execution_events (id, execution_id, message, level, created_at) VALUES (?, ?, ?, ?, ?)`,
+      crypto.randomUUID(),
+      executionId,
+      message,
+      level,
+      nowIso(),
+    )
+  }
+
+  private listRemoteAgentExecutionArtifacts(executionId: string) {
+    const rows = this.rows('SELECT * FROM remote_agent_execution_artifacts WHERE execution_id = ? ORDER BY created_at ASC', executionId)
+    return rows.map((row) => ({
+      id: String(row.id),
+      executionId: String(row.execution_id),
+      type: String(row.type),
+      title: String(row.title),
+      url: row.url ? String(row.url) : undefined,
+      content: row.content_json ? JSON.parse(String(row.content_json)) : undefined,
+      createdAt: String(row.created_at),
+    }))
+  }
+
+  private listRemoteAgentExecutionEvents(executionId: string) {
+    return this.rows(
+      'SELECT seq, id, message, level, created_at FROM remote_agent_execution_events WHERE execution_id = ? ORDER BY seq ASC',
+      executionId,
+    ).map((row) => ({
+      seq: Number(row.seq),
+      id: String(row.id),
+      executionId,
+      message: String(row.message),
+      level: String(row.level),
+      createdAt: String(row.created_at),
+    }))
+  }
+
+  private async createStoredRemoteAgentExecutionArtifact(
+    executionId: string,
+    type: string,
+    title: string,
+    content?: unknown,
+    url?: string | null,
+  ) {
+    const artifactId = crypto.randomUUID()
+    const mimeType = artifactMimeType(type, title, content)
+    const body = artifactBodyBytes(type, title, content)
+    let storedContent = artifactPreviewContent(content)
+    let artifactUrl = url ?? null
+
+    if (!artifactUrl && this.env.ARTIFACT_BUCKET && body) {
+      const sourcePath = artifactPathFromContent(content, title)
+      const filename = sourcePath.split(/[\\/]/u).filter(Boolean).at(-1) ?? title
+      const key = `remote-agent-executions/${sanitizeObjectKeySegment(executionId)}/artifacts/${artifactId}/${sanitizeObjectKeySegment(filename)}`
+      await this.env.ARTIFACT_BUCKET.put(key, body, { httpMetadata: { contentType: mimeType } })
+      const baseContent = isPlainRecord(storedContent) ? storedContent : {}
+      storedContent = {
+        ...baseContent,
+        path: artifactPathFromContent(content, title),
+        mimeType,
+        sizeBytes: body.byteLength,
+        storage: {
+          provider: 'cloudflare-r2',
+          bucket: 'ARTIFACT_BUCKET',
+          key,
+        },
+      }
+      if (artifactCanUseUrl(type, title, content)) {
+        artifactUrl = `/api/admin/remote-agent-executions/${encodeURIComponent(executionId)}/artifacts/${encodeURIComponent(artifactId)}/content`
+      }
+    }
+
+    this.sql.exec(
+      `INSERT INTO remote_agent_execution_artifacts (id, execution_id, type, title, url, content_json, created_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      artifactId,
+      executionId,
+      type,
+      title,
+      artifactUrl,
+      storedContent === undefined ? null : JSON.stringify(storedContent),
+      nowIso(),
+    )
+    return artifactId
   }
 
   private getRunSessionCount(runId: string) {
@@ -2348,6 +2533,146 @@ export class ControlPlane {
       }
     }
 
+    if (pathname === '/admin/remote-agent-executions' && request.method === 'POST') {
+      const body = await request.json().catch(() => ({})) as Record<string, unknown>
+      const prompt = typeof body.prompt === 'string' ? body.prompt : ''
+      if (!prompt.trim()) {
+        return respondJson({ error: 'Missing prompt' }, 400)
+      }
+      const executionId = crypto.randomUUID()
+      const timestamp = nowIso()
+      const ownerType = typeof body.ownerType === 'string' && body.ownerType.trim() ? body.ownerType.trim() : 'admin'
+      const kind = typeof body.kind === 'string' && body.kind.trim() ? body.kind.trim() : 'manual'
+      const datasetId = typeof body.datasetId === 'string' && body.datasetId.trim() ? body.datasetId.trim() : null
+      const metadata = isPlainRecord(body.metadata) ? body.metadata : {}
+      this.sql.exec(
+        `INSERT INTO remote_agent_executions (
+           id, owner_type, dataset_id, kind, status, prompt, output_preview, metadata_json, created_at, updated_at
+         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        executionId,
+        ownerType,
+        datasetId,
+        kind,
+        'queued',
+        prompt,
+        'Queued remote agent execution.',
+        JSON.stringify(metadata),
+        timestamp,
+        timestamp,
+      )
+      this.appendRemoteAgentExecutionEvent(executionId, 'Preparing Modal agent execution.')
+      this.sql.exec(
+        `UPDATE remote_agent_executions SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+        'booting',
+        'Preparing Modal agent execution.',
+        nowIso(),
+        executionId,
+      )
+
+      try {
+        const dataset = datasetId ? this.getDataset(datasetId) : null
+        const datasetMountPath = datasetId ? `/data/datasets/${datasetId}` : '/data'
+        const modal = await launchModalRemoteAgentExecution(this.env, {
+          executionId,
+          kind,
+          prompt,
+          callbackOrigin: typeof body.callbackOrigin === 'string' ? body.callbackOrigin : '',
+          datasetId,
+          datasetMountPath,
+          manifestPath: dataset?.manifestPath?.startsWith('/data/')
+            ? dataset.manifestPath
+            : datasetId
+              ? `/data/datasets/${datasetId}/manifest.json`
+              : '/data/manifest.json',
+          datasetReadOnly: true,
+          extraContext: isPlainRecord(body.extraContext) ? body.extraContext : undefined,
+        })
+        this.appendRemoteAgentExecutionEvent(executionId, `Modal agent job ${modal.id} submitted; results will be written to ${modal.resultPath}.`)
+        this.sql.exec(
+          `UPDATE remote_agent_executions
+              SET worker_id = ?, worker_name = ?, modal_json = ?, status = ?, output_preview = ?, updated_at = ?
+            WHERE id = ?`,
+          modal.id,
+          modal.name,
+          JSON.stringify(modal),
+          'booting',
+          'Modal agent job submitted.',
+          nowIso(),
+          executionId,
+        )
+        const row = this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]!
+        return respondJson({
+          execution: this.remoteAgentExecutionToJson(row),
+          remoteAgentExecution: this.remoteAgentExecutionToJson(row),
+          modal,
+          adminStatusUrl: `/api/admin/remote-agent-executions/${encodeURIComponent(executionId)}`,
+          artifactsUrl: `/api/admin/remote-agent-executions/${encodeURIComponent(executionId)}/artifacts`,
+        })
+      } catch (error) {
+        const message = error instanceof Error ? error.message : 'Remote agent execution launch failed'
+        this.appendRemoteAgentExecutionEvent(executionId, `Remote agent execution launch failed: ${message}`, 'error')
+        this.sql.exec(
+          `UPDATE remote_agent_executions SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+          'failed',
+          message,
+          nowIso(),
+          executionId,
+        )
+        return respondJson({ error: message, execution: this.remoteAgentExecutionToJson(this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]!) }, 500)
+      }
+    }
+
+    const adminExecutionMatch = pathname.match(/^\/admin\/remote-agent-executions\/([^/]+)$/u)
+    if (adminExecutionMatch && request.method === 'GET') {
+      const executionId = decodeURIComponent(adminExecutionMatch[1] ?? '')
+      const row = this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]
+      if (!row) return respondJson({ error: 'Remote agent execution not found' }, 404)
+      return respondJson({
+        execution: this.remoteAgentExecutionToJson(row),
+        remoteAgentExecution: this.remoteAgentExecutionToJson(row),
+        events: this.listRemoteAgentExecutionEvents(executionId),
+      })
+    }
+
+    const adminExecutionCancelMatch = pathname.match(/^\/admin\/remote-agent-executions\/([^/]+)\/cancel$/u)
+    if (adminExecutionCancelMatch && request.method === 'POST') {
+      const executionId = decodeURIComponent(adminExecutionCancelMatch[1] ?? '')
+      const row = this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]
+      if (!row) return respondJson({ error: 'Remote agent execution not found' }, 404)
+      this.appendRemoteAgentExecutionEvent(executionId, 'Cancellation requested.', 'warning')
+      this.sql.exec(
+        `UPDATE remote_agent_executions SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+        'cancelled',
+        'Cancellation requested.',
+        nowIso(),
+        executionId,
+      )
+      return respondJson({ execution: this.remoteAgentExecutionToJson(this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]!) })
+    }
+
+    const adminExecutionArtifactsMatch = pathname.match(/^\/admin\/remote-agent-executions\/([^/]+)\/artifacts$/u)
+    if (adminExecutionArtifactsMatch && request.method === 'GET') {
+      const executionId = decodeURIComponent(adminExecutionArtifactsMatch[1] ?? '')
+      return respondJson({ artifacts: this.listRemoteAgentExecutionArtifacts(executionId) })
+    }
+
+    const adminExecutionArtifactContentMatch = pathname.match(/^\/admin\/remote-agent-executions\/([^/]+)\/artifacts\/([^/]+)\/content$/u)
+    if (adminExecutionArtifactContentMatch && request.method === 'GET') {
+      const artifactId = decodeURIComponent(adminExecutionArtifactContentMatch[2] ?? '')
+      const row = this.rows('SELECT * FROM remote_agent_execution_artifacts WHERE id = ? LIMIT 1', artifactId)[0]
+      if (!row) return respondJson({ error: 'Artifact not found' }, 404)
+      const content = row.content_json ? JSON.parse(String(row.content_json)) : null
+      const storage = isPlainRecord(content) && isPlainRecord(content.storage) ? content.storage : null
+      if (storage && storage.provider === 'cloudflare-r2' && typeof storage.key === 'string' && this.env.ARTIFACT_BUCKET) {
+        const object = await this.env.ARTIFACT_BUCKET.get(storage.key)
+        if (!object?.body) return respondJson({ error: 'Artifact object not found' }, 404)
+        const headers = new Headers()
+        object.writeHttpMetadata(headers)
+        return new Response(object.body, { headers })
+      }
+      return respondJson({ content })
+    }
+
     if (pathname === '/runs' && request.method === 'GET') {
       const ownerEmail = url.searchParams.get('ownerEmail')
       const datasetId = url.searchParams.get('datasetId')
@@ -3127,6 +3452,71 @@ export class ControlPlane {
         return respondJson({ error: 'Research spec not found' }, 404)
       }
       return respondJson({ spec: this.researchSpecToJson(row) })
+    }
+
+    const internalExecutionEventMatch = pathname.match(/^\/internal\/remote-agent-executions\/([^/]+)\/events$/u)
+    if (internalExecutionEventMatch && request.method === 'POST') {
+      const executionId = decodeURIComponent(internalExecutionEventMatch[1] ?? '')
+      const level = request.headers.get('X-Run-Level') ?? 'info'
+      const message = await request.text()
+      this.appendRemoteAgentExecutionEvent(executionId, message, level)
+      return respondJson({ ok: true })
+    }
+
+    const internalExecutionSessionEntryMatch = pathname.match(/^\/internal\/remote-agent-executions\/([^/]+)\/session-entries$/u)
+    if (internalExecutionSessionEntryMatch && request.method === 'POST') {
+      const executionId = decodeURIComponent(internalExecutionSessionEntryMatch[1] ?? '')
+      const body = await request.json().catch(() => ({})) as Record<string, unknown>
+      const title = body.title ? String(body.title) : String(body.kind ?? 'session_entry')
+      const content = String(body.content ?? '')
+      if (!content) return respondJson({ error: 'Missing content' }, 400)
+      const id = await this.createStoredRemoteAgentExecutionArtifact(
+        executionId,
+        'remote_agent_session_entry',
+        title,
+        {
+          role: String(body.role ?? 'assistant'),
+          kind: String(body.kind ?? 'message'),
+          title,
+          text: content,
+          metadata: body.metadata,
+        },
+      )
+      return respondJson({ id })
+    }
+
+    const internalExecutionArtifactMatch = pathname.match(/^\/internal\/remote-agent-executions\/([^/]+)\/artifacts$/u)
+    if (internalExecutionArtifactMatch && request.method === 'POST') {
+      const executionId = decodeURIComponent(internalExecutionArtifactMatch[1] ?? '')
+      const body = await request.json().catch(() => ({})) as Record<string, unknown>
+      const id = await this.createStoredRemoteAgentExecutionArtifact(
+        executionId,
+        String(body.type ?? 'artifact'),
+        String(body.title ?? 'artifact'),
+        body.content,
+        body.url ? String(body.url) : null,
+      )
+      return respondJson({ ok: true, id })
+    }
+
+    const internalExecutionStatusMatch = pathname.match(/^\/internal\/remote-agent-executions\/([^/]+)\/status$/u)
+    if (internalExecutionStatusMatch && request.method === 'POST') {
+      const executionId = decodeURIComponent(internalExecutionStatusMatch[1] ?? '')
+      const body = await request.json().catch(() => ({})) as Record<string, unknown>
+      const row = this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]
+      if (!row) return respondJson({ error: 'Remote agent execution not found' }, 404)
+      const execution = this.parseRemoteAgentExecutionRow(row)
+      if (isTerminalStatus(execution.status)) {
+        return respondJson({ execution: this.remoteAgentExecutionToJson(row), ignored: true })
+      }
+      this.sql.exec(
+        `UPDATE remote_agent_executions SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+        String(body.status ?? 'running'),
+        body.outputPreview ? String(body.outputPreview) : null,
+        nowIso(),
+        executionId,
+      )
+      return respondJson({ execution: this.remoteAgentExecutionToJson(this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]!) })
     }
 
     const internalEventMatch = pathname.match(/^\/internal\/runs\/([^/]+)\/events$/u)

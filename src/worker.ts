@@ -722,6 +722,38 @@ async function proxyRemoteOpenAIRequest(request: Request, env: Env, runId: strin
   })
 }
 
+async function proxyRemoteAgentExecutionOpenAIRequest(request: Request, env: Env, proxyPath: string) {
+  if (!requireInternalRunnerToken(request, env)) {
+    return json({ error: 'Unauthorized' }, 401)
+  }
+  if (!env.OPENAI_API_KEY) {
+    return json({ error: 'Missing OPENAI_API_KEY on alpha-research worker' }, 502)
+  }
+  const url = new URL(request.url)
+  const requestText = request.method === 'GET' || request.method === 'HEAD'
+    ? null
+    : await request.text()
+  const upstreamUrl = new URL(`https://api.openai.com/${normalizeOpenAIProxyPath(proxyPath)}`)
+  upstreamUrl.search = url.search
+  const upstreamHeaders = new Headers(request.headers)
+  upstreamHeaders.set('Authorization', `Bearer ${env.OPENAI_API_KEY}`)
+  upstreamHeaders.delete('Host')
+  upstreamHeaders.delete('Content-Length')
+  const upstream = await fetch(upstreamUrl, {
+    method: request.method,
+    headers: upstreamHeaders,
+    body: requestText,
+  })
+  const responseHeaders = new Headers(upstream.headers)
+  responseHeaders.delete('content-encoding')
+  responseHeaders.delete('content-length')
+  return new Response(upstream.body, {
+    status: upstream.status,
+    statusText: upstream.statusText,
+    headers: responseHeaders,
+  })
+}
+
 function publicBillingResponse(snapshot: { overview: BillingCheckResult; subscription: (SubscriptionRecord & { createdAt?: string }) | null }) {
   return {
     subscription: {
@@ -1027,6 +1059,7 @@ async function buildAssistantModelContext(params: {
   datasetId: string | null
   userInput: string
   previousResponseId: string | null
+  includeSessionHistory?: boolean
   trace?: AssistantTrace | null
 }) {
   const sections: string[] = []
@@ -1035,23 +1068,43 @@ async function buildAssistantModelContext(params: {
     resetPreviousResponseId: false,
     reason: 'direct_thread',
   }
-  sections.push(await datasetsInventoryForPrompt(params.env, params.ownerEmail, params.trace))
-  if (params.datasetId) {
-    const startedAt = Date.now()
-    sections.push(await datasetHeaderForPrompt(params.env, params.datasetId))
-    traceMark(params.trace ?? null, 'session_dataset_context_loaded', {
-      datasetId: params.datasetId,
-      elapsedMs: Date.now() - startedAt,
-    })
+
+  const datasetsInventoryPromise = datasetsInventoryForPrompt(params.env, params.ownerEmail, params.trace)
+  const datasetHeaderPromise = params.datasetId
+    ? (async () => {
+        const startedAt = Date.now()
+        const header = await datasetHeaderForPrompt(params.env, params.datasetId!)
+        traceMark(params.trace ?? null, 'session_dataset_context_loaded', {
+          datasetId: params.datasetId,
+          elapsedMs: Date.now() - startedAt,
+        })
+        return header
+      })()
+    : Promise.resolve(null)
+  const sessionEntriesPromise = params.sessionId && params.includeSessionHistory !== false
+    ? (async () => {
+        const sessionId = params.sessionId!
+        const startedAt = Date.now()
+        const entries = await assistantSessionEntriesForContext(params.env, sessionId)
+        traceMark(params.trace ?? null, 'session_entries_loaded', {
+          sessionId,
+          entryCount: entries.length,
+          elapsedMs: Date.now() - startedAt,
+        })
+        return entries
+      })()
+    : Promise.resolve(null)
+
+  const [datasetsInventory, datasetHeader, entries] = await Promise.all([
+    datasetsInventoryPromise,
+    datasetHeaderPromise,
+    sessionEntriesPromise,
+  ])
+  sections.push(datasetsInventory)
+  if (datasetHeader) {
+    sections.push(datasetHeader)
   }
-  if (params.sessionId) {
-    const startedAt = Date.now()
-    const entries = await assistantSessionEntriesForContext(params.env, params.sessionId)
-    traceMark(params.trace ?? null, 'session_entries_loaded', {
-      sessionId: params.sessionId,
-      entryCount: entries.length,
-      elapsedMs: Date.now() - startedAt,
-    })
+  if (entries) {
     const lastEntry = entries.at(-1)
     const historyEntries =
       lastEntry &&
@@ -2408,6 +2461,7 @@ async function runResearchAssistantTurnCore(params: {
     datasetId: sessionDatasetId,
     userInput: input,
     previousResponseId,
+    includeSessionHistory: !isNewSession,
     trace,
   })
   const assistantInput = contextBuild.input
@@ -2872,6 +2926,63 @@ export default {
       })
     }
 
+    if (pathname === '/api/admin/remote-agent-executions' && request.method === 'POST') {
+      if (!requireAdminToken(request, env)) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      const body = await request.json().catch(() => ({}))
+      return proxyToControlPlane(env, '/admin/remote-agent-executions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...body,
+          callbackOrigin: url.origin,
+        }),
+      })
+    }
+
+    const adminExecutionMatch = pathname.match(/^\/api\/admin\/remote-agent-executions\/([^/]+)$/u)
+    if (adminExecutionMatch && request.method === 'GET') {
+      if (!requireAdminToken(request, env)) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      return proxyToControlPlane(env, `/admin/remote-agent-executions/${encodeURIComponent(adminExecutionMatch[1] ?? '')}`, {
+        method: 'GET',
+      })
+    }
+
+    const adminExecutionCancelMatch = pathname.match(/^\/api\/admin\/remote-agent-executions\/([^/]+)\/cancel$/u)
+    if (adminExecutionCancelMatch && request.method === 'POST') {
+      if (!requireAdminToken(request, env)) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      return proxyToControlPlane(env, `/admin/remote-agent-executions/${encodeURIComponent(adminExecutionCancelMatch[1] ?? '')}/cancel`, {
+        method: 'POST',
+      })
+    }
+
+    const adminExecutionArtifactsMatch = pathname.match(/^\/api\/admin\/remote-agent-executions\/([^/]+)\/artifacts$/u)
+    if (adminExecutionArtifactsMatch && request.method === 'GET') {
+      if (!requireAdminToken(request, env)) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      return proxyToControlPlane(env, `/admin/remote-agent-executions/${encodeURIComponent(adminExecutionArtifactsMatch[1] ?? '')}/artifacts`, {
+        method: 'GET',
+      })
+    }
+
+    const adminExecutionArtifactContentMatch = pathname.match(/^\/api\/admin\/remote-agent-executions\/([^/]+)\/artifacts\/([^/]+)\/content$/u)
+    if (adminExecutionArtifactContentMatch && request.method === 'GET') {
+      if (!requireAdminToken(request, env)) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      return proxyToControlPlane(
+        env,
+        `/admin/remote-agent-executions/${encodeURIComponent(adminExecutionArtifactContentMatch[1] ?? '')}/artifacts/${encodeURIComponent(adminExecutionArtifactContentMatch[2] ?? '')}/content`,
+        { method: 'GET' },
+      )
+    }
+
     if (pathname === '/api/admin/subscriptions/grant' && request.method === 'POST') {
       if (!requireAdminToken(request, env)) {
         return json({ error: 'Unauthorized' }, 401)
@@ -3246,6 +3357,67 @@ export default {
         decodeURIComponent(internalOpenAIMatch[1] ?? ''),
         internalOpenAIMatch[2] ?? '',
       )
+    }
+
+    const internalExecutionOpenAIMatch = pathname.match(/^\/api\/internal\/remote-agent-executions\/([^/]+)\/openai\/(.+)$/u)
+    if (internalExecutionOpenAIMatch) {
+      return proxyRemoteAgentExecutionOpenAIRequest(request, env, internalExecutionOpenAIMatch[2] ?? '')
+    }
+
+    const internalExecutionEventMatch = pathname.match(/^\/api\/internal\/remote-agent-executions\/([^/]+)\/events$/u)
+    if (internalExecutionEventMatch && request.method === 'POST') {
+      const bearer = request.headers.get('Authorization') ?? ''
+      if (bearer !== `Bearer ${env.RESEARCH_INTERNAL_RUNNER_TOKEN ?? ''}`) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      const body = await request.text()
+      return proxyToControlPlane(env, `/internal/remote-agent-executions/${encodeURIComponent(internalExecutionEventMatch[1] ?? '')}/events`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain', 'X-Run-Level': request.headers.get('X-Run-Level') ?? 'info' },
+        body,
+      })
+    }
+
+    const internalExecutionStatusMatch = pathname.match(/^\/api\/internal\/remote-agent-executions\/([^/]+)\/status$/u)
+    if (internalExecutionStatusMatch && request.method === 'POST') {
+      const bearer = request.headers.get('Authorization') ?? ''
+      if (bearer !== `Bearer ${env.RESEARCH_INTERNAL_RUNNER_TOKEN ?? ''}`) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      const body = await request.text()
+      return proxyToControlPlane(env, `/internal/remote-agent-executions/${encodeURIComponent(internalExecutionStatusMatch[1] ?? '')}/status`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body,
+      })
+    }
+
+    const internalExecutionArtifactMatch = pathname.match(/^\/api\/internal\/remote-agent-executions\/([^/]+)\/artifacts$/u)
+    if (internalExecutionArtifactMatch && request.method === 'POST') {
+      const bearer = request.headers.get('Authorization') ?? ''
+      if (bearer !== `Bearer ${env.RESEARCH_INTERNAL_RUNNER_TOKEN ?? ''}`) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      const body = await request.text()
+      return proxyToControlPlane(env, `/internal/remote-agent-executions/${encodeURIComponent(internalExecutionArtifactMatch[1] ?? '')}/artifacts`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body,
+      })
+    }
+
+    const internalExecutionSessionEntryMatch = pathname.match(/^\/api\/internal\/remote-agent-executions\/([^/]+)\/session-entries$/u)
+    if (internalExecutionSessionEntryMatch && request.method === 'POST') {
+      const bearer = request.headers.get('Authorization') ?? ''
+      if (bearer !== `Bearer ${env.RESEARCH_INTERNAL_RUNNER_TOKEN ?? ''}`) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      const body = await request.text()
+      return proxyToControlPlane(env, `/internal/remote-agent-executions/${encodeURIComponent(internalExecutionSessionEntryMatch[1] ?? '')}/session-entries`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body,
+      })
     }
 
     const internalEventMatch = pathname.match(/^\/api\/internal\/runs\/([^/]+)\/events$/u)
