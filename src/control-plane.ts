@@ -283,6 +283,7 @@ type DatasetRecord = {
   volumeMountPath: string | null
   ingestConfigJson: string | null
   activeRunId: string | null
+  activeRemoteExecutionId: string | null
   leaseAcquiredAt: string | null
   createdAt: string
   updatedAt: string
@@ -447,6 +448,7 @@ export class ControlPlane {
         volume_mount_path TEXT,
         ingest_config_json TEXT,
         active_run_id TEXT,
+        active_remote_execution_id TEXT,
         lease_acquired_at TEXT,
         created_at TEXT NOT NULL,
         updated_at TEXT NOT NULL
@@ -656,6 +658,7 @@ export class ControlPlane {
       );
     `)
     try { this.sql.exec('ALTER TABLE datasets ADD COLUMN active_run_id TEXT') } catch {}
+    try { this.sql.exec('ALTER TABLE datasets ADD COLUMN active_remote_execution_id TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE datasets ADD COLUMN lease_acquired_at TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE runs ADD COLUMN worker_id TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE runs ADD COLUMN worker_name TEXT') } catch {}
@@ -906,6 +909,8 @@ export class ControlPlane {
       createdAt: dataset.createdAt,
       updatedAt: dataset.updatedAt,
       activeRunId: dataset.activeRunId,
+      activeRemoteExecutionId: dataset.activeRemoteExecutionId,
+      activeCanonicalExecutionId: dataset.activeRemoteExecutionId,
       leaseAcquiredAt: dataset.leaseAcquiredAt,
       volume: dataset.volumeId ? {
         id: dataset.volumeId,
@@ -939,6 +944,7 @@ export class ControlPlane {
       volumeMountPath: get('volume_mount_path', 'volumeMountPath') ? String(get('volume_mount_path', 'volumeMountPath')) : null,
       ingestConfigJson: get('ingest_config_json', 'ingestConfigJson') ? String(get('ingest_config_json', 'ingestConfigJson')) : null,
       activeRunId: get('active_run_id', 'activeRunId') ? String(get('active_run_id', 'activeRunId')) : null,
+      activeRemoteExecutionId: get('active_remote_execution_id', 'activeRemoteExecutionId') ? String(get('active_remote_execution_id', 'activeRemoteExecutionId')) : null,
       leaseAcquiredAt: get('lease_acquired_at', 'leaseAcquiredAt') ? String(get('lease_acquired_at', 'leaseAcquiredAt')) : null,
       createdAt: String(get('created_at', 'createdAt')),
       updatedAt: String(get('updated_at', 'updatedAt')),
@@ -1433,6 +1439,114 @@ export class ControlPlane {
       nowIso(),
       datasetId,
     )
+  }
+
+  private getActiveRemoteExecution(datasetId: string) {
+    const dataset = this.getDataset(datasetId)
+    if (!dataset?.activeRemoteExecutionId) {
+      return null
+    }
+    const row = this.rows(
+      'SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1',
+      dataset.activeRemoteExecutionId,
+    )[0]
+    return row ? this.parseRemoteAgentExecutionRow(row) : null
+  }
+
+  private assignDatasetRemoteExecution(datasetId: string, executionId: string) {
+    this.sql.exec(
+      `UPDATE datasets SET active_remote_execution_id = ?, updated_at = ? WHERE id = ?`,
+      executionId,
+      nowIso(),
+      datasetId,
+    )
+  }
+
+  private releaseDatasetRemoteExecution(datasetId: string | null, executionId: string) {
+    if (!datasetId) return
+    const dataset = this.getDataset(datasetId)
+    if (!dataset || dataset.activeRemoteExecutionId !== executionId) return
+    this.sql.exec(
+      `UPDATE datasets SET active_remote_execution_id = NULL, updated_at = ? WHERE id = ?`,
+      nowIso(),
+      datasetId,
+    )
+  }
+
+  private async createRemoteAgentExecution(input: {
+    ownerType: string
+    datasetId?: string | null
+    kind: string
+    prompt: string
+    callbackOrigin: string
+    metadata?: Record<string, unknown>
+    datasetMountPath?: string
+    manifestPath?: string
+    datasetReadOnly?: boolean
+    extraContext?: Record<string, unknown>
+  }) {
+    const executionId = crypto.randomUUID()
+    const timestamp = nowIso()
+    this.sql.exec(
+      `INSERT INTO remote_agent_executions (
+         id, owner_type, dataset_id, kind, status, prompt, output_preview, metadata_json, created_at, updated_at
+       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      executionId,
+      input.ownerType,
+      input.datasetId ?? null,
+      input.kind,
+      'queued',
+      input.prompt,
+      'Queued remote agent execution.',
+      JSON.stringify(input.metadata ?? {}),
+      timestamp,
+      timestamp,
+    )
+    this.appendRemoteAgentExecutionEvent(executionId, 'Preparing Modal agent execution.')
+    this.sql.exec(
+      `UPDATE remote_agent_executions SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+      'booting',
+      'Preparing Modal agent execution.',
+      nowIso(),
+      executionId,
+    )
+    const dataset = input.datasetId ? this.getDataset(input.datasetId) : null
+    const datasetMountPath = input.datasetMountPath ?? (input.datasetId ? `/data/datasets/${input.datasetId}` : '/data')
+    const modal = await launchModalRemoteAgentExecution(this.env, {
+      executionId,
+      kind: input.kind,
+      prompt: input.prompt,
+      callbackOrigin: input.callbackOrigin,
+      datasetId: input.datasetId ?? null,
+      datasetMountPath,
+      manifestPath: input.manifestPath
+        ?? (dataset?.manifestPath?.startsWith('/data/')
+          ? dataset.manifestPath
+          : input.datasetId
+            ? `/data/datasets/${input.datasetId}/manifest.json`
+            : '/data/manifest.json'),
+      datasetReadOnly: input.datasetReadOnly ?? true,
+      extraContext: input.extraContext,
+    })
+    this.appendRemoteAgentExecutionEvent(executionId, `Modal agent job ${modal.id} submitted; results will be written to ${modal.resultPath}.`)
+    this.sql.exec(
+      `UPDATE remote_agent_executions
+          SET worker_id = ?, worker_name = ?, modal_json = ?, status = ?, output_preview = ?, updated_at = ?
+        WHERE id = ?`,
+      modal.id,
+      modal.name,
+      JSON.stringify(modal),
+      'booting',
+      'Modal agent job submitted.',
+      nowIso(),
+      executionId,
+    )
+    const row = this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]!
+    return {
+      executionId,
+      execution: this.remoteAgentExecutionToJson(row),
+      modal,
+    }
   }
 
   private createRun(datasetId: string, ownerEmail: string, type: string, prompt?: string | null) {
@@ -1936,7 +2050,7 @@ export class ControlPlane {
     }
 
     if (pathname === '/admin/canonical-datasets/bootstrap' && request.method === 'POST') {
-      let runId: string | null = null
+      let executionId: string | null = null
       let canonicalDatasetId: string | null = null
       try {
         const body = await request.json().catch(() => ({})) as Record<string, unknown>
@@ -1978,24 +2092,12 @@ export class ControlPlane {
           return respondJson({ error: 'Dataset already exists for another owner' }, 409)
         }
         if (existingDataset) {
-          await this.expireStaleRunsForDataset(datasetId)
-          const blockingRun = this.getLeaseBlockingRun(datasetId)
-          if (blockingRun && !isTerminalStatus(blockingRun.status)) {
+          const blockingExecution = this.getActiveRemoteExecution(datasetId)
+          if (blockingExecution && !isTerminalStatus(blockingExecution.status)) {
             return respondJson({
-              error: `Dataset ${datasetId} already has active canonical bootstrap run ${blockingRun.id}.`,
-              activeRuns: [this.runRowToJson({
-                id: blockingRun.id,
-                dataset_id: blockingRun.datasetId,
-                owner_email: blockingRun.ownerEmail,
-                type: blockingRun.type,
-                status: blockingRun.status,
-                prompt: blockingRun.prompt,
-                output_preview: blockingRun.outputPreview,
-                worker_id: blockingRun.workerId,
-                worker_name: blockingRun.workerName,
-                created_at: blockingRun.createdAt,
-                updated_at: blockingRun.updatedAt,
-              })],
+              error: `Dataset ${datasetId} already has active canonical remote execution ${blockingExecution.id}.`,
+              activeRemoteExecutionId: blockingExecution.id,
+              activeRemoteExecution: blockingExecution,
             }, 409)
           }
           this.sql.exec(
@@ -2082,14 +2184,25 @@ export class ControlPlane {
               : 'markdown',
           title: artifactName,
         }))
-        runId = this.createRun(datasetId, PLATFORM_DATASET_OWNER_EMAIL, 'canonical-dataset-bootstrap', prompt)
-        this.acquireDatasetLease(datasetId, runId)
-        this.sql.exec(
-          `INSERT INTO run_metadata (run_id, config_json, artifact_spec_json) VALUES (?, ?, ?)`,
-          runId,
-          JSON.stringify(config),
-          JSON.stringify(artifactSpec),
-        )
+        const remote = await this.createRemoteAgentExecution({
+          ownerType: 'service',
+          datasetId,
+          kind: 'canonical-dataset-bootstrap',
+          prompt,
+          callbackOrigin,
+          metadata: config,
+          datasetMountPath,
+          manifestPath,
+          datasetReadOnly: false,
+          extraContext: {
+            serviceOwned: true,
+            userSessionRequired: false,
+            config,
+            artifacts: artifactSpec,
+          },
+        })
+        executionId = remote.executionId
+        this.assignDatasetRemoteExecution(datasetId, executionId)
         this.sql.exec(
           `UPDATE datasets
              SET volume_id = ?, volume_name = ?, volume_region = ?, volume_mount_path = ?, manifest_path = ?, deployment_status = ?, status = ?, updated_at = ?
@@ -2104,67 +2217,27 @@ export class ControlPlane {
           nowIso(),
           datasetId,
         )
-        this.appendRunEvent(runId, 'Submitting service-owned canonical dataset bootstrap job to Modal.')
-        this.sql.exec(
-          `UPDATE runs SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
-          'booting',
-          'Submitting Modal canonical dataset bootstrap job.',
-          nowIso(),
-          runId,
-        )
-        const modalJob = await launchModalResearchJob(this.env, {
-          datasetId,
-          runId,
-          runType: 'canonical-dataset-bootstrap',
-          prompt,
-          configJson: JSON.stringify(config),
-          artifactSpecJson: JSON.stringify(artifactSpec),
-          callbackOrigin,
-          datasetMountPath,
-          manifestPath,
-          datasetReadOnly: false,
-          extraContext: {
-            serviceOwned: true,
-            userSessionRequired: false,
-          },
-        })
-        this.appendRunEvent(runId, `Modal canonical dataset bootstrap job ${modalJob.id} submitted; results will be written to ${modalJob.resultPath}.`)
-        this.sql.exec(
-          `UPDATE runs SET worker_id = ?, worker_name = ?, status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
-          modalJob.id,
-          modalJob.name,
-          'booting',
-          'Modal canonical dataset bootstrap job submitted.',
-          nowIso(),
-          runId,
-        )
         const dataset = this.getDataset(datasetId)
         return respondJson({
           dataset: dataset ? this.datasetRowToJson(dataset as unknown as Record<string, unknown>) : null,
-          run: this.runRowToJson(this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]!),
-          modal: {
-            provider: 'modal',
-            jobId: modalJob.id,
-            resultPath: modalJob.resultPath,
-            callId: modalJob.callId,
-          },
-          dashboardUrl: `${callbackOrigin}?view=runs&runId=${encodeURIComponent(runId)}`,
+          execution: remote.execution,
+          remoteAgentExecution: remote.execution,
+          modal: remote.modal,
+          adminStatusUrl: `/api/admin/remote-agent-executions/${encodeURIComponent(executionId)}`,
+          artifactsUrl: `/api/admin/remote-agent-executions/${encodeURIComponent(executionId)}/artifacts`,
         })
       } catch (error) {
         const message = error instanceof Error ? error.message : 'Canonical dataset bootstrap launch failed'
-        if (runId) {
-          this.appendRunEvent(runId, `Canonical dataset bootstrap launch failed: ${message}`, 'error')
+        if (executionId) {
+          this.appendRemoteAgentExecutionEvent(executionId, `Canonical dataset bootstrap launch failed: ${message}`, 'error')
           this.sql.exec(
-            `UPDATE runs SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+            `UPDATE remote_agent_executions SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
             'failed',
             message,
             nowIso(),
-            runId,
+            executionId,
           )
-          const failedRun = this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]
-          if (failedRun) {
-            this.releaseDatasetLease(this.parseRunRow(failedRun).datasetId, runId)
-          }
+          this.releaseDatasetRemoteExecution(canonicalDatasetId, executionId)
         }
         if (canonicalDatasetId) {
           this.sql.exec(
@@ -2175,7 +2248,95 @@ export class ControlPlane {
             canonicalDatasetId,
           )
         }
-        return respondJson({ error: message, runId }, 500)
+        return respondJson({ error: message, executionId }, 500)
+      }
+    }
+
+    const canonicalExecutionMatch = pathname.match(/^\/admin\/canonical-datasets\/(improve|audit)$/u)
+    if (canonicalExecutionMatch && request.method === 'POST') {
+      let executionId: string | null = null
+      let datasetId: string | null = null
+      try {
+        const body = await request.json().catch(() => ({})) as Record<string, unknown>
+        const mode = canonicalExecutionMatch[1] ?? 'improve'
+        datasetId = slugify(String(body.datasetId ?? ''))
+        const prompt = String(body.prompt ?? '').trim()
+        const callbackOrigin = String(body.callbackOrigin ?? '')
+        if (!datasetId) return respondJson({ error: 'Missing datasetId' }, 400)
+        if (!prompt) return respondJson({ error: 'Missing prompt' }, 400)
+        if (!callbackOrigin) return respondJson({ error: 'Missing callbackOrigin' }, 400)
+        const dataset = this.getDataset(datasetId)
+        if (!dataset || dataset.ownerEmail !== PLATFORM_DATASET_OWNER_EMAIL) {
+          return respondJson({ error: 'Canonical dataset not found' }, 404)
+        }
+        const blockingExecution = this.getActiveRemoteExecution(datasetId)
+        if (blockingExecution && !isTerminalStatus(blockingExecution.status)) {
+          return respondJson({
+            error: `Dataset ${datasetId} already has active canonical remote execution ${blockingExecution.id}.`,
+            activeRemoteExecutionId: blockingExecution.id,
+            activeRemoteExecution: blockingExecution,
+          }, 409)
+        }
+        const datasetMountPath = `/data/datasets/${datasetId}`
+        const manifestPath = dataset.manifestPath?.startsWith('/data/')
+          ? dataset.manifestPath
+          : `${datasetMountPath}/manifest.json`
+        const artifactSpec = Array.isArray(body.artifactSpec)
+          ? body.artifactSpec
+          : Array.isArray(body.artifacts)
+            ? body.artifacts
+            : Array.isArray(body.requiredArtifacts)
+              ? body.requiredArtifacts.map((path) => ({ type: 'file', title: String(path), path: String(path) }))
+              : []
+        const metadata = {
+          ...(isPlainRecord(body.metadata) ? body.metadata : {}),
+          canonicalDatasetLifecycle: true,
+          canonicalJobKind: mode === 'audit' ? 'dataset-disk-audit' : 'dataset-improvement',
+          datasetId,
+          datasetName: dataset.name,
+        }
+        const remote = await this.createRemoteAgentExecution({
+          ownerType: 'service',
+          datasetId,
+          kind: mode === 'audit' ? 'dataset-disk-audit' : 'dataset-improvement',
+          prompt,
+          callbackOrigin,
+          metadata,
+          datasetMountPath,
+          manifestPath,
+          datasetReadOnly: false,
+          extraContext: {
+            serviceOwned: true,
+            userSessionRequired: false,
+            config: metadata,
+            artifacts: artifactSpec,
+          },
+        })
+        executionId = remote.executionId
+        this.assignDatasetRemoteExecution(datasetId, executionId)
+        const updatedDataset = this.getDataset(datasetId)
+        return respondJson({
+          dataset: updatedDataset ? this.datasetRowToJson(updatedDataset as unknown as Record<string, unknown>) : null,
+          execution: remote.execution,
+          remoteAgentExecution: remote.execution,
+          modal: remote.modal,
+          adminStatusUrl: `/api/admin/remote-agent-executions/${encodeURIComponent(executionId)}`,
+          artifactsUrl: `/api/admin/remote-agent-executions/${encodeURIComponent(executionId)}/artifacts`,
+        })
+      } catch (error) {
+        const message = error instanceof Error ? error.message : 'Canonical dataset execution launch failed'
+        if (executionId) {
+          this.appendRemoteAgentExecutionEvent(executionId, `Canonical dataset execution launch failed: ${message}`, 'error')
+          this.sql.exec(
+            `UPDATE remote_agent_executions SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+            'failed',
+            message,
+            nowIso(),
+            executionId,
+          )
+          this.releaseDatasetRemoteExecution(datasetId, executionId)
+        }
+        return respondJson({ error: message, executionId }, 500)
       }
     }
 
@@ -2539,45 +2700,20 @@ export class ControlPlane {
       if (!prompt.trim()) {
         return respondJson({ error: 'Missing prompt' }, 400)
       }
-      const executionId = crypto.randomUUID()
-      const timestamp = nowIso()
       const ownerType = typeof body.ownerType === 'string' && body.ownerType.trim() ? body.ownerType.trim() : 'admin'
       const kind = typeof body.kind === 'string' && body.kind.trim() ? body.kind.trim() : 'manual'
       const datasetId = typeof body.datasetId === 'string' && body.datasetId.trim() ? body.datasetId.trim() : null
       const metadata = isPlainRecord(body.metadata) ? body.metadata : {}
-      this.sql.exec(
-        `INSERT INTO remote_agent_executions (
-           id, owner_type, dataset_id, kind, status, prompt, output_preview, metadata_json, created_at, updated_at
-         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        executionId,
-        ownerType,
-        datasetId,
-        kind,
-        'queued',
-        prompt,
-        'Queued remote agent execution.',
-        JSON.stringify(metadata),
-        timestamp,
-        timestamp,
-      )
-      this.appendRemoteAgentExecutionEvent(executionId, 'Preparing Modal agent execution.')
-      this.sql.exec(
-        `UPDATE remote_agent_executions SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
-        'booting',
-        'Preparing Modal agent execution.',
-        nowIso(),
-        executionId,
-      )
-
+      let executionId: string | null = null
       try {
         const dataset = datasetId ? this.getDataset(datasetId) : null
         const datasetMountPath = datasetId ? `/data/datasets/${datasetId}` : '/data'
-        const modal = await launchModalRemoteAgentExecution(this.env, {
-          executionId,
+        const remote = await this.createRemoteAgentExecution({
+          ownerType,
+          datasetId,
           kind,
           prompt,
           callbackOrigin: typeof body.callbackOrigin === 'string' ? body.callbackOrigin : '',
-          datasetId,
           datasetMountPath,
           manifestPath: dataset?.manifestPath?.startsWith('/data/')
             ? dataset.manifestPath
@@ -2585,40 +2721,43 @@ export class ControlPlane {
               ? `/data/datasets/${datasetId}/manifest.json`
               : '/data/manifest.json',
           datasetReadOnly: true,
-          extraContext: isPlainRecord(body.extraContext) ? body.extraContext : undefined,
+          metadata,
+          extraContext: {
+            ...(isPlainRecord(body.extraContext) ? body.extraContext : {}),
+            config: metadata,
+            artifacts: Array.isArray(body.artifactSpec)
+              ? body.artifactSpec
+              : Array.isArray(body.artifacts)
+                ? body.artifacts
+                : [],
+          },
         })
-        this.appendRemoteAgentExecutionEvent(executionId, `Modal agent job ${modal.id} submitted; results will be written to ${modal.resultPath}.`)
-        this.sql.exec(
-          `UPDATE remote_agent_executions
-              SET worker_id = ?, worker_name = ?, modal_json = ?, status = ?, output_preview = ?, updated_at = ?
-            WHERE id = ?`,
-          modal.id,
-          modal.name,
-          JSON.stringify(modal),
-          'booting',
-          'Modal agent job submitted.',
-          nowIso(),
-          executionId,
-        )
-        const row = this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]!
+        executionId = remote.executionId
+        if (datasetId && dataset?.ownerEmail === PLATFORM_DATASET_OWNER_EMAIL) {
+          this.assignDatasetRemoteExecution(datasetId, executionId)
+        }
         return respondJson({
-          execution: this.remoteAgentExecutionToJson(row),
-          remoteAgentExecution: this.remoteAgentExecutionToJson(row),
-          modal,
+          execution: remote.execution,
+          remoteAgentExecution: remote.execution,
+          modal: remote.modal,
           adminStatusUrl: `/api/admin/remote-agent-executions/${encodeURIComponent(executionId)}`,
           artifactsUrl: `/api/admin/remote-agent-executions/${encodeURIComponent(executionId)}/artifacts`,
         })
       } catch (error) {
         const message = error instanceof Error ? error.message : 'Remote agent execution launch failed'
-        this.appendRemoteAgentExecutionEvent(executionId, `Remote agent execution launch failed: ${message}`, 'error')
-        this.sql.exec(
-          `UPDATE remote_agent_executions SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
-          'failed',
-          message,
-          nowIso(),
-          executionId,
-        )
-        return respondJson({ error: message, execution: this.remoteAgentExecutionToJson(this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]!) }, 500)
+        if (executionId) {
+          this.appendRemoteAgentExecutionEvent(executionId, `Remote agent execution launch failed: ${message}`, 'error')
+          this.sql.exec(
+            `UPDATE remote_agent_executions SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+            'failed',
+            message,
+            nowIso(),
+            executionId,
+          )
+          this.releaseDatasetRemoteExecution(datasetId, executionId)
+        }
+        const row = executionId ? this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0] : null
+        return respondJson({ error: message, execution: row ? this.remoteAgentExecutionToJson(row) : null }, 500)
       }
     }
 
@@ -2639,6 +2778,7 @@ export class ControlPlane {
       const executionId = decodeURIComponent(adminExecutionCancelMatch[1] ?? '')
       const row = this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]
       if (!row) return respondJson({ error: 'Remote agent execution not found' }, 404)
+      const execution = this.parseRemoteAgentExecutionRow(row)
       this.appendRemoteAgentExecutionEvent(executionId, 'Cancellation requested.', 'warning')
       this.sql.exec(
         `UPDATE remote_agent_executions SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
@@ -2647,6 +2787,7 @@ export class ControlPlane {
         nowIso(),
         executionId,
       )
+      this.releaseDatasetRemoteExecution(execution.datasetId, executionId)
       return respondJson({ execution: this.remoteAgentExecutionToJson(this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]!) })
     }
 
@@ -3509,13 +3650,26 @@ export class ControlPlane {
       if (isTerminalStatus(execution.status)) {
         return respondJson({ execution: this.remoteAgentExecutionToJson(row), ignored: true })
       }
+      const status = String(body.status ?? 'running')
       this.sql.exec(
         `UPDATE remote_agent_executions SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
-        String(body.status ?? 'running'),
+        status,
         body.outputPreview ? String(body.outputPreview) : null,
         nowIso(),
         executionId,
       )
+      if (isTerminalStatus(status)) {
+        this.releaseDatasetRemoteExecution(execution.datasetId, executionId)
+        if (execution.datasetId && status === 'ready' && execution.kind === 'canonical-dataset-bootstrap') {
+          this.sql.exec(
+            `UPDATE datasets SET deployment_status = ?, status = ?, updated_at = ? WHERE id = ?`,
+            'ready',
+            'ready',
+            nowIso(),
+            execution.datasetId,
+          )
+        }
+      }
       return respondJson({ execution: this.remoteAgentExecutionToJson(this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]!) })
     }
 

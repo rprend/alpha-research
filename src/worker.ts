@@ -2926,6 +2926,22 @@ export default {
       })
     }
 
+    const canonicalDatasetExecutionMatch = pathname.match(/^\/api\/admin\/canonical-datasets\/(improve|audit)$/u)
+    if (canonicalDatasetExecutionMatch && request.method === 'POST') {
+      if (!requireAdminToken(request, env)) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      const body = await request.json().catch(() => ({}))
+      return proxyToControlPlane(env, `/admin/canonical-datasets/${canonicalDatasetExecutionMatch[1]}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...body,
+          callbackOrigin: url.origin,
+        }),
+      })
+    }
+
     if (pathname === '/api/admin/remote-agent-executions' && request.method === 'POST') {
       if (!requireAdminToken(request, env)) {
         return json({ error: 'Unauthorized' }, 401)
