@@ -819,6 +819,18 @@ export class ControlPlane {
     return this.billingTotals('WHERE session_id = ?', sessionId)
   }
 
+  private addBillingTotals(...totals: ReturnType<ControlPlane['billingTotals']>[]) {
+    const costUsd = totals.reduce((sum, total) => sum + total.costUsd, 0)
+    return {
+      costUsd,
+      credits: creditsFromUsd(costUsd),
+      inputTokens: totals.reduce((sum, total) => sum + total.inputTokens, 0),
+      outputTokens: totals.reduce((sum, total) => sum + total.outputTokens, 0),
+      totalTokens: totals.reduce((sum, total) => sum + total.totalTokens, 0),
+      eventCount: totals.reduce((sum, total) => sum + total.eventCount, 0),
+    }
+  }
+
   private adminOverview() {
     const runs = this.rows('SELECT * FROM runs ORDER BY updated_at DESC LIMIT 250').map((row) => {
       const run = this.parseRunRow(row)
@@ -834,11 +846,26 @@ export class ControlPlane {
 
     const sessions = this.rows('SELECT * FROM assistant_sessions ORDER BY updated_at DESC LIMIT 250').map((row) => {
       const session = this.parseAssistantSessionRow(row)
-      const entryCountRow = this.rows('SELECT COUNT(*) AS count FROM assistant_session_entries WHERE session_id = ?', session.id)[0]
+      const entries = this.listAssistantSessionEntries(session.id).map((entry) => this.assistantSessionEntryToJson(entry))
+      const linkedRunIds = this.collectRunIdsFromSession(session, entries)
+      const linkedRuns = linkedRunIds.map((runId) => {
+        const runRow = this.rows('SELECT * FROM runs WHERE id = ? LIMIT 1', runId)[0]
+        if (!runRow) return null
+        const run = this.parseRunRow(runRow)
+        return {
+          ...this.runRowToJson(runRow),
+          ownerEmail: run.ownerEmail,
+          billing: this.billingTotalsForRun(run.id),
+        }
+      }).filter((run): run is NonNullable<typeof run> => run !== null)
       return {
         ...this.assistantSessionToJson(session),
-        entryCount: Number(entryCountRow?.count ?? 0),
-        billing: this.billingTotalsForSession(session.id),
+        entryCount: entries.length,
+        linkedRuns,
+        billing: this.addBillingTotals(
+          this.billingTotalsForSession(session.id),
+          ...linkedRuns.map((run) => run.billing),
+        ),
       }
     })
 

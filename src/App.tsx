@@ -276,6 +276,7 @@ type AdminSessionRecord = StoredAssistantSession & {
   ownerEmail: string
   entryCount: number
   billing: AdminBillingTotals
+  linkedRuns: Array<RunRecord & { ownerEmail: string; billing: AdminBillingTotals }>
 }
 
 type AdminUserRecord = {
@@ -322,6 +323,8 @@ type AdminOverview = {
   users: AdminUserRecord[]
   canonicalRuns: AdminCanonicalRunRecord[]
 }
+
+type AdminSubview = 'sessions' | 'users' | 'runs' | 'canonical-runs'
 
 type SessionEntry = {
   id: string
@@ -1946,6 +1949,11 @@ async function fetchJson<T>(input: string) {
           ownerEmail: 'admin@example.com',
           entryCount: session.entries?.length ?? 0,
           billing: { costUsd: 2.12, credits: 212, inputTokens: 41000, outputTokens: 5200, totalTokens: 46200, eventCount: 2 },
+          linkedRuns: harnessRuns.slice(0, 2).map((run) => ({
+            ...run,
+            ownerEmail: 'admin@example.com',
+            billing: { costUsd: 4.12, credits: 412, inputTokens: 83000, outputTokens: 6200, totalTokens: 89200, eventCount: 1 },
+          })),
         })),
         users: [
           {
@@ -2349,7 +2357,12 @@ function getDashboardRoute() {
     sessionId: url.searchParams.get('sessionId'),
     topic: url.searchParams.get('topic'),
     draft: url.searchParams.get('draft'),
+    adminView: adminSubviewFromParam(url.searchParams.get('adminView')),
   }
+}
+
+function adminSubviewFromParam(value: string | null): AdminSubview {
+  return value === 'users' || value === 'runs' || value === 'canonical-runs' ? value : 'sessions'
 }
 
 function updateDashboardRoute(next: {
@@ -2358,6 +2371,7 @@ function updateDashboardRoute(next: {
   datasetId?: string | null
   sessionId?: string | null
   draft?: string | null
+  adminView?: AdminSubview | null
 }) {
   const url = new URL(window.location.href)
   url.searchParams.set('view', next.view ?? getDashboardRoute().view)
@@ -2369,6 +2383,8 @@ function updateDashboardRoute(next: {
   else url.searchParams.delete('sessionId')
   if (typeof next.draft === 'string' && next.draft.trim()) url.searchParams.set('draft', next.draft)
   else url.searchParams.delete('draft')
+  if (next.adminView) url.searchParams.set('adminView', next.adminView)
+  else if (next.adminView === null || next.view !== 'admin') url.searchParams.delete('adminView')
   window.history.pushState({}, '', url.toString())
   window.dispatchEvent(new PopStateEvent('popstate'))
 }
@@ -3156,7 +3172,43 @@ function AdminSection({
   )
 }
 
-function AdminPage({ session }: { session: SessionResponse }) {
+function AdminSubviewToggle({
+  active,
+  overview,
+  onChange,
+}: {
+  active: AdminSubview
+  overview: AdminOverview
+  onChange: (view: AdminSubview) => void
+}) {
+  const items: Array<{ view: AdminSubview; label: string; count: number }> = [
+    { view: 'sessions', label: 'Sessions', count: overview.sessions.length },
+    { view: 'users', label: 'Users', count: overview.users.length },
+    { view: 'runs', label: 'Runs', count: overview.runs.length },
+    { view: 'canonical-runs', label: 'Canonical runs', count: overview.canonicalRuns.length },
+  ]
+  return (
+    <div className="flex flex-wrap gap-2 border-b border-border pb-4">
+      {items.map((item) => (
+        <button
+          key={item.view}
+          type="button"
+          className={`inline-flex h-9 items-center gap-2 border px-3 text-sm font-medium ${
+            active === item.view
+              ? 'border-foreground bg-foreground text-background'
+              : 'border-border bg-background text-foreground hover:border-foreground/30'
+          }`}
+          onClick={() => onChange(item.view)}
+        >
+          <span>{item.label}</span>
+          <span className={active === item.view ? 'text-background/75' : 'text-muted-foreground'}>{formatInteger(item.count)}</span>
+        </button>
+      ))}
+    </div>
+  )
+}
+
+function AdminPage({ session, activeView }: { session: SessionResponse; activeView: AdminSubview }) {
   const isAdmin = session.user?.isAdmin === true
   const state = useAdminOverview(isAdmin)
 
@@ -3214,43 +3266,16 @@ function AdminPage({ session }: { session: SessionResponse }) {
         <AdminMetric label="Canonical active" value={`${formatInteger(overview.summary.activeCanonicalRunCount)} / ${formatInteger(overview.summary.canonicalRunCount)}`} />
       </section>
 
-      <AdminSection title="All Runs" description="Every user run with owner, status, costs, worker details, and recent progress logs.">
-        <div className="overflow-x-auto">
-          <Table className="min-w-[72rem]">
-            <TableHeader>
-              <TableRow>
-                <TableHead>Run</TableHead>
-                <TableHead>User</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Cost</TableHead>
-                <TableHead>Usage</TableHead>
-                <TableHead>Latest log</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {overview.runs.map((run: AdminRunRecord) => (
-                <TableRow key={run.id}>
-                  <TableCell className="max-w-[22rem] align-top">
-                    <div className="truncate font-medium">{runListTitle(run)}</div>
-                    <div className="truncate text-sm text-muted-foreground">{run.datasetId} · {formatStatus(run.type)} · {relativeTime(run.updatedAt)}</div>
-                  </TableCell>
-                  <TableCell className="align-top">{run.ownerEmail}</TableCell>
-                  <TableCell className="align-top"><StatusBadge>{formatStatus(run.status)}</StatusBadge></TableCell>
-                  <TableCell className="align-top">{formatUsd(run.billing.costUsd)}</TableCell>
-                  <TableCell className="align-top">{formatInteger(run.billing.totalTokens)} tokens</TableCell>
-                  <TableCell className="max-w-[24rem] align-top">
-                    <div className="truncate text-sm">{run.latestEvents.at(-1)?.message ?? run.outputPreview ?? 'No progress logs yet.'}</div>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
-      </AdminSection>
+      <AdminSubviewToggle
+        active={activeView}
+        overview={overview}
+        onChange={(nextView) => updateDashboardRoute({ view: 'admin', adminView: nextView, runId: null, sessionId: null })}
+      />
 
-      <AdminSection title="Chat Sessions" description="Stored assistant sessions with owner, linked dataset/run, transcript size, and metered usage.">
+      {activeView === 'sessions' ? (
+      <AdminSection title="Chat Sessions" description="Stored assistant sessions with owner, linked runs, transcript size, and session plus linked-run costs.">
         <div className="overflow-x-auto">
-          <Table className="min-w-[62rem]">
+          <Table className="min-w-[68rem]">
             <TableHeader>
               <TableRow>
                 <TableHead>Session</TableHead>
@@ -3258,7 +3283,7 @@ function AdminPage({ session }: { session: SessionResponse }) {
                 <TableHead>Status</TableHead>
                 <TableHead>Entries</TableHead>
                 <TableHead>Cost</TableHead>
-                <TableHead>Linked work</TableHead>
+                <TableHead>Runs</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -3272,8 +3297,24 @@ function AdminPage({ session }: { session: SessionResponse }) {
                   <TableCell className="align-top"><StatusBadge>{formatStatus(chatSession.status)}</StatusBadge></TableCell>
                   <TableCell className="align-top">{formatInteger(chatSession.entryCount)}</TableCell>
                   <TableCell className="align-top">{formatUsd(chatSession.billing.costUsd)}</TableCell>
-                  <TableCell className="max-w-[20rem] align-top">
-                    <div className="truncate text-sm">{chatSession.datasetId ?? 'No dataset'}{chatSession.runId ? ` · ${chatSession.runId}` : ''}</div>
+                  <TableCell className="max-w-[24rem] align-top">
+                    {chatSession.linkedRuns.length > 0 ? (
+                      <div className="flex flex-col gap-1">
+                        {chatSession.linkedRuns.map((run) => (
+                          <button
+                            key={run.id}
+                            type="button"
+                            className="truncate text-left text-sm font-medium text-foreground underline-offset-4 hover:underline"
+                            onClick={() => updateDashboardRoute({ view: 'admin', adminView: 'runs', runId: run.id, sessionId: null })}
+                            title={run.id}
+                          >
+                            {runListTitle(run)} · {formatUsd(run.billing.costUsd)}
+                          </button>
+                        ))}
+                      </div>
+                    ) : (
+                      <span className="text-sm text-muted-foreground">No linked runs</span>
+                    )}
                   </TableCell>
                 </TableRow>
               ))}
@@ -3281,7 +3322,9 @@ function AdminPage({ session }: { session: SessionResponse }) {
           </Table>
         </div>
       </AdminSection>
+      ) : null}
 
+      {activeView === 'users' ? (
       <AdminSection title="Users" description="Per-user totals for cost, runs, active work, sessions, datasets, and subscription state.">
         <div className="overflow-x-auto">
           <Table className="min-w-[58rem]">
@@ -3312,7 +3355,45 @@ function AdminPage({ session }: { session: SessionResponse }) {
           </Table>
         </div>
       </AdminSection>
+      ) : null}
 
+      {activeView === 'runs' ? (
+      <AdminSection title="All Runs" description="Every user run with owner, status, costs, worker details, and recent progress logs.">
+        <div className="overflow-x-auto">
+          <Table className="min-w-[72rem]">
+            <TableHeader>
+              <TableRow>
+                <TableHead>Run</TableHead>
+                <TableHead>User</TableHead>
+                <TableHead>Status</TableHead>
+                <TableHead>Cost</TableHead>
+                <TableHead>Usage</TableHead>
+                <TableHead>Latest log</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {overview.runs.map((run: AdminRunRecord) => (
+                <TableRow key={run.id} className={run.id === getDashboardRoute().runId ? 'bg-muted/40' : undefined}>
+                  <TableCell className="max-w-[22rem] align-top">
+                    <div className="truncate font-medium">{runListTitle(run)}</div>
+                    <div className="truncate text-sm text-muted-foreground">{run.datasetId} · {formatStatus(run.type)} · {relativeTime(run.updatedAt)}</div>
+                  </TableCell>
+                  <TableCell className="align-top">{run.ownerEmail}</TableCell>
+                  <TableCell className="align-top"><StatusBadge>{formatStatus(run.status)}</StatusBadge></TableCell>
+                  <TableCell className="align-top">{formatUsd(run.billing.costUsd)}</TableCell>
+                  <TableCell className="align-top">{formatInteger(run.billing.totalTokens)} tokens</TableCell>
+                  <TableCell className="max-w-[24rem] align-top">
+                    <div className="truncate text-sm">{run.latestEvents.at(-1)?.message ?? run.outputPreview ?? 'No progress logs yet.'}</div>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </AdminSection>
+      ) : null}
+
+      {activeView === 'canonical-runs' ? (
       <AdminSection title="Canonical Runs" description="Admin-kicked canonical dataset executions with status, artifacts, usage signals, and progress logs.">
         <div className="grid gap-4 xl:grid-cols-2">
           {overview.canonicalRuns.map((run: AdminCanonicalRunRecord) => (
@@ -3346,6 +3427,7 @@ function AdminPage({ session }: { session: SessionResponse }) {
           ))}
         </div>
       </AdminSection>
+      ) : null}
     </main>
   )
 }
@@ -5273,7 +5355,7 @@ function DashboardApp({
       </main>
     )
   } else if (route.view === 'admin') {
-    content = <AdminPage session={session} />
+    content = <AdminPage session={session} activeView={route.adminView} />
   } else if (route.view === 'settings') {
     content = (
       <DashboardSettingsPage
