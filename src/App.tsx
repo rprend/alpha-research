@@ -188,6 +188,7 @@ type DatasetRecord = {
 type RunRecord = {
   id: string
   datasetId: string
+  ownerEmail?: string
   type: string
   status: string
   title?: string | null
@@ -281,6 +282,7 @@ type AdminSessionRecord = StoredAssistantSession & {
 
 type AdminUserRecord = {
   email: string
+  signedUpAt: string | null
   runCount: number
   activeRunCount: number
   sessionCount: number
@@ -1964,6 +1966,7 @@ async function fetchJson<T>(input: string) {
             datasetCount: harnessDatasets.length,
             billing: { costUsd: 42.17, credits: 4217, inputTokens: 410000, outputTokens: 56000, totalTokens: 466000, eventCount: 7 },
             subscription: { tier: 'studio', status: 'active' },
+            signedUpAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 21).toISOString(),
             lastActivityAt: harnessRuns[0]?.updatedAt ?? null,
           },
         ],
@@ -1994,6 +1997,12 @@ async function fetchJson<T>(input: string) {
     const runResultsMatch = input.match(/^\/api\/cli\/runs\/([^/]+)\/results$/u)
     if (runResultsMatch) {
       return getHarnessRunResults(decodeURIComponent(runResultsMatch[1] ?? '')) as T
+    }
+    const runMatch = input.match(/^\/api\/cli\/runs\/([^/]+)$/u)
+    if (runMatch) {
+      const run = harnessRuns.find((candidate) => candidate.id === decodeURIComponent(runMatch[1] ?? ''))
+      if (!run) throw new Error('Harness run not found.')
+      return { run } as T
     }
     const sessionMatch = input.match(/^\/api\/cli\/sessions\/([^/]+)$/u)
     if (sessionMatch) {
@@ -3290,7 +3299,14 @@ function AdminPage({ session, activeView }: { session: SessionResponse; activeVi
               {overview.sessions.map((chatSession: AdminSessionRecord) => (
                 <TableRow key={chatSession.id}>
                   <TableCell className="max-w-[20rem] align-top">
-                    <div className="truncate font-medium">{readableSessionTitle(chatSession.title)}</div>
+                    <button
+                      type="button"
+                      className="block max-w-full truncate text-left font-medium text-foreground underline-offset-4 hover:underline"
+                      onClick={() => updateDashboardRoute({ view: 'terminal-sessions', sessionId: chatSession.id, runId: null })}
+                      title={chatSession.id}
+                    >
+                      {readableSessionTitle(chatSession.title)}
+                    </button>
                     <div className="truncate text-sm text-muted-foreground">{readableSessionKind(chatSession.kind)} · {relativeTime(chatSession.updatedAt)}</div>
                   </TableCell>
                   <TableCell className="align-top">{chatSession.ownerEmail}</TableCell>
@@ -3305,7 +3321,7 @@ function AdminPage({ session, activeView }: { session: SessionResponse; activeVi
                             key={run.id}
                             type="button"
                             className="truncate text-left text-sm font-medium text-foreground underline-offset-4 hover:underline"
-                            onClick={() => updateDashboardRoute({ view: 'admin', adminView: 'runs', runId: run.id, sessionId: null })}
+                            onClick={() => updateDashboardRoute({ view: 'runs', runId: run.id, sessionId: null })}
                             title={run.id}
                           >
                             {runListTitle(run)} · {formatUsd(run.billing.costUsd)}
@@ -3331,6 +3347,7 @@ function AdminPage({ session, activeView }: { session: SessionResponse; activeVi
             <TableHeader>
               <TableRow>
                 <TableHead>User</TableHead>
+                <TableHead>Signed up</TableHead>
                 <TableHead>Cost</TableHead>
                 <TableHead>Runs</TableHead>
                 <TableHead>Sessions</TableHead>
@@ -3343,6 +3360,7 @@ function AdminPage({ session, activeView }: { session: SessionResponse; activeVi
               {overview.users.map((user: AdminUserRecord) => (
                 <TableRow key={user.email}>
                   <TableCell className="font-medium">{user.email}</TableCell>
+                  <TableCell>{user.signedUpAt ? formatBillingWindowDate(user.signedUpAt) : 'Unknown'}</TableCell>
                   <TableCell>{formatUsd(user.billing.costUsd)}</TableCell>
                   <TableCell>{formatInteger(user.runCount)} total · {formatInteger(user.activeRunCount)} active</TableCell>
                   <TableCell>{formatInteger(user.sessionCount)}</TableCell>
@@ -3580,6 +3598,49 @@ function useSessionDetail(sessionId: string | null) {
   }, [sessionId])
 
   return { session, error, loading }
+}
+
+function AdminRunDetailById({ runId }: { runId: string }) {
+  const [state, setState] = useState<
+    | { type: 'loading' }
+    | { type: 'ready'; run: RunRecord }
+    | { type: 'error'; error: string }
+  >({ type: 'loading' })
+
+  useEffect(() => {
+    let cancelled = false
+    async function load() {
+      setState({ type: 'loading' })
+      try {
+        const payload = await fetchJson<{ run: RunRecord }>(`/api/cli/runs/${encodeURIComponent(runId)}`)
+        if (!cancelled) setState({ type: 'ready', run: payload.run })
+      } catch (error) {
+        if (!cancelled) setState({ type: 'error', error: error instanceof Error ? error.message : 'Could not load run.' })
+      }
+    }
+    void load()
+    return () => {
+      cancelled = true
+    }
+  }, [runId])
+
+  if (state.type === 'loading') {
+    return (
+      <main className="flex min-h-0 flex-1 items-center justify-center">
+        <LoaderCircle className="size-5 animate-spin text-muted-foreground" aria-label="Loading run" />
+      </main>
+    )
+  }
+  if (state.type === 'error') {
+    return (
+      <main className="flex min-h-0 flex-1 items-center justify-center px-4 py-8">
+        <div className="max-w-lg border border-destructive/25 bg-destructive/5 px-6 py-5 text-sm text-destructive">
+          {state.error}
+        </div>
+      </main>
+    )
+  }
+  return <RunDetailPage run={state.run} dataset={undefined} />
 }
 
 function RemoteRunBlock({
@@ -5265,6 +5326,8 @@ function DashboardApp({
     content = <SignedOutAssistantPage />
   } else if (route.view === 'runs' && activeRun) {
     content = <RunDetailPage run={activeRun} dataset={datasetLookup.get(activeRun.datasetId)} />
+  } else if (route.view === 'runs' && route.runId && session.user?.isAdmin) {
+    content = <AdminRunDetailById runId={route.runId} />
   } else if (route.view === 'terminal-sessions' && route.sessionId) {
     const activeSession = sessions.find((currentSession) => currentSession.id === route.sessionId) ?? null
     const activeSessionRun = activeSession?.runId ? runLookup.get(activeSession.runId) ?? null : null

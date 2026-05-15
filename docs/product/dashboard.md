@@ -30,7 +30,8 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - The admin overview must never render for non-admin sessions; access is controlled by the signed-in email allowlist, not a browser-exposed token.
 - Runs and chat sessions should show owner, status, linked dataset/run context, cost, token usage, and recent progress or transcript size.
 - Admin sessions are the default admin subview. Session cost should include direct chat usage plus costs from every run linked to that session, and linked runs should be visible as navigable run references.
-- User rows should aggregate total cost, runs per user, active runs, sessions, datasets, subscription state, and last activity.
+- Admin session rows should link to the full session transcript, and linked runs should open their run logs for admin users.
+- User rows should aggregate signup day, total cost, runs per user, active runs, sessions, datasets, subscription state, and last activity.
 - Canonical dataset executions should show status, dataset id, artifacts, progress logs, and whether work is still active.
 - Admin overview sections should be separate subviews navigated from the top of the admin page, not stacked tables.
 

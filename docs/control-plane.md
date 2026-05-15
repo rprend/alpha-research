@@ -37,6 +37,7 @@ Remote run metadata can include `config.resources`, but the control plane always
 - External providers are accessed through provider modules, not UI code.
 - Runner callbacks are authenticated with `RESEARCH_INTERNAL_RUNNER_TOKEN`.
 - Browser admin overview access is session-authenticated and restricted to `ALPHA_RESEARCH_ADMIN_EMAILS`; token-only admin mutation routes still require `ALPHA_RESEARCH_ADMIN_TOKEN`.
+- Dashboard run, artifact, and assistant-session detail routes must be scoped to the signed-in owner unless the viewer email is in `ALPHA_RESEARCH_ADMIN_EMAILS`.
 - Remote Codex model traffic must go through the metered OpenAI proxy at `/api/internal/runs/:runId/openai/v1/*`. The Worker validates `RESEARCH_INTERNAL_RUNNER_TOKEN`, checks the run owner's allowance before model calls, forwards to OpenAI with the platform key, and records usage through `/internal/runs/:runId/billing-events`.
 - Admin canonical dataset bootstrap requests and subscription grants are authenticated with `ALPHA_RESEARCH_ADMIN_TOKEN` and must not depend on a user CLI session.
 - Artifacts are indexed through `run_artifacts`; completed artifact bytes are stored in the Cloudflare R2 artifact bucket and served back through authenticated dashboard routes. Transcripts should be captured as artifacts or assistant session entries. Modal result paths are worker staging paths, not browser-accessible artifact URLs.

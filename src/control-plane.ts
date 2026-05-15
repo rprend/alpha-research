@@ -916,8 +916,27 @@ export class ControlPlane {
         email,
         email,
       )
+      const signedUpRow = this.rows(
+        `SELECT created_at FROM (
+           SELECT created_at FROM runs WHERE owner_email = ?
+           UNION ALL
+           SELECT created_at FROM assistant_sessions WHERE owner_email = ?
+           UNION ALL
+           SELECT created_at FROM datasets WHERE owner_email = ?
+           UNION ALL
+           SELECT created_at FROM subscriptions WHERE user_id = ?
+           UNION ALL
+           SELECT created_at FROM billing_events WHERE user_id = ?
+         ) ORDER BY created_at ASC LIMIT 1`,
+        email,
+        email,
+        email,
+        email,
+        email,
+      )[0]
       return {
         email,
+        signedUpAt: signedUpRow?.created_at ? String(signedUpRow.created_at) : null,
         runCount,
         activeRunCount,
         sessionCount,
@@ -1130,6 +1149,7 @@ export class ControlPlane {
     return {
       id: run.id,
       datasetId: run.datasetId,
+      ownerEmail: run.ownerEmail,
       type: run.type,
       status: run.status,
       title: run.title ?? undefined,
@@ -3615,6 +3635,25 @@ export class ControlPlane {
       }
       headers.set('Cache-Control', 'private, max-age=300')
       return new Response(object.body, { headers })
+    }
+
+    const artifactMatch = pathname.match(/^\/artifacts\/([^/]+)$/u)
+    if (artifactMatch && request.method === 'GET') {
+      const artifactId = decodeURIComponent(artifactMatch[1] ?? '')
+      const row = this.rows('SELECT id, run_id, type, title, url, created_at FROM run_artifacts WHERE id = ? LIMIT 1', artifactId)[0]
+      if (!row) {
+        return respondJson({ error: 'Artifact not found' }, 404)
+      }
+      return respondJson({
+        artifact: {
+          id: String(row.id),
+          runId: String(row.run_id),
+          type: String(row.type),
+          title: String(row.title),
+          url: row.url ? String(row.url) : null,
+          createdAt: String(row.created_at),
+        },
+      })
     }
 
     const runArtifactsMatch = pathname.match(/^\/runs\/([^/]+)\/artifacts$/u)

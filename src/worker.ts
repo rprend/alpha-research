@@ -2719,6 +2719,56 @@ async function forwardCliRequest(request: Request, env: Env, path: string, init:
     : init)
 }
 
+async function forwardRunScopedCliRequest(request: Request, env: Env, runId: string, path: string, init: RequestInit = {}) {
+  const cliSession = await requireAuthorizedSession(request, env)
+  if (!cliSession) {
+    return json({ error: 'Unauthorized' }, 401)
+  }
+  const runPayload = await proxyToControlPlaneJson<{ run?: { ownerEmail?: string } }>(
+    env,
+    `/runs/${encodeURIComponent(runId)}`,
+    { method: 'GET' },
+  ).catch(() => null)
+  const ownerEmail = runPayload?.run?.ownerEmail
+  if (!ownerEmail) {
+    return json({ error: 'Run not found' }, 404)
+  }
+  if (ownerEmail !== cliSession.email && !isAdminEmail(env, cliSession.email)) {
+    return json({ error: 'Forbidden' }, 403)
+  }
+  return proxyToControlPlane(env, path, init.method || init.body
+    ? {
+        ...init,
+        headers: { 'Content-Type': 'application/json' },
+      }
+    : init)
+}
+
+async function forwardSessionScopedCliRequest(request: Request, env: Env, sessionId: string, path: string, init: RequestInit = {}) {
+  const cliSession = await requireAuthorizedSession(request, env)
+  if (!cliSession) {
+    return json({ error: 'Unauthorized' }, 401)
+  }
+  const sessionPayload = await proxyToControlPlaneJson<{ session?: { ownerEmail?: string } }>(
+    env,
+    `/assistant-sessions/${encodeURIComponent(sessionId)}`,
+    { method: 'GET' },
+  ).catch(() => null)
+  const ownerEmail = sessionPayload?.session?.ownerEmail
+  if (!ownerEmail) {
+    return json({ error: 'Session not found' }, 404)
+  }
+  if (ownerEmail !== cliSession.email && !isAdminEmail(env, cliSession.email)) {
+    return json({ error: 'Forbidden' }, 403)
+  }
+  return proxyToControlPlane(env, path, init.method || init.body
+    ? {
+        ...init,
+        headers: { 'Content-Type': 'application/json' },
+      }
+    : init)
+}
+
 export default {
   async fetch(request: Request, env: Env, ctx: WorkerExecutionContext): Promise<Response> {
     const url = new URL(request.url)
@@ -3246,12 +3296,14 @@ export default {
 
     const runMatch = pathname.match(/^\/api\/cli\/runs\/([^/]+)$/u)
     if (runMatch && request.method === 'GET') {
-      return forwardCliRequest(request, env, `/runs/${encodeURIComponent(runMatch[1] ?? '')}`, { method: 'GET' })
+      const runId = decodeURIComponent(runMatch[1] ?? '')
+      return forwardRunScopedCliRequest(request, env, runId, `/runs/${encodeURIComponent(runId)}`, { method: 'GET' })
     }
 
     const sessionMatch = pathname.match(/^\/api\/cli\/sessions\/([^/]+)$/u)
     if (sessionMatch && request.method === 'GET') {
-      return forwardCliRequest(request, env, `/assistant-sessions/${encodeURIComponent(sessionMatch[1] ?? '')}`, {
+      const sessionId = decodeURIComponent(sessionMatch[1] ?? '')
+      return forwardSessionScopedCliRequest(request, env, sessionId, `/assistant-sessions/${encodeURIComponent(sessionId)}`, {
         method: 'GET',
       })
     }
@@ -3273,57 +3325,77 @@ export default {
 
     const sessionDebugViewMatch = pathname.match(/^\/api\/cli\/sessions\/([^/]+)\/debug-view$/u)
     if (sessionDebugViewMatch && request.method === 'GET') {
-      return forwardCliRequest(
+      const sessionId = decodeURIComponent(sessionDebugViewMatch[1] ?? '')
+      return forwardSessionScopedCliRequest(
         request,
         env,
-        `/assistant-sessions/${encodeURIComponent(sessionDebugViewMatch[1] ?? '')}/debug-view`,
+        sessionId,
+        `/assistant-sessions/${encodeURIComponent(sessionId)}/debug-view`,
         { method: 'GET' },
       )
     }
 
     const runCancelMatch = pathname.match(/^\/api\/cli\/runs\/([^/]+)\/cancel$/u)
     if (runCancelMatch && request.method === 'POST') {
-      return forwardCliRequest(request, env, `/runs/${encodeURIComponent(runCancelMatch[1] ?? '')}/cancel`, { method: 'POST' })
+      const runId = decodeURIComponent(runCancelMatch[1] ?? '')
+      return forwardRunScopedCliRequest(request, env, runId, `/runs/${encodeURIComponent(runId)}/cancel`, { method: 'POST' })
     }
 
     const runEventsMatch = pathname.match(/^\/api\/cli\/runs\/([^/]+)\/events$/u)
     if (runEventsMatch && request.method === 'GET') {
+      const runId = decodeURIComponent(runEventsMatch[1] ?? '')
       const after = url.searchParams.get('after')
       const suffix = after ? `?after=${encodeURIComponent(after)}` : ''
-      return forwardCliRequest(
+      return forwardRunScopedCliRequest(
         request,
         env,
-        `/runs/${encodeURIComponent(runEventsMatch[1] ?? '')}/events${suffix}`,
+        runId,
+        `/runs/${encodeURIComponent(runId)}/events${suffix}`,
         { method: 'GET' },
       )
     }
 
     const runArtifactsMatch = pathname.match(/^\/api\/cli\/runs\/([^/]+)\/artifacts$/u)
     if (runArtifactsMatch && request.method === 'GET') {
-      return forwardCliRequest(
+      const runId = decodeURIComponent(runArtifactsMatch[1] ?? '')
+      return forwardRunScopedCliRequest(
         request,
         env,
-        `/runs/${encodeURIComponent(runArtifactsMatch[1] ?? '')}/artifacts`,
+        runId,
+        `/runs/${encodeURIComponent(runId)}/artifacts`,
         { method: 'GET' },
       )
     }
 
     const artifactContentMatch = pathname.match(/^\/api\/cli\/artifacts\/([^/]+)\/content$/u)
     if (artifactContentMatch && request.method === 'GET') {
-      return forwardCliRequest(
+      const artifactId = decodeURIComponent(artifactContentMatch[1] ?? '')
+      const artifactPayload = await proxyToControlPlaneJson<{ artifact?: { runId?: string } }>(
+        env,
+        `/artifacts/${encodeURIComponent(artifactId)}`,
+        { method: 'GET' },
+      ).catch(() => null)
+      const runId = artifactPayload?.artifact?.runId
+      if (!runId) {
+        return json({ error: 'Artifact not found' }, 404)
+      }
+      return forwardRunScopedCliRequest(
         request,
         env,
-        `/artifacts/${encodeURIComponent(artifactContentMatch[1] ?? '')}/content`,
+        runId,
+        `/artifacts/${encodeURIComponent(artifactId)}/content`,
         { method: 'GET' },
       )
     }
 
     const cliSessionEntryMatch = pathname.match(/^\/api\/cli\/sessions\/([^/]+)\/entries$/u)
     if (cliSessionEntryMatch && request.method === 'POST') {
-      return forwardCliRequest(
+      const sessionId = decodeURIComponent(cliSessionEntryMatch[1] ?? '')
+      return forwardSessionScopedCliRequest(
         request,
         env,
-        `/assistant-sessions/${encodeURIComponent(cliSessionEntryMatch[1] ?? '')}`,
+        sessionId,
+        `/assistant-sessions/${encodeURIComponent(sessionId)}`,
         {
           method: 'POST',
           body: await request.text(),
@@ -3334,20 +3406,24 @@ export default {
 
     const runResultsMatch = pathname.match(/^\/api\/cli\/runs\/([^/]+)\/results$/u)
     if (runResultsMatch && request.method === 'GET') {
-      return forwardCliRequest(
+      const runId = decodeURIComponent(runResultsMatch[1] ?? '')
+      return forwardRunScopedCliRequest(
         request,
         env,
-        `/runs/${encodeURIComponent(runResultsMatch[1] ?? '')}/results`,
+        runId,
+        `/runs/${encodeURIComponent(runId)}/results`,
         { method: 'GET' },
       )
     }
 
     const runDebugViewMatch = pathname.match(/^\/api\/cli\/runs\/([^/]+)\/debug-view$/u)
     if (runDebugViewMatch && request.method === 'GET') {
-      return forwardCliRequest(
+      const runId = decodeURIComponent(runDebugViewMatch[1] ?? '')
+      return forwardRunScopedCliRequest(
         request,
         env,
-        `/runs/${encodeURIComponent(runDebugViewMatch[1] ?? '')}/debug-view`,
+        runId,
+        `/runs/${encodeURIComponent(runId)}/debug-view`,
         { method: 'GET' },
       )
     }
