@@ -4851,7 +4851,7 @@ function DashboardMobileHeader({
 
   return (
     <header className="dashboard-mobile-header flex h-14 shrink-0 items-center gap-3 border-b border-border bg-background px-3 md:hidden">
-      <SidebarTrigger className="size-10 shrink-0" aria-label="Open dashboard navigation" />
+      <SidebarTrigger className="dashboard-mobile-menu-trigger size-10 shrink-0" aria-label="Open chat history" />
       <div className="min-w-0">
         <div className="truncate text-sm font-semibold">{title}</div>
         <div className="truncate text-xs text-muted-foreground">Alpha Research</div>
