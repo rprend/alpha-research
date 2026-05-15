@@ -1906,9 +1906,16 @@ async function fetchJson<T>(input: string) {
     if (harnessScenario === 'data-error' && (
       input === '/api/cli/datasets' ||
       input === '/api/cli/runs' ||
+      input === '/api/cli/dashboard-bootstrap' ||
       input.startsWith('/api/cli/sessions?')
     )) {
       throw new Error('Harness scenario: dashboard data could not load.')
+    }
+    if (input === '/api/cli/dashboard-bootstrap') {
+      if (harnessScenario === 'empty') {
+        return { datasets: [], runs: [], sessions: [] } as T
+      }
+      return { datasets: harnessDatasets, runs: harnessRuns, sessions: harnessSessions } as T
     }
     if (input === '/api/cli/datasets') {
       if (harnessScenario === 'empty') {
@@ -5507,16 +5514,14 @@ function useDashboardState() {
         }
 
         try {
-          const [datasetsPayload, runsPayload, sessionsPayload] = await Promise.all([
-            fetchJson<DatasetRecord[] | { datasets: DatasetRecord[] }>('/api/cli/datasets'),
-            fetchJson<RunRecord[] | { runs: RunRecord[] }>('/api/cli/runs'),
-            fetchJson<StoredAssistantSession[] | { sessions: StoredAssistantSession[] }>(
-              '/api/cli/sessions?kind=cli_orchestration',
-            ),
-          ])
-          const datasets = normalizeDatasetsPayload(datasetsPayload)
-          const runs = normalizeRunsPayload(runsPayload)
-          const sessions = normalizeSessionsPayload(sessionsPayload)
+          const bootstrapPayload = await fetchJson<{
+            datasets: DatasetRecord[]
+            runs: RunRecord[]
+            sessions: StoredAssistantSession[]
+          }>('/api/cli/dashboard-bootstrap')
+          const datasets = normalizeDatasetsPayload(bootstrapPayload)
+          const runs = normalizeRunsPayload(bootstrapPayload)
+          const sessions = normalizeSessionsPayload(bootstrapPayload)
 
           if (!cancelled) {
             setState({

@@ -1876,6 +1876,18 @@ export class ControlPlane {
     ).map((row) => this.parseAssistantSessionRow(row))
   }
 
+  private listDatasetsForOwner(ownerEmail: string) {
+    return this.rows(
+      `SELECT * FROM datasets
+       WHERE owner_email = ?
+          OR (owner_email = ? AND mode = ?)
+       ORDER BY updated_at DESC`,
+      ownerEmail,
+      PLATFORM_DATASET_OWNER_EMAIL,
+      'canonical_public',
+    )
+  }
+
   private listAssistantSessionEntries(sessionId: string) {
     return this.rows(
       'SELECT * FROM assistant_session_entries WHERE session_id = ? ORDER BY seq ASC',
@@ -2202,15 +2214,7 @@ export class ControlPlane {
       if (!ownerEmail) {
         return respondJson({ error: 'Missing ownerEmail' }, 400)
       }
-      const rows = this.rows(
-        `SELECT * FROM datasets
-         WHERE owner_email = ?
-            OR (owner_email = ? AND mode = ?)
-         ORDER BY updated_at DESC`,
-        ownerEmail,
-        PLATFORM_DATASET_OWNER_EMAIL,
-        'canonical_public',
-      )
+      const rows = this.listDatasetsForOwner(ownerEmail)
       return respondJson({ datasets: rows.map((row) => this.datasetRowToJson(row)) })
     }
 
@@ -2246,6 +2250,24 @@ export class ControlPlane {
           kind,
           runId,
           datasetId,
+          limit,
+        }).map((session) => this.assistantSessionToJson(session)),
+      })
+    }
+
+    if (pathname === '/dashboard-bootstrap' && request.method === 'GET') {
+      const ownerEmail = url.searchParams.get('ownerEmail')
+      if (!ownerEmail) {
+        return respondJson({ error: 'Missing ownerEmail' }, 400)
+      }
+      const limit = boundedListLimit(url.searchParams.get('limit'))
+      const runRows = this.rows('SELECT * FROM runs WHERE owner_email = ? ORDER BY updated_at DESC LIMIT ?', ownerEmail, limit)
+      return respondJson({
+        datasets: this.listDatasetsForOwner(ownerEmail).map((row) => this.datasetRowToJson(row)),
+        runs: runRows.map((row) => this.runRowToJson(row)),
+        sessions: this.listAssistantSessions({
+          ownerEmail,
+          kind: 'cli_orchestration',
           limit,
         }).map((session) => this.assistantSessionToJson(session)),
       })

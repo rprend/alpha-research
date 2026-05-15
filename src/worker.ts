@@ -3126,6 +3126,19 @@ export default {
       )
     }
 
+    if (pathname === '/api/cli/dashboard-bootstrap' && request.method === 'GET') {
+      const cliSession = await requireAuthorizedSession(request, env)
+      if (!cliSession) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      const limit = url.searchParams.get('limit')
+      const params = new URLSearchParams({ ownerEmail: cliSession.email })
+      if (limit) params.set('limit', limit)
+      return proxyToControlPlane(env, `/dashboard-bootstrap?${params.toString()}`, {
+        method: 'GET',
+      })
+    }
+
     if (pathname === '/api/cli/datasets' && request.method === 'POST') {
       const cliSession = await requireAuthorizedSession(request, env)
       if (!cliSession) {
