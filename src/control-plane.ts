@@ -789,6 +789,136 @@ export class ControlPlane {
     }
   }
 
+  private billingTotals(whereSql = '', ...bindings: unknown[]) {
+    const row = this.rows(
+      `SELECT
+         COALESCE(SUM(cost_usd), 0) AS cost_usd,
+         COALESCE(SUM(input_tokens), 0) AS input_tokens,
+         COALESCE(SUM(output_tokens), 0) AS output_tokens,
+         COALESCE(SUM(total_tokens), 0) AS total_tokens,
+         COUNT(*) AS event_count
+       FROM billing_events ${whereSql}`,
+      ...bindings,
+    )[0]
+    const costUsd = Number(row?.cost_usd ?? 0)
+    return {
+      costUsd: Number.isFinite(costUsd) ? costUsd : 0,
+      credits: creditsFromUsd(Number.isFinite(costUsd) ? costUsd : 0),
+      inputTokens: Number(row?.input_tokens ?? 0),
+      outputTokens: Number(row?.output_tokens ?? 0),
+      totalTokens: Number(row?.total_tokens ?? 0),
+      eventCount: Number(row?.event_count ?? 0),
+    }
+  }
+
+  private billingTotalsForRun(runId: string) {
+    return this.billingTotals('WHERE run_id = ?', runId)
+  }
+
+  private billingTotalsForSession(sessionId: string) {
+    return this.billingTotals('WHERE session_id = ?', sessionId)
+  }
+
+  private adminOverview() {
+    const runs = this.rows('SELECT * FROM runs ORDER BY updated_at DESC LIMIT 250').map((row) => {
+      const run = this.parseRunRow(row)
+      return {
+        ...this.runRowToJson(row),
+        ownerEmail: run.ownerEmail,
+        workerId: run.workerId,
+        workerName: run.workerName,
+        billing: this.billingTotalsForRun(run.id),
+        latestEvents: this.runEventsForRun(run.id).slice(-8),
+      }
+    })
+
+    const sessions = this.rows('SELECT * FROM assistant_sessions ORDER BY updated_at DESC LIMIT 250').map((row) => {
+      const session = this.parseAssistantSessionRow(row)
+      const entryCountRow = this.rows('SELECT COUNT(*) AS count FROM assistant_session_entries WHERE session_id = ?', session.id)[0]
+      return {
+        ...this.assistantSessionToJson(session),
+        entryCount: Number(entryCountRow?.count ?? 0),
+        billing: this.billingTotalsForSession(session.id),
+      }
+    })
+
+    const users = this.rows(
+      `SELECT owner_email AS email FROM runs
+       UNION
+       SELECT owner_email AS email FROM assistant_sessions
+       UNION
+       SELECT owner_email AS email FROM datasets
+       UNION
+       SELECT user_id AS email FROM billing_events
+       ORDER BY email ASC`,
+    ).map((row) => {
+      const email = String(row.email)
+      const runCount = Number(this.rows('SELECT COUNT(*) AS count FROM runs WHERE owner_email = ?', email)[0]?.count ?? 0)
+      const activeRunCount = Number(this.rows(
+        `SELECT COUNT(*) AS count FROM runs
+         WHERE owner_email = ? AND status NOT IN ('ready', 'completed', 'failed', 'cancelled', 'canceled', 'error', 'worker_unreachable')`,
+        email,
+      )[0]?.count ?? 0)
+      const sessionCount = Number(this.rows('SELECT COUNT(*) AS count FROM assistant_sessions WHERE owner_email = ?', email)[0]?.count ?? 0)
+      const datasetCount = Number(this.rows('SELECT COUNT(*) AS count FROM datasets WHERE owner_email = ?', email)[0]?.count ?? 0)
+      const lastActivityRows = this.rows(
+        `SELECT updated_at FROM runs WHERE owner_email = ?
+         UNION ALL
+         SELECT updated_at FROM assistant_sessions WHERE owner_email = ?
+         UNION ALL
+         SELECT updated_at FROM datasets WHERE owner_email = ?
+         ORDER BY updated_at DESC LIMIT 1`,
+        email,
+        email,
+        email,
+      )
+      return {
+        email,
+        runCount,
+        activeRunCount,
+        sessionCount,
+        datasetCount,
+        billing: this.billingTotals('WHERE user_id = ?', email),
+        subscription: this.getSubscriptionByUserId(email),
+        lastActivityAt: lastActivityRows[0]?.updated_at ? String(lastActivityRows[0].updated_at) : null,
+      }
+    })
+
+    const canonicalRuns = this.rows(
+      `SELECT * FROM remote_agent_executions
+       WHERE owner_type = 'admin'
+          OR kind LIKE 'canonical-%'
+          OR dataset_id IN (SELECT id FROM datasets WHERE owner_email = ? OR mode = 'canonical_public')
+       ORDER BY updated_at DESC LIMIT 250`,
+      PLATFORM_DATASET_OWNER_EMAIL,
+    ).map((row) => {
+      const execution = this.parseRemoteAgentExecutionRow(row)
+      return {
+        ...this.remoteAgentExecutionToJson(row),
+        events: this.listRemoteAgentExecutionEvents(execution.id).slice(-12),
+        artifacts: this.listRemoteAgentExecutionArtifacts(execution.id),
+      }
+    })
+
+    const activeRunStatuses = new Set(['queued', 'booting', 'running'])
+    return {
+      summary: {
+        totalCostUsd: this.billingTotals().costUsd,
+        totalCredits: this.billingTotals().credits,
+        runCount: Number(this.rows('SELECT COUNT(*) AS count FROM runs')[0]?.count ?? 0),
+        activeRunCount: runs.filter((run) => activeRunStatuses.has(String(run.status).toLowerCase())).length,
+        sessionCount: Number(this.rows('SELECT COUNT(*) AS count FROM assistant_sessions')[0]?.count ?? 0),
+        userCount: users.length,
+        canonicalRunCount: canonicalRuns.length,
+        activeCanonicalRunCount: canonicalRuns.filter((run) => activeRunStatuses.has(String(run.status).toLowerCase())).length,
+      },
+      runs,
+      sessions,
+      users,
+      canonicalRuns,
+    }
+  }
+
   private billingOverviewForRun(run: RunRecord, now = Date.now()) {
     if (run.ownerEmail === PLATFORM_DATASET_OWNER_EMAIL && run.type === 'canonical-dataset-bootstrap') {
       const window = billingWindow(now)
@@ -1975,6 +2105,10 @@ export class ControlPlane {
         source: typeof body.source === 'string' ? body.source : 'dashboard',
       })
       return respondJson({ ok: true })
+    }
+
+    if (pathname === '/admin/overview' && request.method === 'GET') {
+      return respondJson(this.adminOverview())
     }
 
     if (pathname === '/subscriptions' && request.method === 'POST') {

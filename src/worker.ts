@@ -13,7 +13,7 @@ import { onRequestGet as cliLoginGet } from '../functions/cli/login.js'
 // @ts-expect-error Cloudflare Worker entrypoint imports JS auth handlers.
 import { onRequestPost as cliPlanPost } from '../functions/cli/plan.js'
 // @ts-expect-error Cloudflare Worker entrypoint imports JS auth helpers.
-import { readCliBearerToken, readSession } from '../functions/_utils/auth.js'
+import { isAdminEmail, readCliBearerToken, readSession } from '../functions/_utils/auth.js'
 import { ControlPlane } from './control-plane'
 import { remoteAgentRunnerScript } from './remote-agent-runner-script'
 import { openAIUsageFromResponse, type BillingCheckResult } from './billing'
@@ -39,6 +39,7 @@ type Env = {
   WORKOS_CLIENT_ID?: string
   ALPHA_RESEARCH_SESSION_SECRET?: string
   ALPHA_RESEARCH_ADMIN_TOKEN?: string
+  ALPHA_RESEARCH_ADMIN_EMAILS?: string
   ALPHA_RESEARCH_ALLOWED_EMAILS?: string
   WORKOS_REDIRECT_URI?: string
   OPENAI_API_KEY?: string
@@ -342,6 +343,14 @@ function requireAdminToken(request: Request, env: Env) {
   const authorization = request.headers.get('Authorization') ?? ''
   const actual = authorization.startsWith('Bearer ') ? authorization.slice('Bearer '.length).trim() : ''
   return actual === expected
+}
+
+async function requireAdminSession(request: Request, env: Env) {
+  const session = await readSession(request, env)
+  if (!session || !isAdminEmail(env, session.email)) {
+    return null
+  }
+  return session as { email: string }
 }
 
 async function proxyToControlPlane(env: Env, path: string, init: RequestInit) {
@@ -2909,6 +2918,14 @@ export default {
         const message = error instanceof Error ? error.message : 'Research assistant request failed'
         return json({ error: message }, 500)
       })
+    }
+
+    if (pathname === '/api/admin/overview' && request.method === 'GET') {
+      const adminSession = await requireAdminSession(request, env)
+      if (!adminSession) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      return proxyToControlPlane(env, '/admin/overview', { method: 'GET' })
     }
 
     if (pathname === '/api/admin/canonical-datasets/bootstrap' && request.method === 'POST') {

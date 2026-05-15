@@ -22,9 +22,11 @@ import {
   MessageSquarePlus,
   ScrollText,
   Settings as SettingsIcon,
+  ShieldCheck,
   Table2,
   TerminalSquare,
   UserCircle,
+  Users,
   type LucideIcon,
   Zap,
   X,
@@ -110,7 +112,7 @@ declare global {
 type SessionResponse = {
   authenticated: boolean
   configured: boolean
-  user: { email: string } | null
+  user: { email: string; isAdmin?: boolean } | null
   billing?: BillingOverview | null
   error?: string
 }
@@ -228,7 +230,7 @@ type RunResultsResponse = {
 }
 
 type SessionEntryRole = 'user' | 'assistant' | 'system' | 'tool'
-type DashboardView = 'assistant' | 'datasets' | 'runs' | 'terminal-sessions' | 'settings'
+type DashboardView = 'assistant' | 'datasets' | 'runs' | 'terminal-sessions' | 'admin' | 'settings'
 
 type StoredAssistantSessionEntry = {
   id: string
@@ -251,6 +253,74 @@ type StoredAssistantSession = {
   createdAt: string
   updatedAt: string
   entries?: StoredAssistantSessionEntry[]
+}
+
+type AdminBillingTotals = {
+  costUsd: number
+  credits: number
+  inputTokens: number
+  outputTokens: number
+  totalTokens: number
+  eventCount: number
+}
+
+type AdminRunRecord = RunRecord & {
+  ownerEmail: string
+  workerId?: string | null
+  workerName?: string | null
+  billing: AdminBillingTotals
+  latestEvents: RunEventRecord[]
+}
+
+type AdminSessionRecord = StoredAssistantSession & {
+  ownerEmail: string
+  entryCount: number
+  billing: AdminBillingTotals
+}
+
+type AdminUserRecord = {
+  email: string
+  runCount: number
+  activeRunCount: number
+  sessionCount: number
+  datasetCount: number
+  billing: AdminBillingTotals
+  subscription?: { tier?: string; status?: string } | null
+  lastActivityAt: string | null
+}
+
+type AdminCanonicalRunRecord = {
+  id: string
+  ownerType: string
+  datasetId: string | null
+  kind: string
+  status: string
+  prompt: string
+  outputPreview: string | null
+  workerId?: string | null
+  workerName?: string | null
+  artifactCount: number
+  createdAt: string
+  updatedAt: string
+  events: Array<{ id: string; executionId: string; message: string; level: string; createdAt: string }>
+  artifacts: Array<{ id: string; executionId: string; type: string; title: string; url?: string | null; createdAt: string }>
+}
+
+type AdminOverview = {
+  summary: {
+    totalCostUsd: number
+    totalCredits: number
+    runCount: number
+    activeRunCount: number
+    sessionCount: number
+    userCount: number
+    canonicalRunCount: number
+    activeCanonicalRunCount: number
+  }
+  runs: AdminRunRecord[]
+  sessions: AdminSessionRecord[]
+  users: AdminUserRecord[]
+  canonicalRuns: AdminCanonicalRunRecord[]
 }
 
 type SessionEntry = {
@@ -1853,6 +1923,60 @@ async function fetchJson<T>(input: string) {
       }
       return { sessions: harnessSessions } as T
     }
+    if (input === '/api/admin/overview') {
+      return {
+        summary: {
+          totalCostUsd: 42.17,
+          totalCredits: 4217,
+          runCount: harnessRuns.length,
+          activeRunCount: harnessRuns.filter((run) => !isTerminalRunStatus(run.status)).length,
+          sessionCount: harnessSessions.length,
+          userCount: 2,
+          canonicalRunCount: 1,
+          activeCanonicalRunCount: 1,
+        },
+        runs: harnessRuns.map((run) => ({
+          ...run,
+          ownerEmail: 'admin@example.com',
+          billing: { costUsd: 8.24, credits: 824, inputTokens: 124000, outputTokens: 9000, totalTokens: 133000, eventCount: 3 },
+          latestEvents: [],
+        })),
+        sessions: harnessSessions.map((session) => ({
+          ...session,
+          ownerEmail: 'admin@example.com',
+          entryCount: session.entries?.length ?? 0,
+          billing: { costUsd: 2.12, credits: 212, inputTokens: 41000, outputTokens: 5200, totalTokens: 46200, eventCount: 2 },
+        })),
+        users: [
+          {
+            email: 'admin@example.com',
+            runCount: harnessRuns.length,
+            activeRunCount: harnessRuns.filter((run) => !isTerminalRunStatus(run.status)).length,
+            sessionCount: harnessSessions.length,
+            datasetCount: harnessDatasets.length,
+            billing: { costUsd: 42.17, credits: 4217, inputTokens: 410000, outputTokens: 56000, totalTokens: 466000, eventCount: 7 },
+            subscription: { tier: 'studio', status: 'active' },
+            lastActivityAt: harnessRuns[0]?.updatedAt ?? null,
+          },
+        ],
+        canonicalRuns: [
+          {
+            id: 'canonical-harness-run',
+            ownerType: 'admin',
+            datasetId: 'econ',
+            kind: 'canonical-dataset-bootstrap',
+            status: 'running',
+            prompt: 'Refresh canonical economics dataset.',
+            outputPreview: 'Downloading source material and updating dataset briefing.',
+            artifactCount: 1,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+            events: [{ id: 'event-1', executionId: 'canonical-harness-run', message: 'Preparing Modal agent execution.', level: 'info', createdAt: new Date().toISOString() }],
+            artifacts: [],
+          },
+        ],
+      } as T
+    }
     const datasetMatch = input.match(/^\/api\/cli\/datasets\/([^/]+)$/u)
     if (datasetMatch) {
       const dataset = getHarnessDataset(decodeURIComponent(datasetMatch[1] ?? ''))
@@ -1927,6 +2051,16 @@ function formatCompactCreditAmount(value: number | null | undefined) {
     notation: 'compact',
     maximumFractionDigits: value >= 1_000_000 ? 1 : 0,
   }).format(Math.max(0, Math.round(value)))} credits`
+}
+
+function formatUsd(value: number | null | undefined) {
+  if (typeof value !== 'number' || !Number.isFinite(value)) return '$0.00'
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 }).format(value)
+}
+
+function formatInteger(value: number | null | undefined) {
+  if (typeof value !== 'number' || !Number.isFinite(value)) return '0'
+  return new Intl.NumberFormat('en-US').format(Math.round(value))
 }
 
 function formatBillingWindowDate(value: string | null) {
@@ -2203,6 +2337,7 @@ function getDashboardRoute() {
     candidate === 'datasets' ||
     candidate === 'runs' ||
     candidate === 'terminal-sessions' ||
+    candidate === 'admin' ||
     candidate === 'settings'
       ? candidate
       : 'assistant'
@@ -2956,6 +3091,262 @@ function SessionTable({
         </TableBody>
       </Table>
     </div>
+  )
+}
+
+function useAdminOverview(enabled: boolean) {
+  const [state, setState] = useState<
+    | { type: 'idle' | 'loading' }
+    | { type: 'ready'; overview: AdminOverview }
+    | { type: 'error'; error: string }
+  >({ type: enabled ? 'loading' : 'idle' })
+
+  useEffect(() => {
+    if (!enabled) {
+      setState({ type: 'idle' })
+      return
+    }
+    let cancelled = false
+    async function load() {
+      setState({ type: 'loading' })
+      try {
+        const overview = await fetchJson<AdminOverview>('/api/admin/overview')
+        if (!cancelled) setState({ type: 'ready', overview })
+      } catch (error) {
+        if (!cancelled) {
+          setState({ type: 'error', error: error instanceof Error ? error.message : 'Could not load admin data.' })
+        }
+      }
+    }
+    void load()
+    return () => {
+      cancelled = true
+    }
+  }, [enabled])
+
+  return state
+}
+
+function AdminMetric({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="border border-border bg-background px-4 py-3">
+      <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">{label}</div>
+      <div className="mt-1 text-xl font-semibold tracking-normal text-foreground">{value}</div>
+    </div>
+  )
+}
+
+function AdminSection({
+  title,
+  description,
+  children,
+}: {
+  title: string
+  description: string
+  children: ReactNode
+}) {
+  return (
+    <section className="flex flex-col gap-3">
+      <div>
+        <h2 className="text-lg font-semibold tracking-normal">{title}</h2>
+        <p className="mt-1 text-sm text-muted-foreground">{description}</p>
+      </div>
+      {children}
+    </section>
+  )
+}
+
+function AdminPage({ session }: { session: SessionResponse }) {
+  const isAdmin = session.user?.isAdmin === true
+  const state = useAdminOverview(isAdmin)
+
+  if (!isAdmin) {
+    return (
+      <main className="flex min-h-0 flex-1 items-center justify-center px-4 py-8">
+        <div className="max-w-md border border-border px-6 py-5">
+          <ShieldCheck className="mb-3 size-5 text-muted-foreground" aria-hidden="true" />
+          <h1 className="text-xl font-semibold tracking-normal">Admin access required</h1>
+          <p className="mt-2 text-sm leading-6 text-muted-foreground">
+            This page is restricted to emails in the admin allowlist.
+          </p>
+        </div>
+      </main>
+    )
+  }
+
+  if (state.type === 'loading' || state.type === 'idle') {
+    return (
+      <main className="flex min-h-0 flex-1 items-center justify-center">
+        <LoaderCircle className="size-5 animate-spin text-muted-foreground" aria-label="Loading admin overview" />
+      </main>
+    )
+  }
+
+  if (state.type === 'error') {
+    return (
+      <main className="flex min-h-0 flex-1 items-center justify-center px-4 py-8">
+        <div className="max-w-lg border border-destructive/25 bg-destructive/5 px-6 py-5 text-sm text-destructive">
+          {state.error}
+        </div>
+      </main>
+    )
+  }
+
+  const overview = state.type === 'ready' ? state.overview : null
+  if (!overview) return null
+  return (
+    <main className="flex min-h-0 flex-1 min-w-0 flex-col gap-8 overflow-y-auto px-4 py-6 md:px-8">
+      <section className="flex flex-col gap-2 border-b border-border pb-5">
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <ShieldCheck className="size-4" aria-hidden="true" />
+          Admin
+        </div>
+        <h1 className="text-2xl font-medium tracking-normal">Operations overview</h1>
+        <p className="max-w-3xl text-sm leading-6 text-muted-foreground">
+          Runs, chat sessions, users, usage, and canonical dataset work across the control plane.
+        </p>
+      </section>
+
+      <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+        <AdminMetric label="Total cost" value={formatUsd(overview.summary.totalCostUsd)} />
+        <AdminMetric label="Active runs" value={`${formatInteger(overview.summary.activeRunCount)} / ${formatInteger(overview.summary.runCount)}`} />
+        <AdminMetric label="Users" value={formatInteger(overview.summary.userCount)} />
+        <AdminMetric label="Canonical active" value={`${formatInteger(overview.summary.activeCanonicalRunCount)} / ${formatInteger(overview.summary.canonicalRunCount)}`} />
+      </section>
+
+      <AdminSection title="All Runs" description="Every user run with owner, status, costs, worker details, and recent progress logs.">
+        <div className="overflow-x-auto">
+          <Table className="min-w-[72rem]">
+            <TableHeader>
+              <TableRow>
+                <TableHead>Run</TableHead>
+                <TableHead>User</TableHead>
+                <TableHead>Status</TableHead>
+                <TableHead>Cost</TableHead>
+                <TableHead>Usage</TableHead>
+                <TableHead>Latest log</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {overview.runs.map((run: AdminRunRecord) => (
+                <TableRow key={run.id}>
+                  <TableCell className="max-w-[22rem] align-top">
+                    <div className="truncate font-medium">{runListTitle(run)}</div>
+                    <div className="truncate text-sm text-muted-foreground">{run.datasetId} · {formatStatus(run.type)} · {relativeTime(run.updatedAt)}</div>
+                  </TableCell>
+                  <TableCell className="align-top">{run.ownerEmail}</TableCell>
+                  <TableCell className="align-top"><StatusBadge>{formatStatus(run.status)}</StatusBadge></TableCell>
+                  <TableCell className="align-top">{formatUsd(run.billing.costUsd)}</TableCell>
+                  <TableCell className="align-top">{formatInteger(run.billing.totalTokens)} tokens</TableCell>
+                  <TableCell className="max-w-[24rem] align-top">
+                    <div className="truncate text-sm">{run.latestEvents.at(-1)?.message ?? run.outputPreview ?? 'No progress logs yet.'}</div>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </AdminSection>
+
+      <AdminSection title="Chat Sessions" description="Stored assistant sessions with owner, linked dataset/run, transcript size, and metered usage.">
+        <div className="overflow-x-auto">
+          <Table className="min-w-[62rem]">
+            <TableHeader>
+              <TableRow>
+                <TableHead>Session</TableHead>
+                <TableHead>User</TableHead>
+                <TableHead>Status</TableHead>
+                <TableHead>Entries</TableHead>
+                <TableHead>Cost</TableHead>
+                <TableHead>Linked work</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {overview.sessions.map((chatSession: AdminSessionRecord) => (
+                <TableRow key={chatSession.id}>
+                  <TableCell className="max-w-[20rem] align-top">
+                    <div className="truncate font-medium">{readableSessionTitle(chatSession.title)}</div>
+                    <div className="truncate text-sm text-muted-foreground">{readableSessionKind(chatSession.kind)} · {relativeTime(chatSession.updatedAt)}</div>
+                  </TableCell>
+                  <TableCell className="align-top">{chatSession.ownerEmail}</TableCell>
+                  <TableCell className="align-top"><StatusBadge>{formatStatus(chatSession.status)}</StatusBadge></TableCell>
+                  <TableCell className="align-top">{formatInteger(chatSession.entryCount)}</TableCell>
+                  <TableCell className="align-top">{formatUsd(chatSession.billing.costUsd)}</TableCell>
+                  <TableCell className="max-w-[20rem] align-top">
+                    <div className="truncate text-sm">{chatSession.datasetId ?? 'No dataset'}{chatSession.runId ? ` · ${chatSession.runId}` : ''}</div>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </AdminSection>
+
+      <AdminSection title="Users" description="Per-user totals for cost, runs, active work, sessions, datasets, and subscription state.">
+        <div className="overflow-x-auto">
+          <Table className="min-w-[58rem]">
+            <TableHeader>
+              <TableRow>
+                <TableHead>User</TableHead>
+                <TableHead>Cost</TableHead>
+                <TableHead>Runs</TableHead>
+                <TableHead>Sessions</TableHead>
+                <TableHead>Datasets</TableHead>
+                <TableHead>Plan</TableHead>
+                <TableHead>Last activity</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {overview.users.map((user: AdminUserRecord) => (
+                <TableRow key={user.email}>
+                  <TableCell className="font-medium">{user.email}</TableCell>
+                  <TableCell>{formatUsd(user.billing.costUsd)}</TableCell>
+                  <TableCell>{formatInteger(user.runCount)} total · {formatInteger(user.activeRunCount)} active</TableCell>
+                  <TableCell>{formatInteger(user.sessionCount)}</TableCell>
+                  <TableCell>{formatInteger(user.datasetCount)}</TableCell>
+                  <TableCell>{formatStatus(user.subscription?.tier ?? 'free')} · {formatStatus(user.subscription?.status ?? 'free')}</TableCell>
+                  <TableCell>{user.lastActivityAt ? relativeTime(user.lastActivityAt) : 'No activity'}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </AdminSection>
+
+      <AdminSection title="Canonical Runs" description="Admin-kicked canonical dataset executions with status, artifacts, usage signals, and progress logs.">
+        <div className="grid gap-4 xl:grid-cols-2">
+          {overview.canonicalRuns.map((run: AdminCanonicalRunRecord) => (
+            <article key={run.id} className="border border-border px-4 py-4">
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <StatusBadge>{formatStatus(run.status)}</StatusBadge>
+                    <Badge variant="secondary" className="rounded-none">{formatStatus(run.kind)}</Badge>
+                  </div>
+                  <h3 className="mt-3 truncate font-semibold tracking-normal">{run.datasetId ?? run.id}</h3>
+                  <p className="mt-1 line-clamp-2 text-sm leading-6 text-muted-foreground">{run.outputPreview ?? run.prompt}</p>
+                </div>
+                <div className="text-right text-sm text-muted-foreground">
+                  <div>{formatInteger(run.artifactCount)} artifacts</div>
+                  <div>{relativeTime(run.updatedAt)}</div>
+                </div>
+              </div>
+              <div className="mt-4 border-t border-border pt-3">
+                <div className="mb-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">Progress logs</div>
+                <div className="space-y-2">
+                  {(run.events.length > 0 ? run.events.slice(-5) : [{ id: `${run.id}-empty`, message: 'No progress logs yet.', createdAt: run.updatedAt, level: 'info', executionId: run.id }]).map((event: AdminCanonicalRunRecord['events'][number]) => (
+                    <div key={event.id} className="text-sm leading-6">
+                      <span className="text-muted-foreground">{formatDateTime(event.createdAt)} · </span>
+                      <span>{event.message}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </AdminSection>
+    </main>
   )
 }
 
@@ -4302,9 +4693,11 @@ function DashboardMobileHeader({
         ? 'Remote runs'
         : route.view === 'terminal-sessions'
           ? 'Sessions'
-          : route.view === 'settings'
-            ? 'Settings'
-            : 'Research chat'
+          : route.view === 'admin'
+            ? 'Admin'
+            : route.view === 'settings'
+              ? 'Settings'
+              : 'Research chat'
 
   return (
     <header className="dashboard-mobile-header flex h-14 shrink-0 items-center gap-3 border-b border-border bg-background px-3 md:hidden">
@@ -4544,6 +4937,20 @@ function DashboardSidebar({
                     <Database aria-hidden="true" />
                     Datasets
                   </DropdownMenuItem>
+                  {session.user?.isAdmin ? (
+                    <DropdownMenuItem
+                      className="dashboard-settings-menu-item"
+                      onClick={() =>
+                        navigate({
+                          view: 'admin',
+                          runId: null,
+                          sessionId: null,
+                        })}
+                    >
+                      <Users aria-hidden="true" />
+                      Admin
+                    </DropdownMenuItem>
+                  ) : null}
                   <div className="dashboard-settings-menu-row">
                     <Gauge aria-hidden="true" />
                     <span>{usageRemainingLabel}</span>
@@ -4865,6 +5272,8 @@ function DashboardApp({
         </section>
       </main>
     )
+  } else if (route.view === 'admin') {
+    content = <AdminPage session={session} />
   } else if (route.view === 'settings') {
     content = (
       <DashboardSettingsPage

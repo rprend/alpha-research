@@ -54,6 +54,18 @@ export function getAuthConfig(env) {
   return { apiKey, clientId, secret, allowedEmails }
 }
 
+export function getAdminEmails(env) {
+  return typeof env.ALPHA_RESEARCH_ADMIN_EMAILS === 'string'
+    ? env.ALPHA_RESEARCH_ADMIN_EMAILS.split(',').map((value) => value.trim().toLowerCase()).filter(Boolean)
+    : []
+}
+
+export function isAdminEmail(env, email) {
+  const normalized = typeof email === 'string' ? email.trim().toLowerCase() : ''
+  if (!normalized) return false
+  return getAdminEmails(env).includes(normalized)
+}
+
 export function createWorkOS(env) {
   const { apiKey, clientId } = getAuthConfig(env)
   return new WorkOS(apiKey, { clientId })

@@ -1,4 +1,4 @@
-import { getAuthConfig, readSession } from '../../_utils/auth.js'
+import { getAuthConfig, isAdminEmail, readSession } from '../../_utils/auth.js'
 
 export async function onRequestGet(context) {
   try {
@@ -21,7 +21,7 @@ export async function onRequestGet(context) {
   return new Response(JSON.stringify({
     authenticated: Boolean(session),
     configured: true,
-    user: session ? { email: session.email } : null,
+    user: session ? { email: session.email, isAdmin: isAdminEmail(context.env, session.email) } : null,
   }), {
     headers: {
       'Content-Type': 'application/json',

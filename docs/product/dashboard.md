@@ -23,6 +23,14 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Failed or uncertain run detail should preserve salvage value before raw logs: separate `What completed`, `What is missing`, `Can you trust saved output?`, `What happened`, and `Recommended next move`.
 - The artifacts surface for a failed or uncertain run must list expected outputs even when no files were produced, so the user can see what was recovered versus what was lost.
 - Inspect terminal sessions proxied through Alpha Research.
+- Admin-only operators can open an operations overview that lists all user runs, chat sessions, users, costs, usage totals, and admin-owned canonical dataset executions with progress logs.
+
+## Admin Expectations
+
+- The admin overview must never render for non-admin sessions; access is controlled by the signed-in email allowlist, not a browser-exposed token.
+- Runs and chat sessions should show owner, status, linked dataset/run context, cost, token usage, and recent progress or transcript size.
+- User rows should aggregate total cost, runs per user, active runs, sessions, datasets, subscription state, and last activity.
+- Canonical dataset executions should show status, dataset id, artifacts, progress logs, and whether work is still active.
 
 ## Terminal Session Expectations
 
