@@ -45,6 +45,8 @@ type R2BucketLike = {
 
 const ASSISTANT_SESSION_CONTENT_STORAGE_LIMIT = 60_000
 const ASSISTANT_SESSION_METADATA_STORAGE_LIMIT = 24_000
+const DEFAULT_CLI_LIST_LIMIT = 250
+const MAX_CLI_LIST_LIMIT = 1000
 
 function isPlainRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
@@ -53,6 +55,13 @@ function isPlainRecord(value: unknown): value is Record<string, unknown> {
 function truncateStoredText(value: string, limit: number) {
   if (value.length <= limit) return value
   return `${value.slice(0, limit).trimEnd()}\n\n[Truncated by control-plane storage guard at ${limit} characters.]`
+}
+
+function boundedListLimit(value: string | null, fallback = DEFAULT_CLI_LIST_LIMIT) {
+  if (!value) return fallback
+  const parsed = Number.parseInt(value, 10)
+  if (!Number.isFinite(parsed) || parsed <= 0) return fallback
+  return Math.min(parsed, MAX_CLI_LIST_LIMIT)
 }
 
 function boundedMetadataForStorage(value: unknown) {
@@ -470,6 +479,14 @@ export class ControlPlane {
         created_at TEXT NOT NULL,
         updated_at TEXT NOT NULL
       );
+    `)
+    this.sql.exec(`
+      CREATE INDEX IF NOT EXISTS idx_runs_owner_updated
+      ON runs (owner_email, updated_at DESC);
+    `)
+    this.sql.exec(`
+      CREATE INDEX IF NOT EXISTS idx_runs_owner_dataset_updated
+      ON runs (owner_email, dataset_id, updated_at DESC);
     `)
     this.sql.exec(`
       CREATE TABLE IF NOT EXISTS run_events (
@@ -1816,6 +1833,7 @@ export class ControlPlane {
     kind?: string | null
     runId?: string | null
     datasetId?: string | null
+    limit?: number
   }) {
     const clauses = ['owner_email = ?']
     const bindings: unknown[] = [params.ownerEmail]
@@ -1832,8 +1850,9 @@ export class ControlPlane {
       bindings.push(params.datasetId)
     }
     return this.rows(
-      `SELECT * FROM assistant_sessions WHERE ${clauses.join(' AND ')} ORDER BY updated_at DESC`,
+      `SELECT * FROM assistant_sessions WHERE ${clauses.join(' AND ')} ORDER BY updated_at DESC LIMIT ?`,
       ...bindings,
+      params.limit ?? DEFAULT_CLI_LIST_LIMIT,
     ).map((row) => this.parseAssistantSessionRow(row))
   }
 
@@ -2200,12 +2219,14 @@ export class ControlPlane {
       const kind = url.searchParams.get('kind')
       const runId = url.searchParams.get('runId')
       const datasetId = url.searchParams.get('datasetId')
+      const limit = boundedListLimit(url.searchParams.get('limit'))
       return respondJson({
         sessions: this.listAssistantSessions({
           ownerEmail,
           kind,
           runId,
           datasetId,
+          limit,
         }).map((session) => this.assistantSessionToJson(session)),
       })
     }
@@ -2981,9 +3002,10 @@ export class ControlPlane {
       if (!ownerEmail) {
         return respondJson({ error: 'Missing ownerEmail' }, 400)
       }
+      const limit = boundedListLimit(url.searchParams.get('limit'))
       const rows = datasetId
-        ? this.rows('SELECT * FROM runs WHERE owner_email = ? AND dataset_id = ? ORDER BY updated_at DESC', ownerEmail, datasetId)
-        : this.rows('SELECT * FROM runs WHERE owner_email = ? ORDER BY updated_at DESC', ownerEmail)
+        ? this.rows('SELECT * FROM runs WHERE owner_email = ? AND dataset_id = ? ORDER BY updated_at DESC LIMIT ?', ownerEmail, datasetId, limit)
+        : this.rows('SELECT * FROM runs WHERE owner_email = ? ORDER BY updated_at DESC LIMIT ?', ownerEmail, limit)
       return respondJson({ runs: rows.map((row) => this.runRowToJson(row)) })
     }
 

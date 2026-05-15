@@ -3195,8 +3195,11 @@ export default {
         return json({ error: 'Unauthorized' }, 401)
       }
       const datasetId = url.searchParams.get('datasetId')
-      const suffix = datasetId ? `&datasetId=${encodeURIComponent(datasetId)}` : ''
-      return proxyToControlPlane(env, `/runs?ownerEmail=${encodeURIComponent(cliSession.email)}${suffix}`, {
+      const limit = url.searchParams.get('limit')
+      const params = new URLSearchParams({ ownerEmail: cliSession.email })
+      if (datasetId) params.set('datasetId', datasetId)
+      if (limit) params.set('limit', limit)
+      return proxyToControlPlane(env, `/runs?${params.toString()}`, {
         method: 'GET',
       })
     }
@@ -3209,10 +3212,12 @@ export default {
       const kind = url.searchParams.get('kind')
       const runId = url.searchParams.get('runId')
       const datasetId = url.searchParams.get('datasetId')
+      const limit = url.searchParams.get('limit')
       const params = new URLSearchParams({ ownerEmail: cliSession.email })
       if (kind) params.set('kind', kind)
       if (runId) params.set('runId', runId)
       if (datasetId) params.set('datasetId', datasetId)
+      if (limit) params.set('limit', limit)
       return proxyToControlPlane(env, `/assistant-sessions?${params.toString()}`, {
         method: 'GET',
       })
