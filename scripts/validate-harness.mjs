@@ -45,6 +45,14 @@ for (const script of requiredPackageScripts) {
 const appSource = readFileSync(join(root, 'src/App.tsx'), 'utf8')
 assert(appSource.includes('isHarnessMode'), 'Dashboard is not wired to harness mode.')
 assert(appSource.includes('harnessDatasets'), 'Dashboard does not expose harness datasets.')
+for (const token of [
+  'Set up your first dataset',
+  'Copy setup command',
+  'Open RESEARCH CLI',
+  'This is expected for a new workspace.',
+]) {
+  assert(appSource.includes(token), `Datasets empty-state guidance is missing: ${token}`)
+}
 
 const harnessSource = readFileSync(join(root, 'src/harness-data.ts'), 'utf8')
 for (const token of [

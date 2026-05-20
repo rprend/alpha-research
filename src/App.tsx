@@ -1569,6 +1569,80 @@ function StatusBadge({ children }: { children: string }) {
   )
 }
 
+const FIRST_DATASET_COMMAND =
+  'research "Create a dataset named my-dataset from ./data.csv. Description: Monthly housing listings by ZIP code."'
+
+function FirstDatasetEmptyState() {
+  const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'error'>('idle')
+
+  const copyCommand = async () => {
+    try {
+      await navigator.clipboard.writeText(FIRST_DATASET_COMMAND)
+      setCopyStatus('copied')
+      window.setTimeout(() => setCopyStatus('idle'), 2000)
+    } catch {
+      setCopyStatus('error')
+    }
+  }
+
+  return (
+    <Empty className="border-t border-dashed border-border px-6 py-14 text-left md:px-8">
+      <EmptyHeader className="max-w-3xl items-start gap-3 text-left">
+        <EmptyMedia variant="icon">
+          <Database />
+        </EmptyMedia>
+        <StatusBadge>New workspace</StatusBadge>
+        <EmptyTitle className="text-2xl tracking-normal normal-case">Set up your first dataset</EmptyTitle>
+        <EmptyDescription className="max-w-2xl text-sm leading-7">
+          This is expected for a new workspace. The fastest path is to give RESEARCH a file or source plus a short description of what you want to analyze.
+        </EmptyDescription>
+      </EmptyHeader>
+      <EmptyContent className="max-w-3xl items-start gap-5 text-left">
+        <ol className="grid w-full gap-3 text-sm text-muted-foreground md:grid-cols-2">
+          <li className="rounded-lg border border-border bg-muted/20 px-4 py-3">
+            <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-foreground/70">1. Source</span>
+            Bring a local file path, upload source, or public data source you want to analyze.
+          </li>
+          <li className="rounded-lg border border-border bg-muted/20 px-4 py-3">
+            <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-foreground/70">2. Description</span>
+            Add one sentence on what the dataset contains, such as geography, timeframe, or metric.
+          </li>
+        </ol>
+        <div className="w-full rounded-lg border border-border bg-muted/20 p-4">
+          <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-foreground/70">Copyable CLI handoff</div>
+          <pre className="overflow-x-auto text-sm leading-6 text-foreground">
+            <code>{FIRST_DATASET_COMMAND}</code>
+          </pre>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Replace the file path, dataset name, and description with your own source. The CLI will register the dataset and start the setup flow.
+          </p>
+        </div>
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <Button type="button" onClick={() => void copyCommand()}>
+            {copyStatus === 'copied' ? 'Copied command' : 'Copy setup command'}
+          </Button>
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() => updateDashboardRoute({ view: 'assistant', datasetId: null, runId: null, sessionId: null })}
+          >
+            Open RESEARCH CLI
+          </Button>
+        </div>
+        {copyStatus === 'error' ? (
+          <p className="text-sm text-destructive">
+            Copy failed in this browser. Select the command above and copy it manually.
+          </p>
+        ) : (
+          <p className="text-sm text-muted-foreground">
+            After setup starts, this page will show the dataset status, deployment progress, and any resulting runs.
+          </p>
+        )}
+      </EmptyContent>
+    </Empty>
+  )
+}
+
 function DatasetFeed({
   datasets,
   onSelectDataset,
@@ -1577,19 +1651,7 @@ function DatasetFeed({
   onSelectDataset: (dataset: DatasetRecord) => void
 }) {
   if (datasets.length === 0) {
-    return (
-      <Empty className="border-t border-dashed border-border px-6 py-14">
-        <EmptyHeader>
-          <EmptyMedia variant="icon">
-            <Database />
-          </EmptyMedia>
-          <EmptyTitle>No datasets yet</EmptyTitle>
-          <EmptyDescription>
-            Create a dataset with the RESEARCH CLI and it will appear here automatically.
-          </EmptyDescription>
-        </EmptyHeader>
-      </Empty>
-    )
+    return <FirstDatasetEmptyState />
   }
   const publicDatasets = datasets.filter(isPublicDataset)
   const privateDatasets = datasets.filter((dataset) => !isPublicDataset(dataset))
@@ -2872,6 +2934,7 @@ function DashboardApp({
   } else if (route.view === 'datasets' && route.datasetId && !dataError) {
     content = <main className="min-h-0 flex-1 overflow-y-auto px-4 py-8 md:px-8" />
   } else if (route.view === 'datasets') {
+    const hasDatasets = datasets.length > 0
     content = (
       <main className="flex flex-1 min-w-0 flex-col gap-10 overflow-y-auto px-4 py-10 md:px-8">
         {dataError ? (
@@ -2882,7 +2945,9 @@ function DashboardApp({
         <section className="mx-auto flex w-full max-w-5xl flex-col gap-3">
           <h1 className="text-4xl font-semibold tracking-normal">Datasets</h1>
           <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-            Browse private research environments and public datasets. Open a dataset for structure, size, provenance, profile details, and generated briefings.
+            {hasDatasets
+              ? 'Browse private research environments and public datasets. Open a dataset for structure, size, provenance, profile details, and generated briefings.'
+              : 'Start with one dataset. Alpha Research will register it, track setup progress, and keep the resulting environment and runs here.'}
           </p>
         </section>
         <section>

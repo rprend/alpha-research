@@ -7,6 +7,7 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Start and continue RESEARCH CLI assistant sessions from the browser.
 - Browse registered datasets and inspect deployment/profile state.
 - Open a dataset detail page that answers trust-and-fit questions first: plain-language summary, provenance, freshness, schema, visible sample rows, limitations, and a clear describe/refresh briefing action.
+- Explain the empty dataset state as normal for new workspaces and provide a concrete first-dataset setup path.
 - Track remote runs by dataset, type, prompt, status, and timestamps.
 - Open run details with observed progress, remote Codex transcript, and a resizable file explorer/viewer for produced run artifacts.
 - Inspect terminal sessions proxied through Alpha Research.
