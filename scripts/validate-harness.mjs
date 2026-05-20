@@ -53,6 +53,9 @@ for (const token of [
 ]) {
   assert(appSource.includes(token), `Datasets empty-state guidance is missing: ${token}`)
 }
+assert(appSource.includes('DashboardDataErrorState'), 'Dashboard data error state is missing.')
+assert(appSource.includes('We cannot tell yet whether your account is empty'), 'Dashboard data error guidance is missing.')
+assert(appSource.includes('Check status'), 'Dashboard data recovery action is missing.')
 
 const harnessSource = readFileSync(join(root, 'src/harness-data.ts'), 'utf8')
 for (const token of [

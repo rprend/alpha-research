@@ -3,6 +3,7 @@ import { AssistantRuntimeProvider, useExternalStoreRuntime, type ThreadMessage }
 import {
   Bot,
   Braces,
+  CircleAlert,
   ChevronDown,
   ChevronRight,
   CircleArrowOutUpRight,
@@ -233,6 +234,8 @@ type AssistantTurnResponse = {
 
 const ROOT_HOST = 'alpharesearch.nyc'
 const DASHBOARD_HOST = 'dashboard.alpharesearch.nyc'
+const DASHBOARD_STATUS_URL = 'https://www.cloudflarestatus.com/'
+const DASHBOARD_SUPPORT_EMAIL = 'support@alpharesearch.nyc'
 
 const locationUrl = new URL(window.location.href)
 const isDashboardView =
@@ -1703,6 +1706,72 @@ function StatusBadge({
   )
 }
 
+function requestDashboardRefresh() {
+  window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
+}
+
+function formatDashboardDataError(error: unknown) {
+  const detail =
+    error instanceof Error
+      ? error.message.replace(/^Harness scenario:\s*/u, '').trim()
+      : ''
+
+  if (detail) {
+    return `We could not load your dashboard data. ${detail}`
+  }
+
+  return 'We could not load your dashboard data.'
+}
+
+function DashboardDataErrorState({
+  resourceName,
+  message,
+}: {
+  resourceName: string
+  message: string
+}) {
+  return (
+    <Card className="rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
+      <CardContent className="flex flex-col gap-5 px-6 py-6 sm:px-8">
+        <div className="flex items-start gap-4">
+          <div className="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-none bg-destructive/10 text-destructive">
+            <CircleAlert aria-hidden="true" />
+          </div>
+          <div className="flex flex-col gap-2">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-destructive">
+              {resourceName} unavailable
+            </p>
+            <h2 className="text-2xl font-semibold tracking-normal text-foreground">
+              You are signed in, but we could not load your {resourceName.toLowerCase()}.
+            </h2>
+            <p className="max-w-3xl text-sm leading-6 text-muted-foreground">
+              {message} We cannot tell yet whether your account is empty, access-restricted, or temporarily unavailable.
+            </p>
+            <p className="max-w-3xl text-sm leading-6 text-muted-foreground">
+              Retry this view. If it still fails, check service status or contact support so we can help.
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <Button type="button" onClick={requestDashboardRefresh}>
+            Retry
+          </Button>
+          <Button asChild variant="outline">
+            <a href={DASHBOARD_STATUS_URL} target="_blank" rel="noreferrer">
+              Check status
+            </a>
+          </Button>
+          <Button asChild variant="ghost">
+            <a href={`mailto:${DASHBOARD_SUPPORT_EMAIL}?subject=Dashboard%20data%20failed%20to%20load`}>
+              Contact support
+            </a>
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
 function DatasetFeed({
   datasets,
   onSelectDataset,
@@ -1939,7 +2008,7 @@ function DatasetDetailPage({
                 setStartingDescribe(true)
                 try {
                   const payload = await startDatasetDescribeRun(current.id)
-                  window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
+                  requestDashboardRefresh()
                   onOpenRun(payload.run)
                 } catch (describeError) {
                   setError(describeError instanceof Error ? describeError.message : 'Could not start describe job.')
@@ -2378,7 +2447,7 @@ function ResearchAssistantPage({
         })
         if (nextSessionId) {
           await refreshSessionMessages(nextSessionId)
-          window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
+          requestDashboardRefresh()
           if (routeSessionIdRef.current !== nextSessionId) {
             updateDashboardRoute({ view: 'assistant', sessionId: nextSessionId, runId: null })
             routeSessionIdRef.current = nextSessionId
@@ -3219,11 +3288,6 @@ function DashboardApp({
   } else if (route.view === 'datasets') {
     content = (
       <main className="flex flex-1 min-w-0 flex-col gap-10 overflow-y-auto px-4 py-10 md:px-8">
-        {dataError ? (
-          <Card className="rounded-none border border-destructive/25 bg-destructive/5 py-0 shadow-none">
-            <CardContent className="px-6 py-4 text-sm text-destructive">{dataError}</CardContent>
-          </Card>
-        ) : null}
         <section className="mx-auto flex w-full max-w-5xl flex-col gap-3">
           <h1 className="text-4xl font-semibold tracking-normal">Datasets</h1>
           <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
@@ -3231,16 +3295,20 @@ function DashboardApp({
           </p>
         </section>
         <section>
-          <DatasetFeed
-            datasets={datasets}
-            onSelectDataset={(dataset) =>
-              updateDashboardRoute({
-                view: 'datasets',
-                datasetId: dataset.id,
-                runId: null,
-                sessionId: null,
-              })}
-          />
+          {dataError ? (
+            <DashboardDataErrorState resourceName="Datasets" message={dataError} />
+          ) : (
+            <DatasetFeed
+              datasets={datasets}
+              onSelectDataset={(dataset) =>
+                updateDashboardRoute({
+                  view: 'datasets',
+                  datasetId: dataset.id,
+                  runId: null,
+                  sessionId: null,
+                })}
+            />
+          )}
         </section>
       </main>
     )
@@ -3516,10 +3584,7 @@ function useDashboardState() {
               datasets: [],
               runs: [],
               sessions: [],
-              dataError:
-                error instanceof Error
-                  ? `Signed in, but dashboard data could not load: ${error.message}`
-                  : 'Signed in, but dashboard data could not load.',
+              dataError: formatDashboardDataError(error),
             })
           }
         }
