@@ -2521,7 +2521,7 @@ function DatasetsEmptyState() {
         </EmptyMedia>
         <Badge variant="secondary" className="gap-2 text-emerald-700">
           <CheckCircle2 className="size-3.5" />
-          Expected for a new workspace
+          This is expected for a new workspace.
         </Badge>
         <EmptyTitle className="text-left normal-case tracking-normal">Set up your first dataset</EmptyTitle>
         <EmptyDescription className="max-w-2xl text-left text-sm leading-7">
@@ -2550,9 +2550,16 @@ function DatasetsEmptyState() {
               <div className="flex flex-wrap gap-3 pt-1">
                 <Button asChild>
                   <a href="/cli/">
-                    Open CLI setup
+                    Open RESEARCH CLI
                     <ExternalLink className="size-3.5" />
                   </a>
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => void navigator.clipboard?.writeText(FIRST_DATASET_COMMAND)}
+                >
+                  Copy setup command
                 </Button>
               </div>
             </CardContent>
@@ -2620,7 +2627,7 @@ function DatasetsLoadingState() {
   )
 }
 
-function DatasetsDataErrorState({
+function DashboardDataErrorState({
   message,
   onRetry,
 }: {
@@ -2638,7 +2645,7 @@ function DatasetsDataErrorState({
           <div className="space-y-2">
             <h2 className="text-2xl font-semibold tracking-normal">We could not load your datasets.</h2>
             <p className="max-w-3xl text-sm leading-7 text-foreground">
-              {message} Your account is still signed in, but this page cannot confirm whether the workspace is empty,
+              {message} We cannot tell yet whether your account is empty,
               permission-restricted, or temporarily unavailable until the data request succeeds.
             </p>
           </div>
@@ -2681,7 +2688,7 @@ function DatasetFeed({
   isLoading?: boolean
 }) {
   if (dataError) {
-    return <DatasetsDataErrorState message={dataError} onRetry={onRetry ?? (() => {})} />
+    return <DashboardDataErrorState message={dataError} onRetry={onRetry ?? (() => {})} />
   }
   if (isLoading) {
     return <DatasetsLoadingState />
