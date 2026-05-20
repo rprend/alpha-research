@@ -38,6 +38,9 @@ except Exception:
 
 SESSION_ID_RE = re.compile(r"session id:\s*([0-9a-fA-F-]{36})")
 HEARTBEAT_INTERVAL_SECONDS = int(os.environ.get("REMOTE_AGENT_HEARTBEAT_SECONDS", "45"))
+RUN_STATE_DIR = DATASET_MOUNT_PATH / ".remote-agent" / "runs" / RUN_ID
+RUN_STATUS_PATH = RUN_STATE_DIR / "status.json"
+CALLBACK_RETRY_SECONDS = [0, 1, 2, 5]
 
 
 def headers(content_type: str):
@@ -47,70 +50,128 @@ def headers(content_type: str):
     }
 
 
+def utc_now() -> str:
+    return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+
+
+def write_worker_status(status: str, output_preview: str = "", phase: str = "", callback_error: str | None = None):
+    RUN_STATE_DIR.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "runId": RUN_ID,
+        "datasetId": DATASET_ID,
+        "status": status,
+        "phase": phase or status,
+        "outputPreview": output_preview or None,
+        "callbackError": callback_error,
+        "updatedAt": utc_now(),
+    }
+    tmp_path = RUN_STATUS_PATH.with_suffix(".json.tmp")
+    tmp_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    tmp_path.replace(RUN_STATUS_PATH)
+
+
+def post_json_with_retries(url: str, payload=None, content_type: str = "application/json", extra_headers=None, data=None):
+    last_error = None
+    for delay in CALLBACK_RETRY_SECONDS:
+        if delay:
+            time.sleep(delay)
+        try:
+            response = requests.post(
+                url,
+                headers={**headers(content_type), **(extra_headers or {})},
+                json=payload if data is None else None,
+                data=data,
+                timeout=20,
+            )
+            response.raise_for_status()
+            return
+        except Exception as exc:
+            last_error = exc
+    raise RuntimeError(f"control-plane callback failed after retries: {last_error}")
+
+
+def report_callback_error(action: str, exc: Exception):
+    try:
+        write_worker_status("running", action, "callback_failed", str(exc))
+    except Exception:
+        pass
+
+
 def post_event(message: str, level: str = "info"):
-    requests.post(
-        CALLBACK_EVENTS_URL,
-        headers={**headers("text/plain; charset=utf-8"), "X-Run-Level": level},
-        data=message.encode("utf-8"),
-        timeout=20,
-    ).raise_for_status()
+    try:
+        post_json_with_retries(
+            CALLBACK_EVENTS_URL,
+            content_type="text/plain; charset=utf-8",
+            extra_headers={"X-Run-Level": level},
+            data=message.encode("utf-8"),
+        )
+    except Exception as exc:
+        report_callback_error(f"event callback failed: {message[:180]}", exc)
 
 
 def post_status(status: str, output_preview: str = ""):
-    requests.post(
-        CALLBACK_STATUS_URL,
-        headers=headers("application/json"),
-        json={
-            "status": status,
-            "outputPreview": output_preview or None,
-        },
-        timeout=20,
-    ).raise_for_status()
+    write_worker_status(status, output_preview, status)
+    try:
+        post_json_with_retries(
+            CALLBACK_STATUS_URL,
+            {
+                "status": status,
+                "outputPreview": output_preview or None,
+            },
+        )
+    except Exception as exc:
+        write_worker_status(status, output_preview, "status_callback_failed", str(exc))
 
 
 def create_artifact(kind: str, title: str, content=None, url: str | None = None):
-    requests.post(
-        CALLBACK_ARTIFACTS_URL,
-        headers=headers("application/json"),
-        json={
-            "type": kind,
-            "title": title,
-            "content": content,
-            "url": url,
-        },
-        timeout=20,
-    ).raise_for_status()
+    try:
+        post_json_with_retries(
+            CALLBACK_ARTIFACTS_URL,
+            {
+                "type": kind,
+                "title": title,
+                "content": content,
+                "url": url,
+            },
+        )
+    except Exception as exc:
+        report_callback_error(f"artifact callback failed: {title}", exc)
 
 
 def post_session_entry(role: str, kind: str, content: str, title: str | None = None, metadata=None):
-    requests.post(
-        CALLBACK_SESSION_ENTRIES_URL,
-        headers=headers("application/json"),
-        json={
-            "sessionKind": "remote_codex",
-            "sessionTitle": "Remote Codex session",
-            "role": role,
-            "kind": kind,
-            "title": title,
-            "content": content[:20000],
-            "metadata": metadata,
-        },
-        timeout=20,
-    ).raise_for_status()
+    try:
+        post_json_with_retries(
+            CALLBACK_SESSION_ENTRIES_URL,
+            {
+                "sessionKind": "remote_codex",
+                "sessionTitle": "Remote Codex session",
+                "role": role,
+                "kind": kind,
+                "title": title,
+                "content": content[:20000],
+                "metadata": metadata,
+            },
+        )
+    except Exception as exc:
+        report_callback_error(f"session callback failed: {(title or kind)[:180]}", exc)
 
 
 def safe_post_event(message: str, level: str = "info"):
-    try:
-        post_event(message, level)
-    except Exception:
-        pass
+    post_event(message, level)
 
 
 def safe_post_status(status: str, output_preview: str = ""):
-    try:
-        post_status(status, output_preview)
-    except Exception:
-        pass
+    post_status(status, output_preview)
+
+
+def collapse_whitespace(value: str, limit: int = 180) -> str:
+    compact = " ".join(value.split())
+    return compact[: limit - 1].rstrip() + "..." if len(compact) > limit else compact
+
+
+def fenced(label: str, language: str, value: str) -> str:
+    text = value.rstrip() or "No output."
+    return f"{label}:\n\n```{language}\n{text}\n```"
 
 
 def summarize_codex_json_line(line: str) -> str | None:
@@ -124,8 +185,7 @@ def summarize_codex_json_line(line: str) -> str | None:
     item_type = item.get("type")
     item_status = item.get("status")
     if item_type == "command_execution":
-        command = str(item.get("command") or "").replace("\n", " ")
-        command = command[:160]
+        command = collapse_whitespace(str(item.get("command") or ""))
         if item_status == "in_progress":
             return f"Running command: {command}"
         if item_status == "completed":
@@ -138,6 +198,54 @@ def summarize_codex_json_line(line: str) -> str | None:
             incomplete = [str(todo.get("text")) for todo in todos if isinstance(todo, dict) and not todo.get("completed")]
             if incomplete:
                 return f"Next: {incomplete[0]}"
+    return None
+
+
+def format_codex_session_entry(line: str):
+    try:
+        payload = json.loads(line)
+    except Exception:
+        return None
+    item = payload.get("item") if isinstance(payload, dict) else None
+    if not isinstance(item, dict):
+        return None
+    item_type = item.get("type")
+    item_status = item.get("status")
+    item_id = str(item.get("id") or "")
+    if item_type == "command_execution":
+        command = str(item.get("command") or "").strip()
+        output = str(item.get("aggregated_output") or "").rstrip()
+        exit_code = item.get("exit_code")
+        metadata = {"itemId": item_id, "itemType": item_type, "status": item_status, "exitCode": exit_code}
+        if item_status == "in_progress":
+            return ("assistant", "command_started", "Running command", fenced("Command", "bash", command), metadata)
+        title = "Command completed" if item_status == "completed" else "Command failed"
+        role = "assistant" if item_status == "completed" else "system"
+        status_line = f"{title}" + (f" with exit code {exit_code}" if exit_code is not None else "") + "."
+        body_parts = [status_line, fenced("Command", "bash", command)]
+        if output:
+            body_parts.append(fenced("Output", "text", output[-12000:]))
+        else:
+            body_parts.append("Output: No output.")
+        return (role, "command_completed" if item_status == "completed" else "command_failed", title, "\n\n".join(body_parts), metadata)
+    if item_type == "todo_list":
+        todos = item.get("items")
+        if not isinstance(todos, list):
+            return None
+        lines = []
+        for todo in todos:
+            if not isinstance(todo, dict):
+                continue
+            marker = "x" if todo.get("completed") else " "
+            text = str(todo.get("text") or "").strip()
+            if text:
+                lines.append(f"- [{marker}] {text}")
+        if lines:
+            return ("assistant", "plan_update", "Plan update", "\n".join(lines), {"itemId": item_id, "itemType": item_type})
+    if item_type in {"message", "assistant_message"}:
+        text = item.get("text") or item.get("content")
+        if isinstance(text, str) and text.strip():
+            return ("assistant", "assistant_message", "Assistant update", text.strip(), {"itemId": item_id, "itemType": item_type})
     return None
 
 
@@ -225,11 +333,13 @@ def infer_artifact_type(path: Path):
 def collect_artifacts():
     created = []
     if LAST_MESSAGE_PATH.exists():
+        summary_text = LAST_MESSAGE_PATH.read_text()
         create_artifact(
             "remote_agent_summary",
             "Remote Agent Summary",
-            {"text": LAST_MESSAGE_PATH.read_text()},
+            {"text": summary_text},
         )
+        post_session_entry("assistant", "final_summary", summary_text, "Synthesis")
         created.append("last-message")
     if TRANSCRIPT_PATH.exists():
         transcript_text = TRANSCRIPT_PATH.read_text()[-50000:]
@@ -337,8 +447,11 @@ def run_codex():
               if summary:
                   last_status = summary
                   safe_post_status("running", summary)
-              post_event(stripped[:2000])
-              post_session_entry("assistant", "stdout", stripped[:5000], "Stdout JSON")
+                  post_event(summary)
+              formatted_entry = format_codex_session_entry(stripped)
+              if formatted_entry:
+                  role, kind, title, content, metadata = formatted_entry
+                  post_session_entry(role, kind, content, title, metadata)
           elif stripped.startswith("ERROR:"):
               post_event(stripped, "error")
               post_session_entry("system", "stderr", stripped[:5000], "Remote error")
@@ -371,6 +484,7 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as exc:
+        write_worker_status("failed", str(exc), "failed", str(exc))
         post_event(f"Remote agent run failed: {exc}", "error")
         post_status("failed", str(exc))
         raise

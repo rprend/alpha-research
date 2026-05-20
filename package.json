@@ -9,6 +9,9 @@
     "test": "pnpm run test:harness",
     "test:harness": "node scripts/validate-harness.mjs",
     "qa:dashboard": "pnpm build && node scripts/qa-dashboard.mjs",
+    "journey:dashboard:capture": "node scripts/dashboard-journey-capture.mjs",
+    "journey:dashboard:judge": "node scripts/dashboard-journey-judge.mjs",
+    "journey:dashboard:remediate": "node scripts/dashboard-journey-remediate.mjs",
     "preview": "vite preview",
     "cf:deploy": "pnpm build && CLOUDFLARE_ACCOUNT_ID=0e1651bc459f3017e816ba2263e0807a wrangler deploy",
     "cf:deploy:preview": "pnpm build && CLOUDFLARE_ACCOUNT_ID=0e1651bc459f3017e816ba2263e0807a wrangler deploy --dry-run"
@@ -16,7 +19,9 @@
   "devDependencies": {
     "@tailwindcss/vite": "^4.2.4",
     "@types/node": "^25.6.0",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
+    "playwright": "^1.59.1",
     "tw-animate-css": "^1.4.0",
     "typescript": "~5.9.3",
     "vite": "^8.0.0",

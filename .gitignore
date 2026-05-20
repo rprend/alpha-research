@@ -30,3 +30,4 @@ dist-ssr
 skills/
 skills-lock.json
 .codex-*.png
+.tmp/

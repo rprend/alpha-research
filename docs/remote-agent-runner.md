@@ -17,7 +17,7 @@
 
 ## Required Outputs
 
-Every successful run must produce at least one callback artifact. The preferred filesystem outputs are:
+Every successful run must produce at least one artifact registration when callbacks are available. The preferred filesystem outputs are:
 
 - `summary.md`
 - `result.json` when structured data is appropriate
@@ -25,13 +25,18 @@ Every successful run must produce at least one callback artifact. The preferred 
 
 ## Heartbeats
 
-Long-running work should send status and event heartbeats at least every `REMOTE_AGENT_HEARTBEAT_SECONDS` seconds. The control plane treats missing heartbeats as a failure signal.
+Long-running work should send status and event heartbeats at least every `REMOTE_AGENT_HEARTBEAT_SECONDS` seconds. Before posting each status callback, the runner writes `<dataset mount>/.remote-agent/runs/<run id>/status.json` so worker execution state survives callback outages.
+
+The control plane treats missing heartbeats as `worker_unreachable`, not `failed`. That state means the backend lost contact with the worker before receiving a terminal execution result.
 
 ## Failure Contract
 
 On failure, the runner must:
 
+- write durable worker status `failed`
 - post an error-level run event
 - post `failed` status with a short preview
 - preserve transcript output when available
 - avoid leaking presigned URLs or secrets into artifacts
+
+Callback delivery is reporting, not execution. Event, session, artifact, and status callbacks retry briefly; if they remain unavailable, the runner records the callback error in the durable worker status file and does not turn that reporting failure into a product run failure.
