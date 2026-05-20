@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 import base64
+import fcntl
 import json
 import os
+import pty
 import re
+import select
+import struct
 import subprocess
 import sys
 import threading
 import time
+import termios
 from pathlib import Path
 
 import requests
@@ -23,24 +28,45 @@ WORKSPACE_DIR = Path(os.environ["WORKSPACE_DIR"])
 ARTIFACT_DIR = Path(os.environ["ARTIFACT_DIR"])
 LAST_MESSAGE_PATH = Path(os.environ["LAST_MESSAGE_PATH"])
 TRANSCRIPT_PATH = Path(os.environ["TRANSCRIPT_PATH"])
-CALLBACK_EVENTS_URL = os.environ["CALLBACK_EVENTS_URL"]
-CALLBACK_STATUS_URL = os.environ["CALLBACK_STATUS_URL"]
-CALLBACK_ARTIFACTS_URL = os.environ["CALLBACK_ARTIFACTS_URL"]
-CALLBACK_SESSION_ENTRIES_URL = os.environ["CALLBACK_SESSION_ENTRIES_URL"]
-RUNNER_TOKEN = os.environ["RUNNER_TOKEN"]
+CALLBACK_EVENTS_URL = os.environ.get("CALLBACK_EVENTS_URL", "")
+CALLBACK_STATUS_URL = os.environ.get("CALLBACK_STATUS_URL", "")
+CALLBACK_ARTIFACTS_URL = os.environ.get("CALLBACK_ARTIFACTS_URL", "")
+CALLBACK_SESSION_ENTRIES_URL = os.environ.get("CALLBACK_SESSION_ENTRIES_URL", "")
+OPENAI_PROXY_BASE_URL = os.environ.get("OPENAI_PROXY_BASE_URL", "").rstrip("/")
+RUNNER_TOKEN = os.environ.get("RUNNER_TOKEN", "")
 REMOTE_AGENT_MODEL = os.environ.get("REMOTE_AGENT_MODEL", "gpt-5-codex")
 REMOTE_AGENT_SESSION_ID = os.environ.get("REMOTE_AGENT_SESSION_ID", "").strip()
+DATASET_READ_ONLY = os.environ.get("DATASET_READ_ONLY", "").lower() in {"1", "true", "yes"}
 try:
     RUN_CONFIG = json.loads(base64.b64decode(os.environ.get("CONFIG_B64", "e30=")).decode("utf-8"))
 except Exception:
     RUN_CONFIG = {}
+try:
+    ARTIFACT_SPEC = json.loads(base64.b64decode(os.environ.get("ARTIFACT_SPEC_B64", "W10=")).decode("utf-8"))
+except Exception:
+    ARTIFACT_SPEC = []
 
 
 SESSION_ID_RE = re.compile(r"session id:\s*([0-9a-fA-F-]{36})")
 HEARTBEAT_INTERVAL_SECONDS = int(os.environ.get("REMOTE_AGENT_HEARTBEAT_SECONDS", "45"))
-RUN_STATE_DIR = DATASET_MOUNT_PATH / ".remote-agent" / "runs" / RUN_ID
-RUN_STATUS_PATH = RUN_STATE_DIR / "status.json"
+RUN_STATE_DIR = Path(os.environ.get("RUN_STATE_DIR", str(DATASET_MOUNT_PATH / ".remote-agent" / "runs" / RUN_ID)))
+RUN_STATUS_PATH = Path(os.environ.get("RUN_STATUS_PATH", str(RUN_STATE_DIR / "status.json")))
 CALLBACK_RETRY_SECONDS = [0, 1, 2, 5]
+INLINE_BINARY_EXTENSIONS = {
+    ".gif": "image/gif",
+    ".jpeg": "image/jpeg",
+    ".jpg": "image/jpeg",
+    ".pdf": "application/pdf",
+    ".png": "image/png",
+    ".webp": "image/webp",
+}
+MAX_INLINE_BINARY_BYTES = 5 * 1024 * 1024
+MAX_TEXT_ARTIFACT_BYTES = 2 * 1024 * 1024
+
+
+def session_title() -> str:
+    run_label = RUN_TYPE.replace("_", " ").replace("-", " ").strip().title() or "Remote"
+    return f"{run_label} run terminal session"
 
 
 def headers(content_type: str):
@@ -71,6 +97,8 @@ def write_worker_status(status: str, output_preview: str = "", phase: str = "", 
 
 
 def post_json_with_retries(url: str, payload=None, content_type: str = "application/json", extra_headers=None, data=None):
+    if not url:
+        return
     last_error = None
     for delay in CALLBACK_RETRY_SECONDS:
         if delay:
@@ -144,7 +172,7 @@ def post_session_entry(role: str, kind: str, content: str, title: str | None = N
             CALLBACK_SESSION_ENTRIES_URL,
             {
                 "sessionKind": "remote_codex",
-                "sessionTitle": "Remote Codex session",
+                "sessionTitle": session_title(),
                 "role": role,
                 "kind": kind,
                 "title": title,
@@ -250,59 +278,56 @@ def format_codex_session_entry(line: str):
 
 
 def build_remote_agent_prompt():
-    private_sources = RUN_CONFIG.get("privateSources") if isinstance(RUN_CONFIG, dict) else None
-    public_sources = RUN_CONFIG.get("publicSources") if isinstance(RUN_CONFIG, dict) else None
-    source_instructions = []
-    if isinstance(private_sources, list) and private_sources:
-        source_instructions.extend([
-            "Private uploaded sources are listed in run_config.json under privateSources.",
-            f"Download each private source into {DATASET_MOUNT_PATH / 'sources' / 'private'} before normalizing it.",
-            "Treat private source download URLs as sensitive temporary credentials; do not copy them into final artifacts or the manifest.",
-            "In the manifest, record private source filenames, sizes, schemas, and provenance notes, but not presigned URLs.",
-        ])
-    if isinstance(public_sources, list) and public_sources:
-        source_instructions.extend([
-            "Public source hints are listed in run_config.json under publicSources.",
-            "Fetch the public/API data needed for the requested environment and document source URLs, retrieval timestamps, schemas, and refresh instructions in the manifest.",
-        ])
-    if not source_instructions:
-        source_instructions.append(
-            "For public-data environment creation, fetch data from the internet into the mounted dataset path, normalize it into durable Parquet/CSV/JSON files, and document source URLs, retrieval timestamps, schemas, and refresh instructions in the manifest."
+    if RUN_TYPE == "canonical-dataset-bootstrap":
+        required_artifacts = RUN_CONFIG.get("requiredArtifacts")
+        if not isinstance(required_artifacts, list) or not required_artifacts:
+            required_artifacts = [
+                "dataset_briefing.md",
+                "improvement_plan.md",
+                "improvement_result.json",
+                "candidate_sources.csv",
+                "source_inventory.json",
+                "slack_briefing.md",
+                "docs_mirror_manifest.json",
+            ]
+        return "\n".join(
+            [
+                "You are running one Alpha Research platform dataset bootstrap job.",
+                f"Create or update the canonical dataset at {DATASET_MOUNT_PATH}.",
+                f"Use {WORKSPACE_DIR} for scratch work.",
+                f"Write run deliverables to {ARTIFACT_DIR}.",
+                f"Write the dataset manifest to {MANIFEST_PATH}.",
+                "This is employee-side dataset maintenance, not an end-user research run.",
+                "Do not write report.html unless it is explicitly requested; dataset_briefing.md is the primary human-readable deliverable.",
+                "work.md is optional bookkeeping for bootstrap jobs; do not let it displace the required dataset briefing and inventory artifacts.",
+                f"Before stopping, write these artifacts exactly: {', '.join(str(item) for item in required_artifacts)}.",
+                "Send Slack progress/final briefings if CANONICAL_DATASET_SLACK_WEBHOOK_URL is present.",
+                "Never write secrets into prompts, logs, artifacts, transcripts, or mounted dataset files.",
+                "",
+                "Dataset bootstrap request:",
+                PROMPT,
+            ]
         )
-    artifact_contract = "\n".join(
+    return "\n".join(
         [
-            "You are executing an Alpha Research remote agent run inside a dataset-attached cloud workspace.",
-            f"Run type: {RUN_TYPE}",
-            f"Dataset id: {DATASET_ID}",
-            f"Dataset mount path: {DATASET_MOUNT_PATH}",
-            f"Manifest path: {MANIFEST_PATH}",
-            f"Workspace path: {WORKSPACE_DIR}",
-            f"The dataset is also available at {WORKSPACE_DIR / 'dataset'} inside the workspace.",
-            f"Artifact directory: {ARTIFACT_DIR}",
+            "You are running one Alpha Research job.",
+            f"Read the shared dataset from {DATASET_MOUNT_PATH}.",
+            f"Use {WORKSPACE_DIR} for scratch work.",
+            f"Write every output to {ARTIFACT_DIR}.",
+            "Iterate on the research task until the answer is complete.",
+            "Keep work.md updated as your running log: what you tried, what worked, what failed, and what remains.",
+            "Stop only after you have written report.html as a polished, decision-ready research report for a senior stakeholder.",
+            "The report must read like a serious applied research paper or expert memo for a senior stakeholder. It should develop the argument in prose, quantify claims, explain identification and measurement choices, interpret evidence, and make limitations explicit.",
+            "Include an abstract or executive takeaway, research question, data description, methodology, results, robustness/validation, limitations, implications, and concrete next steps.",
+            "Make liberal use of tables and figures to summarize data, compare estimates, show uncertainty, display robustness checks, and make the empirical logic easy to inspect.",
+            "Use work.md for generated file lists, scripts, assets, implementation steps, and command logs unless those details directly support a research finding in the report.",
+            "When the evidence is insufficient for a strong conclusion, state the evidentiary limits plainly and explain what additional data or analysis is needed.",
+            "Write result.json too if you produce structured results.",
             "",
-            "You may inspect files, run shell commands, write scripts, and produce result files.",
-            "Use the mounted dataset and manifest to understand the corpus before acting.",
-            "If the manifest path does not exist yet, this is a new environment: create the dataset files, then write a manifest at the manifest path.",
-            f"Run config path: {WORKSPACE_DIR / 'run_config.json'}",
-            *source_instructions,
-            "For any command or script expected to run longer than 30 seconds, print progress at least every 30 seconds.",
-            "If you generate deliverables, write them into the artifact directory.",
-            "Required outputs:",
-            "- summary.md: a concise human-readable summary of what you found or built",
-            "- result.json: structured machine-readable output when appropriate",
-            "Optional outputs:",
-            "- tables as .csv",
-            "- charts as .png or .svg",
-            "- scripts as .py, .sql, or .sh",
-            "",
-            "At the end, make sure summary.md exists. If you create structured results, also write result.json.",
-            "In your final response, state exactly which files you created in the artifact directory.",
-            "",
-            "User request:",
+            "Research request:",
             PROMPT,
         ]
     )
-    return artifact_contract
 
 
 def artifact_content_for_path(path: Path):
@@ -312,8 +337,31 @@ def artifact_content_for_path(path: Path):
             return json.loads(path.read_text())
         except Exception:
             return {"path": str(path), "preview": path.read_text()[:5000]}
-    if suffix in {".md", ".txt", ".csv", ".sql", ".py", ".sh", ".svg"}:
-        return {"path": str(path), "text": path.read_text()[:20000]}
+    if suffix in {".html", ".htm", ".md", ".txt", ".csv", ".sql", ".py", ".sh", ".svg"}:
+        text = path.read_text()
+        encoded = text.encode("utf-8")
+        if len(encoded) <= MAX_TEXT_ARTIFACT_BYTES:
+            return {"path": str(path), "text": text, "sizeBytes": len(encoded)}
+        preview = encoded[:MAX_TEXT_ARTIFACT_BYTES].decode("utf-8", errors="ignore")
+        return {
+            "path": str(path),
+            "text": preview,
+            "sizeBytes": len(encoded),
+            "truncated": True,
+            "note": "text-artifact-exceeded-callback-preview-limit",
+        }
+    if suffix in INLINE_BINARY_EXTENSIONS:
+        size = path.stat().st_size
+        content = {
+            "path": str(path),
+            "mimeType": INLINE_BINARY_EXTENSIONS[suffix],
+            "sizeBytes": size,
+        }
+        if size <= MAX_INLINE_BINARY_BYTES:
+            content["base64"] = base64.b64encode(path.read_bytes()).decode("ascii")
+        else:
+            content["note"] = "binary-too-large-for-inline-preview"
+        return content
     return {"path": str(path), "note": "binary-or-unsupported-preview"}
 
 
@@ -323,7 +371,9 @@ def infer_artifact_type(path: Path):
         return "structured_result"
     if suffix == ".csv":
         return "table"
-    if suffix in {".png", ".svg"}:
+    if suffix in {".html", ".htm"}:
+        return "html_report"
+    if suffix in {".gif", ".jpeg", ".jpg", ".png", ".svg", ".webp"}:
         return "chart"
     if suffix in {".py", ".sql", ".sh"}:
         return "script"
@@ -362,31 +412,215 @@ def collect_artifacts():
     return created
 
 
-def run_codex():
-    WORKSPACE_DIR.mkdir(parents=True, exist_ok=True)
-    ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
-    (WORKSPACE_DIR / "run_config.json").write_text(json.dumps(RUN_CONFIG, indent=2), encoding="utf-8")
-    dataset_link = WORKSPACE_DIR / "dataset"
-    if not dataset_link.exists():
-        dataset_link.symlink_to(DATASET_MOUNT_PATH, target_is_directory=True)
-    prompt_text = build_remote_agent_prompt()
-    command = [
+def collect_deliverable_paths():
+    if not ARTIFACT_DIR.exists():
+        return []
+    return [
+        path
+        for path in sorted(ARTIFACT_DIR.rglob("*"))
+        if path.is_file()
+    ]
+
+
+def expected_primary_artifact_name():
+    if RUN_TYPE == "canonical-dataset-bootstrap":
+        return "dataset_briefing.md"
+    return "report.html"
+
+
+def build_codex_goal():
+    if RUN_TYPE == "canonical-dataset-bootstrap":
+        return (
+            "/goal Complete the canonical dataset bootstrap. Iterate until dataset_briefing.md "
+            "and the required inventory artifacts are written."
+        )
+    return (
+        "/goal Complete the research run. Iterate, keep work.md current, "
+        "and stop only after writing the final report.html."
+    )
+
+
+def codex_execution_config():
+    execution = RUN_CONFIG.get("execution")
+    return execution if isinstance(execution, dict) else {}
+
+
+def requested_codex_mode() -> str:
+    mode = codex_execution_config().get("codexMode")
+    return str(mode).strip().lower() if mode else "exec"
+
+
+def requested_codex_args() -> list[str]:
+    args = codex_execution_config().get("codexArgs")
+    if isinstance(args, list):
+        return [str(item) for item in args if str(item)]
+    return ["--dangerously-bypass-approvals-and-sandbox"]
+
+
+def prompt_envelope_text(remote_prompt: str) -> str:
+    envelope = codex_execution_config().get("promptEnvelope")
+    if isinstance(envelope, dict) and envelope.get("type") == "goal_command":
+        command = str(envelope.get("command") or "/goal").strip() or "/goal"
+        if command == "/goal":
+            return f"{build_codex_goal()}\n\n{remote_prompt}"
+        return f"{command}\n\n{remote_prompt}"
+    return f"{build_codex_goal()}\n\n{remote_prompt}"
+
+
+def codex_provider_args() -> list[str]:
+    return [
+        "-c",
+        'model_provider="alpha-research-openai"',
+        "-c",
+        'model_providers.alpha-research-openai.name="Alpha Research Metered OpenAI"',
+        "-c",
+        f"model_providers.alpha-research-openai.base_url={json.dumps(OPENAI_PROXY_BASE_URL)}",
+        "-c",
+        'model_providers.alpha-research-openai.env_key="OPENAI_API_KEY"',
+        "-c",
+        'model_providers.alpha-research-openai.wire_api="responses"',
+        "-c",
+        "model_providers.alpha-research-openai.requires_openai_auth=false",
+        "-c",
+        "model_providers.alpha-research-openai.supports_websockets=false",
+        "-c",
+        "model_providers.alpha-research-openai.stream_max_retries=2",
+        "-c",
+        "model_providers.alpha-research-openai.request_max_retries=2",
+        "-c",
+        "model_providers.alpha-research-openai.stream_idle_timeout_ms=300000",
+    ]
+
+
+def build_codex_command(prompt_text: str) -> list[str]:
+    mode = requested_codex_mode()
+    if mode == "tui":
+        return [
+            "codex",
+            "--enable",
+            "goals",
+            "--no-alt-screen",
+            *requested_codex_args(),
+            *codex_provider_args(),
+            "-C",
+            str(WORKSPACE_DIR),
+            "-m",
+            REMOTE_AGENT_MODEL,
+            prompt_text,
+        ]
+    return [
         "codex",
         "exec",
+        "--enable",
+        "goals",
         "--skip-git-repo-check",
-        "--dangerously-bypass-approvals-and-sandbox",
+        *requested_codex_args(),
         "--json",
+        *codex_provider_args(),
         "--output-last-message",
         str(LAST_MESSAGE_PATH),
         "-C",
         str(WORKSPACE_DIR),
         "-m",
         REMOTE_AGENT_MODEL,
+        prompt_text,
     ]
+
+
+def terminal_query_response(chunk: bytes) -> bytes:
+    response = b""
+    if b"Continue anyway? [y/N]" in chunk:
+        response += b"y\r"
+    if b"Do you trust the contents of this directory?" in chunk or b"Press enter to continue" in chunk:
+        response += b"\r"
+    if b"\x1b[6n" in chunk:
+        response += b"\x1b[1;1R"
+    if b"\x1b[?u" in chunk:
+        response += b"\x1b[?0u"
+    if b"\x1b[c" in chunk:
+        response += b"\x1b[?1;2c"
+    if b"\x1b]10;?" in chunk:
+        response += b"\x1b]10;rgb:ffff/ffff/ffff\x1b\\"
+    if b"\x1b]11;?" in chunk:
+        response += b"\x1b]11;rgb:0000/0000/0000\x1b\\"
+    return response
+
+
+def iter_process_output(command: list[str], env: dict[str, str]):
+    if requested_codex_mode() != "tui":
+        process = subprocess.Popen(
+            command,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            env=env,
+        )
+        assert process.stdout is not None
+        for line in process.stdout:
+            yield line
+        yield process.wait()
+        return
+
+    master_fd, slave_fd = pty.openpty()
+    winsize = struct.pack("HHHH", 40, 120, 0, 0)
+    fcntl.ioctl(slave_fd, termios.TIOCSWINSZ, winsize)
+    try:
+        process = subprocess.Popen(
+            command,
+            stdin=slave_fd,
+            stdout=slave_fd,
+            stderr=slave_fd,
+            text=False,
+            env=env,
+            close_fds=True,
+        )
+    finally:
+        os.close(slave_fd)
+
+    try:
+        while True:
+            ready, _, _ = select.select([master_fd], [], [], 0.5)
+            if ready:
+                try:
+                    chunk = os.read(master_fd, 4096)
+                except OSError:
+                    chunk = b""
+                if chunk:
+                    response = terminal_query_response(chunk)
+                    if response:
+                        os.write(master_fd, response)
+                    yield chunk.decode("utf-8", errors="replace")
+            return_code = process.poll()
+            if return_code is not None:
+                yield return_code
+                return
+    finally:
+        os.close(master_fd)
+
+
+def run_codex():
+    if not OPENAI_PROXY_BASE_URL:
+        raise RuntimeError("Missing OPENAI_PROXY_BASE_URL; remote Codex runs must use the metered OpenAI proxy")
+    if not RUNNER_TOKEN:
+        raise RuntimeError("Missing RUNNER_TOKEN; remote Codex runs must authenticate to the metered OpenAI proxy")
+    WORKSPACE_DIR.mkdir(parents=True, exist_ok=True)
+    ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
+    CODEX_HOME.mkdir(parents=True, exist_ok=True)
+    (WORKSPACE_DIR / "run_config.json").write_text(json.dumps(RUN_CONFIG, indent=2), encoding="utf-8")
+    dataset_link = WORKSPACE_DIR / "dataset"
+    if not dataset_link.exists():
+        dataset_link.symlink_to(DATASET_MOUNT_PATH, target_is_directory=True)
+    prompt_text = prompt_envelope_text(build_remote_agent_prompt())
+    command = build_codex_command(prompt_text)
     if REMOTE_AGENT_SESSION_ID:
-        command.extend(["resume", REMOTE_AGENT_SESSION_ID, prompt_text])
-    else:
-        command.append(prompt_text)
+        if requested_codex_mode() == "tui":
+            command = [
+                *command,
+                "resume",
+                REMOTE_AGENT_SESSION_ID,
+            ]
+        else:
+            command = [*command[:-1], "resume", REMOTE_AGENT_SESSION_ID, prompt_text]
 
     env = os.environ.copy()
     env["CODEX_HOME"] = str(CODEX_HOME)
@@ -394,9 +628,25 @@ def run_codex():
     env["DATASET_MOUNT_PATH"] = str(DATASET_MOUNT_PATH)
     env["MANIFEST_PATH"] = str(MANIFEST_PATH)
     env["RUN_TYPE"] = RUN_TYPE
+    env["OPENAI_API_KEY"] = RUNNER_TOKEN
+    env["CODEX_API_KEY"] = RUNNER_TOKEN
+    env["TERM"] = "xterm-256color"
+    env["COLORTERM"] = "truecolor"
 
-    post_event("Starting remote agent executor.")
-    post_status("running", "Starting remote agent executor.")
+    login = subprocess.run(
+        ["codex", "login", "--with-api-key"],
+        input=f"{RUNNER_TOKEN}\n",
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        text=True,
+        env=env,
+    )
+    if login.returncode != 0:
+        raise RuntimeError("codex metered-proxy login failed")
+
+    executor_label = "TUI" if requested_codex_mode() == "tui" else "executor"
+    post_event(f"Starting remote agent {executor_label}.")
+    post_status("running", f"Starting remote agent {executor_label}.")
     post_session_entry("user", "prompt", PROMPT, "Remote run request", {
         "runType": RUN_TYPE,
         "datasetId": DATASET_ID,
@@ -405,7 +655,7 @@ def run_codex():
     session_id = None
     started_at = time.monotonic()
     last_output_at = started_at
-    last_status = "Starting remote agent executor."
+    last_status = f"Starting remote agent {executor_label}."
     stop_heartbeat = threading.Event()
 
     def heartbeat_loop():
@@ -419,15 +669,12 @@ def run_codex():
     heartbeat_thread = threading.Thread(target=heartbeat_loop, daemon=True)
     heartbeat_thread.start()
     with TRANSCRIPT_PATH.open("w", encoding="utf-8") as transcript:
-      process = subprocess.Popen(
-          command,
-          stdout=subprocess.PIPE,
-          stderr=subprocess.STDOUT,
-          text=True,
-          env=env,
-      )
-      assert process.stdout is not None
-      for line in process.stdout:
+      return_code = 0
+      for output in iter_process_output(command, env):
+          if isinstance(output, int):
+              return_code = output
+              break
+          line = output
           transcript.write(line)
           transcript.flush()
           stripped = line.strip()
@@ -460,20 +707,40 @@ def run_codex():
               post_session_entry("assistant", "stdout", stripped[:5000], "Session output")
           else:
               post_session_entry("assistant", "stdout", stripped[:5000], "Remote output")
-      return_code = process.wait()
       stop_heartbeat.set()
       heartbeat_thread.join(timeout=2)
     if return_code != 0:
-        raise RuntimeError(f"codex exec failed with exit code {return_code}")
+        raise RuntimeError(f"codex {requested_codex_mode()} failed with exit code {return_code}")
     return session_id
 
 
 def main():
     session_id = run_codex()
     created = collect_artifacts()
-    if not created:
-        raise RuntimeError("Remote agent run completed without producing any artifacts")
-    summary = f"Remote agent run completed with {len(created)} artifact(s)."
+    deliverables = collect_deliverable_paths()
+    if not deliverables:
+        raise RuntimeError(
+            "Remote agent run completed without producing deliverables in ARTIFACT_DIR; "
+            "bookkeeping artifacts do not count as completion"
+        )
+    expected_primary = expected_primary_artifact_name()
+    if not any(path.name == expected_primary for path in deliverables):
+        raise RuntimeError(f"Remote agent run completed without required primary artifact: {expected_primary}")
+    if RUN_TYPE != "canonical-dataset-bootstrap" and not any(path.name == "work.md" for path in deliverables):
+        raise RuntimeError("Remote agent run completed without required ongoing work log: work.md")
+    required_artifacts = RUN_CONFIG.get("requiredArtifacts")
+    if RUN_TYPE == "canonical-dataset-bootstrap" and isinstance(required_artifacts, list):
+        missing = [
+            str(name)
+            for name in required_artifacts
+            if isinstance(name, str) and name and not any(path.name == name for path in deliverables)
+        ]
+        if missing:
+            raise RuntimeError(
+                "Canonical dataset bootstrap completed without required artifact(s): "
+                + ", ".join(missing)
+            )
+    summary = f"Remote agent run completed with {len(deliverables)} deliverable artifact(s)."
     if session_id:
         summary += f" Session: {session_id}."
     post_event(summary)

@@ -27,7 +27,7 @@ export const TooltipIconButton = forwardRef<
           variant="ghost"
           size="icon"
           {...rest}
-          className={cn("aui-button-icon size-6 p-1", className)}
+          className={cn("aui-button-icon size-9 p-2 md:size-6 md:p-1", className)}
           ref={ref}
         >
           <Slot.Slottable>{children}</Slot.Slottable>

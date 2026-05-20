@@ -1,5 +1,6 @@
 import { existsSync } from 'node:fs'
 import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises'
+import { openSync } from 'node:fs'
 import { spawn, spawnSync } from 'node:child_process'
 import { basename, join, resolve } from 'node:path'
 
@@ -26,7 +27,7 @@ function parseArgs() {
     remediationRoot: resolve(remediationArg ?? DEFAULT_REMEDIATION_ROOT),
     explicitRuns: runsArg ? runsArg.split(',').map((item) => resolve(item.trim())).filter(Boolean) : [],
     model: modelArg ?? process.env.DASHBOARD_JOURNEY_REMEDIATION_MODEL ?? 'gpt-5.4',
-    mode: modeArg ?? 'worktree',
+    mode: modeArg ?? 'current',
     onlyVerdicts: onlyVerdictsArg ? onlyVerdictsArg.split(',').map((item) => item.trim().toLowerCase()).filter(Boolean) : null,
     execute,
     detach,
@@ -155,7 +156,7 @@ Requirements:
 - Add or update tests, harness data, journey scenarios, or docs when behavior changes.
 - Run the relevant validation before finishing. At minimum, run \`pnpm build\` and \`pnpm test\`; run \`pnpm run qa:dashboard\` if the UI changed.
 - If this journey cannot be fully fixed in this repository, implement the highest-value repository-local fix and document the remaining external blocker in your final response.
-- Commit your changes in this worktree with a concise message.
+- Commit your changes in the current checkout with a concise message.
 
 Do not merely summarize the issue. Make the code/product changes needed to get the journey working as expected.`
 }
@@ -187,19 +188,15 @@ async function startCodex({ cwd, model, promptPath, logPath, detach }) {
     model,
     '-C',
     cwd,
-    await readFile(promptPath, 'utf8'),
   ]
   if (detach) {
-    const child = spawn('codex', args, {
+    const outFd = openSync(logPath, 'a')
+    const child = spawn('sh', ['-c', 'prompt="$1"; shift; codex "$@" < "$prompt"', 'codex-remediate', promptPath, ...args], {
       cwd,
       env: process.env,
       detached: true,
-      stdio: ['ignore', 'pipe', 'pipe'],
+      stdio: ['ignore', outFd, outFd],
     })
-    const { createWriteStream } = await import('node:fs')
-    const stream = createWriteStream(logPath, { flags: 'a' })
-    child.stdout.pipe(stream)
-    child.stderr.pipe(stream)
     child.unref()
     return { pid: child.pid, code: null }
   }
@@ -207,8 +204,9 @@ async function startCodex({ cwd, model, promptPath, logPath, detach }) {
   const child = spawn('codex', args, {
     cwd,
     env: process.env,
-    stdio: ['ignore', 'pipe', 'pipe'],
+    stdio: ['pipe', 'pipe', 'pipe'],
   })
+  child.stdin.end(await readFile(promptPath, 'utf8'))
   let output = ''
   child.stdout.on('data', (chunk) => { output += chunk.toString() })
   child.stderr.on('data', (chunk) => { output += chunk.toString() })
@@ -219,6 +217,12 @@ async function startCodex({ cwd, model, promptPath, logPath, detach }) {
 
 async function main() {
   const options = parseArgs()
+  if (!['current', 'worktree'].includes(options.mode)) {
+    throw new Error(`Unsupported remediation mode "${options.mode}". Use --mode=current or --mode=worktree.`)
+  }
+  if (options.detach && options.mode !== 'worktree') {
+    throw new Error('Detached remediation requires --mode=worktree. Use --execute for sequential current-branch remediation.')
+  }
   await mkdir(options.remediationRoot, { recursive: true })
   const selected = []
 

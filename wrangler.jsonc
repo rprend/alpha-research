@@ -9,6 +9,12 @@
   "ai": {
     "binding": "AI"
   },
+  "r2_buckets": [
+    {
+      "binding": "ARTIFACT_BUCKET",
+      "bucket_name": "alpha-research-artifacts"
+    }
+  ],
   "durable_objects": {
     "bindings": [
       {
@@ -33,15 +39,16 @@
     {
       "pattern": "dashboard.alpharesearch.nyc/*",
       "zone_name": "alpharesearch.nyc"
+    },
+    {
+      "pattern": "docs.alpharesearch.nyc/*",
+      "zone_name": "alpharesearch.nyc"
     }
   ],
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
-    "run_worker_first": [
-      "/api/*",
-      "/cli/*"
-    ],
+    "run_worker_first": true,
     "not_found_handling": "single-page-application"
   }
 }

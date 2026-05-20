@@ -7,7 +7,7 @@ Alpha Research is structured as a harness engineering project: humans specify re
 - React dashboard in `src/App.tsx`
 - Cloudflare Worker entrypoint in `src/worker.ts`
 - Durable Object control plane in `src/control-plane.ts`
-- DigitalOcean orchestration in `src/digitalocean.ts`
+- Modal worker submission in `src/modal.ts`
 - Remote Codex runner in `scripts/run_remote_agent.py`
 - Research job helper in `scripts/run_research_job.py`
 
@@ -22,7 +22,6 @@ The durable control plane is the source of truth for agent-operable state:
 - `run_artifacts`: produced result files, transcripts, charts, and structured results
 - `assistant_sessions`: browser and CLI assistant conversations
 - `assistant_session_entries`: transcript entries for agent replay/debugging
-- `runner_pool`: warm runner availability and assignment
 
 ## Dependency Direction
 
@@ -30,7 +29,7 @@ The intended dependency flow is:
 
 `UI -> Worker routes -> ControlPlane -> Providers -> External infrastructure`
 
-UI code should not know DigitalOcean, WorkOS, or object storage details. Remote runner scripts should report through the internal callback API rather than mutating control plane state directly.
+UI code should not know Modal, WorkOS, or object storage details. Remote runner scripts should report through the internal callback API rather than mutating control plane state directly.
 
 ## Agent Legibility
 

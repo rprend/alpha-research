@@ -1,19 +1,15 @@
-import { createPresignedSpacesUrl } from './spaces'
+import { createPresignedObjectStoreUrl } from './spaces'
+import { launchModalRemoteAgentExecution, launchModalResearchJob } from './modal'
 import {
-  attachVolumeToDroplet,
-  deleteDroplet,
-  deleteVolume,
-  detachVolumeByDroplet,
-  ensureDatasetVolume,
-  ensureDatasetVolumeWorkspace,
-  ensureWarmResearchPool,
-  inferResearchSizeClass,
-  launchIngestDroplet,
-  launchResearchDroplet,
-  requestedWorkspaceDiskGb,
-  requiresDedicatedResearchRunner,
-  waitForVolumeDetachment,
-} from './digitalocean'
+  FREE_MONTHLY_CREDITS,
+  STUDIO_MONTHLY_CREDITS,
+  billingWindow,
+  computeUsageCostUsd,
+  creditsFromUsd,
+  hasPaidAccess,
+  type BillingUsageEventInput,
+} from './billing'
+import type { SubscriptionRecord } from './stripe'
 
 type DurableObjectStateLike = {
   storage: {
@@ -30,31 +26,149 @@ type SqlStorage = DurableObjectStateLike['storage'] & {
   }
 }
 
+type R2ObjectBodyLike = {
+  body: ReadableStream<Uint8Array> | null
+  httpMetadata?: {
+    contentType?: string
+  }
+  writeHttpMetadata(headers: Headers): void
+}
+
+type R2BucketLike = {
+  get(key: string): Promise<R2ObjectBodyLike | null>
+  put(
+    key: string,
+    value: ArrayBuffer | ArrayBufferView | string | ReadableStream,
+    options?: { httpMetadata?: { contentType?: string } },
+  ): Promise<unknown>
+}
+
+const ASSISTANT_SESSION_CONTENT_STORAGE_LIMIT = 60_000
+const ASSISTANT_SESSION_METADATA_STORAGE_LIMIT = 24_000
+const DEFAULT_CLI_LIST_LIMIT = 250
+const MAX_CLI_LIST_LIMIT = 1000
+
 function isPlainRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
 }
 
+function truncateStoredText(value: string, limit: number) {
+  if (value.length <= limit) return value
+  return `${value.slice(0, limit).trimEnd()}\n\n[Truncated by control-plane storage guard at ${limit} characters.]`
+}
+
+function boundedListLimit(value: string | null, fallback = DEFAULT_CLI_LIST_LIMIT) {
+  if (!value) return fallback
+  const parsed = Number.parseInt(value, 10)
+  if (!Number.isFinite(parsed) || parsed <= 0) return fallback
+  return Math.min(parsed, MAX_CLI_LIST_LIMIT)
+}
+
+function boundedMetadataForStorage(value: unknown) {
+  if (value === undefined) return undefined
+  const json = JSON.stringify(value)
+  if (json.length <= ASSISTANT_SESSION_METADATA_STORAGE_LIMIT) return value
+  return {
+    truncated: true,
+    originalSizeBytes: json.length,
+    preview: truncateStoredText(json, ASSISTANT_SESSION_METADATA_STORAGE_LIMIT),
+  }
+}
+
+function artifactPathFromContent(content: unknown, fallback: string) {
+  if (isPlainRecord(content) && typeof content.path === 'string' && content.path.trim()) {
+    return content.path.trim()
+  }
+  return fallback
+}
+
+function artifactExtension(path: string) {
+  const filename = path.split(/[\\/]/u).filter(Boolean).at(-1) ?? path
+  const index = filename.lastIndexOf('.')
+  return index >= 0 ? filename.slice(index).toLowerCase() : ''
+}
+
+function artifactMimeType(type: string, title: string, content: unknown) {
+  if (isPlainRecord(content) && typeof content.mimeType === 'string' && content.mimeType.trim()) {
+    return content.mimeType.trim()
+  }
+  const extension = artifactExtension(artifactPathFromContent(content, title))
+  if (type === 'structured_result' || extension === '.json') return 'application/json; charset=utf-8'
+  if (extension === '.html' || extension === '.htm') return 'text/html; charset=utf-8'
+  if (extension === '.md' || extension === '.markdown') return 'text/markdown; charset=utf-8'
+  if (extension === '.csv') return 'text/csv; charset=utf-8'
+  if (extension === '.txt') return 'text/plain; charset=utf-8'
+  if (extension === '.svg') return 'image/svg+xml; charset=utf-8'
+  if (extension === '.png') return 'image/png'
+  if (extension === '.jpg' || extension === '.jpeg') return 'image/jpeg'
+  if (extension === '.gif') return 'image/gif'
+  if (extension === '.webp') return 'image/webp'
+  if (extension === '.pdf') return 'application/pdf'
+  return 'application/octet-stream'
+}
+
+function artifactCanUseUrl(type: string, title: string, content: unknown) {
+  const mimeType = artifactMimeType(type, title, content).toLowerCase()
+  return mimeType.startsWith('text/html')
+    || mimeType.startsWith('image/')
+    || mimeType.startsWith('application/pdf')
+}
+
+function sanitizeObjectKeySegment(value: string) {
+  return value.replace(/[^A-Za-z0-9._/-]+/gu, '-').replace(/\/+/gu, '/').replace(/^\/+|\/+$/gu, '') || 'artifact'
+}
+
+function base64ToBytes(value: string) {
+  const binary = atob(value)
+  const bytes = new Uint8Array(binary.length)
+  for (let index = 0; index < binary.length; index += 1) {
+    bytes[index] = binary.charCodeAt(index)
+  }
+  return bytes
+}
+
+function artifactBodyBytes(type: string, title: string, content: unknown) {
+  if (isPlainRecord(content) && typeof content.base64 === 'string' && content.base64.trim()) {
+    return base64ToBytes(content.base64.trim())
+  }
+  if (isPlainRecord(content) && typeof content.text === 'string') {
+    return new TextEncoder().encode(content.text)
+  }
+  if (isPlainRecord(content) && typeof content.preview === 'string') {
+    return new TextEncoder().encode(content.preview)
+  }
+  if (typeof content === 'string') {
+    return new TextEncoder().encode(content)
+  }
+  if (type === 'structured_result' || artifactExtension(title) === '.json') {
+    return new TextEncoder().encode(JSON.stringify(content ?? {}, null, 2))
+  }
+  return null
+}
+
+function artifactPreviewContent(content: unknown) {
+  if (!isPlainRecord(content)) return content
+  const { base64: _base64, ...rest } = content
+  return rest
+}
+
+function formatRunType(value: string) {
+  return value
+    .replace(/[_-]+/gu, ' ')
+    .replace(/\s+/gu, ' ')
+    .trim()
+    .replace(/\b\p{L}/gu, (letter) => letter.toUpperCase())
+    || 'Remote'
+}
+
+type ResponsesApiPayload = {
+  id?: string
+  output_text?: string
+  output?: Array<Record<string, unknown>>
+}
+
 type Env = {
-  DIGITALOCEAN_API_TOKEN?: string
-  DIGITALOCEAN_REGION?: string
-  DIGITALOCEAN_VOLUME_SIZE_GIB?: string
-  DIGITALOCEAN_VOLUME_MOUNT_ROOT?: string
-  DIGITALOCEAN_INGEST_DROPLET_SIZE?: string
-  DIGITALOCEAN_INGEST_IMAGE?: string
-  DIGITALOCEAN_RESEARCH_RUNNER_IMAGE?: string
-  DIGITALOCEAN_RESEARCH_DROPLET_SIZE_SMALL?: string
-  DIGITALOCEAN_RESEARCH_DROPLET_SIZE_MEDIUM?: string
-  DIGITALOCEAN_RESEARCH_DROPLET_SIZE_LARGE?: string
-  DIGITALOCEAN_RESEARCH_WARM_POOL_SIZE_SMALL?: string
-  DIGITALOCEAN_RESEARCH_WARM_POOL_SIZE_MEDIUM?: string
-  DIGITALOCEAN_RESEARCH_WARM_POOL_SIZE_LARGE?: string
   RESEARCH_CONTROL_ORIGIN?: string
-  DIGITALOCEAN_SSH_KEY_IDS?: string
-  DIGITALOCEAN_PROJECT_ID?: string
-  DO_SPACES_BUCKET?: string
-  DO_SPACES_REGION?: string
-  DO_SPACES_ACCESS_KEY_ID?: string
-  DO_SPACES_SECRET_ACCESS_KEY?: string
   OBJECT_STORE_BUCKET?: string
   OBJECT_STORE_REGION?: string
   OBJECT_STORE_ACCESS_KEY_ID?: string
@@ -69,7 +183,93 @@ type Env = {
   OPENAI_API_KEY?: string
   RESEARCH_AGENT_MODEL?: string
   REMOTE_AGENT_MODEL?: string
-  REMOTE_AGENT_EXECUTOR?: string
+  MODAL_AGENT_ENDPOINT_URL?: string
+  MODAL_AGENT_SUBMIT_TOKEN?: string
+  EXA_API_KEY?: string
+  CANONICAL_DATASET_SLACK_WEBHOOK_URL?: string
+  SLACK_WEBHOOK_URL?: string
+  ARTIFACT_BUCKET?: R2BucketLike
+}
+
+const PLATFORM_DATASET_OWNER_EMAIL = 'platform@alpharesearch.nyc'
+const CANONICAL_BOOTSTRAP_REQUIRED_ARTIFACTS = [
+  'dataset_briefing.md',
+  'improvement_plan.md',
+  'improvement_result.json',
+  'candidate_sources.csv',
+  'source_inventory.json',
+  'slack_briefing.md',
+  'docs_mirror_manifest.json',
+]
+
+function normalizeGeneratedRunTitle(value: string) {
+  return value
+    .replace(/^["'`]+|["'`.]+$/gu, '')
+    .replace(/\s+/gu, ' ')
+    .trim()
+}
+
+function clampGeneratedRunTitle(value: string) {
+  const normalized = normalizeGeneratedRunTitle(value)
+  if (!normalized) return null
+  const words = normalized
+    .replace(/[^\p{L}\p{N}\s'-]/gu, ' ')
+    .split(/\s+/u)
+    .filter(Boolean)
+    .slice(0, 8)
+  return words.join(' ').trim() || null
+}
+
+function clampGeneratedRunDescription(value: string) {
+  const normalized = value
+    .replace(/^["'`]+|["'`]+$/gu, '')
+    .replace(/\s+/gu, ' ')
+    .trim()
+  if (!normalized) return null
+  const firstSentence = normalized.match(/^.+?[.!?](?:\s|$)/u)?.[0]?.trim() ?? normalized
+  return firstSentence.length > 180 ? `${firstSentence.slice(0, 179).trimEnd()}…` : firstSentence
+}
+
+function extractResponseText(payload: ResponsesApiPayload) {
+  const outputText = typeof payload.output_text === 'string' ? payload.output_text.trim() : ''
+  if (outputText) return outputText
+  const output = Array.isArray(payload.output) ? payload.output : []
+  const chunks: string[] = []
+  for (const entry of output) {
+    const content = Array.isArray(entry.content) ? entry.content : []
+    for (const item of content) {
+      if (!item || typeof item !== 'object') continue
+      if ((item as { type?: unknown }).type === 'output_text' && typeof (item as { text?: unknown }).text === 'string') {
+        chunks.push((item as { text: string }).text)
+      }
+    }
+  }
+  return chunks.join('\n\n').trim()
+}
+
+async function callResponsesApi(env: Env, body: Record<string, unknown>) {
+  if (!env.OPENAI_API_KEY) {
+    throw new Error('Missing OPENAI_API_KEY on alpha-research control plane')
+  }
+  const upstream = await fetch('https://api.openai.com/v1/responses', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${env.OPENAI_API_KEY}`,
+    },
+    body: JSON.stringify({
+      model: env.RESEARCH_AGENT_MODEL ?? 'gpt-5',
+      reasoning: { effort: 'low' },
+      text: { verbosity: 'low' },
+      max_output_tokens: 512,
+      ...body,
+    }),
+  })
+  const text = await upstream.text()
+  if (!upstream.ok) {
+    throw new Error(`Responses API request failed (${upstream.status}).${text ? ` ${text}` : ''}`)
+  }
+  return JSON.parse(text) as ResponsesApiPayload
 }
 
 type DatasetRecord = {
@@ -92,6 +292,7 @@ type DatasetRecord = {
   volumeMountPath: string | null
   ingestConfigJson: string | null
   activeRunId: string | null
+  activeRemoteExecutionId: string | null
   leaseAcquiredAt: string | null
   createdAt: string
   updatedAt: string
@@ -117,10 +318,28 @@ type RunRecord = {
   ownerEmail: string
   type: string
   status: string
+  title: string | null
+  description: string | null
   prompt: string | null
   outputPreview: string | null
-  dropletId: string | null
-  dropletName: string | null
+  workerId: string | null
+  workerName: string | null
+  createdAt: string
+  updatedAt: string
+}
+
+type RemoteAgentExecutionRecord = {
+  id: string
+  ownerType: string
+  datasetId: string | null
+  kind: string
+  status: string
+  prompt: string
+  outputPreview: string | null
+  workerId: string | null
+  workerName: string | null
+  modalJson: string | null
+  metadataJson: string | null
   createdAt: string
   updatedAt: string
 }
@@ -160,18 +379,6 @@ type AssistantSessionEntryRecord = {
   createdAt: string
 }
 
-type RunnerPoolRecord = {
-  dropletId: string
-  dropletName: string
-  sizeClass: string
-  region: string | null
-  status: string
-  assignedRunId: string | null
-  lastHeartbeatAt: string
-  createdAt: string
-  updatedAt: string
-}
-
 function nowIso() {
   return new Date().toISOString()
 }
@@ -185,10 +392,6 @@ function respondJson(payload: unknown, status = 200) {
 
 function slugify(input: string) {
   return input.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 63) || 'dataset'
-}
-
-function encodeBase64(value: string) {
-  return btoa(unescape(encodeURIComponent(value)))
 }
 
 function isTerminalStatus(status: string | null | undefined) {
@@ -205,13 +408,7 @@ function isTerminalStatus(status: string | null | undefined) {
     || normalized === 'worker_unreachable'
 }
 
-function isVolumeBusyError(error: unknown) {
-  const message = error instanceof Error ? error.message : String(error)
-  return message.includes('storage already associated with another droplet')
-}
-
 const RUN_HEARTBEAT_TIMEOUT_MS = 5 * 60 * 1000
-const RUNNER_POOL_HEARTBEAT_TIMEOUT_MS = 90 * 1000
 
 function isStaleActiveRun(run: RunRecord) {
   if (isTerminalStatus(run.status)) {
@@ -260,6 +457,7 @@ export class ControlPlane {
         volume_mount_path TEXT,
         ingest_config_json TEXT,
         active_run_id TEXT,
+        active_remote_execution_id TEXT,
         lease_acquired_at TEXT,
         created_at TEXT NOT NULL,
         updated_at TEXT NOT NULL
@@ -272,13 +470,23 @@ export class ControlPlane {
         owner_email TEXT NOT NULL,
         type TEXT NOT NULL,
         status TEXT NOT NULL,
+        title TEXT,
+        description TEXT,
         prompt TEXT,
         output_preview TEXT,
-        droplet_id TEXT,
-        droplet_name TEXT,
+        worker_id TEXT,
+        worker_name TEXT,
         created_at TEXT NOT NULL,
         updated_at TEXT NOT NULL
       );
+    `)
+    this.sql.exec(`
+      CREATE INDEX IF NOT EXISTS idx_runs_owner_updated
+      ON runs (owner_email, updated_at DESC);
+    `)
+    this.sql.exec(`
+      CREATE INDEX IF NOT EXISTS idx_runs_owner_dataset_updated
+      ON runs (owner_email, dataset_id, updated_at DESC);
     `)
     this.sql.exec(`
       CREATE TABLE IF NOT EXISTS run_events (
@@ -336,6 +544,44 @@ export class ControlPlane {
       );
     `)
     this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS remote_agent_executions (
+        id TEXT PRIMARY KEY,
+        owner_type TEXT NOT NULL,
+        dataset_id TEXT,
+        kind TEXT NOT NULL,
+        status TEXT NOT NULL,
+        prompt TEXT NOT NULL,
+        output_preview TEXT,
+        worker_id TEXT,
+        worker_name TEXT,
+        modal_json TEXT,
+        metadata_json TEXT,
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL
+      );
+    `)
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS remote_agent_execution_events (
+        seq INTEGER PRIMARY KEY AUTOINCREMENT,
+        id TEXT NOT NULL UNIQUE,
+        execution_id TEXT NOT NULL,
+        message TEXT NOT NULL,
+        level TEXT NOT NULL,
+        created_at TEXT NOT NULL
+      );
+    `)
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS remote_agent_execution_artifacts (
+        id TEXT PRIMARY KEY,
+        execution_id TEXT NOT NULL,
+        type TEXT NOT NULL,
+        title TEXT NOT NULL,
+        url TEXT,
+        content_json TEXT,
+        created_at TEXT NOT NULL
+      );
+    `)
+    this.sql.exec(`
       CREATE TABLE IF NOT EXISTS assistant_sessions (
         id TEXT PRIMARY KEY,
         owner_email TEXT NOT NULL,
@@ -363,37 +609,435 @@ export class ControlPlane {
       );
     `)
     this.sql.exec(`
+      CREATE INDEX IF NOT EXISTS idx_assistant_sessions_owner_kind_updated
+      ON assistant_sessions (owner_email, kind, updated_at DESC);
+    `)
+    this.sql.exec(`
+      CREATE INDEX IF NOT EXISTS idx_assistant_sessions_owner_kind_run_updated
+      ON assistant_sessions (owner_email, kind, run_id, updated_at DESC);
+    `)
+    this.sql.exec(`
+      CREATE INDEX IF NOT EXISTS idx_assistant_sessions_owner_kind_dataset_updated
+      ON assistant_sessions (owner_email, kind, dataset_id, updated_at DESC);
+    `)
+    this.sql.exec(`
+      CREATE INDEX IF NOT EXISTS idx_assistant_sessions_run_kind_created
+      ON assistant_sessions (run_id, kind, created_at ASC);
+    `)
+    this.sql.exec(`
+      CREATE INDEX IF NOT EXISTS idx_assistant_session_entries_session_seq
+      ON assistant_session_entries (session_id, seq ASC);
+    `)
+    this.sql.exec(`
       CREATE TABLE IF NOT EXISTS response_session_links (
         response_id TEXT PRIMARY KEY,
         session_id TEXT NOT NULL
       );
     `)
     this.sql.exec(`
-      CREATE TABLE IF NOT EXISTS runner_pool (
-        droplet_id TEXT PRIMARY KEY,
-        droplet_name TEXT NOT NULL,
-        size_class TEXT NOT NULL,
+      CREATE TABLE IF NOT EXISTS subscriptions (
+        user_id TEXT PRIMARY KEY,
+        stripe_customer_id TEXT UNIQUE,
+        stripe_subscription_id TEXT UNIQUE,
+        stripe_product_id TEXT,
+        stripe_price_id TEXT,
+        checkout_session_id TEXT,
+        tier TEXT NOT NULL,
         status TEXT NOT NULL,
-        region TEXT,
-        assigned_run_id TEXT,
-        last_heartbeat_at TEXT NOT NULL,
+        cancel_at_period_end INTEGER NOT NULL DEFAULT 0,
+        current_period_start TEXT,
+        current_period_end TEXT,
+        metadata_json TEXT NOT NULL DEFAULT '{}',
         created_at TEXT NOT NULL,
         updated_at TEXT NOT NULL
       );
     `)
-    try { this.sql.exec('ALTER TABLE runner_pool ADD COLUMN region TEXT') } catch {}
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS billing_events (
+        id TEXT PRIMARY KEY,
+        user_id TEXT NOT NULL,
+        session_id TEXT,
+        run_id TEXT,
+        source TEXT NOT NULL,
+        provider TEXT NOT NULL,
+        model TEXT NOT NULL,
+        operation TEXT NOT NULL,
+        input_tokens INTEGER NOT NULL,
+        output_tokens INTEGER NOT NULL,
+        total_tokens INTEGER NOT NULL,
+        cached_input_tokens INTEGER NOT NULL,
+        cost_usd REAL NOT NULL,
+        request_id TEXT,
+        request_json TEXT,
+        response_json TEXT,
+        metadata_json TEXT NOT NULL DEFAULT '{}',
+        created_at TEXT NOT NULL
+      );
+    `)
     try { this.sql.exec('ALTER TABLE datasets ADD COLUMN active_run_id TEXT') } catch {}
+    try { this.sql.exec('ALTER TABLE datasets ADD COLUMN active_remote_execution_id TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE datasets ADD COLUMN lease_acquired_at TEXT') } catch {}
+    try { this.sql.exec('ALTER TABLE runs ADD COLUMN worker_id TEXT') } catch {}
+    try { this.sql.exec('ALTER TABLE runs ADD COLUMN worker_name TEXT') } catch {}
+    try { this.sql.exec('ALTER TABLE runs ADD COLUMN title TEXT') } catch {}
+    try { this.sql.exec('ALTER TABLE runs ADD COLUMN description TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE dataset_profiles ADD COLUMN briefing_markdown TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE dataset_profiles ADD COLUMN profile_json TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE dataset_profiles ADD COLUMN briefing_artifact_id TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE dataset_profiles ADD COLUMN profile_artifact_id TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE dataset_profiles ADD COLUMN described_run_id TEXT') } catch {}
     try { this.sql.exec('ALTER TABLE dataset_profiles ADD COLUMN described_at TEXT') } catch {}
+    this.sql.exec(`
+      UPDATE datasets
+         SET volume_id = 'agent-dataset',
+             volume_name = 'agent-dataset',
+             volume_region = 'modal',
+             volume_mount_path = '/data/datasets/' || id,
+             manifest_path = '/data/datasets/' || id || '/manifest.json',
+             updated_at = ?
+       WHERE manifest_path IS NOT NULL
+         AND manifest_path NOT LIKE '/data/%'
+    `, nowIso())
   }
 
   private rows(query: string, ...bindings: unknown[]) {
     return [...this.sql.exec(query, ...bindings)] as Array<Record<string, unknown>>
+  }
+
+  private subscriptionRowToJson(row: Record<string, unknown>): SubscriptionRecord & { createdAt: string; updatedAt: string } {
+    return {
+      userId: String(row.user_id ?? row.userId ?? ''),
+      stripeCustomerId: row.stripe_customer_id ? String(row.stripe_customer_id) : null,
+      stripeSubscriptionId: row.stripe_subscription_id ? String(row.stripe_subscription_id) : null,
+      stripeProductId: row.stripe_product_id ? String(row.stripe_product_id) : null,
+      stripePriceId: row.stripe_price_id ? String(row.stripe_price_id) : null,
+      checkoutSessionId: row.checkout_session_id ? String(row.checkout_session_id) : null,
+      tier: row.tier === 'studio' ? 'studio' : 'free',
+      status: String(row.status ?? 'free') as SubscriptionRecord['status'],
+      cancelAtPeriodEnd: Number(row.cancel_at_period_end ?? 0) === 1,
+      currentPeriodStart: row.current_period_start ? String(row.current_period_start) : null,
+      currentPeriodEnd: row.current_period_end ? String(row.current_period_end) : null,
+      metadata: row.metadata_json ? JSON.parse(String(row.metadata_json)) : {},
+      createdAt: String(row.created_at ?? ''),
+      updatedAt: String(row.updated_at ?? ''),
+    }
+  }
+
+  private getSubscriptionByUserId(userId: string) {
+    const row = this.rows('SELECT * FROM subscriptions WHERE user_id = ? LIMIT 1', userId)[0]
+    return row ? this.subscriptionRowToJson(row) : null
+  }
+
+  private getSubscriptionByStripeSubscriptionId(stripeSubscriptionId: string) {
+    const row = this.rows('SELECT * FROM subscriptions WHERE stripe_subscription_id = ? LIMIT 1', stripeSubscriptionId)[0]
+    return row ? this.subscriptionRowToJson(row) : null
+  }
+
+  private getSubscriptionByStripeCustomerId(stripeCustomerId: string) {
+    const row = this.rows('SELECT * FROM subscriptions WHERE stripe_customer_id = ? LIMIT 1', stripeCustomerId)[0]
+    return row ? this.subscriptionRowToJson(row) : null
+  }
+
+  private upsertSubscription(input: SubscriptionRecord & { createdAt?: string; updatedAt?: string }) {
+    const existing = this.getSubscriptionByUserId(input.userId)
+    const createdAt = input.createdAt ?? existing?.createdAt ?? nowIso()
+    const updatedAt = input.updatedAt ?? nowIso()
+    this.sql.exec(
+      `INSERT INTO subscriptions (
+         user_id, stripe_customer_id, stripe_subscription_id, stripe_product_id, stripe_price_id, checkout_session_id,
+         tier, status, cancel_at_period_end, current_period_start, current_period_end, metadata_json, created_at, updated_at
+       )
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+       ON CONFLICT(user_id) DO UPDATE SET
+         stripe_customer_id = excluded.stripe_customer_id,
+         stripe_subscription_id = excluded.stripe_subscription_id,
+         stripe_product_id = excluded.stripe_product_id,
+         stripe_price_id = excluded.stripe_price_id,
+         checkout_session_id = excluded.checkout_session_id,
+         tier = excluded.tier,
+         status = excluded.status,
+         cancel_at_period_end = excluded.cancel_at_period_end,
+         current_period_start = excluded.current_period_start,
+         current_period_end = excluded.current_period_end,
+         metadata_json = excluded.metadata_json,
+         updated_at = excluded.updated_at`,
+      input.userId,
+      input.stripeCustomerId,
+      input.stripeSubscriptionId,
+      input.stripeProductId,
+      input.stripePriceId,
+      input.checkoutSessionId,
+      input.tier,
+      input.status,
+      input.cancelAtPeriodEnd ? 1 : 0,
+      input.currentPeriodStart,
+      input.currentPeriodEnd,
+      JSON.stringify(input.metadata ?? {}),
+      createdAt,
+      updatedAt,
+    )
+    return this.getSubscriptionByUserId(input.userId)
+  }
+
+  private billingOverview(userId: string, now = Date.now()) {
+    const window = billingWindow(now)
+    const subscription = this.getSubscriptionByUserId(userId)
+    const paid = hasPaidAccess(subscription, now)
+    const tier = paid ? 'studio' : 'free'
+    const monthlyCredits = paid ? STUDIO_MONTHLY_CREDITS : FREE_MONTHLY_CREDITS
+    const spendRow = this.rows(
+      'SELECT COALESCE(SUM(cost_usd), 0) AS total_cost_usd, COUNT(*) AS event_count FROM billing_events WHERE user_id = ? AND created_at >= ?',
+      userId,
+      window.startedAt,
+    )[0]
+    const spendUsd = Number(spendRow?.total_cost_usd ?? 0)
+    const usedCredits = creditsFromUsd(Number.isFinite(spendUsd) ? spendUsd : 0)
+    return {
+      allowed: usedCredits <= monthlyCredits,
+      tier,
+      subscriptionStatus: subscription?.status ?? 'free',
+      limitCredits: monthlyCredits,
+      usedCredits,
+      remainingCredits: Math.max(0, monthlyCredits - usedCredits),
+      spendUsd,
+      windowStartedAt: window.startedAt,
+      windowEndsAt: window.endsAt,
+      checkoutEligible: !paid,
+    }
+  }
+
+  private billingTotals(whereSql = '', ...bindings: unknown[]) {
+    const row = this.rows(
+      `SELECT
+         COALESCE(SUM(cost_usd), 0) AS cost_usd,
+         COALESCE(SUM(input_tokens), 0) AS input_tokens,
+         COALESCE(SUM(output_tokens), 0) AS output_tokens,
+         COALESCE(SUM(total_tokens), 0) AS total_tokens,
+         COUNT(*) AS event_count
+       FROM billing_events ${whereSql}`,
+      ...bindings,
+    )[0]
+    const costUsd = Number(row?.cost_usd ?? 0)
+    return {
+      costUsd: Number.isFinite(costUsd) ? costUsd : 0,
+      credits: creditsFromUsd(Number.isFinite(costUsd) ? costUsd : 0),
+      inputTokens: Number(row?.input_tokens ?? 0),
+      outputTokens: Number(row?.output_tokens ?? 0),
+      totalTokens: Number(row?.total_tokens ?? 0),
+      eventCount: Number(row?.event_count ?? 0),
+    }
+  }
+
+  private billingTotalsForRun(runId: string) {
+    return this.billingTotals('WHERE run_id = ?', runId)
+  }
+
+  private billingTotalsForSession(sessionId: string) {
+    return this.billingTotals('WHERE session_id = ?', sessionId)
+  }
+
+  private addBillingTotals(...totals: ReturnType<ControlPlane['billingTotals']>[]) {
+    const costUsd = totals.reduce((sum, total) => sum + total.costUsd, 0)
+    return {
+      costUsd,
+      credits: creditsFromUsd(costUsd),
+      inputTokens: totals.reduce((sum, total) => sum + total.inputTokens, 0),
+      outputTokens: totals.reduce((sum, total) => sum + total.outputTokens, 0),
+      totalTokens: totals.reduce((sum, total) => sum + total.totalTokens, 0),
+      eventCount: totals.reduce((sum, total) => sum + total.eventCount, 0),
+    }
+  }
+
+  private adminOverview() {
+    const runs = this.rows('SELECT * FROM runs ORDER BY updated_at DESC LIMIT 250').map((row) => {
+      const run = this.parseRunRow(row)
+      return {
+        ...this.runRowToJson(row),
+        ownerEmail: run.ownerEmail,
+        workerId: run.workerId,
+        workerName: run.workerName,
+        billing: this.billingTotalsForRun(run.id),
+        latestEvents: this.runEventsForRun(run.id).slice(-8),
+      }
+    })
+
+    const sessions = this.rows('SELECT * FROM assistant_sessions ORDER BY updated_at DESC LIMIT 250').map((row) => {
+      const session = this.parseAssistantSessionRow(row)
+      const entries = this.listAssistantSessionEntries(session.id).map((entry) => this.assistantSessionEntryToJson(entry))
+      const linkedRunIds = this.collectRunIdsFromSession(session, entries)
+      const linkedRuns = linkedRunIds.map((runId) => {
+        const runRow = this.rows('SELECT * FROM runs WHERE id = ? LIMIT 1', runId)[0]
+        if (!runRow) return null
+        const run = this.parseRunRow(runRow)
+        return {
+          ...this.runRowToJson(runRow),
+          ownerEmail: run.ownerEmail,
+          billing: this.billingTotalsForRun(run.id),
+        }
+      }).filter((run): run is NonNullable<typeof run> => run !== null)
+      return {
+        ...this.assistantSessionToJson(session),
+        entryCount: entries.length,
+        linkedRuns,
+        billing: this.addBillingTotals(
+          this.billingTotalsForSession(session.id),
+          ...linkedRuns.map((run) => run.billing),
+        ),
+      }
+    })
+
+    const users = this.rows(
+      `SELECT owner_email AS email FROM runs
+       UNION
+       SELECT owner_email AS email FROM assistant_sessions
+       UNION
+       SELECT owner_email AS email FROM datasets
+       UNION
+       SELECT user_id AS email FROM billing_events
+       ORDER BY email ASC`,
+    ).map((row) => {
+      const email = String(row.email)
+      const runCount = Number(this.rows('SELECT COUNT(*) AS count FROM runs WHERE owner_email = ?', email)[0]?.count ?? 0)
+      const activeRunCount = Number(this.rows(
+        `SELECT COUNT(*) AS count FROM runs
+         WHERE owner_email = ? AND status NOT IN ('ready', 'completed', 'failed', 'cancelled', 'canceled', 'error', 'worker_unreachable')`,
+        email,
+      )[0]?.count ?? 0)
+      const sessionCount = Number(this.rows('SELECT COUNT(*) AS count FROM assistant_sessions WHERE owner_email = ?', email)[0]?.count ?? 0)
+      const datasetCount = Number(this.rows('SELECT COUNT(*) AS count FROM datasets WHERE owner_email = ?', email)[0]?.count ?? 0)
+      const lastActivityRows = this.rows(
+        `SELECT updated_at FROM runs WHERE owner_email = ?
+         UNION ALL
+         SELECT updated_at FROM assistant_sessions WHERE owner_email = ?
+         UNION ALL
+         SELECT updated_at FROM datasets WHERE owner_email = ?
+         ORDER BY updated_at DESC LIMIT 1`,
+        email,
+        email,
+        email,
+      )
+      const signedUpRow = this.rows(
+        `SELECT created_at FROM (
+           SELECT created_at FROM runs WHERE owner_email = ?
+           UNION ALL
+           SELECT created_at FROM assistant_sessions WHERE owner_email = ?
+           UNION ALL
+           SELECT created_at FROM datasets WHERE owner_email = ?
+           UNION ALL
+           SELECT created_at FROM subscriptions WHERE user_id = ?
+           UNION ALL
+           SELECT created_at FROM billing_events WHERE user_id = ?
+         ) ORDER BY created_at ASC LIMIT 1`,
+        email,
+        email,
+        email,
+        email,
+        email,
+      )[0]
+      return {
+        email,
+        signedUpAt: signedUpRow?.created_at ? String(signedUpRow.created_at) : null,
+        runCount,
+        activeRunCount,
+        sessionCount,
+        datasetCount,
+        billing: this.billingTotals('WHERE user_id = ?', email),
+        subscription: this.getSubscriptionByUserId(email),
+        lastActivityAt: lastActivityRows[0]?.updated_at ? String(lastActivityRows[0].updated_at) : null,
+      }
+    })
+
+    const canonicalRuns = this.rows(
+      `SELECT * FROM remote_agent_executions
+       WHERE owner_type = 'admin'
+          OR kind LIKE 'canonical-%'
+          OR dataset_id IN (SELECT id FROM datasets WHERE owner_email = ? OR mode = 'canonical_public')
+       ORDER BY updated_at DESC LIMIT 250`,
+      PLATFORM_DATASET_OWNER_EMAIL,
+    ).map((row) => {
+      const execution = this.parseRemoteAgentExecutionRow(row)
+      return {
+        ...this.remoteAgentExecutionToJson(row),
+        events: this.listRemoteAgentExecutionEvents(execution.id).slice(-12),
+        artifacts: this.listRemoteAgentExecutionArtifacts(execution.id),
+      }
+    })
+
+    const activeRunStatuses = new Set(['queued', 'booting', 'running'])
+    return {
+      summary: {
+        totalCostUsd: this.billingTotals().costUsd,
+        totalCredits: this.billingTotals().credits,
+        runCount: Number(this.rows('SELECT COUNT(*) AS count FROM runs')[0]?.count ?? 0),
+        activeRunCount: runs.filter((run) => activeRunStatuses.has(String(run.status).toLowerCase())).length,
+        sessionCount: Number(this.rows('SELECT COUNT(*) AS count FROM assistant_sessions')[0]?.count ?? 0),
+        userCount: users.length,
+        canonicalRunCount: canonicalRuns.length,
+        activeCanonicalRunCount: canonicalRuns.filter((run) => activeRunStatuses.has(String(run.status).toLowerCase())).length,
+      },
+      runs,
+      sessions,
+      users,
+      canonicalRuns,
+    }
+  }
+
+  private billingOverviewForRun(run: RunRecord, now = Date.now()) {
+    if (run.ownerEmail === PLATFORM_DATASET_OWNER_EMAIL && run.type === 'canonical-dataset-bootstrap') {
+      const window = billingWindow(now)
+      const spendRow = this.rows(
+        'SELECT COALESCE(SUM(cost_usd), 0) AS total_cost_usd FROM billing_events WHERE user_id = ? AND created_at >= ?',
+        run.ownerEmail,
+        window.startedAt,
+      )[0]
+      const spendUsd = Number(spendRow?.total_cost_usd ?? 0)
+      const usedCredits = creditsFromUsd(Number.isFinite(spendUsd) ? spendUsd : 0)
+      return {
+        allowed: true,
+        tier: 'studio' as const,
+        subscriptionStatus: 'active' as const,
+        limitCredits: Number.MAX_SAFE_INTEGER,
+        usedCredits,
+        remainingCredits: Number.MAX_SAFE_INTEGER,
+        spendUsd,
+        windowStartedAt: window.startedAt,
+        windowEndsAt: window.endsAt,
+        checkoutEligible: false,
+      }
+    }
+    return this.billingOverview(run.ownerEmail, now)
+  }
+
+  private trackBillingEvent(userId: string, event: BillingUsageEventInput & { sessionId?: string | null; runId?: string | null; source?: string | null }) {
+    const inputTokens = Math.max(0, Math.trunc(event.inputTokens ?? 0))
+    const outputTokens = Math.max(0, Math.trunc(event.outputTokens ?? 0))
+    const cachedInputTokens = Math.max(0, Math.trunc(event.cachedInputTokens ?? 0))
+    const totalTokens = Math.max(0, Math.trunc(event.totalTokens ?? inputTokens + outputTokens))
+    this.sql.exec(
+      `INSERT OR IGNORE INTO billing_events (
+         id, user_id, session_id, run_id, source, provider, model, operation, input_tokens, output_tokens, total_tokens,
+         cached_input_tokens, cost_usd, request_id, request_json, response_json, metadata_json, created_at
+       )
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      event.eventId ?? crypto.randomUUID(),
+      userId,
+      event.sessionId ?? null,
+      event.runId ?? null,
+      event.source ?? 'dashboard',
+      event.provider,
+      event.model,
+      event.operation,
+      inputTokens,
+      outputTokens,
+      totalTokens,
+      cachedInputTokens,
+      computeUsageCostUsd({ ...event, inputTokens, outputTokens, totalTokens, cachedInputTokens }),
+      event.requestId ?? null,
+      event.requestJson ? JSON.stringify(event.requestJson) : null,
+      event.responseJson ? JSON.stringify(event.responseJson) : null,
+      JSON.stringify(event.metadata ?? {}),
+      event.createdAt ?? nowIso(),
+    )
   }
 
   private async expireStaleRun(run: RunRecord) {
@@ -402,7 +1046,7 @@ export class ControlPlane {
     }
     this.appendRunEvent(
       run.id,
-      'Run marked worker_unreachable because the remote droplet stopped heartbeating before reporting a terminal result.',
+      'Run marked worker_unreachable because the Modal worker stopped heartbeating before reporting a terminal result.',
       'warning',
     )
     this.sql.exec(
@@ -413,32 +1057,6 @@ export class ControlPlane {
       run.id,
     )
     this.releaseDatasetLease(run.datasetId, run.id)
-    if (run.dropletId) {
-      try {
-        const dataset = this.getDataset(run.datasetId)
-        const pooledRunner = this.getRunnerPoolEntry(run.dropletId)
-        if (pooledRunner) {
-          if (dataset?.volumeId) {
-            await detachVolumeByDroplet(this.env, dataset.volumeId, run.dropletId, dataset.volumeRegion ?? this.env.DIGITALOCEAN_REGION).catch(() => undefined)
-            await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
-          }
-          this.clearRunnerPoolEntryAssignment(run.dropletId)
-          this.appendRunEvent(run.id, `Released pooled runner ${pooledRunner.dropletName}.`, 'warning')
-        } else {
-          await deleteDroplet(this.env, run.dropletId)
-          if (dataset?.volumeId) {
-            await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
-          }
-          this.appendRunEvent(run.id, `Deleted stale droplet ${run.dropletName ?? run.dropletId}.`, 'warning')
-        }
-      } catch (error) {
-        this.appendRunEvent(
-          run.id,
-          `Failed to clean up stale runner ${run.dropletName ?? run.dropletId}: ${error instanceof Error ? error.message : String(error)}`,
-          'error',
-        )
-      }
-    }
     return true
   }
 
@@ -469,108 +1087,6 @@ export class ControlPlane {
     return row ? this.parseRunRow(row) : null
   }
 
-  private getActiveRunsForDataset(datasetId: string) {
-    return this.rows(
-      'SELECT * FROM runs WHERE dataset_id = ? ORDER BY created_at DESC',
-      datasetId,
-    )
-      .map((row) => this.parseRunRow(row))
-      .filter((run) => !isTerminalStatus(run.status))
-  }
-
-  private parseRunnerPoolRow(row: Record<string, unknown>): RunnerPoolRecord {
-    return {
-      dropletId: String(row.droplet_id ?? row.dropletId),
-      dropletName: String(row.droplet_name ?? row.dropletName),
-      sizeClass: String(row.size_class ?? row.sizeClass),
-      region: row.region ? String(row.region) : null,
-      status: String(row.status),
-      assignedRunId: row.assigned_run_id ?? row.assignedRunId ? String(row.assigned_run_id ?? row.assignedRunId) : null,
-      lastHeartbeatAt: String(row.last_heartbeat_at ?? row.lastHeartbeatAt),
-      createdAt: String(row.created_at ?? row.createdAt),
-      updatedAt: String(row.updated_at ?? row.updatedAt),
-    }
-  }
-
-  private getRunnerPoolEntry(dropletId: string) {
-    const row = this.rows('SELECT * FROM runner_pool WHERE droplet_id = ? LIMIT 1', dropletId)[0]
-    return row ? this.parseRunnerPoolRow(row) : null
-  }
-
-  private isRunnerPoolAlive(entry: RunnerPoolRecord) {
-    const lastHeartbeat = Date.parse(entry.lastHeartbeatAt)
-    return Number.isFinite(lastHeartbeat) && (Date.now() - lastHeartbeat) <= RUNNER_POOL_HEARTBEAT_TIMEOUT_MS
-  }
-
-  private registerRunnerPoolHeartbeat(dropletId: string, dropletName: string, sizeClass: string, region: string | null) {
-    const now = nowIso()
-    const existing = this.getRunnerPoolEntry(dropletId)
-    if (existing) {
-      this.sql.exec(
-        `UPDATE runner_pool
-           SET droplet_name = ?, size_class = ?, region = ?, status = ?, last_heartbeat_at = ?, updated_at = ?
-         WHERE droplet_id = ?`,
-        dropletName,
-        sizeClass,
-        region,
-        existing.assignedRunId ? 'busy' : 'idle',
-        now,
-        now,
-        dropletId,
-      )
-      return
-    }
-    this.sql.exec(
-      `INSERT INTO runner_pool (
-         droplet_id, droplet_name, size_class, region, status, assigned_run_id, last_heartbeat_at, created_at, updated_at
-       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      dropletId,
-      dropletName,
-      sizeClass,
-      region,
-      'idle',
-      null,
-      now,
-      now,
-      now,
-    )
-  }
-
-  private findIdleRunnerPoolEntry(sizeClass: string) {
-    const region = this.env.DIGITALOCEAN_REGION ?? 'nyc3'
-    const entries = this.rows(
-      `SELECT * FROM runner_pool
-       WHERE size_class = ? AND region = ? AND (assigned_run_id IS NULL OR assigned_run_id = '')
-       ORDER BY updated_at ASC`,
-      sizeClass,
-      region,
-    ).map((row) => this.parseRunnerPoolRow(row))
-    return entries.find((entry) => this.isRunnerPoolAlive(entry)) ?? null
-  }
-
-  private assignRunnerPoolEntry(dropletId: string, runId: string) {
-    this.sql.exec(
-      `UPDATE runner_pool
-         SET assigned_run_id = ?, status = ?, updated_at = ?
-       WHERE droplet_id = ?`,
-      runId,
-      'busy',
-      nowIso(),
-      dropletId,
-    )
-  }
-
-  private clearRunnerPoolEntryAssignment(dropletId: string) {
-    this.sql.exec(
-      `UPDATE runner_pool
-         SET assigned_run_id = NULL, status = ?, updated_at = ?
-       WHERE droplet_id = ?`,
-      'idle',
-      nowIso(),
-      dropletId,
-    )
-  }
-
   private datasetRowToJson(row: Record<string, unknown>) {
     const dataset = this.parseDatasetRow(row)
     return {
@@ -585,6 +1101,10 @@ export class ControlPlane {
       deploymentStatus: dataset.deploymentStatus,
       createdAt: dataset.createdAt,
       updatedAt: dataset.updatedAt,
+      activeRunId: dataset.activeRunId,
+      activeRemoteExecutionId: dataset.activeRemoteExecutionId,
+      activeCanonicalExecutionId: dataset.activeRemoteExecutionId,
+      leaseAcquiredAt: dataset.leaseAcquiredAt,
       volume: dataset.volumeId ? {
         id: dataset.volumeId,
         name: dataset.volumeName,
@@ -617,6 +1137,7 @@ export class ControlPlane {
       volumeMountPath: get('volume_mount_path', 'volumeMountPath') ? String(get('volume_mount_path', 'volumeMountPath')) : null,
       ingestConfigJson: get('ingest_config_json', 'ingestConfigJson') ? String(get('ingest_config_json', 'ingestConfigJson')) : null,
       activeRunId: get('active_run_id', 'activeRunId') ? String(get('active_run_id', 'activeRunId')) : null,
+      activeRemoteExecutionId: get('active_remote_execution_id', 'activeRemoteExecutionId') ? String(get('active_remote_execution_id', 'activeRemoteExecutionId')) : null,
       leaseAcquiredAt: get('lease_acquired_at', 'leaseAcquiredAt') ? String(get('lease_acquired_at', 'leaseAcquiredAt')) : null,
       createdAt: String(get('created_at', 'createdAt')),
       updatedAt: String(get('updated_at', 'updatedAt')),
@@ -628,12 +1149,56 @@ export class ControlPlane {
     return {
       id: run.id,
       datasetId: run.datasetId,
+      ownerEmail: run.ownerEmail,
       type: run.type,
       status: run.status,
+      title: run.title ?? undefined,
+      description: run.description ?? undefined,
       createdAt: run.createdAt,
       updatedAt: run.updatedAt,
       prompt: run.prompt ?? undefined,
       outputPreview: run.outputPreview ?? undefined,
+      artifactCount: this.getRunArtifactCount(run.id),
+      sessionCount: this.getRunSessionCount(run.id),
+    }
+  }
+
+  private parseRemoteAgentExecutionRow(row: Record<string, unknown>): RemoteAgentExecutionRecord {
+    const get = (snake: string, camel: string) => row[snake] ?? row[camel]
+    return {
+      id: String(row.id),
+      ownerType: String(get('owner_type', 'ownerType') ?? 'admin'),
+      datasetId: get('dataset_id', 'datasetId') ? String(get('dataset_id', 'datasetId')) : null,
+      kind: String(row.kind ?? 'manual'),
+      status: String(row.status ?? 'queued'),
+      prompt: String(row.prompt ?? ''),
+      outputPreview: get('output_preview', 'outputPreview') ? String(get('output_preview', 'outputPreview')) : null,
+      workerId: get('worker_id', 'workerId') ? String(get('worker_id', 'workerId')) : null,
+      workerName: get('worker_name', 'workerName') ? String(get('worker_name', 'workerName')) : null,
+      modalJson: get('modal_json', 'modalJson') ? String(get('modal_json', 'modalJson')) : null,
+      metadataJson: get('metadata_json', 'metadataJson') ? String(get('metadata_json', 'metadataJson')) : null,
+      createdAt: String(get('created_at', 'createdAt')),
+      updatedAt: String(get('updated_at', 'updatedAt')),
+    }
+  }
+
+  private remoteAgentExecutionToJson(row: Record<string, unknown>) {
+    const execution = this.parseRemoteAgentExecutionRow(row)
+    return {
+      id: execution.id,
+      ownerType: execution.ownerType,
+      datasetId: execution.datasetId,
+      kind: execution.kind,
+      status: execution.status,
+      prompt: execution.prompt,
+      outputPreview: execution.outputPreview,
+      workerId: execution.workerId,
+      workerName: execution.workerName,
+      modal: execution.modalJson ? JSON.parse(execution.modalJson) : null,
+      metadata: execution.metadataJson ? JSON.parse(execution.metadataJson) : null,
+      artifactCount: this.getRemoteAgentExecutionArtifactCount(execution.id),
+      createdAt: execution.createdAt,
+      updatedAt: execution.updatedAt,
     }
   }
 
@@ -645,10 +1210,12 @@ export class ControlPlane {
       ownerEmail: String(get('owner_email', 'ownerEmail')),
       type: String(row.type),
       status: String(row.status),
+      title: row.title ? String(row.title) : null,
+      description: row.description ? String(row.description) : null,
       prompt: row.prompt ? String(row.prompt) : null,
       outputPreview: get('output_preview', 'outputPreview') ? String(get('output_preview', 'outputPreview')) : null,
-      dropletId: get('droplet_id', 'dropletId') ? String(get('droplet_id', 'dropletId')) : null,
-      dropletName: get('droplet_name', 'dropletName') ? String(get('droplet_name', 'dropletName')) : null,
+      workerId: get('worker_id', 'workerId') ? String(get('worker_id', 'workerId')) : null,
+      workerName: get('worker_name', 'workerName') ? String(get('worker_name', 'workerName')) : null,
       createdAt: String(get('created_at', 'createdAt')),
       updatedAt: String(get('updated_at', 'updatedAt')),
     }
@@ -803,26 +1370,156 @@ export class ControlPlane {
     }))
   }
 
-  private createRunArtifact(runId: string, type: string, title: string, content?: unknown, url?: string | null) {
+  private getRunArtifactCount(runId: string) {
+    const row = this.rows('SELECT COUNT(*) AS count FROM run_artifacts WHERE run_id = ?', runId)[0]
+    return Number(row?.count ?? 0)
+  }
+
+  private getRemoteAgentExecutionArtifactCount(executionId: string) {
+    const row = this.rows('SELECT COUNT(*) AS count FROM remote_agent_execution_artifacts WHERE execution_id = ?', executionId)[0]
+    return Number(row?.count ?? 0)
+  }
+
+  private appendRemoteAgentExecutionEvent(executionId: string, message: string, level = 'info') {
+    this.sql.exec(
+      `INSERT INTO remote_agent_execution_events (id, execution_id, message, level, created_at) VALUES (?, ?, ?, ?, ?)`,
+      crypto.randomUUID(),
+      executionId,
+      message,
+      level,
+      nowIso(),
+    )
+  }
+
+  private listRemoteAgentExecutionArtifacts(executionId: string) {
+    const rows = this.rows('SELECT * FROM remote_agent_execution_artifacts WHERE execution_id = ? ORDER BY created_at ASC', executionId)
+    return rows.map((row) => ({
+      id: String(row.id),
+      executionId: String(row.execution_id),
+      type: String(row.type),
+      title: String(row.title),
+      url: row.url ? String(row.url) : undefined,
+      content: row.content_json ? JSON.parse(String(row.content_json)) : undefined,
+      createdAt: String(row.created_at),
+    }))
+  }
+
+  private listRemoteAgentExecutionEvents(executionId: string) {
+    return this.rows(
+      'SELECT seq, id, message, level, created_at FROM remote_agent_execution_events WHERE execution_id = ? ORDER BY seq ASC',
+      executionId,
+    ).map((row) => ({
+      seq: Number(row.seq),
+      id: String(row.id),
+      executionId,
+      message: String(row.message),
+      level: String(row.level),
+      createdAt: String(row.created_at),
+    }))
+  }
+
+  private async createStoredRemoteAgentExecutionArtifact(
+    executionId: string,
+    type: string,
+    title: string,
+    content?: unknown,
+    url?: string | null,
+  ) {
     const artifactId = crypto.randomUUID()
+    const mimeType = artifactMimeType(type, title, content)
+    const body = artifactBodyBytes(type, title, content)
+    let storedContent = artifactPreviewContent(content)
+    let artifactUrl = url ?? null
+
+    if (!artifactUrl && this.env.ARTIFACT_BUCKET && body) {
+      const sourcePath = artifactPathFromContent(content, title)
+      const filename = sourcePath.split(/[\\/]/u).filter(Boolean).at(-1) ?? title
+      const key = `remote-agent-executions/${sanitizeObjectKeySegment(executionId)}/artifacts/${artifactId}/${sanitizeObjectKeySegment(filename)}`
+      await this.env.ARTIFACT_BUCKET.put(key, body, { httpMetadata: { contentType: mimeType } })
+      const baseContent = isPlainRecord(storedContent) ? storedContent : {}
+      storedContent = {
+        ...baseContent,
+        path: artifactPathFromContent(content, title),
+        mimeType,
+        sizeBytes: body.byteLength,
+        storage: {
+          provider: 'cloudflare-r2',
+          bucket: 'ARTIFACT_BUCKET',
+          key,
+        },
+      }
+      if (artifactCanUseUrl(type, title, content)) {
+        artifactUrl = `/api/admin/remote-agent-executions/${encodeURIComponent(executionId)}/artifacts/${encodeURIComponent(artifactId)}/content`
+      }
+    }
+
+    this.sql.exec(
+      `INSERT INTO remote_agent_execution_artifacts (id, execution_id, type, title, url, content_json, created_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      artifactId,
+      executionId,
+      type,
+      title,
+      artifactUrl,
+      storedContent === undefined ? null : JSON.stringify(storedContent),
+      nowIso(),
+    )
+    return artifactId
+  }
+
+  private getRunSessionCount(runId: string) {
+    const row = this.rows('SELECT COUNT(*) AS count FROM assistant_sessions WHERE run_id = ?', runId)[0]
+    return Number(row?.count ?? 0)
+  }
+
+  private async createStoredRunArtifact(runId: string, type: string, title: string, content?: unknown, url?: string | null) {
+    const artifactId = crypto.randomUUID()
+    const mimeType = artifactMimeType(type, title, content)
+    const body = artifactBodyBytes(type, title, content)
+    let storedContent = artifactPreviewContent(content)
+    let artifactUrl = url ?? null
+
+    if (!artifactUrl && this.env.ARTIFACT_BUCKET && body) {
+      const sourcePath = artifactPathFromContent(content, title)
+      const filename = sourcePath.split(/[\\/]/u).filter(Boolean).at(-1) ?? title
+      const key = `runs/${sanitizeObjectKeySegment(runId)}/artifacts/${artifactId}/${sanitizeObjectKeySegment(filename)}`
+      await this.env.ARTIFACT_BUCKET.put(key, body, { httpMetadata: { contentType: mimeType } })
+      const sizeBytes = body.byteLength
+      const baseContent = isPlainRecord(storedContent) ? storedContent : {}
+      storedContent = {
+        ...baseContent,
+        path: artifactPathFromContent(content, title),
+        mimeType,
+        sizeBytes,
+        storage: {
+          provider: 'cloudflare-r2',
+          bucket: 'ARTIFACT_BUCKET',
+          key,
+        },
+      }
+      if (artifactCanUseUrl(type, title, content)) {
+        artifactUrl = `/api/cli/artifacts/${encodeURIComponent(artifactId)}/content`
+      }
+    }
+
     this.sql.exec(
       `INSERT INTO run_artifacts (id, run_id, type, title, url, content_json, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)`,
       artifactId,
       runId,
       type,
       title,
-      url ?? null,
-      content === undefined ? null : JSON.stringify(content),
+      artifactUrl,
+      storedContent === undefined ? null : JSON.stringify(storedContent),
       nowIso(),
     )
-    this.persistDescribeArtifactToDatasetProfile(runId, artifactId, type, title, content)
+    this.persistDescribeArtifactToDatasetProfile(runId, artifactId, type, title, storedContent)
     return artifactId
   }
 
   private persistDescribeArtifactToDatasetProfile(
     runId: string,
     artifactId: string,
-    type: string,
+    _type: string,
     title: string,
     content: unknown,
   ) {
@@ -839,12 +1536,12 @@ export class ControlPlane {
     const isBriefing =
       normalizedTitle === 'dataset briefing' ||
       normalizedTitle === 'dataset briefing.md' ||
-      normalizedTitle === 'summary.md'
+      normalizedTitle === 'dataset_briefing.md' ||
+      normalizedTitle === 'work.md'
     const isProfile =
       normalizedTitle === 'dataset profile' ||
       normalizedTitle === 'dataset profile.json' ||
-      normalizedTitle === 'result.json' ||
-      type === 'structured_result'
+      normalizedTitle === 'result.json'
 
     if (!isBriefing && !isProfile) {
       return
@@ -903,6 +1600,11 @@ export class ControlPlane {
     return row ? this.parseDatasetRow(row) : undefined
   }
 
+  private canOwnerRunDataset(dataset: DatasetRecord, ownerEmail: string) {
+    return dataset.ownerEmail === ownerEmail ||
+      (dataset.ownerEmail === PLATFORM_DATASET_OWNER_EMAIL && dataset.mode === 'canonical_public')
+  }
+
   private acquireDatasetLease(datasetId: string, runId: string) {
     const dataset = this.getDataset(datasetId)
     if (!dataset) {
@@ -933,22 +1635,205 @@ export class ControlPlane {
     )
   }
 
+  private getActiveRemoteExecution(datasetId: string) {
+    const dataset = this.getDataset(datasetId)
+    if (!dataset?.activeRemoteExecutionId) {
+      return null
+    }
+    const row = this.rows(
+      'SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1',
+      dataset.activeRemoteExecutionId,
+    )[0]
+    return row ? this.parseRemoteAgentExecutionRow(row) : null
+  }
+
+  private assignDatasetRemoteExecution(datasetId: string, executionId: string) {
+    this.sql.exec(
+      `UPDATE datasets SET active_remote_execution_id = ?, updated_at = ? WHERE id = ?`,
+      executionId,
+      nowIso(),
+      datasetId,
+    )
+  }
+
+  private releaseDatasetRemoteExecution(datasetId: string | null, executionId: string) {
+    if (!datasetId) return
+    const dataset = this.getDataset(datasetId)
+    if (!dataset || dataset.activeRemoteExecutionId !== executionId) return
+    this.sql.exec(
+      `UPDATE datasets SET active_remote_execution_id = NULL, updated_at = ? WHERE id = ?`,
+      nowIso(),
+      datasetId,
+    )
+  }
+
+  private async createRemoteAgentExecution(input: {
+    ownerType: string
+    datasetId?: string | null
+    kind: string
+    prompt: string
+    callbackOrigin: string
+    metadata?: Record<string, unknown>
+    datasetMountPath?: string
+    manifestPath?: string
+    datasetReadOnly?: boolean
+    extraContext?: Record<string, unknown>
+  }) {
+    const executionId = crypto.randomUUID()
+    const timestamp = nowIso()
+    this.sql.exec(
+      `INSERT INTO remote_agent_executions (
+         id, owner_type, dataset_id, kind, status, prompt, output_preview, metadata_json, created_at, updated_at
+       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      executionId,
+      input.ownerType,
+      input.datasetId ?? null,
+      input.kind,
+      'queued',
+      input.prompt,
+      'Queued remote agent execution.',
+      JSON.stringify(input.metadata ?? {}),
+      timestamp,
+      timestamp,
+    )
+    this.appendRemoteAgentExecutionEvent(executionId, 'Preparing Modal agent execution.')
+    this.sql.exec(
+      `UPDATE remote_agent_executions SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+      'booting',
+      'Preparing Modal agent execution.',
+      nowIso(),
+      executionId,
+    )
+    const dataset = input.datasetId ? this.getDataset(input.datasetId) : null
+    const datasetMountPath = input.datasetMountPath ?? (input.datasetId ? `/data/datasets/${input.datasetId}` : '/data')
+    const modal = await launchModalRemoteAgentExecution(this.env, {
+      executionId,
+      kind: input.kind,
+      prompt: input.prompt,
+      callbackOrigin: input.callbackOrigin,
+      datasetId: input.datasetId ?? null,
+      datasetMountPath,
+      manifestPath: input.manifestPath
+        ?? (dataset?.manifestPath?.startsWith('/data/')
+          ? dataset.manifestPath
+          : input.datasetId
+            ? `/data/datasets/${input.datasetId}/manifest.json`
+            : '/data/manifest.json'),
+      datasetReadOnly: input.datasetReadOnly ?? true,
+      extraContext: input.extraContext,
+    })
+    this.appendRemoteAgentExecutionEvent(executionId, `Modal agent job ${modal.id} submitted; results will be written to ${modal.resultPath}.`)
+    this.sql.exec(
+      `UPDATE remote_agent_executions
+          SET worker_id = ?, worker_name = ?, modal_json = ?, status = ?, output_preview = ?, updated_at = ?
+        WHERE id = ?`,
+      modal.id,
+      modal.name,
+      JSON.stringify(modal),
+      'booting',
+      'Modal agent job submitted.',
+      nowIso(),
+      executionId,
+    )
+    const row = this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]!
+    return {
+      executionId,
+      execution: this.remoteAgentExecutionToJson(row),
+      modal,
+    }
+  }
+
   private createRun(datasetId: string, ownerEmail: string, type: string, prompt?: string | null) {
     const id = crypto.randomUUID()
     const timestamp = nowIso()
+    const title = this.fallbackRunTitle(type, prompt)
+    const description = this.fallbackRunDescription(type, prompt)
     this.sql.exec(
-      `INSERT INTO runs (id, dataset_id, owner_email, type, status, prompt, created_at, updated_at)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO runs (id, dataset_id, owner_email, type, status, title, description, prompt, created_at, updated_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       id,
       datasetId,
       ownerEmail,
       type,
       'queued',
+      title,
+      description,
       prompt ?? null,
       timestamp,
       timestamp,
     )
     return id
+  }
+
+  private fallbackRunTitle(type: string, prompt?: string | null) {
+    const normalizedPrompt = prompt?.replace(/\s+/gu, ' ').trim()
+    if (normalizedPrompt) {
+      return clampGeneratedRunTitle(normalizedPrompt) ?? `${formatRunType(type)} run`
+    }
+    return `${formatRunType(type)} run`
+  }
+
+  private fallbackRunDescription(type: string, prompt?: string | null) {
+    const normalizedPrompt = prompt?.replace(/\s+/gu, ' ').trim()
+    if (normalizedPrompt) {
+      return clampGeneratedRunDescription(normalizedPrompt)
+    }
+    return `Remote ${formatRunType(type).toLowerCase()} run queued for this dataset.`
+  }
+
+  private async generateRunLabel(runId: string) {
+    if (!this.env.OPENAI_API_KEY) return
+    const row = this.rows('SELECT * FROM runs WHERE id = ? LIMIT 1', runId)[0]
+    const run = row ? this.parseRunRow(row) : null
+    if (!run) return
+    const dataset = this.getDataset(run.datasetId)
+    const artifacts = this.listRunArtifacts(runId)
+    const events = this.runEventsForRun(runId).slice(-8)
+    const happened = [
+      `Dataset: ${dataset?.name ?? run.datasetId}`,
+      `Run type: ${formatRunType(run.type)}`,
+      `Status: ${formatRunType(run.status)}`,
+      run.prompt ? `Original request: ${run.prompt}` : null,
+      run.outputPreview ? `Latest result: ${run.outputPreview}` : null,
+      artifacts.length > 0 ? `Artifacts: ${artifacts.map((artifact) => artifact.title).join(', ')}` : null,
+      events.length > 0 ? `Recent timeline: ${events.map((event) => event.message).join(' | ')}` : null,
+    ].filter(Boolean).join('\n')
+    const prompt = [
+      'Add a title for this run based on what happened:',
+      happened,
+      '',
+      'Return compact JSON with keys "title" and "description".',
+      'The title should be fewer than 8 words.',
+      'The description should be one sentence in plain user language.',
+      'Do not include ids unless they are the subject of the work.',
+    ].join('\n')
+    const response = await callResponsesApi(this.env, {
+      input: prompt,
+      tool_choice: 'none',
+    })
+    const text = extractResponseText(response)
+    let parsed: Record<string, unknown> | null = null
+    try {
+      parsed = JSON.parse(text) as Record<string, unknown>
+    } catch {
+      parsed = null
+    }
+    const titleSource = typeof parsed?.title === 'string' ? parsed.title : text
+    const descriptionSource = typeof parsed?.description === 'string' ? parsed.description : ''
+    const title = clampGeneratedRunTitle(titleSource)
+    const description = clampGeneratedRunDescription(descriptionSource)
+    if (!title && !description) return
+    this.sql.exec(
+      `UPDATE runs
+          SET title = COALESCE(?, title),
+              description = COALESCE(?, description),
+              updated_at = ?
+        WHERE id = ?`,
+      title,
+      description,
+      nowIso(),
+      runId,
+    )
   }
 
   private getAssistantSession(id: string) {
@@ -968,6 +1853,7 @@ export class ControlPlane {
     kind?: string | null
     runId?: string | null
     datasetId?: string | null
+    limit?: number
   }) {
     const clauses = ['owner_email = ?']
     const bindings: unknown[] = [params.ownerEmail]
@@ -984,9 +1870,22 @@ export class ControlPlane {
       bindings.push(params.datasetId)
     }
     return this.rows(
-      `SELECT * FROM assistant_sessions WHERE ${clauses.join(' AND ')} ORDER BY updated_at DESC`,
+      `SELECT * FROM assistant_sessions WHERE ${clauses.join(' AND ')} ORDER BY updated_at DESC LIMIT ?`,
       ...bindings,
+      params.limit ?? DEFAULT_CLI_LIST_LIMIT,
     ).map((row) => this.parseAssistantSessionRow(row))
+  }
+
+  private listDatasetsForOwner(ownerEmail: string) {
+    return this.rows(
+      `SELECT * FROM datasets
+       WHERE owner_email = ?
+          OR (owner_email = ? AND mode = ?)
+       ORDER BY updated_at DESC`,
+      ownerEmail,
+      PLATFORM_DATASET_OWNER_EMAIL,
+      'canonical_public',
+    )
   }
 
   private listAssistantSessionEntries(sessionId: string) {
@@ -994,6 +1893,47 @@ export class ControlPlane {
       'SELECT * FROM assistant_session_entries WHERE session_id = ? ORDER BY seq ASC',
       sessionId,
     ).map((row) => this.parseAssistantSessionEntryRow(row))
+  }
+
+  private runEventsForRun(runId: string) {
+    return this.rows(
+      'SELECT id, run_id, message, level, created_at FROM run_events WHERE run_id = ? ORDER BY seq ASC',
+      runId,
+    ).map((row) => ({
+      id: String(row.id),
+      runId: String(row.run_id),
+      message: String(row.message),
+      level: String(row.level),
+      createdAt: String(row.created_at),
+    }))
+  }
+
+  private collectRunIdsFromSession(session: AssistantSessionRecord, entries: ReturnType<ControlPlane['assistantSessionEntryToJson']>[]) {
+    const runIds = new Set<string>()
+    if (session.runId) {
+      runIds.add(session.runId)
+    }
+    for (const entry of entries) {
+      const metadata = entry.metadata
+      if (isPlainRecord(metadata)) {
+        const data = metadata.data
+        if (isPlainRecord(data) && isPlainRecord(data.run) && typeof data.run.id === 'string') {
+          runIds.add(data.run.id)
+        }
+        if (typeof metadata.runId === 'string') {
+          runIds.add(metadata.runId)
+        }
+      }
+      const matches = String(entry.content ?? '').matchAll(/\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b/giu)
+      for (const match of matches) {
+        const candidate = match[0]
+        const row = this.rows('SELECT id FROM runs WHERE id = ? LIMIT 1', candidate)[0]
+        if (row) {
+          runIds.add(candidate)
+        }
+      }
+    }
+    return [...runIds]
   }
 
   private createAssistantSession(params: {
@@ -1067,6 +2007,8 @@ export class ControlPlane {
     createdAt?: string
   }) {
     const id = crypto.randomUUID()
+    const content = truncateStoredText(params.content, ASSISTANT_SESSION_CONTENT_STORAGE_LIMIT)
+    const metadata = boundedMetadataForStorage(params.metadata)
     this.sql.exec(
       `INSERT INTO assistant_session_entries (id, session_id, role, kind, title, content, metadata_json, created_at)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
@@ -1075,8 +2017,8 @@ export class ControlPlane {
       params.role,
       params.kind,
       params.title ?? null,
-      params.content,
-      params.metadata === undefined ? null : JSON.stringify(params.metadata),
+      content,
+      metadata === undefined ? null : JSON.stringify(metadata),
       params.createdAt ?? nowIso(),
     )
     this.sql.exec(`UPDATE assistant_sessions SET updated_at = ? WHERE id = ?`, nowIso(), params.sessionId)
@@ -1221,15 +2163,58 @@ export class ControlPlane {
     const url = new URL(request.url)
     const pathname = url.pathname
 
+    if (pathname === '/billing' && request.method === 'GET') {
+      const userId = url.searchParams.get('userId')
+      if (!userId) return respondJson({ error: 'Missing userId' }, 400)
+      const overview = this.billingOverview(userId)
+      const subscription = this.getSubscriptionByUserId(userId)
+      return respondJson({ overview, subscription })
+    }
+
+    if (pathname === '/billing/track' && request.method === 'POST') {
+      const body = await request.json() as Record<string, unknown>
+      const userId = typeof body.userId === 'string' ? body.userId : ''
+      const event = isPlainRecord(body.event) ? body.event as BillingUsageEventInput : null
+      if (!userId || !event) return respondJson({ error: 'Missing userId or event' }, 400)
+      this.trackBillingEvent(userId, {
+        ...event,
+        sessionId: typeof body.sessionId === 'string' ? body.sessionId : null,
+        runId: typeof body.runId === 'string' ? body.runId : null,
+        source: typeof body.source === 'string' ? body.source : 'dashboard',
+      })
+      return respondJson({ ok: true })
+    }
+
+    if (pathname === '/admin/overview' && request.method === 'GET') {
+      return respondJson(this.adminOverview())
+    }
+
+    if (pathname === '/subscriptions' && request.method === 'POST') {
+      const body = await request.json() as SubscriptionRecord & { createdAt?: string; updatedAt?: string }
+      if (!body.userId) return respondJson({ error: 'Missing userId' }, 400)
+      return respondJson({ subscription: this.upsertSubscription(body) })
+    }
+
+    if (pathname === '/subscriptions/lookup' && request.method === 'GET') {
+      const userId = url.searchParams.get('userId')
+      const stripeCustomerId = url.searchParams.get('stripeCustomerId')
+      const stripeSubscriptionId = url.searchParams.get('stripeSubscriptionId')
+      const subscription = userId
+        ? this.getSubscriptionByUserId(userId)
+        : stripeSubscriptionId
+          ? this.getSubscriptionByStripeSubscriptionId(stripeSubscriptionId)
+          : stripeCustomerId
+            ? this.getSubscriptionByStripeCustomerId(stripeCustomerId)
+            : null
+      return respondJson({ subscription })
+    }
+
     if (pathname === '/datasets' && request.method === 'GET') {
       const ownerEmail = url.searchParams.get('ownerEmail')
       if (!ownerEmail) {
         return respondJson({ error: 'Missing ownerEmail' }, 400)
       }
-      const rows = this.rows(
-        `SELECT * FROM datasets WHERE owner_email = ? ORDER BY updated_at DESC`,
-        ownerEmail,
-      )
+      const rows = this.listDatasetsForOwner(ownerEmail)
       return respondJson({ datasets: rows.map((row) => this.datasetRowToJson(row)) })
     }
 
@@ -1258,14 +2243,325 @@ export class ControlPlane {
       const kind = url.searchParams.get('kind')
       const runId = url.searchParams.get('runId')
       const datasetId = url.searchParams.get('datasetId')
+      const limit = boundedListLimit(url.searchParams.get('limit'))
       return respondJson({
         sessions: this.listAssistantSessions({
           ownerEmail,
           kind,
           runId,
           datasetId,
+          limit,
         }).map((session) => this.assistantSessionToJson(session)),
       })
+    }
+
+    if (pathname === '/dashboard-bootstrap' && request.method === 'GET') {
+      const ownerEmail = url.searchParams.get('ownerEmail')
+      if (!ownerEmail) {
+        return respondJson({ error: 'Missing ownerEmail' }, 400)
+      }
+      const limit = boundedListLimit(url.searchParams.get('limit'))
+      const runRows = this.rows('SELECT * FROM runs WHERE owner_email = ? ORDER BY updated_at DESC LIMIT ?', ownerEmail, limit)
+      return respondJson({
+        datasets: this.listDatasetsForOwner(ownerEmail).map((row) => this.datasetRowToJson(row)),
+        runs: runRows.map((row) => this.runRowToJson(row)),
+        sessions: this.listAssistantSessions({
+          ownerEmail,
+          kind: 'cli_orchestration',
+          limit,
+        }).map((session) => this.assistantSessionToJson(session)),
+      })
+    }
+
+    if (pathname === '/admin/canonical-datasets/bootstrap' && request.method === 'POST') {
+      let executionId: string | null = null
+      let canonicalDatasetId: string | null = null
+      try {
+        const body = await request.json().catch(() => ({})) as Record<string, unknown>
+        const datasetId = slugify(String(body.datasetId ?? body.id ?? body.name ?? ''))
+        canonicalDatasetId = datasetId
+        const name = String(body.name ?? datasetId)
+        const callbackOrigin = String(body.callbackOrigin ?? '')
+        const starterPrompt = String(body.starterPrompt ?? body.prompt ?? '').trim()
+        const fieldBrief = body.fieldBrief ? String(body.fieldBrief) : ''
+        const sourceType = String(body.sourceType ?? 'public_data')
+        const resources = body.resources && typeof body.resources === 'object' ? body.resources : {}
+        const requiredEnvironment = Array.isArray(body.requiredEnvironment)
+          ? body.requiredEnvironment.map((value) => String(value)).filter(Boolean)
+          : ['CANONICAL_DATASET_SLACK_WEBHOOK_URL']
+        const optionalEnvironment = Array.isArray(body.optionalEnvironment)
+          ? body.optionalEnvironment.map((value) => String(value)).filter(Boolean)
+          : ['EXA_API_KEY']
+        const requiredArtifacts = Array.isArray(body.requiredArtifacts) && body.requiredArtifacts.length > 0
+          ? body.requiredArtifacts.map((value) => String(value)).filter(Boolean)
+          : CANONICAL_BOOTSTRAP_REQUIRED_ARTIFACTS
+        const docsMirrors = Array.isArray(body.docsMirrors) ? body.docsMirrors : []
+        if (!datasetId) {
+          return respondJson({ error: 'Missing datasetId' }, 400)
+        }
+        if (!starterPrompt) {
+          return respondJson({ error: 'Missing prompt or starterPrompt' }, 400)
+        }
+        if (!callbackOrigin) {
+          return respondJson({ error: 'Missing callbackOrigin' }, 400)
+        }
+        const timestamp = nowIso()
+        const datasetMountPath = `/data/datasets/${datasetId}`
+        const manifestPath = `${datasetMountPath}/manifest.json`
+        const description = body.description
+          ? String(body.description)
+          : fieldBrief || `Canonical public ${name} dataset maintained by Alpha Research.`
+        const existingDataset = this.getDataset(datasetId)
+        if (existingDataset && existingDataset.ownerEmail !== PLATFORM_DATASET_OWNER_EMAIL) {
+          return respondJson({ error: 'Dataset already exists for another owner' }, 409)
+        }
+        if (existingDataset) {
+          const blockingExecution = this.getActiveRemoteExecution(datasetId)
+          if (blockingExecution && !isTerminalStatus(blockingExecution.status)) {
+            return respondJson({
+              error: `Dataset ${datasetId} already has active canonical remote execution ${blockingExecution.id}.`,
+              activeRemoteExecutionId: blockingExecution.id,
+              activeRemoteExecution: blockingExecution,
+            }, 409)
+          }
+          this.sql.exec(
+            `UPDATE datasets
+             SET name = ?, description = ?, source_type = ?, source_filename = ?, mode = ?, manifest_path = ?, updated_at = ?
+             WHERE id = ?`,
+            name,
+            description,
+            sourceType,
+            'canonical-public-sources',
+            'canonical_public',
+            manifestPath,
+            timestamp,
+            datasetId,
+          )
+        } else {
+          this.sql.exec(
+            `INSERT INTO datasets (
+               id, name, owner_email, source_type, source_filename, mode, description, instance_id, manifest_path,
+               deployment_status, status, volume_id, volume_name, volume_region, volume_mount_path, ingest_config_json,
+               created_at, updated_at
+             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            datasetId,
+            name,
+            PLATFORM_DATASET_OWNER_EMAIL,
+            sourceType,
+            'canonical-public-sources',
+            'canonical_public',
+            description,
+            null,
+            manifestPath,
+            'draft',
+            'created',
+            null,
+            null,
+            null,
+            null,
+            null,
+            timestamp,
+            timestamp,
+          )
+        }
+
+        const prompt = [
+          `Bootstrap the canonical public dataset "${name}" (${datasetId}) in ${datasetMountPath}.`,
+          'This is platform dataset maintenance, not an end-user research report.',
+          `Dataset brief: ${fieldBrief || description}`,
+          '',
+          'Use provider-native public files when license-compatible. Classify every candidate source as active_fetchable, deferred_fetchable, license_review, credential_required, or reject.',
+          'Write raw files, source registries, inventories, docs mirrors, and durable dataset briefing files under the dataset directory.',
+          `Write the manifest at ${manifestPath}.`,
+          `Write these deliverable artifacts to ARTIFACT_DIR: ${requiredArtifacts.join(', ')}.`,
+          'Send a concise Slack briefing if CANONICAL_DATASET_SLACK_WEBHOOK_URL is present. Do not write secrets into prompts, logs, artifacts, transcripts, or the dataset volume.',
+          '',
+          'Starter instructions:',
+          starterPrompt,
+        ].join('\n')
+        const requestedExecution = isPlainRecord(body.execution) ? body.execution : {}
+        const config = {
+          environmentBootstrap: true,
+          canonicalDatasetBootstrap: true,
+          sourceDescription: description,
+          publicSources: Array.isArray(body.publicSources) ? body.publicSources : [],
+          manifestPath,
+          callbackOrigin,
+          resources,
+          requiredEnvironment,
+          optionalEnvironment,
+          requiredArtifacts,
+          docsMirrors,
+          execution: {
+            provider: 'modal',
+            jobKind: 'canonical-dataset-bootstrap',
+            codexRunOwner: 'service',
+            userSessionRequired: false,
+            ...requestedExecution,
+          },
+        }
+        const artifactSpec = requiredArtifacts.map((artifactName) => ({
+          type: artifactName.endsWith('.json')
+            ? 'json'
+            : artifactName.endsWith('.csv')
+              ? 'table'
+              : 'markdown',
+          title: artifactName,
+        }))
+        const remote = await this.createRemoteAgentExecution({
+          ownerType: 'service',
+          datasetId,
+          kind: 'canonical-dataset-bootstrap',
+          prompt,
+          callbackOrigin,
+          metadata: config,
+          datasetMountPath,
+          manifestPath,
+          datasetReadOnly: false,
+          extraContext: {
+            serviceOwned: true,
+            userSessionRequired: false,
+            config,
+            artifacts: artifactSpec,
+          },
+        })
+        executionId = remote.executionId
+        this.assignDatasetRemoteExecution(datasetId, executionId)
+        this.sql.exec(
+          `UPDATE datasets
+             SET volume_id = ?, volume_name = ?, volume_region = ?, volume_mount_path = ?, manifest_path = ?, deployment_status = ?, status = ?, updated_at = ?
+           WHERE id = ?`,
+          'agent-dataset',
+          'agent-dataset',
+          'modal',
+          datasetMountPath,
+          manifestPath,
+          'provisioning',
+          'deploying',
+          nowIso(),
+          datasetId,
+        )
+        const dataset = this.getDataset(datasetId)
+        return respondJson({
+          dataset: dataset ? this.datasetRowToJson(dataset as unknown as Record<string, unknown>) : null,
+          execution: remote.execution,
+          remoteAgentExecution: remote.execution,
+          modal: remote.modal,
+          adminStatusUrl: `/api/admin/remote-agent-executions/${encodeURIComponent(executionId)}`,
+          artifactsUrl: `/api/admin/remote-agent-executions/${encodeURIComponent(executionId)}/artifacts`,
+        })
+      } catch (error) {
+        const message = error instanceof Error ? error.message : 'Canonical dataset bootstrap launch failed'
+        if (executionId) {
+          this.appendRemoteAgentExecutionEvent(executionId, `Canonical dataset bootstrap launch failed: ${message}`, 'error')
+          this.sql.exec(
+            `UPDATE remote_agent_executions SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+            'failed',
+            message,
+            nowIso(),
+            executionId,
+          )
+          this.releaseDatasetRemoteExecution(canonicalDatasetId, executionId)
+        }
+        if (canonicalDatasetId) {
+          this.sql.exec(
+            `UPDATE datasets SET deployment_status = ?, status = ?, updated_at = ? WHERE id = ?`,
+            'failed',
+            'failed',
+            nowIso(),
+            canonicalDatasetId,
+          )
+        }
+        return respondJson({ error: message, executionId }, 500)
+      }
+    }
+
+    const canonicalExecutionMatch = pathname.match(/^\/admin\/canonical-datasets\/(improve|audit)$/u)
+    if (canonicalExecutionMatch && request.method === 'POST') {
+      let executionId: string | null = null
+      let datasetId: string | null = null
+      try {
+        const body = await request.json().catch(() => ({})) as Record<string, unknown>
+        const mode = canonicalExecutionMatch[1] ?? 'improve'
+        datasetId = slugify(String(body.datasetId ?? ''))
+        const prompt = String(body.prompt ?? '').trim()
+        const callbackOrigin = String(body.callbackOrigin ?? '')
+        if (!datasetId) return respondJson({ error: 'Missing datasetId' }, 400)
+        if (!prompt) return respondJson({ error: 'Missing prompt' }, 400)
+        if (!callbackOrigin) return respondJson({ error: 'Missing callbackOrigin' }, 400)
+        const dataset = this.getDataset(datasetId)
+        if (!dataset || dataset.ownerEmail !== PLATFORM_DATASET_OWNER_EMAIL) {
+          return respondJson({ error: 'Canonical dataset not found' }, 404)
+        }
+        const blockingExecution = this.getActiveRemoteExecution(datasetId)
+        if (blockingExecution && !isTerminalStatus(blockingExecution.status)) {
+          return respondJson({
+            error: `Dataset ${datasetId} already has active canonical remote execution ${blockingExecution.id}.`,
+            activeRemoteExecutionId: blockingExecution.id,
+            activeRemoteExecution: blockingExecution,
+          }, 409)
+        }
+        const datasetMountPath = `/data/datasets/${datasetId}`
+        const manifestPath = dataset.manifestPath?.startsWith('/data/')
+          ? dataset.manifestPath
+          : `${datasetMountPath}/manifest.json`
+        const artifactSpec = Array.isArray(body.artifactSpec)
+          ? body.artifactSpec
+          : Array.isArray(body.artifacts)
+            ? body.artifacts
+            : Array.isArray(body.requiredArtifacts)
+              ? body.requiredArtifacts.map((path) => ({ type: 'file', title: String(path), path: String(path) }))
+              : []
+        const metadata = {
+          ...(isPlainRecord(body.metadata) ? body.metadata : {}),
+          canonicalDatasetLifecycle: true,
+          canonicalJobKind: mode === 'audit' ? 'dataset-disk-audit' : 'dataset-improvement',
+          datasetId,
+          datasetName: dataset.name,
+        }
+        const remote = await this.createRemoteAgentExecution({
+          ownerType: 'service',
+          datasetId,
+          kind: mode === 'audit' ? 'dataset-disk-audit' : 'dataset-improvement',
+          prompt,
+          callbackOrigin,
+          metadata,
+          datasetMountPath,
+          manifestPath,
+          datasetReadOnly: false,
+          extraContext: {
+            serviceOwned: true,
+            userSessionRequired: false,
+            config: metadata,
+            artifacts: artifactSpec,
+          },
+        })
+        executionId = remote.executionId
+        this.assignDatasetRemoteExecution(datasetId, executionId)
+        const updatedDataset = this.getDataset(datasetId)
+        return respondJson({
+          dataset: updatedDataset ? this.datasetRowToJson(updatedDataset as unknown as Record<string, unknown>) : null,
+          execution: remote.execution,
+          remoteAgentExecution: remote.execution,
+          modal: remote.modal,
+          adminStatusUrl: `/api/admin/remote-agent-executions/${encodeURIComponent(executionId)}`,
+          artifactsUrl: `/api/admin/remote-agent-executions/${encodeURIComponent(executionId)}/artifacts`,
+        })
+      } catch (error) {
+        const message = error instanceof Error ? error.message : 'Canonical dataset execution launch failed'
+        if (executionId) {
+          this.appendRemoteAgentExecutionEvent(executionId, `Canonical dataset execution launch failed: ${message}`, 'error')
+          this.sql.exec(
+            `UPDATE remote_agent_executions SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+            'failed',
+            message,
+            nowIso(),
+            executionId,
+          )
+          this.releaseDatasetRemoteExecution(datasetId, executionId)
+        }
+        return respondJson({ error: message, executionId }, 500)
+      }
     }
 
     if (pathname === '/datasets' && request.method === 'POST') {
@@ -1354,23 +2650,12 @@ export class ControlPlane {
             status: blockingRun.status,
             prompt: blockingRun.prompt,
             output_preview: blockingRun.outputPreview,
-            droplet_id: blockingRun.dropletId,
-            droplet_name: blockingRun.dropletName,
+            worker_id: blockingRun.workerId,
+            worker_name: blockingRun.workerName,
             created_at: blockingRun.createdAt,
             updated_at: blockingRun.updatedAt,
           })],
         }, 409)
-      }
-      const runRows = this.rows('SELECT * FROM runs WHERE dataset_id = ?', datasetId)
-      for (const runRow of runRows) {
-        const run = this.parseRunRow(runRow)
-        if (run.dropletId) {
-          await deleteDroplet(this.env, run.dropletId).catch(() => undefined)
-        }
-      }
-      if (dataset.volumeId) {
-        await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
-        await deleteVolume(this.env, dataset.volumeId)
       }
       this.sql.exec('DELETE FROM response_session_links WHERE session_id IN (SELECT id FROM assistant_sessions WHERE dataset_id = ?)', datasetId)
       this.sql.exec('DELETE FROM assistant_session_entries WHERE session_id IN (SELECT id FROM assistant_sessions WHERE dataset_id = ?)', datasetId)
@@ -1463,7 +2748,7 @@ export class ControlPlane {
       }
       const sourceFilename = body.filename ? String(body.filename) : dataset.sourceFilename ?? 'dataset.bin'
       const objectKey = `uploads/${datasetId}/${Date.now()}-${sourceFilename.replace(/[^A-Za-z0-9._-]/g, '-')}`
-      const upload = await createPresignedSpacesUrl(this.env, { method: 'PUT', key: objectKey, expiresSeconds: 60 * 60 * 4 })
+      const upload = await createPresignedObjectStoreUrl(this.env, { method: 'PUT', key: objectKey, expiresSeconds: 60 * 60 * 4 })
       this.sql.exec(
         `UPDATE datasets SET source_filename = ?, source_object_key = ?, status = ?, updated_at = ? WHERE id = ?`,
         sourceFilename,
@@ -1518,41 +2803,25 @@ export class ControlPlane {
         if (!callbackOrigin) {
           return respondJson({ error: 'Missing callbackOrigin' }, 400)
         }
-        await this.expireStaleRunsForDataset(datasetId)
-        const blockingRun = this.getLeaseBlockingRun(datasetId)
-        if (blockingRun && !isTerminalStatus(blockingRun.status)) {
-          return respondJson({
-            error: `Dataset ${datasetId} already has an active run holding its volume.`,
-            activeRuns: [this.runRowToJson({
-              id: blockingRun.id,
-              dataset_id: blockingRun.datasetId,
-              owner_email: blockingRun.ownerEmail,
-              type: blockingRun.type,
-              status: blockingRun.status,
-              prompt: blockingRun.prompt,
-              output_preview: blockingRun.outputPreview,
-              droplet_id: blockingRun.dropletId,
-              droplet_name: blockingRun.dropletName,
-              created_at: blockingRun.createdAt,
-              updated_at: blockingRun.updatedAt,
-            })],
-          }, 409)
-        }
-        if (dataset.volumeId) {
-          await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
-        }
-        const volume = await ensureDatasetVolume(this.env, datasetId)
-        const getUrl = await createPresignedSpacesUrl(this.env, {
+        const getUrl = await createPresignedObjectStoreUrl(this.env, {
           method: 'GET',
           key: dataset.sourceObjectKey,
           expiresSeconds: 60 * 60 * 24,
         })
         const runId = this.createRun(datasetId, ownerEmail, 'deploy')
-        this.acquireDatasetLease(datasetId, runId)
+        const datasetMountPath = `/data/datasets/${datasetId}`
+        const manifestPath = `${datasetMountPath}/manifest.json`
         this.sql.exec(
           `INSERT INTO run_metadata (run_id, config_json, artifact_spec_json) VALUES (?, ?, ?)`,
           runId,
-          JSON.stringify({ callbackOrigin, datasetDescribeCandidate: true }),
+          JSON.stringify({
+            callbackOrigin,
+            datasetDescribeCandidate: true,
+            sourceDownloadUrl: getUrl.url,
+            sourceFilename: dataset.sourceFilename ?? 'source-input',
+            mode: dataset.mode ?? 'auto',
+            manifestPath,
+          }),
           null,
         )
         const cliSession = body.sessionId
@@ -1581,57 +2850,63 @@ export class ControlPlane {
             content: `Started deploy run ${runId} for dataset ${datasetId}.`,
           })
         }
-        this.appendRunEvent(runId, 'Provisioning DigitalOcean volume and ingest droplet.')
+        this.appendRunEvent(runId, 'Submitting Modal dataset deploy job.')
         this.sql.exec(
           `UPDATE datasets
-             SET volume_id = ?, volume_name = ?, volume_region = ?, volume_mount_path = ?, deployment_status = ?, status = ?, updated_at = ?
+             SET volume_id = ?, volume_name = ?, volume_region = ?, volume_mount_path = ?, manifest_path = ?, deployment_status = ?, status = ?, updated_at = ?
            WHERE id = ?`,
-          volume.id,
-          volume.name,
-          volume.region,
-          volume.datasetMountPath,
+          'agent-dataset',
+          'agent-dataset',
+          'modal',
+          datasetMountPath,
+          manifestPath,
           'provisioning',
           'deploying',
           nowIso(),
           datasetId,
         )
-        const ingestConfig = dataset.ingestConfigJson ? JSON.parse(dataset.ingestConfigJson) as Record<string, string> : {}
-        const ingestArgs: string[] = []
-        if (ingestConfig.entityType) ingestArgs.push('--entity-type', String(ingestConfig.entityType))
-        if (ingestConfig.titleField) ingestArgs.push('--title-field', String(ingestConfig.titleField))
-        if (ingestConfig.summaryField) ingestArgs.push('--summary-field', String(ingestConfig.summaryField))
-        if (ingestConfig.textFields) ingestArgs.push('--text-fields', String(ingestConfig.textFields))
-        if (ingestConfig.dateField) ingestArgs.push('--date-field', String(ingestConfig.dateField))
-        const droplet = await launchIngestDroplet(this.env, {
+        const prompt = [
+          `Deploy dataset ${datasetId} into ${datasetMountPath}.`,
+          `Download the source file from run_config.json sourceDownloadUrl to ${datasetMountPath}/sources/raw/${dataset.sourceFilename ?? 'source-input'}.`,
+          'Normalize or profile the source into useful files under the dataset directory.',
+          `Write a manifest at ${manifestPath}.`,
+          'Write work.md in the artifact directory describing what was deployed, and report.html as the primary human-readable output.',
+          'Do not write secrets or presigned URLs into dataset files or artifacts.',
+        ].join('\n')
+        const modalJob = await launchModalResearchJob(this.env, {
           datasetId,
-          instanceId: datasetId,
           runId,
-          volumeName: volume.name,
-          volumeId: volume.id,
-          sourceDownloadUrl: getUrl.url,
-          sourceFilename: dataset.sourceFilename ?? 'source-input',
-          outputRoot: `${volume.mountRoot}/data/instances`,
-          productName: dataset.name,
-          mode: dataset.mode ?? 'auto',
-          ingestArgs,
+          runType: 'deploy',
+          prompt,
+          configJson: JSON.stringify({
+            sourceDownloadUrl: getUrl.url,
+            sourceFilename: dataset.sourceFilename ?? 'source-input',
+            mode: dataset.mode ?? 'auto',
+            ingestConfig: dataset.ingestConfigJson ? JSON.parse(dataset.ingestConfigJson) : null,
+            manifestPath,
+          }),
           callbackOrigin,
+          datasetMountPath,
+          manifestPath,
+          datasetReadOnly: false,
         })
         this.sql.exec(
-          `UPDATE runs SET droplet_id = ?, droplet_name = ?, status = ?, updated_at = ? WHERE id = ?`,
-          droplet.id,
-          droplet.name,
+          `UPDATE runs SET worker_id = ?, worker_name = ?, status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+          modalJob.id,
+          modalJob.name,
           'booting',
+          'Modal dataset deploy job submitted.',
           nowIso(),
           runId,
         )
-        this.appendRunEvent(runId, `Ingest droplet ${droplet.name} launched in ${droplet.region}.`)
+        this.appendRunEvent(runId, `Modal dataset deploy job ${modalJob.id} submitted.`)
         const row = this.getDataset(datasetId)
         return respondJson({
           deployment: {
             datasetId,
             status: 'running',
-            volume,
-            droplet,
+            provider: 'modal',
+            resultPath: modalJob.resultPath,
           },
           run: this.runRowToJson(this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]!),
           dataset: row ? this.datasetRowToJson(row as unknown as Record<string, unknown>) : null,
@@ -1643,15 +2918,136 @@ export class ControlPlane {
       }
     }
 
+    if (pathname === '/admin/remote-agent-executions' && request.method === 'POST') {
+      const body = await request.json().catch(() => ({})) as Record<string, unknown>
+      const prompt = typeof body.prompt === 'string' ? body.prompt : ''
+      if (!prompt.trim()) {
+        return respondJson({ error: 'Missing prompt' }, 400)
+      }
+      const ownerType = typeof body.ownerType === 'string' && body.ownerType.trim() ? body.ownerType.trim() : 'admin'
+      const kind = typeof body.kind === 'string' && body.kind.trim() ? body.kind.trim() : 'manual'
+      const datasetId = typeof body.datasetId === 'string' && body.datasetId.trim() ? body.datasetId.trim() : null
+      const metadata = isPlainRecord(body.metadata) ? body.metadata : {}
+      let executionId: string | null = null
+      try {
+        const dataset = datasetId ? this.getDataset(datasetId) : null
+        const datasetMountPath = datasetId ? `/data/datasets/${datasetId}` : '/data'
+        const remote = await this.createRemoteAgentExecution({
+          ownerType,
+          datasetId,
+          kind,
+          prompt,
+          callbackOrigin: typeof body.callbackOrigin === 'string' ? body.callbackOrigin : '',
+          datasetMountPath,
+          manifestPath: dataset?.manifestPath?.startsWith('/data/')
+            ? dataset.manifestPath
+            : datasetId
+              ? `/data/datasets/${datasetId}/manifest.json`
+              : '/data/manifest.json',
+          datasetReadOnly: true,
+          metadata,
+          extraContext: {
+            ...(isPlainRecord(body.extraContext) ? body.extraContext : {}),
+            config: metadata,
+            artifacts: Array.isArray(body.artifactSpec)
+              ? body.artifactSpec
+              : Array.isArray(body.artifacts)
+                ? body.artifacts
+                : [],
+          },
+        })
+        executionId = remote.executionId
+        if (datasetId && dataset?.ownerEmail === PLATFORM_DATASET_OWNER_EMAIL) {
+          this.assignDatasetRemoteExecution(datasetId, executionId)
+        }
+        return respondJson({
+          execution: remote.execution,
+          remoteAgentExecution: remote.execution,
+          modal: remote.modal,
+          adminStatusUrl: `/api/admin/remote-agent-executions/${encodeURIComponent(executionId)}`,
+          artifactsUrl: `/api/admin/remote-agent-executions/${encodeURIComponent(executionId)}/artifacts`,
+        })
+      } catch (error) {
+        const message = error instanceof Error ? error.message : 'Remote agent execution launch failed'
+        if (executionId) {
+          this.appendRemoteAgentExecutionEvent(executionId, `Remote agent execution launch failed: ${message}`, 'error')
+          this.sql.exec(
+            `UPDATE remote_agent_executions SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+            'failed',
+            message,
+            nowIso(),
+            executionId,
+          )
+          this.releaseDatasetRemoteExecution(datasetId, executionId)
+        }
+        const row = executionId ? this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0] : null
+        return respondJson({ error: message, execution: row ? this.remoteAgentExecutionToJson(row) : null }, 500)
+      }
+    }
+
+    const adminExecutionMatch = pathname.match(/^\/admin\/remote-agent-executions\/([^/]+)$/u)
+    if (adminExecutionMatch && request.method === 'GET') {
+      const executionId = decodeURIComponent(adminExecutionMatch[1] ?? '')
+      const row = this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]
+      if (!row) return respondJson({ error: 'Remote agent execution not found' }, 404)
+      return respondJson({
+        execution: this.remoteAgentExecutionToJson(row),
+        remoteAgentExecution: this.remoteAgentExecutionToJson(row),
+        events: this.listRemoteAgentExecutionEvents(executionId),
+      })
+    }
+
+    const adminExecutionCancelMatch = pathname.match(/^\/admin\/remote-agent-executions\/([^/]+)\/cancel$/u)
+    if (adminExecutionCancelMatch && request.method === 'POST') {
+      const executionId = decodeURIComponent(adminExecutionCancelMatch[1] ?? '')
+      const row = this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]
+      if (!row) return respondJson({ error: 'Remote agent execution not found' }, 404)
+      const execution = this.parseRemoteAgentExecutionRow(row)
+      this.appendRemoteAgentExecutionEvent(executionId, 'Cancellation requested.', 'warning')
+      this.sql.exec(
+        `UPDATE remote_agent_executions SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+        'cancelled',
+        'Cancellation requested.',
+        nowIso(),
+        executionId,
+      )
+      this.releaseDatasetRemoteExecution(execution.datasetId, executionId)
+      return respondJson({ execution: this.remoteAgentExecutionToJson(this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]!) })
+    }
+
+    const adminExecutionArtifactsMatch = pathname.match(/^\/admin\/remote-agent-executions\/([^/]+)\/artifacts$/u)
+    if (adminExecutionArtifactsMatch && request.method === 'GET') {
+      const executionId = decodeURIComponent(adminExecutionArtifactsMatch[1] ?? '')
+      return respondJson({ artifacts: this.listRemoteAgentExecutionArtifacts(executionId) })
+    }
+
+    const adminExecutionArtifactContentMatch = pathname.match(/^\/admin\/remote-agent-executions\/([^/]+)\/artifacts\/([^/]+)\/content$/u)
+    if (adminExecutionArtifactContentMatch && request.method === 'GET') {
+      const artifactId = decodeURIComponent(adminExecutionArtifactContentMatch[2] ?? '')
+      const row = this.rows('SELECT * FROM remote_agent_execution_artifacts WHERE id = ? LIMIT 1', artifactId)[0]
+      if (!row) return respondJson({ error: 'Artifact not found' }, 404)
+      const content = row.content_json ? JSON.parse(String(row.content_json)) : null
+      const storage = isPlainRecord(content) && isPlainRecord(content.storage) ? content.storage : null
+      if (storage && storage.provider === 'cloudflare-r2' && typeof storage.key === 'string' && this.env.ARTIFACT_BUCKET) {
+        const object = await this.env.ARTIFACT_BUCKET.get(storage.key)
+        if (!object?.body) return respondJson({ error: 'Artifact object not found' }, 404)
+        const headers = new Headers()
+        object.writeHttpMetadata(headers)
+        return new Response(object.body, { headers })
+      }
+      return respondJson({ content })
+    }
+
     if (pathname === '/runs' && request.method === 'GET') {
       const ownerEmail = url.searchParams.get('ownerEmail')
       const datasetId = url.searchParams.get('datasetId')
       if (!ownerEmail) {
         return respondJson({ error: 'Missing ownerEmail' }, 400)
       }
+      const limit = boundedListLimit(url.searchParams.get('limit'))
       const rows = datasetId
-        ? this.rows('SELECT * FROM runs WHERE owner_email = ? AND dataset_id = ? ORDER BY updated_at DESC', ownerEmail, datasetId)
-        : this.rows('SELECT * FROM runs WHERE owner_email = ? ORDER BY updated_at DESC', ownerEmail)
+        ? this.rows('SELECT * FROM runs WHERE owner_email = ? AND dataset_id = ? ORDER BY updated_at DESC LIMIT ?', ownerEmail, datasetId, limit)
+        : this.rows('SELECT * FROM runs WHERE owner_email = ? ORDER BY updated_at DESC LIMIT ?', ownerEmail, limit)
       return respondJson({ runs: rows.map((row) => this.runRowToJson(row)) })
     }
 
@@ -1663,7 +3059,7 @@ export class ControlPlane {
         const body = await request.json() as Record<string, unknown>
         const ownerEmail = String(body.ownerEmail ?? '')
         const dataset = this.getDataset(datasetId)
-        if (!dataset || dataset.ownerEmail !== ownerEmail) {
+        if (!dataset || !this.canOwnerRunDataset(dataset, ownerEmail)) {
           return respondJson({ error: 'Dataset not found' }, 404)
         }
         const prompt = String(body.prompt ?? '')
@@ -1671,31 +3067,7 @@ export class ControlPlane {
         const cliSessionId = body.sessionId ? String(body.sessionId) : null
         const config = body.config && typeof body.config === 'object' ? body.config : null
         const artifactSpec = Array.isArray(body.artifacts) ? body.artifacts : []
-        await this.expireStaleRunsForDataset(datasetId)
-        const blockingRun = this.getLeaseBlockingRun(datasetId)
-        if (blockingRun && !isTerminalStatus(blockingRun.status)) {
-          return respondJson({
-            error: `Dataset ${datasetId} already has an active run holding its volume.`,
-            activeRuns: [this.runRowToJson({
-              id: blockingRun.id,
-              dataset_id: blockingRun.datasetId,
-              owner_email: blockingRun.ownerEmail,
-              type: blockingRun.type,
-              status: blockingRun.status,
-              prompt: blockingRun.prompt,
-              output_preview: blockingRun.outputPreview,
-              droplet_id: blockingRun.dropletId,
-              droplet_name: blockingRun.dropletName,
-              created_at: blockingRun.createdAt,
-              updated_at: blockingRun.updatedAt,
-            })],
-          }, 409)
-        }
-        if (dataset.volumeId) {
-          await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
-        }
         runId = this.createRun(datasetId, ownerEmail, runType, prompt)
-        this.acquireDatasetLease(datasetId, runId)
         const linkedCliSession = cliSessionId
           ? this.updateAssistantSession(cliSessionId, {
               datasetId,
@@ -1726,19 +3098,14 @@ export class ControlPlane {
           config ? JSON.stringify(config) : null,
           artifactSpec.length > 0 ? JSON.stringify(artifactSpec) : null,
         )
-        if (!dataset.volumeId || !dataset.volumeName || !dataset.volumeMountPath || !dataset.manifestPath) {
-          this.appendRunEvent(runId, 'Dataset is not deployed to a runnable volume yet.', 'error')
-          this.sql.exec('UPDATE runs SET status = ?, updated_at = ? WHERE id = ?', 'failed', nowIso(), runId)
-          return respondJson({ error: 'Dataset is not deployed and runnable yet' }, 400)
-        }
         const remoteAgentConfig = config && typeof config === 'object'
           ? (config as Record<string, unknown>)
           : null
-        this.appendRunEvent(runId, 'Preparing remote agent droplet launch.')
+        this.appendRunEvent(runId, 'Preparing Modal agent job.')
         this.sql.exec(
           `UPDATE runs SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
           'booting',
-          'Preparing remote agent droplet launch.',
+          'Preparing Modal agent job.',
           nowIso(),
           runId,
         )
@@ -1752,64 +3119,23 @@ export class ControlPlane {
           remoteAgentSessionId: typeof remoteAgentConfig?.remoteAgentSessionId === 'string'
             ? remoteAgentConfig.remoteAgentSessionId
             : undefined,
-          volumeName: dataset.volumeName,
-          volumeId: dataset.volumeId,
           callbackOrigin: String(body.callbackOrigin ?? ''),
-          datasetMountPath: dataset.volumeMountPath,
-          manifestPath: dataset.manifestPath,
-          sourceSizeBytes: dataset.sourceSizeBytes,
+          datasetMountPath: `/data/datasets/${datasetId}`,
+          manifestPath: dataset.manifestPath?.startsWith('/data/') ? dataset.manifestPath : `/data/datasets/${datasetId}/manifest.json`,
+          datasetReadOnly: true,
         }
-        const requestedWorkspaceGb = requestedWorkspaceDiskGb(launchParams)
-        if (requestedWorkspaceGb !== null) {
-          this.appendRunEvent(runId, `Ensuring workspace volume capacity is at least ${requestedWorkspaceGb}GiB.`)
-          const volume = await ensureDatasetVolumeWorkspace(this.env, datasetId, requestedWorkspaceGb)
-          if (volume.id !== dataset.volumeId) {
-            this.sql.exec(
-              `UPDATE datasets SET volume_id = ?, volume_name = ?, volume_region = ?, volume_mount_path = ?, updated_at = ? WHERE id = ?`,
-              volume.id,
-              volume.name,
-              volume.region,
-              volume.datasetMountPath,
-              nowIso(),
-              datasetId,
-            )
-          }
-        }
-        const sizeClass = inferResearchSizeClass(launchParams)
-        const useDedicatedRunner = requiresDedicatedResearchRunner(launchParams)
-        let assignedPoolRunner = useDedicatedRunner ? null : this.findIdleRunnerPoolEntry(sizeClass)
-        if (!assignedPoolRunner && !useDedicatedRunner) {
-          await ensureWarmResearchPool(this.env, sizeClass)
-          assignedPoolRunner = this.findIdleRunnerPoolEntry(sizeClass)
-        }
-        if (assignedPoolRunner) {
-          await attachVolumeToDroplet(this.env, dataset.volumeId, assignedPoolRunner.dropletId, dataset.volumeRegion ?? this.env.DIGITALOCEAN_REGION)
-          this.assignRunnerPoolEntry(assignedPoolRunner.dropletId, runId)
-          this.appendRunEvent(runId, `Assigned warm runner ${assignedPoolRunner.dropletName} (${assignedPoolRunner.sizeClass}).`)
-          this.sql.exec(
-            `UPDATE runs SET droplet_id = ?, droplet_name = ?, status = ?, updated_at = ? WHERE id = ?`,
-            assignedPoolRunner.dropletId,
-            assignedPoolRunner.dropletName,
-            'booting',
-            nowIso(),
-            runId,
-          )
-          void ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
-        } else {
-          const droplet = await launchResearchDroplet(this.env, launchParams)
-          this.appendRunEvent(runId, `Remote agent droplet ${droplet.name} launched in ${droplet.region} (${droplet.size}).`)
-          this.sql.exec(
-            `UPDATE runs SET droplet_id = ?, droplet_name = ?, status = ?, updated_at = ? WHERE id = ?`,
-            droplet.id,
-            droplet.name,
-            'booting',
-            nowIso(),
-            runId,
-          )
-          if (!useDedicatedRunner) {
-            void ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
-          }
-        }
+        this.appendRunEvent(runId, 'Submitting remote agent job to Modal.')
+        const modalJob = await launchModalResearchJob(this.env, launchParams)
+        this.appendRunEvent(runId, `Modal agent job ${modalJob.id} submitted; results will be written to ${modalJob.resultPath}.`)
+        this.sql.exec(
+          `UPDATE runs SET worker_id = ?, worker_name = ?, status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+          modalJob.id,
+          modalJob.name,
+          'booting',
+          'Modal agent job submitted.',
+          nowIso(),
+          runId,
+        )
         return respondJson({ run: this.runRowToJson(this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]!) })
       } catch (error) {
         const message = error instanceof Error ? error.message : 'Run launch failed'
@@ -1827,22 +3153,6 @@ export class ControlPlane {
             this.releaseDatasetLease(this.parseRunRow(failedRun).datasetId, runId)
           }
         }
-        if (isVolumeBusyError(error)) {
-          const datasetId = decodeURIComponent(runCreateMatch[1] ?? '')
-          const activeRuns = this.getActiveRunsForDataset(datasetId)
-          return respondJson({
-            error: `Dataset ${datasetId} is busy because its DigitalOcean volume is attached to another droplet.`,
-            runId,
-            activeRuns: activeRuns.map((run) => ({
-              id: run.id,
-              datasetId: run.datasetId,
-              status: run.status,
-              prompt: run.prompt,
-              createdAt: run.createdAt,
-              updatedAt: run.updatedAt,
-            })),
-          }, 409)
-        }
         return respondJson({
           error: message,
           runId,
@@ -1853,8 +3163,10 @@ export class ControlPlane {
     const publicEnvironmentMatch = pathname.match(/^\/datasets\/([^/]+)\/(?:public-environment|research-environment)$/u)
     if (publicEnvironmentMatch && request.method === 'POST') {
       let runId: string | null = null
+      let environmentDatasetId: string | null = null
       try {
         const datasetId = decodeURIComponent(publicEnvironmentMatch[1] ?? '')
+        environmentDatasetId = datasetId
         const body = await request.json().catch(() => ({})) as Record<string, unknown>
         const ownerEmail = String(body.ownerEmail ?? '')
         const callbackOrigin = String(body.callbackOrigin ?? '')
@@ -1886,7 +3198,7 @@ export class ControlPlane {
           if (!key.startsWith(`uploads/${datasetId}/`)) {
             return respondJson({ error: `Invalid private source key for dataset ${datasetId}` }, 400)
           }
-          const download = await createPresignedSpacesUrl(this.env, {
+          const download = await createPresignedObjectStoreUrl(this.env, {
             method: 'GET',
             key,
             expiresSeconds: 60 * 60 * 24 * 7,
@@ -1967,19 +3279,15 @@ export class ControlPlane {
               status: blockingRun.status,
               prompt: blockingRun.prompt,
               output_preview: blockingRun.outputPreview,
-              droplet_id: blockingRun.dropletId,
-              droplet_name: blockingRun.dropletName,
+              worker_id: blockingRun.workerId,
+              worker_name: blockingRun.workerName,
               created_at: blockingRun.createdAt,
               updated_at: blockingRun.updatedAt,
             })],
           }, 409)
         }
-        const datasetBeforeVolume = this.getDataset(datasetId)
-        if (datasetBeforeVolume?.volumeId) {
-          await waitForVolumeDetachment(this.env, datasetBeforeVolume.volumeId).catch(() => undefined)
-        }
-        const volume = await ensureDatasetVolume(this.env, datasetId)
-        const manifestPath = `${volume.datasetMountPath}/manifest.json`
+        const datasetMountPath = `/data/datasets/${datasetId}`
+        const manifestPath = `${datasetMountPath}/manifest.json`
         runId = this.createRun(datasetId, ownerEmail, 'environment', prompt)
         this.acquireDatasetLease(datasetId, runId)
         const cliSession = body.sessionId
@@ -2027,10 +3335,10 @@ export class ControlPlane {
           `UPDATE datasets
              SET volume_id = ?, volume_name = ?, volume_region = ?, volume_mount_path = ?, manifest_path = ?, deployment_status = ?, status = ?, updated_at = ?
            WHERE id = ?`,
-          volume.id,
-          volume.name,
-          volume.region,
-          volume.datasetMountPath,
+          'agent-dataset',
+          'agent-dataset',
+          'modal',
+          datasetMountPath,
           manifestPath,
           'provisioning',
           'deploying',
@@ -2041,12 +3349,12 @@ export class ControlPlane {
         const publicSourceCount = publicSources.length
         this.appendRunEvent(
           runId,
-          `Provisioning research environment volume and remote agent (${publicSourceCount} public source hint${publicSourceCount === 1 ? '' : 's'}, ${privateSourceCount} private upload${privateSourceCount === 1 ? '' : 's'}).`,
+          `Submitting Modal research environment job (${publicSourceCount} public source hint${publicSourceCount === 1 ? '' : 's'}, ${privateSourceCount} private upload${privateSourceCount === 1 ? '' : 's'}).`,
         )
         this.sql.exec(
           `UPDATE runs SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
           'booting',
-          'Provisioning public-data research environment.',
+          'Submitting Modal public-data research environment job.',
           nowIso(),
           runId,
         )
@@ -2057,73 +3365,29 @@ export class ControlPlane {
           prompt,
           configJson: JSON.stringify(config),
           artifactSpecJson: artifactSpec.length > 0 ? JSON.stringify(artifactSpec) : undefined,
-          volumeName: volume.name,
-          volumeId: volume.id,
           callbackOrigin,
-          datasetMountPath: volume.datasetMountPath,
+          datasetMountPath,
           manifestPath,
-          sourceSizeBytes: null,
+          datasetReadOnly: false,
         }
-        const requestedWorkspaceGb = requestedWorkspaceDiskGb(launchParams)
-        if (requestedWorkspaceGb !== null) {
-          this.appendRunEvent(runId, `Ensuring workspace volume capacity is at least ${requestedWorkspaceGb}GiB.`)
-          const resizedVolume = await ensureDatasetVolumeWorkspace(this.env, datasetId, requestedWorkspaceGb)
-          if (resizedVolume.id !== volume.id || resizedVolume.sizeGigabytes !== volume.sizeGigabytes) {
-            this.sql.exec(
-              `UPDATE datasets
-                 SET volume_id = ?, volume_name = ?, volume_region = ?, volume_mount_path = ?, updated_at = ?
-               WHERE id = ?`,
-              resizedVolume.id,
-              resizedVolume.name,
-              resizedVolume.region,
-              resizedVolume.datasetMountPath,
-              nowIso(),
-              datasetId,
-            )
-          }
-        }
-        const sizeClass = inferResearchSizeClass(launchParams)
-        const useDedicatedRunner = requiresDedicatedResearchRunner(launchParams)
-        let assignedPoolRunner = useDedicatedRunner ? null : this.findIdleRunnerPoolEntry(sizeClass)
-        if (!assignedPoolRunner && !useDedicatedRunner) {
-          await ensureWarmResearchPool(this.env, sizeClass)
-          assignedPoolRunner = this.findIdleRunnerPoolEntry(sizeClass)
-        }
-        if (assignedPoolRunner) {
-          await attachVolumeToDroplet(this.env, volume.id, assignedPoolRunner.dropletId, volume.region)
-          this.assignRunnerPoolEntry(assignedPoolRunner.dropletId, runId)
-          this.appendRunEvent(runId, `Assigned warm runner ${assignedPoolRunner.dropletName} (${assignedPoolRunner.sizeClass}).`)
-          this.sql.exec(
-            `UPDATE runs SET droplet_id = ?, droplet_name = ?, status = ?, updated_at = ? WHERE id = ?`,
-            assignedPoolRunner.dropletId,
-            assignedPoolRunner.dropletName,
-            'booting',
-            nowIso(),
-            runId,
-          )
-          void ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
-        } else {
-          const droplet = await launchResearchDroplet(this.env, launchParams)
-          this.appendRunEvent(runId, `Remote agent droplet ${droplet.name} launched in ${droplet.region} (${droplet.size}).`)
-          this.sql.exec(
-            `UPDATE runs SET droplet_id = ?, droplet_name = ?, status = ?, updated_at = ? WHERE id = ?`,
-            droplet.id,
-            droplet.name,
-            'booting',
-            nowIso(),
-            runId,
-          )
-          if (!useDedicatedRunner) {
-            void ensureWarmResearchPool(this.env, sizeClass).catch(() => undefined)
-          }
-        }
+        const modalJob = await launchModalResearchJob(this.env, launchParams)
+        this.appendRunEvent(runId, `Modal environment job ${modalJob.id} submitted; results will be written to ${modalJob.resultPath}.`)
+        this.sql.exec(
+          `UPDATE runs SET worker_id = ?, worker_name = ?, status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+          modalJob.id,
+          modalJob.name,
+          'booting',
+          'Modal environment job submitted.',
+          nowIso(),
+          runId,
+        )
         const row = this.getDataset(datasetId)
         return respondJson({
           dataset: row ? this.datasetRowToJson(row as unknown as Record<string, unknown>) : null,
           environment: {
             datasetId,
             status: 'running',
-            volume,
+            provider: 'modal',
             manifestPath,
           },
           run: this.runRowToJson(this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]!),
@@ -2143,6 +3407,15 @@ export class ControlPlane {
           if (failedRun) {
             this.releaseDatasetLease(this.parseRunRow(failedRun).datasetId, runId)
           }
+        }
+        if (environmentDatasetId) {
+          this.sql.exec(
+            `UPDATE datasets SET deployment_status = ?, status = ?, updated_at = ? WHERE id = ?`,
+            'failed',
+            'failed',
+            nowIso(),
+            environmentDatasetId,
+          )
         }
         return respondJson({ error: message, runId }, 500)
       }
@@ -2196,6 +3469,100 @@ export class ControlPlane {
       return respondJson({ id: entryId })
     }
 
+    if (assistantSessionMatch && request.method === 'PATCH') {
+      const sessionId = decodeURIComponent(assistantSessionMatch[1] ?? '')
+      const session = this.getAssistantSession(sessionId)
+      if (!session) {
+        return respondJson({ error: 'Session not found' }, 404)
+      }
+      const body = await request.json() as Record<string, unknown>
+      const updated = this.updateAssistantSession(sessionId, {
+        datasetId: body.datasetId === undefined ? undefined : body.datasetId ? String(body.datasetId) : null,
+        runId: body.runId === undefined ? undefined : body.runId ? String(body.runId) : null,
+        title: body.title === undefined ? undefined : body.title ? String(body.title) : null,
+        status: body.status === undefined ? undefined : String(body.status),
+        metadata: body.metadata,
+      })
+      return respondJson({ session: updated ? this.assistantSessionToJson(updated) : null })
+    }
+
+    const assistantSessionDebugViewMatch = pathname.match(/^\/assistant-sessions\/([^/]+)\/debug-view$/u)
+    if (assistantSessionDebugViewMatch && request.method === 'GET') {
+      const sessionId = decodeURIComponent(assistantSessionDebugViewMatch[1] ?? '')
+      const session = this.getAssistantSession(sessionId)
+      if (!session) {
+        return respondJson({ error: 'Session not found' }, 404)
+      }
+      const entries = this.listAssistantSessionEntries(sessionId).map((entry) =>
+        this.assistantSessionEntryToJson(entry),
+      )
+      const attachedRunIds = this.collectRunIdsFromSession(session, entries)
+      const attachedRuns = attachedRunIds.map((runId) => {
+        const runRow = this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]
+        if (!runRow) {
+          return null
+        }
+        return {
+          run: this.runRowToJson(runRow),
+          metadata: this.getRunMetadata(runId),
+          events: this.runEventsForRun(runId),
+          artifacts: this.listRunArtifacts(runId),
+          sessions: this.listAssistantSessionsForRun(runId).map((attachedSession) => ({
+            ...this.assistantSessionToJson(attachedSession),
+            entries: this.listAssistantSessionEntries(attachedSession.id).map((entry) =>
+              this.assistantSessionEntryToJson(entry),
+            ),
+          })),
+        }
+      }).filter((run): run is NonNullable<typeof run> => run !== null)
+      const run = attachedRuns[0]?.run ?? null
+      const runEvents = attachedRuns.flatMap((attachedRun) => attachedRun.events)
+      const errorEntries = entries.filter((entry) => {
+        const content = String(entry.content ?? '')
+        return entry.role === 'system'
+          || entry.kind.includes('error')
+          || entry.kind.includes('tool_result')
+          || /(?:^|\b)(error|failed|409|holding its volume|busy|unauthorized)(?:\b|$)/iu.test(content)
+      })
+      const lastErrorEntry = errorEntries.at(-1) ?? null
+      const lastRunError = runEvents.filter((event) => event.level === 'error').at(-1) ?? null
+      return respondJson({
+        session: this.assistantSessionToJson(session),
+        entries,
+        chatHistory: entries,
+        run,
+        runEvents,
+        attachedRuns,
+        debugView: {
+          linkedRunId: session.runId,
+          attachedRunIds,
+          attachedRunCount: attachedRuns.length,
+          entryCount: entries.length,
+          errorEntryCount: errorEntries.length,
+          latestError: lastErrorEntry
+            ? {
+                source: 'assistant_session',
+                entryId: lastErrorEntry.id,
+                kind: lastErrorEntry.kind,
+                title: lastErrorEntry.title,
+                content: lastErrorEntry.content,
+                metadata: lastErrorEntry.metadata,
+                createdAt: lastErrorEntry.createdAt,
+              }
+            : lastRunError
+              ? {
+                  source: 'run_event',
+                  eventId: lastRunError.id,
+                  content: lastRunError.message,
+                  createdAt: lastRunError.createdAt,
+                }
+              : null,
+          runEventCount: runEvents.length,
+          lastRunEvent: runEvents.at(-1) ?? null,
+        },
+      })
+    }
+
     if (pathname === '/assistant-sessions/link-response' && request.method === 'POST') {
       const body = await request.json() as Record<string, unknown>
       const responseId = String(body.responseId ?? '')
@@ -2218,34 +3585,7 @@ export class ControlPlane {
       if (isTerminalStatus(run.status)) {
         return respondJson({ run: this.runRowToJson(row) })
       }
-      if (run.dropletId) {
-        try {
-          const dataset = this.getDataset(run.datasetId)
-          const pooledRunner = this.getRunnerPoolEntry(run.dropletId)
-          if (pooledRunner) {
-            if (dataset?.volumeId) {
-              await detachVolumeByDroplet(this.env, dataset.volumeId, run.dropletId, dataset.volumeRegion ?? this.env.DIGITALOCEAN_REGION).catch(() => undefined)
-              await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
-            }
-            this.clearRunnerPoolEntryAssignment(run.dropletId)
-            this.appendRunEvent(runId, `Cancelled run and released pooled runner ${pooledRunner.dropletName}.`, 'warning')
-          } else {
-            await deleteDroplet(this.env, run.dropletId)
-            if (dataset?.volumeId) {
-              await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
-            }
-            this.appendRunEvent(runId, `Cancelled run and deleted droplet ${run.dropletName ?? run.dropletId}.`, 'warning')
-          }
-        } catch (error) {
-          this.appendRunEvent(
-            runId,
-            `Cancel requested but droplet delete failed: ${error instanceof Error ? error.message : String(error)}`,
-            'error',
-          )
-        }
-      } else {
-        this.appendRunEvent(runId, 'Cancelled run before droplet launch.', 'warning')
-      }
+      this.appendRunEvent(runId, 'Cancelled Modal run by user.', 'warning')
       const timestamp = nowIso()
       this.sql.exec(
         `UPDATE runs SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
@@ -2287,6 +3627,54 @@ export class ControlPlane {
           level: String(row.level) as 'info' | 'warning' | 'error',
           createdAt: String(row.created_at),
         })),
+      })
+    }
+
+    const artifactContentMatch = pathname.match(/^\/artifacts\/([^/]+)\/content$/u)
+    if (artifactContentMatch && request.method === 'GET') {
+      const artifactId = decodeURIComponent(artifactContentMatch[1] ?? '')
+      const row = this.rows('SELECT * FROM run_artifacts WHERE id = ? LIMIT 1', artifactId)[0]
+      if (!row) {
+        return respondJson({ error: 'Artifact not found' }, 404)
+      }
+      const content = row.content_json ? JSON.parse(String(row.content_json)) : null
+      const storage = isPlainRecord(content) && isPlainRecord(content.storage) ? content.storage : null
+      const key = storage && typeof storage.key === 'string' ? storage.key : null
+      if (!key || !this.env.ARTIFACT_BUCKET) {
+        return respondJson({ error: 'Artifact content is not available in object storage' }, 404)
+      }
+      const object = await this.env.ARTIFACT_BUCKET.get(key)
+      if (!object || !object.body) {
+        return respondJson({ error: 'Artifact object not found' }, 404)
+      }
+      const headers = new Headers()
+      object.writeHttpMetadata(headers)
+      if (!headers.has('Content-Type')) {
+        const mimeType = isPlainRecord(content) && typeof content.mimeType === 'string'
+          ? content.mimeType
+          : 'application/octet-stream'
+        headers.set('Content-Type', mimeType)
+      }
+      headers.set('Cache-Control', 'private, max-age=300')
+      return new Response(object.body, { headers })
+    }
+
+    const artifactMatch = pathname.match(/^\/artifacts\/([^/]+)$/u)
+    if (artifactMatch && request.method === 'GET') {
+      const artifactId = decodeURIComponent(artifactMatch[1] ?? '')
+      const row = this.rows('SELECT id, run_id, type, title, url, created_at FROM run_artifacts WHERE id = ? LIMIT 1', artifactId)[0]
+      if (!row) {
+        return respondJson({ error: 'Artifact not found' }, 404)
+      }
+      return respondJson({
+        artifact: {
+          id: String(row.id),
+          runId: String(row.run_id),
+          type: String(row.type),
+          title: String(row.title),
+          url: row.url ? String(row.url) : null,
+          createdAt: String(row.created_at),
+        },
       })
     }
 
@@ -2451,77 +3839,82 @@ export class ControlPlane {
       return respondJson({ spec: this.researchSpecToJson(row) })
     }
 
-    if (pathname === '/internal/runner-pool/heartbeat' && request.method === 'POST') {
-      const body = await request.json() as Record<string, unknown>
-      const dropletId = String(body.dropletId ?? '')
-      const dropletName = String(body.dropletName ?? '')
-      const sizeClass = String(body.sizeClass ?? '')
-      const region = body.region ? String(body.region) : null
-      if (!dropletId || !dropletName || !sizeClass) {
-        return respondJson({ error: 'Missing dropletId, dropletName, or sizeClass' }, 400)
-      }
-      this.registerRunnerPoolHeartbeat(dropletId, dropletName, sizeClass, region)
+    const internalExecutionEventMatch = pathname.match(/^\/internal\/remote-agent-executions\/([^/]+)\/events$/u)
+    if (internalExecutionEventMatch && request.method === 'POST') {
+      const executionId = decodeURIComponent(internalExecutionEventMatch[1] ?? '')
+      const level = request.headers.get('X-Run-Level') ?? 'info'
+      const message = await request.text()
+      this.appendRemoteAgentExecutionEvent(executionId, message, level)
       return respondJson({ ok: true })
     }
 
-    const poolAssignmentMatch = pathname.match(/^\/internal\/runner-pool\/droplets\/([^/]+)\/assignment$/u)
-    if (poolAssignmentMatch && request.method === 'GET') {
-      const dropletId = decodeURIComponent(poolAssignmentMatch[1] ?? '')
-      const runner = this.getRunnerPoolEntry(dropletId)
-      if (!runner) {
-        return respondJson({ assignment: null })
-      }
-      this.registerRunnerPoolHeartbeat(dropletId, runner.dropletName, runner.sizeClass, runner.region)
-      if (!runner.assignedRunId) {
-        return respondJson({ assignment: null })
-      }
-      const runRow = this.rows('SELECT * FROM runs WHERE id = ? LIMIT 1', runner.assignedRunId)[0]
-      if (!runRow) {
-        this.clearRunnerPoolEntryAssignment(dropletId)
-        return respondJson({ assignment: null })
-      }
-      const run = this.parseRunRow(runRow)
-      if (isTerminalStatus(run.status)) {
-        this.clearRunnerPoolEntryAssignment(dropletId)
-        return respondJson({ assignment: null })
-      }
-      const dataset = this.getDataset(run.datasetId)
-      if (!dataset?.volumeName || !dataset.volumeMountPath || !dataset.manifestPath) {
-        return respondJson({ assignment: null })
-      }
-      const metadata = this.getRunMetadata(run.id)
-      const config = metadata?.config ?? {}
-      const artifacts = metadata?.artifactSpec ?? []
-      const remoteAgentSessionId = typeof (config as Record<string, unknown>).remoteAgentSessionId === 'string'
-        ? String((config as Record<string, unknown>).remoteAgentSessionId)
-        : ''
-      return respondJson({
-        assignment: {
-          runId: run.id,
-          runType: run.type,
-          datasetId: run.datasetId,
-          prompt: run.prompt ?? '',
-          promptB64: encodeBase64(run.prompt ?? ''),
-          configB64: encodeBase64(JSON.stringify(config ?? {})),
-          artifactSpecB64: encodeBase64(JSON.stringify(artifacts ?? [])),
-          remoteAgentSessionId,
-          volumeName: dataset.volumeName,
-          datasetMountPath: dataset.volumeMountPath,
-          manifestPath: dataset.manifestPath,
+    const internalExecutionSessionEntryMatch = pathname.match(/^\/internal\/remote-agent-executions\/([^/]+)\/session-entries$/u)
+    if (internalExecutionSessionEntryMatch && request.method === 'POST') {
+      const executionId = decodeURIComponent(internalExecutionSessionEntryMatch[1] ?? '')
+      const body = await request.json().catch(() => ({})) as Record<string, unknown>
+      const title = body.title ? String(body.title) : String(body.kind ?? 'session_entry')
+      const content = String(body.content ?? '')
+      if (!content) return respondJson({ error: 'Missing content' }, 400)
+      const id = await this.createStoredRemoteAgentExecutionArtifact(
+        executionId,
+        'remote_agent_session_entry',
+        title,
+        {
+          role: String(body.role ?? 'assistant'),
+          kind: String(body.kind ?? 'message'),
+          title,
+          text: content,
+          metadata: body.metadata,
         },
-      })
+      )
+      return respondJson({ id })
     }
 
-    const poolCompleteMatch = pathname.match(/^\/internal\/runner-pool\/droplets\/([^/]+)\/complete$/u)
-    if (poolCompleteMatch && request.method === 'POST') {
-      const dropletId = decodeURIComponent(poolCompleteMatch[1] ?? '')
-      const body = await request.json() as Record<string, unknown>
-      const runId = String(body.runId ?? '')
-      const runner = this.getRunnerPoolEntry(dropletId)
-      if (runner && (!runId || runner.assignedRunId === runId)) {
-        this.clearRunnerPoolEntryAssignment(dropletId)
+    const internalExecutionArtifactMatch = pathname.match(/^\/internal\/remote-agent-executions\/([^/]+)\/artifacts$/u)
+    if (internalExecutionArtifactMatch && request.method === 'POST') {
+      const executionId = decodeURIComponent(internalExecutionArtifactMatch[1] ?? '')
+      const body = await request.json().catch(() => ({})) as Record<string, unknown>
+      const id = await this.createStoredRemoteAgentExecutionArtifact(
+        executionId,
+        String(body.type ?? 'artifact'),
+        String(body.title ?? 'artifact'),
+        body.content,
+        body.url ? String(body.url) : null,
+      )
+      return respondJson({ ok: true, id })
+    }
+
+    const internalExecutionStatusMatch = pathname.match(/^\/internal\/remote-agent-executions\/([^/]+)\/status$/u)
+    if (internalExecutionStatusMatch && request.method === 'POST') {
+      const executionId = decodeURIComponent(internalExecutionStatusMatch[1] ?? '')
+      const body = await request.json().catch(() => ({})) as Record<string, unknown>
+      const row = this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]
+      if (!row) return respondJson({ error: 'Remote agent execution not found' }, 404)
+      const execution = this.parseRemoteAgentExecutionRow(row)
+      if (isTerminalStatus(execution.status)) {
+        return respondJson({ execution: this.remoteAgentExecutionToJson(row), ignored: true })
       }
-      return respondJson({ ok: true })
+      const status = String(body.status ?? 'running')
+      this.sql.exec(
+        `UPDATE remote_agent_executions SET status = ?, output_preview = ?, updated_at = ? WHERE id = ?`,
+        status,
+        body.outputPreview ? String(body.outputPreview) : null,
+        nowIso(),
+        executionId,
+      )
+      if (isTerminalStatus(status)) {
+        this.releaseDatasetRemoteExecution(execution.datasetId, executionId)
+        if (execution.datasetId && status === 'ready' && execution.kind === 'canonical-dataset-bootstrap') {
+          this.sql.exec(
+            `UPDATE datasets SET deployment_status = ?, status = ?, updated_at = ? WHERE id = ?`,
+            'ready',
+            'ready',
+            nowIso(),
+            execution.datasetId,
+          )
+        }
+      }
+      return respondJson({ execution: this.remoteAgentExecutionToJson(this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]!) })
     }
 
     const internalEventMatch = pathname.match(/^\/internal\/runs\/([^/]+)\/events$/u)
@@ -2530,6 +3923,40 @@ export class ControlPlane {
       const level = request.headers.get('X-Run-Level') ?? 'info'
       const message = await request.text()
       this.appendRunEvent(runId, message, level)
+      return respondJson({ ok: true })
+    }
+
+    const internalBillingCheckMatch = pathname.match(/^\/internal\/runs\/([^/]+)\/billing-check$/u)
+    if (internalBillingCheckMatch && request.method === 'GET') {
+      const runId = decodeURIComponent(internalBillingCheckMatch[1] ?? '')
+      const runRow = this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]
+      const run = runRow ? this.parseRunRow(runRow) : null
+      if (!run) {
+        return respondJson({ error: 'Run not found' }, 404)
+      }
+      return respondJson({ overview: this.billingOverviewForRun(run) })
+    }
+
+    const internalBillingEventMatch = pathname.match(/^\/internal\/runs\/([^/]+)\/billing-events$/u)
+    if (internalBillingEventMatch && request.method === 'POST') {
+      const runId = decodeURIComponent(internalBillingEventMatch[1] ?? '')
+      const runRow = this.rows('SELECT * FROM runs WHERE id = ?', runId)[0]
+      const run = runRow ? this.parseRunRow(runRow) : null
+      if (!run) {
+        return respondJson({ error: 'Run not found' }, 404)
+      }
+      const body = await request.json() as Record<string, unknown>
+      const event = isPlainRecord(body.event) ? body.event as BillingUsageEventInput : null
+      if (!event) {
+        return respondJson({ error: 'Missing event' }, 400)
+      }
+      const session = this.listAssistantSessionsForRun(run.id)[0] ?? null
+      this.trackBillingEvent(run.ownerEmail, {
+        ...event,
+        sessionId: session?.id ?? null,
+        runId: run.id,
+        source: typeof body.source === 'string' ? body.source : 'remote_codex_runner',
+      })
       return respondJson({ ok: true })
     }
 
@@ -2565,14 +3992,14 @@ export class ControlPlane {
     if (internalArtifactMatch && request.method === 'POST') {
       const runId = decodeURIComponent(internalArtifactMatch[1] ?? '')
       const body = await request.json() as Record<string, unknown>
-      this.createRunArtifact(
+      const id = await this.createStoredRunArtifact(
         runId,
         String(body.type ?? 'artifact'),
         String(body.title ?? 'artifact'),
         body.content,
         body.url ? String(body.url) : null,
       )
-      return respondJson({ ok: true })
+      return respondJson({ ok: true, id })
     }
 
     const internalStatusMatch = pathname.match(/^\/internal\/runs\/([^/]+)\/status$/u)
@@ -2583,6 +4010,9 @@ export class ControlPlane {
       const run = runRow ? this.parseRunRow(runRow) : null
       if (!run) {
         return respondJson({ error: 'Run not found' }, 404)
+      }
+      if (isTerminalStatus(run.status)) {
+        return respondJson({ run: this.runRowToJson(runRow!), ignored: true })
       }
       const timestamp = nowIso()
       const status = String(body.status ?? 'running')
@@ -2595,6 +4025,15 @@ export class ControlPlane {
       )
       if (status === 'booting' || status === 'running') {
         this.acquireDatasetLease(run.datasetId, runId)
+      }
+      if (['ready', 'failed', 'cancelled', 'worker_unreachable'].includes(status)) {
+        await this.generateRunLabel(runId).catch((error) => {
+          this.appendRunEvent(
+            runId,
+            `Run label generation skipped: ${error instanceof Error ? error.message : 'unknown error'}`,
+            'warning',
+          )
+        })
       }
       if (body.deploymentStatus || body.manifestPath || body.volumeMountPath) {
         this.sql.exec(
@@ -2625,26 +4064,6 @@ export class ControlPlane {
           timestamp,
           run.datasetId,
         )
-      }
-      if (isTerminalStatus(status) && run.dropletId) {
-        try {
-          const dataset = this.getDataset(run.datasetId)
-          const pooledRunner = this.getRunnerPoolEntry(run.dropletId)
-          if (pooledRunner) {
-            if (dataset?.volumeId) {
-              await detachVolumeByDroplet(this.env, dataset.volumeId, run.dropletId, dataset.volumeRegion ?? this.env.DIGITALOCEAN_REGION).catch(() => undefined)
-              await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
-            }
-            this.clearRunnerPoolEntryAssignment(run.dropletId)
-          } else {
-            await deleteDroplet(this.env, run.dropletId)
-            if (dataset?.volumeId) {
-              await waitForVolumeDetachment(this.env, dataset.volumeId).catch(() => undefined)
-            }
-          }
-        } catch {
-          // Best-effort cleanup; keep terminal run state even if droplet deletion fails.
-        }
       }
       if (isTerminalStatus(status)) {
         this.releaseDatasetLease(run.datasetId, runId)

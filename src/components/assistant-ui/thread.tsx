@@ -40,21 +40,33 @@ type ThreadProps = {
   readOnly?: boolean;
   welcomeTitle?: string;
   welcomeDescription?: string;
-  welcome?: ReactNode;
-  composerPlaceholder?: string;
+  welcomeImageSrc?: string;
+  showWelcome?: boolean;
   datasets?: ComposerDatasetOption[];
+  renderAssistantBlock?: (custom: Record<string, unknown>) => ReactNode;
+  scrollToBottomKey?: string | number | null;
+  showRunningIndicator?: boolean;
 };
 
 export const Thread: FC<ThreadProps> = ({
   readOnly = false,
   welcomeTitle = "Hello there!",
   welcomeDescription = "How can I help you today?",
-  welcome,
-  composerPlaceholder = "Send a message...",
+  welcomeImageSrc,
+  showWelcome = true,
   datasets = [],
+  renderAssistantBlock,
+  scrollToBottomKey = null,
+  showRunningIndicator = false,
 }) => {
   const viewportRef = useRef<HTMLDivElement | null>(null);
   const [initialScrollReady, setInitialScrollReady] = useState(!readOnly);
+
+  const scrollViewportToBottom = () => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+    viewport.scrollTop = viewport.scrollHeight;
+  };
 
   useLayoutEffect(() => {
     if (!readOnly) return;
@@ -64,9 +76,23 @@ export const Thread: FC<ThreadProps> = ({
       return;
     }
 
-    viewport.scrollTop = viewport.scrollHeight;
+    scrollViewportToBottom();
     setInitialScrollReady(true);
   }, [readOnly]);
+
+  useLayoutEffect(() => {
+    if (scrollToBottomKey === null) return;
+    scrollViewportToBottom();
+    const firstFrame = window.requestAnimationFrame(() => {
+      scrollViewportToBottom();
+      window.requestAnimationFrame(scrollViewportToBottom);
+    });
+    const timeout = window.setTimeout(scrollViewportToBottom, 250);
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      window.clearTimeout(timeout);
+    };
+  }, [scrollToBottomKey]);
 
   return (
     <ThreadPrimitive.Root
@@ -87,28 +113,28 @@ export const Thread: FC<ThreadProps> = ({
         )}
       >
         <div className="mx-auto flex w-full max-w-(--thread-max-width) flex-1 flex-col px-4 pt-4">
-          <AuiIf condition={(s) => s.thread.isEmpty}>
-            {welcome ?? (
-              <ThreadWelcome
-                title={welcomeTitle}
-                description={welcomeDescription}
-                readOnly={readOnly}
-              />
-            )}
+          <AuiIf condition={(s) => showWelcome && s.thread.isEmpty}>
+            <ThreadWelcome
+              title={welcomeTitle}
+              description={welcomeDescription}
+              imageSrc={welcomeImageSrc}
+              readOnly={readOnly}
+            />
           </AuiIf>
 
           <div
             data-slot="aui_message-group"
-            className="mb-10 flex flex-col gap-y-8 empty:hidden"
+            className="mb-10 flex flex-col gap-y-4 empty:hidden"
           >
             <ThreadPrimitive.Messages>
-              {() => <ThreadMessage />}
+              {() => <ThreadMessage renderAssistantBlock={renderAssistantBlock} />}
             </ThreadPrimitive.Messages>
+            <ThreadRunningIndicator show={showRunningIndicator} />
           </div>
 
           <ThreadPrimitive.ViewportFooter className="aui-thread-viewport-footer sticky bottom-0 mt-auto flex flex-col gap-4 overflow-visible rounded-t-(--composer-radius) bg-background pb-4 md:pb-6">
             <ThreadScrollToBottom />
-            {!readOnly ? <Composer datasets={datasets} placeholder={composerPlaceholder} /> : null}
+            {!readOnly ? <Composer datasets={datasets} /> : null}
           </ThreadPrimitive.ViewportFooter>
         </div>
       </ThreadPrimitive.Viewport>
@@ -116,13 +142,31 @@ export const Thread: FC<ThreadProps> = ({
   );
 };
 
-const ThreadMessage: FC = () => {
+const ThreadMessage: FC<{
+  renderAssistantBlock?: (custom: Record<string, unknown>) => ReactNode;
+}> = ({ renderAssistantBlock }) => {
   const role = useAuiState((s) => s.message.role);
   const isEditing = useAuiState((s) => s.message.composer.isEditing);
 
   if (isEditing) return <EditComposer />;
   if (role === "user") return <UserMessage />;
-  return <AssistantMessage />;
+  return <AssistantMessage renderAssistantBlock={renderAssistantBlock} />;
+};
+
+const ThreadRunningIndicator: FC<{ show: boolean }> = ({ show }) => {
+  if (!show) return null;
+
+  return (
+    <div
+      data-slot="aui_running-indicator"
+      aria-label="Assistant is working"
+      className="aui-running-indicator fade-in slide-in-from-bottom-1 flex animate-in items-center gap-1 px-2 py-1 duration-150"
+    >
+      <span className="aui-running-dot" />
+      <span className="aui-running-dot" />
+      <span className="aui-running-dot" />
+    </div>
+  );
 };
 
 const ThreadScrollToBottom: FC = () => {
@@ -142,18 +186,28 @@ const ThreadScrollToBottom: FC = () => {
 const ThreadWelcome: FC<{
   title: string;
   description: string;
+  imageSrc?: string;
   readOnly: boolean;
-}> = ({ title, description, readOnly }) => {
+}> = ({ title, description, imageSrc, readOnly }) => {
   return (
     <div className="aui-thread-welcome-root my-auto flex grow flex-col">
       <div className="aui-thread-welcome-center flex w-full grow flex-col items-center justify-center">
         <div className="aui-thread-welcome-message flex size-full flex-col justify-center px-4">
+          {imageSrc ? (
+            <img
+              src={imageSrc}
+              alt=""
+              className="aui-thread-welcome-image aui-thread-welcome-message-inner fade-in slide-in-from-bottom-1 animate-in mb-5 w-full max-w-xl rounded-2xl object-cover duration-200"
+            />
+          ) : null}
           <h1 className="aui-thread-welcome-message-inner fade-in slide-in-from-bottom-1 animate-in fill-mode-both font-semibold text-2xl duration-200">
             {title}
           </h1>
-          <p className="aui-thread-welcome-message-inner fade-in slide-in-from-bottom-1 animate-in fill-mode-both text-muted-foreground text-xl delay-75 duration-200">
-            {description}
-          </p>
+          {description ? (
+            <p className="aui-thread-welcome-message-inner fade-in slide-in-from-bottom-1 animate-in fill-mode-both text-muted-foreground text-xl delay-75 duration-200">
+              {description}
+            </p>
+          ) : null}
         </div>
       </div>
       {!readOnly ? <ThreadSuggestions /> : null}
@@ -187,7 +241,7 @@ const ThreadSuggestionItem: FC = () => {
   );
 };
 
-const Composer: FC<{ datasets: ComposerDatasetOption[]; placeholder: string }> = ({ datasets, placeholder }) => {
+const Composer: FC<{ datasets: ComposerDatasetOption[] }> = ({ datasets }) => {
   return (
     <ComposerPrimitive.Root className="aui-composer-root relative flex w-full flex-col">
       <ComposerPrimitive.AttachmentDropzone asChild>
@@ -197,8 +251,8 @@ const Composer: FC<{ datasets: ComposerDatasetOption[]; placeholder: string }> =
         >
           <ComposerAttachments />
           <ComposerPrimitive.Input
-            placeholder={placeholder}
-            className="aui-composer-input max-h-32 min-h-10 w-full resize-none bg-transparent px-1.75 py-1 text-sm outline-none placeholder:text-muted-foreground/80"
+            placeholder="Send a message..."
+            className="aui-composer-input max-h-32 min-h-10 w-full resize-none bg-transparent px-1.75 py-1 text-base outline-none placeholder:text-muted-foreground/80 md:text-sm"
             rows={1}
             autoFocus
             aria-label="Message input"
@@ -256,7 +310,16 @@ const MessageError: FC = () => {
   );
 };
 
-const AssistantMessage: FC = () => {
+const AssistantMessage: FC<{
+  renderAssistantBlock?: (custom: Record<string, unknown>) => ReactNode;
+}> = ({ renderAssistantBlock }) => {
+  const custom = useAuiState((s) => {
+    const metadata = s.message.metadata as { custom?: unknown } | undefined;
+    return metadata?.custom && typeof metadata.custom === "object" && !Array.isArray(metadata.custom)
+      ? metadata.custom as Record<string, unknown>
+      : {};
+  });
+  const customBlock = renderAssistantBlock?.(custom);
   // reserves space for action bar and compensates with `-mb` for consistent msg spacing
   // keeps hovered action bar from shifting layout (autohide doesn't support absolute positioning well)
   // for pt-[n] use -mb-[n + 6] & min-h-[n + 6] to preserve compensation
@@ -267,18 +330,22 @@ const AssistantMessage: FC = () => {
     <MessagePrimitive.Root
       data-slot="aui_assistant-message-root"
       data-role="assistant"
+      fillClampThreshold="0px"
+      fillClampOffset="9999px"
       className="fade-in slide-in-from-bottom-1 relative animate-in duration-150"
     >
       <div
         data-slot="aui_assistant-message-content"
         className="wrap-break-word px-2 text-foreground leading-relaxed"
       >
-        <MessagePrimitive.Parts
-          components={{
-            Text: MarkdownText,
-            tools: { Fallback: ToolFallback },
-          }}
-        />
+        {customBlock ?? (
+          <MessagePrimitive.Parts
+            components={{
+              Text: MarkdownText,
+              tools: { Fallback: ToolFallback },
+            }}
+          />
+        )}
         <MessageError />
       </div>
 
@@ -345,12 +412,11 @@ const UserMessage: FC = () => {
   return (
     <MessagePrimitive.Root
       data-slot="aui_user-message-root"
-      className="fade-in slide-in-from-bottom-1 grid animate-in auto-rows-auto grid-cols-[minmax(72px,1fr)_auto] content-start gap-y-2 px-2 duration-150 [&:where(>*)]:col-start-2"
+      className="aui-user-message-root fade-in slide-in-from-bottom-1 flex animate-in justify-end px-2 duration-150"
       data-role="user"
     >
-      <UserMessageAttachments />
-
-      <div className="aui-user-message-content-wrapper relative col-start-2 min-w-0">
+      <div className="aui-user-message-stack relative flex max-w-[82%] flex-col items-end gap-2">
+        <UserMessageAttachments />
         <div className="aui-user-message-content wrap-break-word peer rounded-2xl bg-muted px-4 py-2.5 text-foreground empty:hidden">
           <MessagePrimitive.Parts />
         </div>
@@ -358,11 +424,6 @@ const UserMessage: FC = () => {
           <UserActionBar />
         </div>
       </div>
-
-      <BranchPicker
-        data-slot="aui_user-branch-picker"
-        className="col-span-full col-start-1 row-start-3 -mr-1 justify-end"
-      />
     </MessagePrimitive.Root>
   );
 };
@@ -391,7 +452,7 @@ const EditComposer: FC = () => {
     >
       <ComposerPrimitive.Root className="aui-edit-composer-root ml-auto flex w-full max-w-[85%] flex-col rounded-2xl bg-muted">
         <ComposerPrimitive.Input
-          className="aui-edit-composer-input min-h-14 w-full resize-none bg-transparent p-4 text-foreground text-sm outline-none"
+          className="aui-edit-composer-input min-h-14 w-full resize-none bg-transparent p-4 text-foreground text-base outline-none md:text-sm"
           autoFocus
         />
         <div className="aui-edit-composer-footer mx-3 mb-3 flex items-center gap-2 self-end">

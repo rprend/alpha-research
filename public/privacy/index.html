@@ -10,14 +10,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Privacy information for the Alpha Research public site."
+      content="Plain-English privacy and data handling details for the Alpha Research public site, dashboard, and RESEARCH CLI sign-in flow."
     />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://alpharesearch.nyc/privacy/" />
     <meta property="og:site_name" content="Alpha Research" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Privacy | Alpha Research" />
-    <meta property="og:description" content="Privacy information for the Alpha Research public site." />
+    <meta
+      property="og:description"
+      content="Plain-English privacy and data handling details for the Alpha Research public site, dashboard, and RESEARCH CLI sign-in flow."
+    />
     <meta property="og:url" content="https://alpharesearch.nyc/privacy/" />
     <meta property="og:image" content="https://alpharesearch.nyc/social/alpha-research-og.png" />
     <meta property="og:image:type" content="image/png" />
@@ -27,7 +30,10 @@
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Privacy | Alpha Research" />
-    <meta name="twitter:description" content="Privacy information for the Alpha Research public site." />
+    <meta
+      name="twitter:description"
+      content="Plain-English privacy and data handling details for the Alpha Research public site, dashboard, and RESEARCH CLI sign-in flow."
+    />
     <meta name="twitter:image" content="https://alpharesearch.nyc/social/alpha-research-og.png" />
     <meta name="twitter:image:alt" content="Alpha Research social preview image" />
     <title>Privacy | Alpha Research</title>
@@ -43,7 +49,7 @@
             </a>
 
             <nav class="top-links" aria-label="Primary">
-              <a class="underlined-link" href="/cli/">RResearch</a>
+              <a class="underlined-link" href="/cli/">RESEARCH CLI</a>
               <a class="button-small ghost-button" href="/blog/">blog</a>
             </nav>
           </div>
@@ -53,18 +59,62 @@
       <main class="content-shell">
         <div class="page-wrap content-wrap">
           <section class="doc-block">
-            <div class="eyebrow">Legal</div>
+            <div class="eyebrow">Privacy and trust</div>
             <h1>Privacy</h1>
+            <p class="doc-lede">
+              Before you connect a dataset or sign in, here is the current Alpha Research data-handling scope in
+              plain English.
+            </p>
+            <div class="privacy-summary" aria-label="Privacy summary">
+              <article class="privacy-summary-card">
+                <h2>Collected today</h2>
+                <p>Basic site delivery and security logs, plus sign-in and run metadata only after you use the dashboard or CLI.</p>
+              </article>
+              <article class="privacy-summary-card">
+                <h2>Not collected on this page</h2>
+                <p>No public-site accounts, no upload form, and no hidden dataset submission from reading this page.</p>
+              </article>
+              <article class="privacy-summary-card">
+                <h2>Questions or sensitive use cases</h2>
+                <p><a href="mailto:ryan@zenobiapay.com">Email ryan@zenobiapay.com</a> before sharing sensitive data.</p>
+              </article>
+            </div>
             <div class="doc-copy">
-              <p>Alpha Research does not currently provide user accounts, uploads, or contact forms on this site.</p>
+              <h2>Scope and last updated</h2>
+              <p>This page describes the current public marketing site, the hosted dashboard sign-in flow, and the RESEARCH CLI handoff as of May 1, 2026.</p>
+
+              <h2>What happens if you only browse the public site</h2>
+              <ul>
+                <li>This site does not offer a public account signup form, dataset upload form, or public contact form.</li>
+                <li>Reading the public site does not send Alpha Research a dataset, prompt, or research document from your machine.</li>
+                <li>The site can still produce normal web delivery and security records such as IP address, browser or device metadata, requested URL, timestamp, and similar request diagnostics through hosting infrastructure.</li>
+                <li>No separate ad-tech or product analytics integration is described in this repository for the public site today.</li>
+              </ul>
+
+              <h2>Cloudflare and operational logging</h2>
+              <p>Alpha Research is served through Cloudflare-managed infrastructure. That means standard request, performance, and security telemetry may exist at the infrastructure layer even when you do not submit a dataset.</p>
+              <p>Alpha Research does not publish a fixed retention window for those infrastructure logs in this repository today. If your use case depends on specific retention, residency, or contractual review, ask before using the product.</p>
+
+              <h2>What changes when you sign in or use the CLI</h2>
+              <ul>
+                <li>The dashboard and RESEARCH CLI use an authenticated site session so the product can associate datasets, runs, artifacts, and saved sessions with your account email.</li>
+                <li>When you create a dataset through the product, Alpha Research stores dataset metadata, run records, saved artifacts, and related session history in the control plane so you can inspect and resume work later.</li>
+                <li>The CLI page already explains the key handoff: install and sign-in alone do not upload your dataset, but creating a dataset can upload the source file you choose for remote research execution.</li>
+              </ul>
+
+              <h2>Retention and practical limits</h2>
+              <ul>
+                <li>Alpha Research stores operational run state and artifacts so the dashboard can show history, logs, and outputs attached to the same work.</li>
+                <li>This repository does not publish a self-serve deletion workflow or fixed retention schedule for dashboard records yet.</li>
+                <li>If you should not place a dataset into hosted storage without a specific retention agreement, do not upload it until you have reviewed the use case with us directly.</li>
+              </ul>
+
+              <h2>How to ask before bringing sensitive data</h2>
               <p>
-                The site may still generate standard hosting, delivery, and security logs through infrastructure
-                providers such as Cloudflare.
+                For privacy, retention, or sensitive-data questions, email <a href="mailto:ryan@zenobiapay.com">ryan@zenobiapay.com</a>.
+                Include the dataset type, whether the source is regulated or confidential, and what constraints matter most so we can answer concretely before you proceed.
               </p>
-              <p>
-                If Alpha Research later adds product features that collect user-submitted data, this page should
-                be updated to describe those practices directly.
-              </p>
+              <p><a href="/cli/">Back to the RESEARCH CLI setup page</a></p>
             </div>
           </section>
         </div>
@@ -78,7 +128,7 @@
 
           <div class="footer-copy">
             <div class="footer-links">
-              <a href="/cli/">RResearch</a>
+              <a href="/cli/">RESEARCH CLI</a>
               <a href="/blog/">blog</a>
               <a href="/privacy/">privacy</a>
               <a href="/terms/">terms</a>

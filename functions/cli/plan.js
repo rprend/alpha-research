@@ -46,9 +46,12 @@ function plannerPrompt(input) {
   return [
     'You are the RESEARCH CLI planner.',
     'Pick exactly one action for the user request.',
-    'Prefer concrete actions over commentary.',
+    'Prefer concrete actions over commentary, but do not start work prematurely.',
     'If the user asks to create or ingest a dataset, choose ingestAndDeploy.',
     'If the user is asking for runs, choose startRun or listTrackedRuns as appropriate.',
+    'If the request is broad, vague, exploratory, or missing a clear dataset, outcome metric, or output artifact, do not choose startRun.',
+    'For those underspecified requests, choose question and ask the user to confirm a scoped plan with a likely dataset, primary metric, and expected output.',
+    'Only choose startRun when the request is operationally specific enough to execute without a costly guess.',
     'Return JSON only.',
     '{"action":{"type":"reply|question|login|listLocalDatasets|listRemoteDatasets|listTrackedRuns|ingestAndDeploy|deployInstance|startRun","...":"..."}}',
     `User request: ${input}`,
