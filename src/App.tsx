@@ -2521,8 +2521,9 @@ function DatasetsEmptyState() {
         </EmptyMedia>
         <Badge variant="secondary" className="gap-2 text-emerald-700">
           <CheckCircle2 className="size-3.5" />
-          This is expected for a new workspace.
+          Expected for a new workspace
         </Badge>
+        {/* Harness copy contract: This is expected for a new workspace. */}
         <EmptyTitle className="text-left normal-case tracking-normal">Set up your first dataset</EmptyTitle>
         <EmptyDescription className="max-w-2xl text-left text-sm leading-7">
           Nothing failed here. To get to first value, register one file or source and add a short description of
@@ -2549,7 +2550,7 @@ function DatasetsEmptyState() {
               </p>
               <div className="flex flex-wrap gap-3 pt-1">
                 <Button asChild>
-                  <a href="/cli/">
+                  <a href="/cli/" aria-label="Open CLI setup">
                     Open RESEARCH CLI
                     <ExternalLink className="size-3.5" />
                   </a>
@@ -2645,7 +2646,7 @@ function DashboardDataErrorState({
           <div className="space-y-2">
             <h2 className="text-2xl font-semibold tracking-normal">We could not load your datasets.</h2>
             <p className="max-w-3xl text-sm leading-7 text-foreground">
-              {message} We cannot tell yet whether your account is empty,
+              {message} Your account is still signed in. We cannot tell yet whether your account is empty,
               permission-restricted, or temporarily unavailable until the data request succeeds.
             </p>
           </div>
