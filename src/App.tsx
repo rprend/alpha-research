@@ -362,10 +362,48 @@ function profileArrayCount(profile: unknown, key: string) {
   return Array.isArray(value) ? value.length : null
 }
 
+function profileArray(profile: unknown, key: string) {
+  if (!isRecord(profile)) return []
+  const value = profile[key]
+  return Array.isArray(value) ? value : []
+}
+
 function profileText(profile: unknown, key: string) {
   if (!isRecord(profile)) return null
   const value = profile[key]
   return typeof value === 'string' && value.trim() ? value.trim() : null
+}
+
+function profileObjectText(value: unknown, key: string) {
+  if (!isRecord(value)) return null
+  const field = value[key]
+  return typeof field === 'string' && field.trim() ? field.trim() : null
+}
+
+function profileObjectNumber(value: unknown, key: string) {
+  if (!isRecord(value)) return null
+  const field = value[key]
+  return typeof field === 'number' && Number.isFinite(field) ? field : null
+}
+
+function listToSentence(items: string[]) {
+  const clean = items.map((item) => item.trim()).filter(Boolean)
+  if (clean.length === 0) return null
+  if (clean.length === 1) return clean[0]
+  if (clean.length === 2) return `${clean[0]} and ${clean[1]}`
+  return `${clean.slice(0, -1).join(', ')}, and ${clean.at(-1)}`
+}
+
+function extractStringList(value: unknown) {
+  if (!Array.isArray(value)) return []
+  return value
+    .map((entry) => (typeof entry === 'string' ? entry.trim() : null))
+    .filter((entry): entry is string => Boolean(entry))
+}
+
+function parseSampleRows(value: unknown) {
+  if (!Array.isArray(value)) return []
+  return value.filter((row): row is Record<string, unknown> => isRecord(row))
 }
 
 function renderBriefingMarkdown(markdown: string) {
@@ -1682,13 +1720,49 @@ function DatasetDetailPage({
   const tableCount = profileArrayCount(structuredProfile, 'tables')
   const formatCount = profileArrayCount(structuredProfile, 'formats')
   const limitationCount = profileArrayCount(structuredProfile, 'limitations')
-  const profileMetrics = [
-    ['Sources', sourceCount],
-    ['Tables', tableCount],
-    ['Formats', formatCount],
-    ['Limitations', limitationCount],
-  ].filter((entry): entry is [string, number] => typeof entry[1] === 'number')
   const profileSummary = profileText(structuredProfile, 'summary')
+  const sourceEntries = profileArray(structuredProfile, 'sources')
+  const tableEntries = profileArray(structuredProfile, 'tables')
+  const formatEntries = extractStringList(profileArray(structuredProfile, 'formats'))
+  const limitationEntries = extractStringList(profileArray(structuredProfile, 'limitations'))
+  const schemaColumns = extractStringList(isRecord(current.profile?.schema) ? current.profile?.schema.columns : [])
+  const sampleRows = parseSampleRows(current.profile?.sampleRows).slice(0, 3)
+  const sampleColumns = sampleRows.length > 0 ? Object.keys(sampleRows[0]).slice(0, 4) : schemaColumns.slice(0, 4)
+  const sourceLabel =
+    listToSentence(
+      sourceEntries
+        .map((entry) => {
+          const provider = profileObjectText(entry, 'provider')
+          const status = profileObjectText(entry, 'status')
+          return [provider, status && status !== provider ? formatStatus(status) : null].filter(Boolean).join(' · ')
+        })
+        .filter(Boolean),
+    ) ?? 'Source details unavailable'
+  const tableLabel =
+    listToSentence(
+      tableEntries
+        .map((entry) => {
+          const name = profileObjectText(entry, 'name')
+          const rows = profileObjectNumber(entry, 'rows')
+          if (!name && rows === null) return null
+          if (name && rows !== null) return `${name} · ${rows.toLocaleString()} rows`
+          if (name) return name
+          return `${rows!.toLocaleString()} rows`
+        })
+        .filter((entry): entry is string => Boolean(entry)),
+    ) ?? 'Table details unavailable'
+  const formatLabel = listToSentence(formatEntries.map((entry) => entry.toUpperCase())) ?? 'Format details unavailable'
+  const limitationLabel = listToSentence(limitationEntries) ?? 'No explicit limitations recorded'
+  const freshnessLabel = describedAt ? `Briefing refreshed ${formatDateTime(describedAt)}` : `Dataset updated ${formatDateTime(current.updatedAt)}`
+  const fitSummary = limitationEntries.some((entry) => /harness|fixture|sample/i.test(entry)) || /harness|fixture|sample/i.test(current.description ?? '')
+    ? 'Useful for validating workflows and inspecting the shape of the corpus, but not complete enough to stand in for the full source collection.'
+    : profileSummary || 'Review the provenance, schema, and limitations before using this dataset in analysis.'
+  const profileHighlights = [
+    { label: 'Sources', value: sourceCount, detail: sourceLabel },
+    { label: 'Tables', value: tableCount, detail: tableLabel },
+    { label: 'Formats', value: formatCount, detail: formatLabel },
+    { label: 'Limitations', value: limitationCount, detail: limitationLabel },
+  ].filter((entry): entry is { label: string; value: number; detail: string } => typeof entry.value === 'number')
 
   return (
     <main className="min-h-0 flex-1 overflow-y-auto px-4 py-8 md:px-8">
@@ -1707,50 +1781,145 @@ function DatasetDetailPage({
 
         {error ? <div className="bg-destructive/5 px-4 py-3 text-sm text-destructive">{error}</div> : null}
 
-        {profileMetrics.length > 0 ? (
-          <section className="grid gap-4 md:grid-cols-4">
-            {profileMetrics.map(([label, value]) => (
+        <section className="rounded-2xl border border-border bg-muted/30 p-6">
+          <div className="flex flex-col gap-4">
+            <div>
+              <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">Trust summary</div>
+              <p className="mt-2 max-w-4xl text-base leading-7">{fitSummary}</p>
+            </div>
+            <div className="grid gap-3 md:grid-cols-3">
+              <div className="rounded-xl bg-background/80 p-4">
+                <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">Provenance</div>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">{sourceLabel}</p>
+              </div>
+              <div className="rounded-xl bg-background/80 p-4">
+                <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">Freshness</div>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">{freshnessLabel}</p>
+              </div>
+              <div className="rounded-xl bg-background/80 p-4">
+                <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">Main limitation</div>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">{limitationLabel}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {profileHighlights.length > 0 ? (
+          <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {profileHighlights.map(({ label, value, detail }) => (
               <div key={label} className="rounded-lg border border-border px-5 py-4">
                 <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">{label}</div>
                 <div className="mt-2 break-words text-2xl font-semibold">{value.toLocaleString()}</div>
+                <div className="mt-2 text-sm leading-6 text-muted-foreground">{detail}</div>
               </div>
             ))}
           </section>
         ) : null}
 
+        <section className="grid gap-4 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
+          <div className="rounded-lg border border-border p-5">
+            <div className="text-lg font-medium">Provenance and coverage</div>
+            <dl className="mt-4 grid gap-4 md:grid-cols-2">
+              <div>
+                <dt className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">Source</dt>
+                <dd className="mt-2 text-sm leading-6">{sourceLabel}</dd>
+              </div>
+              <div>
+                <dt className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">Last refresh</dt>
+                <dd className="mt-2 text-sm leading-6">{freshnessLabel}</dd>
+              </div>
+              <div>
+                <dt className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">Coverage</dt>
+                <dd className="mt-2 text-sm leading-6">{tableLabel}</dd>
+              </div>
+              <div>
+                <dt className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">Formats</dt>
+                <dd className="mt-2 text-sm leading-6">{formatLabel}</dd>
+              </div>
+            </dl>
+          </div>
+          <div className="rounded-lg border border-border p-5">
+            <div className="text-lg font-medium">Schema and limitations</div>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {schemaColumns.length > 0 ? (
+                schemaColumns.map((column) => (
+                  <span key={column} className="rounded-full border border-border px-3 py-1 text-sm text-muted-foreground">
+                    {column}
+                  </span>
+                ))
+              ) : (
+                <p className="text-sm leading-6 text-muted-foreground">Schema details will appear after a describe run captures columns.</p>
+              )}
+            </div>
+            <div className="mt-4 text-sm leading-6 text-muted-foreground">{limitationLabel}</div>
+          </div>
+        </section>
+
+        {sampleRows.length > 0 ? (
+          <section className="rounded-lg border border-border p-5">
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <div className="text-lg font-medium">Sample rows</div>
+                <p className="mt-1 text-sm text-muted-foreground">Quickly verify what the dataset actually contains before analyzing it.</p>
+              </div>
+            </div>
+            <div className="mt-4 overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    {sampleColumns.map((column) => (
+                      <TableHead key={column}>{column}</TableHead>
+                    ))}
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {sampleRows.map((row, index) => (
+                    <TableRow key={index}>
+                      {sampleColumns.map((column) => (
+                        <TableCell key={column}>{typeof row[column] === 'undefined' ? '—' : String(row[column])}</TableCell>
+                      ))}
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          </section>
+        ) : null}
+
         <section className="flex flex-col gap-4">
           <div className="flex items-center justify-between gap-4 border-b border-border pb-3">
-            <div className="text-xl font-medium">Dataset briefing</div>
-            <Button
-              type="button"
-              variant="outline"
-              disabled={!canDescribe || startingDescribe}
-              onClick={async () => {
-                setStartingDescribe(true)
-                try {
-                  const payload = await startDatasetDescribeRun(current.id)
-                  window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
-                  onOpenRun(payload.run)
-                } catch (describeError) {
-                  setError(describeError instanceof Error ? describeError.message : 'Could not start describe job.')
-                } finally {
-                  setStartingDescribe(false)
-                }
-              }}
-            >
-              {startingDescribe ? 'Starting...' : 'Describe dataset'}
-            </Button>
+            <div>
+              <div className="text-xl font-medium">Dataset briefing</div>
+              <p className="mt-1 text-sm text-muted-foreground">Human-readable documentation of the dataset contents, provenance, coverage, and limits.</p>
+            </div>
+            <div className="flex flex-col items-end gap-2">
+              <Button
+                type="button"
+                variant="outline"
+                disabled={!canDescribe || startingDescribe}
+                onClick={async () => {
+                  setStartingDescribe(true)
+                  try {
+                    const payload = await startDatasetDescribeRun(current.id)
+                    window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
+                    onOpenRun(payload.run)
+                  } catch (describeError) {
+                    setError(describeError instanceof Error ? describeError.message : 'Could not start describe job.')
+                  } finally {
+                    setStartingDescribe(false)
+                  }
+                }}
+              >
+                {startingDescribe ? 'Starting...' : 'Describe dataset'}
+              </Button>
+              <div className="text-sm text-muted-foreground">Generate or refresh the briefing.</div>
+            </div>
           </div>
           {describedAt ? (
             <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
               <FileText className="size-4" />
               <span>Briefing generated {formatDateTime(describedAt)}</span>
               {describeIsRunning ? <StatusBadge>Refreshing</StatusBadge> : null}
-            </div>
-          ) : null}
-          {profileSummary ? (
-            <div className="rounded-lg border border-border bg-muted/30 p-5 text-sm leading-7 text-muted-foreground">
-              {profileSummary}
             </div>
           ) : null}
           <div className="rounded-lg border border-border p-5">
@@ -1779,7 +1948,10 @@ function DatasetDetailPage({
         </section>
 
         <details className="rounded-lg border border-border p-5">
-          <summary className="cursor-pointer text-sm font-medium">Debug details</summary>
+          <summary className="cursor-pointer text-sm font-medium">Developer details</summary>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Operational metadata, artifact identifiers, and raw payloads used for debugging describe runs.
+          </p>
           <div className="mt-4 grid gap-4 md:grid-cols-2">
             {[
               ['Source file', current.sourceFilename ?? 'Unknown'],
