@@ -9,6 +9,7 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Browse registered datasets and inspect deployment/profile state.
 - Open a dataset detail page that answers trust-and-fit questions first: plain-language summary, provenance, freshness, schema, visible sample rows, limitations, and a clear describe/refresh briefing action.
 - Explain the empty dataset state as normal for new workspaces and provide a concrete first-dataset setup path.
+- Make a plain-language trust decision on each dataset from visible freshness, source coverage, readiness, and known-gap signals before opening developer details.
 - Track remote runs by dataset, type, prompt, status, and timestamps.
 - Open run details with observed progress, remote Codex transcript, and a resizable artifact workspace that marks the final answer, preserves requested-versus-produced reconciliation, and previews supporting files.
 - Inspect terminal sessions proxied through Alpha Research.
