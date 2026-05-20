@@ -60,7 +60,7 @@ child.stderr.on('data', (chunk) => {
 
 try {
   await waitForServer()
-  await assertRoute('/?harness=1', '<div id="app">')
+  await assertRoute('/?harness=1', 'Turn a vague research idea into a scoped plan you can approve')
   await assertRoute('/?harness=1&view=datasets', '<div id="app">')
   await assertRoute('/?harness=1&view=runs', '<div id="app">')
   console.log(`Dashboard harness smoke passed at ${baseUrl}`)
