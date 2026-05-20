@@ -6,6 +6,7 @@ import {
   ChevronDown,
   ChevronRight,
   CircleArrowOutUpRight,
+  Download,
   Database,
   ExternalLink,
   FileText,
@@ -535,24 +536,12 @@ function getRequestedArtifacts(payload: RunResultsResponse | null) {
     : []
 }
 
-function isProducedArtifact(
-  artifact: RunArtifactRecord,
-  requestedArtifacts: Array<Record<string, unknown>>,
-) {
-  if (artifact.url || artifact.type === 'remote_agent_session') {
-    return true
-  }
-  const requestedMatch = requestedArtifacts.some((requested) => {
-    const requestedType = typeof requested.type === 'string' ? requested.type : null
-    const requestedTitle = typeof requested.title === 'string' ? requested.title : null
-    return requestedType === artifact.type && requestedTitle === artifact.title
-  })
-  return !requestedMatch
+function isBrowsableArtifact(artifact: RunArtifactRecord) {
+  return artifact.type !== 'remote_agent_summary' && artifact.type !== 'remote_agent_transcript'
 }
 
 function getProducedArtifacts(payload: RunResultsResponse | null) {
-  const requestedArtifacts = getRequestedArtifacts(payload)
-  return (payload?.artifacts ?? []).filter((artifact) => isProducedArtifact(artifact, requestedArtifacts))
+  return (payload?.artifacts ?? []).filter((artifact) => isBrowsableArtifact(artifact))
 }
 
 function artifactPath(artifact: RunArtifactRecord) {
@@ -650,6 +639,58 @@ function buildArtifactFileTree(artifacts: RunArtifactRecord[]) {
   return root
 }
 
+function artifactRequestMatch(
+  artifact: RunArtifactRecord,
+  requestedArtifacts: Array<Record<string, unknown>>,
+) {
+  return requestedArtifacts.find((requested) => {
+    const requestedType = typeof requested.type === 'string' ? requested.type : null
+    const requestedTitle = typeof requested.title === 'string' ? requested.title : null
+    return requestedType === artifact.type && requestedTitle === artifact.title
+  }) ?? null
+}
+
+function isPrimaryArtifact(artifact: RunArtifactRecord) {
+  const path = artifactPath(artifact).toLowerCase()
+  return path === 'summary.md' || artifact.title.toLowerCase() === 'summary.md'
+}
+
+function artifactRoleLabel(
+  artifact: RunArtifactRecord,
+  requestedArtifacts: Array<Record<string, unknown>>,
+) {
+  if (isPrimaryArtifact(artifact)) return 'Final result'
+  if (artifactRequestMatch(artifact, requestedArtifacts)) return 'Requested output'
+  if (artifact.type === 'structured_result') return 'Supporting data'
+  if (artifact.type === 'table' || artifact.type === 'chart') return 'Supporting output'
+  if (artifact.type === 'script') return 'Supporting script'
+  return 'Produced file'
+}
+
+function choosePrimaryArtifact(artifacts: RunArtifactRecord[]) {
+  return artifacts.find((artifact) => isPrimaryArtifact(artifact))
+    ?? artifacts.find((artifact) => artifact.type === 'structured_result')
+    ?? artifacts.find((artifact) => artifact.type !== 'script')
+    ?? artifacts[0]
+    ?? null
+}
+
+function downloadArtifact(artifact: RunArtifactRecord) {
+  if (typeof document === 'undefined') return
+  const path = artifactPath(artifact)
+  const language = artifactLanguage(path, artifact)
+  const content = language === 'json' ? artifactJsonPreview(artifact) : artifactText(artifact)
+  const blob = new Blob([content], { type: language === 'json' ? 'application/json' : 'text/plain;charset=utf-8' })
+  const url = URL.createObjectURL(blob)
+  const anchor = document.createElement('a')
+  anchor.href = url
+  anchor.download = path.split('/').pop() || artifact.title
+  document.body.append(anchor)
+  anchor.click()
+  anchor.remove()
+  window.setTimeout(() => URL.revokeObjectURL(url), 0)
+}
+
 function summarizeRunRecord(value: unknown) {
   if (!isRecord(value)) return null
   const id = typeof value.id === 'string' ? value.id : null
@@ -702,18 +743,10 @@ function summarizeRunData(value: unknown) {
   }
 
   const artifacts = Array.isArray(value.artifacts) ? value.artifacts : []
-  const producedArtifacts = artifacts.filter((artifact) => {
-    if (!isRecord(artifact)) return false
-    const type = typeof artifact.type === 'string' ? artifact.type : null
-    const title = typeof artifact.title === 'string' ? artifact.title : null
-    const url = typeof artifact.url === 'string' ? artifact.url : null
-    if (url || type === 'remote_agent_session') return true
-    return !requestedArtifacts.some((requested) => {
-      const requestedType = typeof requested.type === 'string' ? requested.type : null
-      const requestedTitle = typeof requested.title === 'string' ? requested.title : null
-      return requestedType === type && requestedTitle === title
-    })
-  })
+  const producedArtifacts = artifacts.filter((artifact) => isRecord(artifact)
+    && typeof artifact.type === 'string'
+    && typeof artifact.title === 'string'
+    && isBrowsableArtifact(artifact as RunArtifactRecord))
   if (producedArtifacts.length > 0) {
     const titles = producedArtifacts
       .slice(0, 4)
@@ -2431,6 +2464,7 @@ function LaunchChecklist({
 function RunArtifactsPanel({
   open,
   onClose,
+  runPrompt,
   requestedArtifacts,
   producedArtifacts,
   selectedArtifactId,
@@ -2439,6 +2473,7 @@ function RunArtifactsPanel({
 }: {
   open: boolean
   onClose: () => void
+  runPrompt: string | null
   requestedArtifacts: Array<Record<string, unknown>>
   producedArtifacts: RunArtifactRecord[]
   selectedArtifactId: string | null
@@ -2452,12 +2487,21 @@ function RunArtifactsPanel({
   const visibleArtifacts = producedArtifacts.filter(
     (artifact) => artifact.type !== 'remote_agent_session',
   )
+  const primaryArtifact = useMemo(() => choosePrimaryArtifact(visibleArtifacts), [visibleArtifacts])
   const tree = useMemo(() => buildArtifactFileTree(visibleArtifacts), [visibleArtifacts])
   const selectedArtifact =
     visibleArtifacts.find((artifact) => artifact.id === selectedArtifactId) ??
-    visibleArtifacts[0] ??
+    primaryArtifact ??
     null
   const selectedPath = selectedArtifact ? artifactPath(selectedArtifact) : null
+  const fulfilledRequestedCount = useMemo(
+    () => requestedArtifacts.filter((requested) => {
+      const requestedType = typeof requested.type === 'string' ? requested.type : null
+      const requestedTitle = typeof requested.title === 'string' ? requested.title : null
+      return visibleArtifacts.some((artifact) => artifact.type === requestedType && artifact.title === requestedTitle)
+    }).length,
+    [requestedArtifacts, visibleArtifacts],
+  )
 
   useEffect(() => {
     setExpandedPaths((current) => {
@@ -2555,7 +2599,14 @@ function RunArtifactsPanel({
         onClick={() => node.artifact && onSelectArtifact(node.artifact.id)}
       >
         {fileIconFor(node.path, node.artifact)}
-        <span className="truncate">{node.name}</span>
+        <div className="flex min-w-0 items-center gap-2">
+          <span className="truncate">{node.name}</span>
+          {node.artifact ? (
+            <Badge variant={selectedPath === node.path ? 'default' : 'secondary'} className="shrink-0">
+              {artifactRoleLabel(node.artifact, requestedArtifacts)}
+            </Badge>
+          ) : null}
+        </div>
       </button>
     )
   }
@@ -2581,7 +2632,13 @@ function RunArtifactsPanel({
       </div>
 
       <div className="grid min-h-0 flex-1 grid-cols-[minmax(0,1fr)_8px_var(--tree-width)]" style={{ '--tree-width': `${treeWidth}px` } as CSSProperties}>
-        <FilePreview artifact={selectedArtifact} remoteSessionId={remoteSessionId} />
+        <FilePreview
+          artifact={selectedArtifact}
+          remoteSessionId={remoteSessionId}
+          requestedArtifacts={requestedArtifacts}
+          runPrompt={runPrompt}
+          isPrimary={selectedArtifact ? selectedArtifact.id === primaryArtifact?.id : false}
+        />
         <div
           role="separator"
           aria-orientation="vertical"
@@ -2591,14 +2648,21 @@ function RunArtifactsPanel({
           <GripVertical className="size-3 text-muted-foreground/50" />
         </div>
         <div className="flex min-h-0 flex-col">
-          <div className="flex h-16 shrink-0 items-center justify-between border-b border-border px-7">
-            <div className="truncate text-xl font-semibold tracking-normal">All files</div>
-            <div className="flex shrink-0 items-center gap-3">
+          <div className="flex shrink-0 items-start justify-between gap-4 border-b border-border px-7 py-5">
+            <div className="min-w-0">
+              <div className="truncate text-xl font-semibold tracking-normal">Research outputs</div>
+              <p className="mt-1 text-sm text-muted-foreground">
+                {primaryArtifact
+                  ? `${artifactPath(primaryArtifact)} is the canonical answer for this completed run.`
+                  : 'Produced artifacts will appear here when the run finishes.'}
+              </p>
               {requestedArtifacts.length > 0 ? (
-                <span className="text-xs text-muted-foreground">
-                  {visibleArtifacts.length}/{requestedArtifacts.length}
-                </span>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Fulfilled requested outputs: {fulfilledRequestedCount}/{requestedArtifacts.length}
+                </p>
               ) : null}
+            </div>
+            <div className="flex shrink-0 items-center gap-3">
               <Button type="button" variant="ghost" size="icon-sm" onClick={onClose} aria-label="Close files">
                 <X className="size-5" />
               </Button>
@@ -2618,9 +2682,15 @@ function RunArtifactsPanel({
 function FilePreview({
   artifact,
   remoteSessionId,
+  requestedArtifacts,
+  runPrompt,
+  isPrimary,
 }: {
   artifact: RunArtifactRecord | null
   remoteSessionId: string | null
+  requestedArtifacts: Array<Record<string, unknown>>
+  runPrompt: string | null
+  isPrimary: boolean
 }) {
   if (!artifact) {
     return (
@@ -2641,11 +2711,32 @@ function FilePreview({
   const path = artifactPath(artifact)
   const language = artifactLanguage(path, artifact)
   const text = artifactText(artifact)
+  const role = artifactRoleLabel(artifact, requestedArtifacts)
 
   return (
     <div className="flex min-h-0 flex-col overflow-hidden">
-      <div className="flex h-12 shrink-0 items-center justify-end gap-3 border-b border-border px-5">
+      <div className="flex shrink-0 items-start justify-between gap-4 border-b border-border px-5 py-4">
+        <div className="min-w-0">
+          <div className="flex min-w-0 items-center gap-2">
+            <div className="truncate text-sm font-semibold">{path}</div>
+            <Badge variant={isPrimary ? 'default' : 'secondary'}>{role}</Badge>
+          </div>
+          <p className="mt-1 text-sm text-muted-foreground">
+            {isPrimary
+              ? 'This preview is the final answer for the run.'
+              : 'This file supports the final answer or explains how it was produced.'}
+          </p>
+          {runPrompt ? (
+            <p className="mt-2 max-w-3xl text-xs leading-5 text-muted-foreground">
+              Requested: {compactInlineText(runPrompt, 220)}
+            </p>
+          ) : null}
+        </div>
         <div className="flex shrink-0 items-center gap-3">
+          <Button type="button" variant="outline" size="sm" onClick={() => downloadArtifact(artifact)}>
+            <Download className="size-4" />
+            Download
+          </Button>
           {remoteSessionId ? (
             <a
               href={`https://chatgpt.com/codex/s/${remoteSessionId}`}
@@ -2708,7 +2799,7 @@ function RunDetailPage({
       (artifact) => artifact.id === selectedArtifactId,
     )
     if (!selectedArtifactStillExists) {
-      setSelectedArtifactId(visibleProducedArtifacts[0]?.id ?? null)
+      setSelectedArtifactId(choosePrimaryArtifact(visibleProducedArtifacts)?.id ?? null)
     }
   }, [selectedArtifactId, visibleProducedArtifacts])
 
@@ -2718,15 +2809,16 @@ function RunDetailPage({
         {!artifactsOpen ? (
           <Button
             type="button"
-            variant="ghost"
-            size="icon"
-            className="absolute right-4 top-4 z-30 bg-background/90 shadow-sm backdrop-blur md:right-6 md:top-6"
+            variant="outline"
+            size="sm"
+            className="absolute right-4 top-4 z-30 gap-2 bg-background/95 shadow-sm backdrop-blur md:right-6 md:top-6"
             onClick={() => setArtifactsOpen(true)}
             aria-label="Open artifacts"
           >
             <FileText className="size-5" />
+            <span>Open artifacts</span>
             {artifactCount > 0 ? (
-              <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center bg-primary text-[11px] font-medium text-primary-foreground">
+              <span className="flex min-w-5 items-center justify-center bg-primary px-1.5 text-[11px] font-medium text-primary-foreground">
                 {artifactCount}
               </span>
             ) : null}
@@ -2756,6 +2848,7 @@ function RunDetailPage({
       <RunArtifactsPanel
         open={artifactsOpen}
         onClose={() => setArtifactsOpen(false)}
+        runPrompt={run.prompt}
         requestedArtifacts={requestedArtifacts}
         producedArtifacts={producedArtifacts}
         selectedArtifactId={selectedArtifactId}

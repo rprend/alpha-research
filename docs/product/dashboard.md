@@ -10,7 +10,7 @@ The dashboard is the human and agent-facing control room for Alpha Research.
 - Open a dataset detail page that answers trust-and-fit questions first: plain-language summary, provenance, freshness, schema, visible sample rows, limitations, and a clear describe/refresh briefing action.
 - Explain the empty dataset state as normal for new workspaces and provide a concrete first-dataset setup path.
 - Track remote runs by dataset, type, prompt, status, and timestamps.
-- Open run details with observed progress, remote Codex transcript, and a resizable file explorer/viewer for produced run artifacts.
+- Open run details with observed progress, remote Codex transcript, and a resizable artifact workspace that marks the final answer, preserves requested-versus-produced reconciliation, and previews supporting files.
 - Inspect terminal sessions proxied through Alpha Research.
 
 ## Harness Mode
@@ -29,6 +29,7 @@ Harness mode bypasses production auth/data requirements and renders seeded datas
 - On a fresh assistant chat, verify the page starts with a plan-first research intake state rather than generic product marketing. The landing view should offer concrete starter prompts, show likely dataset context, and make confirmation-before-run explicit.
 - Verify datasets, runs, and terminal sessions render.
 - Open a seeded run and inspect progress, produced files, and rendered markdown/JSON/code previews.
+- Verify the artifact entry point is labeled, the primary result opens by default, requested outputs remain visible when fulfilled, and supporting scripts are clearly de-emphasized.
 - Use screenshots or DOM snapshots to validate UI changes.
 - Only use production APIs when the task explicitly requires production behavior.
 
