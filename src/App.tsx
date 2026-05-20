@@ -5,6 +5,7 @@ import {
   Braces,
   ChevronDown,
   ChevronRight,
+  CircleArrowOutUpRight,
   Database,
   ExternalLink,
   FileText,
@@ -14,7 +15,10 @@ import {
   History,
   LoaderCircle,
   LogOut,
+  Orbit,
   MoreHorizontal,
+  PanelRightOpen,
+  Rocket,
   Table2,
   TerminalSquare,
   Zap,
@@ -36,6 +40,9 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
   Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
   CardContent,
 } from '@/components/ui/card'
 import {
@@ -308,15 +315,6 @@ function readableSessionTitle(value: string | null | undefined) {
   return normalized || 'Untitled chat'
 }
 
-function readableRunTitle(run: RunRecord | undefined, runId: string) {
-  if (!run) {
-    return `Run ${runId.slice(0, 8)}`
-  }
-  const type = formatStatus(run.type)
-  const status = formatStatus(run.status)
-  return `${type} · ${status}`
-}
-
 function formatBytes(value: number | null | undefined) {
   if (!value || !Number.isFinite(value)) {
     return 'Unknown'
@@ -362,48 +360,10 @@ function profileArrayCount(profile: unknown, key: string) {
   return Array.isArray(value) ? value.length : null
 }
 
-function profileArray(profile: unknown, key: string) {
-  if (!isRecord(profile)) return []
-  const value = profile[key]
-  return Array.isArray(value) ? value : []
-}
-
 function profileText(profile: unknown, key: string) {
   if (!isRecord(profile)) return null
   const value = profile[key]
   return typeof value === 'string' && value.trim() ? value.trim() : null
-}
-
-function profileObjectText(value: unknown, key: string) {
-  if (!isRecord(value)) return null
-  const field = value[key]
-  return typeof field === 'string' && field.trim() ? field.trim() : null
-}
-
-function profileObjectNumber(value: unknown, key: string) {
-  if (!isRecord(value)) return null
-  const field = value[key]
-  return typeof field === 'number' && Number.isFinite(field) ? field : null
-}
-
-function listToSentence(items: string[]) {
-  const clean = items.map((item) => item.trim()).filter(Boolean)
-  if (clean.length === 0) return null
-  if (clean.length === 1) return clean[0]
-  if (clean.length === 2) return `${clean[0]} and ${clean[1]}`
-  return `${clean.slice(0, -1).join(', ')}, and ${clean.at(-1)}`
-}
-
-function extractStringList(value: unknown) {
-  if (!Array.isArray(value)) return []
-  return value
-    .map((entry) => (typeof entry === 'string' ? entry.trim() : null))
-    .filter((entry): entry is string => Boolean(entry))
-}
-
-function parseSampleRows(value: unknown) {
-  if (!Array.isArray(value)) return []
-  return value.filter((row): row is Record<string, unknown> => isRecord(row))
 }
 
 function renderBriefingMarkdown(markdown: string) {
@@ -1569,80 +1529,6 @@ function StatusBadge({ children }: { children: string }) {
   )
 }
 
-const FIRST_DATASET_COMMAND =
-  'research "Create a dataset named my-dataset from ./data.csv. Description: Monthly housing listings by ZIP code."'
-
-function FirstDatasetEmptyState() {
-  const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'error'>('idle')
-
-  const copyCommand = async () => {
-    try {
-      await navigator.clipboard.writeText(FIRST_DATASET_COMMAND)
-      setCopyStatus('copied')
-      window.setTimeout(() => setCopyStatus('idle'), 2000)
-    } catch {
-      setCopyStatus('error')
-    }
-  }
-
-  return (
-    <Empty className="border-t border-dashed border-border px-6 py-14 text-left md:px-8">
-      <EmptyHeader className="max-w-3xl items-start gap-3 text-left">
-        <EmptyMedia variant="icon">
-          <Database />
-        </EmptyMedia>
-        <StatusBadge>New workspace</StatusBadge>
-        <EmptyTitle className="text-2xl tracking-normal normal-case">Set up your first dataset</EmptyTitle>
-        <EmptyDescription className="max-w-2xl text-sm leading-7">
-          This is expected for a new workspace. The fastest path is to give RESEARCH a file or source plus a short description of what you want to analyze.
-        </EmptyDescription>
-      </EmptyHeader>
-      <EmptyContent className="max-w-3xl items-start gap-5 text-left">
-        <ol className="grid w-full gap-3 text-sm text-muted-foreground md:grid-cols-2">
-          <li className="rounded-lg border border-border bg-muted/20 px-4 py-3">
-            <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-foreground/70">1. Source</span>
-            Bring a local file path, upload source, or public data source you want to analyze.
-          </li>
-          <li className="rounded-lg border border-border bg-muted/20 px-4 py-3">
-            <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-foreground/70">2. Description</span>
-            Add one sentence on what the dataset contains, such as geography, timeframe, or metric.
-          </li>
-        </ol>
-        <div className="w-full rounded-lg border border-border bg-muted/20 p-4">
-          <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-foreground/70">Copyable CLI handoff</div>
-          <pre className="overflow-x-auto text-sm leading-6 text-foreground">
-            <code>{FIRST_DATASET_COMMAND}</code>
-          </pre>
-          <p className="mt-3 text-sm text-muted-foreground">
-            Replace the file path, dataset name, and description with your own source. The CLI will register the dataset and start the setup flow.
-          </p>
-        </div>
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <Button type="button" onClick={() => void copyCommand()}>
-            {copyStatus === 'copied' ? 'Copied command' : 'Copy setup command'}
-          </Button>
-          <Button
-            type="button"
-            variant="outline"
-            onClick={() => updateDashboardRoute({ view: 'assistant', datasetId: null, runId: null, sessionId: null })}
-          >
-            Open RESEARCH CLI
-          </Button>
-        </div>
-        {copyStatus === 'error' ? (
-          <p className="text-sm text-destructive">
-            Copy failed in this browser. Select the command above and copy it manually.
-          </p>
-        ) : (
-          <p className="text-sm text-muted-foreground">
-            After setup starts, this page will show the dataset status, deployment progress, and any resulting runs.
-          </p>
-        )}
-      </EmptyContent>
-    </Empty>
-  )
-}
-
 function DatasetFeed({
   datasets,
   onSelectDataset,
@@ -1651,7 +1537,19 @@ function DatasetFeed({
   onSelectDataset: (dataset: DatasetRecord) => void
 }) {
   if (datasets.length === 0) {
-    return <FirstDatasetEmptyState />
+    return (
+      <Empty className="border-t border-dashed border-border px-6 py-14">
+        <EmptyHeader>
+          <EmptyMedia variant="icon">
+            <Database />
+          </EmptyMedia>
+          <EmptyTitle>No datasets yet</EmptyTitle>
+          <EmptyDescription>
+            Create a dataset with the RESEARCH CLI and it will appear here automatically.
+          </EmptyDescription>
+        </EmptyHeader>
+      </Empty>
+    )
   }
   const publicDatasets = datasets.filter(isPublicDataset)
   const privateDatasets = datasets.filter((dataset) => !isPublicDataset(dataset))
@@ -1782,49 +1680,13 @@ function DatasetDetailPage({
   const tableCount = profileArrayCount(structuredProfile, 'tables')
   const formatCount = profileArrayCount(structuredProfile, 'formats')
   const limitationCount = profileArrayCount(structuredProfile, 'limitations')
+  const profileMetrics = [
+    ['Sources', sourceCount],
+    ['Tables', tableCount],
+    ['Formats', formatCount],
+    ['Limitations', limitationCount],
+  ].filter((entry): entry is [string, number] => typeof entry[1] === 'number')
   const profileSummary = profileText(structuredProfile, 'summary')
-  const sourceEntries = profileArray(structuredProfile, 'sources')
-  const tableEntries = profileArray(structuredProfile, 'tables')
-  const formatEntries = extractStringList(profileArray(structuredProfile, 'formats'))
-  const limitationEntries = extractStringList(profileArray(structuredProfile, 'limitations'))
-  const schemaColumns = extractStringList(isRecord(current.profile?.schema) ? current.profile?.schema.columns : [])
-  const sampleRows = parseSampleRows(current.profile?.sampleRows).slice(0, 3)
-  const sampleColumns = sampleRows.length > 0 ? Object.keys(sampleRows[0]).slice(0, 4) : schemaColumns.slice(0, 4)
-  const sourceLabel =
-    listToSentence(
-      sourceEntries
-        .map((entry) => {
-          const provider = profileObjectText(entry, 'provider')
-          const status = profileObjectText(entry, 'status')
-          return [provider, status && status !== provider ? formatStatus(status) : null].filter(Boolean).join(' · ')
-        })
-        .filter(Boolean),
-    ) ?? 'Source details unavailable'
-  const tableLabel =
-    listToSentence(
-      tableEntries
-        .map((entry) => {
-          const name = profileObjectText(entry, 'name')
-          const rows = profileObjectNumber(entry, 'rows')
-          if (!name && rows === null) return null
-          if (name && rows !== null) return `${name} · ${rows.toLocaleString()} rows`
-          if (name) return name
-          return `${rows!.toLocaleString()} rows`
-        })
-        .filter((entry): entry is string => Boolean(entry)),
-    ) ?? 'Table details unavailable'
-  const formatLabel = listToSentence(formatEntries.map((entry) => entry.toUpperCase())) ?? 'Format details unavailable'
-  const limitationLabel = listToSentence(limitationEntries) ?? 'No explicit limitations recorded'
-  const freshnessLabel = describedAt ? `Briefing refreshed ${formatDateTime(describedAt)}` : `Dataset updated ${formatDateTime(current.updatedAt)}`
-  const fitSummary = limitationEntries.some((entry) => /harness|fixture|sample/i.test(entry)) || /harness|fixture|sample/i.test(current.description ?? '')
-    ? 'Useful for validating workflows and inspecting the shape of the corpus, but not complete enough to stand in for the full source collection.'
-    : profileSummary || 'Review the provenance, schema, and limitations before using this dataset in analysis.'
-  const profileHighlights = [
-    { label: 'Sources', value: sourceCount, detail: sourceLabel },
-    { label: 'Tables', value: tableCount, detail: tableLabel },
-    { label: 'Formats', value: formatCount, detail: formatLabel },
-    { label: 'Limitations', value: limitationCount, detail: limitationLabel },
-  ].filter((entry): entry is { label: string; value: number; detail: string } => typeof entry.value === 'number')
 
   return (
     <main className="min-h-0 flex-1 overflow-y-auto px-4 py-8 md:px-8">
@@ -1843,145 +1705,50 @@ function DatasetDetailPage({
 
         {error ? <div className="bg-destructive/5 px-4 py-3 text-sm text-destructive">{error}</div> : null}
 
-        <section className="rounded-2xl border border-border bg-muted/30 p-6">
-          <div className="flex flex-col gap-4">
-            <div>
-              <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">Trust summary</div>
-              <p className="mt-2 max-w-4xl text-base leading-7">{fitSummary}</p>
-            </div>
-            <div className="grid gap-3 md:grid-cols-3">
-              <div className="rounded-xl bg-background/80 p-4">
-                <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">Provenance</div>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">{sourceLabel}</p>
-              </div>
-              <div className="rounded-xl bg-background/80 p-4">
-                <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">Freshness</div>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">{freshnessLabel}</p>
-              </div>
-              <div className="rounded-xl bg-background/80 p-4">
-                <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">Main limitation</div>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">{limitationLabel}</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {profileHighlights.length > 0 ? (
-          <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {profileHighlights.map(({ label, value, detail }) => (
+        {profileMetrics.length > 0 ? (
+          <section className="grid gap-4 md:grid-cols-4">
+            {profileMetrics.map(([label, value]) => (
               <div key={label} className="rounded-lg border border-border px-5 py-4">
                 <div className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">{label}</div>
                 <div className="mt-2 break-words text-2xl font-semibold">{value.toLocaleString()}</div>
-                <div className="mt-2 text-sm leading-6 text-muted-foreground">{detail}</div>
               </div>
             ))}
           </section>
         ) : null}
 
-        <section className="grid gap-4 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
-          <div className="rounded-lg border border-border p-5">
-            <div className="text-lg font-medium">Provenance and coverage</div>
-            <dl className="mt-4 grid gap-4 md:grid-cols-2">
-              <div>
-                <dt className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">Source</dt>
-                <dd className="mt-2 text-sm leading-6">{sourceLabel}</dd>
-              </div>
-              <div>
-                <dt className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">Last refresh</dt>
-                <dd className="mt-2 text-sm leading-6">{freshnessLabel}</dd>
-              </div>
-              <div>
-                <dt className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">Coverage</dt>
-                <dd className="mt-2 text-sm leading-6">{tableLabel}</dd>
-              </div>
-              <div>
-                <dt className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">Formats</dt>
-                <dd className="mt-2 text-sm leading-6">{formatLabel}</dd>
-              </div>
-            </dl>
-          </div>
-          <div className="rounded-lg border border-border p-5">
-            <div className="text-lg font-medium">Schema and limitations</div>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {schemaColumns.length > 0 ? (
-                schemaColumns.map((column) => (
-                  <span key={column} className="rounded-full border border-border px-3 py-1 text-sm text-muted-foreground">
-                    {column}
-                  </span>
-                ))
-              ) : (
-                <p className="text-sm leading-6 text-muted-foreground">Schema details will appear after a describe run captures columns.</p>
-              )}
-            </div>
-            <div className="mt-4 text-sm leading-6 text-muted-foreground">{limitationLabel}</div>
-          </div>
-        </section>
-
-        {sampleRows.length > 0 ? (
-          <section className="rounded-lg border border-border p-5">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <div className="text-lg font-medium">Sample rows</div>
-                <p className="mt-1 text-sm text-muted-foreground">Quickly verify what the dataset actually contains before analyzing it.</p>
-              </div>
-            </div>
-            <div className="mt-4 overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    {sampleColumns.map((column) => (
-                      <TableHead key={column}>{column}</TableHead>
-                    ))}
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {sampleRows.map((row, index) => (
-                    <TableRow key={index}>
-                      {sampleColumns.map((column) => (
-                        <TableCell key={column}>{typeof row[column] === 'undefined' ? '—' : String(row[column])}</TableCell>
-                      ))}
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          </section>
-        ) : null}
-
         <section className="flex flex-col gap-4">
           <div className="flex items-center justify-between gap-4 border-b border-border pb-3">
-            <div>
-              <div className="text-xl font-medium">Dataset briefing</div>
-              <p className="mt-1 text-sm text-muted-foreground">Human-readable documentation of the dataset contents, provenance, coverage, and limits.</p>
-            </div>
-            <div className="flex flex-col items-end gap-2">
-              <Button
-                type="button"
-                variant="outline"
-                disabled={!canDescribe || startingDescribe}
-                onClick={async () => {
-                  setStartingDescribe(true)
-                  try {
-                    const payload = await startDatasetDescribeRun(current.id)
-                    window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
-                    onOpenRun(payload.run)
-                  } catch (describeError) {
-                    setError(describeError instanceof Error ? describeError.message : 'Could not start describe job.')
-                  } finally {
-                    setStartingDescribe(false)
-                  }
-                }}
-              >
-                {startingDescribe ? 'Starting...' : 'Describe dataset'}
-              </Button>
-              <div className="text-sm text-muted-foreground">Generate or refresh the briefing.</div>
-            </div>
+            <div className="text-xl font-medium">Dataset briefing</div>
+            <Button
+              type="button"
+              variant="outline"
+              disabled={!canDescribe || startingDescribe}
+              onClick={async () => {
+                setStartingDescribe(true)
+                try {
+                  const payload = await startDatasetDescribeRun(current.id)
+                  window.dispatchEvent(new CustomEvent('alpha-research-dashboard-refresh'))
+                  onOpenRun(payload.run)
+                } catch (describeError) {
+                  setError(describeError instanceof Error ? describeError.message : 'Could not start describe job.')
+                } finally {
+                  setStartingDescribe(false)
+                }
+              }}
+            >
+              {startingDescribe ? 'Starting...' : 'Describe dataset'}
+            </Button>
           </div>
           {describedAt ? (
             <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
               <FileText className="size-4" />
               <span>Briefing generated {formatDateTime(describedAt)}</span>
               {describeIsRunning ? <StatusBadge>Refreshing</StatusBadge> : null}
+            </div>
+          ) : null}
+          {profileSummary ? (
+            <div className="rounded-lg border border-border bg-muted/30 p-5 text-sm leading-7 text-muted-foreground">
+              {profileSummary}
             </div>
           ) : null}
           <div className="rounded-lg border border-border p-5">
@@ -2010,10 +1777,7 @@ function DatasetDetailPage({
         </section>
 
         <details className="rounded-lg border border-border p-5">
-          <summary className="cursor-pointer text-sm font-medium">Developer details</summary>
-          <p className="mt-3 text-sm text-muted-foreground">
-            Operational metadata, artifact identifiers, and raw payloads used for debugging describe runs.
-          </p>
+          <summary className="cursor-pointer text-sm font-medium">Debug details</summary>
           <div className="mt-4 grid gap-4 md:grid-cols-2">
             {[
               ['Source file', current.sourceFilename ?? 'Unknown'],
@@ -2268,9 +2032,11 @@ function useSessionDetail(sessionId: string | null) {
 function ResearchAssistantPage({
   dataError,
   datasets,
+  runs,
 }: {
   dataError?: string | null
   datasets: DatasetRecord[]
+  runs: RunRecord[]
 }) {
   const route = useDashboardRoute()
   const activeSessionId = route.sessionId ?? null
@@ -2319,12 +2085,27 @@ function ResearchAssistantPage({
     })
   }, [activeSessionId, session])
 
-  const assistantDatasets = datasets.map((dataset) => ({
-    id: dataset.id,
-    name: dataset.name,
-    description: dataset.description || dataset.sourceFilename,
-    status: dataset.status,
-  }))
+  const readyDatasets = useMemo(
+    () => datasets.filter((dataset) => dataset.status.toLowerCase() === 'ready'),
+    [datasets],
+  )
+  const launchDataset = readyDatasets[0] ?? datasets[0] ?? null
+  const launchProfile = launchDataset?.profile?.profile
+  const launchSchema = isRecord(launchDataset?.profile?.schema)
+    ? launchDataset?.profile?.schema
+    : null
+  const launchColumns = Array.isArray(launchSchema?.columns)
+    ? launchSchema.columns.filter((value): value is string => typeof value === 'string').slice(0, 4)
+    : []
+  const launchTables = profileArrayCount(launchProfile, 'tables')
+  const launchFormats = Array.isArray((launchProfile as Record<string, unknown> | null)?.formats)
+    ? ((launchProfile as Record<string, unknown>).formats as string[]).slice(0, 3)
+    : []
+  const latestDatasetRun = launchDataset
+    ? runs
+      .filter((run) => run.datasetId === launchDataset.id)
+      .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0] ?? null
+    : null
 
   const runtime = useExternalStoreRuntime({
     isRunning,
@@ -2418,11 +2199,26 @@ function ResearchAssistantPage({
         <AssistantRuntimeProvider runtime={runtime}>
           <div className="h-full min-h-0">
             <Thread
-              welcomeTitle=""
-              welcomeDescription=""
-              welcomeContent={loading ? null : <PlanFirstWelcome datasets={assistantDatasets} />}
-              composerPlaceholder="Describe the question you want to scope. I’ll draft a plan before running anything."
-              datasets={assistantDatasets}
+              welcomeTitle={loading ? '' : 'Launch a research run'}
+              welcomeDescription={loading ? '' : 'Start from a complete spec. Alpha Research preserves the request, asks only for field mismatches, and then moves into a traceable run.'}
+              welcome={
+                loading ? null : (
+                  <AssistantLaunchWelcome
+                    dataset={launchDataset}
+                    latestDatasetRun={latestDatasetRun}
+                    columnPreview={launchColumns}
+                    launchTables={launchTables}
+                    launchFormats={launchFormats}
+                  />
+                )
+              }
+              composerPlaceholder="Describe the run to launch: dataset, variables, time window, method, and outputs"
+              datasets={datasets.map((dataset) => ({
+                id: dataset.id,
+                name: dataset.name,
+                description: dataset.description || dataset.sourceFilename,
+                status: dataset.status,
+              }))}
             />
           </div>
         </AssistantRuntimeProvider>
@@ -2431,106 +2227,204 @@ function ResearchAssistantPage({
   )
 }
 
-function seedAssistantComposer(value: string) {
-  const input = document.querySelector<HTMLTextAreaElement>('.aui-composer-input')
-  if (!input) return
-  input.focus()
-  input.value = value
-  input.setSelectionRange(value.length, value.length)
-  input.dispatchEvent(new Event('input', { bubbles: true }))
-}
-
-function PlanFirstWelcome({
-  datasets,
+function AssistantLaunchWelcome({
+  dataset,
+  latestDatasetRun,
+  columnPreview,
+  launchTables,
+  launchFormats,
 }: {
-  datasets: Array<{
-    id: string
-    name: string
-    description?: string | null
-    status?: string | null
-  }>
+  dataset: DatasetRecord | null
+  latestDatasetRun: RunRecord | null
+  columnPreview: string[]
+  launchTables: number | null
+  launchFormats: string[]
 }) {
-  const recommendedDataset = datasets.find((dataset) => dataset.status === 'ready') ?? datasets[0] ?? null
-  const starterPrompts = [
-    'Compare housing market stress signals and tell me which metrics are worth tracking first.',
-    'Scope an earnings-quality investigation and recommend the dataset, sample, and charts.',
-    'I have a messy idea. Help me choose the right dataset and draft a low-cost research plan.',
-    'What is interesting here? Propose three research angles and tell me which one is cheapest to validate.',
-  ]
-
   return (
-    <section className="w-full px-1 py-6 md:py-8" aria-label="Research planning starter">
-      <div className="mx-auto flex w-full max-w-4xl flex-col gap-5">
-        <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-            Plan first
-          </p>
-          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-foreground">
-            Turn a vague research idea into a scoped plan you can approve
-          </h1>
-          <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
-            Start with the broad question. Alpha Research should suggest the goal, likely dataset,
-            sample shape, outputs, and cost tradeoffs before any expensive work starts.
-          </p>
-        </div>
+    <div className="my-auto flex w-full flex-col gap-6 py-8">
+      <div className="max-w-3xl px-2">
+        <Badge variant="secondary" className="mb-3 text-[0.68rem] tracking-[0.18em]">
+          Prepared Run
+        </Badge>
+        <h1 className="text-3xl font-semibold tracking-normal text-foreground">
+          Launch a well-specified run
+        </h1>
+        <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
+          Enter the full analysis request once. Alpha Research will preserve the dataset, variables,
+          time window, method, and output expectations, then move the work into a traceable async run.
+        </p>
+      </div>
 
-        <div className="grid gap-4 lg:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.95fr)]">
-          <div className="rounded-3xl border border-border bg-card p-5">
-            <div className="text-sm font-semibold text-foreground">Suggested research starters</div>
-            <div className="mt-4 grid gap-3 md:grid-cols-2">
-              {starterPrompts.map((prompt) => (
-                <button
-                  key={prompt}
-                  type="button"
-                  onClick={() => seedAssistantComposer(prompt)}
-                  className="rounded-2xl border border-border bg-background px-4 py-4 text-left text-sm leading-6 text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
-                >
-                  {prompt}
-                </button>
-              ))}
+      <div className="grid gap-4 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)]">
+        <Card className="gap-5 border border-border/70 bg-background/95 py-6 shadow-none">
+          <CardHeader className="gap-2 px-6">
+            <div className="flex items-center justify-between gap-3">
+              <CardTitle className="text-base font-semibold uppercase tracking-[0.16em] text-foreground">
+                Active Dataset
+              </CardTitle>
+              {dataset ? <StatusBadge>{formatStatus(dataset.status)}</StatusBadge> : null}
             </div>
-          </div>
-
-          <div className="rounded-3xl border border-emerald-200 bg-emerald-50 p-5 text-emerald-950">
-            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-800">
-              Before anything expensive
-            </div>
-            <div className="mt-3 text-lg font-semibold">
-              Proposed plan preview
-            </div>
-            <div className="mt-4 space-y-3 text-sm leading-6">
-              <p><strong>Goal:</strong> clarify the question, define one decision metric, and choose a cheap first pass.</p>
-              <p><strong>Likely dataset:</strong> {recommendedDataset ? `${recommendedDataset.name} for a first scoped pass.` : 'Choose a dataset after we narrow the question.'}</p>
-              <p><strong>Expected outputs:</strong> a recommended metric, sample strategy, chart list, and a go/no-go launch prompt.</p>
-              <p><strong>Confirmation step:</strong> review the plan, edit scope or dataset, then approve the run.</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="rounded-3xl border border-border bg-background p-5">
-          <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-            <div>
-              <div className="text-sm font-semibold text-foreground">Dataset context</div>
-              <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                Use the attached workspace when it fits. If not, ask for a better dataset before launching work.
-              </p>
-            </div>
-            {recommendedDataset ? (
-              <div className="rounded-2xl border border-border bg-muted/40 px-4 py-3 text-sm leading-6">
-                <div className="font-medium text-foreground">{recommendedDataset.name}</div>
-                <div className="text-muted-foreground">
-                  {recommendedDataset.description || recommendedDataset.id}
+            <CardDescription className="text-sm leading-6">
+              Confirm the dataset once, then launch from the composer below.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4 px-6">
+            {dataset ? (
+              <>
+                <div>
+                  <div className="text-lg font-medium text-foreground">{dataset.name}</div>
+                  <div className="mt-1 text-sm text-muted-foreground">
+                    {dataset.description ?? dataset.sourceFilename ?? dataset.id}
+                  </div>
                 </div>
-              </div>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <LaunchFact
+                    icon={<Database className="size-4" />}
+                    label="Dataset id"
+                    value={dataset.id}
+                  />
+                  <LaunchFact
+                    icon={<Table2 className="size-4" />}
+                    label="Tables"
+                    value={launchTables ? String(launchTables) : 'Profile ready'}
+                  />
+                  <LaunchFact
+                    icon={<Braces className="size-4" />}
+                    label="Fields"
+                    value={columnPreview.length > 0 ? columnPreview.join(', ') : 'Open dataset to inspect fields'}
+                  />
+                  <LaunchFact
+                    icon={<FileText className="size-4" />}
+                    label="Formats"
+                    value={launchFormats.length > 0 ? launchFormats.join(', ') : 'Structured dataset'}
+                  />
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() =>
+                      updateDashboardRoute({
+                        view: 'datasets',
+                        datasetId: dataset.id,
+                        runId: null,
+                        sessionId: null,
+                      })}
+                  >
+                    Inspect dataset
+                  </Button>
+                  {latestDatasetRun ? (
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      onClick={() =>
+                        updateDashboardRoute({
+                          view: 'runs',
+                          runId: latestDatasetRun.id,
+                          datasetId: null,
+                          sessionId: null,
+                        })}
+                    >
+                      Open latest run
+                    </Button>
+                  ) : null}
+                </div>
+              </>
             ) : (
-              <div className="rounded-2xl border border-dashed border-border px-4 py-3 text-sm text-muted-foreground">
-                No dataset attached yet
-              </div>
+              <p className="text-sm leading-6 text-muted-foreground">
+                Attach or select a dataset before launching a run.
+              </p>
             )}
-          </div>
+          </CardContent>
+        </Card>
+
+        <Card className="gap-5 border border-border/70 bg-muted/20 py-6 shadow-none">
+          <CardHeader className="gap-2 px-6">
+            <CardTitle className="text-base font-semibold uppercase tracking-[0.16em] text-foreground">
+              After You Launch
+            </CardTitle>
+            <CardDescription className="text-sm leading-6">
+              The next state should be visible immediately instead of hiding behind generic chat copy.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-3 px-6 text-sm leading-6 text-muted-foreground">
+            <LaunchChecklist
+              icon={<Rocket className="size-4 text-foreground" />}
+              label="Run id and status"
+              detail="A run starts quickly or the assistant asks only for unresolved field mappings."
+            />
+            <LaunchChecklist
+              icon={<FileText className="size-4 text-foreground" />}
+              label="Expected artifacts"
+              detail="The run will track outputs like summary.md, result.json, tables, and charts."
+            />
+            <LaunchChecklist
+              icon={<PanelRightOpen className="size-4 text-foreground" />}
+              label="Destination"
+              detail="Open the run view to monitor progress and inspect produced files."
+            />
+            <LaunchChecklist
+              icon={<CircleArrowOutUpRight className="size-4 text-foreground" />}
+              label="Requirement preservation"
+              detail="Dataset, variables, time window, method, and output intent stay attached to the run."
+            />
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="grid gap-3 px-2 text-sm text-muted-foreground md:grid-cols-2">
+        <div className="flex items-start gap-3 rounded-xl border border-dashed border-border/70 px-4 py-3">
+          <Orbit className="mt-0.5 size-4 shrink-0 text-foreground" />
+          <p>Use the composer below to launch the run. If any field names do not match, the assistant should resolve only those mismatches.</p>
+        </div>
+        <div className="flex items-start gap-3 rounded-xl border border-dashed border-border/70 px-4 py-3">
+          <History className="mt-0.5 size-4 shrink-0 text-foreground" />
+          <p>Past chats stay available, but they should not obscure the current run state once new work starts.</p>
         </div>
       </div>
-    </section>
+    </div>
+  )
+}
+
+function LaunchFact({
+  icon,
+  label,
+  value,
+}: {
+  icon: ReactNode
+  label: string
+  value: string
+}) {
+  return (
+    <div className="rounded-xl border border-border/70 bg-muted/20 px-3 py-3">
+      <div className="flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+        {icon}
+        <span>{label}</span>
+      </div>
+      <div className="mt-2 text-sm leading-6 text-foreground">{value}</div>
+    </div>
+  )
+}
+
+function LaunchChecklist({
+  icon,
+  label,
+  detail,
+}: {
+  icon: ReactNode
+  label: string
+  detail: string
+}) {
+  return (
+    <div className="flex items-start gap-3">
+      <div className="mt-0.5 shrink-0">{icon}</div>
+      <div>
+        <div className="font-medium text-foreground">{label}</div>
+        <div>{detail}</div>
+      </div>
+    </div>
   )
 }
 
@@ -3014,10 +2908,6 @@ function DashboardApp({
     () => new Map(datasets.map((dataset) => [dataset.id, dataset])),
     [datasets],
   )
-  const runLookup = useMemo(
-    () => new Map(runs.map((run) => [run.id, run])),
-    [runs],
-  )
   const route = useDashboardRoute()
 
   const activeRun = route.runId ? runs.find((run) => run.id === route.runId) ?? null : null
@@ -3041,7 +2931,6 @@ function DashboardApp({
   } else if (route.view === 'datasets' && route.datasetId && !dataError) {
     content = <main className="min-h-0 flex-1 overflow-y-auto px-4 py-8 md:px-8" />
   } else if (route.view === 'datasets') {
-    const hasDatasets = datasets.length > 0
     content = (
       <main className="flex flex-1 min-w-0 flex-col gap-10 overflow-y-auto px-4 py-10 md:px-8">
         {dataError ? (
@@ -3052,9 +2941,7 @@ function DashboardApp({
         <section className="mx-auto flex w-full max-w-5xl flex-col gap-3">
           <h1 className="text-4xl font-semibold tracking-normal">Datasets</h1>
           <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-            {hasDatasets
-              ? 'Browse private research environments and public datasets. Open a dataset for structure, size, provenance, profile details, and generated briefings.'
-              : 'Start with one dataset. Alpha Research will register it, track setup progress, and keep the resulting environment and runs here.'}
+            Browse private research environments and public datasets. Open a dataset for structure, size, provenance, profile details, and generated briefings.
           </p>
         </section>
         <section>
@@ -3126,7 +3013,7 @@ function DashboardApp({
       </main>
     )
   } else {
-    content = <ResearchAssistantPage dataError={dataError} datasets={datasets} />
+    content = <ResearchAssistantPage dataError={dataError} datasets={datasets} runs={runs} />
   }
 
   return (
@@ -3162,7 +3049,6 @@ function DashboardApp({
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 {sessions.map((chatSession) => {
-                  const attachedRun = chatSession.runId ? runLookup.get(chatSession.runId) : undefined
                   return (
                     <SidebarMenuItem key={chatSession.id}>
                       <SidebarMenuButton
@@ -3178,22 +3064,6 @@ function DashboardApp({
                           {readableSessionTitle(chatSession.title)}
                         </span>
                       </SidebarMenuButton>
-                      {chatSession.runId ? (
-                        <SidebarMenuButton
-                          className="ml-3 h-7 text-xs text-muted-foreground"
-                          isActive={route.view === 'runs' && route.runId === chatSession.runId}
-                          onClick={() =>
-                            updateDashboardRoute({
-                              view: 'runs',
-                              runId: chatSession.runId,
-                              sessionId: null,
-                            })}
-                        >
-                          <span className="truncate">
-                            {readableRunTitle(attachedRun, chatSession.runId)}
-                          </span>
-                        </SidebarMenuButton>
-                      ) : null}
                     </SidebarMenuItem>
                   )
                 })}
