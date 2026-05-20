@@ -80,9 +80,9 @@
             </a>
 
             <nav class="top-links" aria-label="Primary">
-              <a class="underlined-link" href="/cli/">RResearch</a>
+              <a class="underlined-link" href="/cli/">CLI (RResearch)</a>
               <a class="button-small ghost-button" href="/blog/">blog</a>
-              <a class="button-small ghost-button" href="https://dashboard.alpharesearch.nyc/">dashboard</a>
+              <a class="button-small ghost-button" href="https://dashboard.alpharesearch.nyc/">Open Dashboard</a>
             </nav>
           </div>
         </div>
@@ -94,6 +94,36 @@
             <div class="eyebrow">April 9, 2026</div>
             <h1>Launching Alpha Research: Karpathy Knowledge Bases for All of Humanity's Knowledge</h1>
             <div class="doc-copy">
+              <section class="journey-intro" aria-labelledby="what-you-can-try-now">
+                <p class="journey-lede">
+                  Alpha Book is live now. It is our first research product: a public knowledge base over 75,000
+                  Project Gutenberg books. If you want the fastest next step after this post, start with Alpha Book,
+                  then use the dashboard or CLI when you want to manage runs and work with your own research flow.
+                </p>
+
+                <div class="cta-row" aria-label="Primary actions">
+                  <a class="cta-button primary" href="https://alpha-book.org">Try Alpha Book</a>
+                  <a class="cta-button secondary" href="https://dashboard.alpharesearch.nyc/">Open Dashboard</a>
+                </div>
+
+                <section class="journey-card" aria-labelledby="what-you-can-try-now">
+                  <h2 id="what-you-can-try-now">What to do next</h2>
+                  <ul class="journey-checklist">
+                    <li>
+                      <strong>Start with Alpha Book</strong> if you want to explore the live book corpus right away.
+                    </li>
+                    <li>
+                      <strong>Use the dashboard</strong> if you want a web workspace to inspect runs, datasets, and
+                      outputs.
+                    </li>
+                    <li>
+                      <strong>Use the CLI (RResearch)</strong> if you prefer working from your terminal or handing
+                      prompts to a coding agent.
+                    </li>
+                  </ul>
+                </section>
+              </section>
+
               <blockquote>
                 <p>
                   "Something I'm finding very useful recently: using LLMs to build personal knowledge bases for
@@ -112,6 +142,25 @@
                 Project Gutenberg dataset with 75,000 books. An Ivy League author used it and, in 10 minutes, found
                 new and crucial sources he had not heard of for a book he is writing.
               </p>
+
+              <section class="journey-card taxonomy-card" aria-labelledby="product-map">
+                <h2 id="product-map">How the product surfaces fit together</h2>
+                <div class="surface-grid">
+                  <article class="surface-card">
+                    <h3>Alpha Book</h3>
+                    <p>The live public product for searching and reading across the 75,000-book corpus.</p>
+                  </article>
+                  <article class="surface-card">
+                    <h3>Dashboard</h3>
+                    <p>The web workspace for runs, datasets, artifacts, and agent-guided research work.</p>
+                  </article>
+                  <article class="surface-card">
+                    <h3>CLI (RResearch)</h3>
+                    <p>The terminal entrypoint for starting research workflows and handing work off to the dashboard.</p>
+                  </article>
+                </div>
+                <p class="journey-flow"><strong>Typical path:</strong> read the story → try Alpha Book → continue in the dashboard or CLI.</p>
+              </section>
 
               <h2>The Bottleneck in Knowledge Work</h2>
               <p>
@@ -142,7 +191,7 @@
                 <li>
                   Interested in quantitative humanities research? Try
                   <a href="https://alpha-book.org">Alpha Book</a>
-                  and suggest datasets in our
+                  now, then suggest datasets in our
                   <a href="https://discord.gg/w5pWXpqf">Discord</a>.
                 </li>
                 <li>
@@ -155,11 +204,6 @@
                   universities, historical societies, the National Archives, or Google Books, I'd love to meet the
                   researchers and librarians who want to attach the world's best librarian to their collections.
                 </li>
-                <li>
-                  For enterprise teams with large proprietary datasets like AdTech, real estate, or social media
-                  trends: Alpha Research also supports private, high-value corpora. Agentic search produces better
-                  results, drives more searches, and increases user satisfaction and retention.
-                </li>
               </ol>
 
               <p>
@@ -168,9 +212,22 @@
                 bases for the entirety of humanity's knowledge.
               </p>
 
+              <section class="journey-card" aria-labelledby="continue-with-agent">
+                <h2 id="continue-with-agent">Continue with your agent</h2>
+                <p>
+                  If you want an agent or terminal workflow after trying Alpha Book, use the CLI to start structured
+                  research work, then inspect runs and outputs in the dashboard.
+                </p>
+                <div class="cta-row compact" aria-label="Secondary actions">
+                  <a class="cta-button secondary" href="/cli/">Open CLI guide</a>
+                  <a class="cta-button secondary" href="https://dashboard.alpharesearch.nyc/">See the dashboard</a>
+                </div>
+              </section>
+
               <h2>Use Alpha Book With Your Agent</h2>
               <p>
-                Want your OpenClaw, Codex, Claude Code, or other coding agent to work smarter? Copy this prompt:
+                Want your OpenClaw, Codex, Claude Code, or other coding agent to work smarter? Start with the CLI
+                guide for setup, then use this prompt if you want your agent to connect directly to Alpha Book:
               </p>
 
               <pre><code>Go to https://alpha-book.org/skill.md and follow the instructions there.</code></pre>
@@ -189,7 +246,7 @@
 
           <div class="footer-copy">
             <div class="footer-links">
-              <a href="/cli/">RResearch</a>
+              <a href="/cli/">CLI (RResearch)</a>
               <a href="/blog/">blog</a>
               <a href="/privacy/">privacy</a>
               <a href="/terms/">terms</a>
