@@ -5521,6 +5521,20 @@ function useDashboardState() {
           return
         }
 
+        if (getDashboardRoute().view === 'admin') {
+          if (!cancelled) {
+            setState({
+              type: 'ready',
+              session,
+              datasets: [],
+              runs: [],
+              sessions: [],
+              dataError: null,
+            })
+          }
+          return
+        }
+
         try {
           const bootstrapPayload = await fetchJson<{
             datasets: DatasetRecord[]
