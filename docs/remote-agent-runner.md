@@ -23,16 +23,20 @@ By default it uses `codex exec` for non-interactive research runs. Canonical boo
 
 Every successful run must produce deliverable files in `ARTIFACT_DIR`. Bookkeeping artifacts such as the remote agent summary, transcript, or session id prove that the worker ran, but they do not count as task completion. The Modal results volume is a staging area only; completed artifacts are copied into the Cloudflare R2 artifact bucket through the control-plane artifact callback and indexed in `run_artifacts`.
 
-The required filesystem outputs are:
+The required filesystem outputs for user-facing research and describe runs are:
 
 - `report.html` as the primary human-readable deliverable
-- `work.md` as the ongoing work log with completed work, current status, blockers, and exact next commands if more work remains
-- `result.json` when structured data is appropriate
-- optional tables, charts, scripts, and notebooks in `ARTIFACT_DIR`
+- `result.json` as the machine-readable answer
+- `work.md` as the agent-facing work log
+- optional supporting files such as `analysis.py`, `figures/*.png`, `tables/*.csv`, and `queries/*.sql`
 
-If Codex exits successfully but the required deliverable files are missing, the runner must mark the run `failed` rather than `ready`.
+If Codex exits successfully but the required deliverable files are missing or invalid, the runner must mark the run `failed` rather than `ready`.
 
-`report.html` is the user-facing research deliverable. It must read like a polished applied research report or expert memo for a senior stakeholder. It should explain the research question, data, methods, evidence, results, validation, limitations, implications, and next steps in prose. It should make liberal use of tables and figures to summarize data, compare estimates, show uncertainty, display robustness checks, and make the empirical logic easy to inspect. File lists, implementation notes, and command logs belong in `work.md` unless they directly support a research finding.
+`report.html` is the user-facing research deliverable. It must read like a polished applied research report or expert memo for a senior stakeholder. It must include recognizable sections for executive summary, data/methods, evidence, limitations, and next steps. It should make liberal use of tables and figures to summarize data, compare estimates, show uncertainty, display robustness checks, and make the empirical logic easy to inspect. File lists, implementation notes, and command logs belong in `work.md` unless they directly support a research finding.
+
+`result.json` must parse as a JSON object with `answer`, `claims`, `evidence`, `confidence`, `limitations`, and `sourceDatasetIds`. `tables` and `charts` are optional arrays for companion metadata. Claims should reference evidence records so agents can inspect why the answer is trustworthy without reading the whole report.
+
+`work.md` must include commands run, an intermediate reasoning summary, blockers, and reproduction notes. It is the compact agent artifact for recovery and follow-up work, not the primary human answer.
 
 `canonical-dataset-bootstrap` jobs are the exception to the user-facing report contract. They are employee-side dataset maintenance jobs and must complete with `dataset_briefing.md`, source inventories, docs mirror manifests, and any required JSON/CSV artifacts specified in run config. `work.md` is optional bookkeeping for bootstrap jobs, not a completion gate. They should not write `report.html` unless the bootstrap prompt explicitly asks for one.
 

@@ -1103,11 +1103,26 @@ function getDatasetBriefingArtifact(artifacts: RunArtifactRecord[]) {
 }
 
 function getDatasetProfileArtifact(artifacts: RunArtifactRecord[]) {
-  return artifacts.find((artifact) => {
+  return artifacts.find((artifact) => artifactPath(artifact).toLowerCase().endsWith('result.json'))
+    ?? artifacts.find((artifact) => {
     const title = artifact.title.toLowerCase()
     const path = artifactPath(artifact).toLowerCase()
     return title.includes('profile') || path.endsWith('result.json')
   }) ?? null
+}
+
+function artifactBundleRank(artifact: RunArtifactRecord) {
+  const path = artifactPath(artifact).replace(/\\/gu, '/').toLowerCase()
+  const filename = path.split('/').filter(Boolean).at(-1) ?? path
+  if (filename === 'report.html') return 0
+  if (filename === 'result.json') return 1
+  if (filename === 'work.md') return 2
+  if (/^figures?\//u.test(path) || ['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg'].some((extension) => filename.endsWith(`.${extension}`))) return 3
+  if (/^tables?\//u.test(path) || filename.endsWith('.csv')) return 4
+  if (/^queries?\//u.test(path) || filename.endsWith('.sql')) return 5
+  if (filename.endsWith('.py') || filename.endsWith('.sh')) return 6
+  if (isBookkeepingArtifact(artifact)) return 9
+  return 7
 }
 
 function artifactSortRank(
@@ -1117,7 +1132,7 @@ function artifactSortRank(
 ) {
   if (artifact.id === primaryArtifactId) return 0
   if (artifact.id === profileArtifactId) return 1
-  return 2
+  return artifactBundleRank(artifact)
 }
 
 function artifactDownloadFilename(artifact: RunArtifactRecord) {
@@ -4329,6 +4344,10 @@ function RunOutputsRail({
   selectedArtifactId: string | null
   onOpenArtifact: (artifactId: string) => void
 }) {
+  const orderedArtifacts = useMemo(
+    () => [...artifacts].sort((a, b) => artifactBundleRank(a) - artifactBundleRank(b) || artifactPath(a).localeCompare(artifactPath(b))),
+    [artifacts],
+  )
   return (
     <aside className="dashboard-outputs-rail" aria-label="Outputs">
       <div className="dashboard-outputs-toggle">
@@ -4338,7 +4357,7 @@ function RunOutputsRail({
         </span>
       </div>
       <div className="dashboard-outputs-list" role="list">
-        {artifacts.map((artifact) => {
+        {orderedArtifacts.map((artifact) => {
           const path = artifactPath(artifact)
           return (
             <button
@@ -4555,9 +4574,9 @@ function RunDetailPage({
       (artifact) => artifact.id === selectedArtifactId,
     )
     if (!selectedArtifactStillExists) {
-      setSelectedArtifactId(visibleProducedArtifacts[0]?.id ?? null)
+      setSelectedArtifactId(primaryBriefingArtifact?.id ?? visibleProducedArtifacts[0]?.id ?? null)
     }
-  }, [selectedArtifactId, visibleProducedArtifacts])
+  }, [primaryBriefingArtifact, selectedArtifactId, visibleProducedArtifacts])
 
   return (
     <div className="dashboard-run-detail flex min-h-0 flex-1 bg-background">
@@ -5788,6 +5807,17 @@ function LandingPage() {
                 <span className="list-row-subline">
                   Mirror of Project Gutenberg with 75,000 public domain books and primary sources.
                   Useful for literary research.
+                </span>
+              </a>
+
+              <a className="list-row" href="/canonical-datasets/housing-affordability.html">
+                <div className="list-row-top">
+                  <span className="list-row-title">Housing Affordability Demo</span>
+                  <span className="list-row-meta">canonical agent workflow</span>
+                </div>
+                <span className="list-row-subline">
+                  HUD Fair Market Rent and Census/ACS context with an inspectable agent run,
+                  known-good outputs, and demo artifacts.
                 </span>
               </a>
 

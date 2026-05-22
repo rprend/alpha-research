@@ -88,8 +88,17 @@ assert(existsSync(join(root, 'scripts/live-infrastructure-smoke.mjs')), 'Missing
 const remoteRunnerSource = readFileSync(join(root, 'src/remote-agent-runner-script.ts'), 'utf8')
 for (const token of [
   'collect_deliverable_paths',
+  'validate_research_artifact_bundle',
+  'RESEARCH_ARTIFACT_BUNDLE',
+  'report.html',
+  'result.json',
+  'work.md',
+  'REPORT_REQUIRED_SECTIONS',
+  'RESULT_REQUIRED_FIELDS',
+  'WORK_REQUIRED_SECTIONS',
   'expected_primary_artifact_name',
   'bookkeeping artifacts do not count as completion',
+  'Research artifact quality validation failed',
   'Remote agent run completed without required primary artifact',
   'deliverable artifact(s)',
   'OPENAI_PROXY_BASE_URL',
@@ -99,6 +108,27 @@ for (const token of [
   'remote Codex runs must use the metered OpenAI proxy',
 ]) {
   assert(remoteRunnerSource.includes(token), `Remote runner completion guard is missing: ${token}`)
+}
+assert(
+  remoteRunnerSource.includes('canonical-dataset-bootstrap') &&
+    remoteRunnerSource.includes('validate_research_artifact_bundle') &&
+    remoteRunnerSource.includes('Canonical dataset bootstrap completed without required artifact'),
+  'Research artifact bundle validation must preserve the canonical bootstrap exemption.',
+)
+
+for (const token of [
+  '<h2>Executive Summary</h2>',
+  '<h2>Data/Methods</h2>',
+  '<h2>Evidence</h2>',
+  '<h2>Limitations</h2>',
+  '<h2>Next Steps</h2>',
+  '## Commands Run',
+  '## Intermediate Reasoning Summary',
+  '## Blockers',
+  '## Reproduction Notes',
+  'sourceDatasetIds',
+]) {
+  assert(harnessSource.includes(token), `Harness completed run is missing artifact quality fixture token: ${token}`)
 }
 
 const workerSource = readFileSync(join(root, 'src/worker.ts'), 'utf8')

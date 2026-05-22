@@ -62,6 +62,28 @@ INLINE_BINARY_EXTENSIONS = {
 }
 MAX_INLINE_BINARY_BYTES = 5 * 1024 * 1024
 MAX_TEXT_ARTIFACT_BYTES = 2 * 1024 * 1024
+RESEARCH_ARTIFACT_BUNDLE = ["report.html", "result.json", "work.md"]
+REPORT_REQUIRED_SECTIONS = {
+    "executive summary": [r"executive\s+summary", r"executive\s+takeaway", r"abstract"],
+    "data/methods": [r"data\s*/\s*methods", r"data\s+and\s+methods", r"data", r"methods?", r"methodology"],
+    "evidence": [r"evidence", r"results?", r"findings?"],
+    "limitations": [r"limitations?", r"evidentiary\s+limits?", r"caveats?"],
+    "next steps": [r"next\s+steps?", r"recommendations?", r"follow[-\s]?ups?"],
+}
+WORK_REQUIRED_SECTIONS = {
+    "commands run": [r"commands?\s+run", r"command\s+log"],
+    "intermediate reasoning summary": [r"intermediate\s+reasoning\s+summary", r"reasoning\s+summary", r"work\s+summary"],
+    "blockers": [r"blockers?", r"known\s+blockers?"],
+    "reproduction notes": [r"reproduction\s+notes?", r"repro(?:duce|duction)?"],
+}
+RESULT_REQUIRED_FIELDS = [
+    "answer",
+    "claims",
+    "evidence",
+    "confidence",
+    "limitations",
+    "sourceDatasetIds",
+]
 
 
 def session_title() -> str:
@@ -197,6 +219,16 @@ def collapse_whitespace(value: str, limit: int = 180) -> str:
     return compact[: limit - 1].rstrip() + "..." if len(compact) > limit else compact
 
 
+def normalized_artifact_text(value: str) -> str:
+    without_tags = re.sub(r"<[^>]+>", " ", value)
+    without_entities = re.sub(r"&[a-zA-Z0-9#]+;", " ", without_tags)
+    return re.sub(r"\s+", " ", without_entities).strip().lower()
+
+
+def has_section(text: str, patterns: list[str]) -> bool:
+    return any(re.search(pattern, text, re.IGNORECASE) for pattern in patterns)
+
+
 def fenced(label: str, language: str, value: str) -> str:
     text = value.rstrip() or "No output."
     return f"{label}:\n\n```{language}\n{text}\n```"
@@ -315,14 +347,16 @@ def build_remote_agent_prompt():
             f"Use {WORKSPACE_DIR} for scratch work.",
             f"Write every output to {ARTIFACT_DIR}.",
             "Iterate on the research task until the answer is complete.",
-            "Keep work.md updated as your running log: what you tried, what worked, what failed, and what remains.",
+            "A successful research run requires exactly this durable artifact bundle: report.html, result.json, and work.md. No deliverable means no success.",
+            "Keep work.md updated as your running log with sections for Commands Run, Intermediate Reasoning Summary, Blockers, and Reproduction Notes.",
             "Stop only after you have written report.html as a polished, decision-ready research report for a senior stakeholder.",
             "The report must read like a serious applied research paper or expert memo for a senior stakeholder. It should develop the argument in prose, quantify claims, explain identification and measurement choices, interpret evidence, and make limitations explicit.",
-            "Include an abstract or executive takeaway, research question, data description, methodology, results, robustness/validation, limitations, implications, and concrete next steps.",
+            "report.html must include recognizable sections for Executive Summary, Data/Methods, Evidence, Limitations, and Next Steps.",
             "Make liberal use of tables and figures to summarize data, compare estimates, show uncertainty, display robustness checks, and make the empirical logic easy to inspect.",
             "Use work.md for generated file lists, scripts, assets, implementation steps, and command logs unless those details directly support a research finding in the report.",
             "When the evidence is insufficient for a strong conclusion, state the evidentiary limits plainly and explain what additional data or analysis is needed.",
-            "Write result.json too if you produce structured results.",
+            "Write result.json with keys: answer, claims, evidence, confidence, limitations, sourceDatasetIds, and optional tables and charts metadata.",
+            "Each claim in result.json should reference evidence entries, and sourceDatasetIds must include the dataset ids used for the answer.",
             "",
             "Research request:",
             PROMPT,
@@ -422,6 +456,100 @@ def collect_deliverable_paths():
     ]
 
 
+def deliverable_by_name(deliverables: list[Path]) -> dict[str, Path]:
+    by_name = {}
+    for path in deliverables:
+        by_name.setdefault(path.name, path)
+    return by_name
+
+
+def validate_report_html(path: Path) -> list[str]:
+    errors = []
+    try:
+        text = normalized_artifact_text(path.read_text(encoding="utf-8", errors="replace"))
+    except Exception as exc:
+        return [f"report.html could not be read: {exc}"]
+    if len(text) < 400:
+        errors.append("report.html is too short to be a useful human-readable memo")
+    for label, patterns in REPORT_REQUIRED_SECTIONS.items():
+        if not has_section(text, patterns):
+            errors.append(f"report.html is missing recognizable section: {label}")
+    return errors
+
+
+def validate_result_json(path: Path) -> list[str]:
+    errors = []
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return [f"result.json is not valid JSON: {exc}"]
+    if not isinstance(payload, dict):
+        return ["result.json must be a JSON object"]
+    for field in RESULT_REQUIRED_FIELDS:
+        if field not in payload:
+            errors.append(f"result.json is missing required field: {field}")
+    answer = payload.get("answer")
+    if not isinstance(answer, (str, dict)) or (isinstance(answer, str) and not answer.strip()):
+        errors.append("result.json answer must be a non-empty string or object")
+    claims = payload.get("claims")
+    if not isinstance(claims, list) or not claims or not all(isinstance(item, dict) for item in claims):
+        errors.append("result.json claims must be a non-empty array of objects")
+    evidence = payload.get("evidence")
+    if not isinstance(evidence, list) or not evidence:
+        errors.append("result.json evidence must be a non-empty array")
+    confidence = payload.get("confidence")
+    if not isinstance(confidence, (str, int, float)) or (isinstance(confidence, str) and not confidence.strip()):
+        errors.append("result.json confidence must be a non-empty string or number")
+    limitations = payload.get("limitations")
+    if not (
+        isinstance(limitations, str) and limitations.strip()
+        or isinstance(limitations, list) and len(limitations) > 0
+    ):
+        errors.append("result.json limitations must be a non-empty string or array")
+    source_dataset_ids = payload.get("sourceDatasetIds")
+    if not (
+        isinstance(source_dataset_ids, list)
+        and len(source_dataset_ids) > 0
+        and all(isinstance(item, str) and item.strip() for item in source_dataset_ids)
+    ):
+        errors.append("result.json sourceDatasetIds must be a non-empty array of strings")
+    if "tables" in payload and not isinstance(payload.get("tables"), list):
+        errors.append("result.json tables must be an array when present")
+    if "charts" in payload and not isinstance(payload.get("charts"), list):
+        errors.append("result.json charts must be an array when present")
+    return errors
+
+
+def validate_work_md(path: Path) -> list[str]:
+    errors = []
+    try:
+        text = normalized_artifact_text(path.read_text(encoding="utf-8", errors="replace"))
+    except Exception as exc:
+        return [f"work.md could not be read: {exc}"]
+    if len(text) < 250:
+        errors.append("work.md is too short to be a useful agent artifact")
+    for label, patterns in WORK_REQUIRED_SECTIONS.items():
+        if not has_section(text, patterns):
+            errors.append(f"work.md is missing recognizable section: {label}")
+    return errors
+
+
+def validate_research_artifact_bundle(deliverables: list[Path]) -> list[str]:
+    by_name = deliverable_by_name(deliverables)
+    errors = [
+        f"missing required research artifact: {name}"
+        for name in RESEARCH_ARTIFACT_BUNDLE
+        if name not in by_name
+    ]
+    if "report.html" in by_name:
+        errors.extend(validate_report_html(by_name["report.html"]))
+    if "result.json" in by_name:
+        errors.extend(validate_result_json(by_name["result.json"]))
+    if "work.md" in by_name:
+        errors.extend(validate_work_md(by_name["work.md"]))
+    return errors
+
+
 def expected_primary_artifact_name():
     if RUN_TYPE == "canonical-dataset-bootstrap":
         return "dataset_briefing.md"
@@ -435,8 +563,8 @@ def build_codex_goal():
             "and the required inventory artifacts are written."
         )
     return (
-        "/goal Complete the research run. Iterate, keep work.md current, "
-        "and stop only after writing the final report.html."
+        "/goal Complete the research run. Iterate until report.html, result.json, "
+        "and work.md pass the required artifact quality bar."
     )
 
 
@@ -726,8 +854,13 @@ def main():
     expected_primary = expected_primary_artifact_name()
     if not any(path.name == expected_primary for path in deliverables):
         raise RuntimeError(f"Remote agent run completed without required primary artifact: {expected_primary}")
-    if RUN_TYPE != "canonical-dataset-bootstrap" and not any(path.name == "work.md" for path in deliverables):
-        raise RuntimeError("Remote agent run completed without required ongoing work log: work.md")
+    if RUN_TYPE != "canonical-dataset-bootstrap":
+        validation_errors = validate_research_artifact_bundle(deliverables)
+        if validation_errors:
+            raise RuntimeError(
+                "Research artifact quality validation failed: "
+                + "; ".join(validation_errors[:8])
+            )
     required_artifacts = RUN_CONFIG.get("requiredArtifacts")
     if RUN_TYPE == "canonical-dataset-bootstrap" and isinstance(required_artifacts, list):
         missing = [

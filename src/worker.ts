@@ -1240,6 +1240,57 @@ function remoteAgentSessionIdFromArtifacts(artifacts: unknown[]) {
   return null
 }
 
+function artifactPathFromPayload(artifact: unknown) {
+  if (!isRecordValue(artifact)) return ''
+  const content = isRecordValue(artifact.content) ? artifact.content : null
+  const path = typeof content?.path === 'string' ? content.path : ''
+  return path.trim() || (typeof artifact.title === 'string' ? artifact.title : '')
+}
+
+function artifactFilenameFromPayload(artifact: unknown) {
+  const path = artifactPathFromPayload(artifact).replace(/\\/gu, '/')
+  return path.split('/').filter(Boolean).at(-1) ?? path
+}
+
+function isArtifactBookkeepingPayload(artifact: unknown) {
+  if (!isRecordValue(artifact)) return false
+  const filename = artifactFilenameFromPayload(artifact).toLowerCase()
+  return artifact.type === 'remote_agent_session'
+    || artifact.type === 'remote_agent_summary'
+    || artifact.type === 'remote_agent_transcript'
+    || filename === 'status.json'
+    || filename === 'codex-transcript.log'
+    || filename === 'last-message.txt'
+}
+
+function compactArtifactSummary(artifacts: unknown[]) {
+  const deliverables = artifacts.filter((artifact) => !isArtifactBookkeepingPayload(artifact))
+  const byFilename = new Map<string, unknown>()
+  for (const artifact of deliverables) {
+    byFilename.set(artifactFilenameFromPayload(artifact).toLowerCase(), artifact)
+  }
+  const required = ['report.html', 'result.json', 'work.md']
+  const supportingFiles = deliverables
+    .filter((artifact) => !required.includes(artifactFilenameFromPayload(artifact).toLowerCase()))
+    .map((artifact) => ({
+      id: isRecordValue(artifact) ? artifact.id : undefined,
+      title: isRecordValue(artifact) ? artifact.title : undefined,
+      type: isRecordValue(artifact) ? artifact.type : undefined,
+      path: artifactPathFromPayload(artifact),
+    }))
+  return {
+    validationStatus: required.every((name) => byFilename.has(name)) ? 'present' : 'missing_required',
+    missingRequiredFiles: required.filter((name) => !byFilename.has(name)),
+    primaryAnswer: byFilename.has('report.html') ? compactArtifact(byFilename.get('report.html')) : null,
+    structuredResult: byFilename.has('result.json') ? compactArtifact(byFilename.get('result.json')) : null,
+    workLog: byFilename.has('work.md') ? compactArtifact(byFilename.get('work.md')) : null,
+    supportingFiles,
+    debugArtifacts: artifacts
+      .filter(isArtifactBookkeepingPayload)
+      .map((artifact) => compactArtifact(artifact)),
+  }
+}
+
 function compactSession(session: unknown) {
   if (!isRecordValue(session)) return session
   const entries = Array.isArray(session.entries) ? session.entries : []
@@ -1288,6 +1339,7 @@ function compactRunResultsPayload(payload: unknown) {
     metadata: payload.metadata,
     events: events.slice(-20).map(compactRunEvent),
     artifacts: artifacts.map(compactArtifact),
+    artifactSummary: compactArtifactSummary(artifacts),
     sessions: sessions.map(compactSession),
     eventCount: events.length,
     resumable: Boolean(remoteAgentSessionId),

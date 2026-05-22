@@ -8,8 +8,9 @@
 4. Runner sends events, session entries, artifacts, and status callbacks.
 5. Runner also writes durable worker state at `<dataset mount>/.remote-agent/runs/<run id>/status.json` before posting status callbacks.
 6. Dashboard polls run results and displays progress in any linked assistant session as an inline run block.
-7. Terminal status releases dataset leases and makes artifacts inspectable.
-8. If a completed run has a primary HTML report, the assistant-session run block renders it inline; otherwise it falls back to markdown briefing or structured result preview.
+7. Research runners validate the artifact bundle before reporting success.
+8. Terminal status releases dataset leases and makes artifacts inspectable.
+9. If a completed run has a primary HTML report, the assistant-session run block renders it inline; otherwise it falls back to markdown briefing or structured result preview.
 
 ## Terminal Statuses
 
@@ -52,6 +53,8 @@ For every assistant turn, `runResearchAssistantTurn` resolves the session, appen
 `previous_response_id` is an optimization for short continuity, not the source of truth. If the compact session view had to omit or truncate prior entries, the Worker proactively drops `previous_response_id` and reconstructs context from durable session records. If OpenAI still reports a context-length error, the Worker retries once without `previous_response_id` and records that decision in the local summary metadata.
 
 Tool results must expose bounded model/storage views. Full run results, artifacts, transcripts, and debug payloads remain available through run/debug endpoints, but tool output sent back to Responses uses compact result data. Assistant session entry metadata is also bounded before storage so remote callbacks or future tools cannot persist unbounded model-adjacent state.
+
+Compact run-result tool data must include an artifact summary that identifies the primary answer (`report.html`), structured result (`result.json`), work log (`work.md`), missing required files, supporting files, and debug artifacts. The summary is structural and bounded; full artifact contents stay behind artifact routes.
 
 Remote-run planning uses the same compact chat-history policy. The planner receives a bounded, recent session view plus dataset context, not the full assistant entry table or run transcript.
 

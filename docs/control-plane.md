@@ -20,6 +20,7 @@ The control plane in `src/control-plane.ts` owns durable state for datasets, run
 - New work starts as `queued` or `running`.
 - Runner callbacks append events and update status.
 - Terminal statuses are `ready`, `completed`, `failed`, `cancelled`, `canceled`, `error`, or `worker_unreachable`.
+- User-facing research and describe runs may only report `ready` after the remote runner validates `report.html`, `result.json`, and `work.md`; validation failures report `failed`.
 - Stale heartbeats mark the run `worker_unreachable` and release the dataset lease. They do not mark the product execution `failed` unless the worker reported `failed`.
 - All state transitions that matter to a human should append a run event.
 
@@ -40,7 +41,7 @@ Remote run metadata can include `config.resources`, but the control plane always
 - Dashboard run, artifact, and assistant-session detail routes must be scoped to the signed-in owner unless the viewer email is in `ALPHA_RESEARCH_ADMIN_EMAILS`.
 - Remote Codex model traffic must go through the metered OpenAI proxy at `/api/internal/runs/:runId/openai/v1/*`. The Worker validates `RESEARCH_INTERNAL_RUNNER_TOKEN`, checks the run owner's allowance before model calls, forwards to OpenAI with the platform key, and records usage through `/internal/runs/:runId/billing-events`.
 - Admin canonical dataset bootstrap requests and subscription grants are authenticated with `ALPHA_RESEARCH_ADMIN_TOKEN` and must not depend on a user CLI session.
-- Artifacts are indexed through `run_artifacts`; completed artifact bytes are stored in the Cloudflare R2 artifact bucket and served back through authenticated dashboard routes. Transcripts should be captured as artifacts or assistant session entries. Modal result paths are worker staging paths, not browser-accessible artifact URLs.
+- Artifacts are indexed through `run_artifacts`; completed artifact bytes are stored in the Cloudflare R2 artifact bucket and served back through authenticated dashboard routes. Research output hierarchy is `report.html` first, `result.json` second, `work.md` and supporting files next, and remote transcript/session artifacts last for debugging. Modal result paths are worker staging paths, not browser-accessible artifact URLs.
 - CLI list routes for runs and assistant sessions return recent records by default and accept a bounded `limit` query parameter; owner and dataset filtered run lists must stay backed by indexes ordered on `updated_at`. Dashboard startup should use the combined `/api/cli/dashboard-bootstrap` route instead of issuing separate dataset, run, and session list requests against the same control-plane Durable Object.
 - Remote Codex runners may receive `EXA_API_KEY` and `CANONICAL_DATASET_SLACK_WEBHOOK_URL` as environment variables for canonical dataset-improvement and bootstrap jobs. Modal mounts the canonical Slack webhook through a separate `canonical-dataset-slack` secret so dataset maintenance jobs can send or queue source-download alerts without depending on user sessions. Workers must not write credentials into prompts, logs, artifacts, or mounted volumes.
 - Modal worker submission uses `MODAL_AGENT_ENDPOINT_URL` and optional `MODAL_AGENT_SUBMIT_TOKEN`. These values are control-plane secrets and must not be exposed to frontend code.
