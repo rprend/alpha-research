@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Housing Affordability canonical demo</title>
+  <style>
+    :root{--ink:#17211b;--muted:#607067;--line:#dbe3df;--wash:#eef6f2;--accent:#146b5d;--warn:#965b13}
+    *{box-sizing:border-box}body{margin:0;font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fbfcfb}
+    header{padding:30px max(24px,calc((100vw - 1180px)/2));background:var(--wash);border-bottom:1px solid var(--line)}
+    main{max-width:1180px;margin:0 auto;padding:26px 24px 50px}h1{margin:0 0 8px;font-size:34px;line-height:1.1}h2{margin:30px 0 10px;font-size:20px}h3{margin:22px 0 8px;font-size:16px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:16px 0}.card{border:1px solid var(--line);border-radius:8px;background:white;padding:14px}.k{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}.v{font-size:17px;font-weight:650;overflow-wrap:anywhere}
+    .notice{border-left:4px solid var(--accent);background:#eff7f4;padding:12px 14px;margin:14px 0}table{width:100%;border-collapse:collapse;background:white;margin:10px 0 20px}th,td{border-bottom:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}td{overflow-wrap:anywhere}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em}a{color:var(--accent)}
+  </style>
+</head>
+<body>
+  <header>
+    <p><a href="index.html">Remote canonical datasets</a></p>
+    <h1>Housing Affordability <code>housing-affordability</code></h1>
+    <p>Canonical agent demo dataset for showing how Alpha Research turns a coding-agent request into a remote run with durable artifacts.</p>
+  </header>
+  <main>
+    <section class="grid">
+      <div class="card"><div class="k">Dataset status</div><div class="v">ready</div></div>
+      <div class="card"><div class="k">Domain</div><div class="v">Housing</div></div>
+      <div class="card"><div class="k">Coverage</div><div class="v">County-year, 2018-2024</div></div>
+      <div class="card"><div class="k">Primary artifacts</div><div class="v">report.html, work.md, result.json</div></div>
+    </section>
+    <section class="notice"><strong>Why this demo exists:</strong> a model-lab agent team should be able to watch one workflow and understand why dataset discovery, approval-gated remote execution, live status, and resumable artifacts belong inside a coding agent.</section>
+    <h2>Dataset Briefing</h2>
+    <p>This public housing affordability demo combines HUD Fair Market Rent benchmarks with Census/ACS income and rent-burden context. It is shaped as a county-year panel for ranking where rental affordability pressure worsened from 2018 to 2024.</p>
+    <h3>Source Lineage</h3>
+    <table><thead><tr><th>Source</th><th>Provider</th><th>Grain</th><th>Role</th></tr></thead><tbody><tr><td>Fair Market Rents</td><td>HUD</td><td>County-year / metro-year</td><td>Rent benchmark by bedroom size</td></tr><tr><td>ACS 5-year estimates</td><td>Census</td><td>County-year</td><td>Income, renter households, and rent-burden context</td></tr><tr><td>Geography crosswalk</td><td>Census</td><td>County / CBSA</td><td>Stable FIPS joins and display labels</td></tr></tbody></table>
+    <h2>Known-Good Questions</h2>
+    <table><thead><tr><th>Question</th><th>Known-good output</th></tr></thead><tbody><tr><td>Where did rental affordability pressure worsen most from 2018 to 2024?</td><td>Miami-Dade County, FL ranks first with pressure_score 91.4 and rent_to_income_ratio increasing from 0.38 to 0.49.</td></tr><tr><td>Which counties show high FMR growth but moderate severe rent burden?</td><td>Travis County, TX is flagged as high-growth/moderate-burden because FMR growth is 39 percent while severe_rent_burden_share remains below the fixture median.</td></tr><tr><td>Which metro outliers should a housing policy analyst inspect first?</td><td>Miami-Fort Lauderdale, Phoenix-Mesa, and Tampa-St. Petersburg are the top three metro contexts by pressure_score.</td></tr><tr><td>What limitation should accompany county comparisons?</td><td>Compare changes and ranks, not exact affordability levels, where ACS renter-income estimates are suppressed or noisy.</td></tr></tbody></table>
+    <h2>Golden Workflow</h2>
+    <ol><li>Codex receives the housing affordability request.</li><li>The agent lists datasets and selects <code>housing-affordability</code>.</li><li>The agent drafts a remote run plan and asks for approval.</li><li>The remote run executes while the dashboard shows live status.</li><li>Final artifacts appear and the agent summarizes from them.</li></ol>
+  </main>
+</body>
+</html>
