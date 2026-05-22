@@ -631,6 +631,7 @@ function datasetTopicMatchScore(dataset: DatasetRecord, topic: string | null) {
   const keywords = topicKeywords(topic)
   if (keywords.length === 0) return 0
   const haystack = [
+    dataset.id,
     dataset.name,
     dataset.description,
     dataset.inventorySummary,
@@ -646,12 +647,13 @@ function datasetTopicMatchScore(dataset: DatasetRecord, topic: string | null) {
     .toLowerCase()
 
   let score = 0
+  if (dataset.id.toLowerCase() === topic.toLowerCase()) score += 8
   for (const keyword of keywords) {
     if (haystack.includes(keyword)) score += 2
   }
   if (dataset.status.toLowerCase() === 'ready') score += 3
   if (dataset.deploymentStatus.toLowerCase() === 'ready') score += 2
-  if (!isPublicDataset(dataset)) score += 1
+  if (isPublicDataset(dataset)) score += 1
   return score
 }
 

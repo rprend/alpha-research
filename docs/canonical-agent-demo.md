@@ -8,28 +8,28 @@ This Phase 1 demo shows why Alpha Research belongs inside a coding agent: the ag
 - Domain: housing
 - Sources: HUD Fair Market Rents plus Census/ACS income and rent-burden context
 - Grain: county-year
-- Time coverage: 2018-2024
+- Time coverage: HUD FY2024 FMR with CHAS/ACS 2016-2020 renter burden context
 - Canonical public page: `/canonical-datasets/housing-affordability.html`
 - Harness completed run: `/?harness=1&view=runs&runId=run-harness-housing-completed`
 - Harness running run: `/?harness=1&view=runs&runId=run-harness-housing-running`
 - Harness remote session: `/?harness=1&view=terminal-sessions&sessionId=session-harness-housing-remote`
-- Public production run link: `pending-live-run`
+- Public production run link: `https://dashboard.alpharesearch.nyc/?view=runs&runId=6e1f4416-c1e7-4b7e-b564-157682182af7`
 - Live bootstrap execution: `5ba401e3-5b25-4301-aee0-eb5fddac3179`
 
 ## Known-Good Questions
 
-1. Where did rental affordability pressure worsen most from 2018 to 2024?
-   Known-good output: Miami-Dade County, FL ranks first with `pressure_score` 91.4 and `rent_to_income_ratio` increasing from 0.38 to 0.49.
-2. Which counties show high Fair Market Rent growth but only moderate severe rent burden?
-   Known-good output: Travis County, TX is flagged as high-growth/moderate-burden because FMR growth is 39 percent while `severe_rent_burden_share` remains below the fixture median.
-3. Which metro outliers should a housing policy analyst inspect first?
-   Known-good output: Miami-Fort Lauderdale, Phoenix-Mesa, and Tampa-St. Petersburg are the top three metro contexts by `pressure_score`.
+1. Where is rental affordability pressure highest in the demo counties?
+   Known-good output: Travis County, TX ranks first on cost-burden and severe-burden rates in the verified production run; Miami-Dade County, FL has the highest FY2024 two-bedroom FMR and a severe-share ratio above 57 percent.
+2. Which county pairs high benchmark rent with high severe-burden share?
+   Known-good output: Miami-Dade County, FL combines the highest FY2024 two-bedroom FMR in the demo with a severe-share ratio above 57 percent.
+3. Which counties should a housing policy analyst inspect first?
+   Known-good output: Travis County, Miami-Dade County, Hillsborough County, and Maricopa County are ranked in the structured result with burden and FMR fields preserved.
 4. What limitation should accompany county comparisons?
    Known-good output: compare changes and ranks, not exact affordability levels, when ACS renter-income estimates are suppressed or have wide margins of error.
 
 ## Golden Workflow
 
-1. User says: “Use Alpha Research to investigate where rental affordability pressure worsened most from 2018-2024.”
+1. User says: “Use Alpha Research to investigate where rental affordability pressure is highest in the canonical demo counties.”
 2. Agent lists datasets.
 3. Agent selects `housing-affordability`.
 4. Agent drafts the remote run prompt and asks for approval.
@@ -55,7 +55,7 @@ http://127.0.0.1:5173/?harness=1&view=runs&runId=run-harness-housing-running
 
 ## 2-Minute Video Script
 
-0:00-0:15: Open Codex Desktop. Say: “I am starting with a broad research request, not a dataset id: use Alpha Research to investigate where rental affordability pressure worsened most from 2018 to 2024.”
+0:00-0:15: Open Codex Desktop. Say: “I am starting with a broad research request, not a dataset id: use Alpha Research to investigate where rental affordability pressure is highest in the canonical demo counties.”
 
 0:15-0:35: Show the agent listing datasets. Say: “The agent does not guess. It asks Alpha Research what datasets exist, reads the dataset briefing, and selects Housing Affordability because it has HUD Fair Market Rent and ACS income context.”
 
@@ -74,7 +74,7 @@ http://127.0.0.1:5173/?harness=1&view=runs&runId=run-harness-housing-running
 3. Open `http://127.0.0.1:5173/?harness=1&view=runs&runId=run-harness-housing-completed` and show `report.html`, `work.md`, and `result.json`.
 4. Open `http://127.0.0.1:5173/?harness=1&view=runs&runId=run-harness-housing-running` and show live status and latest runner evidence.
 5. Open `http://127.0.0.1:5173/?harness=1&view=terminal-sessions&sessionId=session-harness-housing-remote` and explain that transcript entries are audit context while artifacts remain the primary result path.
-6. Show the production run link once available: `pending-live-run`. The live canonical dataset bootstrap is currently tracked as remote execution `5ba401e3-5b25-4301-aee0-eb5fddac3179`.
+6. Show the production run link: `https://dashboard.alpharesearch.nyc/?view=runs&runId=6e1f4416-c1e7-4b7e-b564-157682182af7`. The live canonical dataset bootstrap is tracked as remote execution `5ba401e3-5b25-4301-aee0-eb5fddac3179`.
 
 ## Acceptance Check
 

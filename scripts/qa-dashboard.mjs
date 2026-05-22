@@ -290,12 +290,14 @@ async function assertTopicGuidedDatasetSelection() {
     await page.goto(`${baseUrl}/?harness=1&view=datasets&topic=housing-affordability`, { waitUntil: 'domcontentloaded' })
     await page.getByRole('heading', { name: 'Best datasets for Housing Affordability', exact: true }).waitFor({ timeout: 15000 })
     await page.getByText('Recommended next step', { exact: true }).waitFor({ timeout: 15000 })
-    await page.getByText('Open City Housing Archive', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('Open Housing Affordability', { exact: true }).waitFor({ timeout: 15000 })
+    await page.getByText('HUD FY2024 Fair Market Rent', { exact: false }).first().waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: /City Housing Archive/ }).waitFor({ timeout: 15000 })
+    await page.getByRole('button', { name: /Housing Affordability County-/ }).waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: /Alpha Econ Prototype/ }).waitFor({ timeout: 15000 })
     await page.getByText('Relevant to Housing Affordability', { exact: true }).first().waitFor({ timeout: 15000 })
     await page.getByRole('button', { name: 'Open recommended dataset' }).click()
-    await page.getByRole('heading', { name: 'City Housing Archive' }).waitFor({ timeout: 15000 })
+    await page.getByRole('heading', { name: 'Housing Affordability', exact: true }).waitFor({ timeout: 15000 })
   } finally {
     await browser.close()
   }
