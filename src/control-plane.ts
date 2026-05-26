@@ -863,8 +863,11 @@ export class ControlPlane {
 
     const sessions = this.rows('SELECT * FROM assistant_sessions ORDER BY updated_at DESC LIMIT 250').map((row) => {
       const session = this.parseAssistantSessionRow(row)
-      const entries = this.listAssistantSessionEntries(session.id).map((entry) => this.assistantSessionEntryToJson(entry))
-      const linkedRunIds = this.collectRunIdsFromSession(session, entries)
+      const entryCount = Number(this.rows(
+        'SELECT COUNT(*) AS count FROM assistant_session_entries WHERE session_id = ?',
+        session.id,
+      )[0]?.count ?? 0)
+      const linkedRunIds = session.runId ? [session.runId] : []
       const linkedRuns = linkedRunIds.map((runId) => {
         const runRow = this.rows('SELECT * FROM runs WHERE id = ? LIMIT 1', runId)[0]
         if (!runRow) return null
@@ -877,7 +880,7 @@ export class ControlPlane {
       }).filter((run): run is NonNullable<typeof run> => run !== null)
       return {
         ...this.assistantSessionToJson(session),
-        entryCount: entries.length,
+        entryCount,
         linkedRuns,
         billing: this.addBillingTotals(
           this.billingTotalsForSession(session.id),
