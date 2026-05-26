@@ -248,7 +248,7 @@ export const DASHBOARD_JOURNEYS = [
   journey({
     id: 'D12',
     title: 'Ask A Question Against A Dataset',
-    path: '/?harness=1&view=datasets&datasetId=housing-affordability',
+    path: '/?harness=1&view=datasets&datasetId=dataset-alpha-book',
     productStep: 'Start a dataset-grounded assistant interaction from dataset context.',
     userMind: 'I found the dataset. Now I want to ask it something, and I assume the product knows which dataset I am looking at. I do not want to copy an id or restate context.',
     userKnows: ['Which dataset page they are on.', 'A question they want answered, maybe vaguely.'],
@@ -259,9 +259,9 @@ export const DASHBOARD_JOURNEYS = [
     evidenceToCapture: ['Dataset detail actions.', 'Assistant or question affordance.', 'Dataset context visibility.', 'Describe versus analyze action distinction.'],
     judgeQuestion: 'Did the dataset page help the user move from “this is the data” to “ask a grounded question about it” without manual context transfer?',
     steps: [
-      { type: 'waitForText', text: 'Housing Affordability', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Alpha Book Sample', timeoutMs: 15000 },
       { type: 'waitForText', text: 'Ask about this dataset', timeoutMs: 15000 },
-      { type: 'waitForText', text: 'Ask about', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Ask about Alpha Book Sample', timeoutMs: 15000 },
       { type: 'wait', ms: 1000 },
     ],
   }),
@@ -371,7 +371,7 @@ export const DASHBOARD_JOURNEYS = [
   journey({
     id: 'D18',
     title: 'Inspect Produced Artifacts',
-    path: '/?harness=1&view=runs&runId=run-harness-housing-completed',
+    path: '/?harness=1&view=runs&runId=run-harness-completed',
     productStep: 'Let the user consume and distinguish produced research artifacts.',
     userMind: 'The run is done. I need to find the answer, inspect the supporting JSON/table/script, and understand which file is final versus intermediate.',
     userKnows: ['The run produced artifacts.', 'They expect a readable result.'],
@@ -463,7 +463,7 @@ export const DASHBOARD_JOURNEYS = [
   journey({
     id: 'D23',
     title: 'Data Trust And Provenance',
-    path: '/?harness=1&view=datasets&datasetId=housing-affordability',
+    path: '/?harness=1&view=datasets&datasetId=dataset-alpha-book',
     productStep: 'Earn trust by surfacing provenance, validation, schema, and limitations.',
     userMind: 'Before I cite or rely on this, I need to know where the data came from, what checks passed, and what caveats apply.',
     userKnows: ['They are evaluating a dataset.', 'Trust requires provenance and validation.'],
@@ -474,7 +474,7 @@ export const DASHBOARD_JOURNEYS = [
     evidenceToCapture: ['Briefing sections.', 'Profile metrics.', 'Sources/schema/limitations text.', 'Structured profile preview if visible.'],
     judgeQuestion: 'Did the dataset briefing provide enough evidence for a careful user to trust or reject the dataset?',
     steps: [
-      { type: 'waitForText', text: 'HUD Fair Market Rents', timeoutMs: 15000 },
+      { type: 'waitForText', text: 'Project Gutenberg', timeoutMs: 15000 },
       { type: 'waitForText', text: 'Limitations', timeoutMs: 15000 },
       { type: 'wait', ms: 1000 },
     ],

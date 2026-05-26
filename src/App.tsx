@@ -640,6 +640,7 @@ function datasetTopicMatchScore(dataset: DatasetRecord, topic: string | null) {
     dataset.inventoryFreshness,
     dataset.inventoryReadinessNote,
     ...(dataset.inventoryTopics ?? []),
+    ...(dataset.inventoryLimitations ?? []),
   ]
     .filter(Boolean)
     .join(' ')
@@ -649,10 +650,6 @@ function datasetTopicMatchScore(dataset: DatasetRecord, topic: string | null) {
   if (dataset.id.toLowerCase() === topic.toLowerCase()) score += 8
   for (const keyword of keywords) {
     if (haystack.includes(keyword)) score += 2
-  }
-  const limitationText = (dataset.inventoryLimitations ?? []).join(' ').toLowerCase()
-  for (const keyword of keywords) {
-    if (new RegExp(`\\bno\\s+${keyword}\\b`, 'u').test(limitationText)) score -= 4
   }
   if (dataset.status.toLowerCase() === 'ready') score += 3
   if (dataset.deploymentStatus.toLowerCase() === 'ready') score += 2
@@ -2858,10 +2855,8 @@ function DatasetFeedSection({
                 <div className="min-w-0">
                   <div className="truncate text-base font-semibold tracking-normal text-foreground">{dataset.name}</div>
                   <p className="mt-1 truncate text-sm leading-6 text-muted-foreground">{description}</p>
-                  {matchScore > 4 && topic ? (
-                    <p className="mt-1 truncate text-sm font-medium text-foreground">
-                      {matchScore >= 12 ? 'Best match' : 'Partial match'} for {normalizeTopicLabel(topic)}
-                    </p>
+                  {matchScore > 0 && topic ? (
+                    <p className="mt-1 truncate text-sm font-medium text-foreground">Relevant to {normalizeTopicLabel(topic)}</p>
                   ) : null}
                   {topic ? (
                     <div className="mt-2 space-y-1 text-xs leading-5 text-muted-foreground">
@@ -2999,37 +2994,13 @@ function DatasetDetailPage({
     profileSummary ||
     current.description?.trim() ||
     'No inventory description is available yet.'
-  const suggestedQuestion = current.id === 'housing-affordability'
-    ? 'Where is rental affordability pressure highest in the demo counties, and what source limitations should accompany the answer?'
-    : `What can I reliably answer with ${current.name}, and what are its main limitations?`
-  const draftDatasetQuestion = () => {
-    updateDashboardRoute({
-      view: 'assistant',
-      datasetId: current.id,
-      runId: null,
-      sessionId: null,
-      draft: `Dataset: ${current.name}\nQuestion: ${suggestedQuestion}\n\nDraft a concrete remote run prompt first. Do not start the run until I approve it. Expected artifacts: report.html, result.json, work.md, and source inventory if available.`,
-    })
-    window.setTimeout(() => focusAssistantComposer(), 0)
-  }
   return (
     <main className="min-h-0 flex-1 overflow-y-auto px-4 py-8 md:px-8">
       <div className="mx-auto flex w-full max-w-4xl flex-col gap-8">
         <button type="button" className="w-fit text-sm text-muted-foreground hover:text-foreground" onClick={onBack}>
           Back to datasets
         </button>
-        <div className="flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
-          <div className="min-w-0">
-            <h1 className="text-3xl font-semibold tracking-normal md:text-4xl">{current.name}</h1>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Ask about this dataset from here; Alpha Research carries the dataset context into chat and drafts a run prompt for approval before remote execution.
-              A good first question is where rental affordability pressure is highest; expected outputs are report.html, result.json, work.md, and source inventory.
-            </p>
-          </div>
-          <Button type="button" className="shrink-0" onClick={draftDatasetQuestion}>
-            Ask about {current.name}
-          </Button>
-        </div>
+        <h1 className="text-3xl font-semibold tracking-normal md:text-4xl">{current.name}</h1>
 
         {error ? <div className="bg-destructive/5 px-4 py-3 text-sm text-destructive">{error}</div> : null}
 
@@ -4159,7 +4130,7 @@ function ResearchAssistantPage({
         <AssistantRuntimeProvider runtime={runtime}>
           <Thread
             welcomeTitle="What do you want to research?"
-            welcomeDescription="Start a new research chat. Draft a research plan before you run anything. Recommended plan: choose Housing Affordability, ask a serious dataset question, review the drafted prompt, then approve the remote run. Launch a well-specified run by pasting the dataset, variables, method, time window, and requested artifacts; Alpha Research should preserve that specification and show the run id, status, expected artifacts, and destination. Before running anything expensive, you approve the concrete prompt."
+            welcomeDescription=""
             welcomeImageSrc="/alpha-book-man.png"
             showWelcome={!activeSessionId}
             scrollToBottomKey={activeSessionId && messages.length > 0 ? `${activeSessionId}:${messages.length}` : null}
@@ -4615,7 +4586,7 @@ function RunDetailPage({
         <div className="mx-auto flex w-full max-w-[52rem] flex-col">
           {artifactCount > 0 ? (
             <div className="dashboard-artifacts-action mb-4 flex justify-end">
-              <Button type="button" variant="outline" aria-label="Open artifacts" onClick={() => setArtifactsOpen(true)}>
+              <Button type="button" variant="outline" onClick={() => setArtifactsOpen(true)}>
                 Artifacts
               </Button>
             </div>
@@ -4643,13 +4614,7 @@ function RunDetailPage({
             <section className="mb-8 flex flex-col gap-4">
               <div className="flex items-start gap-3">
                 <LoaderCircle className="mt-1 size-4 shrink-0 animate-spin text-muted-foreground" aria-hidden="true" />
-                <div className="min-w-0">
-                  <h2 className="text-xl font-semibold tracking-normal">{runningSummary.title}</h2>
-                  <p className="mt-1 text-sm leading-6 text-foreground/85">{runningSummary.currentActivity}</p>
-                  <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                    Current phase: {runningSummary.phase}. {runningSummary.statusDetail} {runningSummary.actionLabel}
-                  </p>
-                </div>
+                <p className="text-sm leading-6 text-foreground/85">{runningSummary.currentActivity}</p>
               </div>
               <div className="flex flex-wrap gap-3">
                 <Button type="button" variant="destructive" onClick={() => setCancelDialogOpen(true)}>
@@ -5701,7 +5666,7 @@ function LandingPage() {
   const [authError, setAuthError] = useState<string>('')
 
   useEffect(() => {
-    document.title = 'Alpha Research: Traceable research runs over prepared datasets'
+    document.title = 'Alpha Research: Open source knowledge bases for all humanity'
     initCal()
     void fetchSession()
       .then((result) => setSession(result))
@@ -5770,7 +5735,7 @@ function LandingPage() {
               <span>Backed by YCombinator</span>
             </div>
 
-            <h1>Ask serious questions over prepared datasets</h1>
+            <h1>Open source, agentic knowledge bases for all of humanity&apos;s knowledge</h1>
 
             <img
               className="hero-figure-image"
@@ -5782,33 +5747,36 @@ function LandingPage() {
 
             <div className="hero-lede">
               <p>
-                Alpha Research turns prepared public or private datasets into approval-gated remote
-                research runs. You get a traceable report, structured result, work log, source
-                inventory, and audit trail instead of a loose chat answer.
-              </p>
-              <p>
-                The current proof loop is narrow on purpose: open the Housing Affordability
-                canonical dataset, ask where rental pressure is highest, approve a remote run, watch
-                it execute, then inspect <code>report.html</code>, <code>result.json</code>,{' '}
-                <code>work.md</code>, source inventory, and transcript evidence.
-              </p>
-              <p>
-                We started with public research assets such as{' '}
+                Alpha Research builds open source agentic knowledge bases. Our mission is to help
+                knowledge workers work 100x faster. We launched and{' '}
+                <a href="https://github.com/zenobia-pay/alphabook" target="_blank" rel="noopener noreferrer">
+                  open sourced
+                </a>{' '}
+                our first platform,{' '}
                 <a href="https://alpha-book.org/" target="_blank" rel="noopener noreferrer">
                   Alpha Book
                 </a>{' '}
-                and are packaging canonical datasets for dashboard onboarding, QA, and product
-                demos. Bring your own dataset through the CLI or book setup help for complex private
-                data.
+                on a mirror of the Project Gutenberg dataset (75,000 books).
+              </p>
+              <p>
+                Knowledge work is bottlenecked in two key ways: finding evidence and testing
+                hypotheses. We make both 100x faster. We extend keyword search and RAG with general
+                coding agents, which use filesystem tools like ripgrep and reason iteratively to
+                find broad evidence. Coding agents also write ad-hoc scripts to label datasets and
+                test hypotheses.
+              </p>
+              <p>
+                Our timeline is simple: repeat Alpha Book across every public dataset of humanity&apos;s
+                knowledge. Next we&apos;ll launch Alpha Econ with US Census, BLS, NBER, etc datasets.
+                Alpha Justice with US Supreme Court Cases, and so on. We support museums, research
+                libraries, historical societies, and archives. We also do custom integration work
+                for enterprise.
               </p>
             </div>
 
             <div className="hero-links">
               <a className="hero-button hero-button-secondary" href="/cli/">
                 Bring your own dataset
-              </a>
-              <a className="hero-button hero-button-secondary" href="/canonical-datasets/housing-affordability.html">
-                Inspect the proof dataset
               </a>
               <button
                 type="button"
@@ -5824,34 +5792,12 @@ function LandingPage() {
                 </svg>
               </button>
             </div>
-            <div className="powering-list" aria-label="Inspectable proof">
-              <a className="list-row" href="/canonical-datasets/housing-affordability.html">
-                <div className="list-row-top">
-                  <span className="list-row-title">Dataset</span>
-                  <span className="list-row-meta">Housing Affordability</span>
-                </div>
-                <span className="list-row-subline">
-                  Public HUD Fair Market Rent, Census/ACS, and CHAS context with source dates,
-                  grain, freshness, schema, validation notes, and limitations.
-                </span>
-              </a>
-              <a className="list-row" href="https://dashboard.alpharesearch.nyc/?harness=1&view=runs&runId=run-harness-housing-completed">
-                <div className="list-row-top">
-                  <span className="list-row-title">Question</span>
-                  <span className="list-row-meta">Where is pressure highest?</span>
-                </div>
-                <span className="list-row-subline">
-                  Verified remote run with report.html first, then result.json, work.md,
-                  source_inventory.csv, and transcript evidence for audit.
-                </span>
-              </a>
-            </div>
             {authError ? <p className="auth-status" data-state="error">{authError}</p> : null}
           </section>
 
           <section className="powering-block" id="powering">
             <h2 className="split-heading">
-              <span>Proof to inspect</span>
+              <span>Powering</span>
             </h2>
 
             <div className="powering-list">
@@ -5869,11 +5815,11 @@ function LandingPage() {
               <a className="list-row" href="/canonical-datasets/housing-affordability.html">
                 <div className="list-row-top">
                   <span className="list-row-title">Housing Affordability Demo</span>
-                  <span className="list-row-meta">flagship proof dataset</span>
+                  <span className="list-row-meta">canonical agent workflow</span>
                 </div>
                 <span className="list-row-subline">
-                  HUD Fair Market Rent, Census/ACS, and CHAS context with known-good questions,
-                  a verified remote run, durable artifacts, source inventory, and visible limitations.
+                  HUD Fair Market Rent and Census/ACS context with an inspectable agent run,
+                  known-good outputs, and demo artifacts.
                 </span>
               </a>
 
