@@ -849,19 +849,30 @@ export class ControlPlane {
   }
 
   private adminOverview() {
-    const runs = this.rows('SELECT * FROM runs ORDER BY updated_at DESC LIMIT 250').map((row) => {
+    const runs = this.rows('SELECT * FROM runs ORDER BY updated_at DESC LIMIT 50').map((row) => {
       const run = this.parseRunRow(row)
       return {
-        ...this.runRowToJson(row),
+        id: run.id,
+        datasetId: run.datasetId,
         ownerEmail: run.ownerEmail,
+        type: run.type,
+        status: run.status,
+        title: run.title ?? undefined,
+        description: run.description ?? undefined,
+        createdAt: run.createdAt,
+        updatedAt: run.updatedAt,
+        prompt: run.prompt ?? undefined,
+        outputPreview: run.outputPreview ?? undefined,
+        artifactCount: 0,
+        sessionCount: 0,
         workerId: run.workerId,
         workerName: run.workerName,
         billing: this.billingTotalsForRun(run.id),
-        latestEvents: this.runEventsForRun(run.id).slice(-8),
+        latestEvents: [],
       }
     })
 
-    const sessions = this.rows('SELECT * FROM assistant_sessions ORDER BY updated_at DESC LIMIT 250').map((row) => {
+    const sessions = this.rows('SELECT * FROM assistant_sessions ORDER BY updated_at DESC LIMIT 50').map((row) => {
       const session = this.parseAssistantSessionRow(row)
       const entryCount = Number(this.rows(
         'SELECT COUNT(*) AS count FROM assistant_session_entries WHERE session_id = ?',
@@ -897,7 +908,8 @@ export class ControlPlane {
        SELECT owner_email AS email FROM datasets
        UNION
        SELECT user_id AS email FROM billing_events
-       ORDER BY email ASC`,
+       ORDER BY email ASC
+       LIMIT 50`,
     ).map((row) => {
       const email = String(row.email)
       const runCount = Number(this.rows('SELECT COUNT(*) AS count FROM runs WHERE owner_email = ?', email)[0]?.count ?? 0)
@@ -955,14 +967,27 @@ export class ControlPlane {
        WHERE owner_type = 'admin'
           OR kind LIKE 'canonical-%'
           OR dataset_id IN (SELECT id FROM datasets WHERE owner_email = ? OR mode = 'canonical_public')
-       ORDER BY updated_at DESC LIMIT 250`,
+       ORDER BY updated_at DESC LIMIT 50`,
       PLATFORM_DATASET_OWNER_EMAIL,
     ).map((row) => {
       const execution = this.parseRemoteAgentExecutionRow(row)
       return {
-        ...this.remoteAgentExecutionToJson(row),
-        events: this.listRemoteAgentExecutionEvents(execution.id).slice(-12),
-        artifacts: this.listRemoteAgentExecutionArtifacts(execution.id),
+        id: execution.id,
+        ownerType: execution.ownerType,
+        datasetId: execution.datasetId,
+        kind: execution.kind,
+        status: execution.status,
+        prompt: execution.prompt,
+        outputPreview: execution.outputPreview,
+        workerId: execution.workerId,
+        workerName: execution.workerName,
+        modal: execution.modalJson ? JSON.parse(execution.modalJson) : null,
+        metadata: execution.metadataJson ? JSON.parse(execution.metadataJson) : null,
+        artifactCount: 0,
+        createdAt: execution.createdAt,
+        updatedAt: execution.updatedAt,
+        events: [],
+        artifacts: [],
       }
     })
 
