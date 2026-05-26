@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Housing Affordability canonical demo</title>
+  <title>Housing Affordability canonical proof dataset</title>
   <style>
     :root{--ink:#17211b;--muted:#607067;--line:#dbe3df;--wash:#eef6f2;--accent:#146b5d;--warn:#965b13}
     *{box-sizing:border-box}body{margin:0;font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fbfcfb}
@@ -17,22 +17,24 @@
   <header>
     <p><a href="index.html">Remote canonical datasets</a></p>
     <h1>Housing Affordability <code>housing-affordability</code></h1>
-    <p>Canonical agent demo dataset for showing how Alpha Research turns a coding-agent request into a remote run with durable artifacts.</p>
+    <p>Flagship canonical proof dataset for asking serious housing questions and inspecting the remote run, durable artifacts, source inventory, and limitations.</p>
   </header>
   <main>
     <section class="grid">
       <div class="card"><div class="k">Dataset status</div><div class="v">ready</div></div>
       <div class="card"><div class="k">Domain</div><div class="v">Housing</div></div>
       <div class="card"><div class="k">Coverage</div><div class="v">Four demo counties; FY2024 FMR plus CHAS/ACS 2016-2020</div></div>
-      <div class="card"><div class="k">Primary artifacts</div><div class="v">report.html, work.md, result.json</div></div>
+      <div class="card"><div class="k">Verified run artifacts</div><div class="v">report.html, result.json, work.md, source_inventory.csv</div></div>
     </section>
-    <section class="notice"><strong>Why this demo exists:</strong> a model-lab agent team should be able to watch one workflow and understand why dataset discovery, approval-gated remote execution, live status, and resumable artifacts belong inside a coding agent.</section>
+    <section class="notice"><strong>Proof loop:</strong> choose this dataset, ask where rental affordability pressure is highest, approve the remote run, watch live status, then inspect report.html first with result.json, work.md, source inventory, and transcript as audit evidence.</section>
     <h2>Dataset Briefing</h2>
-    <p>This public housing affordability demo combines HUD Fair Market Rent benchmarks with Census/ACS income and rent-burden context. It is shaped for ranking current demo-county pressure from FY2024 rent benchmarks and ACS/CHAS burden context.</p>
-    <h3>Source Lineage</h3>
-    <table><thead><tr><th>Source</th><th>Provider</th><th>Grain</th><th>Role</th></tr></thead><tbody><tr><td>Fair Market Rents</td><td>HUD</td><td>County-year / metro-year</td><td>Rent benchmark by bedroom size</td></tr><tr><td>ACS 5-year estimates</td><td>Census</td><td>County-year</td><td>Income, renter households, and rent-burden context</td></tr><tr><td>Geography crosswalk</td><td>Census</td><td>County / CBSA</td><td>Stable FIPS joins and display labels</td></tr></tbody></table>
+    <p>This public housing affordability proof dataset combines HUD Fair Market Rent benchmarks with Census/ACS income and HUD CHAS rent-burden context. It is shaped for ranking current demo-county pressure from FY2024 rent benchmarks and ACS/CHAS burden context while keeping source caveats attached to the answer.</p>
+    <h3>Source Inventory</h3>
+    <table><thead><tr><th>Source</th><th>URL</th><th>Date</th><th>License</th><th>Grain</th><th>Freshness</th><th>Role</th></tr></thead><tbody><tr><td>Fair Market Rents</td><td><a href="https://www.huduser.gov/portal/datasets/fmr.html">HUD USER FMR</a></td><td>FY2024</td><td>Public federal data</td><td>County-year / metro-year by bedroom count</td><td>Annual benchmark</td><td>Rent benchmark by bedroom size</td></tr><tr><td>ACS 5-year estimates</td><td><a href="https://www.census.gov/programs-surveys/acs">Census ACS</a></td><td>2016-2020</td><td>Public federal data</td><td>County-year</td><td>Lagged survey estimate</td><td>Income, renter households, and rent-burden context</td></tr><tr><td>CHAS burden context</td><td><a href="https://www.huduser.gov/portal/datasets/cp.html">HUD CHAS</a></td><td>2016-2020</td><td>Public federal data</td><td>County renter households</td><td>Lagged tabulation</td><td>Severe burden context and caveats</td></tr></tbody></table>
     <h2>Known-Good Questions</h2>
     <table><thead><tr><th>Question</th><th>Known-good output</th></tr></thead><tbody><tr><td>Where is rental affordability pressure highest in the demo counties?</td><td>Travis County, TX ranks first on cost-burden and severe-burden rates; Miami-Dade County, FL has the highest FY2024 two-bedroom FMR and a severe-share ratio above 57 percent.</td></tr><tr><td>Which county pairs high benchmark rent with high severe-burden share?</td><td>Miami-Dade County, FL combines the highest FY2024 two-bedroom FMR in the demo with a severe-share ratio above 57 percent.</td></tr><tr><td>Which counties should a housing policy analyst inspect first?</td><td>Travis County, Miami-Dade County, Hillsborough County, and Maricopa County are ranked in the structured result with burden and FMR fields preserved.</td></tr><tr><td>What limitation should accompany county comparisons?</td><td>Do not describe the live production result as a full 2018-2024 change estimate; the verified run combines FY2024 FMR with ACS/CHAS 2016-2020 renter burden context.</td></tr></tbody></table>
+    <h2>Verified Production Run</h2>
+    <table><thead><tr><th>Question</th><th>Primary answer</th><th>Durable artifacts</th><th>Trust checks</th></tr></thead><tbody><tr><td>Where is rental affordability pressure highest in the demo counties?</td><td>Travis County, TX is the top burden-pressure county; Miami-Dade County, FL has the highest FY2024 two-bedroom FMR and a high severe-burden share.</td><td><code>report.html</code>, <code>result.json</code>, <code>work.md</code>, <code>source_inventory.csv</code></td><td>Artifact bundle includes original prompt, source dates, method notes, limitations, and transcript evidence.</td></tr></tbody></table>
     <h2>Golden Workflow</h2>
     <ol><li>Codex receives the housing affordability request.</li><li>The agent lists datasets and selects <code>housing-affordability</code>.</li><li>The agent drafts a remote run plan and asks for approval.</li><li>The remote run executes while the dashboard shows live status.</li><li>Final artifacts appear and the agent summarizes from them.</li></ol>
   </main>

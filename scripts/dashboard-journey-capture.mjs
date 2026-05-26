@@ -65,6 +65,31 @@ async function visibleTranscript(page) {
   })
 }
 
+async function waitForVisibleText(page, text, timeout) {
+  await page.waitForFunction(
+    (needle) => {
+      const ignored = new Set(['SCRIPT', 'STYLE', 'NOSCRIPT'])
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+          const parent = node.parentElement
+          if (!parent || ignored.has(parent.tagName)) return NodeFilter.FILTER_REJECT
+          const style = window.getComputedStyle(parent)
+          if (style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0) {
+            return NodeFilter.FILTER_REJECT
+          }
+          return node.textContent?.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+        },
+      })
+      while (walker.nextNode()) {
+        if (walker.currentNode.textContent?.includes(needle)) return true
+      }
+      return false
+    },
+    text,
+    { timeout },
+  )
+}
+
 async function captureSnapshot({ page, outDir, screenshotsDir, snapshotsDir, events, startedAt, indexRef }, label) {
   const base = `${String(indexRef.value++).padStart(4, '0')}-${label}`
   const screenshotPath = join(screenshotsDir, `${base}.png`)
@@ -95,7 +120,7 @@ async function runStep(page, step, events, startedAt) {
     return
   }
   if (step.type === 'waitForText') {
-    await page.getByText(step.text, { exact: false }).first().waitFor({ timeout: step.timeoutMs ?? 15000 })
+    await waitForVisibleText(page, step.text, step.timeoutMs ?? 15000)
     return
   }
   if (step.type === 'clickText') {
