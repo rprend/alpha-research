@@ -229,6 +229,47 @@ def has_section(text: str, patterns: list[str]) -> bool:
     return any(re.search(pattern, text, re.IGNORECASE) for pattern in patterns)
 
 
+def is_canonical_dataset_job() -> bool:
+    canonical_run_types = {
+        "canonical-dataset-bootstrap",
+        "canonical-dataset-improvement",
+        "canonical-dataset-maintenance",
+        "canonical-dataset-audit",
+        "dataset-improvement",
+        "dataset-maintenance",
+        "dataset-disk-audit",
+    }
+    canonical_job_kinds = {
+        "dataset-bootstrap",
+        "dataset-improvement",
+        "dataset-maintenance",
+        "dataset-disk-audit",
+    }
+    return (
+        RUN_TYPE in canonical_run_types
+        or RUN_CONFIG.get("canonicalDatasetLifecycle") is True
+        or RUN_CONFIG.get("canonicalJobKind") in canonical_job_kinds
+        or RUN_CONFIG.get("jobKind") in canonical_job_kinds
+    )
+
+
+def canonical_required_artifacts() -> list[str]:
+    required_artifacts = RUN_CONFIG.get("requiredArtifacts")
+    if isinstance(required_artifacts, list) and required_artifacts:
+        return [str(item) for item in required_artifacts if str(item)]
+    if RUN_TYPE == "canonical-dataset-bootstrap":
+        return [
+            "dataset_briefing.md",
+            "improvement_plan.md",
+            "improvement_result.json",
+            "candidate_sources.csv",
+            "source_inventory.json",
+            "slack_briefing.md",
+            "docs_mirror_manifest.json",
+        ]
+    return ["work.md", "report.html", "dataset_briefing.md", "improvement_result.json"]
+
+
 def fenced(label: str, language: str, value: str) -> str:
     text = value.rstrip() or "No output."
     return f"{label}:\n\n```{language}\n{text}\n```"
@@ -310,33 +351,25 @@ def format_codex_session_entry(line: str):
 
 
 def build_remote_agent_prompt():
-    if RUN_TYPE == "canonical-dataset-bootstrap":
-        required_artifacts = RUN_CONFIG.get("requiredArtifacts")
-        if not isinstance(required_artifacts, list) or not required_artifacts:
-            required_artifacts = [
-                "dataset_briefing.md",
-                "improvement_plan.md",
-                "improvement_result.json",
-                "candidate_sources.csv",
-                "source_inventory.json",
-                "slack_briefing.md",
-                "docs_mirror_manifest.json",
-            ]
+    if is_canonical_dataset_job():
+        required_artifacts = canonical_required_artifacts()
+        request_label = "Dataset bootstrap request" if RUN_TYPE == "canonical-dataset-bootstrap" else "Dataset maintenance request"
         return "\n".join(
             [
-                "You are running one Alpha Research platform dataset bootstrap job.",
+                "You are running one Alpha Research platform canonical dataset job.",
                 f"Create or update the canonical dataset at {DATASET_MOUNT_PATH}.",
                 f"Use {WORKSPACE_DIR} for scratch work.",
                 f"Write run deliverables to {ARTIFACT_DIR}.",
                 f"Write the dataset manifest to {MANIFEST_PATH}.",
                 "This is employee-side dataset maintenance, not an end-user research run.",
-                "Do not write report.html unless it is explicitly requested; dataset_briefing.md is the primary human-readable deliverable.",
-                "work.md is optional bookkeeping for bootstrap jobs; do not let it displace the required dataset briefing and inventory artifacts.",
+                "Do not apply the generic research artifact bundle; canonical jobs are validated against their required artifact list.",
+                "dataset_briefing.md is the primary canonical dataset briefing deliverable.",
+                "If report.html is required, make it a concise operator-facing maintenance report, not a user-facing research memo.",
                 f"Before stopping, write these artifacts exactly: {', '.join(str(item) for item in required_artifacts)}.",
                 "Send Slack progress/final briefings if CANONICAL_DATASET_SLACK_WEBHOOK_URL is present.",
                 "Never write secrets into prompts, logs, artifacts, transcripts, or mounted dataset files.",
                 "",
-                "Dataset bootstrap request:",
+                f"{request_label}:",
                 PROMPT,
             ]
         )
@@ -551,16 +584,16 @@ def validate_research_artifact_bundle(deliverables: list[Path]) -> list[str]:
 
 
 def expected_primary_artifact_name():
-    if RUN_TYPE == "canonical-dataset-bootstrap":
+    if is_canonical_dataset_job():
         return "dataset_briefing.md"
     return "report.html"
 
 
 def build_codex_goal():
-    if RUN_TYPE == "canonical-dataset-bootstrap":
+    if is_canonical_dataset_job():
         return (
-            "/goal Complete the canonical dataset bootstrap. Iterate until dataset_briefing.md "
-            "and the required inventory artifacts are written."
+            "/goal Complete the canonical dataset job. Iterate until dataset_briefing.md "
+            "and all configured required artifacts are written."
         )
     return (
         "/goal Complete the research run. Iterate until report.html, result.json, "
@@ -854,24 +887,24 @@ def main():
     expected_primary = expected_primary_artifact_name()
     if not any(path.name == expected_primary for path in deliverables):
         raise RuntimeError(f"Remote agent run completed without required primary artifact: {expected_primary}")
-    if RUN_TYPE != "canonical-dataset-bootstrap":
+    if is_canonical_dataset_job():
+        required_artifacts = canonical_required_artifacts()
+        missing = [
+            str(name)
+            for name in required_artifacts
+            if name and not any(path.name == name for path in deliverables)
+        ]
+        if missing:
+            raise RuntimeError(
+                "Canonical dataset job completed without required artifact(s): "
+                + ", ".join(missing)
+            )
+    else:
         validation_errors = validate_research_artifact_bundle(deliverables)
         if validation_errors:
             raise RuntimeError(
                 "Research artifact quality validation failed: "
                 + "; ".join(validation_errors[:8])
-            )
-    required_artifacts = RUN_CONFIG.get("requiredArtifacts")
-    if RUN_TYPE == "canonical-dataset-bootstrap" and isinstance(required_artifacts, list):
-        missing = [
-            str(name)
-            for name in required_artifacts
-            if isinstance(name, str) and name and not any(path.name == name for path in deliverables)
-        ]
-        if missing:
-            raise RuntimeError(
-                "Canonical dataset bootstrap completed without required artifact(s): "
-                + ", ".join(missing)
             )
     summary = f"Remote agent run completed with {len(deliverables)} deliverable artifact(s)."
     if session_id:

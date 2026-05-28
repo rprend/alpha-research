@@ -152,10 +152,11 @@ assert(
 )
 
 assert(
-  remoteRunnerSource.includes('RUN_TYPE == "canonical-dataset-bootstrap"') &&
+  remoteRunnerSource.includes('def is_canonical_dataset_job()') &&
+    remoteRunnerSource.includes('"dataset-improvement"') &&
     remoteRunnerSource.includes('dataset_briefing.md') &&
-    remoteRunnerSource.includes('Do not write report.html unless it is explicitly requested'),
-  'Remote runner must treat canonical dataset bootstrap as a dataset-maintenance job, not a report.html research run.',
+    remoteRunnerSource.includes('Do not apply the generic research artifact bundle'),
+  'Remote runner must treat canonical dataset jobs as dataset-maintenance jobs, not report.html research runs.',
 )
 
 assert(
