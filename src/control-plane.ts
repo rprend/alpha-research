@@ -1492,7 +1492,86 @@ export class ControlPlane {
       storedContent === undefined ? null : JSON.stringify(storedContent),
       nowIso(),
     )
+    this.persistCanonicalRemoteAgentArtifactToDatasetProfile(executionId, artifactId, title, storedContent)
     return artifactId
+  }
+
+  private persistCanonicalRemoteAgentArtifactToDatasetProfile(
+    executionId: string,
+    artifactId: string,
+    title: string,
+    content: unknown,
+  ) {
+    const row = this.rows('SELECT * FROM remote_agent_executions WHERE id = ? LIMIT 1', executionId)[0]
+    if (!row) return
+    const execution = this.parseRemoteAgentExecutionRow(row)
+    if (!execution.datasetId) return
+    const metadata = execution.metadataJson ? JSON.parse(execution.metadataJson) : {}
+    const isCanonical = execution.kind === 'dataset-improvement'
+      || execution.kind === 'dataset-disk-audit'
+      || execution.kind === 'canonical-dataset-bootstrap'
+      || metadata?.canonicalDatasetLifecycle === true
+    if (!isCanonical) return
+    const normalizedTitle = title.trim().toLowerCase()
+    if (normalizedTitle !== 'dataset_briefing.md' && normalizedTitle !== 'dataset briefing.md' && normalizedTitle !== 'dataset briefing') return
+    const briefingMarkdown = isPlainRecord(content) && typeof content.text === 'string'
+      ? content.text
+      : typeof content === 'string'
+        ? content
+        : null
+    if (!briefingMarkdown?.trim()) return
+    const existing = this.getDatasetProfile(execution.datasetId)
+    const existingProfile = existing?.profileJson ? JSON.parse(existing.profileJson) : {}
+    const existingProfileObject = isPlainRecord(existingProfile) ? existingProfile : {}
+    const existingQuality = isPlainRecord(existingProfileObject.quality) ? existingProfileObject.quality : {}
+    const timestamp = nowIso()
+    const profile = {
+      ...existingProfileObject,
+      quality: {
+        ...existingQuality,
+        diskInventoryProven: true,
+        volumeInventoryRunId: executionId,
+        volumeInventoryUpdatedAt: timestamp,
+      },
+    }
+    this.sql.exec(
+      `INSERT INTO dataset_profiles (
+         dataset_id,
+         schema_json,
+         sample_rows_json,
+         notes,
+         briefing_markdown,
+         profile_json,
+         briefing_artifact_id,
+         profile_artifact_id,
+         described_run_id,
+         described_at,
+         updated_at
+       )
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+       ON CONFLICT(dataset_id) DO UPDATE SET
+         schema_json = excluded.schema_json,
+         sample_rows_json = excluded.sample_rows_json,
+         notes = excluded.notes,
+         briefing_markdown = excluded.briefing_markdown,
+         profile_json = excluded.profile_json,
+         briefing_artifact_id = excluded.briefing_artifact_id,
+         profile_artifact_id = excluded.profile_artifact_id,
+         described_run_id = excluded.described_run_id,
+         described_at = excluded.described_at,
+         updated_at = excluded.updated_at`,
+      execution.datasetId,
+      existing?.schemaJson ?? null,
+      existing?.sampleRowsJson ?? null,
+      existing?.notes ?? 'Literal data inventory generated from verified mounted-volume inventories.',
+      briefingMarkdown,
+      JSON.stringify(profile),
+      artifactId,
+      existing?.profileArtifactId ?? null,
+      executionId,
+      timestamp,
+      timestamp,
+    )
   }
 
   private getRunSessionCount(runId: string) {
