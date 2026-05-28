@@ -59,10 +59,17 @@ assert(
     workerSource.includes('ALPHA_RESEARCH_ADMIN_TOKEN') &&
     controlPlaneSource.includes('/admin/canonical-datasets/bootstrap') &&
     controlPlaneSource.includes('/subscriptions') &&
-    controlPlaneSource.includes("runType: 'canonical-dataset-bootstrap'") &&
+    controlPlaneSource.includes("jobKind: 'canonical-dataset-bootstrap'") &&
     controlPlaneSource.includes('userSessionRequired: false') &&
     controlPlaneSource.includes('PLATFORM_DATASET_OWNER_EMAIL'),
   'Admin canonical dataset bootstrap and subscription grant endpoints must be authenticated and routed through the control plane.',
+)
+
+assert(
+  controlPlaneSource.includes('canonicalWriteRequested') &&
+    controlPlaneSource.includes("resources.datasetAccess === 'write-version'") &&
+    controlPlaneSource.includes('datasetReadOnly: !canonicalWriteRequested'),
+  'Admin remote-agent canonical write executions must launch writable Modal dataset jobs.',
 )
 
 assert(

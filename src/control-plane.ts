@@ -2956,6 +2956,14 @@ export class ControlPlane {
       const kind = typeof body.kind === 'string' && body.kind.trim() ? body.kind.trim() : 'manual'
       const datasetId = typeof body.datasetId === 'string' && body.datasetId.trim() ? body.datasetId.trim() : null
       const metadata = isPlainRecord(body.metadata) ? body.metadata : {}
+      const resources = isPlainRecord(body.resources) ? body.resources : {}
+      const canonicalWriteRequested = datasetId !== null && (
+        resources.datasetAccess === 'write-version'
+        || metadata.canonicalDatasetLifecycle === true
+        || metadata.canonicalJobKind === 'dataset-improvement'
+        || metadata.jobKind === 'dataset-improvement'
+        || kind === 'dataset-improvement'
+      )
       let executionId: string | null = null
       try {
         const dataset = datasetId ? this.getDataset(datasetId) : null
@@ -2972,11 +2980,12 @@ export class ControlPlane {
             : datasetId
               ? `/data/datasets/${datasetId}/manifest.json`
               : '/data/manifest.json',
-          datasetReadOnly: true,
+          datasetReadOnly: !canonicalWriteRequested,
           metadata,
           extraContext: {
             ...(isPlainRecord(body.extraContext) ? body.extraContext : {}),
             config: metadata,
+            resources,
             artifacts: Array.isArray(body.artifactSpec)
               ? body.artifactSpec
               : Array.isArray(body.artifacts)
