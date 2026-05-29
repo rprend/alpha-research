@@ -112,7 +112,10 @@ for (const token of [
 assert(
   remoteRunnerSource.includes('canonical-dataset-bootstrap') &&
     remoteRunnerSource.includes('validate_research_artifact_bundle') &&
-    remoteRunnerSource.includes('Canonical dataset bootstrap completed without required artifact'),
+    (
+      remoteRunnerSource.includes('Canonical dataset bootstrap completed without required artifact') ||
+      remoteRunnerSource.includes('Canonical dataset job completed without required artifact')
+    ),
   'Research artifact bundle validation must preserve the canonical bootstrap exemption.',
 )
 

@@ -3635,9 +3635,15 @@ export class ControlPlane {
       const runEvents = attachedRuns.flatMap((attachedRun) => attachedRun.events)
       const errorEntries = entries.filter((entry) => {
         const content = String(entry.content ?? '')
-        return entry.role === 'system'
+        const metadata = entry.metadata && typeof entry.metadata === 'object'
+          ? entry.metadata as Record<string, unknown>
+          : null
+        const metadataError = typeof metadata?.error === 'string'
+          || typeof metadata?.errorMessage === 'string'
+          || metadata?.ok === false
+        return (entry.role === 'system' && (entry.kind.includes('error') || entry.kind.includes('stderr')))
           || entry.kind.includes('error')
-          || entry.kind.includes('tool_result')
+          || (entry.kind.includes('tool_result') && metadataError)
           || /(?:^|\b)(error|failed|409|holding its volume|busy|unauthorized)(?:\b|$)/iu.test(content)
       })
       const lastErrorEntry = errorEntries.at(-1) ?? null

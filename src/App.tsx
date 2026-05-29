@@ -2049,6 +2049,31 @@ async function fetchJson<T>(input: string) {
   return response.json() as Promise<T>
 }
 
+function delay(ms: number) {
+  return new Promise((resolve) => window.setTimeout(resolve, ms))
+}
+
+async function fetchJsonWithRetry<T>(
+  input: string,
+  options: { attempts?: number; retryDelayMs?: number } = {},
+) {
+  const attempts = Math.max(1, options.attempts ?? 3)
+  const retryDelayMs = options.retryDelayMs ?? 500
+  let lastError: unknown = null
+
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      return await fetchJson<T>(input)
+    } catch (error) {
+      lastError = error
+      if (attempt === attempts) break
+      await delay(retryDelayMs * attempt)
+    }
+  }
+
+  throw lastError instanceof Error ? lastError : new Error('Request failed.')
+}
+
 async function createBillingCheckoutSession() {
   const response = await fetch('/api/billing/checkout', {
     method: 'POST',
@@ -3609,8 +3634,9 @@ function useSessionDetail(sessionId: string | null) {
     }
     let cancelled = false
     setLoading(true)
-    void fetchJson<{ session: StoredAssistantSession; entries: StoredAssistantSessionEntry[] }>(
+    void fetchJsonWithRetry<{ session: StoredAssistantSession; entries: StoredAssistantSessionEntry[] }>(
       `/api/cli/sessions/${sessionId}`,
+      { attempts: 4, retryDelayMs: 400 },
     )
       .then((response) => {
         if (cancelled) return
@@ -3915,8 +3941,9 @@ function ResearchAssistantPage({
   const conversationStateRef = useRef(conversationState)
   const routeSessionIdRef = useRef(route.sessionId)
   const refreshSessionMessages = async (sessionId: string) => {
-    const response = await fetchJson<{ session: StoredAssistantSession; entries: StoredAssistantSessionEntry[] }>(
+    const response = await fetchJsonWithRetry<{ session: StoredAssistantSession; entries: StoredAssistantSessionEntry[] }>(
       `/api/cli/sessions/${sessionId}`,
+      { attempts: 4, retryDelayMs: 400 },
     )
     setMessages(sessionEntriesToThreadMessages(response.entries))
     updateConversationState({
