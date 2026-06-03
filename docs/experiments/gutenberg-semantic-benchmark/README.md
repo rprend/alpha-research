@@ -260,6 +260,18 @@ Uncertainty:
 
 ## Laptop Implementation Plan
 
+### Current Implementation Status
+
+This directory now contains the executable benchmark seed:
+
+- `schema.sql` for the benchmark stores.
+- `data/task_items.jsonl` with 10 pilot task items across the intended families.
+- `data/gold_labels.jsonl` with the first contrastive label set for `death_ironic_humor_001`.
+- `scripts/gutenberg-semantic-benchmark.mjs`, exposed as `pnpm run benchmark:gutenberg`, for chunking local texts, running BM25/vector/hybrid baselines, and writing metrics, candidates, traces, manifests, and error analysis.
+- `config/local.example.json` for machine-local mirror configuration. The real `config/local.json` is intentionally ignored.
+
+This is a runnable seed benchmark, not the completed 100-500 work pilot. The next level is to replace fixture labels with adjudicated labels mined from the local mirror and to run against 100-500 English works.
+
 ### Phase 0: Confirm Local Mirror
 
 Find the local Project Gutenberg mirror path and record:
@@ -353,14 +365,46 @@ Classify failures:
 
 Use this to decide whether Alpha Research needs better tools, better prompts, better indexes, or better benchmark labels.
 
-### Phase 6: Scale Up
+### Phase 6: Scale Levels
 
-After the pilot works, expand to:
+Use explicit scale gates rather than jumping directly to the full mirror.
 
-- 8-12 task families
-- 50-100 benchmark questions
-- 5,000-20,000 works
-- eventually the full local mirror
+#### Pilot: 100-500 Works
+
+Build task labels, chunking, BM25/vector search, and scoring.
+
+Required before leaving this level:
+
+- Index 100-500 English-language works from the local mirror.
+- Keep passage chunk IDs stable across rebuilds.
+- Complete labels for the pilot tasks, including positives, hard negatives, ambiguous examples, and rationales.
+- Run BM25, vector, and hybrid baselines for each task.
+- Save candidates, metrics, traces, and error analysis for every task.
+- Confirm the benchmark exposes failures beyond keyword overlap.
+
+#### Medium Scale: 5,000-20,000 Works
+
+Test whether retrieval and agents still behave well.
+
+Required before leaving this level:
+
+- Measure indexing time, search latency, memory use, and artifact size.
+- Check whether BM25/vector/hybrid candidate quality degrades as near misses increase.
+- Run agent and verifier baselines on repeated trials.
+- Audit metadata constraints, citation faithfulness, diversity, and hard-negative rejection at larger scale.
+- Update task design or labels when medium-scale retrieval makes a task too easy, too broad, or too noisy.
+
+#### Full Mirror: All Available Gutenberg Texts
+
+Use only after the task design, labeling, and metrics are solid.
+
+Required before using this level for claims:
+
+- Freeze the chunking version and schema version.
+- Record mirror coverage, file count, text extensions, approximate size, and metadata source.
+- Handle duplicate editions, translations, non-English works, catalog records, and malformed texts.
+- Run baselines and agents with reproducible configs.
+- Publish release artifacts with task items, labels, rubrics, baseline results, agent results, and error analysis.
 
 Keep the small pilot as a fast regression suite.
 
