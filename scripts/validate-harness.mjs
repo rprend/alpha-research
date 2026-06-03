@@ -184,6 +184,7 @@ for (const token of [
 const highRecallSynthesisSource = readFileSync(join(root, 'scripts/gutenberg-synthesize-high-recall-results.mjs'), 'utf8')
 for (const token of [
   'human_review_queue.md',
+  'human_review_queue.jsonl',
   'next_query_variants.json',
   'final_candidate_labels.jsonl',
   'high_recall_summary.json',

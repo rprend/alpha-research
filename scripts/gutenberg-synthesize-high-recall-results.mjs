@@ -66,6 +66,7 @@ const summary = {
 }
 
 writeJsonl(join(runDir, 'final_candidate_labels.jsonl'), finalRows)
+writeJsonl(join(runDir, 'human_review_queue.jsonl'), reviewRows)
 writeJson(join(runDir, 'next_query_variants.json'), Object.fromEntries(Object.entries(nextTerms).map(([taskId, terms]) => [taskId, [...terms].slice(0, 100)])))
 writeJson(join(runDir, 'high_recall_summary.json'), summary)
 
@@ -79,7 +80,7 @@ const markdown = [
   `Verifications: ${summary.verified_count}`,
   `Needs human review: ${summary.human_review_count}`,
   '',
-  ...reviewRows.slice(0, 100).flatMap((row, index) => [
+  ...reviewRows.flatMap((row, index) => [
     `## ${index + 1}. ${row.task_id} / ${row.final_label}`,
     '',
     `- Work: ${row.title ?? 'unknown'} by ${row.author ?? 'unknown'}`,

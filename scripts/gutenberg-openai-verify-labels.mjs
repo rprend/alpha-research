@@ -12,6 +12,7 @@ const candidatesPath = valueForArg('--candidates')
 if (!labelsPath || !candidatesPath) throw new Error('Usage: --labels=PATH --candidates=PATH [--output=PATH] [--limit=N] [--dry-run]')
 const outputPath = valueForArg('--output') ?? join(dirname(labelsPath), 'llm_verifications.jsonl')
 const limit = Number(valueForArg('--limit', '0'))
+const concurrency = Number(valueForArg('--concurrency', '4'))
 const dryRun = process.argv.includes('--dry-run')
 const verifyAll = process.argv.includes('--all')
 const model = process.env.OPENAI_VERIFY_MODEL ?? 'gpt-5.5'
@@ -79,8 +80,33 @@ async function callOpenAI(label) {
 }
 
 let written = 0
-for (const label of labels) {
-  const verification = dryRun ? dryVerify(label) : await callOpenAI(label)
+async function verifyWithRetry(label) {
+  const attempts = Number(valueForArg('--retries', '3'))
+  let lastError = null
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      return dryRun ? dryVerify(label) : await callOpenAI(label)
+    } catch (error) {
+      lastError = error
+      const delayMs = 1000 * attempt * attempt
+      console.warn(`Verify retry ${attempt}/${attempts} for ${label.candidate_id}: ${error.message}`)
+      if (attempt < attempts) await new Promise((resolve) => setTimeout(resolve, delayMs))
+    }
+  }
+  return {
+    verdict: 'needs_human_review',
+    corrected_label: label.label === 'miss' ? 'ambiguous' : label.label,
+    corrected_relevance: Math.max(1, label.relevance ?? 1),
+    quote_supported: Boolean(label.evidence_quote),
+    false_positive_risk: 'medium',
+    false_negative_risk: 'medium',
+    rationale: `Automatic review fallback: verifier failed after all retries: ${lastError?.message ?? 'unknown error'}`,
+    adjudication_priority: 'high',
+  }
+}
+
+async function verifyLabel(label) {
+  const verification = await verifyWithRetry(label)
   appendJsonl(outputPath, {
     run_id: basename(dirname(labelsPath)),
     model: dryRun ? 'dry-run-heuristic' : model,
@@ -90,7 +116,17 @@ for (const label of labels) {
     ...verification,
   })
   written += 1
+  if (written % 25 === 0 || written === labels.length) {
+    console.log(`Verified ${written}/${labels.length} labels.`)
+  }
 }
+
+const workers = Array.from({ length: Math.max(1, concurrency) }, async (_, workerIndex) => {
+  for (let index = workerIndex; index < labels.length; index += Math.max(1, concurrency)) {
+    await verifyLabel(labels[index])
+  }
+})
+await Promise.all(workers)
 
 writeJson(join(dirname(outputPath), 'llm_verification_summary.json'), {
   labels: labelsPath,
@@ -98,6 +134,7 @@ writeJson(join(dirname(outputPath), 'llm_verification_summary.json'), {
   model: dryRun ? 'dry-run-heuristic' : model,
   skipped_existing: existing.size,
   newly_verified: written,
+  concurrency,
 })
 
 console.log(`Wrote ${written} verifications to ${outputPath}`)

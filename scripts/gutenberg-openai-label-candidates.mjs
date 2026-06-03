@@ -15,6 +15,7 @@ const openaiBaseUrl = process.env.OPENAI_BASE_URL ?? 'https://api.openai.com/v1'
 const inputPath = valueForArg('--input') ?? join(highRecallDir, valueForArg('--run-id') ?? '', 'candidate_pool.jsonl')
 const outputPath = valueForArg('--output') ?? join(dirname(inputPath), 'llm_labels.jsonl')
 const limit = Number(valueForArg('--limit', '0'))
+const concurrency = Number(valueForArg('--concurrency', '4'))
 const dryRun = process.argv.includes('--dry-run')
 const tasks = new Map(readJsonl(taskPath).map((task) => [task.id, task]))
 const existing = new Set(readJsonl(outputPath).map((row) => row.candidate_id))
@@ -107,8 +108,34 @@ async function callOpenAI(candidate) {
 }
 
 let written = 0
-for (const candidate of candidates) {
-  const label = dryRun ? dryLabel(candidate) : await callOpenAI(candidate)
+async function labelWithRetry(candidate) {
+  const attempts = Number(valueForArg('--retries', '3'))
+  let lastError = null
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      return dryRun ? dryLabel(candidate) : await callOpenAI(candidate)
+    } catch (error) {
+      lastError = error
+      const delayMs = 1000 * attempt * attempt
+      console.warn(`Label retry ${attempt}/${attempts} for ${candidate.candidate_id}: ${error.message}`)
+      if (attempt < attempts) await new Promise((resolve) => setTimeout(resolve, delayMs))
+    }
+  }
+  return {
+    label: 'ambiguous',
+    relevance: 2,
+    evidence_quote: candidate.quote.slice(0, 220),
+    rationale: 'Automatic review fallback: the OpenAI labeling call failed after all retry attempts, so this candidate is retained for human review rather than dropped.',
+    near_miss_analysis: 'Could not be adjudicated automatically because the model/API response failed repeatedly.',
+    confidence: 0,
+    needs_more_context: true,
+    suggested_query_terms: candidate.query_variant_text.split(/\s+/).slice(0, 8),
+    verdict_notes: `label_error_after_retries: ${lastError?.message ?? 'unknown error'}`,
+  }
+}
+
+async function labelCandidate(candidate) {
+  const label = await labelWithRetry(candidate)
   appendJsonl(outputPath, {
     run_id: basename(dirname(inputPath)),
     model: dryRun ? 'dry-run-heuristic' : model,
@@ -120,7 +147,17 @@ for (const candidate of candidates) {
     ...label,
   })
   written += 1
+  if (written % 25 === 0 || written === candidates.length) {
+    console.log(`Labeled ${written}/${candidates.length} candidates.`)
+  }
 }
+
+const workers = Array.from({ length: Math.max(1, concurrency) }, async (_, workerIndex) => {
+  for (let index = workerIndex; index < candidates.length; index += Math.max(1, concurrency)) {
+    await labelCandidate(candidates[index])
+  }
+})
+await Promise.all(workers)
 
 writeJson(join(dirname(outputPath), 'llm_label_summary.json'), {
   input: inputPath,
@@ -128,6 +165,7 @@ writeJson(join(dirname(outputPath), 'llm_label_summary.json'), {
   model: dryRun ? 'dry-run-heuristic' : model,
   skipped_existing: existing.size,
   newly_labeled: written,
+  concurrency,
   remaining_after_run: Math.max(0, readJsonl(inputPath).length - existing.size - written),
 })
 

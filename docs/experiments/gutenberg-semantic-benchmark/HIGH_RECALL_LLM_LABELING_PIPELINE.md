@@ -236,6 +236,7 @@ This writes:
 - `final_candidate_labels.jsonl`
 - `high_recall_summary.json`
 - `human_review_queue.md`
+- `human_review_queue.jsonl`
 - `next_query_variants.json`
 
 Smoke test without API calls:

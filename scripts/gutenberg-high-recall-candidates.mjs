@@ -103,9 +103,15 @@ function pushTop(bucket, candidate, limit) {
 }
 
 const byTaskProfile = new Map()
+const profilesByTerm = new Map()
 for (const task of tasks) {
   for (const variant of buildQueryVariants(task)) {
-    byTaskProfile.set(variant.id, { task, variant, rows: [] })
+    const profile = { task, variant, rows: [] }
+    byTaskProfile.set(variant.id, profile)
+    for (const term of new Set(variant.terms)) {
+      if (!profilesByTerm.has(term)) profilesByTerm.set(term, [])
+      profilesByTerm.get(term).push(profile)
+    }
   }
 }
 
@@ -122,7 +128,11 @@ for (const work of inventory) {
     const tokenSet = new Set(tokens)
     chunksScored += 1
     const passageId = `${work.work_id}:chunk-${String(index).padStart(5, '0')}`
-    for (const profile of byTaskProfile.values()) {
+    const matchingProfiles = new Set()
+    for (const token of tokenSet) {
+      for (const profile of profilesByTerm.get(token) ?? []) matchingProfiles.add(profile)
+    }
+    for (const profile of matchingProfiles) {
       const score = scoreChunk(tokens, tokenSet, profile.variant, work, profile.task)
       pushTop(
         profile.rows,
@@ -145,6 +155,9 @@ for (const work of inventory) {
         topKPerProfile,
       )
     }
+  }
+  if (worksRead % 250 === 0) {
+    console.log(`Scored ${worksRead}/${inventory.length} works; ${chunksScored} chunks so far.`)
   }
 }
 
