@@ -11,6 +11,7 @@
     "test:infra": "node scripts/validate-infrastructure-contract.mjs",
     "benchmark:gutenberg": "node scripts/gutenberg-semantic-benchmark.mjs",
     "benchmark:gutenberg:acquire": "node scripts/gutenberg-acquire-corpus.mjs --target=5000",
+    "benchmark:gutenberg:false-negatives": "node scripts/gutenberg-false-negative-audit.mjs",
     "benchmark:gutenberg:medium": "node scripts/gutenberg-real-benchmark.mjs --scale=medium",
     "smoke:infra:live": "node scripts/live-infrastructure-smoke.mjs",
     "modal:deploy": "modal deploy modal_workers/agent_worker.py",
