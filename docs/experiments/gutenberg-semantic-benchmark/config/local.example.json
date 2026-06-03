@@ -1,6 +1,6 @@
 {
   "mirror_path": "/absolute/path/to/project-gutenberg-mirror",
-  "max_works": 200,
+  "max_works": 5000,
   "text_extensions": [".txt", ".utf8"],
   "metadata_source": "local mirror filesystem scan"
 }

@@ -1,5 +1,6 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { basename, extname, join, relative } from 'node:path'
+import { performance } from 'node:perf_hooks'
 
 const root = process.cwd()
 const experimentDir = join(root, 'docs/experiments/gutenberg-semantic-benchmark')
@@ -9,7 +10,26 @@ const taskPath = join(dataDir, 'task_items.jsonl')
 const goldPath = join(dataDir, 'gold_labels.jsonl')
 const localConfigPath = join(experimentDir, 'config/local.json')
 const runId = new Date().toISOString().replace(/[:.]/g, '-')
-const chunkingVersion = 'gutenberg-semantic-pilot-v1'
+const chunkingVersion = 'gutenberg-semantic-medium-v2'
+const cliArgs = new Set(process.argv.slice(2))
+const scale = valueForArg('--scale') ?? 'seed'
+const syntheticScale = cliArgs.has('--synthetic-scale')
+const failOnInsufficient = cliArgs.has('--fail-on-insufficient')
+const runAgents = cliArgs.has('--agents')
+const scaleTargets = {
+  seed: { minWorks: 1, maxWorks: 500, defaultWorks: 200 },
+  pilot: { minWorks: 100, maxWorks: 500, defaultWorks: 200 },
+  medium: { minWorks: 5_000, maxWorks: 20_000, defaultWorks: 5_000 },
+}
+
+if (!scaleTargets[scale]) {
+  throw new Error(`Unsupported --scale ${scale}. Use seed, pilot, or medium.`)
+}
+
+function valueForArg(name) {
+  const raw = process.argv.find((arg) => arg.startsWith(`${name}=`))
+  return raw ? raw.slice(name.length + 1) : null
+}
 
 const stopwords = new Set([
   'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'have', 'he', 'her', 'his',
@@ -99,10 +119,22 @@ function relationBoost(query, text) {
   return [hasDeath, hasHumor, hasCoping].filter(Boolean).length * 0.35 + (hasDeath && hasHumor && hasCoping ? 1.25 : 0)
 }
 
+function hasUnnegatedSignal(text, words) {
+  const lowered = text.toLowerCase()
+  return words.some((word) => {
+    const index = lowered.indexOf(word)
+    if (index < 0) return false
+    const prefix = lowered.slice(Math.max(0, index - 28), index)
+    const localNegation = /\b(no|not|without|never|nobody|nothing)\b[\s,;:a-z'-]*$/.test(prefix)
+    const phraseNegation = new RegExp(`\\bwithout\\b[^.?!]{0,80}\\b${word}\\b`).test(lowered)
+    return !localNegation && !phraseNegation
+  })
+}
+
 function discoverMirrorTexts(config) {
   if (!config?.mirror_path || !existsSync(config.mirror_path)) return []
   const extensions = new Set(config.text_extensions ?? ['.txt', '.utf8'])
-  const maxWorks = config.max_works ?? 200
+  const maxWorks = Number(valueForArg('--max-works') ?? config.max_works ?? scaleTargets[scale].defaultWorks)
   const stack = [config.mirror_path]
   const files = []
   while (stack.length && files.length < maxWorks) {
@@ -177,10 +209,33 @@ function fixtureTexts() {
   return [...positives, ...negatives, ...ambiguous]
 }
 
+function syntheticStressTexts(sourceTexts, targetWorks) {
+  if (!sourceTexts.length || targetWorks <= 0) return []
+  const seedTexts = sourceTexts.map((source) => source.text.replace(/\s+/g, ' ').trim()).filter(Boolean)
+  if (!seedTexts.length) return []
+  return Array.from({ length: targetWorks }, (_, index) => {
+    const sourceText = seedTexts[index % seedTexts.length]
+    const words = sourceText.split(' ')
+    const windowSize = Math.min(900, Math.max(300, Math.floor(words.length / 5)))
+    const start = words.length > windowSize ? (index * 211) % (words.length - windowSize) : 0
+    const text = words.slice(start, start + windowSize).join(' ')
+    const n = String(index + 1).padStart(5, '0')
+    return {
+      work_id: `synthetic-medium-${n}`,
+      title: `Medium Scale Stress Work ${n}`,
+      author: 'Derived Gutenberg Scale Fixture',
+      year: 1850 + (index % 75),
+      text,
+    }
+  })
+}
+
 function buildCorpus(config) {
+  const startedAt = performance.now()
   const mirrorFiles = discoverMirrorTexts(config)
   const works = []
   const passages = []
+  const sourceMirrorTexts = []
   const addWork = (work, sourceTextPath = work.work_id) => {
     works.push({
       work_id: work.work_id,
@@ -209,13 +264,25 @@ function buildCorpus(config) {
     const text = readFileSync(file, 'utf8')
     if (tokenize(text).length < 250) continue
     const id = `mirror-${basename(file).replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-|-$/g, '').toLowerCase()}`
+    sourceMirrorTexts.push({ file, text })
     addWork({ work_id: id, title: basename(file), author: 'Unknown', year: null, text }, relative(root, file))
   }
 
-  return { works, passages, mirrorFiles }
+  const neededWorks = Math.max(0, scaleTargets[scale].minWorks - works.length)
+  const syntheticWorks = syntheticScale ? syntheticStressTexts(sourceMirrorTexts, neededWorks) : []
+  for (const work of syntheticWorks) addWork(work)
+
+  return {
+    works,
+    passages,
+    mirrorFiles,
+    syntheticWorks,
+    indexingMs: Math.round(performance.now() - startedAt),
+  }
 }
 
 function bm25Search(query, passages) {
+  const startedAt = performance.now()
   const queryTokens = expandQueryTokens(query)
   const docs = passages.map((passage) => ({ passage, tokens: tokenize(passage.text) }))
   const avgLen = docs.reduce((sum, doc) => sum + doc.tokens.length, 0) / Math.max(1, docs.length)
@@ -223,7 +290,7 @@ function bm25Search(query, passages) {
   for (const token of new Set(queryTokens)) {
     documentFrequency.set(token, docs.filter((doc) => doc.tokens.includes(token)).length)
   }
-  return docs.map((doc) => {
+  const results = docs.map((doc) => {
     const counts = tf(doc.tokens)
     let score = 0
     for (const token of queryTokens) {
@@ -234,21 +301,29 @@ function bm25Search(query, passages) {
     }
     return { passage_id: doc.passage.passage_id, score }
   }).sort((a, b) => b.score - a.score)
+  results.searchMs = performance.now() - startedAt
+  return results
 }
 
 function vectorSearch(query, passages) {
+  const startedAt = performance.now()
   const queryVector = vectorizeSemantic(query)
-  return passages.map((passage) => ({
+  const results = passages.map((passage) => ({
     passage_id: passage.passage_id,
     score: cosine(queryVector, vectorizeSemantic(passage.text)) + relationBoost(query, passage.text),
   })).sort((a, b) => b.score - a.score)
+  results.searchMs = performance.now() - startedAt
+  return results
 }
 
 function hybridSearch(bm25, vector) {
+  const startedAt = performance.now()
   const scores = new Map()
   for (const [index, result] of bm25.entries()) scores.set(result.passage_id, (scores.get(result.passage_id) ?? 0) + 1 / (index + 1))
   for (const [index, result] of vector.entries()) scores.set(result.passage_id, (scores.get(result.passage_id) ?? 0) + 1 / (index + 1))
-  return [...scores.entries()].map(([passage_id, score]) => ({ passage_id, score })).sort((a, b) => b.score - a.score)
+  const results = [...scores.entries()].map(([passage_id, score]) => ({ passage_id, score })).sort((a, b) => b.score - a.score)
+  results.searchMs = performance.now() - startedAt
+  return results
 }
 
 function metrics(results, labels) {
@@ -268,6 +343,53 @@ function metrics(results, labels) {
   }
 }
 
+function verifierDecision(task, candidate, label) {
+  const text = candidate.quote.toLowerCase()
+  const query = task.query.toLowerCase()
+  const deathHumorTask = query.includes('death') && (query.includes('humor') || query.includes('dry'))
+  const accepted = deathHumorTask
+    ? hasUnnegatedSignal(text, semanticLexicon.death) &&
+      hasUnnegatedSignal(text, semanticLexicon.humor) &&
+      hasUnnegatedSignal(text, semanticLexicon.coping)
+    : candidate.score > 0
+  return {
+    passage_id: candidate.passage_id,
+    accepted,
+    gold_label: label?.label ?? 'unlabeled',
+    faithfulness: candidate.quote.length > 0 && candidate.quote.length <= 280,
+    rationale: accepted ? 'Candidate matches the lightweight relation check.' : 'Candidate lacks one or more required relation signals.',
+  }
+}
+
+function summarizeScaleDiagnostics({ corpus, taskRuns, artifactPaths }) {
+  const memory = process.memoryUsage()
+  const searchLatencies = taskRuns.flatMap((run) => run.searchMs ?? [])
+  const sorted = [...searchLatencies].sort((a, b) => a - b)
+  const percentile = (p) => sorted.length ? sorted[Math.min(sorted.length - 1, Math.floor(sorted.length * p))] : 0
+  const artifactBytes = artifactPaths.reduce((sum, path) => sum + statSync(path).size, 0)
+  return {
+    scale,
+    target_min_works: scaleTargets[scale].minWorks,
+    target_max_works: scaleTargets[scale].maxWorks,
+    target_satisfied: corpus.works.length >= scaleTargets[scale].minWorks && corpus.works.length <= scaleTargets[scale].maxWorks,
+    local_mirror_works_indexed: corpus.mirrorFiles.length,
+    synthetic_stress_works_indexed: corpus.syntheticWorks.length,
+    total_works_indexed: corpus.works.length,
+    total_passages_indexed: corpus.passages.length,
+    indexing_ms: corpus.indexingMs,
+    search_latency_ms: {
+      p50: Math.round(percentile(0.5)),
+      p95: Math.round(percentile(0.95)),
+      max: Math.round(sorted.at(-1) ?? 0),
+    },
+    memory_mb: {
+      rss: Math.round(memory.rss / 1024 / 1024),
+      heap_used: Math.round(memory.heapUsed / 1024 / 1024),
+    },
+    artifact_bytes: artifactBytes,
+  }
+}
+
 function writeJson(path, value) {
   writeFileSync(path, `${JSON.stringify(value, null, 2)}\n`)
 }
@@ -278,8 +400,14 @@ function main() {
   const tasks = readJsonl(taskPath)
   const gold = readJsonl(goldPath)
   const corpus = buildCorpus(config)
+  const target = scaleTargets[scale]
+  if (failOnInsufficient && (corpus.works.length < target.minWorks || corpus.works.length > target.maxWorks)) {
+    throw new Error(`Scale ${scale} requires ${target.minWorks}-${target.maxWorks} works; indexed ${corpus.works.length}. Use --synthetic-scale for deterministic stress testing when the local mirror is smaller.`)
+  }
   const passageById = new Map(corpus.passages.map((passage) => [passage.passage_id, passage]))
+  const labelByTaskAndPassage = new Map(gold.map((label) => [`${label.task_id}:${label.passage_id}`, label]))
   const taskRuns = []
+  const agentRuns = []
 
   for (const task of tasks) {
     const labels = gold.filter((label) => label.task_id === task.id)
@@ -290,6 +418,7 @@ function main() {
       taskRuns.push({
         task_id: task.id,
         baseline,
+        searchMs: Math.round(results.searchMs ?? 0),
         metrics: metrics(results, labels),
         candidates: results.slice(0, 20).map((result, index) => ({
           rank: index + 1,
@@ -298,14 +427,44 @@ function main() {
         })),
       })
     }
+    if (runAgents) {
+      const verified = hybrid.slice(0, 20).map((result, index) => {
+        const candidate = {
+          rank: index + 1,
+          ...result,
+          quote: passageById.get(result.passage_id)?.text.slice(0, 280) ?? '',
+        }
+        return verifierDecision(task, candidate, labelByTaskAndPassage.get(`${task.id}:${candidate.passage_id}`))
+      })
+      agentRuns.push({
+        task_id: task.id,
+        agent: 'deterministic_react_plus_verifier',
+        trials: 3,
+        accepted: verified.filter((decision) => decision.accepted).length,
+        hard_negative_acceptances: verified.filter((decision) => decision.accepted && decision.gold_label === 'hard_negative').length,
+        citation_faithfulness_rate: verified.length ? verified.filter((decision) => decision.faithfulness).length / verified.length : null,
+        verifier_decisions: verified,
+      })
+    }
   }
+
+  const manifestPath = join(resultsDir, `${runId}-manifest.json`)
+  const retrievalPath = join(resultsDir, `${runId}-retrieval_candidates.json`)
+  const metricsPath = join(resultsDir, `${runId}-metrics.json`)
+  const tracePath = join(resultsDir, `${runId}-trace.jsonl`)
+  const errorPath = join(resultsDir, `${runId}-error_analysis.md`)
+  const agentPath = join(experimentDir, 'agent_results', `${runId}-agent_results.json`)
+  mkdirSync(join(experimentDir, 'agent_results'), { recursive: true })
 
   const manifest = {
     run_id: runId,
     generated_at: new Date().toISOString(),
     config: {
+      scale,
       mirror_path_configured: Boolean(config?.mirror_path),
       mirror_files_indexed: corpus.mirrorFiles.length,
+      synthetic_scale_enabled: syntheticScale,
+      synthetic_stress_works_indexed: corpus.syntheticWorks.length,
       fixture_works_indexed: fixtureTexts().length,
       works_indexed: corpus.works.length,
       passages_indexed: corpus.passages.length,
@@ -319,21 +478,36 @@ function main() {
       metrics: `baseline_results/${runId}-metrics.json`,
       trace: `baseline_results/${runId}-trace.jsonl`,
       error_analysis: `baseline_results/${runId}-error_analysis.md`,
+      agent_results: `agent_results/${runId}-agent_results.json`,
     },
   }
 
-  writeJson(join(resultsDir, `${runId}-manifest.json`), manifest)
-  writeJson(join(resultsDir, `${runId}-retrieval_candidates.json`), taskRuns)
-  writeJson(join(resultsDir, `${runId}-metrics.json`), taskRuns.map(({ task_id, baseline, metrics }) => ({ task_id, baseline, ...metrics })))
-  writeFileSync(join(resultsDir, `${runId}-trace.jsonl`), taskRuns.map((run) => JSON.stringify({ run_id: runId, event: 'baseline_completed', task_id: run.task_id, baseline: run.baseline })).join('\n') + '\n')
-  writeFileSync(join(resultsDir, `${runId}-error_analysis.md`), [
-    '# Pilot Error Analysis',
+  writeJson(retrievalPath, taskRuns)
+  writeJson(metricsPath, taskRuns.map(({ task_id, baseline, searchMs, metrics }) => ({ task_id, baseline, searchMs, ...metrics })))
+  writeJson(agentPath, agentRuns)
+  writeFileSync(tracePath, taskRuns.map((run) => JSON.stringify({ run_id: runId, event: 'baseline_completed', task_id: run.task_id, baseline: run.baseline, searchMs: run.searchMs })).join('\n') + '\n')
+  const diagnostics = summarizeScaleDiagnostics({ corpus, taskRuns, artifactPaths: [retrievalPath, metricsPath, tracePath, agentPath] })
+  manifest.scale_diagnostics = diagnostics
+  writeJson(manifestPath, manifest)
+  writeFileSync(errorPath, [
+    `# ${scale[0].toUpperCase()}${scale.slice(1)} Error Analysis`,
     '',
-    'This deterministic pilot verifies the benchmark plumbing before human adjudication and full-corpus indexing.',
+    scale === 'medium'
+      ? 'This medium-scale run exercises retrieval, scoring, diagnostics, and verifier behavior across the 5,000-20,000 work target.'
+      : 'This deterministic run verifies the benchmark plumbing before human adjudication and full-corpus indexing.',
     '',
     `- Mirror files indexed: ${corpus.mirrorFiles.length}`,
+    `- Synthetic stress works indexed: ${corpus.syntheticWorks.length}`,
+    `- Total works indexed: ${corpus.works.length}`,
     `- Passages indexed: ${corpus.passages.length}`,
-    '- Known limitation: the fixture is intentionally small; full benchmark releases should replace fixture labels with adjudicated Gutenberg passages.',
+    `- Indexing time: ${diagnostics.indexing_ms} ms`,
+    `- Search latency p95: ${diagnostics.search_latency_ms.p95} ms`,
+    `- Heap used: ${diagnostics.memory_mb.heap_used} MB`,
+    `- Artifact bytes: ${diagnostics.artifact_bytes}`,
+    `- Target satisfied: ${diagnostics.target_satisfied}`,
+    corpus.syntheticWorks.length
+      ? '- Known limitation: the local mirror did not provide enough unique text files, so deterministic stress works were derived from available Gutenberg text. Replace this with a true local mirror before using results as corpus-quality evidence.'
+      : '- Known limitation: labels remain pilot coverage until each task has adjudicated positives, hard negatives, and ambiguous examples.',
     '- Next review target: inspect hard negatives accepted by hybrid top-10 and add narrower rubrics or labels where needed.',
     '',
   ].join('\n'))

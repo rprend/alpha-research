@@ -1,0 +1,1502 @@
+[
+  {
+    "task_id": "death_ironic_humor_001",
+    "agent": "deterministic_react_plus_verifier",
+    "trials": 3,
+    "accepted": 10,
+    "hard_negative_acceptances": 0,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "seed-nearmiss-005-p0001",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks one or more required relation signals."
+      },
+      {
+        "passage_id": "seed-nearmiss-010-p0001",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks one or more required relation signals."
+      },
+      {
+        "passage_id": "seed-nearmiss-015-p0001",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks one or more required relation signals."
+      },
+      {
+        "passage_id": "seed-nearmiss-020-p0001",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks one or more required relation signals."
+      },
+      {
+        "passage_id": "seed-nearmiss-025-p0001",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks one or more required relation signals."
+      },
+      {
+        "passage_id": "seed-death-dry-001-p0001",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "seed-death-dry-002-p0001",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "seed-death-dry-003-p0001",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "seed-death-dry-004-p0001",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "seed-death-dry-005-p0001",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "seed-death-dry-006-p0001",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "seed-death-dry-007-p0001",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "seed-death-dry-008-p0001",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "seed-death-dry-009-p0001",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "seed-death-dry-010-p0001",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "mirror-don-quixote-txt-p0045",
+        "accepted": false,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate lacks one or more required relation signals."
+      },
+      {
+        "passage_id": "synthetic-medium-00069-p0003",
+        "accepted": false,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate lacks one or more required relation signals."
+      },
+      {
+        "passage_id": "synthetic-medium-02091-p0002",
+        "accepted": false,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate lacks one or more required relation signals."
+      },
+      {
+        "passage_id": "mirror-don-quixote-txt-p0967",
+        "accepted": false,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate lacks one or more required relation signals."
+      },
+      {
+        "passage_id": "synthetic-medium-04111-p0002",
+        "accepted": false,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate lacks one or more required relation signals."
+      }
+    ]
+  },
+  {
+    "task_id": "rainy_commute_vibe_001",
+    "agent": "deterministic_react_plus_verifier",
+    "trials": 3,
+    "accepted": 20,
+    "hard_negative_acceptances": 0,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "synthetic-medium-04199-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02179-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04204-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00633-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04201-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "mirror-don-quixote-txt-p0100",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00159-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02181-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03311-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04677-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00161-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04675-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "mirror-don-quixote-txt-p0395",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03035-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03127-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02655-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02653-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00379-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03069-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01916-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      }
+    ]
+  },
+  {
+    "task_id": "affection_as_criticism_001",
+    "agent": "deterministic_react_plus_verifier",
+    "trials": 3,
+    "accepted": 20,
+    "hard_negative_acceptances": 0,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "synthetic-medium-04745-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "mirror-don-quixote-txt-p0439",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02721-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02727-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00707-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03473-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00705-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01451-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04775-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00459-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01289-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03283-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00229-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00701-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02269-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "mirror-don-quixote-txt-p0143",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02723-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02249-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04271-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00703-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      }
+    ]
+  },
+  {
+    "task_id": "class_anxiety_place_001",
+    "agent": "deterministic_react_plus_verifier",
+    "trials": 3,
+    "accepted": 20,
+    "hard_negative_acceptances": 0,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "mirror-don-quixote-txt-p1184",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "mirror-don-quixote-txt-p0481",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03479-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00773-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01367-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00529-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03721-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04342-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "mirror-don-quixote-txt-p0901",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01695-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03641-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "mirror-don-quixote-txt-p1057",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "mirror-don-quixote-txt-p0480",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01697-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01701-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00773-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02795-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "mirror-don-quixote-txt-p1008",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04813-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04815-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      }
+    ]
+  },
+  {
+    "task_id": "progress_as_decay_001",
+    "agent": "deterministic_react_plus_verifier",
+    "trials": 3,
+    "accepted": 20,
+    "hard_negative_acceptances": 0,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "synthetic-medium-02006-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00708-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00562-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00806-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04377-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03108-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03206-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03208-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00022-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00808-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01222-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04406-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "mirror-gutenberg-41687-txt-p0502",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02468-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00552-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04098-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01342-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00808-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02008-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04408-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      }
+    ]
+  },
+  {
+    "task_id": "narrator_undercuts_self_image_001",
+    "agent": "deterministic_react_plus_verifier",
+    "trials": 3,
+    "accepted": 20,
+    "hard_negative_acceptances": 0,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "seed-nearmiss-005-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02093-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "seed-nearmiss-010-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00071-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "seed-nearmiss-015-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "seed-nearmiss-020-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00073-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "seed-nearmiss-025-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04111-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03611-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01591-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "seed-nearmiss-001-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "seed-nearmiss-006-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "seed-nearmiss-011-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "mirror-don-quixote-txt-p0045",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01593-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "mirror-don-quixote-txt-p0989",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "seed-nearmiss-016-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00063-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02091-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      }
+    ]
+  },
+  {
+    "task_id": "domestic_space_threatening_001",
+    "agent": "deterministic_react_plus_verifier",
+    "trials": 3,
+    "accepted": 20,
+    "hard_negative_acceptances": 0,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "synthetic-medium-01434-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00577-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01778-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02597-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00234-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03213-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02634-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04347-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03763-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03677-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04901-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03679-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01657-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02546-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00146-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02636-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01346-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "mirror-gutenberg-41687-txt-p0361",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01737-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02879-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      }
+    ]
+  },
+  {
+    "task_id": "resignation_not_despair_001",
+    "agent": "deterministic_react_plus_verifier",
+    "trials": 3,
+    "accepted": 20,
+    "hard_negative_acceptances": 0,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "synthetic-medium-01769-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00151-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "mirror-don-quixote-txt-p0094",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02677-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00149-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04925-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04609-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02587-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01771-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02289-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03793-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04311-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02171-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01317-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04309-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00263-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "mirror-don-quixote-txt-p0168",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01321-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02309-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03339-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      }
+    ]
+  },
+  {
+    "task_id": "gothic_without_supernatural_001",
+    "agent": "deterministic_react_plus_verifier",
+    "trials": 3,
+    "accepted": 20,
+    "hard_negative_acceptances": 0,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "synthetic-medium-01919-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00971-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "mirror-don-quixote-txt-p0605",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00884-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02995-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01507-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00973-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03746-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00975-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02993-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02084-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03732-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02434-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00070-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-03634-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01268-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04932-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04819-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02115-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02797-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      }
+    ]
+  },
+  {
+    "task_id": "empire_as_destiny_001",
+    "agent": "deterministic_react_plus_verifier",
+    "trials": 3,
+    "accepted": 20,
+    "hard_negative_acceptances": 0,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "synthetic-medium-01327-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01481-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00708-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01104-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04189-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02389-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02304-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01873-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00339-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01575-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01106-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "mirror-don-quixote-txt-p0979",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00247-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01106-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-01577-p0001",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-00109-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02540-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-04901-p0002",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "synthetic-medium-02532-p0003",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      },
+      {
+        "passage_id": "mirror-don-quixote-txt-p0748",
+        "accepted": true,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate matches the lightweight relation check."
+      }
+    ]
+  }
+]

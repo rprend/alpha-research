@@ -22,6 +22,7 @@ const requiredPackageScripts = [
   'test:harness',
   'test:infra',
   'benchmark:gutenberg',
+  'benchmark:gutenberg:medium',
   'smoke:infra:live',
   'qa:dashboard',
   'journey:dashboard:capture',
@@ -86,6 +87,20 @@ assert(
 assert(existsSync(join(root, 'scripts/validate-infrastructure-contract.mjs')), 'Missing infrastructure contract validation script.')
 assert(existsSync(join(root, 'scripts/live-infrastructure-smoke.mjs')), 'Missing live infrastructure smoke script.')
 assert(existsSync(join(root, 'scripts/gutenberg-semantic-benchmark.mjs')), 'Missing Gutenberg semantic benchmark runner.')
+const gutenbergRunnerSource = readFileSync(join(root, 'scripts/gutenberg-semantic-benchmark.mjs'), 'utf8')
+for (const token of [
+  'scaleTargets',
+  'medium',
+  'minWorks: 5_000',
+  'maxWorks: 20_000',
+  'syntheticStressTexts',
+  'summarizeScaleDiagnostics',
+  'deterministic_react_plus_verifier',
+  'citation_faithfulness_rate',
+  'hard_negative_acceptances',
+]) {
+  assert(gutenbergRunnerSource.includes(token), `Gutenberg medium-scale runner is missing: ${token}`)
+}
 
 for (const file of [
   'docs/experiments/gutenberg-semantic-benchmark/README.md',

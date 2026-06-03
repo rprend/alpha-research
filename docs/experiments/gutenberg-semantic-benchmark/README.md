@@ -262,15 +262,16 @@ Uncertainty:
 
 ### Current Implementation Status
 
-This directory now contains the executable benchmark seed:
+This directory now contains the executable benchmark runner and a medium-scale stress run:
 
 - `schema.sql` for the benchmark stores.
 - `data/task_items.jsonl` with 10 pilot task items across the intended families.
 - `data/gold_labels.jsonl` with the first contrastive label set for `death_ironic_humor_001`.
-- `scripts/gutenberg-semantic-benchmark.mjs`, exposed as `pnpm run benchmark:gutenberg`, for chunking local texts, running BM25/vector/hybrid baselines, and writing metrics, candidates, traces, manifests, and error analysis.
+- `scripts/gutenberg-semantic-benchmark.mjs`, exposed as `pnpm run benchmark:gutenberg` and `pnpm run benchmark:gutenberg:medium`, for chunking local texts, running BM25/vector/hybrid baselines, running a deterministic verifier baseline, and writing metrics, candidates, traces, manifests, scale diagnostics, agent results, and error analysis.
 - `config/local.example.json` for machine-local mirror configuration. The real `config/local.json` is intentionally ignored.
+- `baseline_results/` and `agent_results/` with representative seed and medium-scale run artifacts.
 
-This is a runnable seed benchmark, not the completed 100-500 work pilot. The next level is to replace fixture labels with adjudicated labels mined from the local mirror and to run against 100-500 English works.
+The current medium-scale run indexes 5,000 works and 16,918 passages, but only two works come from the configured local mirror. The remaining works are deterministic stress derivatives from available Gutenberg text because the laptop mirror path currently does not contain 5,000 unique text files. Treat this as implementation and performance evidence, not as final corpus-quality benchmark evidence. The next data-quality level is to point `config/local.json` at a true 5,000-20,000 work mirror and replace fixture labels with adjudicated labels mined from that mirror.
 
 ### Phase 0: Confirm Local Mirror
 
@@ -393,6 +394,17 @@ Required before leaving this level:
 - Run agent and verifier baselines on repeated trials.
 - Audit metadata constraints, citation faithfulness, diversity, and hard-negative rejection at larger scale.
 - Update task design or labels when medium-scale retrieval makes a task too easy, too broad, or too noisy.
+
+Current implementation evidence:
+
+- Command: `pnpm run benchmark:gutenberg:medium`
+- Scale: 5,000 indexed works and 16,918 indexed passages.
+- Diagnostics: indexing time, p50/p95/max search latency, RSS, heap used, artifact bytes, and target-satisfied status are saved in the run manifest.
+- Retrieval: BM25, vector, and hybrid candidates and metrics are saved for all 10 tasks.
+- Agent/verifier: a deterministic ReAct-plus-verifier proxy runs three trials per task and records citation faithfulness plus hard-negative acceptance counts.
+- Observed retrieval behavior: BM25, vector, and hybrid baselines recover all labeled positives for `death_ironic_humor_001` at Recall@20, but Precision@10 remains 0.5 because hard negatives still rank highly.
+- Observed verifier behavior: the deterministic verifier rejects the labeled hard negatives for `death_ironic_humor_001` after applying negation-aware relation checks, while preserving citation faithfulness in the saved agent results.
+- Limitation: the checked-in medium run uses deterministic stress works because the configured local mirror has too few unique text files.
 
 #### Full Mirror: All Available Gutenberg Texts
 
