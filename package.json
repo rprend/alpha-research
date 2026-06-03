@@ -9,6 +9,7 @@
     "test": "pnpm run test:harness",
     "test:harness": "node scripts/validate-harness.mjs",
     "test:infra": "node scripts/validate-infrastructure-contract.mjs",
+    "benchmark:gutenberg": "node scripts/gutenberg-semantic-benchmark.mjs",
     "smoke:infra:live": "node scripts/live-infrastructure-smoke.mjs",
     "modal:deploy": "modal deploy modal_workers/agent_worker.py",
     "modal:submit": "python scripts/submit_modal_job.py",

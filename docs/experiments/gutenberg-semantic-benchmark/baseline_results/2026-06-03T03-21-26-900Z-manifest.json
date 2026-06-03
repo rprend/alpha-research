@@ -1,0 +1,21 @@
+{
+  "run_id": "2026-06-03T03-21-26-900Z",
+  "generated_at": "2026-06-03T03:21:29.833Z",
+  "config": {
+    "mirror_path_configured": true,
+    "mirror_files_indexed": 2,
+    "fixture_works_indexed": 40,
+    "works_indexed": 42,
+    "passages_indexed": 2044,
+    "chunking_version": "gutenberg-semantic-pilot-v1"
+  },
+  "artifacts": {
+    "benchmark_item": "task_items.jsonl",
+    "gold_labels": "gold_labels.jsonl",
+    "schema": "schema.sql",
+    "retrieval_candidates": "baseline_results/2026-06-03T03-21-26-900Z-retrieval_candidates.json",
+    "metrics": "baseline_results/2026-06-03T03-21-26-900Z-metrics.json",
+    "trace": "baseline_results/2026-06-03T03-21-26-900Z-trace.jsonl",
+    "error_analysis": "baseline_results/2026-06-03T03-21-26-900Z-error_analysis.md"
+  }
+}

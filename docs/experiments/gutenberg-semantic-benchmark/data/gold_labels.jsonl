@@ -1,0 +1,40 @@
+{"task_id":"death_ironic_humor_001","passage_id":"seed-death-dry-001-p0001","label":"positive","relevance":3,"rationale":"Death is explicit and the speaker uses a dry joke about funeral neatness to stay composed."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-death-dry-002-p0001","label":"positive","relevance":3,"rationale":"A burial chore becomes understated comic bookkeeping, making humor a coping act."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-death-dry-003-p0001","label":"positive","relevance":3,"rationale":"The mourner answers loss with a bleak quip instead of open grief."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-death-dry-004-p0001","label":"positive","relevance":3,"rationale":"The joke about death's punctuality deflects fear during a deathwatch."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-death-dry-005-p0001","label":"positive","relevance":3,"rationale":"Grief is displaced into a dry correction about mourning clothes."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-death-dry-006-p0001","label":"positive","relevance":3,"rationale":"The character uses ironic hospitality toward death to manage dread."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-death-dry-007-p0001","label":"positive","relevance":3,"rationale":"The comic understatement is tied to bereavement and emotional control."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-death-dry-008-p0001","label":"positive","relevance":3,"rationale":"The passage turns a coffin into a household nuisance, a dry coping frame."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-death-dry-009-p0001","label":"positive","relevance":3,"rationale":"The speaker makes a clipped joke while arranging a funeral, hiding distress."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-death-dry-010-p0001","label":"positive","relevance":3,"rationale":"A deathbed scene is handled through controlled, ironic small talk."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-001-p0001","label":"hard_negative","relevance":0,"rationale":"It has death and laughter, but the laughter is cruel rather than coping."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-002-p0001","label":"hard_negative","relevance":0,"rationale":"It mentions a funeral, but the tone is sentimental and not humorous."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-003-p0001","label":"hard_negative","relevance":0,"rationale":"The irony concerns social vanity, not death or grief."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-004-p0001","label":"hard_negative","relevance":0,"rationale":"The passage has humor without bereavement."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-005-p0001","label":"hard_negative","relevance":0,"rationale":"Death is present, but the reaction is terror rather than dry humor."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-006-p0001","label":"hard_negative","relevance":0,"rationale":"It is religious consolation, not ironic or comic coping."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-007-p0001","label":"hard_negative","relevance":0,"rationale":"The narrator jokes about weather while grief remains untouched."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-008-p0001","label":"hard_negative","relevance":0,"rationale":"It is a medical description of dying with no humorous stance."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-009-p0001","label":"hard_negative","relevance":0,"rationale":"The humor is slapstick and unrelated to loss."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-010-p0001","label":"hard_negative","relevance":0,"rationale":"The speaker is bitterly angry, not using dryness to cope."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-011-p0001","label":"hard_negative","relevance":0,"rationale":"It has a coffin as scenery but no emotional coping."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-012-p0001","label":"hard_negative","relevance":0,"rationale":"The passage is comic dialogue with no death signal."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-013-p0001","label":"hard_negative","relevance":0,"rationale":"Loss is stated plainly and solemnly with no irony."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-014-p0001","label":"hard_negative","relevance":0,"rationale":"The joke is made by an observer, not the grieving character."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-015-p0001","label":"hard_negative","relevance":0,"rationale":"It uses the word grave figuratively rather than describing death."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-016-p0001","label":"hard_negative","relevance":0,"rationale":"The humor is cheerful social banter with no grief."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-017-p0001","label":"hard_negative","relevance":0,"rationale":"A corpse appears in an adventure scene, but nobody copes through humor."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-018-p0001","label":"hard_negative","relevance":0,"rationale":"The death is metaphorical and does not support the benchmark relation."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-019-p0001","label":"hard_negative","relevance":0,"rationale":"It is narrator irony about a villain, not bereavement coping."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-020-p0001","label":"hard_negative","relevance":0,"rationale":"The passage mourns through ritual silence, not dry humor."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-021-p0001","label":"hard_negative","relevance":0,"rationale":"There is gallows imagery but no actual loss or coping behavior."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-022-p0001","label":"hard_negative","relevance":0,"rationale":"The comedy mocks funeral etiquette without emotional stakes."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-023-p0001","label":"hard_negative","relevance":0,"rationale":"A dying person speaks bravely but not ironically."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-024-p0001","label":"hard_negative","relevance":0,"rationale":"The passage is macabre description, not humor."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-nearmiss-025-p0001","label":"hard_negative","relevance":0,"rationale":"It contains dry wit and a cemetery, but the wit concerns money."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-ambiguous-001-p0001","label":"ambiguous","relevance":2,"rationale":"The quip may be coping, but it could also be simple temperament."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-ambiguous-002-p0001","label":"ambiguous","relevance":2,"rationale":"The humor is understated and near death, but grief is only implied."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-ambiguous-003-p0001","label":"ambiguous","relevance":1,"rationale":"It has irony after a loss, though the coping function is debatable."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-ambiguous-004-p0001","label":"ambiguous","relevance":2,"rationale":"The joke softens a death notice but may be narrator stance more than character coping."}
+{"task_id":"death_ironic_humor_001","passage_id":"seed-ambiguous-005-p0001","label":"ambiguous","relevance":1,"rationale":"Dryness and bereavement coexist, but the emotional relationship is thin."}

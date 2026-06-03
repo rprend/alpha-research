@@ -21,6 +21,7 @@ const requiredPackageScripts = [
   'test',
   'test:harness',
   'test:infra',
+  'benchmark:gutenberg',
   'smoke:infra:live',
   'qa:dashboard',
   'journey:dashboard:capture',
@@ -84,6 +85,33 @@ assert(
 )
 assert(existsSync(join(root, 'scripts/validate-infrastructure-contract.mjs')), 'Missing infrastructure contract validation script.')
 assert(existsSync(join(root, 'scripts/live-infrastructure-smoke.mjs')), 'Missing live infrastructure smoke script.')
+assert(existsSync(join(root, 'scripts/gutenberg-semantic-benchmark.mjs')), 'Missing Gutenberg semantic benchmark runner.')
+
+for (const file of [
+  'docs/experiments/gutenberg-semantic-benchmark/README.md',
+  'docs/experiments/gutenberg-semantic-benchmark/schema.sql',
+  'docs/experiments/gutenberg-semantic-benchmark/config/local.example.json',
+  'docs/experiments/gutenberg-semantic-benchmark/data/task_items.jsonl',
+  'docs/experiments/gutenberg-semantic-benchmark/data/gold_labels.jsonl',
+]) {
+  assert(existsSync(join(root, file)), `Missing Gutenberg semantic benchmark artifact: ${file}`)
+}
+
+const gutenbergTasks = readFileSync(join(root, 'docs/experiments/gutenberg-semantic-benchmark/data/task_items.jsonl'), 'utf8')
+  .split('\n')
+  .filter(Boolean)
+  .map((line) => JSON.parse(line))
+assert(gutenbergTasks.length >= 10, 'Gutenberg pilot benchmark must include at least 10 task items.')
+assert(new Set(gutenbergTasks.map((task) => task.family)).size >= 3, 'Gutenberg pilot benchmark must cover at least 3 task families.')
+
+const gutenbergLabels = readFileSync(join(root, 'docs/experiments/gutenberg-semantic-benchmark/data/gold_labels.jsonl'), 'utf8')
+  .split('\n')
+  .filter(Boolean)
+  .map((line) => JSON.parse(line))
+const firstPilotLabels = gutenbergLabels.filter((label) => label.task_id === 'death_ironic_humor_001')
+assert(firstPilotLabels.filter((label) => label.label === 'positive').length >= 10, 'Gutenberg pilot task must include 10 positives.')
+assert(firstPilotLabels.filter((label) => label.label === 'hard_negative').length >= 25, 'Gutenberg pilot task must include 25 hard negatives.')
+assert(firstPilotLabels.filter((label) => label.label === 'ambiguous').length >= 5, 'Gutenberg pilot task must include 5 ambiguous examples.')
 
 const remoteRunnerSource = readFileSync(join(root, 'src/remote-agent-runner-script.ts'), 'utf8')
 for (const token of [

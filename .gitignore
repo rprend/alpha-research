@@ -12,6 +12,7 @@ dist
 dist-ssr
 .wrangler
 *.local
+docs/experiments/gutenberg-semantic-benchmark/config/local.json
 
 # Editor directories and files
 .vscode/*

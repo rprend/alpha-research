@@ -1,0 +1,212 @@
+[
+  {
+    "task_id": "death_ironic_humor_001",
+    "baseline": "keyword",
+    "recallAt20": 1,
+    "precisionAt10": 0.4,
+    "ndcgAt10": 0.27267015568947806
+  },
+  {
+    "task_id": "death_ironic_humor_001",
+    "baseline": "vector",
+    "recallAt20": 1,
+    "precisionAt10": 0.5,
+    "ndcgAt10": 0.35106842466815336
+  },
+  {
+    "task_id": "death_ironic_humor_001",
+    "baseline": "hybrid",
+    "recallAt20": 1,
+    "precisionAt10": 0.4,
+    "ndcgAt10": 0.2848142012137644
+  },
+  {
+    "task_id": "rainy_commute_vibe_001",
+    "baseline": "keyword",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "rainy_commute_vibe_001",
+    "baseline": "vector",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "rainy_commute_vibe_001",
+    "baseline": "hybrid",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "affection_as_criticism_001",
+    "baseline": "keyword",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "affection_as_criticism_001",
+    "baseline": "vector",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "affection_as_criticism_001",
+    "baseline": "hybrid",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "class_anxiety_place_001",
+    "baseline": "keyword",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "class_anxiety_place_001",
+    "baseline": "vector",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "class_anxiety_place_001",
+    "baseline": "hybrid",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "progress_as_decay_001",
+    "baseline": "keyword",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "progress_as_decay_001",
+    "baseline": "vector",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "progress_as_decay_001",
+    "baseline": "hybrid",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "narrator_undercuts_self_image_001",
+    "baseline": "keyword",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "narrator_undercuts_self_image_001",
+    "baseline": "vector",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "narrator_undercuts_self_image_001",
+    "baseline": "hybrid",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "domestic_space_threatening_001",
+    "baseline": "keyword",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "domestic_space_threatening_001",
+    "baseline": "vector",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "domestic_space_threatening_001",
+    "baseline": "hybrid",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "resignation_not_despair_001",
+    "baseline": "keyword",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "resignation_not_despair_001",
+    "baseline": "vector",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "resignation_not_despair_001",
+    "baseline": "hybrid",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "gothic_without_supernatural_001",
+    "baseline": "keyword",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "gothic_without_supernatural_001",
+    "baseline": "vector",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "gothic_without_supernatural_001",
+    "baseline": "hybrid",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "empire_as_destiny_001",
+    "baseline": "keyword",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "empire_as_destiny_001",
+    "baseline": "vector",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  },
+  {
+    "task_id": "empire_as_destiny_001",
+    "baseline": "hybrid",
+    "recallAt20": null,
+    "precisionAt10": 0,
+    "ndcgAt10": null
+  }
+]
