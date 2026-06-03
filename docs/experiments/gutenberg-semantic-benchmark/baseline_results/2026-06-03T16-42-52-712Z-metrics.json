@@ -1,0 +1,212 @@
+[
+  {
+    "task_id": "death_ironic_humor_001",
+    "baseline": "keyword",
+    "recallAt20": 0.1,
+    "precisionAt10": 0,
+    "ndcgAt10": 0
+  },
+  {
+    "task_id": "death_ironic_humor_001",
+    "baseline": "vector",
+    "recallAt20": 0.5,
+    "precisionAt10": 0.2,
+    "ndcgAt10": 0.29345568839744024
+  },
+  {
+    "task_id": "death_ironic_humor_001",
+    "baseline": "hybrid",
+    "recallAt20": 0.2,
+    "precisionAt10": 0.1,
+    "ndcgAt10": 0.13886244387355454
+  },
+  {
+    "task_id": "rainy_commute_vibe_001",
+    "baseline": "keyword",
+    "recallAt20": 0.5,
+    "precisionAt10": 0.4,
+    "ndcgAt10": 0.5116560784980602
+  },
+  {
+    "task_id": "rainy_commute_vibe_001",
+    "baseline": "vector",
+    "recallAt20": 0.5,
+    "precisionAt10": 0.4,
+    "ndcgAt10": 0.5321408435198608
+  },
+  {
+    "task_id": "rainy_commute_vibe_001",
+    "baseline": "hybrid",
+    "recallAt20": 0.8,
+    "precisionAt10": 0.5,
+    "ndcgAt10": 0.6275071330616558
+  },
+  {
+    "task_id": "affection_as_criticism_001",
+    "baseline": "keyword",
+    "recallAt20": 0.6,
+    "precisionAt10": 0.5,
+    "ndcgAt10": 0.5621931439243355
+  },
+  {
+    "task_id": "affection_as_criticism_001",
+    "baseline": "vector",
+    "recallAt20": 0.5,
+    "precisionAt10": 0.4,
+    "ndcgAt10": 0.4843035397881497
+  },
+  {
+    "task_id": "affection_as_criticism_001",
+    "baseline": "hybrid",
+    "recallAt20": 1,
+    "precisionAt10": 0.4,
+    "ndcgAt10": 0.5279564938871663
+  },
+  {
+    "task_id": "class_anxiety_place_001",
+    "baseline": "keyword",
+    "recallAt20": 0.6,
+    "precisionAt10": 0.6,
+    "ndcgAt10": 0.768577527054819
+  },
+  {
+    "task_id": "class_anxiety_place_001",
+    "baseline": "vector",
+    "recallAt20": 0.4,
+    "precisionAt10": 0.4,
+    "ndcgAt10": 0.570934441677275
+  },
+  {
+    "task_id": "class_anxiety_place_001",
+    "baseline": "hybrid",
+    "recallAt20": 1,
+    "precisionAt10": 0.8,
+    "ndcgAt10": 0.8389574121760601
+  },
+  {
+    "task_id": "progress_as_decay_001",
+    "baseline": "keyword",
+    "recallAt20": 0.7,
+    "precisionAt10": 0.4,
+    "ndcgAt10": 0.6102817028713271
+  },
+  {
+    "task_id": "progress_as_decay_001",
+    "baseline": "vector",
+    "recallAt20": 0.1,
+    "precisionAt10": 0.1,
+    "ndcgAt10": 0.3632566711541726
+  },
+  {
+    "task_id": "progress_as_decay_001",
+    "baseline": "hybrid",
+    "recallAt20": 0.5,
+    "precisionAt10": 0.4,
+    "ndcgAt10": 0.7046748001842746
+  },
+  {
+    "task_id": "narrator_undercuts_self_image_001",
+    "baseline": "keyword",
+    "recallAt20": 0.2,
+    "precisionAt10": 0,
+    "ndcgAt10": 0
+  },
+  {
+    "task_id": "narrator_undercuts_self_image_001",
+    "baseline": "vector",
+    "recallAt20": 0.8,
+    "precisionAt10": 0.5,
+    "ndcgAt10": 0.44510108735750964
+  },
+  {
+    "task_id": "narrator_undercuts_self_image_001",
+    "baseline": "hybrid",
+    "recallAt20": 0.5,
+    "precisionAt10": 0.2,
+    "ndcgAt10": 0.17630010660342912
+  },
+  {
+    "task_id": "domestic_space_threatening_001",
+    "baseline": "keyword",
+    "recallAt20": 0.8,
+    "precisionAt10": 0.8,
+    "ndcgAt10": 0.8877260017201221
+  },
+  {
+    "task_id": "domestic_space_threatening_001",
+    "baseline": "vector",
+    "recallAt20": 0.2,
+    "precisionAt10": 0.2,
+    "ndcgAt10": 0.4742380102807573
+  },
+  {
+    "task_id": "domestic_space_threatening_001",
+    "baseline": "hybrid",
+    "recallAt20": 1,
+    "precisionAt10": 0.6,
+    "ndcgAt10": 0.7932226590082437
+  },
+  {
+    "task_id": "resignation_not_despair_001",
+    "baseline": "keyword",
+    "recallAt20": 0.5,
+    "precisionAt10": 0.5,
+    "ndcgAt10": 0.6610210191464923
+  },
+  {
+    "task_id": "resignation_not_despair_001",
+    "baseline": "vector",
+    "recallAt20": 0.5,
+    "precisionAt10": 0.5,
+    "ndcgAt10": 0.7537794246210935
+  },
+  {
+    "task_id": "resignation_not_despair_001",
+    "baseline": "hybrid",
+    "recallAt20": 1,
+    "precisionAt10": 0.7,
+    "ndcgAt10": 0.8820480387228063
+  },
+  {
+    "task_id": "gothic_without_supernatural_001",
+    "baseline": "keyword",
+    "recallAt20": 0.4,
+    "precisionAt10": 0.2,
+    "ndcgAt10": 0.3585323166418584
+  },
+  {
+    "task_id": "gothic_without_supernatural_001",
+    "baseline": "vector",
+    "recallAt20": 0.6,
+    "precisionAt10": 0.4,
+    "ndcgAt10": 0.5388856921828065
+  },
+  {
+    "task_id": "gothic_without_supernatural_001",
+    "baseline": "hybrid",
+    "recallAt20": 0.6,
+    "precisionAt10": 0.6,
+    "ndcgAt10": 0.6871952210980248
+  },
+  {
+    "task_id": "empire_as_destiny_001",
+    "baseline": "keyword",
+    "recallAt20": 0,
+    "precisionAt10": 0,
+    "ndcgAt10": 0
+  },
+  {
+    "task_id": "empire_as_destiny_001",
+    "baseline": "vector",
+    "recallAt20": 0.25,
+    "precisionAt10": 0,
+    "ndcgAt10": 0
+  },
+  {
+    "task_id": "empire_as_destiny_001",
+    "baseline": "hybrid",
+    "recallAt20": 0,
+    "precisionAt10": 0,
+    "ndcgAt10": 0
+  }
+]

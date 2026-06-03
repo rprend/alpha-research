@@ -6,6 +6,9 @@ const root = process.cwd()
 const experimentDir = join(root, 'docs/experiments/gutenberg-semantic-benchmark')
 const dataDir = join(experimentDir, 'data')
 const resultsDir = join(experimentDir, 'baseline_results')
+const realCorpusDir = join(experimentDir, '.local/corpus')
+const realInventoryPath = join(realCorpusDir, 'source-inventory.jsonl')
+const realCorpusManifestPath = join(realCorpusDir, 'corpus-manifest.json')
 const taskPath = join(dataDir, 'task_items.jsonl')
 const goldPath = join(dataDir, 'gold_labels.jsonl')
 const localConfigPath = join(experimentDir, 'config/local.json')
@@ -16,6 +19,7 @@ const scale = valueForArg('--scale') ?? 'seed'
 const syntheticScale = cliArgs.has('--synthetic-scale')
 const failOnInsufficient = cliArgs.has('--fail-on-insufficient')
 const runAgents = cliArgs.has('--agents')
+const mineLabels = cliArgs.has('--mine-labels')
 const scaleTargets = {
   seed: { minWorks: 1, maxWorks: 500, defaultWorks: 200 },
   pilot: { minWorks: 100, maxWorks: 500, defaultWorks: 200 },
@@ -45,6 +49,10 @@ const semanticLexicon = {
   criticism: ['scold', 'criticized', 'fault', 'foolish', 'care', 'dear', 'protect', 'affection', 'rebuke'],
   class: ['poor', 'poverty', 'rank', 'money', 'respectable', 'parlor', 'house', 'status', 'shabby', 'embarrassed'],
   irony: ['irony', 'solemn', 'grand', 'absurd', 'dignity', 'vanity', 'bathos', 'narrator', 'self-image'],
+  religion: ['god', 'soul', 'spirit', 'spiritual', 'sin', 'heaven', 'providence', 'prayer', 'faith', 'moral'],
+  empire: ['empire', 'imperial', 'colony', 'conquest', 'destiny', 'civilization', 'savage', 'frontier', 'rule'],
+  domestic: ['home', 'room', 'house', 'door', 'bed', 'nursery', 'kitchen', 'chamber', 'domestic'],
+  gothic: ['dark', 'dread', 'terror', 'castle', 'secret', 'shadow', 'haunted', 'gloom', 'fear'],
 }
 
 function readJsonl(path) {
@@ -149,6 +157,14 @@ function discoverMirrorTexts(config) {
   return files
 }
 
+function readRealInventory() {
+  if (!existsSync(realInventoryPath)) return []
+  return readFileSync(realInventoryPath, 'utf8')
+    .split('\n')
+    .filter(Boolean)
+    .map((line) => JSON.parse(line))
+}
+
 function chunkText(text, targetWords = 420, overlapWords = 80) {
   const words = text.replace(/\s+/g, ' ').trim().split(' ').filter(Boolean)
   const chunks = []
@@ -232,19 +248,21 @@ function syntheticStressTexts(sourceTexts, targetWorks) {
 
 function buildCorpus(config) {
   const startedAt = performance.now()
-  const mirrorFiles = discoverMirrorTexts(config)
+  const realInventory = readRealInventory()
+  const realCorpusManifest = existsSync(realCorpusManifestPath) ? JSON.parse(readFileSync(realCorpusManifestPath, 'utf8')) : null
+  const mirrorFiles = realInventory.length ? [] : discoverMirrorTexts(config)
   const works = []
   const passages = []
   const sourceMirrorTexts = []
   const addWork = (work, sourceTextPath = work.work_id) => {
     works.push({
       work_id: work.work_id,
-      gutenberg_id: Number.parseInt(work.work_id.match(/\d+/)?.[0] ?? '0', 10) || null,
+      gutenberg_id: work.gutenberg_id ?? (Number.parseInt(work.work_id.match(/\d+/)?.[0] ?? '0', 10) || null),
       title: work.title,
       author: work.author,
       year: work.year ?? null,
-      language: 'en',
-      subjects: 'pilot;literature',
+      language: work.language ?? 'en',
+      subjects: work.subjects ?? 'pilot;literature',
       text_path: sourceTextPath,
     })
     const chunks = chunkText(work.text)
@@ -259,7 +277,24 @@ function buildCorpus(config) {
     })
   }
 
-  for (const work of fixtureTexts()) addWork(work)
+  if (realInventory.length) {
+    const maxWorks = Number(valueForArg('--max-works') ?? config?.max_works ?? scaleTargets[scale].defaultWorks)
+    for (const record of realInventory.slice(0, maxWorks)) {
+      const text = readFileSync(record.cleaned_path, 'utf8')
+      addWork({
+        work_id: record.work_id,
+        gutenberg_id: record.gutenberg_id,
+        title: record.title || `Project Gutenberg ${record.gutenberg_id}`,
+        author: record.author || 'Unknown',
+        year: record.issued ? Number(record.issued.slice(0, 4)) : null,
+        language: record.language,
+        subjects: record.subjects,
+        text,
+      }, record.cleaned_path)
+    }
+  } else {
+    for (const work of fixtureTexts()) addWork(work)
+  }
   for (const file of mirrorFiles) {
     const text = readFileSync(file, 'utf8')
     if (tokenize(text).length < 250) continue
@@ -277,6 +312,8 @@ function buildCorpus(config) {
     passages,
     mirrorFiles,
     syntheticWorks,
+    realInventory,
+    realCorpusManifest,
     indexingMs: Math.round(performance.now() - startedAt),
   }
 }
@@ -343,6 +380,77 @@ function metrics(results, labels) {
   }
 }
 
+function taskSignals(task) {
+  const query = task.query.toLowerCase()
+  const signals = []
+  for (const [name, words] of Object.entries(semanticLexicon)) {
+    if (query.includes(name) || words.some((word) => query.includes(word))) signals.push({ name, words })
+  }
+  if (query.includes('death') && (query.includes('humor') || query.includes('dry') || query.includes('ironic'))) {
+    return [
+      { name: 'death', words: semanticLexicon.death },
+      { name: 'humor', words: semanticLexicon.humor },
+      { name: 'coping', words: semanticLexicon.coping },
+    ]
+  }
+  return signals.length ? signals.slice(0, 4) : [{ name: 'query_terms', words: tokenize(task.query).slice(0, 12) }]
+}
+
+function signalCoverage(text, signals) {
+  const lowered = text.toLowerCase()
+  return signals.map((signal) => ({
+    name: signal.name,
+    matched: signal.words.filter((word) => lowered.includes(word)).slice(0, 5),
+  }))
+}
+
+function mineTaskLabels(task, hybridResults, passageById, workById) {
+  const signals = taskSignals(task)
+  const candidates = hybridResults.slice(0, 120).map((result) => {
+    const passage = passageById.get(result.passage_id)
+    const work = workById.get(passage?.work_id)
+    const coverage = passage ? signalCoverage(passage.text, signals) : []
+    const covered = coverage.filter((item) => item.matched.length > 0).length
+    return { result, passage, work, coverage, covered }
+  }).filter((item) => item.passage)
+
+  const positives = []
+  const hardNegatives = []
+  const ambiguous = []
+  const positiveWorks = new Set()
+
+  for (const item of candidates) {
+    if (item.covered >= Math.max(1, Math.min(3, signals.length)) && positives.length < 10 && !positiveWorks.has(item.work?.work_id)) {
+      positives.push(item)
+      positiveWorks.add(item.work?.work_id)
+    } else if (item.covered > 0 && item.covered < signals.length && hardNegatives.length < 20) {
+      hardNegatives.push(item)
+    } else if (item.covered >= 1 && ambiguous.length < 5) {
+      ambiguous.push(item)
+    }
+  }
+
+  const rows = [
+    ...positives.map((item) => ({ item, label: 'positive', relevance: 3 })),
+    ...hardNegatives.map((item) => ({ item, label: 'hard_negative', relevance: 0 })),
+    ...ambiguous.map((item) => ({ item, label: 'ambiguous', relevance: 2 })),
+  ]
+
+  return rows.map(({ item, label, relevance }) => ({
+    task_id: task.id,
+    passage_id: item.result.passage_id,
+    work_id: item.work?.work_id,
+    gutenberg_id: item.work?.gutenberg_id,
+    title: item.work?.title,
+    author: item.work?.author,
+    label,
+    relevance,
+    quote: item.passage.text.slice(0, 500),
+    rationale: `${label} mined from real Project Gutenberg passage with signal coverage: ${item.coverage.map((coverage) => `${coverage.name}=[${coverage.matched.join(', ')}]`).join('; ')}.`,
+    adjudication_status: 'machine_mined_needs_human_review',
+  }))
+}
+
 function verifierDecision(task, candidate, label) {
   const text = candidate.quote.toLowerCase()
   const query = task.query.toLowerCase()
@@ -372,6 +480,7 @@ function summarizeScaleDiagnostics({ corpus, taskRuns, artifactPaths }) {
     target_min_works: scaleTargets[scale].minWorks,
     target_max_works: scaleTargets[scale].maxWorks,
     target_satisfied: corpus.works.length >= scaleTargets[scale].minWorks && corpus.works.length <= scaleTargets[scale].maxWorks,
+    real_gutenberg_works_indexed: corpus.realInventory.length ? corpus.works.length : 0,
     local_mirror_works_indexed: corpus.mirrorFiles.length,
     synthetic_stress_works_indexed: corpus.syntheticWorks.length,
     total_works_indexed: corpus.works.length,
@@ -405,21 +514,25 @@ function main() {
     throw new Error(`Scale ${scale} requires ${target.minWorks}-${target.maxWorks} works; indexed ${corpus.works.length}. Use --synthetic-scale for deterministic stress testing when the local mirror is smaller.`)
   }
   const passageById = new Map(corpus.passages.map((passage) => [passage.passage_id, passage]))
+  const workById = new Map(corpus.works.map((work) => [work.work_id, work]))
   const labelByTaskAndPassage = new Map(gold.map((label) => [`${label.task_id}:${label.passage_id}`, label]))
   const taskRuns = []
   const agentRuns = []
+  const minedLabels = []
 
   for (const task of tasks) {
     const labels = gold.filter((label) => label.task_id === task.id)
     const bm25 = bm25Search(task.query, corpus.passages)
     const vector = vectorSearch(task.query, corpus.passages)
     const hybrid = hybridSearch(bm25, vector)
+    const labelsForTask = mineLabels ? mineTaskLabels(task, hybrid, passageById, workById) : labels
+    if (mineLabels) minedLabels.push(...labelsForTask)
     for (const [baseline, results] of Object.entries({ keyword: bm25, vector, hybrid })) {
       taskRuns.push({
         task_id: task.id,
         baseline,
         searchMs: Math.round(results.searchMs ?? 0),
-        metrics: metrics(results, labels),
+        metrics: metrics(results, labelsForTask),
         candidates: results.slice(0, 20).map((result, index) => ({
           rank: index + 1,
           ...result,
@@ -454,6 +567,7 @@ function main() {
   const tracePath = join(resultsDir, `${runId}-trace.jsonl`)
   const errorPath = join(resultsDir, `${runId}-error_analysis.md`)
   const agentPath = join(experimentDir, 'agent_results', `${runId}-agent_results.json`)
+  const minedLabelsPath = join(dataDir, `${runId}-real_gold_labels.jsonl`)
   mkdirSync(join(experimentDir, 'agent_results'), { recursive: true })
 
   const manifest = {
@@ -461,14 +575,17 @@ function main() {
     generated_at: new Date().toISOString(),
     config: {
       scale,
+      corpus_source: corpus.realInventory.length ? 'Project Gutenberg' : 'fixture',
+      real_gutenberg_works_indexed: corpus.realInventory.length ? corpus.works.length : 0,
       mirror_path_configured: Boolean(config?.mirror_path),
       mirror_files_indexed: corpus.mirrorFiles.length,
       synthetic_scale_enabled: syntheticScale,
       synthetic_stress_works_indexed: corpus.syntheticWorks.length,
-      fixture_works_indexed: fixtureTexts().length,
+      fixture_works_indexed: corpus.realInventory.length ? 0 : fixtureTexts().length,
       works_indexed: corpus.works.length,
       passages_indexed: corpus.passages.length,
       chunking_version: chunkingVersion,
+      real_corpus_manifest: corpus.realCorpusManifest,
     },
     artifacts: {
       benchmark_item: 'task_items.jsonl',
@@ -479,12 +596,14 @@ function main() {
       trace: `baseline_results/${runId}-trace.jsonl`,
       error_analysis: `baseline_results/${runId}-error_analysis.md`,
       agent_results: `agent_results/${runId}-agent_results.json`,
+      mined_gold_labels: mineLabels ? `data/${runId}-real_gold_labels.jsonl` : null,
     },
   }
 
   writeJson(retrievalPath, taskRuns)
   writeJson(metricsPath, taskRuns.map(({ task_id, baseline, searchMs, metrics }) => ({ task_id, baseline, searchMs, ...metrics })))
   writeJson(agentPath, agentRuns)
+  if (mineLabels) writeFileSync(minedLabelsPath, minedLabels.map((label) => JSON.stringify(label)).join('\n') + '\n')
   writeFileSync(tracePath, taskRuns.map((run) => JSON.stringify({ run_id: runId, event: 'baseline_completed', task_id: run.task_id, baseline: run.baseline, searchMs: run.searchMs })).join('\n') + '\n')
   const diagnostics = summarizeScaleDiagnostics({ corpus, taskRuns, artifactPaths: [retrievalPath, metricsPath, tracePath, agentPath] })
   manifest.scale_diagnostics = diagnostics

@@ -1,0 +1,1502 @@
+[
+  {
+    "task_id": "death_ironic_humor_001",
+    "agent": "deterministic_react_plus_verifier_real_gutenberg",
+    "trials": 3,
+    "accepted": 2,
+    "hard_negative_acceptances": 0,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "pg-3623-p000354",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-4360-p000196",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-3447-p000187",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-579-p000099",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-2621-p000068",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-3308-p000058",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-1575-p000190",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-2732-p000012",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-22-p000329",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-3823-p000066",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-3476-p000284",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-4758-p000042",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-3900-p000067",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-4836-p001116",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-2153-p000060",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-77-p000153",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-808-p000283",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-100-p000008",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-3819-p000065",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-100-p000596",
+        "accepted": false,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      }
+    ]
+  },
+  {
+    "task_id": "rainy_commute_vibe_001",
+    "agent": "deterministic_react_plus_verifier_real_gutenberg",
+    "trials": 3,
+    "accepted": 9,
+    "hard_negative_acceptances": 0,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "pg-2453-p000210",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-232-p000035",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-312-p000010",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-4676-p000029",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-3254-p001075",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-882-p000361",
+        "accepted": false,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-1590-p000053",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-4621-p000053",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-346-p000157",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-1839-p000090",
+        "accepted": false,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-4275-p000098",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-1839-p000119",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-5230-p000060",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-1955-p000067",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-3254-p001200",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-2014-p000042",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-4553-p000228",
+        "accepted": false,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-2374-p000070",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-2771-p000069",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-2549-p000016",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      }
+    ]
+  },
+  {
+    "task_id": "affection_as_criticism_001",
+    "agent": "deterministic_react_plus_verifier_real_gutenberg",
+    "trials": 3,
+    "accepted": 12,
+    "hard_negative_acceptances": 0,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "pg-668-p000128",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-161-p000094",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-1549-p000162",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-171-p000031",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-661-p000254",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-171-p000032",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-569-p000065",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-369-p000086",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-667-p000220",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-514-p000069",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-1203-p000042",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-2007-p000173",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-547-p000136",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-1245-p000089",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-573-p000123",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-1592-p000112",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-569-p000037",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-3200-p004767",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-2515-p000077",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-671-p000082",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      }
+    ]
+  },
+  {
+    "task_id": "class_anxiety_place_001",
+    "agent": "deterministic_react_plus_verifier_real_gutenberg",
+    "trials": 3,
+    "accepted": 14,
+    "hard_negative_acceptances": 0,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "pg-1694-p000204",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-22-p000229",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-1630-p000281",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-84-p000012",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-2271-p000004",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-84-p000080",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-1154-p000020",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-107-p000176",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-849-p000056",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-134-p000029",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-1630-p000282",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-134-p000034",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-2760-p001045",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-145-p000002",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-1453-p000136",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-145-p000227",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-335-p000044",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-4767-p000067",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-145-p000530",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-2271-p000018",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      }
+    ]
+  },
+  {
+    "task_id": "progress_as_decay_001",
+    "agent": "deterministic_react_plus_verifier_real_gutenberg",
+    "trials": 3,
+    "accepted": 19,
+    "hard_negative_acceptances": 9,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "pg-3458-p000010",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-10-p000523",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-3187-p000106",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-10-p000654",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-3458-p000346",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-10-p000689",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-3458-p000347",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-10-p000761",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-5246-p000122",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-10-p000762",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-1019-p000058",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-10-p000763",
+        "accepted": true,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-3458-p000123",
+        "accepted": true,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-10-p000788",
+        "accepted": true,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-3458-p000013",
+        "accepted": true,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-10-p000789",
+        "accepted": true,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-3458-p000189",
+        "accepted": true,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-10-p000792",
+        "accepted": true,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-5246-p000109",
+        "accepted": true,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-10-p000803",
+        "accepted": true,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      }
+    ]
+  },
+  {
+    "task_id": "narrator_undercuts_self_image_001",
+    "agent": "deterministic_react_plus_verifier_real_gutenberg",
+    "trials": 3,
+    "accepted": 5,
+    "hard_negative_acceptances": 0,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "pg-808-p000283",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-22-p000334",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-470-p000054",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-22-p000329",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-808-p000274",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-4205-p000324",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-1575-p000190",
+        "accepted": false,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-1434-p000032",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-388-p000274",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-425-p000021",
+        "accepted": false,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-1295-p000009",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-457-p000026",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-1219-p000026",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-22-p000330",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-547-p000023",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-22-p000335",
+        "accepted": false,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-547-p000151",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-621-p000023",
+        "accepted": false,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-808-p000282",
+        "accepted": false,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-883-p000163",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      }
+    ]
+  },
+  {
+    "task_id": "domestic_space_threatening_001",
+    "agent": "deterministic_react_plus_verifier_real_gutenberg",
+    "trials": 3,
+    "accepted": 16,
+    "hard_negative_acceptances": 1,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "pg-4686-p000246",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-10-p000884",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-4622-p000079",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-10-p000920",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-4676-p000029",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-24-p000008",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-4621-p000047",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-24-p000009",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-4621-p000053",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-24-p000016",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-4767-p000067",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-24-p000024",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-1939-p000045",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-24-p000031",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-4162-p000109",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-24-p000032",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-3186-p000081",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-24-p000039",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-4630-p000073",
+        "accepted": true,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-24-p000064",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      }
+    ]
+  },
+  {
+    "task_id": "resignation_not_despair_001",
+    "agent": "deterministic_react_plus_verifier_real_gutenberg",
+    "trials": 3,
+    "accepted": 17,
+    "hard_negative_acceptances": 2,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "pg-98-p000046",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-1320-p000091",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-3350-p000866",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-126-p000058",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-621-p000187",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-100-p000892",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-621-p000089",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-100-p001058",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-5226-p000023",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-100-p001311",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-3348-p000008",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-145-p000061",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-4443-p000134",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-145-p000249",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-4500-p001679",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-170-p000007",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-1575-p000120",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-209-p000026",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-1343-p000141",
+        "accepted": true,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-5085-p000119",
+        "accepted": true,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      }
+    ]
+  },
+  {
+    "task_id": "gothic_without_supernatural_001",
+    "agent": "deterministic_react_plus_verifier_real_gutenberg",
+    "trials": 3,
+    "accepted": 7,
+    "hard_negative_acceptances": 0,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "pg-4251-p000206",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-1034-p000004",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-2827-p000015",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-1366-p000059",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-1831-p000036",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-691-p000049",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-393-p000070",
+        "accepted": false,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-1365-p000066",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-3077-p000005",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-2080-p000047",
+        "accepted": true,
+        "gold_label": "positive",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-644-p000012",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-2181-p000044",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-3090-p000007",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-3139-p000156",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-3816-p000061",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-3499-p000189",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-1365-p000265",
+        "accepted": true,
+        "gold_label": "ambiguous",
+        "faithfulness": true,
+        "rationale": "Candidate meets the deterministic signal coverage check."
+      },
+      {
+        "passage_id": "pg-4300-p000001",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-3776-p000100",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-4541-p000222",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      }
+    ]
+  },
+  {
+    "task_id": "empire_as_destiny_001",
+    "agent": "deterministic_react_plus_verifier_real_gutenberg",
+    "trials": 3,
+    "accepted": 0,
+    "hard_negative_acceptances": 0,
+    "citation_faithfulness_rate": 1,
+    "verifier_decisions": [
+      {
+        "passage_id": "pg-3327-p000292",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-2556-p000063",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-2593-p000009",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-602-p000006",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-735-p000464",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-3295-p000078",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-2768-p000093",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-5125-p000001",
+        "accepted": false,
+        "gold_label": "unlabeled",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-1209-p000370",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-5419-p000082",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-1323-p000001",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-309-p000012",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-4326-p000001",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-508-p000024",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-1209-p000001",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-551-p000050",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-3029-p000060",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-602-p000007",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-893-p000055",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      },
+      {
+        "passage_id": "pg-754-p000147",
+        "accepted": false,
+        "gold_label": "hard_negative",
+        "faithfulness": true,
+        "rationale": "Candidate lacks enough task relation signals."
+      }
+    ]
+  }
+]

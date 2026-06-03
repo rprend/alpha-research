@@ -22,6 +22,7 @@ const requiredPackageScripts = [
   'test:harness',
   'test:infra',
   'benchmark:gutenberg',
+  'benchmark:gutenberg:acquire',
   'benchmark:gutenberg:medium',
   'smoke:infra:live',
   'qa:dashboard',
@@ -87,19 +88,49 @@ assert(
 assert(existsSync(join(root, 'scripts/validate-infrastructure-contract.mjs')), 'Missing infrastructure contract validation script.')
 assert(existsSync(join(root, 'scripts/live-infrastructure-smoke.mjs')), 'Missing live infrastructure smoke script.')
 assert(existsSync(join(root, 'scripts/gutenberg-semantic-benchmark.mjs')), 'Missing Gutenberg semantic benchmark runner.')
+assert(existsSync(join(root, 'scripts/gutenberg-acquire-corpus.mjs')), 'Missing real Gutenberg corpus acquisition script.')
+assert(existsSync(join(root, 'scripts/gutenberg-real-benchmark.mjs')), 'Missing real Gutenberg medium benchmark runner.')
+const gutenbergAcquireSource = readFileSync(join(root, 'scripts/gutenberg-acquire-corpus.mjs'), 'utf8')
+for (const token of [
+  'pg_catalog.csv.gz',
+  'Project Gutenberg',
+  'stripGutenbergBoilerplate',
+  'source-inventory.jsonl',
+  'corpus-manifest.json',
+  'target_works',
+  'usable_works',
+]) {
+  assert(gutenbergAcquireSource.includes(token), `Gutenberg acquisition script is missing: ${token}`)
+}
 const gutenbergRunnerSource = readFileSync(join(root, 'scripts/gutenberg-semantic-benchmark.mjs'), 'utf8')
 for (const token of [
   'scaleTargets',
   'medium',
   'minWorks: 5_000',
   'maxWorks: 20_000',
-  'syntheticStressTexts',
+  'readRealInventory',
+  'real_gutenberg_works_indexed',
+  'mineTaskLabels',
+  'real_gold_labels',
   'summarizeScaleDiagnostics',
   'deterministic_react_plus_verifier',
   'citation_faithfulness_rate',
   'hard_negative_acceptances',
 ]) {
   assert(gutenbergRunnerSource.includes(token), `Gutenberg medium-scale runner is missing: ${token}`)
+}
+const realGutenbergRunnerSource = readFileSync(join(root, 'scripts/gutenberg-real-benchmark.mjs'), 'utf8')
+for (const token of [
+  'source-inventory.jsonl',
+  'Real Gutenberg Medium Error Analysis',
+  "corpus_source: 'Project Gutenberg'",
+  'synthetic_stress_works_indexed: 0',
+  'mineLabels',
+  'machine_mined_needs_human_review',
+  'stats_pass_completed',
+  'score_pass_completed',
+]) {
+  assert(realGutenbergRunnerSource.includes(token), `Real Gutenberg medium runner is missing: ${token}`)
 }
 
 for (const file of [

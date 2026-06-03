@@ -32,3 +32,4 @@ skills/
 skills-lock.json
 .codex-*.png
 .tmp/
+docs/experiments/gutenberg-semantic-benchmark/.local/

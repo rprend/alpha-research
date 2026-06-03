@@ -2,6 +2,18 @@
 
 This plan starts from the actual benchmark requirement: acquire real Project Gutenberg books, clean and index them, design semantic retrieval tasks from real passages, label those passages, then run and score baselines and agents. Synthetic scale tests do not satisfy this plan.
 
+## Current Status
+
+The real medium-scale implementation is now in place:
+
+- `pnpm run benchmark:gutenberg:acquire` downloads and cleans real Project Gutenberg text works into ignored `.local/` storage.
+- The current local corpus has 5,000 usable Project Gutenberg works, 2.09 GB of cleaned text, and about 351M words.
+- `pnpm run benchmark:gutenberg:medium` streams over the real corpus and indexes 730,226 passages without synthetic works.
+- The current run writes real retrieval candidates, metrics, trace, machine-mined real labels, verifier results, and error analysis.
+- The current generated label set has 348 machine-mined labels from real Project Gutenberg passages.
+
+Remaining quality work: the generated labels are not yet human-adjudicated. They are useful for running and debugging the benchmark, but they should be reviewed before publication-quality claims.
+
 ## 1. Acquire The Corpus
 
 - Download the Project Gutenberg metadata/catalog.
