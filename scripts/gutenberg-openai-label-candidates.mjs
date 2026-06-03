@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from 'node:fs'
+import { existsSync } from 'node:fs'
 import { basename, dirname, join } from 'node:path'
 import {
   appendJsonl,
@@ -11,6 +11,7 @@ import {
 } from './gutenberg-pipeline-lib.mjs'
 
 const model = process.env.OPENAI_LABEL_MODEL ?? 'gpt-5.5'
+const openaiBaseUrl = process.env.OPENAI_BASE_URL ?? 'https://api.openai.com/v1'
 const inputPath = valueForArg('--input') ?? join(highRecallDir, valueForArg('--run-id') ?? '', 'candidate_pool.jsonl')
 const outputPath = valueForArg('--output') ?? join(dirname(inputPath), 'llm_labels.jsonl')
 const limit = Number(valueForArg('--limit', '0'))
@@ -61,7 +62,7 @@ function dryLabel(candidate) {
 async function callOpenAI(candidate) {
   if (!process.env.OPENAI_API_KEY) throw new Error('OPENAI_API_KEY is required unless --dry-run is set.')
   const task = tasks.get(candidate.task_id)
-  const response = await fetch('https://api.openai.com/v1/responses', {
+  const response = await fetch(`${openaiBaseUrl.replace(/\/$/, '')}/responses`, {
     method: 'POST',
     headers: {
       authorization: `Bearer ${process.env.OPENAI_API_KEY}`,

@@ -245,3 +245,11 @@ pnpm run benchmark:gutenberg:high-recall:smoke
 ```
 
 The smoke path uses a small Gutenberg subset plus dry-run labels/verifications. It proves the real-corpus file flow, resume outputs, synthesis, and artifact contracts without spending model calls.
+
+Smoke test the OpenAI request/response path without a real API call:
+
+```bash
+pnpm run benchmark:gutenberg:high-recall:mock-openai
+```
+
+This starts a local mock Responses API through `OPENAI_BASE_URL`, then runs the non-dry-run labeler and verifier against that mock. The production default remains `https://api.openai.com/v1`.

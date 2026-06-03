@@ -15,6 +15,7 @@ const limit = Number(valueForArg('--limit', '0'))
 const dryRun = process.argv.includes('--dry-run')
 const verifyAll = process.argv.includes('--all')
 const model = process.env.OPENAI_VERIFY_MODEL ?? 'gpt-5.5'
+const openaiBaseUrl = process.env.OPENAI_BASE_URL ?? 'https://api.openai.com/v1'
 const tasks = new Map(readJsonl(taskPath).map((task) => [task.id, task]))
 const candidates = new Map(readJsonl(candidatesPath).map((row) => [row.candidate_id, row]))
 const existing = new Set(readJsonl(outputPath).map((row) => row.candidate_id))
@@ -56,7 +57,7 @@ async function callOpenAI(label) {
   if (!process.env.OPENAI_API_KEY) throw new Error('OPENAI_API_KEY is required unless --dry-run is set.')
   const candidate = candidates.get(label.candidate_id)
   const task = tasks.get(label.task_id)
-  const response = await fetch('https://api.openai.com/v1/responses', {
+  const response = await fetch(`${openaiBaseUrl.replace(/\/$/, '')}/responses`, {
     method: 'POST',
     headers: {
       authorization: `Bearer ${process.env.OPENAI_API_KEY}`,

@@ -29,6 +29,7 @@ const requiredPackageScripts = [
   'benchmark:gutenberg:high-recall:verify',
   'benchmark:gutenberg:high-recall:synthesize',
   'benchmark:gutenberg:high-recall:smoke',
+  'benchmark:gutenberg:high-recall:mock-openai',
   'smoke:infra:live',
   'qa:dashboard',
   'journey:dashboard:capture',
@@ -100,6 +101,7 @@ assert(existsSync(join(root, 'scripts/gutenberg-high-recall-candidates.mjs')), '
 assert(existsSync(join(root, 'scripts/gutenberg-openai-label-candidates.mjs')), 'Missing Gutenberg OpenAI labeler.')
 assert(existsSync(join(root, 'scripts/gutenberg-openai-verify-labels.mjs')), 'Missing Gutenberg OpenAI verifier.')
 assert(existsSync(join(root, 'scripts/gutenberg-synthesize-high-recall-results.mjs')), 'Missing Gutenberg high-recall synthesizer.')
+assert(existsSync(join(root, 'scripts/gutenberg-openai-mock-smoke.mjs')), 'Missing Gutenberg mock OpenAI smoke script.')
 const gutenbergAcquireSource = readFileSync(join(root, 'scripts/gutenberg-acquire-corpus.mjs'), 'utf8')
 for (const token of [
   'pg_catalog.csv.gz',
@@ -158,7 +160,8 @@ for (const token of [
 const highRecallLabelSource = readFileSync(join(root, 'scripts/gutenberg-openai-label-candidates.mjs'), 'utf8')
 for (const token of [
   'gpt-5.5',
-  'https://api.openai.com/v1/responses',
+  'https://api.openai.com/v1',
+  'OPENAI_BASE_URL',
   'json_schema',
   'llm_labels.jsonl',
   'needs_more_context',
@@ -171,6 +174,7 @@ const highRecallVerifySource = readFileSync(join(root, 'scripts/gutenberg-openai
 for (const token of [
   'gpt-5.5',
   'llm_verifications.jsonl',
+  'OPENAI_BASE_URL',
   'false_negative_risk',
   'needs_human_review',
   'json_schema',
@@ -185,6 +189,16 @@ for (const token of [
   'high_recall_summary.json',
 ]) {
   assert(highRecallSynthesisSource.includes(token), `High-recall synthesizer is missing: ${token}`)
+}
+const mockOpenAISmokeSource = readFileSync(join(root, 'scripts/gutenberg-openai-mock-smoke.mjs'), 'utf8')
+for (const token of [
+  'createServer',
+  'OPENAI_BASE_URL',
+  'gutenberg_label_verification',
+  'gpt-5.5',
+  'Mock OpenAI Gutenberg high-recall smoke passed.',
+]) {
+  assert(mockOpenAISmokeSource.includes(token), `Mock OpenAI smoke is missing: ${token}`)
 }
 
 for (const file of [
