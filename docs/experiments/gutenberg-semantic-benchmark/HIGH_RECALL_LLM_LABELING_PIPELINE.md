@@ -193,3 +193,55 @@ Optimize for recall first:
 - keep sampling lower-ranked pools until new positives dry up
 
 This is how the benchmark becomes a comprehensive collection rather than a neat but incomplete set.
+
+## Implemented Local Pipeline
+
+The benchmark now has a concrete high-recall pipeline over the real local Project Gutenberg corpus acquired into `.local/corpus`.
+
+Run candidate mining:
+
+```bash
+pnpm run benchmark:gutenberg:high-recall:candidates
+```
+
+This streams `source-inventory.jsonl`, chunks cleaned Gutenberg texts, generates direct/rubric/semantic/seeded/near-miss query variants for every task, and writes:
+
+- `high_recall/<run-id>/candidate_pool.jsonl`
+- `high_recall/<run-id>/candidate_pool_summary.json`
+
+Run first-pass OpenAI labeling:
+
+```bash
+OPENAI_LABEL_MODEL=gpt-5.5 pnpm run benchmark:gutenberg:high-recall:label -- --input=docs/experiments/gutenberg-semantic-benchmark/high_recall/<run-id>/candidate_pool.jsonl
+```
+
+Default model: `gpt-5.5`. The labeler is resumable and writes `llm_labels.jsonl`, skipping candidates that already have labels.
+
+Run adversarial OpenAI verification:
+
+```bash
+OPENAI_VERIFY_MODEL=gpt-5.5 pnpm run benchmark:gutenberg:high-recall:verify -- --labels=docs/experiments/gutenberg-semantic-benchmark/high_recall/<run-id>/llm_labels.jsonl --candidates=docs/experiments/gutenberg-semantic-benchmark/high_recall/<run-id>/candidate_pool.jsonl
+```
+
+The verifier is also resumable and writes `llm_verifications.jsonl`.
+
+Synthesize the review packet:
+
+```bash
+pnpm run benchmark:gutenberg:high-recall:synthesize -- --run-dir=docs/experiments/gutenberg-semantic-benchmark/high_recall/<run-id>
+```
+
+This writes:
+
+- `final_candidate_labels.jsonl`
+- `high_recall_summary.json`
+- `human_review_queue.md`
+- `next_query_variants.json`
+
+Smoke test without API calls:
+
+```bash
+pnpm run benchmark:gutenberg:high-recall:smoke
+```
+
+The smoke path uses a small Gutenberg subset plus dry-run labels/verifications. It proves the real-corpus file flow, resume outputs, synthesis, and artifact contracts without spending model calls.

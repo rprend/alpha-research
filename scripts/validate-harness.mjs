@@ -24,6 +24,11 @@ const requiredPackageScripts = [
   'benchmark:gutenberg',
   'benchmark:gutenberg:acquire',
   'benchmark:gutenberg:medium',
+  'benchmark:gutenberg:high-recall:candidates',
+  'benchmark:gutenberg:high-recall:label',
+  'benchmark:gutenberg:high-recall:verify',
+  'benchmark:gutenberg:high-recall:synthesize',
+  'benchmark:gutenberg:high-recall:smoke',
   'smoke:infra:live',
   'qa:dashboard',
   'journey:dashboard:capture',
@@ -90,6 +95,11 @@ assert(existsSync(join(root, 'scripts/live-infrastructure-smoke.mjs')), 'Missing
 assert(existsSync(join(root, 'scripts/gutenberg-semantic-benchmark.mjs')), 'Missing Gutenberg semantic benchmark runner.')
 assert(existsSync(join(root, 'scripts/gutenberg-acquire-corpus.mjs')), 'Missing real Gutenberg corpus acquisition script.')
 assert(existsSync(join(root, 'scripts/gutenberg-real-benchmark.mjs')), 'Missing real Gutenberg medium benchmark runner.')
+assert(existsSync(join(root, 'scripts/gutenberg-pipeline-lib.mjs')), 'Missing shared Gutenberg high-recall pipeline library.')
+assert(existsSync(join(root, 'scripts/gutenberg-high-recall-candidates.mjs')), 'Missing Gutenberg high-recall candidate builder.')
+assert(existsSync(join(root, 'scripts/gutenberg-openai-label-candidates.mjs')), 'Missing Gutenberg OpenAI labeler.')
+assert(existsSync(join(root, 'scripts/gutenberg-openai-verify-labels.mjs')), 'Missing Gutenberg OpenAI verifier.')
+assert(existsSync(join(root, 'scripts/gutenberg-synthesize-high-recall-results.mjs')), 'Missing Gutenberg high-recall synthesizer.')
 const gutenbergAcquireSource = readFileSync(join(root, 'scripts/gutenberg-acquire-corpus.mjs'), 'utf8')
 for (const token of [
   'pg_catalog.csv.gz',
@@ -131,6 +141,50 @@ for (const token of [
   'score_pass_completed',
 ]) {
   assert(realGutenbergRunnerSource.includes(token), `Real Gutenberg medium runner is missing: ${token}`)
+}
+
+const highRecallCandidateSource = readFileSync(join(root, 'scripts/gutenberg-high-recall-candidates.mjs'), 'utf8')
+for (const token of [
+  'source-inventory.jsonl',
+  'Project Gutenberg',
+  'candidate_pool.jsonl',
+  'seeded_query',
+  'semantic_signal',
+  'near_miss_probe',
+  'discovery_path',
+]) {
+  assert(highRecallCandidateSource.includes(token), `High-recall candidate builder is missing: ${token}`)
+}
+const highRecallLabelSource = readFileSync(join(root, 'scripts/gutenberg-openai-label-candidates.mjs'), 'utf8')
+for (const token of [
+  'gpt-5.5',
+  'https://api.openai.com/v1/responses',
+  'json_schema',
+  'llm_labels.jsonl',
+  'needs_more_context',
+  'suggested_query_terms',
+  '--dry-run',
+]) {
+  assert(highRecallLabelSource.includes(token), `OpenAI labeler is missing: ${token}`)
+}
+const highRecallVerifySource = readFileSync(join(root, 'scripts/gutenberg-openai-verify-labels.mjs'), 'utf8')
+for (const token of [
+  'gpt-5.5',
+  'llm_verifications.jsonl',
+  'false_negative_risk',
+  'needs_human_review',
+  'json_schema',
+]) {
+  assert(highRecallVerifySource.includes(token), `OpenAI verifier is missing: ${token}`)
+}
+const highRecallSynthesisSource = readFileSync(join(root, 'scripts/gutenberg-synthesize-high-recall-results.mjs'), 'utf8')
+for (const token of [
+  'human_review_queue.md',
+  'next_query_variants.json',
+  'final_candidate_labels.jsonl',
+  'high_recall_summary.json',
+]) {
+  assert(highRecallSynthesisSource.includes(token), `High-recall synthesizer is missing: ${token}`)
 }
 
 for (const file of [

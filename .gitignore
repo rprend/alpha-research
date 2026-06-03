@@ -33,3 +33,4 @@ skills-lock.json
 .codex-*.png
 .tmp/
 docs/experiments/gutenberg-semantic-benchmark/.local/
+docs/experiments/gutenberg-semantic-benchmark/high_recall/
