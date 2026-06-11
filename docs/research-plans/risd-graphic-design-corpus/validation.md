@@ -2,13 +2,13 @@
 
 Generated: 2026-06-11
 
-Overall status: warn
+Overall status: pass
 
 ## Counts
 
 - Sources: 87
-- Courses: 108
-- Official course inventory: 88
+- Courses: 125
+- Official course inventory: 105
 - RISD displayed course count: 105
 - Syllabi/course artifacts: 73
 - Assignments: 455
@@ -16,8 +16,8 @@ Overall status: warn
 - Normalized reading snippets: 50
 - Canonical reading works: 26
 - Local catalog reading matches: 38
-- Wayback captures: 94
-- Review queue rows: 12
+- Wayback captures: 107
+- Review queue rows: 11
 
 ## Checks
 
@@ -27,6 +27,6 @@ Overall status: warn
 - PASS assignments_reference_valid_syllabi_and_sources: 0 assignment reference errors.
 - PASS readings_reference_valid_syllabi_and_sources: 0 reading reference errors.
 - PASS readings_have_normalized_work_links: 50 reading snippets linked to 26 canonical works; 38 local catalog matches.
-- WARN official_course_inventory_reconciled: 88 official offerings parsed; RISD page displays 105 results.
-- PASS wayback_captures_recorded: 94 Wayback capture records.
-- PASS course_records_created: 108 course records created.
+- PASS official_course_inventory_reconciled: 105 official offerings parsed; RISD page displays 105 results.
+- PASS wayback_captures_recorded: 107 Wayback capture records.
+- PASS course_records_created: 125 course records created.

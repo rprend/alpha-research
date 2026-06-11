@@ -447,20 +447,21 @@ function uniq(values) {
 }
 
 function extractCourseCodes(text) {
-  return uniq(text.match(/\b(?:GRAPH|GD|DS|GRAPH-W|GRAPH)\s*-?\s?[A-Z]?\d{2,4}[A-Z]?(?:-\d{2})?\b/gi) ?? [])
+  return uniq(text.match(/\b(?:GRAPH|GD|DS|GRAPH-W|GRAPH)\s*-?\s?[A-Z]?\d{2,4}[A-Z]?(?:-\d{2})?\b|\bGRAPH\s+\d{3,4}[A-Z](?:-\d{2})?\b/gi) ?? [])
     .map((code) => code.replace(/\s+/g, '').replace(/GRAPHW/i, 'GRAPH-W').toUpperCase())
 }
 
 function extractOfficialCourseOfferings(text, sourceId) {
   const offerings = []
   const normalized = text.replace(/\r/g, '\n')
-  const blocks = normalized.split(/(?=\n\s*(?:#{1,4}\s*)?GRAPH\s+\d{4}[A-Z]?(?:-\d{2})?\s*(?:\n|$))/i)
+  const officialCodePattern = 'GRAPH\\s+\\d{3,4}[A-Z]?(?:-\\d{2})?'
+  const blocks = normalized.split(new RegExp(`(?=\\n\\s*(?:#{1,4}\\s*)?${officialCodePattern}\\s*(?:\\n|$))`, 'i'))
   for (const block of blocks) {
-    const header = block.match(/(?:^|\n)\s*(?:#{1,4}\s*)?(GRAPH\s+\d{4}[A-Z]?(?:-\d{2})?)\s*(?:\n+)\s*([^\n]+?)\s*(?:\n+)/i)
+    const header = block.match(new RegExp(`(?:^|\\n)\\s*(?:#{1,4}\\s*)?(${officialCodePattern})\\s*(?:\\n+)\\s*([^\\n]+?)\\s*(?:\\n+)`, 'i'))
     if (!header) continue
     const rawCode = header[1]
     const rawTitle = header[2]
-    if (rawTitle.includes('-') || /^(Level|Subject|Period|Credits|Format)$/i.test(rawTitle.trim())) continue
+    if (/^(?:-|Level|Subject|Period|Credits|Format)$/i.test(rawTitle.trim())) continue
     const level = block.match(/\bLevel\s+(Undergraduate|Graduate)\b/i)?.[1] ?? null
     const period = block.match(/\bPeriod\s+([^\n]+)/i)?.[1]?.replace(/\s+/g, ' ').trim() ?? null
     const credits = block.match(/\bCredits\s+(\d+(?:\.\d+)?)\b/i)?.[1] ?? null
@@ -469,7 +470,7 @@ function extractOfficialCourseOfferings(text, sourceId) {
     const location = block.match(/\bLocation\(s\):\s*([^\n]+?)(?:\s+Enrolled\s*\/|\s+Status:|\n|$)/i)?.[1]?.replace(/\s+/g, ' ').trim() ?? null
     const status = block.match(/\bStatus:\s*([A-Za-z]+)/i)?.[1] ?? null
     const startEnd = block.match(/\bStart and End\s+([^\n]+)/i)?.[1]?.replace(/\s+/g, ' ').trim() ?? null
-    const descriptionMatch = block.match(/(?:#{1,4}\s*)?SECTION DESCRIPTION\s+([\s\S]*?)(?=\n\s*(?:Elective|Major Requirement|Graduate Requirement|Required|## COURSE TAGS|Estimated Cost|#{1,4}\s*GRAPH\s+\d{4}|GRAPH\s+\d{4}|$))/i)
+    const descriptionMatch = block.match(new RegExp(`(?:#{1,4}\\s*)?SECTION DESCRIPTION\\s+([\\s\\S]*?)(?=\\n\\s*(?:Elective|Major Requirement|Graduate Requirement|Required|## COURSE TAGS|Estimated Cost|#{1,4}\\s*${officialCodePattern}|${officialCodePattern}|$))`, 'i'))
     const cleanDescription = (descriptionMatch?.[1] ?? '').replace(/\s+/g, ' ').trim()
     const title = rawTitle.replace(/\s+/g, ' ').trim()
     if (!title || !level || !period || !credits || !format || cleanDescription.length < 20) continue
@@ -496,7 +497,7 @@ function extractOfficialCourseOfferings(text, sourceId) {
   }
   const unique = new Map()
   for (const offering of offerings) {
-    unique.set(`${offering.course_code}_${offering.period}`, offering)
+    unique.set(`${offering.course_code}_${offering.period}_${offering.start_end ?? ''}_${offering.instructor ?? ''}_${offering.location ?? ''}_${offering.status ?? ''}`, offering)
   }
   return [...unique.values()]
 }
@@ -802,7 +803,7 @@ function buildCourses(inspected) {
     if (source.extraction_status !== 'ok' || !text) continue
     if (source.source_type === 'official_course_index') {
       for (const offering of extractOfficialCourseOfferings(text, source.source_id)) {
-        byKey.set(`${offering.course_code}_${offering.period}`, offering)
+        byKey.set(offering.course_id, offering)
       }
     }
     const seedTitle = source.course_title
@@ -1164,7 +1165,7 @@ Generated: ${retrievedAt}
 
 Rows: ${rows.length}
 
-${rows.map((row) => `- ${row.priority.toUpperCase()} ${row.reason}: ${row.course_title ?? row.source_id ?? row.syllabus_id}${row.url ? ` (${row.url})` : ''}`).join('\n')}
+${rows.map((row) => `- ${row.priority.toUpperCase()} ${row.reason}: ${row.course_title ?? row.source_id ?? row.syllabus_id ?? row.review_id ?? row.action}${row.url ? ` (${row.url})` : ''}`).join('\n')}
 `
 }
 

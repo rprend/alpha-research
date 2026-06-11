@@ -5,12 +5,12 @@ Generated: 2026-06-11
 ## Coverage Summary
 
 - Sources inspected: 87
-- Course records created: 108
+- Course records created: 125
 - Syllabus/course-site records: 73
 - Assignment evidence snippets: 455
 - Reading evidence snippets: 113
 - Student work evidence records: 3
-- Wayback capture records: 94
+- Wayback capture records: 107
 
 ## Reconstructed Course Packets
 
@@ -1237,6 +1237,173 @@ Generated: 2026-06-11
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
   - Skill training signals: typography, publication design, interaction design, critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### GRADUATE FORM I
+
+- Evidence grade: C
+- Course code: GRAPH 319G-01
+- Degree level: Graduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Extracted skill signals: image making
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: image making.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### GRADUATE FORM II
+
+- Evidence grade: C
+- Course code: GRAPH 320G-01
+- Degree level: Graduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: not enough course-specific evidence yet.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### GRADUATE GENERATIVE PRACTICE
+
+- Evidence grade: C
+- Course code: GRAPH 231G-01
+- Degree level: Graduate
+- Source IDs: src_risd_graphic_design_courses_page_0
+- Extracted skill signals: critique and revision, research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision, research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### GRADUATE SEMINAR I
+
+- Evidence grade: C
+- Course code: GRAPH 321G-01
+- Degree level: Graduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### GRADUATE SEMINAR II
+
+- Evidence grade: C
+- Course code: GRAPH 322G-01
+- Degree level: Graduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### GRADUATE STUDIO ELECTIVE I
+
+- Evidence grade: C
+- Course code: GRAPH 330G-01
+- Degree level: Graduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: typography, critique and revision, research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, critique and revision, research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### GRADUATE STUDIO I
+
+- Evidence grade: C
+- Course code: GRAPH 323G-01
+- Degree level: Graduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### GRADUATE STUDIO II
+
+- Evidence grade: C
+- Course code: GRAPH 324G-01
+- Degree level: Graduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: image making
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: image making.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### GRADUATE THESIS I
+
+- Evidence grade: C
+- Course code: GRAPH 327G-01
+- Degree level: Graduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### GRADUATE THESIS II
+
+- Evidence grade: C
+- Course code: GRAPH 328G-01
+- Degree level: Graduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### GRADUATE TYPE DESIGN
+
+- Evidence grade: C
+- Course code: GRAPH 318G-01
+- Degree level: Graduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Extracted skill signals: typography
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### GRADUATE TYPOGRAPHY STUDIO I
+
+- Evidence grade: C
+- Course code: GRAPH 332G-01
+- Degree level: Graduate
+- Source IDs: src_risd_graphic_design_courses_page_5
+- Extracted skill signals: typography, research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### GRADUATE TYPOGRAPHY STUDIO II
+
+- Evidence grade: C
+- Course code: GRAPH 342G-01
+- Degree level: Graduate
+- Source IDs: src_risd_graphic_design_courses_page_5
+- Extracted skill signals: typography, publication design, motion design
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, publication design, motion design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### GRADUATE TYPOGRAPHY STUDIO III
+
+- Evidence grade: C
+- Course code: GRAPH 352G-01
+- Degree level: Graduate
+- Source IDs: src_risd_graphic_design_courses_page_5
+- Extracted skill signals: typography
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
 ### Graphic Design for the Web
@@ -2603,6 +2770,39 @@ Generated: 2026-06-11
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: typography, publication design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### WKSHP: PRE-PRESS AND RISOGRAPH PRINTING
+
+- Evidence grade: C
+- Course code: GRAPH 3181-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: not enough course-specific evidence yet.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### WKSHP: PRE-PRESS AND RISOGRAPH PRINTING
+
+- Evidence grade: C
+- Course code: GRAPH 3181-02
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: not enough course-specific evidence yet.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### WKSHP: PRE-PRESS AND RISOGRAPH PRINTING
+
+- Evidence grade: C
+- Course code: GRAPH 3181-03
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: not enough course-specific evidence yet.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
 ### WKSHP: SCREENPRINTING
