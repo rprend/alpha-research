@@ -56,6 +56,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/assignments.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/readings.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/student_work.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/source_clusters.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/wayback_captures.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/search_queries.json`
 - `docs/research-plans/risd-graphic-design-corpus/course_reconstruction.md`
@@ -81,16 +82,12 @@ Current seed sources include:
 Known gaps:
 
 - Discovery is still seed-based.
-- Official course parsing is incomplete and needs to recover all RISD course-page offerings reliably.
-- Failed or empty fetches must not become syllabus records.
-- Course linking needs normalized keys to avoid null-title/null-code false joins.
 - Citation extraction is heuristic.
 - Assignment extraction is currently snippet-based, not structured enough.
 - No search API ingestion exists yet.
 - No Common Crawl pass exists yet.
-- Wayback is queried, but archived captures are not yet fetched, parsed, or compared.
-- No near-duplicate clustering exists yet.
-- No manual review queue exists yet.
+- Near-duplicate clustering is implemented as a review artifact, but clusters are not yet used to collapse generated course packets.
+- Manual review queue exists, but `review_decisions.jsonl`, `field_conflicts.jsonl`, and `needs_followup.md` are not implemented yet.
 
 ## Required End State
 
@@ -249,6 +246,30 @@ Required fields:
 - `project_statement_excerpt`
 - `assignment_link_confidence`
 - `visual_standard_notes`
+- `evidence_grade`
+
+### `source_clusters.jsonl`
+
+One row per exact duplicate, near-duplicate, or related source-family cluster.
+
+Required fields:
+
+- `cluster_id`
+- `cluster_type`
+- `representative_source_id`
+- `source_ids`
+- `source_count`
+- `course_codes`
+- `course_titles`
+- `instructors`
+- `terms`
+- `source_url_families`
+- `assignment_schedule_hash`
+- `reading_set_hash`
+- `normalized_text_hashes`
+- `similarity`
+- `reason`
+- `collapse_recommendation`
 - `evidence_grade`
 
 ## Evidence Grades
@@ -580,6 +601,7 @@ Corpus checks:
 - No syllabus record has both missing `course_code` and missing `course_title` unless manually reviewed.
 - Every assignment row points to a syllabus and source.
 - Every reading row points to a syllabus and source.
+- Every source-cluster row points to valid sources and includes a representative source.
 - Every reconstruction claim cites source IDs.
 - Inferred fields are marked.
 - Official course inventory count is reconciled against the RISD course page count.

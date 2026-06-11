@@ -2,8 +2,9 @@
 
 Generated: 2026-06-11
 
-Rows: 10
+Rows: 11
 
+- HIGH fetch_or_extraction_failed: src_typography_iii_syllabus (https://type.practise.studio/syllabus/)
 - MEDIUM reading_normalization_low_confidence: review_reading_normalization_backlog
 - LOW missing_schedule_evidence: Design Studio 1
 - LOW missing_schedule_evidence: Design for Publishing

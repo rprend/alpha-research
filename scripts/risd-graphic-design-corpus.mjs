@@ -1323,6 +1323,222 @@ function buildStudentWork(inspected) {
   return rows
 }
 
+function buildSourceClusters(inspected, syllabi, readings) {
+  const sourceById = new Map(inspected.map(({ source }) => [source.source_id, source]))
+  const clusters = []
+  const clustered = new Set()
+
+  const exactGroups = new Map()
+  for (const { source } of inspected) {
+    if (!source.url && !source.checksum) continue
+    const exactKeys = [
+      source.url ? `url:${canonicalUrl(source.url)}` : null,
+      source.checksum ? `checksum:${source.checksum}` : null,
+    ].filter(Boolean)
+    for (const key of exactKeys) {
+      const existing = exactGroups.get(key) ?? []
+      existing.push(source.source_id)
+      exactGroups.set(key, existing)
+    }
+  }
+
+  let clusterIndex = 1
+  for (const [key, ids] of exactGroups) {
+    const uniqueIds = uniq(ids)
+    if (uniqueIds.length < 2) continue
+    const cluster = makeSourceCluster({
+      clusterIndex,
+      clusterType: key.startsWith('url:') ? 'exact_url' : 'exact_checksum',
+      sourceIds: uniqueIds,
+      sourceById,
+      inspected,
+      syllabi,
+      readings,
+      reason: key,
+      similarity: 1,
+    })
+    clusters.push(cluster)
+    cluster.source_ids.forEach((id) => clustered.add(id))
+    clusterIndex += 1
+  }
+
+  const comparable = inspected
+    .filter(({ source, text }) => source.extraction_status === 'ok' && text && text.length > 500)
+    .map((item) => ({
+      ...item,
+      family_key: sourceFamilyKey(item.source),
+      course_key: normalizeCourseKey(item.source.course_code ?? null, item.source.course_title ?? sourceTitleFamily(item.source)),
+      shingles: textShingles(item.text),
+    }))
+    .filter((item) => item.shingles.size >= 20)
+
+  const buckets = new Map()
+  for (const item of comparable) {
+    const key = `${item.family_key}|${item.course_key}`
+    const existing = buckets.get(key) ?? []
+    existing.push(item)
+    buckets.set(key, existing)
+  }
+
+  for (const [bucketKey, items] of buckets) {
+    if (items.length < 2) continue
+    const parent = new Map(items.map((item) => [item.source.source_id, item.source.source_id]))
+    for (let i = 0; i < items.length; i += 1) {
+      for (let j = i + 1; j < items.length; j += 1) {
+        const similarity = jaccard(items[i].shingles, items[j].shingles)
+        if (similarity >= 0.82) union(parent, items[i].source.source_id, items[j].source.source_id)
+      }
+    }
+    const groups = new Map()
+    for (const item of items) {
+      const root = findParent(parent, item.source.source_id)
+      const existing = groups.get(root) ?? []
+      existing.push(item.source.source_id)
+      groups.set(root, existing)
+    }
+    for (const ids of groups.values()) {
+      const sourceIds = uniq(ids).filter((id) => !clustered.has(id))
+      if (sourceIds.length < 2) continue
+      const pairSimilarities = []
+      for (let i = 0; i < sourceIds.length; i += 1) {
+        for (let j = i + 1; j < sourceIds.length; j += 1) {
+          const left = comparable.find((item) => item.source.source_id === sourceIds[i])
+          const right = comparable.find((item) => item.source.source_id === sourceIds[j])
+          if (left && right) pairSimilarities.push(jaccard(left.shingles, right.shingles))
+        }
+      }
+      clusters.push(makeSourceCluster({
+        clusterIndex,
+        clusterType: 'near_duplicate_text',
+        sourceIds,
+        sourceById,
+        inspected,
+        syllabi,
+        readings,
+        reason: `bucket:${bucketKey}`,
+        similarity: pairSimilarities.length ? Number((pairSimilarities.reduce((sum, value) => sum + value, 0) / pairSimilarities.length).toFixed(3)) : null,
+      }))
+      sourceIds.forEach((id) => clustered.add(id))
+      clusterIndex += 1
+    }
+  }
+
+  const relatedGroups = new Map()
+  for (const { source } of inspected.filter(({ source }) => source.extraction_status === 'ok')) {
+    if (clustered.has(source.source_id)) continue
+    const key = `${sourceFamilyKey(source)}|${normalizeCourseKey(source.course_code ?? null, source.course_title ?? sourceTitleFamily(source))}`
+    const existing = relatedGroups.get(key) ?? []
+    existing.push(source.source_id)
+    relatedGroups.set(key, existing)
+  }
+  for (const [key, ids] of relatedGroups) {
+    const sourceIds = uniq(ids)
+    if (sourceIds.length < 2) continue
+    clusters.push(makeSourceCluster({
+      clusterIndex,
+      clusterType: 'related_source_family',
+      sourceIds,
+      sourceById,
+      inspected,
+      syllabi,
+      readings,
+      reason: `bucket:${key}`,
+      similarity: null,
+    }))
+    sourceIds.forEach((id) => clustered.add(id))
+    clusterIndex += 1
+  }
+
+  return clusters.sort((a, b) => b.source_ids.length - a.source_ids.length || a.cluster_id.localeCompare(b.cluster_id))
+}
+
+function makeSourceCluster({ clusterIndex, clusterType, sourceIds, sourceById, inspected, syllabi, readings, reason, similarity }) {
+  const sources = sourceIds.map((id) => sourceById.get(id)).filter(Boolean)
+  const representative = sources
+    .slice()
+    .sort((a, b) => (sourceTypeRank[a.source_type] ?? 99) - (sourceTypeRank[b.source_type] ?? 99) || (b.text_length ?? 0) - (a.text_length ?? 0))[0]
+  const sourceIdSet = new Set(sourceIds)
+  const clusterSyllabi = syllabi.filter((syllabus) => syllabus.source_ids.some((id) => sourceIdSet.has(id)))
+  const clusterReadings = readings.filter((reading) => reading.source_ids.some((id) => sourceIdSet.has(id)))
+  const clusterTexts = inspected.filter(({ source }) => sourceIdSet.has(source.source_id)).map(({ text }) => text).filter(Boolean)
+  return {
+    cluster_id: `cluster_${String(clusterIndex).padStart(3, '0')}`,
+    cluster_type: clusterType,
+    representative_source_id: representative?.source_id ?? sourceIds[0],
+    source_ids: sourceIds,
+    source_count: sourceIds.length,
+    course_codes: uniq([...sources.map((source) => source.course_code), ...clusterSyllabi.map((syllabus) => syllabus.course_code)]),
+    course_titles: uniq([...sources.map((source) => source.course_title), ...clusterSyllabi.map((syllabus) => syllabus.course_title)]),
+    instructors: uniq([...sources.map((source) => source.instructor), ...clusterSyllabi.map((syllabus) => syllabus.instructor)]),
+    terms: uniq([...sources.map((source) => source.term), ...clusterSyllabi.map((syllabus) => syllabus.term)]),
+    source_url_families: uniq(sources.map((source) => sourceFamilyKey(source))),
+    assignment_schedule_hash: sha256(Buffer.from(clusterSyllabi.flatMap((syllabus) => syllabus.assignment_schedule ?? []).map((row) => `${row.date ?? ''}|${row.topic ?? ''}|${row.assignment_or_reading ?? ''}`).join('\n'))),
+    reading_set_hash: sha256(Buffer.from(clusterReadings.map((reading) => reading.canonical_work_id ?? reading.raw_citation).sort().join('\n'))),
+    normalized_text_hashes: uniq(clusterTexts.map((text) => sha256(Buffer.from(normalizeTextForSimilarity(text).slice(0, 20000))))),
+    similarity,
+    reason,
+    collapse_recommendation: clusterType.startsWith('exact') ? 'collapse_cosmetic_duplicate' : clusterType === 'near_duplicate_text' ? 'manual_review_before_collapse' : 'keep_distinct_related_sources',
+    evidence_grade: sources.map((source) => source.confidence).sort()[0] ?? null,
+  }
+}
+
+function sourceFamilyKey(source) {
+  try {
+    const parsed = new URL(source.original_url ?? source.url)
+    const host = parsed.hostname.replace(/^www\./, '')
+    const pathParts = parsed.pathname.split('/').filter(Boolean).slice(0, 2)
+    return `${host}/${pathParts.join('/')}`
+  } catch {
+    return source.authority ?? source.source_type
+  }
+}
+
+function sourceTitleFamily(source) {
+  return source.course_title ?? source.title ?? source.source_type ?? source.source_id
+}
+
+function normalizeTextForSimilarity(text) {
+  return text
+    .toLowerCase()
+    .replace(/https?:\/\/\S+/g, ' ')
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\b(?:the|and|for|with|from|this|that|you|your|are|will|have|class|course)\b/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function textShingles(text, size = 5) {
+  const tokens = normalizeTextForSimilarity(text).split(' ').filter((token) => token.length > 2)
+  const shingles = new Set()
+  for (let index = 0; index <= tokens.length - size; index += 1) {
+    shingles.add(tokens.slice(index, index + size).join(' '))
+  }
+  return shingles
+}
+
+function jaccard(left, right) {
+  let intersection = 0
+  for (const value of left) {
+    if (right.has(value)) intersection += 1
+  }
+  const unionSize = left.size + right.size - intersection
+  return unionSize ? intersection / unionSize : 0
+}
+
+function findParent(parent, id) {
+  const next = parent.get(id)
+  if (next === id) return id
+  const root = findParent(parent, next)
+  parent.set(id, root)
+  return root
+}
+
+function union(parent, left, right) {
+  const leftRoot = findParent(parent, left)
+  const rightRoot = findParent(parent, right)
+  if (leftRoot !== rightRoot) parent.set(rightRoot, leftRoot)
+}
+
 function isLikelyStudentWorkLink(link) {
   const combined = `${link.url} ${link.label}`.toLowerCase()
   if (!link.label || link.label.length < 3) return false
@@ -1402,7 +1618,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], studentWork = [], wayback, reviewQueue = [] }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], studentWork = [], sourceClusters = [], wayback, reviewQueue = [] }) {
   const sourceIds = new Set(sources.map((source) => source.source_id))
   const syllabusIds = new Set(syllabi.map((syllabus) => syllabus.syllabus_id))
   const failedSourceIds = new Set(sources.filter((source) => source.extraction_status !== 'ok').map((source) => source.source_id))
@@ -1446,6 +1662,10 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const catalogReadingCount = readings.filter((reading) => reading.linking_status === 'local_catalog_match').length
   const studentWorkSourceErrors = studentWork.filter((work) => work.source_ids.some((id) => !sourceIds.has(id)))
   const structuredStudentWorkCount = studentWork.filter((work) => work.url && (work.medium || work.project_title || work.project_statement_excerpt || work.assignment_link_confidence || work.visual_standard_notes?.length) && work.evidence_grade).length
+  const sourceClusterErrors = sourceClusters.filter((cluster) => !cluster.representative_source_id || !cluster.source_ids?.length || cluster.source_ids.some((id) => !sourceIds.has(id)))
+  const exactSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type.startsWith('exact')).length
+  const nearDuplicateSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type === 'near_duplicate_text').length
+  const relatedSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type === 'related_source_family').length
   const courseInventoryReconciled = courseInventory.displayed_count > 0 && courseInventory.offerings.length === courseInventory.displayed_count
   const checks = [
     {
@@ -1499,6 +1719,16 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${structuredStudentWorkCount} student work rows include URL plus medium/project/evidence metadata.`,
     },
     {
+      id: 'source_clusters_reference_valid_sources',
+      status: sourceClusterErrors.length === 0 ? 'pass' : 'fail',
+      detail: `${sourceClusterErrors.length} source cluster reference errors across ${sourceClusters.length} clusters.`,
+    },
+    {
+      id: 'source_clusters_include_dedup_signals',
+      status: sourceClusters.length > 0 ? 'pass' : 'warn',
+      detail: `${exactSourceClusterCount} exact duplicate clusters, ${nearDuplicateSourceClusterCount} near-duplicate text clusters, and ${relatedSourceClusterCount} related source-family clusters.`,
+    },
+    {
       id: 'official_course_inventory_reconciled',
       status: courseInventoryReconciled ? 'pass' : 'warn',
       detail: `${courseInventory.offerings.length} official offerings parsed; RISD page displays ${courseInventory.displayed_count || 'unknown'} results.`,
@@ -1534,6 +1764,10 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       canonical_reading_works: readingFrequency.length,
       student_work: studentWork.length,
       structured_student_work: structuredStudentWorkCount,
+      source_clusters: sourceClusters.length,
+      exact_source_clusters: exactSourceClusterCount,
+      near_duplicate_source_clusters: nearDuplicateSourceClusterCount,
+      related_source_clusters: relatedSourceClusterCount,
       wayback: wayback.length,
       review_queue: reviewQueue.length,
     },
@@ -1627,6 +1861,10 @@ Overall status: ${validation.status}
 - Local catalog reading matches: ${validation.counts.local_catalog_readings}
 - Student work rows: ${validation.counts.student_work}
 - Structured student work rows: ${validation.counts.structured_student_work}
+- Source clusters: ${validation.counts.source_clusters}
+- Exact duplicate clusters: ${validation.counts.exact_source_clusters}
+- Near-duplicate source clusters: ${validation.counts.near_duplicate_source_clusters}
+- Related source-family clusters: ${validation.counts.related_source_clusters}
 - Wayback captures: ${validation.counts.wayback}
 - Review queue rows: ${validation.counts.review_queue}
 
@@ -1855,6 +2093,7 @@ async function main() {
   const readings = buildReadings(syllabi)
   const readingFrequency = buildReadingFrequency(readings)
   const studentWork = buildStudentWork(inspected)
+  const sourceClusters = buildSourceClusters(inspected, syllabi, readings)
 
   writeJsonl(join(outDir, 'sources.jsonl'), sources)
   writeJsonl(join(outDir, 'course_inventory.jsonl'), courseInventory.offerings)
@@ -1864,12 +2103,13 @@ async function main() {
   writeJsonl(join(outDir, 'readings.jsonl'), readings)
   writeJsonl(join(outDir, 'reading_frequency.jsonl'), readingFrequency)
   writeJsonl(join(outDir, 'student_work.jsonl'), studentWork)
+  writeJsonl(join(outDir, 'source_clusters.jsonl'), sourceClusters)
   writeJsonl(join(outDir, 'wayback_captures.jsonl'), wayback)
   writeJsonl(join(outDir, 'crawl_sources.jsonl'), crawlSeeds)
   writeJsonl(join(outDir, 'search_results.jsonl'), buildSearchResults())
   writeJson(join(outDir, 'search_queries.json'), { generated_at: retrievedAt, queries: searchQueries })
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, studentWork, wayback, reviewQueue })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, studentWork, sourceClusters, wayback, reviewQueue })
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
@@ -1879,7 +2119,7 @@ async function main() {
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
 
   console.log(`RISD corpus artifacts written to ${outDir}`)
-  console.log(`sources=${sources.length} course_inventory=${courseInventory.offerings.length}/${courseInventory.displayed_count || '?'} courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} canonical_reading_works=${readingFrequency.length} student_work=${studentWork.length} wayback=${wayback.length} review_queue=${reviewQueue.length} validation=${validationWithReview.status}`)
+  console.log(`sources=${sources.length} course_inventory=${courseInventory.offerings.length}/${courseInventory.displayed_count || '?'} courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} canonical_reading_works=${readingFrequency.length} student_work=${studentWork.length} source_clusters=${sourceClusters.length} wayback=${wayback.length} review_queue=${reviewQueue.length} validation=${validationWithReview.status}`)
 }
 
 if (!existsSync(join(root, 'docs/research-plans/risd-graphic-design-syllabus-corpus-plan.md'))) {
