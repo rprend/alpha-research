@@ -9,6 +9,9 @@ const outDir = join(root, 'docs/research-plans/risd-graphic-design-corpus')
 const retrievedAt = new Date().toISOString().slice(0, 10)
 const skipWayback = process.argv.includes('--skip-wayback')
 const officialCourseMaxPages = 12
+const crawlMaxDepth = 1
+const crawlMaxLinksPerHost = 20
+const waybackMaxSources = 45
 
 const seeds = [
   {
@@ -311,6 +314,8 @@ const sourceTypeRank = {
   syllabus_pdf: 1,
   syllabus_html: 1,
   assignment_page: 2,
+  schedule_page: 2,
+  reading_page: 2,
   course_site: 2,
   official_syllabus_guidance: 3,
   official_course_index: 4,
@@ -366,6 +371,58 @@ function stripHtml(html) {
 
 function titleFromHtml(html) {
   return html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]?.replace(/\s+/g, ' ').trim() ?? null
+}
+
+function extractLinks(html, baseUrl) {
+  const links = []
+  for (const match of html.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)) {
+    const href = match[1]
+    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) continue
+    try {
+      const url = new URL(href, baseUrl)
+      url.hash = ''
+      const label = stripHtml(match[2]).replace(/\s+/g, ' ').trim()
+      links.push({ url: canonicalUrl(url.toString()), label })
+    } catch {
+      // Ignore malformed public links.
+    }
+  }
+  return links
+}
+
+function canonicalUrl(url) {
+  const parsed = new URL(url)
+  parsed.hash = ''
+  if (parsed.hostname.endsWith('risd.gd') || ['johncaserta.com', 'webtype.htmlkitchen.net'].includes(parsed.hostname)) {
+    parsed.protocol = 'https:'
+  }
+  if (parsed.pathname !== '/' && parsed.pathname.endsWith('/')) {
+    parsed.pathname = parsed.pathname.slice(0, -1)
+  }
+  return parsed.toString()
+}
+
+function classifyLinkedSource(url, label = '') {
+  const combined = `${url} ${label}`.toLowerCase()
+  if (combined.endsWith('.pdf') || combined.includes('/uploads/') && combined.includes('.pdf')) return 'syllabus_pdf'
+  if (/\bsyllabus\b/.test(combined)) return 'syllabus_html'
+  if (/\b(project|assignment|exercise|prompt|critique|outline|week-\d+)/.test(combined)) return 'assignment_page'
+  if (/\b(schedule|calendar|class-\d+|week\s*\d+)/.test(combined)) return 'schedule_page'
+  if (/\b(reading|resource|reference|links|bibliography)\b/.test(combined)) return 'reading_page'
+  if (/\b(student|gallery|archive|work)\b/.test(combined)) return 'student_work_archive'
+  return null
+}
+
+function shouldCrawlHost(url) {
+  const host = new URL(url).hostname
+  return host.endsWith('risd.gd') || ['johncaserta.com', 'webtype.htmlkitchen.net'].includes(host)
+}
+
+function sourceIdForUrl(prefix, url) {
+  const parsed = new URL(url)
+  const slug = `${parsed.hostname}${parsed.pathname}`.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '').slice(0, 90)
+  const hash = createHash('sha1').update(url).digest('hex').slice(0, 8)
+  return `${prefix}_${slug}_${hash}`
 }
 
 function lines(text) {
@@ -634,7 +691,8 @@ async function inspectSeed(seed) {
   try {
     const fetched = await fetchWithRetry(seed.url)
     const isPdf = fetched.contentType.includes('pdf') || seed.url.toLowerCase().endsWith('.pdf')
-    const text = isPdf ? pdfText(fetched.buffer, seed.source_id) : stripHtml(fetched.buffer.toString('utf8'))
+    const html = isPdf ? '' : fetched.buffer.toString('utf8')
+    const text = isPdf ? pdfText(fetched.buffer, seed.source_id) : stripHtml(html)
     return {
       source: {
         ...base,
@@ -647,6 +705,7 @@ async function inspectSeed(seed) {
         extraction_status: text.length ? 'ok' : 'empty_text',
       },
       text,
+      links: isPdf ? [] : extractLinks(html, fetched.finalUrl || seed.url),
     }
   } catch (error) {
     return {
@@ -656,6 +715,7 @@ async function inspectSeed(seed) {
         error: error.message,
       },
       text: '',
+      links: [],
     }
   }
 }
@@ -671,6 +731,48 @@ async function inspectOfficialCoursePage(page) {
     notes: `Official RISD Graphic Design courses page ${page + 1}.`,
   }
   return inspectSeed(seed)
+}
+
+function discoverCrawlSeeds(inspected) {
+  const discovered = []
+  const seen = new Set([...seeds, ...searchDiscoveredSources].map((source) => canonicalUrl(source.url)))
+  const perHost = new Map()
+  const crawlableSources = inspected.filter(({ source, links }) => source.extraction_status === 'ok' && links?.length && shouldCrawlHost(source.url))
+  for (const item of crawlableSources) {
+    const baseHost = new URL(item.source.url).hostname
+    for (const link of item.links) {
+      let parsed
+      try {
+        parsed = new URL(link.url)
+      } catch {
+        continue
+      }
+      if (parsed.hostname !== baseHost) continue
+      if (!['http:', 'https:'].includes(parsed.protocol)) continue
+      if (seen.has(link.url)) continue
+      const linkedType = classifyLinkedSource(link.url, link.label)
+      if (!linkedType) continue
+      const count = perHost.get(baseHost) ?? 0
+      if (count >= crawlMaxLinksPerHost) continue
+      perHost.set(baseHost, count + 1)
+      seen.add(link.url)
+      discovered.push({
+        source_id: sourceIdForUrl('src_crawl', link.url),
+        url: link.url,
+        source_type: linkedType,
+        authority: 'public_course_site_link',
+        confidence: linkedType === 'syllabus_pdf' || linkedType === 'syllabus_html' ? 'A' : 'B',
+        course_title: item.source.course_title ?? null,
+        term: item.source.term ?? null,
+        instructor: item.source.instructor ?? null,
+        parent_source_id: item.source.source_id,
+        crawl_depth: 1,
+        link_label: link.label,
+        notes: `Discovered from ${item.source.source_id}.`,
+      })
+    }
+  }
+  return discovered
 }
 
 async function waybackCaptures(url) {
@@ -743,7 +845,7 @@ function normalizeCourseKey(code, title) {
 
 function buildSyllabi(inspected) {
   return inspected
-    .filter(({ source, text }) => source.extraction_status === 'ok' && text && ['syllabus_pdf', 'syllabus_html', 'course_site', 'assignment_page'].includes(source.source_type))
+    .filter(({ source, text }) => source.extraction_status === 'ok' && text && ['syllabus_pdf', 'syllabus_html', 'course_site', 'assignment_page', 'schedule_page', 'reading_page'].includes(source.source_type))
     .map(({ source, text }) => ({
       syllabus_id: `syl_${source.source_id.replace(/^src_/, '')}`,
       course_code: source.course_code ?? extractCourseCodes(text)[0] ?? null,
@@ -831,7 +933,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, wayback }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, wayback, reviewQueue = [] }) {
   const sourceIds = new Set(sources.map((source) => source.source_id))
   const syllabusIds = new Set(syllabi.map((syllabus) => syllabus.syllabus_id))
   const failedSourceIds = new Set(sources.filter((source) => source.extraction_status !== 'ok').map((source) => source.source_id))
@@ -896,9 +998,62 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       assignments: assignments.length,
       readings: readings.length,
       wayback: wayback.length,
+      review_queue: reviewQueue.length,
     },
     checks,
   }
+}
+
+function buildReviewQueue({ sources, courseInventory, syllabi }) {
+  const rows = []
+  for (const source of sources.filter((source) => source.extraction_status !== 'ok')) {
+    rows.push({
+      review_id: `review_${source.source_id}`,
+      priority: 'high',
+      reason: 'fetch_or_extraction_failed',
+      source_id: source.source_id,
+      url: source.url,
+      action: 'Verify URL manually, check Wayback, or replace with a reachable public source.',
+    })
+  }
+  if (courseInventory.displayed_count && courseInventory.offerings.length !== courseInventory.displayed_count) {
+    rows.push({
+      review_id: 'review_official_course_inventory_gap',
+      priority: 'high',
+      reason: 'official_inventory_not_reconciled',
+      source_id: 'src_risd_graphic_design_courses_pages',
+      url: 'https://www.risd.edu/academics/graphic-design/courses',
+      action: `Find the remaining ${courseInventory.displayed_count - courseInventory.offerings.length} public official offerings via Drupal view state, Coursedog, or registrar exports.`,
+    })
+  }
+  for (const syllabus of syllabi) {
+    const hasSchedule = syllabus.spans?.assignment_schedule?.length || syllabus.weekly_schedule_evidence?.length
+    const hasAssignments = syllabus.assignments?.length
+    const isHighValue = ['syllabus_pdf', 'syllabus_html', 'assignment_page', 'schedule_page'].some((type) => syllabus.source_ids.some((id) => id.includes(type)))
+    if (!hasSchedule || !hasAssignments) {
+      rows.push({
+        review_id: `review_${syllabus.syllabus_id}`,
+        priority: isHighValue ? 'medium' : 'low',
+        reason: !hasSchedule ? 'missing_schedule_evidence' : 'missing_assignment_evidence',
+        syllabus_id: syllabus.syllabus_id,
+        source_ids: syllabus.source_ids,
+        course_title: syllabus.course_title,
+        action: 'Inspect source manually and improve parser or source classification if classroom detail is present.',
+      })
+    }
+  }
+  return rows
+}
+
+function reviewQueueMarkdown(rows) {
+  return `# RISD Graphic Design Review Queue
+
+Generated: ${retrievedAt}
+
+Rows: ${rows.length}
+
+${rows.map((row) => `- ${row.priority.toUpperCase()} ${row.reason}: ${row.course_title ?? row.source_id ?? row.syllabus_id}${row.url ? ` (${row.url})` : ''}`).join('\n')}
+`
 }
 
 function validationMarkdown(validation) {
@@ -918,6 +1073,7 @@ Overall status: ${validation.status}
 - Assignments: ${validation.counts.assignments}
 - Readings: ${validation.counts.readings}
 - Wayback captures: ${validation.counts.wayback}
+- Review queue rows: ${validation.counts.review_queue}
 
 ## Checks
 
@@ -1013,6 +1169,7 @@ Generated: ${retrievedAt}
 - Successful extractions: ${ok.length}
 - Failed or empty extractions: ${failed.length}
 - Wayback captures recorded: ${wayback.length}
+- Wayback source cap for this run: ${waybackMaxSources}
 - Validation status: ${validation.status}
 
 ## Failed Or Empty Sources
@@ -1091,10 +1248,15 @@ async function main() {
     if (page > 0 && offerings.length === 0) break
     inspected.push(inspectedPage)
   }
+  const crawlSeeds = discoverCrawlSeeds(inspected).slice(0, 80)
+  for (const seed of crawlSeeds) {
+    inspected.push(await inspectSeed(seed))
+  }
 
   const wayback = []
   if (!skipWayback) {
-    for (const seed of seeds) {
+    const waybackSeeds = [...seeds, ...searchDiscoveredSources, ...crawlSeeds].slice(0, waybackMaxSources)
+    for (const seed of waybackSeeds) {
       const captures = await waybackCaptures(seed.url)
       captures.forEach((capture) => wayback.push({ source_id: seed.source_id, ...capture }))
     }
@@ -1116,17 +1278,21 @@ async function main() {
   writeJsonl(join(outDir, 'readings.jsonl'), readings)
   writeJsonl(join(outDir, 'student_work.jsonl'), studentWork)
   writeJsonl(join(outDir, 'wayback_captures.jsonl'), wayback)
+  writeJsonl(join(outDir, 'crawl_sources.jsonl'), crawlSeeds)
   writeJsonl(join(outDir, 'search_results.jsonl'), buildSearchResults())
   writeJson(join(outDir, 'search_queries.json'), { generated_at: retrievedAt, queries: searchQueries })
-  const validation = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, wayback })
-  writeJson(join(outDir, 'validation.json'), validation)
-  writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validation))
+  const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, wayback, reviewQueue })
+  writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
+  writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
+  writeJson(join(outDir, 'validation.json'), validationWithReview)
+  writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback }))
-  writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation }))
+  writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
 
   console.log(`RISD corpus artifacts written to ${outDir}`)
-  console.log(`sources=${sources.length} course_inventory=${courseInventory.offerings.length}/${courseInventory.displayed_count || '?'} courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} student_work=${studentWork.length} wayback=${wayback.length} validation=${validation.status}`)
+  console.log(`sources=${sources.length} course_inventory=${courseInventory.offerings.length}/${courseInventory.displayed_count || '?'} courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} student_work=${studentWork.length} wayback=${wayback.length} review_queue=${reviewQueue.length} validation=${validationWithReview.status}`)
 }
 
 if (!existsSync(join(root, 'docs/research-plans/risd-graphic-design-syllabus-corpus-plan.md'))) {
