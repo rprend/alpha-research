@@ -61,6 +61,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/source_clusters.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/source_versions.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/wayback_captures.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/search_candidates.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/review_queue.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/review_decisions.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/field_conflicts.jsonl`
@@ -91,7 +92,7 @@ Known gaps:
 - Discovery is still seed-based.
 - Citation extraction is heuristic.
 - Assignment extraction is currently snippet-based, not structured enough.
-- No search API ingestion exists yet.
+- Search candidate import is supported through local JSON/JSONL exports, but no live search API provider is wired yet.
 - No Common Crawl pass exists yet.
 - Faculty/course edges are derived from existing course evidence, but RISD profile crawling and faculty-portfolio expansion are not implemented yet.
 - Near-duplicate clustering is implemented as a review artifact, but clusters are not yet used to collapse generated course packets.
@@ -272,6 +273,23 @@ Required fields:
 - `course_titles`
 - `terms`
 - `evidence_grade`
+
+### `search_candidates.jsonl`
+
+One row per query backlog item, curated search seed, or imported search result.
+
+Required fields:
+
+- `candidate_id`
+- `query`
+- `rank`
+- `title`
+- `snippet`
+- `url`
+- `discovered_at`
+- `source`
+- `status`
+- `promoted_source_id`
 
 ### `faculty_course_edges.jsonl`
 

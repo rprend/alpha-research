@@ -12,6 +12,7 @@ const officialCourseMaxPages = 12
 const crawlMaxDepth = 1
 const crawlMaxLinksPerHost = 20
 const waybackMaxSources = 45
+const searchImportPath = process.env.RISD_GD_SEARCH_IMPORTS ?? join(outDir, 'search_imports.jsonl')
 
 const seeds = [
   {
@@ -330,11 +331,109 @@ function buildSearchResults() {
     query: source.discovery_query,
     rank: source.discovery_rank,
     title: source.course_title,
+    snippet: source.notes,
     url: source.url,
     promoted_source_id: source.source_id,
     discovered_at: retrievedAt,
     status: 'promoted_to_seed',
   }))
+}
+
+function buildSearchCandidates(importedCandidates = [], promotedImported = []) {
+  const promotedByUrl = new Map(promotedImported.map((source) => [canonicalUrl(source.url), source.source_id]))
+  const rows = []
+  for (const source of searchDiscoveredSources) {
+    rows.push({
+      candidate_id: `search_${source.source_id.replace(/^src_/, '')}`,
+      query: source.discovery_query,
+      rank: source.discovery_rank,
+      title: source.course_title,
+      snippet: source.notes,
+      url: source.url,
+      discovered_at: retrievedAt,
+      source: 'curated_search_seed',
+      status: 'promoted_to_seed',
+      promoted_source_id: source.source_id,
+    })
+  }
+  for (const [index, query] of searchQueries.entries()) {
+    rows.push({
+      candidate_id: `query_backlog_${String(index + 1).padStart(2, '0')}`,
+      query,
+      rank: null,
+      title: null,
+      snippet: null,
+      url: null,
+      discovered_at: retrievedAt,
+      source: 'query_backlog',
+      status: 'pending_search_export_or_api',
+      promoted_source_id: null,
+    })
+  }
+  for (const candidate of importedCandidates) {
+    const promotedSourceId = promotedByUrl.get(canonicalUrl(candidate.url)) ?? null
+    rows.push({
+      ...candidate,
+      status: promotedSourceId ? 'promoted_after_public_fetch' : candidate.status,
+      promoted_source_id: promotedSourceId,
+    })
+  }
+  const seen = new Set()
+  return rows.filter((row) => {
+    const key = row.url ? `${row.source}:${canonicalUrl(row.url)}` : row.candidate_id
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+}
+
+function loadSearchImportCandidates(path = searchImportPath) {
+  if (!existsSync(path)) return []
+  const raw = readFileSync(path, 'utf8').trim()
+  if (!raw) return []
+  const parsedRows = path.endsWith('.json')
+    ? JSON.parse(raw)
+    : raw.split('\n').filter(Boolean).map((line) => JSON.parse(line))
+  const rows = Array.isArray(parsedRows) ? parsedRows : parsedRows.results ?? []
+  return rows.map(normalizeSearchCandidate).filter(Boolean)
+}
+
+function normalizeSearchCandidate(row, index) {
+  const url = row.url ?? row.link
+  if (!url) return null
+  let canonical
+  try {
+    canonical = canonicalUrl(url)
+  } catch {
+    return null
+  }
+  return {
+    candidate_id: row.candidate_id ?? `imported_search_${createHash('sha1').update(canonical).digest('hex').slice(0, 10)}`,
+    query: row.query ?? row.search_query ?? null,
+    rank: Number.isFinite(Number(row.rank ?? row.position)) ? Number(row.rank ?? row.position) : index + 1,
+    title: row.title ?? null,
+    snippet: row.snippet ?? row.description ?? null,
+    url: canonical,
+    discovered_at: row.discovered_at ?? retrievedAt,
+    source: row.source ?? 'imported_search_export',
+    status: 'candidate_imported',
+    promoted_source_id: null,
+  }
+}
+
+function sourceSeedFromSearchCandidate(candidate) {
+  const sourceType = classifyLinkedSource(candidate.url, `${candidate.title ?? ''} ${candidate.snippet ?? ''}`) ?? 'course_site'
+  const confidence = sourceType === 'syllabus_pdf' || sourceType === 'syllabus_html' ? 'A' : sourceType === 'student_work_archive' ? 'D' : 'B'
+  return {
+    source_id: sourceIdForUrl('src_search', candidate.url),
+    url: candidate.url,
+    source_type: sourceType,
+    authority: 'imported_search_result',
+    confidence,
+    discovery_query: candidate.query,
+    discovery_rank: candidate.rank,
+    notes: `Imported search result${candidate.snippet ? `: ${candidate.snippet.slice(0, 240)}` : '.'}`,
+  }
 }
 
 function ensureDir(path) {
@@ -1816,7 +1915,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], faculty = [], facultyCourseEdges = [], studentWork = [], sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [] }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], searchCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [] }) {
   const sourceIds = new Set(sources.map((source) => source.source_id))
   const syllabusIds = new Set(syllabi.map((syllabus) => syllabus.syllabus_id))
   const failedSourceIds = new Set(sources.filter((source) => source.extraction_status !== 'ok').map((source) => source.source_id))
@@ -1858,6 +1957,9 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const readingSourceErrors = readings.filter((reading) => !syllabusIds.has(reading.syllabus_id) || reading.source_ids.some((id) => !sourceIds.has(id)))
   const normalizedReadingCount = readings.filter((reading) => reading.canonical_work_id).length
   const catalogReadingCount = readings.filter((reading) => reading.linking_status === 'local_catalog_match').length
+  const searchCandidateErrors = searchCandidates.filter((candidate) => !candidate.candidate_id || !candidate.status || candidate.promoted_source_id && !sourceIds.has(candidate.promoted_source_id))
+  const promotedSearchCandidateCount = searchCandidates.filter((candidate) => candidate.promoted_source_id).length
+  const importedSearchCandidateCount = searchCandidates.filter((candidate) => candidate.source === 'imported_search_export').length
   const facultyIds = new Set(faculty.map((row) => row.faculty_id))
   const facultySourceErrors = faculty.filter((row) => !row.faculty_id || !row.name || row.source_ids?.some((id) => !sourceIds.has(id)))
   const facultyEdgeErrors = facultyCourseEdges.filter((edge) => !edge.edge_id || !facultyIds.has(edge.faculty_id) || edge.source_ids?.some((id) => !sourceIds.has(id)))
@@ -1913,6 +2015,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       id: 'readings_have_normalized_work_links',
       status: normalizedReadingCount > 0 ? 'pass' : 'warn',
       detail: `${normalizedReadingCount} reading snippets linked to ${readingFrequency.length} canonical works; ${catalogReadingCount} local catalog matches.`,
+    },
+    {
+      id: 'search_candidates_have_provenance',
+      status: searchCandidateErrors.length === 0 && searchCandidates.length > 0 ? 'pass' : searchCandidateErrors.length === 0 ? 'warn' : 'fail',
+      detail: `${searchCandidates.length} search candidates, ${promotedSearchCandidateCount} promoted, ${importedSearchCandidateCount} imported; ${searchCandidateErrors.length} candidate reference errors.`,
     },
     {
       id: 'faculty_graph_references_valid_sources',
@@ -1988,6 +2095,9 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       normalized_readings: normalizedReadingCount,
       local_catalog_readings: catalogReadingCount,
       canonical_reading_works: readingFrequency.length,
+      search_candidates: searchCandidates.length,
+      promoted_search_candidates: promotedSearchCandidateCount,
+      imported_search_candidates: importedSearchCandidateCount,
       faculty: faculty.length,
       faculty_course_edges: facultyCourseEdges.length,
       student_work: studentWork.length,
@@ -2243,6 +2353,9 @@ Overall status: ${validation.status}
 - Normalized reading snippets: ${validation.counts.normalized_readings}
 - Canonical reading works: ${validation.counts.canonical_reading_works}
 - Local catalog reading matches: ${validation.counts.local_catalog_readings}
+- Search candidates: ${validation.counts.search_candidates}
+- Promoted search candidates: ${validation.counts.promoted_search_candidates}
+- Imported search candidates: ${validation.counts.imported_search_candidates}
 - Faculty rows: ${validation.counts.faculty}
 - Faculty-course edges: ${validation.counts.faculty_course_edges}
 - Student work rows: ${validation.counts.student_work}
@@ -2441,11 +2554,25 @@ For self-study, convert every recovered assignment into a three-part loop:
 async function main() {
   ensureDir(outDir)
   const inspected = []
+  const importedSearchCandidates = loadSearchImportCandidates()
   const initialSeeds = [...seeds, ...searchDiscoveredSources]
   for (const [index, seed] of initialSeeds.entries()) {
     if (seed.source_id === 'src_risd_graphic_design_courses') continue
     console.error(`inspect seed ${index + 1}/${initialSeeds.length}: ${seed.source_id}`)
     inspected.push(await inspectSeed(seed))
+  }
+  const seededUrls = new Set(initialSeeds.map((seed) => canonicalUrl(seed.url)))
+  const importedSearchSeeds = importedSearchCandidates
+    .filter((candidate) => candidate.url && !seededUrls.has(canonicalUrl(candidate.url)))
+    .map(sourceSeedFromSearchCandidate)
+  const promotedImportedSearchSources = []
+  for (const [index, seed] of importedSearchSeeds.entries()) {
+    console.error(`inspect imported search candidate ${index + 1}/${importedSearchSeeds.length}: ${seed.source_id}`)
+    const inspectedCandidate = await inspectSeed(seed)
+    if (inspectedCandidate.source.extraction_status === 'ok') {
+      inspected.push(inspectedCandidate)
+      promotedImportedSearchSources.push(inspectedCandidate.source)
+    }
   }
   for (let page = 0; page < officialCourseMaxPages; page++) {
     console.error(`inspect official course page ${page + 1}/${officialCourseMaxPages}`)
@@ -2487,6 +2614,7 @@ async function main() {
   const studentWork = buildStudentWork(inspected)
   const sourceClusters = buildSourceClusters(inspected, syllabi, readings)
   const sourceVersions = buildSourceVersions(inspected, wayback)
+  const searchCandidates = buildSearchCandidates(importedSearchCandidates, promotedImportedSearchSources)
 
   writeJsonl(join(outDir, 'sources.jsonl'), sources)
   writeJsonl(join(outDir, 'course_inventory.jsonl'), courseInventory.offerings)
@@ -2503,11 +2631,12 @@ async function main() {
   writeJsonl(join(outDir, 'wayback_captures.jsonl'), wayback)
   writeJsonl(join(outDir, 'crawl_sources.jsonl'), crawlSeeds)
   writeJsonl(join(outDir, 'search_results.jsonl'), buildSearchResults())
+  writeJsonl(join(outDir, 'search_candidates.jsonl'), searchCandidates)
   writeJson(join(outDir, 'search_queries.json'), { generated_at: retrievedAt, queries: searchQueries })
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue)
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, faculty, facultyCourseEdges, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, faculty, facultyCourseEdges, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
@@ -2520,7 +2649,7 @@ async function main() {
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
 
   console.log(`RISD corpus artifacts written to ${outDir}`)
-  console.log(`sources=${sources.length} course_inventory=${courseInventory.offerings.length}/${courseInventory.displayed_count || '?'} courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} canonical_reading_works=${readingFrequency.length} faculty=${faculty.length} faculty_course_edges=${facultyCourseEdges.length} student_work=${studentWork.length} source_clusters=${sourceClusters.length} source_versions=${sourceVersions.length} wayback=${wayback.length} review_queue=${reviewQueue.length} review_decisions=${reviewDecisions.length} field_conflicts=${fieldConflicts.length} validation=${validationWithReview.status}`)
+  console.log(`sources=${sources.length} course_inventory=${courseInventory.offerings.length}/${courseInventory.displayed_count || '?'} courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} canonical_reading_works=${readingFrequency.length} search_candidates=${searchCandidates.length} faculty=${faculty.length} faculty_course_edges=${facultyCourseEdges.length} student_work=${studentWork.length} source_clusters=${sourceClusters.length} source_versions=${sourceVersions.length} wayback=${wayback.length} review_queue=${reviewQueue.length} review_decisions=${reviewDecisions.length} field_conflicts=${fieldConflicts.length} validation=${validationWithReview.status}`)
 }
 
 if (!existsSync(join(root, 'docs/research-plans/risd-graphic-design-syllabus-corpus-plan.md'))) {

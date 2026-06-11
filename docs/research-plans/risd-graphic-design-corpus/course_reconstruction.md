@@ -10,7 +10,7 @@ Generated: 2026-06-11
 - Assignment evidence snippets: 471
 - Reading evidence snippets: 118
 - Student work evidence records: 41
-- Wayback capture records: 119
+- Wayback capture records: 106
 
 ## Reconstructed Course Packets
 
@@ -2146,9 +2146,9 @@ Generated: 2026-06-11
 - Evidence grade: A
 - Course code: unknown
 - Degree level: unknown
-- Source IDs: src_wayback_typography_iii_syllabus_20210421141719
+- Source IDs: src_wayback_typography_iii_syllabus_20210414155049
 - Extracted skill signals: typography, publication design, motion design, interaction design, critique and revision, research methods, image making
-- Syllabus/course artifact: syl_wayback_typography_iii_syllabus_20210421141719
+- Syllabus/course artifact: syl_wayback_typography_iii_syllabus_20210414155049
 - Term: 2020
 - Tools mentioned: Slack, Zoom, Adobe, Figma, Google Drive
 - Materials mentioned: paper, print output, photography
@@ -3264,6 +3264,6 @@ Generated: 2026-06-11
 - src_risd_mfa_program (C, official_program_page): https://www.risd.edu/academics/graphic-design/masters-programs
 - src_risd_coursedog_bfa_graphic_design (C, official_catalog_program): https://risd.coursedog.com/programs/cfa6776e92151000bceb55330dc80000
 - src_risd_in_motion_news (D, official_student_work_story): https://www.risd.edu/news/stories/risd-students-use-video-and-animation-techniques-bring-graphics-life
-- src_wayback_typography_iii_syllabus_20210421141719 (A, wayback_capture): https://web.archive.org/web/20210421141719id_/http://type.practise.studio/syllabus/
+- src_wayback_typography_iii_syllabus_20210414155049 (A, wayback_capture): https://web.archive.org/web/20210414155049id_/http://type.practise.studio/syllabus/
 - src_john_caserta_student_work (D, student_work_archive): https://johncaserta.com/studentwork.html
 - src_crawl_johncaserta_com_teachingarchive_html_85a4ce9d (B, student_work_archive): https://johncaserta.com/teachingarchive.html
