@@ -450,6 +450,7 @@ function uniq(values) {
 function extractCourseCodes(text) {
   return uniq(text.match(/\b(?:GRAPH|GD|DS|GRAPH-W|GRAPH)\s*-?\s?[A-Z]?\d{2,4}[A-Z]?(?:-\d{2})?\b|\bGRAPH\s+\d{3,4}[A-Z](?:-\d{2})?\b/gi) ?? [])
     .map((code) => code.replace(/\s+/g, '').replace(/GRAPHW/i, 'GRAPH-W').toUpperCase())
+    .filter((code) => !/^GD20\d{2}$/.test(code))
 }
 
 function extractOfficialCourseOfferings(text, sourceId) {
@@ -1618,7 +1619,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], studentWork = [], sourceClusters = [], wayback, reviewQueue = [] }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], studentWork = [], sourceClusters = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [] }) {
   const sourceIds = new Set(sources.map((source) => source.source_id))
   const syllabusIds = new Set(syllabi.map((syllabus) => syllabus.syllabus_id))
   const failedSourceIds = new Set(sources.filter((source) => source.extraction_status !== 'ok').map((source) => source.source_id))
@@ -1666,6 +1667,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const exactSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type.startsWith('exact')).length
   const nearDuplicateSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type === 'near_duplicate_text').length
   const relatedSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type === 'related_source_family').length
+  const reviewDecisionErrors = reviewDecisions.filter((decision) => !decision.review_id || !decision.status || decision.source_ids?.some((id) => !sourceIds.has(id)))
+  const fieldConflictErrors = fieldConflicts.filter((conflict) => !conflict.conflict_id || !conflict.field || !conflict.values?.length || conflict.source_ids?.some((id) => !sourceIds.has(id)))
   const courseInventoryReconciled = courseInventory.displayed_count > 0 && courseInventory.offerings.length === courseInventory.displayed_count
   const checks = [
     {
@@ -1729,6 +1732,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${exactSourceClusterCount} exact duplicate clusters, ${nearDuplicateSourceClusterCount} near-duplicate text clusters, and ${relatedSourceClusterCount} related source-family clusters.`,
     },
     {
+      id: 'manual_review_artifacts_have_valid_references',
+      status: reviewDecisionErrors.length === 0 && fieldConflictErrors.length === 0 ? 'pass' : 'fail',
+      detail: `${reviewDecisionErrors.length} review decision reference errors and ${fieldConflictErrors.length} field conflict reference errors.`,
+    },
+    {
       id: 'official_course_inventory_reconciled',
       status: courseInventoryReconciled ? 'pass' : 'warn',
       detail: `${courseInventory.offerings.length} official offerings parsed; RISD page displays ${courseInventory.displayed_count || 'unknown'} results.`,
@@ -1770,6 +1778,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       related_source_clusters: relatedSourceClusterCount,
       wayback: wayback.length,
       review_queue: reviewQueue.length,
+      review_decisions: reviewDecisions.length,
+      field_conflicts: fieldConflicts.length,
     },
     checks,
   }
@@ -1827,6 +1837,157 @@ function buildReviewQueue({ sources, courseInventory, syllabi, readings }) {
   return rows
 }
 
+function buildReviewDecisions(reviewQueue) {
+  return reviewQueue.map((row) => ({
+    decision_id: `decision_${row.review_id.replace(/^review_/, '')}`,
+    review_id: row.review_id,
+    status: 'pending_manual_review',
+    priority: row.priority,
+    reason: row.reason,
+    source_ids: row.source_ids ?? (row.source_id ? [row.source_id] : []),
+    syllabus_id: row.syllabus_id ?? null,
+    proposed_action: row.action,
+    reviewer: null,
+    decision: null,
+    decided_at: null,
+    notes: 'Generated placeholder. Fill after inspecting the public source and preserving evidence provenance.',
+  }))
+}
+
+function buildFieldConflicts({ courses, syllabi, sourceClusters }) {
+  const rows = []
+  const addConflicts = (records, recordKind, keyFn, fields) => {
+    const groups = new Map()
+    for (const record of records) {
+      const key = keyFn(record)
+      if (!key) continue
+      const existing = groups.get(key) ?? []
+      existing.push(record)
+      groups.set(key, existing)
+    }
+    for (const [key, group] of groups) {
+      if (group.length < 2) continue
+      for (const field of fields) {
+        const values = uniq(group.map((record) => normalizeConflictValue(record[field])))
+        if (values.length < 2) continue
+        rows.push({
+          conflict_id: `conflict_${recordKind}_${slug(key)}_${field}`,
+          record_kind: recordKind,
+          entity_key: key,
+          field,
+          values,
+          record_ids: group.map((record) => record.syllabus_id ?? record.course_id ?? record.cluster_id).filter(Boolean),
+          source_ids: uniq(group.flatMap((record) => record.source_ids ?? [])),
+          severity: conflictSeverity(field, values),
+          resolution_status: 'needs_review',
+          resolution_hint: conflictResolutionHint(field, values),
+        })
+      }
+    }
+  }
+
+  addConflicts(courses, 'course', (course) => course.course_code ?? course.course_title, ['course_title', 'degree_level', 'credits'])
+  addConflicts(syllabi, 'syllabus', (syllabus) => syllabus.course_code ?? syllabus.course_title, ['course_title', 'instructor', 'term', 'credits', 'class_time', 'class_location'])
+
+  for (const cluster of sourceClusters) {
+    const fieldChecks = [
+      ['course_titles', cluster.course_titles],
+      ['instructors', cluster.instructors],
+      ['terms', cluster.terms],
+    ]
+    for (const [field, values] of fieldChecks) {
+      const normalized = uniq(values.map(normalizeConflictValue))
+      if (normalized.length < 2) continue
+      rows.push({
+        conflict_id: `conflict_source_cluster_${cluster.cluster_id}_${field}`,
+        record_kind: 'source_cluster',
+        entity_key: cluster.cluster_id,
+        field,
+        values: normalized,
+        record_ids: [cluster.cluster_id],
+        source_ids: cluster.source_ids,
+        severity: 'medium',
+        resolution_status: 'needs_review',
+        resolution_hint: 'Inspect related source-family pages before merging or using cluster-level attribution.',
+      })
+    }
+  }
+
+  return rows.sort((a, b) => severityRank(a.severity) - severityRank(b.severity) || a.conflict_id.localeCompare(b.conflict_id))
+}
+
+function normalizeConflictValue(value) {
+  if (value === null || value === undefined || value === '') return null
+  if (Array.isArray(value)) return value.filter(Boolean).join(' | ') || null
+  return String(value).replace(/\s+/g, ' ').trim() || null
+}
+
+function conflictSeverity(field, values) {
+  if (['course_title', 'credits', 'term'].includes(field)) return 'high'
+  if (['instructor', 'degree_level', 'class_time'].includes(field)) return 'medium'
+  return values.length > 2 ? 'medium' : 'low'
+}
+
+function conflictResolutionHint(field) {
+  const hints = {
+    course_title: 'Prefer official course inventory for current titles; keep historical title variants when source term differs.',
+    credits: 'Prefer official course inventory credits unless a full syllabus for the same term contradicts it.',
+    term: 'Do not merge records across terms unless they are explicitly the same archived course version.',
+    instructor: 'Treat instructor differences as likely section or term variants until corroborated.',
+    class_time: 'Treat meeting-time differences as section or term variants.',
+    class_location: 'Treat location differences as section or term variants.',
+    degree_level: 'Prefer official course inventory level.',
+  }
+  return hints[field] ?? 'Inspect sources and preserve variants unless the difference is cosmetic.'
+}
+
+function severityRank(severity) {
+  return { high: 0, medium: 1, low: 2 }[severity] ?? 3
+}
+
+function needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }) {
+  const highPriority = reviewQueue.filter((row) => row.priority === 'high')
+  const mediumPriority = reviewQueue.filter((row) => row.priority === 'medium')
+  const unresolvedConflicts = fieldConflicts.filter((row) => row.resolution_status === 'needs_review')
+  return `# RISD Graphic Design Needs Follow-Up
+
+Generated: ${retrievedAt}
+
+## Summary
+
+- Review queue rows: ${reviewQueue.length}
+- Pending review decisions: ${reviewDecisions.filter((row) => row.status === 'pending_manual_review').length}
+- Field conflicts: ${fieldConflicts.length}
+- High-priority reviews: ${highPriority.length}
+- Medium-priority reviews: ${mediumPriority.length}
+
+## High-Priority Reviews
+
+${highPriority.length ? highPriority.map(formatFollowupReview).join('\n') : '- None'}
+
+## Medium-Priority Reviews
+
+${mediumPriority.length ? mediumPriority.map(formatFollowupReview).join('\n') : '- None'}
+
+## Field Conflicts
+
+${unresolvedConflicts.length ? unresolvedConflicts.map((conflict) => `- ${conflict.severity.toUpperCase()} ${conflict.field} on ${conflict.entity_key}: ${conflict.values.join(' | ')}. ${conflict.resolution_hint}`).join('\n') : '- None'}
+
+## Review Protocol
+
+1. Open the public source URL or source IDs listed in the review row.
+2. Decide whether the artifact contains recoverable syllabus, schedule, assignment, reading, critique, grading, or student-work evidence.
+3. Update \`review_decisions.jsonl\` with the decision, reviewer, date, and notes.
+4. If a parser improvement is needed, change the generator and regenerate the corpus instead of editing derived artifacts by hand.
+`
+}
+
+function formatFollowupReview(row) {
+  const target = row.course_title ?? row.source_id ?? row.syllabus_id ?? row.review_id
+  const ids = row.source_ids?.length ? ` sources: ${row.source_ids.join(', ')}` : row.source_id ? ` source: ${row.source_id}` : ''
+  return `- ${row.reason}: ${target}.${ids} Action: ${row.action}`
+}
+
 function reviewQueueMarkdown(rows) {
   return `# RISD Graphic Design Review Queue
 
@@ -1867,6 +2028,8 @@ Overall status: ${validation.status}
 - Related source-family clusters: ${validation.counts.related_source_clusters}
 - Wayback captures: ${validation.counts.wayback}
 - Review queue rows: ${validation.counts.review_queue}
+- Review decision rows: ${validation.counts.review_decisions}
+- Field conflicts: ${validation.counts.field_conflicts}
 
 ## Checks
 
@@ -2109,9 +2272,14 @@ async function main() {
   writeJsonl(join(outDir, 'search_results.jsonl'), buildSearchResults())
   writeJson(join(outDir, 'search_queries.json'), { generated_at: retrievedAt, queries: searchQueries })
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, studentWork, sourceClusters, wayback, reviewQueue })
+  const reviewDecisions = buildReviewDecisions(reviewQueue)
+  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, studentWork, sourceClusters, wayback, reviewQueue, reviewDecisions, fieldConflicts })
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
+  writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
+  writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
   writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
+  writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback }))
@@ -2119,7 +2287,7 @@ async function main() {
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
 
   console.log(`RISD corpus artifacts written to ${outDir}`)
-  console.log(`sources=${sources.length} course_inventory=${courseInventory.offerings.length}/${courseInventory.displayed_count || '?'} courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} canonical_reading_works=${readingFrequency.length} student_work=${studentWork.length} source_clusters=${sourceClusters.length} wayback=${wayback.length} review_queue=${reviewQueue.length} validation=${validationWithReview.status}`)
+  console.log(`sources=${sources.length} course_inventory=${courseInventory.offerings.length}/${courseInventory.displayed_count || '?'} courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} canonical_reading_works=${readingFrequency.length} student_work=${studentWork.length} source_clusters=${sourceClusters.length} wayback=${wayback.length} review_queue=${reviewQueue.length} review_decisions=${reviewDecisions.length} field_conflicts=${fieldConflicts.length} validation=${validationWithReview.status}`)
 }
 
 if (!existsSync(join(root, 'docs/research-plans/risd-graphic-design-syllabus-corpus-plan.md'))) {

@@ -58,6 +58,10 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/student_work.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/source_clusters.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/wayback_captures.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/review_queue.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/review_decisions.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/field_conflicts.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/needs_followup.md`
 - `docs/research-plans/risd-graphic-design-corpus/search_queries.json`
 - `docs/research-plans/risd-graphic-design-corpus/course_reconstruction.md`
 - `docs/research-plans/risd-graphic-design-corpus/tacit_knowledge_memo.md`
@@ -87,7 +91,7 @@ Known gaps:
 - No search API ingestion exists yet.
 - No Common Crawl pass exists yet.
 - Near-duplicate clustering is implemented as a review artifact, but clusters are not yet used to collapse generated course packets.
-- Manual review queue exists, but `review_decisions.jsonl`, `field_conflicts.jsonl`, and `needs_followup.md` are not implemented yet.
+- Manual review artifacts exist, but human decisions have not been filled in yet.
 
 ## Required End State
 
@@ -271,6 +275,42 @@ Required fields:
 - `reason`
 - `collapse_recommendation`
 - `evidence_grade`
+
+### `review_decisions.jsonl`
+
+One row per manual review queue item.
+
+Required fields:
+
+- `decision_id`
+- `review_id`
+- `status`
+- `priority`
+- `reason`
+- `source_ids`
+- `syllabus_id`
+- `proposed_action`
+- `reviewer`
+- `decision`
+- `decided_at`
+- `notes`
+
+### `field_conflicts.jsonl`
+
+One row per detected contradictory or variant metadata field requiring review.
+
+Required fields:
+
+- `conflict_id`
+- `record_kind`
+- `entity_key`
+- `field`
+- `values`
+- `record_ids`
+- `source_ids`
+- `severity`
+- `resolution_status`
+- `resolution_hint`
 
 ## Evidence Grades
 

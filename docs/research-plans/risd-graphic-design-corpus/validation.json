@@ -2,15 +2,15 @@
   "generated_at": "2026-06-11",
   "status": "pass",
   "counts": {
-    "sources": 87,
-    "courses": 125,
+    "sources": 88,
+    "courses": 132,
     "official_course_inventory": 105,
     "official_course_displayed_count": 105,
-    "syllabi": 73,
-    "structured_syllabi": 73,
-    "assignments": 455,
-    "structured_assignments": 193,
-    "readings": 113,
+    "syllabi": 74,
+    "structured_syllabi": 74,
+    "assignments": 471,
+    "structured_assignments": 204,
+    "readings": 118,
     "normalized_readings": 50,
     "local_catalog_readings": 38,
     "canonical_reading_works": 26,
@@ -20,14 +20,16 @@
     "exact_source_clusters": 0,
     "near_duplicate_source_clusters": 0,
     "related_source_clusters": 10,
-    "wayback": 73,
-    "review_queue": 11
+    "wayback": 106,
+    "review_queue": 10,
+    "review_decisions": 10,
+    "field_conflicts": 6
   },
   "checks": [
     {
       "id": "sources_have_required_metadata",
       "status": "pass",
-      "detail": "87 sources inspected."
+      "detail": "88 sources inspected."
     },
     {
       "id": "failed_fetches_do_not_create_syllabi",
@@ -42,7 +44,7 @@
     {
       "id": "syllabi_have_structured_top_level_fields",
       "status": "pass",
-      "detail": "73 syllabus rows include top-level schema fields for schedule, readings, policies, tools, materials, evidence, or raw excerpts."
+      "detail": "74 syllabus rows include top-level schema fields for schedule, readings, policies, tools, materials, evidence, or raw excerpts."
     },
     {
       "id": "assignments_reference_valid_syllabi_and_sources",
@@ -52,7 +54,7 @@
     {
       "id": "assignments_have_structured_signals",
       "status": "pass",
-      "detail": "193 assignment snippets include inferred deliverables, constraints, tools, critique, revision, or tacit goals."
+      "detail": "204 assignment snippets include inferred deliverables, constraints, tools, critique, revision, or tacit goals."
     },
     {
       "id": "readings_reference_valid_syllabi_and_sources",
@@ -85,6 +87,11 @@
       "detail": "0 exact duplicate clusters, 0 near-duplicate text clusters, and 10 related source-family clusters."
     },
     {
+      "id": "manual_review_artifacts_have_valid_references",
+      "status": "pass",
+      "detail": "0 review decision reference errors and 0 field conflict reference errors."
+    },
+    {
       "id": "official_course_inventory_reconciled",
       "status": "pass",
       "detail": "105 official offerings parsed; RISD page displays 105 results."
@@ -92,12 +99,12 @@
     {
       "id": "wayback_captures_recorded",
       "status": "pass",
-      "detail": "73 Wayback capture records."
+      "detail": "106 Wayback capture records."
     },
     {
       "id": "course_records_created",
       "status": "pass",
-      "detail": "125 course records created."
+      "detail": "132 course records created."
     }
   ]
 }

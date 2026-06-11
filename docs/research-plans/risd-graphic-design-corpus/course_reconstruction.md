@@ -4,13 +4,13 @@ Generated: 2026-06-11
 
 ## Coverage Summary
 
-- Sources inspected: 87
-- Course records created: 125
-- Syllabus/course-site records: 73
-- Assignment evidence snippets: 455
-- Reading evidence snippets: 113
+- Sources inspected: 88
+- Course records created: 132
+- Syllabus/course-site records: 74
+- Assignment evidence snippets: 471
+- Reading evidence snippets: 118
 - Student work evidence records: 41
-- Wayback capture records: 73
+- Wayback capture records: 106
 
 ## Reconstructed Course Packets
 
@@ -532,6 +532,25 @@ Generated: 2026-06-11
   - Skill training signals: typography, motion design, interaction design, research methods.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
+### Design for Publishing
+
+- Evidence grade: B
+- Course code: unknown
+- Degree level: unknown
+- Source IDs: src_sp19_design_for_publishing
+- Extracted skill signals: typography, publication design, interaction design, image making
+- Syllabus/course artifact: syl_sp19_design_for_publishing
+- Term: Spring 2019
+- Materials mentioned: paper, print output, photography, book binding
+- Reading evidence:
+  - based on their own interests and completing a book design project using assigned material (unresolved)
+- Assignment/critique evidence:
+  - In the second part of the semester, students will be given the choice between designing a book based on their own interests and completing a book design project using assigned material. (deliverables: book; tacit goal: compose visual hierarchy within a concrete graphic format)
+- Tacit reconstruction:
+  - Direct evidence currently supports a course-specific classroom reconstruction.
+  - Skill training signals: typography, publication design, interaction design, image making.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
 ### DESIGN FOR PUBLISHING
 
 - Evidence grade: C
@@ -760,8 +779,8 @@ Generated: 2026-06-11
 - Evidence grade: B
 - Course code: unknown
 - Degree level: unknown
-- Source IDs: src_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d, src_crawl_ds1618_risd_gd_2016_09_26_unit2_overview_html_1de519e9, src_crawl_ds1618_risd_gd_2016_10_11_unit3_overview_html_9ed746cf, src_crawl_ds1618_risd_gd_2016_10_25_unit4_overview_html_cfb221b8, src_crawl_ds1618_risd_gd_2016_11_08_unit4_crit_html_d957a68a, src_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224
-- Extracted skill signals: publication design, image making, typography, identity systems, interaction design, critique and revision, research methods, motion design
+- Source IDs: src_crawl_johncaserta_com_docicons_html_d8852632, src_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d, src_crawl_ds1618_risd_gd_2016_09_26_unit2_overview_html_1de519e9, src_crawl_ds1618_risd_gd_2016_10_11_unit3_overview_html_9ed746cf, src_crawl_ds1618_risd_gd_2016_10_25_unit4_overview_html_cfb221b8, src_crawl_ds1618_risd_gd_2016_11_08_unit4_crit_html_d957a68a, src_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224
+- Extracted skill signals: typography, publication design, interaction design, image making, identity systems, critique and revision, research methods, motion design
 - Syllabus/course artifact: syl_john_caserta_design_studio_1_2016
 - Instructor: John Caserta
 - Term: 2016
@@ -951,7 +970,7 @@ Generated: 2026-06-11
   - Documentary Icons The Noun Project
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
-  - Skill training signals: publication design, image making, typography, identity systems, interaction design, critique and revision, research methods, motion design.
+  - Skill training signals: typography, publication design, interaction design, image making, identity systems, critique and revision, research methods, motion design.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
 ### DESIGN STUDIO 1
@@ -1489,61 +1508,22 @@ Generated: 2026-06-11
 ### Graphic Design for the Web
 
 - Evidence grade: B
-- Course code: GD2019
+- Course code: unknown
 - Degree level: unknown
-- Source IDs: src_sp19_risd_gd_web, src_sp19_design_for_publishing, src_sp19_typography_for_nonmajors, src_sp19_newly_formed, src_sp19_time_sequence_sound, src_sp19_mapping_information, src_sp19_reframing_the_poster, src_sp19_type_design
-- Extracted skill signals: interaction design, critique and revision, research methods, typography, publication design, image making, motion design
+- Source IDs: src_sp19_risd_gd_web
+- Extracted skill signals: interaction design, critique and revision, research methods
 - Syllabus/course artifact: syl_sp19_risd_gd_web
 - Term: Spring 2019
 - Tools mentioned: HTML/CSS, JavaScript
 - Weekly/class structure evidence:
   - The class celebrates the Internet as a space for social exchange and independent expression, while questioning the cultural contradictions embedded in online discourse and the motivations of individuals and entities behind online platforms.
-- Syllabus/course artifact: syl_sp19_design_for_publishing
-- Term: Spring 2019
-- Materials mentioned: paper, print output, photography, book binding
-- Syllabus/course artifact: syl_sp19_typography_for_nonmajors
-- Term: Spring 2019
-- Weekly/class structure evidence:
-  - This introductory course is intended for non-majors interested in learning the basic principles of typography including the study of letterforms, type classification, legibility, organization and hierarchy, as well as text applications, grid systems and page layout.
-- Syllabus/course artifact: syl_sp19_newly_formed
-- Term: Spring 2019
-- Materials mentioned: photography
-- Syllabus/course artifact: syl_sp19_time_sequence_sound
-- Term: Spring 2019
-- Tools mentioned: Adobe, After Effects
-- Weekly/class structure evidence:
-  - Through a series of in-studio and multi-week assignments, students will create animated projects that include real-world assignments as well as experimental exercises.
-  - Short weekly lectures will discuss historic and current works of influential Motion Designers, Animators and Directors.
-  - Adobe After Effects will be the primary production tool for this class.
-- Syllabus/course artifact: syl_sp19_mapping_information
-- Term: Spring 2019
-- Syllabus/course artifact: syl_sp19_reframing_the_poster
-- Term: Spring 2019
-- Materials mentioned: paper, print output, photography
-- Policy evidence: The poster has been an archetypal graphic design format since the late 19th century when lithographic printing technology came of age and captured the imagination of artists, bringing their vision into Paris streets.
-- Syllabus/course artifact: syl_sp19_type_design
-- Term: Spring 2019
 - Reading evidence:
   - of contemporary art and design practices (unresolved)
-  - based on their own interests and completing a book design project using assigned material (unresolved)
-  - Grid Systems in Graphic Design, Josef Muller-Brockmann (local_catalog_match)
-  - and poetry, letterhead systems, brochure or poster (unresolved)
-  - for the poster—as paper and as screen—building on its singular capacity to transform ideas into iconic picture planes, and examining the dynamics of typography and image, both still and in motion (unresolved)
-  - about poster history and contemporary poster design (unresolved)
 - Assignment/critique evidence:
   - Through projects, readings, workshops, and presentations we will explore the relevance of network technologies in the context of contemporary art and design practices. (tacit goal: practice explaining and defending design decisions in critique)
-  - In the second part of the semester, students will be given the choice between designing a book based on their own interests and completing a book design project using assigned material. (deliverables: book; tacit goal: compose visual hierarchy within a concrete graphic format)
-  - Projects may include comparative studies for setting text and poetry, letterhead systems, brochure or poster. (deliverables: poster; tacit goal: translate a concept into a coherent visual system)
-  - Studio assignments are supported by lectures showing contemporary graphic form, from historical to contemporary work, that are effective and evocative.
-  - Through a series of in-studio and multi-week assignments, students will create animated projects that include real-world assignments as well as experimental exercises.
-  - Through the sequence of assignments, students will become fluent with the software.
-  - Using information structure and visual systems of form, color, and typography, students will work projects which communicate complex information through the use of maps, graphs, charts, and diagrams. (tacit goal: translate a concept into a coherent visual system)
-  - These projects will explore issues of mapping, hierarchy, location, time, comparison, motion, format, and the use of symbolic visual language. (deliverables: animation)
-  - Studio assignments will be supported with presentations and readings about poster history and contemporary poster design . (deliverables: poster; tacit goal: practice explaining and defending design decisions in critique)
-  - This elective is an opportunity for students to immerse themselves in the process of designing a typeface; to consider all the design decisions that are a part of this creative exercise, and to learn the finer points of bezier wrangling, serif and sans, spacing, kerning, and all the other details of execution which turn a roughly-formed idea into a more complete, rigorous and polished type design. (deliverables: typeface; constraints: process documentation required; tacit goal: develop iterative process habits rather than only final outputs)
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
-  - Skill training signals: interaction design, critique and revision, research methods, typography, publication design, image making, motion design.
+  - Skill training signals: interaction design, critique and revision, research methods.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
 ### HISTORY OF GRAPHIC DESIGN
@@ -1673,6 +1653,23 @@ Generated: 2026-06-11
   - Skill training signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
+### Mapping Information
+
+- Evidence grade: B
+- Course code: unknown
+- Degree level: unknown
+- Source IDs: src_sp19_mapping_information
+- Extracted skill signals: typography, motion design, interaction design
+- Syllabus/course artifact: syl_sp19_mapping_information
+- Term: Spring 2019
+- Assignment/critique evidence:
+  - Using information structure and visual systems of form, color, and typography, students will work projects which communicate complex information through the use of maps, graphs, charts, and diagrams. (tacit goal: translate a concept into a coherent visual system)
+  - These projects will explore issues of mapping, hierarchy, location, time, comparison, motion, format, and the use of symbolic visual language. (deliverables: animation)
+- Tacit reconstruction:
+  - Direct evidence currently supports a course-specific classroom reconstruction.
+  - Skill training signals: typography, motion design, interaction design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
 ### MAPPING INFORMATION
 
 - Evidence grade: C
@@ -1695,6 +1692,23 @@ Generated: 2026-06-11
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: motion design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### Newly Formed
+
+- Evidence grade: B
+- Course code: unknown
+- Degree level: unknown
+- Source IDs: src_sp19_newly_formed
+- Extracted skill signals: typography, interaction design, image making
+- Syllabus/course artifact: syl_sp19_newly_formed
+- Term: Spring 2019
+- Materials mentioned: photography
+- Assignment/critique evidence:
+  - Studio assignments are supported by lectures showing contemporary graphic form, from historical to contemporary work, that are effective and evocative.
+- Tacit reconstruction:
+  - Direct evidence currently supports a course-specific classroom reconstruction.
+  - Skill training signals: typography, interaction design, image making.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
 ### NEWLY FORMED
@@ -1721,6 +1735,27 @@ Generated: 2026-06-11
   - Skill training signals: typography, image making.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
+### Reframing the Poster
+
+- Evidence grade: B
+- Course code: unknown
+- Degree level: unknown
+- Source IDs: src_sp19_reframing_the_poster
+- Extracted skill signals: typography, motion design, interaction design, image making
+- Syllabus/course artifact: syl_sp19_reframing_the_poster
+- Term: Spring 2019
+- Materials mentioned: paper, print output, photography
+- Policy evidence: The poster has been an archetypal graphic design format since the late 19th century when lithographic printing technology came of age and captured the imagination of artists, bringing their vision into Paris streets.
+- Reading evidence:
+  - for the poster—as paper and as screen—building on its singular capacity to transform ideas into iconic picture planes, and examining the dynamics of typography and image, both still and in motion (unresolved)
+  - about poster history and contemporary poster design (unresolved)
+- Assignment/critique evidence:
+  - Studio assignments will be supported with presentations and readings about poster history and contemporary poster design . (deliverables: poster; tacit goal: practice explaining and defending design decisions in critique)
+- Tacit reconstruction:
+  - Direct evidence currently supports a course-specific classroom reconstruction.
+  - Skill training signals: typography, motion design, interaction design, image making.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
 ### REFRAMING THE POSTER
 
 - Evidence grade: C
@@ -1733,6 +1768,28 @@ Generated: 2026-06-11
   - Skill training signals: typography, motion design, interaction design, image making.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
+### Time, Sequence, & Sound
+
+- Evidence grade: B
+- Course code: unknown
+- Degree level: unknown
+- Source IDs: src_sp19_time_sequence_sound
+- Extracted skill signals: motion design, interaction design
+- Syllabus/course artifact: syl_sp19_time_sequence_sound
+- Term: Spring 2019
+- Tools mentioned: Adobe, After Effects
+- Weekly/class structure evidence:
+  - Through a series of in-studio and multi-week assignments, students will create animated projects that include real-world assignments as well as experimental exercises.
+  - Short weekly lectures will discuss historic and current works of influential Motion Designers, Animators and Directors.
+  - Adobe After Effects will be the primary production tool for this class.
+- Assignment/critique evidence:
+  - Through a series of in-studio and multi-week assignments, students will create animated projects that include real-world assignments as well as experimental exercises.
+  - Through the sequence of assignments, students will become fluent with the software.
+- Tacit reconstruction:
+  - Direct evidence currently supports a course-specific classroom reconstruction.
+  - Skill training signals: motion design, interaction design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
 ### TYPE + CODE
 
 - Evidence grade: C
@@ -1743,6 +1800,22 @@ Generated: 2026-06-11
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: typography, motion design, interaction design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### Type Design
+
+- Evidence grade: B
+- Course code: unknown
+- Degree level: unknown
+- Source IDs: src_sp19_type_design
+- Extracted skill signals: typography, interaction design
+- Syllabus/course artifact: syl_sp19_type_design
+- Term: Spring 2019
+- Assignment/critique evidence:
+  - This elective is an opportunity for students to immerse themselves in the process of designing a typeface; to consider all the design decisions that are a part of this creative exercise, and to learn the finer points of bezier wrangling, serif and sans, spacing, kerning, and all the other details of execution which turn a roughly-formed idea into a more complete, rigorous and polished type design. (deliverables: typeface; constraints: process documentation required; tacit goal: develop iterative process habits rather than only final outputs)
+- Tacit reconstruction:
+  - Direct evidence currently supports a course-specific classroom reconstruction.
+  - Skill training signals: typography, interaction design.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
 ### TYPE DESIGN
@@ -1903,6 +1976,27 @@ Generated: 2026-06-11
   - Skill training signals: typography, publication design, identity systems, motion design, research methods.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
+### Typography for Nonmajors
+
+- Evidence grade: B
+- Course code: unknown
+- Degree level: unknown
+- Source IDs: src_sp19_typography_for_nonmajors
+- Extracted skill signals: typography, publication design, motion design, interaction design
+- Syllabus/course artifact: syl_sp19_typography_for_nonmajors
+- Term: Spring 2019
+- Weekly/class structure evidence:
+  - This introductory course is intended for non-majors interested in learning the basic principles of typography including the study of letterforms, type classification, legibility, organization and hierarchy, as well as text applications, grid systems and page layout.
+- Reading evidence:
+  - Grid Systems in Graphic Design, Josef Muller-Brockmann (local_catalog_match)
+  - and poetry, letterhead systems, brochure or poster (unresolved)
+- Assignment/critique evidence:
+  - Projects may include comparative studies for setting text and poetry, letterhead systems, brochure or poster. (deliverables: poster; tacit goal: translate a concept into a coherent visual system)
+- Tacit reconstruction:
+  - Direct evidence currently supports a course-specific classroom reconstruction.
+  - Skill training signals: typography, publication design, motion design, interaction design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
 ### TYPOGRAPHY I
 
 - Evidence grade: C
@@ -2049,44 +2143,43 @@ Generated: 2026-06-11
 
 ### Typography III
 
-- Evidence grade: D
-- Course code: GD2017
+- Evidence grade: A
+- Course code: unknown
 - Degree level: unknown
-- Source IDs: src_john_caserta_student_work, src_crawl_johncaserta_com_docicons_html_d8852632
-- Extracted skill signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods
-- Syllabus/course artifact: syl_crawl_johncaserta_com_docicons_html_d8852632
-- Instructor: John Caserta
-- Term: 2016
-- Tools mentioned: HTML/CSS
-- Materials mentioned: print output, photography, book binding
-- Policy evidence: Removing detail later is fairly easy.
-- Description evidence: This collection harkens back to the 1930s pictographic style, when icons were drawn as a type of early documentary photograph – descriptive of everyday actions, but more suitable for reproduction with the coarses printing presses of the era. This realistic (but not without humor, voice or wit) type of drawing is visible in Rudolf Modley and Gerd Arntz’s archive (see figure 1) . We can get a sense of the culture by seeing a slightly simplified version of the hair, clothes, mannerisms and industri
+- Source IDs: src_wayback_typography_iii_syllabus_20210421141719
+- Extracted skill signals: typography, publication design, motion design, interaction design, critique and revision, research methods, image making
+- Syllabus/course artifact: syl_wayback_typography_iii_syllabus_20210421141719
+- Term: 2020
+- Tools mentioned: Slack, Zoom, Adobe, Figma, Google Drive
+- Materials mentioned: paper, print output, photography
+- Policy evidence: be able to manipulate letters as part of a system across media / be able to make choices that are informed by social, cultural, technical, political contexts—including issues of equity and inclusion—in which their work exists and to articulate these ideas in oral and written form / be able to manipulate the formal qualities of typography to convey intended, complex, and layered meanings across multiple platforms
 - Weekly/class structure evidence:
-  - Dear Class of 2017, Design Observer
-  - Question the Classroom Design & Culture
-  - Web Programming 2018 4-Week Wkshp
-  - Web Programming 4-Week Wkshp
+  - Class Format
+  - However, even though my presence and interactions will be mostly Zoom– and Slack-based, I’m designing the course to accommodate both remote students and those who would like to collaborate on-campus, during or outside of class.
+  - Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, student presentations, hands-on workshops, and group exercises.
+  - The active presence, listening, and participation of everyone in the class is crucial (and will make it a lot more fun and interesting): in presenting your own work, supportive and respectful critique of your classmates’ work, and in class discussions of texts we’ll read, typographic news and history, and other relevant (sometimes tangential) topics.
+  - Each member of the class will have their own Slack channel for uploading and sharing progress, research, content materials, links, and to function as a place for classmates to make thoughtful comments & suggestions, and for general discussions and feedback.
+  - This is a studio course, so aside from the above, a lot of the time we will be making use of class time to get work done.
 - Reading evidence:
-  - John Caserta --> (unresolved)
-  - with Bindery (unresolved)
+  - Typography III is the culmination of the RISD Graphic Design department’s typography curriculum sequence, with an emphasis on typography and contemporary display platforms (unresolved)
+  - all are potentially at play (unresolved)
+  - of textual content across media (static, dynamic, interactive) and space (unresolved)
+  - we’ll read, typographic news and history, and other relevant (sometimes tangential) topics (unresolved)
+  - design spreads (unresolved)
 - Assignment/critique evidence:
-  - I was asked by The Noun Project to initiate a collaborative collection — a new venture where the Noun Project community could draw for each other, adding icons to a central repository. I came up with the concept for documentary icons having an interest in the detailed 20th-Century iconography. (tacit goal: build attention to craft, finish, and presentation quality)
-  - words and is filed under projects
-  - This Noun Project collaborative collection asks designers – wherever in the world you may be – to help build a collection that documents people doing what they do today – whether funny, awkward, honorable or mundane.
-  - See the icons, learn more and submit to the collection at The Noun Project .
-  - projects
-  - Documentary Icons The Noun Project
-  - Read an overview of my work from The Noun Project.
-- Public student work examples:
-  - the course website.: https://ds1618.risd.gd/2016/10/11/unit3_overview.html (medium: website/interface; assignment link: explicit_assignment_reference)
-  - See the 72mb pdf: https://s3.us-east-2.amazonaws.com/jccomv4/students/Nick_reflective_document.pdf (medium: animation/video; assignment link: unlinked_public_example)
-  - See assignments: https://github.com/risd-gd/wp16/wiki/Assignment-1:-Make-a-Scandinavian-Flag (medium: animation/video; assignment link: course_context_only)
-  - Scroll this web page Christina Rees: http://christinarees.com/transform/scroll/pattern.html (medium: website/interface; assignment link: unlinked_public_example)
-  - Interact with this pattern: http://risd-gd.github.io/wp16/students/isabellaMordini/Assignment_Week_03/week4_05.html (medium: website/interface; assignment link: course_context_only)
-  - See full assignment: https://paper.dropbox.com/doc/Type-III-Week-Two-Qj7xd8hMki64KfRzAAFyn (medium: animation/video; assignment link: explicit_assignment_reference)
+  - Projects in this semester depend on altered states, where the content, composition, and context all are potentially at play.
+  - Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, student presentations, hands-on workshops, and group exercises. (critique: feedback/review referenced in source excerpt; revision: revision or iterative improvement expected; tacit goal: practice explaining and defending design decisions in critique)
+  - The active presence, listening, and participation of everyone in the class is crucial (and will make it a lot more fun and interesting): in presenting your own work, supportive and respectful critique of your classmates’ work, and in class discussions of texts we’ll read, typographic news and history, and other relevant (sometimes tangential) topics. (critique: group/class critique referenced in source excerpt; tacit goal: practice explaining and defending design decisions in critique)
+  - Bring your own languages, scripts, letterforms, cultures, and personalities to our class and to your projects. I want to encourage you to develop a typographic practice that is open, fluid, iterative, complex, and allows for your knowledge, point of view, and lineage to emerge confidently. (tacit goal: train typographic judgment through form, hierarchy, and spacing)
+  - 75% Assignments
+  - Quality of work, including concept, design, and the timely completion of assignments; working process and craft; personal initiative, exploration, and risk-taking; and, last but not least, the appropriate and thoughtful application of typographic principles (constraints: process documentation required, timely completion expected; tacit goal: develop iterative process habits rather than only final outputs)
+  - Strong design process / good listener / ability to come up with many different ways to approach assignments / thorough research / mastery of form, functionality, and craft / frequent participation in critiques and discussion / focused / attentive / ability to articulate ideas / risk-taking and broad exploration (constraints: process documentation required, research required; critique: critique referenced in source excerpt; tacit goal: practice explaining and defending design decisions in critique)
+  - Average work / fulfills assignments but not much else / doesnt re-work or refine projects, doesn’t do much beyond the requirements (constraints: must follow stated requirements; revision: revision or iterative improvement expected)
+  - Your final grade will be based on the above criteria as well as on the final portfolio of work turned in at the end of the semester. (deliverables: portfolio)
+  - Keep in mind that any project can be re-done or improved upon throughout the semester. (revision: revision or iterative improvement expected)
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
-  - Skill training signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods.
+  - Skill training signals: typography, publication design, motion design, interaction design, critique and revision, research methods, image making.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
 ### TYPOGRAPHY III
@@ -3171,5 +3264,6 @@ Generated: 2026-06-11
 - src_risd_mfa_program (C, official_program_page): https://www.risd.edu/academics/graphic-design/masters-programs
 - src_risd_coursedog_bfa_graphic_design (C, official_catalog_program): https://risd.coursedog.com/programs/cfa6776e92151000bceb55330dc80000
 - src_risd_in_motion_news (D, official_student_work_story): https://www.risd.edu/news/stories/risd-students-use-video-and-animation-techniques-bring-graphics-life
+- src_wayback_typography_iii_syllabus_20210421141719 (A, wayback_capture): https://web.archive.org/web/20210421141719id_/http://type.practise.studio/syllabus/
 - src_john_caserta_student_work (D, student_work_archive): https://johncaserta.com/studentwork.html
 - src_crawl_johncaserta_com_teachingarchive_html_85a4ce9d (B, student_work_archive): https://johncaserta.com/teachingarchive.html

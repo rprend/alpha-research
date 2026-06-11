@@ -4,9 +4,9 @@ Generated: 2026-06-11
 
 ## Fetch Results
 
-- Successful extractions: 86
+- Successful extractions: 87
 - Failed or empty extractions: 1
-- Wayback captures recorded: 73
+- Wayback captures recorded: 106
 - Wayback source cap for this run: 45
 - Validation status: pass
 
