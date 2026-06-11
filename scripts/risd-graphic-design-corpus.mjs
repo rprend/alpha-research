@@ -9,6 +9,7 @@ const outDir = join(root, 'docs/research-plans/risd-graphic-design-corpus')
 const retrievedAt = new Date().toISOString().slice(0, 10)
 const skipWayback = process.argv.includes('--skip-wayback')
 const renderCurriculumOnly = process.argv.includes('--render-curriculum-only')
+const renderDerivedOnly = process.argv.includes('--render-derived-only')
 const officialCourseMaxPages = 12
 const crawlMaxDepth = 1
 const crawlMaxLinksPerHost = 20
@@ -1137,6 +1138,11 @@ function buildAssignments(syllabi) {
         deliverables: assignmentSignals.deliverables,
         materials: assignmentSignals.materials,
         tools: assignmentSignals.tools,
+        assignment_type: assignmentSignals.assignment_type,
+        studio_phases: assignmentSignals.studio_phases,
+        critique_questions: assignmentSignals.critique_questions,
+        output_format: assignmentSignals.output_format,
+        evidence_limits: assignmentSignals.evidence_limits,
         critique_format: assignmentSignals.critique_format,
         revision_expectation: assignmentSignals.revision_expectation,
         skills_trained: inferSkills(snippet),
@@ -1162,6 +1168,9 @@ function inferAssignmentSignals(snippet) {
   const constraints = []
   const materials = []
   const tools = []
+  const studioPhases = []
+  const critiqueQuestions = []
+  const evidenceLimits = []
 
   const deliverableChecks = [
     ['logo', /\blogo\b/],
@@ -1225,6 +1234,42 @@ function inferAssignmentSignals(snippet) {
     if (pattern.test(lower)) tools.push(label)
   }
 
+  const assignmentType = inferAssignmentType(lower)
+  const outputFormat = inferOutputFormat({ deliverables, materials, tools, lower })
+
+  const phaseChecks = [
+    ['research', /\bresearch\b|\binvestigate\b|\bcollect\b|\bgather\b|\banaly[sz]e\b|\bprecedent\b/],
+    ['sketch', /\bsketch(?:es|ing)?\b|\bdraft(?:s|ing)?\b|\bthumbnail\b|\brough\b/],
+    ['prototype', /\bprototype\b|\bmockup\b|\btest\b|\bexperiment\b|\biteration\b|\bversion\b/],
+    ['make', /\bmake\b|\bdesign\b|\bbuild\b|\bcompose\b|\bproduce\b|\bcreate\b|\bcode\b|\bprint\b/],
+    ['present', /\bpresent(?:ation)?\b|\bpin[- ]?up\b|\bshow\b|\bshare\b/],
+    ['critique', /\bcrit(?:ique)?\b|\bfeedback\b|\breview\b|\bdiscussion\b/],
+    ['revise', /\brev(?:ise|ision)\b|\brework\b|\biterate\b|\bimprov(?:e|ement)\b|\brefine\b/],
+    ['submit', /\bsubmit\b|\bturn(?:ed)? in\b|\bdue\b|\bdeadline\b|\bfinal\b/],
+    ['document', /\bdocument(?:ation)?\b|\barchive\b|\bprocess book\b|\bportfolio\b/],
+  ]
+  for (const [label, pattern] of phaseChecks) {
+    if (pattern.test(lower)) studioPhases.push(label)
+  }
+
+  if (/what|why|how|\?/.test(snippet)) {
+    const questions = snippet
+      .split(/(?<=\?)\s+|\n+/)
+      .map((part) => part.trim())
+      .filter((part) => /\?$/.test(part) || /^(?:what|why|how|when|where|who)\b/i.test(part))
+      .map((part) => part.slice(0, 220))
+    critiqueQuestions.push(...questions)
+  }
+  if (/hierarchy|composition|form|scale|contrast|sequence|pace|readability|legibility|audience|context|material|craft/i.test(snippet)) {
+    critiqueQuestions.push('How do form, hierarchy, material, audience, and context change the reading of the work?')
+  }
+  if (/source excerpt|snippet|partial|unknown|not enough|limited/i.test(snippet)) {
+    evidenceLimits.push('assignment reconstructed from partial source excerpt')
+  }
+  if (!/due|deliver|submit|final|present|crit|project|assignment|exercise/i.test(snippet)) {
+    evidenceLimits.push('assignment boundary inferred from nearby course language')
+  }
+
   const critiqueFormat = /critique|critiques|crit\b/i.test(snippet)
     ? /group|class/i.test(snippet)
       ? 'group/class critique referenced in source excerpt'
@@ -1246,11 +1291,37 @@ function inferAssignmentSignals(snippet) {
     deliverables: uniq(deliverables),
     materials: uniq(materials),
     tools: uniq(tools),
+    assignment_type: assignmentType,
+    studio_phases: uniq(studioPhases),
+    critique_questions: uniq(critiqueQuestions).slice(0, 4),
+    output_format: outputFormat,
+    evidence_limits: uniq(evidenceLimits),
     critique_format: critiqueFormat,
     revision_expectation: revisionExpectation,
     tacit_goal: tacitGoal,
     evidence_grade: deliverables.length || constraints.length || critiqueFormat || revisionExpectation ? 'A' : 'B',
   }
+}
+
+function inferAssignmentType(lower) {
+  if (/\bfinal\b|\bcapstone\b|\bportfolio\b/.test(lower)) return 'final_project'
+  if (/\bcrit(?:ique)?\b|\bpin[- ]?up\b|\breview\b/.test(lower)) return 'critique_session'
+  if (/\bexercises?\b|\bwarm[- ]?ups?\b|\bworkshops?\b/.test(lower)) return 'exercise'
+  if (/\bread(?:ing)?s?\b|\bresponses?\b|\bdiscussions?\b/.test(lower)) return 'reading_response'
+  if (/\bpresentation\b|\bpresent\b/.test(lower)) return 'presentation'
+  if (/\bprojects?\b|\bassignments?\b|\bbriefs?\b|\bprompts?\b/.test(lower)) return 'project_brief'
+  return 'studio_activity'
+}
+
+function inferOutputFormat({ deliverables, materials, tools, lower }) {
+  if (deliverables.includes('website') || tools.includes('HTML/CSS') || tools.includes('JavaScript')) return 'interactive_web_artifact'
+  if (deliverables.includes('animation')) return 'time_based_screen_artifact'
+  if (deliverables.some((item) => ['book', 'booklet', 'catalogue', 'portfolio'].includes(item))) return 'multi_page_publication'
+  if (deliverables.some((item) => ['poster', 'logo', 'visual identity system'].includes(item))) return 'static_visual_system'
+  if (materials.some((item) => ['printing', 'binding', 'risograph'].includes(item))) return 'printed_physical_artifact'
+  if (/\bessay\b|\bwriting\b|\bstatement\b|\bresponse\b/.test(lower)) return 'written_response'
+  if (/\bpresentation\b|\bpresent\b/.test(lower)) return 'presentation'
+  return null
 }
 
 function inferTacitGoal(snippet) {
@@ -1951,10 +2022,15 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || assignment.constraints?.length
       || assignment.materials?.length
       || assignment.tools?.length
+      || assignment.assignment_type
+      || assignment.studio_phases?.length
+      || assignment.critique_questions?.length
+      || assignment.output_format
       || assignment.critique_format
       || assignment.revision_expectation
       || assignment.tacit_goal
   ).length
+  const phaseStructuredAssignmentCount = assignments.filter((assignment) => assignment.studio_phases?.length || assignment.assignment_type || assignment.output_format).length
   const readingSourceErrors = readings.filter((reading) => !syllabusIds.has(reading.syllabus_id) || reading.source_ids.some((id) => !sourceIds.has(id)))
   const normalizedReadingCount = readings.filter((reading) => reading.canonical_work_id).length
   const catalogReadingCount = readings.filter((reading) => reading.linking_status === 'local_catalog_match').length
@@ -2006,6 +2082,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       id: 'assignments_have_structured_signals',
       status: structuredAssignmentCount > 0 ? 'pass' : 'warn',
       detail: `${structuredAssignmentCount} assignment snippets include inferred deliverables, constraints, tools, critique, revision, or tacit goals.`,
+    },
+    {
+      id: 'assignments_have_studio_phase_signals',
+      status: phaseStructuredAssignmentCount > 0 ? 'pass' : 'warn',
+      detail: `${phaseStructuredAssignmentCount} assignment snippets include assignment type, studio phase, or output-format signals.`,
     },
     {
       id: 'readings_reference_valid_syllabi_and_sources',
@@ -2092,6 +2173,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       structured_syllabi: structuredSyllabusCount,
       assignments: assignments.length,
       structured_assignments: structuredAssignmentCount,
+      phase_structured_assignments: phaseStructuredAssignmentCount,
       readings: readings.length,
       normalized_readings: normalizedReadingCount,
       local_catalog_readings: catalogReadingCount,
@@ -2350,6 +2432,7 @@ Overall status: ${validation.status}
 - Structured syllabus records: ${validation.counts.structured_syllabi}
 - Assignments: ${validation.counts.assignments}
 - Structured assignment snippets: ${validation.counts.structured_assignments}
+- Studio-phase assignment snippets: ${validation.counts.phase_structured_assignments}
 - Readings: ${validation.counts.readings}
 - Normalized reading snippets: ${validation.counts.normalized_readings}
 - Canonical reading works: ${validation.counts.canonical_reading_works}
@@ -2444,6 +2527,9 @@ function reconstructionMarkdown({ sources, courses, syllabi, assignments, readin
         const structured = [
           assignment.deliverables?.length ? `deliverables: ${assignment.deliverables.join(', ')}` : null,
           assignment.constraints?.length ? `constraints: ${assignment.constraints.join(', ')}` : null,
+          assignment.assignment_type ? `type: ${assignment.assignment_type}` : null,
+          assignment.studio_phases?.length ? `phases: ${assignment.studio_phases.join(', ')}` : null,
+          assignment.output_format ? `output: ${assignment.output_format}` : null,
           assignment.critique_format ? `critique: ${assignment.critique_format}` : null,
           assignment.revision_expectation ? `revision: ${assignment.revision_expectation}` : null,
           assignment.tacit_goal ? `tacit goal: ${assignment.tacit_goal}` : null,
@@ -2719,6 +2805,9 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
           const details = [
             assignment.deliverables?.length ? `deliverables: ${assignment.deliverables.join(', ')}` : null,
             assignment.constraints?.length ? `constraints: ${assignment.constraints.join(', ')}` : null,
+            assignment.assignment_type ? `type: ${assignment.assignment_type}` : null,
+            assignment.studio_phases?.length ? `phases: ${assignment.studio_phases.join(', ')}` : null,
+            assignment.output_format ? `output: ${assignment.output_format}` : null,
             assignment.critique_format ? `critique: ${assignment.critique_format}` : null,
             assignment.revision_expectation ? `revision: ${assignment.revision_expectation}` : null,
           ].filter(Boolean)
@@ -2763,8 +2852,47 @@ function renderSelfStudyCurriculumOnly() {
   console.log(`courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} student_work=${studentWork.length}`)
 }
 
+function renderDerivedArtifactsOnly() {
+  ensureDir(outDir)
+  const sources = loadJsonl(join(outDir, 'sources.jsonl'))
+  const courseInventoryRows = loadJsonl(join(outDir, 'course_inventory.jsonl'))
+  const courses = loadJsonl(join(outDir, 'courses.jsonl'))
+  const syllabi = loadJsonl(join(outDir, 'syllabi.jsonl'))
+  const assignments = buildAssignments(syllabi)
+  const readings = loadJsonl(join(outDir, 'readings.jsonl'))
+  const readingFrequency = loadJsonl(join(outDir, 'reading_frequency.jsonl'))
+  const searchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
+  const faculty = loadJsonl(join(outDir, 'faculty.jsonl'))
+  const facultyCourseEdges = loadJsonl(join(outDir, 'faculty_course_edges.jsonl'))
+  const studentWork = loadJsonl(join(outDir, 'student_work.jsonl'))
+  const sourceClusters = loadJsonl(join(outDir, 'source_clusters.jsonl'))
+  const sourceVersions = loadJsonl(join(outDir, 'source_versions.jsonl'))
+  const wayback = loadJsonl(join(outDir, 'wayback_captures.jsonl'))
+  const reviewQueue = loadJsonl(join(outDir, 'review_queue.jsonl'))
+  const reviewDecisions = loadJsonl(join(outDir, 'review_decisions.jsonl'))
+  const fieldConflicts = loadJsonl(join(outDir, 'field_conflicts.jsonl'))
+  const previousValidation = existsSync(join(outDir, 'validation.json')) ? JSON.parse(readFileSync(join(outDir, 'validation.json'), 'utf8')) : null
+  const courseInventory = {
+    offerings: courseInventoryRows,
+    displayed_count: previousValidation?.counts?.official_course_displayed_count ?? courseInventoryRows.length,
+  }
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, faculty, facultyCourseEdges, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  writeJsonl(join(outDir, 'assignments.jsonl'), assignments)
+  writeJson(join(outDir, 'validation.json'), validationWithReview)
+  writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
+  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback }))
+  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
+  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork }))
+  console.log(`RISD derived artifacts written to ${outDir}`)
+  console.log(`assignments=${assignments.length} phase_structured_assignments=${validationWithReview.counts.phase_structured_assignments} validation=${validationWithReview.status}`)
+}
+
 async function main() {
   ensureDir(outDir)
+  if (renderDerivedOnly) {
+    renderDerivedArtifactsOnly()
+    return
+  }
   if (renderCurriculumOnly) {
     renderSelfStudyCurriculumOnly()
     return

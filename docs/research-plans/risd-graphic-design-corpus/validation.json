@@ -9,7 +9,8 @@
     "syllabi": 74,
     "structured_syllabi": 74,
     "assignments": 471,
-    "structured_assignments": 204,
+    "structured_assignments": 471,
+    "phase_structured_assignments": 471,
     "readings": 118,
     "normalized_readings": 50,
     "local_catalog_readings": 38,
@@ -62,7 +63,12 @@
     {
       "id": "assignments_have_structured_signals",
       "status": "pass",
-      "detail": "204 assignment snippets include inferred deliverables, constraints, tools, critique, revision, or tacit goals."
+      "detail": "471 assignment snippets include inferred deliverables, constraints, tools, critique, revision, or tacit goals."
+    },
+    {
+      "id": "assignments_have_studio_phase_signals",
+      "status": "pass",
+      "detail": "471 assignment snippets include assignment type, studio phase, or output-format signals."
     },
     {
       "id": "readings_reference_valid_syllabi_and_sources",

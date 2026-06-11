@@ -210,6 +210,11 @@ Required fields:
 - `deliverables`
 - `materials`
 - `tools`
+- `assignment_type`
+- `studio_phases`
+- `critique_questions`
+- `output_format`
+- `evidence_limits`
 - `critique_format`
 - `revision_expectation`
 - `skills_trained`

@@ -13,7 +13,8 @@ Overall status: pass
 - Syllabi/course artifacts: 74
 - Structured syllabus records: 74
 - Assignments: 471
-- Structured assignment snippets: 204
+- Structured assignment snippets: 471
+- Studio-phase assignment snippets: 471
 - Readings: 118
 - Normalized reading snippets: 50
 - Canonical reading works: 26
@@ -44,7 +45,8 @@ Overall status: pass
 - PASS syllabi_have_course_identity: 0 syllabus rows lack both course code and title.
 - PASS syllabi_have_structured_top_level_fields: 74 syllabus rows include top-level schema fields for schedule, readings, policies, tools, materials, evidence, or raw excerpts.
 - PASS assignments_reference_valid_syllabi_and_sources: 0 assignment reference errors.
-- PASS assignments_have_structured_signals: 204 assignment snippets include inferred deliverables, constraints, tools, critique, revision, or tacit goals.
+- PASS assignments_have_structured_signals: 471 assignment snippets include inferred deliverables, constraints, tools, critique, revision, or tacit goals.
+- PASS assignments_have_studio_phase_signals: 471 assignment snippets include assignment type, studio phase, or output-format signals.
 - PASS readings_reference_valid_syllabi_and_sources: 0 reading reference errors.
 - PASS readings_have_normalized_work_links: 50 reading snippets linked to 26 canonical works; 38 local catalog matches.
 - PASS search_candidates_have_provenance: 28 search candidates, 10 promoted, 0 imported; 0 candidate reference errors.

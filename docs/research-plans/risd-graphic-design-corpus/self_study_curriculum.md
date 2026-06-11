@@ -44,12 +44,12 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
   - comes from the credits (unknown)
   - affects form — Learn to work together to accomplish more (unknown)
 - Studio briefs to recreate:
-  - Recovered brief: Design Studio will take the form of a series of question-based units, each initiated by a faculty member and contextualized by a presentation, event, or workshop. (deliverables: presentation)
-  - projects are not the intended outcome of DS1: Finished projects are not the intended outcome of DS1.
-  - Recovered brief: Develop rhetorical, communication and presentation skills (deliverables: presentation)
-  - Recovered brief: Semester-long Deliverables
-  - project, but also in the considerations a designer must build into two-dimensional “fix: Not only in how we engage in the design of an exhibit or screen based project, but also in the considerations a designer must build into two-dimensional “fixed” surfaces, such as signs, books, posters, and charts. (constraints: must follow stated requirements)
-  - project: The order in which ideas are accessed is at the essence of any project.
+  - Recovered brief: Design Studio will take the form of a series of question-based units, each initiated by a faculty member and contextualized by a presentation, event, or workshop. (deliverables: presentation; type: exercise; phases: make, present; output: presentation)
+  - projects are not the intended outcome of DS1: Finished projects are not the intended outcome of DS1. (type: project_brief)
+  - Recovered brief: Develop rhetorical, communication and presentation skills (deliverables: presentation; type: presentation; phases: present; output: presentation)
+  - Recovered brief: Semester-long Deliverables (type: studio_activity)
+  - project, but also in the considerations a designer must build into two-dimensional “fix: Not only in how we engage in the design of an exhibit or screen based project, but also in the considerations a designer must build into two-dimensional “fixed” surfaces, such as signs, books, posters, and charts. (constraints: must follow stated requirements; type: project_brief; phases: make)
+  - project: The order in which ideas are accessed is at the essence of any project. (type: project_brief)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -70,12 +70,12 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
   - in which it was made (unknown)
   - The Web's Grain, Frank Chimero (unknown)
 - Studio briefs to recreate:
-  - projects: projects
-  - exercises: exercises
-  - Recovered brief: presentations
-  - exercise and question what typography can “respond to” — whether user input, network cond: By engaging with type that activates the capacities of browsers, we will push beyond “resonsive design” as a layout-based exercise and question what typography can “respond to” — whether user input, network conditions, or the physical environment.
-  - projects will involve hand-coding web pages, using the browser for experimental researc: All projects will involve hand-coding web pages, using the browser for experimental research and engagement. (constraints: research required)
-  - Recovered brief: Critique and discussions will broadly examine the sociocultural implications of publishing on the internet; technical instruction will include web languages such as HTML, CSS, and JavaScript, as well as type design technology such as variable fonts. A basic background in coding is recommended, but not required. (constraints: must follow stated requirements; critique: critique referenced in source excerpt)
+  - projects: projects (type: project_brief)
+  - exercises: exercises (type: exercise)
+  - Recovered brief: presentations (type: studio_activity)
+  - exercise and question what typography can “respond to” — whether user input, network cond: By engaging with type that activates the capacities of browsers, we will push beyond “resonsive design” as a layout-based exercise and question what typography can “respond to” — whether user input, network conditions, or the physical environment. (type: exercise; phases: make)
+  - projects will involve hand-coding web pages, using the browser for experimental researc: All projects will involve hand-coding web pages, using the browser for experimental research and engagement. (constraints: research required; type: project_brief; phases: research)
+  - Recovered brief: Critique and discussions will broadly examine the sociocultural implications of publishing on the internet; technical instruction will include web languages such as HTML, CSS, and JavaScript, as well as type design technology such as variable fonts. A basic background in coding is recommended, but not required. (constraints: must follow stated requirements; type: critique_session; phases: make, critique; output: interactive_web_artifact; critique: critique referenced in source excerpt)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -96,12 +96,12 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
   - / References (unknown)
   - How to Draw a Tree, Bruno Munari (unknown)
 - Studio briefs to recreate:
-  - assignments in the broadest possible way to allow for many outcomes: As a graduate interdisciplinary studio, the course will introduce and frame assignments in the broadest possible way to allow for many outcomes.
-  - projects: Students are encouraged to bring their existing bodies of work, personal narratives and discipline-specific processes to their projects.
-  - assignments with a few activities, guests and outings: There will be three major assignments with a few activities, guests and outings.
-  - assignments, others exist to bring students into contact with people and issues that relat: Some will relate and reinforce the assignments, others exist to bring students into contact with people and issues that relate to design and politics and can inform the final project.
-  - projects: Students will be able to use design methods to conceptualize their own projects
-  - projects, commentary: Throughout the whole semester, you shoudl be looking at news, videos, magazines, headlines, reddit posts, twitter, etc as the source for projects, commentary.
+  - assignments in the broadest possible way to allow for many outcomes: As a graduate interdisciplinary studio, the course will introduce and frame assignments in the broadest possible way to allow for many outcomes. (type: project_brief)
+  - projects: Students are encouraged to bring their existing bodies of work, personal narratives and discipline-specific processes to their projects. (type: project_brief)
+  - assignments with a few activities, guests and outings: There will be three major assignments with a few activities, guests and outings. (type: project_brief)
+  - assignments, others exist to bring students into contact with people and issues that relat: Some will relate and reinforce the assignments, others exist to bring students into contact with people and issues that relate to design and politics and can inform the final project. (type: final_project; phases: make, submit)
+  - projects: Students will be able to use design methods to conceptualize their own projects (type: project_brief; phases: make)
+  - projects, commentary: Throughout the whole semester, you shoudl be looking at news, videos, magazines, headlines, reddit posts, twitter, etc as the source for projects, commentary. (type: project_brief)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -122,12 +122,12 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
   - & page Due Poster (unknown)
   - Introductions to Graphic Design (unknown)
 - Studio briefs to recreate:
-  - exercises: and InDesign though in-class exercises.
-  - projects: a logo, a poster, a booklet, and a visual: Students will complete four projects: a logo, a poster, a booklet, and a visual (deliverables: logo, poster, booklet)
-  - final: arrive at a well-researched final (constraints: research required)
-  - exercises,: This is an online studio course with lectures, tutorials, and exercises,
-  - Recovered brief: Synchronous elements include student presentations and critique. (critique: critique referenced in source excerpt)
-  - projects, corresponding to the software and graphic: Students will complete four projects, corresponding to the software and graphic
+  - exercises: and InDesign though in-class exercises. (type: exercise)
+  - projects: a logo, a poster, a booklet, and a visual: Students will complete four projects: a logo, a poster, a booklet, and a visual (deliverables: logo, poster, booklet; type: project_brief; output: multi_page_publication)
+  - final: arrive at a well-researched final (constraints: research required; type: final_project; phases: submit)
+  - exercises,: This is an online studio course with lectures, tutorials, and exercises, (type: exercise)
+  - Recovered brief: Synchronous elements include student presentations and critique. (type: critique_session; phases: critique; critique: critique referenced in source excerpt)
+  - projects, corresponding to the software and graphic: Students will complete four projects, corresponding to the software and graphic (type: project_brief)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -146,12 +146,12 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
   - we’ll read, typographic news and history, and other relevant (sometimes tangential) topics (unknown)
   - design spreads (unknown)
 - Studio briefs to recreate:
-  - Projects in this semester depend on altered states, where the content, composition, and: Projects in this semester depend on altered states, where the content, composition, and context all are potentially at play.
-  - exercises: Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, student presentations, hands-on workshops, and group exercises. (critique: feedback/review referenced in source excerpt; revision: revision or iterative improvement expected)
-  - Recovered brief: The active presence, listening, and participation of everyone in the class is crucial (and will make it a lot more fun and interesting): in presenting your own work, supportive and respectful critique of your classmates’ work, and in class discussions of texts we’ll read, typographic news and history, and other relevant (sometimes tangential) topics. (critique: group/class critique referenced in source excerpt)
-  - projects: Bring your own languages, scripts, letterforms, cultures, and personalities to our class and to your projects. I want to encourage you to develop a typographic practice that is open, fluid, iterative, complex, and allows for your knowledge, point of view, and lineage to emerge confidently.
-  - Assignments: 75% Assignments
-  - assignments: Quality of work, including concept, design, and the timely completion of assignments; working process and craft; personal initiative, exploration, and risk-taking; and, last but not least, the appropriate and thoughtful application of typographic principles (constraints: process documentation required, timely completion expected)
+  - Projects in this semester depend on altered states, where the content, composition, and: Projects in this semester depend on altered states, where the content, composition, and context all are potentially at play. (type: project_brief)
+  - exercises: Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, student presentations, hands-on workshops, and group exercises. (type: exercise; critique: feedback/review referenced in source excerpt; revision: revision or iterative improvement expected)
+  - Recovered brief: The active presence, listening, and participation of everyone in the class is crucial (and will make it a lot more fun and interesting): in presenting your own work, supportive and respectful critique of your classmates’ work, and in class discussions of texts we’ll read, typographic news and history, and other relevant (sometimes tangential) topics. (type: critique_session; phases: make, critique; critique: group/class critique referenced in source excerpt)
+  - projects: Bring your own languages, scripts, letterforms, cultures, and personalities to our class and to your projects. I want to encourage you to develop a typographic practice that is open, fluid, iterative, complex, and allows for your knowledge, point of view, and lineage to emerge confidently. (type: project_brief)
+  - Assignments: 75% Assignments (type: project_brief)
+  - assignments: Quality of work, including concept, design, and the timely completion of assignments; working process and craft; personal initiative, exploration, and risk-taking; and, last but not least, the appropriate and thoughtful application of typographic principles (constraints: process documentation required, timely completion expected; type: project_brief; phases: make)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -171,12 +171,12 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
   - in America Shaping Text* (unknown)
   - The Anatomy of Type, Stephen Coles (unknown)
 - Studio briefs to recreate:
-  - Recovered brief: form, reading order, grids and other systems of organiza- • excellent craft / respect for presentation and materials (deliverables: presentation)
-  - assignments (including any readings): ages the practice of working with type & image relation- • completion of all assignments (including any readings)
-  - assignments and all the: Woven throughout all the assignments and all the
-  - Final Grade will be based on the afore-mentioned criteria: Final Grade will be based on the afore-mentioned criteria
-  - final portfolio of work turned in at the end of: as well as a final portfolio of work turned in at the end of (deliverables: portfolio)
-  - project can be re-done: Keep in mind that any project can be re-done
+  - Recovered brief: form, reading order, grids and other systems of organiza- • excellent craft / respect for presentation and materials (deliverables: presentation; type: reading_response; phases: present; output: presentation)
+  - assignments (including any readings): ages the practice of working with type & image relation- • completion of all assignments (including any readings) (type: reading_response)
+  - assignments and all the: Woven throughout all the assignments and all the (type: project_brief)
+  - Final Grade will be based on the afore-mentioned criteria: Final Grade will be based on the afore-mentioned criteria (type: final_project; phases: submit)
+  - final portfolio of work turned in at the end of: as well as a final portfolio of work turned in at the end of (deliverables: portfolio; type: final_project; phases: submit, document; output: multi_page_publication)
+  - project can be re-done: Keep in mind that any project can be re-done (type: project_brief)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -193,12 +193,12 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
   - Art of Creative Coding | Web Programming 2015 (unknown)
   - Art of Creative Coding (unknown)
 - Studio briefs to recreate:
-  - Assignment 2 Feb 13, 2015: &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015
-  - Assignment 2: Draw found objects with CSS: &#237; Assignment 2: Draw found objects with CSS
-  - project: Whether found on the side of the road, at someone&#8217;s house or at the hardware store, the objects are silhouetted at actual size and placed in his project.
-  - assignment asks you to collect objects of your own, whether in your home, around town, at R: This assignment asks you to collect objects of your own, whether in your home, around town, at RISD 2nd life, etc., and draw them using HTML and CSS.
-  - assignment: Goals for the assignment
-  - Assignment 1: Make a Scandinavian flag with CSS: &#237; Assignment 1: Make a Scandinavian flag with CSS
+  - Assignment 2 Feb 13, 2015: &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015 (type: project_brief)
+  - Assignment 2: Draw found objects with CSS: &#237; Assignment 2: Draw found objects with CSS (type: project_brief; output: interactive_web_artifact)
+  - project: Whether found on the side of the road, at someone&#8217;s house or at the hardware store, the objects are silhouetted at actual size and placed in his project. (type: project_brief)
+  - assignment asks you to collect objects of your own, whether in your home, around town, at R: This assignment asks you to collect objects of your own, whether in your home, around town, at RISD 2nd life, etc., and draw them using HTML and CSS. (type: project_brief; phases: research; output: interactive_web_artifact)
+  - assignment: Goals for the assignment (type: project_brief)
+  - Assignment 1: Make a Scandinavian flag with CSS: &#237; Assignment 1: Make a Scandinavian flag with CSS (type: project_brief; phases: make; output: interactive_web_artifact)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -217,12 +217,12 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
   - Thinking with Type, Ellen Lupton (unknown)
   - The Elements of Typographic Style, Robert Bringhurst (unknown)
 - Studio briefs to recreate:
-  - projects, process, notes, etc as you gold, wrought in the most exquisite patterns: introduced to basic principles of typography iterations, projects, process, notes, etc as you gold, wrought in the most exquisite patterns. (constraints: process documentation required; revision: revision or iterative improvement expected)
-  - Recovered brief: form, type as material, type as texture and also -presentation board (as needed) and last fundamental requisite of book design, (deliverables: book, presentation)
-  - Recovered brief: • excellent craft / respect for presentation The Elements of Typographic Style, Robert (deliverables: presentation)
-  - assignments (suggested): • completion of all assignments (suggested)
-  - Final Grade will be based on the afore-mentioned Anatomy of a Typeface, Alexander Laws: Final Grade will be based on the afore-mentioned Anatomy of a Typeface, Alexander Lawson (deliverables: typeface)
-  - projects: criteria as well as results of projects.
+  - projects, process, notes, etc as you gold, wrought in the most exquisite patterns: introduced to basic principles of typography iterations, projects, process, notes, etc as you gold, wrought in the most exquisite patterns. (constraints: process documentation required; type: project_brief; revision: revision or iterative improvement expected)
+  - Recovered brief: form, type as material, type as texture and also -presentation board (as needed) and last fundamental requisite of book design, (deliverables: book, presentation; type: presentation; phases: make, present; output: multi_page_publication)
+  - Recovered brief: • excellent craft / respect for presentation The Elements of Typographic Style, Robert (deliverables: presentation; type: presentation; phases: present; output: presentation)
+  - assignments (suggested): • completion of all assignments (suggested) (type: project_brief)
+  - Final Grade will be based on the afore-mentioned Anatomy of a Typeface, Alexander Laws: Final Grade will be based on the afore-mentioned Anatomy of a Typeface, Alexander Lawson (deliverables: typeface; type: final_project; phases: submit)
+  - projects: criteria as well as results of projects. (type: project_brief)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -234,8 +234,8 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Syllabus/course artifacts: syl_sp19_mapping_information
 - Skill targets: typography, motion design, interaction design
 - Studio briefs to recreate:
-  - projects which communicate complex information through the use of maps, graphs, charts,: Using information structure and visual systems of form, color, and typography, students will work projects which communicate complex information through the use of maps, graphs, charts, and diagrams.
-  - projects will explore issues of mapping, hierarchy, location, time, comparison, motion,: These projects will explore issues of mapping, hierarchy, location, time, comparison, motion, format, and the use of symbolic visual language. (deliverables: animation)
+  - projects which communicate complex information through the use of maps, graphs, charts,: Using information structure and visual systems of form, color, and typography, students will work projects which communicate complex information through the use of maps, graphs, charts, and diagrams. (type: project_brief)
+  - projects will explore issues of mapping, hierarchy, location, time, comparison, motion,: These projects will explore issues of mapping, hierarchy, location, time, comparison, motion, format, and the use of symbolic visual language. (deliverables: animation; type: project_brief; output: time_based_screen_artifact)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -250,7 +250,7 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
   - for the poster—as paper and as screen—building on its singular capacity to transform ideas into iconic picture planes, and examining the dynamics of typography and image, both still and in motion (unknown)
   - about poster history and contemporary poster design (unknown)
 - Studio briefs to recreate:
-  - assignments will be supported with presentations and readings about poster history and con: Studio assignments will be supported with presentations and readings about poster history and contemporary poster design . (deliverables: poster)
+  - assignments will be supported with presentations and readings about poster history and con: Studio assignments will be supported with presentations and readings about poster history and contemporary poster design . (deliverables: poster; type: reading_response; phases: make; output: static_visual_system)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -262,7 +262,7 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Syllabus/course artifacts: syl_sp19_newly_formed
 - Skill targets: typography, interaction design, image making
 - Studio briefs to recreate:
-  - assignments are supported by lectures showing contemporary graphic form, from historical t: Studio assignments are supported by lectures showing contemporary graphic form, from historical to contemporary work, that are effective and evocative.
+  - assignments are supported by lectures showing contemporary graphic form, from historical t: Studio assignments are supported by lectures showing contemporary graphic form, from historical to contemporary work, that are effective and evocative. (type: project_brief)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -274,7 +274,7 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Syllabus/course artifacts: syl_sp19_type_design
 - Skill targets: typography, interaction design
 - Studio briefs to recreate:
-  - exercise, and to learn the finer points of bezier wrangling, serif and sans, spacing, ke: This elective is an opportunity for students to immerse themselves in the process of designing a typeface; to consider all the design decisions that are a part of this creative exercise, and to learn the finer points of bezier wrangling, serif and sans, spacing, kerning, and all the other details of execution which turn a roughly-formed idea into a more complete, rigorous and polished type design. (deliverables: typeface; constraints: process documentation required)
+  - exercise, and to learn the finer points of bezier wrangling, serif and sans, spacing, ke: This elective is an opportunity for students to immerse themselves in the process of designing a typeface; to consider all the design decisions that are a part of this creative exercise, and to learn the finer points of bezier wrangling, serif and sans, spacing, kerning, and all the other details of execution which turn a roughly-formed idea into a more complete, rigorous and polished type design. (deliverables: typeface; constraints: process documentation required; type: exercise; phases: make)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -293,7 +293,7 @@ Studio loop: Set text under explicit hierarchy, spacing, scale, and sequencing c
   - Grid Systems in Graphic Design, Josef Muller-Brockmann (unknown)
   - and poetry, letterhead systems, brochure or poster (unknown)
 - Studio briefs to recreate:
-  - Projects may include comparative studies for setting text and poetry, letterhead system: Projects may include comparative studies for setting text and poetry, letterhead systems, brochure or poster. (deliverables: poster)
+  - Projects may include comparative studies for setting text and poetry, letterhead system: Projects may include comparative studies for setting text and poetry, letterhead systems, brochure or poster. (deliverables: poster; type: project_brief; output: static_visual_system)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -307,7 +307,7 @@ Studio loop: Set text under explicit hierarchy, spacing, scale, and sequencing c
 - Reading packet:
   - based on their own interests and completing a book design project using assigned material (unknown)
 - Studio briefs to recreate:
-  - project using assigned material: In the second part of the semester, students will be given the choice between designing a book based on their own interests and completing a book design project using assigned material. (deliverables: book)
+  - project using assigned material: In the second part of the semester, students will be given the choice between designing a book based on their own interests and completing a book design project using assigned material. (deliverables: book; type: project_brief; phases: make; output: multi_page_publication)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -322,7 +322,7 @@ Studio loop: Set text under explicit hierarchy, spacing, scale, and sequencing c
 - Reading packet:
   - of contemporary art and design practices (unknown)
 - Studio briefs to recreate:
-  - projects, readings, workshops, and presentations we will explore the relevance of netwo: Through projects, readings, workshops, and presentations we will explore the relevance of network technologies in the context of contemporary art and design practices.
+  - projects, readings, workshops, and presentations we will explore the relevance of netwo: Through projects, readings, workshops, and presentations we will explore the relevance of network technologies in the context of contemporary art and design practices. (type: exercise; phases: make)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -339,8 +339,8 @@ Studio loop: Build a working browser artifact, critique the behavior as design m
 - Tools/software/materials to practice: Adobe, After Effects
 - Skill targets: motion design, interaction design
 - Studio briefs to recreate:
-  - assignments, students will create animated projects that include real-world assignments as: Through a series of in-studio and multi-week assignments, students will create animated projects that include real-world assignments as well as experimental exercises.
-  - assignments, students will become fluent with the software: Through the sequence of assignments, students will become fluent with the software.
+  - assignments, students will create animated projects that include real-world assignments as: Through a series of in-studio and multi-week assignments, students will create animated projects that include real-world assignments as well as experimental exercises. (type: exercise; phases: make)
+  - assignments, students will become fluent with the software: Through the sequence of assignments, students will become fluent with the software. (type: project_brief)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
