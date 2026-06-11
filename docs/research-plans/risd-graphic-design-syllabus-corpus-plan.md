@@ -62,6 +62,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/source_versions.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/wayback_captures.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/search_candidates.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/common_crawl_candidates.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/review_queue.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/review_decisions.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/field_conflicts.jsonl`
@@ -94,7 +95,7 @@ Known gaps:
 - Citation extraction is heuristic.
 - Assignment extraction is currently snippet-based, not structured enough.
 - Search candidate import is supported through local JSON/JSONL exports, but no live search API provider is wired yet.
-- No Common Crawl pass exists yet.
+- A bounded Common Crawl candidate pass exists, but candidates are not yet promoted into public fetch/source rows.
 - Faculty/course edges are derived from existing course evidence, but RISD profile crawling and faculty-portfolio expansion are not implemented yet.
 - Near-duplicate clustering is implemented as a review artifact, but clusters are not yet used to collapse generated course packets.
 - Manual review artifacts exist, but human decisions have not been filled in yet.
@@ -297,6 +298,29 @@ Required fields:
 - `source`
 - `status`
 - `promoted_source_id`
+
+### `common_crawl_candidates.jsonl`
+
+One row per bounded Common Crawl CDX hit or query failure.
+
+Required fields:
+
+- `candidate_id`
+- `query_id`
+- `url_pattern`
+- `index_id`
+- `index_name`
+- `discovered_at`
+- `url`
+- `timestamp`
+- `status_code`
+- `mime`
+- `digest`
+- `length`
+- `source_type_hint`
+- `relevance_score`
+- `candidate_status`
+- `error`
 
 ### `faculty_course_edges.jsonl`
 

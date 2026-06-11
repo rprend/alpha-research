@@ -10,10 +10,13 @@ const retrievedAt = new Date().toISOString().slice(0, 10)
 const skipWayback = process.argv.includes('--skip-wayback')
 const renderCurriculumOnly = process.argv.includes('--render-curriculum-only')
 const renderDerivedOnly = process.argv.includes('--render-derived-only')
+const commonCrawlOnly = process.argv.includes('--common-crawl-only')
 const officialCourseMaxPages = 12
 const crawlMaxDepth = 1
 const crawlMaxLinksPerHost = 20
 const waybackMaxSources = 45
+const commonCrawlMaxIndexes = Number(process.env.RISD_GD_CC_MAX_INDEXES ?? 3)
+const commonCrawlMaxRowsPerQuery = Number(process.env.RISD_GD_CC_MAX_ROWS_PER_QUERY ?? 80)
 const searchImportPath = process.env.RISD_GD_SEARCH_IMPORTS ?? join(outDir, 'search_imports.jsonl')
 
 const seeds = [
@@ -387,6 +390,136 @@ function buildSearchCandidates(importedCandidates = [], promotedImported = []) {
     seen.add(key)
     return true
   })
+}
+
+const commonCrawlQueries = [
+  { query_id: 'risd_gd_all', url_pattern: '*.risd.gd/*', domain: 'risd.gd' },
+  { query_id: 'risd_edu_graphic_design', url_pattern: 'www.risd.edu/academics/graphic-design/*', domain: 'risd.edu' },
+  { query_id: 'john_caserta_teaching', url_pattern: 'johncaserta.com/teaching*', domain: 'johncaserta.com' },
+  { query_id: 'webtype_course_site', url_pattern: 'webtype.htmlkitchen.net/*', domain: 'webtype.htmlkitchen.net' },
+]
+
+async function commonCrawlIndexes() {
+  const fetched = await fetchWithRetry('https://index.commoncrawl.org/collinfo.json', 2)
+  if (!fetched.ok) throw new Error(`Common Crawl index list returned ${fetched.status}`)
+  const indexes = JSON.parse(fetched.buffer.toString('utf8'))
+  return indexes
+    .map((index) => ({ ...index, cdx_api: index.cdx_api ?? index['cdx-api'] }))
+    .filter((index) => index.id && index.cdx_api)
+    .sort((a, b) => String(b.id).localeCompare(String(a.id)))
+    .slice(0, commonCrawlMaxIndexes)
+}
+
+async function queryCommonCrawlIndex(index, query) {
+  const endpoint = new URL(index.cdx_api)
+  endpoint.searchParams.set('url', query.url_pattern)
+  endpoint.searchParams.set('output', 'json')
+  endpoint.searchParams.set('fl', 'url,timestamp,status,mime,digest,length')
+  endpoint.searchParams.set('filter', 'status:200')
+  endpoint.searchParams.set('collapse', 'urlkey')
+  endpoint.searchParams.set('limit', String(commonCrawlMaxRowsPerQuery))
+  try {
+    const fetched = await fetchWithRetry(endpoint.toString(), 2)
+    if (!fetched.ok) {
+      return [{
+        query,
+        index,
+        error: `http_${fetched.status}`,
+      }]
+    }
+    const raw = fetched.buffer.toString('utf8').trim()
+    if (!raw) return []
+    return raw.split('\n').filter(Boolean).map((line) => ({ query, index, row: JSON.parse(line) }))
+  } catch (error) {
+    return [{
+      query,
+      index,
+      error: error.message,
+    }]
+  }
+}
+
+function scoreCommonCrawlUrl(url, mime = '') {
+  const lower = url.toLowerCase()
+  let score = 0
+  if (/syllabus|course|class|studio|workshop/.test(lower)) score += 4
+  if (/assignment|project|exercise|prompt|critique|schedule|week-\d+/.test(lower)) score += 5
+  if (/reading|resource|bibliography|reference/.test(lower)) score += 2
+  if (/student|work|archive|gallery/.test(lower)) score += 2
+  if (/graphic|design|typography|type|web|motion|poster|publication/.test(lower)) score += 3
+  if (lower.endsWith('.pdf') || /pdf/.test(mime)) score += 2
+  if (/wp-login|login|admin|feed|comments|tag|author|wp-json|xmlrpc/.test(lower)) score -= 6
+  return score
+}
+
+function normalizeCommonCrawlCandidate(result, index) {
+  const { query, row, error } = result
+  if (error) {
+    return {
+      candidate_id: `cc_${query.query_id}_${slug(result.index.id)}_${String(index + 1).padStart(3, '0')}`,
+      query_id: query.query_id,
+      url_pattern: query.url_pattern,
+      index_id: result.index.id,
+      index_name: result.index.name ?? null,
+      discovered_at: retrievedAt,
+      url: null,
+      timestamp: null,
+      status_code: null,
+      mime: null,
+      digest: null,
+      length: null,
+      source_type_hint: null,
+      relevance_score: 0,
+      candidate_status: 'query_failed',
+      error,
+    }
+  }
+  const url = canonicalUrl(row.url)
+  const sourceType = classifyLinkedSource(url, '') ?? 'course_site'
+  const relevanceScore = scoreCommonCrawlUrl(url, row.mime ?? '')
+  return {
+    candidate_id: `cc_${query.query_id}_${slug(result.index.id)}_${sha256(Buffer.from(url)).slice(0, 10)}`,
+    query_id: query.query_id,
+    url_pattern: query.url_pattern,
+    index_id: result.index.id,
+    index_name: result.index.name ?? null,
+    discovered_at: retrievedAt,
+    url,
+    timestamp: row.timestamp ?? null,
+    status_code: row.status ? Number(row.status) : null,
+    mime: row.mime ?? null,
+    digest: row.digest ?? null,
+    length: row.length ? Number(row.length) : null,
+    source_type_hint: sourceType,
+    relevance_score: relevanceScore,
+    candidate_status: relevanceScore >= 4 ? 'candidate_for_public_fetch' : 'low_relevance_archival_hit',
+    error: null,
+  }
+}
+
+async function buildCommonCrawlCandidates() {
+  const indexes = await commonCrawlIndexes()
+  const rawResults = []
+  for (const index of indexes) {
+    for (const query of commonCrawlQueries) {
+      console.error(`common crawl ${index.id}: ${query.url_pattern}`)
+      rawResults.push(...await queryCommonCrawlIndex(index, query))
+    }
+  }
+  const rows = rawResults.map(normalizeCommonCrawlCandidate)
+  const byUrl = new Map()
+  const failures = []
+  for (const row of rows) {
+    if (!row.url) {
+      failures.push(row)
+      continue
+    }
+    const existing = byUrl.get(row.url)
+    if (!existing || row.relevance_score > existing.relevance_score || String(row.timestamp ?? '').localeCompare(String(existing.timestamp ?? '')) > 0) {
+      byUrl.set(row.url, row)
+    }
+  }
+  return [...byUrl.values(), ...failures].sort((a, b) => b.relevance_score - a.relevance_score || String(a.url ?? '').localeCompare(String(b.url ?? '')))
 }
 
 function loadSearchImportCandidates(path = searchImportPath) {
@@ -1987,7 +2120,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], searchCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [] }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], searchCandidates = [], commonCrawlCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [] }) {
   const sourceIds = new Set(sources.map((source) => source.source_id))
   const syllabusIds = new Set(syllabi.map((syllabus) => syllabus.syllabus_id))
   const failedSourceIds = new Set(sources.filter((source) => source.extraction_status !== 'ok').map((source) => source.source_id))
@@ -2037,6 +2170,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const searchCandidateErrors = searchCandidates.filter((candidate) => !candidate.candidate_id || !candidate.status || candidate.promoted_source_id && !sourceIds.has(candidate.promoted_source_id))
   const promotedSearchCandidateCount = searchCandidates.filter((candidate) => candidate.promoted_source_id).length
   const importedSearchCandidateCount = searchCandidates.filter((candidate) => candidate.source === 'imported_search_export').length
+  const commonCrawlCandidateErrors = commonCrawlCandidates.filter((candidate) => !candidate.candidate_id || !candidate.query_id || !candidate.index_id || !candidate.candidate_status)
+  const commonCrawlFetchCandidateCount = commonCrawlCandidates.filter((candidate) => candidate.candidate_status === 'candidate_for_public_fetch').length
   const facultyIds = new Set(faculty.map((row) => row.faculty_id))
   const facultySourceErrors = faculty.filter((row) => !row.faculty_id || !row.name || row.source_ids?.some((id) => !sourceIds.has(id)))
   const facultyEdgeErrors = facultyCourseEdges.filter((edge) => !edge.edge_id || !facultyIds.has(edge.faculty_id) || edge.source_ids?.some((id) => !sourceIds.has(id)))
@@ -2102,6 +2237,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       id: 'search_candidates_have_provenance',
       status: searchCandidateErrors.length === 0 && searchCandidates.length > 0 ? 'pass' : searchCandidateErrors.length === 0 ? 'warn' : 'fail',
       detail: `${searchCandidates.length} search candidates, ${promotedSearchCandidateCount} promoted, ${importedSearchCandidateCount} imported; ${searchCandidateErrors.length} candidate reference errors.`,
+    },
+    {
+      id: 'common_crawl_candidates_have_provenance',
+      status: commonCrawlCandidateErrors.length === 0 && commonCrawlCandidates.length > 0 ? 'pass' : commonCrawlCandidateErrors.length === 0 ? 'warn' : 'fail',
+      detail: `${commonCrawlCandidates.length} Common Crawl candidates, ${commonCrawlFetchCandidateCount} fetch candidates; ${commonCrawlCandidateErrors.length} provenance errors.`,
     },
     {
       id: 'faculty_graph_references_valid_sources',
@@ -2181,6 +2321,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       search_candidates: searchCandidates.length,
       promoted_search_candidates: promotedSearchCandidateCount,
       imported_search_candidates: importedSearchCandidateCount,
+      common_crawl_candidates: commonCrawlCandidates.length,
+      common_crawl_fetch_candidates: commonCrawlFetchCandidateCount,
       faculty: faculty.length,
       faculty_course_edges: facultyCourseEdges.length,
       student_work: studentWork.length,
@@ -2440,6 +2582,8 @@ Overall status: ${validation.status}
 - Search candidates: ${validation.counts.search_candidates}
 - Promoted search candidates: ${validation.counts.promoted_search_candidates}
 - Imported search candidates: ${validation.counts.imported_search_candidates}
+- Common Crawl candidates: ${validation.counts.common_crawl_candidates}
+- Common Crawl fetch candidates: ${validation.counts.common_crawl_fetch_candidates}
 - Faculty rows: ${validation.counts.faculty}
 - Faculty-course edges: ${validation.counts.faculty_course_edges}
 - Student work rows: ${validation.counts.student_work}
@@ -2862,6 +3006,7 @@ function renderDerivedArtifactsOnly() {
   const readings = loadJsonl(join(outDir, 'readings.jsonl'))
   const readingFrequency = loadJsonl(join(outDir, 'reading_frequency.jsonl'))
   const searchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
+  const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
   const faculty = loadJsonl(join(outDir, 'faculty.jsonl'))
   const facultyCourseEdges = loadJsonl(join(outDir, 'faculty_course_edges.jsonl'))
   const studentWork = loadJsonl(join(outDir, 'student_work.jsonl'))
@@ -2876,7 +3021,7 @@ function renderDerivedArtifactsOnly() {
     offerings: courseInventoryRows,
     displayed_count: previousValidation?.counts?.official_course_displayed_count ?? courseInventoryRows.length,
   }
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, faculty, facultyCourseEdges, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, faculty, facultyCourseEdges, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
   writeJsonl(join(outDir, 'assignments.jsonl'), assignments)
   writeJson(join(outDir, 'validation.json'), validationWithReview)
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
@@ -2887,8 +3032,20 @@ function renderDerivedArtifactsOnly() {
   console.log(`assignments=${assignments.length} phase_structured_assignments=${validationWithReview.counts.phase_structured_assignments} validation=${validationWithReview.status}`)
 }
 
+async function renderCommonCrawlOnly() {
+  ensureDir(outDir)
+  const commonCrawlCandidates = await buildCommonCrawlCandidates()
+  writeJsonl(join(outDir, 'common_crawl_candidates.jsonl'), commonCrawlCandidates)
+  console.log(`RISD Common Crawl candidates written to ${join(outDir, 'common_crawl_candidates.jsonl')}`)
+  console.log(`common_crawl_candidates=${commonCrawlCandidates.length} fetch_candidates=${commonCrawlCandidates.filter((row) => row.candidate_status === 'candidate_for_public_fetch').length}`)
+}
+
 async function main() {
   ensureDir(outDir)
+  if (commonCrawlOnly) {
+    await renderCommonCrawlOnly()
+    return
+  }
   if (renderDerivedOnly) {
     renderDerivedArtifactsOnly()
     return
@@ -2959,6 +3116,7 @@ async function main() {
   const sourceClusters = buildSourceClusters(inspected, syllabi, readings)
   const sourceVersions = buildSourceVersions(inspected, wayback)
   const searchCandidates = buildSearchCandidates(importedSearchCandidates, promotedImportedSearchSources)
+  const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
 
   writeJsonl(join(outDir, 'sources.jsonl'), sources)
   writeJsonl(join(outDir, 'course_inventory.jsonl'), courseInventory.offerings)
@@ -2976,11 +3134,12 @@ async function main() {
   writeJsonl(join(outDir, 'crawl_sources.jsonl'), crawlSeeds)
   writeJsonl(join(outDir, 'search_results.jsonl'), buildSearchResults())
   writeJsonl(join(outDir, 'search_candidates.jsonl'), searchCandidates)
+  writeJsonl(join(outDir, 'common_crawl_candidates.jsonl'), commonCrawlCandidates)
   writeJson(join(outDir, 'search_queries.json'), { generated_at: retrievedAt, queries: searchQueries })
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue)
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, faculty, facultyCourseEdges, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, faculty, facultyCourseEdges, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
