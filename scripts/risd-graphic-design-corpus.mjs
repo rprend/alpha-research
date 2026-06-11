@@ -322,6 +322,7 @@ const sourceTypeRank = {
   official_program_page: 5,
   official_catalog_program: 6,
   official_student_work_story: 7,
+  wayback_capture: 8,
 }
 
 function buildSearchResults() {
@@ -777,23 +778,71 @@ function discoverCrawlSeeds(inspected) {
 }
 
 async function waybackCaptures(url) {
-  const api = `https://web.archive.org/cdx?url=${encodeURIComponent(url)}&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&collapse=digest&limit=5`
+  const urls = [url]
   try {
-    const response = await fetchWithTimeout(api, 20000)
-    if (!response.ok) return []
-    const rows = JSON.parse(response.buffer.toString('utf8'))
-    if (!Array.isArray(rows) || rows.length < 2) return []
-    return rows.slice(1).map(([timestamp, original, statuscode, mimetype, digest]) => ({
-      timestamp,
-      original,
-      statuscode,
-      mimetype,
-      digest,
-      memento_url: `https://web.archive.org/web/${timestamp}/${original}`,
-    }))
+    const parsed = new URL(url)
+    if (parsed.protocol === 'https:') {
+      parsed.protocol = 'http:'
+      urls.push(parsed.toString())
+    }
   } catch {
-    return []
+    // Keep the original URL-only lookup when URL parsing fails.
   }
+  for (const candidate of urls) {
+    const api = `https://web.archive.org/cdx?url=${encodeURIComponent(candidate)}&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&collapse=digest&limit=5`
+    try {
+      const response = await fetchWithTimeout(api, 20000)
+      if (!response.ok) continue
+      const rows = JSON.parse(response.buffer.toString('utf8'))
+      if (!Array.isArray(rows) || rows.length < 2) continue
+      return rows.slice(1).map(([timestamp, original, statuscode, mimetype, digest]) => ({
+        timestamp,
+        original,
+        statuscode,
+        mimetype,
+        digest,
+        memento_url: `https://web.archive.org/web/${timestamp}/${original}`,
+      }))
+    } catch {
+      continue
+    }
+  }
+  return []
+}
+
+async function inspectWaybackFallbacks(inspected, wayback) {
+  const recovered = []
+  const capturesBySource = new Map()
+  for (const capture of wayback) {
+    const existing = capturesBySource.get(capture.source_id) ?? []
+    existing.push(capture)
+    capturesBySource.set(capture.source_id, existing)
+  }
+  const failedSources = inspected
+    .map(({ source }) => source)
+    .filter((source) => source.extraction_status !== 'ok' && capturesBySource.has(source.source_id))
+
+  for (const [index, source] of failedSources.entries()) {
+    const captures = capturesBySource.get(source.source_id).sort((a, b) => b.timestamp.localeCompare(a.timestamp))
+    const capture = captures[0]
+    console.error(`inspect wayback fallback ${index + 1}/${failedSources.length}: ${source.source_id}`)
+    recovered.push(await inspectSeed({
+      source_id: `src_wayback_${source.source_id.replace(/^src_/, '')}_${capture.timestamp}`,
+      url: capture.memento_url,
+      source_type: 'wayback_capture',
+      authority: 'internet_archive',
+      confidence: source.confidence,
+      course_code: source.course_code ?? null,
+      course_title: source.course_title ?? null,
+      term: source.term ?? null,
+      instructor: source.instructor ?? null,
+      parent_source_id: source.source_id,
+      original_url: source.url,
+      archive_timestamp: capture.timestamp,
+      notes: `Internet Archive fallback for failed source ${source.source_id}.`,
+    }))
+  }
+  return recovered
 }
 
 function buildCourses(inspected) {
@@ -850,7 +899,7 @@ function slug(value) {
 
 function buildSyllabi(inspected) {
   return inspected
-    .filter(({ source, text }) => source.extraction_status === 'ok' && text && ['syllabus_pdf', 'syllabus_html', 'course_site', 'assignment_page', 'schedule_page', 'reading_page'].includes(source.source_type))
+    .filter(({ source, text }) => source.extraction_status === 'ok' && text && ['syllabus_pdf', 'syllabus_html', 'course_site', 'assignment_page', 'schedule_page', 'reading_page', 'wayback_capture'].includes(source.source_type))
     .map(({ source, text }) => ({
       syllabus_id: `syl_${source.source_id.replace(/^src_/, '')}`,
       course_code: source.course_code ?? extractCourseCodes(text)[0] ?? null,
@@ -1110,7 +1159,9 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
 
 function buildReviewQueue({ sources, courseInventory, syllabi, readings }) {
   const rows = []
+  const recoveredSourceIds = new Set(sources.filter((source) => source.extraction_status === 'ok' && source.parent_source_id).map((source) => source.parent_source_id))
   for (const source of sources.filter((source) => source.extraction_status !== 'ok')) {
+    if (recoveredSourceIds.has(source.source_id)) continue
     rows.push({
       review_id: `review_${source.source_id}`,
       priority: 'high',
@@ -1381,6 +1432,8 @@ async function main() {
       const captures = await waybackCaptures(seed.url)
       captures.forEach((capture) => wayback.push({ source_id: seed.source_id, ...capture }))
     }
+    const waybackFallbacks = await inspectWaybackFallbacks(inspected, wayback)
+    inspected.push(...waybackFallbacks)
   }
 
   const sources = inspected.map(({ source }) => source)

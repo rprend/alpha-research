@@ -2,24 +2,24 @@
   "generated_at": "2026-06-11",
   "status": "pass",
   "counts": {
-    "sources": 87,
-    "courses": 125,
+    "sources": 88,
+    "courses": 126,
     "official_course_inventory": 105,
     "official_course_displayed_count": 105,
-    "syllabi": 73,
-    "assignments": 455,
-    "readings": 113,
+    "syllabi": 74,
+    "assignments": 471,
+    "readings": 118,
     "normalized_readings": 50,
     "local_catalog_readings": 38,
     "canonical_reading_works": 26,
-    "wayback": 107,
-    "review_queue": 11
+    "wayback": 53,
+    "review_queue": 10
   },
   "checks": [
     {
       "id": "sources_have_required_metadata",
       "status": "pass",
-      "detail": "87 sources inspected."
+      "detail": "88 sources inspected."
     },
     {
       "id": "failed_fetches_do_not_create_syllabi",
@@ -54,12 +54,12 @@
     {
       "id": "wayback_captures_recorded",
       "status": "pass",
-      "detail": "107 Wayback capture records."
+      "detail": "53 Wayback capture records."
     },
     {
       "id": "course_records_created",
       "status": "pass",
-      "detail": "125 course records created."
+      "detail": "126 course records created."
     }
   ]
 }

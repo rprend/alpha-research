@@ -4,13 +4,13 @@ Generated: 2026-06-11
 
 ## Coverage Summary
 
-- Sources inspected: 87
-- Course records created: 125
-- Syllabus/course-site records: 73
-- Assignment evidence snippets: 455
-- Reading evidence snippets: 113
+- Sources inspected: 88
+- Course records created: 126
+- Syllabus/course-site records: 74
+- Assignment evidence snippets: 471
+- Reading evidence snippets: 118
 - Student work evidence records: 3
-- Wayback capture records: 107
+- Wayback capture records: 53
 
 ## Reconstructed Course Packets
 
@@ -1966,9 +1966,23 @@ Generated: 2026-06-11
   - Question the Classroom Design & Culture
   - Web Programming 2018 4-Week Wkshp
   - Web Programming 4-Week Wkshp
+- Syllabus/course artifact: syl_wayback_typography_iii_syllabus_20210421141719
+- Platforms/tools mentioned: Slack, Zoom, Adobe
+- Weekly/class structure evidence:
+  - Class Format
+  - However, even though my presence and interactions will be mostly Zoom– and Slack-based, I’m designing the course to accommodate both remote students and those who would like to collaborate on-campus, during or outside of class.
+  - Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, student presentations, hands-on workshops, and group exercises.
+  - The active presence, listening, and participation of everyone in the class is crucial (and will make it a lot more fun and interesting): in presenting your own work, supportive and respectful critique of your classmates’ work, and in class discussions of texts we’ll read, typographic news and history, and other relevant (sometimes tangential) topics.
+  - Each member of the class will have their own Slack channel for uploading and sharing progress, research, content materials, links, and to function as a place for classmates to make thoughtful comments & suggestions, and for general discussions and feedback.
+  - This is a studio course, so aside from the above, a lot of the time we will be making use of class time to get work done.
 - Reading evidence:
   - John Caserta --> (unresolved)
   - with Bindery (unresolved)
+  - Typography III is the culmination of the RISD Graphic Design department’s typography curriculum sequence, with an emphasis on typography and contemporary display platforms (unresolved)
+  - all are potentially at play (unresolved)
+  - of textual content across media (static, dynamic, interactive) and space (unresolved)
+  - we’ll read, typographic news and history, and other relevant (sometimes tangential) topics (unresolved)
+  - design spreads (unresolved)
 - Assignment/critique evidence:
   - I was asked by The Noun Project to initiate a collaborative collection — a new venture where the Noun Project community could draw for each other, adding icons to a central repository. I came up with the concept for documentary icons having an interest in the detailed 20th-Century iconography.
   - words and is filed under projects
@@ -1977,9 +1991,50 @@ Generated: 2026-06-11
   - projects
   - Documentary Icons The Noun Project
   - Read an overview of my work from The Noun Project.
+  - Projects in this semester depend on altered states, where the content, composition, and context all are potentially at play.
+  - Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, student presentations, hands-on workshops, and group exercises.
+  - The active presence, listening, and participation of everyone in the class is crucial (and will make it a lot more fun and interesting): in presenting your own work, supportive and respectful critique of your classmates’ work, and in class discussions of texts we’ll read, typographic news and history, and other relevant (sometimes tangential) topics.
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
   - Skill training signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### Typography III
+
+- Evidence grade: A
+- Course code: unknown
+- Degree level: unknown
+- Source IDs: src_wayback_typography_iii_syllabus_20210421141719
+- Extracted skill signals: typography, publication design, motion design, interaction design, critique and revision, research methods, image making
+- Syllabus/course artifact: syl_wayback_typography_iii_syllabus_20210421141719
+- Platforms/tools mentioned: Slack, Zoom, Adobe
+- Weekly/class structure evidence:
+  - Class Format
+  - However, even though my presence and interactions will be mostly Zoom– and Slack-based, I’m designing the course to accommodate both remote students and those who would like to collaborate on-campus, during or outside of class.
+  - Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, student presentations, hands-on workshops, and group exercises.
+  - The active presence, listening, and participation of everyone in the class is crucial (and will make it a lot more fun and interesting): in presenting your own work, supportive and respectful critique of your classmates’ work, and in class discussions of texts we’ll read, typographic news and history, and other relevant (sometimes tangential) topics.
+  - Each member of the class will have their own Slack channel for uploading and sharing progress, research, content materials, links, and to function as a place for classmates to make thoughtful comments & suggestions, and for general discussions and feedback.
+  - This is a studio course, so aside from the above, a lot of the time we will be making use of class time to get work done.
+- Reading evidence:
+  - Typography III is the culmination of the RISD Graphic Design department’s typography curriculum sequence, with an emphasis on typography and contemporary display platforms (unresolved)
+  - all are potentially at play (unresolved)
+  - of textual content across media (static, dynamic, interactive) and space (unresolved)
+  - we’ll read, typographic news and history, and other relevant (sometimes tangential) topics (unresolved)
+  - design spreads (unresolved)
+- Assignment/critique evidence:
+  - Projects in this semester depend on altered states, where the content, composition, and context all are potentially at play.
+  - Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, student presentations, hands-on workshops, and group exercises.
+  - The active presence, listening, and participation of everyone in the class is crucial (and will make it a lot more fun and interesting): in presenting your own work, supportive and respectful critique of your classmates’ work, and in class discussions of texts we’ll read, typographic news and history, and other relevant (sometimes tangential) topics.
+  - Bring your own languages, scripts, letterforms, cultures, and personalities to our class and to your projects. I want to encourage you to develop a typographic practice that is open, fluid, iterative, complex, and allows for your knowledge, point of view, and lineage to emerge confidently.
+  - 75% Assignments
+  - Quality of work, including concept, design, and the timely completion of assignments; working process and craft; personal initiative, exploration, and risk-taking; and, last but not least, the appropriate and thoughtful application of typographic principles
+  - Strong design process / good listener / ability to come up with many different ways to approach assignments / thorough research / mastery of form, functionality, and craft / frequent participation in critiques and discussion / focused / attentive / ability to articulate ideas / risk-taking and broad exploration
+  - Average work / fulfills assignments but not much else / doesnt re-work or refine projects, doesn’t do much beyond the requirements
+  - Your final grade will be based on the above criteria as well as on the final portfolio of work turned in at the end of the semester.
+  - Keep in mind that any project can be re-done or improved upon throughout the semester.
+- Tacit reconstruction:
+  - Direct evidence currently supports a course-specific classroom reconstruction.
+  - Skill training signals: typography, publication design, motion design, interaction design, critique and revision, research methods, image making.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
 ### TYPOGRAPHY III
@@ -3000,5 +3055,6 @@ Generated: 2026-06-11
 - src_risd_mfa_program (C, official_program_page): https://www.risd.edu/academics/graphic-design/masters-programs
 - src_risd_coursedog_bfa_graphic_design (C, official_catalog_program): https://risd.coursedog.com/programs/cfa6776e92151000bceb55330dc80000
 - src_risd_in_motion_news (D, official_student_work_story): https://www.risd.edu/news/stories/risd-students-use-video-and-animation-techniques-bring-graphics-life
+- src_wayback_typography_iii_syllabus_20210421141719 (A, wayback_capture): https://web.archive.org/web/20210421141719/http://type.practise.studio/syllabus/
 - src_john_caserta_student_work (D, student_work_archive): https://johncaserta.com/studentwork.html
 - src_crawl_johncaserta_com_teachingarchive_html_85a4ce9d (B, student_work_archive): https://johncaserta.com/teachingarchive.html
