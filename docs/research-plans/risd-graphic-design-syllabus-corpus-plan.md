@@ -69,6 +69,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/search_queries.json`
 - `docs/research-plans/risd-graphic-design-corpus/course_reconstruction.md`
 - `docs/research-plans/risd-graphic-design-corpus/tacit_knowledge_memo.md`
+- `docs/research-plans/risd-graphic-design-corpus/self_study_curriculum.md`
 - `docs/research-plans/risd-graphic-design-corpus/source_audit.md`
 
 Current seed sources include:
@@ -97,6 +98,7 @@ Known gaps:
 - Faculty/course edges are derived from existing course evidence, but RISD profile crawling and faculty-portfolio expansion are not implemented yet.
 - Near-duplicate clustering is implemented as a review artifact, but clusters are not yet used to collapse generated course packets.
 - Manual review artifacts exist, but human decisions have not been filled in yet.
+- A generated self-study curriculum artifact exists, but it remains bounded by current public evidence and should expand as more course artifacts are recovered.
 
 ## Required End State
 
@@ -793,6 +795,7 @@ This is a docs/data pipeline, so full dashboard QA may not exercise the corpus d
 - Generate review queue.
 - Manually review high-value uncertain sources.
 - Produce a self-study-ready RISD-style curriculum from the evidence.
+  - Emit `self_study_curriculum.md` with evidence-bounded studio tracks, reading packets, recreated brief prompts, critique checkpoints, and public comparison sets.
 
 ## Definition Of Done
 

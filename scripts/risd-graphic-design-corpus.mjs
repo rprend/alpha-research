@@ -8,6 +8,7 @@ const root = process.cwd()
 const outDir = join(root, 'docs/research-plans/risd-graphic-design-corpus')
 const retrievedAt = new Date().toISOString().slice(0, 10)
 const skipWayback = process.argv.includes('--skip-wayback')
+const renderCurriculumOnly = process.argv.includes('--render-curriculum-only')
 const officialCourseMaxPages = 12
 const crawlMaxDepth = 1
 const crawlMaxLinksPerHost = 20
@@ -2551,8 +2552,223 @@ For self-study, convert every recovered assignment into a three-part loop:
 `
 }
 
+const curriculumTracks = [
+  {
+    track_id: 'foundation_studio',
+    title: 'Foundation Studio And Design Process',
+    match: /design studio|introduction to graphic design|intro|form|composition|visual/i,
+    studio_loop: 'Make a constrained visual system, present it for critique, revise it from formal and conceptual feedback, and document the before/after decision trail.',
+  },
+  {
+    track_id: 'typography',
+    title: 'Typography And Reading Systems',
+    match: /type|typography|letter|text|publication/i,
+    studio_loop: 'Set text under explicit hierarchy, spacing, scale, and sequencing constraints; test readability; revise based on optical and semantic clarity.',
+  },
+  {
+    track_id: 'publication_editorial',
+    title: 'Publication, Editorial, And Sequencing',
+    match: /publication|publishing|book|editorial|magazine|print/i,
+    studio_loop: 'Turn source material into a paced artifact with spreads, image/text relationships, production constraints, and a defensible editorial position.',
+  },
+  {
+    track_id: 'interaction_web',
+    title: 'Interaction, Web, And Computational Form',
+    match: /web|programming|interaction|interface|html|css|javascript|code/i,
+    studio_loop: 'Build a working browser artifact, critique the behavior as design material, and revise both interface and code structure.',
+  },
+  {
+    track_id: 'motion_time',
+    title: 'Motion, Time, And Screen-Based Design',
+    match: /motion|video|animation|time|screen/i,
+    studio_loop: 'Design a time-based sequence with typography, image, pacing, and sound or silence treated as compositional constraints.',
+  },
+  {
+    track_id: 'systems_identity',
+    title: 'Identity, Systems, And Public Context',
+    match: /identity|brand|system|politic|public|social|campaign/i,
+    studio_loop: 'Define a visual system that can survive multiple contexts, then test it through applications and critique the social reading of the system.',
+  },
+]
+
+function curriculumTrackForCourse(course, courseAssignments, courseReadings) {
+  const haystack = [
+    course.course_title,
+    course.course_code,
+    course.skills?.join(' '),
+    courseAssignments.map((assignment) => assignment.prompt_excerpt).join(' '),
+    courseReadings.map((reading) => `${reading.title ?? ''} ${reading.raw_citation ?? ''}`).join(' '),
+  ].filter(Boolean).join(' ')
+  return curriculumTracks.find((track) => track.match.test(haystack)) ?? curriculumTracks[0]
+}
+
+function courseEvidenceScore({ course, courseSyllabi, courseAssignments, courseReadings, courseStudentWork }) {
+  const gradeScore = { A: 80, B: 60, C: 35, D: 15 }[course.evidence_grade] ?? 0
+  return gradeScore
+    + Math.min(courseSyllabi.length * 8, 24)
+    + Math.min(courseAssignments.length * 2, 30)
+    + Math.min(courseReadings.length, 12)
+    + Math.min(courseStudentWork.length * 3, 12)
+}
+
+function curriculumCoursePackets({ courses, syllabi, assignments, readings, studentWork }) {
+  return courses.map((course) => {
+    const courseSyllabi = syllabi.filter((s) => (s.course_code && course.course_code && s.course_code === course.course_code) || (s.course_title && course.course_title && s.course_title === course.course_title) || s.source_ids.some((id) => course.source_ids.includes(id)))
+    const courseAssignments = assignments.filter((a) => courseSyllabi.some((s) => s.syllabus_id === a.syllabus_id))
+    const courseReadings = readings.filter((r) => courseSyllabi.some((s) => s.syllabus_id === r.syllabus_id))
+    const courseStudentWork = studentWork.filter((work) => (work.course_code && course.course_code && work.course_code === course.course_code) || (work.course_title && course.course_title && work.course_title === course.course_title) || work.source_ids.some((id) => course.source_ids.includes(id)))
+    const track = curriculumTrackForCourse(course, courseAssignments, courseReadings)
+    return {
+      course,
+      track,
+      courseSyllabi,
+      courseAssignments,
+      courseReadings,
+      courseStudentWork,
+      score: courseEvidenceScore({ course, courseSyllabi, courseAssignments, courseReadings, courseStudentWork }),
+    }
+  }).sort((a, b) => b.score - a.score || String(a.course.course_title ?? '').localeCompare(String(b.course.course_title ?? '')))
+}
+
+function curriculumPacketKey(packet) {
+  const course = packet.course
+  return slug(course.course_title ?? course.course_code ?? course.course_id)
+}
+
+function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork }) {
+  const packets = curriculumCoursePackets({ courses, syllabi, assignments, readings, studentWork })
+  const strongPackets = packets.filter((packet) => packet.courseAssignments.length || packet.courseReadings.length || packet.courseSyllabi.some((syllabus) => syllabus.assignment_schedule?.length))
+  const selected = []
+  const selectedKeys = new Set()
+  for (const track of curriculumTracks) {
+    const trackPackets = strongPackets.filter((packet) => packet.track.track_id === track.track_id)
+    for (const packet of trackPackets) {
+      const key = curriculumPacketKey(packet)
+      if (selectedKeys.has(key)) continue
+      selected.push(packet)
+      selectedKeys.add(key)
+      if (selected.filter((selectedPacket) => selectedPacket.track.track_id === track.track_id).length >= 4) break
+    }
+  }
+  for (const packet of strongPackets) {
+    const key = curriculumPacketKey(packet)
+    if (selectedKeys.has(key)) continue
+    selected.push(packet)
+    selectedKeys.add(key)
+    if (selected.length >= 24) break
+  }
+
+  const lines = []
+  lines.push('# RISD Graphic Design Self-Study Curriculum')
+  lines.push('')
+  lines.push(`Generated: ${retrievedAt}`)
+  lines.push('')
+  lines.push('## Evidence Boundary')
+  lines.push('')
+  lines.push('This curriculum is generated from public RISD Graphic Design corpus artifacts. It is not an official RISD program map and it does not infer private classroom content. Each module names the source-grounded course evidence it uses, then translates recovered assignments, readings, student work, and critique signals into a self-study studio loop.')
+  lines.push('')
+  lines.push(`- Course records considered: ${courses.length}`)
+  lines.push(`- Syllabus/course-site records considered: ${syllabi.length}`)
+  lines.push(`- Assignment evidence snippets considered: ${assignments.length}`)
+  lines.push(`- Reading evidence snippets considered: ${readings.length}`)
+  lines.push(`- Public student-work records considered: ${studentWork.length}`)
+  lines.push(`- Curriculum modules generated: ${selected.length}`)
+  lines.push('')
+  lines.push('## How To Use This')
+  lines.push('')
+  lines.push('1. Treat each module as a studio brief, not a lecture topic.')
+  lines.push('2. Produce visible artifacts every week: sketches, type studies, prototypes, publications, motion tests, or systems.')
+  lines.push('3. Write a critique memo after each artifact using the recovered constraints and skill signals.')
+  lines.push('4. Revise the artifact once before moving on; the revision is part of the assignment.')
+  lines.push('5. Keep unknowns explicit when the corpus lacks a schedule, rubric, or complete brief.')
+  lines.push('')
+  lines.push('## Studio Tracks')
+  lines.push('')
+  for (const track of curriculumTracks) {
+    const trackPackets = selected.filter((packet) => packet.track.track_id === track.track_id)
+    if (!trackPackets.length) continue
+    lines.push(`### ${track.title}`)
+    lines.push('')
+    lines.push(`Studio loop: ${track.studio_loop}`)
+    lines.push('')
+    for (const packet of trackPackets) {
+      const { course, courseSyllabi, courseAssignments, courseReadings, courseStudentWork } = packet
+      lines.push(`#### ${course.course_title ?? course.course_code ?? course.course_id}`)
+      lines.push('')
+      lines.push(`- Evidence grade: ${course.evidence_grade}`)
+      lines.push(`- Course code: ${course.course_code ?? 'unknown'}`)
+      lines.push(`- Source IDs: ${course.source_ids.join(', ')}`)
+      if (courseSyllabi.length) lines.push(`- Syllabus/course artifacts: ${courseSyllabi.map((syllabus) => syllabus.syllabus_id).join(', ')}`)
+      const instructors = uniq(courseSyllabi.map((syllabus) => syllabus.instructor).filter(Boolean))
+      if (instructors.length) lines.push(`- Instructor evidence: ${instructors.join(', ')}`)
+      const tools = uniq(courseSyllabi.flatMap((syllabus) => syllabus.tools ?? [])).slice(0, 8)
+      if (tools.length) lines.push(`- Tools/software/materials to practice: ${tools.join(', ')}`)
+      const skills = uniq([...course.skills, ...courseAssignments.flatMap((assignment) => assignment.skills_trained ?? [])]).slice(0, 10)
+      if (skills.length) lines.push(`- Skill targets: ${skills.join(', ')}`)
+      if (courseReadings.length) {
+        lines.push('- Reading packet:')
+        courseReadings.slice(0, 6).forEach((reading) => {
+          const title = reading.title ?? reading.raw_citation ?? reading.citation_excerpt
+          lines.push(`  - ${title}${reading.author ? `, ${reading.author}` : ''}${reading.required_or_recommended ? ` (${reading.required_or_recommended})` : ''}`)
+        })
+      }
+      if (courseAssignments.length) {
+        lines.push('- Studio briefs to recreate:')
+        courseAssignments.slice(0, 6).forEach((assignment) => {
+          const assignmentTitle = assignment.title && assignment.title !== 'null' ? assignment.title : 'Recovered brief'
+          const details = [
+            assignment.deliverables?.length ? `deliverables: ${assignment.deliverables.join(', ')}` : null,
+            assignment.constraints?.length ? `constraints: ${assignment.constraints.join(', ')}` : null,
+            assignment.critique_format ? `critique: ${assignment.critique_format}` : null,
+            assignment.revision_expectation ? `revision: ${assignment.revision_expectation}` : null,
+          ].filter(Boolean)
+          lines.push(`  - ${assignmentTitle}: ${assignment.prompt_excerpt}${details.length ? ` (${details.join('; ')})` : ''}`)
+        })
+      }
+      if (courseStudentWork.length) {
+        lines.push('- Public comparison set:')
+        courseStudentWork.slice(0, 4).forEach((work) => lines.push(`  - ${work.project_title ?? work.url}: ${work.url}`))
+      }
+      lines.push('- Mentor-style checkpoint:')
+      lines.push('  - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?')
+      lines.push('')
+    }
+  }
+  lines.push('## Gaps To Preserve')
+  lines.push('')
+  lines.push('- Do not invent missing rubrics, grades, private readings, or complete assignment sheets.')
+  lines.push('- Prefer direct course-site and syllabus evidence over catalog descriptions when they disagree.')
+  lines.push('- Use public student work as a comparison set only when the source provides course or assignment context.')
+  lines.push('- Keep adding modules as search, faculty-profile, Wayback, and Common Crawl discovery recover more course artifacts.')
+  lines.push('')
+  return lines.map((line) => line.trimEnd()).join('\n')
+}
+
+function loadJsonl(path) {
+  if (!existsSync(path)) return []
+  const raw = readFileSync(path, 'utf8').trim()
+  if (!raw) return []
+  return raw.split('\n').filter(Boolean).map((line) => JSON.parse(line))
+}
+
+function renderSelfStudyCurriculumOnly() {
+  ensureDir(outDir)
+  const courses = loadJsonl(join(outDir, 'courses.jsonl'))
+  const syllabi = loadJsonl(join(outDir, 'syllabi.jsonl'))
+  const assignments = loadJsonl(join(outDir, 'assignments.jsonl'))
+  const readings = loadJsonl(join(outDir, 'readings.jsonl'))
+  const studentWork = loadJsonl(join(outDir, 'student_work.jsonl'))
+  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork }))
+  console.log(`RISD self-study curriculum written to ${join(outDir, 'self_study_curriculum.md')}`)
+  console.log(`courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} student_work=${studentWork.length}`)
+}
+
 async function main() {
   ensureDir(outDir)
+  if (renderCurriculumOnly) {
+    renderSelfStudyCurriculumOnly()
+    return
+  }
   const inspected = []
   const importedSearchCandidates = loadSearchImportCandidates()
   const initialSeeds = [...seeds, ...searchDiscoveredSources]
@@ -2647,6 +2863,7 @@ async function main() {
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
+  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork }))
 
   console.log(`RISD corpus artifacts written to ${outDir}`)
   console.log(`sources=${sources.length} course_inventory=${courseInventory.offerings.length}/${courseInventory.displayed_count || '?'} courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} canonical_reading_works=${readingFrequency.length} search_candidates=${searchCandidates.length} faculty=${faculty.length} faculty_course_edges=${facultyCourseEdges.length} student_work=${studentWork.length} source_clusters=${sourceClusters.length} source_versions=${sourceVersions.length} wayback=${wayback.length} review_queue=${reviewQueue.length} review_decisions=${reviewDecisions.length} field_conflicts=${fieldConflicts.length} validation=${validationWithReview.status}`)
