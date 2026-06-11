@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phase 1 - Alpha Research Curriculum</title>
+  <style>
+    :root { color-scheme: light; --ink:#171717; --muted:#666; --line:#e5e5e5; --paper:#fff; --soft:#f7f7f5; --accent:#0f766e; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:var(--paper); line-height:1.62; }
+    header { border-bottom:1px solid var(--line); background:rgba(255,255,255,.96); position:sticky; top:0; z-index:2; }
+    .bar { max-width:1040px; margin:0 auto; padding:14px 18px 10px; }
+    .brand { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:10px; }
+    .brand a { color:var(--ink); text-decoration:none; font-weight:750; }
+    .brand span { color:var(--muted); font-size:13px; }
+    nav { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none; }
+    nav a { flex:0 0 auto; border:1px solid var(--line); color:#333; text-decoration:none; border-radius:999px; padding:7px 11px; font-size:14px; background:#fff; }
+    nav a[aria-current="page"] { border-color:var(--accent); color:#064e47; background:#ecfdf9; }
+    main { max-width:820px; margin:0 auto; padding:28px 18px 72px; }
+    h1 { font-size:clamp(31px, 7vw, 52px); line-height:1.04; letter-spacing:0; margin:10px 0 18px; }
+    h2 { font-size:clamp(24px, 5vw, 34px); line-height:1.14; letter-spacing:0; margin:44px 0 14px; padding-top:10px; border-top:1px solid var(--line); }
+    h3 { font-size:22px; line-height:1.22; letter-spacing:0; margin:34px 0 10px; }
+    h4 { font-size:18px; margin:24px 0 8px; }
+    p, li { font-size:17px; }
+    p { margin:0 0 18px; }
+    ul, ol { padding-left:23px; margin:0 0 22px; }
+    li { margin:8px 0; }
+    a { color:#0f766e; text-underline-offset:3px; }
+    blockquote { margin:24px 0; padding:13px 16px; border-left:4px solid var(--accent); background:#f1fbf8; border-radius:0 8px 8px 0; }
+    blockquote p { margin:0; }
+    .table-scroll { overflow-x:auto; margin:22px 0 28px; border:1px solid var(--line); border-radius:8px; }
+    table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; line-height:1.45; }
+    th, td { text-align:left; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--line); }
+    th { background:var(--soft); font-weight:750; }
+    tr:last-child td { border-bottom:0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.92em; background:var(--soft); border:1px solid var(--line); border-radius:6px; padding:1px 5px; overflow-wrap:anywhere; }
+    hr { border:0; border-top:1px solid var(--line); margin:30px 0; }
+    .task { list-style:none; margin-left:-23px; display:flex; align-items:flex-start; gap:9px; }
+    .task input { margin-top:7px; width:16px; height:16px; flex:0 0 auto; }
+    @media (max-width: 560px) {
+      .bar { padding-inline:14px; }
+      main { padding:22px 16px 56px; }
+      p, li { font-size:16px; }
+      nav a { font-size:13px; padding:7px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <div class="brand"><a href="/curriculum/daily">AI Research Curriculum</a><span>133 daily packets</span></div>
+      <nav aria-label="Curriculum phases"><a href="/curriculum">Guide</a><a href="/curriculum/daily">Daily packets</a><a href="/curriculum/daily/phase-0">Phase 0</a><a href="/curriculum/daily/phase-1" aria-current="page">Phase 1</a><a href="/curriculum/daily/phase-2">Phase 2</a><a href="/curriculum/daily/phase-3">Phase 3</a><a href="/curriculum/daily/phase-4">Phase 4</a><a href="/curriculum/daily/phase-5">Phase 5</a><a href="/curriculum/daily/phase-6">Phase 6</a><a href="/curriculum/paper-ladder">Papers</a></nav>
+    </div>
+  </header>
+  <main><h1 id="phase-1-daily-packets-the-transformer-days-15-35">Phase 1 daily packets — The Transformer (Days 15–35)</h1>
+<p>Builds a GPT from an empty file — BPE tokenizer to sampled fake Shakespeare — then reads the 2017–2019 canon as documentation for your own code. Prerequisite: Phase 0 checkpoint passed (backprop from scratch, fluent shape-reading).</p>
+<h3 id="day-15-bpe-tokenizer-video-part-1">Day 15 — BPE tokenizer video, part 1</h3>
+<p><strong>⏱ ~80 min</strong> · <strong>Link:</strong> <a href="https://www.youtube.com/watch?v=zduSFxRajkE">Let's build the GPT Tokenizer</a></p>
+<p><strong>Do:</strong> Watch 0:00–1:10 at 1.5x, typing every line into a fresh <code>tokenizer/</code> dir in your curriculum repo: UTF-8 bytes, pair counting, the merge loop, the vocab (background: section 1.1 of the phase guide).</p>
+<p><strong>Explains:</strong> A tokenizer is two artifacts on disk — a string→int table and a merge list — and BPE is just &quot;repeatedly mint a token for the most frequent adjacent pair.&quot;</p>
+<p><strong>Done when:</strong> Your typed code trains merges on the video's sample text and your printed merge list matches his on-screen output.</p>
+<h3 id="day-16-bpe-tokenizer-video-part-2">Day 16 — BPE tokenizer video, part 2</h3>
+<p><strong>⏱ ~80 min</strong> · <strong>Link:</strong> <a href="https://www.youtube.com/watch?v=zduSFxRajkE">Let's build the GPT Tokenizer</a></p>
+<p><strong>Do:</strong> Watch 1:10–end at 1.5x, still typing: encode/decode, the GPT-2/GPT-4 regex split patterns, special tokens, and the tokenization-weirdness tour (counting letters, arithmetic, SolidGoldMagikarp).</p>
+<p><strong>Explains:</strong> Why models can't count the r's in &quot;strawberry&quot; — the model literally never sees letters, only chunk ids, and degenerate chunks cause degenerate behavior.</p>
+<p><strong>Done when:</strong> Your <code>encode</code>/<code>decode</code> pass <code>decode(encode(s)) == s</code> on a paragraph containing emoji and non-ASCII text.</p>
+<h3 id="day-17-your-own-bpe-no-video">Day 17 — Your own BPE, no video</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://github.com/karpathy/minbpe">karpathy/minbpe</a></p>
+<p><strong>Do:</strong> Close the video. Reimplement BPE train/encode/decode from a blank file, train 500 merges on ~1MB of any text, then clone minbpe and diff your behavior against its <code>BasicTokenizer</code> trained on the same corpus.</p>
+<p><strong>Explains:</strong> That you own the algorithm, not a transcript — the entire <code>str → list[int]</code> interface every model sits behind is ~100 lines you can write.</p>
+<p><strong>Done when:</strong> Round-trip passes on the full 1MB file and your first 20 merges match minbpe's exactly.</p>
+<h3 id="day-18-real-vocabularies-with-tiktoken">Day 18 — Real vocabularies with tiktoken</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="https://github.com/openai/tiktoken">openai/tiktoken</a></p>
+<p><strong>Do:</strong> <code>pip install tiktoken</code>; encode the same strings under <code>gpt2</code> and <code>cl100k_base</code>: numbers, code, non-English, leading spaces, rare words. Collect every tokenization that surprises you (background: section 1.1 of the phase guide).</p>
+<p><strong>Explains:</strong> What a production 50k–100k vocabulary actually contains and why &quot; the&quot; and &quot;the&quot; are different integers.</p>
+<p><strong>Done when:</strong> A notes file exists in your repo listing 10 surprising tokenizations with one-line explanations of each.</p>
+<h3 id="day-19-attention-on-paper-shapes-everywhere">Day 19 — Attention on paper, shapes everywhere</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="/curriculum/01-the-transformer">Phase 1 guide</a></p>
+<p><strong>Do:</strong> Read sections 1.2–1.3 of the phase guide once, then close it and hand-derive <code>attention(x)</code> on paper/whiteboard: x (B,T,C) → q,k,v → scores (B,T,T) → mask → softmax → weighted average, annotating the shape of every intermediate. Check against section 1.3 when done.</p>
+<p><strong>Explains:</strong> Attention is a learned, differentiable dictionary lookup — each position scores every earlier position and takes a weighted average of their value vectors.</p>
+<p><strong>Done when:</strong> A page/photo exists with every line's shape labeled and zero discrepancies on the check against section 1.3.</p>
+<h3 id="day-20-let-s-build-gpt-video-part-1">Day 20 — &quot;Let's build GPT&quot; video, part 1</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://www.youtube.com/watch?v=kCc8FmEb1nY">Let's build GPT: from scratch</a></p>
+<p><strong>Do:</strong> Watch 0:00–42:00, typing everything into your repo (this repo is your permanent artifact — name the model dir now): Shakespeare data, char tokenizer, batching, the bigram model, loss, generation, training loop. Pause constantly; typing speed sets the pace, not video speed.</p>
+<p><strong>Explains:</strong> The full skeleton of a language model — data in, <code>(B,T)</code> ints, logits out, cross-entropy down — before attention even appears.</p>
+<p><strong>Done when:</strong> Your typed bigram script trains to loss &lt; 2.6 and prints generated (garbage) text.</p>
+<h3 id="day-21-let-s-build-gpt-video-part-2">Day 21 — &quot;Let's build GPT&quot; video, part 2</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://www.youtube.com/watch?v=kCc8FmEb1nY">Let's build GPT: from scratch</a></p>
+<p><strong>Do:</strong> Watch 42:00–1:22, typing everything: the matrix-multiply-as-weighted-aggregation trick, version 1→4 of averaging, single self-attention head, scaling by sqrt(d_head), multi-head. Compare each line against your Day 19 hand derivation.</p>
+<p><strong>Explains:</strong> How the (T,T) lower-triangular matmul implements &quot;every position attends to its past&quot; in one parallel operation — the trick that displaced RNNs.</p>
+<p><strong>Done when:</strong> <code>torch.allclose</code> passes between your for-loop and matmul aggregation versions, and your multi-head model does a forward pass with no shape errors.</p>
+<h3 id="day-22-let-s-build-gpt-video-part-3">Day 22 — &quot;Let's build GPT&quot; video, part 3</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://www.youtube.com/watch?v=kCc8FmEb1nY">Let's build GPT: from scratch</a></p>
+<p><strong>Do:</strong> Watch 1:22–end, typing everything: feedforward, blocks, residual connections, layernorm, dropout, scaling up the config. Read section 1.4 of the phase guide after, mapping each bullet (residual stream, pre-norm, output head) to a line you just typed.</p>
+<p><strong>Explains:</strong> A transformer block is two lines — <code>x = x + attn(ln(x))</code>; <code>x = x + mlp(ln(x))</code> — read/compute/write against a residual stream.</p>
+<p><strong>Done when:</strong> Your full model trains at a small config (e.g. 4 layers) and validation loss drops below 2.0.</p>
+<h3 id="day-23-train-the-shakespeare-model-for-real">Day 23 — Train the Shakespeare model for real</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://github.com/karpathy/ng-video-lecture">karpathy/ng-video-lecture</a></p>
+<p><strong>Do:</strong> Train your typed model at the video's final config (6 layers, 384-dim; halve it if your laptop is slow) on GPU/MPS, ~10–30 min. While it runs, diff your file against the reference repo. Save the checkpoint, the loss curve, and a 500-char sample into the repo — this model is your Familia Romana for Phases 2–5.</p>
+<p><strong>Explains:</strong> The whole curriculum's core loop end to end: loss starts at 4.17 (chance over 65 chars — ln 65) and a for-loop nudges floats until fake Shakespeare comes out.</p>
+<p><strong>Done when:</strong> Validation loss &lt; 1.7 and checkpoint + loss curve + sample file are committed.</p>
+<h3 id="day-24-sampling-loop-by-hand">Day 24 — Sampling loop by hand</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="/curriculum/01-the-transformer">Phase 1 guide</a></p>
+<p><strong>Do:</strong> From memory — no peeking at the video code — write <code>sample.py</code>: load your checkpoint, then loop: forward pass → logits at last position → softmax → <code>torch.multinomial</code> → append → repeat (background: section 1.5 of the phase guide). Add a temperature knob and generate at 0.5, 1.0, 1.5. Notice that every step recomputes all previous tokens — that waste becomes the KV cache in Phase 4.</p>
+<p><strong>Explains:</strong> Generation is just the forward pass in a loop with a dice roll at the end — one full forward pass per token.</p>
+<p><strong>Done when:</strong> Your from-memory <code>sample.py</code> generates 500 chars from the saved checkpoint at three temperatures, output saved to the repo.</p>
+<h3 id="day-25-nanogpt-study-model-py">Day 25 — nanoGPT study: model.py</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://github.com/karpathy/nanoGPT">karpathy/nanoGPT</a></p>
+<p><strong>Do:</strong> Clone nanoGPT and read <code>model.py</code> (~300 lines) line by line against your own model, writing a diff-notes file: weight tying, GPT-2 init scheme, <code>F.scaled_dot_product_attention</code> (Flash), bias flags, the <code>(B,T,C)</code> head reshape.</p>
+<p><strong>Explains:</strong> What a production-quality version of your exact code looks like, and that &quot;GPT-2&quot; is your architecture with a config dict.</p>
+<p><strong>Done when:</strong> Your diff-notes file lists at least 5 concrete differences with one sentence each on why nanoGPT does it that way.</p>
+<h3 id="day-26-nanogpt-study-train-py-char-run">Day 26 — nanoGPT study: train.py + char run</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://github.com/karpathy/nanoGPT">karpathy/nanoGPT</a></p>
+<p><strong>Do:</strong> Skim <code>train.py</code> (LR schedule, grad accumulation, checkpointing — note them, they're Phase 2 material), then run the <code>shakespeare_char</code> recipe: <code>prepare.py</code>, train (use <code>--device=mps</code> or <code>cpu</code>; shrink <code>max_iters</code> if slow), <code>sample.py</code>. Free — laptop only.</p>
+<p><strong>Explains:</strong> What a real training script adds around your bare loop: eval intervals, checkpoint resume, learning-rate decay.</p>
+<p><strong>Done when:</strong> nanoGPT reports validation loss &lt; 1.6 and its generated sample is saved next to your own model's sample.</p>
+<h3 id="day-27-gpt-2-parameter-count-by-hand">Day 27 — GPT-2 parameter count by hand</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="https://github.com/karpathy/nanoGPT">karpathy/nanoGPT</a></p>
+<p><strong>Do:</strong> On paper, from (vocab 50257, C=768, 12 layers, 12 heads, T_max 1024): token embedding + position embedding + 12 × (attention 4C² + MLP 8C²) + layernorms, with weight tying. Sum it. Then verify against the parameter count nanoGPT prints when loading GPT-2 (background: section 1.6 of the phase guide).</p>
+<p><strong>Explains:</strong> Where the 124M actually lives — two-thirds of it in the MLPs (8C² per block) — so every model card's size column becomes arithmetic you can check.</p>
+<p><strong>Done when:</strong> A notebook page exists with the full sum, within 1% of 124M, with the dominant term circled.</p>
+<h3 id="day-28-attention-is-all-you-need-part-1">Day 28 — Attention Is All You Need, part 1</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a></p>
+<p><strong>Do:</strong> Read sections 1–3.2 with your model code in a split pane. Key defusal first: this is an encoder–decoder for translation; your GPT is decoder-only — the right half of Figure 1, minus cross-attention (background: section 1.6 of the phase guide). For every equation in 3.2, point at the line of your code that implements it.</p>
+<p><strong>Explains:</strong> That the founding paper's scaled dot-product and multi-head sections are a description of code you wrote last week.</p>
+<p><strong>Done when:</strong> You've annotated sections 3.2.1–3.2.2 with the matching line numbers from your own <code>model.py</code> in the margins or a notes file.</p>
+<h3 id="day-29-attention-is-all-you-need-part-2">Day 29 — Attention Is All You Need, part 2</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a></p>
+<p><strong>Do:</strong> Read sections 3.3–7: position-wise FFN, sinusoidal positions (note your GPT-2-style model uses a learned table instead), the &quot;Why Self-Attention&quot; table (section 4) closely, results lightly as history. Write down the per-layer complexity argument for attention vs. recurrence in your own words.</p>
+<p><strong>Explains:</strong> Why attention won: O(1) path length between any two positions and all-matmul parallelism over T, versus an RNN's sequential bottleneck.</p>
+<p><strong>Done when:</strong> Your notes contain the section-4 complexity comparison rewritten in your own words, plus a list of the 3 things in this paper your model does NOT have (encoder, cross-attention, sinusoidal positions).</p>
+<h3 id="day-30-gpt-1-the-thesis-of-the-modern-era">Day 30 — GPT-1: the thesis of the modern era</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf">GPT-1 paper</a></p>
+<p><strong>Do:</strong> Read sections 1–3 and Figure 1 carefully, experiments at a skim. Track the one move: pretrain on next-token prediction at scale, then lightly adapt with task-specific input transformations (background: section 1.6 of the phase guide).</p>
+<p><strong>Explains:</strong> The thesis everything since 2018 elaborates — a generic next-token objective on unlabeled text beats task-specific architectures.</p>
+<p><strong>Done when:</strong> Your vocabulary notebook has a one-sentence statement of the paper's thesis plus the LM objective equation copied out with every symbol grounded to your training loop.</p>
+<h3 id="day-31-gpt-2-scale-removes-the-adaptation-step">Day 31 — GPT-2: scale removes the adaptation step</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf">GPT-2 paper</a></p>
+<p><strong>Do:</strong> Read the abstract, sections 1–3, and Table 2 (the four model configs) closely; skim the task results. Verify the smallest config row against your Day 27 hand count. Write the paper's three main claims in your own words — this is a dry run of checkpoint item 5.</p>
+<p><strong>Explains:</strong> The GPT-1 → GPT-2 delta: with enough scale you don't finetune, you prompt — zero-shot task performance emerges from next-token prediction alone.</p>
+<p><strong>Done when:</strong> Your notes contain the three claims in your own words plus all four config rows (params / layers / d_model) copied out, with the 124M row matching your Day 27 arithmetic.</p>
+<h3 id="day-32-modern-architecture-delta-table">Day 32 — Modern-architecture delta table</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2104.09864">RoPE — RoFormer</a></p>
+<p><strong>Do:</strong> Read the RoPE paper's abstract and section 3 far enough to state &quot;rotate q and k by position-dependent angles so dot products depend on relative distance.&quot; Then reproduce the six-row delta table from memory — pre-norm, RMSNorm, RoPE, SwiGLU, GQA (arXiv 2305.13245), no biases — and check it against section 1.7 of the phase guide.</p>
+<p><strong>Explains:</strong> The complete diff between your GPT-2 clone and Llama/Qwen/DeepSeek, so modern model cards read instantly.</p>
+<p><strong>Done when:</strong> Your from-memory table has all six rows with &quot;what it literally is&quot; correct on first check against the guide.</p>
+<h3 id="day-33-the-mask-removal-experiment">Day 33 — The mask-removal experiment</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="/curriculum/01-the-transformer">Phase 1 guide</a></p>
+<p><strong>Do:</strong> Checkpoint item 4 as a build day: in your trained Shakespeare model, write down a prediction of what generation will look like with the causal mask removed at inference — before touching code. Then disable the mask in the forward pass, generate, and compare against your prediction. Explain the result in 2–3 sentences (background: section 1.3 of the phase guide — the mask is what the model was trained with).</p>
+<p><strong>Explains:</strong> Train/inference mismatch made visceral — the weights were optimized under one information-flow pattern and produce garbage under another.</p>
+<p><strong>Done when:</strong> A notes file exists containing the prediction (written before the run), the observed sample, and your 2–3 sentence explanation.</p>
+<h3 id="day-34-checkpoint-rehearsal-timed">Day 34 — Checkpoint rehearsal, timed</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="/curriculum/01-the-transformer">Phase 1 guide</a></p>
+<p><strong>Do:</strong> Timed dry run: whiteboard <code>attention(x)</code> from memory with shapes at every line, 15-minute timer. Then answer aloud: why /sqrt(d_head)? why -inf and not 0? why does the causal mask enable parallel training? Check everything against sections 1.3–1.4, and redo any miss immediately.</p>
+<p><strong>Explains:</strong> Whether the core of the phase is in your hands or still in your notes — the gap this rehearsal exposes is exactly what tomorrow tests.</p>
+<p><strong>Done when:</strong> You produced <code>attention(x)</code> with all shapes inside 15 minutes with zero shape errors on first check.</p>
+<h3 id="day-35-phase-1-checkpoint-cold">Day 35 — Phase 1 checkpoint, cold</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="/curriculum/01-the-transformer">Phase 1 guide</a></p>
+<p><strong>Do:</strong> Closed notes, closed code. All five checkpoint items from the phase guide: (1) whiteboard <code>attention(x)</code> with shapes in under 15 minutes; (2) answer the sqrt/mask/parallel-training why-questions in writing; (3) recompute GPT-2-small's parameter count by hand; (4) explain the mask-removal result and why, from memory; (5) write GPT-2's three main claims in your own words. Open the guide only afterward, to grade.</p>
+<p><strong>Explains:</strong> The Feynman test for the whole phase — every paper you ever read from here assumes exactly this material is cold.</p>
+<p><strong>Done when:</strong> All five items answered/produced with notes closed and graded correct; any failure means redoing the relevant day before opening Phase 2.</p></main>
+</body>
+</html>

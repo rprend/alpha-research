@@ -133,6 +133,23 @@ const DOCS_PAGE_PATHS = new Set([
   '/cli/debug-runs',
   '/cli/index',
   '/cli/install',
+  '/curriculum',
+  '/curriculum/00-foundations',
+  '/curriculum/01-the-transformer',
+  '/curriculum/02-training-at-scale',
+  '/curriculum/03-post-training',
+  '/curriculum/04-inference-and-evals',
+  '/curriculum/05-interpretability',
+  '/curriculum/06-research-practice',
+  '/curriculum/daily',
+  '/curriculum/daily/phase-0',
+  '/curriculum/daily/phase-1',
+  '/curriculum/daily/phase-2',
+  '/curriculum/daily/phase-3',
+  '/curriculum/daily/phase-4',
+  '/curriculum/daily/phase-5',
+  '/curriculum/daily/phase-6',
+  '/curriculum/paper-ladder',
   '/dashboard/datasets',
   '/dashboard/index',
   '/dashboard/runs',
@@ -148,7 +165,7 @@ const DOCS_PAGE_PATHS = new Set([
   '/ways-to-use/public-datasets',
   '/ways-to-use/research-runs',
 ])
-const DOCS_SECTION_INDEX_PATHS = new Set(['/cli', '/dashboard', '/public-datasets', '/ways-to-use'])
+const DOCS_SECTION_INDEX_PATHS = new Set(['/cli', '/curriculum', '/curriculum/daily', '/dashboard', '/public-datasets', '/ways-to-use'])
 const MAX_TOOL_ROUNDS = 12
 const MAX_AGENT_TOOL_DATA_CHARS = 24_000
 const MAX_STORED_TOOL_METADATA_CHARS = 12_000

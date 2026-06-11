@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily packets - Alpha Research Curriculum</title>
+  <style>
+    :root { color-scheme: light; --ink:#171717; --muted:#666; --line:#e5e5e5; --paper:#fff; --soft:#f7f7f5; --accent:#0f766e; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:var(--paper); line-height:1.62; }
+    header { border-bottom:1px solid var(--line); background:rgba(255,255,255,.96); position:sticky; top:0; z-index:2; }
+    .bar { max-width:1040px; margin:0 auto; padding:14px 18px 10px; }
+    .brand { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:10px; }
+    .brand a { color:var(--ink); text-decoration:none; font-weight:750; }
+    .brand span { color:var(--muted); font-size:13px; }
+    nav { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none; }
+    nav a { flex:0 0 auto; border:1px solid var(--line); color:#333; text-decoration:none; border-radius:999px; padding:7px 11px; font-size:14px; background:#fff; }
+    nav a[aria-current="page"] { border-color:var(--accent); color:#064e47; background:#ecfdf9; }
+    main { max-width:820px; margin:0 auto; padding:28px 18px 72px; }
+    h1 { font-size:clamp(31px, 7vw, 52px); line-height:1.04; letter-spacing:0; margin:10px 0 18px; }
+    h2 { font-size:clamp(24px, 5vw, 34px); line-height:1.14; letter-spacing:0; margin:44px 0 14px; padding-top:10px; border-top:1px solid var(--line); }
+    h3 { font-size:22px; line-height:1.22; letter-spacing:0; margin:34px 0 10px; }
+    h4 { font-size:18px; margin:24px 0 8px; }
+    p, li { font-size:17px; }
+    p { margin:0 0 18px; }
+    ul, ol { padding-left:23px; margin:0 0 22px; }
+    li { margin:8px 0; }
+    a { color:#0f766e; text-underline-offset:3px; }
+    blockquote { margin:24px 0; padding:13px 16px; border-left:4px solid var(--accent); background:#f1fbf8; border-radius:0 8px 8px 0; }
+    blockquote p { margin:0; }
+    .table-scroll { overflow-x:auto; margin:22px 0 28px; border:1px solid var(--line); border-radius:8px; }
+    table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; line-height:1.45; }
+    th, td { text-align:left; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--line); }
+    th { background:var(--soft); font-weight:750; }
+    tr:last-child td { border-bottom:0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.92em; background:var(--soft); border:1px solid var(--line); border-radius:6px; padding:1px 5px; overflow-wrap:anywhere; }
+    hr { border:0; border-top:1px solid var(--line); margin:30px 0; }
+    .task { list-style:none; margin-left:-23px; display:flex; align-items:flex-start; gap:9px; }
+    .task input { margin-top:7px; width:16px; height:16px; flex:0 0 auto; }
+    @media (max-width: 560px) {
+      .bar { padding-inline:14px; }
+      main { padding:22px 16px 56px; }
+      p, li { font-size:16px; }
+      nav a { font-size:13px; padding:7px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <div class="brand"><a href="/curriculum/daily">AI Research Curriculum</a><span>133 daily packets</span></div>
+      <nav aria-label="Curriculum phases"><a href="/curriculum">Guide</a><a href="/curriculum/daily" aria-current="page">Daily packets</a><a href="/curriculum/daily/phase-0">Phase 0</a><a href="/curriculum/daily/phase-1">Phase 1</a><a href="/curriculum/daily/phase-2">Phase 2</a><a href="/curriculum/daily/phase-3">Phase 3</a><a href="/curriculum/daily/phase-4">Phase 4</a><a href="/curriculum/daily/phase-5">Phase 5</a><a href="/curriculum/daily/phase-6">Phase 6</a><a href="/curriculum/paper-ladder">Papers</a></nav>
+    </div>
+  </header>
+  <main><h1 id="daily-packets-the-curriculum-as-133-days">Daily packets — the curriculum as 133 days</h1>
+<p>The whole <a href="/curriculum">curriculum</a>, cut into <strong>133 daily packets of 45–90 minutes, exactly one link each</strong>. Total: ~170 hours. Five days a week ≈ 6 months; every day ≈ 4.5 months.</p>
+<h2 id="how-a-day-works">How a day works</h2>
+<ol>
+<li>Open today's packet in the phase file. It has four parts: a time box, <strong>one link</strong>, <strong>Do</strong> (the exact instruction — which minutes of which video, which sections, which build step), <strong>Explains</strong> (the one concept you're buying today), <strong>Done when</strong> (a binary check).</li>
+<li>Do the Do. When the <strong>Done when</strong> is true — and only then — tick the box below. That checkbox list is your entire progress-tracking system.</li>
+<li>Done early? Stop anyway. Over the time box but not done? Stop at ~90 minutes and finish tomorrow before ticking — don't renumber anything, the numbers are just sequence, not calendar dates.</li>
+</ol>
+<h2 id="rules">Rules</h2>
+<ul>
+<li><strong>Never read ahead of your day</strong> — that's the whole method (<a href="/curriculum">README</a>). Re-reading behind you is always allowed.</li>
+<li><strong>Missed days cost nothing.</strong> No streaks. Resume at the unticked box.</li>
+<li><strong>&quot;Done when&quot; is the gate, not time spent.</strong> If you can't pass a checkpoint day cold, redo the days it names — that's the system working, not failing.</li>
+<li><strong>Money days are marked 💲</strong> below; the Do line states the expected cost before you launch anything. Total GPU spend across all 133 days: ~$100–200 if you follow the packets.</li>
+<li><strong>You are finished</strong> when Day 133 is ticked and <code>capstone-plan.md</code> is committed — at that point you exit into <a href="/curriculum/06-research-practice">Phase 6's research practice</a> with a chosen project.</li>
+</ul>
+<hr>
+<h2 id="phase-0-foundations-phase-0-md-days-1-14-18-h">Phase 0 — <a href="/curriculum/daily/phase-0">Foundations</a> · Days 1–14 · ~18 h</h2>
+<ul>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 1</strong> — Orientation and repo setup · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 2</strong> — micrograd I: derivatives and the Value graph · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 3</strong> — micrograd II: backward() for real · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 4</strong> — micrograd III: train an MLP with your autograd · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 5</strong> — Math grounding with 3Blue1Brown · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 6</strong> — makemore I: the bigram counting model · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 7</strong> — makemore I: the same model by gradient descent · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 8</strong> — makemore II: the MLP language model · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 9</strong> — makemore III: initialization and activation health · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 10</strong> — makemore III: BatchNorm by hand · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 11</strong> — Backprop ninja: manual cross-entropy backward · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 12</strong> — Rebuild the MLP from memory · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 13</strong> — First paper: Bengio 2003 · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 14</strong> — ✅ Phase 0 checkpoint, cold · 60 min</span></li>
+</ul>
+<h2 id="phase-1-the-transformer-phase-1-md-days-15-35-26-h">Phase 1 — <a href="/curriculum/daily/phase-1">The Transformer</a> · Days 15–35 · ~26 h</h2>
+<ul>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 15</strong> — BPE tokenizer video, part 1 · 80 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 16</strong> — BPE tokenizer video, part 2 · 80 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 17</strong> — Your own BPE, no video · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 18</strong> — Real vocabularies with tiktoken · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 19</strong> — Attention on paper, shapes everywhere · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 20</strong> — &quot;Let's build GPT&quot; video, part 1 · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 21</strong> — &quot;Let's build GPT&quot; video, part 2 · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 22</strong> — &quot;Let's build GPT&quot; video, part 3 · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 23</strong> — Train the Shakespeare model for real · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 24</strong> — Sampling loop by hand · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 25</strong> — nanoGPT study: model.py · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 26</strong> — nanoGPT study: train.py + char run · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 27</strong> — GPT-2 parameter count by hand · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 28</strong> — Attention Is All You Need, part 1 · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 29</strong> — Attention Is All You Need, part 2 · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 30</strong> — GPT-1: the thesis of the modern era · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 31</strong> — GPT-2: scale removes the adaptation step · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 32</strong> — Modern-architecture delta table · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 33</strong> — The mask-removal experiment · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 34</strong> — Checkpoint rehearsal, timed · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 35</strong> — ✅ Phase 1 checkpoint, cold · 90 min</span></li>
+</ul>
+<h2 id="phase-2-training-at-scale-phase-2-md-days-36-56-29-h">Phase 2 — <a href="/curriculum/daily/phase-2">Training at scale</a> · Days 36–56 · ~29 h</h2>
+<ul>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 36</strong> — What pretraining data actually is · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 37</strong> — Build your training data: tokens on disk · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 38</strong> — 6ND napkin math · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 39</strong> — Upgrade 1: char tokenizer → BPE · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 40</strong> — Upgrade 2: bf16 mixed precision · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 41</strong> — Upgrades 3+4: grad accumulation and torch.compile · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 42</strong> — FlashAttention: memory movement is the bottleneck · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 43</strong> — Memory ledger and the knobs that matter · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 44</strong> — Four ways to split the work · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 45</strong> — 💲 DDP hands-on · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 46</strong> — 💲 Launch prep and smoke run · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 47</strong> — 💲 THE pretraining run: launch · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 48</strong> — 💲 Monitor, sample, reconcile, terminate · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 49</strong> — Kaplan: scaling laws · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 50</strong> — 💲 Mini scaling study 1: the small rungs · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 51</strong> — 💲 Mini scaling study 2: top rung and first fit · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 52</strong> — Chinchilla: the corrected recipe · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 53</strong> — 💲 Mini scaling study 3: predict, then verify · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 54</strong> — GPT-3: in-context learning · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 55</strong> — Llama 3 herd: read a modern run report · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 56</strong> — ✅ Phase 2 checkpoint, cold · 90 min</span></li>
+</ul>
+<h2 id="phase-3-post-training-phase-3-md-days-57-80-29-h">Phase 3 — <a href="/curriculum/daily/phase-3">Post-training</a> · Days 57–80 · ~29 h</h2>
+<ul>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 57</strong> — Feel base vs. instruct · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 58</strong> — Chat templates: there is no chat, only tokens · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 59</strong> — LoRA: the cheap-tuning trick · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 60</strong> — 💲 SFT: setup and launch · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 61</strong> — SFT: before/after comparison · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 62</strong> — InstructGPT: the recipe that made ChatGPT · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 63</strong> — RL vocabulary, grounded in LM-land · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 64</strong> — 💲 Build a reward model (Bradley–Terry) · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 65</strong> — PPO: the clipped objective, nothing else · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 66</strong> — Goodhart: reward-model overoptimization · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 67</strong> — DPO: read it, then write the loss by hand · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 68</strong> — 💲 DPOTrainer run on UltraFeedback · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 69</strong> — Constitutional AI and RLAIF · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 70</strong> — Llama 2: RLHF practice, candidly · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 71</strong> — GRPO: the algorithm · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 72</strong> — 💲 GRPO build: reward function and launch · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 73</strong> — 💲 GRPO build: monitor the curves · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 74</strong> — GRPO build: stop, eval, explain the length · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 75</strong> — DeepSeek-R1 · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 76</strong> — Process vs. outcome rewards · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 77</strong> — STaR: the bootstrap ancestor · 45 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 78</strong> — 💲 SFT your own Phase-2 model · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 79</strong> — Tulu 3: the open recipe, end to end · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 80</strong> — ✅ Phase 3 checkpoint, cold · 90 min</span></li>
+</ul>
+<h2 id="phase-4-inference-and-evals-phase-4-md-days-81-95-19-h">Phase 4 — <a href="/curriculum/daily/phase-4">Inference and evals</a> · Days 81–95 · ~19 h</h2>
+<ul>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 81</strong> — KV cache: implement · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 82</strong> — KV cache: benchmark · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 83</strong> — Sampling knobs · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 84</strong> — Bandwidth arithmetic: decode ceilings · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 85</strong> — FlashAttention, re-read as a systems paper · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 86</strong> — vLLM and PagedAttention · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 87</strong> — Speculative decoding · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 88</strong> — llama.cpp hands-on: reconcile theory with a real machine · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 89</strong> — lm-evaluation-harness: run it, then read it · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 90</strong> — LLM-as-judge and its biases · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 91</strong> — GPQA: building a Google-proof benchmark · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 92</strong> — SWE-bench: tests as the scorer · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 93</strong> — Custom eval, part 1: port a Gutenberg slice · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 94</strong> — Custom eval, part 2: run across models and read the failures · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 95</strong> — ✅ Phase 4 checkpoint, cold · 75 min</span></li>
+</ul>
+<h2 id="phase-5-interpretability-phase-5-md-days-96-119-33-h">Phase 5 — <a href="/curriculum/daily/phase-5">Interpretability</a> · Days 96–119 · ~33 h</h2>
+<ul>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 96</strong> — TransformerLens setup + logit lens · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 97</strong> — Linear probe · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 98</strong> — A Mathematical Framework, pass 1 · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 99</strong> — A Mathematical Framework, pass 2 · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 100</strong> — Induction-head hunt 1: the loss test · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 101</strong> — Induction-head hunt 2: localize by ablation · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 102</strong> — Read: Induction Heads · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 103</strong> — Toy Models build 1: the toy model · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 104</strong> — Toy Models build 2: the pentagon · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 105</strong> — Read: Toy Models of Superposition · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 106</strong> — 💲 SAE build 1: dump the activation dataset · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 107</strong> — 💲 SAE build 2: train it · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 108</strong> — SAE build 3: feature dashboard · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 109</strong> — SAE build 4: clean features, messy features, λ · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 110</strong> — Read: Towards Monosemanticity · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 111</strong> — Read: Scaling Monosemanticity · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 112</strong> — Steering vectors + a skeptical read · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 113</strong> — Read: IOI paper + grokking skim · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 114</strong> — ARENA IOI 1: setup and residual patching · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 115</strong> — ARENA IOI 2: head-level patching · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 116</strong> — ARENA IOI 3: the full circuit · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 117</strong> — Read: Biology of an LLM, part 1 · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 118</strong> — Read: Biology of an LLM, part 2 · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 119</strong> — ✅ Phase 5 checkpoint, cold · 75 min</span></li>
+</ul>
+<h2 id="phase-6-research-practice-phase-6-md-days-120-133-17-h">Phase 6 — <a href="/curriculum/daily/phase-6">Research practice</a> · Days 120–133 · ~17 h</h2>
+<ul>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 120</strong> — The three-pass reading method · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 121</strong> — Mixture of Experts · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 122</strong> — Mamba and state-space models · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 123</strong> — Long context, RAG, and embeddings · 70 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 124</strong> — Multimodal glue · 80 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 125</strong> — Agents and tool use · 70 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 126</strong> — Distillation and synthetic data · 70 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 127</strong> — Sleeper Agents · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 128</strong> — Alignment Faking · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 129</strong> — Weak-to-strong generalization · 80 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 130</strong> — The ladder and where to publish · 60 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 131</strong> — Capstone selection: score the menu · 75 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 132</strong> — Capstone selection: write the plan · 90 min</span></li>
+<li class="task"><input type="checkbox" disabled> <span><strong>Day 133</strong> — 🏁 Checkpoint: curriculum exit review, cold · 60 min</span></li>
+</ul></main>
+</body>
+</html>

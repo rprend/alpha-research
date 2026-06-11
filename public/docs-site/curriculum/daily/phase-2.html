@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phase 2 - Alpha Research Curriculum</title>
+  <style>
+    :root { color-scheme: light; --ink:#171717; --muted:#666; --line:#e5e5e5; --paper:#fff; --soft:#f7f7f5; --accent:#0f766e; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:var(--paper); line-height:1.62; }
+    header { border-bottom:1px solid var(--line); background:rgba(255,255,255,.96); position:sticky; top:0; z-index:2; }
+    .bar { max-width:1040px; margin:0 auto; padding:14px 18px 10px; }
+    .brand { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:10px; }
+    .brand a { color:var(--ink); text-decoration:none; font-weight:750; }
+    .brand span { color:var(--muted); font-size:13px; }
+    nav { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none; }
+    nav a { flex:0 0 auto; border:1px solid var(--line); color:#333; text-decoration:none; border-radius:999px; padding:7px 11px; font-size:14px; background:#fff; }
+    nav a[aria-current="page"] { border-color:var(--accent); color:#064e47; background:#ecfdf9; }
+    main { max-width:820px; margin:0 auto; padding:28px 18px 72px; }
+    h1 { font-size:clamp(31px, 7vw, 52px); line-height:1.04; letter-spacing:0; margin:10px 0 18px; }
+    h2 { font-size:clamp(24px, 5vw, 34px); line-height:1.14; letter-spacing:0; margin:44px 0 14px; padding-top:10px; border-top:1px solid var(--line); }
+    h3 { font-size:22px; line-height:1.22; letter-spacing:0; margin:34px 0 10px; }
+    h4 { font-size:18px; margin:24px 0 8px; }
+    p, li { font-size:17px; }
+    p { margin:0 0 18px; }
+    ul, ol { padding-left:23px; margin:0 0 22px; }
+    li { margin:8px 0; }
+    a { color:#0f766e; text-underline-offset:3px; }
+    blockquote { margin:24px 0; padding:13px 16px; border-left:4px solid var(--accent); background:#f1fbf8; border-radius:0 8px 8px 0; }
+    blockquote p { margin:0; }
+    .table-scroll { overflow-x:auto; margin:22px 0 28px; border:1px solid var(--line); border-radius:8px; }
+    table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; line-height:1.45; }
+    th, td { text-align:left; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--line); }
+    th { background:var(--soft); font-weight:750; }
+    tr:last-child td { border-bottom:0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.92em; background:var(--soft); border:1px solid var(--line); border-radius:6px; padding:1px 5px; overflow-wrap:anywhere; }
+    hr { border:0; border-top:1px solid var(--line); margin:30px 0; }
+    .task { list-style:none; margin-left:-23px; display:flex; align-items:flex-start; gap:9px; }
+    .task input { margin-top:7px; width:16px; height:16px; flex:0 0 auto; }
+    @media (max-width: 560px) {
+      .bar { padding-inline:14px; }
+      main { padding:22px 16px 56px; }
+      p, li { font-size:16px; }
+      nav a { font-size:13px; padding:7px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <div class="brand"><a href="/curriculum/daily">AI Research Curriculum</a><span>133 daily packets</span></div>
+      <nav aria-label="Curriculum phases"><a href="/curriculum">Guide</a><a href="/curriculum/daily">Daily packets</a><a href="/curriculum/daily/phase-0">Phase 0</a><a href="/curriculum/daily/phase-1">Phase 1</a><a href="/curriculum/daily/phase-2" aria-current="page">Phase 2</a><a href="/curriculum/daily/phase-3">Phase 3</a><a href="/curriculum/daily/phase-4">Phase 4</a><a href="/curriculum/daily/phase-5">Phase 5</a><a href="/curriculum/daily/phase-6">Phase 6</a><a href="/curriculum/paper-ladder">Papers</a></nav>
+    </div>
+  </header>
+  <main><h1 id="phase-2-daily-packets-training-at-scale-days-36-56">Phase 2 daily packets — Training at scale (Days 36–56)</h1>
+<p>This phase pretrains your Phase-1 GPT for real — 124M params on ~10B tokens of web data — and installs the field's cost arithmetic (6ND, MFU, memory ledgers, scaling laws). Prerequisite: Phase 1 checkpoint passed cold.</p>
+<h3 id="day-36-what-pretraining-data-actually-is">Day 36 — What pretraining data actually is</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://huggingface.co/spaces/HuggingFaceFW/blogpost-fineweb-v1">FineWeb blog post</a></p>
+<p><strong>Do:</strong> Read the FineWeb blog post end to end, skimming the ablation details: focus on text extraction, the heuristic filters, MinHash deduplication, and the FineWeb-Edu classifier (background: section 2.1 of the phase guide).</p>
+<p><strong>Explains:</strong> &quot;Trained on the internet&quot; means a concrete batch pipeline — Common Crawl WARC files → extracted text → language ID → quality filters → dedup → parquet files of {text, url, metadata}.</p>
+<p><strong>Done when:</strong> A five-line pipeline summary (WARC → text → lang-ID → filters → dedup → classifier), one sentence per stage, exists in your vocabulary notebook, written without looking back at the post.</p>
+<h3 id="day-37-build-your-training-data-tokens-on-disk">Day 37 — Build your training data: tokens on disk</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://github.com/karpathy/llm.c">karpathy/llm.c</a></p>
+<p><strong>Do:</strong> Using llm.c's dev/data/fineweb.py as the reference, download the FineWeb-Edu 10BT sample and tokenize it with GPT-2 BPE into flat uint16 .bin shards on your laptop (free, CPU; leave it running). Stop once ≥2B tokens are on disk — you'll regenerate the full set on the rented node later (background: section 2.1 of the phase guide, point 3).</p>
+<p><strong>Explains:</strong> A pretraining dataset on disk is literally one giant flat array of uint16 token ids; a &quot;batch&quot; is random offsets into it, each reading seq_len+1 consecutive tokens.</p>
+<p><strong>Done when:</strong> Shard files totaling ≥2B tokens (≥4 GB) exist, and a 5-line script memmaps one shard, prints the first 32 token ids, and decodes them back to legible text.</p>
+<h3 id="day-38-6nd-napkin-math">Day 38 — 6ND napkin math</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="/curriculum/02-training-at-scale">Phase 2 guide</a></p>
+<p><strong>Do:</strong> Derive FLOPs ≈ 6ND on paper (forward = 2ND, backward = 2× forward), then compute FLOPs, wall-clock, and dollar cost for three runs: your 124M × 10B on 8×A100 at 40% MFU, GPT-3 (175B × 300B), and Llama-3-70B (70B × 15T) (background: section 2.2 of the phase guide).</p>
+<p><strong>Explains:</strong> One formula — 6 × params × tokens — lets you sanity-check any &quot;we trained X&quot; claim on a napkin, from your $25 run to a $100M frontier run.</p>
+<p><strong>Done when:</strong> A one-page napkin sheet exists with all three estimates, and your 124M estimate lands in the 40–90 minute wall-clock range.</p>
+<h3 id="day-39-upgrade-1-char-tokenizer-bpe">Day 39 — Upgrade 1: char tokenizer → BPE</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://github.com/openai/tiktoken">openai/tiktoken</a></p>
+<p><strong>Do:</strong> Swap the char-level tokenizer in your Phase-1 GPT for GPT-2 BPE via tiktoken: vocab 50257, resize the embedding and unembedding matrices, and retrain briefly on Shakespeare as a sanity check (background: section 2.7 of the phase guide, build step 1).</p>
+<p><strong>Explains:</strong> Your model now consumes the same token ids as the .bin shards from Day 37 — the tokenizer is the contract between data on disk and the embedding table.</p>
+<p><strong>Done when:</strong> A 5-minute Shakespeare run produces samples that decode through tiktoken into real English words.</p>
+<h3 id="day-40-upgrade-2-bf16-mixed-precision">Day 40 — Upgrade 2: bf16 mixed precision</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://github.com/karpathy/nanoGPT">karpathy/nanoGPT</a></p>
+<p><strong>Do:</strong> Add bf16 autocast to your training loop (fp32 master weights, bf16 matmuls), diffing against nanoGPT's train.py; benchmark tokens/sec and peak VRAM versus your fp32 baseline on a GPU — rent a 4090 if you have none locally, expected cost under $2 (background: section 2.4 of the phase guide).</p>
+<p><strong>Explains:</strong> bf16 keeps fp32's exponent range with a chopped mantissa — half the memory and ~2× tensor-core speed with no overflow drama, which is why it beat fp16.</p>
+<p><strong>Done when:</strong> A two-row table (fp32 vs bf16) of tokens/sec and peak VRAM exists in your repo, with bf16 at least 1.5× faster.</p>
+<h3 id="day-41-upgrades-3-4-grad-accumulation-and-torch-compile">Day 41 — Upgrades 3+4: grad accumulation and torch.compile</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://github.com/karpathy/nanoGPT">karpathy/nanoGPT</a></p>
+<p><strong>Do:</strong> Add gradient accumulation (sum grads over micro-batches, one optimizer step) and torch.compile to your trainer, diffing against nanoGPT; extend the Day-40 benchmark table; same rented 4090, expected cost under $2 (background: section 2.4 of the phase guide).</p>
+<p><strong>Explains:</strong> Accumulation makes batch size independent of VRAM (mathematically identical to one big batch); torch.compile fuses your Python ops into fewer GPU kernels for a free ~1.3–2×.</p>
+<p><strong>Done when:</strong> The benchmark table has four rows, compiled-bf16 tokens/sec is ≥2× the fp32 eager baseline, and a 200-step accumulated run matches the equivalent big-batch run's loss within 0.02.</p>
+<h3 id="day-42-flashattention-memory-movement-is-the-bottleneck">Day 42 — FlashAttention: memory movement is the bottleneck</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2205.14135">FlashAttention (arXiv 2205.14135)</a></p>
+<p><strong>Do:</strong> Read sections 1–3 and figure 1; skip the appendix proofs. Track one question throughout: where does the (T, T) score matrix live at each step (background: section 2.4 of the phase guide)?</p>
+<p><strong>Explains:</strong> GPU performance is usually bound by memory movement, not arithmetic — FlashAttention is the same attention math tiled through fast on-chip SRAM so the score matrix never touches slow HBM: exact outputs, 2–4× faster, O(T) memory.</p>
+<p><strong>Done when:</strong> Closed notes, in under 5 minutes, you can sketch the HBM-vs-SRAM tiling diagram and state why the (T, T) matrix is never materialized in HBM.</p>
+<h3 id="day-43-memory-ledger-and-the-knobs-that-matter">Day 43 — Memory ledger and the knobs that matter</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="/curriculum/02-training-at-scale">Phase 2 guide</a></p>
+<p><strong>Do:</strong> Write the mixed-precision AdamW memory ledger from memory, then verify against section 2.4 of the phase guide; then implement the standard recipe in your trainer: AdamW(0.9, 0.95, wd=0.1), linear warmup → cosine decay LR schedule, gradient clipping at norm 1.0; plot the schedule (background: section 2.6 of the phase guide).</p>
+<p><strong>Explains:</strong> Training a model takes ~16 bytes per parameter (2 bf16 weight + 2 grad + 4 fp32 master + 8 Adam) before activations — the number that dictates all sharding — and peak LR is the single most important hyperparameter.</p>
+<p><strong>Done when:</strong> An LR-schedule plot exists in your repo and you can reproduce the 2+2+4+8 = 16 bytes/param breakdown from memory.</p>
+<h3 id="day-44-four-ways-to-split-the-work">Day 44 — Four ways to split the work</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/1909.08053">Megatron-LM (arXiv 1909.08053)</a></p>
+<p><strong>Do:</strong> Skim Megatron-LM sections 1–3 for the tensor-parallelism diagrams (how one matmul is sliced across GPUs), then write your own one-paragraph grounded definition of each of DDP, ZeRO/FSDP, tensor parallel, and pipeline parallel (background: section 2.5 of the phase guide).</p>
+<p><strong>Explains:</strong> All distributed training is four composable answers to &quot;what do we split?&quot; — batches, optimizer state shards, weight-matrix slices, or layers — glued together by collective ops like all-reduce.</p>
+<p><strong>Done when:</strong> A four-entry section exists in your vocabulary notebook; each entry names what is split and what gets communicated between GPUs.</p>
+<h3 id="day-45-ddp-hands-on">Day 45 — DDP hands-on</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://github.com/karpathy/nanoGPT">karpathy/nanoGPT</a></p>
+<p><strong>Do:</strong> Run your trainer under torchrun with 2+ processes, following nanoGPT's DDP setup — either a rented 2-GPU machine (under $3) or the gloo backend on your laptop's CPU (free). Print a gradient norm from each rank before and after the all-reduce to watch them converge to the same value (background: section 2.5 of the phase guide, point 1).</p>
+<p><strong>Explains:</strong> DDP is data parallelism made concrete: every rank holds a full model copy, sees different batches, and an all-reduce (elementwise sum across ranks) of gradients keeps every copy stepping identically.</p>
+<p><strong>Done when:</strong> A 2-process torchrun completes 100 steps and a per-rank checksum of the weights printed at the end is identical across ranks.</p>
+<h3 id="day-46-launch-prep-and-smoke-run">Day 46 — Launch prep and smoke run</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://github.com/karpathy/llm.c">karpathy/llm.c</a></p>
+<p><strong>Do:</strong> Pick your launch vehicle (llm.c's GPT-2 124M reproduction or nanoGPT's reproduce-GPT-2 config) and write a launch checklist into your repo: data on node, tmux, checkpoint-every-N-steps to persistent disk, logging, kill switch, predicted wall-clock and cost from Day 38. Then run the exact config scaled down for 10 minutes on one cheap GPU as a smoke test, expected cost under $1.</p>
+<p><strong>Explains:</strong> A big training run is an operations problem — the checklist-and-smoke-test habit is what separates a $25 run from a $80 run that died at 90% with no checkpoints.</p>
+<p><strong>Done when:</strong> The checklist file exists in your repo and the smoke run produced a checkpoint file that loads and resumes.</p>
+<h3 id="day-47-the-pretraining-run-launch">Day 47 — THE pretraining run: launch</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://github.com/karpathy/nanoGPT">karpathy/nanoGPT</a></p>
+<p><strong>Do:</strong> Rent an 8×A100 node (Lambda/RunPod) and launch the 124M-param run on ~10B FineWeb-Edu tokens, expected cost $20–80; within the first 15 minutes verify loss is falling from ~10.8 (ln 50257) and tokens/sec implies 30–45% MFU, then walk away — do not babysit (background: section 2.7 of the phase guide, build step 1; budget alternative: 30–50M params on 2B tokens, one 4090, overnight, under $10).</p>
+<p><strong>Explains:</strong> This is the same for-loop as your laptop runs — bigger N, bigger D, more machines — and the launch discipline (verify, then leave) is the actual job.</p>
+<p><strong>Done when:</strong> The run has passed 10% of total steps with train loss below 6.0 and at least one checkpoint file written to persistent disk.</p>
+<h3 id="day-48-monitor-sample-reconcile-terminate">Day 48 — Monitor, sample, reconcile, terminate</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://github.com/karpathy/nanoGPT">karpathy/nanoGPT</a></p>
+<p><strong>Do:</strong> As the run finishes, sample ~200 tokens from an early, middle, and final checkpoint with the same prompt (nanoGPT's sample.py); reconcile observed wall-clock and nvidia-smi utilization against your Day-38 prediction and write down the ratio; then terminate the node — the meter is the lesson (background: section 2.7 of the phase guide, build step 3).</p>
+<p><strong>Explains:</strong> Watching checkpoints go gibberish → grammar → facts is what &quot;knowledge crystallizing into the weights&quot; literally looks like, and prediction-vs-observed reconciliation is the core research-engineer habit.</p>
+<p><strong>Done when:</strong> A samples.md with the three checkpoint generations, final val loss, and the predicted-vs-observed wall-clock ratio exists in your repo, and the cloud node is terminated.</p>
+<h3 id="day-49-kaplan-scaling-laws">Day 49 — Kaplan: scaling laws</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2001.08361">Kaplan et al. 2020 (arXiv 2001.08361)</a></p>
+<p><strong>Do:</strong> Read sections 1–3 closely and skim the rest; stare at figure 1 until the claim lands: loss vs. N, D, and compute are straight lines on log-log axes across many orders of magnitude (background: section 2.3 of the phase guide). You replicate this in Days 50–53.</p>
+<p><strong>Explains:</strong> Loss falls as a smooth power law in N, D, and compute — the predictability that let labs extrapolate a 100× bigger run's loss before spending the money, and the reason anyone bet billions.</p>
+<p><strong>Done when:</strong> A half-page closed-book summary exists in your notebook containing the power-law form L(C) = (C₀/C)^α and the three quantities Kaplan varies.</p>
+<h3 id="day-50-mini-scaling-study-1-the-small-rungs">Day 50 — Mini scaling study 1: the small rungs</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="/curriculum/02-training-at-scale">Phase 2 guide</a></p>
+<p><strong>Do:</strong> Define a 4-model ladder (≈3M/10M/30M/85M params) at fixed D/N = 20, then train the three smallest on FineWeb-Edu on a rented 4090, expected cost ~$3; log N, D, 6ND FLOPs, and final val loss for each (background: section 2.7 of the phase guide, build step 2).</p>
+<p><strong>Explains:</strong> This is the literal methodology of the Kaplan and Chinchilla papers — train a ladder, measure final loss — at 1/10⁹ the budget.</p>
+<p><strong>Done when:</strong> A results.csv exists with three complete rows: N, D, FLOPs, final val loss.</p>
+<h3 id="day-51-mini-scaling-study-2-top-rung-and-first-fit">Day 51 — Mini scaling study 2: top rung and first fit</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="/curriculum/02-training-at-scale">Phase 2 guide</a></p>
+<p><strong>Do:</strong> Launch the 85M run (≈1.7B tokens; several hours on a 4090 — start it and leave it, expected cost ~$5), then write the fitting script: linear regression of log(loss) on log(FLOPs), and produce a preliminary log-log plot from the three finished points.</p>
+<p><strong>Explains:</strong> Fitting a power law is just a straight line in log-log space — two parameters that summarize your entire ladder and let you extrapolate beyond it.</p>
+<p><strong>Done when:</strong> The 85M run is launched and a log-log plot with three points and a fitted line exists in your repo.</p>
+<h3 id="day-52-chinchilla-the-corrected-recipe">Day 52 — Chinchilla: the corrected recipe</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2203.15556">Chinchilla (arXiv 2203.15556)</a></p>
+<p><strong>Do:</strong> Read sections 1–3, focusing on the three estimation approaches and the D ≈ 20N conclusion; then compute where your Day-47 run sits (10B tokens / 124M params ≈ 80× — overtrained 4×) and write down why Llama-3-8B at D/N ≈ 1875 is still rational (background: section 2.3 of the phase guide).</p>
+<p><strong>Explains:</strong> For fixed training compute, loss-optimal allocation is ~20 tokens per parameter — and labs deliberately violate it because a smaller model that is cheap to serve a billion times is worth extra training cost.</p>
+<p><strong>Done when:</strong> A notebook entry exists stating, with the numbers, whether your run was over- or under-trained per Chinchilla and the training-vs-serving-compute reason practice diverged.</p>
+<h3 id="day-53-mini-scaling-study-3-predict-then-verify">Day 53 — Mini scaling study 3: predict, then verify</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="/curriculum/02-training-at-scale">Phase 2 guide</a></p>
+<p><strong>Do:</strong> Add the finished 85M point and refit; pick a 5th size NOT on your ladder (a held-out ~50M, or ~160M if you'll spend ~$10 extrapolating), write down its predicted loss and a confidence band BEFORE training, then train it (rented GPU, expected cost $3–10) and compare (background: section 2.7 of the phase guide, build step 2).</p>
+<p><strong>Explains:</strong> Predict-then-verify is the whole point of scaling laws — and your first genuinely research-shaped artifact: a quantitative prediction made before the experiment, then tested.</p>
+<p><strong>Done when:</strong> The log-log plot shows four fitted points, the prediction marker, and the 5th measured point, and the prediction error is recorded in results.csv.</p>
+<h3 id="day-54-gpt-3-in-context-learning">Day 54 — GPT-3: in-context learning</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2005.14165">GPT-3 (arXiv 2005.14165)</a></p>
+<p><strong>Do:</strong> Read sections 1–3 (it's 75 pages — skim everything after), focusing on figure 1.2 and how zero-/one-/few-shot are defined: conditioning only, no gradient updates (background: section 2.8 of the phase guide). Sanity-check their compute with 6ND as you read.</p>
+<p><strong>Explains:</strong> Few-shot prompting emerged from scale alone — no fine-tuning — which is the discovery that created the prompting era.</p>
+<p><strong>Done when:</strong> Closed notes, you can write GPT-3's N (175B), D (300B), its ~3×10²³ 6ND FLOPs, and a one-sentence definition of few-shot as GPT-3 means it.</p>
+<h3 id="day-55-llama-3-herd-read-a-modern-run-report">Day 55 — Llama 3 herd: read a modern run report</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2407.21783">Llama 3 herd (arXiv 2407.21783)</a></p>
+<p><strong>Do:</strong> Read §3 (pretraining: data mix, scaling laws, infrastructure) only — skim the rest, you return to it in Phase 3 — ticking off every phase-2 term you recognize; afterwards spend 15 minutes skimming the OPT training logbook (search &quot;OPT chronicles metaseq&quot;) for the sociology of babysitting a big run (background: sections 2.5 and 2.8 of the phase guide).</p>
+<p><strong>Explains:</strong> A frontier pretraining report is now readable as a checklist of things you've done — data pipeline, scaling-law fits, 4D parallelism, MFU, checkpoint-restart around hardware failures.</p>
+<p><strong>Done when:</strong> A list of ≥10 phase-2 vocabulary terms found in §3 exists in your notebook, each with the subsection where it appears.</p>
+<h3 id="day-56-phase-2-checkpoint-cold">Day 56 — Phase 2 checkpoint, cold</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="/curriculum/02-training-at-scale">Phase 2 guide</a></p>
+<p><strong>Do:</strong> Closed notes, answer all five checkpoint items at the end of the phase guide in writing: the 7B memory ledger and minimum ZeRO setup, 6ND + wall-clock for a Chinchilla-optimal 1B on one H100 at 40% MFU, why Llama 3 overtrained 8B by 90×, what an all-reduce computes and where DDP invokes it, and your scaling fit's 1B-model prediction with confidence interval. Only then check against the guide.</p>
+<p><strong>Explains:</strong> The checkpoint is the Feynman test — if you can't produce the numbers cold, the phase isn't done.</p>
+<p><strong>Done when:</strong> All five answers are written closed-book and verified against the phase guide with zero items requiring re-study.</p></main>
+</body>
+</html>

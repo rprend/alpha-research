@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Research Curriculum - Alpha Research Curriculum</title>
+  <style>
+    :root { color-scheme: light; --ink:#171717; --muted:#666; --line:#e5e5e5; --paper:#fff; --soft:#f7f7f5; --accent:#0f766e; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:var(--paper); line-height:1.62; }
+    header { border-bottom:1px solid var(--line); background:rgba(255,255,255,.96); position:sticky; top:0; z-index:2; }
+    .bar { max-width:1040px; margin:0 auto; padding:14px 18px 10px; }
+    .brand { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:10px; }
+    .brand a { color:var(--ink); text-decoration:none; font-weight:750; }
+    .brand span { color:var(--muted); font-size:13px; }
+    nav { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none; }
+    nav a { flex:0 0 auto; border:1px solid var(--line); color:#333; text-decoration:none; border-radius:999px; padding:7px 11px; font-size:14px; background:#fff; }
+    nav a[aria-current="page"] { border-color:var(--accent); color:#064e47; background:#ecfdf9; }
+    main { max-width:820px; margin:0 auto; padding:28px 18px 72px; }
+    h1 { font-size:clamp(31px, 7vw, 52px); line-height:1.04; letter-spacing:0; margin:10px 0 18px; }
+    h2 { font-size:clamp(24px, 5vw, 34px); line-height:1.14; letter-spacing:0; margin:44px 0 14px; padding-top:10px; border-top:1px solid var(--line); }
+    h3 { font-size:22px; line-height:1.22; letter-spacing:0; margin:34px 0 10px; }
+    h4 { font-size:18px; margin:24px 0 8px; }
+    p, li { font-size:17px; }
+    p { margin:0 0 18px; }
+    ul, ol { padding-left:23px; margin:0 0 22px; }
+    li { margin:8px 0; }
+    a { color:#0f766e; text-underline-offset:3px; }
+    blockquote { margin:24px 0; padding:13px 16px; border-left:4px solid var(--accent); background:#f1fbf8; border-radius:0 8px 8px 0; }
+    blockquote p { margin:0; }
+    .table-scroll { overflow-x:auto; margin:22px 0 28px; border:1px solid var(--line); border-radius:8px; }
+    table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; line-height:1.45; }
+    th, td { text-align:left; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--line); }
+    th { background:var(--soft); font-weight:750; }
+    tr:last-child td { border-bottom:0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.92em; background:var(--soft); border:1px solid var(--line); border-radius:6px; padding:1px 5px; overflow-wrap:anywhere; }
+    hr { border:0; border-top:1px solid var(--line); margin:30px 0; }
+    .task { list-style:none; margin-left:-23px; display:flex; align-items:flex-start; gap:9px; }
+    .task input { margin-top:7px; width:16px; height:16px; flex:0 0 auto; }
+    @media (max-width: 560px) {
+      .bar { padding-inline:14px; }
+      main { padding:22px 16px 56px; }
+      p, li { font-size:16px; }
+      nav a { font-size:13px; padding:7px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <div class="brand"><a href="/curriculum/daily">AI Research Curriculum</a><span>133 daily packets</span></div>
+      <nav aria-label="Curriculum phases"><a href="/curriculum" aria-current="page">Guide</a><a href="/curriculum/daily">Daily packets</a><a href="/curriculum/daily/phase-0">Phase 0</a><a href="/curriculum/daily/phase-1">Phase 1</a><a href="/curriculum/daily/phase-2">Phase 2</a><a href="/curriculum/daily/phase-3">Phase 3</a><a href="/curriculum/daily/phase-4">Phase 4</a><a href="/curriculum/daily/phase-5">Phase 5</a><a href="/curriculum/daily/phase-6">Phase 6</a><a href="/curriculum/paper-ladder">Papers</a></nav>
+    </div>
+  </header>
+  <main><h1 id="from-software-engineer-to-ai-researcher-a-natural-method-curriculum">From Software Engineer to AI Researcher: A Natural-Method Curriculum</h1>
+<p><strong>For:</strong> a senior software engineer / founder (CS degree, ML course mostly forgotten) who wants to (1) produce novel research results at the level of a research engineer at Anthropic or OpenAI, and (2) read any AI paper and follow it.</p>
+<p><strong>Written:</strong> June 2026. Links are to stable artifacts (arXiv, GitHub, well-known blogs).</p>
+<hr>
+<h2 id="the-method-why-this-is-like-lingua-latina">The method (why this is like Lingua Latina)</h2>
+<p>*Lingua Latina Per Se Illustrata* teaches Latin by having you read Latin that is always ~95% comprehensible — every new word is inferable from context you already have, and one continuous story (the family of Julius) carries you from page 1 to fluency. No grammar tables up front.</p>
+<p>This curriculum does the same thing with three rules:</p>
+<ol>
+<li><strong>Build before you read.</strong> You never read a paper about a thing you haven't already built a small version of. When you finally read *Attention Is All You Need*, it will feel like reading a description of code you wrote last week — because it will be. Papers are the *graded readers*, not the textbook.</li>
+</ol>
+<ol>
+<li><strong>One continuous artifact.</strong> Your &quot;Familia Romana&quot; is <strong>a single small GPT that you build in week 3 and never abandon.</strong> Over six phases it gains a tokenizer, gets trained on real web data, gets instruction-tuned, gets RLHF'd, gets a KV cache and an eval suite, and finally gets dissected with interpretability tools. Every phase ends with *your model* able to do something it couldn't before.</li>
+</ol>
+<ol>
+<li><strong>Everything must survive the &quot;but what actually IS it?&quot; test.</strong> Every concept gets grounded in one of: *a file on disk* (what's in it, how big), *a function* (inputs, outputs, shapes), *a loop* (what runs, for how long, on what hardware), or *a number* (how big, how much, how fast). If an explanation in these notes ever fails that test, that's a bug — the phase files are written so you can always drill to &quot;it's literally an array of floats&quot; level.</li>
+</ol>
+<p><strong>The single most important mental model, up front:</strong> everything in this field is a *pure function from arrays of numbers to arrays of numbers*, containing millions-to-trillions of tunable constants (&quot;parameters,&quot; literally arrays of 32- or 16-bit floats), and &quot;training&quot; is a for-loop that nudges those constants to make one scalar (the &quot;loss&quot;) smaller. A &quot;model&quot; on disk is those float arrays serialized into a file. That's it. The entire curriculum is elaboration of that sentence.</p>
+<hr>
+<h2 id="the-map">The map</h2>
+<blockquote><strong>Day-by-day version:</strong> the whole curriculum is also cut into <strong><a href="/curriculum/daily">133 daily packets</a></strong> — 45–90 minutes each, exactly one link per day, with a binary &quot;done when&quot; check and a master checklist. If you want zero planning overhead, start there and just do today's box.</blockquote>
+<div class="table-scroll"><table>
+<thead><tr><th>Phase</th><th>File</th><th>What you can do afterward</th><th>Time @ ~10 h/wk</th></tr></thead>
+<tbody>
+<tr><td>0</td><td><a href="/curriculum/00-foundations">00-foundations.md</a></td><td>Write backprop from scratch; read shapes fluently</td><td>2–3 wks</td></tr>
+<tr><td>1</td><td><a href="/curriculum/01-the-transformer">01-the-transformer.md</a></td><td>Build GPT from empty file; read the 2017–2020 canon</td><td>3–4 wks</td></tr>
+<tr><td>2</td><td><a href="/curriculum/02-training-at-scale">02-training-at-scale.md</a></td><td>Pretrain a real (small) LM on web data; read any &quot;we trained a model&quot; report</td><td>3–4 wks</td></tr>
+<tr><td>3</td><td><a href="/curriculum/03-post-training">03-post-training.md</a></td><td>SFT / DPO / GRPO your own model; read alignment &amp; reasoning-model papers</td><td>4 wks</td></tr>
+<tr><td>4</td><td><a href="/curriculum/04-inference-and-evals">04-inference-and-evals.md</a></td><td>Serve models fast; build rigorous evals (your existing edge)</td><td>2–3 wks</td></tr>
+<tr><td>5</td><td><a href="/curriculum/05-interpretability">05-interpretability.md</a></td><td>Open a model up; replicate published interp results</td><td>4 wks</td></tr>
+<tr><td>6</td><td><a href="/curriculum/06-research-practice">06-research-practice.md</a></td><td>Pick a problem, do novel work, publish it</td><td>ongoing</td></tr>
+<tr><td>—</td><td><a href="/curriculum/paper-ladder">paper-ladder.md</a></td><td>The graded reader: ~60 papers in the order they become readable</td><td>reference</td></tr>
+</tbody>
+</table></div>
+<p>Honest total: <strong>6–9 months at 10 h/week; ~4 months at 20+.</strong> Phases 0–2 are the steep part; after Phase 2, papers start reading like pull requests.</p>
+<hr>
+<h2 id="hardware-and-budget">Hardware and budget</h2>
+<ul>
+<li><strong>Phases 0–1:</strong> your laptop. Everything runs on CPU or an M-series GPU in minutes.</li>
+<li><strong>Phase 2 onward:</strong> rent GPUs by the hour (Lambda, RunPod, Vast). A 4090 is ~$0.40–0.70/hr, an A100 ~$1.30/hr, an H100 ~$2–3/hr. The whole curriculum's training runs cost <strong>$150–400 total</strong> if you're not careless. Every build section states its expected cost.</li>
+<li>A &quot;GPU&quot; for our purposes: a card with its own RAM (VRAM, 24–80 GB) and ~100–1000× your CPU's throughput *on matrix multiplies specifically*. Model fits in VRAM or you can't run it — VRAM is the budget you'll constantly compute against.</li>
+</ul>
+<h2 id="how-to-study-the-weekly-rhythm">How to study (the weekly rhythm)</h2>
+<ul>
+<li><strong>Build first</strong> (60% of time): the phase's build section, in a repo you keep forever.</li>
+<li><strong>Then read</strong> (30%): only the papers the phase marks as *now readable*. Read with the code open.</li>
+<li><strong>Then close the loop</strong> (10%): each phase ends with a <strong>checkpoint</strong> — questions and tasks. Do them cold, no notes. If you can't, the phase isn't done. This is the Feynman test and it is the entire quality-control mechanism of self-study.</li>
+<li>Keep a <strong>vocabulary notebook</strong> (one markdown file): every term you meet, one line, *grounded* (&quot;KV cache — the K and V arrays from past tokens, kept in VRAM so generation does O(1) work per new token, size = 2 × layers × kv_heads × head_dim × seq_len × 2 bytes&quot;).</li>
+</ul>
+<h2 id="when-you-re-stuck">When you're stuck</h2>
+<ul>
+<li>Shape errors and NaNs are the field's compile errors; debugging them *is* the learning. Print shapes. Always.</li>
+<li>Reference implementations to diff against: <a href="https://github.com/karpathy/nanoGPT">karpathy/nanoGPT</a>, <a href="https://github.com/karpathy/minbpe">karpathy/minbpe</a>, <a href="https://github.com/huggingface/trl">huggingface/trl</a>, <a href="https://github.com/TransformerLensOrg/TransformerLens">TransformerLens</a>.</li>
+<li>It is legitimate to use a frontier model as a tutor at every step. It is *not* legitimate to let it write your phase builds — the builds are the curriculum.</li>
+</ul></main>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research practice - Alpha Research Curriculum</title>
+  <style>
+    :root { color-scheme: light; --ink:#171717; --muted:#666; --line:#e5e5e5; --paper:#fff; --soft:#f7f7f5; --accent:#0f766e; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:var(--paper); line-height:1.62; }
+    header { border-bottom:1px solid var(--line); background:rgba(255,255,255,.96); position:sticky; top:0; z-index:2; }
+    .bar { max-width:1040px; margin:0 auto; padding:14px 18px 10px; }
+    .brand { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:10px; }
+    .brand a { color:var(--ink); text-decoration:none; font-weight:750; }
+    .brand span { color:var(--muted); font-size:13px; }
+    nav { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none; }
+    nav a { flex:0 0 auto; border:1px solid var(--line); color:#333; text-decoration:none; border-radius:999px; padding:7px 11px; font-size:14px; background:#fff; }
+    nav a[aria-current="page"] { border-color:var(--accent); color:#064e47; background:#ecfdf9; }
+    main { max-width:820px; margin:0 auto; padding:28px 18px 72px; }
+    h1 { font-size:clamp(31px, 7vw, 52px); line-height:1.04; letter-spacing:0; margin:10px 0 18px; }
+    h2 { font-size:clamp(24px, 5vw, 34px); line-height:1.14; letter-spacing:0; margin:44px 0 14px; padding-top:10px; border-top:1px solid var(--line); }
+    h3 { font-size:22px; line-height:1.22; letter-spacing:0; margin:34px 0 10px; }
+    h4 { font-size:18px; margin:24px 0 8px; }
+    p, li { font-size:17px; }
+    p { margin:0 0 18px; }
+    ul, ol { padding-left:23px; margin:0 0 22px; }
+    li { margin:8px 0; }
+    a { color:#0f766e; text-underline-offset:3px; }
+    blockquote { margin:24px 0; padding:13px 16px; border-left:4px solid var(--accent); background:#f1fbf8; border-radius:0 8px 8px 0; }
+    blockquote p { margin:0; }
+    .table-scroll { overflow-x:auto; margin:22px 0 28px; border:1px solid var(--line); border-radius:8px; }
+    table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; line-height:1.45; }
+    th, td { text-align:left; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--line); }
+    th { background:var(--soft); font-weight:750; }
+    tr:last-child td { border-bottom:0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.92em; background:var(--soft); border:1px solid var(--line); border-radius:6px; padding:1px 5px; overflow-wrap:anywhere; }
+    hr { border:0; border-top:1px solid var(--line); margin:30px 0; }
+    .task { list-style:none; margin-left:-23px; display:flex; align-items:flex-start; gap:9px; }
+    .task input { margin-top:7px; width:16px; height:16px; flex:0 0 auto; }
+    @media (max-width: 560px) {
+      .bar { padding-inline:14px; }
+      main { padding:22px 16px 56px; }
+      p, li { font-size:16px; }
+      nav a { font-size:13px; padding:7px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <div class="brand"><a href="/curriculum/daily">AI Research Curriculum</a><span>133 daily packets</span></div>
+      <nav aria-label="Curriculum phases"><a href="/curriculum">Guide</a><a href="/curriculum/daily">Daily packets</a><a href="/curriculum/daily/phase-0">Phase 0</a><a href="/curriculum/daily/phase-1">Phase 1</a><a href="/curriculum/daily/phase-2">Phase 2</a><a href="/curriculum/daily/phase-3">Phase 3</a><a href="/curriculum/daily/phase-4">Phase 4</a><a href="/curriculum/daily/phase-5">Phase 5</a><a href="/curriculum/daily/phase-6">Phase 6</a><a href="/curriculum/paper-ladder">Papers</a></nav>
+    </div>
+  </header>
+  <main><h1 id="phase-6-research-practice-the-frontier-map-reading-fluency-and-producing-novel-work">Phase 6 — Research practice: the frontier map, reading fluency, and producing novel work</h1>
+<p><strong>Goal:</strong> convert competence into output. This phase has three parts: a survey of the remaining frontier topics (so no paper ambushes you), the reading workflow that makes &quot;read any paper&quot; true permanently, and the concrete path from replication to a result with your name on it.</p>
+<p><strong>Time:</strong> the survey is ~2 weeks; the rest is your ongoing practice.</p>
+<hr>
+<h2 id="6-1-frontier-survey-one-paragraph-each-enough-to-read-anything">6.1 Frontier survey — one paragraph each, enough to read anything</h2>
+<ul>
+<li><strong>Mixture of Experts (MoE).</strong> Replace each MLP with E parallel MLPs (&quot;experts&quot;) plus a tiny learned <strong>router</strong> that sends each *token* to its top-1/top-2 experts. Result: huge parameter count, small per-token compute (&quot;671B params, 37B active&quot; — DeepSeek-V3 — now parses exactly). Costs: all experts must sit in VRAM; balancing load across experts is the engineering headache. Read: Switch Transformer (2101.03961), Mixtral (2401.04088).</li>
+<li><strong>State-space models / Mamba</strong> (2312.00752). RNN-revival lineage: per-token state updated sequentially, O(1) memory per new token (no KV cache growth), trainable in parallel via clever math. Hybrids (a few attention layers + many SSM layers) appear in production models. Know the tradeoff: cheap long context vs. weaker exact recall.</li>
+<li><strong>Long context.</strong> Mostly: RoPE frequency rescaling tricks (YaRN, etc.) + continued training on long documents + ring attention to shard the sequence across GPUs + the KV-cache economics from Phase 4. &quot;Needle in a haystack&quot; is the (weak) standard eval.</li>
+<li><strong>Multimodality.</strong> The dominant recipe is gluing: a <strong>vision encoder</strong> — usually a ViT (2010.11929: split image into 16×16 patches, embed each patch like a token, run a transformer) trained with <strong>CLIP</strong>'s contrastive objective (2103.00020: paired image/text encoders pushed to agree) — produces patch vectors; a small <strong>projector</strong> maps them into the LM's residual-stream space; the LM attends to them as if they were tokens. &quot;Image tokens&quot; are literally that. LLaVA (2304.08485) is the readable open version.</li>
+<li><strong>Agents &amp; tool use.</strong> No new ML: the model emits a structured string (&quot;tool call&quot;), a *harness* (ordinary software — a while-loop with a parser) executes it and appends the result to the context, repeat. The research content is in post-training models to be good at this loop (RL over multi-turn trajectories) and in evals (SWE-bench-class). Your daily Claude Code session is this loop; you already understand agents better than most papers' related-work sections do.</li>
+<li><strong>RAG &amp; embeddings.</strong> An embedding model = a transformer pooled to one vector per text, trained contrastively so related texts land close; retrieval = approximate nearest-neighbor over a vector store; RAG = paste the retrieved texts into the prompt. Engineering-heavy, research-light; know the vocabulary.</li>
+<li><strong>Distillation &amp; synthetic data.</strong> Train small models on big models' outputs (sequence-level distillation — R1's distilled family) or on logits (classic, 1503.02531). Synthetic data: Self-Instruct (2212.10560), textbooks-style curricula (phi models), and the open worry of model collapse under recursive training.</li>
+<li><strong>Safety/alignment beyond RLHF</strong> (read these to speak Anthropic's language): scalable oversight (how do humans supervise superhuman outputs?), weak-to-strong generalization (2312.09390), AI debate, model organisms of misalignment — <strong>Sleeper Agents</strong> (2401.05566) and <strong>Alignment Faking</strong> (2412.14093) are the must-reads, both Anthropic, both readable now.</li>
+</ul>
+<h2 id="6-2-reading-fluency-the-workflow">6.2 Reading fluency: the workflow</h2>
+<p>Permanent fluency = vocabulary (you now have it) + a triage habit:</p>
+<ul>
+<li><strong>Three-pass method</strong> (Keshav): pass 1 — title/abstract/figures/conclusion, 5 min, decide if it matters; pass 2 — full read, skip proofs, 30 min; pass 3 — re-derive/re-implement (reserve for ~1 paper/month). Most papers die honorably at pass 1.</li>
+<li><strong>Figures first, always.</strong> In ML papers the figures + tables are the paper; prose is mostly justification. Ask: what's the x-axis, what's the baseline, *what would falsify this claim*, and &quot;would this survive the checkpoint questions of Phases 2–4?&quot; (compute math, contamination, judge bias).</li>
+<li><strong>Diet:</strong> ~10 abstracts/day (arXiv cs.CL/cs.LG via a filter, or alphaXiv/HF daily-papers for socially-ranked feeds), 2 papers/week at pass 2, 1/month at pass 3. Sources worth following directly: transformer-circuits.pub, Anthropic/OpenAI/DeepMind research blogs, the Alignment Forum, EleutherAI Discord, Sasha Rush &amp; Andrej Karpathy &amp; Neel Nanda in video form.</li>
+<li>Keep the <strong>vocabulary notebook</strong> going; it's your personal Lingua Latina glossary, and in six months it will be the curriculum you hand someone else.</li>
+</ul>
+<h2 id="6-3-from-reader-to-producer-the-ladder">6.3 From reader to producer: the ladder</h2>
+<p>What a research engineer at a lab actually does all day: write experiment code on a shared codebase, launch and babysit runs, make plots that answer one question cleanly, write short docs, review others' experiments. <strong>Your 15 years of SWE is ~70% of the job.</strong> The missing 30% is *experimental taste*: smallest experiment that answers the question, ruthless baselines, error bars, &quot;what else could explain this?&quot; That is trained by the ladder:</p>
+<ol>
+<li><strong>Replicate</strong> a result (Phase 5 builds started this). Verbatim replication teaches; published replication *with a discrepancy found* is already a contribution.</li>
+<li><strong>Replicate with a twist:</strong> change one variable — different model family, data domain, scale. &quot;Does X hold under Y?&quot; is the highest-acceptance-rate genre in research.</li>
+<li><strong>Ablate:</strong> take a method with five components, find the two doing the work. Genuinely valued, chronically undersupplied.</li>
+<li><strong>Original question.</strong> By now problems will be falling out of your replication notes — every &quot;huh, that's weird&quot; is a candidate.</li>
+</ol>
+<p><strong>Problems an individual can win:</strong> small-model science (your scaling-law rig), interp (Neel Nanda's 200-problems list is a literal menu), <strong>evals with rigorous methodology</strong> (your lane — see below), post-training recipe science at ≤3B scale, data-curation experiments. <strong>Problems to avoid:</strong> frontier pretraining, capability records, anything whose answer costs &gt;$5k of compute to even ask. Honest budget reality: $500 covers a serious interp or eval project; $3–5k covers a post-training ablation study at 1–3B scale.</p>
+<h2 id="6-4-publishing-without-a-lab-affiliation">6.4 Publishing without a lab affiliation</h2>
+<p>The 2026 path, in escalating formality — note that several canonical results in this curriculum (logit lens; much of the circuits agenda) debuted as *blog posts*:</p>
+<ol>
+<li><strong>Blog post / Alignment Forum or LessWrong post</strong> with a clean reproducible repo. The interp and alignment communities treat these as first-class literature; lab researchers actually read them.</li>
+<li><strong>arXiv preprint</strong> (needs a one-time endorsement for your first cs.LG submission — ask anyone who's published there; this is normal and easy).</li>
+<li><strong>Workshop paper</strong> at NeurIPS/ICLR/ICML workshops — friendlier review than main tracks, real visibility, deadlines that create useful pressure.</li>
+<li>Open-source artifacts count double: TinyZero, open-r1, nanoGPT-speedrun leaderboard entries — repos that became citation magnets and job offers. Anthropic and OpenAI demonstrably hire from exactly this portfolio shape (independent blog-post researchers becoming staff is a repeating pattern, not an exception).</li>
+</ol>
+<p>Cold truth that should encourage you: the bar for &quot;useful contribution&quot; is lower than it looks from outside — most published work is replication-with-a-twist or ablation — while the bar for *rigor* is where outsiders actually fail (no baselines, no error bars, contaminated evals). Your Phase 2–4 checkpoints are precisely the rigor muscles.</p>
+<h2 id="6-5-capstone-menu-pick-one-4-8-weeks">6.5 Capstone menu (pick one, 4–8 weeks)</h2>
+<p>Each is sized for one person, includes success criteria, and lands in a publishable artifact:</p>
+<ol>
+<li><strong>The eval you're uniquely positioned to build.</strong> Take the Gutenberg implicit-knowledge benchmark experience — human-gold protocols, verifier-anchoring pitfalls, recall auditing — and either (a) finish it to publication grade with a human baseline and an error taxonomy, or (b) write the *methodology* paper/post: &quot;how benchmark verification fails,&quot; demonstrated across 2–3 public benchmarks. Success: a result a lab evals team would cite. <strong>Recommended: you have a 12-month head start on this one.</strong></li>
+<li><strong>Interp:</strong> train SAEs across your Phase-2 model's training checkpoints; when do features form, and does feature formation align with the induction-head phase change? Success: one clean figure nobody has made at your exact setting + a replication-grade repo.</li>
+<li><strong>Post-training science:</strong> at 0.5–1.5B scale, a controlled DPO vs. GRPO comparison under matched data/compute, with reward-hacking and length-bias measurements. Success: an ablation table people screenshot.</li>
+<li><strong>Small-model R1-science:</strong> reproduce R1-Zero-style training (TinyZero-style) and study *one* phenomenon rigorously — e.g., when does the length-inflation start, and is it reward hacking or genuine reasoning? Success: a causal answer, not a vibe.</li>
+<li><strong>Data:</strong> your Phase-2 scaling rig + two data mixtures (e.g., FineWeb vs FineWeb-Edu) → &quot;data quality buys you X× compute at this scale,&quot; with fitted curves. Success: a number with error bars.</li>
+</ol>
+<h2 id="6-6-exit-criteria-for-the-whole-curriculum">6.6 Exit criteria for the whole curriculum</h2>
+<ul>
+<li>You pick up any new arXiv paper in this space and pass-1 it in five minutes, locating it on the map (pretraining / post-training / inference / interp / evals) and naming its nearest ancestor in <a href="/curriculum/paper-ladder">paper-ladder.md</a>.</li>
+<li>You have one published artifact (post + repo at minimum) that a stranger has starred, cited, or argued with.</li>
+<li>The &quot;what actually IS that?&quot; question has a reflexive answer for every term you use: file, function, loop, or number.</li>
+</ul>
+<p>When both goals feel routine rather than aspirational, the curriculum is done — and your vocabulary notebook is the proof it happened.</p></main>
+</body>
+</html>

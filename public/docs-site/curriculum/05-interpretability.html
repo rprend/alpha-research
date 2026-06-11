@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interpretability - Alpha Research Curriculum</title>
+  <style>
+    :root { color-scheme: light; --ink:#171717; --muted:#666; --line:#e5e5e5; --paper:#fff; --soft:#f7f7f5; --accent:#0f766e; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:var(--paper); line-height:1.62; }
+    header { border-bottom:1px solid var(--line); background:rgba(255,255,255,.96); position:sticky; top:0; z-index:2; }
+    .bar { max-width:1040px; margin:0 auto; padding:14px 18px 10px; }
+    .brand { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:10px; }
+    .brand a { color:var(--ink); text-decoration:none; font-weight:750; }
+    .brand span { color:var(--muted); font-size:13px; }
+    nav { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none; }
+    nav a { flex:0 0 auto; border:1px solid var(--line); color:#333; text-decoration:none; border-radius:999px; padding:7px 11px; font-size:14px; background:#fff; }
+    nav a[aria-current="page"] { border-color:var(--accent); color:#064e47; background:#ecfdf9; }
+    main { max-width:820px; margin:0 auto; padding:28px 18px 72px; }
+    h1 { font-size:clamp(31px, 7vw, 52px); line-height:1.04; letter-spacing:0; margin:10px 0 18px; }
+    h2 { font-size:clamp(24px, 5vw, 34px); line-height:1.14; letter-spacing:0; margin:44px 0 14px; padding-top:10px; border-top:1px solid var(--line); }
+    h3 { font-size:22px; line-height:1.22; letter-spacing:0; margin:34px 0 10px; }
+    h4 { font-size:18px; margin:24px 0 8px; }
+    p, li { font-size:17px; }
+    p { margin:0 0 18px; }
+    ul, ol { padding-left:23px; margin:0 0 22px; }
+    li { margin:8px 0; }
+    a { color:#0f766e; text-underline-offset:3px; }
+    blockquote { margin:24px 0; padding:13px 16px; border-left:4px solid var(--accent); background:#f1fbf8; border-radius:0 8px 8px 0; }
+    blockquote p { margin:0; }
+    .table-scroll { overflow-x:auto; margin:22px 0 28px; border:1px solid var(--line); border-radius:8px; }
+    table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; line-height:1.45; }
+    th, td { text-align:left; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--line); }
+    th { background:var(--soft); font-weight:750; }
+    tr:last-child td { border-bottom:0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.92em; background:var(--soft); border:1px solid var(--line); border-radius:6px; padding:1px 5px; overflow-wrap:anywhere; }
+    hr { border:0; border-top:1px solid var(--line); margin:30px 0; }
+    .task { list-style:none; margin-left:-23px; display:flex; align-items:flex-start; gap:9px; }
+    .task input { margin-top:7px; width:16px; height:16px; flex:0 0 auto; }
+    @media (max-width: 560px) {
+      .bar { padding-inline:14px; }
+      main { padding:22px 16px 56px; }
+      p, li { font-size:16px; }
+      nav a { font-size:13px; padding:7px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <div class="brand"><a href="/curriculum/daily">AI Research Curriculum</a><span>133 daily packets</span></div>
+      <nav aria-label="Curriculum phases"><a href="/curriculum">Guide</a><a href="/curriculum/daily">Daily packets</a><a href="/curriculum/daily/phase-0">Phase 0</a><a href="/curriculum/daily/phase-1">Phase 1</a><a href="/curriculum/daily/phase-2">Phase 2</a><a href="/curriculum/daily/phase-3">Phase 3</a><a href="/curriculum/daily/phase-4">Phase 4</a><a href="/curriculum/daily/phase-5">Phase 5</a><a href="/curriculum/daily/phase-6">Phase 6</a><a href="/curriculum/paper-ladder">Papers</a></nav>
+    </div>
+  </header>
+  <main><h1 id="phase-5-interpretability-opening-the-model-up">Phase 5 — Interpretability: opening the model up</h1>
+<p><strong>Goal:</strong> read and replicate mechanistic interpretability (&quot;mech interp&quot;) research — Anthropic's signature science. This is the field where a person with one GPU and good taste can still do publishable work, which makes it the most strategically important phase for your goal #1.</p>
+<p><strong>Time:</strong> ~4 weeks. <strong>Cost:</strong> &lt;$20.</p>
+<p><strong>The question of the field:</strong> we have a function made of a trillion floats that writes poetry and code, and *nobody knows how it works* — not metaphorically; the people who built it cannot tell you the mechanism by which it added 17+25. Interp is reverse-engineering that mechanism. It's the closest thing in AI to being handed an alien artifact with a debugger attached.</p>
+<hr>
+<h2 id="5-1-the-object-of-study-activations">5.1 The object of study: activations</h2>
+<p>Distinguish two kinds of arrays once and forever: <strong>weights</strong> (fixed after training; the model file) and <strong>activations</strong> (the intermediate <code>(T, d_model)</code> float arrays produced at every layer *during one forward pass on one input*; discarded immediately in normal use). Interp's raw material is activations: run text through a frozen model, *keep* the intermediates, study them. An &quot;activation dataset&quot; is literally: run 10M tokens through the model, dump layer-12 residual-stream vectors to disk → a <code>(10M, 768)</code> array.</p>
+<p>The organizing picture (from Phase 1, now load-bearing): the <strong>residual stream</strong> is a per-token communication bus; every attention head and MLP reads from it and adds its output back. So the stream's vector at layer L is a *sum of contributions* — and interp's working hypothesis is that concepts (&quot;features&quot;) are <strong>directions</strong> in this vector space, with model behavior decomposable into <strong>circuits</strong>: small subgraphs of heads/neurons implementing identifiable algorithms.</p>
+<h2 id="5-2-the-toolkit-everything-is-array-surgery">5.2 The toolkit (everything is array surgery)</h2>
+<p>Install <a href="https://github.com/TransformerLensOrg/TransformerLens">TransformerLens</a>: it loads open models with <strong>hooks</strong> — functions you register that get called during the forward pass with the activation array, and may *read or overwrite it in place*. Every technique below is a few lines of hook code:</p>
+<ul>
+<li><strong>Logit lens:</strong> take the residual stream at layer L (not the last layer), multiply by the unembedding matrix → see what the model &quot;would predict so far.&quot; Watching the prediction sharpen layer-by-layer is the cheapest profound experiment in the field. (Origin: a 2020 *blog post* by nostalgebraist — note the venue; this field's canon is half blog posts.)</li>
+<li><strong>Linear probing:</strong> train logistic regression from activation vectors to a label (&quot;is this token inside a Python string?&quot;). High accuracy ⇒ the info is linearly present at that layer. Caution you'll see debated: probes show *presence*, not *use*.</li>
+<li><strong>Activation patching (causal intervention):</strong> run the model on input A (&quot;The Eiffel Tower is in&quot;) and on B (&quot;The Colosseum is in&quot;); re-run A but use a hook to splice in B's activation at one site; if the output flips Paris→Rome, that site causally carries the fact. This is interp's randomized controlled trial, and the methodological backbone of the whole field.</li>
+<li><strong>Ablation:</strong> zero (or mean-replace) a head's output; measure the damage.</li>
+<li><strong>Steering:</strong> *add* a direction to the stream at inference (&quot;Golden Gate Claude&quot; was this, productionized as a stunt). Compute a direction as mean(activations on concept) − mean(activations off concept).</li>
+</ul>
+<h2 id="5-3-the-findings-canon-what-we-actually-know">5.3 The findings canon (what we actually know)</h2>
+<ol>
+<li><strong>Induction heads</strong> (Anthropic 2022, *In-context Learning and Induction Heads*): a two-head circuit implementing &quot;the sequence <code>…A B … A</code> should predict <code>B</code>&quot; — copy-paste from context. They emerge in a sudden phase change during training, visible as a bump in the loss curve, and are a substrate of in-context learning. Fully understood, findable in *your* Phase-2 model.</li>
+<li><strong>Superposition</strong> (*Toy Models of Superposition*, Anthropic 2022): models represent <strong>more features than they have dimensions</strong> by storing them as nearly-orthogonal directions, tolerating interference because features are sparse. Consequence: individual neurons are <strong>polysemantic</strong> (fire for unrelated things), which is *why* you can't read meaning off single neurons and why the field needed…</li>
+<li><strong>Sparse autoencoders (SAEs)</strong> (*Towards Monosemanticity* 2023; *Scaling Monosemanticity* 2024 — the Claude 3 Sonnet features paper). What an SAE physically is: a one-hidden-layer autoencoder — encoder matrix <code>(d_model, d_dict)</code> with d_dict 8–64× wider, ReLU, decoder back — trained on your dumped activation dataset with loss = reconstruction error + λ·(sparsity penalty on the hidden layer). The sparse hidden units come out startlingly <strong>monosemantic</strong>: a unit for Golden Gate Bridge, one for code backdoors, one for sycophantic praise. The decoder rows are the feature directions. Training one takes a GPU-day at small scale.</li>
+<li><strong>Circuit tracing / attribution graphs</strong> (*On the Biology of a Large Language Model*, Anthropic 2025): replace MLPs with interpretable feature layers, then trace which features cause which downstream features → readable computational graphs of real behaviors — multi-step recall (&quot;Dallas → Texas → Austin&quot;), poetry *planned ahead*, arithmetic done by parallel estimation, and unfaithful chain-of-thought (the stated reasoning demonstrably not matching the internal mechanism — read that section twice; it matters for safety arguments).</li>
+<li><strong>Training-dynamics curiosities</strong> every paper assumes you know: <strong>grokking</strong> (arXiv:2201.02177 — generalization long *after* memorization, on toy tasks), <strong>double descent</strong>, <strong>lottery tickets</strong>. Skim-level.</li>
+</ol>
+<h2 id="5-4-the-structured-path-arena">5.4 The structured path: ARENA</h2>
+<p><a href="https://www.arena.education/">ARENA</a> (Alignment Research Engineer Accelerator) — exercise notebooks built by/for people who became Anthropic/DeepMind research engineers; chapters 0–1 cover exactly this phase (transformers from scratch → TransformerLens → induction heads → SAEs → the IOI circuit). Treat it as your problem-set book alongside this file. Complement: Neel Nanda's &quot;Concrete Steps to Get Started in Mechanistic Interpretability&quot; + his <strong>200 Concrete Open Problems</strong> list — which doubles as a menu for Phase 6.</p>
+<h2 id="5-5-the-build-replications-this-phase-s-builds-are-research-training">5.5 The build (replications — this phase's builds *are* research training)</h2>
+<ol>
+<li><strong>Find induction heads in your own model.</strong> Feed your Phase-2 GPT a sequence of random tokens repeated twice; per-token loss should crash on the second copy. Locate which heads, via per-head ablations. Bonus: find the phase-change bump in your saved Phase-2 loss curve.</li>
+<li><strong>Replicate Toy Models of Superposition</strong> — small enough for a laptop notebook; reproduce the pentagon-geometry figure. You'll never forget what superposition means after watching features arrange themselves.</li>
+<li><strong>Train an SAE</strong> on layer ~8 of your model (or GPT-2-small) from a few hundred M tokens of dumped activations; build a minimal feature dashboard (top-activating contexts per feature); find 5 clean features and 5 messy ones; write up what λ does to the tradeoff.</li>
+<li><strong>One patching study:</strong> replicate a slice of the IOI circuit (&quot;Indirect Object Identification&quot;, arXiv:2211.00593 — the field's model-organism paper) in GPT-2-small via ARENA's notebook.</li>
+</ol>
+<h2 id="5-6-now-readable">5.6 Now readable</h2>
+<p>In order: <strong>A Mathematical Framework for Transformer Circuits</strong> (Anthropic 2021 — the residual-stream formalism; hard, foundational, worth two passes) → <strong>Induction Heads</strong> (2022) → <strong>Toy Models of Superposition</strong> (2022) → <strong>Towards Monosemanticity</strong> (2023) → <strong>Scaling Monosemanticity</strong> (2024) → <strong>On the Biology of an LLM</strong> (2025). All at <a href="https://transformer-circuits.pub">transformer-circuits.pub</a>. Plus IOI (2211.00593), grokking (2201.02177), and — for the skeptical-methodology muscle — *Interpretability Illusions*-genre critiques and the probing caveats above.</p>
+<h2 id="checkpoint">Checkpoint</h2>
+<ol>
+<li>Weights vs. activations: which does an SAE train on? What exactly is its training set, as a file?</li>
+<li>Why does superposition make neuron-level interpretation hopeless, and how does the SAE's sparsity penalty counteract it?</li>
+<li>Design (on paper) a patching experiment to test whether a model computes &quot;capital of the state containing Dallas&quot; via an intermediate &quot;Texas&quot; representation.</li>
+<li>Your induction-head hunt: which layer.head indices? What was the loss on copy-1 vs copy-2?</li>
+<li>Explain to a smart friend why &quot;the chain-of-thought may not reflect the actual computation&quot; — and why that matters.</li>
+</ol>
+<p>Then: <a href="/curriculum/06-research-practice">06-research-practice.md</a> — frontier survey, and turning all of this into published novel work.</p></main>
+</body>
+</html>

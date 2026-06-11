@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inference and evals - Alpha Research Curriculum</title>
+  <style>
+    :root { color-scheme: light; --ink:#171717; --muted:#666; --line:#e5e5e5; --paper:#fff; --soft:#f7f7f5; --accent:#0f766e; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:var(--paper); line-height:1.62; }
+    header { border-bottom:1px solid var(--line); background:rgba(255,255,255,.96); position:sticky; top:0; z-index:2; }
+    .bar { max-width:1040px; margin:0 auto; padding:14px 18px 10px; }
+    .brand { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:10px; }
+    .brand a { color:var(--ink); text-decoration:none; font-weight:750; }
+    .brand span { color:var(--muted); font-size:13px; }
+    nav { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none; }
+    nav a { flex:0 0 auto; border:1px solid var(--line); color:#333; text-decoration:none; border-radius:999px; padding:7px 11px; font-size:14px; background:#fff; }
+    nav a[aria-current="page"] { border-color:var(--accent); color:#064e47; background:#ecfdf9; }
+    main { max-width:820px; margin:0 auto; padding:28px 18px 72px; }
+    h1 { font-size:clamp(31px, 7vw, 52px); line-height:1.04; letter-spacing:0; margin:10px 0 18px; }
+    h2 { font-size:clamp(24px, 5vw, 34px); line-height:1.14; letter-spacing:0; margin:44px 0 14px; padding-top:10px; border-top:1px solid var(--line); }
+    h3 { font-size:22px; line-height:1.22; letter-spacing:0; margin:34px 0 10px; }
+    h4 { font-size:18px; margin:24px 0 8px; }
+    p, li { font-size:17px; }
+    p { margin:0 0 18px; }
+    ul, ol { padding-left:23px; margin:0 0 22px; }
+    li { margin:8px 0; }
+    a { color:#0f766e; text-underline-offset:3px; }
+    blockquote { margin:24px 0; padding:13px 16px; border-left:4px solid var(--accent); background:#f1fbf8; border-radius:0 8px 8px 0; }
+    blockquote p { margin:0; }
+    .table-scroll { overflow-x:auto; margin:22px 0 28px; border:1px solid var(--line); border-radius:8px; }
+    table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; line-height:1.45; }
+    th, td { text-align:left; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--line); }
+    th { background:var(--soft); font-weight:750; }
+    tr:last-child td { border-bottom:0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.92em; background:var(--soft); border:1px solid var(--line); border-radius:6px; padding:1px 5px; overflow-wrap:anywhere; }
+    hr { border:0; border-top:1px solid var(--line); margin:30px 0; }
+    .task { list-style:none; margin-left:-23px; display:flex; align-items:flex-start; gap:9px; }
+    .task input { margin-top:7px; width:16px; height:16px; flex:0 0 auto; }
+    @media (max-width: 560px) {
+      .bar { padding-inline:14px; }
+      main { padding:22px 16px 56px; }
+      p, li { font-size:16px; }
+      nav a { font-size:13px; padding:7px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <div class="brand"><a href="/curriculum/daily">AI Research Curriculum</a><span>133 daily packets</span></div>
+      <nav aria-label="Curriculum phases"><a href="/curriculum">Guide</a><a href="/curriculum/daily">Daily packets</a><a href="/curriculum/daily/phase-0">Phase 0</a><a href="/curriculum/daily/phase-1">Phase 1</a><a href="/curriculum/daily/phase-2">Phase 2</a><a href="/curriculum/daily/phase-3">Phase 3</a><a href="/curriculum/daily/phase-4">Phase 4</a><a href="/curriculum/daily/phase-5">Phase 5</a><a href="/curriculum/daily/phase-6">Phase 6</a><a href="/curriculum/paper-ladder">Papers</a></nav>
+    </div>
+  </header>
+  <main><h1 id="phase-4-inference-and-evals-serving-models-and-knowing-if-they-re-good">Phase 4 — Inference and evals: serving models, and knowing if they're good</h1>
+<p><strong>Goal:</strong> two fluencies. (1) Inference systems — why generation is slow, and the stack of tricks (KV cache → quantization → batching → speculative decoding) that every deployment uses. (2) Evaluation — what benchmarks physically are, why they're broken, and how to build good ones. The second is <strong>your existing edge</strong>: your Gutenberg benchmark work (annotation pipelines, label verification, recall audits) is real eval methodology — this phase connects it to the literature.</p>
+<p><strong>Time:</strong> 2–3 weeks. <strong>Cost:</strong> ~$10.</p>
+<hr>
+<h2 id="4-1-why-generation-is-slow-the-bandwidth-argument">4.1 Why generation is slow: the bandwidth argument</h2>
+<p>Recall your Phase-1 hand-written sampling loop: one forward pass per token. Two regimes with totally different economics:</p>
+<ul>
+<li><strong>Prefill</strong> (processing the prompt): all prompt tokens computed in parallel — big matmuls, compute-bound, fast.</li>
+<li><strong>Decode</strong> (generating): one token at a time, and here is the key arithmetic — to produce *each single token*, every weight of the model must be read from VRAM into the compute units once. So decode speed is bounded by <strong>memory bandwidth, not FLOPs</strong>: <code>tokens/sec ≤ bandwidth / model-bytes</code>. H100: ~3.35 TB/s; a 70B model in fp16 = 140 GB → ceiling ≈ <strong>24 tokens/sec</strong> at batch 1, with the GPU's arithmetic units ~99% idle. This one calculation explains: why batching is everything (read weights once, serve 64 users), why quantization speeds up decoding (fewer bytes to move), why GQA/MoE exist, and what &quot;memory-bound&quot; means in every systems paper. It's the same insight as FlashAttention (Phase 2), now governing inference.</li>
+</ul>
+<h2 id="4-2-the-kv-cache">4.2 The KV cache</h2>
+<p>The fix for the Phase-1 wastefulness: when generating token t+1, the K and V vectors of tokens 1..t are *identical to last step's* — so store them. Each step then computes q/k/v <strong>only for the newest token</strong> and attends against the cached K,V. What's physically in VRAM: per layer, two tensors of shape <code>(batch, kv_heads, seq_len, head_dim)</code> growing by one row per token. Size = <code>2 × layers × kv_heads × head_dim × seq_len × 2 bytes</code> — for Llama-3-70B at 8k context ≈ 2.6 GB *per sequence* (without GQA it'd be 8× worse — now the Phase-1 delta table's GQA row pays off). Long-context serving is KV-cache memory management, full stop.</p>
+<p><strong>Build (first thing this phase):</strong> add a KV cache to your nanoGPT's <code>generate()</code>. Measure tokens/sec before/after vs. sequence length. ~40 lines; teaches more than any paper.</p>
+<h2 id="4-3-sampling-knobs-they-re-one-liners">4.3 Sampling knobs (they're one-liners)</h2>
+<p>All sampling controls are tiny transformations of the final logits vector, applied before <code>multinomial</code>: <strong>temperature</strong> = <code>logits / T</code> (T→0: argmax/&quot;greedy&quot;; T&gt;1: flatter, riskier); <strong>top-k</strong> = zero out all but k largest; <strong>top-p/nucleus</strong> = keep the smallest set of tokens whose probabilities sum to p. Implement all three in your sampler — ~10 lines total. When an API exposes <code>temperature=0.7, top_p=0.9</code>, you now know the literal two lines of code that runs.</p>
+<h2 id="4-4-the-serving-stack">4.4 The serving stack</h2>
+<ul>
+<li><strong>Continuous batching:</strong> requests arrive/finish at different times; the server splices new sequences into the running batch every step instead of waiting for the batch to drain. Tripled real-world throughput; standard everywhere.</li>
+<li><strong>PagedAttention / vLLM</strong> (arXiv:2309.06180): KV caches fragment VRAM like pre-virtual-memory RAM; vLLM allocates them in fixed-size pages with an indirection table — literally an OS page table for KV blocks. Read the paper as a beautiful example of classical-systems thinking imported into ML (your SWE instincts are an *advantage* here).</li>
+<li><strong>Quantization:</strong> store weights in 4–8 bits. Mechanics: per group of ~128 weights, store int4 values + one fp16 scale (<code>w ≈ scale × int4</code>); dequantize on the fly inside the matmul kernel. 4× fewer bytes → ~4× decode ceiling. Names to recognize: GPTQ, AWQ (weights-only); GGUF (the llama.cpp file format). Quality cost at 4-bit: small but real, larger for small models.</li>
+<li><strong>Speculative decoding</strong> (arXiv:2211.17192): a small *draft* model proposes k tokens cheaply; the big model verifies all k <strong>in one parallel forward pass</strong> (prefill-style), accepting the prefix that matches via a rejection-sampling rule that keeps the output distribution *exactly* the big model's. Free 2–3× when draft agreement is high.</li>
+<li>Try it: run <code>llama.cpp</code> or vLLM locally with a quantized 7–8B model; reconcile observed tokens/sec with the bandwidth formula.</li>
+</ul>
+<h2 id="4-5-evals-what-a-benchmark-physically-is">4.5 Evals: what a benchmark physically is</h2>
+<p>A benchmark is <strong>a JSONL file of examples plus a Python script</strong> that (1) formats each example into a prompt, (2) gets model output, (3) extracts/scores an answer, (4) aggregates a number. That's all MMLU is: 14k multiple-choice rows + a harness. Two scoring modes with very different failure surfaces:</p>
+<ul>
+<li><strong>Loglikelihood scoring:</strong> don't generate — compute the model's log-prob of each candidate answer (&quot;A&quot;/&quot;B&quot;/&quot;C&quot;/&quot;D&quot;) and pick the highest. Deterministic, cheap, but only works for closed-form tasks.</li>
+<li><strong>Generative scoring:</strong> sample a completion, then parse it (regex for <code>\boxed{}</code>, run the unit tests, or — increasingly — <strong>LLM-as-judge</strong>). Every step leaks error: parsing brittleness, prompt-format sensitivity (reorder MMLU's choices and scores move *points*), judge biases (position bias, length/sycophancy bias, self-preference).</li>
+</ul>
+<p>Run <a href="https://github.com/EleutherAI/lm-evaluation-harness">lm-evaluation-harness</a> on your Phase-3 SFT model, then <strong>read the task YAML + code</strong> for one task until &quot;MMLU 5-shot 64.2&quot; decomposes into exact mechanical operations. Also skim UK AISI's <strong>Inspect</strong> framework — the cleanest modern eval-engineering codebase.</p>
+<h2 id="4-6-why-evals-are-broken-and-why-that-s-your-opportunity">4.6 Why evals are broken (and why that's your opportunity)</h2>
+<ul>
+<li><strong>Contamination:</strong> benchmarks leak into pretraining crawls; a model may have *memorized* the test set. Detection (n-gram overlap, canary strings) is imperfect; treat every headline number with suspicion.</li>
+<li><strong>Goodhart, again:</strong> labs optimize toward famous benchmarks (sometimes unintentionally via data mixture choices), so saturated benchmarks stop measuring anything (MMLU is effectively dead at the frontier; hence GPQA — arXiv:2311.12022, &quot;Google-proof&quot; expert questions — and SWE-bench — arXiv:2310.06770, real GitHub issues scored by real test suites).</li>
+<li><strong>Construct validity</strong> — does the number measure what its name claims? Most &quot;reasoning&quot; benchmarks partially measure memorization + format compliance. The papers worth emulating obsess over: human baselines, agreement audits, error analysis, held-out secrecy.</li>
+</ul>
+<p>You have personally hit lexical-pool inversion, anchored verifiers, and the no-human-gold problem in your own benchmark project — that *is* the construct-validity literature, learned the honest way. <strong>Eval-building is a genuinely undersupplied research skill</strong> at every lab, and the most credible near-term lane for you to produce work people cite (more in Phase 6).</p>
+<p><strong>Build:</strong> write one custom eval task in lm-eval-harness or Inspect — ideally a small slice of your Gutenberg benchmark ported into a standard harness — and run it across 3 open models + one API model. Deliverable: a table, an error analysis, and one paragraph on what the number does and doesn't mean.</p>
+<h2 id="4-7-now-readable">4.7 Now readable</h2>
+<p><strong>FlashAttention</strong> (2205.14135), <strong>vLLM/PagedAttention</strong> (2309.06180), <strong>speculative decoding</strong> (2211.17192), <strong>GPQA</strong> (2311.12022), <strong>SWE-bench</strong> (2310.06770), and skim <strong>&quot;Judging LLM-as-a-Judge&quot;</strong> (MT-Bench, 2306.05685) for the judge-bias catalog. Optional dessert: GPT-4 technical report's contamination appendix.</p>
+<h2 id="checkpoint">Checkpoint</h2>
+<ol>
+<li>Compute the batch-1 decode ceiling for an 8B model in fp16 on a 4090 (1.0 TB/s). Now at int4. Now explain in one sentence why batch 32 changes the economics.</li>
+<li>KV-cache bytes for Llama-3-8B (32 layers, 8 kv-heads, head_dim 128) at 128k context?</li>
+<li>Why does speculative decoding give *exactly* the target model's distribution? What breaks if you skip the rejection step?</li>
+<li>Name three distinct ways a published &quot;MMLU 78&quot; can be wrong without anyone lying.</li>
+<li>Your harness task: show the exact final prompt string sent to the model for one example. (If you can't produce it, you don't control your eval.)</li>
+</ol>
+<p>Then: <a href="/curriculum/05-interpretability">05-interpretability.md</a> — opening the model up. The phase most aligned with doing novel research on a founder's compute budget.</p></main>
+</body>
+</html>

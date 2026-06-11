@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phase 0 - Alpha Research Curriculum</title>
+  <style>
+    :root { color-scheme: light; --ink:#171717; --muted:#666; --line:#e5e5e5; --paper:#fff; --soft:#f7f7f5; --accent:#0f766e; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:var(--paper); line-height:1.62; }
+    header { border-bottom:1px solid var(--line); background:rgba(255,255,255,.96); position:sticky; top:0; z-index:2; }
+    .bar { max-width:1040px; margin:0 auto; padding:14px 18px 10px; }
+    .brand { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:10px; }
+    .brand a { color:var(--ink); text-decoration:none; font-weight:750; }
+    .brand span { color:var(--muted); font-size:13px; }
+    nav { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none; }
+    nav a { flex:0 0 auto; border:1px solid var(--line); color:#333; text-decoration:none; border-radius:999px; padding:7px 11px; font-size:14px; background:#fff; }
+    nav a[aria-current="page"] { border-color:var(--accent); color:#064e47; background:#ecfdf9; }
+    main { max-width:820px; margin:0 auto; padding:28px 18px 72px; }
+    h1 { font-size:clamp(31px, 7vw, 52px); line-height:1.04; letter-spacing:0; margin:10px 0 18px; }
+    h2 { font-size:clamp(24px, 5vw, 34px); line-height:1.14; letter-spacing:0; margin:44px 0 14px; padding-top:10px; border-top:1px solid var(--line); }
+    h3 { font-size:22px; line-height:1.22; letter-spacing:0; margin:34px 0 10px; }
+    h4 { font-size:18px; margin:24px 0 8px; }
+    p, li { font-size:17px; }
+    p { margin:0 0 18px; }
+    ul, ol { padding-left:23px; margin:0 0 22px; }
+    li { margin:8px 0; }
+    a { color:#0f766e; text-underline-offset:3px; }
+    blockquote { margin:24px 0; padding:13px 16px; border-left:4px solid var(--accent); background:#f1fbf8; border-radius:0 8px 8px 0; }
+    blockquote p { margin:0; }
+    .table-scroll { overflow-x:auto; margin:22px 0 28px; border:1px solid var(--line); border-radius:8px; }
+    table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; line-height:1.45; }
+    th, td { text-align:left; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--line); }
+    th { background:var(--soft); font-weight:750; }
+    tr:last-child td { border-bottom:0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.92em; background:var(--soft); border:1px solid var(--line); border-radius:6px; padding:1px 5px; overflow-wrap:anywhere; }
+    hr { border:0; border-top:1px solid var(--line); margin:30px 0; }
+    .task { list-style:none; margin-left:-23px; display:flex; align-items:flex-start; gap:9px; }
+    .task input { margin-top:7px; width:16px; height:16px; flex:0 0 auto; }
+    @media (max-width: 560px) {
+      .bar { padding-inline:14px; }
+      main { padding:22px 16px 56px; }
+      p, li { font-size:16px; }
+      nav a { font-size:13px; padding:7px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <div class="brand"><a href="/curriculum/daily">AI Research Curriculum</a><span>133 daily packets</span></div>
+      <nav aria-label="Curriculum phases"><a href="/curriculum">Guide</a><a href="/curriculum/daily">Daily packets</a><a href="/curriculum/daily/phase-0" aria-current="page">Phase 0</a><a href="/curriculum/daily/phase-1">Phase 1</a><a href="/curriculum/daily/phase-2">Phase 2</a><a href="/curriculum/daily/phase-3">Phase 3</a><a href="/curriculum/daily/phase-4">Phase 4</a><a href="/curriculum/daily/phase-5">Phase 5</a><a href="/curriculum/daily/phase-6">Phase 6</a><a href="/curriculum/paper-ladder">Papers</a></nav>
+    </div>
+  </header>
+  <main><h1 id="phase-0-daily-packets-foundations-days-1-14">Phase 0 daily packets — Foundations (Days 1–14)</h1>
+<p>Delivers: backprop written from scratch in pure Python and fluent shape-reading. Prerequisite: none — this is the start; all you need is a laptop with Python.</p>
+<h3 id="day-1-orientation-and-repo-setup">Day 1 — Orientation and repo setup</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="/curriculum/00-foundations">Phase 0 guide</a></p>
+<p><strong>Do:</strong> Read the curriculum README and the full Phase 0 guide top to bottom. Then create the repo that lives until Phase 6: <code>mkdir llm-from-scratch &amp;&amp; git init</code>, make a Python venv, <code>pip install torch numpy matplotlib jupyter</code>, and create an empty <code>vocab.md</code> (your vocabulary notebook).</p>
+<p><strong>Explains:</strong> The whole field is a pure function from float arrays to float arrays, plus a for-loop that nudges the floats — everything ahead elaborates that one sentence.</p>
+<p><strong>Done when:</strong> Inside the repo's venv, <code>python -c &quot;import torch; print(torch.randn(3,4).shape)&quot;</code> prints <code>torch.Size([3, 4])</code>, and <code>vocab.md</code> is committed.</p>
+<h3 id="day-2-micrograd-i-derivatives-and-the-value-graph">Day 2 — micrograd I: derivatives and the Value graph</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://www.youtube.com/watch?v=VMj-3S1tku0">The spelled-out intro to neural networks and backpropagation: building micrograd</a></p>
+<p><strong>Do:</strong> Watch 0:00–51:00 (derivatives by nudging, the Value object, manual backprop on a simple expression). Pause constantly and type every character into your repo — never copy-paste (background: section 0.2 of the phase guide).</p>
+<p><strong>Explains:</strong> A gradient is just &quot;nudge this input by ε and the output moves by ε × grad&quot; — a number you can estimate by literally nudging and re-running.</p>
+<p><strong>Done when:</strong> Your repo has a <code>Value</code> class supporting <code>+</code> and <code>*</code> with a graph-drawing helper, and your hand-computed gradients for the <code>L = (a*b + c) * f</code> example match Karpathy's on-screen values exactly.</p>
+<h3 id="day-3-micrograd-ii-backward-for-real">Day 3 — micrograd II: backward() for real</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://www.youtube.com/watch?v=VMj-3S1tku0">The spelled-out intro to neural networks and backpropagation: building micrograd</a></p>
+<p><strong>Do:</strong> Watch 51:00–1:39:30 (manual backprop through a tanh neuron, <code>_backward</code> closures per op, topological sort, the multi-use-node gradient-accumulation bug). Type it all; deliberately reproduce the accumulation bug, then fix it with <code>+=</code>.</p>
+<p><strong>Explains:</strong> Backprop is the chain rule applied right-to-left over a recorded graph of operations — section 0.2 of the phase guide is now code you wrote.</p>
+<p><strong>Done when:</strong> Calling <code>.backward()</code> on the tanh-neuron example reproduces yesterday's manual gradients, and your grads match PyTorch autograd on the same expression to 6 decimal places (the video's comparison check passes).</p>
+<h3 id="day-4-micrograd-iii-train-an-mlp-with-your-autograd">Day 4 — micrograd III: train an MLP with your autograd</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://www.youtube.com/watch?v=VMj-3S1tku0">The spelled-out intro to neural networks and backpropagation: building micrograd</a></p>
+<p><strong>Do:</strong> Watch 1:39:30–end (Neuron/Layer/MLP classes, the loss, the gradient-descent loop). Build the MLP on top of your Value class and train it on the 4-example dataset, watching the loss fall step by step (background: section 0.4 of the phase guide — this is the training loop, the same one frontier labs run).</p>
+<p><strong>Explains:</strong> Training is a for-loop: forward, one scalar loss, backward, nudge every parameter against its grad — at every scale from this 41-parameter MLP to a frontier model.</p>
+<p><strong>Done when:</strong> Your training loop drives loss below 0.1 on the 4-example dataset and all four predictions are within 0.1 of their targets.</p>
+<h3 id="day-5-math-grounding-with-3blue1brown">Day 5 — Math grounding with 3Blue1Brown</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="https://www.youtube.com/watch?v=aircAruvnKk">But what is a neural network? — 3Blue1Brown, Deep learning chapter 1</a></p>
+<p><strong>Do:</strong> Watch chapters 1–4 of the Deep Learning series at 1.5x (chapter 1 is the link; 2–4 are next in the same playlist — gradient descent, backprop intuition, backprop calculus). You built all of this in Days 2–4; now attach the pictures. Then write one-line grounded entries in <code>vocab.md</code> for the seven objects in section 0.5 of the phase guide: dot product, matmul, chain rule, softmax, cross-entropy, expectation/variance, KL divergence.</p>
+<p><strong>Explains:</strong> The seven math objects you'll meet daily — each one tied to where it physically appears in a model rather than to a semester of theory.</p>
+<p><strong>Done when:</strong> <code>vocab.md</code> contains all seven entries, each written without looking at the phase guide, and each naming where the object shows up in a model.</p>
+<h3 id="day-6-makemore-i-the-bigram-counting-model">Day 6 — makemore I: the bigram counting model</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://www.youtube.com/watch?v=PaCmpygFfXo">The spelled-out intro to language modeling: building makemore</a></p>
+<p><strong>Do:</strong> Watch 0:00–1:02 at 1.25–1.5x, pausing to type: load names.txt, build the 27×27 bigram count matrix, normalize to probabilities, sample names, compute average negative log-likelihood.</p>
+<p><strong>Explains:</strong> A language model is anything that assigns a probability to the next token given context — here the entire &quot;model&quot; is one 27×27 array of counts you can print and read.</p>
+<p><strong>Done when:</strong> Your counting bigram model prints an average NLL on names.txt of 2.45 ± 0.01 and samples 10 (bad but pronounceable) names.</p>
+<h3 id="day-7-makemore-i-the-same-model-by-gradient-descent">Day 7 — makemore I: the same model by gradient descent</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://www.youtube.com/watch?v=PaCmpygFfXo">The spelled-out intro to language modeling: building makemore</a></p>
+<p><strong>Do:</strong> Watch 1:02–end at 1.25–1.5x, typing along: one-hot inputs, a single 27×27 weight matrix, logits → softmax → loss, then optimize with gradient descent instead of counting. Confirm it converges to the same answer as Day 6.</p>
+<p><strong>Explains:</strong> Counting and gradient descent find the same model — logits, softmax, and cross-entropy (sections 0.4 and 0.5 of the phase guide) are just the differentiable route to it.</p>
+<p><strong>Done when:</strong> Your gradient-trained single-layer net reaches loss ≤ 2.48 on names.txt, within ~0.03 of the counting model.</p>
+<h3 id="day-8-makemore-ii-the-mlp-language-model">Day 8 — makemore II: the MLP language model</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://youtu.be/TCH_1BHY58I">Building makemore Part 2: MLP</a></p>
+<p><strong>Do:</strong> Watch the full video (1h15m) at 1.5x, pausing to type: character embeddings, a 3-character context window, hidden tanh layer, minibatches, learning-rate tuning, train/dev/test split. This is the architecture you will rebuild from memory on Day 12 — type it like you mean it.</p>
+<p><strong>Explains:</strong> An embedding is a lookup into a trainable float matrix, and a train/val split is how you catch a model memorizing instead of learning.</p>
+<p><strong>Done when:</strong> Your MLP's validation loss is below 2.30 (clearly beating the bigram's 2.45) and the script samples 20 names.</p>
+<h3 id="day-9-makemore-iii-initialization-and-activation-health">Day 9 — makemore III: initialization and activation health</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://youtu.be/P6sfmUTpUmc">Building makemore Part 3: Activations &amp; Gradients, BatchNorm</a></p>
+<p><strong>Do:</strong> Watch 0:00–1:00 at 1.5x, typing along: why initial loss should be −log(1/27) ≈ 3.3 and not 27, saturated tanh units, Kaiming initialization, and the activation/gradient histograms. Save the histogram plots into your repo.</p>
+<p><strong>Explains:</strong> Bad initialization wastes the first chunk of training and can kill neurons outright — and you can see both pathologies in a histogram before wasting a single GPU-hour.</p>
+<p><strong>Done when:</strong> After your init fixes, step-0 loss prints ≈ 3.3 (not 20+), and the activation-histogram plot exists as a file in your repo.</p>
+<h3 id="day-10-makemore-iii-batchnorm-by-hand">Day 10 — makemore III: BatchNorm by hand</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://youtu.be/P6sfmUTpUmc">Building makemore Part 3: Activations &amp; Gradients, BatchNorm</a></p>
+<p><strong>Do:</strong> Watch 1:00–end at 1.5x, typing along: implement BatchNorm1d yourself (batch mean/std normalization, gain, bias, running stats), insert it into the MLP, retrain, and study the diagnostic plots.</p>
+<p><strong>Explains:</strong> BatchNorm forcibly re-standardizes a layer's pre-activations every step so deeper nets stay trainable — at the cost of coupling examples within a batch.</p>
+<p><strong>Done when:</strong> Your hand-rolled BatchNorm1d's output passes <code>torch.allclose</code> against <code>torch.nn.BatchNorm1d</code> on a random batch, and the retrained MLP matches your Day 9 validation loss or better.</p>
+<h3 id="day-11-backprop-ninja-manual-cross-entropy-backward">Day 11 — Backprop ninja: manual cross-entropy backward</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://youtu.be/q8SA3rM6ckI">Building makemore Part 4: Becoming a Backprop Ninja</a></p>
+<p><strong>Do:</strong> This video is an exercise, not a lecture: attempt each manual-backprop step yourself with the video paused, then watch his solution at 2x. Prioritize exercise 1 through the cross-entropy/softmax backward — that hand-written <code>backward()</code> is a Phase 0 deliverable (background: section 0.6 of the phase guide). If you run out of time, finish the cross-entropy portion and skim the rest.</p>
+<p><strong>Explains:</strong> The gradient of softmax + cross-entropy collapses to <code>probs - one_hot(target)</code> — the single most important derivative in language modeling, now yours by hand.</p>
+<p><strong>Done when:</strong> Your manually derived <code>dlogits</code> passes the video's <code>cmp</code> check (exact or approximate True) against PyTorch autograd.</p>
+<h3 id="day-12-rebuild-the-mlp-from-memory">Day 12 — Rebuild the MLP from memory</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://github.com/karpathy/makemore">karpathy/makemore</a></p>
+<p><strong>Do:</strong> Blank file, no video, no notes, no peeking at your Day 8 code: rebuild the MLP language model on names.txt — embeddings, context window, hidden layer, training loop with minibatches, train/val split, sampling. Diff against the linked reference repo only after your val loss is in range.</p>
+<p><strong>Explains:</strong> This is the phase's Feynman test in code form — if the architecture lives in your fingers, every transformer paper in Phase 1 becomes a description of something you can already build.</p>
+<p><strong>Done when:</strong> The from-memory script runs end-to-end, reaches validation loss &lt; 2.50, and samples 20 name-like strings — written in one sitting without consulting anything.</p>
+<h3 id="day-13-first-paper-bengio-2003">Day 13 — First paper: Bengio 2003</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf">A Neural Probabilistic Language Model (Bengio et al., 2003)</a></p>
+<p><strong>Do:</strong> Read sections 1, 2, and 4 closely with your Day 12 code open in a split pane; skim section 3 (2003-era parallelization). For every equation, name the variable in your code that is that equation. Note what &quot;large scale&quot; meant in 2003. Then read Karpathy's 2015 blog post &quot;The Unreasonable Effectiveness of Recurrent Neural Networks&quot; (search the title; it is on his github.io blog) for the pre-transformer sequence-modeling context.</p>
+<p><strong>Explains:</strong> Your makemore MLP *is* this paper — the feeling of &quot;the paper just describes code I wrote&quot; is the experience this entire curriculum optimizes for.</p>
+<p><strong>Done when:</strong> A note in your repo maps Bengio's C matrix, hidden layer, and softmax output each to a specific line or variable in your Day 12 script — all three rows filled in.</p>
+<h3 id="day-14-phase-0-checkpoint-cold">Day 14 — Phase 0 checkpoint, cold</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="/curriculum/00-foundations">Phase 0 guide</a></p>
+<p><strong>Do:</strong> Close every note, file, and tab. Answer all five checkpoint items at the end of the phase guide from memory: the nn.Linear(512, 2048) parameter/byte/Adam-state counts, what is physically in memory after <code>loss.backward()</code>, the two reasons for log-probs, the loss-4.17-with-vocab-65 verdict, and a numerically stable numpy softmax. Check your answers against the guide only after finishing. Any miss: redo the relevant day, retake tomorrow.</p>
+<p><strong>Explains:</strong> The checkpoint is the curriculum's only quality gate — passing it cold is the difference between &quot;watched the videos&quot; and &quot;owns the material.&quot;</p>
+<p><strong>Done when:</strong> All five items answered correctly in one closed-notes sitting, including a numpy softmax that runs on <code>[1000, 1000, 1000]</code> without overflow.</p></main>
+</body>
+</html>

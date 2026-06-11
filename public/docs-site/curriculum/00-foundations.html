@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Foundations - Alpha Research Curriculum</title>
+  <style>
+    :root { color-scheme: light; --ink:#171717; --muted:#666; --line:#e5e5e5; --paper:#fff; --soft:#f7f7f5; --accent:#0f766e; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:var(--paper); line-height:1.62; }
+    header { border-bottom:1px solid var(--line); background:rgba(255,255,255,.96); position:sticky; top:0; z-index:2; }
+    .bar { max-width:1040px; margin:0 auto; padding:14px 18px 10px; }
+    .brand { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:10px; }
+    .brand a { color:var(--ink); text-decoration:none; font-weight:750; }
+    .brand span { color:var(--muted); font-size:13px; }
+    nav { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none; }
+    nav a { flex:0 0 auto; border:1px solid var(--line); color:#333; text-decoration:none; border-radius:999px; padding:7px 11px; font-size:14px; background:#fff; }
+    nav a[aria-current="page"] { border-color:var(--accent); color:#064e47; background:#ecfdf9; }
+    main { max-width:820px; margin:0 auto; padding:28px 18px 72px; }
+    h1 { font-size:clamp(31px, 7vw, 52px); line-height:1.04; letter-spacing:0; margin:10px 0 18px; }
+    h2 { font-size:clamp(24px, 5vw, 34px); line-height:1.14; letter-spacing:0; margin:44px 0 14px; padding-top:10px; border-top:1px solid var(--line); }
+    h3 { font-size:22px; line-height:1.22; letter-spacing:0; margin:34px 0 10px; }
+    h4 { font-size:18px; margin:24px 0 8px; }
+    p, li { font-size:17px; }
+    p { margin:0 0 18px; }
+    ul, ol { padding-left:23px; margin:0 0 22px; }
+    li { margin:8px 0; }
+    a { color:#0f766e; text-underline-offset:3px; }
+    blockquote { margin:24px 0; padding:13px 16px; border-left:4px solid var(--accent); background:#f1fbf8; border-radius:0 8px 8px 0; }
+    blockquote p { margin:0; }
+    .table-scroll { overflow-x:auto; margin:22px 0 28px; border:1px solid var(--line); border-radius:8px; }
+    table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; line-height:1.45; }
+    th, td { text-align:left; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--line); }
+    th { background:var(--soft); font-weight:750; }
+    tr:last-child td { border-bottom:0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.92em; background:var(--soft); border:1px solid var(--line); border-radius:6px; padding:1px 5px; overflow-wrap:anywhere; }
+    hr { border:0; border-top:1px solid var(--line); margin:30px 0; }
+    .task { list-style:none; margin-left:-23px; display:flex; align-items:flex-start; gap:9px; }
+    .task input { margin-top:7px; width:16px; height:16px; flex:0 0 auto; }
+    @media (max-width: 560px) {
+      .bar { padding-inline:14px; }
+      main { padding:22px 16px 56px; }
+      p, li { font-size:16px; }
+      nav a { font-size:13px; padding:7px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <div class="brand"><a href="/curriculum/daily">AI Research Curriculum</a><span>133 daily packets</span></div>
+      <nav aria-label="Curriculum phases"><a href="/curriculum">Guide</a><a href="/curriculum/daily">Daily packets</a><a href="/curriculum/daily/phase-0">Phase 0</a><a href="/curriculum/daily/phase-1">Phase 1</a><a href="/curriculum/daily/phase-2">Phase 2</a><a href="/curriculum/daily/phase-3">Phase 3</a><a href="/curriculum/daily/phase-4">Phase 4</a><a href="/curriculum/daily/phase-5">Phase 5</a><a href="/curriculum/daily/phase-6">Phase 6</a><a href="/curriculum/paper-ladder">Papers</a></nav>
+    </div>
+  </header>
+  <main><h1 id="phase-0-foundations-tensors-gradients-and-the-training-loop">Phase 0 — Foundations: tensors, gradients, and the training loop</h1>
+<p><strong>Goal:</strong> rebuild the muscle memory from that college ML course, but grounded so hard it can't evaporate again. At the end you can write backpropagation from scratch in pure Python and you read tensor shapes the way you read type signatures.</p>
+<p><strong>Time:</strong> 2–3 weeks. <strong>Hardware:</strong> laptop.</p>
+<hr>
+<h2 id="0-1-what-a-tensor-actually-is">0.1 What a tensor actually is</h2>
+<p>A tensor is <strong>a contiguous block of numbers in memory, plus a shape</strong>. <code>torch.randn(3, 4)</code> allocates 12 float32s (48 bytes) and remembers <code>(3, 4)</code> so indexing works. That's the whole object. A &quot;3D tensor of shape (32, 1024, 768)&quot; is 32×1024×768 = 25,165,824 floats sitting in RAM (or VRAM), ~100 MB at 4 bytes each, with bookkeeping that maps <code>x[5, 200, 3]</code> to a byte offset.</p>
+<p>Three facts you'll use daily:</p>
+<ul>
+<li><strong>dtype</strong> is bytes-per-number: float32 = 4 bytes, bfloat16 = 2, int8 = 1. Model memory math is always <code>param_count × bytes_per_dtype</code>.</li>
+<li><strong>A GPU</strong> is a card with its own RAM (VRAM) and thousands of weak cores that are 100–1000× faster than your CPU *at one thing*: applying the same arithmetic to huge arrays in parallel — above all, matrix multiplication. &quot;Moving a tensor to GPU&quot; (<code>x.cuda()</code>) literally copies the bytes over the PCIe bus into VRAM.</li>
+<li><strong>Shapes are your type system.</strong> A matmul <code>(B, T, C) @ (C, D) → (B, T, D)</code> is the field's function application. When you read a paper, you are mostly reconstructing shapes the authors didn't write down. Train the reflex now: never write a tensor op without being able to say its output shape.</li>
+</ul>
+<h2 id="0-2-what-pytorch-actually-is">0.2 What PyTorch actually is</h2>
+<p>A C++/CUDA library with Python bindings that provides exactly two services:</p>
+<ol>
+<li><strong>Fast array math</strong> (the tensor ops above, dispatched to CPU or GPU kernels — a &quot;kernel&quot; is a small C++/CUDA function that runs one operation over an array).</li>
+<li><strong>Autograd:</strong> as your Python code runs ops on tensors, PyTorch *records each operation* into a graph (a literal linked structure of &quot;this tensor was produced by matmul of those two tensors&quot;). When you later call <code>loss.backward()</code>, it walks that graph in reverse, applying the chain rule mechanically, and deposits into every parameter's <code>.grad</code> field <strong>an array of the same shape as the parameter</strong> whose entries mean: *&quot;if you nudged this particular weight up by ε, the loss would change by ε × this number.&quot;*</li>
+</ol>
+<p>That's all backprop is: chain rule on a recorded graph, done by a library. No magic, no learning-specific math — it's automatic differentiation, the same trick used in physics simulators.</p>
+<h2 id="0-3-what-a-model-actually-is">0.3 What a model actually is</h2>
+<p>A model is <strong>a named collection of tensors (&quot;parameters&quot; / &quot;weights&quot;) plus a function (<code>forward</code>) that combines an input with those tensors to produce an output</strong>. In PyTorch, <code>model.state_dict()</code> shows you the truth: an ordered dict like</p>
+<p>``<code> transformer.h.0.attn.c_attn.weight   torch.Size([768, 2304]) transformer.h.0.attn.c_attn.bias     torch.Size([2304]) ... </code>``</p>
+<p>&quot;Downloading a model from Hugging Face&quot; = downloading those float arrays serialized into a file (<code>.safetensors</code>, basically a header plus raw bytes). GPT-2 small has 124M parameters → 124M × 4 bytes ≈ <strong>500 MB on disk in fp32</strong>. When a lab &quot;ships a model,&quot; the deliverable is that file. When a paper says &quot;we initialize from Llama-3-8B,&quot; it means they loaded that file and kept training.</p>
+<p>So: *a model is a pure function* <code>f(input, θ)</code> where θ is a few GB of floats, and everything in this field is about (a) choosing the structure of <code>f</code> (architecture), (b) choosing θ (training), or (c) running <code>f</code> cheaply (inference).</p>
+<h2 id="0-4-what-training-actually-is">0.4 What training actually is</h2>
+<p>A for-loop. Literally this, and at every scale from laptop to frontier lab:</p>
+<p>``<code>python for step in range(max_steps): x, y = get_batch(data)        # arrays of token ids, e.g. shape (32, 1024) logits = model(x)             # forward pass: a few hundred matmuls loss = cross_entropy(logits, y)   # ONE scalar number loss.backward()               # fill every param's .grad array optimizer.step()              # nudge every param: w -= lr * (function of grad) optimizer.zero_grad() </code>``</p>
+<p>A &quot;training run&quot; is a Python process (or thousands of coordinated processes) executing this loop for hours to months. A &quot;loss curve&quot; is the scalar from line 4 logged every step and plotted. &quot;The model is learning&quot; = that number is going down. When you read &quot;we trained for 1M steps with batch size 4M tokens,&quot; you can now compute exactly what happened: that loop ran a million times, each iteration consuming 4M tokens.</p>
+<p><strong>An optimizer</strong> is a small function with state. SGD: <code>w -= lr * grad</code>. <strong>Adam/AdamW</strong> (the default everywhere): keeps *two extra arrays per parameter* — a running average of gradients (momentum) and of squared gradients (per-weight step-size normalization) — and updates <code>w -= lr * momentum / sqrt(sq_avg)</code>. Memory consequence you'll meet in Phase 2: Adam triples your parameter memory.</p>
+<h2 id="0-5-the-math-you-actually-need-just-in-time">0.5 The math you actually need (just-in-time)</h2>
+<p>Not a semester. Seven objects, each grounded in where it appears:</p>
+<ol>
+<li><strong>Dot product</strong> <code>a·b = Σ aᵢbᵢ</code> — the similarity score between two vectors. Attention (Phase 1) is built entirely from dot products.</li>
+<li><strong>Matrix multiply</strong> — a batch of dot products. <code>(n,k)@(k,m)</code>: every row of A dotted with every column of B. ~All FLOPs in an LLM are this.</li>
+<li><strong>Derivative + chain rule</strong> — <code>d(f(g(x)))/dx = f'(g(x))·g'(x)</code>. Backprop is the chain rule applied right-to-left through the recorded graph, reusing intermediate results. You'll implement it by hand this phase; afterward it's never mysterious again.</li>
+<li><strong>Softmax</strong> — <code>softmax(z)ᵢ = e^{zᵢ}/Σⱼe^{zⱼ}</code>. A function from any real vector to a probability distribution (positive, sums to 1). Appears twice in a transformer: attention weights, and final next-token probabilities. Temperature (Phase 4) is just dividing z first.</li>
+<li><strong>Log-probs and cross-entropy</strong> — the loss in line 4 above is: *the negative log of the probability the model assigned to the correct next token*, averaged over positions. Loss 2.3 means the model put e^{-2.3} ≈ 10% on the right answer on average. <strong>Perplexity</strong> = e^{loss} ≈ &quot;the model was choosing uniformly among ~10 tokens.&quot; Why logs? Products of many small probabilities underflow; sums of logs don't, and gradients are nicer.</li>
+<li><strong>Expectation / variance</strong> — needed to read RL objectives (Phase 3), which are all &quot;expected reward under the policy's distribution.&quot;</li>
+<li><strong>KL divergence</strong> — <code>KL(P‖Q) = Σ P log(P/Q)</code>, a number measuring how much distribution P diverges from Q; 0 iff identical. Appears as the &quot;don't drift from the reference model&quot; leash in RLHF.</li>
+</ol>
+<p><strong>Resources (reference, not homework):</strong> 3Blue1Brown's *Essence of Linear Algebra* + *Neural Networks* series (the best visual grounding in existence); *Mathematics for Machine Learning* (Deisenroth, free PDF) only as a lookup table.</p>
+<h2 id="0-6-the-build">0.6 The build</h2>
+<p>This phase's spine is <strong>Karpathy's &quot;Neural Networks: Zero to Hero&quot;</strong> (YouTube + <a href="https://github.com/karpathy/nn-zero-to-hero">karpathy/nn-zero-to-hero</a>). It is the Lingua Latina of deep learning — he types every character on screen. Do not watch passively: pause, type everything yourself, in your own repo (<code>mkdir llm-from-scratch</code> — this repo lives until Phase 6).</p>
+<ol>
+<li><strong>micrograd</strong> (video 1): build autograd in ~100 lines of pure Python — a <code>Value</code> class holding one float, its grad, and a closure that knows how to backprop through the op that produced it. Then train a tiny MLP with it. *After this, section 0.2 is something you wrote, not something you read.*</li>
+<li><strong>makemore parts 1–3</strong> (bigram model, MLP, activations/BatchNorm): character-level language models over a names dataset. You meet: embeddings, logits, cross-entropy, train/val split, overfitting — all at a scale where you can print every tensor.</li>
+<li><strong>Deliverable:</strong> in your repo, *from memory, no video*: an MLP language model trained on names, plus a hand-written <code>backward()</code> for a softmax + cross-entropy layer (makemore part 4 walks this if stuck).</li>
+</ol>
+<h2 id="0-7-now-readable-your-first-graded-readers">0.7 Now readable (your first graded readers)</h2>
+<ul>
+<li><strong>Bengio et al. 2003, &quot;A Neural Probabilistic Language Model&quot;</strong> — the makemore MLP *is* this paper. Read it to experience the feeling this curriculum optimizes for: &quot;I built this; the paper is just describing it formally.&quot; Note what 2003-era scale was (a 17k-word vocab was hard).</li>
+<li>Karpathy's blog post <strong>&quot;The Unreasonable Effectiveness of Recurrent Neural Networks&quot;</strong> (2015) — pre-transformer history, pure pleasure reading; gives you the &quot;why did everyone want better sequence models&quot; context for Phase 1.</li>
+</ul>
+<h2 id="checkpoint-do-cold-no-notes">Checkpoint (do cold, no notes)</h2>
+<ol>
+<li><code>nn.Linear(512, 2048)</code>: how many parameters? (512×2048 + 2048.) How many bytes in bf16? How many in the Adam optimizer state?</li>
+<li>Explain to a rubber duck what is *physically in memory* after <code>loss.backward()</code> that wasn't there before.</li>
+<li>Why train on log-probabilities instead of probabilities? Two reasons.</li>
+<li>Your training loss is 4.17 with a vocab of 65 characters. Is the model better than random? (Random = log 65 ≈ 4.17 → no, exactly at chance.)</li>
+<li>Write softmax in numpy without exponent overflow (subtract the max — know why that's valid).</li>
+</ol>
+<p>When these are easy, go to <a href="/curriculum/01-the-transformer">01-the-transformer.md</a>.</p></main>
+</body>
+</html>

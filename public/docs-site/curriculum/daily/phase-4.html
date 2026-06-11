@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phase 4 - Alpha Research Curriculum</title>
+  <style>
+    :root { color-scheme: light; --ink:#171717; --muted:#666; --line:#e5e5e5; --paper:#fff; --soft:#f7f7f5; --accent:#0f766e; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:var(--paper); line-height:1.62; }
+    header { border-bottom:1px solid var(--line); background:rgba(255,255,255,.96); position:sticky; top:0; z-index:2; }
+    .bar { max-width:1040px; margin:0 auto; padding:14px 18px 10px; }
+    .brand { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:10px; }
+    .brand a { color:var(--ink); text-decoration:none; font-weight:750; }
+    .brand span { color:var(--muted); font-size:13px; }
+    nav { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none; }
+    nav a { flex:0 0 auto; border:1px solid var(--line); color:#333; text-decoration:none; border-radius:999px; padding:7px 11px; font-size:14px; background:#fff; }
+    nav a[aria-current="page"] { border-color:var(--accent); color:#064e47; background:#ecfdf9; }
+    main { max-width:820px; margin:0 auto; padding:28px 18px 72px; }
+    h1 { font-size:clamp(31px, 7vw, 52px); line-height:1.04; letter-spacing:0; margin:10px 0 18px; }
+    h2 { font-size:clamp(24px, 5vw, 34px); line-height:1.14; letter-spacing:0; margin:44px 0 14px; padding-top:10px; border-top:1px solid var(--line); }
+    h3 { font-size:22px; line-height:1.22; letter-spacing:0; margin:34px 0 10px; }
+    h4 { font-size:18px; margin:24px 0 8px; }
+    p, li { font-size:17px; }
+    p { margin:0 0 18px; }
+    ul, ol { padding-left:23px; margin:0 0 22px; }
+    li { margin:8px 0; }
+    a { color:#0f766e; text-underline-offset:3px; }
+    blockquote { margin:24px 0; padding:13px 16px; border-left:4px solid var(--accent); background:#f1fbf8; border-radius:0 8px 8px 0; }
+    blockquote p { margin:0; }
+    .table-scroll { overflow-x:auto; margin:22px 0 28px; border:1px solid var(--line); border-radius:8px; }
+    table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; line-height:1.45; }
+    th, td { text-align:left; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--line); }
+    th { background:var(--soft); font-weight:750; }
+    tr:last-child td { border-bottom:0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.92em; background:var(--soft); border:1px solid var(--line); border-radius:6px; padding:1px 5px; overflow-wrap:anywhere; }
+    hr { border:0; border-top:1px solid var(--line); margin:30px 0; }
+    .task { list-style:none; margin-left:-23px; display:flex; align-items:flex-start; gap:9px; }
+    .task input { margin-top:7px; width:16px; height:16px; flex:0 0 auto; }
+    @media (max-width: 560px) {
+      .bar { padding-inline:14px; }
+      main { padding:22px 16px 56px; }
+      p, li { font-size:16px; }
+      nav a { font-size:13px; padding:7px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <div class="brand"><a href="/curriculum/daily">AI Research Curriculum</a><span>133 daily packets</span></div>
+      <nav aria-label="Curriculum phases"><a href="/curriculum">Guide</a><a href="/curriculum/daily">Daily packets</a><a href="/curriculum/daily/phase-0">Phase 0</a><a href="/curriculum/daily/phase-1">Phase 1</a><a href="/curriculum/daily/phase-2">Phase 2</a><a href="/curriculum/daily/phase-3">Phase 3</a><a href="/curriculum/daily/phase-4" aria-current="page">Phase 4</a><a href="/curriculum/daily/phase-5">Phase 5</a><a href="/curriculum/daily/phase-6">Phase 6</a><a href="/curriculum/paper-ladder">Papers</a></nav>
+    </div>
+  </header>
+  <main><h1 id="phase-4-daily-packets-inference-and-evals-days-81-95">Phase 4 daily packets — Inference and evals (Days 81–95)</h1>
+<p>Delivers a KV-cached, fully-knobbed nanoGPT sampler, decode-ceiling arithmetic you can do on a napkin, and a slice of your Gutenberg benchmark running in a standard eval harness across 4 models. Prerequisite: Phase 3 checkpoint passed.</p>
+<h3 id="day-81-kv-cache-implement">Day 81 — KV cache: implement</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://github.com/karpathy/nanoGPT">karpathy/nanoGPT</a></p>
+<p><strong>Do:</strong> Add a KV cache to your nanoGPT's <code>generate()</code>: per layer, persist K and V tensors of shape <code>(batch, kv_heads, seq_len, head_dim)</code> and compute q/k/v only for the newest token each step, attending against the cache (background: section 4.2 of the phase guide). ~40 lines; diff against the reference repo only when stuck.</p>
+<p><strong>Explains:</strong> Why generation does O(1) work per token instead of recomputing the whole prefix — the K/V vectors of past tokens never change, so they live in VRAM as growing arrays.</p>
+<p><strong>Done when:</strong> Cached and uncached <code>generate()</code> emit identical token sequences from the same seed at temperature 0.</p>
+<h3 id="day-82-kv-cache-benchmark">Day 82 — KV cache: benchmark</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="/curriculum/04-inference-and-evals">Phase 4 guide</a></p>
+<p><strong>Do:</strong> Benchmark tokens/sec for cached vs. uncached <code>generate()</code> at generation lengths 64, 256, and 1024 on the same prompt, then plot both curves against sequence length. Also compute your cache's byte size at each length using the formula in section 4.2 of the phase guide and confirm it matches what your process actually allocates.</p>
+<p><strong>Explains:</strong> The quadratic-vs-flat cost difference you just bought — uncached decode re-pays the whole prefix every token, cached decode pays only for one.</p>
+<p><strong>Done when:</strong> A saved plot file shows the uncached curve degrading with length while the cached curve stays near-flat.</p>
+<h3 id="day-83-sampling-knobs">Day 83 — Sampling knobs</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/1904.09751">The Curious Case of Neural Text Degeneration</a></p>
+<p><strong>Do:</strong> Implement temperature (<code>logits / T</code>), top-k, and top-p in your sampler — ~10 lines total, applied to the final logits before <code>multinomial</code> (background: section 4.3 of the phase guide). Then read sections 1–3 of the paper to see why naive sampling degenerates and nucleus sampling exists.</p>
+<p><strong>Explains:</strong> Every API's <code>temperature=0.7, top_p=0.9</code> is two lines of logit surgery you have now written yourself.</p>
+<p><strong>Done when:</strong> Your sampler exposes all three flags, and a saved file contains generations from one prompt at T=0, T=0.7, and T=1.5 plus one top-p=0.9 sample.</p>
+<h3 id="day-84-bandwidth-arithmetic-decode-ceilings">Day 84 — Bandwidth arithmetic: decode ceilings</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://kipp.ly/transformer-inference-arithmetic/">Transformer Inference Arithmetic</a></p>
+<p><strong>Do:</strong> Read the kv-cache and latency-calculation sections of the post, then build a table of batch-1 decode ceilings using <code>tokens/sec ≤ bandwidth / model-bytes</code> for 8B and 70B models, each in fp16 and int4, on a 4090 (1.0 TB/s) and an H100 (3.35 TB/s) — 8 cells minimum (background: section 4.1 of the phase guide).</p>
+<p><strong>Explains:</strong> Decode is memory-bound: every weight must cross the VRAM bus once per token, so bandwidth — not FLOPs — sets the speed limit, which is why batching, quantization, GQA, and MoE all exist.</p>
+<p><strong>Done when:</strong> The 8-cell table exists in your vocabulary notebook and you can write the ceiling formula plus the H100 70B-fp16 number (~24 tok/s) from memory.</p>
+<h3 id="day-85-flashattention-re-read-as-a-systems-paper">Day 85 — FlashAttention, re-read as a systems paper</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2205.14135">FlashAttention</a></p>
+<p><strong>Do:</strong> Re-read sections 1–3 wearing systems goggles: SRAM vs. HBM sizes and bandwidths, the tiling scheme, and the recompute-instead-of-store backward pass. Annotate every place the paper trades FLOPs for bytes-moved — the same trade governing your Day-84 table.</p>
+<p><strong>Explains:</strong> The memory-hierarchy argument behind your decode ceilings, applied one level down (SRAM vs. HBM instead of HBM vs. model size).</p>
+<p><strong>Done when:</strong> You can write the paper's two-row memory-hierarchy comparison (HBM vs. SRAM: approximate size and bandwidth) from memory and name the matrix FlashAttention never materializes.</p>
+<h3 id="day-86-vllm-and-pagedattention">Day 86 — vLLM and PagedAttention</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2309.06180">Efficient Memory Management for LLM Serving with PagedAttention</a></p>
+<p><strong>Do:</strong> Read sections 1–4, skipping kernel details, mapping each idea to its OS ancestor: fixed-size pages, the block (page) table, prefix sharing as copy-on-write. Note where continuous batching enters (background: section 4.4 of the phase guide). Your SWE instincts are the advantage here — read it as a virtual-memory paper.</p>
+<p><strong>Explains:</strong> Long-context serving is KV-cache memory management — vLLM is literally an OS page table for KV blocks, fixing the fragmentation your Day-82 cache would cause at scale.</p>
+<p><strong>Done when:</strong> You can draw from memory the block-table diagram for two sequences sharing a common prefix: logical blocks, physical blocks, and the shared block's reference count.</p>
+<h3 id="day-87-speculative-decoding">Day 87 — Speculative decoding</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2211.17192">Fast Inference from Transformers via Speculative Decoding</a></p>
+<p><strong>Do:</strong> Read sections 1–3, focusing on the rejection-sampling rule. Then work a 3-token toy example by hand: pick explicit draft probabilities q and target probabilities p, compute each token's acceptance probability min(1, p/q), and write down the resampling distribution on rejection (background: section 4.4 of the phase guide).</p>
+<p><strong>Explains:</strong> A cheap draft model proposes k tokens and the big model verifies them in one prefill-style pass — and the rejection rule makes the output distribution exactly the big model's, not approximately.</p>
+<p><strong>Done when:</strong> The hand-worked 3-token example exists on paper or in a notebook, with acceptance probabilities and the rejection-case resampling distribution computed.</p>
+<h3 id="day-88-llama-cpp-hands-on-reconcile-theory-with-a-real-machine">Day 88 — llama.cpp hands-on: reconcile theory with a real machine</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://github.com/ggml-org/llama.cpp">ggml-org/llama.cpp</a></p>
+<p><strong>Do:</strong> Build llama.cpp, download a 4-bit GGUF of a 7–8B model (~4–5 GB), and run <code>llama-cli</code> on a fixed prompt, recording the decode tokens/sec it prints. Then predict your ceiling: look up your machine's memory bandwidth, divide by the GGUF file size, and reconcile prediction vs. observation (background: sections 4.1 and 4.4 of the phase guide). Runs free on your laptop — no GPU rental.</p>
+<p><strong>Explains:</strong> The bandwidth formula is not theory — your laptop's observed tokens/sec lands within ~2x of bandwidth ÷ model-bytes, and the gap itself is informative (dequant overhead, attention cost).</p>
+<p><strong>Done when:</strong> A note exists with three numbers: observed tok/s, predicted ceiling, and their ratio, plus one sentence explaining the gap.</p>
+<h3 id="day-89-lm-evaluation-harness-run-it-then-read-it">Day 89 — lm-evaluation-harness: run it, then read it</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://github.com/EleutherAI/lm-evaluation-harness">EleutherAI/lm-evaluation-harness</a></p>
+<p><strong>Do:</strong> Install the harness and run one small loglikelihood task (e.g. hellaswag, limited to a few hundred examples) on your Phase-3 SFT model — local, free, your model is tiny. Then read that task's YAML and scoring code until &quot;the score&quot; decomposes into the four mechanical steps: format prompt, get output, score answer, aggregate (background: section 4.5 of the phase guide).</p>
+<p><strong>Explains:</strong> A benchmark is physically a JSONL file plus a Python script — loglikelihood scoring never generates text, it just compares the model's log-probs over fixed candidate answers.</p>
+<p><strong>Done when:</strong> A harness results JSON for your SFT model exists, and you can name the YAML file and the function where the task's answers are scored.</p>
+<h3 id="day-90-llm-as-judge-and-its-biases">Day 90 — LLM-as-judge and its biases</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2306.05685">Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena</a></p>
+<p><strong>Do:</strong> Skim the paper for the judge-bias catalog: position bias, verbosity bias, self-enhancement bias, and the human-agreement numbers that justify using judges at all. For each bias, note the paper's mitigation (background: section 4.5 of the phase guide, generative scoring).</p>
+<p><strong>Explains:</strong> Generative scoring leaks error at every step, and when the scorer is itself an LLM, the leaks have names — the same anchored-verifier failure you hit in your Gutenberg project, now with citations.</p>
+<p><strong>Done when:</strong> You can write the three named judge biases plus one mitigation each, from memory, in under 5 minutes.</p>
+<h3 id="day-91-gpqa-building-a-google-proof-benchmark">Day 91 — GPQA: building a Google-proof benchmark</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2311.12022">GPQA: A Graduate-Level Google-Proof Q&amp;A Benchmark</a></p>
+<p><strong>Do:</strong> Read sections 1–3, focusing on the question-writing and validation pipeline: expert writers, expert validators, skilled non-expert validators with web access, and the accuracy gap that defines &quot;Google-proof.&quot; Then write a half-page comparing GPQA's annotator-validation protocol to your own Gutenberg label-verification step (background: section 4.6 of the phase guide).</p>
+<p><strong>Explains:</strong> When a famous benchmark saturates (MMLU is dead at the frontier), the replacement's whole value is its annotation pipeline — eval quality is human-protocol engineering, your existing edge.</p>
+<p><strong>Done when:</strong> The half-page comparison exists and names at least one GPQA practice you will adopt in your own benchmark.</p>
+<h3 id="day-92-swe-bench-tests-as-the-scorer">Day 92 — SWE-bench: tests as the scorer</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2310.06770">SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</a></p>
+<p><strong>Do:</strong> Read sections 1–3 plus the evaluation section: how task instances are mined from real GitHub issues, and how the repo's own test suite — not a regex, not a judge — decides resolved/unresolved. Note exactly what artifact the model must emit and what command grades it.</p>
+<p><strong>Explains:</strong> The most trustworthy generative scoring replaces parsing and judges with an executable oracle — real unit tests close the error leaks you cataloged on Day 90.</p>
+<p><strong>Done when:</strong> A note exists stating, for one SWE-bench instance, the exact model output artifact (a patch) and the exact pass condition (fail-to-pass tests pass, pass-to-pass tests still pass).</p>
+<h3 id="day-93-custom-eval-part-1-port-a-gutenberg-slice">Day 93 — Custom eval, part 1: port a Gutenberg slice</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://github.com/UKGovernmentBEIS/inspect_ai">UKGovernmentBEIS/inspect_ai</a></p>
+<p><strong>Do:</strong> Skim Inspect's README, pick your harness (Inspect or lm-evaluation-harness — Inspect is the cleaner codebase, the harness has more model plumbing), and port a 30–50 example slice of your Gutenberg benchmark into a task: JSONL of examples, task definition, scorer (background: section 4.6 of the phase guide). Wire it in mock/dry-run mode first — zero API spend today, per your standing rule.</p>
+<p><strong>Explains:</strong> Porting your own benchmark into a standard harness forces every hidden decision — prompt format, answer extraction, aggregation — into explicit, versioned code.</p>
+<p><strong>Done when:</strong> The task runs end-to-end against your Phase-3 SFT model (or a mock model) and prints a score without errors.</p>
+<h3 id="day-94-custom-eval-part-2-run-across-models-and-read-the-failures">Day 94 — Custom eval, part 2: run across models and read the failures</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="/curriculum/04-inference-and-evals">Phase 4 guide</a></p>
+<p><strong>Do:</strong> Run your Gutenberg task across 3 open models (a rented 4090 covers all three: expect ~$3–5) and one API model (expect ~$1 of API spend — this is a paid run, give yourself the explicit go-ahead before launching). Build the 4-model score table, then read 10 failures per model and sort them into categories: model wrong, prompt ambiguous, scorer wrong (background: section 4.6 of the phase guide).</p>
+<p><strong>Explains:</strong> Error analysis is where eval numbers become meaningful — half of what looks like model failure is usually scorer or prompt failure, the construct-validity problem in miniature.</p>
+<p><strong>Done when:</strong> A table (4 models × score) plus an error-analysis note with at least 3 failure categories and one paragraph on what the number does and does not measure all exist in the repo.</p>
+<h3 id="day-95-phase-4-checkpoint-cold">Day 95 — Phase 4 checkpoint, cold</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="/curriculum/04-inference-and-evals">Phase 4 guide</a></p>
+<p><strong>Do:</strong> Closed notes. Answer all five checkpoint items at the end of the phase guide: (1) batch-1 decode ceiling for an 8B model in fp16 then int4 on a 4090, plus one sentence on why batch 32 changes the economics; (2) KV-cache bytes for Llama-3-8B (32 layers, 8 kv-heads, head_dim 128) at 128k context; (3) why speculative decoding is exactly the target distribution and what breaks without rejection; (4) three distinct ways a published &quot;MMLU 78&quot; can be wrong without anyone lying; (5) print the exact final prompt string your harness task sends for one example. Check against the guide only after finishing.</p>
+<p><strong>Explains:</strong> The Feynman test for the whole phase — if you can't produce the prompt string your own eval sends, you don't control your eval.</p>
+<p><strong>Done when:</strong> All five items are answered or produced without notes; any miss means reopening that section and retrying the checkpoint tomorrow.</p></main>
+</body>
+</html>

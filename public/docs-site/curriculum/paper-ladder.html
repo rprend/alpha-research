@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paper ladder - Alpha Research Curriculum</title>
+  <style>
+    :root { color-scheme: light; --ink:#171717; --muted:#666; --line:#e5e5e5; --paper:#fff; --soft:#f7f7f5; --accent:#0f766e; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:var(--paper); line-height:1.62; }
+    header { border-bottom:1px solid var(--line); background:rgba(255,255,255,.96); position:sticky; top:0; z-index:2; }
+    .bar { max-width:1040px; margin:0 auto; padding:14px 18px 10px; }
+    .brand { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:10px; }
+    .brand a { color:var(--ink); text-decoration:none; font-weight:750; }
+    .brand span { color:var(--muted); font-size:13px; }
+    nav { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none; }
+    nav a { flex:0 0 auto; border:1px solid var(--line); color:#333; text-decoration:none; border-radius:999px; padding:7px 11px; font-size:14px; background:#fff; }
+    nav a[aria-current="page"] { border-color:var(--accent); color:#064e47; background:#ecfdf9; }
+    main { max-width:820px; margin:0 auto; padding:28px 18px 72px; }
+    h1 { font-size:clamp(31px, 7vw, 52px); line-height:1.04; letter-spacing:0; margin:10px 0 18px; }
+    h2 { font-size:clamp(24px, 5vw, 34px); line-height:1.14; letter-spacing:0; margin:44px 0 14px; padding-top:10px; border-top:1px solid var(--line); }
+    h3 { font-size:22px; line-height:1.22; letter-spacing:0; margin:34px 0 10px; }
+    h4 { font-size:18px; margin:24px 0 8px; }
+    p, li { font-size:17px; }
+    p { margin:0 0 18px; }
+    ul, ol { padding-left:23px; margin:0 0 22px; }
+    li { margin:8px 0; }
+    a { color:#0f766e; text-underline-offset:3px; }
+    blockquote { margin:24px 0; padding:13px 16px; border-left:4px solid var(--accent); background:#f1fbf8; border-radius:0 8px 8px 0; }
+    blockquote p { margin:0; }
+    .table-scroll { overflow-x:auto; margin:22px 0 28px; border:1px solid var(--line); border-radius:8px; }
+    table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; line-height:1.45; }
+    th, td { text-align:left; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--line); }
+    th { background:var(--soft); font-weight:750; }
+    tr:last-child td { border-bottom:0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.92em; background:var(--soft); border:1px solid var(--line); border-radius:6px; padding:1px 5px; overflow-wrap:anywhere; }
+    hr { border:0; border-top:1px solid var(--line); margin:30px 0; }
+    .task { list-style:none; margin-left:-23px; display:flex; align-items:flex-start; gap:9px; }
+    .task input { margin-top:7px; width:16px; height:16px; flex:0 0 auto; }
+    @media (max-width: 560px) {
+      .bar { padding-inline:14px; }
+      main { padding:22px 16px 56px; }
+      p, li { font-size:16px; }
+      nav a { font-size:13px; padding:7px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <div class="brand"><a href="/curriculum/daily">AI Research Curriculum</a><span>133 daily packets</span></div>
+      <nav aria-label="Curriculum phases"><a href="/curriculum">Guide</a><a href="/curriculum/daily">Daily packets</a><a href="/curriculum/daily/phase-0">Phase 0</a><a href="/curriculum/daily/phase-1">Phase 1</a><a href="/curriculum/daily/phase-2">Phase 2</a><a href="/curriculum/daily/phase-3">Phase 3</a><a href="/curriculum/daily/phase-4">Phase 4</a><a href="/curriculum/daily/phase-5">Phase 5</a><a href="/curriculum/daily/phase-6">Phase 6</a><a href="/curriculum/paper-ladder" aria-current="page">Papers</a></nav>
+    </div>
+  </header>
+  <main><h1 id="the-paper-ladder-a-graded-reader-for-ai-research">The Paper Ladder — a graded reader for AI research</h1>
+<p>Papers in the order they become *readable*, Lingua Latina style: each entry assumes only the vocabulary of its phase. <strong>Bold</strong> = core canon (read fully at its phase). Others = skim or reference. arXiv IDs given where they exist; Anthropic interp work lives at transformer-circuits.pub; some foundational work is blog-only (noted — this field's canon is part blog posts, which is itself worth knowing).</p>
+<p>Format: <code>[phase] Title (year, ID) — what it gives you.</code></p>
+<h2 id="readable-after-phase-0-foundations">Readable after Phase 0 (foundations)</h2>
+<ul>
+<li><strong>[0] A Neural Probabilistic Language Model</strong> (Bengio 2003) — your makemore MLP, as a paper; calibrates how far the field has come.</li>
+<li>[0] The Unreasonable Effectiveness of RNNs (Karpathy 2015, blog) — pre-transformer context, pleasure read.</li>
+<li>[0] Adam: A Method for Stochastic Optimization (2014, 1412.6980) — skim §2; you use it daily.</li>
+<li>[0] *Prehistory, optional:* Sequence to Sequence Learning (2014, 1409.3215); Bahdanau attention (2014, 1409.0473) — where &quot;attention&quot; was invented, as a translation alignment trick.</li>
+</ul>
+<h2 id="readable-after-phase-1-the-transformer">Readable after Phase 1 (the transformer)</h2>
+<ul>
+<li><strong>[1] Attention Is All You Need</strong> (2017, 1706.03762) — the founding document; remember: encoder–decoder, your GPT is the decoder half.</li>
+<li><strong>[1] GPT-1: Improving Language Understanding by Generative Pre-Training</strong> (2018, OpenAI) — the pretrain-then-adapt thesis.</li>
+<li><strong>[1] GPT-2: Language Models are Unsupervised Multitask Learners</strong> (2019, OpenAI) — scale → zero-shot prompting.</li>
+<li>[1] BERT (2018, 1810.04805) — the encoder-only branch (masked LM); historically huge, evolutionary dead end for generation; read to know why it lost.</li>
+<li>[1] RoFormer / RoPE (2021, 2104.09864) — §3 only: how rotary position embedding works.</li>
+<li>[1] GQA (2023, 2305.13245) — one figure's worth.</li>
+<li>[1] T5 (2019, 1910.10683) — skim; the &quot;everything is text-to-text&quot; framing + a model family evals still use.</li>
+</ul>
+<h2 id="readable-after-phase-2-scale">Readable after Phase 2 (scale)</h2>
+<ul>
+<li><strong>[2] Scaling Laws for Neural Language Models</strong> (Kaplan 2020, 2001.08361) — the power laws; you replicated this.</li>
+<li><strong>[2] Chinchilla: Training Compute-Optimal LLMs</strong> (2022, 2203.15556) — the 20 tokens/param correction.</li>
+<li><strong>[2] GPT-3: Language Models are Few-Shot Learners</strong> (2020, 2005.14165) — in-context learning; the prompting era begins.</li>
+<li><strong>[2] The Llama 3 Herd of Models</strong> (2024, 2407.21783) — the most complete public picture of a modern full-stack training effort; will be re-read in Phase 3.</li>
+<li>[2] FineWeb (2024, 2406.17557 + HF blog) — what data work is.</li>
+<li>[2] Megatron-LM (2019, 1909.08053) — tensor parallelism, figures only.</li>
+<li>[2] OPT (2022, 2205.01068) + its public logbook — the sociology of a big run.</li>
+<li>[2] PaLM (2022, 2204.02311) — skim; emergent-abilities discourse source. Pair with: Emergent Abilities (2206.07682) vs. Mirage of Emergent Abilities (2304.15004) — a complete, instructive scientific argument about measurement.</li>
+<li>[2] Tensor Programs V / muP (2022, 2203.03466) — abstract + figures; hyperparameter transfer exists.</li>
+<li>[2] FlashAttention (2022, 2205.14135) — readable now, canonical in Phase 4.</li>
+</ul>
+<h2 id="readable-after-phase-3-post-training">Readable after Phase 3 (post-training)</h2>
+<ul>
+<li><strong>[3] InstructGPT</strong> (2022, 2203.02155) — the RLHF pipeline; the paper behind ChatGPT.</li>
+<li><strong>[3] DPO: Direct Preference Optimization</strong> (2023, 2305.18290) — RLHF without RL.</li>
+<li><strong>[3] Constitutional AI</strong> (Anthropic 2022, 2212.08073) — RLAIF; principles as auditable spec.</li>
+<li><strong>[3] Llama 2</strong> (2023, 2307.09288) — read for the unusually candid post-training sections.</li>
+<li><strong>[3] DeepSeekMath</strong> (2024, 2402.03300) — §4 is GRPO's definition.</li>
+<li><strong>[3] DeepSeek-R1</strong> (2025, 2501.12948) — verifiable rewards + GRPO → emergent reasoning; the key open result of 2025.</li>
+<li>[3] PPO (2017, 1707.06347) — read the clipped objective only; full paper is classical-RL flavored.</li>
+<li>[3] Scaling Laws for Reward Model Overoptimization (2022, 2210.10760) — Goodhart, quantified.</li>
+<li>[3] Let's Verify Step by Step (2023, 2305.20050) — process vs. outcome rewards.</li>
+<li>[3] STaR (2022, 2203.14465) — bootstrap reasoning from own samples; R1's ancestor.</li>
+<li>[3] Tulu 3 (2024, 2411.15124) — best open post-training recipe end-to-end.</li>
+<li>[3] Self-Instruct (2022, 2212.10560) + LoRA (2021, 2106.09685) + QLoRA (2023, 2305.14314) — the cheap-tuning toolkit.</li>
+</ul>
+<h2 id="readable-after-phase-4-inference-evals">Readable after Phase 4 (inference &amp; evals)</h2>
+<ul>
+<li><strong>[4] vLLM / PagedAttention</strong> (2023, 2309.06180) — OS ideas meet serving.</li>
+<li><strong>[4] Fast Inference via Speculative Decoding</strong> (2022, 2211.17192) — exactness via rejection sampling.</li>
+<li><strong>[4] GPQA</strong> (2023, 2311.12022) and <strong>SWE-bench</strong> (2023, 2310.06770) — what post-saturation benchmarks look like.</li>
+<li>[4] Judging LLM-as-a-Judge / MT-Bench (2023, 2306.05685) — the judge-bias catalog.</li>
+<li>[4] MMLU (2020, 2009.03300) — read once to see how thin a famous benchmark's paper can be.</li>
+<li>[4] GPTQ (2022, 2210.17323) / AWQ (2023, 2306.00978) — quantization mechanics, skim.</li>
+<li>[4] GPT-4 Technical Report (2023, 2303.08774) — read for predicted-loss figure + contamination appendix; note what's *not* disclosed and why that changed the field's publishing norms.</li>
+</ul>
+<h2 id="readable-after-phase-5-interpretability-mostly-transformer-circuits-pub">Readable after Phase 5 (interpretability) — mostly transformer-circuits.pub</h2>
+<ul>
+<li><strong>[5] A Mathematical Framework for Transformer Circuits</strong> (2021) — residual stream formalism; two passes.</li>
+<li><strong>[5] In-context Learning and Induction Heads</strong> (2022) — the canonical solved circuit.</li>
+<li><strong>[5] Toy Models of Superposition</strong> (2022) — why neurons are polysemantic; you replicated it.</li>
+<li><strong>[5] Towards Monosemanticity</strong> (2023) — SAEs introduced.</li>
+<li><strong>[5] Scaling Monosemanticity</strong> (2024) — features in Claude 3 Sonnet; Golden Gate Claude.</li>
+<li><strong>[5] On the Biology of a Large Language Model</strong> (2025) — attribution graphs; unfaithful CoT.</li>
+<li>[5] IOI: Interpretability in the Wild (2022, 2211.00593) — the model-organism circuit study.</li>
+<li>[5] Grokking (2022, 2201.02177); Deep Double Descent (2019, 1912.02292); Lottery Ticket Hypothesis (2018, 1803.03635) — training-dynamics folklore, skim.</li>
+<li>[5] ROME (2022, 2202.05262) — knowledge editing; Locating ≠ editing caveats in follow-ups.</li>
+<li>[5] Representation Engineering (2023, 2310.01405) — steering vectors at scale.</li>
+</ul>
+<h2 id="readable-after-phase-6-frontier-survey">Readable after Phase 6 (frontier survey)</h2>
+<ul>
+<li>[6] Switch Transformer (2021, 2101.03961); Mixtral (2024, 2401.04088); DeepSeek-V3 (2024, 2412.19437) — the MoE line.</li>
+<li>[6] Mamba (2023, 2312.00752) — SSMs; abstract + §3.</li>
+<li>[6] ViT (2020, 2010.11929); CLIP (2021, 2103.00020); LLaVA (2023, 2304.08485) — the multimodal glue recipe.</li>
+<li>[6] Distilling Knowledge in a Neural Network (2015, 1503.02531) — the original distillation.</li>
+<li><strong>[6] Sleeper Agents</strong> (Anthropic 2024, 2401.05566) and <strong>Alignment Faking</strong> (Anthropic 2024, 2412.14093) — model organisms of misalignment; the safety conversation's current center of gravity.</li>
+<li>[6] Weak-to-Strong Generalization (2023, 2312.09390) — scalable oversight, operationalized.</li>
+<li>[6] Whatever is on the front page of transformer-circuits.pub and the Anthropic research blog the week you get here — by now you read these on release day, which was the point.</li>
+</ul>
+<h2 id="how-to-use-this-list">How to use this list</h2>
+<p>Never read ahead of your phase out of ambition — that's reading Cicero in week 3, and it produces the illusion of understanding that this curriculum exists to prevent. Read *behind* your phase freely: re-reading GPT-3 after Phase 5 is a different, better paper. Total core canon (bold): 24 papers. A working researcher's actual edge is not having read more papers than this — it's having *built* what the papers describe, which by this point you have.</p></main>
+</body>
+</html>

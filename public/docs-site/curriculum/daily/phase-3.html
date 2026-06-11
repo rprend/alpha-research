@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phase 3 - Alpha Research Curriculum</title>
+  <style>
+    :root { color-scheme: light; --ink:#171717; --muted:#666; --line:#e5e5e5; --paper:#fff; --soft:#f7f7f5; --accent:#0f766e; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:var(--paper); line-height:1.62; }
+    header { border-bottom:1px solid var(--line); background:rgba(255,255,255,.96); position:sticky; top:0; z-index:2; }
+    .bar { max-width:1040px; margin:0 auto; padding:14px 18px 10px; }
+    .brand { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:10px; }
+    .brand a { color:var(--ink); text-decoration:none; font-weight:750; }
+    .brand span { color:var(--muted); font-size:13px; }
+    nav { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none; }
+    nav a { flex:0 0 auto; border:1px solid var(--line); color:#333; text-decoration:none; border-radius:999px; padding:7px 11px; font-size:14px; background:#fff; }
+    nav a[aria-current="page"] { border-color:var(--accent); color:#064e47; background:#ecfdf9; }
+    main { max-width:820px; margin:0 auto; padding:28px 18px 72px; }
+    h1 { font-size:clamp(31px, 7vw, 52px); line-height:1.04; letter-spacing:0; margin:10px 0 18px; }
+    h2 { font-size:clamp(24px, 5vw, 34px); line-height:1.14; letter-spacing:0; margin:44px 0 14px; padding-top:10px; border-top:1px solid var(--line); }
+    h3 { font-size:22px; line-height:1.22; letter-spacing:0; margin:34px 0 10px; }
+    h4 { font-size:18px; margin:24px 0 8px; }
+    p, li { font-size:17px; }
+    p { margin:0 0 18px; }
+    ul, ol { padding-left:23px; margin:0 0 22px; }
+    li { margin:8px 0; }
+    a { color:#0f766e; text-underline-offset:3px; }
+    blockquote { margin:24px 0; padding:13px 16px; border-left:4px solid var(--accent); background:#f1fbf8; border-radius:0 8px 8px 0; }
+    blockquote p { margin:0; }
+    .table-scroll { overflow-x:auto; margin:22px 0 28px; border:1px solid var(--line); border-radius:8px; }
+    table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; line-height:1.45; }
+    th, td { text-align:left; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--line); }
+    th { background:var(--soft); font-weight:750; }
+    tr:last-child td { border-bottom:0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.92em; background:var(--soft); border:1px solid var(--line); border-radius:6px; padding:1px 5px; overflow-wrap:anywhere; }
+    hr { border:0; border-top:1px solid var(--line); margin:30px 0; }
+    .task { list-style:none; margin-left:-23px; display:flex; align-items:flex-start; gap:9px; }
+    .task input { margin-top:7px; width:16px; height:16px; flex:0 0 auto; }
+    @media (max-width: 560px) {
+      .bar { padding-inline:14px; }
+      main { padding:22px 16px 56px; }
+      p, li { font-size:16px; }
+      nav a { font-size:13px; padding:7px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <div class="brand"><a href="/curriculum/daily">AI Research Curriculum</a><span>133 daily packets</span></div>
+      <nav aria-label="Curriculum phases"><a href="/curriculum">Guide</a><a href="/curriculum/daily">Daily packets</a><a href="/curriculum/daily/phase-0">Phase 0</a><a href="/curriculum/daily/phase-1">Phase 1</a><a href="/curriculum/daily/phase-2">Phase 2</a><a href="/curriculum/daily/phase-3" aria-current="page">Phase 3</a><a href="/curriculum/daily/phase-4">Phase 4</a><a href="/curriculum/daily/phase-5">Phase 5</a><a href="/curriculum/daily/phase-6">Phase 6</a><a href="/curriculum/paper-ladder">Papers</a></nav>
+    </div>
+  </header>
+  <main><h1 id="phase-3-daily-packets-post-training-days-57-80">Phase 3 daily packets — Post-training (Days 57–80)</h1>
+<p>Delivers: you personally SFT, DPO, and GRPO small open models — plus your own Phase-2 model — and the 2022–26 alignment and reasoning canon becomes readable. Prerequisite: Phase 2 checkpoint passed.</p>
+<h3 id="day-57-feel-base-vs-instruct">Day 57 — Feel base vs. instruct</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct">SmolLM2-135M-Instruct</a></p>
+<p><strong>Do:</strong> Load SmolLM2-135M base and SmolLM2-135M-Instruct locally; sample both on the same 10 prompts — 5 questions, 3 instructions, 2 raw-text continuations — and save every prompt/completion pair to one transcript file (background: the Framing section of the phase guide).</p>
+<p><strong>Explains:</strong> A base model is a simulator of internet text — prompt it with a question and it may continue with more questions, because that is what forums look like.</p>
+<p><strong>Done when:</strong> A transcript file with all 20 prompt/completion pairs exists, including at least one base-model output that continues the question instead of answering it.</p>
+<h3 id="day-58-chat-templates-there-is-no-chat-only-tokens">Day 58 — Chat templates: there is no chat, only tokens</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="https://huggingface.co/docs/transformers/chat_templating">HF chat templating docs</a></p>
+<p><strong>Do:</strong> Read the doc, then write a script that takes a 3-turn messages array and prints the raw string from apply_chat_template, the token IDs, and the special tokens inserted; run it through two different instruct tokenizers (SmolLM2-Instruct and Qwen2.5-Instruct) and diff the rendered strings (background: section 3.1 of the phase guide).</p>
+<p><strong>Explains:</strong> Roles, system prompts, and multi-turn are formatting conventions taught by fine-tuning — a template function flattens the messages array into one string the model just continues.</p>
+<p><strong>Done when:</strong> The script runs, and you can write the ChatML rendering of a system+user+assistant conversation from memory, special tokens included.</p>
+<h3 id="day-59-lora-the-cheap-tuning-trick">Day 59 — LoRA: the cheap-tuning trick</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2106.09685">LoRA</a></p>
+<p><strong>Do:</strong> Read sections 1–4, skim section 7; with the paper open, compute trainable-parameter counts for rank 8, 16, and 64 adapters on a 2048×2048 matrix, and the optimizer-state savings at 16 bytes/param (background: section 3.2 of the phase guide).</p>
+<p><strong>Explains:</strong> LoRA freezes the base weights and trains a low-rank detour W + BA, so optimizer state exists only for ~1% of parameters and an 8B fine-tune fits on a 24 GB card — QLoRA quantizes the frozen base to 4-bit and gets there even faster.</p>
+<p><strong>Done when:</strong> On paper, from memory, you write W + BA with correct shapes (B is d×r, A is r×d) and compute the rank-16 count for a 2048×2048 matrix (65,536) in under 5 minutes.</p>
+<h3 id="day-60-sft-setup-and-launch">Day 60 — SFT: setup and launch</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://github.com/huggingface/trl">TRL</a></p>
+<p><strong>Do:</strong> Rent a 4090 (~$0.50/hr, expect $2–3 total) and fine-tune SmolLM2-135M base with SFTTrainer + LoRA on a few-thousand-example SmolTalk subset; before launching, verify the loss is masked to response tokens only; log the loss curve and save the adapter (background: section 3.9, build step 1 of the phase guide).</p>
+<p><strong>Explains:</strong> SFT is the identical Phase-0 training loop with a chat-template dataset and the loss masked so the model never learns to predict the user's words.</p>
+<p><strong>Done when:</strong> The run completes with a falling loss curve logged and a LoRA adapter file of a few MB exists on disk.</p>
+<h3 id="day-61-sft-before-after-comparison">Day 61 — SFT: before/after comparison</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="/curriculum/03-post-training">Phase 3 guide</a></p>
+<p><strong>Do:</strong> Ask the base model and your Day-60 SFT checkpoint the same 10 questions from Day 57; build a side-by-side table and annotate which behaviors changed — answering vs. continuing, stopping at end-of-turn, persona (background: section 3.9, build step 1 of the phase guide).</p>
+<p><strong>Explains:</strong> Post-training is a tiny fraction of pretraining compute that selects a helpful-assistant persona from everything the simulator can already do — the most visceral demo in the curriculum.</p>
+<p><strong>Done when:</strong> A markdown table with 10 rows and base/SFT columns exists in your repo, with one annotation per row.</p>
+<h3 id="day-62-instructgpt-the-recipe-that-made-chatgpt">Day 62 — InstructGPT: the recipe that made ChatGPT</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2203.02155">InstructGPT</a></p>
+<p><strong>Do:</strong> Read sections 1–3 and figure 2 closely; skim sections 4–5; while reading, sketch the three-stage pipeline and annotate what data each stage needs and roughly how many labels (background: section 3.5 of the phase guide).</p>
+<p><strong>Explains:</strong> The pretrain → SFT → reward model → PPO pipeline, with humans supplying demonstrations in stage one and preference comparisons in stage two.</p>
+<p><strong>Done when:</strong> You can draw the three-stage pipeline from memory in under 10 minutes, with each stage's dataset type and rough size.</p>
+<h3 id="day-63-rl-vocabulary-grounded-in-lm-land">Day 63 — RL vocabulary, grounded in LM-land</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="https://spinningup.openai.com/en/latest/spinningup/rl_intro.html">Spinning Up RL intro</a></p>
+<p><strong>Do:</strong> Read the Spinning Up intro page at skim depth, stopping at the derivation-heavy parts; for each term — policy, action, trajectory, reward, return, advantage, on-policy — write the RLHF translation into your vocabulary notebook (background: section 3.3 table of the phase guide).</p>
+<p><strong>Explains:</strong> In RLHF the policy is the LM, an action is sampling one token, a rollout is one completion, and the core move is &quot;increase log-prob of tokens in better-than-average completions&quot; — everything else is variance reduction.</p>
+<p><strong>Done when:</strong> You can reproduce the 7-row RL-term-to-RLHF table from memory in under 5 minutes.</p>
+<h3 id="day-64-build-a-reward-model-bradley-terry">Day 64 — Build a reward model (Bradley–Terry)</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://huggingface.co/datasets/Anthropic/hh-rlhf">Anthropic hh-rlhf</a></p>
+<p><strong>Do:</strong> Pull ~2k preference pairs from hh-rlhf, hold out 200; put a 1-output linear head on SmolLM2-135M and train it with the Bradley–Terry loss, −log σ(r_chosen − r_rejected) — this scale runs on your laptop in well under an hour (background: section 3.4 of the phase guide).</p>
+<p><strong>Explains:</strong> A reward model is your same transformer with the unembedding swapped for a 1-float head, trained on comparisons because humans are bad at absolute scores and decent at A-vs-B.</p>
+<p><strong>Done when:</strong> Held-out pair accuracy is above 0.60 (train on more pairs if not), and you can write the Bradley–Terry loss from memory.</p>
+<h3 id="day-65-ppo-the-clipped-objective-nothing-else">Day 65 — PPO: the clipped objective, nothing else</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/1707.06347">PPO</a></p>
+<p><strong>Do:</strong> Read sections 1–3 only — the clipped surrogate objective — and ignore the Atari/MuJoCo experiments; on paper, work out what the clip does to the gradient when the advantage is positive vs. negative and the ratio drifts past 1±ε (background: section 3.5 of the phase guide).</p>
+<p><strong>Explains:</strong> PPO's entire contribution is a cap on how far one update moves the policy per token, keeping it inside the region where its advantage estimates are still valid.</p>
+<p><strong>Done when:</strong> You can write the clipped objective — min of ratio×A and clip(ratio, 1−ε, 1+ε)×A — from memory in under 5 minutes, including what the ratio is a ratio of.</p>
+<h3 id="day-66-goodhart-reward-model-overoptimization">Day 66 — Goodhart: reward-model overoptimization</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2210.10760">Gao et al. overoptimization</a></p>
+<p><strong>Do:</strong> Read sections 1–3 and study the proxy-vs-gold reward figures; skim the scaling-law fits; note exactly where the gold score peaks and turns down as KL from the initial policy grows (background: section 3.4 of the phase guide).</p>
+<p><strong>Explains:</strong> The RM is a lossy proxy — optimize against it hard enough and the policy finds its errors (sycophancy, padding, confident hallucination), which is why every RLHF objective carries a KL leash to a frozen reference.</p>
+<p><strong>Done when:</strong> You can sketch the overoptimization curve from memory: proxy reward rising throughout, gold reward rising then falling as KL grows.</p>
+<h3 id="day-67-dpo-read-it-then-write-the-loss-by-hand">Day 67 — DPO: read it, then write the loss by hand</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2305.18290">DPO</a></p>
+<p><strong>Do:</strong> Read sections 1–4; then implement the DPO loss in ~10 lines of code taking policy and reference logprobs for chosen and rejected responses, and check it against TRL's implementation on one fixed random batch (background: section 3.6 of the phase guide).</p>
+<p><strong>Explains:</strong> The RLHF objective has a closed form — reward and optimal policy are interconvertible — so you can skip the RM and the sampling and train directly on preference pairs with a supervised loss; IPO, KTO, and SimPO are sigmoid-of-margins cousins — recognize the family, don't memorize.</p>
+<p><strong>Done when:</strong> Your hand-rolled loss matches TRL's to within 1e-5 on the same batch.</p>
+<h3 id="day-68-dpotrainer-run-on-ultrafeedback">Day 68 — DPOTrainer run on UltraFeedback</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://huggingface.co/datasets/HuggingFaceH4/ultrafeedback_binarized">ultrafeedback_binarized</a></p>
+<p><strong>Do:</strong> DPO-train your Day-60 SFT checkpoint on ~5k UltraFeedback-binarized pairs with DPOTrainer + LoRA on a rented 4090 (expect $2–4); log the rewards/margins metric; afterward sample the model on 5 prompts before and after and save the outputs (background: section 3.9, build step 2 of the phase guide).</p>
+<p><strong>Explains:</strong> DPO is an SFT-difficulty job with RLHF-flavored results — two models in memory, no generation loop — at the cost of being offline, learning only from the dataset's responses.</p>
+<p><strong>Done when:</strong> The run completes with logged rewards/margins ending positive and rising, and a before/after sample file exists.</p>
+<h3 id="day-69-constitutional-ai-and-rlaif">Day 69 — Constitutional AI and RLAIF</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2212.08073">Constitutional AI</a></p>
+<p><strong>Do:</strong> Read sections 1–3 — the critique-revision SFT stage and the RLAIF stage — and skim the results; copy two constitution principles into your notebook and trace how each is used in both stages (background: section 3.7 of the phase guide).</p>
+<p><strong>Explains:</strong> CAI replaces most human preference labels with AI feedback against a written constitution, turning the behavior spec into an auditable text document instead of contractors' implicit judgment.</p>
+<p><strong>Done when:</strong> You can write the two-stage CAI pipeline from memory, naming what replaces human labels at each stage.</p>
+<h3 id="day-70-llama-2-rlhf-practice-candidly">Day 70 — Llama 2: RLHF practice, candidly</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2307.09288">Llama 2</a></p>
+<p><strong>Do:</strong> Read section 3 (fine-tuning) only — SFT data quality, the two reward models, rejection sampling, PPO, GAtt — skipping pretraining and the safety appendices; collect five concrete practice details into a notes file (background: section 3.5 of the phase guide).</p>
+<p><strong>Explains:</strong> The most candid public account of production RLHF: separate helpfulness and safety RMs, rejection-sampling fine-tuning before PPO, and iterative preference-data collection.</p>
+<p><strong>Done when:</strong> A notes file exists listing five specific Llama-2 RLHF practices, one sentence each.</p>
+<h3 id="day-71-grpo-the-algorithm">Day 71 — GRPO: the algorithm</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2402.03300">DeepSeekMath</a></p>
+<p><strong>Do:</strong> Read section 4 of DeepSeekMath only; on paper, compute group-relative advantages for a toy group of G=4 completions, and list which of PPO's four in-memory models GRPO deletes and what replaces it (background: section 3.8 of the phase guide).</p>
+<p><strong>Explains:</strong> GRPO samples a group of G completions per prompt and sets each advantage to (reward − group mean)/group std — the group average replaces PPO's value network entirely.</p>
+<p><strong>Done when:</strong> You can write the GRPO advantage formula from memory and hand-compute the advantages for group rewards (1, 1, 0, 0) correctly.</p>
+<h3 id="day-72-grpo-build-reward-function-and-launch">Day 72 — GRPO build: reward function and launch</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://github.com/openai/grade-school-math">GSM8K</a></p>
+<p><strong>Do:</strong> Write the reward function — 1.0 if the extracted final answer equals GSM8K's, else 0, plus a small format bonus for \boxed{} — and unit-test it on 20 hand-checked samples; then launch GRPOTrainer on Qwen2.5-0.5B on a rented GPU, expect $8–15 total across Days 72–74 (background: section 3.9, build step 3 of the phase guide).</p>
+<p><strong>Explains:</strong> Verifiable rewards swap the hackable learned RM for a script you can trust — the move behind reasoning models.</p>
+<p><strong>Done when:</strong> The reward function passes all 20 test samples and the GRPO run is launched and logging reward.</p>
+<h3 id="day-73-grpo-build-monitor-the-curves">Day 73 — GRPO build: monitor the curves</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="https://github.com/Jiayi-Pan/TinyZero">TinyZero</a></p>
+<p><strong>Do:</strong> While the run continues, check the reward and mean-completion-length curves a few times during the day; read the TinyZero README and compare your curves' shape to its reported ones; snapshot both curves (background: section 3.8 of the phase guide).</p>
+<p><strong>Explains:</strong> R1-Zero-style training has a signature you can see — reward climbs while completions lengthen as the model learns to spend more tokens thinking.</p>
+<p><strong>Done when:</strong> A saved snapshot of both curves exists and GSM8K reward is above its step-0 value.</p>
+<h3 id="day-74-grpo-build-stop-eval-explain-the-length">Day 74 — GRPO build: stop, eval, explain the length</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="/curriculum/03-post-training">Phase 3 guide</a></p>
+<p><strong>Do:</strong> Stop the run; eval the final checkpoint against the starting model on a held-out GSM8K slice; plot reward and completion length vs. steps; write a half-page note explaining any length inflation in Goodhart terms — which part of your reward could verbosity be gaming? (background: sections 3.4 and 3.8 of the phase guide).</p>
+<p><strong>Explains:</strong> Length inflation is reward hacking in miniature — the policy finds whatever correlates with reward, including your format bonus.</p>
+<p><strong>Done when:</strong> Both plots, the held-out accuracy numbers for start vs. final, and the half-page note exist in your repo.</p>
+<h3 id="day-75-deepseek-r1">Day 75 — DeepSeek-R1</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2501.12948">DeepSeek-R1</a></p>
+<p><strong>Do:</strong> Read the R1-Zero sections closely, including the training-curve and &quot;aha moment&quot; figures, then skim the full-R1 pipeline and distillation sections; annotate the paper's curves against your own Day-73 curves (background: section 3.8 of the phase guide).</p>
+<p><strong>Explains:</strong> Pure GRPO plus verifiable rewards on a strong base model produced emergent long reasoning, reflection, and backtracking — the most important open result of 2025, and the open confirmation of o1's test-time-compute axis: more thinking tokens, better answers, a new scaling dimension.</p>
+<p><strong>Done when:</strong> You can state from memory the stages of the full R1 pipeline and exactly what R1-Zero omits.</p>
+<h3 id="day-76-process-vs-outcome-rewards">Day 76 — Process vs. outcome rewards</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2305.20050">Let's Verify Step by Step</a></p>
+<p><strong>Do:</strong> Read sections 1–3 and the main results figure; skim the rest; write the process-vs-outcome distinction into your notebook with one concrete math example where a wrong derivation reaches a right answer (background: section 3.8 of the phase guide).</p>
+<p><strong>Explains:</strong> Process reward models score each reasoning step, outcome reward models only the final answer — and a right answer from wrong steps is exactly what an ORM cannot punish.</p>
+<p><strong>Done when:</strong> You can define PRM and ORM from memory and state which one the paper found stronger and on what benchmark.</p>
+<h3 id="day-77-star-the-bootstrap-ancestor">Day 77 — STaR: the bootstrap ancestor</h3>
+<p><strong>⏱ ~45 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2203.14465">STaR</a></p>
+<p><strong>Do:</strong> Skim only: abstract, introduction, and the method figure; write the STaR loop — generate rationales, keep those whose answers check out, fine-tune on them, repeat — plus the rationalization fallback into your notebook (background: section 3.8 of the phase guide).</p>
+<p><strong>Explains:</strong> Bootstrapping reasoning from your own verified-correct samples predates R1 by three years — STaR is the ancestor of RL with verifiable rewards.</p>
+<p><strong>Done when:</strong> You can write the four-step STaR loop from memory, including what rationalization does with wrong answers.</p>
+<h3 id="day-78-sft-your-own-phase-2-model">Day 78 — SFT your own Phase-2 model</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://huggingface.co/datasets/HuggingFaceTB/smoltalk">SmolTalk</a></p>
+<p><strong>Do:</strong> Run the Day-60 SFT recipe on your own Phase-2 124M pretrained model with a SmolTalk subset — rented 4090, expect $1–2, or overnight on your laptop; then ask it the standard 10 questions and compare to its base behavior (background: section 3.9, build step 4 of the phase guide).</p>
+<p><strong>Explains:</strong> This completes the one-artifact arc — your own pretrained model now follows the chat template, even though 124M is far too small to be a good assistant.</p>
+<p><strong>Done when:</strong> Your Phase-2 model produces in-template responses that stop at end-of-turn on at least 8 of the 10 questions.</p>
+<h3 id="day-79-tulu-3-the-open-recipe-end-to-end">Day 79 — Tulu 3: the open recipe, end to end</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2411.15124">Tulu 3</a></p>
+<p><strong>Do:</strong> Skim in one sitting: the recipe overview figure, the data-mixture tables, and the RLVR section; map each pipeline stage to the thing you built — SFT to Day 60, DPO to Day 68, RLVR to Day 72 — and note what differs at scale (background: section 3.10 of the phase guide).</p>
+<p><strong>Explains:</strong> The best open end-to-end post-training recipe — every stage you built this phase, run at production scale with ablations and data decontamination.</p>
+<p><strong>Done when:</strong> A one-page mapping (Tulu 3 stage → your build day → what differs at scale) exists in your repo.</p>
+<h3 id="day-80-phase-3-checkpoint-cold">Day 80 — Phase 3 checkpoint, cold</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="/curriculum/03-post-training">Phase 3 guide</a></p>
+<p><strong>Do:</strong> Closed notes, one sitting: answer all five checkpoint items in the phase guide — the PPO four-model diagram and the GRPO diff, the DPO loss with β and the β→0 failure, why every variant keeps a frozen reference and what fails without the KL term, why verifiable rewards unlocked reasoning, and your GRPO reward/length plots explained in Goodhart terms. If any item fails, reread that section and redo this day tomorrow.</p>
+<p><strong>Explains:</strong> The Feynman test — if you cannot produce these cold, the phase is not done.</p>
+<p><strong>Done when:</strong> All five checkpoint items are answered or produced cold and verified against the phase guide.</p></main>
+</body>
+</html>

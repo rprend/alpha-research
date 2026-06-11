@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Post-training - Alpha Research Curriculum</title>
+  <style>
+    :root { color-scheme: light; --ink:#171717; --muted:#666; --line:#e5e5e5; --paper:#fff; --soft:#f7f7f5; --accent:#0f766e; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:var(--paper); line-height:1.62; }
+    header { border-bottom:1px solid var(--line); background:rgba(255,255,255,.96); position:sticky; top:0; z-index:2; }
+    .bar { max-width:1040px; margin:0 auto; padding:14px 18px 10px; }
+    .brand { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:10px; }
+    .brand a { color:var(--ink); text-decoration:none; font-weight:750; }
+    .brand span { color:var(--muted); font-size:13px; }
+    nav { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none; }
+    nav a { flex:0 0 auto; border:1px solid var(--line); color:#333; text-decoration:none; border-radius:999px; padding:7px 11px; font-size:14px; background:#fff; }
+    nav a[aria-current="page"] { border-color:var(--accent); color:#064e47; background:#ecfdf9; }
+    main { max-width:820px; margin:0 auto; padding:28px 18px 72px; }
+    h1 { font-size:clamp(31px, 7vw, 52px); line-height:1.04; letter-spacing:0; margin:10px 0 18px; }
+    h2 { font-size:clamp(24px, 5vw, 34px); line-height:1.14; letter-spacing:0; margin:44px 0 14px; padding-top:10px; border-top:1px solid var(--line); }
+    h3 { font-size:22px; line-height:1.22; letter-spacing:0; margin:34px 0 10px; }
+    h4 { font-size:18px; margin:24px 0 8px; }
+    p, li { font-size:17px; }
+    p { margin:0 0 18px; }
+    ul, ol { padding-left:23px; margin:0 0 22px; }
+    li { margin:8px 0; }
+    a { color:#0f766e; text-underline-offset:3px; }
+    blockquote { margin:24px 0; padding:13px 16px; border-left:4px solid var(--accent); background:#f1fbf8; border-radius:0 8px 8px 0; }
+    blockquote p { margin:0; }
+    .table-scroll { overflow-x:auto; margin:22px 0 28px; border:1px solid var(--line); border-radius:8px; }
+    table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; line-height:1.45; }
+    th, td { text-align:left; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--line); }
+    th { background:var(--soft); font-weight:750; }
+    tr:last-child td { border-bottom:0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.92em; background:var(--soft); border:1px solid var(--line); border-radius:6px; padding:1px 5px; overflow-wrap:anywhere; }
+    hr { border:0; border-top:1px solid var(--line); margin:30px 0; }
+    .task { list-style:none; margin-left:-23px; display:flex; align-items:flex-start; gap:9px; }
+    .task input { margin-top:7px; width:16px; height:16px; flex:0 0 auto; }
+    @media (max-width: 560px) {
+      .bar { padding-inline:14px; }
+      main { padding:22px 16px 56px; }
+      p, li { font-size:16px; }
+      nav a { font-size:13px; padding:7px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <div class="brand"><a href="/curriculum/daily">AI Research Curriculum</a><span>133 daily packets</span></div>
+      <nav aria-label="Curriculum phases"><a href="/curriculum">Guide</a><a href="/curriculum/daily">Daily packets</a><a href="/curriculum/daily/phase-0">Phase 0</a><a href="/curriculum/daily/phase-1">Phase 1</a><a href="/curriculum/daily/phase-2">Phase 2</a><a href="/curriculum/daily/phase-3">Phase 3</a><a href="/curriculum/daily/phase-4">Phase 4</a><a href="/curriculum/daily/phase-5">Phase 5</a><a href="/curriculum/daily/phase-6">Phase 6</a><a href="/curriculum/paper-ladder">Papers</a></nav>
+    </div>
+  </header>
+  <main><h1 id="phase-3-post-training-from-autocomplete-to-assistant-sft-rlhf-dpo-reasoning">Phase 3 — Post-training: from autocomplete to assistant (SFT, RLHF, DPO, reasoning)</h1>
+<p><strong>Goal:</strong> understand and personally execute the pipeline that turns a base model into a chat/reasoning model. This is the densest paper territory of 2022–2026 and the heart of what &quot;alignment&quot; means in practice at labs.</p>
+<p><strong>Time:</strong> ~4 weeks. <strong>Cost:</strong> $20–60 (single rented 4090/A100; small open models).</p>
+<p><strong>Framing.</strong> Your Phase-2 model is a *simulator of internet text*: prompt it with &quot;The capital of France is&quot; and it completes; prompt it with a question and it might continue with *more questions* (that's what forums look like). Try this — actually sample from a base model (yours, or <code>Llama-3.1-8B</code> base vs. instruct) and feel the difference. Post-training is a *small* amount of training (≪1% of pretraining compute) that selects, from everything the simulator can do, a helpful-assistant persona.</p>
+<hr>
+<h2 id="3-1-chat-templates-there-is-no-chat-only-tokens">3.1 Chat templates: there is no &quot;chat,&quot; only tokens</h2>
+<p>A &quot;conversation&quot; hitting a model is literally one string with special tokens:</p>
+<p>``<code> &lt;|im_start|&gt;system You are a helpful assistant.&lt;|im_end|&gt; &lt;|im_start|&gt;user What is DPO?&lt;|im_end|&gt; &lt;|im_start|&gt;assistant </code>``</p>
+<p>The model just continues the string; serving code stops at <code>&lt;|im_end|&gt;</code>. &quot;Roles,&quot; &quot;system prompts,&quot; &quot;multi-turn&quot; — all formatting conventions *taught by fine-tuning*, not architecture. When an API doc says &quot;messages array,&quot; there is a template function flattening it to exactly this. Demystify this early and a whole class of magical thinking evaporates.</p>
+<h2 id="3-2-sft-supervised-fine-tuning">3.2 SFT: supervised fine-tuning</h2>
+<p><strong>What it is:</strong> the *identical* training loop from Phase 0, with two changes: the dataset is (prompt, good-response) pairs rendered through the chat template, and the loss is <strong>masked to response tokens only</strong> (you don't teach it to predict the user's words). A few thousand to a few million examples; hours, not weeks.</p>
+<p><strong>LoRA</strong> (arXiv:2106.09685), the standard cheap-tuning trick, grounded: freeze the base weights; for each big matrix <code>W</code>, add a learned low-rank detour <code>W + BA</code> where B is <code>(d, r)</code> and A is <code>(r, d)</code>, r ≈ 8–64. You train ~0.5–1% as many parameters — and since optimizer state (16 bytes/param, Phase 2!) only exists for trained params, a 8B-model fine-tune fits on one 24 GB card (QLoRA quantizes the frozen base to 4-bit and gets there even faster). A &quot;LoRA adapter&quot; on disk is a few-MB file of those B,A matrices.</p>
+<h2 id="3-3-rl-vocabulary-grounded-in-lm-land">3.3 RL vocabulary, grounded in LM-land</h2>
+<p>Papers assume RL fluency; here is the dictionary with everything made concrete:</p>
+<div class="table-scroll"><table>
+<thead><tr><th>RL term</th><th>In RLHF, it is literally...</th></tr></thead>
+<tbody>
+<tr><td>policy π</td><td>the LM being trained (its output distribution over next tokens)</td></tr>
+<tr><td>action</td><td>sampling one token</td></tr>
+<tr><td>trajectory / rollout / episode</td><td>one full generated completion</td></tr>
+<tr><td>reward</td><td>a single scalar handed out at the end of the completion</td></tr>
+<tr><td>return</td><td>(here) just that scalar, maybe minus a KL penalty per token</td></tr>
+<tr><td>advantage A</td><td>&quot;how much better was this than expected&quot; — reward minus a baseline</td></tr>
+<tr><td>on-policy</td><td>the completions being learned from were sampled from the current model</td></tr>
+</tbody>
+</table></div>
+<p><strong>The core move (REINFORCE / policy gradient), in one sentence:</strong> sample completions, score them, then take gradient steps that *increase the log-probability of every token in better-than-average completions and decrease it for worse-than-average ones*, proportionally to the advantage. That's it — &quot;reinforce what worked.&quot; Everything else (PPO's clipping, GRPO's baseline, value networks) is variance-reduction and don't-blow-up machinery around that one move. Skim OpenAI's *Spinning Up in Deep RL* (intro docs) for this; you do <strong>not</strong> need classical RL (Atari, Q-learning) depth.</p>
+<h2 id="3-4-reward-models-and-goodhart">3.4 Reward models, and Goodhart</h2>
+<p><strong>What a reward model (RM) physically is:</strong> your same transformer with the unembedding swapped for a 1-output linear head → <code>f(prompt + completion) → one float</code>. Trained on <strong>human preference pairs</strong> (&quot;response A ≻ response B&quot;) with the Bradley–Terry loss: maximize <code>log σ(r(A) − r(B))</code> — push the winner's score above the loser's. Why pairs? Humans are terrible at absolute scoring, decent at comparisons. (Your Gutenberg annotation work is *exactly* this discipline — label quality, rubric drift, inter-annotator agreement — applied to RM data. Labs employ whole teams for it.)</p>
+<p><strong>Goodhart/overoptimization:</strong> the RM is a lossy proxy. Optimize against it hard enough and the policy finds its errors — sycophancy, padded answers, confident hallucination (&quot;reward hacking&quot;). This is why every RLHF objective carries a <strong>KL-divergence penalty to the frozen reference model</strong>: a per-token leash, &quot;win reward, but don't drift far from the SFT model.&quot; Gao et al. 2022 (arXiv:2210.10760) measured the overoptimization curves; the concept generalizes everywhere (including evals — Phase 4).</p>
+<h2 id="3-5-rlhf-with-ppo-the-instructgpt-recipe">3.5 RLHF with PPO (the InstructGPT recipe)</h2>
+<p>The pipeline (InstructGPT, arXiv:2203.02155 — *the* paper that created ChatGPT-class models): pretrain → SFT → fit RM → RL against the RM. Inside the RL step, <strong>four models are in memory</strong>: the policy (training), the frozen reference (for KL), the RM (scores rollouts), and a *value network* (predicts expected reward mid-completion, used to compute per-token advantages). One iteration = generate a batch of completions (inference!), score them, compute advantages, several gradient steps. <strong>PPO</strong>'s contribution (arXiv:1707.06347) is just the clipped objective: cap how far each update moves the policy per token, so the policy never leaves the region where its advantage estimates are valid. Heavy, fiddly, but the historical workhorse.</p>
+<h2 id="3-6-dpo-preference-tuning-without-rl">3.6 DPO: preference tuning without RL</h2>
+<p><strong>DPO</strong> (arXiv:2305.18290) showed the RLHF objective has a closed-form trick: the optimal policy and the reward are interconvertible, so you can skip the RM and the sampling entirely and train *directly on preference pairs* with a plain supervised loss:</p>
+<p><code>L = −log σ( β·[ (log π(y_w|x) − log π_ref(y_w|x)) − (log π(y_l|x) − log π_ref(y_l|x)) ] )</code></p>
+<p>Read it term by term: increase the margin by which *your* model (vs. the frozen reference) prefers the chosen response over the rejected one; β controls the implicit KL leash; σ makes it Bradley–Terry-shaped. Two models in memory, no generation loop — an SFT-difficulty job with RLHF-flavored results. Tradeoff: it's offline (learns only from the dataset's responses, never its own samples), which is why labs still use on-policy RL for the hardest objectives. Variants you'll see named: IPO, KTO, SimPO — all sigmoid-of-margins cousins; don't memorize, just recognize the family.</p>
+<h2 id="3-7-rlaif-and-constitutional-ai">3.7 RLAIF and Constitutional AI</h2>
+<p><strong>Constitutional AI</strong> (Anthropic, arXiv:2212.08073) replaces most human preference labels with <strong>AI feedback</strong>: (1) have the model critique and revise its own outputs against a written list of principles (the &quot;constitution&quot;) → SFT on revisions; (2) have a model *judge* response pairs against the principles → train the RM on those AI-made labels (&quot;RLAIF&quot;). Why it matters beyond cost: the spec of desired behavior becomes an auditable text document rather than ten thousand contractors' implicit judgment. This is the intellectual root of a lot of current Anthropic practice.</p>
+<h2 id="3-8-reasoning-models-rl-with-verifiable-rewards">3.8 Reasoning models: RL with verifiable rewards</h2>
+<p>The 2024–26 frontier. The shift: replace the learned, hackable RM with <strong>rewards you can compute with a script</strong> — did the final math answer match? did the code pass the tests? Then RL directly incentivizes *whatever chain-of-thought helps the model get verified answers right*, and models learn to think longer, backtrack, and self-correct without anyone labeling reasoning steps.</p>
+<ul>
+<li><strong>GRPO</strong> (DeepSeekMath, arXiv:2402.03300), the algorithm that made this cheap, grounded: sample a <strong>group</strong> of G completions per prompt; advantage of each = (its reward − group mean)/group std; reinforce accordingly. The group average replaces PPO's value network — one less model in memory, embarrassingly simple.</li>
+<li><strong>DeepSeek-R1</strong> (arXiv:2501.12948): applying pure GRPO + verifiable rewards to a strong base model (&quot;R1-Zero&quot;) produced emergent long reasoning, reflection, &quot;aha&quot;-style backtracking — read the training-curve figures; this is the most important open result of 2025. The full R1 adds SFT warm-starts and distillation of reasoning traces into small models.</li>
+<li>Context to slot around it: <strong>o1</strong> (OpenAI 2024) demonstrated test-time-compute scaling (more thinking tokens → better answers, a *new scaling axis*); <strong>&quot;Let's Verify Step by Step&quot;</strong> (arXiv:2305.20050) for process- vs outcome-reward; <strong>STaR</strong> (arXiv:2203.14465) as the early &quot;bootstrap reasoning from your own correct samples&quot; ancestor.</li>
+</ul>
+<h2 id="3-9-the-build-your-model-learns-manners-then-math">3.9 The build (your model learns manners, then math)</h2>
+<p>Use <a href="https://github.com/huggingface/trl">TRL</a> (<code>SFTTrainer</code>, <code>DPOTrainer</code>, <code>GRPOTrainer</code>) — read its source as you go; each trainer is a thin layer over the Phase-0 loop.</p>
+<ol>
+<li><strong>SFT:</strong> take <code>SmolLM2-135M</code> or <code>Qwen2.5-0.5B</code> *base*, fine-tune on a few thousand instruction pairs (e.g. a Tulu/SmolTalk subset) with LoRA on one rented GPU. Before/after: ask both the same 10 questions. Watch an autocomplete become an assistant — the single most visceral demo in the curriculum.</li>
+<li><strong>DPO:</strong> then train on ~5k UltraFeedback preference pairs. Implement the DPO loss yourself once (it's ~10 lines given logprobs) before using the trainer; verify they match.</li>
+<li><strong>GRPO on grade-school math:</strong> reward = 1 if the extracted final answer equals GSM8K's, else 0 (+ a format bonus for <code>\boxed{}</code>). Watch accuracy and mean-completion-length curves. This is a miniature R1-Zero. (Reference: the <strong>TinyZero</strong> repro, which did R1-Zero-style training on a 3B model for ~$30.)</li>
+<li>Optional but recommended: also SFT *your own* Phase-2 124M pretrained model — completes the &quot;one artifact&quot; arc, even though it's too small to be a good assistant.</li>
+</ol>
+<h2 id="3-10-now-readable">3.10 Now readable</h2>
+<p>In order: <strong>InstructGPT</strong> (2203.02155) → <strong>DPO</strong> (2305.18290) → <strong>Constitutional AI</strong> (2212.08073) → <strong>Llama 2</strong> (2307.09288, the post-training sections — unusually candid about RLHF practice) → <strong>DeepSeekMath</strong> §4 for GRPO (2402.03300) → <strong>DeepSeek-R1</strong> (2501.12948) → <strong>Tulu 3</strong> (2411.15124, the best open end-to-end post-training recipe). Skim: Gao overoptimization (2210.10760), Let's Verify (2305.20050).</p>
+<h2 id="checkpoint">Checkpoint</h2>
+<ol>
+<li>Diagram the four models in PPO-RLHF memory and what each computes. Now do GRPO — which disappear and what replaces them?</li>
+<li>Write the DPO loss from memory and explain β. What failure appears as β → 0?</li>
+<li>Why does every RLHF variant keep a frozen reference model? What goes wrong without the KL term? (Name the phenomenon.)</li>
+<li>Why did verifiable rewards unlock reasoning where learned RMs plateaued?</li>
+<li>From your GRPO run: plot reward and completion length vs. steps; explain any length inflation in Goodhart terms.</li>
+</ol>
+<p>Then: <a href="/curriculum/04-inference-and-evals">04-inference-and-evals.md</a> — making models fast, and measuring whether they're any good (your home turf).</p></main>
+</body>
+</html>

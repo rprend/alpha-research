@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phase 5 - Alpha Research Curriculum</title>
+  <style>
+    :root { color-scheme: light; --ink:#171717; --muted:#666; --line:#e5e5e5; --paper:#fff; --soft:#f7f7f5; --accent:#0f766e; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:var(--paper); line-height:1.62; }
+    header { border-bottom:1px solid var(--line); background:rgba(255,255,255,.96); position:sticky; top:0; z-index:2; }
+    .bar { max-width:1040px; margin:0 auto; padding:14px 18px 10px; }
+    .brand { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:10px; }
+    .brand a { color:var(--ink); text-decoration:none; font-weight:750; }
+    .brand span { color:var(--muted); font-size:13px; }
+    nav { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none; }
+    nav a { flex:0 0 auto; border:1px solid var(--line); color:#333; text-decoration:none; border-radius:999px; padding:7px 11px; font-size:14px; background:#fff; }
+    nav a[aria-current="page"] { border-color:var(--accent); color:#064e47; background:#ecfdf9; }
+    main { max-width:820px; margin:0 auto; padding:28px 18px 72px; }
+    h1 { font-size:clamp(31px, 7vw, 52px); line-height:1.04; letter-spacing:0; margin:10px 0 18px; }
+    h2 { font-size:clamp(24px, 5vw, 34px); line-height:1.14; letter-spacing:0; margin:44px 0 14px; padding-top:10px; border-top:1px solid var(--line); }
+    h3 { font-size:22px; line-height:1.22; letter-spacing:0; margin:34px 0 10px; }
+    h4 { font-size:18px; margin:24px 0 8px; }
+    p, li { font-size:17px; }
+    p { margin:0 0 18px; }
+    ul, ol { padding-left:23px; margin:0 0 22px; }
+    li { margin:8px 0; }
+    a { color:#0f766e; text-underline-offset:3px; }
+    blockquote { margin:24px 0; padding:13px 16px; border-left:4px solid var(--accent); background:#f1fbf8; border-radius:0 8px 8px 0; }
+    blockquote p { margin:0; }
+    .table-scroll { overflow-x:auto; margin:22px 0 28px; border:1px solid var(--line); border-radius:8px; }
+    table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; line-height:1.45; }
+    th, td { text-align:left; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--line); }
+    th { background:var(--soft); font-weight:750; }
+    tr:last-child td { border-bottom:0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.92em; background:var(--soft); border:1px solid var(--line); border-radius:6px; padding:1px 5px; overflow-wrap:anywhere; }
+    hr { border:0; border-top:1px solid var(--line); margin:30px 0; }
+    .task { list-style:none; margin-left:-23px; display:flex; align-items:flex-start; gap:9px; }
+    .task input { margin-top:7px; width:16px; height:16px; flex:0 0 auto; }
+    @media (max-width: 560px) {
+      .bar { padding-inline:14px; }
+      main { padding:22px 16px 56px; }
+      p, li { font-size:16px; }
+      nav a { font-size:13px; padding:7px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <div class="brand"><a href="/curriculum/daily">AI Research Curriculum</a><span>133 daily packets</span></div>
+      <nav aria-label="Curriculum phases"><a href="/curriculum">Guide</a><a href="/curriculum/daily">Daily packets</a><a href="/curriculum/daily/phase-0">Phase 0</a><a href="/curriculum/daily/phase-1">Phase 1</a><a href="/curriculum/daily/phase-2">Phase 2</a><a href="/curriculum/daily/phase-3">Phase 3</a><a href="/curriculum/daily/phase-4">Phase 4</a><a href="/curriculum/daily/phase-5" aria-current="page">Phase 5</a><a href="/curriculum/daily/phase-6">Phase 6</a><a href="/curriculum/paper-ladder">Papers</a></nav>
+    </div>
+  </header>
+  <main><h1 id="phase-5-daily-packets-interpretability-days-96-119">Phase 5 daily packets — Interpretability (Days 96–119)</h1>
+<p>This phase ends with you having replicated five published mech-interp results on real models — logit lens, induction heads, superposition, an SAE, and the IOI circuit — and read the transformer-circuits canon. Prerequisite: Phase 4 checkpoint passed.</p>
+<h3 id="day-96-transformerlens-setup-logit-lens">Day 96 — TransformerLens setup + logit lens</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://github.com/TransformerLensOrg/TransformerLens">TransformerLens</a></p>
+<p><strong>Do:</strong> <code>pip install transformer_lens</code>, load GPT-2-small via <code>HookedTransformer.from_pretrained</code>, and run a few prompts with <code>run_with_cache</code>. Implement the logit lens: at each layer, take <code>resid_post</code>, apply final LayerNorm and the unembedding <code>W_U</code>, and plot the correct next token's probability layer by layer (background: section 5.2 of the phase guide; the technique comes from a 2020 nostalgebraist blog post — half this field's canon is blog posts).</p>
+<p><strong>Explains:</strong> Activations vs. weights — the residual stream is a per-token vector you can decode at any depth, and the prediction sharpens layer by layer.</p>
+<p><strong>Done when:</strong> A plot exists showing next-token probability per layer for at least 3 prompts, and you have written down the layer index where the prediction first becomes top-1 for each.</p>
+<h3 id="day-97-linear-probe">Day 97 — Linear probe</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="/curriculum/05-interpretability">Phase 5 guide</a></p>
+<p><strong>Do:</strong> Build a probe dataset: run ~50k tokens of Python code through GPT-2-small, label each token &quot;inside a string literal or not,&quot; and train sklearn logistic regression from the residual-stream vector at layer L to the label, sweeping L over all 12 layers (background: section 5.2 of the phase guide — and note the caveat: probes show presence, not use).</p>
+<p><strong>Explains:</strong> Linear probing — high accuracy at layer L means the information is linearly readable from the residual stream there.</p>
+<p><strong>Done when:</strong> A plot of probe test accuracy vs. layer exists, plus one sentence in your vocabulary notebook naming the peak layer and its accuracy.</p>
+<h3 id="day-98-a-mathematical-framework-pass-1">Day 98 — A Mathematical Framework, pass 1</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://transformer-circuits.pub/2021/framework/index.html">A Mathematical Framework for Transformer Circuits</a></p>
+<p><strong>Do:</strong> Read from the start through the one-layer attention-only model: residual stream as a communication bus, attention heads as independent additive paths, and the QK/OV factorization. Skip the two-layer material. Keep yesterday's cached activations open and check each claim against real array shapes (background: section 5.1 of the phase guide).</p>
+<p><strong>Explains:</strong> The residual-stream formalism — a transformer's output is a sum of paths through heads, and each head splits into a QK circuit (where to attend) and an OV circuit (what to copy).</p>
+<p><strong>Done when:</strong> Closed notes, you can write the QK circuit (<code>W_Q^T W_K</code> form) and OV circuit (<code>W_O W_V</code> form) matrices with correct shapes on paper in under 10 minutes.</p>
+<h3 id="day-99-a-mathematical-framework-pass-2">Day 99 — A Mathematical Framework, pass 2</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://transformer-circuits.pub/2021/framework/index.html">A Mathematical Framework for Transformer Circuits</a></p>
+<p><strong>Do:</strong> Second pass: the two-layer model, head composition (Q-, K-, and V-composition), and virtual attention heads. Work the induction-head sketch at the end slowly — it is the theory behind your Day 100–101 hunt.</p>
+<p><strong>Explains:</strong> Composition — how two attention heads in different layers chain into a circuit neither implements alone, which is the mechanism behind induction.</p>
+<p><strong>Done when:</strong> Closed notes, you can write one paragraph correctly distinguishing Q-composition from K-composition and state which one the induction circuit uses.</p>
+<h3 id="day-100-induction-head-hunt-1-the-loss-test">Day 100 — Induction-head hunt 1: the loss test</h3>
+<p><strong>⏱ ~60 min</strong> · <strong>Link:</strong> <a href="/curriculum/05-interpretability">Phase 5 guide</a></p>
+<p><strong>Do:</strong> Feed your Phase-2 model a batch of sequences built as 50 random tokens repeated twice (100 tokens total), and plot per-position loss. The second copy should crash. Then open your saved Phase-2 training loss curve and look for the induction phase-change bump (background: section 5.5 item 1 of the phase guide).</p>
+<p><strong>Explains:</strong> Behavioral evidence of induction — the model copy-pastes from context (&quot;…A B … A → B&quot;), so previously-seen random tokens become predictable.</p>
+<p><strong>Done when:</strong> A plot exists where mean loss on copy 2 is at least 1.0 nats below copy 1, with both numbers recorded in your vocabulary notebook.</p>
+<h3 id="day-101-induction-head-hunt-2-localize-by-ablation">Day 101 — Induction-head hunt 2: localize by ablation</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="/curriculum/05-interpretability">Phase 5 guide</a></p>
+<p><strong>Do:</strong> With hooks, zero-ablate each head's output one at a time and measure the increase in copy-2 loss; rank all heads by damage. For the top candidates, plot their attention pattern on a repeated sequence — a true induction head attends to the token right after the previous occurrence of the current token (background: section 5.2 &quot;Ablation&quot;).</p>
+<p><strong>Explains:</strong> Causal localization — ablation tells you which specific heads carry the induction behavior, not just that the behavior exists.</p>
+<p><strong>Done when:</strong> You have written down layer.head indices for at least one induction head whose ablation raises copy-2 loss more than any other head's, plus its attention-pattern plot.</p>
+<h3 id="day-102-read-induction-heads">Day 102 — Read: Induction Heads</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html">In-context Learning and Induction Heads</a></p>
+<p><strong>Do:</strong> Read the framing and the six lines of evidence at argument level (skim the per-model detail). Match their prefix-matching score definition against the heads you found yesterday, and their phase-change figure against your Phase-2 loss-curve bump.</p>
+<p><strong>Explains:</strong> The first fully-understood circuit — a previous-token head feeding an induction head — and its claimed role as a substrate of in-context learning.</p>
+<p><strong>Done when:</strong> Closed notes, you can write out the two-head circuit (which head does what, and the composition between them) in under 5 minutes.</p>
+<h3 id="day-103-toy-models-build-1-the-toy-model">Day 103 — Toy Models build 1: the toy model</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://transformer-circuits.pub/2022/toy_model/index.html">Toy Models of Superposition</a></p>
+<p><strong>Do:</strong> Read only the article's setup (&quot;Demonstrating Superposition&quot; model definition) — full read is Day 105. In a fresh laptop notebook, implement it: n sparse synthetic features with decaying importance, linear map W down to m &lt; n dims, ReLU readout reconstruction; train with Adam at several sparsity levels (background: section 5.5 item 2 of the phase guide).</p>
+<p><strong>Explains:</strong> The experimental organism for superposition — a model forced to cram more features than dimensions, where you control sparsity directly.</p>
+<p><strong>Done when:</strong> Training runs end-to-end and a figure of W^T W heatmaps at 2+ sparsity levels exists, visibly changing with sparsity.</p>
+<h3 id="day-104-toy-models-build-2-the-pentagon">Day 104 — Toy Models build 2: the pentagon</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://transformer-circuits.pub/2022/toy_model/index.html">Toy Models of Superposition</a></p>
+<p><strong>Do:</strong> Train the m=2 hidden-dimension variant with 5 equal-importance features at high sparsity and scatter-plot W's five column vectors. Sweep sparsity from dense to sparse and watch the geometry transition from &quot;store only the top 2 features&quot; to a pentagon of 5 superposed directions.</p>
+<p><strong>Explains:</strong> Superposition made visible — sparse features arrange as near-orthogonal directions at ~72° apart, tolerating interference because they rarely co-occur.</p>
+<p><strong>Done when:</strong> A saved figure shows the pentagon (5 feature directions, roughly equal angles), reproducing the paper's geometry figure.</p>
+<h3 id="day-105-read-toy-models-of-superposition">Day 105 — Read: Toy Models of Superposition</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://transformer-circuits.pub/2022/toy_model/index.html">Toy Models of Superposition</a></p>
+<p><strong>Do:</strong> Full read now that you've built it: the phase diagrams, feature geometry section, and the discussion of polysemanticity and its consequences for interpretability. Skim the appendices.</p>
+<p><strong>Explains:</strong> Why single neurons are polysemantic and uninterpretable — models store more features than dimensions whenever features are sparse, so directions, not neurons, are the unit of meaning.</p>
+<p><strong>Done when:</strong> Closed notes, you can write a correct explanation of why sparsity enables superposition, plus a one-line definition of polysemanticity, in under 10 minutes.</p>
+<h3 id="day-106-sae-build-1-dump-the-activation-dataset">Day 106 — SAE build 1: dump the activation dataset</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://github.com/TransformerLensOrg/TransformerLens">TransformerLens</a></p>
+<p><strong>Do:</strong> Rent a 4090 (expected cost ~$1–2) and stream 20–50M tokens of OpenWebText through GPT-2-small with a hook on layer-8 <code>resid_post</code>, appending fp16 vectors to one file on disk. Before running, compute the expected file size by hand (tokens × 768 × 2 bytes) so you can verify the dump (background: section 5.1 of the phase guide — an activation dataset is literally this file).</p>
+<p><strong>Explains:</strong> Interp's raw material as a file on disk — a <code>(N, 768)</code> fp16 array of residual-stream snapshots, one row per token of real text.</p>
+<p><strong>Done when:</strong> The file exists with shape (N, 768), N ≥ 20M, and its byte size matches your precomputed estimate.</p>
+<h3 id="day-107-sae-build-2-train-it">Day 107 — SAE build 2: train it</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="/curriculum/05-interpretability">Phase 5 guide</a></p>
+<p><strong>Do:</strong> Implement the SAE exactly as section 5.3 item 3 of the phase guide describes: encoder (768, 8–16×768), ReLU, decoder with unit-norm columns, loss = reconstruction MSE + λ·L1 on hidden activations. Launch three training runs at low/mid/high λ on yesterday's dump (expected GPU cost ~$5 on a 4090), logging L0 (mean active features per token) and reconstruction MSE for each.</p>
+<p><strong>Explains:</strong> Dictionary learning against superposition — the sparsity penalty forces the wide hidden layer to find the model's underlying feature directions.</p>
+<p><strong>Done when:</strong> Three SAE checkpoints are saved to disk, each with a logged (λ, L0, reconstruction-MSE) triple.</p>
+<h3 id="day-108-sae-build-3-feature-dashboard">Day 108 — SAE build 3: feature dashboard</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="/curriculum/05-interpretability">Phase 5 guide</a></p>
+<p><strong>Do:</strong> For the mid-λ SAE, run held-out tokens through the encoder and, for each feature, collect the top-20 activating contexts (surrounding text, activation value, max token highlighted). Render this as a static HTML or markdown dashboard, one section per feature (background: section 5.5 item 3 of the phase guide).</p>
+<p><strong>Explains:</strong> How features get interpreted in practice — you read what text maximally fires each sparse unit, the same move as the published feature browsers.</p>
+<p><strong>Done when:</strong> A dashboard file exists showing top-20 contexts for at least 100 features.</p>
+<h3 id="day-109-sae-build-4-clean-features-messy-features">Day 109 — SAE build 4: clean features, messy features, λ</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="/curriculum/05-interpretability">Phase 5 guide</a></p>
+<p><strong>Do:</strong> Browse the dashboard and document 5 clean monosemantic features (give each a name justified by its contexts) and 5 messy or polysemantic ones. Then plot L0 vs. reconstruction MSE across your three λ runs and write half a page on the tradeoff: what λ buys you and what it costs.</p>
+<p><strong>Explains:</strong> The sparsity–fidelity tradeoff — higher λ gives crisper, more monosemantic features but reconstructs the stream worse, and no λ gives you both for free.</p>
+<p><strong>Done when:</strong> A writeup file exists naming 5 clean + 5 messy features with example contexts, plus the L0-vs-MSE plot across the three λ values.</p>
+<h3 id="day-110-read-towards-monosemanticity">Day 110 — Read: Towards Monosemanticity</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://transformer-circuits.pub/2023/monosemantic-features/index.html">Towards Monosemanticity</a></p>
+<p><strong>Do:</strong> Read the setup and the detailed investigations of individual features (Arabic-script, DNA, base64 features); skim the global-analysis and appendix material. Compare their feature taxonomy and interpretability rubric against your Day-109 clean/messy split.</p>
+<p><strong>Explains:</strong> The first demonstration that SAEs recover monosemantic features from a real (one-layer) transformer — the result your build just reproduced in miniature.</p>
+<p><strong>Done when:</strong> Closed notes, you can write the SAE architecture and full loss function with matrix shapes in under 5 minutes.</p>
+<h3 id="day-111-read-scaling-monosemanticity">Day 111 — Read: Scaling Monosemanticity</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html">Scaling Monosemanticity</a></p>
+<p><strong>Do:</strong> Read the front matter, the feature showcase (Golden Gate Bridge, code-bug, sycophancy features), and the safety-relevant-features section; skim the scaling-law and methods detail. Note which middle-layer site they trained on and why — the same choice you made on Day 106.</p>
+<p><strong>Explains:</strong> SAEs survive scale — the same method, applied to Claude 3 Sonnet, finds abstract and safety-relevant features, not just token-level ones.</p>
+<p><strong>Done when:</strong> Closed notes, you can list 3 safety-relevant feature families from the paper and state what clamping a feature did to model behavior, in writing, in under 5 minutes.</p>
+<h3 id="day-112-steering-vectors-a-skeptical-read">Day 112 — Steering vectors + a skeptical read</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="/curriculum/05-interpretability">Phase 5 guide</a></p>
+<p><strong>Do:</strong> Build a Golden-Gate-style steering vector on GPT-2-small: direction = mean(layer-6 residual activations on 20 prompts about a concept, e.g. weddings) − mean(on 20 neutral prompts). Add α·direction at that layer via hook during generation and sweep α until outputs steer toward the concept without degenerating (background: section 5.2 &quot;Steering&quot;). Last 15 min: skim &quot;An Interpretability Illusion for BERT&quot; (arXiv 2104.07143) — abstract and figures only — the Illusions-genre critique section 5.6 of the phase guide assigns for the skeptical-methodology muscle.</p>
+<p><strong>Explains:</strong> Features as causal levers — adding a direction to the stream changes behavior, which is intervention-level evidence that directions carry meaning.</p>
+<p><strong>Done when:</strong> A notebook cell shows 3 steered vs. 3 unsteered generations at your chosen α, at least 2 of the 3 steered outputs mention the concept, and one sentence in your notes states what the BERT interpretability illusion is.</p>
+<h3 id="day-113-read-ioi-paper-grokking-skim">Day 113 — Read: IOI paper + grokking skim</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://arxiv.org/abs/2211.00593">Interpretability in the Wild (IOI)</a></p>
+<p><strong>Do:</strong> Read the IOI paper's task setup, methods, and circuit description — duplicate-token heads, S-inhibition heads, name-mover heads — plus the circuit diagram; skim the validation experiments. Then spend the last 30 minutes skimming the grokking paper (arXiv 2201.02177): just the headline figure of test accuracy jumping long after training accuracy saturates — and jot one-line definitions of double descent and lottery tickets, the other two skim-level curiosities every paper assumes (background: section 5.3 item 5 of the phase guide).</p>
+<p><strong>Explains:</strong> The field's model organism — a complete, named circuit in GPT-2-small for &quot;indirect object identification,&quot; which you will replicate over the next three days.</p>
+<p><strong>Done when:</strong> Closed book, you can sketch the IOI circuit's three head classes and what each contributes, on paper, in under 10 minutes.</p>
+<h3 id="day-114-arena-ioi-1-setup-and-residual-patching">Day 114 — ARENA IOI 1: setup and residual patching</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://github.com/callummcdougall/ARENA_3.0">ARENA 3.0</a></p>
+<p><strong>Do:</strong> Open the Indirect Object Identification exercises in chapter1_transformer_interp. Work through the setup: the IOI prompt distribution, the logit-difference metric, direct logit attribution, and activation patching of the residual stream by layer and position (background: section 5.2 &quot;Activation patching&quot; — this is interp's randomized controlled trial).</p>
+<p><strong>Explains:</strong> Activation patching mechanics — splicing a corrupted run's activation into a clean run at one site, and reading causal importance off the logit-diff change.</p>
+<p><strong>Done when:</strong> The notebook runs end-to-end through residual-stream patching and reproduces the per-layer-per-position patching heatmap.</p>
+<h3 id="day-115-arena-ioi-2-head-level-patching">Day 115 — ARENA IOI 2: head-level patching</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://github.com/callummcdougall/ARENA_3.0">ARENA 3.0</a></p>
+<p><strong>Do:</strong> Continue the notebook: patch individual head outputs across all layers, build the per-head importance heatmap, and identify the name-mover heads; inspect their attention patterns to confirm they attend to the correct name.</p>
+<p><strong>Explains:</strong> Circuit discovery by intervention — head-level patching turns &quot;somewhere in layer 9&quot; into &quot;head 9.9 specifically,&quot; with attention patterns as corroborating evidence.</p>
+<p><strong>Done when:</strong> Your per-head patching heatmap exists and its top heads match the paper's name movers (9.6, 9.9, 10.0).</p>
+<h3 id="day-116-arena-ioi-3-the-full-circuit">Day 116 — ARENA IOI 3: the full circuit</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://github.com/callummcdougall/ARENA_3.0">ARENA 3.0</a></p>
+<p><strong>Do:</strong> Finish the notebook: localize the S-inhibition and duplicate-token heads (path patching if the exercises include it), then write a half-page summary of the complete circuit in your own words, naming every head class and the information each moves.</p>
+<p><strong>Explains:</strong> How a multi-part circuit composes — duplicate detection inhibits attention to the repeated name so the name movers copy the right one.</p>
+<p><strong>Done when:</strong> Every exercise cell in the IOI notebook is executed, and your half-page circuit summary exists.</p>
+<h3 id="day-117-read-biology-of-an-llm-part-1">Day 117 — Read: Biology of an LLM, part 1</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://transformer-circuits.pub/2025/attribution-graphs/biology.html">On the Biology of a Large Language Model</a></p>
+<p><strong>Do:</strong> Read the introduction and method overview (attribution graphs over replacement features), then the multi-step reasoning case study (Dallas → Texas → Austin) and the poetry-planning case study. Stop there — part 2 is tomorrow (background: section 5.3 item 4 of the phase guide).</p>
+<p><strong>Explains:</strong> Circuit tracing at frontier scale — replacing MLPs with interpretable feature layers yields readable graphs of which features cause which, exposing genuine intermediate steps like &quot;Texas.&quot;</p>
+<p><strong>Done when:</strong> Closed notes, you can describe in writing the Dallas→Austin finding, including the role of the intermediate Texas representation, in under 5 minutes.</p>
+<h3 id="day-118-read-biology-of-an-llm-part-2">Day 118 — Read: Biology of an LLM, part 2</h3>
+<p><strong>⏱ ~90 min</strong> · <strong>Link:</strong> <a href="https://transformer-circuits.pub/2025/attribution-graphs/biology.html">On the Biology of a Large Language Model</a></p>
+<p><strong>Do:</strong> Read the arithmetic-by-parallel-estimation case study, then the unfaithful chain-of-thought section — read that one twice, as the phase guide insists — and the refusal/jailbreak material; skim remaining case studies. Connect the CoT finding to checkpoint question 5.</p>
+<p><strong>Explains:</strong> Stated reasoning vs. actual mechanism — the chain-of-thought a model writes can demonstrably differ from the computation the attribution graph shows it performing.</p>
+<p><strong>Done when:</strong> A paragraph exists in your notes stating, mechanistically, what &quot;unfaithful chain-of-thought&quot; means and why it undermines CoT-based safety arguments.</p>
+<h3 id="day-119-phase-5-checkpoint-cold">Day 119 — Phase 5 checkpoint, cold</h3>
+<p><strong>⏱ ~75 min</strong> · <strong>Link:</strong> <a href="/curriculum/05-interpretability">Phase 5 guide</a></p>
+<p><strong>Do:</strong> Closed notes, no code open except where an answer requires your own recorded numbers. Answer all five checkpoint items in the phase guide: weights-vs-activations and the SAE's training set as a file; superposition vs. the sparsity penalty; design the Dallas→Texas→Austin patching experiment on paper; report your induction-head indices and copy-1 vs. copy-2 losses; explain unfaithful CoT to a smart friend. If any item fails, schedule a redo before starting Phase 6.</p>
+<p><strong>Explains:</strong> The Feynman test for the whole phase — if you can't produce these cold, the phase isn't done.</p>
+<p><strong>Done when:</strong> All five checkpoint items are answered or produced in writing in one sitting, including the on-paper patching design and your actual layer.head indices and loss numbers.</p></main>
+</body>
+</html>
