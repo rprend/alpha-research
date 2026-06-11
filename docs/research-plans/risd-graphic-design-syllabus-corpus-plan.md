@@ -57,6 +57,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/readings.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/student_work.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/source_clusters.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/source_versions.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/wayback_captures.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/review_queue.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/review_decisions.jsonl`
@@ -274,6 +275,33 @@ Required fields:
 - `similarity`
 - `reason`
 - `collapse_recommendation`
+- `evidence_grade`
+
+### `source_versions.jsonl`
+
+One row per source with Internet Archive capture evidence.
+
+Required fields:
+
+- `version_id`
+- `source_id`
+- `current_source_id`
+- `current_url`
+- `current_status`
+- `archive_capture_count`
+- `oldest_capture_timestamp`
+- `newest_capture_timestamp`
+- `fetched_archive_source_ids`
+- `fetched_archive_count`
+- `comparison_status`
+- `current_text_length`
+- `archive_text_length`
+- `normalized_text_similarity`
+- `current_keywords`
+- `archive_keywords`
+- `added_archive_keywords`
+- `removed_archive_keywords`
+- `substantive_change_hint`
 - `evidence_grade`
 
 ### `review_decisions.jsonl`
@@ -642,6 +670,7 @@ Corpus checks:
 - Every assignment row points to a syllabus and source.
 - Every reading row points to a syllabus and source.
 - Every source-cluster row points to valid sources and includes a representative source.
+- Every source-version row points to valid fetched current/archive sources when present.
 - Every reconstruction claim cites source IDs.
 - Inferred fields are marked.
 - Official course inventory count is reconciled against the RISD course page count.

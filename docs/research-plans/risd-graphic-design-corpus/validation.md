@@ -24,7 +24,10 @@ Overall status: pass
 - Exact duplicate clusters: 0
 - Near-duplicate source clusters: 0
 - Related source-family clusters: 10
-- Wayback captures: 106
+- Source versions: 34
+- Fetched archive source comparisons: 1
+- Metadata-only source versions: 33
+- Wayback captures: 115
 - Review queue rows: 10
 - Review decision rows: 10
 - Field conflicts: 6
@@ -43,7 +46,9 @@ Overall status: pass
 - PASS student_work_has_structured_public_examples: 41 student work rows include URL plus medium/project/evidence metadata.
 - PASS source_clusters_reference_valid_sources: 0 source cluster reference errors across 10 clusters.
 - PASS source_clusters_include_dedup_signals: 0 exact duplicate clusters, 0 near-duplicate text clusters, and 10 related source-family clusters.
+- PASS source_versions_reference_valid_sources: 0 source version reference errors across 34 version rows.
+- PASS source_versions_record_wayback_comparisons: 1 fetched archive comparisons and 33 metadata-only version rows.
 - PASS manual_review_artifacts_have_valid_references: 0 review decision reference errors and 0 field conflict reference errors.
 - PASS official_course_inventory_reconciled: 105 official offerings parsed; RISD page displays 105 results.
-- PASS wayback_captures_recorded: 106 Wayback capture records.
+- PASS wayback_captures_recorded: 115 Wayback capture records.
 - PASS course_records_created: 132 course records created.

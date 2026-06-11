@@ -10,7 +10,7 @@ Generated: 2026-06-11
 - Assignment evidence snippets: 471
 - Reading evidence snippets: 118
 - Student work evidence records: 41
-- Wayback capture records: 106
+- Wayback capture records: 115
 
 ## Reconstructed Course Packets
 

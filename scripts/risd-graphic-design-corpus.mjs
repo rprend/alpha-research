@@ -1453,6 +1453,90 @@ function buildSourceClusters(inspected, syllabi, readings) {
   return clusters.sort((a, b) => b.source_ids.length - a.source_ids.length || a.cluster_id.localeCompare(b.cluster_id))
 }
 
+function buildSourceVersions(inspected, wayback) {
+  const sourceById = new Map(inspected.map(({ source }) => [source.source_id, source]))
+  const textById = new Map(inspected.map(({ source, text }) => [source.source_id, text ?? '']))
+  const capturesBySource = new Map()
+  for (const capture of wayback) {
+    const existing = capturesBySource.get(capture.source_id) ?? []
+    existing.push(capture)
+    capturesBySource.set(capture.source_id, existing)
+  }
+  const archiveSourcesByParent = new Map()
+  for (const { source } of inspected.filter(({ source }) => source.source_type === 'wayback_capture' && source.parent_source_id)) {
+    const existing = archiveSourcesByParent.get(source.parent_source_id) ?? []
+    existing.push(source)
+    archiveSourcesByParent.set(source.parent_source_id, existing)
+  }
+
+  const rows = []
+  for (const [sourceId, captures] of capturesBySource) {
+    const current = sourceById.get(sourceId)
+    const archiveSources = archiveSourcesByParent.get(sourceId) ?? []
+    const sortedCaptures = captures.slice().sort((a, b) => a.timestamp.localeCompare(b.timestamp))
+    const currentText = current ? textById.get(current.source_id) ?? '' : ''
+    const archiveTextRows = archiveSources.map((source) => ({
+      source,
+      text: textById.get(source.source_id) ?? '',
+    })).filter((row) => row.text)
+    const bestArchive = archiveTextRows
+      .slice()
+      .sort((a, b) => b.text.length - a.text.length)[0]
+    const currentKeywords = versionKeywords(currentText)
+    const archiveKeywords = bestArchive ? versionKeywords(bestArchive.text) : []
+    const addedKeywords = bestArchive ? archiveKeywords.filter((keyword) => !currentKeywords.includes(keyword)) : []
+    const removedKeywords = bestArchive ? currentKeywords.filter((keyword) => !archiveKeywords.includes(keyword)) : []
+    const similarity = bestArchive && currentText ? Number(jaccard(textShingles(currentText), textShingles(bestArchive.text)).toFixed(3)) : null
+    rows.push({
+      version_id: `version_${sourceId.replace(/^src_/, '')}`,
+      source_id: sourceId,
+      current_source_id: current?.source_id ?? null,
+      current_url: current?.url ?? sortedCaptures.at(-1)?.original ?? null,
+      current_status: current?.extraction_status ?? 'not_fetched_current_run',
+      archive_capture_count: sortedCaptures.length,
+      oldest_capture_timestamp: sortedCaptures[0]?.timestamp ?? null,
+      newest_capture_timestamp: sortedCaptures.at(-1)?.timestamp ?? null,
+      fetched_archive_source_ids: archiveSources.map((source) => source.source_id),
+      fetched_archive_count: archiveSources.length,
+      comparison_status: bestArchive ? 'fetched_archive_compared' : sortedCaptures.length ? 'metadata_only' : 'no_archive',
+      current_text_length: current?.text_length ?? 0,
+      archive_text_length: bestArchive?.source.text_length ?? 0,
+      normalized_text_similarity: similarity,
+      current_keywords: currentKeywords,
+      archive_keywords: archiveKeywords,
+      added_archive_keywords: addedKeywords,
+      removed_archive_keywords: removedKeywords,
+      substantive_change_hint: bestArchive ? versionChangeHint({ similarity, addedKeywords, removedKeywords, currentText, archiveText: bestArchive.text }) : null,
+      evidence_grade: bestArchive ? current?.confidence ?? bestArchive.source.confidence ?? null : current?.confidence ?? null,
+    })
+  }
+  return rows.sort((a, b) => a.source_id.localeCompare(b.source_id))
+}
+
+function versionKeywords(text) {
+  const lower = text.toLowerCase()
+  const checks = [
+    ['syllabus', /\bsyllabus\b/],
+    ['schedule', /\bschedule\b|\bcalendar\b|\bweek\b/],
+    ['assignment', /\bassignment\b|\bproject\b|\bexercise\b|\bprompt\b/],
+    ['critique', /\bcritique\b|\bcrit\b|\bfeedback\b/],
+    ['reading', /\breadings?\b|\btexts?\b|\bbibliography\b/],
+    ['grading', /\bgrading\b|\bgrade\b|\bevaluation\b|\bassessment\b/],
+    ['tools', /\bphotoshop\b|\billustrator\b|\bindesign\b|\bfigma\b|\bhtml\b|\bcss\b|\bjavascript\b|\bafter effects\b/],
+    ['student_work', /\bstudent work\b|\bgallery\b|\bportfolio\b/],
+  ]
+  return checks.filter(([, pattern]) => pattern.test(lower)).map(([keyword]) => keyword)
+}
+
+function versionChangeHint({ similarity, addedKeywords, removedKeywords, currentText, archiveText }) {
+  const keywordChanges = [...addedKeywords, ...removedKeywords]
+  if (similarity !== null && similarity < 0.65 && keywordChanges.length) return 'likely_substantive_version_change'
+  if (similarity !== null && similarity < 0.4 && Math.abs(currentText.length - archiveText.length) > 1000) return 'likely_substantive_version_change'
+  if (keywordChanges.length) return 'possible_scope_change'
+  if (similarity !== null && similarity > 0.9) return 'mostly_cosmetic_or_same_content'
+  return 'needs_manual_version_review'
+}
+
 function makeSourceCluster({ clusterIndex, clusterType, sourceIds, sourceById, inspected, syllabi, readings, reason, similarity }) {
   const sources = sourceIds.map((id) => sourceById.get(id)).filter(Boolean)
   const representative = sources
@@ -1619,7 +1703,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], studentWork = [], sourceClusters = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [] }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], studentWork = [], sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [] }) {
   const sourceIds = new Set(sources.map((source) => source.source_id))
   const syllabusIds = new Set(syllabi.map((syllabus) => syllabus.syllabus_id))
   const failedSourceIds = new Set(sources.filter((source) => source.extraction_status !== 'ok').map((source) => source.source_id))
@@ -1664,6 +1748,9 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const studentWorkSourceErrors = studentWork.filter((work) => work.source_ids.some((id) => !sourceIds.has(id)))
   const structuredStudentWorkCount = studentWork.filter((work) => work.url && (work.medium || work.project_title || work.project_statement_excerpt || work.assignment_link_confidence || work.visual_standard_notes?.length) && work.evidence_grade).length
   const sourceClusterErrors = sourceClusters.filter((cluster) => !cluster.representative_source_id || !cluster.source_ids?.length || cluster.source_ids.some((id) => !sourceIds.has(id)))
+  const sourceVersionErrors = sourceVersions.filter((version) => !version.source_id || !version.version_id || version.current_source_id && !sourceIds.has(version.current_source_id) || version.fetched_archive_source_ids?.some((id) => !sourceIds.has(id)))
+  const fetchedArchiveVersionCount = sourceVersions.filter((version) => version.comparison_status === 'fetched_archive_compared').length
+  const metadataOnlyVersionCount = sourceVersions.filter((version) => version.comparison_status === 'metadata_only').length
   const exactSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type.startsWith('exact')).length
   const nearDuplicateSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type === 'near_duplicate_text').length
   const relatedSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type === 'related_source_family').length
@@ -1732,6 +1819,16 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${exactSourceClusterCount} exact duplicate clusters, ${nearDuplicateSourceClusterCount} near-duplicate text clusters, and ${relatedSourceClusterCount} related source-family clusters.`,
     },
     {
+      id: 'source_versions_reference_valid_sources',
+      status: sourceVersionErrors.length === 0 ? 'pass' : 'fail',
+      detail: `${sourceVersionErrors.length} source version reference errors across ${sourceVersions.length} version rows.`,
+    },
+    {
+      id: 'source_versions_record_wayback_comparisons',
+      status: sourceVersions.length > 0 && fetchedArchiveVersionCount > 0 ? 'pass' : sourceVersions.length > 0 ? 'warn' : 'fail',
+      detail: `${fetchedArchiveVersionCount} fetched archive comparisons and ${metadataOnlyVersionCount} metadata-only version rows.`,
+    },
+    {
       id: 'manual_review_artifacts_have_valid_references',
       status: reviewDecisionErrors.length === 0 && fieldConflictErrors.length === 0 ? 'pass' : 'fail',
       detail: `${reviewDecisionErrors.length} review decision reference errors and ${fieldConflictErrors.length} field conflict reference errors.`,
@@ -1776,6 +1873,9 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       exact_source_clusters: exactSourceClusterCount,
       near_duplicate_source_clusters: nearDuplicateSourceClusterCount,
       related_source_clusters: relatedSourceClusterCount,
+      source_versions: sourceVersions.length,
+      fetched_archive_source_versions: fetchedArchiveVersionCount,
+      metadata_only_source_versions: metadataOnlyVersionCount,
       wayback: wayback.length,
       review_queue: reviewQueue.length,
       review_decisions: reviewDecisions.length,
@@ -2026,6 +2126,9 @@ Overall status: ${validation.status}
 - Exact duplicate clusters: ${validation.counts.exact_source_clusters}
 - Near-duplicate source clusters: ${validation.counts.near_duplicate_source_clusters}
 - Related source-family clusters: ${validation.counts.related_source_clusters}
+- Source versions: ${validation.counts.source_versions}
+- Fetched archive source comparisons: ${validation.counts.fetched_archive_source_versions}
+- Metadata-only source versions: ${validation.counts.metadata_only_source_versions}
 - Wayback captures: ${validation.counts.wayback}
 - Review queue rows: ${validation.counts.review_queue}
 - Review decision rows: ${validation.counts.review_decisions}
@@ -2257,6 +2360,7 @@ async function main() {
   const readingFrequency = buildReadingFrequency(readings)
   const studentWork = buildStudentWork(inspected)
   const sourceClusters = buildSourceClusters(inspected, syllabi, readings)
+  const sourceVersions = buildSourceVersions(inspected, wayback)
 
   writeJsonl(join(outDir, 'sources.jsonl'), sources)
   writeJsonl(join(outDir, 'course_inventory.jsonl'), courseInventory.offerings)
@@ -2267,6 +2371,7 @@ async function main() {
   writeJsonl(join(outDir, 'reading_frequency.jsonl'), readingFrequency)
   writeJsonl(join(outDir, 'student_work.jsonl'), studentWork)
   writeJsonl(join(outDir, 'source_clusters.jsonl'), sourceClusters)
+  writeJsonl(join(outDir, 'source_versions.jsonl'), sourceVersions)
   writeJsonl(join(outDir, 'wayback_captures.jsonl'), wayback)
   writeJsonl(join(outDir, 'crawl_sources.jsonl'), crawlSeeds)
   writeJsonl(join(outDir, 'search_results.jsonl'), buildSearchResults())
@@ -2274,7 +2379,7 @@ async function main() {
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue)
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, studentWork, sourceClusters, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
@@ -2287,7 +2392,7 @@ async function main() {
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
 
   console.log(`RISD corpus artifacts written to ${outDir}`)
-  console.log(`sources=${sources.length} course_inventory=${courseInventory.offerings.length}/${courseInventory.displayed_count || '?'} courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} canonical_reading_works=${readingFrequency.length} student_work=${studentWork.length} source_clusters=${sourceClusters.length} wayback=${wayback.length} review_queue=${reviewQueue.length} review_decisions=${reviewDecisions.length} field_conflicts=${fieldConflicts.length} validation=${validationWithReview.status}`)
+  console.log(`sources=${sources.length} course_inventory=${courseInventory.offerings.length}/${courseInventory.displayed_count || '?'} courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} canonical_reading_works=${readingFrequency.length} student_work=${studentWork.length} source_clusters=${sourceClusters.length} source_versions=${sourceVersions.length} wayback=${wayback.length} review_queue=${reviewQueue.length} review_decisions=${reviewDecisions.length} field_conflicts=${fieldConflicts.length} validation=${validationWithReview.status}`)
 }
 
 if (!existsSync(join(root, 'docs/research-plans/risd-graphic-design-syllabus-corpus-plan.md'))) {
