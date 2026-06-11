@@ -197,9 +197,9 @@ function renderMarkdown(markdown, currentKind) {
 
 function pageShell({ title, body, currentFile, currentKind }) {
   const navItems = [
-    ['guide', 'README.md', 'index.html', 'Guide'],
+    ['guide', 'README.md', 'index/index.html', 'Guide'],
     ...FILES.map((item) => ['daily', ...item]),
-    ['guide', 'paper-ladder.md', 'paper-ladder.html', 'Papers'],
+    ['guide', 'paper-ladder.md', 'paper-ladder/index.html', 'Papers'],
   ]
   const nav = navItems.map(([kind, source, output, label]) => {
     const isDaily = kind === 'daily'
