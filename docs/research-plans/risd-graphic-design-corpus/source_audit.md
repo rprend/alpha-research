@@ -6,7 +6,7 @@ Generated: 2026-06-11
 
 - Successful extractions: 87
 - Failed or empty extractions: 1
-- Wayback captures recorded: 115
+- Wayback captures recorded: 119
 - Wayback source cap for this run: 45
 - Validation status: pass
 

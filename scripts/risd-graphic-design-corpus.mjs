@@ -826,30 +826,34 @@ async function inspectWaybackFallbacks(inspected, wayback) {
 
   for (const [index, source] of failedSources.entries()) {
     const captures = capturesBySource.get(source.source_id).sort((a, b) => b.timestamp.localeCompare(a.timestamp))
-    const capture = captures[0]
     console.error(`inspect wayback fallback ${index + 1}/${failedSources.length}: ${source.source_id}`)
-    const urls = uniq([capture.memento_url, capture.replay_url])
-    for (const [urlIndex, url] of urls.entries()) {
-      const inspected = await inspectSeed({
-        source_id: `src_wayback_${source.source_id.replace(/^src_/, '')}_${capture.timestamp}${urlIndex ? `_replay_${urlIndex + 1}` : ''}`,
-        url,
-        source_type: 'wayback_capture',
-        authority: 'internet_archive',
-        confidence: source.confidence,
-        course_code: source.course_code ?? null,
-        course_title: source.course_title ?? null,
-        term: source.term ?? null,
-        instructor: source.instructor ?? null,
-        parent_source_id: source.source_id,
-        original_url: source.url,
-        archive_timestamp: capture.timestamp,
-        notes: `Internet Archive fallback for failed source ${source.source_id}.`,
-      })
-      if (inspected.source.extraction_status === 'ok') {
-        recovered.push(inspected)
-        break
+    let recoveredSource = null
+    for (const capture of captures.slice(0, 5)) {
+      const urls = uniq([capture.memento_url, capture.replay_url])
+      for (const [urlIndex, url] of urls.entries()) {
+        const inspected = await inspectSeed({
+          source_id: `src_wayback_${source.source_id.replace(/^src_/, '')}_${capture.timestamp}${urlIndex ? `_replay_${urlIndex + 1}` : ''}`,
+          url,
+          source_type: 'wayback_capture',
+          authority: 'internet_archive',
+          confidence: source.confidence,
+          course_code: source.course_code ?? null,
+          course_title: source.course_title ?? null,
+          term: source.term ?? null,
+          instructor: source.instructor ?? null,
+          parent_source_id: source.source_id,
+          original_url: source.url,
+          archive_timestamp: capture.timestamp,
+          notes: `Internet Archive fallback for failed source ${source.source_id}.`,
+        })
+        if (inspected.source.extraction_status === 'ok') {
+          recoveredSource = inspected
+          break
+        }
       }
+      if (recoveredSource) break
     }
+    if (recoveredSource) recovered.push(recoveredSource)
   }
   return recovered
 }
@@ -1267,6 +1271,115 @@ function buildReadingFrequency(readings) {
     byWork.set(reading.canonical_work_id, existing)
   }
   return [...byWork.values()].sort((a, b) => b.occurrence_count - a.occurrence_count || a.title.localeCompare(b.title))
+}
+
+function buildFacultyGraph({ sources, courseInventory, syllabi }) {
+  const facultyByName = new Map()
+  const edges = []
+  const addFaculty = ({ name, sourceIds = [], courseCode = null, courseTitle = null, term = null, evidenceGrade = null }) => {
+    for (const facultyName of splitInstructorNames(name)) {
+      const facultyId = `faculty_${slug(facultyName)}`
+      const existing = facultyByName.get(facultyName) ?? {
+        faculty_id: facultyId,
+        name: facultyName,
+        affiliation: 'Rhode Island School of Design',
+        department: 'Graphic Design',
+        profile_urls: [],
+        source_ids: [],
+        course_codes: [],
+        course_titles: [],
+        terms: [],
+        evidence_grade: evidenceGrade ?? 'C',
+      }
+      existing.source_ids = uniq([...existing.source_ids, ...sourceIds])
+      existing.course_codes = uniq([...existing.course_codes, courseCode].filter(Boolean))
+      existing.course_titles = uniq([...existing.course_titles, courseTitle].filter(Boolean))
+      existing.terms = uniq([...existing.terms, term].filter(Boolean))
+      existing.evidence_grade = bestEvidenceGrade([existing.evidence_grade, evidenceGrade])
+      facultyByName.set(facultyName, existing)
+
+      if (courseCode || courseTitle || term) {
+        edges.push({
+          edge_id: `edge_${facultyId}_${slug(`${courseCode ?? courseTitle ?? 'course'}_${term ?? 'unknown'}`)}`,
+          faculty_id: facultyId,
+          faculty_name: facultyName,
+          course_code: courseCode,
+          course_title: courseTitle,
+          term,
+          source_ids: sourceIds,
+          relationship: 'instructor_or_course_artifact_attribution',
+          evidence_grade: evidenceGrade ?? 'C',
+        })
+      }
+    }
+  }
+
+  for (const offering of courseInventory.offerings) {
+    addFaculty({
+      name: offering.instructor,
+      sourceIds: offering.source_ids,
+      courseCode: offering.course_code,
+      courseTitle: offering.course_title,
+      term: offering.period,
+      evidenceGrade: offering.evidence_grade,
+    })
+  }
+  for (const syllabus of syllabi) {
+    addFaculty({
+      name: syllabus.instructor,
+      sourceIds: syllabus.source_ids,
+      courseCode: syllabus.course_code,
+      courseTitle: syllabus.course_title,
+      term: syllabus.term,
+      evidenceGrade: syllabus.evidence_grade,
+    })
+  }
+  for (const source of sources) {
+    addFaculty({
+      name: source.instructor,
+      sourceIds: [source.source_id],
+      courseCode: source.course_code ?? null,
+      courseTitle: source.course_title ?? null,
+      term: source.term ?? null,
+      evidenceGrade: source.confidence,
+    })
+  }
+
+  const dedupedEdges = new Map()
+  for (const edge of edges) {
+    const key = `${edge.faculty_id}|${edge.course_code ?? ''}|${edge.course_title ?? ''}|${edge.term ?? ''}|${edge.relationship}`
+    const existing = dedupedEdges.get(key)
+    if (existing) {
+      existing.source_ids = uniq([...existing.source_ids, ...edge.source_ids])
+      existing.evidence_grade = bestEvidenceGrade([existing.evidence_grade, edge.evidence_grade])
+    } else {
+      dedupedEdges.set(key, edge)
+    }
+  }
+
+  return {
+    faculty: [...facultyByName.values()].sort((a, b) => a.name.localeCompare(b.name)),
+    facultyCourseEdges: [...dedupedEdges.values()].sort((a, b) => a.faculty_name.localeCompare(b.faculty_name) || (a.course_title ?? '').localeCompare(b.course_title ?? '')),
+  }
+}
+
+function splitInstructorNames(name) {
+  if (!name) return []
+  const cleaned = String(name)
+    .replace(/\b(?:Instructor\(s\):|Instructor:)\b/gi, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  if (!cleaned || /^(?:TBA|Staff|Faculty|DS1 team|DC|Metcalf Auditorium|Auditorium)$/i.test(cleaned) || /^Design Center\b/i.test(cleaned)) return []
+  return uniq(cleaned
+    .split(/\s*(?:,|;|\/|&|\band\b)\s*/i)
+    .map((part) => part.replace(/\([^)]*\)/g, '').trim())
+    .filter((part) => !/^(?:Design Center|DC|Metcalf Auditorium|Auditorium)\b/i.test(part))
+    .filter((part) => /^[A-Z][A-Za-z.'-]+(?:\s+[A-Z][A-Za-z.'-]+){1,3}$/.test(part)))
+}
+
+function bestEvidenceGrade(grades) {
+  const order = ['A', 'B', 'C', 'D', 'E']
+  return grades.filter(Boolean).sort((a, b) => order.indexOf(a) - order.indexOf(b))[0] ?? null
 }
 
 function buildStudentWork(inspected) {
@@ -1703,7 +1816,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], studentWork = [], sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [] }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], faculty = [], facultyCourseEdges = [], studentWork = [], sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [] }) {
   const sourceIds = new Set(sources.map((source) => source.source_id))
   const syllabusIds = new Set(syllabi.map((syllabus) => syllabus.syllabus_id))
   const failedSourceIds = new Set(sources.filter((source) => source.extraction_status !== 'ok').map((source) => source.source_id))
@@ -1745,6 +1858,9 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const readingSourceErrors = readings.filter((reading) => !syllabusIds.has(reading.syllabus_id) || reading.source_ids.some((id) => !sourceIds.has(id)))
   const normalizedReadingCount = readings.filter((reading) => reading.canonical_work_id).length
   const catalogReadingCount = readings.filter((reading) => reading.linking_status === 'local_catalog_match').length
+  const facultyIds = new Set(faculty.map((row) => row.faculty_id))
+  const facultySourceErrors = faculty.filter((row) => !row.faculty_id || !row.name || row.source_ids?.some((id) => !sourceIds.has(id)))
+  const facultyEdgeErrors = facultyCourseEdges.filter((edge) => !edge.edge_id || !facultyIds.has(edge.faculty_id) || edge.source_ids?.some((id) => !sourceIds.has(id)))
   const studentWorkSourceErrors = studentWork.filter((work) => work.source_ids.some((id) => !sourceIds.has(id)))
   const structuredStudentWorkCount = studentWork.filter((work) => work.url && (work.medium || work.project_title || work.project_statement_excerpt || work.assignment_link_confidence || work.visual_standard_notes?.length) && work.evidence_grade).length
   const sourceClusterErrors = sourceClusters.filter((cluster) => !cluster.representative_source_id || !cluster.source_ids?.length || cluster.source_ids.some((id) => !sourceIds.has(id)))
@@ -1797,6 +1913,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       id: 'readings_have_normalized_work_links',
       status: normalizedReadingCount > 0 ? 'pass' : 'warn',
       detail: `${normalizedReadingCount} reading snippets linked to ${readingFrequency.length} canonical works; ${catalogReadingCount} local catalog matches.`,
+    },
+    {
+      id: 'faculty_graph_references_valid_sources',
+      status: facultySourceErrors.length === 0 && facultyEdgeErrors.length === 0 ? 'pass' : 'fail',
+      detail: `${faculty.length} faculty rows and ${facultyCourseEdges.length} faculty-course edges; ${facultySourceErrors.length + facultyEdgeErrors.length} reference errors.`,
     },
     {
       id: 'student_work_reference_valid_sources',
@@ -1867,6 +1988,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       normalized_readings: normalizedReadingCount,
       local_catalog_readings: catalogReadingCount,
       canonical_reading_works: readingFrequency.length,
+      faculty: faculty.length,
+      faculty_course_edges: facultyCourseEdges.length,
       student_work: studentWork.length,
       structured_student_work: structuredStudentWorkCount,
       source_clusters: sourceClusters.length,
@@ -2120,6 +2243,8 @@ Overall status: ${validation.status}
 - Normalized reading snippets: ${validation.counts.normalized_readings}
 - Canonical reading works: ${validation.counts.canonical_reading_works}
 - Local catalog reading matches: ${validation.counts.local_catalog_readings}
+- Faculty rows: ${validation.counts.faculty}
+- Faculty-course edges: ${validation.counts.faculty_course_edges}
 - Student work rows: ${validation.counts.student_work}
 - Structured student work rows: ${validation.counts.structured_student_work}
 - Source clusters: ${validation.counts.source_clusters}
@@ -2358,6 +2483,7 @@ async function main() {
   const assignments = buildAssignments(syllabi)
   const readings = buildReadings(syllabi)
   const readingFrequency = buildReadingFrequency(readings)
+  const { faculty, facultyCourseEdges } = buildFacultyGraph({ sources, courseInventory, syllabi })
   const studentWork = buildStudentWork(inspected)
   const sourceClusters = buildSourceClusters(inspected, syllabi, readings)
   const sourceVersions = buildSourceVersions(inspected, wayback)
@@ -2369,6 +2495,8 @@ async function main() {
   writeJsonl(join(outDir, 'assignments.jsonl'), assignments)
   writeJsonl(join(outDir, 'readings.jsonl'), readings)
   writeJsonl(join(outDir, 'reading_frequency.jsonl'), readingFrequency)
+  writeJsonl(join(outDir, 'faculty.jsonl'), faculty)
+  writeJsonl(join(outDir, 'faculty_course_edges.jsonl'), facultyCourseEdges)
   writeJsonl(join(outDir, 'student_work.jsonl'), studentWork)
   writeJsonl(join(outDir, 'source_clusters.jsonl'), sourceClusters)
   writeJsonl(join(outDir, 'source_versions.jsonl'), sourceVersions)
@@ -2379,7 +2507,7 @@ async function main() {
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue)
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, faculty, facultyCourseEdges, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
@@ -2392,7 +2520,7 @@ async function main() {
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
 
   console.log(`RISD corpus artifacts written to ${outDir}`)
-  console.log(`sources=${sources.length} course_inventory=${courseInventory.offerings.length}/${courseInventory.displayed_count || '?'} courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} canonical_reading_works=${readingFrequency.length} student_work=${studentWork.length} source_clusters=${sourceClusters.length} source_versions=${sourceVersions.length} wayback=${wayback.length} review_queue=${reviewQueue.length} review_decisions=${reviewDecisions.length} field_conflicts=${fieldConflicts.length} validation=${validationWithReview.status}`)
+  console.log(`sources=${sources.length} course_inventory=${courseInventory.offerings.length}/${courseInventory.displayed_count || '?'} courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} canonical_reading_works=${readingFrequency.length} faculty=${faculty.length} faculty_course_edges=${facultyCourseEdges.length} student_work=${studentWork.length} source_clusters=${sourceClusters.length} source_versions=${sourceVersions.length} wayback=${wayback.length} review_queue=${reviewQueue.length} review_decisions=${reviewDecisions.length} field_conflicts=${fieldConflicts.length} validation=${validationWithReview.status}`)
 }
 
 if (!existsSync(join(root, 'docs/research-plans/risd-graphic-design-syllabus-corpus-plan.md'))) {

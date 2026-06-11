@@ -18,6 +18,8 @@ Overall status: pass
 - Normalized reading snippets: 50
 - Canonical reading works: 26
 - Local catalog reading matches: 38
+- Faculty rows: 26
+- Faculty-course edges: 48
 - Student work rows: 41
 - Structured student work rows: 41
 - Source clusters: 10
@@ -27,7 +29,7 @@ Overall status: pass
 - Source versions: 34
 - Fetched archive source comparisons: 1
 - Metadata-only source versions: 33
-- Wayback captures: 115
+- Wayback captures: 119
 - Review queue rows: 10
 - Review decision rows: 10
 - Field conflicts: 6
@@ -42,6 +44,7 @@ Overall status: pass
 - PASS assignments_have_structured_signals: 204 assignment snippets include inferred deliverables, constraints, tools, critique, revision, or tacit goals.
 - PASS readings_reference_valid_syllabi_and_sources: 0 reading reference errors.
 - PASS readings_have_normalized_work_links: 50 reading snippets linked to 26 canonical works; 38 local catalog matches.
+- PASS faculty_graph_references_valid_sources: 26 faculty rows and 48 faculty-course edges; 0 reference errors.
 - PASS student_work_reference_valid_sources: 0 student work source reference errors.
 - PASS student_work_has_structured_public_examples: 41 student work rows include URL plus medium/project/evidence metadata.
 - PASS source_clusters_reference_valid_sources: 0 source cluster reference errors across 10 clusters.
@@ -50,5 +53,5 @@ Overall status: pass
 - PASS source_versions_record_wayback_comparisons: 1 fetched archive comparisons and 33 metadata-only version rows.
 - PASS manual_review_artifacts_have_valid_references: 0 review decision reference errors and 0 field conflict reference errors.
 - PASS official_course_inventory_reconciled: 105 official offerings parsed; RISD page displays 105 results.
-- PASS wayback_captures_recorded: 115 Wayback capture records.
+- PASS wayback_captures_recorded: 119 Wayback capture records.
 - PASS course_records_created: 132 course records created.

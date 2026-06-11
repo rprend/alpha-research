@@ -55,6 +55,8 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/syllabi.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/assignments.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/readings.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/faculty.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/faculty_course_edges.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/student_work.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/source_clusters.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/source_versions.jsonl`
@@ -91,6 +93,7 @@ Known gaps:
 - Assignment extraction is currently snippet-based, not structured enough.
 - No search API ingestion exists yet.
 - No Common Crawl pass exists yet.
+- Faculty/course edges are derived from existing course evidence, but RISD profile crawling and faculty-portfolio expansion are not implemented yet.
 - Near-duplicate clustering is implemented as a review artifact, but clusters are not yet used to collapse generated course packets.
 - Manual review artifacts exist, but human decisions have not been filled in yet.
 
@@ -251,6 +254,39 @@ Required fields:
 - `project_statement_excerpt`
 - `assignment_link_confidence`
 - `visual_standard_notes`
+- `evidence_grade`
+
+### `faculty.jsonl`
+
+One row per public faculty/instructor identity found in official or course-artifact evidence.
+
+Required fields:
+
+- `faculty_id`
+- `name`
+- `affiliation`
+- `department`
+- `profile_urls`
+- `source_ids`
+- `course_codes`
+- `course_titles`
+- `terms`
+- `evidence_grade`
+
+### `faculty_course_edges.jsonl`
+
+One row per faculty-to-course attribution.
+
+Required fields:
+
+- `edge_id`
+- `faculty_id`
+- `faculty_name`
+- `course_code`
+- `course_title`
+- `term`
+- `source_ids`
+- `relationship`
 - `evidence_grade`
 
 ### `source_clusters.jsonl`
