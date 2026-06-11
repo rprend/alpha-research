@@ -1,10 +1,29 @@
-# RISD Graphic Design Syllabus Corpus Plan
+# RISD Graphic Design Syllabus Corpus Implementation Plan
 
 ## Objective
 
-Build a comprehensive, evidence-graded corpus for the Rhode Island School of Design Graphic Design program that captures the classroom artifact layer: syllabi, weekly lecture topics, readings, textbooks, project briefs, assignment constraints, critique structure, grading rubrics, tools, student outputs, and tacit studio norms.
+Build a RISD Graphic Design corpus that reconstructs the classroom artifact layer: syllabi, weekly schedules, readings, textbooks, project briefs, assignment constraints, critique formats, grading rubrics, tools, student outputs, and tacit studio norms.
 
-The goal is not to summarize the RISD degree map. The goal is to reconstruct how RISD Graphic Design courses are actually taught, with enough detail to create a self-study curriculum that approximates the training environment.
+The output should not be a degree-map summary. It should answer: "What would a RISD Graphic Design student actually receive, read, make, present, revise, and be critiqued on in each course?"
+
+## Architecture Benchmark
+
+Open Syllabus is the architectural benchmark, but not the product target.
+
+Open Syllabus uses:
+
+- General-purpose crawlers over many seeds
+- Custom scrapers for specific sites
+- Common Crawl and Internet Archive mining
+- Syllabus classification
+- Structured span extraction
+- Citation parsing and bibliographic linking
+- Near-duplicate clustering
+- Field classification across academic disciplines
+
+Our current implementation does not match Open Syllabus yet. It is a seed-based RISD-specific crawler. To become useful for tacit knowledge reconstruction, it needs to adopt the relevant Open Syllabus-style steps while staying narrower and deeper for RISD Graphic Design.
+
+The product target is not "more comprehensive than Open Syllabus globally." The target is "more useful than Open Syllabus for reconstructing RISD Graphic Design studio practice."
 
 ## Scope
 
@@ -13,530 +32,634 @@ Initial scope:
 - School: Rhode Island School of Design
 - Program: Graphic Design
 - Degree levels: BFA first, then MFA
-- Time range: prioritize 2020-present, then backfill 2010-2019 where useful
-- Units of analysis: course offering, syllabus, assignment, reading, student work artifact, course-site page, public comment thread, faculty page
+- Time range: prioritize 2020-present, then backfill 2010-2019, then earlier historical archives when they contain high-value assignments
+- Source types: official course pages, catalogs, syllabi, assignment pages, course websites, faculty teaching pages, student work archives, thesis pages, web archives, public commentary
 
-Out of scope unless explicitly authorized:
+Out of scope:
 
-- Circumventing login walls, Canvas, Blackboard, Google Drive permissions, or private student groups
+- Bypassing Canvas, Blackboard, private Google Drive, private Discord/Slack, paywalls, or login walls
 - Downloading or redistributing copyrighted readings
-- Scraping personal data beyond what is necessary to attribute public course artifacts
-- Treating anonymous social posts as verified facts without corroboration
+- Treating social media or anonymous student comments as verified course facts
+- Publishing private student information
 
-## Research Questions
+## Current State
 
-1. What are the core RISD Graphic Design courses, sequences, and studios?
-2. Which courses have public syllabi, assignment briefs, or course websites?
-3. What readings, textbooks, lectures, exercises, and project archetypes recur?
-4. How are critiques structured, and what kinds of feedback or standards are implied?
-5. What student work artifacts reveal the expected level of execution?
-6. Which gaps can be reconstructed from adjacent evidence, and which gaps must remain unknown?
+Implemented script:
 
-## Expected Artifacts
+- `scripts/risd-graphic-design-corpus.mjs`
 
-- `sources.jsonl`: one row per discovered source
-- `courses.jsonl`: normalized RISD Graphic Design course records
-- `syllabi.jsonl`: parsed syllabus records
-- `assignments.jsonl`: assignment/project briefs and constraints
-- `readings.jsonl`: books, articles, videos, and course packets
-- `student_work.jsonl`: public student work linked to course, instructor, or term when possible
-- `course_reconstruction.md`: reconstructed course-by-course curriculum with evidence grades
-- `tacit_knowledge_memo.md`: synthesis of studio norms, critique patterns, hidden standards, and skill progression
-- `source_audit.md`: reproducibility notes, query log, access limitations, and unresolved gaps
+Current generated artifacts:
 
-## Source Ladder
+- `docs/research-plans/risd-graphic-design-corpus/sources.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/courses.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/syllabi.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/assignments.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/readings.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/student_work.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/wayback_captures.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/search_queries.json`
+- `docs/research-plans/risd-graphic-design-corpus/course_reconstruction.md`
+- `docs/research-plans/risd-graphic-design-corpus/tacit_knowledge_memo.md`
+- `docs/research-plans/risd-graphic-design-corpus/source_audit.md`
 
-### Tier 1: Official RISD Sources
+Current seed sources include:
 
-These are highest-confidence sources for program structure, course names, course descriptions, facilities, degree requirements, and institutional teaching expectations.
+- RISD Graphic Design BFA program page
+- RISD Graphic Design MFA program page
+- RISD Graphic Design courses page
+- RISD Coursedog BFA Graphic Design catalog record
+- RISD Teaching & Learning Lab syllabus guidance
+- Adam Fein, `Introduction to Graphic Design`, `GRAPH-W336-01`, Wintersession 2021 syllabus PDF
+- John Caserta, `Design Studio 1`, 2016 class page
+- `ds1618.risd.gd` Design Studio 2016-18 archive and printable book view
+- Type Two 2015 public syllabus PDF
+- Web Type Spring 2022 public syllabus
+- RISD GD Spring 2019 elective page
+- John Caserta student work archive
+- RISD story on `In Motion: Design for Video and Animation`
 
-- RISD Graphic Design BFA program page: `https://www.risd.edu/academics/graphic-design/bachelors-program`
-- RISD Graphic Design MFA program page: `https://www.risd.edu/academics/graphic-design/masters-programs`
-- RISD Graphic Design courses page: `https://www.risd.edu/academics/graphic-design/courses`
-- RISD Coursedog catalog program record: `https://risd.coursedog.com/programs/cfa6776e92151000bceb55330dc80000`
-- RISD Coursedog course records, including archive subdomains
-- RISD Teaching & Learning Lab syllabus guidance: `https://teachingandlearninglab.risd.edu/teaching-support/syllabus-and-course-design`
-- RISD Digital Commons course catalogs and announcements: `https://digitalcommons.risd.edu/archives_coursecatalogsannouncements/`
-- RISD Digital Commons theses: `https://digitalcommons.risd.edu/masterstheses/`
-- RISD accreditation and self-study reports where they mention syllabus standards or Graphic Design review processes
+Known gaps:
 
-Collection actions:
+- Discovery is still seed-based.
+- Official course parsing is incomplete and needs to recover all RISD course-page offerings reliably.
+- Failed or empty fetches must not become syllabus records.
+- Course linking needs normalized keys to avoid null-title/null-code false joins.
+- Citation extraction is heuristic.
+- Assignment extraction is currently snippet-based, not structured enough.
+- No search API ingestion exists yet.
+- No Common Crawl pass exists yet.
+- Wayback is queried, but archived captures are not yet fetched, parsed, or compared.
+- No near-duplicate clustering exists yet.
+- No manual review queue exists yet.
 
-1. Crawl the RISD Graphic Design program, course, faculty, news, and archive pages.
-2. Extract all course codes, course titles, descriptions, credits, prerequisites, degree requirements, and cross-listings.
-3. Save source URL, retrieved date, page title, raw HTML/PDF checksum, and extracted text.
-4. Record whether the source is official, current, archived, or historical.
+## Required End State
 
-### Tier 2: Public RISD Course Syllabi and Course Sites
+The RISD corpus is useful when it can produce, for every recovered course:
 
-These are the most important sources for reconstructing the classroom layer.
-
-Known seed examples:
-
-- Adam Fein, `Introduction to Graphic Design`, `GRAPH-W336-01`, Wintersession 2021: `https://ajfein.squarespace.com/s/AdamFein_IntroToGraphicDesign.pdf`
-- John Caserta, `Design Studio 1`, 2016: `https://johncaserta.com/ds1-2016.html`
-- Public Google Doc result titled `DS3 Syllabus 2017`
-
-Search patterns:
-
-```text
-site:risd.edu "Graphic Design" "syllabus" filetype:pdf
-site:risd.edu "GRAPH" "syllabus" filetype:pdf
-site:risd.edu "Typography" "syllabus" "RISD"
-site:digitalcommons.risd.edu "Graphic Design" "syllabus"
-site:coursedog.com "RISD" "GRAPH"
-site:johncaserta.com "RISD" "Graphic Design"
-site:*.squarespace.com "RISD" "Graphic Design" "syllabus"
-site:docs.google.com "RISD" "Graphic Design" "syllabus"
-"RISD" "Graphic Design" "assignment" "critique"
-"RISD" "Design Studio" "syllabus"
-"RISD" "Typography" "assignment" "Graphic Design"
-"RISD" "GRAPH-W" "syllabus"
-"RISD" "GRAPH-" "project"
-```
-
-Collection actions:
-
-1. Search web indexes with the patterns above.
-2. Follow faculty and adjunct portfolio sites from every public RISD Graphic Design faculty profile.
-3. For each syllabus or course page, extract:
-   - course code
-   - course title
-   - term
-   - instructor
-   - meeting pattern
-   - description
-   - learning outcomes
-   - required tools/software
-   - required readings/textbooks
-   - weekly schedule
-   - assignments/projects
-   - critique format
-   - grading breakdown
-   - attendance and participation policies
-   - final deliverables
-4. Preserve source provenance and mark whether data is directly quoted, paraphrased, or inferred.
-
-### Tier 3: Faculty Websites, CVs, Portfolios, and Teaching Pages
-
-Faculty pages often reveal course titles, methods, assignments, class archives, and student outcomes when official course pages do not.
-
-Search patterns:
-
-```text
-"RISD Graphic Design" "faculty" "syllabus"
-"RISD Graphic Design" "teaching" "assignment"
-"RISD" "Graphic Design" "course website"
-"RISD" "Graphic Design" "students" "project"
-"RISD" "Design Studio" "John Caserta"
-"RISD" "Graphic Design" "Ramon Tejada"
-"RISD" "Graphic Design" "Mindy Seu"
-"RISD" "Graphic Design" "James Goggin"
-"RISD" "Graphic Design" "Lucinda Hitchcock"
-```
-
-Collection actions:
-
-1. Build a faculty roster from RISD pages and historical catalogs.
-2. Search each faculty member by name plus `RISD`, `Graphic Design`, `syllabus`, `course`, `teaching`, `assignment`, `studio`, `Typography`, `Design Studio`.
-3. Capture course-specific pages, PDFs, class blogs, Are.na channels, GitHub repositories, public Google Docs, and archived class sites.
-4. Link each artifact to the faculty member and course when evidence permits.
-
-### Tier 4: Student Work Archives and Thesis/Exhibition Pages
-
-Student work is essential for tacit knowledge because it reveals the expected artifact quality, project constraints, and visual standards.
-
-Sources:
-
-- RISD Graphic Design department news and exhibition pages
-- RISD Digital Commons graduate theses
-- RISD thesis exhibitions
-- Student portfolio sites
-- Behance
-- Cargo
-- Are.na
-- Instagram posts when public and clearly course-related
-- Vimeo/YouTube motion-design class outputs
-- GitHub repositories for interaction, web, or creative coding courses
-
-Search patterns:
-
-```text
-"RISD Graphic Design" "Typography I"
-"RISD Graphic Design" "Design Studio 1"
-"RISD Graphic Design" "Design Studio 3"
-"RISD Graphic Design" "thesis"
-"RISD Graphic Design" "student work"
-"RISD" "Graphic Design" "class of" "portfolio"
-site:behance.net "RISD" "Graphic Design" "Typography"
-site:cargo.site "RISD" "Graphic Design" "RISD"
-site:arena.com "RISD" "Graphic Design"
-site:github.com "RISD" "Graphic Design"
-site:vimeo.com "RISD" "Graphic Design" "motion"
-```
-
-Collection actions:
-
-1. Collect only public pages.
-2. Record student name only when already publicly attached to the work and necessary for attribution.
-3. Extract course link if explicit; otherwise mark as `course_unknown`.
-4. Classify artifacts by medium: poster, book, website, type specimen, identity system, motion piece, publication, exhibition, thesis, interaction prototype.
-5. Capture visual metadata: format, dimensions if available, medium, tools, constraints, critique notes, project statement.
-
-### Tier 5: Social Media, Forums, Reviews, and Student Commentary
-
-These sources are useful for tacit norms, workload, critique culture, teacher reputation, and studio expectations. They are lower confidence and should not be used as sole evidence for factual claims.
-
-Sources:
-
-- Reddit threads
-- Student blogs
-- Public Instagram captions
-- Public X/Twitter posts
-- YouTube/Vimeo descriptions and comments
-- RateMyProfessors only as low-confidence sentiment, not factual syllabus evidence
-- Public Discord/Slack exports only if intentionally published
-
-Search patterns:
-
-```text
-"RISD Graphic Design" "critique"
-"RISD Graphic Design" "workload"
-"RISD Graphic Design" "Typography" "crit"
-"RISD Graphic Design" "Design Studio" "crit"
-"RISD Graphic Design" "assignment"
-site:reddit.com/r/risd "graphic design"
-site:reddit.com "RISD" "Graphic Design" "Typography"
-site:instagram.com "RISD Graphic Design" "Typography"
-site:youtube.com "RISD Graphic Design" "critique"
-```
-
-Collection actions:
-
-1. Store only public URLs and short paraphrased summaries unless the platform permits quoting.
-2. Label source confidence as `low` unless corroborated by syllabi or official pages.
-3. Extract recurring themes: workload, critique style, instructor standards, tools, studio culture, common pain points.
-4. Do not infer private classroom details from isolated anecdotes.
-
-### Tier 6: Web Archives
-
-Many class pages disappear after a term. The Wayback Machine can recover course websites, syllabi PDFs, assignment pages, and faculty teaching pages.
-
-Targets:
-
-- RISD official course pages
-- Faculty domains
-- Squarespace class sites
-- Google Docs export URLs where public
-- Old Coursedog/archive catalog URLs
-- Department pages
-
-Collection actions:
-
-1. For each discovered URL, query the Wayback CDX API.
-2. Prioritize captures during academic terms: September, January, February, May.
-3. Save memento URL, timestamp, status code, MIME type, and extracted content.
-4. Compare current and archived versions for changed course names, assignments, or reading lists.
+- Course code, title, degree level, credits, instructor, term, and meeting pattern
+- Source type and evidence grade
+- Full syllabus fields when available
+- Weekly topic and assignment schedule
+- Required/recommended readings
+- Project briefs and deliverables
+- Critique and revision format
+- Grading rubric or assessment strategy
+- Tools/software/materials
+- Linked public student work examples
+- Tacit skill extraction
+- Unknowns and inferred fields clearly marked
+- Source IDs for every factual claim
 
 ## Data Model
 
 ### `sources.jsonl`
 
-```json
-{
-  "source_id": "src_risd_graph_w336_2021_fein_pdf",
-  "url": "https://ajfein.squarespace.com/s/AdamFein_IntroToGraphicDesign.pdf",
-  "retrieved_at": "2026-06-11",
-  "source_type": "syllabus_pdf",
-  "authority": "public_faculty_course_artifact",
-  "access": "public_web",
-  "program": "Graphic Design",
-  "degree_level": "unknown_or_bfa_elective",
-  "course_code": "GRAPH-W336-01",
-  "course_title": "Introduction to Graphic Design",
-  "term": "Wintersession 2021",
-  "instructor": "Adam Fein",
-  "confidence": "A",
-  "checksum": null,
-  "notes": "Public RISD syllabus PDF hosted on instructor Squarespace."
-}
-```
+One row per discovered source.
 
-### `courses.jsonl`
+Required fields:
 
-```json
-{
-  "course_id": "risd_graph_w336",
-  "school": "RISD",
-  "department": "Graphic Design",
-  "course_code": "GRAPH-W336",
-  "course_title": "Introduction to Graphic Design",
-  "degree_level": "BFA_or_elective",
-  "credits": null,
-  "description": null,
-  "prerequisites": [],
-  "source_ids": ["src_risd_graph_w336_2021_fein_pdf"],
-  "evidence_grade": "A"
-}
-```
+- `source_id`
+- `url`
+- `retrieved_at`
+- `source_type`
+- `authority`
+- `access`
+- `fetch_status`
+- `content_type`
+- `checksum`
+- `title`
+- `text_length`
+- `extraction_status`
+- `confidence`
+- `notes`
+
+Source types:
+
+- `official_program_page`
+- `official_course_index`
+- `official_catalog_program`
+- `official_syllabus_guidance`
+- `syllabus_pdf`
+- `syllabus_html`
+- `assignment_page`
+- `course_site`
+- `faculty_profile`
+- `faculty_teaching_page`
+- `student_work_archive`
+- `thesis_archive`
+- `social_commentary`
+- `wayback_capture`
 
 ### `syllabi.jsonl`
 
-```json
-{
-  "syllabus_id": "syl_risd_graph_w336_2021_fein",
-  "course_id": "risd_graph_w336",
-  "term": "Wintersession 2021",
-  "instructor": "Adam Fein",
-  "meeting_pattern": "Mon, Tues, alternate Weds, 1-6 pm",
-  "platforms": ["Canvas", "Slack", "Zoom"],
-  "description": null,
-  "learning_outcomes": [],
-  "weekly_schedule": [],
-  "grading_breakdown": [],
-  "assignments": [],
-  "readings": [],
-  "source_ids": ["src_risd_graph_w336_2021_fein_pdf"]
-}
-```
+Use an Open Syllabus-inspired span model.
+
+Required fields:
+
+- `syllabus_id`
+- `source_ids`
+- `course_code`
+- `course_title`
+- `section`
+- `term`
+- `year`
+- `semester`
+- `instructor`
+- `class_days`
+- `class_time`
+- `class_location`
+- `office_hours`
+- `credits`
+- `description`
+- `learning_outcomes`
+- `required_readings`
+- `recommended_readings`
+- `grading_rubric`
+- `assessment_strategy`
+- `topic_outline`
+- `assignment_schedule`
+- `policies`
+- `tools`
+- `materials`
+- `raw_excerpts`
+- `evidence_grade`
 
 ### `assignments.jsonl`
 
-```json
-{
-  "assignment_id": "assign_placeholder",
-  "course_id": "risd_graph_w336",
-  "syllabus_id": "syl_risd_graph_w336_2021_fein",
-  "title": null,
-  "week": null,
-  "prompt": null,
-  "constraints": [],
-  "deliverables": [],
-  "critique_format": null,
-  "skills_trained": [],
-  "tacit_goal": null,
-  "source_ids": []
-}
-```
+One row per distinct assignment, project, exercise, or critique prompt.
+
+Required fields:
+
+- `assignment_id`
+- `course_code`
+- `course_title`
+- `syllabus_id`
+- `source_ids`
+- `title`
+- `week_or_date`
+- `prompt_excerpt`
+- `constraints`
+- `deliverables`
+- `materials`
+- `tools`
+- `critique_format`
+- `revision_expectation`
+- `skills_trained`
+- `tacit_goal`
+- `evidence_grade`
 
 ### `readings.jsonl`
 
-```json
-{
-  "reading_id": "reading_placeholder",
-  "course_id": null,
-  "syllabus_id": null,
-  "author": null,
-  "title": null,
-  "publication_year": null,
-  "reading_type": "book_or_article_or_video_or_web",
-  "required_or_recommended": "unknown",
-  "week": null,
-  "source_ids": []
-}
-```
+One row per reading/resource citation.
+
+Required fields:
+
+- `reading_id`
+- `course_code`
+- `course_title`
+- `syllabus_id`
+- `source_ids`
+- `raw_citation`
+- `title`
+- `author`
+- `publication_year`
+- `publisher_or_source`
+- `resource_type`
+- `required_or_recommended`
+- `week_or_date`
+- `canonical_work_id`
+- `linking_status`
+
+### `student_work.jsonl`
+
+One row per public student-work artifact.
+
+Required fields:
+
+- `student_work_id`
+- `url`
+- `source_ids`
+- `course_code`
+- `course_title`
+- `instructor`
+- `term`
+- `student_name_public`
+- `medium`
+- `project_title`
+- `project_statement_excerpt`
+- `assignment_link_confidence`
+- `visual_standard_notes`
+- `evidence_grade`
 
 ## Evidence Grades
 
-- `A`: full public syllabus, course website, or official course artifact with assignments/readings/schedule
-- `B`: partial syllabus, assignment brief, class site, or faculty teaching page
-- `C`: official catalog/course description without classroom details
-- `D`: student work or commentary implying course structure but not documenting it
-- `E`: inference from comparable RISD course sequences or adjacent schools; clearly marked as reconstruction
+- `A`: full public syllabus, course site, or assignment archive with schedule/assignments/readings
+- `B`: partial syllabus, course website, assignment brief, or faculty teaching page
+- `C`: official course/catalog/program description
+- `D`: public student work or official news story that describes outputs but not the full course
+- `E`: social/commentary source or inference from adjacent evidence
 
-Every reconstructed course must show its evidence grade and source list.
+Every reconstruction must carry an evidence grade. Inferred content must be explicitly marked as inferred.
 
-## Scraping Workflow
+## Source Ladder
 
-### Phase 1: Seed Official Course Inventory
+### Tier 1: Official RISD Sources
 
-1. Crawl official RISD Graphic Design BFA/MFA pages and course pages.
-2. Crawl RISD Coursedog current and archived records.
-3. Extract course code, title, description, credits, level, and prerequisites.
-4. Produce `courses_seed.jsonl`.
-5. Create a query set for each course:
-   - exact course code
-   - exact title
-   - title plus `RISD`
-   - title plus instructor names
-   - title plus `syllabus`, `assignment`, `critique`, `student work`, `project`
+Primary sources:
 
-### Phase 2: Find Syllabi and Assignment Artifacts
+- `https://www.risd.edu/academics/graphic-design/bachelors-program`
+- `https://www.risd.edu/academics/graphic-design/masters-programs`
+- `https://www.risd.edu/academics/graphic-design/courses`
+- `https://risd.coursedog.com/programs/cfa6776e92151000bceb55330dc80000`
+- RISD Coursedog course records
+- RISD Teaching & Learning Lab syllabus guidance
+- RISD Digital Commons course catalogs and announcements
+- RISD Digital Commons theses
+- RISD accreditation/self-study reports that mention syllabus requirements
 
-1. Run targeted web searches for each course query.
-2. Search PDF, HTML, Google Docs, professor sites, GitHub, Are.na, Vimeo, YouTube, Behance, Cargo, and RISD Digital Commons.
-3. Save each candidate source to `sources.jsonl`.
-4. Parse PDFs with a layout-aware extractor.
-5. Parse HTML pages with readability extraction plus DOM snapshots.
-6. Parse Google Docs only when publicly accessible without authentication.
-7. Mark each result as `syllabus`, `assignment`, `course_site`, `student_work`, `faculty_cv`, `catalog`, `commentary`, or `archive`.
+Implementation requirements:
 
-### Phase 3: Faculty-Centric Expansion
+1. Parse all current RISD Graphic Design course-page offerings, not just seed courses.
+2. Preserve period, level, credits, format, instructor, location, status, and section description.
+3. Parse archived catalog PDFs when current course listings omit historical courses.
+4. Produce a `course_inventory.jsonl` artifact with current and historical course records.
 
-1. Build current and historical RISD Graphic Design faculty roster.
-2. For each faculty member, search:
-   - personal domain
-   - RISD profile
-   - portfolio/CV
-   - public teaching pages
-   - PDFs
-   - conference bios mentioning courses
-3. Add discovered course artifacts back into the course inventory.
-4. Repeat until no new faculty-course-source edges appear.
+### Tier 2: Public Syllabi, Assignment Pages, And Course Sites
 
-### Phase 4: Student Work and Public Commentary
+Known high-value seeds:
 
-1. Search by course title, instructor, and project names discovered in syllabi.
-2. Collect public student work pages and extract project statements.
-3. Identify recurring project forms and standards:
-   - type specimen
-   - poster sequence
-   - book/publication
-   - identity system
-   - motion piece
-   - interactive site
-   - research archive
-   - thesis installation
-4. Collect public commentary only as low-confidence context.
-5. Use commentary to generate hypotheses, not standalone claims.
+- `https://ajfein.squarespace.com/s/AdamFein_IntroToGraphicDesign.pdf`
+- `https://johncaserta.com/ds1-2016.html`
+- `https://ds1618.risd.gd/`
+- `https://ds1618.risd.gd/book.html`
+- `https://typetwo15.risd.gd/wp-content/uploads/2015/02/Type-2-Syllabus.pdf`
+- `https://type.practise.studio/syllabus/`
+- `https://webtype.htmlkitchen.net/syllabus/`
+- `https://sp19.risd.gd/electives/graphic-design-for-the-web`
 
-### Phase 5: Wayback Recovery
+Implementation requirements:
 
-1. Query Wayback CDX API for every official, faculty, and course-site URL.
-2. Download public historical captures where permitted.
-3. Extract archived syllabi, assignment pages, and project pages.
-4. Add archive timestamp and original URL to source metadata.
+1. Crawl discovered public course domains recursively within conservative depth limits.
+2. For `*.risd.gd`, fetch linked syllabus, schedule, project, exercise, reading, and archive pages.
+3. For course websites, classify each page as syllabus, schedule, project, exercise, reading, resource, or student work.
+4. Parse structured weekly rows when present.
+5. Parse project briefs into assignment records, not just text snippets.
+6. Preserve source URLs for each assignment and schedule row.
 
-### Phase 6: Normalize and Deduplicate
+### Tier 3: Search Result Ingestion
 
-1. Deduplicate files by checksum and near-duplicate text similarity.
-2. Merge equivalent course records across current and archived catalogs.
-3. Normalize course codes and terms.
-4. Create entity links:
-   - instructor to course
-   - course to syllabus
-   - syllabus to assignments
-   - assignment to student work
-   - reading to course/week
-5. Mark conflicting facts and preserve both with provenance.
+Search must become a first-class input, not a manual step.
 
-### Phase 7: Reconstruct Courses
-
-For each course, create a reconstruction packet:
+Query families:
 
 ```text
-Course title/code
-Evidence grade
-Known instructors
-Known terms
-Official description
-Observed syllabus structure
-Weekly topics
-Readings/textbooks
-Assignments and deliverables
-Critique format
-Tools/software
-Observed student work
-Tacit skill progression
-What "excellent" appears to mean
-Known gaps
-Source list
+site:risd.edu "Graphic Design" "syllabus" filetype:pdf
+site:risd.edu "GRAPH" "syllabus" filetype:pdf
+site:risd.gd "syllabus"
+site:risd.gd "GRAPH"
+site:risd.gd "assignment"
+site:risd.gd "critique"
+site:docs.google.com "RISD" "Graphic Design" "syllabus"
+site:github.com "RISD" "Graphic Design" "syllabus"
+site:github.com "RISD" "GRAPH"
+site:johncaserta.com "RISD" "Graphic Design"
+site:*.squarespace.com "RISD" "Graphic Design" "syllabus"
+"RISD" "Typography" "syllabus" "Graphic Design"
+"RISD" "Design Studio" "syllabus"
+"RISD" "GRAPH-W" "syllabus"
+"RISD" "GRAPH-" "project"
+"RISD Graphic Design" "student work"
 ```
 
-Reconstruction rules:
+Implementation requirements:
 
-1. Use direct syllabus evidence first.
-2. Use assignment/course-site evidence second.
-3. Use student work to infer deliverable shape, not lecture content.
-4. Use social commentary only for studio culture and workload hypotheses.
-5. Keep inferred material visibly labeled.
-6. Never fabricate weekly schedules when evidence is absent; instead provide a plausible reconstruction with confidence labels.
+1. Add `search_results.jsonl`.
+2. Support imported search exports and, when configured, a search API provider.
+3. Never require secrets in chat; use `~/.codex/scripts/ask-secret.sh` for API keys.
+4. Deduplicate candidate URLs before fetch.
+5. Record query, rank, title, snippet, URL, and discovery date.
+6. Promote search candidates into `sources.jsonl` only after successful public fetch and classification.
+
+### Tier 4: Faculty-Centric Expansion
+
+Implementation requirements:
+
+1. Build `faculty.jsonl` from current RISD profiles and historical catalogs.
+2. For each faculty member, search public web for:
+   - syllabus
+   - course
+   - teaching
+   - assignment
+   - studio
+   - Typography
+   - Design Studio
+   - RISD Graphic Design
+3. Follow public faculty portfolio links.
+4. Extract course-source-faculty edges into `faculty_course_edges.jsonl`.
+5. Use faculty pages for discovery and attribution, not as full syllabus evidence unless they include classroom artifacts.
+
+### Tier 5: Student Work And Thesis Archives
+
+Implementation requirements:
+
+1. Crawl RISD news, exhibition, thesis, and Digital Commons pages relevant to Graphic Design.
+2. Crawl public faculty student-work archives.
+3. Search public Behance, Cargo, GitHub, Vimeo, YouTube, Are.na, and portfolio pages.
+4. Link student work to assignments only when source evidence supports the link.
+5. Store project statements and metadata, not full image mirrors unless license/permission is clear.
+6. Extract visual/tacit notes: medium, format, project type, material, level of polish, and apparent critique criteria.
+
+### Tier 6: Social Commentary
+
+Implementation requirements:
+
+1. Search Reddit, public blogs, public videos, and public captions for RISD Graphic Design course commentary.
+2. Store only URLs and paraphrased summaries unless quoting is permitted.
+3. Mark all social sources `E` unless corroborated.
+4. Use social commentary for hypotheses about workload, critique culture, and studio norms, not factual course reconstruction.
+
+### Tier 7: Internet Archive And Common Crawl
+
+Implementation requirements:
+
+1. Query Wayback CDX for every official, faculty, course-site, and discovered candidate URL.
+2. Fetch selected public captures, not just capture metadata.
+3. Prefer captures around academic-term starts: September, January, February, May.
+4. Compare current and archived versions for changed assignments, schedules, readings, and faculty.
+5. Add `wayback_sources.jsonl` and `source_versions.jsonl`.
+6. Add a later Common Crawl pass for `risd.gd`, `risd.edu`, faculty domains, and known course domains.
+
+## Parser Design
+
+The parser should have three layers.
+
+### Layer 1: Document Classification
+
+Classify fetched public documents as:
+
+- full syllabus
+- short syllabus/course stub
+- assignment page
+- schedule page
+- reading/resource page
+- student work page
+- catalog/program page
+- faculty page
+- social/commentary page
+- irrelevant
+
+Initial implementation can use rules. Later implementation should use a labeled classifier.
+
+Classification signals:
+
+- course code
+- term/year
+- instructor
+- meeting time
+- grading language
+- required readings
+- assignment/schedule language
+- project/critique language
+- institutional source
+
+### Layer 2: Span Extraction
+
+Extract Open Syllabus-style spans:
+
+- `title`
+- `code`
+- `section`
+- `date`
+- `class_days`
+- `class_time`
+- `class_location`
+- `instructor`
+- `office_hours`
+- `credits`
+- `description`
+- `learning_outcomes`
+- `citations`
+- `required_reading`
+- `grading_rubric`
+- `assessment_strategy`
+- `topic_outline`
+- `assignment_schedule`
+- `school_name`
+
+Add RISD/tacit-specific spans:
+
+- `critique_format`
+- `revision_expectation`
+- `materials`
+- `tools`
+- `deliverables`
+- `student_work_links`
+- `studio_norms`
+- `implicit_quality_standard`
+
+### Layer 3: Course Reconstruction
+
+For each course:
+
+1. Prefer direct syllabus evidence.
+2. Merge assignment/schedule pages from the same course site.
+3. Attach readings and resources to weeks when possible.
+4. Attach public student work when explicitly linked.
+5. Generate a reconstruction packet.
+6. Mark every missing or inferred field.
+
+## Citation Parsing And Linking
+
+Implementation requirements:
+
+1. Extract raw citation strings from syllabi and reading pages.
+2. Split likely citations into title, author, publisher, and year when possible.
+3. Link citations against public APIs where feasible:
+   - Open Library
+   - Crossref
+   - OpenAlex
+   - Wikidata
+   - Library of Congress where available
+4. Keep unresolved citations with `linking_status: "unresolved"`.
+5. Do not download or redistribute copyrighted readings.
+
+## Deduplication
+
+Implementation requirements:
+
+1. Exact dedupe by URL canonicalization and content checksum.
+2. Near-dedupe by normalized text similarity.
+3. Cluster versions by:
+   - institution
+   - course code
+   - section
+   - term/year
+   - instructor
+   - assignment schedule hash
+   - reading set hash
+   - source URL family
+4. Keep substantively different versions.
+5. Collapse cosmetic duplicates.
+
+## Manual Review Queue
+
+Automated extraction will miss tacit studio nuance. Add review artifacts:
+
+- `review_queue.jsonl`: high-value uncertain sources
+- `review_decisions.jsonl`: human decisions and corrections
+- `field_conflicts.jsonl`: contradictory course metadata
+- `needs_followup.md`: sources requiring manual inspection
+
+Review priority:
+
+1. Full syllabi
+2. Assignment archives
+3. Schedule pages
+4. Reading pages
+5. Student work tied to course prompts
+6. Faculty teaching pages
+7. Social/commentary sources
 
 ## Tacit Knowledge Extraction
 
-For every `A` or `B` course, extract:
+For each `A` or `B` course, extract:
 
-- The object students repeatedly make
-- The perceptual skill being trained
-- The constraint system used to force learning
-- The critique vocabulary
-- The hidden standard of quality
-- The expected revision loop
-- The material/tool discipline
-- The relationship between concept and execution
-- The difference between novice mistakes and advanced work
+- Object students repeatedly make
+- Perceptual skill trained
+- Constraint system used to force learning
+- Critique vocabulary
+- Hidden standard of quality
+- Expected revision loop
+- Material/tool discipline
+- Relationship between concept and execution
+- Novice failure modes
+- What "excellent" appears to mean
 
-Example extraction frame:
+Example output:
 
 ```text
-Course: Typography I
-Explicit content: type anatomy, hierarchy, grid, spacing
-Training mechanism: repeated visible comparison under critique
-Tacit standard: optical control matters more than decorative novelty
-Common failure mode: treating type as text content rather than visual material
-Self-study reconstruction: weekly typesetting studies, pin-up critique, revision archive
-Evidence: syllabus A, student work D, readings A
+Course: Web Type
+Explicit content: HTML/CSS/JS, browser typography, responsive systems
+Training mechanism: working live URLs, critique before troubleshooting, repeated exercises
+Tacit standard: typographic intent must survive the browser, device variation, and technical constraints
+Common failure mode: treating code as implementation only instead of as a typographic medium
+Evidence: syllabus A, schedule A, project pages B
 ```
 
-## Quality Checks
+## Pipeline Scripts
 
-- Every source has a URL, retrieval date, type, and confidence grade.
-- Every claim in the final reconstruction links to at least one source ID.
-- Every inferred claim is marked `inferred`.
-- Public and private access boundaries are documented.
-- Dead links are checked against Wayback.
-- Course codes are validated against official RISD catalog/Coursedog records.
-- Readings are normalized by title, author, edition, and required/recommended status.
-- Student work is never treated as official syllabus evidence unless it includes a course prompt or instructor attribution.
+Target scripts:
 
-## Legal and Ethical Guardrails
+- `scripts/risd-graphic-design-corpus.mjs`: orchestrator
+- `scripts/risd-gd-seed-sources.mjs`: seed official and known sources
+- `scripts/risd-gd-search-ingest.mjs`: import/search candidate URLs
+- `scripts/risd-gd-fetch-sources.mjs`: fetch public sources with rate limits
+- `scripts/risd-gd-wayback.mjs`: discover and fetch archive captures
+- `scripts/risd-gd-classify-docs.mjs`: classify fetched documents
+- `scripts/risd-gd-parse-syllabi.mjs`: extract spans and schedule fields
+- `scripts/risd-gd-extract-assignments.mjs`: parse project briefs
+- `scripts/risd-gd-link-readings.mjs`: normalize citations
+- `scripts/risd-gd-dedupe.mjs`: exact and near-dedupe
+- `scripts/risd-gd-reconstruct.mjs`: produce course packets and tacit memos
+- `scripts/risd-gd-audit.mjs`: validate provenance, missing fields, and source coverage
 
-- Collect only public web materials or materials the user has legal access to.
-- Do not bypass authentication, paywalls, robots restrictions, private groups, or LMS access controls.
-- Do not republish full copyrighted syllabi or readings where redistribution is not permitted.
-- Store excerpts and structured metadata for analysis; keep raw files only where permitted.
-- Do not scrape private student social accounts.
-- Keep personally identifying information minimal and source-grounded.
+The current single script can remain during iteration, but these are the intended module boundaries.
 
-## Initial Source Seeds
+## Validation Gates
 
-These should be manually verified first because they are high-yield seeds:
+Minimum validation:
 
-1. RISD Graphic Design BFA program page: `https://www.risd.edu/academics/graphic-design/bachelors-program`
-2. RISD Graphic Design MFA program page: `https://www.risd.edu/academics/graphic-design/masters-programs`
-3. RISD Graphic Design courses page: `https://www.risd.edu/academics/graphic-design/courses`
-4. RISD Coursedog BFA Graphic Design catalog: `https://risd.coursedog.com/programs/cfa6776e92151000bceb55330dc80000`
-5. RISD Teaching & Learning Lab syllabus guidance: `https://teachingandlearninglab.risd.edu/teaching-support/syllabus-and-course-design`
-6. Adam Fein, `Introduction to Graphic Design`, Wintersession 2021 syllabus PDF: `https://ajfein.squarespace.com/s/AdamFein_IntroToGraphicDesign.pdf`
-7. John Caserta, `Design Studio 1`, 2016 class page: `https://johncaserta.com/ds1-2016.html`
-8. RISD news story on `In Motion: Design for Video and Animation`: `https://www.risd.edu/news/stories/risd-students-use-video-and-animation-techniques-bring-graphics-life`
-9. RISD Digital Commons course catalogs and announcements
-10. RISD Digital Commons Graphic Design theses and thesis-related records
+```bash
+node scripts/risd-graphic-design-corpus.mjs
+```
 
-## Implementation Notes
+Corpus checks:
 
-Preferred implementation is a reproducible research pipeline:
+- `sources.jsonl` exists and every row has URL, source type, retrieval date, and extraction status.
+- Failed fetches do not create syllabus records.
+- No syllabus record has both missing `course_code` and missing `course_title` unless manually reviewed.
+- Every assignment row points to a syllabus and source.
+- Every reading row points to a syllabus and source.
+- Every reconstruction claim cites source IDs.
+- Inferred fields are marked.
+- Official course inventory count is reconciled against the RISD course page count.
+- Wayback captures are recorded and selected captures are fetched.
 
-1. `seed_sources.mjs`: saves official RISD source URLs and search query templates.
-2. `search_sources.mjs`: calls a search API or uses exported search results to build candidate URLs.
-3. `fetch_sources.mjs`: fetches public HTML/PDF sources with rate limits and robots-aware behavior.
-4. `parse_sources.mjs`: extracts text, sections, tables, links, and document metadata.
-5. `extract_entities.mjs`: identifies course codes, titles, instructors, readings, assignments, dates, and tools.
-6. `normalize_corpus.mjs`: deduplicates and links entities.
-7. `reconstruct_courses.mjs`: creates course packets and evidence-graded reconstructions.
-8. `audit_sources.mjs`: checks dead links, missing provenance, and ungrounded claims.
+Repository checks before shipping:
 
-Use manual review after extraction. Fully automated extraction will miss studio-specific nuance, project constraints, and critique language.
+```bash
+pnpm build
+pnpm test
+pnpm run qa:dashboard
+```
 
-## Definition of Done
+This is a docs/data pipeline, so full dashboard QA may not exercise the corpus directly, but the repo standard still requires it before final shipping unless the user explicitly narrows the task.
 
-The RISD Graphic Design corpus is useful when it can answer:
+## Implementation Milestones
 
-1. What would a student actually receive on day one for each recovered course?
-2. What readings and assignments would they complete each week?
-3. What would they make?
-4. How would their work be critiqued?
-5. What visual, conceptual, and material standards are implied?
-6. Which parts are directly sourced and which parts are reconstructed?
+### Milestone 1: Correctness Of Current Seed Pipeline
 
-The final deliverable should let a motivated learner take a reconstructed RISD-style course with source-grounded readings, exercises, critique criteria, and examples of expected output.
+- Prevent failed sources from creating syllabus records.
+- Normalize course keys and prevent null-title/null-code false joins.
+- Improve HTML line preservation.
+- Add Open Syllabus-style span fields.
+- Regenerate corpus artifacts.
+- Add source audit checks.
+
+### Milestone 2: Official Course Inventory
+
+- Parse all RISD Graphic Design course-page offerings.
+- Export `course_inventory.jsonl`.
+- Reconcile count against the page's displayed result count.
+- Link seed syllabi to official course records when codes/titles match.
+
+### Milestone 3: Recursive RISD Course-Site Crawl
+
+- Crawl `*.risd.gd` course archives within depth limits.
+- Classify syllabus, project, schedule, reading, and student-work pages.
+- Extract assignment pages as first-class records.
+- Add archive/source versions.
+
+### Milestone 4: Search Ingestion
+
+- Add search result import/API support.
+- Store query provenance.
+- Fetch and classify candidate URLs.
+- Expand faculty/course/source graph.
+
+### Milestone 5: Wayback And Historical Recovery
+
+- Fetch selected Wayback captures.
+- Parse historical syllabi/course pages.
+- Compare versions.
+- Preserve substantive historical variants.
+
+### Milestone 6: Citation Linking And Dedupe
+
+- Normalize readings.
+- Link readings to bibliographic records where possible.
+- Add exact and near-dedupe.
+- Produce reading frequency summaries.
+
+### Milestone 7: Reconstruction And Review
+
+- Generate course packets.
+- Generate tacit knowledge memo.
+- Generate review queue.
+- Manually review high-value uncertain sources.
+- Produce a self-study-ready RISD-style curriculum from the evidence.
+
+## Definition Of Done
+
+The implementation is finished only when the corpus can support a source-grounded reconstruction of RISD Graphic Design training:
+
+1. Official course inventory is complete and reconciled.
+2. Public syllabi/course sites/assignment pages have been discovered through seeds, search ingestion, recursive course-site crawling, and archive recovery.
+3. Syllabus fields are structured, not merely summarized.
+4. Assignments, readings, critique, grading, and weekly schedules are extracted as first-class records.
+5. Student work is linked where public evidence supports it.
+6. Dedupe and source grading prevent inflated or misleading coverage.
+7. Reconstructions clearly separate direct evidence from inference.
+8. A review queue captures remaining high-value uncertain sources.
+9. The repo validation gates have been run.
+10. Changes have been committed, pushed, and, if applicable, deployed according to repository instructions.
