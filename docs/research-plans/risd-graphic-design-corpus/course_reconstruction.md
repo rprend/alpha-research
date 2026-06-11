@@ -9,8 +9,8 @@ Generated: 2026-06-11
 - Syllabus/course-site records: 74
 - Assignment evidence snippets: 471
 - Reading evidence snippets: 118
-- Student work evidence records: 3
-- Wayback capture records: 95
+- Student work evidence records: 41
+- Wayback capture records: 73
 
 ## Reconstructed Course Packets
 
@@ -1589,6 +1589,13 @@ Generated: 2026-06-11
 - Degree level: unknown
 - Source IDs: src_risd_in_motion_news
 - Extracted skill signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
+- Public student work examples:
+  - Academics: https://www.risd.edu/academics (medium: animation/video; assignment link: unlinked_public_example; visual notes: source describes technique training or best-practice expectations; source emphasizes time-based graphic sequencing)
+  - Admissions: https://www.risd.edu/admissions (medium: animation/video; assignment link: unlinked_public_example; visual notes: source describes technique training or best-practice expectations; source emphasizes time-based graphic sequencing)
+  - Financial Aid: https://sfs.risd.edu/ (medium: animation/video; assignment link: unlinked_public_example; visual notes: source describes technique training or best-practice expectations; source emphasizes time-based graphic sequencing)
+  - Giving: https://www.risd.edu/giving (medium: animation/video; assignment link: unlinked_public_example; visual notes: source describes technique training or best-practice expectations; source emphasizes time-based graphic sequencing)
+  - News and Events: https://www.risd.edu/news (medium: animation/video; assignment link: unlinked_public_example; visual notes: source describes technique training or best-practice expectations; source emphasizes time-based graphic sequencing)
+  - Student Hub: https://students.risd.edu/?utm_source=www-overnav (medium: animation/video; assignment link: unlinked_public_example; visual notes: source describes technique training or best-practice expectations; source emphasizes time-based graphic sequencing)
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making.
@@ -2090,6 +2097,13 @@ Generated: 2026-06-11
   - Projects in this semester depend on altered states, where the content, composition, and context all are potentially at play.
   - Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, student presentations, hands-on workshops, and group exercises. (critique: feedback/review referenced in source excerpt; revision: revision or iterative improvement expected; tacit goal: practice explaining and defending design decisions in critique)
   - The active presence, listening, and participation of everyone in the class is crucial (and will make it a lot more fun and interesting): in presenting your own work, supportive and respectful critique of your classmates’ work, and in class discussions of texts we’ll read, typographic news and history, and other relevant (sometimes tangential) topics. (critique: group/class critique referenced in source excerpt; tacit goal: practice explaining and defending design decisions in critique)
+- Public student work examples:
+  - the course website.: https://ds1618.risd.gd/2016/10/11/unit3_overview.html (medium: website/interface; assignment link: explicit_assignment_reference)
+  - See the 72mb pdf: https://s3.us-east-2.amazonaws.com/jccomv4/students/Nick_reflective_document.pdf (medium: animation/video; assignment link: unlinked_public_example)
+  - See assignments: https://github.com/risd-gd/wp16/wiki/Assignment-1:-Make-a-Scandinavian-Flag (medium: animation/video; assignment link: course_context_only)
+  - Scroll this web page Christina Rees: http://christinarees.com/transform/scroll/pattern.html (medium: website/interface; assignment link: unlinked_public_example)
+  - Interact with this pattern: http://risd-gd.github.io/wp16/students/isabellaMordini/Assignment_Week_03/week4_05.html (medium: website/interface; assignment link: course_context_only)
+  - See full assignment: https://paper.dropbox.com/doc/Type-III-Week-Two-Qj7xd8hMki64KfRzAAFyn (medium: animation/video; assignment link: explicit_assignment_reference)
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
   - Skill training signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods.

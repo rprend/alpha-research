@@ -1269,15 +1269,119 @@ function buildReadingFrequency(readings) {
 }
 
 function buildStudentWork(inspected) {
-  return inspected
-    .filter(({ source, text }) => source.extraction_status === 'ok' && text && ['official_student_work_story', 'student_work_archive'].includes(source.source_type))
-    .map(({ source, text }) => ({
-      student_work_id: `work_${source.source_id.replace(/^src_/, '')}`,
-      course_title: source.course_title ?? null,
-      source_ids: [source.source_id],
-      medium_evidence: sentenceSnippets(text, ['animation', 'video', 'poster', 'book', 'website', 'identity', 'project'], 10),
-      confidence: source.source_type === 'official_student_work_story' ? 'D' : 'E',
-    }))
+  const rows = []
+  for (const { source, text, links = [] } of inspected.filter(({ source, text }) => source.extraction_status === 'ok' && text && ['official_student_work_story', 'student_work_archive'].includes(source.source_type))) {
+    const snippets = sentenceSnippets(text, ['animation', 'video', 'poster', 'book', 'website', 'identity', 'project', 'student', 'assignment'], 14)
+    const studentNames = extractStudentNames(text)
+    const medium = inferStudentWorkMedium(`${source.title ?? ''} ${text}`)
+    const linkedItems = links.filter((link) => isLikelyStudentWorkLink(link)).slice(0, 20)
+
+    if (linkedItems.length) {
+      linkedItems.forEach((link, index) => {
+        const label = link.label || titleFromUrl(link.url)
+        const linkEvidence = `${label} ${link.url}`
+        rows.push({
+          student_work_id: `work_${source.source_id.replace(/^src_/, '')}_${String(index + 1).padStart(2, '0')}`,
+          url: link.url,
+          source_ids: [source.source_id],
+          course_code: source.course_code ?? null,
+          course_title: source.course_title ?? inferCourseTitleFromStudentWork(linkEvidence, ''),
+          instructor: source.instructor ?? null,
+          term: source.term ?? null,
+          student_name_public: extractStudentNames(label)[0] ?? null,
+          medium: inferStudentWorkMedium(linkEvidence) ?? medium,
+          project_title: label || null,
+          project_statement_excerpt: snippets[0] ?? null,
+          assignment_link_confidence: classifyStudentWorkAssignmentLink(linkEvidence, ''),
+          visual_standard_notes: visualStandardNotes([label, ...snippets.slice(0, 3)]),
+          medium_evidence: snippets,
+          confidence: source.source_type === 'official_student_work_story' ? 'D' : 'E',
+          evidence_grade: source.source_type === 'official_student_work_story' ? 'D' : 'E',
+        })
+      })
+    } else {
+      rows.push({
+        student_work_id: `work_${source.source_id.replace(/^src_/, '')}`,
+        url: source.url,
+        source_ids: [source.source_id],
+        course_code: source.course_code ?? null,
+        course_title: source.course_title ?? inferCourseTitleFromStudentWork(source.title ?? '', text),
+        instructor: source.instructor ?? null,
+        term: source.term ?? null,
+        student_name_public: studentNames[0] ?? null,
+        medium,
+        project_title: source.title ?? source.course_title ?? null,
+        project_statement_excerpt: snippets[0] ?? null,
+        assignment_link_confidence: classifyStudentWorkAssignmentLink(source.title ?? '', text),
+        visual_standard_notes: visualStandardNotes(snippets),
+        medium_evidence: snippets,
+        confidence: source.source_type === 'official_student_work_story' ? 'D' : 'E',
+        evidence_grade: source.source_type === 'official_student_work_story' ? 'D' : 'E',
+      })
+    }
+  }
+  return rows
+}
+
+function isLikelyStudentWorkLink(link) {
+  const combined = `${link.url} ${link.label}`.toLowerCase()
+  if (!link.label || link.label.length < 3) return false
+  if (/teaching archive|archive|syllabus|curriculum|resume|cv|index|home|contact|about/.test(combined)) return false
+  return /student|work|project|assignment|html|poster|book|animation|identity|logo|website|output|studio|class|risd|20\d{2}/.test(combined)
+}
+
+function titleFromUrl(url) {
+  const parsed = new URL(url)
+  return parsed.pathname.split('/').filter(Boolean).pop()?.replace(/[-_]+/g, ' ') ?? parsed.hostname
+}
+
+function extractStudentNames(text) {
+  const names = []
+  for (const match of text.matchAll(/\b(?:student|grad student|undergrad|senior|junior)\s+([A-Z][A-Za-z.'-]+(?:\s+[A-Z][A-Za-z.'-]+){1,3})\b/g)) {
+    names.push(match[1].replace(/\s+/g, ' ').trim())
+  }
+  for (const match of text.matchAll(/\b([A-Z][A-Za-z.'-]+(?:\s+[A-Z][A-Za-z.'-]+){1,2})\s+(?:BFA|MFA)\s*\d{2}\s+GD\b/g)) {
+    names.push(match[1].replace(/\s+/g, ' ').trim())
+  }
+  return uniq(names).slice(0, 6)
+}
+
+function inferStudentWorkMedium(text) {
+  const lower = text.toLowerCase()
+  const checks = [
+    ['animation/video', /\banimation\b|\bvideo\b|\bmotion\b|\bafter effects\b|\bpremiere\b|\bstop-motion\b/],
+    ['website/interface', /\bwebsite\b|\bweb\b|\binterface\b|\bhtml\b|\bcss\b|\bjavascript\b|\bapp\b/],
+    ['identity/logo', /\bidentity\b|\blogo\b|\bemblem\b|\bsymbol\b/],
+    ['poster/print', /\bposter\b|\bprint\b|\brisograph\b/],
+    ['publication/book', /\bbook\b|\bpublication\b|\bcatalog(?:ue)?\b|\bspreads?\b/],
+    ['typography/type specimen', /\btypography\b|\btypeface\b|\bletterform\b|\bfont\b/],
+  ]
+  return checks.find(([, pattern]) => pattern.test(lower))?.[0] ?? null
+}
+
+function inferCourseTitleFromStudentWork(label, text) {
+  const combined = `${label} ${text}`
+  return combined.match(/\bIn Motion: Design for Video and Animation\b/i)?.[0]
+    ?? combined.match(/\b(?:Design Studio 1|Typography III|Web Programming|Graphic Design for the Web|HTML Output)\b/i)?.[0]
+    ?? null
+}
+
+function classifyStudentWorkAssignmentLink(label, text) {
+  const combined = `${label} ${text}`.toLowerCase()
+  if (/full assignment|assignment can be seen|course website|project prompt/.test(combined)) return 'explicit_assignment_reference'
+  if (/course|class|studio|assignment|project/.test(combined)) return 'course_context_only'
+  return 'unlinked_public_example'
+}
+
+function visualStandardNotes(snippets) {
+  const joined = snippets.join(' ')
+  return uniq([
+    /best practices|techniques|hands-on/i.test(joined) ? 'source describes technique training or best-practice expectations' : null,
+    /freedom to explore|range of possibilities|experimentation/i.test(joined) ? 'source emphasizes exploration and range' : null,
+    /user-centered|government information|prototype|interface/i.test(joined) ? 'source emphasizes user-centered/interface clarity' : null,
+    /symbol|meaning|logo|emblem|identity/i.test(joined) ? 'source emphasizes symbolic meaning and identity systems' : null,
+    /animation|video|motion|sequence/i.test(joined) ? 'source emphasizes time-based graphic sequencing' : null,
+  ])
 }
 
 function buildCourseInventory(inspected) {
@@ -1298,7 +1402,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], wayback, reviewQueue = [] }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], studentWork = [], wayback, reviewQueue = [] }) {
   const sourceIds = new Set(sources.map((source) => source.source_id))
   const syllabusIds = new Set(syllabi.map((syllabus) => syllabus.syllabus_id))
   const failedSourceIds = new Set(sources.filter((source) => source.extraction_status !== 'ok').map((source) => source.source_id))
@@ -1340,6 +1444,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const readingSourceErrors = readings.filter((reading) => !syllabusIds.has(reading.syllabus_id) || reading.source_ids.some((id) => !sourceIds.has(id)))
   const normalizedReadingCount = readings.filter((reading) => reading.canonical_work_id).length
   const catalogReadingCount = readings.filter((reading) => reading.linking_status === 'local_catalog_match').length
+  const studentWorkSourceErrors = studentWork.filter((work) => work.source_ids.some((id) => !sourceIds.has(id)))
+  const structuredStudentWorkCount = studentWork.filter((work) => work.url && (work.medium || work.project_title || work.project_statement_excerpt || work.assignment_link_confidence || work.visual_standard_notes?.length) && work.evidence_grade).length
   const courseInventoryReconciled = courseInventory.displayed_count > 0 && courseInventory.offerings.length === courseInventory.displayed_count
   const checks = [
     {
@@ -1383,6 +1489,16 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${normalizedReadingCount} reading snippets linked to ${readingFrequency.length} canonical works; ${catalogReadingCount} local catalog matches.`,
     },
     {
+      id: 'student_work_reference_valid_sources',
+      status: studentWorkSourceErrors.length === 0 ? 'pass' : 'fail',
+      detail: `${studentWorkSourceErrors.length} student work source reference errors.`,
+    },
+    {
+      id: 'student_work_has_structured_public_examples',
+      status: structuredStudentWorkCount > 0 ? 'pass' : 'warn',
+      detail: `${structuredStudentWorkCount} student work rows include URL plus medium/project/evidence metadata.`,
+    },
+    {
       id: 'official_course_inventory_reconciled',
       status: courseInventoryReconciled ? 'pass' : 'warn',
       detail: `${courseInventory.offerings.length} official offerings parsed; RISD page displays ${courseInventory.displayed_count || 'unknown'} results.`,
@@ -1416,6 +1532,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       normalized_readings: normalizedReadingCount,
       local_catalog_readings: catalogReadingCount,
       canonical_reading_works: readingFrequency.length,
+      student_work: studentWork.length,
+      structured_student_work: structuredStudentWorkCount,
       wayback: wayback.length,
       review_queue: reviewQueue.length,
     },
@@ -1507,6 +1625,8 @@ Overall status: ${validation.status}
 - Normalized reading snippets: ${validation.counts.normalized_readings}
 - Canonical reading works: ${validation.counts.canonical_reading_works}
 - Local catalog reading matches: ${validation.counts.local_catalog_readings}
+- Student work rows: ${validation.counts.student_work}
+- Structured student work rows: ${validation.counts.structured_student_work}
 - Wayback captures: ${validation.counts.wayback}
 - Review queue rows: ${validation.counts.review_queue}
 
@@ -1539,6 +1659,7 @@ function reconstructionMarkdown({ sources, courses, syllabi, assignments, readin
     const courseSyllabi = syllabi.filter((s) => (s.course_code && course.course_code && s.course_code === course.course_code) || (s.course_title && course.course_title && s.course_title === course.course_title) || s.source_ids.some((id) => course.source_ids.includes(id)))
     const courseAssignments = assignments.filter((a) => courseSyllabi.some((s) => s.syllabus_id === a.syllabus_id))
     const courseReadings = readings.filter((r) => courseSyllabi.some((s) => s.syllabus_id === r.syllabus_id))
+    const courseStudentWork = studentWork.filter((work) => (work.course_code && course.course_code && work.course_code === course.course_code) || (work.course_title && course.course_title && work.course_title === course.course_title) || work.source_ids.some((id) => course.source_ids.includes(id)))
     lines.push(`### ${(course.course_title ?? course.course_code ?? course.course_id).trim()}`)
     lines.push('')
     lines.push(`- Evidence grade: ${course.evidence_grade}`)
@@ -1585,6 +1706,17 @@ function reconstructionMarkdown({ sources, courses, syllabi, assignments, readin
           assignment.tacit_goal ? `tacit goal: ${assignment.tacit_goal}` : null,
         ].filter(Boolean)
         lines.push(`  - ${assignment.prompt_excerpt}${structured.length ? ` (${structured.join('; ')})` : ''}`)
+      })
+    }
+    if (courseStudentWork.length) {
+      lines.push('- Public student work examples:')
+      courseStudentWork.slice(0, 6).forEach((work) => {
+        const notes = [
+          work.medium ? `medium: ${work.medium}` : null,
+          work.assignment_link_confidence ? `assignment link: ${work.assignment_link_confidence}` : null,
+          work.visual_standard_notes?.length ? `visual notes: ${work.visual_standard_notes.join('; ')}` : null,
+        ].filter(Boolean)
+        lines.push(`  - ${work.project_title ?? work.url}: ${work.url}${notes.length ? ` (${notes.join('; ')})` : ''}`)
       })
     }
     lines.push('- Tacit reconstruction:')
@@ -1737,7 +1869,7 @@ async function main() {
   writeJsonl(join(outDir, 'search_results.jsonl'), buildSearchResults())
   writeJson(join(outDir, 'search_queries.json'), { generated_at: retrievedAt, queries: searchQueries })
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, wayback, reviewQueue })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, studentWork, wayback, reviewQueue })
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
   writeJson(join(outDir, 'validation.json'), validationWithReview)

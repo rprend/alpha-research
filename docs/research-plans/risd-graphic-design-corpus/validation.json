@@ -14,7 +14,9 @@
     "normalized_readings": 50,
     "local_catalog_readings": 38,
     "canonical_reading_works": 26,
-    "wayback": 95,
+    "student_work": 41,
+    "structured_student_work": 41,
+    "wayback": 73,
     "review_queue": 10
   },
   "checks": [
@@ -59,6 +61,16 @@
       "detail": "50 reading snippets linked to 26 canonical works; 38 local catalog matches."
     },
     {
+      "id": "student_work_reference_valid_sources",
+      "status": "pass",
+      "detail": "0 student work source reference errors."
+    },
+    {
+      "id": "student_work_has_structured_public_examples",
+      "status": "pass",
+      "detail": "41 student work rows include URL plus medium/project/evidence metadata."
+    },
+    {
       "id": "official_course_inventory_reconciled",
       "status": "pass",
       "detail": "105 official offerings parsed; RISD page displays 105 results."
@@ -66,7 +78,7 @@
     {
       "id": "wayback_captures_recorded",
       "status": "pass",
-      "detail": "95 Wayback capture records."
+      "detail": "73 Wayback capture records."
     },
     {
       "id": "course_records_created",
