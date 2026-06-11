@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-06-11",
+  "status": "warn",
+  "counts": {
+    "sources": 15,
+    "courses": 28,
+    "official_course_inventory": 19,
+    "official_course_displayed_count": 105,
+    "syllabi": 7,
+    "assignments": 115,
+    "readings": 53,
+    "wayback": 27
+  },
+  "checks": [
+    {
+      "id": "sources_have_required_metadata",
+      "status": "pass",
+      "detail": "15 sources inspected."
+    },
+    {
+      "id": "failed_fetches_do_not_create_syllabi",
+      "status": "pass",
+      "detail": "0 syllabus rows reference failed sources."
+    },
+    {
+      "id": "syllabi_have_course_identity",
+      "status": "pass",
+      "detail": "0 syllabus rows lack both course code and title."
+    },
+    {
+      "id": "assignments_reference_valid_syllabi_and_sources",
+      "status": "pass",
+      "detail": "0 assignment reference errors."
+    },
+    {
+      "id": "readings_reference_valid_syllabi_and_sources",
+      "status": "pass",
+      "detail": "0 reading reference errors."
+    },
+    {
+      "id": "official_course_inventory_reconciled",
+      "status": "warn",
+      "detail": "19 official offerings parsed; RISD page displays 105 results."
+    },
+    {
+      "id": "wayback_captures_recorded",
+      "status": "pass",
+      "detail": "27 Wayback capture records."
+    },
+    {
+      "id": "course_records_created",
+      "status": "pass",
+      "detail": "28 course records created."
+    }
+  ]
+}
