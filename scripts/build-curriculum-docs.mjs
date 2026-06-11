@@ -7,25 +7,25 @@ const CURRICULUM_SOURCE_DIR = path.join(ROOT, 'curriculum')
 const CURRICULUM_OUTPUT_DIR = path.join(ROOT, 'public', 'docs-site', 'curriculum')
 const OUTPUT_DIR = path.join(ROOT, 'public', 'docs-site', 'curriculum', 'daily')
 const GUIDE_FILES = [
-  ['README.md', 'index.html', 'AI Research Curriculum'],
-  ['00-foundations.md', '00-foundations.html', 'Foundations'],
-  ['01-the-transformer.md', '01-the-transformer.html', 'The Transformer'],
-  ['02-training-at-scale.md', '02-training-at-scale.html', 'Training at scale'],
-  ['03-post-training.md', '03-post-training.html', 'Post-training'],
-  ['04-inference-and-evals.md', '04-inference-and-evals.html', 'Inference and evals'],
-  ['05-interpretability.md', '05-interpretability.html', 'Interpretability'],
-  ['06-research-practice.md', '06-research-practice.html', 'Research practice'],
-  ['paper-ladder.md', 'paper-ladder.html', 'Paper ladder'],
+  ['README.md', 'index/index.html', 'AI Research Curriculum'],
+  ['00-foundations.md', '00-foundations/index.html', 'Foundations'],
+  ['01-the-transformer.md', '01-the-transformer/index.html', 'The Transformer'],
+  ['02-training-at-scale.md', '02-training-at-scale/index.html', 'Training at scale'],
+  ['03-post-training.md', '03-post-training/index.html', 'Post-training'],
+  ['04-inference-and-evals.md', '04-inference-and-evals/index.html', 'Inference and evals'],
+  ['05-interpretability.md', '05-interpretability/index.html', 'Interpretability'],
+  ['06-research-practice.md', '06-research-practice/index.html', 'Research practice'],
+  ['paper-ladder.md', 'paper-ladder/index.html', 'Paper ladder'],
 ]
 const FILES = [
-  ['README.md', 'index.html', 'Daily packets'],
-  ['phase-0.md', 'phase-0.html', 'Phase 0'],
-  ['phase-1.md', 'phase-1.html', 'Phase 1'],
-  ['phase-2.md', 'phase-2.html', 'Phase 2'],
-  ['phase-3.md', 'phase-3.html', 'Phase 3'],
-  ['phase-4.md', 'phase-4.html', 'Phase 4'],
-  ['phase-5.md', 'phase-5.html', 'Phase 5'],
-  ['phase-6.md', 'phase-6.html', 'Phase 6'],
+  ['README.md', 'index/index.html', 'Daily packets'],
+  ['phase-0.md', 'phase-0/index.html', 'Phase 0'],
+  ['phase-1.md', 'phase-1/index.html', 'Phase 1'],
+  ['phase-2.md', 'phase-2/index.html', 'Phase 2'],
+  ['phase-3.md', 'phase-3/index.html', 'Phase 3'],
+  ['phase-4.md', 'phase-4/index.html', 'Phase 4'],
+  ['phase-5.md', 'phase-5/index.html', 'Phase 5'],
+  ['phase-6.md', 'phase-6/index.html', 'Phase 6'],
 ]
 
 function escapeHtml(value) {
@@ -203,8 +203,9 @@ function pageShell({ title, body, currentFile, currentKind }) {
   ]
   const nav = navItems.map(([kind, source, output, label]) => {
     const isDaily = kind === 'daily'
-    const href = output === 'index.html' ? '/curriculum/daily' : `/curriculum/daily/${output.replace(/\.html$/, '')}`
-    const guideHref = output === 'index.html' ? '/curriculum' : `/curriculum/${output.replace(/\.html$/, '')}`
+    const slug = output.replace(/\/index\.html$/, '')
+    const href = slug === 'index' ? '/curriculum/daily' : `/curriculum/daily/${slug}`
+    const guideHref = slug === 'index' ? '/curriculum' : `/curriculum/${slug}`
     const current = source === currentFile && kind === currentKind ? ' aria-current="page"' : ''
     return `<a href="${isDaily ? href : guideHref}"${current}>${label}</a>`
   }).join('')
@@ -280,6 +281,7 @@ for (const [source, output, title] of GUIDE_FILES) {
     currentFile: source,
     currentKind: 'guide',
   })
+  await mkdir(path.dirname(path.join(CURRICULUM_OUTPUT_DIR, output)), { recursive: true })
   await writeFile(path.join(CURRICULUM_OUTPUT_DIR, output), html)
 }
 
@@ -291,5 +293,6 @@ for (const [source, output, title] of FILES) {
     currentFile: source,
     currentKind: 'daily',
   })
+  await mkdir(path.dirname(path.join(OUTPUT_DIR, output)), { recursive: true })
   await writeFile(path.join(OUTPUT_DIR, output), html)
 }

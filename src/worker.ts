@@ -330,10 +330,10 @@ function docsAssetCandidates(pathname: string) {
     return [normalized]
   }
   if (DOCS_SECTION_INDEX_PATHS.has(normalized)) {
-    return [`${normalized}/index.html`, `${normalized}/index/`, `${normalized}/index/index.html`, `${normalized}/index/__page.mintlify`]
+    return [`${normalized}/index/`, `${normalized}/index/index.html`, `${normalized}/index/__page.mintlify`, `${normalized}/index.html`]
   }
   if (DOCS_PAGE_PATHS.has(normalized)) {
-    return [`${normalized}.html`, `${normalized}/`, `${normalized}/index.html`, `${normalized}/__page.mintlify`]
+    return [`${normalized}/`, `${normalized}/index.html`, `${normalized}/__page.mintlify`, `${normalized}.html`]
   }
   const indexPath = `${normalized}/index`
   if (DOCS_PAGE_PATHS.has(indexPath)) {
