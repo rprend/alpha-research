@@ -8,11 +8,12 @@
     "official_course_displayed_count": 105,
     "syllabi": 74,
     "assignments": 471,
+    "structured_assignments": 204,
     "readings": 118,
     "normalized_readings": 50,
     "local_catalog_readings": 38,
     "canonical_reading_works": 26,
-    "wayback": 53,
+    "wayback": 78,
     "review_queue": 10
   },
   "checks": [
@@ -37,6 +38,11 @@
       "detail": "0 assignment reference errors."
     },
     {
+      "id": "assignments_have_structured_signals",
+      "status": "pass",
+      "detail": "204 assignment snippets include inferred deliverables, constraints, tools, critique, revision, or tacit goals."
+    },
+    {
       "id": "readings_reference_valid_syllabi_and_sources",
       "status": "pass",
       "detail": "0 reading reference errors."
@@ -54,7 +60,7 @@
     {
       "id": "wayback_captures_recorded",
       "status": "pass",
-      "detail": "53 Wayback capture records."
+      "detail": "78 Wayback capture records."
     },
     {
       "id": "course_records_created",

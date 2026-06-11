@@ -801,7 +801,7 @@ async function waybackCaptures(url) {
         statuscode,
         mimetype,
         digest,
-        memento_url: `https://web.archive.org/web/${timestamp}/${original}`,
+        memento_url: `https://web.archive.org/web/${timestamp}id_/${original}`,
       }))
     } catch {
       continue
@@ -826,7 +826,7 @@ async function inspectWaybackFallbacks(inspected, wayback) {
     const captures = capturesBySource.get(source.source_id).sort((a, b) => b.timestamp.localeCompare(a.timestamp))
     const capture = captures[0]
     console.error(`inspect wayback fallback ${index + 1}/${failedSources.length}: ${source.source_id}`)
-    recovered.push(await inspectSeed({
+    const inspected = await inspectSeed({
       source_id: `src_wayback_${source.source_id.replace(/^src_/, '')}_${capture.timestamp}`,
       url: capture.memento_url,
       source_type: 'wayback_capture',
@@ -840,7 +840,8 @@ async function inspectWaybackFallbacks(inspected, wayback) {
       original_url: source.url,
       archive_timestamp: capture.timestamp,
       notes: `Internet Archive fallback for failed source ${source.source_id}.`,
-    }))
+    })
+    if (inspected.source.extraction_status === 'ok') recovered.push(inspected)
   }
   return recovered
 }
@@ -921,22 +922,146 @@ function buildAssignments(syllabi) {
   const rows = []
   for (const syllabus of syllabi) {
     syllabus.assignments.forEach((snippet, index) => {
+      const assignmentSignals = inferAssignmentSignals(snippet)
       rows.push({
         assignment_id: `assign_${syllabus.syllabus_id}_${String(index + 1).padStart(2, '0')}`,
         course_code: syllabus.course_code,
         course_title: syllabus.course_title,
         syllabus_id: syllabus.syllabus_id,
         title: snippet.match(/\b(?:Project|Assignment|Exercise|Final)\s*[:#]?\s*([^.;]{0,80})/i)?.[0] ?? null,
+        week_or_date: extractWeekOrDate(snippet),
         prompt_excerpt: snippet,
-        constraints: [],
-        deliverables: [],
-        critique_format: /crit/i.test(snippet) ? 'critique referenced in source excerpt' : null,
+        constraints: assignmentSignals.constraints,
+        deliverables: assignmentSignals.deliverables,
+        materials: assignmentSignals.materials,
+        tools: assignmentSignals.tools,
+        critique_format: assignmentSignals.critique_format,
+        revision_expectation: assignmentSignals.revision_expectation,
         skills_trained: inferSkills(snippet),
+        tacit_goal: assignmentSignals.tacit_goal,
+        evidence_grade: assignmentSignals.evidence_grade,
         source_ids: syllabus.source_ids,
       })
     })
   }
   return rows
+}
+
+function extractWeekOrDate(snippet) {
+  return snippet.match(/\b(?:week|class|session)\s+\d+\b/i)?.[0]
+    ?? snippet.match(/\b(?:Mon|Tues|Tue|Weds|Wed|Thurs|Thu|Fri|Sat|Sun)[a-z]*,?\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2}\b/i)?.[0]
+    ?? snippet.match(/\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2}\b/i)?.[0]
+    ?? null
+}
+
+function inferAssignmentSignals(snippet) {
+  const lower = snippet.toLowerCase()
+  const deliverables = []
+  const constraints = []
+  const materials = []
+  const tools = []
+
+  const deliverableChecks = [
+    ['logo', /\blogo\b/],
+    ['poster', /\bposter\b/],
+    ['booklet', /\bbooklet\b/],
+    ['book', /\bbook\b/],
+    ['visual identity system', /\bvisual identity\b|\bidentity system\b/],
+    ['catalogue', /\bcatalog(?:ue)?\b/],
+    ['presentation', /\bpresentation\b|\bpresent\b/],
+    ['portfolio', /\bportfolio\b/],
+    ['documentation', /\bdocumentation\b|\bdocument work\b/],
+    ['pdf', /\bpdf\b/],
+    ['website', /\bwebsite\b|\bweb\s?page\b|\bclass site\b/],
+    ['prototype', /\bprototype\b|\bmockup\b/],
+    ['animation', /\banimation\b|\bmotion\b|\bvideo\b/],
+    ['typeface', /\btypeface\b|\bfont\b/],
+    ['risograph print', /\brisograph\b|\briso\b/],
+  ]
+  for (const [label, pattern] of deliverableChecks) {
+    if (pattern.test(lower)) deliverables.push(label)
+  }
+
+  const constraintChecks = [
+    ['deadline or due date referenced', /\bdue\b|\bdeadline\b|\bby\s+(?:mon|tues|wed|thurs|fri|sat|sun|jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)/i],
+    ['must follow stated requirements', /\bmust\b|\brequired\b|\brequirements?\b|\babide\b/],
+    ['safety or damage restriction', /\bhazard\b|\bphysical harm\b|\bdamage\b|\bpermit\b/],
+    ['process documentation required', /\bprocess\b|\biterations?\b|\bsketch(?:es)?\b|\bversions?\b/],
+    ['research required', /\bresearch\b|\bwell-researched\b/],
+    ['timely completion expected', /\btimely\b|\bon time\b|\bdeadline\b/],
+  ]
+  for (const [label, pattern] of constraintChecks) {
+    if (pattern.test(snippet)) constraints.push(label)
+  }
+
+  const materialChecks = [
+    ['paper', /\bpaper\b/],
+    ['printing', /\bprint(?:ing)?\b|\bprinter\b/],
+    ['binding', /\bbind(?:ing|ery)?\b/],
+    ['photography', /\bphoto(?:graphy|graphs?)\b|\bimages?\b/],
+    ['sketches', /\bsketch(?:es)?\b/],
+    ['physical installation', /\binstallation\b|\bsite\b/],
+    ['risograph', /\brisograph\b|\briso\b/],
+  ]
+  for (const [label, pattern] of materialChecks) {
+    if (pattern.test(lower)) materials.push(label)
+  }
+
+  const toolChecks = [
+    ['Adobe InDesign', /\bindesign\b/],
+    ['Adobe Illustrator', /\billustrator\b/],
+    ['Adobe Photoshop', /\bphotoshop\b/],
+    ['Figma', /\bfigma\b/],
+    ['HTML/CSS', /\bhtml\b|\bcss\b/],
+    ['JavaScript', /\bjavascript\b|\bjs\b/],
+    ['After Effects', /\bafter effects\b/],
+    ['Zoom', /\bzoom\b/],
+    ['Slack', /\bslack\b/],
+    ['Google Drive', /\bgoogle drive\b/],
+  ]
+  for (const [label, pattern] of toolChecks) {
+    if (pattern.test(lower)) tools.push(label)
+  }
+
+  const critiqueFormat = /critique|critiques|crit\b/i.test(snippet)
+    ? /group|class/i.test(snippet)
+      ? 'group/class critique referenced in source excerpt'
+      : /one-on-one|individual/i.test(snippet)
+        ? 'individual critique referenced in source excerpt'
+        : 'critique referenced in source excerpt'
+    : /feedback|review/i.test(snippet)
+      ? 'feedback/review referenced in source excerpt'
+      : null
+
+  const revisionExpectation = /re-?work|revise|revision|improv|iterations?|versions?|progress/i.test(snippet)
+    ? 'revision or iterative improvement expected'
+    : null
+
+  const tacitGoal = inferTacitGoal(snippet)
+
+  return {
+    constraints: uniq(constraints),
+    deliverables: uniq(deliverables),
+    materials: uniq(materials),
+    tools: uniq(tools),
+    critique_format: critiqueFormat,
+    revision_expectation: revisionExpectation,
+    tacit_goal: tacitGoal,
+    evidence_grade: deliverables.length || constraints.length || critiqueFormat || revisionExpectation ? 'A' : 'B',
+  }
+}
+
+function inferTacitGoal(snippet) {
+  const lower = snippet.toLowerCase()
+  if (/critique|feedback|present|articulate|discussion/.test(lower)) return 'practice explaining and defending design decisions in critique'
+  if (/research|references|precedent/.test(lower)) return 'ground visual decisions in research and precedent'
+  if (/process|iterations?|versions?|sketch/.test(lower)) return 'develop iterative process habits rather than only final outputs'
+  if (/craft|detail|polish|presentation/.test(lower)) return 'build attention to craft, finish, and presentation quality'
+  if (/identity|system|brand/.test(lower)) return 'translate a concept into a coherent visual system'
+  if (/type|typography|letterform|typesetting/.test(lower)) return 'train typographic judgment through form, hierarchy, and spacing'
+  if (/poster|book|publication|catalog/.test(lower)) return 'compose visual hierarchy within a concrete graphic format'
+  if (/website|html|css|interactive|prototype|figma/.test(lower)) return 'prototype interactive form and user-facing structure'
+  return null
 }
 
 const readingCatalog = [
@@ -1083,6 +1208,15 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const leakedFailedSyllabi = syllabi.filter((syllabus) => syllabus.source_ids.some((id) => failedSourceIds.has(id)))
   const missingSyllabusIdentity = syllabi.filter((syllabus) => !syllabus.course_code && !syllabus.course_title)
   const assignmentSourceErrors = assignments.filter((assignment) => !syllabusIds.has(assignment.syllabus_id) || assignment.source_ids.some((id) => !sourceIds.has(id)))
+  const structuredAssignmentCount = assignments.filter((assignment) =>
+    assignment.deliverables?.length
+      || assignment.constraints?.length
+      || assignment.materials?.length
+      || assignment.tools?.length
+      || assignment.critique_format
+      || assignment.revision_expectation
+      || assignment.tacit_goal
+  ).length
   const readingSourceErrors = readings.filter((reading) => !syllabusIds.has(reading.syllabus_id) || reading.source_ids.some((id) => !sourceIds.has(id)))
   const normalizedReadingCount = readings.filter((reading) => reading.canonical_work_id).length
   const catalogReadingCount = readings.filter((reading) => reading.linking_status === 'local_catalog_match').length
@@ -1107,6 +1241,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       id: 'assignments_reference_valid_syllabi_and_sources',
       status: assignmentSourceErrors.length === 0 ? 'pass' : 'fail',
       detail: `${assignmentSourceErrors.length} assignment reference errors.`,
+    },
+    {
+      id: 'assignments_have_structured_signals',
+      status: structuredAssignmentCount > 0 ? 'pass' : 'warn',
+      detail: `${structuredAssignmentCount} assignment snippets include inferred deliverables, constraints, tools, critique, revision, or tacit goals.`,
     },
     {
       id: 'readings_reference_valid_syllabi_and_sources',
@@ -1146,6 +1285,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       official_course_displayed_count: courseInventory.displayed_count,
       syllabi: syllabi.length,
       assignments: assignments.length,
+      structured_assignments: structuredAssignmentCount,
       readings: readings.length,
       normalized_readings: normalizedReadingCount,
       local_catalog_readings: catalogReadingCount,
@@ -1235,6 +1375,7 @@ Overall status: ${validation.status}
 - RISD displayed course count: ${validation.counts.official_course_displayed_count || 'unknown'}
 - Syllabi/course artifacts: ${validation.counts.syllabi}
 - Assignments: ${validation.counts.assignments}
+- Structured assignment snippets: ${validation.counts.structured_assignments}
 - Readings: ${validation.counts.readings}
 - Normalized reading snippets: ${validation.counts.normalized_readings}
 - Canonical reading works: ${validation.counts.canonical_reading_works}
@@ -1306,7 +1447,16 @@ function reconstructionMarkdown({ sources, courses, syllabi, assignments, readin
     }
     if (courseAssignments.length) {
       lines.push('- Assignment/critique evidence:')
-      courseAssignments.slice(0, 10).forEach((assignment) => lines.push(`  - ${assignment.prompt_excerpt}`))
+      courseAssignments.slice(0, 10).forEach((assignment) => {
+        const structured = [
+          assignment.deliverables?.length ? `deliverables: ${assignment.deliverables.join(', ')}` : null,
+          assignment.constraints?.length ? `constraints: ${assignment.constraints.join(', ')}` : null,
+          assignment.critique_format ? `critique: ${assignment.critique_format}` : null,
+          assignment.revision_expectation ? `revision: ${assignment.revision_expectation}` : null,
+          assignment.tacit_goal ? `tacit goal: ${assignment.tacit_goal}` : null,
+        ].filter(Boolean)
+        lines.push(`  - ${assignment.prompt_excerpt}${structured.length ? ` (${structured.join('; ')})` : ''}`)
+      })
     }
     lines.push('- Tacit reconstruction:')
     lines.push(`  - Direct evidence currently supports ${courseSyllabi.length ? 'a course-specific classroom reconstruction' : 'program/catalog-level placement only'}.`)

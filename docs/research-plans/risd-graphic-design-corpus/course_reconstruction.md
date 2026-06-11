@@ -10,7 +10,7 @@ Generated: 2026-06-11
 - Assignment evidence snippets: 471
 - Reading evidence snippets: 118
 - Student work evidence records: 3
-- Wayback capture records: 53
+- Wayback capture records: 78
 
 ## Reconstructed Course Packets
 
@@ -315,12 +315,12 @@ Generated: 2026-06-11
   - and references in the Unit 1 brief (unresolved)
 - Assignment/critique evidence:
   - As a graduate interdisciplinary studio, the course will introduce and frame assignments in the broadest possible way to allow for many outcomes.
-  - Students are encouraged to bring their existing bodies of work, personal narratives and discipline-specific processes to their projects.
+  - Students are encouraged to bring their existing bodies of work, personal narratives and discipline-specific processes to their projects. (tacit goal: develop iterative process habits rather than only final outputs)
   - There will be three major assignments with a few activities, guests and outings.
   - Some will relate and reinforce the assignments, others exist to bring students into contact with people and issues that relate to design and politics and can inform the final project.
   - Students will be able to use design methods to conceptualize their own projects
   - Throughout the whole semester, you shoudl be looking at news, videos, magazines, headlines, reddit posts, twitter, etc as the source for projects, commentary.
-  - Final review
+  - Final review (critique: feedback/review referenced in source excerpt)
   - Headlines, Exercises
   - Finally, remember to keep confidential all issues of a personal or professional nature that are discussed in class.
   - Final class!
@@ -474,12 +474,12 @@ Generated: 2026-06-11
   - and references in the Unit 1 brief (unresolved)
 - Assignment/critique evidence:
   - As a graduate interdisciplinary studio, the course will introduce and frame assignments in the broadest possible way to allow for many outcomes.
-  - Students are encouraged to bring their existing bodies of work, personal narratives and discipline-specific processes to their projects.
+  - Students are encouraged to bring their existing bodies of work, personal narratives and discipline-specific processes to their projects. (tacit goal: develop iterative process habits rather than only final outputs)
   - There will be three major assignments with a few activities, guests and outings.
   - Some will relate and reinforce the assignments, others exist to bring students into contact with people and issues that relate to design and politics and can inform the final project.
   - Students will be able to use design methods to conceptualize their own projects
   - Throughout the whole semester, you shoudl be looking at news, videos, magazines, headlines, reddit posts, twitter, etc as the source for projects, commentary.
-  - Final review
+  - Final review (critique: feedback/review referenced in source excerpt)
   - Headlines, Exercises
   - Finally, remember to keep confidential all issues of a personal or professional nature that are discussed in class.
   - Final class!
@@ -685,14 +685,14 @@ Generated: 2026-06-11
   - (in GD Commons) (unresolved)
   - Essay on the Importance of Time (heuristic_title)
 - Assignment/critique evidence:
-  - Design Studio will take the form of a series of question-based units, each initiated by a faculty member and contextualized by a presentation, event, or workshop.
+  - Design Studio will take the form of a series of question-based units, each initiated by a faculty member and contextualized by a presentation, event, or workshop. (deliverables: presentation; tacit goal: practice explaining and defending design decisions in critique)
   - Finished projects are not the intended outcome of DS1.
-  - Develop rhetorical, communication and presentation skills
+  - Develop rhetorical, communication and presentation skills (deliverables: presentation; tacit goal: practice explaining and defending design decisions in critique)
   - Semester-long Deliverables
-  - Not only in how we engage in the design of an exhibit or screen based project, but also in the considerations a designer must build into two-dimensional “fixed” surfaces, such as signs, books, posters, and charts.
+  - Not only in how we engage in the design of an exhibit or screen based project, but also in the considerations a designer must build into two-dimensional “fixed” surfaces, such as signs, books, posters, and charts. (constraints: must follow stated requirements; tacit goal: compose visual hierarchy within a concrete graphic format)
   - The order in which ideas are accessed is at the essence of any project.
-  - Finish: Demonstration of skills in craft, visual design, presentation and communication
-  - Evidence of your effort and competency are visible in the research blog(s), sketchbook, participation in class, and completion of the unit assignments as directed by the faculty.
+  - Finish: Demonstration of skills in craft, visual design, presentation and communication (deliverables: presentation; tacit goal: practice explaining and defending design decisions in critique)
+  - Evidence of your effort and competency are visible in the research blog(s), sketchbook, participation in class, and completion of the unit assignments as directed by the faculty. (constraints: research required; tacit goal: ground visual decisions in research and precedent)
   - projects
   - Documentary Icons The Noun Project
 - Tacit reconstruction:
@@ -861,14 +861,14 @@ Generated: 2026-06-11
   - (in GD Commons) (unresolved)
   - Essay on the Importance of Time (heuristic_title)
 - Assignment/critique evidence:
-  - Design Studio will take the form of a series of question-based units, each initiated by a faculty member and contextualized by a presentation, event, or workshop.
+  - Design Studio will take the form of a series of question-based units, each initiated by a faculty member and contextualized by a presentation, event, or workshop. (deliverables: presentation; tacit goal: practice explaining and defending design decisions in critique)
   - Finished projects are not the intended outcome of DS1.
-  - Develop rhetorical, communication and presentation skills
+  - Develop rhetorical, communication and presentation skills (deliverables: presentation; tacit goal: practice explaining and defending design decisions in critique)
   - Semester-long Deliverables
-  - Not only in how we engage in the design of an exhibit or screen based project, but also in the considerations a designer must build into two-dimensional “fixed” surfaces, such as signs, books, posters, and charts.
+  - Not only in how we engage in the design of an exhibit or screen based project, but also in the considerations a designer must build into two-dimensional “fixed” surfaces, such as signs, books, posters, and charts. (constraints: must follow stated requirements; tacit goal: compose visual hierarchy within a concrete graphic format)
   - The order in which ideas are accessed is at the essence of any project.
-  - Finish: Demonstration of skills in craft, visual design, presentation and communication
-  - Evidence of your effort and competency are visible in the research blog(s), sketchbook, participation in class, and completion of the unit assignments as directed by the faculty.
+  - Finish: Demonstration of skills in craft, visual design, presentation and communication (deliverables: presentation; tacit goal: practice explaining and defending design decisions in critique)
+  - Evidence of your effort and competency are visible in the research blog(s), sketchbook, participation in class, and completion of the unit assignments as directed by the faculty. (constraints: research required; tacit goal: ground visual decisions in research and precedent)
   - projects
   - Documentary Icons The Noun Project
 - Tacit reconstruction:
@@ -1225,15 +1225,15 @@ Generated: 2026-06-11
   - The Elements of Typographic Style, Robert Bringhurst (local_catalog_match)
   - Meggs' History of Graphic Design, Philip B. Meggs (local_catalog_match)
 - Assignment/critique evidence:
-  - introduced to basic principles of typography iterations, projects, process, notes, etc as you gold, wrought in the most exquisite patterns.
-  - form, type as material, type as texture and also -presentation board (as needed) and last fundamental requisite of book design,
-  - • excellent craft / respect for presentation The Elements of Typographic Style, Robert
+  - introduced to basic principles of typography iterations, projects, process, notes, etc as you gold, wrought in the most exquisite patterns. (constraints: process documentation required; revision: revision or iterative improvement expected; tacit goal: develop iterative process habits rather than only final outputs)
+  - form, type as material, type as texture and also -presentation board (as needed) and last fundamental requisite of book design, (deliverables: book, presentation; tacit goal: practice explaining and defending design decisions in critique)
+  - • excellent craft / respect for presentation The Elements of Typographic Style, Robert (deliverables: presentation; tacit goal: practice explaining and defending design decisions in critique)
   - • completion of all assignments (suggested)
-  - Final Grade will be based on the afore-mentioned Anatomy of a Typeface, Alexander Lawson
+  - Final Grade will be based on the afore-mentioned Anatomy of a Typeface, Alexander Lawson (deliverables: typeface; tacit goal: train typographic judgment through form, hierarchy, and spacing)
   - criteria as well as results of projects.
-  - that any project can be re-done or improved upon Text in the Book Format, Keith Smith
-  - be taken into consideration when grading your final The Thames and Hudson Manual of Typography,
-  - portfolio.
+  - that any project can be re-done or improved upon Text in the Book Format, Keith Smith (deliverables: book; revision: revision or iterative improvement expected; tacit goal: compose visual hierarchy within a concrete graphic format)
+  - be taken into consideration when grading your final The Thames and Hudson Manual of Typography, (tacit goal: train typographic judgment through form, hierarchy, and spacing)
+  - portfolio. (deliverables: portfolio)
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
   - Skill training signals: typography, publication design, interaction design, critique and revision.
@@ -1446,16 +1446,16 @@ Generated: 2026-06-11
   - for the poster—as paper and as screen—building on its singular capacity to transform ideas into iconic picture planes, and examining the dynamics of typography and image, both still and in motion (unresolved)
   - about poster history and contemporary poster design (unresolved)
 - Assignment/critique evidence:
-  - Through projects, readings, workshops, and presentations we will explore the relevance of network technologies in the context of contemporary art and design practices.
-  - In the second part of the semester, students will be given the choice between designing a book based on their own interests and completing a book design project using assigned material.
-  - Projects may include comparative studies for setting text and poetry, letterhead systems, brochure or poster.
+  - Through projects, readings, workshops, and presentations we will explore the relevance of network technologies in the context of contemporary art and design practices. (tacit goal: practice explaining and defending design decisions in critique)
+  - In the second part of the semester, students will be given the choice between designing a book based on their own interests and completing a book design project using assigned material. (deliverables: book; tacit goal: compose visual hierarchy within a concrete graphic format)
+  - Projects may include comparative studies for setting text and poetry, letterhead systems, brochure or poster. (deliverables: poster; tacit goal: translate a concept into a coherent visual system)
   - Studio assignments are supported by lectures showing contemporary graphic form, from historical to contemporary work, that are effective and evocative.
   - Through a series of in-studio and multi-week assignments, students will create animated projects that include real-world assignments as well as experimental exercises.
   - Through the sequence of assignments, students will become fluent with the software.
-  - Using information structure and visual systems of form, color, and typography, students will work projects which communicate complex information through the use of maps, graphs, charts, and diagrams.
-  - These projects will explore issues of mapping, hierarchy, location, time, comparison, motion, format, and the use of symbolic visual language.
-  - Studio assignments will be supported with presentations and readings about poster history and contemporary poster design .
-  - This elective is an opportunity for students to immerse themselves in the process of designing a typeface; to consider all the design decisions that are a part of this creative exercise, and to learn the finer points of bezier wrangling, serif and sans, spacing, kerning, and all the other details of execution which turn a roughly-formed idea into a more complete, rigorous and polished type design.
+  - Using information structure and visual systems of form, color, and typography, students will work projects which communicate complex information through the use of maps, graphs, charts, and diagrams. (tacit goal: translate a concept into a coherent visual system)
+  - These projects will explore issues of mapping, hierarchy, location, time, comparison, motion, format, and the use of symbolic visual language. (deliverables: animation)
+  - Studio assignments will be supported with presentations and readings about poster history and contemporary poster design . (deliverables: poster; tacit goal: practice explaining and defending design decisions in critique)
+  - This elective is an opportunity for students to immerse themselves in the process of designing a typeface; to consider all the design decisions that are a part of this creative exercise, and to learn the finer points of bezier wrangling, serif and sans, spacing, kerning, and all the other details of execution which turn a roughly-formed idea into a more complete, rigorous and polished type design. (deliverables: typeface; constraints: process documentation required; tacit goal: develop iterative process habits rather than only final outputs)
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
   - Skill training signals: interaction design, critique and revision, research methods, typography, publication design, image making, motion design.
@@ -1565,14 +1565,14 @@ Generated: 2026-06-11
   - Thinking with Type, Ellen Lupton (local_catalog_match)
 - Assignment/critique evidence:
   - and InDesign though in-class exercises.
-  - Students will complete four projects: a logo, a poster, a booklet, and a visual
-  - arrive at a well-researched final
+  - Students will complete four projects: a logo, a poster, a booklet, and a visual (deliverables: logo, poster, booklet; tacit goal: compose visual hierarchy within a concrete graphic format)
+  - arrive at a well-researched final (constraints: research required; tacit goal: ground visual decisions in research and precedent)
   - This is an online studio course with lectures, tutorials, and exercises,
-  - Synchronous elements include student presentations and critique.
+  - Synchronous elements include student presentations and critique. (critique: critique referenced in source excerpt; tacit goal: practice explaining and defending design decisions in critique)
   - Students will complete four projects, corresponding to the software and graphic
-  - Every project will end with an open critique.
-  - final project will consist of designing a visual identity system.
-  - receive small group and individual feedback as they progress on projects.
+  - Every project will end with an open critique. (critique: critique referenced in source excerpt; tacit goal: practice explaining and defending design decisions in critique)
+  - final project will consist of designing a visual identity system. (deliverables: visual identity system; tacit goal: translate a concept into a coherent visual system)
+  - receive small group and individual feedback as they progress on projects. (critique: feedback/review referenced in source excerpt; revision: revision or iterative improvement expected; tacit goal: practice explaining and defending design decisions in critique)
   - work and managing the deadlines for projects.
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
@@ -1707,16 +1707,16 @@ Generated: 2026-06-11
   - Important Websites: (unresolved)
   - design, and like (unresolved)
 - Assignment/critique evidence:
-  - form, reading order, grids and other systems of organiza- • excellent craft / respect for presentation and materials
-  - ages the practice of working with type & image relation- • completion of all assignments (including any readings)
+  - form, reading order, grids and other systems of organiza- • excellent craft / respect for presentation and materials (deliverables: presentation; tacit goal: practice explaining and defending design decisions in critique)
+  - ages the practice of working with type & image relation- • completion of all assignments (including any readings) (tacit goal: train typographic judgment through form, hierarchy, and spacing)
   - Woven throughout all the assignments and all the
   - Final Grade will be based on the afore-mentioned criteria
-  - as well as a final portfolio of work turned in at the end of
+  - as well as a final portfolio of work turned in at the end of (deliverables: portfolio)
   - Keep in mind that any project can be re-done
-  - Absences will result in lower final portfolio.
+  - Absences will result in lower final portfolio. (deliverables: portfolio)
   - May 12 is final day of class, with walk-about and crits -Funds for photocopying and printing
-  - Keep process! containing process, versions, projects, etc.
-  - And work to -Various papers and presentation board (as needed)
+  - Keep process! containing process, versions, projects, etc. (constraints: process documentation required; revision: revision or iterative improvement expected; tacit goal: develop iterative process habits rather than only final outputs)
+  - And work to -Various papers and presentation board (as needed) (deliverables: presentation; tacit goal: practice explaining and defending design decisions in critique)
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
   - Skill training signals: typography, publication design, interaction design, critique and revision, research methods, image making.
@@ -1984,7 +1984,7 @@ Generated: 2026-06-11
   - we’ll read, typographic news and history, and other relevant (sometimes tangential) topics (unresolved)
   - design spreads (unresolved)
 - Assignment/critique evidence:
-  - I was asked by The Noun Project to initiate a collaborative collection — a new venture where the Noun Project community could draw for each other, adding icons to a central repository. I came up with the concept for documentary icons having an interest in the detailed 20th-Century iconography.
+  - I was asked by The Noun Project to initiate a collaborative collection — a new venture where the Noun Project community could draw for each other, adding icons to a central repository. I came up with the concept for documentary icons having an interest in the detailed 20th-Century iconography. (tacit goal: build attention to craft, finish, and presentation quality)
   - words and is filed under projects
   - This Noun Project collaborative collection asks designers – wherever in the world you may be – to help build a collection that documents people doing what they do today – whether funny, awkward, honorable or mundane.
   - See the icons, learn more and submit to the collection at The Noun Project .
@@ -1992,8 +1992,8 @@ Generated: 2026-06-11
   - Documentary Icons The Noun Project
   - Read an overview of my work from The Noun Project.
   - Projects in this semester depend on altered states, where the content, composition, and context all are potentially at play.
-  - Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, student presentations, hands-on workshops, and group exercises.
-  - The active presence, listening, and participation of everyone in the class is crucial (and will make it a lot more fun and interesting): in presenting your own work, supportive and respectful critique of your classmates’ work, and in class discussions of texts we’ll read, typographic news and history, and other relevant (sometimes tangential) topics.
+  - Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, student presentations, hands-on workshops, and group exercises. (critique: feedback/review referenced in source excerpt; revision: revision or iterative improvement expected; tacit goal: practice explaining and defending design decisions in critique)
+  - The active presence, listening, and participation of everyone in the class is crucial (and will make it a lot more fun and interesting): in presenting your own work, supportive and respectful critique of your classmates’ work, and in class discussions of texts we’ll read, typographic news and history, and other relevant (sometimes tangential) topics. (critique: group/class critique referenced in source excerpt; tacit goal: practice explaining and defending design decisions in critique)
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
   - Skill training signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods.
@@ -2023,15 +2023,15 @@ Generated: 2026-06-11
   - design spreads (unresolved)
 - Assignment/critique evidence:
   - Projects in this semester depend on altered states, where the content, composition, and context all are potentially at play.
-  - Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, student presentations, hands-on workshops, and group exercises.
-  - The active presence, listening, and participation of everyone in the class is crucial (and will make it a lot more fun and interesting): in presenting your own work, supportive and respectful critique of your classmates’ work, and in class discussions of texts we’ll read, typographic news and history, and other relevant (sometimes tangential) topics.
-  - Bring your own languages, scripts, letterforms, cultures, and personalities to our class and to your projects. I want to encourage you to develop a typographic practice that is open, fluid, iterative, complex, and allows for your knowledge, point of view, and lineage to emerge confidently.
+  - Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, student presentations, hands-on workshops, and group exercises. (critique: feedback/review referenced in source excerpt; revision: revision or iterative improvement expected; tacit goal: practice explaining and defending design decisions in critique)
+  - The active presence, listening, and participation of everyone in the class is crucial (and will make it a lot more fun and interesting): in presenting your own work, supportive and respectful critique of your classmates’ work, and in class discussions of texts we’ll read, typographic news and history, and other relevant (sometimes tangential) topics. (critique: group/class critique referenced in source excerpt; tacit goal: practice explaining and defending design decisions in critique)
+  - Bring your own languages, scripts, letterforms, cultures, and personalities to our class and to your projects. I want to encourage you to develop a typographic practice that is open, fluid, iterative, complex, and allows for your knowledge, point of view, and lineage to emerge confidently. (tacit goal: train typographic judgment through form, hierarchy, and spacing)
   - 75% Assignments
-  - Quality of work, including concept, design, and the timely completion of assignments; working process and craft; personal initiative, exploration, and risk-taking; and, last but not least, the appropriate and thoughtful application of typographic principles
-  - Strong design process / good listener / ability to come up with many different ways to approach assignments / thorough research / mastery of form, functionality, and craft / frequent participation in critiques and discussion / focused / attentive / ability to articulate ideas / risk-taking and broad exploration
-  - Average work / fulfills assignments but not much else / doesnt re-work or refine projects, doesn’t do much beyond the requirements
-  - Your final grade will be based on the above criteria as well as on the final portfolio of work turned in at the end of the semester.
-  - Keep in mind that any project can be re-done or improved upon throughout the semester.
+  - Quality of work, including concept, design, and the timely completion of assignments; working process and craft; personal initiative, exploration, and risk-taking; and, last but not least, the appropriate and thoughtful application of typographic principles (constraints: process documentation required, timely completion expected; tacit goal: develop iterative process habits rather than only final outputs)
+  - Strong design process / good listener / ability to come up with many different ways to approach assignments / thorough research / mastery of form, functionality, and craft / frequent participation in critiques and discussion / focused / attentive / ability to articulate ideas / risk-taking and broad exploration (constraints: process documentation required, research required; critique: critique referenced in source excerpt; tacit goal: practice explaining and defending design decisions in critique)
+  - Average work / fulfills assignments but not much else / doesnt re-work or refine projects, doesn’t do much beyond the requirements (constraints: must follow stated requirements; revision: revision or iterative improvement expected)
+  - Your final grade will be based on the above criteria as well as on the final portfolio of work turned in at the end of the semester. (deliverables: portfolio)
+  - Keep in mind that any project can be re-done or improved upon throughout the semester. (revision: revision or iterative improvement expected)
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
   - Skill training signals: typography, publication design, motion design, interaction design, critique and revision, research methods, image making.
@@ -2328,15 +2328,15 @@ Generated: 2026-06-11
   - Art of Creative Coding (heuristic_title)
 - Assignment/critique evidence:
   - &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015
-  - &#237; Assignment 2: Draw found objects with CSS
+  - &#237; Assignment 2: Draw found objects with CSS (tacit goal: prototype interactive form and user-facing structure)
   - Whether found on the side of the road, at someone&#8217;s house or at the hardware store, the objects are silhouetted at actual size and placed in his project.
-  - This assignment asks you to collect objects of your own, whether in your home, around town, at RISD 2nd life, etc., and draw them using HTML and CSS.
+  - This assignment asks you to collect objects of your own, whether in your home, around town, at RISD 2nd life, etc., and draw them using HTML and CSS. (tacit goal: prototype interactive form and user-facing structure)
   - Goals for the assignment
-  - &#237; Assignment 1: Make a Scandinavian flag with CSS
-  - Students are introduced to the structural elements and properties of HTML and CSS through hands-on demos, in-class exercises and take-home assignments.
+  - &#237; Assignment 1: Make a Scandinavian flag with CSS (tacit goal: prototype interactive form and user-facing structure)
+  - Students are introduced to the structural elements and properties of HTML and CSS through hands-on demos, in-class exercises and take-home assignments. (tacit goal: prototype interactive form and user-facing structure)
   - The final assignment for week four will allow you to combine what you learned in the first three weeks.
-  - Although written with HTML/CSS, the assignments are inspired by the contemporary and historical print works of Bradbury Thomspon, Karel Martens and Paul Elliman.
-  - Be introduced to HTML and CSS syntax to help conceptualize future projects
+  - Although written with HTML/CSS, the assignments are inspired by the contemporary and historical print works of Bradbury Thomspon, Karel Martens and Paul Elliman. (tacit goal: prototype interactive form and user-facing structure)
+  - Be introduced to HTML and CSS syntax to help conceptualize future projects (tacit goal: prototype interactive form and user-facing structure)
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
   - Skill training signals: publication design, identity systems, motion design, interaction design, image making.
@@ -2549,15 +2549,15 @@ Generated: 2026-06-11
   - Art of Creative Coding (heuristic_title)
 - Assignment/critique evidence:
   - &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015
-  - &#237; Assignment 2: Draw found objects with CSS
+  - &#237; Assignment 2: Draw found objects with CSS (tacit goal: prototype interactive form and user-facing structure)
   - Whether found on the side of the road, at someone&#8217;s house or at the hardware store, the objects are silhouetted at actual size and placed in his project.
-  - This assignment asks you to collect objects of your own, whether in your home, around town, at RISD 2nd life, etc., and draw them using HTML and CSS.
+  - This assignment asks you to collect objects of your own, whether in your home, around town, at RISD 2nd life, etc., and draw them using HTML and CSS. (tacit goal: prototype interactive form and user-facing structure)
   - Goals for the assignment
-  - &#237; Assignment 1: Make a Scandinavian flag with CSS
-  - Students are introduced to the structural elements and properties of HTML and CSS through hands-on demos, in-class exercises and take-home assignments.
+  - &#237; Assignment 1: Make a Scandinavian flag with CSS (tacit goal: prototype interactive form and user-facing structure)
+  - Students are introduced to the structural elements and properties of HTML and CSS through hands-on demos, in-class exercises and take-home assignments. (tacit goal: prototype interactive form and user-facing structure)
   - The final assignment for week four will allow you to combine what you learned in the first three weeks.
-  - Although written with HTML/CSS, the assignments are inspired by the contemporary and historical print works of Bradbury Thomspon, Karel Martens and Paul Elliman.
-  - Be introduced to HTML and CSS syntax to help conceptualize future projects
+  - Although written with HTML/CSS, the assignments are inspired by the contemporary and historical print works of Bradbury Thomspon, Karel Martens and Paul Elliman. (tacit goal: prototype interactive form and user-facing structure)
+  - Be introduced to HTML and CSS syntax to help conceptualize future projects (tacit goal: prototype interactive form and user-facing structure)
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
   - Skill training signals: motion design, interaction design, publication design, image making, identity systems.
@@ -2754,13 +2754,13 @@ Generated: 2026-06-11
 - Assignment/critique evidence:
   - projects
   - exercises
-  - presentations
-  - By engaging with type that activates the capacities of browsers, we will push beyond “resonsive design” as a layout-based exercise and question what typography can “respond to” — whether user input, network conditions, or the physical environment.
-  - All projects will involve hand-coding web pages, using the browser for experimental research and engagement.
-  - Critique and discussions will broadly examine the sociocultural implications of publishing on the internet; technical instruction will include web languages such as HTML, CSS, and JavaScript, as well as type design technology such as variable fonts. A basic background in coding is recommended, but not required.
-  - As designers, it is essential that we can critique and create work that thrives at their intersection.
+  - presentations (tacit goal: practice explaining and defending design decisions in critique)
+  - By engaging with type that activates the capacities of browsers, we will push beyond “resonsive design” as a layout-based exercise and question what typography can “respond to” — whether user input, network conditions, or the physical environment. (tacit goal: train typographic judgment through form, hierarchy, and spacing)
+  - All projects will involve hand-coding web pages, using the browser for experimental research and engagement. (constraints: research required; tacit goal: ground visual decisions in research and precedent)
+  - Critique and discussions will broadly examine the sociocultural implications of publishing on the internet; technical instruction will include web languages such as HTML, CSS, and JavaScript, as well as type design technology such as variable fonts. A basic background in coding is recommended, but not required. (constraints: must follow stated requirements; critique: critique referenced in source excerpt; tacit goal: practice explaining and defending design decisions in critique)
+  - As designers, it is essential that we can critique and create work that thrives at their intersection. (critique: critique referenced in source excerpt; tacit goal: practice explaining and defending design decisions in critique)
   - Projects
-  - Over the course of the semester, will explore various ways to engage with typography on the web through four large projects .
+  - Over the course of the semester, will explore various ways to engage with typography on the web through four large projects . (tacit goal: train typographic judgment through form, hierarchy, and spacing)
   - These projects are ways to both gain technical skills as well as reimagine the boundaries of responsive text.
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
@@ -3055,6 +3055,6 @@ Generated: 2026-06-11
 - src_risd_mfa_program (C, official_program_page): https://www.risd.edu/academics/graphic-design/masters-programs
 - src_risd_coursedog_bfa_graphic_design (C, official_catalog_program): https://risd.coursedog.com/programs/cfa6776e92151000bceb55330dc80000
 - src_risd_in_motion_news (D, official_student_work_story): https://www.risd.edu/news/stories/risd-students-use-video-and-animation-techniques-bring-graphics-life
-- src_wayback_typography_iii_syllabus_20210421141719 (A, wayback_capture): https://web.archive.org/web/20210421141719/http://type.practise.studio/syllabus/
+- src_wayback_typography_iii_syllabus_20210421141719 (A, wayback_capture): https://web.archive.org/web/20210421141719id_/http://type.practise.studio/syllabus/
 - src_john_caserta_student_work (D, student_work_archive): https://johncaserta.com/studentwork.html
 - src_crawl_johncaserta_com_teachingarchive_html_85a4ce9d (B, student_work_archive): https://johncaserta.com/teachingarchive.html
