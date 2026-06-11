@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Gold packet annotator</title>
+<title>Gutenberg benchmark judge</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   :root { --fg:#1a1a18; --muted:#6b6a64; --bg:#faf9f5; --card:#ffffff; --line:#e3e1d9; --accent:#2f6f5e; --warn:#a33b2e; }
   * { box-sizing: border-box; }
   body { margin:0; font:16px/1.65 Georgia, 'Times New Roman', serif; color:var(--fg); background:var(--bg); }
-  header { position:sticky; top:0; background:var(--bg); border-bottom:1px solid var(--line); padding:10px 20px; display:flex; gap:16px; align-items:center; font-family:-apple-system, sans-serif; font-size:14px; z-index:2; }
+  header { position:sticky; top:0; background:var(--bg); border-bottom:1px solid var(--line); padding:10px 20px; display:flex; gap:10px; align-items:center; font-family:-apple-system, sans-serif; font-size:14px; z-index:2; }
   header .grow { flex:1; }
   progress { width:160px; height:8px; }
   main { max-width:880px; margin:0 auto; padding:24px 20px 140px; }
@@ -19,7 +19,7 @@
   .rules li { margin-bottom:4px; }
   details summary { cursor:pointer; font-family:-apple-system, sans-serif; font-size:14px; color:var(--accent); }
   .passage { white-space:pre-wrap; font-size:17px; }
-  .bar { position:fixed; bottom:0; left:0; right:0; background:var(--card); border-top:1px solid var(--line); padding:12px 20px; font-family:-apple-system, sans-serif; }
+  .bar { position:fixed; bottom:0; left:0; right:0; background:var(--card); border-top:1px solid var(--line); padding:12px 20px; font-family:-apple-system, sans-serif; box-shadow:0 -8px 24px rgba(0,0,0,.06); }
   .bar .row { max-width:880px; margin:0 auto; display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
   button { font:14px -apple-system, sans-serif; padding:8px 14px; border:1px solid var(--line); border-radius:8px; background:var(--card); cursor:pointer; }
   button:hover { border-color:var(--accent); }
@@ -27,23 +27,60 @@
   button.warnsel { background:var(--warn); color:#fff; border-color:var(--warn); }
   .key { color:var(--muted); font-size:11px; margin-left:4px; }
   input[type=text] { flex:1; min-width:200px; font:14px -apple-system, sans-serif; padding:8px 10px; border:1px solid var(--line); border-radius:8px; }
-  #start { max-width:640px; margin:80px auto; text-align:center; font-family:-apple-system, sans-serif; }
+  #start { max-width:680px; margin:64px auto; padding:0 20px; text-align:center; font-family:-apple-system, sans-serif; }
   #start input[type=file] { margin:16px 0; }
   .pill { font-family:-apple-system, sans-serif; font-size:12px; background:#eef0e9; border-radius:999px; padding:2px 10px; color:var(--muted); }
   .hint { font-size:12px; color:var(--muted); width:100%; }
   .missing { color:var(--warn); font-weight:bold; }
+  .choiceRow { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:18px 0 8px; }
+  .choiceRow button { padding:14px 16px; text-align:left; }
+  .choiceTitle { display:block; font-weight:700; margin-bottom:2px; }
+  .choiceHelp { display:block; color:var(--muted); font-size:12px; line-height:1.35; }
+  .mobileOnly { display:none; }
+  @media (max-width: 720px) {
+    body { font-size:15px; line-height:1.55; }
+    header { position:static; display:grid; grid-template-columns:1fr 1fr; padding:10px 12px; gap:8px; }
+    header .grow { display:none; }
+    header button { min-height:40px; padding:8px 10px; }
+    progress { grid-column:1 / -1; width:100%; }
+    #count { justify-self:end; }
+    #export { grid-column:1 / -1; }
+    main { padding:14px 10px 330px; }
+    .card { border-radius:8px; padding:14px 14px; margin-bottom:10px; }
+    .query { font-size:17px; line-height:1.35; }
+    .passage { font-size:16px; line-height:1.6; }
+    .bar { padding:10px; max-height:52vh; overflow:auto; }
+    .bar .row { gap:6px; }
+    .bar button { flex:1 1 calc(33.333% - 6px); min-height:42px; padding:8px 8px; }
+    .bar .label { flex:1 0 100%; margin:8px 0 0 !important; }
+    #typeBtns { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:6px; width:100%; }
+    #typeBtns button { width:100%; }
+    input[type=text] { min-width:0; width:100%; flex-basis:100%; }
+    .hint { display:none; }
+    .key { display:none; }
+    .choiceRow { grid-template-columns:1fr; }
+    #start { margin:28px auto; text-align:left; }
+    #start h2 { text-align:left; }
+    .mobileOnly { display:inline; }
+  }
 </style>
 </head>
 <body>
 <div id="start">
-  <h2>Gold packet annotator</h2>
-  <p>Open your packet file (e.g. <code>annotator-a.jsonl</code> from <code>v2/runs/&lt;run&gt;/gold/packets/</code>).<br>
-  Progress autosaves in this browser; you can close and reopen the same file to resume.<br>
-  When done, click <b>Export</b> and save the download next to the packet as <code>&lt;name&gt;.completed.jsonl</code>.</p>
-  <div style="margin:16px 0">
-    <button data-load-packet="packets/annotator-a.jsonl">Load annotator-a</button>
-    <button data-load-packet="packets/annotator-b.jsonl">Load annotator-b</button>
+  <h2>Gutenberg benchmark judging</h2>
+  <p>Choose one judge packet. Judge 1 and Judge 2 contain the same kind of rating task for two independent readers; keeping them separate lets us measure agreement after both are complete.</p>
+  <p>Progress autosaves in this browser. When done, click <b>Export completed.jsonl</b> and send back the downloaded file.</p>
+  <div class="choiceRow">
+    <button data-load-packet="packets/annotator-a.jsonl">
+      <span class="choiceTitle">Start Judge 1 packet</span>
+      <span class="choiceHelp">Use this if you are the first reader.</span>
+    </button>
+    <button data-load-packet="packets/annotator-b.jsonl">
+      <span class="choiceTitle">Start Judge 2 packet</span>
+      <span class="choiceHelp">Use this if you are the second reader.</span>
+    </button>
   </div>
+  <p class="choiceHelp">Already have a packet file? Load it here:</p>
   <input type="file" id="file" accept=".jsonl">
 </div>
 
@@ -92,6 +129,7 @@
   <div class="row" style="margin-top:8px">
     <input type="text" id="notes" placeholder="notes — cite the decision rule (R1, R2…) for boundary calls">
     <span class="hint">Keys: 1/2/3 label · 0–3 relevance (press label first) · a–f neg type · [ ] navigate · u next unrated. Saving is automatic.</span>
+    <span class="hint mobileOnly">Saving is automatic. Use Export completed.jsonl when finished.</span>
   </div>
 </div>
 
