@@ -37,19 +37,24 @@
   .choiceTitle { display:block; font-weight:700; margin-bottom:2px; }
   .choiceHelp { display:block; color:var(--muted); font-size:12px; line-height:1.35; }
   .mobileOnly { display:none; }
+  #exportMobile { display:none; }
   @media (max-width: 720px) {
     body { font-size:15px; line-height:1.55; }
-    header { position:static; display:grid; grid-template-columns:1fr 1fr; padding:10px 12px; gap:8px; }
+    header { position:sticky; display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); padding:8px 10px; gap:6px; }
     header .grow { display:none; }
-    header button { min-height:40px; padding:8px 10px; }
-    progress { grid-column:1 / -1; width:100%; }
-    #count { justify-self:end; }
-    #export { grid-column:1 / -1; }
-    main { padding:14px 10px 330px; }
+    header button { min-height:34px; padding:6px 8px; font-size:13px; }
+    #packetName { grid-column:1 / 3; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    #conceptPill { grid-column:3 / 5; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    #count { grid-column:1 / 3; align-self:center; }
+    progress { grid-column:3 / 5; width:100%; align-self:center; }
+    #prev, #nextBtn, #nextUn { grid-column:auto; }
+    #nextUn { grid-column:3 / 5; }
+    #export { display:none; }
+    main { padding:12px 10px 12px; }
     .card { border-radius:8px; padding:14px 14px; margin-bottom:10px; }
     .query { font-size:17px; line-height:1.35; }
     .passage { font-size:16px; line-height:1.6; }
-    .bar { padding:10px; max-height:52vh; overflow:auto; }
+    .bar { position:static; padding:10px; max-height:none; overflow:visible; box-shadow:none; border-top:1px solid var(--line); }
     .bar .row { gap:6px; }
     .bar button { flex:1 1 calc(33.333% - 6px); min-height:42px; padding:8px 8px; }
     .bar .label { flex:1 0 100%; margin:8px 0 0 !important; }
@@ -58,6 +63,7 @@
     input[type=text] { min-width:0; width:100%; flex-basis:100%; }
     .hint { display:none; }
     .key { display:none; }
+    #exportMobile { display:block; flex-basis:100%; }
     .choiceRow { grid-template-columns:1fr; }
     #start { margin:28px auto; text-align:left; }
     #start h2 { text-align:left; }
@@ -128,6 +134,7 @@
   </div>
   <div class="row" style="margin-top:8px">
     <input type="text" id="notes" placeholder="notes — cite the decision rule (R1, R2…) for boundary calls">
+    <button id="exportMobile" type="button">Export completed.jsonl</button>
     <span class="hint">Keys: 1/2/3 label · 0–3 relevance (press label first) · a–f neg type · [ ] navigate · u next unrated. Saving is automatic.</span>
     <span class="hint mobileOnly">Saving is automatic. Use Export completed.jsonl when finished.</span>
   </div>
@@ -254,7 +261,7 @@ document.addEventListener('keydown', (ev) => {
   else if (ev.key === 'u') nextUnrated();
 });
 
-$('export').onclick = () => {
+function exportCompleted() {
   const missing = items.filter(unrated);
   if (missing.length && !confirm(`${missing.length} item(s) still unrated or missing a negative type. Export anyway?`)) return;
   const lines = items.map(it => JSON.stringify({
@@ -270,7 +277,9 @@ $('export').onclick = () => {
   a.download = packet + '.completed.jsonl';
   a.click();
   URL.revokeObjectURL(a.href);
-};
+}
+$('export').onclick = exportCompleted;
+$('exportMobile').onclick = exportCompleted;
 </script>
 </body>
 </html>
