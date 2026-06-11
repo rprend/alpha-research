@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Gold packet annotator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --fg:#1a1a18; --muted:#6b6a64; --bg:#faf9f5; --card:#ffffff; --line:#e3e1d9; --accent:#2f6f5e; --warn:#a33b2e; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:16px/1.65 Georgia, 'Times New Roman', serif; color:var(--fg); background:var(--bg); }
+  header { position:sticky; top:0; background:var(--bg); border-bottom:1px solid var(--line); padding:10px 20px; display:flex; gap:16px; align-items:center; font-family:-apple-system, sans-serif; font-size:14px; z-index:2; }
+  header .grow { flex:1; }
+  progress { width:160px; height:8px; }
+  main { max-width:880px; margin:0 auto; padding:24px 20px 140px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px 22px; margin-bottom:16px; }
+  .label { font-family:-apple-system, sans-serif; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+  .query { font-size:19px; font-weight:bold; }
+  .rules { font-family:-apple-system, sans-serif; font-size:14px; color:var(--fg); }
+  .rules li { margin-bottom:4px; }
+  details summary { cursor:pointer; font-family:-apple-system, sans-serif; font-size:14px; color:var(--accent); }
+  .passage { white-space:pre-wrap; font-size:17px; }
+  .bar { position:fixed; bottom:0; left:0; right:0; background:var(--card); border-top:1px solid var(--line); padding:12px 20px; font-family:-apple-system, sans-serif; }
+  .bar .row { max-width:880px; margin:0 auto; display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  button { font:14px -apple-system, sans-serif; padding:8px 14px; border:1px solid var(--line); border-radius:8px; background:var(--card); cursor:pointer; }
+  button:hover { border-color:var(--accent); }
+  button.sel { background:var(--accent); color:#fff; border-color:var(--accent); }
+  button.warnsel { background:var(--warn); color:#fff; border-color:var(--warn); }
+  .key { color:var(--muted); font-size:11px; margin-left:4px; }
+  input[type=text] { flex:1; min-width:200px; font:14px -apple-system, sans-serif; padding:8px 10px; border:1px solid var(--line); border-radius:8px; }
+  #start { max-width:640px; margin:80px auto; text-align:center; font-family:-apple-system, sans-serif; }
+  #start input[type=file] { margin:16px 0; }
+  .pill { font-family:-apple-system, sans-serif; font-size:12px; background:#eef0e9; border-radius:999px; padding:2px 10px; color:var(--muted); }
+  .hint { font-size:12px; color:var(--muted); width:100%; }
+  .missing { color:var(--warn); font-weight:bold; }
+</style>
+</head>
+<body>
+<div id="start">
+  <h2>Gold packet annotator</h2>
+  <p>Open your packet file (e.g. <code>annotator-a.jsonl</code> from <code>v2/runs/&lt;run&gt;/gold/packets/</code>).<br>
+  Progress autosaves in this browser; you can close and reopen the same file to resume.<br>
+  When done, click <b>Export</b> and save the download next to the packet as <code>&lt;name&gt;.completed.jsonl</code>.</p>
+  <div style="margin:16px 0">
+    <button data-load-packet="packets/annotator-a.jsonl">Load annotator-a</button>
+    <button data-load-packet="packets/annotator-b.jsonl">Load annotator-b</button>
+  </div>
+  <input type="file" id="file" accept=".jsonl">
+</div>
+
+<header id="hdr" style="display:none">
+  <span id="packetName" class="pill"></span>
+  <span id="conceptPill" class="pill"></span>
+  <span class="grow"></span>
+  <span id="count"></span>
+  <progress id="prog" max="1" value="0"></progress>
+  <button id="prev">&#8592; <span class="key">[</span></button>
+  <button id="nextBtn">&#8594; <span class="key">]</span></button>
+  <button id="nextUn">next unrated <span class="key">u</span></button>
+  <button id="export">Export completed.jsonl</button>
+</header>
+
+<main id="main" style="display:none">
+  <div class="card">
+    <div class="label">Concept query</div>
+    <div class="query" id="q"></div>
+    <div class="label" style="margin-top:12px">Strong match (label positive only if this holds, with evidence in the passage)</div>
+    <div class="rules" id="sm"></div>
+    <details style="margin-top:10px"><summary>Hard-negative types &amp; decision rules</summary>
+      <div class="label" style="margin-top:8px">Negative types (required for every negative)</div>
+      <ul class="rules" id="types"></ul>
+      <div class="label">Decision rules</div>
+      <ul class="rules" id="rules"></ul>
+    </details>
+  </div>
+  <div class="card">
+    <div class="label">Passage <span id="wc" class="pill"></span></div>
+    <div class="passage" id="passage"></div>
+  </div>
+</main>
+
+<div class="bar" id="bar" style="display:none">
+  <div class="row" id="labelRow">
+    <span class="label" style="margin:0 6px 0 0">Label</span>
+    <button data-label="positive">positive <span class="key">1</span></button>
+    <button data-label="negative">negative <span class="key">2</span></button>
+    <button data-label="ambiguous">ambiguous <span class="key">3</span></button>
+    <span class="label" style="margin:0 6px 0 12px">Relevance</span>
+    <button data-rel="0">0</button><button data-rel="1">1</button><button data-rel="2">2</button><button data-rel="3">3</button>
+    <span class="label" style="margin:0 6px 0 12px" id="typeLbl">Neg. type</span>
+    <span id="typeBtns"></span>
+  </div>
+  <div class="row" style="margin-top:8px">
+    <input type="text" id="notes" placeholder="notes — cite the decision rule (R1, R2…) for boundary calls">
+    <span class="hint">Keys: 1/2/3 label · 0–3 relevance (press label first) · a–f neg type · [ ] navigate · u next unrated. Saving is automatic.</span>
+  </div>
+</div>
+
+<script>
+let items = [], idx = 0, packet = '', storeKey = '';
+const $ = (id) => document.getElementById(id);
+
+$('file').addEventListener('change', (ev) => {
+  const f = ev.target.files[0];
+  if (!f) return;
+  const reader = new FileReader();
+  reader.onload = () => loadPacketText(f.name, reader.result);
+  reader.readAsText(f);
+});
+
+document.querySelectorAll('[data-load-packet]').forEach((b) => {
+  b.onclick = async () => {
+    const path = b.dataset.loadPacket;
+    const res = await fetch(path);
+    if (!res.ok) throw new Error(`Could not load ${path}: ${res.status}`);
+    loadPacketText(path.split('/').pop(), await res.text());
+  };
+});
+
+function loadPacketText(name, text) {
+  packet = name.replace(/\.jsonl$/, '');
+  storeKey = 'gold-annotator::' + packet;
+  items = text.split('\n').filter(Boolean).map(JSON.parse);
+  const saved = JSON.parse(localStorage.getItem(storeKey) || '{}');
+  for (const it of items) {
+    const s = saved[it.item_id];
+    if (s) Object.assign(it, s);
+  }
+  $('start').style.display = 'none';
+  for (const id of ['hdr','main','bar']) $(id).style.display = '';
+  $('packetName').textContent = packet + '.jsonl';
+  idx = items.findIndex(unrated); if (idx < 0) idx = 0;
+  render();
+}
+
+function unrated(it) {
+  if (it.label == null) return true;
+  if (it.relevance == null) return true;
+  if (it.label === 'negative' && !it.hard_negative_type) return true;
+  return false;
+}
+
+function save(it) {
+  const saved = JSON.parse(localStorage.getItem(storeKey) || '{}');
+  saved[it.item_id] = { label: it.label, relevance: it.relevance, hard_negative_type: it.hard_negative_type, notes: it.notes };
+  localStorage.setItem(storeKey, JSON.stringify(saved));
+}
+
+function render() {
+  const it = items[idx];
+  const cb = it.codebook;
+  $('conceptPill').textContent = cb.id;
+  $('q').textContent = cb.query;
+  $('sm').textContent = cb.strong_match;
+  $('types').innerHTML = (cb.hard_negative_types || []).map(t => `<li><b>${t.id}</b> <code>${t.name}</code>: ${t.definition}</li>`).join('');
+  $('rules').innerHTML = (cb.decision_rules || []).map(r => `<li>${r}</li>`).join('');
+  $('passage').textContent = it.passage;
+  $('wc').textContent = (it.passage || '').split(/\s+/).length + ' words';
+  $('notes').value = it.notes || '';
+  const done = items.filter(i => !unrated(i)).length;
+  $('count').textContent = `${idx + 1}/${items.length} · rated ${done}`;
+  $('prog').value = done / items.length;
+  // label buttons
+  document.querySelectorAll('[data-label]').forEach(b => b.classList.toggle('sel', it.label === b.dataset.label));
+  document.querySelectorAll('[data-rel]').forEach(b => b.classList.toggle('sel', String(it.relevance) === b.dataset.rel));
+  // type buttons per codebook
+  const tb = $('typeBtns');
+  tb.innerHTML = '';
+  const showTypes = it.label === 'negative';
+  $('typeLbl').style.opacity = showTypes ? 1 : 0.3;
+  (cb.hard_negative_types || []).forEach((t, i) => {
+    const b = document.createElement('button');
+    b.innerHTML = `${t.id} <span class="key">${'abcdef'[i] || ''}</span>`;
+    b.title = `${t.name}: ${t.definition}`;
+    b.style.opacity = showTypes ? 1 : 0.3;
+    if (it.hard_negative_type === t.id) b.classList.add(showTypes ? 'sel' : 'warnsel');
+    b.onclick = () => { it.hard_negative_type = t.id; save(it); render(); };
+    tb.appendChild(b);
+  });
+  window.scrollTo(0, 0);
+}
+
+function setLabel(v) {
+  const it = items[idx];
+  it.label = v;
+  if (v === 'positive' && (it.relevance == null || it.relevance < 2)) it.relevance = null; // force explicit 2/3 choice
+  if (v === 'negative') { it.relevance = 0; }
+  if (v === 'ambiguous' && it.relevance == null) it.relevance = 1;
+  if (v !== 'negative') it.hard_negative_type = null;
+  save(it); render();
+}
+function setRel(v) { const it = items[idx]; it.relevance = v; save(it); render(); }
+function move(d) { idx = Math.min(items.length - 1, Math.max(0, idx + d)); render(); }
+function nextUnrated() { const j = items.findIndex((it, i) => i > idx && unrated(it)); idx = j >= 0 ? j : items.findIndex(unrated); if (idx < 0) idx = items.length - 1; render(); }
+
+document.querySelectorAll('[data-label]').forEach(b => b.onclick = () => setLabel(b.dataset.label));
+document.querySelectorAll('[data-rel]').forEach(b => b.onclick = () => setRel(Number(b.dataset.rel)));
+$('prev').onclick = () => move(-1);
+$('nextBtn').onclick = () => move(1);
+$('nextUn').onclick = nextUnrated;
+$('notes').addEventListener('input', () => { items[idx].notes = $('notes').value; save(items[idx]); });
+
+document.addEventListener('keydown', (ev) => {
+  if (ev.target.tagName === 'INPUT' && ev.target.type === 'text') return;
+  if (!items.length) return;
+  const it = items[idx];
+  if (ev.key === '1') setLabel('positive');
+  else if (ev.key === '2') setLabel('negative');
+  else if (ev.key === '3') setLabel('ambiguous');
+  else if ('0123'.includes(ev.key) && it.label) setRel(Number(ev.key));
+  else if ('abcdef'.includes(ev.key) && it.label === 'negative') {
+    const t = (it.codebook.hard_negative_types || [])['abcdef'.indexOf(ev.key)];
+    if (t) { it.hard_negative_type = t.id; save(it); render(); }
+  }
+  else if (ev.key === '[') move(-1);
+  else if (ev.key === ']') move(1);
+  else if (ev.key === 'u') nextUnrated();
+});
+
+$('export').onclick = () => {
+  const missing = items.filter(unrated);
+  if (missing.length && !confirm(`${missing.length} item(s) still unrated or missing a negative type. Export anyway?`)) return;
+  const lines = items.map(it => JSON.stringify({
+    item_id: it.item_id,
+    label: it.label,
+    relevance: it.relevance,
+    hard_negative_type: it.hard_negative_type ?? null,
+    notes: it.notes || '',
+  })).join('\n') + '\n';
+  const blob = new Blob([lines], { type: 'application/jsonl' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = packet + '.completed.jsonl';
+  a.click();
+  URL.revokeObjectURL(a.href);
+};
+</script>
+</body>
+</html>
