@@ -843,6 +843,10 @@ function normalizeCourseKey(code, title) {
   return title.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '')
 }
 
+function slug(value) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '')
+}
+
 function buildSyllabi(inspected) {
   return inspected
     .filter(({ source, text }) => source.extraction_status === 'ok' && text && ['syllabus_pdf', 'syllabus_html', 'course_site', 'assignment_page', 'schedule_page', 'reading_page'].includes(source.source_type))
@@ -885,22 +889,111 @@ function buildAssignments(syllabi) {
   return rows
 }
 
+const readingCatalog = [
+  { match: /meggs|history of graphic design/i, title: "Meggs' History of Graphic Design", author: 'Philip B. Meggs', resource_type: 'book' },
+  { match: /bringhurst|elements of typographic style/i, title: 'The Elements of Typographic Style', author: 'Robert Bringhurst', resource_type: 'book' },
+  { match: /lupton|thinking with type|ellen lupton/i, title: 'Thinking with Type', author: 'Ellen Lupton', resource_type: 'book' },
+  { match: /detail in typography|hochuli/i, title: 'Detail in Typography', author: 'Jost Hochuli', resource_type: 'book' },
+  { match: /m[üu]ller[-\s]brockmann|grid systems/i, title: 'Grid Systems in Graphic Design', author: 'Josef Muller-Brockmann', resource_type: 'book' },
+  { match: /anatomy of type|stephen coles/i, title: 'The Anatomy of Type', author: 'Stephen Coles', resource_type: 'book' },
+  { match: /text in the book format|keith smith/i, title: 'Text in the Book Format', author: 'Keith A. Smith', resource_type: 'book' },
+  { match: /how to draw a tree|munari/i, title: 'How to Draw a Tree', author: 'Bruno Munari', resource_type: 'book' },
+  { match: /norman potter|what is a designer/i, title: 'What Is a Designer', author: 'Norman Potter', resource_type: 'book' },
+  { match: /web.?s grain|frank chimero/i, title: "The Web's Grain", author: 'Frank Chimero', resource_type: 'essay' },
+  { match: /handmade web|j\.?\s*r\.?\s*carpenter/i, title: 'A Handmade Web', author: 'J. R. Carpenter', resource_type: 'essay' },
+  { match: /letterform of the age|bo[-\s]?won keum/i, title: 'On the Letterform of the Age', author: 'Bo-Won Keum', resource_type: 'essay' },
+  { match: /typeface as programme|j[üu]rg lehni/i, title: 'Typeface as Programme', author: 'Jurg Lehni', resource_type: 'essay' },
+  { match: /\bthe cube\b|erik van blokland/i, title: 'The Cube', author: 'Erik van Blokland', resource_type: 'essay' },
+  { match: /letter\s*&\s*spirit|dexter sinister/i, title: 'Letter & Spirit', author: 'Dexter Sinister', resource_type: 'essay' },
+  { match: /function as narrative|weiyi li/i, title: 'Function as Narrative', author: 'Weiyi Li', resource_type: 'essay' },
+  { match: /poetry of tools|mindy seu/i, title: 'Poetry of Tools', author: 'Mindy Seu', resource_type: 'essay' },
+  { match: /shifting house|laurel schwulst/i, title: 'My Website is a Shifting House Next to a River of Knowledge', author: 'Laurel Schwulst', resource_type: 'essay' },
+  { match: /software as ideology|american artist|sfpc/i, title: 'Software as Ideology', author: 'School for Poetic Computation with American Artist', resource_type: 'essay' },
+]
+
+function cleanCitationExcerpt(value) {
+  return value.replace(/[❧•]+/g, ' ').replace(/\s+/g, ' ').replace(/\s+[,;:.]$/g, '').trim()
+}
+
+function normalizeCitation(raw) {
+  const rawCitation = cleanCitationExcerpt(raw)
+  const catalogHit = readingCatalog.find((entry) => entry.match.test(rawCitation))
+  const year = rawCitation.match(/\b(19|20)\d{2}\b/)?.[0] ?? null
+  if (catalogHit) {
+    return {
+      raw_citation: rawCitation,
+      title: catalogHit.title,
+      author: catalogHit.author,
+      publication_year: year,
+      publisher_or_source: null,
+      resource_type: catalogHit.resource_type,
+      canonical_work_id: `work_${slug(`${catalogHit.title}_${catalogHit.author}`)}`,
+      linking_status: 'local_catalog_match',
+    }
+  }
+
+  const byMatch = rawCitation.match(/^(.{4,120}?)\s+by\s+(.{3,80})$/i)
+  const title = byMatch ? byMatch[1].trim() : null
+  const author = byMatch ? byMatch[2].trim() : null
+  const looksLikeTitle = /^[A-Z0-9][A-Za-z0-9'&,: -]{8,120}$/.test(rawCitation) && rawCitation.split(/\s+/).length >= 3
+  return {
+    raw_citation: rawCitation,
+    title: title ?? (looksLikeTitle ? rawCitation : null),
+    author,
+    publication_year: year,
+    publisher_or_source: rawCitation.match(/\b(?:Publishers?|Press|Journal|Magazine|Communication Arts)\b/i)?.[0] ?? null,
+    resource_type: /https?:\/\/|website|web/i.test(rawCitation) ? 'website' : 'unknown',
+    canonical_work_id: title || looksLikeTitle ? `work_${slug(`${title ?? rawCitation}_${author ?? 'unknown'}`)}` : null,
+    linking_status: title || looksLikeTitle ? 'heuristic_title' : 'unresolved',
+  }
+}
+
 function buildReadings(syllabi) {
   const rows = []
   for (const syllabus of syllabi) {
     syllabus.readings.forEach((reading, index) => {
+      const normalized = normalizeCitation(reading)
       rows.push({
         reading_id: `reading_${syllabus.syllabus_id}_${String(index + 1).padStart(2, '0')}`,
         course_code: syllabus.course_code,
         course_title: syllabus.course_title,
         syllabus_id: syllabus.syllabus_id,
-        citation_excerpt: reading,
+        citation_excerpt: normalized.raw_citation,
+        ...normalized,
         required_or_recommended: /recommended/i.test(reading) ? 'recommended' : 'unknown',
+        week_or_date: reading.match(/\b(?:week|class|session)\s+\d+\b/i)?.[0] ?? null,
         source_ids: syllabus.source_ids,
       })
     })
   }
   return rows
+}
+
+function buildReadingFrequency(readings) {
+  const byWork = new Map()
+  for (const reading of readings.filter((row) => row.canonical_work_id)) {
+    const existing = byWork.get(reading.canonical_work_id) ?? {
+      canonical_work_id: reading.canonical_work_id,
+      title: reading.title,
+      author: reading.author,
+      resource_type: reading.resource_type,
+      linking_status: reading.linking_status,
+      occurrence_count: 0,
+      course_codes: [],
+      course_titles: [],
+      syllabus_ids: [],
+      source_ids: [],
+      raw_citations: [],
+    }
+    existing.occurrence_count += 1
+    existing.course_codes = uniq([...existing.course_codes, reading.course_code].filter(Boolean))
+    existing.course_titles = uniq([...existing.course_titles, reading.course_title].filter(Boolean))
+    existing.syllabus_ids = uniq([...existing.syllabus_ids, reading.syllabus_id])
+    existing.source_ids = uniq([...existing.source_ids, ...reading.source_ids])
+    existing.raw_citations = uniq([...existing.raw_citations, reading.raw_citation]).slice(0, 8)
+    byWork.set(reading.canonical_work_id, existing)
+  }
+  return [...byWork.values()].sort((a, b) => b.occurrence_count - a.occurrence_count || a.title.localeCompare(b.title))
 }
 
 function buildStudentWork(inspected) {
@@ -933,7 +1026,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, wayback, reviewQueue = [] }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], wayback, reviewQueue = [] }) {
   const sourceIds = new Set(sources.map((source) => source.source_id))
   const syllabusIds = new Set(syllabi.map((syllabus) => syllabus.syllabus_id))
   const failedSourceIds = new Set(sources.filter((source) => source.extraction_status !== 'ok').map((source) => source.source_id))
@@ -941,6 +1034,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const missingSyllabusIdentity = syllabi.filter((syllabus) => !syllabus.course_code && !syllabus.course_title)
   const assignmentSourceErrors = assignments.filter((assignment) => !syllabusIds.has(assignment.syllabus_id) || assignment.source_ids.some((id) => !sourceIds.has(id)))
   const readingSourceErrors = readings.filter((reading) => !syllabusIds.has(reading.syllabus_id) || reading.source_ids.some((id) => !sourceIds.has(id)))
+  const normalizedReadingCount = readings.filter((reading) => reading.canonical_work_id).length
+  const catalogReadingCount = readings.filter((reading) => reading.linking_status === 'local_catalog_match').length
   const courseInventoryReconciled = courseInventory.displayed_count > 0 && courseInventory.offerings.length === courseInventory.displayed_count
   const checks = [
     {
@@ -967,6 +1062,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       id: 'readings_reference_valid_syllabi_and_sources',
       status: readingSourceErrors.length === 0 ? 'pass' : 'fail',
       detail: `${readingSourceErrors.length} reading reference errors.`,
+    },
+    {
+      id: 'readings_have_normalized_work_links',
+      status: normalizedReadingCount > 0 ? 'pass' : 'warn',
+      detail: `${normalizedReadingCount} reading snippets linked to ${readingFrequency.length} canonical works; ${catalogReadingCount} local catalog matches.`,
     },
     {
       id: 'official_course_inventory_reconciled',
@@ -997,6 +1097,9 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       syllabi: syllabi.length,
       assignments: assignments.length,
       readings: readings.length,
+      normalized_readings: normalizedReadingCount,
+      local_catalog_readings: catalogReadingCount,
+      canonical_reading_works: readingFrequency.length,
       wayback: wayback.length,
       review_queue: reviewQueue.length,
     },
@@ -1004,7 +1107,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   }
 }
 
-function buildReviewQueue({ sources, courseInventory, syllabi }) {
+function buildReviewQueue({ sources, courseInventory, syllabi, readings }) {
   const rows = []
   for (const source of sources.filter((source) => source.extraction_status !== 'ok')) {
     rows.push({
@@ -1024,6 +1127,15 @@ function buildReviewQueue({ sources, courseInventory, syllabi }) {
       source_id: 'src_risd_graphic_design_courses_pages',
       url: 'https://www.risd.edu/academics/graphic-design/courses',
       action: `Find the remaining ${courseInventory.displayed_count - courseInventory.offerings.length} public official offerings via Drupal view state, Coursedog, or registrar exports.`,
+    })
+  }
+  const unresolvedReadings = readings.filter((reading) => reading.linking_status === 'unresolved')
+  if (readings.length && unresolvedReadings.length / readings.length > 0.5) {
+    rows.push({
+      review_id: 'review_reading_normalization_backlog',
+      priority: 'medium',
+      reason: 'reading_normalization_low_confidence',
+      action: `Review ${unresolvedReadings.length} unresolved reading snippets and expand the local catalog or tighten extraction patterns.`,
     })
   }
   for (const syllabus of syllabi) {
@@ -1072,6 +1184,9 @@ Overall status: ${validation.status}
 - Syllabi/course artifacts: ${validation.counts.syllabi}
 - Assignments: ${validation.counts.assignments}
 - Readings: ${validation.counts.readings}
+- Normalized reading snippets: ${validation.counts.normalized_readings}
+- Canonical reading works: ${validation.counts.canonical_reading_works}
+- Local catalog reading matches: ${validation.counts.local_catalog_readings}
 - Wayback captures: ${validation.counts.wayback}
 - Review queue rows: ${validation.counts.review_queue}
 
@@ -1135,7 +1250,7 @@ function reconstructionMarkdown({ sources, courses, syllabi, assignments, readin
     }
     if (courseReadings.length) {
       lines.push('- Reading evidence:')
-      courseReadings.slice(0, 8).forEach((reading) => lines.push(`  - ${reading.citation_excerpt}`))
+      courseReadings.slice(0, 8).forEach((reading) => lines.push(`  - ${reading.title ? `${reading.title}${reading.author ? `, ${reading.author}` : ''}` : reading.citation_excerpt} (${reading.linking_status})`))
     }
     if (courseAssignments.length) {
       lines.push('- Assignment/critique evidence:')
@@ -1234,11 +1349,14 @@ For self-study, convert every recovered assignment into a three-part loop:
 async function main() {
   ensureDir(outDir)
   const inspected = []
-  for (const seed of [...seeds, ...searchDiscoveredSources]) {
+  const initialSeeds = [...seeds, ...searchDiscoveredSources]
+  for (const [index, seed] of initialSeeds.entries()) {
     if (seed.source_id === 'src_risd_graphic_design_courses') continue
+    console.error(`inspect seed ${index + 1}/${initialSeeds.length}: ${seed.source_id}`)
     inspected.push(await inspectSeed(seed))
   }
   for (let page = 0; page < officialCourseMaxPages; page++) {
+    console.error(`inspect official course page ${page + 1}/${officialCourseMaxPages}`)
     const inspectedPage = await inspectOfficialCoursePage(page)
     if (inspectedPage.source.extraction_status !== 'ok') {
       inspected.push(inspectedPage)
@@ -1249,14 +1367,16 @@ async function main() {
     inspected.push(inspectedPage)
   }
   const crawlSeeds = discoverCrawlSeeds(inspected).slice(0, 80)
-  for (const seed of crawlSeeds) {
+  for (const [index, seed] of crawlSeeds.entries()) {
+    console.error(`inspect crawl seed ${index + 1}/${crawlSeeds.length}: ${seed.source_id}`)
     inspected.push(await inspectSeed(seed))
   }
 
   const wayback = []
   if (!skipWayback) {
     const waybackSeeds = [...seeds, ...searchDiscoveredSources, ...crawlSeeds].slice(0, waybackMaxSources)
-    for (const seed of waybackSeeds) {
+    for (const [index, seed] of waybackSeeds.entries()) {
+      console.error(`inspect wayback ${index + 1}/${waybackSeeds.length}: ${seed.source_id}`)
       const captures = await waybackCaptures(seed.url)
       captures.forEach((capture) => wayback.push({ source_id: seed.source_id, ...capture }))
     }
@@ -1268,6 +1388,7 @@ async function main() {
   const syllabi = buildSyllabi(inspected)
   const assignments = buildAssignments(syllabi)
   const readings = buildReadings(syllabi)
+  const readingFrequency = buildReadingFrequency(readings)
   const studentWork = buildStudentWork(inspected)
 
   writeJsonl(join(outDir, 'sources.jsonl'), sources)
@@ -1276,13 +1397,14 @@ async function main() {
   writeJsonl(join(outDir, 'syllabi.jsonl'), syllabi)
   writeJsonl(join(outDir, 'assignments.jsonl'), assignments)
   writeJsonl(join(outDir, 'readings.jsonl'), readings)
+  writeJsonl(join(outDir, 'reading_frequency.jsonl'), readingFrequency)
   writeJsonl(join(outDir, 'student_work.jsonl'), studentWork)
   writeJsonl(join(outDir, 'wayback_captures.jsonl'), wayback)
   writeJsonl(join(outDir, 'crawl_sources.jsonl'), crawlSeeds)
   writeJsonl(join(outDir, 'search_results.jsonl'), buildSearchResults())
   writeJson(join(outDir, 'search_queries.json'), { generated_at: retrievedAt, queries: searchQueries })
-  const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, wayback, reviewQueue })
+  const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, wayback, reviewQueue })
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
@@ -1292,7 +1414,7 @@ async function main() {
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
 
   console.log(`RISD corpus artifacts written to ${outDir}`)
-  console.log(`sources=${sources.length} course_inventory=${courseInventory.offerings.length}/${courseInventory.displayed_count || '?'} courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} student_work=${studentWork.length} wayback=${wayback.length} review_queue=${reviewQueue.length} validation=${validationWithReview.status}`)
+  console.log(`sources=${sources.length} course_inventory=${courseInventory.offerings.length}/${courseInventory.displayed_count || '?'} courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} canonical_reading_works=${readingFrequency.length} student_work=${studentWork.length} wayback=${wayback.length} review_queue=${reviewQueue.length} validation=${validationWithReview.status}`)
 }
 
 if (!existsSync(join(root, 'docs/research-plans/risd-graphic-design-syllabus-corpus-plan.md'))) {

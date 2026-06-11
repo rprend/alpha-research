@@ -2,10 +2,11 @@
 
 Generated: 2026-06-11
 
-Rows: 11
+Rows: 12
 
 - HIGH fetch_or_extraction_failed: src_typography_iii_syllabus (https://type.practise.studio/syllabus/)
 - HIGH official_inventory_not_reconciled: src_risd_graphic_design_courses_pages (https://www.risd.edu/academics/graphic-design/courses)
+- MEDIUM reading_normalization_low_confidence: undefined
 - LOW missing_schedule_evidence: Design Studio 1
 - LOW missing_schedule_evidence: Design for Publishing
 - LOW missing_schedule_evidence: Newly Formed

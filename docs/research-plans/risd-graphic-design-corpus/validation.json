@@ -9,8 +9,11 @@
     "syllabi": 73,
     "assignments": 455,
     "readings": 113,
-    "wayback": 46,
-    "review_queue": 11
+    "normalized_readings": 50,
+    "local_catalog_readings": 38,
+    "canonical_reading_works": 26,
+    "wayback": 94,
+    "review_queue": 12
   },
   "checks": [
     {
@@ -39,6 +42,11 @@
       "detail": "0 reading reference errors."
     },
     {
+      "id": "readings_have_normalized_work_links",
+      "status": "pass",
+      "detail": "50 reading snippets linked to 26 canonical works; 38 local catalog matches."
+    },
+    {
       "id": "official_course_inventory_reconciled",
       "status": "warn",
       "detail": "88 official offerings parsed; RISD page displays 105 results."
@@ -46,7 +54,7 @@
     {
       "id": "wayback_captures_recorded",
       "status": "pass",
-      "detail": "46 Wayback capture records."
+      "detail": "94 Wayback capture records."
     },
     {
       "id": "course_records_created",

@@ -10,7 +10,7 @@ Generated: 2026-06-11
 - Assignment evidence snippets: 455
 - Reading evidence snippets: 113
 - Student work evidence records: 3
-- Wayback capture records: 46
+- Wayback capture records: 94
 
 ## Reconstructed Course Packets
 
@@ -305,14 +305,14 @@ Generated: 2026-06-11
   - Week 8
   - Week 7
 - Reading evidence:
-  - of a work will differ
-  - in which it was made
-  - has been sent to Anthony D
-  - will be revised to address any feedback RISD receives from Chief Stanton or from one of his representatives
-  - / References
-  - titled How to Draw a Tree
-  - Munari has a book titled How to Draw a Tree
-  - and references in the Unit 1 brief
+  - of a work will differ (unresolved)
+  - in which it was made (unresolved)
+  - has been sent to Anthony D (unresolved)
+  - will be revised to address any feedback RISD receives from Chief Stanton or from one of his representatives (unresolved)
+  - / References (unresolved)
+  - How to Draw a Tree, Bruno Munari (local_catalog_match)
+  - How to Draw a Tree, Bruno Munari (local_catalog_match)
+  - and references in the Unit 1 brief (unresolved)
 - Assignment/critique evidence:
   - As a graduate interdisciplinary studio, the course will introduce and frame assignments in the broadest possible way to allow for many outcomes.
   - Students are encouraged to bring their existing bodies of work, personal narratives and discipline-specific processes to their projects.
@@ -464,14 +464,14 @@ Generated: 2026-06-11
   - Week 8
   - Week 7
 - Reading evidence:
-  - of a work will differ
-  - in which it was made
-  - has been sent to Anthony D
-  - will be revised to address any feedback RISD receives from Chief Stanton or from one of his representatives
-  - / References
-  - titled How to Draw a Tree
-  - Munari has a book titled How to Draw a Tree
-  - and references in the Unit 1 brief
+  - of a work will differ (unresolved)
+  - in which it was made (unresolved)
+  - has been sent to Anthony D (unresolved)
+  - will be revised to address any feedback RISD receives from Chief Stanton or from one of his representatives (unresolved)
+  - / References (unresolved)
+  - How to Draw a Tree, Bruno Munari (local_catalog_match)
+  - How to Draw a Tree, Bruno Munari (local_catalog_match)
+  - and references in the Unit 1 brief (unresolved)
 - Assignment/critique evidence:
   - As a graduate interdisciplinary studio, the course will introduce and frame assignments in the broadest possible way to allow for many outcomes.
   - Students are encouraged to bring their existing bodies of work, personal narratives and discipline-specific processes to their projects.
@@ -676,14 +676,14 @@ Generated: 2026-06-11
   - Schedule
   - Week
 - Reading evidence:
-  - Semester-long Deliverables
-  - John Caserta -->
-  - with Bindery
-  - Design Studio 2016–18
-  - comes from the credits
-  - affects form — Learn to work together to accomplish more
-  - (in GD Commons)
-  - Essay on the Importance of Time
+  - Semester-long Deliverables (unresolved)
+  - John Caserta --> (unresolved)
+  - with Bindery (unresolved)
+  - Design Studio 2016–18 (unresolved)
+  - comes from the credits (unresolved)
+  - affects form — Learn to work together to accomplish more (unresolved)
+  - (in GD Commons) (unresolved)
+  - Essay on the Importance of Time (heuristic_title)
 - Assignment/critique evidence:
   - Design Studio will take the form of a series of question-based units, each initiated by a faculty member and contextualized by a presentation, event, or workshop.
   - Finished projects are not the intended outcome of DS1.
@@ -852,14 +852,14 @@ Generated: 2026-06-11
   - Schedule
   - Week
 - Reading evidence:
-  - Semester-long Deliverables
-  - John Caserta -->
-  - with Bindery
-  - Design Studio 2016–18
-  - comes from the credits
-  - affects form — Learn to work together to accomplish more
-  - (in GD Commons)
-  - Essay on the Importance of Time
+  - Semester-long Deliverables (unresolved)
+  - John Caserta --> (unresolved)
+  - with Bindery (unresolved)
+  - Design Studio 2016–18 (unresolved)
+  - comes from the credits (unresolved)
+  - affects form — Learn to work together to accomplish more (unresolved)
+  - (in GD Commons) (unresolved)
+  - Essay on the Importance of Time (heuristic_title)
 - Assignment/critique evidence:
   - Design Studio will take the form of a series of question-based units, each initiated by a faculty member and contextualized by a presentation, event, or workshop.
   - Finished projects are not the intended outcome of DS1.
@@ -1217,13 +1217,13 @@ Generated: 2026-06-11
   - having work prepared for class is critical to the typophile.com
   - have work printed and trimmed before class. underconsideration.com/quipsologies
 - Reading evidence:
-  - at           The other is of crystal clear glass, thin as a
-  - in America, Joseph Blumenthal
-  - in the Book Format, Keith Smith
-  - which you really should
-  - Lupton, Princeton
-  - Bringhurst, H&M
-  - Meggs, & Day*
+  - at The other is of crystal clear glass, thin as a (unresolved)
+  - in America, Joseph Blumenthal (unresolved)
+  - Text in the Book Format, Keith A. Smith (local_catalog_match)
+  - which you really should (unresolved)
+  - Thinking with Type, Ellen Lupton (local_catalog_match)
+  - The Elements of Typographic Style, Robert Bringhurst (local_catalog_match)
+  - Meggs' History of Graphic Design, Philip B. Meggs (local_catalog_match)
 - Assignment/critique evidence:
   - introduced to basic principles of typography iterations, projects, process, notes, etc as you gold, wrought in the most exquisite patterns.
   - form, type as material, type as texture and also -presentation board (as needed) and last fundamental requisite of book design,
@@ -1272,12 +1272,12 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_sp19_type_design
 - Term: Spring 2019
 - Reading evidence:
-  - of contemporary art and design practices
-  - based on their own interests and completing a book design project using assigned material
-  - applications, grid systems and page layout
-  - and poetry, letterhead systems, brochure or poster
-  - for the poster—as paper and as screen—building on its singular capacity to transform ideas into iconic picture planes, and examining the dynamics of typography and image, both still and in motion
-  - about poster history and contemporary poster design
+  - of contemporary art and design practices (unresolved)
+  - based on their own interests and completing a book design project using assigned material (unresolved)
+  - Grid Systems in Graphic Design, Josef Muller-Brockmann (local_catalog_match)
+  - and poetry, letterhead systems, brochure or poster (unresolved)
+  - for the poster—as paper and as screen—building on its singular capacity to transform ideas into iconic picture planes, and examining the dynamics of typography and image, both still and in motion (unresolved)
+  - about poster history and contemporary poster design (unresolved)
 - Assignment/critique evidence:
   - Through projects, readings, workshops, and presentations we will explore the relevance of network technologies in the context of contemporary art and design practices.
   - In the second part of the semester, students will be given the choice between designing a book based on their own interests and completing a book design project using assigned material.
@@ -1388,14 +1388,14 @@ Generated: 2026-06-11
   - Students are required to attend class regularly and on time in accordance with
   - In class, students are required to
 - Reading evidence:
-  - and lectures supplement
-  - that provide historical context
-  - to help you with critique in the readings folder
-  - Gestalt Principles
-  - & page                        Due Poster
-  - Introductions to Graphic Design
-  - History of Graphic Design
-  - Lupton & Jennifer Cole
+  - and lectures supplement (unresolved)
+  - that provide historical context (unresolved)
+  - to help you with critique in the readings folder (unresolved)
+  - Gestalt Principles (unresolved)
+  - & page Due Poster (unresolved)
+  - Introductions to Graphic Design (heuristic_title)
+  - Meggs' History of Graphic Design, Philip B. Meggs (local_catalog_match)
+  - Thinking with Type, Ellen Lupton (local_catalog_match)
 - Assignment/critique evidence:
   - and InDesign though in-class exercises.
   - Students will complete four projects: a logo, a poster, a booklet, and a visual
@@ -1531,14 +1531,14 @@ Generated: 2026-06-11
   - Class specifics meeting once a week for five hours.You should plan on with room for improvement.
   - spending at the minimum, five-eight hours a week on this C is average, acceptable, not exceptional in any way.
 - Reading evidence:
-  - for the class
-  - order, grids and other systems of organiza-           • excellent craft / respect for presentation and materials
-  - Design                      The Thames and Hudson Manual of
-  - Jan Middendorp
-  - in America               Shaping Text*
-  - The Anatomy of Type                       Text in the Book Format
-  - Important Websites:
-  - design, and like
+  - for the class (unresolved)
+  - order, grids and other systems of organiza- excellent craft / respect for presentation and materials (unresolved)
+  - Design The Thames and Hudson Manual of (heuristic_title)
+  - Jan Middendorp (unresolved)
+  - in America Shaping Text* (unresolved)
+  - The Anatomy of Type, Stephen Coles (local_catalog_match)
+  - Important Websites: (unresolved)
+  - design, and like (unresolved)
 - Assignment/critique evidence:
   - form, reading order, grids and other systems of organiza- • excellent craft / respect for presentation and materials
   - ages the practice of working with type & image relation- • completion of all assignments (including any readings)
@@ -1800,8 +1800,8 @@ Generated: 2026-06-11
   - Web Programming 2018 4-Week Wkshp
   - Web Programming 4-Week Wkshp
 - Reading evidence:
-  - John Caserta -->
-  - with Bindery
+  - John Caserta --> (unresolved)
+  - with Bindery (unresolved)
 - Assignment/critique evidence:
   - I was asked by The Noun Project to initiate a collaborative collection — a new venture where the Noun Project community could draw for each other, adding icons to a central repository. I came up with the concept for documentary icons having an interest in the detailed 20th-Century iconography.
   - words and is filed under projects
@@ -2101,9 +2101,9 @@ Generated: 2026-06-11
   - Week 3: Active Forms
   - Week 4: Putting it Together
 - Reading evidence:
-  - Art of Creative Coding Feb 13, 2015
-  - Art of Creative Coding | Web Programming 2015
-  - Art of Creative Coding
+  - Art of Creative Coding Feb 13, 2015 (heuristic_title)
+  - Art of Creative Coding | Web Programming 2015 (unresolved)
+  - Art of Creative Coding (heuristic_title)
 - Assignment/critique evidence:
   - &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015
   - &#237; Assignment 2: Draw found objects with CSS
@@ -2322,9 +2322,9 @@ Generated: 2026-06-11
   - Week 3: Active Forms
   - Week 4: Putting it Together
 - Reading evidence:
-  - Art of Creative Coding Feb 13, 2015
-  - Art of Creative Coding | Web Programming 2015
-  - Art of Creative Coding
+  - Art of Creative Coding Feb 13, 2015 (heuristic_title)
+  - Art of Creative Coding | Web Programming 2015 (unresolved)
+  - Art of Creative Coding (heuristic_title)
 - Assignment/critique evidence:
   - &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015
   - &#237; Assignment 2: Draw found objects with CSS
@@ -2521,14 +2521,14 @@ Generated: 2026-06-11
   - This final compilation will be due a week after the final class, Thursday May 19 @ 5:00pm EST.
   - Organize your class site so that it includes a link to each project and exercise. (Some exercises required adding features directly onto your class site, so you do not need a separate link for those.
 - Reading evidence:
-  - editor, such as Sublime Text or Atom for coding
-  - Readings will be dispersed throughout the semester to inform and contextualize our work
-  - in the relevant slack channel, raise questions, and discuss the text
-  - discussions and class critiques, we will be sharing resources with each other, and supporting each other through technical challenges
-  - in which it was made
-  - Frank Chimero: The Web’s Grain
-  - Bo-Won Keum: On the Letterform of the Age
-  - Jürg Lehni: Typeface as Programme
+  - editor, such as Sublime Text or Atom for coding (unresolved)
+  - Readings will be dispersed throughout the semester to inform and contextualize our work (heuristic_title)
+  - in the relevant slack channel, raise questions, and discuss the text (unresolved)
+  - discussions and class critiques, we will be sharing resources with each other, and supporting each other through technical challenges (unresolved)
+  - in which it was made (unresolved)
+  - The Web's Grain, Frank Chimero (local_catalog_match)
+  - On the Letterform of the Age, Bo-Won Keum (local_catalog_match)
+  - Typeface as Programme, Jurg Lehni (local_catalog_match)
 - Assignment/critique evidence:
   - projects
   - exercises
