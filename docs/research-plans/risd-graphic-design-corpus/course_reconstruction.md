@@ -4,26 +4,245 @@ Generated: 2026-06-11
 
 ## Coverage Summary
 
-- Sources inspected: 15
-- Course records created: 28
-- Syllabus/course-site records: 7
-- Assignment evidence snippets: 115
-- Reading evidence snippets: 53
+- Sources inspected: 30
+- Course records created: 109
+- Syllabus/course-site records: 17
+- Assignment evidence snippets: 158
+- Reading evidence snippets: 67
 - Student work evidence records: 2
-- Wayback capture records: 27
+- Wayback capture records: 33
 
 ## Reconstructed Course Packets
+
+### COLOR + SURFACE
+
+- Evidence grade: C
+- Course code: GRAPH 3211-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### COLOR + SURFACE
+
+- Evidence grade: C
+- Course code: GRAPH 3211-02
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### COLOR + SURFACE
+
+- Evidence grade: C
+- Course code: GRAPH 3211-03
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### COLOR + SURFACE
+
+- Evidence grade: C
+- Course code: GRAPH 3211-04
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### COLOR + SURFACE
+
+- Evidence grade: C
+- Course code: GRAPH 3211-05
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### COLOR + SURFACE
+
+- Evidence grade: C
+- Course code: GRAPH 3211-99
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
 ### COMPUTATIONAL POETICS
 
 - Evidence grade: C
 - Course code: GRAPH 2215-01
 - Degree level: Undergraduate
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: interaction design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: interaction design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DEGREE PROJECT
+
+- Evidence grade: C
+- Course code: GRAPH 3298-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DEGREE PROJECT
+
+- Evidence grade: C
+- Course code: GRAPH 3298-02
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DEGREE PROJECT
+
+- Evidence grade: C
+- Course code: GRAPH 3298-03
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DEGREE PROJECT
+
+- Evidence grade: C
+- Course code: GRAPH 3298-04
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DEGREE PROJECT
+
+- Evidence grade: C
+- Course code: GRAPH 3298-05
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DEGREE PROJECT
+
+- Evidence grade: C
+- Course code: GRAPH 3298-99
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### Design & Politics
+
+- Evidence grade: A
+- Course code: GRAPH2115
+- Degree level: unknown
+- Source IDs: src_designandpolitics_2022_syllabus
+- Extracted skill signals: publication design, identity systems, motion design, interaction design, critique and revision
+- Syllabus/course artifact: syl_designandpolitics_2022_syllabus
+- Term: Spring 2022
+- Platforms/tools mentioned: Slack, Zoom
+- Grading/assessment evidence: Rubric Ability to speak to the ideas that the work produced Complexity, inventivenes, risk Attention to details as they are defined by student Timeliness of work Body of work throughout semester Meaning of work Ability to incorporate feedback Participation with others (in discussion and making) Percent 20% Unit 1: Org Chart 20% Unit 2: Symbol appropriation 30% Unit 3: In Public 10% Headlines, Exercises 20% Participation, Attendance, Class engagement Updated May 2022 Absences Because class activi
+- Weekly/class structure evidence:
+  - Week 12
+  - Week 11
+  - Week 10
+  - Week 9
+  - Week 8
+  - Week 7
+- Reading evidence:
+  - of a work will differ
+  - in which it was made
+  - has been sent to Anthony D
+  - will be revised to address any feedback RISD receives from Chief Stanton or from one of his representatives
+- Assignment/critique evidence:
+  - As a graduate interdisciplinary studio, the course will introduce and frame assignments in the broadest possible way to allow for many outcomes.
+  - Students are encouraged to bring their existing bodies of work, personal narratives and discipline-specific processes to their projects.
+  - There will be three major assignments with a few activities, guests and outings.
+  - Some will relate and reinforce the assignments, others exist to bring students into contact with people and issues that relate to design and politics and can inform the final project.
+  - Students will be able to use design methods to conceptualize their own projects
+  - Throughout the whole semester, you shoudl be looking at news, videos, magazines, headlines, reddit posts, twitter, etc as the source for projects, commentary.
+  - Final review
+  - Headlines, Exercises
+  - Finally, remember to keep confidential all issues of a personal or professional nature that are discussed in class.
+- Tacit reconstruction:
+  - Direct evidence currently supports a course-specific classroom reconstruction.
+  - Skill training signals: publication design, identity systems, motion design, interaction design, critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN FOR INTERACTION
+
+- Evidence grade: C
+- Course code: GRAPH 3327-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: typography, motion design, interaction design, research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, motion design, interaction design, research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### Design for Publishing
+
+- Evidence grade: B
+- Course code: unknown
+- Degree level: unknown
+- Source IDs: src_sp19_design_for_publishing
+- Syllabus/course artifact: syl_sp19_design_for_publishing
+- Term: Spring 2019
+- Tacit reconstruction:
+  - Direct evidence currently supports a course-specific classroom reconstruction.
+  - Skill training signals: not enough course-specific evidence yet.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN FOR PUBLISHING
+
+- Evidence grade: C
+- Course code: GRAPH 3302-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: typography, publication design, image making
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, publication design, image making.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
 ### DESIGN IN THE POSTHUMAN AGE
@@ -31,7 +250,7 @@ Generated: 2026-06-11
 - Evidence grade: C
 - Course code: GRAPH 2106-01
 - Degree level: Undergraduate
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -114,12 +333,299 @@ Generated: 2026-06-11
   - Skill training signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
+### DESIGN STUDIO 1
+
+- Evidence grade: C
+- Course code: GRAPH 3210-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Extracted skill signals: research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 1
+
+- Evidence grade: C
+- Course code: GRAPH 3210-02
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Extracted skill signals: research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 1
+
+- Evidence grade: C
+- Course code: GRAPH 3210-03
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Extracted skill signals: research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 1
+
+- Evidence grade: C
+- Course code: GRAPH 3210-04
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Extracted skill signals: research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 1
+
+- Evidence grade: C
+- Course code: GRAPH 3210-99
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Extracted skill signals: research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 2
+
+- Evidence grade: C
+- Course code: GRAPH 3220-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 2
+
+- Evidence grade: C
+- Course code: GRAPH 3220-02
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 2
+
+- Evidence grade: C
+- Course code: GRAPH 3220-03
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 2
+
+- Evidence grade: C
+- Course code: GRAPH 3220-04
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 2
+
+- Evidence grade: C
+- Course code: GRAPH 3220-05
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 2
+
+- Evidence grade: C
+- Course code: GRAPH 3220-99
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 2
+
+- Evidence grade: C
+- Course code: GRAPH3220-99
+- Degree level: unknown
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: typography, publication design, identity systems, interaction design, critique and revision, research methods, image making
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, publication design, identity systems, interaction design, critique and revision, research methods, image making.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 3
+
+- Evidence grade: C
+- Course code: GRAPH 3226-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 3
+
+- Evidence grade: C
+- Course code: GRAPH 3226-02
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 3
+
+- Evidence grade: C
+- Course code: GRAPH 3226-03
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 3
+
+- Evidence grade: C
+- Course code: GRAPH 3226-04
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 3
+
+- Evidence grade: C
+- Course code: GRAPH 3226-05
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 3
+
+- Evidence grade: C
+- Course code: GRAPH 3226-99
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 4
+
+- Evidence grade: C
+- Course code: GRAPH 3216-02
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 4
+
+- Evidence grade: C
+- Course code: GRAPH 3216-03
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 4
+
+- Evidence grade: C
+- Course code: GRAPH 3216-04
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 4
+
+- Evidence grade: C
+- Course code: GRAPH 3216-05
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### DESIGN STUDIO 4
+
+- Evidence grade: C
+- Course code: GRAPH 3216-99
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### EXHIBIT DESIGN
+
+- Evidence grade: C
+- Course code: GRAPH 3273-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: not enough course-specific evidence yet.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
 ### EXPERIMENTAL BRANDING
 
 - Evidence grade: C
 - Course code: GRAPH 2323-01
 - Degree level: Undergraduate
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: identity systems, interaction design, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -131,7 +637,7 @@ Generated: 2026-06-11
 - Evidence grade: C
 - Course code: GRAPH 2322-01
 - Degree level: Undergraduate
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: typography, motion design, interaction design, critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -143,11 +649,51 @@ Generated: 2026-06-11
 - Evidence grade: C
 - Course code: GRAPH 2310-01
 - Degree level: Undergraduate
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: typography, interaction design, critique and revision, research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### Grad Type 1
+
+- Evidence grade: A
+- Course code: unknown
+- Degree level: unknown
+- Source IDs: src_grad_type_1_2014_syllabus_pdf
+- Extracted skill signals: typography, publication design, interaction design, critique and revision
+- Syllabus/course artifact: syl_grad_type_1_2014_syllabus_pdf
+- Term: Fall 2014
+- Grading/assessment evidence: Grades are a reality here at RISD. While I know we are all adults here for personal growth rather than grade- based evaluations, we must necessarily contend with the existing system. I will base your grades on: Reading list • quality of the work first and foremost • depth of seach and exploration (required) • good attitude toward learning and the class Thinking With Type, Ellen Lupton, Princeton • personal initiative Architectural Press • risk taking and exploration A Type Primer, John Kane, Pre
+- Weekly/class structure evidence:
+  - This class is your introduction to typography Keep work well organized both on your
+  - class you will learn to see to think and to make seeks to communicate is itself not the message
+  - the history and classification of typefaces, the 99percentinvisible.org personality, the whole bit: history and tradition
+  - Class meets once a week, for 12 classes: ourtype.com
+  - having work prepared for class is critical to the typophile.com
+  - have work printed and trimmed before class. underconsideration.com/quipsologies
+- Reading evidence:
+  - at           The other is of crystal clear glass, thin as a
+  - in America, Joseph Blumenthal
+  - in the Book Format, Keith Smith
+  - which you really should
+  - Lupton, Princeton
+  - Bringhurst, H&M
+  - Meggs, & Day*
+- Assignment/critique evidence:
+  - introduced to basic principles of typography iterations, projects, process, notes, etc as you gold, wrought in the most exquisite patterns.
+  - form, type as material, type as texture and also -presentation board (as needed) and last fundamental requisite of book design,
+  - • excellent craft / respect for presentation The Elements of Typographic Style, Robert
+  - • completion of all assignments (suggested)
+  - Final Grade will be based on the afore-mentioned Anatomy of a Typeface, Alexander Lawson
+  - criteria as well as results of projects.
+  - that any project can be re-done or improved upon Text in the Book Format, Keith Smith
+  - be taken into consideration when grading your final The Thames and Hudson Manual of Typography,
+  - portfolio.
+- Tacit reconstruction:
+  - Direct evidence currently supports a course-specific classroom reconstruction.
+  - Skill training signals: typography, publication design, interaction design, critique and revision.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
 ### Graphic Design for the Web
@@ -155,19 +701,72 @@ Generated: 2026-06-11
 - Evidence grade: B
 - Course code: GD2019
 - Degree level: unknown
-- Source IDs: src_sp19_risd_gd_web
-- Extracted skill signals: interaction design, critique and revision, research methods
+- Source IDs: src_sp19_risd_gd_web, src_sp19_newly_formed, src_sp19_time_sequence_sound, src_sp19_reframing_the_poster
+- Extracted skill signals: interaction design, critique and revision, research methods, typography, image making, motion design
 - Syllabus/course artifact: syl_sp19_risd_gd_web
 - Term: Spring 2019
 - Weekly/class structure evidence:
   - The class celebrates the Internet as a space for social exchange and independent expression, while questioning the cultural contradictions embedded in online discourse and the motivations of individuals and entities behind online platforms.
+- Syllabus/course artifact: syl_sp19_newly_formed
+- Term: Spring 2019
+- Syllabus/course artifact: syl_sp19_time_sequence_sound
+- Term: Spring 2019
+- Platforms/tools mentioned: Adobe, After Effects
+- Weekly/class structure evidence:
+  - Through a series of in-studio and multi-week assignments, students will create animated projects that include real-world assignments as well as experimental exercises.
+  - Short weekly lectures will discuss historic and current works of influential Motion Designers, Animators and Directors.
+  - Adobe After Effects will be the primary production tool for this class.
+- Syllabus/course artifact: syl_sp19_reframing_the_poster
+- Term: Spring 2019
 - Reading evidence:
   - of contemporary art and design practices
+  - for the poster—as paper and as screen—building on its singular capacity to transform ideas into iconic picture planes, and examining the dynamics of typography and image, both still and in motion
+  - about poster history and contemporary poster design
 - Assignment/critique evidence:
   - Through projects, readings, workshops, and presentations we will explore the relevance of network technologies in the context of contemporary art and design practices.
+  - Studio assignments are supported by lectures showing contemporary graphic form, from historical to contemporary work, that are effective and evocative.
+  - Through a series of in-studio and multi-week assignments, students will create animated projects that include real-world assignments as well as experimental exercises.
+  - Through the sequence of assignments, students will become fluent with the software.
+  - Studio assignments will be supported with presentations and readings about poster history and contemporary poster design .
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
-  - Skill training signals: interaction design, critique and revision, research methods.
+  - Skill training signals: interaction design, critique and revision, research methods, typography, image making, motion design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### HISTORY OF GRAPHIC DESIGN
+
+- Evidence grade: C
+- Course code: GRAPH 3225-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### IDENTITY DESIGN
+
+- Evidence grade: C
+- Course code: GRAPH 3286-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: identity systems, critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: identity systems, critique and revision.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### IDENTITY DESIGN
+
+- Evidence grade: C
+- Course code: GRAPH 3286-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: identity systems, critique and revision
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: identity systems, critique and revision.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
 ### In Motion: Design for Video and Animation
@@ -187,7 +786,7 @@ Generated: 2026-06-11
 - Evidence grade: C
 - Course code: GRAPH 2355-01
 - Degree level: Undergraduate
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: typography, publication design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -252,16 +851,65 @@ Generated: 2026-06-11
   - Skill training signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
+### Mapping Information
+
+- Evidence grade: B
+- Course code: unknown
+- Degree level: unknown
+- Source IDs: src_sp19_mapping_information
+- Syllabus/course artifact: syl_sp19_mapping_information
+- Term: Spring 2019
+- Tacit reconstruction:
+  - Direct evidence currently supports a course-specific classroom reconstruction.
+  - Skill training signals: not enough course-specific evidence yet.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### MAPPING INFORMATION
+
+- Evidence grade: C
+- Course code: GRAPH 3282-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: typography, motion design
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, motion design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
 ### MOTION, SOUND & VISION
 
 - Evidence grade: C
 - Course code: GRAPH 2315-01
 - Degree level: Undergraduate
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: motion design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### NEWLY FORMED
+
+- Evidence grade: C
+- Course code: GRAPH 3324-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: typography, image making
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, image making.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### NEWLY FORMED
+
+- Evidence grade: C
+- Course code: GRAPH 3324-02
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: typography, image making
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, image making.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
 ### REFRAMING THE POSTER
@@ -269,7 +917,7 @@ Generated: 2026-06-11
 - Evidence grade: C
 - Course code: GRAPH 2010-01
 - Degree level: Undergraduate
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: typography, motion design, interaction design, image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -281,11 +929,48 @@ Generated: 2026-06-11
 - Evidence grade: C
 - Course code: GRAPH 3123-01
 - Degree level: Undergraduate
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: typography, motion design, interaction design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: typography, motion design, interaction design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### Type Design
+
+- Evidence grade: B
+- Course code: unknown
+- Degree level: unknown
+- Source IDs: src_sp19_type_design
+- Syllabus/course artifact: syl_sp19_type_design
+- Term: Spring 2019
+- Tacit reconstruction:
+  - Direct evidence currently supports a course-specific classroom reconstruction.
+  - Skill training signals: not enough course-specific evidence yet.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPE DESIGN
+
+- Evidence grade: C
+- Course code: GRAPH 3859-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_5
+- Extracted skill signals: typography
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPE DESIGN
+
+- Evidence grade: C
+- Course code: GRAPH 3859-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_5
+- Extracted skill signals: typography
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
 ### Type Two
@@ -340,7 +1025,7 @@ Generated: 2026-06-11
 - Evidence grade: C
 - Course code: GRAPH 2350-01
 - Degree level: Undergraduate
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: typography, identity systems
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -352,7 +1037,7 @@ Generated: 2026-06-11
 - Evidence grade: C
 - Course code: GRAPH 3105-01
 - Degree level: Undergraduate
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: typography, publication design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -374,13 +1059,206 @@ Generated: 2026-06-11
 ### typography
 
 - Evidence grade: C
-- Course code: GRAPH2010-01
+- Course code: GRAPH3282-01
 - Degree level: unknown
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_4
 - Extracted skill signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### typography
+
+- Evidence grade: C
+- Course code: GRAPH2010-01
+- Degree level: unknown
+- Source IDs: src_risd_graphic_design_courses_page_0
+- Extracted skill signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### typography
+
+- Evidence grade: C
+- Course code: GRAPH3178-03
+- Degree level: unknown
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Extracted skill signals: typography, publication design, identity systems, critique and revision, research methods, image making
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, publication design, identity systems, critique and revision, research methods, image making.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPOGRAPHY
+
+- Evidence grade: C
+- Course code: GRAPH332G-01
+- Degree level: unknown
+- Source IDs: src_risd_graphic_design_courses_page_5
+- Extracted skill signals: typography, publication design, identity systems, motion design, research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, publication design, identity systems, motion design, research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### Typography for Nonmajors
+
+- Evidence grade: B
+- Course code: unknown
+- Degree level: unknown
+- Source IDs: src_sp19_typography_for_nonmajors
+- Syllabus/course artifact: syl_sp19_typography_for_nonmajors
+- Term: Spring 2019
+- Tacit reconstruction:
+  - Direct evidence currently supports a course-specific classroom reconstruction.
+  - Skill training signals: not enough course-specific evidence yet.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPOGRAPHY I
+
+- Evidence grade: C
+- Course code: GRAPH 3214-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Extracted skill signals: typography
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPOGRAPHY I
+
+- Evidence grade: C
+- Course code: GRAPH 3214-02
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Extracted skill signals: typography
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPOGRAPHY I
+
+- Evidence grade: C
+- Course code: GRAPH 3214-03
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: typography
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPOGRAPHY I
+
+- Evidence grade: C
+- Course code: GRAPH 3214-04
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: typography
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPOGRAPHY I
+
+- Evidence grade: C
+- Course code: GRAPH 3214-99
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: typography
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPOGRAPHY I
+
+- Evidence grade: C
+- Course code: GRAPH3214-03
+- Degree level: unknown
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: typography, publication design, identity systems, motion design, critique and revision, research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, publication design, identity systems, motion design, critique and revision, research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPOGRAPHY II
+
+- Evidence grade: C
+- Course code: GRAPH 3215-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: typography, publication design, motion design
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, publication design, motion design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPOGRAPHY II
+
+- Evidence grade: C
+- Course code: GRAPH 3215-02
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: typography, publication design, motion design
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, publication design, motion design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPOGRAPHY II
+
+- Evidence grade: C
+- Course code: GRAPH 3215-03
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: typography, publication design, motion design
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, publication design, motion design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPOGRAPHY II
+
+- Evidence grade: C
+- Course code: GRAPH 3215-04
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: typography, publication design, motion design
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, publication design, motion design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPOGRAPHY II
+
+- Evidence grade: C
+- Course code: GRAPH 3215-05
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: typography, publication design, motion design
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, publication design, motion design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPOGRAPHY II
+
+- Evidence grade: C
+- Course code: GRAPH 3215-99
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_2
+- Extracted skill signals: typography, publication design, motion design
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, publication design, motion design.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
 ### Typography III
@@ -393,6 +1271,129 @@ Generated: 2026-06-11
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPOGRAPHY III
+
+- Evidence grade: C
+- Course code: GRAPH 3223-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: typography
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPOGRAPHY III
+
+- Evidence grade: C
+- Course code: GRAPH 3223-02
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: typography
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPOGRAPHY III
+
+- Evidence grade: C
+- Course code: GRAPH 3223-03
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: typography
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPOGRAPHY III
+
+- Evidence grade: C
+- Course code: GRAPH 3223-04
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: typography
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPOGRAPHY III
+
+- Evidence grade: C
+- Course code: GRAPH 3223-05
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: typography
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### TYPOGRAPHY III
+
+- Evidence grade: C
+- Course code: GRAPH 3223-99
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: typography
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### WEB AS MEDIUM 1
+
+- Evidence grade: C
+- Course code: GRAPH 3237-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_3
+- Extracted skill signals: interaction design, critique and revision, research methods
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: interaction design, critique and revision, research methods.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### Web Programming
+
+- Evidence grade: B
+- Course code: GRAPH-3188-03
+- Degree level: unknown
+- Source IDs: src_wp15_week_1_concrete_forms
+- Extracted skill signals: publication design, identity systems, motion design, interaction design, image making
+- Syllabus/course artifact: syl_wp15_week_1_concrete_forms
+- Term: 2015
+- Learning outcomes:
+  - Be introduced to HTML and CSS syntax to help conceptualize future projects Encourage use of the browser for experimentation Introduce both analytical and playful working methods Be introduced to instructions-based making &#8212; HTML being one of many coding methods
+  - Be comfortable editing existing themes or websites
+  - Learn to work collaboratively in an open-source model Week One: Concrete Forms Assignment 1: Drawing exercise Assignment 2: Found object drawings Week Two: Abstract Forms Assignment 3: Abstract compositions Assignment 4: Patterns Week Three: Active Forms Assignment 5: Movement and interaction Assignment 6: Responsive animation Week Four: Final Project Review assignment 6 Lecture: From sketch to code In-class activity: Putting it all together Software needed Textwrangler or other HTML editor Safari or Chrome browser
+- Grading/assessment evidence: 40% attendance, 40% completion of all assignments 20% risk-taking/quality of end forms: you are expected to experiment, iterate and form innovate designs with the coding that you&#8217;ve been shown. Because work from previous sessions is available, you are able to appropriate code, but in service of your own ideas and forms. Missing one class without permission fails the course Although we are &#8220;wired&#8221; throughout the workshop, avoid being plugged into Facebook, email, etc. Drawing at
+- Weekly/class structure evidence:
+  - Week 1: Concrete Forms | Web Programming 2015
+  - 5 Week 1: Concrete Forms
+  - 4 Video / Week 1: Concrete Forms
+  - Make five drawings using div tags and css classes.
+  - Create an html file for each digital bit, and upload your html files into a post on the class website.
+  - Classes, divs
+- Reading evidence:
+  - Art of Creative Coding Feb 13, 2015
+- Assignment/critique evidence:
+  - &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015
+  - &#237; Assignment 2: Draw found objects with CSS
+  - Whether found on the side of the road, at someone&#8217;s house or at the hardware store, the objects are silhouetted at actual size and placed in his project.
+  - This assignment asks you to collect objects of your own, whether in your home, around town, at RISD 2nd life, etc., and draw them using HTML and CSS.
+  - Goals for the assignment
+  - &#237; Assignment 1: Make a Scandinavian flag with CSS
+  - Students are introduced to the structural elements and properties of HTML and CSS through hands-on demos, in-class exercises and take-home assignments.
+  - The final assignment for week four will allow you to combine what you learned in the first three weeks.
+  - Although written with HTML/CSS, the assignments are inspired by the contemporary and historical print works of Bradbury Thomspon, Karel Martens and Paul Elliman.
+  - Be introduced to HTML and CSS syntax to help conceptualize future projects
+- Tacit reconstruction:
+  - Direct evidence currently supports a course-specific classroom reconstruction.
+  - Skill training signals: publication design, identity systems, motion design, interaction design, image making.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
 ### Web Type
@@ -442,12 +1443,36 @@ Generated: 2026-06-11
   - Skill training signals: typography, motion design, interaction design, critique and revision, research methods, image making.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
+### WKSHP: DIGITAL 3D DESIGN
+
+- Evidence grade: C
+- Course code: GRAPH 3318-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: motion design
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: motion design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### WKSHP: DIGITAL 3D DESIGN
+
+- Evidence grade: C
+- Course code: GRAPH 3318-02
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: motion design
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: motion design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
 ### WKSHP: LETTERPRESS
 
 - Evidence grade: C
 - Course code: GRAPH 3178-01
 - Degree level: Undergraduate
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: typography, publication design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -459,19 +1484,67 @@ Generated: 2026-06-11
 - Evidence grade: C
 - Course code: GRAPH 3178-02
 - Degree level: Undergraduate
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: typography, publication design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: typography, publication design.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
+### WKSHP: LETTERPRESS
+
+- Evidence grade: C
+- Course code: GRAPH 3178-03
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_1
+- Extracted skill signals: typography, publication design
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: typography, publication design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### WKSHP: SCREENPRINTING
+
+- Evidence grade: C
+- Course code: GRAPH 3319-01
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: image making
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: image making.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### WKSHP: SCREENPRINTING
+
+- Evidence grade: C
+- Course code: GRAPH 3319-02
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: image making
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: image making.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
+### WKSHP: SCREENPRINTING
+
+- Evidence grade: C
+- Course code: GRAPH 3319-03
+- Degree level: Undergraduate
+- Source IDs: src_risd_graphic_design_courses_page_4
+- Extracted skill signals: image making
+- Tacit reconstruction:
+  - Direct evidence currently supports program/catalog-level placement only.
+  - Skill training signals: image making.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
 ### WKSHP: UI/UX DESIGN: FROM MIND TO SCREEN
 
 - Evidence grade: C
 - Course code: GRAPH 2117-01
 - Degree level: Undergraduate
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -483,7 +1556,7 @@ Generated: 2026-06-11
 - Evidence grade: C
 - Course code: GRAPH 2117-01
 - Degree level: Undergraduate
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -495,7 +1568,7 @@ Generated: 2026-06-11
 - Evidence grade: C
 - Course code: GRAPH 2117-02
 - Degree level: Undergraduate
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -507,7 +1580,7 @@ Generated: 2026-06-11
 - Evidence grade: C
 - Course code: GRAPH 2117-02
 - Degree level: Undergraduate
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -519,7 +1592,7 @@ Generated: 2026-06-11
 - Evidence grade: C
 - Course code: GRAPH 2117-03
 - Degree level: Undergraduate
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -531,7 +1604,7 @@ Generated: 2026-06-11
 - Evidence grade: C
 - Course code: GRAPH 2117-03
 - Degree level: Undergraduate
-- Source IDs: src_risd_graphic_design_courses
+- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -542,16 +1615,31 @@ Generated: 2026-06-11
 
 - src_adam_fein_intro_graphic_design_2021_pdf (A, syllabus_pdf): https://static1.squarespace.com/static/56dcf9ce62cd9436991b9f15/t/61d1ee0b25c03f4a06297352/1641147915710/AdamFein_IntroToGraphicDesign.pdf
 - src_type_two_2015_syllabus_pdf (A, syllabus_pdf): https://typetwo15.risd.gd/wp-content/uploads/2015/02/Type-2-Syllabus.pdf
+- src_typography_iii_syllabus (A, syllabus_html): https://type.practise.studio/syllabus/
+- src_web_type_2022_syllabus (A, syllabus_html): https://webtype.htmlkitchen.net/syllabus/
+- src_designandpolitics_2022_syllabus (A, syllabus_html): https://designandpolitics.risd.gd/2022/02/18/syllabus.html
+- src_grad_type_1_2014_syllabus_pdf (A, syllabus_pdf): https://gradtype14.risd.gd/wp-content/uploads/2014/09/2014-GradType-Syllabus.pdf
 - src_john_caserta_design_studio_1_2016 (A, course_site): https://johncaserta.com/ds1-2016.html
 - src_ds1618_design_studio_archive (A, course_site): https://ds1618.risd.gd/
 - src_ds1618_make_book (A, course_site): https://ds1618.risd.gd/book.html
 - src_sp19_risd_gd_web (B, course_site): https://sp19.risd.gd/electives/graphic-design-for-the-web
+- src_wp15_week_1_concrete_forms (B, assignment_page): https://wp15.risd.gd/category/outline/week-1-concrete-forms/
+- src_sp19_design_for_publishing (B, course_site): https://sp19.risd.gd/electives/design-for-publishing
+- src_sp19_typography_for_nonmajors (B, course_site): https://sp19.risd.gd/electives/typography-for-nonmajors
+- src_sp19_newly_formed (B, course_site): https://sp19.risd.gd/electives/newly-formed
+- src_sp19_time_sequence_sound (B, course_site): https://sp19.risd.gd/electives/time-sequence-sound
+- src_sp19_mapping_information (B, course_site): https://sp19.risd.gd/electives/mapping-information-2
+- src_sp19_reframing_the_poster (B, course_site): https://sp19.risd.gd/electives/reframing-the-poster
+- src_sp19_type_design (B, course_site): https://sp19.risd.gd/electives/type-design
 - src_risd_syllabus_guidance (B, official_syllabus_guidance): https://teachingandlearninglab.risd.edu/teaching-support/syllabus-and-course-design
-- src_risd_graphic_design_courses (C, official_course_index): https://www.risd.edu/academics/graphic-design/courses
+- src_risd_graphic_design_courses_page_0 (C, official_course_index): https://www.risd.edu/academics/graphic-design/courses?page=0
+- src_risd_graphic_design_courses_page_1 (C, official_course_index): https://www.risd.edu/academics/graphic-design/courses?page=1
+- src_risd_graphic_design_courses_page_2 (C, official_course_index): https://www.risd.edu/academics/graphic-design/courses?page=2
+- src_risd_graphic_design_courses_page_3 (C, official_course_index): https://www.risd.edu/academics/graphic-design/courses?page=3
+- src_risd_graphic_design_courses_page_4 (C, official_course_index): https://www.risd.edu/academics/graphic-design/courses?page=4
+- src_risd_graphic_design_courses_page_5 (C, official_course_index): https://www.risd.edu/academics/graphic-design/courses?page=5
 - src_risd_bfa_program (C, official_program_page): https://www.risd.edu/academics/graphic-design/bachelors-program
 - src_risd_mfa_program (C, official_program_page): https://www.risd.edu/academics/graphic-design/masters-programs
 - src_risd_coursedog_bfa_graphic_design (C, official_catalog_program): https://risd.coursedog.com/programs/cfa6776e92151000bceb55330dc80000
 - src_risd_in_motion_news (D, official_student_work_story): https://www.risd.edu/news/stories/risd-students-use-video-and-animation-techniques-bring-graphics-life
-- src_typography_iii_syllabus (A, syllabus_html): https://type.practise.studio/syllabus/
-- src_web_type_2022_syllabus (A, syllabus_html): https://webtype.htmlkitchen.net/syllabus/
 - src_john_caserta_student_work (D, student_work_archive): https://johncaserta.com/studentwork.html

@@ -8,6 +8,7 @@ const root = process.cwd()
 const outDir = join(root, 'docs/research-plans/risd-graphic-design-corpus')
 const retrievedAt = new Date().toISOString().slice(0, 10)
 const skipWayback = process.argv.includes('--skip-wayback')
+const officialCourseMaxPages = 12
 
 const seeds = [
   {
@@ -183,14 +184,151 @@ const searchQueries = [
   'site:reddit.com/r/risd "graphic design"',
 ]
 
+const searchDiscoveredSources = [
+  {
+    source_id: 'src_designandpolitics_2022_syllabus',
+    url: 'https://designandpolitics.risd.gd/2022/02/18/syllabus.html',
+    source_type: 'syllabus_html',
+    authority: 'public_course_artifact',
+    confidence: 'A',
+    course_title: 'Design & Politics',
+    term: 'Spring 2022',
+    discovery_query: 'site:risd.gd syllabus RISD Graphic Design GRAPH',
+    discovery_rank: 4,
+    notes: 'Public RISD.gd Design & Politics syllabus with schedule.',
+  },
+  {
+    source_id: 'src_grad_type_1_2014_syllabus_pdf',
+    url: 'https://gradtype14.risd.gd/wp-content/uploads/2014/09/2014-GradType-Syllabus.pdf',
+    source_type: 'syllabus_pdf',
+    authority: 'public_course_artifact',
+    confidence: 'A',
+    course_title: 'Grad Type 1',
+    term: 'Fall 2014',
+    discovery_query: 'site:risd.gd "Typography" "RISD" "syllabus"',
+    discovery_rank: 7,
+    notes: 'Public RISD graduate typography syllabus PDF.',
+  },
+  {
+    source_id: 'src_wp15_week_1_concrete_forms',
+    url: 'https://wp15.risd.gd/category/outline/week-1-concrete-forms/',
+    source_type: 'assignment_page',
+    authority: 'public_course_artifact',
+    confidence: 'B',
+    course_title: 'Web Programming',
+    term: '2015',
+    discovery_query: 'site:risd.gd "GRAPH" "assignment" RISD',
+    discovery_rank: 6,
+    notes: 'Public RISD Web Programming assignment outline page.',
+  },
+  {
+    source_id: 'src_sp19_design_for_publishing',
+    url: 'https://sp19.risd.gd/electives/design-for-publishing',
+    source_type: 'course_site',
+    authority: 'public_course_index',
+    confidence: 'B',
+    course_title: 'Design for Publishing',
+    term: 'Spring 2019',
+    discovery_query: 'site:risd.gd RISD "Graphic Design" "syllabus"',
+    discovery_rank: 8,
+    notes: 'Public RISD GD 2019 elective page.',
+  },
+  {
+    source_id: 'src_sp19_typography_for_nonmajors',
+    url: 'https://sp19.risd.gd/electives/typography-for-nonmajors',
+    source_type: 'course_site',
+    authority: 'public_course_index',
+    confidence: 'B',
+    course_title: 'Typography for Nonmajors',
+    term: 'Spring 2019',
+    discovery_query: 'site:risd.gd RISD "Graphic Design" "syllabus"',
+    discovery_rank: 9,
+    notes: 'Public RISD GD 2019 elective page.',
+  },
+  {
+    source_id: 'src_sp19_newly_formed',
+    url: 'https://sp19.risd.gd/electives/newly-formed',
+    source_type: 'course_site',
+    authority: 'public_course_index',
+    confidence: 'B',
+    course_title: 'Newly Formed',
+    term: 'Spring 2019',
+    discovery_query: 'site:risd.gd RISD "Graphic Design" "syllabus"',
+    discovery_rank: 10,
+    notes: 'Public RISD GD 2019 elective page.',
+  },
+  {
+    source_id: 'src_sp19_time_sequence_sound',
+    url: 'https://sp19.risd.gd/electives/time-sequence-sound',
+    source_type: 'course_site',
+    authority: 'public_course_index',
+    confidence: 'B',
+    course_title: 'Time, Sequence, & Sound',
+    term: 'Spring 2019',
+    discovery_query: 'site:risd.gd RISD "Graphic Design" "syllabus"',
+    discovery_rank: 13,
+    notes: 'Public RISD GD 2019 elective page.',
+  },
+  {
+    source_id: 'src_sp19_mapping_information',
+    url: 'https://sp19.risd.gd/electives/mapping-information-2',
+    source_type: 'course_site',
+    authority: 'public_course_index',
+    confidence: 'B',
+    course_title: 'Mapping Information',
+    term: 'Spring 2019',
+    discovery_query: 'site:risd.gd RISD "Graphic Design" "syllabus"',
+    discovery_rank: 14,
+    notes: 'Public RISD GD 2019 elective page.',
+  },
+  {
+    source_id: 'src_sp19_reframing_the_poster',
+    url: 'https://sp19.risd.gd/electives/reframing-the-poster',
+    source_type: 'course_site',
+    authority: 'public_course_index',
+    confidence: 'B',
+    course_title: 'Reframing the Poster',
+    term: 'Spring 2019',
+    discovery_query: 'site:risd.gd RISD "Graphic Design" "syllabus"',
+    discovery_rank: 15,
+    notes: 'Public RISD GD 2019 elective page.',
+  },
+  {
+    source_id: 'src_sp19_type_design',
+    url: 'https://sp19.risd.gd/electives/type-design',
+    source_type: 'course_site',
+    authority: 'public_course_index',
+    confidence: 'B',
+    course_title: 'Type Design',
+    term: 'Spring 2019',
+    discovery_query: 'site:risd.gd RISD "Graphic Design" "syllabus"',
+    discovery_rank: 16,
+    notes: 'Public RISD GD 2019 elective page.',
+  },
+]
+
 const sourceTypeRank = {
   syllabus_pdf: 1,
+  syllabus_html: 1,
+  assignment_page: 2,
   course_site: 2,
   official_syllabus_guidance: 3,
   official_course_index: 4,
   official_program_page: 5,
   official_catalog_program: 6,
   official_student_work_story: 7,
+}
+
+function buildSearchResults() {
+  return searchDiscoveredSources.map((source) => ({
+    query: source.discovery_query,
+    rank: source.discovery_rank,
+    title: source.course_title,
+    url: source.url,
+    promoted_source_id: source.source_id,
+    discovered_at: retrievedAt,
+    status: 'promoted_to_seed',
+  }))
 }
 
 function ensureDir(path) {
@@ -448,6 +586,23 @@ async function fetchWithTimeout(url, timeoutMs = 25000) {
   }
 }
 
+async function fetchWithRetry(url, attempts = 3) {
+  let lastError
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    try {
+      return await fetchWithTimeout(url)
+    } catch (error) {
+      lastError = error
+      if (attempt < attempts) await sleep(750 * attempt)
+    }
+  }
+  throw lastError
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
 function pdfText(buffer, sourceId) {
   const temp = mkdtempSync(join(tmpdir(), 'risd-pdf-'))
   try {
@@ -477,7 +632,7 @@ async function inspectSeed(seed) {
   }
 
   try {
-    const fetched = await fetchWithTimeout(seed.url)
+    const fetched = await fetchWithRetry(seed.url)
     const isPdf = fetched.contentType.includes('pdf') || seed.url.toLowerCase().endsWith('.pdf')
     const text = isPdf ? pdfText(fetched.buffer, seed.source_id) : stripHtml(fetched.buffer.toString('utf8'))
     return {
@@ -505,6 +660,19 @@ async function inspectSeed(seed) {
   }
 }
 
+async function inspectOfficialCoursePage(page) {
+  const url = `https://www.risd.edu/academics/graphic-design/courses?page=${page}`
+  const seed = {
+    source_id: page === 0 ? 'src_risd_graphic_design_courses_page_0' : `src_risd_graphic_design_courses_page_${page}`,
+    url,
+    source_type: 'official_course_index',
+    authority: 'official_risd',
+    confidence: 'C',
+    notes: `Official RISD Graphic Design courses page ${page + 1}.`,
+  }
+  return inspectSeed(seed)
+}
+
 async function waybackCaptures(url) {
   const api = `https://web.archive.org/cdx?url=${encodeURIComponent(url)}&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&collapse=digest&limit=5`
   try {
@@ -530,7 +698,7 @@ function buildCourses(inspected) {
   for (const item of inspected) {
     const { source, text } = item
     if (source.extraction_status !== 'ok' || !text) continue
-    if (source.source_id === 'src_risd_graphic_design_courses') {
+    if (source.source_type === 'official_course_index') {
       for (const offering of extractOfficialCourseOfferings(text, source.source_id)) {
         byKey.set(`${offering.course_code}_${offering.period}`, offering)
       }
@@ -575,7 +743,7 @@ function normalizeCourseKey(code, title) {
 
 function buildSyllabi(inspected) {
   return inspected
-    .filter(({ source, text }) => source.extraction_status === 'ok' && text && ['syllabus_pdf', 'syllabus_html', 'course_site'].includes(source.source_type))
+    .filter(({ source, text }) => source.extraction_status === 'ok' && text && ['syllabus_pdf', 'syllabus_html', 'course_site', 'assignment_page'].includes(source.source_type))
     .map(({ source, text }) => ({
       syllabus_id: `syl_${source.source_id.replace(/^src_/, '')}`,
       course_code: source.course_code ?? extractCourseCodes(text)[0] ?? null,
@@ -646,13 +814,20 @@ function buildStudentWork(inspected) {
 }
 
 function buildCourseInventory(inspected) {
-  const coursePage = inspected.find(({ source }) => source.source_id === 'src_risd_graphic_design_courses')
-  if (!coursePage || coursePage.source.extraction_status !== 'ok') {
+  const coursePages = inspected.filter(({ source }) => source.source_type === 'official_course_index' && source.extraction_status === 'ok')
+  if (!coursePages.length) {
     return { displayed_count: 0, offerings: [] }
   }
+  const displayedCount = Math.max(...coursePages.map((page) => displayedOfficialCourseCount(page.text)))
+  const byKey = new Map()
+  for (const coursePage of coursePages) {
+    for (const offering of extractOfficialCourseOfferings(coursePage.text, coursePage.source.source_id)) {
+      byKey.set(`${offering.course_code}_${offering.period}_${offering.start_end ?? ''}_${offering.instructor ?? ''}_${offering.location ?? ''}_${offering.status ?? ''}`, offering)
+    }
+  }
   return {
-    displayed_count: displayedOfficialCourseCount(coursePage.text),
-    offerings: extractOfficialCourseOfferings(coursePage.text, coursePage.source.source_id),
+    displayed_count: displayedCount,
+    offerings: [...byKey.values()].sort((a, b) => `${a.period} ${a.course_code}`.localeCompare(`${b.period} ${b.course_code}`)),
   }
 }
 
@@ -902,8 +1077,19 @@ For self-study, convert every recovered assignment into a three-part loop:
 async function main() {
   ensureDir(outDir)
   const inspected = []
-  for (const seed of seeds) {
+  for (const seed of [...seeds, ...searchDiscoveredSources]) {
+    if (seed.source_id === 'src_risd_graphic_design_courses') continue
     inspected.push(await inspectSeed(seed))
+  }
+  for (let page = 0; page < officialCourseMaxPages; page++) {
+    const inspectedPage = await inspectOfficialCoursePage(page)
+    if (inspectedPage.source.extraction_status !== 'ok') {
+      inspected.push(inspectedPage)
+      continue
+    }
+    const offerings = extractOfficialCourseOfferings(inspectedPage.text, inspectedPage.source.source_id)
+    if (page > 0 && offerings.length === 0) break
+    inspected.push(inspectedPage)
   }
 
   const wayback = []
@@ -930,6 +1116,7 @@ async function main() {
   writeJsonl(join(outDir, 'readings.jsonl'), readings)
   writeJsonl(join(outDir, 'student_work.jsonl'), studentWork)
   writeJsonl(join(outDir, 'wayback_captures.jsonl'), wayback)
+  writeJsonl(join(outDir, 'search_results.jsonl'), buildSearchResults())
   writeJson(join(outDir, 'search_queries.json'), { generated_at: retrievedAt, queries: searchQueries })
   const validation = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, wayback })
   writeJson(join(outDir, 'validation.json'), validation)

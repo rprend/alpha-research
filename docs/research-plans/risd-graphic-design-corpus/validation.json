@@ -2,20 +2,20 @@
   "generated_at": "2026-06-11",
   "status": "warn",
   "counts": {
-    "sources": 15,
-    "courses": 28,
-    "official_course_inventory": 19,
+    "sources": 30,
+    "courses": 109,
+    "official_course_inventory": 88,
     "official_course_displayed_count": 105,
-    "syllabi": 7,
-    "assignments": 115,
-    "readings": 53,
-    "wayback": 27
+    "syllabi": 17,
+    "assignments": 158,
+    "readings": 67,
+    "wayback": 33
   },
   "checks": [
     {
       "id": "sources_have_required_metadata",
       "status": "pass",
-      "detail": "15 sources inspected."
+      "detail": "30 sources inspected."
     },
     {
       "id": "failed_fetches_do_not_create_syllabi",
@@ -40,17 +40,17 @@
     {
       "id": "official_course_inventory_reconciled",
       "status": "warn",
-      "detail": "19 official offerings parsed; RISD page displays 105 results."
+      "detail": "88 official offerings parsed; RISD page displays 105 results."
     },
     {
       "id": "wayback_captures_recorded",
       "status": "pass",
-      "detail": "27 Wayback capture records."
+      "detail": "33 Wayback capture records."
     },
     {
       "id": "course_records_created",
       "status": "pass",
-      "detail": "28 course records created."
+      "detail": "109 course records created."
     }
   ]
 }
