@@ -7,13 +7,14 @@
     "official_course_inventory": 105,
     "official_course_displayed_count": 105,
     "syllabi": 74,
+    "structured_syllabi": 74,
     "assignments": 471,
     "structured_assignments": 204,
     "readings": 118,
     "normalized_readings": 50,
     "local_catalog_readings": 38,
     "canonical_reading_works": 26,
-    "wayback": 78,
+    "wayback": 95,
     "review_queue": 10
   },
   "checks": [
@@ -31,6 +32,11 @@
       "id": "syllabi_have_course_identity",
       "status": "pass",
       "detail": "0 syllabus rows lack both course code and title."
+    },
+    {
+      "id": "syllabi_have_structured_top_level_fields",
+      "status": "pass",
+      "detail": "74 syllabus rows include top-level schema fields for schedule, readings, policies, tools, materials, evidence, or raw excerpts."
     },
     {
       "id": "assignments_reference_valid_syllabi_and_sources",
@@ -60,7 +66,7 @@
     {
       "id": "wayback_captures_recorded",
       "status": "pass",
-      "detail": "78 Wayback capture records."
+      "detail": "95 Wayback capture records."
     },
     {
       "id": "course_records_created",

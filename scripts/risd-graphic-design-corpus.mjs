@@ -802,6 +802,7 @@ async function waybackCaptures(url) {
         mimetype,
         digest,
         memento_url: `https://web.archive.org/web/${timestamp}id_/${original}`,
+        replay_url: `https://web.archive.org/web/${timestamp}/${original}`,
       }))
     } catch {
       continue
@@ -826,22 +827,28 @@ async function inspectWaybackFallbacks(inspected, wayback) {
     const captures = capturesBySource.get(source.source_id).sort((a, b) => b.timestamp.localeCompare(a.timestamp))
     const capture = captures[0]
     console.error(`inspect wayback fallback ${index + 1}/${failedSources.length}: ${source.source_id}`)
-    const inspected = await inspectSeed({
-      source_id: `src_wayback_${source.source_id.replace(/^src_/, '')}_${capture.timestamp}`,
-      url: capture.memento_url,
-      source_type: 'wayback_capture',
-      authority: 'internet_archive',
-      confidence: source.confidence,
-      course_code: source.course_code ?? null,
-      course_title: source.course_title ?? null,
-      term: source.term ?? null,
-      instructor: source.instructor ?? null,
-      parent_source_id: source.source_id,
-      original_url: source.url,
-      archive_timestamp: capture.timestamp,
-      notes: `Internet Archive fallback for failed source ${source.source_id}.`,
-    })
-    if (inspected.source.extraction_status === 'ok') recovered.push(inspected)
+    const urls = uniq([capture.memento_url, capture.replay_url])
+    for (const [urlIndex, url] of urls.entries()) {
+      const inspected = await inspectSeed({
+        source_id: `src_wayback_${source.source_id.replace(/^src_/, '')}_${capture.timestamp}${urlIndex ? `_replay_${urlIndex + 1}` : ''}`,
+        url,
+        source_type: 'wayback_capture',
+        authority: 'internet_archive',
+        confidence: source.confidence,
+        course_code: source.course_code ?? null,
+        course_title: source.course_title ?? null,
+        term: source.term ?? null,
+        instructor: source.instructor ?? null,
+        parent_source_id: source.source_id,
+        original_url: source.url,
+        archive_timestamp: capture.timestamp,
+        notes: `Internet Archive fallback for failed source ${source.source_id}.`,
+      })
+      if (inspected.source.extraction_status === 'ok') {
+        recovered.push(inspected)
+        break
+      }
+    }
   }
   return recovered
 }
@@ -901,21 +908,111 @@ function slug(value) {
 function buildSyllabi(inspected) {
   return inspected
     .filter(({ source, text }) => source.extraction_status === 'ok' && text && ['syllabus_pdf', 'syllabus_html', 'course_site', 'assignment_page', 'schedule_page', 'reading_page', 'wayback_capture'].includes(source.source_type))
-    .map(({ source, text }) => ({
-      syllabus_id: `syl_${source.source_id.replace(/^src_/, '')}`,
-      course_code: source.course_code ?? extractCourseCodes(text)[0] ?? null,
-      course_title: source.course_title ?? null,
-      term: source.term ?? null,
-      instructor: source.instructor ?? null,
-      source_ids: [source.source_id],
-      spans: extractSpanFields(text, source),
-      meeting_pattern: sentenceSnippets(text, ['Mon', 'Tues', 'Wed', 'Thurs', 'Friday', 'Office Hours'], 5),
-      platforms: uniq(['Canvas', 'Slack', 'Zoom', 'Adobe', 'After Effects', 'Illustrator', 'Photoshop'].filter((term) => text.toLowerCase().includes(term.toLowerCase()))),
-      readings: extractLikelyReadings(text),
-      assignments: extractAssignments(text),
-      weekly_schedule_evidence: sentenceSnippets(text, ['week', 'class', 'session', 'schedule'], 20),
-      grading_evidence: sentenceSnippets(text, ['grade', 'grading', 'attendance', 'participation', 'evaluation'], 12),
-    }))
+    .map(({ source, text }) => {
+      const spans = extractSpanFields(text, source)
+      const term = source.term ?? spans.date ?? null
+      const { semester, year } = splitTerm(term)
+      const readings = extractLikelyReadings(text)
+      const tools = inferTools(text)
+      const materials = inferMaterials(text)
+      return {
+        syllabus_id: `syl_${source.source_id.replace(/^src_/, '')}`,
+        course_code: source.course_code ?? spans.code ?? extractCourseCodes(text)[0] ?? null,
+        course_title: source.course_title ?? spans.title ?? null,
+        section: spans.section,
+        term,
+        year,
+        semester,
+        instructor: source.instructor ?? spans.instructor,
+        class_days: spans.class_days,
+        class_time: spans.class_time,
+        class_location: spans.class_location,
+        office_hours: spans.office_hours,
+        credits: spans.credits,
+        description: spans.description,
+        learning_outcomes: spans.learning_outcomes,
+        required_readings: readings.filter((reading) => !/recommended/i.test(reading)),
+        recommended_readings: readings.filter((reading) => /recommended/i.test(reading)),
+        grading_rubric: spans.grading_rubric,
+        assessment_strategy: spans.assessment_strategy,
+        topic_outline: spans.topic_outline,
+        assignment_schedule: spans.assignment_schedule,
+        policies: extractPolicies(text),
+        tools,
+        materials,
+        raw_excerpts: buildRawExcerpts(text, spans),
+        evidence_grade: source.confidence,
+        source_ids: [source.source_id],
+        spans,
+        meeting_pattern: sentenceSnippets(text, ['Mon', 'Tues', 'Wed', 'Thurs', 'Friday', 'Office Hours'], 5),
+        platforms: tools,
+        readings,
+        assignments: extractAssignments(text),
+        weekly_schedule_evidence: sentenceSnippets(text, ['week', 'class', 'session', 'schedule'], 20),
+        grading_evidence: sentenceSnippets(text, ['grade', 'grading', 'attendance', 'participation', 'evaluation'], 12),
+      }
+    })
+}
+
+function splitTerm(term) {
+  if (!term) return { semester: null, year: null }
+  const semester = term.match(/\b(Fall|Spring|Wintersession|Winter|Summer)\b/i)?.[1] ?? null
+  const year = term.match(/\b(19|20)\d{2}\b/)?.[0] ?? null
+  return {
+    semester: semester ? semester[0].toUpperCase() + semester.slice(1).toLowerCase() : null,
+    year: year ? Number(year) : null,
+  }
+}
+
+function inferTools(text) {
+  const lower = text.toLowerCase()
+  const checks = [
+    ['Canvas', /\bcanvas\b/],
+    ['Slack', /\bslack\b/],
+    ['Zoom', /\bzoom\b/],
+    ['Adobe', /\badobe\b/],
+    ['Adobe Photoshop', /\bphotoshop\b/],
+    ['Adobe Illustrator', /\billustrator\b/],
+    ['Adobe InDesign', /\bindesign\b/],
+    ['After Effects', /\bafter effects\b/],
+    ['Figma', /\bfigma\b/],
+    ['HTML/CSS', /\bhtml\b|\bcss\b/],
+    ['JavaScript', /\bjavascript\b|\bjs\b/],
+    ['Google Drive', /\bgoogle drive\b/],
+    ['Keynote', /\bkeynote\b/],
+  ]
+  return checks.filter(([, pattern]) => pattern.test(lower)).map(([tool]) => tool)
+}
+
+function inferMaterials(text) {
+  const lower = text.toLowerCase()
+  const checks = [
+    ['paper', /\bpaper\b|\bpapers\b/],
+    ['presentation board', /\bpresentation board\b/],
+    ['tracing paper', /\btracing paper\b/],
+    ['sketchbook', /\bsketchbook\b/],
+    ['binder', /\bbinder\b/],
+    ['print output', /\bprinting\b|\bprint(?:s|ed)?\b/],
+    ['photography', /\bphotography\b|\bphotos?\b|\bimages?\b/],
+    ['physical studies', /\bphysical studies\b|\bmaterials provided\b/],
+    ['risograph', /\brisograph\b|\briso\b/],
+    ['book binding', /\bbinding\b|\bbindery\b/],
+  ]
+  return checks.filter(([, pattern]) => pattern.test(lower)).map(([material]) => material)
+}
+
+function extractPolicies(text) {
+  return sentenceSnippets(text, ['attendance', 'absence', 'late', 'academic code', 'conduct', 'accommodation', 'policy', 'plagiarism'], 12)
+}
+
+function buildRawExcerpts(text, spans) {
+  return uniq([
+    spans.description,
+    spans.grading_rubric,
+    spans.assessment_strategy,
+    ...spans.learning_outcomes.slice(0, 3),
+    ...spans.topic_outline.slice(0, 3),
+  ]).filter(Boolean).map((excerpt) => excerpt.slice(0, 700))
 }
 
 function buildAssignments(syllabi) {
@@ -1207,6 +1304,29 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const failedSourceIds = new Set(sources.filter((source) => source.extraction_status !== 'ok').map((source) => source.source_id))
   const leakedFailedSyllabi = syllabi.filter((syllabus) => syllabus.source_ids.some((id) => failedSourceIds.has(id)))
   const missingSyllabusIdentity = syllabi.filter((syllabus) => !syllabus.course_code && !syllabus.course_title)
+  const structuredSyllabusCount = syllabi.filter((syllabus) =>
+    syllabus.section
+      || syllabus.year
+      || syllabus.semester
+      || syllabus.class_days
+      || syllabus.class_time
+      || syllabus.class_location
+      || syllabus.office_hours
+      || syllabus.credits
+      || syllabus.description
+      || syllabus.learning_outcomes?.length
+      || syllabus.required_readings?.length
+      || syllabus.recommended_readings?.length
+      || syllabus.grading_rubric
+      || syllabus.assessment_strategy
+      || syllabus.topic_outline?.length
+      || syllabus.assignment_schedule?.length
+      || syllabus.policies?.length
+      || syllabus.tools?.length
+      || syllabus.materials?.length
+      || syllabus.raw_excerpts?.length
+      || syllabus.evidence_grade
+  ).length
   const assignmentSourceErrors = assignments.filter((assignment) => !syllabusIds.has(assignment.syllabus_id) || assignment.source_ids.some((id) => !sourceIds.has(id)))
   const structuredAssignmentCount = assignments.filter((assignment) =>
     assignment.deliverables?.length
@@ -1236,6 +1356,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       id: 'syllabi_have_course_identity',
       status: missingSyllabusIdentity.length === 0 ? 'pass' : 'warn',
       detail: `${missingSyllabusIdentity.length} syllabus rows lack both course code and title.`,
+    },
+    {
+      id: 'syllabi_have_structured_top_level_fields',
+      status: structuredSyllabusCount > 0 ? 'pass' : 'warn',
+      detail: `${structuredSyllabusCount} syllabus rows include top-level schema fields for schedule, readings, policies, tools, materials, evidence, or raw excerpts.`,
     },
     {
       id: 'assignments_reference_valid_syllabi_and_sources',
@@ -1284,6 +1409,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       official_course_inventory: courseInventory.offerings.length,
       official_course_displayed_count: courseInventory.displayed_count,
       syllabi: syllabi.length,
+      structured_syllabi: structuredSyllabusCount,
       assignments: assignments.length,
       structured_assignments: structuredAssignmentCount,
       readings: readings.length,
@@ -1331,7 +1457,7 @@ function buildReviewQueue({ sources, courseInventory, syllabi, readings }) {
     })
   }
   for (const syllabus of syllabi) {
-    const hasSchedule = syllabus.spans?.assignment_schedule?.length || syllabus.weekly_schedule_evidence?.length
+    const hasSchedule = syllabus.assignment_schedule?.length || syllabus.weekly_schedule_evidence?.length
     const hasAssignments = syllabus.assignments?.length
     const isHighValue = ['syllabus_pdf', 'syllabus_html', 'assignment_page', 'schedule_page'].some((type) => syllabus.source_ids.some((id) => id.includes(type)))
     if (!hasSchedule || !hasAssignments) {
@@ -1374,6 +1500,7 @@ Overall status: ${validation.status}
 - Official course inventory: ${validation.counts.official_course_inventory}
 - RISD displayed course count: ${validation.counts.official_course_displayed_count || 'unknown'}
 - Syllabi/course artifacts: ${validation.counts.syllabi}
+- Structured syllabus records: ${validation.counts.structured_syllabi}
 - Assignments: ${validation.counts.assignments}
 - Structured assignment snippets: ${validation.counts.structured_assignments}
 - Readings: ${validation.counts.readings}
@@ -1424,16 +1551,18 @@ function reconstructionMarkdown({ sources, courses, syllabi, assignments, readin
         lines.push(`- Syllabus/course artifact: ${syllabus.syllabus_id}`)
         if (syllabus.instructor) lines.push(`- Instructor: ${syllabus.instructor}`)
         if (syllabus.term) lines.push(`- Term: ${syllabus.term}`)
-        if (syllabus.platforms.length) lines.push(`- Platforms/tools mentioned: ${syllabus.platforms.join(', ')}`)
-        if (syllabus.spans?.description) lines.push(`- Description evidence: ${syllabus.spans.description.slice(0, 500)}`)
-        if (syllabus.spans?.learning_outcomes?.length) {
+        if (syllabus.tools.length) lines.push(`- Tools mentioned: ${syllabus.tools.join(', ')}`)
+        if (syllabus.materials.length) lines.push(`- Materials mentioned: ${syllabus.materials.join(', ')}`)
+        if (syllabus.policies.length) lines.push(`- Policy evidence: ${syllabus.policies.slice(0, 3).join(' / ')}`)
+        if (syllabus.description) lines.push(`- Description evidence: ${syllabus.description.slice(0, 500)}`)
+        if (syllabus.learning_outcomes?.length) {
           lines.push('- Learning outcomes:')
-          syllabus.spans.learning_outcomes.slice(0, 5).forEach((outcome) => lines.push(`  - ${outcome}`))
+          syllabus.learning_outcomes.slice(0, 5).forEach((outcome) => lines.push(`  - ${outcome}`))
         }
-        if (syllabus.spans?.grading_rubric) lines.push(`- Grading/assessment evidence: ${syllabus.spans.grading_rubric.slice(0, 500)}`)
-        if (syllabus.spans?.assignment_schedule?.length) {
+        if (syllabus.grading_rubric) lines.push(`- Grading/assessment evidence: ${syllabus.grading_rubric.slice(0, 500)}`)
+        if (syllabus.assignment_schedule?.length) {
           lines.push('- Schedule rows:')
-          syllabus.spans.assignment_schedule.slice(0, 6).forEach((row) => lines.push(`  - ${row.date}: ${row.assignment_or_reading ?? row.topic}`))
+          syllabus.assignment_schedule.slice(0, 6).forEach((row) => lines.push(`  - ${row.date}: ${row.assignment_or_reading ?? row.topic}`))
         }
         if (syllabus.weekly_schedule_evidence.length) {
           lines.push('- Weekly/class structure evidence:')

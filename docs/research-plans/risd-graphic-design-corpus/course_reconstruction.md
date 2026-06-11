@@ -10,7 +10,7 @@ Generated: 2026-06-11
 - Assignment evidence snippets: 471
 - Reading evidence snippets: 118
 - Student work evidence records: 3
-- Wayback capture records: 78
+- Wayback capture records: 95
 
 ## Reconstructed Course Packets
 
@@ -178,8 +178,11 @@ Generated: 2026-06-11
 - Source IDs: src_designandpolitics_2022_syllabus
 - Extracted skill signals: publication design, identity systems, motion design, interaction design, critique and revision
 - Syllabus/course artifact: syl_designandpolitics_2022_syllabus
+- Instructor: John Caserta
 - Term: Spring 2022
-- Platforms/tools mentioned: Slack, Zoom
+- Tools mentioned: Slack, Zoom
+- Materials mentioned: print output
+- Policy evidence: Some will relate and reinforce the assignments, others exist to bring students into contact with people and issues that relate to design and politics and can inform the final project. / To cultivate bodies of work that relate to politics / Students will understand how symbols can be manipulated for political effect
 - Grading/assessment evidence: Rubric Ability to speak to the ideas that the work produced Complexity, inventivenes, risk Attention to details as they are defined by student Timeliness of work Body of work throughout semester Meaning of work Ability to incorporate feedback Participation with others (in discussion and making) Percent 20% Unit 1: Org Chart 20% Unit 2: Symbol appropriation 30% Unit 3: In Public 10% Headlines, Exercises 20% Participation, Attendance, Class engagement Updated May 2022 Absences Because class activi
 - Weekly/class structure evidence:
   - Week 12
@@ -190,6 +193,8 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_05_13_week12_html_38dd599d
 - Term: Spring 2022
+- Tools mentioned: Google Drive
+- Materials mentioned: print output
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -199,7 +204,8 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_05_06_week11_html_a2f8e669
 - Term: Spring 2022
-- Platforms/tools mentioned: Slack
+- Tools mentioned: Slack
+- Policy evidence: Come with some follow-up questions from last week (taxing Brown, solitary confinement) as well as questions that might relate to your projects, your political interests, etc.
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -209,6 +215,8 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_04_29_week10_html_2c78adc6
 - Term: Spring 2022
+- Materials mentioned: photography
+- Policy evidence: Discuss #news topics related to visit to state house.
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -218,6 +226,7 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_04_22_week9_html_d18590af
 - Term: Spring 2022
+- Materials mentioned: print output
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -227,6 +236,7 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_04_15_week8_html_c265275c
 - Term: Spring 2022
+- Materials mentioned: print output
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -236,7 +246,8 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_04_08_week7_html_66adff35
 - Term: Spring 2022
-- Platforms/tools mentioned: Slack
+- Tools mentioned: Slack
+- Materials mentioned: photography
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -246,7 +257,8 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_03_25_week6_html_0ea8c1e0
 - Term: Spring 2022
-- Platforms/tools mentioned: Slack
+- Tools mentioned: Slack
+- Materials mentioned: paper
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -256,7 +268,7 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_03_18_week5_html_573a50cf
 - Term: Spring 2022
-- Platforms/tools mentioned: Slack
+- Tools mentioned: Slack
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -266,7 +278,8 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_03_11_week4_html_2c0b9c19
 - Term: Spring 2022
-- Platforms/tools mentioned: Slack
+- Tools mentioned: Slack
+- Materials mentioned: sketchbook, print output, risograph
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -276,7 +289,9 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_03_04_week3_html_20c11695
 - Term: Spring 2022
-- Platforms/tools mentioned: Slack
+- Tools mentioned: Slack, Google Drive
+- Materials mentioned: print output
+- Policy evidence: Please welcome and engage Nick, especially given my absence.
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -286,7 +301,7 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_02_25_week2_html_cd23f8f4
 - Term: Spring 2022
-- Platforms/tools mentioned: Slack, Zoom
+- Tools mentioned: Slack, Zoom
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -296,6 +311,7 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_02_18_week1_html_2fe7c95f
 - Term: Spring 2022
+- Materials mentioned: print output
 - Grading/assessment evidence: Questions How might the class structure itself support, reinforce or play with the central ideas of the course. What are our rules? Refer and alter the community guidelines Activity: Building relationships Pair up with a classmate you do not know. Using Laura Shill’s “Including other in the self” as inspiration, ask your classmate ten questions from the first section Arthur Aron’s list of questions to achieve closeness from the printed sheet provided. Add questions of your own. 30min Tell the cl
 - Weekly/class structure evidence:
   - Week 12
@@ -337,8 +353,11 @@ Generated: 2026-06-11
 - Source IDs: src_crawl_designandpolitics_risd_gd_2022_05_13_week12_html_38dd599d, src_crawl_designandpolitics_risd_gd_2022_05_06_week11_html_a2f8e669, src_crawl_designandpolitics_risd_gd_2022_04_29_week10_html_2c78adc6, src_crawl_designandpolitics_risd_gd_2022_04_22_week9_html_d18590af, src_crawl_designandpolitics_risd_gd_2022_04_15_week8_html_c265275c, src_crawl_designandpolitics_risd_gd_2022_04_08_week7_html_66adff35, src_crawl_designandpolitics_risd_gd_2022_03_25_week6_html_0ea8c1e0, src_crawl_designandpolitics_risd_gd_2022_03_18_week5_html_573a50cf, src_crawl_designandpolitics_risd_gd_2022_03_11_week4_html_2c0b9c19, src_crawl_designandpolitics_risd_gd_2022_03_04_week3_html_20c11695, src_crawl_designandpolitics_risd_gd_2022_02_25_week2_html_cd23f8f4, src_crawl_designandpolitics_risd_gd_2022_02_18_week1_html_2fe7c95f
 - Extracted skill signals: image making, interaction design, research methods, publication design, critique and revision
 - Syllabus/course artifact: syl_designandpolitics_2022_syllabus
+- Instructor: John Caserta
 - Term: Spring 2022
-- Platforms/tools mentioned: Slack, Zoom
+- Tools mentioned: Slack, Zoom
+- Materials mentioned: print output
+- Policy evidence: Some will relate and reinforce the assignments, others exist to bring students into contact with people and issues that relate to design and politics and can inform the final project. / To cultivate bodies of work that relate to politics / Students will understand how symbols can be manipulated for political effect
 - Grading/assessment evidence: Rubric Ability to speak to the ideas that the work produced Complexity, inventivenes, risk Attention to details as they are defined by student Timeliness of work Body of work throughout semester Meaning of work Ability to incorporate feedback Participation with others (in discussion and making) Percent 20% Unit 1: Org Chart 20% Unit 2: Symbol appropriation 30% Unit 3: In Public 10% Headlines, Exercises 20% Participation, Attendance, Class engagement Updated May 2022 Absences Because class activi
 - Weekly/class structure evidence:
   - Week 12
@@ -349,6 +368,8 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_05_13_week12_html_38dd599d
 - Term: Spring 2022
+- Tools mentioned: Google Drive
+- Materials mentioned: print output
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -358,7 +379,8 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_05_06_week11_html_a2f8e669
 - Term: Spring 2022
-- Platforms/tools mentioned: Slack
+- Tools mentioned: Slack
+- Policy evidence: Come with some follow-up questions from last week (taxing Brown, solitary confinement) as well as questions that might relate to your projects, your political interests, etc.
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -368,6 +390,8 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_04_29_week10_html_2c78adc6
 - Term: Spring 2022
+- Materials mentioned: photography
+- Policy evidence: Discuss #news topics related to visit to state house.
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -377,6 +401,7 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_04_22_week9_html_d18590af
 - Term: Spring 2022
+- Materials mentioned: print output
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -386,6 +411,7 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_04_15_week8_html_c265275c
 - Term: Spring 2022
+- Materials mentioned: print output
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -395,7 +421,8 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_04_08_week7_html_66adff35
 - Term: Spring 2022
-- Platforms/tools mentioned: Slack
+- Tools mentioned: Slack
+- Materials mentioned: photography
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -405,7 +432,8 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_03_25_week6_html_0ea8c1e0
 - Term: Spring 2022
-- Platforms/tools mentioned: Slack
+- Tools mentioned: Slack
+- Materials mentioned: paper
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -415,7 +443,7 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_03_18_week5_html_573a50cf
 - Term: Spring 2022
-- Platforms/tools mentioned: Slack
+- Tools mentioned: Slack
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -425,7 +453,8 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_03_11_week4_html_2c0b9c19
 - Term: Spring 2022
-- Platforms/tools mentioned: Slack
+- Tools mentioned: Slack
+- Materials mentioned: sketchbook, print output, risograph
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -435,7 +464,9 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_03_04_week3_html_20c11695
 - Term: Spring 2022
-- Platforms/tools mentioned: Slack
+- Tools mentioned: Slack, Google Drive
+- Materials mentioned: print output
+- Policy evidence: Please welcome and engage Nick, especially given my absence.
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -445,7 +476,7 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_02_25_week2_html_cd23f8f4
 - Term: Spring 2022
-- Platforms/tools mentioned: Slack, Zoom
+- Tools mentioned: Slack, Zoom
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -455,6 +486,7 @@ Generated: 2026-06-11
   - Week 7
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_02_18_week1_html_2fe7c95f
 - Term: Spring 2022
+- Materials mentioned: print output
 - Grading/assessment evidence: Questions How might the class structure itself support, reinforce or play with the central ideas of the course. What are our rules? Refer and alter the community guidelines Activity: Building relationships Pair up with a classmate you do not know. Using Laura Shill’s “Including other in the self” as inspiration, ask your classmate ten questions from the first section Arthur Aron’s list of questions to achieve closeness from the printed sheet provided. Add questions of your own. 30min Tell the cl
 - Weekly/class structure evidence:
   - Week 12
@@ -534,6 +566,9 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_john_caserta_design_studio_1_2016
 - Instructor: John Caserta
 - Term: 2016
+- Tools mentioned: HTML/CSS, Google Drive
+- Materials mentioned: paper, sketchbook, print output, photography, book binding
+- Policy evidence: How can you translate what you see into a graphic language? / We’ll translate those elements into new forms, exploring a variety of materials and tools as we go. / Since graphic design presents ideas primarily via graphic means, awareness of these perceptual principles is critical for designers to help their products stimulate clarity and unity, curiosity and interest, inquiry and insight.
 - Description evidence: DS1 pushes students into a variety of directions, introducing critical tools, methods and content areas in the field. DS1 assumes no prior knowledge of tools or skills, but is not designed as ‘introductory’. Finished projects are not the intended outcome of DS1.
 - Learning outcomes:
   - Develop habits for self-directed research and inquiry Develop critical thinking skills Develop rhetorical, communication and presentation skills Encourage a pluralistic approach to design problems Encourage work with emerging media Address and participate in contemporary social and cultural issues (in design) Place present day challenges within historical context Semester-long Deliverables Sketchbook
@@ -552,10 +587,14 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_ds1618_design_studio_archive
 - Instructor: DS1 team
 - Term: 2016-2018
+- Materials mentioned: print output
+- Policy evidence: Template and Print specs
 - Syllabus/course artifact: syl_ds1618_make_book
 - Instructor: DS1 team
 - Term: 2016-2018
-- Platforms/tools mentioned: Canvas, Adobe, Illustrator, Photoshop
+- Tools mentioned: Canvas, Adobe, Adobe Photoshop, Adobe Illustrator, Adobe InDesign, HTML/CSS, JavaScript, Google Drive, Keynote
+- Materials mentioned: paper, presentation board, sketchbook, print output, photography, physical studies
+- Policy evidence: Template and Print specs John Caserta / Question: How can you translate what you see into a graphic language? / We’ll translate those elements into new graphic forms, exploring a variety of materials and tools as we go.
 - Learning outcomes:
   - develop new form from what you see
   - exercise an understanding of gestalt principles
@@ -578,6 +617,9 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_johncaserta_com_docicons_html_d8852632
 - Instructor: John Caserta
 - Term: 2016
+- Tools mentioned: HTML/CSS
+- Materials mentioned: print output, photography, book binding
+- Policy evidence: Removing detail later is fairly easy.
 - Description evidence: This collection harkens back to the 1930s pictographic style, when icons were drawn as a type of early documentary photograph – descriptive of everyday actions, but more suitable for reproduction with the coarses printing presses of the era. This realistic (but not without humor, voice or wit) type of drawing is visible in Rudolf Modley and Gerd Arntz’s archive (see figure 1) . We can get a sense of the culture by seeing a slightly simplified version of the hair, clothes, mannerisms and industri
 - Weekly/class structure evidence:
   - Dear Class of 2017, Design Observer
@@ -587,7 +629,9 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d
 - Instructor: DS1 team
 - Term: 2016-2018
-- Platforms/tools mentioned: Adobe, Illustrator, Photoshop
+- Tools mentioned: Adobe, Adobe Photoshop, Adobe Illustrator, Adobe InDesign, JavaScript, Google Drive, Keynote
+- Materials mentioned: paper, presentation board, print output, photography, physical studies
+- Policy evidence: Question: How can you translate what you see into a graphic language? / We’ll translate those elements into new graphic forms, exploring a variety of materials and tools as we go. / Shoot Quickly!!! Don’t belabor the creation of these photos, you will be transforming them later.
 - Learning outcomes:
   - develop new form from what you see
   - exercise an understanding of gestalt principles
@@ -604,6 +648,8 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_ds1618_risd_gd_2016_09_26_unit2_overview_html_1de519e9
 - Instructor: DS1 team
 - Term: 2016-2018
+- Materials mentioned: print output, photography
+- Policy evidence: Since graphic design presents ideas primarily via graphic (= visual) means, awareness of these perceptual principles is critical for designers to help their products offer clarity and unity to stimulate user interaction and accessibility, curiosity and interest, inquiry and insight.
 - Learning outcomes:
   - Develop visual sensibilities Learn about “gestalt” principles and their holistic system as “language” Observe the power of the visual to affect the non-visual toward its poetic potential
   - Develop mind-mapping skills Become aware of the practice to design for experience Lecture notes Download the lecture here
@@ -620,6 +666,9 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_ds1618_risd_gd_2016_10_11_unit3_overview_html_9ed746cf
 - Instructor: DS1 team
 - Term: 2016-2018
+- Tools mentioned: Keynote
+- Materials mentioned: print output
+- Policy evidence: Find flags that relate to the subject matter at hand (unions, other GD programs, other RISD programs, etc).
 - Learning outcomes:
   - Understand how symbols work Learn to work with simple forms Consider how material and context affects form — Learn to work together to accomplish more Learn about others and your values Core Assignment: Design a flag to fly at the top of Design Center
   - This should act as a symbol for the RISD GD Department, the primary tenant of the building
@@ -636,7 +685,8 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_ds1618_risd_gd_2016_10_25_unit4_overview_html_cfb221b8
 - Instructor: DS1 team
 - Term: 2016-2018
-- Platforms/tools mentioned: Canvas
+- Tools mentioned: Canvas
+- Materials mentioned: photography
 - Learning outcomes:
   - Gain an understanding of effective editing and how the proper sequencing of information enhances how that information is understood
   - Develop a critical awareness of time and how it affects the reading of a design
@@ -651,6 +701,8 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224
 - Instructor: DS1 team
 - Term: 2016-2018
+- Materials mentioned: photography
+- Policy evidence: We will conduct experiments and make proposals, aiming to challenge thinking about utility and beauty, and subvert conventions of common tools, formats, systems, and objects. / Furthering the critical analysis of your own work, its context, how it is circulated and used
 - Learning outcomes:
   - Develop critical thinking about form and function Understand graphic design’s potential for editing, authorship, translation, and interpretation Explore and analyse historical and contemporary graphic design artifacts and formats Experiment with the possibilities of editing/altering/remixing/hacking in graphic design Build basic prototyping and presentation skills Furthering the critical analysis of your own work, its context, how it is circulated and used
 - Schedule rows:
@@ -668,6 +720,9 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d
 - Instructor: DS1 team
 - Term: 2016-2018
+- Tools mentioned: Google Drive
+- Materials mentioned: paper, sketchbook, photography
+- Policy evidence: How can you translate what you see into a graphic language? / We’ll translate those elements into new forms, exploring a variety of materials and tools as we go. / Since graphic design presents ideas primarily via graphic means, awareness of these perceptual principles is critical for designers to help their products stimulate clarity and unity, curiosity and interest, inquiry and insight.
 - Grading/assessment evidence: Grades in D.S. do not emphasize end products, but the necessary work that leads to successful end products. Evidence of your effort and competency are visible in the research blog(s), sketchbook, participation in class, and completion of the unit assignments as directed by the faculty. The below categories are meant to make assessment more clearly measurable by student and faculty alike. 20% Contribution
 - Weekly/class structure evidence:
   - Units may span the entire term, a few weeks, or a single class period.
@@ -710,6 +765,9 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_john_caserta_design_studio_1_2016
 - Instructor: John Caserta
 - Term: 2016
+- Tools mentioned: HTML/CSS, Google Drive
+- Materials mentioned: paper, sketchbook, print output, photography, book binding
+- Policy evidence: How can you translate what you see into a graphic language? / We’ll translate those elements into new forms, exploring a variety of materials and tools as we go. / Since graphic design presents ideas primarily via graphic means, awareness of these perceptual principles is critical for designers to help their products stimulate clarity and unity, curiosity and interest, inquiry and insight.
 - Description evidence: DS1 pushes students into a variety of directions, introducing critical tools, methods and content areas in the field. DS1 assumes no prior knowledge of tools or skills, but is not designed as ‘introductory’. Finished projects are not the intended outcome of DS1.
 - Learning outcomes:
   - Develop habits for self-directed research and inquiry Develop critical thinking skills Develop rhetorical, communication and presentation skills Encourage a pluralistic approach to design problems Encourage work with emerging media Address and participate in contemporary social and cultural issues (in design) Place present day challenges within historical context Semester-long Deliverables Sketchbook
@@ -728,10 +786,14 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_ds1618_design_studio_archive
 - Instructor: DS1 team
 - Term: 2016-2018
+- Materials mentioned: print output
+- Policy evidence: Template and Print specs
 - Syllabus/course artifact: syl_ds1618_make_book
 - Instructor: DS1 team
 - Term: 2016-2018
-- Platforms/tools mentioned: Canvas, Adobe, Illustrator, Photoshop
+- Tools mentioned: Canvas, Adobe, Adobe Photoshop, Adobe Illustrator, Adobe InDesign, HTML/CSS, JavaScript, Google Drive, Keynote
+- Materials mentioned: paper, presentation board, sketchbook, print output, photography, physical studies
+- Policy evidence: Template and Print specs John Caserta / Question: How can you translate what you see into a graphic language? / We’ll translate those elements into new graphic forms, exploring a variety of materials and tools as we go.
 - Learning outcomes:
   - develop new form from what you see
   - exercise an understanding of gestalt principles
@@ -754,6 +816,9 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_johncaserta_com_docicons_html_d8852632
 - Instructor: John Caserta
 - Term: 2016
+- Tools mentioned: HTML/CSS
+- Materials mentioned: print output, photography, book binding
+- Policy evidence: Removing detail later is fairly easy.
 - Description evidence: This collection harkens back to the 1930s pictographic style, when icons were drawn as a type of early documentary photograph – descriptive of everyday actions, but more suitable for reproduction with the coarses printing presses of the era. This realistic (but not without humor, voice or wit) type of drawing is visible in Rudolf Modley and Gerd Arntz’s archive (see figure 1) . We can get a sense of the culture by seeing a slightly simplified version of the hair, clothes, mannerisms and industri
 - Weekly/class structure evidence:
   - Dear Class of 2017, Design Observer
@@ -763,7 +828,9 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d
 - Instructor: DS1 team
 - Term: 2016-2018
-- Platforms/tools mentioned: Adobe, Illustrator, Photoshop
+- Tools mentioned: Adobe, Adobe Photoshop, Adobe Illustrator, Adobe InDesign, JavaScript, Google Drive, Keynote
+- Materials mentioned: paper, presentation board, print output, photography, physical studies
+- Policy evidence: Question: How can you translate what you see into a graphic language? / We’ll translate those elements into new graphic forms, exploring a variety of materials and tools as we go. / Shoot Quickly!!! Don’t belabor the creation of these photos, you will be transforming them later.
 - Learning outcomes:
   - develop new form from what you see
   - exercise an understanding of gestalt principles
@@ -780,6 +847,8 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_ds1618_risd_gd_2016_09_26_unit2_overview_html_1de519e9
 - Instructor: DS1 team
 - Term: 2016-2018
+- Materials mentioned: print output, photography
+- Policy evidence: Since graphic design presents ideas primarily via graphic (= visual) means, awareness of these perceptual principles is critical for designers to help their products offer clarity and unity to stimulate user interaction and accessibility, curiosity and interest, inquiry and insight.
 - Learning outcomes:
   - Develop visual sensibilities Learn about “gestalt” principles and their holistic system as “language” Observe the power of the visual to affect the non-visual toward its poetic potential
   - Develop mind-mapping skills Become aware of the practice to design for experience Lecture notes Download the lecture here
@@ -796,6 +865,9 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_ds1618_risd_gd_2016_10_11_unit3_overview_html_9ed746cf
 - Instructor: DS1 team
 - Term: 2016-2018
+- Tools mentioned: Keynote
+- Materials mentioned: print output
+- Policy evidence: Find flags that relate to the subject matter at hand (unions, other GD programs, other RISD programs, etc).
 - Learning outcomes:
   - Understand how symbols work Learn to work with simple forms Consider how material and context affects form — Learn to work together to accomplish more Learn about others and your values Core Assignment: Design a flag to fly at the top of Design Center
   - This should act as a symbol for the RISD GD Department, the primary tenant of the building
@@ -812,7 +884,8 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_ds1618_risd_gd_2016_10_25_unit4_overview_html_cfb221b8
 - Instructor: DS1 team
 - Term: 2016-2018
-- Platforms/tools mentioned: Canvas
+- Tools mentioned: Canvas
+- Materials mentioned: photography
 - Learning outcomes:
   - Gain an understanding of effective editing and how the proper sequencing of information enhances how that information is understood
   - Develop a critical awareness of time and how it affects the reading of a design
@@ -827,6 +900,8 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224
 - Instructor: DS1 team
 - Term: 2016-2018
+- Materials mentioned: photography
+- Policy evidence: We will conduct experiments and make proposals, aiming to challenge thinking about utility and beauty, and subvert conventions of common tools, formats, systems, and objects. / Furthering the critical analysis of your own work, its context, how it is circulated and used
 - Learning outcomes:
   - Develop critical thinking about form and function Understand graphic design’s potential for editing, authorship, translation, and interpretation Explore and analyse historical and contemporary graphic design artifacts and formats Experiment with the possibilities of editing/altering/remixing/hacking in graphic design Build basic prototyping and presentation skills Furthering the critical analysis of your own work, its context, how it is circulated and used
 - Schedule rows:
@@ -844,6 +919,9 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d
 - Instructor: DS1 team
 - Term: 2016-2018
+- Tools mentioned: Google Drive
+- Materials mentioned: paper, sketchbook, photography
+- Policy evidence: How can you translate what you see into a graphic language? / We’ll translate those elements into new forms, exploring a variety of materials and tools as we go. / Since graphic design presents ideas primarily via graphic means, awareness of these perceptual principles is critical for designers to help their products stimulate clarity and unity, curiosity and interest, inquiry and insight.
 - Grading/assessment evidence: Grades in D.S. do not emphasize end products, but the necessary work that leads to successful end products. Evidence of your effort and competency are visible in the research blog(s), sketchbook, participation in class, and completion of the unit assignments as directed by the faculty. The below categories are meant to make assessment more clearly measurable by student and faculty alike. 20% Contribution
 - Weekly/class structure evidence:
   - Units may span the entire term, a few weeks, or a single class period.
@@ -1208,6 +1286,8 @@ Generated: 2026-06-11
 - Extracted skill signals: typography, publication design, interaction design, critique and revision
 - Syllabus/course artifact: syl_grad_type_1_2014_syllabus_pdf
 - Term: Fall 2014
+- Materials mentioned: paper, presentation board, tracing paper, binder, print output
+- Policy evidence: You will be be happy later if you keep your sketches and “You have two goblets before you. / between and among letterforms as they appear Materials everything about it is calculated to reveal rather / and spatial aspects of type usage as it relates to friendsoftype.com – Phil Baines
 - Grading/assessment evidence: Grades are a reality here at RISD. While I know we are all adults here for personal growth rather than grade- based evaluations, we must necessarily contend with the existing system. I will base your grades on: Reading list • quality of the work first and foremost • depth of seach and exploration (required) • good attitude toward learning and the class Thinking With Type, Ellen Lupton, Princeton • personal initiative Architectural Press • risk taking and exploration A Type Primer, John Kane, Pre
 - Weekly/class structure evidence:
   - This class is your introduction to typography Keep work well organized both on your
@@ -1415,19 +1495,22 @@ Generated: 2026-06-11
 - Extracted skill signals: interaction design, critique and revision, research methods, typography, publication design, image making, motion design
 - Syllabus/course artifact: syl_sp19_risd_gd_web
 - Term: Spring 2019
+- Tools mentioned: HTML/CSS, JavaScript
 - Weekly/class structure evidence:
   - The class celebrates the Internet as a space for social exchange and independent expression, while questioning the cultural contradictions embedded in online discourse and the motivations of individuals and entities behind online platforms.
 - Syllabus/course artifact: syl_sp19_design_for_publishing
 - Term: Spring 2019
+- Materials mentioned: paper, print output, photography, book binding
 - Syllabus/course artifact: syl_sp19_typography_for_nonmajors
 - Term: Spring 2019
 - Weekly/class structure evidence:
   - This introductory course is intended for non-majors interested in learning the basic principles of typography including the study of letterforms, type classification, legibility, organization and hierarchy, as well as text applications, grid systems and page layout.
 - Syllabus/course artifact: syl_sp19_newly_formed
 - Term: Spring 2019
+- Materials mentioned: photography
 - Syllabus/course artifact: syl_sp19_time_sequence_sound
 - Term: Spring 2019
-- Platforms/tools mentioned: Adobe, After Effects
+- Tools mentioned: Adobe, After Effects
 - Weekly/class structure evidence:
   - Through a series of in-studio and multi-week assignments, students will create animated projects that include real-world assignments as well as experimental exercises.
   - Short weekly lectures will discuss historic and current works of influential Motion Designers, Animators and Directors.
@@ -1436,6 +1519,8 @@ Generated: 2026-06-11
 - Term: Spring 2019
 - Syllabus/course artifact: syl_sp19_reframing_the_poster
 - Term: Spring 2019
+- Materials mentioned: paper, print output, photography
+- Policy evidence: The poster has been an archetypal graphic design format since the late 19th century when lithographic printing technology came of age and captured the imagination of artists, bringing their vision into Paris streets.
 - Syllabus/course artifact: syl_sp19_type_design
 - Term: Spring 2019
 - Reading evidence:
@@ -1531,7 +1616,9 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_adam_fein_intro_graphic_design_2021_pdf
 - Instructor: Adam Fein
 - Term: Wintersession 2021
-- Platforms/tools mentioned: Canvas, Slack, Zoom, Adobe, After Effects, Illustrator, Photoshop
+- Tools mentioned: Canvas, Slack, Zoom, Adobe, Adobe Photoshop, Adobe Illustrator, Adobe InDesign, After Effects, HTML/CSS
+- Materials mentioned: print output, photography
+- Policy evidence: RISD’s attendance policy. / A exceptional work and participation in crits, 100% attendance / F more that 1 unexcused absence, no participation in class, incomplete work
 - Description evidence: This making-focused course will teach foundational graphic design software, skills, and concepts. Students will become familiar with in Photoshop, Illustrator, and InDesign though in-class exercises. Readings and lectures supplement hands-on learning, introducing history, modern issues, and contemporary practitioner, as well as core concepts like layout, typography, and color theory. Students will complete four projects: a logo, a poster, a booklet, and a visual identity system. At the conclusio
 - Learning outcomes:
   - ● To introduce you to the field of ● To learn how to develop a design graphic design, its history and process rooted in strong ideas, contemporary practice. using sketching and iterations to arrive at a well-researched final ● To develop a fluency with the design. tools of graphic design and learn the Adobe Creative Suite so that ● To cultivate curiosity and you can feel confident in your excitement about the field of capacity to use them during and graphic design and its after this class. possibilities for you. ● To learn how type and image ● To work hard, take risks, have can be used to communicate fun, and create excellent graphic abstract ideas as well as design work. complex information
@@ -1684,6 +1771,9 @@ Generated: 2026-06-11
 - Extracted skill signals: typography, publication design, interaction design, critique and revision, research methods, image making
 - Syllabus/course artifact: syl_type_two_2015_syllabus_pdf
 - Term: 2015
+- Tools mentioned: Adobe InDesign
+- Materials mentioned: paper, presentation board, tracing paper, binder, print output, photography
+- Policy evidence: Course Goals This class is the next step in your type program here at An organized process folder is a helpful tool for you later / formal issues, as well as issues pertaining to meaning, receptive to criticism, excellent attitude, 100% attendance, / We don't inflate.
 - Learning outcomes:
   - This class is the next step in your type program here at An organized process folder is a helpful tool for you later and objectives RISD, bridging the arc between Type One and Type Three. on when you have left type and RISD behind
   - Some Students will continue to work on developing a contempo
@@ -1960,6 +2050,9 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_johncaserta_com_docicons_html_d8852632
 - Instructor: John Caserta
 - Term: 2016
+- Tools mentioned: HTML/CSS
+- Materials mentioned: print output, photography, book binding
+- Policy evidence: Removing detail later is fairly easy.
 - Description evidence: This collection harkens back to the 1930s pictographic style, when icons were drawn as a type of early documentary photograph – descriptive of everyday actions, but more suitable for reproduction with the coarses printing presses of the era. This realistic (but not without humor, voice or wit) type of drawing is visible in Rudolf Modley and Gerd Arntz’s archive (see figure 1) . We can get a sense of the culture by seeing a slightly simplified version of the hair, clothes, mannerisms and industri
 - Weekly/class structure evidence:
   - Dear Class of 2017, Design Observer
@@ -1967,7 +2060,10 @@ Generated: 2026-06-11
   - Web Programming 2018 4-Week Wkshp
   - Web Programming 4-Week Wkshp
 - Syllabus/course artifact: syl_wayback_typography_iii_syllabus_20210421141719
-- Platforms/tools mentioned: Slack, Zoom, Adobe
+- Term: 2020
+- Tools mentioned: Slack, Zoom, Adobe, Figma, Google Drive
+- Materials mentioned: paper, print output, photography
+- Policy evidence: be able to manipulate letters as part of a system across media / be able to make choices that are informed by social, cultural, technical, political contexts—including issues of equity and inclusion—in which their work exists and to articulate these ideas in oral and written form / be able to manipulate the formal qualities of typography to convey intended, complex, and layered meanings across multiple platforms
 - Weekly/class structure evidence:
   - Class Format
   - However, even though my presence and interactions will be mostly Zoom– and Slack-based, I’m designing the course to accommodate both remote students and those who would like to collaborate on-campus, during or outside of class.
@@ -2007,7 +2103,10 @@ Generated: 2026-06-11
 - Source IDs: src_wayback_typography_iii_syllabus_20210421141719
 - Extracted skill signals: typography, publication design, motion design, interaction design, critique and revision, research methods, image making
 - Syllabus/course artifact: syl_wayback_typography_iii_syllabus_20210421141719
-- Platforms/tools mentioned: Slack, Zoom, Adobe
+- Term: 2020
+- Tools mentioned: Slack, Zoom, Adobe, Figma, Google Drive
+- Materials mentioned: paper, print output, photography
+- Policy evidence: be able to manipulate letters as part of a system across media / be able to make choices that are informed by social, cultural, technical, political contexts—including issues of equity and inclusion—in which their work exists and to articulate these ideas in oral and written form / be able to manipulate the formal qualities of typography to convey intended, complex, and layered meanings across multiple platforms
 - Weekly/class structure evidence:
   - Class Format
   - However, even though my presence and interactions will be mostly Zoom– and Slack-based, I’m designing the course to accommodate both remote students and those who would like to collaborate on-campus, during or outside of class.
@@ -2130,6 +2229,9 @@ Generated: 2026-06-11
 - Extracted skill signals: publication design, identity systems, motion design, interaction design, image making
 - Syllabus/course artifact: syl_wp15_week_1_concrete_forms
 - Term: 2015
+- Tools mentioned: HTML/CSS
+- Materials mentioned: print output, photography
+- Policy evidence: 40% attendance, 40% completion of all assignments
 - Learning outcomes:
   - Be introduced to HTML and CSS syntax to help conceptualize future projects Encourage use of the browser for experimentation Introduce both analytical and playful working methods Be introduced to instructions-based making &#8212; HTML being one of many coding methods
   - Be comfortable editing existing themes or websites
@@ -2144,6 +2246,7 @@ Generated: 2026-06-11
   - Classes, divs
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pocket_pictograms_inspiration_for_assignment_2_3cf16be5
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - 4 Links / Week 1: Concrete Forms
   - Classroom
@@ -2153,6 +2256,8 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_outline_week_1_concrete_forms_4905a205
 - Term: 2015
+- Tools mentioned: HTML/CSS
+- Materials mentioned: print output, photography
 - Schedule rows:
   - Friday, April 3: Readings Reference Setup Uncategorized Video About 4-week workshop at RISD GD s Meta Log in Entries RSS Comments RSS WordPress
 - Weekly/class structure evidence:
@@ -2164,6 +2269,7 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - 4 Video / Week 1: Concrete Forms
   - Classroom
@@ -2173,6 +2279,7 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_concrete_objects_christian_leborg_f274fe53
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - 4 Links / Week 1: Concrete Forms
   - Classroom
@@ -2182,6 +2289,7 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_essay_by_paul_elliman_on_karel_martens_graphic__95641d1a
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - 4 Links / Week 1: Concrete Forms
   - Classroom
@@ -2191,6 +2299,7 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_2_draw_found_objects_with_css_4a1e2993
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - Make five drawings using div tags and css classes.
   - Create an html file for each digital bit, and upload your html files into a post on the class website.
@@ -2200,6 +2309,7 @@ Generated: 2026-06-11
   - Week 2: Abstract Forms
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_1_make_a_scandinavian_flag_with_css_cb569dec
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - 4 Assignments / Week 1: Concrete Forms
   - Classroom
@@ -2209,6 +2319,7 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_2_css_basics_layout_8224b9f9
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - Classes, divs
   - multiple classes, nesting divs
@@ -2218,6 +2329,7 @@ Generated: 2026-06-11
   - Session 2: Positioning
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_1_html_basics_a2298300
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - John&#8217;s example from class
   - 4 Week 1: Concrete Forms
@@ -2227,6 +2339,8 @@ Generated: 2026-06-11
   - Week 3: Active Forms
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_getting_setup_add_users_bios_and_avatars_5a8864e0
 - Term: 2015
+- Tools mentioned: HTML/CSS
+- Materials mentioned: photography
 - Weekly/class structure evidence:
   - 4 Setup / Week 1: Concrete Forms
   - Classroom
@@ -2236,6 +2350,9 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69
 - Term: 2015
+- Tools mentioned: HTML/CSS
+- Materials mentioned: print output
+- Policy evidence: 40% attendance, 40% completion of all assignments
 - Learning outcomes:
   - Be introduced to HTML and CSS syntax to help conceptualize future projects Encourage use of the browser for experimentation Introduce both analytical and playful working methods Be introduced to instructions-based making &#8212; HTML being one of many coding methods
   - Be comfortable editing existing themes or websites
@@ -2252,6 +2369,7 @@ Generated: 2026-06-11
 - Term: 2015
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_assignments_116ec5b2
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - Classroom
   - Week 1: Concrete Forms
@@ -2261,6 +2379,7 @@ Generated: 2026-06-11
   - 4-week workshop at RISD GD
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_assignments_1_scandinavian_flag_04511d7b
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - Classroom
   - Week 1: Concrete Forms
@@ -2270,6 +2389,7 @@ Generated: 2026-06-11
   - 4-week workshop at RISD GD
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_assignments_2_css_drawings_6a79b496
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - Classroom
   - Week 1: Concrete Forms
@@ -2279,6 +2399,7 @@ Generated: 2026-06-11
   - 4-week workshop at RISD GD
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_assignments_3a_abstract_shape_87c26db6
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - week2
   - Classroom
@@ -2288,6 +2409,7 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_assignments_3b_abstract_composition_93bcd461
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - week2
   - Classroom
@@ -2297,6 +2419,7 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_assignments_4css_patterns_de5ba421
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - Classroom
   - Week 1: Concrete Forms
@@ -2306,6 +2429,7 @@ Generated: 2026-06-11
   - 4-week workshop at RISD GD
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_assignments_5_change_in_relations_f57a17f0
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - Week 3: Active Forms
   - Classroom
@@ -2315,6 +2439,7 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - Week 3: Active Forms
   - Classroom
@@ -2351,6 +2476,9 @@ Generated: 2026-06-11
 - Extracted skill signals: motion design, interaction design, publication design, image making, identity systems
 - Syllabus/course artifact: syl_wp15_week_1_concrete_forms
 - Term: 2015
+- Tools mentioned: HTML/CSS
+- Materials mentioned: print output, photography
+- Policy evidence: 40% attendance, 40% completion of all assignments
 - Learning outcomes:
   - Be introduced to HTML and CSS syntax to help conceptualize future projects Encourage use of the browser for experimentation Introduce both analytical and playful working methods Be introduced to instructions-based making &#8212; HTML being one of many coding methods
   - Be comfortable editing existing themes or websites
@@ -2365,6 +2493,7 @@ Generated: 2026-06-11
   - Classes, divs
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pocket_pictograms_inspiration_for_assignment_2_3cf16be5
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - 4 Links / Week 1: Concrete Forms
   - Classroom
@@ -2374,6 +2503,8 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_outline_week_1_concrete_forms_4905a205
 - Term: 2015
+- Tools mentioned: HTML/CSS
+- Materials mentioned: print output, photography
 - Schedule rows:
   - Friday, April 3: Readings Reference Setup Uncategorized Video About 4-week workshop at RISD GD s Meta Log in Entries RSS Comments RSS WordPress
 - Weekly/class structure evidence:
@@ -2385,6 +2516,7 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - 4 Video / Week 1: Concrete Forms
   - Classroom
@@ -2394,6 +2526,7 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_concrete_objects_christian_leborg_f274fe53
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - 4 Links / Week 1: Concrete Forms
   - Classroom
@@ -2403,6 +2536,7 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_essay_by_paul_elliman_on_karel_martens_graphic__95641d1a
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - 4 Links / Week 1: Concrete Forms
   - Classroom
@@ -2412,6 +2546,7 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_2_draw_found_objects_with_css_4a1e2993
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - Make five drawings using div tags and css classes.
   - Create an html file for each digital bit, and upload your html files into a post on the class website.
@@ -2421,6 +2556,7 @@ Generated: 2026-06-11
   - Week 2: Abstract Forms
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_1_make_a_scandinavian_flag_with_css_cb569dec
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - 4 Assignments / Week 1: Concrete Forms
   - Classroom
@@ -2430,6 +2566,7 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_2_css_basics_layout_8224b9f9
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - Classes, divs
   - multiple classes, nesting divs
@@ -2439,6 +2576,7 @@ Generated: 2026-06-11
   - Session 2: Positioning
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_1_html_basics_a2298300
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - John&#8217;s example from class
   - 4 Week 1: Concrete Forms
@@ -2448,6 +2586,8 @@ Generated: 2026-06-11
   - Week 3: Active Forms
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_getting_setup_add_users_bios_and_avatars_5a8864e0
 - Term: 2015
+- Tools mentioned: HTML/CSS
+- Materials mentioned: photography
 - Weekly/class structure evidence:
   - 4 Setup / Week 1: Concrete Forms
   - Classroom
@@ -2457,6 +2597,9 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69
 - Term: 2015
+- Tools mentioned: HTML/CSS
+- Materials mentioned: print output
+- Policy evidence: 40% attendance, 40% completion of all assignments
 - Learning outcomes:
   - Be introduced to HTML and CSS syntax to help conceptualize future projects Encourage use of the browser for experimentation Introduce both analytical and playful working methods Be introduced to instructions-based making &#8212; HTML being one of many coding methods
   - Be comfortable editing existing themes or websites
@@ -2473,6 +2616,7 @@ Generated: 2026-06-11
 - Term: 2015
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_assignments_116ec5b2
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - Classroom
   - Week 1: Concrete Forms
@@ -2482,6 +2626,7 @@ Generated: 2026-06-11
   - 4-week workshop at RISD GD
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_assignments_1_scandinavian_flag_04511d7b
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - Classroom
   - Week 1: Concrete Forms
@@ -2491,6 +2636,7 @@ Generated: 2026-06-11
   - 4-week workshop at RISD GD
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_assignments_2_css_drawings_6a79b496
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - Classroom
   - Week 1: Concrete Forms
@@ -2500,6 +2646,7 @@ Generated: 2026-06-11
   - 4-week workshop at RISD GD
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_assignments_3a_abstract_shape_87c26db6
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - week2
   - Classroom
@@ -2509,6 +2656,7 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_assignments_3b_abstract_composition_93bcd461
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - week2
   - Classroom
@@ -2518,6 +2666,7 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_assignments_4css_patterns_de5ba421
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - Classroom
   - Week 1: Concrete Forms
@@ -2527,6 +2676,7 @@ Generated: 2026-06-11
   - 4-week workshop at RISD GD
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_assignments_5_change_in_relations_f57a17f0
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - Week 3: Active Forms
   - Classroom
@@ -2536,6 +2686,7 @@ Generated: 2026-06-11
   - Week 4: Putting it Together
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c
 - Term: 2015
+- Tools mentioned: HTML/CSS
 - Weekly/class structure evidence:
   - Week 3: Active Forms
   - Classroom
@@ -2573,7 +2724,9 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_web_type_2022_syllabus
 - Instructor: Marie Otsuka
 - Term: Spring 2022
-- Platforms/tools mentioned: Slack, Zoom
+- Tools mentioned: Slack, Zoom, HTML/CSS, JavaScript
+- Materials mentioned: photography
+- Policy evidence: Attendance / Three or more absences will result in a failing grade. / Three arrivals later than 15 minutes is equivalent to an absence.
 - Description evidence: This course explores the intersection of typography and web design as a creative medium. By engaging with type that activates the capacities of browsers, we will push beyond “resonsive design” as a layout-based exercise and question what typography can “respond to” — whether user input, network conditions, or the physical environment. All projects will involve hand-coding web pages, using the browser for experimental research and engagement. Critique and discussions will broadly examine the soci
 - Learning outcomes:
   - Web produce working prototypes of web pages with a working knowledge of HTML, CSS and Javascript/Jquery critically respond to material within the internet landscape, discussing the web as a very specific public space, with its own communities, forms of engagement, modes of communication learn how to problem-solve technical questions Type use the browser as a platform for typographic expression and experimentation understand the technology involved in exercising typographic control on the web consider how a typographic system adapts to different devices and platforms and to user interaction develop a sensitivity towards typographic detail within the browser, and identify interesting examples of browser-based typographic media Prerequisites basic understanding of typography a willingness to explore the web in all its many forms, uses, and aesthetics a curiosity for technical tools and the contextual infrastructure around design a tenacious spirit for trial & error Tool and account Requirements A laptop Github account A text editor, such as Sublime Text or Atom for coding A Slack account for class communications: join here Glyphs 3 with the RISD institutional license For optional supplemental support Access to RISD’s Panopto for video recordings Sign up for a free account on Codecademy Course Structure
@@ -2588,7 +2741,9 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_webtype_htmlkitchen_net_schedule_59d96530
 - Instructor: Marie Otsuka
 - Term: Spring 2022
-- Platforms/tools mentioned: Zoom
+- Tools mentioned: Zoom, JavaScript
+- Materials mentioned: photography
+- Policy evidence: We will conduct workshops and larger group critiques in-person , with smaller group or individual crits and screen-based technical exercises remotely over Zoom .
 - Description evidence: of class website & syllabus Discussion: What is the internet? Project 1 Kickoff In class exercise: Getting Started Remember to sign up for project 1 topic by Monday Exercise Getting Started Project Querying Media Reading J.R. Carpenter: A Handmade Web Container as Content February 24 remote Class Discusssion: Handmade Web Review Project 1 next steps A note on images , introduce in-class exercise Project 1 progress, small groups review (optional) In-class exercise review Exercise Layouts Project
 - Weekly/class structure evidence:
   - Schedule — WebType
@@ -2600,14 +2755,14 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_webtype_htmlkitchen_net_projects_f21c0c50
 - Instructor: Marie Otsuka
 - Term: Spring 2022
-- Platforms/tools mentioned: Zoom
+- Tools mentioned: Zoom
 - Weekly/class structure evidence:
   - schedule
   - Class Site
 - Syllabus/course artifact: syl_crawl_webtype_htmlkitchen_net_exercises_8dc7f726
 - Instructor: Marie Otsuka
 - Term: Spring 2022
-- Platforms/tools mentioned: Zoom
+- Tools mentioned: Zoom
 - Weekly/class structure evidence:
   - schedule
   - These are in-class activities that are technical exercises to help support you in your project work.
@@ -2618,7 +2773,9 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_webtype_htmlkitchen_net_projects_project1_a757b534
 - Instructor: Marie Otsuka
 - Term: Spring 2022
-- Platforms/tools mentioned: Slack, Zoom, Adobe
+- Tools mentioned: Slack, Zoom, Adobe, Figma, HTML/CSS
+- Materials mentioned: photography
+- Policy evidence: We will have the chance to explore more experimental layouts and interactivity later in the course.
 - Schedule rows:
   - Monday, February 21: project The history of Optical Character Recognition and the Google Books archive Flat design vs
 - Weekly/class structure evidence:
@@ -2631,7 +2788,8 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_webtype_htmlkitchen_net_exercises_0_getting_started_459158d5
 - Instructor: Marie Otsuka
 - Term: Spring 2022
-- Platforms/tools mentioned: Slack, Zoom
+- Tools mentioned: Slack, Zoom, Figma, HTML/CSS
+- Policy evidence: For the local path, select the parent (containing) directory you selected for your Demos folder. (Do not select the Demos repository folder, select the folder above it.) This way it’ll be easy to find all of your web-type related code and navigate between them. / Note, your Github repository should only contain files related to your website — code and web-optimized files that are linked from your sites.
 - Weekly/class structure evidence:
   - schedule
   - Join Slack for class communications
@@ -2642,7 +2800,9 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_webtype_htmlkitchen_net_exercises_01_layouts_positioning_697aa92a
 - Instructor: Marie Otsuka
 - Term: Spring 2022
-- Platforms/tools mentioned: Zoom
+- Tools mentioned: Zoom, HTML/CSS
+- Materials mentioned: photography
+- Policy evidence: Pull the latest code into the webtype-demos repo via Github Desktop, and copy over the files from week2 folder into your own repository, in a folder called layout-exercise .
 - Weekly/class structure evidence:
   - schedule
   - In this in-class exercise, you will take a single image and some text, and develop 3 different layouts.
@@ -2651,7 +2811,8 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_webtype_htmlkitchen_net_exercises_02_responsive_f5b20f70
 - Instructor: Marie Otsuka
 - Term: Spring 2022
-- Platforms/tools mentioned: Zoom
+- Tools mentioned: Zoom
+- Materials mentioned: print output, photography
 - Weekly/class structure evidence:
   - schedule
   - In this exercise, you will take the layouts you created in last week’s exercise, and make them respond to the window size.
@@ -2662,7 +2823,8 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_webtype_htmlkitchen_net_projects_project2_5558bef3
 - Instructor: Marie Otsuka
 - Term: Spring 2022
-- Platforms/tools mentioned: Zoom
+- Tools mentioned: Zoom, HTML/CSS, JavaScript
+- Policy evidence: How do you we articulate the characteristics of letterforms? / Begin with the control characters: H , O , D , and/or n , o , p . (These characters provide the “DNA” of a typeface: its straight shapes, its curved shapes, and the combination of the two.) Continue with other related letters. (You should have enough letters to spell out several words.) / Articulate the axis for variation and your intended design space. (You might draw a few of the “varied” version of the letters in glyphs.
 - Weekly/class structure evidence:
   - schedule
   - Project Schedule
@@ -2673,21 +2835,21 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_webtype_htmlkitchen_net_exercises_03_modular_d0c35ace
 - Instructor: Marie Otsuka
 - Term: Spring 2022
-- Platforms/tools mentioned: Zoom
+- Tools mentioned: Zoom, HTML/CSS
 - Weekly/class structure evidence:
   - schedule
   - Export your typeface into a font, and use it on your class site via the @font-face method.
 - Syllabus/course artifact: syl_crawl_webtype_htmlkitchen_net_exercises_05_change_over_time_1f4702e5
 - Instructor: Marie Otsuka
 - Term: Spring 2022
-- Platforms/tools mentioned: Zoom
+- Tools mentioned: Zoom, HTML/CSS
 - Weekly/class structure evidence:
   - schedule
   - Apply to them to your modular letterforms created last week.
 - Syllabus/course artifact: syl_crawl_webtype_htmlkitchen_net_exercises_06_dark_mode_4333e8cd
 - Instructor: Marie Otsuka
 - Term: Spring 2022
-- Platforms/tools mentioned: Zoom
+- Tools mentioned: Zoom, HTML/CSS, JavaScript
 - Weekly/class structure evidence:
   - schedule
   - Through this exercise, we will use JavaScript & jQuery to create a switch that toggle between two modes of your class website.
@@ -2698,7 +2860,7 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_webtype_htmlkitchen_net_projects_project3_1ba5bc84
 - Instructor: Marie Otsuka
 - Term: Spring 2022
-- Platforms/tools mentioned: Zoom
+- Tools mentioned: Zoom, HTML/CSS, JavaScript
 - Weekly/class structure evidence:
   - schedule
   - Project Schedule
@@ -2707,7 +2869,7 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_webtype_htmlkitchen_net_exercises_07_input_range_30e67e2f
 - Instructor: Marie Otsuka
 - Term: Spring 2022
-- Platforms/tools mentioned: Zoom
+- Tools mentioned: Zoom, HTML/CSS, JavaScript
 - Weekly/class structure evidence:
   - schedule
   - Review the Code Lab Tutorial on JS and Variable Fonts, along with the Panopto recording . (I recommend viewing the video at 1.5× or 2× its actual speed.) As a reminder, you can continue to pull demo codes for in-class exercises by syncing the entire Web Type Demos repository to your computer.
@@ -2715,7 +2877,7 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_webtype_htmlkitchen_net_projects_project4_da8d8ab6
 - Instructor: Marie Otsuka
 - Term: Spring 2022
-- Platforms/tools mentioned: Zoom
+- Tools mentioned: Zoom, JavaScript
 - Weekly/class structure evidence:
   - schedule
   - Project Schedule
@@ -2725,14 +2887,15 @@ Generated: 2026-06-11
 - Syllabus/course artifact: syl_crawl_webtype_htmlkitchen_net_exercises_08_apis_976b1cb7
 - Instructor: Marie Otsuka
 - Term: Spring 2022
-- Platforms/tools mentioned: Zoom
+- Tools mentioned: Zoom, HTML/CSS, JavaScript
 - Weekly/class structure evidence:
   - schedule
   - Review the notes on APIs and check out this week’s demo code ( in-class-demos/week10 folder).
 - Syllabus/course artifact: syl_crawl_webtype_htmlkitchen_net_projects_class_site_33043781
 - Instructor: Marie Otsuka
 - Term: Spring 2022
-- Platforms/tools mentioned: Zoom
+- Tools mentioned: Zoom, Figma, HTML/CSS, JavaScript
+- Materials mentioned: photography
 - Schedule rows:
   - Thursday May 19: project and exercise
 - Weekly/class structure evidence:
