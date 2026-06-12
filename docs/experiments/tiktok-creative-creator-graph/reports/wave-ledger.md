@@ -1,10 +1,10 @@
 # Wave Ledger
 
-Generated: 2026-06-12T21:35:16.921Z
+Generated: 2026-06-12T21:38:08.870Z
 
 - Waves: 1000
-- Planned: 994
-- Dry-run: 6
+- Planned: 993
+- Dry-run: 7
 - Succeeded: 0
 - Imported: 0
 - Imported empty: 0
@@ -12,17 +12,17 @@ Generated: 2026-06-12T21:35:16.921Z
 - Imported output accounts: 0
 - Under-yield imports: 0
 - Empty imports: 0
-- Run attempts: 9
-- Dry-run attempts: 9
+- Run attempts: 10
+- Dry-run attempts: 10
 - Live-run attempts: 0
 - Review needed: 496
-- Latest run wave: scale_wave_0006
-- Next ready wave: scale_wave_0007
+- Latest run wave: scale_wave_0007
+- Next ready wave: scale_wave_0008
 
 Next command:
 
 ```bash
-node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --max-tasks=8 --priority-max=2 --wave=0007
+node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --max-tasks=8 --priority-max=2 --wave=0008
 ```
 
 ## First 20 Rows
@@ -35,7 +35,7 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 | 4 | scale_wave_0004 | dry_run | vfx_animation | search_index | vfx artist animation blender | 0 | n/a | 1 |
 | 5 | scale_wave_0005 | dry_run | vfx_animation | tiktok_hashtag_export | animation | 0 | n/a | 1 |
 | 6 | scale_wave_0006 | dry_run | cinematographer | tiktok_hashtag_export | cinematography | 0 | n/a | 1 |
-| 7 | scale_wave_0007 | planned | filmmaker | tiktok_hashtag_export | filmmaker | 0 | n/a | 1 |
+| 7 | scale_wave_0007 | dry_run | filmmaker | tiktok_hashtag_export | filmmaker | 0 | n/a | 1 |
 | 8 | scale_wave_0008 | planned | filmmaker | tiktok_hashtag_export | shortfilm | 0 | n/a | 1 |
 | 9 | scale_wave_0009 | planned | sketch_comedian | tiktok_hashtag_export | sketchcomedy | 0 | n/a | 1 |
 | 10 | scale_wave_0010 | planned | filmmaker | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" | 0 | n/a | 1 |

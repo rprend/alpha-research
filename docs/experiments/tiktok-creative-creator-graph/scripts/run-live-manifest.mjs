@@ -1,5 +1,6 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { execFileSync } from 'node:child_process'
+import { homedir } from 'node:os'
 import { join } from 'node:path'
 
 const root = process.cwd()
@@ -14,6 +15,7 @@ const args = new Map(process.argv.slice(2).map((arg) => {
 
 const maxWaves = Number(args.get('--max-waves') ?? 1)
 const maxCostUsd = Number(args.get('--max-cost-usd') ?? 5)
+const envFile = String(args.get('--env-file') ?? join(homedir(), '.codex/secrets.env'))
 const wantsLive = args.has('--live')
 const confirmedLive = args.has('--confirm-live')
 const skipImport = args.has('--skip-import')
@@ -45,6 +47,21 @@ function writeJson(path, value) {
 
 function writeJsonl(path, rows) {
   writeFileSync(path, rows.map((row) => JSON.stringify(row)).join('\n') + (rows.length ? '\n' : ''))
+}
+
+function loadEnvFile(path) {
+  if (!existsSync(path)) return false
+  const lines = readFileSync(path, 'utf8').split('\n')
+  for (const line of lines) {
+    const trimmed = line.trim()
+    if (!trimmed || trimmed.startsWith('#')) continue
+    const match = trimmed.match(/^([A-Za-z_][A-Za-z0-9_]*)=(.*)$/)
+    if (!match) continue
+    const [, key, rawValue] = match
+    if (process.env[key]) continue
+    process.env[key] = rawValue.replace(/^['"]|['"]$/g, '')
+  }
+  return true
 }
 
 function splitCommand(command) {
@@ -112,6 +129,7 @@ function assertRunAllowed(manifest, selectedRows) {
 
 function main() {
   ensureDir(reportsDir)
+  const envFileLoaded = loadEnvFile(envFile)
   const manifest = readJson(join(reportsDir, 'live-run-manifest.json'), {})
   const rows = readJsonl(join(processedDir, 'live_run_manifest.jsonl'))
   const selectedRows = selectRows(rows)
@@ -145,6 +163,8 @@ function main() {
     mode: wantsLive ? 'live' : 'dry_run',
     live_confirmed: confirmedLive,
     provider: manifest.provider ?? '',
+    env_file_loaded: envFileLoaded,
+    provider_token_available: Boolean(process.env.APIFY_TOKEN),
     selected_waves: selectedRows.length,
     max_waves: maxWaves,
     estimated_cost_usd: Number(selectedRows.reduce((sum, row) => sum + Number(row.estimated_cost_usd ?? 0), 0).toFixed(2)),
@@ -186,6 +206,8 @@ Generated: ${summary.generated_at}
 
 - Mode: ${summary.mode}
 - Provider: ${summary.provider}
+- Env file loaded: ${summary.env_file_loaded}
+- Provider token available: ${summary.provider_token_available}
 - Selected waves: ${summary.selected_waves}
 - Estimated cost: $${summary.estimated_cost_usd}
 - Max cost: $${summary.max_cost_usd}

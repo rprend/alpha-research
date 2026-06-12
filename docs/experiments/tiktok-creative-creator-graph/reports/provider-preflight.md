@@ -1,6 +1,6 @@
 # Provider Preflight
 
-Generated: 2026-06-12T21:35:16.960Z
+Generated: 2026-06-12T21:38:08.922Z
 
 - Provider: apify
 - Selected waves: 10
@@ -12,20 +12,18 @@ Generated: 2026-06-12T21:35:16.960Z
 - Estimated cost: $5
 - Budget: $25
 - Within budget: true
-- Next wave: scale_wave_0007
+- Next wave: scale_wave_0008
 
 Next command:
 
 ```bash
-node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --max-tasks=8 --priority-max=2 --wave=0007
+node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --max-tasks=8 --priority-max=2 --wave=0008
 ```
 
 ## First Rows
 
 | Wave | Batch | Surface | Query | Actor | Ready | Est. rows | Est. cost |
 | --- | --- | --- | --- | --- | --- | ---: | ---: |
-| scale_wave_0007 | graph_0067 | tiktok_hashtag_export | filmmaker | clockworks/tiktok-scraper | true | 100 | $0.25 |
-| scale_wave_0007 | graph_0080 | tiktok_hashtag_export | vfx | clockworks/tiktok-scraper | true | 100 | $0.25 |
 | scale_wave_0008 | graph_0069 | tiktok_hashtag_export | shortfilm | clockworks/tiktok-scraper | true | 100 | $0.25 |
 | scale_wave_0008 | graph_0066 | tiktok_hashtag_export | bts | clockworks/tiktok-scraper | true | 100 | $0.25 |
 | scale_wave_0009 | hashtag_0016 | tiktok_hashtag_export | sketchcomedy | clockworks/tiktok-scraper | true | 100 | $0.25 |
@@ -44,5 +42,7 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 | scale_wave_0015 | search_0002 | search_index | site:tiktok.com/@ "short film" | apify/google-search-scraper | true | 100 | $0.25 |
 | scale_wave_0016 | category_gap_0037 | category_gap_search | site:tiktok.com/@ "actor performer" | apify/google-search-scraper | true | 100 | $0.25 |
 | scale_wave_0016 | category_gap_0050 | category_gap_search | site:tiktok.com/@ "shortfilm" | apify/google-search-scraper | true | 100 | $0.25 |
+| scale_wave_0017 | category_gap_0038 | category_gap_search | site:tiktok.com/@ "actor" | apify/google-search-scraper | true | 100 | $0.25 |
+| scale_wave_0017 | category_gap_0051 | category_gap_search | site:tiktok.com/@ "sketch comedian" | apify/google-search-scraper | true | 100 | $0.25 |
 
 Full preflight: `data/processed/provider_preflight.csv`

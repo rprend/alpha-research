@@ -1,9 +1,11 @@
 # Acquisition Run
 
-Generated: 2026-06-12T21:35:17.062Z
+Generated: 2026-06-12T21:38:09.035Z
 
 - Provider: apify
-- Wave: scale_wave_0007
+- Env file loaded: true
+- Provider token available: false
+- Wave: scale_wave_0008
 - Dry run: true
 - Live requested: false
 - Live confirmed: false
@@ -19,5 +21,5 @@ Generated: 2026-06-12T21:35:17.062Z
 
 | Batch | Surface | Target Label | Query | Status | Rows |
 | --- | --- | --- | --- | --- | ---: |
-| graph_0067 | tiktok_hashtag_export | filmmaker | filmmaker | dry_run | 0 |
-| graph_0080 | tiktok_hashtag_export | vfx_animation | vfx | dry_run | 0 |
+| graph_0069 | tiktok_hashtag_export | filmmaker | shortfilm | dry_run | 0 |
+| graph_0066 | tiktok_hashtag_export | behind_the_scenes_creator | bts | dry_run | 0 |

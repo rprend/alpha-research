@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-12T21:35:17.134Z
+Generated: 2026-06-12T21:38:09.117Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -29,10 +29,10 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Adjacency expansion rows: 22
 - Adjacency expansion added rows: 18
 - Category coverage: 5/11
-- Acquisition tasks: 68
-- Candidate frontier: 68
+- Acquisition tasks: 86
+- Candidate frontier: 81
 - Candidate frontier handles: 4
-- Candidate frontier queries: 64
+- Candidate frontier queries: 77
 - Acquisition import preview accounts: 3
 - Acquisition import preview ready: false
 - Acquisition import waves: 1
@@ -40,10 +40,10 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Acquisition import untraced rows: 6
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
-- Acquisition run history: 9
+- Acquisition run history: 10
 - Scale waves: 1000
 - Wave ledger rows: 1000
-- Wave ledger planned: 995
+- Wave ledger planned: 994
 - Wave ledger imported: 0
 - Wave ledger imported empty: 0
 - Wave ledger failed: 0

@@ -1,9 +1,11 @@
 # Live Manifest Run
 
-Generated: 2026-06-12T21:35:17.065Z
+Generated: 2026-06-12T21:38:09.041Z
 
 - Mode: dry_run
 - Provider: apify
+- Env file loaded: true
+- Provider token available: false
 - Selected waves: 1
 - Estimated cost: $0.5
 - Max cost: $1
@@ -13,7 +15,7 @@ Generated: 2026-06-12T21:35:17.065Z
 
 ## Wave Steps
 
-- scale_wave_0007: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=7`)
+- scale_wave_0008: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=8`)
 
 ## Post Steps
 

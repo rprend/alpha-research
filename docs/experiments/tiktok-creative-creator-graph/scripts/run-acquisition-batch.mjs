@@ -1,4 +1,5 @@
 import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { homedir } from 'node:os'
 import { join } from 'node:path'
 
 const root = process.cwd()
@@ -14,14 +15,32 @@ const args = new Map(process.argv.slice(2).map((arg) => {
 }))
 
 const provider = String(args.get('--provider') ?? 'apify')
+const envFile = String(args.get('--env-file') ?? join(homedir(), '.codex/secrets.env'))
 const maxTasks = Number(args.get('--max-tasks') ?? 5)
 const limit = Number(args.get('--limit') ?? 100)
 const wantsLive = args.has('--live')
 const confirmedLive = args.has('--confirm-live')
-const hasProviderToken = Boolean(process.env.APIFY_TOKEN)
 const dryRun = args.has('--dry-run') || !wantsLive
 const priorityMax = Number(args.get('--priority-max') ?? 1)
 const waveArg = args.get('--wave')
+
+function loadEnvFile(path) {
+  if (!existsSync(path)) return false
+  const lines = readFileSync(path, 'utf8').split('\n')
+  for (const line of lines) {
+    const trimmed = line.trim()
+    if (!trimmed || trimmed.startsWith('#')) continue
+    const match = trimmed.match(/^([A-Za-z_][A-Za-z0-9_]*)=(.*)$/)
+    if (!match) continue
+    const [, key, rawValue] = match
+    if (process.env[key]) continue
+    process.env[key] = rawValue.replace(/^['"]|['"]$/g, '')
+  }
+  return true
+}
+
+const envFileLoaded = loadEnvFile(envFile)
+const hasProviderToken = Boolean(process.env.APIFY_TOKEN)
 
 function ensureDir(path) {
   mkdirSync(path, { recursive: true })
@@ -250,6 +269,8 @@ async function main() {
     generated_at: new Date().toISOString(),
     execution_id: executionId,
     provider,
+    env_file_loaded: envFileLoaded,
+    provider_token_available: hasProviderToken,
     wave_id: selectedWave?.wave_id ?? '',
     wave_found: waveArg ? Boolean(selectedWave) : null,
     dry_run: dryRun,
@@ -272,6 +293,8 @@ async function main() {
 Generated: ${summary.generated_at}
 
 - Provider: ${summary.provider}
+- Env file loaded: ${summary.env_file_loaded}
+- Provider token available: ${summary.provider_token_available}
 - Wave: ${summary.wave_id || 'none'}
 - Dry run: ${summary.dry_run}
 - Live requested: ${summary.live_requested}

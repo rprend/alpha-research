@@ -1,6 +1,6 @@
 # Acquisition Import Preview
 
-Generated: 2026-06-12T21:35:16.311Z
+Generated: 2026-06-12T21:38:08.245Z
 
 - Input rows: 6
 - Normalized rows: 6

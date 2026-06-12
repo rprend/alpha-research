@@ -61,6 +61,12 @@ Live provider execution requires a specific wave, a passing provider preflight, 
 node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --live --confirm-live --wave=0004 --max-tasks=8
 ```
 
+The runner loads `~/.codex/secrets.env` by default before checking provider credentials. If the token is not already available, store it through the hidden-input helper, not chat:
+
+```bash
+~/.codex/scripts/ask-secret.sh APIFY_TOKEN ~/.codex/secrets.env "Enter APIFY_TOKEN"
+```
+
 The runner writes raw provider output to `data/raw/acquisition-results/`. The Apify adapter covers TikTok hashtag/profile/neighborhood exports plus search-index, category-gap, and cross-platform search tasks.
 
 Normalize search/provider acquisition exports into pipeline imports:
@@ -188,6 +194,8 @@ Execute a bounded live sequence only after confirming spend, provider terms, and
 ```bash
 node docs/experiments/tiktok-creative-creator-graph/scripts/run-live-manifest.mjs --live --confirm-live --max-waves=5 --max-cost-usd=5
 ```
+
+Use `--env-file=/path/to/secrets.env` to override the default hidden secrets file.
 
 Build refresh plan:
 
