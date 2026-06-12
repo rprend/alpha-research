@@ -3773,7 +3773,7 @@ Generated: 2026-06-12
   - Organize your class site so that it includes a link to each project and exercise. (Some exercises required adding features directly onto your class site, so you do not need a separate link for those.
 - Reading evidence:
   - editor, such as Sublime Text or Atom for coding (unresolved)
-  - Readings will be dispersed throughout the semester to inform and contextualize our work (heuristic_title)
+  - Readings will be dispersed throughout the semester to inform and contextualize our work (non_citation_fragment)
   - in the relevant slack channel, raise questions, and discuss the text (non_citation_fragment)
   - discussions and class critiques, we will be sharing resources with each other, and supporting each other through technical challenges (non_citation_fragment)
   - in which it was made (non_citation_fragment)

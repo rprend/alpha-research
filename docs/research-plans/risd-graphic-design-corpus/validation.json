@@ -17,13 +17,18 @@
     "low_confidence_assignments": 380,
     "long_assignment_briefs": 59,
     "readings": 148,
-    "normalized_readings": 61,
+    "normalized_readings": 60,
     "local_catalog_readings": 46,
     "external_catalog_readings": 12,
     "external_catalog_attempts": 30,
     "unresolved_readings": 47,
-    "non_citation_reading_fragments": 40,
-    "canonical_reading_works": 30,
+    "non_citation_reading_fragments": 41,
+    "bibliographic_reading_rows": 58,
+    "resource_reading_rows": 49,
+    "contextualized_reading_rows": 51,
+    "assignment_linked_reading_rows": 19,
+    "schedule_linked_reading_rows": 18,
+    "canonical_reading_works": 29,
     "schedule_rows": 320,
     "dated_schedule_rows": 57,
     "table_schedule_rows": 57,
@@ -164,12 +169,17 @@
     {
       "id": "readings_have_normalized_work_links",
       "status": "pass",
-      "detail": "61 reading snippets linked to 30 canonical works; 46 local catalog matches, 12 external catalog matches, 47 unresolved, 40 non-citation fragments."
+      "detail": "60 reading snippets linked to 29 canonical works; 46 local catalog matches, 12 external catalog matches, 47 unresolved, 41 non-citation fragments."
     },
     {
       "id": "readings_external_links_have_metadata",
       "status": "pass",
       "detail": "30 Open Library lookup attempts recorded; 12 reading snippets have external catalog matches; 0 external-link metadata errors."
+    },
+    {
+      "id": "readings_have_resource_semantics",
+      "status": "pass",
+      "detail": "58 bibliographic rows, 49 resource rows, 51 contextualized rows, 19 assignment-linked rows, 18 schedule-linked rows; 0 semantic/link reference errors."
     },
     {
       "id": "schedule_rows_reference_valid_records",

@@ -328,6 +328,8 @@ Acceptance output:
 
 ### Step 8: Improve Reading Citation Linking And Resource Semantics
 
+Status: implemented for deterministic citation/resource classification, reading context labels, reverse links from reading rows to schedule rows and defensible same-source assignment-resource contexts, validation counts, and curriculum display tags. The next improvement should replace heuristic citation parsing with a stronger parser for complete bibliographic strings and page-level resource lists.
+
 Goal: separate true bibliographic readings from resource links, videos, talks, software documentation, and inspiration references.
 
 Implementation requirements:

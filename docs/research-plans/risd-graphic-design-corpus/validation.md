@@ -21,13 +21,18 @@ Overall status: pass
 - Low-confidence assignment fragments: 380
 - Long assignment brief blocks: 59
 - Readings: 148
-- Normalized reading snippets: 61
-- Canonical reading works: 30
+- Normalized reading snippets: 60
+- Canonical reading works: 29
 - Local catalog reading matches: 46
 - External catalog reading matches: 12
 - External catalog lookup attempts: 30
 - Unresolved reading snippets: 47
-- Non-citation reading fragments: 40
+- Non-citation reading fragments: 41
+- Bibliographic reading rows: 58
+- Resource reading rows: 49
+- Contextualized reading rows: 51
+- Assignment-linked reading rows: 19
+- Schedule-linked reading rows: 18
 - Schedule rows: 320
 - Dated schedule rows: 57
 - Table/outline schedule rows: 57
@@ -122,8 +127,9 @@ Overall status: pass
 - PASS assignments_have_field_level_brief_evidence: 488 assignment rows include process, submission, grading, or boundary-marker evidence; 0 field-evidence reference errors.
 - PASS assignments_include_long_brief_blocks: 59 assignment records contain long prompt/brief blocks rather than only sentence snippets.
 - PASS readings_reference_valid_syllabi_and_sources: 0 reading reference errors.
-- PASS readings_have_normalized_work_links: 61 reading snippets linked to 30 canonical works; 46 local catalog matches, 12 external catalog matches, 47 unresolved, 40 non-citation fragments.
+- PASS readings_have_normalized_work_links: 60 reading snippets linked to 29 canonical works; 46 local catalog matches, 12 external catalog matches, 47 unresolved, 41 non-citation fragments.
 - PASS readings_external_links_have_metadata: 30 Open Library lookup attempts recorded; 12 reading snippets have external catalog matches; 0 external-link metadata errors.
+- PASS readings_have_resource_semantics: 58 bibliographic rows, 49 resource rows, 51 contextualized rows, 19 assignment-linked rows, 18 schedule-linked rows; 0 semantic/link reference errors.
 - PASS schedule_rows_reference_valid_records: 320 schedule rows; 0 source/page/syllabus/assignment/reading reference errors.
 - PASS schedule_rows_preserve_source_boundaries: 57 table/outline-derived rows, 263 weekly-evidence snippet rows, 57 dated rows, 48 critique/review rows.
 - PASS search_candidates_have_provenance: 366 search candidates, 0 promoted, 0 imported, 18 live API rows (18 provider-unconfigured); 0 candidate reference errors.

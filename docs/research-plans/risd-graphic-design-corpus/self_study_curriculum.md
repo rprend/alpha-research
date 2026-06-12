@@ -37,12 +37,12 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Tools/software/materials to practice: HTML/CSS, Google Drive, Canvas, Adobe, Adobe Photoshop, Adobe Illustrator, Adobe InDesign, JavaScript
 - Skill targets: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
 - Reading packet:
-  - Semester-long Deliverables (unknown)
-  - John Caserta --> (unknown)
-  - with Bindery (unknown)
-  - Design Studio 2016–18 (unknown)
-  - comes from the credits (unknown)
-  - affects form — Learn to work together to accomplish more (unknown)
+  - Semester-long Deliverables (non_reading_fragment)
+  - John Caserta --> (non_reading_fragment)
+  - with Bindery (non_reading_fragment)
+  - Design Studio 2016–18 (non-reading resource)
+  - comes from the credits (non_reading_fragment)
+  - affects form — Learn to work together to accomplish more (non_reading_fragment)
 - Schedule rhythm:
   - Return to class and prep for a casual, gallery style, laptop sharing.: Return to class and prep for a casual, gallery style, laptop sharing.
   - Begin in class, then continue the process on your own.: Begin in class, then continue the process on your own.
@@ -71,12 +71,12 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Tools/software/materials to practice: Slack, Zoom, HTML/CSS, JavaScript, Adobe, Figma
 - Skill targets: typography, motion design, interaction design, critique and revision, research methods, image making, publication design, identity systems
 - Reading packet:
-  - editor, such as Sublime Text or Atom for coding (unknown)
-  - Readings will be dispersed throughout the semester to inform and contextualize our work (unknown)
-  - in the relevant slack channel, raise questions, and discuss the text (unknown)
-  - discussions and class critiques, we will be sharing resources with each other, and supporting each other through technical challenges (unknown)
-  - in which it was made (unknown)
-  - The Web's Grain, Frank Chimero (unknown)
+  - editor, such as Sublime Text or Atom for coding (non-reading resource)
+  - Readings will be dispersed throughout the semester to inform and contextualize our work (non_reading_fragment)
+  - in the relevant slack channel, raise questions, and discuss the text (non_reading_fragment)
+  - discussions and class critiques, we will be sharing resources with each other, and supporting each other through technical challenges (non_reading_fragment; assignment_resource)
+  - in which it was made (non_reading_fragment)
+  - The Web's Grain, Frank Chimero (essay)
 - Schedule rhythm:
   - Join Slack for class communications: Join Slack for class communications
   - We will be using Github’s code sharing and publishing service to store our class projects.: We will be using Github’s code sharing and publishing service to store our class projects.
@@ -103,12 +103,12 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Tools/software/materials to practice: Slack, Zoom, Google Drive
 - Skill targets: publication design, identity systems, motion design, interaction design, critique and revision, image making, research methods
 - Reading packet:
-  - of a work will differ (unknown)
-  - in which it was made (unknown)
-  - has been sent to Anthony D (unknown)
-  - will be revised to address any feedback RISD receives from Chief Stanton or from one of his representatives (unknown)
-  - / References (unknown)
-  - How to Draw a Tree, Bruno Munari (unknown)
+  - of a work will differ (non_reading_fragment)
+  - in which it was made (non_reading_fragment)
+  - has been sent to Anthony D (non_reading_fragment)
+  - will be revised to address any feedback RISD receives from Chief Stanton or from one of his representatives (non_reading_fragment)
+  - / References (inspiration_reference; inspiration)
+  - How to Draw a Tree, Bruno Munari (book; lecture_support; schedule-linked: schedule_syl_crawl_designandpolitics_risd_gd_2022_03_25_week6_html_0ea8c1e0_001)
 - Schedule rhythm:
   - You will have the last four weeks of class to create a work, whether individual or collaborative, that comes out of the first part of the co: You will have the last four weeks of class to create a work, whether individual or collaborative, that comes out of the first part of the course.
   - Weekly: News share and discussion: Weekly: News share and discussion
@@ -135,12 +135,12 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Tools/software/materials to practice: Canvas, Slack, Zoom, Adobe, Adobe Photoshop, Adobe Illustrator, Adobe InDesign, After Effects
 - Skill targets: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
 - Reading packet:
-  - and lectures supplement (unknown)
-  - that provide historical context (unknown)
-  - to help you with critique in the readings folder (unknown)
-  - Gestalt Principles (unknown)
-  - & page Due Poster (unknown)
-  - Introductions to Graphic Design (unknown)
+  - and lectures supplement (non_reading_fragment; lecture_support)
+  - that provide historical context (non_reading_fragment)
+  - to help you with critique in the readings folder (non_reading_fragment; assignment_resource)
+  - Gestalt Principles (book; lecture_support; schedule-linked: schedule_syl_adam_fein_intro_graphic_design_2021_pdf_001)
+  - & page Due Poster (non_reading_fragment)
+  - Introductions to Graphic Design (book; lecture_support; schedule-linked: schedule_syl_adam_fein_intro_graphic_design_2021_pdf_001)
 - Schedule rhythm:
   - Wintersession 2021 Adam Fein Canvas: Wintersession 2021 Adam Fein Canvas
   - and InDesign though in-class exercises.: and InDesign though in-class exercises.
@@ -166,11 +166,11 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Tools/software/materials to practice: Slack, Zoom, Adobe, Figma, Google Drive
 - Skill targets: typography, publication design, motion design, interaction design, critique and revision, research methods, image making
 - Reading packet:
-  - Typography III is the culmination of the RISD Graphic Design department’s typography curriculum sequence, with an emphasis on typography and contemporary display platforms (unknown)
-  - all are potentially at play (unknown)
-  - of textual content across media (static, dynamic, interactive) and space (unknown)
-  - we’ll read, typographic news and history, and other relevant (sometimes tangential) topics (unknown)
-  - design spreads (unknown)
+  - Typography III is the culmination of the RISD Graphic Design department’s typography curriculum sequence, with an emphasis on typography and contemporary display platforms (non-reading resource)
+  - all are potentially at play (non-reading resource; assignment_resource; assignment-linked: assign_syl_wayback_typography_iii_syllabus_20210414155049_01)
+  - of textual content across media (static, dynamic, interactive) and space (non-reading resource)
+  - we’ll read, typographic news and history, and other relevant (sometimes tangential) topics (non-reading resource; assignment_resource; schedule-linked: schedule_syl_wayback_typography_iii_syllabus_20210414155049_evidence_004; assignment-linked: assign_syl_wayback_typography_iii_syllabus_20210414155049_03)
+  - design spreads (non-reading resource)
 - Schedule rhythm:
   - However, even though my presence and interactions will be mostly Zoom– and Slack-based, I’m designing the course to accommodate both remote : However, even though my presence and interactions will be mostly Zoom– and Slack-based, I’m designing the course to accommodate both remote students and those who would like to collaborate on-campus, during or outside of class.
   - Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, stude: Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, student presentations, hands-on workshops, and group exercises.
@@ -198,10 +198,10 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Tools/software/materials to practice: HTML/CSS
 - Skill targets: publication design, identity systems, motion design, interaction design, image making, typography
 - Reading packet:
-  - Art of Creative Coding Feb 13, 2015 (unknown)
-  - Art of Creative Coding | Web Programming 2015 (unknown)
-  - Art of Creative Coding (unknown)
-  - Art of Creative Coding Feb 13, 2015 (unknown)
+  - Art of Creative Coding Feb 13, 2015 (book; assignment_resource; schedule-linked: schedule_syl_wp15_week_1_concrete_forms_001; assignment-linked: assign_syl_wp15_week_1_concrete_forms_01)
+  - Art of Creative Coding | Web Programming 2015 (website; lecture_support; schedule-linked: schedule_syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7_001)
+  - Art of Creative Coding (book; lecture_support; schedule-linked: schedule_syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7_001)
+  - Art of Creative Coding Feb 13, 2015 (book; lecture_support; schedule-linked: schedule_syl_archive_wp15_risd_gd_category_outline_week_1_concrete_forms_20150215183336_90033202_001)
 - Schedule rhythm:
   - Week 1: Concrete Forms | Web Programming 2015: Week 1: Concrete Forms | Web Programming 2015
   - 5 Week 1: Concrete Forms: 5 Week 1: Concrete Forms
@@ -229,12 +229,12 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Tools/software/materials to practice: Adobe InDesign
 - Skill targets: typography, publication design, interaction design, critique and revision, research methods, image making
 - Reading packet:
-  - for the class (unknown)
-  - order, grids and other systems of organiza- excellent craft / respect for presentation and materials (unknown)
-  - Design The Thames and Hudson Manual of (unknown)
-  - Shaping Text, Jan Middendorp (unknown)
-  - Shaping Text, Jan Middendorp (unknown)
-  - The Anatomy of Type, Stephen Coles (unknown)
+  - for the class (non_reading_fragment)
+  - order, grids and other systems of organiza- excellent craft / respect for presentation and materials (slide_deck; lecture_support)
+  - Design The Thames and Hudson Manual of (tool_documentation; technical_reference)
+  - Shaping Text, Jan Middendorp (book; technical_reference)
+  - Shaping Text, Jan Middendorp (book; technical_reference)
+  - The Anatomy of Type, Stephen Coles (book; lecture_support; schedule-linked: schedule_syl_type_two_2015_syllabus_pdf_evidence_002)
 - Schedule rhythm:
   - Course Goals This class is the next step in your type program here at An organized process folder is a helpful tool for you later: Course Goals This class is the next step in your type program here at An organized process folder is a helpful tool for you later
   - Students will continue to work on developing a contempo- sections require you to turn in a process book for the class.: Students will continue to work on developing a contempo- sections require you to turn in a process book for the class.
@@ -259,12 +259,12 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Syllabus/course artifacts: syl_grad_type_1_2014_syllabus_pdf
 - Skill targets: typography, publication design, interaction design, critique and revision
 - Reading packet:
-  - at The other is of crystal clear glass, thin as a (unknown)
-  - in America, Joseph Blumenthal (unknown)
-  - Text in the Book Format, Keith A. Smith (unknown)
-  - which you really should (unknown)
-  - Thinking with Type, Ellen Lupton (unknown)
-  - The Elements of Typographic Style, Robert Bringhurst (unknown)
+  - at The other is of crystal clear glass, thin as a (non-reading resource)
+  - in America, Joseph Blumenthal (non_reading_fragment)
+  - Text in the Book Format, Keith A. Smith (book; assignment_resource; assignment-linked: assign_syl_grad_type_1_2014_syllabus_pdf_01, assign_syl_grad_type_1_2014_syllabus_pdf_08)
+  - which you really should (non_reading_fragment)
+  - Thinking with Type, Ellen Lupton (book)
+  - The Elements of Typographic Style, Robert Bringhurst (book)
 - Schedule rhythm:
   - This class is your introduction to typography Keep work well organized both on your: This class is your introduction to typography Keep work well organized both on your
   - class you will learn to see to think and to make seeks to communicate is itself not the message: class you will learn to see to think and to make seeks to communicate is itself not the message
@@ -291,12 +291,12 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Tools/software/materials to practice: Adobe, Adobe Illustrator, After Effects, Figma, HTML/CSS, JavaScript, Keynote
 - Skill targets: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
 - Reading packet:
-  - for the poster-as paper and as screen-building on its singular capacity to transform ideas into iconic picture planes; and examining the dynamics of typography and image, both still and in motion (unknown)
-  - about poster history and contemporary poster design (unknown)
-  - is an interface for so much of our emotive, interpersonal, industrial, and political lives (unknown)
-  - using processes such as paper cut-up, copy paste, autocomplete, crowdsourcing, and Natural Language Processing models (unknown)
-  - - transcription workers, human computers, web moderators, and so on (unknown)
-  - discussions will further expand on relevant topics (unknown)
+  - for the poster-as paper and as screen-building on its singular capacity to transform ideas into iconic picture planes; and examining the dynamics of typography and image, both still and in motion (non-reading resource)
+  - about poster history and contemporary poster design (non-reading resource; assignment_resource; assignment-linked: assign_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_01)
+  - is an interface for so much of our emotive, interpersonal, industrial, and political lives (non-reading resource)
+  - using processes such as paper cut-up, copy paste, autocomplete, crowdsourcing, and Natural Language Processing models (non-reading resource)
+  - - transcription workers, human computers, web moderators, and so on (website; lecture_support; schedule-linked: schedule_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_evidence_020)
+  - discussions will further expand on relevant topics (non-reading resource; assignment_resource; schedule-linked: schedule_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_evidence_020; assignment-linked: assign_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_07)
 - Schedule rhythm:
   - In this class, we will explore our contemporary condition through visual-research based projects around self-design, speculative design and : In this class, we will explore our contemporary condition through visual-research based projects around self-design, speculative design and design fiction.
   - In the initial sessions, students will analyze the intuitiveness and patterns of existing apps, critically assess and redefine their functio: In the initial sessions, students will analyze the intuitiveness and patterns of existing apps, critically assess and redefine their functionalities, and explore alternative modes of use.
@@ -334,8 +334,8 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Syllabus/course artifacts: syl_sp19_reframing_the_poster
 - Skill targets: typography, motion design, interaction design, image making
 - Reading packet:
-  - for the poster—as paper and as screen—building on its singular capacity to transform ideas into iconic picture planes, and examining the dynamics of typography and image, both still and in motion (unknown)
-  - about poster history and contemporary poster design (unknown)
+  - for the poster—as paper and as screen—building on its singular capacity to transform ideas into iconic picture planes, and examining the dynamics of typography and image, both still and in motion (non-reading resource)
+  - about poster history and contemporary poster design (non-reading resource; assignment_resource; assignment-linked: assign_syl_sp19_reframing_the_poster_01)
 - Studio briefs to recreate:
   - assignments will be supported with presentations and readings about poster history and con: Studio assignments will be supported with presentations and readings about poster history and contemporary poster design . (deliverables: poster; process: produce finished artifact; type: reading_response; phases: make; output: static_visual_system; boundary: bounded_assignment_brief)
 - Mentor-style checkpoint:
@@ -377,8 +377,8 @@ Studio loop: Set text under explicit hierarchy, spacing, scale, and sequencing c
 - Syllabus/course artifacts: syl_sp19_typography_for_nonmajors
 - Skill targets: typography, publication design, motion design, interaction design
 - Reading packet:
-  - Grid Systems in Graphic Design, Josef Muller-Brockmann (unknown)
-  - and poetry, letterhead systems, brochure or poster (unknown)
+  - Grid Systems in Graphic Design, Josef Muller-Brockmann (book)
+  - and poetry, letterhead systems, brochure or poster (non_reading_fragment)
 - Schedule rhythm:
   - This introductory course is intended for non-majors interested in learning the basic principles of typography including the study of letterf: This introductory course is intended for non-majors interested in learning the basic principles of typography including the study of letterforms, type classification, legibility, organization and hierarchy, as well as text applications, grid systems and page layout.
 - Studio briefs to recreate:
@@ -394,7 +394,7 @@ Studio loop: Set text under explicit hierarchy, spacing, scale, and sequencing c
 - Syllabus/course artifacts: syl_sp19_design_for_publishing
 - Skill targets: typography, publication design, interaction design, image making
 - Reading packet:
-  - based on their own interests and completing a book design project using assigned material (unknown)
+  - based on their own interests and completing a book design project using assigned material (non_reading_fragment; assignment_resource)
 - Studio briefs to recreate:
   - project using assigned material: In the second part of the semester, students will be given the choice between designing a book based on their own interests and completing a book design project using assigned material. (deliverables: book; process: produce finished artifact; type: project_brief; phases: make; output: multi_page_publication; boundary: bounded_assignment_brief)
 - Mentor-style checkpoint:
@@ -409,7 +409,7 @@ Studio loop: Set text under explicit hierarchy, spacing, scale, and sequencing c
 - Tools/software/materials to practice: HTML/CSS, JavaScript
 - Skill targets: interaction design, critique and revision, research methods
 - Reading packet:
-  - of contemporary art and design practices (unknown)
+  - of contemporary art and design practices (non_reading_fragment)
 - Schedule rhythm:
   - The class celebrates the Internet as a space for social exchange and independent expression, while questioning the cultural contradictions e: The class celebrates the Internet as a space for social exchange and independent expression, while questioning the cultural contradictions embedded in online discourse and the motivations of individuals and entities behind online platforms.
 - Studio briefs to recreate:
@@ -426,7 +426,7 @@ Studio loop: Set text under explicit hierarchy, spacing, scale, and sequencing c
 - Tools/software/materials to practice: HTML/CSS
 - Skill targets: typography, publication design, interaction design
 - Reading packet:
-  - Order book (unknown)
+  - Order book (book)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -438,7 +438,7 @@ Studio loop: Set text under explicit hierarchy, spacing, scale, and sequencing c
 - Syllabus/course artifacts: syl_cc_risd_gd_notices_spring_talks_workshops_in_gd_f79eb7cc
 - Skill targets: publication design, interaction design
 - Reading packet:
-  - Signing: JON KEY (unknown)
+  - Signing: JON KEY (book; lecture_support; schedule-linked: schedule_syl_cc_risd_gd_notices_spring_talks_workshops_in_gd_f79eb7cc_002)
 - Schedule rhythm:
   - Friday, April 25: , 12pm risd.gd/notices
   - Friday, March 21: , 12:00pm

@@ -2273,6 +2273,7 @@ function isNonCitationFragment(rawCitation) {
   if (/^(?:important websites?|semester-long deliverables|design studio \d{4}|in gd commons|for the class)$/i.test(rawCitation)) return true
   if (/\b(?:due|homework|hw|crit|critique|class|slack channel|feedback|revised|chief stanton|presentation board)\b/i.test(rawCitation) && !/\b(?:reading|book|essay|article|publisher|press|journal|magazine)\b/i.test(rawCitation)) return true
   if (/\b(?:supplement|provide historical context|help you with critique|technical challenges|contemporary art and design practices)\b/i.test(lower)) return true
+  if (/^readings?\s+(?:will|are|may|can|should)\b/i.test(rawCitation)) return true
   if (/^(?:comes from the credits|affects form|has been sent|which you really should|based on their own interests)\b/i.test(rawCitation)) return true
   return false
 }
@@ -2322,11 +2323,43 @@ function normalizeCitation(raw) {
   }
 }
 
+function classifyReadingSemantics(reading) {
+  const text = `${reading.raw_citation ?? ''} ${reading.title ?? ''} ${reading.publisher_or_source ?? ''}`.toLowerCase()
+  let citationType = reading.resource_type ?? 'unknown'
+  if (reading.linking_status === 'non_citation_fragment' || reading.resource_type === 'non_citation_fragment') citationType = 'non_reading_fragment'
+  else if (['book', 'essay', 'article', 'video', 'website'].includes(reading.resource_type)) citationType = reading.resource_type
+  else if (/youtube|vimeo|video|watch|film|lecture recording|ted\b/.test(text)) citationType = 'video'
+  else if (/slides?|deck|presentation/.test(text)) citationType = 'slide_deck'
+  else if (/documentation|docs|manual|api|html|css|javascript|github|figma|software|tool/.test(text)) citationType = 'tool_documentation'
+  else if (/inspiration|reference|precedent|examples?|archive|collection|museum|gallery|printed matter|publishers?/.test(text)) citationType = 'inspiration_reference'
+  else if (/journal|magazine|article/.test(text)) citationType = 'article'
+  else if (/essay|manifesto|interview/.test(text)) citationType = 'essay'
+  else if (/press|publisher|isbn|book/.test(text) || reading.canonical_work_id) citationType = 'book'
+  else if (reading.resource_type && !['unknown', 'concept_resource', 'organization_resource', 'publisher_resource'].includes(reading.resource_type)) citationType = reading.resource_type
+  else citationType = 'non-reading resource'
+
+  let readingContext = reading.required_or_recommended === 'recommended' ? 'recommended' : 'unknown'
+  if (/required|must read|read before|please read|assigned reading/.test(text)) readingContext = 'required'
+  else if (/recommended|optional|suggested|further reading/.test(text)) readingContext = 'recommended'
+  else if (/inspiration|precedent|reference|examples?|collection|archive/.test(text)) readingContext = 'inspiration'
+  else if (/documentation|docs|manual|tutorial|api|html|css|javascript|github|figma|software|tool/.test(text)) readingContext = 'technical_reference'
+  else if (/lecture|slides?|talk|screening|presentation/.test(text)) readingContext = 'lecture_support'
+  else if (/assignment|project|brief|exercise|critique|crit|workshop|response/.test(text)) readingContext = 'assignment_resource'
+
+  const semanticStatus = citationType === 'non_reading_fragment'
+    ? 'non_citation_fragment'
+    : ['book', 'article', 'essay'].includes(citationType)
+      ? 'bibliographic'
+      : 'resource'
+  return { citation_type: citationType, reading_context: readingContext, semantic_status: semanticStatus }
+}
+
 function buildReadings(syllabi) {
   const rows = []
   for (const syllabus of syllabi) {
     syllabus.readings.forEach((reading, index) => {
       const normalized = normalizeCitation(reading)
+      const semantics = classifyReadingSemantics(normalized)
       rows.push({
         reading_id: `reading_${syllabus.syllabus_id}_${String(index + 1).padStart(2, '0')}`,
         course_code: syllabus.course_code,
@@ -2334,8 +2367,12 @@ function buildReadings(syllabi) {
         syllabus_id: syllabus.syllabus_id,
         citation_excerpt: normalized.raw_citation,
         ...normalized,
+        ...semantics,
         required_or_recommended: /recommended/i.test(reading) ? 'recommended' : 'unknown',
         week_or_date: reading.match(/\b(?:week|class|session)\s+\d+\b/i)?.[0] ?? null,
+        linked_assignment_ids: [],
+        linked_schedule_ids: [],
+        support_link_basis: [],
         source_ids: syllabus.source_ids,
       })
     })
@@ -2373,7 +2410,63 @@ function mergeReadingExternalLinks(readings, existingReadings = []) {
       merged.author = reading.author ?? existing.author ?? existing.external_author ?? null
       merged.publication_year = reading.publication_year ?? existing.publication_year ?? (existing.external_first_publish_year ? String(existing.external_first_publish_year) : null)
     }
+    Object.assign(merged, classifyReadingSemantics(merged))
     return merged
+  })
+}
+
+function enrichReadingSupportLinks(readings, { assignments = [], scheduleRows = [] } = {}) {
+  const assignmentsBySyllabus = new Map()
+  for (const assignment of assignments) {
+    const existing = assignmentsBySyllabus.get(assignment.syllabus_id) ?? []
+    existing.push(assignment)
+    assignmentsBySyllabus.set(assignment.syllabus_id, existing)
+  }
+  const scheduleRowsByReadingId = new Map()
+  for (const row of scheduleRows) {
+    for (const readingId of row.reading_ids ?? []) {
+      const existing = scheduleRowsByReadingId.get(readingId) ?? []
+      existing.push(row.schedule_id)
+      scheduleRowsByReadingId.set(readingId, existing)
+    }
+  }
+  return readings.map((reading) => {
+    const text = `${reading.raw_citation ?? ''} ${reading.title ?? ''}`.toLowerCase()
+    const supportLinkBasis = new Set(reading.support_link_basis ?? [])
+    const linkedAssignmentIds = new Set(reading.linked_assignment_ids ?? [])
+    const usableResource = reading.semantic_status !== 'non_citation_fragment'
+    if (usableResource) {
+      for (const assignment of assignmentsBySyllabus.get(reading.syllabus_id) ?? []) {
+        const assignmentText = `${assignment.title ?? ''} ${assignment.prompt_excerpt ?? ''}`.toLowerCase()
+        const title = (reading.title ?? '').toLowerCase()
+        const raw = (reading.raw_citation ?? '').toLowerCase()
+        if (!/(read|reading|resource|reference|inspiration|precedent|response|critique|assignment|project)/.test(assignmentText)) continue
+        if (title && title.length >= 8 && assignmentText.includes(title)) {
+          linkedAssignmentIds.add(assignment.assignment_id)
+          supportLinkBasis.add('assignment_text_mentions_reading_title')
+        } else if (raw && raw.length >= 18 && assignmentText.includes(raw)) {
+          linkedAssignmentIds.add(assignment.assignment_id)
+          supportLinkBasis.add('assignment_text_mentions_raw_citation')
+        }
+      }
+    }
+    const linkedScheduleIds = new Set(reading.linked_schedule_ids ?? [])
+    if (usableResource) {
+      for (const scheduleId of scheduleRowsByReadingId.get(reading.reading_id) ?? []) {
+        linkedScheduleIds.add(scheduleId)
+        supportLinkBasis.add('schedule_row_reading_ids')
+      }
+    }
+    const enriched = {
+      ...reading,
+      ...classifyReadingSemantics(reading),
+      linked_assignment_ids: [...linkedAssignmentIds].sort(),
+      linked_schedule_ids: [...linkedScheduleIds].sort(),
+      support_link_basis: [...supportLinkBasis].sort(),
+    }
+    if (enriched.linked_assignment_ids.length && enriched.reading_context === 'unknown') enriched.reading_context = 'assignment_resource'
+    if (enriched.linked_schedule_ids.length && enriched.reading_context === 'unknown') enriched.reading_context = 'lecture_support'
+    return enriched
   })
 }
 
@@ -4018,6 +4111,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || assignment.assignment_boundary_evidence.source_ids?.some((id) => !sourceIds.has(id))
       || assignment.assignment_boundary_evidence.boundary_status !== assignment.boundary_status
   )
+  const assignmentIds = new Set(assignments.map((assignment) => assignment.assignment_id))
+  const effectiveScheduleRowIds = new Set(effectiveScheduleRows.map((row) => row.schedule_id))
   const readingSourceErrors = readings.filter((reading) => !syllabusIds.has(reading.syllabus_id) || reading.source_ids.some((id) => !sourceIds.has(id)))
   const readingIds = new Set(readings.map((reading) => reading.reading_id))
   const normalizedReadingCount = readings.filter((reading) => reading.canonical_work_id).length
@@ -4027,6 +4122,18 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const externalCatalogErrors = readings.filter((reading) => reading.external_link_provider && (!reading.external_link_status || (reading.external_link_status === 'matched' && !reading.external_work_id)))
   const unresolvedReadingCount = readings.filter((reading) => reading.linking_status === 'unresolved').length
   const nonCitationReadingCount = readings.filter((reading) => reading.linking_status === 'non_citation_fragment').length
+  const bibliographicReadingCount = readings.filter((reading) => reading.semantic_status === 'bibliographic').length
+  const resourceReadingCount = readings.filter((reading) => reading.semantic_status === 'resource').length
+  const readingContextCount = readings.filter((reading) => reading.reading_context && reading.reading_context !== 'unknown').length
+  const assignmentLinkedReadingCount = readings.filter((reading) => reading.linked_assignment_ids?.length).length
+  const scheduleLinkedReadingCount = readings.filter((reading) => reading.linked_schedule_ids?.length).length
+  const readingSemanticErrors = readings.filter((reading) =>
+    !reading.citation_type
+      || !reading.semantic_status
+      || !reading.reading_context
+      || reading.linked_assignment_ids?.some((id) => !assignmentIds.has(id))
+      || reading.linked_schedule_ids?.some((id) => !effectiveScheduleRowIds.has(id))
+  )
   const searchCandidateErrors = searchCandidates.filter((candidate) => !candidate.candidate_id || !candidate.status || candidate.promoted_source_id && !sourceIds.has(candidate.promoted_source_id))
   const promotedSearchCandidateCount = searchCandidates.filter((candidate) => candidate.promoted_source_id).length
   const importedSearchCandidateCount = searchCandidates.filter((candidate) => candidate.source === 'imported_search_export').length
@@ -4092,7 +4199,6 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const courseSiteSchedulePageCount = effectiveCourseSitePages.filter((page) => page.page_role === 'weekly_schedule').length
   const courseSiteSyllabusPageCount = effectiveCourseSitePages.filter((page) => page.page_role === 'syllabus').length
   const courseSitePagesWithLongBriefs = effectiveCourseSitePages.filter((page) => page.long_assignment_briefs > 0).length
-  const assignmentIds = new Set(assignments.map((assignment) => assignment.assignment_id))
   const courseSitePageIds = new Set(effectiveCourseSitePages.map((page) => page.page_id))
   const scheduleRowErrors = effectiveScheduleRows.filter((row) =>
     !row.schedule_id
@@ -4239,6 +4345,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       id: 'readings_external_links_have_metadata',
       status: externalCatalogErrors.length === 0 ? (externalCatalogAttemptCount > 0 ? 'pass' : 'warn') : 'fail',
       detail: `${externalCatalogAttemptCount} Open Library lookup attempts recorded; ${externalCatalogReadingCount} reading snippets have external catalog matches; ${externalCatalogErrors.length} external-link metadata errors.`,
+    },
+    {
+      id: 'readings_have_resource_semantics',
+      status: readingSemanticErrors.length === 0 && (bibliographicReadingCount > 0 || resourceReadingCount > 0) ? 'pass' : readingSemanticErrors.length === 0 ? 'warn' : 'fail',
+      detail: `${bibliographicReadingCount} bibliographic rows, ${resourceReadingCount} resource rows, ${readingContextCount} contextualized rows, ${assignmentLinkedReadingCount} assignment-linked rows, ${scheduleLinkedReadingCount} schedule-linked rows; ${readingSemanticErrors.length} semantic/link reference errors.`,
     },
     {
       id: 'schedule_rows_reference_valid_records',
@@ -4458,6 +4569,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       external_catalog_attempts: externalCatalogAttemptCount,
       unresolved_readings: unresolvedReadingCount,
       non_citation_reading_fragments: nonCitationReadingCount,
+      bibliographic_reading_rows: bibliographicReadingCount,
+      resource_reading_rows: resourceReadingCount,
+      contextualized_reading_rows: readingContextCount,
+      assignment_linked_reading_rows: assignmentLinkedReadingCount,
+      schedule_linked_reading_rows: scheduleLinkedReadingCount,
       canonical_reading_works: readingFrequency.length,
       schedule_rows: effectiveScheduleRows.length,
       dated_schedule_rows: datedScheduleRowCount,
@@ -5050,6 +5166,11 @@ Overall status: ${validation.status}
 - External catalog lookup attempts: ${validation.counts.external_catalog_attempts}
 - Unresolved reading snippets: ${validation.counts.unresolved_readings}
 - Non-citation reading fragments: ${validation.counts.non_citation_reading_fragments}
+- Bibliographic reading rows: ${validation.counts.bibliographic_reading_rows}
+- Resource reading rows: ${validation.counts.resource_reading_rows}
+- Contextualized reading rows: ${validation.counts.contextualized_reading_rows}
+- Assignment-linked reading rows: ${validation.counts.assignment_linked_reading_rows}
+- Schedule-linked reading rows: ${validation.counts.schedule_linked_reading_rows}
 - Schedule rows: ${validation.counts.schedule_rows}
 - Dated schedule rows: ${validation.counts.dated_schedule_rows}
 - Table/outline schedule rows: ${validation.counts.table_schedule_rows}
@@ -5734,7 +5855,14 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
         lines.push('- Reading packet:')
         courseReadings.slice(0, 6).forEach((reading) => {
           const title = reading.title ?? reading.raw_citation ?? reading.citation_excerpt
-          lines.push(`  - ${title}${reading.author ? `, ${reading.author}` : ''}${reading.required_or_recommended ? ` (${reading.required_or_recommended})` : ''}`)
+          const tags = [
+            reading.required_or_recommended && reading.required_or_recommended !== 'unknown' ? reading.required_or_recommended : null,
+            reading.citation_type,
+            reading.reading_context && reading.reading_context !== 'unknown' ? reading.reading_context : null,
+            reading.linked_schedule_ids?.length ? `schedule-linked: ${reading.linked_schedule_ids.slice(0, 2).join(', ')}` : null,
+            reading.linked_assignment_ids?.length ? `assignment-linked: ${reading.linked_assignment_ids.slice(0, 2).join(', ')}` : null,
+          ].filter(Boolean)
+          lines.push(`  - ${title}${reading.author ? `, ${reading.author}` : ''}${tags.length ? ` (${tags.join('; ')})` : ''}`)
         })
       }
       if (courseScheduleRows.length) {
@@ -5819,8 +5947,7 @@ function renderDerivedArtifactsOnly() {
   const courses = loadJsonl(join(outDir, 'courses.jsonl'))
   const syllabi = loadJsonl(join(outDir, 'syllabi.jsonl'))
   const assignments = buildAssignments(syllabi)
-  const readings = mergeReadingExternalLinks(buildReadings(syllabi), loadJsonl(join(outDir, 'readings.jsonl')))
-  const readingFrequency = buildReadingFrequency(readings)
+  let readings = mergeReadingExternalLinks(buildReadings(syllabi), loadJsonl(join(outDir, 'readings.jsonl')))
   let searchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
   const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
   const commonCrawlPromotions = loadJsonl(join(outDir, 'common_crawl_promotions.jsonl'))
@@ -5839,6 +5966,8 @@ function renderDerivedArtifactsOnly() {
   }
   const courseSitePages = buildCourseSitePages({ sources, syllabi, assignments, readings })
   const scheduleRows = buildScheduleRows({ syllabi, assignments, readings, courseSitePages })
+  readings = enrichReadingSupportLinks(readings, { assignments, scheduleRows })
+  const readingFrequency = buildReadingFrequency(readings)
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters, assignments, readings, scheduleRows })
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings, fieldConflicts })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings, fieldConflicts })
@@ -5947,8 +6076,7 @@ async function reparseExistingSourcesOnlyMode() {
   const courses = buildCourses(inspected)
   const syllabi = buildSyllabi(inspected)
   const assignments = buildAssignments(syllabi)
-  const readings = mergeReadingExternalLinks(buildReadings(syllabi), existingReadings)
-  const readingFrequency = buildReadingFrequency(readings)
+  let readings = mergeReadingExternalLinks(buildReadings(syllabi), existingReadings)
   const { faculty, facultyCourseEdges } = buildFacultyGraph({ sources, courseInventory, syllabi })
   const studentWork = buildStudentWork(inspected)
   const facultyPortfolioExamples = loadJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'))
@@ -5957,6 +6085,8 @@ async function reparseExistingSourcesOnlyMode() {
   const sourceVersions = buildSourceVersions(inspected, wayback)
   const courseSitePages = buildCourseSitePages({ sources, syllabi, assignments, readings })
   const scheduleRows = buildScheduleRows({ syllabi, assignments, readings, courseSitePages })
+  readings = enrichReadingSupportLinks(readings, { assignments, scheduleRows })
+  const readingFrequency = buildReadingFrequency(readings)
   const assignmentBriefPages = buildAssignmentBriefPages({ courseSitePages, assignments })
   const studentWorkAssignmentLinks = buildStudentWorkAssignmentLinks({ studentWork, assignmentBriefPages, assignments, courseSitePages })
   const archiveFetchTargets = buildArchiveFetchTargets({ sources, wayback, sourceVersions })
@@ -6243,8 +6373,7 @@ async function promoteSearchCandidatesOnlyMode() {
   const courses = buildCourses(inspected)
   const syllabi = buildSyllabi(inspected)
   const assignments = buildAssignments(syllabi)
-  const readings = mergeReadingExternalLinks(buildReadings(syllabi), existingReadings)
-  const readingFrequency = buildReadingFrequency(readings)
+  let readings = mergeReadingExternalLinks(buildReadings(syllabi), existingReadings)
   const { faculty, facultyCourseEdges } = buildFacultyGraph({ sources, courseInventory, syllabi })
   const studentWork = buildStudentWork(inspected)
   const facultyPortfolioExamples = loadJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'))
@@ -6253,6 +6382,8 @@ async function promoteSearchCandidatesOnlyMode() {
   const sourceVersions = buildSourceVersions(inspected, wayback)
   const courseSitePages = buildCourseSitePages({ sources, syllabi, assignments, readings })
   const scheduleRows = buildScheduleRows({ syllabi, assignments, readings, courseSitePages })
+  readings = enrichReadingSupportLinks(readings, { assignments, scheduleRows })
+  const readingFrequency = buildReadingFrequency(readings)
   const assignmentBriefPages = buildAssignmentBriefPages({ courseSitePages, assignments })
   const studentWorkAssignmentLinks = buildStudentWorkAssignmentLinks({ studentWork, assignmentBriefPages, assignments, courseSitePages })
   const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
@@ -6531,8 +6662,7 @@ async function promoteArchiveTargetsOnlyMode() {
   const courses = buildCourses(inspected)
   const syllabi = buildSyllabi(inspected)
   const assignments = buildAssignments(syllabi)
-  const readings = mergeReadingExternalLinks(buildReadings(syllabi), loadJsonl(join(outDir, 'readings.jsonl')))
-  const readingFrequency = buildReadingFrequency(readings)
+  let readings = mergeReadingExternalLinks(buildReadings(syllabi), loadJsonl(join(outDir, 'readings.jsonl')))
   const { faculty, facultyCourseEdges } = buildFacultyGraph({ sources, courseInventory, syllabi })
   const studentWork = buildStudentWork(inspected)
   const facultyPortfolioExamples = loadJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'))
@@ -6798,8 +6928,7 @@ async function main() {
   const courses = buildCourses(inspected)
   const syllabi = buildSyllabi(inspected)
   const assignments = buildAssignments(syllabi)
-  const readings = mergeReadingExternalLinks(buildReadings(syllabi), loadJsonl(join(outDir, 'readings.jsonl')))
-  const readingFrequency = buildReadingFrequency(readings)
+  let readings = mergeReadingExternalLinks(buildReadings(syllabi), loadJsonl(join(outDir, 'readings.jsonl')))
   const { faculty, facultyCourseEdges } = buildFacultyGraph({ sources, courseInventory, syllabi })
   const studentWork = buildStudentWork(inspected)
   const facultyPortfolioExamples = loadJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'))
@@ -6808,6 +6937,8 @@ async function main() {
   const archiveFetchTargets = buildArchiveFetchTargets({ sources, wayback, sourceVersions })
   const courseSitePages = buildCourseSitePages({ sources, syllabi, assignments, readings })
   const scheduleRows = buildScheduleRows({ syllabi, assignments, readings, courseSitePages })
+  readings = enrichReadingSupportLinks(readings, { assignments, scheduleRows })
+  const readingFrequency = buildReadingFrequency(readings)
   const assignmentBriefPages = buildAssignmentBriefPages({ courseSitePages, assignments })
   const studentWorkAssignmentLinks = buildStudentWorkAssignmentLinks({ studentWork, assignmentBriefPages, assignments, courseSitePages })
   const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork, scheduleRows })
