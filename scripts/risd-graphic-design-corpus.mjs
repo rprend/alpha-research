@@ -4049,7 +4049,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioGateStatusSummary = null, selfStudyPortfolioReviewIndex = null, selfStudyPortfolioReviewerHandoff = null, selfStudyPortfolioReviewerFeedbackTemplate = null, selfStudyPortfolioReviewerFeedbackImports = null, selfStudyPortfolioReviewerFeedbackSmokeFixture = null, selfStudyPortfolioReviewWorkflow = null, selfStudyPortfolioReviewAgendas = null, selfStudyPortfolioReviewDashboard = null, selfStudyPortfolioDecisionPackets = null, selfStudyPortfolioCompletionChecklists = null, selfStudyPortfolioArchiveManifests = null, selfStudyPortfolioRevisionQueue = null, selfStudyPortfolioGateStatusSuggestions = null, selfStudyPortfolioEvidenceAttachments = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioGateStatusSummary = null, selfStudyPortfolioReviewIndex = null, selfStudyPortfolioReviewerHandoff = null, selfStudyPortfolioReviewerFeedbackTemplate = null, selfStudyPortfolioReviewerFeedbackImports = null, selfStudyPortfolioReviewerFeedbackSmokeFixture = null, selfStudyPortfolioReviewWorkflow = null, selfStudyPortfolioReviewAgendas = null, selfStudyPortfolioReviewDashboard = null, selfStudyPortfolioDecisionPackets = null, selfStudyPortfolioCompletionChecklists = null, selfStudyPortfolioArchiveManifests = null, selfStudyPortfolioArchiveAudit = null, selfStudyPortfolioRevisionQueue = null, selfStudyPortfolioGateStatusSuggestions = null, selfStudyPortfolioEvidenceAttachments = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveArchivePromotions = archivePromotions ?? loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
@@ -4076,6 +4076,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const effectiveSelfStudyPortfolioDecisionPackets = selfStudyPortfolioDecisionPackets ?? []
   const effectiveSelfStudyPortfolioCompletionChecklists = selfStudyPortfolioCompletionChecklists ?? []
   const effectiveSelfStudyPortfolioArchiveManifests = selfStudyPortfolioArchiveManifests ?? []
+  const effectiveSelfStudyPortfolioArchiveAudit = selfStudyPortfolioArchiveAudit ?? []
   const effectiveSelfStudyPortfolioRevisionQueue = selfStudyPortfolioRevisionQueue ?? []
   const effectiveSelfStudyPortfolioGateStatusSuggestions = selfStudyPortfolioGateStatusSuggestions ?? []
   const effectiveSelfStudyPortfolioEvidenceAttachments = selfStudyPortfolioEvidenceAttachments ?? []
@@ -4366,6 +4367,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const portfolioCompletionChecklists = effectiveSelfStudyPortfolioCompletionChecklists.length ? effectiveSelfStudyPortfolioCompletionChecklists : generatedPortfolioCompletionChecklists
   const generatedPortfolioArchiveManifests = buildSelfStudyPortfolioArchiveManifests({ decisionPackets: portfolioDecisionPackets, completionChecklists: portfolioCompletionChecklists, portfolioBriefs, referencePackets: portfolioReferencePackets, sourceExcerptPackets: portfolioSourceExcerptPackets, exportManifests: portfolioExportManifests, gateStatusSummary: portfolioGateStatusSummary })
   const portfolioArchiveManifests = effectiveSelfStudyPortfolioArchiveManifests.length ? effectiveSelfStudyPortfolioArchiveManifests : generatedPortfolioArchiveManifests
+  const generatedPortfolioArchiveAudit = buildSelfStudyPortfolioArchiveAudit(portfolioArchiveManifests)
+  const portfolioArchiveAudit = effectiveSelfStudyPortfolioArchiveAudit.length ? effectiveSelfStudyPortfolioArchiveAudit : generatedPortfolioArchiveAudit
   const progressLedgerWithPortfolioGateAnnotations = annotateSelfStudyProgressLedgerWithPortfolioGates(progressLedger, portfolioMilestones, portfolioCompletionGates)
   const curriculumModulesWithSourceIds = curriculumModules.filter((module) => module.source_ids?.length).length
   const curriculumModulesWithAssignments = curriculumModules.filter((module) => module.assignment_ids?.length).length
@@ -5034,6 +5037,33 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || !manifest.primary_next_action
   )
   const portfolioArchiveManifestsGeneratedMismatch = effectiveSelfStudyPortfolioArchiveManifests.length > 0 && effectiveSelfStudyPortfolioArchiveManifests.length !== generatedPortfolioArchiveManifests.length
+  const portfolioArchiveManifestIds = new Set(portfolioArchiveManifests.map((manifest) => manifest.archive_manifest_id))
+  const validArchiveAuditStatuses = new Set(['ready_to_archive', 'blocked_missing_signed_review', 'blocked_incomplete_package'])
+  const portfolioArchiveAuditErrors = portfolioArchiveAudit.filter((audit) =>
+    !audit.audit_id
+      || !audit.generated_at
+      || !Number.isInteger(audit.audit_totals?.archives)
+      || audit.audit_totals.archives !== portfolioArchiveManifests.length
+      || !Number.isInteger(audit.audit_totals.ready_to_archive)
+      || !Number.isInteger(audit.audit_totals.blocked)
+      || audit.audit_totals.ready_to_archive + audit.audit_totals.blocked !== audit.audit_totals.archives
+      || !Array.isArray(audit.milestone_audits)
+      || audit.milestone_audits.length !== portfolioArchiveManifests.length
+      || audit.milestone_audits.some((row) =>
+        !row.milestone_id
+          || !portfolioMilestoneIds.has(row.milestone_id)
+          || !row.archive_manifest_id
+          || !portfolioArchiveManifestIds.has(row.archive_manifest_id)
+          || !validArchiveAuditStatuses.has(row.audit_status)
+          || typeof row.missing_signed_review_evidence !== 'boolean'
+          || !Array.isArray(row.blocking_reasons)
+          || row.audit_status !== 'ready_to_archive' && row.blocking_reasons.length === 0
+          || !row.next_action
+      )
+      || !audit.report_summary
+      || !audit.primary_next_action
+  )
+  const portfolioArchiveAuditGeneratedMismatch = effectiveSelfStudyPortfolioArchiveAudit.length > 0 && effectiveSelfStudyPortfolioArchiveAudit.length !== generatedPortfolioArchiveAudit.length
   const portfolioBriefReadinessErrors = portfolioBriefs.filter((brief) =>
     !brief.completion_gate_id
       || !portfolioCompletionGateIds.has(brief.completion_gate_id)
@@ -5416,6 +5446,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${portfolioArchiveManifests.length} review archive manifests; ${portfolioArchiveManifests.filter((row) => row.archive_status === 'ready_to_archive').length} ready to archive; ${portfolioArchiveManifestErrors.length} archive reference/package errors; generated mismatch=${portfolioArchiveManifestsGeneratedMismatch}.`,
     },
     {
+      id: 'self_study_portfolio_archive_audit_reports_archive_readiness',
+      status: portfolioArchiveAuditErrors.length === 0 && portfolioArchiveAudit.length === 1 && portfolioArchiveAudit[0]?.audit_totals?.archives === portfolioMilestones.length && !portfolioArchiveAuditGeneratedMismatch ? 'pass' : 'fail',
+      detail: `${portfolioArchiveAudit.length} archive audit reports; ${portfolioArchiveAudit[0]?.audit_totals?.ready_to_archive ?? 0} ready; ${portfolioArchiveAudit[0]?.audit_totals?.blocked ?? 0} blocked; ${portfolioArchiveAuditErrors.length} audit reference/coverage errors; generated mismatch=${portfolioArchiveAuditGeneratedMismatch}.`,
+    },
+    {
       id: 'self_study_progress_ledger_links_to_portfolio_completion_gates',
       status: progressLedgerPortfolioGateErrors.length === 0 && progressLedgerWithPortfolioGateAnnotations.length === progressLedger.length && progressLedger.length > 0 ? 'pass' : 'fail',
       detail: `${progressLedgerWithPortfolioGateAnnotations.length} progress ledger rows carry portfolio review gate annotations; ${progressLedgerPortfolioGateErrors.length} annotation reference errors.`,
@@ -5632,6 +5667,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_portfolio_completion_checklist_ready_rows: portfolioCompletionChecklists.filter((row) => row.completion_status === 'ready_for_after_review').length,
       self_study_portfolio_archive_manifest_rows: portfolioArchiveManifests.length,
       self_study_portfolio_archive_manifest_ready_rows: portfolioArchiveManifests.filter((row) => row.archive_status === 'ready_to_archive').length,
+      self_study_portfolio_archive_audit_reports: portfolioArchiveAudit.length,
+      self_study_portfolio_archive_audit_blocked_rows: portfolioArchiveAudit[0]?.audit_totals?.blocked ?? 0,
       self_study_portfolio_milestones: portfolioMilestones.length,
       self_study_portfolio_briefs: portfolioBriefs.length,
       self_study_portfolio_briefs_with_completion_gate_status: portfolioBriefs.filter((brief) => brief.review_readiness?.status).length,
@@ -8818,6 +8855,97 @@ function selfStudyPortfolioArchiveManifestsMarkdown(manifests) {
   return lines.map((line) => line.trimEnd()).join('\n')
 }
 
+function buildSelfStudyPortfolioArchiveAudit(archiveManifests) {
+  const milestoneAudits = archiveManifests.map((manifest) => {
+    const missingSignedReview = manifest.archive_status !== 'ready_to_archive'
+    const missingRequiredFiles = (manifest.archive_files ?? []).filter((file) => file.archive_requirement === 'required' && (!file.artifact_id || !file.path))
+    const auditStatus = manifest.archive_status === 'ready_to_archive'
+      ? 'ready_to_archive'
+      : missingRequiredFiles.length
+        ? 'blocked_incomplete_package'
+        : 'blocked_missing_signed_review'
+    const blockingReasons = [
+      missingSignedReview ? 'Signed decision packet and completed after-review checklist are not yet ready.' : null,
+      ...missingRequiredFiles.map((file) => `Required archive file is incomplete: ${file.file_role}.`),
+    ].filter(Boolean)
+    return {
+      milestone_id: manifest.milestone_id,
+      archive_manifest_id: manifest.archive_manifest_id,
+      archive_status: manifest.archive_status,
+      audit_status: auditStatus,
+      missing_signed_review_evidence: missingSignedReview,
+      required_file_count: (manifest.archive_files ?? []).filter((file) => file.archive_requirement === 'required').length,
+      missing_required_file_count: missingRequiredFiles.length,
+      blocking_reasons: blockingReasons,
+      next_action: auditStatus === 'ready_to_archive'
+        ? 'Move the archive manifest and files into the learner portfolio evidence archive.'
+        : manifest.primary_next_action,
+    }
+  })
+  const readyCount = milestoneAudits.filter((row) => row.audit_status === 'ready_to_archive').length
+  const blockedCount = milestoneAudits.length - readyCount
+  return [{
+    audit_id: 'portfolio_review_archive_audit',
+    generated_at: retrievedAt,
+    audit_totals: {
+      archives: archiveManifests.length,
+      ready_to_archive: readyCount,
+      blocked: blockedCount,
+      missing_signed_review_evidence: milestoneAudits.filter((row) => row.missing_signed_review_evidence).length,
+      incomplete_packages: milestoneAudits.filter((row) => row.audit_status === 'blocked_incomplete_package').length,
+    },
+    milestone_audits: milestoneAudits,
+    report_summary: `${readyCount} archives ready; ${blockedCount} blocked; ${milestoneAudits.filter((row) => row.missing_signed_review_evidence).length} missing signed-review evidence.`,
+    primary_next_action: blockedCount
+      ? 'Complete signed decision packets and after-review checklists before treating blocked archives as final portfolio evidence.'
+      : 'Archive all milestone review packages and preserve this audit report with the evidence bundle.',
+    provenance_note: 'Generated portfolio review archive audit from review archive manifests.',
+  }]
+}
+
+function selfStudyPortfolioArchiveAuditMarkdown(reports) {
+  const report = reports[0]
+  const lines = [
+    '# RISD Graphic Design Portfolio Review Archive Audit',
+    '',
+    `Generated: ${retrievedAt}`,
+    '',
+    'This audit summarizes archive readiness, signed-review blockers, and incomplete evidence packages for each portfolio milestone.',
+    '',
+  ]
+  if (!report) {
+    lines.push('No archive audit report generated.')
+    return lines.join('\n')
+  }
+  lines.push(`- Audit ID: ${report.audit_id}`)
+  lines.push(`- Archives: ${report.audit_totals.archives}`)
+  lines.push(`- Ready to archive: ${report.audit_totals.ready_to_archive}`)
+  lines.push(`- Blocked: ${report.audit_totals.blocked}`)
+  lines.push(`- Missing signed-review evidence: ${report.audit_totals.missing_signed_review_evidence}`)
+  lines.push(`- Incomplete packages: ${report.audit_totals.incomplete_packages}`)
+  lines.push(`- Summary: ${report.report_summary}`)
+  lines.push('')
+  report.milestone_audits.forEach((row) => {
+    lines.push(`## ${row.milestone_id}`)
+    lines.push('')
+    lines.push(`- Archive manifest: ${row.archive_manifest_id}`)
+    lines.push(`- Audit status: ${row.audit_status}`)
+    lines.push(`- Missing signed-review evidence: ${row.missing_signed_review_evidence}`)
+    lines.push(`- Required files: ${row.required_file_count - row.missing_required_file_count}/${row.required_file_count} complete`)
+    lines.push('- Blocking reasons:')
+    if (row.blocking_reasons.length) {
+      row.blocking_reasons.forEach((reason) => lines.push(`  - ${reason}`))
+    } else {
+      lines.push('  - None')
+    }
+    lines.push(`- Next action: ${row.next_action}`)
+    lines.push('')
+  })
+  lines.push(`Primary next action: ${report.primary_next_action}`)
+  lines.push('')
+  return lines.map((line) => line.trimEnd()).join('\n')
+}
+
 function buildSelfStudyPortfolioRevisionQueue(handoffs, feedbackImports = []) {
   const importsByHandoff = new Map(feedbackImports.filter((row) => row.handoff_id).map((row) => [row.handoff_id, row]))
   return handoffs.flatMap((handoff) => {
@@ -9967,6 +10095,7 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   const portfolioDecisionPackets = buildSelfStudyPortfolioDecisionPackets({ reviewDashboard: portfolioReviewDashboard, reviewAgendas: portfolioReviewAgendas, reviewerHandoffs: portfolioReviewerHandoff, feedbackTemplates: portfolioReviewerFeedbackTemplate, gateStatusSuggestions: portfolioGateStatusSuggestions })
   const portfolioCompletionChecklists = buildSelfStudyPortfolioCompletionChecklists({ decisionPackets: portfolioDecisionPackets, reviewDashboard: portfolioReviewDashboard, revisionQueue: portfolioRevisionQueue })
   const portfolioArchiveManifests = buildSelfStudyPortfolioArchiveManifests({ decisionPackets: portfolioDecisionPackets, completionChecklists: portfolioCompletionChecklists, portfolioBriefs, referencePackets: portfolioReferencePackets, sourceExcerptPackets: portfolioSourceExcerptPackets, exportManifests: portfolioExportManifests, gateStatusSummary: portfolioGateStatusSummary })
+  const portfolioArchiveAudit = buildSelfStudyPortfolioArchiveAudit(portfolioArchiveManifests)
   writeJsonl(join(outDir, 'self_study_pacing_plan.jsonl'), pacingPlan)
   writeJsonl(join(outDir, 'self_study_pacing_profiles.jsonl'), buildSelfStudyPacingProfiles(pacingPlan))
   writeJsonl(join(outDir, 'self_study_progress_ledger.jsonl'), progressLedgerWithPortfolioGateAnnotations)
@@ -10002,6 +10131,8 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   writeFileSync(join(outDir, 'self_study_portfolio_completion_checklists.md'), selfStudyPortfolioCompletionChecklistsMarkdown(portfolioCompletionChecklists))
   writeJsonl(join(outDir, 'self_study_portfolio_review_archive_manifests.jsonl'), portfolioArchiveManifests)
   writeFileSync(join(outDir, 'self_study_portfolio_review_archive_manifests.md'), selfStudyPortfolioArchiveManifestsMarkdown(portfolioArchiveManifests))
+  writeJsonl(join(outDir, 'self_study_portfolio_review_archive_audit.jsonl'), portfolioArchiveAudit)
+  writeFileSync(join(outDir, 'self_study_portfolio_review_archive_audit.md'), selfStudyPortfolioArchiveAuditMarkdown(portfolioArchiveAudit))
   writeJsonl(join(outDir, 'self_study_portfolio_milestones.jsonl'), portfolioMilestones)
   writeJsonl(join(outDir, 'self_study_portfolio_reference_packets.jsonl'), portfolioReferencePackets)
   writeJsonl(join(outDir, 'self_study_portfolio_source_excerpt_packets.jsonl'), portfolioSourceExcerptPackets)

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T18:09:34.788Z",
+  "generatedAt": "2026-06-12T18:11:10.098Z",
   "status": "not-ready-for-publication",
   "checks": [
     {
@@ -31,11 +31,24 @@
       "label": "Public draft exists and blocks premature claims",
       "status": "pass",
       "evidence": "reports/public-draft.md"
+    },
+    {
+      "id": "audit-packet",
+      "label": "Snippet audit packet exists",
+      "status": "pass",
+      "evidence": "reports/audit-packet.json (2 flagged rows)"
+    },
+    {
+      "id": "audit-flags",
+      "label": "No automatic audit flags before publication",
+      "status": "needs-work",
+      "evidence": "2 flagged rows"
     }
   ],
   "nextMoves": [
     "Add Wayback snapshots for selected current pages and historically stable museum URLs.",
     "Add annual reports, exhibition pages, collection pages, and provenance pages as source layers.",
-    "Build a snippet audit packet before public claims."
+    "Build a snippet audit packet before public claims.",
+    "Manually clear audit flags by verifying snippets against source pages."
   ]
 }

@@ -1,6 +1,6 @@
 # Work Log
 
-Generated at: 2026-06-12T18:09:34.754Z
+Generated at: 2026-06-12T18:11:10.031Z
 Current pages: 14
 Museums: 14
 Page types: about
@@ -10,6 +10,7 @@ Page types: about
 ```bash
 node docs/experiments/museum-language-drift/scripts/fetch-current-pages.mjs
 node docs/experiments/museum-language-drift/scripts/build-report.mjs
+node docs/experiments/museum-language-drift/scripts/build-audit-packet.mjs
 node docs/experiments/museum-language-drift/scripts/check-readiness.mjs
 ```
 

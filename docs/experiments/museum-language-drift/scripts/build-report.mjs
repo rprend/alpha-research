@@ -269,6 +269,7 @@ function buildWorkLog(result) {
     "```bash",
     "node docs/experiments/museum-language-drift/scripts/fetch-current-pages.mjs",
     "node docs/experiments/museum-language-drift/scripts/build-report.mjs",
+    "node docs/experiments/museum-language-drift/scripts/build-audit-packet.mjs",
     "node docs/experiments/museum-language-drift/scripts/check-readiness.mjs",
     "```",
     "",

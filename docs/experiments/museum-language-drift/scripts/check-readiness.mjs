@@ -8,6 +8,7 @@ import {
 
 const reportsDir = path.join(experimentDir, "reports");
 const result = await readJson(path.join(reportsDir, "result.json"));
+const audit = await readOptionalJson(path.join(reportsDir, "audit-packet.json"));
 
 const checks = [
   {
@@ -40,6 +41,18 @@ const checks = [
     status: "pass",
     evidence: "reports/public-draft.md",
   },
+  {
+    id: "audit-packet",
+    label: "Snippet audit packet exists",
+    status: audit ? "pass" : "needs-work",
+    evidence: audit ? `reports/audit-packet.json (${audit.flaggedRows} flagged rows)` : "missing",
+  },
+  {
+    id: "audit-flags",
+    label: "No automatic audit flags before publication",
+    status: audit && audit.flaggedRows === 0 ? "pass" : "needs-work",
+    evidence: audit ? `${audit.flaggedRows} flagged rows` : "missing audit packet",
+  },
 ];
 
 const status = checks.every((check) => check.status === "pass") ? "ready-for-editorial-review" : "not-ready-for-publication";
@@ -51,6 +64,7 @@ const readiness = {
     "Add Wayback snapshots for selected current pages and historically stable museum URLs.",
     "Add annual reports, exhibition pages, collection pages, and provenance pages as source layers.",
     "Build a snippet audit packet before public claims.",
+    "Manually clear audit flags by verifying snippets against source pages.",
   ],
 };
 
@@ -77,4 +91,12 @@ await writeText(
 console.log(`Museum language readiness: ${readiness.status}`);
 if (process.argv.includes("--strict") && status !== "ready-for-editorial-review") {
   process.exit(1);
+}
+
+async function readOptionalJson(file) {
+  try {
+    return await readJson(file);
+  } catch {
+    return null;
+  }
 }

@@ -24,6 +24,7 @@ Museum page snapshot, with source genre labels such as:
 ```bash
 node docs/experiments/museum-language-drift/scripts/fetch-current-pages.mjs
 node docs/experiments/museum-language-drift/scripts/build-report.mjs
+node docs/experiments/museum-language-drift/scripts/build-audit-packet.mjs
 node docs/experiments/museum-language-drift/scripts/check-readiness.mjs
 ```
 
@@ -39,6 +40,9 @@ The scripts write:
 - `reports/result.json`
 - `reports/work.md`
 - `reports/public-draft.md`
+- `reports/audit-packet.md`
+- `reports/audit-packet.csv`
+- `reports/audit-packet.json`
 - `reports/readiness.md`
 - `reports/readiness.json`
 
