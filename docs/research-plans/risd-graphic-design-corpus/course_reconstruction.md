@@ -4,13 +4,13 @@ Generated: 2026-06-12
 
 ## Coverage Summary
 
-- Sources inspected: 142
+- Sources inspected: 147
 - Course records created: 134
-- Syllabus/course-site records: 82
-- Assignment evidence snippets: 585
-- Reading evidence snippets: 135
+- Syllabus/course-site records: 87
+- Assignment evidence snippets: 671
+- Reading evidence snippets: 148
 - Student work evidence records: 22
-- Source clusters used for packet grouping: 13
+- Source clusters used for packet grouping: 18
 - Wayback capture records: 106
 
 ## Reconstructed Course Packets
@@ -22,7 +22,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -36,7 +36,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -50,7 +50,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -64,7 +64,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -78,7 +78,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -92,7 +92,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -106,7 +106,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: interaction design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -120,7 +120,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -134,7 +134,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -148,7 +148,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -162,7 +162,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -176,7 +176,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -190,7 +190,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -204,10 +204,10 @@ Generated: 2026-06-12
 - Degree level: unknown
 - Source IDs: src_designandpolitics_2022_syllabus
 - Evidence families: 4 (4 source-cluster grouped)
-  - cluster_011; representative src_crawl_designandpolitics_risd_gd_2022_03_11_week4_html_2c0b9c19; 4 packet sources; keep_distinct_related_sources; Design & Politics
-  - cluster_010; representative src_crawl_designandpolitics_risd_gd_2022_04_15_week8_html_c265275c; 4 packet sources; keep_distinct_related_sources; Design & Politics
-  - cluster_004; representative src_designandpolitics_2022_syllabus; 3 packet sources; keep_distinct_related_sources; Design & Politics
-  - cluster_009; representative src_crawl_designandpolitics_risd_gd_2022_05_06_week11_html_a2f8e669; 2 packet sources; keep_distinct_related_sources; Design & Politics
+  - cluster_016; representative src_crawl_designandpolitics_risd_gd_2022_03_11_week4_html_2c0b9c19; 4 packet sources; keep_distinct_related_sources; Design & Politics
+  - cluster_015; representative src_crawl_designandpolitics_risd_gd_2022_04_15_week8_html_c265275c; 4 packet sources; keep_distinct_related_sources; Design & Politics
+  - cluster_007; representative src_designandpolitics_2022_syllabus; 3 packet sources; keep_distinct_related_sources; Design & Politics
+  - cluster_014; representative src_crawl_designandpolitics_risd_gd_2022_05_06_week11_html_a2f8e669; 2 packet sources; keep_distinct_related_sources; Design & Politics
 - Extracted skill signals: publication design, identity systems, motion design, interaction design, critique and revision
 - Syllabus/course artifact: syl_designandpolitics_2022_syllabus
 - Instructor: John Caserta
@@ -417,10 +417,10 @@ Generated: 2026-06-12
 - Degree level: unknown
 - Source IDs: src_crawl_designandpolitics_risd_gd_2022_05_13_week12_html_38dd599d, src_crawl_designandpolitics_risd_gd_2022_05_06_week11_html_a2f8e669, src_crawl_designandpolitics_risd_gd_2022_04_29_week10_html_2c78adc6, src_crawl_designandpolitics_risd_gd_2022_04_22_week9_html_d18590af, src_crawl_designandpolitics_risd_gd_2022_04_15_week8_html_c265275c, src_crawl_designandpolitics_risd_gd_2022_04_08_week7_html_66adff35, src_crawl_designandpolitics_risd_gd_2022_03_25_week6_html_0ea8c1e0, src_crawl_designandpolitics_risd_gd_2022_03_18_week5_html_573a50cf, src_crawl_designandpolitics_risd_gd_2022_03_11_week4_html_2c0b9c19, src_crawl_designandpolitics_risd_gd_2022_03_04_week3_html_20c11695, src_crawl_designandpolitics_risd_gd_2022_02_25_week2_html_cd23f8f4, src_crawl_designandpolitics_risd_gd_2022_02_18_week1_html_2fe7c95f
 - Evidence families: 4 (4 source-cluster grouped)
-  - cluster_011; representative src_crawl_designandpolitics_risd_gd_2022_03_11_week4_html_2c0b9c19; 4 packet sources; keep_distinct_related_sources; Design & Politics
-  - cluster_010; representative src_crawl_designandpolitics_risd_gd_2022_04_15_week8_html_c265275c; 4 packet sources; keep_distinct_related_sources; Design & Politics
-  - cluster_004; representative src_designandpolitics_2022_syllabus; 3 packet sources; keep_distinct_related_sources; Design & Politics
-  - cluster_009; representative src_crawl_designandpolitics_risd_gd_2022_05_06_week11_html_a2f8e669; 2 packet sources; keep_distinct_related_sources; Design & Politics
+  - cluster_016; representative src_crawl_designandpolitics_risd_gd_2022_03_11_week4_html_2c0b9c19; 4 packet sources; keep_distinct_related_sources; Design & Politics
+  - cluster_015; representative src_crawl_designandpolitics_risd_gd_2022_04_15_week8_html_c265275c; 4 packet sources; keep_distinct_related_sources; Design & Politics
+  - cluster_007; representative src_designandpolitics_2022_syllabus; 3 packet sources; keep_distinct_related_sources; Design & Politics
+  - cluster_014; representative src_crawl_designandpolitics_risd_gd_2022_05_06_week11_html_a2f8e669; 2 packet sources; keep_distinct_related_sources; Design & Politics
 - Extracted skill signals: image making, interaction design, research methods, publication design, critique and revision
 - Syllabus/course artifact: syl_designandpolitics_2022_syllabus
 - Instructor: John Caserta
@@ -630,7 +630,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, motion design, interaction design, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -665,7 +665,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -679,7 +679,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -691,14 +691,14 @@ Generated: 2026-06-12
 - Evidence grade: A
 - Course code: GRAPH-3210
 - Degree level: unknown
-- Source IDs: src_john_caserta_design_studio_1_2016, src_ds1618_design_studio_archive, src_ds1618_make_book, src_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d
-- Evidence families: 8 (3 source-cluster grouped)
-  - cluster_006; representative src_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d; 3 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Design Studio 1 syllabus / Design Studio 2016–18: Unit 1: Overview & Assignment / Design Studio 2016–18: Unit 2: Overview & Assignment
-  - cluster_007; representative src_crawl_ds1618_risd_gd_2016_10_11_unit3_overview_html_9ed746cf; 2 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Unit 3: Overview & Assignment / Design Studio 2016–18: Unit 4: Overview & Assignment
-  - cluster_008; representative src_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224; 2 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Critique Questions / Design Studio 2016–18: Unit 5: Overview & Assignment
-  - src_crawl_johncaserta_com_docicons_html_d8852632; single source; John Caserta Documentary Icons
-  - src_ds1618_design_studio_archive; single source; Design Studio 2016–18
-  - src_ds1618_make_book; single source; Design Studio 1
+- Source IDs: src_john_caserta_design_studio_1_2016, src_ds1618_design_studio_archive, src_ds1618_make_book, src_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d, src_archive_ds1618_risd_gd_20170907172955_07012fee, src_archive_johncaserta_com_ds1_2016_html_20180519075904_df7ec518, src_archive_ds1618_risd_gd_book_html_20180922030215_4678ea9c
+- Evidence families: 8 (7 source-cluster grouped)
+  - cluster_011; representative src_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d; 3 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Design Studio 1 syllabus / Design Studio 2016–18: Unit 1: Overview & Assignment / Design Studio 2016–18: Unit 2: Overview & Assignment
+  - cluster_012; representative src_crawl_ds1618_risd_gd_2016_10_11_unit3_overview_html_9ed746cf; 2 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Unit 3: Overview & Assignment / Design Studio 2016–18: Unit 4: Overview & Assignment
+  - cluster_013; representative src_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224; 2 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Critique Questions / Design Studio 2016–18: Unit 5: Overview & Assignment
+  - cluster_010; representative src_crawl_johncaserta_com_docicons_html_d8852632; 2 packet sources; keep_distinct_related_sources; John Caserta Documentary Icons
+  - cluster_001; representative src_ds1618_design_studio_archive; 2 packet sources; collapse_cosmetic_duplicate; Design Studio 2016–18
+  - cluster_002; representative src_ds1618_make_book; 2 packet sources; collapse_cosmetic_duplicate; Design Studio 1
 - Extracted skill signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
 - Syllabus/course artifact: syl_john_caserta_design_studio_1_2016
 - Instructor: John Caserta
@@ -867,6 +867,66 @@ Generated: 2026-06-12
   - Students should arrive on time and prepared for each class.
   - Schedule
   - Week
+- Syllabus/course artifact: syl_archive_ds1618_risd_gd_20170907172955_07012fee
+- Term: 2016-2018
+- Materials mentioned: print output
+- Policy evidence: Template and Print specs
+- Syllabus/course artifact: syl_archive_johncaserta_com_docicons_html_20180515235950_74e7c3ed
+- Term: 2016
+- Tools mentioned: HTML/CSS
+- Materials mentioned: print output, photography, book binding
+- Policy evidence: Removing detail later is fairly easy.
+- Description evidence: This collection harkens back to the 1930s pictographic style, when icons were drawn as a type of early documentary photograph – descriptive of everyday actions, but more suitable for reproduction with the coarses printing presses of the era. This realistic (but not without humor, voice or wit) type of drawing is visible in Rudolf Modley and Gerd Arntz’s archive (see figure 1) . We can get a sense of the culture by seeing a slightly simplified version of the hair, clothes, mannerisms and industri
+- Weekly/class structure evidence:
+  - Dear Class of 2017, Design Observer
+  - Question the Classroom Design & Culture
+  - Web Programming 2018 4-Week Wkshp
+  - Web Programming 4-Week Wkshp
+- Syllabus/course artifact: syl_archive_johncaserta_com_ds1_2016_html_20180519075904_df7ec518
+- Instructor: Assoc. Prof. John Caserta
+- Term: 2016
+- Tools mentioned: HTML/CSS, Google Drive
+- Materials mentioned: paper, sketchbook, print output, photography, book binding
+- Policy evidence: How can you translate what you see into a graphic language? / We’ll translate those elements into new forms, exploring a variety of materials and tools as we go. / Since graphic design presents ideas primarily via graphic means, awareness of these perceptual principles is critical for designers to help their products stimulate clarity and unity, curiosity and interest, inquiry and insight.
+- Description evidence: DS1 pushes students into a variety of directions, introducing critical tools, methods and content areas in the field. DS1 assumes no prior knowledge of tools or skills, but is not designed as ‘introductory’. Finished projects are not the intended outcome of DS1.
+- Learning outcomes:
+  - Develop habits for self-directed research and inquiry Develop critical thinking skills Develop rhetorical, communication and presentation skills Encourage a pluralistic approach to design problems Encourage work with emerging media Address and participate in contemporary social and cultural issues (in design) Place present day challenges within historical context Semester-long Deliverables Sketchbook
+  - Collect your thoughts, sketches and observations somewhere Research/Inspiration Blog
+  - Think of this as the digital equivalent of your sketchbook
+  - Collect digitally native material (websites, videos, etc) somewhere
+  - May we suggest: tumblr, arena, dropmark, pinterest, google drive Reflective Notes as insights or awareness on a curiosity, excitement, or experience
+- Grading/assessment evidence: 20% Contribution: Attendance, participation, motivation and personal commitment 20% Inquiry: Research, search, study, and networking of knowledge and insights 20% Breadth: Range of experience, willingness to experiment, take risks and broaden horizons 20% Depth: Attention to the quality of ideas, critical thought and authenticity and voice 20% Finish: Demonstration of skills in craft, visual design, presentation and communication Grades in D.S. do not emphasize end products, but the necessary wo
+- Weekly/class structure evidence:
+  - Units may span the entire term, a few weeks, or a single class period.
+  - Evidence of your effort and competency are visible in the research blog(s), sketchbook, participation in class, and completion of the unit assignments as directed by the faculty.
+  - Students should arrive on time and prepared for each class.
+  - Dear Class of 2017, Design Observer
+  - Question the Classroom Design & Culture
+  - Web Programming 2018 4-Week Wkshp
+- Syllabus/course artifact: syl_archive_ds1618_risd_gd_book_html_20180922030215_4678ea9c
+- Term: 2016-2018
+- Tools mentioned: Canvas, Adobe, Adobe Photoshop, Adobe Illustrator, Adobe InDesign, HTML/CSS, JavaScript, Google Drive, Keynote
+- Materials mentioned: paper, presentation board, sketchbook, print output, photography, physical studies
+- Policy evidence: Template and Print specs John Caserta / Question: How can you translate what you see into a graphic language? / We’ll translate those elements into new graphic forms, exploring a variety of materials and tools as we go.
+- Learning outcomes:
+  - develop new form from what you see
+  - exercise an understanding of gestalt principles
+  - explore traditional and nontraditional tools & materials
+  - develop a distinct visual voice
+  - practice transparency of process & generosity with creative methods Week 1 PART 1 Photo Hunt for Form. 1 hour
+- Grading/assessment evidence: Grades in D.S. do not emphasize end products, but the necessary work that leads to successful end products. Evidence of your effort and competency are visible in the research blog(s), sketchbook, participation in class, and completion of the unit assignments as directed by the faculty. The below categories are meant to make assessment more clearly measurable by student and faculty alike. 20% Contribution
+- Schedule rows:
+  - Tuesday, Nov. 8: Lecture ( see pdf notes ) Post-lecture: In-class show and tell of favourite piece Describe your favourite piece of graphic design in detail, your own personal critical thoughts, what kind of use(s) it fulfills for you personally, and, in your opinion, to the d
+  - Tuesday, Nov. 15: DUE WEEK THREE:
+  - Tuesday, Nov. 29: lecture notes Assignment 2: Useless Machine Choose a common utilitarian format: app calendar clock poster publication sign website interface Analyse the format’s common functions and its assumed interactions
+  - Tues Nov 29: Project Shop Draw Down Books Lars Müller Publishers Printed Matter Studios/Firms Experimental Jetset 2x4 Linked by Air Find this at http://ds1618
+- Weekly/class structure evidence:
+  - Week 1
+  - During Class.
+  - Return to class and prep for a casual, gallery style, laptop sharing.
+  - Begin in class, then continue the process on your own.
+  - In Class:
+  - You must use each of the 5 Non-Traditional materials provided in class to begin your form translations.
 - Reading evidence:
   - Semester-long Deliverables (non_citation_fragment)
   - John Caserta --> (non_citation_fragment)
@@ -877,14 +937,14 @@ Generated: 2026-06-12
   - (in GD Commons) (unresolved)
   - Essay on the Importance of Time (heuristic_title)
 - Normalized schedule rows:
-  - weekly_schedule_evidence_snippet: Units may span the entire term, a few weeks, or a single class period.
-  - weekly_schedule_evidence_snippet: Evidence of your effort and competency are visible in the research blog(s), sketchbook, participation in class, and completion of the unit assignments as directed by the faculty.
-  - weekly_schedule_evidence_snippet: Students should arrive on time and prepared for each class.
   - weekly_schedule_evidence_snippet: Return to class and prep for a casual, gallery style, laptop sharing.
   - weekly_schedule_evidence_snippet: Begin in class, then continue the process on your own.
   - weekly_schedule_evidence_snippet: You must use each of the 5 Non-Traditional materials provided in class to begin your form translations.
-  - weekly_schedule_evidence_snippet: As you work in class, keep in mind that your final collection of graphic forms will be digital. (assignments: assign_syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d_07, assign_syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d_05, assign_syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d_01, assign_syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d_06)
-  - weekly_schedule_evidence_snippet: Digitize your physical work before the end of class or make a plan to cleanly transport your physical studies for continued work at home.
+  - weekly_schedule_evidence_snippet: Dear Class of 2017, Design Observer
+  - weekly_schedule_evidence_snippet: Question the Classroom Design & Culture
+  - weekly_schedule_evidence_snippet: Web Programming 2018 4-Week Wkshp
+  - weekly_schedule_evidence_snippet: Units may span the entire term, a few weeks, or a single class period.
+  - weekly_schedule_evidence_snippet: Evidence of your effort and competency are visible in the research blog(s), sketchbook, participation in class, and completion of the unit assignments as directed by the faculty.
 - Assignment/critique evidence:
   - Design Studio will take the form of a series of question-based units, each initiated by a faculty member and contextualized by a presentation, event, or workshop. (deliverables: presentation; process: produce finished artifact, present work for critique; submission: final presentation or critique; type: exercise; phases: make, present; output: presentation; tacit goal: practice explaining and defending design decisions in critique; boundary: bounded_assignment_brief)
   - Finished projects are not the intended outcome of DS1. (type: project_brief; boundary: contextual_course_fragment)
@@ -908,14 +968,14 @@ Generated: 2026-06-12
 - Evidence grade: B
 - Course code: unknown
 - Degree level: unknown
-- Source IDs: src_crawl_johncaserta_com_docicons_html_d8852632, src_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d, src_crawl_ds1618_risd_gd_2016_09_26_unit2_overview_html_1de519e9, src_crawl_ds1618_risd_gd_2016_10_11_unit3_overview_html_9ed746cf, src_crawl_ds1618_risd_gd_2016_10_25_unit4_overview_html_cfb221b8, src_crawl_ds1618_risd_gd_2016_11_08_unit4_crit_html_d957a68a, src_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224
-- Evidence families: 8 (3 source-cluster grouped)
-  - cluster_006; representative src_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d; 3 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Unit 1: Overview & Assignment / Design Studio 2016–18: Unit 2: Overview & Assignment / Design Studio 2016–18: Design Studio 1 syllabus
-  - cluster_007; representative src_crawl_ds1618_risd_gd_2016_10_11_unit3_overview_html_9ed746cf; 2 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Unit 3: Overview & Assignment / Design Studio 2016–18: Unit 4: Overview & Assignment
-  - cluster_008; representative src_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224; 2 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Critique Questions / Design Studio 2016–18: Unit 5: Overview & Assignment
-  - src_crawl_johncaserta_com_docicons_html_d8852632; single source; John Caserta Documentary Icons
-  - src_ds1618_design_studio_archive; single source; Design Studio 2016–18
-  - src_ds1618_make_book; single source; Design Studio 1
+- Source IDs: src_crawl_johncaserta_com_docicons_html_d8852632, src_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d, src_crawl_ds1618_risd_gd_2016_09_26_unit2_overview_html_1de519e9, src_crawl_ds1618_risd_gd_2016_10_11_unit3_overview_html_9ed746cf, src_crawl_ds1618_risd_gd_2016_10_25_unit4_overview_html_cfb221b8, src_crawl_ds1618_risd_gd_2016_11_08_unit4_crit_html_d957a68a, src_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224, src_archive_johncaserta_com_docicons_html_20180515235950_74e7c3ed
+- Evidence families: 8 (7 source-cluster grouped)
+  - cluster_011; representative src_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d; 3 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Unit 1: Overview & Assignment / Design Studio 2016–18: Unit 2: Overview & Assignment / Design Studio 2016–18: Design Studio 1 syllabus
+  - cluster_012; representative src_crawl_ds1618_risd_gd_2016_10_11_unit3_overview_html_9ed746cf; 2 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Unit 3: Overview & Assignment / Design Studio 2016–18: Unit 4: Overview & Assignment
+  - cluster_013; representative src_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224; 2 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Critique Questions / Design Studio 2016–18: Unit 5: Overview & Assignment
+  - cluster_010; representative src_crawl_johncaserta_com_docicons_html_d8852632; 2 packet sources; keep_distinct_related_sources; John Caserta Documentary Icons
+  - cluster_001; representative src_ds1618_design_studio_archive; 2 packet sources; collapse_cosmetic_duplicate; Design Studio 2016–18
+  - cluster_002; representative src_ds1618_make_book; 2 packet sources; collapse_cosmetic_duplicate; Design Studio 1
 - Extracted skill signals: typography, publication design, interaction design, image making, identity systems, critique and revision, research methods, motion design
 - Syllabus/course artifact: syl_john_caserta_design_studio_1_2016
 - Instructor: John Caserta
@@ -1084,6 +1144,66 @@ Generated: 2026-06-12
   - Students should arrive on time and prepared for each class.
   - Schedule
   - Week
+- Syllabus/course artifact: syl_archive_ds1618_risd_gd_20170907172955_07012fee
+- Term: 2016-2018
+- Materials mentioned: print output
+- Policy evidence: Template and Print specs
+- Syllabus/course artifact: syl_archive_johncaserta_com_docicons_html_20180515235950_74e7c3ed
+- Term: 2016
+- Tools mentioned: HTML/CSS
+- Materials mentioned: print output, photography, book binding
+- Policy evidence: Removing detail later is fairly easy.
+- Description evidence: This collection harkens back to the 1930s pictographic style, when icons were drawn as a type of early documentary photograph – descriptive of everyday actions, but more suitable for reproduction with the coarses printing presses of the era. This realistic (but not without humor, voice or wit) type of drawing is visible in Rudolf Modley and Gerd Arntz’s archive (see figure 1) . We can get a sense of the culture by seeing a slightly simplified version of the hair, clothes, mannerisms and industri
+- Weekly/class structure evidence:
+  - Dear Class of 2017, Design Observer
+  - Question the Classroom Design & Culture
+  - Web Programming 2018 4-Week Wkshp
+  - Web Programming 4-Week Wkshp
+- Syllabus/course artifact: syl_archive_johncaserta_com_ds1_2016_html_20180519075904_df7ec518
+- Instructor: Assoc. Prof. John Caserta
+- Term: 2016
+- Tools mentioned: HTML/CSS, Google Drive
+- Materials mentioned: paper, sketchbook, print output, photography, book binding
+- Policy evidence: How can you translate what you see into a graphic language? / We’ll translate those elements into new forms, exploring a variety of materials and tools as we go. / Since graphic design presents ideas primarily via graphic means, awareness of these perceptual principles is critical for designers to help their products stimulate clarity and unity, curiosity and interest, inquiry and insight.
+- Description evidence: DS1 pushes students into a variety of directions, introducing critical tools, methods and content areas in the field. DS1 assumes no prior knowledge of tools or skills, but is not designed as ‘introductory’. Finished projects are not the intended outcome of DS1.
+- Learning outcomes:
+  - Develop habits for self-directed research and inquiry Develop critical thinking skills Develop rhetorical, communication and presentation skills Encourage a pluralistic approach to design problems Encourage work with emerging media Address and participate in contemporary social and cultural issues (in design) Place present day challenges within historical context Semester-long Deliverables Sketchbook
+  - Collect your thoughts, sketches and observations somewhere Research/Inspiration Blog
+  - Think of this as the digital equivalent of your sketchbook
+  - Collect digitally native material (websites, videos, etc) somewhere
+  - May we suggest: tumblr, arena, dropmark, pinterest, google drive Reflective Notes as insights or awareness on a curiosity, excitement, or experience
+- Grading/assessment evidence: 20% Contribution: Attendance, participation, motivation and personal commitment 20% Inquiry: Research, search, study, and networking of knowledge and insights 20% Breadth: Range of experience, willingness to experiment, take risks and broaden horizons 20% Depth: Attention to the quality of ideas, critical thought and authenticity and voice 20% Finish: Demonstration of skills in craft, visual design, presentation and communication Grades in D.S. do not emphasize end products, but the necessary wo
+- Weekly/class structure evidence:
+  - Units may span the entire term, a few weeks, or a single class period.
+  - Evidence of your effort and competency are visible in the research blog(s), sketchbook, participation in class, and completion of the unit assignments as directed by the faculty.
+  - Students should arrive on time and prepared for each class.
+  - Dear Class of 2017, Design Observer
+  - Question the Classroom Design & Culture
+  - Web Programming 2018 4-Week Wkshp
+- Syllabus/course artifact: syl_archive_ds1618_risd_gd_book_html_20180922030215_4678ea9c
+- Term: 2016-2018
+- Tools mentioned: Canvas, Adobe, Adobe Photoshop, Adobe Illustrator, Adobe InDesign, HTML/CSS, JavaScript, Google Drive, Keynote
+- Materials mentioned: paper, presentation board, sketchbook, print output, photography, physical studies
+- Policy evidence: Template and Print specs John Caserta / Question: How can you translate what you see into a graphic language? / We’ll translate those elements into new graphic forms, exploring a variety of materials and tools as we go.
+- Learning outcomes:
+  - develop new form from what you see
+  - exercise an understanding of gestalt principles
+  - explore traditional and nontraditional tools & materials
+  - develop a distinct visual voice
+  - practice transparency of process & generosity with creative methods Week 1 PART 1 Photo Hunt for Form. 1 hour
+- Grading/assessment evidence: Grades in D.S. do not emphasize end products, but the necessary work that leads to successful end products. Evidence of your effort and competency are visible in the research blog(s), sketchbook, participation in class, and completion of the unit assignments as directed by the faculty. The below categories are meant to make assessment more clearly measurable by student and faculty alike. 20% Contribution
+- Schedule rows:
+  - Tuesday, Nov. 8: Lecture ( see pdf notes ) Post-lecture: In-class show and tell of favourite piece Describe your favourite piece of graphic design in detail, your own personal critical thoughts, what kind of use(s) it fulfills for you personally, and, in your opinion, to the d
+  - Tuesday, Nov. 15: DUE WEEK THREE:
+  - Tuesday, Nov. 29: lecture notes Assignment 2: Useless Machine Choose a common utilitarian format: app calendar clock poster publication sign website interface Analyse the format’s common functions and its assumed interactions
+  - Tues Nov 29: Project Shop Draw Down Books Lars Müller Publishers Printed Matter Studios/Firms Experimental Jetset 2x4 Linked by Air Find this at http://ds1618
+- Weekly/class structure evidence:
+  - Week 1
+  - During Class.
+  - Return to class and prep for a casual, gallery style, laptop sharing.
+  - Begin in class, then continue the process on your own.
+  - In Class:
+  - You must use each of the 5 Non-Traditional materials provided in class to begin your form translations.
 - Reading evidence:
   - Semester-long Deliverables (non_citation_fragment)
   - John Caserta --> (non_citation_fragment)
@@ -1094,14 +1214,14 @@ Generated: 2026-06-12
   - (in GD Commons) (unresolved)
   - Essay on the Importance of Time (heuristic_title)
 - Normalized schedule rows:
-  - weekly_schedule_evidence_snippet: Units may span the entire term, a few weeks, or a single class period.
-  - weekly_schedule_evidence_snippet: Evidence of your effort and competency are visible in the research blog(s), sketchbook, participation in class, and completion of the unit assignments as directed by the faculty.
-  - weekly_schedule_evidence_snippet: Students should arrive on time and prepared for each class.
   - weekly_schedule_evidence_snippet: Return to class and prep for a casual, gallery style, laptop sharing.
   - weekly_schedule_evidence_snippet: Begin in class, then continue the process on your own.
   - weekly_schedule_evidence_snippet: You must use each of the 5 Non-Traditional materials provided in class to begin your form translations.
-  - weekly_schedule_evidence_snippet: As you work in class, keep in mind that your final collection of graphic forms will be digital. (assignments: assign_syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d_07, assign_syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d_05, assign_syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d_01, assign_syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d_06)
-  - weekly_schedule_evidence_snippet: Digitize your physical work before the end of class or make a plan to cleanly transport your physical studies for continued work at home.
+  - weekly_schedule_evidence_snippet: Dear Class of 2017, Design Observer
+  - weekly_schedule_evidence_snippet: Question the Classroom Design & Culture
+  - weekly_schedule_evidence_snippet: Web Programming 2018 4-Week Wkshp
+  - weekly_schedule_evidence_snippet: Units may span the entire term, a few weeks, or a single class period.
+  - weekly_schedule_evidence_snippet: Evidence of your effort and competency are visible in the research blog(s), sketchbook, participation in class, and completion of the unit assignments as directed by the faculty.
 - Assignment/critique evidence:
   - Design Studio will take the form of a series of question-based units, each initiated by a faculty member and contextualized by a presentation, event, or workshop. (deliverables: presentation; process: produce finished artifact, present work for critique; submission: final presentation or critique; type: exercise; phases: make, present; output: presentation; tacit goal: practice explaining and defending design decisions in critique; boundary: bounded_assignment_brief)
   - Finished projects are not the intended outcome of DS1. (type: project_brief; boundary: contextual_course_fragment)
@@ -1127,7 +1247,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1141,7 +1261,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1155,7 +1275,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1169,7 +1289,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1183,7 +1303,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1197,7 +1317,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1211,7 +1331,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1225,7 +1345,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1239,7 +1359,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1253,7 +1373,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1267,7 +1387,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1281,7 +1401,7 @@ Generated: 2026-06-12
 - Degree level: unknown
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, identity systems, interaction design, critique and revision, research methods, image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1295,7 +1415,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1309,7 +1429,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1323,7 +1443,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1337,7 +1457,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1351,7 +1471,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1365,7 +1485,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1379,7 +1499,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1393,7 +1513,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1407,7 +1527,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1421,7 +1541,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1435,7 +1555,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1449,7 +1569,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: not enough course-specific evidence yet.
@@ -1462,7 +1582,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: identity systems, interaction design, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1476,7 +1596,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, motion design, interaction design, critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1490,7 +1610,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1557,7 +1677,7 @@ Generated: 2026-06-12
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1571,7 +1691,7 @@ Generated: 2026-06-12
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: not enough course-specific evidence yet.
@@ -1584,7 +1704,7 @@ Generated: 2026-06-12
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1598,7 +1718,7 @@ Generated: 2026-06-12
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1612,7 +1732,7 @@ Generated: 2026-06-12
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1626,7 +1746,7 @@ Generated: 2026-06-12
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1640,7 +1760,7 @@ Generated: 2026-06-12
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1654,7 +1774,7 @@ Generated: 2026-06-12
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1668,7 +1788,7 @@ Generated: 2026-06-12
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1682,7 +1802,7 @@ Generated: 2026-06-12
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1696,7 +1816,7 @@ Generated: 2026-06-12
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1710,7 +1830,7 @@ Generated: 2026-06-12
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_5
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1724,7 +1844,7 @@ Generated: 2026-06-12
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_5
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1738,7 +1858,7 @@ Generated: 2026-06-12
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_5
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1777,7 +1897,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1791,7 +1911,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: identity systems, critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1805,7 +1925,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: identity systems, critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1837,7 +1957,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1941,7 +2061,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1955,7 +2075,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1988,7 +2108,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2002,7 +2122,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2039,7 +2159,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, motion design, interaction design, image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2108,7 +2228,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, motion design, interaction design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2140,7 +2260,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_5
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2154,7 +2274,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_5
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2247,7 +2367,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, identity systems
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2261,7 +2381,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2289,7 +2409,7 @@ Generated: 2026-06-12
 - Degree level: unknown
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2304,7 +2424,7 @@ Generated: 2026-06-12
 - Source IDs: src_risd_graphic_design_courses_page_0, src_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb
 - Evidence families: 2 (1 source-cluster grouped)
   - src_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb; single source; Graphic Design Courses | RISD
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
 - Syllabus/course artifact: syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb
 - Instructor: Tom Wedell Location
@@ -2360,7 +2480,7 @@ Generated: 2026-06-12
 - Degree level: unknown
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, identity systems, critique and revision, research methods, image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2374,7 +2494,7 @@ Generated: 2026-06-12
 - Degree level: unknown
 - Source IDs: src_risd_graphic_design_courses_page_5
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, identity systems, motion design, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2413,7 +2533,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2427,7 +2547,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2441,7 +2561,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2455,7 +2575,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2469,7 +2589,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2483,7 +2603,7 @@ Generated: 2026-06-12
 - Degree level: unknown
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, identity systems, motion design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2497,7 +2617,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2511,7 +2631,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2525,7 +2645,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2539,7 +2659,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2553,7 +2673,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2567,7 +2687,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2636,7 +2756,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2650,7 +2770,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2664,7 +2784,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2678,7 +2798,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2692,7 +2812,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2706,7 +2826,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2720,7 +2840,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2733,13 +2853,13 @@ Generated: 2026-06-12
 - Course code: GRAPH-3188-03
 - Degree level: unknown
 - Source IDs: src_wp15_week_1_concrete_forms, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69
-- Evidence families: 11 (2 source-cluster grouped)
-  - cluster_012; representative src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69; 10 packet sources; keep_distinct_related_sources; Workshop Syllabus | Web Programming 2015 / Pocket Pictograms: Inspiration for Assignment 2 | Web Programming 2015 / PBS Off Book: Art of Creative Coding | Web Programming 2015 / “Concrete objects”, Christian Leborg | Web Programming 2015
-  - cluster_013; representative src_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c; 8 packet sources; keep_distinct_related_sources; Assignments | Web Programming 2015 / 1: Scandinavian Flag | Web Programming 2015 / 2: CSS Drawings | Web Programming 2015 / 3A: Abstract Shape | Web Programming 2015
+- Evidence families: 11 (3 source-cluster grouped)
+  - cluster_017; representative src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69; 10 packet sources; keep_distinct_related_sources; Workshop Syllabus | Web Programming 2015 / Pocket Pictograms: Inspiration for Assignment 2 | Web Programming 2015 / PBS Off Book: Art of Creative Coding | Web Programming 2015 / “Concrete objects”, Christian Leborg | Web Programming 2015
+  - cluster_018; representative src_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c; 8 packet sources; keep_distinct_related_sources; Assignments | Web Programming 2015 / 1: Scandinavian Flag | Web Programming 2015 / 2: CSS Drawings | Web Programming 2015 / 3A: Abstract Shape | Web Programming 2015
+  - cluster_008; representative src_wp15_week_1_concrete_forms; 2 packet sources; keep_distinct_related_sources; Week 1: Concrete Forms | Web Programming 2015
   - src_cc_wp15_risd_gd_assignments_1_scandinavian_flag_scandinavian_flag_9_e73ad2ba; single source; Scandinavian Flag | Web Programming 2015
   - src_cc_wp15_risd_gd_assignments_3a_abstract_shape_seo_jung_lee_kelly_abstract_shape_11afe369; single source; Seo Jung Lee (Kelly) Abstract Shape | Web Programming 2015
   - src_cc_wp15_risd_gd_assignments_5_change_in_relations_change_2_3c1efa27; single source; click | Web Programming 2015
-  - src_cc_wp15_risd_gd_assignments_assignment_7_single_page_website_ce3ecd92; single source; Activity: Bring it all together | Web Programming 2015
 - Extracted skill signals: publication design, identity systems, motion design, interaction design, image making
 - Syllabus/course artifact: syl_wp15_week_1_concrete_forms
 - Term: 2015
@@ -3036,19 +3156,39 @@ Generated: 2026-06-12
   - Week 3: Active Forms
   - Week 4: Putting it Together
   - 4-week workshop at RISD GD
+- Syllabus/course artifact: syl_archive_wp15_risd_gd_category_outline_week_1_concrete_forms_20150215183336_90033202
+- Term: 2015
+- Tools mentioned: HTML/CSS
+- Materials mentioned: print output, photography
+- Policy evidence: 40% attendance, 40% completion of all assignments, 20% risk-taking/end forms
+- Learning outcomes:
+  - Be introduced to HTML and CSS syntax to help conceptualize future projects Encourage use of the browser for experimentation Introduce both analytical and playful working methods Be introduced to instructions-based making &#8212; HTML being one of many coding methods
+  - Be comfortable editing existing themes or websites
+  - Learn to work collaboratively in an open-source model Week One: Concrete Forms Assignment 1: Drawing exercise Assignment 2: Found object drawings Week Two: Abstract Forms Assignment 3: Abstract compositions Assignment 4: Patterns Week Three: Active Forms Assignment 5: Movement and interaction Assignment 6: Responsive animation Week Four: Final Project More details to come Software needed Textwrangler or other HTML editor Safari or Chrome browser
+- Grading/assessment evidence: 40% attendance, 40% completion of all assignments, 20% risk-taking/end forms Missing one class without permission fails the course Although we are &#8220;wired&#8221; throughout the workshop, avoid being plugged into Facebook, email, etc. Drawing at top: YooJin Jang, 2012 4 Week 1: Concrete Forms b Add comment Leave a Reply Click here to cancel reply. You must be logged in to post a comment. Classroom Course outline Assignments 1: Scandinavian Flag Links Outline Week 1: Concrete Forms Setup Vide
+- Schedule rows:
+  - Feb 13, 2015: Week 1: Concrete Forms | Web Programming 2015 Web Programming 2015 Log in &#202; &#194; 5 Week 1: Concrete Forms &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015 PBS Off Book: Art of Creative Coding Feb 13, 2015 4 Video / Week 1: Concrete Forms b Add comment Leave a Reply Click here to cancel reply. You must be logged in to post a commen
+- Weekly/class structure evidence:
+  - Week 1: Concrete Forms | Web Programming 2015
+  - 5 Week 1: Concrete Forms
+  - 4 Video / Week 1: Concrete Forms
+  - Make five drawings using div tags and css classes.
+  - Create an html file for each digital bit, and upload your html files into a post on the class website.
+  - Classes, divs
 - Reading evidence:
   - Art of Creative Coding Feb 13, 2015 (heuristic_title)
   - Art of Creative Coding | Web Programming 2015 (unresolved)
   - Art of Creative Coding (heuristic_title)
+  - Art of Creative Coding Feb 13, 2015 (heuristic_title)
 - Normalized schedule rows:
+  - 1: Week 1: Concrete Forms | Web Programming 2015
+  - 1: 5 Week 1: Concrete Forms
+  - 1: 4 Video / Week 1: Concrete Forms
+  - weekly_schedule_evidence_snippet: Make five drawings using div tags and css classes.
+  - weekly_schedule_evidence_snippet: Create an html file for each digital bit, and upload your html files into a post on the class website.
   - 4: Week 4: Putting it Together
   - weekly_schedule_evidence_snippet: 4-week workshop at RISD GD
   - 4: Week 4: Putting it Together
-  - weekly_schedule_evidence_snippet: 4-week workshop at RISD GD
-  - 4: Week 4: Putting it Together
-  - weekly_schedule_evidence_snippet: 4-week workshop at RISD GD
-  - weekly_schedule_evidence_snippet: For the remainder of class, either:
-  - weekly_schedule_evidence_snippet: Put together a one page website that collects your previous work from this class.
 - Assignment/critique evidence:
   - Week 1: Concrete Forms | Web Programming 2015: Web Programming 2015 5 Week 1: Concrete Forms &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015 PBS Off Book: Art of Creative Coding Feb 13, 2015 4 Video / Week 1: Concrete Forms Click here to cancel reply. You must be logged in to post a comment. &#197; w “Concrete objects”, Christian Leborg Feb 13, 2015 &#197; w Essay by Paul Elliman on Karel Martens’ graphic work Feb 13, 2015 &#237; Assignment 2: Draw found objects with CSS (deliverables: book, animation; constraints: must follow stated requirements; submission: submit or turn in work; type: project_brief; output: interactive_web_artifact; tacit goal: compose visual hierarchy within a concrete graphic format; boundary: bounded_assignment_brief)
   - Workshop Syllabus Feb 13, 2015 • RISD GRAPH-3188-03 (20882) WKSHP: WEB PROGRAMMING • Spring 2015, 1:10–6:10pm, Fridays • 1 credit • wp15.risd.gd John Caserta, instructor; jcaserta@risd.edu; DC105, Mondays 10:30am–1:30pm Brian Hicks, teaching assistant This three-session workshop combines the tactical skills needed to structure web pages with a looser more playful compositional mindset. Students are introduced to the structural elements and properties of HTML and CSS through hands-on demos, in-class exercises and take-home assignments. Tight technical HTML drawings in week one give way to full-screen abstract compositions in week two. Week three incorporates interaction, introducing CSS3 transform, animation, and other user-controlled properties. The final assignment for week four will allow you to combine what you learned in the first three weeks. Although written with HTML/CSS, the assignments are inspired by the contemporary and historical print works of Bradbury Thomspon, Karel Martens and Paul Elliman. Paramount is that students become attuned to the vocabulary and possibilities of graphic form in the digital age. The digital age, similar to the era before in its capacity to pr (deliverables: animation; process: produce finished artifact; submission: final presentation or critique; type: final_project; phases: make, submit; output: interactive_web_artifact; tacit goal: prototype interactive form and user-facing structure; boundary: bounded_assignment_brief)
@@ -3075,14 +3215,14 @@ Generated: 2026-06-12
 - Evidence grade: B
 - Course code: unknown
 - Degree level: unknown
-- Source IDs: src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pocket_pictograms_inspiration_for_assignment_2_3cf16be5, src_crawl_wp15_risd_gd_category_outline_week_1_concrete_forms_4905a205, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_concrete_objects_christian_leborg_f274fe53, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_essay_by_paul_elliman_on_karel_martens_graphic__95641d1a, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_2_draw_found_objects_with_css_4a1e2993, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_1_make_a_scandinavian_flag_with_css_cb569dec, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_2_css_basics_layout_8224b9f9, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_1_html_basics_a2298300, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_getting_setup_add_users_bios_and_avatars_5a8864e0, src_crawl_wp15_risd_gd_wp_login_php_dd54314d, src_crawl_wp15_risd_gd_category_assignments_116ec5b2, src_crawl_wp15_risd_gd_category_assignments_1_scandinavian_flag_04511d7b, src_crawl_wp15_risd_gd_category_assignments_2_css_drawings_6a79b496, src_crawl_wp15_risd_gd_category_assignments_3a_abstract_shape_87c26db6, src_crawl_wp15_risd_gd_category_assignments_3b_abstract_composition_93bcd461, src_crawl_wp15_risd_gd_category_assignments_4css_patterns_de5ba421, src_crawl_wp15_risd_gd_category_assignments_5_change_in_relations_f57a17f0, src_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c, src_cc_wp15_risd_gd_assignments_assignment_7_single_page_website_ce3ecd92, src_cc_wp15_risd_gd_assignments_3a_abstract_shape_seo_jung_lee_kelly_abstract_shape_11afe369, src_cc_wp15_risd_gd_assignments_5_change_in_relations_change_2_3c1efa27, src_cc_wp15_risd_gd_assignments_yves_olivier_flag_f6bd828c, src_cc_wp15_risd_gd_assignments_1_scandinavian_flag_scandinavian_flag_9_e73ad2ba
-- Evidence families: 11 (2 source-cluster grouped)
-  - cluster_012; representative src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69; 10 packet sources; keep_distinct_related_sources; Pocket Pictograms: Inspiration for Assignment 2 | Web Programming 2015 / PBS Off Book: Art of Creative Coding | Web Programming 2015 / “Concrete objects”, Christian Leborg | Web Programming 2015 / Essay by Paul Elliman on Karel Martens’ graphic work | Web Programming 2015
-  - cluster_013; representative src_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c; 8 packet sources; keep_distinct_related_sources; Assignments | Web Programming 2015 / 1: Scandinavian Flag | Web Programming 2015 / 2: CSS Drawings | Web Programming 2015 / 3A: Abstract Shape | Web Programming 2015
+- Source IDs: src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pocket_pictograms_inspiration_for_assignment_2_3cf16be5, src_crawl_wp15_risd_gd_category_outline_week_1_concrete_forms_4905a205, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_concrete_objects_christian_leborg_f274fe53, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_essay_by_paul_elliman_on_karel_martens_graphic__95641d1a, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_2_draw_found_objects_with_css_4a1e2993, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_1_make_a_scandinavian_flag_with_css_cb569dec, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_2_css_basics_layout_8224b9f9, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_1_html_basics_a2298300, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_getting_setup_add_users_bios_and_avatars_5a8864e0, src_crawl_wp15_risd_gd_wp_login_php_dd54314d, src_crawl_wp15_risd_gd_category_assignments_116ec5b2, src_crawl_wp15_risd_gd_category_assignments_1_scandinavian_flag_04511d7b, src_crawl_wp15_risd_gd_category_assignments_2_css_drawings_6a79b496, src_crawl_wp15_risd_gd_category_assignments_3a_abstract_shape_87c26db6, src_crawl_wp15_risd_gd_category_assignments_3b_abstract_composition_93bcd461, src_crawl_wp15_risd_gd_category_assignments_4css_patterns_de5ba421, src_crawl_wp15_risd_gd_category_assignments_5_change_in_relations_f57a17f0, src_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c, src_cc_wp15_risd_gd_assignments_assignment_7_single_page_website_ce3ecd92, src_cc_wp15_risd_gd_assignments_3a_abstract_shape_seo_jung_lee_kelly_abstract_shape_11afe369, src_cc_wp15_risd_gd_assignments_5_change_in_relations_change_2_3c1efa27, src_cc_wp15_risd_gd_assignments_yves_olivier_flag_f6bd828c, src_cc_wp15_risd_gd_assignments_1_scandinavian_flag_scandinavian_flag_9_e73ad2ba, src_archive_wp15_risd_gd_category_outline_week_1_concrete_forms_20150215183336_90033202
+- Evidence families: 11 (3 source-cluster grouped)
+  - cluster_017; representative src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69; 10 packet sources; keep_distinct_related_sources; Pocket Pictograms: Inspiration for Assignment 2 | Web Programming 2015 / PBS Off Book: Art of Creative Coding | Web Programming 2015 / “Concrete objects”, Christian Leborg | Web Programming 2015 / Essay by Paul Elliman on Karel Martens’ graphic work | Web Programming 2015
+  - cluster_018; representative src_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c; 8 packet sources; keep_distinct_related_sources; Assignments | Web Programming 2015 / 1: Scandinavian Flag | Web Programming 2015 / 2: CSS Drawings | Web Programming 2015 / 3A: Abstract Shape | Web Programming 2015
+  - cluster_008; representative src_wp15_week_1_concrete_forms; 2 packet sources; keep_distinct_related_sources; Week 1: Concrete Forms | Web Programming 2015
   - src_cc_wp15_risd_gd_assignments_1_scandinavian_flag_scandinavian_flag_9_e73ad2ba; single source; Scandinavian Flag | Web Programming 2015
   - src_cc_wp15_risd_gd_assignments_3a_abstract_shape_seo_jung_lee_kelly_abstract_shape_11afe369; single source; Seo Jung Lee (Kelly) Abstract Shape | Web Programming 2015
   - src_cc_wp15_risd_gd_assignments_5_change_in_relations_change_2_3c1efa27; single source; click | Web Programming 2015
-  - src_cc_wp15_risd_gd_assignments_assignment_7_single_page_website_ce3ecd92; single source; Activity: Bring it all together | Web Programming 2015
 - Extracted skill signals: motion design, interaction design, publication design, image making, identity systems, typography
 - Syllabus/course artifact: syl_wp15_week_1_concrete_forms
 - Term: 2015
@@ -3379,19 +3519,39 @@ Generated: 2026-06-12
   - Week 3: Active Forms
   - Week 4: Putting it Together
   - 4-week workshop at RISD GD
+- Syllabus/course artifact: syl_archive_wp15_risd_gd_category_outline_week_1_concrete_forms_20150215183336_90033202
+- Term: 2015
+- Tools mentioned: HTML/CSS
+- Materials mentioned: print output, photography
+- Policy evidence: 40% attendance, 40% completion of all assignments, 20% risk-taking/end forms
+- Learning outcomes:
+  - Be introduced to HTML and CSS syntax to help conceptualize future projects Encourage use of the browser for experimentation Introduce both analytical and playful working methods Be introduced to instructions-based making &#8212; HTML being one of many coding methods
+  - Be comfortable editing existing themes or websites
+  - Learn to work collaboratively in an open-source model Week One: Concrete Forms Assignment 1: Drawing exercise Assignment 2: Found object drawings Week Two: Abstract Forms Assignment 3: Abstract compositions Assignment 4: Patterns Week Three: Active Forms Assignment 5: Movement and interaction Assignment 6: Responsive animation Week Four: Final Project More details to come Software needed Textwrangler or other HTML editor Safari or Chrome browser
+- Grading/assessment evidence: 40% attendance, 40% completion of all assignments, 20% risk-taking/end forms Missing one class without permission fails the course Although we are &#8220;wired&#8221; throughout the workshop, avoid being plugged into Facebook, email, etc. Drawing at top: YooJin Jang, 2012 4 Week 1: Concrete Forms b Add comment Leave a Reply Click here to cancel reply. You must be logged in to post a comment. Classroom Course outline Assignments 1: Scandinavian Flag Links Outline Week 1: Concrete Forms Setup Vide
+- Schedule rows:
+  - Feb 13, 2015: Week 1: Concrete Forms | Web Programming 2015 Web Programming 2015 Log in &#202; &#194; 5 Week 1: Concrete Forms &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015 PBS Off Book: Art of Creative Coding Feb 13, 2015 4 Video / Week 1: Concrete Forms b Add comment Leave a Reply Click here to cancel reply. You must be logged in to post a commen
+- Weekly/class structure evidence:
+  - Week 1: Concrete Forms | Web Programming 2015
+  - 5 Week 1: Concrete Forms
+  - 4 Video / Week 1: Concrete Forms
+  - Make five drawings using div tags and css classes.
+  - Create an html file for each digital bit, and upload your html files into a post on the class website.
+  - Classes, divs
 - Reading evidence:
   - Art of Creative Coding Feb 13, 2015 (heuristic_title)
   - Art of Creative Coding | Web Programming 2015 (unresolved)
   - Art of Creative Coding (heuristic_title)
+  - Art of Creative Coding Feb 13, 2015 (heuristic_title)
 - Normalized schedule rows:
+  - 1: Week 1: Concrete Forms | Web Programming 2015
+  - 1: 5 Week 1: Concrete Forms
+  - 1: 4 Video / Week 1: Concrete Forms
+  - weekly_schedule_evidence_snippet: Make five drawings using div tags and css classes.
+  - weekly_schedule_evidence_snippet: Create an html file for each digital bit, and upload your html files into a post on the class website.
   - 4: Week 4: Putting it Together
   - weekly_schedule_evidence_snippet: 4-week workshop at RISD GD
   - 4: Week 4: Putting it Together
-  - weekly_schedule_evidence_snippet: 4-week workshop at RISD GD
-  - 4: Week 4: Putting it Together
-  - weekly_schedule_evidence_snippet: 4-week workshop at RISD GD
-  - weekly_schedule_evidence_snippet: For the remainder of class, either:
-  - weekly_schedule_evidence_snippet: Put together a one page website that collects your previous work from this class.
 - Assignment/critique evidence:
   - Week 1: Concrete Forms | Web Programming 2015: Web Programming 2015 5 Week 1: Concrete Forms &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015 PBS Off Book: Art of Creative Coding Feb 13, 2015 4 Video / Week 1: Concrete Forms Click here to cancel reply. You must be logged in to post a comment. &#197; w “Concrete objects”, Christian Leborg Feb 13, 2015 &#197; w Essay by Paul Elliman on Karel Martens’ graphic work Feb 13, 2015 &#237; Assignment 2: Draw found objects with CSS (deliverables: book, animation; constraints: must follow stated requirements; submission: submit or turn in work; type: project_brief; output: interactive_web_artifact; tacit goal: compose visual hierarchy within a concrete graphic format; boundary: bounded_assignment_brief)
   - Workshop Syllabus Feb 13, 2015 • RISD GRAPH-3188-03 (20882) WKSHP: WEB PROGRAMMING • Spring 2015, 1:10–6:10pm, Fridays • 1 credit • wp15.risd.gd John Caserta, instructor; jcaserta@risd.edu; DC105, Mondays 10:30am–1:30pm Brian Hicks, teaching assistant This three-session workshop combines the tactical skills needed to structure web pages with a looser more playful compositional mindset. Students are introduced to the structural elements and properties of HTML and CSS through hands-on demos, in-class exercises and take-home assignments. Tight technical HTML drawings in week one give way to full-screen abstract compositions in week two. Week three incorporates interaction, introducing CSS3 transform, animation, and other user-controlled properties. The final assignment for week four will allow you to combine what you learned in the first three weeks. Although written with HTML/CSS, the assignments are inspired by the contemporary and historical print works of Bradbury Thomspon, Karel Martens and Paul Elliman. Paramount is that students become attuned to the vocabulary and possibilities of graphic form in the digital age. The digital age, similar to the era before in its capacity to pr (deliverables: animation; process: produce finished artifact; submission: final presentation or critique; type: final_project; phases: make, submit; output: interactive_web_artifact; tacit goal: prototype interactive form and user-facing structure; boundary: bounded_assignment_brief)
@@ -3652,7 +3812,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3666,7 +3826,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3680,7 +3840,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3694,7 +3854,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3708,7 +3868,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3722,7 +3882,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: not enough course-specific evidence yet.
@@ -3735,7 +3895,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: not enough course-specific evidence yet.
@@ -3748,7 +3908,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: not enough course-specific evidence yet.
@@ -3761,7 +3921,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3775,7 +3935,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3789,7 +3949,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3803,7 +3963,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3817,7 +3977,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3831,7 +3991,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3845,7 +4005,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3859,7 +4019,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3873,7 +4033,7 @@ Generated: 2026-06-12
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
 - Evidence families: 1 (1 source-cluster grouped)
-  - cluster_005; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
+  - cluster_009; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3976,6 +4136,11 @@ Generated: 2026-06-12
 - src_risd_coursedog_bfa_graphic_design (C, official_catalog_program): https://risd.coursedog.com/programs/cfa6776e92151000bceb55330dc80000
 - src_risd_in_motion_news (D, official_student_work_story): https://www.risd.edu/news/stories/risd-students-use-video-and-animation-techniques-bring-graphics-life
 - src_wayback_typography_iii_syllabus_20210414155049 (A, wayback_capture): https://web.archive.org/web/20210414155049id_/http://type.practise.studio/syllabus/
+- src_archive_wp15_risd_gd_category_outline_week_1_concrete_forms_20150215183336_90033202 (B, wayback_capture): https://web.archive.org/web/20150215183336id_/http://wp15.risd.gd:80/category/outline/week-1-concrete-forms/
+- src_archive_ds1618_risd_gd_20170907172955_07012fee (A, wayback_capture): https://web.archive.org/web/20170907172955id_/http://ds1618.risd.gd:80/
+- src_archive_johncaserta_com_docicons_html_20180515235950_74e7c3ed (B, wayback_capture): https://web.archive.org/web/20180515235950id_/http://johncaserta.com:80/docicons.html
+- src_archive_johncaserta_com_ds1_2016_html_20180519075904_df7ec518 (A, wayback_capture): https://web.archive.org/web/20180519075904id_/http://johncaserta.com:80/ds1-2016.html
+- src_archive_ds1618_risd_gd_book_html_20180922030215_4678ea9c (A, wayback_capture): https://web.archive.org/web/20180922030215id_/http://ds1618.risd.gd:80/book.html
 - src_john_caserta_student_work (D, student_work_archive): https://johncaserta.com/studentwork.html
 - src_crawl_johncaserta_com_teachingarchive_html_85a4ce9d (B, student_work_archive): https://johncaserta.com/teachingarchive.html
 - src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_adam_fein_61581945 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/adam-fein

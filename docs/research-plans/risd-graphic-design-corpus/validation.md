@@ -6,35 +6,35 @@ Overall status: pass
 
 ## Counts
 
-- Sources: 142
+- Sources: 147
 - Courses: 134
 - Official course inventory: 105
 - RISD displayed course count: 105
-- Syllabi/course artifacts: 82
-- Structured syllabus records: 82
-- Assignments: 585
-- Structured assignment snippets: 585
-- Studio-phase assignment snippets: 585
-- Field-structured assignment snippets: 413
-- High-confidence assignments: 121
-- Medium-confidence assignments: 130
-- Low-confidence assignment fragments: 334
-- Long assignment brief blocks: 54
-- Readings: 135
-- Normalized reading snippets: 56
+- Syllabi/course artifacts: 87
+- Structured syllabus records: 87
+- Assignments: 671
+- Structured assignment snippets: 671
+- Studio-phase assignment snippets: 671
+- Field-structured assignment snippets: 488
+- High-confidence assignments: 137
+- Medium-confidence assignments: 154
+- Low-confidence assignment fragments: 380
+- Long assignment brief blocks: 59
+- Readings: 148
+- Normalized reading snippets: 61
 - Canonical reading works: 30
-- Local catalog reading matches: 43
+- Local catalog reading matches: 46
 - External catalog reading matches: 12
 - External catalog lookup attempts: 30
-- Unresolved reading snippets: 45
-- Non-citation reading fragments: 34
-- Schedule rows: 298
-- Dated schedule rows: 52
-- Table/outline schedule rows: 52
-- Schedule evidence snippet rows: 246
-- Schedule rows with assignment links: 53
-- Schedule rows with reading links: 15
-- Schedule rows with critique signals: 46
+- Unresolved reading snippets: 47
+- Non-citation reading fragments: 40
+- Schedule rows: 320
+- Dated schedule rows: 57
+- Table/outline schedule rows: 57
+- Schedule evidence snippet rows: 263
+- Schedule rows with assignment links: 57
+- Schedule rows with reading links: 16
+- Schedule rows with critique signals: 48
 - Search candidates: 366
 - Promoted search candidates: 0
 - Imported search candidates: 0
@@ -56,8 +56,8 @@ Overall status: pass
 - Faculty profile candidates: 47
 - Ingested faculty profile candidates: 45
 - Faculty rows with profile URLs: 26
-- Faculty rows: 26
-- Faculty-course edges: 48
+- Faculty rows: 27
+- Faculty-course edges: 49
 - Faculty-derived search queries: 160
 - Faculty search backlog candidates: 160
 - Live faculty search candidates: 6
@@ -75,55 +75,58 @@ Overall status: pass
 - Coverage-derived search queries: 160
 - Faculty portfolio examples: 60
 - Structured faculty portfolio examples: 60
-- Course-site page role rows: 85
-- Course-site pages with classroom artifacts: 82
+- Course-site page role rows: 90
+- Course-site pages with classroom artifacts: 87
 - Course-site syllabus pages: 8
 - Course-site assignment/project pages: 46
 - Course-site schedule pages: 13
-- Course-site pages with long briefs: 34
-- Assignment brief page summaries: 79
-- Assignment brief pages with complete signals: 47
-- Assignment brief pages with critique signals: 47
-- Assignment brief pages with revision signals: 15
-- Source clusters: 13
-- Exact duplicate clusters: 2
-- Near-duplicate source clusters: 1
-- Related source-family clusters: 10
+- Course-site pages with long briefs: 37
+- Assignment brief page summaries: 84
+- Assignment brief pages with complete signals: 51
+- Assignment brief pages with critique signals: 51
+- Assignment brief pages with revision signals: 16
+- Source clusters: 18
+- Exact duplicate clusters: 4
+- Near-duplicate source clusters: 2
+- Related source-family clusters: 12
 - Course packets with clustered evidence: 117
 - Source versions: 28
-- Fetched archive source comparisons: 1
-- Metadata-only source versions: 27
+- Fetched archive source comparisons: 6
+- Metadata-only source versions: 22
 - Archive fetch targets: 75
 - High-priority archive fetch targets: 23
-- Pending archive fetch targets: 75
+- Pending archive fetch targets: 70
 - Term-aligned archive fetch targets: 25
+- Archive promotion attempts: 5
+- Successful archive promotions: 5
+- Failed archive promotions: 0
 - Wayback captures: 106
-- Review queue rows: 11
-- Review decision rows: 11
-- Resolved generated review decisions: 11
-- Field conflicts: 7
+- Review queue rows: 12
+- Review decision rows: 12
+- Resolved generated review decisions: 12
+- Field conflicts: 8
 
 ## Checks
 
-- PASS sources_have_required_metadata: 142 sources inspected.
+- PASS sources_have_required_metadata: 147 sources inspected.
 - PASS failed_fetches_do_not_create_syllabi: 0 syllabus rows reference failed sources.
 - PASS syllabi_have_course_identity: 0 syllabus rows lack both course code and title.
-- PASS syllabi_have_structured_top_level_fields: 82 syllabus rows include top-level schema fields for schedule, readings, policies, tools, materials, evidence, or raw excerpts.
+- PASS syllabi_have_structured_top_level_fields: 87 syllabus rows include top-level schema fields for schedule, readings, policies, tools, materials, evidence, or raw excerpts.
 - PASS assignments_reference_valid_syllabi_and_sources: 0 assignment reference errors.
-- PASS assignments_have_structured_signals: 585 assignment snippets include inferred deliverables, constraints, tools, critique, revision, or tacit goals.
-- PASS assignments_have_studio_phase_signals: 585 assignment snippets include assignment type, studio phase, or output-format signals.
-- PASS assignments_have_confidence_boundaries: 121 high, 130 medium, and 334 low confidence assignment rows; 0 boundary metadata errors.
-- PASS assignments_have_field_level_brief_evidence: 413 assignment rows include process, submission, grading, or boundary-marker evidence; 0 field-evidence reference errors.
-- PASS assignments_include_long_brief_blocks: 54 assignment records contain long prompt/brief blocks rather than only sentence snippets.
+- PASS assignments_have_structured_signals: 671 assignment snippets include inferred deliverables, constraints, tools, critique, revision, or tacit goals.
+- PASS assignments_have_studio_phase_signals: 671 assignment snippets include assignment type, studio phase, or output-format signals.
+- PASS assignments_have_confidence_boundaries: 137 high, 154 medium, and 380 low confidence assignment rows; 0 boundary metadata errors.
+- PASS assignments_have_field_level_brief_evidence: 488 assignment rows include process, submission, grading, or boundary-marker evidence; 0 field-evidence reference errors.
+- PASS assignments_include_long_brief_blocks: 59 assignment records contain long prompt/brief blocks rather than only sentence snippets.
 - PASS readings_reference_valid_syllabi_and_sources: 0 reading reference errors.
-- PASS readings_have_normalized_work_links: 56 reading snippets linked to 30 canonical works; 43 local catalog matches, 12 external catalog matches, 45 unresolved, 34 non-citation fragments.
+- PASS readings_have_normalized_work_links: 61 reading snippets linked to 30 canonical works; 46 local catalog matches, 12 external catalog matches, 47 unresolved, 40 non-citation fragments.
 - PASS readings_external_links_have_metadata: 30 Open Library lookup attempts recorded; 12 reading snippets have external catalog matches; 0 external-link metadata errors.
-- PASS schedule_rows_reference_valid_records: 298 schedule rows; 0 source/page/syllabus/assignment/reading reference errors.
-- PASS schedule_rows_preserve_source_boundaries: 52 table/outline-derived rows, 246 weekly-evidence snippet rows, 52 dated rows, 46 critique/review rows.
+- PASS schedule_rows_reference_valid_records: 320 schedule rows; 0 source/page/syllabus/assignment/reading reference errors.
+- PASS schedule_rows_preserve_source_boundaries: 57 table/outline-derived rows, 263 weekly-evidence snippet rows, 57 dated rows, 48 critique/review rows.
 - PASS search_candidates_have_provenance: 366 search candidates, 0 promoted, 0 imported, 18 live API rows (18 provider-unconfigured); 0 candidate reference errors.
 - PASS common_crawl_candidates_have_provenance: 168 Common Crawl candidates, 35 fetch candidates, 8 ingested; 0 provenance errors.
 - PASS common_crawl_promotions_reference_candidates: 8 Common Crawl promotions, 8 successful, 8 ingested; 0 reference errors.
-- PASS faculty_graph_references_valid_sources: 26 faculty rows and 48 faculty-course edges; 0 reference errors.
+- PASS faculty_graph_references_valid_sources: 27 faculty rows and 49 faculty-course edges; 0 reference errors.
 - PASS faculty_search_queries_have_provenance: 160 faculty-derived search queries with 0 provenance errors.
 - PASS faculty_search_backlog_is_executable: 160 faculty query backlog rows for 160 generated faculty queries; 0 backlog provenance errors.
 - PASS live_faculty_search_preserves_provenance: 6 live faculty search rows; 0 live faculty provenance errors.
@@ -139,18 +142,19 @@ Overall status: pass
 - PASS search_promotions_reference_candidates_and_sources: 10 search promotion decisions, 0 successful public fetches, 0 failed fetches, 10 rejected before fetch; 0 reference errors.
 - PASS faculty_portfolio_examples_reference_valid_sources: 0 faculty portfolio example reference errors across 60 examples.
 - PASS faculty_portfolio_examples_have_structured_metadata: 60 faculty portfolio examples include faculty plus title/medium/statement/visual metadata.
-- PASS course_site_pages_reference_valid_sources: 85 course-site page role rows; 0 reference errors.
-- PASS course_site_pages_classify_artifact_roles: 8 syllabus pages, 46 assignment/project pages, 13 schedule pages, and 82 pages with classroom artifacts.
-- PASS assignment_brief_pages_reference_valid_assignments: 79 assignment brief page rows; 0 assignment/source reference errors.
-- PASS assignment_brief_pages_surface_studio_signals: 47 pages have complete brief signals, 47 include critique signals, and 15 include revision signals.
-- PASS source_clusters_reference_valid_sources: 0 source cluster reference errors across 13 clusters.
-- PASS source_clusters_include_dedup_signals: 2 exact duplicate clusters, 1 near-duplicate text clusters, and 10 related source-family clusters.
+- PASS course_site_pages_reference_valid_sources: 90 course-site page role rows; 0 reference errors.
+- PASS course_site_pages_classify_artifact_roles: 8 syllabus pages, 46 assignment/project pages, 13 schedule pages, and 87 pages with classroom artifacts.
+- PASS assignment_brief_pages_reference_valid_assignments: 84 assignment brief page rows; 0 assignment/source reference errors.
+- PASS assignment_brief_pages_surface_studio_signals: 51 pages have complete brief signals, 51 include critique signals, and 16 include revision signals.
+- PASS source_clusters_reference_valid_sources: 0 source cluster reference errors across 18 clusters.
+- PASS source_clusters_include_dedup_signals: 4 exact duplicate clusters, 2 near-duplicate text clusters, and 12 related source-family clusters.
 - PASS source_clusters_are_used_for_packet_grouping: 117 course packets include source-cluster grouped evidence families.
 - PASS source_versions_reference_valid_sources: 0 source version reference errors across 28 version rows.
-- PASS source_versions_record_wayback_comparisons: 1 fetched archive comparisons and 27 metadata-only version rows.
-- PASS archive_fetch_targets_reference_valid_sources: 75 archive fetch targets, 75 pending, 0 target reference errors.
+- PASS source_versions_record_wayback_comparisons: 6 fetched archive comparisons and 22 metadata-only version rows.
+- PASS archive_fetch_targets_reference_valid_sources: 75 archive fetch targets, 70 pending, 0 target reference errors.
 - PASS archive_fetch_targets_prioritize_term_starts: 23 high-priority archive targets; 25 captures align with January/February/May/September term-start months.
-- PASS manual_review_artifacts_have_valid_references: 11 generated review decisions resolved, 0 review decision reference errors, and 0 field conflict reference errors.
+- PASS archive_promotions_reference_targets_and_sources: 5 archive promotion attempts, 5 successful, 0 failed, 0 reference errors.
+- PASS manual_review_artifacts_have_valid_references: 12 generated review decisions resolved, 0 review decision reference errors, and 0 field conflict reference errors.
 - PASS official_course_inventory_reconciled: 105 official offerings parsed; RISD page displays 105 results.
 - PASS wayback_captures_recorded: 106 Wayback capture records.
 - PASS course_records_created: 134 course records created.

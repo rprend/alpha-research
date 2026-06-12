@@ -4,9 +4,9 @@ Generated: 2026-06-12
 
 ## Summary
 
-- Review queue rows: 11
+- Review queue rows: 12
 - Pending review decisions: 0
-- Field conflicts: 7
+- Field conflicts: 8
 - High-priority reviews: 0
 - Medium-priority reviews: 0
 
@@ -22,10 +22,11 @@ Generated: 2026-06-12
 
 - HIGH term on Design Studio 1: 2016 | 2016-2018. Do not merge records across terms unless they are explicitly the same archived course version.
 - HIGH term on GRAPH-3210: 2016 | 2016-2018. Do not merge records across terms unless they are explicitly the same archived course version.
-- MEDIUM instructors on cluster_003: Adam Fein | John Caserta | Julia Gualtieri | Rafael Attias | Tom Wedell Location. Inspect related source-family pages before merging or using cluster-level attribution.
+- MEDIUM instructors on cluster_005: John Caserta | Assoc. Prof. John Caserta. Inspect related source-family pages before merging or using cluster-level attribution.
+- MEDIUM instructors on cluster_006: Adam Fein | John Caserta | Julia Gualtieri | Rafael Attias | Tom Wedell Location. Inspect related source-family pages before merging or using cluster-level attribution.
 - MEDIUM instructor on Design Studio 1: John Caserta | DS1 team. Treat instructor differences as likely section or term variants until corroborated.
 - MEDIUM class_time on GRAPH-2313-01: Thursdays 1:10–6:10pm | Thursdays 1:10pm–6:10pm. Treat meeting-time differences as section or term variants.
-- MEDIUM instructor on GRAPH-3210: John Caserta | DS1 team. Treat instructor differences as likely section or term variants until corroborated.
+- MEDIUM instructor on GRAPH-3210: John Caserta | DS1 team | Assoc. Prof. John Caserta. Treat instructor differences as likely section or term variants until corroborated.
 - LOW class_location on GRAPH-2313-01: Design Center 407 | DC 407. Treat location differences as section or term variants.
 
 ## Review Protocol

@@ -69,6 +69,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/source_clusters.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/source_versions.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/archive_fetch_targets.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/archive_promotions.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/wayback_captures.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/search_candidates.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/search_promotions.jsonl`
@@ -236,7 +237,7 @@ Acceptance output:
 
 ### Step 5: Expand Archive And Common Crawl Recovery
 
-Status: implemented for Wayback capture metadata, source-version comparison rows, Common Crawl candidate/promotion artifacts, and a ranked archive fetch target queue. Archive target rows now identify the best public captures to fetch next by source, academic-term-start timing, course/artifact language, current fetch status, and existing archive-source coverage. Full archive capture fetching and promotion into `sources.jsonl` remains the next bounded implementation step.
+Status: implemented for Wayback capture metadata, source-version comparison rows, Common Crawl candidate/promotion artifacts, a ranked archive fetch target queue, and bounded archive-target promotion. Archive target rows identify the best public captures to fetch next by source, academic-term-start timing, course/artifact language, current fetch status, and existing archive-source coverage. `--promote-archive-only` fetches a bounded number of pending targets, records attempts in `archive_promotions.jsonl`, promotes parseable captures into `sources.jsonl` as `wayback_capture`, and regenerates downstream course-site, assignment, schedule, source-version, validation, reconstruction, and curriculum artifacts. Further work should expand the fetch limit gradually and add richer substantive-difference filtering before large historical backfills.
 
 Goal: recover vanished course sites, older project prompts, and historical schedule/readings evidence.
 
@@ -250,6 +251,7 @@ Implementation requirements:
 6. Expand the bounded Common Crawl pass for known domains and high-priority missing coverage gaps without making routine renders unbounded.
 7. Keep historical course sections and materially different assignment versions separate.
 8. Maintain `archive_fetch_targets.jsonl` as the bounded queue for selected Wayback captures before fetching. Each target must record the current source relationship, capture timestamp, replay/memento URLs, priority score, selection reason, target status, and whether it is already represented by a fetched archive source.
+9. Maintain `archive_promotions.jsonl` as the audit trail for bounded archive target fetch attempts, successful promoted source IDs, failed fetches, and parse status.
 
 Validation requirements:
 
@@ -257,12 +259,14 @@ Validation requirements:
 - `source_versions.jsonl` must connect current and archived records.
 - Duplicate captures with no substantive classroom difference should be clustered or marked cosmetic.
 - Archive fetch targets must reference existing sources and source-version rows, include replay/memento URLs, include a selection reason, and report high-priority, pending, and term-aligned counts.
+- Archive promotion rows must reference existing archive fetch targets, and every successful promotion must reference a real source row.
 
 Acceptance output:
 
 - fetched archive sources where currently only capture metadata exists
 - archive-derived course-site pages, assignments, readings, or schedule rows when evidence is present
 - `archive_fetch_targets.jsonl` showing which captures should be fetched first and why
+- `archive_promotions.jsonl` showing which captures were fetched, promoted, or rejected by extraction failure
 
 ### Step 6: Upgrade Deduplication, Versioning, And Conflict Handling
 
@@ -389,6 +393,12 @@ If a slice changes search ingestion, also run:
 
 ```bash
 node scripts/risd-graphic-design-corpus.mjs --search-api-only
+```
+
+If a slice changes archive ingestion or target promotion, also run:
+
+```bash
+node scripts/risd-graphic-design-corpus.mjs --promote-archive-only
 ```
 
 ## Required End State
@@ -1000,6 +1010,36 @@ Target statuses:
 
 - `pending_archive_fetch`: selected capture should be fetched, parsed, and classified in a bounded archive run.
 - `already_fetched_archive_source`: selected capture is already represented by a fetched archive-derived source.
+
+### `archive_promotions.jsonl`
+
+One row per bounded Wayback target fetch attempt. Successful rows promote public, parseable captures into `sources.jsonl`; failed rows remain as an audit trail and must not create course, assignment, reading, schedule, or student-work facts.
+
+Required fields:
+
+- `promotion_id`
+- `target_id`
+- `source_id`
+- `promoted_at`
+- `promoted_source_id`
+- `original_url`
+- `memento_url`
+- `replay_url`
+- `capture_timestamp`
+- `priority_score`
+- `priority`
+- `selection_reason`
+- `source_type`
+- `authority`
+- `confidence`
+- `fetch_status`
+- `extraction_status`
+- `content_type`
+- `checksum`
+- `title`
+- `text_length`
+- `notes`
+- `error`
 
 ### `review_decisions.jsonl`
 

@@ -14,6 +14,7 @@ const commonCrawlOnly = process.argv.includes('--common-crawl-only')
 const promoteCommonCrawlOnly = process.argv.includes('--promote-common-crawl-only')
 const ingestCommonCrawlOnly = process.argv.includes('--ingest-common-crawl-only')
 const promoteSearchOnly = process.argv.includes('--promote-search-only')
+const promoteArchiveOnly = process.argv.includes('--promote-archive-only')
 const ingestFacultyProfilesOnly = process.argv.includes('--ingest-faculty-profiles-only')
 const facultyPortfolioExamplesOnly = process.argv.includes('--faculty-portfolio-examples-only')
 const linkReadingsOnly = process.argv.includes('--link-readings-only')
@@ -35,6 +36,7 @@ const coverageSearchApiMaxQueries = Number(process.env.RISD_GD_COVERAGE_SEARCH_A
 const facultySearchApiMaxQueries = Number(process.env.RISD_GD_FACULTY_SEARCH_API_MAX_QUERIES ?? 6)
 const searchApiResultsPerQuery = Number(process.env.RISD_GD_SEARCH_API_RESULTS_PER_QUERY ?? 10)
 const searchPromoteLimit = Number(process.env.RISD_GD_SEARCH_PROMOTE_LIMIT ?? 8)
+const archivePromoteLimit = Number(process.env.RISD_GD_ARCHIVE_PROMOTE_LIMIT ?? 5)
 const searchImportPath = process.env.RISD_GD_SEARCH_IMPORTS ?? join(outDir, 'search_imports.jsonl')
 const risdGraphicDesignFacultyUrl = 'https://www.risd.edu/academics/graphic-design/faculty'
 
@@ -1030,6 +1032,24 @@ function sourceSeedFromCommonCrawlCandidate(candidate) {
     discovery_query: candidate.url_pattern,
     discovery_rank: candidate.relevance_score,
     notes: `Promoted from Common Crawl ${candidate.index_id}${candidate.timestamp ? ` capture ${candidate.timestamp}` : ''}. Candidate ${candidate.candidate_id}.`,
+  }
+}
+
+function sourceSeedFromArchiveTarget(target) {
+  return {
+    source_id: sourceIdForUrl('src_archive', `${target.original_url}@${target.capture_timestamp}`),
+    url: target.memento_url,
+    source_type: 'wayback_capture',
+    authority: 'internet_archive',
+    confidence: target.evidence_grade ?? 'B',
+    parent_source_id: target.source_id,
+    original_url: target.original_url,
+    archive_capture_timestamp: target.capture_timestamp,
+    archive_target_id: target.target_id,
+    course_code: target.course_code ?? null,
+    course_title: target.course_title ?? null,
+    term: target.term ?? null,
+    notes: `Wayback capture ${target.capture_timestamp} selected from archive target ${target.target_id}. Original URL: ${target.original_url}. Selection reason: ${target.selection_reason}`,
   }
 }
 
@@ -3562,6 +3582,12 @@ function buildSourceVersions(inspected, wayback) {
 function buildArchiveFetchTargets({ sources, wayback, sourceVersions }) {
   const sourceById = new Map(sources.map((source) => [source.source_id, source]))
   const versionBySourceId = new Map(sourceVersions.map((version) => [version.source_id, version]))
+  const archiveSourcesByParent = new Map()
+  for (const source of sources.filter((row) => row.source_type === 'wayback_capture' && row.parent_source_id)) {
+    const existing = archiveSourcesByParent.get(source.parent_source_id) ?? []
+    existing.push(source)
+    archiveSourcesByParent.set(source.parent_source_id, existing)
+  }
   const capturesBySource = new Map()
   for (const capture of wayback) {
     const existing = capturesBySource.get(capture.source_id) ?? []
@@ -3574,6 +3600,7 @@ function buildArchiveFetchTargets({ sources, wayback, sourceVersions }) {
     const source = sourceById.get(sourceId)
     const version = versionBySourceId.get(sourceId)
     if (!source || !version) continue
+    const archiveSources = archiveSourcesByParent.get(sourceId) ?? []
     const ranked = captures
       .map((capture) => {
         const score = archiveCapturePriorityScore({ source, capture, version })
@@ -3586,7 +3613,7 @@ function buildArchiveFetchTargets({ sources, wayback, sourceVersions }) {
       .sort((a, b) => b.score - a.score || a.capture.timestamp.localeCompare(b.capture.timestamp))
       .slice(0, 3)
     for (const { capture, score, reason } of ranked) {
-      const alreadyFetched = (version?.fetched_archive_source_ids ?? []).some((id) => id.includes(capture.timestamp))
+      const alreadyFetched = archiveSources.some((archiveSource) => archiveSource.archive_capture_timestamp === capture.timestamp)
       targets.push({
         target_id: `archive_target_${slug(sourceId)}_${capture.timestamp}`,
         source_id: sourceId,
@@ -3888,8 +3915,9 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
+  const effectiveArchivePromotions = archivePromotions ?? loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
   const effectiveCourseSitePages = courseSitePages ?? loadJsonl(join(outDir, 'course_site_pages.jsonl'))
   const effectiveAssignmentBriefPages = assignmentBriefPages ?? loadJsonl(join(outDir, 'assignment_brief_pages.jsonl'))
@@ -4084,6 +4112,16 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const highPriorityArchiveFetchTargetCount = effectiveArchiveFetchTargets.filter((target) => target.priority === 'high').length
   const pendingArchiveFetchTargetCount = effectiveArchiveFetchTargets.filter((target) => target.target_status === 'pending_archive_fetch').length
   const termAlignedArchiveFetchTargetCount = effectiveArchiveFetchTargets.filter((target) => target.academic_term_start_aligned).length
+  const archiveFetchTargetIds = new Set(effectiveArchiveFetchTargets.map((target) => target.target_id))
+  const successfulArchivePromotionCount = effectiveArchivePromotions.filter((promotion) => promotion.extraction_status === 'ok').length
+  const failedArchivePromotionCount = effectiveArchivePromotions.filter((promotion) => promotion.extraction_status && promotion.extraction_status !== 'ok').length
+  const archivePromotionErrors = effectiveArchivePromotions.filter((promotion) =>
+    !promotion.promotion_id
+      || !promotion.target_id
+      || !archiveFetchTargetIds.has(promotion.target_id)
+      || promotion.extraction_status === 'ok' && (!promotion.promoted_source_id || !sourceIds.has(promotion.promoted_source_id))
+      || promotion.extraction_status !== 'ok' && !promotion.error
+  )
   const exactSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type.startsWith('exact')).length
   const nearDuplicateSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type === 'near_duplicate_text').length
   const relatedSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type === 'related_source_family').length
@@ -4320,6 +4358,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${highPriorityArchiveFetchTargetCount} high-priority archive targets; ${termAlignedArchiveFetchTargetCount} captures align with January/February/May/September term-start months.`,
     },
     {
+      id: 'archive_promotions_reference_targets_and_sources',
+      status: archivePromotionErrors.length === 0 ? 'pass' : 'fail',
+      detail: `${effectiveArchivePromotions.length} archive promotion attempts, ${successfulArchivePromotionCount} successful, ${failedArchivePromotionCount} failed, ${archivePromotionErrors.length} reference errors.`,
+    },
+    {
       id: 'manual_review_artifacts_have_valid_references',
       status: reviewDecisionErrors.length === 0 && fieldConflictErrors.length === 0 ? 'pass' : 'fail',
       detail: `${resolvedReviewDecisionCount} generated review decisions resolved, ${reviewDecisionErrors.length} review decision reference errors, and ${fieldConflictErrors.length} field conflict reference errors.`,
@@ -4437,6 +4480,9 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       high_priority_archive_fetch_targets: highPriorityArchiveFetchTargetCount,
       pending_archive_fetch_targets: pendingArchiveFetchTargetCount,
       term_aligned_archive_fetch_targets: termAlignedArchiveFetchTargetCount,
+      archive_promotions: effectiveArchivePromotions.length,
+      successful_archive_promotions: successfulArchivePromotionCount,
+      failed_archive_promotions: failedArchivePromotionCount,
       wayback: wayback.length,
       review_queue: reviewQueue.length,
       review_decisions: reviewDecisions.length,
@@ -4857,6 +4903,9 @@ Overall status: ${validation.status}
 - High-priority archive fetch targets: ${validation.counts.high_priority_archive_fetch_targets}
 - Pending archive fetch targets: ${validation.counts.pending_archive_fetch_targets}
 - Term-aligned archive fetch targets: ${validation.counts.term_aligned_archive_fetch_targets}
+- Archive promotion attempts: ${validation.counts.archive_promotions}
+- Successful archive promotions: ${validation.counts.successful_archive_promotions}
+- Failed archive promotions: ${validation.counts.failed_archive_promotions}
 - Wayback captures: ${validation.counts.wayback}
 - Review queue rows: ${validation.counts.review_queue}
 - Review decision rows: ${validation.counts.review_decisions}
@@ -6170,6 +6219,136 @@ async function ingestCommonCrawlPromotionsOnly() {
   console.log(`new_sources=${newSources.length} sources=${sources.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} validation=${validationWithReview.status}`)
 }
 
+async function promoteArchiveTargetsOnlyMode() {
+  ensureDir(outDir)
+  const existingSources = loadJsonl(join(outDir, 'sources.jsonl'))
+  const existingSourceUrls = new Set(existingSources.map((source) => canonicalUrl(source.url)))
+  const existingArchivePromotions = loadJsonl(join(outDir, 'archive_promotions.jsonl'))
+  const promotedTargetIds = new Set(existingArchivePromotions.map((promotion) => promotion.target_id))
+  const archiveFetchTargets = loadJsonl(join(outDir, 'archive_fetch_targets.jsonl'))
+  const selectedTargets = archiveFetchTargets
+    .filter((target) => target.target_status === 'pending_archive_fetch')
+    .filter((target) => !promotedTargetIds.has(target.target_id))
+    .filter((target) => target.memento_url && !existingSourceUrls.has(canonicalUrl(target.memento_url)))
+    .sort((a, b) => b.priority_score - a.priority_score || String(a.capture_timestamp).localeCompare(String(b.capture_timestamp)))
+    .slice(0, archivePromoteLimit)
+
+  const inspectedPromotions = []
+  for (const [index, target] of selectedTargets.entries()) {
+    console.error(`promote archive target ${index + 1}/${selectedTargets.length}: ${target.memento_url}`)
+    const seed = sourceSeedFromArchiveTarget(target)
+    inspectedPromotions.push({ target, inspected: await inspectSeed(seed) })
+  }
+
+  const newPromotions = inspectedPromotions.map(({ target, inspected }) => ({
+    promotion_id: `archive_promotion_${target.target_id}`,
+    target_id: target.target_id,
+    source_id: target.source_id,
+    promoted_at: retrievedAt,
+    promoted_source_id: inspected.source.extraction_status === 'ok' ? inspected.source.source_id : null,
+    original_url: target.original_url,
+    memento_url: target.memento_url,
+    replay_url: target.replay_url,
+    capture_timestamp: target.capture_timestamp,
+    priority_score: target.priority_score,
+    priority: target.priority,
+    selection_reason: target.selection_reason,
+    source_type: inspected.source.source_type,
+    authority: inspected.source.authority,
+    confidence: inspected.source.confidence,
+    fetch_status: inspected.source.fetch_status,
+    extraction_status: inspected.source.extraction_status,
+    content_type: inspected.source.content_type,
+    checksum: inspected.source.checksum,
+    title: inspected.source.title,
+    text_length: inspected.source.text_length,
+    notes: inspected.source.notes,
+    error: inspected.source.error ?? (inspected.source.extraction_status === 'ok' ? null : `archive_fetch_${inspected.source.extraction_status}`),
+  }))
+  const archivePromotions = mergeRowsByKey(existingArchivePromotions, newPromotions, (promotion) => promotion.promotion_id)
+  const newSources = inspectedPromotions
+    .filter(({ inspected }) => inspected.source.extraction_status === 'ok')
+    .map(({ inspected }) => inspected.source)
+  const sourcesForReparse = mergeRowsByKey(existingSources, newSources, (source) => source.source_id)
+
+  const inspected = []
+  for (const [index, source] of sourcesForReparse.entries()) {
+    console.error(`reparse archive corpus source ${index + 1}/${sourcesForReparse.length}: ${source.source_id}`)
+    inspected.push(await inspectSeed(source))
+  }
+
+  const sources = inspected.map(({ source }) => source)
+  const courseInventoryRows = loadJsonl(join(outDir, 'course_inventory.jsonl'))
+  const previousValidation = existsSync(join(outDir, 'validation.json')) ? JSON.parse(readFileSync(join(outDir, 'validation.json'), 'utf8')) : null
+  const courseInventory = {
+    offerings: courseInventoryRows,
+    displayed_count: previousValidation?.counts?.official_course_displayed_count ?? courseInventoryRows.length,
+  }
+  const courses = buildCourses(inspected)
+  const syllabi = buildSyllabi(inspected)
+  const assignments = buildAssignments(syllabi)
+  const readings = mergeReadingExternalLinks(buildReadings(syllabi), loadJsonl(join(outDir, 'readings.jsonl')))
+  const readingFrequency = buildReadingFrequency(readings)
+  const { faculty, facultyCourseEdges } = buildFacultyGraph({ sources, courseInventory, syllabi })
+  const studentWork = buildStudentWork(inspected)
+  const facultyPortfolioExamples = loadJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'))
+  const sourceClusters = buildSourceClusters(inspected, syllabi, readings)
+  const wayback = loadJsonl(join(outDir, 'wayback_captures.jsonl'))
+  const sourceVersions = buildSourceVersions(inspected, wayback)
+  const courseSitePages = buildCourseSitePages({ sources, syllabi, assignments, readings })
+  const scheduleRows = buildScheduleRows({ syllabi, assignments, readings, courseSitePages })
+  const assignmentBriefPages = buildAssignmentBriefPages({ courseSitePages, assignments })
+  const studentWorkAssignmentLinks = buildStudentWorkAssignmentLinks({ studentWork, assignmentBriefPages, assignments, courseSitePages })
+  const refreshedArchiveFetchTargets = buildArchiveFetchTargets({ sources, wayback, sourceVersions })
+  const searchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
+  const searchPromotions = loadJsonl(join(outDir, 'search_promotions.jsonl'))
+  const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
+  const commonCrawlPromotions = loadJsonl(join(outDir, 'common_crawl_promotions.jsonl'))
+  const facultyProfileCandidates = loadJsonl(join(outDir, 'faculty_profile_candidates.jsonl'))
+  const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
+  const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
+  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
+  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork, scheduleRows })
+  const coverageSearchQueries = buildCoverageSearchQueries(courseCoverage)
+  const facultySearchQueries = buildFacultySearchQueries(faculty, facultyCourseEdges)
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, scheduleRows, searchCandidates, searchPromotions, commonCrawlCandidates, commonCrawlPromotions, archivePromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, studentWorkAssignmentLinks, facultyPortfolioExamples, courseSitePages, assignmentBriefPages, archiveFetchTargets: refreshedArchiveFetchTargets, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries, facultySearchQueries })
+
+  writeJsonl(join(outDir, 'sources.jsonl'), sources)
+  writeJsonl(join(outDir, 'courses.jsonl'), courses)
+  writeJsonl(join(outDir, 'syllabi.jsonl'), syllabi)
+  writeJsonl(join(outDir, 'assignments.jsonl'), assignments)
+  writeJsonl(join(outDir, 'readings.jsonl'), readings)
+  writeJsonl(join(outDir, 'reading_frequency.jsonl'), readingFrequency)
+  writeJsonl(join(outDir, 'faculty.jsonl'), faculty)
+  writeJsonl(join(outDir, 'faculty_course_edges.jsonl'), facultyCourseEdges)
+  writeJsonl(join(outDir, 'student_work.jsonl'), studentWork)
+  writeJsonl(join(outDir, 'source_clusters.jsonl'), sourceClusters)
+  writeJsonl(join(outDir, 'source_versions.jsonl'), sourceVersions)
+  writeJsonl(join(outDir, 'course_site_pages.jsonl'), courseSitePages)
+  writeJsonl(join(outDir, 'schedule_rows.jsonl'), scheduleRows)
+  writeJsonl(join(outDir, 'assignment_brief_pages.jsonl'), assignmentBriefPages)
+  writeJsonl(join(outDir, 'student_work_assignment_links.jsonl'), studentWorkAssignmentLinks)
+  writeJsonl(join(outDir, 'archive_fetch_targets.jsonl'), refreshedArchiveFetchTargets)
+  writeJsonl(join(outDir, 'archive_promotions.jsonl'), archivePromotions)
+  writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
+  writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
+  writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
+  writeJsonl(join(outDir, 'course_coverage.jsonl'), courseCoverage)
+  writeJsonl(join(outDir, 'coverage_search_queries.jsonl'), coverageSearchQueries)
+  writeJsonl(join(outDir, 'faculty_search_queries.jsonl'), facultySearchQueries)
+  writeFileSync(join(outDir, 'course_coverage.md'), courseCoverageMarkdown(courseCoverage))
+  writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
+  writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
+  writeJson(join(outDir, 'validation.json'), validationWithReview)
+  writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
+  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
+  writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
+  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
+  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
+  console.log(`RISD archive promotions written to ${join(outDir, 'archive_promotions.jsonl')}`)
+  console.log(`new_archive_promotions=${newPromotions.length} successful_archive_promotions=${newPromotions.filter((row) => row.extraction_status === 'ok').length} sources=${sources.length} validation=${validationWithReview.status}`)
+}
+
 async function ingestFacultyProfilesOnlyMode() {
   ensureDir(outDir)
   const existingSources = loadJsonl(join(outDir, 'sources.jsonl'))
@@ -6290,6 +6469,10 @@ async function main() {
   }
   if (promoteSearchOnly) {
     await promoteSearchCandidatesOnlyMode()
+    return
+  }
+  if (promoteArchiveOnly) {
+    await promoteArchiveTargetsOnlyMode()
     return
   }
   if (promoteCommonCrawlOnly) {

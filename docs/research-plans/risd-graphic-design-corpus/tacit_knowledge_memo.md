@@ -6,9 +6,9 @@ Generated: 2026-06-12
 
 This memo is generated from the first implemented corpus pass. It is strongest where public syllabi or course sites were found and weakest where only official catalog/program pages exist.
 
-- Syllabus/course-site records: 82
-- Assignment evidence snippets: 585
-- Critique-related snippets: 37
+- Syllabus/course-site records: 87
+- Assignment evidence snippets: 671
+- Critique-related snippets: 41
 - Student work records: 22
 
 ## Studio Norms Visible In The Corpus
