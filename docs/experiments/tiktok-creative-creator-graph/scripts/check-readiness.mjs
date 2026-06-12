@@ -26,6 +26,7 @@ function main() {
   const scores = readJsonl(join(processedDir, 'creator_scores.jsonl'))
   const reviewQueue = readJsonl(join(processedDir, 'review_queue.jsonl'))
   const reviewDecisions = readJsonl(join(processedDir, 'review_decisions.jsonl'))
+  const reviewSample = readJsonl(join(processedDir, 'review_sample.jsonl'))
   const acceptedCreators = readJsonl(join(processedDir, 'accepted_creators.jsonl'))
   const benchmarkCreators = readJsonl(join(processedDir, 'benchmark_creators.jsonl'))
   const expansionQueue = readJsonl(join(processedDir, 'expansion_queue.jsonl'))
@@ -91,6 +92,11 @@ function main() {
       id: 'review_queue',
       status: reviewQueue.length > 0 ? 'pass' : 'fail',
       evidence: `${reviewQueue.length} accounts queued for review`,
+    },
+    {
+      id: 'review_sample',
+      status: reviewSample.length > 0 ? 'pass' : 'fail',
+      evidence: `${reviewSample.length} sampled accounts ready for review`,
     },
     {
       id: 'expansion_queue',
@@ -181,6 +187,7 @@ function main() {
       excellent_accounts: excellentAccounts,
       rejected_accounts: rejectedAccounts,
       review_queue: reviewQueue.length,
+      review_sample: reviewSample.length,
       review_decisions: reviewDecisions.length,
       accepted_creators: acceptedCreators.length,
       benchmark_creators: benchmarkCreators.length,
@@ -224,6 +231,7 @@ Complete: ${summary.complete}
 - Excellent accounts: ${summary.counts.excellent_accounts}
 - Rejected accounts: ${summary.counts.rejected_accounts}
 - Review queue: ${summary.counts.review_queue}
+- Review sample: ${summary.counts.review_sample}
 - Review decisions: ${summary.counts.review_decisions}
 - Accepted creators: ${summary.counts.accepted_creators}
 - Benchmark creators: ${summary.counts.benchmark_creators}

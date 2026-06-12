@@ -1,6 +1,6 @@
 # Full Workflow
 
-Generated: 2026-06-12T20:24:18.101Z
+Generated: 2026-06-12T20:28:12.241Z
 
 Complete: true
 
@@ -12,6 +12,7 @@ Complete: true
 - analyze_source_yield: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/analyze-source-yield.mjs`)
 - resolve_identities: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/resolve-identities.mjs`)
 - build_category_coverage: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-category-coverage.mjs`)
+- build_review_sample: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-review-sample.mjs`)
 - build_acquisition_batches: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-acquisition-batches.mjs`)
 - build_release_package: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-release-package.mjs`)
 - verify_release_package: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/verify-release-package.mjs`)

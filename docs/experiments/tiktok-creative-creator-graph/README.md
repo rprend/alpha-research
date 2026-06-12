@@ -77,6 +77,12 @@ Build category coverage and quota gaps:
 node docs/experiments/tiktok-creative-creator-graph/scripts/build-category-coverage.mjs
 ```
 
+Build a reviewer-ready sample from the current queue:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/build-review-sample.mjs
+```
+
 Resolve identities and duplicate risks:
 
 ```bash
@@ -236,6 +242,8 @@ The pipeline writes:
 - `data/processed/category_coverage.csv`
 - `data/processed/acquisition_import_waves.jsonl`
 - `data/processed/acquisition_import_waves.csv`
+- `data/processed/review_sample.jsonl`
+- `data/processed/review_sample.csv`
 - `reports/result.json`
 - `reports/work.md`
 - `reports/readiness.md`
@@ -252,6 +260,8 @@ The pipeline writes:
 - `reports/source-yield.json`
 - `reports/category-coverage.md`
 - `reports/category-coverage.json`
+- `reports/review-sample.md`
+- `reports/review-sample.json`
 - `reports/identity-resolution.md`
 - `reports/identity-resolution.json`
 - `reports/full-workflow.md`
@@ -282,14 +292,15 @@ The pipeline writes:
 10. Put review labels in `data/raw/review-decisions/` and run `node docs/experiments/tiktok-creative-creator-graph/scripts/apply-review-decisions.mjs`.
 11. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/analyze-source-yield.mjs` so future acquisition batches prioritize sources and queries that produce useful creators.
 12. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-category-coverage.mjs` so the 50k target stays balanced across creator categories.
-13. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/resolve-identities.mjs` so duplicate risks and cross-platform evidence stay auditable.
-14. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-release-package.mjs` to generate stable handoff exports.
-15. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/verify-release-package.mjs` to validate hashes, row counts, required fields, identity uniqueness, and release/file consistency.
-16. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-scale-plan.mjs` to size the next collection and review wave.
-17. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-refresh-plan.mjs` to schedule weekly/monthly/quarterly account refreshes.
-18. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-publication-handoff.mjs` to generate the control-plane handoff package.
-19. Use reviewed accepted/rejected/benchmark outputs to tune sources and scoring.
-20. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
+13. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-review-sample.mjs` to create the next human QA sample.
+14. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/resolve-identities.mjs` so duplicate risks and cross-platform evidence stay auditable.
+15. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-release-package.mjs` to generate stable handoff exports.
+16. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/verify-release-package.mjs` to validate hashes, row counts, required fields, identity uniqueness, and release/file consistency.
+17. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-scale-plan.mjs` to size the next collection and review wave.
+18. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-refresh-plan.mjs` to schedule weekly/monthly/quarterly account refreshes.
+19. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-publication-handoff.mjs` to generate the control-plane handoff package.
+20. Use reviewed accepted/rejected/benchmark outputs to tune sources and scoring.
+21. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
 
 ## Current Limitations
 

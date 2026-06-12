@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T20:24:17.431Z",
+  "generated_at": "2026-06-12T20:28:11.213Z",
   "input_rows": 6,
   "normalized_rows": 6,
   "skipped_rows": 0,
@@ -10,8 +10,8 @@
   },
   "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-12.jsonl",
   "wave": {
-    "wave_id": "import-2026-06-12T20-24-17-431Z",
-    "generated_at": "2026-06-12T20:24:17.431Z",
+    "wave_id": "import-2026-06-12T20-28-11-213Z",
+    "generated_at": "2026-06-12T20:28:11.213Z",
     "input_rows": 6,
     "normalized_rows": 6,
     "skipped_rows": 0,

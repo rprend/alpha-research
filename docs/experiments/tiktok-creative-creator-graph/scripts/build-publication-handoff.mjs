@@ -36,6 +36,7 @@ function main() {
   const acquisitionRun = readJson(join(reportsDir, 'acquisition-run.json'), null)
   const importWaves = readJsonl(join(processedDir, 'acquisition_import_waves.jsonl'))
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
+  const reviewSample = readJsonl(join(processedDir, 'review_sample.jsonl'))
   const reviewDecisions = readJsonl(join(processedDir, 'review_decisions.jsonl'))
 
   const counts = readiness?.counts ?? manifest.counts ?? {}
@@ -89,6 +90,7 @@ function main() {
       excellent_creators: currentExcellent,
       rejected_creators: counts.rejected_accounts ?? manifest.counts?.rejected_creators ?? 0,
       review_queue: counts.review_queue ?? manifest.counts?.review_queue ?? 0,
+      review_sample: counts.review_sample ?? reviewSample.length,
       review_decisions: currentReview,
       source_yield_rows: counts.source_yield_rows ?? sourceYield.length,
       category_coverage: categoryCoverage ? `${categoryCoverage.covered_labels}/${categoryCoverage.labels}` : 'missing',
@@ -124,6 +126,7 @@ function main() {
       acquisition_import_waves: rel(join(processedDir, 'acquisition_import_waves.jsonl')),
       source_yield: rel(join(reportsDir, 'source-yield.json')),
       category_coverage: rel(join(reportsDir, 'category-coverage.json')),
+      review_sample: rel(join(processedDir, 'review_sample.csv')),
       useful_creators: rel(join(releaseDir, 'useful_creators.csv')),
       benchmark_creators: rel(join(releaseDir, 'benchmark_creators.csv')),
       review_queue: rel(join(releaseDir, 'review_queue.csv')),
@@ -171,6 +174,7 @@ ${handoff.objective}
 - Useful creators: ${handoff.current_corpus.useful_creators}
 - Release useful creators: ${handoff.current_corpus.release_useful_creators}
 - Excellent creators: ${handoff.current_corpus.excellent_creators}
+- Review sample: ${handoff.current_corpus.review_sample}
 - Review decisions: ${handoff.current_corpus.review_decisions}
 - Source yield rows: ${handoff.current_corpus.source_yield_rows}
 - Category coverage: ${handoff.current_corpus.category_coverage}

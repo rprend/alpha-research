@@ -68,6 +68,7 @@ function main() {
   steps.push(['analyze_source_yield', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/analyze-source-yield.mjs']])
   steps.push(['resolve_identities', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/resolve-identities.mjs']])
   steps.push(['build_category_coverage', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-category-coverage.mjs']])
+  steps.push(['build_review_sample', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-review-sample.mjs']])
   steps.push(['build_acquisition_batches', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-acquisition-batches.mjs']])
   steps.push(['build_release_package', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-release-package.mjs']])
   steps.push(['verify_release_package', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/verify-release-package.mjs']])

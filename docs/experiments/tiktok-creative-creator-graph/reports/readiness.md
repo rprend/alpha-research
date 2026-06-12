@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T20:24:18.095Z
+Generated: 2026-06-12T20:28:12.228Z
 
 Complete: false
 
@@ -13,6 +13,7 @@ Complete: false
 - Excellent accounts: 1
 - Rejected accounts: 2
 - Review queue: 8
+- Review sample: 4
 - Review decisions: 4
 - Accepted creators: 6
 - Benchmark creators: 1
@@ -38,6 +39,7 @@ Complete: false
 - graph_edges: pass (52 graph edges generated)
 - scoring_coverage: pass (9/9 accounts scored)
 - review_queue: pass (8 accounts queued for review)
+- review_sample: pass (4 sampled accounts ready for review)
 - expansion_queue: pass (4 expansion targets queued)
 - acquisition_batches: pass (68 acquisition tasks generated)
 - acquisition_import_waves: pass (1 acquisition import waves tracked)
