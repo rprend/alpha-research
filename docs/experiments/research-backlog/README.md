@@ -8,6 +8,7 @@ The backlog exists to keep AI-assisted research scouting honest. A proposal is u
 
 - `backlog.json`: machine-readable study queue.
 - `scout-template.md`: prompt and audit template for AI research-scout runs.
+- `../research-scouts/`: completed scout runs with prompts, source context, proposals, audits, and selected briefs.
 
 ## Status Values
 
@@ -31,3 +32,17 @@ A backlog item should not become an experiment folder until it has:
 - the first runnable corpus build
 
 The goal is not to collect ideas. The goal is to turn a small number of strong ideas into repeatable, source-backed public essays.
+
+## Current Scout Feed
+
+The first completed scout run is `docs/experiments/research-scouts/2026-06-12-cultural-memory/`.
+
+It selected five follow-up studies:
+
+- When Museums Started Explaining Repair
+- The Strategic Plan University
+- What Humanities AI Actually Studies
+- The Anthology Table Of Contents As Canon Sensor
+- The Afterlife Of Humanities Datasets
+
+These are copied into `backlog.json` with source lists, first runnable builds, publishable-evidence notes, and quality risks.

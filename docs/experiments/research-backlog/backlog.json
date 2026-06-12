@@ -147,6 +147,149 @@
         "licenses may allow inspection but not republication",
         "corpora may require domain-specific normalization before they are analytically useful"
       ]
+    },
+    {
+      "id": "museum-annual-report-language",
+      "title": "When Museums Started Explaining Repair",
+      "format": "what-changed",
+      "status": "source-probed",
+      "sourceScoutRun": "docs/experiments/research-scouts/2026-06-12-cultural-memory/",
+      "researchQuestion": "How did museum annual reports and public accountability documents change their language around provenance, restitution, repatriation, access, and community between 2000 and 2026?",
+      "unitOfAnalysis": "museum annual report section or paragraph snapshot",
+      "primarySources": [
+        "museum annual report PDFs",
+        "museum accountability or impact reports",
+        "museum archive/news pages",
+        "Internet Archive snapshots for report indexes"
+      ],
+      "nextSources": [
+        "museum press releases",
+        "exhibition catalogs where metadata is public",
+        "collection API provenance notes"
+      ],
+      "firstRunnableBuild": "Select 12 museums already present in museum-language-drift, fetch all public annual reports available for 2000-2026, extract text into paragraph records, and reuse the existing museum term taxonomy with a document-genre label.",
+      "publicationAngle": "A follow-up to the museum language post: not just what museums say on web pages, but when repair and accountability entered their institutional record.",
+      "publishableEvidence": "Broad backfill, raw manifests, processed records, and representative audited snippets tied to every major claim.",
+      "qualityRisks": [
+        "annual reports may be written for donors rather than public interpretation",
+        "PDF availability may be uneven by museum and year",
+        "report design and OCR quality may create artificial language shifts"
+      ]
+    },
+    {
+      "id": "university-strategic-plan-drift",
+      "title": "The Strategic Plan University",
+      "format": "what-changed",
+      "status": "source-probed",
+      "sourceScoutRun": "docs/experiments/research-scouts/2026-06-12-cultural-memory/",
+      "researchQuestion": "Do university strategic plans show a stronger shift toward innovation, impact, global leadership, belonging, and workforce language than mission/about pages?",
+      "unitOfAnalysis": "university strategic-plan section or page",
+      "primarySources": [
+        "current strategic-plan pages",
+        "strategic-plan PDFs",
+        "university president messages",
+        "Internet Archive snapshots of plan pages"
+      ],
+      "nextSources": [
+        "university catalogs",
+        "commencement speeches",
+        "board reports"
+      ],
+      "firstRunnableBuild": "Use the 10 universities in university-mission-statement-drift, collect public strategic plans and president messages for 2000, 2010, 2015, 2020, and 2026 anchors, then compare against existing mission-page term families.",
+      "publicationAngle": "Universities may not have changed what they say they are for as much as how they plan, manage, and justify themselves.",
+      "publishableEvidence": "Broad backfill, raw manifests, processed records, and representative audited snippets tied to every major claim.",
+      "qualityRisks": [
+        "strategic plans may be episodic and not comparable year by year",
+        "universities may remove old plans from public sites",
+        "consultant-written plans can converge stylistically without reflecting institutional purpose"
+      ]
+    },
+    {
+      "id": "humanities-ai-corpora-map",
+      "title": "What Humanities AI Actually Studies",
+      "format": "field-map",
+      "status": "idea",
+      "sourceScoutRun": "docs/experiments/research-scouts/2026-06-12-cultural-memory/",
+      "researchQuestion": "Which corpora, archives, languages, periods, and media types appear most often in AI-for-humanities work from 2020 onward?",
+      "unitOfAnalysis": "scholarly work to named corpus/archive/dataset mention",
+      "primarySources": [
+        "humanities-literature-radar processed works",
+        "OpenAlex abstracts",
+        "arXiv abstracts",
+        "Knowledge Commons records",
+        "paper full text where open and permitted"
+      ],
+      "nextSources": [
+        "publisher full text where permitted",
+        "conference proceedings",
+        "dataset citation metadata"
+      ],
+      "firstRunnableBuild": "Start from the 593 quantitative/computational candidates in humanities-literature-radar, extract corpus/entity mentions from titles and abstracts, then audit the top 100 mentions before scaling to open full text.",
+      "publicationAngle": "AI in the humanities is not only a method trend; it is a map of which parts of culture are becoming computationally visible.",
+      "publishableEvidence": "Audited top corpus mentions with source links and false-positive estimates.",
+      "qualityRisks": [
+        "metadata abstracts may omit corpus names",
+        "full-text access may bias toward open preprints",
+        "named entity extraction can merge projects, datasets, and institutions incorrectly"
+      ]
+    },
+    {
+      "id": "anthology-toc-canon-pilot",
+      "title": "The Anthology Table Of Contents As Canon Sensor",
+      "format": "moving-canon",
+      "status": "idea",
+      "sourceScoutRun": "docs/experiments/research-scouts/2026-06-12-cultural-memory/",
+      "researchQuestion": "Can public anthology tables of contents and publisher previews measure author and work turnover across editions in a narrow literary field?",
+      "unitOfAnalysis": "author-work appearance in an anthology edition table of contents",
+      "primarySources": [
+        "publisher preview pages",
+        "Google Books snippets where permitted for bibliographic metadata",
+        "Internet Archive controlled metadata pages",
+        "library catalog edition metadata",
+        "public syllabi as comparison only"
+      ],
+      "nextSources": [
+        "anthology publisher archives",
+        "course catalog reading lists",
+        "edition reviews"
+      ],
+      "firstRunnableBuild": "Pick one anthology family with public TOC evidence across at least three editions, build an edition-level table, and compare against a small public syllabus control set without treating syllabi as representative.",
+      "publicationAngle": "Canon drift becomes measurable only when the source is narrow enough to audit edition by edition.",
+      "publishableEvidence": "At least three editions with auditable TOC rows, edition-year metadata, and explicit missing-source notes.",
+      "qualityRisks": [
+        "tables of contents may be copyrighted or not publicly extractable at scale",
+        "anthologies differ in market and course level",
+        "edition changes can reflect permissions and price rather than canon judgment"
+      ]
+    },
+    {
+      "id": "dataset-afterlife-study",
+      "title": "The Afterlife Of Humanities Datasets",
+      "format": "research-agenda",
+      "status": "source-probed",
+      "sourceScoutRun": "docs/experiments/research-scouts/2026-06-12-cultural-memory/",
+      "researchQuestion": "What happens to public humanities datasets after release: do they get cited, forked, reused in papers, linked from projects, or quietly disappear?",
+      "unitOfAnalysis": "dataset or corpus release",
+      "primarySources": [
+        "humanities-dataset-registry candidates",
+        "Zenodo and Dataverse metadata",
+        "OpenAlex citation and related-work metadata",
+        "GitHub repository metadata where public",
+        "project pages and documentation"
+      ],
+      "nextSources": [
+        "Hugging Face datasets",
+        "DataCite metadata",
+        "repository issue and release metadata where public"
+      ],
+      "firstRunnableBuild": "Take the 15 dataset-registry candidates, collect DOI/URL/repository identifiers, query OpenAlex and repository metadata for reuse signals, and hand-audit the top and bottom cases.",
+      "publicationAngle": "Humanities datasets are infrastructure, but their public afterlife is uneven and measurable.",
+      "publishableEvidence": "Broad backfill, raw manifests, processed records, and representative audited snippets tied to every major claim.",
+      "qualityRisks": [
+        "reuse is often informal and hard to observe",
+        "citations may attach to papers rather than datasets",
+        "older datasets may predate modern DOI and repository practices"
+      ]
     }
   ]
 }

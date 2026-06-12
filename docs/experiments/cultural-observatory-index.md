@@ -38,12 +38,15 @@ Next implementation moves:
 
 Path: `docs/experiments/research-backlog/`
 
-Status: program queue for turning AI-assisted study proposals into source-probed experiment folders.
+Status: program queue and completed scout-run workflow for turning AI-assisted study proposals into source-probed experiment folders.
 
 Implemented:
 
 - machine-readable study backlog
 - research-scout prompt template
+- completed research-scout run artifact folder
+- deterministic scout-run builder
+- selected-briefs output
 - audit questions for rejecting weak ideas
 - status vocabulary from `idea` through `publishable` and `blocked`
 
@@ -54,12 +57,25 @@ Current backlog items:
 - The Language Of Museums After Decolonization
 - Canon Drift: A Feasibility Report
 - What Counts As A Humanities Dataset?
+- When Museums Started Explaining Repair
+- The Strategic Plan University
+- What Humanities AI Actually Studies
+- The Anthology Table Of Contents As Canon Sensor
+- The Afterlife Of Humanities Datasets
+
+Current scout run:
+
+- path: `docs/experiments/research-scouts/2026-06-12-cultural-memory/`
+- proposals: 5
+- selected briefs: 5
+- audit decisions: 3 accepted, 2 narrowed
+- output files: `prompt.md`, `source-context.md`, `proposals.json`, `audit.md`, `selected-briefs.md`
 
 Next implementation moves:
 
-- expand museum language drift beyond current about pages
-- source-probe museum annual reports, exhibition pages, collection pages, provenance pages, and Wayback snapshots
-- add a readiness gate before any public claims
+- turn the museum annual-report and university strategic-plan briefs into experiment folders
+- add source-probe commands for the humanities AI corpora map and anthology TOC pilot
+- use the dataset-afterlife brief as the next research-agenda artifact after the first public dataset-registry post
 
 ### Humanities Literature Radar
 
