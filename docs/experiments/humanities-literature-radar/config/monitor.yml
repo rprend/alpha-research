@@ -1,0 +1,29 @@
+schedule: monthly
+dataset_id: humanities-literature-radar
+baseline_processed_file: data/processed/works.json
+run_output_dir: runs
+newness_policy:
+  genuinely_new_publication_year_min: 2024
+  compare_key: stableWorkId
+  newly_discovered_old_record: year before current monitor window but absent from prior baseline
+  genuinely_new_publication: year inside current monitor window and absent from prior baseline
+monitor_outputs:
+  - manifest.json
+  - new-works.csv
+  - new-works.json
+  - changed-sources.csv
+  - report.html
+  - result.json
+  - work.md
+source_labels:
+  core:
+    - OpenAlex
+    - Crossref
+    - DOAJ
+  supplemental:
+    - OSF Preprints / SocArXiv
+    - Knowledge Commons Works / Humanities Commons
+    - arXiv
+    - NBER
+  web-crawl:
+    - department-pages

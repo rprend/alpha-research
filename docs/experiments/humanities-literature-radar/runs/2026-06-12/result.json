@@ -1,0 +1,538 @@
+{
+  "generatedAt": "2026-06-12T19:48:49.609Z",
+  "runDate": "2026-06-12",
+  "strongestFinding": "Bootstrap monitor classified 1951 current corpus records into 1155 genuinely new publications and 796 newly discovered old records.",
+  "counts": {
+    "currentWorks": 1951,
+    "newWorks": 1951,
+    "genuinelyNewPublications": 1155,
+    "newlyDiscoveredOldRecords": 796,
+    "changedSources": 6
+  },
+  "sourceCoverage": [
+    {
+      "source": "arxiv",
+      "currentRecords": 19,
+      "priorRecords": 0,
+      "delta": 19,
+      "currentShare": 0.0097,
+      "priorShare": 0,
+      "coverageNote": "bootstrap baseline; no prior source count"
+    },
+    {
+      "source": "crossref",
+      "currentRecords": 500,
+      "priorRecords": 0,
+      "delta": 500,
+      "currentShare": 0.2563,
+      "priorShare": 0,
+      "coverageNote": "bootstrap baseline; no prior source count"
+    },
+    {
+      "source": "doaj",
+      "currentRecords": 468,
+      "priorRecords": 0,
+      "delta": 468,
+      "currentShare": 0.2399,
+      "priorShare": 0,
+      "coverageNote": "bootstrap baseline; no prior source count"
+    },
+    {
+      "source": "hcommons",
+      "currentRecords": 500,
+      "priorRecords": 0,
+      "delta": 500,
+      "currentShare": 0.2563,
+      "priorShare": 0,
+      "coverageNote": "bootstrap baseline; no prior source count"
+    },
+    {
+      "source": "openalex",
+      "currentRecords": 455,
+      "priorRecords": 0,
+      "delta": 455,
+      "currentShare": 0.2332,
+      "priorShare": 0,
+      "coverageNote": "bootstrap baseline; no prior source count"
+    },
+    {
+      "source": "osf-preprints",
+      "currentRecords": 9,
+      "priorRecords": 0,
+      "delta": 9,
+      "currentShare": 0.0046,
+      "priorShare": 0,
+      "coverageNote": "bootstrap baseline; no prior source count"
+    }
+  ],
+  "newnessBreakdown": {
+    "genuinely-new-publication": 1155,
+    "newly-discovered-old-record": 796
+  },
+  "topNewSources": [
+    {
+      "label": "crossref",
+      "count": 500
+    },
+    {
+      "label": "hcommons",
+      "count": 500
+    },
+    {
+      "label": "doaj",
+      "count": 468
+    },
+    {
+      "label": "openalex",
+      "count": 455
+    },
+    {
+      "label": "arxiv",
+      "count": 19
+    },
+    {
+      "label": "osf-preprints",
+      "count": 9
+    }
+  ],
+  "topNewMethods": [
+    {
+      "label": "network",
+      "count": 85
+    },
+    {
+      "label": "large language models",
+      "count": 84
+    },
+    {
+      "label": "llms",
+      "count": 61
+    },
+    {
+      "label": "translation",
+      "count": 50
+    },
+    {
+      "label": "corpus",
+      "count": 49
+    },
+    {
+      "label": "llm",
+      "count": 49
+    },
+    {
+      "label": "philology",
+      "count": 27
+    },
+    {
+      "label": "large language model",
+      "count": 22
+    },
+    {
+      "label": "spatial",
+      "count": 20
+    },
+    {
+      "label": "bibliometric",
+      "count": 15
+    },
+    {
+      "label": "content analysis",
+      "count": 15
+    },
+    {
+      "label": "close reading",
+      "count": 12
+    },
+    {
+      "label": "distant reading",
+      "count": 9
+    },
+    {
+      "label": "gis",
+      "count": 5
+    },
+    {
+      "label": "canon",
+      "count": 4
+    },
+    {
+      "label": "cultural analytics",
+      "count": 3
+    },
+    {
+      "label": "stylometry",
+      "count": 3
+    },
+    {
+      "label": "intellectual history",
+      "count": 1
+    },
+    {
+      "label": "topic model",
+      "count": 1
+    }
+  ],
+  "notableNewWorks": [
+    {
+      "stable_id": "doi:10.17613/zkz53-f1270",
+      "title": "\"Undo Send\"",
+      "year": "2026",
+      "publication_date": "2026-06-30",
+      "source": "hcommons",
+      "venue": "Resp AI Research Lab, CIIOE",
+      "doi": "10.17613/zkz53-f1270",
+      "url": "https://works.hcommons.org/records/zkz53-f1270",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.17613/rd25x-6gj81",
+      "title": "《人工智慧時代的桃花源》The Peach Blossom Spring in the Artificial Intelligence Age",
+      "year": "2026",
+      "publication_date": "2026-06-18",
+      "source": "hcommons",
+      "venue": "Lenox Institute Press",
+      "doi": "10.17613/rd25x-6gj81",
+      "url": "https://works.hcommons.org/records/rd25x-6gj81",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.63313/eh.9039",
+      "title": "A CiteSpace-based Visualization Analysis of Research Trends and Future Directions in AI-enabled Middle School English Language Teaching in China",
+      "year": 2026,
+      "publication_date": "2026-02-12",
+      "source": "crossref",
+      "venue": "Educational and Humanities",
+      "doi": "10.63313/eh.9039",
+      "url": "https://doi.org/10.63313/eh.9039",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.3389/fpubh.2026.1771351",
+      "title": "A dialectical lens for AI and medical humanities: advancing responsible augmented humanism in Digital Public Health",
+      "year": "2026",
+      "publication_date": "2026-01-01",
+      "source": "doaj",
+      "venue": "Frontiers in Public Health",
+      "doi": "10.3389/fpubh.2026.1771351",
+      "url": "https://www.frontiersin.org/articles/10.3389/fpubh.2026.1771351/full",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.17613/5g6zv-jgg62",
+      "title": "A Morphological Analysis of the Voynich Manuscript's Botanical and Illustrated Sections: Evidence for Northern Italian Origin",
+      "year": "2026",
+      "publication_date": "2026-02-04",
+      "source": "hcommons",
+      "venue": "Knowledge Commons",
+      "doi": "10.17613/5g6zv-jgg62",
+      "url": "https://works.hcommons.org/records/5g6zv-jgg62",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.1038/s41598-026-44162-8",
+      "title": "A multi-layer AI decision support system for startup success prediction and risk assessment using knowledge graphs and federated learning",
+      "year": 2026,
+      "publication_date": "2026-04-29",
+      "source": "crossref",
+      "venue": "Scientific Reports",
+      "doi": "10.1038/s41598-026-44162-8",
+      "url": "https://doi.org/10.1038/s41598-026-44162-8",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.3390/educsci16020261",
+      "title": "A Narrative Review on Augmented Reality in Education",
+      "year": "2026",
+      "publication_date": "2026-01-01",
+      "source": "doaj",
+      "venue": "Education Sciences",
+      "doi": "10.3390/educsci16020261",
+      "url": "https://www.mdpi.com/2227-7102/16/2/261",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.62783/shss.8.1.43",
+      "title": "A Study on Older Adults’ Acceptance of Artificial Intelligence (AI) Technology: A Foundational Study for the Application of Generative AI",
+      "year": 2026,
+      "publication_date": "2026-02-28",
+      "source": "crossref",
+      "venue": "Studies on Humanities and Social Sciences",
+      "doi": "10.62783/shss.8.1.43",
+      "url": "https://doi.org/10.62783/shss.8.1.43",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.59227/ch.2026.5.1.21",
+      "title": "A Study on the Impact of AI-Based Educational Environments on the Learning Engagement of International Students: Focusing on Humanistic Learning Experiences",
+      "year": 2026,
+      "publication_date": "2026-02-28",
+      "source": "crossref",
+      "venue": "Consilience Humanities Society",
+      "doi": "10.59227/ch.2026.5.1.21",
+      "url": "https://doi.org/10.59227/ch.2026.5.1.21",
+      "is_quantitative_humanities_candidate": true,
+      "methods": "",
+      "quantitative_signals": "regression",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.1016/j.ssaho.2026.102729",
+      "title": "Academic integrity and generative AI: Disciplinary teachers’ perspectives on ethical dilemmas in assessing writing in EMI universities",
+      "year": 2026,
+      "publication_date": "2026-06-01",
+      "source": "crossref",
+      "venue": "Social Sciences &amp; Humanities Open",
+      "doi": "10.1016/j.ssaho.2026.102729",
+      "url": "https://doi.org/10.1016/j.ssaho.2026.102729",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "url:http://arxiv.org/abs/2606.12748v1",
+      "title": "Agent-based models for the evolution of morphological alternation patterns",
+      "year": "2026",
+      "publication_date": "2026-06-10",
+      "source": "arxiv",
+      "venue": "arXiv",
+      "doi": "",
+      "url": "http://arxiv.org/abs/2606.12748v1",
+      "is_quantitative_humanities_candidate": true,
+      "methods": "network; large language model",
+      "quantitative_signals": "network; large language model; computational",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.1016/j.ssaho.2026.102967",
+      "title": "AI adoption in Thailand's e-government services: A structural equation modeling (SEM) approach",
+      "year": 2026,
+      "publication_date": "2026-06-01",
+      "source": "crossref",
+      "venue": "Social Sciences &amp; Humanities Open",
+      "doi": "10.1016/j.ssaho.2026.102967",
+      "url": "https://doi.org/10.1016/j.ssaho.2026.102967",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.64938/bijsi.v10si1.26.jan109",
+      "title": "AI and Humanity: A Study of Ethical Concerns in Enthiran through the Perspective of AI Ethics Theory",
+      "year": 2026,
+      "publication_date": "2026-01-22",
+      "source": "crossref",
+      "venue": "BODHI International Journal of Research in Humanities, Arts and Science",
+      "doi": "10.64938/bijsi.v10si1.26.jan109",
+      "url": "https://doi.org/10.64938/bijsi.v10si1.26.jan109",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.17613/c4h4b-pv774",
+      "title": "AI and Multilingualism Q2: Forced Migration and the Survival of Languages",
+      "year": "2026",
+      "publication_date": "2026-06-07",
+      "source": "hcommons",
+      "venue": "Éditions La Dondaine, Medium.com",
+      "doi": "10.17613/c4h4b-pv774",
+      "url": "https://works.hcommons.org/records/c4h4b-pv774",
+      "is_quantitative_humanities_candidate": true,
+      "methods": "llm",
+      "quantitative_signals": "llm",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.65219/sjhss.20260101005",
+      "title": "AI AND THE FUTURE OF SCHOLARLY PUBLISHING IN ENGLISH STUDIES",
+      "year": 2026,
+      "publication_date": "2026-02-19",
+      "source": "crossref",
+      "venue": "Scholar Journal of Humanities and Social Sciences",
+      "doi": "10.65219/sjhss.20260101005",
+      "url": "https://doi.org/10.65219/sjhss.20260101005",
+      "is_quantitative_humanities_candidate": true,
+      "methods": "translation; stylometry; bibliometric; distant reading",
+      "quantitative_signals": "citation",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.1016/j.ssaho.2026.102755",
+      "title": "AI and worker well-being: Differential impacts across generational cohorts and genders",
+      "year": 2026,
+      "publication_date": "2026-06-01",
+      "source": "crossref",
+      "venue": "Social Sciences &amp; Humanities Open",
+      "doi": "10.1016/j.ssaho.2026.102755",
+      "url": "https://doi.org/10.1016/j.ssaho.2026.102755",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.70152/duties.v2i1.320",
+      "title": "AI as a Metacognitive Mirror: How Students Use AI to Monitor and Repair Reading Comprehension Breakdowns",
+      "year": 2026,
+      "publication_date": "2026-03-01",
+      "source": "crossref",
+      "venue": "DUTIES: Education and Humanities International Journal",
+      "doi": "10.70152/duties.v2i1.320",
+      "url": "https://doi.org/10.70152/duties.v2i1.320",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.17613/b1rq3-rsj23",
+      "title": "AI Astrology",
+      "year": "2026",
+      "publication_date": "2026-01-03",
+      "source": "hcommons",
+      "venue": "Knowledge Commons",
+      "doi": "10.17613/b1rq3-rsj23",
+      "url": "https://works.hcommons.org/records/b1rq3-rsj23",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.31046/7a5ddy84",
+      "title": "AI Authorship and the Role of the Librarian",
+      "year": "2026",
+      "publication_date": "2026-04-01",
+      "source": "doaj",
+      "venue": "Theological Librarianship",
+      "doi": "10.31046/7a5ddy84",
+      "url": "https://serials.atla.com/theolib/article/view/4544",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.32996/jhsss.2026.8.4.4",
+      "title": "AI cognitive laziness in programming learning among university students",
+      "year": 2026,
+      "publication_date": "2026-04-10",
+      "source": "crossref",
+      "venue": "Journal of Humanities and Social Sciences Studies",
+      "doi": "10.32996/jhsss.2026.8.4.4",
+      "url": "https://doi.org/10.32996/jhsss.2026.8.4.4",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.17613/e22ja-j1w16",
+      "title": "Ai confini del calcolabile",
+      "year": "2026",
+      "publication_date": "2026-03-15",
+      "source": "hcommons",
+      "venue": "Knowledge Commons",
+      "doi": "10.17613/e22ja-j1w16",
+      "url": "https://works.hcommons.org/records/e22ja-j1w16",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.17613/3tcvt-rx962",
+      "title": "Ai confini del calcolabile. Terzo movimento",
+      "year": "2026",
+      "publication_date": "2026-03-17",
+      "source": "hcommons",
+      "venue": "Knowledge Commons",
+      "doi": "10.17613/3tcvt-rx962",
+      "url": "https://works.hcommons.org/records/3tcvt-rx962",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.17613/1aja2-gff47",
+      "title": "Ai confini del vivente",
+      "year": "2026",
+      "publication_date": "2026-03-18",
+      "source": "hcommons",
+      "venue": "Knowledge Commons",
+      "doi": "10.17613/1aja2-gff47",
+      "url": "https://works.hcommons.org/records/1aja2-gff47",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.17613/17py8-2kq58",
+      "title": "AI Does Not Hallucinate — The Unverifying Human Does",
+      "year": "2026",
+      "publication_date": "2026-05-25",
+      "source": "hcommons",
+      "venue": "halitcengizuzuner.com",
+      "doi": "10.17613/17py8-2kq58",
+      "url": "https://works.hcommons.org/records/17py8-2kq58",
+      "is_quantitative_humanities_candidate": true,
+      "methods": "large language models",
+      "quantitative_signals": "large language models",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.63313/ssh.9078",
+      "title": "AI Empowerment and Public Co-creation: Communication Mechanism, Characteristics and Cultural Connotation of the Viral Event Saving a Fox on Snow Mountain",
+      "year": 2026,
+      "publication_date": "2026-04-02",
+      "source": "crossref",
+      "venue": "Social Sciences and Humanities",
+      "doi": "10.63313/ssh.9078",
+      "url": "https://doi.org/10.63313/ssh.9078",
+      "is_quantitative_humanities_candidate": true,
+      "methods": "content analysis",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    }
+  ],
+  "caveats": [
+    "This bootstrap monitor compares the current processed corpus against an empty baseline unless --prior-works is provided.",
+    "Newly discovered old records are separated from genuinely new publications by publication year, not by source ingestion timestamp.",
+    "Source coverage changes can reflect crawler limits, indexing lag, or API availability rather than intellectual change."
+  ],
+  "nextRun": [
+    "Run the monitor after each literature-radar backfill using the previous run's processed works as --prior-works.",
+    "Treat new topic and venue changes as leads until representative records are manually audited.",
+    "Publish monitor findings only with the source coverage table attached."
+  ]
+}

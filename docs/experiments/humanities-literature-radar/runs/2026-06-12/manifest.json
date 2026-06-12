@@ -1,0 +1,37 @@
+{
+  "runDate": "2026-06-12",
+  "baselineDate": "bootstrap",
+  "generatedAt": "2026-06-12T19:48:49.609Z",
+  "script": "docs/experiments/humanities-literature-radar/scripts/build-monitor-run.mjs",
+  "configPath": "config/monitor.yml",
+  "baseline": {
+    "source": "bootstrap-empty-baseline",
+    "priorWorks": 0,
+    "currentWorks": 1951
+  },
+  "policy": {
+    "compareKey": "stableWorkId",
+    "genuinelyNewPublicationYearMin": 2024
+  },
+  "counts": {
+    "currentWorks": 1951,
+    "newWorks": 1951,
+    "genuinelyNewPublications": 1155,
+    "newlyDiscoveredOldRecords": 796,
+    "changedSources": 6
+  },
+  "inputs": {
+    "works": "data/processed/works.json",
+    "result": "reports/result.json",
+    "pipelineRun": "reports/pipeline-run.json",
+    "sourceManifestCount": 8
+  },
+  "outputs": {
+    "newWorksJson": "runs/2026-06-12/new-works.json",
+    "newWorksCsv": "runs/2026-06-12/new-works.csv",
+    "changedSourcesCsv": "runs/2026-06-12/changed-sources.csv",
+    "result": "runs/2026-06-12/result.json",
+    "report": "runs/2026-06-12/report.html",
+    "work": "runs/2026-06-12/work.md"
+  }
+}

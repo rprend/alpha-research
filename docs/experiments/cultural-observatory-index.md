@@ -86,6 +86,7 @@ Status: runnable v1 corpus and field-map artifact.
 Implemented:
 
 - source configs
+- recurring monitor config
 - OpenAlex fetcher
 - Crossref fetcher
 - DOAJ fetcher
@@ -105,6 +106,7 @@ Implemented:
 - `public-draft.md`
 - `publication-handoff.md`
 - `dataset_briefing.md`
+- `runs/2026-06-12/` bootstrap monitor
 - one-command `run-pipeline.mjs` smoke/v1 runner
 
 Current committed corpus:
@@ -113,11 +115,13 @@ Current committed corpus:
 - 1,155 works dated 2024-present
 - 593 quantitative/computational humanities candidates
 - sources represented in processed records: arXiv, Crossref, OpenAlex, DOAJ, OSF Preprints / SocArXiv, Knowledge Commons Works / Humanities Commons
+- monitor baseline: 1,951 records absent from bootstrap baseline, including 1,155 genuinely new publications and 796 newly discovered old records
 - readiness: ready for editorial review with source-coverage caveats
 
 Next implementation moves:
 
 - copyedit the publication handoff into a field-map post
+- run the recurring monitor after the next broad backfill with `--prior-works`
 - replace bounded DOAJ search with public dump or OAI-PMH harvest
 - improve NBER extraction or switch to an official metadata route if available
 - expand OSF/SocArXiv beyond bounded title search

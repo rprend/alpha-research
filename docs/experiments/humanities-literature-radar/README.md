@@ -51,6 +51,14 @@ node docs/experiments/humanities-literature-radar/scripts/build-publication-hand
 node docs/experiments/humanities-literature-radar/scripts/check-readiness.mjs
 ```
 
+Build a recurring monitor artifact from the current processed corpus:
+
+```bash
+node docs/experiments/humanities-literature-radar/scripts/build-monitor-run.mjs --run-date=2026-06-12
+```
+
+For later runs, pass the previous processed corpus as `--prior-works=<path>` so the monitor separates newly discovered old records from genuinely new publications against a real baseline.
+
 The scripts write:
 
 - `reports/pipeline-run.json`
@@ -70,6 +78,25 @@ The scripts write:
 - `reports/publication-handoff.json`
 - `reports/readiness.md`
 - `reports/readiness.json`
+- `runs/YYYY-MM-DD/manifest.json`
+- `runs/YYYY-MM-DD/new-works.csv`
+- `runs/YYYY-MM-DD/new-works.json`
+- `runs/YYYY-MM-DD/changed-sources.csv`
+- `runs/YYYY-MM-DD/report.html`
+- `runs/YYYY-MM-DD/result.json`
+- `runs/YYYY-MM-DD/work.md`
+
+## Recurring Monitor
+
+The monitor is configured in `config/monitor.yml`.
+
+The first bootstrap run is `runs/2026-06-12/`. It compares the current processed corpus against an empty baseline and classifies all 1,951 current records as absent from baseline:
+
+- 1,155 genuinely new publications in the configured current window
+- 796 newly discovered old records
+- 6 source rows in the coverage-change table
+
+After the next broad backfill, run the monitor with a prior processed corpus path. Monitor claims should keep the `changed-sources.csv` table attached because source count changes can reflect crawler limits, API coverage, or indexing lag rather than intellectual trends.
 
 ## Article Standard
 
