@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T18:48:52.417Z",
+  "generatedAt": "2026-06-12T18:51:26.112Z",
   "itemCount": 6,
   "readyCount": 3,
   "notReadyCount": 3,
@@ -16,7 +16,7 @@
       "draft_exists": true,
       "chart_count": 4,
       "summary": "A structured museum API turns a collection into analyzable records, but the first artifact is a bounded sample of one institution, not a statement about museums generally.",
-      "draft_path": "docs/experiments/cleveland-museum-collection-shape/reports/public-draft.md",
+      "draft_path": "docs/experiments/cleveland-museum-collection-shape/reports/publication-draft.md",
       "result_path": "docs/experiments/cleveland-museum-collection-shape/reports/result.json",
       "readiness_path": "docs/experiments/cleveland-museum-collection-shape/reports/readiness.json"
     },

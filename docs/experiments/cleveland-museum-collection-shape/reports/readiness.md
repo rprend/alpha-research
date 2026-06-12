@@ -1,6 +1,6 @@
 # Cleveland Collection Shape Readiness Check
 
-Generated at: 2026-06-12T18:45:58.797Z
+Generated at: 2026-06-12T18:51:01.438Z
 Status: ready-for-editorial-review
 
 | Check | Status | Evidence |

@@ -85,7 +85,9 @@ async function buildRow(experiment) {
   const reportsDir = path.join(experiment.path, "reports");
   const resultPath = path.join(reportsDir, "result.json");
   const readinessPath = path.join(reportsDir, "readiness.json");
-  const draftPath = path.join(reportsDir, "public-draft.md");
+  const publicationDraftPath = path.join(reportsDir, "publication-draft.md");
+  const publicDraftPath = path.join(reportsDir, "public-draft.md");
+  const draftPath = await exists(publicationDraftPath) ? publicationDraftPath : publicDraftPath;
   const result = await readOptionalJson(resultPath);
   const readiness = await readOptionalJson(readinessPath);
   const draft = await readOptionalText(draftPath);
@@ -153,6 +155,15 @@ async function readOptionalText(file) {
     return await fs.readFile(file, "utf8");
   } catch {
     return "";
+  }
+}
+
+async function exists(file) {
+  try {
+    await fs.access(file);
+    return true;
+  } catch {
+    return false;
   }
 }
 

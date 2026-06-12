@@ -4,7 +4,7 @@
   "baseUrl": "https://openaccess-api.clevelandart.org/api/artworks/",
   "limit": 5000,
   "pageSize": 1000,
-  "startedAt": "2026-06-12T18:45:30.896Z",
+  "startedAt": "2026-06-12T18:50:58.662Z",
   "requests": [
     {
       "skip": 0,
@@ -53,7 +53,7 @@
     }
   ],
   "errors": [],
-  "finishedAt": "2026-06-12T18:45:32.777Z",
+  "finishedAt": "2026-06-12T18:51:00.846Z",
   "recordCount": 5000,
   "totalAvailable": 68743
 }

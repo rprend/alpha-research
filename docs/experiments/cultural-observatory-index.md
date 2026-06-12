@@ -200,6 +200,7 @@ Implemented:
 - `result.json`
 - `work.md`
 - `public-draft.md`
+- `publication-draft.md`
 - readiness gate
 - one-command pipeline runner
 

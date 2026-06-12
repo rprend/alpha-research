@@ -1,6 +1,6 @@
 # Cultural Observatory Publication Queue
 
-Generated at: 2026-06-12T18:48:52.417Z
+Generated at: 2026-06-12T18:51:26.112Z
 Ready for editorial review: 3
 Not ready: 3
 
@@ -20,7 +20,7 @@ Not ready: 3
 - Format: field-map
 - Lane: first-public-essay
 - Status: ready-for-editorial-review
-- Draft: `docs/experiments/cleveland-museum-collection-shape/reports/public-draft.md`
+- Draft: `docs/experiments/cleveland-museum-collection-shape/reports/publication-draft.md`
 - Result: `docs/experiments/cleveland-museum-collection-shape/reports/result.json`
 - Readiness: `docs/experiments/cleveland-museum-collection-shape/reports/readiness.json`
 - Failed checks: none
