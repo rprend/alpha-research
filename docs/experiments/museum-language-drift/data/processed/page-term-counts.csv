@@ -1,99 +1,120 @@
-museum,page_type,source_layer,year,family,count,count_per_1000_words,matched_terms,url
-Tate,about,current,2026,civilization_world_culture,0,0,,https://www.tate.org.uk/about-us
-Tate,about,current,2026,provenance_ownership,0,0,,https://www.tate.org.uk/about-us
-Tate,about,current,2026,restitution_repatriation,0,0,,https://www.tate.org.uk/about-us
-Tate,about,current,2026,decolonization_reckoning,0,0,,https://www.tate.org.uk/about-us
-Tate,about,current,2026,access_public,4,6.969,access; public; learning,https://www.tate.org.uk/about-us
-Tate,about,current,2026,community_inclusion,6,10.453,inclusion; diversity,https://www.tate.org.uk/about-us
-Tate,about,current,2026,research_scholarship,3,5.226,research; conservation,https://www.tate.org.uk/about-us
-J. Paul Getty Museum,about,current,2026,civilization_world_culture,0,0,,https://www.getty.edu/about/
-J. Paul Getty Museum,about,current,2026,provenance_ownership,0,0,,https://www.getty.edu/about/
-J. Paul Getty Museum,about,current,2026,restitution_repatriation,0,0,,https://www.getty.edu/about/
-J. Paul Getty Museum,about,current,2026,decolonization_reckoning,0,0,,https://www.getty.edu/about/
-J. Paul Getty Museum,about,current,2026,access_public,1,3.003,education,https://www.getty.edu/about/
-J. Paul Getty Museum,about,current,2026,community_inclusion,1,3.003,community,https://www.getty.edu/about/
-J. Paul Getty Museum,about,current,2026,research_scholarship,3,9.009,research; conservation,https://www.getty.edu/about/
-Rijksmuseum,about,current,2026,civilization_world_culture,0,0,,https://www.rijksmuseum.nl/en/about-us
-Rijksmuseum,about,current,2026,provenance_ownership,0,0,,https://www.rijksmuseum.nl/en/about-us
-Rijksmuseum,about,current,2026,restitution_repatriation,0,0,,https://www.rijksmuseum.nl/en/about-us
-Rijksmuseum,about,current,2026,decolonization_reckoning,0,0,,https://www.rijksmuseum.nl/en/about-us
-Rijksmuseum,about,current,2026,access_public,0,0,,https://www.rijksmuseum.nl/en/about-us
-Rijksmuseum,about,current,2026,community_inclusion,0,0,,https://www.rijksmuseum.nl/en/about-us
-Rijksmuseum,about,current,2026,research_scholarship,0,0,,https://www.rijksmuseum.nl/en/about-us
-Musée du Louvre,about,current,2026,civilization_world_culture,0,0,,https://www.louvre.fr/en/explore/the-palace
-Musée du Louvre,about,current,2026,provenance_ownership,0,0,,https://www.louvre.fr/en/explore/the-palace
-Musée du Louvre,about,current,2026,restitution_repatriation,0,0,,https://www.louvre.fr/en/explore/the-palace
-Musée du Louvre,about,current,2026,decolonization_reckoning,1,3.322,empire,https://www.louvre.fr/en/explore/the-palace
-Musée du Louvre,about,current,2026,access_public,1,3.322,public,https://www.louvre.fr/en/explore/the-palace
-Musée du Louvre,about,current,2026,community_inclusion,0,0,,https://www.louvre.fr/en/explore/the-palace
-Musée du Louvre,about,current,2026,research_scholarship,0,0,,https://www.louvre.fr/en/explore/the-palace
-Art Institute of Chicago,about,current,2026,civilization_world_culture,0,0,,https://www.artic.edu/about-us
-Art Institute of Chicago,about,current,2026,provenance_ownership,0,0,,https://www.artic.edu/about-us
-Art Institute of Chicago,about,current,2026,restitution_repatriation,0,0,,https://www.artic.edu/about-us
-Art Institute of Chicago,about,current,2026,decolonization_reckoning,0,0,,https://www.artic.edu/about-us
-Art Institute of Chicago,about,current,2026,access_public,5,17.065,public; education; learning,https://www.artic.edu/about-us
-Art Institute of Chicago,about,current,2026,community_inclusion,1,3.413,communities,https://www.artic.edu/about-us
-Art Institute of Chicago,about,current,2026,research_scholarship,2,6.826,research; conservation,https://www.artic.edu/about-us
-Victoria and Albert Museum,about,current,2026,civilization_world_culture,0,0,,https://www.vam.ac.uk/info/about-us
-Victoria and Albert Museum,about,current,2026,provenance_ownership,0,0,,https://www.vam.ac.uk/info/about-us
-Victoria and Albert Museum,about,current,2026,restitution_repatriation,0,0,,https://www.vam.ac.uk/info/about-us
-Victoria and Albert Museum,about,current,2026,decolonization_reckoning,0,0,,https://www.vam.ac.uk/info/about-us
-Victoria and Albert Museum,about,current,2026,access_public,9,13.72,access; public; visitor; visitors; learning,https://www.vam.ac.uk/info/about-us
-Victoria and Albert Museum,about,current,2026,community_inclusion,2,3.049,community; diversity,https://www.vam.ac.uk/info/about-us
-Victoria and Albert Museum,about,current,2026,research_scholarship,3,4.573,research; conservation,https://www.vam.ac.uk/info/about-us
-Whitney Museum of American Art,about,current,2026,civilization_world_culture,0,0,,https://whitney.org/about
-Whitney Museum of American Art,about,current,2026,provenance_ownership,0,0,,https://whitney.org/about
-Whitney Museum of American Art,about,current,2026,restitution_repatriation,0,0,,https://whitney.org/about
-Whitney Museum of American Art,about,current,2026,decolonization_reckoning,1,1.757,empire,https://whitney.org/about
-Whitney Museum of American Art,about,current,2026,access_public,2,3.515,public; visitors,https://whitney.org/about
-Whitney Museum of American Art,about,current,2026,community_inclusion,0,0,,https://whitney.org/about
-Whitney Museum of American Art,about,current,2026,research_scholarship,0,0,,https://whitney.org/about
-San Francisco Museum of Modern Art,about,current,2026,civilization_world_culture,0,0,,https://www.sfmoma.org/about/
-San Francisco Museum of Modern Art,about,current,2026,provenance_ownership,0,0,,https://www.sfmoma.org/about/
-San Francisco Museum of Modern Art,about,current,2026,restitution_repatriation,0,0,,https://www.sfmoma.org/about/
-San Francisco Museum of Modern Art,about,current,2026,decolonization_reckoning,0,0,,https://www.sfmoma.org/about/
-San Francisco Museum of Modern Art,about,current,2026,access_public,2,13.605,public,https://www.sfmoma.org/about/
-San Francisco Museum of Modern Art,about,current,2026,community_inclusion,1,6.803,community,https://www.sfmoma.org/about/
-San Francisco Museum of Modern Art,about,current,2026,research_scholarship,0,0,,https://www.sfmoma.org/about/
-Museum of Contemporary Art Chicago,about,current,2026,civilization_world_culture,0,0,,https://mcachicago.org/About
-Museum of Contemporary Art Chicago,about,current,2026,provenance_ownership,0,0,,https://mcachicago.org/About
-Museum of Contemporary Art Chicago,about,current,2026,restitution_repatriation,0,0,,https://mcachicago.org/About
-Museum of Contemporary Art Chicago,about,current,2026,decolonization_reckoning,0,0,,https://mcachicago.org/About
-Museum of Contemporary Art Chicago,about,current,2026,access_public,4,5.083,public; learning,https://mcachicago.org/About
-Museum of Contemporary Art Chicago,about,current,2026,community_inclusion,5,6.353,community; communities,https://mcachicago.org/About
-Museum of Contemporary Art Chicago,about,current,2026,research_scholarship,0,0,,https://mcachicago.org/About
-Walker Art Center,about,current,2026,civilization_world_culture,0,0,,https://walkerart.org/about
-Walker Art Center,about,current,2026,provenance_ownership,0,0,,https://walkerart.org/about
-Walker Art Center,about,current,2026,restitution_repatriation,0,0,,https://walkerart.org/about
-Walker Art Center,about,current,2026,decolonization_reckoning,0,0,,https://walkerart.org/about
-Walker Art Center,about,current,2026,access_public,4,8.584,access; public; learning,https://walkerart.org/about
-Walker Art Center,about,current,2026,community_inclusion,3,6.438,community; communities,https://walkerart.org/about
-Walker Art Center,about,current,2026,research_scholarship,0,0,,https://walkerart.org/about
-Cleveland Museum of Art,about,current,2026,civilization_world_culture,0,0,,https://www.clevelandart.org/about
-Cleveland Museum of Art,about,current,2026,provenance_ownership,0,0,,https://www.clevelandart.org/about
-Cleveland Museum of Art,about,current,2026,restitution_repatriation,0,0,,https://www.clevelandart.org/about
-Cleveland Museum of Art,about,current,2026,decolonization_reckoning,0,0,,https://www.clevelandart.org/about
-Cleveland Museum of Art,about,current,2026,access_public,3,10.949,access; visitors; open access,https://www.clevelandart.org/about
-Cleveland Museum of Art,about,current,2026,community_inclusion,0,0,,https://www.clevelandart.org/about
-Cleveland Museum of Art,about,current,2026,research_scholarship,1,3.65,scholarship,https://www.clevelandart.org/about
-Philadelphia Museum of Art,about,current,2026,civilization_world_culture,0,0,,https://philamuseum.org/about
-Philadelphia Museum of Art,about,current,2026,provenance_ownership,0,0,,https://philamuseum.org/about
-Philadelphia Museum of Art,about,current,2026,restitution_repatriation,0,0,,https://philamuseum.org/about
-Philadelphia Museum of Art,about,current,2026,decolonization_reckoning,0,0,,https://philamuseum.org/about
-Philadelphia Museum of Art,about,current,2026,access_public,2,4.376,visitors; learning,https://philamuseum.org/about
-Philadelphia Museum of Art,about,current,2026,community_inclusion,6,13.129,community; communities; inclusive,https://philamuseum.org/about
-Philadelphia Museum of Art,about,current,2026,research_scholarship,0,0,,https://philamuseum.org/about
-High Museum of Art,about,current,2026,civilization_world_culture,0,0,,https://high.org/about/
-High Museum of Art,about,current,2026,provenance_ownership,0,0,,https://high.org/about/
-High Museum of Art,about,current,2026,restitution_repatriation,0,0,,https://high.org/about/
-High Museum of Art,about,current,2026,decolonization_reckoning,0,0,,https://high.org/about/
-High Museum of Art,about,current,2026,access_public,0,0,,https://high.org/about/
-High Museum of Art,about,current,2026,community_inclusion,4,19.704,community; inclusion,https://high.org/about/
-High Museum of Art,about,current,2026,research_scholarship,0,0,,https://high.org/about/
-Natural History Museum London,about,current,2026,civilization_world_culture,0,0,,https://www.nhm.ac.uk/about-us.html
-Natural History Museum London,about,current,2026,provenance_ownership,0,0,,https://www.nhm.ac.uk/about-us.html
-Natural History Museum London,about,current,2026,restitution_repatriation,0,0,,https://www.nhm.ac.uk/about-us.html
-Natural History Museum London,about,current,2026,decolonization_reckoning,0,0,,https://www.nhm.ac.uk/about-us.html
-Natural History Museum London,about,current,2026,access_public,3,6.608,visitor; visitors,https://www.nhm.ac.uk/about-us.html
-Natural History Museum London,about,current,2026,community_inclusion,4,8.811,inclusion; inclusive; diversity,https://www.nhm.ac.uk/about-us.html
-Natural History Museum London,about,current,2026,research_scholarship,3,6.608,research,https://www.nhm.ac.uk/about-us.html
+museum,page_type,source_layer,year,family,count,count_per_1000_words,matched_terms,url,archive_url
+Tate,about,current,2026,civilization_world_culture,0,0,,https://www.tate.org.uk/about-us,
+Tate,about,current,2026,provenance_ownership,0,0,,https://www.tate.org.uk/about-us,
+Tate,about,current,2026,restitution_repatriation,0,0,,https://www.tate.org.uk/about-us,
+Tate,about,current,2026,decolonization_reckoning,0,0,,https://www.tate.org.uk/about-us,
+Tate,about,current,2026,access_public,4,6.969,access; public; learning,https://www.tate.org.uk/about-us,
+Tate,about,current,2026,community_inclusion,6,10.453,inclusion; diversity,https://www.tate.org.uk/about-us,
+Tate,about,current,2026,research_scholarship,3,5.226,research; conservation,https://www.tate.org.uk/about-us,
+J. Paul Getty Museum,about,current,2026,civilization_world_culture,0,0,,https://www.getty.edu/about/,
+J. Paul Getty Museum,about,current,2026,provenance_ownership,0,0,,https://www.getty.edu/about/,
+J. Paul Getty Museum,about,current,2026,restitution_repatriation,0,0,,https://www.getty.edu/about/,
+J. Paul Getty Museum,about,current,2026,decolonization_reckoning,0,0,,https://www.getty.edu/about/,
+J. Paul Getty Museum,about,current,2026,access_public,1,3.003,education,https://www.getty.edu/about/,
+J. Paul Getty Museum,about,current,2026,community_inclusion,1,3.003,community,https://www.getty.edu/about/,
+J. Paul Getty Museum,about,current,2026,research_scholarship,3,9.009,research; conservation,https://www.getty.edu/about/,
+Rijksmuseum,about,current,2026,civilization_world_culture,0,0,,https://www.rijksmuseum.nl/en/about-us,
+Rijksmuseum,about,current,2026,provenance_ownership,0,0,,https://www.rijksmuseum.nl/en/about-us,
+Rijksmuseum,about,current,2026,restitution_repatriation,0,0,,https://www.rijksmuseum.nl/en/about-us,
+Rijksmuseum,about,current,2026,decolonization_reckoning,0,0,,https://www.rijksmuseum.nl/en/about-us,
+Rijksmuseum,about,current,2026,access_public,0,0,,https://www.rijksmuseum.nl/en/about-us,
+Rijksmuseum,about,current,2026,community_inclusion,0,0,,https://www.rijksmuseum.nl/en/about-us,
+Rijksmuseum,about,current,2026,research_scholarship,0,0,,https://www.rijksmuseum.nl/en/about-us,
+Musée du Louvre,about,current,2026,civilization_world_culture,0,0,,https://www.louvre.fr/en/explore/the-palace,
+Musée du Louvre,about,current,2026,provenance_ownership,0,0,,https://www.louvre.fr/en/explore/the-palace,
+Musée du Louvre,about,current,2026,restitution_repatriation,0,0,,https://www.louvre.fr/en/explore/the-palace,
+Musée du Louvre,about,current,2026,decolonization_reckoning,1,3.322,empire,https://www.louvre.fr/en/explore/the-palace,
+Musée du Louvre,about,current,2026,access_public,1,3.322,public,https://www.louvre.fr/en/explore/the-palace,
+Musée du Louvre,about,current,2026,community_inclusion,0,0,,https://www.louvre.fr/en/explore/the-palace,
+Musée du Louvre,about,current,2026,research_scholarship,0,0,,https://www.louvre.fr/en/explore/the-palace,
+Art Institute of Chicago,about,current,2026,civilization_world_culture,0,0,,https://www.artic.edu/about-us,
+Art Institute of Chicago,about,current,2026,provenance_ownership,0,0,,https://www.artic.edu/about-us,
+Art Institute of Chicago,about,current,2026,restitution_repatriation,0,0,,https://www.artic.edu/about-us,
+Art Institute of Chicago,about,current,2026,decolonization_reckoning,0,0,,https://www.artic.edu/about-us,
+Art Institute of Chicago,about,current,2026,access_public,5,17.065,public; education; learning,https://www.artic.edu/about-us,
+Art Institute of Chicago,about,current,2026,community_inclusion,1,3.413,communities,https://www.artic.edu/about-us,
+Art Institute of Chicago,about,current,2026,research_scholarship,2,6.826,research; conservation,https://www.artic.edu/about-us,
+Victoria and Albert Museum,about,current,2026,civilization_world_culture,0,0,,https://www.vam.ac.uk/info/about-us,
+Victoria and Albert Museum,about,current,2026,provenance_ownership,0,0,,https://www.vam.ac.uk/info/about-us,
+Victoria and Albert Museum,about,current,2026,restitution_repatriation,0,0,,https://www.vam.ac.uk/info/about-us,
+Victoria and Albert Museum,about,current,2026,decolonization_reckoning,0,0,,https://www.vam.ac.uk/info/about-us,
+Victoria and Albert Museum,about,current,2026,access_public,9,13.72,access; public; visitor; visitors; learning,https://www.vam.ac.uk/info/about-us,
+Victoria and Albert Museum,about,current,2026,community_inclusion,2,3.049,community; diversity,https://www.vam.ac.uk/info/about-us,
+Victoria and Albert Museum,about,current,2026,research_scholarship,3,4.573,research; conservation,https://www.vam.ac.uk/info/about-us,
+Whitney Museum of American Art,about,current,2026,civilization_world_culture,0,0,,https://whitney.org/about,
+Whitney Museum of American Art,about,current,2026,provenance_ownership,0,0,,https://whitney.org/about,
+Whitney Museum of American Art,about,current,2026,restitution_repatriation,0,0,,https://whitney.org/about,
+Whitney Museum of American Art,about,current,2026,decolonization_reckoning,1,1.757,empire,https://whitney.org/about,
+Whitney Museum of American Art,about,current,2026,access_public,2,3.515,public; visitors,https://whitney.org/about,
+Whitney Museum of American Art,about,current,2026,community_inclusion,0,0,,https://whitney.org/about,
+Whitney Museum of American Art,about,current,2026,research_scholarship,0,0,,https://whitney.org/about,
+San Francisco Museum of Modern Art,about,current,2026,civilization_world_culture,0,0,,https://www.sfmoma.org/about/,
+San Francisco Museum of Modern Art,about,current,2026,provenance_ownership,0,0,,https://www.sfmoma.org/about/,
+San Francisco Museum of Modern Art,about,current,2026,restitution_repatriation,0,0,,https://www.sfmoma.org/about/,
+San Francisco Museum of Modern Art,about,current,2026,decolonization_reckoning,0,0,,https://www.sfmoma.org/about/,
+San Francisco Museum of Modern Art,about,current,2026,access_public,2,13.605,public,https://www.sfmoma.org/about/,
+San Francisco Museum of Modern Art,about,current,2026,community_inclusion,1,6.803,community,https://www.sfmoma.org/about/,
+San Francisco Museum of Modern Art,about,current,2026,research_scholarship,0,0,,https://www.sfmoma.org/about/,
+Museum of Contemporary Art Chicago,about,current,2026,civilization_world_culture,0,0,,https://mcachicago.org/About,
+Museum of Contemporary Art Chicago,about,current,2026,provenance_ownership,0,0,,https://mcachicago.org/About,
+Museum of Contemporary Art Chicago,about,current,2026,restitution_repatriation,0,0,,https://mcachicago.org/About,
+Museum of Contemporary Art Chicago,about,current,2026,decolonization_reckoning,0,0,,https://mcachicago.org/About,
+Museum of Contemporary Art Chicago,about,current,2026,access_public,4,5.083,public; learning,https://mcachicago.org/About,
+Museum of Contemporary Art Chicago,about,current,2026,community_inclusion,5,6.353,community; communities,https://mcachicago.org/About,
+Museum of Contemporary Art Chicago,about,current,2026,research_scholarship,0,0,,https://mcachicago.org/About,
+Walker Art Center,about,current,2026,civilization_world_culture,0,0,,https://walkerart.org/about,
+Walker Art Center,about,current,2026,provenance_ownership,0,0,,https://walkerart.org/about,
+Walker Art Center,about,current,2026,restitution_repatriation,0,0,,https://walkerart.org/about,
+Walker Art Center,about,current,2026,decolonization_reckoning,0,0,,https://walkerart.org/about,
+Walker Art Center,about,current,2026,access_public,4,8.584,access; public; learning,https://walkerart.org/about,
+Walker Art Center,about,current,2026,community_inclusion,3,6.438,community; communities,https://walkerart.org/about,
+Walker Art Center,about,current,2026,research_scholarship,0,0,,https://walkerart.org/about,
+Cleveland Museum of Art,about,current,2026,civilization_world_culture,0,0,,https://www.clevelandart.org/about,
+Cleveland Museum of Art,about,current,2026,provenance_ownership,0,0,,https://www.clevelandart.org/about,
+Cleveland Museum of Art,about,current,2026,restitution_repatriation,0,0,,https://www.clevelandart.org/about,
+Cleveland Museum of Art,about,current,2026,decolonization_reckoning,0,0,,https://www.clevelandart.org/about,
+Cleveland Museum of Art,about,current,2026,access_public,3,10.949,access; visitors; open access,https://www.clevelandart.org/about,
+Cleveland Museum of Art,about,current,2026,community_inclusion,0,0,,https://www.clevelandart.org/about,
+Cleveland Museum of Art,about,current,2026,research_scholarship,1,3.65,scholarship,https://www.clevelandart.org/about,
+Philadelphia Museum of Art,about,current,2026,civilization_world_culture,0,0,,https://philamuseum.org/about,
+Philadelphia Museum of Art,about,current,2026,provenance_ownership,0,0,,https://philamuseum.org/about,
+Philadelphia Museum of Art,about,current,2026,restitution_repatriation,0,0,,https://philamuseum.org/about,
+Philadelphia Museum of Art,about,current,2026,decolonization_reckoning,0,0,,https://philamuseum.org/about,
+Philadelphia Museum of Art,about,current,2026,access_public,2,4.376,visitors; learning,https://philamuseum.org/about,
+Philadelphia Museum of Art,about,current,2026,community_inclusion,6,13.129,community; communities; inclusive,https://philamuseum.org/about,
+Philadelphia Museum of Art,about,current,2026,research_scholarship,0,0,,https://philamuseum.org/about,
+High Museum of Art,about,current,2026,civilization_world_culture,0,0,,https://high.org/about/,
+High Museum of Art,about,current,2026,provenance_ownership,0,0,,https://high.org/about/,
+High Museum of Art,about,current,2026,restitution_repatriation,0,0,,https://high.org/about/,
+High Museum of Art,about,current,2026,decolonization_reckoning,0,0,,https://high.org/about/,
+High Museum of Art,about,current,2026,access_public,0,0,,https://high.org/about/,
+High Museum of Art,about,current,2026,community_inclusion,4,19.704,community; inclusion,https://high.org/about/,
+High Museum of Art,about,current,2026,research_scholarship,0,0,,https://high.org/about/,
+Natural History Museum London,about,current,2026,civilization_world_culture,0,0,,https://www.nhm.ac.uk/about-us.html,
+Natural History Museum London,about,current,2026,provenance_ownership,0,0,,https://www.nhm.ac.uk/about-us.html,
+Natural History Museum London,about,current,2026,restitution_repatriation,0,0,,https://www.nhm.ac.uk/about-us.html,
+Natural History Museum London,about,current,2026,decolonization_reckoning,0,0,,https://www.nhm.ac.uk/about-us.html,
+Natural History Museum London,about,current,2026,access_public,3,6.608,visitor; visitors,https://www.nhm.ac.uk/about-us.html,
+Natural History Museum London,about,current,2026,community_inclusion,4,8.811,inclusion; inclusive; diversity,https://www.nhm.ac.uk/about-us.html,
+Natural History Museum London,about,current,2026,research_scholarship,3,6.608,research,https://www.nhm.ac.uk/about-us.html,
+Tate,about,wayback,2020,civilization_world_culture,0,0,,https://www.tate.org.uk/about-us,https://web.archive.org/web/20200622225145id_/https://www.tate.org.uk/about-us
+Tate,about,wayback,2020,provenance_ownership,0,0,,https://www.tate.org.uk/about-us,https://web.archive.org/web/20200622225145id_/https://www.tate.org.uk/about-us
+Tate,about,wayback,2020,restitution_repatriation,0,0,,https://www.tate.org.uk/about-us,https://web.archive.org/web/20200622225145id_/https://www.tate.org.uk/about-us
+Tate,about,wayback,2020,decolonization_reckoning,0,0,,https://www.tate.org.uk/about-us,https://web.archive.org/web/20200622225145id_/https://www.tate.org.uk/about-us
+Tate,about,wayback,2020,access_public,5,9.042,access; public; learning,https://www.tate.org.uk/about-us,https://web.archive.org/web/20200622225145id_/https://www.tate.org.uk/about-us
+Tate,about,wayback,2020,community_inclusion,6,10.85,inclusion; diversity,https://www.tate.org.uk/about-us,https://web.archive.org/web/20200622225145id_/https://www.tate.org.uk/about-us
+Tate,about,wayback,2020,research_scholarship,4,7.233,research; conservation,https://www.tate.org.uk/about-us,https://web.archive.org/web/20200622225145id_/https://www.tate.org.uk/about-us
+J. Paul Getty Museum,about,wayback,2010,civilization_world_culture,0,0,,https://www.getty.edu/about/,https://web.archive.org/web/20100528034602id_/https://www.getty.edu/about/
+J. Paul Getty Museum,about,wayback,2010,provenance_ownership,0,0,,https://www.getty.edu/about/,https://web.archive.org/web/20100528034602id_/https://www.getty.edu/about/
+J. Paul Getty Museum,about,wayback,2010,restitution_repatriation,0,0,,https://www.getty.edu/about/,https://web.archive.org/web/20100528034602id_/https://www.getty.edu/about/
+J. Paul Getty Museum,about,wayback,2010,decolonization_reckoning,0,0,,https://www.getty.edu/about/,https://web.archive.org/web/20100528034602id_/https://www.getty.edu/about/
+J. Paul Getty Museum,about,wayback,2010,access_public,1,7.576,education,https://www.getty.edu/about/,https://web.archive.org/web/20100528034602id_/https://www.getty.edu/about/
+J. Paul Getty Museum,about,wayback,2010,community_inclusion,0,0,,https://www.getty.edu/about/,https://web.archive.org/web/20100528034602id_/https://www.getty.edu/about/
+J. Paul Getty Museum,about,wayback,2010,research_scholarship,0,0,,https://www.getty.edu/about/,https://web.archive.org/web/20100528034602id_/https://www.getty.edu/about/
+Rijksmuseum,about,wayback,2020,civilization_world_culture,0,0,,https://www.rijksmuseum.nl/en/about-us,https://web.archive.org/web/20201115091217id_/https://www.rijksmuseum.nl/en/about-us
+Rijksmuseum,about,wayback,2020,provenance_ownership,0,0,,https://www.rijksmuseum.nl/en/about-us,https://web.archive.org/web/20201115091217id_/https://www.rijksmuseum.nl/en/about-us
+Rijksmuseum,about,wayback,2020,restitution_repatriation,0,0,,https://www.rijksmuseum.nl/en/about-us,https://web.archive.org/web/20201115091217id_/https://www.rijksmuseum.nl/en/about-us
+Rijksmuseum,about,wayback,2020,decolonization_reckoning,0,0,,https://www.rijksmuseum.nl/en/about-us,https://web.archive.org/web/20201115091217id_/https://www.rijksmuseum.nl/en/about-us
+Rijksmuseum,about,wayback,2020,access_public,0,0,,https://www.rijksmuseum.nl/en/about-us,https://web.archive.org/web/20201115091217id_/https://www.rijksmuseum.nl/en/about-us
+Rijksmuseum,about,wayback,2020,community_inclusion,0,0,,https://www.rijksmuseum.nl/en/about-us,https://web.archive.org/web/20201115091217id_/https://www.rijksmuseum.nl/en/about-us
+Rijksmuseum,about,wayback,2020,research_scholarship,0,0,,https://www.rijksmuseum.nl/en/about-us,https://web.archive.org/web/20201115091217id_/https://www.rijksmuseum.nl/en/about-us

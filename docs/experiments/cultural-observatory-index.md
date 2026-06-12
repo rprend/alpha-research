@@ -118,36 +118,42 @@ Next implementation moves:
 
 Path: `docs/experiments/museum-language-drift/`
 
-Status: current-page source probe with report and readiness gate.
+Status: longitudinal source probe with current pages, sparse Wayback snapshots, report, audit packet, and readiness gate.
 
 Implemented:
 
 - 23-page museum source allowlist
 - current-page fetcher
+- Wayback target config
+- Wayback snapshot fetcher
 - term-family taxonomy for civilization/world culture, provenance/ownership, restitution/repatriation, decolonization/reckoning, access/public, community/inclusion, and research/scholarship
 - processed page table
 - page-term counts
+- term-family-by-year table
 - source inventory
 - `report.html`
 - `result.json`
 - `work.md`
 - `public-draft.md`
+- audit packet
 - readiness gate
 
 Current corpus:
 
 - 14 current public museum pages collected
+- 3 historical Wayback snapshots collected
 - 14 museums represented
+- year range: 2010-2026
 - current source genre represented: about pages
-- readiness: not ready for publication because historical pages and source-genre breadth are missing
+- readiness: not ready for publication because historical coverage, source-genre breadth, and audit flags still need work
 
 Next implementation moves:
 
 - add museum provenance/repatriation pages that are fetchable without browser challenges
 - add annual reports as a separate source layer
 - add exhibition-description pages as a separate source layer
-- add Wayback snapshots for stable museum pages
-- build a snippet audit packet before public claims
+- improve Wayback coverage using historical URLs and source-specific stable paths
+- clear or explain snippet audit flags before public claims
 
 ## Editorial Formats
 

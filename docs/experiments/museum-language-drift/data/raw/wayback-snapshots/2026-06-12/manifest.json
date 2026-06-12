@@ -1,0 +1,609 @@
+{
+  "runDate": "2026-06-12",
+  "source": "Internet Archive Wayback Machine",
+  "years": [
+    2010,
+    2015,
+    2020
+  ],
+  "targetConfig": "wayback-targets.json",
+  "startedAt": "2026-06-12T18:14:27.010Z",
+  "requests": [
+    {
+      "museum": "Tate",
+      "pageType": "about",
+      "url": "https://www.tate.org.uk/about-us",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Tate",
+      "pageType": "about",
+      "url": "https://www.tate.org.uk/about-us",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Tate",
+      "pageType": "about",
+      "url": "https://www.tate.org.uk/about-us",
+      "year": 2020,
+      "timestamp": "20200622225145",
+      "originalStatus": "200",
+      "archiveUrl": "https://web.archive.org/web/20200622225145id_/https://www.tate.org.uk/about-us",
+      "status": 200,
+      "wordCount": 553,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/tate-about/2020/index.html"
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "pageType": "about",
+      "url": "https://www.getty.edu/about/",
+      "year": 2010,
+      "timestamp": "20100528034602",
+      "originalStatus": "200",
+      "archiveUrl": "https://web.archive.org/web/20100528034602id_/https://www.getty.edu/about/",
+      "status": 200,
+      "wordCount": 132,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/j-paul-getty-museum-about/2010/index.html"
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "pageType": "about",
+      "url": "https://www.getty.edu/about/",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "pageType": "about",
+      "url": "https://www.getty.edu/about/",
+      "year": 2020,
+      "timestamp": "20200611195034",
+      "originalStatus": "200",
+      "archiveUrl": "https://web.archive.org/web/20200611195034id_/https://www.getty.edu/about/",
+      "status": "quality-failed",
+      "httpStatus": 200,
+      "wordCount": 9,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/j-paul-getty-museum-about/2020/index.html"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "pageType": "about",
+      "url": "https://www.rijksmuseum.nl/en/about-us",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "pageType": "about",
+      "url": "https://www.rijksmuseum.nl/en/about-us",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "pageType": "about",
+      "url": "https://www.rijksmuseum.nl/en/about-us",
+      "year": 2020,
+      "timestamp": "20201115091217",
+      "originalStatus": "200",
+      "archiveUrl": "https://web.archive.org/web/20201115091217id_/https://www.rijksmuseum.nl/en/about-us",
+      "status": 200,
+      "wordCount": 122,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/rijksmuseum-about/2020/index.html"
+    },
+    {
+      "museum": "Musée du Louvre",
+      "pageType": "about",
+      "url": "https://www.louvre.fr/en/explore/the-palace",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Musée du Louvre",
+      "pageType": "about",
+      "url": "https://www.louvre.fr/en/explore/the-palace",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Musée du Louvre",
+      "pageType": "about",
+      "url": "https://www.louvre.fr/en/explore/the-palace",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "pageType": "about",
+      "url": "https://www.artic.edu/about-us",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "pageType": "about",
+      "url": "https://www.artic.edu/about-us",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "pageType": "about",
+      "url": "https://www.artic.edu/about-us",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "pageType": "about",
+      "url": "https://www.vam.ac.uk/info/about-us",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "pageType": "about",
+      "url": "https://www.vam.ac.uk/info/about-us",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "pageType": "about",
+      "url": "https://www.vam.ac.uk/info/about-us",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Whitney Museum of American Art",
+      "pageType": "about",
+      "url": "https://whitney.org/about",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Whitney Museum of American Art",
+      "pageType": "about",
+      "url": "https://whitney.org/about",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Whitney Museum of American Art",
+      "pageType": "about",
+      "url": "https://whitney.org/about",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "San Francisco Museum of Modern Art",
+      "pageType": "about",
+      "url": "https://www.sfmoma.org/about/",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "San Francisco Museum of Modern Art",
+      "pageType": "about",
+      "url": "https://www.sfmoma.org/about/",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "San Francisco Museum of Modern Art",
+      "pageType": "about",
+      "url": "https://www.sfmoma.org/about/",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Museum of Contemporary Art Chicago",
+      "pageType": "about",
+      "url": "https://mcachicago.org/About",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Museum of Contemporary Art Chicago",
+      "pageType": "about",
+      "url": "https://mcachicago.org/About",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Museum of Contemporary Art Chicago",
+      "pageType": "about",
+      "url": "https://mcachicago.org/About",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Walker Art Center",
+      "pageType": "about",
+      "url": "https://walkerart.org/about",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Walker Art Center",
+      "pageType": "about",
+      "url": "https://walkerart.org/about",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Walker Art Center",
+      "pageType": "about",
+      "url": "https://walkerart.org/about",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Cleveland Museum of Art",
+      "pageType": "about",
+      "url": "https://www.clevelandart.org/about",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Cleveland Museum of Art",
+      "pageType": "about",
+      "url": "https://www.clevelandart.org/about",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Cleveland Museum of Art",
+      "pageType": "about",
+      "url": "https://www.clevelandart.org/about",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "pageType": "about",
+      "url": "https://philamuseum.org/about",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "pageType": "about",
+      "url": "https://philamuseum.org/about",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "pageType": "about",
+      "url": "https://philamuseum.org/about",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "High Museum of Art",
+      "pageType": "about",
+      "url": "https://high.org/about/",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "High Museum of Art",
+      "pageType": "about",
+      "url": "https://high.org/about/",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "High Museum of Art",
+      "pageType": "about",
+      "url": "https://high.org/about/",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Natural History Museum London",
+      "pageType": "about",
+      "url": "https://www.nhm.ac.uk/about-us.html",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Natural History Museum London",
+      "pageType": "about",
+      "url": "https://www.nhm.ac.uk/about-us.html",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Natural History Museum London",
+      "pageType": "about",
+      "url": "https://www.nhm.ac.uk/about-us.html",
+      "year": 2020,
+      "status": "no-snapshot"
+    }
+  ],
+  "errors": [
+    {
+      "museum": "Tate",
+      "pageType": "about",
+      "url": "https://www.tate.org.uk/about-us",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Tate",
+      "pageType": "about",
+      "url": "https://www.tate.org.uk/about-us",
+      "year": 2015,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "pageType": "about",
+      "url": "https://www.getty.edu/about/",
+      "year": 2015,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "pageType": "about",
+      "url": "https://www.getty.edu/about/",
+      "year": 2020,
+      "timestamp": "20200611195034",
+      "archiveUrl": "https://web.archive.org/web/20200611195034id_/https://www.getty.edu/about/",
+      "status": 200,
+      "wordCount": 9,
+      "error": "Fetched archived page did not meet minimum readable word count"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "pageType": "about",
+      "url": "https://www.rijksmuseum.nl/en/about-us",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "pageType": "about",
+      "url": "https://www.rijksmuseum.nl/en/about-us",
+      "year": 2015,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Musée du Louvre",
+      "pageType": "about",
+      "url": "https://www.louvre.fr/en/explore/the-palace",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Musée du Louvre",
+      "pageType": "about",
+      "url": "https://www.louvre.fr/en/explore/the-palace",
+      "year": 2015,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Musée du Louvre",
+      "pageType": "about",
+      "url": "https://www.louvre.fr/en/explore/the-palace",
+      "year": 2020,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "pageType": "about",
+      "url": "https://www.artic.edu/about-us",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "pageType": "about",
+      "url": "https://www.artic.edu/about-us",
+      "year": 2015,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "pageType": "about",
+      "url": "https://www.artic.edu/about-us",
+      "year": 2020,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "pageType": "about",
+      "url": "https://www.vam.ac.uk/info/about-us",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "pageType": "about",
+      "url": "https://www.vam.ac.uk/info/about-us",
+      "year": 2015,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "pageType": "about",
+      "url": "https://www.vam.ac.uk/info/about-us",
+      "year": 2020,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Whitney Museum of American Art",
+      "pageType": "about",
+      "url": "https://whitney.org/about",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Whitney Museum of American Art",
+      "pageType": "about",
+      "url": "https://whitney.org/about",
+      "year": 2015,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Whitney Museum of American Art",
+      "pageType": "about",
+      "url": "https://whitney.org/about",
+      "year": 2020,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "San Francisco Museum of Modern Art",
+      "pageType": "about",
+      "url": "https://www.sfmoma.org/about/",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "San Francisco Museum of Modern Art",
+      "pageType": "about",
+      "url": "https://www.sfmoma.org/about/",
+      "year": 2015,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "San Francisco Museum of Modern Art",
+      "pageType": "about",
+      "url": "https://www.sfmoma.org/about/",
+      "year": 2020,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Museum of Contemporary Art Chicago",
+      "pageType": "about",
+      "url": "https://mcachicago.org/About",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Museum of Contemporary Art Chicago",
+      "pageType": "about",
+      "url": "https://mcachicago.org/About",
+      "year": 2015,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Museum of Contemporary Art Chicago",
+      "pageType": "about",
+      "url": "https://mcachicago.org/About",
+      "year": 2020,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Walker Art Center",
+      "pageType": "about",
+      "url": "https://walkerart.org/about",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Walker Art Center",
+      "pageType": "about",
+      "url": "https://walkerart.org/about",
+      "year": 2015,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Walker Art Center",
+      "pageType": "about",
+      "url": "https://walkerart.org/about",
+      "year": 2020,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Cleveland Museum of Art",
+      "pageType": "about",
+      "url": "https://www.clevelandart.org/about",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Cleveland Museum of Art",
+      "pageType": "about",
+      "url": "https://www.clevelandart.org/about",
+      "year": 2015,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Cleveland Museum of Art",
+      "pageType": "about",
+      "url": "https://www.clevelandart.org/about",
+      "year": 2020,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "pageType": "about",
+      "url": "https://philamuseum.org/about",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "pageType": "about",
+      "url": "https://philamuseum.org/about",
+      "year": 2015,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "pageType": "about",
+      "url": "https://philamuseum.org/about",
+      "year": 2020,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "High Museum of Art",
+      "pageType": "about",
+      "url": "https://high.org/about/",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "High Museum of Art",
+      "pageType": "about",
+      "url": "https://high.org/about/",
+      "year": 2015,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "High Museum of Art",
+      "pageType": "about",
+      "url": "https://high.org/about/",
+      "year": 2020,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Natural History Museum London",
+      "pageType": "about",
+      "url": "https://www.nhm.ac.uk/about-us.html",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Natural History Museum London",
+      "pageType": "about",
+      "url": "https://www.nhm.ac.uk/about-us.html",
+      "year": 2015,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Natural History Museum London",
+      "pageType": "about",
+      "url": "https://www.nhm.ac.uk/about-us.html",
+      "year": 2020,
+      "error": "No CDX snapshot found"
+    }
+  ],
+  "finishedAt": "2026-06-12T18:17:11.171Z",
+  "recordCount": 3
+}

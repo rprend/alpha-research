@@ -1,0 +1,72 @@
+[
+  {
+    "museum": "Tate",
+    "pageType": "about",
+    "url": "https://www.tate.org.uk/about-us"
+  },
+  {
+    "museum": "J. Paul Getty Museum",
+    "pageType": "about",
+    "url": "https://www.getty.edu/about/"
+  },
+  {
+    "museum": "Rijksmuseum",
+    "pageType": "about",
+    "url": "https://www.rijksmuseum.nl/en/about-us"
+  },
+  {
+    "museum": "Musée du Louvre",
+    "pageType": "about",
+    "url": "https://www.louvre.fr/en/explore/the-palace"
+  },
+  {
+    "museum": "Art Institute of Chicago",
+    "pageType": "about",
+    "url": "https://www.artic.edu/about-us"
+  },
+  {
+    "museum": "Victoria and Albert Museum",
+    "pageType": "about",
+    "url": "https://www.vam.ac.uk/info/about-us"
+  },
+  {
+    "museum": "Whitney Museum of American Art",
+    "pageType": "about",
+    "url": "https://whitney.org/about"
+  },
+  {
+    "museum": "San Francisco Museum of Modern Art",
+    "pageType": "about",
+    "url": "https://www.sfmoma.org/about/"
+  },
+  {
+    "museum": "Museum of Contemporary Art Chicago",
+    "pageType": "about",
+    "url": "https://mcachicago.org/About"
+  },
+  {
+    "museum": "Walker Art Center",
+    "pageType": "about",
+    "url": "https://walkerart.org/about"
+  },
+  {
+    "museum": "Cleveland Museum of Art",
+    "pageType": "about",
+    "url": "https://www.clevelandart.org/about"
+  },
+  {
+    "museum": "Philadelphia Museum of Art",
+    "pageType": "about",
+    "url": "https://philamuseum.org/about"
+  },
+  {
+    "museum": "High Museum of Art",
+    "pageType": "about",
+    "url": "https://high.org/about/"
+  },
+  {
+    "museum": "Natural History Museum London",
+    "pageType": "about",
+    "url": "https://www.nhm.ac.uk/about-us.html"
+  }
+]

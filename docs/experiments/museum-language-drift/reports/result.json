@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-06-12T18:11:10.031Z",
-  "pages": 14,
+  "generatedAt": "2026-06-12T18:17:11.228Z",
+  "pages": 17,
   "currentPages": 14,
-  "historicalPages": 0,
+  "historicalPages": 3,
   "museums": 14,
   "pageTypes": [
     "about"
   ],
   "yearRange": {
-    "earliest": 2026,
+    "earliest": 2010,
     "latest": 2026
   },
   "termFamilyTotals": {
-    "access_public": 40,
-    "community_inclusion": 33,
-    "research_scholarship": 15,
+    "access_public": 46,
+    "community_inclusion": 39,
+    "research_scholarship": 19,
     "decolonization_reckoning": 2,
     "civilization_world_culture": 0,
     "provenance_ownership": 0,
@@ -25,40 +25,40 @@
       "page_type": "about",
       "family": "access_public",
       "pages": 14,
-      "count": 40,
-      "words": 5638,
-      "count_per_1000_words": 7.095
+      "count": 46,
+      "words": 6669,
+      "count_per_1000_words": 6.898
     },
     {
       "page_type": "about",
       "family": "community_inclusion",
       "pages": 14,
-      "count": 33,
-      "words": 5638,
-      "count_per_1000_words": 5.853
+      "count": 39,
+      "words": 6669,
+      "count_per_1000_words": 5.848
     },
     {
       "page_type": "about",
       "family": "research_scholarship",
       "pages": 14,
-      "count": 15,
-      "words": 5638,
-      "count_per_1000_words": 2.661
+      "count": 19,
+      "words": 6669,
+      "count_per_1000_words": 2.849
     },
     {
       "page_type": "about",
       "family": "decolonization_reckoning",
       "pages": 14,
       "count": 2,
-      "words": 5638,
-      "count_per_1000_words": 0.355
+      "words": 6669,
+      "count_per_1000_words": 0.3
     },
     {
       "page_type": "about",
       "family": "civilization_world_culture",
       "pages": 14,
       "count": 0,
-      "words": 5638,
+      "words": 6669,
       "count_per_1000_words": 0
     },
     {
@@ -66,11 +66,181 @@
       "family": "provenance_ownership",
       "pages": 14,
       "count": 0,
-      "words": 5638,
+      "words": 6669,
       "count_per_1000_words": 0
     },
     {
       "page_type": "about",
+      "family": "restitution_repatriation",
+      "pages": 14,
+      "count": 0,
+      "words": 6669,
+      "count_per_1000_words": 0
+    }
+  ],
+  "termFamilyByYear": [
+    {
+      "year": 2010,
+      "family": "access_public",
+      "pages": 1,
+      "count": 1,
+      "words": 132,
+      "count_per_1000_words": 7.576
+    },
+    {
+      "year": 2010,
+      "family": "civilization_world_culture",
+      "pages": 1,
+      "count": 0,
+      "words": 132,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2010,
+      "family": "community_inclusion",
+      "pages": 1,
+      "count": 0,
+      "words": 132,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2010,
+      "family": "decolonization_reckoning",
+      "pages": 1,
+      "count": 0,
+      "words": 132,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2010,
+      "family": "provenance_ownership",
+      "pages": 1,
+      "count": 0,
+      "words": 132,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2010,
+      "family": "research_scholarship",
+      "pages": 1,
+      "count": 0,
+      "words": 132,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2010,
+      "family": "restitution_repatriation",
+      "pages": 1,
+      "count": 0,
+      "words": 132,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2020,
+      "family": "access_public",
+      "pages": 2,
+      "count": 5,
+      "words": 675,
+      "count_per_1000_words": 7.407
+    },
+    {
+      "year": 2020,
+      "family": "civilization_world_culture",
+      "pages": 2,
+      "count": 0,
+      "words": 675,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2020,
+      "family": "community_inclusion",
+      "pages": 2,
+      "count": 6,
+      "words": 675,
+      "count_per_1000_words": 8.889
+    },
+    {
+      "year": 2020,
+      "family": "decolonization_reckoning",
+      "pages": 2,
+      "count": 0,
+      "words": 675,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2020,
+      "family": "provenance_ownership",
+      "pages": 2,
+      "count": 0,
+      "words": 675,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2020,
+      "family": "research_scholarship",
+      "pages": 2,
+      "count": 4,
+      "words": 675,
+      "count_per_1000_words": 5.926
+    },
+    {
+      "year": 2020,
+      "family": "restitution_repatriation",
+      "pages": 2,
+      "count": 0,
+      "words": 675,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2026,
+      "family": "access_public",
+      "pages": 14,
+      "count": 40,
+      "words": 5638,
+      "count_per_1000_words": 7.095
+    },
+    {
+      "year": 2026,
+      "family": "civilization_world_culture",
+      "pages": 14,
+      "count": 0,
+      "words": 5638,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2026,
+      "family": "community_inclusion",
+      "pages": 14,
+      "count": 33,
+      "words": 5638,
+      "count_per_1000_words": 5.853
+    },
+    {
+      "year": 2026,
+      "family": "decolonization_reckoning",
+      "pages": 14,
+      "count": 2,
+      "words": 5638,
+      "count_per_1000_words": 0.355
+    },
+    {
+      "year": 2026,
+      "family": "provenance_ownership",
+      "pages": 14,
+      "count": 0,
+      "words": 5638,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2026,
+      "family": "research_scholarship",
+      "pages": 14,
+      "count": 15,
+      "words": 5638,
+      "count_per_1000_words": 2.661
+    },
+    {
+      "year": 2026,
       "family": "restitution_repatriation",
       "pages": 14,
       "count": 0,
@@ -82,114 +252,189 @@
     {
       "museum": "Tate",
       "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
       "status": 200,
       "word_count": 574,
       "url": "https://www.tate.org.uk/about-us",
+      "archive_url": "",
       "response_path": "data/raw/current-pages/2026-06-12/tate-about/index.html"
     },
     {
       "museum": "J. Paul Getty Museum",
       "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
       "status": 200,
       "word_count": 333,
       "url": "https://www.getty.edu/about/",
+      "archive_url": "",
       "response_path": "data/raw/current-pages/2026-06-12/j-paul-getty-museum-about/index.html"
     },
     {
       "museum": "Rijksmuseum",
       "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
       "status": 200,
       "word_count": 124,
       "url": "https://www.rijksmuseum.nl/en/about-us",
+      "archive_url": "",
       "response_path": "data/raw/current-pages/2026-06-12/rijksmuseum-about/index.html"
     },
     {
       "museum": "Musée du Louvre",
       "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
       "status": 200,
       "word_count": 301,
       "url": "https://www.louvre.fr/en/explore/the-palace",
+      "archive_url": "",
       "response_path": "data/raw/current-pages/2026-06-12/mus-e-du-louvre-about/index.html"
     },
     {
       "museum": "Art Institute of Chicago",
       "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
       "status": 200,
       "word_count": 293,
       "url": "https://www.artic.edu/about-us",
+      "archive_url": "",
       "response_path": "data/raw/current-pages/2026-06-12/art-institute-of-chicago-about/index.html"
     },
     {
       "museum": "Victoria and Albert Museum",
       "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
       "status": 200,
       "word_count": 656,
       "url": "https://www.vam.ac.uk/info/about-us",
+      "archive_url": "",
       "response_path": "data/raw/current-pages/2026-06-12/victoria-and-albert-museum-about/index.html"
     },
     {
       "museum": "Whitney Museum of American Art",
       "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
       "status": 200,
       "word_count": 569,
       "url": "https://whitney.org/about",
+      "archive_url": "",
       "response_path": "data/raw/current-pages/2026-06-12/whitney-museum-of-american-art-about/index.html"
     },
     {
       "museum": "San Francisco Museum of Modern Art",
       "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
       "status": 200,
       "word_count": 147,
       "url": "https://www.sfmoma.org/about/",
+      "archive_url": "",
       "response_path": "data/raw/current-pages/2026-06-12/san-francisco-museum-of-modern-art-about/index.html"
     },
     {
       "museum": "Museum of Contemporary Art Chicago",
       "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
       "status": 200,
       "word_count": 787,
       "url": "https://mcachicago.org/About",
+      "archive_url": "",
       "response_path": "data/raw/current-pages/2026-06-12/museum-of-contemporary-art-chicago-about/index.html"
     },
     {
       "museum": "Walker Art Center",
       "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
       "status": 200,
       "word_count": 466,
       "url": "https://walkerart.org/about",
+      "archive_url": "",
       "response_path": "data/raw/current-pages/2026-06-12/walker-art-center-about/index.html"
     },
     {
       "museum": "Cleveland Museum of Art",
       "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
       "status": 200,
       "word_count": 274,
       "url": "https://www.clevelandart.org/about",
+      "archive_url": "",
       "response_path": "data/raw/current-pages/2026-06-12/cleveland-museum-of-art-about/index.html"
     },
     {
       "museum": "Philadelphia Museum of Art",
       "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
       "status": 200,
       "word_count": 457,
       "url": "https://philamuseum.org/about",
+      "archive_url": "",
       "response_path": "data/raw/current-pages/2026-06-12/philadelphia-museum-of-art-about/index.html"
     },
     {
       "museum": "High Museum of Art",
       "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
       "status": 200,
       "word_count": 203,
       "url": "https://high.org/about/",
+      "archive_url": "",
       "response_path": "data/raw/current-pages/2026-06-12/high-museum-of-art-about/index.html"
     },
     {
       "museum": "Natural History Museum London",
       "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
       "status": 200,
       "word_count": 454,
       "url": "https://www.nhm.ac.uk/about-us.html",
+      "archive_url": "",
       "response_path": "data/raw/current-pages/2026-06-12/natural-history-museum-london-about/index.html"
+    },
+    {
+      "museum": "Tate",
+      "page_type": "about",
+      "source_layer": "wayback",
+      "year": 2020,
+      "status": 200,
+      "word_count": 553,
+      "url": "https://www.tate.org.uk/about-us",
+      "archive_url": "https://web.archive.org/web/20200622225145id_/https://www.tate.org.uk/about-us",
+      "response_path": "data/raw/wayback-snapshots/2026-06-12/tate-about/2020/index.html"
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "page_type": "about",
+      "source_layer": "wayback",
+      "year": 2010,
+      "status": 200,
+      "word_count": 132,
+      "url": "https://www.getty.edu/about/",
+      "archive_url": "https://web.archive.org/web/20100528034602id_/https://www.getty.edu/about/",
+      "response_path": "data/raw/wayback-snapshots/2026-06-12/j-paul-getty-museum-about/2010/index.html"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "page_type": "about",
+      "source_layer": "wayback",
+      "year": 2020,
+      "status": 200,
+      "word_count": 122,
+      "url": "https://www.rijksmuseum.nl/en/about-us",
+      "archive_url": "https://web.archive.org/web/20201115091217id_/https://www.rijksmuseum.nl/en/about-us",
+      "response_path": "data/raw/wayback-snapshots/2026-06-12/rijksmuseum-about/2020/index.html"
     }
   ],
   "pagesDetail": [
@@ -199,6 +444,8 @@
       "source_layer": "current",
       "year": 2026,
       "url": "https://www.tate.org.uk/about-us",
+      "archive_url": "",
+      "timestamp": "",
       "status": 200,
       "words": 574,
       "text_preview": "About Us | Tate Skip navigation What are you looking for? Try searching for... Hurvin Anderson Ophelia School visits to Tate Tate Modern Lates Tracey Emin DON'T MISS Exhibition Hurvin Anderson Tate Britain Until 23 Aug 2026 £18 / Free for Members --> Exhibition Tracey Emin: A Second Life Tate Modern Until 31 Aug 2026 £20 / Free for Members --> Become a Member About Tate Who we are Our senior staff Our work Working at Tate Business services Get in touch Our mission is to increase the public’s enjoyment and understanding of British art from the 16th century to the present day and of internationa",
@@ -225,6 +472,8 @@
       "source_layer": "current",
       "year": 2026,
       "url": "https://www.getty.edu/about/",
+      "archive_url": "",
+      "timestamp": "",
       "status": 200,
       "words": 333,
       "text_preview": "About | Getty Skip to content Sitewide Messages About Our Mission Getty advances art’s meaning and impact—bringing people together to preserve the past, inspire the present, and shape the future. Who We Are Leadership & Governance Meet the leaders who guide the vision and operation of the Trust Trust Officers and Program Directors Board of Trustees Policies & Documents Financial Information Facts & History Learn more about the legacy of businessman and art collector J. Paul Getty Getty Facts Our History Our Programs Getty Research Institute An international center for the study of visual art G",
@@ -250,6 +499,8 @@
       "source_layer": "current",
       "year": 2026,
       "url": "https://www.rijksmuseum.nl/en/about-us",
+      "archive_url": "",
+      "timestamp": "",
       "status": 200,
       "words": 124,
       "text_preview": "About us - Rijksmuseum Cookie usage The Rijksmuseum uses cookies. A cookie is a small text file that a website stores on your computer or mobile device when you visit our site. Would you like to know more? Read our cookie policy . Accept No, rather not Home Language Nederlands (Dutch) English (English) Besucherinformationen Service visiteur Informazioni per i visitatori Informacion para los visitantes Informashon pa bishita &#x30D3;&#x30B8;&#x30BF;&#x30FC;&#xB7;&#x30A4;&#x30F3;&#x30D5;&#x30A9;&#x30E1;&#x30FC;&#x30B7;&#x30E7;&#x30F3; &#x6E38;&#x5BA2;&#x4FE1;&#x606F; &#x418;&#x43D;&#x444;&#x43E;",
@@ -270,6 +521,8 @@
       "source_layer": "current",
       "year": 2026,
       "url": "https://www.louvre.fr/en/explore/the-palace",
+      "archive_url": "",
+      "timestamp": "",
       "status": 200,
       "words": 301,
       "text_preview": "The palace - From the former palace of the French monarchs to the largest museum in the world The palace - From the former palace of the French monarchs to the largest museum in the world Aller au contenu Search English Langues English Français Español 中文 Louvre - Back to Home Online Boutique Tickets The palace From the former palace of the French monarchs to the largest museum in the world A garden at the heart of the Louvre The Carrousel Garden The Salon Carré The original Salon A pyramid for a symbol Cour Napoléon & Pyramid From the &#x27;Mona Lisa&#x27; to &#x27;The Wedding Feast at Cana&#",
@@ -293,6 +546,8 @@
       "source_layer": "current",
       "year": 2026,
       "url": "https://www.artic.edu/about-us",
+      "archive_url": "",
+      "timestamp": "",
       "status": 200,
       "words": 293,
       "text_preview": "About Us | The Art Institute of Chicago Skip to Content Menu About Us About Us About Us Mission and History Leadership Departments Financial Reporting Share Founded in 1879, the Art Institute of Chicago is one of the world’s major museums, housing an extraordinary collection of objects from across places, cultures, and time. We are also a place of active learning for all—dedicated to investigation, innovation, education, and dialogue—continually aspiring to greater public service and civic engagement. Mission and History From its founding in 1879 to the present, the Art Institute of Chicago ha",
@@ -319,6 +574,8 @@
       "source_layer": "current",
       "year": 2026,
       "url": "https://www.vam.ac.uk/info/about-us",
+      "archive_url": "",
+      "timestamp": "",
       "status": 200,
       "words": 656,
       "text_preview": "About us &middot; V&A Skip to main content About us The V&A is a family of museums dedicated to the power of creativity. Our mission is to champion design and creativity in all its forms, advance cultural knowledge, and inspire makers, creators and innovators everywhere. We share a 5,000 year old story of creativity through exhibitions, events, educational programmes, digital experiences, conservation, research and an ever-evolving national collection of over 2.8 million objects spanning every creative discipline. Explore the V&A collections Contact us General enquiries Tel: +44 (0)20 7942 200",
@@ -345,6 +602,8 @@
       "source_layer": "current",
       "year": 2026,
       "url": "https://whitney.org/about",
+      "archive_url": "",
+      "timestamp": "",
       "status": 200,
       "words": 569,
       "text_preview": "About the Whitney | Whitney Museum of American Art Skip to main content Whitney Museum of American Art Open today: 10:30 am–10 pm Tickets Book Tickets Whitney Biennial Book Tickets Whitney Biennial Book Tickets Become a member Menu Open today: 10:30 am–10 pm Book Tickets Whitney Biennial Book Tickets Whitney Biennial Book Tickets Become a member About the Whitney The Whitney is the only museum dedicated to American art and artists. Gertrude Vanderbilt Whitney founded the Museum in 1930, taking a bold stand for American artists who were often overlooked. Today, our collection features works by ",
@@ -369,6 +628,8 @@
       "source_layer": "current",
       "year": 2026,
       "url": "https://www.sfmoma.org/about/",
+      "archive_url": "",
+      "timestamp": "",
       "status": 200,
       "words": 147,
       "text_preview": "About SFMOMA Skip to content Main navigation Photo: © Henrik Kam About SFMOMA The San Francisco Museum of Modern Art is one of the largest museums of modern and contemporary art in the United States and a thriving cultural center for the Bay Area. Our remarkable collection of painting, sculpture, photography, architecture, design, and media arts, is housed in an LEED Gold-certified building designed by the global architects Snøhetta and Mario Botta. In addition to our seven gallery floors, SFMOMA offers 45,000 square feet of free, art-filled public space open to all. Welcome! Mission Statement",
@@ -392,6 +653,8 @@
       "source_layer": "current",
       "year": 2026,
       "url": "https://mcachicago.org/About",
+      "archive_url": "",
+      "timestamp": "",
       "status": 200,
       "words": 787,
       "text_preview": "MCA - About | Museum of Contemporary Art Chicago Jump to content Menu About A museum of contemporary art is different from the general art museum where the values of the past are enshrined. Instead it is a place where new ideas are shown and tested. —Essay by MCA founders, “From Dream to Reality,” 1966 The Museum of Contemporary Art Chicago is one of the world’s largest museums dedicated to contemporary art. Here, the public can experience the work and ideas of living artists and understand the historical, social, and cultural context of the art of our time. Since our inception in 1967, it has",
@@ -417,6 +680,8 @@
       "source_layer": "current",
       "year": 2026,
       "url": "https://walkerart.org/about",
+      "archive_url": "",
+      "timestamp": "",
       "status": 200,
       "words": 466,
       "text_preview": "Walker Art Center | About the Walker Skip to main content Open Today 10AM&ndash;5PM Search What&#8217;s On Visit Art & Artists Walker Visit Join & Give Join & Give Shop Tickets Search Toggle navigation menu Main Menu The Walker Art Center is open 10 am&ndash;5 pm today. Search website Search Shop About the Walker Welcome to the Walker Art Center, a multidisciplinary arts institution located in the heart of Minneapolis. Where out-of-the-ordinary experiences create transformative connections A first date strolls in the shade of a giant blue rooster in the Minneapolis Sculpture Garden . A class d",
@@ -443,6 +708,8 @@
       "source_layer": "current",
       "year": 2026,
       "url": "https://www.clevelandart.org/about",
+      "archive_url": "",
+      "timestamp": "",
       "status": 200,
       "words": 274,
       "text_preview": "About the Museum | Cleveland Museum of Art About the Museum The Cleveland Museum of Art is renowned for the quality and breadth of its collection, which includes more than 63,000 artworks and spans 6,000 years of achievement in the arts. The museum is a significant international forum for exhibitions, scholarship, and performing arts and is a leader in digital innovations. One of the top comprehensive art museums in the nation, recognized for its award-winning Open Access program and free of charge to all, the Cleveland Museum of Art is located in the University Circle neighborhood. Learn More",
@@ -468,6 +735,8 @@
       "source_layer": "current",
       "year": 2026,
       "url": "https://philamuseum.org/about",
+      "archive_url": "",
+      "timestamp": "",
       "status": 200,
       "words": 457,
       "text_preview": "About | Philadelphia Museum of Art Skip to Main Content Come on down! Expect road closures, delays, and detours due to Parkway activities. Learn more . Open today: 10am-8:45pm Simplify Fonts Membership Buy Tickets Tickets 🔍 Menu Open today: 10am-8:45pm Visit What&#x27;s On Art & Artists Learn Support Search 🔍 Membership Simplify Fonts About We explore how art can shape our worlds Where Art and Community Meet As one of the largest museums in the country, the Philadelphia Museum of Art offers a vibrant campus for both Philadelphians and visitors to enjoy. Our main building is an iconic cultura",
@@ -494,6 +763,8 @@
       "source_layer": "current",
       "year": 2026,
       "url": "https://high.org/about/",
+      "archive_url": "",
+      "timestamp": "",
       "status": 200,
       "words": 203,
       "text_preview": "About - High Museum of Art About the High Museum of Art People Meet some of the people who make up the High Museum’s team. Learn More Careers Want to join our team? See what positions we have open, and get more information about internships, fellowships, and volunteering. Learn More Press Room Visit our Press Room, where members of the media will find the latest press information about the High’s exhibitions, collections, and programs. Press Room Contact Get in touch. Here’s our mailing address, department phone numbers, and email address for general inquiries. Contact Us History of the High L",
@@ -517,6 +788,8 @@
       "source_layer": "current",
       "year": 2026,
       "url": "https://www.nhm.ac.uk/about-us.html",
+      "archive_url": "",
+      "timestamp": "",
       "status": 200,
       "words": 454,
       "text_preview": "About us | Natural History Museum About us The Natural History Museum is a world-class visitor attraction and leading science research centre. We use our unique collections and unrivalled expertise to tackle the biggest challenges facing the world today. We care for more than 80 million objects spanning billions of years and welcome more than seven million visitors annually. Our vision and strategy We are creating advocates for the planet. Careers We employ 900 staff in a variety of roles, all united by our vision of a future where people and planet thrive. We need everyone to have the passion",
@@ -536,14 +809,88 @@
         "community_inclusion": 4,
         "research_scholarship": 3
       }
+    },
+    {
+      "museum": "Tate",
+      "page_type": "about",
+      "source_layer": "wayback",
+      "year": 2020,
+      "url": "https://www.tate.org.uk/about-us",
+      "archive_url": "https://web.archive.org/web/20200622225145id_/https://www.tate.org.uk/about-us",
+      "timestamp": "20200622225145",
+      "status": 200,
+      "words": 553,
+      "text_preview": "About Us | Tate Shop Search Suggested terms: Art Terms Tate Papers Turner Collection Tate Kids Tate Collective ARTIST ROOMS Tate Exchange Late at Tate Jenny Holzer Barbara Hepworth Museum Angelica Kauffman Become a Member About Tate Our mission is to increase the public&rsquo;s enjoyment and understanding of British art from the 16th century to the present day and of international modern and contemporary art Who we are History of Tate Find out about the history of our four galleries and the people behind it Governance Find out how we are governed and funded Our commitment to race equality Tate",
+      "snippets": [
+        "er with senior Tate staff, sets our strategic direction Tate Reports Find the latest annual review of Tate's activities Access to Information Find out how we can help when seeking information about Tate Policies and Procedures Find our policies i",
+        "t Tate Jenny Holzer Barbara Hepworth Museum Angelica Kauffman Become a Member About Tate Our mission is to increase the public&rsquo;s enjoyment and understanding of British art from the 16th century to the present day and of international modern",
+        "Tate St Ives Director Read Anne Barlow's profile Director of Collection Care Read Rosemary Lynch's profile Director of Learning and Research Read Anna Cutler's profile Director of Finance and Estates Read Stephen Wingfield's profile Senior group c",
+        "t how we can help when seeking information about Tate Policies and Procedures Find our policies including diversity and inclusion, website, modern slavery and human trafficking Accessibility Statement Tate's website accessibility statement Our senio",
+        "mation Find out how we can help when seeking information about Tate Policies and Procedures Find our policies including diversity and inclusion, website, modern slavery and human trafficking Accessibility Statement Tate's website accessibility state"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 5,
+        "community_inclusion": 6,
+        "research_scholarship": 4
+      }
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "page_type": "about",
+      "source_layer": "wayback",
+      "year": 2010,
+      "url": "https://www.getty.edu/about/",
+      "archive_url": "https://web.archive.org/web/20100528034602id_/https://www.getty.edu/about/",
+      "timestamp": "20100528034602",
+      "status": 200,
+      "words": 132,
+      "text_preview": "The J. Paul Getty Trust This Web site uses JavaScript. Please enable JavaScript or use a JavaScript-enabled browser. Governance Information on the trustees, trust officers and program directors, bylaws, policies, and financial records of the Getty Trust. Opportunities Open positions across the Getty. Press Room Press releases, press kits, and contact information for journalists. Contact Us How to reach Trust programs and departments. About the J. Paul Getty Trust Mission, locations, and history of the J. Paul Getty Trust. View the 2009 Trust Report Get a behind-the-scenes look at the Getty on ",
+      "snippets": [
+        "View the 2009 Trust Report Get a behind-the-scenes look at the Getty on our new blog. Visit now! Event Calendar Museum Education Library e-Getty Newsletter Press Room Print this page Site Map Search The J. Paul Getty Trust &#169; J. Paul Getty Trus"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 1,
+        "community_inclusion": 0,
+        "research_scholarship": 0
+      }
+    },
+    {
+      "museum": "Rijksmuseum",
+      "page_type": "about",
+      "source_layer": "wayback",
+      "year": 2020,
+      "url": "https://www.rijksmuseum.nl/en/about-us",
+      "archive_url": "https://web.archive.org/web/20201115091217id_/https://www.rijksmuseum.nl/en/about-us",
+      "timestamp": "20201115091217",
+      "status": 200,
+      "words": 122,
+      "text_preview": "About us - Rijksmuseum Cookie usage The Rijksmuseum uses cookies. A cookie is a small text file that a website stores on your computer or mobile device when you visit our site. Would you like to know more? Read our cookie policy . Accept No, rather not The Rijksmuseum Language Nederlands (Dutch) English (English) Besucher information Service visiteur Informazioni per i visitatori Informacion para los visitantes &#x30D3;&#x30B8;&#x30BF;&#x30FC;&#xB7;&#x30A4;&#x30F3;&#x30D5;&#x30A9;&#x30E1;&#x30FC;&#x30B7;&#x30E7;&#x30F3; &#x6E38;&#x5BA2;&#x4FE1;&#x606F; &#x418;&#x43D;&#x444;&#x43E;&#x440;&#x43C",
+      "snippets": [],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 0,
+        "community_inclusion": 0,
+        "research_scholarship": 0
+      }
     }
   ],
   "articleReadiness": {
-    "status": "source-probe",
-    "strongestNextMove": "Add Wayback snapshots and annual-report/exhibition/provenance pages as separate source layers before trend claims."
+    "status": "longitudinal-source-probe",
+    "strongestNextMove": "Add annual-report/exhibition/provenance pages as separate source layers before trend claims."
   },
   "caveats": [
-    "This artifact contains current public pages only; it cannot yet support temporal claims.",
+    "Wayback snapshots show public page availability, not necessarily stable museum policy or practice.",
     "About pages, collection pages, and provenance pages are different genres and must not be compared as if they were the same source type.",
     "Counts identify terms for audit; interpretation requires reading snippets and checking page context."
   ]

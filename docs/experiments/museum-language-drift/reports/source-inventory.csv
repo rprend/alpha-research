@@ -1,15 +1,18 @@
-museum,page_type,status,word_count,url,response_path
-Tate,about,200,574,https://www.tate.org.uk/about-us,data/raw/current-pages/2026-06-12/tate-about/index.html
-J. Paul Getty Museum,about,200,333,https://www.getty.edu/about/,data/raw/current-pages/2026-06-12/j-paul-getty-museum-about/index.html
-Rijksmuseum,about,200,124,https://www.rijksmuseum.nl/en/about-us,data/raw/current-pages/2026-06-12/rijksmuseum-about/index.html
-Musée du Louvre,about,200,301,https://www.louvre.fr/en/explore/the-palace,data/raw/current-pages/2026-06-12/mus-e-du-louvre-about/index.html
-Art Institute of Chicago,about,200,293,https://www.artic.edu/about-us,data/raw/current-pages/2026-06-12/art-institute-of-chicago-about/index.html
-Victoria and Albert Museum,about,200,656,https://www.vam.ac.uk/info/about-us,data/raw/current-pages/2026-06-12/victoria-and-albert-museum-about/index.html
-Whitney Museum of American Art,about,200,569,https://whitney.org/about,data/raw/current-pages/2026-06-12/whitney-museum-of-american-art-about/index.html
-San Francisco Museum of Modern Art,about,200,147,https://www.sfmoma.org/about/,data/raw/current-pages/2026-06-12/san-francisco-museum-of-modern-art-about/index.html
-Museum of Contemporary Art Chicago,about,200,787,https://mcachicago.org/About,data/raw/current-pages/2026-06-12/museum-of-contemporary-art-chicago-about/index.html
-Walker Art Center,about,200,466,https://walkerart.org/about,data/raw/current-pages/2026-06-12/walker-art-center-about/index.html
-Cleveland Museum of Art,about,200,274,https://www.clevelandart.org/about,data/raw/current-pages/2026-06-12/cleveland-museum-of-art-about/index.html
-Philadelphia Museum of Art,about,200,457,https://philamuseum.org/about,data/raw/current-pages/2026-06-12/philadelphia-museum-of-art-about/index.html
-High Museum of Art,about,200,203,https://high.org/about/,data/raw/current-pages/2026-06-12/high-museum-of-art-about/index.html
-Natural History Museum London,about,200,454,https://www.nhm.ac.uk/about-us.html,data/raw/current-pages/2026-06-12/natural-history-museum-london-about/index.html
+museum,page_type,source_layer,year,status,word_count,url,archive_url,response_path
+Tate,about,current,2026,200,574,https://www.tate.org.uk/about-us,,data/raw/current-pages/2026-06-12/tate-about/index.html
+J. Paul Getty Museum,about,current,2026,200,333,https://www.getty.edu/about/,,data/raw/current-pages/2026-06-12/j-paul-getty-museum-about/index.html
+Rijksmuseum,about,current,2026,200,124,https://www.rijksmuseum.nl/en/about-us,,data/raw/current-pages/2026-06-12/rijksmuseum-about/index.html
+Musée du Louvre,about,current,2026,200,301,https://www.louvre.fr/en/explore/the-palace,,data/raw/current-pages/2026-06-12/mus-e-du-louvre-about/index.html
+Art Institute of Chicago,about,current,2026,200,293,https://www.artic.edu/about-us,,data/raw/current-pages/2026-06-12/art-institute-of-chicago-about/index.html
+Victoria and Albert Museum,about,current,2026,200,656,https://www.vam.ac.uk/info/about-us,,data/raw/current-pages/2026-06-12/victoria-and-albert-museum-about/index.html
+Whitney Museum of American Art,about,current,2026,200,569,https://whitney.org/about,,data/raw/current-pages/2026-06-12/whitney-museum-of-american-art-about/index.html
+San Francisco Museum of Modern Art,about,current,2026,200,147,https://www.sfmoma.org/about/,,data/raw/current-pages/2026-06-12/san-francisco-museum-of-modern-art-about/index.html
+Museum of Contemporary Art Chicago,about,current,2026,200,787,https://mcachicago.org/About,,data/raw/current-pages/2026-06-12/museum-of-contemporary-art-chicago-about/index.html
+Walker Art Center,about,current,2026,200,466,https://walkerart.org/about,,data/raw/current-pages/2026-06-12/walker-art-center-about/index.html
+Cleveland Museum of Art,about,current,2026,200,274,https://www.clevelandart.org/about,,data/raw/current-pages/2026-06-12/cleveland-museum-of-art-about/index.html
+Philadelphia Museum of Art,about,current,2026,200,457,https://philamuseum.org/about,,data/raw/current-pages/2026-06-12/philadelphia-museum-of-art-about/index.html
+High Museum of Art,about,current,2026,200,203,https://high.org/about/,,data/raw/current-pages/2026-06-12/high-museum-of-art-about/index.html
+Natural History Museum London,about,current,2026,200,454,https://www.nhm.ac.uk/about-us.html,,data/raw/current-pages/2026-06-12/natural-history-museum-london-about/index.html
+Tate,about,wayback,2020,200,553,https://www.tate.org.uk/about-us,https://web.archive.org/web/20200622225145id_/https://www.tate.org.uk/about-us,data/raw/wayback-snapshots/2026-06-12/tate-about/2020/index.html
+J. Paul Getty Museum,about,wayback,2010,200,132,https://www.getty.edu/about/,https://web.archive.org/web/20100528034602id_/https://www.getty.edu/about/,data/raw/wayback-snapshots/2026-06-12/j-paul-getty-museum-about/2010/index.html
+Rijksmuseum,about,wayback,2020,200,122,https://www.rijksmuseum.nl/en/about-us,https://web.archive.org/web/20201115091217id_/https://www.rijksmuseum.nl/en/about-us,data/raw/wayback-snapshots/2026-06-12/rijksmuseum-about/2020/index.html

@@ -1,8 +1,8 @@
 # Museum Language Drift Audit Packet
 
-Generated at: 2026-06-12T18:11:10.067Z
-Pages requiring review: 14
-Flagged rows: 2
+Generated at: 2026-06-12T18:17:11.264Z
+Pages requiring review: 17
+Flagged rows: 4
 
 ## Review Instructions
 
@@ -166,3 +166,36 @@ _No snippet extracted._
 > About us | Natural History Museum About us The Natural History Museum is a world-class visitor attraction and leading science research centre. We use our unique collections and unrivalled expertise to tackle the bi
 
 > he world today. We care for more than 80 million objects spanning billions of years and welcome more than seven million visitors annually. Our vision and strategy We are creating advocates for the planet. Careers We employ 900 staff in a variety of
+
+### Tate (about, wayback, 2020)
+
+- Words: 553
+- Top families: community_inclusion:6; access_public:5; research_scholarship:4
+- Flags: none
+- URL: https://www.tate.org.uk/about-us
+
+> er with senior Tate staff, sets our strategic direction Tate Reports Find the latest annual review of Tate's activities Access to Information Find out how we can help when seeking information about Tate Policies and Procedures Find our policies i
+
+> t Tate Jenny Holzer Barbara Hepworth Museum Angelica Kauffman Become a Member About Tate Our mission is to increase the public&rsquo;s enjoyment and understanding of British art from the 16th century to the present day and of international modern
+
+### J. Paul Getty Museum (about, wayback, 2010)
+
+- Words: 132
+- Top families: access_public:1; civilization_world_culture:0; provenance_ownership:0
+- Flags: short-page
+- URL: https://www.getty.edu/about/
+
+> View the 2009 Trust Report Get a behind-the-scenes look at the Getty on our new blog. Visit now! Event Calendar Museum Education Library e-Getty Newsletter Press Room Print this page Site Map Search The J. Paul Getty Trust &#169; J. Paul Getty Trus
+
+
+
+### Rijksmuseum (about, wayback, 2020)
+
+- Words: 122
+- Top families: civilization_world_culture:0; provenance_ownership:0; restitution_repatriation:0
+- Flags: short-page; no-snippets; no-taxonomy-signal
+- URL: https://www.rijksmuseum.nl/en/about-us
+
+_No snippet extracted._
+
+

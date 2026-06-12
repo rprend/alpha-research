@@ -23,6 +23,7 @@ Museum page snapshot, with source genre labels such as:
 
 ```bash
 node docs/experiments/museum-language-drift/scripts/fetch-current-pages.mjs
+node docs/experiments/museum-language-drift/scripts/fetch-wayback-snapshots.mjs
 node docs/experiments/museum-language-drift/scripts/build-report.mjs
 node docs/experiments/museum-language-drift/scripts/build-audit-packet.mjs
 node docs/experiments/museum-language-drift/scripts/check-readiness.mjs
@@ -31,6 +32,7 @@ node docs/experiments/museum-language-drift/scripts/check-readiness.mjs
 The scripts write:
 
 - `data/raw/current-pages/<run-date>/`
+- `data/raw/wayback-snapshots/<run-date>/`
 - `data/processed/pages.json`
 - `data/processed/page-term-counts.csv`
 - `data/processed/term-family-by-page-type.csv`

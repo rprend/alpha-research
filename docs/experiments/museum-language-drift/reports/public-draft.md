@@ -1,6 +1,6 @@
 # The Language Of Museums After Decolonization
 
-This is a research draft stub from a current-page source probe. It is not publication copy yet.
+This is a research draft stub from a museum-language source probe. It is not publication copy yet.
 
 ## Thesis To Test
 
@@ -8,7 +8,7 @@ Museum language may have shifted from universal civilization and stewardship lan
 
 ## Corpus Note
 
-The current artifact contains 14 current pages across 14 museums and page types: about.
+The current artifact contains 14 current pages and 3 historical snapshots across 14 museums and page types: about.
 
 ## Current Baseline
 
@@ -16,7 +16,7 @@ The largest term families in the current-page probe are access_public, community
 
 ## What The Evidence Cannot Support Yet
 
-- It cannot show change over time because no historical snapshots are included.
+- It cannot make strong change-over-time claims until archived snippets and page genres are audited.
 - It cannot compare page genres as if they were equivalent.
 - It cannot make claims about museum practice, only public language in collected pages.
 
@@ -28,6 +28,6 @@ The largest term families in the current-page probe are access_public, community
 
 ## Caveats
 
-- This artifact contains current public pages only; it cannot yet support temporal claims.
+- Wayback snapshots show public page availability, not necessarily stable museum policy or practice.
 - About pages, collection pages, and provenance pages are different genres and must not be compared as if they were the same source type.
 - Counts identify terms for audit; interpretation requires reading snippets and checking page context.
