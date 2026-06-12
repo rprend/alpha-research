@@ -31,6 +31,8 @@
     "coverage_search_backlog_candidates": 160,
     "live_coverage_search_candidates": 6,
     "live_coverage_search_provider_unconfigured": 6,
+    "search_promotions": 0,
+    "successful_search_promotions": 0,
     "common_crawl_candidates": 168,
     "common_crawl_fetch_candidates": 35,
     "ingested_common_crawl_candidates": 8,
@@ -180,6 +182,11 @@
       "id": "live_coverage_search_preserves_gap_provenance",
       "status": "pass",
       "detail": "6 live coverage search rows (6 provider-unconfigured); 0 live coverage provenance errors."
+    },
+    {
+      "id": "search_promotions_reference_candidates_and_sources",
+      "status": "pass",
+      "detail": "0 search promotions, 0 successful public fetches; 0 reference errors."
     },
     {
       "id": "faculty_portfolio_examples_reference_valid_sources",

@@ -13,6 +13,7 @@ const renderDerivedOnly = process.argv.includes('--render-derived-only')
 const commonCrawlOnly = process.argv.includes('--common-crawl-only')
 const promoteCommonCrawlOnly = process.argv.includes('--promote-common-crawl-only')
 const ingestCommonCrawlOnly = process.argv.includes('--ingest-common-crawl-only')
+const promoteSearchOnly = process.argv.includes('--promote-search-only')
 const ingestFacultyProfilesOnly = process.argv.includes('--ingest-faculty-profiles-only')
 const facultyPortfolioExamplesOnly = process.argv.includes('--faculty-portfolio-examples-only')
 const linkReadingsOnly = process.argv.includes('--link-readings-only')
@@ -32,6 +33,7 @@ const readingLinkLimit = Number(process.env.RISD_GD_READING_LINK_LIMIT ?? 30)
 const searchApiMaxQueries = Number(process.env.RISD_GD_SEARCH_API_MAX_QUERIES ?? 6)
 const coverageSearchApiMaxQueries = Number(process.env.RISD_GD_COVERAGE_SEARCH_API_MAX_QUERIES ?? 6)
 const searchApiResultsPerQuery = Number(process.env.RISD_GD_SEARCH_API_RESULTS_PER_QUERY ?? 10)
+const searchPromoteLimit = Number(process.env.RISD_GD_SEARCH_PROMOTE_LIMIT ?? 8)
 const searchImportPath = process.env.RISD_GD_SEARCH_IMPORTS ?? join(outDir, 'search_imports.jsonl')
 const risdGraphicDesignFacultyUrl = 'https://www.risd.edu/academics/graphic-design/faculty'
 
@@ -880,12 +882,44 @@ function sourceSeedFromSearchCandidate(candidate) {
     source_id: sourceIdForUrl('src_search', candidate.url),
     url: candidate.url,
     source_type: sourceType,
-    authority: 'imported_search_result',
+    authority: candidate.source === 'live_search_api' ? 'live_search_result' : 'imported_search_result',
     confidence,
     discovery_query: candidate.query,
     discovery_rank: candidate.rank,
-    notes: `Imported search result${candidate.snippet ? `: ${candidate.snippet.slice(0, 240)}` : '.'}`,
+    course_code: candidate.course_code ?? null,
+    course_title: candidate.course_title ?? null,
+    notes: `${candidate.source === 'live_search_api' ? 'Live search result' : 'Imported search result'}${candidate.snippet ? `: ${candidate.snippet.slice(0, 240)}` : '.'}`,
   }
+}
+
+function isPromotableSearchCandidate(candidate, existingSourceUrls = new Set(), promotedCandidateIds = new Set()) {
+  if (!candidate.url) return false
+  if (candidate.promoted_source_id || promotedCandidateIds.has(candidate.candidate_id)) return false
+  if (!['candidate_imported', 'candidate_from_search_api'].includes(candidate.status)) return false
+  let url
+  try {
+    url = canonicalUrl(candidate.url)
+  } catch {
+    return false
+  }
+  if (existingSourceUrls.has(url)) return false
+  const lower = url.toLowerCase()
+  if (/login|canvas|blackboard|moodle|instructure|discord|slack|wp-admin|wp-login|signin|sign-in|auth|oauth/.test(lower)) return false
+  return true
+}
+
+function scoreSearchCandidateForPromotion(candidate) {
+  const combined = `${candidate.url ?? ''} ${candidate.title ?? ''} ${candidate.snippet ?? ''} ${candidate.query ?? ''} ${candidate.missing_requirement ?? ''}`.toLowerCase()
+  let score = 0
+  if (/risd\.gd|risd\.edu|johncaserta\.com|htmlkitchen|practise\.studio/.test(combined)) score += 5
+  if (/syllabus|course site|course|class/.test(combined)) score += 4
+  if (/project|assignment|exercise|prompt|critique|schedule|week/.test(combined)) score += 5
+  if (/reading|bibliography|resource|reference/.test(combined)) score += 2
+  if (/graphic design|typography|type|poster|publication|web|motion|studio/.test(combined)) score += 3
+  if (candidate.query_source === 'coverage_gap_query') score += 2
+  if (candidate.source === 'live_search_api') score += 1
+  if (/login|admin|feed|tag|author|wp-json/.test(combined)) score -= 6
+  return score
 }
 
 function sourceSeedFromCommonCrawlCandidate(candidate) {
@@ -3117,7 +3151,8 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], searchCandidates = [], commonCrawlCandidates = [], commonCrawlPromotions = [], facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], facultyPortfolioExamples = [], sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [] }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], facultyPortfolioExamples = [], sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [] }) {
+  const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const sourceIds = new Set(sources.map((source) => source.source_id))
   const syllabusIds = new Set(syllabi.map((syllabus) => syllabus.syllabus_id))
   const failedSourceIds = new Set(sources.filter((source) => source.extraction_status !== 'ok').map((source) => source.source_id))
@@ -3192,6 +3227,15 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       && candidate.query_source === 'coverage_gap_query'
       && (!candidate.query_id || !candidate.query || !candidate.missing_requirement || !candidate.source_coverage_id || !coverageIds.has(candidate.source_coverage_id))
   )
+  const searchCandidateIds = new Set(searchCandidates.map((candidate) => candidate.candidate_id))
+  const searchPromotionErrors = effectiveSearchPromotions.filter((promotion) =>
+    !promotion.promotion_id
+      || !promotion.candidate_id
+      || !searchCandidateIds.has(promotion.candidate_id)
+      || !promotion.promoted_source_id
+      || promotion.extraction_status === 'ok' && !sourceIds.has(promotion.promoted_source_id)
+  )
+  const successfulSearchPromotions = effectiveSearchPromotions.filter((promotion) => promotion.extraction_status === 'ok').length
   const commonCrawlCandidateErrors = commonCrawlCandidates.filter((candidate) => !candidate.candidate_id || !candidate.query_id || !candidate.index_id || !candidate.candidate_status)
   const commonCrawlFetchCandidateCount = commonCrawlCandidates.filter((candidate) => candidate.candidate_status === 'candidate_for_public_fetch').length
   const ingestedCommonCrawlCandidateCount = commonCrawlCandidates.filter((candidate) => candidate.candidate_status === 'ingested_into_corpus').length
@@ -3344,6 +3388,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${liveCoverageSearchCandidateCount} live coverage search rows (${liveCoverageProviderUnconfiguredCount} provider-unconfigured); ${liveCoverageSearchErrors.length} live coverage provenance errors.`,
     },
     {
+      id: 'search_promotions_reference_candidates_and_sources',
+      status: searchPromotionErrors.length === 0 ? 'pass' : 'fail',
+      detail: `${effectiveSearchPromotions.length} search promotions, ${successfulSearchPromotions} successful public fetches; ${searchPromotionErrors.length} reference errors.`,
+    },
+    {
       id: 'faculty_portfolio_examples_reference_valid_sources',
       status: facultyPortfolioExampleErrors.length === 0 ? 'pass' : 'fail',
       detail: `${facultyPortfolioExampleErrors.length} faculty portfolio example reference errors across ${facultyPortfolioExamples.length} examples.`,
@@ -3434,6 +3483,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       coverage_search_backlog_candidates: coverageSearchBacklogCount,
       live_coverage_search_candidates: liveCoverageSearchCandidateCount,
       live_coverage_search_provider_unconfigured: liveCoverageProviderUnconfiguredCount,
+      search_promotions: effectiveSearchPromotions.length,
+      successful_search_promotions: successfulSearchPromotions,
       common_crawl_candidates: commonCrawlCandidates.length,
       common_crawl_fetch_candidates: commonCrawlFetchCandidateCount,
       ingested_common_crawl_candidates: ingestedCommonCrawlCandidateCount,
@@ -3820,6 +3871,8 @@ Overall status: ${validation.status}
 - Coverage search backlog candidates: ${validation.counts.coverage_search_backlog_candidates}
 - Live coverage search candidates: ${validation.counts.live_coverage_search_candidates}
 - Live coverage provider-unconfigured rows: ${validation.counts.live_coverage_search_provider_unconfigured}
+- Search promotions: ${validation.counts.search_promotions}
+- Successful search promotions: ${validation.counts.successful_search_promotions}
 - Common Crawl candidates: ${validation.counts.common_crawl_candidates}
 - Common Crawl fetch candidates: ${validation.counts.common_crawl_fetch_candidates}
 - Ingested Common Crawl candidates: ${validation.counts.ingested_common_crawl_candidates}
@@ -4727,6 +4780,175 @@ async function renderSearchApiOnly() {
   console.log(`live_search_candidates=${liveSearchCandidates.length} total_search_candidates=${searchCandidates.length} validation=${validationWithReview.status}`)
 }
 
+async function promoteSearchCandidatesOnlyMode() {
+  ensureDir(outDir)
+  const existingSources = loadJsonl(join(outDir, 'sources.jsonl'))
+  const existingSourceUrls = new Set(existingSources.map((source) => canonicalUrl(source.url)))
+  const existingSearchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
+  const existingSearchPromotions = loadJsonl(join(outDir, 'search_promotions.jsonl'))
+  const promotedCandidateIds = new Set(existingSearchPromotions.map((promotion) => promotion.candidate_id))
+  const selectedCandidates = existingSearchCandidates
+    .filter((candidate) => isPromotableSearchCandidate(candidate, existingSourceUrls, promotedCandidateIds))
+    .map((candidate) => ({
+      ...candidate,
+      promotion_score: scoreSearchCandidateForPromotion(candidate),
+    }))
+    .filter((candidate) => candidate.promotion_score >= 4)
+    .sort((a, b) => b.promotion_score - a.promotion_score || Number(a.rank ?? 9999) - Number(b.rank ?? 9999) || String(a.url).localeCompare(String(b.url)))
+    .slice(0, searchPromoteLimit)
+
+  const inspectedPromotions = []
+  for (const [index, candidate] of selectedCandidates.entries()) {
+    console.error(`promote search candidate ${index + 1}/${selectedCandidates.length}: ${candidate.url}`)
+    const seed = sourceSeedFromSearchCandidate(candidate)
+    const inspected = await inspectSeed(seed)
+    inspectedPromotions.push({ candidate, inspected })
+  }
+
+  const newPromotions = inspectedPromotions.map(({ candidate, inspected }) => ({
+    promotion_id: `search_promotion_${candidate.candidate_id}`,
+    candidate_id: candidate.candidate_id,
+    promoted_at: retrievedAt,
+    promoted_source_id: inspected.source.source_id,
+    url: inspected.source.url,
+    query: candidate.query ?? null,
+    query_id: candidate.query_id ?? null,
+    query_source: candidate.query_source ?? null,
+    course_code: candidate.course_code ?? null,
+    course_title: candidate.course_title ?? null,
+    missing_requirement: candidate.missing_requirement ?? null,
+    promotion_score: candidate.promotion_score,
+    source_type: inspected.source.source_type,
+    authority: inspected.source.authority,
+    confidence: inspected.source.confidence,
+    fetch_status: inspected.source.fetch_status,
+    extraction_status: inspected.source.extraction_status,
+    content_type: inspected.source.content_type,
+    checksum: inspected.source.checksum,
+    title: inspected.source.title,
+    text_length: inspected.source.text_length,
+    notes: inspected.source.notes,
+    error: inspected.source.error ?? null,
+  }))
+  const allSearchPromotions = mergeRowsByKey(existingSearchPromotions, newPromotions, (promotion) => promotion.promotion_id)
+  const promotionByCandidateId = new Map(allSearchPromotions.map((promotion) => [promotion.candidate_id, promotion]))
+  const updatedSearchCandidates = existingSearchCandidates.map((candidate) => {
+    const promotion = promotionByCandidateId.get(candidate.candidate_id)
+    if (!promotion) return candidate
+    return {
+      ...candidate,
+      status: promotion.extraction_status === 'ok' ? 'promoted_after_public_fetch' : 'promotion_fetch_failed',
+      promoted_source_id: promotion.extraction_status === 'ok' ? promotion.promoted_source_id : null,
+      promotion_fetch_status: promotion.fetch_status,
+      promotion_extraction_status: promotion.extraction_status,
+      promotion_error: promotion.error ?? null,
+    }
+  })
+
+  if (inspectedPromotions.length === 0) {
+    const sources = existingSources
+    const courseInventoryRows = loadJsonl(join(outDir, 'course_inventory.jsonl'))
+    const previousValidation = existsSync(join(outDir, 'validation.json')) ? JSON.parse(readFileSync(join(outDir, 'validation.json'), 'utf8')) : null
+    const courseInventory = {
+      offerings: courseInventoryRows,
+      displayed_count: previousValidation?.counts?.official_course_displayed_count ?? courseInventoryRows.length,
+    }
+    const courses = loadJsonl(join(outDir, 'courses.jsonl'))
+    const syllabi = loadJsonl(join(outDir, 'syllabi.jsonl'))
+    const assignments = loadJsonl(join(outDir, 'assignments.jsonl'))
+    const readings = loadJsonl(join(outDir, 'readings.jsonl'))
+    const readingFrequency = loadJsonl(join(outDir, 'reading_frequency.jsonl'))
+    const faculty = loadJsonl(join(outDir, 'faculty.jsonl'))
+    const facultyCourseEdges = loadJsonl(join(outDir, 'faculty_course_edges.jsonl'))
+    const studentWork = loadJsonl(join(outDir, 'student_work.jsonl'))
+    const facultyPortfolioExamples = loadJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'))
+    const sourceClusters = loadJsonl(join(outDir, 'source_clusters.jsonl'))
+    const sourceVersions = loadJsonl(join(outDir, 'source_versions.jsonl'))
+    const wayback = loadJsonl(join(outDir, 'wayback_captures.jsonl'))
+    const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
+    const commonCrawlPromotions = loadJsonl(join(outDir, 'common_crawl_promotions.jsonl'))
+    const facultyProfileCandidates = loadJsonl(join(outDir, 'faculty_profile_candidates.jsonl'))
+    const reviewQueue = loadJsonl(join(outDir, 'review_queue.jsonl'))
+    const reviewDecisions = loadJsonl(join(outDir, 'review_decisions.jsonl'))
+    const fieldConflicts = loadJsonl(join(outDir, 'field_conflicts.jsonl'))
+    const courseCoverage = loadJsonl(join(outDir, 'course_coverage.jsonl'))
+    const coverageSearchQueries = loadJsonl(join(outDir, 'coverage_search_queries.jsonl'))
+    const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates: updatedSearchCandidates, searchPromotions: allSearchPromotions, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries })
+    writeJsonl(join(outDir, 'search_candidates.jsonl'), updatedSearchCandidates)
+    writeJsonl(join(outDir, 'search_promotions.jsonl'), allSearchPromotions)
+    writeJson(join(outDir, 'validation.json'), validationWithReview)
+    writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
+    console.log(`RISD search promotions written to ${join(outDir, 'search_promotions.jsonl')}`)
+    console.log(`new_promotions=0 successful_promotions=0 total_search_promotions=${allSearchPromotions.length} validation=${validationWithReview.status}`)
+    return
+  }
+
+  const successfulPromotionSources = inspectedPromotions
+    .filter(({ inspected }) => inspected.source.extraction_status === 'ok')
+    .map(({ inspected }) => inspected.source)
+  const sourcesForReparse = mergeRowsByKey(existingSources, successfulPromotionSources, (source) => source.source_id)
+  const existingReadings = loadJsonl(join(outDir, 'readings.jsonl'))
+  const inspected = []
+  for (const [index, source] of sourcesForReparse.entries()) {
+    console.error(`reparse promoted-search corpus source ${index + 1}/${sourcesForReparse.length}: ${source.source_id}`)
+    inspected.push(await inspectSeed(source))
+  }
+
+  const sources = inspected.map(({ source }) => source)
+  const courseInventory = buildCourseInventory(inspected)
+  const courses = buildCourses(inspected)
+  const syllabi = buildSyllabi(inspected)
+  const assignments = buildAssignments(syllabi)
+  const readings = mergeReadingExternalLinks(buildReadings(syllabi), existingReadings)
+  const readingFrequency = buildReadingFrequency(readings)
+  const { faculty, facultyCourseEdges } = buildFacultyGraph({ sources, courseInventory, syllabi })
+  const studentWork = buildStudentWork(inspected)
+  const facultyPortfolioExamples = loadJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'))
+  const sourceClusters = buildSourceClusters(inspected, syllabi, readings)
+  const wayback = loadJsonl(join(outDir, 'wayback_captures.jsonl'))
+  const sourceVersions = buildSourceVersions(inspected, wayback)
+  const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
+  const commonCrawlPromotions = loadJsonl(join(outDir, 'common_crawl_promotions.jsonl'))
+  const facultyProfileCandidates = loadJsonl(join(outDir, 'faculty_profile_candidates.jsonl'))
+  const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
+  const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
+  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
+  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
+  const coverageSearchQueries = buildCoverageSearchQueries(courseCoverage)
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates: updatedSearchCandidates, searchPromotions: allSearchPromotions, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries })
+
+  writeJsonl(join(outDir, 'sources.jsonl'), sources)
+  writeJsonl(join(outDir, 'course_inventory.jsonl'), courseInventory.offerings)
+  writeJsonl(join(outDir, 'courses.jsonl'), courses)
+  writeJsonl(join(outDir, 'syllabi.jsonl'), syllabi)
+  writeJsonl(join(outDir, 'assignments.jsonl'), assignments)
+  writeJsonl(join(outDir, 'readings.jsonl'), readings)
+  writeJsonl(join(outDir, 'reading_frequency.jsonl'), readingFrequency)
+  writeJsonl(join(outDir, 'faculty.jsonl'), faculty)
+  writeJsonl(join(outDir, 'faculty_course_edges.jsonl'), facultyCourseEdges)
+  writeJsonl(join(outDir, 'student_work.jsonl'), studentWork)
+  writeJsonl(join(outDir, 'source_clusters.jsonl'), sourceClusters)
+  writeJsonl(join(outDir, 'source_versions.jsonl'), sourceVersions)
+  writeJsonl(join(outDir, 'search_candidates.jsonl'), updatedSearchCandidates)
+  writeJsonl(join(outDir, 'search_promotions.jsonl'), allSearchPromotions)
+  writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
+  writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
+  writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
+  writeJsonl(join(outDir, 'course_coverage.jsonl'), courseCoverage)
+  writeJsonl(join(outDir, 'coverage_search_queries.jsonl'), coverageSearchQueries)
+  writeFileSync(join(outDir, 'course_coverage.md'), courseCoverageMarkdown(courseCoverage))
+  writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
+  writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
+  writeJson(join(outDir, 'validation.json'), validationWithReview)
+  writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
+  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters }))
+  writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
+  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
+  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork }))
+  console.log(`RISD search promotions written to ${join(outDir, 'search_promotions.jsonl')}`)
+  console.log(`new_promotions=${newPromotions.length} successful_promotions=${newPromotions.filter((row) => row.extraction_status === 'ok').length} total_search_promotions=${allSearchPromotions.length} validation=${validationWithReview.status}`)
+}
+
 async function renderFacultyPortfolioExamplesOnly() {
   ensureDir(outDir)
   const sources = loadJsonl(join(outDir, 'sources.jsonl'))
@@ -5004,6 +5226,10 @@ async function main() {
   }
   if (ingestCommonCrawlOnly) {
     await ingestCommonCrawlPromotionsOnly()
+    return
+  }
+  if (promoteSearchOnly) {
+    await promoteSearchCandidatesOnlyMode()
     return
   }
   if (promoteCommonCrawlOnly) {

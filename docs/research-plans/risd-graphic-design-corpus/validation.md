@@ -35,6 +35,8 @@ Overall status: pass
 - Coverage search backlog candidates: 160
 - Live coverage search candidates: 6
 - Live coverage provider-unconfigured rows: 6
+- Search promotions: 0
+- Successful search promotions: 0
 - Common Crawl candidates: 168
 - Common Crawl fetch candidates: 35
 - Ingested Common Crawl candidates: 8
@@ -94,6 +96,7 @@ Overall status: pass
 - PASS coverage_search_queries_have_gap_provenance: 160 coverage-derived search queries with 0 provenance errors.
 - PASS coverage_search_backlog_is_executable: 160 coverage query backlog rows for 160 generated coverage queries; 0 backlog provenance errors.
 - PASS live_coverage_search_preserves_gap_provenance: 6 live coverage search rows (6 provider-unconfigured); 0 live coverage provenance errors.
+- PASS search_promotions_reference_candidates_and_sources: 0 search promotions, 0 successful public fetches; 0 reference errors.
 - PASS faculty_portfolio_examples_reference_valid_sources: 0 faculty portfolio example reference errors across 60 examples.
 - PASS faculty_portfolio_examples_have_structured_metadata: 60 faculty portfolio examples include faculty plus title/medium/statement/visual metadata.
 - PASS source_clusters_reference_valid_sources: 0 source cluster reference errors across 13 clusters.

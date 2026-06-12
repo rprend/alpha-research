@@ -66,6 +66,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/source_versions.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/wayback_captures.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/search_candidates.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/search_promotions.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/common_crawl_candidates.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/common_crawl_promotions.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/faculty_profile_candidates.jsonl`
@@ -537,6 +538,36 @@ Coverage-derived and faculty-derived candidate rows should also preserve discove
 - `priority`
 - `source_coverage_id`
 - `faculty_id`
+
+### `search_promotions.jsonl`
+
+One row per bounded search candidate public-fetch attempt.
+
+Required fields:
+
+- `promotion_id`
+- `candidate_id`
+- `promoted_at`
+- `promoted_source_id`
+- `url`
+- `query`
+- `query_id`
+- `query_source`
+- `course_code`
+- `course_title`
+- `missing_requirement`
+- `promotion_score`
+- `source_type`
+- `authority`
+- `confidence`
+- `fetch_status`
+- `extraction_status`
+- `content_type`
+- `checksum`
+- `title`
+- `text_length`
+- `notes`
+- `error`
 
 ### `common_crawl_candidates.jsonl`
 
