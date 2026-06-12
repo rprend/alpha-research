@@ -1777,6 +1777,8 @@ Generated: 2026-06-12
 - Extracted skill signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
 - Public student work examples:
   - RISD Students Use Video and Animation Techniques to Bring Graphics to Life: https://www.risd.edu/news/stories/risd-students-use-video-and-animation-techniques-bring-graphics-life (medium: animation/video; assignment link: course_context_only; visual notes: source describes technique training or best-practice expectations; source emphasizes time-based graphic sequencing)
+- Linked public comparison evidence:
+  - RISD Students Use Video and Animation Techniques to Bring Graphics to Life: https://www.risd.edu/news/stories/risd-students-use-video-and-animation-techniques-bring-graphics-life (course_context_link, medium; course context; student work source carries course metadata)
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making.
@@ -2959,6 +2961,8 @@ Generated: 2026-06-12
 - Public student work examples:
   - See assignments: https://github.com/risd-gd/wp16/wiki/Assignment-1:-Make-a-Scandinavian-Flag (medium: animation/video; assignment link: course_context_only)
   - Interact with this pattern: http://risd-gd.github.io/wp16/students/isabellaMordini/Assignment_Week_03/week4_05.html (medium: website/interface; assignment link: course_context_only)
+- Linked public comparison evidence:
+  - Interact with this pattern: http://risd-gd.github.io/wp16/students/isabellaMordini/Assignment_Week_03/week4_05.html (course_context_link, medium; course context; student work URL/title references public Web Programming assignment archive)
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
   - Skill training signals: publication design, identity systems, motion design, interaction design, image making.
@@ -3291,6 +3295,8 @@ Generated: 2026-06-12
 - Public student work examples:
   - See assignments: https://github.com/risd-gd/wp16/wiki/Assignment-1:-Make-a-Scandinavian-Flag (medium: animation/video; assignment link: course_context_only)
   - Interact with this pattern: http://risd-gd.github.io/wp16/students/isabellaMordini/Assignment_Week_03/week4_05.html (medium: website/interface; assignment link: course_context_only)
+- Linked public comparison evidence:
+  - Interact with this pattern: http://risd-gd.github.io/wp16/students/isabellaMordini/Assignment_Week_03/week4_05.html (course_context_link, medium; course context; student work URL/title references public Web Programming assignment archive)
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
   - Skill training signals: motion design, interaction design, publication design, image making, identity systems, typography.

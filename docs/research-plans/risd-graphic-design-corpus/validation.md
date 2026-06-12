@@ -54,6 +54,11 @@ Overall status: pass
 - Student work rows: 22
 - Structured student work rows: 22
 - Course-linked student work rows: 5
+- Student-work relationship rows: 22
+- Student-work assignment links: 0
+- Student-work brief-page links: 0
+- Student-work course-context links: 2
+- Student-work rejected weak matches: 20
 - Course coverage rows: 134
 - Courses at 80+ coverage: 8
 - Courses below 40 coverage: 112
@@ -108,6 +113,8 @@ Overall status: pass
 - PASS faculty_profile_candidates_have_provenance: 47 faculty profile candidates, 45 ingested, 26 faculty rows with profile URLs; 0 reference errors.
 - PASS student_work_reference_valid_sources: 0 student work source reference errors.
 - PASS student_work_has_structured_public_examples: 22 student work rows include URL plus medium/project/evidence metadata; 5 rows include course code/title context.
+- PASS student_work_assignment_links_reference_valid_records: 22 student-work relationship rows; 0 reference or boundary errors.
+- PASS student_work_assignment_links_preserve_confidence_boundaries: 0 assignment links, 0 brief-page links, 2 course-context links, and 20 rejected weak matches.
 - PASS course_coverage_matrix_references_valid_sources: 134 course coverage rows for 134 courses; 8 at 80+ coverage, 112 below 40 coverage, and 0 coverage metadata/reference errors.
 - PASS coverage_search_queries_have_gap_provenance: 160 coverage-derived search queries with 0 provenance errors.
 - PASS coverage_search_backlog_is_executable: 160 coverage query backlog rows for 160 generated coverage queries; 0 backlog provenance errors.

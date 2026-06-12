@@ -2996,6 +2996,158 @@ function buildAssignmentBriefPages({ courseSitePages, assignments }) {
     .sort((a, b) => b.high_confidence_assignments - a.high_confidence_assignments || b.long_assignment_briefs - a.long_assignment_briefs || String(a.course_title ?? '').localeCompare(String(b.course_title ?? '')) || a.url.localeCompare(b.url))
 }
 
+function buildStudentWorkAssignmentLinks({ studentWork, assignmentBriefPages, assignments, courseSitePages }) {
+  const assignmentById = new Map(assignments.map((assignment) => [assignment.assignment_id, assignment]))
+  const briefById = new Map(assignmentBriefPages.map((page) => [page.brief_page_id, page]))
+  const coursePageBySource = new Map(courseSitePages.map((page) => [page.source_id, page]))
+  const briefPagesByCourse = new Map()
+  const briefPagesByUrl = new Map()
+  for (const page of assignmentBriefPages) {
+    const courseKey = normalizeStudentWorkCourseKey(page.course_code, page.course_title)
+    if (courseKey) {
+      const existing = briefPagesByCourse.get(courseKey) ?? []
+      existing.push(page)
+      briefPagesByCourse.set(courseKey, existing)
+    }
+    if (page.url) briefPagesByUrl.set(canonicalUrl(page.url), page)
+  }
+
+  return studentWork.map((work) => {
+    const exactBrief = work.url ? briefPagesByUrl.get(canonicalUrl(work.url)) : null
+    const sourcePages = (work.source_ids ?? []).map((id) => coursePageBySource.get(id)).filter(Boolean)
+    const courseKey = normalizeStudentWorkCourseKey(work.course_code, work.course_title)
+    const courseBriefs = courseKey ? (briefPagesByCourse.get(courseKey) ?? []) : []
+    const sourcePageBrief = sourcePages
+      .map((page) => assignmentBriefPages.find((brief) => brief.source_id === page.source_id || brief.parent_source_id === page.source_id))
+      .find(Boolean)
+    const bestBrief = exactBrief ?? sourcePageBrief ?? bestBriefPageForStudentWork(work, courseBriefs)
+    const bestAssignment = bestBrief
+      ? bestStudentWorkAssignment(work, bestBrief, assignmentById)
+      : null
+    const explicitAssignment = work.assignment_link_confidence === 'explicit_assignment_reference'
+    const assignmentReferenceOnly = isAssignmentReferenceOnlyStudentWork(work)
+    const relationshipType = assignmentReferenceOnly
+      ? 'rejected_weak_match'
+      : bestAssignment && (explicitAssignment || exactBrief)
+      ? 'assignment_link'
+      : bestBrief
+        ? 'brief_page_link'
+        : courseKey
+          ? 'course_context_link'
+          : 'rejected_weak_match'
+    const linkConfidence = relationshipType === 'assignment_link'
+      ? 'high'
+      : relationshipType === 'brief_page_link'
+        ? (work.course_inference_confidence === 'high' || work.course_inference_confidence === 'source_metadata' ? 'medium' : 'low')
+        : relationshipType === 'course_context_link'
+          ? (work.course_inference_confidence === 'high' || work.course_inference_confidence === 'source_metadata' ? 'medium' : 'low')
+          : 'rejected'
+    const evidenceBasis = assignmentReferenceOnly
+      ? 'link points to an assignment prompt/reference, not a public student output; not used as comparison evidence'
+      : studentWorkLinkEvidenceBasis({ work, relationshipType, exactBrief, sourcePageBrief, bestBrief, bestAssignment })
+    return {
+      link_id: `student_work_link_${slug(work.student_work_id)}`,
+      student_work_id: work.student_work_id,
+      student_work_url: work.url,
+      source_ids: work.source_ids ?? [],
+      relationship_type: relationshipType,
+      link_confidence: linkConfidence,
+      evidence_basis: evidenceBasis,
+      course_code: work.course_code ?? bestBrief?.course_code ?? null,
+      course_title: work.course_title ?? bestBrief?.course_title ?? null,
+      term: work.term ?? bestBrief?.term ?? null,
+      instructor: work.instructor ?? bestBrief?.instructor ?? null,
+      brief_page_id: bestBrief?.brief_page_id ?? null,
+      assignment_id: relationshipType === 'assignment_link' ? bestAssignment?.assignment_id ?? null : null,
+      assignment_title: relationshipType === 'assignment_link' ? bestAssignment?.title ?? null : null,
+      brief_page_url: bestBrief?.url ?? null,
+      assignment_source_ids: relationshipType === 'assignment_link' ? bestAssignment?.source_ids ?? [] : [],
+      visual_standard_notes: work.visual_standard_notes ?? [],
+      comparison_use: studentWorkComparisonUse(work, bestBrief, relationshipType),
+      rejection_reason: relationshipType === 'rejected_weak_match'
+        ? assignmentReferenceOnly
+          ? 'assignment/reference link is not public student work output'
+          : 'no explicit course, brief-page, or assignment evidence; title/visual similarity alone is not promoted'
+        : null,
+      evidence_grade: bestEvidenceGrade([work.evidence_grade, bestBrief?.evidence_grade, bestAssignment?.evidence_grade]) ?? work.evidence_grade ?? null,
+    }
+  }).sort((a, b) => a.relationship_type.localeCompare(b.relationship_type) || String(a.course_title ?? '').localeCompare(String(b.course_title ?? '')) || a.student_work_id.localeCompare(b.student_work_id))
+}
+
+function isAssignmentReferenceOnlyStudentWork(work) {
+  const combined = `${work.project_title ?? ''} ${work.url ?? ''}`.toLowerCase()
+  if (/\bsee (?:full )?assignments?\b|\bfull assignment\b|\bassignment-\d+\b|\bassignment[_-]?week\b|\bthe course website\b|\bcourse website\b/.test(combined)) return true
+  try {
+    const url = new URL(work.url)
+    if (/\/assignments?\b|\/wiki\/assignment|\/unit\d+_overview|paper\.dropbox\.com\/doc\/type-iii-week/.test(`${url.hostname}${url.pathname}`.toLowerCase())) return true
+  } catch {
+    // Non-URL rows are handled by title evidence.
+  }
+  return false
+}
+
+function normalizeStudentWorkCourseKey(courseCode, courseTitle) {
+  if (courseCode) return normalizeForMatch(courseCode)
+  if (courseTitle) return normalizeForMatch(courseTitle)
+  return null
+}
+
+function bestBriefPageForStudentWork(work, courseBriefs) {
+  if (!courseBriefs.length) return null
+  const workText = normalizeForMatch(`${work.project_title ?? ''} ${work.url ?? ''} ${(work.medium_evidence ?? []).slice(0, 3).join(' ')}`)
+  const scored = courseBriefs.map((brief) => {
+    const promptText = normalizeForMatch(`${brief.url ?? ''} ${(brief.representative_prompts ?? []).join(' ')} ${(brief.deliverables ?? []).join(' ')} ${(brief.tools ?? []).join(' ')}`)
+    const tokenScore = overlapScore(workText, promptText)
+    const completeScore = brief.has_complete_brief_signal ? 2 : 0
+    const confidenceScore = (brief.high_confidence_assignments ?? 0) > 0 ? 2 : 0
+    return { brief, score: tokenScore + completeScore + confidenceScore }
+  }).sort((a, b) => b.score - a.score || (b.brief.high_confidence_assignments ?? 0) - (a.brief.high_confidence_assignments ?? 0))
+  return scored[0]?.score > 0 ? scored[0].brief : courseBriefs[0]
+}
+
+function bestStudentWorkAssignment(work, brief, assignmentById) {
+  const assignmentsForBrief = (brief.assignment_ids ?? []).map((id) => assignmentById.get(id)).filter(Boolean)
+  if (!assignmentsForBrief.length) return null
+  const workText = normalizeForMatch(`${work.project_title ?? ''} ${work.url ?? ''} ${(work.medium_evidence ?? []).slice(0, 4).join(' ')}`)
+  return assignmentsForBrief
+    .map((assignment) => ({
+      assignment,
+      score: overlapScore(workText, normalizeForMatch(`${assignment.title ?? ''} ${assignment.prompt_excerpt ?? ''} ${(assignment.deliverables ?? []).join(' ')} ${(assignment.tools ?? []).join(' ')}`))
+        + (assignment.assignment_confidence === 'high' ? 3 : assignment.assignment_confidence === 'medium' ? 1 : 0)
+        + ((assignment.prompt_excerpt?.split(/\s+/).length ?? 0) >= 45 ? 1 : 0),
+    }))
+    .sort((a, b) => b.score - a.score)[0]?.assignment ?? null
+}
+
+function overlapScore(left, right) {
+  const leftTokens = new Set(left.split(/\s+/).filter((token) => token.length >= 4))
+  if (!leftTokens.size) return 0
+  return right.split(/\s+/).filter((token) => leftTokens.has(token)).length
+}
+
+function studentWorkLinkEvidenceBasis({ work, relationshipType, exactBrief, sourcePageBrief, bestBrief, bestAssignment }) {
+  if (relationshipType === 'assignment_link') {
+    if (exactBrief) return `student work URL exactly matches recovered assignment/brief page ${exactBrief.brief_page_id}; linked representative assignment ${bestAssignment?.assignment_id ?? 'unknown'}`
+    return `student work source marks an explicit assignment reference and course evidence links to ${bestBrief?.brief_page_id ?? 'a recovered brief page'}`
+  }
+  if (relationshipType === 'brief_page_link') {
+    if (sourcePageBrief) return `student work source page connects to recovered assignment brief page ${sourcePageBrief.brief_page_id}`
+    return `student work course context matches recovered assignment brief page ${bestBrief?.brief_page_id ?? 'unknown'}`
+  }
+  if (relationshipType === 'course_context_link') return work.course_inference_basis ?? 'student work row has course code/title context but no exact brief or assignment boundary'
+  return 'no course, brief-page, or assignment boundary evidence available'
+}
+
+function studentWorkComparisonUse(work, brief, relationshipType) {
+  if (relationshipType === 'rejected_weak_match') return []
+  const uses = ['visual_calibration']
+  const combined = `${work.medium ?? ''} ${(brief?.deliverables ?? []).join(' ')} ${(brief?.studio_phases ?? []).join(' ')}`.toLowerCase()
+  if (/poster|book|website|identity|typeface|presentation|animation|video|interface/.test(combined)) uses.push('deliverable_reference')
+  if (/sketch|process|prototype|research|document/.test(combined)) uses.push('process_reference')
+  if (/critique|present|review/.test(combined)) uses.push('critique_reference')
+  return uniq(uses)
+}
+
 function buildSourceClusters(inspected, syllabi, readings) {
   const sourceById = new Map(inspected.map(({ source }) => [source.source_id, source]))
   const clusters = []
@@ -3428,11 +3580,12 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
   const effectiveCourseSitePages = courseSitePages ?? loadJsonl(join(outDir, 'course_site_pages.jsonl'))
   const effectiveAssignmentBriefPages = assignmentBriefPages ?? loadJsonl(join(outDir, 'assignment_brief_pages.jsonl'))
+  const effectiveStudentWorkAssignmentLinks = studentWorkAssignmentLinks ?? loadJsonl(join(outDir, 'student_work_assignment_links.jsonl'))
   const sourceIds = new Set(sources.map((source) => source.source_id))
   const syllabusIds = new Set(syllabi.map((syllabus) => syllabus.syllabus_id))
   const failedSourceIds = new Set(sources.filter((source) => source.extraction_status !== 'ok').map((source) => source.source_id))
@@ -3538,6 +3691,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const studentWorkSourceErrors = studentWork.filter((work) => work.source_ids.some((id) => !sourceIds.has(id)))
   const structuredStudentWorkCount = studentWork.filter((work) => work.url && (work.medium || work.project_title || work.project_statement_excerpt || work.assignment_link_confidence || work.visual_standard_notes?.length) && work.evidence_grade).length
   const courseLinkedStudentWorkCount = studentWork.filter((work) => work.course_code || work.course_title).length
+  const studentWorkIds = new Set(studentWork.map((work) => work.student_work_id))
   const courseCoverageErrors = courseCoverage.filter((row) => row.source_ids?.some((id) => !sourceIds.has(id)) || !row.requirements || typeof row.coverage_score !== 'number')
   const highCoverageCourseCount = courseCoverage.filter((row) => row.coverage_score >= 80).length
   const lowCoverageCourseCount = courseCoverage.filter((row) => row.coverage_score < 40).length
@@ -3555,6 +3709,22 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const assignmentBriefPagesWithCompleteSignals = effectiveAssignmentBriefPages.filter((page) => page.has_complete_brief_signal).length
   const assignmentBriefPagesWithCritique = effectiveAssignmentBriefPages.filter((page) => page.critique_assignment_count > 0).length
   const assignmentBriefPagesWithRevision = effectiveAssignmentBriefPages.filter((page) => page.revision_assignment_count > 0).length
+  const assignmentBriefPageIds = new Set(effectiveAssignmentBriefPages.map((page) => page.brief_page_id))
+  const studentWorkAssignmentLinkErrors = effectiveStudentWorkAssignmentLinks.filter((link) =>
+    !link.link_id
+      || !link.student_work_id
+      || !studentWorkIds.has(link.student_work_id)
+      || link.source_ids?.some((id) => !sourceIds.has(id))
+      || link.assignment_id && !assignmentIds.has(link.assignment_id)
+      || link.brief_page_id && !assignmentBriefPageIds.has(link.brief_page_id)
+      || !link.relationship_type
+      || !link.link_confidence
+      || !link.evidence_grade
+  )
+  const studentWorkAssignmentLinkCount = effectiveStudentWorkAssignmentLinks.filter((link) => link.relationship_type === 'assignment_link').length
+  const studentWorkBriefPageLinkCount = effectiveStudentWorkAssignmentLinks.filter((link) => link.relationship_type === 'brief_page_link').length
+  const studentWorkCourseContextLinkCount = effectiveStudentWorkAssignmentLinks.filter((link) => link.relationship_type === 'course_context_link').length
+  const studentWorkRejectedWeakLinkCount = effectiveStudentWorkAssignmentLinks.filter((link) => link.relationship_type === 'rejected_weak_match').length
   const sourceClusterErrors = sourceClusters.filter((cluster) => !cluster.representative_source_id || !cluster.source_ids?.length || cluster.source_ids.some((id) => !sourceIds.has(id)))
   const sourceVersionErrors = sourceVersions.filter((version) => !version.source_id || !version.version_id || version.current_source_id && !sourceIds.has(version.current_source_id) || version.fetched_archive_source_ids?.some((id) => !sourceIds.has(id)))
   const fetchedArchiveVersionCount = sourceVersions.filter((version) => version.comparison_status === 'fetched_archive_compared').length
@@ -3678,6 +3848,16 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       id: 'student_work_has_structured_public_examples',
       status: structuredStudentWorkCount > 0 ? 'pass' : 'warn',
       detail: `${structuredStudentWorkCount} student work rows include URL plus medium/project/evidence metadata; ${courseLinkedStudentWorkCount} rows include course code/title context.`,
+    },
+    {
+      id: 'student_work_assignment_links_reference_valid_records',
+      status: studentWorkAssignmentLinkErrors.length === 0 && effectiveStudentWorkAssignmentLinks.length > 0 ? 'pass' : studentWorkAssignmentLinkErrors.length === 0 ? 'warn' : 'fail',
+      detail: `${effectiveStudentWorkAssignmentLinks.length} student-work relationship rows; ${studentWorkAssignmentLinkErrors.length} reference or boundary errors.`,
+    },
+    {
+      id: 'student_work_assignment_links_preserve_confidence_boundaries',
+      status: studentWorkAssignmentLinkCount > 0 || studentWorkBriefPageLinkCount > 0 || studentWorkCourseContextLinkCount > 0 ? 'pass' : 'warn',
+      detail: `${studentWorkAssignmentLinkCount} assignment links, ${studentWorkBriefPageLinkCount} brief-page links, ${studentWorkCourseContextLinkCount} course-context links, and ${studentWorkRejectedWeakLinkCount} rejected weak matches.`,
     },
     {
       id: 'course_coverage_matrix_references_valid_sources',
@@ -3834,6 +4014,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       student_work: studentWork.length,
       structured_student_work: structuredStudentWorkCount,
       course_linked_student_work: courseLinkedStudentWorkCount,
+      student_work_assignment_links: effectiveStudentWorkAssignmentLinks.length,
+      student_work_assignment_linked_assignments: studentWorkAssignmentLinkCount,
+      student_work_brief_page_links: studentWorkBriefPageLinkCount,
+      student_work_course_context_links: studentWorkCourseContextLinkCount,
+      student_work_rejected_weak_matches: studentWorkRejectedWeakLinkCount,
       course_coverage_rows: courseCoverage.length,
       high_coverage_courses: highCoverageCourseCount,
       low_coverage_courses: lowCoverageCourseCount,
@@ -4235,6 +4420,11 @@ Overall status: ${validation.status}
 - Student work rows: ${validation.counts.student_work}
 - Structured student work rows: ${validation.counts.structured_student_work}
 - Course-linked student work rows: ${validation.counts.course_linked_student_work}
+- Student-work relationship rows: ${validation.counts.student_work_assignment_links}
+- Student-work assignment links: ${validation.counts.student_work_assignment_linked_assignments}
+- Student-work brief-page links: ${validation.counts.student_work_brief_page_links}
+- Student-work course-context links: ${validation.counts.student_work_course_context_links}
+- Student-work rejected weak matches: ${validation.counts.student_work_rejected_weak_matches}
 - Course coverage rows: ${validation.counts.course_coverage_rows}
 - Courses at 80+ coverage: ${validation.counts.high_coverage_courses}
 - Courses below 40 coverage: ${validation.counts.low_coverage_courses}
@@ -4306,9 +4496,10 @@ function clusteredEvidenceFamilies({ sourceIds, sourcesById, clusterBySourceId }
   return [...families.values()].sort((a, b) => b.source_ids.length - a.source_ids.length || a.representative_source_id.localeCompare(b.representative_source_id))
 }
 
-function reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters = [] }) {
+function reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks = [], wayback, sourceClusters = [] }) {
   const lines = []
   const sourcesById = new Map(sources.map((source) => [source.source_id, source]))
+  const studentWorkById = new Map(studentWork.map((work) => [work.student_work_id, work]))
   const { clusterBySourceId } = buildClusterLookups(sourceClusters)
   lines.push('# RISD Graphic Design Corpus Reconstruction')
   lines.push('')
@@ -4333,6 +4524,12 @@ function reconstructionMarkdown({ sources, courses, syllabi, assignments, readin
     const courseAssignments = assignments.filter((a) => courseSyllabi.some((s) => s.syllabus_id === a.syllabus_id))
     const courseReadings = readings.filter((r) => courseSyllabi.some((s) => s.syllabus_id === r.syllabus_id))
     const courseStudentWork = studentWork.filter((work) => (work.course_code && course.course_code && work.course_code === course.course_code) || (work.course_title && course.course_title && work.course_title === course.course_title) || work.source_ids.some((id) => course.source_ids.includes(id)))
+    const courseStudentWorkLinks = studentWorkAssignmentLinks.filter((link) =>
+      link.relationship_type !== 'rejected_weak_match'
+        && ((link.course_code && course.course_code && link.course_code === course.course_code)
+          || (link.course_title && course.course_title && link.course_title === course.course_title)
+          || link.source_ids?.some((id) => course.source_ids.includes(id)))
+    )
     const packetSourceIds = uniq([
       ...course.source_ids,
       ...courseSyllabi.flatMap((s) => s.source_ids),
@@ -4412,6 +4609,15 @@ function reconstructionMarkdown({ sources, courses, syllabi, assignments, readin
           work.visual_standard_notes?.length ? `visual notes: ${work.visual_standard_notes.join('; ')}` : null,
         ].filter(Boolean)
         lines.push(`  - ${work.project_title ?? work.url}: ${work.url}${notes.length ? ` (${notes.join('; ')})` : ''}`)
+      })
+    }
+    if (courseStudentWorkLinks.length) {
+      lines.push('- Linked public comparison evidence:')
+      courseStudentWorkLinks.slice(0, 6).forEach((link) => {
+        const work = studentWorkById.get(link.student_work_id)
+        const label = work?.project_title ?? link.student_work_url
+        const target = link.assignment_id ? `assignment ${link.assignment_id}` : link.brief_page_id ? `brief page ${link.brief_page_id}` : 'course context'
+        lines.push(`  - ${label}: ${link.student_work_url} (${link.relationship_type}, ${link.link_confidence}; ${target}; ${link.evidence_basis})`)
       })
     }
     lines.push('- Tacit reconstruction:')
@@ -4563,12 +4769,18 @@ function courseEvidenceScore({ course, courseSyllabi, courseAssignments, courseR
     + Math.min(courseStudentWork.length * 3, 12)
 }
 
-function curriculumCoursePackets({ courses, syllabi, assignments, readings, studentWork }) {
+function curriculumCoursePackets({ courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks = [] }) {
   return courses.map((course) => {
     const courseSyllabi = syllabi.filter((s) => (s.course_code && course.course_code && s.course_code === course.course_code) || (s.course_title && course.course_title && s.course_title === course.course_title) || s.source_ids.some((id) => course.source_ids.includes(id)))
     const courseAssignments = assignments.filter((a) => courseSyllabi.some((s) => s.syllabus_id === a.syllabus_id))
     const courseReadings = readings.filter((r) => courseSyllabi.some((s) => s.syllabus_id === r.syllabus_id))
     const courseStudentWork = studentWork.filter((work) => (work.course_code && course.course_code && work.course_code === course.course_code) || (work.course_title && course.course_title && work.course_title === course.course_title) || work.source_ids.some((id) => course.source_ids.includes(id)))
+    const courseStudentWorkLinks = studentWorkAssignmentLinks.filter((link) =>
+      link.relationship_type !== 'rejected_weak_match'
+        && ((link.course_code && course.course_code && link.course_code === course.course_code)
+          || (link.course_title && course.course_title && link.course_title === course.course_title)
+          || link.source_ids?.some((id) => course.source_ids.includes(id)))
+    )
     const track = curriculumTrackForCourse(course, courseAssignments, courseReadings)
     return {
       course,
@@ -4577,6 +4789,7 @@ function curriculumCoursePackets({ courses, syllabi, assignments, readings, stud
       courseAssignments,
       courseReadings,
       courseStudentWork,
+      courseStudentWorkLinks,
       score: courseEvidenceScore({ course, courseSyllabi, courseAssignments, courseReadings, courseStudentWork }),
     }
   }).sort((a, b) => b.score - a.score || String(a.course.course_title ?? '').localeCompare(String(b.course.course_title ?? '')))
@@ -4751,8 +4964,9 @@ function dedupeCoverageSearchQueries(rows) {
   })
 }
 
-function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork }) {
-  const packets = curriculumCoursePackets({ courses, syllabi, assignments, readings, studentWork })
+function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks = [] }) {
+  const packets = curriculumCoursePackets({ courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks })
+  const studentWorkById = new Map(studentWork.map((work) => [work.student_work_id, work]))
   const strongPackets = packets.filter((packet) => packet.courseAssignments.length || packet.courseReadings.length || packet.courseSyllabi.some((syllabus) => syllabus.assignment_schedule?.length))
   const selected = []
   const selectedKeys = new Set()
@@ -4808,7 +5022,7 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
     lines.push(`Studio loop: ${track.studio_loop}`)
     lines.push('')
     for (const packet of trackPackets) {
-      const { course, courseSyllabi, courseAssignments, courseReadings, courseStudentWork } = packet
+      const { course, courseSyllabi, courseAssignments, courseReadings, courseStudentWork, courseStudentWorkLinks } = packet
       lines.push(`#### ${course.course_title ?? course.course_code ?? course.course_id}`)
       lines.push('')
       lines.push(`- Evidence grade: ${course.evidence_grade}`)
@@ -4844,9 +5058,20 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
           lines.push(`  - ${assignmentTitle}: ${assignment.prompt_excerpt}${details.length ? ` (${details.join('; ')})` : ''}`)
         })
       }
-      if (courseStudentWork.length) {
+      if (courseStudentWorkLinks.length) {
         lines.push('- Public comparison set:')
-        courseStudentWork.slice(0, 4).forEach((work) => lines.push(`  - ${work.project_title ?? work.url}: ${work.url}`))
+        courseStudentWorkLinks.slice(0, 4).forEach((link) => {
+          const work = studentWorkById.get(link.student_work_id)
+          const label = work?.project_title ?? link.student_work_url
+          const target = link.assignment_title ? `assignment: ${link.assignment_title}` : link.brief_page_id ? `brief page: ${link.brief_page_id}` : 'course context'
+          lines.push(`  - ${label}: ${link.student_work_url} (${link.relationship_type}; ${target}; use: ${(link.comparison_use ?? []).join(', ') || 'visual_calibration'})`)
+        })
+      } else if (courseStudentWork.length) {
+        lines.push('- Public comparison set:')
+        courseStudentWork
+          .filter((work) => work.course_code || work.course_title)
+          .slice(0, 4)
+          .forEach((work) => lines.push(`  - ${work.project_title ?? work.url}: ${work.url} (course-context evidence only)`))
       }
       lines.push('- Mentor-style checkpoint:')
       lines.push('  - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?')
@@ -4877,7 +5102,8 @@ function renderSelfStudyCurriculumOnly() {
   const assignments = loadJsonl(join(outDir, 'assignments.jsonl'))
   const readings = loadJsonl(join(outDir, 'readings.jsonl'))
   const studentWork = loadJsonl(join(outDir, 'student_work.jsonl'))
-  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork }))
+  const studentWorkAssignmentLinks = loadJsonl(join(outDir, 'student_work_assignment_links.jsonl'))
+  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks }))
   console.log(`RISD self-study curriculum written to ${join(outDir, 'self_study_curriculum.md')}`)
   console.log(`courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} student_work=${studentWork.length}`)
 }
@@ -4915,12 +5141,13 @@ function renderDerivedArtifactsOnly() {
   const facultySearchQueries = buildFacultySearchQueries(faculty, facultyCourseEdges)
   const courseSitePages = buildCourseSitePages({ sources, syllabi, assignments, readings })
   const assignmentBriefPages = buildAssignmentBriefPages({ courseSitePages, assignments })
+  const studentWorkAssignmentLinks = buildStudentWorkAssignmentLinks({ studentWork, assignmentBriefPages, assignments, courseSitePages })
   const retainedSearchCandidates = searchCandidates.filter((candidate) => !['coverage_query_backlog', 'faculty_query_backlog'].includes(candidate.source))
   const refreshedBacklogCandidates = buildSearchCandidates([], [], [], coverageSearchQueries, facultySearchQueries)
     .filter((candidate) => ['coverage_query_backlog', 'faculty_query_backlog'].includes(candidate.source))
   searchCandidates = mergeRowsByKey(retainedSearchCandidates, refreshedBacklogCandidates, (candidate) => candidate.candidate_id)
     .sort((a, b) => String(a.query ?? '').localeCompare(String(b.query ?? '')) || String(a.source ?? '').localeCompare(String(b.source ?? '')))
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, courseSitePages, assignmentBriefPages, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries, facultySearchQueries })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, studentWorkAssignmentLinks, facultyPortfolioExamples, courseSitePages, assignmentBriefPages, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries, facultySearchQueries })
   writeJsonl(join(outDir, 'assignments.jsonl'), assignments)
   writeJsonl(join(outDir, 'readings.jsonl'), readings)
   writeJsonl(join(outDir, 'reading_frequency.jsonl'), readingFrequency)
@@ -4932,15 +5159,16 @@ function renderDerivedArtifactsOnly() {
   writeJsonl(join(outDir, 'faculty_search_queries.jsonl'), facultySearchQueries)
   writeJsonl(join(outDir, 'course_site_pages.jsonl'), courseSitePages)
   writeJsonl(join(outDir, 'assignment_brief_pages.jsonl'), assignmentBriefPages)
+  writeJsonl(join(outDir, 'student_work_assignment_links.jsonl'), studentWorkAssignmentLinks)
   writeJsonl(join(outDir, 'search_candidates.jsonl'), searchCandidates)
   writeFileSync(join(outDir, 'course_coverage.md'), courseCoverageMarkdown(courseCoverage))
   writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
   writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
-  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters }))
+  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
-  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork }))
+  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks }))
   console.log(`RISD derived artifacts written to ${outDir}`)
   console.log(`assignments=${assignments.length} phase_structured_assignments=${validationWithReview.counts.phase_structured_assignments} validation=${validationWithReview.status}`)
 }
@@ -4989,9 +5217,9 @@ async function renderReadingLinksOnly() {
   writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
-  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters }))
+  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
-  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork }))
+  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks }))
   console.log(`RISD reading links written to ${outDir}`)
   console.log(`attempted=${attempted} matched=${matched} external_catalog_readings=${validationWithReview.counts.external_catalog_readings} unresolved=${validationWithReview.counts.unresolved_readings} validation=${validationWithReview.status}`)
 }
@@ -5050,10 +5278,10 @@ async function reparseExistingSourcesOnlyMode() {
   writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
-  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters }))
+  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
-  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork }))
+  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks }))
   console.log(`RISD existing sources reparsed into ${outDir}`)
   console.log(`sources=${sources.length} syllabi=${syllabi.length} assignments=${assignments.length} long_assignment_briefs=${validationWithReview.counts.long_assignment_briefs} external_catalog_readings=${validationWithReview.counts.external_catalog_readings} validation=${validationWithReview.status}`)
 }
@@ -5698,6 +5926,7 @@ async function main() {
   const sourceVersions = buildSourceVersions(inspected, wayback)
   const courseSitePages = buildCourseSitePages({ sources, syllabi, assignments, readings })
   const assignmentBriefPages = buildAssignmentBriefPages({ courseSitePages, assignments })
+  const studentWorkAssignmentLinks = buildStudentWorkAssignmentLinks({ studentWork, assignmentBriefPages, assignments, courseSitePages })
   const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
   const coverageSearchQueries = buildCoverageSearchQueries(courseCoverage)
   const facultySearchQueries = buildFacultySearchQueries(faculty, facultyCourseEdges)
@@ -5733,12 +5962,13 @@ async function main() {
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, courseSitePages, assignmentBriefPages, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries, facultySearchQueries })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, studentWorkAssignmentLinks, facultyPortfolioExamples, courseSitePages, assignmentBriefPages, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries, facultySearchQueries })
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
   writeJsonl(join(outDir, 'course_site_pages.jsonl'), courseSitePages)
   writeJsonl(join(outDir, 'assignment_brief_pages.jsonl'), assignmentBriefPages)
+  writeJsonl(join(outDir, 'student_work_assignment_links.jsonl'), studentWorkAssignmentLinks)
   writeJsonl(join(outDir, 'course_coverage.jsonl'), courseCoverage)
   writeJsonl(join(outDir, 'coverage_search_queries.jsonl'), coverageSearchQueries)
   writeJsonl(join(outDir, 'faculty_search_queries.jsonl'), facultySearchQueries)

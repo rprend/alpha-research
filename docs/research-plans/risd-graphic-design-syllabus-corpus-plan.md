@@ -120,6 +120,8 @@ Implement the following slices in order. Each slice must update `scripts/risd-gr
 
 ### Step 1: Link Public Student Work To Course And Assignment Evidence
 
+Status: implemented for generated relationship rows, conservative confidence boundaries, rejected weak/non-output matches, validation reporting, and generated reconstruction/curriculum comparison evidence.
+
 Goal: make public student work useful as a tacit comparison set while avoiding unsupported claims about which assignment produced a project.
 
 Implementation requirements:

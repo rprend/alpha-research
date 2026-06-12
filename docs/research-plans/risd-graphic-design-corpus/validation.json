@@ -50,6 +50,11 @@
     "student_work": 22,
     "structured_student_work": 22,
     "course_linked_student_work": 5,
+    "student_work_assignment_links": 22,
+    "student_work_assignment_linked_assignments": 0,
+    "student_work_brief_page_links": 0,
+    "student_work_course_context_links": 2,
+    "student_work_rejected_weak_matches": 20,
     "course_coverage_rows": 134,
     "high_coverage_courses": 8,
     "low_coverage_courses": 112,
@@ -190,6 +195,16 @@
       "id": "student_work_has_structured_public_examples",
       "status": "pass",
       "detail": "22 student work rows include URL plus medium/project/evidence metadata; 5 rows include course code/title context."
+    },
+    {
+      "id": "student_work_assignment_links_reference_valid_records",
+      "status": "pass",
+      "detail": "22 student-work relationship rows; 0 reference or boundary errors."
+    },
+    {
+      "id": "student_work_assignment_links_preserve_confidence_boundaries",
+      "status": "pass",
+      "detail": "0 assignment links, 0 brief-page links, 2 course-context links, and 20 rejected weak matches."
     },
     {
       "id": "course_coverage_matrix_references_valid_sources",

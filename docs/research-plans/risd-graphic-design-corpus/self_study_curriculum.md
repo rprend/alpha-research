@@ -51,7 +51,7 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
   - project, but also in the considerations a designer must build into two-dimensional “fix: Not only in how we engage in the design of an exhibit or screen based project, but also in the considerations a designer must build into two-dimensional “fixed” surfaces, such as signs, books, posters, and charts. (constraints: must follow stated requirements; type: project_brief; phases: make)
   - project: The order in which ideas are accessed is at the essence of any project. (type: project_brief)
 - Public comparison set:
-  - the course website.: https://ds1618.risd.gd/2016/10/11/unit3_overview.html
+  - the course website.: https://ds1618.risd.gd/2016/10/11/unit3_overview.html (course-context evidence only)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -155,7 +155,7 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
   - Assignments: 75% Assignments (type: project_brief)
   - assignments: Quality of work, including concept, design, and the timely completion of assignments; working process and craft; personal initiative, exploration, and risk-taking; and, last but not least, the appropriate and thoughtful application of typographic principles (constraints: process documentation required, timely completion expected; type: project_brief; phases: make)
 - Public comparison set:
-  - See full assignment: https://paper.dropbox.com/doc/Type-III-Week-Two-Qj7xd8hMki64KfRzAAFyn
+  - See full assignment: https://paper.dropbox.com/doc/Type-III-Week-Two-Qj7xd8hMki64KfRzAAFyn (course-context evidence only)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -179,8 +179,7 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
   - Assignment 2 Feb 13, 2015: &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015 (type: project_brief)
   - Assignment 2: Draw found objects with CSS: &#237; Assignment 2: Draw found objects with CSS (type: project_brief; output: interactive_web_artifact)
 - Public comparison set:
-  - See assignments: https://github.com/risd-gd/wp16/wiki/Assignment-1:-Make-a-Scandinavian-Flag
-  - Interact with this pattern: http://risd-gd.github.io/wp16/students/isabellaMordini/Assignment_Week_03/week4_05.html
+  - Interact with this pattern: http://risd-gd.github.io/wp16/students/isabellaMordini/Assignment_Week_03/week4_05.html (course_context_link; course context; use: visual_calibration, deliverable_reference)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
