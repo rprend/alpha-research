@@ -18,9 +18,10 @@ This status summary rolls collaborator response distribution manifests into a cu
 - Recipient role: mentor_reviewer
 - Current status: ready_to_send
 - Send state: ready_to_send
+- Send-log import present: false
 - Follow-up checks: 0/3 satisfied; 3 pending
 - Overdue days: 0
-- Status reason: Packet has a complete manifest and is ready for the learner to send.
+- Status reason: No send-log import is present; packet remains ready for the learner to send.
 - Next owner action: Send this manifest bundle to the recipient, then use the response intake template and action queue to record follow-through.
 - Source artifact: collaborator_response_distribution_portfolio_milestone_01_foundation_methods (self_study_portfolio_collaborator_response_distribution_manifests.jsonl)
 
@@ -32,9 +33,10 @@ This status summary rolls collaborator response distribution manifests into a cu
 - Recipient role: mentor_reviewer
 - Current status: ready_to_send
 - Send state: ready_to_send
+- Send-log import present: false
 - Follow-up checks: 0/3 satisfied; 3 pending
 - Overdue days: 0
-- Status reason: Packet has a complete manifest and is ready for the learner to send.
+- Status reason: No send-log import is present; packet remains ready for the learner to send.
 - Next owner action: Send this manifest bundle to the recipient, then use the response intake template and action queue to record follow-through.
 - Source artifact: collaborator_response_distribution_portfolio_milestone_02_typography_systems (self_study_portfolio_collaborator_response_distribution_manifests.jsonl)
 
@@ -46,8 +48,9 @@ This status summary rolls collaborator response distribution manifests into a cu
 - Recipient role: mentor_reviewer
 - Current status: ready_to_send
 - Send state: ready_to_send
+- Send-log import present: false
 - Follow-up checks: 0/3 satisfied; 3 pending
 - Overdue days: 0
-- Status reason: Packet has a complete manifest and is ready for the learner to send.
+- Status reason: No send-log import is present; packet remains ready for the learner to send.
 - Next owner action: Send this manifest bundle to the recipient, then use the response intake template and action queue to record follow-through.
 - Source artifact: collaborator_response_distribution_portfolio_milestone_03_advanced_synthesis (self_study_portfolio_collaborator_response_distribution_manifests.jsonl)

@@ -188,6 +188,8 @@
     "self_study_portfolio_collaborator_response_distribution_status_closed_rows": 0,
     "self_study_portfolio_collaborator_response_send_log_template_rows": 3,
     "self_study_portfolio_collaborator_response_send_log_template_not_sent_rows": 3,
+    "self_study_portfolio_collaborator_response_send_log_import_rows": 0,
+    "self_study_portfolio_collaborator_response_send_log_import_applied_rows": 0,
     "self_study_portfolio_milestones": 3,
     "self_study_portfolio_briefs": 3,
     "self_study_portfolio_briefs_with_completion_gate_status": 3,
@@ -610,6 +612,11 @@
       "id": "self_study_portfolio_collaborator_response_send_log_templates_capture_sends",
       "status": "pass",
       "detail": "3 collaborator response send-log template rows; 3 not sent; 0 send-log template reference/field errors; generated mismatch=false."
+    },
+    {
+      "id": "self_study_portfolio_collaborator_response_send_log_imports_update_distribution_status",
+      "status": "pass",
+      "detail": "0 collaborator response send-log imports; 0 applied to distribution status; 0 send-log import reference/field errors."
     },
     {
       "id": "self_study_progress_ledger_links_to_portfolio_completion_gates",
