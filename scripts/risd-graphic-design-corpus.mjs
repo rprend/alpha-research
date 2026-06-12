@@ -4049,7 +4049,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioGateStatusSummary = null, selfStudyPortfolioReviewIndex = null, selfStudyPortfolioReviewerHandoff = null, selfStudyPortfolioReviewerFeedbackTemplate = null, selfStudyPortfolioReviewerFeedbackImports = null, selfStudyPortfolioReviewerFeedbackSmokeFixture = null, selfStudyPortfolioReviewWorkflow = null, selfStudyPortfolioReviewAgendas = null, selfStudyPortfolioReviewDashboard = null, selfStudyPortfolioDecisionPackets = null, selfStudyPortfolioRevisionQueue = null, selfStudyPortfolioGateStatusSuggestions = null, selfStudyPortfolioEvidenceAttachments = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioGateStatusSummary = null, selfStudyPortfolioReviewIndex = null, selfStudyPortfolioReviewerHandoff = null, selfStudyPortfolioReviewerFeedbackTemplate = null, selfStudyPortfolioReviewerFeedbackImports = null, selfStudyPortfolioReviewerFeedbackSmokeFixture = null, selfStudyPortfolioReviewWorkflow = null, selfStudyPortfolioReviewAgendas = null, selfStudyPortfolioReviewDashboard = null, selfStudyPortfolioDecisionPackets = null, selfStudyPortfolioCompletionChecklists = null, selfStudyPortfolioRevisionQueue = null, selfStudyPortfolioGateStatusSuggestions = null, selfStudyPortfolioEvidenceAttachments = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveArchivePromotions = archivePromotions ?? loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
@@ -4074,6 +4074,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const effectiveSelfStudyPortfolioReviewAgendas = selfStudyPortfolioReviewAgendas ?? []
   const effectiveSelfStudyPortfolioReviewDashboard = selfStudyPortfolioReviewDashboard ?? []
   const effectiveSelfStudyPortfolioDecisionPackets = selfStudyPortfolioDecisionPackets ?? []
+  const effectiveSelfStudyPortfolioCompletionChecklists = selfStudyPortfolioCompletionChecklists ?? []
   const effectiveSelfStudyPortfolioRevisionQueue = selfStudyPortfolioRevisionQueue ?? []
   const effectiveSelfStudyPortfolioGateStatusSuggestions = selfStudyPortfolioGateStatusSuggestions ?? []
   const effectiveSelfStudyPortfolioEvidenceAttachments = selfStudyPortfolioEvidenceAttachments ?? []
@@ -4360,6 +4361,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const portfolioReviewDashboard = effectiveSelfStudyPortfolioReviewDashboard.length ? effectiveSelfStudyPortfolioReviewDashboard : generatedPortfolioReviewDashboard
   const generatedPortfolioDecisionPackets = buildSelfStudyPortfolioDecisionPackets({ reviewDashboard: portfolioReviewDashboard, reviewAgendas: portfolioReviewAgendas, reviewerHandoffs: portfolioReviewerHandoff, feedbackTemplates: portfolioReviewerFeedbackTemplate, gateStatusSuggestions: portfolioGateStatusSuggestions })
   const portfolioDecisionPackets = effectiveSelfStudyPortfolioDecisionPackets.length ? effectiveSelfStudyPortfolioDecisionPackets : generatedPortfolioDecisionPackets
+  const generatedPortfolioCompletionChecklists = buildSelfStudyPortfolioCompletionChecklists({ decisionPackets: portfolioDecisionPackets, reviewDashboard: portfolioReviewDashboard, revisionQueue: portfolioRevisionQueue })
+  const portfolioCompletionChecklists = effectiveSelfStudyPortfolioCompletionChecklists.length ? effectiveSelfStudyPortfolioCompletionChecklists : generatedPortfolioCompletionChecklists
   const progressLedgerWithPortfolioGateAnnotations = annotateSelfStudyProgressLedgerWithPortfolioGates(progressLedger, portfolioMilestones, portfolioCompletionGates)
   const curriculumModulesWithSourceIds = curriculumModules.filter((module) => module.source_ids?.length).length
   const curriculumModulesWithAssignments = curriculumModules.filter((module) => module.assignment_ids?.length).length
@@ -4970,6 +4973,32 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || !packet.primary_next_action
   )
   const portfolioDecisionPacketsGeneratedMismatch = effectiveSelfStudyPortfolioDecisionPackets.length > 0 && effectiveSelfStudyPortfolioDecisionPackets.length !== generatedPortfolioDecisionPackets.length
+  const portfolioDecisionPacketIds = new Set(portfolioDecisionPackets.map((packet) => packet.decision_packet_id))
+  const validCompletionChecklistActionIds = ['confirm_signed_packet', 'apply_feedback_import', 'resolve_revision_queue', 'copy_gate_status_import', 'regenerate_corpus', 'verify_review_dashboard']
+  const portfolioCompletionChecklistErrors = portfolioCompletionChecklists.filter((checklist) =>
+    !checklist.completion_checklist_id
+      || !checklist.milestone_id
+      || !portfolioMilestoneIds.has(checklist.milestone_id)
+      || !checklist.decision_packet_id
+      || !portfolioDecisionPacketIds.has(checklist.decision_packet_id)
+      || !checklist.dashboard_id
+      || !portfolioReviewDashboardIds.has(checklist.dashboard_id)
+      || !['not_started', 'blocked_until_signed', 'ready_for_after_review'].includes(checklist.completion_status)
+      || !Array.isArray(checklist.after_review_actions)
+      || checklist.after_review_actions.length !== validCompletionChecklistActionIds.length
+      || checklist.after_review_actions.some((action, index) =>
+        action.action_number !== index + 1
+          || action.action_id !== validCompletionChecklistActionIds[index]
+          || action.status !== 'pending'
+          || !action.learner_action
+          || !action.verification
+          || !action.artifact_refs?.length
+      )
+      || !checklist.blocking_conditions?.length
+      || !checklist.final_verification_command
+      || !checklist.primary_next_action
+  )
+  const portfolioCompletionChecklistsGeneratedMismatch = effectiveSelfStudyPortfolioCompletionChecklists.length > 0 && effectiveSelfStudyPortfolioCompletionChecklists.length !== generatedPortfolioCompletionChecklists.length
   const portfolioBriefReadinessErrors = portfolioBriefs.filter((brief) =>
     !brief.completion_gate_id
       || !portfolioCompletionGateIds.has(brief.completion_gate_id)
@@ -5342,6 +5371,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${portfolioDecisionPackets.length} decision packet rows; ${portfolioDecisionPackets.filter((packet) => packet.packet_status === 'ready_to_sign').length} ready to sign; ${portfolioDecisionPacketErrors.length} packet reference/section errors; generated mismatch=${portfolioDecisionPacketsGeneratedMismatch}.`,
     },
     {
+      id: 'self_study_portfolio_completion_checklists_sequence_after_review_actions',
+      status: portfolioCompletionChecklistErrors.length === 0 && portfolioCompletionChecklists.length === portfolioMilestones.length && portfolioCompletionChecklists.length > 0 && !portfolioCompletionChecklistsGeneratedMismatch ? 'pass' : 'fail',
+      detail: `${portfolioCompletionChecklists.length} completion checklist rows; ${portfolioCompletionChecklists.filter((row) => row.completion_status === 'ready_for_after_review').length} ready for after-review work; ${portfolioCompletionChecklistErrors.length} checklist reference/sequence errors; generated mismatch=${portfolioCompletionChecklistsGeneratedMismatch}.`,
+    },
+    {
       id: 'self_study_progress_ledger_links_to_portfolio_completion_gates',
       status: progressLedgerPortfolioGateErrors.length === 0 && progressLedgerWithPortfolioGateAnnotations.length === progressLedger.length && progressLedger.length > 0 ? 'pass' : 'fail',
       detail: `${progressLedgerWithPortfolioGateAnnotations.length} progress ledger rows carry portfolio review gate annotations; ${progressLedgerPortfolioGateErrors.length} annotation reference errors.`,
@@ -5554,6 +5588,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_portfolio_review_dashboard_pending_revisions: portfolioReviewDashboard.reduce((sum, row) => sum + (row.revision_queue_pending ?? 0), 0),
       self_study_portfolio_decision_packet_rows: portfolioDecisionPackets.length,
       self_study_portfolio_decision_packet_ready_to_sign_rows: portfolioDecisionPackets.filter((packet) => packet.packet_status === 'ready_to_sign').length,
+      self_study_portfolio_completion_checklist_rows: portfolioCompletionChecklists.length,
+      self_study_portfolio_completion_checklist_ready_rows: portfolioCompletionChecklists.filter((row) => row.completion_status === 'ready_for_after_review').length,
       self_study_portfolio_milestones: portfolioMilestones.length,
       self_study_portfolio_briefs: portfolioBriefs.length,
       self_study_portfolio_briefs_with_completion_gate_status: portfolioBriefs.filter((brief) => brief.review_readiness?.status).length,
@@ -8560,6 +8596,89 @@ function selfStudyPortfolioDecisionPacketsMarkdown(packets) {
   return lines.map((line) => line.trimEnd()).join('\n')
 }
 
+function buildSelfStudyPortfolioCompletionChecklists({ decisionPackets, reviewDashboard, revisionQueue }) {
+  const dashboardByMilestone = new Map(reviewDashboard.map((row) => [row.milestone_id, row]))
+  const revisionRowsByMilestone = groupBy(revisionQueue, (row) => row.milestone_id)
+  return decisionPackets.map((packet) => {
+    const dashboard = dashboardByMilestone.get(packet.milestone_id)
+    const revisions = revisionRowsByMilestone.get(packet.milestone_id) ?? []
+    const pendingRevisions = revisions.filter((row) => row.status === 'pending')
+    const ready = packet.packet_status === 'ready_to_sign'
+    return {
+      completion_checklist_id: `completion_checklist_${packet.milestone_id}`,
+      generated_at: retrievedAt,
+      milestone_id: packet.milestone_id,
+      title: `${packet.title} Learner Completion Checklist`,
+      decision_packet_id: packet.decision_packet_id,
+      dashboard_id: packet.dashboard_id,
+      completion_status: ready ? 'ready_for_after_review' : 'blocked_until_signed',
+      blocking_conditions: [
+        packet.packet_status !== 'ready_to_sign' ? 'Decision packet is not ready to sign; complete the review session and reviewer feedback first.' : null,
+        dashboard?.evidence_slots_missing > 0 ? `${dashboard.evidence_slots_missing} evidence attachment slots are still missing.` : null,
+        pendingRevisions.length > 0 ? `${pendingRevisions.length} revision queue items are still pending.` : null,
+      ].filter(Boolean),
+      after_review_actions: [
+        completionChecklistAction(1, 'confirm_signed_packet', 'Confirm reviewer signature, learner acknowledgement, review date, and source-boundary notes are present in the decision packet.', 'Signed decision packet exists with all signature fields filled.', [packet.decision_packet_id, packet.dashboard_id]),
+        completionChecklistAction(2, 'apply_feedback_import', 'Copy the approved reviewer feedback import target from the signed packet into self_study_portfolio_reviewer_feedback_import.jsonl.', 'Feedback import row references the signed packet evidence refs and reviewer outcome.', ['self_study_portfolio_reviewer_feedback_import.jsonl', packet.feedback_template_id]),
+        completionChecklistAction(3, 'resolve_revision_queue', 'Complete or defer each revision queue item named by the packet before promoting readiness.', 'Revision queue has no pending high-priority items for this milestone.', ['self_study_portfolio_revision_queue.jsonl', ...pendingRevisions.map((row) => row.queue_id)]),
+        completionChecklistAction(4, 'copy_gate_status_import', 'Copy only evidence-backed satisfied checks from the gate status suggestion into self_study_portfolio_gate_status_import.jsonl.', 'Learner gate status import contains only approved satisfied checks and evidence refs.', ['self_study_portfolio_gate_status_import.jsonl', packet.gate_status_suggestion_id]),
+        completionChecklistAction(5, 'regenerate_corpus', 'Run the RISD corpus renderer after applying feedback and gate status imports.', 'Derived artifacts regenerate without validation failures.', ['scripts/risd-graphic-design-corpus.mjs', 'docs/research-plans/risd-graphic-design-corpus/validation.md']),
+        completionChecklistAction(6, 'verify_review_dashboard', 'Verify review dashboard, gate status summary, portfolio brief, and completion checklist reflect the final state.', 'Dashboard row is ready or names the remaining blocker explicitly.', ['self_study_portfolio_review_dashboard.jsonl', 'self_study_portfolio_gate_status_summary.jsonl', 'self_study_portfolio_briefs/*.md']),
+      ],
+      final_verification_command: 'node scripts/risd-graphic-design-corpus.mjs --render-derived-only',
+      primary_next_action: ready
+        ? 'Apply the signed packet import targets, regenerate, and verify the dashboard row becomes ready.'
+        : 'Run the review agenda and complete the decision packet before starting after-review checklist actions.',
+      provenance_note: 'Generated learner-facing after-review checklist from decision packet, dashboard state, and revision queue artifacts.',
+    }
+  })
+}
+
+function completionChecklistAction(action_number, action_id, learner_action, verification, artifact_refs) {
+  return {
+    action_number,
+    action_id,
+    status: 'pending',
+    learner_action,
+    verification,
+    artifact_refs: artifact_refs.filter(Boolean),
+  }
+}
+
+function selfStudyPortfolioCompletionChecklistsMarkdown(checklists) {
+  const lines = [
+    '# RISD Graphic Design Review Completion Checklists',
+    '',
+    `Generated: ${retrievedAt}`,
+    '',
+    'These learner-facing checklists turn signed decision packets into exact after-review actions and verification steps.',
+    '',
+    `- Completion checklists: ${checklists.length}`,
+    `- Ready for after-review work: ${checklists.filter((row) => row.completion_status === 'ready_for_after_review').length}`,
+    '',
+  ]
+  checklists.forEach((checklist) => {
+    lines.push(`## ${checklist.title}`)
+    lines.push('')
+    lines.push(`- Checklist ID: ${checklist.completion_checklist_id}`)
+    lines.push(`- Status: ${checklist.completion_status}`)
+    lines.push(`- Decision packet: ${checklist.decision_packet_id}`)
+    lines.push(`- Dashboard: ${checklist.dashboard_id}`)
+    lines.push('- Blocking conditions:')
+    checklist.blocking_conditions.forEach((condition) => lines.push(`  - ${condition}`))
+    lines.push('- After-review actions:')
+    checklist.after_review_actions.forEach((action) => {
+      lines.push(`  - [ ] ${action.action_number}. ${action.learner_action}`)
+      lines.push(`    - Verification: ${action.verification}`)
+      lines.push(`    - Artifacts: ${action.artifact_refs.join('; ')}`)
+    })
+    lines.push(`- Final verification command: \`${checklist.final_verification_command}\``)
+    lines.push(`- Next action: ${checklist.primary_next_action}`)
+    lines.push('')
+  })
+  return lines.map((line) => line.trimEnd()).join('\n')
+}
+
 function buildSelfStudyPortfolioRevisionQueue(handoffs, feedbackImports = []) {
   const importsByHandoff = new Map(feedbackImports.filter((row) => row.handoff_id).map((row) => [row.handoff_id, row]))
   return handoffs.flatMap((handoff) => {
@@ -9707,6 +9826,7 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   const portfolioReviewAgendas = buildSelfStudyPortfolioReviewAgendas(portfolioReviewWorkflow, portfolioReviewerHandoff)
   const portfolioReviewDashboard = buildSelfStudyPortfolioReviewDashboard({ reviewIndex: portfolioReviewIndex, reviewWorkflow: portfolioReviewWorkflow, reviewAgendas: portfolioReviewAgendas, evidenceAttachments: portfolioEvidenceAttachments, revisionQueue: portfolioRevisionQueue, gateStatusSuggestions: portfolioGateStatusSuggestions, gateStatusSummary: portfolioGateStatusSummary })
   const portfolioDecisionPackets = buildSelfStudyPortfolioDecisionPackets({ reviewDashboard: portfolioReviewDashboard, reviewAgendas: portfolioReviewAgendas, reviewerHandoffs: portfolioReviewerHandoff, feedbackTemplates: portfolioReviewerFeedbackTemplate, gateStatusSuggestions: portfolioGateStatusSuggestions })
+  const portfolioCompletionChecklists = buildSelfStudyPortfolioCompletionChecklists({ decisionPackets: portfolioDecisionPackets, reviewDashboard: portfolioReviewDashboard, revisionQueue: portfolioRevisionQueue })
   writeJsonl(join(outDir, 'self_study_pacing_plan.jsonl'), pacingPlan)
   writeJsonl(join(outDir, 'self_study_pacing_profiles.jsonl'), buildSelfStudyPacingProfiles(pacingPlan))
   writeJsonl(join(outDir, 'self_study_progress_ledger.jsonl'), progressLedgerWithPortfolioGateAnnotations)
@@ -9738,6 +9858,8 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   writeFileSync(join(outDir, 'self_study_portfolio_review_dashboard.md'), selfStudyPortfolioReviewDashboardMarkdown(portfolioReviewDashboard))
   writeJsonl(join(outDir, 'self_study_portfolio_decision_packets.jsonl'), portfolioDecisionPackets)
   writeFileSync(join(outDir, 'self_study_portfolio_decision_packets.md'), selfStudyPortfolioDecisionPacketsMarkdown(portfolioDecisionPackets))
+  writeJsonl(join(outDir, 'self_study_portfolio_completion_checklists.jsonl'), portfolioCompletionChecklists)
+  writeFileSync(join(outDir, 'self_study_portfolio_completion_checklists.md'), selfStudyPortfolioCompletionChecklistsMarkdown(portfolioCompletionChecklists))
   writeJsonl(join(outDir, 'self_study_portfolio_milestones.jsonl'), portfolioMilestones)
   writeJsonl(join(outDir, 'self_study_portfolio_reference_packets.jsonl'), portfolioReferencePackets)
   writeJsonl(join(outDir, 'self_study_portfolio_source_excerpt_packets.jsonl'), portfolioSourceExcerptPackets)
