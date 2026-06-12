@@ -12,7 +12,7 @@
   "essayPotential": "medium",
   "starterQuestion": "How do editions, scans, and metadata clusters form around canonical texts?",
   "qualityRisk": "Identifier-level metadata is rich but messy and uneven.",
-  "fetchedAt": "2026-06-12T18:33:47.660Z",
+  "fetchedAt": "2026-06-12T18:36:20.531Z",
   "status": 200,
   "bytes": 2,
   "title": "Internet Archive Metadata API",

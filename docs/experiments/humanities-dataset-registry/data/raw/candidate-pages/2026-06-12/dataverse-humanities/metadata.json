@@ -12,7 +12,7 @@
   "essayPotential": "medium",
   "starterQuestion": "Which humanities data deposits exist in Dataverse and how reusable are they?",
   "qualityRisk": "Metadata quality and file-level accessibility vary by deposit.",
-  "fetchedAt": "2026-06-12T18:33:50.941Z",
+  "fetchedAt": "2026-06-12T18:36:22.075Z",
   "status": 200,
   "bytes": 1413,
   "title": "Harvard Dataverse Humanities Search",

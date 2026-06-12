@@ -34,6 +34,7 @@ Or run step by step:
 ```bash
 node docs/experiments/humanities-dataset-registry/scripts/probe-candidates.mjs
 node docs/experiments/humanities-dataset-registry/scripts/build-report.mjs
+node docs/experiments/humanities-dataset-registry/scripts/build-study-specs.mjs
 node docs/experiments/humanities-dataset-registry/scripts/check-readiness.mjs
 ```
 
@@ -42,12 +43,15 @@ The scripts write:
 - `data/raw/candidate-pages/<run-date>/`
 - `data/processed/candidates.json`
 - `data/processed/dataset-rankings.csv`
+- `data/processed/study-specs.json`
+- `data/processed/study-specs.csv`
 - `reports/source-inventory.md`
 - `reports/source-inventory.csv`
 - `reports/report.html`
 - `reports/result.json`
 - `reports/work.md`
 - `reports/public-draft.md`
+- `reports/study-specs.md`
 - `reports/readiness.md`
 - `reports/readiness.json`
 - `reports/pipeline-run.json`

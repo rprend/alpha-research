@@ -8,6 +8,7 @@ import {
 
 const reportsDir = path.join(experimentDir, "reports");
 const result = await readJson(path.join(reportsDir, "result.json"));
+const studySpecs = await readOptionalJson(path.join(experimentDir, "data", "processed", "study-specs.json"));
 const readyDomains = new Set((result.rows ?? []).filter((row) => row.readiness_bucket === "ready-now").map((row) => row.domain));
 const checks = [
   {
@@ -39,6 +40,12 @@ const checks = [
     label: "Public draft exists and distinguishes readiness from representativeness",
     status: "pass",
     evidence: "reports/public-draft.md",
+  },
+  {
+    id: "study-specs",
+    label: "At least three ready-now study specs exist",
+    status: (studySpecs?.count ?? 0) >= 3 ? "pass" : "needs-work",
+    evidence: studySpecs ? `${studySpecs.count} study specs` : "missing study specs",
   },
 ];
 
@@ -78,4 +85,12 @@ await writeText(
 console.log(`Humanities dataset registry readiness: ${readiness.status}`);
 if (process.argv.includes("--strict") && status !== "ready-for-editorial-review") {
   process.exit(1);
+}
+
+async function readOptionalJson(file) {
+  try {
+    return await readJson(file);
+  } catch {
+    return null;
+  }
 }

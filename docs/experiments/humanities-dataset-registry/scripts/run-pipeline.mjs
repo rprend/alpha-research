@@ -7,6 +7,7 @@ const startedAt = new Date().toISOString();
 const steps = [
   ["probe-candidates.mjs", []],
   ["build-report.mjs", []],
+  ["build-study-specs.mjs", []],
   ["check-readiness.mjs", []],
 ];
 const results = [];

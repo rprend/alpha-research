@@ -140,7 +140,7 @@
         "Dataverse",
         "Knowledge Commons"
       ],
-      "firstRunnableBuild": "Dataset registry pipeline exists for 15 candidate corpora across museum collections, books, newspapers, archives, linked data, repositories, and syllabi. Latest run produced 11 accessible candidates and 6 ready-now candidates.",
+      "firstRunnableBuild": "Dataset registry pipeline exists for 15 candidate corpora across museum collections, books, newspapers, archives, linked data, repositories, and syllabi. Latest run produced 11 accessible candidates, 6 ready-now candidates, and 5 generated study specs.",
       "publicationAngle": "A practical field guide to humanities datasets that can become public essays, not just academic infrastructure.",
       "qualityRisks": [
         "dataset descriptions often overstate completeness",

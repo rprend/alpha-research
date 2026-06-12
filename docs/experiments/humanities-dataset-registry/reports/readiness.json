@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T18:33:51.043Z",
+  "generatedAt": "2026-06-12T18:36:22.180Z",
   "status": "ready-for-editorial-review",
   "checks": [
     {
@@ -31,6 +31,12 @@
       "label": "Public draft exists and distinguishes readiness from representativeness",
       "status": "pass",
       "evidence": "reports/public-draft.md"
+    },
+    {
+      "id": "study-specs",
+      "label": "At least three ready-now study specs exist",
+      "status": "pass",
+      "evidence": "5 study specs"
     }
   ],
   "nextMoves": [

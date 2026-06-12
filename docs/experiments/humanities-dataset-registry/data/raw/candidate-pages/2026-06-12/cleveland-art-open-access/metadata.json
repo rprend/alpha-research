@@ -12,7 +12,7 @@
   "essayPotential": "high",
   "starterQuestion": "What acquisition, creation-date, and department patterns appear in open museum data?",
   "qualityRisk": "One museum collection is analytically rich but institution-specific.",
-  "fetchedAt": "2026-06-12T18:33:43.985Z",
+  "fetchedAt": "2026-06-12T18:36:16.730Z",
   "status": 200,
   "bytes": 35797,
   "title": "Cleveland Museum of Art Open Access API",

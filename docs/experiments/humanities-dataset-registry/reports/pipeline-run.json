@@ -1,13 +1,13 @@
 {
   "runDate": "2026-06-12",
-  "startedAt": "2026-06-12T18:33:37.547Z",
-  "finishedAt": "2026-06-12T18:33:51.047Z",
+  "startedAt": "2026-06-12T18:36:15.403Z",
+  "finishedAt": "2026-06-12T18:36:22.184Z",
   "steps": [
     {
       "script": "probe-candidates.mjs",
       "args": [],
-      "startedAt": "2026-06-12T18:33:37.547Z",
-      "finishedAt": "2026-06-12T18:33:50.954Z",
+      "startedAt": "2026-06-12T18:36:15.403Z",
+      "finishedAt": "2026-06-12T18:36:22.080Z",
       "exitCode": 0,
       "stdout": "Probed 11 humanities dataset candidates into docs/experiments/humanities-dataset-registry/data/raw/candidate-pages/2026-06-12\n",
       "stderr": ""
@@ -15,17 +15,26 @@
     {
       "script": "build-report.mjs",
       "args": [],
-      "startedAt": "2026-06-12T18:33:50.954Z",
-      "finishedAt": "2026-06-12T18:33:51.016Z",
+      "startedAt": "2026-06-12T18:36:22.080Z",
+      "finishedAt": "2026-06-12T18:36:22.120Z",
       "exitCode": 0,
       "stdout": "Built humanities dataset registry report for 15 candidates\n",
       "stderr": ""
     },
     {
+      "script": "build-study-specs.mjs",
+      "args": [],
+      "startedAt": "2026-06-12T18:36:22.120Z",
+      "finishedAt": "2026-06-12T18:36:22.152Z",
+      "exitCode": 0,
+      "stdout": "Built 5 humanities dataset study specs\n",
+      "stderr": ""
+    },
+    {
       "script": "check-readiness.mjs",
       "args": [],
-      "startedAt": "2026-06-12T18:33:51.016Z",
-      "finishedAt": "2026-06-12T18:33:51.047Z",
+      "startedAt": "2026-06-12T18:36:22.152Z",
+      "finishedAt": "2026-06-12T18:36:22.184Z",
       "exitCode": 0,
       "stdout": "Humanities dataset registry readiness: ready-for-editorial-review\n",
       "stderr": ""

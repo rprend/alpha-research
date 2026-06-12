@@ -1,6 +1,6 @@
 # Humanities Dataset Registry Readiness Check
 
-Generated at: 2026-06-12T18:33:51.043Z
+Generated at: 2026-06-12T18:36:22.180Z
 Status: ready-for-editorial-review
 
 | Check | Status | Evidence |
@@ -10,6 +10,7 @@ Status: ready-for-editorial-review
 | At least 5 candidates are ready-now for first study specs | pass | 6 ready-now candidates |
 | Ready-now candidates cover at least three domains | pass | museum-collections, linked-open-data, archives-library, teaching-syllabi, books-literature |
 | Public draft exists and distinguishes readiness from representativeness | pass | reports/public-draft.md |
+| At least three ready-now study specs exist | pass | 5 study specs |
 
 ## Next Moves
 

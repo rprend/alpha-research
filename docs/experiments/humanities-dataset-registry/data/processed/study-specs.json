@@ -1,0 +1,110 @@
+{
+  "generatedAt": "2026-06-12T18:36:22.148Z",
+  "count": 5,
+  "specs": [
+    {
+      "id": "cleveland-art-open-access",
+      "dataset": "Cleveland Museum of Art Open Access API",
+      "domain": "museum-collections",
+      "access_mode": "json-api",
+      "readiness_bucket": "ready-now",
+      "readiness_score": 103,
+      "known_risk": "One museum collection is analytically rich but institution-specific.",
+      "working_title": "What A Museum Collection Looks Like When It Becomes Data",
+      "format": "what-changed",
+      "research_question": "What acquisition, creation-date, department, geography, and medium patterns become visible in a fully open museum API?",
+      "unit_of_analysis": "artwork metadata record",
+      "first_runnable_build": "Fetch the first 5,000 Cleveland Museum of Art API records, normalize dates/departments/creators, and produce acquisition/date/department tables.",
+      "expected_outputs": [
+        "department counts",
+        "creation-date distribution",
+        "acquisition-date distribution",
+        "public-domain/image-availability counts"
+      ],
+      "publication_angle": "A practical demonstration of how museum collections become analyzable once metadata is open and structured."
+    },
+    {
+      "id": "wikidata",
+      "dataset": "Wikidata",
+      "domain": "linked-open-data",
+      "access_mode": "sparql-and-dumps",
+      "readiness_bucket": "ready-now",
+      "readiness_score": 96,
+      "known_risk": "Wikidata reflects contributor attention and ontology gaps.",
+      "working_title": "The Public Knowledge Graph Of Culture",
+      "format": "research-agenda",
+      "research_question": "How are authors, artworks, institutions, movements, languages, and places connected in public linked data?",
+      "unit_of_analysis": "Wikidata entity and statement",
+      "first_runnable_build": "Run bounded SPARQL queries for authors, artworks, movements, languages, and institutions, then inspect missingness and relation density.",
+      "expected_outputs": [
+        "entity counts by class",
+        "relationship graph",
+        "missingness table",
+        "starter query library"
+      ],
+      "publication_angle": "A field guide to what public linked data can and cannot say about cultural history."
+    },
+    {
+      "id": "library-of-congress-digital-collections",
+      "dataset": "Library of Congress Digital Collections",
+      "domain": "archives-library",
+      "access_mode": "json-api",
+      "readiness_bucket": "ready-now",
+      "readiness_score": 93,
+      "known_risk": "Collection metadata reflects digitization and cataloging priorities.",
+      "working_title": "What The Library Of Congress Has Digitized",
+      "format": "field-map",
+      "research_question": "Which subjects, formats, periods, and collection types dominate digitized public collections?",
+      "unit_of_analysis": "collection or item metadata record",
+      "first_runnable_build": "Fetch LOC collection metadata and one item sample per collection, normalize subjects/formats/dates, and rank collection visibility.",
+      "expected_outputs": [
+        "collection inventory",
+        "subject counts",
+        "format counts",
+        "date coverage table"
+      ],
+      "publication_angle": "A map of digitized cultural memory that distinguishes collection visibility from historical importance."
+    },
+    {
+      "id": "met-collection-api",
+      "dataset": "Metropolitan Museum of Art Collection API",
+      "domain": "museum-collections",
+      "access_mode": "json-api",
+      "readiness_bucket": "ready-now",
+      "readiness_score": 93,
+      "known_risk": "Collection API records vary in completeness and public-domain image availability.",
+      "working_title": "The Shape Of The Met Collection",
+      "format": "field-map",
+      "research_question": "How do object dates, geographies, departments, acquisition histories, and public-domain availability differ across the Met collection?",
+      "unit_of_analysis": "object metadata record",
+      "first_runnable_build": "Fetch object IDs and a bounded object-detail sample, normalize department/culture/period/date/acquisition fields, and produce collection-shape charts.",
+      "expected_outputs": [
+        "department counts",
+        "culture/geography table",
+        "object-date distribution",
+        "public-domain counts"
+      ],
+      "publication_angle": "A source-backed essay on what a major museum collection looks like through its public API."
+    },
+    {
+      "id": "open-syllabus",
+      "dataset": "Open Syllabus",
+      "domain": "teaching-syllabi",
+      "access_mode": "portal-and-exports",
+      "readiness_bucket": "ready-now",
+      "readiness_score": 86,
+      "known_risk": "Public access and export terms need explicit review before automated collection.",
+      "working_title": "What Teaching Data Can And Cannot Tell Us About The Canon",
+      "format": "moving-canon",
+      "research_question": "Which works and authors appear in syllabi across institutions, fields, and time, and what access limits constrain public claims?",
+      "unit_of_analysis": "assigned work or author appearance",
+      "first_runnable_build": "Resolve access/export terms, then build a narrow pilot around one author cohort and one discipline.",
+      "expected_outputs": [
+        "author/work appearance table",
+        "field/institution coverage notes",
+        "access constraints memo"
+      ],
+      "publication_angle": "A careful methods essay separating syllabus evidence from broad claims about cultural value."
+    }
+  ]
+}
