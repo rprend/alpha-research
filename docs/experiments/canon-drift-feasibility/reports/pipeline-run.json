@@ -1,0 +1,43 @@
+{
+  "runDate": "2026-06-12",
+  "startedAt": "2026-06-12T18:29:12.506Z",
+  "finishedAt": "2026-06-12T18:29:19.574Z",
+  "steps": [
+    {
+      "script": "probe-web-sources.mjs",
+      "args": [],
+      "startedAt": "2026-06-12T18:29:12.506Z",
+      "finishedAt": "2026-06-12T18:29:16.464Z",
+      "exitCode": 0,
+      "stdout": "Probed 5 canon drift web sources into docs/experiments/canon-drift-feasibility/data/raw/web-sources/2026-06-12\n",
+      "stderr": ""
+    },
+    {
+      "script": "probe-openalex-authors.mjs",
+      "args": [],
+      "startedAt": "2026-06-12T18:29:16.464Z",
+      "finishedAt": "2026-06-12T18:29:19.504Z",
+      "exitCode": 0,
+      "stdout": "Probed 6 OpenAlex author searches into docs/experiments/canon-drift-feasibility/data/raw/openalex-authors/2026-06-12\n",
+      "stderr": ""
+    },
+    {
+      "script": "build-report.mjs",
+      "args": [],
+      "startedAt": "2026-06-12T18:29:19.504Z",
+      "finishedAt": "2026-06-12T18:29:19.541Z",
+      "exitCode": 0,
+      "stdout": "Built canon drift feasibility report for 13 probes\n",
+      "stderr": ""
+    },
+    {
+      "script": "check-readiness.mjs",
+      "args": [],
+      "startedAt": "2026-06-12T18:29:19.541Z",
+      "finishedAt": "2026-06-12T18:29:19.574Z",
+      "exitCode": 0,
+      "stdout": "Canon drift feasibility readiness: ready-for-editorial-review\n",
+      "stderr": ""
+    }
+  ]
+}

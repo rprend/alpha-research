@@ -1,0 +1,127 @@
+{
+  "runDate": "2026-06-12",
+  "source": "canon drift web source probes",
+  "startedAt": "2026-06-12T18:29:12.536Z",
+  "requests": [
+    {
+      "id": "mit-ocw-literature",
+      "sourceType": "public-courseware",
+      "signal": "teaching",
+      "label": "MIT OpenCourseWare Literature courses",
+      "url": "https://ocw.mit.edu/search/?d=Literature",
+      "expectedUnit": "course or reading-list page",
+      "coverageRisk": "Open courseware is public and reusable but not representative of all teaching.",
+      "status": 200,
+      "wordCount": 87,
+      "parsedRecordCount": 1,
+      "parsedRecordCountSource": "rough-page-signal-count",
+      "responsePath": "data/raw/web-sources/2026-06-12/mit-ocw-literature/index.html"
+    },
+    {
+      "id": "yale-open-courses-literature",
+      "sourceType": "public-courseware",
+      "signal": "teaching",
+      "label": "Open Yale Courses English",
+      "url": "https://oyc.yale.edu/english",
+      "expectedUnit": "course page",
+      "coverageRisk": "Open courses are selected public offerings, not a full curriculum.",
+      "status": 200,
+      "wordCount": 418,
+      "parsedRecordCount": 2,
+      "parsedRecordCountSource": "rough-page-signal-count",
+      "responsePath": "data/raw/web-sources/2026-06-12/yale-open-courses-literature/index.html"
+    },
+    {
+      "id": "open-syllabus",
+      "sourceType": "syllabus-index",
+      "signal": "teaching",
+      "label": "Open Syllabus",
+      "url": "https://opensyllabus.org/",
+      "expectedUnit": "assigned work or author record",
+      "coverageRisk": "Useful canonical-teaching signal, but access/export terms need explicit review before automated use.",
+      "status": 200,
+      "wordCount": 168,
+      "parsedRecordCount": 2,
+      "parsedRecordCountSource": "rough-page-signal-count",
+      "responsePath": "data/raw/web-sources/2026-06-12/open-syllabus/index.html"
+    },
+    {
+      "id": "norton-anthology-english-literature",
+      "sourceType": "anthology-toc",
+      "signal": "anthologization",
+      "label": "Norton Anthology of English Literature",
+      "url": "https://wwnorton.com/books/9780393603125",
+      "expectedUnit": "anthology edition or table-of-contents entry",
+      "coverageRisk": "Publisher pages may expose partial metadata; full TOC may require manual or licensed source work.",
+      "status": 200,
+      "wordCount": 15,
+      "parsedRecordCount": 0,
+      "parsedRecordCountSource": "rough-page-signal-count",
+      "responsePath": "data/raw/web-sources/2026-06-12/norton-anthology-english-literature/index.html"
+    },
+    {
+      "id": "library-of-congress-collections",
+      "sourceType": "library-api",
+      "signal": "holdings-or-collections",
+      "label": "Library of Congress collections search",
+      "url": "https://www.loc.gov/search/?fo=json&q=toni+morrison",
+      "expectedUnit": "collection or catalog item",
+      "coverageRisk": "Library collection counts measure preservation and cataloging, not readership or teaching.",
+      "status": 200,
+      "wordCount": 10758,
+      "parsedRecordCount": 2430,
+      "parsedRecordCountSource": "loc-json-pagination",
+      "responsePath": "data/raw/web-sources/2026-06-12/library-of-congress-collections/response.json"
+    },
+    {
+      "id": "hathitrust-catalog",
+      "sourceType": "library-catalog",
+      "signal": "holdings-or-editions",
+      "label": "HathiTrust catalog",
+      "url": "https://catalog.hathitrust.org/Search/Home?lookfor=toni%20morrison",
+      "expectedUnit": "catalog result or edition record",
+      "coverageRisk": "Bibliographic coverage is rich but access/automation and edition normalization need review.",
+      "status": "http-error",
+      "httpStatus": 403,
+      "responsePath": "data/raw/web-sources/2026-06-12/hathitrust-catalog/index.html"
+    },
+    {
+      "id": "worldcat-search",
+      "sourceType": "library-catalog",
+      "signal": "holdings-or-editions",
+      "label": "WorldCat search",
+      "url": "https://search.worldcat.org/search?q=toni+morrison",
+      "expectedUnit": "catalog result or edition record",
+      "coverageRisk": "Potentially valuable holdings signal, but automated access and licensing are likely constrained.",
+      "status": "http-error",
+      "httpStatus": 429,
+      "responsePath": "data/raw/web-sources/2026-06-12/worldcat-search/index.html"
+    }
+  ],
+  "errors": [
+    {
+      "id": "hathitrust-catalog",
+      "sourceType": "library-catalog",
+      "signal": "holdings-or-editions",
+      "label": "HathiTrust catalog",
+      "url": "https://catalog.hathitrust.org/Search/Home?lookfor=toni%20morrison",
+      "expectedUnit": "catalog result or edition record",
+      "coverageRisk": "Bibliographic coverage is rich but access/automation and edition normalization need review.",
+      "status": 403,
+      "body": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-cDhdEBX6aujjfaiXpTAXJx&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font"
+    },
+    {
+      "id": "worldcat-search",
+      "sourceType": "library-catalog",
+      "signal": "holdings-or-editions",
+      "label": "WorldCat search",
+      "url": "https://search.worldcat.org/search?q=toni+morrison",
+      "expectedUnit": "catalog result or edition record",
+      "coverageRisk": "Potentially valuable holdings signal, but automated access and licensing are likely constrained.",
+      "status": 429,
+      "body": "<!DOCTYPE html>\n<!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 7]>    <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 8]>    <html class=\"no-js ie8 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if gt IE 8]><!--> <html class=\"no-js\" lang=\"en-US\"> <!--<![endif]-->\n<head>\n<title>Access denied | search.worldcat.org used Cloudflare to restrict access</title>\n<meta charset=\"UTF-8\" />\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\" />\n<meta name=\"robots\" content=\"noindex, nofollow\" />\n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\" />\n<link rel=\"stylesheet\" id=\"cf_styles-css\" href=\"/cdn-cgi/styles/main.css\" />\n\n\n<script>\n(function(){if(document.addEventListener&&window.XMLHttpRequest&&JSON&&JSON.stringify){var e=function(a){var c=document.getElementById(\"error-feedback-survey\"),d=document.getElementById(\"error-feedback-success\"),b=new XMLHttpRequest"
+    }
+  ],
+  "finishedAt": "2026-06-12T18:29:16.459Z",
+  "recordCount": 5
+}

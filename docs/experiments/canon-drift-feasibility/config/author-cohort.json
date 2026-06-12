@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Toni Morrison",
+    "openalexSearch": "Toni Morrison",
+    "cohort": "20th-century literature"
+  },
+  {
+    "name": "Jane Austen",
+    "openalexSearch": "Jane Austen",
+    "cohort": "19th-century literature"
+  },
+  {
+    "name": "William Shakespeare",
+    "openalexSearch": "William Shakespeare",
+    "cohort": "early modern literature"
+  },
+  {
+    "name": "W. E. B. Du Bois",
+    "openalexSearch": "W. E. B. Du Bois",
+    "cohort": "political thought and literature"
+  },
+  {
+    "name": "Hannah Arendt",
+    "openalexSearch": "Hannah Arendt",
+    "cohort": "political theory"
+  },
+  {
+    "name": "Michel Foucault",
+    "openalexSearch": "Michel Foucault",
+    "cohort": "theory"
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-06-12T18:29:19.569Z",
+  "status": "ready-for-editorial-review",
+  "checks": [
+    {
+      "id": "probe-count",
+      "label": "At least 10 source probes are represented",
+      "status": "pass",
+      "evidence": "13 probes"
+    },
+    {
+      "id": "accessible-probes",
+      "label": "At least 8 source probes are accessible",
+      "status": "pass",
+      "evidence": "11 accessible probes"
+    },
+    {
+      "id": "signal-coverage",
+      "label": "At least three canon signals have accessible evidence",
+      "status": "pass",
+      "evidence": "teaching, anthologization, holdings-or-collections, citation-or-scholarly-discussion"
+    },
+    {
+      "id": "source-layer-warning",
+      "label": "Report distinguishes teaching, anthology, citation, and holdings signals",
+      "status": "pass",
+      "evidence": "signals separated in result rows"
+    },
+    {
+      "id": "public-draft",
+      "label": "Public draft exists and blocks premature trend claims",
+      "status": "pass",
+      "evidence": "reports/public-draft.md"
+    }
+  ],
+  "nextMoves": [
+    "Choose one author cohort and one source signal for a narrow pilot.",
+    "Add audited anthology table-of-contents data before anthologization claims.",
+    "Resolve Open Syllabus access/export before assignment-level claims.",
+    "Add edition-aware normalization for library and anthology sources."
+  ]
+}

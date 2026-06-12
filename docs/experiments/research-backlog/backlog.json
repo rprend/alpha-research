@@ -92,8 +92,8 @@
       "id": "canon-drift-feasibility",
       "title": "Canon Drift: A Feasibility Report",
       "format": "moving-canon",
-      "status": "idea",
-      "experimentPath": null,
+      "status": "analysis-ready",
+      "experimentPath": "docs/experiments/canon-drift-feasibility/",
       "researchQuestion": "Which sources can credibly measure changes in assigned, anthologized, cited, translated, or held authors over time?",
       "unitOfAnalysis": "author-work appearance in a syllabus, anthology, citation graph, translation record, or library-holdings record",
       "primarySources": [
@@ -110,7 +110,7 @@
         "publisher pages",
         "public reading lists"
       ],
-      "firstRunnableBuild": "Probe each source type for one author cohort and one institution cohort, then produce a matrix of measurable canon signals and coverage risks.",
+      "firstRunnableBuild": "Source-probe pipeline exists for public courseware, Open Syllabus, anthology/publisher pages, Library of Congress JSON, library catalogs, and OpenAlex author searches. Latest run produced 13 probes, 11 accessible probes, and 5 signal types.",
       "publicationAngle": "A methods-forward public essay explaining what canon drift can and cannot be measured from public data before making large claims.",
       "qualityRisks": [
         "syllabi are not a representative sample of teaching",

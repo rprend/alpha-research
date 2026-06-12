@@ -1,0 +1,65 @@
+[
+  {
+    "id": "mit-ocw-literature",
+    "sourceType": "public-courseware",
+    "signal": "teaching",
+    "label": "MIT OpenCourseWare Literature courses",
+    "url": "https://ocw.mit.edu/search/?d=Literature",
+    "expectedUnit": "course or reading-list page",
+    "coverageRisk": "Open courseware is public and reusable but not representative of all teaching."
+  },
+  {
+    "id": "yale-open-courses-literature",
+    "sourceType": "public-courseware",
+    "signal": "teaching",
+    "label": "Open Yale Courses English",
+    "url": "https://oyc.yale.edu/english",
+    "expectedUnit": "course page",
+    "coverageRisk": "Open courses are selected public offerings, not a full curriculum."
+  },
+  {
+    "id": "open-syllabus",
+    "sourceType": "syllabus-index",
+    "signal": "teaching",
+    "label": "Open Syllabus",
+    "url": "https://opensyllabus.org/",
+    "expectedUnit": "assigned work or author record",
+    "coverageRisk": "Useful canonical-teaching signal, but access/export terms need explicit review before automated use."
+  },
+  {
+    "id": "norton-anthology-english-literature",
+    "sourceType": "anthology-toc",
+    "signal": "anthologization",
+    "label": "Norton Anthology of English Literature",
+    "url": "https://wwnorton.com/books/9780393603125",
+    "expectedUnit": "anthology edition or table-of-contents entry",
+    "coverageRisk": "Publisher pages may expose partial metadata; full TOC may require manual or licensed source work."
+  },
+  {
+    "id": "library-of-congress-collections",
+    "sourceType": "library-api",
+    "signal": "holdings-or-collections",
+    "label": "Library of Congress collections search",
+    "url": "https://www.loc.gov/search/?fo=json&q=toni+morrison",
+    "expectedUnit": "collection or catalog item",
+    "coverageRisk": "Library collection counts measure preservation and cataloging, not readership or teaching."
+  },
+  {
+    "id": "hathitrust-catalog",
+    "sourceType": "library-catalog",
+    "signal": "holdings-or-editions",
+    "label": "HathiTrust catalog",
+    "url": "https://catalog.hathitrust.org/Search/Home?lookfor=toni%20morrison",
+    "expectedUnit": "catalog result or edition record",
+    "coverageRisk": "Bibliographic coverage is rich but access/automation and edition normalization need review."
+  },
+  {
+    "id": "worldcat-search",
+    "sourceType": "library-catalog",
+    "signal": "holdings-or-editions",
+    "label": "WorldCat search",
+    "url": "https://search.worldcat.org/search?q=toni+morrison",
+    "expectedUnit": "catalog result or edition record",
+    "coverageRisk": "Potentially valuable holdings signal, but automated access and licensing are likely constrained."
+  }
+]

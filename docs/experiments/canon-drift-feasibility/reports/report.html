@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Canon Drift Feasibility</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.5; margin: 40px auto; max-width: 1120px; color: #1f2933; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0 28px; }
+    th, td { border-bottom: 1px solid #d9e2ec; padding: 8px; text-align: left; vertical-align: top; }
+    th { background: #f0f4f8; }
+    .stat { display: inline-block; border: 1px solid #d9e2ec; padding: 10px 12px; margin: 0 8px 8px 0; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h1>Canon Drift Feasibility</h1>
+  <p>Canon drift is not one dataset. Teaching, anthologization, citation, and holdings are separate signals that need separate source layers.</p>
+  <p>
+    <span class="stat"><strong>13</strong> probes</span>
+    <span class="stat"><strong>11</strong> accessible</span>
+    <span class="stat"><strong>5</strong> signal types</span>
+  </p>
+  <h2>Feasibility Matrix</h2>
+  <table><tr><th>label</th><th>source_type</th><th>signal</th><th>access_status</th><th>records_or_results</th><th>publication_use</th><th>coverage_risk</th></tr><tr><td>MIT OpenCourseWare Literature courses</td><td>public-courseware</td><td>teaching</td><td>accessible</td><td>1</td><td>useful examples and source probe, not representative teaching evidence</td><td>Open courseware is public and reusable but not representative of all teaching.</td></tr>
+<tr><td>Open Yale Courses English</td><td>public-courseware</td><td>teaching</td><td>accessible</td><td>2</td><td>useful examples and source probe, not representative teaching evidence</td><td>Open courses are selected public offerings, not a full curriculum.</td></tr>
+<tr><td>Open Syllabus</td><td>syllabus-index</td><td>teaching</td><td>accessible</td><td>2</td><td>promising teaching signal if export access and terms are resolved</td><td>Useful canonical-teaching signal, but access/export terms need explicit review before automated use.</td></tr>
+<tr><td>Norton Anthology of English Literature</td><td>anthology-toc</td><td>anthologization</td><td>accessible</td><td>0</td><td>useful for edition-specific canon claims after TOC completeness audit</td><td>Publisher pages may expose partial metadata; full TOC may require manual or licensed source work.</td></tr>
+<tr><td>Library of Congress collections search</td><td>library-api</td><td>holdings-or-collections</td><td>accessible</td><td>2430</td><td>useful holdings/edition signal, not readership</td><td>Library collection counts measure preservation and cataloging, not readership or teaching.</td></tr>
+<tr><td>HathiTrust catalog</td><td>library-catalog</td><td>holdings-or-editions</td><td>http-error</td><td>0</td><td>not usable until access terms or fetchability are resolved</td><td>Bibliographic coverage is rich but access/automation and edition normalization need review.</td></tr>
+<tr><td>WorldCat search</td><td>library-catalog</td><td>holdings-or-editions</td><td>http-error</td><td>0</td><td>not usable until access terms or fetchability are resolved</td><td>Potentially valuable holdings signal, but automated access and licensing are likely constrained.</td></tr>
+<tr><td>OpenAlex search: Toni Morrison</td><td>citation-metadata</td><td>citation-or-scholarly-discussion</td><td>accessible</td><td>18993</td><td>good for scholarly-discussion context; not a standalone canon metric</td><td>Search results may include works about the author, by namesakes, or loosely related mentions.</td></tr>
+<tr><td>OpenAlex search: Jane Austen</td><td>citation-metadata</td><td>citation-or-scholarly-discussion</td><td>accessible</td><td>23051</td><td>good for scholarly-discussion context; not a standalone canon metric</td><td>Search results may include works about the author, by namesakes, or loosely related mentions.</td></tr>
+<tr><td>OpenAlex search: William Shakespeare</td><td>citation-metadata</td><td>citation-or-scholarly-discussion</td><td>accessible</td><td>68477</td><td>good for scholarly-discussion context; not a standalone canon metric</td><td>Search results may include works about the author, by namesakes, or loosely related mentions.</td></tr>
+<tr><td>OpenAlex search: W. E. B. Du Bois</td><td>citation-metadata</td><td>citation-or-scholarly-discussion</td><td>accessible</td><td>98545</td><td>good for scholarly-discussion context; not a standalone canon metric</td><td>Search results may include works about the author, by namesakes, or loosely related mentions.</td></tr>
+<tr><td>OpenAlex search: Hannah Arendt</td><td>citation-metadata</td><td>citation-or-scholarly-discussion</td><td>accessible</td><td>78575</td><td>good for scholarly-discussion context; not a standalone canon metric</td><td>Search results may include works about the author, by namesakes, or loosely related mentions.</td></tr>
+<tr><td>OpenAlex search: Michel Foucault</td><td>citation-metadata</td><td>citation-or-scholarly-discussion</td><td>accessible</td><td>223815</td><td>good for scholarly-discussion context; not a standalone canon metric</td><td>Search results may include works about the author, by namesakes, or loosely related mentions.</td></tr></table>
+  <h2>Caveats</h2>
+  <ul><li>Public courseware is not a representative sample of university teaching.</li><li>Publisher pages may not expose complete anthology tables of contents.</li><li>Library holdings and catalog metadata measure preservation and acquisition, not reading.</li><li>OpenAlex search results measure scholarly discussion around a name, not canonical status by themselves.</li></ul>
+</body>
+</html>

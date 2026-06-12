@@ -155,6 +155,41 @@ Next implementation moves:
 - improve Wayback coverage using historical URLs and source-specific stable paths
 - clear or explain snippet audit flags before public claims
 
+### Canon Drift Feasibility
+
+Path: `docs/experiments/canon-drift-feasibility/`
+
+Status: source-probed feasibility artifact ready for editorial review as a methods piece, not as a canon-change claim.
+
+Implemented:
+
+- source-probe config for public courseware, Open Syllabus, anthology/publisher pages, Library of Congress JSON, HathiTrust, and WorldCat
+- author cohort config for OpenAlex citation/scholarly-discussion probes
+- web source probe
+- OpenAlex author-search probe
+- feasibility matrix
+- source inventory
+- `report.html`
+- `result.json`
+- `work.md`
+- `public-draft.md`
+- readiness gate
+- one-command pipeline runner
+
+Current corpus:
+
+- 13 source probes
+- 11 accessible probes
+- 5 signal types: teaching, anthologization, holdings-or-collections, holdings-or-editions, citation-or-scholarly-discussion
+- readiness: ready for editorial review as a feasibility/methods artifact
+
+Next implementation moves:
+
+- choose one author cohort and one signal for a narrow canon pilot
+- resolve Open Syllabus export/access before assignment-level claims
+- add audited anthology tables of contents before anthologization claims
+- add edition-aware normalization before library or anthology trend claims
+
 ## Editorial Formats
 
 - `what-changed`: longitudinal study of cultural, institutional, scholarly, or semantic change

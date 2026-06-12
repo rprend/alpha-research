@@ -1,0 +1,16 @@
+{
+  "id": "mit-ocw-literature",
+  "sourceType": "public-courseware",
+  "signal": "teaching",
+  "label": "MIT OpenCourseWare Literature courses",
+  "url": "https://ocw.mit.edu/search/?d=Literature",
+  "expectedUnit": "course or reading-list page",
+  "coverageRisk": "Open courseware is public and reusable but not representative of all teaching.",
+  "fetchedAt": "2026-06-12T18:29:12.650Z",
+  "status": 200,
+  "bytes": 10379,
+  "wordCount": 87,
+  "title": "Search | MIT OpenCourseWare | Free Online Course Materials",
+  "parsedRecordCount": 1,
+  "parsedRecordCountSource": "rough-page-signal-count"
+}

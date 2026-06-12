@@ -1,0 +1,16 @@
+{
+  "id": "library-of-congress-collections",
+  "sourceType": "library-api",
+  "signal": "holdings-or-collections",
+  "label": "Library of Congress collections search",
+  "url": "https://www.loc.gov/search/?fo=json&q=toni+morrison",
+  "expectedUnit": "collection or catalog item",
+  "coverageRisk": "Library collection counts measure preservation and cataloging, not readership or teaching.",
+  "fetchedAt": "2026-06-12T18:29:16.337Z",
+  "status": 200,
+  "bytes": 144277,
+  "wordCount": 10758,
+  "title": "Library of Congress collections search",
+  "parsedRecordCount": 2430,
+  "parsedRecordCountSource": "loc-json-pagination"
+}

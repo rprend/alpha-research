@@ -1,0 +1,14 @@
+id,label,source_type,signal,access_status,http_status,records_or_results,url
+mit-ocw-literature,MIT OpenCourseWare Literature courses,public-courseware,teaching,accessible,200,1,https://ocw.mit.edu/search/?d=Literature
+yale-open-courses-literature,Open Yale Courses English,public-courseware,teaching,accessible,200,2,https://oyc.yale.edu/english
+open-syllabus,Open Syllabus,syllabus-index,teaching,accessible,200,2,https://opensyllabus.org/
+norton-anthology-english-literature,Norton Anthology of English Literature,anthology-toc,anthologization,accessible,200,0,https://wwnorton.com/books/9780393603125
+library-of-congress-collections,Library of Congress collections search,library-api,holdings-or-collections,accessible,200,2430,https://www.loc.gov/search/?fo=json&q=toni+morrison
+hathitrust-catalog,HathiTrust catalog,library-catalog,holdings-or-editions,http-error,403,0,https://catalog.hathitrust.org/Search/Home?lookfor=toni%20morrison
+worldcat-search,WorldCat search,library-catalog,holdings-or-editions,http-error,429,0,https://search.worldcat.org/search?q=toni+morrison
+openalex-toni-morrison,OpenAlex search: Toni Morrison,citation-metadata,citation-or-scholarly-discussion,accessible,200,18993,https://api.openalex.org/works?search=Toni+Morrison&per_page=25&sort=cited_by_count%3Adesc
+openalex-jane-austen,OpenAlex search: Jane Austen,citation-metadata,citation-or-scholarly-discussion,accessible,200,23051,https://api.openalex.org/works?search=Jane+Austen&per_page=25&sort=cited_by_count%3Adesc
+openalex-william-shakespeare,OpenAlex search: William Shakespeare,citation-metadata,citation-or-scholarly-discussion,accessible,200,68477,https://api.openalex.org/works?search=William+Shakespeare&per_page=25&sort=cited_by_count%3Adesc
+openalex-w-e-b-du-bois,OpenAlex search: W. E. B. Du Bois,citation-metadata,citation-or-scholarly-discussion,accessible,200,98545,https://api.openalex.org/works?search=W.+E.+B.+Du+Bois&per_page=25&sort=cited_by_count%3Adesc
+openalex-hannah-arendt,OpenAlex search: Hannah Arendt,citation-metadata,citation-or-scholarly-discussion,accessible,200,78575,https://api.openalex.org/works?search=Hannah+Arendt&per_page=25&sort=cited_by_count%3Adesc
+openalex-michel-foucault,OpenAlex search: Michel Foucault,citation-metadata,citation-or-scholarly-discussion,accessible,200,223815,https://api.openalex.org/works?search=Michel+Foucault&per_page=25&sort=cited_by_count%3Adesc

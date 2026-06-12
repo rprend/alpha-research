@@ -1,0 +1,16 @@
+{
+  "id": "yale-open-courses-literature",
+  "sourceType": "public-courseware",
+  "signal": "teaching",
+  "label": "Open Yale Courses English",
+  "url": "https://oyc.yale.edu/english",
+  "expectedUnit": "course page",
+  "coverageRisk": "Open courses are selected public offerings, not a full curriculum.",
+  "fetchedAt": "2026-06-12T18:29:12.735Z",
+  "status": 200,
+  "bytes": 20572,
+  "wordCount": 418,
+  "title": "English | Open Yale Courses",
+  "parsedRecordCount": 2,
+  "parsedRecordCountSource": "rough-page-signal-count"
+}

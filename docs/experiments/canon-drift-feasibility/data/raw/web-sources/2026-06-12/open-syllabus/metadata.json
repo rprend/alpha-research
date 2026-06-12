@@ -1,0 +1,16 @@
+{
+  "id": "open-syllabus",
+  "sourceType": "syllabus-index",
+  "signal": "teaching",
+  "label": "Open Syllabus",
+  "url": "https://opensyllabus.org/",
+  "expectedUnit": "assigned work or author record",
+  "coverageRisk": "Useful canonical-teaching signal, but access/export terms need explicit review before automated use.",
+  "fetchedAt": "2026-06-12T18:29:13.069Z",
+  "status": 200,
+  "bytes": 94144,
+  "wordCount": 168,
+  "title": "Open Syllabus",
+  "parsedRecordCount": 2,
+  "parsedRecordCountSource": "rough-page-signal-count"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "norton-anthology-english-literature",
+  "sourceType": "anthology-toc",
+  "signal": "anthologization",
+  "label": "Norton Anthology of English Literature",
+  "url": "https://wwnorton.com/books/9780393603125",
+  "expectedUnit": "anthology edition or table-of-contents entry",
+  "coverageRisk": "Publisher pages may expose partial metadata; full TOC may require manual or licensed source work.",
+  "fetchedAt": "2026-06-12T18:29:13.175Z",
+  "status": 200,
+  "bytes": 20782,
+  "wordCount": 15,
+  "title": "Page Not Found | W. W. Norton & Company",
+  "parsedRecordCount": 0,
+  "parsedRecordCountSource": "rough-page-signal-count"
+}
