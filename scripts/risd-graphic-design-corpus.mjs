@@ -4049,7 +4049,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioGateStatusSummary = null, selfStudyPortfolioReviewIndex = null, selfStudyPortfolioReviewerHandoff = null, selfStudyPortfolioReviewerFeedbackTemplate = null, selfStudyPortfolioReviewerFeedbackImports = null, selfStudyPortfolioReviewerFeedbackSmokeFixture = null, selfStudyPortfolioReviewWorkflow = null, selfStudyPortfolioReviewAgendas = null, selfStudyPortfolioReviewDashboard = null, selfStudyPortfolioDecisionPackets = null, selfStudyPortfolioCompletionChecklists = null, selfStudyPortfolioArchiveManifests = null, selfStudyPortfolioArchiveAudit = null, selfStudyPortfolioOperationsSummary = null, selfStudyPortfolioRevisionQueue = null, selfStudyPortfolioGateStatusSuggestions = null, selfStudyPortfolioEvidenceAttachments = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioGateStatusSummary = null, selfStudyPortfolioReviewIndex = null, selfStudyPortfolioReviewerHandoff = null, selfStudyPortfolioReviewerFeedbackTemplate = null, selfStudyPortfolioReviewerFeedbackImports = null, selfStudyPortfolioReviewerFeedbackSmokeFixture = null, selfStudyPortfolioReviewWorkflow = null, selfStudyPortfolioReviewAgendas = null, selfStudyPortfolioReviewDashboard = null, selfStudyPortfolioDecisionPackets = null, selfStudyPortfolioCompletionChecklists = null, selfStudyPortfolioArchiveManifests = null, selfStudyPortfolioArchiveAudit = null, selfStudyPortfolioOperationsSummary = null, selfStudyPortfolioCollaboratorHandoffPackets = null, selfStudyPortfolioRevisionQueue = null, selfStudyPortfolioGateStatusSuggestions = null, selfStudyPortfolioEvidenceAttachments = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveArchivePromotions = archivePromotions ?? loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
@@ -4078,6 +4078,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const effectiveSelfStudyPortfolioArchiveManifests = selfStudyPortfolioArchiveManifests ?? []
   const effectiveSelfStudyPortfolioArchiveAudit = selfStudyPortfolioArchiveAudit ?? []
   const effectiveSelfStudyPortfolioOperationsSummary = selfStudyPortfolioOperationsSummary ?? []
+  const effectiveSelfStudyPortfolioCollaboratorHandoffPackets = selfStudyPortfolioCollaboratorHandoffPackets ?? []
   const effectiveSelfStudyPortfolioRevisionQueue = selfStudyPortfolioRevisionQueue ?? []
   const effectiveSelfStudyPortfolioGateStatusSuggestions = selfStudyPortfolioGateStatusSuggestions ?? []
   const effectiveSelfStudyPortfolioEvidenceAttachments = selfStudyPortfolioEvidenceAttachments ?? []
@@ -4372,6 +4373,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const portfolioArchiveAudit = effectiveSelfStudyPortfolioArchiveAudit.length ? effectiveSelfStudyPortfolioArchiveAudit : generatedPortfolioArchiveAudit
   const generatedPortfolioOperationsSummary = buildSelfStudyPortfolioOperationsSummary({ reviewDashboard: portfolioReviewDashboard, decisionPackets: portfolioDecisionPackets, completionChecklists: portfolioCompletionChecklists, archiveManifests: portfolioArchiveManifests, archiveAudit: portfolioArchiveAudit })
   const portfolioOperationsSummary = effectiveSelfStudyPortfolioOperationsSummary.length ? effectiveSelfStudyPortfolioOperationsSummary : generatedPortfolioOperationsSummary
+  const generatedPortfolioCollaboratorHandoffPackets = buildSelfStudyPortfolioCollaboratorHandoffPackets({ operationsSummary: portfolioOperationsSummary, reviewerHandoffs: portfolioReviewerHandoff })
+  const portfolioCollaboratorHandoffPackets = effectiveSelfStudyPortfolioCollaboratorHandoffPackets.length ? effectiveSelfStudyPortfolioCollaboratorHandoffPackets : generatedPortfolioCollaboratorHandoffPackets
   const progressLedgerWithPortfolioGateAnnotations = annotateSelfStudyProgressLedgerWithPortfolioGates(progressLedger, portfolioMilestones, portfolioCompletionGates)
   const curriculumModulesWithSourceIds = curriculumModules.filter((module) => module.source_ids?.length).length
   const curriculumModulesWithAssignments = curriculumModules.filter((module) => module.assignment_ids?.length).length
@@ -5091,6 +5094,28 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || !row.primary_artifacts.some((artifact) => artifact.artifact_role === 'archive_audit' && artifact.artifact_id === row.archive_audit_id)
   )
   const portfolioOperationsSummaryGeneratedMismatch = effectiveSelfStudyPortfolioOperationsSummary.length > 0 && effectiveSelfStudyPortfolioOperationsSummary.length !== generatedPortfolioOperationsSummary.length
+  const portfolioOperationsSummaryIds = new Set(portfolioOperationsSummary.map((row) => row.operations_id))
+  const portfolioCollaboratorHandoffPacketErrors = portfolioCollaboratorHandoffPackets.filter((packet) =>
+    !packet.handoff_packet_id
+      || !packet.milestone_id
+      || !portfolioMilestoneIds.has(packet.milestone_id)
+      || !packet.operations_id
+      || !portfolioOperationsSummaryIds.has(packet.operations_id)
+      || !packet.reviewer_handoff_id
+      || !portfolioReviewerHandoffIds.has(packet.reviewer_handoff_id)
+      || !packet.share_title
+      || !packet.collaborator_role
+      || !packet.requested_action
+      || !packet.context_summary
+      || !packet.acceptance_criteria?.length
+      || !packet.primary_artifacts?.length
+      || !packet.primary_artifacts.some((artifact) => artifact.artifact_role === 'operations_summary' && artifact.artifact_id === packet.operations_id)
+      || !packet.primary_artifacts.some((artifact) => artifact.artifact_role === 'reviewer_handoff' && artifact.artifact_id === packet.reviewer_handoff_id)
+      || !packet.collaborator_prompts?.length
+      || !packet.response_template
+      || !packet.next_owner_action
+  )
+  const portfolioCollaboratorHandoffPacketsGeneratedMismatch = effectiveSelfStudyPortfolioCollaboratorHandoffPackets.length > 0 && effectiveSelfStudyPortfolioCollaboratorHandoffPackets.length !== generatedPortfolioCollaboratorHandoffPackets.length
   const portfolioBriefReadinessErrors = portfolioBriefs.filter((brief) =>
     !brief.completion_gate_id
       || !portfolioCompletionGateIds.has(brief.completion_gate_id)
@@ -5483,6 +5508,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${portfolioOperationsSummary.length} operations summary rows; ${portfolioOperationsSummary.filter((row) => row.operations_state === 'archive_ready').length} archive ready; ${portfolioOperationsSummaryErrors.length} operations reference/state errors; generated mismatch=${portfolioOperationsSummaryGeneratedMismatch}.`,
     },
     {
+      id: 'self_study_portfolio_collaborator_handoff_packets_share_review_tasks',
+      status: portfolioCollaboratorHandoffPacketErrors.length === 0 && portfolioCollaboratorHandoffPackets.length === portfolioMilestones.length && portfolioCollaboratorHandoffPackets.length > 0 && !portfolioCollaboratorHandoffPacketsGeneratedMismatch ? 'pass' : 'fail',
+      detail: `${portfolioCollaboratorHandoffPackets.length} collaborator handoff packets; ${portfolioCollaboratorHandoffPackets.filter((packet) => packet.handoff_status === 'ready_to_share').length} ready to share; ${portfolioCollaboratorHandoffPacketErrors.length} packet reference/action errors; generated mismatch=${portfolioCollaboratorHandoffPacketsGeneratedMismatch}.`,
+    },
+    {
       id: 'self_study_progress_ledger_links_to_portfolio_completion_gates',
       status: progressLedgerPortfolioGateErrors.length === 0 && progressLedgerWithPortfolioGateAnnotations.length === progressLedger.length && progressLedger.length > 0 ? 'pass' : 'fail',
       detail: `${progressLedgerWithPortfolioGateAnnotations.length} progress ledger rows carry portfolio review gate annotations; ${progressLedgerPortfolioGateErrors.length} annotation reference errors.`,
@@ -5703,6 +5733,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_portfolio_archive_audit_blocked_rows: portfolioArchiveAudit[0]?.audit_totals?.blocked ?? 0,
       self_study_portfolio_operations_summary_rows: portfolioOperationsSummary.length,
       self_study_portfolio_operations_summary_archive_ready_rows: portfolioOperationsSummary.filter((row) => row.operations_state === 'archive_ready').length,
+      self_study_portfolio_collaborator_handoff_packet_rows: portfolioCollaboratorHandoffPackets.length,
+      self_study_portfolio_collaborator_handoff_packet_ready_rows: portfolioCollaboratorHandoffPackets.filter((packet) => packet.handoff_status === 'ready_to_share').length,
       self_study_portfolio_milestones: portfolioMilestones.length,
       self_study_portfolio_briefs: portfolioBriefs.length,
       self_study_portfolio_briefs_with_completion_gate_status: portfolioBriefs.filter((brief) => brief.review_readiness?.status).length,
@@ -9086,6 +9118,82 @@ function selfStudyPortfolioOperationsSummaryMarkdown(rows) {
   return lines.map((line) => line.trimEnd()).join('\n')
 }
 
+function buildSelfStudyPortfolioCollaboratorHandoffPackets({ operationsSummary, reviewerHandoffs }) {
+  const reviewerHandoffByMilestone = new Map(reviewerHandoffs.map((row) => [row.milestone_id, row]))
+  return operationsSummary.map((row) => {
+    const reviewerHandoff = reviewerHandoffByMilestone.get(row.milestone_id)
+    return {
+      handoff_packet_id: `collaborator_handoff_${row.milestone_id}`,
+      generated_at: retrievedAt,
+      milestone_id: row.milestone_id,
+      share_title: `${row.title} Collaborator Handoff`,
+      handoff_status: 'ready_to_share',
+      operations_id: row.operations_id,
+      reviewer_handoff_id: reviewerHandoff?.handoff_id ?? null,
+      collaborator_role: row.operations_state === 'review_not_started' ? 'mentor reviewer' : 'portfolio evidence reviewer',
+      requested_action: row.next_command,
+      context_summary: `Current state is ${row.operations_state}. Use the operations summary and reviewer handoff to focus on the next unresolved review action without broadening beyond recovered public evidence.`,
+      acceptance_criteria: [
+        'Collaborator response cites the provided artifact IDs instead of introducing unsupported source claims.',
+        'Collaborator identifies whether evidence, feedback import, signed decision, after-review checklist, or archive readiness is the immediate blocker.',
+        'Collaborator returns concrete next edits or review notes that the learner can copy into the matching import/checklist artifact.',
+      ],
+      collaborator_prompts: [
+        'What is the single next review action you need from the learner?',
+        'Which artifact IDs prove the current blocker?',
+        'What exact feedback, revision, or archive-readiness note should the learner record?',
+      ],
+      primary_artifacts: [
+        operationsArtifact('operations_summary', row.operations_id, 'self_study_portfolio_operations_summary.jsonl'),
+        operationsArtifact('reviewer_handoff', reviewerHandoff?.handoff_id, 'self_study_portfolio_reviewer_handoff.jsonl'),
+        ...row.primary_artifacts,
+      ].filter((artifact) => artifact.artifact_id),
+      response_template: [
+        `Handoff packet: collaborator_handoff_${row.milestone_id}`,
+        `Milestone: ${row.milestone_id}`,
+        'Immediate blocker:',
+        'Artifact IDs cited:',
+        'Recommended learner action:',
+        'Evidence-boundary note:',
+      ].join('\n'),
+      next_owner_action: 'Send this packet with the linked artifacts to the collaborator, then copy their evidence-bounded response into the relevant decision packet, feedback import, or completion checklist.',
+      provenance_note: 'Generated collaborator handoff packet from portfolio operations summary and reviewer handoff artifacts.',
+    }
+  })
+}
+
+function selfStudyPortfolioCollaboratorHandoffPacketsMarkdown(packets) {
+  const lines = [
+    '# RISD Graphic Design Collaborator Handoff Packets',
+    '',
+    `Generated: ${retrievedAt}`,
+    '',
+    'These shareable packets compress each operations summary into one evidence-bounded task brief for a mentor, reviewer, or collaborator.',
+    '',
+    `- Handoff packets: ${packets.length}`,
+    `- Ready to share: ${packets.filter((packet) => packet.handoff_status === 'ready_to_share').length}`,
+    '',
+  ]
+  packets.forEach((packet) => {
+    lines.push(`## ${packet.share_title}`)
+    lines.push('')
+    lines.push(`- Packet ID: ${packet.handoff_packet_id}`)
+    lines.push(`- Status: ${packet.handoff_status}`)
+    lines.push(`- Collaborator role: ${packet.collaborator_role}`)
+    lines.push(`- Requested action: ${packet.requested_action}`)
+    lines.push(`- Context: ${packet.context_summary}`)
+    lines.push('- Acceptance criteria:')
+    packet.acceptance_criteria.forEach((criterion) => lines.push(`  - ${criterion}`))
+    lines.push('- Collaborator prompts:')
+    packet.collaborator_prompts.forEach((prompt) => lines.push(`  - ${prompt}`))
+    lines.push('- Primary artifacts:')
+    packet.primary_artifacts.forEach((artifact) => lines.push(`  - ${artifact.artifact_role}: ${artifact.artifact_id} (${artifact.artifact_path})`))
+    lines.push(`- Next owner action: ${packet.next_owner_action}`)
+    lines.push('')
+  })
+  return lines.map((line) => line.trimEnd()).join('\n')
+}
+
 function buildSelfStudyPortfolioRevisionQueue(handoffs, feedbackImports = []) {
   const importsByHandoff = new Map(feedbackImports.filter((row) => row.handoff_id).map((row) => [row.handoff_id, row]))
   return handoffs.flatMap((handoff) => {
@@ -10237,6 +10345,7 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   const portfolioArchiveManifests = buildSelfStudyPortfolioArchiveManifests({ decisionPackets: portfolioDecisionPackets, completionChecklists: portfolioCompletionChecklists, portfolioBriefs, referencePackets: portfolioReferencePackets, sourceExcerptPackets: portfolioSourceExcerptPackets, exportManifests: portfolioExportManifests, gateStatusSummary: portfolioGateStatusSummary })
   const portfolioArchiveAudit = buildSelfStudyPortfolioArchiveAudit(portfolioArchiveManifests)
   const portfolioOperationsSummary = buildSelfStudyPortfolioOperationsSummary({ reviewDashboard: portfolioReviewDashboard, decisionPackets: portfolioDecisionPackets, completionChecklists: portfolioCompletionChecklists, archiveManifests: portfolioArchiveManifests, archiveAudit: portfolioArchiveAudit })
+  const portfolioCollaboratorHandoffPackets = buildSelfStudyPortfolioCollaboratorHandoffPackets({ operationsSummary: portfolioOperationsSummary, reviewerHandoffs: portfolioReviewerHandoff })
   writeJsonl(join(outDir, 'self_study_pacing_plan.jsonl'), pacingPlan)
   writeJsonl(join(outDir, 'self_study_pacing_profiles.jsonl'), buildSelfStudyPacingProfiles(pacingPlan))
   writeJsonl(join(outDir, 'self_study_progress_ledger.jsonl'), progressLedgerWithPortfolioGateAnnotations)
@@ -10276,6 +10385,8 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   writeFileSync(join(outDir, 'self_study_portfolio_review_archive_audit.md'), selfStudyPortfolioArchiveAuditMarkdown(portfolioArchiveAudit))
   writeJsonl(join(outDir, 'self_study_portfolio_operations_summary.jsonl'), portfolioOperationsSummary)
   writeFileSync(join(outDir, 'self_study_portfolio_operations_summary.md'), selfStudyPortfolioOperationsSummaryMarkdown(portfolioOperationsSummary))
+  writeJsonl(join(outDir, 'self_study_portfolio_collaborator_handoff_packets.jsonl'), portfolioCollaboratorHandoffPackets)
+  writeFileSync(join(outDir, 'self_study_portfolio_collaborator_handoff_packets.md'), selfStudyPortfolioCollaboratorHandoffPacketsMarkdown(portfolioCollaboratorHandoffPackets))
   writeJsonl(join(outDir, 'self_study_portfolio_milestones.jsonl'), portfolioMilestones)
   writeJsonl(join(outDir, 'self_study_portfolio_reference_packets.jsonl'), portfolioReferencePackets)
   writeJsonl(join(outDir, 'self_study_portfolio_source_excerpt_packets.jsonl'), portfolioSourceExcerptPackets)
