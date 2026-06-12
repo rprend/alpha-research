@@ -224,6 +224,7 @@ Overall status: pass
 - PASS self_study_portfolio_review_workflow_sequences_review_steps: 3 review workflow rows; 1 rows link smoke fixtures; 0 workflow reference/sequence errors; generated mismatch=false.
 - PASS self_study_portfolio_review_agendas_script_critique_sessions: 3 review agenda rows; 225 planned critique minutes; 0 agenda reference/sequence errors; generated mismatch=false.
 - PASS self_study_portfolio_review_dashboard_rolls_up_review_state: 3 review dashboard rows; 0 ready; 9 pending revisions; 0 dashboard reference/rollup errors; generated mismatch=false.
+- PASS self_study_portfolio_decision_packets_prepare_signed_review_notes: 3 decision packet rows; 0 ready to sign; 0 packet reference/section errors; generated mismatch=false.
 - PASS self_study_progress_ledger_links_to_portfolio_completion_gates: 28 progress ledger rows carry portfolio review gate annotations; 0 annotation reference errors.
 - PASS self_study_portfolio_briefs_embed_completion_gate_status: 3 portfolio briefs embed completion gate status; 0 readiness reference/render errors.
 - PASS self_study_portfolio_milestones_have_valid_review_packages: 3 portfolio milestones; 0 milestone reference errors; generated mismatch=false.

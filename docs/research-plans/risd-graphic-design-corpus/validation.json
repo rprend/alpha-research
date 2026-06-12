@@ -156,6 +156,8 @@
     "self_study_portfolio_review_dashboard_rows": 3,
     "self_study_portfolio_review_dashboard_ready_rows": 0,
     "self_study_portfolio_review_dashboard_pending_revisions": 9,
+    "self_study_portfolio_decision_packet_rows": 3,
+    "self_study_portfolio_decision_packet_ready_to_sign_rows": 0,
     "self_study_portfolio_milestones": 3,
     "self_study_portfolio_briefs": 3,
     "self_study_portfolio_briefs_with_completion_gate_status": 3,
@@ -508,6 +510,11 @@
       "id": "self_study_portfolio_review_dashboard_rolls_up_review_state",
       "status": "pass",
       "detail": "3 review dashboard rows; 0 ready; 9 pending revisions; 0 dashboard reference/rollup errors; generated mismatch=false."
+    },
+    {
+      "id": "self_study_portfolio_decision_packets_prepare_signed_review_notes",
+      "status": "pass",
+      "detail": "3 decision packet rows; 0 ready to sign; 0 packet reference/section errors; generated mismatch=false."
     },
     {
       "id": "self_study_progress_ledger_links_to_portfolio_completion_gates",
