@@ -95,6 +95,8 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_gate_status_template.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_gate_status_summary.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_gate_status_summary.md`
+- `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_review_index.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_review_index.md`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_milestones.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_reference_packets.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_source_excerpt_packets.jsonl`
@@ -369,7 +371,7 @@ Acceptance output:
 
 ### Step 9: Generate A Mentor-Style Self-Study Curriculum From Evidence
 
-Status: implemented for evidence-filtered module selection, filtered assignment/reading/schedule display, module-level practice loops, explicit missing-evidence warnings, student/faculty comparison boundaries, a machine-readable `self_study_modules.jsonl` artifact, weekly `self_study_pacing_plan.jsonl`, profile `self_study_pacing_profiles.jsonl`, learner-facing `self_study_progress_ledger.jsonl` and `.md` artifacts, portfolio progress rollup `self_study_portfolio_progress_rollups.jsonl`, milestone-level completion gate `self_study_portfolio_completion_gates.jsonl`, learner status import template `self_study_portfolio_gate_status_template.jsonl`, optional learner status import consumption from `self_study_portfolio_gate_status_import.jsonl`, applied status reports `self_study_portfolio_gate_status_summary.jsonl` and `.md`, portfolio milestone `self_study_portfolio_milestones.jsonl`, relationship-labeled `self_study_portfolio_reference_packets.jsonl`, per-milestone `self_study_portfolio_source_excerpt_packets.jsonl`, optional printable/export `self_study_portfolio_export_manifests.jsonl`, and export-friendly `self_study_portfolio_briefs/*.md` artifacts, module-grounded `tacit_knowledge_memo.md` sections, per-module confidence scores/explanations, module ordering rationales with near-miss candidates, track-level prerequisite/dependency maps, learner-facing weekly pacing, workload estimates, adjustable compressed/standard/slow pacing profiles, portfolio milestone checkpoints, independent portfolio review pages, portfolio review readiness gates, gate status summaries embedded in portfolio briefs, ledger-to-gate annotations for weekly rows, and validation that generated modules/pacing rows/profiles/progress ledger/progress rollups/completion gates/status templates/status imports/status summaries/milestones/briefs/reference packets/source excerpt packets/export manifests cite source IDs, explain selection confidence/order/dependencies, label student-work and faculty-example relationships, carry short assignment/reading/schedule evidence context, and reference existing assignment/reading/schedule/student-work/faculty-example records. The next improvement should add a compact review dashboard/index that links each portfolio milestone to its brief, gate status summary, source excerpt packet, reference packet, and export manifest.
+Status: implemented for evidence-filtered module selection, filtered assignment/reading/schedule display, module-level practice loops, explicit missing-evidence warnings, student/faculty comparison boundaries, a machine-readable `self_study_modules.jsonl` artifact, weekly `self_study_pacing_plan.jsonl`, profile `self_study_pacing_profiles.jsonl`, learner-facing `self_study_progress_ledger.jsonl` and `.md` artifacts, portfolio progress rollup `self_study_portfolio_progress_rollups.jsonl`, milestone-level completion gate `self_study_portfolio_completion_gates.jsonl`, learner status import template `self_study_portfolio_gate_status_template.jsonl`, optional learner status import consumption from `self_study_portfolio_gate_status_import.jsonl`, applied status reports `self_study_portfolio_gate_status_summary.jsonl` and `.md`, compact review dashboard/index `self_study_portfolio_review_index.jsonl` and `.md`, portfolio milestone `self_study_portfolio_milestones.jsonl`, relationship-labeled `self_study_portfolio_reference_packets.jsonl`, per-milestone `self_study_portfolio_source_excerpt_packets.jsonl`, optional printable/export `self_study_portfolio_export_manifests.jsonl`, and export-friendly `self_study_portfolio_briefs/*.md` artifacts, module-grounded `tacit_knowledge_memo.md` sections, per-module confidence scores/explanations, module ordering rationales with near-miss candidates, track-level prerequisite/dependency maps, learner-facing weekly pacing, workload estimates, adjustable compressed/standard/slow pacing profiles, portfolio milestone checkpoints, independent portfolio review pages, portfolio review readiness gates, gate status summaries embedded in portfolio briefs, ledger-to-gate annotations for weekly rows, and validation that generated modules/pacing rows/profiles/progress ledger/progress rollups/completion gates/status templates/status imports/status summaries/review index/milestones/briefs/reference packets/source excerpt packets/export manifests cite source IDs, explain selection confidence/order/dependencies, label student-work and faculty-example relationships, carry short assignment/reading/schedule evidence context, and reference existing assignment/reading/schedule/student-work/faculty-example records. The next improvement should add dashboard grouping/filter metadata so the review index can be filtered by readiness, stage, import state, and unresolved blocker type.
 
 Goal: make the corpus usable for the original purpose: tacit catch-up through concrete studio loops.
 
@@ -397,6 +399,7 @@ Validation requirements:
 - Every portfolio gate status template row must target a valid gate and valid check IDs.
 - Optional learner status import rows must target valid gates/checks and cannot mark a gate ready unless every imported check is satisfied.
 - Every portfolio gate status summary row must compare base and applied readiness, show whether an import was used, and list remaining blocking checks.
+- Every portfolio review index row must link one milestone to its brief, gate status summary, source excerpt packet, reference packet, and export manifest.
 
 Acceptance output:
 
@@ -407,6 +410,7 @@ Acceptance output:
 - `self_study_portfolio_completion_gates.jsonl` for explicit review-readiness checks and blocking conditions per portfolio milestone
 - `self_study_portfolio_gate_status_template.jsonl` for learner-maintained status imports that can update gate readiness without editing generated briefs or ledgers
 - `self_study_portfolio_gate_status_summary.jsonl` and `.md` for explaining applied learner imports and remaining review blockers
+- `self_study_portfolio_review_index.jsonl` and `.md` for a compact milestone dashboard linking briefs, status summaries, source packets, reference packets, and export manifests
 - `self_study_portfolio_briefs.jsonl` plus one standalone Markdown brief per portfolio milestone, each with a review-readiness gate section
 - `self_study_portfolio_reference_packets.jsonl` with relationship-labeled student-work and faculty-portfolio examples
 - `self_study_portfolio_source_excerpt_packets.jsonl` with short source-context excerpts for each portfolio milestone
@@ -1470,6 +1474,7 @@ Corpus checks:
 - Every self-study progress ledger row links back to a valid portfolio milestone and completion gate.
 - Every self-study portfolio gate status template row targets valid current gate/check IDs, and optional imported learner rows are safe to apply.
 - Every self-study portfolio gate status summary row targets a valid gate, reports applied import state, and lists ready or blocking conditions.
+- Every self-study portfolio review index row targets valid brief, status summary, source excerpt packet, reference packet, and export manifest artifacts.
 - Inferred fields are marked.
 - Official course inventory count is reconciled against the RISD course page count.
 - Wayback captures are recorded and selected captures are fetched.

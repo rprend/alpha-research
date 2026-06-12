@@ -132,6 +132,8 @@
     "self_study_portfolio_gate_status_import_rows": 0,
     "self_study_portfolio_gate_status_summary_rows": 3,
     "self_study_portfolio_gate_status_summary_imports_applied": 0,
+    "self_study_portfolio_review_index_rows": 3,
+    "self_study_portfolio_review_index_ready_rows": 0,
     "self_study_portfolio_milestones": 3,
     "self_study_portfolio_briefs": 3,
     "self_study_portfolio_briefs_with_completion_gate_status": 3,
@@ -429,6 +431,11 @@
       "id": "self_study_portfolio_gate_status_summary_explains_applied_imports",
       "status": "pass",
       "detail": "3 portfolio gate status summary rows; 0 imports applied; 0 summary reference errors."
+    },
+    {
+      "id": "self_study_portfolio_review_index_links_review_artifacts",
+      "status": "pass",
+      "detail": "3 portfolio review index rows; 0 ready; 0 index reference errors."
     },
     {
       "id": "self_study_progress_ledger_links_to_portfolio_completion_gates",
