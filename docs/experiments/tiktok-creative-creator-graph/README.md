@@ -67,6 +67,12 @@ Resolve identities and duplicate risks:
 node docs/experiments/tiktok-creative-creator-graph/scripts/resolve-identities.mjs
 ```
 
+Build release exports:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/build-release-package.mjs
+```
+
 Check readiness against the full 50k-account target:
 
 ```bash
@@ -202,6 +208,8 @@ The pipeline writes:
 - `reports/identity-resolution.json`
 - `reports/full-workflow.md`
 - `reports/full-workflow.json`
+- `reports/release-package.md`
+- `reports/release-package.json`
 - `reports/pipeline-run.json`
 
 ## Production Acquisition Loop
@@ -217,8 +225,9 @@ The pipeline writes:
 9. Put review labels in `data/raw/review-decisions/` and run `node docs/experiments/tiktok-creative-creator-graph/scripts/apply-review-decisions.mjs`.
 10. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/analyze-source-yield.mjs` so future acquisition batches prioritize sources and queries that produce useful creators.
 11. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/resolve-identities.mjs` so duplicate risks and cross-platform evidence stay auditable.
-12. Use reviewed accepted/rejected/benchmark outputs to tune sources and scoring.
-13. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
+12. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-release-package.mjs` to generate stable handoff exports.
+13. Use reviewed accepted/rejected/benchmark outputs to tune sources and scoring.
+14. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
 
 ## Current Limitations
 

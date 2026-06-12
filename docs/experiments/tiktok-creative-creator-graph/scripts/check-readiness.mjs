@@ -32,6 +32,7 @@ function main() {
   const acquisitionTasks = readJsonl(join(processedDir, 'acquisition/acquisition_tasks.jsonl'))
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
   const identities = readJsonl(join(processedDir, 'creator_identities.jsonl'))
+  const releaseUseful = readJsonl(join(experimentDir, 'data/release/useful_creators.jsonl'))
 
   const usefulAccounts = scores.filter((row) => ['useful', 'excellent'].includes(row.status)).length
   const excellentAccounts = scores.filter((row) => row.status === 'excellent').length
@@ -85,6 +86,11 @@ function main() {
       evidence: `${identities.length} creator identities resolved`,
     },
     {
+      id: 'release_package',
+      status: releaseUseful.length > 0 ? 'pass' : 'fail',
+      evidence: `${releaseUseful.length} useful creators exported for release`,
+    },
+    {
       id: 'useful_account_target',
       status: usefulAccounts >= targetUsefulAccounts ? 'pass' : 'incomplete',
       evidence: `${usefulAccounts}/${targetUsefulAccounts} useful accounts`,
@@ -120,6 +126,7 @@ function main() {
       acquisition_tasks: acquisitionTasks.length,
       source_yield_rows: sourceYield.length,
       identities: identities.length,
+      release_useful_creators: releaseUseful.length,
     },
     checks,
     remaining: {
@@ -152,6 +159,7 @@ Complete: ${summary.complete}
 - Acquisition tasks: ${summary.counts.acquisition_tasks}
 - Source yield rows: ${summary.counts.source_yield_rows}
 - Identities: ${summary.counts.identities}
+- Release useful creators: ${summary.counts.release_useful_creators}
 
 ## Checks
 

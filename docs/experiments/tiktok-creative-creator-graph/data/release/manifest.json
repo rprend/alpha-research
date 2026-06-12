@@ -1,0 +1,141 @@
+{
+  "generated_at": "2026-06-12T19:49:24.252Z",
+  "objective": "TikTok creative creator graph release package",
+  "counts": {
+    "accounts": 9,
+    "identities": 9,
+    "useful_creators": 6,
+    "benchmark_creators": 1,
+    "rejected_creators": 2,
+    "review_queue": 5
+  },
+  "readiness": {
+    "generated_at": "2026-06-12T19:45:01.224Z",
+    "complete": false,
+    "counts": {
+      "accounts": 9,
+      "videos": 11,
+      "edges": 52,
+      "useful_accounts": 5,
+      "excellent_accounts": 1,
+      "rejected_accounts": 2,
+      "review_queue": 8,
+      "review_decisions": 4,
+      "accepted_creators": 6,
+      "benchmark_creators": 1,
+      "expansion_queue": 4,
+      "acquisition_tasks": 31,
+      "source_yield_rows": 7,
+      "identities": 9
+    },
+    "checks": [
+      {
+        "id": "seed_intake",
+        "status": "pass",
+        "evidence": "9 accounts ingested"
+      },
+      {
+        "id": "video_metadata",
+        "status": "pass",
+        "evidence": "11 videos ingested"
+      },
+      {
+        "id": "graph_edges",
+        "status": "pass",
+        "evidence": "52 graph edges generated"
+      },
+      {
+        "id": "scoring_coverage",
+        "status": "pass",
+        "evidence": "9/9 accounts scored"
+      },
+      {
+        "id": "review_queue",
+        "status": "pass",
+        "evidence": "8 accounts queued for review"
+      },
+      {
+        "id": "expansion_queue",
+        "status": "pass",
+        "evidence": "4 expansion targets queued"
+      },
+      {
+        "id": "acquisition_batches",
+        "status": "pass",
+        "evidence": "31 acquisition tasks generated"
+      },
+      {
+        "id": "source_yield",
+        "status": "pass",
+        "evidence": "7 source/query yield rows generated"
+      },
+      {
+        "id": "identity_resolution",
+        "status": "pass",
+        "evidence": "9 creator identities resolved"
+      },
+      {
+        "id": "useful_account_target",
+        "status": "incomplete",
+        "evidence": "5/50000 useful accounts"
+      },
+      {
+        "id": "excellent_account_target",
+        "status": "incomplete",
+        "evidence": "1/5000 excellent accounts"
+      },
+      {
+        "id": "human_review_target",
+        "status": "incomplete",
+        "evidence": "4/500 review decisions applied"
+      }
+    ],
+    "remaining": {
+      "useful_accounts": 49995,
+      "excellent_accounts": 4999,
+      "reviewed_accounts": 496
+    }
+  },
+  "files": [
+    {
+      "path": "data/release/useful_creators.jsonl",
+      "rows": 6,
+      "sha256": "4ef7921fc32bb5e698bf57adb734e2fe799a1f86ce213f6061b82c0aa37718c3"
+    },
+    {
+      "path": "data/release/useful_creators.csv",
+      "rows": 6,
+      "sha256": "26227079efb9349eafc5caf7048bbbdde45709bbf7aa924fa42adc4bf7911280"
+    },
+    {
+      "path": "data/release/benchmark_creators.jsonl",
+      "rows": 1,
+      "sha256": "c07bcbc935eb729cc05652de365022fe203c7f1d0a7af6c5efc2a95ce11788a0"
+    },
+    {
+      "path": "data/release/benchmark_creators.csv",
+      "rows": 1,
+      "sha256": "6012d3df1e55af70b070b2cba86d1ac72b1dc2677d4c8f0a871466884499f0aa"
+    },
+    {
+      "path": "data/release/rejected_creators.jsonl",
+      "rows": 2,
+      "sha256": "c13d584c4ba6f1ccaecbc08bcee5f34812e6b9c798106284559a454cb9f8288b"
+    },
+    {
+      "path": "data/release/rejected_creators.csv",
+      "rows": 2,
+      "sha256": "ba8b93a338277fa924a32e4601f492734cf7ea0221d02f3f543b14c864056c9b"
+    },
+    {
+      "path": "data/release/review_queue.csv",
+      "rows": 5,
+      "sha256": "b6aff5ebb5957cebff3525872da4eb7f2631fdb1cbd9344c4fecdb1ef2e08651"
+    },
+    {
+      "path": "data/release/all_scored_creators.csv",
+      "rows": 9,
+      "sha256": "e57ad8e0b6cc474479fa2d8e72e78982695fba7fba5b0e9e95a547bd0a0f0802"
+    }
+  ]
+}
