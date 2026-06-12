@@ -4,7 +4,7 @@ Generated: 2026-06-12
 
 ## Coverage Summary
 
-- Sources inspected: 96
+- Sources inspected: 127
 - Course records created: 134
 - Syllabus/course-site records: 82
 - Assignment evidence snippets: 502
@@ -3446,3 +3446,34 @@ Generated: 2026-06-12
 - src_wayback_typography_iii_syllabus_20210414155049 (A, wayback_capture): https://web.archive.org/web/20210414155049id_/http://type.practise.studio/syllabus/
 - src_john_caserta_student_work (D, student_work_archive): https://johncaserta.com/studentwork.html
 - src_crawl_johncaserta_com_teachingarchive_html_85a4ce9d (B, student_work_archive): https://johncaserta.com/teachingarchive.html
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_adam_fein_61581945 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/adam-fein
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_anastasiia_raina_91598c3a (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/anastasiia-raina
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_anther_kiley_4089b209 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/anther-kiley
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_christopher_sleboda_ff2b0340 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/christopher-sleboda
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_doug_scott_57fd8639 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/doug-scott
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_emily_rye_d7b86f51 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/emily-rye
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_ernesto_aparicio_01711eba (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/ernesto-aparicio
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_franz_werner_5f6a8e0b (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/franz-werner
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_gabriel_drozdov_85793e33 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/gabriel-drozdov
+- src_faculty_profile_johncaserta_com_ad7f0244 (C, faculty_profile): https://johncaserta.com/
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_john_caserta_e5274bfe (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/john-caserta
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_julia_gualtieri_077d68f0 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/julia-gualtieri
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_kathleen_sleboda_027d44cf (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/kathleen-sleboda
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_kelsey_dusenka_24a41311 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/kelsey-dusenka
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_kelsey_elder_8c6c9647 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/kelsey-elder
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_lobbin_liu_0c6c97fc (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/lobbin-liu
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_lois_harada_86bb4331 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/lois-harada
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_lucinda_hitchcock_a48eb037 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/lucinda-hitchcock
+- src_faculty_profile_motsuka_com_7b152aee (C, faculty_profile): https://motsuka.com/
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_marie_otsuka_5702785f (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/marie-otsuka
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_minkyoung_kim_a8ec6979 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/minkyoung-kim
+- src_faculty_profile_soulellis_com_about_html_0c20fb2a (C, faculty_profile): https://soulellis.com/about.html
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_paul_soulellis_5996a550 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/paul-soulellis
+- src_faculty_profile_www_pouyaahmadi_com_8cd43085 (C, faculty_profile): https://www.pouyaahmadi.com/
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_pouya_ahmadi_f2898541 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/pouya-ahmadi
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_rafael_attias_61ae3ea8 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/rafael-attias
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_rene_payne_deca47b4 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/rene-payne
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_richard_lipton_c6f53af6 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/richard-lipton
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_richard_rose_ddd1242b (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/richard-rose
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_tom_wedell_7b452cb2 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/tom-wedell
+- src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_tom_wedell_location_6a635443 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/tom-wedell-location

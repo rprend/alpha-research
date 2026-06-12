@@ -64,6 +64,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/search_candidates.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/common_crawl_candidates.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/common_crawl_promotions.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/faculty_profile_candidates.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/review_queue.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/review_decisions.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/field_conflicts.jsonl`
@@ -97,7 +98,7 @@ Known gaps:
 - Assignment extraction is currently snippet-based, not structured enough.
 - Search candidate import is supported through local JSON/JSONL exports, but no live search API provider is wired yet.
 - A bounded Common Crawl candidate, promotion, and ingestion pass exists, but it is still capped and should be expanded carefully.
-- Faculty/course edges are derived from existing course evidence, but RISD profile crawling and faculty-portfolio expansion are not implemented yet.
+- Faculty/course edges are derived from course evidence, and bounded RISD faculty-profile candidate discovery/ingestion is implemented. Faculty-portfolio expansion is still capped to curated public hints and should be expanded carefully.
 - Near-duplicate clustering is implemented as a review artifact, but clusters are not yet used to collapse generated course packets.
 - Manual review artifacts exist, but human decisions have not been filled in yet.
 - A generated self-study curriculum artifact exists, but it remains bounded by current public evidence and should expand as more course artifacts are recovered.
@@ -349,6 +350,24 @@ Required fields:
 - `notes`
 - `error`
 
+### `faculty_profile_candidates.jsonl`
+
+One row per bounded RISD faculty profile or public faculty portfolio/profile candidate.
+
+Required fields:
+
+- `candidate_id`
+- `faculty_id`
+- `faculty_name`
+- `url`
+- `candidate_source`
+- `matched_on`
+- `status`
+- `promoted_source_id`
+- `extraction_status`
+- `discovered_at`
+- `ingested_at`
+
 ### `faculty_course_edges.jsonl`
 
 One row per faculty-to-course attribution.
@@ -545,8 +564,11 @@ Implementation requirements:
 
 Implementation requirements:
 
-1. Build `faculty.jsonl` from current RISD profiles and historical catalogs.
-2. For each faculty member, search public web for:
+1. Build `faculty.jsonl` from current RISD profiles, course evidence, and historical catalogs.
+2. Build `faculty_profile_candidates.jsonl` from RISD Graphic Design faculty profile URL patterns, the official RISD faculty index, and curated public faculty profile/portfolio hints.
+3. Promote only successfully fetched public faculty profiles into `sources.jsonl` as `faculty_profile`.
+4. Store profile URLs on the matching `faculty.jsonl` row and keep profile candidates linked to `promoted_source_id`.
+5. For each faculty member, search public web for:
    - syllabus
    - course
    - teaching
@@ -555,9 +577,9 @@ Implementation requirements:
    - Typography
    - Design Studio
    - RISD Graphic Design
-3. Follow public faculty portfolio links.
-4. Extract course-source-faculty edges into `faculty_course_edges.jsonl`.
-5. Use faculty pages for discovery and attribution, not as full syllabus evidence unless they include classroom artifacts.
+6. Follow public faculty portfolio links beyond the curated hint list.
+7. Extract course-source-faculty edges into `faculty_course_edges.jsonl`.
+8. Use faculty pages for discovery and attribution, not as full syllabus evidence unless they include classroom artifacts.
 
 ### Tier 5: Student Work And Thesis Archives
 
