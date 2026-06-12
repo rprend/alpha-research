@@ -1,0 +1,13 @@
+{
+  "institution": "Cornell University",
+  "source_genre": "catalog",
+  "source_layer": "current",
+  "url": "https://courses.cornell.edu/",
+  "status": 200,
+  "ok": true,
+  "wordCount": 316,
+  "title": "Home | Cornell University",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/catalog/cornell-university/index.html",
+  "fetchedAt": "2026-06-12T21:00:50.332Z",
+  "bytes": 121588
+}

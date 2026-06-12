@@ -1,12 +1,12 @@
 # Research Production Roadmap Readiness
 
-Generated at: 2026-06-12T20:56:44.371Z
+Generated at: 2026-06-12T21:07:05.122Z
 Status: active
 Complete tracks: 0/6
 
 | Priority | Track | Status | Complete | Source Experiment |
 | ---: | --- | --- | --- | --- |
-| 1 | University Institutional Language Second-Layer Corpus | planned | no | `docs/experiments/university-mission-statement-drift/` |
+| 1 | University Institutional Language Second-Layer Corpus | source-probed | no | `docs/experiments/university-mission-statement-drift/` |
 | 2 | Museum Annual Report And Provenance Source Layers | planned | no | `docs/experiments/museum-language-drift/` |
 | 3 | Humanities Literature Radar Broad Backfill | pipeline-ready | no | `docs/experiments/humanities-literature-radar/` |
 | 4 | Cleveland Museum Full-Collection Backfill | source-probed | no | `docs/experiments/cleveland-museum-collection-shape/` |
@@ -15,7 +15,7 @@ Complete tracks: 0/6
 
 ## Next Implementation Queue
 
-1. University Institutional Language Second-Layer Corpus (planned)
+1. University Institutional Language Second-Layer Corpus (source-probed)
 2. Museum Annual Report And Provenance Source Layers (planned)
 3. Humanities Literature Radar Broad Backfill (pipeline-ready)
 4. Cleveland Museum Full-Collection Backfill (source-probed)

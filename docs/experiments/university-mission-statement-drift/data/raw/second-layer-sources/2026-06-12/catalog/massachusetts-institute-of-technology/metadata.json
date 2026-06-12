@@ -1,0 +1,13 @@
+{
+  "institution": "Massachusetts Institute of Technology",
+  "source_genre": "catalog",
+  "source_layer": "current",
+  "url": "https://catalog.mit.edu/",
+  "status": 200,
+  "ok": true,
+  "wordCount": 2161,
+  "title": "Welcome! | MIT Course Catalog",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/catalog/massachusetts-institute-of-technology/index.html",
+  "fetchedAt": "2026-06-12T21:00:46.774Z",
+  "bytes": 68512
+}

@@ -1,0 +1,78 @@
+institution,source_layer,source_genre,year,family,count,count_per_1000_words,matched_terms,url,raw_path
+Harvard University,current,catalog,2026,truth_knowledge,0,0,,https://handbook.college.harvard.edu/,data/raw/second-layer-sources/2026-06-12/catalog/harvard-university/index.html
+Harvard University,current,catalog,2026,civic_public,0,0,,https://handbook.college.harvard.edu/,data/raw/second-layer-sources/2026-06-12/catalog/harvard-university/index.html
+Harvard University,current,catalog,2026,innovation_impact,0,0,,https://handbook.college.harvard.edu/,data/raw/second-layer-sources/2026-06-12/catalog/harvard-university/index.html
+Harvard University,current,catalog,2026,global_leadership,0,0,,https://handbook.college.harvard.edu/,data/raw/second-layer-sources/2026-06-12/catalog/harvard-university/index.html
+Harvard University,current,catalog,2026,excellence_prestige,0,0,,https://handbook.college.harvard.edu/,data/raw/second-layer-sources/2026-06-12/catalog/harvard-university/index.html
+Harvard University,current,catalog,2026,inclusion_belonging,1,4.484,access,https://handbook.college.harvard.edu/,data/raw/second-layer-sources/2026-06-12/catalog/harvard-university/index.html
+Harvard University,current,catalog,2026,career_economy,0,0,,https://handbook.college.harvard.edu/,data/raw/second-layer-sources/2026-06-12/catalog/harvard-university/index.html
+Harvard University,current,president-message,2026,truth_knowledge,3,3.348,knowledge; inquiry,https://www.harvard.edu/president/,data/raw/second-layer-sources/2026-06-12/president-message/harvard-university/index.html
+Harvard University,current,president-message,2026,civic_public,2,2.232,society; democracy,https://www.harvard.edu/president/,data/raw/second-layer-sources/2026-06-12/president-message/harvard-university/index.html
+Harvard University,current,president-message,2026,innovation_impact,2,2.232,innovation,https://www.harvard.edu/president/,data/raw/second-layer-sources/2026-06-12/president-message/harvard-university/index.html
+Harvard University,current,president-message,2026,global_leadership,5,5.58,world,https://www.harvard.edu/president/,data/raw/second-layer-sources/2026-06-12/president-message/harvard-university/index.html
+Harvard University,current,president-message,2026,excellence_prestige,1,1.116,excellence,https://www.harvard.edu/president/,data/raw/second-layer-sources/2026-06-12/president-message/harvard-university/index.html
+Harvard University,current,president-message,2026,inclusion_belonging,1,1.116,inclusion,https://www.harvard.edu/president/,data/raw/second-layer-sources/2026-06-12/president-message/harvard-university/index.html
+Harvard University,current,president-message,2026,career_economy,0,0,,https://www.harvard.edu/president/,data/raw/second-layer-sources/2026-06-12/president-message/harvard-university/index.html
+Stanford University,current,catalog,2026,truth_knowledge,0,0,,https://bulletin.stanford.edu/,data/raw/second-layer-sources/2026-06-12/catalog/stanford-university/index.html
+Stanford University,current,catalog,2026,civic_public,0,0,,https://bulletin.stanford.edu/,data/raw/second-layer-sources/2026-06-12/catalog/stanford-university/index.html
+Stanford University,current,catalog,2026,innovation_impact,0,0,,https://bulletin.stanford.edu/,data/raw/second-layer-sources/2026-06-12/catalog/stanford-university/index.html
+Stanford University,current,catalog,2026,global_leadership,0,0,,https://bulletin.stanford.edu/,data/raw/second-layer-sources/2026-06-12/catalog/stanford-university/index.html
+Stanford University,current,catalog,2026,excellence_prestige,1,4.525,excellence,https://bulletin.stanford.edu/,data/raw/second-layer-sources/2026-06-12/catalog/stanford-university/index.html
+Stanford University,current,catalog,2026,inclusion_belonging,0,0,,https://bulletin.stanford.edu/,data/raw/second-layer-sources/2026-06-12/catalog/stanford-university/index.html
+Stanford University,current,catalog,2026,career_economy,2,9.05,professional,https://bulletin.stanford.edu/,data/raw/second-layer-sources/2026-06-12/catalog/stanford-university/index.html
+Massachusetts Institute of Technology,current,catalog,2026,truth_knowledge,5,2.314,learning,https://catalog.mit.edu/,data/raw/second-layer-sources/2026-06-12/catalog/massachusetts-institute-of-technology/index.html
+Massachusetts Institute of Technology,current,catalog,2026,civic_public,13,6.016,public; service; society,https://catalog.mit.edu/,data/raw/second-layer-sources/2026-06-12/catalog/massachusetts-institute-of-technology/index.html
+Massachusetts Institute of Technology,current,catalog,2026,innovation_impact,24,11.106,innovation; innovative; technology,https://catalog.mit.edu/,data/raw/second-layer-sources/2026-06-12/catalog/massachusetts-institute-of-technology/index.html
+Massachusetts Institute of Technology,current,catalog,2026,global_leadership,12,5.553,global; world; international,https://catalog.mit.edu/,data/raw/second-layer-sources/2026-06-12/catalog/massachusetts-institute-of-technology/index.html
+Massachusetts Institute of Technology,current,catalog,2026,excellence_prestige,0,0,,https://catalog.mit.edu/,data/raw/second-layer-sources/2026-06-12/catalog/massachusetts-institute-of-technology/index.html
+Massachusetts Institute of Technology,current,catalog,2026,inclusion_belonging,1,0.463,access,https://catalog.mit.edu/,data/raw/second-layer-sources/2026-06-12/catalog/massachusetts-institute-of-technology/index.html
+Massachusetts Institute of Technology,current,catalog,2026,career_economy,7,3.239,career; professional,https://catalog.mit.edu/,data/raw/second-layer-sources/2026-06-12/catalog/massachusetts-institute-of-technology/index.html
+Massachusetts Institute of Technology,current,president-message,2026,truth_knowledge,0,0,,https://president.mit.edu/,data/raw/second-layer-sources/2026-06-12/president-message/massachusetts-institute-of-technology/index.html
+Massachusetts Institute of Technology,current,president-message,2026,civic_public,2,4.902,society,https://president.mit.edu/,data/raw/second-layer-sources/2026-06-12/president-message/massachusetts-institute-of-technology/index.html
+Massachusetts Institute of Technology,current,president-message,2026,innovation_impact,4,9.804,innovation; impact; technology,https://president.mit.edu/,data/raw/second-layer-sources/2026-06-12/president-message/massachusetts-institute-of-technology/index.html
+Massachusetts Institute of Technology,current,president-message,2026,global_leadership,3,7.353,global; world,https://president.mit.edu/,data/raw/second-layer-sources/2026-06-12/president-message/massachusetts-institute-of-technology/index.html
+Massachusetts Institute of Technology,current,president-message,2026,excellence_prestige,0,0,,https://president.mit.edu/,data/raw/second-layer-sources/2026-06-12/president-message/massachusetts-institute-of-technology/index.html
+Massachusetts Institute of Technology,current,president-message,2026,inclusion_belonging,0,0,,https://president.mit.edu/,data/raw/second-layer-sources/2026-06-12/president-message/massachusetts-institute-of-technology/index.html
+Massachusetts Institute of Technology,current,president-message,2026,career_economy,1,2.451,industry,https://president.mit.edu/,data/raw/second-layer-sources/2026-06-12/president-message/massachusetts-institute-of-technology/index.html
+Yale University,current,catalog,2026,truth_knowledge,0,0,,https://catalog.yale.edu/,data/raw/second-layer-sources/2026-06-12/catalog/yale-university/index.html
+Yale University,current,catalog,2026,civic_public,1,8.333,public,https://catalog.yale.edu/,data/raw/second-layer-sources/2026-06-12/catalog/yale-university/index.html
+Yale University,current,catalog,2026,innovation_impact,0,0,,https://catalog.yale.edu/,data/raw/second-layer-sources/2026-06-12/catalog/yale-university/index.html
+Yale University,current,catalog,2026,global_leadership,1,8.333,global,https://catalog.yale.edu/,data/raw/second-layer-sources/2026-06-12/catalog/yale-university/index.html
+Yale University,current,catalog,2026,excellence_prestige,0,0,,https://catalog.yale.edu/,data/raw/second-layer-sources/2026-06-12/catalog/yale-university/index.html
+Yale University,current,catalog,2026,inclusion_belonging,0,0,,https://catalog.yale.edu/,data/raw/second-layer-sources/2026-06-12/catalog/yale-university/index.html
+Yale University,current,catalog,2026,career_economy,0,0,,https://catalog.yale.edu/,data/raw/second-layer-sources/2026-06-12/catalog/yale-university/index.html
+Yale University,current,president-message,2026,truth_knowledge,3,13.333,knowledge; scholarship,https://president.yale.edu/,data/raw/second-layer-sources/2026-06-12/president-message/yale-university/index.html
+Yale University,current,president-message,2026,civic_public,1,4.444,society,https://president.yale.edu/,data/raw/second-layer-sources/2026-06-12/president-message/yale-university/index.html
+Yale University,current,president-message,2026,innovation_impact,0,0,,https://president.yale.edu/,data/raw/second-layer-sources/2026-06-12/president-message/yale-university/index.html
+Yale University,current,president-message,2026,global_leadership,2,8.889,global; world,https://president.yale.edu/,data/raw/second-layer-sources/2026-06-12/president-message/yale-university/index.html
+Yale University,current,president-message,2026,excellence_prestige,0,0,,https://president.yale.edu/,data/raw/second-layer-sources/2026-06-12/president-message/yale-university/index.html
+Yale University,current,president-message,2026,inclusion_belonging,0,0,,https://president.yale.edu/,data/raw/second-layer-sources/2026-06-12/president-message/yale-university/index.html
+Yale University,current,president-message,2026,career_economy,0,0,,https://president.yale.edu/,data/raw/second-layer-sources/2026-06-12/president-message/yale-university/index.html
+"University of California, Berkeley",current,strategic-plan,2026,truth_knowledge,1,3.623,knowledge,https://strategicplan.berkeley.edu/,data/raw/second-layer-sources/2026-06-12/strategic-plan/university-of-california-berkeley/index.html
+"University of California, Berkeley",current,strategic-plan,2026,civic_public,2,7.246,society,https://strategicplan.berkeley.edu/,data/raw/second-layer-sources/2026-06-12/strategic-plan/university-of-california-berkeley/index.html
+"University of California, Berkeley",current,strategic-plan,2026,innovation_impact,0,0,,https://strategicplan.berkeley.edu/,data/raw/second-layer-sources/2026-06-12/strategic-plan/university-of-california-berkeley/index.html
+"University of California, Berkeley",current,strategic-plan,2026,global_leadership,1,3.623,global,https://strategicplan.berkeley.edu/,data/raw/second-layer-sources/2026-06-12/strategic-plan/university-of-california-berkeley/index.html
+"University of California, Berkeley",current,strategic-plan,2026,excellence_prestige,0,0,,https://strategicplan.berkeley.edu/,data/raw/second-layer-sources/2026-06-12/strategic-plan/university-of-california-berkeley/index.html
+"University of California, Berkeley",current,strategic-plan,2026,inclusion_belonging,0,0,,https://strategicplan.berkeley.edu/,data/raw/second-layer-sources/2026-06-12/strategic-plan/university-of-california-berkeley/index.html
+"University of California, Berkeley",current,strategic-plan,2026,career_economy,0,0,,https://strategicplan.berkeley.edu/,data/raw/second-layer-sources/2026-06-12/strategic-plan/university-of-california-berkeley/index.html
+"University of California, Berkeley",current,catalog,2026,truth_knowledge,0,0,,https://guide.berkeley.edu/,data/raw/second-layer-sources/2026-06-12/catalog/university-of-california-berkeley/index.html
+"University of California, Berkeley",current,catalog,2026,civic_public,0,0,,https://guide.berkeley.edu/,data/raw/second-layer-sources/2026-06-12/catalog/university-of-california-berkeley/index.html
+"University of California, Berkeley",current,catalog,2026,innovation_impact,0,0,,https://guide.berkeley.edu/,data/raw/second-layer-sources/2026-06-12/catalog/university-of-california-berkeley/index.html
+"University of California, Berkeley",current,catalog,2026,global_leadership,0,0,,https://guide.berkeley.edu/,data/raw/second-layer-sources/2026-06-12/catalog/university-of-california-berkeley/index.html
+"University of California, Berkeley",current,catalog,2026,excellence_prestige,0,0,,https://guide.berkeley.edu/,data/raw/second-layer-sources/2026-06-12/catalog/university-of-california-berkeley/index.html
+"University of California, Berkeley",current,catalog,2026,inclusion_belonging,1,2.336,access,https://guide.berkeley.edu/,data/raw/second-layer-sources/2026-06-12/catalog/university-of-california-berkeley/index.html
+"University of California, Berkeley",current,catalog,2026,career_economy,2,4.673,professional,https://guide.berkeley.edu/,data/raw/second-layer-sources/2026-06-12/catalog/university-of-california-berkeley/index.html
+Cornell University,current,catalog,2026,truth_knowledge,0,0,,https://courses.cornell.edu/,data/raw/second-layer-sources/2026-06-12/catalog/cornell-university/index.html
+Cornell University,current,catalog,2026,civic_public,0,0,,https://courses.cornell.edu/,data/raw/second-layer-sources/2026-06-12/catalog/cornell-university/index.html
+Cornell University,current,catalog,2026,innovation_impact,0,0,,https://courses.cornell.edu/,data/raw/second-layer-sources/2026-06-12/catalog/cornell-university/index.html
+Cornell University,current,catalog,2026,global_leadership,0,0,,https://courses.cornell.edu/,data/raw/second-layer-sources/2026-06-12/catalog/cornell-university/index.html
+Cornell University,current,catalog,2026,excellence_prestige,0,0,,https://courses.cornell.edu/,data/raw/second-layer-sources/2026-06-12/catalog/cornell-university/index.html
+Cornell University,current,catalog,2026,inclusion_belonging,0,0,,https://courses.cornell.edu/,data/raw/second-layer-sources/2026-06-12/catalog/cornell-university/index.html
+Cornell University,current,catalog,2026,career_economy,3,9.494,professional,https://courses.cornell.edu/,data/raw/second-layer-sources/2026-06-12/catalog/cornell-university/index.html
+University of Pennsylvania,current,catalog,2026,truth_knowledge,0,0,,https://catalog.upenn.edu/,data/raw/second-layer-sources/2026-06-12/catalog/university-of-pennsylvania/index.html
+University of Pennsylvania,current,catalog,2026,civic_public,0,0,,https://catalog.upenn.edu/,data/raw/second-layer-sources/2026-06-12/catalog/university-of-pennsylvania/index.html
+University of Pennsylvania,current,catalog,2026,innovation_impact,0,0,,https://catalog.upenn.edu/,data/raw/second-layer-sources/2026-06-12/catalog/university-of-pennsylvania/index.html
+University of Pennsylvania,current,catalog,2026,global_leadership,0,0,,https://catalog.upenn.edu/,data/raw/second-layer-sources/2026-06-12/catalog/university-of-pennsylvania/index.html
+University of Pennsylvania,current,catalog,2026,excellence_prestige,0,0,,https://catalog.upenn.edu/,data/raw/second-layer-sources/2026-06-12/catalog/university-of-pennsylvania/index.html
+University of Pennsylvania,current,catalog,2026,inclusion_belonging,0,0,,https://catalog.upenn.edu/,data/raw/second-layer-sources/2026-06-12/catalog/university-of-pennsylvania/index.html
+University of Pennsylvania,current,catalog,2026,career_economy,0,0,,https://catalog.upenn.edu/,data/raw/second-layer-sources/2026-06-12/catalog/university-of-pennsylvania/index.html

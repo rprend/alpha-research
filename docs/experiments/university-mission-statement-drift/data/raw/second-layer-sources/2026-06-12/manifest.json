@@ -1,0 +1,251 @@
+{
+  "runDate": "2026-06-12",
+  "startedAt": "2026-06-12T21:00:44.436Z",
+  "source": "university institutional-language second-layer source probe",
+  "minWords": 80,
+  "requests": [
+    {
+      "institution": "Harvard University",
+      "source_genre": "catalog",
+      "source_layer": "current",
+      "url": "https://handbook.college.harvard.edu/",
+      "status": 200,
+      "ok": true,
+      "wordCount": 223,
+      "title": "Home Page | Harvard College Student Handbook",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/catalog/harvard-university/index.html"
+    },
+    {
+      "institution": "Harvard University",
+      "source_genre": "president-message",
+      "source_layer": "current",
+      "url": "https://www.harvard.edu/president/",
+      "status": 200,
+      "ok": true,
+      "wordCount": 896,
+      "title": "Harvard University President",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/president-message/harvard-university/index.html"
+    },
+    {
+      "institution": "Stanford University",
+      "source_genre": "strategic-plan",
+      "source_layer": "current",
+      "url": "https://ourvision.stanford.edu/",
+      "status": 403,
+      "ok": false,
+      "wordCount": 4,
+      "title": "403 Forbidden",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/strategic-plan/stanford-university/index.html",
+      "error": "HTTP 403",
+      "bodyPreview": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n</body>\r\n</html>\r\n"
+    },
+    {
+      "institution": "Stanford University",
+      "source_genre": "catalog",
+      "source_layer": "current",
+      "url": "https://bulletin.stanford.edu/",
+      "status": 200,
+      "ok": true,
+      "wordCount": 221,
+      "title": "Stanford University Bulletin",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/catalog/stanford-university/index.html"
+    },
+    {
+      "institution": "Massachusetts Institute of Technology",
+      "source_genre": "catalog",
+      "source_layer": "current",
+      "url": "https://catalog.mit.edu/",
+      "status": 200,
+      "ok": true,
+      "wordCount": 2161,
+      "title": "Welcome! | MIT Course Catalog",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/catalog/massachusetts-institute-of-technology/index.html"
+    },
+    {
+      "institution": "Massachusetts Institute of Technology",
+      "source_genre": "president-message",
+      "source_layer": "current",
+      "url": "https://president.mit.edu/",
+      "status": 200,
+      "ok": true,
+      "wordCount": 408,
+      "title": "MIT Office of the President | MIT - Massachusetts Institute of Technology",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/president-message/massachusetts-institute-of-technology/index.html"
+    },
+    {
+      "institution": "Princeton University",
+      "source_genre": "strategic-plan",
+      "source_layer": "current",
+      "url": "https://strategicplan.princeton.edu/",
+      "status": 403,
+      "ok": false,
+      "wordCount": 9,
+      "title": "Just a moment...",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/strategic-plan/princeton-university/index.html",
+      "error": "HTTP 403",
+      "bodyPreview": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-r1tRc483McFtHqm0WcbsnB&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-s"
+    },
+    {
+      "institution": "Princeton University",
+      "source_genre": "catalog",
+      "source_layer": "current",
+      "url": "https://ua.princeton.edu/academic-units",
+      "status": 403,
+      "ok": false,
+      "wordCount": 9,
+      "title": "Just a moment...",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/catalog/princeton-university/index.html",
+      "error": "HTTP 403",
+      "bodyPreview": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-3qFWKWmmlXN1Bw2LpqaIyq&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-s"
+    },
+    {
+      "institution": "Yale University",
+      "source_genre": "catalog",
+      "source_layer": "current",
+      "url": "https://catalog.yale.edu/",
+      "status": 200,
+      "ok": true,
+      "wordCount": 120,
+      "title": "Yale University Publications &lt; Yale University",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/catalog/yale-university/index.html"
+    },
+    {
+      "institution": "Yale University",
+      "source_genre": "president-message",
+      "source_layer": "current",
+      "url": "https://president.yale.edu/",
+      "status": 200,
+      "ok": true,
+      "wordCount": 225,
+      "title": "Welcome | Office of the President",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/president-message/yale-university/index.html"
+    },
+    {
+      "institution": "University of California, Berkeley",
+      "source_genre": "strategic-plan",
+      "source_layer": "current",
+      "url": "https://strategicplan.berkeley.edu/",
+      "status": 200,
+      "ok": true,
+      "wordCount": 276,
+      "title": "Strategic Plan | UC Berkeley",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/strategic-plan/university-of-california-berkeley/index.html"
+    },
+    {
+      "institution": "University of California, Berkeley",
+      "source_genre": "catalog",
+      "source_layer": "current",
+      "url": "https://guide.berkeley.edu/",
+      "status": 200,
+      "ok": true,
+      "wordCount": 428,
+      "title": "Catalog - Office of the Registrar",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/catalog/university-of-california-berkeley/index.html"
+    },
+    {
+      "institution": "Cornell University",
+      "source_genre": "catalog",
+      "source_layer": "current",
+      "url": "https://courses.cornell.edu/",
+      "status": 200,
+      "ok": true,
+      "wordCount": 316,
+      "title": "Home | Cornell University",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/catalog/cornell-university/index.html"
+    },
+    {
+      "institution": "University of Pennsylvania",
+      "source_genre": "catalog",
+      "source_layer": "current",
+      "url": "https://catalog.upenn.edu/",
+      "status": 200,
+      "ok": true,
+      "wordCount": 170,
+      "title": "2026-27 University Catalog &lt; University of Pennsylvania",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/catalog/university-of-pennsylvania/index.html"
+    },
+    {
+      "institution": "Duke University",
+      "source_genre": "strategic-plan",
+      "source_layer": "current",
+      "url": "https://strategicplan.duke.edu/",
+      "status": 410,
+      "ok": false,
+      "wordCount": 10,
+      "title": "WordPress &rsaquo; Error",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/strategic-plan/duke-university/index.html",
+      "error": "HTTP 410",
+      "bodyPreview": "<!DOCTYPE html>\n<html lang=\"en-US\">\n<head>\n\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\t\t<meta name='robots' content='noindex, follow' />\n\t<title>WordPress &rsaquo; Error</title>\n\t<style type=\"text/css\">\n\t\thtml {\n\t\t\tbackground: #f1f1f1;\n\t\t}\n\t\tbody {\n\t\t\tbackground: #fff;\n\t\t\tborder: 1px solid #ccd0d4;\n\t\t\tcolor: #444;\n\t\t\tfont-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, "
+    }
+  ],
+  "errors": [
+    {
+      "institution": "Stanford University",
+      "source_genre": "strategic-plan",
+      "source_layer": "current",
+      "url": "https://ourvision.stanford.edu/",
+      "status": 403,
+      "ok": false,
+      "wordCount": 4,
+      "title": "403 Forbidden",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/strategic-plan/stanford-university/index.html",
+      "error": "HTTP 403",
+      "bodyPreview": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n</body>\r\n</html>\r\n"
+    },
+    {
+      "institution": "Princeton University",
+      "source_genre": "strategic-plan",
+      "source_layer": "current",
+      "url": "https://strategicplan.princeton.edu/",
+      "status": 403,
+      "ok": false,
+      "wordCount": 9,
+      "title": "Just a moment...",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/strategic-plan/princeton-university/index.html",
+      "error": "HTTP 403",
+      "bodyPreview": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-r1tRc483McFtHqm0WcbsnB&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-s"
+    },
+    {
+      "institution": "Princeton University",
+      "source_genre": "catalog",
+      "source_layer": "current",
+      "url": "https://ua.princeton.edu/academic-units",
+      "status": 403,
+      "ok": false,
+      "wordCount": 9,
+      "title": "Just a moment...",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/catalog/princeton-university/index.html",
+      "error": "HTTP 403",
+      "bodyPreview": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-3qFWKWmmlXN1Bw2LpqaIyq&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-s"
+    },
+    {
+      "institution": "Duke University",
+      "source_genre": "strategic-plan",
+      "source_layer": "current",
+      "url": "https://strategicplan.duke.edu/",
+      "status": 410,
+      "ok": false,
+      "wordCount": 10,
+      "title": "WordPress &rsaquo; Error",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/strategic-plan/duke-university/index.html",
+      "error": "HTTP 410",
+      "bodyPreview": "<!DOCTYPE html>\n<html lang=\"en-US\">\n<head>\n\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\t\t<meta name='robots' content='noindex, follow' />\n\t<title>WordPress &rsaquo; Error</title>\n\t<style type=\"text/css\">\n\t\thtml {\n\t\t\tbackground: #f1f1f1;\n\t\t}\n\t\tbody {\n\t\t\tbackground: #fff;\n\t\t\tborder: 1px solid #ccd0d4;\n\t\t\tcolor: #444;\n\t\t\tfont-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, "
+    }
+  ],
+  "finishedAt": "2026-06-12T21:00:51.046Z",
+  "recordCount": 11,
+  "genreCounts": {
+    "catalog": 7,
+    "president-message": 3,
+    "strategic-plan": 1
+  },
+  "institutionCounts": {
+    "Harvard University": 2,
+    "Massachusetts Institute of Technology": 2,
+    "University of California, Berkeley": 2,
+    "Yale University": 2,
+    "Cornell University": 1,
+    "Stanford University": 1,
+    "University of Pennsylvania": 1
+  }
+}

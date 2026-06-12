@@ -1,0 +1,13 @@
+{
+  "institution": "University of California, Berkeley",
+  "source_genre": "strategic-plan",
+  "source_layer": "current",
+  "url": "https://strategicplan.berkeley.edu/",
+  "status": 200,
+  "ok": true,
+  "wordCount": 276,
+  "title": "Strategic Plan | UC Berkeley",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/strategic-plan/university-of-california-berkeley/index.html",
+  "fetchedAt": "2026-06-12T21:00:47.858Z",
+  "bytes": 37919
+}

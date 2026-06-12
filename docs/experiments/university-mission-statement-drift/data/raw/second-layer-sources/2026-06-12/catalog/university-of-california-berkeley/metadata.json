@@ -1,0 +1,13 @@
+{
+  "institution": "University of California, Berkeley",
+  "source_genre": "catalog",
+  "source_layer": "current",
+  "url": "https://guide.berkeley.edu/",
+  "status": 200,
+  "ok": true,
+  "wordCount": 428,
+  "title": "Catalog - Office of the Registrar",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/catalog/university-of-california-berkeley/index.html",
+  "fetchedAt": "2026-06-12T21:00:49.920Z",
+  "bytes": 192916
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "institution": "Harvard University",
+    "source_genre": "catalog",
+    "source_layer": "current",
+    "url": "https://handbook.college.harvard.edu/"
+  },
+  {
+    "institution": "Harvard University",
+    "source_genre": "president-message",
+    "source_layer": "current",
+    "url": "https://www.harvard.edu/president/"
+  },
+  {
+    "institution": "Stanford University",
+    "source_genre": "strategic-plan",
+    "source_layer": "current",
+    "url": "https://ourvision.stanford.edu/"
+  },
+  {
+    "institution": "Stanford University",
+    "source_genre": "catalog",
+    "source_layer": "current",
+    "url": "https://bulletin.stanford.edu/"
+  },
+  {
+    "institution": "Massachusetts Institute of Technology",
+    "source_genre": "catalog",
+    "source_layer": "current",
+    "url": "https://catalog.mit.edu/"
+  },
+  {
+    "institution": "Massachusetts Institute of Technology",
+    "source_genre": "president-message",
+    "source_layer": "current",
+    "url": "https://president.mit.edu/"
+  },
+  {
+    "institution": "Princeton University",
+    "source_genre": "strategic-plan",
+    "source_layer": "current",
+    "url": "https://strategicplan.princeton.edu/"
+  },
+  {
+    "institution": "Princeton University",
+    "source_genre": "catalog",
+    "source_layer": "current",
+    "url": "https://ua.princeton.edu/academic-units"
+  },
+  {
+    "institution": "Yale University",
+    "source_genre": "catalog",
+    "source_layer": "current",
+    "url": "https://catalog.yale.edu/"
+  },
+  {
+    "institution": "Yale University",
+    "source_genre": "president-message",
+    "source_layer": "current",
+    "url": "https://president.yale.edu/"
+  },
+  {
+    "institution": "University of California, Berkeley",
+    "source_genre": "strategic-plan",
+    "source_layer": "current",
+    "url": "https://strategicplan.berkeley.edu/"
+  },
+  {
+    "institution": "University of California, Berkeley",
+    "source_genre": "catalog",
+    "source_layer": "current",
+    "url": "https://guide.berkeley.edu/"
+  },
+  {
+    "institution": "Cornell University",
+    "source_genre": "catalog",
+    "source_layer": "current",
+    "url": "https://courses.cornell.edu/"
+  },
+  {
+    "institution": "University of Pennsylvania",
+    "source_genre": "catalog",
+    "source_layer": "current",
+    "url": "https://catalog.upenn.edu/"
+  },
+  {
+    "institution": "Duke University",
+    "source_genre": "strategic-plan",
+    "source_layer": "current",
+    "url": "https://strategicplan.duke.edu/"
+  }
+]

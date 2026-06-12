@@ -1,0 +1,13 @@
+{
+  "institution": "Harvard University",
+  "source_genre": "catalog",
+  "source_layer": "current",
+  "url": "https://handbook.college.harvard.edu/",
+  "status": 200,
+  "ok": true,
+  "wordCount": 223,
+  "title": "Home Page | Harvard College Student Handbook",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/catalog/harvard-university/index.html",
+  "fetchedAt": "2026-06-12T21:00:44.689Z",
+  "bytes": 48792
+}

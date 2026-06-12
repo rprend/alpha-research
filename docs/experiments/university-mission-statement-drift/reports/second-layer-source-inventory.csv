@@ -1,0 +1,16 @@
+institution,source_genre,source_layer,status,ok,wordCount,title,url,responsePath,error
+Harvard University,catalog,current,200,true,223,Home Page | Harvard College Student Handbook,https://handbook.college.harvard.edu/,data/raw/second-layer-sources/2026-06-12/catalog/harvard-university/index.html,
+Harvard University,president-message,current,200,true,896,Harvard University President,https://www.harvard.edu/president/,data/raw/second-layer-sources/2026-06-12/president-message/harvard-university/index.html,
+Stanford University,strategic-plan,current,403,false,4,403 Forbidden,https://ourvision.stanford.edu/,data/raw/second-layer-sources/2026-06-12/strategic-plan/stanford-university/index.html,HTTP 403
+Stanford University,catalog,current,200,true,221,Stanford University Bulletin,https://bulletin.stanford.edu/,data/raw/second-layer-sources/2026-06-12/catalog/stanford-university/index.html,
+Massachusetts Institute of Technology,catalog,current,200,true,2161,Welcome! | MIT Course Catalog,https://catalog.mit.edu/,data/raw/second-layer-sources/2026-06-12/catalog/massachusetts-institute-of-technology/index.html,
+Massachusetts Institute of Technology,president-message,current,200,true,408,MIT Office of the President | MIT - Massachusetts Institute of Technology,https://president.mit.edu/,data/raw/second-layer-sources/2026-06-12/president-message/massachusetts-institute-of-technology/index.html,
+Princeton University,strategic-plan,current,403,false,9,Just a moment...,https://strategicplan.princeton.edu/,data/raw/second-layer-sources/2026-06-12/strategic-plan/princeton-university/index.html,HTTP 403
+Princeton University,catalog,current,403,false,9,Just a moment...,https://ua.princeton.edu/academic-units,data/raw/second-layer-sources/2026-06-12/catalog/princeton-university/index.html,HTTP 403
+Yale University,catalog,current,200,true,120,Yale University Publications &lt; Yale University,https://catalog.yale.edu/,data/raw/second-layer-sources/2026-06-12/catalog/yale-university/index.html,
+Yale University,president-message,current,200,true,225,Welcome | Office of the President,https://president.yale.edu/,data/raw/second-layer-sources/2026-06-12/president-message/yale-university/index.html,
+"University of California, Berkeley",strategic-plan,current,200,true,276,Strategic Plan | UC Berkeley,https://strategicplan.berkeley.edu/,data/raw/second-layer-sources/2026-06-12/strategic-plan/university-of-california-berkeley/index.html,
+"University of California, Berkeley",catalog,current,200,true,428,Catalog - Office of the Registrar,https://guide.berkeley.edu/,data/raw/second-layer-sources/2026-06-12/catalog/university-of-california-berkeley/index.html,
+Cornell University,catalog,current,200,true,316,Home | Cornell University,https://courses.cornell.edu/,data/raw/second-layer-sources/2026-06-12/catalog/cornell-university/index.html,
+University of Pennsylvania,catalog,current,200,true,170,2026-27 University Catalog &lt; University of Pennsylvania,https://catalog.upenn.edu/,data/raw/second-layer-sources/2026-06-12/catalog/university-of-pennsylvania/index.html,
+Duke University,strategic-plan,current,410,false,10,WordPress &rsaquo; Error,https://strategicplan.duke.edu/,data/raw/second-layer-sources/2026-06-12/strategic-plan/duke-university/index.html,HTTP 410

@@ -34,6 +34,8 @@ node docs/experiments/university-mission-statement-drift/scripts/build-report.mj
 node docs/experiments/university-mission-statement-drift/scripts/build-audit-packet.mjs
 node docs/experiments/university-mission-statement-drift/scripts/build-publication-handoff.mjs
 node docs/experiments/university-mission-statement-drift/scripts/check-readiness.mjs
+node docs/experiments/university-mission-statement-drift/scripts/probe-second-layer-sources.mjs --strict
+node docs/experiments/university-mission-statement-drift/scripts/build-second-layer-corpus.mjs
 ```
 
 `fetch-wayback-snapshots.mjs` preserves existing snapshots by default and updates the manifest from all local snapshot metadata. Use `--clean=true` only when intentionally replacing the run directory.
@@ -60,3 +62,9 @@ Outputs:
 - `reports/publication-handoff.json`
 - `reports/readiness.md`
 - `reports/readiness.json`
+- `data/raw/second-layer-sources/YYYY-MM-DD/`
+- `data/processed/second-layer-pages.json`
+- `data/processed/second-layer-page-term-counts.csv`
+- `data/processed/second-layer-term-family-by-genre.csv`
+- `reports/second-layer-source-inventory.md`
+- `reports/second-layer-corpus-readiness.md`

@@ -1,0 +1,235 @@
+{
+  "generatedAt": "2026-06-12T21:06:23.299Z",
+  "runDate": "2026-06-12",
+  "status": "source-probed-needs-replacements",
+  "corpusTier": "schema-probe",
+  "pages": 11,
+  "configuredSources": 15,
+  "failedOrExcludedSources": 4,
+  "genreCounts": {
+    "catalog": 7,
+    "president-message": 3,
+    "strategic-plan": 1
+  },
+  "institutionCounts": {
+    "Harvard University": 2,
+    "Massachusetts Institute of Technology": 2,
+    "University of California, Berkeley": 2,
+    "Yale University": 2,
+    "Cornell University": 1,
+    "Stanford University": 1,
+    "University of Pennsylvania": 1
+  },
+  "missingGenres": [],
+  "processedFiles": [
+    "data/processed/second-layer-pages.json",
+    "data/processed/second-layer-page-term-counts.csv",
+    "data/processed/second-layer-term-family-by-genre.csv"
+  ],
+  "reportFiles": [
+    "reports/second-layer-source-inventory.md",
+    "reports/second-layer-corpus-readiness.md"
+  ],
+  "genreTermRows": [
+    {
+      "source_genre": "catalog",
+      "family": "career_economy",
+      "pages": 7,
+      "institutions": 7,
+      "count": 14,
+      "words": 3639,
+      "count_per_1000_words": 3.847
+    },
+    {
+      "source_genre": "catalog",
+      "family": "civic_public",
+      "pages": 7,
+      "institutions": 7,
+      "count": 14,
+      "words": 3639,
+      "count_per_1000_words": 3.847
+    },
+    {
+      "source_genre": "catalog",
+      "family": "excellence_prestige",
+      "pages": 7,
+      "institutions": 7,
+      "count": 1,
+      "words": 3639,
+      "count_per_1000_words": 0.275
+    },
+    {
+      "source_genre": "catalog",
+      "family": "global_leadership",
+      "pages": 7,
+      "institutions": 7,
+      "count": 13,
+      "words": 3639,
+      "count_per_1000_words": 3.572
+    },
+    {
+      "source_genre": "catalog",
+      "family": "inclusion_belonging",
+      "pages": 7,
+      "institutions": 7,
+      "count": 3,
+      "words": 3639,
+      "count_per_1000_words": 0.824
+    },
+    {
+      "source_genre": "catalog",
+      "family": "innovation_impact",
+      "pages": 7,
+      "institutions": 7,
+      "count": 24,
+      "words": 3639,
+      "count_per_1000_words": 6.595
+    },
+    {
+      "source_genre": "catalog",
+      "family": "truth_knowledge",
+      "pages": 7,
+      "institutions": 7,
+      "count": 5,
+      "words": 3639,
+      "count_per_1000_words": 1.374
+    },
+    {
+      "source_genre": "president-message",
+      "family": "career_economy",
+      "pages": 3,
+      "institutions": 3,
+      "count": 1,
+      "words": 1529,
+      "count_per_1000_words": 0.654
+    },
+    {
+      "source_genre": "president-message",
+      "family": "civic_public",
+      "pages": 3,
+      "institutions": 3,
+      "count": 5,
+      "words": 1529,
+      "count_per_1000_words": 3.27
+    },
+    {
+      "source_genre": "president-message",
+      "family": "excellence_prestige",
+      "pages": 3,
+      "institutions": 3,
+      "count": 1,
+      "words": 1529,
+      "count_per_1000_words": 0.654
+    },
+    {
+      "source_genre": "president-message",
+      "family": "global_leadership",
+      "pages": 3,
+      "institutions": 3,
+      "count": 10,
+      "words": 1529,
+      "count_per_1000_words": 6.54
+    },
+    {
+      "source_genre": "president-message",
+      "family": "inclusion_belonging",
+      "pages": 3,
+      "institutions": 3,
+      "count": 1,
+      "words": 1529,
+      "count_per_1000_words": 0.654
+    },
+    {
+      "source_genre": "president-message",
+      "family": "innovation_impact",
+      "pages": 3,
+      "institutions": 3,
+      "count": 6,
+      "words": 1529,
+      "count_per_1000_words": 3.924
+    },
+    {
+      "source_genre": "president-message",
+      "family": "truth_knowledge",
+      "pages": 3,
+      "institutions": 3,
+      "count": 6,
+      "words": 1529,
+      "count_per_1000_words": 3.924
+    },
+    {
+      "source_genre": "strategic-plan",
+      "family": "career_economy",
+      "pages": 1,
+      "institutions": 1,
+      "count": 0,
+      "words": 276,
+      "count_per_1000_words": 0
+    },
+    {
+      "source_genre": "strategic-plan",
+      "family": "civic_public",
+      "pages": 1,
+      "institutions": 1,
+      "count": 2,
+      "words": 276,
+      "count_per_1000_words": 7.246
+    },
+    {
+      "source_genre": "strategic-plan",
+      "family": "excellence_prestige",
+      "pages": 1,
+      "institutions": 1,
+      "count": 0,
+      "words": 276,
+      "count_per_1000_words": 0
+    },
+    {
+      "source_genre": "strategic-plan",
+      "family": "global_leadership",
+      "pages": 1,
+      "institutions": 1,
+      "count": 1,
+      "words": 276,
+      "count_per_1000_words": 3.623
+    },
+    {
+      "source_genre": "strategic-plan",
+      "family": "inclusion_belonging",
+      "pages": 1,
+      "institutions": 1,
+      "count": 0,
+      "words": 276,
+      "count_per_1000_words": 0
+    },
+    {
+      "source_genre": "strategic-plan",
+      "family": "innovation_impact",
+      "pages": 1,
+      "institutions": 1,
+      "count": 0,
+      "words": 276,
+      "count_per_1000_words": 0
+    },
+    {
+      "source_genre": "strategic-plan",
+      "family": "truth_knowledge",
+      "pages": 1,
+      "institutions": 1,
+      "count": 1,
+      "words": 276,
+      "count_per_1000_words": 3.623
+    }
+  ],
+  "blockers": [
+    "Replace failed or low-word-count source routes before publication-scale claims.",
+    "Add historical snapshots or recurring current snapshots before claiming second-layer change over time.",
+    "Keep catalog, strategic-plan, and president-message language separate in public claims."
+  ],
+  "nextActions": [
+    "Replace the inaccessible Stanford, Princeton, and Duke strategic-plan routes or use archive/sitemap alternatives.",
+    "Add commencement speeches as a fourth source genre.",
+    "Backfill historical snapshots for the retained second-layer routes.",
+    "Join second-layer source genres into the main readiness gate after manual quote review."
+  ]
+}

@@ -7,7 +7,7 @@
       "id": "university-second-layer-corpus",
       "title": "University Institutional Language Second-Layer Corpus",
       "priority": 1,
-      "status": "planned",
+      "status": "source-probed",
       "sourceExperiment": "docs/experiments/university-mission-statement-drift/",
       "why": "The Season One post proves current/about-page and Wayback feasibility, but stronger claims need source genres beyond about pages.",
       "requiredSources": [
@@ -25,10 +25,10 @@
         "post-evidence audit for any second-layer public claim"
       ],
       "nextActions": [
-        "Create a strategic-plan source allowlist for the 10 current universities.",
-        "Probe one catalog, one strategic plan, and one president-message source per institution where available.",
-        "Normalize source genre separately from institution and year.",
-        "Add genre-separated term-family trend tables."
+        "Replace failed or low-word-count strategic-plan routes from the second-layer probe.",
+        "Add commencement speeches as a fourth source genre.",
+        "Backfill historical snapshots for retained second-layer routes.",
+        "Join source-genre tables into the main readiness gate after manual quote review."
       ]
     },
     {

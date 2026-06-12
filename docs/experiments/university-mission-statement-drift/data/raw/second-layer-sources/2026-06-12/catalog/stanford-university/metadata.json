@@ -1,0 +1,13 @@
+{
+  "institution": "Stanford University",
+  "source_genre": "catalog",
+  "source_layer": "current",
+  "url": "https://bulletin.stanford.edu/",
+  "status": 200,
+  "ok": true,
+  "wordCount": 221,
+  "title": "Stanford University Bulletin",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/catalog/stanford-university/index.html",
+  "fetchedAt": "2026-06-12T21:00:46.304Z",
+  "bytes": 903756
+}

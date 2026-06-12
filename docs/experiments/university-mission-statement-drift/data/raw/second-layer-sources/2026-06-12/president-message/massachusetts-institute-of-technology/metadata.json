@@ -1,0 +1,13 @@
+{
+  "institution": "Massachusetts Institute of Technology",
+  "source_genre": "president-message",
+  "source_layer": "current",
+  "url": "https://president.mit.edu/",
+  "status": 200,
+  "ok": true,
+  "wordCount": 408,
+  "title": "MIT Office of the President | MIT - Massachusetts Institute of Technology",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/president-message/massachusetts-institute-of-technology/index.html",
+  "fetchedAt": "2026-06-12T21:00:46.997Z",
+  "bytes": 37240
+}
