@@ -86,6 +86,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/tacit_knowledge_memo.md`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_curriculum.md`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_modules.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/self_study_pacing_plan.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/source_audit.md`
 
 Current seed sources include:
@@ -354,7 +355,7 @@ Acceptance output:
 
 ### Step 9: Generate A Mentor-Style Self-Study Curriculum From Evidence
 
-Status: implemented for evidence-filtered module selection, filtered assignment/reading/schedule display, module-level practice loops, explicit missing-evidence warnings, student/faculty comparison boundaries, a machine-readable `self_study_modules.jsonl` artifact, module-grounded `tacit_knowledge_memo.md` sections, per-module confidence scores/explanations, module ordering rationales with near-miss candidates, track-level prerequisite/dependency maps, and validation that generated modules cite source IDs, explain selection confidence/order/dependencies, and reference existing assignment/reading/schedule/student-work records. The next improvement should add a learner-facing weekly pacing plan that turns module dependencies into a sequenced practice calendar.
+Status: implemented for evidence-filtered module selection, filtered assignment/reading/schedule display, module-level practice loops, explicit missing-evidence warnings, student/faculty comparison boundaries, a machine-readable `self_study_modules.jsonl` artifact, a weekly `self_study_pacing_plan.jsonl` artifact, module-grounded `tacit_knowledge_memo.md` sections, per-module confidence scores/explanations, module ordering rationales with near-miss candidates, track-level prerequisite/dependency maps, learner-facing weekly pacing, and validation that generated modules/pacing rows cite source IDs, explain selection confidence/order/dependencies, and reference existing assignment/reading/schedule/student-work records. The next improvement should add workload estimates and adjustable pacing profiles for compressed, standard, and slow self-study tracks.
 
 Goal: make the corpus usable for the original purpose: tacit catch-up through concrete studio loops.
 

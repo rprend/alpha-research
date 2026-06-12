@@ -4047,7 +4047,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveArchivePromotions = archivePromotions ?? loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
@@ -4055,6 +4055,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const effectiveAssignmentBriefPages = assignmentBriefPages ?? loadJsonl(join(outDir, 'assignment_brief_pages.jsonl'))
   const effectiveStudentWorkAssignmentLinks = studentWorkAssignmentLinks ?? loadJsonl(join(outDir, 'student_work_assignment_links.jsonl'))
   const effectiveSelfStudyModules = selfStudyModules ?? loadJsonl(join(outDir, 'self_study_modules.jsonl'))
+  const effectiveSelfStudyPacingPlan = selfStudyPacingPlan ?? []
   const effectiveScheduleRows = scheduleRows ?? loadJsonl(join(outDir, 'schedule_rows.jsonl'))
   const effectiveArchiveFetchTargets = archiveFetchTargets ?? loadJsonl(join(outDir, 'archive_fetch_targets.jsonl'))
   const sourceIds = new Set(sources.map((source) => source.source_id))
@@ -4282,6 +4283,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const fieldConflictErrors = fieldConflicts.filter((conflict) => !conflict.conflict_id || !conflict.field || !conflict.values?.length || conflict.source_ids?.some((id) => !sourceIds.has(id)))
   const generatedCurriculumModules = buildSelfStudyModules({ courses, syllabi, assignments, readings, scheduleRows: effectiveScheduleRows, studentWork, studentWorkAssignmentLinks: effectiveStudentWorkAssignmentLinks })
   const curriculumModules = effectiveSelfStudyModules.length ? effectiveSelfStudyModules : generatedCurriculumModules
+  const generatedPacingPlan = buildSelfStudyPacingPlan(curriculumModules)
+  const pacingPlan = effectiveSelfStudyPacingPlan.length ? effectiveSelfStudyPacingPlan : generatedPacingPlan
   const curriculumModulesWithSourceIds = curriculumModules.filter((module) => module.source_ids?.length).length
   const curriculumModulesWithAssignments = curriculumModules.filter((module) => module.assignment_ids?.length).length
   const curriculumModulesWithReadings = curriculumModules.filter((module) => module.reading_ids?.length).length
@@ -4338,7 +4341,26 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || module.module_dependency_map.prerequisite_module_ids.some((id) => !curriculumModuleIds.has(id))
       || module.module_dependency_map.enables_module_ids.some((id) => !curriculumModuleIds.has(id))
   )
+  const pacingPlanReferenceErrors = pacingPlan.filter((row) =>
+    !row.pacing_id
+      || !Number.isInteger(row.week_number)
+      || !curriculumModuleIds.has(row.module_id)
+      || row.assignment_id && !assignmentIds.has(row.assignment_id)
+      || row.reading_ids?.some((id) => !readingIds.has(id))
+      || row.schedule_ids?.some((id) => !effectiveScheduleRowIds.has(id))
+      || row.prerequisite_module_ids?.some((id) => !curriculumModuleIds.has(id))
+      || !row.focus
+      || !row.expected_output
+      || !row.critique_checkpoint
+      || !row.source_ids?.length
+      || row.source_ids.some((id) => !sourceIds.has(id))
+  )
+  const pacingRowsWithAssignments = pacingPlan.filter((row) => row.assignment_id).length
+  const pacingRowsWithReadings = pacingPlan.filter((row) => row.reading_ids?.length).length
+  const pacingRowsWithPrerequisites = pacingPlan.filter((row) => row.prerequisite_module_ids?.length).length
+  const pacingModuleCoverage = new Set(pacingPlan.map((row) => row.module_id)).size
   const curriculumGeneratedMismatch = effectiveSelfStudyModules.length > 0 && effectiveSelfStudyModules.length !== generatedCurriculumModules.length
+  const pacingGeneratedMismatch = effectiveSelfStudyPacingPlan.length > 0 && effectiveSelfStudyPacingPlan.length !== generatedPacingPlan.length
   const courseInventoryReconciled = courseInventory.displayed_count > 0 && courseInventory.offerings.length === courseInventory.displayed_count
   const checks = [
     {
@@ -4592,6 +4614,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${curriculumModules.length} modules; ${curriculumModulesWithAssignments} with filtered assignments, ${curriculumModulesWithReadings} with usable readings/resources, ${curriculumModulesWithSchedule} with schedule rhythm, ${curriculumModulesWithComparison} with comparison evidence, ${curriculumModulesWithUnknowns} with explicit unknowns, ${curriculumModulesWithConfidence} with confidence explanations, ${curriculumModulesWithOrderingRationale} with ordering rationales, ${curriculumModulesWithDependencyMaps} with dependency maps; ${curriculumModuleReferenceErrors.length} module reference errors; generated mismatch=${curriculumGeneratedMismatch}.`,
     },
     {
+      id: 'self_study_pacing_plan_has_valid_weekly_sequence',
+      status: pacingPlanReferenceErrors.length === 0 && pacingPlan.length > 0 && pacingModuleCoverage === curriculumModules.length && !pacingGeneratedMismatch ? 'pass' : pacingPlanReferenceErrors.length === 0 && pacingPlan.length > 0 ? 'warn' : 'fail',
+      detail: `${pacingPlan.length} pacing rows for ${pacingModuleCoverage}/${curriculumModules.length} modules; ${pacingRowsWithAssignments} rows cite assignments, ${pacingRowsWithReadings} cite readings/resources, ${pacingRowsWithPrerequisites} cite prerequisite modules; ${pacingPlanReferenceErrors.length} pacing reference errors; generated mismatch=${pacingGeneratedMismatch}.`,
+    },
+    {
       id: 'official_course_inventory_reconciled',
       status: courseInventoryReconciled ? 'pass' : 'warn',
       detail: `${courseInventory.offerings.length} official offerings parsed; RISD page displays ${courseInventory.displayed_count || 'unknown'} results.`,
@@ -4729,6 +4756,10 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_modules_with_confidence_explanations: curriculumModulesWithConfidence,
       self_study_modules_with_ordering_rationales: curriculumModulesWithOrderingRationale,
       self_study_modules_with_dependency_maps: curriculumModulesWithDependencyMaps,
+      self_study_pacing_rows: pacingPlan.length,
+      self_study_pacing_rows_with_assignments: pacingRowsWithAssignments,
+      self_study_pacing_rows_with_readings: pacingRowsWithReadings,
+      self_study_pacing_rows_with_prerequisites: pacingRowsWithPrerequisites,
     },
     checks,
   }
@@ -5334,6 +5365,10 @@ Overall status: ${validation.status}
 - Self-study modules with confidence explanations: ${validation.counts.self_study_modules_with_confidence_explanations}
 - Self-study modules with ordering rationales: ${validation.counts.self_study_modules_with_ordering_rationales}
 - Self-study modules with dependency maps: ${validation.counts.self_study_modules_with_dependency_maps}
+- Self-study pacing rows: ${validation.counts.self_study_pacing_rows}
+- Self-study pacing rows with assignments: ${validation.counts.self_study_pacing_rows_with_assignments}
+- Self-study pacing rows with readings/resources: ${validation.counts.self_study_pacing_rows_with_readings}
+- Self-study pacing rows with prerequisites: ${validation.counts.self_study_pacing_rows_with_prerequisites}
 
 ## Checks
 
@@ -5593,6 +5628,7 @@ function tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules
   const dependencyRows = selfStudyModules
     .filter((module) => module.module_dependency_map?.dependency_stage)
     .slice(0, 8)
+  const pacingRows = buildSelfStudyPacingPlan(selfStudyModules).slice(0, 12)
   const missingEvidenceRows = selfStudyModules
     .filter((module) => module.missing_evidence_warnings?.length)
     .slice(0, 10)
@@ -5654,6 +5690,10 @@ ${dependencyRows.length ? dependencyRows.map((module) => {
   const enables = map.enables_module_ids?.length ? ` enables: ${map.enables_module_ids.join(', ')}` : ''
   return `- ${module.course_title ?? module.course_code}: ${map.dependency_stage}${prereqs}${enables}. Basis: ${map.dependency_basis?.slice(0, 3).join('; ')}`
 }).join('\n') : '- No module-level dependency maps have been generated yet.'}
+
+## Weekly Pacing Boundaries
+
+${pacingRows.length ? pacingRows.map((row) => `- Week ${row.week_number}: ${row.focus} Output: ${row.expected_output}; checkpoint: ${row.critique_checkpoint}`).join('\n') : '- No weekly pacing rows have been generated yet.'}
 
 ## Critique And Revision
 
@@ -6191,6 +6231,69 @@ function buildSelfStudyModules({ courses, syllabi, assignments, readings, schedu
   })
 }
 
+function buildSelfStudyPacingPlan(selfStudyModules) {
+  const rows = []
+  let weekNumber = 1
+  for (const module of selfStudyModules) {
+    const assignment = module.assignments?.[0] ?? null
+    const secondAssignment = module.assignments?.[1] ?? null
+    const readingIds = (module.reading_ids ?? []).slice(0, 4)
+    const scheduleIds = (module.schedule_ids ?? []).slice(0, 3)
+    const prerequisiteModuleIds = module.module_dependency_map?.prerequisite_module_ids ?? []
+    rows.push({
+      pacing_id: `pace_${String(weekNumber).padStart(2, '0')}_${module.module_id}`,
+      week_number: weekNumber,
+      module_id: module.module_id,
+      module_stage: module.module_dependency_map?.dependency_stage ?? 'intermediate_practice',
+      track_id: module.track_id,
+      track_title: module.track_title,
+      course_code: module.course_code,
+      course_title: module.course_title,
+      prerequisite_module_ids: prerequisiteModuleIds,
+      focus: `Prepare ${module.course_title ?? module.course_code ?? module.module_id}: read, inspect evidence, and set up the first artifact.`,
+      assignment_id: assignment?.assignment_id ?? module.practice_instruction?.assignment_id ?? null,
+      reading_ids: readingIds,
+      schedule_ids: scheduleIds,
+      studio_actions: [
+        readingIds.length ? 'read or skim the selected packet/resources' : 'inspect source excerpts and missing evidence warnings',
+        assignment ? `start ${assignment.title ?? assignment.assignment_id}` : 'define the artifact from the recovered practice instruction',
+        'collect constraints, output format, and critique questions in a one-page brief',
+      ],
+      expected_output: assignment?.deliverables?.length ? assignment.deliverables.slice(0, 3).join(', ') : 'brief, sketches, and first prototype',
+      critique_checkpoint: 'End the week with a written self-critique against recovered constraints and evidence boundaries.',
+      evidence_basis: 'module_dependency_map_and_selected_assignment',
+      source_ids: module.source_ids?.slice(0, 8) ?? [],
+    })
+    weekNumber += 1
+    rows.push({
+      pacing_id: `pace_${String(weekNumber).padStart(2, '0')}_${module.module_id}`,
+      week_number: weekNumber,
+      module_id: module.module_id,
+      module_stage: module.module_dependency_map?.dependency_stage ?? 'intermediate_practice',
+      track_id: module.track_id,
+      track_title: module.track_title,
+      course_code: module.course_code,
+      course_title: module.course_title,
+      prerequisite_module_ids: prerequisiteModuleIds,
+      focus: `Revise and present ${module.course_title ?? module.course_code ?? module.module_id}.`,
+      assignment_id: secondAssignment?.assignment_id ?? assignment?.assignment_id ?? module.practice_instruction?.assignment_id ?? null,
+      reading_ids: readingIds.slice(0, 2),
+      schedule_ids: scheduleIds,
+      studio_actions: [
+        'revise the artifact once after critique',
+        secondAssignment ? `optionally start adjacent brief ${secondAssignment.assignment_id}` : 'document before/after decisions',
+        'compare against public student-work or source examples only within stated evidence boundaries',
+      ],
+      expected_output: secondAssignment?.deliverables?.length ? `revision plus ${secondAssignment.deliverables.slice(0, 3).join(', ')}` : 'revised artifact and critique memo',
+      critique_checkpoint: 'Present the revision, list three decisions changed by critique, and record what remains unknown.',
+      evidence_basis: 'module_dependency_map_and_revision_loop',
+      source_ids: module.source_ids?.slice(0, 8) ?? [],
+    })
+    weekNumber += 1
+  }
+  return rows
+}
+
 const coverageRequirements = [
   ['course_identity', 'Course code/title/level/credits/term/instructor basics'],
   ['source_evidence', 'Source type, evidence grade, and source IDs'],
@@ -6360,6 +6463,8 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
   const packets = curriculumCoursePackets({ courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks, scheduleRows })
   const studentWorkById = new Map(studentWork.map((work) => [work.student_work_id, work]))
   const selected = curriculumSelectedPackets(packets)
+  const modules = buildSelfStudyModules({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks })
+  const pacingPlan = buildSelfStudyPacingPlan(modules)
 
   const lines = []
   lines.push('# RISD Graphic Design Self-Study Curriculum')
@@ -6528,6 +6633,22 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
       lines.push('')
     }
   }
+  lines.push('## Weekly Pacing Plan')
+  lines.push('')
+  lines.push('This pacing plan is generated from module dependencies and recovered studio evidence. It is a self-study calendar, not an official RISD schedule.')
+  lines.push('')
+  pacingPlan.forEach((row) => {
+    const tags = [
+      row.module_stage ? `stage: ${row.module_stage.replace(/_/g, ' ')}` : null,
+      row.assignment_id ? `assignment: ${row.assignment_id}` : null,
+      row.reading_ids?.length ? `readings/resources: ${row.reading_ids.slice(0, 3).join(', ')}` : null,
+      row.prerequisite_module_ids?.length ? `prerequisites: ${row.prerequisite_module_ids.join(', ')}` : null,
+    ].filter(Boolean)
+    lines.push(`- Week ${row.week_number}: ${row.focus}${tags.length ? ` (${tags.join('; ')})` : ''}`)
+    lines.push(`  - Output: ${row.expected_output}`)
+    lines.push(`  - Checkpoint: ${row.critique_checkpoint}`)
+  })
+  lines.push('')
   lines.push('## Gaps To Preserve')
   lines.push('')
   lines.push('- Do not invent missing rubrics, grades, private readings, or complete assignment sheets.')
@@ -6540,9 +6661,14 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
 
 function writeSelfStudyArtifacts({ courses, syllabi, assignments, readings, scheduleRows = [], studentWork, studentWorkAssignmentLinks = [] }) {
   const selfStudyModules = buildSelfStudyModules({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks })
-  writeJsonl(join(outDir, 'self_study_modules.jsonl'), selfStudyModules)
+  writeSelfStudyModuleArtifacts(selfStudyModules)
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
   return selfStudyModules
+}
+
+function writeSelfStudyModuleArtifacts(selfStudyModules) {
+  writeJsonl(join(outDir, 'self_study_modules.jsonl'), selfStudyModules)
+  writeJsonl(join(outDir, 'self_study_pacing_plan.jsonl'), buildSelfStudyPacingPlan(selfStudyModules))
 }
 
 function loadJsonl(path) {
@@ -6632,7 +6758,7 @@ function renderDerivedArtifactsOnly() {
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
-  writeJsonl(join(outDir, 'self_study_modules.jsonl'), selfStudyModules)
+  writeSelfStudyModuleArtifacts(selfStudyModules)
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
   console.log(`RISD derived artifacts written to ${outDir}`)
   console.log(`assignments=${assignments.length} phase_structured_assignments=${validationWithReview.counts.phase_structured_assignments} validation=${validationWithReview.status}`)
@@ -6763,7 +6889,7 @@ async function reparseExistingSourcesOnlyMode() {
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
-  writeJsonl(join(outDir, 'self_study_modules.jsonl'), selfStudyModules)
+  writeSelfStudyModuleArtifacts(selfStudyModules)
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
   console.log(`RISD existing sources reparsed into ${outDir}`)
   console.log(`sources=${sources.length} syllabi=${syllabi.length} assignments=${assignments.length} long_assignment_briefs=${validationWithReview.counts.long_assignment_briefs} external_catalog_readings=${validationWithReview.counts.external_catalog_readings} validation=${validationWithReview.status}`)
@@ -7058,7 +7184,7 @@ async function promoteSearchCandidatesOnlyMode() {
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
-  writeJsonl(join(outDir, 'self_study_modules.jsonl'), selfStudyModules)
+  writeSelfStudyModuleArtifacts(selfStudyModules)
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
   console.log(`RISD search promotions written to ${join(outDir, 'search_promotions.jsonl')}`)
   console.log(`new_promotions=${newPromotions.length} successful_promotions=${newPromotions.filter((row) => row.extraction_status === 'ok').length} total_search_promotions=${allSearchPromotions.length} validation=${validationWithReview.status}`)
@@ -7351,7 +7477,7 @@ async function promoteArchiveTargetsOnlyMode() {
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
-  writeJsonl(join(outDir, 'self_study_modules.jsonl'), selfStudyModules)
+  writeSelfStudyModuleArtifacts(selfStudyModules)
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
   console.log(`RISD archive promotions written to ${join(outDir, 'archive_promotions.jsonl')}`)
   console.log(`new_archive_promotions=${newPromotions.length} successful_archive_promotions=${newPromotions.filter((row) => row.extraction_status === 'ok').length} sources=${sources.length} validation=${validationWithReview.status}`)
@@ -7631,7 +7757,7 @@ async function main() {
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithSelfStudy }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
-  writeJsonl(join(outDir, 'self_study_modules.jsonl'), selfStudyModules)
+  writeSelfStudyModuleArtifacts(selfStudyModules)
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
 
   console.log(`RISD corpus artifacts written to ${outDir}`)

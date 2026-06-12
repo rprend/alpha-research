@@ -566,6 +566,95 @@ Studio loop: Set text under explicit hierarchy, spacing, scale, and sequencing c
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
+## Weekly Pacing Plan
+
+This pacing plan is generated from module dependencies and recovered studio evidence. It is a self-study calendar, not an official RISD schedule.
+
+- Week 1: Prepare Design Studio 1: read, inspect evidence, and set up the first artifact. (stage: foundation; assignment: assign_syl_crawl_ds1618_risd_gd_2016_11_08_unit4_crit_html_d957a68a_01; readings/resources: reading_syl_ds1618_make_book_04, reading_syl_ds1618_make_book_08, reading_syl_ds1618_make_book_07)
+  - Output: book, animation
+  - Checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 2: Revise and present Design Studio 1. (stage: foundation; assignment: assign_syl_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224_01; readings/resources: reading_syl_ds1618_make_book_04, reading_syl_ds1618_make_book_08)
+  - Output: revision plus presentation
+  - Checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+- Week 3: Prepare Web Type: read, inspect evidence, and set up the first artifact. (stage: foundation; assignment: assign_syl_crawl_webtype_htmlkitchen_net_exercises_07_input_range_30e67e2f_01; readings/resources: reading_syl_crawl_webtype_htmlkitchen_net_exercises_0_getting_started_459158d5_03, reading_syl_web_type_2022_syllabus_11, reading_syl_web_type_2022_syllabus_14; prerequisites: self_study_module_01_design_studio_1)
+  - Output: website, animation, typeface
+  - Checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 4: Revise and present Web Type. (stage: foundation; assignment: assign_syl_crawl_webtype_htmlkitchen_net_exercises_07_input_range_30e67e2f_06; readings/resources: reading_syl_crawl_webtype_htmlkitchen_net_exercises_0_getting_started_459158d5_03, reading_syl_web_type_2022_syllabus_11; prerequisites: self_study_module_01_design_studio_1)
+  - Output: revision plus animation
+  - Checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+- Week 5: Prepare Design & Politics: read, inspect evidence, and set up the first artifact. (stage: foundation; assignment: assign_syl_crawl_designandpolitics_risd_gd_2022_05_13_week12_html_38dd599d_02; readings/resources: reading_syl_crawl_designandpolitics_risd_gd_2022_03_25_week6_html_0ea8c1e0_01, reading_syl_crawl_designandpolitics_risd_gd_2022_04_15_week8_html_c265275c_01; prerequisites: self_study_module_01_design_studio_1, self_study_module_02_web_type)
+  - Output: documentation
+  - Checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 6: Revise and present Design & Politics. (stage: foundation; assignment: assign_syl_crawl_designandpolitics_risd_gd_2022_03_04_week3_html_20c11695_03; readings/resources: reading_syl_crawl_designandpolitics_risd_gd_2022_03_25_week6_html_0ea8c1e0_01, reading_syl_crawl_designandpolitics_risd_gd_2022_04_15_week8_html_c265275c_01; prerequisites: self_study_module_01_design_studio_1, self_study_module_02_web_type)
+  - Output: revision plus presentation
+  - Checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+- Week 7: Prepare Introduction to Graphic Design: read, inspect evidence, and set up the first artifact. (stage: foundation; assignment: assign_syl_adam_fein_intro_graphic_design_2021_pdf_29; readings/resources: reading_syl_adam_fein_intro_graphic_design_2021_pdf_04, reading_syl_adam_fein_intro_graphic_design_2021_pdf_06, reading_syl_adam_fein_intro_graphic_design_2021_pdf_07; prerequisites: self_study_module_02_web_type, self_study_module_03_design_politics)
+  - Output: visual identity system
+  - Checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 8: Revise and present Introduction to Graphic Design. (stage: foundation; assignment: assign_syl_adam_fein_intro_graphic_design_2021_pdf_01; readings/resources: reading_syl_adam_fein_intro_graphic_design_2021_pdf_04, reading_syl_adam_fein_intro_graphic_design_2021_pdf_06; prerequisites: self_study_module_02_web_type, self_study_module_03_design_politics)
+  - Output: revision plus visual identity system
+  - Checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+- Week 9: Prepare Typography for Nonmajors: read, inspect evidence, and set up the first artifact. (stage: intermediate practice; assignment: assign_syl_sp19_typography_for_nonmajors_01; readings/resources: reading_syl_sp19_typography_for_nonmajors_01; prerequisites: self_study_module_01_design_studio_1)
+  - Output: poster
+  - Checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 10: Revise and present Typography for Nonmajors. (stage: intermediate practice; assignment: assign_syl_sp19_typography_for_nonmajors_01; readings/resources: reading_syl_sp19_typography_for_nonmajors_01; prerequisites: self_study_module_01_design_studio_1)
+  - Output: revised artifact and critique memo
+  - Checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+- Week 11: Prepare Design for Publishing: read, inspect evidence, and set up the first artifact. (stage: intermediate practice; assignment: assign_syl_sp19_design_for_publishing_01; prerequisites: self_study_module_01_design_studio_1, self_study_module_05_typography_for_nonmajors)
+  - Output: book
+  - Checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 12: Revise and present Design for Publishing. (stage: intermediate practice; assignment: assign_syl_sp19_design_for_publishing_01; prerequisites: self_study_module_01_design_studio_1, self_study_module_05_typography_for_nonmajors)
+  - Output: revised artifact and critique memo
+  - Checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+- Week 13: Prepare Typography III: read, inspect evidence, and set up the first artifact. (stage: advanced synthesis; assignment: assign_syl_wayback_typography_iii_syllabus_20210414155049_11; readings/resources: reading_syl_wayback_typography_iii_syllabus_20210414155049_02, reading_syl_wayback_typography_iii_syllabus_20210414155049_04, reading_syl_wayback_typography_iii_syllabus_20210414155049_05; prerequisites: self_study_module_03_design_politics, self_study_module_04_introduction_to_graphic_design)
+  - Output: portfolio
+  - Checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 14: Revise and present Typography III. (stage: advanced synthesis; assignment: assign_syl_wayback_typography_iii_syllabus_20210414155049_12; readings/resources: reading_syl_wayback_typography_iii_syllabus_20210414155049_02, reading_syl_wayback_typography_iii_syllabus_20210414155049_04; prerequisites: self_study_module_03_design_politics, self_study_module_04_introduction_to_graphic_design)
+  - Output: revision plus portfolio, documentation, pdf
+  - Checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+- Week 15: Prepare Web Programming: read, inspect evidence, and set up the first artifact. (stage: advanced synthesis; assignment: assign_syl_wp15_week_1_concrete_forms_04; readings/resources: reading_syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7_02, reading_syl_wp15_week_1_concrete_forms_01, reading_syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7_01; prerequisites: self_study_module_04_introduction_to_graphic_design, self_study_module_07_typography_iii)
+  - Output: animation
+  - Checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 16: Revise and present Web Programming. (stage: advanced synthesis; assignment: assign_syl_wp15_week_1_concrete_forms_01; readings/resources: reading_syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7_02, reading_syl_wp15_week_1_concrete_forms_01; prerequisites: self_study_module_04_introduction_to_graphic_design, self_study_module_07_typography_iii)
+  - Output: revision plus book, animation
+  - Checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+- Week 17: Prepare Type Two: read, inspect evidence, and set up the first artifact. (stage: advanced synthesis; assignment: assign_syl_type_two_2015_syllabus_pdf_01; readings/resources: reading_syl_type_two_2015_syllabus_pdf_06, reading_syl_type_two_2015_syllabus_pdf_11, reading_syl_type_two_2015_syllabus_pdf_04; prerequisites: self_study_module_07_typography_iii, self_study_module_08_web_programming)
+  - Output: presentation
+  - Checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 18: Revise and present Type Two. (stage: advanced synthesis; assignment: assign_syl_type_two_2015_syllabus_pdf_07; readings/resources: reading_syl_type_two_2015_syllabus_pdf_06, reading_syl_type_two_2015_syllabus_pdf_11; prerequisites: self_study_module_07_typography_iii, self_study_module_08_web_programming)
+  - Output: revision plus portfolio
+  - Checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+- Week 19: Prepare Grad Type 1: read, inspect evidence, and set up the first artifact. (stage: advanced synthesis; assignment: assign_syl_grad_type_1_2014_syllabus_pdf_01; readings/resources: reading_syl_grad_type_1_2014_syllabus_pdf_03, reading_syl_grad_type_1_2014_syllabus_pdf_07, reading_syl_grad_type_1_2014_syllabus_pdf_06; prerequisites: self_study_module_08_web_programming, self_study_module_09_type_two)
+  - Output: book, portfolio, typeface
+  - Checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 20: Revise and present Grad Type 1. (stage: advanced synthesis; assignment: assign_syl_grad_type_1_2014_syllabus_pdf_08; readings/resources: reading_syl_grad_type_1_2014_syllabus_pdf_03, reading_syl_grad_type_1_2014_syllabus_pdf_07; prerequisites: self_study_module_08_web_programming, self_study_module_09_type_two)
+  - Output: revision plus book
+  - Checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+- Week 21: Prepare typography : read, inspect evidence, and set up the first artifact. (stage: advanced synthesis; assignment: assign_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_13; readings/resources: reading_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_12, reading_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_05, reading_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_02; prerequisites: self_study_module_09_type_two, self_study_module_10_grad_type_1)
+  - Output: presentation
+  - Checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 22: Revise and present typography . (stage: advanced synthesis; assignment: assign_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_01; readings/resources: reading_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_12, reading_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_05; prerequisites: self_study_module_09_type_two, self_study_module_10_grad_type_1)
+  - Output: revision plus poster
+  - Checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+- Week 23: Prepare Mapping Information: read, inspect evidence, and set up the first artifact. (stage: intermediate practice; assignment: assign_syl_sp19_mapping_information_02; prerequisites: self_study_module_10_grad_type_1, self_study_module_11_typography)
+  - Output: animation
+  - Checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 24: Revise and present Mapping Information. (stage: intermediate practice; assignment: assign_syl_sp19_mapping_information_02; prerequisites: self_study_module_10_grad_type_1, self_study_module_11_typography)
+  - Output: revised artifact and critique memo
+  - Checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+- Week 25: Prepare Reframing the Poster: read, inspect evidence, and set up the first artifact. (stage: advanced synthesis; assignment: assign_syl_sp19_reframing_the_poster_01; readings/resources: reading_syl_sp19_reframing_the_poster_02, reading_syl_sp19_reframing_the_poster_01; prerequisites: self_study_module_11_typography, self_study_module_12_mapping_information)
+  - Output: poster
+  - Checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 26: Revise and present Reframing the Poster. (stage: advanced synthesis; assignment: assign_syl_sp19_reframing_the_poster_01; readings/resources: reading_syl_sp19_reframing_the_poster_02, reading_syl_sp19_reframing_the_poster_01; prerequisites: self_study_module_11_typography, self_study_module_12_mapping_information)
+  - Output: revised artifact and critique memo
+  - Checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+- Week 27: Prepare Type Design: read, inspect evidence, and set up the first artifact. (stage: intermediate practice; assignment: assign_syl_sp19_type_design_01; prerequisites: self_study_module_12_mapping_information, self_study_module_13_reframing_the_poster)
+  - Output: typeface
+  - Checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 28: Revise and present Type Design. (stage: intermediate practice; assignment: assign_syl_sp19_type_design_01; prerequisites: self_study_module_12_mapping_information, self_study_module_13_reframing_the_poster)
+  - Output: revised artifact and critique memo
+  - Checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+
 ## Gaps To Preserve
 
 - Do not invent missing rubrics, grades, private readings, or complete assignment sheets.
