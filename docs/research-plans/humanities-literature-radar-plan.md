@@ -131,6 +131,67 @@ Alpha Research is the backend evidence system for those surfaces. It should pres
 
 The first public milestone is not "launch a tool." It is to publish a first season of essays where each post leaves behind a durable dataset or run artifact that makes the next post easier.
 
+## Updated Concept: Archive Signals As A Research Publication
+
+The stronger concept is not a blog about "quantitative humanities" as a method. It is a publication that treats culture, institutions, scholarship, and memory as things that leave measurable traces.
+
+Working product:
+
+```text
+Archive Signals
+Essays and datasets on how culture changes.
+```
+
+Site/research wrapper:
+
+```text
+The Cultural Observatory
+A public research archive behind Archive Signals.
+```
+
+The site should publish three kinds of pieces:
+
+1. Findings: evidence-backed essays with a clear claim, such as "What universities now say they are for" or "AI is now a humanities object."
+2. Maps: field guides to an intellectual area, such as recent AI-and-humanities publishing, museum language, humanities datasets, or canon-drift signals.
+3. Agendas: AI-assisted, human-audited study proposals that identify what could be measured next, what data exists, and what would actually add knowledge.
+
+The point is to create a recurring intellectual product:
+
+- longitudinal studies that show change over time
+- broad field maps that tell readers what people are publishing and discussing now
+- source inventories that make hidden research infrastructure legible
+- study proposals that expand the set of measurable humanities questions
+- reusable public artifacts behind the essays
+
+Alpha Research is the operating layer for this: it stores source inventories, runs backfills, keeps processed datasets, runs analyses, generates artifacts, and makes every public claim traceable.
+
+## Non-Negotiable Scale Contract
+
+The plan should not be deliberately nerfed. Small slices are allowed only for these reasons:
+
+- `schema-probe`: to learn fields, access patterns, pagination, robots constraints, and failure modes.
+- `smoke-run`: to prove a script, remote run, or dashboard path works.
+- `manual-audit-sample`: to estimate extraction quality before trusting a broader corpus.
+- `bounded-world`: when the source itself is small or the essay is explicitly about feasibility.
+
+Everything else should aim at the broadest lawful, technically reliable corpus:
+
+- full source backfill when an API, dump, OAI-PMH endpoint, public export, or complete crawl route exists
+- multi-year longitudinal windows instead of recent-only snapshots
+- source-layer separation rather than arbitrary caps
+- recurring monitors after the first broad build
+- publication claims gated by corpus breadth, provenance, and audit quality
+
+The research product is not the probe. The research product is the accumulated corpus plus the public interpretation it supports.
+
+Every study folder must label its corpus tier:
+
+```text
+schema-probe | pilot-corpus | publication-corpus | monitor-corpus | full-source-corpus
+```
+
+Any `schema-probe` or `pilot-corpus` post must be framed as a feasibility or methods essay. Trend claims require `publication-corpus`, `monitor-corpus`, or `full-source-corpus`.
+
 ## Operating Thesis
 
 The project has three linked jobs:
@@ -430,7 +491,7 @@ Goal: define the publication program and corpus boundaries before downloading da
 
 Steps:
 
-1. Maintain `docs/experiments/cultural-observatory-index.md` as the editorial and research-control index.
+1. Maintain `docs/experiments/cultural-observatory-index.md` as the editorial and research-control index for Archive Signals / The Cultural Observatory.
 2. For each study, create `docs/experiments/<study-slug>/README.md` with the study question, date range, included source types, and exclusion rules.
 3. Create `config/taxonomy.yml` with stable labels for disciplines, methods, periods, geographies, source types, and quantitative-humanities signals.
 4. Create `config/queries.yml` with source-specific search terms and filters.
@@ -443,6 +504,14 @@ Steps:
    - rate-limit assumptions
    - whether abstracts/full text are available
    - whether source can be used in recurring monitoring
+6. Create a publication spec in each study folder:
+   - working title
+   - public question
+   - likely claim types
+   - required evidence tier
+   - source layers required before trend claims are allowed
+   - chart/table package expected
+   - publication decision rule
 
 Initial literature-radar backfill range:
 
@@ -485,6 +554,7 @@ Acceptance check:
 
 - A reviewer can tell what will and will not be collected before any crawler runs.
 - A reader can tell what public essay or research agenda the corpus supports.
+- The study cannot silently become a small demo: the required corpus tier and scale-up path are written before collection begins.
 
 ## Phase 1: Source Inventory And Access Tests
 
@@ -540,12 +610,22 @@ Actions:
    - `supplemental`: useful but partial
    - `web-crawl`: useful through public page snapshots with separately labeled coverage
    - `exclude`: too brittle, restricted, or noisy
+5. Record the broadest lawful acquisition route:
+   - complete dump
+   - full API pagination
+   - OAI-PMH harvest
+   - sitemap crawl
+   - Wayback CDX crawl
+   - bounded public search results
+   - manual seed list plus crawl
+6. Estimate the expected publication-corpus size and the likely storage location before broad fetching.
 
 Acceptance check:
 
 - Each retained source has a reproducible fetch command and a visible raw file on disk.
 - Department pages have a source coverage note, crawl manifest, and extraction confidence label rather than being omitted from the main plan.
 - Probe fetches are for schema validation only; they do not define the final corpus size.
+- Every retained source has a documented path from probe to broad backfill or a written reason why it cannot support broad collection.
 
 ## Phase 2: Broad Corpus Backfill
 
@@ -598,45 +678,63 @@ Acceptance check:
 - Every raw record can be traced to a source, request, and fetch manifest.
 - No secret-bearing files are written under `docs/experiments/`.
 - The first processed corpus is large enough to support trend analysis by year, source, venue, method, and topic without relying on handpicked examples.
+- If storage, rate limits, or source restrictions prevent the target range, the blocker is recorded in `reports/work.md` with the largest completed safe corpus and the exact next route.
 
 ## Phase 2B: Longitudinal Corpus Backfills
 
-Goal: build the non-literature corpora that make the public project distinctive.
+Goal: build the non-literature corpora that make the public project distinctive: studies of how institutional, cultural, and scholarly language changes over time.
 
 Priority longitudinal corpora:
 
 1. University mission/about/values pages.
    - Current pages plus Wayback snapshots.
    - Add catalogs, strategic plans, commencement speeches, and president messages where mission pages are sparse.
+   - Store under `docs/experiments/university-mission-statement-drift/data/raw/<source-layer>/<run-date>/`.
+   - Required processed fields: `institution`, `source_layer`, `source_genre`, `url`, `archive_url`, `snapshot_date`, `year`, `text`, `raw_path`.
 
 2. Museum and archive language.
    - Museum about pages, exhibition descriptions, collection pages, annual reports, repatriation/provenance pages, and education pages.
+   - Store under `docs/experiments/museum-language-drift/data/raw/<source-layer>/<run-date>/`.
+   - Required processed fields: `institution`, `source_layer`, `source_genre`, `collection_area`, `url`, `snapshot_date`, `year`, `text`, `raw_path`.
 
 3. Syllabi and course catalogs.
    - Public syllabi, Open Syllabus exports where available, course catalogs, reading lists, and department requirements.
+   - Store under `docs/experiments/canon-drift-feasibility/` or a new signal-specific study folder once the source route is selected.
+   - Keep assignment-level, course-level, institution-level, and catalog-level data separate.
 
 4. Anthology and canon records.
    - Tables of contents, edition histories, publisher pages, library records, and public teaching materials.
+   - Store edition-specific raw records and treat edition year separately from original publication year.
 
 5. Library and archive metadata.
    - Holdings counts, subject headings, named collections, digitization status, and collection descriptions.
+   - Use only source routes with clear licensing and redistribution terms for derived metadata.
 
 6. Public-intellectual and review venues.
    - Book reviews, magazine archives, essay venues, and public humanities outlets where licensing and access permit metadata-scale analysis.
+   - Prefer metadata, indexes, and citation-like references over full-text storage unless access terms clearly permit it.
 
 For each corpus:
 
 1. Write a one-page study spec before crawling.
 2. Probe sources and access terms.
-3. Backfill the broadest reliable historical range.
+3. Backfill the broadest reliable historical range, with default anchors of 2000, 2010, 2015, 2020, and current year where complete yearly coverage is not available.
 4. Store raw records with manifests.
 5. Normalize into durable units of analysis.
 6. Build a readiness gate that blocks premature public claims when coverage is too thin.
+7. Build like-for-like comparison tables before claiming change:
+   - same source genre over time
+   - same institution or institution cohort over time
+   - same metadata field over time
+   - same collection or page type over time
+8. Add representative excerpts or records for every trend claim.
 
 Acceptance check:
 
 - At least three longitudinal study folders exist with source inventories, raw snapshots, processed tables, and readiness reports.
 - The index can show which studies are publishable, which are still source-probing, and which are blocked.
+- Each longitudinal essay has a source-layer caveat that prevents comparing unlike sources as if they were one stable corpus.
+- Each public trend claim can be audited back to exact records or snapshots.
 
 ## Phase 3: Normalize And Dedupe
 
@@ -838,11 +936,15 @@ For each scout run:
    - likely failure modes
    - why the study would add knowledge
    - a first runnable corpus build
+   - what a null result would mean
+   - what competing interpretations the data could distinguish
+   - what source would make the study invalid if unavailable
 4. Have a second pass audit:
    - whether sources actually exist
    - whether the proposed unit of analysis is measurable
    - whether the claim would be interesting if true
    - whether the likely data can distinguish competing interpretations
+   - whether the proposal is just a familiar literature review in disguise
 5. Save the result under:
 
 ```text
@@ -858,6 +960,7 @@ Acceptance check:
 
 - A scout run produces at least three concrete study briefs that can be turned into experiment folders.
 - The audit rejects weak ideas explicitly instead of forwarding all agent suggestions.
+- Accepted briefs name exact source routes, storage paths, expected artifacts, and the first broad backfill command to implement.
 
 ## Phase 7: Public Essay Pipeline
 
@@ -921,6 +1024,66 @@ Publication readiness gate:
 - `not-ready`: source coverage, extraction quality, or analysis support is insufficient
 
 Do not publish from `not-ready` artifacts except as a methods note about what failed or what remains hard to measure.
+
+## Phase 7B: Site And Editorial System
+
+Goal: make Archive Signals / The Cultural Observatory a durable public surface, not just a folder of reports.
+
+Public surfaces:
+
+1. `Archive Signals` essay feed.
+   - Narrative posts with charts, representative examples, and limitations.
+   - Each post links to a methods note or dataset note when available.
+
+2. `The Cultural Observatory` index.
+   - Living map of studies, datasets, source inventories, and research agendas.
+   - Public-friendly version of `docs/experiments/cultural-observatory-index.md`.
+
+3. Dataset notes.
+   - One public data card per reusable corpus.
+   - Include source coverage, fields, date range, caveats, licensing notes, and starter questions.
+
+4. Research agendas.
+   - Human-audited AI scout outputs.
+   - Each agenda should produce at least one runnable study brief, not just a list of topics.
+
+Repository outputs:
+
+```text
+docs/experiments/publication-queue/
+  reports/editorial-calendar.md
+  reports/season-one-package.md
+  reports/season-one-package.json
+
+docs/experiments/<study-slug>/reports/
+  post.md
+  post-evidence-audit.json
+  publication-handoff.md
+  dataset_briefing.md
+```
+
+Editorial cadence:
+
+- Season One: six posts already packaged for final editorial review.
+- Season Two: corpus scale-up posts and first monitor-driven updates.
+- Monthly: one new finding or field map.
+- Quarterly: one broader research agenda or "what changed" synthesis.
+
+Publication readiness requires:
+
+- post draft
+- chart/table package or a clear reason charts are not useful
+- post evidence audit
+- corpus tier label
+- source coverage caveat
+- reusable artifact path
+- next-study queue item
+
+Acceptance check:
+
+- A reader can enter through the site and understand the claim, corpus, method, caveat, and artifact path without reading repository internals.
+- The public brand does not depend on the phrase "quantitative humanities," though that phrase remains available as a descriptive category.
+- Every published post leaves behind a stronger dataset, monitor, source inventory, or study brief than existed before the post.
 
 ## Phase 8: Department Page Enrichment
 
