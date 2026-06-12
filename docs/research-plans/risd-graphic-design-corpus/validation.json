@@ -160,6 +160,8 @@
     "self_study_portfolio_decision_packet_ready_to_sign_rows": 0,
     "self_study_portfolio_completion_checklist_rows": 3,
     "self_study_portfolio_completion_checklist_ready_rows": 0,
+    "self_study_portfolio_archive_manifest_rows": 3,
+    "self_study_portfolio_archive_manifest_ready_rows": 0,
     "self_study_portfolio_milestones": 3,
     "self_study_portfolio_briefs": 3,
     "self_study_portfolio_briefs_with_completion_gate_status": 3,
@@ -522,6 +524,11 @@
       "id": "self_study_portfolio_completion_checklists_sequence_after_review_actions",
       "status": "pass",
       "detail": "3 completion checklist rows; 0 ready for after-review work; 0 checklist reference/sequence errors; generated mismatch=false."
+    },
+    {
+      "id": "self_study_portfolio_archive_manifests_package_review_evidence",
+      "status": "pass",
+      "detail": "3 review archive manifests; 0 ready to archive; 0 archive reference/package errors; generated mismatch=false."
     },
     {
       "id": "self_study_progress_ledger_links_to_portfolio_completion_gates",
