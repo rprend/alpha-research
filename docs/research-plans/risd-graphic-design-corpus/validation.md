@@ -15,6 +15,7 @@ Overall status: pass
 - Assignments: 585
 - Structured assignment snippets: 585
 - Studio-phase assignment snippets: 585
+- Field-structured assignment snippets: 413
 - High-confidence assignments: 121
 - Medium-confidence assignments: 130
 - Low-confidence assignment fragments: 334
@@ -106,6 +107,7 @@ Overall status: pass
 - PASS assignments_have_structured_signals: 585 assignment snippets include inferred deliverables, constraints, tools, critique, revision, or tacit goals.
 - PASS assignments_have_studio_phase_signals: 585 assignment snippets include assignment type, studio phase, or output-format signals.
 - PASS assignments_have_confidence_boundaries: 121 high, 130 medium, and 334 low confidence assignment rows; 0 boundary metadata errors.
+- PASS assignments_have_field_level_brief_evidence: 413 assignment rows include process, submission, grading, or boundary-marker evidence; 0 field-evidence reference errors.
 - PASS assignments_include_long_brief_blocks: 54 assignment records contain long prompt/brief blocks rather than only sentence snippets.
 - PASS readings_reference_valid_syllabi_and_sources: 0 reading reference errors.
 - PASS readings_have_normalized_work_links: 56 reading snippets linked to 30 canonical works; 43 local catalog matches, 12 external catalog matches, 45 unresolved, 34 non-citation fragments.

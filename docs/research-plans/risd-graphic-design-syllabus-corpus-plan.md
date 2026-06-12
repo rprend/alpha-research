@@ -181,6 +181,8 @@ Acceptance output:
 
 ### Step 3: Deepen Assignment Brief Parsing Into Field-Level Records
 
+Status: implemented for generated process steps, submission requirements, grading criteria, assignment boundary evidence, brief-page rollups, validation reporting, and generated reconstruction/curriculum details.
+
 Goal: convert long assignment blocks into structured studio objects that answer what the student must make, under what constraints, with what critique loop.
 
 Implementation requirements:
@@ -493,6 +495,9 @@ Required fields:
 - `deliverables`
 - `materials`
 - `tools`
+- `process_steps`
+- `submission_requirements`
+- `grading_criteria`
 - `assignment_type`
 - `studio_phases`
 - `critique_questions`
@@ -504,6 +509,7 @@ Required fields:
 - `tacit_goal`
 - `assignment_confidence`
 - `boundary_status`
+- `assignment_boundary_evidence`
 - `evidence_grade`
 
 ### `readings.jsonl`
@@ -691,6 +697,9 @@ Required fields:
 - `constraints`
 - `materials`
 - `tools`
+- `process_steps`
+- `submission_requirements`
+- `grading_criteria`
 - `studio_phases`
 - `output_formats`
 - `critique_assignment_count`

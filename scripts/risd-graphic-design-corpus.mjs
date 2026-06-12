@@ -1834,18 +1834,22 @@ function buildAssignments(syllabi) {
   for (const syllabus of syllabi) {
     syllabus.assignments.forEach((snippet, index) => {
       const assignmentSignals = inferAssignmentSignals(snippet)
+      const assignmentTitle = snippet.match(/\b(?:Project|Assignment|Exercise|Final)\s*[:#]?\s*([^.;]{0,80})/i)?.[0] ?? null
       rows.push({
         assignment_id: `assign_${syllabus.syllabus_id}_${String(index + 1).padStart(2, '0')}`,
         course_code: syllabus.course_code,
         course_title: syllabus.course_title,
         syllabus_id: syllabus.syllabus_id,
-        title: snippet.match(/\b(?:Project|Assignment|Exercise|Final)\s*[:#]?\s*([^.;]{0,80})/i)?.[0] ?? null,
+        title: assignmentTitle,
         week_or_date: extractWeekOrDate(snippet),
         prompt_excerpt: snippet,
         constraints: assignmentSignals.constraints,
         deliverables: assignmentSignals.deliverables,
         materials: assignmentSignals.materials,
         tools: assignmentSignals.tools,
+        process_steps: assignmentSignals.process_steps,
+        submission_requirements: assignmentSignals.submission_requirements,
+        grading_criteria: assignmentSignals.grading_criteria,
         assignment_type: assignmentSignals.assignment_type,
         studio_phases: assignmentSignals.studio_phases,
         critique_questions: assignmentSignals.critique_questions,
@@ -1857,6 +1861,7 @@ function buildAssignments(syllabi) {
         tacit_goal: assignmentSignals.tacit_goal,
         assignment_confidence: assignmentSignals.assignment_confidence,
         boundary_status: assignmentSignals.boundary_status,
+        assignment_boundary_evidence: assignmentBoundaryEvidence({ snippet, assignmentTitle, sourceIds: syllabus.source_ids, boundaryStatus: assignmentSignals.boundary_status }),
         evidence_grade: assignmentSignals.evidence_grade,
         source_ids: syllabus.source_ids,
       })
@@ -1881,6 +1886,9 @@ function inferAssignmentSignals(snippet) {
   const studioPhases = []
   const critiqueQuestions = []
   const evidenceLimits = []
+  const processSteps = []
+  const submissionRequirements = []
+  const gradingCriteria = []
 
   const deliverableChecks = [
     ['logo', /\blogo\b/],
@@ -1961,6 +1969,37 @@ function inferAssignmentSignals(snippet) {
   for (const [label, pattern] of phaseChecks) {
     if (pattern.test(lower)) studioPhases.push(label)
   }
+  const processStepChecks = [
+    ['research precedents or context', /\bresearch\b|\bprecedent\b|\binvestigate\b|\bcollect\b|\bgather\b/],
+    ['sketch or draft alternatives', /\bsketch(?:es|ing)?\b|\bdraft(?:s|ing)?\b|\bthumbnail\b|\brough\b/],
+    ['prototype or test behavior/form', /\bprototype\b|\bmockup\b|\btest\b|\bexperiment\b|\biteration\b|\bversion\b/],
+    ['produce finished artifact', /\bmake\b|\bdesign\b|\bbuild\b|\bcompose\b|\bproduce\b|\bcreate\b|\bcode\b|\bprint\b/],
+    ['present work for critique', /\bpresent(?:ation)?\b|\bpin[- ]?up\b|\bshow\b|\bshare\b|\bcrit(?:ique)?\b|\bfeedback\b|\breview\b/],
+    ['document process or final work', /\bdocument(?:ation)?\b|\barchive\b|\bprocess book\b|\bportfolio\b/],
+  ]
+  for (const [label, pattern] of processStepChecks) {
+    if (pattern.test(lower)) processSteps.push(label)
+  }
+  const submissionChecks = [
+    ['due date or deadline present', /\bdue\b|\bdeadline\b|\bby\s+(?:mon|tues|wed|thurs|fri|sat|sun|jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)/i],
+    ['submit or turn in work', /\bsubmit\b|\bturn(?:ed)? in\b|\bupload\b|\bpost\b|\bbring\b/],
+    ['final presentation or critique', /\bfinal\b|\bpresent(?:ation)?\b|\bcrit(?:ique)?\b|\breview\b/],
+    ['documentation required', /\bdocument(?:ation)?\b|\bprocess book\b|\bportfolio\b|\barchive\b/],
+  ]
+  for (const [label, pattern] of submissionChecks) {
+    if (pattern.test(snippet)) submissionRequirements.push(label)
+  }
+  const gradingChecks = [
+    ['craft and finish', /\bcraft\b|\bfinish\b|\bpolish\b|\bquality\b/],
+    ['concept and critical thinking', /\bconcept\b|\bcritical\b|\bidea\b|\bmeaning\b|\brationale\b/],
+    ['participation and critique contribution', /\bparticipation\b|\bcrit(?:ique)?\b|\bdiscussion\b|\bfeedback\b/],
+    ['process and iteration', /\bprocess\b|\biteration\b|\bsketch\b|\bversion\b|\brevision\b/],
+    ['timely completion', /\btimely\b|\bon time\b|\bdue\b|\bdeadline\b/],
+    ['research depth', /\bresearch\b|\bprecedent\b|\binquiry\b/],
+  ]
+  for (const [label, pattern] of gradingChecks) {
+    if (pattern.test(lower)) gradingCriteria.push(label)
+  }
 
   if (/what|why|how|\?/.test(snippet)) {
     const questions = snippet
@@ -2016,6 +2055,9 @@ function inferAssignmentSignals(snippet) {
     deliverables: uniq(deliverables),
     materials: uniq(materials),
     tools: uniq(tools),
+    process_steps: uniq(processSteps),
+    submission_requirements: uniq(submissionRequirements),
+    grading_criteria: uniq(gradingCriteria),
     assignment_type: assignmentType,
     studio_phases: uniq(studioPhases),
     critique_questions: uniq(critiqueQuestions).slice(0, 4),
@@ -2027,6 +2069,18 @@ function inferAssignmentSignals(snippet) {
     assignment_confidence: boundary.assignment_confidence,
     boundary_status: boundary.boundary_status,
     evidence_grade: boundary.assignment_confidence === 'high' ? 'A' : boundary.assignment_confidence === 'medium' ? 'B' : 'C',
+  }
+}
+
+function assignmentBoundaryEvidence({ snippet, assignmentTitle, sourceIds, boundaryStatus }) {
+  const heading = assignmentTitle ?? snippet.match(/^(?:[A-Z][^.;:]{3,80}:|(?:Project|Assignment|Exercise|Final)\b[^.;]{0,80})/i)?.[0]?.trim() ?? null
+  const marker = snippet.match(/\b(?:Project|Assignment|Exercise|Final|Prompt|Brief|Deliverables?|Due|Submit|Critique|Review|Presentation|Prototype)\b/i)?.[0] ?? null
+  return {
+    heading_text: heading,
+    boundary_marker: marker,
+    source_excerpt: snippet.slice(0, 360),
+    source_ids: sourceIds ?? [],
+    boundary_status: boundaryStatus,
   }
 }
 
@@ -2979,6 +3033,9 @@ function buildAssignmentBriefPages({ courseSitePages, assignments }) {
         constraints: uniq(pageAssignments.flatMap((assignment) => assignment.constraints ?? [])).slice(0, 16),
         materials: uniq(pageAssignments.flatMap((assignment) => assignment.materials ?? [])).slice(0, 16),
         tools: uniq(pageAssignments.flatMap((assignment) => assignment.tools ?? [])).slice(0, 16),
+        process_steps: uniq(pageAssignments.flatMap((assignment) => assignment.process_steps ?? [])).slice(0, 16),
+        submission_requirements: uniq(pageAssignments.flatMap((assignment) => assignment.submission_requirements ?? [])).slice(0, 16),
+        grading_criteria: uniq(pageAssignments.flatMap((assignment) => assignment.grading_criteria ?? [])).slice(0, 16),
         studio_phases: uniq(pageAssignments.flatMap((assignment) => assignment.studio_phases ?? [])).slice(0, 16),
         output_formats: uniq(pageAssignments.map((assignment) => assignment.output_format).filter(Boolean)).slice(0, 12),
         critique_assignment_count: critiqueAssignments.length,
@@ -3761,11 +3818,18 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || assignment.tacit_goal
   ).length
   const phaseStructuredAssignmentCount = assignments.filter((assignment) => assignment.studio_phases?.length || assignment.assignment_type || assignment.output_format).length
+  const fieldStructuredAssignmentCount = assignments.filter((assignment) => assignment.process_steps?.length || assignment.submission_requirements?.length || assignment.grading_criteria?.length || assignment.assignment_boundary_evidence?.boundary_marker).length
   const highConfidenceAssignmentCount = assignments.filter((assignment) => assignment.assignment_confidence === 'high').length
   const mediumConfidenceAssignmentCount = assignments.filter((assignment) => assignment.assignment_confidence === 'medium').length
   const lowConfidenceAssignmentCount = assignments.filter((assignment) => assignment.assignment_confidence === 'low').length
   const longAssignmentBriefCount = assignments.filter((assignment) => (assignment.prompt_excerpt?.split(/\s+/).length ?? 0) >= 45).length
   const assignmentBoundaryErrors = assignments.filter((assignment) => !assignment.assignment_confidence || !assignment.boundary_status)
+  const assignmentFieldEvidenceErrors = assignments.filter((assignment) =>
+    !assignment.assignment_boundary_evidence
+      || !assignment.assignment_boundary_evidence.boundary_status
+      || assignment.assignment_boundary_evidence.source_ids?.some((id) => !sourceIds.has(id))
+      || assignment.assignment_boundary_evidence.boundary_status !== assignment.boundary_status
+  )
   const readingSourceErrors = readings.filter((reading) => !syllabusIds.has(reading.syllabus_id) || reading.source_ids.some((id) => !sourceIds.has(id)))
   const readingIds = new Set(readings.map((reading) => reading.reading_id))
   const normalizedReadingCount = readings.filter((reading) => reading.canonical_work_id).length
@@ -3930,6 +3994,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       id: 'assignments_have_confidence_boundaries',
       status: assignmentBoundaryErrors.length === 0 && (highConfidenceAssignmentCount + mediumConfidenceAssignmentCount) > 0 ? 'pass' : assignmentBoundaryErrors.length === 0 ? 'warn' : 'fail',
       detail: `${highConfidenceAssignmentCount} high, ${mediumConfidenceAssignmentCount} medium, and ${lowConfidenceAssignmentCount} low confidence assignment rows; ${assignmentBoundaryErrors.length} boundary metadata errors.`,
+    },
+    {
+      id: 'assignments_have_field_level_brief_evidence',
+      status: assignmentFieldEvidenceErrors.length === 0 && fieldStructuredAssignmentCount > 0 ? 'pass' : assignmentFieldEvidenceErrors.length === 0 ? 'warn' : 'fail',
+      detail: `${fieldStructuredAssignmentCount} assignment rows include process, submission, grading, or boundary-marker evidence; ${assignmentFieldEvidenceErrors.length} field-evidence reference errors.`,
     },
     {
       id: 'assignments_include_long_brief_blocks',
@@ -4137,6 +4206,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       assignments: assignments.length,
       structured_assignments: structuredAssignmentCount,
       phase_structured_assignments: phaseStructuredAssignmentCount,
+      field_structured_assignments: fieldStructuredAssignmentCount,
       high_confidence_assignments: highConfidenceAssignmentCount,
       medium_confidence_assignments: mediumConfidenceAssignmentCount,
       low_confidence_assignments: lowConfidenceAssignmentCount,
@@ -4550,6 +4620,7 @@ Overall status: ${validation.status}
 - Assignments: ${validation.counts.assignments}
 - Structured assignment snippets: ${validation.counts.structured_assignments}
 - Studio-phase assignment snippets: ${validation.counts.phase_structured_assignments}
+- Field-structured assignment snippets: ${validation.counts.field_structured_assignments}
 - High-confidence assignments: ${validation.counts.high_confidence_assignments}
 - Medium-confidence assignments: ${validation.counts.medium_confidence_assignments}
 - Low-confidence assignment fragments: ${validation.counts.low_confidence_assignments}
@@ -4778,12 +4849,16 @@ function reconstructionMarkdown({ sources, courses, syllabi, assignments, readin
         const structured = [
           assignment.deliverables?.length ? `deliverables: ${assignment.deliverables.join(', ')}` : null,
           assignment.constraints?.length ? `constraints: ${assignment.constraints.join(', ')}` : null,
+          assignment.process_steps?.length ? `process: ${assignment.process_steps.join(', ')}` : null,
+          assignment.submission_requirements?.length ? `submission: ${assignment.submission_requirements.join(', ')}` : null,
+          assignment.grading_criteria?.length ? `criteria: ${assignment.grading_criteria.join(', ')}` : null,
           assignment.assignment_type ? `type: ${assignment.assignment_type}` : null,
           assignment.studio_phases?.length ? `phases: ${assignment.studio_phases.join(', ')}` : null,
           assignment.output_format ? `output: ${assignment.output_format}` : null,
           assignment.critique_format ? `critique: ${assignment.critique_format}` : null,
           assignment.revision_expectation ? `revision: ${assignment.revision_expectation}` : null,
           assignment.tacit_goal ? `tacit goal: ${assignment.tacit_goal}` : null,
+          assignment.boundary_status ? `boundary: ${assignment.boundary_status}` : null,
         ].filter(Boolean)
         lines.push(`  - ${assignment.prompt_excerpt}${structured.length ? ` (${structured.join('; ')})` : ''}`)
       })
@@ -5244,11 +5319,15 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
           const details = [
             assignment.deliverables?.length ? `deliverables: ${assignment.deliverables.join(', ')}` : null,
             assignment.constraints?.length ? `constraints: ${assignment.constraints.join(', ')}` : null,
+            assignment.process_steps?.length ? `process: ${assignment.process_steps.join(', ')}` : null,
+            assignment.submission_requirements?.length ? `submission: ${assignment.submission_requirements.join(', ')}` : null,
+            assignment.grading_criteria?.length ? `criteria: ${assignment.grading_criteria.join(', ')}` : null,
             assignment.assignment_type ? `type: ${assignment.assignment_type}` : null,
             assignment.studio_phases?.length ? `phases: ${assignment.studio_phases.join(', ')}` : null,
             assignment.output_format ? `output: ${assignment.output_format}` : null,
             assignment.critique_format ? `critique: ${assignment.critique_format}` : null,
             assignment.revision_expectation ? `revision: ${assignment.revision_expectation}` : null,
+            assignment.boundary_status ? `boundary: ${assignment.boundary_status}` : null,
           ].filter(Boolean)
           lines.push(`  - ${assignmentTitle}: ${assignment.prompt_excerpt}${details.length ? ` (${details.join('; ')})` : ''}`)
         })

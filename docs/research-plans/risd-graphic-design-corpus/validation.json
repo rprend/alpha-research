@@ -11,6 +11,7 @@
     "assignments": 585,
     "structured_assignments": 585,
     "phase_structured_assignments": 585,
+    "field_structured_assignments": 413,
     "high_confidence_assignments": 121,
     "medium_confidence_assignments": 130,
     "low_confidence_assignments": 334,
@@ -132,6 +133,11 @@
       "id": "assignments_have_confidence_boundaries",
       "status": "pass",
       "detail": "121 high, 130 medium, and 334 low confidence assignment rows; 0 boundary metadata errors."
+    },
+    {
+      "id": "assignments_have_field_level_brief_evidence",
+      "status": "pass",
+      "detail": "413 assignment rows include process, submission, grading, or boundary-marker evidence; 0 field-evidence reference errors."
     },
     {
       "id": "assignments_include_long_brief_blocks",
