@@ -39,6 +39,7 @@ const searchPromoteLimit = Number(process.env.RISD_GD_SEARCH_PROMOTE_LIMIT ?? 8)
 const archivePromoteLimit = Number(process.env.RISD_GD_ARCHIVE_PROMOTE_LIMIT ?? 5)
 const searchImportPath = process.env.RISD_GD_SEARCH_IMPORTS ?? join(outDir, 'search_imports.jsonl')
 const portfolioGateStatusImportPath = process.env.RISD_GD_PORTFOLIO_GATE_STATUS_IMPORTS ?? join(outDir, 'self_study_portfolio_gate_status_import.jsonl')
+const portfolioReviewerFeedbackImportPath = process.env.RISD_GD_PORTFOLIO_REVIEWER_FEEDBACK_IMPORTS ?? join(outDir, 'self_study_portfolio_reviewer_feedback_import.jsonl')
 const risdGraphicDesignFacultyUrl = 'https://www.risd.edu/academics/graphic-design/faculty'
 
 const seeds = [
@@ -4048,7 +4049,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioGateStatusSummary = null, selfStudyPortfolioReviewIndex = null, selfStudyPortfolioReviewerHandoff = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioGateStatusSummary = null, selfStudyPortfolioReviewIndex = null, selfStudyPortfolioReviewerHandoff = null, selfStudyPortfolioReviewerFeedbackTemplate = null, selfStudyPortfolioReviewerFeedbackImports = null, selfStudyPortfolioRevisionQueue = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveArchivePromotions = archivePromotions ?? loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
@@ -4066,6 +4067,9 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const effectiveSelfStudyPortfolioGateStatusSummary = selfStudyPortfolioGateStatusSummary ?? []
   const effectiveSelfStudyPortfolioReviewIndex = selfStudyPortfolioReviewIndex ?? []
   const effectiveSelfStudyPortfolioReviewerHandoff = selfStudyPortfolioReviewerHandoff ?? []
+  const effectiveSelfStudyPortfolioReviewerFeedbackTemplate = selfStudyPortfolioReviewerFeedbackTemplate ?? []
+  const effectiveSelfStudyPortfolioReviewerFeedbackImports = selfStudyPortfolioReviewerFeedbackImports ?? loadJsonl(portfolioReviewerFeedbackImportPath)
+  const effectiveSelfStudyPortfolioRevisionQueue = selfStudyPortfolioRevisionQueue ?? []
   const effectiveSelfStudyPortfolioMilestones = selfStudyPortfolioMilestones ?? []
   const effectiveSelfStudyPortfolioBriefs = selfStudyPortfolioBriefs ?? []
   const effectiveSelfStudyPortfolioReferencePackets = selfStudyPortfolioReferencePackets ?? []
@@ -4329,6 +4333,10 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const portfolioReviewIndex = effectiveSelfStudyPortfolioReviewIndex.length ? effectiveSelfStudyPortfolioReviewIndex : generatedPortfolioReviewIndex
   const generatedPortfolioReviewerHandoff = buildSelfStudyPortfolioReviewerHandoff(portfolioReviewIndex)
   const portfolioReviewerHandoff = effectiveSelfStudyPortfolioReviewerHandoff.length ? effectiveSelfStudyPortfolioReviewerHandoff : generatedPortfolioReviewerHandoff
+  const generatedPortfolioReviewerFeedbackTemplate = buildSelfStudyPortfolioReviewerFeedbackTemplate(portfolioReviewerHandoff)
+  const portfolioReviewerFeedbackTemplate = effectiveSelfStudyPortfolioReviewerFeedbackTemplate.length ? effectiveSelfStudyPortfolioReviewerFeedbackTemplate : generatedPortfolioReviewerFeedbackTemplate
+  const generatedPortfolioRevisionQueue = buildSelfStudyPortfolioRevisionQueue(portfolioReviewerHandoff, effectiveSelfStudyPortfolioReviewerFeedbackImports)
+  const portfolioRevisionQueue = effectiveSelfStudyPortfolioRevisionQueue.length ? effectiveSelfStudyPortfolioRevisionQueue : generatedPortfolioRevisionQueue
   const progressLedgerWithPortfolioGateAnnotations = annotateSelfStudyProgressLedgerWithPortfolioGates(progressLedger, portfolioMilestones, portfolioCompletionGates)
   const curriculumModulesWithSourceIds = curriculumModules.filter((module) => module.source_ids?.length).length
   const curriculumModulesWithAssignments = curriculumModules.filter((module) => module.assignment_ids?.length).length
@@ -4655,6 +4663,48 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || !handoff.post_review_followup?.length
       || !Array.isArray(handoff.blocking_focus)
   )
+  const portfolioReviewerHandoffIds = new Set(portfolioReviewerHandoff.map((handoff) => handoff.handoff_id))
+  const validFeedbackOutcomes = new Set(['not_reviewed', 'ready_for_review', 'needs_revision', 'blocked'])
+  const validRevisionStatuses = new Set(['pending', 'resolved', 'deferred'])
+  const validRevisionPriorities = new Set(['high', 'medium', 'low'])
+  const portfolioReviewerFeedbackTemplateErrors = portfolioReviewerFeedbackTemplate.filter((row) =>
+    !row.feedback_id
+      || !row.handoff_id
+      || !portfolioReviewerHandoffIds.has(row.handoff_id)
+      || !row.review_index_id
+      || !portfolioReviewIndexIds.has(row.review_index_id)
+      || !row.milestone_id
+      || !portfolioMilestoneIds.has(row.milestone_id)
+      || !validFeedbackOutcomes.has(row.outcome)
+      || !Array.isArray(row.status_updates)
+      || !Array.isArray(row.revision_items)
+      || row.revision_items.some((item) => !item.revision_id || !validPortfolioReviewBlockerTypes.has(item.blocker_type) || !validRevisionPriorities.has(item.priority) || !item.prompt || !Array.isArray(item.evidence_refs) || !validRevisionStatuses.has(item.status))
+      || !row.import_instructions?.length
+  )
+  const portfolioReviewerFeedbackImportErrors = effectiveSelfStudyPortfolioReviewerFeedbackImports.filter((row) =>
+    !row.feedback_id
+      || !row.handoff_id
+      || !portfolioReviewerHandoffIds.has(row.handoff_id)
+      || !row.milestone_id
+      || !portfolioMilestoneIds.has(row.milestone_id)
+      || !validFeedbackOutcomes.has(row.outcome)
+      || row.status_updates?.some((update) => !update.check_id || !portfolioCompletionGateCheckIds.has(update.check_id) || !['pending', 'satisfied'].includes(update.current_status) || !Array.isArray(update.evidence_refs))
+      || row.revision_items?.some((item) => !item.revision_id || !validPortfolioReviewBlockerTypes.has(item.blocker_type) || !validRevisionPriorities.has(item.priority) || !item.prompt || !Array.isArray(item.evidence_refs) || !validRevisionStatuses.has(item.status))
+  )
+  const portfolioRevisionQueueErrors = portfolioRevisionQueue.filter((row) =>
+    !row.queue_id
+      || !row.handoff_id
+      || !portfolioReviewerHandoffIds.has(row.handoff_id)
+      || !row.milestone_id
+      || !portfolioMilestoneIds.has(row.milestone_id)
+      || !validPortfolioReviewBlockerTypes.has(row.blocker_type)
+      || !validRevisionPriorities.has(row.priority)
+      || !validRevisionStatuses.has(row.status)
+      || !row.revision_prompt
+      || !Array.isArray(row.evidence_refs)
+      || !['reviewer_feedback_import', 'generated_blocker_template'].includes(row.source)
+      || !row.next_action
+  )
   const portfolioBriefReadinessErrors = portfolioBriefs.filter((brief) =>
     !brief.completion_gate_id
       || !portfolioCompletionGateIds.has(brief.completion_gate_id)
@@ -4977,6 +5027,21 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${portfolioReviewerHandoff.length} reviewer handoff rows; ${portfolioReviewerHandoff.filter((row) => row.readiness_status === 'ready_for_review').length} ready; ${portfolioReviewerHandoffErrors.length} handoff reference/action errors.`,
     },
     {
+      id: 'self_study_portfolio_reviewer_feedback_templates_capture_outcomes',
+      status: portfolioReviewerFeedbackTemplateErrors.length === 0 && portfolioReviewerFeedbackTemplate.length === portfolioReviewerHandoff.length && portfolioReviewerFeedbackTemplate.length > 0 ? 'pass' : 'fail',
+      detail: `${portfolioReviewerFeedbackTemplate.length} reviewer feedback template rows; ${portfolioReviewerFeedbackTemplateErrors.length} template reference/action errors.`,
+    },
+    {
+      id: 'self_study_portfolio_reviewer_feedback_imports_are_valid',
+      status: portfolioReviewerFeedbackImportErrors.length === 0 ? 'pass' : 'fail',
+      detail: `${effectiveSelfStudyPortfolioReviewerFeedbackImports.length} reviewer feedback import rows; ${portfolioReviewerFeedbackImportErrors.length} import reference/action errors.`,
+    },
+    {
+      id: 'self_study_portfolio_revision_queue_tracks_post_review_work',
+      status: portfolioRevisionQueueErrors.length === 0 && portfolioRevisionQueue.length > 0 ? 'pass' : 'fail',
+      detail: `${portfolioRevisionQueue.length} portfolio revision queue rows; ${portfolioRevisionQueue.filter((row) => row.status === 'pending').length} pending; ${portfolioRevisionQueueErrors.length} queue reference/action errors.`,
+    },
+    {
       id: 'self_study_progress_ledger_links_to_portfolio_completion_gates',
       status: progressLedgerPortfolioGateErrors.length === 0 && progressLedgerWithPortfolioGateAnnotations.length === progressLedger.length && progressLedger.length > 0 ? 'pass' : 'fail',
       detail: `${progressLedgerWithPortfolioGateAnnotations.length} progress ledger rows carry portfolio review gate annotations; ${progressLedgerPortfolioGateErrors.length} annotation reference errors.`,
@@ -5169,6 +5234,10 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_portfolio_review_index_filter_blocked_rows: portfolioReviewIndex.filter((row) => row.dashboard_groups?.readiness_group === 'blocked').length,
       self_study_portfolio_reviewer_handoff_rows: portfolioReviewerHandoff.length,
       self_study_portfolio_reviewer_handoff_ready_rows: portfolioReviewerHandoff.filter((row) => row.readiness_status === 'ready_for_review').length,
+      self_study_portfolio_reviewer_feedback_template_rows: portfolioReviewerFeedbackTemplate.length,
+      self_study_portfolio_reviewer_feedback_import_rows: effectiveSelfStudyPortfolioReviewerFeedbackImports.length,
+      self_study_portfolio_revision_queue_rows: portfolioRevisionQueue.length,
+      self_study_portfolio_revision_queue_pending_rows: portfolioRevisionQueue.filter((row) => row.status === 'pending').length,
       self_study_portfolio_milestones: portfolioMilestones.length,
       self_study_portfolio_briefs: portfolioBriefs.length,
       self_study_portfolio_briefs_with_completion_gate_status: portfolioBriefs.filter((brief) => brief.review_readiness?.status).length,
@@ -5800,6 +5869,10 @@ Overall status: ${validation.status}
 - Self-study portfolio review index filter blocked rows: ${validation.counts.self_study_portfolio_review_index_filter_blocked_rows}
 - Self-study portfolio reviewer handoff rows: ${validation.counts.self_study_portfolio_reviewer_handoff_rows}
 - Self-study portfolio reviewer handoff ready rows: ${validation.counts.self_study_portfolio_reviewer_handoff_ready_rows}
+- Self-study portfolio reviewer feedback template rows: ${validation.counts.self_study_portfolio_reviewer_feedback_template_rows}
+- Self-study portfolio reviewer feedback import rows: ${validation.counts.self_study_portfolio_reviewer_feedback_import_rows}
+- Self-study portfolio revision queue rows: ${validation.counts.self_study_portfolio_revision_queue_rows}
+- Self-study portfolio revision queue pending rows: ${validation.counts.self_study_portfolio_revision_queue_pending_rows}
 - Self-study portfolio milestones: ${validation.counts.self_study_portfolio_milestones}
 - Self-study portfolio briefs: ${validation.counts.self_study_portfolio_briefs}
 - Self-study portfolio briefs with completion gate status: ${validation.counts.self_study_portfolio_briefs_with_completion_gate_status}
@@ -7436,6 +7509,138 @@ function selfStudyPortfolioReviewerHandoffMarkdown(handoffs) {
   return lines.map((line) => line.trimEnd()).join('\n')
 }
 
+function buildSelfStudyPortfolioReviewerFeedbackTemplate(handoffs) {
+  return handoffs.map((handoff) => ({
+    feedback_id: `feedback_${handoff.handoff_id}`,
+    generated_at: retrievedAt,
+    handoff_id: handoff.handoff_id,
+    review_index_id: handoff.review_index_id,
+    milestone_id: handoff.milestone_id,
+    reviewer_name: '',
+    review_date: '',
+    outcome: 'not_reviewed',
+    status_updates: [],
+    revision_items: handoff.blocking_focus.map((blockerType, index) => ({
+      revision_id: `${handoff.handoff_id}_revision_${String(index + 1).padStart(2, '0')}`,
+      blocker_type: blockerType,
+      priority: blockerType === 'missing_outputs' ? 'high' : 'medium',
+      prompt: reviewerRevisionPrompt(blockerType),
+      evidence_refs: [],
+      owner: 'learner',
+      status: 'pending',
+    })),
+    reviewer_notes: '',
+    import_instructions: [
+      'Copy this row into self_study_portfolio_reviewer_feedback_import.jsonl after review.',
+      'Set outcome to ready_for_review, needs_revision, or blocked.',
+      'Add status_updates only for gate checks the reviewer can verify from evidence refs.',
+      'Keep revision_items that still need learner work; mark completed items resolved only with evidence refs.',
+    ],
+    provenance_note: 'Generated reviewer feedback capture template from portfolio reviewer handoff rows.',
+  }))
+}
+
+function reviewerRevisionPrompt(blockerType) {
+  if (blockerType === 'missing_outputs') return 'Attach final artifact/process evidence for every expected output named in the gate status summary.'
+  if (blockerType === 'missing_critique_revisions') return 'Add before/after critique evidence and decision rationale for every pending critique/revision check.'
+  if (blockerType === 'unresolved_evidence_warnings') return 'Resolve the evidence warning with stronger public evidence or disclose it in the critique memo.'
+  if (blockerType === 'missing_export_package') return 'Package the brief, reference packet, source excerpt packet, and source IDs through the export manifest.'
+  return 'Resolve the reviewer-identified blocker and attach evidence.'
+}
+
+function buildSelfStudyPortfolioRevisionQueue(handoffs, feedbackImports = []) {
+  const importsByHandoff = new Map(feedbackImports.filter((row) => row.handoff_id).map((row) => [row.handoff_id, row]))
+  return handoffs.flatMap((handoff) => {
+    const imported = importsByHandoff.get(handoff.handoff_id)
+    const revisionItems = imported?.revision_items?.length
+      ? imported.revision_items
+      : handoff.blocking_focus.map((blockerType, index) => ({
+        revision_id: `${handoff.handoff_id}_revision_${String(index + 1).padStart(2, '0')}`,
+        blocker_type: blockerType,
+        priority: blockerType === 'missing_outputs' ? 'high' : 'medium',
+        prompt: reviewerRevisionPrompt(blockerType),
+        evidence_refs: [],
+        owner: 'learner',
+        status: 'pending',
+      }))
+    return revisionItems.map((item) => ({
+      queue_id: `revision_queue_${item.revision_id}`,
+      generated_at: retrievedAt,
+      handoff_id: handoff.handoff_id,
+      feedback_id: imported?.feedback_id ?? null,
+      milestone_id: handoff.milestone_id,
+      title: handoff.title,
+      blocker_type: item.blocker_type ?? 'other_blocker',
+      priority: item.priority ?? 'medium',
+      revision_prompt: item.prompt ?? reviewerRevisionPrompt(item.blocker_type),
+      evidence_refs: item.evidence_refs ?? [],
+      owner: item.owner ?? 'learner',
+      status: item.status ?? 'pending',
+      source: imported ? 'reviewer_feedback_import' : 'generated_blocker_template',
+      next_action: item.status === 'resolved'
+        ? 'Confirm evidence refs are captured in the gate status import before marking the gate ready.'
+        : 'Complete the revision, attach evidence refs, update reviewer feedback import, and regenerate.',
+      provenance_note: 'Generated post-review revision queue from reviewer feedback imports when present, otherwise from handoff blocker focus.',
+    }))
+  })
+}
+
+function selfStudyPortfolioReviewerFeedbackTemplateMarkdown(feedbackTemplates) {
+  const lines = [
+    '# RISD Graphic Design Reviewer Feedback Template',
+    '',
+    `Generated: ${retrievedAt}`,
+    '',
+    'Copy rows from the JSONL template into the reviewer feedback import file after a critique. Do not mark outcomes ready without evidence refs.',
+    '',
+    `- Feedback template rows: ${feedbackTemplates.length}`,
+    '',
+  ]
+  for (const row of feedbackTemplates) {
+    lines.push(`## ${row.milestone_id}`)
+    lines.push('')
+    lines.push(`- Feedback ID: ${row.feedback_id}`)
+    lines.push(`- Handoff ID: ${row.handoff_id}`)
+    lines.push(`- Outcome: ${row.outcome}`)
+    lines.push('- Revision items:')
+    row.revision_items.forEach((item) => lines.push(`  - ${item.revision_id}: ${item.prompt} (${item.priority}; ${item.status})`))
+    lines.push('- Import instructions:')
+    row.import_instructions.forEach((item) => lines.push(`  - ${item}`))
+    lines.push('')
+  }
+  return lines.map((line) => line.trimEnd()).join('\n')
+}
+
+function selfStudyPortfolioRevisionQueueMarkdown(revisionQueue) {
+  const lines = [
+    '# RISD Graphic Design Portfolio Revision Queue',
+    '',
+    `Generated: ${retrievedAt}`,
+    '',
+    'This queue turns reviewer feedback or unresolved handoff blockers into learner revision work. Rows from generated blockers are templates until a reviewer feedback import supplies actual critique outcomes.',
+    '',
+    `- Revision rows: ${revisionQueue.length}`,
+    `- Pending rows: ${revisionQueue.filter((row) => row.status === 'pending').length}`,
+    `- Resolved rows: ${revisionQueue.filter((row) => row.status === 'resolved').length}`,
+    '',
+  ]
+  for (const row of revisionQueue) {
+    lines.push(`## ${row.queue_id}`)
+    lines.push('')
+    lines.push(`- Milestone: ${row.milestone_id}`)
+    lines.push(`- Handoff: ${row.handoff_id}`)
+    lines.push(`- Source: ${row.source}`)
+    lines.push(`- Blocker type: ${row.blocker_type}`)
+    lines.push(`- Priority: ${row.priority}`)
+    lines.push(`- Status: ${row.status}`)
+    lines.push(`- Revision: ${row.revision_prompt}`)
+    lines.push(`- Evidence refs: ${row.evidence_refs.length ? row.evidence_refs.join(', ') : 'none yet'}`)
+    lines.push(`- Next action: ${row.next_action}`)
+    lines.push('')
+  }
+  return lines.map((line) => line.trimEnd()).join('\n')
+}
+
 function annotateSelfStudyProgressLedgerWithPortfolioGates(progressLedger, portfolioMilestones, portfolioCompletionGates) {
   const milestoneByPacingId = new Map()
   for (const milestone of portfolioMilestones) {
@@ -8356,6 +8561,9 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   const portfolioBriefs = buildSelfStudyPortfolioBriefs(selfStudyModules, pacingPlan, portfolioMilestones, portfolioCompletionGates)
   const portfolioReviewIndex = buildSelfStudyPortfolioReviewIndex(portfolioMilestones, portfolioBriefs, portfolioGateStatusSummary, portfolioReferencePackets, portfolioSourceExcerptPackets, portfolioExportManifests)
   const portfolioReviewerHandoff = buildSelfStudyPortfolioReviewerHandoff(portfolioReviewIndex)
+  const portfolioReviewerFeedbackTemplate = buildSelfStudyPortfolioReviewerFeedbackTemplate(portfolioReviewerHandoff)
+  const portfolioReviewerFeedbackImports = loadJsonl(portfolioReviewerFeedbackImportPath)
+  const portfolioRevisionQueue = buildSelfStudyPortfolioRevisionQueue(portfolioReviewerHandoff, portfolioReviewerFeedbackImports)
   writeJsonl(join(outDir, 'self_study_pacing_plan.jsonl'), pacingPlan)
   writeJsonl(join(outDir, 'self_study_pacing_profiles.jsonl'), buildSelfStudyPacingProfiles(pacingPlan))
   writeJsonl(join(outDir, 'self_study_progress_ledger.jsonl'), progressLedgerWithPortfolioGateAnnotations)
@@ -8369,6 +8577,10 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   writeFileSync(join(outDir, 'self_study_portfolio_review_index.md'), selfStudyPortfolioReviewIndexMarkdown(portfolioReviewIndex))
   writeJsonl(join(outDir, 'self_study_portfolio_reviewer_handoff.jsonl'), portfolioReviewerHandoff)
   writeFileSync(join(outDir, 'self_study_portfolio_reviewer_handoff.md'), selfStudyPortfolioReviewerHandoffMarkdown(portfolioReviewerHandoff))
+  writeJsonl(join(outDir, 'self_study_portfolio_reviewer_feedback_template.jsonl'), portfolioReviewerFeedbackTemplate)
+  writeFileSync(join(outDir, 'self_study_portfolio_reviewer_feedback_template.md'), selfStudyPortfolioReviewerFeedbackTemplateMarkdown(portfolioReviewerFeedbackTemplate))
+  writeJsonl(join(outDir, 'self_study_portfolio_revision_queue.jsonl'), portfolioRevisionQueue)
+  writeFileSync(join(outDir, 'self_study_portfolio_revision_queue.md'), selfStudyPortfolioRevisionQueueMarkdown(portfolioRevisionQueue))
   writeJsonl(join(outDir, 'self_study_portfolio_milestones.jsonl'), portfolioMilestones)
   writeJsonl(join(outDir, 'self_study_portfolio_reference_packets.jsonl'), portfolioReferencePackets)
   writeJsonl(join(outDir, 'self_study_portfolio_source_excerpt_packets.jsonl'), portfolioSourceExcerptPackets)

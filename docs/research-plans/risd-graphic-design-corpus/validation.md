@@ -142,6 +142,10 @@ Overall status: pass
 - Self-study portfolio review index filter blocked rows: 3
 - Self-study portfolio reviewer handoff rows: 3
 - Self-study portfolio reviewer handoff ready rows: 0
+- Self-study portfolio reviewer feedback template rows: 3
+- Self-study portfolio reviewer feedback import rows: 0
+- Self-study portfolio revision queue rows: 9
+- Self-study portfolio revision queue pending rows: 9
 - Self-study portfolio milestones: 3
 - Self-study portfolio briefs: 3
 - Self-study portfolio briefs with completion gate status: 3
@@ -211,6 +215,9 @@ Overall status: pass
 - PASS self_study_portfolio_gate_status_summary_explains_applied_imports: 3 portfolio gate status summary rows; 0 imports applied; 0 summary reference errors.
 - PASS self_study_portfolio_review_index_links_review_artifacts: 3 portfolio review index rows; 0 ready; 0 index reference errors.
 - PASS self_study_portfolio_reviewer_handoffs_define_critique_actions: 3 reviewer handoff rows; 0 ready; 0 handoff reference/action errors.
+- PASS self_study_portfolio_reviewer_feedback_templates_capture_outcomes: 3 reviewer feedback template rows; 0 template reference/action errors.
+- PASS self_study_portfolio_reviewer_feedback_imports_are_valid: 0 reviewer feedback import rows; 0 import reference/action errors.
+- PASS self_study_portfolio_revision_queue_tracks_post_review_work: 9 portfolio revision queue rows; 9 pending; 0 queue reference/action errors.
 - PASS self_study_progress_ledger_links_to_portfolio_completion_gates: 28 progress ledger rows carry portfolio review gate annotations; 0 annotation reference errors.
 - PASS self_study_portfolio_briefs_embed_completion_gate_status: 3 portfolio briefs embed completion gate status; 0 readiness reference/render errors.
 - PASS self_study_portfolio_milestones_have_valid_review_packages: 3 portfolio milestones; 0 milestone reference errors; generated mismatch=false.

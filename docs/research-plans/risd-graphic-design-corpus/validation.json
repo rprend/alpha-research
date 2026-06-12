@@ -138,6 +138,10 @@
     "self_study_portfolio_review_index_filter_blocked_rows": 3,
     "self_study_portfolio_reviewer_handoff_rows": 3,
     "self_study_portfolio_reviewer_handoff_ready_rows": 0,
+    "self_study_portfolio_reviewer_feedback_template_rows": 3,
+    "self_study_portfolio_reviewer_feedback_import_rows": 0,
+    "self_study_portfolio_revision_queue_rows": 9,
+    "self_study_portfolio_revision_queue_pending_rows": 9,
     "self_study_portfolio_milestones": 3,
     "self_study_portfolio_briefs": 3,
     "self_study_portfolio_briefs_with_completion_gate_status": 3,
@@ -445,6 +449,21 @@
       "id": "self_study_portfolio_reviewer_handoffs_define_critique_actions",
       "status": "pass",
       "detail": "3 reviewer handoff rows; 0 ready; 0 handoff reference/action errors."
+    },
+    {
+      "id": "self_study_portfolio_reviewer_feedback_templates_capture_outcomes",
+      "status": "pass",
+      "detail": "3 reviewer feedback template rows; 0 template reference/action errors."
+    },
+    {
+      "id": "self_study_portfolio_reviewer_feedback_imports_are_valid",
+      "status": "pass",
+      "detail": "0 reviewer feedback import rows; 0 import reference/action errors."
+    },
+    {
+      "id": "self_study_portfolio_revision_queue_tracks_post_review_work",
+      "status": "pass",
+      "detail": "9 portfolio revision queue rows; 9 pending; 0 queue reference/action errors."
     },
     {
       "id": "self_study_progress_ledger_links_to_portfolio_completion_gates",
