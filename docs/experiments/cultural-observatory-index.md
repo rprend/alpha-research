@@ -356,6 +356,8 @@ Implemented:
 - `result.json`
 - `work.md`
 - `public-draft.md`
+- `post.md`
+- `post-evidence-audit.json`
 - readiness gate
 - one-command pipeline runner
 
@@ -369,13 +371,15 @@ Current corpus:
 - 4 chart artifacts
 - audit packet: 54 review rows, including 229 accession-year proxy mismatches across the full sample
 - publication handoff: ready for copyedit with chart captions and claim checklist
+- publication post: `reports/post.md`, a polished single-institution collection-shape draft
+- post evidence audit: `reports/post-evidence-audit.json`, status `pass`, 15/15 count, chart, and caveat checks passed
 - 87.2% of sampled records have an image
 - readiness: ready for editorial review with single-institution and sample-size caveats
 
 Next implementation moves:
 
 - fetch the full collection or a larger paginated corpus
-- copyedit the publication handoff into the first public post
+- final editorial review for `reports/post.md` as the first public post candidate
 - review audit rows before strengthening acquisition-decade claims
 - compare against a second open museum API before cross-institution claims
 

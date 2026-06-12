@@ -1,0 +1,91 @@
+{
+  "generatedAt": "2026-06-12T20:33:47.326Z",
+  "postPath": "docs/experiments/cleveland-museum-collection-shape/reports/post.md",
+  "resultPath": "docs/experiments/cleveland-museum-collection-shape/reports/result.json",
+  "auditPacketPath": "docs/experiments/cleveland-museum-collection-shape/reports/audit-packet.json",
+  "status": "pass",
+  "checkCount": 15,
+  "passedCount": 15,
+  "checks": [
+    {
+      "id": "sample-records",
+      "status": "pass",
+      "evidence": "5000 sampled records"
+    },
+    {
+      "id": "total-available",
+      "status": "pass",
+      "evidence": "68743 total API records"
+    },
+    {
+      "id": "sample-share",
+      "status": "pass",
+      "evidence": "7.3% sample share"
+    },
+    {
+      "id": "top-department",
+      "status": "pass",
+      "evidence": "Medieval Art: 1313"
+    },
+    {
+      "id": "top-creation-century",
+      "status": "pass",
+      "evidence": "10th century: 911"
+    },
+    {
+      "id": "top-acquisition-decade",
+      "status": "pass",
+      "evidence": "1940s: 1275"
+    },
+    {
+      "id": "image-availability",
+      "status": "pass",
+      "evidence": "has image=4360; no image=640"
+    },
+    {
+      "id": "audit-flagged-rows",
+      "status": "pass",
+      "evidence": "1230 flagged rows"
+    },
+    {
+      "id": "audit-accession-mismatches",
+      "status": "pass",
+      "evidence": "229 accession-year mismatches"
+    },
+    {
+      "id": "audit-no-image",
+      "status": "pass",
+      "evidence": "640 rows without image"
+    },
+    {
+      "id": "audit-no-provenance",
+      "status": "pass",
+      "evidence": "582 rows without provenance entries"
+    },
+    {
+      "id": "chart-departments.svg",
+      "status": "pass",
+      "evidence": "/Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/cleveland-museum-collection-shape/reports/charts/departments.svg; 3434 bytes"
+    },
+    {
+      "id": "chart-creation-centuries.svg",
+      "status": "pass",
+      "evidence": "/Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/cleveland-museum-collection-shape/reports/charts/creation-centuries.svg; 12718 bytes"
+    },
+    {
+      "id": "chart-acquisition-decades.svg",
+      "status": "pass",
+      "evidence": "/Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/cleveland-museum-collection-shape/reports/charts/acquisition-decades.svg; 3240 bytes"
+    },
+    {
+      "id": "chart-image-availability.svg",
+      "status": "pass",
+      "evidence": "/Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/cleveland-museum-collection-shape/reports/charts/image-availability.svg; 1143 bytes"
+    }
+  ],
+  "nextMoves": [
+    "Keep the post framed as a bounded 5,000-record Cleveland sample.",
+    "Do not strengthen acquisition-decade language without manual review of mismatch rows.",
+    "Fetch the full Cleveland API corpus before treating the charts as full-collection charts."
+  ]
+}

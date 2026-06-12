@@ -1,19 +1,34 @@
 # Cultural Observatory Publication Queue
 
-Generated at: 2026-06-12T20:27:50.591Z
+Generated at: 2026-06-12T20:34:17.796Z
 Ready for editorial review: 6
 Not ready: 0
 
 | Priority | Title | Status | Action |
 | ---: | --- | --- | --- |
+| 164 | What A Museum Collection Looks Like When It Becomes Data | ready-for-editorial-review | Final editorial review; representative evidence audit passed. |
 | 141 | The Rise Of AI And The Humanities | ready-for-editorial-review | Final editorial review; representative evidence audit passed. |
-| 141 | What A Museum Collection Looks Like When It Becomes Data | ready-for-editorial-review | Copyedit from publication handoff; keep chart captions and audit caveats attached. |
 | 126 | Canon Drift: A Feasibility Report | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
 | 118 | The Language Of Museums After Decolonization | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
 | 118 | What Counts As A Humanities Dataset? | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
 | 118 | What Universities Say They Are For | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
 
 ## Details
+
+### What A Museum Collection Looks Like When It Becomes Data
+
+- Format: field-map
+- Lane: first-public-essay
+- Status: ready-for-editorial-review
+- Post: `docs/experiments/cleveland-museum-collection-shape/reports/post.md`
+- Post audit: `docs/experiments/cleveland-museum-collection-shape/reports/post-evidence-audit.json` (pass)
+- Draft: `docs/experiments/cleveland-museum-collection-shape/reports/post.md`
+- Handoff: `docs/experiments/cleveland-museum-collection-shape/reports/publication-handoff.json`
+- Result: `docs/experiments/cleveland-museum-collection-shape/reports/result.json`
+- Readiness: `docs/experiments/cleveland-museum-collection-shape/reports/readiness.json`
+- Failed checks: none
+- Action: Final editorial review; representative evidence audit passed.
+- Summary: A structured museum API turns a collection into analyzable records, but the first artifact is a bounded sample of one institution, not a statement about museums generally.
 
 ### The Rise Of AI And The Humanities
 
@@ -29,21 +44,6 @@ Not ready: 0
 - Failed checks: none
 - Action: Final editorial review; representative evidence audit passed.
 - Summary: The v1 literature radar is large enough for a field-map essay about AI, computational methods, and quantitative humanities signals, but source coverage remains uneven.
-
-### What A Museum Collection Looks Like When It Becomes Data
-
-- Format: field-map
-- Lane: first-public-essay
-- Status: ready-for-editorial-review
-- Post: none
-- Post audit: none
-- Draft: `docs/experiments/cleveland-museum-collection-shape/reports/publication-draft.md`
-- Handoff: `docs/experiments/cleveland-museum-collection-shape/reports/publication-handoff.json`
-- Result: `docs/experiments/cleveland-museum-collection-shape/reports/result.json`
-- Readiness: `docs/experiments/cleveland-museum-collection-shape/reports/readiness.json`
-- Failed checks: none
-- Action: Copyedit from publication handoff; keep chart captions and audit caveats attached.
-- Summary: A structured museum API turns a collection into analyzable records, but the first artifact is a bounded sample of one institution, not a statement about museums generally.
 
 ### Canon Drift: A Feasibility Report
 
