@@ -1,0 +1,10 @@
+identity_id,canonical_creator_id,canonical_handle,account_count,handles,external_links,primary_labels,max_usefulness,duplicate_risk
+creator_identity_f84674fcc83b,maya.shortcuts,@maya.shortcuts,1,@maya.shortcuts,https://vimeo.com/mayashortcuts,filmmaker,89,low
+creator_identity_36bccb7da0d4,noahframes,@noahframes,1,@noahframes,https://noahframes.com,cinematographer,73,low
+creator_identity_3486b697b92e,ani.motionlab,@ani.motionlab,1,@ani.motionlab,https://beacons.ai/animotionlab,vfx_animation,67,low
+creator_identity_7e9b5c00f09c,lucybits,@lucybits,1,@lucybits,https://www.youtube.com/@lucybits,sketch_comedian,66,low
+creator_identity_4f26a44004d0,selahshoots,@selahshoots,1,@selahshoots,,filmmaker,64,low
+creator_identity_39fac82a5f3a,renderjules,@renderjules,1,@renderjules,https://github.com/renderjules,creative_technologist,61,low
+creator_identity_ec9fe01b9fca,basementbits,@basementbits,1,@basementbits,,sketch_comedian,58,low
+creator_identity_7c6b11ebd4bd,clipvaultcinema,@clipvaultcinema,1,@clipvaultcinema,,reject,0,low
+creator_identity_2850666c7606,dailyfilmclips,@dailyfilmclips,1,@dailyfilmclips,,reject,0,low

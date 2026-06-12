@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T19:42:04.937Z
+Generated: 2026-06-12T19:45:01.224Z
 
 Complete: false
 
@@ -19,6 +19,7 @@ Complete: false
 - Expansion queue: 4
 - Acquisition tasks: 31
 - Source yield rows: 7
+- Identities: 9
 
 ## Checks
 
@@ -30,6 +31,7 @@ Complete: false
 - expansion_queue: pass (4 expansion targets queued)
 - acquisition_batches: pass (31 acquisition tasks generated)
 - source_yield: pass (7 source/query yield rows generated)
+- identity_resolution: pass (9 creator identities resolved)
 - useful_account_target: incomplete (5/50000 useful accounts)
 - excellent_account_target: incomplete (1/5000 excellent accounts)
 - human_review_target: incomplete (4/500 review decisions applied)

@@ -66,6 +66,7 @@ function main() {
   }
 
   steps.push(['analyze_source_yield', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/analyze-source-yield.mjs']])
+  steps.push(['resolve_identities', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/resolve-identities.mjs']])
   steps.push(['build_acquisition_batches', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-acquisition-batches.mjs']])
   steps.push(['check_readiness', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/check-readiness.mjs']])
 

@@ -31,6 +31,7 @@ function main() {
   const expansionQueue = readJsonl(join(processedDir, 'expansion_queue.jsonl'))
   const acquisitionTasks = readJsonl(join(processedDir, 'acquisition/acquisition_tasks.jsonl'))
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
+  const identities = readJsonl(join(processedDir, 'creator_identities.jsonl'))
 
   const usefulAccounts = scores.filter((row) => ['useful', 'excellent'].includes(row.status)).length
   const excellentAccounts = scores.filter((row) => row.status === 'excellent').length
@@ -79,6 +80,11 @@ function main() {
       evidence: `${sourceYield.length} source/query yield rows generated`,
     },
     {
+      id: 'identity_resolution',
+      status: identities.length > 0 ? 'pass' : 'fail',
+      evidence: `${identities.length} creator identities resolved`,
+    },
+    {
       id: 'useful_account_target',
       status: usefulAccounts >= targetUsefulAccounts ? 'pass' : 'incomplete',
       evidence: `${usefulAccounts}/${targetUsefulAccounts} useful accounts`,
@@ -113,6 +119,7 @@ function main() {
       expansion_queue: expansionQueue.length,
       acquisition_tasks: acquisitionTasks.length,
       source_yield_rows: sourceYield.length,
+      identities: identities.length,
     },
     checks,
     remaining: {
@@ -144,6 +151,7 @@ Complete: ${summary.complete}
 - Expansion queue: ${summary.counts.expansion_queue}
 - Acquisition tasks: ${summary.counts.acquisition_tasks}
 - Source yield rows: ${summary.counts.source_yield_rows}
+- Identities: ${summary.counts.identities}
 
 ## Checks
 

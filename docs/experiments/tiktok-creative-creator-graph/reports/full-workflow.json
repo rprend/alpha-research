@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-12T19:42:04.947Z",
+  "generated_at": "2026-06-12T19:45:01.227Z",
   "complete": true,
   "steps": [
     {
       "id": "import_acquisition_results",
       "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs",
       "status": "pass",
-      "started_at": "2026-06-12T19:42:04.369Z",
-      "finished_at": "2026-06-12T19:42:04.439Z",
+      "started_at": "2026-06-12T19:45:00.884Z",
+      "finished_at": "2026-06-12T19:45:00.935Z",
       "output_tail": [
         "{",
-        "  \"generated_at\": \"2026-06-12T19:42:04.425Z\",",
+        "  \"generated_at\": \"2026-06-12T19:45:00.931Z\",",
         "  \"input_rows\": 6,",
         "  \"normalized_rows\": 6,",
         "  \"skipped_rows\": 0,",
@@ -27,8 +27,8 @@
       "id": "run_pipeline",
       "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-pipeline.mjs",
       "status": "pass",
-      "started_at": "2026-06-12T19:42:04.439Z",
-      "finished_at": "2026-06-12T19:42:04.525Z",
+      "started_at": "2026-06-12T19:45:00.935Z",
+      "finished_at": "2026-06-12T19:45:01.006Z",
       "output_tail": [
         "    \"needs_review\": 2,",
         "    \"reject\": 2,",
@@ -56,11 +56,11 @@
       "id": "apply_review_decisions",
       "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/apply-review-decisions.mjs",
       "status": "pass",
-      "started_at": "2026-06-12T19:42:04.525Z",
-      "finished_at": "2026-06-12T19:42:04.584Z",
+      "started_at": "2026-06-12T19:45:01.006Z",
+      "finished_at": "2026-06-12T19:45:01.053Z",
       "output_tail": [
         "{",
-        "  \"generated_at\": \"2026-06-12T19:42:04.579Z\",",
+        "  \"generated_at\": \"2026-06-12T19:45:01.049Z\",",
         "  \"review_rows\": 4,",
         "  \"applied_decisions\": 4,",
         "  \"missing_accounts\": 0,",
@@ -79,8 +79,8 @@
       "id": "analyze_source_yield",
       "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/analyze-source-yield.mjs",
       "status": "pass",
-      "started_at": "2026-06-12T19:42:04.584Z",
-      "finished_at": "2026-06-12T19:42:04.653Z",
+      "started_at": "2026-06-12T19:45:01.053Z",
+      "finished_at": "2026-06-12T19:45:01.101Z",
       "output_tail": [
         "  ],",
         "  \"weak_sources\": [",
@@ -105,14 +105,31 @@
       ]
     },
     {
+      "id": "resolve_identities",
+      "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/resolve-identities.mjs",
+      "status": "pass",
+      "started_at": "2026-06-12T19:45:01.101Z",
+      "finished_at": "2026-06-12T19:45:01.144Z",
+      "output_tail": [
+        "{",
+        "  \"generated_at\": \"2026-06-12T19:45:01.140Z\",",
+        "  \"accounts\": 9,",
+        "  \"identities\": 9,",
+        "  \"duplicate_risks\": 0,",
+        "  \"identity_evidence_rows\": 32,",
+        "  \"high_confidence_external_links\": 5",
+        "}"
+      ]
+    },
+    {
       "id": "build_acquisition_batches",
       "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/build-acquisition-batches.mjs",
       "status": "pass",
-      "started_at": "2026-06-12T19:42:04.653Z",
-      "finished_at": "2026-06-12T19:42:04.835Z",
+      "started_at": "2026-06-12T19:45:01.144Z",
+      "finished_at": "2026-06-12T19:45:01.192Z",
       "output_tail": [
         "{",
-        "  \"generated_at\": \"2026-06-12T19:42:04.815Z\",",
+        "  \"generated_at\": \"2026-06-12T19:45:01.184Z\",",
         "  \"tasks\": 31,",
         "  \"useful_creators_available_for_expansion\": 5,",
         "  \"source_yield_rows\": 7,",
@@ -134,8 +151,8 @@
       "id": "check_readiness",
       "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/check-readiness.mjs",
       "status": "pass",
-      "started_at": "2026-06-12T19:42:04.835Z",
-      "finished_at": "2026-06-12T19:42:04.947Z",
+      "started_at": "2026-06-12T19:45:01.192Z",
+      "finished_at": "2026-06-12T19:45:01.227Z",
       "output_tail": [
         "      \"status\": \"incomplete\",",
         "      \"evidence\": \"5/50000 useful accounts\"",
