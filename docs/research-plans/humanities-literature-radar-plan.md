@@ -15,7 +15,7 @@ The product output is an inspectable research artifact, not only a scraped datas
 
 ## Repository And Storage Layout
 
-All local project files for the pilot live under:
+All local project files for the corpus build live under:
 
 ```text
 docs/experiments/humanities-literature-radar/
@@ -95,7 +95,7 @@ Remote run scratch files should stay under the runner workspace and final output
 
 ## Phase 0: Scope And Taxonomy
 
-Goal: define the initial corpus boundaries before downloading data.
+Goal: define the corpus boundaries before downloading data, with expansion as the default posture.
 
 Steps:
 
@@ -112,11 +112,13 @@ Steps:
    - whether abstracts/full text are available
    - whether source can be used in recurring monitoring
 
-Initial date range:
+Initial backfill range:
 
 ```text
-2024-01-01 through current run date
+2020-01-01 through current run date
 ```
+
+The first report should emphasize 2024-present trends, but the downloaded corpus should backfill to 2020 so recent movement can be compared against a real baseline. If a source makes larger backfills cheap and reliable, preserve the larger historical window in raw storage and filter analytically later.
 
 Initial discipline scope:
 
@@ -181,29 +183,31 @@ Primary sources:
    - Store metadata records in `data/raw/nber/YYYY-MM-DD/`.
 
 8. Top department pages
-   - Do not begin with broad scraping.
-   - Build a small allowlist of department publication/news pages only after the indexed-source corpus identifies topics, authors, and institutions worth enriching.
+   - Begin with a broad but controlled institution/department inventory instead of treating department pages as an afterthought.
+   - Build an allowlist of humanities departments, research centers, labs, dissertation pages, faculty publication pages, and news pages.
+   - Use department pages both for early signal discovery and later enrichment, while labeling their coverage separately from bibliographic indexes.
    - Store fetched HTML snapshots in `data/raw/department-pages/YYYY-MM-DD/<institution>/<department>/`.
 
 Actions:
 
-1. For each source, fetch a 20-record sample.
+1. For each source, run a connectivity and schema probe that fetches enough records to validate pagination, rate limits, and field coverage.
 2. Save the exact request URL, timestamp, response status, and response path in `reports/source-inventory.csv`.
 3. Record missing fields and access constraints in `reports/source-inventory.md`.
 4. Mark each source as one of:
    - `core`: reliable for repeatable monitoring
    - `supplemental`: useful but partial
-   - `enrichment`: use only after core corpus exists
+   - `web-crawl`: useful through public page snapshots with separately labeled coverage
    - `exclude`: too brittle, restricted, or noisy
 
 Acceptance check:
 
 - Each retained source has a reproducible fetch command and a visible raw file on disk.
-- Department pages are not promoted to `core` unless they provide reliable publication metadata.
+- Department pages have a source coverage note, crawl manifest, and extraction confidence label rather than being omitted from the main plan.
+- Probe fetches are for schema validation only; they do not define the final corpus size.
 
-## Phase 2: Seed Corpus Download
+## Phase 2: Broad Corpus Backfill
 
-Goal: build the first 2024-present metadata corpus.
+Goal: build a broad 2020-present humanities and humanities-adjacent metadata corpus, then produce 2024-present trend slices from it.
 
 Steps:
 
@@ -228,21 +232,30 @@ Each manifest includes:
 
 Initial target sizes:
 
-- OpenAlex: 10,000 to 50,000 works
-- Crossref: 5,000 to 25,000 works
-- DOAJ: 2,000 to 10,000 works
-- Humanities Commons / CORE: 500 to 5,000 records
-- SocArXiv: 500 to 3,000 records
-- arXiv: 200 to 2,000 records
-- NBER: 200 to 2,000 records
-- department pages: no more than 100 pages in the pilot
+- OpenAlex: 250,000 to 2,000,000 works, depending on topic and source filters.
+- Crossref: 100,000 to 1,000,000 works, with DOI and publisher metadata used for dedupe and venue coverage.
+- DOAJ: 25,000 to 250,000 article and journal records where humanities/social-science filters are available.
+- Humanities Commons / CORE: all accessible matching records for 2020-present, expected range 5,000 to 50,000.
+- SocArXiv: all accessible matching records for 2020-present plus relevant older high-citation records, expected range 2,000 to 25,000.
+- arXiv: all matching computational humanities, cultural analytics, NLP-for-humanities, authorship, archive, and stylometry records, expected range 2,000 to 25,000.
+- NBER: all matching working papers and relevant metadata for economic history, culture, institutions, religion, education history, migration, slavery, colonialism, and long-run historical data, expected range 2,000 to 20,000.
+- department pages: 1,000 to 10,000 public pages across top humanities departments, research centers, labs, dissertation pages, faculty publication pages, and event/news archives.
 
-The exact numbers should be adjusted based on source limits and relevance. The pilot should prefer a smaller inspectable corpus over a larger untrusted one.
+The exact numbers should be adjusted upward when a source supports reliable bulk access. Sampling is used for validation, not for limiting ambition. Large raw pulls are acceptable when manifests, source labels, and dedupe rules preserve provenance.
+
+Collection waves:
+
+1. Wave A: OpenAlex, Crossref, and DOAJ broad backfill.
+2. Wave B: Humanities Commons, SocArXiv, arXiv, and NBER specialty backfill.
+3. Wave C: department and research-center web crawl.
+4. Wave D: citation/reference expansion from high-signal works, constrained by provenance and date filters.
+5. Wave E: targeted gap filling for undercovered journals, books, chapters, non-US institutions, and non-English scholarship.
 
 Acceptance check:
 
 - Every raw record can be traced to a source, request, and fetch manifest.
 - No secret-bearing files are written under `docs/experiments/`.
+- The first processed corpus is large enough to support trend analysis by year, source, venue, method, and topic without relying on handpicked examples.
 
 ## Phase 3: Normalize And Dedupe
 
@@ -465,7 +478,7 @@ Acceptance check:
 
 ## Phase 8: Recurring Monitor
 
-Goal: convert the pilot into a repeatable monthly or weekly monitor.
+Goal: convert the broad corpus build into a repeatable monthly or weekly monitor.
 
 Steps:
 
@@ -560,7 +573,7 @@ Each brief should include:
 - required transformations
 - expected outputs
 - quality risks
-- first small runnable pilot
+- first high-leverage runnable corpus build
 
 ## Risks And Controls
 
@@ -571,9 +584,9 @@ Each brief should include:
 - Copyright risk: Store metadata and short excerpts only unless a source explicitly provides open full text.
 - Secret handling: Do not store API keys, session tokens, cookies, or private credentials in the experiment directory.
 
-## Pilot Definition Of Done
+## V1 Corpus Definition Of Done
 
-The pilot is done when these files exist and pass inspection:
+The v1 corpus build is done when these files exist and pass inspection:
 
 ```text
 docs/experiments/humanities-literature-radar/reports/source-inventory.md
