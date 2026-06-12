@@ -8,7 +8,7 @@ University self-description may have shifted from truth, civic, and liberal-educ
 
 ## Corpus Note
 
-The current artifact contains 10 current pages and 8 historical snapshots covering 2000-2026.
+The current artifact contains 10 current pages and 12 historical snapshots covering 2000-2026.
 
 ## Current Baseline
 

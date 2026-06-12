@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-12T19:15:31.546Z",
-  "pages": 18,
+  "generatedAt": "2026-06-12T19:17:57.506Z",
+  "pages": 22,
   "currentPages": 10,
-  "historicalPages": 8,
+  "historicalPages": 12,
   "yearRange": {
     "earliest": 2000,
     "latest": 2026
@@ -17,13 +17,13 @@
     "career_economy": 6
   },
   "historicalTermFamilyTotals": {
-    "global_leadership": 22,
-    "civic_public": 18,
-    "innovation_impact": 16,
-    "truth_knowledge": 10,
-    "excellence_prestige": 5,
-    "career_economy": 2,
-    "inclusion_belonging": 0
+    "global_leadership": 34,
+    "civic_public": 24,
+    "truth_knowledge": 20,
+    "innovation_impact": 20,
+    "excellence_prestige": 11,
+    "career_economy": 5,
+    "inclusion_belonging": 2
   },
   "termFamilyByYear": [
     {
@@ -83,115 +83,283 @@
       "count_per_1000_words": 0
     },
     {
-      "year": 2005,
+      "year": 2002,
       "family": "career_economy",
       "pages": 1,
       "count": 0,
-      "words": 622,
+      "words": 242,
       "count_per_1000_words": 0
     },
     {
-      "year": 2005,
+      "year": 2002,
       "family": "civic_public",
       "pages": 1,
-      "count": 3,
-      "words": 622,
-      "count_per_1000_words": 4.823
+      "count": 1,
+      "words": 242,
+      "count_per_1000_words": 4.132
     },
     {
-      "year": 2005,
+      "year": 2002,
       "family": "excellence_prestige",
       "pages": 1,
       "count": 0,
-      "words": 622,
+      "words": 242,
       "count_per_1000_words": 0
     },
     {
-      "year": 2005,
+      "year": 2002,
       "family": "global_leadership",
       "pages": 1,
-      "count": 0,
-      "words": 622,
-      "count_per_1000_words": 0
+      "count": 1,
+      "words": 242,
+      "count_per_1000_words": 4.132
     },
     {
-      "year": 2005,
+      "year": 2002,
       "family": "inclusion_belonging",
       "pages": 1,
       "count": 0,
-      "words": 622,
+      "words": 242,
       "count_per_1000_words": 0
     },
     {
-      "year": 2005,
+      "year": 2002,
       "family": "innovation_impact",
       "pages": 1,
       "count": 0,
-      "words": 622,
+      "words": 242,
       "count_per_1000_words": 0
     },
     {
-      "year": 2005,
+      "year": 2002,
       "family": "truth_knowledge",
       "pages": 1,
-      "count": 0,
-      "words": 622,
-      "count_per_1000_words": 0
+      "count": 2,
+      "words": 242,
+      "count_per_1000_words": 8.264
     },
     {
-      "year": 2010,
+      "year": 2003,
       "family": "career_economy",
       "pages": 2,
-      "count": 0,
-      "words": 456,
-      "count_per_1000_words": 0
+      "count": 2,
+      "words": 662,
+      "count_per_1000_words": 3.021
     },
     {
-      "year": 2010,
+      "year": 2003,
       "family": "civic_public",
       "pages": 2,
       "count": 2,
-      "words": 456,
-      "count_per_1000_words": 4.386
+      "words": 662,
+      "count_per_1000_words": 3.021
+    },
+    {
+      "year": 2003,
+      "family": "excellence_prestige",
+      "pages": 2,
+      "count": 4,
+      "words": 662,
+      "count_per_1000_words": 6.042
+    },
+    {
+      "year": 2003,
+      "family": "global_leadership",
+      "pages": 2,
+      "count": 8,
+      "words": 662,
+      "count_per_1000_words": 12.085
+    },
+    {
+      "year": 2003,
+      "family": "inclusion_belonging",
+      "pages": 2,
+      "count": 1,
+      "words": 662,
+      "count_per_1000_words": 1.511
+    },
+    {
+      "year": 2003,
+      "family": "innovation_impact",
+      "pages": 2,
+      "count": 3,
+      "words": 662,
+      "count_per_1000_words": 4.532
+    },
+    {
+      "year": 2003,
+      "family": "truth_knowledge",
+      "pages": 2,
+      "count": 5,
+      "words": 662,
+      "count_per_1000_words": 7.553
+    },
+    {
+      "year": 2004,
+      "family": "career_economy",
+      "pages": 1,
+      "count": 1,
+      "words": 318,
+      "count_per_1000_words": 3.145
+    },
+    {
+      "year": 2004,
+      "family": "civic_public",
+      "pages": 1,
+      "count": 0,
+      "words": 318,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2004,
+      "family": "excellence_prestige",
+      "pages": 1,
+      "count": 1,
+      "words": 318,
+      "count_per_1000_words": 3.145
+    },
+    {
+      "year": 2004,
+      "family": "global_leadership",
+      "pages": 1,
+      "count": 1,
+      "words": 318,
+      "count_per_1000_words": 3.145
+    },
+    {
+      "year": 2004,
+      "family": "inclusion_belonging",
+      "pages": 1,
+      "count": 0,
+      "words": 318,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2004,
+      "family": "innovation_impact",
+      "pages": 1,
+      "count": 0,
+      "words": 318,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2004,
+      "family": "truth_knowledge",
+      "pages": 1,
+      "count": 1,
+      "words": 318,
+      "count_per_1000_words": 3.145
+    },
+    {
+      "year": 2005,
+      "family": "career_economy",
+      "pages": 2,
+      "count": 0,
+      "words": 901,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2005,
+      "family": "civic_public",
+      "pages": 2,
+      "count": 7,
+      "words": 901,
+      "count_per_1000_words": 7.769
+    },
+    {
+      "year": 2005,
+      "family": "excellence_prestige",
+      "pages": 2,
+      "count": 1,
+      "words": 901,
+      "count_per_1000_words": 1.11
+    },
+    {
+      "year": 2005,
+      "family": "global_leadership",
+      "pages": 2,
+      "count": 2,
+      "words": 901,
+      "count_per_1000_words": 2.22
+    },
+    {
+      "year": 2005,
+      "family": "inclusion_belonging",
+      "pages": 2,
+      "count": 1,
+      "words": 901,
+      "count_per_1000_words": 1.11
+    },
+    {
+      "year": 2005,
+      "family": "innovation_impact",
+      "pages": 2,
+      "count": 1,
+      "words": 901,
+      "count_per_1000_words": 1.11
+    },
+    {
+      "year": 2005,
+      "family": "truth_knowledge",
+      "pages": 2,
+      "count": 2,
+      "words": 901,
+      "count_per_1000_words": 2.22
+    },
+    {
+      "year": 2010,
+      "family": "career_economy",
+      "pages": 1,
+      "count": 0,
+      "words": 342,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2010,
+      "family": "civic_public",
+      "pages": 1,
+      "count": 1,
+      "words": 342,
+      "count_per_1000_words": 2.924
     },
     {
       "year": 2010,
       "family": "excellence_prestige",
-      "pages": 2,
+      "pages": 1,
       "count": 1,
-      "words": 456,
-      "count_per_1000_words": 2.193
+      "words": 342,
+      "count_per_1000_words": 2.924
     },
     {
       "year": 2010,
       "family": "global_leadership",
-      "pages": 2,
+      "pages": 1,
       "count": 4,
-      "words": 456,
-      "count_per_1000_words": 8.772
+      "words": 342,
+      "count_per_1000_words": 11.696
     },
     {
       "year": 2010,
       "family": "inclusion_belonging",
-      "pages": 2,
+      "pages": 1,
       "count": 0,
-      "words": 456,
+      "words": 342,
       "count_per_1000_words": 0
     },
     {
       "year": 2010,
       "family": "innovation_impact",
-      "pages": 2,
+      "pages": 1,
       "count": 1,
-      "words": 456,
-      "count_per_1000_words": 2.193
+      "words": 342,
+      "count_per_1000_words": 2.924
     },
     {
       "year": 2010,
       "family": "truth_knowledge",
-      "pages": 2,
+      "pages": 1,
       "count": 0,
-      "words": 456,
+      "words": 342,
       "count_per_1000_words": 0
     },
     {
@@ -604,6 +772,53 @@
       "archive_url": ""
     },
     {
+      "institution": "Cornell University",
+      "source_layer": "wayback",
+      "year": 2004,
+      "words": 318,
+      "term_counts": {
+        "truth_knowledge": 1,
+        "civic_public": 0,
+        "innovation_impact": 0,
+        "global_leadership": 1,
+        "excellence_prestige": 1,
+        "inclusion_belonging": 0,
+        "career_economy": 1
+      },
+      "snippets": [
+        "rsity\" by educational historian Frederick Rudolph, Cornell University represents a distinctive mix of eminent scholarship and democratic ideals. Adding practical subjects to the classics and admitting qualified students regardless",
+        "ay meaningful roles in original research, and study in Cornell programs in Washington, New York City, and the world over. In his first inaugural address , at the Weill Cornell Medical College campus in Qatar in October 2004,",
+        "was quite a departure when Cornell was founded in 1865. Today's Cornell reflects this heritage of egalitarian excellence. It is home to the nation's first colleges devoted to hotel administration, industrial and labor relations, a",
+        "representing every state and 120 countries choose from among 4,000 courses in 11 undergraduate, graduate, and professional schools. Many undergraduates participate in a wide range of interdisciplinary programs, play meaningful roles"
+      ],
+      "url": "http://www.cornell.edu/about/",
+      "archive_url": "https://web.archive.org/web/20040831025921id_/http://www.cornell.edu/about/"
+    },
+    {
+      "institution": "Duke University",
+      "source_layer": "wayback",
+      "year": 2003,
+      "words": 296,
+      "term_counts": {
+        "truth_knowledge": 1,
+        "civic_public": 2,
+        "innovation_impact": 1,
+        "global_leadership": 2,
+        "excellence_prestige": 3,
+        "inclusion_belonging": 1,
+        "career_economy": 0
+      },
+      "snippets": [
+        "resents every school and division, is the university's $2 billion fund-raising effort to ensure excellence in scholarship, teaching and service to society. Back to Top Parents Where to find information about your child's health, ac",
+        "ivision, is the university's $2 billion fund-raising effort to ensure excellence in scholarship, teaching and service to society. Back to Top Parents Where to find information about your child's health, academic standing, recen",
+        "the university's $2 billion fund-raising effort to ensure excellence in scholarship, teaching and service to society. Back to Top Parents Where to find information about your child's health, academic standing, recent bill (tui",
+        "Top &gt;&gt; Administration The leadership team, including the Board of Trustees, oversees campus facilities, technology, safety and other essential functions. Back to Top &gt;&gt; Visiting Duke Maps, directions, attractions and a",
+        "aign for Duke Tracing its origins to a rural schoolhouse in 1838, Duke University has evolved into one of the world's leading institutions for education, research and medical care. &gt;&gt; Welcome to Duke A greeting from Pre"
+      ],
+      "url": "http://www.duke.edu/about/",
+      "archive_url": "https://web.archive.org/web/20030409210026id_/http://www.duke.edu/about/"
+    },
+    {
       "institution": "Harvard University",
       "source_layer": "wayback",
       "year": 2000,
@@ -647,24 +862,28 @@
       "archive_url": "https://web.archive.org/web/20050811022045id_/https://www.harvard.edu/about/"
     },
     {
-      "institution": "Harvard University",
+      "institution": "Massachusetts Institute of Technology",
       "source_layer": "wayback",
-      "year": 2010,
-      "words": 114,
+      "year": 2003,
+      "words": 366,
       "term_counts": {
-        "truth_knowledge": 0,
-        "civic_public": 1,
-        "innovation_impact": 0,
-        "global_leadership": 0,
-        "excellence_prestige": 0,
+        "truth_knowledge": 4,
+        "civic_public": 0,
+        "innovation_impact": 2,
+        "global_leadership": 6,
+        "excellence_prestige": 1,
         "inclusion_belonging": 0,
-        "career_economy": 0
+        "career_economy": 2
       },
       "snippets": [
-        "lege Continuing Education Dental Design Divinity Education Engineering Government Graduate School Law Medical Public Health Radcliffe Institute Faculty of Arts and Sciences Offices Administration Alumni Arts Athletics Employme"
+        "nity MIT and Industry International Collaborations Financial Data Contact Us The mission of MIT is to advance knowledge and educate students in science, technology, and other areas of scholarship that will best serve the nation a",
+        "Us The mission of MIT is to advance knowledge and educate students in science, technology, and other areas of scholarship that will best serve the nation and the world in the 21st century. The Institute is committed to generating,",
+        "rations Financial Data Contact Us The mission of MIT is to advance knowledge and educate students in science, technology, and other areas of scholarship that will best serve the nation and the world in the 21st century. The Instit",
+        "cated to providing its students with an education that combines rigorous academic study and the excitement of discovery with the support and intellectual stimulation of a diverse campus community. We seek to develop in each membe",
+        "ucate students in science, technology, and other areas of scholarship that will best serve the nation and the world in the 21st century. The Institute is committed to generating, disseminating, and preserving knowledge, and t"
       ],
-      "url": "https://www.harvard.edu/about/",
-      "archive_url": "https://web.archive.org/web/20100626050049id_/https://www.harvard.edu/about/"
+      "url": "http://web.mit.edu/facts/mission.html",
+      "archive_url": "https://web.archive.org/web/20030217041607id_/http://web.mit.edu/facts/mission.html"
     },
     {
       "institution": "Massachusetts Institute of Technology",
@@ -689,6 +908,30 @@
       ],
       "url": "https://www.mit.edu/about/",
       "archive_url": "https://web.archive.org/web/20200729073348id_/https://www.mit.edu/about/"
+    },
+    {
+      "institution": "Princeton University",
+      "source_layer": "wayback",
+      "year": 2005,
+      "words": 279,
+      "term_counts": {
+        "truth_knowledge": 2,
+        "civic_public": 4,
+        "innovation_impact": 1,
+        "global_leadership": 2,
+        "excellence_prestige": 1,
+        "inclusion_belonging": 1,
+        "career_economy": 0
+      },
+      "snippets": [
+        "search university, it seeks to achieve the highest levels of distinction in the discovery and transmission of knowledge and understanding, and in the education of graduate students. At the same time, Princeton is distinctive amon",
+        "d prepare them for positions of leadership and lives of service in many fields of human endeavor. Through the scholarship and teaching of its faculty, and the many contributions to society of its alumni, Princeton seeks to fulfill",
+        "Parents Alumni Faculty & Staff About Princeton Academics Library Research | Admission & Aid Administration & Services Campus Life Visiting Campus Also of Interest... Visiting Princeton About Princeton Overview Princeton Today",
+        "fields of human endeavor. Through the scholarship and teaching of its faculty, and the many contributions to society of its alumni, Princeton seeks to fulfill its informal motto: &#x201c;Princeton in the Nation&#x2019;s Servic",
+        "college in the world. As a research university, it seeks to achieve the highest levels of distinction in the discovery and transmission of knowledge and understanding, and in the education of graduate students. At the same time,"
+      ],
+      "url": "http://www.princeton.edu/main/about/",
+      "archive_url": "https://web.archive.org/web/20050223071340id_/http://www.princeton.edu/main/about/"
     },
     {
       "institution": "Princeton University",
@@ -785,6 +1028,29 @@
       ],
       "url": "https://www.stanford.edu/about/",
       "archive_url": "https://web.archive.org/web/20200406234457id_/https://www.stanford.edu/about/"
+    },
+    {
+      "institution": "University of Pennsylvania",
+      "source_layer": "wayback",
+      "year": 2002,
+      "words": 242,
+      "term_counts": {
+        "truth_knowledge": 2,
+        "civic_public": 1,
+        "innovation_impact": 0,
+        "global_leadership": 1,
+        "excellence_prestige": 0,
+        "inclusion_belonging": 0,
+        "career_economy": 0
+      },
+      "snippets": [
+        "Penn: About Penn Highlights for: Welcome to Penn, a place to pursue knowledge beyond traditional boundaries. You'll encounter that attitude all around our campus, in education, in scholar",
+        "owledge beyond traditional boundaries. You'll encounter that attitude all around our campus, in education, in scholarship, and in research. Welcome to Penn A quick overview of our dynamic university. Penn News & Events Find news ab",
+        "re, concert tickets, University Press, computer store and more. University Communications University News and Public Affairs Office &#160; Copyright &copy; 2002, University of Pennsylvania 3451 Walnut Street, Philadelphia, PA",
+        "5-898-5000 Copyright Information | Contact Us | Privacy Policy Penn Fact: In 1946, Penn introduced ENIAC, the world's first electronic, large-scale, general-purpose digital computer."
+      ],
+      "url": "http://www.upenn.edu/about",
+      "archive_url": "https://web.archive.org/web/20021013205220id_/http://www.upenn.edu/about"
     }
   ],
   "articleReadiness": {

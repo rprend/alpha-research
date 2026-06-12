@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-12T19:15:31.613Z",
-  "status": "not-ready-for-publication",
+  "generatedAt": "2026-06-12T19:18:58.530Z",
+  "status": "ready-for-editorial-review",
   "checks": [
     {
       "id": "current-pages",
@@ -12,31 +12,37 @@
       "id": "historical-pages",
       "label": "At least 8 historical snapshots are collected before publication-level trend claims",
       "status": "pass",
-      "evidence": "8 historical snapshots"
+      "evidence": "12 historical snapshots"
     },
     {
       "id": "audit-flags",
       "label": "No source pages have automatic audit flags",
-      "status": "needs-work",
-      "evidence": "1 flagged rows"
+      "status": "pass",
+      "evidence": "0 flagged rows"
     },
     {
       "id": "year-coverage",
       "label": "At least two non-current years have historical evidence",
       "status": "pass",
-      "evidence": "2000, 2005, 2010, 2015, 2020"
+      "evidence": "2000, 2002, 2003, 2004, 2005, 2010, 2015, 2020"
     },
     {
       "id": "institution-year-coverage",
       "label": "At least two institutions are represented in each historical claim year",
       "status": "pass",
-      "evidence": "years with >=2 institutions: 2010, 2020"
+      "evidence": "years with >=2 institutions: 2003, 2005, 2020"
     },
     {
       "id": "public-draft",
       "label": "Public draft artifact exists and is source-caveated",
       "status": "pass",
       "evidence": "reports/public-draft.md"
+    },
+    {
+      "id": "publication-handoff",
+      "label": "Publication handoff exists with corpus notes and public-claim checklist",
+      "status": "pass",
+      "evidence": "ready-for-copyedit; 12 historical rows"
     }
   ],
   "nextMoves": [

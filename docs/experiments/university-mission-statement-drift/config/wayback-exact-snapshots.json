@@ -1,0 +1,37 @@
+[
+  {
+    "institution": "Massachusetts Institute of Technology",
+    "year": 2003,
+    "url": "http://web.mit.edu/facts/mission.html",
+    "timestamp": "20030217041607",
+    "reason": "MIT historical mission page with substantive text"
+  },
+  {
+    "institution": "Princeton University",
+    "year": 2005,
+    "url": "http://www.princeton.edu/main/about/",
+    "timestamp": "20050223071340",
+    "reason": "Princeton historical about page with substantive institutional overview"
+  },
+  {
+    "institution": "Cornell University",
+    "year": 2004,
+    "url": "http://www.cornell.edu/about/",
+    "timestamp": "20040831025921",
+    "reason": "Cornell historical about page with substantive institutional overview"
+  },
+  {
+    "institution": "University of Pennsylvania",
+    "year": 2002,
+    "url": "http://www.upenn.edu/about",
+    "timestamp": "20021013205220",
+    "reason": "Penn historical about page with substantive institutional overview"
+  },
+  {
+    "institution": "Duke University",
+    "year": 2003,
+    "url": "http://www.duke.edu/about/",
+    "timestamp": "20030409210026",
+    "reason": "Duke historical about page with substantive institutional overview"
+  }
+]

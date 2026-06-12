@@ -22,17 +22,17 @@ Implemented:
 Current queue:
 
 - 6 tracked essay/research artifacts
-- 3 ready for editorial review
-- 3 not ready for publication
-- 3 copyedit-ready handoff packets
+- 4 ready for editorial review
+- 2 not ready for publication
+- 4 copyedit-ready handoff packets
 - first public essay candidate: What A Museum Collection Looks Like When It Becomes Data
 
 Next implementation moves:
 
 - copyedit the Cleveland handoff into a first post
-- copyedit the canon drift and dataset registry handoffs into methods/research-agenda posts
+- copyedit the mission drift, canon drift, and dataset registry handoffs into posts
 - choose which Cleveland charts to publish
-- resolve source-work blockers for mission statements, museum language, and literature radar
+- resolve source-work blockers for museum language and literature radar
 
 ### Research Backlog And Scout Workflow
 
@@ -110,7 +110,7 @@ Next implementation moves:
 
 Path: `docs/experiments/university-mission-statement-drift/`
 
-Status: runnable `What Changed?` article baseline with current pages plus a sparse Wayback historical layer.
+Status: runnable `What Changed?` article baseline with current pages, a Wayback historical layer, audit packet, and publication handoff.
 
 Implemented:
 
@@ -120,28 +120,31 @@ Implemented:
 - term-family taxonomy
 - current-page fetcher
 - merge-safe Wayback snapshot fetcher with request timeouts
+- exact Wayback snapshot fetcher for hand-curated archived pages
 - current and historical page processing
 - page-level term counts
 - term-family-by-year table
 - audit packet
+- publication handoff with corpus notes, historical snapshot table, and public-claim checklist
 - readiness gate
 - `report.html`
 - `result.json`
 - `work.md`
 - `public-draft.md`
+- `publication-handoff.md`
 - `dataset_briefing.md`
 
 Current committed corpus:
 
 - 10 current university pages
-- 8 historical Wayback snapshots
+- 12 historical Wayback snapshots
 - year range: 2000-2026
 - term families: truth/knowledge, civic/public, innovation/impact, global/leadership, excellence/prestige, inclusion/belonging, career/economy
-- readiness: not ready for publication because one short archived page still has an audit flag
+- readiness: ready for editorial review with source-layer caveats
 
 Next implementation moves:
 
-- replace or manually exclude the short Harvard 2010 archived page
+- copyedit the publication handoff into a longitudinal methods post
 - add university catalogs
 - add strategic plans
 - add president speeches

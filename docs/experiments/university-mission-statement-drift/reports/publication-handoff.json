@@ -1,0 +1,135 @@
+{
+  "generatedAt": "2026-06-12T19:18:58.498Z",
+  "title": "What Universities Say They Are For",
+  "publishState": "ready-for-copyedit",
+  "readinessStatus": "ready-for-editorial-review",
+  "format": "what-changed",
+  "thesis": "University self-description can be studied as a historical language layer, but current about pages and archived pages must be treated as source evidence rather than a clean census of institutional purpose.",
+  "corpus": {
+    "currentPages": 10,
+    "historicalPages": 12,
+    "yearRange": {
+      "earliest": 2000,
+      "latest": 2026
+    },
+    "historicalInstitutions": 7,
+    "historicalYears": [
+      2000,
+      2002,
+      2003,
+      2004,
+      2005,
+      2010,
+      2015,
+      2020
+    ],
+    "yearsWithMultipleInstitutions": [
+      2003,
+      2005,
+      2020
+    ],
+    "auditFlaggedRows": 0
+  },
+  "paths": {
+    "draft": "docs/experiments/university-mission-statement-drift/reports/public-draft.md",
+    "result": "docs/experiments/university-mission-statement-drift/reports/result.json",
+    "readiness": "docs/experiments/university-mission-statement-drift/reports/readiness.json",
+    "auditPacket": "docs/experiments/university-mission-statement-drift/reports/audit-packet.md",
+    "processedPages": "docs/experiments/university-mission-statement-drift/data/processed/pages.json",
+    "termFamilyByYear": "docs/experiments/university-mission-statement-drift/data/processed/term-family-by-year.csv"
+  },
+  "evidenceSummary": [
+    "10 current public university pages.",
+    "12 archived Wayback snapshots from 2000 through 2026.",
+    "3 historical years with at least two institutions: 2003, 2005, 2020.",
+    "0 automatic audit flags after replacing the short Harvard 2010 snapshot."
+  ],
+  "historicalSnapshotTable": [
+    {
+      "institution": "Harvard University",
+      "year": 2000,
+      "words": 692,
+      "archiveUrl": "https://web.archive.org/web/20000815063750id_/https://www.harvard.edu/about/"
+    },
+    {
+      "institution": "University of Pennsylvania",
+      "year": 2002,
+      "words": 242,
+      "archiveUrl": "https://web.archive.org/web/20021013205220id_/http://www.upenn.edu/about"
+    },
+    {
+      "institution": "Duke University",
+      "year": 2003,
+      "words": 296,
+      "archiveUrl": "https://web.archive.org/web/20030409210026id_/http://www.duke.edu/about/"
+    },
+    {
+      "institution": "Massachusetts Institute of Technology",
+      "year": 2003,
+      "words": 366,
+      "archiveUrl": "https://web.archive.org/web/20030217041607id_/http://web.mit.edu/facts/mission.html"
+    },
+    {
+      "institution": "Cornell University",
+      "year": 2004,
+      "words": 318,
+      "archiveUrl": "https://web.archive.org/web/20040831025921id_/http://www.cornell.edu/about/"
+    },
+    {
+      "institution": "Harvard University",
+      "year": 2005,
+      "words": 622,
+      "archiveUrl": "https://web.archive.org/web/20050811022045id_/https://www.harvard.edu/about/"
+    },
+    {
+      "institution": "Princeton University",
+      "year": 2005,
+      "words": 279,
+      "archiveUrl": "https://web.archive.org/web/20050223071340id_/http://www.princeton.edu/main/about/"
+    },
+    {
+      "institution": "Stanford University",
+      "year": 2010,
+      "words": 342,
+      "archiveUrl": "https://web.archive.org/web/20100717083844id_/https://www.stanford.edu/about/"
+    },
+    {
+      "institution": "Stanford University",
+      "year": 2015,
+      "words": 471,
+      "archiveUrl": "https://web.archive.org/web/20150924105643id_/https://www.stanford.edu/about/"
+    },
+    {
+      "institution": "Massachusetts Institute of Technology",
+      "year": 2020,
+      "words": 753,
+      "archiveUrl": "https://web.archive.org/web/20200729073348id_/https://www.mit.edu/about/"
+    },
+    {
+      "institution": "Princeton University",
+      "year": 2020,
+      "words": 577,
+      "archiveUrl": "https://web.archive.org/web/20200314185525id_/https://www.princeton.edu/meet-princeton"
+    },
+    {
+      "institution": "Stanford University",
+      "year": 2020,
+      "words": 377,
+      "archiveUrl": "https://web.archive.org/web/20200406234457id_/https://www.stanford.edu/about/"
+    }
+  ],
+  "publicClaimChecklist": [
+    "Say this is a 10-current-page and 12-historical-snapshot corpus, not a census of universities.",
+    "Separate current-page claims from historical Wayback claims.",
+    "Use only years with multiple institutions for year-level trend language.",
+    "Describe term counts as directional evidence, not proof of institutional motive.",
+    "Mention archived HTML and page-type instability as limitations.",
+    "Do not quote snippets unless they have been checked against the audit packet."
+  ],
+  "copyeditNotes": [
+    "Lead with the tension between university purpose as rhetoric and university purpose as measurable web text.",
+    "Keep the headline framed as a question or source map, not a settled trend claim.",
+    "Use the historical snapshot table to show source depth before interpreting term-family movement.",
+    "End with a stronger next-study plan: catalogs, strategic plans, speeches, and genre-separated institutional layers."
+  ]
+}

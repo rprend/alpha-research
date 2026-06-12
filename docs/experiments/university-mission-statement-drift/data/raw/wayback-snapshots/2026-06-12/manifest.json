@@ -41,6 +41,122 @@
       "reason": "historical Duke about path found through CDX probe",
       "year": 2003,
       "status": "no-snapshot"
+    },
+    {
+      "institution": "Massachusetts Institute of Technology",
+      "year": 2003,
+      "url": "http://web.mit.edu/facts/mission.html",
+      "timestamp": "20030217041607",
+      "reason": "MIT historical mission page with substantive text",
+      "archiveUrl": "https://web.archive.org/web/20030217041607id_/http://web.mit.edu/facts/mission.html",
+      "status": 200,
+      "wordCount": 366,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/massachusetts-institute-of-technology/2003/index.html",
+      "exactSnapshot": true
+    },
+    {
+      "institution": "Princeton University",
+      "year": 2005,
+      "url": "http://www.princeton.edu/main/about/",
+      "timestamp": "20050223071340",
+      "reason": "Princeton historical about page with substantive institutional overview",
+      "archiveUrl": "https://web.archive.org/web/20050223071340id_/http://www.princeton.edu/main/about/",
+      "status": 200,
+      "wordCount": 279,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/princeton-university/2005/index.html",
+      "exactSnapshot": true
+    },
+    {
+      "institution": "Cornell University",
+      "year": 2004,
+      "url": "http://www.cornell.edu/about/",
+      "timestamp": "20040831025921",
+      "reason": "Cornell historical about page with substantive institutional overview",
+      "archiveUrl": "https://web.archive.org/web/20040831025921id_/http://www.cornell.edu/about/",
+      "status": 200,
+      "wordCount": 318,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/cornell-university/2004/index.html",
+      "exactSnapshot": true
+    },
+    {
+      "institution": "University of Pennsylvania",
+      "year": 2002,
+      "url": "http://www.upenn.edu/about",
+      "timestamp": "20021013205220",
+      "reason": "Penn historical about page with substantive institutional overview",
+      "archiveUrl": "https://web.archive.org/web/20021013205220id_/http://www.upenn.edu/about",
+      "status": 200,
+      "wordCount": 242,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/university-of-pennsylvania/2002/index.html",
+      "exactSnapshot": true
+    },
+    {
+      "institution": "Duke University",
+      "year": 2003,
+      "url": "http://www.duke.edu/about/",
+      "timestamp": "20030409210026",
+      "reason": "Duke historical about page with substantive institutional overview",
+      "archiveUrl": "https://web.archive.org/web/20030409210026id_/http://www.duke.edu/about/",
+      "status": 200,
+      "wordCount": 296,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/duke-university/2003/index.html",
+      "exactSnapshot": true
+    },
+    {
+      "institution": "Massachusetts Institute of Technology",
+      "year": 2003,
+      "url": "http://web.mit.edu/facts/mission.html",
+      "timestamp": "20030217041607",
+      "reason": "MIT historical mission page with substantive text",
+      "archiveUrl": "https://web.archive.org/web/20030217041607id_/http://web.mit.edu/facts/mission.html",
+      "status": "fetch-error",
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/massachusetts-institute-of-technology/2003/index.html"
+    },
+    {
+      "institution": "Princeton University",
+      "year": 2005,
+      "url": "http://www.princeton.edu/main/about/",
+      "timestamp": "20050223071340",
+      "reason": "Princeton historical about page with substantive institutional overview",
+      "archiveUrl": "https://web.archive.org/web/20050223071340id_/http://www.princeton.edu/main/about/",
+      "status": 200,
+      "wordCount": 279,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/princeton-university/2005/index.html",
+      "exactSnapshot": true
+    },
+    {
+      "institution": "Cornell University",
+      "year": 2004,
+      "url": "http://www.cornell.edu/about/",
+      "timestamp": "20040831025921",
+      "reason": "Cornell historical about page with substantive institutional overview",
+      "archiveUrl": "https://web.archive.org/web/20040831025921id_/http://www.cornell.edu/about/",
+      "status": 200,
+      "wordCount": 318,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/cornell-university/2004/index.html",
+      "exactSnapshot": true
+    },
+    {
+      "institution": "University of Pennsylvania",
+      "year": 2002,
+      "url": "http://www.upenn.edu/about",
+      "timestamp": "20021013205220",
+      "reason": "Penn historical about page with substantive institutional overview",
+      "archiveUrl": "https://web.archive.org/web/20021013205220id_/http://www.upenn.edu/about",
+      "status": 200,
+      "wordCount": 242,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/university-of-pennsylvania/2002/index.html",
+      "exactSnapshot": true
+    },
+    {
+      "institution": "Duke University",
+      "year": 2003,
+      "url": "http://www.duke.edu/about/",
+      "timestamp": "20030409210026",
+      "reason": "Duke historical about page with substantive institutional overview",
+      "archiveUrl": "https://web.archive.org/web/20030409210026id_/http://www.duke.edu/about/",
+      "status": "fetch-error",
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/duke-university/2003/index.html"
     }
   ],
   "errors": [
@@ -78,11 +194,51 @@
       "reason": "historical Duke about path found through CDX probe",
       "year": 2003,
       "error": "No CDX snapshot found"
+    },
+    {
+      "institution": "Massachusetts Institute of Technology",
+      "year": 2003,
+      "url": "http://web.mit.edu/facts/mission.html",
+      "timestamp": "20030217041607",
+      "reason": "MIT historical mission page with substantive text",
+      "archiveUrl": "https://web.archive.org/web/20030217041607id_/http://web.mit.edu/facts/mission.html",
+      "error": "The operation was aborted due to timeout"
+    },
+    {
+      "institution": "Duke University",
+      "year": 2003,
+      "url": "http://www.duke.edu/about/",
+      "timestamp": "20030409210026",
+      "reason": "Duke historical about page with substantive institutional overview",
+      "archiveUrl": "https://web.archive.org/web/20030409210026id_/http://www.duke.edu/about/",
+      "error": "The operation was aborted due to timeout"
     }
   ],
-  "finishedAt": "2026-06-12T19:15:31.275Z",
-  "fetchedRecordCount": 0,
+  "finishedAt": "2026-06-12T19:17:57.297Z",
+  "fetchedRecordCount": 8,
   "snapshots": [
+    {
+      "institution": "Cornell University",
+      "year": 2004,
+      "url": "http://www.cornell.edu/about/",
+      "archiveUrl": "https://web.archive.org/web/20040831025921id_/http://www.cornell.edu/about/",
+      "timestamp": "20040831025921",
+      "status": 200,
+      "wordCount": 318,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/cornell-university/2004/index.html",
+      "metadataPath": "data/raw/wayback-snapshots/2026-06-12/cornell-university/2004/metadata.json"
+    },
+    {
+      "institution": "Duke University",
+      "year": 2003,
+      "url": "http://www.duke.edu/about/",
+      "archiveUrl": "https://web.archive.org/web/20030409210026id_/http://www.duke.edu/about/",
+      "timestamp": "20030409210026",
+      "status": 200,
+      "wordCount": 296,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/duke-university/2003/index.html",
+      "metadataPath": "data/raw/wayback-snapshots/2026-06-12/duke-university/2003/metadata.json"
+    },
     {
       "institution": "Harvard University",
       "year": 2000,
@@ -106,15 +262,15 @@
       "metadataPath": "data/raw/wayback-snapshots/2026-06-12/harvard-university/2005/metadata.json"
     },
     {
-      "institution": "Harvard University",
-      "year": 2010,
-      "url": "https://www.harvard.edu/about/",
-      "archiveUrl": "https://web.archive.org/web/20100626050049id_/https://www.harvard.edu/about/",
-      "timestamp": "20100626050049",
+      "institution": "Massachusetts Institute of Technology",
+      "year": 2003,
+      "url": "http://web.mit.edu/facts/mission.html",
+      "archiveUrl": "https://web.archive.org/web/20030217041607id_/http://web.mit.edu/facts/mission.html",
+      "timestamp": "20030217041607",
       "status": 200,
-      "wordCount": 114,
-      "responsePath": "data/raw/wayback-snapshots/2026-06-12/harvard-university/2010/index.html",
-      "metadataPath": "data/raw/wayback-snapshots/2026-06-12/harvard-university/2010/metadata.json"
+      "wordCount": 366,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/massachusetts-institute-of-technology/2003/index.html",
+      "metadataPath": "data/raw/wayback-snapshots/2026-06-12/massachusetts-institute-of-technology/2003/metadata.json"
     },
     {
       "institution": "Massachusetts Institute of Technology",
@@ -125,6 +281,17 @@
       "status": 200,
       "responsePath": "data/raw/wayback-snapshots/2026-06-12/massachusetts-institute-of-technology/2020/index.html",
       "metadataPath": "data/raw/wayback-snapshots/2026-06-12/massachusetts-institute-of-technology/2020/metadata.json"
+    },
+    {
+      "institution": "Princeton University",
+      "year": 2005,
+      "url": "http://www.princeton.edu/main/about/",
+      "archiveUrl": "https://web.archive.org/web/20050223071340id_/http://www.princeton.edu/main/about/",
+      "timestamp": "20050223071340",
+      "status": 200,
+      "wordCount": 279,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/princeton-university/2005/index.html",
+      "metadataPath": "data/raw/wayback-snapshots/2026-06-12/princeton-university/2005/metadata.json"
     },
     {
       "institution": "Princeton University",
@@ -167,8 +334,19 @@
       "status": 200,
       "responsePath": "data/raw/wayback-snapshots/2026-06-12/stanford-university/2020/index.html",
       "metadataPath": "data/raw/wayback-snapshots/2026-06-12/stanford-university/2020/metadata.json"
+    },
+    {
+      "institution": "University of Pennsylvania",
+      "year": 2002,
+      "url": "http://www.upenn.edu/about",
+      "archiveUrl": "https://web.archive.org/web/20021013205220id_/http://www.upenn.edu/about",
+      "timestamp": "20021013205220",
+      "status": 200,
+      "wordCount": 242,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/university-of-pennsylvania/2002/index.html",
+      "metadataPath": "data/raw/wayback-snapshots/2026-06-12/university-of-pennsylvania/2002/metadata.json"
     }
   ],
-  "existingRecordCount": 8,
-  "recordCount": 8
+  "existingRecordCount": 12,
+  "recordCount": 12
 }

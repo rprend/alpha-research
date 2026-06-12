@@ -269,6 +269,59 @@
     }
   },
   {
+    "institution": "Cornell University",
+    "source_layer": "wayback",
+    "year": 2004,
+    "url": "http://www.cornell.edu/about/",
+    "archive_url": "https://web.archive.org/web/20040831025921id_/http://www.cornell.edu/about/",
+    "timestamp": "20040831025921",
+    "status": 200,
+    "words": 318,
+    "text_preview": "Cornell University - About Cornell University - Overview Skip directly to: content | section navigation | search Admissions Academics Research Outreach Collections Student Life Alumni About News Maps Search Contact About Cornell University Once called \"the first American university\" by educational historian Frederick Rudolph, Cornell University represents a distinctive mix of eminent scholarship and democratic ideals. Adding practical subjects to the classics and admitting qualified students regardless of nationality, race, social circumstance, gender, or religion was quite a departure when Co",
+    "snippets": [
+      "rsity\" by educational historian Frederick Rudolph, Cornell University represents a distinctive mix of eminent scholarship and democratic ideals. Adding practical subjects to the classics and admitting qualified students regardless",
+      "ay meaningful roles in original research, and study in Cornell programs in Washington, New York City, and the world over. In his first inaugural address , at the Weill Cornell Medical College campus in Qatar in October 2004,",
+      "was quite a departure when Cornell was founded in 1865. Today's Cornell reflects this heritage of egalitarian excellence. It is home to the nation's first colleges devoted to hotel administration, industrial and labor relations, a",
+      "representing every state and 120 countries choose from among 4,000 courses in 11 undergraduate, graduate, and professional schools. Many undergraduates participate in a wide range of interdisciplinary programs, play meaningful roles"
+    ],
+    "term_counts": {
+      "truth_knowledge": 1,
+      "civic_public": 0,
+      "innovation_impact": 0,
+      "global_leadership": 1,
+      "excellence_prestige": 1,
+      "inclusion_belonging": 0,
+      "career_economy": 1
+    }
+  },
+  {
+    "institution": "Duke University",
+    "source_layer": "wayback",
+    "year": 2003,
+    "url": "http://www.duke.edu/about/",
+    "archive_url": "https://web.archive.org/web/20030409210026id_/http://www.duke.edu/about/",
+    "timestamp": "20030409210026",
+    "status": 200,
+    "words": 296,
+    "text_preview": "Duke University | About Duke Web pages Phone listing Welcome to Duke Administration Visiting Duke News Strategic Plan Annual Report Campaign for Duke Tracing its origins to a rural schoolhouse in 1838, Duke University has evolved into one of the world's leading institutions for education, research and medical care. &gt;&gt; Welcome to Duke A greeting from President Nannerl O. Keohane and an introduction to Duke's traditions, culture and strategic plan. Back to Top &gt;&gt; Administration The leadership team, including the Board of Trustees, oversees campus facilities, technology, safety and ot",
+    "snippets": [
+      "resents every school and division, is the university's $2 billion fund-raising effort to ensure excellence in scholarship, teaching and service to society. Back to Top Parents Where to find information about your child's health, ac",
+      "ivision, is the university's $2 billion fund-raising effort to ensure excellence in scholarship, teaching and service to society. Back to Top Parents Where to find information about your child's health, academic standing, recen",
+      "the university's $2 billion fund-raising effort to ensure excellence in scholarship, teaching and service to society. Back to Top Parents Where to find information about your child's health, academic standing, recent bill (tui",
+      "Top &gt;&gt; Administration The leadership team, including the Board of Trustees, oversees campus facilities, technology, safety and other essential functions. Back to Top &gt;&gt; Visiting Duke Maps, directions, attractions and a",
+      "aign for Duke Tracing its origins to a rural schoolhouse in 1838, Duke University has evolved into one of the world's leading institutions for education, research and medical care. &gt;&gt; Welcome to Duke A greeting from Pre"
+    ],
+    "term_counts": {
+      "truth_knowledge": 1,
+      "civic_public": 2,
+      "innovation_impact": 1,
+      "global_leadership": 2,
+      "excellence_prestige": 3,
+      "inclusion_belonging": 1,
+      "career_economy": 0
+    }
+  },
+  {
     "institution": "Harvard University",
     "source_layer": "wayback",
     "year": 2000,
@@ -318,26 +371,30 @@
     }
   },
   {
-    "institution": "Harvard University",
+    "institution": "Massachusetts Institute of Technology",
     "source_layer": "wayback",
-    "year": 2010,
-    "url": "https://www.harvard.edu/about/",
-    "archive_url": "https://web.archive.org/web/20100626050049id_/https://www.harvard.edu/about/",
-    "timestamp": "20100626050049",
+    "year": 2003,
+    "url": "http://web.mit.edu/facts/mission.html",
+    "archive_url": "https://web.archive.org/web/20030217041607id_/http://web.mit.edu/facts/mission.html",
+    "timestamp": "20030217041607",
     "status": 200,
-    "words": 114,
-    "text_preview": "General Information - Harvard University Harvard University Schools Business College Continuing Education Dental Design Divinity Education Engineering Government Graduate School Law Medical Public Health Radcliffe Institute Faculty of Arts and Sciences Offices Administration Alumni Arts Athletics Employment Libraries Museums Info tech President Provost About Harvard Calendar Contacts Directories Employment General Info Site Guide FAQs Support Harvard Admissions & aid Give --> Search General Information Harvard Acronyms &raquo; Harvard at a Glance &raquo; Harvard Fact Book &raquo; Harvard Guide",
+    "words": 366,
+    "text_preview": "MIT Facts 2003: Mission and Origins MIT Facts 2003 Mission and Origins Presidents of the Institute Mission and Origins The Campus Administrative Organization of the Institute Accreditation The Campaign for MIT Academic Schools, Departments, Divisions, and Sections Interdisciplinary Laboratories, Centers, and Programs Lincoln Laboratory Affiliated Institutions and Programs Research at MIT Faculty and Staff Admission to MIT Undergraduate Education Enrollment 2002&#8211;2003 Tuition and Financial Aid Housing Educational Resources The Arts Athletics and Recreation ROTC MIT Students After Graduatio",
     "snippets": [
-      "lege Continuing Education Dental Design Divinity Education Engineering Government Graduate School Law Medical Public Health Radcliffe Institute Faculty of Arts and Sciences Offices Administration Alumni Arts Athletics Employme"
+      "nity MIT and Industry International Collaborations Financial Data Contact Us The mission of MIT is to advance knowledge and educate students in science, technology, and other areas of scholarship that will best serve the nation a",
+      "Us The mission of MIT is to advance knowledge and educate students in science, technology, and other areas of scholarship that will best serve the nation and the world in the 21st century. The Institute is committed to generating,",
+      "rations Financial Data Contact Us The mission of MIT is to advance knowledge and educate students in science, technology, and other areas of scholarship that will best serve the nation and the world in the 21st century. The Instit",
+      "cated to providing its students with an education that combines rigorous academic study and the excitement of discovery with the support and intellectual stimulation of a diverse campus community. We seek to develop in each membe",
+      "ucate students in science, technology, and other areas of scholarship that will best serve the nation and the world in the 21st century. The Institute is committed to generating, disseminating, and preserving knowledge, and t"
     ],
     "term_counts": {
-      "truth_knowledge": 0,
-      "civic_public": 1,
-      "innovation_impact": 0,
-      "global_leadership": 0,
-      "excellence_prestige": 0,
+      "truth_knowledge": 4,
+      "civic_public": 0,
+      "innovation_impact": 2,
+      "global_leadership": 6,
+      "excellence_prestige": 1,
       "inclusion_belonging": 0,
-      "career_economy": 0
+      "career_economy": 2
     }
   },
   {
@@ -365,6 +422,33 @@
       "excellence_prestige": 1,
       "inclusion_belonging": 0,
       "career_economy": 1
+    }
+  },
+  {
+    "institution": "Princeton University",
+    "source_layer": "wayback",
+    "year": 2005,
+    "url": "http://www.princeton.edu/main/about/",
+    "archive_url": "https://web.archive.org/web/20050223071340id_/http://www.princeton.edu/main/about/",
+    "timestamp": "20050223071340",
+    "status": 200,
+    "words": 279,
+    "text_preview": "Princeton University - About Princeton Skip over navigation WebMail A to Z Lists Contacts Site Map Search Princeton University Also of Interest... Visiting Princeton Students Prospective Students Parents Alumni Faculty & Staff About Princeton Academics Library Research | Admission & Aid Administration & Services Campus Life Visiting Campus Also of Interest... Visiting Princeton About Princeton Overview Princeton Today Princeton's History Facts & Figures | University Governance | View of Campus Our Neighborhood | About This Site About Princeton: Overview Princeton simultaneously strives to be o",
+    "snippets": [
+      "search university, it seeks to achieve the highest levels of distinction in the discovery and transmission of knowledge and understanding, and in the education of graduate students. At the same time, Princeton is distinctive amon",
+      "d prepare them for positions of leadership and lives of service in many fields of human endeavor. Through the scholarship and teaching of its faculty, and the many contributions to society of its alumni, Princeton seeks to fulfill",
+      "Parents Alumni Faculty & Staff About Princeton Academics Library Research | Admission & Aid Administration & Services Campus Life Visiting Campus Also of Interest... Visiting Princeton About Princeton Overview Princeton Today",
+      "fields of human endeavor. Through the scholarship and teaching of its faculty, and the many contributions to society of its alumni, Princeton seeks to fulfill its informal motto: &#x201c;Princeton in the Nation&#x2019;s Servic",
+      "college in the world. As a research university, it seeks to achieve the highest levels of distinction in the discovery and transmission of knowledge and understanding, and in the education of graduate students. At the same time,"
+    ],
+    "term_counts": {
+      "truth_knowledge": 2,
+      "civic_public": 4,
+      "innovation_impact": 1,
+      "global_leadership": 2,
+      "excellence_prestige": 1,
+      "inclusion_belonging": 1,
+      "career_economy": 0
     }
   },
   {
@@ -471,6 +555,32 @@
       "innovation_impact": 3,
       "global_leadership": 2,
       "excellence_prestige": 1,
+      "inclusion_belonging": 0,
+      "career_economy": 0
+    }
+  },
+  {
+    "institution": "University of Pennsylvania",
+    "source_layer": "wayback",
+    "year": 2002,
+    "url": "http://www.upenn.edu/about",
+    "archive_url": "https://web.archive.org/web/20021013205220id_/http://www.upenn.edu/about",
+    "timestamp": "20021013205220",
+    "status": 200,
+    "words": 242,
+    "text_preview": "Penn: About Penn Highlights for: Welcome to Penn, a place to pursue knowledge beyond traditional boundaries. You'll encounter that attitude all around our campus, in education, in scholarship, and in research. Welcome to Penn A quick overview of our dynamic university. Penn News & Events Find news about the University and a sampling of the many events taking place on campus here. Virtual Tour Take a walk around our campus without leaving your computer. Visiting Penn If you would like to see Penn in person (we recommend it), here's information on how to arrange a visit. Penn's Heritage The Univ",
+    "snippets": [
+      "Penn: About Penn Highlights for: Welcome to Penn, a place to pursue knowledge beyond traditional boundaries. You'll encounter that attitude all around our campus, in education, in scholar",
+      "owledge beyond traditional boundaries. You'll encounter that attitude all around our campus, in education, in scholarship, and in research. Welcome to Penn A quick overview of our dynamic university. Penn News & Events Find news ab",
+      "re, concert tickets, University Press, computer store and more. University Communications University News and Public Affairs Office &#160; Copyright &copy; 2002, University of Pennsylvania 3451 Walnut Street, Philadelphia, PA",
+      "5-898-5000 Copyright Information | Contact Us | Privacy Policy Penn Fact: In 1946, Penn introduced ENIAC, the world's first electronic, large-scale, general-purpose digital computer."
+    ],
+    "term_counts": {
+      "truth_knowledge": 2,
+      "civic_public": 1,
+      "innovation_impact": 0,
+      "global_leadership": 1,
+      "excellence_prestige": 0,
       "inclusion_belonging": 0,
       "career_economy": 0
     }

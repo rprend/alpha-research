@@ -9,6 +9,7 @@ import {
 const reportsDir = path.join(experimentDir, "reports");
 const result = await readJson(path.join(reportsDir, "result.json"));
 const audit = await readJson(path.join(reportsDir, "audit-packet.json"));
+const handoff = await readOptionalJson(path.join(reportsDir, "publication-handoff.json"));
 
 const checks = [
   {
@@ -46,6 +47,12 @@ const checks = [
     label: "Public draft artifact exists and is source-caveated",
     status: "pass",
     evidence: "reports/public-draft.md",
+  },
+  {
+    id: "publication-handoff",
+    label: "Publication handoff exists with corpus notes and public-claim checklist",
+    status: handoff?.publishState === "ready-for-copyedit" && handoff?.historicalSnapshotTable?.length >= 8 ? "pass" : "needs-work",
+    evidence: handoff ? `${handoff.publishState}; ${handoff.historicalSnapshotTable.length} historical rows` : "missing publication handoff",
   },
 ];
 
@@ -102,4 +109,12 @@ function historicalYearsWithTwoInstitutions(value) {
     years.set(row.year, set);
   }
   return [...years.entries()].filter(([, institutions]) => institutions.size >= 2).map(([year]) => year).sort();
+}
+
+async function readOptionalJson(file) {
+  try {
+    return await readJson(file);
+  } catch {
+    return null;
+  }
 }

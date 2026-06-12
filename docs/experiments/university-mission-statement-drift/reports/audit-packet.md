@@ -1,7 +1,7 @@
 # Mission Drift Audit Packet
 
-Generated at: 2026-06-12T19:15:31.581Z
-Pages requiring review: 18
+Generated at: 2026-06-12T19:17:57.540Z
+Pages requiring review: 22
 
 ## Review Instructions
 
@@ -121,6 +121,28 @@ Pages requiring review: 18
 
 > niversity and the world over the next century. look ahead Empower the Boldest Thinkers Transform Teaching and Learning Strengthen Our Campus Community Partner With Purpose Engage a Global Network Empower the Boldest Thinkers Duk
 
+### Cornell University (wayback, 2004)
+
+- Words: 318
+- Top families: truth_knowledge:1; global_leadership:1; excellence_prestige:1
+- Flags: none
+- URL: https://web.archive.org/web/20040831025921id_/http://www.cornell.edu/about/
+
+> rsity" by educational historian Frederick Rudolph, Cornell University represents a distinctive mix of eminent scholarship and democratic ideals. Adding practical subjects to the classics and admitting qualified students regardless
+
+> ay meaningful roles in original research, and study in Cornell programs in Washington, New York City, and the world over. In his first inaugural address , at the Weill Cornell Medical College campus in Qatar in October 2004,
+
+### Duke University (wayback, 2003)
+
+- Words: 296
+- Top families: excellence_prestige:3; civic_public:2; global_leadership:2
+- Flags: none
+- URL: https://web.archive.org/web/20030409210026id_/http://www.duke.edu/about/
+
+> resents every school and division, is the university's $2 billion fund-raising effort to ensure excellence in scholarship, teaching and service to society. Back to Top Parents Where to find information about your child's health, ac
+
+> ivision, is the university's $2 billion fund-raising effort to ensure excellence in scholarship, teaching and service to society. Back to Top Parents Where to find information about your child's health, academic standing, recen
+
 ### Harvard University (wayback, 2000)
 
 - Words: 692
@@ -143,16 +165,16 @@ Pages requiring review: 18
 
 > sells Harvard merchandise as well as books written by Harvard faculty and staff members. Harvard Cooperative Society Affectionately known as The Coop (rhymes with "loop"), this campus bookstore carries Harvard t-shirts and oth
 
-### Harvard University (wayback, 2010)
+### Massachusetts Institute of Technology (wayback, 2003)
 
-- Words: 114
-- Top families: civic_public:1; truth_knowledge:0; innovation_impact:0
-- Flags: short-page
-- URL: https://web.archive.org/web/20100626050049id_/https://www.harvard.edu/about/
+- Words: 366
+- Top families: global_leadership:6; truth_knowledge:4; innovation_impact:2
+- Flags: none
+- URL: https://web.archive.org/web/20030217041607id_/http://web.mit.edu/facts/mission.html
 
-> lege Continuing Education Dental Design Divinity Education Engineering Government Graduate School Law Medical Public Health Radcliffe Institute Faculty of Arts and Sciences Offices Administration Alumni Arts Athletics Employme
+> nity MIT and Industry International Collaborations Financial Data Contact Us The mission of MIT is to advance knowledge and educate students in science, technology, and other areas of scholarship that will best serve the nation a
 
-
+> Us The mission of MIT is to advance knowledge and educate students in science, technology, and other areas of scholarship that will best serve the nation and the world in the 21st century. The Institute is committed to generating,
 
 ### Massachusetts Institute of Technology (wayback, 2020)
 
@@ -164,6 +186,17 @@ Pages requiring review: 18
 > bles II,” by Mark di Suvero, is part of MIT’s public art collection. Mission The mission of MIT is to advance knowledge and educate students in science, technology, and other areas of scholarship that will best serve the nation a
 
 > on The mission of MIT is to advance knowledge and educate students in science, technology, and other areas of scholarship that will best serve the nation and the world in the 21st century. The Institute is committed to generating,
+
+### Princeton University (wayback, 2005)
+
+- Words: 279
+- Top families: civic_public:4; truth_knowledge:2; global_leadership:2
+- Flags: none
+- URL: https://web.archive.org/web/20050223071340id_/http://www.princeton.edu/main/about/
+
+> search university, it seeks to achieve the highest levels of distinction in the discovery and transmission of knowledge and understanding, and in the education of graduate students. At the same time, Princeton is distinctive amon
+
+> d prepare them for positions of leadership and lives of service in many fields of human endeavor. Through the scholarship and teaching of its faculty, and the many contributions to society of its alumni, Princeton seeks to fulfill
 
 ### Princeton University (wayback, 2020)
 
@@ -208,3 +241,14 @@ Pages requiring review: 18
 > ch Stanford: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219
 
 > le Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership Pre
+
+### University of Pennsylvania (wayback, 2002)
+
+- Words: 242
+- Top families: truth_knowledge:2; civic_public:1; global_leadership:1
+- Flags: none
+- URL: https://web.archive.org/web/20021013205220id_/http://www.upenn.edu/about
+
+> Penn: About Penn Highlights for: Welcome to Penn, a place to pursue knowledge beyond traditional boundaries. You'll encounter that attitude all around our campus, in education, in scholar
+
+> owledge beyond traditional boundaries. You'll encounter that attitude all around our campus, in education, in scholarship, and in research. Welcome to Penn A quick overview of our dynamic university. Penn News & Events Find news ab

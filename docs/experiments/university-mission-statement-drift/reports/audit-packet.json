@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-12T19:15:31.580Z",
-  "pageCount": 18,
+  "generatedAt": "2026-06-12T19:17:57.539Z",
+  "pageCount": 22,
   "rows": [
     {
       "institution": "Harvard University",
@@ -123,6 +123,30 @@
       "snippet_2": "niversity and the world over the next century. look ahead Empower the Boldest Thinkers Transform Teaching and Learning Strengthen Our Campus Community Partner With Purpose Engage a Global Network Empower the Boldest Thinkers Duk"
     },
     {
+      "institution": "Cornell University",
+      "source_layer": "wayback",
+      "year": 2004,
+      "words": 318,
+      "total_terms": 4,
+      "top_families": "truth_knowledge:1; global_leadership:1; excellence_prestige:1",
+      "flags": "",
+      "url": "https://web.archive.org/web/20040831025921id_/http://www.cornell.edu/about/",
+      "snippet_1": "rsity\" by educational historian Frederick Rudolph, Cornell University represents a distinctive mix of eminent scholarship and democratic ideals. Adding practical subjects to the classics and admitting qualified students regardless",
+      "snippet_2": "ay meaningful roles in original research, and study in Cornell programs in Washington, New York City, and the world over. In his first inaugural address , at the Weill Cornell Medical College campus in Qatar in October 2004,"
+    },
+    {
+      "institution": "Duke University",
+      "source_layer": "wayback",
+      "year": 2003,
+      "words": 296,
+      "total_terms": 10,
+      "top_families": "excellence_prestige:3; civic_public:2; global_leadership:2",
+      "flags": "",
+      "url": "https://web.archive.org/web/20030409210026id_/http://www.duke.edu/about/",
+      "snippet_1": "resents every school and division, is the university's $2 billion fund-raising effort to ensure excellence in scholarship, teaching and service to society. Back to Top Parents Where to find information about your child's health, ac",
+      "snippet_2": "ivision, is the university's $2 billion fund-raising effort to ensure excellence in scholarship, teaching and service to society. Back to Top Parents Where to find information about your child's health, academic standing, recen"
+    },
+    {
       "institution": "Harvard University",
       "source_layer": "wayback",
       "year": 2000,
@@ -147,16 +171,16 @@
       "snippet_2": "sells Harvard merchandise as well as books written by Harvard faculty and staff members. Harvard Cooperative Society Affectionately known as The Coop (rhymes with \"loop\"), this campus bookstore carries Harvard t-shirts and oth"
     },
     {
-      "institution": "Harvard University",
+      "institution": "Massachusetts Institute of Technology",
       "source_layer": "wayback",
-      "year": 2010,
-      "words": 114,
-      "total_terms": 1,
-      "top_families": "civic_public:1; truth_knowledge:0; innovation_impact:0",
-      "flags": "short-page",
-      "url": "https://web.archive.org/web/20100626050049id_/https://www.harvard.edu/about/",
-      "snippet_1": "lege Continuing Education Dental Design Divinity Education Engineering Government Graduate School Law Medical Public Health Radcliffe Institute Faculty of Arts and Sciences Offices Administration Alumni Arts Athletics Employme",
-      "snippet_2": ""
+      "year": 2003,
+      "words": 366,
+      "total_terms": 15,
+      "top_families": "global_leadership:6; truth_knowledge:4; innovation_impact:2",
+      "flags": "",
+      "url": "https://web.archive.org/web/20030217041607id_/http://web.mit.edu/facts/mission.html",
+      "snippet_1": "nity MIT and Industry International Collaborations Financial Data Contact Us The mission of MIT is to advance knowledge and educate students in science, technology, and other areas of scholarship that will best serve the nation a",
+      "snippet_2": "Us The mission of MIT is to advance knowledge and educate students in science, technology, and other areas of scholarship that will best serve the nation and the world in the 21st century. The Institute is committed to generating,"
     },
     {
       "institution": "Massachusetts Institute of Technology",
@@ -169,6 +193,18 @@
       "url": "https://web.archive.org/web/20200729073348id_/https://www.mit.edu/about/",
       "snippet_1": "bles II,” by Mark di Suvero, is part of MIT’s public art collection. Mission The mission of MIT is to advance knowledge and educate students in science, technology, and other areas of scholarship that will best serve the nation a",
       "snippet_2": "on The mission of MIT is to advance knowledge and educate students in science, technology, and other areas of scholarship that will best serve the nation and the world in the 21st century. The Institute is committed to generating,"
+    },
+    {
+      "institution": "Princeton University",
+      "source_layer": "wayback",
+      "year": 2005,
+      "words": 279,
+      "total_terms": 11,
+      "top_families": "civic_public:4; truth_knowledge:2; global_leadership:2",
+      "flags": "",
+      "url": "https://web.archive.org/web/20050223071340id_/http://www.princeton.edu/main/about/",
+      "snippet_1": "search university, it seeks to achieve the highest levels of distinction in the discovery and transmission of knowledge and understanding, and in the education of graduate students. At the same time, Princeton is distinctive amon",
+      "snippet_2": "d prepare them for positions of leadership and lives of service in many fields of human endeavor. Through the scholarship and teaching of its faculty, and the many contributions to society of its alumni, Princeton seeks to fulfill"
     },
     {
       "institution": "Princeton University",
@@ -217,6 +253,18 @@
       "url": "https://web.archive.org/web/20200406234457id_/https://www.stanford.edu/about/",
       "snippet_1": "ch Stanford: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219",
       "snippet_2": "le Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership Pre"
+    },
+    {
+      "institution": "University of Pennsylvania",
+      "source_layer": "wayback",
+      "year": 2002,
+      "words": 242,
+      "total_terms": 4,
+      "top_families": "truth_knowledge:2; civic_public:1; global_leadership:1",
+      "flags": "",
+      "url": "https://web.archive.org/web/20021013205220id_/http://www.upenn.edu/about",
+      "snippet_1": "Penn: About Penn Highlights for: Welcome to Penn, a place to pursue knowledge beyond traditional boundaries. You'll encounter that attitude all around our campus, in education, in scholar",
+      "snippet_2": "owledge beyond traditional boundaries. You'll encounter that attitude all around our campus, in education, in scholarship, and in research. Welcome to Penn A quick overview of our dynamic university. Penn News & Events Find news ab"
     }
   ],
   "reviewInstructions": [

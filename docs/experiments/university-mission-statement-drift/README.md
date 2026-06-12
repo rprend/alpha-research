@@ -29,8 +29,10 @@ node docs/experiments/university-mission-statement-drift/scripts/fetch-current-p
 node docs/experiments/university-mission-statement-drift/scripts/discover-wayback-targets.mjs --years=2000,2005,2010,2015,2020
 node docs/experiments/university-mission-statement-drift/scripts/fetch-wayback-snapshots.mjs --years=2000,2005,2010,2015,2020
 node docs/experiments/university-mission-statement-drift/scripts/fetch-wayback-snapshots.mjs --targets=wayback-historical-targets.json --years=2003,2004,2005,2007,2008
+node docs/experiments/university-mission-statement-drift/scripts/fetch-exact-wayback-snapshots.mjs
 node docs/experiments/university-mission-statement-drift/scripts/build-report.mjs
 node docs/experiments/university-mission-statement-drift/scripts/build-audit-packet.mjs
+node docs/experiments/university-mission-statement-drift/scripts/build-publication-handoff.mjs
 node docs/experiments/university-mission-statement-drift/scripts/check-readiness.mjs
 ```
 
@@ -42,6 +44,7 @@ Outputs:
 - `data/raw/wayback-discovery/YYYY-MM-DD/`
 - `data/raw/wayback-snapshots/YYYY-MM-DD/`
 - `config/wayback-historical-targets.json`
+- `config/wayback-exact-snapshots.json`
 - `data/processed/pages.json`
 - `data/processed/term-counts.csv`
 - `data/processed/page-term-counts.csv`
@@ -53,5 +56,7 @@ Outputs:
 - `reports/audit-packet.md`
 - `reports/audit-packet.csv`
 - `reports/audit-packet.json`
+- `reports/publication-handoff.md`
+- `reports/publication-handoff.json`
 - `reports/readiness.md`
 - `reports/readiness.json`
