@@ -1,0 +1,38 @@
+{
+  "version": "2026-06-12",
+  "apify": {
+    "base_url": "https://api.apify.com/v2",
+    "actors": {
+      "tiktok_hashtag_export": {
+        "actor_id": "clockworks/tiktok-scraper",
+        "input_template": {
+          "hashtags": ["{{query}}"],
+          "resultsPerPage": "{{limit}}",
+          "shouldDownloadVideos": false,
+          "shouldDownloadCovers": false,
+          "shouldDownloadSubtitles": false
+        }
+      },
+      "tiktok_creator_neighborhood_export": {
+        "actor_id": "clockworks/tiktok-scraper",
+        "input_template": {
+          "profiles": ["https://www.tiktok.com/{{query}}"],
+          "resultsPerPage": "{{limit}}",
+          "shouldDownloadVideos": false,
+          "shouldDownloadCovers": false,
+          "shouldDownloadSubtitles": false
+        }
+      },
+      "tiktok_profile_export": {
+        "actor_id": "clockworks/tiktok-scraper",
+        "input_template": {
+          "profiles": ["https://www.tiktok.com/{{query}}"],
+          "resultsPerPage": "{{limit}}",
+          "shouldDownloadVideos": false,
+          "shouldDownloadCovers": false,
+          "shouldDownloadSubtitles": false
+        }
+      }
+    }
+  }
+}

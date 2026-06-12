@@ -43,6 +43,11 @@ function main() {
     if (!existsSync(path)) return null
     return JSON.parse(readFileSync(path, 'utf8'))
   })()
+  const acquisitionRun = (() => {
+    const path = join(reportsDir, 'acquisition-run.json')
+    if (!existsSync(path)) return null
+    return JSON.parse(readFileSync(path, 'utf8'))
+  })()
 
   const usefulAccounts = scores.filter((row) => ['useful', 'excellent'].includes(row.status)).length
   const excellentAccounts = scores.filter((row) => row.status === 'excellent').length
@@ -84,6 +89,11 @@ function main() {
       id: 'acquisition_batches',
       status: acquisitionTasks.length > 0 ? 'pass' : 'fail',
       evidence: `${acquisitionTasks.length} acquisition tasks generated`,
+    },
+    {
+      id: 'acquisition_runner',
+      status: acquisitionRun?.selected_tasks > 0 ? 'pass' : 'fail',
+      evidence: acquisitionRun ? `${acquisitionRun.selected_tasks} provider tasks selected (${acquisitionRun.dry_run ? 'dry run' : 'live'})` : 'acquisition runner has not been exercised',
     },
     {
       id: 'source_yield',
@@ -144,6 +154,7 @@ function main() {
       benchmark_creators: benchmarkCreators.length,
       expansion_queue: expansionQueue.length,
       acquisition_tasks: acquisitionTasks.length,
+      acquisition_runner_tasks: acquisitionRun?.selected_tasks ?? 0,
       source_yield_rows: sourceYield.length,
       identities: identities.length,
       release_useful_creators: releaseUseful.length,
@@ -179,6 +190,7 @@ Complete: ${summary.complete}
 - Benchmark creators: ${summary.counts.benchmark_creators}
 - Expansion queue: ${summary.counts.expansion_queue}
 - Acquisition tasks: ${summary.counts.acquisition_tasks}
+- Acquisition runner tasks: ${summary.counts.acquisition_runner_tasks}
 - Source yield rows: ${summary.counts.source_yield_rows}
 - Identities: ${summary.counts.identities}
 - Release useful creators: ${summary.counts.release_useful_creators}

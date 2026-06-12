@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T19:55:38.180Z",
+  "generated_at": "2026-06-12T19:58:40.171Z",
   "complete": false,
   "counts": {
     "accounts": 9,
@@ -14,6 +14,7 @@
     "benchmark_creators": 1,
     "expansion_queue": 4,
     "acquisition_tasks": 31,
+    "acquisition_runner_tasks": 5,
     "source_yield_rows": 7,
     "identities": 9,
     "release_useful_creators": 6,
@@ -55,6 +56,11 @@
       "id": "acquisition_batches",
       "status": "pass",
       "evidence": "31 acquisition tasks generated"
+    },
+    {
+      "id": "acquisition_runner",
+      "status": "pass",
+      "evidence": "5 provider tasks selected (dry run)"
     },
     {
       "id": "source_yield",

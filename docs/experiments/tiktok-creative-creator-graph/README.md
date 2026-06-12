@@ -43,6 +43,14 @@ Build acquisition batches from discovery queries and the latest expansion queue:
 pnpm run tiktok:creative:acquisition
 ```
 
+Execute or dry-run provider acquisition batches:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=5
+```
+
+Without `--dry-run`, the runner currently supports Apify when `APIFY_TOKEN` is already present in the environment. It writes raw provider output to `data/raw/acquisition-results/`.
+
 Normalize search/provider acquisition exports into pipeline imports:
 
 ```bash
@@ -210,6 +218,8 @@ The pipeline writes:
 - `reports/readiness.json`
 - `reports/acquisition-batches.md`
 - `reports/acquisition-batches.json`
+- `reports/acquisition-run.md`
+- `reports/acquisition-run.json`
 - `reports/acquisition-import.md`
 - `reports/acquisition-import.json`
 - `reports/review-decisions.md`
@@ -235,17 +245,18 @@ The pipeline writes:
 3. Run the pipeline.
 4. Use `expansion_queue` to resolve mentioned creators and expand from high-usefulness accounts.
 5. Run `pnpm run tiktok:creative:acquisition` to turn discovery queries and graph targets into source-specific acquisition tasks.
-6. Put completed search/API/provider exports in `data/raw/acquisition-results/`.
-7. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs`.
-8. Rerun `pnpm run tiktok:creative`.
-9. Put review labels in `data/raw/review-decisions/` and run `node docs/experiments/tiktok-creative-creator-graph/scripts/apply-review-decisions.mjs`.
-10. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/analyze-source-yield.mjs` so future acquisition batches prioritize sources and queries that produce useful creators.
-11. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/resolve-identities.mjs` so duplicate risks and cross-platform evidence stay auditable.
-12. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-release-package.mjs` to generate stable handoff exports.
-13. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/verify-release-package.mjs` to validate hashes, row counts, required fields, identity uniqueness, and release/file consistency.
-14. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-scale-plan.mjs` to size the next collection and review wave.
-15. Use reviewed accepted/rejected/benchmark outputs to tune sources and scoring.
-16. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
+6. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=5` to inspect provider execution payloads, or run without `--dry-run` when provider credentials are already available.
+7. Put completed search/API/provider exports in `data/raw/acquisition-results/`.
+8. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs`.
+9. Rerun `pnpm run tiktok:creative`.
+10. Put review labels in `data/raw/review-decisions/` and run `node docs/experiments/tiktok-creative-creator-graph/scripts/apply-review-decisions.mjs`.
+11. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/analyze-source-yield.mjs` so future acquisition batches prioritize sources and queries that produce useful creators.
+12. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/resolve-identities.mjs` so duplicate risks and cross-platform evidence stay auditable.
+13. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-release-package.mjs` to generate stable handoff exports.
+14. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/verify-release-package.mjs` to validate hashes, row counts, required fields, identity uniqueness, and release/file consistency.
+15. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-scale-plan.mjs` to size the next collection and review wave.
+16. Use reviewed accepted/rejected/benchmark outputs to tune sources and scoring.
+17. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
 
 ## Current Limitations
 

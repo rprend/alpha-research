@@ -1,0 +1,127 @@
+{
+  "generated_at": "2026-06-12T19:58:39.427Z",
+  "execution_id": "2026-06-12T19-58-39-422Z",
+  "provider": "apify",
+  "dry_run": true,
+  "selected_tasks": 5,
+  "succeeded": 0,
+  "failed": 0,
+  "output_rows": 0,
+  "results": [
+    {
+      "execution_id": "2026-06-12T19-58-39-422Z",
+      "provider": "apify",
+      "batch_id": "graph_0028",
+      "acquisition_surface": "tiktok_creator_neighborhood_export",
+      "query": "@maya.shortcuts",
+      "actor_id": "clockworks/tiktok-scraper",
+      "input": {
+        "profiles": [
+          "https://www.tiktok.com/@maya.shortcuts"
+        ],
+        "resultsPerPage": 100,
+        "shouldDownloadVideos": false,
+        "shouldDownloadCovers": false,
+        "shouldDownloadSubtitles": false
+      },
+      "dry_run": true,
+      "started_at": "2026-06-12T19:58:39.427Z",
+      "status": "dry_run",
+      "output_rows": 0,
+      "output_path": "",
+      "finished_at": "2026-06-12T19:58:39.427Z"
+    },
+    {
+      "execution_id": "2026-06-12T19-58-39-422Z",
+      "provider": "apify",
+      "batch_id": "graph_0029",
+      "acquisition_surface": "tiktok_creator_neighborhood_export",
+      "query": "@noahframes",
+      "actor_id": "clockworks/tiktok-scraper",
+      "input": {
+        "profiles": [
+          "https://www.tiktok.com/@noahframes"
+        ],
+        "resultsPerPage": 100,
+        "shouldDownloadVideos": false,
+        "shouldDownloadCovers": false,
+        "shouldDownloadSubtitles": false
+      },
+      "dry_run": true,
+      "started_at": "2026-06-12T19:58:39.427Z",
+      "status": "dry_run",
+      "output_rows": 0,
+      "output_path": "",
+      "finished_at": "2026-06-12T19:58:39.427Z"
+    },
+    {
+      "execution_id": "2026-06-12T19-58-39-422Z",
+      "provider": "apify",
+      "batch_id": "graph_0030",
+      "acquisition_surface": "tiktok_creator_neighborhood_export",
+      "query": "@lucybits",
+      "actor_id": "clockworks/tiktok-scraper",
+      "input": {
+        "profiles": [
+          "https://www.tiktok.com/@lucybits"
+        ],
+        "resultsPerPage": 100,
+        "shouldDownloadVideos": false,
+        "shouldDownloadCovers": false,
+        "shouldDownloadSubtitles": false
+      },
+      "dry_run": true,
+      "started_at": "2026-06-12T19:58:39.427Z",
+      "status": "dry_run",
+      "output_rows": 0,
+      "output_path": "",
+      "finished_at": "2026-06-12T19:58:39.427Z"
+    },
+    {
+      "execution_id": "2026-06-12T19-58-39-422Z",
+      "provider": "apify",
+      "batch_id": "graph_0031",
+      "acquisition_surface": "tiktok_creator_neighborhood_export",
+      "query": "@ani.motionlab",
+      "actor_id": "clockworks/tiktok-scraper",
+      "input": {
+        "profiles": [
+          "https://www.tiktok.com/@ani.motionlab"
+        ],
+        "resultsPerPage": 100,
+        "shouldDownloadVideos": false,
+        "shouldDownloadCovers": false,
+        "shouldDownloadSubtitles": false
+      },
+      "dry_run": true,
+      "started_at": "2026-06-12T19:58:39.427Z",
+      "status": "dry_run",
+      "output_rows": 0,
+      "output_path": "",
+      "finished_at": "2026-06-12T19:58:39.427Z"
+    },
+    {
+      "execution_id": "2026-06-12T19-58-39-422Z",
+      "provider": "apify",
+      "batch_id": "hashtag_0011",
+      "acquisition_surface": "tiktok_hashtag_export",
+      "query": "filmmaker",
+      "actor_id": "clockworks/tiktok-scraper",
+      "input": {
+        "hashtags": [
+          "filmmaker"
+        ],
+        "resultsPerPage": 100,
+        "shouldDownloadVideos": false,
+        "shouldDownloadCovers": false,
+        "shouldDownloadSubtitles": false
+      },
+      "dry_run": true,
+      "started_at": "2026-06-12T19:58:39.427Z",
+      "status": "dry_run",
+      "output_rows": 0,
+      "output_path": "",
+      "finished_at": "2026-06-12T19:58:39.427Z"
+    }
+  ]
+}
