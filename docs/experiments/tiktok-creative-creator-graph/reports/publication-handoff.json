@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T20:10:05.020Z",
+  "generated_at": "2026-06-12T20:14:12.618Z",
   "dataset_id": "tiktok-creative-creator-graph",
   "title": "TikTok Creative Creator Graph",
   "publish_state": "not-ready-production-data",
@@ -41,6 +41,7 @@
     "review_queue": 8,
     "review_decisions": 4,
     "source_yield_rows": 7,
+    "category_coverage": "5/11",
     "acquisition_tasks": 31,
     "refresh_tasks": 9
   },
@@ -68,6 +69,7 @@
     "refresh_plan": "docs/experiments/tiktok-creative-creator-graph/reports/refresh-plan.json",
     "acquisition_batches": "docs/experiments/tiktok-creative-creator-graph/reports/acquisition-batches.json",
     "source_yield": "docs/experiments/tiktok-creative-creator-graph/reports/source-yield.json",
+    "category_coverage": "docs/experiments/tiktok-creative-creator-graph/reports/category-coverage.json",
     "useful_creators": "docs/experiments/tiktok-creative-creator-graph/data/release/useful_creators.csv",
     "benchmark_creators": "docs/experiments/tiktok-creative-creator-graph/data/release/benchmark_creators.csv",
     "review_queue": "docs/experiments/tiktok-creative-creator-graph/data/release/review_queue.csv",

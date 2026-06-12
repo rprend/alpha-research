@@ -32,6 +32,11 @@ function main() {
   const acquisitionTasks = readJsonl(join(processedDir, 'acquisition/acquisition_tasks.jsonl'))
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
   const identities = readJsonl(join(processedDir, 'creator_identities.jsonl'))
+  const categoryCoverage = (() => {
+    const path = join(reportsDir, 'category-coverage.json')
+    if (!existsSync(path)) return null
+    return JSON.parse(readFileSync(path, 'utf8'))
+  })()
   const releaseUseful = readJsonl(join(experimentDir, 'data/release/useful_creators.jsonl'))
   const releaseVerification = (() => {
     const path = join(reportsDir, 'release-verification.json')
@@ -112,6 +117,11 @@ function main() {
       evidence: `${identities.length} creator identities resolved`,
     },
     {
+      id: 'category_coverage',
+      status: categoryCoverage?.labels > 0 ? 'pass' : 'fail',
+      evidence: categoryCoverage ? `${categoryCoverage.covered_labels}/${categoryCoverage.labels} target labels covered` : 'category coverage missing',
+    },
+    {
       id: 'release_package',
       status: releaseUseful.length > 0 ? 'pass' : 'fail',
       evidence: `${releaseUseful.length} useful creators exported for release`,
@@ -173,6 +183,8 @@ function main() {
       acquisition_runner_tasks: acquisitionRun?.selected_tasks ?? 0,
       source_yield_rows: sourceYield.length,
       identities: identities.length,
+      category_coverage_labels: categoryCoverage?.labels ?? 0,
+      category_coverage_covered_labels: categoryCoverage?.covered_labels ?? 0,
       release_useful_creators: releaseUseful.length,
       release_verification_checks: releaseVerification?.checks?.length ?? 0,
       scale_plan_import_batches: scalePlan?.estimated_work?.import_batches_needed ?? 0,
@@ -211,6 +223,7 @@ Complete: ${summary.complete}
 - Acquisition runner tasks: ${summary.counts.acquisition_runner_tasks}
 - Source yield rows: ${summary.counts.source_yield_rows}
 - Identities: ${summary.counts.identities}
+- Category coverage labels: ${summary.counts.category_coverage_covered_labels}/${summary.counts.category_coverage_labels}
 - Release useful creators: ${summary.counts.release_useful_creators}
 - Release verification checks: ${summary.counts.release_verification_checks}
 - Scale plan import batches: ${summary.counts.scale_plan_import_batches}

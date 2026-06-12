@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-12T20:10:05.020Z
+Generated: 2026-06-12T20:14:12.618Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -19,6 +19,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Excellent creators: 1
 - Review decisions: 4
 - Source yield rows: 7
+- Category coverage: 5/11
 - Acquisition tasks: 31
 - Refresh tasks: 9
 
@@ -41,6 +42,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - refresh_plan: `docs/experiments/tiktok-creative-creator-graph/reports/refresh-plan.json`
 - acquisition_batches: `docs/experiments/tiktok-creative-creator-graph/reports/acquisition-batches.json`
 - source_yield: `docs/experiments/tiktok-creative-creator-graph/reports/source-yield.json`
+- category_coverage: `docs/experiments/tiktok-creative-creator-graph/reports/category-coverage.json`
 - useful_creators: `docs/experiments/tiktok-creative-creator-graph/data/release/useful_creators.csv`
 - benchmark_creators: `docs/experiments/tiktok-creative-creator-graph/data/release/benchmark_creators.csv`
 - review_queue: `docs/experiments/tiktok-creative-creator-graph/data/release/review_queue.csv`

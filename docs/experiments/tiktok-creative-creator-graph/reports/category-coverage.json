@@ -1,0 +1,140 @@
+{
+  "generated_at": "2026-06-12T20:14:12.390Z",
+  "target_useful_creators": 50000,
+  "labels": 11,
+  "covered_labels": 5,
+  "uncovered_labels": [
+    "director",
+    "editor",
+    "standup_comedian",
+    "actor_performer",
+    "film_educator",
+    "behind_the_scenes_creator"
+  ],
+  "review_decisions": 4,
+  "total_useful_primary_accounts": 6,
+  "total_useful_gap": 49994,
+  "rows": [
+    {
+      "label": "filmmaker",
+      "target_useful_creators": 8000,
+      "current_primary_accounts": 2,
+      "useful_primary_accounts": 2,
+      "excellent_primary_accounts": 1,
+      "secondary_mentions": 3,
+      "reviewed_primary_accounts": 1,
+      "useful_gap": 7998,
+      "recommended_priority": 2
+    },
+    {
+      "label": "director",
+      "target_useful_creators": 4000,
+      "current_primary_accounts": 0,
+      "useful_primary_accounts": 0,
+      "excellent_primary_accounts": 0,
+      "secondary_mentions": 2,
+      "reviewed_primary_accounts": 0,
+      "useful_gap": 4000,
+      "recommended_priority": 1
+    },
+    {
+      "label": "cinematographer",
+      "target_useful_creators": 5000,
+      "current_primary_accounts": 1,
+      "useful_primary_accounts": 1,
+      "excellent_primary_accounts": 0,
+      "secondary_mentions": 0,
+      "reviewed_primary_accounts": 0,
+      "useful_gap": 4999,
+      "recommended_priority": 2
+    },
+    {
+      "label": "editor",
+      "target_useful_creators": 5000,
+      "current_primary_accounts": 0,
+      "useful_primary_accounts": 0,
+      "excellent_primary_accounts": 0,
+      "secondary_mentions": 2,
+      "reviewed_primary_accounts": 0,
+      "useful_gap": 5000,
+      "recommended_priority": 1
+    },
+    {
+      "label": "vfx_animation",
+      "target_useful_creators": 5000,
+      "current_primary_accounts": 1,
+      "useful_primary_accounts": 1,
+      "excellent_primary_accounts": 0,
+      "secondary_mentions": 1,
+      "reviewed_primary_accounts": 0,
+      "useful_gap": 4999,
+      "recommended_priority": 2
+    },
+    {
+      "label": "sketch_comedian",
+      "target_useful_creators": 7000,
+      "current_primary_accounts": 2,
+      "useful_primary_accounts": 1,
+      "excellent_primary_accounts": 0,
+      "secondary_mentions": 1,
+      "reviewed_primary_accounts": 0,
+      "useful_gap": 6999,
+      "recommended_priority": 2
+    },
+    {
+      "label": "standup_comedian",
+      "target_useful_creators": 4000,
+      "current_primary_accounts": 0,
+      "useful_primary_accounts": 0,
+      "excellent_primary_accounts": 0,
+      "secondary_mentions": 1,
+      "reviewed_primary_accounts": 0,
+      "useful_gap": 4000,
+      "recommended_priority": 1
+    },
+    {
+      "label": "actor_performer",
+      "target_useful_creators": 4000,
+      "current_primary_accounts": 0,
+      "useful_primary_accounts": 0,
+      "excellent_primary_accounts": 0,
+      "secondary_mentions": 2,
+      "reviewed_primary_accounts": 0,
+      "useful_gap": 4000,
+      "recommended_priority": 1
+    },
+    {
+      "label": "film_educator",
+      "target_useful_creators": 3000,
+      "current_primary_accounts": 0,
+      "useful_primary_accounts": 0,
+      "excellent_primary_accounts": 0,
+      "secondary_mentions": 3,
+      "reviewed_primary_accounts": 0,
+      "useful_gap": 3000,
+      "recommended_priority": 1
+    },
+    {
+      "label": "behind_the_scenes_creator",
+      "target_useful_creators": 3000,
+      "current_primary_accounts": 0,
+      "useful_primary_accounts": 0,
+      "excellent_primary_accounts": 0,
+      "secondary_mentions": 1,
+      "reviewed_primary_accounts": 0,
+      "useful_gap": 3000,
+      "recommended_priority": 1
+    },
+    {
+      "label": "creative_technologist",
+      "target_useful_creators": 2000,
+      "current_primary_accounts": 1,
+      "useful_primary_accounts": 1,
+      "excellent_primary_accounts": 0,
+      "secondary_mentions": 0,
+      "reviewed_primary_accounts": 1,
+      "useful_gap": 1999,
+      "recommended_priority": 2
+    }
+  ]
+}

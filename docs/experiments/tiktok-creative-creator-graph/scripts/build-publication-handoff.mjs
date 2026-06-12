@@ -31,6 +31,7 @@ function main() {
   const releaseVerification = readJson(join(reportsDir, 'release-verification.json'), null)
   const scalePlan = readJson(join(reportsDir, 'scale-plan.json'), null)
   const refreshPlan = readJson(join(reportsDir, 'refresh-plan.json'), null)
+  const categoryCoverage = readJson(join(reportsDir, 'category-coverage.json'), null)
   const acquisitionBatches = readJson(join(reportsDir, 'acquisition-batches.json'), null)
   const acquisitionRun = readJson(join(reportsDir, 'acquisition-run.json'), null)
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
@@ -89,6 +90,7 @@ function main() {
       review_queue: counts.review_queue ?? manifest.counts?.review_queue ?? 0,
       review_decisions: currentReview,
       source_yield_rows: counts.source_yield_rows ?? sourceYield.length,
+      category_coverage: categoryCoverage ? `${categoryCoverage.covered_labels}/${categoryCoverage.labels}` : 'missing',
       acquisition_tasks: counts.acquisition_tasks ?? acquisitionBatches?.tasks ?? 0,
       refresh_tasks: counts.refresh_tasks ?? refreshPlan?.refresh_tasks ?? 0,
     },
@@ -116,6 +118,7 @@ function main() {
       refresh_plan: rel(join(reportsDir, 'refresh-plan.json')),
       acquisition_batches: rel(join(reportsDir, 'acquisition-batches.json')),
       source_yield: rel(join(reportsDir, 'source-yield.json')),
+      category_coverage: rel(join(reportsDir, 'category-coverage.json')),
       useful_creators: rel(join(releaseDir, 'useful_creators.csv')),
       benchmark_creators: rel(join(releaseDir, 'benchmark_creators.csv')),
       review_queue: rel(join(releaseDir, 'review_queue.csv')),
@@ -165,6 +168,7 @@ ${handoff.objective}
 - Excellent creators: ${handoff.current_corpus.excellent_creators}
 - Review decisions: ${handoff.current_corpus.review_decisions}
 - Source yield rows: ${handoff.current_corpus.source_yield_rows}
+- Category coverage: ${handoff.current_corpus.category_coverage}
 - Acquisition tasks: ${handoff.current_corpus.acquisition_tasks}
 - Refresh tasks: ${handoff.current_corpus.refresh_tasks}
 
