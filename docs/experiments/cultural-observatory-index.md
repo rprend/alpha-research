@@ -274,6 +274,8 @@ Implemented:
 - `result.json`
 - `work.md`
 - `public-draft.md`
+- `post.md`
+- `post-evidence-audit.json`
 - publication handoff with evidence blocks, blocked-source notes, and public-claim checklist
 - readiness gate
 - one-command pipeline runner
@@ -284,11 +286,13 @@ Current corpus:
 - 11 accessible probes
 - 5 signal types: teaching, anthologization, holdings-or-collections, holdings-or-editions, citation-or-scholarly-discussion
 - publication handoff: ready for copyedit as a methods piece
+- publication post: `reports/post.md`, a polished feasibility/methods draft
+- post evidence audit: `reports/post-evidence-audit.json`, status `pass`, 21/21 source and signal checks passed
 - readiness: ready for editorial review as a feasibility/methods artifact
 
 Next implementation moves:
 
-- copyedit the publication handoff into a methods post
+- final editorial review for `reports/post.md`
 - choose one author cohort and one signal for a narrow canon pilot
 - resolve Open Syllabus export/access before assignment-level claims
 - add audited anthology tables of contents before anthologization claims
