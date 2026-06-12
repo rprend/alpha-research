@@ -98,7 +98,7 @@ Known gaps:
 - Assignment extraction is snippet-based with structured signals, confidence, and boundary status; it still needs richer full-brief parsing from long assignment pages.
 - Search candidate import is supported through local JSON/JSONL exports, but no live search API provider is wired yet.
 - A bounded Common Crawl candidate, promotion, and ingestion pass exists, but it is still capped and should be expanded carefully.
-- Faculty/course edges are derived from course evidence, and bounded RISD faculty-profile candidate discovery/ingestion is implemented. Faculty-portfolio expansion is still capped to curated public hints and should be expanded carefully.
+- Faculty/course edges are derived from course evidence, and bounded RISD faculty-profile candidate discovery/ingestion is implemented. Faculty-portfolio expansion now follows external links from official RISD profile pages, but broader public web search for faculty teaching/course artifacts is still not wired yet.
 - Source clustering is used to group evidence families in generated course packets. Current clusters are mostly related source families rather than exact duplicates, so the generator preserves distinct related pages and still needs stronger near-duplicate collapse once more duplicate evidence appears.
 - Manual review artifacts include generated evidence-aware decisions for mechanically resolvable rows. Human review decisions have not been filled in yet.
 - A generated self-study curriculum artifact exists, but it remains bounded by current public evidence and should expand as more course artifacts are recovered.
@@ -570,7 +570,7 @@ Implementation requirements:
 Implementation requirements:
 
 1. Build `faculty.jsonl` from current RISD profiles, course evidence, and historical catalogs.
-2. Build `faculty_profile_candidates.jsonl` from RISD Graphic Design faculty profile URL patterns, the official RISD faculty index, and curated public faculty profile/portfolio hints.
+2. Build `faculty_profile_candidates.jsonl` from RISD Graphic Design faculty profile URL patterns, the official RISD faculty index, official profile external links, and curated public faculty profile/portfolio hints.
 3. Promote only successfully fetched public faculty profiles into `sources.jsonl` as `faculty_profile`.
 4. Store profile URLs on the matching `faculty.jsonl` row and keep profile candidates linked to `promoted_source_id`.
 5. For each faculty member, search public web for:
@@ -582,7 +582,7 @@ Implementation requirements:
    - Typography
    - Design Studio
    - RISD Graphic Design
-6. Follow public faculty portfolio links beyond the curated hint list.
+6. Follow public faculty portfolio links beyond the curated hint list, starting with external links exposed on official RISD faculty profile pages.
 7. Extract course-source-faculty edges into `faculty_course_edges.jsonl`.
 8. Use faculty pages for discovery and attribution, not as full syllabus evidence unless they include classroom artifacts.
 

@@ -4,7 +4,7 @@ Generated: 2026-06-12
 
 ## Coverage Summary
 
-- Sources inspected: 127
+- Sources inspected: 142
 - Course records created: 134
 - Syllabus/course-site records: 82
 - Assignment evidence snippets: 502
@@ -3778,3 +3778,18 @@ Generated: 2026-06-12
 - src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_richard_rose_ddd1242b (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/richard-rose
 - src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_tom_wedell_7b452cb2 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/tom-wedell
 - src_faculty_profile_www_risd_edu_academics_graphic_design_faculty_tom_wedell_location_6a635443 (B, faculty_profile): https://www.risd.edu/academics/graphic-design/faculty/tom-wedell-location
+- src_faculty_profile_emilyrye_com_f8a6ef4f (B, faculty_profile): https://emilyrye.com/
+- src_faculty_profile_gabrieldrozdov_com_29ae5088 (B, faculty_profile): https://gabrieldrozdov.com/
+- src_faculty_profile_thisisforyou_gabrieldrozdov_com_714058d1 (B, faculty_profile): https://thisisforyou.gabrieldrozdov.com/
+- src_faculty_profile_kelseydusenka_com_ef8ff188 (B, faculty_profile): https://kelseydusenka.com/
+- src_faculty_profile_kelseyelder_xyz_d107b39a (B, faculty_profile): https://kelseyelder.xyz/
+- src_faculty_profile_www_loisharada_com_37739c62 (B, faculty_profile): https://www.loisharada.com/
+- src_faculty_profile_lucindahitchcock_com_3cc02fe5 (B, faculty_profile): https://lucindahitchcock.com/
+- src_faculty_profile_minkyoungkim_com_home_c0318790 (B, faculty_profile): http://minkyoungkim.com/home/
+- src_faculty_profile_queer_archive_work_6f5d75ef (B, faculty_profile): https://queer.archive.work/
+- src_faculty_profile_queer_archive_work_843485aa (B, faculty_profile): https://queer.archive.work/
+- src_faculty_profile_soulellis_com_c6f5409e (B, faculty_profile): https://soulellis.com/
+- src_faculty_profile_studio_pouyaahmadi_com_24ad9abd (B, faculty_profile): https://studio.pouyaahmadi.com/
+- src_faculty_profile_liptonletterdesign_com_b7fc4dce (B, faculty_profile): https://liptonletterdesign.com/
+- src_faculty_profile_typenetwork_com_type_foundries_lipton_letter_design_d18cc77f (B, faculty_profile): https://typenetwork.com/type-foundries/lipton-letter-design
+- src_faculty_profile_www_skolos_wedell_com_2e2d0e20 (B, faculty_profile): http://www.skolos-wedell.com/

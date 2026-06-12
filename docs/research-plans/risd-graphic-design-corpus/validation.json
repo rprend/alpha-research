@@ -2,7 +2,7 @@
   "generated_at": "2026-06-12",
   "status": "pass",
   "counts": {
-    "sources": 127,
+    "sources": 142,
     "courses": 134,
     "official_course_inventory": 105,
     "official_course_displayed_count": 105,
@@ -29,8 +29,8 @@
     "common_crawl_promotions": 8,
     "successful_common_crawl_promotions": 8,
     "ingested_common_crawl_promotions": 8,
-    "faculty_profile_candidates": 32,
-    "ingested_faculty_profile_candidates": 30,
+    "faculty_profile_candidates": 47,
+    "ingested_faculty_profile_candidates": 45,
     "faculty_rows_with_profile_urls": 26,
     "faculty": 26,
     "faculty_course_edges": 48,
@@ -54,7 +54,7 @@
     {
       "id": "sources_have_required_metadata",
       "status": "pass",
-      "detail": "127 sources inspected."
+      "detail": "142 sources inspected."
     },
     {
       "id": "failed_fetches_do_not_create_syllabi",
@@ -124,7 +124,7 @@
     {
       "id": "faculty_profile_candidates_have_provenance",
       "status": "pass",
-      "detail": "32 faculty profile candidates, 30 ingested, 26 faculty rows with profile URLs; 0 reference errors."
+      "detail": "47 faculty profile candidates, 45 ingested, 26 faculty rows with profile URLs; 0 reference errors."
     },
     {
       "id": "student_work_reference_valid_sources",

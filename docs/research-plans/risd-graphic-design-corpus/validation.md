@@ -6,7 +6,7 @@ Overall status: pass
 
 ## Counts
 
-- Sources: 127
+- Sources: 142
 - Courses: 134
 - Official course inventory: 105
 - RISD displayed course count: 105
@@ -33,8 +33,8 @@ Overall status: pass
 - Common Crawl promotions: 8
 - Successful Common Crawl promotions: 8
 - Ingested Common Crawl promotions: 8
-- Faculty profile candidates: 32
-- Ingested faculty profile candidates: 30
+- Faculty profile candidates: 47
+- Ingested faculty profile candidates: 45
 - Faculty rows with profile URLs: 26
 - Faculty rows: 26
 - Faculty-course edges: 48
@@ -56,7 +56,7 @@ Overall status: pass
 
 ## Checks
 
-- PASS sources_have_required_metadata: 127 sources inspected.
+- PASS sources_have_required_metadata: 142 sources inspected.
 - PASS failed_fetches_do_not_create_syllabi: 0 syllabus rows reference failed sources.
 - PASS syllabi_have_course_identity: 0 syllabus rows lack both course code and title.
 - PASS syllabi_have_structured_top_level_fields: 82 syllabus rows include top-level schema fields for schedule, readings, policies, tools, materials, evidence, or raw excerpts.
@@ -70,7 +70,7 @@ Overall status: pass
 - PASS common_crawl_candidates_have_provenance: 168 Common Crawl candidates, 35 fetch candidates, 8 ingested; 0 provenance errors.
 - PASS common_crawl_promotions_reference_candidates: 8 Common Crawl promotions, 8 successful, 8 ingested; 0 reference errors.
 - PASS faculty_graph_references_valid_sources: 26 faculty rows and 48 faculty-course edges; 0 reference errors.
-- PASS faculty_profile_candidates_have_provenance: 32 faculty profile candidates, 30 ingested, 26 faculty rows with profile URLs; 0 reference errors.
+- PASS faculty_profile_candidates_have_provenance: 47 faculty profile candidates, 45 ingested, 26 faculty rows with profile URLs; 0 reference errors.
 - PASS student_work_reference_valid_sources: 0 student work source reference errors.
 - PASS student_work_has_structured_public_examples: 41 student work rows include URL plus medium/project/evidence metadata.
 - PASS source_clusters_reference_valid_sources: 0 source cluster reference errors across 10 clusters.

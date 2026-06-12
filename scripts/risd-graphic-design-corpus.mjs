@@ -1917,6 +1917,33 @@ function facultyProfileCandidateId(facultyId, url) {
   return `faculty_profile_candidate_${facultyId}_${createHash('sha1').update(url).digest('hex').slice(0, 8)}`
 }
 
+function isLikelyFacultyPortfolioLink(link, facultyName) {
+  let url
+  try {
+    url = new URL(link.url)
+  } catch {
+    return false
+  }
+  const host = url.hostname.replace(/^www\./, '').toLowerCase()
+  if (host.endsWith('risd.edu')) return false
+  if ([
+    'instagram.com',
+    'linkedin.com',
+    'facebook.com',
+    'twitter.com',
+    'x.com',
+    'youtube.com',
+    'vimeo.com',
+    'google.com',
+    'maps.google.com',
+  ].some((blocked) => host === blocked || host.endsWith(`.${blocked}`))) return false
+  const label = (link.label ?? '').toLowerCase()
+  const facultyTokens = facultyName.toLowerCase().split(/\s+/).filter((token) => token.length > 2)
+  if (/\b(?:website|portfolio|personal site|studio|practice|work)\b/.test(label)) return true
+  if (facultyTokens.some((token) => host.includes(token) || label.includes(token))) return true
+  return false
+}
+
 async function discoverFacultyProfileCandidates(facultyRows, existingCandidates = []) {
   const byKey = new Map(existingCandidates.map((candidate) => [`${candidate.faculty_id}|${canonicalUrl(candidate.url)}`, candidate]))
   const addCandidate = ({ faculty, url, candidateSource, matchedOn }) => {
@@ -1948,9 +1975,10 @@ async function discoverFacultyProfileCandidates(facultyRows, existingCandidates 
 
   for (const faculty of facultyRows) {
     const sluggedName = facultySlug(faculty.name)
+    const officialProfileUrl = `${risdGraphicDesignFacultyUrl}/${sluggedName}`
     addCandidate({
       faculty,
-      url: `${risdGraphicDesignFacultyUrl}/${sluggedName}`,
+      url: officialProfileUrl,
       candidateSource: 'official_risd_faculty_url_pattern',
       matchedOn: 'faculty_name_slug',
     })
@@ -1975,6 +2003,22 @@ async function discoverFacultyProfileCandidates(facultyRows, existingCandidates 
         candidateSource: hintedUrl.includes('risd.edu') ? 'curated_official_profile_hint' : 'curated_public_profile_hint',
         matchedOn: 'curated_faculty_name_map',
       })
+    }
+
+    try {
+      const fetched = await fetchWithRetry(officialProfileUrl, 2)
+      const links = extractLinks(fetched.buffer.toString('utf8'), fetched.finalUrl || officialProfileUrl)
+      links
+        .filter((link) => isLikelyFacultyPortfolioLink(link, faculty.name))
+        .slice(0, 3)
+        .forEach((link) => addCandidate({
+          faculty,
+          url: link.url,
+          candidateSource: 'official_risd_profile_external_link',
+          matchedOn: link.label ? `profile_link_label:${link.label.slice(0, 80)}` : 'profile_external_url',
+        }))
+    } catch {
+      // Official profile links are opportunistic discovery; failed profile fetches are tracked during ingestion.
     }
   }
 
