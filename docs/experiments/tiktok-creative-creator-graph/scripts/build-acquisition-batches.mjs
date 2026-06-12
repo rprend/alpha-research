@@ -49,6 +49,42 @@ function writeCsv(path, rows) {
   writeFileSync(path, `${headers.join(',')}\n${rows.map((row) => headers.map((header) => escape(row[header])).join(',')).join('\n')}\n`)
 }
 
+function yieldLookup(rows) {
+  const byQuery = new Map()
+  const bySurface = new Map()
+  for (const row of rows) {
+    if (row.source_query) byQuery.set(row.source_query, row)
+    bySurface.set(row.source_type, row)
+  }
+  return { byQuery, bySurface }
+}
+
+function yieldAdjustedPriority(basePriority, task, yields) {
+  const queryYield = yields.byQuery.get(task.query)
+  const surfaceYield = yields.bySurface.get(task.acquisition_surface)
+  const signal = queryYield ?? surfaceYield
+  if (!signal) return basePriority
+  if (Number(signal.yield_score) >= 75) return Math.max(1, basePriority - 1)
+  if (Number(signal.rejection_rate) >= 0.5 && Number(signal.creators_seen) >= 2) return Math.min(5, basePriority + 2)
+  if (Number(signal.usefulness_rate) === 0 && Number(signal.creators_seen) >= 2) return Math.min(5, basePriority + 1)
+  return basePriority
+}
+
+function taskWithYield(baseTask, yields) {
+  const priority = yieldAdjustedPriority(baseTask.priority, baseTask, yields)
+  const queryYield = yields.byQuery.get(baseTask.query)
+  const surfaceYield = yields.bySurface.get(baseTask.acquisition_surface)
+  const signal = queryYield ?? surfaceYield
+  return {
+    ...baseTask,
+    priority,
+    base_priority: baseTask.priority,
+    yield_score: signal?.yield_score ?? '',
+    usefulness_rate: signal?.usefulness_rate ?? '',
+    rejection_rate: signal?.rejection_rate ?? '',
+  }
+}
+
 function main() {
   ensureDir(acquisitionDir)
   ensureDir(reportsDir)
@@ -56,13 +92,15 @@ function main() {
   const discovery = readJson(join(configDir, 'discovery-queries.json'))
   const expansionQueue = readJsonl(join(processedDir, 'expansion_queue.jsonl'))
   const creatorScores = readJsonl(join(processedDir, 'creator_scores.jsonl'))
+  const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
+  const yields = yieldLookup(sourceYield)
   const usefulCreators = new Set(creatorScores.filter((row) => ['useful', 'excellent'].includes(row.status)).map((row) => row.creator_id))
 
   const tasks = []
   let sequence = 1
 
   for (const query of discovery.search_engine_queries) {
-    tasks.push({
+    tasks.push(taskWithYield({
       batch_id: `search_${String(sequence).padStart(4, '0')}`,
       acquisition_surface: 'search_index',
       query,
@@ -70,12 +108,12 @@ function main() {
       expected_output: 'candidate TikTok profile URLs',
       import_target: 'data/raw/imports/search-index-export.jsonl',
       notes: 'Use a search API or manual SERP export. Preserve result URL, title, snippet, and query.',
-    })
+    }, yields))
     sequence += 1
   }
 
   for (const hashtag of discovery.hashtag_queries) {
-    tasks.push({
+    tasks.push(taskWithYield({
       batch_id: `hashtag_${String(sequence).padStart(4, '0')}`,
       acquisition_surface: 'tiktok_hashtag_export',
       query: hashtag,
@@ -83,12 +121,12 @@ function main() {
       expected_output: 'recent public videos and author profiles for hashtag',
       import_target: 'data/raw/imports/hashtag-export.jsonl',
       notes: 'Export public hashtag results with author, caption, posted_at, metrics, hashtags, mentions, and sound metadata.',
-    })
+    }, yields))
     sequence += 1
   }
 
   for (const query of discovery.cross_platform_queries) {
-    tasks.push({
+    tasks.push(taskWithYield({
       batch_id: `cross_platform_${String(sequence).padStart(4, '0')}`,
       acquisition_surface: 'cross_platform_search',
       query,
@@ -96,12 +134,12 @@ function main() {
       expected_output: 'external pages linking to TikTok creator profiles',
       import_target: 'data/raw/imports/cross-platform-export.jsonl',
       notes: 'Use this for serious-creator evidence and identity resolution.',
-    })
+    }, yields))
     sequence += 1
   }
 
   for (const row of expansionQueue.filter((item) => item.priority <= 2).slice(0, maxItems)) {
-    tasks.push({
+    tasks.push(taskWithYield({
       batch_id: `graph_${String(sequence).padStart(4, '0')}`,
       acquisition_surface: row.expansion_type === 'resolve_mentioned_creator' ? 'tiktok_profile_export' : 'tiktok_creator_neighborhood_export',
       query: row.target,
@@ -109,7 +147,7 @@ function main() {
       expected_output: row.expansion_type === 'resolve_mentioned_creator' ? 'public creator profile and recent videos' : 'mentions, hashtags, collaborators, sounds, and recent videos',
       import_target: 'data/raw/imports/graph-expansion-export.jsonl',
       notes: row.reason,
-    })
+    }, yields))
     sequence += 1
   }
 
@@ -135,6 +173,7 @@ function main() {
     generated_at: new Date().toISOString(),
     tasks: sorted.length,
     useful_creators_available_for_expansion: usefulCreators.size,
+    source_yield_rows: sourceYield.length,
     priority_counts: sorted.reduce((acc, task) => {
       acc[task.priority] = (acc[task.priority] ?? 0) + 1
       return acc

@@ -1,0 +1,8 @@
+source_type,source_name,source_query,creators_seen,useful_creators,excellent_creators,rejected_creators,reviewed_creators,usefulness_rate,rejection_rate,average_usefulness,yield_score,top_labels
+manual_seed,smoke-seeds.jsonl,filmmaker short film editing breakdown,1,1,1,0,1,1,0,89,91,filmmaker:1
+manual_seed,smoke-seeds.jsonl,cinematographer lighting breakdown,1,1,0,0,0,1,0,73,73,cinematographer:1
+manual_seed,smoke-seeds.jsonl,sketch comedian character comedy,1,1,0,0,0,1,0,66,70,sketch_comedian:1
+manual_seed,smoke-seeds.jsonl,vfx artist animation blender,1,1,0,0,0,1,0,67,70,vfx_animation:1
+graph_expansion_fixture,smoke-seeds.jsonl,mentioned by @ani.motionlab,1,1,0,0,1,1,0,61,70,creative_technologist:1
+provider_video_export,acquisition-import-2026-06-12.jsonl,,3,1,0,1,1,0.333,0.333,40.7,26,filmmaker:1; sketch_comedian:1; reject:1
+search_seed,smoke-seeds.jsonl,site:tiktok.com/@ short film,1,0,0,1,1,0,1,0,0,reject:1

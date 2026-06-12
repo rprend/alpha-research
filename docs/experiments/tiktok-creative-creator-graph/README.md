@@ -49,6 +49,12 @@ Apply human review decisions:
 node docs/experiments/tiktok-creative-creator-graph/scripts/apply-review-decisions.mjs
 ```
 
+Analyze which sources and queries produce useful creators:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/analyze-source-yield.mjs
+```
+
 Check readiness against the full 50k-account target:
 
 ```bash
@@ -178,6 +184,8 @@ The pipeline writes:
 - `reports/acquisition-import.json`
 - `reports/review-decisions.md`
 - `reports/review-decisions.json`
+- `reports/source-yield.md`
+- `reports/source-yield.json`
 - `reports/pipeline-run.json`
 
 ## Production Acquisition Loop
@@ -191,8 +199,9 @@ The pipeline writes:
 7. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs`.
 8. Rerun `pnpm run tiktok:creative`.
 9. Put review labels in `data/raw/review-decisions/` and run `node docs/experiments/tiktok-creative-creator-graph/scripts/apply-review-decisions.mjs`.
-10. Use reviewed accepted/rejected/benchmark outputs to tune sources and scoring.
-11. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
+10. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/analyze-source-yield.mjs` so future acquisition batches prioritize sources and queries that produce useful creators.
+11. Use reviewed accepted/rejected/benchmark outputs to tune sources and scoring.
+12. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
 
 ## Current Limitations
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T19:36:47.005Z",
+  "generated_at": "2026-06-12T19:39:50.871Z",
   "complete": false,
   "counts": {
     "accounts": 9,
@@ -13,7 +13,8 @@
     "accepted_creators": 6,
     "benchmark_creators": 1,
     "expansion_queue": 4,
-    "acquisition_tasks": 31
+    "acquisition_tasks": 31,
+    "source_yield_rows": 7
   },
   "checks": [
     {
@@ -50,6 +51,11 @@
       "id": "acquisition_batches",
       "status": "pass",
       "evidence": "31 acquisition tasks generated"
+    },
+    {
+      "id": "source_yield",
+      "status": "pass",
+      "evidence": "7 source/query yield rows generated"
     },
     {
       "id": "useful_account_target",

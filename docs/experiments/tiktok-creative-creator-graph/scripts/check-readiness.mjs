@@ -30,6 +30,7 @@ function main() {
   const benchmarkCreators = readJsonl(join(processedDir, 'benchmark_creators.jsonl'))
   const expansionQueue = readJsonl(join(processedDir, 'expansion_queue.jsonl'))
   const acquisitionTasks = readJsonl(join(processedDir, 'acquisition/acquisition_tasks.jsonl'))
+  const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
 
   const usefulAccounts = scores.filter((row) => ['useful', 'excellent'].includes(row.status)).length
   const excellentAccounts = scores.filter((row) => row.status === 'excellent').length
@@ -73,6 +74,11 @@ function main() {
       evidence: `${acquisitionTasks.length} acquisition tasks generated`,
     },
     {
+      id: 'source_yield',
+      status: sourceYield.length > 0 ? 'pass' : 'fail',
+      evidence: `${sourceYield.length} source/query yield rows generated`,
+    },
+    {
       id: 'useful_account_target',
       status: usefulAccounts >= targetUsefulAccounts ? 'pass' : 'incomplete',
       evidence: `${usefulAccounts}/${targetUsefulAccounts} useful accounts`,
@@ -106,6 +112,7 @@ function main() {
       benchmark_creators: benchmarkCreators.length,
       expansion_queue: expansionQueue.length,
       acquisition_tasks: acquisitionTasks.length,
+      source_yield_rows: sourceYield.length,
     },
     checks,
     remaining: {
@@ -136,6 +143,7 @@ Complete: ${summary.complete}
 - Benchmark creators: ${summary.counts.benchmark_creators}
 - Expansion queue: ${summary.counts.expansion_queue}
 - Acquisition tasks: ${summary.counts.acquisition_tasks}
+- Source yield rows: ${summary.counts.source_yield_rows}
 
 ## Checks
 
