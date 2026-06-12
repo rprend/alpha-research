@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T19:33:28.203Z
+Generated: 2026-06-12T19:36:47.005Z
 
 Complete: false
 
@@ -13,6 +13,9 @@ Complete: false
 - Excellent accounts: 1
 - Rejected accounts: 2
 - Review queue: 8
+- Review decisions: 4
+- Accepted creators: 6
+- Benchmark creators: 1
 - Expansion queue: 4
 - Acquisition tasks: 31
 
@@ -27,10 +30,10 @@ Complete: false
 - acquisition_batches: pass (31 acquisition tasks generated)
 - useful_account_target: incomplete (5/50000 useful accounts)
 - excellent_account_target: incomplete (1/5000 excellent accounts)
-- human_review_target: incomplete (8/500 accounts available for review)
+- human_review_target: incomplete (4/500 review decisions applied)
 
 ## Remaining To Full Goal
 
 - Useful accounts: 49995
 - Excellent accounts: 4999
-- Reviewable accounts: 492
+- Reviewable accounts: 496

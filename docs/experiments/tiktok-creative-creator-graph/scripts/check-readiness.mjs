@@ -25,6 +25,9 @@ function main() {
   const edges = readJsonl(join(processedDir, 'creator_edges.jsonl'))
   const scores = readJsonl(join(processedDir, 'creator_scores.jsonl'))
   const reviewQueue = readJsonl(join(processedDir, 'review_queue.jsonl'))
+  const reviewDecisions = readJsonl(join(processedDir, 'review_decisions.jsonl'))
+  const acceptedCreators = readJsonl(join(processedDir, 'accepted_creators.jsonl'))
+  const benchmarkCreators = readJsonl(join(processedDir, 'benchmark_creators.jsonl'))
   const expansionQueue = readJsonl(join(processedDir, 'expansion_queue.jsonl'))
   const acquisitionTasks = readJsonl(join(processedDir, 'acquisition/acquisition_tasks.jsonl'))
 
@@ -81,8 +84,8 @@ function main() {
     },
     {
       id: 'human_review_target',
-      status: reviewQueue.length >= targetReviewedAccounts ? 'pass' : 'incomplete',
-      evidence: `${reviewQueue.length}/${targetReviewedAccounts} accounts available for review`,
+      status: reviewDecisions.length >= targetReviewedAccounts ? 'pass' : 'incomplete',
+      evidence: `${reviewDecisions.length}/${targetReviewedAccounts} review decisions applied`,
     },
   ]
 
@@ -98,6 +101,9 @@ function main() {
       excellent_accounts: excellentAccounts,
       rejected_accounts: rejectedAccounts,
       review_queue: reviewQueue.length,
+      review_decisions: reviewDecisions.length,
+      accepted_creators: acceptedCreators.length,
+      benchmark_creators: benchmarkCreators.length,
       expansion_queue: expansionQueue.length,
       acquisition_tasks: acquisitionTasks.length,
     },
@@ -105,7 +111,7 @@ function main() {
     remaining: {
       useful_accounts: Math.max(0, targetUsefulAccounts - usefulAccounts),
       excellent_accounts: Math.max(0, targetExcellentAccounts - excellentAccounts),
-      reviewed_accounts: Math.max(0, targetReviewedAccounts - reviewQueue.length),
+      reviewed_accounts: Math.max(0, targetReviewedAccounts - reviewDecisions.length),
     },
   }
 
@@ -125,6 +131,9 @@ Complete: ${summary.complete}
 - Excellent accounts: ${summary.counts.excellent_accounts}
 - Rejected accounts: ${summary.counts.rejected_accounts}
 - Review queue: ${summary.counts.review_queue}
+- Review decisions: ${summary.counts.review_decisions}
+- Accepted creators: ${summary.counts.accepted_creators}
+- Benchmark creators: ${summary.counts.benchmark_creators}
 - Expansion queue: ${summary.counts.expansion_queue}
 - Acquisition tasks: ${summary.counts.acquisition_tasks}
 

@@ -43,6 +43,12 @@ Normalize search/provider acquisition exports into pipeline imports:
 node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs
 ```
 
+Apply human review decisions:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/apply-review-decisions.mjs
+```
+
 Check readiness against the full 50k-account target:
 
 ```bash
@@ -134,6 +140,19 @@ Provider video rows:
 }
 ```
 
+Review decision rows:
+
+```json
+{
+  "handle": "@example",
+  "decision": "excellent_benchmark",
+  "reviewer": "reviewer-name",
+  "notes": "Strong original short-form film account."
+}
+```
+
+Supported decisions are `excellent_benchmark`, `keep`, `maybe`, `wrong_category`, `repost_or_aggregator`, and `brand_or_studio`.
+
 ## Outputs
 
 The pipeline writes:
@@ -157,6 +176,8 @@ The pipeline writes:
 - `reports/acquisition-batches.json`
 - `reports/acquisition-import.md`
 - `reports/acquisition-import.json`
+- `reports/review-decisions.md`
+- `reports/review-decisions.json`
 - `reports/pipeline-run.json`
 
 ## Production Acquisition Loop
@@ -169,8 +190,9 @@ The pipeline writes:
 6. Put completed search/API/provider exports in `data/raw/acquisition-results/`.
 7. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs`.
 8. Rerun `pnpm run tiktok:creative`.
-9. Use `review_queue` to correct labels, reject aggregators, and mark benchmarks.
-10. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
+9. Put review labels in `data/raw/review-decisions/` and run `node docs/experiments/tiktok-creative-creator-graph/scripts/apply-review-decisions.mjs`.
+10. Use reviewed accepted/rejected/benchmark outputs to tune sources and scoring.
+11. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
 
 ## Current Limitations
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T19:33:28.203Z",
+  "generated_at": "2026-06-12T19:36:47.005Z",
   "complete": false,
   "counts": {
     "accounts": 9,
@@ -9,6 +9,9 @@
     "excellent_accounts": 1,
     "rejected_accounts": 2,
     "review_queue": 8,
+    "review_decisions": 4,
+    "accepted_creators": 6,
+    "benchmark_creators": 1,
     "expansion_queue": 4,
     "acquisition_tasks": 31
   },
@@ -61,12 +64,12 @@
     {
       "id": "human_review_target",
       "status": "incomplete",
-      "evidence": "8/500 accounts available for review"
+      "evidence": "4/500 review decisions applied"
     }
   ],
   "remaining": {
     "useful_accounts": 49995,
     "excellent_accounts": 4999,
-    "reviewed_accounts": 492
+    "reviewed_accounts": 496
   }
 }
