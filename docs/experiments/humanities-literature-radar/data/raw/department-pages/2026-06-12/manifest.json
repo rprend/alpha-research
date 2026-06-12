@@ -1,0 +1,51 @@
+{
+  "source": "department-pages",
+  "runDate": "2026-06-12",
+  "startedAt": "2026-06-12T17:23:42.421Z",
+  "finishedAt": "2026-06-12T17:23:44.189Z",
+  "recordCount": 5,
+  "requestCount": 5,
+  "requests": [
+    {
+      "institution": "Harvard University",
+      "department": "English",
+      "page_type": "department-home",
+      "url": "https://english.fas.harvard.edu/",
+      "status": 200,
+      "responsePath": "data/raw/department-pages/2026-06-12/harvard-university/english/index.html"
+    },
+    {
+      "institution": "Stanford University",
+      "department": "Digital Humanities",
+      "page_type": "center-home",
+      "url": "https://digitalhumanities.stanford.edu/",
+      "status": 200,
+      "responsePath": "data/raw/department-pages/2026-06-12/stanford-university/digital-humanities/index.html"
+    },
+    {
+      "institution": "University of Chicago",
+      "department": "History",
+      "page_type": "department-home",
+      "url": "https://history.uchicago.edu/",
+      "status": 200,
+      "responsePath": "data/raw/department-pages/2026-06-12/university-of-chicago/history/index.html"
+    },
+    {
+      "institution": "University of California, Berkeley",
+      "department": "Comparative Literature",
+      "page_type": "department-home",
+      "url": "https://complit.berkeley.edu/",
+      "status": 200,
+      "responsePath": "data/raw/department-pages/2026-06-12/university-of-california-berkeley/comparative-literature/index.html"
+    },
+    {
+      "institution": "Princeton University",
+      "department": "Center for Digital Humanities",
+      "page_type": "center-home",
+      "url": "https://cdh.princeton.edu/",
+      "status": 200,
+      "responsePath": "data/raw/department-pages/2026-06-12/princeton-university/center-for-digital-humanities/index.html"
+    }
+  ],
+  "errors": []
+}

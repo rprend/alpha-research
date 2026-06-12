@@ -1,0 +1,32 @@
+{
+  "source": "nber",
+  "runDate": "2026-06-12",
+  "startedAt": "2026-06-12T17:22:24.532Z",
+  "finishedAt": "2026-06-12T17:22:25.006Z",
+  "recordCount": 0,
+  "requestCount": 3,
+  "requests": [
+    {
+      "query": "economic history culture",
+      "page": 1,
+      "url": "https://www.nber.org/papers?page=1&perPage=40&sortBy=public_date&searchTerm=economic+history+culture",
+      "status": 200,
+      "responsePath": "data/raw/nber/2026-06-12/economic-history-culture-001.html"
+    },
+    {
+      "query": "institutions history",
+      "page": 1,
+      "url": "https://www.nber.org/papers?page=1&perPage=40&sortBy=public_date&searchTerm=institutions+history",
+      "status": 200,
+      "responsePath": "data/raw/nber/2026-06-12/institutions-history-001.html"
+    },
+    {
+      "query": "religion economics",
+      "page": 1,
+      "url": "https://www.nber.org/papers?page=1&perPage=40&sortBy=public_date&searchTerm=religion+economics",
+      "status": 200,
+      "responsePath": "data/raw/nber/2026-06-12/religion-economics-001.html"
+    }
+  ],
+  "errors": []
+}

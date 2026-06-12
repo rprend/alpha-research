@@ -1,0 +1,18 @@
+{
+  "source": "arxiv",
+  "runDate": "2026-06-12",
+  "startedAt": "2026-06-12T17:22:14.306Z",
+  "finishedAt": "2026-06-12T17:22:15.121Z",
+  "recordCount": 40,
+  "requestCount": 1,
+  "requests": [
+    {
+      "query": "digital humanities",
+      "page": 1,
+      "url": "https://export.arxiv.org/api/query?search_query=all%3Adigital+humanities&start=0&max_results=40&sortBy=submittedDate&sortOrder=descending",
+      "status": 200,
+      "responsePath": "data/raw/arxiv/2026-06-12/digital-humanities-001.xml"
+    }
+  ],
+  "errors": []
+}

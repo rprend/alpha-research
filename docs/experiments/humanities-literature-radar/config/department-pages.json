@@ -1,0 +1,32 @@
+[
+  {
+    "institution": "Harvard University",
+    "department": "English",
+    "page_type": "department-home",
+    "url": "https://english.fas.harvard.edu/"
+  },
+  {
+    "institution": "Stanford University",
+    "department": "Digital Humanities",
+    "page_type": "center-home",
+    "url": "https://digitalhumanities.stanford.edu/"
+  },
+  {
+    "institution": "University of Chicago",
+    "department": "History",
+    "page_type": "department-home",
+    "url": "https://history.uchicago.edu/"
+  },
+  {
+    "institution": "University of California, Berkeley",
+    "department": "Comparative Literature",
+    "page_type": "department-home",
+    "url": "https://complit.berkeley.edu/"
+  },
+  {
+    "institution": "Princeton University",
+    "department": "Center for Digital Humanities",
+    "page_type": "center-home",
+    "url": "https://cdh.princeton.edu/"
+  }
+]

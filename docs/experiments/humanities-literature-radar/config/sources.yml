@@ -1,0 +1,35 @@
+sources:
+  - id: openalex
+    name: OpenAlex
+    role: core
+    access_method: api
+    base_url: https://api.openalex.org/works
+    raw_path: data/raw/openalex/YYYY-MM-DD/
+    notes: Broad scholarly metadata, concepts, authors, institutions, venues, and citation counts.
+  - id: crossref
+    name: Crossref
+    role: core
+    access_method: api
+    base_url: https://api.crossref.org/works
+    raw_path: data/raw/crossref/YYYY-MM-DD/
+    notes: DOI-centered publisher metadata for dedupe, dates, venues, and source coverage.
+  - id: arxiv
+    name: arXiv
+    role: supplemental
+    access_method: api
+    base_url: https://export.arxiv.org/api/query
+    raw_path: data/raw/arxiv/YYYY-MM-DD/
+    notes: Computational humanities, NLP-for-humanities, authorship, archive, and cultural analytics methods.
+  - id: nber
+    name: NBER
+    role: supplemental
+    access_method: public-web-metadata
+    base_url: https://www.nber.org/papers
+    raw_path: data/raw/nber/YYYY-MM-DD/
+    notes: Humanities-adjacent economic history, culture, institutions, migration, education history, and long-run historical data.
+  - id: department-pages
+    name: Department and research-center pages
+    role: web-crawl
+    access_method: public-web-snapshots
+    raw_path: data/raw/department-pages/YYYY-MM-DD/
+    notes: Public pages for humanities departments, centers, labs, dissertations, events, and publication lists. Coverage must be labeled separately.

@@ -1,0 +1,5 @@
+opportunity,format,source_basis,first_study,risk
+The rise of AI and the humanities,field-map,"Works mentioning AI, LLMs, archives, digital humanities, and computational humanities.","Map 2020-present publication growth, methods, venues, and representative works.",AI terminology is noisy and may include technical papers with thin humanities relevance.
+Canon drift,moving-canon,"Works mentioning canon, syllabi, reception, anthologies, citation, or literary history.","Compare authors and texts across syllabi, anthologies, and citation metadata.",Syllabus and anthology coverage may be uneven and institutionally biased.
+Concept drift in humanities keywords,what-changed,"Works using historically loaded keywords such as democracy, civilization, empire, labor, race, and nature.",Track contextual terms over time and show representative passages.,Metadata abstracts may be too short; full-text or excerpt corpora may be needed.
+Translation as cultural change,what-changed,Translation-studies records in the corpus.,"Compare translation topics, source languages, and methods over time.",Publication metadata may miss language pairs and edition details.

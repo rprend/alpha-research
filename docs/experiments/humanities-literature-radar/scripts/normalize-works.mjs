@@ -1,0 +1,367 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+import {
+  appendJsonl,
+  classifyWork,
+  decodeXml,
+  ensureDir,
+  experimentDir,
+  listFiles,
+  normalizeWhitespace,
+  readJson,
+  stableWorkId,
+  stripTags,
+  toCsv,
+  writeJson,
+  writeText,
+} from "./lib.mjs";
+
+const rawDir = path.join(experimentDir, "data", "raw");
+const interimDir = path.join(experimentDir, "data", "interim");
+const processedDir = path.join(experimentDir, "data", "processed");
+const normalizedPath = path.join(interimDir, "normalized-works.jsonl");
+
+await ensureDir(interimDir);
+await ensureDir(processedDir);
+await fs.rm(normalizedPath, { force: true });
+
+const rawFiles = await listFiles(rawDir, (file) => /\.(json|xml|html)$/.test(file) && !file.endsWith("manifest.json"));
+const works = [];
+
+for (const file of rawFiles) {
+  const rel = path.relative(experimentDir, file);
+  if (rel.includes("data/raw/openalex/") && file.endsWith(".json")) {
+    const json = await readJson(file);
+    for (const item of json.results ?? []) works.push(fromOpenAlex(item, rel));
+  } else if (rel.includes("data/raw/crossref/") && file.endsWith(".json")) {
+    const json = await readJson(file);
+    for (const item of json.message?.items ?? []) works.push(fromCrossref(item, rel));
+  } else if (rel.includes("data/raw/arxiv/") && file.endsWith(".xml")) {
+    const xml = await fs.readFile(file, "utf8");
+    for (const item of fromArxiv(xml, rel)) works.push(item);
+  } else if (rel.includes("data/raw/nber/") && file.endsWith(".html")) {
+    const html = await fs.readFile(file, "utf8");
+    for (const item of fromNber(html, rel)) works.push(item);
+  }
+}
+
+const deduped = new Map();
+for (const work of works) {
+  const id = stableWorkId(work);
+  const existing = deduped.get(id);
+  if (!existing) {
+    deduped.set(id, { ...work, work_id: id, duplicate_sources: [work.source_name] });
+  } else {
+    existing.duplicate_sources = [...new Set([...existing.duplicate_sources, work.source_name])];
+    existing.abstract ||= work.abstract;
+    existing.doi ||= work.doi;
+    existing.url ||= work.url;
+    existing.open_access_url ||= work.open_access_url;
+    existing.cited_by_count = Math.max(Number(existing.cited_by_count ?? 0), Number(work.cited_by_count ?? 0));
+    existing.concepts = [...new Set([...(existing.concepts ?? []), ...(work.concepts ?? [])])];
+  }
+}
+
+const finalWorks = [...deduped.values()]
+  .map((work) => {
+    const labels = classifyWork(work);
+    return {
+      ...work,
+      relevance_score: relevanceScore(work),
+      disciplines: labels.disciplines,
+      methods: labels.methods,
+      quantitative_signals: labels.quantitativeSignals,
+      is_quantitative_humanities_candidate: labels.methods.length > 0 || labels.quantitativeSignals.length > 0,
+    };
+  })
+  .filter((work) => work.source_name !== "arxiv" || work.relevance_score >= 2)
+  .sort((a, b) => String(b.publication_date ?? "").localeCompare(String(a.publication_date ?? "")));
+
+await appendJsonl(normalizedPath, finalWorks);
+await writeJson(path.join(processedDir, "works.json"), finalWorks);
+await writeText(
+  path.join(processedDir, "works.csv"),
+  toCsv(finalWorks, [
+    "work_id",
+    "source_name",
+    "title",
+    "publication_date",
+    "year",
+    "venue_name",
+    "doi",
+    "url",
+    "cited_by_count",
+    "is_quantitative_humanities_candidate",
+  ]),
+);
+
+const representative = finalWorks
+  .filter((work) => work.title)
+  .sort((a, b) => Number(b.cited_by_count ?? 0) - Number(a.cited_by_count ?? 0))
+  .slice(0, 100);
+await writeText(
+  path.join(processedDir, "representative-works.csv"),
+  toCsv(representative, ["title", "publication_date", "venue_name", "source_name", "doi", "url", "cited_by_count"]),
+);
+
+const topicRows = buildTopicRows(finalWorks);
+await writeJson(path.join(processedDir, "topics.json"), topicRows);
+await writeText(path.join(processedDir, "topics.csv"), toCsv(topicRows, ["label", "kind", "count", "representative_titles"]));
+
+const opportunityRows = buildOpportunityRows(finalWorks);
+await writeText(
+  path.join(processedDir, "quantitative-humanities-opportunities.csv"),
+  toCsv(opportunityRows, ["opportunity", "format", "source_basis", "first_study", "risk"]),
+);
+
+console.log(`Normalized ${works.length} raw records into ${finalWorks.length} deduped works`);
+
+function fromOpenAlex(item, rawPath) {
+  const abstract = item.abstract_inverted_index ? invertAbstract(item.abstract_inverted_index) : "";
+  const publicationDate = item.publication_date ?? (item.publication_year ? `${item.publication_year}-01-01` : "");
+  return {
+    source_name: "openalex",
+    source_record_id: item.id,
+    title: normalizeWhitespace(item.display_name),
+    abstract,
+    publication_date: publicationDate,
+    year: item.publication_year ?? "",
+    doi: String(item.doi ?? "").replace(/^https:\/\/doi.org\//, ""),
+    url: item.primary_location?.landing_page_url ?? item.id ?? "",
+    open_access_url: item.open_access?.oa_url ?? "",
+    venue_name: item.primary_location?.source?.display_name ?? "",
+    publisher: item.primary_location?.source?.host_organization_name ?? "",
+    work_type: item.type ?? "",
+    authors: (item.authorships ?? []).map((author) => author.author?.display_name).filter(Boolean),
+    institutions: (item.authorships ?? []).flatMap((author) => (author.institutions ?? []).map((inst) => inst.display_name)).filter(Boolean),
+    concepts: (item.concepts ?? []).map((concept) => concept.display_name).filter(Boolean),
+    references: item.referenced_works ?? [],
+    cited_by_count: item.cited_by_count ?? 0,
+    license: item.primary_location?.license ?? "",
+    raw_path: rawPath,
+  };
+}
+
+function fromCrossref(item, rawPath) {
+  const dateParts = item.published?.["date-parts"]?.[0] ?? item["published-print"]?.["date-parts"]?.[0] ?? item.created?.["date-parts"]?.[0] ?? [];
+  const publicationDate = dateParts.length ? [dateParts[0], dateParts[1] ?? 1, dateParts[2] ?? 1].map((part, index) => index === 0 ? String(part).padStart(4, "0") : String(part).padStart(2, "0")).join("-") : "";
+  return {
+    source_name: "crossref",
+    source_record_id: item.DOI ?? item.URL,
+    title: normalizeWhitespace(item.title?.[0]),
+    abstract: stripTags(item.abstract ?? ""),
+    publication_date: publicationDate,
+    year: dateParts[0] ?? "",
+    doi: item.DOI ?? "",
+    url: item.URL ?? "",
+    open_access_url: "",
+    venue_name: item["container-title"]?.[0] ?? "",
+    publisher: item.publisher ?? "",
+    work_type: item.type ?? "",
+    authors: (item.author ?? []).map((author) => normalizeWhitespace(`${author.given ?? ""} ${author.family ?? ""}`)).filter(Boolean),
+    institutions: [],
+    concepts: item.subject ?? [],
+    references: (item.reference ?? []).map((ref) => ref.DOI ?? ref.article_title).filter(Boolean),
+    cited_by_count: item["is-referenced-by-count"] ?? 0,
+    license: item.license?.[0]?.URL ?? "",
+    raw_path: rawPath,
+  };
+}
+
+function fromArxiv(xml, rawPath) {
+  return [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].map((match) => {
+    const entry = match[1];
+    const id = text(entry, "id");
+    const published = text(entry, "published").slice(0, 10);
+    return {
+      source_name: "arxiv",
+      source_record_id: id,
+      title: normalizeWhitespace(decodeXml(text(entry, "title"))),
+      abstract: normalizeWhitespace(decodeXml(text(entry, "summary"))),
+      publication_date: published,
+      year: published.slice(0, 4),
+      doi: "",
+      url: id,
+      open_access_url: id,
+      venue_name: "arXiv",
+      publisher: "arXiv",
+      work_type: "preprint",
+      authors: [...entry.matchAll(/<author>[\s\S]*?<name>([\s\S]*?)<\/name>[\s\S]*?<\/author>/g)].map((author) => decodeXml(author[1]).trim()),
+      institutions: [],
+      concepts: [...entry.matchAll(/<category term="([^"]+)"/g)].map((cat) => cat[1]),
+      references: [],
+      cited_by_count: 0,
+      license: "",
+      raw_path: rawPath,
+    };
+  });
+}
+
+function fromNber(html, rawPath) {
+  const rows = [];
+  const seen = new Set();
+  for (const match of html.matchAll(/<a[^>]+href="\/papers\/(w\d+)"[^>]*>([\s\S]*?)<\/a>/g)) {
+    const id = match[1];
+    if (seen.has(id)) continue;
+    seen.add(id);
+    const title = stripTags(decodeXml(match[2]));
+    if (!title || title.length < 8) continue;
+    rows.push({
+      source_name: "nber",
+      source_record_id: id,
+      title,
+      abstract: "",
+      publication_date: "",
+      year: "",
+      doi: "",
+      url: `https://www.nber.org/papers/${id}`,
+      open_access_url: `https://www.nber.org/papers/${id}`,
+      venue_name: "NBER Working Papers",
+      publisher: "National Bureau of Economic Research",
+      work_type: "working-paper",
+      authors: [],
+      institutions: [],
+      concepts: ["economic history", "economics"],
+      references: [],
+      cited_by_count: 0,
+      license: "",
+      raw_path: rawPath,
+    });
+  }
+  return rows;
+}
+
+function invertAbstract(index) {
+  const words = [];
+  for (const [word, positions] of Object.entries(index)) {
+    for (const pos of positions) words[pos] = word;
+  }
+  return normalizeWhitespace(words.join(" "));
+}
+
+function text(xml, tag) {
+  const match = xml.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`));
+  return match ? match[1] : "";
+}
+
+function buildTopicRows(items) {
+  const counts = new Map();
+  for (const item of items) {
+    const labels = [...(item.disciplines ?? []), ...(item.methods ?? []), ...(item.quantitative_signals ?? [])];
+    for (const label of labels) {
+      const key = label.toLowerCase();
+      const row = counts.get(key) ?? { label: key, kind: inferKind(key), count: 0, titles: [] };
+      row.count += 1;
+      if (row.titles.length < 3 && item.title) row.titles.push(item.title);
+      counts.set(key, row);
+    }
+  }
+  return [...counts.values()]
+    .sort((a, b) => b.count - a.count)
+    .map((row) => ({
+      label: row.label,
+      kind: row.kind,
+      count: row.count,
+      representative_titles: row.titles.join(" | "),
+    }));
+}
+
+function inferKind(label) {
+  if (taxonomyLike("disciplines", label)) return "discipline";
+  if (taxonomyLike("methods", label)) return "method";
+  return "quantitative-signal";
+}
+
+function taxonomyLike(key, label) {
+  const values = key === "disciplines"
+    ? ["literature", "history", "philosophy", "classics", "religious studies", "art history", "cultural studies", "digital humanities", "linguistics", "anthropology", "sociology", "economics", "political science"]
+    : ["close reading", "archival history", "philology", "intellectual history", "reception history", "canon", "translation", "cultural analytics", "stylometry", "network", "topic model", "gis", "spatial", "large language model", "llm", "bibliometric", "corpus"];
+  return values.includes(label);
+}
+
+function buildOpportunityRows(items) {
+  const has = (needle) => items.some((item) => `${item.title} ${item.abstract} ${(item.concepts ?? []).join(" ")}`.toLowerCase().includes(needle));
+  const rows = [
+    {
+      opportunity: "The rise of AI and the humanities",
+      format: "field-map",
+      source_basis: "Works mentioning AI, LLMs, archives, digital humanities, and computational humanities.",
+      first_study: "Map 2020-present publication growth, methods, venues, and representative works.",
+      risk: "AI terminology is noisy and may include technical papers with thin humanities relevance.",
+    },
+    {
+      opportunity: "Canon drift",
+      format: "moving-canon",
+      source_basis: "Works mentioning canon, syllabi, reception, anthologies, citation, or literary history.",
+      first_study: "Compare authors and texts across syllabi, anthologies, and citation metadata.",
+      risk: "Syllabus and anthology coverage may be uneven and institutionally biased.",
+    },
+    {
+      opportunity: "Concept drift in humanities keywords",
+      format: "what-changed",
+      source_basis: "Works using historically loaded keywords such as democracy, civilization, empire, labor, race, and nature.",
+      first_study: "Track contextual terms over time and show representative passages.",
+      risk: "Metadata abstracts may be too short; full-text or excerpt corpora may be needed.",
+    },
+  ];
+  if (has("translation")) {
+    rows.push({
+      opportunity: "Translation as cultural change",
+      format: "what-changed",
+      source_basis: "Translation-studies records in the corpus.",
+      first_study: "Compare translation topics, source languages, and methods over time.",
+      risk: "Publication metadata may miss language pairs and edition details.",
+    });
+  }
+  if (has("environmental humanities")) {
+    rows.push({
+      opportunity: "Environmental humanities field map",
+      format: "field-map",
+      source_basis: "Environmental humanities records in OpenAlex, Crossref, and OA sources.",
+      first_study: "Map topics, regions, periods, and methods in 2020-present work.",
+      risk: "Climate and environmental social science may swamp humanities-specific work.",
+    });
+  }
+  return rows;
+}
+
+function relevanceScore(work) {
+  const haystack = `${work.title ?? ""} ${work.abstract ?? ""} ${(work.concepts ?? []).join(" ")}`.toLowerCase();
+  const humanitiesTerms = [
+    "humanities",
+    "literature",
+    "literary",
+    "history",
+    "historical",
+    "philosophy",
+    "classics",
+    "archive",
+    "archival",
+    "culture",
+    "cultural",
+    "canon",
+    "translation",
+    "reception",
+    "museum",
+    "religion",
+    "textual",
+    "philology",
+    "art history",
+    "public history",
+  ];
+  const methodTerms = [
+    "digital humanities",
+    "computational humanities",
+    "cultural analytics",
+    "distant reading",
+    "stylometry",
+    "corpus",
+    "citation",
+    "bibliometric",
+    "large language model",
+    "llm",
+    "topic model",
+  ];
+  return humanitiesTerms.filter((term) => haystack.includes(term)).length +
+    methodTerms.filter((term) => haystack.includes(term)).length;
+}

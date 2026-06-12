@@ -1,0 +1,58 @@
+disciplines:
+  - literature
+  - history
+  - philosophy
+  - classics
+  - religious studies
+  - art history
+  - cultural studies
+  - digital humanities
+  - linguistics
+  - anthropology
+  - sociology
+  - economics
+  - political science
+
+methods:
+  - close reading
+  - archival history
+  - philology
+  - intellectual history
+  - reception history
+  - canon studies
+  - translation studies
+  - cultural analytics
+  - stylometry
+  - network analysis
+  - topic modeling
+  - gis spatial humanities
+  - ai llm assisted humanities
+  - bibliometrics
+  - corpus linguistics
+
+editorial_formats:
+  what-changed:
+    description: Longitudinal study of cultural, institutional, scholarly, or semantic change.
+  field-map:
+    description: Topic, method, venue, institution, and source map of a live field.
+  moving-canon:
+    description: Reception, citation, syllabus, anthology, translation, library, or curriculum drift.
+  research-agenda:
+    description: AI-assisted research scout that proposes source-grounded study directions.
+
+quantitative_signals:
+  - dataset
+  - corpus
+  - model
+  - network
+  - citation
+  - topic model
+  - embedding
+  - classification
+  - regression
+  - time series
+  - spatial analysis
+  - metadata
+  - large language model
+  - computational
+  - quantitative

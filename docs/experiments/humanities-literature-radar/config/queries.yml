@@ -1,0 +1,32 @@
+backfill:
+  from_date: "2020-01-01"
+  trend_from_date: "2024-01-01"
+
+field_queries:
+  - ai humanities
+  - digital humanities
+  - computational humanities
+  - cultural analytics
+  - distant reading
+  - stylometry
+  - reception history
+  - canon formation
+  - translation studies
+  - environmental humanities
+  - public history
+  - intellectual history
+  - book history
+  - archival studies
+  - museum studies
+  - classics
+  - literary studies
+  - philosophy
+  - religious studies
+  - history of ideas
+  - economic history culture
+
+article_tracks:
+  - what-changed
+  - field-map
+  - moving-canon
+  - research-agenda
