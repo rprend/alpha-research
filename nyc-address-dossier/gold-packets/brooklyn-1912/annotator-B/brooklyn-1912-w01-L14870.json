@@ -1,0 +1,272 @@
+{
+ "page_id": "brooklyn-1912-w01-L14870",
+ "source": "brooklynnewyorkc1912broo.txt",
+ "lines": [
+  14870,
+  14930
+ ],
+ "instructions": "Correct every row against the OCR text (add missed entries, fix fields, delete false entries). Do not consult the other annotator.",
+ "rows": [
+  {
+   "line": 14870,
+   "surname": "HOFFMAN",
+   "given": "Arthur T",
+   "occupation": "elk",
+   "marker": "h",
+   "house": "170",
+   "street": "Elton"
+  },
+  {
+   "line": 14872,
+   "surname": "HOFFMAN",
+   "given": "August",
+   "occupation": "machinist",
+   "marker": "b",
+   "house": "12",
+   "street": "Vandt"
+  },
+  {
+   "line": 14874,
+   "surname": "HOFFMAN",
+   "given": "Augustus P",
+   "occupation": "broker",
+   "marker": null,
+   "house": "1",
+   "street": "Wall Mhtn h 1064 49tb"
+  },
+  {
+   "line": 14875,
+   "surname": "HOFFMAN",
+   "given": "Miss Bena",
+   "occupation": null,
+   "marker": "h",
+   "house": "4715",
+   "street": "6th AVENUE"
+  },
+  {
+   "line": 14877,
+   "surname": "HOFFMAN",
+   "given": "C",
+   "occupation": "baker",
+   "marker": null,
+   "house": "103",
+   "street": "Franklin"
+  },
+  {
+   "line": 14879,
+   "surname": "HOFFMAN",
+   "given": "C",
+   "occupation": "meat",
+   "marker": null,
+   "house": "401",
+   "street": "Centl AVENUE"
+  },
+  {
+   "line": 14883,
+   "surname": "HOFFMAN",
+   "given": "Carl",
+   "occupation": "candy",
+   "marker": null,
+   "house": "1904",
+   "street": "Park PLACE"
+  },
+  {
+   "line": 14885,
+   "surname": "HOFFMAN",
+   "given": "Caspar",
+   "occupation": "coal",
+   "marker": "h",
+   "house": "1028",
+   "street": "Bergen"
+  },
+  {
+   "line": 14889,
+   "surname": "HOFFMAN",
+   "given": "Chas",
+   "occupation": null,
+   "marker": "h",
+   "house": "194",
+   "street": "Crescent"
+  },
+  {
+   "line": 14891,
+   "surname": "HOFFMAN",
+   "given": "Gath",
+   "occupation": null,
+   "marker": "h",
+   "house": "1452",
+   "street": "Dean"
+  },
+  {
+   "line": 14893,
+   "surname": "HOFFMAN",
+   "given": "Chas",
+   "occupation": null,
+   "marker": "h",
+   "house": "4402",
+   "street": "12th AVENUE"
+  },
+  {
+   "line": 14895,
+   "surname": "HOFFMAN",
+   "given": "Chas",
+   "occupation": "butcher",
+   "marker": null,
+   "house": "420",
+   "street": "Columbia"
+  },
+  {
+   "line": 14897,
+   "surname": "HOFFMAN",
+   "given": "Chas",
+   "occupation": "carpr",
+   "marker": "h",
+   "house": "900",
+   "street": "Belmont AVENUE"
+  },
+  {
+   "line": 14899,
+   "surname": "HOFFMAN",
+   "given": "Chas",
+   "occupation": "electr",
+   "marker": "h",
+   "house": "204",
+   "street": "Grove"
+  },
+  {
+   "line": 14901,
+   "surname": "HOFFMAN",
+   "given": "Chas",
+   "occupation": "foreman",
+   "marker": "h",
+   "house": "979",
+   "street": "Bergen"
+  },
+  {
+   "line": 14903,
+   "surname": "HOFFMAN",
+   "given": "Chas",
+   "occupation": "jeweler",
+   "marker": null,
+   "house": "20",
+   "street": "Sumner AVENUE"
+  },
+  {
+   "line": 14905,
+   "surname": "HOFFMAN",
+   "given": "Chas",
+   "occupation": "jr elk",
+   "marker": null,
+   "house": "206",
+   "street": "Sunnyside AVENUE"
+  },
+  {
+   "line": 14907,
+   "surname": "HOFFMAN",
+   "given": "Ohas",
+   "occupation": "liquors &",
+   "marker": "h",
+   "house": "670",
+   "street": "Mhtn AVENUE"
+  },
+  {
+   "line": 14909,
+   "surname": "HOFFMAN",
+   "given": "Chas",
+   "occupation": "llthogr",
+   "marker": "h",
+   "house": "313",
+   "street": "Palmetto"
+  },
+  {
+   "line": 14911,
+   "surname": "HOFFMAN",
+   "given": "Chas",
+   "occupation": "plumber",
+   "marker": "h",
+   "house": "228",
+   "street": "Pulaski"
+  },
+  {
+   "line": 14913,
+   "surname": "HOFFMAN",
+   "given": "Chas",
+   "occupation": "police",
+   "marker": "h",
+   "house": "1079",
+   "street": "Hancock"
+  },
+  {
+   "line": 14915,
+   "surname": "HOFFMAN",
+   "given": "Chas",
+   "occupation": "restaurant",
+   "marker": null,
+   "house": "1110",
+   "street": "DeKalb AVENUE"
+  },
+  {
+   "line": 14917,
+   "surname": "HOFFMAN",
+   "given": "Chas",
+   "occupation": "shoes",
+   "marker": null,
+   "house": "733",
+   "street": "3d AVENUE"
+  },
+  {
+   "line": 14919,
+   "surname": "HOFFMAN",
+   "given": "Chester",
+   "occupation": "phonographs",
+   "marker": "h",
+   "house": "285",
+   "street": "15Ui"
+  },
+  {
+   "line": 14921,
+   "surname": "HOFFMAN",
+   "given": "Chrisr",
+   "occupation": "coal",
+   "marker": null,
+   "house": "61",
+   "street": "Union"
+  },
+  {
+   "line": 14923,
+   "surname": "HOFFMAN",
+   "given": "Conrad",
+   "occupation": "carpr",
+   "marker": "h",
+   "house": "505",
+   "street": "Jerome"
+  },
+  {
+   "line": 14925,
+   "surname": "HOFFMAN",
+   "given": "Conrad",
+   "occupation": "painter",
+   "marker": "h",
+   "house": "390",
+   "street": "IJimrod"
+  },
+  {
+   "line": 14927,
+   "surname": "HOFFMAN",
+   "given": "Danl",
+   "occupation": "waists",
+   "marker": null,
+   "house": "92",
+   "street": "Graham av b 238 Ellery"
+  },
+  {
+   "line": 14929,
+   "surname": "HOFFMAN",
+   "given": "Mrs Dora",
+   "occupation": null,
+   "marker": "h",
+   "house": "813",
+   "street": "Franklin AVENUE"
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+ 24729 | Hunter  Alien    C    earpr    b    82    Hal! 
+ 24730 | 
+ 24731 | — B   wld     BenJ    04    2d 
+ 24732 | 
+ 24733 | — C  F.  h    51     Eldert 
+ 24734 | 
+ 24735 | —Chas  agt     h     2400     Clarendon     rd 
+ 24736 | 
+ 24737 | — Chas  coal  h   2813   Newklrk  av 
+ 24738 | 
+ 24739 | —Chas   )C  h    207    St    James'    pi 
+ 24740 | 
+ 24741 | — Chf.s  J  mgr  2206  Nostrand  nv  b  2813  New- 
+ 24742 | kirk    av 
+ 24743 | 
+ 24744 | —Claude  K   ins  h   135   Decatur 
+ 24745 | 
+ 24746 | — Dim!  elk   h   542   Bergen 
+ 24747 | 
+ 24748 | — Edwd  D  coal  Bav  19tb  c  Cropsey  av 
+ 24749 | h    8808    New    Utrecht    av 
+ 24750 | 
+ 24751 | — Fdwln  coal   h   New   Utrecht  av  4  Bath 
+ 24752 | 
+ 24753 | —Edwin   B  h    10   Lincoln   pi 
+ 24754 | 
+ 24755 | —Fdwln   I)  h    8808    Bay    Kith 
+ 24756 | 
+ 24757 | — Kmina   B   b    135    Decatur 
+ 24758 | 
+ 24759 | —  Fenley  h    20    Franklin    nl 
+ 24760 | 
+ 24761 | —  Floyd   W  bookkpr  h   1550  55th 
+ 24762 | —Frances  A   wld   Wm   h   100  Gates  av 
+ 24763 | —Frank  b   707   Linden 
+ 24764 | 
+ 24765 | —  Frank   elk    h    03    Miller    av 
+ 24766 | —Frank  elk   h    1000   Halsey 
+ 24767 | —Fredk  h    388    Pine 
+ 24768 | 
+ 24769 | — Fredk  b    472    Cleveland 
+ 24770 | 
+ 24771 | — Fredk  steward   h   202   Rutland   rd 
+ 24772 | 
+ 24773 | —Fredk  C  eleetrotyper   h   47    Hill 
+ 24774 | 
+ 24775 | —  Fredk   W   printer    b    1042    E   0th 
+ 24776 | — G   W  elk   b  022  8th   av 
+ 24777 | 
+ 24778 | —Geo  F  h    560    4Ili 
+ 24779 | 
+ 24780 | — Goo  F  elk   h   40   Berkeley  pi 
+ 24781 | 
+ 24782 | — Geo  II  V   physician  1271  75th  h  819  T3d 
+ 24783 | 
+ 24784 | —Grace    h    12S   S    Oxford 
+ 24785 | 
+ 24786 | — Harry   driver    h    181    Wilby    av 
+ 24787 | 
+ 24788 | —Harry   It  elk    1342    Bergen 

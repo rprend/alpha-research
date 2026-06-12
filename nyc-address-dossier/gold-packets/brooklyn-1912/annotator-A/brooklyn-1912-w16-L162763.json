@@ -1,0 +1,263 @@
+{
+ "page_id": "brooklyn-1912-w16-L162763",
+ "source": "brooklynnewyorkc1912broo.txt",
+ "lines": [
+  162763,
+  162823
+ ],
+ "instructions": "Correct every row against the OCR text (add missed entries, fix fields, delete false entries). Do not consult the other annotator.",
+ "rows": [
+  {
+   "line": 162768,
+   "surname": "O'KTEIL",
+   "given": "Peter",
+   "occupation": "bookbinder k",
+   "marker": null,
+   "house": "170",
+   "street": "Gold"
+  },
+  {
+   "line": 162769,
+   "surname": "O'KTEIL",
+   "given": "I'eier",
+   "occupation": "police",
+   "marker": "h",
+   "house": "1606",
+   "street": "E 10th"
+  },
+  {
+   "line": 162770,
+   "surname": "O'KTEIL",
+   "given": "Peter J",
+   "occupation": null,
+   "marker": "h",
+   "house": "505",
+   "street": "4th"
+  },
+  {
+   "line": 162772,
+   "surname": "O'KTEIL",
+   "given": "S",
+   "occupation": null,
+   "marker": null,
+   "house": "710",
+   "street": "Nostrand uv h 673 Nostrand ay"
+  },
+  {
+   "line": 162774,
+   "surname": "O'KTEIL",
+   "given": "Thos",
+   "occupation": "shoes",
+   "marker": "h",
+   "house": "340",
+   "street": "Sehcrmerborn"
+  },
+  {
+   "line": 162776,
+   "surname": "O'KTEIL",
+   "given": "Tlios P",
+   "occupation": "cashier 484 Fulton",
+   "marker": "h",
+   "house": "7-4",
+   "street": "2d PLACE"
+  },
+  {
+   "line": 162777,
+   "surname": "O'KTEIL",
+   "given": "Thos J",
+   "occupation": "nigr",
+   "marker": null,
+   "house": "408",
+   "street": "Gates av h 316 Nostrand"
+  },
+  {
+   "line": 162780,
+   "surname": "O'KTEIL",
+   "given": "Win",
+   "occupation": "elk",
+   "marker": "h",
+   "house": "073",
+   "street": "Nostrand AVENUE"
+  },
+  {
+   "line": 162782,
+   "surname": "O'KTEIL",
+   "given": "Win",
+   "occupation": "lab",
+   "marker": "h",
+   "house": "341",
+   "street": "42d"
+  },
+  {
+   "line": 162783,
+   "surname": "O'KTEIL",
+   "given": "Win",
+   "occupation": "meat",
+   "marker": "h",
+   "house": "700",
+   "street": "Dean"
+  },
+  {
+   "line": 162787,
+   "surname": "O'KTEIL",
+   "given": "Adelaide",
+   "occupation": "school",
+   "marker": null,
+   "house": "354",
+   "street": "S 5th"
+  },
+  {
+   "line": 162788,
+   "surname": "O'KTEIL",
+   "given": "Albert",
+   "occupation": "plumber",
+   "marker": "h",
+   "house": "1357",
+   "street": "Prospect PLACE"
+  },
+  {
+   "line": 162789,
+   "surname": "O'KTEIL",
+   "given": "Alfred A",
+   "occupation": "auditor",
+   "marker": "h",
+   "house": "146",
+   "street": "Dresden"
+  },
+  {
+   "line": 162791,
+   "surname": "O'KTEIL",
+   "given": "Arthur",
+   "occupation": null,
+   "marker": "h",
+   "house": "05",
+   "street": "Bay 20th"
+  },
+  {
+   "line": 162793,
+   "surname": "O'KTEIL",
+   "given": "Arthur",
+   "occupation": null,
+   "marker": null,
+   "house": "1",
+   "street": "h 501 10th"
+  },
+  {
+   "line": 162794,
+   "surname": "O'KTEIL",
+   "given": "B",
+   "occupation": "elk",
+   "marker": "h",
+   "house": "313",
+   "street": "S 4th"
+  },
+  {
+   "line": 162798,
+   "surname": "O'KTEIL",
+   "given": "C",
+   "occupation": null,
+   "marker": "h",
+   "house": "1320",
+   "street": "St John'b PLACE"
+  },
+  {
+   "line": 162800,
+   "surname": "O'KTEIL",
+   "given": "Cath",
+   "occupation": "wid li",
+   "marker": null,
+   "house": "2200",
+   "street": "Fulton"
+  },
+  {
+   "line": 162802,
+   "surname": "O'KTEIL",
+   "given": "Cath",
+   "occupation": "wid Edwd",
+   "marker": "h",
+   "house": "141",
+   "street": "Franklin AVENUE"
+  },
+  {
+   "line": 162804,
+   "surname": "O'KTEIL",
+   "given": "Cath",
+   "occupation": "wid John",
+   "marker": "b",
+   "house": "348",
+   "street": "45th"
+  },
+  {
+   "line": 162806,
+   "surname": "O'KTEIL",
+   "given": "Chas",
+   "occupation": null,
+   "marker": "h",
+   "house": "2",
+   "street": "Virginia PLACE"
+  },
+  {
+   "line": 162810,
+   "surname": "O'KTEIL",
+   "given": "Chas",
+   "occupation": "fireman a",
+   "marker": null,
+   "house": "401",
+   "street": "9th"
+  },
+  {
+   "line": 162814,
+   "surname": "O'KTEIL",
+   "given": "Chas",
+   "occupation": "stevedore",
+   "marker": "h",
+   "house": "321",
+   "street": "Court"
+  },
+  {
+   "line": 162816,
+   "surname": "O'KTEIL",
+   "given": "Chas",
+   "occupation": "truckman",
+   "marker": "h",
+   "house": "100",
+   "street": "Lynch"
+  },
+  {
+   "line": 162818,
+   "surname": "O'KTEIL",
+   "given": "Chas A",
+   "occupation": "ens",
+   "marker": "h",
+   "house": "965",
+   "street": "Pacific"
+  },
+  {
+   "line": 162820,
+   "surname": "O'KTEIL",
+   "given": "Chas F",
+   "occupation": "painter",
+   "marker": "h",
+   "house": "1343",
+   "street": "Fultoe"
+  },
+  {
+   "line": 162821,
+   "surname": "O'KTEIL",
+   "given": "Christ'",
+   "occupation": "mechanic",
+   "marker": null,
+   "house": "302",
+   "street": "Warren"
+  },
+  {
+   "line": 162822,
+   "surname": "O'KTEIL",
+   "given": "Clirisr",
+   "occupation": "plumber",
+   "marker": "h",
+   "house": "606",
+   "street": "Henry"
+  }
+ ]
+}

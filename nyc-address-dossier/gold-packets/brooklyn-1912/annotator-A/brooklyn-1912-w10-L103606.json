@@ -1,0 +1,353 @@
+{
+ "page_id": "brooklyn-1912-w10-L103606",
+ "source": "brooklynnewyorkc1912broo.txt",
+ "lines": [
+  103606,
+  103666
+ ],
+ "instructions": "Correct every row against the OCR text (add missed entries, fix fields, delete false entries). Do not consult the other annotator.",
+ "rows": [
+  {
+   "line": 103607,
+   "surname": "McMUIiLIN",
+   "given": "J J",
+   "occupation": null,
+   "marker": "h",
+   "house": "219",
+   "street": "Prospect Pk W"
+  },
+  {
+   "line": 103609,
+   "surname": "McMUIiLIN",
+   "given": "Jas",
+   "occupation": "driver",
+   "marker": "h",
+   "house": "91",
+   "street": "Clymer"
+  },
+  {
+   "line": 103611,
+   "surname": "McMUIiLIN",
+   "given": "Jas",
+   "occupation": "expert",
+   "marker": "b",
+   "house": "1559",
+   "street": "75th"
+  },
+  {
+   "line": 103618,
+   "surname": "McMUIiLIN",
+   "given": "Jerome",
+   "occupation": "printer",
+   "marker": "h",
+   "house": "200",
+   "street": "52d"
+  },
+  {
+   "line": 103619,
+   "surname": "McMUIiLIN",
+   "given": "John",
+   "occupation": null,
+   "marker": "h",
+   "house": "382",
+   "street": "4th"
+  },
+  {
+   "line": 103620,
+   "surname": "McMUIiLIN",
+   "given": "John",
+   "occupation": null,
+   "marker": "h",
+   "house": "105",
+   "street": "E 32d"
+  },
+  {
+   "line": 103621,
+   "surname": "McMUIiLIN",
+   "given": "John",
+   "occupation": "carpr",
+   "marker": "h",
+   "house": "635",
+   "street": "54th"
+  },
+  {
+   "line": 103622,
+   "surname": "McMUIiLIN",
+   "given": "John",
+   "occupation": "conductor",
+   "marker": "h",
+   "house": "440",
+   "street": "Met AVENUE"
+  },
+  {
+   "line": 103623,
+   "surname": "McMUIiLIN",
+   "given": "John",
+   "occupation": "driver li",
+   "marker": null,
+   "house": "259",
+   "street": "92d"
+  },
+  {
+   "line": 103625,
+   "surname": "McMUIiLIN",
+   "given": "John",
+   "occupation": "fireman",
+   "marker": "b",
+   "house": "147",
+   "street": "0th"
+  },
+  {
+   "line": 103626,
+   "surname": "McMUIiLIN",
+   "given": "John",
+   "occupation": "ins",
+   "marker": "h",
+   "house": "521",
+   "street": "lltb"
+  },
+  {
+   "line": 103627,
+   "surname": "McMUIiLIN",
+   "given": "John",
+   "occupation": "lab",
+   "marker": "h",
+   "house": "120",
+   "street": "Aleserole AVENUE"
+  },
+  {
+   "line": 103628,
+   "surname": "McMUIiLIN",
+   "given": "John",
+   "occupation": "lab",
+   "marker": "h",
+   "house": "630",
+   "street": "45th"
+  },
+  {
+   "line": 103629,
+   "surname": "McMUIiLIN",
+   "given": "John",
+   "occupation": "police",
+   "marker": "b",
+   "house": "665",
+   "street": "45 tb"
+  },
+  {
+   "line": 103630,
+   "surname": "McMUIiLIN",
+   "given": "John",
+   "occupation": "salesman",
+   "marker": "h",
+   "house": "1275",
+   "street": "Decatur"
+  },
+  {
+   "line": 103631,
+   "surname": "McMUIiLIN",
+   "given": "John",
+   "occupation": "salesman",
+   "marker": "h",
+   "house": "191",
+   "street": "Garfield PLACE"
+  },
+  {
+   "line": 103632,
+   "surname": "McMUIiLIN",
+   "given": "John A",
+   "occupation": "pluuilier",
+   "marker": "h",
+   "house": "217",
+   "street": "18th"
+  },
+  {
+   "line": 103633,
+   "surname": "McMUIiLIN",
+   "given": "John H",
+   "occupation": "ehanf h 123.",
+   "marker": null,
+   "house": "4",
+   "street": "E 8th"
+  },
+  {
+   "line": 103634,
+   "surname": "McMUIiLIN",
+   "given": "John J",
+   "occupation": "advertising",
+   "marker": null,
+   "house": "507",
+   "street": "Washn h 120 Pacific"
+  },
+  {
+   "line": 103635,
+   "surname": "McMUIiLIN",
+   "given": "John P",
+   "occupation": "police",
+   "marker": "b",
+   "house": "1449",
+   "street": "72d"
+  },
+  {
+   "line": 103636,
+   "surname": "McMUIiLIN",
+   "given": "Jos",
+   "occupation": "cashier",
+   "marker": "h",
+   "house": "1708",
+   "street": "45th"
+  },
+  {
+   "line": 103637,
+   "surname": "McMUIiLIN",
+   "given": "Jos",
+   "occupation": "police",
+   "marker": "h",
+   "house": "348",
+   "street": "74th"
+  },
+  {
+   "line": 103638,
+   "surname": "McMUIiLIN",
+   "given": "Jos D",
+   "occupation": null,
+   "marker": "h",
+   "house": "199",
+   "street": "8th AVENUE"
+  },
+  {
+   "line": 103639,
+   "surname": "McMUIiLIN",
+   "given": "Jos P",
+   "occupation": "ell:",
+   "marker": "h",
+   "house": "21",
+   "street": "Berkeley PLACE"
+  },
+  {
+   "line": 103641,
+   "surname": "McMUIiLIN",
+   "given": "Julia",
+   "occupation": "wld Michl",
+   "marker": "h",
+   "house": "1",
+   "street": "Lincoln PLACE"
+  },
+  {
+   "line": 103642,
+   "surname": "McMUIiLIN",
+   "given": "I»iwrence",
+   "occupation": "smith",
+   "marker": "h",
+   "house": "207",
+   "street": "Sklllmau"
+  },
+  {
+   "line": 103644,
+   "surname": "McMUIiLIN",
+   "given": "Letitia",
+   "occupation": "wld Michl h (.",
+   "marker": null,
+   "house": "20",
+   "street": "E 17th"
+  },
+  {
+   "line": 103646,
+   "surname": "McMUIiLIN",
+   "given": "Margt",
+   "occupation": null,
+   "marker": "b",
+   "house": "119",
+   "street": "Dean"
+  },
+  {
+   "line": 103648,
+   "surname": "McMUIiLIN",
+   "given": "Martin",
+   "occupation": "eng",
+   "marker": "h",
+   "house": "1223",
+   "street": "45th"
+  },
+  {
+   "line": 103649,
+   "surname": "McMUIiLIN",
+   "given": "Mary",
+   "occupation": null,
+   "marker": "h",
+   "house": "11",
+   "street": "4th"
+  },
+  {
+   "line": 103652,
+   "surname": "McMUIiLIN",
+   "given": "Matthew",
+   "occupation": "police",
+   "marker": "h",
+   "house": "259",
+   "street": "Hovt"
+  },
+  {
+   "line": 103653,
+   "surname": "McMUIiLIN",
+   "given": "Matthew S",
+   "occupation": "asst see",
+   "marker": null,
+   "house": "203",
+   "street": "Montague h 530"
+  },
+  {
+   "line": 103656,
+   "surname": "McMUIiLIN",
+   "given": "Michl",
+   "occupation": null,
+   "marker": "h",
+   "house": "808",
+   "street": "I'.ergen"
+  },
+  {
+   "line": 103658,
+   "surname": "McMUIiLIN",
+   "given": "Michl",
+   "occupation": "candy",
+   "marker": "b",
+   "house": "331",
+   "street": "Henry"
+  },
+  {
+   "line": 103661,
+   "surname": "McMUIiLIN",
+   "given": "Michl",
+   "occupation": "solicitor",
+   "marker": "h",
+   "house": "482",
+   "street": "Koscko"
+  },
+  {
+   "line": 103662,
+   "surname": "McMUIiLIN",
+   "given": "Michl",
+   "occupation": "trucking",
+   "marker": "h",
+   "house": "393",
+   "street": "Av U"
+  },
+  {
+   "line": 103663,
+   "surname": "McMUIiLIN",
+   "given": "Michl A",
+   "occupation": null,
+   "marker": "h",
+   "house": "244",
+   "street": "Dean"
+  },
+  {
+   "line": 103665,
+   "surname": "McMUIiLIN",
+   "given": "Michl F",
+   "occupation": "mgr 203 Montague-",
+   "marker": "h",
+   "house": "175",
+   "street": "Hicks"
+  }
+ ]
+}

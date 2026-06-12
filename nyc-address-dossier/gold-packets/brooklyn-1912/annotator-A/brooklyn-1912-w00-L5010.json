@@ -1,0 +1,209 @@
+{
+ "page_id": "brooklyn-1912-w00-L5010",
+ "source": "brooklynnewyorkc1912broo.txt",
+ "lines": [
+  5010,
+  5070
+ ],
+ "instructions": "Correct every row against the OCR text (add missed entries, fix fields, delete false entries). Do not consult the other annotator.",
+ "rows": [
+  {
+   "line": 5011,
+   "surname": "HELLS",
+   "given": "Bronze Works",
+   "occupation": null,
+   "marker": null,
+   "house": "258",
+   "street": "Wythe AVENUE"
+  },
+  {
+   "line": 5012,
+   "surname": "HELLS",
+   "given": "Chas",
+   "occupation": null,
+   "marker": "h",
+   "house": "460",
+   "street": "49th"
+  },
+  {
+   "line": 5013,
+   "surname": "HELLS",
+   "given": "Clarence",
+   "occupation": "produce",
+   "marker": "h",
+   "house": "1094",
+   "street": "Bergen"
+  },
+  {
+   "line": 5014,
+   "surname": "HELLS",
+   "given": "Frank",
+   "occupation": "elk",
+   "marker": null,
+   "house": "482",
+   "street": "Ridgewood AVENUE"
+  },
+  {
+   "line": 5016,
+   "surname": "HELLS",
+   "given": "Frank W",
+   "occupation": "salesman",
+   "marker": "h",
+   "house": "240",
+   "street": "Maple"
+  },
+  {
+   "line": 5017,
+   "surname": "HELLS",
+   "given": "Geo",
+   "occupation": "elk",
+   "marker": "h",
+   "house": "542",
+   "street": "94th"
+  },
+  {
+   "line": 5019,
+   "surname": "HELLS",
+   "given": "Geo",
+   "occupation": "salesman",
+   "marker": "h",
+   "house": "1059",
+   "street": "42d"
+  },
+  {
+   "line": 5021,
+   "surname": "HELLS",
+   "given": "Geo H",
+   "occupation": "acct",
+   "marker": "h",
+   "house": "1430",
+   "street": "Bedford AVENUE"
+  },
+  {
+   "line": 5026,
+   "surname": "HELLS",
+   "given": "Gustav J",
+   "occupation": "mats",
+   "marker": "h",
+   "house": "85",
+   "street": "Franklin AVENUE"
+  },
+  {
+   "line": 5028,
+   "surname": "HELLS",
+   "given": "John",
+   "occupation": null,
+   "marker": "h",
+   "house": "37",
+   "street": "Maple"
+  },
+  {
+   "line": 5030,
+   "surname": "HELLS",
+   "given": "Loekwood A'",
+   "occupation": "e!k",
+   "marker": "h",
+   "house": "728",
+   "street": "Westminster ROAD"
+  },
+  {
+   "line": 5034,
+   "surname": "HELLS",
+   "given": "Max",
+   "occupation": "bblr",
+   "marker": null,
+   "house": "1266",
+   "street": "40th"
+  },
+  {
+   "line": 5035,
+   "surname": "HELLS",
+   "given": "Moe",
+   "occupation": "plumber",
+   "marker": null,
+   "house": "8",
+   "street": "A'aret"
+  },
+  {
+   "line": 5041,
+   "surname": "HELLS",
+   "given": "Ins D",
+   "occupation": "jr elk",
+   "marker": "h",
+   "house": "33",
+   "street": "Cranberry"
+  },
+  {
+   "line": 5043,
+   "surname": "HELLS",
+   "given": "Win",
+   "occupation": null,
+   "marker": null,
+   "house": "51",
+   "street": "elk h 31 Cranberry"
+  },
+  {
+   "line": 5053,
+   "surname": "HELLS",
+   "given": "Martin",
+   "occupation": "elk",
+   "marker": "h",
+   "house": "529",
+   "street": "Linwood"
+  },
+  {
+   "line": 5055,
+   "surname": "HELLS",
+   "given": "Wm",
+   "occupation": "barber",
+   "marker": "h",
+   "house": "302",
+   "street": "Palmetto"
+  },
+  {
+   "line": 5058,
+   "surname": "HELLS",
+   "given": "Win",
+   "occupation": "tailor",
+   "marker": "h",
+   "house": "262",
+   "street": "Gates AVENUE"
+  },
+  {
+   "line": 5060,
+   "surname": "HELLS",
+   "given": "John D",
+   "occupation": "grocer",
+   "marker": null,
+   "house": "1267",
+   "street": "Bwick av h 1321 Av G"
+  },
+  {
+   "line": 5061,
+   "surname": "HELLS",
+   "given": "John D",
+   "occupation": "& Co grocers",
+   "marker": null,
+   "house": "1207",
+   "street": "Bwick AVENUE"
+  },
+  {
+   "line": 5062,
+   "surname": "HELLS",
+   "given": "John H",
+   "occupation": "renlestate",
+   "marker": null,
+   "house": "071",
+   "street": "Delamere PLACE"
+  },
+  {
+   "line": 5069,
+   "surname": "HELLS",
+   "given": "Arthur L",
+   "occupation": "conductor",
+   "marker": "h",
+   "house": "11",
+   "street": "4th PLACE"
+  }
+ ]
+}

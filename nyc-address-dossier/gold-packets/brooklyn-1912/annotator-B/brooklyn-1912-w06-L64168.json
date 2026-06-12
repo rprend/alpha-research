@@ -1,0 +1,164 @@
+{
+ "page_id": "brooklyn-1912-w06-L64168",
+ "source": "brooklynnewyorkc1912broo.txt",
+ "lines": [
+  64168,
+  64228
+ ],
+ "instructions": "Correct every row against the OCR text (add missed entries, fix fields, delete false entries). Do not consult the other annotator.",
+ "rows": [
+  {
+   "line": 64169,
+   "surname": "KUBIS",
+   "given": "Hy",
+   "occupation": null,
+   "marker": "h",
+   "house": "201",
+   "street": "l'utnani AVENUE"
+  },
+  {
+   "line": 64171,
+   "surname": "KUBIS",
+   "given": "Hermun H",
+   "occupation": "candy",
+   "marker": null,
+   "house": "1355",
+   "street": "Fnlton"
+  },
+  {
+   "line": 64172,
+   "surname": "KUBIS",
+   "given": "Jobu",
+   "occupation": "delicatessen li",
+   "marker": null,
+   "house": "403",
+   "street": "Scbenck AVENUE"
+  },
+  {
+   "line": 64174,
+   "surname": "KUBIS",
+   "given": "John",
+   "occupation": "liquors",
+   "marker": null,
+   "house": "52",
+   "street": "5th av b 35 St John's PLACE"
+  },
+  {
+   "line": 64175,
+   "surname": "KUBIS",
+   "given": "John",
+   "occupation": "shoes",
+   "marker": null,
+   "house": "297",
+   "street": "Smith"
+  },
+  {
+   "line": 64176,
+   "surname": "KUBIS",
+   "given": "John H",
+   "occupation": null,
+   "marker": "h",
+   "house": "531",
+   "street": "Quincy"
+  },
+  {
+   "line": 64177,
+   "surname": "KUBIS",
+   "given": "John H",
+   "occupation": "mechanic !i",
+   "marker": null,
+   "house": "156",
+   "street": "Buffalo AVENUE"
+  },
+  {
+   "line": 64179,
+   "surname": "KUBIS",
+   "given": "Peter",
+   "occupation": "grocer",
+   "marker": null,
+   "house": "74",
+   "street": "Meserole av h 76 Meserole"
+  },
+  {
+   "line": 64182,
+   "surname": "KUBIS",
+   "given": "Wm A",
+   "occupation": "elk",
+   "marker": "h",
+   "house": "820",
+   "street": "Finish AVENUE"
+  },
+  {
+   "line": 64183,
+   "surname": "KUBIS",
+   "given": "Sc Schriefer",
+   "occupation": "liquors",
+   "marker": null,
+   "house": "52",
+   "street": "5lh AVENUE"
+  },
+  {
+   "line": 64185,
+   "surname": "KUBIS",
+   "given": "Km",
+   "occupation": null,
+   "marker": null,
+   "house": "11",
+   "street": "cutter h 296A Marlon"
+  },
+  {
+   "line": 64199,
+   "surname": "KUKIiX",
+   "given": "Win",
+   "occupation": "boat capt li",
+   "marker": null,
+   "house": "514",
+   "street": "45th"
+  },
+  {
+   "line": 64206,
+   "surname": "KUKIiX",
+   "given": "Chas",
+   "occupation": "barber",
+   "marker": null,
+   "house": "13",
+   "street": "Snyder AVENUE"
+  },
+  {
+   "line": 64217,
+   "surname": "KUKIiX",
+   "given": "J B",
+   "occupation": null,
+   "marker": "h",
+   "house": "790",
+   "street": "Park PLACE"
+  },
+  {
+   "line": 64221,
+   "surname": "KUKIiX",
+   "given": "John",
+   "occupation": "millinery",
+   "marker": null,
+   "house": "2043",
+   "street": "Fulton"
+  },
+  {
+   "line": 64222,
+   "surname": "KUKIiX",
+   "given": "Iticlid J",
+   "occupation": "polisher",
+   "marker": "h",
+   "house": "1418",
+   "street": "Jef AVENUE"
+  },
+  {
+   "line": 64223,
+   "surname": "KUKIiX",
+   "given": "Wm",
+   "occupation": "haker",
+   "marker": "h",
+   "house": "2943",
+   "street": "Fulton"
+  }
+ ]
+}

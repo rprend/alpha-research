@@ -1,0 +1,137 @@
+{
+ "page_id": "brooklyn-1912-w17-L172623",
+ "source": "brooklynnewyorkc1912broo.txt",
+ "lines": [
+  172623,
+  172683
+ ],
+ "instructions": "Correct every row against the OCR text (add missed entries, fix fields, delete false entries). Do not consult the other annotator.",
+ "rows": [
+  {
+   "line": 172626,
+   "surname": "OP  PHILADELPHIA",
+   "given": "W",
+   "occupation": null,
+   "marker": null,
+   "house": "11",
+   "street": "li Blmhurst L I"
+  },
+  {
+   "line": 172628,
+   "surname": "OP  PHILADELPHIA",
+   "given": "Wni",
+   "occupation": "elk li",
+   "marker": null,
+   "house": "030",
+   "street": "Leonard"
+  },
+  {
+   "line": 172633,
+   "surname": "OP  PHILADELPHIA",
+   "given": "Marcella",
+   "occupation": "matron",
+   "marker": "h",
+   "house": "803",
+   "street": "E 35th"
+  },
+  {
+   "line": 172636,
+   "surname": "OP  PHILADELPHIA",
+   "given": "Sauil",
+   "occupation": "salesman",
+   "marker": "h",
+   "house": "122",
+   "street": "Sterling PLACE"
+  },
+  {
+   "line": 172641,
+   "surname": "OP  PHILADELPHIA",
+   "given": "Thos A",
+   "occupation": "realestate",
+   "marker": null,
+   "house": "537",
+   "street": "16th h 504 8th AVENUE"
+  },
+  {
+   "line": 172643,
+   "surname": "OP  PHILADELPHIA",
+   "given": "Mich)",
+   "occupation": "barter",
+   "marker": "b",
+   "house": "86",
+   "street": "S Sth"
+  },
+  {
+   "line": 172648,
+   "surname": "OP  PHILADELPHIA",
+   "given": "Ben!",
+   "occupation": "oper",
+   "marker": "h",
+   "house": "125",
+   "street": "Hale AVENUE"
+  },
+  {
+   "line": 172650,
+   "surname": "OP  PHILADELPHIA",
+   "given": "Eleanor M",
+   "occupation": "wid Sam!",
+   "marker": "h",
+   "house": "340",
+   "street": "4th"
+  },
+  {
+   "line": 172652,
+   "surname": "OP  PHILADELPHIA",
+   "given": "Geo",
+   "occupation": "eng",
+   "marker": "h",
+   "house": "17",
+   "street": "4th PLACE"
+  },
+  {
+   "line": 172654,
+   "surname": "OP  PHILADELPHIA",
+   "given": "Wm",
+   "occupation": "signs",
+   "marker": null,
+   "house": "187",
+   "street": "Freeman"
+  },
+  {
+   "line": 172656,
+   "surname": "OP  PHILADELPHIA",
+   "given": "Wm A",
+   "occupation": "foreman",
+   "marker": "b",
+   "house": "251",
+   "street": "Crescent"
+  },
+  {
+   "line": 172660,
+   "surname": "OP  PHILADELPHIA",
+   "given": "F.dwd",
+   "occupation": "printer",
+   "marker": "h",
+   "house": "374",
+   "street": "Van Euren"
+  },
+  {
+   "line": 172661,
+   "surname": "OP  PHILADELPHIA",
+   "given": "F",
+   "occupation": "express",
+   "marker": "h",
+   "house": "1201",
+   "street": "E 71 b"
+  },
+  {
+   "line": 172665,
+   "surname": "OP  PHILADELPHIA",
+   "given": "Thos",
+   "occupation": ".",
+   "marker": null,
+   "house": "1",
+   "street": "mechanic h 50 Madison"
+  }
+ ]
+}

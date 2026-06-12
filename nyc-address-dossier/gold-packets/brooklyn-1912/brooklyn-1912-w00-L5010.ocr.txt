@@ -1,0 +1,60 @@
+  5010 | —Bronze   Works    258    Wythe    av 
+  5011 | -Chas  h  460  49th 
+  5012 | —Clarence  produce  h   1094   Bergen 
+  5013 | —Frank  elk  482  Ridgewood  av 
+  5014 | 
+  5015 | —  Frank    W  salesman    h    240    Maple 
+  5016 | -Geo  elk   h   542   94th 
+  5017 | 
+  5018 | —Geo  salesman  h   1059  42d 
+  5019 | 
+  5020 | — Geo  H  acct    h    1430   Bedford   av 
+  5021 | 
+  5022 | —Gustavo    A    buyer    484    Fulton    h    291    Gar- 
+  5023 | 
+  5024 | lield    pi 
+  5025 | — Gustav  J   mats   h  85   Franklin   av 
+  5026 | — Hy  C  bookkpr   31S   Stanhope 
+  5027 | — John  h    37    Maple 
+  5028 | 
+  5029 | —  Loekwood   A'  e!k  h  728  Westminster  rd 
+  5030 | Helman  Jacob  dry   gds  86  Seigel   h    111    Wal- 
+  5031 | ton 
+  5032 | 
+  5033 | -Max  bblr    1266   40th 
+  5034 | — Moe    plumber    8    A'aret 
+  5035 | — &   Lelbovitz  _dry   gds   86   Seigel 
+  5036 | Heliucke     Herman      liquors     Flushing     av      n 
+  5037 | Caspian  h  Flushing  av  n  Caspian  Maspeth 
+  5038 | Holme   Jas   h   31   Cranberry 
+  5039 | 
+  5040 | —  Ins  D  jr    elk    h    33    Cranberry 
+  5041 | 
+  5042 | —  Win   51   elk    h   31    Cranberry 
+  5043 | Helmer  A  sailor  320  53d 
+  5044 | Helmerich   Geo   grocer   h   207   Stagg 
+  5045 | Holmes  II  R  h  798  St  John's  pi 
+  5046 | 
+  5047 | — &   Co   renlestate   200   Montague 
+  5048 | Holiness    Saml    porter   h   2235    E   16th 
+  5049 | Helmett    John    grocer   242    Franklin 
+  5050 | Helmick  E  J  lawyer  35S  Fulton 
+  5051 | Helmig   August    mechanic   h   524   Knickr   av 
+  5052 | —Martin    elk    h    529    Linwood 
+  5053 | Helmke    Fredk    firemnn    h    738    Decatur 
+  5054 | -Wm   barber    h    302    Palmetto 
+  5055 | HELMKE    WM.,   tailor   and   importer, 
+  5056 | 401  Franklin  av,  li  101  MidcUeton 
+  5057 | — Win  tailor   h   262  Gates   av 
+  5058 | Holmken    Hy    grocer    1461    Bwick    av 
+  5059 | -John   D  grocer  1267  Bwick  av  h   1321   Av  G 
+  5060 | —John   D  &   Co  grocers   1207   Bwick  av 
+  5061 | —John  H   renlestate    071    Delamere    pi 
+  5062 | Ilelmle    Frank    J    architect    188    Montague    h 
+  5063 | 
+  5064 | 126   Westminster  rd 
+  5065 | — &    Ilubertv    architects    188    Montague 
+  5066 | Helms   Amos  G   elk   h  473   Bainbridge 
+  5067 | 
+  5068 | —  Arthur  L  conductor  h  11  4th  pi 
+  5069 | —Chas  mgr  h  257  AA'estminster  nl 

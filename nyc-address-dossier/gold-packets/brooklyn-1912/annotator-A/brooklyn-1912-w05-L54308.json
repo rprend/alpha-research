@@ -1,0 +1,335 @@
+{
+ "page_id": "brooklyn-1912-w05-L54308",
+ "source": "brooklynnewyorkc1912broo.txt",
+ "lines": [
+  54308,
+  54368
+ ],
+ "instructions": "Correct every row against the OCR text (add missed entries, fix fields, delete false entries). Do not consult the other annotator.",
+ "rows": [
+  {
+   "line": 54308,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Win",
+   "occupation": "elk ii 43(",
+   "marker": null,
+   "house": "1",
+   "street": "Chaunoey"
+  },
+  {
+   "line": 54309,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Wm",
+   "occupation": "mgr",
+   "marker": null,
+   "house": "484",
+   "street": "Fulton h I'l undone L 1"
+  },
+  {
+   "line": 54310,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Win",
+   "occupation": "plumber",
+   "marker": "b",
+   "house": "87",
+   "street": "State"
+  },
+  {
+   "line": 54312,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Wm J",
+   "occupation": "plumber",
+   "marker": null,
+   "house": "308",
+   "street": "Myrtle av b 87 State"
+  },
+  {
+   "line": 54315,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Theo",
+   "occupation": "capt",
+   "marker": "b",
+   "house": "995",
+   "street": "Jef AVENUE"
+  },
+  {
+   "line": 54324,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Albert",
+   "occupation": ".",
+   "marker": null,
+   "house": "1",
+   "street": "machinist h 501 Laf AVENUE"
+  },
+  {
+   "line": 54325,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Alex",
+   "occupation": "police",
+   "marker": "h",
+   "house": "440",
+   "street": "list"
+  },
+  {
+   "line": 54326,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Alfred",
+   "occupation": "machinist",
+   "marker": "b",
+   "house": "400",
+   "street": "73d"
+  },
+  {
+   "line": 54329,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "C F",
+   "occupation": "smith",
+   "marker": "h",
+   "house": "8",
+   "street": "Iteeve PLACE"
+  },
+  {
+   "line": 54331,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Cbas",
+   "occupation": null,
+   "marker": "h",
+   "house": "10",
+   "street": "Italeigh PLACE"
+  },
+  {
+   "line": 54332,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Chus",
+   "occupation": "cutter",
+   "marker": "b",
+   "house": "04",
+   "street": "McDougal"
+  },
+  {
+   "line": 54333,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Christy",
+   "occupation": "(Rev) h 4!",
+   "marker": null,
+   "house": "7",
+   "street": "Lincoln AVENUE"
+  },
+  {
+   "line": 54334,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "D",
+   "occupation": null,
+   "marker": "b",
+   "house": "157",
+   "street": "Macon"
+  },
+  {
+   "line": 54335,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "David",
+   "occupation": "elk li",
+   "marker": null,
+   "house": "00",
+   "street": "McDougal"
+  },
+  {
+   "line": 54336,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Edgar",
+   "occupation": "elk",
+   "marker": null,
+   "house": "452",
+   "street": "Fulton b 355 Pearl"
+  },
+  {
+   "line": 54337,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Edgar S",
+   "occupation": "mgr",
+   "marker": "h",
+   "house": "00",
+   "street": "St Felix"
+  },
+  {
+   "line": 54338,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Edwd",
+   "occupation": null,
+   "marker": "h",
+   "house": "228",
+   "street": "Ridgewood AVENUE"
+  },
+  {
+   "line": 54339,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Edwd C",
+   "occupation": "clothier",
+   "marker": "h",
+   "house": "1001",
+   "street": "57th"
+  },
+  {
+   "line": 54341,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Frank J",
+   "occupation": "li",
+   "marker": null,
+   "house": "454",
+   "street": "0th"
+  },
+  {
+   "line": 54343,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Fredk J",
+   "occupation": "physician",
+   "marker": "h",
+   "house": "233",
+   "street": "Weirfield"
+  },
+  {
+   "line": 54345,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Goo",
+   "occupation": "electr",
+   "marker": "b",
+   "house": "053",
+   "street": "Lin wood"
+  },
+  {
+   "line": 54346,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Geo",
+   "occupation": "ins",
+   "marker": "h",
+   "house": "232",
+   "street": "Fountain AVENUE"
+  },
+  {
+   "line": 54348,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Geo F",
+   "occupation": "electrolyper li",
+   "marker": null,
+   "house": "540",
+   "street": "Linwood"
+  },
+  {
+   "line": 54349,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Hy P",
+   "occupation": "l>",
+   "marker": null,
+   "house": "136",
+   "street": "Concord"
+  },
+  {
+   "line": 54351,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Howard",
+   "occupation": "salesman",
+   "marker": "h",
+   "house": "14",
+   "street": "Glenada PLACE"
+  },
+  {
+   "line": 54353,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Isabella K",
+   "occupation": "wid Kobt W",
+   "marker": "h",
+   "house": "025",
+   "street": "Sterling PLACE"
+  },
+  {
+   "line": 54354,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Jns",
+   "occupation": null,
+   "marker": "h",
+   "house": "227",
+   "street": "71st"
+  },
+  {
+   "line": 54356,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Jas",
+   "occupation": "capt",
+   "marker": "h",
+   "house": "030",
+   "street": "58th"
+  },
+  {
+   "line": 54357,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Jas P",
+   "occupation": null,
+   "marker": "h",
+   "house": "09",
+   "street": "McDougal"
+  },
+  {
+   "line": 54359,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "John",
+   "occupation": "elk",
+   "marker": "h",
+   "house": "157",
+   "street": "Macon"
+  },
+  {
+   "line": 54360,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "John T",
+   "occupation": "elk",
+   "marker": "b",
+   "house": "031",
+   "street": "Laf AVENUE"
+  },
+  {
+   "line": 54361,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "John W",
+   "occupation": "fireman",
+   "marker": "h",
+   "house": "342",
+   "street": "03d"
+  },
+  {
+   "line": 54364,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "John W",
+   "occupation": "jr elk",
+   "marker": "h",
+   "house": "220",
+   "street": "93d"
+  },
+  {
+   "line": 54365,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "Lester",
+   "occupation": "oiier",
+   "marker": "h",
+   "house": "00",
+   "street": "St Felix"
+  },
+  {
+   "line": 54366,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "M K",
+   "occupation": "milliner",
+   "marker": null,
+   "house": "257",
+   "street": "Livingston"
+  },
+  {
+   "line": 54367,
+   "surname": "BROOKLYN                DIRECTORY",
+   "given": "M F",
+   "occupation": "elk li",
+   "marker": null,
+   "house": "457",
+   "street": "E 29th"
+  }
+ ]
+}

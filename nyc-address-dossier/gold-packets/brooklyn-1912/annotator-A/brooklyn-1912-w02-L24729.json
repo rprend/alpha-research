@@ -1,0 +1,245 @@
+{
+ "page_id": "brooklyn-1912-w02-L24729",
+ "source": "brooklynnewyorkc1912broo.txt",
+ "lines": [
+  24729,
+  24789
+ ],
+ "instructions": "Correct every row against the OCR text (add missed entries, fix fields, delete false entries). Do not consult the other annotator.",
+ "rows": [
+  {
+   "line": 24734,
+   "surname": "HUNT",
+   "given": "C F.",
+   "occupation": null,
+   "marker": "h",
+   "house": "51",
+   "street": "Eldert"
+  },
+  {
+   "line": 24736,
+   "surname": "HUNT",
+   "given": "Chas",
+   "occupation": "agt",
+   "marker": "h",
+   "house": "2400",
+   "street": "Clarendon ROAD"
+  },
+  {
+   "line": 24738,
+   "surname": "HUNT",
+   "given": "Chas",
+   "occupation": "coal",
+   "marker": "h",
+   "house": "2813",
+   "street": "Newklrk AVENUE"
+  },
+  {
+   "line": 24740,
+   "surname": "HUNT",
+   "given": "Chas",
+   "occupation": ")C",
+   "marker": "h",
+   "house": "207",
+   "street": "St James' PLACE"
+  },
+  {
+   "line": 24745,
+   "surname": "HUNT",
+   "given": "Claude K",
+   "occupation": "ins",
+   "marker": "h",
+   "house": "135",
+   "street": "Decatur"
+  },
+  {
+   "line": 24747,
+   "surname": "HUNT",
+   "given": "Dim!",
+   "occupation": "elk",
+   "marker": "h",
+   "house": "542",
+   "street": "Bergen"
+  },
+  {
+   "line": 24752,
+   "surname": "HUNT",
+   "given": "Fdwln",
+   "occupation": "coal h New Utrecht av",
+   "marker": null,
+   "house": "4",
+   "street": "Bath"
+  },
+  {
+   "line": 24754,
+   "surname": "HUNT",
+   "given": "Edwin B",
+   "occupation": null,
+   "marker": "h",
+   "house": "10",
+   "street": "Lincoln PLACE"
+  },
+  {
+   "line": 24756,
+   "surname": "HUNT",
+   "given": "Fdwln I)",
+   "occupation": null,
+   "marker": "h",
+   "house": "8808",
+   "street": "Bay Kith"
+  },
+  {
+   "line": 24758,
+   "surname": "HUNT",
+   "given": "Kmina B",
+   "occupation": null,
+   "marker": "b",
+   "house": "135",
+   "street": "Decatur"
+  },
+  {
+   "line": 24760,
+   "surname": "HUNT",
+   "given": "Fenley",
+   "occupation": null,
+   "marker": "h",
+   "house": "20",
+   "street": "Franklin nl"
+  },
+  {
+   "line": 24762,
+   "surname": "HUNT",
+   "given": "Floyd W",
+   "occupation": "bookkpr",
+   "marker": "h",
+   "house": "1550",
+   "street": "55th"
+  },
+  {
+   "line": 24763,
+   "surname": "HUNT",
+   "given": "Frances A",
+   "occupation": "wld Wm",
+   "marker": "h",
+   "house": "100",
+   "street": "Gates AVENUE"
+  },
+  {
+   "line": 24764,
+   "surname": "HUNT",
+   "given": "Frank",
+   "occupation": null,
+   "marker": "b",
+   "house": "707",
+   "street": "Linden"
+  },
+  {
+   "line": 24766,
+   "surname": "HUNT",
+   "given": "Frank",
+   "occupation": "elk",
+   "marker": "h",
+   "house": "03",
+   "street": "Miller AVENUE"
+  },
+  {
+   "line": 24767,
+   "surname": "HUNT",
+   "given": "Frank",
+   "occupation": "elk",
+   "marker": "h",
+   "house": "1000",
+   "street": "Halsey"
+  },
+  {
+   "line": 24768,
+   "surname": "HUNT",
+   "given": "Fredk",
+   "occupation": null,
+   "marker": "h",
+   "house": "388",
+   "street": "Pine"
+  },
+  {
+   "line": 24770,
+   "surname": "HUNT",
+   "given": "Fredk",
+   "occupation": null,
+   "marker": "b",
+   "house": "472",
+   "street": "Cleveland"
+  },
+  {
+   "line": 24772,
+   "surname": "HUNT",
+   "given": "Fredk",
+   "occupation": "steward",
+   "marker": "h",
+   "house": "202",
+   "street": "Rutland ROAD"
+  },
+  {
+   "line": 24774,
+   "surname": "HUNT",
+   "given": "Fredk C",
+   "occupation": "eleetrotyper",
+   "marker": "h",
+   "house": "47",
+   "street": "Hill"
+  },
+  {
+   "line": 24776,
+   "surname": "HUNT",
+   "given": "Fredk W",
+   "occupation": "printer",
+   "marker": "b",
+   "house": "1042",
+   "street": "E 0th"
+  },
+  {
+   "line": 24777,
+   "surname": "HUNT",
+   "given": "G W",
+   "occupation": "elk",
+   "marker": "b",
+   "house": "022",
+   "street": "8th AVENUE"
+  },
+  {
+   "line": 24779,
+   "surname": "HUNT",
+   "given": "Geo F",
+   "occupation": null,
+   "marker": "h",
+   "house": "560",
+   "street": "4Ili"
+  },
+  {
+   "line": 24781,
+   "surname": "HUNT",
+   "given": "Goo F",
+   "occupation": "elk",
+   "marker": "h",
+   "house": "40",
+   "street": "Berkeley PLACE"
+  },
+  {
+   "line": 24783,
+   "surname": "HUNT",
+   "given": "Geo",
+   "occupation": null,
+   "marker": null,
+   "house": "11",
+   "street": "V physician 1271 75th h 819 T3d"
+  },
+  {
+   "line": 24787,
+   "surname": "HUNT",
+   "given": "Harry",
+   "occupation": "driver",
+   "marker": "h",
+   "house": "181",
+   "street": "Wilby AVENUE"
+  }
+ ]
+}

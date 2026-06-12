@@ -1,0 +1,272 @@
+{
+ "page_id": "brooklyn-1912-w09-L93746",
+ "source": "brooklynnewyorkc1912broo.txt",
+ "lines": [
+  93746,
+  93806
+ ],
+ "instructions": "Correct every row against the OCR text (add missed entries, fix fields, delete false entries). Do not consult the other annotator.",
+ "rows": [
+  {
+   "line": 93746,
+   "surname": "BROOKLYN               DIEECTOHY",
+   "given": "Patk",
+   "occupation": "watchman",
+   "marker": "h",
+   "house": "351",
+   "street": "53d"
+  },
+  {
+   "line": 93748,
+   "surname": "BROOKLYN               DIEECTOHY",
+   "given": "Patk",
+   "occupation": "watchman",
+   "marker": "h",
+   "house": "346",
+   "street": "43d"
+  },
+  {
+   "line": 93749,
+   "surname": "BROOKLYN               DIEECTOHY",
+   "given": "Patk",
+   "occupation": "wirewkr",
+   "marker": "b",
+   "house": "162",
+   "street": "S 3d"
+  },
+  {
+   "line": 93751,
+   "surname": "BROOKLYN               DIEECTOHY",
+   "given": "Patk H",
+   "occupation": "ateamfitter",
+   "marker": "h",
+   "house": "50",
+   "street": "Howard AVENUE"
+  },
+  {
+   "line": 93756,
+   "surname": "MCCARTHY",
+   "given": "Patk J",
+   "occupation": "foreman",
+   "marker": "b",
+   "house": "499",
+   "street": "Hendrtx"
+  },
+  {
+   "line": 93758,
+   "surname": "MCCARTHY",
+   "given": "Peter",
+   "occupation": null,
+   "marker": null,
+   "house": "11",
+   "street": "ironwkr h 477 16th"
+  },
+  {
+   "line": 93760,
+   "surname": "MCCARTHY",
+   "given": "Pierce J",
+   "occupation": "broker",
+   "marker": null,
+   "house": "89",
+   "street": "Gold Mhtn b 091 Greene"
+  },
+  {
+   "line": 93766,
+   "surname": "MCCARTHY",
+   "given": "Robt",
+   "occupation": null,
+   "marker": null,
+   "house": "1",
+   "street": "eng h 549 47th"
+  },
+  {
+   "line": 93768,
+   "surname": "MCCARTHY",
+   "given": "Rose",
+   "occupation": "wid Jas",
+   "marker": null,
+   "house": "773",
+   "street": "Wllbv AVENUE"
+  },
+  {
+   "line": 93770,
+   "surname": "MCCARTHY",
+   "given": "T",
+   "occupation": "porter",
+   "marker": null,
+   "house": "484",
+   "street": "Fulton h 20S Sehei merborn"
+  },
+  {
+   "line": 93772,
+   "surname": "MCCARTHY",
+   "given": "T F",
+   "occupation": null,
+   "marker": "b",
+   "house": "8013",
+   "street": "17th AVENUE"
+  },
+  {
+   "line": 93776,
+   "surname": "MCCARTHY",
+   "given": "Thos",
+   "occupation": null,
+   "marker": "h",
+   "house": "60",
+   "street": "Howard AVENUE"
+  },
+  {
+   "line": 93778,
+   "surname": "MCCARTHY",
+   "given": "Thos",
+   "occupation": "lireman",
+   "marker": "h",
+   "house": "395",
+   "street": "14th"
+  },
+  {
+   "line": 93780,
+   "surname": "MCCARTHY",
+   "given": "Thos",
+   "occupation": "mason",
+   "marker": "h",
+   "house": "1117",
+   "street": "Ruby"
+  },
+  {
+   "line": 93782,
+   "surname": "MCCARTHY",
+   "given": "Thos",
+   "occupation": "salesman",
+   "marker": "h",
+   "house": "433",
+   "street": "7th AVENUE"
+  },
+  {
+   "line": 93784,
+   "surname": "MCCARTHY",
+   "given": "Thos F",
+   "occupation": "truckman",
+   "marker": null,
+   "house": "43",
+   "street": "Spruce Mhtn h 320"
+  },
+  {
+   "line": 93787,
+   "surname": "MCCARTHY",
+   "given": "Thos J",
+   "occupation": "grocer",
+   "marker": null,
+   "house": "790",
+   "street": "Mhtn av h 128 A Noble"
+  },
+  {
+   "line": 93788,
+   "surname": "MCCARTHY",
+   "given": "Timothy",
+   "occupation": null,
+   "marker": "h",
+   "house": "2037",
+   "street": "E 15th"
+  },
+  {
+   "line": 93789,
+   "surname": "MCCARTHY",
+   "given": "Timothy",
+   "occupation": null,
+   "marker": null,
+   "house": "817",
+   "street": "Union"
+  },
+  {
+   "line": 93790,
+   "surname": "MCCARTHY",
+   "given": "Timothy",
+   "occupation": "bookkpr",
+   "marker": "h",
+   "house": "22",
+   "street": "4th PLACE"
+  },
+  {
+   "line": 93791,
+   "surname": "MCCARTHY",
+   "given": "W J",
+   "occupation": null,
+   "marker": "h",
+   "house": "974",
+   "street": "E 10th"
+  },
+  {
+   "line": 93792,
+   "surname": "MCCARTHY",
+   "given": "Wm",
+   "occupation": null,
+   "marker": "h",
+   "house": "1014",
+   "street": "Ilpkson AVENUE"
+  },
+  {
+   "line": 93793,
+   "surname": "MCCARTHY",
+   "given": "Wm",
+   "occupation": "agt",
+   "marker": "h",
+   "house": "313",
+   "street": "7th AVENUE"
+  },
+  {
+   "line": 93795,
+   "surname": "MCCARTHY",
+   "given": "Win",
+   "occupation": "bldr",
+   "marker": "b",
+   "house": "100",
+   "street": "Essex"
+  },
+  {
+   "line": 93797,
+   "surname": "MCCARTHY",
+   "given": "Win",
+   "occupation": "promoter",
+   "marker": "b",
+   "house": "00",
+   "street": "Howard AVENUE"
+  },
+  {
+   "line": 93798,
+   "surname": "MCCARTHY",
+   "given": "Wm",
+   "occupation": "seaman",
+   "marker": "h",
+   "house": "304",
+   "street": "6th"
+  },
+  {
+   "line": 93800,
+   "surname": "MCCARTHY",
+   "given": "Wm A",
+   "occupation": "mechanic",
+   "marker": "b",
+   "house": "78",
+   "street": "Bond"
+  },
+  {
+   "line": 93802,
+   "surname": "MCCARTHY",
+   "given": "Wm A",
+   "occupation": "printer",
+   "marker": "h",
+   "house": "269",
+   "street": "Lincoln AVENUE"
+  },
+  {
+   "line": 93804,
+   "surname": "MCCARTHY",
+   "given": "Wm J",
+   "occupation": null,
+   "marker": "h",
+   "house": "172",
+   "street": "Murrav"
+  }
+ ]
+}

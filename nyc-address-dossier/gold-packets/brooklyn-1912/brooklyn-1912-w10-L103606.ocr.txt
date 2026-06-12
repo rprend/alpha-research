@@ -1,0 +1,60 @@
+103606 | —J  J  h   219    Prospect   Pk    W 
+103607 | 
+103608 | —Jas  driver  h  91   Clymer 
+103609 | 
+103610 | — Jas  expert  b   1559    75th 
+103611 | 
+103612 | —Jas  H  h   1C6  Chichester  uv 
+103613 | 
+103614 | — Jas  M  depy   tax   comr    Municipal   bldg   h   36 
+103615 | 
+103616 | Johnson 
+103617 | —Jerome  printer  h  200  52d 
+103618 | —John  h  382  4th 
+103619 | —John  h    105    E    32d 
+103620 | —John  carpr  h    635   54th 
+103621 | —John  conductor  h  440   Met   av 
+103622 | — John  driver  li  259  92d 
+103623 | -violin  eng    b    1223    45th 
+103624 | —John  fireman  b   147  0th 
+103625 | —John  ins   h  521    lltb 
+103626 | —John  lab  h  120  Aleserole  av 
+103627 | —John  lab    h    630    45th 
+103628 | —John  police   b    665    45 tb 
+103629 | —John  salesman   h    1275    Decatur 
+103630 | —John  salesman    h    191    Garfield    pi 
+103631 | —John  A  pluuilier  h  217  18th 
+103632 | —John   H  ehanf  h   123.4  E  8th 
+103633 | —John  J  advertising  507  Washn  h   120  Pacific 
+103634 | —John  P  police  b    1449  72d 
+103635 | —Jos  cashier    h    1708    45th 
+103636 | —Jos  police  h  348  74th 
+103637 | —Jos   D   h    199   8th    av 
+103638 | —Jos  P  ell:    h   21    Berkeley   pi 
+103639 | —Julia  messenger  h  4S3  Koscko 
+103640 | —Julia    wld    Michl   h    1    Lincoln   pi 
+103641 | — I»iwrence  smith   h  207  Sklllmau 
+103642 | —Leonora  h   Lawrence   L  I 
+103643 | —Letitia    wld    Michl   h   (.20    E    17th 
+103644 | 
+103645 | —  Margt  b    119    Dean 
+103646 | 
+103647 | — Martin  eng   h    1223    45th 
+103648 | —Mary  h   11   4th 
+103649 | — Mary   E  h    4S4    7th 
+103650 | —Matthew  police   li   115   Ber/ren 
+103651 | —Matthew  police  h  259  Hovt 
+103652 | —Matthew  S  asst    see    203    Montague    h    530 
+103653 | 75  th 
+103654 | 
+103655 | —  Michl  h   808    I'.ergen 
+103656 | 
+103657 | —  Michl  candy    b    331     Henry 
+103658 | -"Mich!   painter    h    733    Dean 
+103659 | 
+103660 | —Michl  solicitor   h   482   Koscko 
+103661 | -Michl   trucking    h    393    Av    U 
+103662 | —Michl   A   h  244  Dean 
+103663 | 
+103664 | —Michl   F  mgr    203     Montague-    h     175     Hicks 
+103665 | —Michl  II  printer    h    341    49th 

@@ -1,0 +1,60 @@
+152904 | — 11   S   1121    Bedford    av 
+152905 | —Harry  W  physician  h  323  Sterling  pi 
+152906 | — Hy  cigars    47     Warren     Mhtn    b     Hotel     St 
+152907 | 
+152908 | George 
+152909 | 
+152910 | —  Fly  physician    h   359   Sterling   pi 
+152911 | — Hy   weigher  230   53d 
+152912 | 
+152913 | —  Hv  L  teller     189     Montague     h     Hempstead 
+152914 | 
+152915 | 1.   1 
+152916 | 
+152917 | —  Ely  T  com     mer     142     Reade     Mhtn     h     323 
+152918 | 
+152919 | Sterling    pi 
+152920 | --Herman  solicitor   h  221   Lex   uv 
+152921 | — Hubert  physician    565    Decatur 
+152922 | —Isabella   wid  Thos  h  140  Fort  Greene  pi 
+152923 | — Isabelle  will    b    134    Hawthorne 
+152924 | —J  C  elk  h  506  E  7th 
+152925 | —Jas  stereotvper  h  347   Koscko 
+152926 | —Jas  A  agt    IS    Bway    Mhtn    h    1088    Bedford 
+152927 | 
+152928 | av 
+152929 | —John  h    245    Euclid    av 
+152930 | —John  fruit    h    349   Clinton 
+152931 | — John  ins    h    1221    Rergen 
+152932 | — John  trackman   h    847    Madison 
+152933 | —John  F  driver  h   113  Hall 
+152934 | —John  P  treasr      152      Front      Mhtn      li      401 
+152935 | 
+152936 | Sackett 
+152937 | —John  T  engraver   b   39    Rush 
+152938 | —Jos   heaters    137    Ralph    av 
+152939 | 
+152940 | —  Jos  machinist    h    216  52d 
+152941 | —Jos  F  electr  h  317  76th 
+152942 | —Jos  V  ilk    li    829    Wilbv   av 
+152943 | —Julia   wid    Jos    h    4404    4th    av 
+152944 | —Julia   A   h    163    Bay    31st 
+152945 | 
+152946 | — Kendrick   II  h    GSO    Prospect   pi 
+152947 | 
+152948 | —  Kenneth   W  ins     25s     Bway     Mhtn     h     134 
+152949 | 
+152950 | Hawthorne 
+152951 | —Linden  H   elk   li   81    Hewes 
+152952 | — Louis  L  physician   b   3S0   Stuyt   av 
+152953 | — Margt  I  wid   Fredk   J   h   470  Wilby   av 
+152954 | —Mary   wid   Gideon   h  346   Laf  av 
+152955 | —Mary    I   wid    Frank   h  853   Halsey 
+152956 | —Mary  J   wid  Wm  A  h  254   Madison 
+152957 | —Matilda  laundry   2902   W   3d    c   Sheepshead 
+152958 | 
+152959 | Bav  id 
+152960 | —Matilda  C  wid    Louis   h    331    20th 
+152961 | 
+152962 | —  Mlehl   h    100   Skillman 
+152963 | —Morrison  printer    h    179    Logan 

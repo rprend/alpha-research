@@ -1,0 +1,335 @@
+{
+ "page_id": "brooklyn-1912-w15-L152904",
+ "source": "brooklynnewyorkc1912broo.txt",
+ "lines": [
+  152904,
+  152964
+ ],
+ "instructions": "Correct every row against the OCR text (add missed entries, fix fields, delete false entries). Do not consult the other annotator.",
+ "rows": [
+  {
+   "line": 152904,
+   "surname": "XICTlOTiS",
+   "given": "Grace M",
+   "occupation": null,
+   "marker": "b",
+   "house": "170",
+   "street": "1 licks"
+  },
+  {
+   "line": 152906,
+   "surname": "XICTlOTiS",
+   "given": "Harry W",
+   "occupation": "physician",
+   "marker": "h",
+   "house": "323",
+   "street": "Sterling PLACE"
+  },
+  {
+   "line": 152907,
+   "surname": "XICTlOTiS",
+   "given": "Hy",
+   "occupation": "cigars",
+   "marker": null,
+   "house": "47",
+   "street": "Warren Mhtn b Hotel STREET"
+  },
+  {
+   "line": 152911,
+   "surname": "XICTlOTiS",
+   "given": "Fly",
+   "occupation": "physician",
+   "marker": "h",
+   "house": "359",
+   "street": "Sterling PLACE"
+  },
+  {
+   "line": 152912,
+   "surname": "XICTlOTiS",
+   "given": "Hy",
+   "occupation": "weigher",
+   "marker": null,
+   "house": "230",
+   "street": "53d"
+  },
+  {
+   "line": 152914,
+   "surname": "XICTlOTiS",
+   "given": "Hv L",
+   "occupation": "teller",
+   "marker": null,
+   "house": "189",
+   "street": "Montague h Hempstead"
+  },
+  {
+   "line": 152918,
+   "surname": "XICTlOTiS",
+   "given": "Ely T",
+   "occupation": "com mer",
+   "marker": null,
+   "house": "142",
+   "street": "Reade Mhtn h 323"
+  },
+  {
+   "line": 152921,
+   "surname": "XICTlOTiS",
+   "given": "Herman",
+   "occupation": "solicitor",
+   "marker": "h",
+   "house": "221",
+   "street": "Lex uv"
+  },
+  {
+   "line": 152922,
+   "surname": "XICTlOTiS",
+   "given": "Hubert",
+   "occupation": "physician",
+   "marker": null,
+   "house": "565",
+   "street": "Decatur"
+  },
+  {
+   "line": 152923,
+   "surname": "XICTlOTiS",
+   "given": "Isabella",
+   "occupation": "wid Thos",
+   "marker": "h",
+   "house": "140",
+   "street": "Fort Greene PLACE"
+  },
+  {
+   "line": 152924,
+   "surname": "XICTlOTiS",
+   "given": "Isabelle",
+   "occupation": "will",
+   "marker": "b",
+   "house": "134",
+   "street": "Hawthorne"
+  },
+  {
+   "line": 152925,
+   "surname": "XICTlOTiS",
+   "given": "J C",
+   "occupation": "elk",
+   "marker": "h",
+   "house": "506",
+   "street": "E 7th"
+  },
+  {
+   "line": 152926,
+   "surname": "XICTlOTiS",
+   "given": "Jas",
+   "occupation": "stereotvper",
+   "marker": "h",
+   "house": "347",
+   "street": "Koscko"
+  },
+  {
+   "line": 152927,
+   "surname": "XICTlOTiS",
+   "given": "Jas A",
+   "occupation": "agt IS Bway Mhtn",
+   "marker": "h",
+   "house": "1088",
+   "street": "Bedford"
+  },
+  {
+   "line": 152930,
+   "surname": "XICTlOTiS",
+   "given": "John",
+   "occupation": null,
+   "marker": "h",
+   "house": "245",
+   "street": "Euclid AVENUE"
+  },
+  {
+   "line": 152931,
+   "surname": "XICTlOTiS",
+   "given": "John",
+   "occupation": "fruit",
+   "marker": "h",
+   "house": "349",
+   "street": "Clinton"
+  },
+  {
+   "line": 152932,
+   "surname": "XICTlOTiS",
+   "given": "John",
+   "occupation": "ins",
+   "marker": "h",
+   "house": "1221",
+   "street": "Rergen"
+  },
+  {
+   "line": 152933,
+   "surname": "XICTlOTiS",
+   "given": "John",
+   "occupation": "trackman",
+   "marker": "h",
+   "house": "847",
+   "street": "Madison"
+  },
+  {
+   "line": 152934,
+   "surname": "XICTlOTiS",
+   "given": "John F",
+   "occupation": "driver",
+   "marker": "h",
+   "house": "113",
+   "street": "Hall"
+  },
+  {
+   "line": 152935,
+   "surname": "XICTlOTiS",
+   "given": "John P",
+   "occupation": "treasr",
+   "marker": null,
+   "house": "152",
+   "street": "Front Mhtn li 401"
+  },
+  {
+   "line": 152938,
+   "surname": "XICTlOTiS",
+   "given": "John T",
+   "occupation": "engraver",
+   "marker": "b",
+   "house": "39",
+   "street": "Rush"
+  },
+  {
+   "line": 152939,
+   "surname": "XICTlOTiS",
+   "given": "Jos",
+   "occupation": "heaters",
+   "marker": null,
+   "house": "137",
+   "street": "Ralph AVENUE"
+  },
+  {
+   "line": 152941,
+   "surname": "XICTlOTiS",
+   "given": "Jos",
+   "occupation": "machinist",
+   "marker": "h",
+   "house": "216",
+   "street": "52d"
+  },
+  {
+   "line": 152942,
+   "surname": "XICTlOTiS",
+   "given": "Jos F",
+   "occupation": "electr",
+   "marker": "h",
+   "house": "317",
+   "street": "76th"
+  },
+  {
+   "line": 152943,
+   "surname": "XICTlOTiS",
+   "given": "Jos V",
+   "occupation": "ilk li",
+   "marker": null,
+   "house": "829",
+   "street": "Wilbv AVENUE"
+  },
+  {
+   "line": 152944,
+   "surname": "XICTlOTiS",
+   "given": "Julia",
+   "occupation": "wid Jos",
+   "marker": "h",
+   "house": "4404",
+   "street": "4th AVENUE"
+  },
+  {
+   "line": 152945,
+   "surname": "XICTlOTiS",
+   "given": "Julia A",
+   "occupation": null,
+   "marker": "h",
+   "house": "163",
+   "street": "Bay 31st"
+  },
+  {
+   "line": 152947,
+   "surname": "XICTlOTiS",
+   "given": "Kendrick",
+   "occupation": null,
+   "marker": null,
+   "house": "11",
+   "street": "h GSO Prospect PLACE"
+  },
+  {
+   "line": 152952,
+   "surname": "XICTlOTiS",
+   "given": "Linden H",
+   "occupation": "elk li",
+   "marker": null,
+   "house": "81",
+   "street": "Hewes"
+  },
+  {
+   "line": 152954,
+   "surname": "XICTlOTiS",
+   "given": "Margt",
+   "occupation": null,
+   "marker": null,
+   "house": "1",
+   "street": "wid Fredk J h 470 Wilby AVENUE"
+  },
+  {
+   "line": 152955,
+   "surname": "XICTlOTiS",
+   "given": "Mary",
+   "occupation": "wid Gideon",
+   "marker": "h",
+   "house": "346",
+   "street": "Laf AVENUE"
+  },
+  {
+   "line": 152956,
+   "surname": "XICTlOTiS",
+   "given": "Mary",
+   "occupation": null,
+   "marker": null,
+   "house": "1",
+   "street": "wid Frank h 853 Halsey"
+  },
+  {
+   "line": 152957,
+   "surname": "XICTlOTiS",
+   "given": "Mary J",
+   "occupation": "wid Wm A",
+   "marker": "h",
+   "house": "254",
+   "street": "Madison"
+  },
+  {
+   "line": 152958,
+   "surname": "XICTlOTiS",
+   "given": "Matilda",
+   "occupation": "laundry",
+   "marker": null,
+   "house": "2902",
+   "street": "W 3d c Sheepshead"
+  },
+  {
+   "line": 152961,
+   "surname": "XICTlOTiS",
+   "given": "Matilda C",
+   "occupation": "wid Louis",
+   "marker": "h",
+   "house": "331",
+   "street": "20th"
+  },
+  {
+   "line": 152963,
+   "surname": "XICTlOTiS",
+   "given": "Mlehl",
+   "occupation": null,
+   "marker": "h",
+   "house": "100",
+   "street": "Skillman"
+  }
+ ]
+}

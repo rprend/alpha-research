@@ -1,0 +1,60 @@
+ 93746 | 
+ 93747 | —  Patk   watchman    h    346    43d 
+ 93748 | —Patk  wirewkr   b    162   S   3d 
+ 93749 | 
+ 93750 | --Patk  H  ateamfitter   h   50   Howard    av 
+ 93751 | 
+ 93752 | 
+ 93753 | MCCARTHY 
+ 93754 | 
+ 93755 | —  Patk  J  foreman    b    499    Hendrtx 
+ 93756 | — l'atk  J  roofer  270    E    31st 
+ 93757 | —Peter  II  ironwkr   h    477    16th 
+ 93758 | 
+ 93759 | —Pierce  J  broker  89  Gold  Mhtn  b  091  Greene 
+ 93760 | 
+ 93761 | a  v 
+ 93762 | 
+ 93763 | — Robt  stenogr  b  21S  Greenwood  av 
+ 93764 | 
+ 93765 | —  Robt   I'  eng    h    549    47th 
+ 93766 | 
+ 93767 | —  Rose   wid  Jas   773   Wllbv   av 
+ 93768 | 
+ 93769 | — T  porter  484  Fulton  h  20S  Sehei  merborn 
+ 93770 | 
+ 93771 | — T  F  b   8013   17th    av 
+ 93772 | 
+ 93773 | — T  G   boarding   Cropsey    av    c   21st    av 
+ 93774 | 
+ 93775 | — Thos  h  60  Howard  av 
+ 93776 | 
+ 93777 | — Thos  lireman   h   395   14th 
+ 93778 | 
+ 93779 | —Thos  mason   h   1117   Ruby 
+ 93780 | 
+ 93781 | — Thos  salesman    h    433   7th    av 
+ 93782 | 
+ 93783 | —Thos   F  truckman    43    Spruce    Mhtn    h    320 
+ 93784 | 
+ 93785 | Prest 
+ 93786 | —Thos  J  grocer   790    Mhtn    av    h    128 A   Noble 
+ 93787 | —Timothy  h  2037   E  15th 
+ 93788 | —Timothy  817    Union 
+ 93789 | — Timothy  bookkpr  h   22  4th   pi 
+ 93790 | — W  J   h  974    E   10th 
+ 93791 | — Wm  h  1014  Ilpkson  av 
+ 93792 | — Wm   agt    h   313   7th   av 
+ 93793 | 
+ 93794 | —  Win   bldr    b    100    Essex 
+ 93795 | 
+ 93796 | —  Win  promoter  b   00  Howard   av 
+ 93797 | — Wm  seaman   h   304   6th 
+ 93798 | 
+ 93799 | — Wm  A  mechanic  b  78   Bond 
+ 93800 | 
+ 93801 | — Wm   A   printer    h    269    Lincoln    av 
+ 93802 | 
+ 93803 | — Wm  J  h    172    Murrav 
+ 93804 | 
+ 93805 | — Wm  J  h  Elmhurst  L  I 

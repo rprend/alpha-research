@@ -1,0 +1,182 @@
+{
+ "page_id": "brooklyn-1912-w07-L74027",
+ "source": "brooklynnewyorkc1912broo.txt",
+ "lines": [
+  74027,
+  74087
+ ],
+ "instructions": "Correct every row against the OCR text (add missed entries, fix fields, delete false entries). Do not consult the other annotator.",
+ "rows": [
+  {
+   "line": 74027,
+   "surname": "GG     FAXNTINOf           DECORATING",
+   "given": "Peter",
+   "occupation": "cigars",
+   "marker": "h",
+   "house": "106",
+   "street": "Bedford AVENUE"
+  },
+  {
+   "line": 74029,
+   "surname": "GG     FAXNTINOf           DECORATING",
+   "given": "Peter",
+   "occupation": "elk",
+   "marker": "h",
+   "house": "133",
+   "street": "Penn"
+  },
+  {
+   "line": 74031,
+   "surname": "GG     FAXNTINOf           DECORATING",
+   "given": "Peter",
+   "occupation": "rigger",
+   "marker": "h",
+   "house": "114",
+   "street": "Washn AVENUE"
+  },
+  {
+   "line": 74032,
+   "surname": "GG     FAXNTINOf           DECORATING",
+   "given": "Peter A",
+   "occupation": "stenogr",
+   "marker": "h",
+   "house": "133",
+   "street": "Penn"
+  },
+  {
+   "line": 74034,
+   "surname": "GG     FAXNTINOf           DECORATING",
+   "given": "Peter C",
+   "occupation": "salesman",
+   "marker": "h",
+   "house": "313",
+   "street": "E 5lh"
+  },
+  {
+   "line": 74036,
+   "surname": "GG     FAXNTINOf           DECORATING",
+   "given": "Pomerov",
+   "occupation": null,
+   "marker": "h",
+   "house": "03",
+   "street": "Downing"
+  },
+  {
+   "line": 74038,
+   "surname": "GG     FAXNTINOf           DECORATING",
+   "given": "It",
+   "occupation": null,
+   "marker": "h",
+   "house": "1393",
+   "street": "St John's PLACE"
+  },
+  {
+   "line": 74040,
+   "surname": "GG     FAXNTINOf           DECORATING",
+   "given": "R W",
+   "occupation": "printer",
+   "marker": "h",
+   "house": "117",
+   "street": "Hull"
+  },
+  {
+   "line": 74042,
+   "surname": "GG     FAXNTINOf           DECORATING",
+   "given": "Undid",
+   "occupation": "will Robt",
+   "marker": "h",
+   "house": "256",
+   "street": "Cleveland"
+  },
+  {
+   "line": 74044,
+   "surname": "GG     FAXNTINOf           DECORATING",
+   "given": "Rebecca",
+   "occupation": "wid li",
+   "marker": null,
+   "house": "172",
+   "street": "Java"
+  },
+  {
+   "line": 74045,
+   "surname": "GG     FAXNTINOf           DECORATING",
+   "given": "Itlehd",
+   "occupation": null,
+   "marker": "h",
+   "house": "943",
+   "street": "si Mark's AVENUE"
+  },
+  {
+   "line": 74049,
+   "surname": "GG     FAXNTINOf           DECORATING",
+   "given": "Itichd V",
+   "occupation": null,
+   "marker": "h",
+   "house": "173",
+   "street": "Washn Pk"
+  },
+  {
+   "line": 74050,
+   "surname": "GG     FAXNTINOf           DECORATING",
+   "given": "Robt",
+   "occupation": "bookkpr",
+   "marker": "h",
+   "house": "112",
+   "street": "Bergen"
+  },
+  {
+   "line": 74052,
+   "surname": "GG     FAXNTINOf           DECORATING",
+   "given": "Rob; A",
+   "occupation": "carpr",
+   "marker": "h",
+   "house": "250",
+   "street": "Cleveland"
+  },
+  {
+   "line": 74054,
+   "surname": "GG     FAXNTINOf           DECORATING",
+   "given": "Robt A",
+   "occupation": "c'.k li",
+   "marker": null,
+   "house": "471",
+   "street": "Haiman"
+  },
+  {
+   "line": 74055,
+   "surname": "GG     FAXNTINOf           DECORATING",
+   "given": "Robt B",
+   "occupation": "elk",
+   "marker": "h",
+   "house": "326",
+   "street": "W 53.1 Mhtn"
+  },
+  {
+   "line": 74057,
+   "surname": "GG     FAXNTINOf           DECORATING",
+   "given": "Rol>t E",
+   "occupation": "bldr",
+   "marker": "h",
+   "house": "190",
+   "street": "McDougal"
+  },
+  {
+   "line": 74059,
+   "surname": "GG     FAXNTINOf           DECORATING",
+   "given": "Rotit E",
+   "occupation": "grocer",
+   "marker": null,
+   "house": "568",
+   "street": "Mhtn AVENUE"
+  },
+  {
+   "line": 74061,
+   "surname": "GG     FAXNTINOf           DECORATING",
+   "given": "Sam!",
+   "occupation": "salesman",
+   "marker": "h",
+   "house": "509",
+   "street": "Decatur"
+  }
+ ]
+}

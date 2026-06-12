@@ -1,0 +1,227 @@
+{
+ "page_id": "brooklyn-1912-w14-L143044",
+ "source": "brooklynnewyorkc1912broo.txt",
+ "lines": [
+  143044,
+  143104
+ ],
+ "instructions": "Correct every row against the OCR text (add missed entries, fix fields, delete false entries). Do not consult the other annotator.",
+ "rows": [
+  {
+   "line": 143044,
+   "surname": "MTTLREAN",
+   "given": "Wui",
+   "occupation": "elk",
+   "marker": "b",
+   "house": "155",
+   "street": "Koscko"
+  },
+  {
+   "line": 143048,
+   "surname": "MTTLREAN",
+   "given": "Hardware Co",
+   "occupation": null,
+   "marker": null,
+   "house": "300",
+   "street": "Cenll av Far Rkway I. 1"
+  },
+  {
+   "line": 143054,
+   "surname": "MTTLREAN",
+   "given": "Michl",
+   "occupation": "jr elk",
+   "marker": "h",
+   "house": "403",
+   "street": "72d"
+  },
+  {
+   "line": 143056,
+   "surname": "MTTLREAN",
+   "given": "Michl",
+   "occupation": "jr searcher",
+   "marker": null,
+   "house": "215",
+   "street": "Montague h 405 T2d"
+  },
+  {
+   "line": 143057,
+   "surname": "MTTLREAN",
+   "given": "Peter",
+   "occupation": "roller",
+   "marker": "h",
+   "house": "32",
+   "street": "Sterling PLACE"
+  },
+  {
+   "line": 143059,
+   "surname": "MTTLREAN",
+   "given": "Peter J",
+   "occupation": "agt",
+   "marker": "b",
+   "house": "112",
+   "street": "Clyiner"
+  },
+  {
+   "line": 143061,
+   "surname": "MTTLREAN",
+   "given": "John",
+   "occupation": "ironwkr",
+   "marker": null,
+   "house": "211",
+   "street": "3d av h 50 Berkeley PLACE"
+  },
+  {
+   "line": 143062,
+   "surname": "MTTLREAN",
+   "given": "John Co",
+   "occupation": "iron works",
+   "marker": null,
+   "house": "211",
+   "street": "3d AVENUE"
+  },
+  {
+   "line": 143064,
+   "surname": "MTTLREAN",
+   "given": "Mark",
+   "occupation": "contractor",
+   "marker": "h",
+   "house": "910",
+   "street": "Union"
+  },
+  {
+   "line": 143066,
+   "surname": "MTTLREAN",
+   "given": "Mark G",
+   "occupation": "ironwkr",
+   "marker": null,
+   "house": "211",
+   "street": "3d av h 50 Berkeley PLACE"
+  },
+  {
+   "line": 143069,
+   "surname": "MTTLREAN",
+   "given": "W",
+   "occupation": null,
+   "marker": null,
+   "house": "11",
+   "street": "wash machines 1113 Fbush AVENUE"
+  },
+  {
+   "line": 143075,
+   "surname": "MTTLREAN",
+   "given": "Bridget",
+   "occupation": "wid Jas",
+   "marker": "b",
+   "house": "93",
+   "street": "13th"
+  },
+  {
+   "line": 143077,
+   "surname": "MTTLREAN",
+   "given": "Edwd J",
+   "occupation": null,
+   "marker": "b",
+   "house": "2258",
+   "street": "S2d"
+  },
+  {
+   "line": 143081,
+   "surname": "MTTLREAN",
+   "given": "Geo It",
+   "occupation": "drugs",
+   "marker": "h",
+   "house": "139",
+   "street": "Kingston AVENUE"
+  },
+  {
+   "line": 143084,
+   "surname": "MTTLREAN",
+   "given": "Jas A",
+   "occupation": "mgr",
+   "marker": "h",
+   "house": "844",
+   "street": "Fulton"
+  },
+  {
+   "line": 143085,
+   "surname": "MTTLREAN",
+   "given": "Jas E",
+   "occupation": "reporter",
+   "marker": "h",
+   "house": "2258",
+   "street": "82d"
+  },
+  {
+   "line": 143088,
+   "surname": "MTTLREAN",
+   "given": "John J",
+   "occupation": "liquors",
+   "marker": "h",
+   "house": "37",
+   "street": "St Murk's AVENUE"
+  },
+  {
+   "line": 143089,
+   "surname": "MTTLREAN",
+   "given": "Thos A",
+   "occupation": "elk",
+   "marker": "h",
+   "house": "009",
+   "street": "Bay Ridge AVENUE"
+  },
+  {
+   "line": 143097,
+   "surname": "MTTLREAN",
+   "given": "Jennie",
+   "occupation": null,
+   "marker": "h",
+   "house": "43",
+   "street": "Joru lemon"
+  },
+  {
+   "line": 143098,
+   "surname": "MTTLREAN",
+   "given": "John F",
+   "occupation": "elk ii",
+   "marker": null,
+   "house": "260",
+   "street": "Sebtdy AVENUE"
+  },
+  {
+   "line": 143099,
+   "surname": "MTTLREAN",
+   "given": "John J",
+   "occupation": "bookbinder",
+   "marker": "h",
+   "house": "208",
+   "street": "10th"
+  },
+  {
+   "line": 143101,
+   "surname": "MTTLREAN",
+   "given": "Jos P",
+   "occupation": "police",
+   "marker": "b",
+   "house": "307",
+   "street": "Crescent"
+  },
+  {
+   "line": 143102,
+   "surname": "MTTLREAN",
+   "given": "Mark A",
+   "occupation": "printer",
+   "marker": "h",
+   "house": "577",
+   "street": "Crescent"
+  },
+  {
+   "line": 143103,
+   "surname": "MTTLREAN",
+   "given": "Micbl",
+   "occupation": "eug",
+   "marker": "h",
+   "house": "427",
+   "street": "K S5th"
+  }
+ ]
+}

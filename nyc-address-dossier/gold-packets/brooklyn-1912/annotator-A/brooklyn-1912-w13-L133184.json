@@ -1,0 +1,20 @@
+{
+ "page_id": "brooklyn-1912-w13-L133184",
+ "source": "brooklynnewyorkc1912broo.txt",
+ "lines": [
+  133184,
+  133244
+ ],
+ "instructions": "Correct every row against the OCR text (add missed entries, fix fields, delete false entries). Do not consult the other annotator.",
+ "rows": [
+  {
+   "line": 133242,
+   "surname": "MOHAWK   VALLEY  CIDER   CO",
+   "given": "John",
+   "occupation": null,
+   "marker": null,
+   "house": "11",
+   "street": "meat 204 Atlantic"
+  }
+ ]
+}

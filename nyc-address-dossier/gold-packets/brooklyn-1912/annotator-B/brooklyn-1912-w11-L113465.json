@@ -1,0 +1,209 @@
+{
+ "page_id": "brooklyn-1912-w11-L113465",
+ "source": "brooklynnewyorkc1912broo.txt",
+ "lines": [
+  113465,
+  113525
+ ],
+ "instructions": "Correct every row against the OCR text (add missed entries, fix fields, delete false entries). Do not consult the other annotator.",
+ "rows": [
+  {
+   "line": 113469,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Chas",
+   "occupation": "hardware",
+   "marker": null,
+   "house": "701",
+   "street": "Mhtn av b 001 Leonard"
+  },
+  {
+   "line": 113471,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Chas",
+   "occupation": "moulder",
+   "marker": "h",
+   "house": "245",
+   "street": "Harrison"
+  },
+  {
+   "line": 113473,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Frank M",
+   "occupation": "realestate",
+   "marker": null,
+   "house": "801",
+   "street": "Mhtn av h 4576"
+  },
+  {
+   "line": 113476,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Jas",
+   "occupation": "elk",
+   "marker": "h",
+   "house": "357",
+   "street": "Bay Ridge AVENUE"
+  },
+  {
+   "line": 113477,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Joliu J",
+   "occupation": "oper",
+   "marker": "h",
+   "house": "344",
+   "street": "76th"
+  },
+  {
+   "line": 113480,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Saml",
+   "occupation": "tile layer",
+   "marker": "h",
+   "house": "12",
+   "street": "E 8th"
+  },
+  {
+   "line": 113481,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Thos",
+   "occupation": "adjuster",
+   "marker": null,
+   "house": "400",
+   "street": "Fulton U 104 Douglass"
+  },
+  {
+   "line": 113482,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Tlios",
+   "occupation": "elk",
+   "marker": "h",
+   "house": "164",
+   "street": "Douglass"
+  },
+  {
+   "line": 113483,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Thos",
+   "occupation": "cutter",
+   "marker": "h",
+   "house": "1070",
+   "street": "Nostraud AVENUE"
+  },
+  {
+   "line": 113488,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Murin John",
+   "occupation": "meat",
+   "marker": "h",
+   "house": "704",
+   "street": "Gates AVENUE"
+  },
+  {
+   "line": 113494,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Decatur",
+   "occupation": "printer",
+   "marker": "h",
+   "house": "0902",
+   "street": "3d AVENUE"
+  },
+  {
+   "line": 113495,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Elizabeth",
+   "occupation": "wid",
+   "marker": "h",
+   "house": "393",
+   "street": "16th"
+  },
+  {
+   "line": 113496,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Howard",
+   "occupation": "printer",
+   "marker": "h",
+   "house": "498",
+   "street": "11th"
+  },
+  {
+   "line": 113497,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Jas",
+   "occupation": "ehanf",
+   "marker": "h",
+   "house": "119",
+   "street": "Schtdy AVENUE"
+  },
+  {
+   "line": 113498,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "John",
+   "occupation": "capt",
+   "marker": "b",
+   "house": "181",
+   "street": "DeKaib AVENUE"
+  },
+  {
+   "line": 113501,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Saml",
+   "occupation": "cutter li",
+   "marker": null,
+   "house": "1048",
+   "street": "40th"
+  },
+  {
+   "line": 113505,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Itobt",
+   "occupation": "carpr",
+   "marker": "b",
+   "house": "1319",
+   "street": "Pacific"
+  },
+  {
+   "line": 113506,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Walter",
+   "occupation": "broker",
+   "marker": "b",
+   "house": "592",
+   "street": "7th"
+  },
+  {
+   "line": 113515,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "August G",
+   "occupation": "physician",
+   "marker": "h",
+   "house": "311",
+   "street": "Arlington AVENUE"
+  },
+  {
+   "line": 113516,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Frank A Co",
+   "occupation": "woodwork",
+   "marker": null,
+   "house": "68",
+   "street": "34th"
+  },
+  {
+   "line": 113518,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Jos",
+   "occupation": "stevedore li",
+   "marker": null,
+   "house": "75",
+   "street": "Dikeman"
+  },
+  {
+   "line": 113520,
+   "surname": "MARKWELL  WILLIAM  L  reales",
+   "given": "Mary",
+   "occupation": null,
+   "marker": "h",
+   "house": "80",
+   "street": "Meserole AVENUE"
+  }
+ ]
+}

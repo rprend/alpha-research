@@ -1,0 +1,56 @@
+{
+ "page_id": "brooklyn-1912-w19-L192342",
+ "source": "brooklynnewyorkc1912broo.txt",
+ "lines": [
+  192342,
+  192402
+ ],
+ "instructions": "Correct every row against the OCR text (add missed entries, fix fields, delete false entries). Do not consult the other annotator.",
+ "rows": [
+  {
+   "line": 192344,
+   "surname": "REALTY  ASSOCIATES    Remsen",
+   "given": "Dan]",
+   "occupation": "baker",
+   "marker": null,
+   "house": "4715",
+   "street": "5th AVENUE"
+  },
+  {
+   "line": 192349,
+   "surname": "REALTY  ASSOCIATES    Remsen",
+   "given": "Herman",
+   "occupation": "stevedore",
+   "marker": "h",
+   "house": "208",
+   "street": "E 4th"
+  },
+  {
+   "line": 192351,
+   "surname": "REALTY  ASSOCIATES    Remsen",
+   "given": "Robt",
+   "occupation": "bookkpr",
+   "marker": "h",
+   "house": "404",
+   "street": "Classon uv"
+  },
+  {
+   "line": 192357,
+   "surname": "REALTY  ASSOCIATES    Remsen",
+   "given": "Harold S",
+   "occupation": null,
+   "marker": "h",
+   "house": "50",
+   "street": "Martense"
+  },
+  {
+   "line": 192358,
+   "surname": "REALTY  ASSOCIATES    Remsen",
+   "given": "J",
+   "occupation": null,
+   "marker": null,
+   "house": "11",
+   "street": "h 223 E 19th"
+  }
+ ]
+}
