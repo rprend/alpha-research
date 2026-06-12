@@ -21,6 +21,8 @@
     "benchmark:gutenberg:high-recall:mock-openai": "node scripts/gutenberg-openai-mock-smoke.mjs",
     "tiktok:creative": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-pipeline.mjs",
     "tiktok:creative:smoke": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-pipeline.mjs --smoke --target=4",
+    "tiktok:creative:acquisition": "node docs/experiments/tiktok-creative-creator-graph/scripts/build-acquisition-batches.mjs",
+    "tiktok:creative:readiness": "node docs/experiments/tiktok-creative-creator-graph/scripts/check-readiness.mjs",
     "smoke:infra:live": "node scripts/live-infrastructure-smoke.mjs",
     "modal:deploy": "modal deploy modal_workers/agent_worker.py",
     "modal:submit": "python scripts/submit_modal_job.py",

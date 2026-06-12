@@ -31,6 +31,18 @@ Run the smoke pipeline against the included fixture:
 pnpm run tiktok:creative:smoke
 ```
 
+Build acquisition batches from discovery queries and the latest expansion queue:
+
+```bash
+pnpm run tiktok:creative:acquisition
+```
+
+Check readiness against the full 50k-account target:
+
+```bash
+pnpm run tiktok:creative:readiness
+```
+
 Run the pipeline against everything in `data/raw/imports/`:
 
 ```bash
@@ -96,6 +108,9 @@ The pipeline writes:
 - `reports/result.json`
 - `reports/work.md`
 - `reports/readiness.md`
+- `reports/readiness.json`
+- `reports/acquisition-batches.md`
+- `reports/acquisition-batches.json`
 - `reports/pipeline-run.json`
 
 ## Production Acquisition Loop
@@ -104,8 +119,9 @@ The pipeline writes:
 2. Export public profile and recent-video metadata from allowed sources into `data/raw/imports/`.
 3. Run the pipeline.
 4. Use `expansion_queue` to resolve mentioned creators and expand from high-usefulness accounts.
-5. Use `review_queue` to correct labels, reject aggregators, and mark benchmarks.
-6. Re-import new accounts and rerun until `reports/result.json` shows at least 50,000 useful accounts.
+5. Run `pnpm run tiktok:creative:acquisition` to turn discovery queries and graph targets into source-specific acquisition tasks.
+6. Use `review_queue` to correct labels, reject aggregators, and mark benchmarks.
+7. Re-import new accounts and rerun until `reports/readiness.json` shows at least 50,000 useful accounts.
 
 ## Current Limitations
 
