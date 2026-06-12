@@ -57,6 +57,8 @@ Normalize search/provider acquisition exports into pipeline imports:
 node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs
 ```
 
+This also updates the acquisition import wave ledger at `data/processed/acquisition_import_waves.jsonl` and `.csv`.
+
 Apply human review decisions:
 
 ```bash
@@ -232,6 +234,8 @@ The pipeline writes:
 - `data/processed/expansion_queue.csv`
 - `data/processed/category_coverage.jsonl`
 - `data/processed/category_coverage.csv`
+- `data/processed/acquisition_import_waves.jsonl`
+- `data/processed/acquisition_import_waves.csv`
 - `reports/result.json`
 - `reports/work.md`
 - `reports/readiness.md`

@@ -30,6 +30,7 @@ function main() {
   const benchmarkCreators = readJsonl(join(processedDir, 'benchmark_creators.jsonl'))
   const expansionQueue = readJsonl(join(processedDir, 'expansion_queue.jsonl'))
   const acquisitionTasks = readJsonl(join(processedDir, 'acquisition/acquisition_tasks.jsonl'))
+  const acquisitionImportWaves = readJsonl(join(processedDir, 'acquisition_import_waves.jsonl'))
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
   const identities = readJsonl(join(processedDir, 'creator_identities.jsonl'))
   const categoryCoverage = (() => {
@@ -100,6 +101,11 @@ function main() {
       id: 'acquisition_batches',
       status: acquisitionTasks.length > 0 ? 'pass' : 'fail',
       evidence: `${acquisitionTasks.length} acquisition tasks generated`,
+    },
+    {
+      id: 'acquisition_import_waves',
+      status: acquisitionImportWaves.length > 0 ? 'pass' : 'fail',
+      evidence: `${acquisitionImportWaves.length} acquisition import waves tracked`,
     },
     {
       id: 'acquisition_runner',
@@ -180,6 +186,7 @@ function main() {
       benchmark_creators: benchmarkCreators.length,
       expansion_queue: expansionQueue.length,
       acquisition_tasks: acquisitionTasks.length,
+      acquisition_import_waves: acquisitionImportWaves.length,
       acquisition_runner_tasks: acquisitionRun?.selected_tasks ?? 0,
       acquisition_runner_runnable_tasks: acquisitionRun?.runnable_tasks ?? acquisitionRun?.selected_tasks ?? 0,
       acquisition_runner_skipped_tasks: acquisitionRun?.skipped_tasks ?? 0,
@@ -222,6 +229,7 @@ Complete: ${summary.complete}
 - Benchmark creators: ${summary.counts.benchmark_creators}
 - Expansion queue: ${summary.counts.expansion_queue}
 - Acquisition tasks: ${summary.counts.acquisition_tasks}
+- Acquisition import waves: ${summary.counts.acquisition_import_waves}
 - Acquisition runner tasks: ${summary.counts.acquisition_runner_tasks}
 - Acquisition runner runnable tasks: ${summary.counts.acquisition_runner_runnable_tasks}
 - Acquisition runner skipped tasks: ${summary.counts.acquisition_runner_skipped_tasks}

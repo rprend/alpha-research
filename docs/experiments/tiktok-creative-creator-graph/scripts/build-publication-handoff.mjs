@@ -34,6 +34,7 @@ function main() {
   const categoryCoverage = readJson(join(reportsDir, 'category-coverage.json'), null)
   const acquisitionBatches = readJson(join(reportsDir, 'acquisition-batches.json'), null)
   const acquisitionRun = readJson(join(reportsDir, 'acquisition-run.json'), null)
+  const importWaves = readJsonl(join(processedDir, 'acquisition_import_waves.jsonl'))
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
   const reviewDecisions = readJsonl(join(processedDir, 'review_decisions.jsonl'))
 
@@ -92,6 +93,7 @@ function main() {
       source_yield_rows: counts.source_yield_rows ?? sourceYield.length,
       category_coverage: categoryCoverage ? `${categoryCoverage.covered_labels}/${categoryCoverage.labels}` : 'missing',
       acquisition_tasks: counts.acquisition_tasks ?? acquisitionBatches?.tasks ?? 0,
+      acquisition_import_waves: counts.acquisition_import_waves ?? importWaves.length,
       acquisition_runner_runnable_tasks: counts.acquisition_runner_runnable_tasks ?? acquisitionRun?.runnable_tasks ?? 0,
       acquisition_runner_skipped_tasks: counts.acquisition_runner_skipped_tasks ?? acquisitionRun?.skipped_tasks ?? 0,
       refresh_tasks: counts.refresh_tasks ?? refreshPlan?.refresh_tasks ?? 0,
@@ -119,6 +121,7 @@ function main() {
       scale_plan: rel(join(reportsDir, 'scale-plan.json')),
       refresh_plan: rel(join(reportsDir, 'refresh-plan.json')),
       acquisition_batches: rel(join(reportsDir, 'acquisition-batches.json')),
+      acquisition_import_waves: rel(join(processedDir, 'acquisition_import_waves.jsonl')),
       source_yield: rel(join(reportsDir, 'source-yield.json')),
       category_coverage: rel(join(reportsDir, 'category-coverage.json')),
       useful_creators: rel(join(releaseDir, 'useful_creators.csv')),
@@ -172,6 +175,7 @@ ${handoff.objective}
 - Source yield rows: ${handoff.current_corpus.source_yield_rows}
 - Category coverage: ${handoff.current_corpus.category_coverage}
 - Acquisition tasks: ${handoff.current_corpus.acquisition_tasks}
+- Acquisition import waves: ${handoff.current_corpus.acquisition_import_waves}
 - Acquisition runner runnable tasks: ${handoff.current_corpus.acquisition_runner_runnable_tasks}
 - Acquisition runner skipped tasks: ${handoff.current_corpus.acquisition_runner_skipped_tasks}
 - Refresh tasks: ${handoff.current_corpus.refresh_tasks}

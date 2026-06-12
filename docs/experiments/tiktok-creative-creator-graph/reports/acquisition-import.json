@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T20:20:28.438Z",
+  "generated_at": "2026-06-12T20:24:17.431Z",
   "input_rows": 6,
   "normalized_rows": 6,
   "skipped_rows": 0,
@@ -8,5 +8,27 @@
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
-  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-12.jsonl"
+  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-12.jsonl",
+  "wave": {
+    "wave_id": "import-2026-06-12T20-24-17-431Z",
+    "generated_at": "2026-06-12T20:24:17.431Z",
+    "input_rows": 6,
+    "normalized_rows": 6,
+    "skipped_rows": 0,
+    "output_accounts": 3,
+    "source_file_count": 2,
+    "source_files": "smoke-provider-results.jsonl|smoke-search-results.jsonl",
+    "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-12.jsonl",
+    "target_label_counts": {
+      "unclassified": 6
+    },
+    "surface_counts": {
+      "provider_video_export": 3,
+      "search_result_export": 3
+    },
+    "provider_counts": {
+      "unknown": 6
+    }
+  },
+  "import_waves": 1
 }

@@ -5,6 +5,7 @@ const root = process.cwd()
 const experimentDir = join(root, 'docs/experiments/tiktok-creative-creator-graph')
 const acquisitionResultsDir = join(experimentDir, 'data/raw/acquisition-results')
 const importDir = join(experimentDir, 'data/raw/imports')
+const processedDir = join(experimentDir, 'data/processed')
 const reportsDir = join(experimentDir, 'reports')
 
 const args = new Map(process.argv.slice(2).map((arg) => {
@@ -75,6 +76,19 @@ function writeJson(path, value) {
 
 function writeJsonl(path, rows) {
   writeFileSync(path, rows.map((row) => JSON.stringify(row)).join('\n') + (rows.length ? '\n' : ''))
+}
+
+function writeCsv(path, rows) {
+  if (!rows.length) {
+    writeFileSync(path, '')
+    return
+  }
+  const headers = Object.keys(rows[0])
+  const escape = (value) => {
+    const text = value == null ? '' : String(value)
+    return /[",\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text
+  }
+  writeFileSync(path, `${headers.join(',')}\n${rows.map((row) => headers.map((header) => escape(row[header])).join(',')).join('\n')}\n`)
 }
 
 function asArray(value) {
@@ -256,8 +270,65 @@ function mergeRows(rows) {
   return { accounts, stats }
 }
 
+function summarizeWave(rows, accounts, stats, report) {
+  const targetLabelCounts = rows.reduce((acc, row) => {
+    const label = row.target_label || row.targetLabel || 'unclassified'
+    acc[label] = (acc[label] ?? 0) + 1
+    return acc
+  }, {})
+  const surfaceCounts = rows.reduce((acc, row) => {
+    const surface = row.acquisition_surface || row.surface || sourceTypeFor(row)
+    acc[surface] = (acc[surface] ?? 0) + 1
+    return acc
+  }, {})
+  const providerCounts = rows.reduce((acc, row) => {
+    const provider = row.provider || 'unknown'
+    acc[provider] = (acc[provider] ?? 0) + 1
+    return acc
+  }, {})
+  const sourceFiles = Object.keys(stats.source_files)
+  return {
+    wave_id: `import-${new Date().toISOString().replace(/[:.]/g, '-')}`,
+    generated_at: report.generated_at,
+    input_rows: stats.input_rows,
+    normalized_rows: stats.normalized_rows,
+    skipped_rows: stats.skipped_rows,
+    output_accounts: accounts.length,
+    source_file_count: sourceFiles.length,
+    source_files: sourceFiles.join('|'),
+    output_path: report.output_path,
+    target_label_counts: targetLabelCounts,
+    surface_counts: surfaceCounts,
+    provider_counts: providerCounts,
+  }
+}
+
+function upsertWave(wave) {
+  ensureDir(processedDir)
+  const path = join(processedDir, 'acquisition_import_waves.jsonl')
+  const existing = readJsonl(path).filter((row) => row.output_path !== wave.output_path)
+  const rows = [...existing, wave]
+  writeJsonl(path, rows)
+  writeCsv(join(processedDir, 'acquisition_import_waves.csv'), rows.map((row) => ({
+    wave_id: row.wave_id,
+    generated_at: row.generated_at,
+    input_rows: row.input_rows,
+    normalized_rows: row.normalized_rows,
+    skipped_rows: row.skipped_rows,
+    output_accounts: row.output_accounts,
+    source_file_count: row.source_file_count,
+    source_files: row.source_files,
+    output_path: row.output_path,
+    target_label_counts: JSON.stringify(row.target_label_counts),
+    surface_counts: JSON.stringify(row.surface_counts),
+    provider_counts: JSON.stringify(row.provider_counts),
+  })))
+  return rows
+}
+
 function main() {
   ensureDir(importDir)
+  ensureDir(processedDir)
   ensureDir(reportsDir)
   const rows = loadRows()
   const { accounts, stats } = mergeRows(rows)
@@ -271,6 +342,10 @@ function main() {
     source_files: stats.source_files,
     output_path: outputPath.replace(`${root}/`, ''),
   }
+  const wave = summarizeWave(rows, accounts, stats, report)
+  const waves = upsertWave(wave)
+  report.wave = wave
+  report.import_waves = waves.length
   writeJson(join(reportsDir, 'acquisition-import.json'), report)
   writeFileSync(join(reportsDir, 'acquisition-import.md'), `# Acquisition Import
 
@@ -281,10 +356,18 @@ Generated: ${report.generated_at}
 - Skipped rows: ${report.skipped_rows}
 - Output accounts: ${report.output_accounts}
 - Output path: \`${report.output_path}\`
+- Import waves tracked: ${report.import_waves}
 
 ## Source Files
 
 ${Object.entries(report.source_files).map(([file, count]) => `- ${file}: ${count}`).join('\n')}
+
+## Wave
+
+- Wave id: ${wave.wave_id}
+- Source file count: ${wave.source_file_count}
+- Target labels: ${Object.entries(wave.target_label_counts).map(([label, count]) => `${label}=${count}`).join(', ') || 'none'}
+- Surfaces: ${Object.entries(wave.surface_counts).map(([surface, count]) => `${surface}=${count}`).join(', ') || 'none'}
 `)
   console.log(JSON.stringify(report, null, 2))
 }
