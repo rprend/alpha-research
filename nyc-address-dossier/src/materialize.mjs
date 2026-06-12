@@ -236,6 +236,18 @@ async function run() {
     console.log('mapped taxphotos_1940 -> events');
   }
 
+  // ChronAm mentions (Phase 4): only double-verified rows (LLM YES + strong-model audit).
+  const chronamVerified = path.join(config.rawDir, 'chronam_mentions', 'verified.jsonl');
+  if (fs.existsSync(chronamVerified)) {
+    await sql(`INSERT INTO events (bbl, address_raw, date_start, kind, payload, source_id, locator, extraction_method, confidence)
+      SELECT bbl, house || ' WEST 125 STREET', TRY_CAST(date AS DATE), 'mention',
+             to_json({type: 'newspaper_mention', paper: paper, page_url: page_url,
+                      excerpt: left(snippet, 240), provenance: audit}),
+             'chronam', page_url || '/' || house, 'ocr+rules+llm', 0.6
+      FROM read_json('${chronamVerified.replace(/'/g, "''")}', format='newline_delimited', union_by_name=true)`);
+    console.log('mapped chronam_mentions -> events (double-verified only)');
+  }
+
   // Wayback snapshots (Phase 6): curated domain->address mappings, one event per year.
   const waybackDir = path.join(config.rawDir, 'wayback');
   if (fs.existsSync(waybackDir) && fs.readdirSync(waybackDir).some((f) => f.endsWith('.jsonl'))) {

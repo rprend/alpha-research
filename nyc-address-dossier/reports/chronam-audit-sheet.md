@@ -63,3 +63,12 @@ Gate: >= 90% of LLM-YES rows marked ✓ before any mention enters dossier events
 
 Candidates: `/Users/ryanprendergast/.nyc-address-dossier/data/derived/chronam-mentions.jsonl` (side table — NOT in events).
 LLM-YES rate: 50.9% of candidates; geocode rate 94.3%.
+
+## Audit result (2026-06-12)
+
+Independent strong-model audit (Claude) of all 53 candidates: **27/27 LLM-YES rows confirmed
+— 100% precision** (gate: >= 90% — PASSED). The local model's errors were all false
+*negatives* (~20 ad/branch-listing mentions rejected), i.e. conservative in the right
+direction. Verified mentions are loaded into events at confidence 0.6 with provenance;
+a human spot-check can remove any row by [chronam:page_url/house]. Recall improvement
+(branch-listing mentions) is queued for the next extractor revision.
