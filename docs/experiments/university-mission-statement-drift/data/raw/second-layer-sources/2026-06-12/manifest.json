@@ -1,6 +1,6 @@
 {
   "runDate": "2026-06-12",
-  "startedAt": "2026-06-12T21:00:44.436Z",
+  "startedAt": "2026-06-12T21:50:42.578Z",
   "source": "university institutional-language second-layer source probe",
   "minWords": 80,
   "requests": [
@@ -27,17 +27,26 @@
       "responsePath": "data/raw/second-layer-sources/2026-06-12/president-message/harvard-university/index.html"
     },
     {
+      "institution": "Harvard University",
+      "source_genre": "commencement-speech",
+      "source_layer": "current",
+      "url": "https://www.harvard.edu/in-focus/commencement-2025/",
+      "status": 200,
+      "ok": true,
+      "wordCount": 838,
+      "title": "Commencement 2025 - Harvard University",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/commencement-speech/harvard-university/index.html"
+    },
+    {
       "institution": "Stanford University",
       "source_genre": "strategic-plan",
       "source_layer": "current",
-      "url": "https://ourvision.stanford.edu/",
-      "status": 403,
-      "ok": false,
-      "wordCount": 4,
-      "title": "403 Forbidden",
-      "responsePath": "data/raw/second-layer-sources/2026-06-12/strategic-plan/stanford-university/index.html",
-      "error": "HTTP 403",
-      "bodyPreview": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n</body>\r\n</html>\r\n"
+      "url": "https://ideal.stanford.edu/",
+      "status": 200,
+      "ok": true,
+      "wordCount": 223,
+      "title": "IDEAL",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/strategic-plan/stanford-university/index.html"
     },
     {
       "institution": "Stanford University",
@@ -49,6 +58,17 @@
       "wordCount": 221,
       "title": "Stanford University Bulletin",
       "responsePath": "data/raw/second-layer-sources/2026-06-12/catalog/stanford-university/index.html"
+    },
+    {
+      "institution": "Stanford University",
+      "source_genre": "commencement-speech",
+      "source_layer": "current",
+      "url": "https://commencement.stanford.edu/events/commencement/2026-commencement-ceremony",
+      "status": 200,
+      "ok": true,
+      "wordCount": 770,
+      "title": "2026 Commencement Ceremony | Commencement",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/commencement-speech/stanford-university/index.html"
     },
     {
       "institution": "Massachusetts Institute of Technology",
@@ -73,30 +93,48 @@
       "responsePath": "data/raw/second-layer-sources/2026-06-12/president-message/massachusetts-institute-of-technology/index.html"
     },
     {
+      "institution": "Massachusetts Institute of Technology",
+      "source_genre": "commencement-speech",
+      "source_layer": "current",
+      "url": "https://news.mit.edu/2025/sally-kornbluths-charge-class-2025-0529",
+      "status": 200,
+      "ok": true,
+      "wordCount": 1433,
+      "title": "Sally Kornbluth’s charge to the Class of 2025 | MIT News | Massachusetts Institute of Technology",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/commencement-speech/massachusetts-institute-of-technology/index.html"
+    },
+    {
       "institution": "Princeton University",
       "source_genre": "strategic-plan",
       "source_layer": "current",
-      "url": "https://strategicplan.princeton.edu/",
-      "status": 403,
-      "ok": false,
-      "wordCount": 9,
-      "title": "Just a moment...",
-      "responsePath": "data/raw/second-layer-sources/2026-06-12/strategic-plan/princeton-university/index.html",
-      "error": "HTTP 403",
-      "bodyPreview": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-r1tRc483McFtHqm0WcbsnB&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-s"
+      "url": "https://www.princeton.edu/meet-princeton/princetons-strategic-planning-framework",
+      "status": 200,
+      "ok": true,
+      "wordCount": 483,
+      "title": "Princeton’s Strategic Planning Framework | Princeton University",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/strategic-plan/princeton-university/index.html"
     },
     {
       "institution": "Princeton University",
       "source_genre": "catalog",
       "source_layer": "current",
-      "url": "https://ua.princeton.edu/academic-units",
-      "status": 403,
-      "ok": false,
-      "wordCount": 9,
-      "title": "Just a moment...",
-      "responsePath": "data/raw/second-layer-sources/2026-06-12/catalog/princeton-university/index.html",
-      "error": "HTTP 403",
-      "bodyPreview": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-3qFWKWmmlXN1Bw2LpqaIyq&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-s"
+      "url": "https://www.princeton.edu/academics/areas-of-study",
+      "status": 200,
+      "ok": true,
+      "wordCount": 8400,
+      "title": "Areas of Study | Princeton University",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/catalog/princeton-university/index.html"
+    },
+    {
+      "institution": "Princeton University",
+      "source_genre": "commencement-speech",
+      "source_layer": "current",
+      "url": "https://www.princeton.edu/news/2025/05/27/class-2025-commencement-address-president-eisgruber-fierce-independence-mind",
+      "status": 200,
+      "ok": true,
+      "wordCount": 1739,
+      "title": "Class of 2025 Commencement address by President Eisgruber: &#039;A Fierce Independence of Mind&#039;",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/commencement-speech/princeton-university/index.html"
     },
     {
       "institution": "Yale University",
@@ -119,6 +157,17 @@
       "wordCount": 225,
       "title": "Welcome | Office of the President",
       "responsePath": "data/raw/second-layer-sources/2026-06-12/president-message/yale-university/index.html"
+    },
+    {
+      "institution": "Yale University",
+      "source_genre": "commencement-speech",
+      "source_layer": "current",
+      "url": "https://president.yale.edu/posts/2025-05-17-baccalaureate-address-yale-college-class-of-2025",
+      "status": 200,
+      "ok": true,
+      "wordCount": 2270,
+      "title": "Baccalaureate Address, Yale College Class of 2025 | Office of the President",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/commencement-speech/yale-university/index.html"
     },
     {
       "institution": "University of California, Berkeley",
@@ -168,84 +217,43 @@
       "institution": "Duke University",
       "source_genre": "strategic-plan",
       "source_layer": "current",
-      "url": "https://strategicplan.duke.edu/",
-      "status": 410,
-      "ok": false,
-      "wordCount": 10,
-      "title": "WordPress &rsaquo; Error",
-      "responsePath": "data/raw/second-layer-sources/2026-06-12/strategic-plan/duke-university/index.html",
-      "error": "HTTP 410",
-      "bodyPreview": "<!DOCTYPE html>\n<html lang=\"en-US\">\n<head>\n\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\t\t<meta name='robots' content='noindex, follow' />\n\t<title>WordPress &rsaquo; Error</title>\n\t<style type=\"text/css\">\n\t\thtml {\n\t\t\tbackground: #f1f1f1;\n\t\t}\n\t\tbody {\n\t\t\tbackground: #fff;\n\t\t\tborder: 1px solid #ccd0d4;\n\t\t\tcolor: #444;\n\t\t\tfont-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, "
-    }
-  ],
-  "errors": [
-    {
-      "institution": "Stanford University",
-      "source_genre": "strategic-plan",
-      "source_layer": "current",
-      "url": "https://ourvision.stanford.edu/",
-      "status": 403,
-      "ok": false,
-      "wordCount": 4,
-      "title": "403 Forbidden",
-      "responsePath": "data/raw/second-layer-sources/2026-06-12/strategic-plan/stanford-university/index.html",
-      "error": "HTTP 403",
-      "bodyPreview": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n</body>\r\n</html>\r\n"
-    },
-    {
-      "institution": "Princeton University",
-      "source_genre": "strategic-plan",
-      "source_layer": "current",
-      "url": "https://strategicplan.princeton.edu/",
-      "status": 403,
-      "ok": false,
-      "wordCount": 9,
-      "title": "Just a moment...",
-      "responsePath": "data/raw/second-layer-sources/2026-06-12/strategic-plan/princeton-university/index.html",
-      "error": "HTTP 403",
-      "bodyPreview": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-r1tRc483McFtHqm0WcbsnB&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-s"
-    },
-    {
-      "institution": "Princeton University",
-      "source_genre": "catalog",
-      "source_layer": "current",
-      "url": "https://ua.princeton.edu/academic-units",
-      "status": 403,
-      "ok": false,
-      "wordCount": 9,
-      "title": "Just a moment...",
-      "responsePath": "data/raw/second-layer-sources/2026-06-12/catalog/princeton-university/index.html",
-      "error": "HTTP 403",
-      "bodyPreview": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-3qFWKWmmlXN1Bw2LpqaIyq&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-s"
+      "url": "https://president.duke.edu/2025/06/05/update-strategic-realignment-cost-reduction-process/",
+      "status": 200,
+      "ok": true,
+      "wordCount": 921,
+      "title": "Update on Strategic Realignment and Cost-Reduction Process - Duke University | Office of the President",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/strategic-plan/duke-university/index.html"
     },
     {
       "institution": "Duke University",
-      "source_genre": "strategic-plan",
+      "source_genre": "commencement-speech",
       "source_layer": "current",
-      "url": "https://strategicplan.duke.edu/",
-      "status": 410,
-      "ok": false,
-      "wordCount": 10,
-      "title": "WordPress &rsaquo; Error",
-      "responsePath": "data/raw/second-layer-sources/2026-06-12/strategic-plan/duke-university/index.html",
-      "error": "HTTP 410",
-      "bodyPreview": "<!DOCTYPE html>\n<html lang=\"en-US\">\n<head>\n\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\t\t<meta name='robots' content='noindex, follow' />\n\t<title>WordPress &rsaquo; Error</title>\n\t<style type=\"text/css\">\n\t\thtml {\n\t\t\tbackground: #f1f1f1;\n\t\t}\n\t\tbody {\n\t\t\tbackground: #fff;\n\t\t\tborder: 1px solid #ccd0d4;\n\t\t\tcolor: #444;\n\t\t\tfont-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, "
+      "url": "https://president.duke.edu/2025/05/11/2025-commencement-remarks/",
+      "status": 200,
+      "ok": true,
+      "wordCount": 914,
+      "title": "2025 Commencement Remarks - Duke University | Office of the President",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/commencement-speech/duke-university/index.html"
     }
   ],
-  "finishedAt": "2026-06-12T21:00:51.046Z",
-  "recordCount": 11,
+  "errors": [],
+  "finishedAt": "2026-06-12T21:50:47.048Z",
+  "recordCount": 21,
   "genreCounts": {
-    "catalog": 7,
-    "president-message": 3,
-    "strategic-plan": 1
+    "catalog": 8,
+    "commencement-speech": 6,
+    "strategic-plan": 4,
+    "president-message": 3
   },
   "institutionCounts": {
-    "Harvard University": 2,
-    "Massachusetts Institute of Technology": 2,
+    "Harvard University": 3,
+    "Massachusetts Institute of Technology": 3,
+    "Princeton University": 3,
+    "Stanford University": 3,
+    "Yale University": 3,
+    "Duke University": 2,
     "University of California, Berkeley": 2,
-    "Yale University": 2,
     "Cornell University": 1,
-    "Stanford University": 1,
     "University of Pennsylvania": 1
   }
 }

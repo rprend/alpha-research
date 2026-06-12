@@ -1,23 +1,26 @@
 {
-  "generatedAt": "2026-06-12T21:06:23.299Z",
+  "generatedAt": "2026-06-12T21:50:47.113Z",
   "runDate": "2026-06-12",
-  "status": "source-probed-needs-replacements",
+  "status": "source-probed",
   "corpusTier": "schema-probe",
-  "pages": 11,
-  "configuredSources": 15,
-  "failedOrExcludedSources": 4,
+  "pages": 21,
+  "configuredSources": 21,
+  "failedOrExcludedSources": 0,
   "genreCounts": {
-    "catalog": 7,
-    "president-message": 3,
-    "strategic-plan": 1
+    "catalog": 8,
+    "commencement-speech": 6,
+    "strategic-plan": 4,
+    "president-message": 3
   },
   "institutionCounts": {
-    "Harvard University": 2,
-    "Massachusetts Institute of Technology": 2,
+    "Harvard University": 3,
+    "Massachusetts Institute of Technology": 3,
+    "Princeton University": 3,
+    "Stanford University": 3,
+    "Yale University": 3,
+    "Duke University": 2,
     "University of California, Berkeley": 2,
-    "Yale University": 2,
     "Cornell University": 1,
-    "Stanford University": 1,
     "University of Pennsylvania": 1
   },
   "missingGenres": [],
@@ -34,65 +37,128 @@
     {
       "source_genre": "catalog",
       "family": "career_economy",
-      "pages": 7,
-      "institutions": 7,
-      "count": 14,
-      "words": 3639,
-      "count_per_1000_words": 3.847
+      "pages": 8,
+      "institutions": 8,
+      "count": 38,
+      "words": 12039,
+      "count_per_1000_words": 3.156
     },
     {
       "source_genre": "catalog",
       "family": "civic_public",
-      "pages": 7,
-      "institutions": 7,
-      "count": 14,
-      "words": 3639,
-      "count_per_1000_words": 3.847
-    },
-    {
-      "source_genre": "catalog",
-      "family": "excellence_prestige",
-      "pages": 7,
-      "institutions": 7,
-      "count": 1,
-      "words": 3639,
-      "count_per_1000_words": 0.275
-    },
-    {
-      "source_genre": "catalog",
-      "family": "global_leadership",
-      "pages": 7,
-      "institutions": 7,
-      "count": 13,
-      "words": 3639,
+      "pages": 8,
+      "institutions": 8,
+      "count": 43,
+      "words": 12039,
       "count_per_1000_words": 3.572
     },
     {
       "source_genre": "catalog",
+      "family": "excellence_prestige",
+      "pages": 8,
+      "institutions": 8,
+      "count": 7,
+      "words": 12039,
+      "count_per_1000_words": 0.581
+    },
+    {
+      "source_genre": "catalog",
+      "family": "global_leadership",
+      "pages": 8,
+      "institutions": 8,
+      "count": 55,
+      "words": 12039,
+      "count_per_1000_words": 4.568
+    },
+    {
+      "source_genre": "catalog",
       "family": "inclusion_belonging",
-      "pages": 7,
-      "institutions": 7,
-      "count": 3,
-      "words": 3639,
-      "count_per_1000_words": 0.824
+      "pages": 8,
+      "institutions": 8,
+      "count": 10,
+      "words": 12039,
+      "count_per_1000_words": 0.831
     },
     {
       "source_genre": "catalog",
       "family": "innovation_impact",
-      "pages": 7,
-      "institutions": 7,
-      "count": 24,
-      "words": 3639,
-      "count_per_1000_words": 6.595
+      "pages": 8,
+      "institutions": 8,
+      "count": 49,
+      "words": 12039,
+      "count_per_1000_words": 4.07
     },
     {
       "source_genre": "catalog",
       "family": "truth_knowledge",
-      "pages": 7,
-      "institutions": 7,
+      "pages": 8,
+      "institutions": 8,
+      "count": 40,
+      "words": 12039,
+      "count_per_1000_words": 3.323
+    },
+    {
+      "source_genre": "commencement-speech",
+      "family": "career_economy",
+      "pages": 6,
+      "institutions": 6,
+      "count": 13,
+      "words": 7964,
+      "count_per_1000_words": 1.632
+    },
+    {
+      "source_genre": "commencement-speech",
+      "family": "civic_public",
+      "pages": 6,
+      "institutions": 6,
+      "count": 30,
+      "words": 7964,
+      "count_per_1000_words": 3.767
+    },
+    {
+      "source_genre": "commencement-speech",
+      "family": "excellence_prestige",
+      "pages": 6,
+      "institutions": 6,
       "count": 5,
-      "words": 3639,
-      "count_per_1000_words": 1.374
+      "words": 7964,
+      "count_per_1000_words": 0.628
+    },
+    {
+      "source_genre": "commencement-speech",
+      "family": "global_leadership",
+      "pages": 6,
+      "institutions": 6,
+      "count": 44,
+      "words": 7964,
+      "count_per_1000_words": 5.525
+    },
+    {
+      "source_genre": "commencement-speech",
+      "family": "inclusion_belonging",
+      "pages": 6,
+      "institutions": 6,
+      "count": 4,
+      "words": 7964,
+      "count_per_1000_words": 0.502
+    },
+    {
+      "source_genre": "commencement-speech",
+      "family": "innovation_impact",
+      "pages": 6,
+      "institutions": 6,
+      "count": 18,
+      "words": 7964,
+      "count_per_1000_words": 2.26
+    },
+    {
+      "source_genre": "commencement-speech",
+      "family": "truth_knowledge",
+      "pages": 6,
+      "institutions": 6,
+      "count": 17,
+      "words": 7964,
+      "count_per_1000_words": 2.135
     },
     {
       "source_genre": "president-message",
@@ -160,75 +226,73 @@
     {
       "source_genre": "strategic-plan",
       "family": "career_economy",
-      "pages": 1,
-      "institutions": 1,
-      "count": 0,
-      "words": 276,
-      "count_per_1000_words": 0
+      "pages": 4,
+      "institutions": 4,
+      "count": 1,
+      "words": 1903,
+      "count_per_1000_words": 0.525
     },
     {
       "source_genre": "strategic-plan",
       "family": "civic_public",
-      "pages": 1,
-      "institutions": 1,
-      "count": 2,
-      "words": 276,
-      "count_per_1000_words": 7.246
+      "pages": 4,
+      "institutions": 4,
+      "count": 4,
+      "words": 1903,
+      "count_per_1000_words": 2.102
     },
     {
       "source_genre": "strategic-plan",
       "family": "excellence_prestige",
-      "pages": 1,
-      "institutions": 1,
-      "count": 0,
-      "words": 276,
-      "count_per_1000_words": 0
+      "pages": 4,
+      "institutions": 4,
+      "count": 3,
+      "words": 1903,
+      "count_per_1000_words": 1.576
     },
     {
       "source_genre": "strategic-plan",
       "family": "global_leadership",
-      "pages": 1,
-      "institutions": 1,
-      "count": 1,
-      "words": 276,
-      "count_per_1000_words": 3.623
+      "pages": 4,
+      "institutions": 4,
+      "count": 11,
+      "words": 1903,
+      "count_per_1000_words": 5.78
     },
     {
       "source_genre": "strategic-plan",
       "family": "inclusion_belonging",
-      "pages": 1,
-      "institutions": 1,
-      "count": 0,
-      "words": 276,
-      "count_per_1000_words": 0
+      "pages": 4,
+      "institutions": 4,
+      "count": 7,
+      "words": 1903,
+      "count_per_1000_words": 3.678
     },
     {
       "source_genre": "strategic-plan",
       "family": "innovation_impact",
-      "pages": 1,
-      "institutions": 1,
-      "count": 0,
-      "words": 276,
-      "count_per_1000_words": 0
+      "pages": 4,
+      "institutions": 4,
+      "count": 2,
+      "words": 1903,
+      "count_per_1000_words": 1.051
     },
     {
       "source_genre": "strategic-plan",
       "family": "truth_knowledge",
-      "pages": 1,
-      "institutions": 1,
-      "count": 1,
-      "words": 276,
-      "count_per_1000_words": 3.623
+      "pages": 4,
+      "institutions": 4,
+      "count": 5,
+      "words": 1903,
+      "count_per_1000_words": 2.627
     }
   ],
   "blockers": [
-    "Replace failed or low-word-count source routes before publication-scale claims.",
     "Add historical snapshots or recurring current snapshots before claiming second-layer change over time.",
-    "Keep catalog, strategic-plan, and president-message language separate in public claims."
+    "Keep catalog, strategic-plan, president-message, and commencement-speech language separate in public claims."
   ],
   "nextActions": [
-    "Replace the inaccessible Stanford, Princeton, and Duke strategic-plan routes or use archive/sitemap alternatives.",
-    "Add commencement speeches as a fourth source genre.",
+    "Retain the current four-genre source mix for historical backfill.",
     "Backfill historical snapshots for the retained second-layer routes.",
     "Join second-layer source genres into the main readiness gate after manual quote review."
   ]

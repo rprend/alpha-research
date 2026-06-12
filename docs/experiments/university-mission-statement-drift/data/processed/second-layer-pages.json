@@ -54,6 +54,64 @@
     }
   },
   {
+    "institution": "Harvard University",
+    "source_layer": "current",
+    "source_genre": "commencement-speech",
+    "year": 2026,
+    "url": "https://www.harvard.edu/in-focus/commencement-2025/",
+    "archive_url": "",
+    "status": 200,
+    "title": "Commencement 2025 - Harvard University",
+    "words": 838,
+    "text_preview": "Commencement 2025 - Harvard University Skip to main content Harvard University 1 site notification Search Menu Harvard University Close Commencement 2025 In Focus Commencement 2025 The Enhanced Body Veterans Food Celebrating the Class of 2025 Revisit the ceremonies Last updated: May 2025 Harvard awarded 9,434 degrees Read more about the Class of 2025 Commencement Speaking from deep personal experience, Abraham Verghese underscored the vital role immigrants play in the life of the nation Speaking from deep personal experience, Abraham Verghese underscored the vital role immigrants play in the life of the nation Alumni Day Surgeon, best-selling author, and public health leader Atul Gawande shared a message of strength and resolve during his keynote address Surgeon, best-selling author, and p",
+    "snippets": [
+      "ling to take Dr. King’s place” ROTC President Alan Garber urged the newly minted officers to stand up for the truth President Alan Garber urged the newly minted officers to stand up for the truth Photos from the day Fair Harv",
+      "r their senior capstone project, Roaa Marei, Alex Klein Wassink, and Gabby Troy created SpiroSniff, a machine learning-driven, portable, and affordable breathalyzer for early lung cancer detection. The device analyzes volatile o",
+      "photos from Commencement Introducing the graduates Explore our student profiles to learn about the dedicated scholarship and ambitious plans of graduates from all of Harvard’s degree-granting Schools. Meet our graduating class of",
+      "rscored the vital role immigrants play in the life of the nation Alumni Day Surgeon, best-selling author, and public health leader Atul Gawande shared a message of strength and resolve during his keynote address Surgeon, best-",
+      "ed breath. Primary care for patients with hepatitis At Harvard Medical School, Naeema Hopkins-Kotb focused on global health research to understand the attitudes and behaviors of primary care providers toward patients with hepa"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/commencement-speech/harvard-university/index.html",
+    "term_counts": {
+      "truth_knowledge": 5,
+      "civic_public": 4,
+      "innovation_impact": 0,
+      "global_leadership": 4,
+      "excellence_prestige": 0,
+      "inclusion_belonging": 0,
+      "career_economy": 3
+    }
+  },
+  {
+    "institution": "Stanford University",
+    "source_layer": "current",
+    "source_genre": "strategic-plan",
+    "year": 2026,
+    "url": "https://ideal.stanford.edu/",
+    "archive_url": "",
+    "status": 200,
+    "title": "IDEAL",
+    "words": 223,
+    "text_preview": "IDEAL Skip to main content Skip to secondary navigation Stanford University (link is external) Stanford IDEAL IDEAL “The university’s core missions of knowledge creation and education depend on ensuring that a diverse set of voices are welcome and included in the conversation, that everyone on campus is treated with respect, and that we remove barriers that prevent people from reaching their full potential.\" – Provost Jenny Martinez Main content start IDEAL (Inclusion, Diversity, Equity and Access in a Learning Environment) was an initiative that arose out of the Long Range Planning Process initiated by the university in 2017. The IDEAL initiative began in 2018 and was sunset in summer 2025. IDEAL was a set of campuswide initiatives that shared the following goals: To ensure that diversity",
+    "snippets": [
+      "ary navigation Stanford University (link is external) Stanford IDEAL IDEAL “The university’s core missions of knowledge creation and education depend on ensuring that a diverse set of voices are welcome and included in the conver",
+      "l potential.\" – Provost Jenny Martinez Main content start IDEAL (Inclusion, Diversity, Equity and Access in a Learning Environment) was an initiative that arose out of the Long Range Planning Process initiated by the university",
+      "ent people from reaching their full potential.\" – Provost Jenny Martinez Main content start IDEAL (Inclusion, Diversity, Equity and Access in a Learning Environment) was an initiative that arose out of the Long Range Planning Pro",
+      "s that prevent people from reaching their full potential.\" – Provost Jenny Martinez Main content start IDEAL (Inclusion, Diversity, Equity and Access in a Learning Environment) was an initiative that arose out of the Long Range P",
+      "from reaching their full potential.\" – Provost Jenny Martinez Main content start IDEAL (Inclusion, Diversity, Equity and Access in a Learning Environment) was an initiative that arose out of the Long Range Planning Process ini"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/strategic-plan/stanford-university/index.html",
+    "term_counts": {
+      "truth_knowledge": 2,
+      "civic_public": 0,
+      "innovation_impact": 0,
+      "global_leadership": 0,
+      "excellence_prestige": 0,
+      "inclusion_belonging": 6,
+      "career_economy": 0
+    }
+  },
+  {
     "institution": "Stanford University",
     "source_layer": "current",
     "source_genre": "catalog",
@@ -77,6 +135,35 @@
       "excellence_prestige": 1,
       "inclusion_belonging": 0,
       "career_economy": 2
+    }
+  },
+  {
+    "institution": "Stanford University",
+    "source_layer": "current",
+    "source_genre": "commencement-speech",
+    "year": 2026,
+    "url": "https://commencement.stanford.edu/events/commencement/2026-commencement-ceremony",
+    "archive_url": "",
+    "status": 200,
+    "title": "2026 Commencement Ceremony | Commencement",
+    "words": 770,
+    "text_preview": "2026 Commencement Ceremony | Commencement Skip to main content Skip to secondary navigation Stanford University (link is external) Stanford Commencement Search this site Submit Search Main content start Commencement Sunday 2026 Commencement Ceremony Gates open at 7:30 a.m. Event Details: Sunday, June 14, 2026 9:00am - 11:30am PDT This event is open to: Graduating Students Family, Friends, & Guests Public Livestream Tickets/RSVP Required Disability Access Information See below Location Stanford Stadium 625 Nelson Rd Stanford , CA 94305 United States Map Additional Viewing Options Livestreamed online and at Maples Pavilion View the livestream Commencement Instructions for Graduates Read the instructions Commencement Program PDF program will be added on Sunday, June 14. Sundar Pichai will be ",
+    "snippets": [
+      "nday, June 14, 2026 9:00am - 11:30am PDT This event is open to: Graduating Students Family, Friends, & Guests Public Livestream Tickets/RSVP Required Disability Access Information See below Location Stanford Stadium 625 Nelson",
+      "cross the Track House Lot on Galvez Street. A map of the area can be found here . A limited golf cart shuttle service will be available within the Track House Lot and Galvez Lot to transport guests with limited mobility to Gate",
+      "Stanford Stadium. “Sundar is a deeply thoughtful leader who has a vivid sense for how technology can improve society and transform individual lives. He epitomizes what it means for a Stanford graduate to have a broad impact,”",
+      "e society and transform individual lives. He epitomizes what it means for a Stanford graduate to have a broad impact,” said Stanford President Jonathan Levin. “I’m excited to hear his reflections and advice to our graduates as",
+      "on Sunday, June 14, in Stanford Stadium. “Sundar is a deeply thoughtful leader who has a vivid sense for how technology can improve society and transform individual lives. He epitomizes what it means for a Stanford graduate to ha"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/commencement-speech/stanford-university/index.html",
+    "term_counts": {
+      "truth_knowledge": 0,
+      "civic_public": 5,
+      "innovation_impact": 2,
+      "global_leadership": 2,
+      "excellence_prestige": 0,
+      "inclusion_belonging": 3,
+      "career_economy": 0
     }
   },
   {
@@ -138,6 +225,122 @@
     }
   },
   {
+    "institution": "Massachusetts Institute of Technology",
+    "source_layer": "current",
+    "source_genre": "commencement-speech",
+    "year": 2026,
+    "url": "https://news.mit.edu/2025/sally-kornbluths-charge-class-2025-0529",
+    "archive_url": "",
+    "status": 200,
+    "title": "Sally Kornbluth’s charge to the Class of 2025 | MIT News | Massachusetts Institute of Technology",
+    "words": 1433,
+    "text_preview": "Sally Kornbluth’s charge to the Class of 2025 | MIT News | Massachusetts Institute of Technology Skip to content ↓ Massachusetts Institute of Technology Search websites, locations, and people See More Results Suggestions or feedback? MIT News | Massachusetts Institute of Technology - On Campus and Around the world Subscribe to MIT News newsletter Enter keywords to search for news articles: Submit Browse By Topics View All → Explore: Machine learning Sustainability Startups Black holes Classes and programs Departments View All → Explore: Aeronautics and Astronautics Brain and Cognitive Sciences Architecture Political Science Mechanical Engineering Centers, Labs, & Programs View All → Explore: Abdul Latif Jameel Poverty Action Lab (J-PAL) Picower Institute for Learning and Memory Media Lab L",
+    "snippets": [
+      "e.” But the scientific method remains the single most reliable tool humans have ever devised to arrive at the truth about the physical world. It’s designed to root out error, protect us against our own biases and assumptions,",
+      "rchill once observed that, “No one pretends that democracy is perfect or all-wise,” In fact, as he famously acknowledged, “Democracy is the worst form of government — except for all the other forms that have been tried.” And you",
+      "ws newsletter Enter keywords to search for news articles: Submit Browse By Topics View All → Explore: Machine learning Sustainability Startups Black holes Classes and programs Departments View All → Explore: Aeronautics and Astr",
+      "of 2025 MIT’s president urges graduates to become ambassadors for scientific thinking and discovery. MIT News Publication Date : May 29, 2025 Press Inquiries Press Contact : MIT Media Relations Email: expertrequests@mit.edu Ph",
+      "in the beauty and power of the scientific method. Winston Churchill once observed that, “No one pretends that democracy is perfect or all-wise,” In fact, as he famously acknowledged, “Democracy is the worst form of government — e"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/commencement-speech/massachusetts-institute-of-technology/index.html",
+    "term_counts": {
+      "truth_knowledge": 4,
+      "civic_public": 4,
+      "innovation_impact": 12,
+      "global_leadership": 8,
+      "excellence_prestige": 0,
+      "inclusion_belonging": 0,
+      "career_economy": 5
+    }
+  },
+  {
+    "institution": "Princeton University",
+    "source_layer": "current",
+    "source_genre": "strategic-plan",
+    "year": 2026,
+    "url": "https://www.princeton.edu/meet-princeton/princetons-strategic-planning-framework",
+    "archive_url": "",
+    "status": 200,
+    "title": "Princeton’s Strategic Planning Framework | Princeton University",
+    "words": 483,
+    "text_preview": "Princeton’s Strategic Planning Framework | Princeton University Skip to main content Princeton University Search Search Sites & People &times; Princeton’s Strategic Planning Framework Planning for Princeton’s Future Princeton University’s strategic planning framework guides the University in its ongoing efforts to enhance Princeton’s core commitments to excellence in teaching and research and to such bedrock principles as affordability, diversity, inclusivity, and service. The Strategic Framework The Board of Trustees first adopted the University’s strategic framework in 2016 and has reaffirmed its commitment to the framework with updates in 2019 and 2023. Strategic Framework Update June 2023 (.pdf) Strategic Framework Update June 2019 (.pdf) Princeton University Framework 2016 (.pdf) An O",
+    "snippets": [
+      "0, 2014, at the Council of the Princeton University Community Mission Statement Princeton University advances learning through scholarship, research, and teaching of unsurpassed quality, with an emphasis on undergraduate and doc",
+      "ouncil of the Princeton University Community Mission Statement Princeton University advances learning through scholarship, research, and teaching of unsurpassed quality, with an emphasis on undergraduate and doctoral education that",
+      "ellence in teaching and research and to such bedrock principles as affordability, diversity, inclusivity, and service. The Strategic Framework The Board of Trustees first adopted the University’s strategic framework in 2016 and",
+      "tue of the opportunities that they have, about how we translate that position into things that matter for the common good. Princeton University President Christopher L. Eisgruber, in remarks announcing the strategic planning proces",
+      "most recent update to the framework underscored Princeton’s commitment to “support human flourishing” as the world pursues a path toward integrating new technologies with cultural norms and social practices. That project of"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/strategic-plan/princeton-university/index.html",
+    "term_counts": {
+      "truth_knowledge": 2,
+      "civic_public": 2,
+      "innovation_impact": 0,
+      "global_leadership": 5,
+      "excellence_prestige": 1,
+      "inclusion_belonging": 1,
+      "career_economy": 0
+    }
+  },
+  {
+    "institution": "Princeton University",
+    "source_layer": "current",
+    "source_genre": "catalog",
+    "year": 2026,
+    "url": "https://www.princeton.edu/academics/areas-of-study",
+    "archive_url": "",
+    "status": 200,
+    "title": "Areas of Study | Princeton University",
+    "words": 8400,
+    "text_preview": "Areas of Study | Princeton University Skip to main content Princeton University Search Search Sites & People &times; Areas of Study Humanities Engineering Natural Sciences Social Sciences Programs Keyword Type of Degree - Type of Degree - Undergraduate Degree Undergraduate Certificate Undergraduate Minor Graduate Degree Graduate Certificate African American Studies For students who wish to study the complex interplay between political, economic and cultural forces shaping the historic achievements and struggles of African-descended people in the United States and their relationship to others around the world. View Courses Academic Units Department of African American Studies Degrees, Certificates & Minors A.B. Undergraduate minor African Studies The minor in African studies provides opport",
+    "snippets": [
+      "te level, the program offers a select group of highly qualified students the opportunity to obtain a thorough knowledge of branches of mathematics indispensable to science and engineering applications, including numerical analysi",
+      "background of undergraduate training in science. The graduate program is a vital, expanding hub of scientific inquiry with deep historic roots and a ready grasp on the future. Housed in the world-class Frick Chemistry Laborator",
+      "e systems, algorithms and complexity, machine architecture, computer graphics, programming languages, machine learning, and other core areas of computer science. The graduate program accepts beginning and advanced students for s",
+      "th a professional and a post-professional track, emphasizing design expertise in the context of architectural scholarship. The doctoral program focuses on the history, theory and criticism of architecture, urbanism, landscape, and",
+      "entions in health improvements, and the economic, political and social factors that shape domestic and global public health policy. View Courses Academic Units Program in Global Health and Health Policy Degrees, Certificates &"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/catalog/princeton-university/index.html",
+    "term_counts": {
+      "truth_knowledge": 35,
+      "civic_public": 29,
+      "innovation_impact": 25,
+      "global_leadership": 42,
+      "excellence_prestige": 6,
+      "inclusion_belonging": 7,
+      "career_economy": 24
+    }
+  },
+  {
+    "institution": "Princeton University",
+    "source_layer": "current",
+    "source_genre": "commencement-speech",
+    "year": 2026,
+    "url": "https://www.princeton.edu/news/2025/05/27/class-2025-commencement-address-president-eisgruber-fierce-independence-mind",
+    "archive_url": "",
+    "status": 200,
+    "title": "Class of 2025 Commencement address by President Eisgruber: &#039;A Fierce Independence of Mind&#039;",
+    "words": 1739,
+    "text_preview": "Class of 2025 Commencement address by President Eisgruber: &#039;A Fierce Independence of Mind&#039; Skip to main content Princeton University Search Search Sites & People &times; Class of 2025 Commencement address by President Eisgruber: &#039;A Fierce Independence of Mind&#039; Share on Facebook Share on Twitter Share on LinkedIn Email Print By Christopher L. Eisgruber on May 27, 2025, 5:43 p.m. President Christopher L. Eisgruber Photo by Charles Sykes, Associated Press Images for Princeton University May 27, 2025 — As delivered — In a few minutes, all of you will walk out of this stadium as newly minted graduates of this University. Before you do, however, long-standing tradition permits the University president to offer a few remarks about the path that lies ahead. As I began drafting ",
+    "snippets": [
+      "arch, or if they appear to become organs of partisan advocacy rather than impartial forums for the pursuit of truth and the dissemination of knowledge. People sometimes make this point by recommending that universities adopt",
+      "one in the United States who gives himself over to the essentially theoretical and abstract portion of human knowledge.” [1] He opined that the United States “still does not have a literature, properly speaking,” and he predicte",
+      "too, that these habits will stay with you as you venture forth into a world that needs your creativity, your learning, and your valor. The paths that you follow from this stadium today lead into a world more fraught, turbulent,",
+      "d boldly’ for the ideals that define America’s universities Hooding 2025: Recognizing graduate students’ deep scholarship and ‘bold leadership across a breathtaking array of disciplines’ Faculty members receive President’s Awards f",
+      "ereby jeopardize the academic freedom on which our institutions vitally depend. Tensions between the academy, public opinion, and government policy have ebbed and flowed over the course of American history. They are now at an"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/commencement-speech/princeton-university/index.html",
+    "term_counts": {
+      "truth_knowledge": 6,
+      "civic_public": 10,
+      "innovation_impact": 1,
+      "global_leadership": 10,
+      "excellence_prestige": 2,
+      "inclusion_belonging": 0,
+      "career_economy": 2
+    }
+  },
+  {
     "institution": "Yale University",
     "source_layer": "current",
     "source_genre": "catalog",
@@ -189,6 +392,35 @@
       "global_leadership": 2,
       "excellence_prestige": 0,
       "inclusion_belonging": 0,
+      "career_economy": 0
+    }
+  },
+  {
+    "institution": "Yale University",
+    "source_layer": "current",
+    "source_genre": "commencement-speech",
+    "year": 2026,
+    "url": "https://president.yale.edu/posts/2025-05-17-baccalaureate-address-yale-college-class-of-2025",
+    "archive_url": "",
+    "status": 200,
+    "title": "Baccalaureate Address, Yale College Class of 2025 | Office of the President",
+    "words": 2270,
+    "text_preview": "Baccalaureate Address, Yale College Class of 2025 | Office of the President Skip to main content Office of the President Menu Yale University Search Office of the President Yale University Search Show all breadcrumbs Home Baccalaureate Address, Yale College Class of 2025 Maurie McInnis, President of Yale University Saturday, May 17, 2025 Overcoming divides and embracing our shared humanity Good morning, everyone! Graduates of the Class of 2025, faculty and family members, colleagues, and friends. Today, we continue a tradition that is centuries old. On the Sunday before Commencement, Yale presidents have stood behind this rostrum to impart a few words about the world that awaits our graduates beyond Phelps Gate. It gives me great pleasure to continue the tradition today in my first Baccala",
+    "snippets": [
+      "l, indeed, be the bearers of our banner—one of knowledge and understanding, leadership and service, light and truth. So, when future historians look back at this fractured moment, let them record that you carried this banner",
+      "versation could be. But it was a small gesture of hope. A hope that when we sit together, speak openly, and acknowledge our shared humanity, we can create space for understanding—and even unexpected connections—to take root. As a",
+      "d the privilege of meeting eminent alumni like Henry Louis Gates, Jr., who turned a personal injustice into a public display of generosity. After a painful incident in which he was wrongly arrested on his own front porch—on th",
+      "idence that you will, indeed, be the bearers of our banner—one of knowledge and understanding, leadership and service, light and truth. So, when future historians look back at this fractured moment, let them record that you car",
+      "essarily advocating for the avoidance of conflict or the denial of our differences. In a vibrant, pluralistic society, disagreement is inevitable, indeed welcomed. But what I would like to impress on you today is that compassio"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/commencement-speech/yale-university/index.html",
+    "term_counts": {
+      "truth_knowledge": 2,
+      "civic_public": 4,
+      "innovation_impact": 0,
+      "global_leadership": 11,
+      "excellence_prestige": 3,
+      "inclusion_belonging": 1,
       "career_economy": 0
     }
   },
@@ -291,6 +523,64 @@
       "excellence_prestige": 0,
       "inclusion_belonging": 0,
       "career_economy": 0
+    }
+  },
+  {
+    "institution": "Duke University",
+    "source_layer": "current",
+    "source_genre": "strategic-plan",
+    "year": 2026,
+    "url": "https://president.duke.edu/2025/06/05/update-strategic-realignment-cost-reduction-process/",
+    "archive_url": "",
+    "status": 200,
+    "title": "Update on Strategic Realignment and Cost-Reduction Process - Duke University | Office of the President",
+    "words": 921,
+    "text_preview": "Update on Strategic Realignment and Cost-Reduction Process - Duke University | Office of the President Skip to the content Duke University | Office of the President Toggle the mobile menu Toggle the search field About Vincent E. Price News and Engagement Values &#038; Culture News, Speeches &#038; Writings University Committees Strategy Team 2030 Report President’s Office Personnel Strategic Vision Search About Vincent E. Price News and Engagement Values &#038; Culture News, Speeches &#038; Writings University Committees Strategy Team 2030 Report President’s Office Personnel Strategic Vision Update on Strategic Realignment and Cost-Reduction Process By Matthew Carter On June 5, 2025 In News , Speeches & Writings , Uncategorized Hello, and thanks for all you do to support the Duke Universit",
+    "snippets": [
+      "to demonstrate powerfully, and advocate strenuously, for the transformative power of education, research, and innovation. Though we still don’t know the full degree to which Duke’s financial resources will ultimately be affected,",
+      "sity for continued success in the years ahead. But none of this will be easy, and I’m especially aware of the impact these changes will have on valued colleagues and their families. I hope that if you have questions or concern",
+      "support the Duke University community. While our campus is much quieter now as we swing into the summer, the world of higher education continues to be noisy, and complicated. We’re working every day to sort out many signific",
+      "funding; dramatic increases to university tax payments, and threats to our non-profit status; restrictions on international education; losses of federal financial aid and loan programs; and changes to government-funded healthcare pro",
+      "d to reduce the scope of our activities and spending in order to sustain excellence in our core missions. The leadership of every school and unit at Duke has had to think carefully about how to do critical work with fewer resource"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/strategic-plan/duke-university/index.html",
+    "term_counts": {
+      "truth_knowledge": 0,
+      "civic_public": 0,
+      "innovation_impact": 2,
+      "global_leadership": 5,
+      "excellence_prestige": 2,
+      "inclusion_belonging": 0,
+      "career_economy": 1
+    }
+  },
+  {
+    "institution": "Duke University",
+    "source_layer": "current",
+    "source_genre": "commencement-speech",
+    "year": 2026,
+    "url": "https://president.duke.edu/2025/05/11/2025-commencement-remarks/",
+    "archive_url": "",
+    "status": 200,
+    "title": "2025 Commencement Remarks - Duke University | Office of the President",
+    "words": 914,
+    "text_preview": "2025 Commencement Remarks - Duke University | Office of the President Skip to the content Duke University | Office of the President Toggle the mobile menu Toggle the search field About Vincent E. Price News and Engagement Values &#038; Culture News, Speeches &#038; Writings University Committees Strategy Team 2030 Report President’s Office Personnel Strategic Vision Search About Vincent E. Price News and Engagement Values &#038; Culture News, Speeches &#038; Writings University Committees Strategy Team 2030 Report President’s Office Personnel Strategic Vision 2025 Commencement Remarks By Matthew Carter On May 11, 2025 In News , Speeches & Writings , Uncategorized This morning’s Commencement ceremony is both a celebration of the Class of 2025, and the continuation of a cherished academic tr",
+    "snippets": [
+      "ayton, Tennessee, would draw the world’s attention to questions of evolution and religion, and their place in public schools. Some four years later, the Great Depression would result in heartbreaking family hardships and wides",
+      "teams as the Blue Devils; And Charles E. Jordan, who received his Law degree that day, and whose lifetime of service to Duke and Durham would later be recognized in the naming of Durham’s Jordan High School, located just a few",
+      "nt—albeit sometimes slow, and sometimes uneven—toward equal rights and broader distribution of opportunity in society. The class of 1925 was part of what came to be known as “The Greatest Generation.” Shaped by hardships—and fu",
+      "me of humanity’s darkest days. However, in their lifetimes, the class of 1925 also enjoyed an era of enormous innovation and nearly unimaginable progress. Consider—if you will—some of the wonders they would experience: The life-sa",
+      "nearly unimaginable progress. Consider—if you will—some of the wonders they would experience: The life-saving discovery of penicillin, in 1928, which would revolutionize treatment of bacterial infections. The unprecedented econom"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/commencement-speech/duke-university/index.html",
+    "term_counts": {
+      "truth_knowledge": 0,
+      "civic_public": 3,
+      "innovation_impact": 3,
+      "global_leadership": 9,
+      "excellence_prestige": 0,
+      "inclusion_belonging": 0,
+      "career_economy": 3
     }
   }
 ]

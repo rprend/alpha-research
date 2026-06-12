@@ -1,0 +1,13 @@
+{
+  "institution": "Stanford University",
+  "source_genre": "strategic-plan",
+  "source_layer": "current",
+  "url": "https://ideal.stanford.edu/",
+  "status": 200,
+  "ok": true,
+  "wordCount": 223,
+  "title": "IDEAL",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/strategic-plan/stanford-university/index.html",
+  "fetchedAt": "2026-06-12T21:50:42.900Z",
+  "bytes": 28837
+}

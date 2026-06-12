@@ -1,0 +1,13 @@
+{
+  "institution": "Stanford University",
+  "source_genre": "commencement-speech",
+  "source_layer": "current",
+  "url": "https://commencement.stanford.edu/events/commencement/2026-commencement-ceremony",
+  "status": 200,
+  "ok": true,
+  "wordCount": 770,
+  "title": "2026 Commencement Ceremony | Commencement",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/commencement-speech/stanford-university/index.html",
+  "fetchedAt": "2026-06-12T21:50:43.567Z",
+  "bytes": 57040
+}

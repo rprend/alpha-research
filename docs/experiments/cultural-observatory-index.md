@@ -48,7 +48,7 @@ Current roadmap:
 - 6 tracked research-production tracks
 - 1 complete track
 - next implementation queue:
-  - University Institutional Language Second-Layer Corpus route replacement and historical backfill
+  - University Institutional Language Second-Layer Corpus historical backfill and manual quote review
   - Museum Annual Report And Provenance Source Layers route replacement and historical backfill
   - Humanities Literature Radar full DOAJ OAI harvest and remote bundle verification
   - Canon Drift Narrow Signal Pilot manual relevance audit
@@ -56,7 +56,7 @@ Current roadmap:
 
 Next implementation moves:
 
-- replace failed or low-word-count university second-layer source routes and add commencement speeches
+- backfill historical snapshots for the four-genre university second-layer corpus
 - replace failed museum second-layer annual-report routes and add more provenance/repatriation targets
 - run the literature-radar full DOAJ OAI harvest, add resume checkpointing, and remotely verify the promoted bundle
 - promote one accessible dataset-registry file-level corpus into a derived dataset and study folder
@@ -219,7 +219,7 @@ Implemented:
 - current-page fetcher
 - merge-safe Wayback snapshot fetcher with request timeouts
 - exact Wayback snapshot fetcher for hand-curated archived pages
-- second-layer source config for catalogs, strategic plans, and president-message pages
+- second-layer source config for catalogs, strategic plans, president-message pages, and commencement speeches
 - second-layer source probe
 - second-layer corpus builder with source-genre fields
 - current and historical page processing
@@ -246,10 +246,11 @@ Current committed corpus:
 
 - 10 current university pages
 - 12 historical Wayback snapshots
-- 15 configured second-layer source routes across catalogs, strategic plans, and president-message pages
-- 11 accessible second-layer source snapshots
+- 21 configured second-layer source routes across catalogs, strategic plans, president-message pages, and commencement speeches
+- 21 accessible second-layer source snapshots
 - second-layer corpus tier: schema-probe
-- second-layer status: source-probed-needs-replacements
+- second-layer status: source-probed
+- second-layer genre counts: 8 catalog, 6 commencement-speech, 4 strategic-plan, 3 president-message
 - year range: 2000-2026
 - term families: truth/knowledge, civic/public, innovation/impact, global/leadership, excellence/prestige, inclusion/belonging, career/economy
 - publication post: `reports/post.md`, a polished source-layer methods draft
@@ -259,8 +260,7 @@ Current committed corpus:
 Next implementation moves:
 
 - final editorial review for `reports/post.md`
-- replace failed or low-word-count strategic-plan routes
-- add commencement speeches as a fourth source genre
+- retain the four-genre current source mix for historical backfill
 - backfill historical snapshots for retained second-layer routes
 - join second-layer source-genre outputs into the main readiness gate after manual quote review
 - hand-audit snippets before public claims

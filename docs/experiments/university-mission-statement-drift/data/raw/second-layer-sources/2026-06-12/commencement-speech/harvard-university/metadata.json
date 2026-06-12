@@ -1,0 +1,13 @@
+{
+  "institution": "Harvard University",
+  "source_genre": "commencement-speech",
+  "source_layer": "current",
+  "url": "https://www.harvard.edu/in-focus/commencement-2025/",
+  "status": 200,
+  "ok": true,
+  "wordCount": 838,
+  "title": "Commencement 2025 - Harvard University",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/commencement-speech/harvard-university/index.html",
+  "fetchedAt": "2026-06-12T21:50:42.828Z",
+  "bytes": 164686
+}

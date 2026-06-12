@@ -12,16 +12,28 @@
     "url": "https://www.harvard.edu/president/"
   },
   {
+    "institution": "Harvard University",
+    "source_genre": "commencement-speech",
+    "source_layer": "current",
+    "url": "https://www.harvard.edu/in-focus/commencement-2025/"
+  },
+  {
     "institution": "Stanford University",
     "source_genre": "strategic-plan",
     "source_layer": "current",
-    "url": "https://ourvision.stanford.edu/"
+    "url": "https://ideal.stanford.edu/"
   },
   {
     "institution": "Stanford University",
     "source_genre": "catalog",
     "source_layer": "current",
     "url": "https://bulletin.stanford.edu/"
+  },
+  {
+    "institution": "Stanford University",
+    "source_genre": "commencement-speech",
+    "source_layer": "current",
+    "url": "https://commencement.stanford.edu/events/commencement/2026-commencement-ceremony"
   },
   {
     "institution": "Massachusetts Institute of Technology",
@@ -36,16 +48,28 @@
     "url": "https://president.mit.edu/"
   },
   {
+    "institution": "Massachusetts Institute of Technology",
+    "source_genre": "commencement-speech",
+    "source_layer": "current",
+    "url": "https://news.mit.edu/2025/sally-kornbluths-charge-class-2025-0529"
+  },
+  {
     "institution": "Princeton University",
     "source_genre": "strategic-plan",
     "source_layer": "current",
-    "url": "https://strategicplan.princeton.edu/"
+    "url": "https://www.princeton.edu/meet-princeton/princetons-strategic-planning-framework"
   },
   {
     "institution": "Princeton University",
     "source_genre": "catalog",
     "source_layer": "current",
-    "url": "https://ua.princeton.edu/academic-units"
+    "url": "https://www.princeton.edu/academics/areas-of-study"
+  },
+  {
+    "institution": "Princeton University",
+    "source_genre": "commencement-speech",
+    "source_layer": "current",
+    "url": "https://www.princeton.edu/news/2025/05/27/class-2025-commencement-address-president-eisgruber-fierce-independence-mind"
   },
   {
     "institution": "Yale University",
@@ -58,6 +82,12 @@
     "source_genre": "president-message",
     "source_layer": "current",
     "url": "https://president.yale.edu/"
+  },
+  {
+    "institution": "Yale University",
+    "source_genre": "commencement-speech",
+    "source_layer": "current",
+    "url": "https://president.yale.edu/posts/2025-05-17-baccalaureate-address-yale-college-class-of-2025"
   },
   {
     "institution": "University of California, Berkeley",
@@ -87,6 +117,12 @@
     "institution": "Duke University",
     "source_genre": "strategic-plan",
     "source_layer": "current",
-    "url": "https://strategicplan.duke.edu/"
+    "url": "https://president.duke.edu/2025/06/05/update-strategic-realignment-cost-reduction-process/"
+  },
+  {
+    "institution": "Duke University",
+    "source_genre": "commencement-speech",
+    "source_layer": "current",
+    "url": "https://president.duke.edu/2025/05/11/2025-commencement-remarks/"
   }
 ]

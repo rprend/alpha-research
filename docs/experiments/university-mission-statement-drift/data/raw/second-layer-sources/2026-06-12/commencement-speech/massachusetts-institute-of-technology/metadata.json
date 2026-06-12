@@ -1,0 +1,13 @@
+{
+  "institution": "Massachusetts Institute of Technology",
+  "source_genre": "commencement-speech",
+  "source_layer": "current",
+  "url": "https://news.mit.edu/2025/sally-kornbluths-charge-class-2025-0529",
+  "status": 200,
+  "ok": true,
+  "wordCount": 1433,
+  "title": "Sally Kornbluth’s charge to the Class of 2025 | MIT News | Massachusetts Institute of Technology",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/commencement-speech/massachusetts-institute-of-technology/index.html",
+  "fetchedAt": "2026-06-12T21:50:44.023Z",
+  "bytes": 106091
+}

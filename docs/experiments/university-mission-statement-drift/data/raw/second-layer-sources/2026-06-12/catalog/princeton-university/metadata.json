@@ -1,0 +1,13 @@
+{
+  "institution": "Princeton University",
+  "source_genre": "catalog",
+  "source_layer": "current",
+  "url": "https://www.princeton.edu/academics/areas-of-study",
+  "status": 200,
+  "ok": true,
+  "wordCount": 8400,
+  "title": "Areas of Study | Princeton University",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/catalog/princeton-university/index.html",
+  "fetchedAt": "2026-06-12T21:50:44.115Z",
+  "bytes": 196304
+}

@@ -1,0 +1,13 @@
+{
+  "institution": "Duke University",
+  "source_genre": "commencement-speech",
+  "source_layer": "current",
+  "url": "https://president.duke.edu/2025/05/11/2025-commencement-remarks/",
+  "status": 200,
+  "ok": true,
+  "wordCount": 914,
+  "title": "2025 Commencement Remarks - Duke University | Office of the President",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/commencement-speech/duke-university/index.html",
+  "fetchedAt": "2026-06-12T21:50:47.047Z",
+  "bytes": 126435
+}

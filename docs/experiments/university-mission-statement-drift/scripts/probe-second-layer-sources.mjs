@@ -169,8 +169,8 @@ function buildMarkdown(manifest) {
     "## Notes",
     "",
     "- This is a source-route probe, not the second-layer corpus itself.",
-    "- Catalogs, strategic plans, and president-message pages must remain separate source genres in downstream analysis.",
-    "- Failed or low-word-count routes should be replaced before publication-scale claims.",
+    "- Catalogs, strategic plans, president-message pages, and commencement speeches must remain separate source genres in downstream analysis.",
+    "- Any failed or low-word-count route in future runs should be replaced before publication-scale claims.",
     "",
   ].join("\n");
 }

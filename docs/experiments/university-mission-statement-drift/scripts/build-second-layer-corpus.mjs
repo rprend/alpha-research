@@ -130,9 +130,10 @@ function buildReadiness({ manifest, pages, genreRows }) {
   const failed = manifest.requests.filter((request) => request.ok !== true);
   const genreCounts = countBy(pages, "source_genre");
   const institutionCounts = countBy(pages, "institution");
-  const requiredGenres = ["catalog", "strategic-plan", "president-message"];
+  const requiredGenres = ["catalog", "strategic-plan", "president-message", "commencement-speech"];
   const missingGenres = requiredGenres.filter((genre) => !genreCounts[genre]);
   const status = failed.length || missingGenres.length ? "source-probed-needs-replacements" : "source-probed";
+  const failedLabels = failed.map((request) => `${request.institution} ${request.source_genre}`);
   return {
     generatedAt: new Date().toISOString(),
     runDate: manifest.runDate,
@@ -158,11 +159,10 @@ function buildReadiness({ manifest, pages, genreRows }) {
       ...(failed.length ? ["Replace failed or low-word-count source routes before publication-scale claims."] : []),
       ...(missingGenres.length ? [`Add at least one accessible source for missing genres: ${missingGenres.join(", ")}.`] : []),
       "Add historical snapshots or recurring current snapshots before claiming second-layer change over time.",
-      "Keep catalog, strategic-plan, and president-message language separate in public claims.",
+      "Keep catalog, strategic-plan, president-message, and commencement-speech language separate in public claims.",
     ],
     nextActions: [
-      "Replace the inaccessible Stanford, Princeton, and Duke strategic-plan routes or use archive/sitemap alternatives.",
-      "Add commencement speeches as a fourth source genre.",
+      ...(failed.length ? [`Replace or archive-backed retry failed routes: ${failedLabels.join("; ")}.`] : ["Retain the current four-genre source mix for historical backfill."]),
       "Backfill historical snapshots for the retained second-layer routes.",
       "Join second-layer source genres into the main readiness gate after manual quote review.",
     ],

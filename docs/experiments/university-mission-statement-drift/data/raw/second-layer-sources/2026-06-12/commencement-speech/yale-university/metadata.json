@@ -1,0 +1,13 @@
+{
+  "institution": "Yale University",
+  "source_genre": "commencement-speech",
+  "source_layer": "current",
+  "url": "https://president.yale.edu/posts/2025-05-17-baccalaureate-address-yale-college-class-of-2025",
+  "status": 200,
+  "ok": true,
+  "wordCount": 2270,
+  "title": "Baccalaureate Address, Yale College Class of 2025 | Office of the President",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/commencement-speech/yale-university/index.html",
+  "fetchedAt": "2026-06-12T21:50:44.429Z",
+  "bytes": 33912
+}

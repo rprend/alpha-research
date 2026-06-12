@@ -1,0 +1,13 @@
+{
+  "institution": "Princeton University",
+  "source_genre": "commencement-speech",
+  "source_layer": "current",
+  "url": "https://www.princeton.edu/news/2025/05/27/class-2025-commencement-address-president-eisgruber-fierce-independence-mind",
+  "status": 200,
+  "ok": true,
+  "wordCount": 1739,
+  "title": "Class of 2025 Commencement address by President Eisgruber: &#039;A Fierce Independence of Mind&#039;",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/commencement-speech/princeton-university/index.html",
+  "fetchedAt": "2026-06-12T21:50:44.135Z",
+  "bytes": 81696
+}

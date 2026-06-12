@@ -1,0 +1,13 @@
+{
+  "institution": "Duke University",
+  "source_genre": "strategic-plan",
+  "source_layer": "current",
+  "url": "https://president.duke.edu/2025/06/05/update-strategic-realignment-cost-reduction-process/",
+  "status": 200,
+  "ok": true,
+  "wordCount": 921,
+  "title": "Update on Strategic Realignment and Cost-Reduction Process - Duke University | Office of the President",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/strategic-plan/duke-university/index.html",
+  "fetchedAt": "2026-06-12T21:50:46.807Z",
+  "bytes": 129557
+}
