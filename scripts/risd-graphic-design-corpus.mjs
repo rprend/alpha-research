@@ -2435,18 +2435,21 @@ function buildStudentWork(inspected) {
     const snippets = sentenceSnippets(text, ['animation', 'video', 'poster', 'book', 'website', 'identity', 'project', 'student', 'assignment'], 14)
     const studentNames = extractStudentNames(text)
     const medium = inferStudentWorkMedium(`${source.title ?? ''} ${text}`)
-    const linkedItems = links.filter((link) => isLikelyStudentWorkLink(link)).slice(0, 20)
+    const linkedItems = source.source_type === 'official_student_work_story'
+      ? []
+      : links.filter((link) => isLikelyStudentWorkLink(link)).slice(0, 20)
 
     if (linkedItems.length) {
       linkedItems.forEach((link, index) => {
         const label = link.label || titleFromUrl(link.url)
         const linkEvidence = `${label} ${link.url}`
+        const courseContext = inferCourseContextFromStudentWork(`${source.title ?? ''} ${source.course_title ?? ''} ${linkEvidence} ${snippets.slice(0, 3).join(' ')}`)
         rows.push({
           student_work_id: `work_${source.source_id.replace(/^src_/, '')}_${String(index + 1).padStart(2, '0')}`,
           url: link.url,
           source_ids: [source.source_id],
-          course_code: source.course_code ?? null,
-          course_title: source.course_title ?? inferCourseTitleFromStudentWork(linkEvidence, ''),
+          course_code: source.course_code ?? courseContext.course_code,
+          course_title: source.course_title ?? courseContext.course_title ?? inferCourseTitleFromStudentWork(linkEvidence, ''),
           instructor: source.instructor ?? null,
           term: source.term ?? null,
           student_name_public: extractStudentNames(label)[0] ?? null,
@@ -2456,17 +2459,20 @@ function buildStudentWork(inspected) {
           assignment_link_confidence: classifyStudentWorkAssignmentLink(linkEvidence, ''),
           visual_standard_notes: visualStandardNotes([label, ...snippets.slice(0, 3)]),
           medium_evidence: snippets,
+          course_inference_confidence: source.course_title || source.course_code ? 'source_metadata' : courseContext.inference_confidence,
+          course_inference_basis: source.course_title || source.course_code ? 'student work source carries course metadata' : courseContext.inference_basis,
           confidence: source.source_type === 'official_student_work_story' ? 'D' : 'E',
           evidence_grade: source.source_type === 'official_student_work_story' ? 'D' : 'E',
         })
       })
     } else {
+      const courseContext = inferCourseContextFromStudentWork(`${source.title ?? ''} ${source.course_title ?? ''} ${source.url} ${text}`)
       rows.push({
         student_work_id: `work_${source.source_id.replace(/^src_/, '')}`,
         url: source.url,
         source_ids: [source.source_id],
-        course_code: source.course_code ?? null,
-        course_title: source.course_title ?? inferCourseTitleFromStudentWork(source.title ?? '', text),
+        course_code: source.course_code ?? courseContext.course_code,
+        course_title: source.course_title ?? courseContext.course_title ?? inferCourseTitleFromStudentWork(source.title ?? '', text),
         instructor: source.instructor ?? null,
         term: source.term ?? null,
         student_name_public: studentNames[0] ?? null,
@@ -2476,6 +2482,8 @@ function buildStudentWork(inspected) {
         assignment_link_confidence: classifyStudentWorkAssignmentLink(source.title ?? '', text),
         visual_standard_notes: visualStandardNotes(snippets),
         medium_evidence: snippets,
+        course_inference_confidence: source.course_title || source.course_code ? 'source_metadata' : courseContext.inference_confidence,
+        course_inference_basis: source.course_title || source.course_code ? 'student work source carries course metadata' : courseContext.inference_basis,
         confidence: source.source_type === 'official_student_work_story' ? 'D' : 'E',
         evidence_grade: source.source_type === 'official_student_work_story' ? 'D' : 'E',
       })
@@ -2851,6 +2859,8 @@ function isLikelyStudentWorkLink(link) {
   const combined = `${link.url} ${link.label}`.toLowerCase()
   if (!link.label || link.label.length < 3) return false
   if (/teaching archive|archive|syllabus|curriculum|resume|cv|index|home|contact|about/.test(combined)) return false
+  if (/risd\.edu\/(?:academics|admissions|giving|news)(?:\/|$)|students\.risd\.edu|sfs\.risd\.edu|strategicplanning\.risd\.edu/.test(combined)) return false
+  if (/^(?:academics|admissions|financial aid|giving|news and events|student hub|strategic planning|undergraduate study|graduate study|liberal arts|concentrations|search course listings|academic leadership|faculty|academic and creative partnerships)$/i.test(link.label.trim())) return false
   return /student|work|project|assignment|html|poster|book|animation|identity|logo|website|output|studio|class|risd|20\d{2}/.test(combined)
 }
 
@@ -2886,8 +2896,59 @@ function inferStudentWorkMedium(text) {
 function inferCourseTitleFromStudentWork(label, text) {
   const combined = `${label} ${text}`
   return combined.match(/\bIn Motion: Design for Video and Animation\b/i)?.[0]
+    ?? inferCourseContextFromStudentWork(combined).course_title
     ?? combined.match(/\b(?:Design Studio 1|Typography III|Web Programming|Graphic Design for the Web|HTML Output)\b/i)?.[0]
     ?? null
+}
+
+function inferCourseContextFromStudentWork(evidence) {
+  const combined = evidence.toLowerCase()
+  if (/ds1618\.risd\.gd|design studio 2016|design studio 1|\bds1\b|unit\d+_overview/.test(combined)) {
+    return {
+      course_code: 'GRAPH-3210',
+      course_title: 'Design Studio 1',
+      inference_confidence: 'high',
+      inference_basis: 'student work URL/title references public Design Studio 1 course archive',
+    }
+  }
+  if (/wp1[56]|web programming|scandinavian flag|css drawings?|abstract shape|responsive animation|single page website|risd-gd\.github\.io\/wp/.test(combined)) {
+    return {
+      course_code: 'GRAPH-3188-03',
+      course_title: 'Web Programming',
+      inference_confidence: 'high',
+      inference_basis: 'student work URL/title references public Web Programming assignment archive',
+    }
+  }
+  if (/type[\s-]*iii|typography iii|type-iii|paper\.dropbox\.com\/doc\/type-iii/.test(combined)) {
+    return {
+      course_code: null,
+      course_title: 'Typography III',
+      inference_confidence: 'medium',
+      inference_basis: 'student work URL/title references public Type III assignment context',
+    }
+  }
+  if (/html output|typographic landscapes|htmloutput\.risd\.gd/.test(combined)) {
+    return {
+      course_code: null,
+      course_title: 'HTML Output',
+      inference_confidence: 'medium',
+      inference_basis: 'student work URL/title references public HTML Output course domain',
+    }
+  }
+  if (/in motion|video and animation|motion graphics/.test(combined)) {
+    return {
+      course_code: null,
+      course_title: 'In Motion: Design for Video and Animation',
+      inference_confidence: 'high',
+      inference_basis: 'official RISD story names the course context',
+    }
+  }
+  return {
+    course_code: null,
+    course_title: null,
+    inference_confidence: null,
+    inference_basis: null,
+  }
 }
 
 function classifyStudentWorkAssignmentLink(label, text) {
@@ -3003,6 +3064,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const facultyEdgeErrors = facultyCourseEdges.filter((edge) => !edge.edge_id || !facultyIds.has(edge.faculty_id) || edge.source_ids?.some((id) => !sourceIds.has(id)))
   const studentWorkSourceErrors = studentWork.filter((work) => work.source_ids.some((id) => !sourceIds.has(id)))
   const structuredStudentWorkCount = studentWork.filter((work) => work.url && (work.medium || work.project_title || work.project_statement_excerpt || work.assignment_link_confidence || work.visual_standard_notes?.length) && work.evidence_grade).length
+  const courseLinkedStudentWorkCount = studentWork.filter((work) => work.course_code || work.course_title).length
   const courseCoverageErrors = courseCoverage.filter((row) => row.source_ids?.some((id) => !sourceIds.has(id)) || !row.requirements || typeof row.coverage_score !== 'number')
   const highCoverageCourseCount = courseCoverage.filter((row) => row.coverage_score >= 80).length
   const lowCoverageCourseCount = courseCoverage.filter((row) => row.coverage_score < 40).length
@@ -3115,7 +3177,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
     {
       id: 'student_work_has_structured_public_examples',
       status: structuredStudentWorkCount > 0 ? 'pass' : 'warn',
-      detail: `${structuredStudentWorkCount} student work rows include URL plus medium/project/evidence metadata.`,
+      detail: `${structuredStudentWorkCount} student work rows include URL plus medium/project/evidence metadata; ${courseLinkedStudentWorkCount} rows include course code/title context.`,
     },
     {
       id: 'course_coverage_matrix_references_valid_sources',
@@ -3223,6 +3285,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       faculty_course_edges: facultyCourseEdges.length,
       student_work: studentWork.length,
       structured_student_work: structuredStudentWorkCount,
+      course_linked_student_work: courseLinkedStudentWorkCount,
       course_coverage_rows: courseCoverage.length,
       high_coverage_courses: highCoverageCourseCount,
       low_coverage_courses: lowCoverageCourseCount,
@@ -3604,6 +3667,7 @@ Overall status: ${validation.status}
 - Faculty-course edges: ${validation.counts.faculty_course_edges}
 - Student work rows: ${validation.counts.student_work}
 - Structured student work rows: ${validation.counts.structured_student_work}
+- Course-linked student work rows: ${validation.counts.course_linked_student_work}
 - Course coverage rows: ${validation.counts.course_coverage_rows}
 - Courses at 80+ coverage: ${validation.counts.high_coverage_courses}
 - Courses below 40 coverage: ${validation.counts.low_coverage_courses}

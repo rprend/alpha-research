@@ -39,8 +39,9 @@
     "faculty_rows_with_profile_urls": 26,
     "faculty": 26,
     "faculty_course_edges": 48,
-    "student_work": 41,
-    "structured_student_work": 41,
+    "student_work": 22,
+    "structured_student_work": 22,
+    "course_linked_student_work": 5,
     "course_coverage_rows": 134,
     "high_coverage_courses": 7,
     "low_coverage_courses": 112,
@@ -154,7 +155,7 @@
     {
       "id": "student_work_has_structured_public_examples",
       "status": "pass",
-      "detail": "41 student work rows include URL plus medium/project/evidence metadata."
+      "detail": "22 student work rows include URL plus medium/project/evidence metadata; 5 rows include course code/title context."
     },
     {
       "id": "course_coverage_matrix_references_valid_sources",

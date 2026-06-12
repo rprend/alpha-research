@@ -10,7 +10,7 @@ This curriculum is generated from public RISD Graphic Design corpus artifacts. I
 - Syllabus/course-site records considered: 82
 - Assignment evidence snippets considered: 585
 - Reading evidence snippets considered: 135
-- Public student-work records considered: 41
+- Public student-work records considered: 22
 - Curriculum modules generated: 19
 
 ## How To Use This
@@ -50,6 +50,8 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
   - Recovered brief: Semester-long Deliverables (type: studio_activity)
   - project, but also in the considerations a designer must build into two-dimensional “fix: Not only in how we engage in the design of an exhibit or screen based project, but also in the considerations a designer must build into two-dimensional “fixed” surfaces, such as signs, books, posters, and charts. (constraints: must follow stated requirements; type: project_brief; phases: make)
   - project: The order in which ideas are accessed is at the essence of any project. (type: project_brief)
+- Public comparison set:
+  - the course website.: https://ds1618.risd.gd/2016/10/11/unit3_overview.html
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -152,6 +154,33 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
   - projects: Bring your own languages, scripts, letterforms, cultures, and personalities to our class and to your projects. I want to encourage you to develop a typographic practice that is open, fluid, iterative, complex, and allows for your knowledge, point of view, and lineage to emerge confidently. (type: project_brief)
   - Assignments: 75% Assignments (type: project_brief)
   - assignments: Quality of work, including concept, design, and the timely completion of assignments; working process and craft; personal initiative, exploration, and risk-taking; and, last but not least, the appropriate and thoughtful application of typographic principles (constraints: process documentation required, timely completion expected; type: project_brief; phases: make)
+- Public comparison set:
+  - See full assignment: https://paper.dropbox.com/doc/Type-III-Week-Two-Qj7xd8hMki64KfRzAAFyn
+- Mentor-style checkpoint:
+  - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
+
+#### Web Programming
+
+- Evidence grade: B
+- Course code: GRAPH-3188-03
+- Source IDs: src_wp15_week_1_concrete_forms, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69
+- Syllabus/course artifacts: syl_wp15_week_1_concrete_forms, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pocket_pictograms_inspiration_for_assignment_2_3cf16be5, syl_crawl_wp15_risd_gd_category_outline_week_1_concrete_forms_4905a205, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_concrete_objects_christian_leborg_f274fe53, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_essay_by_paul_elliman_on_karel_martens_graphic__95641d1a, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_2_draw_found_objects_with_css_4a1e2993, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_1_make_a_scandinavian_flag_with_css_cb569dec, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_2_css_basics_layout_8224b9f9, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_1_html_basics_a2298300, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_getting_setup_add_users_bios_and_avatars_5a8864e0, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69, syl_crawl_wp15_risd_gd_wp_login_php_dd54314d, syl_crawl_wp15_risd_gd_category_assignments_116ec5b2, syl_crawl_wp15_risd_gd_category_assignments_1_scandinavian_flag_04511d7b, syl_crawl_wp15_risd_gd_category_assignments_2_css_drawings_6a79b496, syl_crawl_wp15_risd_gd_category_assignments_3a_abstract_shape_87c26db6, syl_crawl_wp15_risd_gd_category_assignments_3b_abstract_composition_93bcd461, syl_crawl_wp15_risd_gd_category_assignments_4css_patterns_de5ba421, syl_crawl_wp15_risd_gd_category_assignments_5_change_in_relations_f57a17f0, syl_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c, syl_cc_wp15_risd_gd_assignments_assignment_7_single_page_website_ce3ecd92, syl_cc_wp15_risd_gd_assignments_3a_abstract_shape_seo_jung_lee_kelly_abstract_shape_11afe369, syl_cc_wp15_risd_gd_assignments_5_change_in_relations_change_2_3c1efa27, syl_cc_wp15_risd_gd_assignments_yves_olivier_flag_f6bd828c, syl_cc_wp15_risd_gd_assignments_1_scandinavian_flag_scandinavian_flag_9_e73ad2ba
+- Tools/software/materials to practice: HTML/CSS
+- Skill targets: publication design, identity systems, motion design, interaction design, image making, typography
+- Reading packet:
+  - Art of Creative Coding Feb 13, 2015 (unknown)
+  - Art of Creative Coding | Web Programming 2015 (unknown)
+  - Art of Creative Coding (unknown)
+- Studio briefs to recreate:
+  - Assignment 2 Feb 13, 2015 PBS Off Book: Art of Creative Coding Feb 13, 2015 4 Video / Week : Week 1: Concrete Forms | Web Programming 2015: Web Programming 2015 5 Week 1: Concrete Forms &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015 PBS Off Book: Art of Creative Coding Feb 13, 2015 4 Video / Week 1: Concrete Forms Click here to cancel reply. You must be logged in to post a comment. &#197; w “Concrete objects”, Christian Leborg Feb 13, 2015 &#197; w Essay by Paul Elliman on Karel Martens’ graphic work Feb 13, 2015 &#237; Assignment 2: Draw found objects with CSS (deliverables: book, animation; constraints: must follow stated requirements; type: project_brief; output: interactive_web_artifact)
+  - exercises and take-home assignments: Workshop Syllabus Feb 13, 2015 • RISD GRAPH-3188-03 (20882) WKSHP: WEB PROGRAMMING • Spring 2015, 1:10–6:10pm, Fridays • 1 credit • wp15.risd.gd John Caserta, instructor; jcaserta@risd.edu; DC105, Mondays 10:30am–1:30pm Brian Hicks, teaching assistant This three-session workshop combines the tactical skills needed to structure web pages with a looser more playful compositional mindset. Students are introduced to the structural elements and properties of HTML and CSS through hands-on demos, in-class exercises and take-home assignments. Tight technical HTML drawings in week one give way to full-screen abstract compositions in week two. Week three incorporates interaction, introducing CSS3 transform, animation, and other user-controlled properties. The final assignment for week four will allow you to combine what you learned in the first three weeks. Although written with HTML/CSS, the assignments are inspired by the contemporary and historical print works of Bradbury Thomspon, Karel Martens and Paul Elliman. Paramount is that students become attuned to the vocabulary and possibilities of graphic form in the digital age. The digital age, similar to the era before in its capacity to pr (deliverables: animation; type: final_project; phases: make, submit; output: interactive_web_artifact)
+  - Assignment 2: Found object drawings Week Two: Abstract Forms: Assignment 2: Found object drawings Week Two: Abstract Forms (type: project_brief)
+  - Assignment 6: Responsive animation Week Four: Final Project Review assignment 6 Lecture: Fr: Assignment 6: Responsive animation Week Four: Final Project Review assignment 6 Lecture: From sketch to code In-class activity: Putting it all together Software needed Textwrangler or other HTML editor Safari or Chrome browser (deliverables: animation; constraints: process documentation required; type: final_project; phases: sketch, make, critique, submit; output: interactive_web_artifact; critique: feedback/review referenced in source excerpt)
+  - Assignment 2 Feb 13, 2015: &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015 (type: project_brief)
+  - Assignment 2: Draw found objects with CSS: &#237; Assignment 2: Draw found objects with CSS (type: project_brief; output: interactive_web_artifact)
+- Public comparison set:
+  - See assignments: https://github.com/risd-gd/wp16/wiki/Assignment-1:-Make-a-Scandinavian-Flag
+  - Interact with this pattern: http://risd-gd.github.io/wp16/students/isabellaMordini/Assignment_Week_03/week4_05.html
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -177,28 +206,6 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
   - Final Grade will be based on the afore-mentioned criteria: Final Grade will be based on the afore-mentioned criteria (type: final_project; phases: submit)
   - final portfolio of work turned in at the end of: as well as a final portfolio of work turned in at the end of (deliverables: portfolio; type: final_project; phases: submit, document; output: multi_page_publication)
   - project can be re-done: Keep in mind that any project can be re-done (type: project_brief)
-- Mentor-style checkpoint:
-  - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
-
-#### Web Programming
-
-- Evidence grade: B
-- Course code: GRAPH-3188-03
-- Source IDs: src_wp15_week_1_concrete_forms, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69
-- Syllabus/course artifacts: syl_wp15_week_1_concrete_forms, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pocket_pictograms_inspiration_for_assignment_2_3cf16be5, syl_crawl_wp15_risd_gd_category_outline_week_1_concrete_forms_4905a205, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_concrete_objects_christian_leborg_f274fe53, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_essay_by_paul_elliman_on_karel_martens_graphic__95641d1a, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_2_draw_found_objects_with_css_4a1e2993, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_1_make_a_scandinavian_flag_with_css_cb569dec, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_2_css_basics_layout_8224b9f9, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_1_html_basics_a2298300, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_getting_setup_add_users_bios_and_avatars_5a8864e0, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69, syl_crawl_wp15_risd_gd_wp_login_php_dd54314d, syl_crawl_wp15_risd_gd_category_assignments_116ec5b2, syl_crawl_wp15_risd_gd_category_assignments_1_scandinavian_flag_04511d7b, syl_crawl_wp15_risd_gd_category_assignments_2_css_drawings_6a79b496, syl_crawl_wp15_risd_gd_category_assignments_3a_abstract_shape_87c26db6, syl_crawl_wp15_risd_gd_category_assignments_3b_abstract_composition_93bcd461, syl_crawl_wp15_risd_gd_category_assignments_4css_patterns_de5ba421, syl_crawl_wp15_risd_gd_category_assignments_5_change_in_relations_f57a17f0, syl_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c, syl_cc_wp15_risd_gd_assignments_assignment_7_single_page_website_ce3ecd92, syl_cc_wp15_risd_gd_assignments_3a_abstract_shape_seo_jung_lee_kelly_abstract_shape_11afe369, syl_cc_wp15_risd_gd_assignments_5_change_in_relations_change_2_3c1efa27, syl_cc_wp15_risd_gd_assignments_yves_olivier_flag_f6bd828c, syl_cc_wp15_risd_gd_assignments_1_scandinavian_flag_scandinavian_flag_9_e73ad2ba
-- Tools/software/materials to practice: HTML/CSS
-- Skill targets: publication design, identity systems, motion design, interaction design, image making, typography
-- Reading packet:
-  - Art of Creative Coding Feb 13, 2015 (unknown)
-  - Art of Creative Coding | Web Programming 2015 (unknown)
-  - Art of Creative Coding (unknown)
-- Studio briefs to recreate:
-  - Assignment 2 Feb 13, 2015 PBS Off Book: Art of Creative Coding Feb 13, 2015 4 Video / Week : Week 1: Concrete Forms | Web Programming 2015: Web Programming 2015 5 Week 1: Concrete Forms &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015 PBS Off Book: Art of Creative Coding Feb 13, 2015 4 Video / Week 1: Concrete Forms Click here to cancel reply. You must be logged in to post a comment. &#197; w “Concrete objects”, Christian Leborg Feb 13, 2015 &#197; w Essay by Paul Elliman on Karel Martens’ graphic work Feb 13, 2015 &#237; Assignment 2: Draw found objects with CSS (deliverables: book, animation; constraints: must follow stated requirements; type: project_brief; output: interactive_web_artifact)
-  - exercises and take-home assignments: Workshop Syllabus Feb 13, 2015 • RISD GRAPH-3188-03 (20882) WKSHP: WEB PROGRAMMING • Spring 2015, 1:10–6:10pm, Fridays • 1 credit • wp15.risd.gd John Caserta, instructor; jcaserta@risd.edu; DC105, Mondays 10:30am–1:30pm Brian Hicks, teaching assistant This three-session workshop combines the tactical skills needed to structure web pages with a looser more playful compositional mindset. Students are introduced to the structural elements and properties of HTML and CSS through hands-on demos, in-class exercises and take-home assignments. Tight technical HTML drawings in week one give way to full-screen abstract compositions in week two. Week three incorporates interaction, introducing CSS3 transform, animation, and other user-controlled properties. The final assignment for week four will allow you to combine what you learned in the first three weeks. Although written with HTML/CSS, the assignments are inspired by the contemporary and historical print works of Bradbury Thomspon, Karel Martens and Paul Elliman. Paramount is that students become attuned to the vocabulary and possibilities of graphic form in the digital age. The digital age, similar to the era before in its capacity to pr (deliverables: animation; type: final_project; phases: make, submit; output: interactive_web_artifact)
-  - Assignment 2: Found object drawings Week Two: Abstract Forms: Assignment 2: Found object drawings Week Two: Abstract Forms (type: project_brief)
-  - Assignment 6: Responsive animation Week Four: Final Project Review assignment 6 Lecture: Fr: Assignment 6: Responsive animation Week Four: Final Project Review assignment 6 Lecture: From sketch to code In-class activity: Putting it all together Software needed Textwrangler or other HTML editor Safari or Chrome browser (deliverables: animation; constraints: process documentation required; type: final_project; phases: sketch, make, critique, submit; output: interactive_web_artifact; critique: feedback/review referenced in source excerpt)
-  - Assignment 2 Feb 13, 2015: &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015 (type: project_brief)
-  - Assignment 2: Draw found objects with CSS: &#237; Assignment 2: Draw found objects with CSS (type: project_brief; output: interactive_web_artifact)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 

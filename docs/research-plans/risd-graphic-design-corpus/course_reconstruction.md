@@ -9,7 +9,7 @@ Generated: 2026-06-12
 - Syllabus/course-site records: 82
 - Assignment evidence snippets: 585
 - Reading evidence snippets: 135
-- Student work evidence records: 41
+- Student work evidence records: 22
 - Source clusters used for packet grouping: 13
 - Wayback capture records: 106
 
@@ -626,7 +626,7 @@ Generated: 2026-06-12
 - Course code: GRAPH-3210
 - Degree level: unknown
 - Source IDs: src_john_caserta_design_studio_1_2016, src_ds1618_design_studio_archive, src_ds1618_make_book, src_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d
-- Evidence families: 7 (3 source-cluster grouped)
+- Evidence families: 8 (3 source-cluster grouped)
   - cluster_006; representative src_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d; 3 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Design Studio 1 syllabus / Design Studio 2016–18: Unit 1: Overview & Assignment / Design Studio 2016–18: Unit 2: Overview & Assignment
   - cluster_007; representative src_crawl_ds1618_risd_gd_2016_10_11_unit3_overview_html_9ed746cf; 2 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Unit 3: Overview & Assignment / Design Studio 2016–18: Unit 4: Overview & Assignment
   - cluster_008; representative src_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224; 2 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Critique Questions / Design Studio 2016–18: Unit 5: Overview & Assignment
@@ -821,6 +821,8 @@ Generated: 2026-06-12
   - Evidence of your effort and competency are visible in the research blog(s), sketchbook, participation in class, and completion of the unit assignments as directed by the faculty. (constraints: research required; type: project_brief; phases: research; tacit goal: ground visual decisions in research and precedent)
   - projects (type: project_brief)
   - Documentary Icons The Noun Project (type: project_brief)
+- Public student work examples:
+  - the course website.: https://ds1618.risd.gd/2016/10/11/unit3_overview.html (medium: website/interface; assignment link: explicit_assignment_reference)
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
   - Skill training signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making.
@@ -832,7 +834,7 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_crawl_johncaserta_com_docicons_html_d8852632, src_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d, src_crawl_ds1618_risd_gd_2016_09_26_unit2_overview_html_1de519e9, src_crawl_ds1618_risd_gd_2016_10_11_unit3_overview_html_9ed746cf, src_crawl_ds1618_risd_gd_2016_10_25_unit4_overview_html_cfb221b8, src_crawl_ds1618_risd_gd_2016_11_08_unit4_crit_html_d957a68a, src_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224
-- Evidence families: 7 (3 source-cluster grouped)
+- Evidence families: 8 (3 source-cluster grouped)
   - cluster_006; representative src_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d; 3 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Unit 1: Overview & Assignment / Design Studio 2016–18: Unit 2: Overview & Assignment / Design Studio 2016–18: Design Studio 1 syllabus
   - cluster_007; representative src_crawl_ds1618_risd_gd_2016_10_11_unit3_overview_html_9ed746cf; 2 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Unit 3: Overview & Assignment / Design Studio 2016–18: Unit 4: Overview & Assignment
   - cluster_008; representative src_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224; 2 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Critique Questions / Design Studio 2016–18: Unit 5: Overview & Assignment
@@ -1027,6 +1029,8 @@ Generated: 2026-06-12
   - Evidence of your effort and competency are visible in the research blog(s), sketchbook, participation in class, and completion of the unit assignments as directed by the faculty. (constraints: research required; type: project_brief; phases: research; tacit goal: ground visual decisions in research and precedent)
   - projects (type: project_brief)
   - Documentary Icons The Noun Project (type: project_brief)
+- Public student work examples:
+  - the course website.: https://ds1618.risd.gd/2016/10/11/unit3_overview.html (medium: website/interface; assignment link: explicit_assignment_reference)
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
   - Skill training signals: typography, publication design, interaction design, image making, identity systems, critique and revision, research methods, motion design.
@@ -1724,12 +1728,7 @@ Generated: 2026-06-12
   - src_risd_in_motion_news; single source; RISD Students Use Video and Animation Techniques to Bring Graphics to Life
 - Extracted skill signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
 - Public student work examples:
-  - Academics: https://www.risd.edu/academics (medium: animation/video; assignment link: unlinked_public_example; visual notes: source describes technique training or best-practice expectations; source emphasizes time-based graphic sequencing)
-  - Admissions: https://www.risd.edu/admissions (medium: animation/video; assignment link: unlinked_public_example; visual notes: source describes technique training or best-practice expectations; source emphasizes time-based graphic sequencing)
-  - Financial Aid: https://sfs.risd.edu/ (medium: animation/video; assignment link: unlinked_public_example; visual notes: source describes technique training or best-practice expectations; source emphasizes time-based graphic sequencing)
-  - Giving: https://www.risd.edu/giving (medium: animation/video; assignment link: unlinked_public_example; visual notes: source describes technique training or best-practice expectations; source emphasizes time-based graphic sequencing)
-  - News and Events: https://www.risd.edu/news (medium: animation/video; assignment link: unlinked_public_example; visual notes: source describes technique training or best-practice expectations; source emphasizes time-based graphic sequencing)
-  - Student Hub: https://students.risd.edu/?utm_source=www-overnav (medium: animation/video; assignment link: unlinked_public_example; visual notes: source describes technique training or best-practice expectations; source emphasizes time-based graphic sequencing)
+  - RISD Students Use Video and Animation Techniques to Bring Graphics to Life: https://www.risd.edu/news/stories/risd-students-use-video-and-animation-techniques-bring-graphics-life (medium: animation/video; assignment link: course_context_only; visual notes: source describes technique training or best-practice expectations; source emphasizes time-based graphic sequencing)
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making.
@@ -2447,7 +2446,8 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_wayback_typography_iii_syllabus_20210414155049
-- Evidence families: 1
+- Evidence families: 2
+  - src_john_caserta_student_work; single source; John Caserta Student Work
   - src_wayback_typography_iii_syllabus_20210414155049; single source; Typography III — Syllabus
 - Extracted skill signals: typography, publication design, motion design, interaction design, critique and revision, research methods, image making
 - Syllabus/course artifact: syl_wayback_typography_iii_syllabus_20210414155049
@@ -2479,6 +2479,8 @@ Generated: 2026-06-12
   - Average work / fulfills assignments but not much else / doesnt re-work or refine projects, doesn’t do much beyond the requirements (constraints: must follow stated requirements; type: project_brief; phases: revise; revision: revision or iterative improvement expected)
   - Your final grade will be based on the above criteria as well as on the final portfolio of work turned in at the end of the semester. (deliverables: portfolio; type: final_project; phases: submit, document; output: multi_page_publication)
   - Keep in mind that any project can be re-done or improved upon throughout the semester. (type: project_brief; revision: revision or iterative improvement expected)
+- Public student work examples:
+  - See full assignment: https://paper.dropbox.com/doc/Type-III-Week-Two-Qj7xd8hMki64KfRzAAFyn (medium: animation/video; assignment link: explicit_assignment_reference)
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
   - Skill training signals: typography, publication design, motion design, interaction design, critique and revision, research methods, image making.
@@ -2588,7 +2590,7 @@ Generated: 2026-06-12
 - Course code: GRAPH-3188-03
 - Degree level: unknown
 - Source IDs: src_wp15_week_1_concrete_forms, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69
-- Evidence families: 10 (2 source-cluster grouped)
+- Evidence families: 11 (2 source-cluster grouped)
   - cluster_012; representative src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69; 10 packet sources; keep_distinct_related_sources; Workshop Syllabus | Web Programming 2015 / Pocket Pictograms: Inspiration for Assignment 2 | Web Programming 2015 / PBS Off Book: Art of Creative Coding | Web Programming 2015 / “Concrete objects”, Christian Leborg | Web Programming 2015
   - cluster_013; representative src_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c; 8 packet sources; keep_distinct_related_sources; Assignments | Web Programming 2015 / 1: Scandinavian Flag | Web Programming 2015 / 2: CSS Drawings | Web Programming 2015 / 3A: Abstract Shape | Web Programming 2015
   - src_cc_wp15_risd_gd_assignments_1_scandinavian_flag_scandinavian_flag_9_e73ad2ba; single source; Scandinavian Flag | Web Programming 2015
@@ -2882,6 +2884,9 @@ Generated: 2026-06-12
   - This assignment asks you to collect objects of your own, whether in your home, around town, at RISD 2nd life, etc., and draw them using HTML and CSS. (type: project_brief; phases: research; output: interactive_web_artifact; tacit goal: prototype interactive form and user-facing structure)
   - Goals for the assignment (type: project_brief)
   - &#237; Assignment 1: Make a Scandinavian flag with CSS (type: project_brief; phases: make; output: interactive_web_artifact; tacit goal: prototype interactive form and user-facing structure)
+- Public student work examples:
+  - See assignments: https://github.com/risd-gd/wp16/wiki/Assignment-1:-Make-a-Scandinavian-Flag (medium: animation/video; assignment link: course_context_only)
+  - Interact with this pattern: http://risd-gd.github.io/wp16/students/isabellaMordini/Assignment_Week_03/week4_05.html (medium: website/interface; assignment link: course_context_only)
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
   - Skill training signals: publication design, identity systems, motion design, interaction design, image making.
@@ -2893,7 +2898,7 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pocket_pictograms_inspiration_for_assignment_2_3cf16be5, src_crawl_wp15_risd_gd_category_outline_week_1_concrete_forms_4905a205, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_concrete_objects_christian_leborg_f274fe53, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_essay_by_paul_elliman_on_karel_martens_graphic__95641d1a, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_2_draw_found_objects_with_css_4a1e2993, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_1_make_a_scandinavian_flag_with_css_cb569dec, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_2_css_basics_layout_8224b9f9, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_1_html_basics_a2298300, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_getting_setup_add_users_bios_and_avatars_5a8864e0, src_crawl_wp15_risd_gd_wp_login_php_dd54314d, src_crawl_wp15_risd_gd_category_assignments_116ec5b2, src_crawl_wp15_risd_gd_category_assignments_1_scandinavian_flag_04511d7b, src_crawl_wp15_risd_gd_category_assignments_2_css_drawings_6a79b496, src_crawl_wp15_risd_gd_category_assignments_3a_abstract_shape_87c26db6, src_crawl_wp15_risd_gd_category_assignments_3b_abstract_composition_93bcd461, src_crawl_wp15_risd_gd_category_assignments_4css_patterns_de5ba421, src_crawl_wp15_risd_gd_category_assignments_5_change_in_relations_f57a17f0, src_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c, src_cc_wp15_risd_gd_assignments_assignment_7_single_page_website_ce3ecd92, src_cc_wp15_risd_gd_assignments_3a_abstract_shape_seo_jung_lee_kelly_abstract_shape_11afe369, src_cc_wp15_risd_gd_assignments_5_change_in_relations_change_2_3c1efa27, src_cc_wp15_risd_gd_assignments_yves_olivier_flag_f6bd828c, src_cc_wp15_risd_gd_assignments_1_scandinavian_flag_scandinavian_flag_9_e73ad2ba
-- Evidence families: 10 (2 source-cluster grouped)
+- Evidence families: 11 (2 source-cluster grouped)
   - cluster_012; representative src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69; 10 packet sources; keep_distinct_related_sources; Pocket Pictograms: Inspiration for Assignment 2 | Web Programming 2015 / PBS Off Book: Art of Creative Coding | Web Programming 2015 / “Concrete objects”, Christian Leborg | Web Programming 2015 / Essay by Paul Elliman on Karel Martens’ graphic work | Web Programming 2015
   - cluster_013; representative src_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c; 8 packet sources; keep_distinct_related_sources; Assignments | Web Programming 2015 / 1: Scandinavian Flag | Web Programming 2015 / 2: CSS Drawings | Web Programming 2015 / 3A: Abstract Shape | Web Programming 2015
   - src_cc_wp15_risd_gd_assignments_1_scandinavian_flag_scandinavian_flag_9_e73ad2ba; single source; Scandinavian Flag | Web Programming 2015
@@ -3187,6 +3192,9 @@ Generated: 2026-06-12
   - This assignment asks you to collect objects of your own, whether in your home, around town, at RISD 2nd life, etc., and draw them using HTML and CSS. (type: project_brief; phases: research; output: interactive_web_artifact; tacit goal: prototype interactive form and user-facing structure)
   - Goals for the assignment (type: project_brief)
   - &#237; Assignment 1: Make a Scandinavian flag with CSS (type: project_brief; phases: make; output: interactive_web_artifact; tacit goal: prototype interactive form and user-facing structure)
+- Public student work examples:
+  - See assignments: https://github.com/risd-gd/wp16/wiki/Assignment-1:-Make-a-Scandinavian-Flag (medium: animation/video; assignment link: course_context_only)
+  - Interact with this pattern: http://risd-gd.github.io/wp16/students/isabellaMordini/Assignment_Week_03/week4_05.html (medium: website/interface; assignment link: course_context_only)
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
   - Skill training signals: motion design, interaction design, publication design, image making, identity systems, typography.

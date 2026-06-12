@@ -9,7 +9,7 @@ This memo is generated from the first implemented corpus pass. It is strongest w
 - Syllabus/course-site records: 82
 - Assignment evidence snippets: 585
 - Critique-related snippets: 37
-- Student work records: 41
+- Student work records: 22
 
 ## Studio Norms Visible In The Corpus
 

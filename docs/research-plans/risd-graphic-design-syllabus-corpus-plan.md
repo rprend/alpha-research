@@ -280,6 +280,8 @@ Required fields:
 - `project_title`
 - `project_statement_excerpt`
 - `assignment_link_confidence`
+- `course_inference_confidence`
+- `course_inference_basis`
 - `visual_standard_notes`
 - `evidence_grade`
 
