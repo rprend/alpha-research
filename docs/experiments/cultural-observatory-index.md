@@ -39,24 +39,27 @@ Status: program-level editorial queue generated from experiment readiness artifa
 Implemented:
 
 - publication queue generator
+- season-one package generator
 - queue JSON/CSV/Markdown outputs
 - editorial calendar draft
+- season-one package JSON/Markdown outputs
 - ready vs source-work grouping
 - priority scoring from readiness, drafts, charts, and editorial lane
 - publication handoff detection for copyedit-ready essays
+- post and evidence-audit detection for final editorial review
 
 Current queue:
 
 - 6 tracked essay/research artifacts
 - 6 ready for editorial review
 - 0 not ready for publication
-- 6 copyedit-ready handoff packets
+- 6 polished post drafts with passing evidence audits
+- season-one package: `reports/season-one-package.md`, status `ready-for-final-editorial-review`
 - first public essay candidate: What A Museum Collection Looks Like When It Becomes Data
 
 Next implementation moves:
 
-- copyedit the Cleveland handoff into a first post
-- copyedit the literature radar, museum language drift, mission drift, canon drift, and dataset registry handoffs into posts
+- final editorial review of the six packaged posts
 - choose which Cleveland charts to publish
 - add second-layer source corpora for the longitudinal posts after the first copyedit pass
 

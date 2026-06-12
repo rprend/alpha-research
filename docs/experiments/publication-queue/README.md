@@ -14,6 +14,7 @@ The queue is not a replacement for source review. It is an operating artifact fo
 
 ```bash
 node docs/experiments/publication-queue/scripts/build-queue.mjs
+node docs/experiments/publication-queue/scripts/build-season-package.mjs --strict
 ```
 
 Outputs:
@@ -22,7 +23,11 @@ Outputs:
 - `reports/publication-queue.csv`
 - `reports/publication-queue.md`
 - `reports/editorial-calendar.md`
+- `reports/season-one-package.json`
+- `reports/season-one-package.md`
 
 ## Publication Rule
 
 Only items with `ready-for-editorial-review` should be considered for public drafting. Items marked `not-ready-for-publication` can be written up only as methods notes or source-access reports.
+
+The season package requires every queued item to have a polished `post.md` and a passing `post-evidence-audit.json`. Passing evidence audits verify cited counts and source claims for editorial review; they do not replace broader backfills, manual quote review, or peer review.
