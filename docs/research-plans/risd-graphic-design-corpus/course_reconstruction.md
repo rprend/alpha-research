@@ -353,14 +353,14 @@ Generated: 2026-06-12
   - Week 8
   - Week 7
 - Reading evidence:
-  - of a work will differ (unresolved)
-  - in which it was made (unresolved)
-  - has been sent to Anthony D (unresolved)
-  - will be revised to address any feedback RISD receives from Chief Stanton or from one of his representatives (unresolved)
+  - of a work will differ (non_citation_fragment)
+  - in which it was made (non_citation_fragment)
+  - has been sent to Anthony D (non_citation_fragment)
+  - will be revised to address any feedback RISD receives from Chief Stanton or from one of his representatives (non_citation_fragment)
   - / References (unresolved)
   - How to Draw a Tree, Bruno Munari (local_catalog_match)
   - How to Draw a Tree, Bruno Munari (local_catalog_match)
-  - and references in the Unit 1 brief (unresolved)
+  - and references in the Unit 1 brief (non_citation_fragment)
 - Assignment/critique evidence:
   - As a graduate interdisciplinary studio, the course will introduce and frame assignments in the broadest possible way to allow for many outcomes. (type: project_brief)
   - Students are encouraged to bring their existing bodies of work, personal narratives and discipline-specific processes to their projects. (type: project_brief; tacit goal: develop iterative process habits rather than only final outputs)
@@ -533,14 +533,14 @@ Generated: 2026-06-12
   - Week 8
   - Week 7
 - Reading evidence:
-  - of a work will differ (unresolved)
-  - in which it was made (unresolved)
-  - has been sent to Anthony D (unresolved)
-  - will be revised to address any feedback RISD receives from Chief Stanton or from one of his representatives (unresolved)
+  - of a work will differ (non_citation_fragment)
+  - in which it was made (non_citation_fragment)
+  - has been sent to Anthony D (non_citation_fragment)
+  - will be revised to address any feedback RISD receives from Chief Stanton or from one of his representatives (non_citation_fragment)
   - / References (unresolved)
   - How to Draw a Tree, Bruno Munari (local_catalog_match)
   - How to Draw a Tree, Bruno Munari (local_catalog_match)
-  - and references in the Unit 1 brief (unresolved)
+  - and references in the Unit 1 brief (non_citation_fragment)
 - Assignment/critique evidence:
   - As a graduate interdisciplinary studio, the course will introduce and frame assignments in the broadest possible way to allow for many outcomes. (type: project_brief)
   - Students are encouraged to bring their existing bodies of work, personal narratives and discipline-specific processes to their projects. (type: project_brief; tacit goal: develop iterative process habits rather than only final outputs)
@@ -584,7 +584,7 @@ Generated: 2026-06-12
 - Term: Spring 2019
 - Materials mentioned: paper, print output, photography, book binding
 - Reading evidence:
-  - based on their own interests and completing a book design project using assigned material (unresolved)
+  - based on their own interests and completing a book design project using assigned material (non_citation_fragment)
 - Assignment/critique evidence:
   - In the second part of the semester, students will be given the choice between designing a book based on their own interests and completing a book design project using assigned material. (deliverables: book; type: project_brief; phases: make; output: multi_page_publication; tacit goal: compose visual hierarchy within a concrete graphic format)
 - Tacit reconstruction:
@@ -802,12 +802,12 @@ Generated: 2026-06-12
   - Schedule
   - Week
 - Reading evidence:
-  - Semester-long Deliverables (unresolved)
-  - John Caserta --> (unresolved)
-  - with Bindery (unresolved)
+  - Semester-long Deliverables (non_citation_fragment)
+  - John Caserta --> (non_citation_fragment)
+  - with Bindery (non_citation_fragment)
   - Design Studio 2016–18 (unresolved)
-  - comes from the credits (unresolved)
-  - affects form — Learn to work together to accomplish more (unresolved)
+  - comes from the credits (non_citation_fragment)
+  - affects form — Learn to work together to accomplish more (non_citation_fragment)
   - (in GD Commons) (unresolved)
   - Essay on the Importance of Time (heuristic_title)
 - Assignment/critique evidence:
@@ -1008,12 +1008,12 @@ Generated: 2026-06-12
   - Schedule
   - Week
 - Reading evidence:
-  - Semester-long Deliverables (unresolved)
-  - John Caserta --> (unresolved)
-  - with Bindery (unresolved)
+  - Semester-long Deliverables (non_citation_fragment)
+  - John Caserta --> (non_citation_fragment)
+  - with Bindery (non_citation_fragment)
   - Design Studio 2016–18 (unresolved)
-  - comes from the credits (unresolved)
-  - affects form — Learn to work together to accomplish more (unresolved)
+  - comes from the credits (non_citation_fragment)
+  - affects form — Learn to work together to accomplish more (non_citation_fragment)
   - (in GD Commons) (unresolved)
   - Essay on the Importance of Time (heuristic_title)
 - Assignment/critique evidence:
@@ -1432,9 +1432,9 @@ Generated: 2026-06-12
   - have work printed and trimmed before class. underconsideration.com/quipsologies
 - Reading evidence:
   - at The other is of crystal clear glass, thin as a (unresolved)
-  - in America, Joseph Blumenthal (unresolved)
+  - in America, Joseph Blumenthal (non_citation_fragment)
   - Text in the Book Format, Keith A. Smith (local_catalog_match)
-  - which you really should (unresolved)
+  - which you really should (non_citation_fragment)
   - Thinking with Type, Ellen Lupton (local_catalog_match)
   - The Elements of Typographic Style, Robert Bringhurst (local_catalog_match)
   - Meggs' History of Graphic Design, Philip B. Meggs (local_catalog_match)
@@ -1711,7 +1711,7 @@ Generated: 2026-06-12
 - Weekly/class structure evidence:
   - The class celebrates the Internet as a space for social exchange and independent expression, while questioning the cultural contradictions embedded in online discourse and the motivations of individuals and entities behind online platforms.
 - Reading evidence:
-  - of contemporary art and design practices (unresolved)
+  - of contemporary art and design practices (non_citation_fragment)
 - Assignment/critique evidence:
   - Through projects, readings, workshops, and presentations we will explore the relevance of network technologies in the context of contemporary art and design practices. (type: exercise; phases: make; tacit goal: practice explaining and defending design decisions in critique)
 - Tacit reconstruction:
@@ -1834,11 +1834,11 @@ Generated: 2026-06-12
   - Students are required to attend class regularly and on time in accordance with
   - In class, students are required to
 - Reading evidence:
-  - and lectures supplement (unresolved)
-  - that provide historical context (unresolved)
-  - to help you with critique in the readings folder (unresolved)
-  - Gestalt Principles (unresolved)
-  - & page Due Poster (unresolved)
+  - and lectures supplement (non_citation_fragment)
+  - that provide historical context (non_citation_fragment)
+  - to help you with critique in the readings folder (non_citation_fragment)
+  - Gestalt Principles (local_catalog_match)
+  - & page Due Poster (non_citation_fragment)
   - Introductions to Graphic Design (heuristic_title)
   - Meggs' History of Graphic Design, Philip B. Meggs (local_catalog_match)
   - Thinking with Type, Ellen Lupton (local_catalog_match)
@@ -2123,11 +2123,11 @@ Generated: 2026-06-12
   - Class specifics meeting once a week for five hours.You should plan on with room for improvement.
   - spending at the minimum, five-eight hours a week on this C is average, acceptable, not exceptional in any way.
 - Reading evidence:
-  - for the class (unresolved)
+  - for the class (non_citation_fragment)
   - order, grids and other systems of organiza- excellent craft / respect for presentation and materials (unresolved)
   - Design The Thames and Hudson Manual of (heuristic_title)
-  - Jan Middendorp (unresolved)
-  - in America Shaping Text* (unresolved)
+  - Shaping Text, Jan Middendorp (local_catalog_match)
+  - Shaping Text, Jan Middendorp (local_catalog_match)
   - The Anatomy of Type, Stephen Coles (local_catalog_match)
   - Important Websites: (unresolved)
   - design, and like (unresolved)
@@ -2264,7 +2264,7 @@ Generated: 2026-06-12
   - This introductory course is intended for non-majors interested in learning the basic principles of typography including the study of letterforms, type classification, legibility, organization and hierarchy, as well as text applications, grid systems and page layout.
 - Reading evidence:
   - Grid Systems in Graphic Design, Josef Muller-Brockmann (local_catalog_match)
-  - and poetry, letterhead systems, brochure or poster (unresolved)
+  - and poetry, letterhead systems, brochure or poster (non_citation_fragment)
 - Assignment/critique evidence:
   - Projects may include comparative studies for setting text and poetry, letterhead systems, brochure or poster. (deliverables: poster; type: project_brief; output: static_visual_system; tacit goal: translate a concept into a coherent visual system)
 - Tacit reconstruction:
@@ -3392,9 +3392,9 @@ Generated: 2026-06-12
 - Reading evidence:
   - editor, such as Sublime Text or Atom for coding (unresolved)
   - Readings will be dispersed throughout the semester to inform and contextualize our work (heuristic_title)
-  - in the relevant slack channel, raise questions, and discuss the text (unresolved)
-  - discussions and class critiques, we will be sharing resources with each other, and supporting each other through technical challenges (unresolved)
-  - in which it was made (unresolved)
+  - in the relevant slack channel, raise questions, and discuss the text (non_citation_fragment)
+  - discussions and class critiques, we will be sharing resources with each other, and supporting each other through technical challenges (non_citation_fragment)
+  - in which it was made (non_citation_fragment)
   - The Web's Grain, Frank Chimero (local_catalog_match)
   - On the Letterform of the Age, Bo-Won Keum (local_catalog_match)
   - Typeface as Programme, Jurg Lehni (local_catalog_match)

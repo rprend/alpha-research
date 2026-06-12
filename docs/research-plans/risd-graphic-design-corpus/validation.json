@@ -12,9 +12,11 @@
     "structured_assignments": 502,
     "phase_structured_assignments": 502,
     "readings": 135,
-    "normalized_readings": 52,
-    "local_catalog_readings": 39,
-    "canonical_reading_works": 27,
+    "normalized_readings": 56,
+    "local_catalog_readings": 43,
+    "unresolved_readings": 45,
+    "non_citation_reading_fragments": 34,
+    "canonical_reading_works": 30,
     "search_candidates": 28,
     "promoted_search_candidates": 10,
     "imported_search_candidates": 0,
@@ -40,9 +42,9 @@
     "fetched_archive_source_versions": 1,
     "metadata_only_source_versions": 27,
     "wayback": 106,
-    "review_queue": 12,
-    "review_decisions": 12,
-    "resolved_review_decisions": 12,
+    "review_queue": 11,
+    "review_decisions": 11,
+    "resolved_review_decisions": 11,
     "field_conflicts": 6
   },
   "checks": [
@@ -89,7 +91,7 @@
     {
       "id": "readings_have_normalized_work_links",
       "status": "pass",
-      "detail": "52 reading snippets linked to 27 canonical works; 39 local catalog matches."
+      "detail": "56 reading snippets linked to 30 canonical works; 43 local catalog matches, 45 unresolved, 34 non-citation fragments."
     },
     {
       "id": "search_candidates_have_provenance",
@@ -154,7 +156,7 @@
     {
       "id": "manual_review_artifacts_have_valid_references",
       "status": "pass",
-      "detail": "12 generated review decisions resolved, 0 review decision reference errors, and 0 field conflict reference errors."
+      "detail": "11 generated review decisions resolved, 0 review decision reference errors, and 0 field conflict reference errors."
     },
     {
       "id": "official_course_inventory_reconciled",

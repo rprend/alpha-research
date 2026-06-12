@@ -94,7 +94,7 @@ Current seed sources include:
 Known gaps:
 
 - Discovery is still seed-based.
-- Citation extraction is heuristic.
+- Citation extraction is heuristic with local catalog matching and non-citation fragment classification; external API linking is not wired yet.
 - Assignment extraction is currently snippet-based, not structured enough.
 - Search candidate import is supported through local JSON/JSONL exports, but no live search API provider is wired yet.
 - A bounded Common Crawl candidate, promotion, and ingestion pass exists, but it is still capped and should be expanded carefully.

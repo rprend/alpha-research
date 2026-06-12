@@ -167,8 +167,8 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
   - for the class (unknown)
   - order, grids and other systems of organiza- excellent craft / respect for presentation and materials (unknown)
   - Design The Thames and Hudson Manual of (unknown)
-  - Jan Middendorp (unknown)
-  - in America Shaping Text* (unknown)
+  - Shaping Text, Jan Middendorp (unknown)
+  - Shaping Text, Jan Middendorp (unknown)
   - The Anatomy of Type, Stephen Coles (unknown)
 - Studio briefs to recreate:
   - Recovered brief: form, reading order, grids and other systems of organiza- • excellent craft / respect for presentation and materials (deliverables: presentation; type: reading_response; phases: present; output: presentation)

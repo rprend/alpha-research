@@ -1585,8 +1585,13 @@ const readingCatalog = [
   { match: /m[üu]ller[-\s]brockmann|grid systems/i, title: 'Grid Systems in Graphic Design', author: 'Josef Muller-Brockmann', resource_type: 'book' },
   { match: /anatomy of type|stephen coles/i, title: 'The Anatomy of Type', author: 'Stephen Coles', resource_type: 'book' },
   { match: /text in the book format|keith smith/i, title: 'Text in the Book Format', author: 'Keith A. Smith', resource_type: 'book' },
+  { match: /shaping text|jan middendorp/i, title: 'Shaping Text', author: 'Jan Middendorp', resource_type: 'book' },
+  { match: /thames and hudson manual of typography/i, title: 'The Thames and Hudson Manual of Typography', author: 'Ruari McLean', resource_type: 'book' },
+  { match: /printed matter/i, title: 'Printed Matter', author: null, resource_type: 'organization_resource' },
+  { match: /lars m[üu]ller publishers/i, title: 'Lars Muller Publishers', author: null, resource_type: 'publisher_resource' },
   { match: /how to draw a tree|munari/i, title: 'How to Draw a Tree', author: 'Bruno Munari', resource_type: 'book' },
   { match: /norman potter|what is a designer/i, title: 'What Is a Designer', author: 'Norman Potter', resource_type: 'book' },
+  { match: /gestalt principles/i, title: 'Gestalt Principles', author: null, resource_type: 'concept_resource' },
   { match: /web.?s grain|frank chimero/i, title: "The Web's Grain", author: 'Frank Chimero', resource_type: 'essay' },
   { match: /handmade web|j\.?\s*r\.?\s*carpenter/i, title: 'A Handmade Web', author: 'J. R. Carpenter', resource_type: 'essay' },
   { match: /letterform of the age|bo[-\s]?won keum/i, title: 'On the Letterform of the Age', author: 'Bo-Won Keum', resource_type: 'essay' },
@@ -1603,6 +1608,19 @@ function cleanCitationExcerpt(value) {
   return value.replace(/[❧•]+/g, ' ').replace(/\s+/g, ' ').replace(/\s+[,;:.]$/g, '').trim()
 }
 
+function isNonCitationFragment(rawCitation) {
+  if (!rawCitation) return true
+  const lower = rawCitation.toLowerCase()
+  if (rawCitation.length < 4) return true
+  if (/-->|<--/.test(rawCitation)) return true
+  if (/^(?:and|or|the|that|to|with|for|of|in|at|by)\b/i.test(rawCitation) && rawCitation.split(/\s+/).length < 9) return true
+  if (/^(?:important websites?|semester-long deliverables|design studio \d{4}|in gd commons|for the class)$/i.test(rawCitation)) return true
+  if (/\b(?:due|homework|hw|crit|critique|class|slack channel|feedback|revised|chief stanton|presentation board)\b/i.test(rawCitation) && !/\b(?:reading|book|essay|article|publisher|press|journal|magazine)\b/i.test(rawCitation)) return true
+  if (/\b(?:supplement|provide historical context|help you with critique|technical challenges|contemporary art and design practices)\b/i.test(lower)) return true
+  if (/^(?:comes from the credits|affects form|has been sent|which you really should|based on their own interests)\b/i.test(rawCitation)) return true
+  return false
+}
+
 function normalizeCitation(raw) {
   const rawCitation = cleanCitationExcerpt(raw)
   const catalogHit = readingCatalog.find((entry) => entry.match.test(rawCitation))
@@ -1615,8 +1633,20 @@ function normalizeCitation(raw) {
       publication_year: year,
       publisher_or_source: null,
       resource_type: catalogHit.resource_type,
-      canonical_work_id: `work_${slug(`${catalogHit.title}_${catalogHit.author}`)}`,
+      canonical_work_id: `work_${slug(`${catalogHit.title}_${catalogHit.author ?? 'unknown'}`)}`,
       linking_status: 'local_catalog_match',
+    }
+  }
+  if (isNonCitationFragment(rawCitation)) {
+    return {
+      raw_citation: rawCitation,
+      title: null,
+      author: null,
+      publication_year: year,
+      publisher_or_source: null,
+      resource_type: 'non_citation_fragment',
+      canonical_work_id: null,
+      linking_status: 'non_citation_fragment',
     }
   }
 
@@ -2357,6 +2387,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const readingSourceErrors = readings.filter((reading) => !syllabusIds.has(reading.syllabus_id) || reading.source_ids.some((id) => !sourceIds.has(id)))
   const normalizedReadingCount = readings.filter((reading) => reading.canonical_work_id).length
   const catalogReadingCount = readings.filter((reading) => reading.linking_status === 'local_catalog_match').length
+  const unresolvedReadingCount = readings.filter((reading) => reading.linking_status === 'unresolved').length
+  const nonCitationReadingCount = readings.filter((reading) => reading.linking_status === 'non_citation_fragment').length
   const searchCandidateErrors = searchCandidates.filter((candidate) => !candidate.candidate_id || !candidate.status || candidate.promoted_source_id && !sourceIds.has(candidate.promoted_source_id))
   const promotedSearchCandidateCount = searchCandidates.filter((candidate) => candidate.promoted_source_id).length
   const importedSearchCandidateCount = searchCandidates.filter((candidate) => candidate.source === 'imported_search_export').length
@@ -2432,7 +2464,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
     {
       id: 'readings_have_normalized_work_links',
       status: normalizedReadingCount > 0 ? 'pass' : 'warn',
-      detail: `${normalizedReadingCount} reading snippets linked to ${readingFrequency.length} canonical works; ${catalogReadingCount} local catalog matches.`,
+      detail: `${normalizedReadingCount} reading snippets linked to ${readingFrequency.length} canonical works; ${catalogReadingCount} local catalog matches, ${unresolvedReadingCount} unresolved, ${nonCitationReadingCount} non-citation fragments.`,
     },
     {
       id: 'search_candidates_have_provenance',
@@ -2533,6 +2565,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       readings: readings.length,
       normalized_readings: normalizedReadingCount,
       local_catalog_readings: catalogReadingCount,
+      unresolved_readings: unresolvedReadingCount,
+      non_citation_reading_fragments: nonCitationReadingCount,
       canonical_reading_works: readingFrequency.length,
       search_candidates: searchCandidates.length,
       promoted_search_candidates: promotedSearchCandidateCount,
@@ -2593,12 +2627,13 @@ function buildReviewQueue({ sources, courseInventory, syllabi, readings }) {
     })
   }
   const unresolvedReadings = readings.filter((reading) => reading.linking_status === 'unresolved')
+  const nonCitationReadings = readings.filter((reading) => reading.linking_status === 'non_citation_fragment')
   if (readings.length && unresolvedReadings.length / readings.length > 0.5) {
     rows.push({
       review_id: 'review_reading_normalization_backlog',
       priority: 'medium',
       reason: 'reading_normalization_low_confidence',
-      action: `Review ${unresolvedReadings.length} unresolved reading snippets and expand the local catalog or tighten extraction patterns.`,
+      action: `Review ${unresolvedReadings.length} unresolved reading snippets, after excluding ${nonCitationReadings.length} non-citation fragments, and expand the local catalog or tighten extraction patterns.`,
     })
   }
   for (const syllabus of syllabi) {
@@ -2624,6 +2659,7 @@ function buildReviewDecisions(reviewQueue, { sources = [], syllabi = [], reading
   const sourcesById = new Map(sources.map((source) => [source.source_id, source]))
   const syllabiById = new Map(syllabi.map((syllabus) => [syllabus.syllabus_id, syllabus]))
   const unresolvedReadings = readings.filter((reading) => reading.linking_status === 'unresolved')
+  const nonCitationReadings = readings.filter((reading) => reading.linking_status === 'non_citation_fragment')
 
   return reviewQueue.map((row) => {
     const sourceIds = row.source_ids ?? (row.source_id ? [row.source_id] : [])
@@ -2647,8 +2683,8 @@ function buildReviewDecisions(reviewQueue, { sources = [], syllabi = [], reading
         status: 'generated_decision',
         decision: 'parser_backlog_confirmed',
         confidence: 'medium',
-        evidence_summary: `${unresolvedReadings.length} of ${readings.length} reading snippets remain unresolved after local catalog matching.`,
-        next_parser_action: 'Expand the local reading catalog and add filters for descriptive fragments that are not actual citations.',
+        evidence_summary: `${unresolvedReadings.length} of ${readings.length} reading snippets remain unresolved after local catalog matching; ${nonCitationReadings.length} parser fragments are classified as non-citations.`,
+        next_parser_action: 'Expand the local reading catalog for remaining unresolved snippets and keep excluding descriptive fragments that are not actual citations.',
         notes: 'Generated from current readings.jsonl linking_status counts; no private source inspection implied.',
       }
     }
@@ -2898,6 +2934,8 @@ Overall status: ${validation.status}
 - Normalized reading snippets: ${validation.counts.normalized_readings}
 - Canonical reading works: ${validation.counts.canonical_reading_works}
 - Local catalog reading matches: ${validation.counts.local_catalog_readings}
+- Unresolved reading snippets: ${validation.counts.unresolved_readings}
+- Non-citation reading fragments: ${validation.counts.non_citation_reading_fragments}
 - Search candidates: ${validation.counts.search_candidates}
 - Promoted search candidates: ${validation.counts.promoted_search_candidates}
 - Imported search candidates: ${validation.counts.imported_search_candidates}
@@ -3388,8 +3426,8 @@ function renderDerivedArtifactsOnly() {
   const courses = loadJsonl(join(outDir, 'courses.jsonl'))
   const syllabi = loadJsonl(join(outDir, 'syllabi.jsonl'))
   const assignments = buildAssignments(syllabi)
-  const readings = loadJsonl(join(outDir, 'readings.jsonl'))
-  const readingFrequency = loadJsonl(join(outDir, 'reading_frequency.jsonl'))
+  const readings = buildReadings(syllabi)
+  const readingFrequency = buildReadingFrequency(readings)
   const searchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
   const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
   const commonCrawlPromotions = loadJsonl(join(outDir, 'common_crawl_promotions.jsonl'))
@@ -3410,6 +3448,8 @@ function renderDerivedArtifactsOnly() {
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
   const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
   writeJsonl(join(outDir, 'assignments.jsonl'), assignments)
+  writeJsonl(join(outDir, 'readings.jsonl'), readings)
+  writeJsonl(join(outDir, 'reading_frequency.jsonl'), readingFrequency)
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)

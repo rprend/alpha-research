@@ -4,11 +4,11 @@ Generated: 2026-06-12
 
 ## Summary
 
-- Review queue rows: 12
+- Review queue rows: 11
 - Pending review decisions: 0
 - Field conflicts: 6
 - High-priority reviews: 0
-- Medium-priority reviews: 1
+- Medium-priority reviews: 0
 
 ## High-Priority Reviews
 
@@ -16,7 +16,7 @@ Generated: 2026-06-12
 
 ## Medium-Priority Reviews
 
-- reading_normalization_low_confidence: review_reading_normalization_backlog. Action: Review 83 unresolved reading snippets and expand the local catalog or tighten extraction patterns.
+- None
 
 ## Field Conflicts
 

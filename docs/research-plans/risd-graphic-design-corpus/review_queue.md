@@ -2,9 +2,8 @@
 
 Generated: 2026-06-12
 
-Rows: 12
+Rows: 11
 
-- MEDIUM reading_normalization_low_confidence: review_reading_normalization_backlog
 - LOW missing_schedule_evidence: Design Studio 1
 - LOW missing_schedule_evidence: Design for Publishing
 - LOW missing_schedule_evidence: Newly Formed

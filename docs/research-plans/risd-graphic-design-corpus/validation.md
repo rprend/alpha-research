@@ -16,9 +16,11 @@ Overall status: pass
 - Structured assignment snippets: 502
 - Studio-phase assignment snippets: 502
 - Readings: 135
-- Normalized reading snippets: 52
-- Canonical reading works: 27
-- Local catalog reading matches: 39
+- Normalized reading snippets: 56
+- Canonical reading works: 30
+- Local catalog reading matches: 43
+- Unresolved reading snippets: 45
+- Non-citation reading fragments: 34
 - Search candidates: 28
 - Promoted search candidates: 10
 - Imported search candidates: 0
@@ -44,9 +46,9 @@ Overall status: pass
 - Fetched archive source comparisons: 1
 - Metadata-only source versions: 27
 - Wayback captures: 106
-- Review queue rows: 12
-- Review decision rows: 12
-- Resolved generated review decisions: 12
+- Review queue rows: 11
+- Review decision rows: 11
+- Resolved generated review decisions: 11
 - Field conflicts: 6
 
 ## Checks
@@ -59,7 +61,7 @@ Overall status: pass
 - PASS assignments_have_structured_signals: 502 assignment snippets include inferred deliverables, constraints, tools, critique, revision, or tacit goals.
 - PASS assignments_have_studio_phase_signals: 502 assignment snippets include assignment type, studio phase, or output-format signals.
 - PASS readings_reference_valid_syllabi_and_sources: 0 reading reference errors.
-- PASS readings_have_normalized_work_links: 52 reading snippets linked to 27 canonical works; 39 local catalog matches.
+- PASS readings_have_normalized_work_links: 56 reading snippets linked to 30 canonical works; 43 local catalog matches, 45 unresolved, 34 non-citation fragments.
 - PASS search_candidates_have_provenance: 28 search candidates, 10 promoted, 0 imported; 0 candidate reference errors.
 - PASS common_crawl_candidates_have_provenance: 168 Common Crawl candidates, 35 fetch candidates, 8 ingested; 0 provenance errors.
 - PASS common_crawl_promotions_reference_candidates: 8 Common Crawl promotions, 8 successful, 8 ingested; 0 reference errors.
@@ -72,7 +74,7 @@ Overall status: pass
 - PASS source_clusters_are_used_for_packet_grouping: 117 course packets include source-cluster grouped evidence families.
 - PASS source_versions_reference_valid_sources: 0 source version reference errors across 28 version rows.
 - PASS source_versions_record_wayback_comparisons: 1 fetched archive comparisons and 27 metadata-only version rows.
-- PASS manual_review_artifacts_have_valid_references: 12 generated review decisions resolved, 0 review decision reference errors, and 0 field conflict reference errors.
+- PASS manual_review_artifacts_have_valid_references: 11 generated review decisions resolved, 0 review decision reference errors, and 0 field conflict reference errors.
 - PASS official_course_inventory_reconciled: 105 official offerings parsed; RISD page displays 105 results.
 - PASS wayback_captures_recorded: 106 Wayback capture records.
 - PASS course_records_created: 134 course records created.
