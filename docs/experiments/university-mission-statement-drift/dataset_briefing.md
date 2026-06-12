@@ -12,6 +12,7 @@ The article thesis under test:
 
 - `config/institutions.json`: current public page source list
 - `config/wayback-targets.json`: Wayback snapshot target list
+- `config/historical-path-patterns.json`: candidate historical mission/about path patterns for CDX discovery
 - `config/term-families.json`: editorial term families
 - `data/raw/current-pages/2026-06-12/`: current HTML snapshots and manifest
 - `data/raw/wayback-snapshots/2026-06-12/`: archived HTML snapshots and manifest
@@ -37,6 +38,7 @@ The article thesis under test:
 ## Known Limitations
 
 - The historical layer currently uses exact current URLs in Wayback, so older captures are sparse.
+- `discover-wayback-targets.mjs` can search for better historical targets, but Internet Archive CDX availability is intermittent and candidates need manual review.
 - Archived HTML may include template/navigation text and needs hand audit.
 - Term counts are directional evidence, not finished interpretation.
 - Institution pages differ by genre: about pages, mission pages, center pages, and strategic pages should be separated in larger runs.

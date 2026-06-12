@@ -13,17 +13,19 @@ import {
 
 const args = parseArgs();
 const timeoutMs = Number(args.timeout ?? 12000);
+const targetConfig = args.targets ?? "wayback-targets.json";
 const years = String(args.years ?? "2000,2005,2010,2015,2020")
   .split(",")
   .map((year) => Number(year.trim()))
   .filter(Boolean);
 const runDate = today();
-const targets = await readJson(path.join(experimentDir, "config", "wayback-targets.json"));
+const targets = await readJson(path.join(experimentDir, "config", targetConfig));
 const outDir = path.join(experimentDir, "data", "raw", "wayback-snapshots", runDate);
 const manifest = {
   runDate,
   source: "Internet Archive Wayback Machine",
   years,
+  targetConfig,
   startedAt: new Date().toISOString(),
   requests: [],
   errors: [],
