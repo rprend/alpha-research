@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>NYC Address Dossier</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+  :root { --bg:#14161a; --panel:#1c1f25; --ink:#e8e6e1; --dim:#9a968e; --line:#2c303a;
+          --ownership:#d4a373; --construction:#7d9d72; --event:#8b8fa3; --photo:#c9784f; --commerce:#6f9fb8; }
+  * { box-sizing:border-box; margin:0 }
+  body { font:14px/1.45 -apple-system, "Helvetica Neue", sans-serif; background:var(--bg); color:var(--ink); height:100vh; display:flex }
+  #panel { width:420px; min-width:340px; overflow-y:auto; background:var(--panel); border-right:1px solid var(--line); padding:16px }
+  #map { flex:1 }
+  h1 { font-size:15px; letter-spacing:.08em; text-transform:uppercase; color:var(--dim); margin-bottom:12px }
+  #search { display:flex; gap:6px; margin-bottom:14px }
+  #addr { flex:1; padding:8px 10px; background:var(--bg); border:1px solid var(--line); color:var(--ink); border-radius:6px }
+  #boro, #go { padding:8px; background:var(--bg); border:1px solid var(--line); color:var(--ink); border-radius:6px; cursor:pointer }
+  #lothead { margin:10px 0 4px; font-size:16px; font-weight:600 }
+  #lotmeta { color:var(--dim); font-size:12.5px; margin-bottom:10px }
+  .counts { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px }
+  .chip { font-size:11.5px; padding:2px 8px; border-radius:10px; border:1px solid var(--line); color:var(--dim) }
+  .decade { color:var(--dim); font-size:11.5px; letter-spacing:.1em; margin:14px 0 4px; border-bottom:1px solid var(--line); padding-bottom:2px }
+  .ev { display:flex; gap:8px; padding:4px 0; align-items:baseline }
+  .ev .d { color:var(--dim); font-size:11.5px; white-space:nowrap; width:74px }
+  .ev .k { font-size:10px; padding:1px 6px; border-radius:8px; color:#14161a; font-weight:700; white-space:nowrap }
+  .ev .t { flex:1; font-size:12.5px; word-break:break-word }
+  .ev .s { color:var(--dim); font-size:10.5px; white-space:nowrap }
+  .ph img { width:100%; border-radius:6px; margin:4px 0; border:1px solid var(--line) }
+  .note { color:var(--dim); font-size:12px; margin-top:8px }
+  a { color:#b8c4e0 }
+</style>
+</head>
+<body>
+<div id="panel">
+  <h1>NYC Address Dossier</h1>
+  <div id="search">
+    <input id="addr" placeholder="350 5 Avenue" value="">
+    <select id="boro">
+      <option value="manhattan">MN</option><option value="bronx">BX</option>
+      <option value="brooklyn">BK</option><option value="queens">QN</option>
+      <option value="staten island">SI</option>
+    </select>
+    <button id="go">Go</button>
+  </div>
+  <div id="out"><div class="note">Search an address, or click any lot on the map.
+    Events shown are primary-source records from the Phase 0 harvest
+    (ownership, construction, photos, complaints). More sources land as the
+    harvester runs; this page reads whatever has been materialized.</div></div>
+</div>
+<div id="map"></div>
+<script>
+const KIND_COLOR = { ownership:'#d4a373', construction:'#7d9d72', event:'#8b8fa3', photo:'#c9784f', commerce:'#6f9fb8' };
+const map = new maplibregl.Map({
+  container:'map',
+  style:{ version:8, sources:{ osm:{ type:'raster', tiles:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+    tileSize:256, attribution:'© OpenStreetMap contributors' } },
+    layers:[{ id:'osm', type:'raster', source:'osm' }] },
+  center:[-73.985, 40.748], zoom:13.5,
+});
+let marker = null;
+map.once('load', () => map.resize());
+window.addEventListener('resize', () => map.resize());
+
+function summarize(p) {
+  const skip = new Set(['type']);
+  return Object.entries(p).filter(([k,v]) => !skip.has(k) && v != null && v !== '')
+    .map(([k,v]) => `${k}: ${String(v).slice(0,90)}`).join(' · ');
+}
+
+async function loadDossier(bbl) {
+  const r = await fetch(`/api/dossier?bbl=${encodeURIComponent(bbl)}`);
+  const d = await r.json();
+  const out = document.getElementById('out');
+  if (!d.lot && d.events.length === 0) { out.innerHTML = `<div class="note">No data for BBL ${bbl} yet.</div>`; return; }
+  const lot = d.lot ?? {};
+  let html = `<div id="lothead">${lot.address ?? 'BBL ' + bbl}</div>
+    <div id="lotmeta">BBL ${bbl} · built ${lot.yearbuilt ?? '?'} · class ${lot.bldgclass ?? '?'} ·
+      ${lot.unitsres ?? '?'} res units · owner (PLUTO): ${lot.ownername ?? '?'}</div>
+    <div class="counts">${(d.counts??[]).map(c=>`<span class="chip">${c.kind}: ${Number(c.n).toLocaleString()}</span>`).join('')}</div>`;
+  let decade = null;
+  for (const ev of d.events) {
+    const dec = ev.date ? ev.date.slice(0,3) + '0s' : 'undated';
+    if (dec !== decade) { html += `<div class="decade">${dec}</div>`; decade = dec; }
+    let p = {}; try { p = JSON.parse(ev.payload); } catch {}
+    const color = KIND_COLOR[ev.kind] ?? '#8b8fa3';
+    html += `<div class="ev"><span class="d">${(ev.date??'').slice(0,10)}</span>
+      <span class="k" style="background:${color}">${p.type ?? ev.kind}</span>
+      <span class="t">${summarize(p)}${ev.kind==='photo' && p.photo_url
+        ? `<div class="ph"><a href="${p.page_url ?? p.photo_url}" target="_blank"><img loading="lazy" src="${p.photo_url}" alt=""></a></div>` : ''}</span>
+      <span class="s">${ev.source_id}</span></div>`;
+  }
+  if (d.events.length >= 3000) html += `<div class="note">Showing first 3,000 events.</div>`;
+  out.innerHTML = html;
+}
+
+function focus(lat, lon, bbl) {
+  if (marker) marker.remove();
+  marker = new maplibregl.Marker({ color:'#c9784f' }).setLngLat([lon, lat]).addTo(map);
+  map.flyTo({ center:[lon, lat], zoom:17 });
+  loadDossier(bbl);
+}
+
+async function search() {
+  const addr = document.getElementById('addr').value;
+  const boro = document.getElementById('boro').value;
+  const r = await fetch(`/api/resolve?addr=${encodeURIComponent(addr)}&boro=${encodeURIComponent(boro)}`);
+  const rows = await r.json();
+  if (!rows.length) { document.getElementById('out').innerHTML = '<div class="note">No match in PAD/PLUTO.</div>'; return; }
+  const { bbl, latitude, longitude } = rows[0];
+  if (latitude && longitude) focus(latitude, longitude, bbl); else loadDossier(bbl);
+}
+document.getElementById('go').onclick = search;
+document.getElementById('addr').addEventListener('keydown', e => { if (e.key === 'Enter') search(); });
+map.on('click', async (e) => {
+  const r = await fetch(`/api/near?lat=${e.lngLat.lat}&lon=${e.lngLat.lng}`);
+  const rows = await r.json();
+  if (rows.length) focus(rows[0].latitude, rows[0].longitude, rows[0].bbl);
+});
+</script>
+</body>
+</html>

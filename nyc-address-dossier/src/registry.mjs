@@ -28,6 +28,12 @@ export const SOURCES = [
     key: 'restaurant_inspections', id: '43nn-pn8j', name: 'DOHMH New York City Restaurant Inspection Results', priority: 16,
   },
   {
+    key: 'oldnyc', name: 'OldNYC geocoded NYPL photos (danvk/oldnyc)', priority: 17,
+    type: 'blob', blobUrl: 'https://raw.githubusercontent.com/danvk/oldnyc/master/data/images.geojson',
+    blobFile: 'images.geojson', unzip: false,
+    note: 'Phase 1: ~40k geocoded Milstein photos; nearest-lot BBL assignment at materialize time',
+  },
+  {
     key: 'dob_cofo', id: 'bs8b-p36w', name: 'DOB Certificate Of Occupancy', priority: 20,
   },
   {

@@ -39,6 +39,26 @@ process.on('SIGINT', () => { shuttingDown = true; });
 process.on('SIGTERM', () => { shuttingDown = true; });
 
 async function runFetchJob(db, job) {
+  if (job.kind === 'ia_inventory') {
+    const { runInventory } = await import('./ia.mjs');
+    await runInventory(db, log);
+    completeJob(db, job.job_id);
+    generateStatus(db);
+    return;
+  }
+  if (job.kind === 'ia_text') {
+    const { fetchIAText } = await import('./ia.mjs');
+    const identifier = job.source.slice('ia_text:'.length);
+    const r = await fetchIAText(identifier);
+    if (r.missing) {
+      failJob(db, job, 'no djvu.txt on item', { terminal: true });
+      log(db, 'warn', job.source, 'no OCR text available — marked failed (terminal)');
+    } else {
+      completeJob(db, job.job_id);
+      if (!r.cached) log(db, 'info', job.source, `COMPLETE: ${(r.bytes / 1024 ** 2).toFixed(1)} MB OCR text`);
+    }
+    return;
+  }
   const source = SOURCES.find((s) => s.key === job.source);
   if (!source) { failJob(db, job, `unknown source ${job.source}`, { terminal: true }); return; }
   if (source.type === 'blob') {

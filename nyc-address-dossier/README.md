@@ -14,6 +14,7 @@ npm run status        # regenerate status.md from the queue DB
 npm run materialize   # (re)build data/dossier.duckdb from landed sources
 npm run dossier -- "350 5 AVENUE" manhattan    # address -> BBL -> cited timeline
 npm run dossier -- --bbl 1008350041
+npm run serve            # map viewer at http://localhost:8011 (search or click any lot)
 bin/install-launchd.sh   # persist across reboots as a launchd agent
 ```
 
@@ -42,8 +43,16 @@ src/status.mjs       status.md generator
 data/                raw parts, queue DB, duckdb, logs (gitignored)
 ```
 
-## Next phases (per the plan)
+## Phase progress beyond the Phase 0 spine
 
-Phase 1 photo spine (OldNYC ingest, DORIS ask), Phase 2 census (gold set first, mock harness
-before any model), Phase 3 IA directory text. House rule: **no paid API runs without explicit
-per-run approval** — everything here runs on free endpoints and local compute only.
+- **Phase 1 (photos):** OldNYC ingest DONE — 33.8k geocoded NYPL photos assigned to nearest
+  lots (confidence 0.6, ~90m search box). Tax photos blocked on DORIS outreach
+  (draft: ../docs/outreach/doris-tax-photos-draft.md).
+- **Phase 3 step 1 (directory text):** ia_inventory job queries IA for NYPL-scanned NYC
+  city directories and spawns one ia_text download job per volume (existing djvu OCR text,
+  gzipped to data/raw/ia_directories/). Parsing is the next milestone — gold pages first.
+- **Milestone 0 viewer:** `npm run serve` — MapLibre map + dossier panel; search via PAD,
+  click-a-lot via nearest-centroid; photos render inline.
+
+House rule: **no paid API runs without explicit per-run approval** — everything here runs
+on free endpoints and local compute only.

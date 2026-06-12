@@ -24,7 +24,11 @@ async function run() {
   if (landed.length === 0) { console.log('no raw sources landed yet'); return; }
   console.log(`landed sources: ${landed.join(', ')}`);
 
-  const instance = await DuckDBInstance.create(config.duckdbPath);
+  // Build into a temp file and atomically rename, so the viewer/CLI can keep
+  // reading the previous build while this one runs (DuckDB is single-writer).
+  const buildPath = config.duckdbPath + '.building';
+  for (const p of [buildPath, buildPath + '.wal']) fs.rmSync(p, { force: true });
+  const instance = await DuckDBInstance.create(buildPath);
   const db = await instance.connect();
   const sql = async (q) => { try { return await db.run(q); } catch (e) { console.error(`SQL error: ${e.message}\n  in: ${q.slice(0, 200)}`); throw e; } };
 
@@ -138,7 +142,8 @@ async function run() {
   if (landed.includes('pluto')) {
     await sql(`CREATE OR REPLACE TABLE lots AS
       SELECT norm_bbl(bbl) AS bbl, address, borough, block, lot, cd, zipcode, yearbuilt, numfloors,
-             unitsres, unitstotal, bldgclass, landuse, ownername
+             unitsres, unitstotal, bldgclass, landuse, ownername,
+             TRY_CAST(latitude AS DOUBLE) AS latitude, TRY_CAST(longitude AS DOUBLE) AS longitude
       FROM raw_pluto WHERE bbl IS NOT NULL`);
     // PLUTO yearbuilt becomes the construction-origin event.
     await sql(`INSERT INTO events (bbl, address_raw, date_start, kind, payload, source_id, locator)
@@ -160,6 +165,46 @@ async function run() {
     console.log(`pad_addresses: ${(await n.getRows())[0][0]} address ranges`);
   }
 
+  // OldNYC photos (Phase 1): flatten the geojson once, assign each photo to its
+  // nearest lot centroid (~90m search box; photos are geocoded to intersections,
+  // so this is an approximation — confidence 0.6, never 1.0).
+  const oldnycGeo = path.join(config.rawDir, 'oldnyc', 'images.geojson');
+  if (fs.existsSync(oldnycGeo) && landed.includes('pluto')) {
+    const flat = path.join(config.rawDir, 'oldnyc', 'photos_flat.jsonl');
+    if (!fs.existsSync(flat)) {
+      const gj = JSON.parse(fs.readFileSync(oldnycGeo, 'utf8'));
+      const lines = gj.features
+        .filter((f) => f.geometry?.coordinates?.length === 2)
+        .map((f) => JSON.stringify({
+          id: String(f.id),
+          lon: f.geometry.coordinates[0], lat: f.geometry.coordinates[1],
+          date_raw: f.properties?.date ?? null, title: f.properties?.title ?? null,
+          page_url: f.properties?.url ?? null,
+          photo_url: `https://images.nypl.org/?id=${f.id}&t=w`,
+        }));
+      fs.writeFileSync(flat, lines.join('\n') + '\n');
+      console.log(`oldnyc: flattened ${lines.length} geocoded photos`);
+    }
+    await sql(`CREATE OR REPLACE TABLE oldnyc_photos AS
+      SELECT * FROM read_json('${flat.replace(/'/g, "''")}', format='newline_delimited', union_by_name=true)`);
+    await sql(`CREATE OR REPLACE TABLE oldnyc_bbl AS
+      SELECT p.*, l.bbl,
+             (p.lat - l.latitude) * (p.lat - l.latitude)
+               + (0.758 * (p.lon - l.longitude)) * (0.758 * (p.lon - l.longitude)) AS d2
+      FROM oldnyc_photos p
+      JOIN lots l ON l.latitude  BETWEEN p.lat - 0.0008 AND p.lat + 0.0008
+                 AND l.longitude BETWEEN p.lon - 0.0011 AND p.lon + 0.0011
+      QUALIFY row_number() OVER (PARTITION BY p.id ORDER BY d2) = 1`);
+    await sql(`INSERT INTO events (bbl, address_raw, date_start, kind, payload, source_id, locator, extraction_method, confidence)
+      SELECT bbl, title,
+             TRY_CAST(regexp_extract(date_raw, '(18|19|20)[0-9]{2}') || '-01-01' AS DATE),
+             'photo',
+             to_json({type: 'photo_oldnyc', title: title, page_url: page_url, photo_url: photo_url}),
+             'oldnyc', id, 'structured', 0.6
+      FROM oldnyc_bbl`);
+    console.log('mapped oldnyc -> events (nearest-lot, confidence 0.6)');
+  }
+
   await sql(`CREATE INDEX IF NOT EXISTS idx_events_bbl ON events (bbl)`);
   const counts = await db.run(`SELECT kind, COUNT(*) FROM events GROUP BY kind ORDER BY 2 DESC`);
   for (const [kind, n] of await counts.getRows()) console.log(`  events/${kind}: ${Number(n).toLocaleString()}`);
@@ -167,6 +212,11 @@ async function run() {
   const [n, lots] = (await total.getRows())[0];
   console.log(`TOTAL: ${Number(n).toLocaleString()} events across ${Number(lots).toLocaleString()} distinct BBLs`);
   db.closeSync();
+  instance.closeSync?.();
+  // Atomic swap: readers opening after this see the new build.
+  fs.rmSync(config.duckdbPath + '.wal', { force: true });
+  fs.renameSync(buildPath, config.duckdbPath);
+  console.log(`swapped in ${config.duckdbPath}`);
 }
 
 run().catch((e) => { console.error(e); process.exit(1); });

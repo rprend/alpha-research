@@ -9,7 +9,8 @@
     "supervisor": "node --experimental-sqlite src/supervisor.mjs",
     "status": "node --experimental-sqlite src/status.mjs",
     "materialize": "node --experimental-sqlite src/materialize.mjs",
-    "dossier": "node --experimental-sqlite src/dossier.mjs"
+    "dossier": "node --experimental-sqlite src/dossier.mjs",
+    "serve": "node --experimental-sqlite src/serve.mjs"
   },
   "dependencies": {
     "@duckdb/node-api": "^1.3.4-alpha.27"
