@@ -168,6 +168,8 @@
     "self_study_portfolio_operations_summary_archive_ready_rows": 0,
     "self_study_portfolio_collaborator_handoff_packet_rows": 3,
     "self_study_portfolio_collaborator_handoff_packet_ready_rows": 3,
+    "self_study_portfolio_collaborator_response_intake_template_rows": 3,
+    "self_study_portfolio_collaborator_response_intake_template_ready_rows": 3,
     "self_study_portfolio_milestones": 3,
     "self_study_portfolio_briefs": 3,
     "self_study_portfolio_briefs_with_completion_gate_status": 3,
@@ -550,6 +552,11 @@
       "id": "self_study_portfolio_collaborator_handoff_packets_share_review_tasks",
       "status": "pass",
       "detail": "3 collaborator handoff packets; 3 ready to share; 0 packet reference/action errors; generated mismatch=false."
+    },
+    {
+      "id": "self_study_portfolio_collaborator_response_intake_templates_map_replies",
+      "status": "pass",
+      "detail": "3 collaborator response intake templates; 3 ready for responses; 0 intake reference/target errors; generated mismatch=false."
     },
     {
       "id": "self_study_progress_ledger_links_to_portfolio_completion_gates",
