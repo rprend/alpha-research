@@ -80,7 +80,7 @@
         "collection API metadata",
         "exhibition catalogs where metadata is public"
       ],
-      "firstRunnableBuild": "Current-page source probe exists for 14 museums and sparse Wayback coverage exists for 2 historical snapshots in the latest run. Next build should add provenance, exhibition, collection, annual-report, and historically stable URL source layers.",
+      "firstRunnableBuild": "Current-page source probe exists for 33 pages across 14 museums and five source genres; sparse Wayback coverage exists for 4 historical snapshots in the latest run. Next build should add provenance, annual-report, and historically stable URL source layers.",
       "publicationAngle": "A longitudinal institutional-language essay about how museums publicly explain ownership, culture, world history, and repair.",
       "qualityRisks": [
         "page redesigns can change text independently of institutional ideology",

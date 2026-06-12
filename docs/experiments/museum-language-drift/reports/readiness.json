@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-06-12T18:20:28.802Z",
+  "generatedAt": "2026-06-12T18:24:48.869Z",
   "status": "not-ready-for-publication",
   "checks": [
     {
       "id": "current-pages",
       "label": "At least 12 current museum pages are collected",
       "status": "pass",
-      "evidence": "14 current pages"
+      "evidence": "33 current pages"
     },
     {
       "id": "museum-coverage",
@@ -17,14 +17,14 @@
     {
       "id": "source-genres",
       "label": "At least three source genres are represented",
-      "status": "needs-work",
-      "evidence": "about"
+      "status": "pass",
+      "evidence": "about, collection, education, exhibition, research"
     },
     {
       "id": "historical-pages",
       "label": "Historical snapshots exist before temporal claims",
       "status": "needs-work",
-      "evidence": "2 historical snapshots"
+      "evidence": "4 historical snapshots"
     },
     {
       "id": "public-draft",
@@ -36,13 +36,13 @@
       "id": "audit-packet",
       "label": "Snippet audit packet exists",
       "status": "pass",
-      "evidence": "reports/audit-packet.json (3 flagged rows)"
+      "evidence": "reports/audit-packet.json (7 flagged rows)"
     },
     {
       "id": "audit-flags",
       "label": "No automatic audit flags before publication",
       "status": "needs-work",
-      "evidence": "3 flagged rows"
+      "evidence": "7 flagged rows"
     }
   ],
   "nextMoves": [

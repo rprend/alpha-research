@@ -1,10 +1,10 @@
 # Work Log
 
-Generated at: 2026-06-12T18:20:28.737Z
-Current pages: 14
-Historical snapshots: 2
+Generated at: 2026-06-12T18:24:48.804Z
+Current pages: 33
+Historical snapshots: 4
 Museums: 14
-Page types: about
+Page types: about, collection, education, exhibition, research
 
 ## Commands
 

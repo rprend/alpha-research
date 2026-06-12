@@ -113,5 +113,100 @@
     "museum": "Natural History Museum London",
     "pageType": "about",
     "url": "https://www.nhm.ac.uk/about-us.html"
+  },
+  {
+    "museum": "Tate",
+    "pageType": "collection",
+    "url": "https://www.tate.org.uk/art"
+  },
+  {
+    "museum": "J. Paul Getty Museum",
+    "pageType": "education",
+    "url": "https://www.getty.edu/education/"
+  },
+  {
+    "museum": "Rijksmuseum",
+    "pageType": "collection",
+    "url": "https://www.rijksmuseum.nl/en/rijksstudio"
+  },
+  {
+    "museum": "Rijksmuseum",
+    "pageType": "research",
+    "url": "https://www.rijksmuseum.nl/en/research"
+  },
+  {
+    "museum": "Musée du Louvre",
+    "pageType": "collection",
+    "url": "https://collections.louvre.fr/en/"
+  },
+  {
+    "museum": "Musée du Louvre",
+    "pageType": "exhibition",
+    "url": "https://www.louvre.fr/en/what-s-on/exhibitions"
+  },
+  {
+    "museum": "Art Institute of Chicago",
+    "pageType": "collection",
+    "url": "https://www.artic.edu/collection"
+  },
+  {
+    "museum": "Art Institute of Chicago",
+    "pageType": "exhibition",
+    "url": "https://www.artic.edu/exhibitions"
+  },
+  {
+    "museum": "Victoria and Albert Museum",
+    "pageType": "collection",
+    "url": "https://www.vam.ac.uk/collections"
+  },
+  {
+    "museum": "Victoria and Albert Museum",
+    "pageType": "research",
+    "url": "https://www.vam.ac.uk/research"
+  },
+  {
+    "museum": "Whitney Museum of American Art",
+    "pageType": "collection",
+    "url": "https://whitney.org/collection"
+  },
+  {
+    "museum": "Whitney Museum of American Art",
+    "pageType": "exhibition",
+    "url": "https://whitney.org/exhibitions"
+  },
+  {
+    "museum": "San Francisco Museum of Modern Art",
+    "pageType": "exhibition",
+    "url": "https://www.sfmoma.org/exhibitions/"
+  },
+  {
+    "museum": "Museum of Contemporary Art Chicago",
+    "pageType": "exhibition",
+    "url": "https://mcachicago.org/Exhibitions"
+  },
+  {
+    "museum": "Walker Art Center",
+    "pageType": "collection",
+    "url": "https://walkerart.org/collections"
+  },
+  {
+    "museum": "Philadelphia Museum of Art",
+    "pageType": "collection",
+    "url": "https://philamuseum.org/collection"
+  },
+  {
+    "museum": "High Museum of Art",
+    "pageType": "collection",
+    "url": "https://high.org/collections/"
+  },
+  {
+    "museum": "Natural History Museum London",
+    "pageType": "collection",
+    "url": "https://www.nhm.ac.uk/our-science/collections.html"
+  },
+  {
+    "museum": "Natural History Museum London",
+    "pageType": "research",
+    "url": "https://www.nhm.ac.uk/our-science.html"
   }
 ]

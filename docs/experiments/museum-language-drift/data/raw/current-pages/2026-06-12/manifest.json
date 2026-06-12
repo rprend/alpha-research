@@ -1,6 +1,6 @@
 {
   "runDate": "2026-06-12",
-  "startedAt": "2026-06-12T18:18:37.889Z",
+  "startedAt": "2026-06-12T18:22:31.223Z",
   "source": "current public museum pages",
   "requests": [
     {
@@ -186,6 +186,158 @@
       "status": 200,
       "wordCount": 454,
       "responsePath": "data/raw/current-pages/2026-06-12/natural-history-museum-london-about/index.html"
+    },
+    {
+      "museum": "Tate",
+      "pageType": "collection",
+      "url": "https://www.tate.org.uk/art",
+      "status": 200,
+      "wordCount": 671,
+      "responsePath": "data/raw/current-pages/2026-06-12/tate-collection/index.html"
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "pageType": "education",
+      "url": "https://www.getty.edu/education/",
+      "status": 200,
+      "wordCount": 436,
+      "responsePath": "data/raw/current-pages/2026-06-12/j-paul-getty-museum-education/index.html"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "pageType": "collection",
+      "url": "https://www.rijksmuseum.nl/en/rijksstudio",
+      "status": 200,
+      "wordCount": 139,
+      "responsePath": "data/raw/current-pages/2026-06-12/rijksmuseum-collection/index.html"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "pageType": "research",
+      "url": "https://www.rijksmuseum.nl/en/research",
+      "status": 200,
+      "wordCount": 158,
+      "responsePath": "data/raw/current-pages/2026-06-12/rijksmuseum-research/index.html"
+    },
+    {
+      "museum": "Musée du Louvre",
+      "pageType": "collection",
+      "url": "https://collections.louvre.fr/en/",
+      "status": 200,
+      "wordCount": 274,
+      "responsePath": "data/raw/current-pages/2026-06-12/mus-e-du-louvre-collection/index.html"
+    },
+    {
+      "museum": "Musée du Louvre",
+      "pageType": "exhibition",
+      "url": "https://www.louvre.fr/en/what-s-on/exhibitions",
+      "status": 200,
+      "wordCount": 133,
+      "responsePath": "data/raw/current-pages/2026-06-12/mus-e-du-louvre-exhibition/index.html"
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "pageType": "collection",
+      "url": "https://www.artic.edu/collection",
+      "status": 200,
+      "wordCount": 941,
+      "responsePath": "data/raw/current-pages/2026-06-12/art-institute-of-chicago-collection/index.html"
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "pageType": "exhibition",
+      "url": "https://www.artic.edu/exhibitions",
+      "status": 200,
+      "wordCount": 465,
+      "responsePath": "data/raw/current-pages/2026-06-12/art-institute-of-chicago-exhibition/index.html"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "pageType": "collection",
+      "url": "https://www.vam.ac.uk/collections",
+      "status": 200,
+      "wordCount": 2473,
+      "responsePath": "data/raw/current-pages/2026-06-12/victoria-and-albert-museum-collection/index.html"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "pageType": "research",
+      "url": "https://www.vam.ac.uk/research",
+      "status": 200,
+      "wordCount": 525,
+      "responsePath": "data/raw/current-pages/2026-06-12/victoria-and-albert-museum-research/index.html"
+    },
+    {
+      "museum": "Whitney Museum of American Art",
+      "pageType": "collection",
+      "url": "https://whitney.org/collection",
+      "status": 200,
+      "wordCount": 542,
+      "responsePath": "data/raw/current-pages/2026-06-12/whitney-museum-of-american-art-collection/index.html"
+    },
+    {
+      "museum": "Whitney Museum of American Art",
+      "pageType": "exhibition",
+      "url": "https://whitney.org/exhibitions",
+      "status": 200,
+      "wordCount": 290,
+      "responsePath": "data/raw/current-pages/2026-06-12/whitney-museum-of-american-art-exhibition/index.html"
+    },
+    {
+      "museum": "San Francisco Museum of Modern Art",
+      "pageType": "exhibition",
+      "url": "https://www.sfmoma.org/exhibitions/",
+      "status": 200,
+      "wordCount": 777,
+      "responsePath": "data/raw/current-pages/2026-06-12/san-francisco-museum-of-modern-art-exhibition/index.html"
+    },
+    {
+      "museum": "Museum of Contemporary Art Chicago",
+      "pageType": "exhibition",
+      "url": "https://mcachicago.org/Exhibitions",
+      "status": 200,
+      "wordCount": 202,
+      "responsePath": "data/raw/current-pages/2026-06-12/museum-of-contemporary-art-chicago-exhibition/index.html"
+    },
+    {
+      "museum": "Walker Art Center",
+      "pageType": "collection",
+      "url": "https://walkerart.org/collections",
+      "status": 200,
+      "wordCount": 1340,
+      "responsePath": "data/raw/current-pages/2026-06-12/walker-art-center-collection/index.html"
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "pageType": "collection",
+      "url": "https://philamuseum.org/collection",
+      "status": 200,
+      "wordCount": 270,
+      "responsePath": "data/raw/current-pages/2026-06-12/philadelphia-museum-of-art-collection/index.html"
+    },
+    {
+      "museum": "High Museum of Art",
+      "pageType": "collection",
+      "url": "https://high.org/collections/",
+      "status": 200,
+      "wordCount": 373,
+      "responsePath": "data/raw/current-pages/2026-06-12/high-museum-of-art-collection/index.html"
+    },
+    {
+      "museum": "Natural History Museum London",
+      "pageType": "collection",
+      "url": "https://www.nhm.ac.uk/our-science/collections.html",
+      "status": 200,
+      "wordCount": 487,
+      "responsePath": "data/raw/current-pages/2026-06-12/natural-history-museum-london-collection/index.html"
+    },
+    {
+      "museum": "Natural History Museum London",
+      "pageType": "research",
+      "url": "https://www.nhm.ac.uk/our-science.html",
+      "status": 200,
+      "wordCount": 415,
+      "responsePath": "data/raw/current-pages/2026-06-12/natural-history-museum-london-research/index.html"
     }
   ],
   "errors": [
@@ -201,7 +353,7 @@
       "pageType": "about",
       "url": "https://www.britishmuseum.org/about-us",
       "status": 403,
-      "body": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-yN4qSNY0FCGFlSaFjFJRAI&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font"
+      "body": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-Ix64V3PspJzb5dKW4soI9X&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font"
     },
     {
       "museum": "Smithsonian National Museum of African American History and Culture",
@@ -215,14 +367,14 @@
       "pageType": "about",
       "url": "https://www.moma.org/about/",
       "status": 403,
-      "body": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-lEWxhWxvQ6tHeJ46kTdfgh&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font"
+      "body": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-q9JIvyFMxm5BMCtP3bQU1p&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font"
     },
     {
       "museum": "National Gallery of Art",
       "pageType": "about",
       "url": "https://www.nga.gov/about.html",
       "status": 403,
-      "body": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-UiI734zVDRdMesTg9dvV3E&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font"
+      "body": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-DrYfBgwxVO3EhMKBVjhjeh&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font"
     },
     {
       "museum": "American Museum of Natural History",
@@ -236,7 +388,7 @@
       "pageType": "provenance",
       "url": "https://www.britishmuseum.org/about-us/british-museum-story/contested-objects-collection",
       "status": 403,
-      "body": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-wkgo8aBjqMUofDI8fRtwwZ&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font"
+      "body": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-ntRUyXNUj7jC0WJegEMsKM&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font"
     },
     {
       "museum": "The Metropolitan Museum of Art",
@@ -250,9 +402,9 @@
       "pageType": "collection",
       "url": "https://www.moma.org/collection/",
       "status": 403,
-      "body": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-BTrcVjp93RINoCeLwrlpD4&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font"
+      "body": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-tcHR6C5YxcA7icvxIivjYA&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font"
     }
   ],
-  "finishedAt": "2026-06-12T18:18:44.890Z",
-  "recordCount": 14
+  "finishedAt": "2026-06-12T18:22:41.042Z",
+  "recordCount": 33
 }

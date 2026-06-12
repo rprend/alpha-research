@@ -122,7 +122,7 @@ Status: longitudinal source probe with current pages, sparse Wayback snapshots, 
 
 Implemented:
 
-- 23-page museum source allowlist
+- 42-page museum source allowlist
 - current-page fetcher
 - Wayback target config
 - Wayback snapshot fetcher
@@ -141,18 +141,17 @@ Implemented:
 
 Current corpus:
 
-- 14 current public museum pages collected
-- 2 historical Wayback snapshots collected in the latest run; Wayback coverage is sparse and variable
+- 33 current public museum pages collected in the latest run
+- 4 historical Wayback snapshots collected in the latest run; Wayback coverage is sparse and variable
 - 14 museums represented
 - year range: 2010-2026
-- current source genre represented: about pages
-- readiness: not ready for publication because historical coverage, source-genre breadth, and audit flags still need work
+- current source genres represented: about, collection, education, exhibition, and research pages
+- readiness: not ready for publication because historical coverage and audit flags still need work
 
 Next implementation moves:
 
-- add museum provenance/repatriation pages that are fetchable without browser challenges
 - add annual reports as a separate source layer
-- add exhibition-description pages as a separate source layer
+- add provenance/repatriation pages that are fetchable without browser challenges
 - improve Wayback coverage using historical URLs and source-specific stable paths
 - clear or explain snippet audit flags before public claims
 

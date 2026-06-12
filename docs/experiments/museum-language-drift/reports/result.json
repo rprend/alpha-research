@@ -1,80 +1,308 @@
 {
-  "generatedAt": "2026-06-12T18:20:28.737Z",
-  "pages": 16,
-  "currentPages": 14,
-  "historicalPages": 2,
+  "generatedAt": "2026-06-12T18:24:48.804Z",
+  "pages": 37,
+  "currentPages": 33,
+  "historicalPages": 4,
   "museums": 14,
   "pageTypes": [
-    "about"
+    "about",
+    "collection",
+    "education",
+    "exhibition",
+    "research"
   ],
   "yearRange": {
     "earliest": 2010,
     "latest": 2026
   },
   "termFamilyTotals": {
-    "access_public": 47,
-    "research_scholarship": 35,
-    "community_inclusion": 34,
-    "civilization_world_culture": 2,
-    "decolonization_reckoning": 2,
-    "provenance_ownership": 1,
-    "restitution_repatriation": 0
+    "research_scholarship": 105,
+    "access_public": 100,
+    "community_inclusion": 42,
+    "provenance_ownership": 9,
+    "civilization_world_culture": 4,
+    "restitution_repatriation": 3,
+    "decolonization_reckoning": 3
   },
   "termFamilyByPageType": [
     {
       "page_type": "about",
       "family": "access_public",
       "pages": 14,
-      "count": 47,
-      "words": 6304,
-      "count_per_1000_words": 7.456
-    },
-    {
-      "page_type": "about",
-      "family": "research_scholarship",
-      "pages": 14,
-      "count": 35,
-      "words": 6304,
-      "count_per_1000_words": 5.552
+      "count": 52,
+      "words": 7002,
+      "count_per_1000_words": 7.426
     },
     {
       "page_type": "about",
       "family": "community_inclusion",
       "pages": 14,
-      "count": 34,
-      "words": 6304,
-      "count_per_1000_words": 5.393
+      "count": 40,
+      "words": 7002,
+      "count_per_1000_words": 5.713
+    },
+    {
+      "page_type": "about",
+      "family": "research_scholarship",
+      "pages": 14,
+      "count": 39,
+      "words": 7002,
+      "count_per_1000_words": 5.57
     },
     {
       "page_type": "about",
       "family": "civilization_world_culture",
       "pages": 14,
       "count": 2,
-      "words": 6304,
-      "count_per_1000_words": 0.317
+      "words": 7002,
+      "count_per_1000_words": 0.286
     },
     {
       "page_type": "about",
       "family": "decolonization_reckoning",
       "pages": 14,
       "count": 2,
-      "words": 6304,
-      "count_per_1000_words": 0.317
+      "words": 7002,
+      "count_per_1000_words": 0.286
     },
     {
       "page_type": "about",
       "family": "provenance_ownership",
       "pages": 14,
       "count": 1,
-      "words": 6304,
-      "count_per_1000_words": 0.159
+      "words": 7002,
+      "count_per_1000_words": 0.143
     },
     {
       "page_type": "about",
       "family": "restitution_repatriation",
       "pages": 14,
       "count": 0,
-      "words": 6304,
+      "words": 7002,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "collection",
+      "family": "research_scholarship",
+      "pages": 10,
+      "count": 25,
+      "words": 7510,
+      "count_per_1000_words": 3.329
+    },
+    {
+      "page_type": "collection",
+      "family": "access_public",
+      "pages": 10,
+      "count": 12,
+      "words": 7510,
+      "count_per_1000_words": 1.598
+    },
+    {
+      "page_type": "collection",
+      "family": "provenance_ownership",
+      "pages": 10,
+      "count": 4,
+      "words": 7510,
+      "count_per_1000_words": 0.533
+    },
+    {
+      "page_type": "collection",
+      "family": "restitution_repatriation",
+      "pages": 10,
+      "count": 2,
+      "words": 7510,
+      "count_per_1000_words": 0.266
+    },
+    {
+      "page_type": "collection",
+      "family": "community_inclusion",
+      "pages": 10,
+      "count": 2,
+      "words": 7510,
+      "count_per_1000_words": 0.266
+    },
+    {
+      "page_type": "collection",
+      "family": "civilization_world_culture",
+      "pages": 10,
+      "count": 1,
+      "words": 7510,
+      "count_per_1000_words": 0.133
+    },
+    {
+      "page_type": "collection",
+      "family": "decolonization_reckoning",
+      "pages": 10,
+      "count": 1,
+      "words": 7510,
+      "count_per_1000_words": 0.133
+    },
+    {
+      "page_type": "education",
+      "family": "access_public",
+      "pages": 1,
+      "count": 24,
+      "words": 436,
+      "count_per_1000_words": 55.046
+    },
+    {
+      "page_type": "education",
+      "family": "restitution_repatriation",
+      "pages": 1,
+      "count": 1,
+      "words": 436,
+      "count_per_1000_words": 2.294
+    },
+    {
+      "page_type": "education",
+      "family": "civilization_world_culture",
+      "pages": 1,
+      "count": 0,
+      "words": 436,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "education",
+      "family": "provenance_ownership",
+      "pages": 1,
+      "count": 0,
+      "words": 436,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "education",
+      "family": "decolonization_reckoning",
+      "pages": 1,
+      "count": 0,
+      "words": 436,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "education",
+      "family": "community_inclusion",
+      "pages": 1,
+      "count": 0,
+      "words": 436,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "education",
+      "family": "research_scholarship",
+      "pages": 1,
+      "count": 0,
+      "words": 436,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "exhibition",
+      "family": "research_scholarship",
+      "pages": 5,
+      "count": 10,
+      "words": 1867,
+      "count_per_1000_words": 5.356
+    },
+    {
+      "page_type": "exhibition",
+      "family": "access_public",
+      "pages": 5,
+      "count": 8,
+      "words": 1867,
+      "count_per_1000_words": 4.285
+    },
+    {
+      "page_type": "exhibition",
+      "family": "civilization_world_culture",
+      "pages": 5,
+      "count": 0,
+      "words": 1867,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "exhibition",
+      "family": "provenance_ownership",
+      "pages": 5,
+      "count": 0,
+      "words": 1867,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "exhibition",
+      "family": "restitution_repatriation",
+      "pages": 5,
+      "count": 0,
+      "words": 1867,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "exhibition",
+      "family": "decolonization_reckoning",
+      "pages": 5,
+      "count": 0,
+      "words": 1867,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "exhibition",
+      "family": "community_inclusion",
+      "pages": 5,
+      "count": 0,
+      "words": 1867,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "research",
+      "family": "research_scholarship",
+      "pages": 3,
+      "count": 31,
+      "words": 1098,
+      "count_per_1000_words": 28.233
+    },
+    {
+      "page_type": "research",
+      "family": "provenance_ownership",
+      "pages": 3,
+      "count": 4,
+      "words": 1098,
+      "count_per_1000_words": 3.643
+    },
+    {
+      "page_type": "research",
+      "family": "access_public",
+      "pages": 3,
+      "count": 4,
+      "words": 1098,
+      "count_per_1000_words": 3.643
+    },
+    {
+      "page_type": "research",
+      "family": "civilization_world_culture",
+      "pages": 3,
+      "count": 1,
+      "words": 1098,
+      "count_per_1000_words": 0.911
+    },
+    {
+      "page_type": "research",
+      "family": "restitution_repatriation",
+      "pages": 3,
+      "count": 0,
+      "words": 1098,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "research",
+      "family": "decolonization_reckoning",
+      "pages": 3,
+      "count": 0,
+      "words": 1098,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "research",
+      "family": "community_inclusion",
+      "pages": 3,
+      "count": 0,
+      "words": 1098,
       "count_per_1000_words": 0
     }
   ],
@@ -192,60 +420,116 @@
       "count_per_1000_words": 0
     },
     {
+      "year": 2020,
+      "family": "access_public",
+      "pages": 2,
+      "count": 5,
+      "words": 675,
+      "count_per_1000_words": 7.407
+    },
+    {
+      "year": 2020,
+      "family": "civilization_world_culture",
+      "pages": 2,
+      "count": 0,
+      "words": 675,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2020,
+      "family": "community_inclusion",
+      "pages": 2,
+      "count": 6,
+      "words": 675,
+      "count_per_1000_words": 8.889
+    },
+    {
+      "year": 2020,
+      "family": "decolonization_reckoning",
+      "pages": 2,
+      "count": 0,
+      "words": 675,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2020,
+      "family": "provenance_ownership",
+      "pages": 2,
+      "count": 0,
+      "words": 675,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2020,
+      "family": "research_scholarship",
+      "pages": 2,
+      "count": 4,
+      "words": 675,
+      "count_per_1000_words": 5.926
+    },
+    {
+      "year": 2020,
+      "family": "restitution_repatriation",
+      "pages": 2,
+      "count": 0,
+      "words": 675,
+      "count_per_1000_words": 0
+    },
+    {
       "year": 2026,
       "family": "access_public",
-      "pages": 14,
-      "count": 40,
-      "words": 5638,
-      "count_per_1000_words": 7.095
+      "pages": 33,
+      "count": 88,
+      "words": 16549,
+      "count_per_1000_words": 5.318
     },
     {
       "year": 2026,
       "family": "civilization_world_culture",
-      "pages": 14,
-      "count": 0,
-      "words": 5638,
-      "count_per_1000_words": 0
+      "pages": 33,
+      "count": 2,
+      "words": 16549,
+      "count_per_1000_words": 0.121
     },
     {
       "year": 2026,
       "family": "community_inclusion",
-      "pages": 14,
-      "count": 33,
-      "words": 5638,
-      "count_per_1000_words": 5.853
+      "pages": 33,
+      "count": 35,
+      "words": 16549,
+      "count_per_1000_words": 2.115
     },
     {
       "year": 2026,
       "family": "decolonization_reckoning",
-      "pages": 14,
-      "count": 2,
-      "words": 5638,
-      "count_per_1000_words": 0.355
+      "pages": 33,
+      "count": 3,
+      "words": 16549,
+      "count_per_1000_words": 0.181
     },
     {
       "year": 2026,
       "family": "provenance_ownership",
-      "pages": 14,
-      "count": 0,
-      "words": 5638,
-      "count_per_1000_words": 0
+      "pages": 33,
+      "count": 8,
+      "words": 16549,
+      "count_per_1000_words": 0.483
     },
     {
       "year": 2026,
       "family": "research_scholarship",
-      "pages": 14,
-      "count": 15,
-      "words": 5638,
-      "count_per_1000_words": 2.661
+      "pages": 33,
+      "count": 81,
+      "words": 16549,
+      "count_per_1000_words": 4.895
     },
     {
       "year": 2026,
       "family": "restitution_repatriation",
-      "pages": 14,
-      "count": 0,
-      "words": 5638,
-      "count_per_1000_words": 0
+      "pages": 33,
+      "count": 3,
+      "words": 16549,
+      "count_per_1000_words": 0.181
     }
   ],
   "sourceInventory": [
@@ -404,6 +688,226 @@
       "response_path": "data/raw/current-pages/2026-06-12/natural-history-museum-london-about/index.html"
     },
     {
+      "museum": "Tate",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "status": 200,
+      "word_count": 671,
+      "url": "https://www.tate.org.uk/art",
+      "archive_url": "",
+      "response_path": "data/raw/current-pages/2026-06-12/tate-collection/index.html"
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "page_type": "education",
+      "source_layer": "current",
+      "year": 2026,
+      "status": 200,
+      "word_count": 436,
+      "url": "https://www.getty.edu/education/",
+      "archive_url": "",
+      "response_path": "data/raw/current-pages/2026-06-12/j-paul-getty-museum-education/index.html"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "status": 200,
+      "word_count": 139,
+      "url": "https://www.rijksmuseum.nl/en/rijksstudio",
+      "archive_url": "",
+      "response_path": "data/raw/current-pages/2026-06-12/rijksmuseum-collection/index.html"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "page_type": "research",
+      "source_layer": "current",
+      "year": 2026,
+      "status": 200,
+      "word_count": 158,
+      "url": "https://www.rijksmuseum.nl/en/research",
+      "archive_url": "",
+      "response_path": "data/raw/current-pages/2026-06-12/rijksmuseum-research/index.html"
+    },
+    {
+      "museum": "Musée du Louvre",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "status": 200,
+      "word_count": 274,
+      "url": "https://collections.louvre.fr/en/",
+      "archive_url": "",
+      "response_path": "data/raw/current-pages/2026-06-12/mus-e-du-louvre-collection/index.html"
+    },
+    {
+      "museum": "Musée du Louvre",
+      "page_type": "exhibition",
+      "source_layer": "current",
+      "year": 2026,
+      "status": 200,
+      "word_count": 133,
+      "url": "https://www.louvre.fr/en/what-s-on/exhibitions",
+      "archive_url": "",
+      "response_path": "data/raw/current-pages/2026-06-12/mus-e-du-louvre-exhibition/index.html"
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "status": 200,
+      "word_count": 941,
+      "url": "https://www.artic.edu/collection",
+      "archive_url": "",
+      "response_path": "data/raw/current-pages/2026-06-12/art-institute-of-chicago-collection/index.html"
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "page_type": "exhibition",
+      "source_layer": "current",
+      "year": 2026,
+      "status": 200,
+      "word_count": 465,
+      "url": "https://www.artic.edu/exhibitions",
+      "archive_url": "",
+      "response_path": "data/raw/current-pages/2026-06-12/art-institute-of-chicago-exhibition/index.html"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "status": 200,
+      "word_count": 2473,
+      "url": "https://www.vam.ac.uk/collections",
+      "archive_url": "",
+      "response_path": "data/raw/current-pages/2026-06-12/victoria-and-albert-museum-collection/index.html"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "page_type": "research",
+      "source_layer": "current",
+      "year": 2026,
+      "status": 200,
+      "word_count": 525,
+      "url": "https://www.vam.ac.uk/research",
+      "archive_url": "",
+      "response_path": "data/raw/current-pages/2026-06-12/victoria-and-albert-museum-research/index.html"
+    },
+    {
+      "museum": "Whitney Museum of American Art",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "status": 200,
+      "word_count": 542,
+      "url": "https://whitney.org/collection",
+      "archive_url": "",
+      "response_path": "data/raw/current-pages/2026-06-12/whitney-museum-of-american-art-collection/index.html"
+    },
+    {
+      "museum": "Whitney Museum of American Art",
+      "page_type": "exhibition",
+      "source_layer": "current",
+      "year": 2026,
+      "status": 200,
+      "word_count": 290,
+      "url": "https://whitney.org/exhibitions",
+      "archive_url": "",
+      "response_path": "data/raw/current-pages/2026-06-12/whitney-museum-of-american-art-exhibition/index.html"
+    },
+    {
+      "museum": "San Francisco Museum of Modern Art",
+      "page_type": "exhibition",
+      "source_layer": "current",
+      "year": 2026,
+      "status": 200,
+      "word_count": 777,
+      "url": "https://www.sfmoma.org/exhibitions/",
+      "archive_url": "",
+      "response_path": "data/raw/current-pages/2026-06-12/san-francisco-museum-of-modern-art-exhibition/index.html"
+    },
+    {
+      "museum": "Museum of Contemporary Art Chicago",
+      "page_type": "exhibition",
+      "source_layer": "current",
+      "year": 2026,
+      "status": 200,
+      "word_count": 202,
+      "url": "https://mcachicago.org/Exhibitions",
+      "archive_url": "",
+      "response_path": "data/raw/current-pages/2026-06-12/museum-of-contemporary-art-chicago-exhibition/index.html"
+    },
+    {
+      "museum": "Walker Art Center",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "status": 200,
+      "word_count": 1340,
+      "url": "https://walkerart.org/collections",
+      "archive_url": "",
+      "response_path": "data/raw/current-pages/2026-06-12/walker-art-center-collection/index.html"
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "status": 200,
+      "word_count": 270,
+      "url": "https://philamuseum.org/collection",
+      "archive_url": "",
+      "response_path": "data/raw/current-pages/2026-06-12/philadelphia-museum-of-art-collection/index.html"
+    },
+    {
+      "museum": "High Museum of Art",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "status": 200,
+      "word_count": 373,
+      "url": "https://high.org/collections/",
+      "archive_url": "",
+      "response_path": "data/raw/current-pages/2026-06-12/high-museum-of-art-collection/index.html"
+    },
+    {
+      "museum": "Natural History Museum London",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "status": 200,
+      "word_count": 487,
+      "url": "https://www.nhm.ac.uk/our-science/collections.html",
+      "archive_url": "",
+      "response_path": "data/raw/current-pages/2026-06-12/natural-history-museum-london-collection/index.html"
+    },
+    {
+      "museum": "Natural History Museum London",
+      "page_type": "research",
+      "source_layer": "current",
+      "year": 2026,
+      "status": 200,
+      "word_count": 415,
+      "url": "https://www.nhm.ac.uk/our-science.html",
+      "archive_url": "",
+      "response_path": "data/raw/current-pages/2026-06-12/natural-history-museum-london-research/index.html"
+    },
+    {
+      "museum": "Tate",
+      "page_type": "about",
+      "source_layer": "wayback",
+      "year": 2020,
+      "status": 200,
+      "word_count": 553,
+      "url": "https://www.tate.org.uk/about-us",
+      "archive_url": "https://web.archive.org/web/20200622225145id_/https://www.tate.org.uk/about-us",
+      "response_path": "data/raw/wayback-snapshots/2026-06-12/tate-about/2020/index.html"
+    },
+    {
       "museum": "J. Paul Getty Museum",
       "page_type": "about",
       "source_layer": "wayback",
@@ -424,6 +928,17 @@
       "url": "https://www.getty.edu/about/",
       "archive_url": "https://web.archive.org/web/20150607141730id_/https://www.getty.edu/about/",
       "response_path": "data/raw/wayback-snapshots/2026-06-12/j-paul-getty-museum-about/2015/index.html"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "page_type": "about",
+      "source_layer": "wayback",
+      "year": 2020,
+      "status": 200,
+      "word_count": 122,
+      "url": "https://www.rijksmuseum.nl/en/about-us",
+      "archive_url": "https://web.archive.org/web/20201115091217id_/https://www.rijksmuseum.nl/en/about-us",
+      "response_path": "data/raw/wayback-snapshots/2026-06-12/rijksmuseum-about/2020/index.html"
     }
   ],
   "pagesDetail": [
@@ -800,6 +1315,522 @@
       }
     },
     {
+      "museum": "Tate",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.tate.org.uk/art",
+      "archive_url": "",
+      "timestamp": "",
+      "status": 200,
+      "words": 671,
+      "text_preview": "Discover art highlights from Tate&#x27;s collection | Tate Skip navigation What are you looking for? Try searching for... Hurvin Anderson Ophelia School visits to Tate Tate Modern Lates Tracey Emin DON'T MISS Exhibition Hurvin Anderson Tate Britain Until 23 Aug 2026 £18 / Free for Members --> Exhibition Tracey Emin: A Second Life Tate Modern Until 31 Aug 2026 £20 / Free for Members --> Become a Member Discover art Explore highlights from our collection of over 70,000 artworks Art Artists Art by theme Art terms Stories Explore more Art on display Choose from a selection of popular artworks in o",
+      "snippets": [],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 0,
+        "community_inclusion": 0,
+        "research_scholarship": 0
+      }
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "page_type": "education",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.getty.edu/education/",
+      "archive_url": "",
+      "timestamp": "",
+      "status": 200,
+      "words": 436,
+      "text_preview": "Education | Getty Skip to content Sitewide Messages Education K–12 Arts Education Education Programs K–12 Learning Resources Ready-to-use resources and activities that help teachers and students spark meaningful, art-centered learning Field Trips In-person and online field trips immerse students in Getty’s art and architecture, offering dynamic opportunities for exploration and discovery Teen Programs Collaborative arts experiences like the Teen Gallery Guides and the Unshuttered photography initiatives empower teens to create, think critically, and share their voices Teacher Programs Getty su",
+      "snippets": [
+        "n in 2026! Find out more News & Stories from Getty Education Read all Back Aboard the Big Yellow School Bus Field trips return to the Getty Villa Museum Nov 11, 2025 Getty Announces Landmark Gift for K-12 School Visit Program The Mia Chandler End",
+        "ebsite : Teen Gallery Guides A paid summer opportunity for high school students to engage deeply with art while guiding visitors Project : Mindfulness in the Museum Mindfulness programs at the Getty Museum foster contemplative visitor experiences",
+        "ebsite : Teen Gallery Guides A paid summer opportunity for high school students to engage deeply with art while guiding visitors Project : Mindfulness in the Museum Mindfulness programs at the Getty Museum foster contemplative visitor experiences t",
+        "Education | Getty Skip to content Sitewide Messages Education K–12 Arts Education Education Programs K–12 Learning Resources Read",
+        "Education | Getty Skip to content Sitewide Messages Education K–12 Arts Education Education Programs K–12 Learning Resources Ready-to-use resources and activities that help teachers and students spark meaningful, art-centered learning"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 1,
+        "decolonization_reckoning": 0,
+        "access_public": 24,
+        "community_inclusion": 0,
+        "research_scholarship": 0
+      }
+    },
+    {
+      "museum": "Rijksmuseum",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.rijksmuseum.nl/en/rijksstudio",
+      "archive_url": "",
+      "timestamp": "",
+      "status": 200,
+      "words": 139,
+      "text_preview": "Collection - Rijksmuseum Discover Art Explorer Language Nederlands (Dutch) English (English) Besucherinformationen Service visiteur Informazioni per i visitatori Informacion para los visitantes Informashon pa bishita ビジター·インフォメーション 游客信息 Информация для посетителей Login Collection Discover Melchior d'Hondecoeter Ed van der Elsken Thérèse Schwartze Maria van Oosterwijck What do you love? Try the Art Explorer Discover Art works Artworks Visitor stories Get started All visitor stories Ten favorites of my visit 2 March 2026 | 10 artworks Basalt´s studio Mythologie 27 November 2025 | 196 artworks Ch",
+      "snippets": [
+        "n der Elsken Thérèse Schwartze Maria van Oosterwijck What do you love? Try the Art Explorer Discover Art works Artworks Visitor stories Get started All visitor stories Ten favorites of my visit 2 March 2026 | 10 artworks Basalt´s studio Mythologie"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 2,
+        "community_inclusion": 0,
+        "research_scholarship": 0
+      }
+    },
+    {
+      "museum": "Rijksmuseum",
+      "page_type": "research",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.rijksmuseum.nl/en/research",
+      "archive_url": "",
+      "timestamp": "",
+      "status": 200,
+      "words": 158,
+      "text_preview": "Research - Rijksmuseum Cookie usage The Rijksmuseum uses cookies. A cookie is a small text file that a website stores on your computer or mobile device when you visit our site. Would you like to know more? Read our cookie policy . Accept No, rather not Home Language Nederlands (Dutch) English (English) Besucherinformationen Service visiteur Informazioni per i visitatori Informacion para los visitantes Informashon pa bishita &#x30D3;&#x30B8;&#x30BF;&#x30FC;&#xB7;&#x30A4;&#x30F3;&#x30D5;&#x30A9;&#x30E1;&#x30FC;&#x30B7;&#x30E7;&#x30F3; &#x6E38;&#x5BA2;&#x4FE1;&#x606F; &#x418;&#x43D;&#x444;&#x43E;",
+      "snippets": [
+        "gramme. In addition, anyone who wants to conduct research themselves by consulting the collection is welcome to use our public facilities. Our research Conduct research Rijksmuseum Bulletin Our quarterly, peer-reviewed journal Collection catalogu",
+        "Research - Rijksmuseum Cookie usage The Rijksmuseum uses cookies. A cookie is a small text file that a website stores on your co",
+        "essionals Studies in History Image requests Order high resolution images free of charge FAQ Collection research, museum archive, and information about museum objects."
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 1,
+        "community_inclusion": 0,
+        "research_scholarship": 7
+      }
+    },
+    {
+      "museum": "Musée du Louvre",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://collections.louvre.fr/en/",
+      "archive_url": "",
+      "timestamp": "",
+      "status": 200,
+      "words": 274,
+      "text_preview": "Louvre site des collections Close search zone Louvre en Français English Search Close search zone Search the collections Filters Advanced search Les collections du Louvre See entry Search the collections The Collections database consists of entries for more than 500,000 works in the Musée du Louvre and Musée National Eugène-Delacroix. Updated on a daily basis, it is the result of the continuous research and documentation efforts carried out by teams of experts from both museums. See more Explore the collections Architecture & decoration Arms & armour Arts of the book Jewellery & finery Drawing",
+      "snippets": [
+        "n the Musée du Louvre and Musée National Eugène-Delacroix. Updated on a daily basis, it is the result of the continuous research and documentation efforts carried out by teams of experts from both museums. See more Explore the collections Architect",
+        "u Louvre and Musée National Eugène-Delacroix. Updated on a daily basis, it is the result of the continuous research and documentation efforts carried out by teams of experts from both museums. See more Explore the collections Architecture & decoration A"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 0,
+        "community_inclusion": 0,
+        "research_scholarship": 2
+      }
+    },
+    {
+      "museum": "Musée du Louvre",
+      "page_type": "exhibition",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.louvre.fr/en/what-s-on/exhibitions",
+      "archive_url": "",
+      "timestamp": "",
+      "status": 200,
+      "words": 133,
+      "text_preview": "Exhibitions and Events - News and programming Exhibitions and Events - News and programming Aller au contenu Search English Langues English Français Español 中文 Louvre - Back to Home Online Boutique Tickets Exhibitions and Events News and programming - Exhibitions See past exhibitions Michelangelo Rodin Living bodies 15 April – 20 July 2026 Current Martin Schongauer The beautiful immortal 8 April – 20 July 2026 Current Spotlight exhibition Cyprus at the Louvre 11 February – 22 June 2026 Current Primeval Waters Lessons from Mesopotamia 20 May 2026 – 15 March 2027 Current Affinities Islamic Art W",
+      "snippets": [],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 0,
+        "community_inclusion": 0,
+        "research_scholarship": 0
+      }
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.artic.edu/collection",
+      "archive_url": "",
+      "timestamp": "",
+      "status": 200,
+      "words": 941,
+      "text_preview": "Discover Art & Artists | The Art Institute of Chicago Skip to Content Menu The Collection Explore thousands of artworks in the museum’s collection—from our renowned icons to lesser-known works from every corner of the globe—as well as our books, writings, reference materials, and other resources. Search Quick search options cityscapes Impressionism animals Essentials African Diaspora fashion Chicago Artists Pop Art mythology Surrealism arms and armor portraits masks Drinking and Dining furniture 21st Century architecture landscapes Art Deco ancient miniature woodblock print still life Modernis",
+      "snippets": [
+        "oku Began May 5, 2026 Inside the Exhibition 10 Things to Know About Matisse’s Jazz March 3, 2026 More featured articles Provenance Stories Provenance: Starting at the End of the Story April 7, 2026 Exploring the Collection Setting the Table in Mediev",
+        "Media (24507) Prints and Drawings (53740) Research Center (578) Textiles (11674) Show Only On view Public domain Recent acquisition Has multimedia Has educational resources Has 360° image Close Filters Starry Night and the Astronauts, 1972 Alma Thomas",
+        "398) Photography and Media (24507) Prints and Drawings (53740) Research Center (578) Textiles (11674) Show Only On view Public domain Recent acquisition Has multimedia Has educational resources Has 360° image Close Filters Starry Night and the As",
+        "Contemporary Art (4) Painting and Sculpture of Europe (2398) Photography and Media (24507) Prints and Drawings (53740) Research Center (578) Textiles (11674) Show Only On view Public domain Recent acquisition Has multimedia Has educational resourc",
+        "ions Career Opportunities Families Public Programs K-12 Educator Resources Teen Opportunities Research, Publishing, and Conservation From To S M T W T F S Done Reset Learn more Lorem ipsum Gallery actions Image actions Share Facebook Twitter Pinterest"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 3,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 2,
+        "community_inclusion": 0,
+        "research_scholarship": 3
+      }
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "page_type": "exhibition",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.artic.edu/exhibitions",
+      "archive_url": "",
+      "timestamp": "",
+      "status": 200,
+      "words": 465,
+      "text_preview": "Exhibitions | The Art Institute of Chicago Skip to Content Menu Exhibitions and Events Explore our wide-ranging exhibitions and various programs for all ages. Exhibition Korean National Treasures: 2,000 Years of Art Mar 7 &ndash; Jul 5, 2026 Exhibition Embroidered Traditions from Morocco to Afghanistan May 2, 2026 &ndash; Jan 25, 2027 Exhibition Raqib Shaw: Paradise Lost Jun 7, 2025 &ndash; Nov 15, 2026 Special Loan Installation Saint-Porchaire Ceramics: Rediscovered Treasures of the French Renaissance Mar 25 &ndash; Nov 15, 2026 Collection Rotation Closing Soon Emerging from Darkness: Prints ",
+      "snippets": [
+        "tter to receive updates. Email address Subscribe See all newsletters News and Exhibitions Career Opportunities Families Public Programs K-12 Educator Resources Teen Opportunities Research, Publishing, and Conservation Collection Installation New",
+        "wsletters News and Exhibitions Career Opportunities Families Public Programs K-12 Educator Resources Teen Opportunities Research, Publishing, and Conservation Collection Installation New Galleries for European Design Exhibition Jitish Kallat: Publi",
+        "ions Career Opportunities Families Public Programs K-12 Educator Resources Teen Opportunities Research, Publishing, and Conservation Collection Installation New Galleries for European Design Exhibition Jitish Kallat: Public Notice 3 Sep 9, 2024 &ndash;"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 3,
+        "community_inclusion": 0,
+        "research_scholarship": 4
+      }
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.vam.ac.uk/collections",
+      "archive_url": "",
+      "timestamp": "",
+      "status": 200,
+      "words": 2473,
+      "text_preview": "Explore the Collections &middot; V&A Skip to main content Explore the Collections If you're into it, it’s in the V&A Search more than 1.3 million objects Focused search All fields Title / object type Artist / maker Materials / techniques Place of origin Accession number By dates From To Use a hyphen to indicate dates BC. For example -800 is 800BC Explore by: Organisations Most searched for Here are our most searched-for objects and themes Dance costume, Adzido Pan African Dance Company, 1999 V&A South Kensington On display Rolling Stones Hot Licks logo, artwork, designed by Jon Pasche, 1970, L",
+      "snippets": [
+        "tion Circus Collection Embroidery Collection Theatre & Performance Collection Manuscripts Collection Costume Collection Provenance Research: How have objects come to be in the V&A? Collection The Glastonbury Festival Archive Collection Rapid Response",
+        "894, Japan V&A South Kensington View by appointment 'Columbia and Western #3', from the series 'Westward, the Course of Empire', by Mark Ruwedel, 1999 V&A South Kensington View by appointment 'The Earring', photograph, by Madame Yevonde, about 19",
+        "Collection Embroidery Collection Theatre & Performance Collection Manuscripts Collection Costume Collection Provenance Research: How have objects come to be in the V&A? Collection The Glastonbury Festival Archive Collection Rapid Response Collecti",
+        "ion Costume Collection Provenance Research: How have objects come to be in the V&A? Collection The Glastonbury Festival Archive Collection Rapid Response Collecting Collection Shoes Collection Furniture Collection Books Collection Architecture Col",
+        "r some objects not on display you can view by appointment. Our collections include the National Art Library and the V&A Archives . Tippoo's Tiger, mechanical organ, about 1793, Mysore, India V&A South Kensington Not on display (Detail) Trajan's col"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 1,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 1,
+        "access_public": 0,
+        "community_inclusion": 0,
+        "research_scholarship": 3
+      }
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "page_type": "research",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.vam.ac.uk/research",
+      "archive_url": "",
+      "timestamp": "",
+      "status": 200,
+      "words": 525,
+      "text_preview": "Research Institute THE V&A Research Institute Introducing the V&A Research Institute The V&A was the first national museum to establish a dedicated Research Department, and research continues to be a core activity of the Museum today. The V&A Research Institute plays a leading role in fostering interdisciplinary research collaborations and object-led, museum-based learning, across the fields of art, design and performance. Read more about us Research projects Research is deeply embedded in the V&A’s institutional culture, as we strive to promote knowledge, understanding and enjoyment of the de",
+      "snippets": [
+        "be identified, explored and analysed in the future. More info Current project Early Career Fellowships in Cultural and Heritage Institutions Generously supported by the Arts and Humanities Research Council (AHRC), eight early career research fello",
+        "The V&A is acting as the Cohort Coordination and Development team for this fellowship scheme. More info Current project Provenance Research at the V&A The V&A is actively engaged in provenance research. We continually seek to learn more about the ori",
+        "archives in our care, and to share this knowledge openly and transparently. We are particularly committed to examining colonial and Nazi-era provenance in our collections. More info View all Highlights Recent and upcoming Book Launch: Mosaics and",
+        "loved art of mosaics, from ancient Roman Villas to contemporary Tube stations. This evening, which includes after-hours access to the newly reopened Gilbert Galleries, celebrates the launch of &#039;Mosaics and Micromosaics: Art, Craft and Identi",
+        "arch Institute plays a leading role in fostering interdisciplinary research collaborations and object-led, museum-based learning, across the fields of art, design and performance. Read more about us Research projects Research is deeply embedded in"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 1,
+        "provenance_ownership": 4,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 2,
+        "community_inclusion": 0,
+        "research_scholarship": 21
+      }
+    },
+    {
+      "museum": "Whitney Museum of American Art",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://whitney.org/collection",
+      "archive_url": "",
+      "timestamp": "",
+      "status": 200,
+      "words": 542,
+      "text_preview": "Collection | Whitney Museum of American Art Skip to main content Whitney Museum of American Art Open today: 10:30 am–10 pm Tickets Book Tickets Whitney Biennial Book Tickets Whitney Biennial Book Tickets Become a member Menu Open today: 10:30 am–10 pm Book Tickets Whitney Biennial Book Tickets Whitney Biennial Book Tickets Become a member Collection Explore the Whitney's collection of over 27,000 works, created by more than 4,100 American artists during the twentieth and twenty-first centuries. Go Relevance Accession date (newest–oldest) Accession date (oldest–newest) Artist (a–z) Artist (z–a)",
+      "snippets": [
+        "27,000 works, created by more than 4,100 American artists during the twentieth and twenty-first centuries. Go Relevance Accession date (newest–oldest) Accession date (oldest–newest) Artist (a–z) Artist (z–a) Date (newest–oldest) Date (oldest–newe",
+        "2024 Angel Otero Constellation 2024 Christine Sun Kim Ghosted 2024 27,039 works API documentation Images & permissions Open access On the Hour A 30-second online art project: Frank WANG Yefeng, The Levitating Perils #2 Learn more about this project L",
+        "essed, stress, problem, etc.) 2024 Gonzalo Reyes Rodriguez Looking At A Photograph I 2024 Gonzalo Reyes Rodriguez Photo Documentation I 2024 Gonzalo Reyes Rodriguez Darkroom I 2024 Gonzalo Reyes Rodriguez Looking At A Photograph II 2024 Gonzalo Reyes Ro"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 2,
+        "community_inclusion": 0,
+        "research_scholarship": 2
+      }
+    },
+    {
+      "museum": "Whitney Museum of American Art",
+      "page_type": "exhibition",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://whitney.org/exhibitions",
+      "archive_url": "",
+      "timestamp": "",
+      "status": 200,
+      "words": 290,
+      "text_preview": "Exhibitions | Whitney Museum of American Art Skip to main content Whitney Museum of American Art Open today: 10:30 am–10 pm Tickets Book Tickets Whitney Biennial Book Tickets Whitney Biennial Book Tickets Become a member Menu Open today: 10:30 am–10 pm Book Tickets Whitney Biennial Book Tickets Whitney Biennial Book Tickets Become a member Exhibitions Current Current Upcoming Upcoming Online Online Public art Public art Archive Archive Whitney Biennial 2026 Through Aug 23 Andy Warhol Family Album Through Oct 19 Hyundai Terrace Commission: Kelly Akashi Through Aug 23 Mabel Dwight: Cool Head, Wa",
+      "snippets": [
+        "Book Tickets Whitney Biennial Book Tickets Become a member Exhibitions Current Current Upcoming Upcoming Online Online Public art Public art Archive Archive Whitney Biennial 2026 Through Aug 23 Andy Warhol Family Album Through Oct 19 Hyundai Ter",
+        "Biennial Book Tickets Become a member Exhibitions Current Current Upcoming Upcoming Online Online Public art Public art Archive Archive Whitney Biennial 2026 Through Aug 23 Andy Warhol Family Album Through Oct 19 Hyundai Terrace Commission: Kelly"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 3,
+        "community_inclusion": 0,
+        "research_scholarship": 5
+      }
+    },
+    {
+      "museum": "San Francisco Museum of Modern Art",
+      "page_type": "exhibition",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.sfmoma.org/exhibitions/",
+      "archive_url": "",
+      "timestamp": "",
+      "status": 200,
+      "words": 777,
+      "text_preview": "What's On View &middot; SFMOMA Skip to content Main navigation What&#8217;s On View Current Upcoming Past Floor 4 Matisse's Femme au chapeau: A Modern Scandal Discover how one of Matisse's most iconic works ignited a color revolution in 1905—and how its impact still shapes art today. New Exhibition: Opened May 16 Floor 4 Fisher Collection Ways of Seeing: Fourteen Artists A series of monographic galleries dedicated to 14 artists, including Andy Warhol, Agnes Martin, Joan Mitchell, and Richard Serra, whose works reflect a variety of mediums, styles and approaches. Ongoing Floor 6 Fisher Collecti",
+      "snippets": [
+        "usama: Aspiring to Pumpkin’s Love, the Love in My Heart Sep 16, 2023&ndash;Nov 02, 2025 Floor 6 Ragnar Kjartansson: The Visitors Closing September 28, 2025 Floor 3 Kunié Sugiura: Photopainting Apr 26, 2025&ndash;Sep 14, 2025 Floor 4 Ruth Asawa: Ret",
+        "1 free to see Kara Walker: Fortuna and the Immortality Garden (Machine) July 01, 2024&ndash;May 31, 2026 Floor 2, Koret Education Center free to see The Things We Use to Make the Things We Must June 01, 2025&ndash;May 30, 2026 Floor 1 free to see Sa"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 2,
+        "community_inclusion": 0,
+        "research_scholarship": 0
+      }
+    },
+    {
+      "museum": "Museum of Contemporary Art Chicago",
+      "page_type": "exhibition",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://mcachicago.org/Exhibitions",
+      "archive_url": "",
+      "timestamp": "",
+      "status": 200,
+      "words": 202,
+      "text_preview": "Exhibitions Archive - MCA Chicago Jump to content Menu Exhibitions The MCA’s exhibitions feature the art of our time in every possible media by artists of local and international renown. Explore the variety of MCA exhibitions on view now, coming up next, or from our rich past. Images in this section are published for educational use under the umbrella of the Fair Use doctrine . Current Exhibitions Atrium Project Mar 25, 2025 - Jun 14, 2026 Atrium Project: Edie Fake Aug 02, 2025 - Jul 05, 2026 Collection in Conversation with Pablo Helguera Jul 05, 2025 - Aug 16, 2026 City in a Garden: Queer Art",
+      "snippets": [
+        "Exhibitions Archive - MCA Chicago Jump to content Menu Exhibitions The MCA’s exhibitions feature the art of our time in every possible medi"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 0,
+        "community_inclusion": 0,
+        "research_scholarship": 1
+      }
+    },
+    {
+      "museum": "Walker Art Center",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://walkerart.org/collections",
+      "archive_url": "",
+      "timestamp": "",
+      "status": 200,
+      "words": 1340,
+      "text_preview": "Walker Art Center | Art & Artists Skip to main content Open Today 10AM&ndash;5PM Search What&#8217;s On Visit Art & Artists Walker Visit Join & Give Join & Give Shop Tickets Search Toggle navigation menu Main Menu The Walker Art Center is open 10 am&ndash;5 pm today. Search website Search Shop Art & Artists With more than 16,000 works by nearly 5,000 artists, the Walker Art Center&#8217;s contemporary collections reflect its multidisciplinary mission and the increasingly interdisciplinary practice of artists. Walker Collection Artists Exhibitions Library and Archives Collection Highlights Spoo",
+      "snippets": [
+        "anormal, West Coast conceptual artists, and confronting the unseen. Children’s Exhibitions at the Walker Jill Vuchetich Learning Visual Arts Children’s Exhibitions at the Walker From a 1948 Children’s Fair to Keith Haring, Glenn Ligon, and a toy by",
+        "nd more than 6,000 audio and video files documenting Walker events and programming. More about the Library and Archives Scholarship Living Collections Catalogue Living Collections Catalogue Walker Publishing Walker Publishing Interdisciplinary Initiat",
+        "mance work by providing artists with financial support and often other resources, such as space, time, and technical or curatorial expertise. View Past Commissions Minneapolis Sculpture Garden Anchored by the beloved Spoonbridge and Cherry, the 11-ac",
+        "y mission and the increasingly interdisciplinary practice of artists. Walker Collection Artists Exhibitions Library and Archives Collection Highlights Spoonbridge and Cherry 1985-1988 Spoonbridge and Cherry More info L.A. Liberty 1992 L.A. Liberty"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 1,
+        "community_inclusion": 0,
+        "research_scholarship": 8
+      }
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://philamuseum.org/collection",
+      "archive_url": "",
+      "timestamp": "",
+      "status": 200,
+      "words": 270,
+      "text_preview": "Skip to Main Content Come on down! Expect road closures, delays, and detours due to Parkway activities. Learn more . Open today: 10am-8:45pm Simplify Fonts Membership Buy Tickets Tickets 🔍 Menu Open today: 10am-8:45pm Visit What&#x27;s On Art & Artists Learn Support Search 🔍 Membership Simplify Fonts Collection About our online collection To serve our educational mission as caretakers of great collections, the Philadelphia Museum of Art is committed to offering broad access to our holdings. More than half of our collection of 240,000+ objects is available online. Our online collections refle",
+      "snippets": [
+        "r educational mission as caretakers of great collections, the Philadelphia Museum of Art is committed to offering broad access to our holdings. More than half of our collection of 240,000+ objects is available online. Our online collections refle",
+        "150-year history; you therefore may come across information that is incomplete, incorrect, or does not present current research. The objects themselves, produced by a range of artists across cultures and times, may contain offensive racial, gender"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 1,
+        "community_inclusion": 0,
+        "research_scholarship": 1
+      }
+    },
+    {
+      "museum": "High Museum of Art",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://high.org/collections/",
+      "archive_url": "",
+      "timestamp": "",
+      "status": 200,
+      "words": 373,
+      "text_preview": "You searched for - High Museum of Art Search Result Type All Our Collection Exhibitions Events Teacher Resources Filters Filter By Date Created From this.max){this.value = this.max;} if (this.value andand this.value this.maxLength){this.value = this.value.slice(0, this.maxLength);}\" onkeyup=\"javascript: this.value=this.value.replace(/[^\\d]/,'').substring(0,4);\" placeholder=\"YYYY\" > To this.max){this.value = this.max;} if (this.value andand this.value this.maxLength){this.value = this.value.slice(0, this.maxLength);}\" onkeyup=\"javascript: this.value=this.value.replace(/[^\\d]/,'').substring(0,4)",
+      "snippets": [
+        "Government Engineering English Language Arts History Math Science Social Studies Sociology STEAM Technology Visual Art World Cultures + Show all Clear filters 0 Result",
+        ".value=this.value.replace(/[^\\d]/,'').substring(0,4);\" placeholder=\"YYYY\" > input.dispatchEvent(collectionDatePicker)); return false;\">Apply Date Range + Show all Date Acquired From this.max){this.value = this.max;} if (this.value andand this.val",
+        "ns Art Making Culture Collective Friday Nights Oasis Wine and Dine + Show all For Educators All Homeschool Professional Learning + Show all For Families and Kids All Family Saturday UPS Second Sundays Weekend Family Tours Young Children + Show all"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 1,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 2,
+        "decolonization_reckoning": 0,
+        "access_public": 1,
+        "community_inclusion": 0,
+        "research_scholarship": 0
+      }
+    },
+    {
+      "museum": "Natural History Museum London",
+      "page_type": "collection",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.nhm.ac.uk/our-science/collections.html",
+      "archive_url": "",
+      "timestamp": "",
+      "status": 200,
+      "words": 487,
+      "text_preview": "Collections | Natural History Museum Collections Comprising more than 80 million objects, the collections in our care represent some of the world’s most important natural history resources. The diversity of specimens supports research addressing key questions about life on Earth, the geology of our planet and the evolution of our solar system. Find a specimen The collections are being digitised and are accessible via the Data Portal. Explore the collections Entomology collections Explore one of the world’s oldest and most significant entomology collections, comprising over 34 million insects a",
+      "snippets": [
+        "eology of our planet and the evolution of our solar system. Find a specimen The collections are being digitised and are accessible via the Data Portal. Explore the collections Entomology collections Explore one of the world’s oldest and most sign",
+        "n more about the collections Digitising the collections We are digitising the collections to give the global scientific community access to unrivalled historical, geographic and taxonomic specimen data. Art and science With more than half a million",
+        "illion objects, the collections in our care represent some of the world’s most important natural history resources. The diversity of specimens supports research addressing key questions about life on Earth, the geology of our planet and the evolutio",
+        "in our care represent some of the world’s most important natural history resources. The diversity of specimens supports research addressing key questions about life on Earth, the geology of our planet and the evolution of our solar system. Find a s",
+        "esent a unique and valuable resource with the capacity to preserve genetic material for future generations. Library and archive collections The library and archives contain one of the world’s finest collections of natural history literature, artwo"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 3,
+        "community_inclusion": 2,
+        "research_scholarship": 6
+      }
+    },
+    {
+      "museum": "Natural History Museum London",
+      "page_type": "research",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.nhm.ac.uk/our-science.html",
+      "archive_url": "",
+      "timestamp": "",
+      "status": 200,
+      "words": 415,
+      "text_preview": "Our science | Natural History Museum Our science Our extensive collections, world-class facilities and expertise are helping to tackle some of the biggest global challenges. Research Discover how we are using our broad knowledge and cutting-edge techniques to benefit both people and the planet. Collections, data and services Find out how you can access our world-renowned collections as well as our data, library, labs and other science facilities. Find a scientist Search our directory of over 300 experts. Study and events Study alongside Museum scientists in our range of master's, PhD and train",
+      "snippets": [
+        "and cutting-edge techniques to benefit both people and the planet. Collections, data and services Find out how you can access our world-renowned collections as well as our data, library, labs and other science facilities. Find a scientist Search",
+        "xtensive collections, world-class facilities and expertise are helping to tackle some of the biggest global challenges. Research Discover how we are using our broad knowledge and cutting-edge techniques to benefit both people and the planet. Collec"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 1,
+        "community_inclusion": 0,
+        "research_scholarship": 3
+      }
+    },
+    {
+      "museum": "Tate",
+      "page_type": "about",
+      "source_layer": "wayback",
+      "year": 2020,
+      "url": "https://www.tate.org.uk/about-us",
+      "archive_url": "https://web.archive.org/web/20200622225145id_/https://www.tate.org.uk/about-us",
+      "timestamp": "20200622225145",
+      "status": 200,
+      "words": 553,
+      "text_preview": "About Us | Tate Shop Search Suggested terms: Art Terms Tate Papers Turner Collection Tate Kids Tate Collective ARTIST ROOMS Tate Exchange Late at Tate Jenny Holzer Barbara Hepworth Museum Angelica Kauffman Become a Member About Tate Our mission is to increase the public&rsquo;s enjoyment and understanding of British art from the 16th century to the present day and of international modern and contemporary art Who we are History of Tate Find out about the history of our four galleries and the people behind it Governance Find out how we are governed and funded Our commitment to race equality Tate",
+      "snippets": [
+        "er with senior Tate staff, sets our strategic direction Tate Reports Find the latest annual review of Tate's activities Access to Information Find out how we can help when seeking information about Tate Policies and Procedures Find our policies i",
+        "t Tate Jenny Holzer Barbara Hepworth Museum Angelica Kauffman Become a Member About Tate Our mission is to increase the public&rsquo;s enjoyment and understanding of British art from the 16th century to the present day and of international modern",
+        "Tate St Ives Director Read Anne Barlow's profile Director of Collection Care Read Rosemary Lynch's profile Director of Learning and Research Read Anna Cutler's profile Director of Finance and Estates Read Stephen Wingfield's profile Senior group c",
+        "t how we can help when seeking information about Tate Policies and Procedures Find our policies including diversity and inclusion, website, modern slavery and human trafficking Accessibility Statement Tate's website accessibility statement Our senio",
+        "mation Find out how we can help when seeking information about Tate Policies and Procedures Find our policies including diversity and inclusion, website, modern slavery and human trafficking Accessibility Statement Tate's website accessibility state"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 5,
+        "community_inclusion": 6,
+        "research_scholarship": 4
+      }
+    },
+    {
       "museum": "J. Paul Getty Museum",
       "page_type": "about",
       "source_layer": "wayback",
@@ -849,6 +1880,28 @@
         "access_public": 6,
         "community_inclusion": 1,
         "research_scholarship": 20
+      }
+    },
+    {
+      "museum": "Rijksmuseum",
+      "page_type": "about",
+      "source_layer": "wayback",
+      "year": 2020,
+      "url": "https://www.rijksmuseum.nl/en/about-us",
+      "archive_url": "https://web.archive.org/web/20201115091217id_/https://www.rijksmuseum.nl/en/about-us",
+      "timestamp": "20201115091217",
+      "status": 200,
+      "words": 122,
+      "text_preview": "About us - Rijksmuseum Cookie usage The Rijksmuseum uses cookies. A cookie is a small text file that a website stores on your computer or mobile device when you visit our site. Would you like to know more? Read our cookie policy . Accept No, rather not The Rijksmuseum Language Nederlands (Dutch) English (English) Besucher information Service visiteur Informazioni per i visitatori Informacion para los visitantes &#x30D3;&#x30B8;&#x30BF;&#x30FC;&#xB7;&#x30A4;&#x30F3;&#x30D5;&#x30A9;&#x30E1;&#x30FC;&#x30B7;&#x30E7;&#x30F3; &#x6E38;&#x5BA2;&#x4FE1;&#x606F; &#x418;&#x43D;&#x444;&#x43E;&#x440;&#x43C",
+      "snippets": [],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 0,
+        "community_inclusion": 0,
+        "research_scholarship": 0
       }
     }
   ],

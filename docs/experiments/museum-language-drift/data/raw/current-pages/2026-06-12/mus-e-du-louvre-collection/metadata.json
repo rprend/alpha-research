@@ -1,0 +1,10 @@
+{
+  "museum": "Musée du Louvre",
+  "pageType": "collection",
+  "url": "https://collections.louvre.fr/en/",
+  "fetchedAt": "2026-06-12T18:22:36.751Z",
+  "status": 200,
+  "bytes": 54854,
+  "wordCount": 274,
+  "title": "Louvre site des collections"
+}

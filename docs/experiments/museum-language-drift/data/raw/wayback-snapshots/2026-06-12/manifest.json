@@ -7,7 +7,7 @@
     2020
   ],
   "targetConfig": "wayback-targets.json",
-  "startedAt": "2026-06-12T18:18:44.940Z",
+  "startedAt": "2026-06-12T18:22:41.079Z",
   "requests": [
     {
       "museum": "Tate",
@@ -28,7 +28,12 @@
       "pageType": "about",
       "url": "https://www.tate.org.uk/about-us",
       "year": 2020,
-      "status": "no-snapshot"
+      "timestamp": "20200622225145",
+      "originalStatus": "200",
+      "archiveUrl": "https://web.archive.org/web/20200622225145id_/https://www.tate.org.uk/about-us",
+      "status": 200,
+      "wordCount": 553,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/tate-about/2020/index.html"
     },
     {
       "museum": "J. Paul Getty Museum",
@@ -59,7 +64,13 @@
       "pageType": "about",
       "url": "https://www.getty.edu/about/",
       "year": 2020,
-      "status": "no-snapshot"
+      "timestamp": "20200611195034",
+      "originalStatus": "200",
+      "archiveUrl": "https://web.archive.org/web/20200611195034id_/https://www.getty.edu/about/",
+      "status": "quality-failed",
+      "httpStatus": 200,
+      "wordCount": 9,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/j-paul-getty-museum-about/2020/index.html"
     },
     {
       "museum": "Rijksmuseum",
@@ -80,7 +91,12 @@
       "pageType": "about",
       "url": "https://www.rijksmuseum.nl/en/about-us",
       "year": 2020,
-      "status": "no-snapshot"
+      "timestamp": "20201115091217",
+      "originalStatus": "200",
+      "archiveUrl": "https://web.archive.org/web/20201115091217id_/https://www.rijksmuseum.nl/en/about-us",
+      "status": 200,
+      "wordCount": 122,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/rijksmuseum-about/2020/index.html"
     },
     {
       "museum": "Musée du Louvre",
@@ -330,18 +346,15 @@
       "error": "No CDX snapshot found"
     },
     {
-      "museum": "Tate",
-      "pageType": "about",
-      "url": "https://www.tate.org.uk/about-us",
-      "year": 2020,
-      "error": "No CDX snapshot found"
-    },
-    {
       "museum": "J. Paul Getty Museum",
       "pageType": "about",
       "url": "https://www.getty.edu/about/",
       "year": 2020,
-      "error": "No CDX snapshot found"
+      "timestamp": "20200611195034",
+      "archiveUrl": "https://web.archive.org/web/20200611195034id_/https://www.getty.edu/about/",
+      "status": 200,
+      "wordCount": 9,
+      "error": "Fetched archived page did not meet minimum readable word count"
     },
     {
       "museum": "Rijksmuseum",
@@ -355,13 +368,6 @@
       "pageType": "about",
       "url": "https://www.rijksmuseum.nl/en/about-us",
       "year": 2015,
-      "error": "No CDX snapshot found"
-    },
-    {
-      "museum": "Rijksmuseum",
-      "pageType": "about",
-      "url": "https://www.rijksmuseum.nl/en/about-us",
-      "year": 2020,
       "error": "No CDX snapshot found"
     },
     {
@@ -596,6 +602,6 @@
       "error": "No CDX snapshot found"
     }
   ],
-  "finishedAt": "2026-06-12T18:20:28.655Z",
-  "recordCount": 2
+  "finishedAt": "2026-06-12T18:24:48.697Z",
+  "recordCount": 4
 }
