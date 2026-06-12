@@ -4047,7 +4047,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveArchivePromotions = archivePromotions ?? loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
@@ -4057,6 +4057,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const effectiveSelfStudyModules = selfStudyModules ?? loadJsonl(join(outDir, 'self_study_modules.jsonl'))
   const effectiveSelfStudyPacingPlan = selfStudyPacingPlan ?? []
   const effectiveSelfStudyPacingProfiles = selfStudyPacingProfiles ?? []
+  const effectiveSelfStudyProgressLedger = selfStudyProgressLedger ?? []
   const effectiveSelfStudyPortfolioMilestones = selfStudyPortfolioMilestones ?? []
   const effectiveSelfStudyPortfolioBriefs = selfStudyPortfolioBriefs ?? []
   const effectiveSelfStudyPortfolioReferencePackets = selfStudyPortfolioReferencePackets ?? []
@@ -4291,6 +4292,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const curriculumModules = effectiveSelfStudyModules.length ? effectiveSelfStudyModules : generatedCurriculumModules
   const generatedPacingPlan = buildSelfStudyPacingPlan(curriculumModules)
   const pacingPlan = effectiveSelfStudyPacingPlan.length ? effectiveSelfStudyPacingPlan : generatedPacingPlan
+  const generatedProgressLedger = buildSelfStudyProgressLedger(curriculumModules, pacingPlan)
+  const progressLedger = effectiveSelfStudyProgressLedger.length ? effectiveSelfStudyProgressLedger : generatedProgressLedger
   const generatedPacingProfiles = buildSelfStudyPacingProfiles(pacingPlan)
   const pacingProfiles = effectiveSelfStudyPacingProfiles.length ? effectiveSelfStudyPacingProfiles : generatedPacingProfiles
   const generatedPortfolioMilestones = buildSelfStudyPortfolioMilestones(curriculumModules, pacingPlan)
@@ -4383,6 +4386,22 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   ).length
   const pacingModuleCoverage = new Set(pacingPlan.map((row) => row.module_id)).size
   const pacingIds = new Set(pacingPlan.map((row) => row.pacing_id))
+  const progressLedgerErrors = progressLedger.filter((entry) =>
+    !entry.ledger_id
+      || !entry.pacing_id
+      || !pacingIds.has(entry.pacing_id)
+      || !curriculumModuleIds.has(entry.module_id)
+      || !Number.isInteger(entry.week_number)
+      || entry.assignment_id && !assignmentIds.has(entry.assignment_id)
+      || entry.reading_ids?.some((id) => !readingIds.has(id))
+      || !entry.output_checklist?.length
+      || !entry.critique_revision_log?.length
+      || !entry.evidence_warning_log
+      || !Array.isArray(entry.unresolved_evidence_warnings)
+      || !entry.source_ids?.length
+      || entry.source_ids.some((id) => !sourceIds.has(id))
+  )
+  const progressLedgerGeneratedMismatch = effectiveSelfStudyProgressLedger.length > 0 && effectiveSelfStudyProgressLedger.length !== generatedProgressLedger.length
   const pacingProfileErrors = pacingProfiles.filter((profile) =>
     !['compressed', 'standard', 'slow'].includes(profile.profile_id)
       || !Number.isFinite(profile.estimated_total_hours)
@@ -4756,6 +4775,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${pacingProfiles.length} pacing profiles; ${pacingProfileErrors.length} profile reference errors; generated mismatch=${pacingProfilesGeneratedMismatch}.`,
     },
     {
+      id: 'self_study_progress_ledger_tracks_outputs_revisions_and_warnings',
+      status: progressLedgerErrors.length === 0 && progressLedger.length === pacingPlan.length && progressLedger.length > 0 && !progressLedgerGeneratedMismatch ? 'pass' : 'fail',
+      detail: `${progressLedger.length} progress ledger rows for ${pacingPlan.length} pacing rows; ${progressLedgerErrors.length} ledger reference errors; generated mismatch=${progressLedgerGeneratedMismatch}.`,
+    },
+    {
       id: 'self_study_portfolio_milestones_have_valid_review_packages',
       status: portfolioMilestoneErrors.length === 0 && portfolioMilestones.length > 0 && !portfolioMilestonesGeneratedMismatch ? 'pass' : portfolioMilestoneErrors.length === 0 && portfolioMilestones.length > 0 ? 'warn' : 'fail',
       detail: `${portfolioMilestones.length} portfolio milestones; ${portfolioMilestoneErrors.length} milestone reference errors; generated mismatch=${portfolioMilestonesGeneratedMismatch}.`,
@@ -4924,6 +4948,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_pacing_rows_with_prerequisites: pacingRowsWithPrerequisites,
       self_study_pacing_rows_with_workload_estimates: pacingRowsWithWorkload,
       self_study_pacing_profiles: pacingProfiles.length,
+      self_study_progress_ledger_rows: progressLedger.length,
       self_study_portfolio_milestones: portfolioMilestones.length,
       self_study_portfolio_briefs: portfolioBriefs.length,
       self_study_portfolio_reference_packets: portfolioReferencePackets.length,
@@ -5540,6 +5565,7 @@ Overall status: ${validation.status}
 - Self-study pacing rows with prerequisites: ${validation.counts.self_study_pacing_rows_with_prerequisites}
 - Self-study pacing rows with workload estimates: ${validation.counts.self_study_pacing_rows_with_workload_estimates}
 - Self-study pacing profiles: ${validation.counts.self_study_pacing_profiles}
+- Self-study progress ledger rows: ${validation.counts.self_study_progress_ledger_rows}
 - Self-study portfolio milestones: ${validation.counts.self_study_portfolio_milestones}
 - Self-study portfolio briefs: ${validation.counts.self_study_portfolio_briefs}
 - Self-study portfolio reference packets: ${validation.counts.self_study_portfolio_reference_packets}
@@ -6567,6 +6593,106 @@ function pacingProfileGroup(calendarWeek, rows) {
   }
 }
 
+function buildSelfStudyProgressLedger(selfStudyModules, pacingPlan) {
+  const modulesById = new Map(selfStudyModules.map((module) => [module.module_id, module]))
+  return pacingPlan.map((row) => {
+    const module = modulesById.get(row.module_id)
+    const unresolvedWarnings = module?.missing_evidence_warnings ?? []
+    const assignment = module?.assignments?.find((item) => item.assignment_id === row.assignment_id) ?? module?.assignments?.[0] ?? null
+    return {
+      ledger_id: `ledger_${row.pacing_id}`,
+      generated_at: retrievedAt,
+      pacing_id: row.pacing_id,
+      week_number: row.week_number,
+      module_id: row.module_id,
+      module_stage: row.module_stage,
+      track_id: row.track_id,
+      track_title: row.track_title,
+      course_code: row.course_code ?? null,
+      course_title: row.course_title ?? null,
+      assignment_id: row.assignment_id ?? null,
+      reading_ids: row.reading_ids ?? [],
+      expected_output: row.expected_output,
+      output_checklist: [
+        {
+          item_id: `${row.pacing_id}_artifact`,
+          label: row.expected_output,
+          status: 'not_started',
+          evidence_to_attach: ['artifact file or URL', 'short process note'],
+        },
+        {
+          item_id: `${row.pacing_id}_process`,
+          label: 'process documentation',
+          status: 'not_started',
+          evidence_to_attach: ['sketches, drafts, screenshots, or prototype snapshots'],
+        },
+        {
+          item_id: `${row.pacing_id}_source_boundary`,
+          label: 'source boundary checked',
+          status: 'not_started',
+          evidence_to_attach: ['source IDs reviewed', 'unknowns copied into critique memo'],
+        },
+      ],
+      critique_revision_log: [
+        {
+          log_id: `${row.pacing_id}_critique_01`,
+          prompt: row.critique_checkpoint,
+          revision_status: 'pending',
+          revision_evidence_to_attach: ['before state', 'critique notes', 'after state', 'decision rationale'],
+        },
+      ],
+      unresolved_evidence_warnings: unresolvedWarnings,
+      evidence_warning_log: {
+        status: unresolvedWarnings.length ? 'open_warnings_to_preserve' : 'no_module_warnings',
+        action: unresolvedWarnings.length
+          ? 'Copy these warnings into the module critique memo before marking the week complete.'
+          : 'Keep checking source IDs; no module-level warning was generated for this row.',
+      },
+      completion_status: 'not_started',
+      workload_estimate: row.workload_estimate,
+      source_ids: uniq([...(row.source_ids ?? []), ...(assignment?.source_ids ?? []), ...(module?.source_ids?.slice(0, 4) ?? [])]),
+      provenance_note: 'Learner-facing progress ledger generated from pacing rows and module evidence; completion fields are templates for self-study tracking, not observed student progress.',
+    }
+  })
+}
+
+function selfStudyProgressLedgerMarkdown(progressLedger) {
+  const rowsByStage = groupBy(progressLedger, (row) => row.module_stage ?? 'unknown')
+  const lines = [
+    '# RISD Graphic Design Self-Study Progress Ledger',
+    '',
+    `Generated: ${retrievedAt}`,
+    '',
+    'This ledger is a learner-facing tracking template generated from the public-evidence pacing plan. Status fields start as `not_started` or `pending`; update copies of this file during self-study rather than treating generated rows as completed work.',
+    '',
+    `- Ledger rows: ${progressLedger.length}`,
+    `- Rows with unresolved warnings: ${progressLedger.filter((row) => row.unresolved_evidence_warnings?.length).length}`,
+    '',
+  ]
+  for (const [stage, rows] of rowsByStage.entries()) {
+    lines.push(`## ${stage.replace(/_/g, ' ')}`)
+    lines.push('')
+    for (const row of rows) {
+      lines.push(`### Week ${row.week_number}: ${row.course_title ?? row.module_id}`)
+      lines.push('')
+      lines.push(`- Ledger ID: ${row.ledger_id}`)
+      lines.push(`- Pacing row: ${row.pacing_id}`)
+      lines.push(`- Expected output: ${row.expected_output}`)
+      lines.push(`- Completion status: ${row.completion_status}`)
+      lines.push(`- Critique prompt: ${row.critique_revision_log[0]?.prompt}`)
+      lines.push(`- Source IDs: ${row.source_ids.slice(0, 8).join(', ')}`)
+      lines.push('- Output checklist:')
+      row.output_checklist.forEach((item) => lines.push(`  - [ ] ${item.label} (${item.evidence_to_attach.join('; ')})`))
+      if (row.unresolved_evidence_warnings.length) {
+        lines.push('- Evidence warnings to preserve:')
+        row.unresolved_evidence_warnings.forEach((warning) => lines.push(`  - ${warning}`))
+      }
+      lines.push('')
+    }
+  }
+  return lines.map((line) => line.trimEnd()).join('\n')
+}
+
 function buildSelfStudyPortfolioMilestones(selfStudyModules, pacingPlan) {
   const specs = [
     {
@@ -7414,6 +7540,7 @@ function writeSelfStudyArtifacts({ courses, syllabi, assignments, readings, sche
 function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExamples = []) {
   writeJsonl(join(outDir, 'self_study_modules.jsonl'), selfStudyModules)
   const pacingPlan = buildSelfStudyPacingPlan(selfStudyModules)
+  const progressLedger = buildSelfStudyProgressLedger(selfStudyModules, pacingPlan)
   const portfolioMilestones = buildSelfStudyPortfolioMilestones(selfStudyModules, pacingPlan)
   const portfolioBriefs = buildSelfStudyPortfolioBriefs(selfStudyModules, pacingPlan, portfolioMilestones)
   const portfolioReferencePackets = buildSelfStudyPortfolioReferencePackets(selfStudyModules, portfolioMilestones, facultyPortfolioExamples)
@@ -7421,6 +7548,8 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   const portfolioExportManifests = buildSelfStudyPortfolioExportManifests(portfolioMilestones, portfolioBriefs, portfolioReferencePackets, portfolioSourceExcerptPackets)
   writeJsonl(join(outDir, 'self_study_pacing_plan.jsonl'), pacingPlan)
   writeJsonl(join(outDir, 'self_study_pacing_profiles.jsonl'), buildSelfStudyPacingProfiles(pacingPlan))
+  writeJsonl(join(outDir, 'self_study_progress_ledger.jsonl'), progressLedger)
+  writeFileSync(join(outDir, 'self_study_progress_ledger.md'), selfStudyProgressLedgerMarkdown(progressLedger))
   writeJsonl(join(outDir, 'self_study_portfolio_milestones.jsonl'), portfolioMilestones)
   writeJsonl(join(outDir, 'self_study_portfolio_reference_packets.jsonl'), portfolioReferencePackets)
   writeJsonl(join(outDir, 'self_study_portfolio_source_excerpt_packets.jsonl'), portfolioSourceExcerptPackets)
