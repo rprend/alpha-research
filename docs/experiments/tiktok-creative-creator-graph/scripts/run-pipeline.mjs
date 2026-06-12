@@ -204,6 +204,7 @@ function normalizeRows(rows) {
       last_seen_at: new Date().toISOString(),
       last_post_at: null,
       source_files: new Set(),
+      source_labels: new Set(),
     }
 
     account.display_name ||= row.display_name ?? row.name ?? ''
@@ -213,6 +214,13 @@ function normalizeRows(rows) {
     account.likes_count = Math.max(account.likes_count, toNumber(row.likes_count ?? row.hearts ?? row.likes))
     account.bio_links = Array.from(new Set([...account.bio_links, ...asArray(row.bio_links ?? row.external_links ?? row.link)]))
     account.source_files.add(row._source_file)
+    const sourceLabels = [
+      ...asArray(row.target_label ?? row.primary_label),
+      ...asArray(row.source_target_labels ?? row.target_labels),
+    ]
+    for (const label of sourceLabels.map((item) => String(item).trim()).filter(Boolean)) {
+      account.source_labels.add(label)
+    }
     accountMap.set(handle, account)
 
     sources.push({
@@ -255,6 +263,7 @@ function normalizeRows(rows) {
   const accounts = Array.from(accountMap.values()).map((account) => ({
     ...account,
     source_files: Array.from(account.source_files),
+    source_labels: Array.from(account.source_labels),
   }))
 
   return { accounts, videos, sources }
@@ -337,7 +346,9 @@ function classifyAndScore(accounts, videos, edges, rubric) {
       hits: keywordHits(text, keywords),
     })).sort((a, b) => b.hits.length - a.hits.length)
     const best = labelHits[0]
-    const primaryLabel = rejectHits.length ? 'reject' : best?.hits.length ? best.label : 'unclear'
+    const sourceLabels = asArray(account.source_labels).filter((label) => rubric.primary_labels.includes(label) && !['unclear', 'reject'].includes(label))
+    const sourcePrimaryLabel = sourceLabels[0] ?? ''
+    const primaryLabel = rejectHits.length ? 'reject' : best?.hits.length ? best.label : sourcePrimaryLabel || 'unclear'
     const secondaryLabels = labelHits.filter((entry) => entry.label !== primaryLabel && entry.hits.length > 0).slice(0, 4).map((entry) => entry.label)
     const totalRelevantHits = labelHits.reduce((sum, entry) => sum + entry.hits.length, 0)
     const originalSignals = ['original', 'my short', 'i shot', 'i made', 'directed', 'breakdown', 'behind the scenes', 'bts', 'tutorial', 'camera test']
@@ -363,7 +374,9 @@ function classifyAndScore(accounts, videos, edges, rubric) {
       'story',
     ])
 
-    const categoryFit = primaryLabel === 'reject' ? 0 : Math.min(100, totalRelevantHits * 16 + (best?.hits.length ?? 0) * 12)
+    const categoryFit = primaryLabel === 'reject'
+      ? 0
+      : Math.min(100, totalRelevantHits * 16 + (best?.hits.length ?? 0) * 12 + (sourcePrimaryLabel ? 32 : 0))
     const originality = primaryLabel === 'reject'
       ? Math.max(0, 25 - rejectHits.length * 10)
       : Math.min(100, 45 + keywordHits(text, originalSignals).length * 12 + (creatorVideos.some((video) => String(video.sound_id).startsWith('original')) ? 12 : 0))
@@ -398,6 +411,7 @@ function classifyAndScore(accounts, videos, edges, rubric) {
       confidence: Math.min(0.95, 0.35 + (best?.hits.length ?? 0) * 0.12 + secondaryLabels.length * 0.04),
       evidence: {
         best_keyword_hits: best?.hits ?? [],
+        source_labels: sourceLabels,
         reject_hits: rejectHits,
         source_files: account.source_files,
       },

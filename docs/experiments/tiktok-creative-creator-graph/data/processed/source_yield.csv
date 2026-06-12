@@ -4,5 +4,9 @@ manual_seed,smoke-seeds.jsonl,cinematographer lighting breakdown,1,1,0,0,0,1,0,7
 manual_seed,smoke-seeds.jsonl,sketch comedian character comedy,1,1,0,0,0,1,0,66,70,sketch_comedian:1
 manual_seed,smoke-seeds.jsonl,vfx artist animation blender,1,1,0,0,0,1,0,67,70,vfx_animation:1
 graph_expansion_fixture,smoke-seeds.jsonl,mentioned by @ani.motionlab,1,1,0,0,1,1,0,61,70,creative_technologist:1
-provider_video_export,acquisition-import-2026-06-12.jsonl,,3,1,0,1,1,0.333,0.333,40.7,26,filmmaker:1; sketch_comedian:1; reject:1
+provider_video_export,acquisition-import-2026-06-12-30c00828c7e3.jsonl,,3,2,0,1,1,0.667,0.333,48,43,filmmaker:1; sketch_comedian:1; reject:1
+provider_video_export,acquisition-import-2026-06-12-e14baeb9eaf3.jsonl,,3,2,0,1,1,0.667,0.333,48,43,filmmaker:1; sketch_comedian:1; reject:1
+provider_video_export,acquisition-import-2026-06-12.jsonl,,3,2,0,1,1,0.667,0.333,48,43,filmmaker:1; sketch_comedian:1; reject:1
+acquisition_export,acquisition-import-2026-06-12-30c00828c7e3.jsonl,,21,0,0,0,0,0,0,14,6,filmmaker:6; film_educator:4; cinematographer:3; behind_the_scenes_creator:3; vfx_animation:2
+acquisition_export,acquisition-import-2026-06-12-e14baeb9eaf3.jsonl,,21,0,0,0,0,0,0,14,6,filmmaker:6; film_educator:4; cinematographer:3; behind_the_scenes_creator:3; vfx_animation:2
 search_seed,smoke-seeds.jsonl,site:tiktok.com/@ short film,1,0,0,1,1,0,1,0,0,reject:1

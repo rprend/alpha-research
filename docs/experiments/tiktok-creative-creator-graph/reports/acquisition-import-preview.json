@@ -1,34 +1,41 @@
 {
-  "generated_at": "2026-06-12T21:51:56.726Z",
+  "generated_at": "2026-06-12T22:01:01.275Z",
   "mode": "preview",
-  "input_rows": 6,
-  "normalized_rows": 6,
+  "input_rows": 27,
+  "normalized_rows": 27,
   "skipped_rows": 0,
   "duplicate_normalized_rows": 3,
-  "output_accounts": 3,
+  "output_accounts": 24,
   "source_files": {
+    "editorial-list-seeds-2026-06-12.jsonl": 21,
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
-  "mapped_lineage_rows": 0,
+  "mapped_lineage_rows": 21,
   "unmapped_lineage_rows": 6,
   "scale_wave_ids": {},
   "execution_ids": {},
-  "batch_ids": {},
-  "lineage_providers": {},
+  "batch_ids": {
+    "editorial_izea_filmmakers_2026_06_12": 8,
+    "editorial_shutterstock_filmmakers_2026_06_12": 8,
+    "editorial_shesources_women_film_2026_06_12": 5
+  },
+  "lineage_providers": {
+    "editorial_web": 21
+  },
   "output_path": "",
   "quality_gate": {
-    "ready_to_import": false,
+    "ready_to_import": true,
     "normalized_rate": 1,
-    "duplicate_rate": 0.5,
-    "output_rate": 0.5,
+    "duplicate_rate": 0.1111111111111111,
+    "output_rate": 0.8888888888888888,
     "min_normalized_rate": 0.75,
     "max_duplicate_rate": 0.35,
     "checks": [
       {
         "id": "has_rows",
         "status": "pass",
-        "evidence": "6 input rows"
+        "evidence": "27 input rows"
       },
       {
         "id": "handle_extraction",
@@ -37,17 +44,311 @@
       },
       {
         "id": "duplicate_pressure",
-        "status": "fail",
-        "evidence": "50.0% duplicate normalized rows, threshold 35.0%"
+        "status": "pass",
+        "evidence": "11.1% duplicate normalized rows, threshold 35.0%"
       },
       {
         "id": "lineage_mapping",
-        "status": "warn",
-        "evidence": "no provider/wave lineage mapped; acceptable only for ad hoc search exports"
+        "status": "pass",
+        "evidence": "21/27 rows mapped to provider/wave lineage"
       }
     ]
   },
   "preview_accounts": [
+    {
+      "handle": "@steadired",
+      "display_name": "SteadiRed",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_izea_filmmakers_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@hallietut",
+      "display_name": "Hallie Tut",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_izea_filmmakers_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@zachking",
+      "display_name": "Zach King",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_izea_filmmakers_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@jessicahnsn",
+      "display_name": "Jessica Iliana",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_izea_filmmakers_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@eggheadtwinkiefilm",
+      "display_name": "Egghead and Twinkie Film",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_izea_filmmakers_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@erinmcgoff",
+      "display_name": "Erin McGoff",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_izea_filmmakers_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@itschristinadobre",
+      "display_name": "Christina Dobre",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_shutterstock_filmmakers_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@fulltimefilmmaker",
+      "display_name": "Full Time Filmmaker",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_izea_filmmakers_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@bensonquach",
+      "display_name": "Benson Quach",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_izea_filmmakers_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@joshvfx",
+      "display_name": "Josh VFX",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_shutterstock_filmmakers_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@video_production_school",
+      "display_name": "Video Production School",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_shutterstock_filmmakers_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@jrod.visuals",
+      "display_name": "Jrod Visuals",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_shutterstock_filmmakers_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@filmmakersworld",
+      "display_name": "Filmmakers World",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_shutterstock_filmmakers_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@thebetterpartfilm",
+      "display_name": "The Better Part Film",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_shutterstock_filmmakers_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@entertaintheelk",
+      "display_name": "Entertain The Elk",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_shutterstock_filmmakers_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@mrejbaker",
+      "display_name": "EJ Baker",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_shutterstock_filmmakers_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@filmsbyvictoria",
+      "display_name": "Films by Victoria",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_shesources_women_film_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@franchesca_leigh",
+      "display_name": "Franchesca Leigh",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_shesources_women_film_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@directoryoko",
+      "display_name": "Director Yoko",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_shesources_women_film_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@meganprops",
+      "display_name": "Megan Props",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_shesources_women_film_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
+    {
+      "handle": "@merryfets",
+      "display_name": "Merry Fets",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "editorial_shesources_women_film_2026_06_12"
+      ],
+      "acquisition_providers": [
+        "editorial_web"
+      ]
+    },
     {
       "handle": "@selahshoots",
       "display_name": "Selah Shoots",

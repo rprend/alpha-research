@@ -1,5 +1,25 @@
 review_sample_id,creator_id,handle,display_name,primary_label,review_band,status,overall_usefulness,review_priority,sample_score,review_reasons,category_useful_gap,category_current_useful,latest_wave_id,profile_url
-review_00001,ani.motionlab,@ani.motionlab,Ani Motion Lab,vfx_animation,quality_audit,useful,67,3,417,high_graph_value_uncertain_quality,4999,1,import-2026-06-12T21-51-56-769Z,https://www.tiktok.com/@ani.motionlab
-review_00002,lucybits,@lucybits,Lucy Bits,sketch_comedian,quality_audit,useful,66,3,416,high_graph_value_uncertain_quality,6999,1,import-2026-06-12T21-51-56-769Z,https://www.tiktok.com/@lucybits
-review_00003,selahshoots,@selahshoots,Selah Shoots,filmmaker,quality_audit,useful,64,3,414,high_graph_value_uncertain_quality,7998,2,import-2026-06-12T21-51-56-769Z,https://www.tiktok.com/@selahshoots
-review_00004,basementbits,@basementbits,Basement Bits,sketch_comedian,borderline,needs_review,58,3,408,threshold_borderline|high_graph_value_uncertain_quality,6999,1,import-2026-06-12T21-51-56-769Z,https://www.tiktok.com/@basementbits
+review_00001,filmsbyvictoria,@filmsbyvictoria,Films by Victoria,editor,borderline,needs_review,13,3,463,threshold_borderline,5000,0,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@filmsbyvictoria
+review_00002,directoryoko,@directoryoko,Director Yoko,director,borderline,needs_review,19,3,459,threshold_borderline,4000,0,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@directoryoko
+review_00003,bensonquach,@bensonquach,Benson Quach,behind_the_scenes_creator,borderline,needs_review,13,3,443,threshold_borderline,3000,0,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@bensonquach
+review_00004,meganprops,@meganprops,Megan Props,behind_the_scenes_creator,borderline,needs_review,13,3,443,threshold_borderline,3000,0,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@meganprops
+review_00005,merryfets,@merryfets,Merry Fets,behind_the_scenes_creator,borderline,needs_review,13,3,443,threshold_borderline,3000,0,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@merryfets
+review_00006,entertaintheelk,@entertaintheelk,Entertain The Elk,film_educator,borderline,needs_review,13,3,443,threshold_borderline,3000,0,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@entertaintheelk
+review_00007,erinmcgoff,@erinmcgoff,Erin McGoff,film_educator,borderline,needs_review,13,3,443,threshold_borderline,3000,0,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@erinmcgoff
+review_00008,mrejbaker,@mrejbaker,EJ Baker,film_educator,borderline,needs_review,13,3,443,threshold_borderline,3000,0,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@mrejbaker
+review_00009,video_production_school,@video_production_school,Video Production School,film_educator,borderline,needs_review,13,3,443,threshold_borderline,3000,0,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@video_production_school
+review_00010,basementbits,@basementbits,Basement Bits,sketch_comedian,quality_audit,useful,69,3,419,high_graph_value_uncertain_quality,6998,2,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@basementbits
+review_00011,ani.motionlab,@ani.motionlab,Ani Motion Lab,vfx_animation,quality_audit,useful,67,3,417,high_graph_value_uncertain_quality,4999,1,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@ani.motionlab
+review_00012,lucybits,@lucybits,Lucy Bits,sketch_comedian,quality_audit,useful,66,3,416,high_graph_value_uncertain_quality,6998,2,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@lucybits
+review_00013,franchesca_leigh,@franchesca_leigh,Franchesca Leigh,unclear,borderline,needs_review,7,3,407,threshold_borderline|unclear_category,,,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@franchesca_leigh
+review_00014,joshvfx,@joshvfx,Josh VFX,vfx_animation,borderline,needs_review,22,3,372,threshold_borderline,4999,1,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@joshvfx
+review_00015,filmmakersworld,@filmmakersworld,Filmmakers World,filmmaker,borderline,needs_review,19,3,369,threshold_borderline,7998,2,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@filmmakersworld
+review_00016,fulltimefilmmaker,@fulltimefilmmaker,Full Time Filmmaker,filmmaker,borderline,needs_review,19,3,369,threshold_borderline,7998,2,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@fulltimefilmmaker
+review_00017,itschristinadobre,@itschristinadobre,Christina Dobre,cinematographer,borderline,needs_review,13,3,363,threshold_borderline,4999,1,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@itschristinadobre
+review_00018,jessicahnsn,@jessicahnsn,Jessica Iliana,cinematographer,borderline,needs_review,13,3,363,threshold_borderline,4999,1,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@jessicahnsn
+review_00019,steadired,@steadired,SteadiRed,cinematographer,borderline,needs_review,13,3,363,threshold_borderline,4999,1,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@steadired
+review_00020,eggheadtwinkiefilm,@eggheadtwinkiefilm,Egghead and Twinkie Film,filmmaker,borderline,needs_review,13,3,363,threshold_borderline,7998,2,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@eggheadtwinkiefilm
+review_00021,hallietut,@hallietut,Hallie Tut,filmmaker,borderline,needs_review,13,3,363,threshold_borderline,7998,2,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@hallietut
+review_00022,jrod.visuals,@jrod.visuals,Jrod Visuals,filmmaker,borderline,needs_review,13,3,363,threshold_borderline,7998,2,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@jrod.visuals
+review_00023,thebetterpartfilm,@thebetterpartfilm,The Better Part Film,filmmaker,borderline,needs_review,13,3,363,threshold_borderline,7998,2,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@thebetterpartfilm
+review_00024,zachking,@zachking,Zach King,vfx_animation,borderline,needs_review,13,3,363,threshold_borderline,4999,1,import-2026-06-12T22-01-01-312Z,https://www.tiktok.com/@zachking

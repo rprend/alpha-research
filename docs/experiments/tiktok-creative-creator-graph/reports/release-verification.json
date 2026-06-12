@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T21:51:57.342Z",
+  "generated_at": "2026-06-12T22:01:01.829Z",
   "complete": true,
   "checks": [
     {
@@ -66,25 +66,25 @@
       "id": "sha256:data/release/useful_creators.jsonl",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 4ef7921fc32bb5e698bf57adb734e2fe799a1f86ce213f6061b82c0aa37718c3, actual 4ef7921fc32bb5e698bf57adb734e2fe799a1f86ce213f6061b82c0aa37718c3"
+      "evidence": "expected 264508176e9be1c30f1af80db9edca295740bcc876be63fff4f016fef0bd706f, actual 264508176e9be1c30f1af80db9edca295740bcc876be63fff4f016fef0bd706f"
     },
     {
       "id": "row_count:data/release/useful_creators.jsonl",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 6, actual 6"
+      "evidence": "expected 7, actual 7"
     },
     {
       "id": "sha256:data/release/useful_creators.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 26227079efb9349eafc5caf7048bbbdde45709bbf7aa924fa42adc4bf7911280, actual 26227079efb9349eafc5caf7048bbbdde45709bbf7aa924fa42adc4bf7911280"
+      "evidence": "expected 0961bffd27f9b98ca4834b9cffd4e30989af4571f93de0a20abb9f5a9ab802e6, actual 0961bffd27f9b98ca4834b9cffd4e30989af4571f93de0a20abb9f5a9ab802e6"
     },
     {
       "id": "row_count:data/release/useful_creators.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 6, actual 6"
+      "evidence": "expected 7, actual 7"
     },
     {
       "id": "sha256:data/release/benchmark_creators.jsonl",
@@ -114,7 +114,7 @@
       "id": "sha256:data/release/rejected_creators.jsonl",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected c13d584c4ba6f1ccaecbc08bcee5f34812e6b9c798106284559a454cb9f8288b, actual c13d584c4ba6f1ccaecbc08bcee5f34812e6b9c798106284559a454cb9f8288b"
+      "evidence": "expected 3479b49453fd3124a93afd81ead40b66289e2281a2314f31e0026760d26f0f2e, actual 3479b49453fd3124a93afd81ead40b66289e2281a2314f31e0026760d26f0f2e"
     },
     {
       "id": "row_count:data/release/rejected_creators.jsonl",
@@ -126,7 +126,7 @@
       "id": "sha256:data/release/rejected_creators.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected ba8b93a338277fa924a32e4601f492734cf7ea0221d02f3f543b14c864056c9b, actual ba8b93a338277fa924a32e4601f492734cf7ea0221d02f3f543b14c864056c9b"
+      "evidence": "expected b707f10c3ce0c6928f226957d8b37ebef37ded87c2e832ff9ffa96462380e151, actual b707f10c3ce0c6928f226957d8b37ebef37ded87c2e832ff9ffa96462380e151"
     },
     {
       "id": "row_count:data/release/rejected_creators.csv",
@@ -138,25 +138,25 @@
       "id": "sha256:data/release/review_queue.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected b6aff5ebb5957cebff3525872da4eb7f2631fdb1cbd9344c4fecdb1ef2e08651, actual b6aff5ebb5957cebff3525872da4eb7f2631fdb1cbd9344c4fecdb1ef2e08651"
+      "evidence": "expected 18eaec3904f1a36ff1cf83b4fb70ff285556a16d1ccc0b9bca50e4be1767de68, actual 18eaec3904f1a36ff1cf83b4fb70ff285556a16d1ccc0b9bca50e4be1767de68"
     },
     {
       "id": "row_count:data/release/review_queue.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 5, actual 5"
+      "evidence": "expected 26, actual 26"
     },
     {
       "id": "sha256:data/release/all_scored_creators.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected e57ad8e0b6cc474479fa2d8e72e78982695fba7fba5b0e9e95a547bd0a0f0802, actual e57ad8e0b6cc474479fa2d8e72e78982695fba7fba5b0e9e95a547bd0a0f0802"
+      "evidence": "expected d352018ada14a9413447d2fb2d567bd8d495e9236f3c8239fe6a49e519066170, actual d352018ada14a9413447d2fb2d567bd8d495e9236f3c8239fe6a49e519066170"
     },
     {
       "id": "row_count:data/release/all_scored_creators.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 9, actual 9"
+      "evidence": "expected 30, actual 30"
     },
     {
       "id": "required_column:identity_id",
@@ -252,7 +252,7 @@
       "id": "manifest_useful_count",
       "status": "pass",
       "severity": "error",
-      "evidence": "manifest 6, file 6"
+      "evidence": "manifest 7, file 7"
     },
     {
       "id": "manifest_benchmark_count",
@@ -268,9 +268,9 @@
     }
   ],
   "counts": {
-    "useful_creators": 6,
+    "useful_creators": 7,
     "benchmark_creators": 1,
     "rejected_creators": 2,
-    "all_scored_creators": 9
+    "all_scored_creators": 30
   }
 }

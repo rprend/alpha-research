@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-12T21:51:57.719Z
+Generated: 2026-06-12T22:01:02.144Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -10,37 +10,37 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 
 ## Current Corpus
 
-- Accounts: 9
-- Identities: 9
-- Videos: 11
+- Accounts: 30
+- Identities: 30
+- Videos: 17
 - Graph edges: 52
-- Useful creators: 5
-- Release useful creators: 6
+- Useful creators: 6
+- Release useful creators: 7
 - Excellent creators: 1
-- Review sample: 4
-- Review packet rows: 4
-- Review decision template rows: 4
+- Review sample: 24
+- Review packet rows: 24
+- Review decision template rows: 24
 - Review packet batches: 1
-- Review packet batch rows: 4
+- Review packet batch rows: 24
 - Review plan categories: 11
 - Review decisions: 4
 - Review blank decisions: 0
-- Source yield rows: 7
-- Adjacency expansion rows: 22
+- Source yield rows: 11
+- Adjacency expansion rows: 24
 - Adjacency expansion added rows: 18
 - Category coverage: 5/11
-- Acquisition tasks: 86
-- Candidate frontier: 81
-- Candidate frontier handles: 4
+- Acquisition tasks: 88
+- Candidate frontier: 83
+- Candidate frontier handles: 6
 - Candidate frontier queries: 77
-- Acquisition import preview accounts: 3
-- Acquisition import preview ready: false
-- Acquisition import waves: 1
-- Acquisition import traced rows: 0
-- Acquisition import untraced rows: 6
+- Acquisition import preview accounts: 24
+- Acquisition import preview ready: true
+- Acquisition import waves: 3
+- Acquisition import traced rows: 42
+- Acquisition import untraced rows: 18
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
-- Acquisition run history: 16
+- Acquisition run history: 15
 - Scale waves: 1000
 - Wave ledger rows: 1000
 - Wave ledger planned: 1000
@@ -59,11 +59,11 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Live manifest runner steps: 1
 - Live manifest runner selected waves: 1
 - Live manifest runner mode: dry_run
-- Refresh tasks: 9
+- Refresh tasks: 30
 
 ## Remaining Production Gaps
 
-- Useful creators: 49995
+- Useful creators: 49994
 - Excellent creators: 4999
 - Review decisions: 496
 
@@ -135,7 +135,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 
 ## Next Actions
 
-- Acquire and import 49995 more useful creators through provider/search/graph batches.
+- Acquire and import 49994 more useful creators through provider/search/graph batches.
 - Add 4999 more excellent creators for benchmark-quality coverage.
 - Collect 496 more human review decisions before production claims.
 - Run full workflow, release package, verification, scale plan, refresh plan, and readiness after each import wave.

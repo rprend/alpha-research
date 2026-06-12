@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T21:51:57.719Z",
+  "generated_at": "2026-06-12T22:01:02.144Z",
   "dataset_id": "tiktok-creative-creator-graph",
   "title": "TikTok Creative Creator Graph",
   "publish_state": "not-ready-production-data",
@@ -30,39 +30,39 @@
     ]
   },
   "current_corpus": {
-    "accounts": 9,
-    "identities": 9,
-    "videos": 11,
+    "accounts": 30,
+    "identities": 30,
+    "videos": 17,
     "graph_edges": 52,
-    "useful_creators": 5,
-    "release_useful_creators": 6,
+    "useful_creators": 6,
+    "release_useful_creators": 7,
     "excellent_creators": 1,
     "rejected_creators": 2,
-    "review_queue": 8,
-    "review_sample": 4,
-    "review_packet_rows": 4,
-    "review_decision_template_rows": 4,
+    "review_queue": 28,
+    "review_sample": 24,
+    "review_packet_rows": 24,
+    "review_decision_template_rows": 24,
     "review_packet_batches": 1,
-    "review_packet_batch_rows": 4,
+    "review_packet_batch_rows": 24,
     "review_plan_categories": 11,
     "review_decisions": 4,
     "review_blank_decisions": 0,
-    "source_yield_rows": 7,
-    "adjacency_expansion_rows": 22,
+    "source_yield_rows": 11,
+    "adjacency_expansion_rows": 24,
     "adjacency_expansion_added_rows": 18,
     "category_coverage": "5/11",
-    "acquisition_tasks": 86,
-    "candidate_frontier": 81,
-    "candidate_frontier_handles": 4,
+    "acquisition_tasks": 88,
+    "candidate_frontier": 83,
+    "candidate_frontier_handles": 6,
     "candidate_frontier_queries": 77,
-    "acquisition_import_preview_accounts": 3,
-    "acquisition_import_preview_ready": false,
-    "acquisition_import_waves": 1,
-    "acquisition_import_lineage_rows": 0,
-    "acquisition_import_untraced_rows": 6,
+    "acquisition_import_preview_accounts": 24,
+    "acquisition_import_preview_ready": true,
+    "acquisition_import_waves": 3,
+    "acquisition_import_lineage_rows": 42,
+    "acquisition_import_untraced_rows": 18,
     "acquisition_runner_runnable_tasks": 2,
     "acquisition_runner_skipped_tasks": 0,
-    "acquisition_run_history": 16,
+    "acquisition_run_history": 15,
     "scale_waves": 1000,
     "wave_ledger_rows": 1000,
     "wave_ledger_planned": 1000,
@@ -81,10 +81,10 @@
     "live_manifest_runner_steps": 1,
     "live_manifest_runner_selected_waves": 1,
     "live_manifest_runner_mode": "dry_run",
-    "refresh_tasks": 9
+    "refresh_tasks": 30
   },
   "target_gaps": {
-    "useful_creators": 49995,
+    "useful_creators": 49994,
     "excellent_creators": 4999,
     "review_decisions": 496
   },
@@ -147,13 +147,13 @@
   "release_files": [
     {
       "path": "data/release/useful_creators.jsonl",
-      "rows": 6,
-      "sha256": "4ef7921fc32bb5e698bf57adb734e2fe799a1f86ce213f6061b82c0aa37718c3"
+      "rows": 7,
+      "sha256": "264508176e9be1c30f1af80db9edca295740bcc876be63fff4f016fef0bd706f"
     },
     {
       "path": "data/release/useful_creators.csv",
-      "rows": 6,
-      "sha256": "26227079efb9349eafc5caf7048bbbdde45709bbf7aa924fa42adc4bf7911280"
+      "rows": 7,
+      "sha256": "0961bffd27f9b98ca4834b9cffd4e30989af4571f93de0a20abb9f5a9ab802e6"
     },
     {
       "path": "data/release/benchmark_creators.jsonl",
@@ -168,22 +168,22 @@
     {
       "path": "data/release/rejected_creators.jsonl",
       "rows": 2,
-      "sha256": "c13d584c4ba6f1ccaecbc08bcee5f34812e6b9c798106284559a454cb9f8288b"
+      "sha256": "3479b49453fd3124a93afd81ead40b66289e2281a2314f31e0026760d26f0f2e"
     },
     {
       "path": "data/release/rejected_creators.csv",
       "rows": 2,
-      "sha256": "ba8b93a338277fa924a32e4601f492734cf7ea0221d02f3f543b14c864056c9b"
+      "sha256": "b707f10c3ce0c6928f226957d8b37ebef37ded87c2e832ff9ffa96462380e151"
     },
     {
       "path": "data/release/review_queue.csv",
-      "rows": 5,
-      "sha256": "b6aff5ebb5957cebff3525872da4eb7f2631fdb1cbd9344c4fecdb1ef2e08651"
+      "rows": 26,
+      "sha256": "18eaec3904f1a36ff1cf83b4fb70ff285556a16d1ccc0b9bca50e4be1767de68"
     },
     {
       "path": "data/release/all_scored_creators.csv",
-      "rows": 9,
-      "sha256": "e57ad8e0b6cc474479fa2d8e72e78982695fba7fba5b0e9e95a547bd0a0f0802"
+      "rows": 30,
+      "sha256": "d352018ada14a9413447d2fb2d567bd8d495e9236f3c8239fe6a49e519066170"
     }
   ],
   "registration_constraints": [
@@ -194,7 +194,7 @@
     "Confirm source/vendor terms before promoting live provider-derived exports."
   ],
   "next_actions": [
-    "Acquire and import 49995 more useful creators through provider/search/graph batches.",
+    "Acquire and import 49994 more useful creators through provider/search/graph batches.",
     "Add 4999 more excellent creators for benchmark-quality coverage.",
     "Collect 496 more human review decisions before production claims.",
     "Run full workflow, release package, verification, scale plan, refresh plan, and readiness after each import wave.",

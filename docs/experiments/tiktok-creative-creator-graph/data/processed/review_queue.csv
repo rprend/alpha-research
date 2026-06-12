@@ -2,8 +2,28 @@ creator_id,handle,display_name,primary_label,overall_usefulness,status,review_pr
 maya.shortcuts,@maya.shortcuts,Maya Shortcuts,filmmaker,89,excellent,1,benchmark_candidate,https://www.tiktok.com/@maya.shortcuts
 dailyfilmclips,@dailyfilmclips,Daily Film Clips,reject,0,reject,2,repost_risk,https://www.tiktok.com/@dailyfilmclips
 clipvaultcinema,@clipvaultcinema,Clip Vault Cinema,reject,0,reject,2,repost_risk,https://www.tiktok.com/@clipvaultcinema
+basementbits,@basementbits,Basement Bits,sketch_comedian,69,useful,3,high_graph_value_uncertain_quality,https://www.tiktok.com/@basementbits
 ani.motionlab,@ani.motionlab,Ani Motion Lab,vfx_animation,67,useful,3,high_graph_value_uncertain_quality,https://www.tiktok.com/@ani.motionlab
 lucybits,@lucybits,Lucy Bits,sketch_comedian,66,useful,3,high_graph_value_uncertain_quality,https://www.tiktok.com/@lucybits
-selahshoots,@selahshoots,Selah Shoots,filmmaker,64,useful,3,high_graph_value_uncertain_quality,https://www.tiktok.com/@selahshoots
 renderjules,@renderjules,Render Jules,creative_technologist,61,needs_review,3,"threshold_borderline,high_graph_value_uncertain_quality",https://www.tiktok.com/@renderjules
-basementbits,@basementbits,Basement Bits,sketch_comedian,58,needs_review,3,"threshold_borderline,high_graph_value_uncertain_quality",https://www.tiktok.com/@basementbits
+joshvfx,@joshvfx,Josh VFX,vfx_animation,22,needs_review,3,threshold_borderline,https://www.tiktok.com/@joshvfx
+fulltimefilmmaker,@fulltimefilmmaker,Full Time Filmmaker,filmmaker,19,needs_review,3,threshold_borderline,https://www.tiktok.com/@fulltimefilmmaker
+filmmakersworld,@filmmakersworld,Filmmakers World,filmmaker,19,needs_review,3,threshold_borderline,https://www.tiktok.com/@filmmakersworld
+directoryoko,@directoryoko,Director Yoko,director,19,needs_review,3,threshold_borderline,https://www.tiktok.com/@directoryoko
+steadired,@steadired,SteadiRed,cinematographer,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@steadired
+hallietut,@hallietut,Hallie Tut,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@hallietut
+zachking,@zachking,Zach King,vfx_animation,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@zachking
+jessicahnsn,@jessicahnsn,Jessica Iliana,cinematographer,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@jessicahnsn
+eggheadtwinkiefilm,@eggheadtwinkiefilm,Egghead and Twinkie Film,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@eggheadtwinkiefilm
+erinmcgoff,@erinmcgoff,Erin McGoff,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@erinmcgoff
+itschristinadobre,@itschristinadobre,Christina Dobre,cinematographer,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@itschristinadobre
+bensonquach,@bensonquach,Benson Quach,behind_the_scenes_creator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@bensonquach
+video_production_school,@video_production_school,Video Production School,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@video_production_school
+jrod.visuals,@jrod.visuals,Jrod Visuals,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@jrod.visuals
+thebetterpartfilm,@thebetterpartfilm,The Better Part Film,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@thebetterpartfilm
+entertaintheelk,@entertaintheelk,Entertain The Elk,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@entertaintheelk
+mrejbaker,@mrejbaker,EJ Baker,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@mrejbaker
+filmsbyvictoria,@filmsbyvictoria,Films by Victoria,editor,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@filmsbyvictoria
+meganprops,@meganprops,Megan Props,behind_the_scenes_creator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@meganprops
+merryfets,@merryfets,Merry Fets,behind_the_scenes_creator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@merryfets
+franchesca_leigh,@franchesca_leigh,Franchesca Leigh,unclear,7,needs_review,3,"threshold_borderline,unclear_category",https://www.tiktok.com/@franchesca_leigh

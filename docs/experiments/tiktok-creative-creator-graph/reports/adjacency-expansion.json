@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-12T21:51:56.976Z",
-  "base_rows": 4,
-  "expansion_rows": 22,
+  "generated_at": "2026-06-12T22:01:01.496Z",
+  "base_rows": 6,
+  "expansion_rows": 24,
   "added_rows": 18,
   "type_counts": {
-    "expand_from_creator": 4,
+    "expand_from_creator": 6,
     "hashtag_search": 10,
     "yield_replay_search": 5,
     "cross_platform_search": 3
@@ -28,17 +28,17 @@
       "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts",
       "primary_label": "filmmaker",
       "overall_usefulness": 89,
-      "evidence_count": 2
+      "evidence_count": 4
     },
     {
       "expansion_type": "hashtag_search",
       "source_creator_id": "selahshoots",
       "target": "filmmaker",
       "priority": 1,
-      "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts|useful_creator_hashtag:@noahframes|useful_creator_hashtag:@lucybits",
+      "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@basementbits|useful_creator_hashtag:@maya.shortcuts|useful_creator_hashtag:@noahframes|useful_creator_hashtag:@lucybits",
       "primary_label": "filmmaker",
       "overall_usefulness": 89,
-      "evidence_count": 4
+      "evidence_count": 9
     },
     {
       "expansion_type": "yield_replay_search",
@@ -58,7 +58,7 @@
       "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts",
       "primary_label": "filmmaker",
       "overall_usefulness": 89,
-      "evidence_count": 2
+      "evidence_count": 4
     },
     {
       "expansion_type": "cross_platform_search",
@@ -72,6 +72,16 @@
     },
     {
       "expansion_type": "expand_from_creator",
+      "source_creator_id": "selahshoots",
+      "target": "@selahshoots",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "filmmaker",
+      "overall_usefulness": 75,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
       "source_creator_id": "noahframes",
       "target": "@noahframes",
       "priority": 1,
@@ -79,6 +89,36 @@
       "primary_label": "cinematographer",
       "overall_usefulness": 73,
       "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "basementbits",
+      "target": "@basementbits",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "sketch_comedian",
+      "overall_usefulness": 69,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "hashtag_search",
+      "source_creator_id": "basementbits",
+      "target": "actor",
+      "priority": 1,
+      "reason": "useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits",
+      "primary_label": "sketch_comedian",
+      "overall_usefulness": 69,
+      "evidence_count": 4
+    },
+    {
+      "expansion_type": "hashtag_search",
+      "source_creator_id": "basementbits",
+      "target": "sketchcomedy",
+      "priority": 1,
+      "reason": "useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits",
+      "primary_label": "sketch_comedian",
+      "overall_usefulness": 69,
+      "evidence_count": 4
     },
     {
       "expansion_type": "expand_from_creator",
@@ -181,16 +221,6 @@
       "evidence_count": 1
     },
     {
-      "expansion_type": "hashtag_search",
-      "source_creator_id": "lucybits",
-      "target": "actor",
-      "priority": 2,
-      "reason": "useful_creator_hashtag:@lucybits",
-      "primary_label": "sketch_comedian",
-      "overall_usefulness": 66,
-      "evidence_count": 1
-    },
-    {
       "expansion_type": "cross_platform_search",
       "source_creator_id": "lucybits",
       "target": "site:youtube.com \"tiktok.com/@\" \"sketch comedian\"",
@@ -207,16 +237,6 @@
       "priority": 2,
       "reason": "replay_high_yield_source:manual_seed",
       "primary_label": "",
-      "overall_usefulness": 66,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "hashtag_search",
-      "source_creator_id": "lucybits",
-      "target": "sketchcomedy",
-      "priority": 2,
-      "reason": "useful_creator_hashtag:@lucybits",
-      "primary_label": "sketch_comedian",
       "overall_usefulness": 66,
       "evidence_count": 1
     },

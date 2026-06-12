@@ -1,0 +1,61 @@
+{
+  "generated_at": "2026-06-12T22:01:01.210Z",
+  "execution_id": "2026-06-12T22-01-00-466Z",
+  "provider": "duckduckgo_html",
+  "dry_run": false,
+  "selected_queries": 5,
+  "max_queries": 5,
+  "max_results_per_query": 10,
+  "output_rows": 0,
+  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-12T22-01-00-466Z-search-frontier.jsonl",
+  "succeeded_queries": 5,
+  "failed_queries": 0,
+  "first_rows": [],
+  "queries": [
+    {
+      "frontier_rank": 1,
+      "query": "site:tiktok.com/@ filmmaker short film editing breakdown",
+      "status": "succeeded",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-12T22:01:00.467Z",
+      "finished_at": "2026-06-12T22:01:00.782Z"
+    },
+    {
+      "frontier_rank": 2,
+      "query": "site:tiktok.com/@ cinematographer lighting breakdown",
+      "status": "succeeded",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-12T22:01:00.782Z",
+      "finished_at": "2026-06-12T22:01:00.942Z"
+    },
+    {
+      "frontier_rank": 3,
+      "query": "site:tiktok.com/@ sketch comedian character comedy",
+      "status": "succeeded",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-12T22:01:00.942Z",
+      "finished_at": "2026-06-12T22:01:01.012Z"
+    },
+    {
+      "frontier_rank": 4,
+      "query": "site:tiktok.com/@ vfx artist animation blender",
+      "status": "succeeded",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-12T22:01:01.012Z",
+      "finished_at": "2026-06-12T22:01:01.134Z"
+    },
+    {
+      "frontier_rank": 10,
+      "query": "site:vimeo.com \"tiktok.com/@\" \"filmmaker\"",
+      "status": "succeeded",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-12T22:01:01.134Z",
+      "finished_at": "2026-06-12T22:01:01.209Z"
+    }
+  ]
+}

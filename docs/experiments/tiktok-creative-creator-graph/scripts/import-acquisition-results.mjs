@@ -141,6 +141,16 @@ function normalizeHashtags(value, text) {
   return Array.from(new Set([...explicit, ...extractHashtags(text)]))
 }
 
+function targetLabelsFor(row) {
+  return Array.from(new Set([
+    ...asArray(row.target_label),
+    ...asArray(row.targetLabel),
+    ...asArray(row.primary_label),
+    ...asArray(row.source_target_labels),
+    ...asArray(row.target_labels),
+  ].map((label) => String(label).trim()).filter(Boolean)))
+}
+
 function buildRunHistoryIndex() {
   const runs = readJsonl(join(processedDir, 'acquisition_run_history.jsonl'))
   const byOutputFile = new Map()
@@ -250,6 +260,8 @@ function canonicalFromProvider(row) {
     source_provider: row._source_provider ?? '',
     source_run_status: row._source_run_status ?? '',
     source_actor_id: row._source_actor_id ?? '',
+    target_label: targetLabelsFor(row)[0] ?? '',
+    source_target_labels: targetLabelsFor(row),
     videos: videoUrl || caption
       ? [{
           url: videoUrl,
@@ -292,6 +304,8 @@ function canonicalFromSearch(row) {
     source_provider: row._source_provider ?? '',
     source_run_status: row._source_run_status ?? '',
     source_actor_id: row._source_actor_id ?? '',
+    target_label: targetLabelsFor(row)[0] ?? '',
+    source_target_labels: targetLabelsFor(row),
     videos: [],
   }
 }
@@ -337,6 +351,7 @@ function mergeRows(rows) {
         acquisition_execution_ids: asArray(canonical.source_execution_id),
         acquisition_batch_ids: asArray(canonical.source_batch_id),
         acquisition_providers: asArray(canonical.source_provider),
+        source_target_labels: asArray(canonical.source_target_labels),
       })
       continue
     }
@@ -354,6 +369,8 @@ function mergeRows(rows) {
     existing.acquisition_execution_ids = Array.from(new Set([...asArray(existing.acquisition_execution_ids), ...asArray(canonical.source_execution_id)]))
     existing.acquisition_batch_ids = Array.from(new Set([...asArray(existing.acquisition_batch_ids), ...asArray(canonical.source_batch_id)]))
     existing.acquisition_providers = Array.from(new Set([...asArray(existing.acquisition_providers), ...asArray(canonical.source_provider)]))
+    existing.source_target_labels = Array.from(new Set([...asArray(existing.source_target_labels), ...asArray(canonical.source_target_labels)]))
+    existing.target_label ||= canonical.target_label
   }
 
   const accounts = Array.from(merged.values()).map((account) => ({

@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-12T21:51:57.176Z",
+  "generated_at": "2026-06-12T22:01:01.672Z",
   "target_review_decisions": 500,
   "current_review_decisions": 4,
   "review_gap": 496,
   "review_batch_size": 250,
   "review_batches_needed": 2,
-  "current_sample_rows": 4,
+  "current_sample_rows": 24,
   "scale_plan_review_batches_needed": 2,
   "readiness_review_gap": 496,
   "category_minimum": 25,
@@ -14,7 +14,7 @@
       "label": "editor",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 0,
+      "current_sample_rows": 1,
       "review_gap": 25,
       "useful_gap": 5000,
       "priority": 1
@@ -23,7 +23,7 @@
       "label": "director",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 0,
+      "current_sample_rows": 1,
       "review_gap": 25,
       "useful_gap": 4000,
       "priority": 1
@@ -50,7 +50,7 @@
       "label": "film_educator",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 0,
+      "current_sample_rows": 4,
       "review_gap": 25,
       "useful_gap": 3000,
       "priority": 1
@@ -59,7 +59,7 @@
       "label": "behind_the_scenes_creator",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 0,
+      "current_sample_rows": 3,
       "review_gap": 25,
       "useful_gap": 3000,
       "priority": 1
@@ -68,7 +68,7 @@
       "label": "filmmaker",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 1,
+      "current_sample_rows": 6,
       "review_gap": 25,
       "useful_gap": 7998,
       "priority": 2
@@ -79,14 +79,14 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 2,
       "review_gap": 25,
-      "useful_gap": 6999,
+      "useful_gap": 6998,
       "priority": 2
     },
     {
       "label": "cinematographer",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 0,
+      "current_sample_rows": 3,
       "review_gap": 25,
       "useful_gap": 4999,
       "priority": 2
@@ -95,7 +95,7 @@
       "label": "vfx_animation",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 1,
+      "current_sample_rows": 3,
       "review_gap": 25,
       "useful_gap": 4999,
       "priority": 2

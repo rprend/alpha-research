@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-12T21:51:57.380Z
+Generated: 2026-06-12T22:01:01.862Z
 
 ## Targets
 
@@ -10,23 +10,23 @@ Generated: 2026-06-12T21:51:57.380Z
 
 ## Current
 
-- Accounts: 9
-- Useful creators: 6
+- Accounts: 30
+- Useful creators: 7
 - Excellent creators: 1
 - Review decisions: 4
 
 ## Estimated Work
 
-- Candidate accounts needed: 249970
+- Candidate accounts needed: 249965
 - Import batches needed at 250 candidates per batch: 1000
 - Useful creators needed for excellent target: 49990
 - Review batches needed: 2
 
 ## Planning Assumptions
 
-- Observed useful rate: 0.667
+- Observed useful rate: 0.233
 - Planning useful rate: 0.2
-- Observed excellent rate among useful: 0.167
+- Observed excellent rate among useful: 0.143
 - Planning excellent rate among useful: 0.1
 
 ## Top Surfaces
@@ -38,11 +38,15 @@ Generated: 2026-06-12T21:51:57.380Z
 | 3 | manual_seed | sketch comedian character comedy | 70 | 1 | 0 |
 | 4 | manual_seed | vfx artist animation blender | 70 | 1 | 0 |
 | 5 | graph_expansion_fixture | mentioned by @ani.motionlab | 70 | 1 | 0 |
-| 6 | provider_video_export |  | 26 | 0.333 | 0.333 |
+| 6 | provider_video_export |  | 43 | 0.667 | 0.333 |
+| 7 | provider_video_export |  | 43 | 0.667 | 0.333 |
+| 8 | provider_video_export |  | 43 | 0.667 | 0.333 |
+| 9 | acquisition_export |  | 6 | 0 | 0 |
+| 10 | acquisition_export |  | 6 | 0 | 0 |
 
 ## Next Batches
 
-Candidate frontier targets: 81
+Candidate frontier targets: 83
 
 | Seq | Rank | Score | Priority | Surface | Target |
 | ---: | ---: | ---: | ---: | --- | --- |

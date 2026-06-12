@@ -1,34 +1,41 @@
 {
-  "generated_at": "2026-06-12T21:51:56.769Z",
+  "generated_at": "2026-06-12T22:01:01.312Z",
   "mode": "import",
-  "input_rows": 6,
-  "normalized_rows": 6,
+  "input_rows": 27,
+  "normalized_rows": 27,
   "skipped_rows": 0,
   "duplicate_normalized_rows": 3,
-  "output_accounts": 3,
+  "output_accounts": 24,
   "source_files": {
+    "editorial-list-seeds-2026-06-12.jsonl": 21,
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
-  "mapped_lineage_rows": 0,
+  "mapped_lineage_rows": 21,
   "unmapped_lineage_rows": 6,
   "scale_wave_ids": {},
   "execution_ids": {},
-  "batch_ids": {},
-  "lineage_providers": {},
-  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-12.jsonl",
+  "batch_ids": {
+    "editorial_izea_filmmakers_2026_06_12": 8,
+    "editorial_shutterstock_filmmakers_2026_06_12": 8,
+    "editorial_shesources_women_film_2026_06_12": 5
+  },
+  "lineage_providers": {
+    "editorial_web": 21
+  },
+  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-12-e14baeb9eaf3.jsonl",
   "quality_gate": {
-    "ready_to_import": false,
+    "ready_to_import": true,
     "normalized_rate": 1,
-    "duplicate_rate": 0.5,
-    "output_rate": 0.5,
+    "duplicate_rate": 0.1111111111111111,
+    "output_rate": 0.8888888888888888,
     "min_normalized_rate": 0.75,
     "max_duplicate_rate": 0.35,
     "checks": [
       {
         "id": "has_rows",
         "status": "pass",
-        "evidence": "6 input rows"
+        "evidence": "27 input rows"
       },
       {
         "id": "handle_extraction",
@@ -37,42 +44,52 @@
       },
       {
         "id": "duplicate_pressure",
-        "status": "fail",
-        "evidence": "50.0% duplicate normalized rows, threshold 35.0%"
+        "status": "pass",
+        "evidence": "11.1% duplicate normalized rows, threshold 35.0%"
       },
       {
         "id": "lineage_mapping",
-        "status": "warn",
-        "evidence": "no provider/wave lineage mapped; acceptable only for ad hoc search exports"
+        "status": "pass",
+        "evidence": "21/27 rows mapped to provider/wave lineage"
       }
     ]
   },
   "wave": {
-    "wave_id": "import-2026-06-12T21-51-56-769Z",
-    "generated_at": "2026-06-12T21:51:56.769Z",
-    "input_rows": 6,
-    "normalized_rows": 6,
+    "wave_id": "import-2026-06-12T22-01-01-312Z",
+    "generated_at": "2026-06-12T22:01:01.312Z",
+    "input_rows": 27,
+    "normalized_rows": 27,
     "skipped_rows": 0,
-    "output_accounts": 3,
-    "source_file_count": 2,
-    "source_files": "smoke-provider-results.jsonl|smoke-search-results.jsonl",
-    "mapped_lineage_rows": 0,
+    "output_accounts": 24,
+    "source_file_count": 3,
+    "source_files": "editorial-list-seeds-2026-06-12.jsonl|smoke-provider-results.jsonl|smoke-search-results.jsonl",
+    "mapped_lineage_rows": 21,
     "unmapped_lineage_rows": 6,
     "scale_wave_ids": "",
     "execution_ids": "",
-    "batch_ids": "",
-    "lineage_providers": "",
-    "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-12.jsonl",
+    "batch_ids": "editorial_izea_filmmakers_2026_06_12|editorial_shutterstock_filmmakers_2026_06_12|editorial_shesources_women_film_2026_06_12",
+    "lineage_providers": "editorial_web",
+    "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-12-e14baeb9eaf3.jsonl",
     "target_label_counts": {
+      "cinematographer": 3,
+      "filmmaker": 4,
+      "vfx_animation": 2,
+      "film_educator": 6,
+      "behind_the_scenes_creator": 3,
+      "editor": 1,
+      "screenwriter": 1,
+      "director": 1,
       "unclassified": 6
     },
     "surface_counts": {
+      "acquisition_export": 21,
       "provider_video_export": 3,
       "search_result_export": 3
     },
     "provider_counts": {
+      "editorial_web": 21,
       "unknown": 6
     }
   },
-  "import_waves": 1
+  "import_waves": 3
 }
