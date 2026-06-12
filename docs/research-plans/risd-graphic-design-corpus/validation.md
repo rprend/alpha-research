@@ -241,6 +241,7 @@ Overall status: pass
 - PASS self_study_portfolio_collaborator_response_send_log_imports_update_distribution_status: 0 collaborator response send-log imports; 0 applied to distribution status; 0 send-log import reference/field errors.
 - PASS self_study_portfolio_collaborator_response_reminder_queue_tracks_unsent_blocked_overdue: 3 collaborator response reminder rows; 3 not sent; 0 blocked; 0 overdue; 0 reminder reference/copy errors; generated mismatch=false.
 - PASS self_study_portfolio_collaborator_response_evidence_registers_capture_received_refs: 3 collaborator response evidence register rows; 3 awaiting response; 0 evidence register reference/target errors; generated mismatch=false.
+- PASS self_study_portfolio_collaborator_response_closure_reports_track_end_state: 3 collaborator response closure reports; 0 closed; 0 sent; 0 received; 0 closure reference/check errors; generated mismatch=false.
 - PASS self_study_progress_ledger_links_to_portfolio_completion_gates: 28 progress ledger rows carry portfolio review gate annotations; 0 annotation reference errors.
 - PASS self_study_portfolio_briefs_embed_completion_gate_status: 3 portfolio briefs embed completion gate status; 0 readiness reference/render errors.
 - PASS self_study_portfolio_milestones_have_valid_review_packages: 3 portfolio milestones; 0 milestone reference errors; generated mismatch=false.

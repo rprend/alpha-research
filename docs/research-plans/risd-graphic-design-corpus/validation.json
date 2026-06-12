@@ -194,6 +194,9 @@
     "self_study_portfolio_collaborator_response_reminder_queue_not_sent_rows": 3,
     "self_study_portfolio_collaborator_response_evidence_register_rows": 3,
     "self_study_portfolio_collaborator_response_evidence_register_awaiting_rows": 3,
+    "self_study_portfolio_collaborator_response_closure_report_rows": 3,
+    "self_study_portfolio_collaborator_response_closure_report_closed_rows": 0,
+    "self_study_portfolio_collaborator_response_closure_report_blocked_rows": 0,
     "self_study_portfolio_milestones": 3,
     "self_study_portfolio_briefs": 3,
     "self_study_portfolio_briefs_with_completion_gate_status": 3,
@@ -631,6 +634,11 @@
       "id": "self_study_portfolio_collaborator_response_evidence_registers_capture_received_refs",
       "status": "pass",
       "detail": "3 collaborator response evidence register rows; 3 awaiting response; 0 evidence register reference/target errors; generated mismatch=false."
+    },
+    {
+      "id": "self_study_portfolio_collaborator_response_closure_reports_track_end_state",
+      "status": "pass",
+      "detail": "3 collaborator response closure reports; 0 closed; 0 sent; 0 received; 0 closure reference/check errors; generated mismatch=false."
     },
     {
       "id": "self_study_progress_ledger_links_to_portfolio_completion_gates",
