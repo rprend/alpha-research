@@ -1,0 +1,246 @@
+[
+  {
+    "museum": "The British Museum",
+    "page_type": "repatriation",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://www.britishmuseum.org/about-us/british-museum-story/contested-objects-collection",
+    "archive_url": "",
+    "status": 200,
+    "title": "Contested objects from the collection | British Museum",
+    "words": 362,
+    "text_preview": "Contested objects from the collection | British Museum Skip to main content Please enable JavaScript in your web browser to get the best experience. Menu Hide menu Contested objects from the collection Show image caption Close image caption The horse head sculpture from the Parthenon Frieze in Room 18 The horse head sculpture from the Parthenon on Collection Online Share the page Share on Facebook Share on X (formerly Twitter) Share using email Share on WhatsApp Object statements The British Museum's collection has grown since 1753 and the acquisition of the founding collection of Sir Hans Sloane. Objects have been acquired in a variety of ways . Some objects are subject to questions about, or requests for, return to other countries. Statements on the most frequent requests and information",
+    "snippets": [
+      "enon Sculptures Early shield from Australia Made of bark and wood, find out about this early Australian shield. 1933–45 provenance Learn about research carried out into the provenance of the collection during the period 1933–1945. You may also be int",
+      "ter) Share using email Share on WhatsApp Object statements The British Museum's collection has grown since 1753 and the acquisition of the founding collection of Sir Hans Sloane. Objects have been acquired in a variety of ways . Some objects are subje",
+      "Sloane. Objects have been acquired in a variety of ways . Some objects are subject to questions about, or requests for, return to other countries. Statements on the most frequent requests and information on the current status of the discussions c",
+      "Contested objects from the collection | British Museum Skip to main content Please enable JavaScript in your web browser to get the best",
+      "h Museum is unique in bringing together under one roof the cultures of the world. Press Find the latest press releases, access to images for news reporting, plus how to arrange press photography and news filming at the Museum. About us Find about"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/repatriation/the-british-museum/index.html",
+    "term_counts": {
+      "civilization_world_culture": 0,
+      "provenance_ownership": 3,
+      "restitution_repatriation": 3,
+      "decolonization_reckoning": 0,
+      "access_public": 2,
+      "community_inclusion": 0,
+      "research_scholarship": 3
+    }
+  },
+  {
+    "museum": "Tate",
+    "page_type": "annual-report",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://www.tate.org.uk/about-us/tate-reports",
+    "archive_url": "",
+    "status": 200,
+    "title": "Tate Reports | Tate",
+    "words": 317,
+    "text_preview": "Tate Reports | Tate Skip navigation What are you looking for? Try searching for... Hurvin Anderson Ophelia School visits to Tate Tate Modern Lates Tracey Emin DON'T MISS Exhibition Hurvin Anderson Tate Britain Until 23 Aug 2026 £18 / Free for Members --> Exhibition Tracey Emin: A Second Life Tate Modern Until 31 Aug 2026 £20 / Free for Members --> Become a Member Tate Reports An annual review of Tate's activities, including our exhibitions, the art we have acquired and our work with national and international partners Hyundai Commission: Kara Walker during UNIQLO Tate Lates at Tate Modern 2019 © Kara Walker Photo © Tate / Jordan Anderson The latest report is for the Financial Year 2024–25. The appendix contains a list of works acquired between 2024-25, thanks to the support of our generous",
+    "snippets": [
+      "red between 2024-25, thanks to the support of our generous donors. Download the latest report PDF [1.6 MB] Download the acquisitions appendix [2.7 MB] Annual accounts can be found on our Governance page . Past Tate Reports Tate Report 2023-2024 Acquis"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/annual-report/tate/index.html",
+    "term_counts": {
+      "civilization_world_culture": 0,
+      "provenance_ownership": 1,
+      "restitution_repatriation": 0,
+      "decolonization_reckoning": 0,
+      "access_public": 0,
+      "community_inclusion": 0,
+      "research_scholarship": 0
+    }
+  },
+  {
+    "museum": "J. Paul Getty Museum",
+    "page_type": "provenance",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://www.getty.edu/museum/provenance/",
+    "archive_url": "",
+    "status": 200,
+    "title": "Research on Museum Collection Provenance | Getty Museum",
+    "words": 1030,
+    "text_preview": "Research on Museum Collection Provenance | Getty Museum Skip to content Sitewide Messages Research on Museum Collection Provenance Museum Overview The J. Paul Getty Museum is committed to sharing its research on the provenance of works in its collection. \"Provenance\" is the history of an artwork, encompassing the details of its origin, past ownership, sale timelines and previous locations. To compile this information, researchers study sale catalogues, personal papers, inventories and other archival documents, as well as physical marks, stickers, inscriptions, and stamps on the artwork itself. We regularly update our website and collection catalogues with new findings. Our ongoing research is incorporated into object records in the Museum’s collection pages . Users of this site can search ",
+    "snippets": [
+      "Research on Museum Collection Provenance | Getty Museum Skip to content Sitewide Messages Research on Museum Collection Provenance Museum Overview The J. Paul G",
+      "nce of works in its collection. \"Provenance\" is the history of an artwork, encompassing the details of its origin, past ownership, sale timelines and previous locations. To compile this information, researchers study sale catalogues, personal papers",
+      "orks known to have been confiscated during the period 1933–1945 and restituted to previous owners prior to the Museum's acquisition of them Additional Resources Provenance-related Getty Exhibitions Artists as Collectors The Getty Commodus Carvers and",
+      "of ownership for a given work presents many challenges. Much archival information remains undiscovered or difficult to access, and many records of ownership have been lost due to natural disasters, conflict, or neglect. Information is sometimes",
+      "followed by details of the transaction by which the object passed to its next owner and/or [information about a related public sale, e.g., auction date, place, lot number, sale price; in brackets] The left column shows the range of ownership in y"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/provenance/j-paul-getty-museum/index.html",
+    "term_counts": {
+      "civilization_world_culture": 0,
+      "provenance_ownership": 34,
+      "restitution_repatriation": 0,
+      "decolonization_reckoning": 0,
+      "access_public": 2,
+      "community_inclusion": 0,
+      "research_scholarship": 12
+    }
+  },
+  {
+    "museum": "Rijksmuseum",
+    "page_type": "annual-report",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://www.rijksmuseum.nl/en/organisation/annual-reports",
+    "archive_url": "",
+    "status": 200,
+    "title": "About us - Rijksmuseum",
+    "words": 124,
+    "text_preview": "About us - Rijksmuseum Cookie usage The Rijksmuseum uses cookies. A cookie is a small text file that a website stores on your computer or mobile device when you visit our site. Would you like to know more? Read our cookie policy . Accept No, rather not Home Language Nederlands (Dutch) English (English) Besucherinformationen Service visiteur Informazioni per i visitatori Informacion para los visitantes Informashon pa bishita &#x30D3;&#x30B8;&#x30BF;&#x30FC;&#xB7;&#x30A4;&#x30F3;&#x30D5;&#x30A9;&#x30E1;&#x30FC;&#x30B7;&#x30E7;&#x30F3; &#x6E38;&#x5BA2;&#x4FE1;&#x606F; &#x418;&#x43D;&#x444;&#x43E;&#x440;&#x43C;&#x430;&#x446;&#x438;&#x44F; &#x434;&#x43B;&#x44F; &#x43F;&#x43E;&#x441;&#x435;&#x442;&#x438;&#x442;&#x435;&#x43B;&#x435;&#x439; Login Giftshop Rijksmuseum tickets About us The Rijksmuse",
+    "snippets": [],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/annual-report/rijksmuseum/index.html",
+    "term_counts": {
+      "civilization_world_culture": 0,
+      "provenance_ownership": 0,
+      "restitution_repatriation": 0,
+      "decolonization_reckoning": 0,
+      "access_public": 0,
+      "community_inclusion": 0,
+      "research_scholarship": 0
+    }
+  },
+  {
+    "museum": "Art Institute of Chicago",
+    "page_type": "provenance",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://www.artic.edu/collection-information/provenance-research",
+    "archive_url": "",
+    "status": 200,
+    "title": "Provenance Research | The Art Institute of Chicago",
+    "words": 1316,
+    "text_preview": "Provenance Research | The Art Institute of Chicago Skip to Content Menu Provenance Research Collection Information Provenance Research Curatorial Departments Provenance Research Loans Deaccession Policy Image Licensing Open Access Share The Art Institute’s wide-ranging collection is a testament to thousands of years of human creativity and artistic expression—from ancient Chinese bronzes to contemporary art and from tapestries to photography. Every object in our collection has its own unique story to tell. By asking who owned or cared for these objects in the past (their “provenance”), we strive to deepen our understanding of the artworks, the people who valued them, and the societies these objects inhabited as they traveled through time and from place to place. In other words, provenance ",
+    "snippets": [
+      "Provenance Research | The Art Institute of Chicago Skip to Content Menu Provenance Research Collection Information Provenance Rese",
+      "rk. Although these records tell us from whom the Art Institute acquired an object, they do not always reveal their full collecting history. In the past, museum curators were naturally interested in the provenance of the objects that they added to the collect",
+      "e about how provenance research unfolds at the Art Institute. Professor Chōyō and the Chicago Craze for Japanese Prints Looted and Restituted: Matisse, Paul Rosenberg, and the Art Institute of Chicago A Sacred Pilaster Returns Home An Early Colle",
+      "for Japanese Prints Looted and Restituted: Matisse, Paul Rosenberg, and the Art Institute of Chicago A Sacred Pilaster Returns Home An Early Collection of Bencharong Porcelain The Image Reappears: Discovering the Origins of a Puzzling Dalí Making",
+      "Menu Provenance Research Collection Information Provenance Research Curatorial Departments Provenance Research Loans Deaccession Policy Image Licensing Open Access Share The Art Institute’s wide-ranging collection is a testament to thousands of"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/provenance/art-institute-of-chicago/index.html",
+    "term_counts": {
+      "civilization_world_culture": 0,
+      "provenance_ownership": 36,
+      "restitution_repatriation": 1,
+      "decolonization_reckoning": 0,
+      "access_public": 5,
+      "community_inclusion": 1,
+      "research_scholarship": 49
+    }
+  },
+  {
+    "museum": "Victoria and Albert Museum",
+    "page_type": "annual-report",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://www.vam.ac.uk/info/reports-strategic-plans-and-policies",
+    "archive_url": "",
+    "status": 200,
+    "title": "Reports, strategic plans & policies &middot; V&A",
+    "words": 874,
+    "text_preview": "Reports, strategic plans & policies &middot; V&A Skip to main content Reports, strategic plans & policies A full range of reports, strategic plans and policies covering the V&A's activities are available to download below. If you need information from this page in a different format please contact hello@vam.ac.uk Reports Annual reports and accounts The annual reports and accounts illustrate how our resources were spent in the last year and provide an overview of its activities. Annual report and accounts 2024 – 25 PDF (910 kb) Annual report and accounts 2023 – 24 PDF (1.24 mb) Annual report and accounts 2022 – 23 PDF (1.47 mb) Annual report and accounts 2021 – 22 PDF (1.59 mb) Annual report and accounts 2020 – 21 PDF (2.41 mb) Annual report and accounts 2019 – 20 PDF (556 kb) Annual report",
+    "snippets": [
+      "g agreement The funding agreement with DCMS sets out the ways in which we will help the DCMS achieve its objectives, in return for its funding. Funding agreement 2016 – 2020 PDF (10.6 mb) Funding agreement 2013 – 2016 PDF (429 kb) Funding agreeme",
+      "s. V&A gift acceptance policy PDF (241 kb) Freedom of information The Freedom of Information Act establishes a right of access to all types of recorded information held by public authorities. Find out more about freedom of information at the V&A",
+      "nnual Review 2011 – 2012 PDF (7.02 mb) Spend data In response to the Government's commitment to greater transparency of public information, the V&A will publish data relating to senior posts and spending. Find out more Gender Pay Gap reporting Ge",
+      "s care and conservation policy PDF (297 kb) National Art Library documentary collection development policy PDF (335 kb) Research ethics policy This policy sets out how the we will continue to ensure our research is conducted and shared in a respons",
+      "DF (72.3 kb) Collecting policy PDF (228 kb) Collections information and access policy PDF (356 kb) Collections care and conservation policy PDF (297 kb) National Art Library documentary collection development policy PDF (335 kb) Research ethics policy"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/annual-report/victoria-and-albert-museum/index.html",
+    "term_counts": {
+      "civilization_world_culture": 0,
+      "provenance_ownership": 0,
+      "restitution_repatriation": 1,
+      "decolonization_reckoning": 0,
+      "access_public": 8,
+      "community_inclusion": 0,
+      "research_scholarship": 4
+    }
+  },
+  {
+    "museum": "Cleveland Museum of Art",
+    "page_type": "provenance",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://www.clevelandart.org/about-collection/nazi-era-provenance",
+    "archive_url": "",
+    "status": 200,
+    "title": "Nazi-Era Provenance | Cleveland Museum of Art",
+    "words": 1724,
+    "text_preview": "Nazi-Era Provenance | Cleveland Museum of Art Nazi-Era Provenance The Provenance Research Project on the Nazi / World War II Era Research on provenance (the history of an artwork’s ownership) is an ongoing function of curatorial research at the Cleveland Museum of Art. In short, we try to trace the history of a work of art from the moment it was made until it comes into our collection. Frequently, it is impossible to document a complete provenance, as there are many reasons we may not be able to account for every episode in the history of a work of art. A common challenge is that, traditionally, provenance records have often reflected an owner or former owner’s wish for anonymity. Additionally, the ephemeral nature of historical records, which are often lost or destroyed over time, can fur",
+    "snippets": [
+      "Nazi-Era Provenance | Cleveland Museum of Art Nazi-Era Provenance The Provenance Research Project on the Nazi / World War II Era Research o",
+      "ance The Provenance Research Project on the Nazi / World War II Era Research on provenance (the history of an artwork’s ownership) is an ongoing function of curatorial research at the Cleveland Museum of Art. In short, we try to trace the history of",
+      "of Art and Law, 2007. D810 .C8 U56 2000 Howe Jr., Thomas Carr. Salt Mines and Castles: The Discovery and Restitution of Looted European Art. New York: The Bobbs-Merrill Company, 1946. D810 .A7 H6 1946 Müller, Melissa. Lost Lives, Lost Art: Jewish",
+      "/F8 F4613 1997 Grimsted, Patricia Kennedy, ed. Returned from Russia: Nazi Archival Plunder in Western Europe and Recent Restitution Issues. Builth Wells, Great Britain: Institute of Art and Law, 2007. D810 .C8 U56 2000 Howe Jr., Thomas Carr. Salt Mine",
+      "collections and a limited group of its drawing collection that meet this criteria. With the advent of the museum’s open access program, works may be displayed that meet the above criteria, but have not yet been added to the Nazi-Era Provenance pa"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/provenance/cleveland-museum-of-art/index.html",
+    "term_counts": {
+      "civilization_world_culture": 0,
+      "provenance_ownership": 31,
+      "restitution_repatriation": 2,
+      "decolonization_reckoning": 0,
+      "access_public": 3,
+      "community_inclusion": 1,
+      "research_scholarship": 28
+    }
+  },
+  {
+    "museum": "Philadelphia Museum of Art",
+    "page_type": "collection-note",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://philamuseum.org/collection",
+    "archive_url": "",
+    "status": 200,
+    "title": "Collection | Philadelphia Museum of Art | Philadelphia Museum of Art",
+    "words": 270,
+    "text_preview": "Skip to Main Content Come on down! Expect road closures, delays, and detours due to Parkway activities. Learn more . Open today: 10am-8:45pm Simplify Fonts Membership Buy Tickets Tickets 🔍 Menu Open today: 10am-8:45pm Visit What&#x27;s On Art & Artists Learn Support Search 🔍 Membership Simplify Fonts Collection About our online collection To serve our educational mission as caretakers of great collections, the Philadelphia Museum of Art is committed to offering broad access to our holdings. More than half of our collection of 240,000+ objects is available online. Our online collections reflect ongoing work conducted over the course of our 150-year history; you therefore may come across information that is incomplete, incorrect, or does not present current research. The objects themselves",
+    "snippets": [
+      "r educational mission as caretakers of great collections, the Philadelphia Museum of Art is committed to offering broad access to our holdings. More than half of our collection of 240,000+ objects is available online. Our online collections refle",
+      "150-year history; you therefore may come across information that is incomplete, incorrect, or does not present current research. The objects themselves, produced by a range of artists across cultures and times, may contain offensive racial, gender"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/collection-note/philadelphia-museum-of-art/index.html",
+    "term_counts": {
+      "civilization_world_culture": 0,
+      "provenance_ownership": 0,
+      "restitution_repatriation": 0,
+      "decolonization_reckoning": 0,
+      "access_public": 1,
+      "community_inclusion": 0,
+      "research_scholarship": 1
+    }
+  },
+  {
+    "museum": "Natural History Museum London",
+    "page_type": "annual-report",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://www.nhm.ac.uk/about-us/annual-reviews.html",
+    "archive_url": "",
+    "status": 200,
+    "title": "Annual reviews | Natural History Museum",
+    "words": 276,
+    "text_preview": "Annual reviews | Natural History Museum Annual reviews 2024/2025 was a record-breaking year for the Natural History Museum. In the year to April 2025, we welcomed more than 6.4 million people into our galleries and gardens. We made great progress towards our vision of a future where both people and planet thrive. Our scientists have made valuable contributions to research and teams across the Museum have secured funding to safeguard our collections far into the future. Read the Museum's 2024/25 review Highlights include: We transformed our gardens into two outdoor galleries that tell the incredible story of 2.7 billion years of life on our planet. We opened Fixing Our Broken Planet, our first new permanent gallery since 2016. We described 190 new species, including a snake named after acto",
+    "snippets": [
+      "towards our vision of a future where both people and planet thrive. Our scientists have made valuable contributions to research and teams across the Museum have secured funding to safeguard our collections far into the future. Read the Museum's 20"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/annual-report/natural-history-museum-london/index.html",
+    "term_counts": {
+      "civilization_world_culture": 0,
+      "provenance_ownership": 0,
+      "restitution_repatriation": 0,
+      "decolonization_reckoning": 0,
+      "access_public": 0,
+      "community_inclusion": 0,
+      "research_scholarship": 2
+    }
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "museum": "The Metropolitan Museum of Art",
+    "page_type": "annual-report",
+    "source_layer": "current-second-layer",
+    "url": "https://www.metmuseum.org/about-the-met/annual-reports"
+  },
+  {
+    "museum": "The Metropolitan Museum of Art",
+    "page_type": "provenance",
+    "source_layer": "current-second-layer",
+    "url": "https://www.metmuseum.org/about-the-met/policies-and-documents/provenance-research"
+  },
+  {
+    "museum": "The British Museum",
+    "page_type": "annual-report",
+    "source_layer": "current-second-layer",
+    "url": "https://www.britishmuseum.org/about-us/governance/annual-reports"
+  },
+  {
+    "museum": "The British Museum",
+    "page_type": "repatriation",
+    "source_layer": "current-second-layer",
+    "url": "https://www.britishmuseum.org/about-us/british-museum-story/contested-objects-collection"
+  },
+  {
+    "museum": "Museum of Modern Art",
+    "page_type": "annual-report",
+    "source_layer": "current-second-layer",
+    "url": "https://www.moma.org/about/annual-reports/"
+  },
+  {
+    "museum": "Tate",
+    "page_type": "annual-report",
+    "source_layer": "current-second-layer",
+    "url": "https://www.tate.org.uk/about-us/tate-reports"
+  },
+  {
+    "museum": "J. Paul Getty Museum",
+    "page_type": "provenance",
+    "source_layer": "current-second-layer",
+    "url": "https://www.getty.edu/museum/provenance/"
+  },
+  {
+    "museum": "Rijksmuseum",
+    "page_type": "annual-report",
+    "source_layer": "current-second-layer",
+    "url": "https://www.rijksmuseum.nl/en/organisation/annual-reports"
+  },
+  {
+    "museum": "National Gallery of Art",
+    "page_type": "provenance",
+    "source_layer": "current-second-layer",
+    "url": "https://www.nga.gov/artworks/provenance-national-gallery-art"
+  },
+  {
+    "museum": "Art Institute of Chicago",
+    "page_type": "provenance",
+    "source_layer": "current-second-layer",
+    "url": "https://www.artic.edu/collection-information/provenance-research"
+  },
+  {
+    "museum": "Victoria and Albert Museum",
+    "page_type": "annual-report",
+    "source_layer": "current-second-layer",
+    "url": "https://www.vam.ac.uk/info/reports-strategic-plans-and-policies"
+  },
+  {
+    "museum": "American Museum of Natural History",
+    "page_type": "annual-report",
+    "source_layer": "current-second-layer",
+    "url": "https://www.amnh.org/about/annual-report"
+  },
+  {
+    "museum": "Cleveland Museum of Art",
+    "page_type": "provenance",
+    "source_layer": "current-second-layer",
+    "url": "https://www.clevelandart.org/about-collection/nazi-era-provenance"
+  },
+  {
+    "museum": "Philadelphia Museum of Art",
+    "page_type": "collection-note",
+    "source_layer": "current-second-layer",
+    "url": "https://philamuseum.org/collection"
+  },
+  {
+    "museum": "Natural History Museum London",
+    "page_type": "annual-report",
+    "source_layer": "current-second-layer",
+    "url": "https://www.nhm.ac.uk/about-us/annual-reviews.html"
+  }
+]

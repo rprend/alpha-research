@@ -35,7 +35,7 @@
       "id": "museum-second-layer-corpus",
       "title": "Museum Annual Report And Provenance Source Layers",
       "priority": 2,
-      "status": "planned",
+      "status": "source-probed",
       "sourceExperiment": "docs/experiments/museum-language-drift/",
       "why": "The Season One post proves public-page language feasibility, but stronger decolonization/provenance claims need annual reports, provenance pages, and exhibition texts as separate layers.",
       "requiredSources": [
@@ -53,10 +53,10 @@
         "readiness gate requiring like-for-like source comparisons"
       ],
       "nextActions": [
-        "Add annual-report targets for the 14 museums represented in the current corpus.",
-        "Probe provenance and repatriation pages that do not require browser challenges.",
-        "Separate exhibition descriptions from about and collection pages.",
-        "Build source-genre-specific term-family tables."
+        "Replace inaccessible annual-report routes with report index pages, PDFs with extractable text, or archived copies.",
+        "Add provenance and repatriation targets for museums that currently only have annual-report routes.",
+        "Backfill historical snapshots for retained second-layer routes.",
+        "Join second-layer page-type outputs into the main readiness gate after manual quote review."
       ]
     },
     {

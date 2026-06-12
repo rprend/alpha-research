@@ -1,0 +1,13 @@
+{
+  "museum": "Victoria and Albert Museum",
+  "page_type": "annual-report",
+  "source_layer": "current-second-layer",
+  "url": "https://www.vam.ac.uk/info/reports-strategic-plans-and-policies",
+  "status": 200,
+  "ok": true,
+  "wordCount": 874,
+  "title": "Reports, strategic plans & policies &middot; V&A",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/annual-report/victoria-and-albert-museum/index.html",
+  "fetchedAt": "2026-06-12T21:11:51.281Z",
+  "bytes": 85106
+}

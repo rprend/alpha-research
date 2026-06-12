@@ -37,6 +37,8 @@ node docs/experiments/museum-language-drift/scripts/build-report.mjs
 node docs/experiments/museum-language-drift/scripts/build-audit-packet.mjs
 node docs/experiments/museum-language-drift/scripts/build-publication-handoff.mjs
 node docs/experiments/museum-language-drift/scripts/check-readiness.mjs
+node docs/experiments/museum-language-drift/scripts/probe-second-layer-sources.mjs --strict
+node docs/experiments/museum-language-drift/scripts/build-second-layer-corpus.mjs
 ```
 
 The scripts write:
@@ -60,6 +62,12 @@ The scripts write:
 - `reports/publication-handoff.json`
 - `reports/readiness.md`
 - `reports/readiness.json`
+- `data/raw/second-layer-sources/<run-date>/`
+- `data/processed/second-layer-pages.json`
+- `data/processed/second-layer-page-term-counts.csv`
+- `data/processed/second-layer-term-family-by-page-type.csv`
+- `reports/second-layer-source-inventory.md`
+- `reports/second-layer-corpus-readiness.md`
 
 ## Publication Standard
 

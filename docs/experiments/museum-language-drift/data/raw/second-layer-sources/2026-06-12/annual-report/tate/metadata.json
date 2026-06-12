@@ -1,0 +1,13 @@
+{
+  "museum": "Tate",
+  "page_type": "annual-report",
+  "source_layer": "current-second-layer",
+  "url": "https://www.tate.org.uk/about-us/tate-reports",
+  "status": 200,
+  "ok": true,
+  "wordCount": 317,
+  "title": "Tate Reports | Tate",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/annual-report/tate/index.html",
+  "fetchedAt": "2026-06-12T21:11:48.175Z",
+  "bytes": 76059
+}

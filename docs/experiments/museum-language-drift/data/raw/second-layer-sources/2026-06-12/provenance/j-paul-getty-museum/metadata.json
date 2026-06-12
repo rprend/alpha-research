@@ -1,0 +1,13 @@
+{
+  "museum": "J. Paul Getty Museum",
+  "page_type": "provenance",
+  "source_layer": "current-second-layer",
+  "url": "https://www.getty.edu/museum/provenance/",
+  "status": 200,
+  "ok": true,
+  "wordCount": 1030,
+  "title": "Research on Museum Collection Provenance | Getty Museum",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/provenance/j-paul-getty-museum/index.html",
+  "fetchedAt": "2026-06-12T21:11:48.992Z",
+  "bytes": 3067434
+}

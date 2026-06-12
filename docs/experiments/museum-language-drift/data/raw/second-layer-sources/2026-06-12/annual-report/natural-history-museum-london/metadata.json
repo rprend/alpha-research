@@ -1,0 +1,13 @@
+{
+  "museum": "Natural History Museum London",
+  "page_type": "annual-report",
+  "source_layer": "current-second-layer",
+  "url": "https://www.nhm.ac.uk/about-us/annual-reviews.html",
+  "status": 200,
+  "ok": true,
+  "wordCount": 276,
+  "title": "Annual reviews | Natural History Museum",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/annual-report/natural-history-museum-london/index.html",
+  "fetchedAt": "2026-06-12T21:11:52.736Z",
+  "bytes": 144629
+}
