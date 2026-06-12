@@ -60,6 +60,17 @@ This memo is generated from the first implemented corpus pass. It is strongest w
 - Typography III: high (80/100). Selected for Typography III because it has 3 reusable studio briefs and A-grade course evidence in the strongest public corpus tier. Strengths: course evidence grade A; 1 source IDs across course, syllabus, and selected assignment evidence; 3 selected complete/high-confidence assignment briefs. Limits: grading rubric or assessment strategy not recovered; public comparison work is course-context only or missing; student-work comparison is not assignment-linked.
 - Web Programming: high (87/100). Selected for Web Programming because it has 6 reusable studio briefs and B-grade course evidence in the available public corpus tier. Strengths: course evidence grade B; 27 source IDs across course, syllabus, and selected assignment evidence; 6 selected complete/high-confidence assignment briefs. Limits: student-work comparison is not assignment-linked.
 
+## Module Ordering Boundaries
+
+- Design Studio 1: Ranked 1 among qualifying Foundation Studio And Design Process packets by evidence score 149; selected in track quota with 29 assignment candidates, 6 reading/resource candidates, and 23 schedule candidates.
+- Web Type: Ranked 2 among qualifying Foundation Studio And Design Process packets by evidence score 146; selected in track quota with 69 assignment candidates, 17 reading/resource candidates, and 45 schedule candidates.
+- Design & Politics: Ranked 3 among qualifying Foundation Studio And Design Process packets by evidence score 142; selected in track quota with 21 assignment candidates, 2 reading/resource candidates, and 13 schedule candidates.
+- Introduction to Graphic Design: Ranked 4 among qualifying Foundation Studio And Design Process packets by evidence score 130; selected in track quota with 18 assignment candidates, 6 reading/resource candidates, and 14 schedule candidates.
+- Typography for Nonmajors: Ranked 1 among qualifying Typography And Reading Systems packets by evidence score 72; selected in track quota with 1 assignment candidates, 1 reading/resource candidates, and 0 schedule candidates.
+- Design for Publishing: Ranked 2 among qualifying Typography And Reading Systems packets by evidence score 71; selected in track quota with 1 assignment candidates, 0 reading/resource candidates, and 0 schedule candidates.
+- Typography III: Ranked 6 among qualifying Foundation Studio And Design Process packets by evidence score 126; selected in global backfill with 10 assignment candidates, 5 reading/resource candidates, and 7 schedule candidates.
+- Web Programming: Ranked 7 among qualifying Foundation Studio And Design Process packets by evidence score 124; selected in global backfill with 27 assignment candidates, 3 reading/resource candidates, and 65 schedule candidates.
+
 ## Critique And Revision
 
 - Design Studio 1: assign_syl_crawl_ds1618_risd_gd_2016_11_08_unit4_crit_html_d957a68a_01 (critique referenced in source excerpt); assign_syl_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224_01 (feedback/review referenced in source excerpt)

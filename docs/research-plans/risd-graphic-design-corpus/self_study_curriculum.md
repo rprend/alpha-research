@@ -34,6 +34,7 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Why this module was selected: Selected for Design Studio 1 because it has 6 reusable studio briefs and A-grade course evidence in the strongest public corpus tier.
 - Confidence strengths: course evidence grade A; 15 source IDs across course, syllabus, and selected assignment evidence; 6 selected complete/high-confidence assignment briefs; 6 usable reading/resource rows; ordered or assignment-linked schedule rhythm evidence; 6 assignment rows with critique/revision evidence; course-context-only public comparison evidence
 - Confidence limits: public comparison work is course-context only or missing; student-work comparison is not assignment-linked
+- Ordering rationale: Ranked 1 among qualifying Foundation Studio And Design Process packets by evidence score 149; selected in track quota with 29 assignment candidates, 6 reading/resource candidates, and 23 schedule candidates.
 - Course code: GRAPH-3210
 - Source IDs: src_john_caserta_design_studio_1_2016, src_ds1618_design_studio_archive, src_ds1618_make_book, src_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d, src_archive_ds1618_risd_gd_20170907172955_07012fee, src_archive_johncaserta_com_ds1_2016_html_20180519075904_df7ec518, src_archive_ds1618_risd_gd_book_html_20180922030215_4678ea9c
 - Syllabus/course artifacts: syl_john_caserta_design_studio_1_2016, syl_ds1618_design_studio_archive, syl_ds1618_make_book, syl_crawl_johncaserta_com_docicons_html_d8852632, syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d, syl_crawl_ds1618_risd_gd_2016_09_26_unit2_overview_html_1de519e9, syl_crawl_ds1618_risd_gd_2016_10_11_unit3_overview_html_9ed746cf, syl_crawl_ds1618_risd_gd_2016_10_25_unit4_overview_html_cfb221b8, syl_crawl_ds1618_risd_gd_2016_11_08_unit4_crit_html_d957a68a, syl_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224, syl_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d, syl_archive_ds1618_risd_gd_20170907172955_07012fee, syl_archive_johncaserta_com_docicons_html_20180515235950_74e7c3ed, syl_archive_johncaserta_com_ds1_2016_html_20180519075904_df7ec518, syl_archive_ds1618_risd_gd_book_html_20180922030215_4678ea9c
@@ -76,6 +77,7 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Why this module was selected: Selected for Web Type because it has 6 reusable studio briefs and A-grade course evidence in the strongest public corpus tier.
 - Confidence strengths: course evidence grade A; 17 source IDs across course, syllabus, and selected assignment evidence; 6 selected complete/high-confidence assignment briefs; 8 usable reading/resource rows; ordered or assignment-linked schedule rhythm evidence; 6 assignment rows with critique/revision evidence
 - Confidence limits: public comparison work is course-context only or missing
+- Ordering rationale: Ranked 2 among qualifying Foundation Studio And Design Process packets by evidence score 146; selected in track quota with 69 assignment candidates, 17 reading/resource candidates, and 45 schedule candidates.
 - Course code: GRAPH-2313-01
 - Source IDs: src_web_type_2022_syllabus, src_crawl_webtype_htmlkitchen_net_schedule_59d96530, src_crawl_webtype_htmlkitchen_net_projects_f21c0c50, src_crawl_webtype_htmlkitchen_net_exercises_8dc7f726, src_crawl_webtype_htmlkitchen_net_projects_project1_a757b534, src_crawl_webtype_htmlkitchen_net_exercises_0_getting_started_459158d5, src_crawl_webtype_htmlkitchen_net_exercises_01_layouts_positioning_697aa92a, src_crawl_webtype_htmlkitchen_net_exercises_02_responsive_f5b20f70, src_crawl_webtype_htmlkitchen_net_projects_project2_5558bef3, src_crawl_webtype_htmlkitchen_net_exercises_03_modular_d0c35ace, src_crawl_webtype_htmlkitchen_net_exercises_05_change_over_time_1f4702e5, src_crawl_webtype_htmlkitchen_net_exercises_06_dark_mode_4333e8cd, src_crawl_webtype_htmlkitchen_net_projects_project3_1ba5bc84, src_crawl_webtype_htmlkitchen_net_exercises_07_input_range_30e67e2f, src_crawl_webtype_htmlkitchen_net_projects_project4_da8d8ab6, src_crawl_webtype_htmlkitchen_net_exercises_08_apis_976b1cb7, src_crawl_webtype_htmlkitchen_net_projects_class_site_33043781
 - Syllabus/course artifacts: syl_web_type_2022_syllabus, syl_crawl_webtype_htmlkitchen_net_schedule_59d96530, syl_crawl_webtype_htmlkitchen_net_projects_f21c0c50, syl_crawl_webtype_htmlkitchen_net_exercises_8dc7f726, syl_crawl_webtype_htmlkitchen_net_projects_project1_a757b534, syl_crawl_webtype_htmlkitchen_net_exercises_0_getting_started_459158d5, syl_crawl_webtype_htmlkitchen_net_exercises_01_layouts_positioning_697aa92a, syl_crawl_webtype_htmlkitchen_net_exercises_02_responsive_f5b20f70, syl_crawl_webtype_htmlkitchen_net_projects_project2_5558bef3, syl_crawl_webtype_htmlkitchen_net_exercises_03_modular_d0c35ace, syl_crawl_webtype_htmlkitchen_net_exercises_05_change_over_time_1f4702e5, syl_crawl_webtype_htmlkitchen_net_exercises_06_dark_mode_4333e8cd, syl_crawl_webtype_htmlkitchen_net_projects_project3_1ba5bc84, syl_crawl_webtype_htmlkitchen_net_exercises_07_input_range_30e67e2f, syl_crawl_webtype_htmlkitchen_net_projects_project4_da8d8ab6, syl_crawl_webtype_htmlkitchen_net_exercises_08_apis_976b1cb7, syl_crawl_webtype_htmlkitchen_net_projects_class_site_33043781
@@ -116,6 +118,7 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Why this module was selected: Selected for Design & Politics because it has 6 reusable studio briefs and A-grade course evidence in the strongest public corpus tier.
 - Confidence strengths: course evidence grade A; 13 source IDs across course, syllabus, and selected assignment evidence; 6 selected complete/high-confidence assignment briefs; 2 usable reading/resource rows; ordered or assignment-linked schedule rhythm evidence; 4 assignment rows with critique/revision evidence
 - Confidence limits: public comparison work is course-context only or missing
+- Ordering rationale: Ranked 3 among qualifying Foundation Studio And Design Process packets by evidence score 142; selected in track quota with 21 assignment candidates, 2 reading/resource candidates, and 13 schedule candidates.
 - Course code: GRAPH2115
 - Source IDs: src_designandpolitics_2022_syllabus
 - Syllabus/course artifacts: syl_designandpolitics_2022_syllabus, syl_crawl_designandpolitics_risd_gd_2022_05_13_week12_html_38dd599d, syl_crawl_designandpolitics_risd_gd_2022_05_06_week11_html_a2f8e669, syl_crawl_designandpolitics_risd_gd_2022_04_29_week10_html_2c78adc6, syl_crawl_designandpolitics_risd_gd_2022_04_22_week9_html_d18590af, syl_crawl_designandpolitics_risd_gd_2022_04_15_week8_html_c265275c, syl_crawl_designandpolitics_risd_gd_2022_04_08_week7_html_66adff35, syl_crawl_designandpolitics_risd_gd_2022_03_25_week6_html_0ea8c1e0, syl_crawl_designandpolitics_risd_gd_2022_03_18_week5_html_573a50cf, syl_crawl_designandpolitics_risd_gd_2022_03_11_week4_html_2c0b9c19, syl_crawl_designandpolitics_risd_gd_2022_03_04_week3_html_20c11695, syl_crawl_designandpolitics_risd_gd_2022_02_25_week2_html_cd23f8f4, syl_crawl_designandpolitics_risd_gd_2022_02_18_week1_html_2fe7c95f
@@ -152,6 +155,7 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Why this module was selected: Selected for Introduction to Graphic Design because it has 6 reusable studio briefs and A-grade course evidence in the strongest public corpus tier.
 - Confidence strengths: course evidence grade A; 1 source IDs across course, syllabus, and selected assignment evidence; 6 selected complete/high-confidence assignment briefs; 6 usable reading/resource rows; ordered or assignment-linked schedule rhythm evidence; 2 assignment rows with critique/revision evidence
 - Confidence limits: public comparison work is course-context only or missing
+- Ordering rationale: Ranked 4 among qualifying Foundation Studio And Design Process packets by evidence score 130; selected in track quota with 18 assignment candidates, 6 reading/resource candidates, and 14 schedule candidates.
 - Course code: GRAPH-W336-01
 - Source IDs: src_adam_fein_intro_graphic_design_2021_pdf
 - Syllabus/course artifacts: syl_adam_fein_intro_graphic_design_2021_pdf
@@ -192,6 +196,7 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Why this module was selected: Selected for Typography III because it has 3 reusable studio briefs and A-grade course evidence in the strongest public corpus tier.
 - Confidence strengths: course evidence grade A; 1 source IDs across course, syllabus, and selected assignment evidence; 3 selected complete/high-confidence assignment briefs; 5 usable reading/resource rows; ordered or assignment-linked schedule rhythm evidence; 5 assignment rows with critique/revision evidence; course-context-only public comparison evidence
 - Confidence limits: grading rubric or assessment strategy not recovered; public comparison work is course-context only or missing; student-work comparison is not assignment-linked
+- Ordering rationale: Ranked 6 among qualifying Foundation Studio And Design Process packets by evidence score 126; selected in global backfill with 10 assignment candidates, 5 reading/resource candidates, and 7 schedule candidates.
 - Course code: unknown
 - Source IDs: src_wayback_typography_iii_syllabus_20210414155049
 - Syllabus/course artifacts: syl_wayback_typography_iii_syllabus_20210414155049
@@ -233,6 +238,7 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Why this module was selected: Selected for Web Programming because it has 6 reusable studio briefs and B-grade course evidence in the available public corpus tier.
 - Confidence strengths: course evidence grade B; 27 source IDs across course, syllabus, and selected assignment evidence; 6 selected complete/high-confidence assignment briefs; 3 usable reading/resource rows; ordered or assignment-linked schedule rhythm evidence; 5 assignment rows with critique/revision evidence; course-context-only public comparison evidence
 - Confidence limits: student-work comparison is not assignment-linked
+- Ordering rationale: Ranked 7 among qualifying Foundation Studio And Design Process packets by evidence score 124; selected in global backfill with 27 assignment candidates, 3 reading/resource candidates, and 65 schedule candidates.
 - Course code: GRAPH-3188-03
 - Source IDs: src_wp15_week_1_concrete_forms, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69
 - Syllabus/course artifacts: syl_wp15_week_1_concrete_forms, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pocket_pictograms_inspiration_for_assignment_2_3cf16be5, syl_crawl_wp15_risd_gd_category_outline_week_1_concrete_forms_4905a205, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_concrete_objects_christian_leborg_f274fe53, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_essay_by_paul_elliman_on_karel_martens_graphic__95641d1a, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_2_draw_found_objects_with_css_4a1e2993, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_1_make_a_scandinavian_flag_with_css_cb569dec, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_2_css_basics_layout_8224b9f9, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_1_html_basics_a2298300, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_getting_setup_add_users_bios_and_avatars_5a8864e0, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69, syl_crawl_wp15_risd_gd_wp_login_php_dd54314d, syl_crawl_wp15_risd_gd_category_assignments_116ec5b2, syl_crawl_wp15_risd_gd_category_assignments_1_scandinavian_flag_04511d7b, syl_crawl_wp15_risd_gd_category_assignments_2_css_drawings_6a79b496, syl_crawl_wp15_risd_gd_category_assignments_3a_abstract_shape_87c26db6, syl_crawl_wp15_risd_gd_category_assignments_3b_abstract_composition_93bcd461, syl_crawl_wp15_risd_gd_category_assignments_4css_patterns_de5ba421, syl_crawl_wp15_risd_gd_category_assignments_5_change_in_relations_f57a17f0, syl_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c, syl_cc_wp15_risd_gd_assignments_assignment_7_single_page_website_ce3ecd92, syl_cc_wp15_risd_gd_assignments_3a_abstract_shape_seo_jung_lee_kelly_abstract_shape_11afe369, syl_cc_wp15_risd_gd_assignments_5_change_in_relations_change_2_3c1efa27, syl_cc_wp15_risd_gd_assignments_yves_olivier_flag_f6bd828c, syl_cc_wp15_risd_gd_assignments_1_scandinavian_flag_scandinavian_flag_9_e73ad2ba, syl_archive_wp15_risd_gd_category_outline_week_1_concrete_forms_20150215183336_90033202
@@ -269,6 +275,7 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Why this module was selected: Selected for Type Two because it has 5 reusable studio briefs and A-grade course evidence in the strongest public corpus tier.
 - Confidence strengths: course evidence grade A; 1 source IDs across course, syllabus, and selected assignment evidence; 5 selected complete/high-confidence assignment briefs; 8 usable reading/resource rows; ordered or assignment-linked schedule rhythm evidence; 2 assignment rows with critique/revision evidence
 - Confidence limits: grading rubric or assessment strategy not recovered; public comparison work is course-context only or missing
+- Ordering rationale: Ranked 10 among qualifying Foundation Studio And Design Process packets by evidence score 120; selected in global backfill with 6 assignment candidates, 10 reading/resource candidates, and 4 schedule candidates.
 - Course code: unknown
 - Source IDs: src_type_two_2015_syllabus_pdf
 - Syllabus/course artifacts: syl_type_two_2015_syllabus_pdf
@@ -308,6 +315,7 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Why this module was selected: Selected for Grad Type 1 because it has 5 reusable studio briefs and A-grade course evidence in the strongest public corpus tier.
 - Confidence strengths: course evidence grade A; 1 source IDs across course, syllabus, and selected assignment evidence; 5 selected complete/high-confidence assignment briefs; 5 usable reading/resource rows; contextual schedule rhythm evidence; 5 assignment rows with critique/revision evidence
 - Confidence limits: public comparison work is course-context only or missing
+- Ordering rationale: Ranked 11 among qualifying Foundation Studio And Design Process packets by evidence score 115; selected in global backfill with 6 assignment candidates, 5 reading/resource candidates, and 1 schedule candidates.
 - Course code: unknown
 - Source IDs: src_grad_type_1_2014_syllabus_pdf
 - Syllabus/course artifacts: syl_grad_type_1_2014_syllabus_pdf
@@ -341,6 +349,7 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Why this module was selected: Selected for typography  because it has 5 reusable studio briefs and C-grade course evidence in the available public corpus tier.
 - Confidence strengths: course evidence grade C; 2 source IDs across course, syllabus, and selected assignment evidence; 5 selected complete/high-confidence assignment briefs; 8 usable reading/resource rows; ordered or assignment-linked schedule rhythm evidence; 2 assignment rows with critique/revision evidence
 - Confidence limits: grading rubric or assessment strategy not recovered; public comparison work is course-context only or missing
+- Ordering rationale: Ranked 12 among qualifying Foundation Studio And Design Process packets by evidence score 85; selected in global backfill with 7 assignment candidates, 15 reading/resource candidates, and 7 schedule candidates.
 - Course code: GRAPH2010-01
 - Source IDs: src_risd_graphic_design_courses_page_0, src_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb
 - Syllabus/course artifacts: syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb
@@ -382,6 +391,7 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Why this module was selected: Selected for Mapping Information because it has 1 reusable studio brief and B-grade course evidence in the available public corpus tier.
 - Confidence strengths: course evidence grade B; 1 source IDs across course, syllabus, and selected assignment evidence; 1 selected complete/high-confidence assignment brief; 1 assignment row with critique/revision evidence
 - Confidence limits: grading rubric or assessment strategy not recovered; ordered weekly schedule not recovered; usable reading/resource list not recovered; public comparison work is course-context only or missing; no reusable schedule rows selected
+- Ordering rationale: Ranked 13 among qualifying Foundation Studio And Design Process packets by evidence score 72; selected in global backfill with 1 assignment candidates, 0 reading/resource candidates, and 0 schedule candidates.
 - Course code: unknown
 - Source IDs: src_sp19_mapping_information
 - Syllabus/course artifacts: syl_sp19_mapping_information
@@ -405,6 +415,7 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Why this module was selected: Selected for Reframing the Poster because it has 1 reusable studio brief and B-grade course evidence in the available public corpus tier.
 - Confidence strengths: course evidence grade B; 1 source IDs across course, syllabus, and selected assignment evidence; 1 selected complete/high-confidence assignment brief; 2 usable reading/resource rows
 - Confidence limits: grading rubric or assessment strategy not recovered; ordered weekly schedule not recovered; critique/revision format only partially evidenced; public comparison work is course-context only or missing; no reusable schedule rows selected
+- Ordering rationale: Ranked 14 among qualifying Foundation Studio And Design Process packets by evidence score 72; selected in global backfill with 1 assignment candidates, 2 reading/resource candidates, and 0 schedule candidates.
 - Course code: unknown
 - Source IDs: src_sp19_reframing_the_poster
 - Syllabus/course artifacts: syl_sp19_reframing_the_poster
@@ -431,6 +442,7 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Why this module was selected: Selected for Type Design because it has 1 reusable studio brief and B-grade course evidence in the available public corpus tier.
 - Confidence strengths: course evidence grade B; 1 source IDs across course, syllabus, and selected assignment evidence; 1 selected complete/high-confidence assignment brief; 1 assignment row with critique/revision evidence
 - Confidence limits: grading rubric or assessment strategy not recovered; ordered weekly schedule not recovered; usable reading/resource list not recovered; public comparison work is course-context only or missing; no reusable schedule rows selected
+- Ordering rationale: Ranked 15 among qualifying Foundation Studio And Design Process packets by evidence score 70; selected in global backfill with 1 assignment candidates, 0 reading/resource candidates, and 0 schedule candidates.
 - Course code: unknown
 - Source IDs: src_sp19_type_design
 - Syllabus/course artifacts: syl_sp19_type_design
@@ -458,6 +470,7 @@ Studio loop: Set text under explicit hierarchy, spacing, scale, and sequencing c
 - Why this module was selected: Selected for Typography for Nonmajors because it has 1 reusable studio brief and B-grade course evidence in the available public corpus tier.
 - Confidence strengths: course evidence grade B; 1 source IDs across course, syllabus, and selected assignment evidence; 1 selected complete/high-confidence assignment brief; 1 usable reading/resource row
 - Confidence limits: grading rubric or assessment strategy not recovered; ordered weekly schedule not recovered; critique/revision format only partially evidenced; public comparison work is course-context only or missing; no reusable schedule rows selected
+- Ordering rationale: Ranked 1 among qualifying Typography And Reading Systems packets by evidence score 72; selected in track quota with 1 assignment candidates, 1 reading/resource candidates, and 0 schedule candidates.
 - Course code: unknown
 - Source IDs: src_sp19_typography_for_nonmajors
 - Syllabus/course artifacts: syl_sp19_typography_for_nonmajors
@@ -483,6 +496,7 @@ Studio loop: Set text under explicit hierarchy, spacing, scale, and sequencing c
 - Why this module was selected: Selected for Design for Publishing because it has 1 reusable studio brief and B-grade course evidence in the available public corpus tier.
 - Confidence strengths: course evidence grade B; 1 source IDs across course, syllabus, and selected assignment evidence; 1 selected complete/high-confidence assignment brief; 1 assignment row with critique/revision evidence
 - Confidence limits: grading rubric or assessment strategy not recovered; ordered weekly schedule not recovered; usable reading/resource list not recovered; public comparison work is course-context only or missing; no reusable schedule rows selected
+- Ordering rationale: Ranked 2 among qualifying Typography And Reading Systems packets by evidence score 71; selected in track quota with 1 assignment candidates, 0 reading/resource candidates, and 0 schedule candidates.
 - Course code: unknown
 - Source IDs: src_sp19_design_for_publishing
 - Syllabus/course artifacts: syl_sp19_design_for_publishing

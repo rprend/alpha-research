@@ -120,6 +120,7 @@ Overall status: pass
 - Self-study modules with comparison evidence: 3
 - Self-study modules with explicit unknowns: 13
 - Self-study modules with confidence explanations: 14
+- Self-study modules with ordering rationales: 14
 
 ## Checks
 
@@ -172,7 +173,7 @@ Overall status: pass
 - PASS archive_promotions_reference_targets_and_sources: 5 archive promotion attempts, 5 successful, 0 failed, 0 reference errors.
 - PASS manual_review_artifacts_have_valid_references: 12 generated review decisions resolved, 0 review decision reference errors, and 0 field conflict reference errors.
 - PASS field_conflicts_route_to_review_queue: 28 conflict review rows and 28 pending conflict decisions for 28 field conflicts.
-- PASS self_study_curriculum_modules_have_grounded_evidence: 14 modules; 14 with filtered assignments, 11 with usable readings/resources, 9 with schedule rhythm, 3 with comparison evidence, 13 with explicit unknowns, 14 with confidence explanations; 0 module reference errors; generated mismatch=false.
+- PASS self_study_curriculum_modules_have_grounded_evidence: 14 modules; 14 with filtered assignments, 11 with usable readings/resources, 9 with schedule rhythm, 3 with comparison evidence, 13 with explicit unknowns, 14 with confidence explanations, 14 with ordering rationales; 0 module reference errors; generated mismatch=false.
 - PASS official_course_inventory_reconciled: 105 official offerings parsed; RISD page displays 105 results.
 - PASS wayback_captures_recorded: 106 Wayback capture records.
 - PASS course_records_created: 134 course records created.

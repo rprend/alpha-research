@@ -4295,6 +4295,14 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       && module.module_confidence_explanation?.selection_reason
       && module.module_confidence_explanation?.strengths?.length
   ).length
+  const curriculumModulesWithOrderingRationale = curriculumModules.filter((module) =>
+    Number.isInteger(module.module_ordering_rationale?.global_rank)
+      && Number.isInteger(module.module_ordering_rationale?.track_rank)
+      && ['track_quota', 'global_backfill'].includes(module.module_ordering_rationale?.selection_phase)
+      && module.module_ordering_rationale?.ordering_basis
+      && module.module_ordering_rationale?.selected_reason
+      && Array.isArray(module.module_ordering_rationale?.near_miss_candidates)
+  ).length
   const curriculumModuleReferenceErrors = curriculumModules.filter((module) =>
     !module.module_id
       || !module.source_ids?.length
@@ -4309,6 +4317,10 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || !Number.isFinite(module.module_confidence_score)
       || !['high', 'medium', 'low'].includes(module.module_confidence_band)
       || !module.module_confidence_explanation?.selection_reason
+      || !Number.isInteger(module.module_ordering_rationale?.global_rank)
+      || !Number.isInteger(module.module_ordering_rationale?.track_rank)
+      || !['track_quota', 'global_backfill'].includes(module.module_ordering_rationale?.selection_phase)
+      || !module.module_ordering_rationale?.selected_reason
   )
   const curriculumGeneratedMismatch = effectiveSelfStudyModules.length > 0 && effectiveSelfStudyModules.length !== generatedCurriculumModules.length
   const courseInventoryReconciled = courseInventory.displayed_count > 0 && courseInventory.offerings.length === courseInventory.displayed_count
@@ -4561,7 +4573,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
     {
       id: 'self_study_curriculum_modules_have_grounded_evidence',
       status: curriculumModuleReferenceErrors.length === 0 && !curriculumGeneratedMismatch && curriculumModules.length > 0 && curriculumModulesWithSourceIds === curriculumModules.length && curriculumModulesWithAssignments === curriculumModules.length ? 'pass' : curriculumModuleReferenceErrors.length === 0 && curriculumModules.length > 0 ? 'warn' : 'fail',
-      detail: `${curriculumModules.length} modules; ${curriculumModulesWithAssignments} with filtered assignments, ${curriculumModulesWithReadings} with usable readings/resources, ${curriculumModulesWithSchedule} with schedule rhythm, ${curriculumModulesWithComparison} with comparison evidence, ${curriculumModulesWithUnknowns} with explicit unknowns, ${curriculumModulesWithConfidence} with confidence explanations; ${curriculumModuleReferenceErrors.length} module reference errors; generated mismatch=${curriculumGeneratedMismatch}.`,
+      detail: `${curriculumModules.length} modules; ${curriculumModulesWithAssignments} with filtered assignments, ${curriculumModulesWithReadings} with usable readings/resources, ${curriculumModulesWithSchedule} with schedule rhythm, ${curriculumModulesWithComparison} with comparison evidence, ${curriculumModulesWithUnknowns} with explicit unknowns, ${curriculumModulesWithConfidence} with confidence explanations, ${curriculumModulesWithOrderingRationale} with ordering rationales; ${curriculumModuleReferenceErrors.length} module reference errors; generated mismatch=${curriculumGeneratedMismatch}.`,
     },
     {
       id: 'official_course_inventory_reconciled',
@@ -4699,6 +4711,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_modules_with_comparison: curriculumModulesWithComparison,
       self_study_modules_with_unknowns: curriculumModulesWithUnknowns,
       self_study_modules_with_confidence_explanations: curriculumModulesWithConfidence,
+      self_study_modules_with_ordering_rationales: curriculumModulesWithOrderingRationale,
     },
     checks,
   }
@@ -5302,6 +5315,7 @@ Overall status: ${validation.status}
 - Self-study modules with comparison evidence: ${validation.counts.self_study_modules_with_comparison}
 - Self-study modules with explicit unknowns: ${validation.counts.self_study_modules_with_unknowns}
 - Self-study modules with confidence explanations: ${validation.counts.self_study_modules_with_confidence_explanations}
+- Self-study modules with ordering rationales: ${validation.counts.self_study_modules_with_ordering_rationales}
 
 ## Checks
 
@@ -5555,6 +5569,9 @@ function tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules
   const confidenceRows = selfStudyModules
     .filter((module) => module.module_confidence_explanation?.selection_reason)
     .slice(0, 8)
+  const orderingRows = selfStudyModules
+    .filter((module) => module.module_ordering_rationale?.selected_reason)
+    .slice(0, 8)
   const missingEvidenceRows = selfStudyModules
     .filter((module) => module.missing_evidence_warnings?.length)
     .slice(0, 10)
@@ -5600,6 +5617,13 @@ ${confidenceRows.length ? confidenceRows.map((module) => {
   const limits = module.module_confidence_explanation.limitations?.slice(0, 3).join('; ')
   return `- ${module.course_title ?? module.course_code}: ${module.module_confidence_band} (${module.module_confidence_score}/100). ${module.module_confidence_explanation.selection_reason}${strengths ? ` Strengths: ${strengths}.` : ''}${limits ? ` Limits: ${limits}.` : ''}`
 }).join('\n') : '- No module-level confidence explanations have been generated yet.'}
+
+## Module Ordering Boundaries
+
+${orderingRows.length ? orderingRows.map((module) => {
+  const nearMisses = module.module_ordering_rationale.near_miss_candidates?.slice(0, 2).map((candidate) => `${candidate.course_title ?? candidate.course_code} (${candidate.reason_not_selected})`).join('; ')
+  return `- ${module.course_title ?? module.course_code}: ${module.module_ordering_rationale.selected_reason}${nearMisses ? ` Near misses: ${nearMisses}.` : ''}`
+}).join('\n') : '- No module-level ordering rationales have been generated yet.'}
 
 ## Critique And Revision
 
@@ -5815,6 +5839,58 @@ function curriculumSelectedPackets(packets, limit = 24) {
   return selected
 }
 
+function curriculumOrderingRationale({ packet, selected, packets, selectedIndex }) {
+  const strongPackets = packets.filter((candidate) =>
+    curriculumAssignmentCandidates(candidate.courseAssignments).length
+  )
+  const selectedKey = curriculumPacketKey(packet)
+  const trackPackets = strongPackets.filter((candidate) => candidate.track.track_id === packet.track.track_id)
+  const selectedTrackPackets = selected.filter((candidate) => candidate.track.track_id === packet.track.track_id)
+  const trackRank = trackPackets.findIndex((candidate) => curriculumPacketKey(candidate) === selectedKey) + 1
+  const selectedTrackRank = selectedTrackPackets.findIndex((candidate) => curriculumPacketKey(candidate) === selectedKey) + 1
+  const selectedKeys = new Set(selected.map((candidate) => curriculumPacketKey(candidate)))
+  const nearMisses = trackPackets
+    .filter((candidate) => curriculumPacketKey(candidate) !== selectedKey && !selectedKeys.has(curriculumPacketKey(candidate)))
+    .slice(0, 3)
+    .map((candidate) => {
+      const candidateAssignments = curriculumAssignmentCandidates(candidate.courseAssignments)
+      const candidateReadings = curriculumReadingCandidates(candidate.courseReadings)
+      const candidateSchedule = curriculumScheduleCandidates(candidate.courseScheduleRows)
+      return {
+        course_id: candidate.course.course_id ?? null,
+        course_code: candidate.course.course_code ?? null,
+        course_title: candidate.course.course_title ?? null,
+        evidence_grade: candidate.course.evidence_grade ?? null,
+        evidence_score: candidate.score,
+        assignment_candidate_count: candidateAssignments.length,
+        reading_candidate_count: candidateReadings.length,
+        schedule_candidate_count: candidateSchedule.length,
+        reason_not_selected: selectedTrackPackets.length >= 4
+          ? 'track_slot_limit_reached'
+          : selected.length >= 24
+            ? 'global_module_limit_reached'
+            : 'lower_ranked_after_selected_modules',
+      }
+    })
+  const selectionPhase = selectedTrackRank <= 4
+      ? 'track_quota'
+      : 'global_backfill'
+  const assignmentCount = curriculumAssignmentCandidates(packet.courseAssignments).length
+  const readingCount = curriculumReadingCandidates(packet.courseReadings).length
+  const scheduleCount = curriculumScheduleCandidates(packet.courseScheduleRows).length
+  return {
+    global_rank: selectedIndex + 1,
+    track_rank: trackRank || null,
+    selected_track_rank: selectedTrackRank || null,
+    selection_phase: selectionPhase,
+    track_slot_limit: 4,
+    evidence_score: packet.score,
+    ordering_basis: 'course_evidence_score_desc_then_course_title; first four qualifying modules per track are selected before global backfill',
+    selected_reason: `Ranked ${trackRank || 'unknown'} among qualifying ${packet.track.title} packets by evidence score ${packet.score}; selected in ${selectionPhase.replace(/_/g, ' ')} with ${assignmentCount} assignment candidates, ${readingCount} reading/resource candidates, and ${scheduleCount} schedule candidates.`,
+    near_miss_candidates: nearMisses,
+  }
+}
+
 function curriculumPracticeInstruction(assignment) {
   return {
     assignment_id: assignment.assignment_id,
@@ -5939,6 +6015,7 @@ function buildSelfStudyModules({ courses, syllabi, assignments, readings, schedu
     ])
     const primaryAssignment = moduleAssignments[0]
     const confidence = selfStudyModuleConfidence({ course, courseSyllabi, moduleAssignments, moduleReadings, moduleScheduleRows, comparisonSet, moduleUnknowns })
+    const orderingRationale = curriculumOrderingRationale({ packet, selected, packets, selectedIndex: index })
     return {
       module_id: `self_study_module_${String(index + 1).padStart(2, '0')}_${curriculumPacketKey(packet)}`,
       generated_at: retrievedAt,
@@ -5953,6 +6030,7 @@ function buildSelfStudyModules({ courses, syllabi, assignments, readings, schedu
       module_confidence_band: confidence.confidence_band,
       module_confidence_factors: confidence.confidence_factors,
       module_confidence_explanation: confidence.confidence_explanation,
+      module_ordering_rationale: orderingRationale,
       source_ids: sourceIds,
       syllabus_ids: courseSyllabi.map((syllabus) => syllabus.syllabus_id),
       instructor_evidence: uniq(courseSyllabi.map((syllabus) => syllabus.instructor).filter(Boolean)),
@@ -6243,6 +6321,7 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
             relationship_note: 'course-context evidence only',
           }))
       const moduleConfidence = selfStudyModuleConfidence({ course, courseSyllabi, moduleAssignments, moduleReadings, moduleScheduleRows, comparisonSet, moduleUnknowns })
+      const orderingRationale = curriculumOrderingRationale({ packet, selected, packets, selectedIndex: selected.findIndex((candidate) => curriculumPacketKey(candidate) === curriculumPacketKey(packet)) })
       lines.push(`#### ${course.course_title ?? course.course_code ?? course.course_id}`)
       lines.push('')
       lines.push(`- Evidence grade: ${course.evidence_grade}`)
@@ -6250,6 +6329,13 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
       lines.push(`- Why this module was selected: ${moduleConfidence.confidence_explanation.selection_reason}`)
       if (moduleConfidence.confidence_explanation.strengths.length) lines.push(`- Confidence strengths: ${moduleConfidence.confidence_explanation.strengths.join('; ')}`)
       if (moduleConfidence.confidence_explanation.limitations.length) lines.push(`- Confidence limits: ${moduleConfidence.confidence_explanation.limitations.join('; ')}`)
+      lines.push(`- Ordering rationale: ${orderingRationale.selected_reason}`)
+      if (orderingRationale.near_miss_candidates.length) {
+        lines.push('- Near-miss candidates in this track:')
+        orderingRationale.near_miss_candidates.forEach((candidate) => {
+          lines.push(`  - ${candidate.course_title ?? candidate.course_code ?? candidate.course_id}: score ${candidate.evidence_score}, ${candidate.assignment_candidate_count} assignment candidates, ${candidate.reason_not_selected.replace(/_/g, ' ')}`)
+        })
+      }
       lines.push(`- Course code: ${course.course_code ?? 'unknown'}`)
       lines.push(`- Source IDs: ${course.source_ids.join(', ')}`)
       if (courseSyllabi.length) lines.push(`- Syllabus/course artifacts: ${courseSyllabi.map((syllabus) => syllabus.syllabus_id).join(', ')}`)
