@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-06-12T18:40:35.359Z",
+  "status": "ready-for-editorial-review",
+  "checks": [
+    {
+      "id": "sample-size",
+      "label": "At least 5,000 artwork records are sampled for the first runnable build",
+      "status": "pass",
+      "evidence": "5000 records"
+    },
+    {
+      "id": "department-coverage",
+      "label": "At least 10 departments are represented",
+      "status": "pass",
+      "evidence": "19 departments"
+    },
+    {
+      "id": "date-coverage",
+      "label": "Creation-century and acquisition-decade tables exist",
+      "status": "pass",
+      "evidence": "56 creation-century rows; 12 acquisition-decade rows"
+    },
+    {
+      "id": "rights-images",
+      "label": "License and image-availability summaries exist",
+      "status": "pass",
+      "evidence": "2 license rows; 2 image rows"
+    },
+    {
+      "id": "public-draft",
+      "label": "Public draft exists and limits claims to one sampled institution",
+      "status": "pass",
+      "evidence": "reports/public-draft.md"
+    }
+  ],
+  "nextMoves": [
+    "Fetch the full collection or a larger paginated corpus.",
+    "Audit acquisition-year extraction against explicit provenance/acquisition fields where available.",
+    "Add chart artifacts for department, creation century, acquisition decade, rights, and image availability.",
+    "Compare with a second open museum API before making cross-institution claims."
+  ]
+}

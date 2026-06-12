@@ -1,0 +1,40 @@
+{
+  "runDate": "2026-06-12",
+  "limit": 5000,
+  "pageSize": 1000,
+  "startedAt": "2026-06-12T18:39:53.708Z",
+  "finishedAt": "2026-06-12T18:40:35.363Z",
+  "steps": [
+    {
+      "script": "fetch-artworks.mjs",
+      "args": [
+        "--run-date=2026-06-12",
+        "--limit=5000",
+        "--page-size=1000"
+      ],
+      "startedAt": "2026-06-12T18:39:53.708Z",
+      "finishedAt": "2026-06-12T18:40:35.148Z",
+      "exitCode": 0,
+      "stdout": "Fetched 5000 Cleveland Museum artwork records into docs/experiments/cleveland-museum-collection-shape/data/raw/api/2026-06-12\n",
+      "stderr": ""
+    },
+    {
+      "script": "build-report.mjs",
+      "args": [],
+      "startedAt": "2026-06-12T18:40:35.148Z",
+      "finishedAt": "2026-06-12T18:40:35.331Z",
+      "exitCode": 0,
+      "stdout": "Built Cleveland collection report for 5000 artwork records\n",
+      "stderr": ""
+    },
+    {
+      "script": "check-readiness.mjs",
+      "args": [],
+      "startedAt": "2026-06-12T18:40:35.331Z",
+      "finishedAt": "2026-06-12T18:40:35.363Z",
+      "exitCode": 0,
+      "stdout": "Cleveland collection readiness: ready-for-editorial-review\n",
+      "stderr": ""
+    }
+  ]
+}

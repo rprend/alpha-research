@@ -226,6 +226,46 @@ Next implementation moves:
 - add explicit licensing notes before publishing derived datasets
 - turn one ready-now corpus into a first public essay
 
+### Cleveland Museum Collection Shape
+
+Path: `docs/experiments/cleveland-museum-collection-shape/`
+
+Status: first runnable study generated from the Humanities Dataset Registry, ready for editorial review as a single-institution collection-shape essay.
+
+Implemented:
+
+- Cleveland Museum of Art Open Access API fetcher
+- 5,000-record bounded sample
+- artwork normalization
+- department counts
+- collection/type/culture counts
+- creation-century table
+- acquisition-decade table using accession-number year as an audited-risk proxy
+- rights/license and image-availability summaries
+- `report.html`
+- `result.json`
+- `work.md`
+- `public-draft.md`
+- readiness gate
+- one-command pipeline runner
+
+Current corpus:
+
+- 5,000 sampled artwork records
+- 68,743 total API records available
+- 19 departments represented
+- 56 creation-century rows
+- 12 acquisition-decade rows
+- 87.2% of sampled records have an image
+- readiness: ready for editorial review with single-institution and sample-size caveats
+
+Next implementation moves:
+
+- fetch the full collection or a larger paginated corpus
+- audit acquisition-year extraction against explicit acquisition/provenance fields
+- add chart artifacts for the main tables
+- compare against a second open museum API before cross-institution claims
+
 ## Editorial Formats
 
 - `what-changed`: longitudinal study of cultural, institutional, scholarly, or semantic change

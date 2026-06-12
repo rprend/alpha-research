@@ -11,6 +11,7 @@ These specs turn the registry's ready-now candidates into first runnable studies
 - Format: what-changed
 - Unit of analysis: artwork metadata record
 - Readiness: ready-now (103)
+- Launched experiment: `docs/experiments/cleveland-museum-collection-shape/`
 
 Research question: What acquisition, creation-date, department, geography, and medium patterns become visible in a fully open museum API?
 

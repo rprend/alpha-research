@@ -1,0 +1,1474 @@
+{
+  "generatedAt": "2026-06-12T18:40:35.304Z",
+  "source": "Cleveland Museum of Art Open Access API",
+  "sampleRecords": 5000,
+  "totalAvailable": 68743,
+  "sampleShare": 0.0727,
+  "departments": [
+    {
+      "value": "Medieval Art",
+      "count": 1313,
+      "share": 0.2626
+    },
+    {
+      "value": "Chinese Art",
+      "count": 374,
+      "share": 0.0748
+    },
+    {
+      "value": "Decorative Art and Design",
+      "count": 313,
+      "share": 0.0626
+    },
+    {
+      "value": "Drawings",
+      "count": 302,
+      "share": 0.0604
+    },
+    {
+      "value": "Indian and Southeast Asian Art",
+      "count": 279,
+      "share": 0.0558
+    },
+    {
+      "value": "European Painting and Sculpture",
+      "count": 277,
+      "share": 0.0554
+    },
+    {
+      "value": "Prints",
+      "count": 265,
+      "share": 0.053
+    },
+    {
+      "value": "Greek and Roman Art",
+      "count": 253,
+      "share": 0.0506
+    },
+    {
+      "value": "Modern European Painting and Sculpture",
+      "count": 240,
+      "share": 0.048
+    },
+    {
+      "value": "Japanese Art",
+      "count": 186,
+      "share": 0.0372
+    },
+    {
+      "value": "American Painting and Sculpture",
+      "count": 174,
+      "share": 0.0348
+    },
+    {
+      "value": "Contemporary Art",
+      "count": 159,
+      "share": 0.0318
+    },
+    {
+      "value": "African Art",
+      "count": 157,
+      "share": 0.0314
+    },
+    {
+      "value": "Art of the Americas",
+      "count": 156,
+      "share": 0.0312
+    },
+    {
+      "value": "Textiles",
+      "count": 136,
+      "share": 0.0272
+    },
+    {
+      "value": "Egyptian and Ancient Near Eastern Art",
+      "count": 126,
+      "share": 0.0252
+    },
+    {
+      "value": "Photography",
+      "count": 121,
+      "share": 0.0242
+    },
+    {
+      "value": "Korean Art",
+      "count": 103,
+      "share": 0.0206
+    },
+    {
+      "value": "Islamic Art",
+      "count": 66,
+      "share": 0.0132
+    }
+  ],
+  "collections": [
+    {
+      "value": "MED - Byzantine",
+      "count": 896,
+      "share": 0.1792
+    },
+    {
+      "value": "Decorative Arts",
+      "count": 273,
+      "share": 0.0546
+    },
+    {
+      "value": "Mod Euro - Painting 1800-1960",
+      "count": 215,
+      "share": 0.043
+    },
+    {
+      "value": "Indian Art",
+      "count": 164,
+      "share": 0.0328
+    },
+    {
+      "value": "African Art",
+      "count": 157,
+      "share": 0.0314
+    },
+    {
+      "value": "ASIAN - Hanging scroll",
+      "count": 140,
+      "share": 0.028
+    },
+    {
+      "value": "GR - Greek",
+      "count": 139,
+      "share": 0.0278
+    },
+    {
+      "value": "MED - Arms & Armor",
+      "count": 138,
+      "share": 0.0276
+    },
+    {
+      "value": "American - Painting",
+      "count": 127,
+      "share": 0.0254
+    },
+    {
+      "value": "PR - Lithograph",
+      "count": 106,
+      "share": 0.0212
+    },
+    {
+      "value": "DR - French",
+      "count": 95,
+      "share": 0.019
+    },
+    {
+      "value": "Japanese Art",
+      "count": 85,
+      "share": 0.017
+    },
+    {
+      "value": "MED - Gothic",
+      "count": 84,
+      "share": 0.0168
+    },
+    {
+      "value": "Sculpture",
+      "count": 80,
+      "share": 0.016
+    },
+    {
+      "value": "Textiles",
+      "count": 78,
+      "share": 0.0156
+    },
+    {
+      "value": "Korean Art",
+      "count": 71,
+      "share": 0.0142
+    },
+    {
+      "value": "Islamic Art",
+      "count": 66,
+      "share": 0.0132
+    },
+    {
+      "value": "GR - Roman",
+      "count": 65,
+      "share": 0.013
+    },
+    {
+      "value": "ASIAN - Album leaf",
+      "count": 61,
+      "share": 0.0122
+    },
+    {
+      "value": "MED - Medieval Art",
+      "count": 61,
+      "share": 0.0122
+    },
+    {
+      "value": "Paintings",
+      "count": 57,
+      "share": 0.0114
+    },
+    {
+      "value": "ASIAN - Folding screen",
+      "count": 56,
+      "share": 0.0112
+    },
+    {
+      "value": "MED - Manuscript Illuminations",
+      "count": 56,
+      "share": 0.0112
+    },
+    {
+      "value": "AA - Andes",
+      "count": 53,
+      "share": 0.0106
+    },
+    {
+      "value": "CONTEMP - Painting",
+      "count": 53,
+      "share": 0.0106
+    },
+    {
+      "value": "AA - Intermediate Region",
+      "count": 50,
+      "share": 0.01
+    },
+    {
+      "value": "AA - Mesoamerica",
+      "count": 48,
+      "share": 0.0096
+    },
+    {
+      "value": "DR - Italian",
+      "count": 47,
+      "share": 0.0094
+    },
+    {
+      "value": "ASIAN - Handscroll",
+      "count": 45,
+      "share": 0.009
+    },
+    {
+      "value": "DR - American 20th Century",
+      "count": 42,
+      "share": 0.0084
+    },
+    {
+      "value": "CONTEMP - Sculpture",
+      "count": 40,
+      "share": 0.008
+    },
+    {
+      "value": "PR - Engraving",
+      "count": 40,
+      "share": 0.008
+    },
+    {
+      "value": "DR - British",
+      "count": 39,
+      "share": 0.0078
+    },
+    {
+      "value": "Furniture",
+      "count": 39,
+      "share": 0.0078
+    },
+    {
+      "value": "PH - American 1951-Present",
+      "count": 38,
+      "share": 0.0076
+    },
+    {
+      "value": "P - Italian 16th & 17th Century",
+      "count": 37,
+      "share": 0.0074
+    },
+    {
+      "value": "MED - Romanesque",
+      "count": 36,
+      "share": 0.0072
+    },
+    {
+      "value": "P - British before 1800",
+      "count": 35,
+      "share": 0.007
+    },
+    {
+      "value": "Egypt - New Kingdom",
+      "count": 33,
+      "share": 0.0066
+    },
+    {
+      "value": "Near Eastern Art",
+      "count": 33,
+      "share": 0.0066
+    }
+  ],
+  "types": [
+    {
+      "value": "Painting",
+      "count": 1131,
+      "share": 0.2262
+    },
+    {
+      "value": "Bound Volume",
+      "count": 873,
+      "share": 0.1746
+    },
+    {
+      "value": "Sculpture",
+      "count": 684,
+      "share": 0.1368
+    },
+    {
+      "value": "Ceramic",
+      "count": 366,
+      "share": 0.0732
+    },
+    {
+      "value": "Drawing",
+      "count": 300,
+      "share": 0.06
+    },
+    {
+      "value": "Print",
+      "count": 278,
+      "share": 0.0556
+    },
+    {
+      "value": "Metalwork",
+      "count": 257,
+      "share": 0.0514
+    },
+    {
+      "value": "Arms and Armor",
+      "count": 153,
+      "share": 0.0306
+    },
+    {
+      "value": "Photograph",
+      "count": 121,
+      "share": 0.0242
+    },
+    {
+      "value": "Jewelry",
+      "count": 81,
+      "share": 0.0162
+    },
+    {
+      "value": "Textile",
+      "count": 81,
+      "share": 0.0162
+    },
+    {
+      "value": "Manuscript",
+      "count": 68,
+      "share": 0.0136
+    },
+    {
+      "value": "Silver",
+      "count": 65,
+      "share": 0.013
+    },
+    {
+      "value": "Furniture and woodwork",
+      "count": 57,
+      "share": 0.0114
+    },
+    {
+      "value": "Miscellaneous",
+      "count": 52,
+      "share": 0.0104
+    },
+    {
+      "value": "Glass",
+      "count": 51,
+      "share": 0.0102
+    },
+    {
+      "value": "Portrait Miniature",
+      "count": 47,
+      "share": 0.0094
+    },
+    {
+      "value": "Mask",
+      "count": 34,
+      "share": 0.0068
+    },
+    {
+      "value": "Tapestry",
+      "count": 23,
+      "share": 0.0046
+    },
+    {
+      "value": "Enamel",
+      "count": 22,
+      "share": 0.0044
+    },
+    {
+      "value": "Wood",
+      "count": 22,
+      "share": 0.0044
+    },
+    {
+      "value": "Lacquer",
+      "count": 21,
+      "share": 0.0042
+    },
+    {
+      "value": "Embroidery",
+      "count": 19,
+      "share": 0.0038
+    },
+    {
+      "value": "Funerary Equipment",
+      "count": 18,
+      "share": 0.0036
+    },
+    {
+      "value": "Garment",
+      "count": 17,
+      "share": 0.0034
+    },
+    {
+      "value": "Jade",
+      "count": 17,
+      "share": 0.0034
+    },
+    {
+      "value": "Mixed Media",
+      "count": 16,
+      "share": 0.0032
+    },
+    {
+      "value": "Tools and Equipment",
+      "count": 16,
+      "share": 0.0032
+    },
+    {
+      "value": "Vessels",
+      "count": 16,
+      "share": 0.0032
+    },
+    {
+      "value": "Ivory",
+      "count": 15,
+      "share": 0.003
+    },
+    {
+      "value": "Stone",
+      "count": 13,
+      "share": 0.0026
+    },
+    {
+      "value": "Coins",
+      "count": 9,
+      "share": 0.0018
+    },
+    {
+      "value": "Time-based Media",
+      "count": 7,
+      "share": 0.0014
+    },
+    {
+      "value": "Glyptic",
+      "count": 6,
+      "share": 0.0012
+    },
+    {
+      "value": "Lamp",
+      "count": 5,
+      "share": 0.001
+    },
+    {
+      "value": "Amulets",
+      "count": 4,
+      "share": 0.0008
+    },
+    {
+      "value": "Velvet",
+      "count": 4,
+      "share": 0.0008
+    },
+    {
+      "value": "Calligraphy",
+      "count": 3,
+      "share": 0.0006
+    },
+    {
+      "value": "Carpet",
+      "count": 3,
+      "share": 0.0006
+    },
+    {
+      "value": "Cosmetic Objects",
+      "count": 3,
+      "share": 0.0006
+    }
+  ],
+  "cultures": [
+    {
+      "value": "Byzantium, Constantinople",
+      "count": 857,
+      "share": 0.1713
+    },
+    {
+      "value": "America",
+      "count": 485,
+      "share": 0.097
+    },
+    {
+      "value": "France, 19th century",
+      "count": 257,
+      "share": 0.0514
+    },
+    {
+      "value": "Japan, Edo period (1615–1868)",
+      "count": 78,
+      "share": 0.0156
+    },
+    {
+      "value": "Germany",
+      "count": 67,
+      "share": 0.0134
+    },
+    {
+      "value": "France, 18th century",
+      "count": 57,
+      "share": 0.0114
+    },
+    {
+      "value": "Russia, St. Petersburg",
+      "count": 54,
+      "share": 0.0108
+    },
+    {
+      "value": "Italy, 16th century",
+      "count": 52,
+      "share": 0.0104
+    },
+    {
+      "value": "China, Ming dynasty (1368–1644)",
+      "count": 49,
+      "share": 0.0098
+    },
+    {
+      "value": "England, 18th century",
+      "count": 48,
+      "share": 0.0096
+    },
+    {
+      "value": "Korea, Joseon dynasty (1392–1910)",
+      "count": 48,
+      "share": 0.0096
+    },
+    {
+      "value": "China, Qing dynasty (1644-1911)",
+      "count": 46,
+      "share": 0.0092
+    },
+    {
+      "value": "France",
+      "count": 45,
+      "share": 0.009
+    },
+    {
+      "value": "England, 19th century",
+      "count": 43,
+      "share": 0.0086
+    },
+    {
+      "value": "Netherlands",
+      "count": 41,
+      "share": 0.0082
+    },
+    {
+      "value": "Greek, Attic",
+      "count": 40,
+      "share": 0.008
+    },
+    {
+      "value": "America, Ohio, Cleveland",
+      "count": 39,
+      "share": 0.0078
+    },
+    {
+      "value": "France, 20th century",
+      "count": 37,
+      "share": 0.0074
+    },
+    {
+      "value": "France, Paris",
+      "count": 37,
+      "share": 0.0074
+    },
+    {
+      "value": "Korea, Goryeo dynasty (918–1392)",
+      "count": 33,
+      "share": 0.0066
+    },
+    {
+      "value": "Italy, Venice",
+      "count": 32,
+      "share": 0.0064
+    },
+    {
+      "value": "Mughal India, court of Akbar (reigned 1556–1605)",
+      "count": 31,
+      "share": 0.0062
+    },
+    {
+      "value": "Northern India, Pahari kingdoms",
+      "count": 31,
+      "share": 0.0062
+    },
+    {
+      "value": "China, Yuan dynasty (1271-1368)",
+      "count": 27,
+      "share": 0.0054
+    },
+    {
+      "value": "Flanders",
+      "count": 27,
+      "share": 0.0054
+    },
+    {
+      "value": "unknown",
+      "count": 27,
+      "share": 0.0054
+    },
+    {
+      "value": "China, Southern Song dynasty (1127-1279)",
+      "count": 26,
+      "share": 0.0052
+    },
+    {
+      "value": "Italy, 17th century",
+      "count": 25,
+      "share": 0.005
+    },
+    {
+      "value": "Japan, Kamakura period (1185–1333)",
+      "count": 25,
+      "share": 0.005
+    },
+    {
+      "value": "France, late 19th Century",
+      "count": 24,
+      "share": 0.0048
+    },
+    {
+      "value": "Italy, Roman",
+      "count": 24,
+      "share": 0.0048
+    },
+    {
+      "value": "America, New York",
+      "count": 23,
+      "share": 0.0046
+    },
+    {
+      "value": "Etruscan",
+      "count": 22,
+      "share": 0.0044
+    },
+    {
+      "value": "Spain",
+      "count": 22,
+      "share": 0.0044
+    },
+    {
+      "value": "France, late 17th Century",
+      "count": 21,
+      "share": 0.0042
+    },
+    {
+      "value": "Italy, 18th century",
+      "count": 21,
+      "share": 0.0042
+    },
+    {
+      "value": "Spain, 20th century",
+      "count": 20,
+      "share": 0.004
+    },
+    {
+      "value": "France, 17th century",
+      "count": 19,
+      "share": 0.0038
+    },
+    {
+      "value": "Japan, Muromachi period (1392–1573)",
+      "count": 18,
+      "share": 0.0036
+    },
+    {
+      "value": "Greece",
+      "count": 17,
+      "share": 0.0034
+    }
+  ],
+  "creationCenturies": [
+    {
+      "value": "10th century",
+      "count": 911,
+      "share": 0.1822
+    },
+    {
+      "value": "19th century",
+      "count": 677,
+      "share": 0.1354
+    },
+    {
+      "value": "20th century",
+      "count": 619,
+      "share": 0.1238
+    },
+    {
+      "value": "18th century",
+      "count": 435,
+      "share": 0.087
+    },
+    {
+      "value": "16th century",
+      "count": 381,
+      "share": 0.0762
+    },
+    {
+      "value": "17th century",
+      "count": 369,
+      "share": 0.0738
+    },
+    {
+      "value": "15th century",
+      "count": 256,
+      "share": 0.0512
+    },
+    {
+      "value": "14th century",
+      "count": 126,
+      "share": 0.0252
+    },
+    {
+      "value": "21th century",
+      "count": 124,
+      "share": 0.0248
+    },
+    {
+      "value": "13th century",
+      "count": 111,
+      "share": 0.0222
+    },
+    {
+      "value": "12th century",
+      "count": 90,
+      "share": 0.018
+    },
+    {
+      "value": "11th century",
+      "count": 84,
+      "share": 0.0168
+    },
+    {
+      "value": "1th century",
+      "count": 79,
+      "share": 0.0158
+    },
+    {
+      "value": "-5th century",
+      "count": 68,
+      "share": 0.0136
+    },
+    {
+      "value": "-4th century",
+      "count": 63,
+      "share": 0.0126
+    },
+    {
+      "value": "6th century",
+      "count": 63,
+      "share": 0.0126
+    },
+    {
+      "value": "-3th century",
+      "count": 53,
+      "share": 0.0106
+    },
+    {
+      "value": "7th century",
+      "count": 50,
+      "share": 0.01
+    },
+    {
+      "value": "9th century",
+      "count": 45,
+      "share": 0.009
+    },
+    {
+      "value": "4th century",
+      "count": 43,
+      "share": 0.0086
+    },
+    {
+      "value": "5th century",
+      "count": 34,
+      "share": 0.0068
+    },
+    {
+      "value": "-1th century",
+      "count": 32,
+      "share": 0.0064
+    },
+    {
+      "value": "3th century",
+      "count": 32,
+      "share": 0.0064
+    },
+    {
+      "value": "-6th century",
+      "count": 26,
+      "share": 0.0052
+    },
+    {
+      "value": "2th century",
+      "count": 26,
+      "share": 0.0052
+    },
+    {
+      "value": "-2th century",
+      "count": 25,
+      "share": 0.005
+    },
+    {
+      "value": "8th century",
+      "count": 23,
+      "share": 0.0046
+    },
+    {
+      "value": "-13th century",
+      "count": 22,
+      "share": 0.0044
+    },
+    {
+      "value": "-7th century",
+      "count": 18,
+      "share": 0.0036
+    },
+    {
+      "value": "0th century",
+      "count": 18,
+      "share": 0.0036
+    },
+    {
+      "value": "-10th century",
+      "count": 13,
+      "share": 0.0026
+    },
+    {
+      "value": "-9th century",
+      "count": 12,
+      "share": 0.0024
+    },
+    {
+      "value": "-12th century",
+      "count": 10,
+      "share": 0.002
+    },
+    {
+      "value": "-15th century",
+      "count": 7,
+      "share": 0.0014
+    },
+    {
+      "value": "-8th century",
+      "count": 7,
+      "share": 0.0014
+    },
+    {
+      "value": "-14th century",
+      "count": 6,
+      "share": 0.0012
+    },
+    {
+      "value": "-20th century",
+      "count": 6,
+      "share": 0.0012
+    },
+    {
+      "value": "-16th century",
+      "count": 4,
+      "share": 0.0008
+    },
+    {
+      "value": "-24th century",
+      "count": 4,
+      "share": 0.0008
+    },
+    {
+      "value": "-18th century",
+      "count": 3,
+      "share": 0.0006
+    },
+    {
+      "value": "-35th century",
+      "count": 3,
+      "share": 0.0006
+    },
+    {
+      "value": "-40th century",
+      "count": 3,
+      "share": 0.0006
+    },
+    {
+      "value": "-19th century",
+      "count": 2,
+      "share": 0.0004
+    },
+    {
+      "value": "-21th century",
+      "count": 2,
+      "share": 0.0004
+    },
+    {
+      "value": "-29th century",
+      "count": 2,
+      "share": 0.0004
+    },
+    {
+      "value": "-30th century",
+      "count": 2,
+      "share": 0.0004
+    },
+    {
+      "value": "-33th century",
+      "count": 2,
+      "share": 0.0004
+    },
+    {
+      "value": "-11th century",
+      "count": 1,
+      "share": 0.0002
+    },
+    {
+      "value": "-22th century",
+      "count": 1,
+      "share": 0.0002
+    },
+    {
+      "value": "-23th century",
+      "count": 1,
+      "share": 0.0002
+    },
+    {
+      "value": "-26th century",
+      "count": 1,
+      "share": 0.0002
+    },
+    {
+      "value": "-27th century",
+      "count": 1,
+      "share": 0.0002
+    },
+    {
+      "value": "-28th century",
+      "count": 1,
+      "share": 0.0002
+    },
+    {
+      "value": "-38th century",
+      "count": 1,
+      "share": 0.0002
+    },
+    {
+      "value": "-45th century",
+      "count": 1,
+      "share": 0.0002
+    },
+    {
+      "value": "-47th century",
+      "count": 1,
+      "share": 0.0002
+    }
+  ],
+  "acquisitionDecades": [
+    {
+      "value": "1940s",
+      "count": 1275,
+      "share": 0.255
+    },
+    {
+      "value": "1960s",
+      "count": 570,
+      "share": 0.114
+    },
+    {
+      "value": "1950s",
+      "count": 443,
+      "share": 0.0886
+    },
+    {
+      "value": "1970s",
+      "count": 431,
+      "share": 0.0862
+    },
+    {
+      "value": "1980s",
+      "count": 386,
+      "share": 0.0772
+    },
+    {
+      "value": "2020s",
+      "count": 315,
+      "share": 0.063
+    },
+    {
+      "value": "1920s",
+      "count": 306,
+      "share": 0.0612
+    },
+    {
+      "value": "2010s",
+      "count": 302,
+      "share": 0.0604
+    },
+    {
+      "value": "1990s",
+      "count": 298,
+      "share": 0.0596
+    },
+    {
+      "value": "1910s",
+      "count": 292,
+      "share": 0.0584
+    },
+    {
+      "value": "1930s",
+      "count": 194,
+      "share": 0.0388
+    },
+    {
+      "value": "2000s",
+      "count": 188,
+      "share": 0.0376
+    }
+  ],
+  "licenses": [
+    {
+      "value": "CC0",
+      "count": 4370,
+      "share": 0.874
+    },
+    {
+      "value": "Copyrighted",
+      "count": 630,
+      "share": 0.126
+    }
+  ],
+  "imageAvailability": [
+    {
+      "value": "has-image",
+      "count": 4360,
+      "share": 0.872
+    },
+    {
+      "value": "no-image",
+      "count": 640,
+      "share": 0.128
+    }
+  ],
+  "representativeRecords": [
+    {
+      "id": 94979,
+      "accession_number": "1915.534",
+      "title": "Nathaniel Hurd",
+      "department": "American Painting and Sculpture",
+      "collection": "American - Painting",
+      "type": "Painting",
+      "creation_date": "c. 1765",
+      "creation_date_earliest": 1760,
+      "creation_date_latest": 1770,
+      "accession_year": 1915,
+      "culture": [
+        "America"
+      ],
+      "technique": "oil on canvas",
+      "share_license_status": "CC0",
+      "has_image": true,
+      "url": "https://clevelandart.org/art/1915.534"
+    },
+    {
+      "id": 102578,
+      "accession_number": "1921.1239",
+      "title": "Portrait of Dora Wheeler",
+      "department": "American Painting and Sculpture",
+      "collection": "American - Painting",
+      "type": "Painting",
+      "creation_date": "1882–83",
+      "creation_date_earliest": 1882,
+      "creation_date_latest": 1883,
+      "accession_year": 1921,
+      "culture": [
+        "America"
+      ],
+      "technique": "oil on canvas",
+      "share_license_status": "CC0",
+      "has_image": true,
+      "url": "https://clevelandart.org/art/1921.1239"
+    },
+    {
+      "id": 92937,
+      "accession_number": "1922.1133",
+      "title": "Stag at Sharkey's",
+      "department": "American Painting and Sculpture",
+      "collection": "American - Painting",
+      "type": "Painting",
+      "creation_date": "1909",
+      "creation_date_earliest": 1909,
+      "creation_date_latest": 1909,
+      "accession_year": 1922,
+      "culture": [
+        "America"
+      ],
+      "technique": "oil on canvas",
+      "share_license_status": "CC0",
+      "has_image": true,
+      "url": "https://clevelandart.org/art/1922.1133"
+    },
+    {
+      "id": 151904,
+      "accession_number": "1927.1984",
+      "title": "The Biglin Brothers Turning the Stake",
+      "department": "American Painting and Sculpture",
+      "collection": "American - Painting",
+      "type": "Painting",
+      "creation_date": "1873",
+      "creation_date_earliest": 1873,
+      "creation_date_latest": 1873,
+      "accession_year": 1927,
+      "culture": [
+        "America"
+      ],
+      "technique": "oil on canvas",
+      "share_license_status": "CC0",
+      "has_image": true,
+      "url": "https://clevelandart.org/art/1927.1984"
+    },
+    {
+      "id": 110180,
+      "accession_number": "1928.8",
+      "title": "The Race Track (Death on a Pale Horse)",
+      "department": "American Painting and Sculpture",
+      "collection": "American - Painting",
+      "type": "Painting",
+      "creation_date": "c. 1896–1908",
+      "creation_date_earliest": 1896,
+      "creation_date_latest": 1908,
+      "accession_year": 1928,
+      "culture": [
+        "America"
+      ],
+      "technique": "oil on canvas",
+      "share_license_status": "CC0",
+      "has_image": true,
+      "url": "https://clevelandart.org/art/1928.8"
+    },
+    {
+      "id": 137259,
+      "accession_number": "1962.2",
+      "title": "Mme L . . . (Laure Borreau)",
+      "department": "Modern European Painting and Sculpture",
+      "collection": "Mod Euro - Painting 1800-1960",
+      "type": "Painting",
+      "creation_date": "1863",
+      "creation_date_earliest": 1863,
+      "creation_date_latest": 1863,
+      "accession_year": 1962,
+      "culture": [
+        "France, 19th century"
+      ],
+      "technique": "oil on fabric",
+      "share_license_status": "CC0",
+      "has_image": true,
+      "url": "https://clevelandart.org/art/1962.2"
+    },
+    {
+      "id": 141639,
+      "accession_number": "1965.233",
+      "title": "Twilight in the Wilderness",
+      "department": "American Painting and Sculpture",
+      "collection": "American - Painting",
+      "type": "Painting",
+      "creation_date": "1860",
+      "creation_date_earliest": 1860,
+      "creation_date_latest": 1860,
+      "accession_year": 1965,
+      "culture": [
+        "America"
+      ],
+      "technique": "oil on canvas",
+      "share_license_status": "CC0",
+      "has_image": true,
+      "url": "https://clevelandart.org/art/1965.233"
+    },
+    {
+      "id": 149410,
+      "accession_number": "1978.63",
+      "title": "In the Waves (Dans les Vagues)",
+      "department": "Modern European Painting and Sculpture",
+      "collection": "Mod Euro - Painting 1800-1960",
+      "type": "Painting",
+      "creation_date": "1889",
+      "creation_date_earliest": 1889,
+      "creation_date_latest": 1889,
+      "accession_year": 1978,
+      "culture": [
+        "France, 19th century"
+      ],
+      "technique": "oil on fabric",
+      "share_license_status": "CC0",
+      "has_image": true,
+      "url": "https://clevelandart.org/art/1978.63"
+    },
+    {
+      "id": 149112,
+      "accession_number": "1977.43",
+      "title": "Church Street El",
+      "department": "American Painting and Sculpture",
+      "collection": "American - Painting",
+      "type": "Painting",
+      "creation_date": "1920",
+      "creation_date_earliest": 1920,
+      "creation_date_latest": 1920,
+      "accession_year": 1977,
+      "culture": [
+        "America"
+      ],
+      "technique": "oil on canvas",
+      "share_license_status": "CC0",
+      "has_image": true,
+      "url": "https://clevelandart.org/art/1977.43"
+    },
+    {
+      "id": 124245,
+      "accession_number": "1945.24",
+      "title": "La Vie",
+      "department": "Modern European Painting and Sculpture",
+      "collection": "Mod Euro - Painting 1800-1960",
+      "type": "Painting",
+      "creation_date": "1903",
+      "creation_date_earliest": 1903,
+      "creation_date_latest": 1903,
+      "accession_year": 1945,
+      "culture": [
+        "Spain"
+      ],
+      "technique": "oil on canvas",
+      "share_license_status": "Copyrighted",
+      "has_image": false,
+      "url": "https://clevelandart.org/art/1945.24"
+    },
+    {
+      "id": 125249,
+      "accession_number": "1947.209",
+      "title": "The Large Plane Trees (Road Menders at Saint-Rémy)",
+      "department": "Modern European Painting and Sculpture",
+      "collection": "Mod Euro - Painting 1800-1960",
+      "type": "Painting",
+      "creation_date": "1889",
+      "creation_date_earliest": 1889,
+      "creation_date_latest": 1889,
+      "accession_year": 1947,
+      "culture": [
+        "Netherlands"
+      ],
+      "technique": "oil on fabric",
+      "share_license_status": "CC0",
+      "has_image": true,
+      "url": "https://clevelandart.org/art/1947.209"
+    },
+    {
+      "id": 135299,
+      "accession_number": "1958.31",
+      "title": "Adeline Ravoux",
+      "department": "Modern European Painting and Sculpture",
+      "collection": "Mod Euro - Painting 1800-1960",
+      "type": "Painting",
+      "creation_date": "1890",
+      "creation_date_earliest": 1890,
+      "creation_date_latest": 1890,
+      "accession_year": 1958,
+      "culture": [
+        "Netherlands"
+      ],
+      "technique": "oil on fabric",
+      "share_license_status": "CC0",
+      "has_image": true,
+      "url": "https://clevelandart.org/art/1958.31"
+    },
+    {
+      "id": 93014,
+      "accession_number": "1917.1335",
+      "title": "View of Schroon Mountain, Essex County, New York, After a Storm",
+      "department": "American Painting and Sculpture",
+      "collection": "American - Painting",
+      "type": "Painting",
+      "creation_date": "1838",
+      "creation_date_earliest": 1838,
+      "creation_date_latest": 1838,
+      "accession_year": 1917,
+      "culture": [
+        "America"
+      ],
+      "technique": "oil on canvas",
+      "share_license_status": "CC0",
+      "has_image": true,
+      "url": "https://clevelandart.org/art/1917.1335"
+    },
+    {
+      "id": 135382,
+      "accession_number": "1958.39",
+      "title": "The Red Kerchief",
+      "department": "Modern European Painting and Sculpture",
+      "collection": "Mod Euro - Painting 1800-1960",
+      "type": "Painting",
+      "creation_date": "c. 1868–73",
+      "creation_date_earliest": 1868,
+      "creation_date_latest": 1873,
+      "accession_year": 1958,
+      "culture": [
+        "France, 19th century"
+      ],
+      "technique": "oil on fabric",
+      "share_license_status": "CC0",
+      "has_image": true,
+      "url": "https://clevelandart.org/art/1958.39"
+    },
+    {
+      "id": 123365,
+      "accession_number": "1943.60",
+      "title": "Gray and Gold",
+      "department": "American Painting and Sculpture",
+      "collection": "American - Painting",
+      "type": "Painting",
+      "creation_date": "1942",
+      "creation_date_earliest": 1942,
+      "creation_date_latest": 1942,
+      "accession_year": 1943,
+      "culture": [
+        "America"
+      ],
+      "technique": "oil on canvas",
+      "share_license_status": "Copyrighted",
+      "has_image": false,
+      "url": "https://clevelandart.org/art/1943.60"
+    },
+    {
+      "id": 128391,
+      "accession_number": "1951.355",
+      "title": "Portrait of a Family Playing Music",
+      "department": "European Painting and Sculpture",
+      "collection": "P - Netherlandish-Dutch",
+      "type": "Painting",
+      "creation_date": "1663",
+      "creation_date_earliest": 1663,
+      "creation_date_latest": 1663,
+      "accession_year": 1951,
+      "culture": [
+        "Netherlands"
+      ],
+      "technique": "oil on canvas",
+      "share_license_status": "CC0",
+      "has_image": true,
+      "url": "https://clevelandart.org/art/1951.355"
+    },
+    {
+      "id": 140161,
+      "accession_number": "1964.160",
+      "title": "A Woman's Work",
+      "department": "American Painting and Sculpture",
+      "collection": "American - Painting",
+      "type": "Painting",
+      "creation_date": "1912",
+      "creation_date_earliest": 1912,
+      "creation_date_latest": 1912,
+      "accession_year": 1964,
+      "culture": [
+        "America"
+      ],
+      "technique": "oil on canvas",
+      "share_license_status": "CC0",
+      "has_image": true,
+      "url": "https://clevelandart.org/art/1964.160"
+    },
+    {
+      "id": 125104,
+      "accession_number": "1946.83",
+      "title": "Frieze of Dancers",
+      "department": "Modern European Painting and Sculpture",
+      "collection": "Mod Euro - Painting 1800-1960",
+      "type": "Painting",
+      "creation_date": "c. 1895",
+      "creation_date_earliest": 1890,
+      "creation_date_latest": 1900,
+      "accession_year": 1946,
+      "culture": [
+        "France, 19th century"
+      ],
+      "technique": "oil on fabric",
+      "share_license_status": "CC0",
+      "has_image": true,
+      "url": "https://clevelandart.org/art/1946.83"
+    },
+    {
+      "id": 138464,
+      "accession_number": "1962.37",
+      "title": "Cupid and Psyche",
+      "department": "Modern European Painting and Sculpture",
+      "collection": "Mod Euro - Painting 1800-1960",
+      "type": "Painting",
+      "creation_date": "1817",
+      "creation_date_earliest": 1817,
+      "creation_date_latest": 1817,
+      "accession_year": 1962,
+      "culture": [
+        "France, 19th century"
+      ],
+      "technique": "oil on canvas",
+      "share_license_status": "CC0",
+      "has_image": true,
+      "url": "https://clevelandart.org/art/1962.37"
+    },
+    {
+      "id": 122349,
+      "accession_number": "1942.645",
+      "title": "Portrait of the Ladies Amabel and Mary Jemima Yorke",
+      "department": "European Painting and Sculpture",
+      "collection": "P - British before 1800",
+      "type": "Painting",
+      "creation_date": "c. 1761",
+      "creation_date_earliest": 1756,
+      "creation_date_latest": 1766,
+      "accession_year": 1942,
+      "culture": [
+        "England, 18th century"
+      ],
+      "technique": "oil on canvas",
+      "share_license_status": "CC0",
+      "has_image": true,
+      "url": "https://clevelandart.org/art/1942.645"
+    }
+  ],
+  "strongestFinding": "A structured museum API turns a collection into analyzable records, but the first artifact is a bounded sample of one institution, not a statement about museums generally.",
+  "caveats": [
+    "This run uses a bounded API sample, not the full collection.",
+    "Object metadata completeness varies by department, object type, date, culture, and image availability.",
+    "Accession-number dates are a rough acquisition proxy and need audit before publication claims.",
+    "One open museum collection cannot stand in for museum collections as a whole."
+  ],
+  "nextMoves": [
+    "Fetch the full collection or a larger paginated corpus.",
+    "Audit accession-number year extraction against explicit acquisition fields where available.",
+    "Compare against another open museum API before making cross-institution claims.",
+    "Build charts from department, creation-century, acquisition-decade, and image-availability tables."
+  ],
+  "rawRunDir": "data/raw/api/2026-06-12"
+}
