@@ -170,6 +170,9 @@
     "self_study_portfolio_collaborator_handoff_packet_ready_rows": 3,
     "self_study_portfolio_collaborator_response_intake_template_rows": 3,
     "self_study_portfolio_collaborator_response_intake_template_ready_rows": 3,
+    "self_study_portfolio_collaborator_response_reconciliation_rows": 3,
+    "self_study_portfolio_collaborator_response_reconciliation_imported_rows": 0,
+    "self_study_portfolio_collaborator_response_reconciliation_awaiting_rows": 3,
     "self_study_portfolio_milestones": 3,
     "self_study_portfolio_briefs": 3,
     "self_study_portfolio_briefs_with_completion_gate_status": 3,
@@ -557,6 +560,11 @@
       "id": "self_study_portfolio_collaborator_response_intake_templates_map_replies",
       "status": "pass",
       "detail": "3 collaborator response intake templates; 3 ready for responses; 0 intake reference/target errors; generated mismatch=false."
+    },
+    {
+      "id": "self_study_portfolio_collaborator_response_reconciliation_tracks_followthrough",
+      "status": "pass",
+      "detail": "3 collaborator response reconciliation rows; 0 with live feedback imports; 3 awaiting responses; 0 reconciliation reference/status errors; generated mismatch=false."
     },
     {
       "id": "self_study_progress_ledger_links_to_portfolio_completion_gates",
