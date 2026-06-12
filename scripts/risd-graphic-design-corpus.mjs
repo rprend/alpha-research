@@ -1077,8 +1077,8 @@ function extractSpanFields(text, source = {}) {
     learning_outcomes: extractBulletsAfter(text, ['learning objectives', 'course objectives', 'course goals'], ['grading', 'schedule', 'projects', 'assignments']),
     grading_rubric: extractSection(text, ['grading', 'evaluation critera', 'evaluation criteria'], ['attendance', 'policies', 'schedule', 'projects']),
     assessment_strategy: extractSection(text, ['assessment', 'evaluation', 'grading'], ['attendance', 'policies', 'schedule']),
-    topic_outline: extractScheduleRows(text).map((row) => row.topic).filter(Boolean).slice(0, 30),
-    assignment_schedule: extractScheduleRows(text).slice(0, 80),
+    topic_outline: extractScheduleRows(text, source).map((row) => row.topic).filter(Boolean).slice(0, 30),
+    assignment_schedule: extractScheduleRows(text, source).slice(0, 80),
   }
 }
 
@@ -1111,7 +1111,7 @@ function extractBulletsAfter(text, starts, ends) {
   return uniq(section.split(/(?:\s*[•*-]\s+|\.\s+(?=[A-Z]))/).map((item) => item.trim()).filter((item) => item.length > 12)).slice(0, 20)
 }
 
-function extractScheduleRows(text) {
+function extractScheduleRows(text, source = {}) {
   const out = []
   const normalized = text.replace(/\r/g, '\n')
   const rowPattern = /\b((?:Mon|Tues|Tue|Weds|Wed|Thurs|Thu|Fri|Sat|Sun)[a-z]*,?\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2})\b([^]*?)(?=\b(?:Mon|Tues|Tue|Weds|Wed|Thurs|Thu|Fri|Sat|Sun)[a-z]*,?\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2}\b|$)/gi
@@ -1124,7 +1124,40 @@ function extractScheduleRows(text) {
       assignment_or_reading: body.match(/\b(?:Project|Exercise|Reading|Due|Critique|Discussion|Lecture)[^.]*/i)?.[0]?.slice(0, 260) ?? null,
     })
   }
+  const weekRow = extractWeekPageScheduleRow(text, source)
+  if (weekRow && !out.some((row) => row.date === weekRow.date && row.topic === weekRow.topic)) {
+    out.unshift(weekRow)
+  }
   return out
+}
+
+function extractWeekPageScheduleRow(text, source = {}) {
+  const title = `${source.title ?? ''} ${source.link_label ?? ''}`.replace(/\s+/g, ' ').trim()
+  const url = source.url ?? ''
+  const week = title.match(/\bWeek\s+\d+\b/i)?.[0] ?? url.match(/week[-_]?(\d+)/i)?.[0]?.replace(/week[-_]?/i, 'Week ')
+  const classSession = title.match(/\bClass\s+\d+\b/i)?.[0]
+  if (!week && !classSession) return null
+  const normalized = text.replace(/\r/g, '\n')
+  const date = normalized.match(/\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+(?:19|20)\d{2}\b/i)?.[0]
+    ?? normalized.match(/\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},?\s+(?:19|20)\d{2}\b/i)?.[0]
+    ?? url.match(/\/((?:19|20)\d{2})\/(\d{2})\/(\d{2})\//)?.slice(1).join('-')
+    ?? week
+    ?? classSession
+  const scheduleLines = lines(text)
+    .filter((line) => line.length > 4)
+    .filter((line) => !/^(?:↘|index|syllabus|schedule|projects|exercises|readings|resources|colophon|quick links|web type|design & politics)$/i.test(line))
+    .filter((line) => !/^Week\s+\d+$/i.test(line))
+    .filter((line) => !/^(?:Unit|Lecture)\s+\d+$/i.test(line))
+    .filter((line) => !/^\w+\s+\d{1,2},\s+(?:19|20)\d{2}$/i.test(line))
+    .slice(0, 18)
+  const topic = scheduleLines.join(' ').replace(/\s+/g, ' ').trim().slice(0, 360)
+  if (!topic) return null
+  return {
+    date,
+    topic,
+    assignment_or_reading: topic.match(/\b(?:Project|Exercise|Reading|Due|Critique|Discussion|Lecture|Review|Activity|Workshop|Final)[^.]*/i)?.[0]?.slice(0, 260) ?? null,
+    schedule_source: 'week_page',
+  }
 }
 
 function escapeRegExp(value) {

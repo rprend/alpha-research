@@ -43,7 +43,7 @@
     "structured_student_work": 22,
     "course_linked_student_work": 5,
     "course_coverage_rows": 134,
-    "high_coverage_courses": 7,
+    "high_coverage_courses": 8,
     "low_coverage_courses": 112,
     "faculty_portfolio_examples": 60,
     "structured_faculty_portfolio_examples": 60,
@@ -160,7 +160,7 @@
     {
       "id": "course_coverage_matrix_references_valid_sources",
       "status": "pass",
-      "detail": "134 course coverage rows for 134 courses; 7 at 80+ coverage, 112 below 40 coverage, and 0 coverage metadata/reference errors."
+      "detail": "134 course coverage rows for 134 courses; 8 at 80+ coverage, 112 below 40 coverage, and 0 coverage metadata/reference errors."
     },
     {
       "id": "faculty_portfolio_examples_reference_valid_sources",

@@ -47,7 +47,7 @@ Overall status: pass
 - Structured student work rows: 22
 - Course-linked student work rows: 5
 - Course coverage rows: 134
-- Courses at 80+ coverage: 7
+- Courses at 80+ coverage: 8
 - Courses below 40 coverage: 112
 - Faculty portfolio examples: 60
 - Structured faculty portfolio examples: 60
@@ -86,7 +86,7 @@ Overall status: pass
 - PASS faculty_profile_candidates_have_provenance: 47 faculty profile candidates, 45 ingested, 26 faculty rows with profile URLs; 0 reference errors.
 - PASS student_work_reference_valid_sources: 0 student work source reference errors.
 - PASS student_work_has_structured_public_examples: 22 student work rows include URL plus medium/project/evidence metadata; 5 rows include course code/title context.
-- PASS course_coverage_matrix_references_valid_sources: 134 course coverage rows for 134 courses; 7 at 80+ coverage, 112 below 40 coverage, and 0 coverage metadata/reference errors.
+- PASS course_coverage_matrix_references_valid_sources: 134 course coverage rows for 134 courses; 8 at 80+ coverage, 112 below 40 coverage, and 0 coverage metadata/reference errors.
 - PASS faculty_portfolio_examples_reference_valid_sources: 0 faculty portfolio example reference errors across 60 examples.
 - PASS faculty_portfolio_examples_have_structured_metadata: 60 faculty portfolio examples include faculty plus title/medium/statement/visual metadata.
 - PASS source_clusters_reference_valid_sources: 0 source cluster reference errors across 13 clusters.

@@ -227,6 +227,8 @@ Generated: 2026-06-12
 - Term: Spring 2022
 - Tools mentioned: Google Drive
 - Materials mentioned: print output
+- Schedule rows:
+  - May 13, 2022: Final class! Mount work We have two rooms to display work in — DC404 and DC407
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -238,6 +240,8 @@ Generated: 2026-06-12
 - Term: Spring 2022
 - Tools mentioned: Slack
 - Policy evidence: Come with some follow-up questions from last week (taxing Brown, solitary confinement) as well as questions that might relate to your projects, your political interests, etc.
+- Schedule rows:
+  - May 6, 2022: Current Events Let’s jump into current events, local and beyond, relating to politics (and/or design). Place links in #news channel in Slack if possible. Visit from State Rep. Jean Philippe Barros We’ll be joined by State Rep. Jean Philippe Barros. He was my city councilperson in Pawtucket and has been my state Rep for about 6 years. His day job is at the Ce
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -249,6 +253,8 @@ Generated: 2026-06-12
 - Term: Spring 2022
 - Materials mentioned: photography
 - Policy evidence: Discuss #news topics related to visit to state house.
+- Schedule rows:
+  - April 29, 2022: Project updates Everyone should be prepared to show progress on their final project — whether it involves public space, or whether it meandered into open territory
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -259,6 +265,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_04_22_week9_html_d18590af
 - Term: Spring 2022
 - Materials mentioned: print output
+- Schedule rows:
+  - April 22, 2022: final day of Amber Art & Design’s weeklong parachute cloth painting workshop
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -269,6 +277,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_04_15_week8_html_c265275c
 - Term: Spring 2022
 - Materials mentioned: print output
+- Schedule rows:
+  - April 15, 2022: Neelam Sakaria on digital public spaces Neelam Sakaria is a masters candidate in public affairs at Brown. Previously, she was chief of staff at New_ Public , an organization that advocates for better digital public spaces. Neelam will lead us through New_ Public’s year-long research on effective public spaces (offline and online). This research may form the
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -280,6 +290,8 @@ Generated: 2026-06-12
 - Term: Spring 2022
 - Tools mentioned: Slack
 - Materials mentioned: photography
+- Schedule rows:
+  - April 8, 2022: Andy Pressman We’ll talk with Andy Pressman about his experiences with design and politics as a community organizer, designer and now creative director at Upstatement. Above: His design system for Democratic Socialists for America played out by local chapters Public space check-in Assembled in a group of three, discuss the location you’ve chosen for your pub
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -291,6 +303,8 @@ Generated: 2026-06-12
 - Term: Spring 2022
 - Tools mentioned: Slack
 - Materials mentioned: paper
+- Schedule rows:
+  - March 25, 2022: activity using the tree cards shown
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -301,6 +315,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_03_18_week5_html_573a50cf
 - Term: Spring 2022
 - Tools mentioned: Slack
+- Schedule rows:
+  - March 18, 2022: projects in Slack #unit2 Current events Ann, Kai and Niki will bring up news stories, headlines and current events relating to politics (and/or design) this week for discussion
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -312,6 +328,8 @@ Generated: 2026-06-12
 - Term: Spring 2022
 - Tools mentioned: Slack
 - Materials mentioned: sketchbook, print output, risograph
+- Schedule rows:
+  - March 11, 2022: projects
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -324,6 +342,8 @@ Generated: 2026-06-12
 - Tools mentioned: Slack, Google Drive
 - Materials mentioned: print output
 - Policy evidence: Please welcome and engage Nick, especially given my absence.
+- Schedule rows:
+  - March 4, 2022: critique thereafter
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -334,6 +354,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_02_25_week2_html_cd23f8f4
 - Term: Spring 2022
 - Tools mentioned: Slack, Zoom
+- Schedule rows:
+  - February 25, 2022: Org charts Present Org charts We’ll meet in two groups on Zoom (see email and Slack for link). You only need to be present at the time with your name below. Screen share your Org chart. Which ‘charts’ engage you as forms? Which ones make you want to understand more about the organization? Kai, Ann, Jeremy, Lisa, Avery Rigo, Leigh, Lucia, Haley, Niki, Ziyu Cu
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -345,6 +367,8 @@ Generated: 2026-06-12
 - Term: Spring 2022
 - Materials mentioned: print output
 - Grading/assessment evidence: Questions How might the class structure itself support, reinforce or play with the central ideas of the course. What are our rules? Refer and alter the community guidelines Activity: Building relationships Pair up with a classmate you do not know. Using Laura Shill’s “Including other in the self” as inspiration, ask your classmate ten questions from the first section Arthur Aron’s list of questions to achieve closeness from the printed sheet provided. Add questions of your own. 30min Tell the cl
+- Schedule rows:
+  - February 18, 2022: lecture See notes/slides Review syllabus Grading Questions How might the class structure itself support, reinforce or play with the central ideas of the course
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -407,6 +431,8 @@ Generated: 2026-06-12
 - Term: Spring 2022
 - Tools mentioned: Google Drive
 - Materials mentioned: print output
+- Schedule rows:
+  - May 13, 2022: Final class! Mount work We have two rooms to display work in — DC404 and DC407
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -418,6 +444,8 @@ Generated: 2026-06-12
 - Term: Spring 2022
 - Tools mentioned: Slack
 - Policy evidence: Come with some follow-up questions from last week (taxing Brown, solitary confinement) as well as questions that might relate to your projects, your political interests, etc.
+- Schedule rows:
+  - May 6, 2022: Current Events Let’s jump into current events, local and beyond, relating to politics (and/or design). Place links in #news channel in Slack if possible. Visit from State Rep. Jean Philippe Barros We’ll be joined by State Rep. Jean Philippe Barros. He was my city councilperson in Pawtucket and has been my state Rep for about 6 years. His day job is at the Ce
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -429,6 +457,8 @@ Generated: 2026-06-12
 - Term: Spring 2022
 - Materials mentioned: photography
 - Policy evidence: Discuss #news topics related to visit to state house.
+- Schedule rows:
+  - April 29, 2022: Project updates Everyone should be prepared to show progress on their final project — whether it involves public space, or whether it meandered into open territory
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -439,6 +469,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_04_22_week9_html_d18590af
 - Term: Spring 2022
 - Materials mentioned: print output
+- Schedule rows:
+  - April 22, 2022: final day of Amber Art & Design’s weeklong parachute cloth painting workshop
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -449,6 +481,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_04_15_week8_html_c265275c
 - Term: Spring 2022
 - Materials mentioned: print output
+- Schedule rows:
+  - April 15, 2022: Neelam Sakaria on digital public spaces Neelam Sakaria is a masters candidate in public affairs at Brown. Previously, she was chief of staff at New_ Public , an organization that advocates for better digital public spaces. Neelam will lead us through New_ Public’s year-long research on effective public spaces (offline and online). This research may form the
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -460,6 +494,8 @@ Generated: 2026-06-12
 - Term: Spring 2022
 - Tools mentioned: Slack
 - Materials mentioned: photography
+- Schedule rows:
+  - April 8, 2022: Andy Pressman We’ll talk with Andy Pressman about his experiences with design and politics as a community organizer, designer and now creative director at Upstatement. Above: His design system for Democratic Socialists for America played out by local chapters Public space check-in Assembled in a group of three, discuss the location you’ve chosen for your pub
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -471,6 +507,8 @@ Generated: 2026-06-12
 - Term: Spring 2022
 - Tools mentioned: Slack
 - Materials mentioned: paper
+- Schedule rows:
+  - March 25, 2022: activity using the tree cards shown
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -481,6 +519,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_03_18_week5_html_573a50cf
 - Term: Spring 2022
 - Tools mentioned: Slack
+- Schedule rows:
+  - March 18, 2022: projects in Slack #unit2 Current events Ann, Kai and Niki will bring up news stories, headlines and current events relating to politics (and/or design) this week for discussion
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -492,6 +532,8 @@ Generated: 2026-06-12
 - Term: Spring 2022
 - Tools mentioned: Slack
 - Materials mentioned: sketchbook, print output, risograph
+- Schedule rows:
+  - March 11, 2022: projects
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -504,6 +546,8 @@ Generated: 2026-06-12
 - Tools mentioned: Slack, Google Drive
 - Materials mentioned: print output
 - Policy evidence: Please welcome and engage Nick, especially given my absence.
+- Schedule rows:
+  - March 4, 2022: critique thereafter
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -514,6 +558,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_designandpolitics_risd_gd_2022_02_25_week2_html_cd23f8f4
 - Term: Spring 2022
 - Tools mentioned: Slack, Zoom
+- Schedule rows:
+  - February 25, 2022: Org charts Present Org charts We’ll meet in two groups on Zoom (see email and Slack for link). You only need to be present at the time with your name below. Screen share your Org chart. Which ‘charts’ engage you as forms? Which ones make you want to understand more about the organization? Kai, Ann, Jeremy, Lisa, Avery Rigo, Leigh, Lucia, Haley, Niki, Ziyu Cu
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -525,6 +571,8 @@ Generated: 2026-06-12
 - Term: Spring 2022
 - Materials mentioned: print output
 - Grading/assessment evidence: Questions How might the class structure itself support, reinforce or play with the central ideas of the course. What are our rules? Refer and alter the community guidelines Activity: Building relationships Pair up with a classmate you do not know. Using Laura Shill’s “Including other in the self” as inspiration, ask your classmate ten questions from the first section Arthur Aron’s list of questions to achieve closeness from the printed sheet provided. Add questions of your own. 30min Tell the cl
+- Schedule rows:
+  - February 18, 2022: lecture See notes/slides Review syllabus Grading Questions How might the class structure itself support, reinforce or play with the central ideas of the course
 - Weekly/class structure evidence:
   - Week 12
   - Week 11
@@ -2608,6 +2656,8 @@ Generated: 2026-06-12
   - Be comfortable editing existing themes or websites
   - Learn to work collaboratively in an open-source model Week One: Concrete Forms Assignment 1: Drawing exercise Assignment 2: Found object drawings Week Two: Abstract Forms Assignment 3: Abstract compositions Assignment 4: Patterns Week Three: Active Forms Assignment 5: Movement and interaction Assignment 6: Responsive animation Week Four: Final Project Review assignment 6 Lecture: From sketch to code In-class activity: Putting it all together Software needed Textwrangler or other HTML editor Safari or Chrome browser
 - Grading/assessment evidence: 40% attendance, 40% completion of all assignments 20% risk-taking/quality of end forms: you are expected to experiment, iterate and form innovate designs with the coding that you&#8217;ve been shown. Because work from previous sessions is available, you are able to appropriate code, but in service of your own ideas and forms. Missing one class without permission fails the course Although we are &#8220;wired&#8221; throughout the workshop, avoid being plugged into Facebook, email, etc. Drawing at
+- Schedule rows:
+  - Feb 13, 2015: Week 1: Concrete Forms | Web Programming 2015 Web Programming 2015 Log in &#202; &#194; 5 Week 1: Concrete Forms &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015 PBS Off Book: Art of Creative Coding Feb 13, 2015 4 Video / Week 1: Concrete Forms b Add comment Leave a Reply Click here to cancel reply. You must be logged in to post a commen
 - Weekly/class structure evidence:
   - Week 1: Concrete Forms | Web Programming 2015
   - 5 Week 1: Concrete Forms
@@ -2618,6 +2668,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pocket_pictograms_inspiration_for_assignment_2_3cf16be5
 - Term: 2015
 - Tools mentioned: HTML/CSS
+- Schedule rows:
+  - Feb 13, 2015: Pocket Pictograms: Inspiration for Assignment 2 | Web Programming 2015 Web Programming 2015 Log in Pocket Pictograms: Inspiration for Assignment 2 http://blog.thenounproject.com/post/59407807416/pocket-pictograms f John { Feb 13, 2015 4 Links / Week 1: Concrete Forms Leave a Reply Click here to cancel reply. You must be logged in to post a comment. Classroom
 - Weekly/class structure evidence:
   - 4 Links / Week 1: Concrete Forms
   - Classroom
@@ -2641,6 +2693,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7
 - Term: 2015
 - Tools mentioned: HTML/CSS
+- Schedule rows:
+  - Feb 13, 2015: Activity Announcement Assignments 1: Scandinavian Flag 2: CSS Drawings 3
 - Weekly/class structure evidence:
   - 4 Video / Week 1: Concrete Forms
   - Classroom
@@ -2651,6 +2705,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_concrete_objects_christian_leborg_f274fe53
 - Term: 2015
 - Tools mentioned: HTML/CSS
+- Schedule rows:
+  - Feb 13, 2015: “Concrete objects”, Christian Leborg | Web Programming 2015 Web Programming 2015 Log in “Concrete objects”, Christian Leborg http://fc12.johncaserta.info/wp-content/uploads/2012/09/concrete.pdf f John { Feb 13, 2015 4 Links / Week 1: Concrete Forms Leave a Reply Click here to cancel reply. You must be logged in to post a comment. Classroom Course outline Act
 - Weekly/class structure evidence:
   - 4 Links / Week 1: Concrete Forms
   - Classroom
@@ -2661,6 +2717,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_essay_by_paul_elliman_on_karel_martens_graphic__95641d1a
 - Term: 2015
 - Tools mentioned: HTML/CSS
+- Schedule rows:
+  - Feb 13, 2015: Essay by Paul Elliman on Karel Martens’ graphic work | Web Programming 2015 Web Programming 2015 Log in Essay by Paul Elliman on Karel Martens’ graphic work http://fc12.johncaserta.info/wp-content/uploads/2012/09/image2012-09-09-235118.pdf f John { Feb 13, 2015 4 Links / Week 1: Concrete Forms Leave a Reply Click here to cancel reply. You must be logged in t
 - Weekly/class structure evidence:
   - 4 Links / Week 1: Concrete Forms
   - Classroom
@@ -2671,6 +2729,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_2_draw_found_objects_with_css_4a1e2993
 - Term: 2015
 - Tools mentioned: HTML/CSS
+- Schedule rows:
+  - Feb 13, 2015: Assignment 2: Draw found objects with CSS | Web Programming 2015 Web Programming 2015 Log in Assignment 2: Draw found objects with CSS Designer Paul Elliman has been collecting small found objects that resemble typographic glyphs. Whether found on the side of the road, at someone&#8217;s house or at the hardware store, the objects are silhouetted at actual s
 - Weekly/class structure evidence:
   - Make five drawings using div tags and css classes.
   - Create an html file for each digital bit, and upload your html files into a post on the class website.
@@ -2681,6 +2741,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_1_make_a_scandinavian_flag_with_css_cb569dec
 - Term: 2015
 - Tools mentioned: HTML/CSS
+- Schedule rows:
+  - Feb 13, 2015: Assignment 1: Make a Scandinavian flag with CSS | Web Programming 2015 Web Programming 2015 Log in Assignment 1: Make a Scandinavian flag with CSS Choose one of the Scandinavian countries (link to other countries at the bottom) and construct its flag in two ways: using absolute positioning and using floated divs. Apply the links to both from one post assigne
 - Weekly/class structure evidence:
   - 4 Assignments / Week 1: Concrete Forms
   - Classroom
@@ -2691,6 +2753,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_2_css_basics_layout_8224b9f9
 - Term: 2015
 - Tools mentioned: HTML/CSS
+- Schedule rows:
+  - Feb 13, 2015: Lesson 2: CSS Basics & Layout | Web Programming 2015 Web Programming 2015 Log in Lesson 2: CSS Basics &#038; Layout Outline Syntax: declaration blocks Properties: Units, Background, Color, Margin, Padding, Border, Width, Height Classes, divs The natural flow of a page Floats and Clear multiple classes, nesting divs Absolute, Relative and Fixed Positioning (z
 - Weekly/class structure evidence:
   - Classes, divs
   - multiple classes, nesting divs
@@ -2701,6 +2765,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_1_html_basics_a2298300
 - Term: 2015
 - Tools mentioned: HTML/CSS
+- Schedule rows:
+  - Feb 13, 2015: Lesson 1: HTML Basics | Web Programming 2015 Web Programming 2015 Log in Lesson 1: HTML Basics Outline Browsers read HTML. HTML is structure. Collection of well-formed tags. Required elements: html, head, title, body Block elements: headers, paragraphs, lists, nesting Inline elements: anchor, strong, em, img John&#8217;s example from class To come Links Supp
 - Weekly/class structure evidence:
   - John&#8217;s example from class
   - 4 Week 1: Concrete Forms
@@ -2712,6 +2778,8 @@ Generated: 2026-06-12
 - Term: 2015
 - Tools mentioned: HTML/CSS
 - Materials mentioned: photography
+- Schedule rows:
+  - Feb 13, 2015: Getting setup: Add users, bios and avatars | Web Programming 2015 Web Programming 2015 Log in Getting setup: Add users, bios and avatars Welcome, everyone. We&#8217;ll enter you into the WordPress system one by one. While you wait, you can set up your avatar and download Textwrangler . Use whatever image you&#8217;d like for your avatar. You&#8217;ll need to
 - Weekly/class structure evidence:
   - 4 Setup / Week 1: Concrete Forms
   - Classroom
@@ -2729,6 +2797,8 @@ Generated: 2026-06-12
   - Be comfortable editing existing themes or websites
   - Learn to work collaboratively in an open-source model Week One: Concrete Forms Assignment 1: Drawing exercise Assignment 2: Found object drawings Week Two: Abstract Forms Assignment 3: Abstract compositions Assignment 4: Patterns Week Three: Active Forms Assignment 5: Movement and interaction Assignment 6: Responsive animation Week Four: Final Project Review assignment 6 Lecture: From sketch to code In-class activity: Putting it all together Software needed Textwrangler or other HTML editor Safari or Chrome browser
 - Grading/assessment evidence: 40% attendance, 40% completion of all assignments 20% risk-taking/quality of end forms: you are expected to experiment, iterate and form innovate designs with the coding that you&#8217;ve been shown. Because work from previous sessions is available, you are able to appropriate code, but in service of your own ideas and forms. Missing one class without permission fails the course Although we are &#8220;wired&#8221; throughout the workshop, avoid being plugged into Facebook, email, etc. Drawing at
+- Schedule rows:
+  - Feb 13, 2015: Workshop Syllabus | Web Programming 2015 Web Programming 2015 Log in Workshop Syllabus • RISD GRAPH-3188-03 (20882) WKSHP: WEB PROGRAMMING • Spring 2015, 1:10–6:10pm, Fridays • 1 credit • wp15
 - Weekly/class structure evidence:
   - This three-session workshop combines the tactical skills needed to structure web pages with a looser more playful compositional mindset.
   - Students are introduced to the structural elements and properties of HTML and CSS through hands-on demos, in-class exercises and take-home assignments.
@@ -2738,6 +2808,8 @@ Generated: 2026-06-12
   - Week One: Concrete Forms
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_wp_login_php_dd54314d
 - Term: 2015
+- Schedule rows:
+  - Week 1: Web Programming 2015 &rsaquo; Log In Web Programming 2015 Username Password Remember Me Lost your password? &larr; Back to Web Programming 2015
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_assignments_116ec5b2
 - Term: 2015
 - Tools mentioned: HTML/CSS
@@ -2916,6 +2988,8 @@ Generated: 2026-06-12
   - Be comfortable editing existing themes or websites
   - Learn to work collaboratively in an open-source model Week One: Concrete Forms Assignment 1: Drawing exercise Assignment 2: Found object drawings Week Two: Abstract Forms Assignment 3: Abstract compositions Assignment 4: Patterns Week Three: Active Forms Assignment 5: Movement and interaction Assignment 6: Responsive animation Week Four: Final Project Review assignment 6 Lecture: From sketch to code In-class activity: Putting it all together Software needed Textwrangler or other HTML editor Safari or Chrome browser
 - Grading/assessment evidence: 40% attendance, 40% completion of all assignments 20% risk-taking/quality of end forms: you are expected to experiment, iterate and form innovate designs with the coding that you&#8217;ve been shown. Because work from previous sessions is available, you are able to appropriate code, but in service of your own ideas and forms. Missing one class without permission fails the course Although we are &#8220;wired&#8221; throughout the workshop, avoid being plugged into Facebook, email, etc. Drawing at
+- Schedule rows:
+  - Feb 13, 2015: Week 1: Concrete Forms | Web Programming 2015 Web Programming 2015 Log in &#202; &#194; 5 Week 1: Concrete Forms &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015 PBS Off Book: Art of Creative Coding Feb 13, 2015 4 Video / Week 1: Concrete Forms b Add comment Leave a Reply Click here to cancel reply. You must be logged in to post a commen
 - Weekly/class structure evidence:
   - Week 1: Concrete Forms | Web Programming 2015
   - 5 Week 1: Concrete Forms
@@ -2926,6 +3000,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pocket_pictograms_inspiration_for_assignment_2_3cf16be5
 - Term: 2015
 - Tools mentioned: HTML/CSS
+- Schedule rows:
+  - Feb 13, 2015: Pocket Pictograms: Inspiration for Assignment 2 | Web Programming 2015 Web Programming 2015 Log in Pocket Pictograms: Inspiration for Assignment 2 http://blog.thenounproject.com/post/59407807416/pocket-pictograms f John { Feb 13, 2015 4 Links / Week 1: Concrete Forms Leave a Reply Click here to cancel reply. You must be logged in to post a comment. Classroom
 - Weekly/class structure evidence:
   - 4 Links / Week 1: Concrete Forms
   - Classroom
@@ -2949,6 +3025,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7
 - Term: 2015
 - Tools mentioned: HTML/CSS
+- Schedule rows:
+  - Feb 13, 2015: Activity Announcement Assignments 1: Scandinavian Flag 2: CSS Drawings 3
 - Weekly/class structure evidence:
   - 4 Video / Week 1: Concrete Forms
   - Classroom
@@ -2959,6 +3037,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_concrete_objects_christian_leborg_f274fe53
 - Term: 2015
 - Tools mentioned: HTML/CSS
+- Schedule rows:
+  - Feb 13, 2015: “Concrete objects”, Christian Leborg | Web Programming 2015 Web Programming 2015 Log in “Concrete objects”, Christian Leborg http://fc12.johncaserta.info/wp-content/uploads/2012/09/concrete.pdf f John { Feb 13, 2015 4 Links / Week 1: Concrete Forms Leave a Reply Click here to cancel reply. You must be logged in to post a comment. Classroom Course outline Act
 - Weekly/class structure evidence:
   - 4 Links / Week 1: Concrete Forms
   - Classroom
@@ -2969,6 +3049,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_essay_by_paul_elliman_on_karel_martens_graphic__95641d1a
 - Term: 2015
 - Tools mentioned: HTML/CSS
+- Schedule rows:
+  - Feb 13, 2015: Essay by Paul Elliman on Karel Martens’ graphic work | Web Programming 2015 Web Programming 2015 Log in Essay by Paul Elliman on Karel Martens’ graphic work http://fc12.johncaserta.info/wp-content/uploads/2012/09/image2012-09-09-235118.pdf f John { Feb 13, 2015 4 Links / Week 1: Concrete Forms Leave a Reply Click here to cancel reply. You must be logged in t
 - Weekly/class structure evidence:
   - 4 Links / Week 1: Concrete Forms
   - Classroom
@@ -2979,6 +3061,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_2_draw_found_objects_with_css_4a1e2993
 - Term: 2015
 - Tools mentioned: HTML/CSS
+- Schedule rows:
+  - Feb 13, 2015: Assignment 2: Draw found objects with CSS | Web Programming 2015 Web Programming 2015 Log in Assignment 2: Draw found objects with CSS Designer Paul Elliman has been collecting small found objects that resemble typographic glyphs. Whether found on the side of the road, at someone&#8217;s house or at the hardware store, the objects are silhouetted at actual s
 - Weekly/class structure evidence:
   - Make five drawings using div tags and css classes.
   - Create an html file for each digital bit, and upload your html files into a post on the class website.
@@ -2989,6 +3073,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_1_make_a_scandinavian_flag_with_css_cb569dec
 - Term: 2015
 - Tools mentioned: HTML/CSS
+- Schedule rows:
+  - Feb 13, 2015: Assignment 1: Make a Scandinavian flag with CSS | Web Programming 2015 Web Programming 2015 Log in Assignment 1: Make a Scandinavian flag with CSS Choose one of the Scandinavian countries (link to other countries at the bottom) and construct its flag in two ways: using absolute positioning and using floated divs. Apply the links to both from one post assigne
 - Weekly/class structure evidence:
   - 4 Assignments / Week 1: Concrete Forms
   - Classroom
@@ -2999,6 +3085,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_2_css_basics_layout_8224b9f9
 - Term: 2015
 - Tools mentioned: HTML/CSS
+- Schedule rows:
+  - Feb 13, 2015: Lesson 2: CSS Basics & Layout | Web Programming 2015 Web Programming 2015 Log in Lesson 2: CSS Basics &#038; Layout Outline Syntax: declaration blocks Properties: Units, Background, Color, Margin, Padding, Border, Width, Height Classes, divs The natural flow of a page Floats and Clear multiple classes, nesting divs Absolute, Relative and Fixed Positioning (z
 - Weekly/class structure evidence:
   - Classes, divs
   - multiple classes, nesting divs
@@ -3009,6 +3097,8 @@ Generated: 2026-06-12
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_1_html_basics_a2298300
 - Term: 2015
 - Tools mentioned: HTML/CSS
+- Schedule rows:
+  - Feb 13, 2015: Lesson 1: HTML Basics | Web Programming 2015 Web Programming 2015 Log in Lesson 1: HTML Basics Outline Browsers read HTML. HTML is structure. Collection of well-formed tags. Required elements: html, head, title, body Block elements: headers, paragraphs, lists, nesting Inline elements: anchor, strong, em, img John&#8217;s example from class To come Links Supp
 - Weekly/class structure evidence:
   - John&#8217;s example from class
   - 4 Week 1: Concrete Forms
@@ -3020,6 +3110,8 @@ Generated: 2026-06-12
 - Term: 2015
 - Tools mentioned: HTML/CSS
 - Materials mentioned: photography
+- Schedule rows:
+  - Feb 13, 2015: Getting setup: Add users, bios and avatars | Web Programming 2015 Web Programming 2015 Log in Getting setup: Add users, bios and avatars Welcome, everyone. We&#8217;ll enter you into the WordPress system one by one. While you wait, you can set up your avatar and download Textwrangler . Use whatever image you&#8217;d like for your avatar. You&#8217;ll need to
 - Weekly/class structure evidence:
   - 4 Setup / Week 1: Concrete Forms
   - Classroom
@@ -3037,6 +3129,8 @@ Generated: 2026-06-12
   - Be comfortable editing existing themes or websites
   - Learn to work collaboratively in an open-source model Week One: Concrete Forms Assignment 1: Drawing exercise Assignment 2: Found object drawings Week Two: Abstract Forms Assignment 3: Abstract compositions Assignment 4: Patterns Week Three: Active Forms Assignment 5: Movement and interaction Assignment 6: Responsive animation Week Four: Final Project Review assignment 6 Lecture: From sketch to code In-class activity: Putting it all together Software needed Textwrangler or other HTML editor Safari or Chrome browser
 - Grading/assessment evidence: 40% attendance, 40% completion of all assignments 20% risk-taking/quality of end forms: you are expected to experiment, iterate and form innovate designs with the coding that you&#8217;ve been shown. Because work from previous sessions is available, you are able to appropriate code, but in service of your own ideas and forms. Missing one class without permission fails the course Although we are &#8220;wired&#8221; throughout the workshop, avoid being plugged into Facebook, email, etc. Drawing at
+- Schedule rows:
+  - Feb 13, 2015: Workshop Syllabus | Web Programming 2015 Web Programming 2015 Log in Workshop Syllabus • RISD GRAPH-3188-03 (20882) WKSHP: WEB PROGRAMMING • Spring 2015, 1:10–6:10pm, Fridays • 1 credit • wp15
 - Weekly/class structure evidence:
   - This three-session workshop combines the tactical skills needed to structure web pages with a looser more playful compositional mindset.
   - Students are introduced to the structural elements and properties of HTML and CSS through hands-on demos, in-class exercises and take-home assignments.
@@ -3046,6 +3140,8 @@ Generated: 2026-06-12
   - Week One: Concrete Forms
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_wp_login_php_dd54314d
 - Term: 2015
+- Schedule rows:
+  - Week 1: Web Programming 2015 &rsaquo; Log In Web Programming 2015 Username Password Remember Me Lost your password? &larr; Back to Web Programming 2015
 - Syllabus/course artifact: syl_crawl_wp15_risd_gd_category_assignments_116ec5b2
 - Term: 2015
 - Tools mentioned: HTML/CSS

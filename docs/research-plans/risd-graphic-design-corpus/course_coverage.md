@@ -5,7 +5,7 @@ Generated: 2026-06-12
 ## Summary
 
 - Courses assessed: 134
-- Courses at 80+ coverage: 7
+- Courses at 80+ coverage: 8
 - Courses below 40 coverage: 112
 
 ## Lowest Coverage Courses

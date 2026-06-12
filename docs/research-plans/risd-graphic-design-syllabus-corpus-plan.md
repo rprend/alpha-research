@@ -198,6 +198,8 @@ Required fields:
 - `raw_excerpts`
 - `evidence_grade`
 
+`assignment_schedule` rows may include `schedule_source: "week_page"` when the row is reconstructed from a public week/class page title, date, and agenda body rather than from a table-style syllabus schedule.
+
 ### `assignments.jsonl`
 
 One row per distinct assignment, project, exercise, or critique prompt.
