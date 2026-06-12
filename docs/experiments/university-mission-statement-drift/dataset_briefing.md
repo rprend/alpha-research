@@ -25,6 +25,7 @@ The article thesis under test:
 - `reports/work.md`: work log
 - `reports/public-draft.md`: public-facing draft scaffold
 - `reports/audit-packet.*`: snippet/source review packet before public claims
+- `reports/readiness.*`: publication-readiness gates and next moves
 
 ## Term Families
 

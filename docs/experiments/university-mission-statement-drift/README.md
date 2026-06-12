@@ -28,6 +28,7 @@ node docs/experiments/university-mission-statement-drift/scripts/discover-waybac
 node docs/experiments/university-mission-statement-drift/scripts/fetch-wayback-snapshots.mjs --years=2000,2005,2010,2015,2020
 node docs/experiments/university-mission-statement-drift/scripts/build-report.mjs
 node docs/experiments/university-mission-statement-drift/scripts/build-audit-packet.mjs
+node docs/experiments/university-mission-statement-drift/scripts/check-readiness.mjs
 ```
 
 Outputs:
@@ -46,3 +47,5 @@ Outputs:
 - `reports/audit-packet.md`
 - `reports/audit-packet.csv`
 - `reports/audit-packet.json`
+- `reports/readiness.md`
+- `reports/readiness.json`

@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-06-12T17:56:09.652Z",
+  "status": "not-ready-for-publication",
+  "checks": [
+    {
+      "id": "current-pages",
+      "label": "At least 10 current source pages are collected",
+      "status": "pass",
+      "evidence": "10 current pages"
+    },
+    {
+      "id": "historical-pages",
+      "label": "At least 8 historical snapshots are collected before publication-level trend claims",
+      "status": "needs-work",
+      "evidence": "4 historical snapshots"
+    },
+    {
+      "id": "audit-flags",
+      "label": "No source pages have automatic audit flags",
+      "status": "pass",
+      "evidence": "0 flagged rows"
+    },
+    {
+      "id": "year-coverage",
+      "label": "At least two non-current years have historical evidence",
+      "status": "pass",
+      "evidence": "2010, 2020"
+    },
+    {
+      "id": "institution-year-coverage",
+      "label": "At least two institutions are represented in each historical claim year",
+      "status": "pass",
+      "evidence": "years with >=2 institutions: 2020"
+    },
+    {
+      "id": "public-draft",
+      "label": "Public draft artifact exists and is source-caveated",
+      "status": "pass",
+      "evidence": "reports/public-draft.md"
+    }
+  ],
+  "nextMoves": [
+    "Add more historical snapshots from discovered or hand-curated historical mission/about URLs.",
+    "Manually audit quote-safe snippets in reports/audit-packet.md.",
+    "Separate current about pages, mission pages, strategic plans, catalogs, and speeches as source genres before strong trend claims."
+  ]
+}
