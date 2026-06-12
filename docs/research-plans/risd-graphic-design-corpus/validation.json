@@ -23,6 +23,13 @@
     "unresolved_readings": 45,
     "non_citation_reading_fragments": 34,
     "canonical_reading_works": 30,
+    "schedule_rows": 298,
+    "dated_schedule_rows": 52,
+    "table_schedule_rows": 52,
+    "snippet_schedule_rows": 246,
+    "schedule_rows_with_assignment_links": 53,
+    "schedule_rows_with_reading_links": 15,
+    "schedule_rows_with_critique_signals": 46,
     "search_candidates": 366,
     "promoted_search_candidates": 10,
     "imported_search_candidates": 0,
@@ -56,7 +63,7 @@
     "student_work_course_context_links": 2,
     "student_work_rejected_weak_matches": 20,
     "course_coverage_rows": 134,
-    "high_coverage_courses": 8,
+    "high_coverage_courses": 10,
     "low_coverage_courses": 112,
     "coverage_search_queries": 160,
     "faculty_portfolio_examples": 60,
@@ -147,6 +154,16 @@
       "detail": "30 Open Library lookup attempts recorded; 12 reading snippets have external catalog matches; 0 external-link metadata errors."
     },
     {
+      "id": "schedule_rows_reference_valid_records",
+      "status": "pass",
+      "detail": "298 schedule rows; 0 source/page/syllabus/assignment/reading reference errors."
+    },
+    {
+      "id": "schedule_rows_preserve_source_boundaries",
+      "status": "pass",
+      "detail": "52 table/outline-derived rows, 246 weekly-evidence snippet rows, 52 dated rows, 46 critique/review rows."
+    },
+    {
       "id": "search_candidates_have_provenance",
       "status": "pass",
       "detail": "366 search candidates, 10 promoted, 0 imported, 18 live API rows (18 provider-unconfigured); 0 candidate reference errors."
@@ -209,7 +226,7 @@
     {
       "id": "course_coverage_matrix_references_valid_sources",
       "status": "pass",
-      "detail": "134 course coverage rows for 134 courses; 8 at 80+ coverage, 112 below 40 coverage, and 0 coverage metadata/reference errors."
+      "detail": "134 course coverage rows for 134 courses; 10 at 80+ coverage, 112 below 40 coverage, and 0 coverage metadata/reference errors."
     },
     {
       "id": "coverage_search_queries_have_gap_provenance",

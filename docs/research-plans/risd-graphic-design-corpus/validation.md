@@ -27,6 +27,13 @@ Overall status: pass
 - External catalog lookup attempts: 30
 - Unresolved reading snippets: 45
 - Non-citation reading fragments: 34
+- Schedule rows: 298
+- Dated schedule rows: 52
+- Table/outline schedule rows: 52
+- Schedule evidence snippet rows: 246
+- Schedule rows with assignment links: 53
+- Schedule rows with reading links: 15
+- Schedule rows with critique signals: 46
 - Search candidates: 366
 - Promoted search candidates: 10
 - Imported search candidates: 0
@@ -60,7 +67,7 @@ Overall status: pass
 - Student-work course-context links: 2
 - Student-work rejected weak matches: 20
 - Course coverage rows: 134
-- Courses at 80+ coverage: 8
+- Courses at 80+ coverage: 10
 - Courses below 40 coverage: 112
 - Coverage-derived search queries: 160
 - Faculty portfolio examples: 60
@@ -103,6 +110,8 @@ Overall status: pass
 - PASS readings_reference_valid_syllabi_and_sources: 0 reading reference errors.
 - PASS readings_have_normalized_work_links: 56 reading snippets linked to 30 canonical works; 43 local catalog matches, 12 external catalog matches, 45 unresolved, 34 non-citation fragments.
 - PASS readings_external_links_have_metadata: 30 Open Library lookup attempts recorded; 12 reading snippets have external catalog matches; 0 external-link metadata errors.
+- PASS schedule_rows_reference_valid_records: 298 schedule rows; 0 source/page/syllabus/assignment/reading reference errors.
+- PASS schedule_rows_preserve_source_boundaries: 52 table/outline-derived rows, 246 weekly-evidence snippet rows, 52 dated rows, 46 critique/review rows.
 - PASS search_candidates_have_provenance: 366 search candidates, 10 promoted, 0 imported, 18 live API rows (18 provider-unconfigured); 0 candidate reference errors.
 - PASS common_crawl_candidates_have_provenance: 168 Common Crawl candidates, 35 fetch candidates, 8 ingested; 0 provenance errors.
 - PASS common_crawl_promotions_reference_candidates: 8 Common Crawl promotions, 8 successful, 8 ingested; 0 reference errors.
@@ -115,7 +124,7 @@ Overall status: pass
 - PASS student_work_has_structured_public_examples: 22 student work rows include URL plus medium/project/evidence metadata; 5 rows include course code/title context.
 - PASS student_work_assignment_links_reference_valid_records: 22 student-work relationship rows; 0 reference or boundary errors.
 - PASS student_work_assignment_links_preserve_confidence_boundaries: 0 assignment links, 0 brief-page links, 2 course-context links, and 20 rejected weak matches.
-- PASS course_coverage_matrix_references_valid_sources: 134 course coverage rows for 134 courses; 8 at 80+ coverage, 112 below 40 coverage, and 0 coverage metadata/reference errors.
+- PASS course_coverage_matrix_references_valid_sources: 134 course coverage rows for 134 courses; 10 at 80+ coverage, 112 below 40 coverage, and 0 coverage metadata/reference errors.
 - PASS coverage_search_queries_have_gap_provenance: 160 coverage-derived search queries with 0 provenance errors.
 - PASS coverage_search_backlog_is_executable: 160 coverage query backlog rows for 160 generated coverage queries; 0 backlog provenance errors.
 - PASS live_coverage_search_preserves_gap_provenance: 6 live coverage search rows (6 provider-unconfigured); 0 live coverage provenance errors.

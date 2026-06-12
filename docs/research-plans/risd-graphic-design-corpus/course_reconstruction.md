@@ -385,6 +385,15 @@ Generated: 2026-06-12
   - How to Draw a Tree, Bruno Munari (local_catalog_match)
   - How to Draw a Tree, Bruno Munari (local_catalog_match)
   - and references in the Unit 1 brief (non_citation_fragment)
+- Normalized schedule rows:
+  - weekly_schedule_evidence_snippet: You will have the last four weeks of class to create a work, whether individual or collaborative, that comes out of the first part of the course.
+  - weekly_schedule_evidence_snippet: Weekly: News share and discussion
+  - weekly_schedule_evidence_snippet: A minimum of every three weeks, you’ll share news stories of interest to you, and potentially the class.
+  - weekly_schedule_evidence_snippet: These share sessions are informal, but please prepare what you plan to share in advance.
+  - April 15, 2022: Neelam Sakaria on digital public spaces Neelam Sakaria is a masters candidate in public affairs at Brown. Previously, she was chief of staff at New_ Public , an organization that advocates for better digital public spaces. Neelam will lead us through New_ Public’s year-long research on effective public spaces (offline and online). This research may form the
+  - April 22, 2022: Amber Art & Design at Davey Lopes We’ll depart at 1:15pm by car to Davey Lopes Recreation Center to witness the final day of Amber Art & Design’s weeklong parachute cloth painting workshop. We’ll talk with Keir and Linda from Amber, Anthony from Davey Lopes and the six artists who are finishing up their murals. Angela (Agonza) Gonzalez Joel Rosario Tapia Ysa final day of Amber Art & Design’s weeklong parachute cloth painting workshop (assignments: assign_syl_crawl_designandpolitics_risd_gd_2022_04_22_week9_html_d18590af_01)
+  - April 29, 2022: Project updates Everyone should be prepared to show progress on their final project — whether it involves public space, or whether it meandered into open territory. Discuss #news topics related to visit to state house. Leonela Felix conversation and tour We’ll walk to the State House and meet up with Representative Leonela Felix. Felix entered the state hous Project updates Everyone should be prepared to show progress on their final project — whether it involves public space, or whether it meandered into open territory (assignments: assign_syl_crawl_designandpolitics_risd_gd_2022_04_29_week10_html_2c78adc6_01, assign_syl_crawl_designandpolitics_risd_gd_2022_04_29_week10_html_2c78adc6_03, assign_syl_crawl_designandpolitics_risd_gd_2022_04_29_week10_html_2c78adc6_02; critique/review signal)
+  - April 8, 2022: Andy Pressman We’ll talk with Andy Pressman about his experiences with design and politics as a community organizer, designer and now creative director at Upstatement. Above: His design system for Democratic Socialists for America played out by local chapters Public space check-in Assembled in a group of three, discuss the location you’ve chosen for your pub
 - Assignment/critique evidence:
   - Final review Week 13 TBD Work due Key Bibliography “Democracy as Relationship” by Jeremy Bendik-Keymer, eflux Politics of the Everyday, Ezio Manzini Public Things: Democracy in Disrepair, Bonnie Honig Citizenship: A Practice of Society, Zoe Larkins. MCA Denver Caps Lock, Ruben Pater (constraints: deadline or due date referenced; type: final_project; phases: critique, submit; critique: feedback/review referenced in source excerpt)
   - As a graduate interdisciplinary studio, the course will introduce and frame assignments in the broadest possible way to allow for many outcomes. (type: project_brief)
@@ -589,6 +598,15 @@ Generated: 2026-06-12
   - How to Draw a Tree, Bruno Munari (local_catalog_match)
   - How to Draw a Tree, Bruno Munari (local_catalog_match)
   - and references in the Unit 1 brief (non_citation_fragment)
+- Normalized schedule rows:
+  - weekly_schedule_evidence_snippet: You will have the last four weeks of class to create a work, whether individual or collaborative, that comes out of the first part of the course.
+  - weekly_schedule_evidence_snippet: Weekly: News share and discussion
+  - weekly_schedule_evidence_snippet: A minimum of every three weeks, you’ll share news stories of interest to you, and potentially the class.
+  - weekly_schedule_evidence_snippet: These share sessions are informal, but please prepare what you plan to share in advance.
+  - April 15, 2022: Neelam Sakaria on digital public spaces Neelam Sakaria is a masters candidate in public affairs at Brown. Previously, she was chief of staff at New_ Public , an organization that advocates for better digital public spaces. Neelam will lead us through New_ Public’s year-long research on effective public spaces (offline and online). This research may form the
+  - April 22, 2022: Amber Art & Design at Davey Lopes We’ll depart at 1:15pm by car to Davey Lopes Recreation Center to witness the final day of Amber Art & Design’s weeklong parachute cloth painting workshop. We’ll talk with Keir and Linda from Amber, Anthony from Davey Lopes and the six artists who are finishing up their murals. Angela (Agonza) Gonzalez Joel Rosario Tapia Ysa final day of Amber Art & Design’s weeklong parachute cloth painting workshop (assignments: assign_syl_crawl_designandpolitics_risd_gd_2022_04_22_week9_html_d18590af_01)
+  - April 29, 2022: Project updates Everyone should be prepared to show progress on their final project — whether it involves public space, or whether it meandered into open territory. Discuss #news topics related to visit to state house. Leonela Felix conversation and tour We’ll walk to the State House and meet up with Representative Leonela Felix. Felix entered the state hous Project updates Everyone should be prepared to show progress on their final project — whether it involves public space, or whether it meandered into open territory (assignments: assign_syl_crawl_designandpolitics_risd_gd_2022_04_29_week10_html_2c78adc6_01, assign_syl_crawl_designandpolitics_risd_gd_2022_04_29_week10_html_2c78adc6_03, assign_syl_crawl_designandpolitics_risd_gd_2022_04_29_week10_html_2c78adc6_02; critique/review signal)
+  - April 8, 2022: Andy Pressman We’ll talk with Andy Pressman about his experiences with design and politics as a community organizer, designer and now creative director at Upstatement. Above: His design system for Democratic Socialists for America played out by local chapters Public space check-in Assembled in a group of three, discuss the location you’ve chosen for your pub
 - Assignment/critique evidence:
   - Final review Week 13 TBD Work due Key Bibliography “Democracy as Relationship” by Jeremy Bendik-Keymer, eflux Politics of the Everyday, Ezio Manzini Public Things: Democracy in Disrepair, Bonnie Honig Citizenship: A Practice of Society, Zoe Larkins. MCA Denver Caps Lock, Ruben Pater (constraints: deadline or due date referenced; type: final_project; phases: critique, submit; critique: feedback/review referenced in source excerpt)
   - As a graduate interdisciplinary studio, the course will introduce and frame assignments in the broadest possible way to allow for many outcomes. (type: project_brief)
@@ -858,6 +876,15 @@ Generated: 2026-06-12
   - affects form — Learn to work together to accomplish more (non_citation_fragment)
   - (in GD Commons) (unresolved)
   - Essay on the Importance of Time (heuristic_title)
+- Normalized schedule rows:
+  - weekly_schedule_evidence_snippet: Units may span the entire term, a few weeks, or a single class period.
+  - weekly_schedule_evidence_snippet: Evidence of your effort and competency are visible in the research blog(s), sketchbook, participation in class, and completion of the unit assignments as directed by the faculty.
+  - weekly_schedule_evidence_snippet: Students should arrive on time and prepared for each class.
+  - weekly_schedule_evidence_snippet: Return to class and prep for a casual, gallery style, laptop sharing.
+  - weekly_schedule_evidence_snippet: Begin in class, then continue the process on your own.
+  - weekly_schedule_evidence_snippet: You must use each of the 5 Non-Traditional materials provided in class to begin your form translations.
+  - weekly_schedule_evidence_snippet: As you work in class, keep in mind that your final collection of graphic forms will be digital. (assignments: assign_syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d_07, assign_syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d_05, assign_syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d_01, assign_syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d_06)
+  - weekly_schedule_evidence_snippet: Digitize your physical work before the end of class or make a plan to cleanly transport your physical studies for continued work at home.
 - Assignment/critique evidence:
   - Design Studio will take the form of a series of question-based units, each initiated by a faculty member and contextualized by a presentation, event, or workshop. (deliverables: presentation; type: exercise; phases: make, present; output: presentation; tacit goal: practice explaining and defending design decisions in critique)
   - Finished projects are not the intended outcome of DS1. (type: project_brief)
@@ -1066,6 +1093,15 @@ Generated: 2026-06-12
   - affects form — Learn to work together to accomplish more (non_citation_fragment)
   - (in GD Commons) (unresolved)
   - Essay on the Importance of Time (heuristic_title)
+- Normalized schedule rows:
+  - weekly_schedule_evidence_snippet: Units may span the entire term, a few weeks, or a single class period.
+  - weekly_schedule_evidence_snippet: Evidence of your effort and competency are visible in the research blog(s), sketchbook, participation in class, and completion of the unit assignments as directed by the faculty.
+  - weekly_schedule_evidence_snippet: Students should arrive on time and prepared for each class.
+  - weekly_schedule_evidence_snippet: Return to class and prep for a casual, gallery style, laptop sharing.
+  - weekly_schedule_evidence_snippet: Begin in class, then continue the process on your own.
+  - weekly_schedule_evidence_snippet: You must use each of the 5 Non-Traditional materials provided in class to begin your form translations.
+  - weekly_schedule_evidence_snippet: As you work in class, keep in mind that your final collection of graphic forms will be digital. (assignments: assign_syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d_07, assign_syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d_05, assign_syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d_01, assign_syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d_06)
+  - weekly_schedule_evidence_snippet: Digitize your physical work before the end of class or make a plan to cleanly transport your physical studies for continued work at home.
 - Assignment/critique evidence:
   - Design Studio will take the form of a series of question-based units, each initiated by a faculty member and contextualized by a presentation, event, or workshop. (deliverables: presentation; type: exercise; phases: make, present; output: presentation; tacit goal: practice explaining and defending design decisions in critique)
   - Finished projects are not the intended outcome of DS1. (type: project_brief)
@@ -1490,6 +1526,14 @@ Generated: 2026-06-12
   - Thinking with Type, Ellen Lupton (local_catalog_match)
   - The Elements of Typographic Style, Robert Bringhurst (local_catalog_match)
   - Meggs' History of Graphic Design, Philip B. Meggs (local_catalog_match)
+- Normalized schedule rows:
+  - weekly_schedule_evidence_snippet: This class is your introduction to typography Keep work well organized both on your
+  - weekly_schedule_evidence_snippet: class you will learn to see to think and to make seeks to communicate is itself not the message
+  - weekly_schedule_evidence_snippet: the history and classification of typefaces, the 99percentinvisible.org personality, the whole bit: history and tradition
+  - weekly_schedule_evidence_snippet: Class meets once a week, for 12 classes: ourtype.com
+  - weekly_schedule_evidence_snippet: having work prepared for class is critical to the typophile.com (critique/review signal)
+  - weekly_schedule_evidence_snippet: have work printed and trimmed before class. underconsideration.com/quipsologies
+  - weekly_schedule_evidence_snippet: • good attitude toward learning and the class Thinking With Type, Ellen Lupton, Princeton
 - Assignment/critique evidence:
   - Final Grade will be based on the afore-mentioned Anatomy of a Typeface, Alexander Lawson criteria as well as results of projects. Keep in mind Structure of the Visual Book, Keith Smith that any project can be re-done or improved upon Text in the Book Format, Keith Smith all throughout the semester. Such improvements will Twentieth Century Type Designers, Sebastian Carter* be taken into consideration when grading your final The Thames and Hudson Manual of Typography, portfolio. Keep sketches! You always want access to Ruari McLean your own process and to be able to share it.. Printing Types, Their History, Forms and Use, Daniel Berkeley Updike Short History of the Printed Word, Warren Chappell Now Typography, Why Not Associates (UK) Ellen Christensen echriste@risd.edu The Graphic Edge, Rick Poynor (UK) Cem Eskinazi ceskinaz@risd.edu (deliverables: book, portfolio, typeface; constraints: process documentation required; type: final_project; phases: sketch, present, submit, document; output: multi_page_publication; revision: revision or iterative improvement expected; tacit goal: develop iterative process habits rather than only final outputs)
   - introduced to basic principles of typography iterations, projects, process, notes, etc as you gold, wrought in the most exquisite patterns. (constraints: process documentation required; type: project_brief; revision: revision or iterative improvement expected; tacit goal: develop iterative process habits rather than only final outputs)
@@ -1717,6 +1761,8 @@ Generated: 2026-06-12
   - The class celebrates the Internet as a space for social exchange and independent expression, while questioning the cultural contradictions embedded in online discourse and the motivations of individuals and entities behind online platforms.
 - Reading evidence:
   - of contemporary art and design practices (non_citation_fragment)
+- Normalized schedule rows:
+  - weekly_schedule_evidence_snippet: The class celebrates the Internet as a space for social exchange and independent expression, while questioning the cultural contradictions embedded in online discourse and the motivations of individuals and entities behind online platforms.
 - Assignment/critique evidence:
   - Through projects, readings, workshops, and presentations we will explore the relevance of network technologies in the context of contemporary art and design practices. (type: exercise; phases: make; tacit goal: practice explaining and defending design decisions in critique)
 - Tacit reconstruction:
@@ -1844,6 +1890,15 @@ Generated: 2026-06-12
   - Introductions to Graphic Design (heuristic_title)
   - Meggs' History of Graphic Design, Philip B. Meggs (local_catalog_match)
   - Thinking with Type, Ellen Lupton (local_catalog_match)
+- Normalized schedule rows:
+  - weekly_schedule_evidence_snippet: Wintersession 2021 Adam Fein Canvas
+  - weekly_schedule_evidence_snippet: and InDesign though in-class exercises.
+  - weekly_schedule_evidence_snippet: after this class. possibilities for you.
+  - weekly_schedule_evidence_snippet: design skills learned each week.
+  - weekly_schedule_evidence_snippet: Students are required to attend class regularly and on time in accordance with
+  - weekly_schedule_evidence_snippet: In class, students are required to
+  - Mon, Feb 1: Worktime & Check-ins Due Exhibition Catalogue S is C Gina Kang Lily Joiner Class 9 Due Exhibition Catalogue S is C Gina Kang Lily Joiner Class 9 (assignments: assign_syl_adam_fein_intro_graphic_design_2021_pdf_26, assign_syl_adam_fein_intro_graphic_design_2021_pdf_01, assign_syl_adam_fein_intro_graphic_design_2021_pdf_02, assign_syl_adam_fein_intro_graphic_design_2021_pdf_03)
+  - Mon, Feb 8: Worktime & Check-ins Due VIS: part 3 Lecture Presentations S is C Tiffany Cheung HW Final Visual Identity System Class 11 Due VIS: part 3 Lecture Presentations S is C Tiffany Cheung HW Final Visual Identity System Class 11 (assignments: assign_syl_adam_fein_intro_graphic_design_2021_pdf_01, assign_syl_adam_fein_intro_graphic_design_2021_pdf_11, assign_syl_adam_fein_intro_graphic_design_2021_pdf_28, assign_syl_adam_fein_intro_graphic_design_2021_pdf_29; critique/review signal)
 - Assignment/critique evidence:
   - final project will consist of designing a visual identity system. The student will receive small group and individual feedback as they progress on projects. COURSE EXPECTATIONS Students are required to attend class regularly and on time in accordance with RISD’s attendance policy. Students will be responsible for completing outside work and managing the deadlines for projects. In class, students are required to participate in discussions and critiques. Students are expected to respect the ideas of their classmates and engage constructively with the work of others. Students should feel welcome to express themselves while also respecting their classmates identities, pronouns, boundaries, etc. I have provided readings to help you with critique in the readings folder. (deliverables: visual identity system; constraints: must follow stated requirements, timely completion expected; type: final_project; phases: critique, submit; output: static_visual_system; critique: group/class critique referenced in source excerpt; revision: revision or iterative improvement expected; tacit goal: practice explaining and defending design decisions in critique)
   - exercises. Their attention in class along with personal commitment to the subject matter and making will be noticeable in their presented work. Ultimately, they will present a final project that displays an understanding of class concepts and be prepared to discuss their work knowledgeably. (deliverables: presentation; type: final_project; phases: present, submit; output: presentation; tacit goal: practice explaining and defending design decisions in critique)
@@ -2008,6 +2063,11 @@ Generated: 2026-06-12
   - Friday, April 25: , 12pm risd.gd/notices
 - Reading evidence:
   - Signing: JON KEY (heuristic_title)
+- Normalized schedule rows:
+  - Friday, April 25: , 12pm risd.gd/notices
+  - Friday, March 21: , 12:00pm
+  - Saturday, April 5: , 3pm →Talk: ALICIA MÁRQUEZ
+  - Saturday, March 22: , 12–5pm Creative Web Coding Workshop Open to all students, sign up will be required. →Talk + Book Signing: JON KEY Black, Queer & Untold: A New Archive of Designers, Artists and Trailblazers (readings: reading_syl_cc_risd_gd_notices_spring_talks_workshops_in_gd_f79eb7cc_01)
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
   - Skill training signals: publication design, interaction design.
@@ -2029,6 +2089,10 @@ Generated: 2026-06-12
   - Through a series of in-studio and multi-week assignments, students will create animated projects that include real-world assignments as well as experimental exercises.
   - Short weekly lectures will discuss historic and current works of influential Motion Designers, Animators and Directors.
   - Adobe After Effects will be the primary production tool for this class.
+- Normalized schedule rows:
+  - weekly_schedule_evidence_snippet: Through a series of in-studio and multi-week assignments, students will create animated projects that include real-world assignments as well as experimental exercises.
+  - weekly_schedule_evidence_snippet: Short weekly lectures will discuss historic and current works of influential Motion Designers, Animators and Directors.
+  - weekly_schedule_evidence_snippet: Adobe After Effects will be the primary production tool for this class.
 - Assignment/critique evidence:
   - Through a series of in-studio and multi-week assignments, students will create animated projects that include real-world assignments as well as experimental exercises. (type: exercise; phases: make)
   - Through the sequence of assignments, students will become fluent with the software. (type: project_brief)
@@ -2133,6 +2197,15 @@ Generated: 2026-06-12
   - The Anatomy of Type, Stephen Coles (local_catalog_match)
   - Important Websites: (unresolved)
   - design, and like (unresolved)
+- Normalized schedule rows:
+  - weekly_schedule_evidence_snippet: Course Goals This class is the next step in your type program here at An organized process folder is a helpful tool for you later
+  - weekly_schedule_evidence_snippet: Students will continue to work on developing a contempo- sections require you to turn in a process book for the class. (readings: reading_syl_type_two_2015_syllabus_pdf_01, reading_syl_type_two_2015_syllabus_pdf_06)
+  - weekly_schedule_evidence_snippet: paragraphs, pages and spreads, working both in print and • good attitude toward learning and the class as a whole
+  - weekly_schedule_evidence_snippet: This class provides an intensive amount of instruction B is very good, strong, most of the above qualifications but
+  - weekly_schedule_evidence_snippet: Class specifics meeting once a week for five hours.You should plan on with room for improvement.
+  - weekly_schedule_evidence_snippet: spending at the minimum, five-eight hours a week on this C is average, acceptable, not exceptional in any way.
+  - weekly_schedule_evidence_snippet: class outside of class time.
+  - weekly_schedule_evidence_snippet: during class and will be responsible for knowing this D means you are failing to grasp the basics and may want to
 - Assignment/critique evidence:
   - form, reading order, grids and other systems of organiza- • excellent craft / respect for presentation and materials (deliverables: presentation; type: reading_response; phases: present; output: presentation; tacit goal: practice explaining and defending design decisions in critique)
   - ages the practice of working with type & image relation- • completion of all assignments (including any readings) (type: reading_response; tacit goal: train typographic judgment through form, hierarchy, and spacing)
@@ -2255,6 +2328,15 @@ Generated: 2026-06-12
   - discussions will further expand on relevant topics (unresolved)
   - at the intersection of language, identity, and societal conditioning, this course examines the extent to which typography can engage in world building and the production and dissemination of proposals for alternative sys (unresolved)
   - construction (unresolved)
+- Normalized schedule rows:
+  - weekly_schedule_evidence_snippet: In this class, we will explore our contemporary condition through visual-research based projects around self-design, speculative design and design fiction.
+  - weekly_schedule_evidence_snippet: In the initial sessions, students will analyze the intuitiveness and patterns of existing apps, critically assess and redefine their functionalities, and explore alternative modes of use. (critique/review signal)
+  - weekly_schedule_evidence_snippet: Subsequent sessions focus on redesigning an app by addressing existing frustrations or repurposing its intended use, creating prototypes that challenge standard user expectations, and developing high-fidelity interactive prototypes that integrate navigation and interaction design.
+  - weekly_schedule_evidence_snippet: In the initial sessions, students will analyze the intuitiveness and patterns of existing apps, critically assess and redefine their functionalities, and explore alternative modes of use. (critique/review signal)
+  - weekly_schedule_evidence_snippet: Subsequent sessions focus on redesigning an app by addressing existing frustrations or repurposing its intended use, creating prototypes that challenge standard user expectations, and developing high-fidelity interactive prototypes that integrate navigation and interaction design.
+  - weekly_schedule_evidence_snippet: In the initial sessions, students will analyze the intuitiveness and patterns of existing apps, critically assess and redefine their functionalities, and explore alternative modes of use. (critique/review signal)
+  - weekly_schedule_evidence_snippet: Subsequent sessions focus on redesigning an app by addressing existing frustrations or repurposing its intended use, creating prototypes that challenge standard user expectations, and developing high-fidelity interactive prototypes that integrate navigation and interaction design.
+  - weekly_schedule_evidence_snippet: In the initial sessions, students will analyze the intuitiveness and patterns of existing apps, critically assess and redefine their functionalities, and explore alternative modes of use. (critique/review signal)
 - Assignment/critique evidence:
   - Studio assignments will be supported with presentations and readings about poster history and contemporary poster design. (deliverables: poster; type: reading_response; phases: make; output: static_visual_system; tacit goal: practice explaining and defending design decisions in critique)
   - In this class, we will explore our contemporary condition through visual-research based projects around self-design, speculative design and design fiction. (constraints: research required; type: project_brief; phases: research, make; tacit goal: ground visual decisions in research and precedent)
@@ -2315,6 +2397,8 @@ Generated: 2026-06-12
 - Reading evidence:
   - Grid Systems in Graphic Design, Josef Muller-Brockmann (local_catalog_match)
   - and poetry, letterhead systems, brochure or poster (non_citation_fragment)
+- Normalized schedule rows:
+  - weekly_schedule_evidence_snippet: This introductory course is intended for non-majors interested in learning the basic principles of typography including the study of letterforms, type classification, legibility, organization and hierarchy, as well as text applications, grid systems and page layout.
 - Assignment/critique evidence:
   - Projects may include comparative studies for setting text and poetry, letterhead systems, brochure or poster. (deliverables: poster; type: project_brief; output: static_visual_system; tacit goal: translate a concept into a coherent visual system)
 - Tacit reconstruction:
@@ -2518,6 +2602,15 @@ Generated: 2026-06-12
   - of textual content across media (static, dynamic, interactive) and space (unresolved)
   - we’ll read, typographic news and history, and other relevant (sometimes tangential) topics (unresolved)
   - design spreads (unresolved)
+- Normalized schedule rows:
+  - weekly_schedule_evidence_snippet: However, even though my presence and interactions will be mostly Zoom– and Slack-based, I’m designing the course to accommodate both remote students and those who would like to collaborate on-campus, during or outside of class.
+  - weekly_schedule_evidence_snippet: Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, student presentations, hands-on workshops, and group exercises. (critique/review signal)
+  - weekly_schedule_evidence_snippet: The active presence, listening, and participation of everyone in the class is crucial (and will make it a lot more fun and interesting): in presenting your own work, supportive and respectful critique of your classmates’ work, and in class discussions of texts we’ll read, typographic news and history, and other relevant (sometimes tangential) topics. (assignments: assign_syl_wayback_typography_iii_syllabus_20210414155049_03, assign_syl_wayback_typography_iii_syllabus_20210414155049_12, assign_syl_wayback_typography_iii_syllabus_20210414155049_04, assign_syl_wayback_typography_iii_syllabus_20210414155049_02; readings: reading_syl_wayback_typography_iii_syllabus_20210414155049_04; critique/review signal)
+  - weekly_schedule_evidence_snippet: Each member of the class will have their own Slack channel for uploading and sharing progress, research, content materials, links, and to function as a place for classmates to make thoughtful comments & suggestions, and for general discussions and feedback. (critique/review signal)
+  - weekly_schedule_evidence_snippet: This is a studio course, so aside from the above, a lot of the time we will be making use of class time to get work done.
+  - weekly_schedule_evidence_snippet: In both the classroom and in my practice, I define work as the obvious (typesetting, composing, experimenting, testing, prototyping) and the perhaps less obvious (researching, reading, discussion, thinking, reflecting).
+  - weekly_schedule_evidence_snippet: Class is a just as much a space for contemplation as it is for activity. (I argue that contemplation IS an activity.) Join each class prepared to work with all materials that you will need that day.
+  - weekly_schedule_evidence_snippet: Each week we will review what is due the next week and what you should plan to work on. (assignments: assign_syl_wayback_typography_iii_syllabus_20210414155049_12, assign_syl_wayback_typography_iii_syllabus_20210414155049_03, assign_syl_wayback_typography_iii_syllabus_20210414155049_08, assign_syl_wayback_typography_iii_syllabus_20210414155049_09; critique/review signal)
 - Assignment/critique evidence:
   - Projects in this semester depend on altered states, where the content, composition, and context all are potentially at play. (type: project_brief)
   - Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, student presentations, hands-on workshops, and group exercises. (type: exercise; critique: feedback/review referenced in source excerpt; revision: revision or iterative improvement expected; tacit goal: practice explaining and defending design decisions in critique)
@@ -2947,6 +3040,15 @@ Generated: 2026-06-12
   - Art of Creative Coding Feb 13, 2015 (heuristic_title)
   - Art of Creative Coding | Web Programming 2015 (unresolved)
   - Art of Creative Coding (heuristic_title)
+- Normalized schedule rows:
+  - 4: Week 4: Putting it Together
+  - weekly_schedule_evidence_snippet: 4-week workshop at RISD GD
+  - 4: Week 4: Putting it Together
+  - weekly_schedule_evidence_snippet: 4-week workshop at RISD GD
+  - 4: Week 4: Putting it Together
+  - weekly_schedule_evidence_snippet: 4-week workshop at RISD GD
+  - weekly_schedule_evidence_snippet: For the remainder of class, either:
+  - weekly_schedule_evidence_snippet: Put together a one page website that collects your previous work from this class.
 - Assignment/critique evidence:
   - Week 1: Concrete Forms | Web Programming 2015: Web Programming 2015 5 Week 1: Concrete Forms &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015 PBS Off Book: Art of Creative Coding Feb 13, 2015 4 Video / Week 1: Concrete Forms Click here to cancel reply. You must be logged in to post a comment. &#197; w “Concrete objects”, Christian Leborg Feb 13, 2015 &#197; w Essay by Paul Elliman on Karel Martens’ graphic work Feb 13, 2015 &#237; Assignment 2: Draw found objects with CSS (deliverables: book, animation; constraints: must follow stated requirements; type: project_brief; output: interactive_web_artifact; tacit goal: compose visual hierarchy within a concrete graphic format)
   - Workshop Syllabus Feb 13, 2015 • RISD GRAPH-3188-03 (20882) WKSHP: WEB PROGRAMMING • Spring 2015, 1:10–6:10pm, Fridays • 1 credit • wp15.risd.gd John Caserta, instructor; jcaserta@risd.edu; DC105, Mondays 10:30am–1:30pm Brian Hicks, teaching assistant This three-session workshop combines the tactical skills needed to structure web pages with a looser more playful compositional mindset. Students are introduced to the structural elements and properties of HTML and CSS through hands-on demos, in-class exercises and take-home assignments. Tight technical HTML drawings in week one give way to full-screen abstract compositions in week two. Week three incorporates interaction, introducing CSS3 transform, animation, and other user-controlled properties. The final assignment for week four will allow you to combine what you learned in the first three weeks. Although written with HTML/CSS, the assignments are inspired by the contemporary and historical print works of Bradbury Thomspon, Karel Martens and Paul Elliman. Paramount is that students become attuned to the vocabulary and possibilities of graphic form in the digital age. The digital age, similar to the era before in its capacity to pr (deliverables: animation; type: final_project; phases: make, submit; output: interactive_web_artifact; tacit goal: prototype interactive form and user-facing structure)
@@ -3281,6 +3383,15 @@ Generated: 2026-06-12
   - Art of Creative Coding Feb 13, 2015 (heuristic_title)
   - Art of Creative Coding | Web Programming 2015 (unresolved)
   - Art of Creative Coding (heuristic_title)
+- Normalized schedule rows:
+  - 4: Week 4: Putting it Together
+  - weekly_schedule_evidence_snippet: 4-week workshop at RISD GD
+  - 4: Week 4: Putting it Together
+  - weekly_schedule_evidence_snippet: 4-week workshop at RISD GD
+  - 4: Week 4: Putting it Together
+  - weekly_schedule_evidence_snippet: 4-week workshop at RISD GD
+  - weekly_schedule_evidence_snippet: For the remainder of class, either:
+  - weekly_schedule_evidence_snippet: Put together a one page website that collects your previous work from this class.
 - Assignment/critique evidence:
   - Week 1: Concrete Forms | Web Programming 2015: Web Programming 2015 5 Week 1: Concrete Forms &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015 PBS Off Book: Art of Creative Coding Feb 13, 2015 4 Video / Week 1: Concrete Forms Click here to cancel reply. You must be logged in to post a comment. &#197; w “Concrete objects”, Christian Leborg Feb 13, 2015 &#197; w Essay by Paul Elliman on Karel Martens’ graphic work Feb 13, 2015 &#237; Assignment 2: Draw found objects with CSS (deliverables: book, animation; constraints: must follow stated requirements; type: project_brief; output: interactive_web_artifact; tacit goal: compose visual hierarchy within a concrete graphic format)
   - Workshop Syllabus Feb 13, 2015 • RISD GRAPH-3188-03 (20882) WKSHP: WEB PROGRAMMING • Spring 2015, 1:10–6:10pm, Fridays • 1 credit • wp15.risd.gd John Caserta, instructor; jcaserta@risd.edu; DC105, Mondays 10:30am–1:30pm Brian Hicks, teaching assistant This three-session workshop combines the tactical skills needed to structure web pages with a looser more playful compositional mindset. Students are introduced to the structural elements and properties of HTML and CSS through hands-on demos, in-class exercises and take-home assignments. Tight technical HTML drawings in week one give way to full-screen abstract compositions in week two. Week three incorporates interaction, introducing CSS3 transform, animation, and other user-controlled properties. The final assignment for week four will allow you to combine what you learned in the first three weeks. Although written with HTML/CSS, the assignments are inspired by the contemporary and historical print works of Bradbury Thomspon, Karel Martens and Paul Elliman. Paramount is that students become attuned to the vocabulary and possibilities of graphic form in the digital age. The digital age, similar to the era before in its capacity to pr (deliverables: animation; type: final_project; phases: make, submit; output: interactive_web_artifact; tacit goal: prototype interactive form and user-facing structure)
@@ -3509,6 +3620,15 @@ Generated: 2026-06-12
   - The Web's Grain, Frank Chimero (local_catalog_match)
   - On the Letterform of the Age, Bo-Won Keum (local_catalog_match)
   - Typeface as Programme, Jurg Lehni (local_catalog_match)
+- Normalized schedule rows:
+  - weekly_schedule_evidence_snippet: Join Slack for class communications
+  - weekly_schedule_evidence_snippet: We will be using Github’s code sharing and publishing service to store our class projects.
+  - weekly_schedule_evidence_snippet: If you don’t have one already, sign up for a GitHub account and make a repository for this class.
+  - weekly_schedule_evidence_snippet: Otherwise, select choose button, and navigate to the folder where you are keeping your materials for this class and then press the Open button.
+  - weekly_schedule_evidence_snippet: This repository will be the home for all of your assignments and exercises for this class.
+  - weekly_schedule_evidence_snippet: Create your Class Site Index
+  - weekly_schedule_evidence_snippet: Open the folder html/00_class-site-starter-kit .
+  - weekly_schedule_evidence_snippet: Go to Github.com and navigate to your class repo.
 - Assignment/critique evidence:
   - Presentation & Discussion In addition to reading discussions and class critiques, we will be sharing resources with each other, and supporting each other through technical challenges. Each student is also responsible for preparing a brief 15min presentation on a topic surrounding the intersection of web / technology & typography using the browser as an expressive medium as part of the first project. (deliverables: presentation; type: reading_response; phases: present, critique; output: presentation; critique: group/class critique referenced in source excerpt; tacit goal: practice explaining and defending design decisions in critique)
   - Project 1 Kickoff In class exercise: Getting Started Remember to sign up for project 1 topic by Monday (constraints: deadline or due date referenced; type: exercise)

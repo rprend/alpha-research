@@ -2996,6 +2996,137 @@ function buildAssignmentBriefPages({ courseSitePages, assignments }) {
     .sort((a, b) => b.high_confidence_assignments - a.high_confidence_assignments || b.long_assignment_briefs - a.long_assignment_briefs || String(a.course_title ?? '').localeCompare(String(b.course_title ?? '')) || a.url.localeCompare(b.url))
 }
 
+function buildScheduleRows({ syllabi, assignments, readings, courseSitePages }) {
+  const pageBySourceId = new Map(courseSitePages.map((page) => [page.source_id, page]))
+  const assignmentsBySyllabus = new Map()
+  const readingsBySyllabus = new Map()
+  for (const assignment of assignments) {
+    const existing = assignmentsBySyllabus.get(assignment.syllabus_id) ?? []
+    existing.push(assignment)
+    assignmentsBySyllabus.set(assignment.syllabus_id, existing)
+  }
+  for (const reading of readings) {
+    const existing = readingsBySyllabus.get(reading.syllabus_id) ?? []
+    existing.push(reading)
+    readingsBySyllabus.set(reading.syllabus_id, existing)
+  }
+
+  const rows = []
+  for (const syllabus of syllabi) {
+    const sourceId = syllabus.source_ids?.[0] ?? null
+    const page = sourceId ? pageBySourceId.get(sourceId) : null
+    const syllabusAssignments = assignmentsBySyllabus.get(syllabus.syllabus_id) ?? []
+    const syllabusReadings = readingsBySyllabus.get(syllabus.syllabus_id) ?? []
+    ;(syllabus.assignment_schedule ?? []).forEach((row, index) => {
+      const agenda = cleanScheduleAgenda(`${row.topic ?? ''} ${row.assignment_or_reading ?? ''}`)
+      const dueAssignmentIds = linkScheduleAssignments(agenda, syllabusAssignments)
+      const readingIds = linkScheduleReadings(agenda, syllabusReadings)
+      rows.push({
+        schedule_id: `schedule_${slug(syllabus.syllabus_id)}_${String(index + 1).padStart(3, '0')}`,
+        source_id: sourceId,
+        page_id: page?.page_id ?? null,
+        syllabus_id: syllabus.syllabus_id,
+        course_code: syllabus.course_code ?? page?.course_code ?? null,
+        course_title: syllabus.course_title ?? page?.course_title ?? null,
+        term: syllabus.term ?? page?.term ?? null,
+        instructor: syllabus.instructor ?? page?.instructor ?? null,
+        week_number: inferScheduleWeekNumber(row.topic ?? row.assignment_or_reading ?? '', index),
+        date: row.date ?? null,
+        session_title: inferScheduleSessionTitle(row.topic ?? row.assignment_or_reading ?? ''),
+        agenda_excerpt: agenda,
+        due_assignment_ids: dueAssignmentIds,
+        reading_ids: readingIds,
+        critique_signal: /crit|critique|review|feedback|present/i.test(agenda),
+        workshop_signal: /workshop|worktime|lab|exercise|tutorial|demo|in-class|activity/i.test(agenda),
+        schedule_source: 'syllabus_table_or_outline',
+        evidence_grade: syllabus.evidence_grade ?? page?.evidence_grade ?? null,
+        boundary_status: row.date ? 'dated_schedule_row' : 'undated_schedule_row',
+      })
+    })
+    ;(syllabus.weekly_schedule_evidence ?? []).forEach((snippet, index) => {
+      if (!snippet || (syllabus.assignment_schedule?.length && index > 5)) return
+      const agenda = cleanScheduleAgenda(snippet)
+      if (isLowInformationScheduleSnippet(agenda)) return
+      rows.push({
+        schedule_id: `schedule_${slug(syllabus.syllabus_id)}_evidence_${String(index + 1).padStart(3, '0')}`,
+        source_id: sourceId,
+        page_id: page?.page_id ?? null,
+        syllabus_id: syllabus.syllabus_id,
+        course_code: syllabus.course_code ?? page?.course_code ?? null,
+        course_title: syllabus.course_title ?? page?.course_title ?? null,
+        term: syllabus.term ?? page?.term ?? null,
+        instructor: syllabus.instructor ?? page?.instructor ?? null,
+        week_number: inferScheduleWeekNumber(snippet, index),
+        date: null,
+        session_title: inferScheduleSessionTitle(snippet),
+        agenda_excerpt: agenda,
+        due_assignment_ids: linkScheduleAssignments(agenda, syllabusAssignments),
+        reading_ids: linkScheduleReadings(agenda, syllabusReadings),
+        critique_signal: /crit|critique|review|feedback|present/i.test(agenda),
+        workshop_signal: /workshop|worktime|lab|exercise|tutorial|demo|in-class|activity/i.test(agenda),
+        schedule_source: 'weekly_schedule_evidence_snippet',
+        evidence_grade: bestEvidenceGrade([syllabus.evidence_grade, page?.evidence_grade, 'B']),
+        boundary_status: 'partial_schedule_evidence',
+      })
+    })
+  }
+  return rows
+    .filter((row) => row.source_id && row.agenda_excerpt)
+    .sort((a, b) => String(a.course_title ?? '').localeCompare(String(b.course_title ?? '')) || String(a.date ?? '').localeCompare(String(b.date ?? '')) || a.schedule_id.localeCompare(b.schedule_id))
+}
+
+function isLowInformationScheduleSnippet(agenda) {
+  const normalized = agenda.toLowerCase().trim()
+  if (!normalized) return true
+  if (/^(?:week|class|session)\s+\d{1,2}$/.test(normalized)) return true
+  if (agenda.split(/\s+/).length < 5 && !/\b(?:due|read|crit|critique|review|workshop|lecture|tutorial|assignment|project|present|submit)\b/i.test(agenda)) return true
+  return false
+}
+
+function cleanScheduleAgenda(value) {
+  return String(value ?? '').replace(/\s+/g, ' ').trim().slice(0, 600)
+}
+
+function inferScheduleWeekNumber(value, index) {
+  const match = String(value ?? '').match(/\bweek\s+(\d{1,2})\b/i) ?? String(value ?? '').match(/\bclass\s+(\d{1,2})\b/i)
+  return match ? Number(match[1]) : null
+}
+
+function inferScheduleSessionTitle(value) {
+  const cleaned = cleanScheduleAgenda(value)
+  if (!cleaned) return null
+  const title = cleaned.split(/\s+(?:Due|HW|Homework|Reading|Read|Lecture|Tutorial|Critique)\b/i)[0]?.trim()
+  return (title && title.length >= 4 ? title : cleaned).slice(0, 140)
+}
+
+function linkScheduleAssignments(agenda, assignments) {
+  if (!/\b(?:due|hw|homework|assignment|project|critique|review|present|submit|final)\b/i.test(agenda)) return []
+  const normalizedAgenda = normalizeForMatch(agenda)
+  return assignments
+    .map((assignment) => ({
+      assignment,
+      score: overlapScore(normalizedAgenda, normalizeForMatch(`${assignment.title ?? ''} ${assignment.prompt_excerpt ?? ''} ${(assignment.deliverables ?? []).join(' ')}`)),
+    }))
+    .filter(({ score, assignment }) => score >= 2 || (assignment.title && normalizedAgenda.includes(normalizeForMatch(assignment.title))))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 4)
+    .map(({ assignment }) => assignment.assignment_id)
+}
+
+function linkScheduleReadings(agenda, readings) {
+  if (!/\b(?:read|reading|resources?|article|essay|book|chapter|lecture)\b/i.test(agenda)) return []
+  const normalizedAgenda = normalizeForMatch(agenda)
+  return readings
+    .map((reading) => ({
+      reading,
+      score: overlapScore(normalizedAgenda, normalizeForMatch(`${reading.title ?? ''} ${reading.raw_citation ?? ''} ${reading.citation_excerpt ?? ''}`)),
+    }))
+    .filter(({ score, reading }) => score >= 2 || (reading.title && normalizedAgenda.includes(normalizeForMatch(reading.title))))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 4)
+    .map(({ reading }) => reading.reading_id)
+}
+
 function buildStudentWorkAssignmentLinks({ studentWork, assignmentBriefPages, assignments, courseSitePages }) {
   const assignmentById = new Map(assignments.map((assignment) => [assignment.assignment_id, assignment]))
   const briefById = new Map(assignmentBriefPages.map((page) => [page.brief_page_id, page]))
@@ -3580,12 +3711,13 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
   const effectiveCourseSitePages = courseSitePages ?? loadJsonl(join(outDir, 'course_site_pages.jsonl'))
   const effectiveAssignmentBriefPages = assignmentBriefPages ?? loadJsonl(join(outDir, 'assignment_brief_pages.jsonl'))
   const effectiveStudentWorkAssignmentLinks = studentWorkAssignmentLinks ?? loadJsonl(join(outDir, 'student_work_assignment_links.jsonl'))
+  const effectiveScheduleRows = scheduleRows ?? loadJsonl(join(outDir, 'schedule_rows.jsonl'))
   const sourceIds = new Set(sources.map((source) => source.source_id))
   const syllabusIds = new Set(syllabi.map((syllabus) => syllabus.syllabus_id))
   const failedSourceIds = new Set(sources.filter((source) => source.extraction_status !== 'ok').map((source) => source.source_id))
@@ -3635,6 +3767,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const longAssignmentBriefCount = assignments.filter((assignment) => (assignment.prompt_excerpt?.split(/\s+/).length ?? 0) >= 45).length
   const assignmentBoundaryErrors = assignments.filter((assignment) => !assignment.assignment_confidence || !assignment.boundary_status)
   const readingSourceErrors = readings.filter((reading) => !syllabusIds.has(reading.syllabus_id) || reading.source_ids.some((id) => !sourceIds.has(id)))
+  const readingIds = new Set(readings.map((reading) => reading.reading_id))
   const normalizedReadingCount = readings.filter((reading) => reading.canonical_work_id).length
   const catalogReadingCount = readings.filter((reading) => reading.linking_status === 'local_catalog_match').length
   const externalCatalogReadingCount = readings.filter((reading) => reading.linking_status === 'external_catalog_match' || reading.external_link_status === 'matched').length
@@ -3705,6 +3838,25 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const courseSiteSyllabusPageCount = effectiveCourseSitePages.filter((page) => page.page_role === 'syllabus').length
   const courseSitePagesWithLongBriefs = effectiveCourseSitePages.filter((page) => page.long_assignment_briefs > 0).length
   const assignmentIds = new Set(assignments.map((assignment) => assignment.assignment_id))
+  const courseSitePageIds = new Set(effectiveCourseSitePages.map((page) => page.page_id))
+  const scheduleRowErrors = effectiveScheduleRows.filter((row) =>
+    !row.schedule_id
+      || !row.source_id
+      || !sourceIds.has(row.source_id)
+      || row.page_id && !courseSitePageIds.has(row.page_id)
+      || !row.syllabus_id
+      || !syllabusIds.has(row.syllabus_id)
+      || row.due_assignment_ids?.some((id) => !assignmentIds.has(id))
+      || row.reading_ids?.some((id) => !readingIds.has(id))
+      || !row.schedule_source
+      || !row.boundary_status
+  )
+  const datedScheduleRowCount = effectiveScheduleRows.filter((row) => row.date).length
+  const tableScheduleRowCount = effectiveScheduleRows.filter((row) => row.schedule_source === 'syllabus_table_or_outline').length
+  const snippetScheduleRowCount = effectiveScheduleRows.filter((row) => row.schedule_source === 'weekly_schedule_evidence_snippet').length
+  const scheduleRowsWithAssignmentLinks = effectiveScheduleRows.filter((row) => row.due_assignment_ids?.length).length
+  const scheduleRowsWithReadingLinks = effectiveScheduleRows.filter((row) => row.reading_ids?.length).length
+  const scheduleRowsWithCritiqueSignals = effectiveScheduleRows.filter((row) => row.critique_signal).length
   const assignmentBriefPageErrors = effectiveAssignmentBriefPages.filter((page) => !page.brief_page_id || !page.source_id || !sourceIds.has(page.source_id) || page.assignment_ids?.some((id) => !assignmentIds.has(id)))
   const assignmentBriefPagesWithCompleteSignals = effectiveAssignmentBriefPages.filter((page) => page.has_complete_brief_signal).length
   const assignmentBriefPagesWithCritique = effectiveAssignmentBriefPages.filter((page) => page.critique_assignment_count > 0).length
@@ -3798,6 +3950,16 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       id: 'readings_external_links_have_metadata',
       status: externalCatalogErrors.length === 0 ? (externalCatalogAttemptCount > 0 ? 'pass' : 'warn') : 'fail',
       detail: `${externalCatalogAttemptCount} Open Library lookup attempts recorded; ${externalCatalogReadingCount} reading snippets have external catalog matches; ${externalCatalogErrors.length} external-link metadata errors.`,
+    },
+    {
+      id: 'schedule_rows_reference_valid_records',
+      status: scheduleRowErrors.length === 0 && effectiveScheduleRows.length > 0 ? 'pass' : scheduleRowErrors.length === 0 ? 'warn' : 'fail',
+      detail: `${effectiveScheduleRows.length} schedule rows; ${scheduleRowErrors.length} source/page/syllabus/assignment/reading reference errors.`,
+    },
+    {
+      id: 'schedule_rows_preserve_source_boundaries',
+      status: tableScheduleRowCount > 0 || snippetScheduleRowCount > 0 ? 'pass' : 'warn',
+      detail: `${tableScheduleRowCount} table/outline-derived rows, ${snippetScheduleRowCount} weekly-evidence snippet rows, ${datedScheduleRowCount} dated rows, ${scheduleRowsWithCritiqueSignals} critique/review rows.`,
     },
     {
       id: 'search_candidates_have_provenance',
@@ -3987,6 +4149,13 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       unresolved_readings: unresolvedReadingCount,
       non_citation_reading_fragments: nonCitationReadingCount,
       canonical_reading_works: readingFrequency.length,
+      schedule_rows: effectiveScheduleRows.length,
+      dated_schedule_rows: datedScheduleRowCount,
+      table_schedule_rows: tableScheduleRowCount,
+      snippet_schedule_rows: snippetScheduleRowCount,
+      schedule_rows_with_assignment_links: scheduleRowsWithAssignmentLinks,
+      schedule_rows_with_reading_links: scheduleRowsWithReadingLinks,
+      schedule_rows_with_critique_signals: scheduleRowsWithCritiqueSignals,
       search_candidates: searchCandidates.length,
       promoted_search_candidates: promotedSearchCandidateCount,
       imported_search_candidates: importedSearchCandidateCount,
@@ -4393,6 +4562,13 @@ Overall status: ${validation.status}
 - External catalog lookup attempts: ${validation.counts.external_catalog_attempts}
 - Unresolved reading snippets: ${validation.counts.unresolved_readings}
 - Non-citation reading fragments: ${validation.counts.non_citation_reading_fragments}
+- Schedule rows: ${validation.counts.schedule_rows}
+- Dated schedule rows: ${validation.counts.dated_schedule_rows}
+- Table/outline schedule rows: ${validation.counts.table_schedule_rows}
+- Schedule evidence snippet rows: ${validation.counts.snippet_schedule_rows}
+- Schedule rows with assignment links: ${validation.counts.schedule_rows_with_assignment_links}
+- Schedule rows with reading links: ${validation.counts.schedule_rows_with_reading_links}
+- Schedule rows with critique signals: ${validation.counts.schedule_rows_with_critique_signals}
 - Search candidates: ${validation.counts.search_candidates}
 - Promoted search candidates: ${validation.counts.promoted_search_candidates}
 - Imported search candidates: ${validation.counts.imported_search_candidates}
@@ -4496,7 +4672,7 @@ function clusteredEvidenceFamilies({ sourceIds, sourcesById, clusterBySourceId }
   return [...families.values()].sort((a, b) => b.source_ids.length - a.source_ids.length || a.representative_source_id.localeCompare(b.representative_source_id))
 }
 
-function reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks = [], wayback, sourceClusters = [] }) {
+function reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, scheduleRows = [], studentWork, studentWorkAssignmentLinks = [], wayback, sourceClusters = [] }) {
   const lines = []
   const sourcesById = new Map(sources.map((source) => [source.source_id, source]))
   const studentWorkById = new Map(studentWork.map((work) => [work.student_work_id, work]))
@@ -4523,6 +4699,7 @@ function reconstructionMarkdown({ sources, courses, syllabi, assignments, readin
     const courseSyllabi = syllabi.filter((s) => (s.course_code && course.course_code && s.course_code === course.course_code) || (s.course_title && course.course_title && s.course_title === course.course_title) || s.source_ids.some((id) => course.source_ids.includes(id)))
     const courseAssignments = assignments.filter((a) => courseSyllabi.some((s) => s.syllabus_id === a.syllabus_id))
     const courseReadings = readings.filter((r) => courseSyllabi.some((s) => s.syllabus_id === r.syllabus_id))
+    const courseScheduleRows = scheduleRows.filter((row) => courseSyllabi.some((s) => s.syllabus_id === row.syllabus_id))
     const courseStudentWork = studentWork.filter((work) => (work.course_code && course.course_code && work.course_code === course.course_code) || (work.course_title && course.course_title && work.course_title === course.course_title) || work.source_ids.some((id) => course.source_ids.includes(id)))
     const courseStudentWorkLinks = studentWorkAssignmentLinks.filter((link) =>
       link.relationship_type !== 'rejected_weak_match'
@@ -4583,6 +4760,17 @@ function reconstructionMarkdown({ sources, courses, syllabi, assignments, readin
     if (courseReadings.length) {
       lines.push('- Reading evidence:')
       courseReadings.slice(0, 8).forEach((reading) => lines.push(`  - ${reading.title ? `${reading.title}${reading.author ? `, ${reading.author}` : ''}` : reading.citation_excerpt} (${reading.linking_status})`))
+    }
+    if (courseScheduleRows.length) {
+      lines.push('- Normalized schedule rows:')
+      courseScheduleRows.slice(0, 8).forEach((row) => {
+        const linked = [
+          row.due_assignment_ids?.length ? `assignments: ${row.due_assignment_ids.join(', ')}` : null,
+          row.reading_ids?.length ? `readings: ${row.reading_ids.join(', ')}` : null,
+          row.critique_signal ? 'critique/review signal' : null,
+        ].filter(Boolean)
+        lines.push(`  - ${row.date ?? row.week_number ?? row.schedule_source}: ${row.agenda_excerpt}${linked.length ? ` (${linked.join('; ')})` : ''}`)
+      })
     }
     if (courseAssignments.length) {
       lines.push('- Assignment/critique evidence:')
@@ -4769,11 +4957,12 @@ function courseEvidenceScore({ course, courseSyllabi, courseAssignments, courseR
     + Math.min(courseStudentWork.length * 3, 12)
 }
 
-function curriculumCoursePackets({ courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks = [] }) {
+function curriculumCoursePackets({ courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks = [], scheduleRows = [] }) {
   return courses.map((course) => {
     const courseSyllabi = syllabi.filter((s) => (s.course_code && course.course_code && s.course_code === course.course_code) || (s.course_title && course.course_title && s.course_title === course.course_title) || s.source_ids.some((id) => course.source_ids.includes(id)))
     const courseAssignments = assignments.filter((a) => courseSyllabi.some((s) => s.syllabus_id === a.syllabus_id))
     const courseReadings = readings.filter((r) => courseSyllabi.some((s) => s.syllabus_id === r.syllabus_id))
+    const courseScheduleRows = scheduleRows.filter((row) => courseSyllabi.some((s) => s.syllabus_id === row.syllabus_id))
     const courseStudentWork = studentWork.filter((work) => (work.course_code && course.course_code && work.course_code === course.course_code) || (work.course_title && course.course_title && work.course_title === course.course_title) || work.source_ids.some((id) => course.source_ids.includes(id)))
     const courseStudentWorkLinks = studentWorkAssignmentLinks.filter((link) =>
       link.relationship_type !== 'rejected_weak_match'
@@ -4788,6 +4977,7 @@ function curriculumCoursePackets({ courses, syllabi, assignments, readings, stud
       courseSyllabi,
       courseAssignments,
       courseReadings,
+      courseScheduleRows,
       courseStudentWork,
       courseStudentWorkLinks,
       score: courseEvidenceScore({ course, courseSyllabi, courseAssignments, courseReadings, courseStudentWork }),
@@ -4820,9 +5010,10 @@ function requirementStatus(present, partial = false) {
   return 'missing'
 }
 
-function buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork }) {
+function buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork, scheduleRows = [] }) {
   return curriculumCoursePackets({ courses, syllabi, assignments, readings, studentWork }).map((packet) => {
     const { course, courseSyllabi, courseAssignments, courseReadings, courseStudentWork } = packet
+    const courseScheduleRows = scheduleRows.filter((row) => courseSyllabi.some((syllabus) => syllabus.syllabus_id === row.syllabus_id))
     const sourceIds = uniq([
       ...(course.source_ids ?? []),
       ...courseSyllabi.flatMap((syllabus) => syllabus.source_ids ?? []),
@@ -4846,7 +5037,7 @@ function buildCourseCoverage({ courses, syllabi, assignments, readings, studentW
       course_identity: requirementStatus(Boolean(course.course_code && course.course_title && (course.degree_level || course.credits || course.term || course.instructor)), Boolean(course.course_code || course.course_title)),
       source_evidence: requirementStatus(Boolean(sourceIds.length && course.evidence_grade)),
       syllabus_fields: requirementStatus(courseSyllabi.some((syllabus) => syllabus.raw_excerpts?.length || syllabus.description || syllabus.learning_outcomes?.length), courseSyllabi.length > 0),
-      weekly_schedule: requirementStatus(courseSyllabi.some((syllabus) => syllabus.assignment_schedule?.length || syllabus.topic_outline?.length)),
+      weekly_schedule: requirementStatus(courseScheduleRows.length > 0, courseSyllabi.some((syllabus) => syllabus.assignment_schedule?.length || syllabus.topic_outline?.length || syllabus.weekly_schedule_evidence?.length)),
       readings: requirementStatus(courseReadings.some((reading) => reading.linking_status !== 'non_citation_fragment'), courseReadings.length > 0),
       project_briefs: requirementStatus(highValueAssignments.length > 0 && longBriefAssignments.length > 0, highValueAssignments.length > 0 || courseAssignments.length > 0),
       critique_revision: requirementStatus(critiqueAssignments.length > 0),
@@ -4964,8 +5155,8 @@ function dedupeCoverageSearchQueries(rows) {
   })
 }
 
-function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks = [] }) {
-  const packets = curriculumCoursePackets({ courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks })
+function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows = [], studentWork, studentWorkAssignmentLinks = [] }) {
+  const packets = curriculumCoursePackets({ courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks, scheduleRows })
   const studentWorkById = new Map(studentWork.map((work) => [work.student_work_id, work]))
   const strongPackets = packets.filter((packet) => packet.courseAssignments.length || packet.courseReadings.length || packet.courseSyllabi.some((syllabus) => syllabus.assignment_schedule?.length))
   const selected = []
@@ -5022,7 +5213,7 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
     lines.push(`Studio loop: ${track.studio_loop}`)
     lines.push('')
     for (const packet of trackPackets) {
-      const { course, courseSyllabi, courseAssignments, courseReadings, courseStudentWork, courseStudentWorkLinks } = packet
+      const { course, courseSyllabi, courseAssignments, courseReadings, courseScheduleRows, courseStudentWork, courseStudentWorkLinks } = packet
       lines.push(`#### ${course.course_title ?? course.course_code ?? course.course_id}`)
       lines.push('')
       lines.push(`- Evidence grade: ${course.evidence_grade}`)
@@ -5041,6 +5232,10 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
           const title = reading.title ?? reading.raw_citation ?? reading.citation_excerpt
           lines.push(`  - ${title}${reading.author ? `, ${reading.author}` : ''}${reading.required_or_recommended ? ` (${reading.required_or_recommended})` : ''}`)
         })
+      }
+      if (courseScheduleRows.length) {
+        lines.push('- Schedule rhythm:')
+        courseScheduleRows.slice(0, 5).forEach((row) => lines.push(`  - ${row.date ?? row.session_title ?? row.schedule_source}: ${row.agenda_excerpt}`))
       }
       if (courseAssignments.length) {
         lines.push('- Studio briefs to recreate:')
@@ -5101,9 +5296,10 @@ function renderSelfStudyCurriculumOnly() {
   const syllabi = loadJsonl(join(outDir, 'syllabi.jsonl'))
   const assignments = loadJsonl(join(outDir, 'assignments.jsonl'))
   const readings = loadJsonl(join(outDir, 'readings.jsonl'))
+  const scheduleRows = loadJsonl(join(outDir, 'schedule_rows.jsonl'))
   const studentWork = loadJsonl(join(outDir, 'student_work.jsonl'))
   const studentWorkAssignmentLinks = loadJsonl(join(outDir, 'student_work_assignment_links.jsonl'))
-  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks }))
+  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
   console.log(`RISD self-study curriculum written to ${join(outDir, 'self_study_curriculum.md')}`)
   console.log(`courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} student_work=${studentWork.length}`)
 }
@@ -5136,10 +5332,11 @@ function renderDerivedArtifactsOnly() {
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
+  const courseSitePages = buildCourseSitePages({ sources, syllabi, assignments, readings })
+  const scheduleRows = buildScheduleRows({ syllabi, assignments, readings, courseSitePages })
+  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork, scheduleRows })
   const coverageSearchQueries = buildCoverageSearchQueries(courseCoverage)
   const facultySearchQueries = buildFacultySearchQueries(faculty, facultyCourseEdges)
-  const courseSitePages = buildCourseSitePages({ sources, syllabi, assignments, readings })
   const assignmentBriefPages = buildAssignmentBriefPages({ courseSitePages, assignments })
   const studentWorkAssignmentLinks = buildStudentWorkAssignmentLinks({ studentWork, assignmentBriefPages, assignments, courseSitePages })
   const retainedSearchCandidates = searchCandidates.filter((candidate) => !['coverage_query_backlog', 'faculty_query_backlog'].includes(candidate.source))
@@ -5147,7 +5344,7 @@ function renderDerivedArtifactsOnly() {
     .filter((candidate) => ['coverage_query_backlog', 'faculty_query_backlog'].includes(candidate.source))
   searchCandidates = mergeRowsByKey(retainedSearchCandidates, refreshedBacklogCandidates, (candidate) => candidate.candidate_id)
     .sort((a, b) => String(a.query ?? '').localeCompare(String(b.query ?? '')) || String(a.source ?? '').localeCompare(String(b.source ?? '')))
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, studentWorkAssignmentLinks, facultyPortfolioExamples, courseSitePages, assignmentBriefPages, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries, facultySearchQueries })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, scheduleRows, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, studentWorkAssignmentLinks, facultyPortfolioExamples, courseSitePages, assignmentBriefPages, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries, facultySearchQueries })
   writeJsonl(join(outDir, 'assignments.jsonl'), assignments)
   writeJsonl(join(outDir, 'readings.jsonl'), readings)
   writeJsonl(join(outDir, 'reading_frequency.jsonl'), readingFrequency)
@@ -5158,6 +5355,7 @@ function renderDerivedArtifactsOnly() {
   writeJsonl(join(outDir, 'coverage_search_queries.jsonl'), coverageSearchQueries)
   writeJsonl(join(outDir, 'faculty_search_queries.jsonl'), facultySearchQueries)
   writeJsonl(join(outDir, 'course_site_pages.jsonl'), courseSitePages)
+  writeJsonl(join(outDir, 'schedule_rows.jsonl'), scheduleRows)
   writeJsonl(join(outDir, 'assignment_brief_pages.jsonl'), assignmentBriefPages)
   writeJsonl(join(outDir, 'student_work_assignment_links.jsonl'), studentWorkAssignmentLinks)
   writeJsonl(join(outDir, 'search_candidates.jsonl'), searchCandidates)
@@ -5166,9 +5364,9 @@ function renderDerivedArtifactsOnly() {
   writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
-  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
+  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
-  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks }))
+  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
   console.log(`RISD derived artifacts written to ${outDir}`)
   console.log(`assignments=${assignments.length} phase_structured_assignments=${validationWithReview.counts.phase_structured_assignments} validation=${validationWithReview.status}`)
 }
@@ -5925,9 +6123,10 @@ async function main() {
   const sourceClusters = buildSourceClusters(inspected, syllabi, readings)
   const sourceVersions = buildSourceVersions(inspected, wayback)
   const courseSitePages = buildCourseSitePages({ sources, syllabi, assignments, readings })
+  const scheduleRows = buildScheduleRows({ syllabi, assignments, readings, courseSitePages })
   const assignmentBriefPages = buildAssignmentBriefPages({ courseSitePages, assignments })
   const studentWorkAssignmentLinks = buildStudentWorkAssignmentLinks({ studentWork, assignmentBriefPages, assignments, courseSitePages })
-  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
+  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork, scheduleRows })
   const coverageSearchQueries = buildCoverageSearchQueries(courseCoverage)
   const facultySearchQueries = buildFacultySearchQueries(faculty, facultyCourseEdges)
   const existingSearchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
@@ -5962,11 +6161,12 @@ async function main() {
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, studentWorkAssignmentLinks, facultyPortfolioExamples, courseSitePages, assignmentBriefPages, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries, facultySearchQueries })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, scheduleRows, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, studentWorkAssignmentLinks, facultyPortfolioExamples, courseSitePages, assignmentBriefPages, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries, facultySearchQueries })
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
   writeJsonl(join(outDir, 'course_site_pages.jsonl'), courseSitePages)
+  writeJsonl(join(outDir, 'schedule_rows.jsonl'), scheduleRows)
   writeJsonl(join(outDir, 'assignment_brief_pages.jsonl'), assignmentBriefPages)
   writeJsonl(join(outDir, 'student_work_assignment_links.jsonl'), studentWorkAssignmentLinks)
   writeJsonl(join(outDir, 'course_coverage.jsonl'), courseCoverage)
@@ -5977,10 +6177,10 @@ async function main() {
   writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
-  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters }))
+  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
-  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork }))
+  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
 
   console.log(`RISD corpus artifacts written to ${outDir}`)
   console.log(`sources=${sources.length} course_inventory=${courseInventory.offerings.length}/${courseInventory.displayed_count || '?'} courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} canonical_reading_works=${readingFrequency.length} search_candidates=${searchCandidates.length} faculty=${faculty.length} faculty_course_edges=${facultyCourseEdges.length} student_work=${studentWork.length} source_clusters=${sourceClusters.length} source_versions=${sourceVersions.length} wayback=${wayback.length} review_queue=${reviewQueue.length} review_decisions=${reviewDecisions.length} field_conflicts=${fieldConflicts.length} validation=${validationWithReview.status}`)

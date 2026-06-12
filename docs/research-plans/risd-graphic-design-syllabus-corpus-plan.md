@@ -61,6 +61,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/student_work.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/student_work_assignment_links.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/course_site_pages.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/schedule_rows.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/assignment_brief_pages.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/course_coverage.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/course_coverage.md`
@@ -152,6 +153,8 @@ Acceptance output:
 - generated reconstruction/curriculum sections that use linked student work only as comparison evidence, not as assignment requirements
 
 ### Step 2: Extract Explicit Schedule Rows From Course-Site Pages
+
+Status: implemented for normalized schedule rows from syllabus tables/outlines and weekly evidence snippets, conservative assignment/reading links, validation reporting, coverage scoring, and generated reconstruction/curriculum schedule rhythm sections.
 
 Goal: move from syllabus-level schedule snippets to reusable week/class/session rows.
 
@@ -624,6 +627,43 @@ Required fields:
 - `reading_count`
 - `normalized_readings`
 - `has_classroom_artifact`
+
+### `schedule_rows.jsonl`
+
+One row per recovered week, class, session, agenda, or schedule-evidence item. Rows may come from structured syllabus tables/outlines or from partial weekly/class evidence snippets; the boundary status must make that distinction explicit.
+
+Required fields:
+
+- `schedule_id`
+- `source_id`
+- `page_id`
+- `syllabus_id`
+- `course_code`
+- `course_title`
+- `term`
+- `instructor`
+- `week_number`
+- `date`
+- `session_title`
+- `agenda_excerpt`
+- `due_assignment_ids`
+- `reading_ids`
+- `critique_signal`
+- `workshop_signal`
+- `schedule_source`
+- `evidence_grade`
+- `boundary_status`
+
+Schedule sources:
+
+- `syllabus_table_or_outline`
+- `weekly_schedule_evidence_snippet`
+
+Boundary statuses:
+
+- `dated_schedule_row`
+- `undated_schedule_row`
+- `partial_schedule_evidence`
 
 ### `assignment_brief_pages.jsonl`
 
