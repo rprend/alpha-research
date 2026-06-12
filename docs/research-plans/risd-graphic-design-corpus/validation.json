@@ -23,11 +23,14 @@
     "unresolved_readings": 45,
     "non_citation_reading_fragments": 34,
     "canonical_reading_works": 30,
-    "search_candidates": 34,
+    "search_candidates": 200,
     "promoted_search_candidates": 10,
     "imported_search_candidates": 0,
-    "live_search_candidates": 6,
-    "live_search_provider_unconfigured": 6,
+    "live_search_candidates": 12,
+    "live_search_provider_unconfigured": 12,
+    "coverage_search_backlog_candidates": 160,
+    "live_coverage_search_candidates": 6,
+    "live_coverage_search_provider_unconfigured": 6,
     "common_crawl_candidates": 168,
     "common_crawl_fetch_candidates": 35,
     "ingested_common_crawl_candidates": 8,
@@ -126,7 +129,7 @@
     {
       "id": "search_candidates_have_provenance",
       "status": "pass",
-      "detail": "34 search candidates, 10 promoted, 0 imported, 6 live API rows (6 provider-unconfigured); 0 candidate reference errors."
+      "detail": "200 search candidates, 10 promoted, 0 imported, 12 live API rows (12 provider-unconfigured); 0 candidate reference errors."
     },
     {
       "id": "common_crawl_candidates_have_provenance",
@@ -167,6 +170,16 @@
       "id": "coverage_search_queries_have_gap_provenance",
       "status": "pass",
       "detail": "160 coverage-derived search queries with 0 provenance errors."
+    },
+    {
+      "id": "coverage_search_backlog_is_executable",
+      "status": "pass",
+      "detail": "160 coverage query backlog rows for 160 generated coverage queries; 0 backlog provenance errors."
+    },
+    {
+      "id": "live_coverage_search_preserves_gap_provenance",
+      "status": "pass",
+      "detail": "6 live coverage search rows (6 provider-unconfigured); 0 live coverage provenance errors."
     },
     {
       "id": "faculty_portfolio_examples_reference_valid_sources",

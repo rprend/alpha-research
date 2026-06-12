@@ -27,11 +27,14 @@ Overall status: pass
 - External catalog lookup attempts: 30
 - Unresolved reading snippets: 45
 - Non-citation reading fragments: 34
-- Search candidates: 34
+- Search candidates: 200
 - Promoted search candidates: 10
 - Imported search candidates: 0
-- Live search API candidates: 6
-- Live search provider-unconfigured rows: 6
+- Live search API candidates: 12
+- Live search provider-unconfigured rows: 12
+- Coverage search backlog candidates: 160
+- Live coverage search candidates: 6
+- Live coverage provider-unconfigured rows: 6
 - Common Crawl candidates: 168
 - Common Crawl fetch candidates: 35
 - Ingested Common Crawl candidates: 8
@@ -80,7 +83,7 @@ Overall status: pass
 - PASS readings_reference_valid_syllabi_and_sources: 0 reading reference errors.
 - PASS readings_have_normalized_work_links: 56 reading snippets linked to 30 canonical works; 43 local catalog matches, 12 external catalog matches, 45 unresolved, 34 non-citation fragments.
 - PASS readings_external_links_have_metadata: 30 Open Library lookup attempts recorded; 12 reading snippets have external catalog matches; 0 external-link metadata errors.
-- PASS search_candidates_have_provenance: 34 search candidates, 10 promoted, 0 imported, 6 live API rows (6 provider-unconfigured); 0 candidate reference errors.
+- PASS search_candidates_have_provenance: 200 search candidates, 10 promoted, 0 imported, 12 live API rows (12 provider-unconfigured); 0 candidate reference errors.
 - PASS common_crawl_candidates_have_provenance: 168 Common Crawl candidates, 35 fetch candidates, 8 ingested; 0 provenance errors.
 - PASS common_crawl_promotions_reference_candidates: 8 Common Crawl promotions, 8 successful, 8 ingested; 0 reference errors.
 - PASS faculty_graph_references_valid_sources: 26 faculty rows and 48 faculty-course edges; 0 reference errors.
@@ -89,6 +92,8 @@ Overall status: pass
 - PASS student_work_has_structured_public_examples: 22 student work rows include URL plus medium/project/evidence metadata; 5 rows include course code/title context.
 - PASS course_coverage_matrix_references_valid_sources: 134 course coverage rows for 134 courses; 8 at 80+ coverage, 112 below 40 coverage, and 0 coverage metadata/reference errors.
 - PASS coverage_search_queries_have_gap_provenance: 160 coverage-derived search queries with 0 provenance errors.
+- PASS coverage_search_backlog_is_executable: 160 coverage query backlog rows for 160 generated coverage queries; 0 backlog provenance errors.
+- PASS live_coverage_search_preserves_gap_provenance: 6 live coverage search rows (6 provider-unconfigured); 0 live coverage provenance errors.
 - PASS faculty_portfolio_examples_reference_valid_sources: 0 faculty portfolio example reference errors across 60 examples.
 - PASS faculty_portfolio_examples_have_structured_metadata: 60 faculty portfolio examples include faculty plus title/medium/statement/visual metadata.
 - PASS source_clusters_reference_valid_sources: 0 source cluster reference errors across 13 clusters.

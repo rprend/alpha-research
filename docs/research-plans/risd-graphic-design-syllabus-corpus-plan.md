@@ -100,7 +100,7 @@ Known gaps:
 - Discovery is still seed-based.
 - Citation extraction is heuristic with local catalog matching and non-citation fragment classification. A bounded Open Library linking mode is now wired for plausible book citations and records external match metadata directly on reading rows.
 - Assignment extraction now combines sentence snippets with bounded long-brief blocks from project, assignment, exercise, deliverable, due, presentation, and critique headings. It still needs richer field-specific parsing from complete assignment pages.
-- Search candidate import is supported through local JSON/JSONL exports, and a live search API path is wired for Brave or Bing when an API key is present in the environment. Coverage-derived gap queries are generated, but they still need to be treated as first-class search backlog and live API inputs.
+- Search candidate import is supported through local JSON/JSONL exports, and a live search API path is wired for Brave or Bing when an API key is present in the environment. Coverage-derived gap queries are now treated as first-class search backlog rows and bounded live API inputs while preserving course/gap provenance.
 - A bounded Common Crawl candidate, promotion, and ingestion pass exists, but it is still capped and should be expanded carefully.
 - Faculty/course edges are derived from course evidence, and bounded RISD faculty-profile candidate discovery/ingestion is implemented. Faculty-portfolio expansion now follows external links from official RISD profile pages, but broader public web search for faculty teaching/course artifacts is still not wired yet.
 - Source clustering is used to group evidence families in generated course packets. Current clusters are mostly related source families rather than exact duplicates, so the generator preserves distinct related pages and still needs stronger near-duplicate collapse once more duplicate evidence appears.
@@ -113,7 +113,9 @@ These steps are the immediate build plan. They should be implemented in order be
 
 ### Step 1: Make Coverage Queries Operational
 
-`coverage_search_queries.jsonl` is currently a generated gap list. It must become an executable discovery input.
+Status: implemented for backlog generation, bounded live-search input, provider-unconfigured audit rows, and validation reporting.
+
+`coverage_search_queries.jsonl` is a generated gap list and executable discovery input.
 
 Implementation requirements:
 
