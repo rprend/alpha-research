@@ -4047,7 +4047,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveArchivePromotions = archivePromotions ?? loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
@@ -4060,6 +4060,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const effectiveSelfStudyPortfolioMilestones = selfStudyPortfolioMilestones ?? []
   const effectiveSelfStudyPortfolioBriefs = selfStudyPortfolioBriefs ?? []
   const effectiveSelfStudyPortfolioReferencePackets = selfStudyPortfolioReferencePackets ?? []
+  const effectiveSelfStudyPortfolioExportManifests = selfStudyPortfolioExportManifests ?? []
   const effectiveScheduleRows = scheduleRows ?? loadJsonl(join(outDir, 'schedule_rows.jsonl'))
   const effectiveArchiveFetchTargets = archiveFetchTargets ?? loadJsonl(join(outDir, 'archive_fetch_targets.jsonl'))
   const sourceIds = new Set(sources.map((source) => source.source_id))
@@ -4297,6 +4298,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const portfolioBriefs = effectiveSelfStudyPortfolioBriefs.length ? effectiveSelfStudyPortfolioBriefs : generatedPortfolioBriefs
   const generatedPortfolioReferencePackets = buildSelfStudyPortfolioReferencePackets(curriculumModules, portfolioMilestones, facultyPortfolioExamples)
   const portfolioReferencePackets = effectiveSelfStudyPortfolioReferencePackets.length ? effectiveSelfStudyPortfolioReferencePackets : generatedPortfolioReferencePackets
+  const generatedPortfolioExportManifests = buildSelfStudyPortfolioExportManifests(portfolioMilestones, portfolioBriefs, portfolioReferencePackets)
+  const portfolioExportManifests = effectiveSelfStudyPortfolioExportManifests.length ? effectiveSelfStudyPortfolioExportManifests : generatedPortfolioExportManifests
   const curriculumModulesWithSourceIds = curriculumModules.filter((module) => module.source_ids?.length).length
   const curriculumModulesWithAssignments = curriculumModules.filter((module) => module.assignment_ids?.length).length
   const curriculumModulesWithReadings = curriculumModules.filter((module) => module.reading_ids?.length).length
@@ -4443,6 +4446,26 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       )
   )
   const portfolioReferencePacketsGeneratedMismatch = effectiveSelfStudyPortfolioReferencePackets.length > 0 && effectiveSelfStudyPortfolioReferencePackets.length !== generatedPortfolioReferencePackets.length
+  const portfolioBriefIds = new Set(portfolioBriefs.map((brief) => brief.brief_id))
+  const portfolioReferencePacketIds = new Set(portfolioReferencePackets.map((packet) => packet.packet_id))
+  const portfolioExportManifestErrors = portfolioExportManifests.filter((manifest) =>
+    !manifest.manifest_id
+      || !manifest.milestone_id
+      || !portfolioMilestoneIds.has(manifest.milestone_id)
+      || !manifest.brief_id
+      || !portfolioBriefIds.has(manifest.brief_id)
+      || !manifest.reference_packet_id
+      || !portfolioReferencePacketIds.has(manifest.reference_packet_id)
+      || !manifest.export_files?.length
+      || !manifest.export_files.some((file) => file.file_role === 'portfolio_brief_markdown' && file.path)
+      || !manifest.export_files.some((file) => file.file_role === 'reference_packet_jsonl_row' && file.path)
+      || !manifest.source_id_manifest?.length
+      || manifest.source_id_manifest.some((sourceId) => !sourceIds.has(sourceId))
+      || !manifest.print_packet_order?.length
+      || !manifest.external_tool_payload?.milestone_id
+      || manifest.external_tool_payload?.source_ids?.some((sourceId) => !sourceIds.has(sourceId))
+  )
+  const portfolioExportManifestsGeneratedMismatch = effectiveSelfStudyPortfolioExportManifests.length > 0 && effectiveSelfStudyPortfolioExportManifests.length !== generatedPortfolioExportManifests.length
   const courseInventoryReconciled = courseInventory.displayed_count > 0 && courseInventory.offerings.length === courseInventory.displayed_count
   const checks = [
     {
@@ -4721,6 +4744,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${portfolioReferencePackets.length} portfolio reference packets for ${portfolioMilestones.length} milestones; ${portfolioReferencePacketErrors.length} packet reference errors; generated mismatch=${portfolioReferencePacketsGeneratedMismatch}.`,
     },
     {
+      id: 'self_study_portfolio_export_manifests_package_briefs_and_sources',
+      status: portfolioExportManifestErrors.length === 0 && portfolioExportManifests.length === portfolioMilestones.length && portfolioExportManifests.length > 0 && !portfolioExportManifestsGeneratedMismatch ? 'pass' : 'fail',
+      detail: `${portfolioExportManifests.length} export manifests for ${portfolioMilestones.length} milestones; ${portfolioExportManifestErrors.length} manifest reference errors; generated mismatch=${portfolioExportManifestsGeneratedMismatch}.`,
+    },
+    {
       id: 'official_course_inventory_reconciled',
       status: courseInventoryReconciled ? 'pass' : 'warn',
       detail: `${courseInventory.offerings.length} official offerings parsed; RISD page displays ${courseInventory.displayed_count || 'unknown'} results.`,
@@ -4867,6 +4895,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_portfolio_milestones: portfolioMilestones.length,
       self_study_portfolio_briefs: portfolioBriefs.length,
       self_study_portfolio_reference_packets: portfolioReferencePackets.length,
+      self_study_portfolio_export_manifests: portfolioExportManifests.length,
     },
     checks,
   }
@@ -5481,6 +5510,7 @@ Overall status: ${validation.status}
 - Self-study portfolio milestones: ${validation.counts.self_study_portfolio_milestones}
 - Self-study portfolio briefs: ${validation.counts.self_study_portfolio_briefs}
 - Self-study portfolio reference packets: ${validation.counts.self_study_portfolio_reference_packets}
+- Self-study portfolio export manifests: ${validation.counts.self_study_portfolio_export_manifests}
 
 ## Checks
 
@@ -6696,6 +6726,78 @@ function dedupeReferences(items) {
   })
 }
 
+function buildSelfStudyPortfolioExportManifests(portfolioMilestones, portfolioBriefs, portfolioReferencePackets) {
+  const briefByMilestone = new Map(portfolioBriefs.map((brief) => [brief.milestone_id, brief]))
+  const referencePacketByMilestone = new Map(portfolioReferencePackets.map((packet) => [packet.milestone_id, packet]))
+  return portfolioMilestones.map((milestone) => {
+    const brief = briefByMilestone.get(milestone.milestone_id)
+    const referencePacket = referencePacketByMilestone.get(milestone.milestone_id)
+    const sourceIds = uniq([
+      ...(milestone.source_ids ?? []),
+      ...(brief?.source_ids ?? []),
+      ...(referencePacket?.source_ids ?? []),
+    ])
+    const assignmentIds = uniq([
+      ...(milestone.assignment_ids ?? []),
+      ...(brief?.assignment_ids ?? []),
+    ])
+    const readingIds = uniq([
+      ...(milestone.reading_ids ?? []),
+      ...(brief?.reading_ids ?? []),
+    ])
+    return {
+      manifest_id: `export_manifest_${milestone.milestone_id}`,
+      generated_at: retrievedAt,
+      milestone_id: milestone.milestone_id,
+      title: `${milestone.title} Export Manifest`,
+      brief_id: brief?.brief_id ?? null,
+      reference_packet_id: referencePacket?.packet_id ?? null,
+      export_files: [
+        {
+          file_role: 'portfolio_brief_markdown',
+          path: brief?.output_path ?? null,
+          media_type: 'text/markdown',
+          use: 'print_or_export_as_primary_review_sheet',
+        },
+        {
+          file_role: 'portfolio_brief_index_row',
+          path: 'self_study_portfolio_briefs.jsonl',
+          row_id: brief?.brief_id ?? null,
+          media_type: 'application/jsonl',
+          use: 'structured brief metadata for downstream tools',
+        },
+        {
+          file_role: 'reference_packet_jsonl_row',
+          path: 'self_study_portfolio_reference_packets.jsonl',
+          row_id: referencePacket?.packet_id ?? null,
+          media_type: 'application/jsonl',
+          use: 'relationship-labeled public visual/reference examples',
+        },
+      ],
+      print_packet_order: [
+        'portfolio_brief_markdown',
+        'reference_packet_jsonl_row',
+        'source_id_manifest',
+      ],
+      source_id_manifest: sourceIds,
+      external_tool_payload: {
+        milestone_id: milestone.milestone_id,
+        title: milestone.title,
+        brief_path: brief?.output_path ?? null,
+        reference_packet_id: referencePacket?.packet_id ?? null,
+        week_range: milestone.week_range ?? [],
+        module_ids: milestone.module_ids ?? [],
+        assignment_ids: assignmentIds,
+        reading_ids: readingIds,
+        source_ids: sourceIds,
+        review_prompts: milestone.review_prompts ?? [],
+        evidence_boundary: 'Generated from public corpus evidence only; do not infer private RISD assessment, private readings, or missing assignment details.',
+      },
+      provenance_note: 'Generated export manifest for packaging a portfolio brief, its relationship-labeled reference packet, and source IDs for external study tools.',
+    }
+  })
+}
+
 function portfolioBriefMarkdown({ milestone, modules, pacingRows, reviewPackage, sourceIds }) {
   const lines = []
   lines.push(`# ${milestone.title}`)
@@ -7161,10 +7263,12 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   const portfolioMilestones = buildSelfStudyPortfolioMilestones(selfStudyModules, pacingPlan)
   const portfolioBriefs = buildSelfStudyPortfolioBriefs(selfStudyModules, pacingPlan, portfolioMilestones)
   const portfolioReferencePackets = buildSelfStudyPortfolioReferencePackets(selfStudyModules, portfolioMilestones, facultyPortfolioExamples)
+  const portfolioExportManifests = buildSelfStudyPortfolioExportManifests(portfolioMilestones, portfolioBriefs, portfolioReferencePackets)
   writeJsonl(join(outDir, 'self_study_pacing_plan.jsonl'), pacingPlan)
   writeJsonl(join(outDir, 'self_study_pacing_profiles.jsonl'), buildSelfStudyPacingProfiles(pacingPlan))
   writeJsonl(join(outDir, 'self_study_portfolio_milestones.jsonl'), portfolioMilestones)
   writeJsonl(join(outDir, 'self_study_portfolio_reference_packets.jsonl'), portfolioReferencePackets)
+  writeJsonl(join(outDir, 'self_study_portfolio_export_manifests.jsonl'), portfolioExportManifests)
   writeSelfStudyPortfolioBriefFiles(portfolioBriefs)
 }
 
