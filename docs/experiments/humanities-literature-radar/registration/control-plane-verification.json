@@ -26,5 +26,30 @@
   },
   "dashboardUrl": "https://dashboard.alpharesearch.nyc/datasets/humanities-literature-radar",
   "promotedAt": "2026-06-12T20:04:48.161Z",
-  "promotionEndpoint": "/api/admin/datasets/prebuilt-ready"
+  "promotionEndpoint": "/api/admin/datasets/prebuilt-ready",
+  "remoteSmokeRun": {
+    "checkedAt": "2026-06-12T20:18:37Z",
+    "runId": "d866dce5-a99b-459f-a932-a0aff4fec638",
+    "status": "ready",
+    "runUrl": "https://dashboard.alpharesearch.nyc/runs/d866dce5-a99b-459f-a932-a0aff4fec638",
+    "requiredArtifacts": [
+      "report.html",
+      "result.json",
+      "work.md"
+    ],
+    "resultRequiredFields": [
+      "answer",
+      "claims",
+      "evidence",
+      "confidence",
+      "limitations",
+      "sourceDatasetIds"
+    ],
+    "claimCount": 3,
+    "evidenceCount": 10,
+    "sourceDatasetIds": [
+      "humanities-literature-radar"
+    ],
+    "evidenceFile": "docs/experiments/humanities-literature-radar/registration/remote-smoke-run.json"
+  }
 }
