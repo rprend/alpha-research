@@ -1,1078 +1,1143 @@
 {
-  "generatedAt": "2026-06-12T18:51:01.094Z",
+  "generatedAt": "2026-06-12T21:30:52.031Z",
   "source": "Cleveland Museum of Art Open Access API",
-  "sampleRecords": 5000,
+  "sampleRecords": 68742,
+  "corpusRecords": 68742,
   "totalAvailable": 68743,
-  "sampleShare": 0.0727,
+  "sampleShare": 1,
+  "corpusTier": "full-source-corpus",
+  "collectionScope": "full-source corpus",
+  "fullSourceRun": true,
+  "missingFromApiTotal": 1,
   "departments": [
     {
-      "value": "Medieval Art",
-      "count": 1313,
-      "share": 0.2626
-    },
-    {
-      "value": "Chinese Art",
-      "count": 374,
-      "share": 0.0748
-    },
-    {
-      "value": "Decorative Art and Design",
-      "count": 313,
-      "share": 0.0626
-    },
-    {
-      "value": "Drawings",
-      "count": 302,
-      "share": 0.0604
-    },
-    {
-      "value": "Indian and Southeast Asian Art",
-      "count": 279,
-      "share": 0.0558
-    },
-    {
-      "value": "European Painting and Sculpture",
-      "count": 277,
-      "share": 0.0554
-    },
-    {
       "value": "Prints",
-      "count": 265,
-      "share": 0.053
-    },
-    {
-      "value": "Greek and Roman Art",
-      "count": 253,
-      "share": 0.0506
-    },
-    {
-      "value": "Modern European Painting and Sculpture",
-      "count": 240,
-      "share": 0.048
-    },
-    {
-      "value": "Japanese Art",
-      "count": 186,
-      "share": 0.0372
-    },
-    {
-      "value": "American Painting and Sculpture",
-      "count": 174,
-      "share": 0.0348
-    },
-    {
-      "value": "Contemporary Art",
-      "count": 159,
-      "share": 0.0318
-    },
-    {
-      "value": "African Art",
-      "count": 157,
-      "share": 0.0314
-    },
-    {
-      "value": "Art of the Americas",
-      "count": 156,
-      "share": 0.0312
-    },
-    {
-      "value": "Textiles",
-      "count": 136,
-      "share": 0.0272
-    },
-    {
-      "value": "Egyptian and Ancient Near Eastern Art",
-      "count": 126,
-      "share": 0.0252
+      "count": 21155,
+      "share": 0.3077
     },
     {
       "value": "Photography",
-      "count": 121,
-      "share": 0.0242
+      "count": 10186,
+      "share": 0.1482
+    },
+    {
+      "value": "Drawings",
+      "count": 5445,
+      "share": 0.0792
+    },
+    {
+      "value": "Textiles",
+      "count": 5261,
+      "share": 0.0765
+    },
+    {
+      "value": "Decorative Art and Design",
+      "count": 5220,
+      "share": 0.0759
+    },
+    {
+      "value": "Medieval Art",
+      "count": 4975,
+      "share": 0.0724
+    },
+    {
+      "value": "Indian and Southeast Asian Art",
+      "count": 3425,
+      "share": 0.0498
+    },
+    {
+      "value": "Japanese Art",
+      "count": 3420,
+      "share": 0.0498
+    },
+    {
+      "value": "Chinese Art",
+      "count": 2638,
+      "share": 0.0384
+    },
+    {
+      "value": "Egyptian and Ancient Near Eastern Art",
+      "count": 1069,
+      "share": 0.0156
+    },
+    {
+      "value": "Art of the Americas",
+      "count": 977,
+      "share": 0.0142
+    },
+    {
+      "value": "Contemporary Art",
+      "count": 866,
+      "share": 0.0126
+    },
+    {
+      "value": "European Painting and Sculpture",
+      "count": 727,
+      "share": 0.0106
+    },
+    {
+      "value": "American Painting and Sculpture",
+      "count": 709,
+      "share": 0.0103
+    },
+    {
+      "value": "Greek and Roman Art",
+      "count": 686,
+      "share": 0.01
+    },
+    {
+      "value": "Modern European Painting and Sculpture",
+      "count": 608,
+      "share": 0.0088
+    },
+    {
+      "value": "African Art",
+      "count": 521,
+      "share": 0.0076
     },
     {
       "value": "Korean Art",
-      "count": 103,
-      "share": 0.0206
+      "count": 452,
+      "share": 0.0066
     },
     {
       "value": "Islamic Art",
-      "count": 66,
-      "share": 0.0132
+      "count": 298,
+      "share": 0.0043
+    },
+    {
+      "value": "Oceania",
+      "count": 104,
+      "share": 0.0015
     }
   ],
   "collections": [
     {
-      "value": "MED - Byzantine",
-      "count": 896,
-      "share": 0.1792
-    },
-    {
-      "value": "Decorative Arts",
-      "count": 273,
-      "share": 0.0546
-    },
-    {
-      "value": "Mod Euro - Painting 1800-1960",
-      "count": 215,
-      "share": 0.043
-    },
-    {
-      "value": "Indian Art",
-      "count": 164,
-      "share": 0.0328
-    },
-    {
-      "value": "African Art",
-      "count": 157,
-      "share": 0.0314
-    },
-    {
-      "value": "ASIAN - Hanging scroll",
-      "count": 140,
-      "share": 0.028
-    },
-    {
-      "value": "GR - Greek",
-      "count": 139,
-      "share": 0.0278
-    },
-    {
-      "value": "MED - Arms & Armor",
-      "count": 138,
-      "share": 0.0276
-    },
-    {
-      "value": "American - Painting",
-      "count": 127,
-      "share": 0.0254
+      "value": "PR - Etching",
+      "count": 6477,
+      "share": 0.0942
     },
     {
       "value": "PR - Lithograph",
-      "count": 106,
-      "share": 0.0212
-    },
-    {
-      "value": "DR - French",
-      "count": 95,
-      "share": 0.019
-    },
-    {
-      "value": "Japanese Art",
-      "count": 85,
-      "share": 0.017
-    },
-    {
-      "value": "MED - Gothic",
-      "count": 84,
-      "share": 0.0168
-    },
-    {
-      "value": "Sculpture",
-      "count": 80,
-      "share": 0.016
-    },
-    {
-      "value": "Textiles",
-      "count": 78,
-      "share": 0.0156
-    },
-    {
-      "value": "Korean Art",
-      "count": 71,
-      "share": 0.0142
-    },
-    {
-      "value": "Islamic Art",
-      "count": 66,
-      "share": 0.0132
-    },
-    {
-      "value": "GR - Roman",
-      "count": 65,
-      "share": 0.013
-    },
-    {
-      "value": "ASIAN - Album leaf",
-      "count": 61,
-      "share": 0.0122
-    },
-    {
-      "value": "MED - Medieval Art",
-      "count": 61,
-      "share": 0.0122
-    },
-    {
-      "value": "Paintings",
-      "count": 57,
-      "share": 0.0114
-    },
-    {
-      "value": "ASIAN - Folding screen",
-      "count": 56,
-      "share": 0.0112
-    },
-    {
-      "value": "MED - Manuscript Illuminations",
-      "count": 56,
-      "share": 0.0112
-    },
-    {
-      "value": "AA - Andes",
-      "count": 53,
-      "share": 0.0106
-    },
-    {
-      "value": "CONTEMP - Painting",
-      "count": 53,
-      "share": 0.0106
-    },
-    {
-      "value": "AA - Intermediate Region",
-      "count": 50,
-      "share": 0.01
-    },
-    {
-      "value": "AA - Mesoamerica",
-      "count": 48,
-      "share": 0.0096
-    },
-    {
-      "value": "DR - Italian",
-      "count": 47,
-      "share": 0.0094
-    },
-    {
-      "value": "ASIAN - Handscroll",
-      "count": 45,
-      "share": 0.009
-    },
-    {
-      "value": "DR - American 20th Century",
-      "count": 42,
-      "share": 0.0084
-    },
-    {
-      "value": "CONTEMP - Sculpture",
-      "count": 40,
-      "share": 0.008
-    },
-    {
-      "value": "PR - Engraving",
-      "count": 40,
-      "share": 0.008
-    },
-    {
-      "value": "DR - British",
-      "count": 39,
-      "share": 0.0078
-    },
-    {
-      "value": "Furniture",
-      "count": 39,
-      "share": 0.0078
+      "count": 5709,
+      "share": 0.083
     },
     {
       "value": "PH - American 1951-Present",
-      "count": 38,
+      "count": 5336,
+      "share": 0.0776
+    },
+    {
+      "value": "Decorative Arts",
+      "count": 4804,
+      "share": 0.0699
+    },
+    {
+      "value": "Japanese Art",
+      "count": 2917,
+      "share": 0.0424
+    },
+    {
+      "value": "Textiles",
+      "count": 2535,
+      "share": 0.0369
+    },
+    {
+      "value": "MED - Manuscript Illuminations",
+      "count": 2390,
+      "share": 0.0348
+    },
+    {
+      "value": "Indian Art",
+      "count": 2187,
+      "share": 0.0318
+    },
+    {
+      "value": "PR - Woodcut",
+      "count": 1930,
+      "share": 0.0281
+    },
+    {
+      "value": "PR - Engraving",
+      "count": 1642,
+      "share": 0.0239
+    },
+    {
+      "value": "DR - American 20th Century",
+      "count": 1639,
+      "share": 0.0238
+    },
+    {
+      "value": "T - Lace",
+      "count": 1323,
+      "share": 0.0192
+    },
+    {
+      "value": "PH - Photogravure",
+      "count": 1277,
+      "share": 0.0186
+    },
+    {
+      "value": "PR - Wood engraving",
+      "count": 1237,
+      "share": 0.018
+    },
+    {
+      "value": "Prints",
+      "count": 1102,
+      "share": 0.016
+    },
+    {
+      "value": "MED - Byzantine",
+      "count": 1058,
+      "share": 0.0154
+    },
+    {
+      "value": "DR - French",
+      "count": 1013,
+      "share": 0.0147
+    },
+    {
+      "value": "DR - American - Cleveland School",
+      "count": 902,
+      "share": 0.0131
+    },
+    {
+      "value": "PR - Drypoint",
+      "count": 902,
+      "share": 0.0131
+    },
+    {
+      "value": "PH - American 1900-1950",
+      "count": 881,
+      "share": 0.0128
+    },
+    {
+      "value": "China - Qing Dynasty",
+      "count": 812,
+      "share": 0.0118
+    },
+    {
+      "value": "T - Islamic",
+      "count": 712,
+      "share": 0.0104
+    },
+    {
+      "value": "MED - Arms & Armor",
+      "count": 581,
+      "share": 0.0085
+    },
+    {
+      "value": "ASIAN - Hanging scroll",
+      "count": 567,
+      "share": 0.0082
+    },
+    {
+      "value": "African Art",
+      "count": 521,
       "share": 0.0076
     },
     {
-      "value": "P - Italian 16th & 17th Century",
-      "count": 37,
-      "share": 0.0074
-    },
-    {
-      "value": "MED - Romanesque",
-      "count": 36,
+      "value": "DR - American 19th Century",
+      "count": 493,
       "share": 0.0072
     },
     {
-      "value": "P - British before 1800",
-      "count": 35,
-      "share": 0.007
+      "value": "PR - Screenprint",
+      "count": 474,
+      "share": 0.0069
     },
     {
-      "value": "Egypt - New Kingdom",
-      "count": 33,
+      "value": "DR - Italian",
+      "count": 453,
       "share": 0.0066
     },
     {
-      "value": "Near Eastern Art",
-      "count": 33,
+      "value": "Mod Euro - Painting 1800-1960",
+      "count": 453,
       "share": 0.0066
+    },
+    {
+      "value": "Sculpture",
+      "count": 424,
+      "share": 0.0062
+    },
+    {
+      "value": "GR - Greek",
+      "count": 397,
+      "share": 0.0058
+    },
+    {
+      "value": "Korean Art",
+      "count": 395,
+      "share": 0.0057
+    },
+    {
+      "value": "ASIAN - Album leaf",
+      "count": 390,
+      "share": 0.0057
+    },
+    {
+      "value": "CONTEMP - Sculpture",
+      "count": 376,
+      "share": 0.0055
+    },
+    {
+      "value": "PH - French 20th Century",
+      "count": 366,
+      "share": 0.0053
+    },
+    {
+      "value": "Indian Art - Medieval",
+      "count": 361,
+      "share": 0.0053
+    },
+    {
+      "value": "MED - Gothic",
+      "count": 354,
+      "share": 0.0051
+    },
+    {
+      "value": "Photography",
+      "count": 350,
+      "share": 0.0051
+    },
+    {
+      "value": "American - Painting",
+      "count": 342,
+      "share": 0.005
+    },
+    {
+      "value": "PR - Mezzotint",
+      "count": 328,
+      "share": 0.0048
     }
   ],
   "types": [
     {
-      "value": "Painting",
-      "count": 1131,
-      "share": 0.2262
-    },
-    {
-      "value": "Bound Volume",
-      "count": 873,
-      "share": 0.1746
-    },
-    {
-      "value": "Sculpture",
-      "count": 684,
-      "share": 0.1368
-    },
-    {
-      "value": "Ceramic",
-      "count": 366,
-      "share": 0.0732
-    },
-    {
-      "value": "Drawing",
-      "count": 300,
-      "share": 0.06
-    },
-    {
       "value": "Print",
-      "count": 278,
-      "share": 0.0556
-    },
-    {
-      "value": "Metalwork",
-      "count": 257,
-      "share": 0.0514
-    },
-    {
-      "value": "Arms and Armor",
-      "count": 153,
-      "share": 0.0306
+      "count": 20262,
+      "share": 0.2948
     },
     {
       "value": "Photograph",
-      "count": 121,
-      "share": 0.0242
+      "count": 8265,
+      "share": 0.1202
     },
     {
-      "value": "Jewelry",
-      "count": 81,
-      "share": 0.0162
+      "value": "Bound Volume",
+      "count": 6177,
+      "share": 0.0899
+    },
+    {
+      "value": "Painting",
+      "count": 4686,
+      "share": 0.0682
+    },
+    {
+      "value": "Drawing",
+      "count": 4102,
+      "share": 0.0597
+    },
+    {
+      "value": "Ceramic",
+      "count": 3652,
+      "share": 0.0531
     },
     {
       "value": "Textile",
-      "count": 81,
-      "share": 0.0162
+      "count": 2666,
+      "share": 0.0388
+    },
+    {
+      "value": "Sculpture",
+      "count": 2603,
+      "share": 0.0379
+    },
+    {
+      "value": "Metalwork",
+      "count": 2110,
+      "share": 0.0307
+    },
+    {
+      "value": "Portfolio",
+      "count": 1973,
+      "share": 0.0287
+    },
+    {
+      "value": "Arms and Armor",
+      "count": 1302,
+      "share": 0.0189
+    },
+    {
+      "value": "Lace",
+      "count": 1195,
+      "share": 0.0174
     },
     {
       "value": "Manuscript",
-      "count": 68,
-      "share": 0.0136
+      "count": 1108,
+      "share": 0.0161
     },
     {
-      "value": "Silver",
-      "count": 65,
-      "share": 0.013
-    },
-    {
-      "value": "Furniture and woodwork",
-      "count": 57,
-      "share": 0.0114
-    },
-    {
-      "value": "Miscellaneous",
-      "count": 52,
-      "share": 0.0104
+      "value": "Jewelry",
+      "count": 1097,
+      "share": 0.016
     },
     {
       "value": "Glass",
-      "count": 51,
-      "share": 0.0102
-    },
-    {
-      "value": "Portrait Miniature",
-      "count": 47,
-      "share": 0.0094
-    },
-    {
-      "value": "Mask",
-      "count": 34,
-      "share": 0.0068
-    },
-    {
-      "value": "Tapestry",
-      "count": 23,
-      "share": 0.0046
-    },
-    {
-      "value": "Enamel",
-      "count": 22,
-      "share": 0.0044
-    },
-    {
-      "value": "Wood",
-      "count": 22,
-      "share": 0.0044
-    },
-    {
-      "value": "Lacquer",
-      "count": 21,
-      "share": 0.0042
+      "count": 611,
+      "share": 0.0089
     },
     {
       "value": "Embroidery",
-      "count": 19,
-      "share": 0.0038
-    },
-    {
-      "value": "Funerary Equipment",
-      "count": 18,
-      "share": 0.0036
-    },
-    {
-      "value": "Garment",
-      "count": 17,
-      "share": 0.0034
-    },
-    {
-      "value": "Jade",
-      "count": 17,
-      "share": 0.0034
-    },
-    {
-      "value": "Mixed Media",
-      "count": 16,
-      "share": 0.0032
-    },
-    {
-      "value": "Tools and Equipment",
-      "count": 16,
-      "share": 0.0032
-    },
-    {
-      "value": "Vessels",
-      "count": 16,
-      "share": 0.0032
-    },
-    {
-      "value": "Ivory",
-      "count": 15,
-      "share": 0.003
-    },
-    {
-      "value": "Stone",
-      "count": 13,
-      "share": 0.0026
+      "count": 602,
+      "share": 0.0088
     },
     {
       "value": "Coins",
-      "count": 9,
-      "share": 0.0018
+      "count": 562,
+      "share": 0.0082
     },
     {
-      "value": "Time-based Media",
-      "count": 7,
-      "share": 0.0014
+      "value": "Furniture and woodwork",
+      "count": 559,
+      "share": 0.0081
     },
     {
-      "value": "Glyptic",
-      "count": 6,
-      "share": 0.0012
+      "value": "Miscellaneous",
+      "count": 532,
+      "share": 0.0077
     },
     {
-      "value": "Lamp",
-      "count": 5,
-      "share": 0.001
+      "value": "Silver",
+      "count": 491,
+      "share": 0.0071
     },
     {
-      "value": "Amulets",
-      "count": 4,
-      "share": 0.0008
+      "value": "Enamel",
+      "count": 408,
+      "share": 0.0059
+    },
+    {
+      "value": "Mixed Media",
+      "count": 306,
+      "share": 0.0045
+    },
+    {
+      "value": "Funerary Equipment",
+      "count": 281,
+      "share": 0.0041
+    },
+    {
+      "value": "Garment",
+      "count": 264,
+      "share": 0.0038
     },
     {
       "value": "Velvet",
-      "count": 4,
-      "share": 0.0008
+      "count": 258,
+      "share": 0.0038
     },
     {
-      "value": "Calligraphy",
-      "count": 3,
-      "share": 0.0006
+      "value": "Jade",
+      "count": 256,
+      "share": 0.0037
     },
     {
-      "value": "Carpet",
-      "count": 3,
-      "share": 0.0006
+      "value": "Tools and Equipment",
+      "count": 247,
+      "share": 0.0036
     },
     {
-      "value": "Cosmetic Objects",
-      "count": 3,
-      "share": 0.0006
+      "value": "Lacquer",
+      "count": 203,
+      "share": 0.003
+    },
+    {
+      "value": "Portrait Miniature",
+      "count": 166,
+      "share": 0.0024
+    },
+    {
+      "value": "Ivory",
+      "count": 164,
+      "share": 0.0024
+    },
+    {
+      "value": "Time-based Media",
+      "count": 138,
+      "share": 0.002
+    },
+    {
+      "value": "Spindle Whorl",
+      "count": 135,
+      "share": 0.002
+    },
+    {
+      "value": "Woodblock",
+      "count": 133,
+      "share": 0.0019
+    },
+    {
+      "value": "Vessels",
+      "count": 129,
+      "share": 0.0019
+    },
+    {
+      "value": "Basketry",
+      "count": 128,
+      "share": 0.0019
+    },
+    {
+      "value": "Wood",
+      "count": 124,
+      "share": 0.0018
+    },
+    {
+      "value": "Amulets",
+      "count": 101,
+      "share": 0.0015
+    },
+    {
+      "value": "Stone",
+      "count": 88,
+      "share": 0.0013
+    },
+    {
+      "value": "Sampler",
+      "count": 84,
+      "share": 0.0012
+    },
+    {
+      "value": "Musical Instrument",
+      "count": 83,
+      "share": 0.0012
     }
   ],
   "cultures": [
     {
-      "value": "Byzantium, Constantinople",
-      "count": 857,
-      "share": 0.1713
-    },
-    {
       "value": "America",
-      "count": 485,
-      "share": 0.097
+      "count": 18904,
+      "share": 0.275
     },
     {
       "value": "France, 19th century",
-      "count": 257,
-      "share": 0.0514
-    },
-    {
-      "value": "Japan, Edo period (1615–1868)",
-      "count": 78,
-      "share": 0.0156
-    },
-    {
-      "value": "Germany",
-      "count": 67,
-      "share": 0.0134
-    },
-    {
-      "value": "France, 18th century",
-      "count": 57,
-      "share": 0.0114
-    },
-    {
-      "value": "Russia, St. Petersburg",
-      "count": 54,
-      "share": 0.0108
-    },
-    {
-      "value": "Italy, 16th century",
-      "count": 52,
-      "share": 0.0104
-    },
-    {
-      "value": "China, Ming dynasty (1368–1644)",
-      "count": 49,
-      "share": 0.0098
-    },
-    {
-      "value": "England, 18th century",
-      "count": 48,
-      "share": 0.0096
-    },
-    {
-      "value": "Korea, Joseon dynasty (1392–1910)",
-      "count": 48,
-      "share": 0.0096
-    },
-    {
-      "value": "China, Qing dynasty (1644-1911)",
-      "count": 46,
-      "share": 0.0092
-    },
-    {
-      "value": "France",
-      "count": 45,
-      "share": 0.009
-    },
-    {
-      "value": "England, 19th century",
-      "count": 43,
-      "share": 0.0086
-    },
-    {
-      "value": "Netherlands",
-      "count": 41,
-      "share": 0.0082
-    },
-    {
-      "value": "Greek, Attic",
-      "count": 40,
-      "share": 0.008
+      "count": 3690,
+      "share": 0.0537
     },
     {
       "value": "America, Ohio, Cleveland",
-      "count": 39,
-      "share": 0.0078
+      "count": 2281,
+      "share": 0.0332
+    },
+    {
+      "value": "Japan, Edo period (1615–1868)",
+      "count": 1945,
+      "share": 0.0283
     },
     {
       "value": "France, 20th century",
-      "count": 37,
-      "share": 0.0074
+      "count": 1830,
+      "share": 0.0266
+    },
+    {
+      "value": "England, 19th century",
+      "count": 1523,
+      "share": 0.0222
     },
     {
       "value": "France, Paris",
-      "count": 37,
-      "share": 0.0074
+      "count": 1259,
+      "share": 0.0183
     },
     {
-      "value": "Korea, Goryeo dynasty (918–1392)",
-      "count": 33,
-      "share": 0.0066
+      "value": "Germany",
+      "count": 1249,
+      "share": 0.0182
     },
     {
-      "value": "Italy, Venice",
-      "count": 32,
-      "share": 0.0064
+      "value": "England, 20th century",
+      "count": 1169,
+      "share": 0.017
+    },
+    {
+      "value": "Japan",
+      "count": 874,
+      "share": 0.0127
+    },
+    {
+      "value": "Byzantium, Constantinople",
+      "count": 870,
+      "share": 0.0127
+    },
+    {
+      "value": "Netherlands",
+      "count": 779,
+      "share": 0.0113
+    },
+    {
+      "value": "France",
+      "count": 698,
+      "share": 0.0102
+    },
+    {
+      "value": "France, 18th century",
+      "count": 684,
+      "share": 0.0099
     },
     {
       "value": "Mughal India, court of Akbar (reigned 1556–1605)",
-      "count": 31,
-      "share": 0.0062
+      "count": 672,
+      "share": 0.0098
     },
     {
-      "value": "Northern India, Pahari kingdoms",
-      "count": 31,
-      "share": 0.0062
+      "value": "Germany, 20th century",
+      "count": 638,
+      "share": 0.0093
     },
     {
-      "value": "China, Yuan dynasty (1271-1368)",
-      "count": 27,
-      "share": 0.0054
+      "value": "China, Qing dynasty (1644-1911)",
+      "count": 605,
+      "share": 0.0088
     },
     {
-      "value": "Flanders",
-      "count": 27,
-      "share": 0.0054
-    },
-    {
-      "value": "unknown",
-      "count": 27,
-      "share": 0.0054
-    },
-    {
-      "value": "China, Southern Song dynasty (1127-1279)",
-      "count": 26,
-      "share": 0.0052
-    },
-    {
-      "value": "Italy, 17th century",
-      "count": 25,
-      "share": 0.005
-    },
-    {
-      "value": "Japan, Kamakura period (1185–1333)",
-      "count": 25,
-      "share": 0.005
-    },
-    {
-      "value": "France, late 19th Century",
-      "count": 24,
-      "share": 0.0048
-    },
-    {
-      "value": "Italy, Roman",
-      "count": 24,
-      "share": 0.0048
-    },
-    {
-      "value": "America, New York",
-      "count": 23,
-      "share": 0.0046
-    },
-    {
-      "value": "Etruscan",
-      "count": 22,
-      "share": 0.0044
+      "value": "Flanders, Ghent and Bruges, late 15th century",
+      "count": 561,
+      "share": 0.0082
     },
     {
       "value": "Spain",
-      "count": 22,
-      "share": 0.0044
+      "count": 495,
+      "share": 0.0072
     },
     {
-      "value": "France, late 17th Century",
-      "count": 21,
-      "share": 0.0042
+      "value": "Russia",
+      "count": 492,
+      "share": 0.0072
+    },
+    {
+      "value": "Japan, Meiji period (1868–1912)",
+      "count": 476,
+      "share": 0.0069
     },
     {
       "value": "Italy, 18th century",
-      "count": 21,
-      "share": 0.0042
+      "count": 410,
+      "share": 0.006
     },
     {
-      "value": "Spain, 20th century",
-      "count": 20,
-      "share": 0.004
+      "value": "England, 18th century",
+      "count": 378,
+      "share": 0.0055
+    },
+    {
+      "value": "Eastern India, Bihar, Vikramashila Monastery. Painting: Nepal, Kathmandu",
+      "count": 374,
+      "share": 0.0054
+    },
+    {
+      "value": "Italy, 16th century",
+      "count": 366,
+      "share": 0.0053
+    },
+    {
+      "value": "Mughal India, Allahabad, made for Prince Salim (1569–1627)",
+      "count": 364,
+      "share": 0.0053
+    },
+    {
+      "value": "unknown",
+      "count": 344,
+      "share": 0.005
+    },
+    {
+      "value": "Italy, Venice",
+      "count": 331,
+      "share": 0.0048
+    },
+    {
+      "value": "India",
+      "count": 329,
+      "share": 0.0048
     },
     {
       "value": "France, 17th century",
-      "count": 19,
+      "count": 323,
+      "share": 0.0047
+    },
+    {
+      "value": "France, 19th-20th century",
+      "count": 320,
+      "share": 0.0047
+    },
+    {
+      "value": "France, Rouen",
+      "count": 313,
+      "share": 0.0046
+    },
+    {
+      "value": "Italy, 17th century",
+      "count": 301,
+      "share": 0.0044
+    },
+    {
+      "value": "Flanders",
+      "count": 264,
       "share": 0.0038
     },
     {
-      "value": "Japan, Muromachi period (1392–1573)",
-      "count": 18,
+      "value": "Korea, Goryeo dynasty (918–1392)",
+      "count": 262,
+      "share": 0.0038
+    },
+    {
+      "value": "Italy",
+      "count": 245,
       "share": 0.0036
     },
     {
-      "value": "Greece",
-      "count": 17,
-      "share": 0.0034
+      "value": "Austria",
+      "count": 224,
+      "share": 0.0033
+    },
+    {
+      "value": "China, Qing dynasty (1644–1911), Qianlong reign (1736–95)",
+      "count": 216,
+      "share": 0.0031
+    },
+    {
+      "value": "Germany, 19th century",
+      "count": 214,
+      "share": 0.0031
+    },
+    {
+      "value": "Switzerland",
+      "count": 201,
+      "share": 0.0029
     }
   ],
   "creationCenturies": [
     {
-      "value": "10th century",
-      "count": 911,
-      "share": 0.1822
+      "value": "20th century",
+      "count": 24306,
+      "share": 0.3536
     },
     {
       "value": "19th century",
-      "count": 677,
-      "share": 0.1354
-    },
-    {
-      "value": "20th century",
-      "count": 619,
-      "share": 0.1238
+      "count": 12753,
+      "share": 0.1855
     },
     {
       "value": "18th century",
-      "count": 435,
-      "share": 0.087
-    },
-    {
-      "value": "16th century",
-      "count": 381,
-      "share": 0.0762
+      "count": 6298,
+      "share": 0.0916
     },
     {
       "value": "17th century",
-      "count": 369,
-      "share": 0.0738
+      "count": 5043,
+      "share": 0.0734
     },
     {
-      "value": "15th century",
-      "count": 256,
-      "share": 0.0512
-    },
-    {
-      "value": "14th century",
-      "count": 126,
-      "share": 0.0252
+      "value": "16th century",
+      "count": 3919,
+      "share": 0.057
     },
     {
       "value": "21th century",
-      "count": 124,
-      "share": 0.0248
+      "count": 2784,
+      "share": 0.0405
     },
     {
-      "value": "13th century",
-      "count": 111,
-      "share": 0.0222
-    },
-    {
-      "value": "12th century",
-      "count": 90,
-      "share": 0.018
-    },
-    {
-      "value": "11th century",
-      "count": 84,
-      "share": 0.0168
-    },
-    {
-      "value": "1th century",
-      "count": 79,
-      "share": 0.0158
-    },
-    {
-      "value": "-5th century",
-      "count": 68,
-      "share": 0.0136
-    },
-    {
-      "value": "-4th century",
-      "count": 63,
-      "share": 0.0126
-    },
-    {
-      "value": "6th century",
-      "count": 63,
-      "share": 0.0126
-    },
-    {
-      "value": "-3th century",
-      "count": 53,
-      "share": 0.0106
-    },
-    {
-      "value": "7th century",
-      "count": 50,
-      "share": 0.01
-    },
-    {
-      "value": "9th century",
-      "count": 45,
-      "share": 0.009
-    },
-    {
-      "value": "4th century",
-      "count": 43,
-      "share": 0.0086
-    },
-    {
-      "value": "5th century",
-      "count": 34,
-      "share": 0.0068
-    },
-    {
-      "value": "-1th century",
-      "count": 32,
-      "share": 0.0064
-    },
-    {
-      "value": "3th century",
-      "count": 32,
-      "share": 0.0064
-    },
-    {
-      "value": "-6th century",
-      "count": 26,
-      "share": 0.0052
-    },
-    {
-      "value": "2th century",
-      "count": 26,
-      "share": 0.0052
-    },
-    {
-      "value": "-2th century",
-      "count": 25,
-      "share": 0.005
-    },
-    {
-      "value": "8th century",
-      "count": 23,
-      "share": 0.0046
-    },
-    {
-      "value": "-13th century",
-      "count": 22,
-      "share": 0.0044
-    },
-    {
-      "value": "-7th century",
-      "count": 18,
-      "share": 0.0036
+      "value": "15th century",
+      "count": 2671,
+      "share": 0.0389
     },
     {
       "value": "0th century",
-      "count": 18,
-      "share": 0.0036
+      "count": 1861,
+      "share": 0.0271
     },
     {
-      "value": "-10th century",
-      "count": 13,
-      "share": 0.0026
+      "value": "14th century",
+      "count": 1672,
+      "share": 0.0243
     },
     {
-      "value": "-9th century",
-      "count": 12,
-      "share": 0.0024
+      "value": "10th century",
+      "count": 1301,
+      "share": 0.0189
     },
     {
-      "value": "-12th century",
-      "count": 10,
-      "share": 0.002
+      "value": "12th century",
+      "count": 933,
+      "share": 0.0136
     },
     {
-      "value": "-15th century",
-      "count": 7,
-      "share": 0.0014
+      "value": "13th century",
+      "count": 562,
+      "share": 0.0082
     },
     {
-      "value": "-8th century",
-      "count": 7,
-      "share": 0.0014
+      "value": "7th century",
+      "count": 460,
+      "share": 0.0067
     },
     {
-      "value": "-14th century",
-      "count": 6,
-      "share": 0.0012
+      "value": "11th century",
+      "count": 439,
+      "share": 0.0064
     },
     {
-      "value": "-20th century",
-      "count": 6,
-      "share": 0.0012
+      "value": "1th century",
+      "count": 412,
+      "share": 0.006
     },
     {
-      "value": "-16th century",
-      "count": 4,
-      "share": 0.0008
+      "value": "6th century",
+      "count": 268,
+      "share": 0.0039
     },
     {
-      "value": "-24th century",
-      "count": 4,
-      "share": 0.0008
+      "value": "-3th century",
+      "count": 228,
+      "share": 0.0033
     },
     {
-      "value": "-18th century",
-      "count": 3,
-      "share": 0.0006
+      "value": "4th century",
+      "count": 216,
+      "share": 0.0031
     },
     {
-      "value": "-35th century",
-      "count": 3,
-      "share": 0.0006
+      "value": "-4th century",
+      "count": 205,
+      "share": 0.003
     },
     {
-      "value": "-40th century",
-      "count": 3,
-      "share": 0.0006
+      "value": "8th century",
+      "count": 192,
+      "share": 0.0028
+    },
+    {
+      "value": "-7th century",
+      "count": 188,
+      "share": 0.0027
     },
     {
       "value": "-19th century",
-      "count": 2,
-      "share": 0.0004
+      "count": 187,
+      "share": 0.0027
+    },
+    {
+      "value": "9th century",
+      "count": 187,
+      "share": 0.0027
+    },
+    {
+      "value": "5th century",
+      "count": 178,
+      "share": 0.0026
+    },
+    {
+      "value": "-1th century",
+      "count": 174,
+      "share": 0.0025
+    },
+    {
+      "value": "3th century",
+      "count": 143,
+      "share": 0.0021
+    },
+    {
+      "value": "-2th century",
+      "count": 138,
+      "share": 0.002
+    },
+    {
+      "value": "-5th century",
+      "count": 137,
+      "share": 0.002
+    },
+    {
+      "value": "-6th century",
+      "count": 118,
+      "share": 0.0017
+    },
+    {
+      "value": "2th century",
+      "count": 113,
+      "share": 0.0016
+    },
+    {
+      "value": "-13th century",
+      "count": 96,
+      "share": 0.0014
+    },
+    {
+      "value": "-10th century",
+      "count": 78,
+      "share": 0.0011
+    },
+    {
+      "value": "-15th century",
+      "count": 76,
+      "share": 0.0011
+    },
+    {
+      "value": "-12th century",
+      "count": 74,
+      "share": 0.0011
+    },
+    {
+      "value": "-9th century",
+      "count": 67,
+      "share": 0.001
+    },
+    {
+      "value": "-20th century",
+      "count": 53,
+      "share": 0.0008
+    },
+    {
+      "value": "-14th century",
+      "count": 43,
+      "share": 0.0006
     },
     {
       "value": "-21th century",
-      "count": 2,
-      "share": 0.0004
+      "count": 18,
+      "share": 0.0003
     },
     {
-      "value": "-29th century",
-      "count": 2,
-      "share": 0.0004
-    },
-    {
-      "value": "-30th century",
-      "count": 2,
-      "share": 0.0004
-    },
-    {
-      "value": "-33th century",
-      "count": 2,
-      "share": 0.0004
-    },
-    {
-      "value": "-11th century",
-      "count": 1,
-      "share": 0.0002
-    },
-    {
-      "value": "-22th century",
-      "count": 1,
+      "value": "-16th century",
+      "count": 15,
       "share": 0.0002
     },
     {
       "value": "-23th century",
-      "count": 1,
+      "count": 15,
       "share": 0.0002
     },
     {
-      "value": "-26th century",
-      "count": 1,
+      "value": "-8th century",
+      "count": 13,
+      "share": 0.0002
+    },
+    {
+      "value": "-40th century",
+      "count": 12,
+      "share": 0.0002
+    },
+    {
+      "value": "-11th century",
+      "count": 11,
       "share": 0.0002
     },
     {
       "value": "-27th century",
-      "count": 1,
+      "count": 11,
       "share": 0.0002
+    },
+    {
+      "value": "-30th century",
+      "count": 11,
+      "share": 0.0002
+    },
+    {
+      "value": "-25th century",
+      "count": 7,
+      "share": 0.0001
+    },
+    {
+      "value": "-18th century",
+      "count": 6,
+      "share": 0.0001
+    },
+    {
+      "value": "-24th century",
+      "count": 6,
+      "share": 0.0001
+    },
+    {
+      "value": "-29th century",
+      "count": 6,
+      "share": 0.0001
+    },
+    {
+      "value": "-17th century",
+      "count": 5,
+      "share": 0.0001
+    },
+    {
+      "value": "-45th century",
+      "count": 5,
+      "share": 0.0001
+    },
+    {
+      "value": "-33th century",
+      "count": 4,
+      "share": 0.0001
+    },
+    {
+      "value": "-22th century",
+      "count": 3,
+      "share": 0
+    },
+    {
+      "value": "-26th century",
+      "count": 3,
+      "share": 0
+    },
+    {
+      "value": "-35th century",
+      "count": 3,
+      "share": 0
+    },
+    {
+      "value": "-31th century",
+      "count": 2,
+      "share": 0
+    },
+    {
+      "value": "-32th century",
+      "count": 2,
+      "share": 0
+    },
+    {
+      "value": "-47th century",
+      "count": 2,
+      "share": 0
     },
     {
       "value": "-28th century",
       "count": 1,
-      "share": 0.0002
+      "share": 0
+    },
+    {
+      "value": "-34th century",
+      "count": 1,
+      "share": 0
+    },
+    {
+      "value": "-3500th century",
+      "count": 1,
+      "share": 0
     },
     {
       "value": "-38th century",
       "count": 1,
-      "share": 0.0002
+      "share": 0
     },
     {
-      "value": "-45th century",
+      "value": "-39th century",
       "count": 1,
-      "share": 0.0002
+      "share": 0
     },
     {
-      "value": "-47th century",
+      "value": "-44th century",
       "count": 1,
-      "share": 0.0002
+      "share": 0
+    },
+    {
+      "value": "-50th century",
+      "count": 1,
+      "share": 0
+    },
+    {
+      "value": "-80th century",
+      "count": 1,
+      "share": 0
+    },
+    {
+      "value": "-99th century",
+      "count": 1,
+      "share": 0
     }
   ],
   "acquisitionDecades": [
     {
-      "value": "1940s",
-      "count": 1275,
-      "share": 0.255
-    },
-    {
-      "value": "1960s",
-      "count": 570,
-      "share": 0.114
-    },
-    {
-      "value": "1950s",
-      "count": 443,
-      "share": 0.0886
-    },
-    {
-      "value": "1970s",
-      "count": 431,
-      "share": 0.0862
-    },
-    {
-      "value": "1980s",
-      "count": 386,
-      "share": 0.0772
-    },
-    {
-      "value": "2020s",
-      "count": 315,
-      "share": 0.063
+      "value": "2010s",
+      "count": 8250,
+      "share": 0.12
     },
     {
       "value": "1920s",
-      "count": 306,
-      "share": 0.0612
+      "count": 7464,
+      "share": 0.1086
     },
     {
-      "value": "2010s",
-      "count": 302,
-      "share": 0.0604
-    },
-    {
-      "value": "1990s",
-      "count": 298,
-      "share": 0.0596
-    },
-    {
-      "value": "1910s",
-      "count": 292,
-      "share": 0.0584
-    },
-    {
-      "value": "1930s",
-      "count": 194,
-      "share": 0.0388
+      "value": "1940s",
+      "count": 7406,
+      "share": 0.1077
     },
     {
       "value": "2000s",
-      "count": 188,
-      "share": 0.0376
+      "count": 7035,
+      "share": 0.1023
+    },
+    {
+      "value": "1960s",
+      "count": 6495,
+      "share": 0.0945
+    },
+    {
+      "value": "1990s",
+      "count": 5813,
+      "share": 0.0846
+    },
+    {
+      "value": "1950s",
+      "count": 5812,
+      "share": 0.0845
+    },
+    {
+      "value": "1910s",
+      "count": 5042,
+      "share": 0.0733
+    },
+    {
+      "value": "1980s",
+      "count": 4207,
+      "share": 0.0612
+    },
+    {
+      "value": "1930s",
+      "count": 4178,
+      "share": 0.0608
+    },
+    {
+      "value": "2020s",
+      "count": 3559,
+      "share": 0.0518
+    },
+    {
+      "value": "1970s",
+      "count": 3481,
+      "share": 0.0506
     }
   ],
   "licenses": [
     {
       "value": "CC0",
-      "count": 4370,
-      "share": 0.874
+      "count": 42218,
+      "share": 0.6142
     },
     {
       "value": "Copyrighted",
-      "count": 630,
-      "share": 0.126
+      "count": 26524,
+      "share": 0.3858
     }
   ],
   "imageAvailability": [
     {
       "value": "has-image",
-      "count": 4360,
-      "share": 0.872
+      "count": 41444,
+      "share": 0.6029
     },
     {
       "value": "no-image",
-      "count": 640,
-      "share": 0.128
+      "count": 27298,
+      "share": 0.3971
     }
   ],
   "representativeRecords": [
@@ -1557,15 +1622,15 @@
       "url": "https://clevelandart.org/art/1942.645"
     }
   ],
-  "strongestFinding": "A structured museum API turns a collection into analyzable records, but the first artifact is a bounded sample of one institution, not a statement about museums generally.",
+  "strongestFinding": "A structured museum API turns a full open collection into analyzable records, making department, date, culture, rights, and image-availability patterns inspectable for one institution.",
   "caveats": [
-    "This run uses a bounded API sample, not the full collection.",
+    "This run covers the full available API pagination except any record withheld, skipped, or duplicated by the API response sequence.",
     "Object metadata completeness varies by department, object type, date, culture, and image availability.",
     "Accession-number dates are a rough acquisition proxy; explicit accession_date exists and audit rows identify mismatches before publication claims.",
     "One open museum collection cannot stand in for museum collections as a whole."
   ],
   "nextMoves": [
-    "Fetch the full collection or a larger paginated corpus.",
+    "Compare the full corpus against the earlier 5,000-record sample to identify sample bias in department, date, and image-availability distributions.",
     "Audit accession-number year extraction against explicit acquisition fields where available.",
     "Compare against another open museum API before making cross-institution claims.",
     "Use the generated chart artifacts in the public draft."

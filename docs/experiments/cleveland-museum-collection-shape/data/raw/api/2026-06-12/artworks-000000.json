@@ -4,7 +4,7 @@
     "parameters": {
       "skip": 0,
       "limit": 1000,
-      "select": "accession_number,accession_number_sortable,cover_accession_number,department,gallery,collection,classification_type,department"
+      "select": "accession_number,accession_number_sortable,cover_accession_number,department,classification_type,gallery,collection,department"
     }
   },
   "data": [
@@ -29223,7 +29223,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:40.026000"
+      "updated_at": "2026-06-12 19:16:38.326000"
     },
     {
       "id": 156112,
@@ -29796,7 +29796,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:32:02.354000"
+      "updated_at": "2026-06-12 19:17:01.279000"
     },
     {
       "id": 111811,
@@ -30243,7 +30243,7 @@
         "Nataraja: Śiva as King of Dance"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:03.317000"
+      "updated_at": "2026-06-12 19:16:05.768000"
     },
     {
       "id": 155665,
@@ -31863,7 +31863,7 @@
         "Footed Bowl"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:30:50.850000"
+      "updated_at": "2026-06-12 19:15:53.542000"
     },
     {
       "id": 149665,
@@ -34388,7 +34388,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:08.766000"
+      "updated_at": "2026-06-12 19:16:11.427000"
     },
     {
       "id": 129265,
@@ -37491,7 +37491,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:19.773000"
+      "updated_at": "2026-06-12 19:16:22.921000"
     },
     {
       "id": 164628,
@@ -39864,7 +39864,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:40.475000"
+      "updated_at": "2026-06-12 19:16:38.715000"
     },
     {
       "id": 127571,
@@ -42582,7 +42582,7 @@
         "Mourner from the Tomb of Duke John the Fearless"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:41.422000"
+      "updated_at": "2026-06-12 19:16:39.540000"
     },
     {
       "id": 138885,
@@ -44459,7 +44459,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:40.935000"
+      "updated_at": "2026-06-12 19:16:39.106000"
     },
     {
       "id": 148021,
@@ -45034,7 +45034,7 @@
         "After Dinner"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:21.040000"
+      "updated_at": "2026-06-12 19:18:13.934000"
     },
     {
       "id": 98627,
@@ -45406,7 +45406,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:24.620000"
+      "updated_at": "2026-06-12 19:16:27.434000"
     },
     {
       "id": 145450,
@@ -46701,7 +46701,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:18.144000"
+      "updated_at": "2026-06-12 19:18:10.953000"
     },
     {
       "id": 149146,
@@ -47455,7 +47455,7 @@
         "Raft-Cup with Taoist Immortal"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:33.326000"
+      "updated_at": "2026-06-12 19:16:33.744000"
     },
     {
       "id": 142792,
@@ -51678,7 +51678,7 @@
         "Ganesha: Elephant-Headed God, Remover of Obstacles"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:04.645000"
+      "updated_at": "2026-06-12 19:17:56.553000"
     },
     {
       "id": 137198,
@@ -52194,7 +52194,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:32:29.867000"
+      "updated_at": "2026-06-12 19:17:25.971000"
     },
     {
       "id": 159234,
@@ -54948,7 +54948,7 @@
         "Poplars on a Hill"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:31.016000"
+      "updated_at": "2026-06-12 19:18:23.295000"
     },
     {
       "id": 152834,
@@ -57997,7 +57997,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:49.838000"
+      "updated_at": "2026-06-12 19:17:43.804000"
     },
     {
       "id": 168322,
@@ -58391,7 +58391,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:32:37.723000"
+      "updated_at": "2026-06-12 19:17:33.938000"
     },
     {
       "id": 172954,
@@ -61916,7 +61916,7 @@
         "Gertrudis Portable Altar"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:34.871000"
+      "updated_at": "2026-06-12 19:16:34.541000"
     },
     {
       "id": 141644,
@@ -62723,7 +62723,7 @@
         "Winged Genie"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:30:50.067000"
+      "updated_at": "2026-06-12 19:15:52.587000"
     },
     {
       "id": 147084,
@@ -64850,7 +64850,7 @@
         "La Montagne Sainte-Victoire"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:33:22.653000"
+      "updated_at": "2026-06-12 19:18:15.323000"
     },
     {
       "id": 152776,
@@ -73776,7 +73776,7 @@
         "Stele: Sakyamuni Trinity"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:02.477000"
+      "updated_at": "2026-06-12 19:16:04.943000"
     },
     {
       "id": 145473,
@@ -74466,7 +74466,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:32:50.231000"
+      "updated_at": "2026-06-12 19:17:44.159000"
     },
     {
       "id": 147519,
@@ -75029,7 +75029,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:33:09.332000"
+      "updated_at": "2026-06-12 19:18:02.230000"
     },
     {
       "id": 165154,
@@ -75950,7 +75950,7 @@
         "Figurine Pendant"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:09.284000"
+      "updated_at": "2026-06-12 19:16:11.940000"
     },
     {
       "id": 93984,
@@ -79048,7 +79048,7 @@
         "Dish:  King Hormizd II or Hormizd III Hunting Lions"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:22.074000"
+      "updated_at": "2026-06-12 19:16:25.020000"
     },
     {
       "id": 149108,
@@ -80620,7 +80620,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:32:59.222000"
+      "updated_at": "2026-06-12 19:17:52.215000"
     },
     {
       "id": 145960,
@@ -84895,7 +84895,7 @@
         "Drum Stand"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:07.049000"
+      "updated_at": "2026-06-12 19:16:09.820000"
     },
     {
       "id": 118490,
@@ -87100,7 +87100,7 @@
         "Terpsichore"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:54.557000"
+      "updated_at": "2026-06-12 19:16:52.574000"
     },
     {
       "id": 144301,
@@ -87830,7 +87830,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:33:10.934000"
+      "updated_at": "2026-06-12 19:18:03.971000"
     },
     {
       "id": 131820,
@@ -93575,7 +93575,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:02.860000"
+      "updated_at": "2026-06-12 19:16:05.333000"
     },
     {
       "id": 147576,
@@ -106824,7 +106824,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:38.054000"
+      "updated_at": "2026-06-12 19:16:37.486000"
     },
     {
       "id": 140492,
@@ -108970,7 +108970,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:03.724000"
+      "updated_at": "2026-06-12 19:16:06.201000"
     },
     {
       "id": 369885,
@@ -110538,7 +110538,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:30:54.740000"
+      "updated_at": "2026-06-12 19:15:57.479000"
     },
     {
       "id": 147588,
@@ -111089,7 +111089,7 @@
         "Medicine Master Buddha (Yakushi Nyorai)"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:33:26.117000"
+      "updated_at": "2026-06-12 19:18:18.533000"
     },
     {
       "id": 99417,
@@ -117959,7 +117959,7 @@
         "Staff of Office (Kibango)"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:30:55.267000"
+      "updated_at": "2026-06-12 19:15:57.925000"
     },
     {
       "id": 130421,
@@ -120609,7 +120609,7 @@
         "Miroku Bodhisattva (Bosatsu) in Hanka-Shiyui Pose"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:33:05.875000"
+      "updated_at": "2026-06-12 19:17:57.601000"
     },
     {
       "id": 124135,
@@ -127948,7 +127948,7 @@
         "Madonna and Child Enthroned with Angels"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:32:41.638000"
+      "updated_at": "2026-06-12 19:17:36.757000"
     },
     {
       "id": 110566,
@@ -130496,7 +130496,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:23.453000"
+      "updated_at": "2026-06-12 19:16:26.272000"
     },
     {
       "id": 125901,
@@ -130881,7 +130881,7 @@
         "Torso of the General Amen-pa-yom"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:32:54.982000"
+      "updated_at": "2026-06-12 19:17:48.594000"
     },
     {
       "id": 137057,
@@ -131253,7 +131253,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:32:52.646000"
+      "updated_at": "2026-06-12 19:17:46.594000"
     },
     {
       "id": 144277,
@@ -131776,7 +131776,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:01.304000"
+      "updated_at": "2026-06-12 19:16:03.766000"
     },
     {
       "id": 150493,
@@ -132596,7 +132596,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:06.666000"
+      "updated_at": "2026-06-12 19:16:09.437000"
     },
     {
       "id": 168133,
@@ -133553,7 +133553,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:30:54.388000"
+      "updated_at": "2026-06-12 19:15:57.089000"
     },
     {
       "id": 131814,
@@ -134091,7 +134091,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:19.294000"
+      "updated_at": "2026-06-12 19:16:22.488000"
     },
     {
       "id": 152588,
@@ -139014,7 +139014,7 @@
         "Fire Screen"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:46.046000"
+      "updated_at": "2026-06-12 19:18:38.246000"
     },
     {
       "id": 148963,
@@ -143752,7 +143752,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:32:57.204000"
+      "updated_at": "2026-06-12 19:17:50.610000"
     },
     {
       "id": 126059,
@@ -144963,7 +144963,7 @@
         "Snake Headdress (Basonyi)"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:23.847000"
+      "updated_at": "2026-06-12 19:16:26.667000"
     },
     {
       "id": 155510,
@@ -146381,7 +146381,7 @@
         "Coronation Portrait of Amenhotep III"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:30:49.335000"
+      "updated_at": "2026-06-12 19:15:51.768000"
     },
     {
       "id": 141168,
@@ -154172,7 +154172,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:16.044000"
+      "updated_at": "2026-06-12 19:16:18.748000"
     },
     {
       "id": 150156,
@@ -154474,7 +154474,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:02.746000"
+      "updated_at": "2026-06-12 19:17:01.689000"
     },
     {
       "id": 127472,
@@ -156097,7 +156097,7 @@
         "Hanka-shiyui-zo: Miroku in Meditation"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:05.056000"
+      "updated_at": "2026-06-12 19:17:56.980000"
     },
     {
       "id": 439545,
@@ -156400,7 +156400,7 @@
         "Hanka-shiyui-zo: Miroku in Meditation"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:05.430000"
+      "updated_at": "2026-06-12 19:17:57.300000"
     },
     {
       "id": 136291,
@@ -162487,7 +162487,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:30:48.852000"
+      "updated_at": "2026-06-12 19:15:51.263000"
     },
     {
       "id": 100824,
@@ -164032,7 +164032,7 @@
         "Carved Vase"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:30:52.084000"
+      "updated_at": "2026-06-12 19:15:54.797000"
     },
     {
       "id": 122345,
@@ -164796,7 +164796,7 @@
         "Moon Jar"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:30:52.502000"
+      "updated_at": "2026-06-12 19:15:55.165000"
     },
     {
       "id": 112958,
@@ -165436,7 +165436,7 @@
         "Gertrudis Cross"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:30.304000"
+      "updated_at": "2026-06-12 19:16:32.210000"
     },
     {
       "id": 136656,
@@ -165811,7 +165811,7 @@
         "Woman and Child (ancestor or maternity group?)"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:32:26.848000"
+      "updated_at": "2026-06-12 19:17:23.322000"
     },
     {
       "id": 149041,
@@ -166796,7 +166796,7 @@
         "Tureen"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:05.773000"
+      "updated_at": "2026-06-12 19:16:08.155000"
     },
     {
       "id": 135515,
@@ -168532,7 +168532,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:33:10.509000"
+      "updated_at": "2026-06-12 19:18:03.523000"
     },
     {
       "id": 128363,
@@ -170640,7 +170640,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:20.498000"
+      "updated_at": "2026-06-12 19:16:23.656000"
     },
     {
       "id": 164629,
@@ -171306,7 +171306,7 @@
         "Leopard Caryatid Stool (Kuo)"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:28.823000"
+      "updated_at": "2026-06-12 19:17:24.756000"
     },
     {
       "id": 150934,
@@ -174932,7 +174932,7 @@
         "Mukhalinga"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:51.496000"
+      "updated_at": "2026-06-12 19:17:45.375000"
     },
     {
       "id": 159277,
@@ -175694,7 +175694,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:33:06.299000"
+      "updated_at": "2026-06-12 19:17:58.175000"
     },
     {
       "id": 139729,
@@ -183796,7 +183796,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:36.748000"
+      "updated_at": "2026-06-12 19:16:36.288000"
     },
     {
       "id": 136390,
@@ -184607,7 +184607,7 @@
         "David and Goliath"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:16.973000"
+      "updated_at": "2026-06-12 19:18:09.765000"
     },
     {
       "id": 144924,
@@ -185080,7 +185080,7 @@
         "Enthroned Virgin with the Writing Christ Child"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:44.341000"
+      "updated_at": "2026-06-12 19:16:41.982000"
     },
     {
       "id": 167142,
@@ -186444,7 +186444,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:28.996000"
+      "updated_at": "2026-06-12 19:18:21.333000"
     },
     {
       "id": 140434,
@@ -192119,7 +192119,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:33:38.813000"
+      "updated_at": "2026-06-12 19:18:30.778000"
     },
     {
       "id": 138692,
@@ -196169,7 +196169,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:00.032000"
+      "updated_at": "2026-06-12 19:16:59.219000"
     },
     {
       "id": 120411,
@@ -199616,7 +199616,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:01.434000"
+      "updated_at": "2026-06-12 19:17:00.521000"
     },
     {
       "id": 150158,
@@ -200039,7 +200039,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:00.718000"
+      "updated_at": "2026-06-12 19:16:59.843000"
     },
     {
       "id": 150159,
@@ -200374,7 +200374,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:00.394000"
+      "updated_at": "2026-06-12 19:16:59.513000"
     },
     {
       "id": 150160,
@@ -200819,7 +200819,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:01.116000"
+      "updated_at": "2026-06-12 19:17:00.223000"
     },
     {
       "id": 140427,
@@ -202793,7 +202793,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:30:59.942000"
+      "updated_at": "2026-06-12 19:16:02.463000"
     },
     {
       "id": 402987,
@@ -204467,7 +204467,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:18.883000"
+      "updated_at": "2026-06-12 19:16:22.071000"
     },
     {
       "id": 130391,
@@ -205375,7 +205375,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 18:30:49.331000"
+      "updated_at": "2026-06-12 18:45:50.036000"
     },
     {
       "id": 118479,
@@ -206283,7 +206283,7 @@
         "Satyr Finial from a Kottabos Stand"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:30:53.568000"
+      "updated_at": "2026-06-12 19:15:56.315000"
     },
     {
       "id": 159163,
@@ -215512,7 +215512,7 @@
         "Storage Jar with Dragon Design"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:15.687000"
+      "updated_at": "2026-06-12 19:16:18.301000"
     },
     {
       "id": 156113,
@@ -216088,7 +216088,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:01.766000"
+      "updated_at": "2026-06-12 19:17:00.832000"
     },
     {
       "id": 156119,
@@ -220815,7 +220815,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:49.055000"
+      "updated_at": "2026-06-12 19:18:41.508000"
     },
     {
       "id": 113945,
@@ -224954,7 +224954,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:30.572000"
+      "updated_at": "2026-06-12 19:17:26.692000"
     },
     {
       "id": 307326,
@@ -226632,7 +226632,7 @@
         "Krishna  Govardhana"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:00.883000"
+      "updated_at": "2026-06-12 19:16:03.355000"
     },
     {
       "id": 159309,
@@ -229927,7 +229927,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:33:40.156000"
+      "updated_at": "2026-06-12 19:18:32.112000"
     },
     {
       "id": 101646,
@@ -239766,7 +239766,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:15.766000"
+      "updated_at": "2026-06-12 19:17:12.424000"
     },
     {
       "id": 156294,
@@ -250603,7 +250603,7 @@
         "The Blessed Alessandro Sauli"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:16.593000"
+      "updated_at": "2026-06-12 19:18:09.389000"
     },
     {
       "id": 147003,
@@ -252284,7 +252284,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:30:57.016000"
+      "updated_at": "2026-06-12 19:15:59.576000"
     },
     {
       "id": 114972,
@@ -255466,7 +255466,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:33:29.425000"
+      "updated_at": "2026-06-12 19:18:21.718000"
     },
     {
       "id": 145411,
@@ -258883,7 +258883,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:41.227000"
+      "updated_at": "2026-06-12 19:17:36.368000"
     },
     {
       "id": 110057,
@@ -260253,7 +260253,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:26.212000"
+      "updated_at": "2026-06-12 19:16:28.927000"
     },
     {
       "id": 124040,
@@ -265730,7 +265730,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:33:42.806000"
+      "updated_at": "2026-06-12 19:18:34.899000"
     },
     {
       "id": 157009,
@@ -266109,7 +266109,7 @@
         "A Portrait of Lama Rinchen-Pel (1143-1217) (Founder of the Drigung Monastery)\r\n"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:27.876000"
+      "updated_at": "2026-06-12 19:18:20.351000"
     },
     {
       "id": 135407,
@@ -292702,7 +292702,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:07.540000"
+      "updated_at": "2026-06-12 19:17:59.724000"
     },
     {
       "id": 150036,
@@ -305950,7 +305950,7 @@
         "Orangun Epa Headdress"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:51.869000"
+      "updated_at": "2026-06-12 19:17:45.828000"
     },
     {
       "id": 152349,
@@ -313944,7 +313944,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:56.066000"
+      "updated_at": "2026-06-12 19:17:49.549000"
     },
     {
       "id": 130707,
@@ -318851,7 +318851,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:20.174000"
+      "updated_at": "2026-06-12 19:16:23.292000"
     },
     {
       "id": 167456,
@@ -324237,7 +324237,7 @@
         "Apollo Sauroktonos (Lizard-Slayer)"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:08.250000"
+      "updated_at": "2026-06-12 19:16:10.931000"
     },
     {
       "id": 133313,
@@ -329767,7 +329767,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:35.883000"
+      "updated_at": "2026-06-12 19:16:35.524000"
     },
     {
       "id": 95987,
@@ -330519,7 +330519,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:49.939000"
+      "updated_at": "2026-06-12 19:16:48.072000"
     },
     {
       "id": 117714,
@@ -346133,7 +346133,7 @@
         "Fire Pillar"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:11.940000"
+      "updated_at": "2026-06-12 19:18:05.042000"
     },
     {
       "id": 123585,
@@ -346828,7 +346828,7 @@
         "Gudea, Ensi (Governor) of Lagash"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:55.373000"
+      "updated_at": "2026-06-12 19:17:48.965000"
     },
     {
       "id": 153927,
@@ -349026,7 +349026,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:45.651000"
+      "updated_at": "2026-06-12 19:17:39.939000"
     },
     {
       "id": 152256,
@@ -352836,7 +352836,7 @@
         "Matrika from Tanesara"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:33:43.609000"
+      "updated_at": "2026-06-12 19:18:35.624000"
     },
     {
       "id": 138369,
@@ -357209,7 +357209,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:00.804000"
+      "updated_at": "2026-06-12 19:17:53.470000"
     },
     {
       "id": 120839,
@@ -358171,7 +358171,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:30:50.459000"
+      "updated_at": "2026-06-12 19:15:53.143000"
     },
     {
       "id": 139730,
@@ -359543,7 +359543,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:32.691000"
+      "updated_at": "2026-06-12 19:17:29.106000"
     },
     {
       "id": 159190,
@@ -359793,7 +359793,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:47.150000"
+      "updated_at": "2026-06-12 19:18:39.550000"
     },
     {
       "id": 168751,
@@ -362065,7 +362065,7 @@
         "Shotoku Taishi as a Child"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:27.477000"
+      "updated_at": "2026-06-12 19:18:19.980000"
     },
     {
       "id": 160953,

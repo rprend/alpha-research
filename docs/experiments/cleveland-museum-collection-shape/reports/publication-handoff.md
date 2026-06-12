@@ -1,6 +1,6 @@
 # Cleveland Collection Publication Handoff
 
-Generated at: 2026-06-12T18:57:50.179Z
+Generated at: 2026-06-12T21:30:52.631Z
 Publish state: ready-for-copyedit
 Readiness status: ready-for-editorial-review
 
@@ -14,14 +14,14 @@ Readiness status: ready-for-editorial-review
 
 ## Corpus Note
 
-The current essay uses 5,000 sampled Cleveland Museum of Art API records from 68,743 total available records (7.3%). It covers 19 departments, 56 creation-century rows, and 12 acquisition-decade rows.
+The current essay uses 68,742 sampled Cleveland Museum of Art API records from 68,743 total available records (100.0%). It covers 20 departments, 67 creation-century rows, and 12 acquisition-decade rows.
 
 ## Chart Captions
 
 ### Departments
 
 - Path: `docs/experiments/cleveland-museum-collection-shape/reports/charts/departments.svg`
-- Caption: Top departments in the 5,000-record Cleveland sample. Department counts show dataset shape, not cultural importance.
+- Caption: Top departments in the 68,742-record Cleveland sample. Department counts show dataset shape, not cultural importance.
 
 ### Creation Centuries
 
@@ -31,30 +31,30 @@ The current essay uses 5,000 sampled Cleveland Museum of Art API records from 68
 ### Acquisition Decades
 
 - Path: `docs/experiments/cleveland-museum-collection-shape/reports/charts/acquisition-decades.svg`
-- Caption: Accession-number decade proxy; 229 mismatches against explicit accession_date in audit.
+- Caption: Accession-number decade proxy; 7,739 mismatches against explicit accession_date in audit.
 
 ### Image Availability
 
 - Path: `docs/experiments/cleveland-museum-collection-shape/reports/charts/image-availability.svg`
-- Caption: Visual availability in sample; 4,360 has image, 640 no image.
+- Caption: Visual availability in sample; 41,444 has image, 27,298 no image.
 
 ## Audit Notes
 
-- Review rows: 54
-- Flagged rows: 1,230
-- Accession-year proxy mismatches: 229
-- Missing explicit accession-year rows: 1
-- No-image rows: 640
-- No-provenance-entry rows: 582
+- Review rows: 78
+- Flagged rows: 47,636
+- Accession-year proxy mismatches: 7,739
+- Missing explicit accession-year rows: 348
+- No-image rows: 27,298
+- No-provenance-entry rows: 37,779
 
 ## Public Claim Checklist
 
-- [ ] Say this is a bounded 5,000-record sample, not the full Cleveland collection.
+- [ ] Say this is a bounded 68,742-record sample, not the full Cleveland collection.
 - [ ] Mention 68,743 total API records were available at collection time.
 - [ ] Do not generalize from Cleveland to museums as a whole.
-- [ ] Treat accession decade as a proxy and disclose 229 accession-year mismatches.
+- [ ] Treat accession decade as a proxy and disclose 7,739 accession-year mismatches.
 - [ ] Caption charts as sample charts, not complete collection charts.
-- [ ] Include audit caveats: 1,230 flagged rows, 640 no-image rows, and 582 rows with no provenance entries.
+- [ ] Include audit caveats: 47,636 flagged rows, 27,298 no-image rows, and 37,779 rows with no provenance entries.
 
 ## Copyedit Notes
 

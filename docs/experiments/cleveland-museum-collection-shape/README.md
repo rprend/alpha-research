@@ -16,12 +16,14 @@ Artwork metadata record.
 
 ```bash
 node docs/experiments/cleveland-museum-collection-shape/scripts/run-pipeline.mjs --limit=5000 --page-size=1000
+node docs/experiments/cleveland-museum-collection-shape/scripts/run-pipeline.mjs --full=true --page-size=1000
 ```
 
 Or run step by step:
 
 ```bash
 node docs/experiments/cleveland-museum-collection-shape/scripts/fetch-artworks.mjs --limit=5000 --page-size=1000
+node docs/experiments/cleveland-museum-collection-shape/scripts/fetch-artworks.mjs --full=true --page-size=1000
 node docs/experiments/cleveland-museum-collection-shape/scripts/build-report.mjs
 node docs/experiments/cleveland-museum-collection-shape/scripts/build-audit-packet.mjs
 node docs/experiments/cleveland-museum-collection-shape/scripts/build-charts.mjs
@@ -45,6 +47,8 @@ The scripts write:
 - `reports/audit-packet.csv`
 - `reports/audit-packet.json`
 - `reports/result.json`
+- `reports/full-collection-comparison.md`
+- `reports/full-collection-comparison.json`
 - `reports/work.md`
 - `reports/public-draft.md`
 - `reports/publication-draft.md`

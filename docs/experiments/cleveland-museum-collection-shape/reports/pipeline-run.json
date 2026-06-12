@@ -1,46 +1,47 @@
 {
   "runDate": "2026-06-12",
-  "limit": 5000,
+  "limit": "full-source",
   "pageSize": 1000,
-  "startedAt": "2026-06-12T18:50:58.626Z",
-  "finishedAt": "2026-06-12T18:51:01.445Z",
+  "fullSource": true,
+  "startedAt": "2026-06-12T21:24:01.012Z",
+  "finishedAt": "2026-06-12T21:30:12.703Z",
   "steps": [
     {
       "script": "fetch-artworks.mjs",
       "args": [
         "--run-date=2026-06-12",
-        "--limit=5000",
+        "--full=true",
         "--page-size=1000"
       ],
-      "startedAt": "2026-06-12T18:50:58.626Z",
-      "finishedAt": "2026-06-12T18:51:00.857Z",
+      "startedAt": "2026-06-12T21:24:01.012Z",
+      "finishedAt": "2026-06-12T21:30:11.048Z",
       "exitCode": 0,
-      "stdout": "Fetched 5000 Cleveland Museum artwork records into docs/experiments/cleveland-museum-collection-shape/data/raw/api/2026-06-12\n",
+      "stdout": "Fetched 68742 Cleveland Museum artwork records into docs/experiments/cleveland-museum-collection-shape/data/raw/api/2026-06-12\n",
       "stderr": ""
     },
     {
       "script": "build-report.mjs",
       "args": [],
-      "startedAt": "2026-06-12T18:51:00.857Z",
-      "finishedAt": "2026-06-12T18:51:01.140Z",
+      "startedAt": "2026-06-12T21:30:11.048Z",
+      "finishedAt": "2026-06-12T21:30:12.348Z",
       "exitCode": 0,
-      "stdout": "Built Cleveland collection report for 5000 artwork records\n",
+      "stdout": "Built Cleveland collection report for 68742 artwork records\n",
       "stderr": ""
     },
     {
       "script": "build-audit-packet.mjs",
       "args": [],
-      "startedAt": "2026-06-12T18:51:01.140Z",
-      "finishedAt": "2026-06-12T18:51:01.242Z",
+      "startedAt": "2026-06-12T21:30:12.348Z",
+      "finishedAt": "2026-06-12T21:30:12.553Z",
       "exitCode": 0,
-      "stdout": "Built Cleveland audit packet with 54 review rows\n",
+      "stdout": "Built Cleveland audit packet with 78 review rows\n",
       "stderr": ""
     },
     {
       "script": "build-charts.mjs",
       "args": [],
-      "startedAt": "2026-06-12T18:51:01.242Z",
-      "finishedAt": "2026-06-12T18:51:01.338Z",
+      "startedAt": "2026-06-12T21:30:12.553Z",
+      "finishedAt": "2026-06-12T21:30:12.588Z",
       "exitCode": 0,
       "stdout": "Built 4 Cleveland collection chart artifacts\n",
       "stderr": ""
@@ -48,17 +49,26 @@
     {
       "script": "build-publication-draft.mjs",
       "args": [],
-      "startedAt": "2026-06-12T18:51:01.338Z",
-      "finishedAt": "2026-06-12T18:51:01.400Z",
+      "startedAt": "2026-06-12T21:30:12.588Z",
+      "finishedAt": "2026-06-12T21:30:12.629Z",
       "exitCode": 0,
       "stdout": "Built Cleveland publication draft\n",
       "stderr": ""
     },
     {
+      "script": "build-publication-handoff.mjs",
+      "args": [],
+      "startedAt": "2026-06-12T21:30:12.630Z",
+      "finishedAt": "2026-06-12T21:30:12.670Z",
+      "exitCode": 0,
+      "stdout": "Built Cleveland publication handoff\n",
+      "stderr": ""
+    },
+    {
       "script": "check-readiness.mjs",
       "args": [],
-      "startedAt": "2026-06-12T18:51:01.400Z",
-      "finishedAt": "2026-06-12T18:51:01.445Z",
+      "startedAt": "2026-06-12T21:30:12.670Z",
+      "finishedAt": "2026-06-12T21:30:12.703Z",
       "exitCode": 0,
       "stdout": "Cleveland collection readiness: ready-for-editorial-review\n",
       "stderr": ""

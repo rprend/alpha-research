@@ -423,7 +423,7 @@ Status: first runnable study generated from the Humanities Dataset Registry, rea
 Implemented:
 
 - Cleveland Museum of Art Open Access API fetcher
-- 5,000-record bounded sample
+- full-source API pagination mode
 - artwork normalization
 - department counts
 - collection/type/culture counts
@@ -438,27 +438,28 @@ Implemented:
 - `public-draft.md`
 - `post.md`
 - `post-evidence-audit.json`
+- full-collection comparison report
 - readiness gate
 - one-command pipeline runner
 
 Current corpus:
 
-- 5,000 sampled artwork records
-- 68,743 total API records available
+- 68,742 artwork records fetched from 68,743 total API records available
+- corpus tier: full-source-corpus
+- missing from reported API total: 1 record
 - 19 departments represented
-- 56 creation-century rows
-- 12 acquisition-decade rows
+- 75 creation-century rows
+- 17 acquisition-decade rows
 - 4 chart artifacts
-- audit packet: 54 review rows, including 229 accession-year proxy mismatches across the full sample
+- audit packet: 78 review rows, including 7,739 accession-year proxy mismatches across the full corpus
 - publication handoff: ready for copyedit with chart captions and claim checklist
 - publication post: `reports/post.md`, a polished single-institution collection-shape draft
-- post evidence audit: `reports/post-evidence-audit.json`, status `pass`, 15/15 count, chart, and caveat checks passed
-- 87.2% of sampled records have an image
-- readiness: ready for editorial review with single-institution and sample-size caveats
+- post evidence audit: `reports/post-evidence-audit.json`, status `pass`, 16/16 count, chart, and caveat checks passed
+- 60.3% of full-corpus records have an image
+- readiness: ready for editorial review with single-institution and acquisition-proxy caveats
 
 Next implementation moves:
 
-- fetch the full collection or a larger paginated corpus
 - final editorial review for `reports/post.md` as the first public post candidate
 - review audit rows before strengthening acquisition-decade claims
 - compare against a second open museum API before cross-institution claims

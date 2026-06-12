@@ -1,24 +1,24 @@
 {
-  "generatedAt": "2026-06-12T18:57:50.179Z",
+  "generatedAt": "2026-06-12T21:30:52.631Z",
   "title": "What A Museum Collection Looks Like When It Becomes Data",
   "publishState": "ready-for-copyedit",
   "readinessStatus": "ready-for-editorial-review",
   "source": "Cleveland Museum of Art Open Access API",
   "corpus": {
-    "sampleRecords": 5000,
+    "sampleRecords": 68742,
     "totalAvailable": 68743,
-    "sampleShare": 0.0727,
-    "departments": 19,
-    "creationCenturyRows": 56,
+    "sampleShare": 1,
+    "departments": 20,
+    "creationCenturyRows": 67,
     "acquisitionDecadeRows": 12
   },
   "audit": {
-    "reviewRows": 54,
-    "flaggedRows": 1230,
-    "accessionYearProxyMismatches": 229,
-    "missingExplicitAccessionYearRows": 1,
-    "noImageRows": 640,
-    "noProvenanceEntryRows": 582
+    "reviewRows": 78,
+    "flaggedRows": 47636,
+    "accessionYearProxyMismatches": 7739,
+    "missingExplicitAccessionYearRows": 348,
+    "noImageRows": 27298,
+    "noProvenanceEntryRows": 37779
   },
   "paths": {
     "draft": "docs/experiments/cleveland-museum-collection-shape/reports/publication-draft.md",
@@ -32,7 +32,7 @@
     {
       "id": "departments",
       "path": "docs/experiments/cleveland-museum-collection-shape/reports/charts/departments.svg",
-      "caption": "Top departments in the 5,000-record Cleveland sample. Department counts show dataset shape, not cultural importance."
+      "caption": "Top departments in the 68,742-record Cleveland sample. Department counts show dataset shape, not cultural importance."
     },
     {
       "id": "creation-centuries",
@@ -42,21 +42,21 @@
     {
       "id": "acquisition-decades",
       "path": "docs/experiments/cleveland-museum-collection-shape/reports/charts/acquisition-decades.svg",
-      "caption": "Accession-number decade proxy; 229 mismatches against explicit accession_date in audit."
+      "caption": "Accession-number decade proxy; 7,739 mismatches against explicit accession_date in audit."
     },
     {
       "id": "image-availability",
       "path": "docs/experiments/cleveland-museum-collection-shape/reports/charts/image-availability.svg",
-      "caption": "Visual availability in sample; 4,360 has image, 640 no image."
+      "caption": "Visual availability in sample; 41,444 has image, 27,298 no image."
     }
   ],
   "claimChecklist": [
-    "Say this is a bounded 5,000-record sample, not the full Cleveland collection.",
+    "Say this is a bounded 68,742-record sample, not the full Cleveland collection.",
     "Mention 68,743 total API records were available at collection time.",
     "Do not generalize from Cleveland to museums as a whole.",
-    "Treat accession decade as a proxy and disclose 229 accession-year mismatches.",
+    "Treat accession decade as a proxy and disclose 7,739 accession-year mismatches.",
     "Caption charts as sample charts, not complete collection charts.",
-    "Include audit caveats: 1,230 flagged rows, 640 no-image rows, and 582 rows with no provenance entries."
+    "Include audit caveats: 47,636 flagged rows, 27,298 no-image rows, and 37,779 rows with no provenance entries."
   ],
   "finalCopyNotes": [
     "Lead with the methodological observation: an open API changes the unit of attention from object to collection table.",

@@ -1,20 +1,20 @@
 # Cleveland Collection Shape Audit Packet
 
-Generated at: 2026-06-12T18:51:01.213Z
-Records: 5000
-Flagged rows: 1230
-Accession-year mismatches: 229
-Rows missing explicit accession year: 1
-Rows without image: 640
+Generated at: 2026-06-12T21:30:52.492Z
+Records: 68742
+Flagged rows: 47636
+Accession-year mismatches: 7739
+Rows missing explicit accession year: 348
+Rows without image: 27298
 
 ## Flag Counts
 
-- no-image: 640
-- no-provenance-entries: 582
-- accession-year-mismatch: 229
-- missing-culture: 27
-- missing-explicit-accession-year: 1
-- missing-creation-date-range: 1
+- no-provenance-entries: 37779
+- no-image: 27298
+- accession-year-mismatch: 7739
+- missing-creation-date-range: 1926
+- missing-explicit-accession-year: 348
+- missing-culture: 344
 
 ## Review Instructions
 
@@ -362,6 +362,318 @@ Rows without image: 640
 - Provenance entries: 3
 - Flags: missing-explicit-accession-year
 - URL: https://clevelandart.org/art/1966.447.b
+
+### Folio 94 from a Gandavyuha-sutra (Scripture of the Supreme Array): Sudhana and the rishi Bhishmottaranirgosha (recto); text (verso)
+
+- ID: 133072
+- Accession: 1955.49.2
+- Department: Indian and Southeast Asian Art
+- Accession year proxy: 1955
+- Explicit accession date: missing
+- Creation date: 1000–1100s
+- Image: yes
+- Provenance entries: 2
+- Flags: missing-explicit-accession-year
+- URL: https://clevelandart.org/art/1955.49.2
+
+### Prajnaparamita ﬂanked by two female ﬁgures, folio 1 (verso), from a Manuscript of the Perfection of Wisdom in Eight Thousand Lines (Ashtasahasrika Prajnaparamita-sutra)
+
+- ID: 117673
+- Accession: 1938.301.1.b
+- Department: Indian and Southeast Asian Art
+- Accession year proxy: 1938
+- Explicit accession date: missing
+- Creation date: Sunday, September 14, 1119 (year 239 of the Newar Samvat in the month of Ashvina)
+- Image: yes
+- Provenance entries: 2
+- Flags: missing-explicit-accession-year
+- URL: https://clevelandart.org/art/1938.301.1.b
+
+### Sudhana and the rishi Bhishmottaranirgosha, folio 94 (recto) from a Gandavyuha-sutra (Scripture of the Supreme Array)
+
+- ID: 133073
+- Accession: 1955.49.2.a
+- Department: Indian and Southeast Asian Art
+- Accession year proxy: 1955
+- Explicit accession date: missing
+- Creation date: 1000–1100s
+- Image: yes
+- Provenance entries: 2
+- Flags: missing-explicit-accession-year
+- URL: https://clevelandart.org/art/1955.49.2.a
+
+### Necklace Figurine Bead
+
+- ID: 132317
+- Accession: 1954.794.d
+- Department: Art of the Americas
+- Accession year proxy: 1954
+- Explicit accession date: missing
+- Creation date: 1–700 CE
+- Image: yes
+- Provenance entries: 0
+- Flags: missing-explicit-accession-year; no-provenance-entries
+- URL: https://clevelandart.org/art/1954.794.d
+
+### Folio 1 (recto), from a Manuscript of the Perfection of Wisdom in Eight Thousand Lines (Ashtasahasrika Prajnaparamita-sutra)
+
+- ID: 117672
+- Accession: 1938.301.1.a
+- Department: Indian and Southeast Asian Art
+- Accession year proxy: 1938
+- Explicit accession date: missing
+- Creation date: Sunday, September 14, 1119 (year 239 of the Newar Samvat in the month of Ashvina)
+- Image: yes
+- Provenance entries: 2
+- Flags: missing-explicit-accession-year
+- URL: https://clevelandart.org/art/1938.301.1.a
+
+### Folio 348 from a Gandavyuha-sutra (Scripture of the Supreme Array): Bodhisattva Manjushri with two forms of Avalokiteshvara (recto); Bodhisattva Samantabhadra purifies the path to enlightenment, with Manjushri (verso)
+
+- ID: 133087
+- Accession: 1955.49.7
+- Department: Indian and Southeast Asian Art
+- Accession year proxy: 1955
+- Explicit accession date: missing
+- Creation date: 1000–1100s
+- Image: yes
+- Provenance entries: 2
+- Flags: missing-explicit-accession-year
+- URL: https://clevelandart.org/art/1955.49.7
+
+### Bodhisattva Manjushri with two forms of Avalokiteshvara, folio 348 (recto) from a Gandavyuha-sutra (Scripture of the Supreme Array)
+
+- ID: 133088
+- Accession: 1955.49.7.a
+- Department: Indian and Southeast Asian Art
+- Accession year proxy: 1955
+- Explicit accession date: missing
+- Creation date: 1000–1100s
+- Image: yes
+- Provenance entries: 2
+- Flags: missing-explicit-accession-year
+- URL: https://clevelandart.org/art/1955.49.7.a
+
+### Bodhisattva Samantabhadra purifies the path to enlightenment, with Manjushri, folio 348 (verso) from a Gandavyuha-sutra (Scripture of the Supreme Array)
+
+- ID: 133089
+- Accession: 1955.49.7.b
+- Department: Indian and Southeast Asian Art
+- Accession year proxy: 1955
+- Explicit accession date: missing
+- Creation date: 1000–1100s
+- Image: yes
+- Provenance entries: 2
+- Flags: missing-explicit-accession-year
+- URL: https://clevelandart.org/art/1955.49.7.b
+
+### End of the Perfection of Wisdom in Eight Thousand Lines; Haribhadra’s final remarks; beginning of colophon, folio 187 (verso), from a Manuscript of the Perfection of Wisdom in Eight Thousand Lines (Ashtasahasrika Prajnaparamita-sutra)
+
+- ID: 117670
+- Accession: 1938.301.187.b
+- Department: Indian and Southeast Asian Art
+- Accession year proxy: 1938
+- Explicit accession date: missing
+- Creation date: Sunday, September 14, 1119 (year 239 of the Newar Samvat in the month of Ashvina)
+- Image: yes
+- Provenance entries: 2
+- Flags: missing-explicit-accession-year
+- URL: https://clevelandart.org/art/1938.301.187.b
+
+### John Sabatine and Molly at Pat Sabatine’s Eleventh Birthday Party, April 1980
+
+- ID: 170342
+- Accession: 2012.463.49
+- Department: Photography
+- Accession year proxy: 2012
+- Explicit accession date: missing
+- Creation date: 1980
+- Image: no
+- Provenance entries: 3
+- Flags: missing-explicit-accession-year; no-image
+- URL: https://clevelandart.org/art/2012.463.49
+
+### Box base
+
+- ID: 669269
+- Accession: 1976.185.a
+- Department: African Art
+- Accession year proxy: 1976
+- Explicit accession date: missing
+- Creation date: c. 1920
+- Image: no
+- Provenance entries: 2
+- Flags: missing-explicit-accession-year; missing-creation-date-range; no-image
+- URL: https://clevelandart.org/art/1976.185.a
+
+### Chinese Landscape
+
+- ID: 140322
+- Accession: 1964.279
+- Department: Japanese Art
+- Accession year proxy: 1964
+- Explicit accession date: missing
+- Creation date: 1500s
+- Image: yes
+- Provenance entries: 3
+- Flags: missing-explicit-accession-year
+- URL: https://clevelandart.org/art/1964.279
+
+### Covered Jar (stand)
+
+- ID: 135011
+- Accession: 1957.62.c
+- Department: Chinese Art
+- Accession year proxy: 1957
+- Explicit accession date: missing
+- Creation date: 1573–1620
+- Image: yes
+- Provenance entries: 3
+- Flags: missing-explicit-accession-year
+- URL: https://clevelandart.org/art/1957.62.c
+
+### Design for Decorative Hinges (recto) Border Lines (verso)
+
+- ID: 106523
+- Accession: 1924.586
+- Department: Drawings
+- Accession year proxy: 1924
+- Explicit accession date: missing
+- Creation date: mid 1500s
+- Image: yes
+- Provenance entries: 0
+- Flags: missing-explicit-accession-year; no-provenance-entries
+- URL: https://clevelandart.org/art/1924.586
+
+### Madame Hippolyte Flandrin (Aimée Ancelot)
+
+- ID: 166630
+- Accession: 2008.351
+- Department: Drawings
+- Accession year proxy: 2008
+- Explicit accession date: missing
+- Creation date: 1869
+- Image: yes
+- Provenance entries: 0
+- Flags: missing-explicit-accession-year; no-provenance-entries
+- URL: https://clevelandart.org/art/2008.351
+
+### Tuning
+
+- ID: 93289
+- Accession: 1946.1711
+- Department: Drawings
+- Accession year proxy: 1946
+- Explicit accession date: missing
+- Creation date: 1867
+- Image: yes
+- Provenance entries: 0
+- Flags: missing-explicit-accession-year; no-provenance-entries
+- URL: https://clevelandart.org/art/1946.1711
+
+### Crown Box for the Royal Ceremonial Costume
+
+- ID: 308834
+- Accession: 1918.551.h
+- Department: Textiles
+- Accession year proxy: 1918
+- Explicit accession date: missing
+- Creation date: late 1800s–early 1900s
+- Image: yes
+- Provenance entries: 2
+- Flags: missing-explicit-accession-year
+- URL: https://clevelandart.org/art/1918.551.h
+
+### Preaching Amitabha with Avalokiteshvara and Manjushri, folio 186 (verso), from a Manuscript of the Perfection of Wisdom in Eight Thousand Lines (Ashtasahasrika Prajnaparamita-sutra)
+
+- ID: 117666
+- Accession: 1938.301.186.b
+- Department: Indian and Southeast Asian Art
+- Accession year proxy: 1938
+- Explicit accession date: missing
+- Creation date: Sunday, September 14, 1119 (year 239 of the Newar Samvat in the month of Ashvina)
+- Image: yes
+- Provenance entries: 2
+- Flags: missing-explicit-accession-year
+- URL: https://clevelandart.org/art/1938.301.186.b
+
+### Seated Jina Rishabha Enshrined, from a Jain Manuscript: Kalpa-Sutra
+
+- ID: 151139
+- Accession: 1983.1047
+- Department: Indian and Southeast Asian Art
+- Accession year proxy: 1983
+- Explicit accession date: missing
+- Creation date: c. 1500
+- Image: yes
+- Provenance entries: 2
+- Flags: missing-explicit-accession-year
+- URL: https://clevelandart.org/art/1983.1047
+
+### Navajo Boy, Gallup, New Mexico
+
+- ID: 166688
+- Accession: 2008.40
+- Department: Photography
+- Accession year proxy: 2008
+- Explicit accession date: missing
+- Creation date: 1971
+- Image: no
+- Provenance entries: 1
+- Flags: missing-explicit-accession-year; no-image
+- URL: https://clevelandart.org/art/2008.40
+
+### Prajnaparamita flanked by two bodhisattvas, folio 187 (recto), from a Manuscript of the Perfection of Wisdom in Eight Thousand Lines (Ashtasahasrika Prajnaparamita-sutra)
+
+- ID: 117669
+- Accession: 1938.301.187.a
+- Department: Indian and Southeast Asian Art
+- Accession year proxy: 1938
+- Explicit accession date: missing
+- Creation date: Sunday, September 14, 1119 (year 239 of the Newar Samvat in the month of Ashvina)
+- Image: yes
+- Provenance entries: 2
+- Flags: missing-explicit-accession-year
+- URL: https://clevelandart.org/art/1938.301.187.a
+
+### Volume from the Great Perfection of Wisdom Sutra
+
+- ID: 401001
+- Accession: 1969.130.2.c
+- Department: Japanese Art
+- Accession year proxy: 1969
+- Explicit accession date: missing
+- Creation date: late 1100s
+- Image: yes
+- Provenance entries: 0
+- Flags: missing-explicit-accession-year; no-provenance-entries
+- URL: https://clevelandart.org/art/1969.130.2.c
+
+### Volume from the Great Perfection of Wisdom Sutra
+
+- ID: 401003
+- Accession: 1969.130.2.e
+- Department: Japanese Art
+- Accession year proxy: 1969
+- Explicit accession date: missing
+- Creation date: late 1100s
+- Image: yes
+- Provenance entries: 0
+- Flags: missing-explicit-accession-year; no-provenance-entries
+- URL: https://clevelandart.org/art/1969.130.2.e
+
+### Volume from the Great Perfection of Wisdom Sutra
+
+- ID: 401005
+- Accession: 1969.130.2.g
+- Department: Japanese Art
+- Accession year proxy: 1969
+- Explicit accession date: missing
+- Creation date: late 1100s
+- Image: yes
+- Provenance entries: 0
+- Flags: missing-explicit-accession-year; no-provenance-entries
+- URL: https://clevelandart.org/art/1969.130.2.g
 
 ### La Vie
 

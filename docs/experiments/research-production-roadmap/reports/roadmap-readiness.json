@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-12T21:19:12.081Z",
+  "generatedAt": "2026-06-12T21:33:03.041Z",
   "roadmap": "Archive Signals / The Cultural Observatory",
   "status": "active",
   "trackCount": 6,
-  "completeTrackCount": 0,
-  "incompleteTrackCount": 6,
+  "completeTrackCount": 1,
+  "incompleteTrackCount": 5,
   "tracks": [
     {
       "id": "university-second-layer-corpus",
@@ -46,8 +46,8 @@
       "id": "cleveland-full-collection",
       "title": "Cleveland Museum Full-Collection Backfill",
       "priority": 4,
-      "status": "source-probed",
-      "complete": false,
+      "status": "artifact-ready",
+      "complete": true,
       "sourceExperiment": "docs/experiments/cleveland-museum-collection-shape/",
       "requiredEvidenceCount": 5,
       "nextActionCount": 3,
@@ -97,12 +97,6 @@
       "title": "Humanities Literature Radar Broad Backfill",
       "status": "broad-backfill-pilot",
       "sourceExperiment": "docs/experiments/humanities-literature-radar/"
-    },
-    {
-      "id": "cleveland-full-collection",
-      "title": "Cleveland Museum Full-Collection Backfill",
-      "status": "source-probed",
-      "sourceExperiment": "docs/experiments/cleveland-museum-collection-shape/"
     },
     {
       "id": "canon-narrow-pilot",

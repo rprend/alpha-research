@@ -91,7 +91,7 @@
       "id": "cleveland-full-collection",
       "title": "Cleveland Museum Full-Collection Backfill",
       "priority": 4,
-      "status": "source-probed",
+      "status": "artifact-ready",
       "sourceExperiment": "docs/experiments/cleveland-museum-collection-shape/",
       "why": "The first public essay candidate uses a 5,000-record bounded sample from 68,743 available API records. Stronger collection-shape claims need a full or much larger backfill.",
       "requiredSources": [
@@ -105,9 +105,9 @@
         "audit packet for accession-year proxy and image availability"
       ],
       "nextActions": [
-        "Run a full-pagination fetch with resumable checkpoints.",
-        "Compare sample and full-corpus department/date/image distributions.",
-        "Update the publication caveat if sample bias is material."
+        "Keep public claims scoped to the Cleveland Museum of Art API corpus.",
+        "Use explicit acquisition dates rather than accession-number proxies for stronger acquisition-history claims.",
+        "Compare against another open museum API before cross-institution collection-shape claims."
       ]
     },
     {

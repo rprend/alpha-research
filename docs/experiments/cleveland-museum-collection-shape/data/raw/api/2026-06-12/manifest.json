@@ -2,9 +2,10 @@
   "runDate": "2026-06-12",
   "source": "Cleveland Museum of Art Open Access API",
   "baseUrl": "https://openaccess-api.clevelandart.org/api/artworks/",
-  "limit": 5000,
+  "requestedLimit": "full-source",
   "pageSize": 1000,
-  "startedAt": "2026-06-12T18:50:58.662Z",
+  "fullSource": true,
+  "startedAt": "2026-06-12T21:24:01.042Z",
   "requests": [
     {
       "skip": 0,
@@ -50,10 +51,595 @@
       "recordCount": 1000,
       "total": 68743,
       "responsePath": "data/raw/api/2026-06-12/artworks-004000.json"
+    },
+    {
+      "skip": 5000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=5000",
+      "status": 200,
+      "recordCount": 999,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-005000.json"
+    },
+    {
+      "skip": 6000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=6000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-006000.json"
+    },
+    {
+      "skip": 7000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=7000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-007000.json"
+    },
+    {
+      "skip": 8000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=8000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-008000.json"
+    },
+    {
+      "skip": 9000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=9000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-009000.json"
+    },
+    {
+      "skip": 10000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=10000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-010000.json"
+    },
+    {
+      "skip": 11000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=11000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-011000.json"
+    },
+    {
+      "skip": 12000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=12000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-012000.json"
+    },
+    {
+      "skip": 13000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=13000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-013000.json"
+    },
+    {
+      "skip": 14000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=14000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-014000.json"
+    },
+    {
+      "skip": 15000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=15000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-015000.json"
+    },
+    {
+      "skip": 16000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=16000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-016000.json"
+    },
+    {
+      "skip": 17000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=17000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-017000.json"
+    },
+    {
+      "skip": 18000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=18000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-018000.json"
+    },
+    {
+      "skip": 19000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=19000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-019000.json"
+    },
+    {
+      "skip": 20000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=20000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-020000.json"
+    },
+    {
+      "skip": 21000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=21000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-021000.json"
+    },
+    {
+      "skip": 22000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=22000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-022000.json"
+    },
+    {
+      "skip": 23000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=23000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-023000.json"
+    },
+    {
+      "skip": 24000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=24000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-024000.json"
+    },
+    {
+      "skip": 25000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=25000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-025000.json"
+    },
+    {
+      "skip": 26000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=26000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-026000.json"
+    },
+    {
+      "skip": 27000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=27000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-027000.json"
+    },
+    {
+      "skip": 28000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=28000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-028000.json"
+    },
+    {
+      "skip": 29000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=29000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-029000.json"
+    },
+    {
+      "skip": 30000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=30000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-030000.json"
+    },
+    {
+      "skip": 31000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=31000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-031000.json"
+    },
+    {
+      "skip": 32000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=32000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-032000.json"
+    },
+    {
+      "skip": 33000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=33000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-033000.json"
+    },
+    {
+      "skip": 34000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=34000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-034000.json"
+    },
+    {
+      "skip": 35000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=35000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-035000.json"
+    },
+    {
+      "skip": 36000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=36000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-036000.json"
+    },
+    {
+      "skip": 37000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=37000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-037000.json"
+    },
+    {
+      "skip": 38000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=38000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-038000.json"
+    },
+    {
+      "skip": 39000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=39000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-039000.json"
+    },
+    {
+      "skip": 40000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=40000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-040000.json"
+    },
+    {
+      "skip": 41000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=41000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-041000.json"
+    },
+    {
+      "skip": 42000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=42000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-042000.json"
+    },
+    {
+      "skip": 43000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=43000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-043000.json"
+    },
+    {
+      "skip": 44000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=44000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-044000.json"
+    },
+    {
+      "skip": 45000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=45000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-045000.json"
+    },
+    {
+      "skip": 46000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=46000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-046000.json"
+    },
+    {
+      "skip": 47000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=47000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-047000.json"
+    },
+    {
+      "skip": 48000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=48000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-048000.json"
+    },
+    {
+      "skip": 49000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=49000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-049000.json"
+    },
+    {
+      "skip": 50000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=50000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-050000.json"
+    },
+    {
+      "skip": 51000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=51000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-051000.json"
+    },
+    {
+      "skip": 52000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=52000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-052000.json"
+    },
+    {
+      "skip": 53000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=53000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-053000.json"
+    },
+    {
+      "skip": 54000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=54000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-054000.json"
+    },
+    {
+      "skip": 55000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=55000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-055000.json"
+    },
+    {
+      "skip": 56000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=56000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-056000.json"
+    },
+    {
+      "skip": 57000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=57000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-057000.json"
+    },
+    {
+      "skip": 58000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=58000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-058000.json"
+    },
+    {
+      "skip": 59000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=59000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-059000.json"
+    },
+    {
+      "skip": 60000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=60000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-060000.json"
+    },
+    {
+      "skip": 61000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=61000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-061000.json"
+    },
+    {
+      "skip": 62000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=62000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-062000.json"
+    },
+    {
+      "skip": 63000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=63000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-063000.json"
+    },
+    {
+      "skip": 64000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=64000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-064000.json"
+    },
+    {
+      "skip": 65000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=65000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-065000.json"
+    },
+    {
+      "skip": 66000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=66000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-066000.json"
+    },
+    {
+      "skip": 67000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=67000",
+      "status": 200,
+      "recordCount": 1000,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-067000.json"
+    },
+    {
+      "skip": 68000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=68000",
+      "status": 200,
+      "recordCount": 743,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-068000.json"
+    },
+    {
+      "skip": 69000,
+      "limit": 1000,
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?limit=1000&skip=69000",
+      "status": 200,
+      "recordCount": 0,
+      "total": 68743,
+      "responsePath": "data/raw/api/2026-06-12/artworks-069000.json"
     }
   ],
   "errors": [],
-  "finishedAt": "2026-06-12T18:51:00.846Z",
-  "recordCount": 5000,
+  "finishedAt": "2026-06-12T21:30:11.040Z",
+  "recordCount": 68742,
   "totalAvailable": 68743
 }

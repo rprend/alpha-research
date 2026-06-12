@@ -1,0 +1,11 @@
+{
+  "info": {
+    "total": 68743,
+    "parameters": {
+      "skip": 69000,
+      "limit": 1000,
+      "select": "accession_number,accession_number_sortable,cover_accession_number,department,classification_type,gallery,collection,department"
+    }
+  },
+  "data": []
+}

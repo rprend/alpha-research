@@ -9,7 +9,8 @@ import {
 
 const args = parseArgs();
 const runDate = args["run-date"] ?? process.env.CLEVELAND_COLLECTION_RUN_DATE ?? today();
-const limit = Number(args.limit ?? 5000);
+const fullSource = args.full === "true" || args.limit === "all";
+const limit = fullSource ? Number.MAX_SAFE_INTEGER : Number(args.limit ?? 5000);
 const pageSize = Number(args["page-size"] ?? 1000);
 const timeoutMs = Number(args.timeout ?? 20000);
 const outDir = path.join(experimentDir, "data", "raw", "api", runDate);
@@ -17,8 +18,9 @@ const manifest = {
   runDate,
   source: "Cleveland Museum of Art Open Access API",
   baseUrl: "https://openaccess-api.clevelandart.org/api/artworks/",
-  limit,
+  requestedLimit: fullSource ? "full-source" : limit,
   pageSize,
+  fullSource,
   startedAt: new Date().toISOString(),
   requests: [],
   errors: [],
@@ -66,7 +68,9 @@ for (let skip = 0; fetched < limit; skip += pageSize) {
     total,
     responsePath: path.relative(experimentDir, responsePath),
   });
-  if (count < currentLimit) break;
+  if (fullSource && total != null && fetched >= total) break;
+  if (fullSource && count === 0) break;
+  if (!fullSource && count < currentLimit) break;
 }
 
 manifest.finishedAt = new Date().toISOString();

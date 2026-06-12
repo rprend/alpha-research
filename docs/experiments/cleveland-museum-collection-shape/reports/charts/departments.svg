@@ -8,40 +8,40 @@
   <rect width="100%" height="100%" fill="#ffffff"></rect>
   <text x="24" y="34" class="title">Top Departments In The Sample</text>
   <line x1="260" y1="44" x2="260" y2="442" class="axis"></line>
-  <text x="248" y="71" text-anchor="end" class="label">Medieval Art</text>
+  <text x="248" y="71" text-anchor="end" class="label">Prints</text>
 <rect x="260" y="54" width="600.0" height="24" fill="#3b6ea8" rx="2"></rect>
-<text x="868" y="71" class="value">1313 (26.3%)</text>
-<text x="248" y="103" text-anchor="end" class="label">Chinese Art</text>
-<rect x="260" y="86" width="170.9" height="24" fill="#7a9a01" rx="2"></rect>
-<text x="438.9063214013709" y="103" class="value">374 (7.5%)</text>
-<text x="248" y="135" text-anchor="end" class="label">Decorative Art and Design</text>
-<rect x="260" y="118" width="143.0" height="24" fill="#c7532b" rx="2"></rect>
-<text x="411.031226199543" y="135" class="value">313 (6.3%)</text>
-<text x="248" y="167" text-anchor="end" class="label">Drawings</text>
-<rect x="260" y="150" width="138.0" height="24" fill="#6b5ca5" rx="2"></rect>
-<text x="406.004569687738" y="167" class="value">302 (6%)</text>
-<text x="248" y="199" text-anchor="end" class="label">Indian and Southeast Asian Art</text>
-<rect x="260" y="182" width="127.5" height="24" fill="#20806d" rx="2"></rect>
-<text x="395.4942878903275" y="199" class="value">279 (5.6%)</text>
-<text x="248" y="231" text-anchor="end" class="label">European Painting and Sculpture</text>
-<rect x="260" y="214" width="126.6" height="24" fill="#b45f96" rx="2"></rect>
-<text x="394.58035034272655" y="231" class="value">277 (5.5%)</text>
-<text x="248" y="263" text-anchor="end" class="label">Prints</text>
-<rect x="260" y="246" width="121.1" height="24" fill="#3b6ea8" rx="2"></rect>
-<text x="389.0967250571211" y="263" class="value">265 (5.3%)</text>
-<text x="248" y="295" text-anchor="end" class="label">Greek and Roman Art</text>
-<rect x="260" y="278" width="115.6" height="24" fill="#7a9a01" rx="2"></rect>
-<text x="383.61309977151564" y="295" class="value">253 (5.1%)</text>
-<text x="248" y="327" text-anchor="end" class="label">Modern European Painting and Sculpture</text>
-<rect x="260" y="310" width="109.7" height="24" fill="#c7532b" rx="2"></rect>
-<text x="377.6725057121097" y="327" class="value">240 (4.8%)</text>
-<text x="248" y="359" text-anchor="end" class="label">Japanese Art</text>
-<rect x="260" y="342" width="85.0" height="24" fill="#6b5ca5" rx="2"></rect>
-<text x="352.996191926885" y="359" class="value">186 (3.7%)</text>
-<text x="248" y="391" text-anchor="end" class="label">American Painting and Sculpture</text>
-<rect x="260" y="374" width="79.5" height="24" fill="#20806d" rx="2"></rect>
-<text x="347.51256664127953" y="391" class="value">174 (3.5%)</text>
+<text x="868" y="71" class="value">21155 (30.8%)</text>
+<text x="248" y="103" text-anchor="end" class="label">Photography</text>
+<rect x="260" y="86" width="288.9" height="24" fill="#7a9a01" rx="2"></rect>
+<text x="556.8962420231624" y="103" class="value">10186 (14.8%)</text>
+<text x="248" y="135" text-anchor="end" class="label">Drawings</text>
+<rect x="260" y="118" width="154.4" height="24" fill="#c7532b" rx="2"></rect>
+<text x="422.4315764594659" y="135" class="value">5445 (7.9%)</text>
+<text x="248" y="167" text-anchor="end" class="label">Textiles</text>
+<rect x="260" y="150" width="149.2" height="24" fill="#6b5ca5" rx="2"></rect>
+<text x="417.21295202079887" y="167" class="value">5261 (7.7%)</text>
+<text x="248" y="199" text-anchor="end" class="label">Decorative Art and Design</text>
+<rect x="260" y="182" width="148.1" height="24" fill="#20806d" rx="2"></rect>
+<text x="416.05010635783503" y="199" class="value">5220 (7.6%)</text>
+<text x="248" y="231" text-anchor="end" class="label">Medieval Art</text>
+<rect x="260" y="214" width="141.1" height="24" fill="#b45f96" rx="2"></rect>
+<text x="409.1013944693926" y="231" class="value">4975 (7.2%)</text>
+<text x="248" y="263" text-anchor="end" class="label">Indian and Southeast Asian Art</text>
+<rect x="260" y="246" width="97.1" height="24" fill="#3b6ea8" rx="2"></rect>
+<text x="365.1401559914914" y="263" class="value">3425 (5%)</text>
+<text x="248" y="295" text-anchor="end" class="label">Japanese Art</text>
+<rect x="260" y="278" width="97.0" height="24" fill="#7a9a01" rx="2"></rect>
+<text x="364.99834554478844" y="295" class="value">3420 (5%)</text>
+<text x="248" y="327" text-anchor="end" class="label">Chinese Art</text>
+<rect x="260" y="310" width="74.8" height="24" fill="#c7532b" rx="2"></rect>
+<text x="342.8191916804538" y="327" class="value">2638 (3.8%)</text>
+<text x="248" y="359" text-anchor="end" class="label">Egyptian and Ancient Near Eastern Art</text>
+<rect x="260" y="342" width="30.3" height="24" fill="#6b5ca5" rx="2"></rect>
+<text x="298.3190735050815" y="359" class="value">1069 (1.6%)</text>
+<text x="248" y="391" text-anchor="end" class="label">Art of the Americas</text>
+<rect x="260" y="374" width="27.7" height="24" fill="#20806d" rx="2"></rect>
+<text x="295.7097612857481" y="391" class="value">977 (1.4%)</text>
 <text x="248" y="423" text-anchor="end" class="label">Contemporary Art</text>
-<rect x="260" y="406" width="72.7" height="24" fill="#b45f96" rx="2"></rect>
-<text x="340.65803503427264" y="423" class="value">159 (3.2%)</text>
+<rect x="260" y="406" width="24.6" height="24" fill="#b45f96" rx="2"></rect>
+<text x="292.56156936894354" y="423" class="value">866 (1.3%)</text>
 </svg>

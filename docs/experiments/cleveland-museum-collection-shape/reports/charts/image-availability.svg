@@ -10,8 +10,8 @@
   <line x1="260" y1="44" x2="260" y2="122" class="axis"></line>
   <text x="248" y="71" text-anchor="end" class="label">has-image</text>
 <rect x="260" y="54" width="600.0" height="24" fill="#3b6ea8" rx="2"></rect>
-<text x="868" y="71" class="value">4360 (87.2%)</text>
+<text x="868" y="71" class="value">41444 (60.3%)</text>
 <text x="248" y="103" text-anchor="end" class="label">no-image</text>
-<rect x="260" y="86" width="88.1" height="24" fill="#7a9a01" rx="2"></rect>
-<text x="356.07339449541286" y="103" class="value">640 (12.8%)</text>
+<rect x="260" y="86" width="395.2" height="24" fill="#7a9a01" rx="2"></rect>
+<text x="663.2031657175949" y="103" class="value">27298 (39.7%)</text>
 </svg>

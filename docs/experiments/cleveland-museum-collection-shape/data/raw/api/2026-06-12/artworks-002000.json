@@ -4,7 +4,7 @@
     "parameters": {
       "skip": 2000,
       "limit": 1000,
-      "select": "accession_number,accession_number_sortable,cover_accession_number,department,classification_type,department,gallery,collection"
+      "select": "accession_number,accession_number_sortable,cover_accession_number,department,classification_type,gallery,collection,department"
     }
   },
   "data": [
@@ -557,7 +557,7 @@
         "Pietà"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:53.166000"
+      "updated_at": "2026-06-12 19:17:47.012000"
     },
     {
       "id": 120825,
@@ -3901,7 +3901,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:30:51.723000"
+      "updated_at": "2026-06-12 19:15:54.409000"
     },
     {
       "id": 110237,
@@ -17647,7 +17647,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:36.933000"
+      "updated_at": "2026-06-12 19:17:33.219000"
     },
     {
       "id": 113097,
@@ -19625,7 +19625,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:13.515000"
+      "updated_at": "2026-06-12 19:18:06.357000"
     },
     {
       "id": 147854,
@@ -21445,7 +21445,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:33.545000"
+      "updated_at": "2026-06-12 19:17:29.894000"
     },
     {
       "id": 156495,
@@ -22421,7 +22421,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:16.835000"
+      "updated_at": "2026-06-12 19:16:19.778000"
     },
     {
       "id": 160294,
@@ -25330,7 +25330,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:04.275000"
+      "updated_at": "2026-06-12 19:17:56.198000"
     },
     {
       "id": 144663,
@@ -25975,7 +25975,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:48.385000"
+      "updated_at": "2026-06-12 19:17:42.328000"
     },
     {
       "id": 146930,
@@ -34035,7 +34035,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:30:53.984000"
+      "updated_at": "2026-06-12 19:15:56.684000"
     },
     {
       "id": 147441,
@@ -34353,7 +34353,7 @@
         "Storage Jar: Shigaraki Ware"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:32:31.306000"
+      "updated_at": "2026-06-12 19:17:27.504000"
     },
     {
       "id": 149603,
@@ -36765,7 +36765,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:24.260000"
+      "updated_at": "2026-06-12 19:16:27.071000"
     },
     {
       "id": 107364,
@@ -47863,7 +47863,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:15.331000"
+      "updated_at": "2026-06-12 19:18:08.356000"
     },
     {
       "id": 141936,
@@ -49995,7 +49995,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:33.057000"
+      "updated_at": "2026-06-12 19:17:29.498000"
     },
     {
       "id": 168429,
@@ -53734,7 +53734,7 @@
         "Furniture Ornament: Head of a Mule"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:32.357000"
+      "updated_at": "2026-06-12 19:17:28.700000"
     },
     {
       "id": 130708,
@@ -54735,7 +54735,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:32:51.103000"
+      "updated_at": "2026-06-12 19:17:44.991000"
     },
     {
       "id": 154253,
@@ -58935,7 +58935,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:59.651000"
+      "updated_at": "2026-06-12 19:16:58.823000"
     },
     {
       "id": 452866,
@@ -74436,7 +74436,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:43.184000"
+      "updated_at": "2026-06-12 19:18:35.272000"
     },
     {
       "id": 153768,
@@ -82881,7 +82881,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 18:30:50.443000"
+      "updated_at": "2026-06-12 21:15:38.422000"
     },
     {
       "id": 160135,
@@ -85289,7 +85289,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:52.281000"
+      "updated_at": "2026-06-12 19:17:46.199000"
     },
     {
       "id": 123272,
@@ -100194,7 +100194,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:37.640000"
+      "updated_at": "2026-06-12 19:16:36.961000"
     },
     {
       "id": 138444,
@@ -109032,7 +109032,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:25.791000"
+      "updated_at": "2026-06-12 19:16:28.566000"
     },
     {
       "id": 148152,
@@ -112402,7 +112402,7 @@
         "Colossal Head of Deva"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:09.728000"
+      "updated_at": "2026-06-12 19:18:02.690000"
     },
     {
       "id": 169324,
@@ -113188,7 +113188,7 @@
         "Entertainment Mask (Bolo): Ram"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:06.183000"
+      "updated_at": "2026-06-12 19:16:09.053000"
     },
     {
       "id": 314236,
@@ -115038,7 +115038,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:58.801000"
+      "updated_at": "2026-06-12 19:17:51.820000"
     },
     {
       "id": 137023,
@@ -121577,7 +121577,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:35.466000"
+      "updated_at": "2026-06-12 19:16:35.096000"
     },
     {
       "id": 95253,
@@ -135164,7 +135164,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:33.920000"
+      "updated_at": "2026-06-12 19:17:30.295000"
     },
     {
       "id": 154031,
@@ -135571,7 +135571,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:34.716000"
+      "updated_at": "2026-06-12 19:17:31.045000"
     },
     {
       "id": 173062,
@@ -149406,7 +149406,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:13.893000"
+      "updated_at": "2026-06-12 19:18:07.010000"
     },
     {
       "id": 155456,
@@ -169490,7 +169490,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:47.145000"
+      "updated_at": "2026-06-12 19:17:41.232000"
     },
     {
       "id": 137973,
@@ -171789,7 +171789,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:34.304000"
+      "updated_at": "2026-06-12 19:17:30.698000"
     },
     {
       "id": 154030,
@@ -176775,7 +176775,7 @@
         "Gikaku Mask of Drunken Foreign Attendant (Suikojū)"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:33:41.993000"
+      "updated_at": "2026-06-12 19:18:34.014000"
     },
     {
       "id": 147930,
@@ -182953,7 +182953,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:30:51.316000"
+      "updated_at": "2026-06-12 19:15:53.984000"
     },
     {
       "id": 138360,
@@ -184138,7 +184138,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:16.344000"
+      "updated_at": "2026-06-12 19:17:12.799000"
     },
     {
       "id": 704871,
@@ -193799,7 +193799,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:03.776000"
+      "updated_at": "2026-06-12 19:17:55.819000"
     },
     {
       "id": 102376,
@@ -195991,7 +195991,7 @@
         "Yakushi-Nyorai Buddha"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:26.513000"
+      "updated_at": "2026-06-12 19:18:19.097000"
     },
     {
       "id": 147591,
@@ -196252,7 +196252,7 @@
         "薬師如来坐像"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:27.159000"
+      "updated_at": "2026-06-12 19:18:19.689000"
     },
     {
       "id": 147998,
@@ -197501,7 +197501,7 @@
         "Apollo Sauroktonos (Lizard-Slayer) [Lizard]"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:07.854000"
+      "updated_at": "2026-06-12 19:16:10.639000"
     },
     {
       "id": 170075,
@@ -198248,7 +198248,7 @@
         "Dish with Ginko Leaves"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:32:48.757000"
+      "updated_at": "2026-06-12 19:17:42.716000"
     },
     {
       "id": 536464,
@@ -206934,7 +206934,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:50.651000"
+      "updated_at": "2026-06-12 19:17:44.591000"
     },
     {
       "id": 142469,
@@ -213191,7 +213191,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 18:00:48.945000"
+      "updated_at": "2026-06-12 19:46:01.385000"
     },
     {
       "id": 152448,
@@ -214981,7 +214981,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:00.509000"
+      "updated_at": "2026-06-12 19:16:02.908000"
     },
     {
       "id": 117808,
@@ -230390,7 +230390,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:03.079000"
+      "updated_at": "2026-06-12 19:17:55.186000"
     },
     {
       "id": 102368,
@@ -230533,7 +230533,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:03.370000"
+      "updated_at": "2026-06-12 19:17:55.445000"
     },
     {
       "id": 102377,
@@ -238773,7 +238773,7 @@
         "Apollo Sauroktonos (Lizard-Slayer) [Hand]"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:07.535000"
+      "updated_at": "2026-06-12 19:16:10.208000"
     },
     {
       "id": 540402,
@@ -240698,7 +240698,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:49.128000"
+      "updated_at": "2026-06-12 19:17:43.126000"
     },
     {
       "id": 367864,
@@ -253447,7 +253447,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:30:55.725000"
+      "updated_at": "2026-06-12 19:15:58.300000"
     },
     {
       "id": 160197,

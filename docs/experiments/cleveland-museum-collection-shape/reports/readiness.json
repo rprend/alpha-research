@@ -1,24 +1,30 @@
 {
-  "generatedAt": "2026-06-12T18:57:50.212Z",
+  "generatedAt": "2026-06-12T21:30:52.664Z",
   "status": "ready-for-editorial-review",
   "checks": [
     {
-      "id": "sample-size",
-      "label": "At least 5,000 artwork records are sampled for the first runnable build",
+      "id": "full-source-corpus",
+      "label": "Full-source API pagination has been fetched or the missing delta is explicitly bounded",
       "status": "pass",
-      "evidence": "5000 records"
+      "evidence": "68742 records from 68743 total available; missing delta 1"
+    },
+    {
+      "id": "sample-size",
+      "label": "At least 5,000 artwork records are available for analysis",
+      "status": "pass",
+      "evidence": "68742 records"
     },
     {
       "id": "department-coverage",
       "label": "At least 10 departments are represented",
       "status": "pass",
-      "evidence": "19 departments"
+      "evidence": "20 departments"
     },
     {
       "id": "date-coverage",
       "label": "Creation-century and acquisition-decade tables exist",
       "status": "pass",
-      "evidence": "56 creation-century rows; 12 acquisition-decade rows"
+      "evidence": "67 creation-century rows; 12 acquisition-decade rows"
     },
     {
       "id": "rights-images",
@@ -42,7 +48,7 @@
       "id": "audit-packet",
       "label": "Audit packet exists for acquisition-date proxy and image/license checks",
       "status": "pass",
-      "evidence": "54 review rows; 229 accession-year mismatches"
+      "evidence": "78 review rows; 7739 accession-year mismatches"
     },
     {
       "id": "publication-handoff",
@@ -52,7 +58,7 @@
     }
   ],
   "nextMoves": [
-    "Fetch the full collection or a larger paginated corpus.",
+    "Compare the full corpus against the earlier 5,000-record sample before revising publication claims.",
     "Review audit-packet rows before publishing acquisition-decade claims.",
     "Use the generated chart artifacts in the public draft.",
     "Compare with a second open museum API before making cross-institution claims."

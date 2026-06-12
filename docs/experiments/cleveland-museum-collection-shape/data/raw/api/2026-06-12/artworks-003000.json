@@ -4,7 +4,7 @@
     "parameters": {
       "skip": 3000,
       "limit": 1000,
-      "select": "accession_number,accession_number_sortable,cover_accession_number,department,classification_type,gallery,collection,department"
+      "select": "accession_number,accession_number_sortable,cover_accession_number,department,gallery,collection,classification_type,department"
     }
   },
   "data": [
@@ -2792,7 +2792,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:06.609000"
+      "updated_at": "2026-06-12 19:17:04.260000"
     },
     {
       "id": 145907,
@@ -9599,7 +9599,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:42.058000"
+      "updated_at": "2026-06-12 19:17:37.185000"
     },
     {
       "id": 111502,
@@ -20941,7 +20941,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:53.955000"
+      "updated_at": "2026-06-12 19:17:47.695000"
     },
     {
       "id": 317974,
@@ -21253,7 +21253,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:54.274000"
+      "updated_at": "2026-06-12 19:17:47.957000"
     },
     {
       "id": 296863,
@@ -28709,7 +28709,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 18:00:47.841000"
+      "updated_at": "2026-06-12 19:46:00.267000"
     },
     {
       "id": 125526,
@@ -35517,7 +35517,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:33:00.415000"
+      "updated_at": "2026-06-12 19:17:53.002000"
     },
     {
       "id": 155784,
@@ -36422,7 +36422,7 @@
         "Shinto Deity Pair"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:53.122000"
+      "updated_at": "2026-06-12 19:16:51.191000"
     },
     {
       "id": 149368,
@@ -36738,7 +36738,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:53.517000"
+      "updated_at": "2026-06-12 19:16:51.581000"
     },
     {
       "id": 149369,
@@ -37055,7 +37055,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:53.803000"
+      "updated_at": "2026-06-12 19:16:51.856000"
     },
     {
       "id": 151516,
@@ -39638,7 +39638,7 @@
         "Buddha Sheltered by Mucalinda, the Serpent King "
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:13.852000"
+      "updated_at": "2026-06-12 19:17:10.847000"
     },
     {
       "id": 107277,
@@ -43958,7 +43958,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:45.052000"
+      "updated_at": "2026-06-12 19:17:39.465000"
     },
     {
       "id": 130314,
@@ -54653,7 +54653,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:35.094000"
+      "updated_at": "2026-06-12 19:17:31.441000"
     },
     {
       "id": 156773,
@@ -57025,7 +57025,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:07.108000"
+      "updated_at": "2026-06-12 19:17:59.062000"
     },
     {
       "id": 111506,
@@ -73797,7 +73797,7 @@
         "Patten-type Shoe"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:42.442000"
+      "updated_at": "2026-06-12 19:17:37.596000"
     },
     {
       "id": 111079,
@@ -73933,7 +73933,7 @@
         "Patten-type Shoe"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:43.831000"
+      "updated_at": "2026-06-12 19:17:38.235000"
     },
     {
       "id": 111080,
@@ -74066,7 +74066,7 @@
         "Peg for a Patten-type Shoe"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:44.446000"
+      "updated_at": "2026-06-12 19:17:38.827000"
     },
     {
       "id": 111081,
@@ -74287,7 +74287,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:43.573000"
+      "updated_at": "2026-06-12 19:17:37.860000"
     },
     {
       "id": 111082,
@@ -74423,7 +74423,7 @@
         "Patten-type Shoe"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:44.155000"
+      "updated_at": "2026-06-12 19:17:38.515000"
     },
     {
       "id": 111083,
@@ -74556,7 +74556,7 @@
         "Peg for a Patten-type Shoe"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:44.730000"
+      "updated_at": "2026-06-12 19:17:39.124000"
     },
     {
       "id": 121700,
@@ -100595,7 +100595,7 @@
         "薬師如来坐像"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:26.870000"
+      "updated_at": "2026-06-12 19:18:19.417000"
     },
     {
       "id": 152312,
@@ -107231,7 +107231,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:27.889000"
+      "updated_at": "2026-06-12 19:16:30.371000"
     },
     {
       "id": 163665,
@@ -108500,7 +108500,7 @@
         "Daoist Immortal He Xiangu"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:12.329000"
+      "updated_at": "2026-06-12 19:16:14.728000"
     },
     {
       "id": 148813,
@@ -108840,7 +108840,7 @@
         "Taoist Immortal He Xiangu"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:13.796000"
+      "updated_at": "2026-06-12 19:16:16.096000"
     },
     {
       "id": 149097,
@@ -109878,7 +109878,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:37.194000"
+      "updated_at": "2026-06-12 19:16:36.643000"
     },
     {
       "id": 152212,
@@ -110560,7 +110560,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:17.626000"
+      "updated_at": "2026-06-12 19:16:20.854000"
     },
     {
       "id": 164753,
@@ -115953,7 +115953,7 @@
         "Kundika: Water Ewer"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:16.451000"
+      "updated_at": "2026-06-12 19:16:19.328000"
     },
     {
       "id": 148855,
@@ -122203,7 +122203,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:18.462000"
+      "updated_at": "2026-06-12 19:16:21.653000"
     },
     {
       "id": 157290,
@@ -129908,7 +129908,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:35.466000"
+      "updated_at": "2026-06-12 19:17:31.804000"
     },
     {
       "id": 110567,
@@ -130711,7 +130711,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:12.927000"
+      "updated_at": "2026-06-12 19:18:05.787000"
     },
     {
       "id": 148196,
@@ -132718,24 +132718,24 @@
           "sortorder": 1
         },
         {
-          "description": "(John Eskenazi, London, UK, sold to Maxeen Stone Flower)",
+          "description": "(John Eskenazi, London, England, sold to Maxeen Stone Flower)",
           "citations": [],
           "footnotes": [],
-          "date": "March 25, 1999-?",
+          "date": "March 25, 1999–?",
           "sortorder": 2
         },
         {
-          "description": "Dr. John and Maxeen Stone Flower [1928-2010], Shaker Heights, OH, bequest to the Cleveland Museum of Art",
+          "description": "Dr. John [1921–2011] and Maxeen Stone Flower [1928–2010], Shaker Heights, OH, bequest to the Cleveland Museum of Art",
           "citations": [],
           "footnotes": [],
-          "date": "-2011",
+          "date": "–2011",
           "sortorder": 3
         },
         {
           "description": "The Cleveland Museum of Art, Cleveland, OH",
           "citations": [],
           "footnotes": [],
-          "date": "2011-",
+          "date": "2011–",
           "sortorder": 4
         }
       ],
@@ -132755,8 +132755,8 @@
       },
       "citations": [
         {
-          "citation": "Czuma, Stanislaw J. \"A Shared Passion.\" <em>Cleveland Art: Cleveland Museum of Art Members Magazine</em> 52, no. 2 (March/April 2012): 7-9.",
-          "page_number": "Mentioned and reproduced: p. 7-8",
+          "citation": "Czuma, Stanislaw J. \"A Shared Passion.\" <em>Cleveland Art: Cleveland Museum of Art Members Magazine</em> 52, no. 2 (March/April 2012): 7–9.",
+          "page_number": "Mentioned and Reproduced: pp. 7–8",
           "url": "https://archive.org/details/CMAMM2012-02/page/n5/mode/2up"
         },
         {
@@ -132927,7 +132927,7 @@
         "Winged Atlas Figure"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-10 19:48:39.721000"
+      "updated_at": "2026-06-12 19:00:49.519000"
     },
     {
       "id": 170279,
@@ -134490,7 +134490,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:54.092000"
+      "updated_at": "2026-06-12 19:16:52.164000"
     },
     {
       "id": 697285,
@@ -141995,7 +141995,7 @@
         "Bottle-Vase with Fish Design: Punch'ong Ware"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:15.286000"
+      "updated_at": "2026-06-12 19:16:17.794000"
     },
     {
       "id": 139732,
@@ -151210,7 +151210,7 @@
         "Taoist Immortal He Xiangu"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:14.181000"
+      "updated_at": "2026-06-12 19:16:16.399000"
     },
     {
       "id": 149357,
@@ -155073,7 +155073,7 @@
         "The Co-Emperor Lucius Verus"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:30:58.327000"
+      "updated_at": "2026-06-12 19:16:00.858000"
     },
     {
       "id": 150054,
@@ -157966,7 +157966,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:38.429000"
+      "updated_at": "2026-06-12 19:18:30.360000"
     },
     {
       "id": 116587,
@@ -159349,7 +159349,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:30:52.886000"
+      "updated_at": "2026-06-12 19:15:55.560000"
     },
     {
       "id": 401140,
@@ -169246,7 +169246,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:35.819000"
+      "updated_at": "2026-06-12 19:17:32.180000"
     },
     {
       "id": 128947,
@@ -169625,7 +169625,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:36.583000"
+      "updated_at": "2026-06-12 19:17:32.893000"
     },
     {
       "id": 130197,
@@ -169954,7 +169954,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:07.906000"
+      "updated_at": "2026-06-12 19:18:00.112000"
     },
     {
       "id": 135086,
@@ -175016,7 +175016,7 @@
         "Vessel with Warriors and Captives"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:02.134000"
+      "updated_at": "2026-06-12 19:16:04.545000"
     },
     {
       "id": 170185,
@@ -179077,7 +179077,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:36.191000"
+      "updated_at": "2026-06-12 19:17:32.560000"
     },
     {
       "id": 678264,
@@ -179505,7 +179505,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:31.543000"
+      "updated_at": "2026-06-12 19:18:23.905000"
     },
     {
       "id": 394308,
@@ -179774,7 +179774,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:17.347000"
+      "updated_at": "2026-06-12 19:18:10.180000"
     },
     {
       "id": 128185,
@@ -180694,7 +180694,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:32:09.572000"
+      "updated_at": "2026-06-12 19:17:06.881000"
     },
     {
       "id": 123421,
@@ -192065,7 +192065,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:35.137000"
+      "updated_at": "2026-06-12 19:18:27.228000"
     },
     {
       "id": 149563,
@@ -193903,7 +193903,7 @@
         "Box with Chrysanthemum Design and Lid"
       ],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:32:46.072000"
+      "updated_at": "2026-06-12 19:17:40.291000"
     },
     {
       "id": 169511,
@@ -196366,7 +196366,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:22.553000"
+      "updated_at": "2026-06-12 19:16:25.421000"
     },
     {
       "id": 145209,
@@ -198051,7 +198051,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:08.630000"
+      "updated_at": "2026-06-12 19:18:01.058000"
     },
     {
       "id": 149403,
@@ -198724,7 +198724,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:42.381000"
+      "updated_at": "2026-06-12 19:18:34.480000"
     },
     {
       "id": 151938,
@@ -211105,7 +211105,7 @@
         "Head of the God Pan"
       ],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:14.531000"
+      "updated_at": "2026-06-12 19:18:07.470000"
     },
     {
       "id": 130132,

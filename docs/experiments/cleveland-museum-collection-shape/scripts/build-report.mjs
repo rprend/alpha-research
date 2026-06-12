@@ -26,12 +26,19 @@ const creationCenturyCounts = countBy(artworks, (row) => centuryLabel(row.creati
 const acquisitionDecadeCounts = countBy(artworks, (row) => decadeLabel(accessionYear(row.accession_number)));
 const licenseCounts = topCounts(artworks, "share_license_status", 20);
 const imageCounts = countBy(artworks, (row) => row.has_image ? "has-image" : "no-image");
+const fullSourceRun = Boolean(manifest.fullSource) || (manifest.totalAvailable && artworks.length >= manifest.totalAvailable - 1);
+const collectionScope = fullSourceRun ? "full-source corpus" : "bounded API sample";
 const result = {
   generatedAt: new Date().toISOString(),
   source: manifest.source,
   sampleRecords: artworks.length,
+  corpusRecords: artworks.length,
   totalAvailable: manifest.totalAvailable,
   sampleShare: manifest.totalAvailable ? Number((artworks.length / manifest.totalAvailable).toFixed(4)) : null,
+  corpusTier: fullSourceRun ? "full-source-corpus" : "pilot-corpus",
+  collectionScope,
+  fullSourceRun,
+  missingFromApiTotal: manifest.totalAvailable ? Math.max(0, manifest.totalAvailable - artworks.length) : null,
   departments: departmentCounts,
   collections: collectionCounts,
   types: typeCounts,
@@ -41,15 +48,21 @@ const result = {
   licenses: licenseCounts,
   imageAvailability: imageCounts,
   representativeRecords: artworks.slice(0, 20),
-  strongestFinding: "A structured museum API turns a collection into analyzable records, but the first artifact is a bounded sample of one institution, not a statement about museums generally.",
+  strongestFinding: fullSourceRun
+    ? "A structured museum API turns a full open collection into analyzable records, making department, date, culture, rights, and image-availability patterns inspectable for one institution."
+    : "A structured museum API turns a collection into analyzable records, but the first artifact is a bounded sample of one institution, not a statement about museums generally.",
   caveats: [
-    "This run uses a bounded API sample, not the full collection.",
+    fullSourceRun
+      ? "This run covers the full available API pagination except any record withheld, skipped, or duplicated by the API response sequence."
+      : "This run uses a bounded API sample, not the full collection.",
     "Object metadata completeness varies by department, object type, date, culture, and image availability.",
     "Accession-number dates are a rough acquisition proxy; explicit accession_date exists and audit rows identify mismatches before publication claims.",
     "One open museum collection cannot stand in for museum collections as a whole.",
   ],
   nextMoves: [
-    "Fetch the full collection or a larger paginated corpus.",
+    fullSourceRun
+      ? "Compare the full corpus against the earlier 5,000-record sample to identify sample bias in department, date, and image-availability distributions."
+      : "Fetch the full collection or a larger paginated corpus.",
     "Audit accession-number year extraction against explicit acquisition fields where available.",
     "Compare against another open museum API before making cross-institution claims.",
     "Use the generated chart artifacts in the public draft.",
@@ -196,7 +209,7 @@ function buildHtml(result) {
   <h1>Cleveland Museum Collection Shape</h1>
   <p>${escapeHtml(result.strongestFinding)}</p>
   <p>
-    <span class="stat"><strong>${result.sampleRecords}</strong> sampled records</span>
+    <span class="stat"><strong>${result.sampleRecords}</strong> ${escapeHtml(result.collectionScope)}</span>
     <span class="stat"><strong>${result.totalAvailable}</strong> total available</span>
     <span class="stat"><strong>${result.sampleShare}</strong> sample share</span>
   </p>
@@ -227,7 +240,7 @@ function buildPublicDraft(result) {
   return [
     "# What A Museum Collection Looks Like When It Becomes Data",
     "",
-    "This is a research draft from a bounded Cleveland Museum of Art Open Access API sample.",
+    `This is a research draft from a ${result.collectionScope} from the Cleveland Museum of Art Open Access API.`,
     "",
     "## Thesis To Test",
     "",
@@ -235,7 +248,7 @@ function buildPublicDraft(result) {
     "",
     "## Corpus Note",
     "",
-    `The current artifact contains ${result.sampleRecords} sampled artwork records from ${result.totalAvailable} total available API records.`,
+    `The current artifact contains ${result.sampleRecords} artwork records from ${result.totalAvailable} total available API records.`,
     "",
     "## Central Finding",
     "",
@@ -257,14 +270,15 @@ function buildWorkLog(result) {
     "# Work Log",
     "",
     `Generated at: ${result.generatedAt}`,
-    `Sample records: ${result.sampleRecords}`,
+    `Corpus records: ${result.sampleRecords}`,
     `Total available: ${result.totalAvailable}`,
+    `Corpus tier: ${result.corpusTier}`,
     `Raw run dir: ${result.rawRunDir}`,
     "",
     "## Commands",
     "",
     "```bash",
-    "node docs/experiments/cleveland-museum-collection-shape/scripts/fetch-artworks.mjs --limit=5000 --page-size=1000",
+    "node docs/experiments/cleveland-museum-collection-shape/scripts/fetch-artworks.mjs --full=true --page-size=1000",
     "node docs/experiments/cleveland-museum-collection-shape/scripts/build-report.mjs",
     "node docs/experiments/cleveland-museum-collection-shape/scripts/build-charts.mjs",
     "node docs/experiments/cleveland-museum-collection-shape/scripts/check-readiness.mjs",

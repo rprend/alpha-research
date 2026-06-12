@@ -12,17 +12,18 @@ const result = await readJson(path.join(reportsDir, "result.json"));
 const auditPacket = await readJson(path.join(reportsDir, "audit-packet.json"));
 
 const checks = [
-  check("sample-records", result.sampleRecords === 5000, `${result.sampleRecords} sampled records`),
+  check("corpus-records", result.sampleRecords === 68742, `${result.sampleRecords} corpus records`),
   check("total-available", result.totalAvailable === 68743, `${result.totalAvailable} total API records`),
-  check("sample-share", Math.round(result.sampleShare * 1000) / 10 === 7.3, `${(result.sampleShare * 100).toFixed(1)}% sample share`),
-  check("top-department", result.departments?.[0]?.value === "Medieval Art" && result.departments?.[0]?.count === 1313, `${result.departments?.[0]?.value}: ${result.departments?.[0]?.count}`),
-  check("top-creation-century", result.creationCenturies?.[0]?.value === "10th century" && result.creationCenturies?.[0]?.count === 911, `${result.creationCenturies?.[0]?.value}: ${result.creationCenturies?.[0]?.count}`),
-  check("top-acquisition-decade", result.acquisitionDecades?.[0]?.value === "1940s" && result.acquisitionDecades?.[0]?.count === 1275, `${result.acquisitionDecades?.[0]?.value}: ${result.acquisitionDecades?.[0]?.count}`),
-  check("image-availability", imageCount("has-image") === 4360 && imageCount("no-image") === 640, `has image=${imageCount("has-image")}; no image=${imageCount("no-image")}`),
-  check("audit-flagged-rows", auditPacket.flaggedRows === 1230, `${auditPacket.flaggedRows} flagged rows`),
-  check("audit-accession-mismatches", auditPacket.mismatchRows === 229, `${auditPacket.mismatchRows} accession-year mismatches`),
-  check("audit-no-image", auditPacket.noImageRows === 640, `${auditPacket.noImageRows} rows without image`),
-  check("audit-no-provenance", auditPacket.flagCounts?.["no-provenance-entries"] === 582, `${auditPacket.flagCounts?.["no-provenance-entries"]} rows without provenance entries`),
+  check("corpus-share", Math.round(result.sampleShare * 1000) / 10 === 100, `${(result.sampleShare * 100).toFixed(1)}% corpus share`),
+  check("corpus-tier", result.corpusTier === "full-source-corpus" && result.missingFromApiTotal === 1, `${result.corpusTier}; missing ${result.missingFromApiTotal}`),
+  check("top-department", result.departments?.[0]?.value === "Prints" && result.departments?.[0]?.count === 21155, `${result.departments?.[0]?.value}: ${result.departments?.[0]?.count}`),
+  check("top-creation-century", result.creationCenturies?.[0]?.value === "20th century" && result.creationCenturies?.[0]?.count === 24306, `${result.creationCenturies?.[0]?.value}: ${result.creationCenturies?.[0]?.count}`),
+  check("top-acquisition-decade", result.acquisitionDecades?.[0]?.value === "2010s" && result.acquisitionDecades?.[0]?.count === 8250, `${result.acquisitionDecades?.[0]?.value}: ${result.acquisitionDecades?.[0]?.count}`),
+  check("image-availability", imageCount("has-image") === 41444 && imageCount("no-image") === 27298, `has image=${imageCount("has-image")}; no image=${imageCount("no-image")}`),
+  check("audit-flagged-rows", auditPacket.flaggedRows === 47636, `${auditPacket.flaggedRows} flagged rows`),
+  check("audit-accession-mismatches", auditPacket.mismatchRows === 7739, `${auditPacket.mismatchRows} accession-year mismatches`),
+  check("audit-no-image", auditPacket.noImageRows === 27298, `${auditPacket.noImageRows} rows without image`),
+  check("audit-no-provenance", auditPacket.flagCounts?.["no-provenance-entries"] === 37779, `${auditPacket.flagCounts?.["no-provenance-entries"]} rows without provenance entries`),
   ...(await chartChecks()),
 ];
 
@@ -36,9 +37,9 @@ const audit = {
   passedCount: checks.filter((item) => item.status === "pass").length,
   checks,
   nextMoves: [
-    "Keep the post framed as a bounded 5,000-record Cleveland sample.",
+    "Keep the post framed as one full-source Cleveland API corpus, not museums in general.",
     "Do not strengthen acquisition-decade language without manual review of mismatch rows.",
-    "Fetch the full Cleveland API corpus before treating the charts as full-collection charts.",
+    "Compare with another open museum API before making cross-institution claims.",
   ],
 };
 

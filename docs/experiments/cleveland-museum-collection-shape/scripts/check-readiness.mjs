@@ -13,8 +13,14 @@ const audit = await readOptionalJson(path.join(reportsDir, "audit-packet.json"))
 const handoff = await readOptionalJson(path.join(reportsDir, "publication-handoff.json"));
 const checks = [
   {
+    id: "full-source-corpus",
+    label: "Full-source API pagination has been fetched or the missing delta is explicitly bounded",
+    status: result.corpusTier === "full-source-corpus" && Number(result.missingFromApiTotal ?? 999999) <= 1 ? "pass" : "needs-work",
+    evidence: `${result.sampleRecords} records from ${result.totalAvailable} total available; missing delta ${result.missingFromApiTotal}`,
+  },
+  {
     id: "sample-size",
-    label: "At least 5,000 artwork records are sampled for the first runnable build",
+    label: "At least 5,000 artwork records are available for analysis",
     status: result.sampleRecords >= 5000 ? "pass" : "needs-work",
     evidence: `${result.sampleRecords} records`,
   },
@@ -67,7 +73,7 @@ const readiness = {
   status,
   checks,
   nextMoves: [
-    "Fetch the full collection or a larger paginated corpus.",
+    "Compare the full corpus against the earlier 5,000-record sample before revising publication claims.",
     "Review audit-packet rows before publishing acquisition-decade claims.",
     "Use the generated chart artifacts in the public draft.",
     "Compare with a second open museum API before making cross-institution claims.",

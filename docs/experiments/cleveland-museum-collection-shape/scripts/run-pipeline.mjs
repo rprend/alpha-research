@@ -4,11 +4,12 @@ import { experimentDir, today, writeJson } from "./lib.mjs";
 
 const args = parseArgs();
 const runDate = args["run-date"] ?? process.env.CLEVELAND_COLLECTION_RUN_DATE ?? today();
-const limit = args.limit ?? "5000";
+const fullSource = args.full === "true" || args.limit === "all";
+const limit = fullSource ? "all" : (args.limit ?? "5000");
 const pageSize = args["page-size"] ?? "1000";
 const startedAt = new Date().toISOString();
 const steps = [
-  ["fetch-artworks.mjs", [`--run-date=${runDate}`, `--limit=${limit}`, `--page-size=${pageSize}`]],
+  ["fetch-artworks.mjs", [`--run-date=${runDate}`, fullSource ? "--full=true" : `--limit=${limit}`, `--page-size=${pageSize}`]],
   ["build-report.mjs", []],
   ["build-audit-packet.mjs", []],
   ["build-charts.mjs", []],
@@ -44,8 +45,9 @@ console.log(`Cleveland collection pipeline completed runDate=${runDate} limit=${
 async function writePipelineManifest() {
   await writeJson(path.join(experimentDir, "reports", "pipeline-run.json"), {
     runDate,
-    limit: Number(limit),
+    limit: fullSource ? "full-source" : Number(limit),
     pageSize: Number(pageSize),
+    fullSource,
     startedAt,
     finishedAt: new Date().toISOString(),
     steps: results,

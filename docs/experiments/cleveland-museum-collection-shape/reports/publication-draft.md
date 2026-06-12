@@ -6,13 +6,13 @@ This essay uses a bounded sample from the Cleveland Museum of Art Open Access AP
 
 ## Corpus
 
-The current run sampled 5,000 artwork records from 68,743 total API records, or about 7.3% of the available collection metadata. Each row is one artwork metadata record.
+The current run sampled 68,742 artwork records from 68,743 total API records, or about 100.0% of the available collection metadata. Each row is one artwork metadata record.
 
 The sample includes normalized fields for department, collection, object type, culture, creation dates, accession-number year, explicit accession date where present, license status, image availability, credit line, and provenance-entry count.
 
 ## Finding 1: The Collection Has A Visible Department Shape
 
-In this sample, the largest department is Medieval Art, with 1,313 records (26.3% of the sample). The next largest departments are Chinese Art (7.5%), Decorative Art and Design (6.3%), Drawings (6.0%), and Indian and Southeast Asian Art (5.6%).
+In this sample, the largest department is Prints, with 21,155 records (30.8% of the sample). The next largest departments are Photography (14.8%), Drawings (7.9%), Textiles (7.6%), and Decorative Art and Design (7.6%).
 
 ![Chart: top departments in the sampled records.](charts/departments.svg)
 
@@ -20,7 +20,7 @@ Department counts are not a neutral measure of cultural importance. They reflect
 
 ## Finding 2: Object Dates Cluster Across Very Different Time Horizons
 
-The largest creation-century bucket is 10th century, with 911 records (18.2%). Other large buckets include 19th century (13.5%), 20th century (12.4%), 18th century (8.7%), and 16th century (7.6%).
+The largest creation-century bucket is 20th century, with 24,306 records (35.4%). Other large buckets include 19th century (18.6%), 18th century (9.2%), 17th century (7.3%), and 16th century (5.7%).
 
 ![Chart: creation-century distribution.](charts/creation-centuries.svg)
 
@@ -28,15 +28,15 @@ A century chart is blunt. It hides uncertainty inside dates such as `circa`, ran
 
 ## Finding 3: Accession Numbers Are Useful, But Risky
 
-The largest accession-year decade proxy in the sample is 1940s, with 1,275 records (25.5%). The next largest proxy decades are 1960s (11.4%), 1950s (8.9%), 1970s (8.6%), and 1980s (7.7%).
+The largest accession-year decade proxy in the sample is 2010s, with 8,250 records (12.0%). The next largest proxy decades are 1920s (10.9%), 1940s (10.8%), 2000s (10.2%), and 1960s (9.4%).
 
 ![Chart: accession-number decade proxy.](charts/acquisition-decades.svg)
 
-This is explicitly a proxy. The audit packet found 229 records where the year extracted from the accession number differs from the explicit accession date year, plus 1 record missing an explicit accession year. That does not make the proxy useless, but it means acquisition-decade claims need manual review before publication.
+This is explicitly a proxy. The audit packet found 7,739 records where the year extracted from the accession number differs from the explicit accession date year, plus 348 record missing an explicit accession year. That does not make the proxy useless, but it means acquisition-decade claims need manual review before publication.
 
 ## Finding 4: Visual Availability Is Itself A Dataset Feature
 
-In the sample, 4,360 records have an image (87.2%), while 640 do not (12.8%).
+In the sample, 41,444 records have an image (60.3%), while 27,298 do not (39.7%).
 
 ![Chart: image availability in the sampled records.](charts/image-availability.svg)
 

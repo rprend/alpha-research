@@ -4,7 +4,7 @@
     "parameters": {
       "skip": 1000,
       "limit": 1000,
-      "select": "accession_number,accession_number_sortable,cover_accession_number,department,classification_type,gallery,collection,department"
+      "select": "accession_number,accession_number_sortable,cover_accession_number,department,classification_type,department,gallery,collection"
     }
   },
   "data": [
@@ -167114,7 +167114,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:32:53.546000"
+      "updated_at": "2026-06-12 19:17:47.359000"
     },
     {
       "id": 143203,
@@ -169553,7 +169553,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:33:06.725000"
+      "updated_at": "2026-06-12 19:17:58.584000"
     },
     {
       "id": 160087,
@@ -183066,7 +183066,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:39.508000"
+      "updated_at": "2026-06-12 19:16:37.889000"
     },
     {
       "id": 111808,
@@ -192268,7 +192268,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:25.015000"
+      "updated_at": "2026-06-12 19:16:27.824000"
     },
     {
       "id": 120873,
@@ -201862,7 +201862,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": true,
-      "updated_at": "2026-06-12 17:31:17.199000"
+      "updated_at": "2026-06-12 19:16:20.412000"
     },
     {
       "id": 115305,
@@ -202590,7 +202590,7 @@
       "impression": null,
       "alternate_titles": [],
       "is_highlight": false,
-      "updated_at": "2026-06-12 17:31:10.766000"
+      "updated_at": "2026-06-12 19:16:13.261000"
     },
     {
       "id": 147993,

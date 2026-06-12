@@ -1,0 +1,223 @@
+{
+  "generatedAt": "2026-06-12T21:32:24.289Z",
+  "status": "artifact-ready",
+  "corpusTier": "full-source-corpus",
+  "rawManifest": "data/raw/api/2026-06-12/manifest.json",
+  "priorSample": {
+    "records": 5000,
+    "totalAvailable": 68743,
+    "sampleShare": 0.0727,
+    "topDepartments": [
+      {
+        "value": "Medieval Art",
+        "count": 1313,
+        "share": 0.2626
+      },
+      {
+        "value": "Chinese Art",
+        "count": 374,
+        "share": 0.0748
+      },
+      {
+        "value": "Decorative Art and Design",
+        "count": 313,
+        "share": 0.0626
+      },
+      {
+        "value": "Drawings",
+        "count": 302,
+        "share": 0.0604
+      },
+      {
+        "value": "Indian and Southeast Asian Art",
+        "count": 279,
+        "share": 0.0558
+      }
+    ],
+    "topCreationCenturies": [
+      {
+        "value": "10th century",
+        "count": 911,
+        "share": 0.1822
+      },
+      {
+        "value": "19th century",
+        "count": 677,
+        "share": 0.1354
+      },
+      {
+        "value": "20th century",
+        "count": 619,
+        "share": 0.1238
+      },
+      {
+        "value": "18th century",
+        "count": 435,
+        "share": 0.087
+      },
+      {
+        "value": "16th century",
+        "count": 381,
+        "share": 0.0762
+      }
+    ],
+    "topAcquisitionDecades": [
+      {
+        "value": "1940s",
+        "count": 1275,
+        "share": 0.255
+      },
+      {
+        "value": "1960s",
+        "count": 570,
+        "share": 0.114
+      },
+      {
+        "value": "1950s",
+        "count": 443,
+        "share": 0.0886
+      },
+      {
+        "value": "1970s",
+        "count": 431,
+        "share": 0.0862
+      },
+      {
+        "value": "1980s",
+        "count": 386,
+        "share": 0.0772
+      }
+    ],
+    "imageAvailability": [
+      {
+        "value": "has-image",
+        "count": 4360,
+        "share": 0.872
+      },
+      {
+        "value": "no-image",
+        "count": 640,
+        "share": 0.128
+      }
+    ]
+  },
+  "fullCorpus": {
+    "records": 68742,
+    "totalAvailable": 68743,
+    "sampleShare": 1,
+    "missingFromApiTotal": 1,
+    "requests": 70,
+    "topDepartments": [
+      {
+        "value": "Prints",
+        "count": 21155,
+        "share": 0.3077
+      },
+      {
+        "value": "Photography",
+        "count": 10186,
+        "share": 0.1482
+      },
+      {
+        "value": "Drawings",
+        "count": 5445,
+        "share": 0.0792
+      },
+      {
+        "value": "Textiles",
+        "count": 5261,
+        "share": 0.0765
+      },
+      {
+        "value": "Decorative Art and Design",
+        "count": 5220,
+        "share": 0.0759
+      }
+    ],
+    "topCreationCenturies": [
+      {
+        "value": "20th century",
+        "count": 24306,
+        "share": 0.3536
+      },
+      {
+        "value": "19th century",
+        "count": 12753,
+        "share": 0.1855
+      },
+      {
+        "value": "18th century",
+        "count": 6298,
+        "share": 0.0916
+      },
+      {
+        "value": "17th century",
+        "count": 5043,
+        "share": 0.0734
+      },
+      {
+        "value": "16th century",
+        "count": 3919,
+        "share": 0.057
+      }
+    ],
+    "topAcquisitionDecades": [
+      {
+        "value": "2010s",
+        "count": 8250,
+        "share": 0.12
+      },
+      {
+        "value": "1920s",
+        "count": 7464,
+        "share": 0.1086
+      },
+      {
+        "value": "1940s",
+        "count": 7406,
+        "share": 0.1077
+      },
+      {
+        "value": "2000s",
+        "count": 7035,
+        "share": 0.1023
+      },
+      {
+        "value": "1960s",
+        "count": 6495,
+        "share": 0.0945
+      }
+    ],
+    "imageAvailability": [
+      {
+        "value": "has-image",
+        "count": 41444,
+        "share": 0.6029
+      },
+      {
+        "value": "no-image",
+        "count": 27298,
+        "share": 0.3971
+      }
+    ]
+  },
+  "materialDifferences": [
+    "Department leader changed from Medieval Art (1313) in the sample to Prints (21155) in the full corpus.",
+    "Creation-century leader changed from 10th century (911) to 20th century (24306).",
+    "Image availability changed from 87.2% in the sample to 60.3% in the full corpus.",
+    "Accession proxy mismatch rows increased from 229 in the sample audit to 7739 in the full-corpus audit, so acquisition-decade claims still require caution."
+  ],
+  "readinessEvidence": [
+    "Full-pagination raw manifest exists with 68,742 fetched records from 68,743 reported API records.",
+    "Processed full-corpus artwork table exists.",
+    "Sample-vs-full comparison report exists.",
+    "Chart package rebuilt from full corpus.",
+    "Audit packet rebuilt from full corpus.",
+    "Post evidence audit passes against full-corpus claims."
+  ],
+  "nextActions": [
+    "Keep public claims scoped to the Cleveland Museum of Art API corpus.",
+    "Use explicit acquisition dates rather than accession-number proxies for stronger acquisition-history claims.",
+    "Compare against another open museum API before cross-institution collection-shape claims."
+  ]
+}
