@@ -4,6 +4,33 @@ The Cultural Observatory / Archive Signals program is a public research and publ
 
 ## Implemented Tracks
 
+### Publication Queue
+
+Path: `docs/experiments/publication-queue/`
+
+Status: program-level editorial queue generated from experiment readiness artifacts.
+
+Implemented:
+
+- publication queue generator
+- queue JSON/CSV/Markdown outputs
+- editorial calendar draft
+- ready vs source-work grouping
+- priority scoring from readiness, drafts, charts, and editorial lane
+
+Current queue:
+
+- 6 tracked essay/research artifacts
+- 3 ready for editorial review
+- 3 not ready for publication
+- first public essay candidate: What A Museum Collection Looks Like When It Becomes Data
+
+Next implementation moves:
+
+- polish the Cleveland public draft into publication copy
+- add chart captions and audit caveats to the first essay
+- resolve source-work blockers for mission statements, museum language, and literature radar
+
 ### Research Backlog And Scout Workflow
 
 Path: `docs/experiments/research-backlog/`
