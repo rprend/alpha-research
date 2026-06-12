@@ -128,6 +128,8 @@
     "self_study_progress_ledger_rows_with_portfolio_gate": 28,
     "self_study_portfolio_progress_rollups": 3,
     "self_study_portfolio_completion_gates": 3,
+    "self_study_portfolio_gate_status_template_rows": 3,
+    "self_study_portfolio_gate_status_import_rows": 0,
     "self_study_portfolio_milestones": 3,
     "self_study_portfolio_briefs": 3,
     "self_study_portfolio_briefs_with_completion_gate_status": 3,
@@ -410,6 +412,16 @@
       "id": "self_study_portfolio_completion_gates_define_review_readiness",
       "status": "pass",
       "detail": "3 portfolio completion gates for 3 milestones; 0 gate reference errors; generated mismatch=false."
+    },
+    {
+      "id": "self_study_portfolio_gate_status_template_targets_valid_checks",
+      "status": "pass",
+      "detail": "3 portfolio gate status template rows; 0 template reference errors."
+    },
+    {
+      "id": "self_study_portfolio_gate_status_imports_are_safe_to_apply",
+      "status": "pass",
+      "detail": "0 learner portfolio gate status import rows; 0 import reference/readiness errors."
     },
     {
       "id": "self_study_progress_ledger_links_to_portfolio_completion_gates",

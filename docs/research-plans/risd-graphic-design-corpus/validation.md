@@ -132,6 +132,8 @@ Overall status: pass
 - Self-study progress ledger rows with portfolio gate: 28
 - Self-study portfolio progress rollups: 3
 - Self-study portfolio completion gates: 3
+- Self-study portfolio gate status template rows: 3
+- Self-study portfolio gate status import rows: 0
 - Self-study portfolio milestones: 3
 - Self-study portfolio briefs: 3
 - Self-study portfolio briefs with completion gate status: 3
@@ -196,6 +198,8 @@ Overall status: pass
 - PASS self_study_progress_ledger_tracks_outputs_revisions_and_warnings: 28 progress ledger rows for 28 pacing rows; 0 ledger reference errors; generated mismatch=false.
 - PASS self_study_portfolio_progress_rollups_connect_ledger_to_manifests: 3 portfolio progress rollups for 3 milestones; 0 rollup reference errors; generated mismatch=false.
 - PASS self_study_portfolio_completion_gates_define_review_readiness: 3 portfolio completion gates for 3 milestones; 0 gate reference errors; generated mismatch=false.
+- PASS self_study_portfolio_gate_status_template_targets_valid_checks: 3 portfolio gate status template rows; 0 template reference errors.
+- PASS self_study_portfolio_gate_status_imports_are_safe_to_apply: 0 learner portfolio gate status import rows; 0 import reference/readiness errors.
 - PASS self_study_progress_ledger_links_to_portfolio_completion_gates: 28 progress ledger rows carry portfolio review gate annotations; 0 annotation reference errors.
 - PASS self_study_portfolio_briefs_embed_completion_gate_status: 3 portfolio briefs embed completion gate status; 0 readiness reference/render errors.
 - PASS self_study_portfolio_milestones_have_valid_review_packages: 3 portfolio milestones; 0 milestone reference errors; generated mismatch=false.
