@@ -56,6 +56,8 @@ function main() {
   const currentExcellent = counts.excellent_accounts ?? 0
   const currentReview = counts.review_decisions ?? reviewDecisions.length
   const productionReady = Boolean(readiness?.complete && releaseVerification?.complete)
+  const importedLineageRows = importWaves.reduce((sum, wave) => sum + (wave.mapped_lineage_rows ?? 0), 0)
+  const untracedImportRows = importWaves.reduce((sum, wave) => sum + (wave.unmapped_lineage_rows ?? 0), 0)
 
   const handoff = {
     generated_at: new Date().toISOString(),
@@ -105,6 +107,8 @@ function main() {
       category_coverage: categoryCoverage ? `${categoryCoverage.covered_labels}/${categoryCoverage.labels}` : 'missing',
       acquisition_tasks: counts.acquisition_tasks ?? acquisitionBatches?.tasks ?? 0,
       acquisition_import_waves: counts.acquisition_import_waves ?? importWaves.length,
+      acquisition_import_lineage_rows: importedLineageRows,
+      acquisition_import_untraced_rows: untracedImportRows,
       acquisition_runner_runnable_tasks: counts.acquisition_runner_runnable_tasks ?? acquisitionRun?.runnable_tasks ?? 0,
       acquisition_runner_skipped_tasks: counts.acquisition_runner_skipped_tasks ?? acquisitionRun?.skipped_tasks ?? 0,
       acquisition_run_history: counts.acquisition_run_history ?? acquisitionRunHistory.length,
@@ -149,6 +153,7 @@ function main() {
       provider_preflight: rel(join(reportsDir, 'provider-preflight.json')),
       refresh_plan: rel(join(reportsDir, 'refresh-plan.json')),
       acquisition_batches: rel(join(reportsDir, 'acquisition-batches.json')),
+      acquisition_import: rel(join(reportsDir, 'acquisition-import.json')),
       acquisition_import_waves: rel(join(processedDir, 'acquisition_import_waves.jsonl')),
       acquisition_run_history: rel(join(processedDir, 'acquisition_run_history.jsonl')),
       source_yield: rel(join(reportsDir, 'source-yield.json')),
@@ -212,6 +217,8 @@ ${handoff.objective}
 - Category coverage: ${handoff.current_corpus.category_coverage}
 - Acquisition tasks: ${handoff.current_corpus.acquisition_tasks}
 - Acquisition import waves: ${handoff.current_corpus.acquisition_import_waves}
+- Acquisition import traced rows: ${handoff.current_corpus.acquisition_import_lineage_rows}
+- Acquisition import untraced rows: ${handoff.current_corpus.acquisition_import_untraced_rows}
 - Acquisition runner runnable tasks: ${handoff.current_corpus.acquisition_runner_runnable_tasks}
 - Acquisition runner skipped tasks: ${handoff.current_corpus.acquisition_runner_skipped_tasks}
 - Acquisition run history: ${handoff.current_corpus.acquisition_run_history}

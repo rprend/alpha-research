@@ -63,9 +63,9 @@ Normalize search/provider acquisition exports into pipeline imports:
 node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs
 ```
 
-This also updates the acquisition import wave ledger at `data/processed/acquisition_import_waves.jsonl` and `.csv`.
+This also updates the acquisition import wave ledger at `data/processed/acquisition_import_waves.jsonl` and `.csv`, including scale-wave, execution, batch, and provider lineage when the exports came from `run-acquisition-batch.mjs`.
 
-Each provider run also appends a durable execution record to `data/processed/acquisition_run_history.jsonl`; the latest run remains available at `reports/acquisition-run.json`.
+Each provider run also appends a durable execution record to `data/processed/acquisition_run_history.jsonl`; the latest run remains available at `reports/acquisition-run.json`. The importer uses this history to map raw provider files back to the wave and task batch that produced them.
 
 Apply human review decisions:
 

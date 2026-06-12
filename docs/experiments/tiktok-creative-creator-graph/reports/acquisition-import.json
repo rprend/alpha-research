@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T20:51:38.115Z",
+  "generated_at": "2026-06-12T20:56:45.270Z",
   "input_rows": 6,
   "normalized_rows": 6,
   "skipped_rows": 0,
@@ -8,16 +8,28 @@
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
+  "mapped_lineage_rows": 0,
+  "unmapped_lineage_rows": 6,
+  "scale_wave_ids": {},
+  "execution_ids": {},
+  "batch_ids": {},
+  "lineage_providers": {},
   "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-12.jsonl",
   "wave": {
-    "wave_id": "import-2026-06-12T20-51-38-115Z",
-    "generated_at": "2026-06-12T20:51:38.115Z",
+    "wave_id": "import-2026-06-12T20-56-45-270Z",
+    "generated_at": "2026-06-12T20:56:45.270Z",
     "input_rows": 6,
     "normalized_rows": 6,
     "skipped_rows": 0,
     "output_accounts": 3,
     "source_file_count": 2,
     "source_files": "smoke-provider-results.jsonl|smoke-search-results.jsonl",
+    "mapped_lineage_rows": 0,
+    "unmapped_lineage_rows": 6,
+    "scale_wave_ids": "",
+    "execution_ids": "",
+    "batch_ids": "",
+    "lineage_providers": "",
     "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-12.jsonl",
     "target_label_counts": {
       "unclassified": 6

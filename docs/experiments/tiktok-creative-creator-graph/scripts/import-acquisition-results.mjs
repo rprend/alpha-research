@@ -138,7 +138,53 @@ function normalizeHashtags(value, text) {
   return Array.from(new Set([...explicit, ...extractHashtags(text)]))
 }
 
+function buildRunHistoryIndex() {
+  const runs = readJsonl(join(processedDir, 'acquisition_run_history.jsonl'))
+  const byOutputFile = new Map()
+  const byBatchId = new Map()
+  for (const run of runs) {
+    for (const result of run.results ?? []) {
+      const meta = {
+        wave_id: run.wave_id ?? result.wave_id ?? '',
+        execution_id: run.execution_id ?? result.execution_id ?? '',
+        batch_id: result.batch_id ?? '',
+        provider: run.provider ?? result.provider ?? '',
+        run_status: result.status ?? run.status ?? '',
+        actor_id: result.actor_id ?? '',
+        output_path: result.output_path ?? '',
+      }
+      if (meta.output_path) byOutputFile.set(basename(meta.output_path), meta)
+      if (meta.batch_id) {
+        const matches = byBatchId.get(meta.batch_id) ?? []
+        matches.push(meta)
+        byBatchId.set(meta.batch_id, matches)
+      }
+    }
+  }
+  return { byOutputFile, byBatchId }
+}
+
+function lineageForRow(row, sourceFile, index) {
+  const fileMeta = index.byOutputFile.get(sourceFile)
+  const batchMeta = row.batch_id ? index.byBatchId.get(row.batch_id)?.at(-1) : null
+  const meta = fileMeta ?? batchMeta ?? {}
+  const waveId = row.wave_id ?? row.scale_wave_id ?? row._source_wave_id ?? meta.wave_id ?? ''
+  const executionId = row.execution_id ?? row.provider_execution_id ?? meta.execution_id ?? ''
+  const batchId = row.batch_id ?? meta.batch_id ?? ''
+  const provider = row.provider ?? meta.provider ?? ''
+  return {
+    _source_wave_id: waveId,
+    _source_execution_id: executionId,
+    _source_batch_id: batchId,
+    _source_provider: provider,
+    _source_run_status: row.provider_status ?? row.run_status ?? meta.run_status ?? '',
+    _source_actor_id: row.actor_id ?? meta.actor_id ?? '',
+    _lineage_mapped: Boolean(waveId || executionId || batchId),
+  }
+}
+
 function loadRows() {
+  const lineageIndex = buildRunHistoryIndex()
   const paths = []
   if (inputPath) {
     paths.push(inputPath)
@@ -157,7 +203,14 @@ function loadRows() {
       : extension === '.json'
         ? asArray(readJson(path))
         : readCsv(path)
-    for (const row of parsed) rows.push({ ...row, _source_file: basename(path) })
+    const sourceFile = basename(path)
+    for (const row of parsed) {
+      rows.push({
+        ...row,
+        _source_file: sourceFile,
+        ...lineageForRow(row, sourceFile, lineageIndex),
+      })
+    }
   }
   return rows
 }
@@ -188,6 +241,12 @@ function canonicalFromProvider(row) {
     source_type: sourceTypeFor(row),
     source_query: row.query ?? row.search_query ?? '',
     source_url: row.source_url ?? videoUrl ?? profileUrl,
+    source_wave_id: row._source_wave_id ?? '',
+    source_execution_id: row._source_execution_id ?? '',
+    source_batch_id: row._source_batch_id ?? '',
+    source_provider: row._source_provider ?? '',
+    source_run_status: row._source_run_status ?? '',
+    source_actor_id: row._source_actor_id ?? '',
     videos: videoUrl || caption
       ? [{
           url: videoUrl,
@@ -224,6 +283,12 @@ function canonicalFromSearch(row) {
     source_type: sourceTypeFor(row),
     source_query: row.query ?? row.search_query ?? '',
     source_url: row.source_url ?? profileUrl,
+    source_wave_id: row._source_wave_id ?? '',
+    source_execution_id: row._source_execution_id ?? '',
+    source_batch_id: row._source_batch_id ?? '',
+    source_provider: row._source_provider ?? '',
+    source_run_status: row._source_run_status ?? '',
+    source_actor_id: row._source_actor_id ?? '',
     videos: [],
   }
 }
@@ -235,10 +300,22 @@ function mergeRows(rows) {
     normalized_rows: 0,
     skipped_rows: 0,
     source_files: {},
+    mapped_lineage_rows: 0,
+    unmapped_lineage_rows: 0,
+    wave_ids: {},
+    execution_ids: {},
+    batch_ids: {},
+    lineage_providers: {},
   }
 
   for (const row of rows) {
     stats.source_files[row._source_file] = (stats.source_files[row._source_file] ?? 0) + 1
+    if (row._lineage_mapped) stats.mapped_lineage_rows += 1
+    else stats.unmapped_lineage_rows += 1
+    if (row._source_wave_id) stats.wave_ids[row._source_wave_id] = (stats.wave_ids[row._source_wave_id] ?? 0) + 1
+    if (row._source_execution_id) stats.execution_ids[row._source_execution_id] = (stats.execution_ids[row._source_execution_id] ?? 0) + 1
+    if (row._source_batch_id) stats.batch_ids[row._source_batch_id] = (stats.batch_ids[row._source_batch_id] ?? 0) + 1
+    if (row._source_provider) stats.lineage_providers[row._source_provider] = (stats.lineage_providers[row._source_provider] ?? 0) + 1
     const canonical = (row.authorMeta || row.author || row.webVideoUrl || row.playCount != null)
       ? canonicalFromProvider(row)
       : canonicalFromSearch(row)
@@ -249,7 +326,14 @@ function mergeRows(rows) {
     stats.normalized_rows += 1
     const existing = merged.get(canonical.handle)
     if (!existing) {
-      merged.set(canonical.handle, { ...canonical, acquisition_source_files: [row._source_file] })
+      merged.set(canonical.handle, {
+        ...canonical,
+        acquisition_source_files: [row._source_file],
+        acquisition_wave_ids: asArray(canonical.source_wave_id),
+        acquisition_execution_ids: asArray(canonical.source_execution_id),
+        acquisition_batch_ids: asArray(canonical.source_batch_id),
+        acquisition_providers: asArray(canonical.source_provider),
+      })
       continue
     }
     existing.display_name ||= canonical.display_name
@@ -261,6 +345,10 @@ function mergeRows(rows) {
     existing.bio_links = Array.from(new Set([...existing.bio_links, ...canonical.bio_links]))
     existing.videos = [...existing.videos, ...canonical.videos]
     existing.acquisition_source_files = Array.from(new Set([...existing.acquisition_source_files, row._source_file]))
+    existing.acquisition_wave_ids = Array.from(new Set([...asArray(existing.acquisition_wave_ids), ...asArray(canonical.source_wave_id)]))
+    existing.acquisition_execution_ids = Array.from(new Set([...asArray(existing.acquisition_execution_ids), ...asArray(canonical.source_execution_id)]))
+    existing.acquisition_batch_ids = Array.from(new Set([...asArray(existing.acquisition_batch_ids), ...asArray(canonical.source_batch_id)]))
+    existing.acquisition_providers = Array.from(new Set([...asArray(existing.acquisition_providers), ...asArray(canonical.source_provider)]))
   }
 
   const accounts = Array.from(merged.values()).map((account) => ({
@@ -296,6 +384,12 @@ function summarizeWave(rows, accounts, stats, report) {
     output_accounts: accounts.length,
     source_file_count: sourceFiles.length,
     source_files: sourceFiles.join('|'),
+    mapped_lineage_rows: stats.mapped_lineage_rows,
+    unmapped_lineage_rows: stats.unmapped_lineage_rows,
+    scale_wave_ids: Object.keys(stats.wave_ids).join('|'),
+    execution_ids: Object.keys(stats.execution_ids).join('|'),
+    batch_ids: Object.keys(stats.batch_ids).join('|'),
+    lineage_providers: Object.keys(stats.lineage_providers).join('|'),
     output_path: report.output_path,
     target_label_counts: targetLabelCounts,
     surface_counts: surfaceCounts,
@@ -318,6 +412,12 @@ function upsertWave(wave) {
     output_accounts: row.output_accounts,
     source_file_count: row.source_file_count,
     source_files: row.source_files,
+    mapped_lineage_rows: row.mapped_lineage_rows ?? 0,
+    unmapped_lineage_rows: row.unmapped_lineage_rows ?? 0,
+    scale_wave_ids: row.scale_wave_ids ?? '',
+    execution_ids: row.execution_ids ?? '',
+    batch_ids: row.batch_ids ?? '',
+    lineage_providers: row.lineage_providers ?? '',
     output_path: row.output_path,
     target_label_counts: JSON.stringify(row.target_label_counts),
     surface_counts: JSON.stringify(row.surface_counts),
@@ -340,6 +440,12 @@ function main() {
     skipped_rows: stats.skipped_rows,
     output_accounts: accounts.length,
     source_files: stats.source_files,
+    mapped_lineage_rows: stats.mapped_lineage_rows,
+    unmapped_lineage_rows: stats.unmapped_lineage_rows,
+    scale_wave_ids: stats.wave_ids,
+    execution_ids: stats.execution_ids,
+    batch_ids: stats.batch_ids,
+    lineage_providers: stats.lineage_providers,
     output_path: outputPath.replace(`${root}/`, ''),
   }
   const wave = summarizeWave(rows, accounts, stats, report)
@@ -357,15 +463,28 @@ Generated: ${report.generated_at}
 - Output accounts: ${report.output_accounts}
 - Output path: \`${report.output_path}\`
 - Import waves tracked: ${report.import_waves}
+- Mapped lineage rows: ${report.mapped_lineage_rows}
+- Unmapped lineage rows: ${report.unmapped_lineage_rows}
 
 ## Source Files
 
 ${Object.entries(report.source_files).map(([file, count]) => `- ${file}: ${count}`).join('\n')}
 
+## Lineage
+
+- Scale waves: ${Object.entries(report.scale_wave_ids).map(([id, count]) => `${id}=${count}`).join(', ') || 'none'}
+- Executions: ${Object.entries(report.execution_ids).map(([id, count]) => `${id}=${count}`).join(', ') || 'none'}
+- Batches: ${Object.entries(report.batch_ids).map(([id, count]) => `${id}=${count}`).join(', ') || 'none'}
+- Providers: ${Object.entries(report.lineage_providers).map(([id, count]) => `${id}=${count}`).join(', ') || 'none'}
+
 ## Wave
 
 - Wave id: ${wave.wave_id}
 - Source file count: ${wave.source_file_count}
+- Scale waves: ${wave.scale_wave_ids || 'none'}
+- Executions: ${wave.execution_ids || 'none'}
+- Batches: ${wave.batch_ids || 'none'}
+- Lineage providers: ${wave.lineage_providers || 'none'}
 - Target labels: ${Object.entries(wave.target_label_counts).map(([label, count]) => `${label}=${count}`).join(', ') || 'none'}
 - Surfaces: ${Object.entries(wave.surface_counts).map(([surface, count]) => `${surface}=${count}`).join(', ') || 'none'}
 `)
