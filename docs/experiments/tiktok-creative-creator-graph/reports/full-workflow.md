@@ -1,6 +1,6 @@
 # Full Workflow
 
-Generated: 2026-06-12T21:05:19.464Z
+Generated: 2026-06-12T21:09:55.534Z
 
 Complete: true
 
@@ -22,6 +22,7 @@ Complete: true
 - build_scale_waves: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-scale-waves.mjs`)
 - build_wave_ledger: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-wave-ledger.mjs`)
 - build_provider_preflight: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-provider-preflight.mjs`)
+- build_live_run_manifest: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-live-run-manifest.mjs`)
 - build_refresh_plan: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-refresh-plan.mjs`)
 - build_publication_handoff: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-publication-handoff.mjs`)
 - check_readiness: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/check-readiness.mjs`)

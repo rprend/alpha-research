@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T21:05:19.139Z",
+  "generated_at": "2026-06-12T21:09:55.181Z",
   "objective": "TikTok creative creator graph release package",
   "counts": {
     "accounts": 9,
@@ -10,7 +10,7 @@
     "review_queue": 5
   },
   "readiness": {
-    "generated_at": "2026-06-12T21:02:22.955Z",
+    "generated_at": "2026-06-12T21:05:19.459Z",
     "complete": false,
     "counts": {
       "accounts": 9,
@@ -34,7 +34,7 @@
       "acquisition_runner_tasks": 2,
       "acquisition_runner_runnable_tasks": 2,
       "acquisition_runner_skipped_tasks": 0,
-      "acquisition_run_history": 7,
+      "acquisition_run_history": 8,
       "source_yield_rows": 7,
       "identities": 9,
       "category_coverage_labels": 11,
@@ -118,7 +118,7 @@
       {
         "id": "acquisition_run_history",
         "status": "pass",
-        "evidence": "7 acquisition run history rows persisted"
+        "evidence": "8 acquisition run history rows persisted"
       },
       {
         "id": "source_yield",

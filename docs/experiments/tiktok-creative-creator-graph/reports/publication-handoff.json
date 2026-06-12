@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T21:05:19.420Z",
+  "generated_at": "2026-06-12T21:09:55.489Z",
   "dataset_id": "tiktok-creative-creator-graph",
   "title": "TikTok Creative Creator Graph",
   "publish_state": "not-ready-production-data",
@@ -53,7 +53,7 @@
     "acquisition_import_untraced_rows": 6,
     "acquisition_runner_runnable_tasks": 2,
     "acquisition_runner_skipped_tasks": 0,
-    "acquisition_run_history": 7,
+    "acquisition_run_history": 8,
     "scale_waves": 1000,
     "wave_ledger_rows": 1000,
     "wave_ledger_planned": 995,
@@ -63,6 +63,9 @@
     "provider_preflight_ready_tasks": 20,
     "provider_preflight_blocked_tasks": 0,
     "provider_preflight_estimated_cost_usd": 5,
+    "live_run_manifest_waves": 10,
+    "live_run_manifest_runnable_waves": 10,
+    "live_run_manifest_estimated_cost_usd": 5,
     "refresh_tasks": 9
   },
   "target_gaps": {
@@ -79,6 +82,7 @@
     "scale_waves_available": true,
     "wave_ledger_available": true,
     "provider_preflight_available": true,
+    "live_run_manifest_available": true,
     "refresh_plan_available": true
   },
   "paths": {
@@ -93,6 +97,8 @@
     "scale_waves": "docs/experiments/tiktok-creative-creator-graph/reports/scale-waves.json",
     "wave_ledger": "docs/experiments/tiktok-creative-creator-graph/reports/wave-ledger.json",
     "provider_preflight": "docs/experiments/tiktok-creative-creator-graph/reports/provider-preflight.json",
+    "live_run_manifest": "docs/experiments/tiktok-creative-creator-graph/reports/live-run-manifest.json",
+    "live_run_manifest_queue": "docs/experiments/tiktok-creative-creator-graph/data/processed/live_run_manifest.csv",
     "refresh_plan": "docs/experiments/tiktok-creative-creator-graph/reports/refresh-plan.json",
     "acquisition_batches": "docs/experiments/tiktok-creative-creator-graph/reports/acquisition-batches.json",
     "candidate_frontier": "docs/experiments/tiktok-creative-creator-graph/reports/candidate-frontier.json",

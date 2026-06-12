@@ -145,6 +145,12 @@ Build provider execution preflight:
 node docs/experiments/tiktok-creative-creator-graph/scripts/build-provider-preflight.mjs --max-waves=10 --budget-usd=25
 ```
 
+Build the live execution manifest from the passing preflight:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/build-live-run-manifest.mjs
+```
+
 Build refresh plan:
 
 ```bash
@@ -293,6 +299,8 @@ The pipeline writes:
 - `data/processed/wave_ledger.csv`
 - `data/processed/provider_preflight.jsonl`
 - `data/processed/provider_preflight.csv`
+- `data/processed/live_run_manifest.jsonl`
+- `data/processed/live_run_manifest.csv`
 - `reports/result.json`
 - `reports/work.md`
 - `reports/readiness.md`
@@ -331,6 +339,8 @@ The pipeline writes:
 - `reports/wave-ledger.json`
 - `reports/provider-preflight.md`
 - `reports/provider-preflight.json`
+- `reports/live-run-manifest.md`
+- `reports/live-run-manifest.json`
 - `reports/refresh-plan.md`
 - `reports/refresh-plan.json`
 - `reports/publication-handoff.md`
@@ -361,10 +371,11 @@ The pipeline writes:
 20. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-scale-waves.mjs` to create the 250-candidate acquisition wave queue.
 21. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-wave-ledger.mjs` to track planned, attempted, imported, and failed waves.
 22. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-provider-preflight.mjs --max-waves=10 --budget-usd=25` before live provider execution.
-23. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-refresh-plan.mjs` to schedule weekly/monthly/quarterly account refreshes.
-24. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-publication-handoff.mjs` to generate the control-plane handoff package.
-25. Use reviewed accepted/rejected/benchmark outputs to tune sources and scoring.
-26. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
+23. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-live-run-manifest.mjs` to create the exact dry-run, live-run, import, and rebuild command queue.
+24. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-refresh-plan.mjs` to schedule weekly/monthly/quarterly account refreshes.
+25. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-publication-handoff.mjs` to generate the control-plane handoff package.
+26. Use reviewed accepted/rejected/benchmark outputs to tune sources and scoring.
+27. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
 
 ## Current Limitations
 

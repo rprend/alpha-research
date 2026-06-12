@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T21:05:19.459Z
+Generated: 2026-06-12T21:09:55.530Z
 
 Complete: false
 
@@ -43,6 +43,9 @@ Complete: false
 - Provider preflight ready tasks: 20
 - Provider preflight blocked tasks: 0
 - Provider preflight estimated cost: $5
+- Live run manifest waves: 10
+- Live run manifest runnable waves: 10
+- Live run manifest estimated cost: $5
 - Refresh tasks: 9
 - Publication handoff: 1
 
@@ -70,6 +73,7 @@ Complete: false
 - scale_waves: pass (1000 executable acquisition waves planned)
 - wave_ledger: pass (1000 wave execution ledger rows generated)
 - provider_preflight: pass (20/20 ready provider tasks, budget ok)
+- live_run_manifest: pass (10/10 runnable live waves, estimated cost $5)
 - refresh_plan: pass (9 account refresh tasks generated)
 - publication_handoff: pass (not-ready-production-data handoff generated)
 - useful_account_target: incomplete (5/50000 useful accounts)

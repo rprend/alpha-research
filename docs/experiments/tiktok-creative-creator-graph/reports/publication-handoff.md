@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-12T21:05:19.420Z
+Generated: 2026-06-12T21:09:55.489Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -31,7 +31,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Acquisition import untraced rows: 6
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
-- Acquisition run history: 7
+- Acquisition run history: 8
 - Scale waves: 1000
 - Wave ledger rows: 1000
 - Wave ledger planned: 995
@@ -41,6 +41,9 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Provider preflight ready tasks: 20
 - Provider preflight blocked tasks: 0
 - Provider preflight estimated cost: $5
+- Live run manifest waves: 10
+- Live run manifest runnable waves: 10
+- Live run manifest estimated cost: $5
 - Refresh tasks: 9
 
 ## Remaining Production Gaps
@@ -62,6 +65,8 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - scale_waves: `docs/experiments/tiktok-creative-creator-graph/reports/scale-waves.json`
 - wave_ledger: `docs/experiments/tiktok-creative-creator-graph/reports/wave-ledger.json`
 - provider_preflight: `docs/experiments/tiktok-creative-creator-graph/reports/provider-preflight.json`
+- live_run_manifest: `docs/experiments/tiktok-creative-creator-graph/reports/live-run-manifest.json`
+- live_run_manifest_queue: `docs/experiments/tiktok-creative-creator-graph/data/processed/live_run_manifest.csv`
 - refresh_plan: `docs/experiments/tiktok-creative-creator-graph/reports/refresh-plan.json`
 - acquisition_batches: `docs/experiments/tiktok-creative-creator-graph/reports/acquisition-batches.json`
 - candidate_frontier: `docs/experiments/tiktok-creative-creator-graph/reports/candidate-frontier.json`
@@ -91,6 +96,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - scale_waves_available: pass
 - wave_ledger_available: pass
 - provider_preflight_available: pass
+- live_run_manifest_available: pass
 - refresh_plan_available: pass
 
 ## Registration Constraints

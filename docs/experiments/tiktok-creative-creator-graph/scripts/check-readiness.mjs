@@ -40,8 +40,14 @@ function main() {
   const scaleWaves = readJsonl(join(processedDir, 'scale_waves.jsonl'))
   const waveLedger = readJsonl(join(processedDir, 'wave_ledger.jsonl'))
   const providerPreflight = readJsonl(join(processedDir, 'provider_preflight.jsonl'))
+  const liveRunManifest = readJsonl(join(processedDir, 'live_run_manifest.jsonl'))
   const providerPreflightReport = (() => {
     const path = join(reportsDir, 'provider-preflight.json')
+    if (!existsSync(path)) return null
+    return JSON.parse(readFileSync(path, 'utf8'))
+  })()
+  const liveRunManifestReport = (() => {
+    const path = join(reportsDir, 'live-run-manifest.json')
     if (!existsSync(path)) return null
     return JSON.parse(readFileSync(path, 'utf8'))
   })()
@@ -190,6 +196,11 @@ function main() {
       evidence: providerPreflightReport ? `${providerPreflightReport.ready_tasks}/${providerPreflightReport.task_rows} ready provider tasks, budget ${providerPreflightReport.within_budget ? 'ok' : 'exceeded'}` : 'provider preflight missing',
     },
     {
+      id: 'live_run_manifest',
+      status: liveRunManifest.length > 0 && liveRunManifestReport?.within_budget && liveRunManifestReport?.blocked_waves === 0 ? 'pass' : 'fail',
+      evidence: liveRunManifestReport ? `${liveRunManifestReport.runnable_waves}/${liveRunManifestReport.manifest_waves} runnable live waves, estimated cost $${liveRunManifestReport.estimated_cost_usd}` : 'live run manifest missing',
+    },
+    {
       id: 'refresh_plan',
       status: refreshTasks.length > 0 ? 'pass' : 'fail',
       evidence: `${refreshTasks.length} account refresh tasks generated`,
@@ -259,6 +270,9 @@ function main() {
       provider_preflight_ready_tasks: providerPreflightReport?.ready_tasks ?? 0,
       provider_preflight_blocked_tasks: providerPreflightReport?.blocked_tasks ?? 0,
       provider_preflight_estimated_cost_usd: providerPreflightReport?.estimated_cost_usd ?? 0,
+      live_run_manifest_waves: liveRunManifest.length,
+      live_run_manifest_runnable_waves: liveRunManifestReport?.runnable_waves ?? 0,
+      live_run_manifest_estimated_cost_usd: liveRunManifestReport?.estimated_cost_usd ?? 0,
       refresh_tasks: refreshTasks.length,
       publication_handoff: publicationHandoff ? 1 : 0,
     },
@@ -316,6 +330,9 @@ Complete: ${summary.complete}
 - Provider preflight ready tasks: ${summary.counts.provider_preflight_ready_tasks}
 - Provider preflight blocked tasks: ${summary.counts.provider_preflight_blocked_tasks}
 - Provider preflight estimated cost: $${summary.counts.provider_preflight_estimated_cost_usd}
+- Live run manifest waves: ${summary.counts.live_run_manifest_waves}
+- Live run manifest runnable waves: ${summary.counts.live_run_manifest_runnable_waves}
+- Live run manifest estimated cost: $${summary.counts.live_run_manifest_estimated_cost_usd}
 - Refresh tasks: ${summary.counts.refresh_tasks}
 - Publication handoff: ${summary.counts.publication_handoff}
 

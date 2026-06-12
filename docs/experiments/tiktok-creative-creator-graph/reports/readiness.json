@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T21:05:19.459Z",
+  "generated_at": "2026-06-12T21:09:55.530Z",
   "complete": false,
   "counts": {
     "accounts": 9,
@@ -40,6 +40,9 @@
     "provider_preflight_ready_tasks": 20,
     "provider_preflight_blocked_tasks": 0,
     "provider_preflight_estimated_cost_usd": 5,
+    "live_run_manifest_waves": 10,
+    "live_run_manifest_runnable_waves": 10,
+    "live_run_manifest_estimated_cost_usd": 5,
     "refresh_tasks": 9,
     "publication_handoff": 1
   },
@@ -153,6 +156,11 @@
       "id": "provider_preflight",
       "status": "pass",
       "evidence": "20/20 ready provider tasks, budget ok"
+    },
+    {
+      "id": "live_run_manifest",
+      "status": "pass",
+      "evidence": "10/10 runnable live waves, estimated cost $5"
     },
     {
       "id": "refresh_plan",
