@@ -365,7 +365,7 @@
     {
       "id": "self_study_curriculum_modules_have_grounded_evidence",
       "status": "pass",
-      "detail": "14 modules; 14 with filtered assignments, 11 with usable readings/resources, 9 with schedule rhythm, 3 with comparison evidence, 13 with explicit unknowns; 0 module reference errors."
+      "detail": "14 modules; 14 with filtered assignments, 11 with usable readings/resources, 9 with schedule rhythm, 3 with comparison evidence, 13 with explicit unknowns; 0 module reference errors; generated mismatch=false."
     },
     {
       "id": "official_course_inventory_reconciled",

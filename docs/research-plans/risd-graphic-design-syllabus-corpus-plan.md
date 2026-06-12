@@ -85,6 +85,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/course_reconstruction.md`
 - `docs/research-plans/risd-graphic-design-corpus/tacit_knowledge_memo.md`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_curriculum.md`
+- `docs/research-plans/risd-graphic-design-corpus/self_study_modules.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/source_audit.md`
 
 Current seed sources include:
@@ -353,7 +354,7 @@ Acceptance output:
 
 ### Step 9: Generate A Mentor-Style Self-Study Curriculum From Evidence
 
-Status: implemented for evidence-filtered module selection, filtered assignment/reading/schedule display, module-level practice loops, explicit missing-evidence warnings, student/faculty comparison boundaries, and validation that generated modules cite source IDs and reference existing assignment/reading/schedule/student-work records. The next improvement should add a separate machine-readable `self_study_modules.jsonl` artifact so downstream applications can render modules without parsing Markdown.
+Status: implemented for evidence-filtered module selection, filtered assignment/reading/schedule display, module-level practice loops, explicit missing-evidence warnings, student/faculty comparison boundaries, a machine-readable `self_study_modules.jsonl` artifact, and validation that generated modules cite source IDs and reference existing assignment/reading/schedule/student-work records. The next improvement should organize `tacit_knowledge_memo.md` around the same module rows so the memo and curriculum share one structured source of truth.
 
 Goal: make the corpus usable for the original purpose: tacit catch-up through concrete studio loops.
 
@@ -380,6 +381,7 @@ Validation requirements:
 Acceptance output:
 
 - richer `self_study_curriculum.md`
+- `self_study_modules.jsonl` for downstream rendering without Markdown parsing
 - `tacit_knowledge_memo.md` organized around observed studio practices rather than unsupported generalizations
 
 ### Step 10: Keep Validation, Documentation, And Deployment In Lockstep
