@@ -57,6 +57,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/readings.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/faculty.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/faculty_course_edges.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/faculty_portfolio_examples.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/student_work.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/source_clusters.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/source_versions.jsonl`
@@ -267,6 +268,23 @@ Required fields:
 - `project_statement_excerpt`
 - `assignment_link_confidence`
 - `visual_standard_notes`
+- `evidence_grade`
+
+### `faculty_portfolio_examples.jsonl`
+
+One row per public faculty portfolio/project example recovered from external faculty profile sources. These examples support visual/tacit calibration but are not student work or full course evidence unless another source links them to a course.
+
+Required fields:
+
+- `example_id`
+- `faculty_name`
+- `url`
+- `source_ids`
+- `title`
+- `medium`
+- `project_statement_excerpt`
+- `visual_standard_notes`
+- `relationship`
 - `evidence_grade`
 
 ### `faculty.jsonl`
@@ -586,7 +604,8 @@ Implementation requirements:
    - RISD Graphic Design
 6. Follow public faculty portfolio links beyond the curated hint list, starting with external links exposed on official RISD faculty profile pages.
 7. Extract course-source-faculty edges into `faculty_course_edges.jsonl`.
-8. Use faculty pages for discovery and attribution, not as full syllabus evidence unless they include classroom artifacts.
+8. Extract public faculty portfolio examples into `faculty_portfolio_examples.jsonl` for visual/tacit calibration, keeping them separate from student work.
+9. Use faculty pages for discovery and attribution, not as full syllabus evidence unless they include classroom artifacts.
 
 ### Tier 5: Student Work And Thesis Archives
 

@@ -14,6 +14,7 @@ const commonCrawlOnly = process.argv.includes('--common-crawl-only')
 const promoteCommonCrawlOnly = process.argv.includes('--promote-common-crawl-only')
 const ingestCommonCrawlOnly = process.argv.includes('--ingest-common-crawl-only')
 const ingestFacultyProfilesOnly = process.argv.includes('--ingest-faculty-profiles-only')
+const facultyPortfolioExamplesOnly = process.argv.includes('--faculty-portfolio-examples-only')
 const searchApiOnly = process.argv.includes('--search-api-only')
 const officialCourseMaxPages = 12
 const crawlMaxDepth = 1
@@ -24,6 +25,7 @@ const commonCrawlMaxRowsPerQuery = Number(process.env.RISD_GD_CC_MAX_ROWS_PER_QU
 const commonCrawlPromoteLimit = Number(process.env.RISD_GD_CC_PROMOTE_LIMIT ?? 8)
 const commonCrawlIngestLimit = Number(process.env.RISD_GD_CC_INGEST_LIMIT ?? 8)
 const facultyProfileIngestLimit = Number(process.env.RISD_GD_FACULTY_PROFILE_INGEST_LIMIT ?? 40)
+const facultyPortfolioExampleLimit = Number(process.env.RISD_GD_FACULTY_PORTFOLIO_EXAMPLE_LIMIT ?? 60)
 const searchApiMaxQueries = Number(process.env.RISD_GD_SEARCH_API_MAX_QUERIES ?? 6)
 const searchApiResultsPerQuery = Number(process.env.RISD_GD_SEARCH_API_RESULTS_PER_QUERY ?? 10)
 const searchImportPath = process.env.RISD_GD_SEARCH_IMPORTS ?? join(outDir, 'search_imports.jsonl')
@@ -2236,6 +2238,69 @@ function buildStudentWork(inspected) {
   return rows
 }
 
+function isExternalFacultyProfileSource(source) {
+  if (source.source_type !== 'faculty_profile') return false
+  try {
+    return !new URL(source.url).hostname.endsWith('risd.edu')
+  } catch {
+    return false
+  }
+}
+
+function isLikelyFacultyPortfolioExampleLink(link) {
+  const combined = `${link.url} ${link.label ?? ''}`.toLowerCase()
+  if (!link.label || link.label.length < 2) return false
+  if (/about|contact|cv|resume|instagram|linkedin|facebook|twitter|privacy|newsletter|shop|cart|press|client|index|home\b/.test(combined)) return false
+  return /project|work|archive|poster|book|publication|identity|type|letter|exhibition|studio|design|print|web|site|specimen|collection|gallery|20\d{2}/.test(combined)
+}
+
+function buildFacultyPortfolioExamples(inspected) {
+  const rows = []
+  for (const { source, text, links = [] } of inspected.filter(({ source, text }) => source.extraction_status === 'ok' && text && isExternalFacultyProfileSource(source))) {
+    const snippets = sentenceSnippets(text, ['project', 'work', 'poster', 'book', 'publication', 'identity', 'type', 'exhibition', 'design'], 10)
+    const medium = inferStudentWorkMedium(`${source.title ?? ''} ${text}`)
+    const linkedItems = links.filter((link) => isLikelyFacultyPortfolioExampleLink(link)).slice(0, 12)
+    if (!linkedItems.length && snippets.length) {
+      rows.push({
+        example_id: `faculty_portfolio_${source.source_id.replace(/^src_/, '')}`,
+        faculty_name: source.instructor ?? null,
+        url: source.url,
+        source_ids: [source.source_id],
+        title: source.title ?? null,
+        medium,
+        project_statement_excerpt: snippets[0],
+        visual_standard_notes: visualStandardNotes(snippets),
+        evidence_grade: 'E',
+        relationship: 'faculty_public_portfolio_page',
+      })
+      continue
+    }
+    linkedItems.forEach((link, index) => {
+      const label = link.label || titleFromUrl(link.url)
+      const evidence = `${label} ${link.url}`
+      rows.push({
+        example_id: `faculty_portfolio_${source.source_id.replace(/^src_/, '')}_${String(index + 1).padStart(2, '0')}`,
+        faculty_name: source.instructor ?? null,
+        url: link.url,
+        source_ids: [source.source_id],
+        title: label,
+        medium: inferStudentWorkMedium(evidence) ?? medium,
+        project_statement_excerpt: snippets[0] ?? null,
+        visual_standard_notes: visualStandardNotes([label, ...snippets.slice(0, 3)]),
+        evidence_grade: 'E',
+        relationship: 'faculty_public_portfolio_example',
+      })
+    })
+  }
+  const seen = new Set()
+  return rows.filter((row) => {
+    const key = `${row.faculty_name ?? ''}|${row.url}`
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  }).slice(0, facultyPortfolioExampleLimit)
+}
+
 function buildSourceClusters(inspected, syllabi, readings) {
   const sourceById = new Map(inspected.map(({ source }) => [source.source_id, source]))
   const clusters = []
@@ -2615,7 +2680,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], searchCandidates = [], commonCrawlCandidates = [], commonCrawlPromotions = [], facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [] }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], searchCandidates = [], commonCrawlCandidates = [], commonCrawlPromotions = [], facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], facultyPortfolioExamples = [], sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [] }) {
   const sourceIds = new Set(sources.map((source) => source.source_id))
   const syllabusIds = new Set(syllabi.map((syllabus) => syllabus.syllabus_id))
   const failedSourceIds = new Set(sources.filter((source) => source.extraction_status !== 'ok').map((source) => source.source_id))
@@ -2688,6 +2753,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const facultyEdgeErrors = facultyCourseEdges.filter((edge) => !edge.edge_id || !facultyIds.has(edge.faculty_id) || edge.source_ids?.some((id) => !sourceIds.has(id)))
   const studentWorkSourceErrors = studentWork.filter((work) => work.source_ids.some((id) => !sourceIds.has(id)))
   const structuredStudentWorkCount = studentWork.filter((work) => work.url && (work.medium || work.project_title || work.project_statement_excerpt || work.assignment_link_confidence || work.visual_standard_notes?.length) && work.evidence_grade).length
+  const facultyPortfolioExampleErrors = facultyPortfolioExamples.filter((example) => !example.example_id || !example.url || example.source_ids?.some((id) => !sourceIds.has(id)))
+  const structuredFacultyPortfolioExampleCount = facultyPortfolioExamples.filter((example) => example.url && example.faculty_name && (example.medium || example.title || example.project_statement_excerpt || example.visual_standard_notes?.length)).length
   const sourceClusterErrors = sourceClusters.filter((cluster) => !cluster.representative_source_id || !cluster.source_ids?.length || cluster.source_ids.some((id) => !sourceIds.has(id)))
   const sourceVersionErrors = sourceVersions.filter((version) => !version.source_id || !version.version_id || version.current_source_id && !sourceIds.has(version.current_source_id) || version.fetched_archive_source_ids?.some((id) => !sourceIds.has(id)))
   const fetchedArchiveVersionCount = sourceVersions.filter((version) => version.comparison_status === 'fetched_archive_compared').length
@@ -2788,6 +2855,16 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${structuredStudentWorkCount} student work rows include URL plus medium/project/evidence metadata.`,
     },
     {
+      id: 'faculty_portfolio_examples_reference_valid_sources',
+      status: facultyPortfolioExampleErrors.length === 0 ? 'pass' : 'fail',
+      detail: `${facultyPortfolioExampleErrors.length} faculty portfolio example reference errors across ${facultyPortfolioExamples.length} examples.`,
+    },
+    {
+      id: 'faculty_portfolio_examples_have_structured_metadata',
+      status: structuredFacultyPortfolioExampleCount > 0 ? 'pass' : 'warn',
+      detail: `${structuredFacultyPortfolioExampleCount} faculty portfolio examples include faculty plus title/medium/statement/visual metadata.`,
+    },
+    {
       id: 'source_clusters_reference_valid_sources',
       status: sourceClusterErrors.length === 0 ? 'pass' : 'fail',
       detail: `${sourceClusterErrors.length} source cluster reference errors across ${sourceClusters.length} clusters.`,
@@ -2875,6 +2952,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       faculty_course_edges: facultyCourseEdges.length,
       student_work: studentWork.length,
       structured_student_work: structuredStudentWorkCount,
+      faculty_portfolio_examples: facultyPortfolioExamples.length,
+      structured_faculty_portfolio_examples: structuredFacultyPortfolioExampleCount,
       source_clusters: sourceClusters.length,
       exact_source_clusters: exactSourceClusterCount,
       near_duplicate_source_clusters: nearDuplicateSourceClusterCount,
@@ -3248,6 +3327,8 @@ Overall status: ${validation.status}
 - Faculty-course edges: ${validation.counts.faculty_course_edges}
 - Student work rows: ${validation.counts.student_work}
 - Structured student work rows: ${validation.counts.structured_student_work}
+- Faculty portfolio examples: ${validation.counts.faculty_portfolio_examples}
+- Structured faculty portfolio examples: ${validation.counts.structured_faculty_portfolio_examples}
 - Source clusters: ${validation.counts.source_clusters}
 - Exact duplicate clusters: ${validation.counts.exact_source_clusters}
 - Near-duplicate source clusters: ${validation.counts.near_duplicate_source_clusters}
@@ -3731,6 +3812,7 @@ function renderDerivedArtifactsOnly() {
   const faculty = loadJsonl(join(outDir, 'faculty.jsonl'))
   const facultyCourseEdges = loadJsonl(join(outDir, 'faculty_course_edges.jsonl'))
   const studentWork = loadJsonl(join(outDir, 'student_work.jsonl'))
+  const facultyPortfolioExamples = loadJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'))
   const sourceClusters = loadJsonl(join(outDir, 'source_clusters.jsonl'))
   const sourceVersions = loadJsonl(join(outDir, 'source_versions.jsonl'))
   const wayback = loadJsonl(join(outDir, 'wayback_captures.jsonl'))
@@ -3742,7 +3824,7 @@ function renderDerivedArtifactsOnly() {
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
   writeJsonl(join(outDir, 'assignments.jsonl'), assignments)
   writeJsonl(join(outDir, 'readings.jsonl'), readings)
   writeJsonl(join(outDir, 'reading_frequency.jsonl'), readingFrequency)
@@ -3812,6 +3894,7 @@ async function renderSearchApiOnly() {
   const faculty = loadJsonl(join(outDir, 'faculty.jsonl'))
   const facultyCourseEdges = loadJsonl(join(outDir, 'faculty_course_edges.jsonl'))
   const studentWork = loadJsonl(join(outDir, 'student_work.jsonl'))
+  const facultyPortfolioExamples = loadJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'))
   const sourceClusters = loadJsonl(join(outDir, 'source_clusters.jsonl'))
   const sourceVersions = loadJsonl(join(outDir, 'source_versions.jsonl'))
   const wayback = loadJsonl(join(outDir, 'wayback_captures.jsonl'))
@@ -3823,7 +3906,7 @@ async function renderSearchApiOnly() {
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
 
   writeJsonl(join(outDir, 'search_candidates.jsonl'), searchCandidates)
   writeJsonl(join(outDir, 'search_results.jsonl'), searchResults)
@@ -3836,6 +3919,51 @@ async function renderSearchApiOnly() {
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
   console.log(`RISD live search candidates written to ${join(outDir, 'search_candidates.jsonl')}`)
   console.log(`live_search_candidates=${liveSearchCandidates.length} total_search_candidates=${searchCandidates.length} validation=${validationWithReview.status}`)
+}
+
+async function renderFacultyPortfolioExamplesOnly() {
+  ensureDir(outDir)
+  const sources = loadJsonl(join(outDir, 'sources.jsonl'))
+  const externalProfileSources = sources
+    .filter(isExternalFacultyProfileSource)
+    .slice(0, facultyPortfolioExampleLimit)
+  const inspected = []
+  for (const [index, source] of externalProfileSources.entries()) {
+    console.error(`inspect faculty portfolio ${index + 1}/${externalProfileSources.length}: ${source.url}`)
+    inspected.push(await inspectSeed(source))
+  }
+  const facultyPortfolioExamples = buildFacultyPortfolioExamples(inspected)
+  const courseInventoryRows = loadJsonl(join(outDir, 'course_inventory.jsonl'))
+  const courses = loadJsonl(join(outDir, 'courses.jsonl'))
+  const syllabi = loadJsonl(join(outDir, 'syllabi.jsonl'))
+  const assignments = loadJsonl(join(outDir, 'assignments.jsonl'))
+  const readings = loadJsonl(join(outDir, 'readings.jsonl'))
+  const readingFrequency = loadJsonl(join(outDir, 'reading_frequency.jsonl'))
+  const searchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
+  const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
+  const commonCrawlPromotions = loadJsonl(join(outDir, 'common_crawl_promotions.jsonl'))
+  const facultyProfileCandidates = loadJsonl(join(outDir, 'faculty_profile_candidates.jsonl'))
+  const faculty = loadJsonl(join(outDir, 'faculty.jsonl'))
+  const facultyCourseEdges = loadJsonl(join(outDir, 'faculty_course_edges.jsonl'))
+  const studentWork = loadJsonl(join(outDir, 'student_work.jsonl'))
+  const sourceClusters = loadJsonl(join(outDir, 'source_clusters.jsonl'))
+  const sourceVersions = loadJsonl(join(outDir, 'source_versions.jsonl'))
+  const wayback = loadJsonl(join(outDir, 'wayback_captures.jsonl'))
+  const previousValidation = existsSync(join(outDir, 'validation.json')) ? JSON.parse(readFileSync(join(outDir, 'validation.json'), 'utf8')) : null
+  const courseInventory = {
+    offerings: courseInventoryRows,
+    displayed_count: previousValidation?.counts?.official_course_displayed_count ?? courseInventoryRows.length,
+  }
+  const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
+  const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
+  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+
+  writeJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'), facultyPortfolioExamples)
+  writeJson(join(outDir, 'validation.json'), validationWithReview)
+  writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
+  console.log(`RISD faculty portfolio examples written to ${join(outDir, 'faculty_portfolio_examples.jsonl')}`)
+  console.log(`faculty_portfolio_examples=${facultyPortfolioExamples.length} validation=${validationWithReview.status}`)
 }
 
 async function ingestCommonCrawlPromotionsOnly() {
@@ -3910,6 +4038,7 @@ async function ingestCommonCrawlPromotionsOnly() {
   const readings = mergeRowsByKey(existingReadings, newReadings, (reading) => reading.reading_id)
   const readingFrequency = buildReadingFrequency(readings)
   const studentWork = mergeRowsByKey(existingStudentWork, newStudentWork, (work) => work.student_work_id)
+  const facultyPortfolioExamples = loadJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'))
   const { faculty, facultyCourseEdges } = buildFacultyGraph({ sources, courseInventory, syllabi })
   const searchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
   const sourceClusters = loadJsonl(join(outDir, 'source_clusters.jsonl'))
@@ -3919,7 +4048,7 @@ async function ingestCommonCrawlPromotionsOnly() {
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates: updatedCandidates, commonCrawlPromotions: updatedPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates: updatedCandidates, commonCrawlPromotions: updatedPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
 
   writeJsonl(join(outDir, 'sources.jsonl'), sources)
   writeJsonl(join(outDir, 'courses.jsonl'), courses)
@@ -4016,10 +4145,11 @@ async function ingestFacultyProfilesOnlyMode() {
   const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
   const commonCrawlPromotions = loadJsonl(join(outDir, 'common_crawl_promotions.jsonl'))
   const facultyProfileCandidates = [...candidatesById.values()].sort((a, b) => a.faculty_name.localeCompare(b.faculty_name) || a.url.localeCompare(b.url))
+  const facultyPortfolioExamples = loadJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'))
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
 
   writeJsonl(join(outDir, 'sources.jsonl'), sources)
   writeJsonl(join(outDir, 'faculty.jsonl'), faculty)
@@ -4044,6 +4174,10 @@ async function main() {
   ensureDir(outDir)
   if (searchApiOnly) {
     await renderSearchApiOnly()
+    return
+  }
+  if (facultyPortfolioExamplesOnly) {
+    await renderFacultyPortfolioExamplesOnly()
     return
   }
   if (ingestFacultyProfilesOnly) {
@@ -4129,6 +4263,7 @@ async function main() {
   const readingFrequency = buildReadingFrequency(readings)
   const { faculty, facultyCourseEdges } = buildFacultyGraph({ sources, courseInventory, syllabi })
   const studentWork = buildStudentWork(inspected)
+  const facultyPortfolioExamples = loadJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'))
   const sourceClusters = buildSourceClusters(inspected, syllabi, readings)
   const sourceVersions = buildSourceVersions(inspected, wayback)
   const existingSearchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
@@ -4148,6 +4283,7 @@ async function main() {
   writeJsonl(join(outDir, 'faculty.jsonl'), faculty)
   writeJsonl(join(outDir, 'faculty_course_edges.jsonl'), facultyCourseEdges)
   writeJsonl(join(outDir, 'student_work.jsonl'), studentWork)
+  writeJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'), facultyPortfolioExamples)
   writeJsonl(join(outDir, 'source_clusters.jsonl'), sourceClusters)
   writeJsonl(join(outDir, 'source_versions.jsonl'), sourceVersions)
   writeJsonl(join(outDir, 'wayback_captures.jsonl'), wayback)
@@ -4162,7 +4298,7 @@ async function main() {
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)

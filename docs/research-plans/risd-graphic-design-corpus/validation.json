@@ -38,6 +38,8 @@
     "faculty_course_edges": 48,
     "student_work": 41,
     "structured_student_work": 41,
+    "faculty_portfolio_examples": 60,
+    "structured_faculty_portfolio_examples": 60,
     "source_clusters": 10,
     "exact_source_clusters": 0,
     "near_duplicate_source_clusters": 0,
@@ -137,6 +139,16 @@
       "id": "student_work_has_structured_public_examples",
       "status": "pass",
       "detail": "41 student work rows include URL plus medium/project/evidence metadata."
+    },
+    {
+      "id": "faculty_portfolio_examples_reference_valid_sources",
+      "status": "pass",
+      "detail": "0 faculty portfolio example reference errors across 60 examples."
+    },
+    {
+      "id": "faculty_portfolio_examples_have_structured_metadata",
+      "status": "pass",
+      "detail": "60 faculty portfolio examples include faculty plus title/medium/statement/visual metadata."
     },
     {
       "id": "source_clusters_reference_valid_sources",

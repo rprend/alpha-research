@@ -42,6 +42,8 @@ Overall status: pass
 - Faculty-course edges: 48
 - Student work rows: 41
 - Structured student work rows: 41
+- Faculty portfolio examples: 60
+- Structured faculty portfolio examples: 60
 - Source clusters: 10
 - Exact duplicate clusters: 0
 - Near-duplicate source clusters: 0
@@ -75,6 +77,8 @@ Overall status: pass
 - PASS faculty_profile_candidates_have_provenance: 47 faculty profile candidates, 45 ingested, 26 faculty rows with profile URLs; 0 reference errors.
 - PASS student_work_reference_valid_sources: 0 student work source reference errors.
 - PASS student_work_has_structured_public_examples: 41 student work rows include URL plus medium/project/evidence metadata.
+- PASS faculty_portfolio_examples_reference_valid_sources: 0 faculty portfolio example reference errors across 60 examples.
+- PASS faculty_portfolio_examples_have_structured_metadata: 60 faculty portfolio examples include faculty plus title/medium/statement/visual metadata.
 - PASS source_clusters_reference_valid_sources: 0 source cluster reference errors across 10 clusters.
 - PASS source_clusters_include_dedup_signals: 0 exact duplicate clusters, 0 near-duplicate text clusters, and 10 related source-family clusters.
 - PASS source_clusters_are_used_for_packet_grouping: 117 course packets include source-cluster grouped evidence families.
