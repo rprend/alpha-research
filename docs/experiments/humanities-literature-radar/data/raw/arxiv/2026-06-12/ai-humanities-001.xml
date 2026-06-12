@@ -1,0 +1,461 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/whrBBKHojoKkTsaV5U5Xa/k81Pc</id>
+  <title>arXiv Query: search_query=all:ai OR all:humanities&amp;id_list=&amp;start=0&amp;max_results=15</title>
+  <updated>2026-06-12T17:42:37Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:ai+OR+all:humanities&amp;start=0&amp;max_results=15&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>15</opensearch:itemsPerPage>
+  <opensearch:totalResults>156570</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2606.13675v1</id>
+    <title>Improving Robotic Generalist Policies via Flow Reversal Steering</title>
+    <updated>2026-06-11T17:59:45Z</updated>
+    <link href="https://arxiv.org/abs/2606.13675v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.13675v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Generalist policies can learn a wide range of skills from diverse robot datasets. In order to solve or improve on challenging news tasks, we need a way to infer and invoke the appropriate actions from the policy's rich behavioral prior, especially when directly commanding the policy fails. We focus on flow matching generalists and propose Flow Reversal Steering (FRS): a method that takes suboptimal but ``reasonable'' actions, finds their latent noises by passing them through the flow policy in reverse, and maps them to nearby generalist action modes. We evaluate FRS across many simulated and real-world manipulation settings. First, FRS can turn coarse semantic guidance from humans or vision-language models (VLMs) into corresponding good robot actions, improving zero-shot control. These gains can be distilled with behavioral cloning by training an auxiliary policy to output noises that the generalist maps to good actions -- showing up to 95% absolute task success rate boosts in under a minute of training. Finally, FRS enables policy improvement by bootstrapping reinforcement learning with semantic knowledge, improving on several tasks that standard RL fails to improve on.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-11T17:59:45Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Andy Tang</name>
+    </author>
+    <author>
+      <name>William Chen</name>
+    </author>
+    <author>
+      <name>Andrew Wagenmaker</name>
+    </author>
+    <author>
+      <name>Chelsea Finn</name>
+    </author>
+    <author>
+      <name>Sergey Levine</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.13670v1</id>
+    <title>Automated reproducibility assessments in the social and behavioral sciences using large language models</title>
+    <updated>2026-06-11T17:58:36Z</updated>
+    <link href="https://arxiv.org/abs/2606.13670v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.13670v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Reproducibility in the social and behavioral sciences is typically evaluated by independent researchers who reanalyze the original data to assess whether the published findings can be recovered. However, such approaches are resource-intensive and difficult to scale. Here, we show that large language models (LLMs) can automate reproducibility assessments. Using N=76 published studies with predefined claims from the behavioral and social sciences, we compare LLM-generated analysis with the original findings and human reanalysis. For 7 studies, the LLM could not produce a viable effect size estimate. For the remaining studies, our LLM pipeline recovered the original effect sizes in 41% of studies using a +/-0.05 tolerance in Cohen's d. Further, our LLM pipeline reached the same qualitative conclusion as the original study in 96% of cases, where conclusions indicate whether the reanalysis supports the original claim. For comparison, human reanalysts recovered the original effect sizes in 34% of studies and reached the same qualitative conclusion in 74% of cases. Together, these results show that LLMs can serve as a scalable tool for automated reproducibility assessment and provide a foundation for systematic auditing of empirical results in the social and behavioral sciences.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-11T17:58:36Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Tobias Holtdirk</name>
+    </author>
+    <author>
+      <name>Pietro Marcolongo</name>
+    </author>
+    <author>
+      <name>Anna Steinberg Schulten</name>
+    </author>
+    <author>
+      <name>Felix Henninger</name>
+    </author>
+    <author>
+      <name>Stefan Rose</name>
+    </author>
+    <author>
+      <name>Sarah Ball</name>
+    </author>
+    <author>
+      <name>Bolei Ma</name>
+    </author>
+    <author>
+      <name>Frauke Kreuter</name>
+    </author>
+    <author>
+      <name>Markus Weinmann</name>
+    </author>
+    <author>
+      <name>Stefan Feuerriegel</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.13662v1</id>
+    <title>EurekAgent: Agent Environment Engineering is All You Need For Autonomous Scientific Discovery</title>
+    <updated>2026-06-11T17:56:35Z</updated>
+    <link href="https://arxiv.org/abs/2606.13662v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.13662v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>LLM-based agents have shown increasing potential in automating scientific discovery. Given an optimizable metric and an execution environment, they can propose, validate, and iterate scientific solutions, and have produced results that outperform human-designed approaches. As model capabilities continue to improve, we argue that the bottleneck for autonomous scientific discovery is shifting from prescribing agent workflows to designing agent environments: the resources, constraints, and interfaces that shape agent behavior. We frame this as environment engineering: building environments that amplify productive behaviors, such as open-ended exploration, systematic artifact management, and inter-agent collaboration, while suppressing harmful behaviors, such as reward hacking and high-friction human oversight. We present EurekAgent, an environment-engineered agent system for metric-driven autonomous scientific discovery. EurekAgent engineers the environment along four dimensions: permissions engineering for bounded agent execution and isolated evaluation; artifact engineering for filesystem and Git-based collaboration; budget engineering for budget-aware exploration; and human-in-the-loop engineering for easy human supervision and intervention. EurekAgent sets new state-of-the-art results on multiple mathematics, kernel engineering, and machine learning tasks, including new state-of-the-art 26-circle packing results discovered with less than $11 in total API cost. We open-source our code and results, and call for environment engineering as a core research direction for developing reliable autonomous research agents.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-11T17:56:35Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Amy Xin</name>
+    </author>
+    <author>
+      <name>Jiening Siow</name>
+    </author>
+    <author>
+      <name>Junjie Wang</name>
+    </author>
+    <author>
+      <name>Zijun Yao</name>
+    </author>
+    <author>
+      <name>Fanjin Zhang</name>
+    </author>
+    <author>
+      <name>Jian Song</name>
+    </author>
+    <author>
+      <name>Lei Hou</name>
+    </author>
+    <author>
+      <name>Juanzi Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.13658v1</id>
+    <title>Before You Think: System 0, AI-Mediated Cognition and Cognitive Colonization</title>
+    <updated>2026-06-11T17:54:59Z</updated>
+    <link href="https://arxiv.org/abs/2606.13658v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.13658v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper examines three recent frameworks for understanding the cognitive and epistemic consequences of artificial intelligence: Tri-System Theory, Thinkframes, and System 0. It argues that while the first two capture important dimensions of AI's influence on individual reasoning and collective epistemic practices, System 0 occupies a theoretically distinctive position that neither can fully replicate. The paper introduces the concept of cognitive colonization, according to which AI systems can embed external interests within the architecture of the self in ways that are difficult for users to perceive. Because such systems are already widely deployed, understanding these invisible forms of influence is an urgent philosophical and practical task.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-11T17:54:59Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Marianna Bergamaschi Ganapini</name>
+    </author>
+    <author>
+      <name>Massimo Chiriatti</name>
+    </author>
+    <author>
+      <name>Enrico Panai</name>
+    </author>
+    <author>
+      <name>Giuseppe Riva</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.13655v1</id>
+    <title>Flex4DHuman: Flexible Multi-view Video Diffusion for 4D Human Reconstruction</title>
+    <updated>2026-06-11T17:54:05Z</updated>
+    <link href="https://arxiv.org/abs/2606.13655v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.13655v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present Flex4DHuman, a multi-view video diffusion model that transforms a monocular or sparse multi-view video of a dynamic subject into synchronized dense multi-view videos using only relative camera-pose conditioning. Unlike prior human-centric methods that rely on skeletons, depth maps, normals, or rendered target-view geometry, Flex4DHuman requires no explicit geometry priors and instead conditions generation through relative camera-pose positional encoding. The generated videos can be directly ingested by downstream reconstruction pipelines to create dynamic 4D Gaussian splats. Built on the Wan 2.1 1.3B text-to-video model, Flex4DHuman preserves the backbone architecture and encodes camera and view information through a five-axis positional encoding that extends spatio-temporal RoPE with view indices and continuous SE(3) relative camera geometry. A three-stage curriculum progressively trains the model for pose following, flexible reference-to-target view generation, and temporal rollout. To support temporal rollout, we train with clean historical target-view tokens. We also add multi-view captions to enable test-time text control. Combined with an off-the-shelf 4D Gaussian Splatting stage, our framework lifts monocular static-camera videos into dynamic 4D Gaussian splats. Experiments on DNA-Rendering and ActorsHQ show that Flex4DHuman surpasses prior state-of-the-art methods, while the same formulation generalizes to animal categories after mixed human-animal training. These capabilities make Flex4DHuman a practical step toward scalable 4D content creation from casual monocular videos for simulation, gaming, AR/VR, and video re-shooting.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.GR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-11T17:54:05Z</published>
+    <arxiv:comment>18 pages, 8 figures. Code, and multi-view caption dataset available</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Jen-Hao Cheng</name>
+    </author>
+    <author>
+      <name>Yipeng Wang</name>
+    </author>
+    <author>
+      <name>Hao Zhang</name>
+    </author>
+    <author>
+      <name>Gengshan Yang</name>
+    </author>
+    <author>
+      <name>Jenq-Neng Hwang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.13640v1</id>
+    <title>The Moving Drone: Negotiating Agency Between the Voice and the Virtual</title>
+    <updated>2026-06-11T17:47:01Z</updated>
+    <link href="https://arxiv.org/abs/2606.13640v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.13640v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Melodic material in Hindustani music is presented in relation to a tonic, usually sustained by the tanpura, a four-stringed drone instrument. Rooted in Hindustani music, 'The Moving Drone' sets the traditionally static drone into motion that, throughout the performance, gains increasing agency transitioning from reactive to more proactive roles. The work employs four independent loopers in Max/MSP to function as 'virtual' drones. They are populated cyclically in real-time as the vocalist improvises, creating an organic and evolving feedback loop between the voice and the virtual drone. This relationship further evolves melodically by pitch shifting the loops, which introduces a dimension of sudden, explicit movement. Then it changes timbrally, via the integration of GaMaDHaNi, a singer conditioned pitch-to-voice generative AI model to resynthesize looped audio. While current music AI approaches prioritize high-fidelity and realism of generated content which has sparked anxiety over job replacement for the music community, this work intentionally utilizes low-fidelity generative outputs, further necessitating human interpretation and situational context in order to be complete. 'The Moving Drone' positions technology and generative AI within established socio-cultural musical practices, proposing a virtual drone as an active, responsive, and co-creative musical agent.</summary>
+    <category term="cs.SD" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-11T17:47:01Z</published>
+    <arxiv:comment>Published in NIME music track 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.SD"/>
+    <author>
+      <name>Nithya Shikarpur</name>
+    </author>
+    <author>
+      <name>Victor Arul</name>
+    </author>
+    <author>
+      <name>Anna Huang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.13629v1</id>
+    <title>Valid Inference with Synthetic Data via Task Exchangeability</title>
+    <updated>2026-06-11T17:41:09Z</updated>
+    <link href="https://arxiv.org/abs/2606.13629v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.13629v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>There is a proliferation of work arguing for the use of synthetic data in scientific research. For example, social scientists are arguing for the use of LLM-generated "silicon samples" in pilot studies; AI evaluations increasingly rely on "LLM-as-a-judge" outputs; and proteomics research is accelerated by generative models that produce synthetic protein structures. These developments raise an intriguing possibility: synthetic data may help researchers ask more questions, run more studies, and accelerate discovery. But they also raise a fundamental concern: synthetic data can be biased, noisy, and misspecified. In this work, we propose statistical principles for using synthetic data in scientific research with provable validity guarantees. The key insight is a new technical condition that we call task exchangeability. Informally, this is a requirement that the researcher can identify historical tasks, for which real data is available, such that their current task of interest is exchangeable with the historical tasks in an appropriate mathematical sense. We develop methods for valid inference under task exchangeability, together with extensions that provide guarantees even beyond exchangeability. We demonstrate the framework on public opinion surveys with silicon samples and AI evaluation with autoraters.</summary>
+    <category term="stat.ME" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-11T17:41:09Z</published>
+    <arxiv:primary_category term="stat.ME"/>
+    <author>
+      <name>Lezhi Tan</name>
+    </author>
+    <author>
+      <name>Tijana Zrnic</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.13625v1</id>
+    <title>Revisiting Vehicle Color Recognition in Long-Tailed Surveillance Scenarios</title>
+    <updated>2026-06-11T17:39:40Z</updated>
+    <link href="https://arxiv.org/abs/2606.13625v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.13625v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vehicle color recognition is an important cue for vehicle identification in surveillance systems, especially when license plates are illegible due to low resolution, occlusion, motion blur, or poor illumination. However, real-world vehicle color distributions are highly imbalanced, making overall accuracy insufficient to assess performance on rare but operationally relevant colors. This paper presents a comprehensive study of vehicle color recognition under severe class imbalance using UFPR-VeSV, a challenging real-world surveillance dataset. We investigate synthetic minority-class augmentation through two off-the-shelf generative strategies: text-conditioned image generation with RunDiffusion/JuggernautXL and image-conditioned color editing with Gemini 2.0 Flash. The curated synthetic data are combined with modern visual representations, loss reweighting, learning-rate scheduling, color-safe augmentation, foreground-aware preprocessing, and ensemble fusion. The bestperforming approach achieves 94.6% micro accuracy and 79.7% macro accuracy, improving macro accuracy by 8.2 percentage points over recent literature. A manual error analysis further shows that many remaining failures are visually ambiguous even for human annotators, highlighting the practical limits of color-based vehicle identification in unconstrained surveillance imagery. The generated images and source code are publicly available at https://github.com/viniciusorru/vcr-synthetic</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-11T17:39:40Z</published>
+    <arxiv:comment>Accepted for presentation at the 2026 International Conference on Pattern Recognition (ICPR) - V3SC Workshop</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Vinícius Orrú</name>
+    </author>
+    <author>
+      <name>Bruno H. Foggiatto</name>
+    </author>
+    <author>
+      <name>Gabriel E. Lima</name>
+    </author>
+    <author>
+      <name>David Menotti</name>
+    </author>
+    <author>
+      <name>Rayson Laroca</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.13607v1</id>
+    <title>Reasoning as Pattern Matching: Shared Mechanisms in Human and LLM Everyday Reasoning</title>
+    <updated>2026-06-11T17:23:10Z</updated>
+    <link href="https://arxiv.org/abs/2606.13607v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.13607v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>When large language models (LLMs) fail to generalize or make haphazard errors in reasoning, it is often taken as evidence that LLMs are not truly reasoning, but rather performing a kind of pattern matching. The implication is that people's behavior does not exhibit the same types of failures because human reasoning uses principled and abstract world models. We evaluate human participants and 25 LLMs on their ability to engage in common-sense reasoning about a variety of everyday situations and observe similar patterns of errors in both people and models. We then identify the set of attention heads driving LLM responses and find that these heads implement a form of pattern-matching. These attention heads allow us to predict seemingly inexplicable reasoning errors in people caused by ostensibly irrelevant prompt details. Taken together, our results suggest that everyday causal reasoning in people and LLMs is more consistent with a form of pattern-matching than with abstract world models.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-11T17:23:10Z</published>
+    <arxiv:comment>13 pages main text, 51 pages supplementary text</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Zach Studdiford</name>
+    </author>
+    <author>
+      <name>Gary Lupyan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.13602v1</id>
+    <title>EpiBench: Verifiable Evaluation of AI Agents on Epigenomics Analysis</title>
+    <updated>2026-06-11T17:20:29Z</updated>
+    <link href="https://arxiv.org/abs/2606.13602v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.13602v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We introduce EpiBench, a verifiable benchmark for short-horizon epigenomics analysis. EpiBench evaluates whether agents can make well-defined analysis decisions from realistic workflow states and return deterministically gradable answers. The benchmark includes 106 evaluations across CUT\&amp;Tag/CUT\&amp;RUN, ATAC-seq, ChIP-seq, and DNA methylation workflows. Across 5,088 valid trajectories from 16 model-harness pairs, no system passed a majority of attempts: GPT-5.5 / Pi led at 45.0\% (143/318 attempts; 95\% confidence interval (CI), 36.3--53.7), followed by GPT-5.5 / OpenAI Codex at 39.9\% (127/318 attempts; 95\% CI, 31.6--48.3). Claude Opus 4.8 Max / Pi and GPT-5.4 / Pi each passed 39.0\% (124/318 attempts; 95\% CI, 30.2--47.8 and 31.0--47.0, respectively). Performance varies across assay types, and many failed runs still contain parts of the correct answer. Agents often found the right files and computed useful intermediate results, but failed when the task required deeper, assay-specific scientific judgment.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-11T17:20:29Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Harihara Muralidharan</name>
+    </author>
+    <author>
+      <name>Reema Baskar</name>
+    </author>
+    <author>
+      <name>Soo Hee Lee</name>
+    </author>
+    <author>
+      <name>Tim Proctor</name>
+    </author>
+    <author>
+      <name>Kenny Workman</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.13601v1</id>
+    <title>MCR-Bionic Hand: Anatomical Structural Priors for Dexterous Manipulation</title>
+    <updated>2026-06-11T17:20:15Z</updated>
+    <link href="https://arxiv.org/abs/2606.13601v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.13601v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Dexterous robotic hands are usually formulated as high dimensional active control systems governed by degrees of freedom, actuation, and algorithms. Human hand dexterity, however, is partly encoded in the physical architecture of bones, ligaments, tendons, aponeuroses, and intrinsic muscles. This work describes that contribution as two linked forms of structural intelligence: structural prior generation, in which wrist to finger tenodesis, FDS/FDP routing, and the dorsal extensor hood transform low dimensional posture inputs into default grasp configurations and PIP to DIP coordination; and muscle mediated modulation, in which extrinsic muscles, lumbricals, and interossei regulate MCP posture, distal stability, fingertip force paths, and contact states around that default state.
+  Based on this framework, MCR-Bionic Hand is developed as a 1:1 musculoskeletal biomimetic hand integrating a two row eight bone wrist, cross wrist tendons, anatomical flexor routing, volar plate and collateral ligament constraints, the dorsal extensor hood, and intrinsic muscle pathways within one body. Functional demonstrations and geometric mechanical models show that wrist posture induces multi joint pre shaping, the extensor hood maps PIP posture to a coupled DIP response, and intrinsic plus pathways modulate distal stability and fingertip action direction after grasp formation. Contact rich tasks, including coin rotation, pen transfer, dorsal coin flipping, and cube manipulation, show that MCR-Bionic links low dimensional state generation with fine post contact modulation. These results suggest that anatomical biomimetics is valuable not for visual similarity, but for identifying human hand structures that perform part of control.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-11T17:20:15Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Haosen Yang</name>
+    </author>
+    <author>
+      <name>Guowu Wei</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.13598v1</id>
+    <title>Reward Modeling for Multi-Agent Orchestration</title>
+    <updated>2026-06-11T17:16:24Z</updated>
+    <link href="https://arxiv.org/abs/2606.13598v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.13598v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Multi-Agent Systems (MAS) built on Large Language Models (LLMs) require effective orchestration to coordinate specialized agents, yet training such orchestrators is hindered by limited supervision and high computational cost. We propose Orchestration Reward Modeling (OrchRM), a self-supervised framework for evaluating orchestration quality without human annotations. OrchRM leverages intermediate artifacts from multi-agent executions to construct win-lose pairs for Bradley-Terry reward model training. Unlike existing MAS test-time scaling and orchestrator training frameworks that rely on costly sub-agent rollouts, OrchRM operates directly at the orchestration level, enabling efficient and high-performing reward-guided orchestrator training and MAS test-time scaling. OrchRM improves training efficiency by up to 10x in token usage while improving MAS test-time scaling performance by up to 8% in accuracy. These gains consistently transfer across multiple domains, including mathematical reasoning, web-based question answering, and multi-hop reasoning, demonstrating orchestration-level reward modeling as a scalable direction for robust multi-agent orchestration. Code will be available at https://github.com/Wang-ML-Lab/OrchRM.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-11T17:16:24Z</published>
+    <arxiv:comment>Preprint; work in progress</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>King Yeung Tsang</name>
+    </author>
+    <author>
+      <name>Zihao Zhao</name>
+    </author>
+    <author>
+      <name>Vishal Venkataramani</name>
+    </author>
+    <author>
+      <name>Haizhou Shi</name>
+    </author>
+    <author>
+      <name>Zixuan Ke</name>
+    </author>
+    <author>
+      <name>Semih Yavuz</name>
+    </author>
+    <author>
+      <name>Shafiq Joty</name>
+    </author>
+    <author>
+      <name>Hao Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.13587v1</id>
+    <title>Towards Effective Waste Segmentation for Automated Waste Recycling in Cluttered Background</title>
+    <updated>2026-06-11T17:11:04Z</updated>
+    <link href="https://arxiv.org/abs/2606.13587v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.13587v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Rapid expansion of urban areas and population growth is causing an immense increase in waste production, which demands the need for efficient and automated waste management. In this scenario, automated waste recycling (AWR) using deep learning methods can assist humans in optimal waste management. Recent deep learning approaches for AWR provide promising waste segmentation performance, however, these methods rely on large backbone networks that are inefficient for AWR systems and suffer from performance deterioration in cluttered scenes. To this end, an optimal waste segmentation network is introduced which effectively utilizes the spatial domain to capture localized structural dependencies and the spectral domain to efficiently extract global contextual relationships. This cascaded design allows the network to progressively leverage both local and global representations across complementary domains to highlight the semantic information necessary for effective segmentation of various waste objects. Furthermore, auxiliary feature enhancement module (AFEM) is introduced to enhance the target objects' boundaries and blob amplification for better segmentation in cluttered scenarios. Extensive experimentation on ZeroWaste-aug, ZeroWaste-f and SpectralWaste datasets reveals the merits of the proposed method.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-11T17:11:04Z</published>
+    <arxiv:comment>accepted at ICML 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Mamoona Javaid</name>
+    </author>
+    <author>
+      <name>Mubashir Noman</name>
+    </author>
+    <author>
+      <name>Abdul Hannan</name>
+    </author>
+    <author>
+      <name>Shah Nawaz</name>
+    </author>
+    <author>
+      <name>Mustansar Fiaz</name>
+    </author>
+    <author>
+      <name>Sajid Ghuffar</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.13578v1</id>
+    <title>LabVLA: Grounding Vision-Language-Action Models in Scientific Laboratories</title>
+    <updated>2026-06-11T17:03:53Z</updated>
+    <link href="https://arxiv.org/abs/2606.13578v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.13578v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Scientific laboratories increasingly rely on AI systems to reason about experiments, but the physical act of doing science remains largely outside their reach. AI can help read literature, generate hypotheses, and plan protocols, yet the execution of those protocols at the bench still requires a human operator. Vision-Language-Action (VLA) models provide one possible interface between written protocols and robot execution, but existing policies are trained mostly on household and tabletop demonstrations and rarely encounter the instruments, transparent liquids, or fixed protocol workflows found in scientific laboratories. Closing this gap requires both laboratory-specific supervision and a unified learning framework that can accommodate the diverse robot embodiments used to execute experimental protocols. We therefore identify data and embodiment as central bottlenecks alongside model design. To address the data side, we build RoboGenesis, a simulation-based workflow and data engine that composes configured laboratory workflows from atomic skills, validates and filters rollouts, and exports structured demonstrations across supported robot profiles. On the policy side, we present LabVLA, trained with a two-stage recipe: FAST action token pretraining first makes the Qwen3-VL-4B-Instruct backbone action aware before any continuous control is learned, and flow matching posttraining then attaches a DiT action expert under knowledge insulation. On the LabUtopia benchmark, LabVLA achieves the highest average success rate among all evaluated baselines under both in-distribution and out-of-distribution settings.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MM" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-11T17:03:53Z</published>
+    <arxiv:comment>Work in progress. Project website at https://zjunlp.github.io/LabVLA/</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Baochang Ren</name>
+    </author>
+    <author>
+      <name>Xinjie Liu</name>
+    </author>
+    <author>
+      <name>Xi Chen</name>
+    </author>
+    <author>
+      <name>Yanshuo Liu</name>
+    </author>
+    <author>
+      <name>Chenxi Li</name>
+    </author>
+    <author>
+      <name>Daqi Gao</name>
+    </author>
+    <author>
+      <name>Zeqin Su</name>
+    </author>
+    <author>
+      <name>Jintao Xing</name>
+    </author>
+    <author>
+      <name>Zirui Xue</name>
+    </author>
+    <author>
+      <name>Rui Li</name>
+    </author>
+    <author>
+      <name>Xiangyu Zhao</name>
+    </author>
+    <author>
+      <name>Shuofei Qiao</name>
+    </author>
+    <author>
+      <name>Minting Pan</name>
+    </author>
+    <author>
+      <name>Wangmeng Zuo</name>
+    </author>
+    <author>
+      <name>Lei Bai</name>
+    </author>
+    <author>
+      <name>Dongzhan Zhou</name>
+    </author>
+    <author>
+      <name>Ningyu Zhang</name>
+    </author>
+    <author>
+      <name>Huajun Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.13572v1</id>
+    <title>ArogyaSutra: A Multi-Agent Framework for Multimodal Medical Reasoning in Indic Languages</title>
+    <updated>2026-06-11T16:59:42Z</updated>
+    <link href="https://arxiv.org/abs/2606.13572v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.13572v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Multimodal Large Language Models (MLLMs) have shown promising reasoning capabilities in general domains, yet their performance remains limited in specialized settings such as healthcare, especially in multilingual and low-resource scenarios. This gap is critical in regions like rural India, where patients often express complex medical queries in native Indic languages and rely on multimodal inputs such as medical images. Existing English-centric MLLMs struggle to support such use cases, limiting equitable access to AI-driven healthcare assistance. To address this challenge, we introduce ArogyaBodha, a large-scale multilingual multimodal medical question-answer dataset constructed from eight heterogeneous sources, covering 31 body systems, six imaging modalities, and 21 clinical domains across English and seven major Indian languages. We further propose ArogyaSutra, an actor-critic-based multi-agent framework that integrates tool grounding with dual-memory mechanisms for step-wise, reasoning-aware decision making, and uses stored actor-critic simulation trajectories for distillation. Experiments show that our dataset and framework improve multilingual medical reasoning accuracy across all Indic languages, with ablations validating the contribution of each component. The source code and dataset are available at: https://iitp-cse.github.io/ ArogyaSutra/</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-11T16:59:42Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Tanmoy Kanti Halder</name>
+    </author>
+    <author>
+      <name>Akash Ghosh</name>
+    </author>
+    <author>
+      <name>Subhadip Baidya</name>
+    </author>
+    <author>
+      <name>Arijit Roy</name>
+    </author>
+    <author>
+      <name>Sriparna Saha</name>
+    </author>
+  </entry>
+</feed>

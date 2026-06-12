@@ -1,31 +1,52 @@
 {
   "source": "nber",
   "runDate": "2026-06-12",
-  "startedAt": "2026-06-12T17:22:24.532Z",
-  "finishedAt": "2026-06-12T17:22:25.006Z",
+  "startedAt": "2026-06-12T17:43:00.708Z",
+  "finishedAt": "2026-06-12T17:43:01.519Z",
   "recordCount": 0,
-  "requestCount": 3,
+  "requestCount": 6,
   "requests": [
+    {
+      "query": "reception history",
+      "page": 1,
+      "url": "https://www.nber.org/papers?page=1&perPage=15&sortBy=public_date&searchTerm=reception+history",
+      "status": 200,
+      "responsePath": "data/raw/nber/2026-06-12/reception-history-001.html"
+    },
+    {
+      "query": "public history",
+      "page": 1,
+      "url": "https://www.nber.org/papers?page=1&perPage=15&sortBy=public_date&searchTerm=public+history",
+      "status": 200,
+      "responsePath": "data/raw/nber/2026-06-12/public-history-001.html"
+    },
+    {
+      "query": "intellectual history",
+      "page": 1,
+      "url": "https://www.nber.org/papers?page=1&perPage=15&sortBy=public_date&searchTerm=intellectual+history",
+      "status": 200,
+      "responsePath": "data/raw/nber/2026-06-12/intellectual-history-001.html"
+    },
+    {
+      "query": "book history",
+      "page": 1,
+      "url": "https://www.nber.org/papers?page=1&perPage=15&sortBy=public_date&searchTerm=book+history",
+      "status": 200,
+      "responsePath": "data/raw/nber/2026-06-12/book-history-001.html"
+    },
+    {
+      "query": "history of ideas",
+      "page": 1,
+      "url": "https://www.nber.org/papers?page=1&perPage=15&sortBy=public_date&searchTerm=history+of+ideas",
+      "status": 200,
+      "responsePath": "data/raw/nber/2026-06-12/history-of-ideas-001.html"
+    },
     {
       "query": "economic history culture",
       "page": 1,
-      "url": "https://www.nber.org/papers?page=1&perPage=40&sortBy=public_date&searchTerm=economic+history+culture",
+      "url": "https://www.nber.org/papers?page=1&perPage=15&sortBy=public_date&searchTerm=economic+history+culture",
       "status": 200,
       "responsePath": "data/raw/nber/2026-06-12/economic-history-culture-001.html"
-    },
-    {
-      "query": "institutions history",
-      "page": 1,
-      "url": "https://www.nber.org/papers?page=1&perPage=40&sortBy=public_date&searchTerm=institutions+history",
-      "status": 200,
-      "responsePath": "data/raw/nber/2026-06-12/institutions-history-001.html"
-    },
-    {
-      "query": "religion economics",
-      "page": 1,
-      "url": "https://www.nber.org/papers?page=1&perPage=40&sortBy=public_date&searchTerm=religion+economics",
-      "status": 200,
-      "responsePath": "data/raw/nber/2026-06-12/religion-economics-001.html"
     }
   ],
   "errors": []

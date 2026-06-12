@@ -1,15 +1,15 @@
 {
   "source": "crossref",
   "runDate": "2026-06-12",
-  "startedAt": "2026-06-12T17:22:14.287Z",
-  "finishedAt": "2026-06-12T17:22:15.749Z",
-  "recordCount": 80,
+  "startedAt": "2026-06-12T17:42:55.475Z",
+  "finishedAt": "2026-06-12T17:42:56.823Z",
+  "recordCount": 30,
   "requestCount": 1,
   "requests": [
     {
       "query": "ai humanities",
       "page": 1,
-      "url": "https://api.crossref.org/works?query=ai+humanities&filter=from-pub-date%3A2020-01-01%2Cuntil-pub-date%3A2026-06-12%2Ctype%3Ajournal-article&rows=80&cursor=*&mailto=research%40example.com",
+      "url": "https://api.crossref.org/works?query=ai+humanities&filter=from-pub-date%3A2020-01-01%2Cuntil-pub-date%3A2026-06-12%2Ctype%3Ajournal-article&rows=30&cursor=*&mailto=research%40example.com",
       "status": 200,
       "responsePath": "data/raw/crossref/2026-06-12/ai-humanities-001.json"
     }

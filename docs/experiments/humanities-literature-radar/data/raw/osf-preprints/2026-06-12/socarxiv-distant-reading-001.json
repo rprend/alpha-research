@@ -1,0 +1,439 @@
+{
+  "data": [
+    {
+      "id": "zcbsa_v2",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2025-05-26T19:29:19.403853",
+        "date_modified": "2025-05-28T15:54:21.222346",
+        "date_published": "2025-05-28T15:53:55.513104",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "Powell.pps: Close &amp; Distant Reading of Primary Sources in Web Archives",
+        "description": "Colin Powell’s 2003 PowerPoint presentation to the U.N. Security Council on Iraq’s nuclear capabilities has been analyzed from multiple perspectives as a key moment in early 21st century history. Examining the presentation file and its traces in web archives provides an opportunity to develop approaches to working with web-based born-digital primary sources. Connecting work in platform studies with scholarship on web archives, this study provides additional context for understanding both the presentation and public policy communications at the turn of the 21st century, as well as context for developing and advancing historical research methods for working with web archives.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [],
+          "year": null
+        },
+        "tags": [],
+        "preprint_doi_created": "2025-05-28T15:54:21.180717",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2025-05-28T15:53:55.513104",
+        "version": 2,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "not_applicable",
+        "why_no_data": null,
+        "data_links": [],
+        "has_prereg_links": "not_applicable",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d96",
+              "text": "Other Social and Behavioral Sciences"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76daf",
+              "text": "Political Science"
+            },
+            {
+              "id": "5a8c80f8c698300375c76db0",
+              "text": "International Relations"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76dd4",
+              "text": "Library and Information Science"
+            },
+            {
+              "id": "5a8c80f8c698300375c76dd6",
+              "text": "Archival Science"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v2/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v2/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v2/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v2/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "zcbsa_v2",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v2/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v2/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v2/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/6834c163c7ec6e8a5da4d950/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "6834c163c7ec6e8a5da4d950",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v2/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v2/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v2/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v2/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/zcbsa_v2/",
+        "html": "https://osf.io/preprints/socarxiv/zcbsa_v2/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/zcbsa_v2",
+        "iri": "https://osf.io/zcbsa"
+      }
+    },
+    {
+      "id": "zcbsa_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2024-09-29T23:12:31.554505",
+        "date_modified": "2025-05-26T19:28:57.020477",
+        "date_published": "2024-09-30T20:09:25.386641",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "Powell.pps: Close &amp; Distant Reading of Primary Sources in Web Archives",
+        "description": "Colin Powell’s 2003 PowerPoint presentation to the U.N. Security Council on Iraq’s nuclear capabilities has been analyzed from multiple perspectives as a key moment in early 21st century history. Examining the presentation file and its traces in web archives provides an opportunity to develop approaches to working with web-based born-digital primary sources. Connecting work in platform studies with scholarship on web archives, this study provides additional context for understanding both the presentation and public policy communications at the turn of the 21st century, as well as context for developing and advancing historical research methods for working with web archives.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [],
+          "year": null
+        },
+        "tags": [],
+        "preprint_doi_created": "2025-05-26T19:28:01.335200",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2024-09-30T20:09:25.386641",
+        "version": 1,
+        "is_latest_version": false,
+        "has_coi": null,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "not_applicable",
+        "why_no_data": null,
+        "data_links": [],
+        "has_prereg_links": "not_applicable",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d96",
+              "text": "Other Social and Behavioral Sciences"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76daf",
+              "text": "Political Science"
+            },
+            {
+              "id": "5a8c80f8c698300375c76db0",
+              "text": "International Relations"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76dd4",
+              "text": "Library and Information Science"
+            },
+            {
+              "id": "5a8c80f8c698300375c76dd6",
+              "text": "Archival Science"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "zcbsa_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/66f9df0e0a3dc092ada858c2/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "66f9df0e0a3dc092ada858c2",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/zcbsa_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/zcbsa_v1/",
+        "html": "https://osf.io/preprints/socarxiv/zcbsa_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/zcbsa_v1",
+        "iri": "https://osf.io/zcbsa"
+      }
+    }
+  ],
+  "links": {
+    "first": null,
+    "last": null,
+    "prev": null,
+    "next": null,
+    "meta": {
+      "total": 2,
+      "per_page": 22
+    }
+  },
+  "meta": {
+    "version": "2.0"
+  }
+}

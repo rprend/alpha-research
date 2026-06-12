@@ -1,0 +1,215 @@
+{
+  "data": [
+    {
+      "id": "y6src_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2023-06-15T17:24:28.972629",
+        "date_modified": "2023-06-16T05:04:20.924838",
+        "date_published": "2023-06-15T17:42:20.087013",
+        "original_publication_date": "2023-06-01T07:00:00",
+        "custom_publication_citation": null,
+        "doi": "10.1353/nlh.2022.a898331",
+        "title": "Situated Knowledges and Partial Perspectives: A Framework for Radical Objectivity in Computational Social Science and Computational Humanities",
+        "description": "We have entered a new era of scholarship: the computational era. As digitized data and computational methods revolutionize the way we understand ourselves, society, and our place in society, these methods have revived questions about the role of science and objectivity in understanding society. For some, this moment has reanimated the ideal of science as disembodied objectivity, a totalizing ideology long critiqued by feminist and other critical theorists. For others, computational methods have the potential to make transparent the necessary interplay between subject and object in producing knowledge, enhancing the ideal of embodied objectivity. Starting from the premise that objectivity in knowledge creation is a worthy—even utopian—pursuit, this essay argues four things. First, applying computational methods toward the goal of disembodied objectivity profoundly misunderstands the nature of the methods and undermines the revolutionary potential of the current moment for the social sciences and humanities. Second, computational methods are instead perfectly aligned with, and can be used to enhance, the embodied vision of objectivity. Third, embodied objectivity enables us to better leverage computational tools to produce more accurate accounts of the world. Fourth, I borrow from the theory of situated knowledges and partial perspectives to provide four principles to guide this new era of scholarship.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            ""
+          ],
+          "year": "2023"
+        },
+        "tags": [],
+        "preprint_doi_created": "2023-06-16T05:04:20.906356",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2023-06-15T17:42:20.087013",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "available",
+        "why_no_data": null,
+        "data_links": [
+          "https://github.com/lknelson/RadicalObjectivity"
+        ],
+        "has_prereg_links": "not_applicable",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": "",
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d96",
+              "text": "Other Social and Behavioral Sciences"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80fac698300375c76e20",
+              "text": "Sociology"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/y6src_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/y6src_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/y6src_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/y6src_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "y6src_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/y6src_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/y6src_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/5ad7979bc69830002d8190e3/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "5ad7979bc69830002d8190e3",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/y6src_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/648b4952380911003e3c3023/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "648b4952380911003e3c3023",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/y6src_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/y6src_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/y6src_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/y6src_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/y6src_v1/",
+        "html": "https://osf.io/preprints/socarxiv/y6src_v1/",
+        "doi": "https://doi.org/10.1353/nlh.2022.a898331",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/y6src",
+        "iri": "https://osf.io/y6src"
+      }
+    }
+  ],
+  "links": {
+    "first": null,
+    "last": null,
+    "prev": null,
+    "next": null,
+    "meta": {
+      "total": 1,
+      "per_page": 25
+    }
+  },
+  "meta": {
+    "version": "2.0"
+  }
+}

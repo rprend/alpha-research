@@ -1,58 +1,74 @@
 {
   "source": "osf-preprints",
   "runDate": "2026-06-12",
-  "startedAt": "2026-06-12T17:40:11.892Z",
-  "finishedAt": "2026-06-12T17:40:17.106Z",
-  "recordCount": 38,
-  "requestCount": 6,
+  "startedAt": "2026-06-12T17:42:57.221Z",
+  "finishedAt": "2026-06-12T17:43:00.424Z",
+  "recordCount": 11,
+  "requestCount": 8,
   "requests": [
+    {
+      "provider": "socarxiv",
+      "query": "ai humanities",
+      "page": 1,
+      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=ai+humanities&page%5Bsize%5D=30",
+      "status": 200,
+      "responsePath": "data/raw/osf-preprints/2026-06-12/socarxiv-ai-humanities-001.json"
+    },
     {
       "provider": "socarxiv",
       "query": "digital humanities",
       "page": 1,
-      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=digital+humanities&page%5Bsize%5D=50",
+      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=digital+humanities&page%5Bsize%5D=30",
       "status": 200,
       "responsePath": "data/raw/osf-preprints/2026-06-12/socarxiv-digital-humanities-001.json"
     },
     {
       "provider": "socarxiv",
+      "query": "computational humanities",
+      "page": 1,
+      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=computational+humanities&page%5Bsize%5D=25",
+      "status": 200,
+      "responsePath": "data/raw/osf-preprints/2026-06-12/socarxiv-computational-humanities-001.json"
+    },
+    {
+      "provider": "socarxiv",
       "query": "cultural analytics",
       "page": 1,
-      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=cultural+analytics&page%5Bsize%5D=50",
+      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=cultural+analytics&page%5Bsize%5D=24",
       "status": 200,
       "responsePath": "data/raw/osf-preprints/2026-06-12/socarxiv-cultural-analytics-001.json"
     },
     {
       "provider": "socarxiv",
+      "query": "distant reading",
+      "page": 1,
+      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=distant+reading&page%5Bsize%5D=22",
+      "status": 200,
+      "responsePath": "data/raw/osf-preprints/2026-06-12/socarxiv-distant-reading-001.json"
+    },
+    {
+      "provider": "socarxiv",
+      "query": "stylometry",
+      "page": 1,
+      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=stylometry&page%5Bsize%5D=20",
+      "status": 200,
+      "responsePath": "data/raw/osf-preprints/2026-06-12/socarxiv-stylometry-001.json"
+    },
+    {
+      "provider": "socarxiv",
       "query": "reception history",
       "page": 1,
-      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=reception+history&page%5Bsize%5D=50",
+      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=reception+history&page%5Bsize%5D=19",
       "status": 200,
       "responsePath": "data/raw/osf-preprints/2026-06-12/socarxiv-reception-history-001.json"
     },
     {
       "provider": "socarxiv",
-      "query": "translation studies",
+      "query": "canon formation",
       "page": 1,
-      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=translation+studies&page%5Bsize%5D=50",
+      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=canon+formation&page%5Bsize%5D=19",
       "status": 200,
-      "responsePath": "data/raw/osf-preprints/2026-06-12/socarxiv-translation-studies-001.json"
-    },
-    {
-      "provider": "socarxiv",
-      "query": "political communication",
-      "page": 1,
-      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=political+communication&page%5Bsize%5D=50",
-      "status": 200,
-      "responsePath": "data/raw/osf-preprints/2026-06-12/socarxiv-political-communication-001.json"
-    },
-    {
-      "provider": "socarxiv",
-      "query": "content analysis",
-      "page": 1,
-      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=content+analysis&page%5Bsize%5D=50",
-      "status": 200,
-      "responsePath": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json"
+      "responsePath": "data/raw/osf-preprints/2026-06-12/socarxiv-canon-formation-001.json"
     }
   ],
   "errors": []

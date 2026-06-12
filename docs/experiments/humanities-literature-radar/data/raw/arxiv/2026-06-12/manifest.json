@@ -1,17 +1,17 @@
 {
   "source": "arxiv",
   "runDate": "2026-06-12",
-  "startedAt": "2026-06-12T17:22:14.306Z",
-  "finishedAt": "2026-06-12T17:22:15.121Z",
-  "recordCount": 40,
+  "startedAt": "2026-06-12T17:43:00.486Z",
+  "finishedAt": "2026-06-12T17:43:00.663Z",
+  "recordCount": 15,
   "requestCount": 1,
   "requests": [
     {
-      "query": "digital humanities",
+      "query": "ai humanities",
       "page": 1,
-      "url": "https://export.arxiv.org/api/query?search_query=all%3Adigital+humanities&start=0&max_results=40&sortBy=submittedDate&sortOrder=descending",
+      "url": "https://export.arxiv.org/api/query?search_query=all%3Aai+humanities&start=0&max_results=15&sortBy=submittedDate&sortOrder=descending",
       "status": 200,
-      "responsePath": "data/raw/arxiv/2026-06-12/digital-humanities-001.xml"
+      "responsePath": "data/raw/arxiv/2026-06-12/ai-humanities-001.xml"
     }
   ],
   "errors": []

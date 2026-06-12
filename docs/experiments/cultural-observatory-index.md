@@ -30,12 +30,13 @@ Implemented:
 - `work.md`
 - `public-draft.md`
 - `dataset_briefing.md`
+- one-command `run-pipeline.mjs` smoke/v1 runner
 
 Current committed corpus:
 
-- 255 deduped works
-- 118 works dated 2024-present
-- 96 quantitative/computational humanities candidates
+- 98 deduped works
+- 48 works dated 2024-present
+- 34 quantitative/computational humanities candidates
 - sources represented in processed records: arXiv, Crossref, OpenAlex, DOAJ, OSF Preprints / SocArXiv
 
 Next implementation moves:

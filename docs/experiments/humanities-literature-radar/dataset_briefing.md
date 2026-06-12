@@ -32,9 +32,9 @@ The current committed run is a bounded implementation corpus, not the final broa
 
 Current processed corpus summary:
 
-- 255 deduped works
-- 118 works dated 2024-present
-- 96 quantitative/computational humanities candidates
+- 98 deduped works
+- 48 works dated 2024-present
+- 34 quantitative/computational humanities candidates
 - processed sources: OpenAlex, Crossref, DOAJ, OSF Preprints / SocArXiv, and arXiv
 
 ## Fields

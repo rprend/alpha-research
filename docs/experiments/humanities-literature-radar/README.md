@@ -25,6 +25,12 @@ The first implementation is intentionally runnable without secrets or paid APIs.
 Fetch a bounded API smoke corpus:
 
 ```bash
+node docs/experiments/humanities-literature-radar/scripts/run-pipeline.mjs --profile=smoke
+```
+
+Or run sources individually:
+
+```bash
 node docs/experiments/humanities-literature-radar/scripts/fetch-openalex.mjs --limit=120
 node docs/experiments/humanities-literature-radar/scripts/fetch-crossref.mjs --limit=120
 node docs/experiments/humanities-literature-radar/scripts/fetch-doaj.mjs --limit=120
@@ -42,6 +48,7 @@ node docs/experiments/humanities-literature-radar/scripts/build-report.mjs
 
 The scripts write:
 
+- `reports/pipeline-run.json`
 - `data/interim/normalized-works.jsonl`
 - `data/processed/works.json`
 - `data/processed/works.csv`

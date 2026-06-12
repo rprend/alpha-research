@@ -1,0 +1,209 @@
+{
+  "data": [
+    {
+      "id": "bqwem_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2019-10-11T05:57:47.046445",
+        "date_modified": "2019-10-11T16:54:03.649990",
+        "date_published": "2019-10-11T16:53:08.958264",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": "10.24093/awej/vol10no3.22",
+        "title": "Authorship Attribution Revisited: The Problem of Flash Fiction  A morphological-based Linguistic Stylometry Approach",
+        "description": "This study is concerned with addressing the limitations with the authorship attribution of flash or micro-fiction. The shortness of linguistic data in texts of the kind makes it challenging for conventional stylometric authorship methods to assign disputed texts to their real authors. As thus, this study proposes a new stylometric authorship system based on morphological patterns and letter mapping properties. The assumption is that these carry unique and distinctive stylistic features that can be usefully used to recognize possible authors of disputed texts. The study is based on a corpus of 259 flash fiction stories written in Arabic. Cluster analysis was for grouping documents that have shared linguistic features together. Results indicate that all texts were successfully matched with their real authors. It can be concluded that morphological information can be usefully used for improving the performance of authorship attribution and detection in Arabic texts due to the unique stylistic features of the affixation processes in Arabic. Controversial texts in Arabic can thus be assigned to their authors based on detecting stable morphological patterns with reliable authorship performance.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            ""
+          ],
+          "year": "2019"
+        },
+        "tags": [
+          "authorship attribution",
+          "flash fiction",
+          "letter mapping",
+          "morphological patterns",
+          "stylometry"
+        ],
+        "preprint_doi_created": "2019-10-11T16:54:03.514373",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2019-10-11T16:53:08.958264",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": null,
+        "conflict_of_interest_statement": null,
+        "has_data_links": null,
+        "why_no_data": null,
+        "data_links": null,
+        "has_prereg_links": null,
+        "why_no_prereg": null,
+        "prereg_links": null,
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d96",
+              "text": "Other Social and Behavioral Sciences"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bqwem_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bqwem_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bqwem_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bqwem_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "bqwem_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bqwem_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/bqwem_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bqwem_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/5da019dfa7bc73000dec7718/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "5da019dfa7bc73000dec7718",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bqwem_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bqwem_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bqwem_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/bqwem_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/bqwem_v1/",
+        "html": "https://osf.io/preprints/socarxiv/bqwem_v1/",
+        "doi": "https://doi.org/10.24093/awej/vol10no3.22",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/bqwem",
+        "iri": "https://osf.io/bqwem"
+      }
+    }
+  ],
+  "links": {
+    "first": null,
+    "last": null,
+    "prev": null,
+    "next": null,
+    "meta": {
+      "total": 1,
+      "per_page": 20
+    }
+  },
+  "meta": {
+    "version": "2.0"
+  }
+}
