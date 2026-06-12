@@ -38,6 +38,11 @@ function main() {
     if (!existsSync(path)) return null
     return JSON.parse(readFileSync(path, 'utf8'))
   })()
+  const scalePlan = (() => {
+    const path = join(reportsDir, 'scale-plan.json')
+    if (!existsSync(path)) return null
+    return JSON.parse(readFileSync(path, 'utf8'))
+  })()
 
   const usefulAccounts = scores.filter((row) => ['useful', 'excellent'].includes(row.status)).length
   const excellentAccounts = scores.filter((row) => row.status === 'excellent').length
@@ -101,6 +106,11 @@ function main() {
       evidence: releaseVerification ? `${releaseVerification.checks?.length ?? 0} release checks evaluated` : 'release verification missing',
     },
     {
+      id: 'scale_plan',
+      status: scalePlan?.estimated_work?.candidate_accounts_needed >= 0 ? 'pass' : 'fail',
+      evidence: scalePlan ? `${scalePlan.estimated_work.import_batches_needed} estimated import batches` : 'scale plan missing',
+    },
+    {
       id: 'useful_account_target',
       status: usefulAccounts >= targetUsefulAccounts ? 'pass' : 'incomplete',
       evidence: `${usefulAccounts}/${targetUsefulAccounts} useful accounts`,
@@ -138,6 +148,7 @@ function main() {
       identities: identities.length,
       release_useful_creators: releaseUseful.length,
       release_verification_checks: releaseVerification?.checks?.length ?? 0,
+      scale_plan_import_batches: scalePlan?.estimated_work?.import_batches_needed ?? 0,
     },
     checks,
     remaining: {
@@ -172,6 +183,7 @@ Complete: ${summary.complete}
 - Identities: ${summary.counts.identities}
 - Release useful creators: ${summary.counts.release_useful_creators}
 - Release verification checks: ${summary.counts.release_verification_checks}
+- Scale plan import batches: ${summary.counts.scale_plan_import_batches}
 
 ## Checks
 

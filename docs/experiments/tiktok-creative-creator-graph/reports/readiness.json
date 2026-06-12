@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T19:52:35.930Z",
+  "generated_at": "2026-06-12T19:55:38.180Z",
   "complete": false,
   "counts": {
     "accounts": 9,
@@ -17,7 +17,8 @@
     "source_yield_rows": 7,
     "identities": 9,
     "release_useful_creators": 6,
-    "release_verification_checks": 44
+    "release_verification_checks": 44,
+    "scale_plan_import_batches": 200
   },
   "checks": [
     {
@@ -74,6 +75,11 @@
       "id": "release_verification",
       "status": "pass",
       "evidence": "44 release checks evaluated"
+    },
+    {
+      "id": "scale_plan",
+      "status": "pass",
+      "evidence": "200 estimated import batches"
     },
     {
       "id": "useful_account_target",
