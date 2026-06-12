@@ -130,7 +130,10 @@ function main() {
       wave_ledger_rows: counts.wave_ledger_rows ?? waveLedger.length,
       wave_ledger_planned: counts.wave_ledger_planned ?? waveLedger.filter((row) => row.status === 'planned').length,
       wave_ledger_imported: counts.wave_ledger_imported ?? waveLedger.filter((row) => row.status === 'imported').length,
+      wave_ledger_imported_empty: counts.wave_ledger_imported_empty ?? waveLedger.filter((row) => row.status === 'imported_empty').length,
       wave_ledger_failed: counts.wave_ledger_failed ?? waveLedger.filter((row) => row.status === 'failed').length,
+      wave_ledger_imported_output_accounts: counts.wave_ledger_imported_output_accounts ?? waveLedger.reduce((sum, row) => sum + Number(row.imported_output_accounts ?? 0), 0),
+      wave_ledger_under_yield_imports: counts.wave_ledger_under_yield_imports ?? waveLedger.filter((row) => row.import_yield_status === 'under_yield').length,
       provider_preflight_tasks: counts.provider_preflight_tasks ?? providerPreflight.length,
       provider_preflight_ready_tasks: counts.provider_preflight_ready_tasks ?? providerPreflightReport?.ready_tasks ?? 0,
       provider_preflight_blocked_tasks: counts.provider_preflight_blocked_tasks ?? providerPreflightReport?.blocked_tasks ?? 0,
@@ -260,7 +263,10 @@ ${handoff.objective}
 - Wave ledger rows: ${handoff.current_corpus.wave_ledger_rows}
 - Wave ledger planned: ${handoff.current_corpus.wave_ledger_planned}
 - Wave ledger imported: ${handoff.current_corpus.wave_ledger_imported}
+- Wave ledger imported empty: ${handoff.current_corpus.wave_ledger_imported_empty}
 - Wave ledger failed: ${handoff.current_corpus.wave_ledger_failed}
+- Wave ledger imported output accounts: ${handoff.current_corpus.wave_ledger_imported_output_accounts}
+- Wave ledger under-yield imports: ${handoff.current_corpus.wave_ledger_under_yield_imports}
 - Provider preflight tasks: ${handoff.current_corpus.provider_preflight_tasks}
 - Provider preflight ready tasks: ${handoff.current_corpus.provider_preflight_ready_tasks}
 - Provider preflight blocked tasks: ${handoff.current_corpus.provider_preflight_blocked_tasks}

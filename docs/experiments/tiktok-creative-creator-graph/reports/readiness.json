@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T21:18:50.835Z",
+  "generated_at": "2026-06-12T21:22:34.555Z",
   "complete": false,
   "counts": {
     "accounts": 9,
@@ -39,7 +39,10 @@
     "wave_ledger_rows": 1000,
     "wave_ledger_planned": 995,
     "wave_ledger_imported": 0,
+    "wave_ledger_imported_empty": 0,
     "wave_ledger_failed": 0,
+    "wave_ledger_imported_output_accounts": 0,
+    "wave_ledger_under_yield_imports": 0,
     "provider_preflight_tasks": 20,
     "provider_preflight_ready_tasks": 20,
     "provider_preflight_blocked_tasks": 0,

@@ -153,6 +153,8 @@ Build wave execution ledger:
 node docs/experiments/tiktok-creative-creator-graph/scripts/build-wave-ledger.mjs
 ```
 
+The ledger reconciles provider runs and imported outputs by scale wave id, execution id, and acquisition batch id. After imports, use `data/processed/wave_ledger.csv` to see each wave's status, imported output accounts, import yield ratio, and whether the wave is strong, usable, under-yield, empty, or still planned.
+
 Build provider execution preflight:
 
 ```bash

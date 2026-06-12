@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T21:18:50.782Z",
+  "generated_at": "2026-06-12T21:22:34.515Z",
   "dataset_id": "tiktok-creative-creator-graph",
   "title": "TikTok Creative Creator Graph",
   "publish_state": "not-ready-production-data",
@@ -62,7 +62,10 @@
     "wave_ledger_rows": 1000,
     "wave_ledger_planned": 995,
     "wave_ledger_imported": 0,
+    "wave_ledger_imported_empty": 0,
     "wave_ledger_failed": 0,
+    "wave_ledger_imported_output_accounts": 0,
+    "wave_ledger_under_yield_imports": 0,
     "provider_preflight_tasks": 20,
     "provider_preflight_ready_tasks": 20,
     "provider_preflight_blocked_tasks": 0,
