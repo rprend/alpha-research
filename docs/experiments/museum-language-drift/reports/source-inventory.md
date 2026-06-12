@@ -1,6 +1,6 @@
 # Museum Language Drift Source Inventory
 
-Generated at: 2026-06-12T18:17:11.231Z
+Generated at: 2026-06-12T18:20:28.739Z
 
 | Museum | Page Type | Layer | Year | Status | Words | URL |
 | --- | --- | --- | ---: | --- | ---: | --- |
@@ -18,6 +18,5 @@ Generated at: 2026-06-12T18:17:11.231Z
 | Philadelphia Museum of Art | about | current | 2026 | 200 | 457 | https://philamuseum.org/about |
 | High Museum of Art | about | current | 2026 | 200 | 203 | https://high.org/about/ |
 | Natural History Museum London | about | current | 2026 | 200 | 454 | https://www.nhm.ac.uk/about-us.html |
-| Tate | about | wayback | 2020 | 200 | 553 | https://web.archive.org/web/20200622225145id_/https://www.tate.org.uk/about-us |
 | J. Paul Getty Museum | about | wayback | 2010 | 200 | 132 | https://web.archive.org/web/20100528034602id_/https://www.getty.edu/about/ |
-| Rijksmuseum | about | wayback | 2020 | 200 | 122 | https://web.archive.org/web/20201115091217id_/https://www.rijksmuseum.nl/en/about-us |
+| J. Paul Getty Museum | about | wayback | 2015 | 200 | 466 | https://web.archive.org/web/20150607141730id_/https://www.getty.edu/about/ |

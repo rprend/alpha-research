@@ -372,34 +372,6 @@
     }
   },
   {
-    "museum": "Tate",
-    "page_type": "about",
-    "source_layer": "wayback",
-    "year": 2020,
-    "url": "https://www.tate.org.uk/about-us",
-    "archive_url": "https://web.archive.org/web/20200622225145id_/https://www.tate.org.uk/about-us",
-    "timestamp": "20200622225145",
-    "status": 200,
-    "words": 553,
-    "text_preview": "About Us | Tate Shop Search Suggested terms: Art Terms Tate Papers Turner Collection Tate Kids Tate Collective ARTIST ROOMS Tate Exchange Late at Tate Jenny Holzer Barbara Hepworth Museum Angelica Kauffman Become a Member About Tate Our mission is to increase the public&rsquo;s enjoyment and understanding of British art from the 16th century to the present day and of international modern and contemporary art Who we are History of Tate Find out about the history of our four galleries and the people behind it Governance Find out how we are governed and funded Our commitment to race equality Tate",
-    "snippets": [
-      "er with senior Tate staff, sets our strategic direction Tate Reports Find the latest annual review of Tate's activities Access to Information Find out how we can help when seeking information about Tate Policies and Procedures Find our policies i",
-      "t Tate Jenny Holzer Barbara Hepworth Museum Angelica Kauffman Become a Member About Tate Our mission is to increase the public&rsquo;s enjoyment and understanding of British art from the 16th century to the present day and of international modern",
-      "Tate St Ives Director Read Anne Barlow's profile Director of Collection Care Read Rosemary Lynch's profile Director of Learning and Research Read Anna Cutler's profile Director of Finance and Estates Read Stephen Wingfield's profile Senior group c",
-      "t how we can help when seeking information about Tate Policies and Procedures Find our policies including diversity and inclusion, website, modern slavery and human trafficking Accessibility Statement Tate's website accessibility statement Our senio",
-      "mation Find out how we can help when seeking information about Tate Policies and Procedures Find our policies including diversity and inclusion, website, modern slavery and human trafficking Accessibility Statement Tate's website accessibility state"
-    ],
-    "term_counts": {
-      "civilization_world_culture": 0,
-      "provenance_ownership": 0,
-      "restitution_repatriation": 0,
-      "decolonization_reckoning": 0,
-      "access_public": 5,
-      "community_inclusion": 6,
-      "research_scholarship": 4
-    }
-  },
-  {
     "museum": "J. Paul Getty Museum",
     "page_type": "about",
     "source_layer": "wayback",
@@ -424,25 +396,31 @@
     }
   },
   {
-    "museum": "Rijksmuseum",
+    "museum": "J. Paul Getty Museum",
     "page_type": "about",
     "source_layer": "wayback",
-    "year": 2020,
-    "url": "https://www.rijksmuseum.nl/en/about-us",
-    "archive_url": "https://web.archive.org/web/20201115091217id_/https://www.rijksmuseum.nl/en/about-us",
-    "timestamp": "20201115091217",
+    "year": 2015,
+    "url": "https://www.getty.edu/about/",
+    "archive_url": "https://web.archive.org/web/20150607141730id_/https://www.getty.edu/about/",
+    "timestamp": "20150607141730",
     "status": 200,
-    "words": 122,
-    "text_preview": "About us - Rijksmuseum Cookie usage The Rijksmuseum uses cookies. A cookie is a small text file that a website stores on your computer or mobile device when you visit our site. Would you like to know more? Read our cookie policy . Accept No, rather not The Rijksmuseum Language Nederlands (Dutch) English (English) Besucher information Service visiteur Informazioni per i visitatori Informacion para los visitantes &#x30D3;&#x30B8;&#x30BF;&#x30FC;&#xB7;&#x30A4;&#x30F3;&#x30D5;&#x30A9;&#x30E1;&#x30FC;&#x30B7;&#x30E7;&#x30F3; &#x6E38;&#x5BA2;&#x4FE1;&#x606F; &#x418;&#x43D;&#x444;&#x43E;&#x440;&#x43C",
-    "snippets": [],
+    "words": 466,
+    "text_preview": "J. Paul Getty Trust - The Getty Home Visit The Getty Center Plan a Visit Art Architecture Gardens Eat Shop The Getty Villa Plan a Visit Art Architecture Gardens Eat Shop Calendar Exhibitions Current Exhibitions Future Exhibitions Past Exhibitions Museum Exhibitions Collection Education Adult Learners College Faculty and Students K-12 Teachers and Students Kids and Families Teens Community Groups Museum Educators About the Education Department Research and Conservation Publications Public Programs Courses and Demonstrations Lectures and Conversations Performances and Films Talks and Tours Highl",
+    "snippets": [
+      "es & Conferences Research Assistance at GCI Information Center Conservation Collection at GRI Library Links to Cultural Heritage Policy Documents Links to Other Conservation Sites Search GCI Search GCI Browse GCI Foundation Our Priorities Current I",
+      "s) Lectures & Conferences Research Assistance at GCI Information Center Conservation Collection at GRI Library Links to Cultural Heritage Policy Documents Links to Other Conservation Sites Search GCI Search GCI Browse GCI Foundation Our Priorities Current I",
+      "ventories & Finding Aids Research Guides & Bibliographies Digital Collections Article & Research Databases Collecting & Provenance Research Photo Archive BHA & RILA Getty Vocabularies Scholars & Projects Scholars Program Research Projects Publication",
+      "ents Kids and Families Teens Community Groups Museum Educators About the Education Department Research and Conservation Publications Public Programs Courses and Demonstrations Lectures and Conversations Performances and Films Talks and Tours High",
+      "ens Eat Shop Calendar Exhibitions Current Exhibitions Future Exhibitions Past Exhibitions Museum Exhibitions Collection Education Adult Learners College Faculty and Students K-12 Teachers and Students Kids and Families Teens Community Groups Museum"
+    ],
     "term_counts": {
-      "civilization_world_culture": 0,
-      "provenance_ownership": 0,
+      "civilization_world_culture": 2,
+      "provenance_ownership": 1,
       "restitution_repatriation": 0,
       "decolonization_reckoning": 0,
-      "access_public": 0,
-      "community_inclusion": 0,
-      "research_scholarship": 0
+      "access_public": 6,
+      "community_inclusion": 1,
+      "research_scholarship": 20
     }
   }
 ]

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-12T18:17:11.263Z",
-  "pageCount": 17,
-  "flaggedRows": 4,
+  "generatedAt": "2026-06-12T18:20:28.772Z",
+  "pageCount": 16,
+  "flaggedRows": 3,
   "rows": [
     {
       "museum": "Tate",
@@ -186,19 +186,6 @@
       "snippet_2": "he world today. We care for more than 80 million objects spanning billions of years and welcome more than seven million visitors annually. Our vision and strategy We are creating advocates for the planet. Careers We employ 900 staff in a variety of"
     },
     {
-      "museum": "Tate",
-      "page_type": "about",
-      "source_layer": "wayback",
-      "year": 2020,
-      "words": 553,
-      "total_terms": 15,
-      "top_families": "community_inclusion:6; access_public:5; research_scholarship:4",
-      "flags": "",
-      "url": "https://www.tate.org.uk/about-us",
-      "snippet_1": "er with senior Tate staff, sets our strategic direction Tate Reports Find the latest annual review of Tate's activities Access to Information Find out how we can help when seeking information about Tate Policies and Procedures Find our policies i",
-      "snippet_2": "t Tate Jenny Holzer Barbara Hepworth Museum Angelica Kauffman Become a Member About Tate Our mission is to increase the public&rsquo;s enjoyment and understanding of British art from the 16th century to the present day and of international modern"
-    },
-    {
       "museum": "J. Paul Getty Museum",
       "page_type": "about",
       "source_layer": "wayback",
@@ -212,17 +199,17 @@
       "snippet_2": ""
     },
     {
-      "museum": "Rijksmuseum",
+      "museum": "J. Paul Getty Museum",
       "page_type": "about",
       "source_layer": "wayback",
-      "year": 2020,
-      "words": 122,
-      "total_terms": 0,
-      "top_families": "civilization_world_culture:0; provenance_ownership:0; restitution_repatriation:0",
-      "flags": "short-page; no-snippets; no-taxonomy-signal",
-      "url": "https://www.rijksmuseum.nl/en/about-us",
-      "snippet_1": "",
-      "snippet_2": ""
+      "year": 2015,
+      "words": 466,
+      "total_terms": 30,
+      "top_families": "research_scholarship:20; access_public:6; civilization_world_culture:2",
+      "flags": "",
+      "url": "https://www.getty.edu/about/",
+      "snippet_1": "es & Conferences Research Assistance at GCI Information Center Conservation Collection at GRI Library Links to Cultural Heritage Policy Documents Links to Other Conservation Sites Search GCI Search GCI Browse GCI Foundation Our Priorities Current I",
+      "snippet_2": "s) Lectures & Conferences Research Assistance at GCI Information Center Conservation Collection at GRI Library Links to Cultural Heritage Policy Documents Links to Other Conservation Sites Search GCI Search GCI Browse GCI Foundation Our Priorities Current I"
     }
   ],
   "reviewInstructions": [

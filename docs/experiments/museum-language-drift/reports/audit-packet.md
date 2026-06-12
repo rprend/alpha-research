@@ -1,8 +1,8 @@
 # Museum Language Drift Audit Packet
 
-Generated at: 2026-06-12T18:17:11.264Z
-Pages requiring review: 17
-Flagged rows: 4
+Generated at: 2026-06-12T18:20:28.773Z
+Pages requiring review: 16
+Flagged rows: 3
 
 ## Review Instructions
 
@@ -167,17 +167,6 @@ _No snippet extracted._
 
 > he world today. We care for more than 80 million objects spanning billions of years and welcome more than seven million visitors annually. Our vision and strategy We are creating advocates for the planet. Careers We employ 900 staff in a variety of
 
-### Tate (about, wayback, 2020)
-
-- Words: 553
-- Top families: community_inclusion:6; access_public:5; research_scholarship:4
-- Flags: none
-- URL: https://www.tate.org.uk/about-us
-
-> er with senior Tate staff, sets our strategic direction Tate Reports Find the latest annual review of Tate's activities Access to Information Find out how we can help when seeking information about Tate Policies and Procedures Find our policies i
-
-> t Tate Jenny Holzer Barbara Hepworth Museum Angelica Kauffman Become a Member About Tate Our mission is to increase the public&rsquo;s enjoyment and understanding of British art from the 16th century to the present day and of international modern
-
 ### J. Paul Getty Museum (about, wayback, 2010)
 
 - Words: 132
@@ -189,13 +178,13 @@ _No snippet extracted._
 
 
 
-### Rijksmuseum (about, wayback, 2020)
+### J. Paul Getty Museum (about, wayback, 2015)
 
-- Words: 122
-- Top families: civilization_world_culture:0; provenance_ownership:0; restitution_repatriation:0
-- Flags: short-page; no-snippets; no-taxonomy-signal
-- URL: https://www.rijksmuseum.nl/en/about-us
+- Words: 466
+- Top families: research_scholarship:20; access_public:6; civilization_world_culture:2
+- Flags: none
+- URL: https://www.getty.edu/about/
 
-_No snippet extracted._
+> es & Conferences Research Assistance at GCI Information Center Conservation Collection at GRI Library Links to Cultural Heritage Policy Documents Links to Other Conservation Sites Search GCI Search GCI Browse GCI Foundation Our Priorities Current I
 
-
+> s) Lectures & Conferences Research Assistance at GCI Information Center Conservation Collection at GRI Library Links to Cultural Heritage Policy Documents Links to Other Conservation Sites Search GCI Search GCI Browse GCI Foundation Our Priorities Current I

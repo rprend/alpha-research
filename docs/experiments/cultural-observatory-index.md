@@ -126,6 +126,7 @@ Implemented:
 - current-page fetcher
 - Wayback target config
 - Wayback snapshot fetcher
+- one-command source-probe pipeline runner
 - term-family taxonomy for civilization/world culture, provenance/ownership, restitution/repatriation, decolonization/reckoning, access/public, community/inclusion, and research/scholarship
 - processed page table
 - page-term counts
@@ -141,7 +142,7 @@ Implemented:
 Current corpus:
 
 - 14 current public museum pages collected
-- 3 historical Wayback snapshots collected
+- 2 historical Wayback snapshots collected in the latest run; Wayback coverage is sparse and variable
 - 14 museums represented
 - year range: 2010-2026
 - current source genre represented: about pages

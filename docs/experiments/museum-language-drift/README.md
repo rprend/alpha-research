@@ -21,6 +21,14 @@ Museum page snapshot, with source genre labels such as:
 
 ## Runbook
 
+Run the full source-probe pipeline:
+
+```bash
+node docs/experiments/museum-language-drift/scripts/run-pipeline.mjs
+```
+
+Or run each step individually:
+
 ```bash
 node docs/experiments/museum-language-drift/scripts/fetch-current-pages.mjs
 node docs/experiments/museum-language-drift/scripts/fetch-wayback-snapshots.mjs
@@ -38,6 +46,7 @@ The scripts write:
 - `data/processed/term-family-by-page-type.csv`
 - `reports/source-inventory.md`
 - `reports/source-inventory.csv`
+- `reports/pipeline-run.json`
 - `reports/report.html`
 - `reports/result.json`
 - `reports/work.md`

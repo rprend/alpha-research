@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-12T18:17:11.228Z",
-  "pages": 17,
+  "generatedAt": "2026-06-12T18:20:28.737Z",
+  "pages": 16,
   "currentPages": 14,
-  "historicalPages": 3,
+  "historicalPages": 2,
   "museums": 14,
   "pageTypes": [
     "about"
@@ -12,12 +12,12 @@
     "latest": 2026
   },
   "termFamilyTotals": {
-    "access_public": 46,
-    "community_inclusion": 39,
-    "research_scholarship": 19,
+    "access_public": 47,
+    "research_scholarship": 35,
+    "community_inclusion": 34,
+    "civilization_world_culture": 2,
     "decolonization_reckoning": 2,
-    "civilization_world_culture": 0,
-    "provenance_ownership": 0,
+    "provenance_ownership": 1,
     "restitution_repatriation": 0
   },
   "termFamilyByPageType": [
@@ -25,56 +25,56 @@
       "page_type": "about",
       "family": "access_public",
       "pages": 14,
-      "count": 46,
-      "words": 6669,
-      "count_per_1000_words": 6.898
-    },
-    {
-      "page_type": "about",
-      "family": "community_inclusion",
-      "pages": 14,
-      "count": 39,
-      "words": 6669,
-      "count_per_1000_words": 5.848
+      "count": 47,
+      "words": 6304,
+      "count_per_1000_words": 7.456
     },
     {
       "page_type": "about",
       "family": "research_scholarship",
       "pages": 14,
-      "count": 19,
-      "words": 6669,
-      "count_per_1000_words": 2.849
+      "count": 35,
+      "words": 6304,
+      "count_per_1000_words": 5.552
+    },
+    {
+      "page_type": "about",
+      "family": "community_inclusion",
+      "pages": 14,
+      "count": 34,
+      "words": 6304,
+      "count_per_1000_words": 5.393
+    },
+    {
+      "page_type": "about",
+      "family": "civilization_world_culture",
+      "pages": 14,
+      "count": 2,
+      "words": 6304,
+      "count_per_1000_words": 0.317
     },
     {
       "page_type": "about",
       "family": "decolonization_reckoning",
       "pages": 14,
       "count": 2,
-      "words": 6669,
-      "count_per_1000_words": 0.3
-    },
-    {
-      "page_type": "about",
-      "family": "civilization_world_culture",
-      "pages": 14,
-      "count": 0,
-      "words": 6669,
-      "count_per_1000_words": 0
+      "words": 6304,
+      "count_per_1000_words": 0.317
     },
     {
       "page_type": "about",
       "family": "provenance_ownership",
       "pages": 14,
-      "count": 0,
-      "words": 6669,
-      "count_per_1000_words": 0
+      "count": 1,
+      "words": 6304,
+      "count_per_1000_words": 0.159
     },
     {
       "page_type": "about",
       "family": "restitution_repatriation",
       "pages": 14,
       "count": 0,
-      "words": 6669,
+      "words": 6304,
       "count_per_1000_words": 0
     }
   ],
@@ -136,59 +136,59 @@
       "count_per_1000_words": 0
     },
     {
-      "year": 2020,
+      "year": 2015,
       "family": "access_public",
-      "pages": 2,
-      "count": 5,
-      "words": 675,
-      "count_per_1000_words": 7.407
-    },
-    {
-      "year": 2020,
-      "family": "civilization_world_culture",
-      "pages": 2,
-      "count": 0,
-      "words": 675,
-      "count_per_1000_words": 0
-    },
-    {
-      "year": 2020,
-      "family": "community_inclusion",
-      "pages": 2,
+      "pages": 1,
       "count": 6,
-      "words": 675,
-      "count_per_1000_words": 8.889
+      "words": 466,
+      "count_per_1000_words": 12.876
     },
     {
-      "year": 2020,
+      "year": 2015,
+      "family": "civilization_world_culture",
+      "pages": 1,
+      "count": 2,
+      "words": 466,
+      "count_per_1000_words": 4.292
+    },
+    {
+      "year": 2015,
+      "family": "community_inclusion",
+      "pages": 1,
+      "count": 1,
+      "words": 466,
+      "count_per_1000_words": 2.146
+    },
+    {
+      "year": 2015,
       "family": "decolonization_reckoning",
-      "pages": 2,
+      "pages": 1,
       "count": 0,
-      "words": 675,
+      "words": 466,
       "count_per_1000_words": 0
     },
     {
-      "year": 2020,
+      "year": 2015,
       "family": "provenance_ownership",
-      "pages": 2,
-      "count": 0,
-      "words": 675,
-      "count_per_1000_words": 0
+      "pages": 1,
+      "count": 1,
+      "words": 466,
+      "count_per_1000_words": 2.146
     },
     {
-      "year": 2020,
+      "year": 2015,
       "family": "research_scholarship",
-      "pages": 2,
-      "count": 4,
-      "words": 675,
-      "count_per_1000_words": 5.926
+      "pages": 1,
+      "count": 20,
+      "words": 466,
+      "count_per_1000_words": 42.918
     },
     {
-      "year": 2020,
+      "year": 2015,
       "family": "restitution_repatriation",
-      "pages": 2,
+      "pages": 1,
       "count": 0,
-      "words": 675,
+      "words": 466,
       "count_per_1000_words": 0
     },
     {
@@ -404,17 +404,6 @@
       "response_path": "data/raw/current-pages/2026-06-12/natural-history-museum-london-about/index.html"
     },
     {
-      "museum": "Tate",
-      "page_type": "about",
-      "source_layer": "wayback",
-      "year": 2020,
-      "status": 200,
-      "word_count": 553,
-      "url": "https://www.tate.org.uk/about-us",
-      "archive_url": "https://web.archive.org/web/20200622225145id_/https://www.tate.org.uk/about-us",
-      "response_path": "data/raw/wayback-snapshots/2026-06-12/tate-about/2020/index.html"
-    },
-    {
       "museum": "J. Paul Getty Museum",
       "page_type": "about",
       "source_layer": "wayback",
@@ -426,15 +415,15 @@
       "response_path": "data/raw/wayback-snapshots/2026-06-12/j-paul-getty-museum-about/2010/index.html"
     },
     {
-      "museum": "Rijksmuseum",
+      "museum": "J. Paul Getty Museum",
       "page_type": "about",
       "source_layer": "wayback",
-      "year": 2020,
+      "year": 2015,
       "status": 200,
-      "word_count": 122,
-      "url": "https://www.rijksmuseum.nl/en/about-us",
-      "archive_url": "https://web.archive.org/web/20201115091217id_/https://www.rijksmuseum.nl/en/about-us",
-      "response_path": "data/raw/wayback-snapshots/2026-06-12/rijksmuseum-about/2020/index.html"
+      "word_count": 466,
+      "url": "https://www.getty.edu/about/",
+      "archive_url": "https://web.archive.org/web/20150607141730id_/https://www.getty.edu/about/",
+      "response_path": "data/raw/wayback-snapshots/2026-06-12/j-paul-getty-museum-about/2015/index.html"
     }
   ],
   "pagesDetail": [
@@ -811,34 +800,6 @@
       }
     },
     {
-      "museum": "Tate",
-      "page_type": "about",
-      "source_layer": "wayback",
-      "year": 2020,
-      "url": "https://www.tate.org.uk/about-us",
-      "archive_url": "https://web.archive.org/web/20200622225145id_/https://www.tate.org.uk/about-us",
-      "timestamp": "20200622225145",
-      "status": 200,
-      "words": 553,
-      "text_preview": "About Us | Tate Shop Search Suggested terms: Art Terms Tate Papers Turner Collection Tate Kids Tate Collective ARTIST ROOMS Tate Exchange Late at Tate Jenny Holzer Barbara Hepworth Museum Angelica Kauffman Become a Member About Tate Our mission is to increase the public&rsquo;s enjoyment and understanding of British art from the 16th century to the present day and of international modern and contemporary art Who we are History of Tate Find out about the history of our four galleries and the people behind it Governance Find out how we are governed and funded Our commitment to race equality Tate",
-      "snippets": [
-        "er with senior Tate staff, sets our strategic direction Tate Reports Find the latest annual review of Tate's activities Access to Information Find out how we can help when seeking information about Tate Policies and Procedures Find our policies i",
-        "t Tate Jenny Holzer Barbara Hepworth Museum Angelica Kauffman Become a Member About Tate Our mission is to increase the public&rsquo;s enjoyment and understanding of British art from the 16th century to the present day and of international modern",
-        "Tate St Ives Director Read Anne Barlow's profile Director of Collection Care Read Rosemary Lynch's profile Director of Learning and Research Read Anna Cutler's profile Director of Finance and Estates Read Stephen Wingfield's profile Senior group c",
-        "t how we can help when seeking information about Tate Policies and Procedures Find our policies including diversity and inclusion, website, modern slavery and human trafficking Accessibility Statement Tate's website accessibility statement Our senio",
-        "mation Find out how we can help when seeking information about Tate Policies and Procedures Find our policies including diversity and inclusion, website, modern slavery and human trafficking Accessibility Statement Tate's website accessibility state"
-      ],
-      "term_counts": {
-        "civilization_world_culture": 0,
-        "provenance_ownership": 0,
-        "restitution_repatriation": 0,
-        "decolonization_reckoning": 0,
-        "access_public": 5,
-        "community_inclusion": 6,
-        "research_scholarship": 4
-      }
-    },
-    {
       "museum": "J. Paul Getty Museum",
       "page_type": "about",
       "source_layer": "wayback",
@@ -863,25 +824,31 @@
       }
     },
     {
-      "museum": "Rijksmuseum",
+      "museum": "J. Paul Getty Museum",
       "page_type": "about",
       "source_layer": "wayback",
-      "year": 2020,
-      "url": "https://www.rijksmuseum.nl/en/about-us",
-      "archive_url": "https://web.archive.org/web/20201115091217id_/https://www.rijksmuseum.nl/en/about-us",
-      "timestamp": "20201115091217",
+      "year": 2015,
+      "url": "https://www.getty.edu/about/",
+      "archive_url": "https://web.archive.org/web/20150607141730id_/https://www.getty.edu/about/",
+      "timestamp": "20150607141730",
       "status": 200,
-      "words": 122,
-      "text_preview": "About us - Rijksmuseum Cookie usage The Rijksmuseum uses cookies. A cookie is a small text file that a website stores on your computer or mobile device when you visit our site. Would you like to know more? Read our cookie policy . Accept No, rather not The Rijksmuseum Language Nederlands (Dutch) English (English) Besucher information Service visiteur Informazioni per i visitatori Informacion para los visitantes &#x30D3;&#x30B8;&#x30BF;&#x30FC;&#xB7;&#x30A4;&#x30F3;&#x30D5;&#x30A9;&#x30E1;&#x30FC;&#x30B7;&#x30E7;&#x30F3; &#x6E38;&#x5BA2;&#x4FE1;&#x606F; &#x418;&#x43D;&#x444;&#x43E;&#x440;&#x43C",
-      "snippets": [],
+      "words": 466,
+      "text_preview": "J. Paul Getty Trust - The Getty Home Visit The Getty Center Plan a Visit Art Architecture Gardens Eat Shop The Getty Villa Plan a Visit Art Architecture Gardens Eat Shop Calendar Exhibitions Current Exhibitions Future Exhibitions Past Exhibitions Museum Exhibitions Collection Education Adult Learners College Faculty and Students K-12 Teachers and Students Kids and Families Teens Community Groups Museum Educators About the Education Department Research and Conservation Publications Public Programs Courses and Demonstrations Lectures and Conversations Performances and Films Talks and Tours Highl",
+      "snippets": [
+        "es & Conferences Research Assistance at GCI Information Center Conservation Collection at GRI Library Links to Cultural Heritage Policy Documents Links to Other Conservation Sites Search GCI Search GCI Browse GCI Foundation Our Priorities Current I",
+        "s) Lectures & Conferences Research Assistance at GCI Information Center Conservation Collection at GRI Library Links to Cultural Heritage Policy Documents Links to Other Conservation Sites Search GCI Search GCI Browse GCI Foundation Our Priorities Current I",
+        "ventories & Finding Aids Research Guides & Bibliographies Digital Collections Article & Research Databases Collecting & Provenance Research Photo Archive BHA & RILA Getty Vocabularies Scholars & Projects Scholars Program Research Projects Publication",
+        "ents Kids and Families Teens Community Groups Museum Educators About the Education Department Research and Conservation Publications Public Programs Courses and Demonstrations Lectures and Conversations Performances and Films Talks and Tours High",
+        "ens Eat Shop Calendar Exhibitions Current Exhibitions Future Exhibitions Past Exhibitions Museum Exhibitions Collection Education Adult Learners College Faculty and Students K-12 Teachers and Students Kids and Families Teens Community Groups Museum"
+      ],
       "term_counts": {
-        "civilization_world_culture": 0,
-        "provenance_ownership": 0,
+        "civilization_world_culture": 2,
+        "provenance_ownership": 1,
         "restitution_repatriation": 0,
         "decolonization_reckoning": 0,
-        "access_public": 0,
-        "community_inclusion": 0,
-        "research_scholarship": 0
+        "access_public": 6,
+        "community_inclusion": 1,
+        "research_scholarship": 20
       }
     }
   ],

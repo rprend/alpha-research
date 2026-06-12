@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T18:17:11.293Z",
+  "generatedAt": "2026-06-12T18:20:28.802Z",
   "status": "not-ready-for-publication",
   "checks": [
     {
@@ -24,7 +24,7 @@
       "id": "historical-pages",
       "label": "Historical snapshots exist before temporal claims",
       "status": "needs-work",
-      "evidence": "3 historical snapshots"
+      "evidence": "2 historical snapshots"
     },
     {
       "id": "public-draft",
@@ -36,13 +36,13 @@
       "id": "audit-packet",
       "label": "Snippet audit packet exists",
       "status": "pass",
-      "evidence": "reports/audit-packet.json (4 flagged rows)"
+      "evidence": "reports/audit-packet.json (3 flagged rows)"
     },
     {
       "id": "audit-flags",
       "label": "No automatic audit flags before publication",
       "status": "needs-work",
-      "evidence": "4 flagged rows"
+      "evidence": "3 flagged rows"
     }
   ],
   "nextMoves": [
