@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-12T20:16:52.709Z
+Generated: 2026-06-12T20:20:29.224Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -20,7 +20,9 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Review decisions: 4
 - Source yield rows: 7
 - Category coverage: 5/11
-- Acquisition tasks: 31
+- Acquisition tasks: 68
+- Acquisition runner runnable tasks: 8
+- Acquisition runner skipped tasks: 0
 - Refresh tasks: 9
 
 ## Remaining Production Gaps

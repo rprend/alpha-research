@@ -32,6 +32,36 @@
           "shouldDownloadCovers": false,
           "shouldDownloadSubtitles": false
         }
+      },
+      "search_index": {
+        "actor_id": "apify/google-search-scraper",
+        "input_template": {
+          "queries": "{{query}}",
+          "maxPagesPerQuery": 1,
+          "resultsPerPage": "{{limit}}",
+          "countryCode": "us",
+          "languageCode": "en"
+        }
+      },
+      "category_gap_search": {
+        "actor_id": "apify/google-search-scraper",
+        "input_template": {
+          "queries": "{{query}}",
+          "maxPagesPerQuery": 1,
+          "resultsPerPage": "{{limit}}",
+          "countryCode": "us",
+          "languageCode": "en"
+        }
+      },
+      "cross_platform_search": {
+        "actor_id": "apify/google-search-scraper",
+        "input_template": {
+          "queries": "{{query}}",
+          "maxPagesPerQuery": 1,
+          "resultsPerPage": "{{limit}}",
+          "countryCode": "us",
+          "languageCode": "en"
+        }
       }
     }
   }

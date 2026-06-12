@@ -104,7 +104,7 @@ function main() {
     {
       id: 'acquisition_runner',
       status: acquisitionRun?.selected_tasks > 0 ? 'pass' : 'fail',
-      evidence: acquisitionRun ? `${acquisitionRun.selected_tasks} provider tasks selected (${acquisitionRun.dry_run ? 'dry run' : 'live'})` : 'acquisition runner has not been exercised',
+      evidence: acquisitionRun ? `${acquisitionRun.runnable_tasks ?? acquisitionRun.selected_tasks} runnable of ${acquisitionRun.selected_tasks} selected provider tasks (${acquisitionRun.dry_run ? 'dry run' : 'live'})` : 'acquisition runner has not been exercised',
     },
     {
       id: 'source_yield',
@@ -181,6 +181,8 @@ function main() {
       expansion_queue: expansionQueue.length,
       acquisition_tasks: acquisitionTasks.length,
       acquisition_runner_tasks: acquisitionRun?.selected_tasks ?? 0,
+      acquisition_runner_runnable_tasks: acquisitionRun?.runnable_tasks ?? acquisitionRun?.selected_tasks ?? 0,
+      acquisition_runner_skipped_tasks: acquisitionRun?.skipped_tasks ?? 0,
       source_yield_rows: sourceYield.length,
       identities: identities.length,
       category_coverage_labels: categoryCoverage?.labels ?? 0,
@@ -221,6 +223,8 @@ Complete: ${summary.complete}
 - Expansion queue: ${summary.counts.expansion_queue}
 - Acquisition tasks: ${summary.counts.acquisition_tasks}
 - Acquisition runner tasks: ${summary.counts.acquisition_runner_tasks}
+- Acquisition runner runnable tasks: ${summary.counts.acquisition_runner_runnable_tasks}
+- Acquisition runner skipped tasks: ${summary.counts.acquisition_runner_skipped_tasks}
 - Source yield rows: ${summary.counts.source_yield_rows}
 - Identities: ${summary.counts.identities}
 - Category coverage labels: ${summary.counts.category_coverage_covered_labels}/${summary.counts.category_coverage_labels}

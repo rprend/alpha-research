@@ -1,127 +1,191 @@
 {
-  "generated_at": "2026-06-12T19:58:39.427Z",
-  "execution_id": "2026-06-12T19-58-39-422Z",
+  "generated_at": "2026-06-12T20:20:28.312Z",
+  "execution_id": "2026-06-12T20-20-28-309Z",
   "provider": "apify",
   "dry_run": true,
-  "selected_tasks": 5,
+  "selected_tasks": 8,
+  "runnable_tasks": 8,
+  "skipped_tasks": 0,
   "succeeded": 0,
   "failed": 0,
+  "dry_run_tasks": 8,
   "output_rows": 0,
   "results": [
     {
-      "execution_id": "2026-06-12T19-58-39-422Z",
+      "execution_id": "2026-06-12T20-20-28-309Z",
       "provider": "apify",
-      "batch_id": "graph_0028",
-      "acquisition_surface": "tiktok_creator_neighborhood_export",
-      "query": "@maya.shortcuts",
-      "actor_id": "clockworks/tiktok-scraper",
+      "batch_id": "category_gap_0028",
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"editor\"",
+      "target_label": "editor",
+      "actor_id": "apify/google-search-scraper",
       "input": {
-        "profiles": [
-          "https://www.tiktok.com/@maya.shortcuts"
-        ],
+        "queries": "site:tiktok.com/@ \"editor\"",
+        "maxPagesPerQuery": 1,
         "resultsPerPage": 100,
-        "shouldDownloadVideos": false,
-        "shouldDownloadCovers": false,
-        "shouldDownloadSubtitles": false
+        "countryCode": "us",
+        "languageCode": "en"
       },
       "dry_run": true,
-      "started_at": "2026-06-12T19:58:39.427Z",
+      "started_at": "2026-06-12T20:20:28.312Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-12T19:58:39.427Z"
+      "finished_at": "2026-06-12T20:20:28.312Z"
     },
     {
-      "execution_id": "2026-06-12T19-58-39-422Z",
+      "execution_id": "2026-06-12T20-20-28-309Z",
       "provider": "apify",
-      "batch_id": "graph_0029",
-      "acquisition_surface": "tiktok_creator_neighborhood_export",
-      "query": "@noahframes",
-      "actor_id": "clockworks/tiktok-scraper",
+      "batch_id": "category_gap_0029",
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"editing\"",
+      "target_label": "editor",
+      "actor_id": "apify/google-search-scraper",
       "input": {
-        "profiles": [
-          "https://www.tiktok.com/@noahframes"
-        ],
+        "queries": "site:tiktok.com/@ \"editing\"",
+        "maxPagesPerQuery": 1,
         "resultsPerPage": 100,
-        "shouldDownloadVideos": false,
-        "shouldDownloadCovers": false,
-        "shouldDownloadSubtitles": false
+        "countryCode": "us",
+        "languageCode": "en"
       },
       "dry_run": true,
-      "started_at": "2026-06-12T19:58:39.427Z",
+      "started_at": "2026-06-12T20:20:28.312Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-12T19:58:39.427Z"
+      "finished_at": "2026-06-12T20:20:28.312Z"
     },
     {
-      "execution_id": "2026-06-12T19-58-39-422Z",
+      "execution_id": "2026-06-12T20-20-28-309Z",
       "provider": "apify",
-      "batch_id": "graph_0030",
-      "acquisition_surface": "tiktok_creator_neighborhood_export",
-      "query": "@lucybits",
-      "actor_id": "clockworks/tiktok-scraper",
+      "batch_id": "category_gap_0030",
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"director\"",
+      "target_label": "director",
+      "actor_id": "apify/google-search-scraper",
       "input": {
-        "profiles": [
-          "https://www.tiktok.com/@lucybits"
-        ],
+        "queries": "site:tiktok.com/@ \"director\"",
+        "maxPagesPerQuery": 1,
         "resultsPerPage": 100,
-        "shouldDownloadVideos": false,
-        "shouldDownloadCovers": false,
-        "shouldDownloadSubtitles": false
+        "countryCode": "us",
+        "languageCode": "en"
       },
       "dry_run": true,
-      "started_at": "2026-06-12T19:58:39.427Z",
+      "started_at": "2026-06-12T20:20:28.312Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-12T19:58:39.427Z"
+      "finished_at": "2026-06-12T20:20:28.312Z"
     },
     {
-      "execution_id": "2026-06-12T19-58-39-422Z",
+      "execution_id": "2026-06-12T20-20-28-309Z",
       "provider": "apify",
-      "batch_id": "graph_0031",
-      "acquisition_surface": "tiktok_creator_neighborhood_export",
-      "query": "@ani.motionlab",
-      "actor_id": "clockworks/tiktok-scraper",
+      "batch_id": "category_gap_0031",
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"directed by\"",
+      "target_label": "director",
+      "actor_id": "apify/google-search-scraper",
       "input": {
-        "profiles": [
-          "https://www.tiktok.com/@ani.motionlab"
-        ],
+        "queries": "site:tiktok.com/@ \"directed by\"",
+        "maxPagesPerQuery": 1,
         "resultsPerPage": 100,
-        "shouldDownloadVideos": false,
-        "shouldDownloadCovers": false,
-        "shouldDownloadSubtitles": false
+        "countryCode": "us",
+        "languageCode": "en"
       },
       "dry_run": true,
-      "started_at": "2026-06-12T19:58:39.427Z",
+      "started_at": "2026-06-12T20:20:28.312Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-12T19:58:39.427Z"
+      "finished_at": "2026-06-12T20:20:28.312Z"
     },
     {
-      "execution_id": "2026-06-12T19-58-39-422Z",
+      "execution_id": "2026-06-12T20-20-28-309Z",
       "provider": "apify",
-      "batch_id": "hashtag_0011",
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "filmmaker",
-      "actor_id": "clockworks/tiktok-scraper",
+      "batch_id": "category_gap_0032",
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"commercial director\"",
+      "target_label": "director",
+      "actor_id": "apify/google-search-scraper",
       "input": {
-        "hashtags": [
-          "filmmaker"
-        ],
+        "queries": "site:tiktok.com/@ \"commercial director\"",
+        "maxPagesPerQuery": 1,
         "resultsPerPage": 100,
-        "shouldDownloadVideos": false,
-        "shouldDownloadCovers": false,
-        "shouldDownloadSubtitles": false
+        "countryCode": "us",
+        "languageCode": "en"
       },
       "dry_run": true,
-      "started_at": "2026-06-12T19:58:39.427Z",
+      "started_at": "2026-06-12T20:20:28.312Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-12T19:58:39.427Z"
+      "finished_at": "2026-06-12T20:20:28.312Z"
+    },
+    {
+      "execution_id": "2026-06-12T20-20-28-309Z",
+      "provider": "apify",
+      "batch_id": "category_gap_0033",
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"standup comedian\"",
+      "target_label": "standup_comedian",
+      "actor_id": "apify/google-search-scraper",
+      "input": {
+        "queries": "site:tiktok.com/@ \"standup comedian\"",
+        "maxPagesPerQuery": 1,
+        "resultsPerPage": 100,
+        "countryCode": "us",
+        "languageCode": "en"
+      },
+      "dry_run": true,
+      "started_at": "2026-06-12T20:20:28.312Z",
+      "status": "dry_run",
+      "output_rows": 0,
+      "output_path": "",
+      "finished_at": "2026-06-12T20:20:28.312Z"
+    },
+    {
+      "execution_id": "2026-06-12T20-20-28-309Z",
+      "provider": "apify",
+      "batch_id": "category_gap_0034",
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"standup\"",
+      "target_label": "standup_comedian",
+      "actor_id": "apify/google-search-scraper",
+      "input": {
+        "queries": "site:tiktok.com/@ \"standup\"",
+        "maxPagesPerQuery": 1,
+        "resultsPerPage": 100,
+        "countryCode": "us",
+        "languageCode": "en"
+      },
+      "dry_run": true,
+      "started_at": "2026-06-12T20:20:28.312Z",
+      "status": "dry_run",
+      "output_rows": 0,
+      "output_path": "",
+      "finished_at": "2026-06-12T20:20:28.312Z"
+    },
+    {
+      "execution_id": "2026-06-12T20-20-28-309Z",
+      "provider": "apify",
+      "batch_id": "category_gap_0035",
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"stand-up\"",
+      "target_label": "standup_comedian",
+      "actor_id": "apify/google-search-scraper",
+      "input": {
+        "queries": "site:tiktok.com/@ \"stand-up\"",
+        "maxPagesPerQuery": 1,
+        "resultsPerPage": 100,
+        "countryCode": "us",
+        "languageCode": "en"
+      },
+      "dry_run": true,
+      "started_at": "2026-06-12T20:20:28.312Z",
+      "status": "dry_run",
+      "output_rows": 0,
+      "output_path": "",
+      "finished_at": "2026-06-12T20:20:28.312Z"
     }
   ]
 }

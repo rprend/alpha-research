@@ -49,7 +49,7 @@ Execute or dry-run provider acquisition batches:
 node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=5
 ```
 
-Without `--dry-run`, the runner currently supports Apify when `APIFY_TOKEN` is already present in the environment. It writes raw provider output to `data/raw/acquisition-results/`.
+Without `--dry-run`, the runner currently supports Apify when `APIFY_TOKEN` is already present in the environment. It writes raw provider output to `data/raw/acquisition-results/`. The Apify adapter covers TikTok hashtag/profile/neighborhood exports plus search-index, category-gap, and cross-platform search tasks.
 
 Normalize search/provider acquisition exports into pipeline imports:
 

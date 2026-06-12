@@ -92,6 +92,8 @@ function main() {
       source_yield_rows: counts.source_yield_rows ?? sourceYield.length,
       category_coverage: categoryCoverage ? `${categoryCoverage.covered_labels}/${categoryCoverage.labels}` : 'missing',
       acquisition_tasks: counts.acquisition_tasks ?? acquisitionBatches?.tasks ?? 0,
+      acquisition_runner_runnable_tasks: counts.acquisition_runner_runnable_tasks ?? acquisitionRun?.runnable_tasks ?? 0,
+      acquisition_runner_skipped_tasks: counts.acquisition_runner_skipped_tasks ?? acquisitionRun?.skipped_tasks ?? 0,
       refresh_tasks: counts.refresh_tasks ?? refreshPlan?.refresh_tasks ?? 0,
     },
     target_gaps: {
@@ -170,6 +172,8 @@ ${handoff.objective}
 - Source yield rows: ${handoff.current_corpus.source_yield_rows}
 - Category coverage: ${handoff.current_corpus.category_coverage}
 - Acquisition tasks: ${handoff.current_corpus.acquisition_tasks}
+- Acquisition runner runnable tasks: ${handoff.current_corpus.acquisition_runner_runnable_tasks}
+- Acquisition runner skipped tasks: ${handoff.current_corpus.acquisition_runner_skipped_tasks}
 - Refresh tasks: ${handoff.current_corpus.refresh_tasks}
 
 ## Remaining Production Gaps

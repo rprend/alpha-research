@@ -52,6 +52,21 @@ function renderTemplate(value, task) {
   return value
 }
 
+function providerRowsForTask(items, task, run) {
+  return items.map((item) => ({
+    ...item,
+    query: task.query,
+    search_query: item.searchQuery?.term ?? item.searchQuery ?? task.query,
+    acquisition_surface: task.acquisition_surface,
+    target_label: task.target_label ?? '',
+    target_label_gap: task.target_label_gap ?? '',
+    category_coverage_reason: task.category_coverage_reason ?? '',
+    batch_id: task.batch_id,
+    provider,
+    provider_run_id: run.run_id,
+  }))
+}
+
 async function apifyJson(path, options = {}) {
   const url = `${adapter.base_url}${path}${path.includes('?') ? '&' : '?'}token=${encodeURIComponent(process.env.APIFY_TOKEN)}`
   const response = await fetch(url, options)
@@ -105,12 +120,29 @@ async function main() {
 
   const tasks = readJsonl(join(processedDir, 'acquisition/acquisition_tasks.jsonl'))
     .filter((task) => Number(task.priority) <= priorityMax)
-    .filter((task) => adapter.actors[task.acquisition_surface])
     .slice(0, maxTasks)
+  const runnableTasks = tasks.filter((task) => adapter.actors[task.acquisition_surface])
+  const skippedTasks = tasks.filter((task) => !adapter.actors[task.acquisition_surface])
 
   const executionId = new Date().toISOString().replace(/[:.]/g, '-')
-  const results = []
-  for (const task of tasks) {
+  const results = skippedTasks.map((task) => ({
+    execution_id: executionId,
+    provider,
+    batch_id: task.batch_id,
+    acquisition_surface: task.acquisition_surface,
+    query: task.query,
+    target_label: task.target_label ?? '',
+    actor_id: '',
+    input: {},
+    dry_run: true,
+    status: 'skipped_no_adapter',
+    output_rows: 0,
+    output_path: '',
+    started_at: new Date().toISOString(),
+    finished_at: new Date().toISOString(),
+  }))
+
+  for (const task of runnableTasks) {
     const actorConfig = adapter.actors[task.acquisition_surface]
     const input = renderTemplate(actorConfig.input_template, task)
     const base = {
@@ -119,6 +151,7 @@ async function main() {
       batch_id: task.batch_id,
       acquisition_surface: task.acquisition_surface,
       query: task.query,
+      target_label: task.target_label ?? '',
       actor_id: actorConfig.actor_id,
       input,
       dry_run: dryRun,
@@ -139,14 +172,7 @@ async function main() {
     try {
       const run = await runApifyActor(task, actorConfig)
       const outputPath = join(acquisitionResultsDir, `${executionId}-${task.batch_id}.jsonl`)
-      const rows = run.items.map((item) => ({
-        ...item,
-        query: task.query,
-        acquisition_surface: task.acquisition_surface,
-        batch_id: task.batch_id,
-        provider,
-        provider_run_id: run.run_id,
-      }))
+      const rows = providerRowsForTask(run.items, task, run)
       writeJsonl(outputPath, rows)
       results.push({
         ...base,
@@ -175,8 +201,11 @@ async function main() {
     provider,
     dry_run: dryRun,
     selected_tasks: tasks.length,
+    runnable_tasks: runnableTasks.length,
+    skipped_tasks: skippedTasks.length,
     succeeded: results.filter((row) => row.status === 'succeeded').length,
     failed: results.filter((row) => row.status === 'failed').length,
+    dry_run_tasks: results.filter((row) => row.status === 'dry_run').length,
     output_rows: results.reduce((sum, row) => sum + Number(row.output_rows ?? 0), 0),
     results,
   }
@@ -189,15 +218,18 @@ Generated: ${summary.generated_at}
 - Provider: ${summary.provider}
 - Dry run: ${summary.dry_run}
 - Selected tasks: ${summary.selected_tasks}
+- Runnable tasks: ${summary.runnable_tasks}
+- Skipped tasks: ${summary.skipped_tasks}
 - Succeeded: ${summary.succeeded}
 - Failed: ${summary.failed}
+- Dry-run tasks: ${summary.dry_run_tasks}
 - Output rows: ${summary.output_rows}
 
 ## Tasks
 
-| Batch | Surface | Query | Status | Rows |
-| --- | --- | --- | --- | ---: |
-${summary.results.map((row) => `| ${row.batch_id} | ${row.acquisition_surface} | ${row.query} | ${row.status} | ${row.output_rows} |`).join('\n')}
+| Batch | Surface | Target Label | Query | Status | Rows |
+| --- | --- | --- | --- | --- | ---: |
+${summary.results.map((row) => `| ${row.batch_id} | ${row.acquisition_surface} | ${row.target_label ?? ''} | ${row.query} | ${row.status} | ${row.output_rows} |`).join('\n')}
 `)
 
   console.log(JSON.stringify(summary, null, 2))
