@@ -11,7 +11,7 @@ This curriculum is generated from public RISD Graphic Design corpus artifacts. I
 - Assignment evidence snippets considered: 671
 - Reading evidence snippets considered: 148
 - Public student-work records considered: 22
-- Curriculum modules generated: 19
+- Curriculum modules generated: 14
 
 ## How To Use This
 
@@ -37,27 +37,31 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Tools/software/materials to practice: HTML/CSS, Google Drive, Canvas, Adobe, Adobe Photoshop, Adobe Illustrator, Adobe InDesign, JavaScript
 - Skill targets: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
 - Reading packet:
-  - Semester-long Deliverables (non_reading_fragment)
-  - John Caserta --> (non_reading_fragment)
-  - with Bindery (non_reading_fragment)
-  - Design Studio 2016–18 (non-reading resource)
-  - comes from the credits (non_reading_fragment)
-  - affects form — Learn to work together to accomplish more (non_reading_fragment)
+  - Essay on the Importance of Time (essay; assignment_resource; assignment-linked: assign_syl_ds1618_make_book_02)
+  - How to Draw a Tree, Bruno Munari (book)
+  - What Is a Designer, Norman Potter (book)
+  - Design Studio 2016–18 (non-reading resource; assignment_resource; assignment-linked: assign_syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d_01, assign_syl_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d_02)
+  - (in GD Commons) (non-reading resource)
+  - Lars Muller Publishers (inspiration_reference)
 - Schedule rhythm:
-  - Return to class and prep for a casual, gallery style, laptop sharing.: Return to class and prep for a casual, gallery style, laptop sharing.
-  - Begin in class, then continue the process on your own.: Begin in class, then continue the process on your own.
-  - You must use each of the 5 Non-Traditional materials provided in class to begin your form translations.: You must use each of the 5 Non-Traditional materials provided in class to begin your form translations.
-  - Dear Class of 2017, Design Observer: Dear Class of 2017, Design Observer
-  - Question the Classroom Design & Culture: Question the Classroom Design & Culture
+  - Due Week 3 / Sept 27: Due Week 3 / Sept 27
+  - As you work in class, keep in mind that your final collection of graphic forms will be digital.: As you work in class, keep in mind that your final collection of graphic forms will be digital.
+  - Review your source photos for new opportunities and assess your work from class.: Review your source photos for new opportunities and assess your work from class.
+  - Due Next Week, Sept 20:: Due Next Week, Sept 20:
+  - DUE October 4: Phases 1-4 In class present your ideas and process of inquiry.: DUE October 4: Phases 1-4 In class present your ideas and process of inquiry.
 - Studio briefs to recreate:
+  - Recovered brief: Design Studio 2016–18: Critique Questions: Make Book Design Studio 2016–18 Consider these questions while taking notes Did the video show you how to do the thing? Did the structure of the video assist or “overwhelm” the intended narrative? How successful was the use of “graphic devices” (numbers, arrows, etc.)? Did the video use the time allotment (two minutes or less) to advantage? Did the video use camera angles, cutting, close ups, continuity, and an effective compositional structure to advantage? Was there a sense of distinct voice? Which 1-3 films do you want to discuss/remember? (deliverables: book, animation; process: produce finished artifact, present work for critique; criteria: participation and critique contribution; type: critique_session; phases: make, present, critique; output: time_based_screen_artifact; critique: critique referenced in source excerpt; boundary: bounded_assignment_brief)
+  - Assignment: DUE WEEK TWO: Tuesday, Nov: Design Studio 2016–18: Unit 5: Overview & Assignment: DUE WEEK TWO: Tuesday, Nov. 15 DUE WEEK THREE: Tuesday, Nov. 29 For final review (Tues Nov 29), you will present: (deliverables: presentation; constraints: deadline or due date referenced; process: produce finished artifact, present work for critique; submission: due date or deadline present, final presentation or critique; criteria: timely completion; type: final_project; phases: make, present, critique, submit; output: presentation; critique: feedback/review referenced in source excerpt; boundary: bounded_assignment_brief)
+  - final review (Tues Nov 29), you will present:: For final review (Tues Nov 29), you will present: (deliverables: presentation; process: present work for critique; submission: final presentation or critique; type: final_project; phases: present, critique, submit; output: presentation; critique: feedback/review referenced in source excerpt; boundary: bounded_assignment_brief)
   - Recovered brief: Design Studio will take the form of a series of question-based units, each initiated by a faculty member and contextualized by a presentation, event, or workshop. (deliverables: presentation; process: produce finished artifact, present work for critique; submission: final presentation or critique; type: exercise; phases: make, present; output: presentation; boundary: bounded_assignment_brief)
-  - projects are not the intended outcome of DS1: Finished projects are not the intended outcome of DS1. (type: project_brief; boundary: contextual_course_fragment)
-  - Recovered brief: Develop rhetorical, communication and presentation skills (deliverables: presentation; process: present work for critique; submission: final presentation or critique; type: presentation; phases: present; output: presentation; boundary: bounded_assignment_brief)
-  - Recovered brief: Semester-long Deliverables (type: studio_activity; boundary: fragment_too_short)
-  - project, but also in the considerations a designer must build into two-dimensional “fix: Not only in how we engage in the design of an exhibit or screen based project, but also in the considerations a designer must build into two-dimensional “fixed” surfaces, such as signs, books, posters, and charts. (constraints: must follow stated requirements; process: produce finished artifact; type: project_brief; phases: make; boundary: partial_assignment_evidence)
-  - project: The order in which ideas are accessed is at the essence of any project. (type: project_brief; boundary: weak_assignment_signal)
+  - Recovered brief: Finish: Demonstration of skills in craft, visual design, presentation and communication (deliverables: presentation; process: produce finished artifact, present work for critique; submission: final presentation or critique; criteria: craft and finish; type: presentation; phases: make, present; output: presentation; boundary: bounded_assignment_brief)
+  - Recovered brief: Compositions should be printed and mounted to presentation board. (deliverables: presentation; process: present work for critique; submission: final presentation or critique; type: presentation; phases: present; output: presentation; boundary: bounded_assignment_brief)
+- Practice loop:
+  - make book, animation; critique/revise: critique referenced in source excerpt; output: time_based_screen_artifact. Cite assignment assign_syl_crawl_ds1618_risd_gd_2016_11_08_unit4_crit_html_d957a68a_01.
 - Public comparison set:
   - the course website.: https://ds1618.risd.gd/2016/10/11/unit3_overview.html (course-context evidence only)
+- Missing evidence warnings:
+  - public comparison work is course-context only or missing
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -71,25 +75,29 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Tools/software/materials to practice: Slack, Zoom, HTML/CSS, JavaScript, Adobe, Figma
 - Skill targets: typography, motion design, interaction design, critique and revision, research methods, image making, publication design, identity systems
 - Reading packet:
-  - editor, such as Sublime Text or Atom for coding (non-reading resource)
-  - Readings will be dispersed throughout the semester to inform and contextualize our work (non_reading_fragment)
-  - in the relevant slack channel, raise questions, and discuss the text (non_reading_fragment)
-  - discussions and class critiques, we will be sharing resources with each other, and supporting each other through technical challenges (non_reading_fragment; assignment_resource)
-  - in which it was made (non_reading_fragment)
-  - The Web's Grain, Frank Chimero (essay)
+  - Editor, such as Sublime Text (book)
+  - Function as Narrative, Weiyi Li (essay)
+  - Jack Balkin and Dan Michaelson: Interview (essay)
+  - Letter & Spirit, Dexter Sinister (essay)
+  - My Website is a Shifting House Next to a River of Knowledge, Laurel Schwulst (essay)
+  - On the Letterform of the Age, Bo-Won Keum (essay)
 - Schedule rhythm:
-  - Join Slack for class communications: Join Slack for class communications
-  - We will be using Github’s code sharing and publishing service to store our class projects.: We will be using Github’s code sharing and publishing service to store our class projects.
-  - If you don’t have one already, sign up for a GitHub account and make a repository for this class.: If you don’t have one already, sign up for a GitHub account and make a repository for this class.
-  - Otherwise, select choose button, and navigate to the folder where you are keeping your materials for this class and then press the Open butt: Otherwise, select choose button, and navigate to the folder where you are keeping your materials for this class and then press the Open button.
-  - This repository will be the home for all of your assignments and exercises for this class.: This repository will be the home for all of your assignments and exercises for this class.
+  - Week 1: Prepare content, initial design sketches: Week 1: Prepare content, initial design sketches
+  - Week 1: Prepare design concept and initial sketches: Week 1: Prepare design concept and initial sketches
+  - Week 1: Prototype your type specimen: Week 1: Prototype your type specimen
+  - Week 1: Prepare your data and experiment with its display: Week 1: Prepare your data and experiment with its display
+  - Week 2: Prototype in Code, default device: Week 2: Prototype in Code, default device
 - Studio briefs to recreate:
+  - exercise, we will be diving a little bit further into JavaScript to control our variable: Input Range: Input Range — WebType Programmatically use your typeface In today’s exercise, we will be diving a little bit further into JavaScript to control our variable fonts in the browser. Review the Code Lab Tutorial on JS and Variable Fonts, along with the Panopto recording. (I recommend viewing the video at 1.5× or 2× its actual speed.) As a reminder, you can continue to pull demo codes for in-class exercises by syncing the entire Web Type Demos repository to your computer. Using what you learned from your tutorial, add on your class site with your variable font. Similary to the way we set up Dark Mode, add a button that toggles states of your typeface. Add an input slider that updates the font-variation-settings of your typeface. About the input type=range element on MDN Styling Range Inputs on CSS Tricks Review previous exercise for a primer on jQuery. (deliverables: website, animation, typeface; process: produce finished artifact, present work for critique; type: critique_session; phases: make, critique; output: interactive_web_artifact; critique: feedback/review referenced in source excerpt; boundary: bounded_assignment_brief)
+  - exercises by syncing the entire Web Type Demos repository to your computer: Review the Code Lab Tutorial on JS and Variable Fonts, along with the Panopto recording . (I recommend viewing the video at 1.5× or 2× its actual speed.) As a reminder, you can continue to pull demo codes for in-class exercises by syncing the entire Web Type Demos repository to your computer. (deliverables: animation; process: produce finished artifact, present work for critique; type: critique_session; phases: make, critique; output: interactive_web_artifact; critique: feedback/review referenced in source excerpt; boundary: bounded_assignment_brief)
+  - final documentation will be considered for the evaluation: Such improvements in the final documentation will be considered for the evaluation. (deliverables: documentation; process: document process or final work; submission: final presentation or critique, documentation required; type: final_project; phases: submit, document; revision: revision or iterative improvement expected; boundary: bounded_assignment_brief)
+  - final version of your website: You might also include alternate drafts / planning documents that you experimented before developing the final version of your website. (Links to Figma are great, but please do not link to any working documents such as .psd or .ai files as they can be too heavy to manage on Github.) (deliverables: website; constraints: process documentation required; process: sketch or draft alternatives, prototype or test behavior/form; submission: final presentation or critique; criteria: process and iteration; type: final_project; phases: sketch, prototype, submit; output: interactive_web_artifact; revision: revision or iterative improvement expected; boundary: bounded_assignment_brief)
   - project: Presentation & Discussion In addition to reading discussions and class critiques, we will be sharing resources with each other, and supporting each other through technical challenges. Each student is also responsible for preparing a brief 15min presentation on a topic surrounding the intersection of web / technology & typography using the browser as an expressive medium as part of the first project. (deliverables: presentation; process: present work for critique; submission: final presentation or critique; criteria: participation and critique contribution; type: reading_response; phases: present, critique; output: presentation; critique: group/class critique referenced in source excerpt; boundary: bounded_assignment_brief)
-  - Project 1 Kickoff In class exercise: Getting Started Remember to sign up for project 1 t: Project 1 Kickoff In class exercise: Getting Started Remember to sign up for project 1 topic by Monday (constraints: deadline or due date referenced; submission: due date or deadline present; type: exercise; boundary: bounded_assignment_brief)
-  - Project 1 progress, small groups review (optional) In-class exercise review Exercise Lay: Project 1 progress, small groups review (optional) In-class exercise review Exercise Layouts (process: present work for critique; submission: final presentation or critique; type: critique_session; phases: critique; critique: feedback/review referenced in source excerpt; revision: revision or iterative improvement expected; boundary: bounded_assignment_brief)
-  - Project 1 progress, small groups review (optional) In-class exercise review: responsive : Project 1 progress, small groups review (optional) In-class exercise review: responsive layouts Exercise Responsive Layouts (process: present work for critique; submission: final presentation or critique; type: critique_session; phases: critique; critique: feedback/review referenced in source excerpt; revision: revision or iterative improvement expected; boundary: bounded_assignment_brief)
-  - Project 2 Begin preparing project 2 proposal ideas and sketches: Presentation: Gabriel and Valia A talk on Type & Tools Introduce Project 2 Begin preparing project 2 proposal ideas and sketches (deliverables: presentation; constraints: process documentation required; process: sketch or draft alternatives, present work for critique; type: presentation; phases: sketch, present; output: presentation; boundary: bounded_assignment_brief)
-  - Exercise: Change over Time Individual meetings Exercise Change over time: Exercise: Change over Time Individual meetings Exercise Change over time (type: exercise; boundary: weak_assignment_signal)
+  - Project 3: Type Specimen Kickoff Variable Font Group Review Exercise Input Range: Project 3: Type Specimen Kickoff Variable Font Group Review Exercise Input Range (deliverables: typeface; process: present work for critique; type: critique_session; phases: critique; critique: feedback/review referenced in source excerpt; boundary: bounded_assignment_brief)
+- Practice loop:
+  - make website, animation, typeface; critique/revise: feedback/review referenced in source excerpt; output: interactive_web_artifact. Cite assignment assign_syl_crawl_webtype_htmlkitchen_net_exercises_07_input_range_30e67e2f_01.
+- Missing evidence warnings:
+  - public comparison work is course-context only or missing
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -103,25 +111,25 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Tools/software/materials to practice: Slack, Zoom, Google Drive
 - Skill targets: publication design, identity systems, motion design, interaction design, critique and revision, image making, research methods
 - Reading packet:
-  - of a work will differ (non_reading_fragment)
-  - in which it was made (non_reading_fragment)
-  - has been sent to Anthony D (non_reading_fragment)
-  - will be revised to address any feedback RISD receives from Chief Stanton or from one of his representatives (non_reading_fragment)
-  - / References (inspiration_reference; inspiration)
   - How to Draw a Tree, Bruno Munari (book; lecture_support; schedule-linked: schedule_syl_crawl_designandpolitics_risd_gd_2022_03_25_week6_html_0ea8c1e0_001)
+  - / References (inspiration_reference; inspiration)
 - Schedule rhythm:
   - You will have the last four weeks of class to create a work, whether individual or collaborative, that comes out of the first part of the co: You will have the last four weeks of class to create a work, whether individual or collaborative, that comes out of the first part of the course.
-  - Weekly: News share and discussion: Weekly: News share and discussion
-  - A minimum of every three weeks, you’ll share news stories of interest to you, and potentially the class.: A minimum of every three weeks, you’ll share news stories of interest to you, and potentially the class.
-  - These share sessions are informal, but please prepare what you plan to share in advance.: These share sessions are informal, but please prepare what you plan to share in advance.
   - April 15, 2022: Neelam Sakaria on digital public spaces Neelam Sakaria is a masters candidate in public affairs at Brown. Previously, she was chief of staff at New_ Public , an organization that advocates for better digital public spaces. Neelam will lead us through New_ Public’s year-long research on effective public spaces (offline and online). This research may form the
+  - April 22, 2022: Amber Art & Design at Davey Lopes We’ll depart at 1:15pm by car to Davey Lopes Recreation Center to witness the final day of Amber Art & Design’s weeklong parachute cloth painting workshop. We’ll talk with Keir and Linda from Amber, Anthony from Davey Lopes and the six artists who are finishing up their murals. Angela (Agonza) Gonzalez Joel Rosario Tapia Ysa final day of Amber Art & Design’s weeklong parachute cloth painting workshop
+  - April 29, 2022: Project updates Everyone should be prepared to show progress on their final project — whether it involves public space, or whether it meandered into open territory. Discuss #news topics related to visit to state house. Leonela Felix conversation and tour We’ll walk to the State House and meet up with Representative Leonela Felix. Felix entered the state hous Project updates Everyone should be prepared to show progress on their final project — whether it involves public space, or whether it meandered into open territory
+  - April 8, 2022: Andy Pressman We’ll talk with Andy Pressman about his experiences with design and politics as a community organizer, designer and now creative director at Upstatement. Above: His design system for Democratic Socialists for America played out by local chapters Public space check-in Assembled in a group of three, discuss the location you’ve chosen for your pub
 - Studio briefs to recreate:
+  - Final project reviews 3:30 We’ll be sure to discuss each final project for 5-10minutes: Final project reviews 3:30 We’ll be sure to discuss each final project for 5-10minutes each. Wrap-up 5:00 Students will use this form to reflect on the semester. Be prepared to share some of your reflections with the group. By May 24 Upload documentation of your work with caption/description to your folder in our class Google Drive folder (deliverables: documentation; constraints: deadline or due date referenced; process: present work for critique, document process or final work; submission: due date or deadline present, final presentation or critique, documentation required; type: final_project; phases: present, submit, document; critique: feedback/review referenced in source excerpt; boundary: bounded_assignment_brief)
+  - projects may be pinned up at the start: Printed projects may be pinned up at the start; each student should present one at a time as a full group with about 15 minutes or less per person to present and discuss. (deliverables: presentation; process: present work for critique; submission: final presentation or critique; type: presentation; phases: present; output: presentation; boundary: bounded_assignment_brief)
   - Final review Week 13 TBD Work due Key Bibliography “Democracy as Relationship” by Jere: Final review Week 13 TBD Work due Key Bibliography “Democracy as Relationship” by Jeremy Bendik-Keymer, eflux Politics of the Everyday, Ezio Manzini Public Things: Democracy in Disrepair, Bonnie Honig Citizenship: A Practice of Society, Zoe Larkins. MCA Denver Caps Lock, Ruben Pater (constraints: deadline or due date referenced; process: present work for critique; submission: due date or deadline present, final presentation or critique; criteria: timely completion; type: final_project; phases: critique, submit; critique: feedback/review referenced in source excerpt; boundary: bounded_assignment_brief)
-  - assignments in the broadest possible way to allow for many outcomes: As a graduate interdisciplinary studio, the course will introduce and frame assignments in the broadest possible way to allow for many outcomes. (type: project_brief; boundary: contextual_course_fragment)
-  - projects: Students are encouraged to bring their existing bodies of work, personal narratives and discipline-specific processes to their projects. (submission: submit or turn in work; type: project_brief; boundary: contextual_course_fragment)
-  - assignments with a few activities, guests and outings: There will be three major assignments with a few activities, guests and outings. (type: project_brief; boundary: contextual_course_fragment)
-  - assignments, others exist to bring students into contact with people and issues that relat: Some will relate and reinforce the assignments, others exist to bring students into contact with people and issues that relate to design and politics and can inform the final project. (process: produce finished artifact; submission: submit or turn in work, final presentation or critique; type: final_project; phases: make, submit; boundary: partial_assignment_evidence)
-  - projects: Students will be able to use design methods to conceptualize their own projects (process: produce finished artifact; type: project_brief; phases: make; boundary: weak_assignment_signal)
+  - assignment briefs to give context to guests: John will print out the assignment briefs to give context to guests. (process: produce finished artifact; type: project_brief; phases: make; output: printed_physical_artifact; boundary: bounded_assignment_brief)
+  - Final class! Mount work 1:10 We have two rooms to display work in — DC404 and DC407: Final class! Mount work 1:10 We have two rooms to display work in — DC404 and DC407. Room 407 can hold the first two assignments: Org Charts and Symbols project. John will print out the assignment briefs to give context to guests. Room 404 can hold prints and laptops showing final projects. To help the work be legible in a walkabout, write a few sentences and print on a letter sheet to accompany your final project. Walkabout 1:20 Students and guests can walk through rooms and glance at work. Expected guests: Rachel Colaiace (Prov. Parks), Andy Law (RISD ID/MADE), Anastasiia Raina, (RISD GD), Dan Wood (RISD Printmaking) Guest response 1:40 Guests will have limited time and may appear within the 1:20pm and 3:00pm time frame. There may be certain projects that guests and students wish to comment on and discuss with the whole class. (process: produce finished artifact; submission: final presentation or critique; type: final_project; phases: make, submit; output: printed_physical_artifact; boundary: bounded_assignment_brief)
+  - final project: To help the work be legible in a walkabout, write a few sentences and print on a letter sheet to accompany your final project. (process: produce finished artifact; submission: final presentation or critique; type: final_project; phases: make, submit; output: printed_physical_artifact; boundary: bounded_assignment_brief)
+- Practice loop:
+  - make documentation; under constraints: deadline or due date referenced; critique/revise: feedback/review referenced in source excerpt. Cite assignment assign_syl_crawl_designandpolitics_risd_gd_2022_05_13_week12_html_38dd599d_02.
+- Missing evidence warnings:
+  - public comparison work is course-context only or missing
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -135,25 +143,29 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Tools/software/materials to practice: Canvas, Slack, Zoom, Adobe, Adobe Photoshop, Adobe Illustrator, Adobe InDesign, After Effects
 - Skill targets: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
 - Reading packet:
-  - and lectures supplement (non_reading_fragment; lecture_support)
-  - that provide historical context (non_reading_fragment)
-  - to help you with critique in the readings folder (non_reading_fragment; assignment_resource)
   - Gestalt Principles (book; lecture_support; schedule-linked: schedule_syl_adam_fein_intro_graphic_design_2021_pdf_001)
-  - & page Due Poster (non_reading_fragment)
   - Introductions to Graphic Design (book; lecture_support; schedule-linked: schedule_syl_adam_fein_intro_graphic_design_2021_pdf_001)
+  - Meggs' History of Graphic Design, Philip B. Meggs (book; lecture_support; schedule-linked: schedule_syl_adam_fein_intro_graphic_design_2021_pdf_001)
+  - The Elements of Typographic Style, Robert Bringhurst (book)
+  - Thinking with Type, Ellen Lupton (book)
+  - Drucker (non-reading resource)
 - Schedule rhythm:
-  - Wintersession 2021 Adam Fein Canvas: Wintersession 2021 Adam Fein Canvas
   - and InDesign though in-class exercises.: and InDesign though in-class exercises.
-  - after this class. possibilities for you.: after this class. possibilities for you.
-  - design skills learned each week.: design skills learned each week.
-  - Students are required to attend class regularly and on time in accordance with: Students are required to attend class regularly and on time in accordance with
+  - Mon, Feb 1: Worktime & Check-ins Due Exhibition Catalogue S is C Gina Kang Lily Joiner Class 9 Due Exhibition Catalogue S is C Gina Kang Lily Joiner Class 9
+  - Mon, Feb 8: Worktime & Check-ins Due VIS: part 3 Lecture Presentations S is C Tiffany Cheung HW Final Visual Identity System Class 11 Due VIS: part 3 Lecture Presentations S is C Tiffany Cheung HW Final Visual Identity System Class 11
+  - Mon, Jan 11: Introductions & Syllabus Link to Class Homework Lecture History of Graphic Design Link to Class Readings Gestalt Principles HW Expressive Composition Link to Sharing is Caring GD is GD Everywhere Class 2 Lecture History of Graphic Design Link to Class Readings Gestalt Principles HW Expressive Composition Link to Sharing is Caring GD is GD Everywhere Class 2
+  - Mon, Jan 25: Lecture The book & page Due Poster Exhibition Catalogues EC: part 1 Tutorial InDesign: Image Reading Link HW EC: part 2 S is C Nicole Ban Alina Spatz Class 6 Lecture The book & page Due Poster Exhibition Catalogues EC: part 1 Tutorial InDesign: Image Reading Link HW EC: part 2 S is C Nicole Ban Alina Spatz Class 6
 - Studio briefs to recreate:
+  - Final Critique Due Visual Identity System: Weds, Feb 10 Final Critique Due Visual Identity System (deliverables: visual identity system; constraints: deadline or due date referenced; process: present work for critique; submission: due date or deadline present; criteria: participation and critique contribution, timely completion; type: final_project; phases: critique, submit; output: static_visual_system; critique: critique referenced in source excerpt; boundary: bounded_assignment_brief)
   - final project will consist of designing a visual identity system: final project will consist of designing a visual identity system. The student will receive small group and individual feedback as they progress on projects. COURSE EXPECTATIONS Students are required to attend class regularly and on time in accordance with RISD’s attendance policy. Students will be responsible for completing outside work and managing the deadlines for projects. In class, students are required to participate in discussions and critiques. Students are expected to respect the ideas of their classmates and engage constructively with the work of others. Students should feel welcome to express themselves while also respecting their classmates identities, pronouns, boundaries, etc. I have provided readings to help you with critique in the readings folder. (deliverables: visual identity system; constraints: must follow stated requirements, timely completion expected; process: present work for critique; submission: final presentation or critique; criteria: participation and critique contribution, timely completion; type: final_project; phases: critique, submit; output: static_visual_system; critique: group/class critique referenced in source excerpt; revision: revision or iterative improvement expected; boundary: bounded_assignment_brief)
   - exercises: exercises. Their attention in class along with personal commitment to the subject matter and making will be noticeable in their presented work. Ultimately, they will present a final project that displays an understanding of class concepts and be prepared to discuss their work knowledgeably. (deliverables: presentation; process: present work for critique; submission: final presentation or critique; type: final_project; phases: present, submit; output: presentation; boundary: bounded_assignment_brief)
-  - final grade: final grade. This equates to a full drop in letter grade on a 4.0 scale. Please see the full RISD Class Attendance policy at: https://policies.risd.edu/academic/class-attendance/ DIVERSITY & INCLUSION The RISD community is dedicated to the advancement of knowledge and the development of integrity. In order to thrive and excel, this community must preserve the freedom of thought and expression of all its members. A culture of respect that honors the rights, safety, dignity, and worth of every individual is essential to preserve such freedom. We affirm our respect for the rights and well-being of all members. If you would like to make anonymous comments to the instructor, please use this form: (constraints: must follow stated requirements; process: produce finished artifact; submission: final presentation or critique; type: final_project; phases: make, submit; boundary: bounded_assignment_brief)
-  - exercises: and InDesign though in-class exercises. (type: exercise; boundary: contextual_course_fragment)
-  - projects: a logo, a poster, a booklet, and a visual: Students will complete four projects: a logo, a poster, a booklet, and a visual (deliverables: logo, poster, booklet; type: project_brief; output: multi_page_publication; boundary: bounded_assignment_brief)
-  - final: arrive at a well-researched final (constraints: research required; submission: final presentation or critique; type: final_project; phases: submit; boundary: partial_assignment_evidence)
+  - Final documentation due by Sunday, Feb 14, 11:59 PM Eastern: .Final documentation due by Sunday, Feb 14, 11:59 PM Eastern. (deliverables: documentation; constraints: deadline or due date referenced; process: document process or final work; submission: due date or deadline present, documentation required; criteria: timely completion; type: final_project; phases: submit, document; boundary: bounded_assignment_brief)
+  - Final Exhibition Catalogue Shiruo (Sara) Zhang (R): HW Final Exhibition Catalogue Shiruo (Sara) Zhang (R) (deliverables: catalogue; type: final_project; phases: submit; output: multi_page_publication; boundary: bounded_assignment_brief)
+  - final project that displays an understanding of class concepts: they will present a final project that displays an understanding of class concepts (deliverables: presentation; process: present work for critique; submission: final presentation or critique; type: final_project; phases: present, submit; output: presentation; boundary: bounded_assignment_brief)
+- Practice loop:
+  - make visual identity system; under constraints: deadline or due date referenced; critique/revise: critique referenced in source excerpt; output: static_visual_system. Cite assignment assign_syl_adam_fein_intro_graphic_design_2021_pdf_29.
+- Missing evidence warnings:
+  - public comparison work is course-context only or missing
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -166,26 +178,31 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Tools/software/materials to practice: Slack, Zoom, Adobe, Figma, Google Drive
 - Skill targets: typography, publication design, motion design, interaction design, critique and revision, research methods, image making
 - Reading packet:
-  - Typography III is the culmination of the RISD Graphic Design department’s typography curriculum sequence, with an emphasis on typography and contemporary display platforms (non-reading resource)
   - all are potentially at play (non-reading resource; assignment_resource; assignment-linked: assign_syl_wayback_typography_iii_syllabus_20210414155049_01)
-  - of textual content across media (static, dynamic, interactive) and space (non-reading resource)
   - we’ll read, typographic news and history, and other relevant (sometimes tangential) topics (non-reading resource; assignment_resource; schedule-linked: schedule_syl_wayback_typography_iii_syllabus_20210414155049_evidence_004; assignment-linked: assign_syl_wayback_typography_iii_syllabus_20210414155049_03)
   - design spreads (non-reading resource)
+  - of textual content across media (static, dynamic, interactive) and space (non-reading resource)
+  - Typography III is the culmination of the RISD Graphic Design department’s typography curriculum sequence, with an emphasis on typography and contemporary display platforms (non-reading resource)
 - Schedule rhythm:
   - However, even though my presence and interactions will be mostly Zoom– and Slack-based, I’m designing the course to accommodate both remote : However, even though my presence and interactions will be mostly Zoom– and Slack-based, I’m designing the course to accommodate both remote students and those who would like to collaborate on-campus, during or outside of class.
   - Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, stude: Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, student presentations, hands-on workshops, and group exercises.
   - The active presence, listening, and participation of everyone in the class is crucial (and will make it a lot more fun and interesting): in : The active presence, listening, and participation of everyone in the class is crucial (and will make it a lot more fun and interesting): in presenting your own work, supportive and respectful critique of your classmates’ work, and in class discussions of texts we’ll read, typographic news and history, and other relevant (sometimes tangential) topics.
   - Each member of the class will have their own Slack channel for uploading and sharing progress, research, content materials, links, and to fu: Each member of the class will have their own Slack channel for uploading and sharing progress, research, content materials, links, and to function as a place for classmates to make thoughtful comments & suggestions, and for general discussions and feedback.
-  - This is a studio course, so aside from the above, a lot of the time we will be making use of class time to get work done.: This is a studio course, so aside from the above, a lot of the time we will be making use of class time to get work done.
+  - Class is a just as much a space for contemplation as it is for activity. (I argue that contemplation IS an activity.) Join each class prepar: Class is a just as much a space for contemplation as it is for activity. (I argue that contemplation IS an activity.) Join each class prepared to work with all materials that you will need that day.
 - Studio briefs to recreate:
-  - Projects in this semester depend on altered states, where the content, composition, and: Projects in this semester depend on altered states, where the content, composition, and context all are potentially at play. (type: project_brief; boundary: contextual_course_fragment)
-  - exercises: Each class will vary in programme, including discussions, reviews in small groups and one-on-one of your progress, lectures, readings, student presentations, hands-on workshops, and group exercises. (type: exercise; critique: feedback/review referenced in source excerpt; revision: revision or iterative improvement expected; boundary: partial_assignment_evidence)
+  - final portfolio: Such improvements will be taken into consideration when grading the final portfolio. (deliverables: portfolio; process: document process or final work; submission: final presentation or critique, documentation required; type: final_project; phases: submit, document; output: multi_page_publication; revision: revision or iterative improvement expected; boundary: bounded_assignment_brief)
+  - assignment concludes, students will meticulously document work and upload to a Google Drive: As each assignment concludes, students will meticulously document work and upload to a Google Drive folder containing a portfolio of all of your assignments (in PDF form), as well as materials that document your process. (deliverables: portfolio, documentation, pdf; constraints: process documentation required; process: document process or final work; submission: submit or turn in work, documentation required; criteria: process and iteration; type: final_project; phases: document; output: multi_page_publication; boundary: bounded_assignment_brief)
+  - final grade will be based on the above criteria as well as on the final portfolio of w: Your final grade will be based on the above criteria as well as on the final portfolio of work turned in at the end of the semester. (deliverables: portfolio; process: document process or final work; submission: submit or turn in work, final presentation or critique, documentation required; type: final_project; phases: submit, document; output: multi_page_publication; boundary: bounded_assignment_brief)
   - Recovered brief: The active presence, listening, and participation of everyone in the class is crucial (and will make it a lot more fun and interesting): in presenting your own work, supportive and respectful critique of your classmates’ work, and in class discussions of texts we’ll read, typographic news and history, and other relevant (sometimes tangential) topics. (process: produce finished artifact, present work for critique; submission: final presentation or critique; criteria: participation and critique contribution; type: critique_session; phases: make, critique; critique: group/class critique referenced in source excerpt; boundary: partial_assignment_evidence)
-  - projects: Bring your own languages, scripts, letterforms, cultures, and personalities to our class and to your projects. I want to encourage you to develop a typographic practice that is open, fluid, iterative, complex, and allows for your knowledge, point of view, and lineage to emerge confidently. (type: project_brief; boundary: contextual_course_fragment)
-  - Assignments: 75% Assignments (type: project_brief; boundary: fragment_too_short)
-  - assignments: Quality of work, including concept, design, and the timely completion of assignments; working process and craft; personal initiative, exploration, and risk-taking; and, last but not least, the appropriate and thoughtful application of typographic principles (constraints: process documentation required, timely completion expected; process: produce finished artifact; criteria: craft and finish, concept and critical thinking, process and iteration, timely completion; type: project_brief; phases: make; boundary: partial_assignment_evidence)
+  - assignments / thorough research / mastery of form, functionality, and craft / frequent par: Strong design process / good listener / ability to come up with many different ways to approach assignments / thorough research / mastery of form, functionality, and craft / frequent participation in critiques and discussion / focused / attentive / ability to articulate ideas / risk-taking and broad exploration (constraints: process documentation required, research required; process: research precedents or context, produce finished artifact; criteria: craft and finish, participation and critique contribution, process and iteration, research depth; type: reading_response; phases: research, make, critique; critique: critique referenced in source excerpt; boundary: partial_assignment_evidence)
+  - assignments but not much else / doesnt re-work or refine projects, doesn’t do much beyond : Average work / fulfills assignments but not much else / doesnt re-work or refine projects, doesn’t do much beyond the requirements (constraints: must follow stated requirements; type: project_brief; phases: revise; revision: revision or iterative improvement expected; boundary: partial_assignment_evidence)
+- Practice loop:
+  - make portfolio; critique/revise: revision or iterative improvement expected; output: multi_page_publication. Cite assignment assign_syl_wayback_typography_iii_syllabus_20210414155049_11.
 - Public comparison set:
   - See full assignment: https://paper.dropbox.com/doc/Type-III-Week-Two-Qj7xd8hMki64KfRzAAFyn (course-context evidence only)
+- Missing evidence warnings:
+  - grading rubric or assessment strategy not recovered
+  - public comparison work is course-context only or missing
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -198,23 +215,24 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Tools/software/materials to practice: HTML/CSS
 - Skill targets: publication design, identity systems, motion design, interaction design, image making, typography
 - Reading packet:
+  - Art of Creative Coding (book; lecture_support; schedule-linked: schedule_syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7_001)
   - Art of Creative Coding Feb 13, 2015 (book; assignment_resource; schedule-linked: schedule_syl_wp15_week_1_concrete_forms_001; assignment-linked: assign_syl_wp15_week_1_concrete_forms_01)
   - Art of Creative Coding | Web Programming 2015 (website; lecture_support; schedule-linked: schedule_syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7_001)
-  - Art of Creative Coding (book; lecture_support; schedule-linked: schedule_syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7_001)
-  - Art of Creative Coding Feb 13, 2015 (book; lecture_support; schedule-linked: schedule_syl_archive_wp15_risd_gd_category_outline_week_1_concrete_forms_20150215183336_90033202_001)
 - Schedule rhythm:
   - Week 1: Concrete Forms | Web Programming 2015: Week 1: Concrete Forms | Web Programming 2015
   - 5 Week 1: Concrete Forms: 5 Week 1: Concrete Forms
   - 4 Video / Week 1: Concrete Forms: 4 Video / Week 1: Concrete Forms
-  - Make five drawings using div tags and css classes.: Make five drawings using div tags and css classes.
-  - Create an html file for each digital bit, and upload your html files into a post on the class website.: Create an html file for each digital bit, and upload your html files into a post on the class website.
+  - 4 Assignments / Week 1: Concrete Forms: 4 Assignments / Week 1: Concrete Forms
+  - 4 Assignments / Week 1: Concrete Forms: 4 Assignments / Week 1: Concrete Forms
 - Studio briefs to recreate:
-  - Assignment 2 Feb 13, 2015 PBS Off Book: Art of Creative Coding Feb 13, 2015 4 Video / Week : Week 1: Concrete Forms | Web Programming 2015: Web Programming 2015 5 Week 1: Concrete Forms &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015 PBS Off Book: Art of Creative Coding Feb 13, 2015 4 Video / Week 1: Concrete Forms Click here to cancel reply. You must be logged in to post a comment. &#197; w “Concrete objects”, Christian Leborg Feb 13, 2015 &#197; w Essay by Paul Elliman on Karel Martens’ graphic work Feb 13, 2015 &#237; Assignment 2: Draw found objects with CSS (deliverables: book, animation; constraints: must follow stated requirements; submission: submit or turn in work; type: project_brief; output: interactive_web_artifact; boundary: bounded_assignment_brief)
-  - exercises and take-home assignments: Workshop Syllabus Feb 13, 2015 • RISD GRAPH-3188-03 (20882) WKSHP: WEB PROGRAMMING • Spring 2015, 1:10–6:10pm, Fridays • 1 credit • wp15.risd.gd John Caserta, instructor; jcaserta@risd.edu; DC105, Mondays 10:30am–1:30pm Brian Hicks, teaching assistant This three-session workshop combines the tactical skills needed to structure web pages with a looser more playful compositional mindset. Students are introduced to the structural elements and properties of HTML and CSS through hands-on demos, in-class exercises and take-home assignments. Tight technical HTML drawings in week one give way to full-screen abstract compositions in week two. Week three incorporates interaction, introducing CSS3 transform, animation, and other user-controlled properties. The final assignment for week four will allow you to combine what you learned in the first three weeks. Although written with HTML/CSS, the assignments are inspired by the contemporary and historical print works of Bradbury Thomspon, Karel Martens and Paul Elliman. Paramount is that students become attuned to the vocabulary and possibilities of graphic form in the digital age. The digital age, similar to the era before in its capacity to pr (deliverables: animation; process: produce finished artifact; submission: final presentation or critique; type: final_project; phases: make, submit; output: interactive_web_artifact; boundary: bounded_assignment_brief)
-  - Assignment 2: Found object drawings Week Two: Abstract Forms: Assignment 2: Found object drawings Week Two: Abstract Forms (type: project_brief; boundary: bounded_assignment_brief)
   - Assignment 6: Responsive animation Week Four: Final Project Review assignment 6 Lecture: Fr: Assignment 6: Responsive animation Week Four: Final Project Review assignment 6 Lecture: From sketch to code In-class activity: Putting it all together Software needed Textwrangler or other HTML editor Safari or Chrome browser (deliverables: animation; constraints: process documentation required; process: sketch or draft alternatives, produce finished artifact, present work for critique; criteria: process and iteration; type: final_project; phases: sketch, make, critique, submit; output: interactive_web_artifact; critique: feedback/review referenced in source excerpt; boundary: bounded_assignment_brief)
-  - Assignment 2 Feb 13, 2015: &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015 (type: project_brief; boundary: weak_assignment_signal)
-  - Assignment 2: Draw found objects with CSS: &#237; Assignment 2: Draw found objects with CSS (type: project_brief; output: interactive_web_artifact; boundary: bounded_assignment_brief)
+  - Assignment 2 Feb 13, 2015 PBS Off Book: Art of Creative Coding Feb 13, 2015 4 Video / Week : Week 1: Concrete Forms | Web Programming 2015: Web Programming 2015 5 Week 1: Concrete Forms &#197; w Pocket Pictograms: Inspiration for Assignment 2 Feb 13, 2015 PBS Off Book: Art of Creative Coding Feb 13, 2015 4 Video / Week 1: Concrete Forms Click here to cancel reply. You must be logged in to post a comment. &#197; w “Concrete objects”, Christian Leborg Feb 13, 2015 &#197; w Essay by Paul Elliman on Karel Martens’ graphic work Feb 13, 2015 &#237; Assignment 2: Draw found objects with CSS (deliverables: book, animation; constraints: must follow stated requirements; submission: submit or turn in work; type: project_brief; output: interactive_web_artifact; boundary: bounded_assignment_brief)
+  - Assignment 6: Responsive animation Week Four: Final Project More details to come Software n: Assignment 6: Responsive animation Week Four: Final Project More details to come Software needed Textwrangler or other HTML editor Safari or Chrome browser (deliverables: animation; type: final_project; phases: submit; output: interactive_web_artifact; boundary: bounded_assignment_brief)
+  - exercises and take-home assignments: Workshop Syllabus Feb 13, 2015 • RISD GRAPH-3188-03 (20882) WKSHP: WEB PROGRAMMING • Spring 2015, 1:10–6:10pm, Fridays • 1 credit • wp15.risd.gd John Caserta, instructor; jcaserta@risd.edu; DC105, Mondays 10:30am–1:30pm Brian Hicks, teaching assistant This three-session workshop combines the tactical skills needed to structure web pages with a looser more playful compositional mindset. Students are introduced to the structural elements and properties of HTML and CSS through hands-on demos, in-class exercises and take-home assignments. Tight technical HTML drawings in week one give way to full-screen abstract compositions in week two. Week three incorporates interaction, introducing CSS3 transform, animation, and other user-controlled properties. The final assignment for week four will allow you to combine what you learned in the first three weeks. Although written with HTML/CSS, the assignments are inspired by the contemporary and historical print works of Bradbury Thomspon, Karel Martens and Paul Elliman. Paramount is that students become attuned to the vocabulary and possibilities of graphic form in the digital age. The digital age, similar to the era before in its capacity to pr (deliverables: animation; process: produce finished artifact; submission: final presentation or critique; type: final_project; phases: make, submit; output: interactive_web_artifact; boundary: bounded_assignment_brief)
+  - exercises and take-home assignments: Workshop Syllabus • RISD GRAPH-3188-03 (20882) WKSHP: WEB PROGRAMMING • Spring 2015, 1:10–6:10pm, Fridays • 1 credit • wp15.risd.gd John Caserta, instructor; jcaserta@risd.edu; DC105, Mondays 10:30am–1:30pm Brian Hicks, teaching assistant This three-session workshop combines the tactical skills needed to structure web pages with a looser more playful compositional mindset. Students are introduced to the structural elements and properties of HTML and CSS through hands-on demos, in-class exercises and take-home assignments. Tight technical HTML drawings in week one give way to full-screen abstract compositions in week two. Week three incorporates interaction, introducing CSS3 transform, animation, and other user-controlled properties. The final assignment for week four will allow you to combine what you learned in the first three weeks. Although written with HTML/CSS, the assignments are inspired by the contemporary and historical print works of Bradbury Thomspon, Karel Martens and Paul Elliman. Paramount is that students become attuned to the vocabulary and possibilities of graphic form in the digital age. The digital age, similar to the era before in its capacity to precisely arran (deliverables: animation; process: produce finished artifact; submission: final presentation or critique; type: final_project; phases: make, submit; output: interactive_web_artifact; boundary: bounded_assignment_brief)
+  - exercises and take-home assignments: Workshop Syllabus Feb 13, 2015 This three-session workshop combines the tactical skills needed to structure web pages with a looser more playful compositional mindset. Students are introduced to the structural elements and properties of HTML and CSS through hands-on demos, in-class exercises and take-home assignments. Tight technical HTML drawings in week one give way to full-screen abstract compositions in week two. Week three incorporates interaction, introducing CSS3 transform, animation, and other user-controlled properties. The final assignment for week four will allow you to combine what you learned in the first three weeks. Although written with HTML/CSS, the assignments are inspired by the contemporary and historical print works of Bradbury Thomspon, Karel Martens and Paul Elliman. Paramount is that students become attuned to the vocabulary and possibilities of graphic form in the digital age. The digital age, similar to the era before in its capacity to precisely arrange or playfully experiment. Course objectives Be introduced to HTML and CSS syntax to help conceptualize future projects Encourage use of the browser for experimentation Introduce both analytical and playful  (deliverables: animation; process: prototype or test behavior/form, produce finished artifact; submission: final presentation or critique; type: final_project; phases: prototype, make, submit; output: interactive_web_artifact; boundary: bounded_assignment_brief)
+- Practice loop:
+  - make animation; under constraints: process documentation required; critique/revise: feedback/review referenced in source excerpt; output: interactive_web_artifact. Cite assignment assign_syl_wp15_week_1_concrete_forms_04.
 - Public comparison set:
   - Interact with this pattern: http://risd-gd.github.io/wp16/students/isabellaMordini/Assignment_Week_03/week4_05.html (course_context_link; course context; use: visual_calibration, deliverable_reference)
 - Mentor-style checkpoint:
@@ -229,25 +247,29 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Tools/software/materials to practice: Adobe InDesign
 - Skill targets: typography, publication design, interaction design, critique and revision, research methods, image making
 - Reading packet:
-  - for the class (non_reading_fragment)
-  - order, grids and other systems of organiza- excellent craft / respect for presentation and materials (slide_deck; lecture_support)
-  - Design The Thames and Hudson Manual of (tool_documentation; technical_reference)
-  - Shaping Text, Jan Middendorp (book; technical_reference)
-  - Shaping Text, Jan Middendorp (book; technical_reference)
   - The Anatomy of Type, Stephen Coles (book; lecture_support; schedule-linked: schedule_syl_type_two_2015_syllabus_pdf_evidence_002)
+  - Meggs' History of Graphic Design, Philip B. Meggs (book)
+  - Shaping Text, Jan Middendorp (book; technical_reference)
+  - The Elements of Typographic Style, Robert Bringhurst (book)
+  - Thinking with Type, Ellen Lupton (book)
+  - bierut, who are (non-reading resource)
 - Schedule rhythm:
-  - Course Goals This class is the next step in your type program here at An organized process folder is a helpful tool for you later: Course Goals This class is the next step in your type program here at An organized process folder is a helpful tool for you later
   - Students will continue to work on developing a contempo- sections require you to turn in a process book for the class.: Students will continue to work on developing a contempo- sections require you to turn in a process book for the class.
-  - paragraphs, pages and spreads, working both in print and • good attitude toward learning and the class as a whole: paragraphs, pages and spreads, working both in print and • good attitude toward learning and the class as a whole
-  - This class provides an intensive amount of instruction B is very good, strong, most of the above qualifications but: This class provides an intensive amount of instruction B is very good, strong, most of the above qualifications but
-  - Class specifics meeting once a week for five hours.You should plan on with room for improvement.: Class specifics meeting once a week for five hours.You should plan on with room for improvement.
+  - May 12 is final day of class, with walk-about and crits -Funds for photocopying and printing: May 12 is final day of class, with walk-about and crits -Funds for photocopying and printing
+  - May 19 Tuesday, is crit week / review day (tbd) -Tracing paper for sketching: May 19 Tuesday, is crit week / review day (tbd) -Tracing paper for sketching
+  - presence, and having work prepared for class is critical to: presence, and having work prepared for class is critical to
 - Studio briefs to recreate:
   - Recovered brief: form, reading order, grids and other systems of organiza- • excellent craft / respect for presentation and materials (deliverables: presentation; process: present work for critique; submission: final presentation or critique; criteria: craft and finish; type: reading_response; phases: present; output: presentation; boundary: bounded_assignment_brief)
-  - assignments (including any readings): ages the practice of working with type & image relation- • completion of all assignments (including any readings) (type: reading_response; boundary: reading_or_discussion_fragment)
-  - assignments and all the: Woven throughout all the assignments and all the (type: project_brief; boundary: contextual_course_fragment)
-  - Final Grade will be based on the afore-mentioned criteria: Final Grade will be based on the afore-mentioned criteria (type: final_project; phases: submit; boundary: administrative_or_policy_fragment)
+  - final portfolio: Absences will result in lower final portfolio. (deliverables: portfolio; process: document process or final work; submission: final presentation or critique, documentation required; type: final_project; phases: submit, document; output: multi_page_publication; boundary: bounded_assignment_brief)
   - final portfolio of work turned in at the end of: as well as a final portfolio of work turned in at the end of (deliverables: portfolio; process: document process or final work; submission: submit or turn in work, final presentation or critique, documentation required; type: final_project; phases: submit, document; output: multi_page_publication; boundary: bounded_assignment_brief)
-  - project can be re-done: Keep in mind that any project can be re-done (type: project_brief; boundary: weak_assignment_signal)
+  - Recovered brief: And work to -Various papers and presentation board (as needed) (deliverables: presentation; process: present work for critique; submission: final presentation or critique; type: presentation; phases: present; output: presentation; boundary: bounded_assignment_brief)
+  - projects, etc: Keep process! containing process, versions, projects, etc. (constraints: process documentation required; criteria: process and iteration; type: project_brief; revision: revision or iterative improvement expected; boundary: partial_assignment_evidence)
+  - final day of class, with walk-about and crits -Funds for photocopying and printing: May 12 is final day of class, with walk-about and crits -Funds for photocopying and printing (submission: final presentation or critique; type: final_project; phases: submit; output: printed_physical_artifact; boundary: bounded_assignment_brief)
+- Practice loop:
+  - make presentation; write a critique memo and revise once; output: presentation. Cite assignment assign_syl_type_two_2015_syllabus_pdf_01.
+- Missing evidence warnings:
+  - grading rubric or assessment strategy not recovered
+  - public comparison work is course-context only or missing
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -259,25 +281,24 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Syllabus/course artifacts: syl_grad_type_1_2014_syllabus_pdf
 - Skill targets: typography, publication design, interaction design, critique and revision
 - Reading packet:
-  - at The other is of crystal clear glass, thin as a (non-reading resource)
-  - in America, Joseph Blumenthal (non_reading_fragment)
   - Text in the Book Format, Keith A. Smith (book; assignment_resource; assignment-linked: assign_syl_grad_type_1_2014_syllabus_pdf_01, assign_syl_grad_type_1_2014_syllabus_pdf_08)
-  - which you really should (non_reading_fragment)
-  - Thinking with Type, Ellen Lupton (book)
+  - Meggs' History of Graphic Design, Philip B. Meggs (book)
   - The Elements of Typographic Style, Robert Bringhurst (book)
+  - Thinking with Type, Ellen Lupton (book)
+  - at The other is of crystal clear glass, thin as a (non-reading resource)
 - Schedule rhythm:
-  - This class is your introduction to typography Keep work well organized both on your: This class is your introduction to typography Keep work well organized both on your
-  - class you will learn to see to think and to make seeks to communicate is itself not the message: class you will learn to see to think and to make seeks to communicate is itself not the message
-  - the history and classification of typefaces, the 99percentinvisible.org personality, the whole bit: history and tradition: the history and classification of typefaces, the 99percentinvisible.org personality, the whole bit: history and tradition
-  - Class meets once a week, for 12 classes: ourtype.com: Class meets once a week, for 12 classes: ourtype.com
   - having work prepared for class is critical to the typophile.com: having work prepared for class is critical to the typophile.com
 - Studio briefs to recreate:
   - Final Grade will be based on the afore-mentioned Anatomy of a Typeface, Alexander Laws: Final Grade will be based on the afore-mentioned Anatomy of a Typeface, Alexander Lawson criteria as well as results of projects. Keep in mind Structure of the Visual Book, Keith Smith that any project can be re-done or improved upon Text in the Book Format, Keith Smith all throughout the semester. Such improvements will Twentieth Century Type Designers, Sebastian Carter* be taken into consideration when grading your final The Thames and Hudson Manual of Typography, portfolio. Keep sketches! You always want access to Ruari McLean your own process and to be able to share it.. Printing Types, Their History, Forms and Use, Daniel Berkeley Updike Short History of the Printed Word, Warren Chappell Now Typography, Why Not Associates (UK) Ellen Christensen echriste@risd.edu The Graphic Edge, Rick Poynor (UK) Cem Eskinazi ceskinaz@risd.edu (deliverables: book, portfolio, typeface; constraints: process documentation required; process: sketch or draft alternatives, present work for critique, document process or final work; submission: final presentation or critique, documentation required; criteria: process and iteration; type: final_project; phases: sketch, present, submit, document; output: multi_page_publication; revision: revision or iterative improvement expected; boundary: bounded_assignment_brief)
-  - projects, process, notes, etc as you gold, wrought in the most exquisite patterns: introduced to basic principles of typography iterations, projects, process, notes, etc as you gold, wrought in the most exquisite patterns. (constraints: process documentation required; criteria: process and iteration; type: project_brief; revision: revision or iterative improvement expected; boundary: partial_assignment_evidence)
+  - project can be re-done or improved upon Text in the Book Format, Keith Smith: that any project can be re-done or improved upon Text in the Book Format, Keith Smith (deliverables: book; type: project_brief; output: multi_page_publication; revision: revision or iterative improvement expected; boundary: bounded_assignment_brief)
   - Recovered brief: form, type as material, type as texture and also -presentation board (as needed) and last fundamental requisite of book design, (deliverables: book, presentation; process: produce finished artifact, present work for critique; submission: final presentation or critique; type: presentation; phases: make, present; output: multi_page_publication; boundary: bounded_assignment_brief)
   - Recovered brief: • excellent craft / respect for presentation The Elements of Typographic Style, Robert (deliverables: presentation; process: present work for critique; submission: final presentation or critique; criteria: craft and finish; type: presentation; phases: present; output: presentation; boundary: bounded_assignment_brief)
-  - assignments (suggested): • completion of all assignments (suggested) (type: project_brief; boundary: contextual_course_fragment)
-  - Final Grade will be based on the afore-mentioned Anatomy of a Typeface, Alexander Laws: Final Grade will be based on the afore-mentioned Anatomy of a Typeface, Alexander Lawson (deliverables: typeface; type: final_project; phases: submit; boundary: administrative_or_policy_fragment)
+  - Recovered brief: portfolio. (deliverables: portfolio; process: document process or final work; submission: documentation required; type: final_project; phases: document; output: multi_page_publication; boundary: bounded_assignment_brief)
+  - projects, process, notes, etc as you gold, wrought in the most exquisite patterns: introduced to basic principles of typography iterations, projects, process, notes, etc as you gold, wrought in the most exquisite patterns. (constraints: process documentation required; criteria: process and iteration; type: project_brief; revision: revision or iterative improvement expected; boundary: partial_assignment_evidence)
+- Practice loop:
+  - make book, portfolio, typeface; under constraints: process documentation required; critique/revise: revision or iterative improvement expected; output: multi_page_publication. Cite assignment assign_syl_grad_type_1_2014_syllabus_pdf_01.
+- Missing evidence warnings:
+  - public comparison work is course-context only or missing
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -291,25 +312,30 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Tools/software/materials to practice: Adobe, Adobe Illustrator, After Effects, Figma, HTML/CSS, JavaScript, Keynote
 - Skill targets: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
 - Reading packet:
-  - for the poster-as paper and as screen-building on its singular capacity to transform ideas into iconic picture planes; and examining the dynamics of typography and image, both still and in motion (non-reading resource)
-  - about poster history and contemporary poster design (non-reading resource; assignment_resource; assignment-linked: assign_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_01)
-  - is an interface for so much of our emotive, interpersonal, industrial, and political lives (non-reading resource)
-  - using processes such as paper cut-up, copy paste, autocomplete, crowdsourcing, and Natural Language Processing models (non-reading resource)
+  - Grid Systems in Graphic Design, Josef Muller-Brockmann (book)
   - - transcription workers, human computers, web moderators, and so on (website; lecture_support; schedule-linked: schedule_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_evidence_020)
+  - about poster history and contemporary poster design (non-reading resource; assignment_resource; assignment-linked: assign_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_01)
+  - at both micro and macro levels and the creation of posters, signage, and publications (non-reading resource; assignment_resource; assignment-linked: assign_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_18)
+  - at the intersection of language, identity, and societal conditioning, this course examines the extent to which typography can engage in world building and the production and dissemination of proposals for alternative sys (non-reading resource; lecture_support; schedule-linked: schedule_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_evidence_020)
   - discussions will further expand on relevant topics (non-reading resource; assignment_resource; schedule-linked: schedule_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_evidence_020; assignment-linked: assign_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_07)
 - Schedule rhythm:
-  - In this class, we will explore our contemporary condition through visual-research based projects around self-design, speculative design and : In this class, we will explore our contemporary condition through visual-research based projects around self-design, speculative design and design fiction.
   - In the initial sessions, students will analyze the intuitiveness and patterns of existing apps, critically assess and redefine their functio: In the initial sessions, students will analyze the intuitiveness and patterns of existing apps, critically assess and redefine their functionalities, and explore alternative modes of use.
-  - Subsequent sessions focus on redesigning an app by addressing existing frustrations or repurposing its intended use, creating prototypes tha: Subsequent sessions focus on redesigning an app by addressing existing frustrations or repurposing its intended use, creating prototypes that challenge standard user expectations, and developing high-fidelity interactive prototypes that integrate navigation and interaction design.
   - In the initial sessions, students will analyze the intuitiveness and patterns of existing apps, critically assess and redefine their functio: In the initial sessions, students will analyze the intuitiveness and patterns of existing apps, critically assess and redefine their functionalities, and explore alternative modes of use.
-  - Subsequent sessions focus on redesigning an app by addressing existing frustrations or repurposing its intended use, creating prototypes tha: Subsequent sessions focus on redesigning an app by addressing existing frustrations or repurposing its intended use, creating prototypes that challenge standard user expectations, and developing high-fidelity interactive prototypes that integrate navigation and interaction design.
+  - In the initial sessions, students will analyze the intuitiveness and patterns of existing apps, critically assess and redefine their functio: In the initial sessions, students will analyze the intuitiveness and patterns of existing apps, critically assess and redefine their functionalities, and explore alternative modes of use.
+  - In the initial sessions, students will analyze the intuitiveness and patterns of existing apps, critically assess and redefine their functio: In the initial sessions, students will analyze the intuitiveness and patterns of existing apps, critically assess and redefine their functionalities, and explore alternative modes of use.
+  - In the initial sessions, students will analyze the intuitiveness and patterns of existing apps, critically assess and redefine their functio: In the initial sessions, students will analyze the intuitiveness and patterns of existing apps, critically assess and redefine their functionalities, and explore alternative modes of use.
 - Studio briefs to recreate:
+  - Recovered brief: Students will be exposed to practical skills and techniques for brand-building—how to structure and give a presentation, how to use Figma, Illustrator, Keynote and other popular branding tools—while also being encouraged to push beyond conventional expectations of what a brand can be. (deliverables: presentation; process: present work for critique; submission: final presentation or critique; type: presentation; phases: present; output: presentation; boundary: bounded_assignment_brief)
   - assignments will be supported with presentations and readings about poster history and con: Studio assignments will be supported with presentations and readings about poster history and contemporary poster design. (deliverables: poster; process: produce finished artifact; type: reading_response; phases: make; output: static_visual_system; boundary: bounded_assignment_brief)
-  - projects around self-design, speculative design and design fiction: In this class, we will explore our contemporary condition through visual-research based projects around self-design, speculative design and design fiction. (constraints: research required; process: research precedents or context, produce finished artifact; criteria: research depth; type: project_brief; phases: research, make; boundary: partial_assignment_evidence)
-  - projects, we will explore questions like, How does the addition of computational ingred: Through projects, we will explore questions like, How does the addition of computational ingredients- networks, automation, randomness, etc- affect the visual form and meaning of language? Who produces digitally-based language, and how? (criteria: concept and critical thinking; type: project_brief; boundary: contextual_course_fragment)
-  - projects through a range of expressions, including but not limited to websites, printed: Students will create projects through a range of expressions, including but not limited to websites, printed objects, and readings-out-loud. (process: produce finished artifact; type: reading_response; phases: make; boundary: reading_or_discussion_fragment)
+  - assignments, students will create animated projects that include motion design real-world : Through a series of in-class and multi-week assignments, students will create animated projects that include motion design real-world assignments, as well as experimental exercises, with the goal of exploring intersections between graphic design, story telling, visual composition, and the realms of rhythm and sound. (deliverables: animation; process: produce finished artifact; type: exercise; phases: make; output: time_based_screen_artifact; boundary: bounded_assignment_brief)
+  - projects: In addition to handwork and bindery skills, students will work to set type, manually and digitally, to match their conceptual vision and learn to plan, execute and create well crafted book projects. (deliverables: book; process: produce finished artifact; type: project_brief; phases: make; output: multi_page_publication; boundary: bounded_assignment_brief)
   - project work through HTML/CSS, p5: Students will be supported if they want to pursue project work through HTML/CSS, p5.js, RiTa.js, Twine, Scratch, or NLP engines like GPT2. (type: project_brief; output: interactive_web_artifact; boundary: bounded_assignment_brief)
-  - projects, students will also engage in physical and analog activities to expand their u: Alongside screen-based projects, students will also engage in physical and analog activities to expand their understanding of computational design. (process: produce finished artifact; type: project_brief; phases: make; boundary: weak_assignment_signal)
+  - final guidelines and applications: In the second half, students will build on earlier experiments to develop a complete identity, from research to final guidelines and applications. (constraints: research required; process: research precedents or context, produce finished artifact; submission: final presentation or critique; criteria: research depth; type: final_project; phases: research, make, submit; boundary: partial_assignment_evidence)
+- Practice loop:
+  - make presentation; write a critique memo and revise once; output: presentation. Cite assignment assign_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_13.
+- Missing evidence warnings:
+  - grading rubric or assessment strategy not recovered
+  - public comparison work is course-context only or missing
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -321,8 +347,14 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Syllabus/course artifacts: syl_sp19_mapping_information
 - Skill targets: typography, motion design, interaction design
 - Studio briefs to recreate:
-  - projects which communicate complex information through the use of maps, graphs, charts,: Using information structure and visual systems of form, color, and typography, students will work projects which communicate complex information through the use of maps, graphs, charts, and diagrams. (type: project_brief; boundary: contextual_course_fragment)
   - projects will explore issues of mapping, hierarchy, location, time, comparison, motion,: These projects will explore issues of mapping, hierarchy, location, time, comparison, motion, format, and the use of symbolic visual language. (deliverables: animation; type: project_brief; output: time_based_screen_artifact; boundary: bounded_assignment_brief)
+- Practice loop:
+  - make animation; write a critique memo and revise once; output: time_based_screen_artifact. Cite assignment assign_syl_sp19_mapping_information_02.
+- Missing evidence warnings:
+  - grading rubric or assessment strategy not recovered
+  - ordered weekly schedule not recovered
+  - usable reading/resource list not recovered
+  - public comparison work is course-context only or missing
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -334,22 +366,17 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Syllabus/course artifacts: syl_sp19_reframing_the_poster
 - Skill targets: typography, motion design, interaction design, image making
 - Reading packet:
-  - for the poster—as paper and as screen—building on its singular capacity to transform ideas into iconic picture planes, and examining the dynamics of typography and image, both still and in motion (non-reading resource)
   - about poster history and contemporary poster design (non-reading resource; assignment_resource; assignment-linked: assign_syl_sp19_reframing_the_poster_01)
+  - for the poster—as paper and as screen—building on its singular capacity to transform ideas into iconic picture planes, and examining the dynamics of typography and image, both still and in motion (non-reading resource)
 - Studio briefs to recreate:
   - assignments will be supported with presentations and readings about poster history and con: Studio assignments will be supported with presentations and readings about poster history and contemporary poster design . (deliverables: poster; process: produce finished artifact; type: reading_response; phases: make; output: static_visual_system; boundary: bounded_assignment_brief)
-- Mentor-style checkpoint:
-  - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
-
-#### Newly Formed
-
-- Evidence grade: B
-- Course code: unknown
-- Source IDs: src_sp19_newly_formed
-- Syllabus/course artifacts: syl_sp19_newly_formed
-- Skill targets: typography, interaction design, image making
-- Studio briefs to recreate:
-  - assignments are supported by lectures showing contemporary graphic form, from historical t: Studio assignments are supported by lectures showing contemporary graphic form, from historical to contemporary work, that are effective and evocative. (type: project_brief; boundary: contextual_course_fragment)
+- Practice loop:
+  - make poster; write a critique memo and revise once; output: static_visual_system. Cite assignment assign_syl_sp19_reframing_the_poster_01.
+- Missing evidence warnings:
+  - grading rubric or assessment strategy not recovered
+  - ordered weekly schedule not recovered
+  - critique/revision format only partially evidenced
+  - public comparison work is course-context only or missing
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -362,6 +389,13 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Skill targets: typography, interaction design
 - Studio briefs to recreate:
   - exercise, and to learn the finer points of bezier wrangling, serif and sans, spacing, ke: This elective is an opportunity for students to immerse themselves in the process of designing a typeface; to consider all the design decisions that are a part of this creative exercise, and to learn the finer points of bezier wrangling, serif and sans, spacing, kerning, and all the other details of execution which turn a roughly-formed idea into a more complete, rigorous and polished type design. (deliverables: typeface; constraints: process documentation required; process: produce finished artifact; criteria: concept and critical thinking, process and iteration; type: exercise; phases: make; boundary: bounded_assignment_brief)
+- Practice loop:
+  - make typeface; under constraints: process documentation required; write a critique memo and revise once. Cite assignment assign_syl_sp19_type_design_01.
+- Missing evidence warnings:
+  - grading rubric or assessment strategy not recovered
+  - ordered weekly schedule not recovered
+  - usable reading/resource list not recovered
+  - public comparison work is course-context only or missing
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -378,11 +412,15 @@ Studio loop: Set text under explicit hierarchy, spacing, scale, and sequencing c
 - Skill targets: typography, publication design, motion design, interaction design
 - Reading packet:
   - Grid Systems in Graphic Design, Josef Muller-Brockmann (book)
-  - and poetry, letterhead systems, brochure or poster (non_reading_fragment)
-- Schedule rhythm:
-  - This introductory course is intended for non-majors interested in learning the basic principles of typography including the study of letterf: This introductory course is intended for non-majors interested in learning the basic principles of typography including the study of letterforms, type classification, legibility, organization and hierarchy, as well as text applications, grid systems and page layout.
 - Studio briefs to recreate:
   - Projects may include comparative studies for setting text and poetry, letterhead system: Projects may include comparative studies for setting text and poetry, letterhead systems, brochure or poster. (deliverables: poster; type: project_brief; output: static_visual_system; boundary: bounded_assignment_brief)
+- Practice loop:
+  - make poster; write a critique memo and revise once; output: static_visual_system. Cite assignment assign_syl_sp19_typography_for_nonmajors_01.
+- Missing evidence warnings:
+  - grading rubric or assessment strategy not recovered
+  - ordered weekly schedule not recovered
+  - critique/revision format only partially evidenced
+  - public comparison work is course-context only or missing
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -393,79 +431,15 @@ Studio loop: Set text under explicit hierarchy, spacing, scale, and sequencing c
 - Source IDs: src_sp19_design_for_publishing
 - Syllabus/course artifacts: syl_sp19_design_for_publishing
 - Skill targets: typography, publication design, interaction design, image making
-- Reading packet:
-  - based on their own interests and completing a book design project using assigned material (non_reading_fragment; assignment_resource)
 - Studio briefs to recreate:
   - project using assigned material: In the second part of the semester, students will be given the choice between designing a book based on their own interests and completing a book design project using assigned material. (deliverables: book; process: produce finished artifact; type: project_brief; phases: make; output: multi_page_publication; boundary: bounded_assignment_brief)
-- Mentor-style checkpoint:
-  - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
-
-#### Graphic Design for the Web
-
-- Evidence grade: B
-- Course code: unknown
-- Source IDs: src_sp19_risd_gd_web
-- Syllabus/course artifacts: syl_sp19_risd_gd_web
-- Tools/software/materials to practice: HTML/CSS, JavaScript
-- Skill targets: interaction design, critique and revision, research methods
-- Reading packet:
-  - of contemporary art and design practices (non_reading_fragment)
-- Schedule rhythm:
-  - The class celebrates the Internet as a space for social exchange and independent expression, while questioning the cultural contradictions e: The class celebrates the Internet as a space for social exchange and independent expression, while questioning the cultural contradictions embedded in online discourse and the motivations of individuals and entities behind online platforms.
-- Studio briefs to recreate:
-  - projects, readings, workshops, and presentations we will explore the relevance of netwo: Through projects, readings, workshops, and presentations we will explore the relevance of network technologies in the context of contemporary art and design practices. (process: produce finished artifact; type: exercise; phases: make; boundary: weak_assignment_signal)
-- Mentor-style checkpoint:
-  - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
-
-#### Typographic Landscapes
-
-- Evidence grade: B
-- Course code: unknown
-- Source IDs: src_cc_htmloutput_risd_gd_project_ojus_typelandscapes_1b06208f
-- Syllabus/course artifacts: syl_cc_htmloutput_risd_gd_project_ojus_typelandscapes_1b06208f
-- Tools/software/materials to practice: HTML/CSS
-- Skill targets: typography, publication design, interaction design
-- Reading packet:
-  - Order book (book)
-- Mentor-style checkpoint:
-  - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
-
-#### RISD GD | 💐 Spring Talks + Workshops in GD
-
-- Evidence grade: C
-- Course code: unknown
-- Source IDs: src_cc_risd_gd_notices_spring_talks_workshops_in_gd_f79eb7cc
-- Syllabus/course artifacts: syl_cc_risd_gd_notices_spring_talks_workshops_in_gd_f79eb7cc
-- Skill targets: publication design, interaction design
-- Reading packet:
-  - Signing: JON KEY (book; lecture_support; schedule-linked: schedule_syl_cc_risd_gd_notices_spring_talks_workshops_in_gd_f79eb7cc_002)
-- Schedule rhythm:
-  - Friday, April 25: , 12pm risd.gd/notices
-  - Friday, March 21: , 12:00pm
-  - Saturday, April 5: , 3pm →Talk: ALICIA MÁRQUEZ
-  - Saturday, March 22: , 12–5pm Creative Web Coding Workshop Open to all students, sign up will be required. →Talk + Book Signing: JON KEY Black, Queer & Untold: A New Archive of Designers, Artists and Trailblazers
-- Mentor-style checkpoint:
-  - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
-
-### Interaction, Web, And Computational Form
-
-Studio loop: Build a working browser artifact, critique the behavior as design material, and revise both interface and code structure.
-
-#### Time, Sequence, & Sound
-
-- Evidence grade: B
-- Course code: unknown
-- Source IDs: src_sp19_time_sequence_sound
-- Syllabus/course artifacts: syl_sp19_time_sequence_sound
-- Tools/software/materials to practice: Adobe, After Effects
-- Skill targets: motion design, interaction design
-- Schedule rhythm:
-  - Through a series of in-studio and multi-week assignments, students will create animated projects that include real-world assignments as well: Through a series of in-studio and multi-week assignments, students will create animated projects that include real-world assignments as well as experimental exercises.
-  - Short weekly lectures will discuss historic and current works of influential Motion Designers, Animators and Directors.: Short weekly lectures will discuss historic and current works of influential Motion Designers, Animators and Directors.
-  - Adobe After Effects will be the primary production tool for this class.: Adobe After Effects will be the primary production tool for this class.
-- Studio briefs to recreate:
-  - assignments, students will create animated projects that include real-world assignments as: Through a series of in-studio and multi-week assignments, students will create animated projects that include real-world assignments as well as experimental exercises. (process: produce finished artifact; type: exercise; phases: make; boundary: contextual_course_fragment)
-  - assignments, students will become fluent with the software: Through the sequence of assignments, students will become fluent with the software. (type: project_brief; boundary: contextual_course_fragment)
+- Practice loop:
+  - make book; write a critique memo and revise once; output: multi_page_publication. Cite assignment assign_syl_sp19_design_for_publishing_01.
+- Missing evidence warnings:
+  - grading rubric or assessment strategy not recovered
+  - ordered weekly schedule not recovered
+  - usable reading/resource list not recovered
+  - public comparison work is course-context only or missing
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 

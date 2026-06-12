@@ -4279,6 +4279,21 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const conflictReviewQueueCount = reviewQueue.filter((row) => row.conflict_id).length
   const pendingConflictReviewDecisionCount = reviewDecisions.filter((decision) => decision.conflict_id && decision.status === 'pending_manual_review').length
   const fieldConflictErrors = fieldConflicts.filter((conflict) => !conflict.conflict_id || !conflict.field || !conflict.values?.length || conflict.source_ids?.some((id) => !sourceIds.has(id)))
+  const curriculumPacketsForValidation = curriculumCoursePackets({ courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks: effectiveStudentWorkAssignmentLinks, scheduleRows: effectiveScheduleRows })
+  const curriculumModules = curriculumSelectedPackets(curriculumPacketsForValidation)
+  const curriculumModulesWithSourceIds = curriculumModules.filter((packet) => packet.course.source_ids?.length).length
+  const curriculumModulesWithAssignments = curriculumModules.filter((packet) => curriculumAssignmentCandidates(packet.courseAssignments).length).length
+  const curriculumModulesWithReadings = curriculumModules.filter((packet) => curriculumReadingCandidates(packet.courseReadings).length).length
+  const curriculumModulesWithSchedule = curriculumModules.filter((packet) => curriculumScheduleCandidates(packet.courseScheduleRows).length).length
+  const curriculumModulesWithComparison = curriculumModules.filter((packet) => packet.courseStudentWorkLinks.length || packet.courseStudentWork.some((work) => work.course_code || work.course_title)).length
+  const curriculumModulesWithUnknowns = curriculumModules.filter((packet) => curriculumModuleUnknowns({ courseSyllabi: packet.courseSyllabi, assignments: packet.courseAssignments, readings: packet.courseReadings, scheduleRows: packet.courseScheduleRows, studentWorkLinks: packet.courseStudentWorkLinks }).length).length
+  const curriculumModuleReferenceErrors = curriculumModules.filter((packet) =>
+    !packet.course.source_ids?.length
+      || curriculumAssignmentCandidates(packet.courseAssignments).some((assignment) => !assignmentIds.has(assignment.assignment_id) || assignment.source_ids?.some((id) => !sourceIds.has(id)))
+      || curriculumReadingCandidates(packet.courseReadings).some((reading) => !readingIds.has(reading.reading_id) || reading.source_ids?.some((id) => !sourceIds.has(id)))
+      || curriculumScheduleCandidates(packet.courseScheduleRows).some((row) => !effectiveScheduleRowIds.has(row.schedule_id))
+      || packet.courseStudentWorkLinks.some((link) => !studentWorkIds.has(link.student_work_id))
+  )
   const courseInventoryReconciled = courseInventory.displayed_count > 0 && courseInventory.offerings.length === courseInventory.displayed_count
   const checks = [
     {
@@ -4527,6 +4542,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${conflictReviewQueueCount} conflict review rows and ${pendingConflictReviewDecisionCount} pending conflict decisions for ${fieldConflicts.length} field conflicts.`,
     },
     {
+      id: 'self_study_curriculum_modules_have_grounded_evidence',
+      status: curriculumModuleReferenceErrors.length === 0 && curriculumModules.length > 0 && curriculumModulesWithSourceIds === curriculumModules.length && curriculumModulesWithAssignments === curriculumModules.length ? 'pass' : curriculumModuleReferenceErrors.length === 0 && curriculumModules.length > 0 ? 'warn' : 'fail',
+      detail: `${curriculumModules.length} modules; ${curriculumModulesWithAssignments} with filtered assignments, ${curriculumModulesWithReadings} with usable readings/resources, ${curriculumModulesWithSchedule} with schedule rhythm, ${curriculumModulesWithComparison} with comparison evidence, ${curriculumModulesWithUnknowns} with explicit unknowns; ${curriculumModuleReferenceErrors.length} module reference errors.`,
+    },
+    {
       id: 'official_course_inventory_reconciled',
       status: courseInventoryReconciled ? 'pass' : 'warn',
       detail: `${courseInventory.offerings.length} official offerings parsed; RISD page displays ${courseInventory.displayed_count || 'unknown'} results.`,
@@ -4655,6 +4675,12 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       conflict_review_queue_rows: conflictReviewQueueCount,
       pending_conflict_review_decisions: pendingConflictReviewDecisionCount,
       field_conflicts: fieldConflicts.length,
+      self_study_curriculum_modules: curriculumModules.length,
+      self_study_modules_with_filtered_assignments: curriculumModulesWithAssignments,
+      self_study_modules_with_usable_readings: curriculumModulesWithReadings,
+      self_study_modules_with_schedule: curriculumModulesWithSchedule,
+      self_study_modules_with_comparison: curriculumModulesWithComparison,
+      self_study_modules_with_unknowns: curriculumModulesWithUnknowns,
     },
     checks,
   }
@@ -5251,6 +5277,12 @@ Overall status: ${validation.status}
 - Conflict review queue rows: ${validation.counts.conflict_review_queue_rows}
 - Pending conflict review decisions: ${validation.counts.pending_conflict_review_decisions}
 - Field conflicts: ${validation.counts.field_conflicts}
+- Self-study curriculum modules: ${validation.counts.self_study_curriculum_modules}
+- Self-study modules with filtered assignments: ${validation.counts.self_study_modules_with_filtered_assignments}
+- Self-study modules with usable readings/resources: ${validation.counts.self_study_modules_with_usable_readings}
+- Self-study modules with schedule rhythm: ${validation.counts.self_study_modules_with_schedule}
+- Self-study modules with comparison evidence: ${validation.counts.self_study_modules_with_comparison}
+- Self-study modules with explicit unknowns: ${validation.counts.self_study_modules_with_unknowns}
 
 ## Checks
 
@@ -5615,6 +5647,103 @@ function curriculumPacketKey(packet) {
   return slug(course.course_title ?? course.course_code ?? course.course_id)
 }
 
+function curriculumAssignmentCandidates(assignments) {
+  const candidates = assignments
+    .filter((assignment) =>
+      ['high', 'medium'].includes(assignment.assignment_confidence)
+        && !['fragment_too_short', 'weak_assignment_signal', 'contextual_course_fragment'].includes(assignment.boundary_status)
+        && (assignment.deliverables?.length
+          || assignment.constraints?.length
+          || assignment.process_steps?.length
+          || assignment.submission_requirements?.length
+          || assignment.output_format
+          || assignment.critique_format
+          || assignment.revision_expectation
+          || assignment.prompt_excerpt?.split(/\s+/).length >= 35)
+    )
+    .sort((a, b) => {
+      const confidenceRank = { high: 0, medium: 1, low: 2 }
+      return (confidenceRank[a.assignment_confidence] ?? 9) - (confidenceRank[b.assignment_confidence] ?? 9)
+        || Number(Boolean(b.deliverables?.length)) - Number(Boolean(a.deliverables?.length))
+        || Number(Boolean(b.critique_format || b.revision_expectation)) - Number(Boolean(a.critique_format || a.revision_expectation))
+        || String(a.title ?? '').localeCompare(String(b.title ?? ''))
+    })
+  const byKey = new Map()
+  for (const assignment of candidates) {
+    const key = slug(`${assignment.title ?? ''}_${assignment.prompt_excerpt?.slice(0, 160) ?? ''}`)
+    if (!byKey.has(key)) byKey.set(key, assignment)
+  }
+  return [...byKey.values()]
+}
+
+function curriculumReadingCandidates(readings) {
+  const candidates = readings
+    .filter((reading) => reading.semantic_status !== 'non_citation_fragment' && (reading.title || reading.raw_citation))
+    .sort((a, b) => {
+      const statusRank = { bibliographic: 0, resource: 1, non_citation_fragment: 9 }
+      return (statusRank[a.semantic_status] ?? 5) - (statusRank[b.semantic_status] ?? 5)
+        || Number(Boolean(b.linked_assignment_ids?.length || b.linked_schedule_ids?.length)) - Number(Boolean(a.linked_assignment_ids?.length || a.linked_schedule_ids?.length))
+        || String(a.title ?? a.raw_citation ?? '').localeCompare(String(b.title ?? b.raw_citation ?? ''))
+    })
+  const byKey = new Map()
+  for (const reading of candidates) {
+    const key = reading.canonical_work_id ?? slug(`${reading.title ?? reading.raw_citation}_${reading.author ?? ''}`)
+    if (!byKey.has(key)) byKey.set(key, reading)
+  }
+  return [...byKey.values()]
+}
+
+function curriculumScheduleCandidates(scheduleRows) {
+  return scheduleRows
+    .filter((row) =>
+      row.date
+        || row.week_number
+        || row.due_assignment_ids?.length
+        || row.reading_ids?.length
+        || row.critique_signal
+        || row.workshop_signal
+        || row.schedule_source === 'syllabus_table_or_outline'
+    )
+    .sort((a, b) => String(a.date ?? '').localeCompare(String(b.date ?? '')) || Number(a.week_number ?? 999) - Number(b.week_number ?? 999) || String(a.schedule_id).localeCompare(String(b.schedule_id)))
+}
+
+function curriculumModuleUnknowns({ courseSyllabi, assignments, readings, scheduleRows, studentWorkLinks }) {
+  const unknowns = []
+  if (!courseSyllabi.some((syllabus) => syllabus.grading_rubric || syllabus.assessment_strategy)) unknowns.push('grading rubric or assessment strategy not recovered')
+  if (!curriculumScheduleCandidates(scheduleRows).length) unknowns.push('ordered weekly schedule not recovered')
+  if (!curriculumReadingCandidates(readings).length) unknowns.push('usable reading/resource list not recovered')
+  if (!curriculumAssignmentCandidates(assignments).length) unknowns.push('complete project brief not recovered')
+  if (!assignments.some((assignment) => assignment.critique_format || assignment.revision_expectation || assignment.critique_questions?.length)) unknowns.push('critique/revision format only partially evidenced')
+  if (!studentWorkLinks.length) unknowns.push('public comparison work is course-context only or missing')
+  return unknowns
+}
+
+function curriculumSelectedPackets(packets, limit = 24) {
+  const strongPackets = packets.filter((packet) =>
+    curriculumAssignmentCandidates(packet.courseAssignments).length
+  )
+  const selected = []
+  const selectedKeys = new Set()
+  for (const track of curriculumTracks) {
+    const trackPackets = strongPackets.filter((packet) => packet.track.track_id === track.track_id)
+    for (const packet of trackPackets) {
+      const key = curriculumPacketKey(packet)
+      if (selectedKeys.has(key)) continue
+      selected.push(packet)
+      selectedKeys.add(key)
+      if (selected.filter((selectedPacket) => selectedPacket.track.track_id === track.track_id).length >= 4) break
+    }
+  }
+  for (const packet of strongPackets) {
+    const key = curriculumPacketKey(packet)
+    if (selectedKeys.has(key)) continue
+    selected.push(packet)
+    selectedKeys.add(key)
+    if (selected.length >= limit) break
+  }
+  return selected
+}
+
 const coverageRequirements = [
   ['course_identity', 'Course code/title/level/credits/term/instructor basics'],
   ['source_evidence', 'Source type, evidence grade, and source IDs'],
@@ -5783,26 +5912,7 @@ function dedupeCoverageSearchQueries(rows) {
 function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows = [], studentWork, studentWorkAssignmentLinks = [] }) {
   const packets = curriculumCoursePackets({ courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks, scheduleRows })
   const studentWorkById = new Map(studentWork.map((work) => [work.student_work_id, work]))
-  const strongPackets = packets.filter((packet) => packet.courseAssignments.length || packet.courseReadings.length || packet.courseSyllabi.some((syllabus) => syllabus.assignment_schedule?.length))
-  const selected = []
-  const selectedKeys = new Set()
-  for (const track of curriculumTracks) {
-    const trackPackets = strongPackets.filter((packet) => packet.track.track_id === track.track_id)
-    for (const packet of trackPackets) {
-      const key = curriculumPacketKey(packet)
-      if (selectedKeys.has(key)) continue
-      selected.push(packet)
-      selectedKeys.add(key)
-      if (selected.filter((selectedPacket) => selectedPacket.track.track_id === track.track_id).length >= 4) break
-    }
-  }
-  for (const packet of strongPackets) {
-    const key = curriculumPacketKey(packet)
-    if (selectedKeys.has(key)) continue
-    selected.push(packet)
-    selectedKeys.add(key)
-    if (selected.length >= 24) break
-  }
+  const selected = curriculumSelectedPackets(packets)
 
   const lines = []
   lines.push('# RISD Graphic Design Self-Study Curriculum')
@@ -5839,6 +5949,10 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
     lines.push('')
     for (const packet of trackPackets) {
       const { course, courseSyllabi, courseAssignments, courseReadings, courseScheduleRows, courseStudentWork, courseStudentWorkLinks } = packet
+      const moduleAssignments = curriculumAssignmentCandidates(courseAssignments)
+      const moduleReadings = curriculumReadingCandidates(courseReadings)
+      const moduleScheduleRows = curriculumScheduleCandidates(courseScheduleRows)
+      const moduleUnknowns = curriculumModuleUnknowns({ courseSyllabi, assignments: courseAssignments, readings: courseReadings, scheduleRows: courseScheduleRows, studentWorkLinks: courseStudentWorkLinks })
       lines.push(`#### ${course.course_title ?? course.course_code ?? course.course_id}`)
       lines.push('')
       lines.push(`- Evidence grade: ${course.evidence_grade}`)
@@ -5851,9 +5965,9 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
       if (tools.length) lines.push(`- Tools/software/materials to practice: ${tools.join(', ')}`)
       const skills = uniq([...course.skills, ...courseAssignments.flatMap((assignment) => assignment.skills_trained ?? [])]).slice(0, 10)
       if (skills.length) lines.push(`- Skill targets: ${skills.join(', ')}`)
-      if (courseReadings.length) {
+      if (moduleReadings.length) {
         lines.push('- Reading packet:')
-        courseReadings.slice(0, 6).forEach((reading) => {
+        moduleReadings.slice(0, 6).forEach((reading) => {
           const title = reading.title ?? reading.raw_citation ?? reading.citation_excerpt
           const tags = [
             reading.required_or_recommended && reading.required_or_recommended !== 'unknown' ? reading.required_or_recommended : null,
@@ -5865,13 +5979,13 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
           lines.push(`  - ${title}${reading.author ? `, ${reading.author}` : ''}${tags.length ? ` (${tags.join('; ')})` : ''}`)
         })
       }
-      if (courseScheduleRows.length) {
+      if (moduleScheduleRows.length) {
         lines.push('- Schedule rhythm:')
-        courseScheduleRows.slice(0, 5).forEach((row) => lines.push(`  - ${row.date ?? row.session_title ?? row.schedule_source}: ${row.agenda_excerpt}`))
+        moduleScheduleRows.slice(0, 5).forEach((row) => lines.push(`  - ${row.date ?? row.session_title ?? row.schedule_source}: ${row.agenda_excerpt}`))
       }
-      if (courseAssignments.length) {
+      if (moduleAssignments.length) {
         lines.push('- Studio briefs to recreate:')
-        courseAssignments.slice(0, 6).forEach((assignment) => {
+        moduleAssignments.slice(0, 6).forEach((assignment) => {
           const assignmentTitle = assignment.title && assignment.title !== 'null' ? assignment.title : 'Recovered brief'
           const details = [
             assignment.deliverables?.length ? `deliverables: ${assignment.deliverables.join(', ')}` : null,
@@ -5889,6 +6003,17 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
           lines.push(`  - ${assignmentTitle}: ${assignment.prompt_excerpt}${details.length ? ` (${details.join('; ')})` : ''}`)
         })
       }
+      if (moduleAssignments.length) {
+        const practiceAssignment = moduleAssignments[0]
+        const practiceDetails = [
+          practiceAssignment.deliverables?.length ? `make ${practiceAssignment.deliverables.slice(0, 3).join(', ')}` : 'make the recovered artifact',
+          practiceAssignment.constraints?.length ? `under constraints: ${practiceAssignment.constraints.slice(0, 3).join(', ')}` : null,
+          practiceAssignment.critique_format || practiceAssignment.revision_expectation ? `critique/revise: ${practiceAssignment.critique_format ?? practiceAssignment.revision_expectation}` : 'write a critique memo and revise once',
+          practiceAssignment.output_format ? `output: ${practiceAssignment.output_format}` : null,
+        ].filter(Boolean)
+        lines.push('- Practice loop:')
+        lines.push(`  - ${practiceDetails.join('; ')}. Cite assignment ${practiceAssignment.assignment_id}.`)
+      }
       if (courseStudentWorkLinks.length) {
         lines.push('- Public comparison set:')
         courseStudentWorkLinks.slice(0, 4).forEach((link) => {
@@ -5903,6 +6028,10 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
           .filter((work) => work.course_code || work.course_title)
           .slice(0, 4)
           .forEach((work) => lines.push(`  - ${work.project_title ?? work.url}: ${work.url} (course-context evidence only)`))
+      }
+      if (moduleUnknowns.length) {
+        lines.push('- Missing evidence warnings:')
+        moduleUnknowns.slice(0, 6).forEach((unknown) => lines.push(`  - ${unknown}`))
       }
       lines.push('- Mentor-style checkpoint:')
       lines.push('  - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?')

@@ -353,6 +353,8 @@ Acceptance output:
 
 ### Step 9: Generate A Mentor-Style Self-Study Curriculum From Evidence
 
+Status: implemented for evidence-filtered module selection, filtered assignment/reading/schedule display, module-level practice loops, explicit missing-evidence warnings, student/faculty comparison boundaries, and validation that generated modules cite source IDs and reference existing assignment/reading/schedule/student-work records. The next improvement should add a separate machine-readable `self_study_modules.jsonl` artifact so downstream applications can render modules without parsing Markdown.
+
 Goal: make the corpus usable for the original purpose: tacit catch-up through concrete studio loops.
 
 Implementation requirements:

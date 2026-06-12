@@ -108,7 +108,13 @@
     "resolved_review_decisions": 12,
     "conflict_review_queue_rows": 28,
     "pending_conflict_review_decisions": 28,
-    "field_conflicts": 28
+    "field_conflicts": 28,
+    "self_study_curriculum_modules": 14,
+    "self_study_modules_with_filtered_assignments": 14,
+    "self_study_modules_with_usable_readings": 11,
+    "self_study_modules_with_schedule": 9,
+    "self_study_modules_with_comparison": 3,
+    "self_study_modules_with_unknowns": 13
   },
   "checks": [
     {
@@ -355,6 +361,11 @@
       "id": "field_conflicts_route_to_review_queue",
       "status": "pass",
       "detail": "28 conflict review rows and 28 pending conflict decisions for 28 field conflicts."
+    },
+    {
+      "id": "self_study_curriculum_modules_have_grounded_evidence",
+      "status": "pass",
+      "detail": "14 modules; 14 with filtered assignments, 11 with usable readings/resources, 9 with schedule rhythm, 3 with comparison evidence, 13 with explicit unknowns; 0 module reference errors."
     },
     {
       "id": "official_course_inventory_reconciled",
