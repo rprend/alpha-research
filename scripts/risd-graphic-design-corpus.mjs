@@ -4288,6 +4288,13 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const curriculumModulesWithSchedule = curriculumModules.filter((module) => module.schedule_ids?.length).length
   const curriculumModulesWithComparison = curriculumModules.filter((module) => module.comparison_set?.length).length
   const curriculumModulesWithUnknowns = curriculumModules.filter((module) => module.missing_evidence_warnings?.length).length
+  const curriculumModulesWithConfidence = curriculumModules.filter((module) =>
+    Number.isFinite(module.module_confidence_score)
+      && ['high', 'medium', 'low'].includes(module.module_confidence_band)
+      && module.module_confidence_factors
+      && module.module_confidence_explanation?.selection_reason
+      && module.module_confidence_explanation?.strengths?.length
+  ).length
   const curriculumModuleReferenceErrors = curriculumModules.filter((module) =>
     !module.module_id
       || !module.source_ids?.length
@@ -4299,6 +4306,9 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || module.comparison_set?.some((comparison) => comparison.student_work_id && !studentWorkIds.has(comparison.student_work_id))
       || !module.practice_instruction?.assignment_id
       || module.practice_instruction?.assignment_id && !assignmentIds.has(module.practice_instruction.assignment_id)
+      || !Number.isFinite(module.module_confidence_score)
+      || !['high', 'medium', 'low'].includes(module.module_confidence_band)
+      || !module.module_confidence_explanation?.selection_reason
   )
   const curriculumGeneratedMismatch = effectiveSelfStudyModules.length > 0 && effectiveSelfStudyModules.length !== generatedCurriculumModules.length
   const courseInventoryReconciled = courseInventory.displayed_count > 0 && courseInventory.offerings.length === courseInventory.displayed_count
@@ -4551,7 +4561,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
     {
       id: 'self_study_curriculum_modules_have_grounded_evidence',
       status: curriculumModuleReferenceErrors.length === 0 && !curriculumGeneratedMismatch && curriculumModules.length > 0 && curriculumModulesWithSourceIds === curriculumModules.length && curriculumModulesWithAssignments === curriculumModules.length ? 'pass' : curriculumModuleReferenceErrors.length === 0 && curriculumModules.length > 0 ? 'warn' : 'fail',
-      detail: `${curriculumModules.length} modules; ${curriculumModulesWithAssignments} with filtered assignments, ${curriculumModulesWithReadings} with usable readings/resources, ${curriculumModulesWithSchedule} with schedule rhythm, ${curriculumModulesWithComparison} with comparison evidence, ${curriculumModulesWithUnknowns} with explicit unknowns; ${curriculumModuleReferenceErrors.length} module reference errors; generated mismatch=${curriculumGeneratedMismatch}.`,
+      detail: `${curriculumModules.length} modules; ${curriculumModulesWithAssignments} with filtered assignments, ${curriculumModulesWithReadings} with usable readings/resources, ${curriculumModulesWithSchedule} with schedule rhythm, ${curriculumModulesWithComparison} with comparison evidence, ${curriculumModulesWithUnknowns} with explicit unknowns, ${curriculumModulesWithConfidence} with confidence explanations; ${curriculumModuleReferenceErrors.length} module reference errors; generated mismatch=${curriculumGeneratedMismatch}.`,
     },
     {
       id: 'official_course_inventory_reconciled',
@@ -4688,6 +4698,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_modules_with_schedule: curriculumModulesWithSchedule,
       self_study_modules_with_comparison: curriculumModulesWithComparison,
       self_study_modules_with_unknowns: curriculumModulesWithUnknowns,
+      self_study_modules_with_confidence_explanations: curriculumModulesWithConfidence,
     },
     checks,
   }
@@ -5290,6 +5301,7 @@ Overall status: ${validation.status}
 - Self-study modules with schedule rhythm: ${validation.counts.self_study_modules_with_schedule}
 - Self-study modules with comparison evidence: ${validation.counts.self_study_modules_with_comparison}
 - Self-study modules with explicit unknowns: ${validation.counts.self_study_modules_with_unknowns}
+- Self-study modules with confidence explanations: ${validation.counts.self_study_modules_with_confidence_explanations}
 
 ## Checks
 
@@ -5540,6 +5552,9 @@ function tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules
   const comparisonRows = selfStudyModules
     .filter((module) => module.comparison_set?.length)
     .slice(0, 8)
+  const confidenceRows = selfStudyModules
+    .filter((module) => module.module_confidence_explanation?.selection_reason)
+    .slice(0, 8)
   const missingEvidenceRows = selfStudyModules
     .filter((module) => module.missing_evidence_warnings?.length)
     .slice(0, 10)
@@ -5577,6 +5592,14 @@ ${assignmentSkills.length ? assignmentSkills.map((skill) => `- ${skill}`).join('
 ## Tangible Practice Instructions
 
 ${modulePracticeRows.length ? modulePracticeRows.map((module) => `- ${module.course_title ?? module.course_code}: ${module.practice_instruction.instruction}. Evidence: ${module.practice_instruction.assignment_id}; sources: ${module.source_ids.slice(0, 4).join(', ')}`).join('\n') : '- No module-level practice instructions have been generated yet.'}
+
+## Module Confidence Boundaries
+
+${confidenceRows.length ? confidenceRows.map((module) => {
+  const strengths = module.module_confidence_explanation.strengths?.slice(0, 3).join('; ')
+  const limits = module.module_confidence_explanation.limitations?.slice(0, 3).join('; ')
+  return `- ${module.course_title ?? module.course_code}: ${module.module_confidence_band} (${module.module_confidence_score}/100). ${module.module_confidence_explanation.selection_reason}${strengths ? ` Strengths: ${strengths}.` : ''}${limits ? ` Limits: ${limits}.` : ''}`
+}).join('\n') : '- No module-level confidence explanations have been generated yet.'}
 
 ## Critique And Revision
 
@@ -5805,6 +5828,74 @@ function curriculumPracticeInstruction(assignment) {
   }
 }
 
+function selfStudyModuleConfidence({ course, courseSyllabi, moduleAssignments, moduleReadings, moduleScheduleRows, comparisonSet, moduleUnknowns }) {
+  const evidenceGradePoints = { A: 35, B: 26, C: 16, D: 8, E: 3 }[course.evidence_grade] ?? 0
+  const completeAssignmentCount = moduleAssignments.filter((assignment) => assignment.boundary_status === 'bounded_assignment_brief' || assignment.assignment_confidence === 'high').length
+  const critiqueAssignmentCount = moduleAssignments.filter((assignment) => assignment.critique_format || assignment.revision_expectation || assignment.critique_questions?.length).length
+  const sourceFamilyCount = new Set([
+    ...(course.source_ids ?? []),
+    ...courseSyllabi.flatMap((syllabus) => syllabus.source_ids ?? []),
+    ...moduleAssignments.flatMap((assignment) => assignment.source_ids ?? []),
+  ]).size
+  const comparisonStrength = comparisonSet.some((comparison) => comparison.relationship_type === 'assignment_link')
+    ? 'assignment_linked'
+    : comparisonSet.some((comparison) => comparison.relationship_type === 'brief_page_link')
+      ? 'brief_page_linked'
+      : comparisonSet.length
+        ? 'course_context_only'
+        : 'missing'
+  const scheduleStrength = moduleScheduleRows.some((row) => row.date || row.week_number || row.due_assignment_ids?.length || row.reading_ids?.length)
+    ? 'ordered_or_linked'
+    : moduleScheduleRows.length
+      ? 'contextual'
+      : 'missing'
+  const score = Math.max(0, Math.min(100,
+    evidenceGradePoints
+      + Math.min(sourceFamilyCount * 2, 14)
+      + Math.min(completeAssignmentCount * 7, 21)
+      + Math.min(moduleReadings.length * 2, 12)
+      + (scheduleStrength === 'ordered_or_linked' ? 10 : scheduleStrength === 'contextual' ? 4 : 0)
+      + Math.min(critiqueAssignmentCount * 4, 8)
+      + (comparisonStrength === 'assignment_linked' ? 8 : comparisonStrength === 'brief_page_linked' ? 5 : comparisonStrength === 'course_context_only' ? 2 : 0)
+      - Math.min(moduleUnknowns.length * 4, 16)
+  ))
+  const confidenceBand = score >= 80 ? 'high' : score >= 55 ? 'medium' : 'low'
+  const strengths = [
+    course.evidence_grade ? `course evidence grade ${course.evidence_grade}` : null,
+    sourceFamilyCount ? `${sourceFamilyCount} source IDs across course, syllabus, and selected assignment evidence` : null,
+    completeAssignmentCount ? `${completeAssignmentCount} selected complete/high-confidence assignment brief${completeAssignmentCount === 1 ? '' : 's'}` : null,
+    moduleReadings.length ? `${moduleReadings.length} usable reading/resource row${moduleReadings.length === 1 ? '' : 's'}` : null,
+    scheduleStrength !== 'missing' ? `${scheduleStrength === 'ordered_or_linked' ? 'ordered or assignment-linked' : 'contextual'} schedule rhythm evidence` : null,
+    critiqueAssignmentCount ? `${critiqueAssignmentCount} assignment row${critiqueAssignmentCount === 1 ? '' : 's'} with critique/revision evidence` : null,
+    comparisonStrength !== 'missing' ? `${comparisonStrength.replace(/_/g, '-')} public comparison evidence` : null,
+  ].filter(Boolean)
+  const limitations = [
+    ...moduleUnknowns.slice(0, 4),
+    comparisonStrength === 'course_context_only' ? 'student-work comparison is not assignment-linked' : null,
+    scheduleStrength === 'missing' ? 'no reusable schedule rows selected' : null,
+  ].filter(Boolean)
+  return {
+    confidence_score: score,
+    confidence_band: confidenceBand,
+    confidence_factors: {
+      source_family_count: sourceFamilyCount,
+      complete_assignment_count: completeAssignmentCount,
+      selected_assignment_count: moduleAssignments.length,
+      selected_reading_count: moduleReadings.length,
+      selected_schedule_count: moduleScheduleRows.length,
+      critique_revision_assignment_count: critiqueAssignmentCount,
+      comparison_strength: comparisonStrength,
+      schedule_strength: scheduleStrength,
+      missing_evidence_count: moduleUnknowns.length,
+    },
+    confidence_explanation: {
+      selection_reason: `Selected for ${course.course_title ?? course.course_code ?? course.course_id} because it has ${completeAssignmentCount} reusable studio brief${completeAssignmentCount === 1 ? '' : 's'} and ${course.evidence_grade ?? 'unknown'}-grade course evidence in the ${course.evidence_grade === 'A' ? 'strongest' : 'available'} public corpus tier.`,
+      strengths,
+      limitations,
+    },
+  }
+}
+
 function buildSelfStudyModules({ courses, syllabi, assignments, readings, scheduleRows = [], studentWork, studentWorkAssignmentLinks = [] }) {
   const packets = curriculumCoursePackets({ courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks, scheduleRows })
   const selected = curriculumSelectedPackets(packets)
@@ -5847,6 +5938,7 @@ function buildSelfStudyModules({ courses, syllabi, assignments, readings, schedu
       ...comparisonSet.flatMap((comparison) => studentWorkById.get(comparison.student_work_id)?.source_ids ?? []),
     ])
     const primaryAssignment = moduleAssignments[0]
+    const confidence = selfStudyModuleConfidence({ course, courseSyllabi, moduleAssignments, moduleReadings, moduleScheduleRows, comparisonSet, moduleUnknowns })
     return {
       module_id: `self_study_module_${String(index + 1).padStart(2, '0')}_${curriculumPacketKey(packet)}`,
       generated_at: retrievedAt,
@@ -5857,6 +5949,10 @@ function buildSelfStudyModules({ courses, syllabi, assignments, readings, schedu
       course_code: course.course_code ?? null,
       course_title: course.course_title ?? null,
       evidence_grade: course.evidence_grade ?? null,
+      module_confidence_score: confidence.confidence_score,
+      module_confidence_band: confidence.confidence_band,
+      module_confidence_factors: confidence.confidence_factors,
+      module_confidence_explanation: confidence.confidence_explanation,
       source_ids: sourceIds,
       syllabus_ids: courseSyllabi.map((syllabus) => syllabus.syllabus_id),
       instructor_evidence: uniq(courseSyllabi.map((syllabus) => syllabus.instructor).filter(Boolean)),
@@ -6118,13 +6214,42 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
     lines.push('')
     for (const packet of trackPackets) {
       const { course, courseSyllabi, courseAssignments, courseReadings, courseScheduleRows, courseStudentWork, courseStudentWorkLinks } = packet
-      const moduleAssignments = curriculumAssignmentCandidates(courseAssignments)
-      const moduleReadings = curriculumReadingCandidates(courseReadings)
-      const moduleScheduleRows = curriculumScheduleCandidates(courseScheduleRows)
+      const moduleAssignments = curriculumAssignmentCandidates(courseAssignments).slice(0, 6)
+      const moduleReadings = curriculumReadingCandidates(courseReadings).slice(0, 8)
+      const moduleScheduleRows = curriculumScheduleCandidates(courseScheduleRows).slice(0, 8)
       const moduleUnknowns = curriculumModuleUnknowns({ courseSyllabi, assignments: courseAssignments, readings: courseReadings, scheduleRows: courseScheduleRows, studentWorkLinks: courseStudentWorkLinks })
+      const comparisonSet = courseStudentWorkLinks.length
+        ? courseStudentWorkLinks.slice(0, 6).map((link) => ({
+          relationship_type: link.relationship_type,
+          student_work_id: link.student_work_id,
+          student_work_url: link.student_work_url,
+          assignment_id: link.assignment_id ?? null,
+          brief_page_id: link.brief_page_id ?? null,
+          comparison_use: link.comparison_use ?? [],
+          evidence_grade: link.evidence_grade,
+          relationship_note: link.assignment_title ? `assignment: ${link.assignment_title}` : link.brief_page_id ? `brief page: ${link.brief_page_id}` : 'course context',
+        }))
+        : courseStudentWork
+          .filter((work) => work.course_code || work.course_title)
+          .slice(0, 6)
+          .map((work) => ({
+            relationship_type: 'course_context_only',
+            student_work_id: work.student_work_id,
+            student_work_url: work.url,
+            assignment_id: null,
+            brief_page_id: null,
+            comparison_use: ['visual_calibration'],
+            evidence_grade: work.evidence_grade,
+            relationship_note: 'course-context evidence only',
+          }))
+      const moduleConfidence = selfStudyModuleConfidence({ course, courseSyllabi, moduleAssignments, moduleReadings, moduleScheduleRows, comparisonSet, moduleUnknowns })
       lines.push(`#### ${course.course_title ?? course.course_code ?? course.course_id}`)
       lines.push('')
       lines.push(`- Evidence grade: ${course.evidence_grade}`)
+      lines.push(`- Module confidence: ${moduleConfidence.confidence_band} (${moduleConfidence.confidence_score}/100)`)
+      lines.push(`- Why this module was selected: ${moduleConfidence.confidence_explanation.selection_reason}`)
+      if (moduleConfidence.confidence_explanation.strengths.length) lines.push(`- Confidence strengths: ${moduleConfidence.confidence_explanation.strengths.join('; ')}`)
+      if (moduleConfidence.confidence_explanation.limitations.length) lines.push(`- Confidence limits: ${moduleConfidence.confidence_explanation.limitations.join('; ')}`)
       lines.push(`- Course code: ${course.course_code ?? 'unknown'}`)
       lines.push(`- Source IDs: ${course.source_ids.join(', ')}`)
       if (courseSyllabi.length) lines.push(`- Syllabus/course artifacts: ${courseSyllabi.map((syllabus) => syllabus.syllabus_id).join(', ')}`)

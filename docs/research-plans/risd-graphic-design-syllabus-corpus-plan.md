@@ -354,7 +354,7 @@ Acceptance output:
 
 ### Step 9: Generate A Mentor-Style Self-Study Curriculum From Evidence
 
-Status: implemented for evidence-filtered module selection, filtered assignment/reading/schedule display, module-level practice loops, explicit missing-evidence warnings, student/faculty comparison boundaries, a machine-readable `self_study_modules.jsonl` artifact, module-grounded `tacit_knowledge_memo.md` sections, and validation that generated modules cite source IDs and reference existing assignment/reading/schedule/student-work records. The next improvement should add per-module confidence explanations so readers can tell why one module was selected over another.
+Status: implemented for evidence-filtered module selection, filtered assignment/reading/schedule display, module-level practice loops, explicit missing-evidence warnings, student/faculty comparison boundaries, a machine-readable `self_study_modules.jsonl` artifact, module-grounded `tacit_knowledge_memo.md` sections, per-module confidence scores/explanations, and validation that generated modules cite source IDs, explain selection confidence, and reference existing assignment/reading/schedule/student-work records. The next improvement should add module ordering rationales that compare selected courses against near-miss candidates within each track.
 
 Goal: make the corpus usable for the original purpose: tacit catch-up through concrete studio loops.
 

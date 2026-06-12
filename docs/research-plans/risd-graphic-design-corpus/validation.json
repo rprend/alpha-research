@@ -114,7 +114,8 @@
     "self_study_modules_with_usable_readings": 11,
     "self_study_modules_with_schedule": 9,
     "self_study_modules_with_comparison": 3,
-    "self_study_modules_with_unknowns": 13
+    "self_study_modules_with_unknowns": 13,
+    "self_study_modules_with_confidence_explanations": 14
   },
   "checks": [
     {
@@ -365,7 +366,7 @@
     {
       "id": "self_study_curriculum_modules_have_grounded_evidence",
       "status": "pass",
-      "detail": "14 modules; 14 with filtered assignments, 11 with usable readings/resources, 9 with schedule rhythm, 3 with comparison evidence, 13 with explicit unknowns; 0 module reference errors; generated mismatch=false."
+      "detail": "14 modules; 14 with filtered assignments, 11 with usable readings/resources, 9 with schedule rhythm, 3 with comparison evidence, 13 with explicit unknowns, 14 with confidence explanations; 0 module reference errors; generated mismatch=false."
     },
     {
       "id": "official_course_inventory_reconciled",
