@@ -176,6 +176,9 @@
     "self_study_portfolio_collaborator_response_action_queue_rows": 9,
     "self_study_portfolio_collaborator_response_action_queue_pending_rows": 9,
     "self_study_portfolio_collaborator_response_action_queue_high_priority_rows": 3,
+    "self_study_portfolio_collaborator_response_action_progress_rows": 3,
+    "self_study_portfolio_collaborator_response_action_progress_open_high_priority_rows": 3,
+    "self_study_portfolio_collaborator_response_action_progress_pending_actions": 9,
     "self_study_portfolio_milestones": 3,
     "self_study_portfolio_briefs": 3,
     "self_study_portfolio_briefs_with_completion_gate_status": 3,
@@ -573,6 +576,11 @@
       "id": "self_study_portfolio_collaborator_response_action_queue_turns_checks_into_tasks",
       "status": "pass",
       "detail": "9 collaborator response action rows; 9 pending; 3 high priority; 0 action reference/task errors; generated mismatch=false."
+    },
+    {
+      "id": "self_study_portfolio_collaborator_response_action_progress_summarizes_open_work",
+      "status": "pass",
+      "detail": "3 collaborator response action progress rows; 3 with high-priority work; 9 pending actions; 0 progress reference/summary errors; generated mismatch=false."
     },
     {
       "id": "self_study_progress_ledger_links_to_portfolio_completion_gates",
