@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T20:14:12.652Z",
+  "generated_at": "2026-06-12T20:16:52.747Z",
   "complete": false,
   "counts": {
     "accounts": 9,
@@ -13,7 +13,7 @@
     "accepted_creators": 6,
     "benchmark_creators": 1,
     "expansion_queue": 4,
-    "acquisition_tasks": 31,
+    "acquisition_tasks": 68,
     "acquisition_runner_tasks": 5,
     "source_yield_rows": 7,
     "identities": 9,
@@ -59,7 +59,7 @@
     {
       "id": "acquisition_batches",
       "status": "pass",
-      "evidence": "31 acquisition tasks generated"
+      "evidence": "68 acquisition tasks generated"
     },
     {
       "id": "acquisition_runner",

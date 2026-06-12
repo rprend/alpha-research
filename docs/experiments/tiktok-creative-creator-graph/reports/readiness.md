@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T20:14:12.652Z
+Generated: 2026-06-12T20:16:52.747Z
 
 Complete: false
 
@@ -17,7 +17,7 @@ Complete: false
 - Accepted creators: 6
 - Benchmark creators: 1
 - Expansion queue: 4
-- Acquisition tasks: 31
+- Acquisition tasks: 68
 - Acquisition runner tasks: 5
 - Source yield rows: 7
 - Identities: 9
@@ -36,7 +36,7 @@ Complete: false
 - scoring_coverage: pass (9/9 accounts scored)
 - review_queue: pass (8 accounts queued for review)
 - expansion_queue: pass (4 expansion targets queued)
-- acquisition_batches: pass (31 acquisition tasks generated)
+- acquisition_batches: pass (68 acquisition tasks generated)
 - acquisition_runner: pass (5 provider tasks selected (dry run))
 - source_yield: pass (7 source/query yield rows generated)
 - identity_resolution: pass (9 creator identities resolved)

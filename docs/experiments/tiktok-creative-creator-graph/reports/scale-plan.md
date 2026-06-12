@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-12T20:14:12.548Z
+Generated: 2026-06-12T20:16:52.642Z
 
 ## Targets
 
@@ -44,28 +44,28 @@ Generated: 2026-06-12T20:14:12.548Z
 
 | Seq | Priority | Surface | Query |
 | ---: | ---: | --- | --- |
-| 1 | 1 | tiktok_creator_neighborhood_export | @maya.shortcuts |
-| 2 | 1 | tiktok_creator_neighborhood_export | @noahframes |
-| 3 | 1 | tiktok_creator_neighborhood_export | @lucybits |
-| 4 | 1 | tiktok_creator_neighborhood_export | @ani.motionlab |
-| 5 | 1 | tiktok_hashtag_export | filmmaker |
-| 6 | 1 | tiktok_hashtag_export | shortfilm |
-| 7 | 1 | tiktok_hashtag_export | indiefilm |
-| 8 | 1 | tiktok_hashtag_export | cinematography |
-| 9 | 1 | tiktok_hashtag_export | directing |
-| 10 | 1 | tiktok_hashtag_export | sketchcomedy |
-| 11 | 1 | tiktok_hashtag_export | standupcomedy |
-| 12 | 1 | tiktok_hashtag_export | charactercomedy |
-| 13 | 1 | tiktok_hashtag_export | filmtok |
-| 14 | 1 | tiktok_hashtag_export | vfxartist |
-| 15 | 1 | tiktok_hashtag_export | animation |
-| 16 | 1 | tiktok_hashtag_export | behindthescenes |
-| 17 | 2 | search_index | site:tiktok.com/@ filmmaker |
-| 18 | 2 | search_index | site:tiktok.com/@ "short film" |
-| 19 | 2 | search_index | site:tiktok.com/@ "sketch comedy" |
-| 20 | 2 | search_index | site:tiktok.com/@ comedian |
-| 21 | 2 | search_index | site:tiktok.com/@ cinematographer |
-| 22 | 2 | search_index | site:tiktok.com/@ "video editor" |
-| 23 | 2 | search_index | site:tiktok.com/@ "vfx artist" |
-| 24 | 2 | search_index | site:tiktok.com/@ actor "sketch" |
-| 25 | 2 | search_index | site:tiktok.com/@ "behind the scenes" film |
+| 1 | 1 | category_gap_search | site:tiktok.com/@ "editor" |
+| 2 | 1 | category_gap_search | site:tiktok.com/@ "editing" |
+| 3 | 1 | category_gap_search | site:tiktok.com/@ "director" |
+| 4 | 1 | category_gap_search | site:tiktok.com/@ "directed by" |
+| 5 | 1 | category_gap_search | site:tiktok.com/@ "commercial director" |
+| 6 | 1 | category_gap_search | site:tiktok.com/@ "standup comedian" |
+| 7 | 1 | category_gap_search | site:tiktok.com/@ "standup" |
+| 8 | 1 | category_gap_search | site:tiktok.com/@ "stand-up" |
+| 9 | 1 | category_gap_search | site:tiktok.com/@ "comedian" |
+| 10 | 1 | category_gap_search | site:tiktok.com/@ "actor performer" |
+| 11 | 1 | category_gap_search | site:tiktok.com/@ "actor" |
+| 12 | 1 | category_gap_search | site:tiktok.com/@ "actress" |
+| 13 | 1 | category_gap_search | site:tiktok.com/@ "performer" |
+| 14 | 1 | category_gap_search | site:tiktok.com/@ "film educator" |
+| 15 | 1 | category_gap_search | site:tiktok.com/@ "film school" |
+| 16 | 1 | category_gap_search | site:tiktok.com/@ "film education" |
+| 17 | 1 | category_gap_search | site:tiktok.com/@ "tutorial" |
+| 18 | 1 | category_gap_search | site:tiktok.com/@ "behind the scenes creator" |
+| 19 | 1 | category_gap_search | site:tiktok.com/@ "behind the scenes" |
+| 20 | 1 | category_gap_search | site:tiktok.com/@ "bts" |
+| 21 | 1 | category_gap_search | site:tiktok.com/@ "on set" |
+| 22 | 1 | tiktok_creator_neighborhood_export | @maya.shortcuts |
+| 23 | 1 | tiktok_creator_neighborhood_export | @noahframes |
+| 24 | 1 | tiktok_creator_neighborhood_export | @lucybits |
+| 25 | 1 | tiktok_creator_neighborhood_export | @ani.motionlab |

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T20:14:12.548Z",
+  "generated_at": "2026-06-12T20:16:52.642Z",
   "targets": {
     "useful_creators": 50000,
     "excellent_creators": 5000,
@@ -88,7 +88,196 @@
   "next_batches": [
     {
       "sequence": 1,
-      "batch_id": "graph_0028",
+      "batch_id": "category_gap_0028",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"editor\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 2,
+      "batch_id": "category_gap_0029",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"editing\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 3,
+      "batch_id": "category_gap_0030",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"director\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 4,
+      "batch_id": "category_gap_0031",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"directed by\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 5,
+      "batch_id": "category_gap_0032",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"commercial director\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 6,
+      "batch_id": "category_gap_0033",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"standup comedian\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 7,
+      "batch_id": "category_gap_0034",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"standup\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 8,
+      "batch_id": "category_gap_0035",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"stand-up\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 9,
+      "batch_id": "category_gap_0036",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"comedian\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 10,
+      "batch_id": "category_gap_0037",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"actor performer\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 11,
+      "batch_id": "category_gap_0038",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"actor\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 12,
+      "batch_id": "category_gap_0039",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"actress\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 13,
+      "batch_id": "category_gap_0040",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"performer\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 14,
+      "batch_id": "category_gap_0041",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"film educator\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 15,
+      "batch_id": "category_gap_0042",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"film school\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 16,
+      "batch_id": "category_gap_0043",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"film education\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 17,
+      "batch_id": "category_gap_0044",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"tutorial\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 18,
+      "batch_id": "category_gap_0045",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"behind the scenes creator\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 19,
+      "batch_id": "category_gap_0046",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"behind the scenes\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 20,
+      "batch_id": "category_gap_0047",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"bts\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 21,
+      "batch_id": "category_gap_0048",
+      "priority": 1,
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"on set\"",
+      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
+      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
+    },
+    {
+      "sequence": 22,
+      "batch_id": "graph_0065",
       "priority": 1,
       "acquisition_surface": "tiktok_creator_neighborhood_export",
       "query": "@maya.shortcuts",
@@ -96,8 +285,8 @@
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
-      "sequence": 2,
-      "batch_id": "graph_0029",
+      "sequence": 23,
+      "batch_id": "graph_0066",
       "priority": 1,
       "acquisition_surface": "tiktok_creator_neighborhood_export",
       "query": "@noahframes",
@@ -105,8 +294,8 @@
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
-      "sequence": 3,
-      "batch_id": "graph_0030",
+      "sequence": 24,
+      "batch_id": "graph_0067",
       "priority": 1,
       "acquisition_surface": "tiktok_creator_neighborhood_export",
       "query": "@lucybits",
@@ -114,202 +303,13 @@
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
-      "sequence": 4,
-      "batch_id": "graph_0031",
+      "sequence": 25,
+      "batch_id": "graph_0068",
       "priority": 1,
       "acquisition_surface": "tiktok_creator_neighborhood_export",
       "query": "@ani.motionlab",
       "expected_output": "mentions, hashtags, collaborators, sounds, and recent videos",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
-    },
-    {
-      "sequence": 5,
-      "batch_id": "hashtag_0011",
-      "priority": 1,
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "filmmaker",
-      "expected_output": "recent public videos and author profiles for hashtag",
-      "import_target": "data/raw/imports/hashtag-export.jsonl"
-    },
-    {
-      "sequence": 6,
-      "batch_id": "hashtag_0012",
-      "priority": 1,
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "shortfilm",
-      "expected_output": "recent public videos and author profiles for hashtag",
-      "import_target": "data/raw/imports/hashtag-export.jsonl"
-    },
-    {
-      "sequence": 7,
-      "batch_id": "hashtag_0013",
-      "priority": 1,
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "indiefilm",
-      "expected_output": "recent public videos and author profiles for hashtag",
-      "import_target": "data/raw/imports/hashtag-export.jsonl"
-    },
-    {
-      "sequence": 8,
-      "batch_id": "hashtag_0014",
-      "priority": 1,
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "cinematography",
-      "expected_output": "recent public videos and author profiles for hashtag",
-      "import_target": "data/raw/imports/hashtag-export.jsonl"
-    },
-    {
-      "sequence": 9,
-      "batch_id": "hashtag_0015",
-      "priority": 1,
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "directing",
-      "expected_output": "recent public videos and author profiles for hashtag",
-      "import_target": "data/raw/imports/hashtag-export.jsonl"
-    },
-    {
-      "sequence": 10,
-      "batch_id": "hashtag_0016",
-      "priority": 1,
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "sketchcomedy",
-      "expected_output": "recent public videos and author profiles for hashtag",
-      "import_target": "data/raw/imports/hashtag-export.jsonl"
-    },
-    {
-      "sequence": 11,
-      "batch_id": "hashtag_0017",
-      "priority": 1,
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "standupcomedy",
-      "expected_output": "recent public videos and author profiles for hashtag",
-      "import_target": "data/raw/imports/hashtag-export.jsonl"
-    },
-    {
-      "sequence": 12,
-      "batch_id": "hashtag_0018",
-      "priority": 1,
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "charactercomedy",
-      "expected_output": "recent public videos and author profiles for hashtag",
-      "import_target": "data/raw/imports/hashtag-export.jsonl"
-    },
-    {
-      "sequence": 13,
-      "batch_id": "hashtag_0019",
-      "priority": 1,
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "filmtok",
-      "expected_output": "recent public videos and author profiles for hashtag",
-      "import_target": "data/raw/imports/hashtag-export.jsonl"
-    },
-    {
-      "sequence": 14,
-      "batch_id": "hashtag_0020",
-      "priority": 1,
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "vfxartist",
-      "expected_output": "recent public videos and author profiles for hashtag",
-      "import_target": "data/raw/imports/hashtag-export.jsonl"
-    },
-    {
-      "sequence": 15,
-      "batch_id": "hashtag_0021",
-      "priority": 1,
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "animation",
-      "expected_output": "recent public videos and author profiles for hashtag",
-      "import_target": "data/raw/imports/hashtag-export.jsonl"
-    },
-    {
-      "sequence": 16,
-      "batch_id": "hashtag_0022",
-      "priority": 1,
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "behindthescenes",
-      "expected_output": "recent public videos and author profiles for hashtag",
-      "import_target": "data/raw/imports/hashtag-export.jsonl"
-    },
-    {
-      "sequence": 17,
-      "batch_id": "search_0001",
-      "priority": 2,
-      "acquisition_surface": "search_index",
-      "query": "site:tiktok.com/@ filmmaker",
-      "expected_output": "candidate TikTok profile URLs",
-      "import_target": "data/raw/imports/search-index-export.jsonl"
-    },
-    {
-      "sequence": 18,
-      "batch_id": "search_0002",
-      "priority": 2,
-      "acquisition_surface": "search_index",
-      "query": "site:tiktok.com/@ \"short film\"",
-      "expected_output": "candidate TikTok profile URLs",
-      "import_target": "data/raw/imports/search-index-export.jsonl"
-    },
-    {
-      "sequence": 19,
-      "batch_id": "search_0003",
-      "priority": 2,
-      "acquisition_surface": "search_index",
-      "query": "site:tiktok.com/@ \"sketch comedy\"",
-      "expected_output": "candidate TikTok profile URLs",
-      "import_target": "data/raw/imports/search-index-export.jsonl"
-    },
-    {
-      "sequence": 20,
-      "batch_id": "search_0004",
-      "priority": 2,
-      "acquisition_surface": "search_index",
-      "query": "site:tiktok.com/@ comedian",
-      "expected_output": "candidate TikTok profile URLs",
-      "import_target": "data/raw/imports/search-index-export.jsonl"
-    },
-    {
-      "sequence": 21,
-      "batch_id": "search_0005",
-      "priority": 2,
-      "acquisition_surface": "search_index",
-      "query": "site:tiktok.com/@ cinematographer",
-      "expected_output": "candidate TikTok profile URLs",
-      "import_target": "data/raw/imports/search-index-export.jsonl"
-    },
-    {
-      "sequence": 22,
-      "batch_id": "search_0006",
-      "priority": 2,
-      "acquisition_surface": "search_index",
-      "query": "site:tiktok.com/@ \"video editor\"",
-      "expected_output": "candidate TikTok profile URLs",
-      "import_target": "data/raw/imports/search-index-export.jsonl"
-    },
-    {
-      "sequence": 23,
-      "batch_id": "search_0007",
-      "priority": 2,
-      "acquisition_surface": "search_index",
-      "query": "site:tiktok.com/@ \"vfx artist\"",
-      "expected_output": "candidate TikTok profile URLs",
-      "import_target": "data/raw/imports/search-index-export.jsonl"
-    },
-    {
-      "sequence": 24,
-      "batch_id": "search_0008",
-      "priority": 2,
-      "acquisition_surface": "search_index",
-      "query": "site:tiktok.com/@ actor \"sketch\"",
-      "expected_output": "candidate TikTok profile URLs",
-      "import_target": "data/raw/imports/search-index-export.jsonl"
-    },
-    {
-      "sequence": 25,
-      "batch_id": "search_0009",
-      "priority": 2,
-      "acquisition_surface": "search_index",
-      "query": "site:tiktok.com/@ \"behind the scenes\" film",
-      "expected_output": "candidate TikTok profile URLs",
-      "import_target": "data/raw/imports/search-index-export.jsonl"
     }
   ]
 }
