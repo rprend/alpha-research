@@ -32,15 +32,17 @@
     "schedule_rows_with_reading_links": 15,
     "schedule_rows_with_critique_signals": 46,
     "search_candidates": 366,
-    "promoted_search_candidates": 10,
+    "promoted_search_candidates": 0,
     "imported_search_candidates": 0,
     "live_search_candidates": 18,
     "live_search_provider_unconfigured": 18,
     "coverage_search_backlog_candidates": 160,
     "live_coverage_search_candidates": 6,
     "live_coverage_search_provider_unconfigured": 6,
-    "search_promotions": 0,
+    "search_promotions": 10,
     "successful_search_promotions": 0,
+    "failed_search_promotions": 0,
+    "rejected_search_promotions": 10,
     "common_crawl_candidates": 168,
     "common_crawl_fetch_candidates": 35,
     "ingested_common_crawl_candidates": 8,
@@ -172,7 +174,7 @@
     {
       "id": "search_candidates_have_provenance",
       "status": "pass",
-      "detail": "366 search candidates, 10 promoted, 0 imported, 18 live API rows (18 provider-unconfigured); 0 candidate reference errors."
+      "detail": "366 search candidates, 0 promoted, 0 imported, 18 live API rows (18 provider-unconfigured); 0 candidate reference errors."
     },
     {
       "id": "common_crawl_candidates_have_provenance",
@@ -252,7 +254,7 @@
     {
       "id": "search_promotions_reference_candidates_and_sources",
       "status": "pass",
-      "detail": "0 search promotions, 0 successful public fetches; 0 reference errors."
+      "detail": "10 search promotion decisions, 0 successful public fetches, 0 failed fetches, 10 rejected before fetch; 0 reference errors."
     },
     {
       "id": "faculty_portfolio_examples_reference_valid_sources",

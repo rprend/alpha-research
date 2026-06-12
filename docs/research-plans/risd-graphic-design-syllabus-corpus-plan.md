@@ -208,6 +208,8 @@ Acceptance output:
 
 ### Step 4: Promote Search And Faculty Discovery Results Into Sources
 
+Status: implemented for bounded promotion scoring, public fetch attempts, rejected-before-fetch audit rows, candidate status updates, validation reporting, and regenerated corpus artifacts when promotions succeed. Current generated corpus has no URL-bearing live/imported search results, so the promotion artifact remains empty until a search API key or imported search export supplies URLs.
+
 Goal: close the loop from backlog rows to fetched, classified, parseable sources.
 
 Implementation requirements:

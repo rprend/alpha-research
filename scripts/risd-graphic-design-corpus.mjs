@@ -949,19 +949,25 @@ function sourceSeedFromSearchCandidate(candidate) {
 }
 
 function isPromotableSearchCandidate(candidate, existingSourceUrls = new Set(), promotedCandidateIds = new Set()) {
-  if (!candidate.url) return false
-  if (candidate.promoted_source_id || promotedCandidateIds.has(candidate.candidate_id)) return false
-  if (!['candidate_imported', 'candidate_from_search_api'].includes(candidate.status)) return false
+  return evaluateSearchCandidatePromotion(candidate, existingSourceUrls, promotedCandidateIds).eligible
+}
+
+function evaluateSearchCandidatePromotion(candidate, existingSourceUrls = new Set(), promotedCandidateIds = new Set()) {
+  if (!candidate.url) return { eligible: false, rejection_reason: 'missing_url' }
+  if (candidate.promoted_source_id) return { eligible: false, rejection_reason: 'already_represented_by_corpus_source' }
+  if (promotedCandidateIds.has(candidate.candidate_id)) return { eligible: false, rejection_reason: 'already_reviewed_in_search_promotions' }
   let url
   try {
     url = canonicalUrl(candidate.url)
   } catch {
-    return false
+    return { eligible: false, rejection_reason: 'invalid_url' }
   }
-  if (existingSourceUrls.has(url)) return false
+  if (existingSourceUrls.has(url)) return { eligible: false, rejection_reason: 'duplicate_existing_source_url' }
+  if (candidate.status === 'promotion_rejected') return { eligible: false, rejection_reason: candidate.promotion_error ?? 'candidate_previously_rejected_before_fetch' }
+  if (!['candidate_imported', 'candidate_from_search_api'].includes(candidate.status)) return { eligible: false, rejection_reason: `unsupported_status:${candidate.status ?? 'unknown'}` }
   const lower = url.toLowerCase()
-  if (/login|canvas|blackboard|moodle|instructure|discord|slack|wp-admin|wp-login|signin|sign-in|auth|oauth/.test(lower)) return false
-  return true
+  if (/login|canvas|blackboard|moodle|instructure|discord|slack|wp-admin|wp-login|signin|sign-in|auth|oauth/.test(lower)) return { eligible: false, rejection_reason: 'private_login_admin_or_auth_url' }
+  return { eligible: true, rejection_reason: null }
 }
 
 function scoreSearchCandidateForPromotion(candidate) {
@@ -976,6 +982,34 @@ function scoreSearchCandidateForPromotion(candidate) {
   if (candidate.source === 'live_search_api') score += 1
   if (/login|admin|feed|tag|author|wp-json/.test(combined)) score -= 6
   return score
+}
+
+function rejectedSearchPromotionRow(candidate, promotionScore, rejectionReason) {
+  return {
+    promotion_id: `search_promotion_${candidate.candidate_id}`,
+    candidate_id: candidate.candidate_id,
+    promoted_at: retrievedAt,
+    promoted_source_id: null,
+    url: candidate.url ?? null,
+    query: candidate.query ?? null,
+    query_id: candidate.query_id ?? null,
+    query_source: candidate.query_source ?? null,
+    course_code: candidate.course_code ?? null,
+    course_title: candidate.course_title ?? null,
+    missing_requirement: candidate.missing_requirement ?? null,
+    promotion_score: promotionScore,
+    source_type: null,
+    authority: null,
+    confidence: null,
+    fetch_status: 'not_fetched',
+    extraction_status: 'rejected_before_fetch',
+    content_type: null,
+    checksum: null,
+    title: candidate.title ?? null,
+    text_length: 0,
+    notes: 'Search candidate rejected before public fetch; retained for promotion audit.',
+    error: rejectionReason,
+  }
 }
 
 function sourceSeedFromCommonCrawlCandidate(candidate) {
@@ -3862,10 +3896,13 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
     !promotion.promotion_id
       || !promotion.candidate_id
       || !searchCandidateIds.has(promotion.candidate_id)
-      || !promotion.promoted_source_id
+      || promotion.extraction_status !== 'rejected_before_fetch' && !promotion.promoted_source_id
+      || promotion.extraction_status === 'rejected_before_fetch' && !promotion.error
       || promotion.extraction_status === 'ok' && !sourceIds.has(promotion.promoted_source_id)
   )
   const successfulSearchPromotions = effectiveSearchPromotions.filter((promotion) => promotion.extraction_status === 'ok').length
+  const rejectedSearchPromotions = effectiveSearchPromotions.filter((promotion) => promotion.extraction_status === 'rejected_before_fetch').length
+  const failedSearchPromotions = effectiveSearchPromotions.filter((promotion) => promotion.extraction_status && !['ok', 'rejected_before_fetch'].includes(promotion.extraction_status)).length
   const commonCrawlCandidateErrors = commonCrawlCandidates.filter((candidate) => !candidate.candidate_id || !candidate.query_id || !candidate.index_id || !candidate.candidate_status)
   const commonCrawlFetchCandidateCount = commonCrawlCandidates.filter((candidate) => candidate.candidate_status === 'candidate_for_public_fetch').length
   const ingestedCommonCrawlCandidateCount = commonCrawlCandidates.filter((candidate) => candidate.candidate_status === 'ingested_into_corpus').length
@@ -4113,7 +4150,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
     {
       id: 'search_promotions_reference_candidates_and_sources',
       status: searchPromotionErrors.length === 0 ? 'pass' : 'fail',
-      detail: `${effectiveSearchPromotions.length} search promotions, ${successfulSearchPromotions} successful public fetches; ${searchPromotionErrors.length} reference errors.`,
+      detail: `${effectiveSearchPromotions.length} search promotion decisions, ${successfulSearchPromotions} successful public fetches, ${failedSearchPromotions} failed fetches, ${rejectedSearchPromotions} rejected before fetch; ${searchPromotionErrors.length} reference errors.`,
     },
     {
       id: 'faculty_portfolio_examples_reference_valid_sources',
@@ -4236,6 +4273,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       live_coverage_search_provider_unconfigured: liveCoverageProviderUnconfiguredCount,
       search_promotions: effectiveSearchPromotions.length,
       successful_search_promotions: successfulSearchPromotions,
+      failed_search_promotions: failedSearchPromotions,
+      rejected_search_promotions: rejectedSearchPromotions,
       common_crawl_candidates: commonCrawlCandidates.length,
       common_crawl_fetch_candidates: commonCrawlFetchCandidateCount,
       ingested_common_crawl_candidates: ingestedCommonCrawlCandidateCount,
@@ -4650,6 +4689,8 @@ Overall status: ${validation.status}
 - Live coverage provider-unconfigured rows: ${validation.counts.live_coverage_search_provider_unconfigured}
 - Search promotions: ${validation.counts.search_promotions}
 - Successful search promotions: ${validation.counts.successful_search_promotions}
+- Failed search promotions: ${validation.counts.failed_search_promotions}
+- Rejected search promotions: ${validation.counts.rejected_search_promotions}
 - Common Crawl candidates: ${validation.counts.common_crawl_candidates}
 - Common Crawl fetch candidates: ${validation.counts.common_crawl_fetch_candidates}
 - Ingested Common Crawl candidates: ${validation.counts.ingested_common_crawl_candidates}
@@ -5670,13 +5711,23 @@ async function promoteSearchCandidatesOnlyMode() {
   const existingSearchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
   const existingSearchPromotions = loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const promotedCandidateIds = new Set(existingSearchPromotions.map((promotion) => promotion.candidate_id))
-  const selectedCandidates = existingSearchCandidates
-    .filter((candidate) => isPromotableSearchCandidate(candidate, existingSourceUrls, promotedCandidateIds))
-    .map((candidate) => ({
+  const urlBearingCandidates = existingSearchCandidates.filter((candidate) => candidate.url && !promotedCandidateIds.has(candidate.candidate_id))
+  const reviewedCandidates = urlBearingCandidates.map((candidate) => {
+    const promotionScore = scoreSearchCandidateForPromotion(candidate)
+    const decision = evaluateSearchCandidatePromotion(candidate, existingSourceUrls, promotedCandidateIds)
+    const rejectionReason = decision.eligible && promotionScore < 4 ? 'promotion_score_below_threshold' : decision.rejection_reason
+    return {
       ...candidate,
-      promotion_score: scoreSearchCandidateForPromotion(candidate),
-    }))
-    .filter((candidate) => candidate.promotion_score >= 4)
+      promotion_score: promotionScore,
+      promotion_eligible: decision.eligible && promotionScore >= 4,
+      promotion_rejection_reason: rejectionReason,
+    }
+  })
+  const rejectedPromotions = reviewedCandidates
+    .filter((candidate) => !candidate.promotion_eligible)
+    .map((candidate) => rejectedSearchPromotionRow(candidate, candidate.promotion_score, candidate.promotion_rejection_reason))
+  const selectedCandidates = reviewedCandidates
+    .filter((candidate) => candidate.promotion_eligible)
     .sort((a, b) => b.promotion_score - a.promotion_score || Number(a.rank ?? 9999) - Number(b.rank ?? 9999) || String(a.url).localeCompare(String(b.url)))
     .slice(0, searchPromoteLimit)
 
@@ -5713,14 +5764,18 @@ async function promoteSearchCandidatesOnlyMode() {
     notes: inspected.source.notes,
     error: inspected.source.error ?? null,
   }))
-  const allSearchPromotions = mergeRowsByKey(existingSearchPromotions, newPromotions, (promotion) => promotion.promotion_id)
+  const allSearchPromotions = mergeRowsByKey(existingSearchPromotions, [...rejectedPromotions, ...newPromotions], (promotion) => promotion.promotion_id)
   const promotionByCandidateId = new Map(allSearchPromotions.map((promotion) => [promotion.candidate_id, promotion]))
   const updatedSearchCandidates = existingSearchCandidates.map((candidate) => {
     const promotion = promotionByCandidateId.get(candidate.candidate_id)
     if (!promotion) return candidate
     return {
       ...candidate,
-      status: promotion.extraction_status === 'ok' ? 'promoted_after_public_fetch' : 'promotion_fetch_failed',
+      status: promotion.extraction_status === 'ok'
+        ? 'promoted_after_public_fetch'
+        : promotion.extraction_status === 'rejected_before_fetch'
+          ? 'promotion_rejected'
+          : 'promotion_fetch_failed',
       promoted_source_id: promotion.extraction_status === 'ok' ? promotion.promoted_source_id : null,
       promotion_fetch_status: promotion.fetch_status,
       promotion_extraction_status: promotion.extraction_status,
