@@ -12,12 +12,13 @@ Overall status: pass
 - RISD displayed course count: 105
 - Syllabi/course artifacts: 82
 - Structured syllabus records: 82
-- Assignments: 502
-- Structured assignment snippets: 502
-- Studio-phase assignment snippets: 502
-- High-confidence assignments: 65
-- Medium-confidence assignments: 109
-- Low-confidence assignment fragments: 328
+- Assignments: 585
+- Structured assignment snippets: 585
+- Studio-phase assignment snippets: 585
+- High-confidence assignments: 121
+- Medium-confidence assignments: 130
+- Low-confidence assignment fragments: 334
+- Long assignment brief blocks: 54
 - Readings: 135
 - Normalized reading snippets: 56
 - Canonical reading works: 30
@@ -46,9 +47,9 @@ Overall status: pass
 - Structured student work rows: 41
 - Faculty portfolio examples: 60
 - Structured faculty portfolio examples: 60
-- Source clusters: 10
-- Exact duplicate clusters: 0
-- Near-duplicate source clusters: 0
+- Source clusters: 13
+- Exact duplicate clusters: 2
+- Near-duplicate source clusters: 1
 - Related source-family clusters: 10
 - Course packets with clustered evidence: 117
 - Source versions: 28
@@ -58,7 +59,7 @@ Overall status: pass
 - Review queue rows: 11
 - Review decision rows: 11
 - Resolved generated review decisions: 11
-- Field conflicts: 6
+- Field conflicts: 7
 
 ## Checks
 
@@ -67,9 +68,10 @@ Overall status: pass
 - PASS syllabi_have_course_identity: 0 syllabus rows lack both course code and title.
 - PASS syllabi_have_structured_top_level_fields: 82 syllabus rows include top-level schema fields for schedule, readings, policies, tools, materials, evidence, or raw excerpts.
 - PASS assignments_reference_valid_syllabi_and_sources: 0 assignment reference errors.
-- PASS assignments_have_structured_signals: 502 assignment snippets include inferred deliverables, constraints, tools, critique, revision, or tacit goals.
-- PASS assignments_have_studio_phase_signals: 502 assignment snippets include assignment type, studio phase, or output-format signals.
-- PASS assignments_have_confidence_boundaries: 65 high, 109 medium, and 328 low confidence assignment rows; 0 boundary metadata errors.
+- PASS assignments_have_structured_signals: 585 assignment snippets include inferred deliverables, constraints, tools, critique, revision, or tacit goals.
+- PASS assignments_have_studio_phase_signals: 585 assignment snippets include assignment type, studio phase, or output-format signals.
+- PASS assignments_have_confidence_boundaries: 121 high, 130 medium, and 334 low confidence assignment rows; 0 boundary metadata errors.
+- PASS assignments_include_long_brief_blocks: 54 assignment records contain long prompt/brief blocks rather than only sentence snippets.
 - PASS readings_reference_valid_syllabi_and_sources: 0 reading reference errors.
 - PASS readings_have_normalized_work_links: 56 reading snippets linked to 30 canonical works; 43 local catalog matches, 12 external catalog matches, 45 unresolved, 34 non-citation fragments.
 - PASS readings_external_links_have_metadata: 30 Open Library lookup attempts recorded; 12 reading snippets have external catalog matches; 0 external-link metadata errors.
@@ -82,8 +84,8 @@ Overall status: pass
 - PASS student_work_has_structured_public_examples: 41 student work rows include URL plus medium/project/evidence metadata.
 - PASS faculty_portfolio_examples_reference_valid_sources: 0 faculty portfolio example reference errors across 60 examples.
 - PASS faculty_portfolio_examples_have_structured_metadata: 60 faculty portfolio examples include faculty plus title/medium/statement/visual metadata.
-- PASS source_clusters_reference_valid_sources: 0 source cluster reference errors across 10 clusters.
-- PASS source_clusters_include_dedup_signals: 0 exact duplicate clusters, 0 near-duplicate text clusters, and 10 related source-family clusters.
+- PASS source_clusters_reference_valid_sources: 0 source cluster reference errors across 13 clusters.
+- PASS source_clusters_include_dedup_signals: 2 exact duplicate clusters, 1 near-duplicate text clusters, and 10 related source-family clusters.
 - PASS source_clusters_are_used_for_packet_grouping: 117 course packets include source-cluster grouped evidence families.
 - PASS source_versions_reference_valid_sources: 0 source version reference errors across 28 version rows.
 - PASS source_versions_record_wayback_comparisons: 1 fetched archive comparisons and 27 metadata-only version rows.

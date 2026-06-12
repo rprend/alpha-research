@@ -16,6 +16,7 @@ const ingestCommonCrawlOnly = process.argv.includes('--ingest-common-crawl-only'
 const ingestFacultyProfilesOnly = process.argv.includes('--ingest-faculty-profiles-only')
 const facultyPortfolioExamplesOnly = process.argv.includes('--faculty-portfolio-examples-only')
 const linkReadingsOnly = process.argv.includes('--link-readings-only')
+const reparseExistingSourcesOnly = process.argv.includes('--reparse-existing-sources-only')
 const searchApiOnly = process.argv.includes('--search-api-only')
 const officialCourseMaxPages = 12
 const crawlMaxDepth = 1
@@ -938,6 +939,54 @@ function sentenceSnippets(text, terms, limit = 8) {
   return out
 }
 
+function isLikelyAssignmentHeading(line) {
+  if (!line || line.length > 140) return false
+  return /^(?:#{1,4}\s*)?(?:(?:project|assignment|exercise|brief|prompt|final|deliverables?|critique|presentation|workshop)\s*(?:[#:]?\s*\d+|[A-Z])?[:.\- ]|(?:week|class|session)\s+\d+\b.*\b(?:project|assignment|exercise|critique|due|present))/i.test(line)
+}
+
+function isLikelySectionHeading(line) {
+  if (!line || line.length > 140) return false
+  return /^(?:#{1,4}\s*)?(?:course description|overview|objectives|learning outcomes|grading|assessment|attendance|policies|schedule|calendar|readings?|texts?|resources?|materials?|tools|requirements?|assignments?|projects?|exercises?|final|critique|deliverables?)\b[:.\- ]?/i.test(line)
+}
+
+function cleanAssignmentBlock(value) {
+  return value
+    .replace(/\s+/g, ' ')
+    .replace(/\s+([,.;:])/g, '$1')
+    .trim()
+    .slice(0, 1200)
+}
+
+function extractAssignmentBlocks(text, limit = 40) {
+  const normalizedLines = text
+    .replace(/\r/g, '\n')
+    .split('\n')
+    .map((line) => line.replace(/\s+/g, ' ').trim())
+    .filter(Boolean)
+  const blocks = []
+  for (let index = 0; index < normalizedLines.length; index += 1) {
+    const line = normalizedLines[index]
+    if (!isLikelyAssignmentHeading(line)) continue
+    const blockLines = [line]
+    for (let next = index + 1; next < normalizedLines.length && blockLines.length < 12; next += 1) {
+      const nextLine = normalizedLines[next]
+      if (isLikelyAssignmentHeading(nextLine)) break
+      if (isLikelySectionHeading(nextLine) && blockLines.length > 2) break
+      blockLines.push(nextLine)
+      if (/\b(?:due|deliverables?|submit|present|critique|final|requirements?)\b/i.test(nextLine) && blockLines.length >= 4) {
+        const following = normalizedLines[next + 1]
+        if (!following || isLikelySectionHeading(following) || isLikelyAssignmentHeading(following)) break
+      }
+    }
+    const block = cleanAssignmentBlock(blockLines.join(' '))
+    if (block.split(/\s+/).length < 8) continue
+    if (!/\b(?:project|assignment|exercise|brief|prompt|deliverables?|due|submit|present|critique|final|make|design|build|write|draw|create|print|prototype)\b/i.test(block)) continue
+    blocks.push(block)
+    if (blocks.length >= limit) break
+  }
+  return uniq(blocks)
+}
+
 function uniq(values) {
   return [...new Set(values.filter(Boolean))]
 }
@@ -1097,9 +1146,52 @@ function extractLikelyReadings(text) {
   return uniq(readings).slice(0, 40)
 }
 
-function extractAssignments(text) {
+function cleanSourceTitle(title) {
+  return (title ?? '')
+    .replace(/\s+[—|-]\s+(?:WebType|RISD.*|Design Studio.*)$/i, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function extractAssignmentPageBrief(text, source = {}) {
+  if (source.source_type !== 'assignment_page') return []
+  const title = cleanSourceTitle(source.title) || cleanSourceTitle(source.link_label)
+  const textLines = lines(text)
+    .filter((line) => line.length > 16)
+    .filter((line) => !/^(?:home|menu|previous|next|archive|copyright|rss|search|navigation)$/i.test(line))
+    .filter((line) => !title || normalizeForMatch(line) !== normalizeForMatch(title))
+  const introLines = textLines.filter((line) => /\b(?:in this project|for this project|in this assignment|for this assignment|in this exercise|for this exercise|you will|your assignment|your project|deliverables?|requirements?|design questions?|please post|please submit|due\b)\b/i.test(line)).slice(0, 8)
+  if (title && introLines.length) {
+    const introBrief = cleanAssignmentBlock(`${title}: ${introLines.join(' ')}`)
+    if (introBrief.split(/\s+/).length >= 12) return [introBrief]
+  }
+  const scored = textLines
+    .map((line, index) => {
+      let score = 0
+      if (/\b(?:project|assignment|exercise|brief|prompt|deliverables?|due|submit|present|critique|final)\b/i.test(line)) score += 5
+      if (/\b(?:make|design|build|create|draw|write|print|prototype|document|revise|code)\b/i.test(line)) score += 3
+      if (/\b(?:html|css|javascript|type|typography|poster|book|website|specimen|identity|animation)\b/i.test(line)) score += 2
+      score += Math.max(0, 4 - Math.floor(index / 4))
+      return { line, index, score }
+    })
+    .filter((row) => row.score >= 4)
+    .slice(0, 6)
+  if (!title && !scored.length) return []
+  const startIndex = scored[0]?.index ?? 0
+  const bodyLines = textLines.slice(startIndex, startIndex + 10)
+  const body = bodyLines.join(' ')
+  const brief = cleanAssignmentBlock([title, body].filter(Boolean).join(': '))
+  if (brief.split(/\s+/).length < 12) return []
+  if (!/\b(?:project|assignment|exercise|brief|prompt|deliverables?|due|submit|present|critique|final|make|design|build|create|code|prototype)\b/i.test(brief)) return []
+  return [brief]
+}
+
+function extractAssignments(text, source = {}) {
   const assignmentTerms = ['assignment', 'project', 'exercise', 'critique', 'deliverable', 'final', 'portfolio', 'presentation']
-  return sentenceSnippets(text, assignmentTerms, 30)
+  const pageBriefs = extractAssignmentPageBrief(text, source)
+  const blocks = extractAssignmentBlocks(text, 35)
+  const snippets = sentenceSnippets(text, assignmentTerms, 35)
+  return uniq([...pageBriefs, ...blocks, ...snippets]).slice(0, 55)
 }
 
 function inferSkills(text) {
@@ -1448,7 +1540,7 @@ function buildSyllabi(inspected) {
         meeting_pattern: sentenceSnippets(text, ['Mon', 'Tues', 'Wed', 'Thurs', 'Friday', 'Office Hours'], 5),
         platforms: tools,
         readings,
-        assignments: extractAssignments(text),
+        assignments: extractAssignments(text, source),
         weekly_schedule_evidence: sentenceSnippets(text, ['week', 'class', 'session', 'schedule'], 20),
         grading_evidence: sentenceSnippets(text, ['grade', 'grading', 'attendance', 'participation', 'evaluation'], 12),
       }
@@ -1920,6 +2012,40 @@ function buildReadings(syllabi) {
     })
   }
   return rows
+}
+
+const readingExternalLinkFields = [
+  'external_work_id',
+  'external_work_url',
+  'external_link_provider',
+  'external_link_status',
+  'external_link_score',
+  'external_title',
+  'external_author',
+  'external_first_publish_year',
+  'external_publisher',
+  'external_isbn',
+  'external_edition_count',
+]
+
+function mergeReadingExternalLinks(readings, existingReadings = []) {
+  const existingById = new Map(existingReadings.map((reading) => [reading.reading_id, reading]))
+  return readings.map((reading) => {
+    const existing = existingById.get(reading.reading_id)
+    if (!existing?.external_link_status) return reading
+    const merged = { ...reading }
+    for (const field of readingExternalLinkFields) {
+      if (existing[field] !== undefined) merged[field] = existing[field]
+    }
+    if (existing.external_link_status === 'matched') {
+      merged.linking_status = reading.linking_status === 'unresolved' ? 'external_catalog_match' : reading.linking_status
+      merged.canonical_work_id = reading.canonical_work_id ?? existing.canonical_work_id ?? null
+      merged.title = reading.title ?? existing.title ?? existing.external_title ?? null
+      merged.author = reading.author ?? existing.author ?? existing.external_author ?? null
+      merged.publication_year = reading.publication_year ?? existing.publication_year ?? (existing.external_first_publish_year ? String(existing.external_first_publish_year) : null)
+    }
+    return merged
+  })
 }
 
 function buildReadingFrequency(readings) {
@@ -2847,6 +2973,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const highConfidenceAssignmentCount = assignments.filter((assignment) => assignment.assignment_confidence === 'high').length
   const mediumConfidenceAssignmentCount = assignments.filter((assignment) => assignment.assignment_confidence === 'medium').length
   const lowConfidenceAssignmentCount = assignments.filter((assignment) => assignment.assignment_confidence === 'low').length
+  const longAssignmentBriefCount = assignments.filter((assignment) => (assignment.prompt_excerpt?.split(/\s+/).length ?? 0) >= 45).length
   const assignmentBoundaryErrors = assignments.filter((assignment) => !assignment.assignment_confidence || !assignment.boundary_status)
   const readingSourceErrors = readings.filter((reading) => !syllabusIds.has(reading.syllabus_id) || reading.source_ids.some((id) => !sourceIds.has(id)))
   const normalizedReadingCount = readings.filter((reading) => reading.canonical_work_id).length
@@ -2931,6 +3058,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       id: 'assignments_have_confidence_boundaries',
       status: assignmentBoundaryErrors.length === 0 && (highConfidenceAssignmentCount + mediumConfidenceAssignmentCount) > 0 ? 'pass' : assignmentBoundaryErrors.length === 0 ? 'warn' : 'fail',
       detail: `${highConfidenceAssignmentCount} high, ${mediumConfidenceAssignmentCount} medium, and ${lowConfidenceAssignmentCount} low confidence assignment rows; ${assignmentBoundaryErrors.length} boundary metadata errors.`,
+    },
+    {
+      id: 'assignments_include_long_brief_blocks',
+      status: longAssignmentBriefCount > 0 ? 'pass' : 'warn',
+      detail: `${longAssignmentBriefCount} assignment records contain long prompt/brief blocks rather than only sentence snippets.`,
     },
     {
       id: 'readings_reference_valid_syllabi_and_sources',
@@ -3056,6 +3188,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       high_confidence_assignments: highConfidenceAssignmentCount,
       medium_confidence_assignments: mediumConfidenceAssignmentCount,
       low_confidence_assignments: lowConfidenceAssignmentCount,
+      long_assignment_briefs: longAssignmentBriefCount,
       readings: readings.length,
       normalized_readings: normalizedReadingCount,
       local_catalog_readings: catalogReadingCount,
@@ -3433,6 +3566,7 @@ Overall status: ${validation.status}
 - High-confidence assignments: ${validation.counts.high_confidence_assignments}
 - Medium-confidence assignments: ${validation.counts.medium_confidence_assignments}
 - Low-confidence assignment fragments: ${validation.counts.low_confidence_assignments}
+- Long assignment brief blocks: ${validation.counts.long_assignment_briefs}
 - Readings: ${validation.counts.readings}
 - Normalized reading snippets: ${validation.counts.normalized_readings}
 - Canonical reading works: ${validation.counts.canonical_reading_works}
@@ -3935,7 +4069,7 @@ function renderDerivedArtifactsOnly() {
   const courses = loadJsonl(join(outDir, 'courses.jsonl'))
   const syllabi = loadJsonl(join(outDir, 'syllabi.jsonl'))
   const assignments = buildAssignments(syllabi)
-  const readings = buildReadings(syllabi)
+  const readings = mergeReadingExternalLinks(buildReadings(syllabi), loadJsonl(join(outDir, 'readings.jsonl')))
   const readingFrequency = buildReadingFrequency(readings)
   const searchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
   const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
@@ -4018,6 +4152,63 @@ async function renderReadingLinksOnly() {
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork }))
   console.log(`RISD reading links written to ${outDir}`)
   console.log(`attempted=${attempted} matched=${matched} external_catalog_readings=${validationWithReview.counts.external_catalog_readings} unresolved=${validationWithReview.counts.unresolved_readings} validation=${validationWithReview.status}`)
+}
+
+async function reparseExistingSourcesOnlyMode() {
+  ensureDir(outDir)
+  const existingSources = loadJsonl(join(outDir, 'sources.jsonl'))
+  const existingReadings = loadJsonl(join(outDir, 'readings.jsonl'))
+  const inspected = []
+  for (const [index, source] of existingSources.entries()) {
+    console.log(`reparse source ${index + 1}/${existingSources.length}: ${source.source_id}`)
+    inspected.push(await inspectSeed(source))
+  }
+  const sources = inspected.map(({ source }) => source)
+  const courseInventory = buildCourseInventory(inspected)
+  const courses = buildCourses(inspected)
+  const syllabi = buildSyllabi(inspected)
+  const assignments = buildAssignments(syllabi)
+  const readings = mergeReadingExternalLinks(buildReadings(syllabi), existingReadings)
+  const readingFrequency = buildReadingFrequency(readings)
+  const { faculty, facultyCourseEdges } = buildFacultyGraph({ sources, courseInventory, syllabi })
+  const studentWork = buildStudentWork(inspected)
+  const facultyPortfolioExamples = loadJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'))
+  const sourceClusters = buildSourceClusters(inspected, syllabi, readings)
+  const wayback = loadJsonl(join(outDir, 'wayback_captures.jsonl'))
+  const sourceVersions = buildSourceVersions(inspected, wayback)
+  const searchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
+  const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
+  const commonCrawlPromotions = loadJsonl(join(outDir, 'common_crawl_promotions.jsonl'))
+  const facultyProfileCandidates = loadJsonl(join(outDir, 'faculty_profile_candidates.jsonl'))
+  const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
+  const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
+  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  writeJsonl(join(outDir, 'sources.jsonl'), sources)
+  writeJsonl(join(outDir, 'course_inventory.jsonl'), courseInventory.offerings)
+  writeJsonl(join(outDir, 'courses.jsonl'), courses)
+  writeJsonl(join(outDir, 'syllabi.jsonl'), syllabi)
+  writeJsonl(join(outDir, 'assignments.jsonl'), assignments)
+  writeJsonl(join(outDir, 'readings.jsonl'), readings)
+  writeJsonl(join(outDir, 'reading_frequency.jsonl'), readingFrequency)
+  writeJsonl(join(outDir, 'faculty.jsonl'), faculty)
+  writeJsonl(join(outDir, 'faculty_course_edges.jsonl'), facultyCourseEdges)
+  writeJsonl(join(outDir, 'student_work.jsonl'), studentWork)
+  writeJsonl(join(outDir, 'source_clusters.jsonl'), sourceClusters)
+  writeJsonl(join(outDir, 'source_versions.jsonl'), sourceVersions)
+  writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
+  writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
+  writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
+  writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
+  writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
+  writeJson(join(outDir, 'validation.json'), validationWithReview)
+  writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
+  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters }))
+  writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
+  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
+  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork }))
+  console.log(`RISD existing sources reparsed into ${outDir}`)
+  console.log(`sources=${sources.length} syllabi=${syllabi.length} assignments=${assignments.length} long_assignment_briefs=${validationWithReview.counts.long_assignment_briefs} external_catalog_readings=${validationWithReview.counts.external_catalog_readings} validation=${validationWithReview.status}`)
 }
 
 async function renderCommonCrawlOnly() {
@@ -4378,6 +4569,10 @@ async function main() {
     await renderReadingLinksOnly()
     return
   }
+  if (reparseExistingSourcesOnly) {
+    await reparseExistingSourcesOnlyMode()
+    return
+  }
   if (renderDerivedOnly) {
     renderDerivedArtifactsOnly()
     return
@@ -4441,7 +4636,7 @@ async function main() {
   const courses = buildCourses(inspected)
   const syllabi = buildSyllabi(inspected)
   const assignments = buildAssignments(syllabi)
-  const readings = buildReadings(syllabi)
+  const readings = mergeReadingExternalLinks(buildReadings(syllabi), loadJsonl(join(outDir, 'readings.jsonl')))
   const readingFrequency = buildReadingFrequency(readings)
   const { faculty, facultyCourseEdges } = buildFacultyGraph({ sources, courseInventory, syllabi })
   const studentWork = buildStudentWork(inspected)

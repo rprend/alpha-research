@@ -96,7 +96,7 @@ Known gaps:
 
 - Discovery is still seed-based.
 - Citation extraction is heuristic with local catalog matching and non-citation fragment classification. A bounded Open Library linking mode is now wired for plausible book citations and records external match metadata directly on reading rows.
-- Assignment extraction is snippet-based with structured signals, confidence, and boundary status; it still needs richer full-brief parsing from long assignment pages.
+- Assignment extraction now combines sentence snippets with bounded long-brief blocks from project, assignment, exercise, deliverable, due, presentation, and critique headings. It still needs richer field-specific parsing from complete assignment pages.
 - Search candidate import is supported through local JSON/JSONL exports, and a live search API path is wired for Brave or Bing when an API key is present in the environment.
 - A bounded Common Crawl candidate, promotion, and ingestion pass exists, but it is still capped and should be expanded carefully.
 - Faculty/course edges are derived from course evidence, and bounded RISD faculty-profile candidate discovery/ingestion is implemented. Faculty-portfolio expansion now follows external links from official RISD profile pages, but broader public web search for faculty teaching/course artifacts is still not wired yet.
@@ -716,6 +716,8 @@ Add RISD/tacit-specific spans:
 - `student_work_links`
 - `studio_norms`
 - `implicit_quality_standard`
+
+Assignment extraction should prefer bounded brief blocks over isolated sentences when a public course or assignment page contains headings such as `Project`, `Assignment`, `Exercise`, `Deliverables`, `Due`, `Presentation`, or `Critique`. Sentence snippets remain a fallback for broad recall, but validation should report long brief blocks separately so the corpus can distinguish complete prompts from weak fragments.
 
 ### Layer 3: Course Reconstruction
 
