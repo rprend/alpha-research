@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-12T21:25:02.134Z
+Generated: 2026-06-12T21:27:41.711Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -20,6 +20,8 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Review sample: 4
 - Review packet rows: 4
 - Review decision template rows: 4
+- Review packet batches: 1
+- Review packet batch rows: 4
 - Review plan categories: 11
 - Review decisions: 4
 - Review blank decisions: 0
@@ -88,6 +90,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - review_sample: `docs/experiments/tiktok-creative-creator-graph/data/processed/review_sample.csv`
 - review_packet: `docs/experiments/tiktok-creative-creator-graph/reports/review-packet.json`
 - review_packet_latest: `docs/experiments/tiktok-creative-creator-graph/data/processed/review_packet_latest.csv`
+- review_packet_batches: `docs/experiments/tiktok-creative-creator-graph/data/processed/review_packet_batches.csv`
 - review_plan: `docs/experiments/tiktok-creative-creator-graph/reports/review-plan.json`
 - scale_wave_queue: `docs/experiments/tiktok-creative-creator-graph/data/processed/scale_waves.csv`
 - wave_ledger_queue: `docs/experiments/tiktok-creative-creator-graph/data/processed/wave_ledger.csv`

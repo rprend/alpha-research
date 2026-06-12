@@ -113,6 +113,8 @@ Build a reviewer packet with evidence fields and an importable decision template
 node docs/experiments/tiktok-creative-creator-graph/scripts/build-review-packet.mjs
 ```
 
+Use `--batch-size=250` to generate reviewer batch packet CSVs, per-batch decision templates, and `data/processed/review_packet_batches.csv`. The default batch size is 250 rows.
+
 Build review throughput plan:
 
 ```bash

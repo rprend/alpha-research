@@ -46,6 +46,7 @@ function main() {
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
   const reviewSample = readJsonl(join(processedDir, 'review_sample.jsonl'))
   const reviewPacket = readJsonl(join(processedDir, 'review_packet_latest.jsonl'))
+  const reviewPacketBatches = readJsonl(join(processedDir, 'review_packet_batches.jsonl'))
   const reviewPlanCategories = readJsonl(join(processedDir, 'review_plan_categories.jsonl'))
   const scaleWaves = readJsonl(join(processedDir, 'scale_waves.jsonl'))
   const waveLedger = readJsonl(join(processedDir, 'wave_ledger.jsonl'))
@@ -111,6 +112,8 @@ function main() {
       review_sample: counts.review_sample ?? reviewSample.length,
       review_packet_rows: counts.review_packet_rows ?? reviewPacket.length,
       review_decision_template_rows: counts.review_decision_template_rows ?? reviewPacketReport?.decision_template_rows ?? 0,
+      review_packet_batches: counts.review_packet_batches ?? reviewPacketBatches.length,
+      review_packet_batch_rows: counts.review_packet_batch_rows ?? reviewPacketBatches.reduce((sum, row) => sum + Number(row.rows ?? 0), 0),
       review_plan_categories: counts.review_plan_categories ?? reviewPlanCategories.length,
       review_decisions: currentReview,
       review_blank_decisions: counts.review_blank_decisions ?? reviewBlankDecisions.length,
@@ -191,6 +194,7 @@ function main() {
       review_sample: rel(join(processedDir, 'review_sample.csv')),
       review_packet: rel(join(reportsDir, 'review-packet.json')),
       review_packet_latest: rel(join(processedDir, 'review_packet_latest.csv')),
+      review_packet_batches: rel(join(processedDir, 'review_packet_batches.csv')),
       review_plan: rel(join(reportsDir, 'review-plan.json')),
       scale_wave_queue: rel(join(processedDir, 'scale_waves.csv')),
       wave_ledger_queue: rel(join(processedDir, 'wave_ledger.csv')),
@@ -245,6 +249,8 @@ ${handoff.objective}
 - Review sample: ${handoff.current_corpus.review_sample}
 - Review packet rows: ${handoff.current_corpus.review_packet_rows}
 - Review decision template rows: ${handoff.current_corpus.review_decision_template_rows}
+- Review packet batches: ${handoff.current_corpus.review_packet_batches}
+- Review packet batch rows: ${handoff.current_corpus.review_packet_batch_rows}
 - Review plan categories: ${handoff.current_corpus.review_plan_categories}
 - Review decisions: ${handoff.current_corpus.review_decisions}
 - Review blank decisions: ${handoff.current_corpus.review_blank_decisions}

@@ -1,11 +1,11 @@
 # Review Sample
 
-Generated: 2026-06-12T21:25:01.518Z
+Generated: 2026-06-12T21:27:41.224Z
 
 - Requested rows: 250
 - Selected rows: 4
 - Available unreviewed rows: 4
-- Latest wave id: import-2026-06-12T21-25-01-299Z
+- Latest wave id: import-2026-06-12T21-27-41-010Z
 
 ## Category Counts
 

@@ -1,6 +1,6 @@
 # Acquisition Import
 
-Generated: 2026-06-12T21:25:01.298Z
+Generated: 2026-06-12T21:27:41.010Z
 
 - Input rows: 6
 - Normalized rows: 6
@@ -25,7 +25,7 @@ Generated: 2026-06-12T21:25:01.298Z
 
 ## Wave
 
-- Wave id: import-2026-06-12T21-25-01-299Z
+- Wave id: import-2026-06-12T21-27-41-010Z
 - Source file count: 2
 - Scale waves: none
 - Executions: none

@@ -13,6 +13,7 @@ const args = new Map(process.argv.slice(2).map((arg) => {
 }))
 
 const maxRows = Number(args.get('--max-rows') ?? 250)
+const batchSize = Number(args.get('--batch-size') ?? 250)
 
 function ensureDir(path) {
   mkdirSync(path, { recursive: true })
@@ -92,6 +93,7 @@ function main() {
     const hashtags = Array.from(new Set(videos.flatMap((video) => video.hashtags ?? [])))
     return {
       packet_id: packetId,
+      review_batch_id: `review_batch_${String(Math.floor(index / Math.max(1, batchSize)) + 1).padStart(4, '0')}`,
       review_row_id: `packet_row_${String(index + 1).padStart(5, '0')}`,
       creator_id: sample.creator_id,
       handle: sample.handle,
@@ -124,25 +126,54 @@ function main() {
   })
 
   const decisionTemplate = rows.map((row) => ({
+    packet_id: row.packet_id,
+    review_batch_id: row.review_batch_id,
+    review_row_id: row.review_row_id,
     handle: row.handle,
     decision: '',
     reviewer: '',
     notes: '',
   }))
+  const batches = []
+  for (let index = 0; index < rows.length; index += Math.max(1, batchSize)) {
+    const batchRows = rows.slice(index, index + Math.max(1, batchSize))
+    const batchId = batchRows[0]?.review_batch_id ?? `review_batch_${String(batches.length + 1).padStart(4, '0')}`
+    const batchTemplate = decisionTemplate.slice(index, index + Math.max(1, batchSize))
+    const batchPacketCsv = `data/processed/review_packets/${packetId}-${batchId}.csv`
+    const batchDecisionCsv = `data/processed/review_packets/${packetId}-${batchId}-decision-template.csv`
+    writeCsv(join(reviewPacketDir, `${packetId}-${batchId}.csv`), batchRows)
+    writeCsv(join(reviewPacketDir, `${packetId}-${batchId}-decision-template.csv`), batchTemplate)
+    batches.push({
+      packet_id: packetId,
+      review_batch_id: batchId,
+      sequence: batches.length + 1,
+      rows: batchRows.length,
+      packet_csv: batchPacketCsv,
+      decision_template_csv: batchDecisionCsv,
+      primary_labels: Array.from(new Set(batchRows.map((row) => row.primary_label).filter(Boolean))).join('|'),
+      review_bands: Array.from(new Set(batchRows.map((row) => row.review_band).filter(Boolean))).join('|'),
+    })
+  }
 
   writeJsonl(join(reviewPacketDir, `${packetId}.jsonl`), rows)
   writeCsv(join(reviewPacketDir, `${packetId}.csv`), rows)
   writeCsv(join(reviewPacketDir, `${packetId}-decision-template.csv`), decisionTemplate)
+  writeJsonl(join(reviewPacketDir, `${packetId}-batches.jsonl`), batches)
   writeJsonl(join(processedDir, 'review_packet_latest.jsonl'), rows)
   writeCsv(join(processedDir, 'review_packet_latest.csv'), rows)
+  writeJsonl(join(processedDir, 'review_packet_batches.jsonl'), batches)
+  writeCsv(join(processedDir, 'review_packet_batches.csv'), batches)
 
   const summary = {
     generated_at: new Date().toISOString(),
     packet_id: packetId,
     rows: rows.length,
     decision_template_rows: decisionTemplate.length,
+    batch_size: batchSize,
+    batches: batches.length,
     packet_csv: `data/processed/review_packets/${packetId}.csv`,
     decision_template_csv: `data/processed/review_packets/${packetId}-decision-template.csv`,
+    batch_manifest_jsonl: `data/processed/review_packets/${packetId}-batches.jsonl`,
     band_counts: rows.reduce((acc, row) => {
       acc[row.review_band] = (acc[row.review_band] ?? 0) + 1
       return acc
@@ -161,8 +192,17 @@ Generated: ${summary.generated_at}
 - Packet id: ${summary.packet_id}
 - Rows: ${summary.rows}
 - Decision template rows: ${summary.decision_template_rows}
+- Batch size: ${summary.batch_size}
+- Batches: ${summary.batches}
 - Packet CSV: \`${summary.packet_csv}\`
 - Decision template CSV: \`${summary.decision_template_csv}\`
+- Batch manifest: \`${summary.batch_manifest_jsonl}\`
+
+## Batches
+
+| Seq | Batch | Rows | Labels | Decision template |
+| ---: | --- | ---: | --- | --- |
+${batches.map((batch) => `| ${batch.sequence} | ${batch.review_batch_id} | ${batch.rows} | ${batch.primary_labels || 'none'} | \`${batch.decision_template_csv}\` |`).join('\n') || '| 0 | none | 0 | none | none |'}
 
 ## Review Bands
 

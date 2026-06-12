@@ -1,10 +1,13 @@
 {
-  "generated_at": "2026-06-12T21:25:01.553Z",
+  "generated_at": "2026-06-12T21:27:41.258Z",
   "packet_id": "review_packet_20260612",
   "rows": 4,
   "decision_template_rows": 4,
+  "batch_size": 250,
+  "batches": 1,
   "packet_csv": "data/processed/review_packets/review_packet_20260612.csv",
   "decision_template_csv": "data/processed/review_packets/review_packet_20260612-decision-template.csv",
+  "batch_manifest_jsonl": "data/processed/review_packets/review_packet_20260612-batches.jsonl",
   "band_counts": {
     "quality_audit": 3,
     "borderline": 1
