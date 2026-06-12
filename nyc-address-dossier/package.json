@@ -10,7 +10,12 @@
     "status": "node --experimental-sqlite src/status.mjs",
     "materialize": "node --experimental-sqlite src/materialize.mjs",
     "dossier": "node --experimental-sqlite src/dossier.mjs",
-    "serve": "node --experimental-sqlite src/serve.mjs"
+    "serve": "node --experimental-sqlite src/serve.mjs",
+    "ask": "node --experimental-sqlite src/ask.mjs",
+    "story": "node --experimental-sqlite src/story.mjs",
+    "wayback": "node --experimental-sqlite src/wayback.mjs",
+    "chronam": "node src/chronam-pilot.mjs",
+    "parse-directory": "node --experimental-sqlite src/directory-parse.mjs"
   },
   "dependencies": {
     "@duckdb/node-api": "^1.3.4-alpha.27"

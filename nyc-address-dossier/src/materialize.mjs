@@ -105,6 +105,23 @@ async function run() {
              to_json({type: 'mdr_registration'}),
              'hpd_registrations', CAST(registrationid AS VARCHAR)
       FROM raw_hpd_registrations`,
+    dcwp_licenses: `INSERT INTO events (bbl, address_raw, date_start, kind, payload, source_id, locator)
+      SELECT norm_bbl(bbl),
+             trim(COALESCE(address_building,'') || ' ' || COALESCE(address_street_name,'')),
+             TRY_CAST(license_creation_date AS DATE), 'commerce',
+             to_json({type: 'license', name: COALESCE(dba_trade_name, business_name),
+                      category: business_category, license_type: license_type, status: license_status}),
+             'dcwp_licenses', license_nbr
+      FROM raw_dcwp_licenses WHERE bbl IS NOT NULL`,
+    restaurant_inspections: `INSERT INTO events (bbl, address_raw, date_start, kind, payload, source_id, locator)
+      SELECT norm_bbl(any_value(bbl)),
+             trim(any_value(COALESCE(building,'')) || ' ' || any_value(COALESCE(street,''))),
+             TRY_CAST(inspection_date AS DATE), 'commerce',
+             to_json({type: 'restaurant_inspection', name: any_value(dba),
+                      cuisine: any_value(cuisine_description), grade: any_value(grade), score: max(TRY_CAST(score AS INT))}),
+             'restaurant_inspections', camis || '/' || inspection_date
+      FROM raw_restaurant_inspections WHERE bbl IS NOT NULL
+      GROUP BY camis, inspection_date`,
     three11: `INSERT INTO events (bbl, address_raw, date_start, kind, payload, source_id, locator)
       SELECT bbl, incident_address, TRY_CAST(created_date AS DATE), 'event',
              to_json({type: 'complaint_311', complaint: complaint_type, descriptor: descriptor, status: status}),
@@ -157,7 +174,9 @@ async function run() {
   if (fs.existsSync(padCsv)) {
     await sql(`CREATE OR REPLACE TABLE pad_addresses AS
       SELECT trim(boro) AS boro, trim(block) AS block, trim(lot) AS lot,
-             trim(lhnd) AS lhnd, trim(hhnd) AS hhnd, trim(stname) AS stname, trim(zipcode) AS zipcode,
+             trim(lhnd) AS lhnd, trim(hhnd) AS hhnd,
+             regexp_replace(trim(stname), ' +', ' ', 'g') AS stname,  -- PAD pads street names with double spaces
+             trim(zipcode) AS zipcode,
              mk_bbl(trim(boro), trim(block), trim(lot)) AS bbl
       FROM read_csv('${padCsv.replace(/'/g, "''")}', header=true, all_varchar=true)
       WHERE trim(stname) != ''`);
@@ -203,6 +222,18 @@ async function run() {
              'oldnyc', id, 'structured', 0.6
       FROM oldnyc_bbl`);
     console.log('mapped oldnyc -> events (nearest-lot, confidence 0.6)');
+  }
+
+  // Wayback snapshots (Phase 6): curated domain->address mappings, one event per year.
+  const waybackDir = path.join(config.rawDir, 'wayback');
+  if (fs.existsSync(waybackDir) && fs.readdirSync(waybackDir).some((f) => f.endsWith('.jsonl'))) {
+    const wbGlob = path.join(waybackDir, '*.jsonl').replace(/'/g, "''");
+    await sql(`INSERT INTO events (bbl, address_raw, date_start, kind, payload, source_id, locator, extraction_method, confidence)
+      SELECT bbl, address_raw, TRY_CAST(year || '-01-01' AS DATE), 'mention',
+             to_json({type: 'web_snapshot', domain: domain, snapshot_url: snapshot_url}),
+             'wayback', domain || '/' || year, 'structured', 0.9
+      FROM read_json('${wbGlob}', format='newline_delimited', union_by_name=true)`);
+    console.log('mapped wayback -> events');
   }
 
   await sql(`CREATE INDEX IF NOT EXISTS idx_events_bbl ON events (bbl)`);

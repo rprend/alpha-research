@@ -46,9 +46,10 @@ async function main() {
     try {
       bbls = await q(`SELECT DISTINCT bbl, lhnd || '-' || hhnd || ' ' || stname
         FROM pad_addresses
-        WHERE boro = ? AND upper(trim(stname)) = ?
+        WHERE boro = ? AND upper(stname) = ?
           AND TRY_CAST(? AS BIGINT) BETWEEN TRY_CAST(lhnd AS BIGINT) AND TRY_CAST(hhnd AS BIGINT)
-        LIMIT 5`, [boro, street, house]);
+        ORDER BY (TRY_CAST(? AS BIGINT) % 2) = (TRY_CAST(lhnd AS BIGINT) % 2) DESC
+        LIMIT 5`, [boro, street, house, house]);
     } catch { /* pad not landed yet */ }
     if (bbls.length === 0) {
       try {

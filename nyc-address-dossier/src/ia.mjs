@@ -15,9 +15,12 @@ async function iaDelay() {
   lastIaRequest = Date.now();
 }
 
+// NB (verified 2026-06-12): NYPL's Manhattan directory scans live mostly on NYPL Digital
+// Collections, NOT IA; IA's strength is the Allen County scans of Brooklyn directories
+// (1907-1913) plus assorted volumes. Title-based query, no collection constraint.
 const INVENTORY_QUERY =
-  'collection:(newyorkpubliclibrary) AND mediatype:(texts) AND ' +
-  '(title:("city directory") OR title:(Trow) OR title:(Doggett) OR title:(Longworth) OR title:(Phillips))';
+  'mediatype:(texts) AND (title:("New York") OR title:(Brooklyn)) AND ' +
+  '(title:("city directory") OR title:(Trow) OR title:(Doggett) OR title:(Longworth))';
 
 export async function runInventory(db, log) {
   const params = new URLSearchParams({

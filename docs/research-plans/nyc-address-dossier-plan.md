@@ -269,6 +269,17 @@ The address→BBL crosswalk per era is the project's hardest shared infrastructu
 |---|---|---|---|
 | 0 | Modern spine, all-city | dossier v0 + minimal map viewer | none |
 | 0.5 | Autonomous harvester proven | supervisor + queue running unattended 7 straight days; clean `status.md`; survives sleep/restart/kill tests | none |
+
+**Implementation status (2026-06-12, `nyc-address-dossier/`):** M0 ✅ (harvester + DuckDB
+events + MapLibre viewer with story/aerials/photos). M0.5 ⏳ (kill/restart/redeploy-resume
+all proven; the 7-day soak is wall-clock). M1 ◐ (OldNYC 32k photos + aerial strip 1924–2018
+live; tax photos await the DORIS reply — draft in docs/outreach/). M2 ◐ (mock harness +
+gold protocol shipped; extraction gated on human gold labels + local model). M3 ◐ (IA
+acquisition queued; Brooklyn-1912 parse report: 49k entries, 13% modern-geocode — quantifies
+the gazetteer/re-OCR need). M4 ◐ (ChronAm pilot harvested via the new loc.gov API; 4,117-page
+corridor pool; gated on audit). M5 ✅ v1 deterministic (`ask`, `story` — cited, refuses beyond
+evidence; LLM layer awaits local-model install). M6 ◐ Wayback tool live (Apollo demo). Pilot
+CD adopted: MN CD10/Harlem.
 | 1 | Photo timelines, pilot CD | per-lot photo strip 1924→present; DORIS ask sent | none |
 | 2 | Census rosters, pilot CD | 1880–1950 occupants with gold-set accuracy report | approval if API OCR |
 | 3 | Directory/voter layer, pilot CD → city text pass | mention events + geocode-rate report | approval if API OCR |

@@ -1,0 +1,13 @@
+{
+  "page_id": "1950-mn-ed31-100-p1",
+  "note": "FIXTURE — synthetic stand-in for a 1950 census population schedule page (Manhattan ED 31-100). Real pages come from 1950census.archives.gov, public domain. Names below are invented.",
+  "image": null,
+  "address_hint": "WEST 125 STREET",
+  "rows": [
+    { "line": 1, "name": "Robinson, Charles", "relation": "head", "age": 42, "occupation": "porter", "address": "251 W 125 St" },
+    { "line": 2, "name": "Robinson, Mae", "relation": "wife", "age": 39, "occupation": null, "address": "251 W 125 St" },
+    { "line": 3, "name": "Robinson, Delia", "relation": "daughter", "age": 14, "occupation": null, "address": "251 W 125 St" },
+    { "line": 4, "name": "Carter, William", "relation": "lodger", "age": 51, "occupation": "musician", "address": "251 W 125 St" },
+    { "line": 5, "name": "Greene, Pearl", "relation": "head", "age": 33, "occupation": "laundress", "address": "253 W 125 St" }
+  ]
+}
