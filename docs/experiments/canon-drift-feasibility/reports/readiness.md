@@ -1,6 +1,6 @@
 # Canon Drift Feasibility Readiness Check
 
-Generated at: 2026-06-12T18:29:19.569Z
+Generated at: 2026-06-12T19:01:01.173Z
 Status: ready-for-editorial-review
 
 | Check | Status | Evidence |
@@ -10,6 +10,7 @@ Status: ready-for-editorial-review
 | At least three canon signals have accessible evidence | pass | teaching, anthologization, holdings-or-collections, citation-or-scholarly-discussion |
 | Report distinguishes teaching, anthology, citation, and holdings signals | pass | signals separated in result rows |
 | Public draft exists and blocks premature trend claims | pass | reports/public-draft.md |
+| Publication handoff exists with evidence blocks and public-claim checklist | pass | ready-for-copyedit; 4 evidence blocks |
 
 ## Next Moves
 

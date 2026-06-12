@@ -1,0 +1,122 @@
+{
+  "generatedAt": "2026-06-12T19:01:01.216Z",
+  "title": "What Counts As A Humanities Dataset?",
+  "publishState": "ready-for-copyedit",
+  "readinessStatus": "ready-for-editorial-review",
+  "format": "research-agenda",
+  "thesis": "A humanities dataset becomes analytically useful when access, rights, metadata structure, time depth, and coverage bias are legible together.",
+  "corpus": {
+    "candidates": 15,
+    "accessibleCandidates": 11,
+    "readyCandidates": 6,
+    "needsWorkCandidates": 5,
+    "blockedCandidates": 4,
+    "domains": {
+      "museum-collections": 4,
+      "linked-open-data": 1,
+      "archives-library": 1,
+      "teaching-syllabi": 1,
+      "books-literature": 1,
+      "newspapers": 1,
+      "data-repository": 2,
+      "scholarly-repository": 1,
+      "books-library": 1,
+      "books-media-web": 1,
+      "aggregated-archives": 1
+    },
+    "accessModes": {
+      "json-api": 9,
+      "sparql-and-dumps": 1,
+      "portal-and-exports": 1,
+      "bulk-files-and-catalog": 1,
+      "api-and-bulk": 1,
+      "research-platform": 1,
+      "api-or-portal": 1
+    },
+    "studySpecs": 5
+  },
+  "paths": {
+    "draft": "docs/experiments/humanities-dataset-registry/reports/public-draft.md",
+    "result": "docs/experiments/humanities-dataset-registry/reports/result.json",
+    "readiness": "docs/experiments/humanities-dataset-registry/reports/readiness.json",
+    "sourceInventory": "docs/experiments/humanities-dataset-registry/reports/source-inventory.md",
+    "rankings": "docs/experiments/humanities-dataset-registry/data/processed/dataset-rankings.csv",
+    "studySpecs": "docs/experiments/humanities-dataset-registry/reports/study-specs.md"
+  },
+  "readyNowCandidates": [
+    {
+      "id": "cleveland-art-open-access",
+      "name": "Cleveland Museum of Art Open Access API",
+      "domain": "museum-collections",
+      "accessMode": "json-api",
+      "readinessScore": 103,
+      "starterQuestion": "What acquisition, creation-date, and department patterns appear in open museum data?",
+      "qualityRisk": "One museum collection is analytically rich but institution-specific."
+    },
+    {
+      "id": "wikidata",
+      "name": "Wikidata",
+      "domain": "linked-open-data",
+      "accessMode": "sparql-and-dumps",
+      "readinessScore": 96,
+      "starterQuestion": "How are authors, artworks, institutions, languages, and movements connected in public linked data?",
+      "qualityRisk": "Wikidata reflects contributor attention and ontology gaps."
+    },
+    {
+      "id": "library-of-congress-digital-collections",
+      "name": "Library of Congress Digital Collections",
+      "domain": "archives-library",
+      "accessMode": "json-api",
+      "readinessScore": 93,
+      "starterQuestion": "Which subjects, formats, and eras dominate digitized public collections?",
+      "qualityRisk": "Collection metadata reflects digitization and cataloging priorities."
+    },
+    {
+      "id": "met-collection-api",
+      "name": "Metropolitan Museum of Art Collection API",
+      "domain": "museum-collections",
+      "accessMode": "json-api",
+      "readinessScore": 93,
+      "starterQuestion": "How do object dates, geographies, departments, and acquisition histories differ across the Met collection?",
+      "qualityRisk": "Collection API records vary in completeness and public-domain image availability."
+    },
+    {
+      "id": "open-syllabus",
+      "name": "Open Syllabus",
+      "domain": "teaching-syllabi",
+      "accessMode": "portal-and-exports",
+      "readinessScore": 86,
+      "starterQuestion": "Which works and authors appear in syllabi across institutions, fields, and time?",
+      "qualityRisk": "Public access and export terms need explicit review before automated collection."
+    },
+    {
+      "id": "project-gutenberg",
+      "name": "Project Gutenberg",
+      "domain": "books-literature",
+      "accessMode": "bulk-files-and-catalog",
+      "readinessScore": 86,
+      "starterQuestion": "How do genres, publication dates, and author cohorts shape public-domain literary corpora?",
+      "qualityRisk": "Public-domain availability is not the same as literary representativeness."
+    }
+  ],
+  "editorialFrame": [
+    "Use the registry as a research-agenda essay, not as a definitive list of all humanities datasets.",
+    "Show that dataset readiness is multidimensional: access, rights, structure, time depth, entity richness, and normalization burden.",
+    "Treat ready-now as ready for source-probed experimentation, not as representative of culture.",
+    "Point directly to the Cleveland study as the first launched example from the registry."
+  ],
+  "publicClaimChecklist": [
+    "Say the registry probes 15 candidate corpora, not the whole humanities data universe.",
+    "Mention 11 accessible candidates and 6 ready-now candidates.",
+    "Separate public availability from cultural representativeness.",
+    "Do not imply API richness means interpretive neutrality.",
+    "Include licensing and redistribution caveats before recommending derivative datasets.",
+    "Point readers to 5 generated study specs as next experiments, not final results."
+  ],
+  "copyeditNotes": [
+    "Lead with the question: what makes a pile of cultural material become a usable humanities dataset?",
+    "Use the ranked candidates to make the method concrete.",
+    "Keep examples diverse across museums, linked data, libraries, teaching, and books.",
+    "End with a short publication roadmap from registry to study spec to essay."
+  ]
+}

@@ -35,6 +35,7 @@ Or run step by step:
 node docs/experiments/humanities-dataset-registry/scripts/probe-candidates.mjs
 node docs/experiments/humanities-dataset-registry/scripts/build-report.mjs
 node docs/experiments/humanities-dataset-registry/scripts/build-study-specs.mjs
+node docs/experiments/humanities-dataset-registry/scripts/build-publication-handoff.mjs
 node docs/experiments/humanities-dataset-registry/scripts/check-readiness.mjs
 ```
 
@@ -52,6 +53,8 @@ The scripts write:
 - `reports/work.md`
 - `reports/public-draft.md`
 - `reports/study-specs.md`
+- `reports/publication-handoff.md`
+- `reports/publication-handoff.json`
 - `reports/readiness.md`
 - `reports/readiness.json`
 - `reports/pipeline-run.json`

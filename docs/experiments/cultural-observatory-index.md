@@ -24,11 +24,13 @@ Current queue:
 - 6 tracked essay/research artifacts
 - 3 ready for editorial review
 - 3 not ready for publication
+- 3 copyedit-ready handoff packets
 - first public essay candidate: What A Museum Collection Looks Like When It Becomes Data
 
 Next implementation moves:
 
 - copyedit the Cleveland handoff into a first post
+- copyedit the canon drift and dataset registry handoffs into methods/research-agenda posts
 - choose which Cleveland charts to publish
 - resolve source-work blockers for mission statements, museum language, and literature radar
 
@@ -201,7 +203,7 @@ Implemented:
 - `result.json`
 - `work.md`
 - `public-draft.md`
-- `publication-draft.md`
+- publication handoff with evidence blocks, blocked-source notes, and public-claim checklist
 - readiness gate
 - one-command pipeline runner
 
@@ -210,10 +212,12 @@ Current corpus:
 - 13 source probes
 - 11 accessible probes
 - 5 signal types: teaching, anthologization, holdings-or-collections, holdings-or-editions, citation-or-scholarly-discussion
+- publication handoff: ready for copyedit as a methods piece
 - readiness: ready for editorial review as a feasibility/methods artifact
 
 Next implementation moves:
 
+- copyedit the publication handoff into a methods post
 - choose one author cohort and one signal for a narrow canon pilot
 - resolve Open Syllabus export/access before assignment-level claims
 - add audited anthology tables of contents before anthologization claims
@@ -237,8 +241,8 @@ Implemented:
 - `result.json`
 - `work.md`
 - `public-draft.md`
-- `publication-draft.md`
-- publication handoff with chart captions, audit notes, and public-claim checklist
+- `study-specs.md`
+- publication handoff with ready-now examples, editorial frame, and public-claim checklist
 - readiness gate
 - one-command pipeline runner
 
@@ -249,10 +253,12 @@ Current corpus:
 - 6 ready-now candidates
 - 5 ready-now study specs generated
 - domains represented: museum collections, linked open data, archives/library, teaching syllabi, books/literature, newspapers, data repositories, scholarly repositories, books/library, books/media/web, aggregated archives
+- publication handoff: ready for copyedit as a research-agenda piece
 - readiness: ready for editorial review as a research-agenda artifact
 
 Next implementation moves:
 
+- copyedit the publication handoff into a research-agenda post
 - add file-level and pagination probes for the highest-ranked APIs
 - add explicit licensing notes before publishing derived datasets
 - turn one ready-now corpus into a first public essay

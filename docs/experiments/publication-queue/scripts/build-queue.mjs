@@ -134,6 +134,7 @@ function score({ ready, failedChecks, hasDraft, hasHandoff, chartCount, experime
 
 function recommend({ ready, failedChecks, hasHandoff, chartCount, experiment }) {
   if (ready && experiment.editorialLane === "first-public-essay" && hasHandoff) return "Copyedit from publication handoff; keep chart captions and audit caveats attached.";
+  if (ready && hasHandoff) return "Copyedit from publication handoff; preserve source limits and claim checklist.";
   if (ready && experiment.editorialLane === "first-public-essay") return "Move into polished public draft with chart captions and audit caveats.";
   if (ready && chartCount) return "Edit public draft, preserve caveats, and prepare chart-backed post.";
   if (ready) return "Edit as methods/research-agenda post; add charts if useful.";

@@ -8,6 +8,7 @@ const steps = [
   ["probe-web-sources.mjs", []],
   ["probe-openalex-authors.mjs", []],
   ["build-report.mjs", []],
+  ["build-publication-handoff.mjs", []],
   ["check-readiness.mjs", []],
 ];
 const results = [];

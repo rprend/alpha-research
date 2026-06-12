@@ -29,6 +29,7 @@ Or run step by step:
 node docs/experiments/canon-drift-feasibility/scripts/probe-web-sources.mjs
 node docs/experiments/canon-drift-feasibility/scripts/probe-openalex-authors.mjs
 node docs/experiments/canon-drift-feasibility/scripts/build-report.mjs
+node docs/experiments/canon-drift-feasibility/scripts/build-publication-handoff.mjs
 node docs/experiments/canon-drift-feasibility/scripts/check-readiness.mjs
 ```
 
@@ -44,6 +45,8 @@ The scripts write:
 - `reports/result.json`
 - `reports/work.md`
 - `reports/public-draft.md`
+- `reports/publication-handoff.md`
+- `reports/publication-handoff.json`
 - `reports/readiness.md`
 - `reports/readiness.json`
 - `reports/pipeline-run.json`

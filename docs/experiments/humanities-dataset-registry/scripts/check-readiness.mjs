@@ -9,6 +9,7 @@ import {
 const reportsDir = path.join(experimentDir, "reports");
 const result = await readJson(path.join(reportsDir, "result.json"));
 const studySpecs = await readOptionalJson(path.join(experimentDir, "data", "processed", "study-specs.json"));
+const handoff = await readOptionalJson(path.join(reportsDir, "publication-handoff.json"));
 const readyDomains = new Set((result.rows ?? []).filter((row) => row.readiness_bucket === "ready-now").map((row) => row.domain));
 const checks = [
   {
@@ -46,6 +47,12 @@ const checks = [
     label: "At least three ready-now study specs exist",
     status: (studySpecs?.count ?? 0) >= 3 ? "pass" : "needs-work",
     evidence: studySpecs ? `${studySpecs.count} study specs` : "missing study specs",
+  },
+  {
+    id: "publication-handoff",
+    label: "Publication handoff exists with ready-now examples and public-claim checklist",
+    status: handoff?.publishState === "ready-for-copyedit" && handoff?.readyNowCandidates?.length >= 5 ? "pass" : "needs-work",
+    evidence: handoff ? `${handoff.publishState}; ${handoff.readyNowCandidates.length} ready-now examples` : "missing publication handoff",
   },
 ];
 

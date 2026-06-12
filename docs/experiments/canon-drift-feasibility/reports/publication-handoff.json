@@ -1,0 +1,194 @@
+{
+  "generatedAt": "2026-06-12T19:01:01.127Z",
+  "title": "Canon Drift: A Feasibility Report",
+  "publishState": "ready-for-copyedit",
+  "readinessStatus": "ready-for-editorial-review",
+  "format": "methods-piece",
+  "thesis": "Canon drift is not one dataset; teaching, anthologization, citation, and holdings are separate signals that need separate source layers.",
+  "corpus": {
+    "probes": 13,
+    "accessibleProbes": 11,
+    "blockedProbes": 2,
+    "accessibleSignals": [
+      "teaching",
+      "anthologization",
+      "holdings-or-collections",
+      "citation-or-scholarly-discussion"
+    ],
+    "sourceTypes": {
+      "public-courseware": 2,
+      "syllabus-index": 1,
+      "anthology-toc": 1,
+      "library-api": 1,
+      "library-catalog": 2,
+      "citation-metadata": 6
+    }
+  },
+  "paths": {
+    "draft": "docs/experiments/canon-drift-feasibility/reports/public-draft.md",
+    "result": "docs/experiments/canon-drift-feasibility/reports/result.json",
+    "readiness": "docs/experiments/canon-drift-feasibility/reports/readiness.json",
+    "sourceInventory": "docs/experiments/canon-drift-feasibility/reports/source-inventory.md",
+    "feasibilityMatrix": "docs/experiments/canon-drift-feasibility/data/processed/feasibility-matrix.csv"
+  },
+  "evidenceBlocks": [
+    {
+      "label": "Teaching signals",
+      "evidence": [
+        {
+          "id": "mit-ocw-literature",
+          "label": "MIT OpenCourseWare Literature courses",
+          "accessStatus": "accessible",
+          "recordsOrResults": 1,
+          "publicationUse": "useful examples and source probe, not representative teaching evidence",
+          "coverageRisk": "Open courseware is public and reusable but not representative of all teaching."
+        },
+        {
+          "id": "yale-open-courses-literature",
+          "label": "Open Yale Courses English",
+          "accessStatus": "accessible",
+          "recordsOrResults": 2,
+          "publicationUse": "useful examples and source probe, not representative teaching evidence",
+          "coverageRisk": "Open courses are selected public offerings, not a full curriculum."
+        },
+        {
+          "id": "open-syllabus",
+          "label": "Open Syllabus",
+          "accessStatus": "accessible",
+          "recordsOrResults": 2,
+          "publicationUse": "promising teaching signal if export access and terms are resolved",
+          "coverageRisk": "Useful canonical-teaching signal, but access/export terms need explicit review before automated use."
+        }
+      ],
+      "allowedClaim": "Public courseware and syllabus-index probes are candidate teaching signals, not representative curriculum evidence."
+    },
+    {
+      "label": "Anthologization signals",
+      "evidence": [
+        {
+          "id": "norton-anthology-english-literature",
+          "label": "Norton Anthology of English Literature",
+          "accessStatus": "accessible",
+          "recordsOrResults": 0,
+          "publicationUse": "useful for edition-specific canon claims after TOC completeness audit",
+          "coverageRisk": "Publisher pages may expose partial metadata; full TOC may require manual or licensed source work."
+        }
+      ],
+      "allowedClaim": "Anthology pages can support a source-access discussion, but edition-level TOC claims need a separate audit."
+    },
+    {
+      "label": "Holdings signals",
+      "evidence": [
+        {
+          "id": "library-of-congress-collections",
+          "label": "Library of Congress collections search",
+          "accessStatus": "accessible",
+          "recordsOrResults": 2430,
+          "publicationUse": "useful holdings/edition signal, not readership",
+          "coverageRisk": "Library collection counts measure preservation and cataloging, not readership or teaching."
+        },
+        {
+          "id": "hathitrust-catalog",
+          "label": "HathiTrust catalog",
+          "accessStatus": "http-error",
+          "recordsOrResults": 0,
+          "publicationUse": "not usable until access terms or fetchability are resolved",
+          "coverageRisk": "Bibliographic coverage is rich but access/automation and edition normalization need review."
+        },
+        {
+          "id": "worldcat-search",
+          "label": "WorldCat search",
+          "accessStatus": "http-error",
+          "recordsOrResults": 0,
+          "publicationUse": "not usable until access terms or fetchability are resolved",
+          "coverageRisk": "Potentially valuable holdings signal, but automated access and licensing are likely constrained."
+        }
+      ],
+      "allowedClaim": "Library and catalog signals describe preservation, cataloging, and holdings; they do not measure reading."
+    },
+    {
+      "label": "Scholarly-discussion signals",
+      "evidence": [
+        {
+          "id": "openalex-toni-morrison",
+          "label": "OpenAlex search: Toni Morrison",
+          "accessStatus": "accessible",
+          "recordsOrResults": 18993,
+          "publicationUse": "good for scholarly-discussion context; not a standalone canon metric",
+          "coverageRisk": "Search results may include works about the author, by namesakes, or loosely related mentions."
+        },
+        {
+          "id": "openalex-jane-austen",
+          "label": "OpenAlex search: Jane Austen",
+          "accessStatus": "accessible",
+          "recordsOrResults": 23051,
+          "publicationUse": "good for scholarly-discussion context; not a standalone canon metric",
+          "coverageRisk": "Search results may include works about the author, by namesakes, or loosely related mentions."
+        },
+        {
+          "id": "openalex-william-shakespeare",
+          "label": "OpenAlex search: William Shakespeare",
+          "accessStatus": "accessible",
+          "recordsOrResults": 68477,
+          "publicationUse": "good for scholarly-discussion context; not a standalone canon metric",
+          "coverageRisk": "Search results may include works about the author, by namesakes, or loosely related mentions."
+        },
+        {
+          "id": "openalex-w-e-b-du-bois",
+          "label": "OpenAlex search: W. E. B. Du Bois",
+          "accessStatus": "accessible",
+          "recordsOrResults": 98545,
+          "publicationUse": "good for scholarly-discussion context; not a standalone canon metric",
+          "coverageRisk": "Search results may include works about the author, by namesakes, or loosely related mentions."
+        },
+        {
+          "id": "openalex-hannah-arendt",
+          "label": "OpenAlex search: Hannah Arendt",
+          "accessStatus": "accessible",
+          "recordsOrResults": 78575,
+          "publicationUse": "good for scholarly-discussion context; not a standalone canon metric",
+          "coverageRisk": "Search results may include works about the author, by namesakes, or loosely related mentions."
+        },
+        {
+          "id": "openalex-michel-foucault",
+          "label": "OpenAlex search: Michel Foucault",
+          "accessStatus": "accessible",
+          "recordsOrResults": 223815,
+          "publicationUse": "good for scholarly-discussion context; not a standalone canon metric",
+          "coverageRisk": "Search results may include works about the author, by namesakes, or loosely related mentions."
+        }
+      ],
+      "allowedClaim": "OpenAlex name searches can map scholarly discussion, but require relevance review before author-level trend claims."
+    }
+  ],
+  "publicClaimChecklist": [
+    "Say this is a feasibility report based on 13 probes, not a measurement of canon change.",
+    "Mention 11 accessible probes and 2 blocked probes.",
+    "Keep teaching, anthology, holdings, and citation evidence separated.",
+    "Do not rank authors or works as more or less canonical from this artifact.",
+    "Name blocked/constrained sources before proposing the narrow pilot.",
+    "Frame the next study as one author cohort plus one signal layer."
+  ],
+  "copyeditNotes": [
+    "Lead with the methodological problem: canon is an overloaded word hiding different institutions.",
+    "Make the piece useful as a map of evidence types, not as a verdict about any author.",
+    "Use the blocked HathiTrust and WorldCat probes as evidence that access terms shape quantitative humanities work.",
+    "End by proposing a narrow pilot rather than a universal canon index."
+  ],
+  "blockedSources": [
+    {
+      "id": "hathitrust-catalog",
+      "label": "HathiTrust catalog",
+      "status": "http-error",
+      "httpStatus": 403,
+      "nextUse": "not usable until access terms or fetchability are resolved"
+    },
+    {
+      "id": "worldcat-search",
+      "label": "WorldCat search",
+      "status": "http-error",
+      "httpStatus": 429,
+      "nextUse": "not usable until access terms or fetchability are resolved"
+    }
+  ]
+}

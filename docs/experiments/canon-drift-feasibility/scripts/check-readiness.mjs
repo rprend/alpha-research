@@ -8,6 +8,7 @@ import {
 
 const reportsDir = path.join(experimentDir, "reports");
 const result = await readJson(path.join(reportsDir, "result.json"));
+const handoff = await readOptionalJson(path.join(reportsDir, "publication-handoff.json"));
 const accessibleSignals = Object.entries(result.signals ?? {}).filter(([, value]) => value.accessible > 0).map(([signal]) => signal);
 const checks = [
   {
@@ -39,6 +40,12 @@ const checks = [
     label: "Public draft exists and blocks premature trend claims",
     status: "pass",
     evidence: "reports/public-draft.md",
+  },
+  {
+    id: "publication-handoff",
+    label: "Publication handoff exists with evidence blocks and public-claim checklist",
+    status: handoff?.publishState === "ready-for-copyedit" && handoff?.evidenceBlocks?.length >= 4 ? "pass" : "needs-work",
+    evidence: handoff ? `${handoff.publishState}; ${handoff.evidenceBlocks.length} evidence blocks` : "missing publication handoff",
   },
 ];
 
@@ -86,4 +93,12 @@ function hasSignalSeparation(result) {
     signals.has("anthologization") &&
     signals.has("citation-or-scholarly-discussion") &&
     signals.has("holdings-or-collections");
+}
+
+async function readOptionalJson(file) {
+  try {
+    return await readJson(file);
+  } catch {
+    return null;
+  }
 }

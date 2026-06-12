@@ -8,6 +8,7 @@ const steps = [
   ["probe-candidates.mjs", []],
   ["build-report.mjs", []],
   ["build-study-specs.mjs", []],
+  ["build-publication-handoff.mjs", []],
   ["check-readiness.mjs", []],
 ];
 const results = [];

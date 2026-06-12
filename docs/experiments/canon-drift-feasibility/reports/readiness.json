@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T18:29:19.569Z",
+  "generatedAt": "2026-06-12T19:01:01.173Z",
   "status": "ready-for-editorial-review",
   "checks": [
     {
@@ -31,6 +31,12 @@
       "label": "Public draft exists and blocks premature trend claims",
       "status": "pass",
       "evidence": "reports/public-draft.md"
+    },
+    {
+      "id": "publication-handoff",
+      "label": "Publication handoff exists with evidence blocks and public-claim checklist",
+      "status": "pass",
+      "evidence": "ready-for-copyedit; 4 evidence blocks"
     }
   ],
   "nextMoves": [

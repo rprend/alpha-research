@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T18:36:22.180Z",
+  "generatedAt": "2026-06-12T19:01:01.259Z",
   "status": "ready-for-editorial-review",
   "checks": [
     {
@@ -37,6 +37,12 @@
       "label": "At least three ready-now study specs exist",
       "status": "pass",
       "evidence": "5 study specs"
+    },
+    {
+      "id": "publication-handoff",
+      "label": "Publication handoff exists with ready-now examples and public-claim checklist",
+      "status": "pass",
+      "evidence": "ready-for-copyedit; 6 ready-now examples"
     }
   ],
   "nextMoves": [

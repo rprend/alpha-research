@@ -1,14 +1,14 @@
 # Cultural Observatory Publication Queue
 
-Generated at: 2026-06-12T18:57:50.248Z
+Generated at: 2026-06-12T19:01:23.149Z
 Ready for editorial review: 3
 Not ready: 3
 
 | Priority | Title | Status | Action |
 | ---: | --- | --- | --- |
 | 141 | What A Museum Collection Looks Like When It Becomes Data | ready-for-editorial-review | Copyedit from publication handoff; keep chart captions and audit caveats attached. |
-| 118 | Canon Drift: A Feasibility Report | ready-for-editorial-review | Edit as methods/research-agenda post; add charts if useful. |
-| 110 | What Counts As A Humanities Dataset? | ready-for-editorial-review | Edit as methods/research-agenda post; add charts if useful. |
+| 126 | Canon Drift: A Feasibility Report | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
+| 118 | What Counts As A Humanities Dataset? | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
 | 18 | What Universities Say They Are For | not-ready-for-publication | Resolve readiness blockers: historical-pages. |
 | 6 | The Language Of Museums After Decolonization | not-ready-for-publication | Resolve readiness blockers: historical-pages, audit-flags. |
 | -6 | The Rise Of AI And The Humanities | not-ready-for-publication | Resolve readiness blockers: corpus-size, recent-coverage, quantitative-candidates. |
@@ -34,11 +34,11 @@ Not ready: 3
 - Lane: methods-piece
 - Status: ready-for-editorial-review
 - Draft: `docs/experiments/canon-drift-feasibility/reports/public-draft.md`
-- Handoff: none
+- Handoff: `docs/experiments/canon-drift-feasibility/reports/publication-handoff.json`
 - Result: `docs/experiments/canon-drift-feasibility/reports/result.json`
 - Readiness: `docs/experiments/canon-drift-feasibility/reports/readiness.json`
 - Failed checks: none
-- Action: Edit as methods/research-agenda post; add charts if useful.
+- Action: Copyedit from publication handoff; preserve source limits and claim checklist.
 - Summary: Canon drift is not one dataset. Teaching, anthologization, citation, and holdings are separate signals that need separate source layers.
 
 ### What Counts As A Humanities Dataset?
@@ -47,11 +47,11 @@ Not ready: 3
 - Lane: research-agenda
 - Status: ready-for-editorial-review
 - Draft: `docs/experiments/humanities-dataset-registry/reports/public-draft.md`
-- Handoff: none
+- Handoff: `docs/experiments/humanities-dataset-registry/reports/publication-handoff.json`
 - Result: `docs/experiments/humanities-dataset-registry/reports/result.json`
 - Readiness: `docs/experiments/humanities-dataset-registry/reports/readiness.json`
 - Failed checks: none
-- Action: Edit as methods/research-agenda post; add charts if useful.
+- Action: Copyedit from publication handoff; preserve source limits and claim checklist.
 - Summary: Humanities datasets become essay-ready when they combine public access, structured metadata, clear rights, time depth, and a question that respects coverage bias.
 
 ### What Universities Say They Are For
