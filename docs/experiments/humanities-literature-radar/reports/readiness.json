@@ -1,0 +1,84 @@
+{
+  "generatedAt": "2026-06-12T18:00:49.136Z",
+  "status": "not-ready-for-publication",
+  "corpus": {
+    "works": 128,
+    "recentWorks2024Present": 75,
+    "quantitativeHumanitiesCandidates": 45,
+    "sources": {
+      "hcommons": 30,
+      "arxiv": 1,
+      "crossref": 30,
+      "doaj": 30,
+      "osf-preprints": 9,
+      "openalex": 28
+    },
+    "years": {
+      "2018": 1,
+      "2019": 5,
+      "2020": 9,
+      "2021": 4,
+      "2022": 10,
+      "2023": 24,
+      "2024": 21,
+      "2025": 29,
+      "2026": 25
+    }
+  },
+  "checks": [
+    {
+      "id": "source-diversity",
+      "label": "At least five processed source families are represented",
+      "status": "pass",
+      "evidence": "6 sources: hcommons, arxiv, crossref, doaj, osf-preprints, openalex"
+    },
+    {
+      "id": "corpus-size",
+      "label": "At least 500 deduped works are needed before publication-level field claims",
+      "status": "needs-work",
+      "evidence": "128 deduped works"
+    },
+    {
+      "id": "recent-coverage",
+      "label": "At least 200 works from 2024-present are needed for current-field claims",
+      "status": "needs-work",
+      "evidence": "75 works from 2024-present"
+    },
+    {
+      "id": "quantitative-candidates",
+      "label": "At least 50 quantitative/computational humanities candidates are identified",
+      "status": "needs-work",
+      "evidence": "45 candidates"
+    },
+    {
+      "id": "source-manifests",
+      "label": "Every processed source has a raw manifest",
+      "status": "pass",
+      "evidence": "8 manifests"
+    },
+    {
+      "id": "representative-works",
+      "label": "Representative works table has at least 25 rows for manual review",
+      "status": "pass",
+      "evidence": "100 representative rows"
+    },
+    {
+      "id": "topic-labels",
+      "label": "Topic/method/signal table has at least 10 labels",
+      "status": "pass",
+      "evidence": "33 labels"
+    },
+    {
+      "id": "source-caveats",
+      "label": "Public draft remains caveated until broad backfill is complete",
+      "status": "pass",
+      "evidence": "reports/public-draft.md"
+    }
+  ],
+  "nextMoves": [
+    "Run the `v1` profile or higher source-specific limits to reach publication-scale corpus size.",
+    "Use DOAJ dumps/OAI-PMH for large open-access harvesting instead of bounded search.",
+    "Expand OSF/SocArXiv and KCWorks beyond bounded keyword search.",
+    "Manually review representative works before publishing field claims."
+  ]
+}

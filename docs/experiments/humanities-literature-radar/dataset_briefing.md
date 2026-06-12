@@ -30,6 +30,7 @@ The current committed run is a bounded implementation corpus, not the final broa
 - `reports/result.json`: structured result payload
 - `reports/work.md`: work log and caveats
 - `reports/public-draft.md`: public-facing draft scaffold
+- `reports/readiness.*`: field-map publication readiness gates and next moves
 
 Current processed corpus summary:
 
