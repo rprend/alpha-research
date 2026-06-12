@@ -116,12 +116,15 @@ Implemented:
 
 - current public page source list
 - Wayback target source list
+- curated historical Wayback target source list
 - term-family taxonomy
 - current-page fetcher
-- Wayback snapshot fetcher with request timeouts
+- merge-safe Wayback snapshot fetcher with request timeouts
 - current and historical page processing
 - page-level term counts
 - term-family-by-year table
+- audit packet
+- readiness gate
 - `report.html`
 - `result.json`
 - `work.md`
@@ -131,13 +134,14 @@ Implemented:
 Current committed corpus:
 
 - 10 current university pages
-- 4 historical Wayback snapshots
-- year range: 2010-2026
+- 8 historical Wayback snapshots
+- year range: 2000-2026
 - term families: truth/knowledge, civic/public, innovation/impact, global/leadership, excellence/prestige, inclusion/belonging, career/economy
+- readiness: not ready for publication because one short archived page still has an audit flag
 
 Next implementation moves:
 
-- discover historical URLs rather than relying only on current URLs
+- replace or manually exclude the short Harvard 2010 archived page
 - add university catalogs
 - add strategic plans
 - add president speeches

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-12T17:55:15.788Z",
-  "pageCount": 14,
+  "generatedAt": "2026-06-12T19:15:31.580Z",
+  "pageCount": 18,
   "rows": [
     {
       "institution": "Harvard University",
@@ -123,28 +123,40 @@
       "snippet_2": "niversity and the world over the next century. look ahead Empower the Boldest Thinkers Transform Teaching and Learning Strengthen Our Campus Community Partner With Purpose Engage a Global Network Empower the Boldest Thinkers Duk"
     },
     {
-      "institution": "Stanford University",
+      "institution": "Harvard University",
       "source_layer": "wayback",
-      "year": 2010,
-      "words": 342,
-      "total_terms": 7,
-      "top_families": "global_leadership:4; civic_public:1; innovation_impact:1",
+      "year": 2000,
+      "words": 692,
+      "total_terms": 6,
+      "top_families": "civic_public:5; innovation_impact:1; truth_knowledge:0",
       "flags": "",
-      "url": "https://web.archive.org/web/20100717083844id_/https://www.stanford.edu/about/",
-      "snippet_1": "s leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the public welfare by exercising an influence on behalf of humanity and civilization.\" Stanford opened its doors in 1891",
-      "snippet_2": "ly Event Calendar Other Publications Slideshow See Also Video Snapshots Three short videos highlight Stanford innovation, creativity and leadership. Stanford Speak Learn the lingo of \"the Farm.\" Giving to Stanford You can make a d"
+      "url": "https://web.archive.org/web/20000815063750id_/https://www.harvard.edu/about/",
+      "snippet_1": "insignia merchandise in their online catalog. Harvard Museum of Natural History gift shop Totebags, t-shirts, publications, slides, and other gift items drawn from the Museum's collections. Harvard Student Agencies The HSA sel",
+      "snippet_2": "at Harvard. Proceeds from each sale help support the University's museums and collections Harvard Cooperative Society Affectionately known as The Coop (rhymes with \"loop\"), this campus bookstore carries Harvard t-shirts and oth"
     },
     {
-      "institution": "Stanford University",
+      "institution": "Harvard University",
       "source_layer": "wayback",
-      "year": 2020,
-      "words": 377,
-      "total_terms": 8,
-      "top_families": "innovation_impact:3; truth_knowledge:2; global_leadership:2",
+      "year": 2005,
+      "words": 622,
+      "total_terms": 3,
+      "top_families": "civic_public:3; truth_knowledge:0; innovation_impact:0",
       "flags": "",
-      "url": "https://web.archive.org/web/20200406234457id_/https://www.stanford.edu/about/",
-      "snippet_1": "ch Stanford: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219",
-      "snippet_2": "le Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership Pre"
+      "url": "https://web.archive.org/web/20050811022045id_/https://www.harvard.edu/about/",
+      "snippet_1": "rections Getting to and around Harvard University links to maps and local transportation resources, including public transit and campus shuttle buses. Harvard gift items Many visitors to our site have asked about online catalo",
+      "snippet_2": "sells Harvard merchandise as well as books written by Harvard faculty and staff members. Harvard Cooperative Society Affectionately known as The Coop (rhymes with \"loop\"), this campus bookstore carries Harvard t-shirts and oth"
+    },
+    {
+      "institution": "Harvard University",
+      "source_layer": "wayback",
+      "year": 2010,
+      "words": 114,
+      "total_terms": 1,
+      "top_families": "civic_public:1; truth_knowledge:0; innovation_impact:0",
+      "flags": "short-page",
+      "url": "https://web.archive.org/web/20100626050049id_/https://www.harvard.edu/about/",
+      "snippet_1": "lege Continuing Education Dental Design Divinity Education Engineering Government Graduate School Law Medical Public Health Radcliffe Institute Faculty of Arts and Sciences Offices Administration Alumni Arts Athletics Employme",
+      "snippet_2": ""
     },
     {
       "institution": "Massachusetts Institute of Technology",
@@ -169,6 +181,42 @@
       "url": "https://web.archive.org/web/20200314185525id_/https://www.princeton.edu/meet-princeton",
       "snippet_1": "ulty, staff and alumni. In Service of Humanity Princeton University is a vibrant community of scholarship and learning that stands in the nation's service and the service of humanity. On campus and around the world, Princetonian",
       "snippet_2": "ur students, faculty, staff and alumni. In Service of Humanity Princeton University is a vibrant community of scholarship and learning that stands in the nation's service and the service of humanity. On campus and around the world,"
+    },
+    {
+      "institution": "Stanford University",
+      "source_layer": "wayback",
+      "year": 2010,
+      "words": 342,
+      "total_terms": 7,
+      "top_families": "global_leadership:4; civic_public:1; innovation_impact:1",
+      "flags": "",
+      "url": "https://web.archive.org/web/20100717083844id_/https://www.stanford.edu/about/",
+      "snippet_1": "s leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the public welfare by exercising an influence on behalf of humanity and civilization.\" Stanford opened its doors in 1891",
+      "snippet_2": "ly Event Calendar Other Publications Slideshow See Also Video Snapshots Three short videos highlight Stanford innovation, creativity and leadership. Stanford Speak Learn the lingo of \"the Farm.\" Giving to Stanford You can make a d"
+    },
+    {
+      "institution": "Stanford University",
+      "source_layer": "wayback",
+      "year": 2015,
+      "words": 471,
+      "total_terms": 8,
+      "top_families": "global_leadership:4; truth_knowledge:1; innovation_impact:1",
+      "flags": "",
+      "url": "https://web.archive.org/web/20150924105643id_/https://www.stanford.edu/about/",
+      "snippet_1": "rch Interdisciplinary Institutes Libraries Health care Stanford Health Care Stanford Children's Health Online Learning Stanford Online About Stanford Facts History Accreditation Admission Undergraduate Graduate Financial Aid Res",
+      "snippet_2": "or leadership in a complex world. Stanford's 125th Anniversary This year, Stanford celebrates of 125 years of impact in people’s lives and around the world. Visit the Stanford 125 website for information about upcoming events"
+    },
+    {
+      "institution": "Stanford University",
+      "source_layer": "wayback",
+      "year": 2020,
+      "words": 377,
+      "total_terms": 8,
+      "top_families": "innovation_impact:3; truth_knowledge:2; global_leadership:2",
+      "flags": "",
+      "url": "https://web.archive.org/web/20200406234457id_/https://www.stanford.edu/about/",
+      "snippet_1": "ch Stanford: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219",
+      "snippet_2": "le Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership Pre"
     }
   ],
   "reviewInstructions": [

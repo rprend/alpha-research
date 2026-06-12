@@ -269,55 +269,73 @@
     }
   },
   {
-    "institution": "Stanford University",
+    "institution": "Harvard University",
     "source_layer": "wayback",
-    "year": 2010,
-    "url": "https://www.stanford.edu/about/",
-    "archive_url": "https://web.archive.org/web/20100717083844id_/https://www.stanford.edu/about/",
-    "timestamp": "20100717083844",
+    "year": 2000,
+    "url": "https://www.harvard.edu/about/",
+    "archive_url": "https://web.archive.org/web/20000815063750id_/https://www.harvard.edu/about/",
+    "timestamp": "20000815063750",
     "status": 200,
-    "words": 342,
-    "text_preview": "About Stanford: Stanford University Skip to Content Maps A-Z Index Web People Submit About Stanford Admission Academics Research Life On Campus About Stanford Introduction Located between San Francisco and San Jose in the heart of Silicon Valley, Stanford University is recognized as one of the world's leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the public welfare by exercising an influence on behalf of humanity and civilization.\" Stanford opened its doors in 1891, and more than a century later, it remains dedicated to finding solution",
+    "words": 692,
+    "text_preview": "About Harvard University General information Introduction to Harvard The Virtual Tour of Harvard presents an online walking tour of Harvard Yard. The comprehensive Harvard Guide contains general facts, history, Harvard lore, and sightseeing information. A College in a Yard is a multimedia tour of Harvard College, the undergraduate program at the University (requires RealAudio) . FAQ Our \" Frequently-Asked Questions about Harvard University \" section answers more than 40 of the most common inquiries that we receive here in the Webmaster's office. Lots of good information on a wide range of topi",
     "snippets": [
-      "s leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the public welfare by exercising an influence on behalf of humanity and civilization.\" Stanford opened its doors in 1891",
-      "ly Event Calendar Other Publications Slideshow See Also Video Snapshots Three short videos highlight Stanford innovation, creativity and leadership. Stanford Speak Learn the lingo of \"the Farm.\" Giving to Stanford You can make a d",
-      "en San Francisco and San Jose in the heart of Silicon Valley, Stanford University is recognized as one of the world's leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the",
-      "t remains dedicated to finding solutions to the great challenges of the day and to preparing our students for leadership in today's complex world. Home » About Stanford Stanford Facts & History Stanford Facts and the Annual Report",
-      "rancisco and San Jose in the heart of Silicon Valley, Stanford University is recognized as one of the world's leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the public we"
+      "insignia merchandise in their online catalog. Harvard Museum of Natural History gift shop Totebags, t-shirts, publications, slides, and other gift items drawn from the Museum's collections. Harvard Student Agencies The HSA sel",
+      "at Harvard. Proceeds from each sale help support the University's museums and collections Harvard Cooperative Society Affectionately known as The Coop (rhymes with \"loop\"), this campus bookstore carries Harvard t-shirts and oth",
+      "ard | Academics | Admissions | Administration | Alumni | Campus | Directories | Employment | Libs & Museums | Technology Contact the Webmaster staff Copyright 2000 by the President and Fellows of Harvard College"
     ],
     "term_counts": {
       "truth_knowledge": 0,
-      "civic_public": 1,
+      "civic_public": 5,
       "innovation_impact": 1,
-      "global_leadership": 4,
-      "excellence_prestige": 1,
+      "global_leadership": 0,
+      "excellence_prestige": 0,
       "inclusion_belonging": 0,
       "career_economy": 0
     }
   },
   {
-    "institution": "Stanford University",
+    "institution": "Harvard University",
     "source_layer": "wayback",
-    "year": 2020,
-    "url": "https://www.stanford.edu/about/",
-    "archive_url": "https://web.archive.org/web/20200406234457id_/https://www.stanford.edu/about/",
-    "timestamp": "20200406234457",
+    "year": 2005,
+    "url": "https://www.harvard.edu/about/",
+    "archive_url": "https://web.archive.org/web/20050811022045id_/https://www.harvard.edu/about/",
+    "timestamp": "20050811022045",
     "status": 200,
-    "words": 377,
-    "text_preview": "About Stanford &#8211; Stanford University --> Skip to content Stanford University Search Menu Latest information about COVID-19 Dismiss alert Search term Search Stanford: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership President Marc Tessier-Lavigne Marc Tessier-Lavigne became Stanford University&#8217;s eleventh president on September 1, 2016. Office of the President Provost Persis Drell Persis Drell is Stan",
+    "words": 622,
+    "text_preview": "About Harvard University --> General information Introduction to Harvard The Virtual Tour of Harvard presents an online walking tour of Harvard Yard. The comprehensive Harvard Guide contains general facts, history, Harvard lore, and sightseeing information. A College in a Yard is a multimedia tour of Harvard College, the undergraduate program at the University (requires RealAudio) . FAQ Our \" Frequently Asked Questions about Harvard University \" section answers more than 40 of the most common inquiries that we receive here in the Webmaster's office. Lots of good information on a wide range of ",
     "snippets": [
-      "ch Stanford: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219",
-      "le Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership Pre",
-      "d: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Le",
-      "Jr., who died of typhoid fever at 15. A History of Stanford Stanford Then & Now Stanford has changed with the world over the last 125+ years, often leading the way with new ideas and discoveries. Here’s a look at Stanford peo",
-      "ry, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership President Marc Tessier-Lavigne Marc Tessier-Lavigne became Stanford University&#8217;s eleventh president on"
+      "rections Getting to and around Harvard University links to maps and local transportation resources, including public transit and campus shuttle buses. Harvard gift items Many visitors to our site have asked about online catalo",
+      "sells Harvard merchandise as well as books written by Harvard faculty and staff members. Harvard Cooperative Society Affectionately known as The Coop (rhymes with \"loop\"), this campus bookstore carries Harvard t-shirts and oth"
     ],
     "term_counts": {
-      "truth_knowledge": 2,
-      "civic_public": 0,
-      "innovation_impact": 3,
-      "global_leadership": 2,
-      "excellence_prestige": 1,
+      "truth_knowledge": 0,
+      "civic_public": 3,
+      "innovation_impact": 0,
+      "global_leadership": 0,
+      "excellence_prestige": 0,
+      "inclusion_belonging": 0,
+      "career_economy": 0
+    }
+  },
+  {
+    "institution": "Harvard University",
+    "source_layer": "wayback",
+    "year": 2010,
+    "url": "https://www.harvard.edu/about/",
+    "archive_url": "https://web.archive.org/web/20100626050049id_/https://www.harvard.edu/about/",
+    "timestamp": "20100626050049",
+    "status": 200,
+    "words": 114,
+    "text_preview": "General Information - Harvard University Harvard University Schools Business College Continuing Education Dental Design Divinity Education Engineering Government Graduate School Law Medical Public Health Radcliffe Institute Faculty of Arts and Sciences Offices Administration Alumni Arts Athletics Employment Libraries Museums Info tech President Provost About Harvard Calendar Contacts Directories Employment General Info Site Guide FAQs Support Harvard Admissions & aid Give --> Search General Information Harvard Acronyms &raquo; Harvard at a Glance &raquo; Harvard Fact Book &raquo; Harvard Guide",
+    "snippets": [
+      "lege Continuing Education Dental Design Divinity Education Engineering Government Graduate School Law Medical Public Health Radcliffe Institute Faculty of Arts and Sciences Offices Administration Alumni Arts Athletics Employme"
+    ],
+    "term_counts": {
+      "truth_knowledge": 0,
+      "civic_public": 1,
+      "innovation_impact": 0,
+      "global_leadership": 0,
+      "excellence_prestige": 0,
       "inclusion_belonging": 0,
       "career_economy": 0
     }
@@ -371,6 +389,87 @@
       "civic_public": 5,
       "innovation_impact": 2,
       "global_leadership": 4,
+      "excellence_prestige": 1,
+      "inclusion_belonging": 0,
+      "career_economy": 0
+    }
+  },
+  {
+    "institution": "Stanford University",
+    "source_layer": "wayback",
+    "year": 2010,
+    "url": "https://www.stanford.edu/about/",
+    "archive_url": "https://web.archive.org/web/20100717083844id_/https://www.stanford.edu/about/",
+    "timestamp": "20100717083844",
+    "status": 200,
+    "words": 342,
+    "text_preview": "About Stanford: Stanford University Skip to Content Maps A-Z Index Web People Submit About Stanford Admission Academics Research Life On Campus About Stanford Introduction Located between San Francisco and San Jose in the heart of Silicon Valley, Stanford University is recognized as one of the world's leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the public welfare by exercising an influence on behalf of humanity and civilization.\" Stanford opened its doors in 1891, and more than a century later, it remains dedicated to finding solution",
+    "snippets": [
+      "s leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the public welfare by exercising an influence on behalf of humanity and civilization.\" Stanford opened its doors in 1891",
+      "ly Event Calendar Other Publications Slideshow See Also Video Snapshots Three short videos highlight Stanford innovation, creativity and leadership. Stanford Speak Learn the lingo of \"the Farm.\" Giving to Stanford You can make a d",
+      "en San Francisco and San Jose in the heart of Silicon Valley, Stanford University is recognized as one of the world's leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the",
+      "t remains dedicated to finding solutions to the great challenges of the day and to preparing our students for leadership in today's complex world. Home » About Stanford Stanford Facts & History Stanford Facts and the Annual Report",
+      "rancisco and San Jose in the heart of Silicon Valley, Stanford University is recognized as one of the world's leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the public we"
+    ],
+    "term_counts": {
+      "truth_knowledge": 0,
+      "civic_public": 1,
+      "innovation_impact": 1,
+      "global_leadership": 4,
+      "excellence_prestige": 1,
+      "inclusion_belonging": 0,
+      "career_economy": 0
+    }
+  },
+  {
+    "institution": "Stanford University",
+    "source_layer": "wayback",
+    "year": 2015,
+    "url": "https://www.stanford.edu/about/",
+    "archive_url": "https://web.archive.org/web/20150924105643id_/https://www.stanford.edu/about/",
+    "timestamp": "20150924105643",
+    "status": 200,
+    "words": 471,
+    "text_preview": "About Stanford University Skip to content Menu Search form Web People Search term About Stanford Admission Academics Research Campus Life Information for... Students Faculty / Staff Parents Alumni About Stanford Stanford University, located between San Francisco and San Jose in the heart of California's Silicon Valley, is one of the world's leading teaching and research universities. Since its opening in 1891, Stanford has been dedicated to finding solutions to big challenges and to preparing students for leadership in a complex world. Stanford's 125th Anniversary This year, Stanford celebrate",
+    "snippets": [
+      "rch Interdisciplinary Institutes Libraries Health care Stanford Health Care Stanford Children's Health Online Learning Stanford Online About Stanford Facts History Accreditation Admission Undergraduate Graduate Financial Aid Res",
+      "or leadership in a complex world. Stanford's 125th Anniversary This year, Stanford celebrates of 125 years of impact in people’s lives and around the world. Visit the Stanford 125 website for information about upcoming events",
+      "ersity, located between San Francisco and San Jose in the heart of California's Silicon Valley, is one of the world's leading teaching and research universities. Since its opening in 1891, Stanford has been dedicated to findi",
+      "ing in 1891, Stanford has been dedicated to finding solutions to big challenges and to preparing students for leadership in a complex world. Stanford's 125th Anniversary This year, Stanford celebrates of 125 years of impact in peo",
+      "located between San Francisco and San Jose in the heart of California's Silicon Valley, is one of the world's leading teaching and research universities. Since its opening in 1891, Stanford has been dedicated to finding solutio"
+    ],
+    "term_counts": {
+      "truth_knowledge": 1,
+      "civic_public": 0,
+      "innovation_impact": 1,
+      "global_leadership": 4,
+      "excellence_prestige": 1,
+      "inclusion_belonging": 0,
+      "career_economy": 1
+    }
+  },
+  {
+    "institution": "Stanford University",
+    "source_layer": "wayback",
+    "year": 2020,
+    "url": "https://www.stanford.edu/about/",
+    "archive_url": "https://web.archive.org/web/20200406234457id_/https://www.stanford.edu/about/",
+    "timestamp": "20200406234457",
+    "status": 200,
+    "words": 377,
+    "text_preview": "About Stanford &#8211; Stanford University --> Skip to content Stanford University Search Menu Latest information about COVID-19 Dismiss alert Search term Search Stanford: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership President Marc Tessier-Lavigne Marc Tessier-Lavigne became Stanford University&#8217;s eleventh president on September 1, 2016. Office of the President Provost Persis Drell Persis Drell is Stan",
+    "snippets": [
+      "ch Stanford: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219",
+      "le Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership Pre",
+      "d: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Le",
+      "Jr., who died of typhoid fever at 15. A History of Stanford Stanford Then & Now Stanford has changed with the world over the last 125+ years, often leading the way with new ideas and discoveries. Here’s a look at Stanford peo",
+      "ry, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership President Marc Tessier-Lavigne Marc Tessier-Lavigne became Stanford University&#8217;s eleventh president on"
+    ],
+    "term_counts": {
+      "truth_knowledge": 2,
+      "civic_public": 0,
+      "innovation_impact": 3,
+      "global_leadership": 2,
       "excellence_prestige": 1,
       "inclusion_belonging": 0,
       "career_economy": 0

@@ -138,19 +138,20 @@ async function loadWaybackPages() {
   const latestRun = runDates.at(-1);
   if (!latestRun) return [];
   const runDir = path.join(rawRoot, latestRun);
-  const manifest = await readJson(path.join(runDir, "manifest.json"));
-  return manifest.requests
-    .filter((request) => Number(request.status) >= 200 && Number(request.status) < 300)
-    .map((request) => ({
-      institution: request.institution,
-      url: request.url,
-      archiveUrl: request.archiveUrl,
-      timestamp: request.timestamp,
-      status: request.status,
+  const metadataFiles = await findFiles(runDir, "metadata.json");
+  return (await Promise.all(metadataFiles.map(async (file) => {
+    const metadata = await readJson(file);
+    return {
+      institution: metadata.institution,
+      url: metadata.url,
+      archiveUrl: metadata.archiveUrl,
+      timestamp: metadata.timestamp,
+      status: metadata.status,
       sourceLayer: "wayback",
-      year: request.year,
-      htmlPath: path.join(experimentDir, request.responsePath),
-    }));
+      year: metadata.year,
+      htmlPath: path.join(path.dirname(file), "index.html"),
+    };
+  }))).filter((page) => Number(page.status) >= 200 && Number(page.status) < 300);
 }
 
 function aggregateByYear(rows) {
@@ -189,6 +190,26 @@ async function existingDirs(dir) {
     return entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort();
   } catch {
     return [];
+  }
+}
+
+async function findFiles(dir, name) {
+  const out = [];
+  await walk(dir);
+  return out;
+
+  async function walk(current) {
+    let entries = [];
+    try {
+      entries = await fs.readdir(current, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const entry of entries) {
+      const full = path.join(current, entry.name);
+      if (entry.isDirectory()) await walk(full);
+      else if (entry.name === name) out.push(full);
+    }
   }
 }
 

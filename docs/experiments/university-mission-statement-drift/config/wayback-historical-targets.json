@@ -1,0 +1,27 @@
+[
+  {
+    "institution": "Massachusetts Institute of Technology",
+    "url": "http://web.mit.edu/facts/mission.html",
+    "reason": "historical MIT mission page found through CDX probe"
+  },
+  {
+    "institution": "Princeton University",
+    "url": "http://www.princeton.edu/main/about/",
+    "reason": "historical Princeton about path found through CDX probe"
+  },
+  {
+    "institution": "Cornell University",
+    "url": "http://www.cornell.edu/about/",
+    "reason": "historical Cornell about path found through CDX probe"
+  },
+  {
+    "institution": "University of Pennsylvania",
+    "url": "http://www.upenn.edu/about",
+    "reason": "historical Penn about path found through CDX probe"
+  },
+  {
+    "institution": "Duke University",
+    "url": "http://www.duke.edu/about/",
+    "reason": "historical Duke about path found through CDX probe"
+  }
+]

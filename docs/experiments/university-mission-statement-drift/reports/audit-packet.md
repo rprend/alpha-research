@@ -1,7 +1,7 @@
 # Mission Drift Audit Packet
 
-Generated at: 2026-06-12T17:55:15.788Z
-Pages requiring review: 14
+Generated at: 2026-06-12T19:15:31.581Z
+Pages requiring review: 18
 
 ## Review Instructions
 
@@ -121,27 +121,38 @@ Pages requiring review: 14
 
 > niversity and the world over the next century. look ahead Empower the Boldest Thinkers Transform Teaching and Learning Strengthen Our Campus Community Partner With Purpose Engage a Global Network Empower the Boldest Thinkers Duk
 
-### Stanford University (wayback, 2010)
+### Harvard University (wayback, 2000)
 
-- Words: 342
-- Top families: global_leadership:4; civic_public:1; innovation_impact:1
+- Words: 692
+- Top families: civic_public:5; innovation_impact:1; truth_knowledge:0
 - Flags: none
-- URL: https://web.archive.org/web/20100717083844id_/https://www.stanford.edu/about/
+- URL: https://web.archive.org/web/20000815063750id_/https://www.harvard.edu/about/
 
-> s leading research and teaching institutions. Leland and Jane Stanford founded the University to "promote the public welfare by exercising an influence on behalf of humanity and civilization." Stanford opened its doors in 1891
+> insignia merchandise in their online catalog. Harvard Museum of Natural History gift shop Totebags, t-shirts, publications, slides, and other gift items drawn from the Museum's collections. Harvard Student Agencies The HSA sel
 
-> ly Event Calendar Other Publications Slideshow See Also Video Snapshots Three short videos highlight Stanford innovation, creativity and leadership. Stanford Speak Learn the lingo of "the Farm." Giving to Stanford You can make a d
+> at Harvard. Proceeds from each sale help support the University's museums and collections Harvard Cooperative Society Affectionately known as The Coop (rhymes with "loop"), this campus bookstore carries Harvard t-shirts and oth
 
-### Stanford University (wayback, 2020)
+### Harvard University (wayback, 2005)
 
-- Words: 377
-- Top families: innovation_impact:3; truth_knowledge:2; global_leadership:2
+- Words: 622
+- Top families: civic_public:3; truth_knowledge:0; innovation_impact:0
 - Flags: none
-- URL: https://web.archive.org/web/20200406234457id_/https://www.stanford.edu/about/
+- URL: https://web.archive.org/web/20050811022045id_/https://www.harvard.edu/about/
 
-> ch Stanford: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219
+> rections Getting to and around Harvard University links to maps and local transportation resources, including public transit and campus shuttle buses. Harvard gift items Many visitors to our site have asked about online catalo
 
-> le Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership Pre
+> sells Harvard merchandise as well as books written by Harvard faculty and staff members. Harvard Cooperative Society Affectionately known as The Coop (rhymes with "loop"), this campus bookstore carries Harvard t-shirts and oth
+
+### Harvard University (wayback, 2010)
+
+- Words: 114
+- Top families: civic_public:1; truth_knowledge:0; innovation_impact:0
+- Flags: short-page
+- URL: https://web.archive.org/web/20100626050049id_/https://www.harvard.edu/about/
+
+> lege Continuing Education Dental Design Divinity Education Engineering Government Graduate School Law Medical Public Health Radcliffe Institute Faculty of Arts and Sciences Offices Administration Alumni Arts Athletics Employme
+
+
 
 ### Massachusetts Institute of Technology (wayback, 2020)
 
@@ -164,3 +175,36 @@ Pages requiring review: 14
 > ulty, staff and alumni. In Service of Humanity Princeton University is a vibrant community of scholarship and learning that stands in the nation's service and the service of humanity. On campus and around the world, Princetonian
 
 > ur students, faculty, staff and alumni. In Service of Humanity Princeton University is a vibrant community of scholarship and learning that stands in the nation's service and the service of humanity. On campus and around the world,
+
+### Stanford University (wayback, 2010)
+
+- Words: 342
+- Top families: global_leadership:4; civic_public:1; innovation_impact:1
+- Flags: none
+- URL: https://web.archive.org/web/20100717083844id_/https://www.stanford.edu/about/
+
+> s leading research and teaching institutions. Leland and Jane Stanford founded the University to "promote the public welfare by exercising an influence on behalf of humanity and civilization." Stanford opened its doors in 1891
+
+> ly Event Calendar Other Publications Slideshow See Also Video Snapshots Three short videos highlight Stanford innovation, creativity and leadership. Stanford Speak Learn the lingo of "the Farm." Giving to Stanford You can make a d
+
+### Stanford University (wayback, 2015)
+
+- Words: 471
+- Top families: global_leadership:4; truth_knowledge:1; innovation_impact:1
+- Flags: none
+- URL: https://web.archive.org/web/20150924105643id_/https://www.stanford.edu/about/
+
+> rch Interdisciplinary Institutes Libraries Health care Stanford Health Care Stanford Children's Health Online Learning Stanford Online About Stanford Facts History Accreditation Admission Undergraduate Graduate Financial Aid Res
+
+> or leadership in a complex world. Stanford's 125th Anniversary This year, Stanford celebrates of 125 years of impact in people’s lives and around the world. Visit the Stanford 125 website for information about upcoming events
+
+### Stanford University (wayback, 2020)
+
+- Words: 377
+- Top families: innovation_impact:3; truth_knowledge:2; global_leadership:2
+- Flags: none
+- URL: https://web.archive.org/web/20200406234457id_/https://www.stanford.edu/about/
+
+> ch Stanford: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219
+
+> le Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership Pre

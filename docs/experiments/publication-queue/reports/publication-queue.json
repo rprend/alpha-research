@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T19:01:23.149Z",
+  "generatedAt": "2026-06-12T19:15:31.656Z",
   "itemCount": 6,
   "readyCount": 3,
   "notReadyCount": 3,
@@ -65,8 +65,8 @@
       "editorial_lane": "longitudinal",
       "readiness_status": "not-ready-for-publication",
       "priority_score": 18,
-      "recommended_action": "Resolve readiness blockers: historical-pages.",
-      "failed_checks": "historical-pages: 4 historical snapshots",
+      "recommended_action": "Resolve readiness blockers: audit-flags.",
+      "failed_checks": "audit-flags: 1 flagged rows",
       "draft_exists": true,
       "handoff_exists": false,
       "chart_count": 0,

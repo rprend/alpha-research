@@ -23,6 +23,7 @@ const years = String(args.years ?? "2000,2005,2010,2015,2020")
 const runDate = today();
 const targets = await readJson(path.join(experimentDir, "config", targetConfig));
 const outDir = path.join(experimentDir, "data", "raw", "wayback-snapshots", runDate);
+const cleanRun = args.clean === "true";
 const manifest = {
   runDate,
   source: "Internet Archive Wayback Machine",
@@ -33,7 +34,7 @@ const manifest = {
   errors: [],
 };
 
-await fs.rm(outDir, { recursive: true, force: true });
+if (cleanRun) await fs.rm(outDir, { recursive: true, force: true });
 await ensureDir(outDir);
 
 for (const target of targets) {
@@ -125,10 +126,27 @@ for (const target of targets) {
 }
 
 manifest.finishedAt = new Date().toISOString();
-manifest.recordCount = manifest.requests.filter((request) => Number(request.status) >= 200 && Number(request.status) < 300).length;
+manifest.fetchedRecordCount = manifest.requests.filter((request) => Number(request.status) >= 200 && Number(request.status) < 300).length;
+const existingMetadataFiles = await findFiles(outDir, "metadata.json");
+manifest.snapshots = await Promise.all(existingMetadataFiles.map(async (file) => {
+  const metadata = await readJson(file);
+  return {
+    institution: metadata.institution,
+    year: metadata.year,
+    url: metadata.url,
+    archiveUrl: metadata.archiveUrl,
+    timestamp: metadata.timestamp,
+    status: metadata.status,
+    wordCount: metadata.wordCount,
+    responsePath: path.relative(experimentDir, path.join(path.dirname(file), "index.html")),
+    metadataPath: path.relative(experimentDir, file),
+  };
+}));
+manifest.existingRecordCount = manifest.snapshots.length;
+manifest.recordCount = cleanRun ? manifest.fetchedRecordCount : manifest.existingRecordCount;
 await writeJson(path.join(outDir, "manifest.json"), manifest);
 
-console.log(`Fetched ${manifest.recordCount} Wayback snapshots into ${path.relative(process.cwd(), outDir)}`);
+console.log(`Recorded ${manifest.recordCount} Wayback snapshots into ${path.relative(process.cwd(), outDir)} (${manifest.fetchedRecordCount} fetched in this pass)`);
 
 async function closestSnapshot(url, year) {
   const cdx = new URL("https://web.archive.org/cdx");
@@ -169,4 +187,24 @@ function parseArgs(argv = process.argv.slice(2)) {
     out[key] = rest.length ? rest.join("=") : "true";
   }
   return out;
+}
+
+async function findFiles(dir, name) {
+  const out = [];
+  await walk(dir);
+  return out;
+
+  async function walk(current) {
+    let entries = [];
+    try {
+      entries = await fs.readdir(current, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const entry of entries) {
+      const full = path.join(current, entry.name);
+      if (entry.isDirectory()) await walk(full);
+      else if (entry.name === name) out.push(full);
+    }
+  }
 }

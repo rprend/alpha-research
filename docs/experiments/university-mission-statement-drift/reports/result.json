@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-12T17:55:15.755Z",
-  "pages": 14,
+  "generatedAt": "2026-06-12T19:15:31.546Z",
+  "pages": 18,
   "currentPages": 10,
-  "historicalPages": 4,
+  "historicalPages": 8,
   "yearRange": {
-    "earliest": 2010,
+    "earliest": 2000,
     "latest": 2026
   },
   "currentTermFamilyTotals": {
@@ -17,70 +17,238 @@
     "career_economy": 6
   },
   "historicalTermFamilyTotals": {
-    "global_leadership": 18,
-    "innovation_impact": 14,
-    "truth_knowledge": 9,
-    "civic_public": 9,
-    "excellence_prestige": 4,
-    "career_economy": 1,
+    "global_leadership": 22,
+    "civic_public": 18,
+    "innovation_impact": 16,
+    "truth_knowledge": 10,
+    "excellence_prestige": 5,
+    "career_economy": 2,
     "inclusion_belonging": 0
   },
   "termFamilyByYear": [
     {
-      "year": 2010,
+      "year": 2000,
       "family": "career_economy",
       "pages": 1,
       "count": 0,
-      "words": 342,
+      "words": 692,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2000,
+      "family": "civic_public",
+      "pages": 1,
+      "count": 5,
+      "words": 692,
+      "count_per_1000_words": 7.225
+    },
+    {
+      "year": 2000,
+      "family": "excellence_prestige",
+      "pages": 1,
+      "count": 0,
+      "words": 692,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2000,
+      "family": "global_leadership",
+      "pages": 1,
+      "count": 0,
+      "words": 692,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2000,
+      "family": "inclusion_belonging",
+      "pages": 1,
+      "count": 0,
+      "words": 692,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2000,
+      "family": "innovation_impact",
+      "pages": 1,
+      "count": 1,
+      "words": 692,
+      "count_per_1000_words": 1.445
+    },
+    {
+      "year": 2000,
+      "family": "truth_knowledge",
+      "pages": 1,
+      "count": 0,
+      "words": 692,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2005,
+      "family": "career_economy",
+      "pages": 1,
+      "count": 0,
+      "words": 622,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2005,
+      "family": "civic_public",
+      "pages": 1,
+      "count": 3,
+      "words": 622,
+      "count_per_1000_words": 4.823
+    },
+    {
+      "year": 2005,
+      "family": "excellence_prestige",
+      "pages": 1,
+      "count": 0,
+      "words": 622,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2005,
+      "family": "global_leadership",
+      "pages": 1,
+      "count": 0,
+      "words": 622,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2005,
+      "family": "inclusion_belonging",
+      "pages": 1,
+      "count": 0,
+      "words": 622,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2005,
+      "family": "innovation_impact",
+      "pages": 1,
+      "count": 0,
+      "words": 622,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2005,
+      "family": "truth_knowledge",
+      "pages": 1,
+      "count": 0,
+      "words": 622,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2010,
+      "family": "career_economy",
+      "pages": 2,
+      "count": 0,
+      "words": 456,
       "count_per_1000_words": 0
     },
     {
       "year": 2010,
       "family": "civic_public",
-      "pages": 1,
-      "count": 1,
-      "words": 342,
-      "count_per_1000_words": 2.924
+      "pages": 2,
+      "count": 2,
+      "words": 456,
+      "count_per_1000_words": 4.386
     },
     {
       "year": 2010,
       "family": "excellence_prestige",
-      "pages": 1,
+      "pages": 2,
       "count": 1,
-      "words": 342,
-      "count_per_1000_words": 2.924
+      "words": 456,
+      "count_per_1000_words": 2.193
     },
     {
       "year": 2010,
       "family": "global_leadership",
-      "pages": 1,
+      "pages": 2,
       "count": 4,
-      "words": 342,
-      "count_per_1000_words": 11.696
+      "words": 456,
+      "count_per_1000_words": 8.772
     },
     {
       "year": 2010,
       "family": "inclusion_belonging",
-      "pages": 1,
+      "pages": 2,
       "count": 0,
-      "words": 342,
+      "words": 456,
       "count_per_1000_words": 0
     },
     {
       "year": 2010,
       "family": "innovation_impact",
-      "pages": 1,
+      "pages": 2,
       "count": 1,
-      "words": 342,
-      "count_per_1000_words": 2.924
+      "words": 456,
+      "count_per_1000_words": 2.193
     },
     {
       "year": 2010,
       "family": "truth_knowledge",
+      "pages": 2,
+      "count": 0,
+      "words": 456,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2015,
+      "family": "career_economy",
+      "pages": 1,
+      "count": 1,
+      "words": 471,
+      "count_per_1000_words": 2.123
+    },
+    {
+      "year": 2015,
+      "family": "civic_public",
       "pages": 1,
       "count": 0,
-      "words": 342,
+      "words": 471,
       "count_per_1000_words": 0
+    },
+    {
+      "year": 2015,
+      "family": "excellence_prestige",
+      "pages": 1,
+      "count": 1,
+      "words": 471,
+      "count_per_1000_words": 2.123
+    },
+    {
+      "year": 2015,
+      "family": "global_leadership",
+      "pages": 1,
+      "count": 4,
+      "words": 471,
+      "count_per_1000_words": 8.493
+    },
+    {
+      "year": 2015,
+      "family": "inclusion_belonging",
+      "pages": 1,
+      "count": 0,
+      "words": 471,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2015,
+      "family": "innovation_impact",
+      "pages": 1,
+      "count": 1,
+      "words": 471,
+      "count_per_1000_words": 2.123
+    },
+    {
+      "year": 2015,
+      "family": "truth_knowledge",
+      "pages": 1,
+      "count": 1,
+      "words": 471,
+      "count_per_1000_words": 2.123
     },
     {
       "year": 2020,
@@ -436,52 +604,67 @@
       "archive_url": ""
     },
     {
-      "institution": "Stanford University",
+      "institution": "Harvard University",
+      "source_layer": "wayback",
+      "year": 2000,
+      "words": 692,
+      "term_counts": {
+        "truth_knowledge": 0,
+        "civic_public": 5,
+        "innovation_impact": 1,
+        "global_leadership": 0,
+        "excellence_prestige": 0,
+        "inclusion_belonging": 0,
+        "career_economy": 0
+      },
+      "snippets": [
+        "insignia merchandise in their online catalog. Harvard Museum of Natural History gift shop Totebags, t-shirts, publications, slides, and other gift items drawn from the Museum's collections. Harvard Student Agencies The HSA sel",
+        "at Harvard. Proceeds from each sale help support the University's museums and collections Harvard Cooperative Society Affectionately known as The Coop (rhymes with \"loop\"), this campus bookstore carries Harvard t-shirts and oth",
+        "ard | Academics | Admissions | Administration | Alumni | Campus | Directories | Employment | Libs & Museums | Technology Contact the Webmaster staff Copyright 2000 by the President and Fellows of Harvard College"
+      ],
+      "url": "https://www.harvard.edu/about/",
+      "archive_url": "https://web.archive.org/web/20000815063750id_/https://www.harvard.edu/about/"
+    },
+    {
+      "institution": "Harvard University",
+      "source_layer": "wayback",
+      "year": 2005,
+      "words": 622,
+      "term_counts": {
+        "truth_knowledge": 0,
+        "civic_public": 3,
+        "innovation_impact": 0,
+        "global_leadership": 0,
+        "excellence_prestige": 0,
+        "inclusion_belonging": 0,
+        "career_economy": 0
+      },
+      "snippets": [
+        "rections Getting to and around Harvard University links to maps and local transportation resources, including public transit and campus shuttle buses. Harvard gift items Many visitors to our site have asked about online catalo",
+        "sells Harvard merchandise as well as books written by Harvard faculty and staff members. Harvard Cooperative Society Affectionately known as The Coop (rhymes with \"loop\"), this campus bookstore carries Harvard t-shirts and oth"
+      ],
+      "url": "https://www.harvard.edu/about/",
+      "archive_url": "https://web.archive.org/web/20050811022045id_/https://www.harvard.edu/about/"
+    },
+    {
+      "institution": "Harvard University",
       "source_layer": "wayback",
       "year": 2010,
-      "words": 342,
+      "words": 114,
       "term_counts": {
         "truth_knowledge": 0,
         "civic_public": 1,
-        "innovation_impact": 1,
-        "global_leadership": 4,
-        "excellence_prestige": 1,
+        "innovation_impact": 0,
+        "global_leadership": 0,
+        "excellence_prestige": 0,
         "inclusion_belonging": 0,
         "career_economy": 0
       },
       "snippets": [
-        "s leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the public welfare by exercising an influence on behalf of humanity and civilization.\" Stanford opened its doors in 1891",
-        "ly Event Calendar Other Publications Slideshow See Also Video Snapshots Three short videos highlight Stanford innovation, creativity and leadership. Stanford Speak Learn the lingo of \"the Farm.\" Giving to Stanford You can make a d",
-        "en San Francisco and San Jose in the heart of Silicon Valley, Stanford University is recognized as one of the world's leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the",
-        "t remains dedicated to finding solutions to the great challenges of the day and to preparing our students for leadership in today's complex world. Home » About Stanford Stanford Facts & History Stanford Facts and the Annual Report",
-        "rancisco and San Jose in the heart of Silicon Valley, Stanford University is recognized as one of the world's leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the public we"
+        "lege Continuing Education Dental Design Divinity Education Engineering Government Graduate School Law Medical Public Health Radcliffe Institute Faculty of Arts and Sciences Offices Administration Alumni Arts Athletics Employme"
       ],
-      "url": "https://www.stanford.edu/about/",
-      "archive_url": "https://web.archive.org/web/20100717083844id_/https://www.stanford.edu/about/"
-    },
-    {
-      "institution": "Stanford University",
-      "source_layer": "wayback",
-      "year": 2020,
-      "words": 377,
-      "term_counts": {
-        "truth_knowledge": 2,
-        "civic_public": 0,
-        "innovation_impact": 3,
-        "global_leadership": 2,
-        "excellence_prestige": 1,
-        "inclusion_belonging": 0,
-        "career_economy": 0
-      },
-      "snippets": [
-        "ch Stanford: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219",
-        "le Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership Pre",
-        "d: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Le",
-        "Jr., who died of typhoid fever at 15. A History of Stanford Stanford Then & Now Stanford has changed with the world over the last 125+ years, often leading the way with new ideas and discoveries. Here’s a look at Stanford peo",
-        "ry, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership President Marc Tessier-Lavigne Marc Tessier-Lavigne became Stanford University&#8217;s eleventh president on"
-      ],
-      "url": "https://www.stanford.edu/about/",
-      "archive_url": "https://web.archive.org/web/20200406234457id_/https://www.stanford.edu/about/"
+      "url": "https://www.harvard.edu/about/",
+      "archive_url": "https://web.archive.org/web/20100626050049id_/https://www.harvard.edu/about/"
     },
     {
       "institution": "Massachusetts Institute of Technology",
@@ -530,6 +713,78 @@
       ],
       "url": "https://www.princeton.edu/meet-princeton",
       "archive_url": "https://web.archive.org/web/20200314185525id_/https://www.princeton.edu/meet-princeton"
+    },
+    {
+      "institution": "Stanford University",
+      "source_layer": "wayback",
+      "year": 2010,
+      "words": 342,
+      "term_counts": {
+        "truth_knowledge": 0,
+        "civic_public": 1,
+        "innovation_impact": 1,
+        "global_leadership": 4,
+        "excellence_prestige": 1,
+        "inclusion_belonging": 0,
+        "career_economy": 0
+      },
+      "snippets": [
+        "s leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the public welfare by exercising an influence on behalf of humanity and civilization.\" Stanford opened its doors in 1891",
+        "ly Event Calendar Other Publications Slideshow See Also Video Snapshots Three short videos highlight Stanford innovation, creativity and leadership. Stanford Speak Learn the lingo of \"the Farm.\" Giving to Stanford You can make a d",
+        "en San Francisco and San Jose in the heart of Silicon Valley, Stanford University is recognized as one of the world's leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the",
+        "t remains dedicated to finding solutions to the great challenges of the day and to preparing our students for leadership in today's complex world. Home » About Stanford Stanford Facts & History Stanford Facts and the Annual Report",
+        "rancisco and San Jose in the heart of Silicon Valley, Stanford University is recognized as one of the world's leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the public we"
+      ],
+      "url": "https://www.stanford.edu/about/",
+      "archive_url": "https://web.archive.org/web/20100717083844id_/https://www.stanford.edu/about/"
+    },
+    {
+      "institution": "Stanford University",
+      "source_layer": "wayback",
+      "year": 2015,
+      "words": 471,
+      "term_counts": {
+        "truth_knowledge": 1,
+        "civic_public": 0,
+        "innovation_impact": 1,
+        "global_leadership": 4,
+        "excellence_prestige": 1,
+        "inclusion_belonging": 0,
+        "career_economy": 1
+      },
+      "snippets": [
+        "rch Interdisciplinary Institutes Libraries Health care Stanford Health Care Stanford Children's Health Online Learning Stanford Online About Stanford Facts History Accreditation Admission Undergraduate Graduate Financial Aid Res",
+        "or leadership in a complex world. Stanford's 125th Anniversary This year, Stanford celebrates of 125 years of impact in people’s lives and around the world. Visit the Stanford 125 website for information about upcoming events",
+        "ersity, located between San Francisco and San Jose in the heart of California's Silicon Valley, is one of the world's leading teaching and research universities. Since its opening in 1891, Stanford has been dedicated to findi",
+        "ing in 1891, Stanford has been dedicated to finding solutions to big challenges and to preparing students for leadership in a complex world. Stanford's 125th Anniversary This year, Stanford celebrates of 125 years of impact in peo",
+        "located between San Francisco and San Jose in the heart of California's Silicon Valley, is one of the world's leading teaching and research universities. Since its opening in 1891, Stanford has been dedicated to finding solutio"
+      ],
+      "url": "https://www.stanford.edu/about/",
+      "archive_url": "https://web.archive.org/web/20150924105643id_/https://www.stanford.edu/about/"
+    },
+    {
+      "institution": "Stanford University",
+      "source_layer": "wayback",
+      "year": 2020,
+      "words": 377,
+      "term_counts": {
+        "truth_knowledge": 2,
+        "civic_public": 0,
+        "innovation_impact": 3,
+        "global_leadership": 2,
+        "excellence_prestige": 1,
+        "inclusion_belonging": 0,
+        "career_economy": 0
+      },
+      "snippets": [
+        "ch Stanford: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219",
+        "le Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership Pre",
+        "d: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Le",
+        "Jr., who died of typhoid fever at 15. A History of Stanford Stanford Then & Now Stanford has changed with the world over the last 125+ years, often leading the way with new ideas and discoveries. Here’s a look at Stanford peo",
+        "ry, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership President Marc Tessier-Lavigne Marc Tessier-Lavigne became Stanford University&#8217;s eleventh president on"
+      ],
+      "url": "https://www.stanford.edu/about/",
+      "archive_url": "https://web.archive.org/web/20200406234457id_/https://www.stanford.edu/about/"
     }
   ],
   "articleReadiness": {

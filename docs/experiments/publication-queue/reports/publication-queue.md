@@ -1,6 +1,6 @@
 # Cultural Observatory Publication Queue
 
-Generated at: 2026-06-12T19:01:23.149Z
+Generated at: 2026-06-12T19:15:31.656Z
 Ready for editorial review: 3
 Not ready: 3
 
@@ -9,7 +9,7 @@ Not ready: 3
 | 141 | What A Museum Collection Looks Like When It Becomes Data | ready-for-editorial-review | Copyedit from publication handoff; keep chart captions and audit caveats attached. |
 | 126 | Canon Drift: A Feasibility Report | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
 | 118 | What Counts As A Humanities Dataset? | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
-| 18 | What Universities Say They Are For | not-ready-for-publication | Resolve readiness blockers: historical-pages. |
+| 18 | What Universities Say They Are For | not-ready-for-publication | Resolve readiness blockers: audit-flags. |
 | 6 | The Language Of Museums After Decolonization | not-ready-for-publication | Resolve readiness blockers: historical-pages, audit-flags. |
 | -6 | The Rise Of AI And The Humanities | not-ready-for-publication | Resolve readiness blockers: corpus-size, recent-coverage, quantitative-candidates. |
 
@@ -63,8 +63,8 @@ Not ready: 3
 - Handoff: none
 - Result: `docs/experiments/university-mission-statement-drift/reports/result.json`
 - Readiness: `docs/experiments/university-mission-statement-drift/reports/readiness.json`
-- Failed checks: historical-pages: 4 historical snapshots
-- Action: Resolve readiness blockers: historical-pages.
+- Failed checks: audit-flags: 1 flagged rows
+- Action: Resolve readiness blockers: audit-flags.
 - Summary: Audit the archived snippets by hand and add catalogs, strategic plans, and speeches as separate source layers.
 
 ### The Language Of Museums After Decolonization

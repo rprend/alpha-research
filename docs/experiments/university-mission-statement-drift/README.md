@@ -17,8 +17,10 @@ This v1 implementation collects current public mission/about pages for a small i
 - term counts for editorially relevant language families
 - snippets around high-signal terms
 - a first public-draft scaffold
+- a Wayback historical layer with merge-safe snapshot fetching
+- an audit packet for quote/snippet review
 
-Historical snapshots should be added next through archived pages, catalogs, strategic plans, and hand-audited source timelines.
+The current historical layer is source-work, not publication copy. It has enough snapshot count for the first longitudinal gate, but one short archived page still needs replacement or manual exclusion before publication-level trend claims.
 
 ## Runbook
 
@@ -26,16 +28,20 @@ Historical snapshots should be added next through archived pages, catalogs, stra
 node docs/experiments/university-mission-statement-drift/scripts/fetch-current-pages.mjs
 node docs/experiments/university-mission-statement-drift/scripts/discover-wayback-targets.mjs --years=2000,2005,2010,2015,2020
 node docs/experiments/university-mission-statement-drift/scripts/fetch-wayback-snapshots.mjs --years=2000,2005,2010,2015,2020
+node docs/experiments/university-mission-statement-drift/scripts/fetch-wayback-snapshots.mjs --targets=wayback-historical-targets.json --years=2003,2004,2005,2007,2008
 node docs/experiments/university-mission-statement-drift/scripts/build-report.mjs
 node docs/experiments/university-mission-statement-drift/scripts/build-audit-packet.mjs
 node docs/experiments/university-mission-statement-drift/scripts/check-readiness.mjs
 ```
+
+`fetch-wayback-snapshots.mjs` preserves existing snapshots by default and updates the manifest from all local snapshot metadata. Use `--clean=true` only when intentionally replacing the run directory.
 
 Outputs:
 
 - `data/raw/current-pages/YYYY-MM-DD/`
 - `data/raw/wayback-discovery/YYYY-MM-DD/`
 - `data/raw/wayback-snapshots/YYYY-MM-DD/`
+- `config/wayback-historical-targets.json`
 - `data/processed/pages.json`
 - `data/processed/term-counts.csv`
 - `data/processed/page-term-counts.csv`

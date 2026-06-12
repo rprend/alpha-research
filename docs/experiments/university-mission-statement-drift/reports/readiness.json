@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T17:56:09.652Z",
+  "generatedAt": "2026-06-12T19:15:31.613Z",
   "status": "not-ready-for-publication",
   "checks": [
     {
@@ -11,26 +11,26 @@
     {
       "id": "historical-pages",
       "label": "At least 8 historical snapshots are collected before publication-level trend claims",
-      "status": "needs-work",
-      "evidence": "4 historical snapshots"
+      "status": "pass",
+      "evidence": "8 historical snapshots"
     },
     {
       "id": "audit-flags",
       "label": "No source pages have automatic audit flags",
-      "status": "pass",
-      "evidence": "0 flagged rows"
+      "status": "needs-work",
+      "evidence": "1 flagged rows"
     },
     {
       "id": "year-coverage",
       "label": "At least two non-current years have historical evidence",
       "status": "pass",
-      "evidence": "2010, 2020"
+      "evidence": "2000, 2005, 2010, 2015, 2020"
     },
     {
       "id": "institution-year-coverage",
       "label": "At least two institutions are represented in each historical claim year",
       "status": "pass",
-      "evidence": "years with >=2 institutions: 2020"
+      "evidence": "years with >=2 institutions: 2010, 2020"
     },
     {
       "id": "public-draft",

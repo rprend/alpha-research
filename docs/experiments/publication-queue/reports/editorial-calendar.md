@@ -8,6 +8,6 @@
 
 ## Source Work Queue
 
-1. What Universities Say They Are For - Resolve readiness blockers: historical-pages.
+1. What Universities Say They Are For - Resolve readiness blockers: audit-flags.
 2. The Language Of Museums After Decolonization - Resolve readiness blockers: historical-pages, audit-flags.
 3. The Rise Of AI And The Humanities - Resolve readiness blockers: corpus-size, recent-coverage, quantitative-candidates.

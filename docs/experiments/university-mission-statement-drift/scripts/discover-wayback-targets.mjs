@@ -16,11 +16,11 @@ const years = String(args.years ?? "2000,2005,2010,2015,2020")
   .filter(Boolean);
 const timeoutMs = Number(args.timeout ?? 12000);
 const limitPerInstitution = Number(args["limit-per-institution"] ?? 6);
-const institutionLimit = Number(args.institutions ?? institutions.length);
 const seedLimit = Number(args["seed-limit"] ?? 6);
 const patterns = ["*mission*", "*about*", "*vision*", "*values*", "*history*", "*strategic*", "*plan*"];
 const runDate = today();
 const institutions = await readJson(path.join(experimentDir, "config", "institutions.json"));
+const institutionLimit = Number(args.institutions ?? institutions.length);
 const historicalPathPatterns = await readJson(path.join(experimentDir, "config", "historical-path-patterns.json"));
 const outDir = path.join(experimentDir, "data", "raw", "wayback-discovery", runDate);
 const candidates = [];
