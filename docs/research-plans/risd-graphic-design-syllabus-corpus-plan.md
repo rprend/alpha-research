@@ -91,6 +91,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/self_study_progress_ledger.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_progress_ledger.md`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_progress_rollups.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_completion_gates.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_milestones.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_reference_packets.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_source_excerpt_packets.jsonl`
@@ -365,7 +366,7 @@ Acceptance output:
 
 ### Step 9: Generate A Mentor-Style Self-Study Curriculum From Evidence
 
-Status: implemented for evidence-filtered module selection, filtered assignment/reading/schedule display, module-level practice loops, explicit missing-evidence warnings, student/faculty comparison boundaries, a machine-readable `self_study_modules.jsonl` artifact, weekly `self_study_pacing_plan.jsonl`, profile `self_study_pacing_profiles.jsonl`, learner-facing `self_study_progress_ledger.jsonl` and `.md` artifacts, portfolio progress rollup `self_study_portfolio_progress_rollups.jsonl`, portfolio milestone `self_study_portfolio_milestones.jsonl`, relationship-labeled `self_study_portfolio_reference_packets.jsonl`, per-milestone `self_study_portfolio_source_excerpt_packets.jsonl`, optional printable/export `self_study_portfolio_export_manifests.jsonl`, and export-friendly `self_study_portfolio_briefs/*.md` artifacts, module-grounded `tacit_knowledge_memo.md` sections, per-module confidence scores/explanations, module ordering rationales with near-miss candidates, track-level prerequisite/dependency maps, learner-facing weekly pacing, workload estimates, adjustable compressed/standard/slow pacing profiles, portfolio milestone checkpoints, independent portfolio review pages, and validation that generated modules/pacing rows/profiles/progress ledger/progress rollups/milestones/briefs/reference packets/source excerpt packets/export manifests cite source IDs, explain selection confidence/order/dependencies, label student-work and faculty-example relationships, carry short assignment/reading/schedule evidence context, and reference existing assignment/reading/schedule/student-work/faculty-example records. The next improvement should add milestone-level completion gates that define exactly when a rollup is ready for portfolio review.
+Status: implemented for evidence-filtered module selection, filtered assignment/reading/schedule display, module-level practice loops, explicit missing-evidence warnings, student/faculty comparison boundaries, a machine-readable `self_study_modules.jsonl` artifact, weekly `self_study_pacing_plan.jsonl`, profile `self_study_pacing_profiles.jsonl`, learner-facing `self_study_progress_ledger.jsonl` and `.md` artifacts, portfolio progress rollup `self_study_portfolio_progress_rollups.jsonl`, milestone-level completion gate `self_study_portfolio_completion_gates.jsonl`, portfolio milestone `self_study_portfolio_milestones.jsonl`, relationship-labeled `self_study_portfolio_reference_packets.jsonl`, per-milestone `self_study_portfolio_source_excerpt_packets.jsonl`, optional printable/export `self_study_portfolio_export_manifests.jsonl`, and export-friendly `self_study_portfolio_briefs/*.md` artifacts, module-grounded `tacit_knowledge_memo.md` sections, per-module confidence scores/explanations, module ordering rationales with near-miss candidates, track-level prerequisite/dependency maps, learner-facing weekly pacing, workload estimates, adjustable compressed/standard/slow pacing profiles, portfolio milestone checkpoints, independent portfolio review pages, portfolio review readiness gates, and validation that generated modules/pacing rows/profiles/progress ledger/progress rollups/completion gates/milestones/briefs/reference packets/source excerpt packets/export manifests cite source IDs, explain selection confidence/order/dependencies, label student-work and faculty-example relationships, carry short assignment/reading/schedule evidence context, and reference existing assignment/reading/schedule/student-work/faculty-example records. The next improvement should apply learner-maintained gate status updates back into the portfolio briefs and progress ledger so completed work can move from template readiness to review-ready packages.
 
 Goal: make the corpus usable for the original purpose: tacit catch-up through concrete studio loops.
 
@@ -395,6 +396,7 @@ Acceptance output:
 - `self_study_modules.jsonl` for downstream rendering without Markdown parsing
 - `self_study_progress_ledger.jsonl` and `.md` for learner-facing output, critique, and evidence-warning tracking
 - `self_study_portfolio_progress_rollups.jsonl` for rolling weekly ledger rows into portfolio milestone packages
+- `self_study_portfolio_completion_gates.jsonl` for explicit review-readiness checks and blocking conditions per portfolio milestone
 - `self_study_portfolio_briefs.jsonl` plus one standalone Markdown brief per portfolio milestone
 - `self_study_portfolio_reference_packets.jsonl` with relationship-labeled student-work and faculty-portfolio examples
 - `self_study_portfolio_source_excerpt_packets.jsonl` with short source-context excerpts for each portfolio milestone
@@ -1454,6 +1456,7 @@ Corpus checks:
 - Every self-study portfolio source excerpt packet carries short assignment, reading/resource, schedule, and missing-evidence excerpts with valid source IDs.
 - Every self-study progress ledger row maps to a pacing row and includes output checklist, critique/revision log, unresolved evidence warnings, and source IDs.
 - Every self-study portfolio progress rollup maps ledger rows to a milestone export manifest and summarizes outputs, critique logs, and unresolved warnings.
+- Every self-study portfolio completion gate maps to a progress rollup and export manifest, lists required evidence, records current readiness status, and states blocking conditions before review.
 - Inferred fields are marked.
 - Official course inventory count is reconciled against the RISD course page count.
 - Wayback captures are recorded and selected captures are fetched.
@@ -1526,6 +1529,7 @@ This is a docs/data pipeline, so full dashboard QA may not exercise the corpus d
   - Emit `self_study_curriculum.md` with evidence-bounded studio tracks, reading packets, recreated brief prompts, critique checkpoints, and public comparison sets.
   - Emit `self_study_progress_ledger.jsonl` and `.md` with learner-facing tracking rows for outputs, critique revisions, and unresolved evidence warnings.
   - Emit `self_study_portfolio_progress_rollups.jsonl` connecting weekly ledger rows to milestone export manifests.
+  - Emit `self_study_portfolio_completion_gates.jsonl` defining review-readiness checks, blocking conditions, and required evidence for each portfolio milestone.
   - Emit `self_study_portfolio_briefs/*.md` as standalone portfolio review sheets for export or printing.
   - Emit `self_study_portfolio_reference_packets.jsonl` with relationship-labeled public reference examples for each portfolio milestone.
   - Emit `self_study_portfolio_source_excerpt_packets.jsonl` with short evidence-context excerpts for each portfolio milestone.
