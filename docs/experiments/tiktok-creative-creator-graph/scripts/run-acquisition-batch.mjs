@@ -16,7 +16,10 @@ const args = new Map(process.argv.slice(2).map((arg) => {
 const provider = String(args.get('--provider') ?? 'apify')
 const maxTasks = Number(args.get('--max-tasks') ?? 5)
 const limit = Number(args.get('--limit') ?? 100)
-const dryRun = args.has('--dry-run') || !process.env.APIFY_TOKEN
+const wantsLive = args.has('--live')
+const confirmedLive = args.has('--confirm-live')
+const hasProviderToken = Boolean(process.env.APIFY_TOKEN)
+const dryRun = args.has('--dry-run') || !wantsLive
 const priorityMax = Number(args.get('--priority-max') ?? 1)
 const waveArg = args.get('--wave')
 
@@ -43,6 +46,11 @@ function writeJsonl(path, rows) {
 
 function appendJsonl(path, row) {
   appendFileSync(path, `${JSON.stringify(row)}\n`)
+}
+
+function readJsonIfExists(path) {
+  if (!existsSync(path)) return null
+  return JSON.parse(readFileSync(path, 'utf8'))
 }
 
 function renderTemplate(value, task) {
@@ -119,6 +127,32 @@ const adapters = readJson(join(configDir, 'provider-adapters.json'))
 const adapter = adapters[provider]
 if (!adapter) throw new Error(`No provider adapter configured for ${provider}`)
 
+function assertLiveRunAllowed(selectedWave, tasks) {
+  if (dryRun) return
+  if (!hasProviderToken) {
+    throw new Error('Live provider execution requires APIFY_TOKEN in the environment. Run with --dry-run or provide the token through the configured secrets flow.')
+  }
+  if (!confirmedLive) {
+    throw new Error('Live provider execution requires --confirm-live. Run with --dry-run or pass --live --confirm-live after checking provider preflight.')
+  }
+  if (!selectedWave) {
+    throw new Error('Live provider execution requires a specific --wave so spend is tied to the scale wave ledger.')
+  }
+  const preflight = readJsonIfExists(join(reportsDir, 'provider-preflight.json'))
+  const preflightRows = readJsonl(join(processedDir, 'provider_preflight.jsonl'))
+  if (!preflight || !preflightRows.length) {
+    throw new Error('Live provider execution requires provider preflight. Run build-provider-preflight.mjs first.')
+  }
+  if (!preflight.within_budget || Number(preflight.blocked_tasks) > 0) {
+    throw new Error('Live provider execution blocked: provider preflight is over budget or has blocked tasks.')
+  }
+  const coveredBatchIds = new Set(preflightRows.filter((row) => row.wave_id === selectedWave.wave_id && row.ready).map((row) => row.batch_id))
+  const missing = tasks.filter((task) => !coveredBatchIds.has(task.batch_id)).map((task) => task.batch_id)
+  if (missing.length) {
+    throw new Error(`Live provider execution blocked: preflight does not cover ${selectedWave.wave_id} task(s): ${missing.join(', ')}`)
+  }
+}
+
 async function main() {
   ensureDir(acquisitionResultsDir)
   ensureDir(reportsDir)
@@ -139,6 +173,7 @@ async function main() {
     .slice(0, maxTasks)
   const runnableTasks = tasks.filter((task) => adapter.actors[task.acquisition_surface])
   const skippedTasks = tasks.filter((task) => !adapter.actors[task.acquisition_surface])
+  assertLiveRunAllowed(selectedWave, tasks)
 
   const executionId = new Date().toISOString().replace(/[:.]/g, '-')
   const results = skippedTasks.map((task) => ({
@@ -218,6 +253,8 @@ async function main() {
     wave_id: selectedWave?.wave_id ?? '',
     wave_found: waveArg ? Boolean(selectedWave) : null,
     dry_run: dryRun,
+    live_requested: wantsLive,
+    live_confirmed: confirmedLive,
     selected_tasks: tasks.length,
     runnable_tasks: runnableTasks.length,
     skipped_tasks: skippedTasks.length,
@@ -237,6 +274,8 @@ Generated: ${summary.generated_at}
 - Provider: ${summary.provider}
 - Wave: ${summary.wave_id || 'none'}
 - Dry run: ${summary.dry_run}
+- Live requested: ${summary.live_requested}
+- Live confirmed: ${summary.live_confirmed}
 - Selected tasks: ${summary.selected_tasks}
 - Runnable tasks: ${summary.runnable_tasks}
 - Skipped tasks: ${summary.skipped_tasks}

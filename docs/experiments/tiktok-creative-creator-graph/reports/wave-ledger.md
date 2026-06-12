@@ -1,24 +1,24 @@
 # Wave Ledger
 
-Generated: 2026-06-12T20:48:05.310Z
+Generated: 2026-06-12T20:51:58.053Z
 
 - Waves: 1000
-- Planned: 997
-- Dry-run: 3
+- Planned: 995
+- Dry-run: 5
 - Succeeded: 0
 - Imported: 0
 - Failed: 0
-- Run attempts: 3
-- Dry-run attempts: 3
+- Run attempts: 7
+- Dry-run attempts: 7
 - Live-run attempts: 0
 - Review needed: 496
-- Latest run wave: scale_wave_0003
-- Next ready wave: scale_wave_0004
+- Latest run wave: scale_wave_0005
+- Next ready wave: scale_wave_0006
 
 Next command:
 
 ```bash
-node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --max-tasks=8 --priority-max=2 --wave=0004
+node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --max-tasks=8 --priority-max=2 --wave=0006
 ```
 
 ## First 20 Rows
@@ -28,8 +28,8 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 | 1 | scale_wave_0001 | dry_run | editor | tiktok_hashtag_export | filmmaker | 1 |
 | 2 | scale_wave_0002 | dry_run | director | tiktok_hashtag_export | shortfilm | 1 |
 | 3 | scale_wave_0003 | dry_run | standup_comedian | tiktok_hashtag_export | sketchcomedy | 1 |
-| 4 | scale_wave_0004 | planned | actor_performer | category_gap_search | site:tiktok.com/@ "filmmaker" | 1 |
-| 5 | scale_wave_0005 | planned | film_educator | category_gap_search | site:tiktok.com/@ "shortfilm" | 1 |
+| 4 | scale_wave_0004 | dry_run | actor_performer | category_gap_search | site:tiktok.com/@ "filmmaker" | 1 |
+| 5 | scale_wave_0005 | dry_run | film_educator | category_gap_search | site:tiktok.com/@ "shortfilm" | 1 |
 | 6 | scale_wave_0006 | planned | behind_the_scenes_creator | search_index | site:tiktok.com/@ filmmaker | 1 |
 | 7 | scale_wave_0007 | planned | filmmaker | search_index | site:tiktok.com/@ "short film" | 1 |
 | 8 | scale_wave_0008 | planned | sketch_comedian | category_gap_search | site:tiktok.com/@ "sketch comedian" | 1 |

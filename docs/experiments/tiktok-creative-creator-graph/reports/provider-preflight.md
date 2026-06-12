@@ -1,6 +1,6 @@
 # Provider Preflight
 
-Generated: 2026-06-12T20:48:05.356Z
+Generated: 2026-06-12T20:51:58.094Z
 
 - Provider: apify
 - Selected waves: 10
@@ -12,22 +12,18 @@ Generated: 2026-06-12T20:48:05.356Z
 - Estimated cost: $5
 - Budget: $25
 - Within budget: true
-- Next wave: scale_wave_0004
+- Next wave: scale_wave_0006
 
 Next command:
 
 ```bash
-node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --max-tasks=8 --priority-max=2 --wave=0004
+node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --max-tasks=8 --priority-max=2 --wave=0006
 ```
 
 ## First Rows
 
 | Wave | Batch | Surface | Query | Actor | Ready | Est. rows | Est. cost |
 | --- | --- | --- | --- | --- | --- | ---: | ---: |
-| scale_wave_0004 | category_gap_0049 | category_gap_search | site:tiktok.com/@ "filmmaker" | apify/google-search-scraper | true | 100 | $0.25 |
-| scale_wave_0004 | category_gap_0038 | category_gap_search | site:tiktok.com/@ "actor" | apify/google-search-scraper | true | 100 | $0.25 |
-| scale_wave_0005 | category_gap_0050 | category_gap_search | site:tiktok.com/@ "shortfilm" | apify/google-search-scraper | true | 100 | $0.25 |
-| scale_wave_0005 | category_gap_0039 | category_gap_search | site:tiktok.com/@ "actress" | apify/google-search-scraper | true | 100 | $0.25 |
 | scale_wave_0006 | search_0001 | search_index | site:tiktok.com/@ filmmaker | apify/google-search-scraper | true | 100 | $0.25 |
 | scale_wave_0006 | category_gap_0040 | category_gap_search | site:tiktok.com/@ "performer" | apify/google-search-scraper | true | 100 | $0.25 |
 | scale_wave_0007 | search_0002 | search_index | site:tiktok.com/@ "short film" | apify/google-search-scraper | true | 100 | $0.25 |
@@ -44,5 +40,9 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 | scale_wave_0012 | category_gap_0057 | category_gap_search | site:tiktok.com/@ "vfx animation" | apify/google-search-scraper | true | 100 | $0.25 |
 | scale_wave_0013 | category_gap_0028 | category_gap_search | site:tiktok.com/@ "editor" | apify/google-search-scraper | true | 100 | $0.25 |
 | scale_wave_0013 | category_gap_0058 | category_gap_search | site:tiktok.com/@ "vfx" | apify/google-search-scraper | true | 100 | $0.25 |
+| scale_wave_0014 | category_gap_0029 | category_gap_search | site:tiktok.com/@ "editing" | apify/google-search-scraper | true | 100 | $0.25 |
+| scale_wave_0014 | category_gap_0059 | category_gap_search | site:tiktok.com/@ "visual effects" | apify/google-search-scraper | true | 100 | $0.25 |
+| scale_wave_0015 | search_0006 | search_index | site:tiktok.com/@ "video editor" | apify/google-search-scraper | true | 100 | $0.25 |
+| scale_wave_0015 | category_gap_0060 | category_gap_search | site:tiktok.com/@ "animation" | apify/google-search-scraper | true | 100 | $0.25 |
 
 Full preflight: `data/processed/provider_preflight.csv`

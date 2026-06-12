@@ -1,10 +1,12 @@
 {
-  "generated_at": "2026-06-12T20:48:05.258Z",
-  "execution_id": "2026-06-12T20-48-05-257Z",
+  "generated_at": "2026-06-12T20:51:58.014Z",
+  "execution_id": "2026-06-12T20-51-58-013Z",
   "provider": "apify",
-  "wave_id": "scale_wave_0003",
+  "wave_id": "scale_wave_0005",
   "wave_found": true,
   "dry_run": true,
+  "live_requested": false,
+  "live_confirmed": false,
   "selected_tasks": 2,
   "runnable_tasks": 2,
   "skipped_tasks": 0,
@@ -14,50 +16,48 @@
   "output_rows": 0,
   "results": [
     {
-      "execution_id": "2026-06-12T20-48-05-257Z",
+      "execution_id": "2026-06-12T20-51-58-013Z",
       "provider": "apify",
-      "batch_id": "hashtag_0016",
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "sketchcomedy",
-      "target_label": "sketch_comedian",
-      "actor_id": "clockworks/tiktok-scraper",
-      "input": {
-        "hashtags": [
-          "sketchcomedy"
-        ],
-        "resultsPerPage": 100,
-        "shouldDownloadVideos": false,
-        "shouldDownloadCovers": false,
-        "shouldDownloadSubtitles": false
-      },
-      "dry_run": true,
-      "started_at": "2026-06-12T20:48:05.258Z",
-      "status": "dry_run",
-      "output_rows": 0,
-      "output_path": "",
-      "finished_at": "2026-06-12T20:48:05.258Z"
-    },
-    {
-      "execution_id": "2026-06-12T20-48-05-257Z",
-      "provider": "apify",
-      "batch_id": "category_gap_0037",
+      "batch_id": "category_gap_0050",
       "acquisition_surface": "category_gap_search",
-      "query": "site:tiktok.com/@ \"actor performer\"",
-      "target_label": "actor_performer",
+      "query": "site:tiktok.com/@ \"shortfilm\"",
+      "target_label": "filmmaker",
       "actor_id": "apify/google-search-scraper",
       "input": {
-        "queries": "site:tiktok.com/@ \"actor performer\"",
+        "queries": "site:tiktok.com/@ \"shortfilm\"",
         "maxPagesPerQuery": 1,
         "resultsPerPage": 100,
         "countryCode": "us",
         "languageCode": "en"
       },
       "dry_run": true,
-      "started_at": "2026-06-12T20:48:05.258Z",
+      "started_at": "2026-06-12T20:51:58.014Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-12T20:48:05.258Z"
+      "finished_at": "2026-06-12T20:51:58.014Z"
+    },
+    {
+      "execution_id": "2026-06-12T20-51-58-013Z",
+      "provider": "apify",
+      "batch_id": "category_gap_0039",
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"actress\"",
+      "target_label": "actor_performer",
+      "actor_id": "apify/google-search-scraper",
+      "input": {
+        "queries": "site:tiktok.com/@ \"actress\"",
+        "maxPagesPerQuery": 1,
+        "resultsPerPage": 100,
+        "countryCode": "us",
+        "languageCode": "en"
+      },
+      "dry_run": true,
+      "started_at": "2026-06-12T20:51:58.014Z",
+      "status": "dry_run",
+      "output_rows": 0,
+      "output_path": "",
+      "finished_at": "2026-06-12T20:51:58.014Z"
     }
   ]
 }

@@ -1,10 +1,12 @@
 # Acquisition Run
 
-Generated: 2026-06-12T20:48:05.258Z
+Generated: 2026-06-12T20:51:58.014Z
 
 - Provider: apify
-- Wave: scale_wave_0003
+- Wave: scale_wave_0005
 - Dry run: true
+- Live requested: false
+- Live confirmed: false
 - Selected tasks: 2
 - Runnable tasks: 2
 - Skipped tasks: 0
@@ -17,5 +19,5 @@ Generated: 2026-06-12T20:48:05.258Z
 
 | Batch | Surface | Target Label | Query | Status | Rows |
 | --- | --- | --- | --- | --- | ---: |
-| hashtag_0016 | tiktok_hashtag_export | sketch_comedian | sketchcomedy | dry_run | 0 |
-| category_gap_0037 | category_gap_search | actor_performer | site:tiktok.com/@ "actor performer" | dry_run | 0 |
+| category_gap_0050 | category_gap_search | filmmaker | site:tiktok.com/@ "shortfilm" | dry_run | 0 |
+| category_gap_0039 | category_gap_search | actor_performer | site:tiktok.com/@ "actress" | dry_run | 0 |
