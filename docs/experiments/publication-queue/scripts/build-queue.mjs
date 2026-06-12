@@ -73,6 +73,7 @@ await writeText(path.join(outDir, "publication-queue.csv"), toCsv(rows, [
   "priority_score",
   "recommended_action",
   "post_path",
+  "post_audit_path",
   "draft_path",
   "handoff_path",
   "result_path",
@@ -88,12 +89,14 @@ async function buildRow(experiment) {
   const resultPath = path.join(reportsDir, "result.json");
   const readinessPath = path.join(reportsDir, "readiness.json");
   const postPath = path.join(reportsDir, "post.md");
+  const postAuditPath = path.join(reportsDir, "post-evidence-audit.json");
   const publicationDraftPath = path.join(reportsDir, "publication-draft.md");
   const publicDraftPath = path.join(reportsDir, "public-draft.md");
   const handoffPath = path.join(reportsDir, "publication-handoff.json");
   const draftPath = await exists(postPath) ? postPath : await exists(publicationDraftPath) ? publicationDraftPath : publicDraftPath;
   const result = await readOptionalJson(resultPath);
   const readiness = await readOptionalJson(readinessPath);
+  const postAudit = await readOptionalJson(postAuditPath);
   const handoff = await readOptionalJson(handoffPath);
   const draft = await readOptionalText(draftPath);
   const checks = readiness?.checks ?? [];
@@ -101,9 +104,10 @@ async function buildRow(experiment) {
   const ready = readiness?.status === "ready-for-editorial-review";
   const hasDraft = Boolean(draft?.trim());
   const hasPost = draftPath === postPath && hasDraft;
+  const hasPassingPostAudit = hasPost && postAudit?.status === "pass";
   const hasHandoff = Boolean(handoff);
   const chartCount = await countCharts(reportsDir);
-  const priorityScore = score({ ready, failedChecks, hasDraft, hasPost, hasHandoff, chartCount, experiment });
+  const priorityScore = score({ ready, failedChecks, hasDraft, hasPost, hasPassingPostAudit, hasHandoff, chartCount, experiment });
   return {
     id: experiment.id,
     title: experiment.title,
@@ -111,14 +115,16 @@ async function buildRow(experiment) {
     editorial_lane: experiment.editorialLane,
     readiness_status: readiness?.status ?? "missing-readiness",
     priority_score: priorityScore,
-    recommended_action: recommend({ ready, failedChecks, hasPost, hasHandoff, chartCount, experiment }),
+    recommended_action: recommend({ ready, failedChecks, hasPost, hasPassingPostAudit, hasHandoff, chartCount, experiment }),
     failed_checks: failedChecks.map((check) => `${check.id}: ${check.evidence}`).join("; "),
     draft_exists: hasDraft,
     post_exists: hasPost,
+    post_audit_status: postAudit?.status ?? "",
     handoff_exists: hasHandoff,
     chart_count: chartCount,
     summary: result?.strongestFinding ?? result?.articleReadiness?.strongestNextMove ?? "",
     post_path: hasPost ? postPath : "",
+    post_audit_path: postAudit ? postAuditPath : "",
     draft_path: draftPath,
     handoff_path: hasHandoff ? handoffPath : "",
     result_path: resultPath,
@@ -126,9 +132,10 @@ async function buildRow(experiment) {
   };
 }
 
-function score({ ready, failedChecks, hasDraft, hasPost, hasHandoff, chartCount, experiment }) {
+function score({ ready, failedChecks, hasDraft, hasPost, hasPassingPostAudit, hasHandoff, chartCount, experiment }) {
   let value = ready ? 100 : 20;
   if (hasPost) value += 15;
+  if (hasPassingPostAudit) value += 8;
   if (hasDraft) value += 10;
   if (hasHandoff) value += 8;
   if (chartCount) value += Math.min(10, chartCount * 2);
@@ -138,7 +145,8 @@ function score({ ready, failedChecks, hasDraft, hasPost, hasHandoff, chartCount,
   return value;
 }
 
-function recommend({ ready, failedChecks, hasPost, hasHandoff, chartCount, experiment }) {
+function recommend({ ready, failedChecks, hasPost, hasPassingPostAudit, hasHandoff, chartCount, experiment }) {
+  if (ready && hasPost && hasPassingPostAudit) return "Final editorial review; representative evidence audit passed.";
   if (ready && hasPost) return "Review polished post draft, verify representative evidence, and prepare for publication.";
   if (ready && experiment.editorialLane === "first-public-essay" && hasHandoff) return "Copyedit from publication handoff; keep chart captions and audit caveats attached.";
   if (ready && hasHandoff) return "Copyedit from publication handoff; preserve source limits and claim checklist.";
@@ -211,6 +219,7 @@ function buildQueueMarkdown(queue) {
       `- Lane: ${row.editorial_lane}`,
       `- Status: ${row.readiness_status}`,
       `- Post: ${row.post_path ? `\`${row.post_path}\`` : "none"}`,
+      `- Post audit: ${row.post_audit_path ? `\`${row.post_audit_path}\` (${row.post_audit_status})` : "none"}`,
       `- Draft: \`${row.draft_path}\``,
       `- Handoff: ${row.handoff_path ? `\`${row.handoff_path}\`` : "none"}`,
       `- Result: \`${row.result_path}\``,

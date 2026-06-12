@@ -1,13 +1,13 @@
 # Cultural Observatory Publication Queue
 
-Generated at: 2026-06-12T20:23:37.666Z
+Generated at: 2026-06-12T20:27:50.591Z
 Ready for editorial review: 6
 Not ready: 0
 
 | Priority | Title | Status | Action |
 | ---: | --- | --- | --- |
+| 141 | The Rise Of AI And The Humanities | ready-for-editorial-review | Final editorial review; representative evidence audit passed. |
 | 141 | What A Museum Collection Looks Like When It Becomes Data | ready-for-editorial-review | Copyedit from publication handoff; keep chart captions and audit caveats attached. |
-| 133 | The Rise Of AI And The Humanities | ready-for-editorial-review | Review polished post draft, verify representative evidence, and prepare for publication. |
 | 126 | Canon Drift: A Feasibility Report | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
 | 118 | The Language Of Museums After Decolonization | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
 | 118 | What Counts As A Humanities Dataset? | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
@@ -15,12 +15,28 @@ Not ready: 0
 
 ## Details
 
+### The Rise Of AI And The Humanities
+
+- Format: field-map
+- Lane: field-map
+- Status: ready-for-editorial-review
+- Post: `docs/experiments/humanities-literature-radar/reports/post.md`
+- Post audit: `docs/experiments/humanities-literature-radar/reports/post-evidence-audit.json` (pass)
+- Draft: `docs/experiments/humanities-literature-radar/reports/post.md`
+- Handoff: `docs/experiments/humanities-literature-radar/reports/publication-handoff.json`
+- Result: `docs/experiments/humanities-literature-radar/reports/result.json`
+- Readiness: `docs/experiments/humanities-literature-radar/reports/readiness.json`
+- Failed checks: none
+- Action: Final editorial review; representative evidence audit passed.
+- Summary: The v1 literature radar is large enough for a field-map essay about AI, computational methods, and quantitative humanities signals, but source coverage remains uneven.
+
 ### What A Museum Collection Looks Like When It Becomes Data
 
 - Format: field-map
 - Lane: first-public-essay
 - Status: ready-for-editorial-review
 - Post: none
+- Post audit: none
 - Draft: `docs/experiments/cleveland-museum-collection-shape/reports/publication-draft.md`
 - Handoff: `docs/experiments/cleveland-museum-collection-shape/reports/publication-handoff.json`
 - Result: `docs/experiments/cleveland-museum-collection-shape/reports/result.json`
@@ -29,26 +45,13 @@ Not ready: 0
 - Action: Copyedit from publication handoff; keep chart captions and audit caveats attached.
 - Summary: A structured museum API turns a collection into analyzable records, but the first artifact is a bounded sample of one institution, not a statement about museums generally.
 
-### The Rise Of AI And The Humanities
-
-- Format: field-map
-- Lane: field-map
-- Status: ready-for-editorial-review
-- Post: `docs/experiments/humanities-literature-radar/reports/post.md`
-- Draft: `docs/experiments/humanities-literature-radar/reports/post.md`
-- Handoff: `docs/experiments/humanities-literature-radar/reports/publication-handoff.json`
-- Result: `docs/experiments/humanities-literature-radar/reports/result.json`
-- Readiness: `docs/experiments/humanities-literature-radar/reports/readiness.json`
-- Failed checks: none
-- Action: Review polished post draft, verify representative evidence, and prepare for publication.
-- Summary: The v1 literature radar is large enough for a field-map essay about AI, computational methods, and quantitative humanities signals, but source coverage remains uneven.
-
 ### Canon Drift: A Feasibility Report
 
 - Format: moving-canon
 - Lane: methods-piece
 - Status: ready-for-editorial-review
 - Post: none
+- Post audit: none
 - Draft: `docs/experiments/canon-drift-feasibility/reports/public-draft.md`
 - Handoff: `docs/experiments/canon-drift-feasibility/reports/publication-handoff.json`
 - Result: `docs/experiments/canon-drift-feasibility/reports/result.json`
@@ -63,6 +66,7 @@ Not ready: 0
 - Lane: longitudinal
 - Status: ready-for-editorial-review
 - Post: none
+- Post audit: none
 - Draft: `docs/experiments/museum-language-drift/reports/public-draft.md`
 - Handoff: `docs/experiments/museum-language-drift/reports/publication-handoff.json`
 - Result: `docs/experiments/museum-language-drift/reports/result.json`
@@ -77,6 +81,7 @@ Not ready: 0
 - Lane: research-agenda
 - Status: ready-for-editorial-review
 - Post: none
+- Post audit: none
 - Draft: `docs/experiments/humanities-dataset-registry/reports/public-draft.md`
 - Handoff: `docs/experiments/humanities-dataset-registry/reports/publication-handoff.json`
 - Result: `docs/experiments/humanities-dataset-registry/reports/result.json`
@@ -91,6 +96,7 @@ Not ready: 0
 - Lane: longitudinal
 - Status: ready-for-editorial-review
 - Post: none
+- Post audit: none
 - Draft: `docs/experiments/university-mission-statement-drift/reports/public-draft.md`
 - Handoff: `docs/experiments/university-mission-statement-drift/reports/publication-handoff.json`
 - Result: `docs/experiments/university-mission-statement-drift/reports/result.json`

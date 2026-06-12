@@ -8,6 +8,8 @@ Source artifact: `docs/experiments/humanities-literature-radar/reports/result.js
 
 Remote proof: `docs/experiments/humanities-literature-radar/registration/remote-smoke-run.json`
 
+Evidence audit: `docs/experiments/humanities-literature-radar/reports/post-evidence-audit.json` passed 4/4 representative citations.
+
 ## Thesis
 
 AI is no longer just something humanists react to from outside the field. In the first Humanities Literature Radar corpus, AI, LLMs, and computational methods show up as objects of interpretation, tools for pedagogy and archives, infrastructure for data cleaning, and methods for studying language, culture, and heritage.

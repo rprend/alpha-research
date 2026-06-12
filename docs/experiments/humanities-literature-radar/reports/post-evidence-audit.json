@@ -1,0 +1,261 @@
+{
+  "generatedAt": "2026-06-12T20:27:16.227Z",
+  "postPath": "docs/experiments/humanities-literature-radar/reports/post.md",
+  "corpusPath": "docs/experiments/humanities-literature-radar/data/processed/works.json",
+  "status": "pass",
+  "citationCount": 4,
+  "passedCount": 4,
+  "audited": [
+    {
+      "id": "post-1",
+      "title": "AI-Produced Humanities Research: On the Dangers of Technical Incrementalism",
+      "source": "openalex",
+      "year": 2026,
+      "doi": "10.1007/s13347-026-01085-6",
+      "url": "https://doi.org/10.1007/s13347-026-01085-6",
+      "citedAs": "A direct humanities-theory critique of AI-produced scholarship.",
+      "status": "pass",
+      "matchCount": 1,
+      "matchedWork": {
+        "workId": "doi:10.1007/s13347-026-01085-6",
+        "sourceRecordId": "https://openalex.org/W7152097475",
+        "title": "AI-Produced Humanities Research: On the Dangers of Technical Incrementalism",
+        "source": "openalex",
+        "year": 2026,
+        "publicationDate": "2026-04-08",
+        "doi": "10.1007/s13347-026-01085-6",
+        "url": "https://doi.org/10.1007/s13347-026-01085-6",
+        "venue": "Philosophy & Technology",
+        "authors": [
+          "Thomas R. Metcalf"
+        ],
+        "methods": [
+          "llms"
+        ],
+        "quantitativeSignals": [
+          "llms"
+        ],
+        "rawPath": "data/raw/openalex/2026-06-12/ai-humanities-001.json"
+      },
+      "checks": [
+        {
+          "id": "record-found",
+          "status": "pass",
+          "evidence": "doi:10.1007/s13347-026-01085-6"
+        },
+        {
+          "id": "source-match",
+          "status": "pass",
+          "evidence": "cited=openalex; processed=openalex"
+        },
+        {
+          "id": "year-match",
+          "status": "pass",
+          "evidence": "cited=2026; processed=2026"
+        },
+        {
+          "id": "doi-match",
+          "status": "pass",
+          "evidence": "cited=10.1007/s13347-026-01085-6; processed=10.1007/s13347-026-01085-6"
+        },
+        {
+          "id": "url-present",
+          "status": "pass",
+          "evidence": "https://doi.org/10.1007/s13347-026-01085-6"
+        }
+      ]
+    },
+    {
+      "id": "post-2",
+      "title": "AI Does Not Hallucinate - The Unverifying Human Does",
+      "source": "hcommons",
+      "year": 2026,
+      "doi": "10.17613/17py8-2kq58",
+      "url": "https://works.hcommons.org/records/17py8-2kq58",
+      "citedAs": "Treats generative AI as an epistemology and literacy problem.",
+      "status": "pass",
+      "matchCount": 1,
+      "matchedWork": {
+        "workId": "doi:10.17613/17py8-2kq58",
+        "sourceRecordId": "17py8-2kq58",
+        "title": "AI Does Not Hallucinate — The Unverifying Human Does",
+        "source": "hcommons",
+        "year": "2026",
+        "publicationDate": "2026-05-25",
+        "doi": "10.17613/17py8-2kq58",
+        "url": "https://works.hcommons.org/records/17py8-2kq58",
+        "venue": "halitcengizuzuner.com",
+        "authors": [
+          "Uzuner, Halit Cengiz"
+        ],
+        "methods": [
+          "large language models"
+        ],
+        "quantitativeSignals": [
+          "large language models"
+        ],
+        "rawPath": "data/raw/hcommons/2026-06-12/ai-humanities-007.json"
+      },
+      "checks": [
+        {
+          "id": "record-found",
+          "status": "pass",
+          "evidence": "doi:10.17613/17py8-2kq58"
+        },
+        {
+          "id": "source-match",
+          "status": "pass",
+          "evidence": "cited=hcommons; processed=hcommons"
+        },
+        {
+          "id": "year-match",
+          "status": "pass",
+          "evidence": "cited=2026; processed=2026"
+        },
+        {
+          "id": "doi-match",
+          "status": "pass",
+          "evidence": "cited=10.17613/17py8-2kq58; processed=10.17613/17py8-2kq58"
+        },
+        {
+          "id": "url-present",
+          "status": "pass",
+          "evidence": "https://works.hcommons.org/records/17py8-2kq58"
+        }
+      ]
+    },
+    {
+      "id": "post-3",
+      "title": "AI-Driven Generation of Old English: A Framework for Low-Resource Languages",
+      "source": "doaj",
+      "year": 2026,
+      "doi": "10.3390/bdcc10050145",
+      "url": "https://www.mdpi.com/2504-2289/10/5/145",
+      "citedAs": "Connects LLM methods to historical language work.",
+      "status": "pass",
+      "matchCount": 1,
+      "matchedWork": {
+        "workId": "doi:10.3390/bdcc10050145",
+        "sourceRecordId": "e3872efed40a42a3a1dae1b29fb94902",
+        "title": "AI-Driven Generation of Old English: A Framework for Low-Resource Languages",
+        "source": "doaj",
+        "year": "2026",
+        "publicationDate": "2026-01-01",
+        "doi": "10.3390/bdcc10050145",
+        "url": "https://www.mdpi.com/2504-2289/10/5/145",
+        "venue": "Big Data and Cognitive Computing",
+        "authors": [
+          "Rodrigo Gabriel Salazar Alva",
+          "Matías Núñez",
+          "Cristian López Del Alamo",
+          "Javier Martín Arista"
+        ],
+        "methods": [
+          "philology",
+          "translation",
+          "large language models",
+          "llms",
+          "corpus"
+        ],
+        "quantitativeSignals": [
+          "corpus",
+          "large language models",
+          "llms",
+          "computational"
+        ],
+        "rawPath": "data/raw/doaj/2026-06-12/ai-humanities-006.json"
+      },
+      "checks": [
+        {
+          "id": "record-found",
+          "status": "pass",
+          "evidence": "doi:10.3390/bdcc10050145"
+        },
+        {
+          "id": "source-match",
+          "status": "pass",
+          "evidence": "cited=doaj; processed=doaj"
+        },
+        {
+          "id": "year-match",
+          "status": "pass",
+          "evidence": "cited=2026; processed=2026"
+        },
+        {
+          "id": "doi-match",
+          "status": "pass",
+          "evidence": "cited=10.3390/bdcc10050145; processed=10.3390/bdcc10050145"
+        },
+        {
+          "id": "url-present",
+          "status": "pass",
+          "evidence": "https://www.mdpi.com/2504-2289/10/5/145"
+        }
+      ]
+    },
+    {
+      "id": "post-4",
+      "title": "Are We There Yet? Notes Towards Benchmarking an Experimental AI-Assisted Workflow for Humanities Data Cleaning and Reconciliation",
+      "source": "crossref",
+      "year": 2026,
+      "doi": "10.5334/johd.490",
+      "url": "https://doi.org/10.5334/johd.490",
+      "citedAs": "Treats AI as infrastructure for humanities data work.",
+      "status": "pass",
+      "matchCount": 1,
+      "matchedWork": {
+        "workId": "doi:10.5334/johd.490",
+        "sourceRecordId": "10.5334/johd.490",
+        "title": "Are We There Yet? Notes Towards Benchmarking an Experimental AI-Assisted Workflow for Humanities Data Cleaning and Reconciliation",
+        "source": "crossref",
+        "year": 2026,
+        "publicationDate": "2026-01-01",
+        "doi": "10.5334/johd.490",
+        "url": "https://doi.org/10.5334/johd.490",
+        "venue": "Journal of Open Humanities Data",
+        "authors": [
+          "Erin A. McCarthy"
+        ],
+        "methods": [
+          "llms"
+        ],
+        "quantitativeSignals": [
+          "llms",
+          "computational"
+        ],
+        "rawPath": "data/raw/crossref/2026-06-12/ai-humanities-002.json"
+      },
+      "checks": [
+        {
+          "id": "record-found",
+          "status": "pass",
+          "evidence": "doi:10.5334/johd.490"
+        },
+        {
+          "id": "source-match",
+          "status": "pass",
+          "evidence": "cited=crossref; processed=crossref"
+        },
+        {
+          "id": "year-match",
+          "status": "pass",
+          "evidence": "cited=2026; processed=2026"
+        },
+        {
+          "id": "doi-match",
+          "status": "pass",
+          "evidence": "cited=10.5334/johd.490; processed=10.5334/johd.490"
+        },
+        {
+          "id": "url-present",
+          "status": "pass",
+          "evidence": "https://doi.org/10.5334/johd.490"
+        }
+      ]
+    }
+  ],
+  "nextMoves": [
+    "Keep the representative-record table in the post attached to source caveats.",
+    "Before public release, review linked source pages for quote-level or argument-level claims."
+  ]
+}

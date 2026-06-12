@@ -131,6 +131,7 @@ Implemented:
 - `work.md`
 - `public-draft.md`
 - `post.md`
+- `post-evidence-audit.json`
 - `publication-handoff.md`
 - `dataset_briefing.md`
 - `dataset-bundle/` Alpha Research dataset bundle
@@ -149,11 +150,12 @@ Current committed corpus:
 - dataset registration: stable id `humanities-literature-radar`, Modal bundle synced, control-plane profile attached with 26 schema fields and 10 sample rows, live dataset row promoted to `ready`/`ready` with manifest `/data/datasets/humanities-literature-radar/manifest.json`
 - remote smoke run: `d866dce5-a99b-459f-a932-a0aff4fec638`, status `ready`, with mounted dataset files inspected and valid `report.html`, `result.json`, and `work.md` artifacts returned
 - publication post: `reports/post.md`, a polished field-map draft titled `AI Is Now A Humanities Object`
+- post evidence audit: `reports/post-evidence-audit.json`, status `pass`, 4/4 representative citations matched processed source records
 - readiness: ready for editorial review with source-coverage caveats
 
 Next implementation moves:
 
-- review and publish `reports/post.md` after representative-record audit
+- final editorial review for `reports/post.md`
 - use the remote smoke run as proof that the dataset can support Alpha Research questions from processed source records
 - run the recurring monitor after the next broad backfill with `--prior-works`
 - replace bounded DOAJ search with public dump or OAI-PMH harvest
