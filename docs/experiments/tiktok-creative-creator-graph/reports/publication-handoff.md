@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-12T21:27:41.711Z
+Generated: 2026-06-12T21:30:55.986Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -54,6 +54,9 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Live run manifest waves: 10
 - Live run manifest runnable waves: 10
 - Live run manifest estimated cost: $5
+- Live manifest runner steps: 1
+- Live manifest runner selected waves: 1
+- Live manifest runner mode: dry_run
 - Refresh tasks: 9
 
 ## Remaining Production Gaps
@@ -76,7 +79,9 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - wave_ledger: `docs/experiments/tiktok-creative-creator-graph/reports/wave-ledger.json`
 - provider_preflight: `docs/experiments/tiktok-creative-creator-graph/reports/provider-preflight.json`
 - live_run_manifest: `docs/experiments/tiktok-creative-creator-graph/reports/live-run-manifest.json`
+- live_manifest_runner: `docs/experiments/tiktok-creative-creator-graph/reports/live-manifest-run.json`
 - live_run_manifest_queue: `docs/experiments/tiktok-creative-creator-graph/data/processed/live_run_manifest.csv`
+- live_manifest_runner_steps: `docs/experiments/tiktok-creative-creator-graph/data/processed/live_manifest_run_steps.jsonl`
 - refresh_plan: `docs/experiments/tiktok-creative-creator-graph/reports/refresh-plan.json`
 - acquisition_batches: `docs/experiments/tiktok-creative-creator-graph/reports/acquisition-batches.json`
 - candidate_frontier: `docs/experiments/tiktok-creative-creator-graph/reports/candidate-frontier.json`
@@ -113,6 +118,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - wave_ledger_available: pass
 - provider_preflight_available: pass
 - live_run_manifest_available: pass
+- live_manifest_runner_exercised: pass
 - refresh_plan_available: pass
 
 ## Registration Constraints

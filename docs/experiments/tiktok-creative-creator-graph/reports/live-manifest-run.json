@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-06-12T21:30:55.913Z",
+  "mode": "dry_run",
+  "live_confirmed": false,
+  "provider": "apify",
+  "selected_waves": 1,
+  "max_waves": 1,
+  "estimated_cost_usd": 0.5,
+  "max_cost_usd": 1,
+  "selected_wave_ids": [
+    "scale_wave_0006"
+  ],
+  "complete": true,
+  "import_ran": false,
+  "rebuild_ran": false,
+  "steps": [
+    {
+      "kind": "dry_run_wave",
+      "wave_id": "scale_wave_0006",
+      "sequence": 6,
+      "estimated_cost_usd": 0.5,
+      "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=6",
+      "result": {
+        "id": "dry_scale_wave_0006",
+        "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=6",
+        "status": "pass",
+        "started_at": "2026-06-12T21:30:55.874Z",
+        "finished_at": "2026-06-12T21:30:55.913Z",
+        "output_tail": [
+          "      \"acquisition_surface\": \"search_index\",",
+          "      \"query\": \"site:tiktok.com/@ \\\"short film\\\"\",",
+          "      \"target_label\": \"filmmaker\",",
+          "      \"actor_id\": \"apify/google-search-scraper\",",
+          "      \"input\": {",
+          "        \"queries\": \"site:tiktok.com/@ \\\"short film\\\"\",",
+          "        \"maxPagesPerQuery\": 1,",
+          "        \"resultsPerPage\": 100,",
+          "        \"countryCode\": \"us\",",
+          "        \"languageCode\": \"en\"",
+          "      },",
+          "      \"dry_run\": true,",
+          "      \"started_at\": \"2026-06-12T21:30:55.909Z\",",
+          "      \"status\": \"dry_run\",",
+          "      \"output_rows\": 0,",
+          "      \"output_path\": \"\",",
+          "      \"finished_at\": \"2026-06-12T21:30:55.909Z\"",
+          "    }",
+          "  ]",
+          "}"
+        ]
+      }
+    }
+  ],
+  "post_steps": []
+}

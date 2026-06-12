@@ -81,6 +81,7 @@ function main() {
   steps.push(['build_wave_ledger', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-wave-ledger.mjs']])
   steps.push(['build_provider_preflight', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-provider-preflight.mjs']])
   steps.push(['build_live_run_manifest', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-live-run-manifest.mjs']])
+  steps.push(['run_live_manifest_dry_run', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/run-live-manifest.mjs', '--max-waves=1', '--max-cost-usd=1', '--skip-import', '--skip-rebuild']])
   steps.push(['build_refresh_plan', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-refresh-plan.mjs']])
   steps.push(['build_publication_handoff', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-publication-handoff.mjs']])
   steps.push(['check_readiness', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/check-readiness.mjs']])

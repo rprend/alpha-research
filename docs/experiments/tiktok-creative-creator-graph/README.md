@@ -171,6 +171,18 @@ Build the live execution manifest from the passing preflight:
 node docs/experiments/tiktok-creative-creator-graph/scripts/build-live-run-manifest.mjs
 ```
 
+Exercise the manifest as a controlled dry-run sequence:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/run-live-manifest.mjs --max-waves=1 --max-cost-usd=1 --skip-import --skip-rebuild
+```
+
+Execute a bounded live sequence only after confirming spend, provider terms, and `APIFY_TOKEN` availability:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/run-live-manifest.mjs --live --confirm-live --max-waves=5 --max-cost-usd=5
+```
+
 Build refresh plan:
 
 ```bash

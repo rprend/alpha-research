@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T21:27:41.751Z
+Generated: 2026-06-12T21:30:56.027Z
 
 Complete: false
 
@@ -34,7 +34,7 @@ Complete: false
 - Acquisition runner tasks: 2
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
-- Acquisition run history: 8
+- Acquisition run history: 9
 - Source yield rows: 7
 - Identities: 9
 - Category coverage labels: 5/11
@@ -56,6 +56,9 @@ Complete: false
 - Live run manifest waves: 10
 - Live run manifest runnable waves: 10
 - Live run manifest estimated cost: $5
+- Live manifest runner steps: 1
+- Live manifest runner selected waves: 1
+- Live manifest runner mode: dry_run
 - Refresh tasks: 9
 - Publication handoff: 1
 
@@ -75,7 +78,7 @@ Complete: false
 - acquisition_import_preview: pass (3 preview accounts, import gate not ready)
 - acquisition_import_waves: pass (1 acquisition import waves tracked)
 - acquisition_runner: pass (2 runnable of 2 selected provider tasks (dry run))
-- acquisition_run_history: pass (8 acquisition run history rows persisted)
+- acquisition_run_history: pass (9 acquisition run history rows persisted)
 - source_yield: pass (7 source/query yield rows generated)
 - identity_resolution: pass (9 creator identities resolved)
 - category_coverage: pass (5/11 target labels covered)
@@ -86,6 +89,7 @@ Complete: false
 - wave_ledger: pass (1000 wave execution ledger rows generated)
 - provider_preflight: pass (20/20 ready provider tasks, budget ok)
 - live_run_manifest: pass (10/10 runnable live waves, estimated cost $5)
+- live_manifest_runner: pass (1 dry_run wave(s) executed through manifest runner)
 - refresh_plan: pass (9 account refresh tasks generated)
 - publication_handoff: pass (not-ready-production-data handoff generated)
 - useful_account_target: incomplete (5/50000 useful accounts)

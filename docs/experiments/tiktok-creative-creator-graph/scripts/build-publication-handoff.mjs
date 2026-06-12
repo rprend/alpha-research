@@ -34,6 +34,7 @@ function main() {
   const waveLedgerReport = readJson(join(reportsDir, 'wave-ledger.json'), null)
   const providerPreflightReport = readJson(join(reportsDir, 'provider-preflight.json'), null)
   const liveRunManifestReport = readJson(join(reportsDir, 'live-run-manifest.json'), null)
+  const liveManifestRunReport = readJson(join(reportsDir, 'live-manifest-run.json'), null)
   const refreshPlan = readJson(join(reportsDir, 'refresh-plan.json'), null)
   const reviewPacketReport = readJson(join(reportsDir, 'review-packet.json'), null)
   const categoryCoverage = readJson(join(reportsDir, 'category-coverage.json'), null)
@@ -52,6 +53,7 @@ function main() {
   const waveLedger = readJsonl(join(processedDir, 'wave_ledger.jsonl'))
   const providerPreflight = readJsonl(join(processedDir, 'provider_preflight.jsonl'))
   const liveRunManifest = readJsonl(join(processedDir, 'live_run_manifest.jsonl'))
+  const liveManifestRunSteps = readJsonl(join(processedDir, 'live_manifest_run_steps.jsonl'))
   const candidateFrontier = readJsonl(join(processedDir, 'candidate_frontier.jsonl'))
   const reviewDecisions = readJsonl(join(processedDir, 'review_decisions.jsonl'))
   const reviewBlankDecisions = readJsonl(join(processedDir, 'review_blank_decisions.jsonl'))
@@ -146,6 +148,9 @@ function main() {
       live_run_manifest_waves: counts.live_run_manifest_waves ?? liveRunManifest.length,
       live_run_manifest_runnable_waves: counts.live_run_manifest_runnable_waves ?? liveRunManifestReport?.runnable_waves ?? 0,
       live_run_manifest_estimated_cost_usd: counts.live_run_manifest_estimated_cost_usd ?? liveRunManifestReport?.estimated_cost_usd ?? 0,
+      live_manifest_runner_steps: counts.live_manifest_runner_steps ?? liveManifestRunSteps.length,
+      live_manifest_runner_selected_waves: counts.live_manifest_runner_selected_waves ?? liveManifestRunReport?.selected_waves ?? 0,
+      live_manifest_runner_mode: counts.live_manifest_runner_mode ?? liveManifestRunReport?.mode ?? '',
       refresh_tasks: counts.refresh_tasks ?? refreshPlan?.refresh_tasks ?? 0,
     },
     target_gaps: {
@@ -165,6 +170,7 @@ function main() {
       wave_ledger_available: Boolean(waveLedgerReport?.waves > 0 || waveLedger.length > 0),
       provider_preflight_available: Boolean(providerPreflightReport?.ready_tasks > 0 && providerPreflightReport?.blocked_tasks === 0),
       live_run_manifest_available: Boolean(liveRunManifestReport?.runnable_waves > 0 && liveRunManifestReport?.blocked_waves === 0),
+      live_manifest_runner_exercised: Boolean(liveManifestRunReport?.complete && liveManifestRunSteps.length > 0),
       refresh_plan_available: Boolean(refreshPlan?.refresh_tasks > 0),
     },
     paths: {
@@ -180,7 +186,9 @@ function main() {
       wave_ledger: rel(join(reportsDir, 'wave-ledger.json')),
       provider_preflight: rel(join(reportsDir, 'provider-preflight.json')),
       live_run_manifest: rel(join(reportsDir, 'live-run-manifest.json')),
+      live_manifest_runner: rel(join(reportsDir, 'live-manifest-run.json')),
       live_run_manifest_queue: rel(join(processedDir, 'live_run_manifest.csv')),
+      live_manifest_runner_steps: rel(join(processedDir, 'live_manifest_run_steps.jsonl')),
       refresh_plan: rel(join(reportsDir, 'refresh-plan.json')),
       acquisition_batches: rel(join(reportsDir, 'acquisition-batches.json')),
       candidate_frontier: rel(join(reportsDir, 'candidate-frontier.json')),
@@ -283,6 +291,9 @@ ${handoff.objective}
 - Live run manifest waves: ${handoff.current_corpus.live_run_manifest_waves}
 - Live run manifest runnable waves: ${handoff.current_corpus.live_run_manifest_runnable_waves}
 - Live run manifest estimated cost: $${handoff.current_corpus.live_run_manifest_estimated_cost_usd}
+- Live manifest runner steps: ${handoff.current_corpus.live_manifest_runner_steps}
+- Live manifest runner selected waves: ${handoff.current_corpus.live_manifest_runner_selected_waves}
+- Live manifest runner mode: ${handoff.current_corpus.live_manifest_runner_mode}
 - Refresh tasks: ${handoff.current_corpus.refresh_tasks}
 
 ## Remaining Production Gaps
