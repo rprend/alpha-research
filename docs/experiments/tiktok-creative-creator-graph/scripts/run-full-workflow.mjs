@@ -72,6 +72,7 @@ function main() {
   steps.push(['verify_release_package', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/verify-release-package.mjs']])
   steps.push(['build_scale_plan', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-scale-plan.mjs']])
   steps.push(['build_refresh_plan', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-refresh-plan.mjs']])
+  steps.push(['build_publication_handoff', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-publication-handoff.mjs']])
   steps.push(['check_readiness', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/check-readiness.mjs']])
 
   const results = []

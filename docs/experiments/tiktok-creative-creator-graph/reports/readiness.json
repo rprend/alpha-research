@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T20:02:21.997Z",
+  "generated_at": "2026-06-12T20:10:05.062Z",
   "complete": false,
   "counts": {
     "accounts": 9,
@@ -20,7 +20,8 @@
     "release_useful_creators": 6,
     "release_verification_checks": 44,
     "scale_plan_import_batches": 200,
-    "refresh_tasks": 9
+    "refresh_tasks": 9,
+    "publication_handoff": 1
   },
   "checks": [
     {
@@ -92,6 +93,11 @@
       "id": "refresh_plan",
       "status": "pass",
       "evidence": "9 account refresh tasks generated"
+    },
+    {
+      "id": "publication_handoff",
+      "status": "pass",
+      "evidence": "not-ready-production-data handoff generated"
     },
     {
       "id": "useful_account_target",

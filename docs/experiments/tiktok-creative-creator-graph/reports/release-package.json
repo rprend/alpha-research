@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T20:02:21.842Z",
+  "generated_at": "2026-06-12T20:10:04.816Z",
   "objective": "TikTok creative creator graph release package",
   "counts": {
     "accounts": 9,
@@ -10,7 +10,7 @@
     "review_queue": 5
   },
   "readiness": {
-    "generated_at": "2026-06-12T19:58:40.171Z",
+    "generated_at": "2026-06-12T20:09:53.288Z",
     "complete": false,
     "counts": {
       "accounts": 9,
@@ -30,7 +30,9 @@
       "identities": 9,
       "release_useful_creators": 6,
       "release_verification_checks": 44,
-      "scale_plan_import_batches": 200
+      "scale_plan_import_batches": 200,
+      "refresh_tasks": 9,
+      "publication_handoff": 1
     },
     "checks": [
       {
@@ -97,6 +99,16 @@
         "id": "scale_plan",
         "status": "pass",
         "evidence": "200 estimated import batches"
+      },
+      {
+        "id": "refresh_plan",
+        "status": "pass",
+        "evidence": "9 account refresh tasks generated"
+      },
+      {
+        "id": "publication_handoff",
+        "status": "pass",
+        "evidence": "not-ready-production-data handoff generated"
       },
       {
         "id": "useful_account_target",

@@ -1,0 +1,132 @@
+{
+  "generated_at": "2026-06-12T20:10:05.020Z",
+  "dataset_id": "tiktok-creative-creator-graph",
+  "title": "TikTok Creative Creator Graph",
+  "publish_state": "not-ready-production-data",
+  "readiness_status": "incomplete",
+  "format": "creator-graph-dataset",
+  "objective": "Build roughly 50,000 TikTok-visible creative creator accounts worth learning from, with graph expansion and release provenance.",
+  "unit_of_analysis": "TikTok-visible creator account, with creator identity grouping when duplicate or cross-platform evidence is available.",
+  "scope": {
+    "included": [
+      "filmmakers",
+      "directors",
+      "cinematographers",
+      "editors",
+      "vfx and animation creators",
+      "sketch comedians",
+      "standup comedians",
+      "actors and performers",
+      "film educators",
+      "behind-the-scenes creators",
+      "creative technologists"
+    ],
+    "excluded": [
+      "generic influencer accounts with little creative craft evidence",
+      "repost and clip aggregation accounts",
+      "brand-only or studio-only accounts",
+      "spam or unsafe accounts",
+      "celebrity/audience accounts without observable creative process"
+    ]
+  },
+  "current_corpus": {
+    "accounts": 9,
+    "identities": 9,
+    "videos": 11,
+    "graph_edges": 52,
+    "useful_creators": 5,
+    "release_useful_creators": 6,
+    "excellent_creators": 1,
+    "rejected_creators": 2,
+    "review_queue": 8,
+    "review_decisions": 4,
+    "source_yield_rows": 7,
+    "acquisition_tasks": 31,
+    "refresh_tasks": 9
+  },
+  "target_gaps": {
+    "useful_creators": 49995,
+    "excellent_creators": 4999,
+    "review_decisions": 496
+  },
+  "quality_gates": {
+    "release_verification_complete": true,
+    "readiness_complete": false,
+    "provider_runner_exercised": true,
+    "scale_plan_available": true,
+    "refresh_plan_available": true
+  },
+  "paths": {
+    "phase_plan": "docs/experiments/tiktok-creative-creator-graph/PHASE_PLAN.md",
+    "readme": "docs/experiments/tiktok-creative-creator-graph/README.md",
+    "readiness": "docs/experiments/tiktok-creative-creator-graph/reports/readiness.json",
+    "full_workflow": "docs/experiments/tiktok-creative-creator-graph/reports/full-workflow.json",
+    "release_manifest": "docs/experiments/tiktok-creative-creator-graph/data/release/manifest.json",
+    "release_data_card": "docs/experiments/tiktok-creative-creator-graph/data/release/DATA_CARD.md",
+    "release_verification": "docs/experiments/tiktok-creative-creator-graph/reports/release-verification.json",
+    "scale_plan": "docs/experiments/tiktok-creative-creator-graph/reports/scale-plan.json",
+    "refresh_plan": "docs/experiments/tiktok-creative-creator-graph/reports/refresh-plan.json",
+    "acquisition_batches": "docs/experiments/tiktok-creative-creator-graph/reports/acquisition-batches.json",
+    "source_yield": "docs/experiments/tiktok-creative-creator-graph/reports/source-yield.json",
+    "useful_creators": "docs/experiments/tiktok-creative-creator-graph/data/release/useful_creators.csv",
+    "benchmark_creators": "docs/experiments/tiktok-creative-creator-graph/data/release/benchmark_creators.csv",
+    "review_queue": "docs/experiments/tiktok-creative-creator-graph/data/release/review_queue.csv",
+    "all_scored_creators": "docs/experiments/tiktok-creative-creator-graph/data/release/all_scored_creators.csv"
+  },
+  "release_files": [
+    {
+      "path": "data/release/useful_creators.jsonl",
+      "rows": 6,
+      "sha256": "4ef7921fc32bb5e698bf57adb734e2fe799a1f86ce213f6061b82c0aa37718c3"
+    },
+    {
+      "path": "data/release/useful_creators.csv",
+      "rows": 6,
+      "sha256": "26227079efb9349eafc5caf7048bbbdde45709bbf7aa924fa42adc4bf7911280"
+    },
+    {
+      "path": "data/release/benchmark_creators.jsonl",
+      "rows": 1,
+      "sha256": "c07bcbc935eb729cc05652de365022fe203c7f1d0a7af6c5efc2a95ce11788a0"
+    },
+    {
+      "path": "data/release/benchmark_creators.csv",
+      "rows": 1,
+      "sha256": "6012d3df1e55af70b070b2cba86d1ac72b1dc2677d4c8f0a871466884499f0aa"
+    },
+    {
+      "path": "data/release/rejected_creators.jsonl",
+      "rows": 2,
+      "sha256": "c13d584c4ba6f1ccaecbc08bcee5f34812e6b9c798106284559a454cb9f8288b"
+    },
+    {
+      "path": "data/release/rejected_creators.csv",
+      "rows": 2,
+      "sha256": "ba8b93a338277fa924a32e4601f492734cf7ea0221d02f3f543b14c864056c9b"
+    },
+    {
+      "path": "data/release/review_queue.csv",
+      "rows": 5,
+      "sha256": "b6aff5ebb5957cebff3525872da4eb7f2631fdb1cbd9344c4fecdb1ef2e08651"
+    },
+    {
+      "path": "data/release/all_scored_creators.csv",
+      "rows": 9,
+      "sha256": "e57ad8e0b6cc474479fa2d8e72e78982695fba7fba5b0e9e95a547bd0a0f0802"
+    }
+  ],
+  "registration_constraints": [
+    "Do not register as production-complete until useful, excellent, and human-review targets pass readiness.",
+    "Preserve raw-source provenance for every released creator.",
+    "Use release manifest hashes as the control-plane file integrity contract.",
+    "Treat the current smoke corpus as machinery validation only.",
+    "Confirm source/vendor terms before promoting live provider-derived exports."
+  ],
+  "next_actions": [
+    "Acquire and import 49995 more useful creators through provider/search/graph batches.",
+    "Add 4999 more excellent creators for benchmark-quality coverage.",
+    "Collect 496 more human review decisions before production claims.",
+    "Run full workflow, release package, verification, scale plan, refresh plan, and readiness after each import wave.",
+    "Register the release package in the control plane only after readiness is complete."
+  ]
+}

@@ -1,0 +1,195 @@
+import { existsSync, readFileSync, writeFileSync } from 'node:fs'
+import { join } from 'node:path'
+
+const root = process.cwd()
+const experimentDir = join(root, 'docs/experiments/tiktok-creative-creator-graph')
+const reportsDir = join(experimentDir, 'reports')
+const processedDir = join(experimentDir, 'data/processed')
+const releaseDir = join(experimentDir, 'data/release')
+
+function readJson(path, fallback = null) {
+  if (!existsSync(path)) return fallback
+  return JSON.parse(readFileSync(path, 'utf8'))
+}
+
+function readJsonl(path) {
+  if (!existsSync(path)) return []
+  return readFileSync(path, 'utf8').split('\n').filter(Boolean).map((line) => JSON.parse(line))
+}
+
+function writeJson(path, value) {
+  writeFileSync(path, `${JSON.stringify(value, null, 2)}\n`)
+}
+
+function rel(path) {
+  return path.replace(`${root}/`, '')
+}
+
+function main() {
+  const manifest = readJson(join(releaseDir, 'manifest.json'), {})
+  const readiness = readJson(join(reportsDir, 'readiness.json'), null)
+  const releaseVerification = readJson(join(reportsDir, 'release-verification.json'), null)
+  const scalePlan = readJson(join(reportsDir, 'scale-plan.json'), null)
+  const refreshPlan = readJson(join(reportsDir, 'refresh-plan.json'), null)
+  const acquisitionBatches = readJson(join(reportsDir, 'acquisition-batches.json'), null)
+  const acquisitionRun = readJson(join(reportsDir, 'acquisition-run.json'), null)
+  const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
+  const reviewDecisions = readJsonl(join(processedDir, 'review_decisions.jsonl'))
+
+  const counts = readiness?.counts ?? manifest.counts ?? {}
+  const targetUseful = 50000
+  const targetExcellent = 5000
+  const targetReview = 500
+  const currentUseful = counts.useful_accounts ?? manifest.counts?.useful_creators ?? 0
+  const releaseUseful = counts.release_useful_creators ?? manifest.counts?.useful_creators ?? 0
+  const currentExcellent = counts.excellent_accounts ?? 0
+  const currentReview = counts.review_decisions ?? reviewDecisions.length
+  const productionReady = Boolean(readiness?.complete && releaseVerification?.complete)
+
+  const handoff = {
+    generated_at: new Date().toISOString(),
+    dataset_id: 'tiktok-creative-creator-graph',
+    title: 'TikTok Creative Creator Graph',
+    publish_state: productionReady ? 'ready-for-control-plane-registration' : 'not-ready-production-data',
+    readiness_status: readiness?.complete ? 'complete' : 'incomplete',
+    format: 'creator-graph-dataset',
+    objective: 'Build roughly 50,000 TikTok-visible creative creator accounts worth learning from, with graph expansion and release provenance.',
+    unit_of_analysis: 'TikTok-visible creator account, with creator identity grouping when duplicate or cross-platform evidence is available.',
+    scope: {
+      included: [
+        'filmmakers',
+        'directors',
+        'cinematographers',
+        'editors',
+        'vfx and animation creators',
+        'sketch comedians',
+        'standup comedians',
+        'actors and performers',
+        'film educators',
+        'behind-the-scenes creators',
+        'creative technologists',
+      ],
+      excluded: [
+        'generic influencer accounts with little creative craft evidence',
+        'repost and clip aggregation accounts',
+        'brand-only or studio-only accounts',
+        'spam or unsafe accounts',
+        'celebrity/audience accounts without observable creative process',
+      ],
+    },
+    current_corpus: {
+      accounts: counts.accounts ?? manifest.counts?.accounts ?? 0,
+      identities: counts.identities ?? manifest.counts?.identities ?? 0,
+      videos: counts.videos ?? 0,
+      graph_edges: counts.edges ?? 0,
+      useful_creators: currentUseful,
+      release_useful_creators: releaseUseful,
+      excellent_creators: currentExcellent,
+      rejected_creators: counts.rejected_accounts ?? manifest.counts?.rejected_creators ?? 0,
+      review_queue: counts.review_queue ?? manifest.counts?.review_queue ?? 0,
+      review_decisions: currentReview,
+      source_yield_rows: counts.source_yield_rows ?? sourceYield.length,
+      acquisition_tasks: counts.acquisition_tasks ?? acquisitionBatches?.tasks ?? 0,
+      refresh_tasks: counts.refresh_tasks ?? refreshPlan?.refresh_tasks ?? 0,
+    },
+    target_gaps: {
+      useful_creators: Math.max(0, targetUseful - currentUseful),
+      excellent_creators: Math.max(0, targetExcellent - currentExcellent),
+      review_decisions: Math.max(0, targetReview - currentReview),
+    },
+    quality_gates: {
+      release_verification_complete: Boolean(releaseVerification?.complete),
+      readiness_complete: Boolean(readiness?.complete),
+      provider_runner_exercised: Boolean(acquisitionRun?.selected_tasks > 0),
+      scale_plan_available: Boolean(scalePlan?.estimated_work),
+      refresh_plan_available: Boolean(refreshPlan?.refresh_tasks > 0),
+    },
+    paths: {
+      phase_plan: rel(join(experimentDir, 'PHASE_PLAN.md')),
+      readme: rel(join(experimentDir, 'README.md')),
+      readiness: rel(join(reportsDir, 'readiness.json')),
+      full_workflow: rel(join(reportsDir, 'full-workflow.json')),
+      release_manifest: rel(join(releaseDir, 'manifest.json')),
+      release_data_card: rel(join(releaseDir, 'DATA_CARD.md')),
+      release_verification: rel(join(reportsDir, 'release-verification.json')),
+      scale_plan: rel(join(reportsDir, 'scale-plan.json')),
+      refresh_plan: rel(join(reportsDir, 'refresh-plan.json')),
+      acquisition_batches: rel(join(reportsDir, 'acquisition-batches.json')),
+      source_yield: rel(join(reportsDir, 'source-yield.json')),
+      useful_creators: rel(join(releaseDir, 'useful_creators.csv')),
+      benchmark_creators: rel(join(releaseDir, 'benchmark_creators.csv')),
+      review_queue: rel(join(releaseDir, 'review_queue.csv')),
+      all_scored_creators: rel(join(releaseDir, 'all_scored_creators.csv')),
+    },
+    release_files: manifest.files ?? [],
+    registration_constraints: [
+      'Do not register as production-complete until useful, excellent, and human-review targets pass readiness.',
+      'Preserve raw-source provenance for every released creator.',
+      'Use release manifest hashes as the control-plane file integrity contract.',
+      'Treat the current smoke corpus as machinery validation only.',
+      'Confirm source/vendor terms before promoting live provider-derived exports.',
+    ],
+    next_actions: [
+      `Acquire and import ${Math.max(0, targetUseful - currentUseful)} more useful creators through provider/search/graph batches.`,
+      `Add ${Math.max(0, targetExcellent - currentExcellent)} more excellent creators for benchmark-quality coverage.`,
+      `Collect ${Math.max(0, targetReview - currentReview)} more human review decisions before production claims.`,
+      'Run full workflow, release package, verification, scale plan, refresh plan, and readiness after each import wave.',
+      'Register the release package in the control plane only after readiness is complete.',
+    ],
+  }
+
+  writeJson(join(reportsDir, 'publication-handoff.json'), handoff)
+  writeFileSync(join(reportsDir, 'publication-handoff.md'), buildMarkdown(handoff))
+  console.log(JSON.stringify(handoff, null, 2))
+}
+
+function buildMarkdown(handoff) {
+  return `# TikTok Creative Creator Graph Publication Handoff
+
+Generated: ${handoff.generated_at}
+Publish state: ${handoff.publish_state}
+Readiness status: ${handoff.readiness_status}
+
+## Objective
+
+${handoff.objective}
+
+## Current Corpus
+
+- Accounts: ${handoff.current_corpus.accounts}
+- Identities: ${handoff.current_corpus.identities}
+- Videos: ${handoff.current_corpus.videos}
+- Graph edges: ${handoff.current_corpus.graph_edges}
+- Useful creators: ${handoff.current_corpus.useful_creators}
+- Release useful creators: ${handoff.current_corpus.release_useful_creators}
+- Excellent creators: ${handoff.current_corpus.excellent_creators}
+- Review decisions: ${handoff.current_corpus.review_decisions}
+- Source yield rows: ${handoff.current_corpus.source_yield_rows}
+- Acquisition tasks: ${handoff.current_corpus.acquisition_tasks}
+- Refresh tasks: ${handoff.current_corpus.refresh_tasks}
+
+## Remaining Production Gaps
+
+- Useful creators: ${handoff.target_gaps.useful_creators}
+- Excellent creators: ${handoff.target_gaps.excellent_creators}
+- Review decisions: ${handoff.target_gaps.review_decisions}
+
+## Key Paths
+
+${Object.entries(handoff.paths).map(([key, value]) => `- ${key}: \`${value}\``).join('\n')}
+
+## Quality Gates
+
+${Object.entries(handoff.quality_gates).map(([key, value]) => `- ${key}: ${value ? 'pass' : 'incomplete'}`).join('\n')}
+
+## Registration Constraints
+
+${handoff.registration_constraints.map((item) => `- ${item}`).join('\n')}
+
+## Next Actions
+
+${handoff.next_actions.map((item) => `- ${item}`).join('\n')}
+`
+}
+
+main()

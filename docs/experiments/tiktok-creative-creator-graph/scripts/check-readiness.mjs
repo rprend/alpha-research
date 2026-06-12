@@ -44,6 +44,11 @@ function main() {
     return JSON.parse(readFileSync(path, 'utf8'))
   })()
   const refreshTasks = readJsonl(join(processedDir, 'refresh_tasks.jsonl'))
+  const publicationHandoff = (() => {
+    const path = join(reportsDir, 'publication-handoff.json')
+    if (!existsSync(path)) return null
+    return JSON.parse(readFileSync(path, 'utf8'))
+  })()
   const acquisitionRun = (() => {
     const path = join(reportsDir, 'acquisition-run.json')
     if (!existsSync(path)) return null
@@ -127,6 +132,11 @@ function main() {
       evidence: `${refreshTasks.length} account refresh tasks generated`,
     },
     {
+      id: 'publication_handoff',
+      status: publicationHandoff?.dataset_id === 'tiktok-creative-creator-graph' ? 'pass' : 'fail',
+      evidence: publicationHandoff ? `${publicationHandoff.publish_state} handoff generated` : 'publication handoff missing',
+    },
+    {
       id: 'useful_account_target',
       status: usefulAccounts >= targetUsefulAccounts ? 'pass' : 'incomplete',
       evidence: `${usefulAccounts}/${targetUsefulAccounts} useful accounts`,
@@ -167,6 +177,7 @@ function main() {
       release_verification_checks: releaseVerification?.checks?.length ?? 0,
       scale_plan_import_batches: scalePlan?.estimated_work?.import_batches_needed ?? 0,
       refresh_tasks: refreshTasks.length,
+      publication_handoff: publicationHandoff ? 1 : 0,
     },
     checks,
     remaining: {
@@ -204,6 +215,7 @@ Complete: ${summary.complete}
 - Release verification checks: ${summary.counts.release_verification_checks}
 - Scale plan import batches: ${summary.counts.scale_plan_import_batches}
 - Refresh tasks: ${summary.counts.refresh_tasks}
+- Publication handoff: ${summary.counts.publication_handoff}
 
 ## Checks
 
