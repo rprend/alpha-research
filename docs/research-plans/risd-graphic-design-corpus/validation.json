@@ -123,7 +123,8 @@
     "self_study_pacing_rows_with_readings": 22,
     "self_study_pacing_rows_with_prerequisites": 26,
     "self_study_pacing_rows_with_workload_estimates": 28,
-    "self_study_pacing_profiles": 3
+    "self_study_pacing_profiles": 3,
+    "self_study_portfolio_milestones": 3
   },
   "checks": [
     {
@@ -385,6 +386,11 @@
       "id": "self_study_pacing_profiles_have_valid_groupings",
       "status": "pass",
       "detail": "3 pacing profiles; 0 profile reference errors; generated mismatch=false."
+    },
+    {
+      "id": "self_study_portfolio_milestones_have_valid_review_packages",
+      "status": "pass",
+      "detail": "3 portfolio milestones; 0 milestone reference errors; generated mismatch=false."
     },
     {
       "id": "official_course_inventory_reconciled",

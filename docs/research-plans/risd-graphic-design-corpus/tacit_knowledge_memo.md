@@ -103,6 +103,12 @@ This memo is generated from the first implemented corpus pass. It is strongest w
 - Standard: 28 calendar weeks at about 19 target hours/week; 523 estimated total hours.
 - Slow: 56 calendar weeks at about 10 target hours/week; 523 estimated total hours.
 
+## Portfolio Milestone Boundaries
+
+- Foundation Methods Portfolio Review: weeks 1-8, 4 modules, 137 estimated hours. Review focus: Evidence-backed fundamentals: visible constraints, form decisions, critique response, and revised artifacts.
+- Typography And Systems Portfolio Review: weeks 9-28, 4 modules, 124 estimated hours. Review focus: Intermediate systems: typographic control, publication or type artifacts, and documented iteration across related prompts.
+- Advanced Synthesis Portfolio Review: weeks 13-26, 6 modules, 262 estimated hours. Review focus: Advanced synthesis: multi-part artifacts, public/contextual systems, technical or editorial constraints, and a portfolio-level critique narrative.
+
 ## Critique And Revision
 
 - Design Studio 1: assign_syl_crawl_ds1618_risd_gd_2016_11_08_unit4_crit_html_d957a68a_01 (critique referenced in source excerpt); assign_syl_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224_01 (feedback/review referenced in source excerpt)

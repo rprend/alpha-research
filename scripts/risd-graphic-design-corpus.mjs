@@ -4047,7 +4047,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyPortfolioMilestones = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveArchivePromotions = archivePromotions ?? loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
@@ -4057,6 +4057,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const effectiveSelfStudyModules = selfStudyModules ?? loadJsonl(join(outDir, 'self_study_modules.jsonl'))
   const effectiveSelfStudyPacingPlan = selfStudyPacingPlan ?? []
   const effectiveSelfStudyPacingProfiles = selfStudyPacingProfiles ?? []
+  const effectiveSelfStudyPortfolioMilestones = selfStudyPortfolioMilestones ?? []
   const effectiveScheduleRows = scheduleRows ?? loadJsonl(join(outDir, 'schedule_rows.jsonl'))
   const effectiveArchiveFetchTargets = archiveFetchTargets ?? loadJsonl(join(outDir, 'archive_fetch_targets.jsonl'))
   const sourceIds = new Set(sources.map((source) => source.source_id))
@@ -4288,6 +4289,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const pacingPlan = effectiveSelfStudyPacingPlan.length ? effectiveSelfStudyPacingPlan : generatedPacingPlan
   const generatedPacingProfiles = buildSelfStudyPacingProfiles(pacingPlan)
   const pacingProfiles = effectiveSelfStudyPacingProfiles.length ? effectiveSelfStudyPacingProfiles : generatedPacingProfiles
+  const generatedPortfolioMilestones = buildSelfStudyPortfolioMilestones(curriculumModules, pacingPlan)
+  const portfolioMilestones = effectiveSelfStudyPortfolioMilestones.length ? effectiveSelfStudyPortfolioMilestones : generatedPortfolioMilestones
   const curriculumModulesWithSourceIds = curriculumModules.filter((module) => module.source_ids?.length).length
   const curriculumModulesWithAssignments = curriculumModules.filter((module) => module.assignment_ids?.length).length
   const curriculumModulesWithReadings = curriculumModules.filter((module) => module.reading_ids?.length).length
@@ -4381,9 +4384,26 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
           || !Number.isFinite(group.estimated_hours)
       )
   )
+  const portfolioMilestoneErrors = portfolioMilestones.filter((milestone) =>
+    !milestone.milestone_id
+      || !['foundation', 'intermediate_practice', 'advanced_synthesis'].includes(milestone.milestone_stage)
+      || !milestone.module_ids?.length
+      || milestone.module_ids.some((id) => !curriculumModuleIds.has(id))
+      || !milestone.pacing_ids?.length
+      || milestone.pacing_ids.some((id) => !pacingIds.has(id))
+      || milestone.assignment_ids?.some((id) => !assignmentIds.has(id))
+      || milestone.reading_ids?.some((id) => !readingIds.has(id))
+      || !milestone.week_range?.length
+      || !Number.isFinite(milestone.estimated_hours)
+      || !milestone.portfolio_outputs?.length
+      || !milestone.review_prompts?.length
+      || !milestone.source_ids?.length
+      || milestone.source_ids.some((id) => !sourceIds.has(id))
+  )
   const curriculumGeneratedMismatch = effectiveSelfStudyModules.length > 0 && effectiveSelfStudyModules.length !== generatedCurriculumModules.length
   const pacingGeneratedMismatch = effectiveSelfStudyPacingPlan.length > 0 && effectiveSelfStudyPacingPlan.length !== generatedPacingPlan.length
   const pacingProfilesGeneratedMismatch = effectiveSelfStudyPacingProfiles.length > 0 && effectiveSelfStudyPacingProfiles.length !== generatedPacingProfiles.length
+  const portfolioMilestonesGeneratedMismatch = effectiveSelfStudyPortfolioMilestones.length > 0 && effectiveSelfStudyPortfolioMilestones.length !== generatedPortfolioMilestones.length
   const courseInventoryReconciled = courseInventory.displayed_count > 0 && courseInventory.offerings.length === courseInventory.displayed_count
   const checks = [
     {
@@ -4647,6 +4667,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${pacingProfiles.length} pacing profiles; ${pacingProfileErrors.length} profile reference errors; generated mismatch=${pacingProfilesGeneratedMismatch}.`,
     },
     {
+      id: 'self_study_portfolio_milestones_have_valid_review_packages',
+      status: portfolioMilestoneErrors.length === 0 && portfolioMilestones.length > 0 && !portfolioMilestonesGeneratedMismatch ? 'pass' : portfolioMilestoneErrors.length === 0 && portfolioMilestones.length > 0 ? 'warn' : 'fail',
+      detail: `${portfolioMilestones.length} portfolio milestones; ${portfolioMilestoneErrors.length} milestone reference errors; generated mismatch=${portfolioMilestonesGeneratedMismatch}.`,
+    },
+    {
       id: 'official_course_inventory_reconciled',
       status: courseInventoryReconciled ? 'pass' : 'warn',
       detail: `${courseInventory.offerings.length} official offerings parsed; RISD page displays ${courseInventory.displayed_count || 'unknown'} results.`,
@@ -4790,6 +4815,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_pacing_rows_with_prerequisites: pacingRowsWithPrerequisites,
       self_study_pacing_rows_with_workload_estimates: pacingRowsWithWorkload,
       self_study_pacing_profiles: pacingProfiles.length,
+      self_study_portfolio_milestones: portfolioMilestones.length,
     },
     checks,
   }
@@ -5401,6 +5427,7 @@ Overall status: ${validation.status}
 - Self-study pacing rows with prerequisites: ${validation.counts.self_study_pacing_rows_with_prerequisites}
 - Self-study pacing rows with workload estimates: ${validation.counts.self_study_pacing_rows_with_workload_estimates}
 - Self-study pacing profiles: ${validation.counts.self_study_pacing_profiles}
+- Self-study portfolio milestones: ${validation.counts.self_study_portfolio_milestones}
 
 ## Checks
 
@@ -5663,6 +5690,7 @@ function tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules
   const allPacingRows = buildSelfStudyPacingPlan(selfStudyModules)
   const pacingRows = allPacingRows.slice(0, 12)
   const pacingProfiles = buildSelfStudyPacingProfiles(allPacingRows)
+  const portfolioMilestones = buildSelfStudyPortfolioMilestones(selfStudyModules, allPacingRows)
   const missingEvidenceRows = selfStudyModules
     .filter((module) => module.missing_evidence_warnings?.length)
     .slice(0, 10)
@@ -5732,6 +5760,10 @@ ${pacingRows.length ? pacingRows.map((row) => `- Week ${row.week_number}: ${row.
 ## Pacing Profile Boundaries
 
 ${pacingProfiles.length ? pacingProfiles.map((profile) => `- ${profile.label}: ${profile.estimated_calendar_weeks} calendar weeks at about ${profile.target_hours_per_week} target hours/week; ${profile.estimated_total_hours} estimated total hours.`).join('\n') : '- No pacing profiles have been generated yet.'}
+
+## Portfolio Milestone Boundaries
+
+${portfolioMilestones.length ? portfolioMilestones.map((milestone) => `- ${milestone.title}: weeks ${milestone.week_range.join('-')}, ${milestone.module_ids.length} modules, ${milestone.estimated_hours} estimated hours. Review focus: ${milestone.review_focus}`).join('\n') : '- No portfolio milestones have been generated yet.'}
 
 ## Critique And Revision
 
@@ -6416,6 +6448,72 @@ function pacingProfileGroup(calendarWeek, rows) {
   }
 }
 
+function buildSelfStudyPortfolioMilestones(selfStudyModules, pacingPlan) {
+  const specs = [
+    {
+      milestone_id: 'portfolio_milestone_01_foundation_methods',
+      title: 'Foundation Methods Portfolio Review',
+      stage: 'foundation',
+      moduleFilter: (module) => module.module_dependency_map?.dependency_stage === 'foundation',
+      review_focus: 'Evidence-backed fundamentals: visible constraints, form decisions, critique response, and revised artifacts.',
+    },
+    {
+      milestone_id: 'portfolio_milestone_02_typography_systems',
+      title: 'Typography And Systems Portfolio Review',
+      stage: 'intermediate_practice',
+      moduleFilter: (module) => module.module_dependency_map?.dependency_stage === 'intermediate_practice',
+      review_focus: 'Intermediate systems: typographic control, publication or type artifacts, and documented iteration across related prompts.',
+    },
+    {
+      milestone_id: 'portfolio_milestone_03_advanced_synthesis',
+      title: 'Advanced Synthesis Portfolio Review',
+      stage: 'advanced_synthesis',
+      moduleFilter: (module) => module.module_dependency_map?.dependency_stage === 'advanced_synthesis',
+      review_focus: 'Advanced synthesis: multi-part artifacts, public/contextual systems, technical or editorial constraints, and a portfolio-level critique narrative.',
+    },
+  ]
+  const pacingByModule = new Map()
+  for (const row of pacingPlan) {
+    const existing = pacingByModule.get(row.module_id) ?? []
+    existing.push(row)
+    pacingByModule.set(row.module_id, existing)
+  }
+  return specs.map((spec) => {
+    const modules = selfStudyModules.filter(spec.moduleFilter)
+    const rows = modules.flatMap((module) => pacingByModule.get(module.module_id) ?? [])
+    const assignmentIds = uniq(rows.map((row) => row.assignment_id).filter(Boolean))
+    const readingIds = uniq(rows.flatMap((row) => row.reading_ids ?? []))
+    const sourceIds = uniq(modules.flatMap((module) => module.source_ids ?? [])).slice(0, 16)
+    return {
+      milestone_id: spec.milestone_id,
+      generated_at: retrievedAt,
+      title: spec.title,
+      milestone_stage: spec.stage,
+      module_ids: modules.map((module) => module.module_id),
+      pacing_ids: rows.map((row) => row.pacing_id),
+      week_range: rows.length ? [Math.min(...rows.map((row) => row.week_number)), Math.max(...rows.map((row) => row.week_number))] : [],
+      assignment_ids: assignmentIds,
+      reading_ids: readingIds,
+      estimated_hours: rows.reduce((sum, row) => sum + (row.workload_estimate?.estimated_hours ?? 0), 0),
+      portfolio_outputs: uniq([
+        ...rows.map((row) => row.expected_output).filter(Boolean),
+        'before/after revision documentation',
+        'one-page critique memo for each module',
+      ]).slice(0, 12),
+      review_focus: spec.review_focus,
+      review_prompts: [
+        'Which constraints are visible in the final artifacts?',
+        'What changed after critique, and where is the evidence of that change?',
+        'Which source-grounded readings/resources changed a design decision?',
+        'Which missing evidence limits the confidence of this portfolio package?',
+      ],
+      evidence_basis: 'self_study_modules_and_pacing_rows',
+      source_ids: sourceIds,
+      provenance_note: 'Generated for self-study portfolio review from public corpus evidence; not an official RISD assessment rubric.',
+    }
+  }).filter((milestone) => milestone.module_ids.length)
+}
+
 const coverageRequirements = [
   ['course_identity', 'Course code/title/level/credits/term/instructor basics'],
   ['source_evidence', 'Source type, evidence grade, and source IDs'],
@@ -6588,6 +6686,7 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
   const modules = buildSelfStudyModules({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks })
   const pacingPlan = buildSelfStudyPacingPlan(modules)
   const pacingProfiles = buildSelfStudyPacingProfiles(pacingPlan)
+  const portfolioMilestones = buildSelfStudyPortfolioMilestones(modules, pacingPlan)
 
   const lines = []
   lines.push('# RISD Graphic Design Self-Study Curriculum')
@@ -6779,6 +6878,17 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
     lines.push(`- ${profile.label}: ${profile.estimated_calendar_weeks} calendar weeks, about ${profile.target_hours_per_week} target hours/week, ${profile.estimated_total_hours} estimated total hours (${profile.row_grouping_rule}).`)
   })
   lines.push('')
+  lines.push('## Portfolio Milestones')
+  lines.push('')
+  lines.push('These milestones bundle generated module outputs into reviewable bodies of work. They are self-study checkpoints, not official RISD assessment rubrics.')
+  lines.push('')
+  portfolioMilestones.forEach((milestone) => {
+    lines.push(`- ${milestone.title}: weeks ${milestone.week_range.join('-')}, ${milestone.module_ids.length} modules, ${milestone.estimated_hours} estimated hours.`)
+    lines.push(`  - Review focus: ${milestone.review_focus}`)
+    lines.push(`  - Portfolio package: ${milestone.portfolio_outputs.slice(0, 5).join('; ')}`)
+    lines.push(`  - Prompt: ${milestone.review_prompts[0]}`)
+  })
+  lines.push('')
   lines.push('## Gaps To Preserve')
   lines.push('')
   lines.push('- Do not invent missing rubrics, grades, private readings, or complete assignment sheets.')
@@ -6801,6 +6911,7 @@ function writeSelfStudyModuleArtifacts(selfStudyModules) {
   const pacingPlan = buildSelfStudyPacingPlan(selfStudyModules)
   writeJsonl(join(outDir, 'self_study_pacing_plan.jsonl'), pacingPlan)
   writeJsonl(join(outDir, 'self_study_pacing_profiles.jsonl'), buildSelfStudyPacingProfiles(pacingPlan))
+  writeJsonl(join(outDir, 'self_study_portfolio_milestones.jsonl'), buildSelfStudyPortfolioMilestones(selfStudyModules, pacingPlan))
 }
 
 function loadJsonl(path) {

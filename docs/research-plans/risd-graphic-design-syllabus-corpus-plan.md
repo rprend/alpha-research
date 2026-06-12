@@ -88,6 +88,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/self_study_modules.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_pacing_plan.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_pacing_profiles.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_milestones.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/source_audit.md`
 
 Current seed sources include:
@@ -356,7 +357,7 @@ Acceptance output:
 
 ### Step 9: Generate A Mentor-Style Self-Study Curriculum From Evidence
 
-Status: implemented for evidence-filtered module selection, filtered assignment/reading/schedule display, module-level practice loops, explicit missing-evidence warnings, student/faculty comparison boundaries, a machine-readable `self_study_modules.jsonl` artifact, weekly `self_study_pacing_plan.jsonl` and profile `self_study_pacing_profiles.jsonl` artifacts, module-grounded `tacit_knowledge_memo.md` sections, per-module confidence scores/explanations, module ordering rationales with near-miss candidates, track-level prerequisite/dependency maps, learner-facing weekly pacing, workload estimates, adjustable compressed/standard/slow pacing profiles, and validation that generated modules/pacing rows/profiles cite source IDs, explain selection confidence/order/dependencies, and reference existing assignment/reading/schedule/student-work records. The next improvement should add milestone portfolio checkpoints that bundle multiple module outputs into reviewable bodies of work.
+Status: implemented for evidence-filtered module selection, filtered assignment/reading/schedule display, module-level practice loops, explicit missing-evidence warnings, student/faculty comparison boundaries, a machine-readable `self_study_modules.jsonl` artifact, weekly `self_study_pacing_plan.jsonl`, profile `self_study_pacing_profiles.jsonl`, and portfolio milestone `self_study_portfolio_milestones.jsonl` artifacts, module-grounded `tacit_knowledge_memo.md` sections, per-module confidence scores/explanations, module ordering rationales with near-miss candidates, track-level prerequisite/dependency maps, learner-facing weekly pacing, workload estimates, adjustable compressed/standard/slow pacing profiles, portfolio milestone checkpoints, and validation that generated modules/pacing rows/profiles/milestones cite source IDs, explain selection confidence/order/dependencies, and reference existing assignment/reading/schedule/student-work records. The next improvement should add export-friendly portfolio brief pages that can be rendered independently for each milestone.
 
 Goal: make the corpus usable for the original purpose: tacit catch-up through concrete studio loops.
 

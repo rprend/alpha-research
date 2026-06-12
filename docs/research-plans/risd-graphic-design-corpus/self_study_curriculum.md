@@ -661,6 +661,23 @@ This pacing plan is generated from module dependencies and recovered studio evid
 - Standard: 28 calendar weeks, about 19 target hours/week, 523 estimated total hours (1 pacing row per calendar week).
 - Slow: 56 calendar weeks, about 10 target hours/week, 523 estimated total hours (one pacing row every two calendar weeks).
 
+## Portfolio Milestones
+
+These milestones bundle generated module outputs into reviewable bodies of work. They are self-study checkpoints, not official RISD assessment rubrics.
+
+- Foundation Methods Portfolio Review: weeks 1-8, 4 modules, 137 estimated hours.
+  - Review focus: Evidence-backed fundamentals: visible constraints, form decisions, critique response, and revised artifacts.
+  - Portfolio package: book, animation; revision plus presentation; website, animation, typeface; revision plus animation; documentation
+  - Prompt: Which constraints are visible in the final artifacts?
+- Typography And Systems Portfolio Review: weeks 9-28, 4 modules, 124 estimated hours.
+  - Review focus: Intermediate systems: typographic control, publication or type artifacts, and documented iteration across related prompts.
+  - Portfolio package: poster; revised artifact and critique memo; book; animation; typeface
+  - Prompt: Which constraints are visible in the final artifacts?
+- Advanced Synthesis Portfolio Review: weeks 13-26, 6 modules, 262 estimated hours.
+  - Review focus: Advanced synthesis: multi-part artifacts, public/contextual systems, technical or editorial constraints, and a portfolio-level critique narrative.
+  - Portfolio package: portfolio; revision plus portfolio, documentation, pdf; animation; revision plus book, animation; presentation
+  - Prompt: Which constraints are visible in the final artifacts?
+
 ## Gaps To Preserve
 
 - Do not invent missing rubrics, grades, private readings, or complete assignment sheets.
