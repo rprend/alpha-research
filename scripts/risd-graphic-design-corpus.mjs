@@ -4050,7 +4050,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioGateStatusSummary = null, selfStudyPortfolioReviewIndex = null, selfStudyPortfolioReviewerHandoff = null, selfStudyPortfolioReviewerFeedbackTemplate = null, selfStudyPortfolioReviewerFeedbackImports = null, selfStudyPortfolioReviewerFeedbackSmokeFixture = null, selfStudyPortfolioReviewWorkflow = null, selfStudyPortfolioReviewAgendas = null, selfStudyPortfolioReviewDashboard = null, selfStudyPortfolioDecisionPackets = null, selfStudyPortfolioCompletionChecklists = null, selfStudyPortfolioArchiveManifests = null, selfStudyPortfolioArchiveAudit = null, selfStudyPortfolioOperationsSummary = null, selfStudyPortfolioCollaboratorHandoffPackets = null, selfStudyPortfolioCollaboratorResponseIntakeTemplate = null, selfStudyPortfolioCollaboratorResponseReconciliation = null, selfStudyPortfolioCollaboratorResponseActionQueue = null, selfStudyPortfolioCollaboratorResponseActionProgress = null, selfStudyPortfolioCollaboratorResponseReviewBriefs = null, selfStudyPortfolioCollaboratorResponseDistributionManifests = null, selfStudyPortfolioCollaboratorResponseDistributionStatus = null, selfStudyPortfolioCollaboratorResponseSendLogTemplate = null, selfStudyPortfolioCollaboratorResponseSendLogImports = null, selfStudyPortfolioRevisionQueue = null, selfStudyPortfolioGateStatusSuggestions = null, selfStudyPortfolioEvidenceAttachments = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioGateStatusSummary = null, selfStudyPortfolioReviewIndex = null, selfStudyPortfolioReviewerHandoff = null, selfStudyPortfolioReviewerFeedbackTemplate = null, selfStudyPortfolioReviewerFeedbackImports = null, selfStudyPortfolioReviewerFeedbackSmokeFixture = null, selfStudyPortfolioReviewWorkflow = null, selfStudyPortfolioReviewAgendas = null, selfStudyPortfolioReviewDashboard = null, selfStudyPortfolioDecisionPackets = null, selfStudyPortfolioCompletionChecklists = null, selfStudyPortfolioArchiveManifests = null, selfStudyPortfolioArchiveAudit = null, selfStudyPortfolioOperationsSummary = null, selfStudyPortfolioCollaboratorHandoffPackets = null, selfStudyPortfolioCollaboratorResponseIntakeTemplate = null, selfStudyPortfolioCollaboratorResponseReconciliation = null, selfStudyPortfolioCollaboratorResponseActionQueue = null, selfStudyPortfolioCollaboratorResponseActionProgress = null, selfStudyPortfolioCollaboratorResponseReviewBriefs = null, selfStudyPortfolioCollaboratorResponseDistributionManifests = null, selfStudyPortfolioCollaboratorResponseDistributionStatus = null, selfStudyPortfolioCollaboratorResponseSendLogTemplate = null, selfStudyPortfolioCollaboratorResponseSendLogImports = null, selfStudyPortfolioCollaboratorResponseReminderQueue = null, selfStudyPortfolioRevisionQueue = null, selfStudyPortfolioGateStatusSuggestions = null, selfStudyPortfolioEvidenceAttachments = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveArchivePromotions = archivePromotions ?? loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
@@ -4089,6 +4089,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const effectiveSelfStudyPortfolioCollaboratorResponseDistributionStatus = selfStudyPortfolioCollaboratorResponseDistributionStatus ?? []
   const effectiveSelfStudyPortfolioCollaboratorResponseSendLogTemplate = selfStudyPortfolioCollaboratorResponseSendLogTemplate ?? []
   const effectiveSelfStudyPortfolioCollaboratorResponseSendLogImports = selfStudyPortfolioCollaboratorResponseSendLogImports ?? loadJsonl(portfolioCollaboratorResponseSendLogImportPath)
+  const effectiveSelfStudyPortfolioCollaboratorResponseReminderQueue = selfStudyPortfolioCollaboratorResponseReminderQueue ?? []
   const effectiveSelfStudyPortfolioRevisionQueue = selfStudyPortfolioRevisionQueue ?? []
   const effectiveSelfStudyPortfolioGateStatusSuggestions = selfStudyPortfolioGateStatusSuggestions ?? []
   const effectiveSelfStudyPortfolioEvidenceAttachments = selfStudyPortfolioEvidenceAttachments ?? []
@@ -4415,6 +4416,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const portfolioCollaboratorResponseDistributionStatus = effectiveSelfStudyPortfolioCollaboratorResponseDistributionStatus.length ? effectiveSelfStudyPortfolioCollaboratorResponseDistributionStatus : generatedPortfolioCollaboratorResponseDistributionStatus
   const generatedPortfolioCollaboratorResponseSendLogTemplate = buildSelfStudyPortfolioCollaboratorResponseSendLogTemplate(portfolioCollaboratorResponseDistributionStatus)
   const portfolioCollaboratorResponseSendLogTemplate = effectiveSelfStudyPortfolioCollaboratorResponseSendLogTemplate.length ? effectiveSelfStudyPortfolioCollaboratorResponseSendLogTemplate : generatedPortfolioCollaboratorResponseSendLogTemplate
+  const generatedPortfolioCollaboratorResponseReminderQueue = buildSelfStudyPortfolioCollaboratorResponseReminderQueue(portfolioCollaboratorResponseDistributionStatus, portfolioCollaboratorResponseDistributionManifests)
+  const portfolioCollaboratorResponseReminderQueue = effectiveSelfStudyPortfolioCollaboratorResponseReminderQueue.length ? effectiveSelfStudyPortfolioCollaboratorResponseReminderQueue : generatedPortfolioCollaboratorResponseReminderQueue
   const progressLedgerWithPortfolioGateAnnotations = annotateSelfStudyProgressLedgerWithPortfolioGates(progressLedger, portfolioMilestones, portfolioCompletionGates)
   const curriculumModulesWithSourceIds = curriculumModules.filter((module) => module.source_ids?.length).length
   const curriculumModulesWithAssignments = curriculumModules.filter((module) => module.assignment_ids?.length).length
@@ -5376,6 +5379,29 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || row.send_state === 'sent' && (!row.sent_at || !row.recipient_handle || !row.channel || !row.message_artifact_id)
       || row.send_state === 'blocked' && !row.blocker_note
   )
+  const portfolioCollaboratorResponseReminderQueueErrors = portfolioCollaboratorResponseReminderQueue.filter((row) =>
+    !row.reminder_id
+      || !row.milestone_id
+      || !portfolioMilestoneIds.has(row.milestone_id)
+      || !row.distribution_status_id
+      || !portfolioCollaboratorResponseDistributionStatusIds.has(row.distribution_status_id)
+      || !row.distribution_manifest_id
+      || !portfolioCollaboratorResponseDistributionManifestIds.has(row.distribution_manifest_id)
+      || !row.reminder_reason
+      || !['not_sent', 'blocked', 'overdue'].includes(row.reminder_reason)
+      || !row.priority
+      || !['high', 'medium', 'low'].includes(row.priority)
+      || !row.current_status
+      || !['ready_to_send', 'blocked', 'overdue'].includes(row.current_status)
+      || !row.message_subject
+      || !row.reminder_copy
+      || !row.next_owner_action
+      || !row.source_artifact
+      || row.source_artifact.artifact_path !== 'self_study_portfolio_collaborator_response_distribution_status.jsonl'
+      || !row.artifact_bundle?.length
+      || row.artifact_bundle.some((artifact) => !artifact.artifact_role || !artifact.artifact_id || !artifact.artifact_path)
+  )
+  const portfolioCollaboratorResponseReminderQueueGeneratedMismatch = effectiveSelfStudyPortfolioCollaboratorResponseReminderQueue.length > 0 && effectiveSelfStudyPortfolioCollaboratorResponseReminderQueue.length !== generatedPortfolioCollaboratorResponseReminderQueue.length
   const portfolioBriefReadinessErrors = portfolioBriefs.filter((brief) =>
     !brief.completion_gate_id
       || !portfolioCompletionGateIds.has(brief.completion_gate_id)
@@ -5818,6 +5844,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${effectiveSelfStudyPortfolioCollaboratorResponseSendLogImports.length} collaborator response send-log imports; ${portfolioCollaboratorResponseDistributionStatus.filter((row) => row.send_log_import_present).length} applied to distribution status; ${portfolioCollaboratorResponseSendLogImportErrors.length} send-log import reference/field errors.`,
     },
     {
+      id: 'self_study_portfolio_collaborator_response_reminder_queue_tracks_unsent_blocked_overdue',
+      status: portfolioCollaboratorResponseReminderQueueErrors.length === 0 && portfolioCollaboratorResponseReminderQueue.length > 0 && !portfolioCollaboratorResponseReminderQueueGeneratedMismatch ? 'pass' : 'fail',
+      detail: `${portfolioCollaboratorResponseReminderQueue.length} collaborator response reminder rows; ${portfolioCollaboratorResponseReminderQueue.filter((row) => row.reminder_reason === 'not_sent').length} not sent; ${portfolioCollaboratorResponseReminderQueue.filter((row) => row.reminder_reason === 'blocked').length} blocked; ${portfolioCollaboratorResponseReminderQueue.filter((row) => row.reminder_reason === 'overdue').length} overdue; ${portfolioCollaboratorResponseReminderQueueErrors.length} reminder reference/copy errors; generated mismatch=${portfolioCollaboratorResponseReminderQueueGeneratedMismatch}.`,
+    },
+    {
       id: 'self_study_progress_ledger_links_to_portfolio_completion_gates',
       status: progressLedgerPortfolioGateErrors.length === 0 && progressLedgerWithPortfolioGateAnnotations.length === progressLedger.length && progressLedger.length > 0 ? 'pass' : 'fail',
       detail: `${progressLedgerWithPortfolioGateAnnotations.length} progress ledger rows carry portfolio review gate annotations; ${progressLedgerPortfolioGateErrors.length} annotation reference errors.`,
@@ -6062,6 +6093,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_portfolio_collaborator_response_send_log_template_not_sent_rows: portfolioCollaboratorResponseSendLogTemplate.filter((row) => row.send_state === 'not_sent').length,
       self_study_portfolio_collaborator_response_send_log_import_rows: effectiveSelfStudyPortfolioCollaboratorResponseSendLogImports.length,
       self_study_portfolio_collaborator_response_send_log_import_applied_rows: portfolioCollaboratorResponseDistributionStatus.filter((row) => row.send_log_import_present).length,
+      self_study_portfolio_collaborator_response_reminder_queue_rows: portfolioCollaboratorResponseReminderQueue.length,
+      self_study_portfolio_collaborator_response_reminder_queue_not_sent_rows: portfolioCollaboratorResponseReminderQueue.filter((row) => row.reminder_reason === 'not_sent').length,
       self_study_portfolio_milestones: portfolioMilestones.length,
       self_study_portfolio_briefs: portfolioBriefs.length,
       self_study_portfolio_briefs_with_completion_gate_status: portfolioBriefs.filter((brief) => brief.review_readiness?.status).length,
@@ -10327,6 +10360,89 @@ function selfStudyPortfolioCollaboratorResponseSendLogTemplateMarkdown(rows) {
   return lines.map((line) => line.trimEnd()).join('\n')
 }
 
+function buildSelfStudyPortfolioCollaboratorResponseReminderQueue(statusRows, manifests) {
+  const manifestsById = new Map(manifests.map((manifest) => [manifest.distribution_manifest_id, manifest]))
+  return statusRows
+    .filter((row) => ['ready_to_send', 'blocked', 'overdue'].includes(row.current_status))
+    .map((row) => {
+      const manifest = manifestsById.get(row.distribution_manifest_id)
+      const reminderReason = row.current_status === 'blocked' ? 'blocked' : row.current_status === 'overdue' ? 'overdue' : 'not_sent'
+      return {
+        reminder_id: `collaborator_response_reminder_${row.milestone_id}`,
+        generated_at: retrievedAt,
+        milestone_id: row.milestone_id,
+        distribution_status_id: row.distribution_status_id,
+        distribution_manifest_id: row.distribution_manifest_id,
+        review_brief_id: row.review_brief_id,
+        recipient_role: row.recipient_role,
+        current_status: row.current_status,
+        reminder_reason: reminderReason,
+        priority: reminderReason === 'blocked' || reminderReason === 'overdue' ? 'high' : 'medium',
+        message_subject: manifest?.message_subject ? `Reminder: ${manifest.message_subject}` : `Reminder: ${row.distribution_manifest_id}`,
+        reminder_copy: collaboratorResponseReminderCopy(row, manifest, reminderReason),
+        artifact_bundle: manifest?.artifact_bundle ?? [reconciliationArtifact('distribution_manifest', row.distribution_manifest_id, 'self_study_portfolio_collaborator_response_distribution_manifests.jsonl')],
+        blockers: row.blockers ?? [],
+        source_artifact: reconciliationArtifact('distribution_status', row.distribution_status_id, 'self_study_portfolio_collaborator_response_distribution_status.jsonl'),
+        next_owner_action: reminderReason === 'blocked' ? 'Resolve the blocker note or send checklist before contacting the collaborator again.' : 'Send or resend the bounded reminder copy, then record the result in the send-log import file.',
+        provenance_note: 'Generated collaborator response reminder from distribution status and manifest copy.',
+      }
+    })
+}
+
+function collaboratorResponseReminderCopy(row, manifest, reminderReason) {
+  const lead = reminderReason === 'blocked'
+    ? 'This collaborator response packet is blocked. Please resolve the blocker before sending.'
+    : reminderReason === 'overdue'
+      ? 'This collaborator response packet is overdue. Please send a bounded follow-up using the linked artifacts.'
+      : 'This collaborator response packet is ready to send. Please send the bounded review request using the linked artifacts.'
+  return [
+    lead,
+    `Milestone: ${row.milestone_id}`,
+    `Distribution manifest: ${row.distribution_manifest_id}`,
+    `Review brief: ${row.review_brief_id}`,
+    manifest?.message_body_template ? `Original message:\n${manifest.message_body_template}` : null,
+  ].filter(Boolean).join('\n\n')
+}
+
+function selfStudyPortfolioCollaboratorResponseReminderQueueMarkdown(rows) {
+  const lines = [
+    '# RISD Graphic Design Collaborator Response Reminder Queue',
+    '',
+    `Generated: ${retrievedAt}`,
+    '',
+    'These reminders are bounded to generated distribution manifests and status rows. They cover unsent, blocked, or overdue collaborator response packets.',
+    '',
+    `- Reminder rows: ${rows.length}`,
+    `- Not sent: ${rows.filter((row) => row.reminder_reason === 'not_sent').length}`,
+    `- Blocked: ${rows.filter((row) => row.reminder_reason === 'blocked').length}`,
+    `- Overdue: ${rows.filter((row) => row.reminder_reason === 'overdue').length}`,
+    '',
+  ]
+  rows.forEach((row) => {
+    lines.push(`## ${row.reminder_id}`)
+    lines.push('')
+    lines.push(`- Milestone: ${row.milestone_id}`)
+    lines.push(`- Distribution status: ${row.distribution_status_id}`)
+    lines.push(`- Distribution manifest: ${row.distribution_manifest_id}`)
+    lines.push(`- Reason: ${row.reminder_reason}`)
+    lines.push(`- Priority: ${row.priority}`)
+    lines.push(`- Subject: ${row.message_subject}`)
+    lines.push('- Artifact bundle:')
+    row.artifact_bundle.forEach((artifact) => lines.push(`  - ${artifact.artifact_role}: ${artifact.artifact_id} (${artifact.artifact_path})`))
+    if (row.blockers.length) {
+      lines.push('- Blockers:')
+      row.blockers.forEach((blocker) => lines.push(`  - ${blocker}`))
+    }
+    lines.push('- Reminder copy:')
+    lines.push('```text')
+    lines.push(row.reminder_copy)
+    lines.push('```')
+    lines.push(`- Next owner action: ${row.next_owner_action}`)
+    lines.push('')
+  })
+  return lines.map((line) => line.trimEnd()).join('\n')
+}
+
 function buildSelfStudyPortfolioRevisionQueue(handoffs, feedbackImports = []) {
   const importsByHandoff = new Map(feedbackImports.filter((row) => row.handoff_id).map((row) => [row.handoff_id, row]))
   return handoffs.flatMap((handoff) => {
@@ -11502,6 +11618,7 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   const portfolioCollaboratorResponseSendLogImports = loadJsonl(portfolioCollaboratorResponseSendLogImportPath)
   const portfolioCollaboratorResponseDistributionStatus = buildSelfStudyPortfolioCollaboratorResponseDistributionStatus(portfolioCollaboratorResponseDistributionManifests, portfolioCollaboratorResponseSendLogImports)
   const portfolioCollaboratorResponseSendLogTemplate = buildSelfStudyPortfolioCollaboratorResponseSendLogTemplate(portfolioCollaboratorResponseDistributionStatus)
+  const portfolioCollaboratorResponseReminderQueue = buildSelfStudyPortfolioCollaboratorResponseReminderQueue(portfolioCollaboratorResponseDistributionStatus, portfolioCollaboratorResponseDistributionManifests)
   writeJsonl(join(outDir, 'self_study_pacing_plan.jsonl'), pacingPlan)
   writeJsonl(join(outDir, 'self_study_pacing_profiles.jsonl'), buildSelfStudyPacingProfiles(pacingPlan))
   writeJsonl(join(outDir, 'self_study_progress_ledger.jsonl'), progressLedgerWithPortfolioGateAnnotations)
@@ -11559,6 +11676,8 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   writeFileSync(join(outDir, 'self_study_portfolio_collaborator_response_distribution_status.md'), selfStudyPortfolioCollaboratorResponseDistributionStatusMarkdown(portfolioCollaboratorResponseDistributionStatus))
   writeJsonl(join(outDir, 'self_study_portfolio_collaborator_response_send_log_template.jsonl'), portfolioCollaboratorResponseSendLogTemplate)
   writeFileSync(join(outDir, 'self_study_portfolio_collaborator_response_send_log_template.md'), selfStudyPortfolioCollaboratorResponseSendLogTemplateMarkdown(portfolioCollaboratorResponseSendLogTemplate))
+  writeJsonl(join(outDir, 'self_study_portfolio_collaborator_response_reminder_queue.jsonl'), portfolioCollaboratorResponseReminderQueue)
+  writeFileSync(join(outDir, 'self_study_portfolio_collaborator_response_reminder_queue.md'), selfStudyPortfolioCollaboratorResponseReminderQueueMarkdown(portfolioCollaboratorResponseReminderQueue))
   writeJsonl(join(outDir, 'self_study_portfolio_milestones.jsonl'), portfolioMilestones)
   writeJsonl(join(outDir, 'self_study_portfolio_reference_packets.jsonl'), portfolioReferencePackets)
   writeJsonl(join(outDir, 'self_study_portfolio_source_excerpt_packets.jsonl'), portfolioSourceExcerptPackets)
