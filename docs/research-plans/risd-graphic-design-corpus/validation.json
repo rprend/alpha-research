@@ -98,9 +98,11 @@
     "successful_archive_promotions": 5,
     "failed_archive_promotions": 0,
     "wayback": 106,
-    "review_queue": 12,
-    "review_decisions": 12,
+    "review_queue": 40,
+    "review_decisions": 40,
     "resolved_review_decisions": 12,
+    "conflict_review_queue_rows": 28,
+    "pending_conflict_review_decisions": 28,
     "field_conflicts": 28
   },
   "checks": [
@@ -338,6 +340,11 @@
       "id": "manual_review_artifacts_have_valid_references",
       "status": "pass",
       "detail": "12 generated review decisions resolved, 0 review decision reference errors, and 0 field conflict reference errors."
+    },
+    {
+      "id": "field_conflicts_route_to_review_queue",
+      "status": "pass",
+      "detail": "28 conflict review rows and 28 pending conflict decisions for 28 field conflicts."
     },
     {
       "id": "official_course_inventory_reconciled",

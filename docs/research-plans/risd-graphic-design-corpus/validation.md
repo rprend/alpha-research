@@ -102,9 +102,11 @@ Overall status: pass
 - Successful archive promotions: 5
 - Failed archive promotions: 0
 - Wayback captures: 106
-- Review queue rows: 12
-- Review decision rows: 12
+- Review queue rows: 40
+- Review decision rows: 40
 - Resolved generated review decisions: 12
+- Conflict review queue rows: 28
+- Pending conflict review decisions: 28
 - Field conflicts: 28
 
 ## Checks
@@ -156,6 +158,7 @@ Overall status: pass
 - PASS archive_fetch_targets_prioritize_term_starts: 23 high-priority archive targets; 25 captures align with January/February/May/September term-start months.
 - PASS archive_promotions_reference_targets_and_sources: 5 archive promotion attempts, 5 successful, 0 failed, 0 reference errors.
 - PASS manual_review_artifacts_have_valid_references: 12 generated review decisions resolved, 0 review decision reference errors, and 0 field conflict reference errors.
+- PASS field_conflicts_route_to_review_queue: 28 conflict review rows and 28 pending conflict decisions for 28 field conflicts.
 - PASS official_course_inventory_reconciled: 105 official offerings parsed; RISD page displays 105 results.
 - PASS wayback_captures_recorded: 106 Wayback capture records.
 - PASS course_records_created: 134 course records created.

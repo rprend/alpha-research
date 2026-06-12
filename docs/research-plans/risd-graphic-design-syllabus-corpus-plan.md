@@ -295,6 +295,8 @@ Acceptance output:
 
 ### Step 7: Add Review Workflow For High-Value Uncertainty
 
+Status: implemented for generated missing-evidence review rows, conflict-derived high/medium review rows, structured review prompts, generated pending decisions for conflicts, validation that field conflicts route into the review queue, and follow-up markdown that surfaces review prompts and source IDs. Human decisions are still empty; the next improvement should apply human-reviewed decisions into reconstruction outputs and distinguish reviewed fields from generated/inferred fields.
+
 Goal: route the uncertain but useful classroom artifacts into a human-review loop instead of hiding them in generated prose.
 
 Implementation requirements:
