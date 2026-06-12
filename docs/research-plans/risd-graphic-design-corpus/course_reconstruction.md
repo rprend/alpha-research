@@ -10,6 +10,7 @@ Generated: 2026-06-12
 - Assignment evidence snippets: 502
 - Reading evidence snippets: 135
 - Student work evidence records: 41
+- Source clusters used for packet grouping: 10
 - Wayback capture records: 106
 
 ## Reconstructed Course Packets
@@ -20,6 +21,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3211-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -32,6 +35,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3211-02
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -44,6 +49,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3211-03
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -56,6 +63,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3211-04
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -68,6 +77,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3211-05
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -80,6 +91,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3211-99
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -92,6 +105,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 2215-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: interaction design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -104,6 +119,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3298-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -116,6 +133,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3298-02
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -128,6 +147,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3298-03
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -140,6 +161,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3298-04
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -152,6 +175,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3298-05
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -164,6 +189,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3298-99
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -176,6 +203,11 @@ Generated: 2026-06-12
 - Course code: GRAPH2115
 - Degree level: unknown
 - Source IDs: src_designandpolitics_2022_syllabus
+- Evidence families: 4 (4 source-cluster grouped)
+  - cluster_008; representative src_crawl_designandpolitics_risd_gd_2022_03_11_week4_html_2c0b9c19; 4 packet sources; keep_distinct_related_sources; Design & Politics
+  - cluster_007; representative src_crawl_designandpolitics_risd_gd_2022_04_15_week8_html_c265275c; 4 packet sources; keep_distinct_related_sources; Design & Politics
+  - cluster_001; representative src_designandpolitics_2022_syllabus; 3 packet sources; keep_distinct_related_sources; Design & Politics
+  - cluster_006; representative src_crawl_designandpolitics_risd_gd_2022_05_06_week11_html_a2f8e669; 2 packet sources; keep_distinct_related_sources; Design & Politics
 - Extracted skill signals: publication design, identity systems, motion design, interaction design, critique and revision
 - Syllabus/course artifact: syl_designandpolitics_2022_syllabus
 - Instructor: John Caserta
@@ -351,6 +383,11 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_crawl_designandpolitics_risd_gd_2022_05_13_week12_html_38dd599d, src_crawl_designandpolitics_risd_gd_2022_05_06_week11_html_a2f8e669, src_crawl_designandpolitics_risd_gd_2022_04_29_week10_html_2c78adc6, src_crawl_designandpolitics_risd_gd_2022_04_22_week9_html_d18590af, src_crawl_designandpolitics_risd_gd_2022_04_15_week8_html_c265275c, src_crawl_designandpolitics_risd_gd_2022_04_08_week7_html_66adff35, src_crawl_designandpolitics_risd_gd_2022_03_25_week6_html_0ea8c1e0, src_crawl_designandpolitics_risd_gd_2022_03_18_week5_html_573a50cf, src_crawl_designandpolitics_risd_gd_2022_03_11_week4_html_2c0b9c19, src_crawl_designandpolitics_risd_gd_2022_03_04_week3_html_20c11695, src_crawl_designandpolitics_risd_gd_2022_02_25_week2_html_cd23f8f4, src_crawl_designandpolitics_risd_gd_2022_02_18_week1_html_2fe7c95f
+- Evidence families: 4 (4 source-cluster grouped)
+  - cluster_008; representative src_crawl_designandpolitics_risd_gd_2022_03_11_week4_html_2c0b9c19; 4 packet sources; keep_distinct_related_sources; Design & Politics
+  - cluster_007; representative src_crawl_designandpolitics_risd_gd_2022_04_15_week8_html_c265275c; 4 packet sources; keep_distinct_related_sources; Design & Politics
+  - cluster_001; representative src_designandpolitics_2022_syllabus; 3 packet sources; keep_distinct_related_sources; Design & Politics
+  - cluster_006; representative src_crawl_designandpolitics_risd_gd_2022_05_06_week11_html_a2f8e669; 2 packet sources; keep_distinct_related_sources; Design & Politics
 - Extracted skill signals: image making, interaction design, research methods, publication design, critique and revision
 - Syllabus/course artifact: syl_designandpolitics_2022_syllabus
 - Instructor: John Caserta
@@ -526,6 +563,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3327-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, motion design, interaction design, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -538,6 +577,8 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_sp19_design_for_publishing
+- Evidence families: 1
+  - src_sp19_design_for_publishing; single source; RISD GD 2019
 - Extracted skill signals: typography, publication design, interaction design, image making
 - Syllabus/course artifact: syl_sp19_design_for_publishing
 - Term: Spring 2019
@@ -557,6 +598,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3302-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -569,6 +612,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 2106-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -581,6 +626,13 @@ Generated: 2026-06-12
 - Course code: GRAPH-3210
 - Degree level: unknown
 - Source IDs: src_john_caserta_design_studio_1_2016, src_ds1618_design_studio_archive, src_ds1618_make_book, src_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d
+- Evidence families: 7 (3 source-cluster grouped)
+  - cluster_003; representative src_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d; 3 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Design Studio 1 syllabus / Design Studio 2016–18: Unit 1: Overview & Assignment / Design Studio 2016–18: Unit 2: Overview & Assignment
+  - cluster_004; representative src_crawl_ds1618_risd_gd_2016_10_11_unit3_overview_html_9ed746cf; 2 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Unit 3: Overview & Assignment / Design Studio 2016–18: Unit 4: Overview & Assignment
+  - cluster_005; representative src_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224; 2 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Critique Questions / Design Studio 2016–18: Unit 5: Overview & Assignment
+  - src_crawl_johncaserta_com_docicons_html_d8852632; single source; John Caserta Documentary Icons
+  - src_ds1618_design_studio_archive; single source; Design Studio 2016–18
+  - src_ds1618_make_book; single source; Design Studio 1
 - Extracted skill signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
 - Syllabus/course artifact: syl_john_caserta_design_studio_1_2016
 - Instructor: John Caserta
@@ -780,6 +832,13 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_crawl_johncaserta_com_docicons_html_d8852632, src_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d, src_crawl_ds1618_risd_gd_2016_09_26_unit2_overview_html_1de519e9, src_crawl_ds1618_risd_gd_2016_10_11_unit3_overview_html_9ed746cf, src_crawl_ds1618_risd_gd_2016_10_25_unit4_overview_html_cfb221b8, src_crawl_ds1618_risd_gd_2016_11_08_unit4_crit_html_d957a68a, src_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224
+- Evidence families: 7 (3 source-cluster grouped)
+  - cluster_003; representative src_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d; 3 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Unit 1: Overview & Assignment / Design Studio 2016–18: Unit 2: Overview & Assignment / Design Studio 2016–18: Design Studio 1 syllabus
+  - cluster_004; representative src_crawl_ds1618_risd_gd_2016_10_11_unit3_overview_html_9ed746cf; 2 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Unit 3: Overview & Assignment / Design Studio 2016–18: Unit 4: Overview & Assignment
+  - cluster_005; representative src_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224; 2 packet sources; keep_distinct_related_sources; Design Studio 2016–18: Critique Questions / Design Studio 2016–18: Unit 5: Overview & Assignment
+  - src_crawl_johncaserta_com_docicons_html_d8852632; single source; John Caserta Documentary Icons
+  - src_ds1618_design_studio_archive; single source; Design Studio 2016–18
+  - src_ds1618_make_book; single source; Design Studio 1
 - Extracted skill signals: typography, publication design, interaction design, image making, identity systems, critique and revision, research methods, motion design
 - Syllabus/course artifact: syl_john_caserta_design_studio_1_2016
 - Instructor: John Caserta
@@ -979,6 +1038,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3210-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -991,6 +1052,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3210-02
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1003,6 +1066,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3210-03
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1015,6 +1080,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3210-04
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1027,6 +1094,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3210-99
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1039,6 +1108,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3220-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1051,6 +1122,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3220-02
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1063,6 +1136,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3220-03
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1075,6 +1150,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3220-04
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1087,6 +1164,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3220-05
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1099,6 +1178,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3220-99
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1111,6 +1192,8 @@ Generated: 2026-06-12
 - Course code: GRAPH3220-99
 - Degree level: unknown
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, identity systems, interaction design, critique and revision, research methods, image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1123,6 +1206,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3226-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1135,6 +1220,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3226-02
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1147,6 +1234,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3226-03
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1159,6 +1248,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3226-04
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1171,6 +1262,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3226-05
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1183,6 +1276,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3226-99
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1195,6 +1290,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3216-02
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1207,6 +1304,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3216-03
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1219,6 +1318,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3216-04
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1231,6 +1332,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3216-05
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1243,6 +1346,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3216-99
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1255,6 +1360,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3273-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: not enough course-specific evidence yet.
@@ -1266,6 +1373,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 2323-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: identity systems, interaction design, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1278,6 +1387,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 2322-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, motion design, interaction design, critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1290,6 +1401,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 2310-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1302,6 +1415,8 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_grad_type_1_2014_syllabus_pdf
+- Evidence families: 1
+  - src_grad_type_1_2014_syllabus_pdf; single source; Grad Type 1
 - Extracted skill signals: typography, publication design, interaction design, critique and revision
 - Syllabus/course artifact: syl_grad_type_1_2014_syllabus_pdf
 - Term: Fall 2014
@@ -1344,6 +1459,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 319G-01
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1356,6 +1473,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 320G-01
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: not enough course-specific evidence yet.
@@ -1367,6 +1486,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 231G-01
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1379,6 +1500,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 321G-01
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1391,6 +1514,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 322G-01
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1403,6 +1528,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 330G-01
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1415,6 +1542,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 323G-01
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1427,6 +1556,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 324G-01
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1439,6 +1570,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 327G-01
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1451,6 +1584,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 328G-01
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1463,6 +1598,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 318G-01
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1475,6 +1612,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 332G-01
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_5
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1487,6 +1626,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 342G-01
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_5
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1499,6 +1640,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 352G-01
 - Degree level: Graduate
 - Source IDs: src_risd_graphic_design_courses_page_5
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1511,6 +1654,9 @@ Generated: 2026-06-12
 - Course code: GRAPH2010-01
 - Degree level: unknown
 - Source IDs: src_risd_graphic_design_courses_page_0, src_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb
+- Evidence families: 2 (1 source-cluster grouped)
+  - src_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb; single source; Graphic Design Courses | RISD
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
 - Syllabus/course artifact: syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb
 - Instructor: Tom Wedell Location
@@ -1556,6 +1702,8 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_sp19_risd_gd_web
+- Evidence families: 1
+  - src_sp19_risd_gd_web; single source; RISD GD 2019
 - Extracted skill signals: interaction design, critique and revision, research methods
 - Syllabus/course artifact: syl_sp19_risd_gd_web
 - Term: Spring 2019
@@ -1577,6 +1725,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3225-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1589,6 +1739,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3286-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: identity systems, critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1601,6 +1753,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3286-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: identity systems, critique and revision
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1613,6 +1767,8 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_risd_in_motion_news
+- Evidence families: 1
+  - src_risd_in_motion_news; single source; RISD Students Use Video and Animation Techniques to Bring Graphics to Life
 - Extracted skill signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
 - Public student work examples:
   - Academics: https://www.risd.edu/academics (medium: animation/video; assignment link: unlinked_public_example; visual notes: source describes technique training or best-practice expectations; source emphasizes time-based graphic sequencing)
@@ -1632,6 +1788,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 2355-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1644,6 +1802,8 @@ Generated: 2026-06-12
 - Course code: GRAPH-W336-01
 - Degree level: unknown
 - Source IDs: src_adam_fein_intro_graphic_design_2021_pdf
+- Evidence families: 1
+  - src_adam_fein_intro_graphic_design_2021_pdf; single source; Introduction to Graphic Design
 - Extracted skill signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
 - Syllabus/course artifact: syl_adam_fein_intro_graphic_design_2021_pdf
 - Instructor: Adam Fein
@@ -1704,6 +1864,8 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_sp19_mapping_information
+- Evidence families: 1
+  - src_sp19_mapping_information; single source; RISD GD 2019
 - Extracted skill signals: typography, motion design, interaction design
 - Syllabus/course artifact: syl_sp19_mapping_information
 - Term: Spring 2019
@@ -1721,6 +1883,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3282-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1733,6 +1897,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 2315-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1745,6 +1911,8 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_sp19_newly_formed
+- Evidence families: 1
+  - src_sp19_newly_formed; single source; RISD GD 2019
 - Extracted skill signals: typography, interaction design, image making
 - Syllabus/course artifact: syl_sp19_newly_formed
 - Term: Spring 2019
@@ -1762,6 +1930,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3324-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1774,6 +1944,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3324-02
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1786,6 +1958,8 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_sp19_reframing_the_poster
+- Evidence families: 1
+  - src_sp19_reframing_the_poster; single source; RISD GD 2019
 - Extracted skill signals: typography, motion design, interaction design, image making
 - Syllabus/course artifact: syl_sp19_reframing_the_poster
 - Term: Spring 2019
@@ -1807,6 +1981,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 2010-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, motion design, interaction design, image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1819,6 +1995,8 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_cc_risd_gd_notices_spring_talks_workshops_in_gd_f79eb7cc
+- Evidence families: 1
+  - src_cc_risd_gd_notices_spring_talks_workshops_in_gd_f79eb7cc; single source; RISD GD | 💐 Spring Talks + Workshops in GD
 - Extracted skill signals: publication design, interaction design
 - Syllabus/course artifact: syl_cc_risd_gd_notices_spring_talks_workshops_in_gd_f79eb7cc
 - Schedule rows:
@@ -1839,6 +2017,8 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_sp19_time_sequence_sound
+- Evidence families: 1
+  - src_sp19_time_sequence_sound; single source; RISD GD 2019
 - Extracted skill signals: motion design, interaction design
 - Syllabus/course artifact: syl_sp19_time_sequence_sound
 - Term: Spring 2019
@@ -1861,6 +2041,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3123-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, motion design, interaction design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1873,6 +2055,8 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_sp19_type_design
+- Evidence families: 1
+  - src_sp19_type_design; single source; RISD GD 2019
 - Extracted skill signals: typography, interaction design
 - Syllabus/course artifact: syl_sp19_type_design
 - Term: Spring 2019
@@ -1889,6 +2073,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3859-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_5
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1901,6 +2087,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3859-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_5
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1913,6 +2101,8 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_type_two_2015_syllabus_pdf
+- Evidence families: 1
+  - src_type_two_2015_syllabus_pdf; single source; Type Two
 - Extracted skill signals: typography, publication design, interaction design, critique and revision, research methods, image making
 - Syllabus/course artifact: syl_type_two_2015_syllabus_pdf
 - Term: 2015
@@ -1963,6 +2153,8 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_cc_htmloutput_risd_gd_project_ojus_typelandscapes_1b06208f
+- Evidence families: 1
+  - src_cc_htmloutput_risd_gd_project_ojus_typelandscapes_1b06208f; single source; Typographic Landscapes
 - Extracted skill signals: typography, publication design, interaction design
 - Syllabus/course artifact: syl_cc_htmloutput_risd_gd_project_ojus_typelandscapes_1b06208f
 - Tools mentioned: HTML/CSS
@@ -1979,6 +2171,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 2350-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, identity systems
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -1991,6 +2185,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3105-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2003,6 +2199,8 @@ Generated: 2026-06-12
 - Course code: GRAPH3210
 - Degree level: unknown
 - Source IDs: src_risd_coursedog_bfa_graphic_design
+- Evidence families: 1
+  - src_risd_coursedog_bfa_graphic_design; single source; BFA.GRAPH.120 Program | Rhode Island School of Design Catalog
 - Extracted skill signals: typography, publication design, critique and revision, research methods, image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2015,6 +2213,8 @@ Generated: 2026-06-12
 - Course code: GRAPH3282-01
 - Degree level: unknown
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2027,6 +2227,8 @@ Generated: 2026-06-12
 - Course code: GRAPH3178-03
 - Degree level: unknown
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, identity systems, critique and revision, research methods, image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2039,6 +2241,8 @@ Generated: 2026-06-12
 - Course code: GRAPH332G-01
 - Degree level: unknown
 - Source IDs: src_risd_graphic_design_courses_page_5
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, identity systems, motion design, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2051,6 +2255,8 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_sp19_typography_for_nonmajors
+- Evidence families: 1
+  - src_sp19_typography_for_nonmajors; single source; RISD GD 2019
 - Extracted skill signals: typography, publication design, motion design, interaction design
 - Syllabus/course artifact: syl_sp19_typography_for_nonmajors
 - Term: Spring 2019
@@ -2072,6 +2278,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3214-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2084,6 +2292,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3214-02
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2096,6 +2306,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3214-03
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2108,6 +2320,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3214-04
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2120,6 +2334,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3214-99
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2132,6 +2348,8 @@ Generated: 2026-06-12
 - Course code: GRAPH3214-03
 - Degree level: unknown
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, identity systems, motion design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2144,6 +2362,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3215-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2156,6 +2376,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3215-02
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2168,6 +2390,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3215-03
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2180,6 +2404,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3215-04
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2192,6 +2418,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3215-05
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2204,6 +2432,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3215-99
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_2
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design, motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2216,6 +2446,8 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_wayback_typography_iii_syllabus_20210414155049
+- Evidence families: 1
+  - src_wayback_typography_iii_syllabus_20210414155049; single source; Typography III — Syllabus
 - Extracted skill signals: typography, publication design, motion design, interaction design, critique and revision, research methods, image making
 - Syllabus/course artifact: syl_wayback_typography_iii_syllabus_20210414155049
 - Term: 2020
@@ -2257,6 +2489,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3223-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2269,6 +2503,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3223-02
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2281,6 +2517,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3223-03
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2293,6 +2531,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3223-04
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2305,6 +2545,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3223-05
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2317,6 +2559,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3223-99
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2329,6 +2573,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3237-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_3
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2341,6 +2587,13 @@ Generated: 2026-06-12
 - Course code: GRAPH-3188-03
 - Degree level: unknown
 - Source IDs: src_wp15_week_1_concrete_forms, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69
+- Evidence families: 10 (2 source-cluster grouped)
+  - cluster_009; representative src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69; 10 packet sources; keep_distinct_related_sources; Workshop Syllabus | Web Programming 2015 / Pocket Pictograms: Inspiration for Assignment 2 | Web Programming 2015 / PBS Off Book: Art of Creative Coding | Web Programming 2015 / “Concrete objects”, Christian Leborg | Web Programming 2015
+  - cluster_010; representative src_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c; 8 packet sources; keep_distinct_related_sources; Assignments | Web Programming 2015 / 1: Scandinavian Flag | Web Programming 2015 / 2: CSS Drawings | Web Programming 2015 / 3A: Abstract Shape | Web Programming 2015
+  - src_cc_wp15_risd_gd_assignments_1_scandinavian_flag_scandinavian_flag_9_e73ad2ba; single source; Scandinavian Flag | Web Programming 2015
+  - src_cc_wp15_risd_gd_assignments_3a_abstract_shape_seo_jung_lee_kelly_abstract_shape_11afe369; single source; Seo Jung Lee (Kelly) Abstract Shape | Web Programming 2015
+  - src_cc_wp15_risd_gd_assignments_5_change_in_relations_change_2_3c1efa27; single source; click | Web Programming 2015
+  - src_cc_wp15_risd_gd_assignments_assignment_7_single_page_website_ce3ecd92; single source; Activity: Bring it all together | Web Programming 2015
 - Extracted skill signals: publication design, identity systems, motion design, interaction design, image making
 - Syllabus/course artifact: syl_wp15_week_1_concrete_forms
 - Term: 2015
@@ -2639,6 +2892,13 @@ Generated: 2026-06-12
 - Course code: unknown
 - Degree level: unknown
 - Source IDs: src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pocket_pictograms_inspiration_for_assignment_2_3cf16be5, src_crawl_wp15_risd_gd_category_outline_week_1_concrete_forms_4905a205, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_concrete_objects_christian_leborg_f274fe53, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_essay_by_paul_elliman_on_karel_martens_graphic__95641d1a, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_2_draw_found_objects_with_css_4a1e2993, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_1_make_a_scandinavian_flag_with_css_cb569dec, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_2_css_basics_layout_8224b9f9, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_1_html_basics_a2298300, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_getting_setup_add_users_bios_and_avatars_5a8864e0, src_crawl_wp15_risd_gd_wp_login_php_dd54314d, src_crawl_wp15_risd_gd_category_assignments_116ec5b2, src_crawl_wp15_risd_gd_category_assignments_1_scandinavian_flag_04511d7b, src_crawl_wp15_risd_gd_category_assignments_2_css_drawings_6a79b496, src_crawl_wp15_risd_gd_category_assignments_3a_abstract_shape_87c26db6, src_crawl_wp15_risd_gd_category_assignments_3b_abstract_composition_93bcd461, src_crawl_wp15_risd_gd_category_assignments_4css_patterns_de5ba421, src_crawl_wp15_risd_gd_category_assignments_5_change_in_relations_f57a17f0, src_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c, src_cc_wp15_risd_gd_assignments_assignment_7_single_page_website_ce3ecd92, src_cc_wp15_risd_gd_assignments_3a_abstract_shape_seo_jung_lee_kelly_abstract_shape_11afe369, src_cc_wp15_risd_gd_assignments_5_change_in_relations_change_2_3c1efa27, src_cc_wp15_risd_gd_assignments_yves_olivier_flag_f6bd828c, src_cc_wp15_risd_gd_assignments_1_scandinavian_flag_scandinavian_flag_9_e73ad2ba
+- Evidence families: 10 (2 source-cluster grouped)
+  - cluster_009; representative src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69; 10 packet sources; keep_distinct_related_sources; Pocket Pictograms: Inspiration for Assignment 2 | Web Programming 2015 / PBS Off Book: Art of Creative Coding | Web Programming 2015 / “Concrete objects”, Christian Leborg | Web Programming 2015 / Essay by Paul Elliman on Karel Martens’ graphic work | Web Programming 2015
+  - cluster_010; representative src_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c; 8 packet sources; keep_distinct_related_sources; Assignments | Web Programming 2015 / 1: Scandinavian Flag | Web Programming 2015 / 2: CSS Drawings | Web Programming 2015 / 3A: Abstract Shape | Web Programming 2015
+  - src_cc_wp15_risd_gd_assignments_1_scandinavian_flag_scandinavian_flag_9_e73ad2ba; single source; Scandinavian Flag | Web Programming 2015
+  - src_cc_wp15_risd_gd_assignments_3a_abstract_shape_seo_jung_lee_kelly_abstract_shape_11afe369; single source; Seo Jung Lee (Kelly) Abstract Shape | Web Programming 2015
+  - src_cc_wp15_risd_gd_assignments_5_change_in_relations_change_2_3c1efa27; single source; click | Web Programming 2015
+  - src_cc_wp15_risd_gd_assignments_assignment_7_single_page_website_ce3ecd92; single source; Activity: Bring it all together | Web Programming 2015
 - Extracted skill signals: motion design, interaction design, publication design, image making, identity systems, typography
 - Syllabus/course artifact: syl_wp15_week_1_concrete_forms
 - Term: 2015
@@ -2937,6 +3197,13 @@ Generated: 2026-06-12
 - Course code: GRAPH-2313-01
 - Degree level: unknown
 - Source IDs: src_web_type_2022_syllabus, src_crawl_webtype_htmlkitchen_net_schedule_59d96530, src_crawl_webtype_htmlkitchen_net_projects_f21c0c50, src_crawl_webtype_htmlkitchen_net_exercises_8dc7f726, src_crawl_webtype_htmlkitchen_net_projects_project1_a757b534, src_crawl_webtype_htmlkitchen_net_exercises_0_getting_started_459158d5, src_crawl_webtype_htmlkitchen_net_exercises_01_layouts_positioning_697aa92a, src_crawl_webtype_htmlkitchen_net_exercises_02_responsive_f5b20f70, src_crawl_webtype_htmlkitchen_net_projects_project2_5558bef3, src_crawl_webtype_htmlkitchen_net_exercises_03_modular_d0c35ace, src_crawl_webtype_htmlkitchen_net_exercises_05_change_over_time_1f4702e5, src_crawl_webtype_htmlkitchen_net_exercises_06_dark_mode_4333e8cd, src_crawl_webtype_htmlkitchen_net_projects_project3_1ba5bc84, src_crawl_webtype_htmlkitchen_net_exercises_07_input_range_30e67e2f, src_crawl_webtype_htmlkitchen_net_projects_project4_da8d8ab6, src_crawl_webtype_htmlkitchen_net_exercises_08_apis_976b1cb7, src_crawl_webtype_htmlkitchen_net_projects_class_site_33043781
+- Evidence families: 17
+  - src_crawl_webtype_htmlkitchen_net_exercises_0_getting_started_459158d5; single source; Getting Started — WebType
+  - src_crawl_webtype_htmlkitchen_net_exercises_01_layouts_positioning_697aa92a; single source; Layouts — WebType
+  - src_crawl_webtype_htmlkitchen_net_exercises_02_responsive_f5b20f70; single source; Responsive Layouts — WebType
+  - src_crawl_webtype_htmlkitchen_net_exercises_03_modular_d0c35ace; single source; Modular Letters — WebType
+  - src_crawl_webtype_htmlkitchen_net_exercises_05_change_over_time_1f4702e5; single source; Change over time — WebType
+  - src_crawl_webtype_htmlkitchen_net_exercises_06_dark_mode_4333e8cd; single source; Dark Mode — WebType
 - Extracted skill signals: typography, motion design, interaction design, critique and revision, research methods, image making, publication design, identity systems
 - Syllabus/course artifact: syl_web_type_2022_syllabus
 - Instructor: Marie Otsuka
@@ -3153,6 +3420,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3318-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3165,6 +3434,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3318-02
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: motion design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3177,6 +3448,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3178-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3189,6 +3462,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3178-02
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3201,6 +3476,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3178-03
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, publication design
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3213,6 +3490,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3181-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: not enough course-specific evidence yet.
@@ -3224,6 +3503,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3181-02
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: not enough course-specific evidence yet.
@@ -3235,6 +3516,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3181-03
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_1
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
   - Skill training signals: not enough course-specific evidence yet.
@@ -3246,6 +3529,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3319-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3258,6 +3543,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3319-02
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3270,6 +3557,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 3319-03
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_4
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3282,6 +3571,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 2117-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3294,6 +3585,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 2117-01
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3306,6 +3599,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 2117-02
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3318,6 +3613,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 2117-02
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3330,6 +3627,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 2117-03
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -3342,6 +3641,8 @@ Generated: 2026-06-12
 - Course code: GRAPH 2117-03
 - Degree level: Undergraduate
 - Source IDs: src_risd_graphic_design_courses_page_0
+- Evidence families: 1 (1 source-cluster grouped)
+  - cluster_002; representative src_risd_graphic_design_courses_page_0; 1 packet source; keep_distinct_related_sources; Graphic Design Courses | RISD
 - Extracted skill signals: typography, interaction design, critique and revision, research methods
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.

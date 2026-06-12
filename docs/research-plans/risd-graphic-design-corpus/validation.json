@@ -35,6 +35,7 @@
     "exact_source_clusters": 0,
     "near_duplicate_source_clusters": 0,
     "related_source_clusters": 10,
+    "course_packets_with_clustered_evidence": 117,
     "source_versions": 28,
     "fetched_archive_source_versions": 1,
     "metadata_only_source_versions": 27,
@@ -133,6 +134,11 @@
       "id": "source_clusters_include_dedup_signals",
       "status": "pass",
       "detail": "0 exact duplicate clusters, 0 near-duplicate text clusters, and 10 related source-family clusters."
+    },
+    {
+      "id": "source_clusters_are_used_for_packet_grouping",
+      "status": "pass",
+      "detail": "117 course packets include source-cluster grouped evidence families."
     },
     {
       "id": "source_versions_reference_valid_sources",

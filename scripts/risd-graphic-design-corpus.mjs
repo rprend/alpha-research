@@ -2382,6 +2382,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const exactSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type.startsWith('exact')).length
   const nearDuplicateSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type === 'near_duplicate_text').length
   const relatedSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type === 'related_source_family').length
+  const clusteredSourceIds = new Set(sourceClusters.flatMap((cluster) => cluster.source_ids ?? []))
+  const coursePacketsWithClusteredEvidence = courses.filter((course) => course.source_ids?.some((sourceId) => clusteredSourceIds.has(sourceId)) || syllabi.some((syllabus) => syllabus.source_ids?.some((sourceId) => clusteredSourceIds.has(sourceId)) && ((syllabus.course_code && course.course_code && syllabus.course_code === course.course_code) || (syllabus.course_title && course.course_title && syllabus.course_title === course.course_title) || syllabus.source_ids.some((id) => course.source_ids.includes(id))))).length
   const reviewDecisionErrors = reviewDecisions.filter((decision) => !decision.review_id || !decision.status || decision.source_ids?.some((id) => !sourceIds.has(id)))
   const fieldConflictErrors = fieldConflicts.filter((conflict) => !conflict.conflict_id || !conflict.field || !conflict.values?.length || conflict.source_ids?.some((id) => !sourceIds.has(id)))
   const courseInventoryReconciled = courseInventory.displayed_count > 0 && courseInventory.offerings.length === courseInventory.displayed_count
@@ -2477,6 +2479,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${exactSourceClusterCount} exact duplicate clusters, ${nearDuplicateSourceClusterCount} near-duplicate text clusters, and ${relatedSourceClusterCount} related source-family clusters.`,
     },
     {
+      id: 'source_clusters_are_used_for_packet_grouping',
+      status: sourceClusters.length > 0 && coursePacketsWithClusteredEvidence > 0 ? 'pass' : sourceClusters.length > 0 ? 'warn' : 'fail',
+      detail: `${coursePacketsWithClusteredEvidence} course packets include source-cluster grouped evidence families.`,
+    },
+    {
       id: 'source_versions_reference_valid_sources',
       status: sourceVersionErrors.length === 0 ? 'pass' : 'fail',
       detail: `${sourceVersionErrors.length} source version reference errors across ${sourceVersions.length} version rows.`,
@@ -2546,6 +2553,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       exact_source_clusters: exactSourceClusterCount,
       near_duplicate_source_clusters: nearDuplicateSourceClusterCount,
       related_source_clusters: relatedSourceClusterCount,
+      course_packets_with_clustered_evidence: coursePacketsWithClusteredEvidence,
       source_versions: sourceVersions.length,
       fetched_archive_source_versions: fetchedArchiveVersionCount,
       metadata_only_source_versions: metadataOnlyVersionCount,
@@ -2814,6 +2822,7 @@ Overall status: ${validation.status}
 - Exact duplicate clusters: ${validation.counts.exact_source_clusters}
 - Near-duplicate source clusters: ${validation.counts.near_duplicate_source_clusters}
 - Related source-family clusters: ${validation.counts.related_source_clusters}
+- Course packets with clustered evidence: ${validation.counts.course_packets_with_clustered_evidence}
 - Source versions: ${validation.counts.source_versions}
 - Fetched archive source comparisons: ${validation.counts.fetched_archive_source_versions}
 - Metadata-only source versions: ${validation.counts.metadata_only_source_versions}
@@ -2828,8 +2837,45 @@ ${validation.checks.map((check) => `- ${check.status.toUpperCase()} ${check.id}:
 `
 }
 
-function reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback }) {
+function buildClusterLookups(sourceClusters) {
+  const clusterBySourceId = new Map()
+  const clusterById = new Map()
+  for (const cluster of sourceClusters ?? []) {
+    clusterById.set(cluster.cluster_id, cluster)
+    for (const sourceId of cluster.source_ids ?? []) {
+      clusterBySourceId.set(sourceId, cluster)
+    }
+  }
+  return { clusterBySourceId, clusterById }
+}
+
+function clusteredEvidenceFamilies({ sourceIds, sourcesById, clusterBySourceId }) {
+  const families = new Map()
+  for (const sourceId of sourceIds) {
+    const cluster = clusterBySourceId.get(sourceId)
+    const key = cluster?.cluster_id ?? `single_${sourceId}`
+    const existing = families.get(key) ?? {
+      cluster_id: cluster?.cluster_id ?? null,
+      cluster_type: cluster?.cluster_type ?? 'single_source',
+      representative_source_id: cluster?.representative_source_id ?? sourceId,
+      collapse_recommendation: cluster?.collapse_recommendation ?? 'single_source',
+      source_ids: [],
+      source_types: [],
+      source_titles: [],
+    }
+    existing.source_ids = uniq([...existing.source_ids, sourceId])
+    const source = sourcesById.get(sourceId)
+    existing.source_types = uniq([...existing.source_types, source?.source_type].filter(Boolean))
+    existing.source_titles = uniq([...existing.source_titles, source?.title ?? source?.course_title].filter(Boolean)).slice(0, 4)
+    families.set(key, existing)
+  }
+  return [...families.values()].sort((a, b) => b.source_ids.length - a.source_ids.length || a.representative_source_id.localeCompare(b.representative_source_id))
+}
+
+function reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters = [] }) {
   const lines = []
+  const sourcesById = new Map(sources.map((source) => [source.source_id, source]))
+  const { clusterBySourceId } = buildClusterLookups(sourceClusters)
   lines.push('# RISD Graphic Design Corpus Reconstruction')
   lines.push('')
   lines.push(`Generated: ${retrievedAt}`)
@@ -2842,6 +2888,7 @@ function reconstructionMarkdown({ sources, courses, syllabi, assignments, readin
   lines.push(`- Assignment evidence snippets: ${assignments.length}`)
   lines.push(`- Reading evidence snippets: ${readings.length}`)
   lines.push(`- Student work evidence records: ${studentWork.length}`)
+  lines.push(`- Source clusters used for packet grouping: ${sourceClusters.length}`)
   lines.push(`- Wayback capture records: ${wayback.length}`)
   lines.push('')
   lines.push('## Reconstructed Course Packets')
@@ -2852,12 +2899,31 @@ function reconstructionMarkdown({ sources, courses, syllabi, assignments, readin
     const courseAssignments = assignments.filter((a) => courseSyllabi.some((s) => s.syllabus_id === a.syllabus_id))
     const courseReadings = readings.filter((r) => courseSyllabi.some((s) => s.syllabus_id === r.syllabus_id))
     const courseStudentWork = studentWork.filter((work) => (work.course_code && course.course_code && work.course_code === course.course_code) || (work.course_title && course.course_title && work.course_title === course.course_title) || work.source_ids.some((id) => course.source_ids.includes(id)))
+    const packetSourceIds = uniq([
+      ...course.source_ids,
+      ...courseSyllabi.flatMap((s) => s.source_ids),
+      ...courseAssignments.flatMap((a) => a.source_ids),
+      ...courseReadings.flatMap((r) => r.source_ids),
+      ...courseStudentWork.flatMap((work) => work.source_ids),
+    ])
+    const evidenceFamilies = clusteredEvidenceFamilies({ sourceIds: packetSourceIds, sourcesById, clusterBySourceId })
+    const clusteredFamilyCount = evidenceFamilies.filter((family) => family.cluster_id).length
     lines.push(`### ${(course.course_title ?? course.course_code ?? course.course_id).trim()}`)
     lines.push('')
     lines.push(`- Evidence grade: ${course.evidence_grade}`)
     lines.push(`- Course code: ${course.course_code ?? 'unknown'}`)
     lines.push(`- Degree level: ${course.degree_level}`)
     lines.push(`- Source IDs: ${course.source_ids.join(', ')}`)
+    if (evidenceFamilies.length) {
+      lines.push(`- Evidence families: ${evidenceFamilies.length}${clusteredFamilyCount ? ` (${clusteredFamilyCount} source-cluster grouped)` : ''}`)
+      evidenceFamilies.slice(0, 6).forEach((family) => {
+        const label = family.cluster_id
+          ? `${family.cluster_id}; representative ${family.representative_source_id}; ${family.source_ids.length} packet source${family.source_ids.length === 1 ? '' : 's'}; ${family.collapse_recommendation}`
+          : `${family.representative_source_id}; single source`
+        const titles = family.source_titles.length ? `; ${family.source_titles.join(' / ')}` : ''
+        lines.push(`  - ${label}${titles}`)
+      })
+    }
     if (course.skills.length) lines.push(`- Extracted skill signals: ${course.skills.join(', ')}`)
     if (courseSyllabi.length) {
       for (const syllabus of courseSyllabi) {
@@ -3249,7 +3315,7 @@ function renderDerivedArtifactsOnly() {
   writeJsonl(join(outDir, 'assignments.jsonl'), assignments)
   writeJson(join(outDir, 'validation.json'), validationWithReview)
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
-  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback }))
+  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork }))
   console.log(`RISD derived artifacts written to ${outDir}`)
@@ -3372,7 +3438,7 @@ async function ingestCommonCrawlPromotionsOnly() {
   writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
-  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback }))
+  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork }))
   console.log(`RISD Common Crawl promotions ingested into ${outDir}`)
@@ -3465,7 +3531,7 @@ async function ingestFacultyProfilesOnlyMode() {
   writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
-  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback }))
+  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork }))
@@ -3596,7 +3662,7 @@ async function main() {
   writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
-  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback }))
+  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork }))

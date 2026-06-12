@@ -99,7 +99,7 @@ Known gaps:
 - Search candidate import is supported through local JSON/JSONL exports, but no live search API provider is wired yet.
 - A bounded Common Crawl candidate, promotion, and ingestion pass exists, but it is still capped and should be expanded carefully.
 - Faculty/course edges are derived from course evidence, and bounded RISD faculty-profile candidate discovery/ingestion is implemented. Faculty-portfolio expansion is still capped to curated public hints and should be expanded carefully.
-- Near-duplicate clustering is implemented as a review artifact, but clusters are not yet used to collapse generated course packets.
+- Source clustering is used to group evidence families in generated course packets. Current clusters are mostly related source families rather than exact duplicates, so the generator preserves distinct related pages and still needs stronger near-duplicate collapse once more duplicate evidence appears.
 - Manual review artifacts exist, but human decisions have not been filled in yet.
 - A generated self-study curriculum artifact exists, but it remains bounded by current public evidence and should expand as more course artifacts are recovered.
 
