@@ -1,12 +1,13 @@
 # Work Log
 
-Generated at: 2026-06-12T17:23:44.228Z
+Generated at: 2026-06-12T17:37:16.838Z
 
 ## Inputs
 
 - arxiv: 40 records, 1 requests, manifest `data/raw/arxiv/2026-06-12/manifest.json`
 - crossref: 80 records, 1 requests, manifest `data/raw/crossref/2026-06-12/manifest.json`
 - department-pages: 5 records, 5 requests, manifest `data/raw/department-pages/2026-06-12/manifest.json`
+- doaj: 80 records, 2 requests, manifest `data/raw/doaj/2026-06-12/manifest.json`
 - nber: 0 records, 3 requests, manifest `data/raw/nber/2026-06-12/manifest.json`
 - openalex: 80 records, 1 requests, manifest `data/raw/openalex/2026-06-12/manifest.json`
 

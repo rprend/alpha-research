@@ -1,0 +1,25 @@
+{
+  "source": "doaj",
+  "runDate": "2026-06-12",
+  "startedAt": "2026-06-12T17:37:16.241Z",
+  "finishedAt": "2026-06-12T17:37:16.694Z",
+  "recordCount": 80,
+  "requestCount": 2,
+  "requests": [
+    {
+      "query": "digital humanities",
+      "page": 1,
+      "url": "https://doaj.org/api/search/articles/digital%20humanities?page=1&pageSize=50",
+      "status": 200,
+      "responsePath": "data/raw/doaj/2026-06-12/digital-humanities-001.json"
+    },
+    {
+      "query": "digital humanities",
+      "page": 2,
+      "url": "https://doaj.org/api/search/articles/digital%20humanities?page=2&pageSize=30",
+      "status": 200,
+      "responsePath": "data/raw/doaj/2026-06-12/digital-humanities-002.json"
+    }
+  ],
+  "errors": []
+}

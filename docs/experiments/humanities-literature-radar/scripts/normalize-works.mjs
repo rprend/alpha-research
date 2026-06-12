@@ -36,6 +36,9 @@ for (const file of rawFiles) {
   } else if (rel.includes("data/raw/crossref/") && file.endsWith(".json")) {
     const json = await readJson(file);
     for (const item of json.message?.items ?? []) works.push(fromCrossref(item, rel));
+  } else if (rel.includes("data/raw/doaj/") && file.endsWith(".json")) {
+    const json = await readJson(file);
+    for (const item of json.results ?? []) works.push(fromDoaj(item, rel));
   } else if (rel.includes("data/raw/arxiv/") && file.endsWith(".xml")) {
     const xml = await fs.readFile(file, "utf8");
     for (const item of fromArxiv(xml, rel)) works.push(item);
@@ -168,6 +171,37 @@ function fromCrossref(item, rawPath) {
   };
 }
 
+function fromDoaj(item, rawPath) {
+  const bib = item.bibjson ?? {};
+  const identifiers = bib.identifier ?? [];
+  const doi = identifiers.find((identifier) => identifier.type === "doi")?.id ?? "";
+  const link = (bib.link ?? []).find((candidate) => candidate.type === "fulltext" || candidate.url)?.url ?? "";
+  const year = bib.year ?? "";
+  const month = monthNumber(bib.month);
+  const publicationDate = year ? `${String(year).padStart(4, "0")}-${String(month).padStart(2, "0")}-01` : "";
+  return {
+    source_name: "doaj",
+    source_record_id: item.id ?? doi ?? link,
+    title: normalizeWhitespace(bib.title),
+    abstract: normalizeWhitespace(bib.abstract),
+    publication_date: publicationDate,
+    year,
+    doi,
+    url: link || (doi ? `https://doi.org/${doi}` : ""),
+    open_access_url: link,
+    venue_name: bib.journal?.title ?? "",
+    publisher: bib.journal?.publisher ?? "",
+    work_type: "journal-article",
+    authors: (bib.author ?? []).map((author) => author.name).filter(Boolean),
+    institutions: [],
+    concepts: [...(bib.keywords ?? []), ...(bib.subject ?? []).map((subject) => subject.term).filter(Boolean)],
+    references: [],
+    cited_by_count: 0,
+    license: bib.license?.[0]?.type ?? "",
+    raw_path: rawPath,
+  };
+}
+
 function fromArxiv(xml, rawPath) {
   return [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].map((match) => {
     const entry = match[1];
@@ -242,6 +276,14 @@ function invertAbstract(index) {
 function text(xml, tag) {
   const match = xml.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`));
   return match ? match[1] : "";
+}
+
+function monthNumber(value) {
+  if (!value) return 1;
+  const textValue = String(value).toLowerCase();
+  const months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+  const index = months.findIndex((month) => month.startsWith(textValue.slice(0, 3)));
+  return index === -1 ? 1 : index + 1;
 }
 
 function buildTopicRows(items) {

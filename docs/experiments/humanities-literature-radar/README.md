@@ -27,6 +27,7 @@ Fetch a bounded API smoke corpus:
 ```bash
 node docs/experiments/humanities-literature-radar/scripts/fetch-openalex.mjs --limit=120
 node docs/experiments/humanities-literature-radar/scripts/fetch-crossref.mjs --limit=120
+node docs/experiments/humanities-literature-radar/scripts/fetch-doaj.mjs --limit=120
 node docs/experiments/humanities-literature-radar/scripts/fetch-arxiv.mjs --limit=80
 node docs/experiments/humanities-literature-radar/scripts/fetch-nber.mjs --limit=80
 ```
