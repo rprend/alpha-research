@@ -113,17 +113,25 @@ function main() {
       : 0
     const imported = matchedImports.length > 0
     const needsReview = Number(wave.review_decision_target ?? 0) > 0 && !reviewSampleWaveIds.has(wave.wave_id)
+    const liveRuns = runs.filter((run) => !run.dry_run)
+    const dryRunOnly = runs.length > 0 && liveRuns.length === 0
+    const latestLiveRun = liveRuns.at(-1)
+    const liveRunStatus = latestLiveRun
+      ? latestLiveRun.failed > 0 ? 'failed' : latestLiveRun.succeeded > 0 ? 'succeeded' : 'attempted'
+      : 'not_started'
     const status = imported
       ? importedOutputAccounts > 0 ? 'imported' : 'imported_empty'
-      : latestRun ? runStatus : 'planned'
+      : latestLiveRun ? liveRunStatus : 'planned'
     return {
       wave_id: wave.wave_id,
       sequence: wave.sequence,
       status,
       run_status: runStatus,
+      live_run_status: liveRunStatus,
+      dry_run_only: dryRunOnly,
       run_attempts: runs.length,
       dry_run_attempts: runs.filter((run) => run.dry_run).length,
-      live_run_attempts: runs.filter((run) => !run.dry_run).length,
+      live_run_attempts: liveRuns.length,
       imported,
       import_wave_ids: matchedImports.map((row) => row.wave_id).join('|'),
       import_output_paths: matchedImports.map((row) => row.output_path).filter(Boolean).join('|'),
@@ -161,6 +169,7 @@ function main() {
     waves: ledger.length,
     planned: ledger.filter((row) => row.status === 'planned').length,
     dry_run: ledger.filter((row) => row.status === 'dry_run').length,
+    dry_run_only: ledger.filter((row) => row.dry_run_only).length,
     succeeded: ledger.filter((row) => row.status === 'succeeded').length,
     imported: ledger.filter((row) => row.status === 'imported').length,
     imported_empty: ledger.filter((row) => row.status === 'imported_empty').length,
@@ -188,6 +197,7 @@ Generated: ${summary.generated_at}
 - Waves: ${summary.waves}
 - Planned: ${summary.planned}
 - Dry-run: ${summary.dry_run}
+- Dry-run only: ${summary.dry_run_only}
 - Succeeded: ${summary.succeeded}
 - Imported: ${summary.imported}
 - Imported empty: ${summary.imported_empty}

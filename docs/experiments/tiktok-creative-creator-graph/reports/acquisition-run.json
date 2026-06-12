@@ -1,14 +1,15 @@
 {
-  "generated_at": "2026-06-12T21:45:47.424Z",
-  "execution_id": "2026-06-12T21-45-47-424Z",
+  "generated_at": "2026-06-12T21:51:57.637Z",
+  "execution_id": "2026-06-12T21-51-57-636Z",
   "provider": "apify",
   "env_file_loaded": true,
   "provider_token_available": false,
-  "wave_id": "scale_wave_0011",
+  "wave_id": "scale_wave_0001",
   "wave_found": true,
   "dry_run": true,
   "live_requested": false,
   "live_confirmed": false,
+  "history_recorded": false,
   "selected_tasks": 2,
   "runnable_tasks": 2,
   "skipped_tasks": 0,
@@ -18,48 +19,48 @@
   "output_rows": 0,
   "results": [
     {
-      "execution_id": "2026-06-12T21-45-47-424Z",
+      "execution_id": "2026-06-12T21-51-57-636Z",
       "provider": "apify",
-      "batch_id": "category_gap_0029",
-      "acquisition_surface": "category_gap_search",
-      "query": "site:tiktok.com/@ \"editing\"",
-      "target_label": "editor",
+      "batch_id": "graph_0068",
+      "acquisition_surface": "search_index",
+      "query": "filmmaker short film editing breakdown",
+      "target_label": "filmmaker",
       "actor_id": "apify/google-search-scraper",
       "input": {
-        "queries": "site:tiktok.com/@ \"editing\"",
+        "queries": "filmmaker short film editing breakdown",
         "maxPagesPerQuery": 1,
         "resultsPerPage": 100,
         "countryCode": "us",
         "languageCode": "en"
       },
       "dry_run": true,
-      "started_at": "2026-06-12T21:45:47.424Z",
+      "started_at": "2026-06-12T21:51:57.637Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-12T21:45:47.424Z"
+      "finished_at": "2026-06-12T21:51:57.637Z"
     },
     {
-      "execution_id": "2026-06-12T21-45-47-424Z",
+      "execution_id": "2026-06-12T21-51-57-636Z",
       "provider": "apify",
-      "batch_id": "category_gap_0053",
-      "acquisition_surface": "category_gap_search",
-      "query": "site:tiktok.com/@ \"comedy sketch\"",
-      "target_label": "sketch_comedian",
+      "batch_id": "search_0004",
+      "acquisition_surface": "search_index",
+      "query": "site:tiktok.com/@ comedian",
+      "target_label": "standup_comedian",
       "actor_id": "apify/google-search-scraper",
       "input": {
-        "queries": "site:tiktok.com/@ \"comedy sketch\"",
+        "queries": "site:tiktok.com/@ comedian",
         "maxPagesPerQuery": 1,
         "resultsPerPage": 100,
         "countryCode": "us",
         "languageCode": "en"
       },
       "dry_run": true,
-      "started_at": "2026-06-12T21:45:47.424Z",
+      "started_at": "2026-06-12T21:51:57.637Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-12T21:45:47.424Z"
+      "finished_at": "2026-06-12T21:51:57.637Z"
     }
   ]
 }

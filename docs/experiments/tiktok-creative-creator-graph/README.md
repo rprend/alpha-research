@@ -89,6 +89,8 @@ This also updates the acquisition import wave ledger at `data/processed/acquisit
 
 Each provider run also appends a durable execution record to `data/processed/acquisition_run_history.jsonl`; the latest run remains available at `reports/acquisition-run.json`. The importer uses this history to map raw provider files back to the wave and task batch that produced them.
 
+Dry runs write the latest `reports/acquisition-run.*` evidence but do not append durable acquisition history unless `--record-history` is passed. This keeps dry-run validation from consuming planned live waves in `data/processed/wave_ledger.*`.
+
 Apply human review decisions:
 
 ```bash

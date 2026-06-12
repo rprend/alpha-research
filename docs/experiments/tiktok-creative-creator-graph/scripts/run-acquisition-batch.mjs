@@ -21,6 +21,7 @@ const limit = Number(args.get('--limit') ?? 100)
 const wantsLive = args.has('--live')
 const confirmedLive = args.has('--confirm-live')
 const dryRun = args.has('--dry-run') || !wantsLive
+const recordHistory = wantsLive || args.has('--record-history')
 const priorityMax = Number(args.get('--priority-max') ?? 1)
 const waveArg = args.get('--wave')
 
@@ -276,6 +277,7 @@ async function main() {
     dry_run: dryRun,
     live_requested: wantsLive,
     live_confirmed: confirmedLive,
+    history_recorded: recordHistory,
     selected_tasks: tasks.length,
     runnable_tasks: runnableTasks.length,
     skipped_tasks: skippedTasks.length,
@@ -287,7 +289,7 @@ async function main() {
   }
 
   writeJson(join(reportsDir, 'acquisition-run.json'), summary)
-  appendJsonl(join(processedDir, 'acquisition_run_history.jsonl'), summary)
+  if (recordHistory) appendJsonl(join(processedDir, 'acquisition_run_history.jsonl'), summary)
   writeFileSync(join(reportsDir, 'acquisition-run.md'), `# Acquisition Run
 
 Generated: ${summary.generated_at}
@@ -299,6 +301,7 @@ Generated: ${summary.generated_at}
 - Dry run: ${summary.dry_run}
 - Live requested: ${summary.live_requested}
 - Live confirmed: ${summary.live_confirmed}
+- History recorded: ${summary.history_recorded}
 - Selected tasks: ${summary.selected_tasks}
 - Runnable tasks: ${summary.runnable_tasks}
 - Skipped tasks: ${summary.skipped_tasks}

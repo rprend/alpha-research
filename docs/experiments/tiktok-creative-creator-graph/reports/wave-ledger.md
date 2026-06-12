@@ -1,10 +1,11 @@
 # Wave Ledger
 
-Generated: 2026-06-12T21:45:47.253Z
+Generated: 2026-06-12T21:51:57.475Z
 
 - Waves: 1000
-- Planned: 990
-- Dry-run: 10
+- Planned: 1000
+- Dry-run: 0
+- Dry-run only: 11
 - Succeeded: 0
 - Imported: 0
 - Imported empty: 0
@@ -12,33 +13,33 @@ Generated: 2026-06-12T21:45:47.253Z
 - Imported output accounts: 0
 - Under-yield imports: 0
 - Empty imports: 0
-- Run attempts: 14
-- Dry-run attempts: 14
+- Run attempts: 15
+- Dry-run attempts: 15
 - Live-run attempts: 0
 - Review needed: 496
-- Latest run wave: scale_wave_0010
-- Next ready wave: scale_wave_0011
+- Latest run wave: scale_wave_0001
+- Next ready wave: scale_wave_0001
 
 Next command:
 
 ```bash
-node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --max-tasks=8 --priority-max=2 --wave=0011
+node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --max-tasks=8 --priority-max=2 --wave=0001
 ```
 
 ## First 20 Rows
 
 | Seq | Wave | Status | Category | Surface | Query | Imported accounts | Yield | Review target |
 | ---: | --- | --- | --- | --- | --- | ---: | --- | ---: |
-| 1 | scale_wave_0001 | dry_run | filmmaker | search_index | filmmaker short film editing breakdown | 0 | n/a | 1 |
-| 2 | scale_wave_0002 | dry_run | cinematographer | search_index | cinematographer lighting breakdown | 0 | n/a | 1 |
-| 3 | scale_wave_0003 | dry_run | sketch_comedian | search_index | sketch comedian character comedy | 0 | n/a | 1 |
-| 4 | scale_wave_0004 | dry_run | vfx_animation | search_index | vfx artist animation blender | 0 | n/a | 1 |
-| 5 | scale_wave_0005 | dry_run | vfx_animation | tiktok_hashtag_export | animation | 0 | n/a | 1 |
-| 6 | scale_wave_0006 | dry_run | cinematographer | tiktok_hashtag_export | cinematography | 0 | n/a | 1 |
-| 7 | scale_wave_0007 | dry_run | filmmaker | tiktok_hashtag_export | filmmaker | 0 | n/a | 1 |
-| 8 | scale_wave_0008 | dry_run | filmmaker | tiktok_hashtag_export | shortfilm | 0 | n/a | 1 |
-| 9 | scale_wave_0009 | dry_run | sketch_comedian | tiktok_hashtag_export | sketchcomedy | 0 | n/a | 1 |
-| 10 | scale_wave_0010 | dry_run | filmmaker | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" | 0 | n/a | 1 |
+| 1 | scale_wave_0001 | planned | filmmaker | search_index | filmmaker short film editing breakdown | 0 | n/a | 1 |
+| 2 | scale_wave_0002 | planned | cinematographer | search_index | cinematographer lighting breakdown | 0 | n/a | 1 |
+| 3 | scale_wave_0003 | planned | sketch_comedian | search_index | sketch comedian character comedy | 0 | n/a | 1 |
+| 4 | scale_wave_0004 | planned | vfx_animation | search_index | vfx artist animation blender | 0 | n/a | 1 |
+| 5 | scale_wave_0005 | planned | vfx_animation | tiktok_hashtag_export | animation | 0 | n/a | 1 |
+| 6 | scale_wave_0006 | planned | cinematographer | tiktok_hashtag_export | cinematography | 0 | n/a | 1 |
+| 7 | scale_wave_0007 | planned | filmmaker | tiktok_hashtag_export | filmmaker | 0 | n/a | 1 |
+| 8 | scale_wave_0008 | planned | filmmaker | tiktok_hashtag_export | shortfilm | 0 | n/a | 1 |
+| 9 | scale_wave_0009 | planned | sketch_comedian | tiktok_hashtag_export | sketchcomedy | 0 | n/a | 1 |
+| 10 | scale_wave_0010 | planned | filmmaker | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" | 0 | n/a | 1 |
 | 11 | scale_wave_0011 | planned | editor | category_gap_search | site:tiktok.com/@ "editing" | 0 | n/a | 1 |
 | 12 | scale_wave_0012 | planned | editor | category_gap_search | site:tiktok.com/@ "editor" | 0 | n/a | 1 |
 | 13 | scale_wave_0013 | planned | editor | search_index | site:tiktok.com/@ "video editor" | 0 | n/a | 1 |

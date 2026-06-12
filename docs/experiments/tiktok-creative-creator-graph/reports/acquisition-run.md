@@ -1,14 +1,15 @@
 # Acquisition Run
 
-Generated: 2026-06-12T21:45:47.424Z
+Generated: 2026-06-12T21:51:57.637Z
 
 - Provider: apify
 - Env file loaded: true
 - Provider token available: false
-- Wave: scale_wave_0011
+- Wave: scale_wave_0001
 - Dry run: true
 - Live requested: false
 - Live confirmed: false
+- History recorded: false
 - Selected tasks: 2
 - Runnable tasks: 2
 - Skipped tasks: 0
@@ -21,5 +22,5 @@ Generated: 2026-06-12T21:45:47.424Z
 
 | Batch | Surface | Target Label | Query | Status | Rows |
 | --- | --- | --- | --- | --- | ---: |
-| category_gap_0029 | category_gap_search | editor | site:tiktok.com/@ "editing" | dry_run | 0 |
-| category_gap_0053 | category_gap_search | sketch_comedian | site:tiktok.com/@ "comedy sketch" | dry_run | 0 |
+| graph_0068 | search_index | filmmaker | filmmaker short film editing breakdown | dry_run | 0 |
+| search_0004 | search_index | standup_comedian | site:tiktok.com/@ comedian | dry_run | 0 |

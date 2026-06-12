@@ -329,6 +329,7 @@ function main() {
       scale_waves: scaleWaves.length,
       wave_ledger_rows: waveLedger.length,
       wave_ledger_planned: waveLedger.filter((row) => row.status === 'planned').length,
+      wave_ledger_dry_run_only: waveLedger.filter((row) => row.dry_run_only).length,
       wave_ledger_imported: waveLedger.filter((row) => row.status === 'imported').length,
       wave_ledger_imported_empty: waveLedger.filter((row) => row.status === 'imported_empty').length,
       wave_ledger_failed: waveLedger.filter((row) => row.status === 'failed').length,
@@ -408,6 +409,7 @@ Complete: ${summary.complete}
 - Scale waves: ${summary.counts.scale_waves}
 - Wave ledger rows: ${summary.counts.wave_ledger_rows}
 - Wave ledger planned: ${summary.counts.wave_ledger_planned}
+- Wave ledger dry-run only: ${summary.counts.wave_ledger_dry_run_only}
 - Wave ledger imported: ${summary.counts.wave_ledger_imported}
 - Wave ledger imported empty: ${summary.counts.wave_ledger_imported_empty}
 - Wave ledger failed: ${summary.counts.wave_ledger_failed}

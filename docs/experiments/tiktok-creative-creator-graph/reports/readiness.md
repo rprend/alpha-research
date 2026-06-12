@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T21:45:47.588Z
+Generated: 2026-06-12T21:51:57.763Z
 
 Complete: false
 
@@ -45,7 +45,8 @@ Complete: false
 - Scale plan import batches: 1000
 - Scale waves: 1000
 - Wave ledger rows: 1000
-- Wave ledger planned: 990
+- Wave ledger planned: 1000
+- Wave ledger dry-run only: 11
 - Wave ledger imported: 0
 - Wave ledger imported empty: 0
 - Wave ledger failed: 0

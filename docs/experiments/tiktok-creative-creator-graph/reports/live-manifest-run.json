@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T21:45:47.428Z",
+  "generated_at": "2026-06-12T21:51:57.641Z",
   "mode": "dry_run",
   "live_confirmed": false,
   "provider": "apify",
@@ -10,7 +10,7 @@
   "estimated_cost_usd": 0.5,
   "max_cost_usd": 1,
   "selected_wave_ids": [
-    "scale_wave_0011"
+    "scale_wave_0001"
   ],
   "complete": true,
   "import_ran": false,
@@ -18,34 +18,34 @@
   "steps": [
     {
       "kind": "dry_run_wave",
-      "wave_id": "scale_wave_0011",
-      "sequence": 11,
+      "wave_id": "scale_wave_0001",
+      "sequence": 1,
       "estimated_cost_usd": 0.5,
-      "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=11",
+      "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=1",
       "result": {
-        "id": "dry_scale_wave_0011",
-        "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=11",
+        "id": "dry_scale_wave_0001",
+        "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=1",
         "status": "pass",
-        "started_at": "2026-06-12T21:45:47.385Z",
-        "finished_at": "2026-06-12T21:45:47.428Z",
+        "started_at": "2026-06-12T21:51:57.601Z",
+        "finished_at": "2026-06-12T21:51:57.641Z",
         "output_tail": [
-          "      \"acquisition_surface\": \"category_gap_search\",",
-          "      \"query\": \"site:tiktok.com/@ \\\"comedy sketch\\\"\",",
-          "      \"target_label\": \"sketch_comedian\",",
+          "      \"acquisition_surface\": \"search_index\",",
+          "      \"query\": \"site:tiktok.com/@ comedian\",",
+          "      \"target_label\": \"standup_comedian\",",
           "      \"actor_id\": \"apify/google-search-scraper\",",
           "      \"input\": {",
-          "        \"queries\": \"site:tiktok.com/@ \\\"comedy sketch\\\"\",",
+          "        \"queries\": \"site:tiktok.com/@ comedian\",",
           "        \"maxPagesPerQuery\": 1,",
           "        \"resultsPerPage\": 100,",
           "        \"countryCode\": \"us\",",
           "        \"languageCode\": \"en\"",
           "      },",
           "      \"dry_run\": true,",
-          "      \"started_at\": \"2026-06-12T21:45:47.424Z\",",
+          "      \"started_at\": \"2026-06-12T21:51:57.637Z\",",
           "      \"status\": \"dry_run\",",
           "      \"output_rows\": 0,",
           "      \"output_path\": \"\",",
-          "      \"finished_at\": \"2026-06-12T21:45:47.424Z\"",
+          "      \"finished_at\": \"2026-06-12T21:51:57.637Z\"",
           "    }",
           "  ]",
           "}"
