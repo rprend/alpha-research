@@ -1,0 +1,57 @@
+{
+  "version": "2026-06-12",
+  "primary_labels": [
+    "filmmaker",
+    "director",
+    "cinematographer",
+    "editor",
+    "vfx_animation",
+    "sketch_comedian",
+    "standup_comedian",
+    "actor_performer",
+    "film_educator",
+    "behind_the_scenes_creator",
+    "creative_technologist",
+    "unclear",
+    "reject"
+  ],
+  "category_keywords": {
+    "filmmaker": ["filmmaker", "short film", "shortfilm", "indie film", "narrative", "screenwriter", "writer director"],
+    "director": ["director", "directed by", "commercial director", "music video director", "film director"],
+    "cinematographer": ["cinematographer", "dp", "dop", "camera test", "lighting breakdown", "arri", "blackmagic", "red camera"],
+    "editor": ["editor", "video editor", "editing", "premiere pro", "davinci", "after effects", "cut breakdown"],
+    "vfx_animation": ["vfx", "visual effects", "animation", "animator", "motion design", "blender", "houdini", "compositor"],
+    "sketch_comedian": ["sketch", "sketch comedy", "comedy sketch", "character comedy", "characters"],
+    "standup_comedian": ["standup", "stand-up", "comedian", "comedy club", "open mic", "tour dates"],
+    "actor_performer": ["actor", "actress", "performer", "audition", "monologue", "character work"],
+    "film_educator": ["film school", "film education", "tutorial", "breakdown", "how to shoot", "cinema analysis"],
+    "behind_the_scenes_creator": ["behind the scenes", "bts", "on set", "set life", "production diary"],
+    "creative_technologist": ["ai video", "runway", "pika", "comfyui", "creative coding", "gen ai"]
+  },
+  "reject_keywords": [
+    "repost",
+    "clip account",
+    "fan page",
+    "meme page",
+    "compilation",
+    "best moments",
+    "credit to owner",
+    "not my video"
+  ],
+  "low_signal_hashtags": ["fyp", "viral", "funny", "comedy", "tiktok", "foryou", "foryoupage"],
+  "weights": {
+    "creative_signal": 0.3,
+    "category_fit": 0.2,
+    "originality": 0.15,
+    "graph_value": 0.15,
+    "consistency": 0.1,
+    "recency": 0.05,
+    "cross_platform_evidence": 0.05
+  },
+  "thresholds": {
+    "useful": 62,
+    "excellent": 78,
+    "expand_from": 66,
+    "recent_days": 180
+  }
+}

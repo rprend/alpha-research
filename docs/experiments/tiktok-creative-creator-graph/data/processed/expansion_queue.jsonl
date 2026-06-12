@@ -1,0 +1,4 @@
+{"expansion_type":"expand_from_creator","source_creator_id":"maya.shortcuts","target":"@maya.shortcuts","priority":1,"reason":"high_usefulness_source","primary_label":"filmmaker","overall_usefulness":89}
+{"expansion_type":"expand_from_creator","source_creator_id":"noahframes","target":"@noahframes","priority":1,"reason":"high_usefulness_source","primary_label":"cinematographer","overall_usefulness":73}
+{"expansion_type":"expand_from_creator","source_creator_id":"lucybits","target":"@lucybits","priority":1,"reason":"high_usefulness_source","primary_label":"sketch_comedian","overall_usefulness":66}
+{"expansion_type":"expand_from_creator","source_creator_id":"ani.motionlab","target":"@ani.motionlab","priority":1,"reason":"high_usefulness_source","primary_label":"vfx_animation","overall_usefulness":67}

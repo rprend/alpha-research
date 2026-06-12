@@ -1,0 +1,5 @@
+expansion_type,source_creator_id,target,priority,reason,primary_label,overall_usefulness
+expand_from_creator,maya.shortcuts,@maya.shortcuts,1,high_usefulness_source,filmmaker,89
+expand_from_creator,noahframes,@noahframes,1,high_usefulness_source,cinematographer,73
+expand_from_creator,lucybits,@lucybits,1,high_usefulness_source,sketch_comedian,66
+expand_from_creator,ani.motionlab,@ani.motionlab,1,high_usefulness_source,vfx_animation,67

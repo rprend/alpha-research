@@ -1,0 +1,36 @@
+{
+  "run_id": "2026-06-12T19-24-23-414Z",
+  "generated_at": "2026-06-12T19:24:23.417Z",
+  "target_useful_accounts": 4,
+  "smoke": true,
+  "counts": {
+    "accounts": 6,
+    "videos": 8,
+    "edges": 40,
+    "useful_accounts": 4,
+    "excellent_accounts": 1,
+    "review_queue": 5,
+    "expansion_queue": 4
+  },
+  "status_counts": {
+    "excellent": 1,
+    "useful": 3,
+    "reject": 1,
+    "needs_review": 1
+  },
+  "primary_label_counts": {
+    "filmmaker": 1,
+    "cinematographer": 1,
+    "sketch_comedian": 1,
+    "reject": 1,
+    "vfx_animation": 1,
+    "creative_technologist": 1
+  },
+  "readiness": {
+    "seed_intake_ready": true,
+    "graph_expansion_ready": true,
+    "scoring_ready": true,
+    "target_met": true,
+    "next_gap": "target_met"
+  }
+}

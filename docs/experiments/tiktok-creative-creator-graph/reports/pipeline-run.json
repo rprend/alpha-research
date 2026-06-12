@@ -1,0 +1,21 @@
+{
+  "run_id": "2026-06-12T19-24-23-414Z",
+  "args": {
+    "--smoke": true,
+    "--target": "4"
+  },
+  "input_files": [
+    "smoke-seeds.jsonl"
+  ],
+  "outputs": [
+    "data/processed/creator_accounts.jsonl",
+    "data/processed/creator_videos.jsonl",
+    "data/processed/creator_edges.jsonl",
+    "data/processed/creator_scores.jsonl",
+    "data/processed/review_queue.jsonl",
+    "data/processed/expansion_queue.jsonl",
+    "reports/result.json",
+    "reports/work.md",
+    "reports/readiness.md"
+  ]
+}

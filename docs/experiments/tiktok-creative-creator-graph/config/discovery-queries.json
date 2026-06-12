@@ -1,0 +1,36 @@
+{
+  "version": "2026-06-12",
+  "search_engine_queries": [
+    "site:tiktok.com/@ filmmaker",
+    "site:tiktok.com/@ \"short film\"",
+    "site:tiktok.com/@ \"sketch comedy\"",
+    "site:tiktok.com/@ comedian",
+    "site:tiktok.com/@ cinematographer",
+    "site:tiktok.com/@ \"video editor\"",
+    "site:tiktok.com/@ \"vfx artist\"",
+    "site:tiktok.com/@ actor \"sketch\"",
+    "site:tiktok.com/@ \"behind the scenes\" film",
+    "site:tiktok.com/@ \"film student\""
+  ],
+  "hashtag_queries": [
+    "filmmaker",
+    "shortfilm",
+    "indiefilm",
+    "cinematography",
+    "directing",
+    "sketchcomedy",
+    "standupcomedy",
+    "charactercomedy",
+    "filmtok",
+    "vfxartist",
+    "animation",
+    "behindthescenes"
+  ],
+  "cross_platform_queries": [
+    "site:instagram.com \"tiktok.com/@\" \"filmmaker\"",
+    "site:youtube.com \"tiktok.com/@\" \"sketch comedy\"",
+    "site:linktr.ee \"tiktok.com/@\" \"comedian\"",
+    "site:beacons.ai \"tiktok.com/@\" \"director\"",
+    "site:imdb.com \"tiktok.com/@\" \"actor\""
+  ]
+}
