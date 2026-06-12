@@ -186,6 +186,8 @@
     "self_study_portfolio_collaborator_response_distribution_status_rows": 3,
     "self_study_portfolio_collaborator_response_distribution_status_ready_rows": 3,
     "self_study_portfolio_collaborator_response_distribution_status_closed_rows": 0,
+    "self_study_portfolio_collaborator_response_send_log_template_rows": 3,
+    "self_study_portfolio_collaborator_response_send_log_template_not_sent_rows": 3,
     "self_study_portfolio_milestones": 3,
     "self_study_portfolio_briefs": 3,
     "self_study_portfolio_briefs_with_completion_gate_status": 3,
@@ -603,6 +605,11 @@
       "id": "self_study_portfolio_collaborator_response_distribution_status_summarizes_send_state",
       "status": "pass",
       "detail": "3 collaborator response distribution status rows; 3 ready to send; 0 sent; 0 blocked; 0 overdue; 0 closed; 0 status reference/state errors; generated mismatch=false."
+    },
+    {
+      "id": "self_study_portfolio_collaborator_response_send_log_templates_capture_sends",
+      "status": "pass",
+      "detail": "3 collaborator response send-log template rows; 3 not sent; 0 send-log template reference/field errors; generated mismatch=false."
     },
     {
       "id": "self_study_progress_ledger_links_to_portfolio_completion_gates",
