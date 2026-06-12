@@ -295,6 +295,20 @@ As of 2026-06-12, the program has moved beyond planning. The repository contains
 
 The plan from here should therefore emphasize scale-up, publication polish, recurring monitors, and remote-run proof, not another round of abstract source brainstorming.
 
+The post-Season-One research-production backlog is tracked in:
+
+```text
+docs/experiments/research-production-roadmap/
+```
+
+Run:
+
+```bash
+node docs/experiments/research-production-roadmap/scripts/check-roadmap.mjs
+```
+
+This roadmap is intentionally separate from the publication queue. Season One posts can be ready for final editorial review while broader corpus backfills, second-layer source layers, monitors, and dataset promotions remain active implementation work.
+
 ## Alpha Research Role
 
 Alpha Research should be the research operating system for this publication:

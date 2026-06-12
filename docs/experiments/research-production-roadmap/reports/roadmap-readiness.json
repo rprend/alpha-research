@@ -1,0 +1,120 @@
+{
+  "generatedAt": "2026-06-12T20:56:44.371Z",
+  "roadmap": "Archive Signals / The Cultural Observatory",
+  "status": "active",
+  "trackCount": 6,
+  "completeTrackCount": 0,
+  "incompleteTrackCount": 6,
+  "tracks": [
+    {
+      "id": "university-second-layer-corpus",
+      "title": "University Institutional Language Second-Layer Corpus",
+      "priority": 1,
+      "status": "planned",
+      "complete": false,
+      "sourceExperiment": "docs/experiments/university-mission-statement-drift/",
+      "requiredEvidenceCount": 5,
+      "nextActionCount": 4,
+      "missingRequiredEvidenceList": false,
+      "missingNextActions": false
+    },
+    {
+      "id": "museum-second-layer-corpus",
+      "title": "Museum Annual Report And Provenance Source Layers",
+      "priority": 2,
+      "status": "planned",
+      "complete": false,
+      "sourceExperiment": "docs/experiments/museum-language-drift/",
+      "requiredEvidenceCount": 5,
+      "nextActionCount": 4,
+      "missingRequiredEvidenceList": false,
+      "missingNextActions": false
+    },
+    {
+      "id": "literature-radar-broad-backfill",
+      "title": "Humanities Literature Radar Broad Backfill",
+      "priority": 3,
+      "status": "pipeline-ready",
+      "complete": false,
+      "sourceExperiment": "docs/experiments/humanities-literature-radar/",
+      "requiredEvidenceCount": 5,
+      "nextActionCount": 4,
+      "missingRequiredEvidenceList": false,
+      "missingNextActions": false
+    },
+    {
+      "id": "cleveland-full-collection",
+      "title": "Cleveland Museum Full-Collection Backfill",
+      "priority": 4,
+      "status": "source-probed",
+      "complete": false,
+      "sourceExperiment": "docs/experiments/cleveland-museum-collection-shape/",
+      "requiredEvidenceCount": 5,
+      "nextActionCount": 3,
+      "missingRequiredEvidenceList": false,
+      "missingNextActions": false
+    },
+    {
+      "id": "canon-narrow-pilot",
+      "title": "Canon Drift Narrow Signal Pilot",
+      "priority": 5,
+      "status": "planned",
+      "complete": false,
+      "sourceExperiment": "docs/experiments/canon-drift-feasibility/",
+      "requiredEvidenceCount": 5,
+      "nextActionCount": 3,
+      "missingRequiredEvidenceList": false,
+      "missingNextActions": false
+    },
+    {
+      "id": "dataset-registry-file-level-probes",
+      "title": "Humanities Dataset Registry File-Level Probes",
+      "priority": 6,
+      "status": "planned",
+      "complete": false,
+      "sourceExperiment": "docs/experiments/humanities-dataset-registry/",
+      "requiredEvidenceCount": 5,
+      "nextActionCount": 3,
+      "missingRequiredEvidenceList": false,
+      "missingNextActions": false
+    }
+  ],
+  "nextImplementationQueue": [
+    {
+      "id": "university-second-layer-corpus",
+      "title": "University Institutional Language Second-Layer Corpus",
+      "status": "planned",
+      "sourceExperiment": "docs/experiments/university-mission-statement-drift/"
+    },
+    {
+      "id": "museum-second-layer-corpus",
+      "title": "Museum Annual Report And Provenance Source Layers",
+      "status": "planned",
+      "sourceExperiment": "docs/experiments/museum-language-drift/"
+    },
+    {
+      "id": "literature-radar-broad-backfill",
+      "title": "Humanities Literature Radar Broad Backfill",
+      "status": "pipeline-ready",
+      "sourceExperiment": "docs/experiments/humanities-literature-radar/"
+    },
+    {
+      "id": "cleveland-full-collection",
+      "title": "Cleveland Museum Full-Collection Backfill",
+      "status": "source-probed",
+      "sourceExperiment": "docs/experiments/cleveland-museum-collection-shape/"
+    },
+    {
+      "id": "canon-narrow-pilot",
+      "title": "Canon Drift Narrow Signal Pilot",
+      "status": "planned",
+      "sourceExperiment": "docs/experiments/canon-drift-feasibility/"
+    },
+    {
+      "id": "dataset-registry-file-level-probes",
+      "title": "Humanities Dataset Registry File-Level Probes",
+      "status": "planned",
+      "sourceExperiment": "docs/experiments/humanities-dataset-registry/"
+    }
+  ]
+}

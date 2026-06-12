@@ -30,6 +30,37 @@ Scale tiers used across this index:
 
 ## Implemented Tracks
 
+### Research Production Roadmap
+
+Path: `docs/experiments/research-production-roadmap/`
+
+Status: active roadmap for post-Season-One backfills, second-layer corpora, monitor runs, and dataset promotion work.
+
+Implemented:
+
+- machine-readable roadmap for remaining research-production tracks
+- roadmap validator
+- readiness JSON/Markdown outputs
+- explicit completion rule that prevents treating audited pilot posts as full research completion
+
+Current roadmap:
+
+- 6 tracked research-production tracks
+- 0 complete tracks
+- next implementation queue:
+  - University Institutional Language Second-Layer Corpus
+  - Museum Annual Report And Provenance Source Layers
+  - Humanities Literature Radar Broad Backfill
+  - Cleveland Museum Full-Collection Backfill
+  - Canon Drift Narrow Signal Pilot
+  - Humanities Dataset Registry File-Level Probes
+
+Next implementation moves:
+
+- create strategic-plan/catalog/president-message source configs for the university corpus
+- create annual-report/provenance/repatriation source configs for the museum corpus
+- run the literature-radar broad backfill and recurring monitor
+
 ### Publication Queue
 
 Path: `docs/experiments/publication-queue/`
