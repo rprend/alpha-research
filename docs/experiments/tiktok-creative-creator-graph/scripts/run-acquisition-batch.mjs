@@ -18,6 +18,7 @@ const maxTasks = Number(args.get('--max-tasks') ?? 5)
 const limit = Number(args.get('--limit') ?? 100)
 const dryRun = args.has('--dry-run') || !process.env.APIFY_TOKEN
 const priorityMax = Number(args.get('--priority-max') ?? 1)
+const waveArg = args.get('--wave')
 
 function ensureDir(path) {
   mkdirSync(path, { recursive: true })
@@ -118,8 +119,19 @@ async function main() {
   ensureDir(acquisitionResultsDir)
   ensureDir(reportsDir)
 
-  const tasks = readJsonl(join(processedDir, 'acquisition/acquisition_tasks.jsonl'))
-    .filter((task) => Number(task.priority) <= priorityMax)
+  const allTasks = readJsonl(join(processedDir, 'acquisition/acquisition_tasks.jsonl'))
+  const taskById = new Map(allTasks.map((task) => [task.batch_id, task]))
+  const scaleWaves = readJsonl(join(processedDir, 'scale_waves.jsonl'))
+  const selectedWave = waveArg
+    ? scaleWaves.find((row) => row.wave_id === waveArg || row.wave_id === `scale_wave_${String(waveArg).padStart(4, '0')}`)
+    : null
+  if (waveArg && !selectedWave) {
+    throw new Error(`No scale wave found for --wave=${waveArg}. Run build-scale-waves.mjs first.`)
+  }
+  const waveTasks = selectedWave
+    ? [taskById.get(selectedWave.primary_task_id), taskById.get(selectedWave.secondary_task_id)].filter(Boolean)
+    : []
+  const tasks = (selectedWave ? waveTasks : allTasks.filter((task) => Number(task.priority) <= priorityMax))
     .slice(0, maxTasks)
   const runnableTasks = tasks.filter((task) => adapter.actors[task.acquisition_surface])
   const skippedTasks = tasks.filter((task) => !adapter.actors[task.acquisition_surface])
@@ -199,6 +211,8 @@ async function main() {
     generated_at: new Date().toISOString(),
     execution_id: executionId,
     provider,
+    wave_id: selectedWave?.wave_id ?? '',
+    wave_found: waveArg ? Boolean(selectedWave) : null,
     dry_run: dryRun,
     selected_tasks: tasks.length,
     runnable_tasks: runnableTasks.length,
@@ -216,6 +230,7 @@ async function main() {
 Generated: ${summary.generated_at}
 
 - Provider: ${summary.provider}
+- Wave: ${summary.wave_id || 'none'}
 - Dry run: ${summary.dry_run}
 - Selected tasks: ${summary.selected_tasks}
 - Runnable tasks: ${summary.runnable_tasks}

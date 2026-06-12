@@ -30,7 +30,7 @@ function writeJson(path, value) {
 }
 
 function ceilDiv(a, b) {
-  return Math.ceil(a / Math.max(1, b))
+  return Math.ceil(a / Math.max(Number.EPSILON, b))
 }
 
 function conservativeRate(observed, fallback) {

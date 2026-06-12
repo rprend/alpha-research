@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-12T20:31:55.512Z
+Generated: 2026-06-12T20:37:39.914Z
 
 ## Targets
 
@@ -17,9 +17,9 @@ Generated: 2026-06-12T20:31:55.512Z
 
 ## Estimated Work
 
-- Candidate accounts needed: 49994
-- Import batches needed at 250 candidates per batch: 200
-- Useful creators needed for excellent target: 4999
+- Candidate accounts needed: 249970
+- Import batches needed at 250 candidates per batch: 1000
+- Useful creators needed for excellent target: 49990
 - Review batches needed: 2
 
 ## Planning Assumptions

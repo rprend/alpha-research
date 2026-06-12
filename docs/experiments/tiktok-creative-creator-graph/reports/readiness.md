@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T20:31:55.709Z
+Generated: 2026-06-12T20:37:40.148Z
 
 Complete: false
 
@@ -21,15 +21,16 @@ Complete: false
 - Expansion queue: 4
 - Acquisition tasks: 68
 - Acquisition import waves: 1
-- Acquisition runner tasks: 8
-- Acquisition runner runnable tasks: 8
+- Acquisition runner tasks: 2
+- Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
 - Source yield rows: 7
 - Identities: 9
 - Category coverage labels: 5/11
 - Release useful creators: 6
 - Release verification checks: 44
-- Scale plan import batches: 200
+- Scale plan import batches: 1000
+- Scale waves: 1000
 - Refresh tasks: 9
 - Publication handoff: 1
 
@@ -45,13 +46,14 @@ Complete: false
 - expansion_queue: pass (4 expansion targets queued)
 - acquisition_batches: pass (68 acquisition tasks generated)
 - acquisition_import_waves: pass (1 acquisition import waves tracked)
-- acquisition_runner: pass (8 runnable of 8 selected provider tasks (dry run))
+- acquisition_runner: pass (2 runnable of 2 selected provider tasks (dry run))
 - source_yield: pass (7 source/query yield rows generated)
 - identity_resolution: pass (9 creator identities resolved)
 - category_coverage: pass (5/11 target labels covered)
 - release_package: pass (6 useful creators exported for release)
 - release_verification: pass (44 release checks evaluated)
-- scale_plan: pass (200 estimated import batches)
+- scale_plan: pass (1000 estimated import batches)
+- scale_waves: pass (1000 executable acquisition waves planned)
 - refresh_plan: pass (9 account refresh tasks generated)
 - publication_handoff: pass (not-ready-production-data handoff generated)
 - useful_account_target: incomplete (5/50000 useful accounts)

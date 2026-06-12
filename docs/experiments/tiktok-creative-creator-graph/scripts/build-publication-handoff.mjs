@@ -30,6 +30,7 @@ function main() {
   const readiness = readJson(join(reportsDir, 'readiness.json'), null)
   const releaseVerification = readJson(join(reportsDir, 'release-verification.json'), null)
   const scalePlan = readJson(join(reportsDir, 'scale-plan.json'), null)
+  const scaleWavesReport = readJson(join(reportsDir, 'scale-waves.json'), null)
   const refreshPlan = readJson(join(reportsDir, 'refresh-plan.json'), null)
   const categoryCoverage = readJson(join(reportsDir, 'category-coverage.json'), null)
   const acquisitionBatches = readJson(join(reportsDir, 'acquisition-batches.json'), null)
@@ -38,6 +39,7 @@ function main() {
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
   const reviewSample = readJsonl(join(processedDir, 'review_sample.jsonl'))
   const reviewPlanCategories = readJsonl(join(processedDir, 'review_plan_categories.jsonl'))
+  const scaleWaves = readJsonl(join(processedDir, 'scale_waves.jsonl'))
   const reviewDecisions = readJsonl(join(processedDir, 'review_decisions.jsonl'))
 
   const counts = readiness?.counts ?? manifest.counts ?? {}
@@ -100,6 +102,7 @@ function main() {
       acquisition_import_waves: counts.acquisition_import_waves ?? importWaves.length,
       acquisition_runner_runnable_tasks: counts.acquisition_runner_runnable_tasks ?? acquisitionRun?.runnable_tasks ?? 0,
       acquisition_runner_skipped_tasks: counts.acquisition_runner_skipped_tasks ?? acquisitionRun?.skipped_tasks ?? 0,
+      scale_waves: counts.scale_waves ?? scaleWaves.length,
       refresh_tasks: counts.refresh_tasks ?? refreshPlan?.refresh_tasks ?? 0,
     },
     target_gaps: {
@@ -112,6 +115,7 @@ function main() {
       readiness_complete: Boolean(readiness?.complete),
       provider_runner_exercised: Boolean(acquisitionRun?.selected_tasks > 0),
       scale_plan_available: Boolean(scalePlan?.estimated_work),
+      scale_waves_available: Boolean(scaleWavesReport?.planned_waves > 0 || scaleWaves.length > 0),
       refresh_plan_available: Boolean(refreshPlan?.refresh_tasks > 0),
     },
     paths: {
@@ -123,6 +127,7 @@ function main() {
       release_data_card: rel(join(releaseDir, 'DATA_CARD.md')),
       release_verification: rel(join(reportsDir, 'release-verification.json')),
       scale_plan: rel(join(reportsDir, 'scale-plan.json')),
+      scale_waves: rel(join(reportsDir, 'scale-waves.json')),
       refresh_plan: rel(join(reportsDir, 'refresh-plan.json')),
       acquisition_batches: rel(join(reportsDir, 'acquisition-batches.json')),
       acquisition_import_waves: rel(join(processedDir, 'acquisition_import_waves.jsonl')),
@@ -130,6 +135,7 @@ function main() {
       category_coverage: rel(join(reportsDir, 'category-coverage.json')),
       review_sample: rel(join(processedDir, 'review_sample.csv')),
       review_plan: rel(join(reportsDir, 'review-plan.json')),
+      scale_wave_queue: rel(join(processedDir, 'scale_waves.csv')),
       useful_creators: rel(join(releaseDir, 'useful_creators.csv')),
       benchmark_creators: rel(join(releaseDir, 'benchmark_creators.csv')),
       review_queue: rel(join(releaseDir, 'review_queue.csv')),
@@ -186,6 +192,7 @@ ${handoff.objective}
 - Acquisition import waves: ${handoff.current_corpus.acquisition_import_waves}
 - Acquisition runner runnable tasks: ${handoff.current_corpus.acquisition_runner_runnable_tasks}
 - Acquisition runner skipped tasks: ${handoff.current_corpus.acquisition_runner_skipped_tasks}
+- Scale waves: ${handoff.current_corpus.scale_waves}
 - Refresh tasks: ${handoff.current_corpus.refresh_tasks}
 
 ## Remaining Production Gaps

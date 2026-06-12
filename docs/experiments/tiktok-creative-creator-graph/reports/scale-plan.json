@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T20:31:55.512Z",
+  "generated_at": "2026-06-12T20:37:39.914Z",
   "targets": {
     "useful_creators": 50000,
     "excellent_creators": 5000,
@@ -24,9 +24,9 @@
     "import_batch_size": 250
   },
   "estimated_work": {
-    "candidate_accounts_needed": 49994,
-    "import_batches_needed": 200,
-    "useful_creators_needed_for_excellent_target": 4999,
+    "candidate_accounts_needed": 249970,
+    "import_batches_needed": 1000,
+    "useful_creators_needed_for_excellent_target": 49990,
     "review_batches_needed": 2
   },
   "ranked_surfaces": [
