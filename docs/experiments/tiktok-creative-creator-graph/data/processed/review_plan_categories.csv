@@ -1,12 +1,12 @@
 label,target_review_decisions,reviewed_decisions,current_sample_rows,review_gap,useful_gap,priority
 editor,25,0,1,25,5000,1
 director,25,0,1,25,4000,1
-standup_comedian,25,0,0,25,4000,1
+standup_comedian,25,0,25,25,4000,1
 actor_performer,25,0,0,25,4000,1
-film_educator,25,0,4,25,3000,1
+film_educator,25,0,20,25,3000,1
 behind_the_scenes_creator,25,0,3,25,3000,1
-filmmaker,25,0,6,25,7998,2
-sketch_comedian,25,0,2,25,6998,2
-cinematographer,25,0,3,25,4999,2
+filmmaker,25,0,25,25,7998,2
+sketch_comedian,25,0,25,25,6998,2
+cinematographer,25,0,5,25,4999,2
 vfx_animation,25,0,3,25,4999,2
 creative_technologist,25,0,0,25,1999,2

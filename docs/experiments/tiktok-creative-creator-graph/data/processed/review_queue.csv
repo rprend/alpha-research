@@ -2,14 +2,225 @@ creator_id,handle,display_name,primary_label,overall_usefulness,status,review_pr
 maya.shortcuts,@maya.shortcuts,Maya Shortcuts,filmmaker,89,excellent,1,benchmark_candidate,https://www.tiktok.com/@maya.shortcuts
 dailyfilmclips,@dailyfilmclips,Daily Film Clips,reject,0,reject,2,repost_risk,https://www.tiktok.com/@dailyfilmclips
 clipvaultcinema,@clipvaultcinema,Clip Vault Cinema,reject,0,reject,2,repost_risk,https://www.tiktok.com/@clipvaultcinema
-basementbits,@basementbits,Basement Bits,sketch_comedian,69,useful,3,high_graph_value_uncertain_quality,https://www.tiktok.com/@basementbits
 ani.motionlab,@ani.motionlab,Ani Motion Lab,vfx_animation,67,useful,3,high_graph_value_uncertain_quality,https://www.tiktok.com/@ani.motionlab
 lucybits,@lucybits,Lucy Bits,sketch_comedian,66,useful,3,high_graph_value_uncertain_quality,https://www.tiktok.com/@lucybits
+basementbits,@basementbits,Basement Bits,sketch_comedian,64,useful,3,high_graph_value_uncertain_quality,https://www.tiktok.com/@basementbits
 renderjules,@renderjules,Render Jules,creative_technologist,61,needs_review,3,"threshold_borderline,high_graph_value_uncertain_quality",https://www.tiktok.com/@renderjules
 joshvfx,@joshvfx,Josh VFX,vfx_animation,22,needs_review,3,threshold_borderline,https://www.tiktok.com/@joshvfx
+jonthecomedian,@jonthecomedian,Johnathan Harris,cinematographer,19,needs_review,3,threshold_borderline,https://www.tiktok.com/@jonthecomedian
+lindamarric,@lindamarric,Linda Marric,cinematographer,19,needs_review,3,threshold_borderline,https://www.tiktok.com/@lindamarric
 fulltimefilmmaker,@fulltimefilmmaker,Full Time Filmmaker,filmmaker,19,needs_review,3,threshold_borderline,https://www.tiktok.com/@fulltimefilmmaker
 filmmakersworld,@filmmakersworld,Filmmakers World,filmmaker,19,needs_review,3,threshold_borderline,https://www.tiktok.com/@filmmakersworld
 directoryoko,@directoryoko,Director Yoko,director,19,needs_review,3,threshold_borderline,https://www.tiktok.com/@directoryoko
+kingbach,@kingbach,Andrew Byron Bachelor,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@kingbach
+adamw,@adamw,Adam Waheed,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@adamw
+matt_rife,@matt_rife,Matt Rife,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@matt_rife
+real_madara_dusal,@real_madara_dusal,Madara Dusal,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@real_madara_dusal
+jasonbankscomedy,@jasonbankscomedy,Jason Banks,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@jasonbankscomedy
+xtheromanempire,@xtheromanempire,Nicolas Roman,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@xtheromanempire
+fluffyguy,@fluffyguy,Gabriel Iglesias,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@fluffyguy
+gingerbilly1,@gingerbilly1,Adam Parkins,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@gingerbilly1
+theovon,@theovon,Theodor Capitani Von Kurnatowski,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@theovon
+matt_mathews,@matt_mathews,Matt Mathews,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@matt_mathews
+elysemyers,@elysemyers,Elyse Myers,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@elysemyers
+dreaknowsbest,@dreaknowsbest,Drea Okeke,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@dreaknowsbest
+artbydemarcusshawn,@artbydemarcusshawn,Demarcus Shawn,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@artbydemarcusshawn
+nicholas_flannery,@nicholas_flannery,Nicholas Flannery,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@nicholas_flannery
+comedic_cody,@comedic_cody,Cody Lewis Smith,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@comedic_cody
+khian.kb,@khian.kb,Khian Brown,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@khian.kb
+theandrewschulz,@theandrewschulz,Andrew Schulz,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@theandrewschulz
+mrnatejackson,@mrnatejackson,Nate Jackson,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@mrnatejackson
+jameshenry,@jameshenry,James Henry,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@jameshenry
+octopusslover8,@octopusslover8,Jake Shane,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@octopusslover8
+tuckercomedy,@tuckercomedy,Tucker Reynolds,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@tuckercomedy
+leogonzall,@leogonzall,Leo Gonzalez,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@leogonzall
+blaucomedy,@blaucomedy,Michael Blaustein,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@blaucomedy
+taylortomlinsoncomedy,@taylortomlinsoncomedy,Taylor Elyse Tomlinson,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@taylortomlinsoncomedy
+jeffdunham,@jeffdunham,Jeff Dunham,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@jeffdunham
+vincentmarcus,@vincentmarcus,VincentMarcus,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@vincentmarcus
+kevinjamesofficial,@kevinjamesofficial,Kevin James,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@kevinjamesofficial
+marcellohdz,@marcellohdz,Marcello Hernandez,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@marcellohdz
+bigtugg,@bigtugg,Tucker Lindgren,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@bigtugg
+andreaspoly,@andreaspoly,Andreas Polychronis,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@andreaspoly
+ben_brainard,@ben_brainard,Ben Brainard,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@ben_brainard
+kendahllandreth,@kendahllandreth,Kendahl Landreth,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@kendahllandreth
+mitchell,@mitchell,Mitchell Crawford,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@mitchell
+joshjohnsoncomedy,@joshjohnsoncomedy,Josh Johnson,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@joshjohnsoncomedy
+nathanhurdcomedy,@nathanhurdcomedy,Nathan Hurd,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@nathanhurdcomedy
+csapunch,@csapunch,Chrissy Allen,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@csapunch
+chrisrock,@chrisrock,Chris Rock,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@chrisrock
+roscoescomedy,@roscoescomedy,Travis Brown,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@roscoescomedy
+maxcomedian,@maxcomedian,Max Amini,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@maxcomedian
+troybond69,@troybond69,Troy Bond,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@troybond69
+jibarone,@jibarone,Mula,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@jibarone
+bestfetchdog,@bestfetchdog,Jay Lett,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@bestfetchdog
+johncristcomedian,@johncristcomedian,John Crist,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@johncristcomedian
+sheisthet,@sheisthet,Tenishia Wilson,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@sheisthet
+theofficialsambailey,@theofficialsambailey,Sam Bailey,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@theofficialsambailey
+carterandersoncomedy,@carterandersoncomedy,Carter Anderson,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@carterandersoncomedy
+matteolane,@matteolane,Matteo Lane,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@matteolane
+natebargatze,@natebargatze,Nate Bargatze,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@natebargatze
+joshwolfcomedy,@joshwolfcomedy,Josh Wolf,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@joshwolfcomedy
+findingnimesh,@findingnimesh,Nimesh Patel,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@findingnimesh
+calebwfrancis,@calebwfrancis,Caleb Francis,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@calebwfrancis
+slamminsammyswank,@slamminsammyswank,Sam Swank,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@slamminsammyswank
+ashgavscomedy,@ashgavscomedy,Ashley Gavin,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@ashgavscomedy
+shellybellycomedy,@shellybellycomedy,Michelle Rider,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@shellybellycomedy
+erinhattamer,@erinhattamer,Erin Hattamer,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@erinhattamer
+chrisdcomedy,@chrisdcomedy,Christopher Paul Anthony Distefano,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@chrisdcomedy
+sebastiancomedy,@sebastiancomedy,Sebastian Maniscalco,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@sebastiancomedy
+jessicakirson,@jessicakirson,Jessica Kirson,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@jessicakirson
+noahyangcomedy,@noahyangcomedy,Noah Yang,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@noahyangcomedy
+christianjohnsoncomedy_,@christianjohnsoncomedy_,Christian Johnson,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@christianjohnsoncomedy_
+ralphbarbosa03,@ralphbarbosa03,Ralph Barbosa,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@ralphbarbosa03
+anita_lashay_,@anita_lashay_,Anita LaShay,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@anita_lashay_
+bsmithcomedy,@bsmithcomedy,Britany Smith,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@bsmithcomedy
+jeffarcuri,@jeffarcuri,Jeff Arcuri,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@jeffarcuri
+viennaayla,@viennaayla,Vienna Ayla,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@viennaayla
+tacarrawilliamscomedy,@tacarrawilliamscomedy,Tacarra Williams,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@tacarrawilliamscomedy
+rockydaledavis,@rockydaledavis,Rocky Dale Davis,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@rockydaledavis
+stephandkayls,@stephandkayls,Steph & Kayls,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@stephandkayls
+ladyefron,@ladyefron,Brooke Averick,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@ladyefron
+gracekomalley,@gracekomalley,Grace O'Malley,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@gracekomalley
+camthecomic,@camthecomic,Cam Bertrand,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@camthecomic
+comediandre,@comediandre,DeAndre Pullen,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@comediandre
+fibulaa,@fibulaa,Connor Wood,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@fibulaa
+raficomedian,@raficomedian,Rafi Bastos,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@raficomedian
+renevacacomedy,@renevacacomedy,Rene Vaca,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@renevacacomedy
+sammorril,@sammorril,Sam Morril,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@sammorril
+sabrina.cinoman.brier,@sabrina.cinoman.brier,Sabrina Brier,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@sabrina.cinoman.brier
+lucaszelnick,@lucaszelnick,Lucas Zelnick,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@lucaszelnick
+corporatenatalie,@corporatenatalie,Natalie Marshall,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@corporatenatalie
+ventureswithmia,@ventureswithmia,Mia,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@ventureswithmia
+robynschallcomic,@robynschallcomic,Robyn Schall,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@robynschallcomic
+whatchugotforme,@whatchugotforme,Sarah Cooper,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@whatchugotforme
+sayameads,@sayameads,Saya Meads,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@sayameads
+concretecomedy,@concretecomedy,Cristian Gutierrez,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@concretecomedy
+thehofstetter,@thehofstetter,Steve Hofstetter,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@thehofstetter
+kreativecomedy,@kreativecomedy,Maurice Gates,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@kreativecomedy
+comediankaution,@comediankaution,Erica L Frazier,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@comediankaution
+washyourpillowcases,@washyourpillowcases,Kat Wellington,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@washyourpillowcases
+kenflores300,@kenflores300,Ken Flores,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@kenflores300
+cearajane,@cearajane,Ceara Jane O'sullivan,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@cearajane
+gigglysquad,@gigglysquad,Paige DeSorbo & Hannah Berner,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@gigglysquad
+heathharmison,@heathharmison,Heath Harmison,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@heathharmison
+nataliecuomo,@nataliecuomo,Natalie Cuomo,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@nataliecuomo
+ejhavingfun,@ejhavingfun,EJ Marcus,standup_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@ejhavingfun
+aaliflorescomedy,@aaliflorescomedy,A. Ali Flores,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@aaliflorescomedy
+gabbyisbryan,@gabbyisbryan,Gabby Bryan,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@gabbyisbryan
+heyfreesamples,@heyfreesamples,Rachel Samples,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@heyfreesamples
+julia.dicesare,@julia.dicesare,Julia DiCesare,sketch_comedian,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@julia.dicesare
+maddikoch,@maddikoch,Maddi Lou,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@maddikoch
+imtropicaljoe,@imtropicaljoe,Jose Rivera,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@imtropicaljoe
+kodak_cameron,@kodak_cameron,Cameron Kozak,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@kodak_cameron
+cinema.joe,@cinema.joe,Joe Aragon,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@cinema.joe
+lifeofdevint,@lifeofdevint,Devin G Rodgers,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@lifeofdevint
+movieshub059,@movieshub059,Movieshub059,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@movieshub059
+moviesaretherapy,@moviesaretherapy,Kit Lazer,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@moviesaretherapy
+tmi_7,@tmi_7,Mr.Movie,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@tmi_7
+jstoobs,@jstoobs,Megan Cruz,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@jstoobs
+alexcolemann,@alexcolemann,Alex Colemann,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@alexcolemann
+vetzmovies,@vetzmovies,Joel,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@vetzmovies
+jbuckstudios,@jbuckstudios,Jared Buckendahl,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@jbuckstudios
+moviesandstuff14,@moviesandstuff14,George Carmi,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@moviesandstuff14
+movie.review_man.man.man,@movie.review_man.man.man,Kevin Smith,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@movie.review_man.man.man
+sethsfilmreviews,@sethsfilmreviews,Seth Mullan Feroze,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@sethsfilmreviews
+meggghughes,@meggghughes,Meg Hughes,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@meggghughes
+scarymoviereview,@scarymoviereview,Scary Movie Review,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@scarymoviereview
+mrrogersreview,@mrrogersreview,Mr. Rogers,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@mrrogersreview
+tylercwhitmore,@tylercwhitmore,Tyler Whitmore,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@tylercwhitmore
+hugeasmammoth.films,@hugeasmammoth.films,Nirupam Dhakal,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@hugeasmammoth.films
+theotherwatchedlist,@theotherwatchedlist,Bree Stephens,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@theotherwatchedlist
+cinemanation,@cinemanation,Dillon,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@cinemanation
+anton_films_,@anton_films_,Anton Guttierrez,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@anton_films_
+just_us_ghouls,@just_us_ghouls,Just Us Ghouls,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@just_us_ghouls
+literally_kathy_bates,@literally_kathy_bates,Davis K. Bates,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@literally_kathy_bates
+marinamay,@marinamay,Marina May,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@marinamay
+ginger.boiii,@ginger.boiii,Zeke Ziesman,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@ginger.boiii
+colinspencer05,@colinspencer05,Colin Spencer,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@colinspencer05
+connorsmoviereviews,@connorsmoviereviews,Connor,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@connorsmoviereviews
+muny_rags,@muny_rags,Munish Raghuwanshi,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@muny_rags
+kashia_turner,@kashia_turner,Kashia Turner,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@kashia_turner
+tomreviewsfilms,@tomreviewsfilms,Tom,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@tomreviewsfilms
+movieswithleo,@movieswithleo,Leo Zavala,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@movieswithleo
+cinemonika,@cinemonika,Monika,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@cinemonika
+cianfilm,@cianfilm,Cian Mulligan,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@cianfilm
+shivalry_inc,@shivalry_inc,Shiv Reddy,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@shivalry_inc
+moviegoodormoviebad,@moviegoodormoviebad,James Edwardaro Willey,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@moviegoodormoviebad
+joisarose,@joisarose,Josephine Rose,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@joisarose
+medicalmovieman,@medicalmovieman,Stone,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@medicalmovieman
+sydneyvolpe,@sydneyvolpe,Sydney Volpe,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@sydneyvolpe
+eazye_32,@eazye_32,Erin C Morgan,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@eazye_32
+kwamzen,@kwamzen,Kwamzen,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@kwamzen
+j.moodz,@j.moodz,Justin Moodie,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@j.moodz
+officialkuwrb,@officialkuwrb,Rose Carter,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@officialkuwrb
+davelikesmovies,@davelikesmovies,Dave Gulick,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@davelikesmovies
+knightoffun,@knightoffun,Rey Raymund Velasco,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@knightoffun
+asternopinion,@asternopinion,Brad Stern,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@asternopinion
+filmlinds,@filmlinds,Lindsay Joyner,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@filmlinds
+hunterdeutsch,@hunterdeutsch,Hunter,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@hunterdeutsch
+bassreview,@bassreview,Sebastian Corredor,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@bassreview
+tsips13,@tsips13,Tom Sipples,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@tsips13
+themovieguy.nam,@themovieguy.nam,The Movie Guy,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@themovieguy.nam
+that.movie_guy,@that.movie_guy,Harry Argyle,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@that.movie_guy
+keshascastle,@keshascastle,Kayla Kelsall,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@keshascastle
+movieguyandrew,@movieguyandrew,Andrew,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@movieguyandrew
+tylerjwarren,@tylerjwarren,Tyler Warren,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@tylerjwarren
+only.leanna,@only.leanna,Leanna Allym,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@only.leanna
+filmlokalreview,@filmlokalreview,Film Lokal Review,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@filmlokalreview
+offscreenwithjillian,@offscreenwithjillian,Lady Jillian,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@offscreenwithjillian
+kadhuramasamy,@kadhuramasamy,Kadhu Ramasamy,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@kadhuramasamy
+ratedwrong,@ratedwrong,Kevin,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@ratedwrong
+jackknightleyboxd,@jackknightleyboxd,Jack Knightley,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@jackknightleyboxd
+owenhatesmovies,@owenhatesmovies,Owen Patnaude,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@owenhatesmovies
+accordingtoseth,@accordingtoseth,Seth Fox,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@accordingtoseth
+fashionablemoviereviews,@fashionablemoviereviews,Fashionable Movie Reviews,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@fashionablemoviereviews
+dylanapprovedfilms,@dylanapprovedfilms,Dylan Cooper,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@dylanapprovedfilms
+dennyoleary,@dennyoleary,Denny O'Leary,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@dennyoleary
+frankjamesbailey,@frankjamesbailey,Frank James Bailey,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@frankjamesbailey
+previewreview0,@previewreview0,Evan Pol,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@previewreview0
+aidantoksfilm,@aidantoksfilm,Aidan Toks,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@aidantoksfilm
+dmbreviews,@dmbreviews,Dakota Buckner,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@dmbreviews
+emansreviews,@emansreviews,Emans,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@emansreviews
+zachhpope,@zachhpope,Zach Pope,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@zachhpope
+andrewfreund,@andrewfreund,Andrew Freund,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@andrewfreund
+dreuxsuave,@dreuxsuave,Dreux Suave,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@dreuxsuave
+hannahkeefer47,@hannahkeefer47,Hannah Keefer,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@hannahkeefer47
+johncalvry,@johncalvry,John Calvry,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@johncalvry
+guyatthemovies,@guyatthemovies,Joe Peltzer,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@guyatthemovies
+la_madrina_g,@la_madrina_g,La Madrina G,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@la_madrina_g
+teejaymcfly,@teejaymcfly,Teejay McFly,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@teejaymcfly
+marottamedia,@marottamedia,Branden Marotta,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@marottamedia
+adamdoesmovies,@adamdoesmovies,Adam Olinger,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@adamdoesmovies
+lamphead97,@lamphead97,Brandon White,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@lamphead97
+naturallybnicki,@naturallybnicki,Brittany Nicholson,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@naturallybnicki
+naro.film,@naro.film,Naro,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@naro.film
+jarentalks,@jarentalks,Jaren Williams,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@jarentalks
+priteshdesai41,@priteshdesai41,Pritesh Desai,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@priteshdesai41
+classicfilmdetective,@classicfilmdetective,Classic Film Detective,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@classicfilmdetective
+yaseenking523,@yaseenking523,Yaseen King,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@yaseenking523
+jayfilms99,@jayfilms99,Jay,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@jayfilms99
+kristenahawley,@kristenahawley,Kristen Hawley,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@kristenahawley
+marksminutemoviereviews,@marksminutemoviereviews,Mark,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@marksminutemoviereviews
+movieswithmorty,@movieswithmorty,Morty,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@movieswithmorty
+fatmanonfilm,@fatmanonfilm,Fatman On Film,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@fatmanonfilm
+anasdeclassified,@anasdeclassified,Ana Lauryn,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@anasdeclassified
+cvnela,@cvnela,Monse Gutierrez,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@cvnela
+stoney_tha_great,@stoney_tha_great,Bryan Lucious,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@stoney_tha_great
+chelsearonniemurphy,@chelsearonniemurphy,Chelsea Ronnie Murphy,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@chelsearonniemurphy
+spooksandghoulzz,@spooksandghoulzz,Spooksandghoulzz,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@spooksandghoulzz
+letswatchthat,@letswatchthat,Mady Anderson,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@letswatchthat
+horrorwithme,@horrorwithme,Kara,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@horrorwithme
+justhauntr,@justhauntr,JustHauntr,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@justhauntr
+roomforscream,@roomforscream,GiGi,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@roomforscream
+thenightmaremovies,@thenightmaremovies,Nightmare Movies,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@thenightmaremovies
+sparkleinthedarkness,@sparkleinthedarkness,SparkleInTheDarkness,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@sparkleinthedarkness
+livingdeaddelilah,@livingdeaddelilah,Delilah,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@livingdeaddelilah
+maksmovieshack,@maksmovieshack,Makayla,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@maksmovieshack
+finalgirl_jess,@finalgirl_jess,Jess,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@finalgirl_jess
+mandymorgue87,@mandymorgue87,Amanda Morgue,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@mandymorgue87
+sinistertims6,@sinistertims6,Andrew Tims,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@sinistertims6
+haliexroxanne,@haliexroxanne,Halie Roxanne,film_educator,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@haliexroxanne
 steadired,@steadired,SteadiRed,cinematographer,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@steadired
 hallietut,@hallietut,Hallie Tut,filmmaker,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@hallietut
 zachking,@zachking,Zach King,vfx_animation,13,needs_review,3,threshold_borderline,https://www.tiktok.com/@zachking

@@ -1,41 +1,48 @@
 {
-  "generated_at": "2026-06-12T22:01:01.275Z",
+  "generated_at": "2026-06-12T22:06:48.295Z",
   "mode": "preview",
-  "input_rows": 27,
-  "normalized_rows": 27,
+  "input_rows": 238,
+  "normalized_rows": 238,
   "skipped_rows": 0,
   "duplicate_normalized_rows": 3,
-  "output_accounts": 24,
+  "output_accounts": 235,
   "source_files": {
+    "2026-06-12T22-06-00-391Z-editorial-list-import.jsonl": 211,
     "editorial-list-seeds-2026-06-12.jsonl": 21,
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
-  "mapped_lineage_rows": 21,
+  "mapped_lineage_rows": 232,
   "unmapped_lineage_rows": 6,
   "scale_wave_ids": {},
-  "execution_ids": {},
+  "execution_ids": {
+    "2026-06-12T22-06-00-391Z": 211
+  },
   "batch_ids": {
+    "feedspot_comedy_tiktok_2026": 99,
+    "feedspot_movie_tiktok_2026": 96,
+    "feedspot_horror_tiktok_2026": 16,
     "editorial_izea_filmmakers_2026_06_12": 8,
     "editorial_shutterstock_filmmakers_2026_06_12": 8,
     "editorial_shesources_women_film_2026_06_12": 5
   },
   "lineage_providers": {
+    "editorial_list_public_web": 211,
     "editorial_web": 21
   },
   "output_path": "",
   "quality_gate": {
     "ready_to_import": true,
     "normalized_rate": 1,
-    "duplicate_rate": 0.1111111111111111,
-    "output_rate": 0.8888888888888888,
+    "duplicate_rate": 0.012605042016806723,
+    "output_rate": 0.9873949579831933,
     "min_normalized_rate": 0.75,
     "max_duplicate_rate": 0.35,
     "checks": [
       {
         "id": "has_rows",
         "status": "pass",
-        "evidence": "27 input rows"
+        "evidence": "238 input rows"
       },
       {
         "id": "handle_extraction",
@@ -45,339 +52,365 @@
       {
         "id": "duplicate_pressure",
         "status": "pass",
-        "evidence": "11.1% duplicate normalized rows, threshold 35.0%"
+        "evidence": "1.3% duplicate normalized rows, threshold 35.0%"
       },
       {
         "id": "lineage_mapping",
         "status": "pass",
-        "evidence": "21/27 rows mapped to provider/wave lineage"
+        "evidence": "232/238 rows mapped to provider/wave lineage"
       }
     ]
   },
   "preview_accounts": [
     {
-      "handle": "@steadired",
-      "display_name": "SteadiRed",
+      "handle": "@kingbach",
+      "display_name": "Andrew Byron Bachelor",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_izea_filmmakers_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@hallietut",
-      "display_name": "Hallie Tut",
+      "handle": "@adamw",
+      "display_name": "Adam Waheed",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_izea_filmmakers_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@zachking",
-      "display_name": "Zach King",
+      "handle": "@matt_rife",
+      "display_name": "Matt Rife",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_izea_filmmakers_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@jessicahnsn",
-      "display_name": "Jessica Iliana",
+      "handle": "@real_madara_dusal",
+      "display_name": "Madara Dusal",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_izea_filmmakers_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@eggheadtwinkiefilm",
-      "display_name": "Egghead and Twinkie Film",
+      "handle": "@jasonbankscomedy",
+      "display_name": "Jason Banks",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_izea_filmmakers_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@erinmcgoff",
-      "display_name": "Erin McGoff",
+      "handle": "@xtheromanempire",
+      "display_name": "Nicolas Roman",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_izea_filmmakers_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@itschristinadobre",
-      "display_name": "Christina Dobre",
+      "handle": "@fluffyguy",
+      "display_name": "Gabriel Iglesias",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_shutterstock_filmmakers_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@fulltimefilmmaker",
-      "display_name": "Full Time Filmmaker",
+      "handle": "@gingerbilly1",
+      "display_name": "Adam Parkins",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_izea_filmmakers_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@bensonquach",
-      "display_name": "Benson Quach",
+      "handle": "@theovon",
+      "display_name": "Theodor Capitani Von Kurnatowski",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_izea_filmmakers_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@joshvfx",
-      "display_name": "Josh VFX",
+      "handle": "@matt_mathews",
+      "display_name": "Matt Mathews",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_shutterstock_filmmakers_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@video_production_school",
-      "display_name": "Video Production School",
+      "handle": "@elysemyers",
+      "display_name": "Elyse Myers",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_shutterstock_filmmakers_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@jrod.visuals",
-      "display_name": "Jrod Visuals",
+      "handle": "@dreaknowsbest",
+      "display_name": "Drea Okeke",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_shutterstock_filmmakers_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@filmmakersworld",
-      "display_name": "Filmmakers World",
+      "handle": "@artbydemarcusshawn",
+      "display_name": "Demarcus Shawn",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_shutterstock_filmmakers_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@thebetterpartfilm",
-      "display_name": "The Better Part Film",
+      "handle": "@nicholas_flannery",
+      "display_name": "Nicholas Flannery",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_shutterstock_filmmakers_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@entertaintheelk",
-      "display_name": "Entertain The Elk",
+      "handle": "@comedic_cody",
+      "display_name": "Cody Lewis Smith",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_shutterstock_filmmakers_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@mrejbaker",
-      "display_name": "EJ Baker",
+      "handle": "@khian.kb",
+      "display_name": "Khian Brown",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_shutterstock_filmmakers_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@filmsbyvictoria",
-      "display_name": "Films by Victoria",
+      "handle": "@theandrewschulz",
+      "display_name": "Andrew Schulz",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_shesources_women_film_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@franchesca_leigh",
-      "display_name": "Franchesca Leigh",
+      "handle": "@mrnatejackson",
+      "display_name": "Nate Jackson",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_shesources_women_film_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@directoryoko",
-      "display_name": "Director Yoko",
+      "handle": "@jameshenry",
+      "display_name": "James Henry",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_shesources_women_film_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@meganprops",
-      "display_name": "Megan Props",
+      "handle": "@octopusslover8",
+      "display_name": "Jake Shane",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_shesources_women_film_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@merryfets",
-      "display_name": "Merry Fets",
+      "handle": "@tuckercomedy",
+      "display_name": "Tucker Reynolds",
       "source_type": "acquisition_export",
       "source_query": "",
       "videos": 0,
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
-        "editorial_shesources_women_film_2026_06_12"
+        "feedspot_comedy_tiktok_2026"
       ],
       "acquisition_providers": [
-        "editorial_web"
+        "editorial_list_public_web"
       ]
     },
     {
-      "handle": "@selahshoots",
-      "display_name": "Selah Shoots",
-      "source_type": "provider_video_export",
+      "handle": "@leogonzall",
+      "display_name": "Leo Gonzalez",
+      "source_type": "acquisition_export",
       "source_query": "",
-      "videos": 1,
+      "videos": 0,
       "acquisition_wave_ids": [],
-      "acquisition_batch_ids": [],
-      "acquisition_providers": []
+      "acquisition_batch_ids": [
+        "feedspot_comedy_tiktok_2026"
+      ],
+      "acquisition_providers": [
+        "editorial_list_public_web"
+      ]
     },
     {
-      "handle": "@basementbits",
-      "display_name": "Basement Bits",
-      "source_type": "provider_video_export",
+      "handle": "@blaucomedy",
+      "display_name": "Michael Blaustein",
+      "source_type": "acquisition_export",
       "source_query": "",
-      "videos": 1,
+      "videos": 0,
       "acquisition_wave_ids": [],
-      "acquisition_batch_ids": [],
-      "acquisition_providers": []
+      "acquisition_batch_ids": [
+        "feedspot_comedy_tiktok_2026"
+      ],
+      "acquisition_providers": [
+        "editorial_list_public_web"
+      ]
     },
     {
-      "handle": "@dailyfilmclips",
-      "display_name": "Daily Film Clips",
-      "source_type": "provider_video_export",
+      "handle": "@taylortomlinsoncomedy",
+      "display_name": "Taylor Elyse Tomlinson",
+      "source_type": "acquisition_export",
       "source_query": "",
-      "videos": 1,
+      "videos": 0,
       "acquisition_wave_ids": [],
-      "acquisition_batch_ids": [],
-      "acquisition_providers": []
+      "acquisition_batch_ids": [
+        "feedspot_comedy_tiktok_2026"
+      ],
+      "acquisition_providers": [
+        "editorial_list_public_web"
+      ]
+    },
+    {
+      "handle": "@jeffdunham",
+      "display_name": "Jeff Dunham",
+      "source_type": "acquisition_export",
+      "source_query": "",
+      "videos": 0,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [
+        "feedspot_comedy_tiktok_2026"
+      ],
+      "acquisition_providers": [
+        "editorial_list_public_web"
+      ]
     }
   ]
 }

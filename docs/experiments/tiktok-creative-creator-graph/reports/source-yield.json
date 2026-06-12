@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-12T22:01:01.455Z",
-  "sources": 11,
+  "generated_at": "2026-06-12T22:06:48.453Z",
+  "sources": 9,
   "best_sources": [
     {
       "source_type": "manual_seed",
@@ -79,7 +79,7 @@
     },
     {
       "source_type": "provider_video_export",
-      "source_name": "acquisition-import-2026-06-12-30c00828c7e3.jsonl",
+      "source_name": "acquisition-import-2026-06-12-88ead51127c9.jsonl",
       "source_query": "",
       "creators_seen": 3,
       "useful_creators": 2,
@@ -88,23 +88,8 @@
       "reviewed_creators": 1,
       "usefulness_rate": 0.667,
       "rejection_rate": 0.333,
-      "average_usefulness": 48,
-      "yield_score": 43,
-      "top_labels": "filmmaker:1; sketch_comedian:1; reject:1"
-    },
-    {
-      "source_type": "provider_video_export",
-      "source_name": "acquisition-import-2026-06-12-e14baeb9eaf3.jsonl",
-      "source_query": "",
-      "creators_seen": 3,
-      "useful_creators": 2,
-      "excellent_creators": 0,
-      "rejected_creators": 1,
-      "reviewed_creators": 1,
-      "usefulness_rate": 0.667,
-      "rejection_rate": 0.333,
-      "average_usefulness": 48,
-      "yield_score": 43,
+      "average_usefulness": 44.7,
+      "yield_score": 41,
       "top_labels": "filmmaker:1; sketch_comedian:1; reject:1"
     },
     {
@@ -118,71 +103,24 @@
       "reviewed_creators": 1,
       "usefulness_rate": 0.667,
       "rejection_rate": 0.333,
-      "average_usefulness": 48,
-      "yield_score": 43,
+      "average_usefulness": 44.7,
+      "yield_score": 41,
       "top_labels": "filmmaker:1; sketch_comedian:1; reject:1"
     },
     {
       "source_type": "acquisition_export",
-      "source_name": "acquisition-import-2026-06-12-30c00828c7e3.jsonl",
+      "source_name": "acquisition-import-2026-06-12-88ead51127c9.jsonl",
       "source_query": "",
-      "creators_seen": 21,
+      "creators_seen": 232,
       "useful_creators": 0,
       "excellent_creators": 0,
       "rejected_creators": 0,
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 14,
+      "average_usefulness": 13.1,
       "yield_score": 6,
-      "top_labels": "filmmaker:6; film_educator:4; cinematographer:3; behind_the_scenes_creator:3; vfx_animation:2"
-    },
-    {
-      "source_type": "acquisition_export",
-      "source_name": "acquisition-import-2026-06-12-e14baeb9eaf3.jsonl",
-      "source_query": "",
-      "creators_seen": 21,
-      "useful_creators": 0,
-      "excellent_creators": 0,
-      "rejected_creators": 0,
-      "reviewed_creators": 0,
-      "usefulness_rate": 0,
-      "rejection_rate": 0,
-      "average_usefulness": 14,
-      "yield_score": 6,
-      "top_labels": "filmmaker:6; film_educator:4; cinematographer:3; behind_the_scenes_creator:3; vfx_animation:2"
-    }
-  ],
-  "weak_sources": [
-    {
-      "source_type": "acquisition_export",
-      "source_name": "acquisition-import-2026-06-12-30c00828c7e3.jsonl",
-      "source_query": "",
-      "creators_seen": 21,
-      "useful_creators": 0,
-      "excellent_creators": 0,
-      "rejected_creators": 0,
-      "reviewed_creators": 0,
-      "usefulness_rate": 0,
-      "rejection_rate": 0,
-      "average_usefulness": 14,
-      "yield_score": 6,
-      "top_labels": "filmmaker:6; film_educator:4; cinematographer:3; behind_the_scenes_creator:3; vfx_animation:2"
-    },
-    {
-      "source_type": "acquisition_export",
-      "source_name": "acquisition-import-2026-06-12-e14baeb9eaf3.jsonl",
-      "source_query": "",
-      "creators_seen": 21,
-      "useful_creators": 0,
-      "excellent_creators": 0,
-      "rejected_creators": 0,
-      "reviewed_creators": 0,
-      "usefulness_rate": 0,
-      "rejection_rate": 0,
-      "average_usefulness": 14,
-      "yield_score": 6,
-      "top_labels": "filmmaker:6; film_educator:4; cinematographer:3; behind_the_scenes_creator:3; vfx_animation:2"
+      "top_labels": "filmmaker:101; sketch_comedian:49; standup_comedian:49; film_educator:20; cinematographer:5"
     },
     {
       "source_type": "search_seed",
@@ -200,5 +138,37 @@
       "top_labels": "reject:1"
     }
   ],
-  "total_seen": 30
+  "weak_sources": [
+    {
+      "source_type": "acquisition_export",
+      "source_name": "acquisition-import-2026-06-12-88ead51127c9.jsonl",
+      "source_query": "",
+      "creators_seen": 232,
+      "useful_creators": 0,
+      "excellent_creators": 0,
+      "rejected_creators": 0,
+      "reviewed_creators": 0,
+      "usefulness_rate": 0,
+      "rejection_rate": 0,
+      "average_usefulness": 13.1,
+      "yield_score": 6,
+      "top_labels": "filmmaker:101; sketch_comedian:49; standup_comedian:49; film_educator:20; cinematographer:5"
+    },
+    {
+      "source_type": "search_seed",
+      "source_name": "smoke-seeds.jsonl",
+      "source_query": "site:tiktok.com/@ short film",
+      "creators_seen": 1,
+      "useful_creators": 0,
+      "excellent_creators": 0,
+      "rejected_creators": 1,
+      "reviewed_creators": 1,
+      "usefulness_rate": 0,
+      "rejection_rate": 1,
+      "average_usefulness": 0,
+      "yield_score": 0,
+      "top_labels": "reject:1"
+    }
+  ],
+  "total_seen": 241
 }

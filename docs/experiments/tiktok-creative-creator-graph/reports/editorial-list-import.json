@@ -1,0 +1,515 @@
+{
+  "generated_at": "2026-06-12T22:06:00.619Z",
+  "execution_id": "2026-06-12T22-06-00-391Z",
+  "provider": "editorial_list_public_web",
+  "dry_run": false,
+  "selected_sources": 3,
+  "output_rows": 211,
+  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-12T22-06-00-391Z-editorial-list-import.jsonl",
+  "source_reports": [
+    {
+      "source_id": "feedspot_comedy_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 99,
+      "unique_rows_added": 99,
+      "started_at": "2026-06-12T22:06:00.391Z",
+      "finished_at": "2026-06-12T22:06:00.565Z"
+    },
+    {
+      "source_id": "feedspot_movie_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/movie_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 96,
+      "unique_rows_added": 96,
+      "started_at": "2026-06-12T22:06:00.565Z",
+      "finished_at": "2026-06-12T22:06:00.595Z"
+    },
+    {
+      "source_id": "feedspot_horror_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/horror_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 18,
+      "unique_rows_added": 16,
+      "started_at": "2026-06-12T22:06:00.595Z",
+      "finished_at": "2026-06-12T22:06:00.618Z"
+    }
+  ],
+  "first_rows": [
+    {
+      "handle": "@kingbach",
+      "display_name": "Andrew Byron Bachelor",
+      "bio": "Tickets to live comedy show @ kingbach.com",
+      "profile_url": "https://www.tiktok.com/@kingbach",
+      "follower_count": 28400000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "sketch_comedian",
+      "source_target_labels": [
+        "sketch_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 1
+    },
+    {
+      "handle": "@adamw",
+      "display_name": "Adam Waheed",
+      "bio": "Adam WaheedContact:",
+      "profile_url": "https://www.tiktok.com/@adamw",
+      "follower_count": 22800000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "standup_comedian",
+      "source_target_labels": [
+        "standup_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 2
+    },
+    {
+      "handle": "@matt_rife",
+      "display_name": "Matt Rife",
+      "bio": "ComedianBusiness NETFLIX SPECIAL OUT NOW!",
+      "profile_url": "https://www.tiktok.com/@matt_rife",
+      "follower_count": 19900000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "sketch_comedian",
+      "source_target_labels": [
+        "sketch_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 3
+    },
+    {
+      "handle": "@real_madara_dusal",
+      "display_name": "Madara Dusal",
+      "bio": "Instagram: @Madara Dusal📍ATL",
+      "profile_url": "https://www.tiktok.com/@real_madara_dusal",
+      "follower_count": 16800000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "standup_comedian",
+      "source_target_labels": [
+        "standup_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 4
+    },
+    {
+      "handle": "@jasonbankscomedy",
+      "display_name": "Jason Banks",
+      "bio": "No bio yet.",
+      "profile_url": "https://www.tiktok.com/@jasonbankscomedy",
+      "follower_count": 9400000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "sketch_comedian",
+      "source_target_labels": [
+        "sketch_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 5
+    },
+    {
+      "handle": "@xtheromanempire",
+      "display_name": "Nicolas Roman",
+      "bio": "EGGMAN🥚 👨🏽‍🦲India🇮🇳Czechia🇨🇿📧",
+      "profile_url": "https://www.tiktok.com/@xtheromanempire",
+      "follower_count": 8700000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "standup_comedian",
+      "source_target_labels": [
+        "standup_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 6
+    },
+    {
+      "handle": "@fluffyguy",
+      "display_name": "Gabriel Iglesias",
+      "bio": "Stand up comedian & chihuahua dad",
+      "profile_url": "https://www.tiktok.com/@fluffyguy",
+      "follower_count": 8400000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "sketch_comedian",
+      "source_target_labels": [
+        "sketch_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 7
+    },
+    {
+      "handle": "@gingerbilly1",
+      "display_name": "Adam Parkins",
+      "bio": "Click the link below for show tickets!",
+      "profile_url": "https://www.tiktok.com/@gingerbilly1",
+      "follower_count": 8100000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "standup_comedian",
+      "source_target_labels": [
+        "standup_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 8
+    },
+    {
+      "handle": "@theovon",
+      "display_name": "Theodor Capitani Von Kurnatowski",
+      "bio": "Your cousin.",
+      "profile_url": "https://www.tiktok.com/@theovon",
+      "follower_count": 8000000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "standup_comedian",
+      "source_target_labels": [
+        "standup_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 9
+    },
+    {
+      "handle": "@matt_mathews",
+      "display_name": "Matt Mathews",
+      "bio": "Comedian. Musician. Farmer.Jokes on Me/ What A War OUT NOW",
+      "profile_url": "https://www.tiktok.com/@matt_mathews",
+      "follower_count": 7100000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "sketch_comedian",
+      "source_target_labels": [
+        "sketch_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 10
+    },
+    {
+      "handle": "@elysemyers",
+      "display_name": "Elyse Myers",
+      "bio": "hi hello! 🫶🏼married to @jonas_myers",
+      "profile_url": "https://www.tiktok.com/@elysemyers",
+      "follower_count": 7100000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "standup_comedian",
+      "source_target_labels": [
+        "standup_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 11
+    },
+    {
+      "handle": "@dreaknowsbest",
+      "display_name": "Drea Okeke",
+      "bio": "Your fave tall girlComedy& Culture🇳🇬Sabi Slangs Game Out Now!Order Now👇🏾",
+      "profile_url": "https://www.tiktok.com/@dreaknowsbest",
+      "follower_count": 6600000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "sketch_comedian",
+      "source_target_labels": [
+        "sketch_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 12
+    },
+    {
+      "handle": "@artbydemarcusshawn",
+      "display_name": "Demarcus Shawn",
+      "bio": "Funny, what invisible strings connect us all!❤️",
+      "profile_url": "https://www.tiktok.com/@artbydemarcusshawn",
+      "follower_count": 6300000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "standup_comedian",
+      "source_target_labels": [
+        "standup_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 13
+    },
+    {
+      "handle": "@nicholas_flannery",
+      "display_name": "Nicholas Flannery",
+      "bio": "",
+      "profile_url": "https://www.tiktok.com/@nicholas_flannery",
+      "follower_count": 5500000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "standup_comedian",
+      "source_target_labels": [
+        "standup_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 14
+    },
+    {
+      "handle": "@comedic_cody",
+      "display_name": "Cody Lewis Smith",
+      "bio": "📍NASHON TOUR NOW!",
+      "profile_url": "https://www.tiktok.com/@comedic_cody",
+      "follower_count": 5400000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "standup_comedian",
+      "source_target_labels": [
+        "standup_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 15
+    },
+    {
+      "handle": "@khian.kb",
+      "display_name": "Khian Brown",
+      "bio": "A COMEDIAN THAT DOESN’T CARE ABOUT HIS KNEES!",
+      "profile_url": "https://www.tiktok.com/@khian.kb",
+      "follower_count": 4900000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "sketch_comedian",
+      "source_target_labels": [
+        "sketch_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 16
+    },
+    {
+      "handle": "@theandrewschulz",
+      "display_name": "Andrew Schulz",
+      "bio": "👇🏼 WATCH MY NEW NETFLIX SPECIAL👇🏼",
+      "profile_url": "https://www.tiktok.com/@theandrewschulz",
+      "follower_count": 4800000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "standup_comedian",
+      "source_target_labels": [
+        "standup_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 17
+    },
+    {
+      "handle": "@mrnatejackson",
+      "display_name": "Nate Jackson",
+      "bio": "Hit me up! Check out Roses Collection 🌹SUPER FUNNY WORLD TOUR 👇",
+      "profile_url": "https://www.tiktok.com/@mrnatejackson",
+      "follower_count": 4500000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "standup_comedian",
+      "source_target_labels": [
+        "standup_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 18
+    },
+    {
+      "handle": "@jameshenry",
+      "display_name": "James Henry",
+      "bio": "Instagram:James Henry🇯🇲🇵🇦🇻🇮Youtube: James HenryBiz📩📩📩📩",
+      "profile_url": "https://www.tiktok.com/@jameshenry",
+      "follower_count": 4300000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "standup_comedian",
+      "source_target_labels": [
+        "standup_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 19
+    },
+    {
+      "handle": "@octopusslover8",
+      "display_name": "Jake Shane",
+      "bio": "Rating/reviewing octopus from all over the 🌎",
+      "profile_url": "https://www.tiktok.com/@octopusslover8",
+      "follower_count": 4000000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "standup_comedian",
+      "source_target_labels": [
+        "standup_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 20
+    },
+    {
+      "handle": "@tuckercomedy",
+      "display_name": "Tucker Reynolds",
+      "bio": "Comedy, I guess☀️LA☀️ ⬇️THE CONTENT FACTORY POD⬇️",
+      "profile_url": "https://www.tiktok.com/@tuckercomedy",
+      "follower_count": 3900000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "sketch_comedian",
+      "source_target_labels": [
+        "sketch_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 21
+    },
+    {
+      "handle": "@leogonzall",
+      "display_name": "Leo Gonzalez",
+      "bio": "DREAM on.•✉️",
+      "profile_url": "https://www.tiktok.com/@leogonzall",
+      "follower_count": 3600000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "standup_comedian",
+      "source_target_labels": [
+        "standup_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 22
+    },
+    {
+      "handle": "@blaucomedy",
+      "display_name": "Michael Blaustein",
+      "bio": "TOUR: Columbus | Indianapolis | St. Louis | Sacramento | Boise + more ⤵️",
+      "profile_url": "https://www.tiktok.com/@blaucomedy",
+      "follower_count": 3600000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "sketch_comedian",
+      "source_target_labels": [
+        "sketch_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 23
+    },
+    {
+      "handle": "@taylortomlinsoncomedy",
+      "display_name": "Taylor Elyse Tomlinson",
+      "bio": "The Save Me Tour is coming to acity near you 😈",
+      "profile_url": "https://www.tiktok.com/@taylortomlinsoncomedy",
+      "follower_count": 3300000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "sketch_comedian",
+      "source_target_labels": [
+        "sketch_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 24
+    },
+    {
+      "handle": "@jeffdunham",
+      "display_name": "Jeff Dunham",
+      "bio": "Comedian. Ventriloquist. Car Enthusiast. Tech Geek. Toy Collector.",
+      "profile_url": "https://www.tiktok.com/@jeffdunham",
+      "follower_count": 3300000,
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "target_label": "sketch_comedian",
+      "source_target_labels": [
+        "sketch_comedian"
+      ],
+      "provider": "editorial_list_public_web",
+      "provider_execution_id": "2026-06-12T22-06-00-391Z",
+      "batch_id": "feedspot_comedy_tiktok_2026",
+      "rank": 25
+    }
+  ]
+}

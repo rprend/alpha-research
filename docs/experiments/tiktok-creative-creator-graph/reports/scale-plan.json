@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-12T22:01:01.862Z",
+  "generated_at": "2026-06-12T22:06:48.885Z",
   "targets": {
     "useful_creators": 50000,
     "excellent_creators": 5000,
     "review_decisions": 500
   },
   "current": {
-    "accounts": 30,
+    "accounts": 241,
     "useful_creators": 7,
     "excellent_creators": 1,
     "review_decisions": 4
@@ -17,21 +17,21 @@
     "review_decisions": 496
   },
   "planning_assumptions": {
-    "observed_useful_rate": 0.233,
-    "planning_useful_rate": 0.2,
+    "observed_useful_rate": 0.029,
+    "planning_useful_rate": 0.029,
     "observed_excellent_rate_among_useful": 0.143,
     "planning_excellent_rate_among_useful": 0.1,
     "import_batch_size": 250
   },
   "estimated_work": {
-    "candidate_accounts_needed": 249965,
-    "import_batches_needed": 1000,
+    "candidate_accounts_needed": 1721188,
+    "import_batches_needed": 6885,
     "useful_creators_needed_for_excellent_target": 49990,
     "review_batches_needed": 2
   },
   "candidate_frontier": {
-    "targets": 83,
-    "handle_targets": 6,
+    "targets": 82,
+    "handle_targets": 5,
     "query_targets": 77
   },
   "ranked_surfaces": [
@@ -84,7 +84,7 @@
       "rank": 6,
       "source_type": "provider_video_export",
       "source_query": "",
-      "yield_score": 43,
+      "yield_score": 41,
       "usefulness_rate": 0.667,
       "rejected_rate": 0.333,
       "recommended_batch_share": 0.1
@@ -93,31 +93,13 @@
       "rank": 7,
       "source_type": "provider_video_export",
       "source_query": "",
-      "yield_score": 43,
+      "yield_score": 41,
       "usefulness_rate": 0.667,
       "rejected_rate": 0.333,
       "recommended_batch_share": 0.05
     },
     {
       "rank": 8,
-      "source_type": "provider_video_export",
-      "source_query": "",
-      "yield_score": 43,
-      "usefulness_rate": 0.667,
-      "rejected_rate": 0.333,
-      "recommended_batch_share": 0.05
-    },
-    {
-      "rank": 9,
-      "source_type": "acquisition_export",
-      "source_query": "",
-      "yield_score": 6,
-      "usefulness_rate": 0,
-      "rejected_rate": 0,
-      "recommended_batch_share": 0.05
-    },
-    {
-      "rank": 10,
       "source_type": "acquisition_export",
       "source_query": "",
       "yield_score": 6,
@@ -141,7 +123,7 @@
     },
     {
       "sequence": 2,
-      "batch_id": "graph_0078",
+      "batch_id": "graph_0077",
       "frontier_rank": 2,
       "frontier_score": 90,
       "priority": 2,
@@ -153,7 +135,7 @@
     },
     {
       "sequence": 3,
-      "batch_id": "graph_0087",
+      "batch_id": "graph_0086",
       "frontier_rank": 3,
       "frontier_score": 89,
       "priority": 2,
@@ -165,7 +147,7 @@
     },
     {
       "sequence": 4,
-      "batch_id": "graph_0085",
+      "batch_id": "graph_0084",
       "frontier_rank": 4,
       "frontier_score": 89,
       "priority": 2,
@@ -177,7 +159,7 @@
     },
     {
       "sequence": 5,
-      "batch_id": "hashtag_0021|graph_0081",
+      "batch_id": "hashtag_0021|graph_0080",
       "frontier_rank": 5,
       "frontier_score": 86,
       "priority": 1,
@@ -189,7 +171,7 @@
     },
     {
       "sequence": 6,
-      "batch_id": "hashtag_0014|graph_0079",
+      "batch_id": "hashtag_0014|graph_0078",
       "frontier_rank": 6,
       "frontier_score": 86,
       "priority": 1,
@@ -225,7 +207,7 @@
     },
     {
       "sequence": 9,
-      "batch_id": "graph_0075|hashtag_0016",
+      "batch_id": "graph_0076|hashtag_0016",
       "frontier_rank": 9,
       "frontier_score": 86,
       "priority": 1,
@@ -297,7 +279,7 @@
     },
     {
       "sequence": 15,
-      "batch_id": "graph_0074",
+      "batch_id": "graph_0075",
       "frontier_rank": 15,
       "frontier_score": 78,
       "priority": 1,

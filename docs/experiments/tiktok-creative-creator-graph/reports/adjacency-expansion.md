@@ -1,14 +1,14 @@
 # Adjacency Expansion
 
-Generated: 2026-06-12T22:01:01.496Z
+Generated: 2026-06-12T22:06:48.491Z
 
-- Base rows: 6
-- Expansion rows: 24
+- Base rows: 5
+- Expansion rows: 23
 - Added rows: 18
 
 ## Types
 
-- expand_from_creator: 6
+- expand_from_creator: 5
 - hashtag_search: 10
 - yield_replay_search: 5
 - cross_platform_search: 3
@@ -23,13 +23,12 @@ Generated: 2026-06-12T22:01:01.496Z
 | yield_replay_search | 1 | filmmaker short film editing breakdown | replay_high_yield_source:manual_seed |
 | hashtag_search | 1 | shortfilm | useful_creator_hashtag:@selahshoots; useful_creator_hashtag:@maya.shortcuts |
 | cross_platform_search | 1 | site:vimeo.com "tiktok.com/@" "filmmaker" | cross_platform_adjacency:vimeo.com |
-| expand_from_creator | 1 | @selahshoots | high_usefulness_source |
 | expand_from_creator | 1 | @noahframes | high_usefulness_source |
-| expand_from_creator | 1 | @basementbits | high_usefulness_source |
-| hashtag_search | 1 | actor | useful_creator_hashtag:@basementbits; useful_creator_hashtag:@lucybits |
-| hashtag_search | 1 | sketchcomedy | useful_creator_hashtag:@basementbits; useful_creator_hashtag:@lucybits |
+| expand_from_creator | 1 | @selahshoots | high_usefulness_source |
 | expand_from_creator | 1 | @ani.motionlab | high_usefulness_source |
 | expand_from_creator | 1 | @lucybits | high_usefulness_source |
+| hashtag_search | 1 | actor | useful_creator_hashtag:@basementbits; useful_creator_hashtag:@lucybits |
+| hashtag_search | 1 | sketchcomedy | useful_creator_hashtag:@basementbits; useful_creator_hashtag:@lucybits |
 | yield_replay_search | 2 | cinematographer lighting breakdown | replay_high_yield_source:manual_seed |
 | hashtag_search | 2 | cinematography | useful_creator_hashtag:@noahframes |
 | hashtag_search | 2 | lighting | useful_creator_hashtag:@noahframes |

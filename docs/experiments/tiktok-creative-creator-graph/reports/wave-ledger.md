@@ -1,9 +1,9 @@
 # Wave Ledger
 
-Generated: 2026-06-12T22:01:01.937Z
+Generated: 2026-06-12T22:06:49.003Z
 
-- Waves: 1000
-- Planned: 1000
+- Waves: 6885
+- Planned: 6885
 - Dry-run: 0
 - Dry-run only: 11
 - Succeeded: 0
