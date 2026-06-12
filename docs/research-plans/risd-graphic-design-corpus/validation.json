@@ -181,6 +181,8 @@
     "self_study_portfolio_collaborator_response_action_progress_pending_actions": 9,
     "self_study_portfolio_collaborator_response_review_brief_rows": 3,
     "self_study_portfolio_collaborator_response_review_brief_awaiting_rows": 3,
+    "self_study_portfolio_collaborator_response_distribution_manifest_rows": 3,
+    "self_study_portfolio_collaborator_response_distribution_manifest_ready_rows": 3,
     "self_study_portfolio_milestones": 3,
     "self_study_portfolio_briefs": 3,
     "self_study_portfolio_briefs_with_completion_gate_status": 3,
@@ -588,6 +590,11 @@
       "id": "self_study_portfolio_collaborator_response_review_briefs_are_shareable",
       "status": "pass",
       "detail": "3 collaborator response review briefs; 3 awaiting response; 0 brief reference/share errors; generated mismatch=false."
+    },
+    {
+      "id": "self_study_portfolio_collaborator_response_distribution_manifests_package_briefs",
+      "status": "pass",
+      "detail": "3 collaborator response distribution manifests; 3 ready to send; 0 manifest package/send errors; generated mismatch=false."
     },
     {
       "id": "self_study_progress_ledger_links_to_portfolio_completion_gates",
