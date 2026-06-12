@@ -1,6 +1,6 @@
 # Full Workflow
 
-Generated: 2026-06-12T19:58:40.177Z
+Generated: 2026-06-12T20:02:22.003Z
 
 Complete: true
 
@@ -15,4 +15,5 @@ Complete: true
 - build_release_package: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-release-package.mjs`)
 - verify_release_package: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/verify-release-package.mjs`)
 - build_scale_plan: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-scale-plan.mjs`)
+- build_refresh_plan: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-refresh-plan.mjs`)
 - check_readiness: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/check-readiness.mjs`)

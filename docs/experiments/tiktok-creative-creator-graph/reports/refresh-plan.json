@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-06-12T20:02:21.962Z",
+  "accounts": 9,
+  "refresh_tasks": 9,
+  "due_or_high_value_tasks": 6,
+  "cadence_counts": {
+    "weekly": 1,
+    "monthly": 6,
+    "quarterly": 2
+  },
+  "priority_counts": {
+    "1": 1,
+    "2": 5,
+    "4": 3
+  }
+}

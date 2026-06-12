@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T19:58:40.171Z
+Generated: 2026-06-12T20:02:21.997Z
 
 Complete: false
 
@@ -24,6 +24,7 @@ Complete: false
 - Release useful creators: 6
 - Release verification checks: 44
 - Scale plan import batches: 200
+- Refresh tasks: 9
 
 ## Checks
 
@@ -40,6 +41,7 @@ Complete: false
 - release_package: pass (6 useful creators exported for release)
 - release_verification: pass (44 release checks evaluated)
 - scale_plan: pass (200 estimated import batches)
+- refresh_plan: pass (9 account refresh tasks generated)
 - useful_account_target: incomplete (5/50000 useful accounts)
 - excellent_account_target: incomplete (1/5000 excellent accounts)
 - human_review_target: incomplete (4/500 review decisions applied)

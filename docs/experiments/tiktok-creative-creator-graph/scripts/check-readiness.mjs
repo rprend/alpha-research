@@ -43,6 +43,7 @@ function main() {
     if (!existsSync(path)) return null
     return JSON.parse(readFileSync(path, 'utf8'))
   })()
+  const refreshTasks = readJsonl(join(processedDir, 'refresh_tasks.jsonl'))
   const acquisitionRun = (() => {
     const path = join(reportsDir, 'acquisition-run.json')
     if (!existsSync(path)) return null
@@ -121,6 +122,11 @@ function main() {
       evidence: scalePlan ? `${scalePlan.estimated_work.import_batches_needed} estimated import batches` : 'scale plan missing',
     },
     {
+      id: 'refresh_plan',
+      status: refreshTasks.length > 0 ? 'pass' : 'fail',
+      evidence: `${refreshTasks.length} account refresh tasks generated`,
+    },
+    {
       id: 'useful_account_target',
       status: usefulAccounts >= targetUsefulAccounts ? 'pass' : 'incomplete',
       evidence: `${usefulAccounts}/${targetUsefulAccounts} useful accounts`,
@@ -160,6 +166,7 @@ function main() {
       release_useful_creators: releaseUseful.length,
       release_verification_checks: releaseVerification?.checks?.length ?? 0,
       scale_plan_import_batches: scalePlan?.estimated_work?.import_batches_needed ?? 0,
+      refresh_tasks: refreshTasks.length,
     },
     checks,
     remaining: {
@@ -196,6 +203,7 @@ Complete: ${summary.complete}
 - Release useful creators: ${summary.counts.release_useful_creators}
 - Release verification checks: ${summary.counts.release_verification_checks}
 - Scale plan import batches: ${summary.counts.scale_plan_import_batches}
+- Refresh tasks: ${summary.counts.refresh_tasks}
 
 ## Checks
 

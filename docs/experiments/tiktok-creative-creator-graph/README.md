@@ -93,6 +93,12 @@ Build scale plan:
 node docs/experiments/tiktok-creative-creator-graph/scripts/build-scale-plan.mjs
 ```
 
+Build refresh plan:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/build-refresh-plan.mjs
+```
+
 Check readiness against the full 50k-account target:
 
 ```bash
@@ -236,6 +242,8 @@ The pipeline writes:
 - `reports/release-verification.json`
 - `reports/scale-plan.md`
 - `reports/scale-plan.json`
+- `reports/refresh-plan.md`
+- `reports/refresh-plan.json`
 - `reports/pipeline-run.json`
 
 ## Production Acquisition Loop
@@ -255,8 +263,9 @@ The pipeline writes:
 13. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-release-package.mjs` to generate stable handoff exports.
 14. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/verify-release-package.mjs` to validate hashes, row counts, required fields, identity uniqueness, and release/file consistency.
 15. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-scale-plan.mjs` to size the next collection and review wave.
-16. Use reviewed accepted/rejected/benchmark outputs to tune sources and scoring.
-17. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
+16. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-refresh-plan.mjs` to schedule weekly/monthly/quarterly account refreshes.
+17. Use reviewed accepted/rejected/benchmark outputs to tune sources and scoring.
+18. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
 
 ## Current Limitations
 

@@ -1,0 +1,10 @@
+creator_id,handle,profile_url,primary_label,reviewed_status,overall_usefulness,cadence,due,priority,last_seen_days,last_post_days,refresh_surface,expected_output
+maya.shortcuts,@maya.shortcuts,https://www.tiktok.com/@maya.shortcuts,filmmaker,excellent,89,weekly,false,1,0,23,tiktok_profile_export,profile metadata and recent public videos
+noahframes,@noahframes,https://www.tiktok.com/@noahframes,cinematographer,useful,73,monthly,false,2,0,11,tiktok_profile_export,profile metadata and recent public videos
+ani.motionlab,@ani.motionlab,https://www.tiktok.com/@ani.motionlab,vfx_animation,useful,67,monthly,false,2,0,38,tiktok_profile_export,profile metadata and recent public videos
+lucybits,@lucybits,https://www.tiktok.com/@lucybits,sketch_comedian,useful,66,monthly,false,2,0,15,tiktok_profile_export,profile metadata and recent public videos
+selahshoots,@selahshoots,https://www.tiktok.com/@selahshoots,filmmaker,useful,64,monthly,false,2,0,13,tiktok_profile_export,profile metadata and recent public videos
+renderjules,@renderjules,https://www.tiktok.com/@renderjules,creative_technologist,useful,61,monthly,false,2,0,47,tiktok_profile_export,profile metadata and recent public videos
+basementbits,@basementbits,https://www.tiktok.com/@basementbits,sketch_comedian,needs_review,58,monthly,false,4,0,8,tiktok_profile_export,profile metadata and recent public videos
+dailyfilmclips,@dailyfilmclips,https://www.tiktok.com/@dailyfilmclips,reject,reject,0,quarterly,false,4,0,11,tiktok_profile_export,profile metadata and recent public videos
+clipvaultcinema,@clipvaultcinema,https://www.tiktok.com/@clipvaultcinema,reject,reject,0,quarterly,false,4,0,10,tiktok_profile_export,profile metadata and recent public videos
