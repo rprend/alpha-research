@@ -39,10 +39,23 @@ async function run() {
   }
 
   // BBL helpers. PLUTO carries a ready-made bbl; others compose borough+block+lot.
+  // norm_boro accepts '1'..'5', numerics, codes, and full names.
+  await sql(`CREATE OR REPLACE MACRO norm_boro(b) AS
+    CASE upper(trim(CAST(b AS VARCHAR)))
+      WHEN '1' THEN '1' WHEN '2' THEN '2' WHEN '3' THEN '3' WHEN '4' THEN '4' WHEN '5' THEN '5'
+      WHEN 'MANHATTAN' THEN '1' WHEN 'MN' THEN '1'
+      WHEN 'BRONX' THEN '2' WHEN 'BX' THEN '2'
+      WHEN 'BROOKLYN' THEN '3' WHEN 'BK' THEN '3'
+      WHEN 'QUEENS' THEN '4' WHEN 'QN' THEN '4'
+      WHEN 'STATEN ISLAND' THEN '5' WHEN 'SI' THEN '5'
+      ELSE CAST(TRY_CAST(b AS INT) AS VARCHAR) END`);
   await sql(`CREATE OR REPLACE MACRO mk_bbl(boro, block, lot) AS
-    CASE WHEN boro IS NULL OR block IS NULL OR lot IS NULL THEN NULL
-         ELSE boro || lpad(CAST(TRY_CAST(block AS BIGINT) AS VARCHAR), 5, '0')
-                   || lpad(CAST(TRY_CAST(lot AS BIGINT) AS VARCHAR), 4, '0') END`);
+    CASE WHEN norm_boro(boro) IS NULL OR block IS NULL OR lot IS NULL THEN NULL
+         ELSE norm_boro(boro) || lpad(CAST(TRY_CAST(block AS BIGINT) AS VARCHAR), 5, '0')
+                              || lpad(CAST(TRY_CAST(lot AS BIGINT) AS VARCHAR), 4, '0') END`);
+  // PLUTO ships bbl as "1008350041.00000000": normalize to a plain 10-digit string.
+  await sql(`CREATE OR REPLACE MACRO norm_bbl(b) AS
+    CAST(TRY_CAST(TRY_CAST(b AS DOUBLE) AS BIGINT) AS VARCHAR)`);
 
   // events: the canonical §2.2 table, rebuilt from scratch each run.
   await sql(`CREATE OR REPLACE TABLE events (
@@ -53,24 +66,22 @@ async function run() {
   const mappers = {
     dof_rolling_sales: `INSERT INTO events (bbl, address_raw, date_start, kind, payload, source_id, locator)
       SELECT mk_bbl(borough, block, lot), address, TRY_CAST(sale_date AS DATE), 'ownership',
-             to_json({type: 'sale', price: sale_price, building_class: building_class_at_time_of_sale}),
-             'dof_rolling_sales', COALESCE(bbl, mk_bbl(borough, block, lot)) || '/' || COALESCE(sale_date,'')
+             to_json({type: 'sale', price: sale_price, building_class: building_class_at_time_of}),
+             'dof_rolling_sales', COALESCE(mk_bbl(borough, block, lot),'') || '/' || COALESCE(sale_date,'')
       FROM raw_dof_rolling_sales WHERE TRY_CAST(sale_price AS BIGINT) > 10000`,
     dof_annualized_sales: `INSERT INTO events (bbl, address_raw, date_start, kind, payload, source_id, locator)
-      SELECT mk_bbl(CAST(TRY_CAST(borough AS INT) AS VARCHAR), block, lot), address, TRY_CAST(sale_date AS DATE), 'ownership',
+      SELECT mk_bbl(borough, block, lot), address, TRY_CAST(sale_date AS DATE), 'ownership',
              to_json({type: 'sale', price: sale_price}),
-             'dof_annualized_sales', COALESCE(mk_bbl(CAST(TRY_CAST(borough AS INT) AS VARCHAR), block, lot),'') || '/' || COALESCE(sale_date,'')
+             'dof_annualized_sales', COALESCE(mk_bbl(borough, block, lot),'') || '/' || COALESCE(sale_date,'')
       FROM raw_dof_annualized_sales WHERE TRY_CAST(sale_price AS BIGINT) > 10000`,
     dob_permits: `INSERT INTO events (bbl, address_raw, date_start, kind, payload, source_id, locator)
-      SELECT mk_bbl(CASE upper(trim(borough))
-                      WHEN 'MANHATTAN' THEN '1' WHEN 'BRONX' THEN '2' WHEN 'BROOKLYN' THEN '3'
-                      WHEN 'QUEENS' THEN '4' WHEN 'STATEN ISLAND' THEN '5' END, block, lot),
+      SELECT mk_bbl(borough, block, lot),
              trim(COALESCE(house__,'') || ' ' || COALESCE(street_name,'')), TRY_CAST(issuance_date AS DATE), 'construction',
              to_json({type: 'permit', job_type: job_type, work_type: work_type, permit_type: permit_type, owner: owner_s_business_name}),
              'dob_permits', COALESCE(job__,'') || '/' || COALESCE(permit_sequence__,'')
       FROM raw_dob_permits`,
     dob_cofo: `INSERT INTO events (bbl, address_raw, date_start, kind, payload, source_id, locator)
-      SELECT mk_bbl(CAST(TRY_CAST(borough AS INT) AS VARCHAR), block, lot),
+      SELECT mk_bbl(borough, block, lot),
              trim(COALESCE(house_number,'') || ' ' || COALESCE(street_name,'')),
              TRY_CAST(COALESCE(c_o_issue_date, issue_date) AS DATE), 'construction',
              to_json({type: 'certificate_of_occupancy', job_number: job_number}),
@@ -126,13 +137,13 @@ async function run() {
   // Lot base: PLUTO gives the modern spine (address, cd, yearbuilt, owner).
   if (landed.includes('pluto')) {
     await sql(`CREATE OR REPLACE TABLE lots AS
-      SELECT bbl, address, borough, block, lot, cd, zipcode, yearbuilt, numfloors,
+      SELECT norm_bbl(bbl) AS bbl, address, borough, block, lot, cd, zipcode, yearbuilt, numfloors,
              unitsres, unitstotal, bldgclass, landuse, ownername
       FROM raw_pluto WHERE bbl IS NOT NULL`);
     // PLUTO yearbuilt becomes the construction-origin event.
     await sql(`INSERT INTO events (bbl, address_raw, date_start, kind, payload, source_id, locator)
-      SELECT bbl, address, TRY_CAST(CAST(TRY_CAST(yearbuilt AS INT) AS VARCHAR) || '-01-01' AS DATE), 'construction',
-             to_json({type: 'year_built', year: yearbuilt}), 'pluto', bbl
+      SELECT norm_bbl(bbl), address, TRY_CAST(CAST(TRY_CAST(yearbuilt AS INT) AS VARCHAR) || '-01-01' AS DATE), 'construction',
+             to_json({type: 'year_built', year: yearbuilt}), 'pluto', norm_bbl(bbl)
       FROM raw_pluto WHERE TRY_CAST(yearbuilt AS INT) > 1600`);
   }
   // PAD: address-range -> BBL lookup table for the dossier CLI geocoder.

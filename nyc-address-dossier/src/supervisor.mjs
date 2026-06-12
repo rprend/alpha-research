@@ -96,6 +96,15 @@ async function main() {
       }
       const job = claimNextJob(db);
       if (!job) {
+        log(db, 'info', null, 'queue drained — rebuilding dossier.duckdb before exit');
+        try {
+          const { execFileSync } = await import('node:child_process');
+          const materializePath = new URL('./materialize.mjs', import.meta.url).pathname;
+          execFileSync(process.execPath, ['--experimental-sqlite', materializePath], { stdio: 'inherit', timeout: 4 * 60 * 60 * 1000 });
+          log(db, 'info', null, 'dossier materialization complete');
+        } catch (err) {
+          log(db, 'error', null, `materialization failed: ${err}`);
+        }
         generateStatus(db);
         log(db, 'info', null, 'queue drained — all eligible jobs done. Exiting.');
         break;

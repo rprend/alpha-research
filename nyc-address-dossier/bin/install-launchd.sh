@@ -44,7 +44,12 @@ EOF
 ln -sfn "$DOSSIER_HOME/status.md" "$PROJECT_DIR/status.md"
 
 launchctl bootout "gui/$(id -u)/$LABEL" 2>/dev/null || true
-launchctl bootstrap "gui/$(id -u)" "$PLIST"
+# bootout is async; immediate bootstrap can fail with a transient I/O error. Retry.
+for i in 1 2 3 4 5; do
+  if launchctl bootstrap "gui/$(id -u)" "$PLIST" 2>/dev/null; then break; fi
+  [ "$i" = 5 ] && { echo "bootstrap failed after retries" >&2; exit 1; }
+  sleep 3
+done
 echo "installed + started: $LABEL"
 echo "home: $DOSSIER_HOME"
 echo "logs: $DOSSIER_HOME/data/supervisor.log"
