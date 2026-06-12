@@ -21,6 +21,7 @@ This compact index links each self-study portfolio milestone to the artifacts ne
 - Modules: 4
 - Estimated hours: 137
 - Readiness: not_ready_template
+- Dashboard filters: readiness=not_ready_template; stage=foundation; import=no_import; blockers=missing_outputs, missing_critique_revisions, unresolved_evidence_warnings; workload=medium; artifacts=complete
 - Pending checks: 4
 - Blocking conditions: 3
 - Review focus: Evidence-backed fundamentals: visible constraints, form decisions, critique response, and revised artifacts.
@@ -38,6 +39,7 @@ This compact index links each self-study portfolio milestone to the artifacts ne
 - Modules: 4
 - Estimated hours: 124
 - Readiness: not_ready_template
+- Dashboard filters: readiness=not_ready_template; stage=intermediate_practice; import=no_import; blockers=missing_outputs, missing_critique_revisions, unresolved_evidence_warnings; workload=medium; artifacts=complete
 - Pending checks: 4
 - Blocking conditions: 3
 - Review focus: Intermediate systems: typographic control, publication or type artifacts, and documented iteration across related prompts.
@@ -55,6 +57,7 @@ This compact index links each self-study portfolio milestone to the artifacts ne
 - Modules: 6
 - Estimated hours: 262
 - Readiness: not_ready_template
+- Dashboard filters: readiness=not_ready_template; stage=advanced_synthesis; import=no_import; blockers=missing_outputs, missing_critique_revisions, unresolved_evidence_warnings; workload=large; artifacts=complete
 - Pending checks: 4
 - Blocking conditions: 3
 - Review focus: Advanced synthesis: multi-part artifacts, public/contextual systems, technical or editorial constraints, and a portfolio-level critique narrative.

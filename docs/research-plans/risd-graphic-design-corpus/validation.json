@@ -134,6 +134,8 @@
     "self_study_portfolio_gate_status_summary_imports_applied": 0,
     "self_study_portfolio_review_index_rows": 3,
     "self_study_portfolio_review_index_ready_rows": 0,
+    "self_study_portfolio_review_index_filter_ready_rows": 0,
+    "self_study_portfolio_review_index_filter_blocked_rows": 3,
     "self_study_portfolio_milestones": 3,
     "self_study_portfolio_briefs": 3,
     "self_study_portfolio_briefs_with_completion_gate_status": 3,

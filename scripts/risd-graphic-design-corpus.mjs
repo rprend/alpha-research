@@ -4600,11 +4600,23 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || summary.check_summaries.some((check) => !check.check_id || !portfolioCompletionGateCheckIds.has(check.check_id) || !['pending', 'satisfied'].includes(check.after_status))
   )
   const portfolioGateStatusSummaryIds = new Set(portfolioGateStatusSummary.map((summary) => summary.summary_id))
+  const validPortfolioReviewBlockerTypes = new Set(['missing_outputs', 'missing_critique_revisions', 'unresolved_evidence_warnings', 'missing_export_package', 'other_blocker'])
   const portfolioReviewIndexErrors = portfolioReviewIndex.filter((row) =>
     !row.index_id
       || !row.milestone_id
       || !portfolioMilestoneIds.has(row.milestone_id)
       || !['not_ready_template', 'ready_for_review'].includes(row.readiness_status)
+      || !['not_ready_template', 'ready_for_review'].includes(row.dashboard_filters?.readiness)
+      || !['foundation', 'intermediate_practice', 'advanced_synthesis'].includes(row.dashboard_filters?.stage)
+      || !['import_applied', 'no_import'].includes(row.dashboard_filters?.import_state)
+      || !Array.isArray(row.dashboard_filters?.blocker_types)
+      || row.dashboard_filters.blocker_types.some((type) => !validPortfolioReviewBlockerTypes.has(type))
+      || !['small', 'medium', 'large', 'unknown'].includes(row.dashboard_filters?.workload_band)
+      || !['complete', 'incomplete'].includes(row.dashboard_filters?.artifact_completeness)
+      || !['ready', 'blocked'].includes(row.dashboard_groups?.readiness_group)
+      || !['foundation', 'intermediate_practice', 'advanced_synthesis'].includes(row.dashboard_groups?.stage_group)
+      || !['learner_updated', 'template_only'].includes(row.dashboard_groups?.import_group)
+      || !row.dashboard_groups?.blocker_group
       || !row.linked_artifacts?.portfolio_brief?.brief_id
       || !portfolioBriefIds.has(row.linked_artifacts.portfolio_brief.brief_id)
       || !row.linked_artifacts.portfolio_brief.path
@@ -5127,6 +5139,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_portfolio_gate_status_summary_imports_applied: portfolioGateStatusSummary.filter((summary) => summary.import_applied).length,
       self_study_portfolio_review_index_rows: portfolioReviewIndex.length,
       self_study_portfolio_review_index_ready_rows: portfolioReviewIndex.filter((row) => row.readiness_status === 'ready_for_review').length,
+      self_study_portfolio_review_index_filter_ready_rows: portfolioReviewIndex.filter((row) => row.dashboard_groups?.readiness_group === 'ready').length,
+      self_study_portfolio_review_index_filter_blocked_rows: portfolioReviewIndex.filter((row) => row.dashboard_groups?.readiness_group === 'blocked').length,
       self_study_portfolio_milestones: portfolioMilestones.length,
       self_study_portfolio_briefs: portfolioBriefs.length,
       self_study_portfolio_briefs_with_completion_gate_status: portfolioBriefs.filter((brief) => brief.review_readiness?.status).length,
@@ -5754,6 +5768,8 @@ Overall status: ${validation.status}
 - Self-study portfolio gate status summary imports applied: ${validation.counts.self_study_portfolio_gate_status_summary_imports_applied}
 - Self-study portfolio review index rows: ${validation.counts.self_study_portfolio_review_index_rows}
 - Self-study portfolio review index ready rows: ${validation.counts.self_study_portfolio_review_index_ready_rows}
+- Self-study portfolio review index filter ready rows: ${validation.counts.self_study_portfolio_review_index_filter_ready_rows}
+- Self-study portfolio review index filter blocked rows: ${validation.counts.self_study_portfolio_review_index_filter_blocked_rows}
 - Self-study portfolio milestones: ${validation.counts.self_study_portfolio_milestones}
 - Self-study portfolio briefs: ${validation.counts.self_study_portfolio_briefs}
 - Self-study portfolio briefs with completion gate status: ${validation.counts.self_study_portfolio_briefs_with_completion_gate_status}
@@ -7152,6 +7168,15 @@ function buildSelfStudyPortfolioReviewIndex(portfolioMilestones, portfolioBriefs
     const referencePacket = referenceByMilestone.get(milestone.milestone_id)
     const sourceExcerptPacket = excerptByMilestone.get(milestone.milestone_id)
     const exportManifest = manifestByMilestone.get(milestone.milestone_id)
+    const blockerTypes = classifyPortfolioReviewBlockerTypes(summary?.blocking_conditions ?? [])
+    const artifactCompleteness = [
+      brief?.brief_id,
+      summary?.summary_id,
+      referencePacket?.packet_id,
+      sourceExcerptPacket?.packet_id,
+      exportManifest?.manifest_id,
+    ].every(Boolean) ? 'complete' : 'incomplete'
+    const workloadBand = portfolioReviewWorkloadBand(milestone.estimated_hours)
     return {
       index_id: `portfolio_review_index_${milestone.milestone_id}`,
       generated_at: retrievedAt,
@@ -7164,6 +7189,20 @@ function buildSelfStudyPortfolioReviewIndex(portfolioMilestones, portfolioBriefs
       import_applied: summary?.import_applied ?? false,
       pending_check_count: summary?.pending_check_count ?? null,
       blocking_condition_count: summary?.blocking_conditions?.length ?? null,
+      dashboard_filters: {
+        readiness: summary?.readiness_after ?? 'not_ready_template',
+        stage: milestone.milestone_stage ?? 'unknown',
+        import_state: summary?.import_applied ? 'import_applied' : 'no_import',
+        blocker_types: blockerTypes,
+        workload_band: workloadBand,
+        artifact_completeness: artifactCompleteness,
+      },
+      dashboard_groups: {
+        readiness_group: summary?.readiness_after === 'ready_for_review' ? 'ready' : 'blocked',
+        stage_group: milestone.milestone_stage ?? 'unknown',
+        import_group: summary?.import_applied ? 'learner_updated' : 'template_only',
+        blocker_group: blockerTypes.length ? blockerTypes.join('+') : 'no_blockers',
+      },
       primary_next_action: summary?.next_action ?? 'Review generated portfolio packets and status gates.',
       linked_artifacts: {
         portfolio_brief: {
@@ -7192,6 +7231,24 @@ function buildSelfStudyPortfolioReviewIndex(portfolioMilestones, portfolioBriefs
       provenance_note: 'Generated compact index linking each portfolio milestone to its review packet, readiness summary, source context, references, and export manifest.',
     }
   })
+}
+
+function classifyPortfolioReviewBlockerTypes(blockingConditions) {
+  return uniq(blockingConditions.map((condition) => {
+    const lower = condition.toLowerCase()
+    if (/\boutput|artifact|checklist\b/.test(lower)) return 'missing_outputs'
+    if (/\bcritique|revision|before\/after\b/.test(lower)) return 'missing_critique_revisions'
+    if (/\bwarning|source|evidence boundary|disclosed|resolved\b/.test(lower)) return 'unresolved_evidence_warnings'
+    if (/\bmanifest|package|export\b/.test(lower)) return 'missing_export_package'
+    return 'other_blocker'
+  })).filter(Boolean)
+}
+
+function portfolioReviewWorkloadBand(estimatedHours) {
+  if (!Number.isFinite(estimatedHours)) return 'unknown'
+  if (estimatedHours >= 180) return 'large'
+  if (estimatedHours >= 100) return 'medium'
+  return 'small'
 }
 
 function selfStudyPortfolioReviewIndexMarkdown(reviewIndex) {
@@ -7226,6 +7283,7 @@ function selfStudyPortfolioReviewIndexMarkdown(reviewIndex) {
     lines.push(`- Modules: ${row.module_count}`)
     lines.push(`- Estimated hours: ${row.estimated_hours}`)
     lines.push(`- Readiness: ${row.readiness_status}`)
+    lines.push(`- Dashboard filters: readiness=${row.dashboard_filters.readiness}; stage=${row.dashboard_filters.stage}; import=${row.dashboard_filters.import_state}; blockers=${row.dashboard_filters.blocker_types.join(', ') || 'none'}; workload=${row.dashboard_filters.workload_band}; artifacts=${row.dashboard_filters.artifact_completeness}`)
     lines.push(`- Pending checks: ${row.pending_check_count}`)
     lines.push(`- Blocking conditions: ${row.blocking_condition_count}`)
     lines.push(`- Review focus: ${row.review_focus}`)

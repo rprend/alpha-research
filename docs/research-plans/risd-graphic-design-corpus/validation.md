@@ -138,6 +138,8 @@ Overall status: pass
 - Self-study portfolio gate status summary imports applied: 0
 - Self-study portfolio review index rows: 3
 - Self-study portfolio review index ready rows: 0
+- Self-study portfolio review index filter ready rows: 0
+- Self-study portfolio review index filter blocked rows: 3
 - Self-study portfolio milestones: 3
 - Self-study portfolio briefs: 3
 - Self-study portfolio briefs with completion gate status: 3
