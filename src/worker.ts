@@ -3062,6 +3062,18 @@ export default {
       })
     }
 
+    if (pathname === '/api/admin/datasets/prebuilt-ready' && request.method === 'POST') {
+      if (!requireAdminToken(request, env)) {
+        return json({ error: 'Unauthorized' }, 401)
+      }
+      const body = await request.json().catch(() => ({}))
+      return proxyToControlPlane(env, '/admin/datasets/prebuilt-ready', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      })
+    }
+
     const canonicalDatasetExecutionMatch = pathname.match(/^\/api\/admin\/canonical-datasets\/(improve|audit)$/u)
     if (canonicalDatasetExecutionMatch && request.method === 'POST') {
       if (!requireAdminToken(request, env)) {

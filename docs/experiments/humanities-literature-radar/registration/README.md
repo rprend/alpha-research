@@ -30,6 +30,13 @@ Apply the CLI registration payload with:
 node docs/experiments/humanities-literature-radar/scripts/register-control-plane-dataset.mjs
 ```
 
+Promote the prebuilt, already-synced dataset row to ready with:
+
+```bash
+set -a; source ~/.codex/secrets.env; set +a
+node docs/experiments/humanities-literature-radar/scripts/promote-prebuilt-dataset.mjs
+```
+
 The latest verification is written to `control-plane-verification.json`.
 
 Current verified state:
@@ -38,4 +45,4 @@ Current verified state:
 - Control-plane dataset row exists for `humanities-literature-radar`
 - Dataset profile is attached with briefing markdown, 26 schema fields, and 10 sample rows
 - Dashboard URL: `https://dashboard.alpharesearch.nyc/datasets/humanities-literature-radar`
-- CLI-created dataset row remains `status=created`, `deploymentStatus=draft`; marking it ready requires an admin/platform update path because the standard deploy endpoint expects an uploaded source object and launches a deploy job.
+- Ready promotion uses `POST /api/admin/datasets/prebuilt-ready`, authenticated with `ALPHA_RESEARCH_ADMIN_TOKEN`.

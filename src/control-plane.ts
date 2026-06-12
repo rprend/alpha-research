@@ -2671,6 +2671,50 @@ export class ControlPlane {
       }
     }
 
+    if (pathname === '/admin/datasets/prebuilt-ready' && request.method === 'POST') {
+      const body = await request.json().catch(() => ({})) as Record<string, unknown>
+      const datasetId = slugify(String(body.datasetId ?? ''))
+      if (!datasetId) return respondJson({ error: 'Missing datasetId' }, 400)
+      const dataset = this.getDataset(datasetId)
+      if (!dataset) return respondJson({ error: 'Dataset not found' }, 404)
+      const profile = this.getDatasetProfile(datasetId)
+      if (!profile?.briefingMarkdown || !profile.schemaJson || !profile.sampleRowsJson) {
+        return respondJson({ error: 'Dataset profile must include briefingMarkdown, schema, and sampleRows before ready promotion.' }, 400)
+      }
+      const datasetMountPath = body.volumeMountPath
+        ? String(body.volumeMountPath)
+        : `/data/datasets/${datasetId}`
+      if (!datasetMountPath.startsWith('/data/datasets/')) {
+        return respondJson({ error: 'volumeMountPath must be under /data/datasets/' }, 400)
+      }
+      const manifestPath = body.manifestPath
+        ? String(body.manifestPath)
+        : `${datasetMountPath}/manifest.json`
+      if (!manifestPath.startsWith(datasetMountPath)) {
+        return respondJson({ error: 'manifestPath must be inside volumeMountPath' }, 400)
+      }
+      const timestamp = nowIso()
+      this.sql.exec(
+        `UPDATE datasets
+           SET volume_id = ?, volume_name = ?, volume_region = ?, volume_mount_path = ?, manifest_path = ?, deployment_status = ?, status = ?, updated_at = ?
+         WHERE id = ?`,
+        String(body.volumeId ?? 'agent-dataset'),
+        String(body.volumeName ?? 'agent-dataset'),
+        String(body.volumeRegion ?? 'modal'),
+        datasetMountPath,
+        manifestPath,
+        'ready',
+        'ready',
+        timestamp,
+        datasetId,
+      )
+      const updated = this.getDataset(datasetId)
+      return respondJson({
+        dataset: updated ? this.datasetRowToJson(updated as unknown as Record<string, unknown>) : null,
+        profile: this.datasetProfileToJson(profile),
+      })
+    }
+
     if (pathname === '/datasets' && request.method === 'POST') {
       const body = await request.json() as Record<string, unknown>
       const ownerEmail = String(body.ownerEmail ?? '')

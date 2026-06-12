@@ -58,6 +58,8 @@ assert(
     workerSource.includes('/api/admin/subscriptions/grant') &&
     workerSource.includes('ALPHA_RESEARCH_ADMIN_TOKEN') &&
     controlPlaneSource.includes('/admin/canonical-datasets/bootstrap') &&
+    workerSource.includes('/api/admin/datasets/prebuilt-ready') &&
+    controlPlaneSource.includes('/admin/datasets/prebuilt-ready') &&
     controlPlaneSource.includes('/subscriptions') &&
     controlPlaneSource.includes("jobKind: 'canonical-dataset-bootstrap'") &&
     controlPlaneSource.includes('userSessionRequired: false') &&
