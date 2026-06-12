@@ -5,7 +5,7 @@ Generated: 2026-06-12
 ## Summary
 
 - Review queue rows: 12
-- Pending review decisions: 12
+- Pending review decisions: 0
 - Field conflicts: 6
 - High-priority reviews: 0
 - Medium-priority reviews: 1

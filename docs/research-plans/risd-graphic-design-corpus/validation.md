@@ -46,6 +46,7 @@ Overall status: pass
 - Wayback captures: 106
 - Review queue rows: 12
 - Review decision rows: 12
+- Resolved generated review decisions: 12
 - Field conflicts: 6
 
 ## Checks
@@ -71,7 +72,7 @@ Overall status: pass
 - PASS source_clusters_are_used_for_packet_grouping: 117 course packets include source-cluster grouped evidence families.
 - PASS source_versions_reference_valid_sources: 0 source version reference errors across 28 version rows.
 - PASS source_versions_record_wayback_comparisons: 1 fetched archive comparisons and 27 metadata-only version rows.
-- PASS manual_review_artifacts_have_valid_references: 0 review decision reference errors and 0 field conflict reference errors.
+- PASS manual_review_artifacts_have_valid_references: 12 generated review decisions resolved, 0 review decision reference errors, and 0 field conflict reference errors.
 - PASS official_course_inventory_reconciled: 105 official offerings parsed; RISD page displays 105 results.
 - PASS wayback_captures_recorded: 106 Wayback capture records.
 - PASS course_records_created: 134 course records created.

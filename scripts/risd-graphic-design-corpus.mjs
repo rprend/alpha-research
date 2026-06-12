@@ -2385,6 +2385,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const clusteredSourceIds = new Set(sourceClusters.flatMap((cluster) => cluster.source_ids ?? []))
   const coursePacketsWithClusteredEvidence = courses.filter((course) => course.source_ids?.some((sourceId) => clusteredSourceIds.has(sourceId)) || syllabi.some((syllabus) => syllabus.source_ids?.some((sourceId) => clusteredSourceIds.has(sourceId)) && ((syllabus.course_code && course.course_code && syllabus.course_code === course.course_code) || (syllabus.course_title && course.course_title && syllabus.course_title === course.course_title) || syllabus.source_ids.some((id) => course.source_ids.includes(id))))).length
   const reviewDecisionErrors = reviewDecisions.filter((decision) => !decision.review_id || !decision.status || decision.source_ids?.some((id) => !sourceIds.has(id)))
+  const resolvedReviewDecisionCount = reviewDecisions.filter((decision) => decision.status && decision.status !== 'pending_manual_review').length
   const fieldConflictErrors = fieldConflicts.filter((conflict) => !conflict.conflict_id || !conflict.field || !conflict.values?.length || conflict.source_ids?.some((id) => !sourceIds.has(id)))
   const courseInventoryReconciled = courseInventory.displayed_count > 0 && courseInventory.offerings.length === courseInventory.displayed_count
   const checks = [
@@ -2496,7 +2497,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
     {
       id: 'manual_review_artifacts_have_valid_references',
       status: reviewDecisionErrors.length === 0 && fieldConflictErrors.length === 0 ? 'pass' : 'fail',
-      detail: `${reviewDecisionErrors.length} review decision reference errors and ${fieldConflictErrors.length} field conflict reference errors.`,
+      detail: `${resolvedReviewDecisionCount} generated review decisions resolved, ${reviewDecisionErrors.length} review decision reference errors, and ${fieldConflictErrors.length} field conflict reference errors.`,
     },
     {
       id: 'official_course_inventory_reconciled',
@@ -2560,6 +2561,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       wayback: wayback.length,
       review_queue: reviewQueue.length,
       review_decisions: reviewDecisions.length,
+      resolved_review_decisions: resolvedReviewDecisionCount,
       field_conflicts: fieldConflicts.length,
     },
     checks,
@@ -2618,21 +2620,115 @@ function buildReviewQueue({ sources, courseInventory, syllabi, readings }) {
   return rows
 }
 
-function buildReviewDecisions(reviewQueue) {
-  return reviewQueue.map((row) => ({
-    decision_id: `decision_${row.review_id.replace(/^review_/, '')}`,
-    review_id: row.review_id,
-    status: 'pending_manual_review',
-    priority: row.priority,
-    reason: row.reason,
-    source_ids: row.source_ids ?? (row.source_id ? [row.source_id] : []),
-    syllabus_id: row.syllabus_id ?? null,
-    proposed_action: row.action,
-    reviewer: null,
-    decision: null,
-    decided_at: null,
-    notes: 'Generated placeholder. Fill after inspecting the public source and preserving evidence provenance.',
-  }))
+function buildReviewDecisions(reviewQueue, { sources = [], syllabi = [], readings = [] } = {}) {
+  const sourcesById = new Map(sources.map((source) => [source.source_id, source]))
+  const syllabiById = new Map(syllabi.map((syllabus) => [syllabus.syllabus_id, syllabus]))
+  const unresolvedReadings = readings.filter((reading) => reading.linking_status === 'unresolved')
+
+  return reviewQueue.map((row) => {
+    const sourceIds = row.source_ids ?? (row.source_id ? [row.source_id] : [])
+    const sourceTypes = uniq(sourceIds.map((id) => sourcesById.get(id)?.source_type).filter(Boolean))
+    const syllabus = row.syllabus_id ? syllabiById.get(row.syllabus_id) : null
+    const base = {
+      decision_id: `decision_${row.review_id.replace(/^review_/, '')}`,
+      review_id: row.review_id,
+      priority: row.priority,
+      reason: row.reason,
+      source_ids: sourceIds,
+      syllabus_id: row.syllabus_id ?? null,
+      proposed_action: row.action,
+      reviewer: 'corpus_generator',
+      decided_at: retrievedAt,
+    }
+
+    if (row.reason === 'reading_normalization_low_confidence') {
+      return {
+        ...base,
+        status: 'generated_decision',
+        decision: 'parser_backlog_confirmed',
+        confidence: 'medium',
+        evidence_summary: `${unresolvedReadings.length} of ${readings.length} reading snippets remain unresolved after local catalog matching.`,
+        next_parser_action: 'Expand the local reading catalog and add filters for descriptive fragments that are not actual citations.',
+        notes: 'Generated from current readings.jsonl linking_status counts; no private source inspection implied.',
+      }
+    }
+
+    if (row.reason === 'fetch_or_extraction_failed') {
+      return {
+        ...base,
+        status: 'pending_manual_review',
+        reviewer: null,
+        decided_at: null,
+        decision: null,
+        confidence: null,
+        evidence_summary: `Fetch or extraction is still failed for ${sourceIds.join(', ')}.`,
+        next_parser_action: 'Try Wayback fallback, replace URL, or manually verify public access.',
+        notes: 'Requires public-source inspection before a generator decision is appropriate.',
+      }
+    }
+
+    if (!syllabus) {
+      return {
+        ...base,
+        status: 'pending_manual_review',
+        reviewer: null,
+        decided_at: null,
+        decision: null,
+        confidence: null,
+        evidence_summary: 'No syllabus row is available for this review item.',
+        next_parser_action: 'Inspect source manually and decide whether a parser or seed change is required.',
+        notes: 'Generated queue item lacks enough structured evidence for automatic resolution.',
+      }
+    }
+
+    const scheduleEvidenceCount = (syllabus.assignment_schedule?.length ?? 0) + (syllabus.weekly_schedule_evidence?.length ?? 0)
+    const assignmentEvidenceCount = syllabus.assignments?.length ?? 0
+    const sourceTypeSummary = sourceTypes.length ? sourceTypes.join(', ') : 'unknown source type'
+
+    if (row.reason === 'missing_schedule_evidence') {
+      return {
+        ...base,
+        status: 'generated_decision',
+        decision: scheduleEvidenceCount ? 'superseded_by_current_schedule_extraction' : 'keep_schedule_unknown_for_now',
+        confidence: scheduleEvidenceCount ? 'high' : 'medium',
+        evidence_summary: scheduleEvidenceCount
+          ? `${scheduleEvidenceCount} schedule evidence rows are now present on ${syllabus.syllabus_id}.`
+          : `${syllabus.syllabus_id} from ${sourceTypeSummary} has ${assignmentEvidenceCount} assignment snippets but no schedule rows in current public evidence.`,
+        next_parser_action: scheduleEvidenceCount
+          ? 'Remove this row on the next review-queue generation if it recurs.'
+          : 'Do not invent schedule structure; search for a companion syllabus, calendar, or archived course page.',
+        notes: 'Generated from structured syllabus fields and source metadata.',
+      }
+    }
+
+    if (row.reason === 'missing_assignment_evidence') {
+      return {
+        ...base,
+        status: 'generated_decision',
+        decision: assignmentEvidenceCount ? 'superseded_by_current_assignment_extraction' : 'keep_assignment_unknown_for_now',
+        confidence: assignmentEvidenceCount ? 'high' : 'medium',
+        evidence_summary: assignmentEvidenceCount
+          ? `${assignmentEvidenceCount} assignment snippets are now present on ${syllabus.syllabus_id}.`
+          : `${syllabus.syllabus_id} from ${sourceTypeSummary} has ${scheduleEvidenceCount} schedule evidence rows but no assignment prompt snippets in current public evidence.`,
+        next_parser_action: assignmentEvidenceCount
+          ? 'Remove this row on the next review-queue generation if it recurs.'
+          : 'Do not infer prompts from course title alone; search for assignment, project, or critique pages linked to this source family.',
+        notes: 'Generated from structured syllabus fields and source metadata.',
+      }
+    }
+
+    return {
+      ...base,
+      status: 'pending_manual_review',
+      reviewer: null,
+      decided_at: null,
+      decision: null,
+      confidence: null,
+      evidence_summary: `No automatic decision rule for ${row.reason}.`,
+      next_parser_action: 'Inspect source manually and update the generator if the row is mechanically resolvable.',
+      notes: 'Generated fallback pending decision.',
+    }
+  })
 }
 
 function buildFieldConflicts({ courses, syllabi, sourceClusters }) {
@@ -2829,6 +2925,7 @@ Overall status: ${validation.status}
 - Wayback captures: ${validation.counts.wayback}
 - Review queue rows: ${validation.counts.review_queue}
 - Review decision rows: ${validation.counts.review_decisions}
+- Resolved generated review decisions: ${validation.counts.resolved_review_decisions}
 - Field conflicts: ${validation.counts.field_conflicts}
 
 ## Checks
@@ -3303,16 +3400,21 @@ function renderDerivedArtifactsOnly() {
   const sourceClusters = loadJsonl(join(outDir, 'source_clusters.jsonl'))
   const sourceVersions = loadJsonl(join(outDir, 'source_versions.jsonl'))
   const wayback = loadJsonl(join(outDir, 'wayback_captures.jsonl'))
-  const reviewQueue = loadJsonl(join(outDir, 'review_queue.jsonl'))
-  const reviewDecisions = loadJsonl(join(outDir, 'review_decisions.jsonl'))
-  const fieldConflicts = loadJsonl(join(outDir, 'field_conflicts.jsonl'))
   const previousValidation = existsSync(join(outDir, 'validation.json')) ? JSON.parse(readFileSync(join(outDir, 'validation.json'), 'utf8')) : null
   const courseInventory = {
     offerings: courseInventoryRows,
     displayed_count: previousValidation?.counts?.official_course_displayed_count ?? courseInventoryRows.length,
   }
+  const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
+  const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
+  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
   const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
   writeJsonl(join(outDir, 'assignments.jsonl'), assignments)
+  writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
+  writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
+  writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
+  writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
+  writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters }))
@@ -3416,7 +3518,7 @@ async function ingestCommonCrawlPromotionsOnly() {
   const wayback = loadJsonl(join(outDir, 'wayback_captures.jsonl'))
   const facultyProfileCandidates = loadJsonl(join(outDir, 'faculty_profile_candidates.jsonl'))
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
-  const reviewDecisions = buildReviewDecisions(reviewQueue)
+  const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
   const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates: updatedCandidates, commonCrawlPromotions: updatedPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
 
@@ -3516,7 +3618,7 @@ async function ingestFacultyProfilesOnlyMode() {
   const commonCrawlPromotions = loadJsonl(join(outDir, 'common_crawl_promotions.jsonl'))
   const facultyProfileCandidates = [...candidatesById.values()].sort((a, b) => a.faculty_name.localeCompare(b.faculty_name) || a.url.localeCompare(b.url))
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
-  const reviewDecisions = buildReviewDecisions(reviewQueue)
+  const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
   const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
 
@@ -3652,7 +3754,7 @@ async function main() {
   writeJsonl(join(outDir, 'faculty_profile_candidates.jsonl'), facultyProfileCandidates)
   writeJson(join(outDir, 'search_queries.json'), { generated_at: retrievedAt, queries: searchQueries })
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
-  const reviewDecisions = buildReviewDecisions(reviewQueue)
+  const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
   const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)

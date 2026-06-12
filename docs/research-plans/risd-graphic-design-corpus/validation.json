@@ -42,6 +42,7 @@
     "wayback": 106,
     "review_queue": 12,
     "review_decisions": 12,
+    "resolved_review_decisions": 12,
     "field_conflicts": 6
   },
   "checks": [
@@ -153,7 +154,7 @@
     {
       "id": "manual_review_artifacts_have_valid_references",
       "status": "pass",
-      "detail": "0 review decision reference errors and 0 field conflict reference errors."
+      "detail": "12 generated review decisions resolved, 0 review decision reference errors, and 0 field conflict reference errors."
     },
     {
       "id": "official_course_inventory_reconciled",
