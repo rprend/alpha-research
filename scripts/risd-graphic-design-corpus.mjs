@@ -4337,11 +4337,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const portfolioReviewIndex = effectiveSelfStudyPortfolioReviewIndex.length ? effectiveSelfStudyPortfolioReviewIndex : generatedPortfolioReviewIndex
   const generatedPortfolioReviewerHandoff = buildSelfStudyPortfolioReviewerHandoff(portfolioReviewIndex)
   const portfolioReviewerHandoff = effectiveSelfStudyPortfolioReviewerHandoff.length ? effectiveSelfStudyPortfolioReviewerHandoff : generatedPortfolioReviewerHandoff
-  const generatedPortfolioReviewerFeedbackTemplate = buildSelfStudyPortfolioReviewerFeedbackTemplate(portfolioReviewerHandoff)
+  const generatedPortfolioReviewerFeedbackTemplate = buildSelfStudyPortfolioReviewerFeedbackTemplate(portfolioReviewerHandoff, portfolioEvidenceAttachments)
   const portfolioReviewerFeedbackTemplate = effectiveSelfStudyPortfolioReviewerFeedbackTemplate.length ? effectiveSelfStudyPortfolioReviewerFeedbackTemplate : generatedPortfolioReviewerFeedbackTemplate
   const generatedPortfolioRevisionQueue = buildSelfStudyPortfolioRevisionQueue(portfolioReviewerHandoff, effectiveSelfStudyPortfolioReviewerFeedbackImports)
   const portfolioRevisionQueue = effectiveSelfStudyPortfolioRevisionQueue.length ? effectiveSelfStudyPortfolioRevisionQueue : generatedPortfolioRevisionQueue
-  const generatedPortfolioGateStatusSuggestions = buildSelfStudyPortfolioGateStatusSuggestions(portfolioReviewerHandoff, effectiveSelfStudyPortfolioReviewerFeedbackImports, portfolioCompletionGates, portfolioRevisionQueue)
+  const generatedPortfolioGateStatusSuggestions = buildSelfStudyPortfolioGateStatusSuggestions(portfolioReviewerHandoff, effectiveSelfStudyPortfolioReviewerFeedbackImports, portfolioCompletionGates, portfolioRevisionQueue, portfolioEvidenceAttachments)
   const portfolioGateStatusSuggestions = effectiveSelfStudyPortfolioGateStatusSuggestions.length ? effectiveSelfStudyPortfolioGateStatusSuggestions : generatedPortfolioGateStatusSuggestions
   const progressLedgerWithPortfolioGateAnnotations = annotateSelfStudyProgressLedgerWithPortfolioGates(progressLedger, portfolioMilestones, portfolioCompletionGates)
   const curriculumModulesWithSourceIds = curriculumModules.filter((module) => module.source_ids?.length).length
@@ -4619,6 +4619,9 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || !manifest.import_instructions?.length
   )
   const portfolioEvidenceAttachmentsGeneratedMismatch = effectiveSelfStudyPortfolioEvidenceAttachments.length > 0 && effectiveSelfStudyPortfolioEvidenceAttachments.length !== generatedPortfolioEvidenceAttachments.length
+  const portfolioEvidenceAttachmentManifestIds = new Set(portfolioEvidenceAttachments.map((manifest) => manifest.attachment_manifest_id))
+  const portfolioEvidenceAttachmentSlotIds = new Set(portfolioEvidenceAttachments.flatMap((manifest) => (manifest.attachment_slots ?? []).map((slot) => slot.slot_id)))
+  const portfolioEvidenceAttachmentRefs = new Set(portfolioEvidenceAttachments.flatMap((manifest) => (manifest.attachment_slots ?? []).flatMap((slot) => [slot.slot_id, slot.reviewer_evidence_ref].filter(Boolean))))
   const portfolioGateStatusTemplateErrors = portfolioGateStatusTemplate.filter((row) =>
     !row.import_id
       || !row.gate_id
@@ -4714,10 +4717,15 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || !portfolioReviewIndexIds.has(row.review_index_id)
       || !row.milestone_id
       || !portfolioMilestoneIds.has(row.milestone_id)
+      || !row.evidence_attachment_manifest_id
+      || !portfolioEvidenceAttachmentManifestIds.has(row.evidence_attachment_manifest_id)
       || !validFeedbackOutcomes.has(row.outcome)
+      || !Array.isArray(row.allowed_evidence_refs)
+      || row.allowed_evidence_refs.some((ref) => !ref.slot_id || !portfolioEvidenceAttachmentSlotIds.has(ref.slot_id) || !ref.evidence_ref || !portfolioEvidenceAttachmentRefs.has(ref.evidence_ref))
       || !Array.isArray(row.status_updates)
+      || row.status_updates.some((update) => !update.check_id || !portfolioCompletionGateCheckIds.has(update.check_id) || !Array.isArray(update.evidence_refs) || update.evidence_refs.some((ref) => !portfolioEvidenceAttachmentRefs.has(ref)))
       || !Array.isArray(row.revision_items)
-      || row.revision_items.some((item) => !item.revision_id || !validPortfolioReviewBlockerTypes.has(item.blocker_type) || !validRevisionPriorities.has(item.priority) || !item.prompt || !Array.isArray(item.evidence_refs) || !validRevisionStatuses.has(item.status))
+      || row.revision_items.some((item) => !item.revision_id || !validPortfolioReviewBlockerTypes.has(item.blocker_type) || !validRevisionPriorities.has(item.priority) || !item.prompt || !Array.isArray(item.evidence_refs) || item.evidence_refs.some((ref) => !portfolioEvidenceAttachmentRefs.has(ref)) || !validRevisionStatuses.has(item.status))
       || !row.import_instructions?.length
   )
   const portfolioReviewerFeedbackImportErrors = effectiveSelfStudyPortfolioReviewerFeedbackImports.filter((row) =>
@@ -4754,6 +4762,10 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || !portfolioMilestoneIds.has(row.milestone_id)
       || !row.gate_id
       || !portfolioCompletionGateIds.has(row.gate_id)
+      || !row.evidence_attachment_manifest_id
+      || !portfolioEvidenceAttachmentManifestIds.has(row.evidence_attachment_manifest_id)
+      || !Array.isArray(row.suggested_check_evidence_refs)
+      || row.suggested_check_evidence_refs.some((entry) => !entry.check_id || !portfolioCompletionGateCheckIds.has(entry.check_id) || !Array.isArray(entry.suggested_evidence_refs) || entry.suggested_evidence_refs.some((ref) => !portfolioEvidenceAttachmentSlotIds.has(ref)))
       || !validGateStatusSuggestionStatuses.has(row.suggestion_status)
       || !Number.isInteger(row.imported_status_update_count)
       || !Number.isInteger(row.satisfied_check_count)
@@ -4765,7 +4777,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
         row.suggested_gate_status_import.gate_id !== row.gate_id
           || !['not_ready_template', 'ready_for_review'].includes(row.suggested_gate_status_import.target_readiness_status)
           || !row.suggested_gate_status_import.check_updates?.length
-          || row.suggested_gate_status_import.check_updates.some((update) => !update.check_id || !portfolioCompletionGateCheckIds.has(update.check_id) || !['pending', 'satisfied'].includes(update.current_status) || !Array.isArray(update.evidence_refs))
+          || row.suggested_gate_status_import.check_updates.some((update) => !update.check_id || !portfolioCompletionGateCheckIds.has(update.check_id) || !['pending', 'satisfied'].includes(update.current_status) || !Array.isArray(update.evidence_refs) || update.evidence_refs.some((ref) => !portfolioEvidenceAttachmentRefs.has(ref)) || !Array.isArray(update.suggested_evidence_refs) || update.suggested_evidence_refs.some((ref) => !portfolioEvidenceAttachmentSlotIds.has(ref)))
           || row.suggested_gate_status_import.target_readiness_status === 'ready_for_review' && row.suggested_gate_status_import.check_updates.some((update) => update.current_status !== 'satisfied' || !update.evidence_refs.length)
       )
       || row.suggestion_status === 'ready_to_copy' && !row.suggested_gate_status_import
@@ -7743,35 +7755,67 @@ function selfStudyPortfolioReviewerHandoffMarkdown(handoffs) {
   return lines.map((line) => line.trimEnd()).join('\n')
 }
 
-function buildSelfStudyPortfolioReviewerFeedbackTemplate(handoffs) {
-  return handoffs.map((handoff) => ({
-    feedback_id: `feedback_${handoff.handoff_id}`,
-    generated_at: retrievedAt,
-    handoff_id: handoff.handoff_id,
-    review_index_id: handoff.review_index_id,
-    milestone_id: handoff.milestone_id,
-    reviewer_name: '',
-    review_date: '',
-    outcome: 'not_reviewed',
-    status_updates: [],
-    revision_items: handoff.blocking_focus.map((blockerType, index) => ({
-      revision_id: `${handoff.handoff_id}_revision_${String(index + 1).padStart(2, '0')}`,
-      blocker_type: blockerType,
-      priority: blockerType === 'missing_outputs' ? 'high' : 'medium',
-      prompt: reviewerRevisionPrompt(blockerType),
-      evidence_refs: [],
-      owner: 'learner',
-      status: 'pending',
-    })),
-    reviewer_notes: '',
-    import_instructions: [
-      'Copy this row into self_study_portfolio_reviewer_feedback_import.jsonl after review.',
-      'Set outcome to ready_for_review, needs_revision, or blocked.',
-      'Add status_updates only for gate checks the reviewer can verify from evidence refs.',
-      'Keep revision_items that still need learner work; mark completed items resolved only with evidence refs.',
-    ],
-    provenance_note: 'Generated reviewer feedback capture template from portfolio reviewer handoff rows.',
-  }))
+function buildSelfStudyPortfolioReviewerFeedbackTemplate(handoffs, evidenceAttachments = []) {
+  const attachmentsByMilestone = new Map(evidenceAttachments.map((manifest) => [manifest.milestone_id, manifest]))
+  return handoffs.map((handoff) => {
+    const evidenceManifest = attachmentsByMilestone.get(handoff.milestone_id)
+    const allowedEvidenceRefs = (evidenceManifest?.attachment_slots ?? []).map((slot) => ({
+      evidence_ref: slot.reviewer_evidence_ref,
+      slot_id: slot.slot_id,
+      slot_role: slot.slot_role,
+      required_for_gate_check_id: slot.required_for_gate_check_id,
+      attachment_status: slot.attachment_status,
+      expected_evidence: slot.expected_evidence,
+    }))
+    const evidenceRefsByBlocker = evidenceRefsForBlockerTypes(allowedEvidenceRefs)
+    return {
+      feedback_id: `feedback_${handoff.handoff_id}`,
+      generated_at: retrievedAt,
+      handoff_id: handoff.handoff_id,
+      review_index_id: handoff.review_index_id,
+      milestone_id: handoff.milestone_id,
+      evidence_attachment_manifest_id: evidenceManifest?.attachment_manifest_id ?? null,
+      reviewer_name: '',
+      review_date: '',
+      outcome: 'not_reviewed',
+      allowed_evidence_refs: allowedEvidenceRefs,
+      status_updates: (evidenceManifest?.gate_check_coverage ?? []).map((coverage) => ({
+        check_id: coverage.check_id,
+        current_status: 'pending',
+        evidence_refs: coverage.slot_ids,
+        reviewer_note: '',
+      })),
+      revision_items: handoff.blocking_focus.map((blockerType, index) => ({
+        revision_id: `${handoff.handoff_id}_revision_${String(index + 1).padStart(2, '0')}`,
+        blocker_type: blockerType,
+        priority: blockerType === 'missing_outputs' ? 'high' : 'medium',
+        prompt: reviewerRevisionPrompt(blockerType),
+        evidence_refs: evidenceRefsByBlocker.get(blockerType) ?? [],
+        owner: 'learner',
+        status: 'pending',
+      })),
+      reviewer_notes: '',
+      import_instructions: [
+        'Copy this row into self_study_portfolio_reviewer_feedback_import.jsonl after review.',
+        'Set outcome to ready_for_review, needs_revision, or blocked.',
+        'Use only allowed_evidence_refs slot IDs or reviewer_evidence_ref values when filling status_updates and revision_items.',
+        'Mark status_updates satisfied only for gate checks the reviewer can verify from evidence attachment refs.',
+        'Keep revision_items that still need learner work; mark completed items resolved only with evidence refs.',
+      ],
+      provenance_note: 'Generated reviewer feedback capture template from portfolio reviewer handoff rows and evidence attachment manifests.',
+    }
+  })
+}
+
+function evidenceRefsForBlockerTypes(allowedEvidenceRefs) {
+  const refsByRole = groupBy(allowedEvidenceRefs, (ref) => ref.slot_role)
+  return new Map([
+    ['missing_outputs', [...(refsByRole.get('final_artifact') ?? []), ...(refsByRole.get('process_evidence') ?? [])].map((ref) => ref.slot_id)],
+    ['missing_critique_revisions', [...(refsByRole.get('critique_notes') ?? []), ...(refsByRole.get('revision_proof') ?? [])].map((ref) => ref.slot_id)],
+    ['unresolved_evidence_warnings', (refsByRole.get('source_boundary_memo') ?? []).map((ref) => ref.slot_id)],
+    ['missing_export_package', (refsByRole.get('export_package_file') ?? []).map((ref) => ref.slot_id)],
+    ['other_blocker', allowedEvidenceRefs.map((ref) => ref.slot_id)],
+  ])
 }
 
 function reviewerRevisionPrompt(blockerType) {
@@ -7819,25 +7863,34 @@ function buildSelfStudyPortfolioRevisionQueue(handoffs, feedbackImports = []) {
   })
 }
 
-function buildSelfStudyPortfolioGateStatusSuggestions(handoffs, feedbackImports = [], completionGates = [], revisionQueue = []) {
+function buildSelfStudyPortfolioGateStatusSuggestions(handoffs, feedbackImports = [], completionGates = [], revisionQueue = [], evidenceAttachments = []) {
   const importsByHandoff = new Map(feedbackImports.filter((row) => row.handoff_id).map((row) => [row.handoff_id, row]))
   const gatesByMilestone = new Map(completionGates.filter((gate) => gate.milestone_id).map((gate) => [gate.milestone_id, gate]))
   const revisionRowsByHandoff = groupBy(revisionQueue, (row) => row.handoff_id)
+  const attachmentsByMilestone = new Map(evidenceAttachments.map((manifest) => [manifest.milestone_id, manifest]))
   return handoffs.map((handoff) => {
     const gate = gatesByMilestone.get(handoff.milestone_id)
     const imported = importsByHandoff.get(handoff.handoff_id)
+    const evidenceManifest = attachmentsByMilestone.get(handoff.milestone_id)
+    const evidenceSlotsByCheckId = groupBy(evidenceManifest?.attachment_slots ?? [], (slot) => slot.required_for_gate_check_id)
     const validCheckIds = new Set((gate?.gate_checks ?? []).map((check) => check.check_id))
     const importedUpdates = (imported?.status_updates ?? []).filter((update) => validCheckIds.has(update.check_id))
     const updatesByCheckId = new Map(importedUpdates.map((update) => [update.check_id, update]))
     const checkUpdates = (gate?.gate_checks ?? []).map((check) => {
       const importedUpdate = updatesByCheckId.get(check.check_id)
+      const suggestedEvidenceRefs = (evidenceSlotsByCheckId.get(check.check_id) ?? []).map((slot) => slot.slot_id)
       return {
         check_id: check.check_id,
         current_status: importedUpdate?.current_status ?? check.current_status ?? 'pending',
-        evidence_refs: importedUpdate?.evidence_refs ?? [],
+        evidence_refs: importedUpdate?.evidence_refs ?? suggestedEvidenceRefs,
+        suggested_evidence_refs: suggestedEvidenceRefs,
         learner_note: importedUpdate?.learner_note ?? importedUpdate?.reviewer_note ?? '',
       }
     })
+    const suggestedCheckEvidenceRefs = checkUpdates.map((update) => ({
+      check_id: update.check_id,
+      suggested_evidence_refs: update.suggested_evidence_refs,
+    }))
     const satisfiedWithEvidence = checkUpdates.filter((update) => update.current_status === 'satisfied' && update.evidence_refs.length > 0).length
     const allChecksSatisfiedWithEvidence = checkUpdates.length > 0 && satisfiedWithEvidence === checkUpdates.length
     const suggestionStatus = !imported
@@ -7868,6 +7921,8 @@ function buildSelfStudyPortfolioGateStatusSuggestions(handoffs, feedbackImports 
       feedback_id: imported?.feedback_id ?? null,
       milestone_id: handoff.milestone_id,
       gate_id: gate?.gate_id ?? null,
+      evidence_attachment_manifest_id: evidenceManifest?.attachment_manifest_id ?? null,
+      suggested_check_evidence_refs: suggestedCheckEvidenceRefs,
       suggestion_status: suggestionStatus,
       imported_status_update_count: importedUpdates.length,
       satisfied_check_count: checkUpdates.filter((update) => update.current_status === 'satisfied').length,
@@ -7905,6 +7960,8 @@ function selfStudyPortfolioReviewerFeedbackTemplateMarkdown(feedbackTemplates) {
     lines.push('')
     lines.push(`- Feedback ID: ${row.feedback_id}`)
     lines.push(`- Handoff ID: ${row.handoff_id}`)
+    lines.push(`- Evidence attachment manifest: ${row.evidence_attachment_manifest_id}`)
+    lines.push(`- Allowed evidence refs: ${row.allowed_evidence_refs?.length ?? 0}`)
     lines.push(`- Outcome: ${row.outcome}`)
     lines.push('- Revision items:')
     row.revision_items.forEach((item) => lines.push(`  - ${item.revision_id}: ${item.prompt} (${item.priority}; ${item.status})`))
@@ -7936,8 +7993,11 @@ function selfStudyPortfolioGateStatusSuggestionsMarkdown(suggestions) {
     lines.push(`- Handoff: ${row.handoff_id}`)
     lines.push(`- Feedback: ${row.feedback_id ?? 'none yet'}`)
     lines.push(`- Gate: ${row.gate_id ?? 'missing'}`)
+    lines.push(`- Evidence attachment manifest: ${row.evidence_attachment_manifest_id ?? 'missing'}`)
     lines.push(`- Status: ${row.suggestion_status}`)
     lines.push(`- Satisfied checks with evidence: ${row.satisfied_check_count_with_evidence}/${row.satisfied_check_count + row.pending_check_count}`)
+    lines.push('- Suggested evidence refs by check:')
+    row.suggested_check_evidence_refs.forEach((entry) => lines.push(`  - ${entry.check_id}: ${entry.suggested_evidence_refs.length} ref${entry.suggested_evidence_refs.length === 1 ? '' : 's'}`))
     lines.push(`- Revision queue rows: ${row.revision_queue_ids.length ? row.revision_queue_ids.join(', ') : 'none'}`)
     lines.push(`- Next action: ${row.next_action}`)
     if (row.suggested_gate_status_import) {
@@ -8902,10 +8962,10 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   const portfolioBriefs = buildSelfStudyPortfolioBriefs(selfStudyModules, pacingPlan, portfolioMilestones, portfolioCompletionGates)
   const portfolioReviewIndex = buildSelfStudyPortfolioReviewIndex(portfolioMilestones, portfolioBriefs, portfolioGateStatusSummary, portfolioReferencePackets, portfolioSourceExcerptPackets, portfolioExportManifests)
   const portfolioReviewerHandoff = buildSelfStudyPortfolioReviewerHandoff(portfolioReviewIndex)
-  const portfolioReviewerFeedbackTemplate = buildSelfStudyPortfolioReviewerFeedbackTemplate(portfolioReviewerHandoff)
+  const portfolioReviewerFeedbackTemplate = buildSelfStudyPortfolioReviewerFeedbackTemplate(portfolioReviewerHandoff, portfolioEvidenceAttachments)
   const portfolioReviewerFeedbackImports = loadJsonl(portfolioReviewerFeedbackImportPath)
   const portfolioRevisionQueue = buildSelfStudyPortfolioRevisionQueue(portfolioReviewerHandoff, portfolioReviewerFeedbackImports)
-  const portfolioGateStatusSuggestions = buildSelfStudyPortfolioGateStatusSuggestions(portfolioReviewerHandoff, portfolioReviewerFeedbackImports, portfolioCompletionGates, portfolioRevisionQueue)
+  const portfolioGateStatusSuggestions = buildSelfStudyPortfolioGateStatusSuggestions(portfolioReviewerHandoff, portfolioReviewerFeedbackImports, portfolioCompletionGates, portfolioRevisionQueue, portfolioEvidenceAttachments)
   writeJsonl(join(outDir, 'self_study_pacing_plan.jsonl'), pacingPlan)
   writeJsonl(join(outDir, 'self_study_pacing_profiles.jsonl'), buildSelfStudyPacingProfiles(pacingPlan))
   writeJsonl(join(outDir, 'self_study_progress_ledger.jsonl'), progressLedgerWithPortfolioGateAnnotations)
