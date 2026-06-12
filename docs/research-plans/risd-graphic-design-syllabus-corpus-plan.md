@@ -270,6 +270,8 @@ Acceptance output:
 
 ### Step 6: Upgrade Deduplication, Versioning, And Conflict Handling
 
+Status: implemented for normalized cluster types, archive/current historical-version clusters, generic error-page exclusion from near-duplicate grouping, validation of the cluster vocabulary, and separate exact/near/historical/related cluster counts. Conflict rows already cover course, syllabus, and source-cluster metadata variants; the next improvement should add schedule, reading-set, assignment-title, and assessment-specific conflict rows.
+
 Goal: prevent expanded discovery from silently merging different sections, terms, instructors, or assignment variants.
 
 Implementation requirements:

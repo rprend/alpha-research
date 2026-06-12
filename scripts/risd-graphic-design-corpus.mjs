@@ -3415,7 +3415,7 @@ function buildSourceClusters(inspected, syllabi, readings) {
     if (uniqueIds.length < 2) continue
     const cluster = makeSourceCluster({
       clusterIndex,
-      clusterType: key.startsWith('url:') ? 'exact_url' : 'exact_checksum',
+      clusterType: 'exact_duplicate',
       sourceIds: uniqueIds,
       sourceById,
       inspected,
@@ -3430,7 +3430,7 @@ function buildSourceClusters(inspected, syllabi, readings) {
   }
 
   const comparable = inspected
-    .filter(({ source, text }) => source.extraction_status === 'ok' && text && text.length > 500)
+    .filter(({ source, text }) => source.extraction_status === 'ok' && text && text.length > 500 && !isGenericErrorPageSource(source, text))
     .map((item) => ({
       ...item,
       family_key: sourceFamilyKey(item.source),
@@ -3476,7 +3476,7 @@ function buildSourceClusters(inspected, syllabi, readings) {
       }
       clusters.push(makeSourceCluster({
         clusterIndex,
-        clusterType: 'near_duplicate_text',
+        clusterType: 'near_duplicate',
         sourceIds,
         sourceById,
         inspected,
@@ -3488,6 +3488,30 @@ function buildSourceClusters(inspected, syllabi, readings) {
       sourceIds.forEach((id) => clustered.add(id))
       clusterIndex += 1
     }
+  }
+
+  const archiveGroups = new Map()
+  for (const { source } of inspected.filter(({ source, text }) => source.source_type === 'wayback_capture' && source.parent_source_id && sourceById.has(source.parent_source_id) && !isGenericErrorPageSource(source, text))) {
+    const existing = archiveGroups.get(source.parent_source_id) ?? [source.parent_source_id]
+    existing.push(source.source_id)
+    archiveGroups.set(source.parent_source_id, existing)
+  }
+  for (const [parentSourceId, ids] of archiveGroups) {
+    const sourceIds = uniq(ids)
+    if (sourceIds.length < 2) continue
+    clusters.push(makeSourceCluster({
+      clusterIndex,
+      clusterType: 'historical_version',
+      sourceIds,
+      sourceById,
+      inspected,
+      syllabi,
+      readings,
+      reason: `archive_parent:${parentSourceId}`,
+      similarity: null,
+    }))
+    sourceIds.forEach((id) => clustered.add(id))
+    clusterIndex += 1
   }
 
   const relatedGroups = new Map()
@@ -3503,7 +3527,7 @@ function buildSourceClusters(inspected, syllabi, readings) {
     if (sourceIds.length < 2) continue
     clusters.push(makeSourceCluster({
       clusterIndex,
-      clusterType: 'related_source_family',
+      clusterType: 'related_family',
       sourceIds,
       sourceById,
       inspected,
@@ -3517,6 +3541,15 @@ function buildSourceClusters(inspected, syllabi, readings) {
   }
 
   return clusters.sort((a, b) => b.source_ids.length - a.source_ids.length || a.cluster_id.localeCompare(b.cluster_id))
+}
+
+function isGenericErrorPageSource(source, text = '') {
+  const title = String(source.title ?? '').toLowerCase()
+  const normalized = normalizeTextForSimilarity(text).slice(0, 2000)
+  if (/page not found|404|not found|access denied|forbidden/.test(title)) return true
+  if (/^page not found/.test(normalized)) return true
+  if (normalized.length < 150 && /not found|404|forbidden/.test(normalized)) return true
+  return false
 }
 
 function buildSourceVersions(inspected, wayback) {
@@ -3721,7 +3754,13 @@ function makeSourceCluster({ clusterIndex, clusterType, sourceIds, sourceById, i
     normalized_text_hashes: uniq(clusterTexts.map((text) => sha256(Buffer.from(normalizeTextForSimilarity(text).slice(0, 20000))))),
     similarity,
     reason,
-    collapse_recommendation: clusterType.startsWith('exact') ? 'collapse_cosmetic_duplicate' : clusterType === 'near_duplicate_text' ? 'manual_review_before_collapse' : 'keep_distinct_related_sources',
+    collapse_recommendation: clusterType === 'exact_duplicate'
+      ? 'collapse_cosmetic_duplicate'
+      : clusterType === 'near_duplicate'
+        ? 'manual_review_before_collapse'
+        : clusterType === 'historical_version'
+          ? 'keep_distinct_historical_version'
+          : 'keep_distinct_related_sources',
     evidence_grade: sources.map((source) => source.confidence).sort()[0] ?? null,
   }
 }
@@ -4093,7 +4132,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const studentWorkBriefPageLinkCount = effectiveStudentWorkAssignmentLinks.filter((link) => link.relationship_type === 'brief_page_link').length
   const studentWorkCourseContextLinkCount = effectiveStudentWorkAssignmentLinks.filter((link) => link.relationship_type === 'course_context_link').length
   const studentWorkRejectedWeakLinkCount = effectiveStudentWorkAssignmentLinks.filter((link) => link.relationship_type === 'rejected_weak_match').length
-  const sourceClusterErrors = sourceClusters.filter((cluster) => !cluster.representative_source_id || !cluster.source_ids?.length || cluster.source_ids.some((id) => !sourceIds.has(id)))
+  const allowedSourceClusterTypes = new Set(['exact_duplicate', 'near_duplicate', 'historical_version', 'related_family'])
+  const sourceClusterErrors = sourceClusters.filter((cluster) => !cluster.representative_source_id || !cluster.source_ids?.length || cluster.source_ids.some((id) => !sourceIds.has(id)) || !allowedSourceClusterTypes.has(cluster.cluster_type))
   const sourceVersionErrors = sourceVersions.filter((version) => !version.source_id || !version.version_id || version.current_source_id && !sourceIds.has(version.current_source_id) || version.fetched_archive_source_ids?.some((id) => !sourceIds.has(id)))
   const fetchedArchiveVersionCount = sourceVersions.filter((version) => version.comparison_status === 'fetched_archive_compared').length
   const metadataOnlyVersionCount = sourceVersions.filter((version) => version.comparison_status === 'metadata_only').length
@@ -4122,9 +4162,10 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || promotion.extraction_status === 'ok' && (!promotion.promoted_source_id || !sourceIds.has(promotion.promoted_source_id))
       || promotion.extraction_status !== 'ok' && !promotion.error
   )
-  const exactSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type.startsWith('exact')).length
-  const nearDuplicateSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type === 'near_duplicate_text').length
-  const relatedSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type === 'related_source_family').length
+  const exactSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type === 'exact_duplicate').length
+  const nearDuplicateSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type === 'near_duplicate').length
+  const historicalVersionSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type === 'historical_version').length
+  const relatedSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type === 'related_family').length
   const clusteredSourceIds = new Set(sourceClusters.flatMap((cluster) => cluster.source_ids ?? []))
   const coursePacketsWithClusteredEvidence = courses.filter((course) => course.source_ids?.some((sourceId) => clusteredSourceIds.has(sourceId)) || syllabi.some((syllabus) => syllabus.source_ids?.some((sourceId) => clusteredSourceIds.has(sourceId)) && ((syllabus.course_code && course.course_code && syllabus.course_code === course.course_code) || (syllabus.course_title && course.course_title && syllabus.course_title === course.course_title) || syllabus.source_ids.some((id) => course.source_ids.includes(id))))).length
   const reviewDecisionErrors = reviewDecisions.filter((decision) => !decision.review_id || !decision.status || decision.source_ids?.some((id) => !sourceIds.has(id)))
@@ -4330,7 +4371,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
     {
       id: 'source_clusters_include_dedup_signals',
       status: sourceClusters.length > 0 ? 'pass' : 'warn',
-      detail: `${exactSourceClusterCount} exact duplicate clusters, ${nearDuplicateSourceClusterCount} near-duplicate text clusters, and ${relatedSourceClusterCount} related source-family clusters.`,
+      detail: `${exactSourceClusterCount} exact duplicate clusters, ${nearDuplicateSourceClusterCount} near-duplicate clusters, ${historicalVersionSourceClusterCount} historical-version clusters, and ${relatedSourceClusterCount} related-family clusters.`,
     },
     {
       id: 'source_clusters_are_used_for_packet_grouping',
@@ -4471,6 +4512,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       source_clusters: sourceClusters.length,
       exact_source_clusters: exactSourceClusterCount,
       near_duplicate_source_clusters: nearDuplicateSourceClusterCount,
+      historical_version_source_clusters: historicalVersionSourceClusterCount,
       related_source_clusters: relatedSourceClusterCount,
       course_packets_with_clustered_evidence: coursePacketsWithClusteredEvidence,
       source_versions: sourceVersions.length,
@@ -4894,7 +4936,8 @@ Overall status: ${validation.status}
 - Source clusters: ${validation.counts.source_clusters}
 - Exact duplicate clusters: ${validation.counts.exact_source_clusters}
 - Near-duplicate source clusters: ${validation.counts.near_duplicate_source_clusters}
-- Related source-family clusters: ${validation.counts.related_source_clusters}
+- Historical-version source clusters: ${validation.counts.historical_version_source_clusters}
+- Related-family source clusters: ${validation.counts.related_source_clusters}
 - Course packets with clustered evidence: ${validation.counts.course_packets_with_clustered_evidence}
 - Source versions: ${validation.counts.source_versions}
 - Fetched archive source comparisons: ${validation.counts.fetched_archive_source_versions}
@@ -5735,16 +5778,24 @@ async function reparseExistingSourcesOnlyMode() {
   const sourceClusters = buildSourceClusters(inspected, syllabi, readings)
   const wayback = loadJsonl(join(outDir, 'wayback_captures.jsonl'))
   const sourceVersions = buildSourceVersions(inspected, wayback)
+  const courseSitePages = buildCourseSitePages({ sources, syllabi, assignments, readings })
+  const scheduleRows = buildScheduleRows({ syllabi, assignments, readings, courseSitePages })
+  const assignmentBriefPages = buildAssignmentBriefPages({ courseSitePages, assignments })
+  const studentWorkAssignmentLinks = buildStudentWorkAssignmentLinks({ studentWork, assignmentBriefPages, assignments, courseSitePages })
+  const archiveFetchTargets = buildArchiveFetchTargets({ sources, wayback, sourceVersions })
   const searchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
+  const searchPromotions = loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
   const commonCrawlPromotions = loadJsonl(join(outDir, 'common_crawl_promotions.jsonl'))
+  const archivePromotions = loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const facultyProfileCandidates = loadJsonl(join(outDir, 'faculty_profile_candidates.jsonl'))
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
+  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork, scheduleRows })
   const coverageSearchQueries = buildCoverageSearchQueries(courseCoverage)
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries })
+  const facultySearchQueries = buildFacultySearchQueries(faculty, facultyCourseEdges)
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, scheduleRows, searchCandidates, searchPromotions, commonCrawlCandidates, commonCrawlPromotions, archivePromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, studentWorkAssignmentLinks, facultyPortfolioExamples, courseSitePages, assignmentBriefPages, archiveFetchTargets, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries, facultySearchQueries })
   writeJsonl(join(outDir, 'sources.jsonl'), sources)
   writeJsonl(join(outDir, 'course_inventory.jsonl'), courseInventory.offerings)
   writeJsonl(join(outDir, 'courses.jsonl'), courses)
@@ -5757,20 +5808,26 @@ async function reparseExistingSourcesOnlyMode() {
   writeJsonl(join(outDir, 'student_work.jsonl'), studentWork)
   writeJsonl(join(outDir, 'source_clusters.jsonl'), sourceClusters)
   writeJsonl(join(outDir, 'source_versions.jsonl'), sourceVersions)
+  writeJsonl(join(outDir, 'course_site_pages.jsonl'), courseSitePages)
+  writeJsonl(join(outDir, 'schedule_rows.jsonl'), scheduleRows)
+  writeJsonl(join(outDir, 'assignment_brief_pages.jsonl'), assignmentBriefPages)
+  writeJsonl(join(outDir, 'student_work_assignment_links.jsonl'), studentWorkAssignmentLinks)
+  writeJsonl(join(outDir, 'archive_fetch_targets.jsonl'), archiveFetchTargets)
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
   writeJsonl(join(outDir, 'course_coverage.jsonl'), courseCoverage)
   writeJsonl(join(outDir, 'coverage_search_queries.jsonl'), coverageSearchQueries)
+  writeJsonl(join(outDir, 'faculty_search_queries.jsonl'), facultySearchQueries)
   writeFileSync(join(outDir, 'course_coverage.md'), courseCoverageMarkdown(courseCoverage))
   writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
   writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
-  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
+  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
-  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks }))
+  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
   console.log(`RISD existing sources reparsed into ${outDir}`)
   console.log(`sources=${sources.length} syllabi=${syllabi.length} assignments=${assignments.length} long_assignment_briefs=${validationWithReview.counts.long_assignment_briefs} external_catalog_readings=${validationWithReview.counts.external_catalog_readings} validation=${validationWithReview.status}`)
 }

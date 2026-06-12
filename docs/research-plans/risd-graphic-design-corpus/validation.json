@@ -81,11 +81,12 @@
     "assignment_brief_pages_with_complete_signals": 51,
     "assignment_brief_pages_with_critique": 51,
     "assignment_brief_pages_with_revision": 16,
-    "source_clusters": 18,
+    "source_clusters": 22,
     "exact_source_clusters": 4,
-    "near_duplicate_source_clusters": 2,
-    "related_source_clusters": 12,
-    "course_packets_with_clustered_evidence": 117,
+    "near_duplicate_source_clusters": 1,
+    "historical_version_source_clusters": 6,
+    "related_source_clusters": 11,
+    "course_packets_with_clustered_evidence": 118,
     "source_versions": 28,
     "fetched_archive_source_versions": 6,
     "metadata_only_source_versions": 22,
@@ -100,7 +101,7 @@
     "review_queue": 12,
     "review_decisions": 12,
     "resolved_review_decisions": 12,
-    "field_conflicts": 8
+    "field_conflicts": 9
   },
   "checks": [
     {
@@ -296,17 +297,17 @@
     {
       "id": "source_clusters_reference_valid_sources",
       "status": "pass",
-      "detail": "0 source cluster reference errors across 18 clusters."
+      "detail": "0 source cluster reference errors across 22 clusters."
     },
     {
       "id": "source_clusters_include_dedup_signals",
       "status": "pass",
-      "detail": "4 exact duplicate clusters, 2 near-duplicate text clusters, and 12 related source-family clusters."
+      "detail": "4 exact duplicate clusters, 1 near-duplicate clusters, 6 historical-version clusters, and 11 related-family clusters."
     },
     {
       "id": "source_clusters_are_used_for_packet_grouping",
       "status": "pass",
-      "detail": "117 course packets include source-cluster grouped evidence families."
+      "detail": "118 course packets include source-cluster grouped evidence families."
     },
     {
       "id": "source_versions_reference_valid_sources",

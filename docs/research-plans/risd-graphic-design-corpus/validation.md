@@ -85,11 +85,12 @@ Overall status: pass
 - Assignment brief pages with complete signals: 51
 - Assignment brief pages with critique signals: 51
 - Assignment brief pages with revision signals: 16
-- Source clusters: 18
+- Source clusters: 22
 - Exact duplicate clusters: 4
-- Near-duplicate source clusters: 2
-- Related source-family clusters: 12
-- Course packets with clustered evidence: 117
+- Near-duplicate source clusters: 1
+- Historical-version source clusters: 6
+- Related-family source clusters: 11
+- Course packets with clustered evidence: 118
 - Source versions: 28
 - Fetched archive source comparisons: 6
 - Metadata-only source versions: 22
@@ -104,7 +105,7 @@ Overall status: pass
 - Review queue rows: 12
 - Review decision rows: 12
 - Resolved generated review decisions: 12
-- Field conflicts: 8
+- Field conflicts: 9
 
 ## Checks
 
@@ -146,9 +147,9 @@ Overall status: pass
 - PASS course_site_pages_classify_artifact_roles: 8 syllabus pages, 46 assignment/project pages, 13 schedule pages, and 87 pages with classroom artifacts.
 - PASS assignment_brief_pages_reference_valid_assignments: 84 assignment brief page rows; 0 assignment/source reference errors.
 - PASS assignment_brief_pages_surface_studio_signals: 51 pages have complete brief signals, 51 include critique signals, and 16 include revision signals.
-- PASS source_clusters_reference_valid_sources: 0 source cluster reference errors across 18 clusters.
-- PASS source_clusters_include_dedup_signals: 4 exact duplicate clusters, 2 near-duplicate text clusters, and 12 related source-family clusters.
-- PASS source_clusters_are_used_for_packet_grouping: 117 course packets include source-cluster grouped evidence families.
+- PASS source_clusters_reference_valid_sources: 0 source cluster reference errors across 22 clusters.
+- PASS source_clusters_include_dedup_signals: 4 exact duplicate clusters, 1 near-duplicate clusters, 6 historical-version clusters, and 11 related-family clusters.
+- PASS source_clusters_are_used_for_packet_grouping: 118 course packets include source-cluster grouped evidence families.
 - PASS source_versions_reference_valid_sources: 0 source version reference errors across 28 version rows.
 - PASS source_versions_record_wayback_comparisons: 6 fetched archive comparisons and 22 metadata-only version rows.
 - PASS archive_fetch_targets_reference_valid_sources: 75 archive fetch targets, 70 pending, 0 target reference errors.
