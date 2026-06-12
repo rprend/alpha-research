@@ -4048,7 +4048,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioGateStatusSummary = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveArchivePromotions = archivePromotions ?? loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
@@ -4063,6 +4063,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const effectiveSelfStudyPortfolioCompletionGates = selfStudyPortfolioCompletionGates ?? []
   const effectiveSelfStudyPortfolioGateStatusImports = selfStudyPortfolioGateStatusImports ?? loadJsonl(portfolioGateStatusImportPath)
   const effectiveSelfStudyPortfolioGateStatusTemplate = selfStudyPortfolioGateStatusTemplate ?? []
+  const effectiveSelfStudyPortfolioGateStatusSummary = selfStudyPortfolioGateStatusSummary ?? []
   const effectiveSelfStudyPortfolioMilestones = selfStudyPortfolioMilestones ?? []
   const effectiveSelfStudyPortfolioBriefs = selfStudyPortfolioBriefs ?? []
   const effectiveSelfStudyPortfolioReferencePackets = selfStudyPortfolioReferencePackets ?? []
@@ -4318,6 +4319,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const portfolioGateStatusTemplate = effectiveSelfStudyPortfolioGateStatusTemplate.length ? effectiveSelfStudyPortfolioGateStatusTemplate : generatedPortfolioGateStatusTemplate
   const generatedPortfolioCompletionGates = applySelfStudyPortfolioGateStatusImports(generatedBasePortfolioCompletionGates, effectiveSelfStudyPortfolioGateStatusImports)
   const portfolioCompletionGates = effectiveSelfStudyPortfolioCompletionGates.length ? effectiveSelfStudyPortfolioCompletionGates : generatedPortfolioCompletionGates
+  const generatedPortfolioGateStatusSummary = buildSelfStudyPortfolioGateStatusSummary(generatedBasePortfolioCompletionGates, portfolioCompletionGates, effectiveSelfStudyPortfolioGateStatusImports)
+  const portfolioGateStatusSummary = effectiveSelfStudyPortfolioGateStatusSummary.length ? effectiveSelfStudyPortfolioGateStatusSummary : generatedPortfolioGateStatusSummary
   const generatedPortfolioBriefs = buildSelfStudyPortfolioBriefs(curriculumModules, pacingPlan, portfolioMilestones, portfolioCompletionGates)
   const portfolioBriefs = effectiveSelfStudyPortfolioBriefs.length ? effectiveSelfStudyPortfolioBriefs : generatedPortfolioBriefs
   const progressLedgerWithPortfolioGateAnnotations = annotateSelfStudyProgressLedgerWithPortfolioGates(progressLedger, portfolioMilestones, portfolioCompletionGates)
@@ -4579,6 +4582,19 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || !row.check_updates?.length
       || row.check_updates.some((update) => !update.check_id || !portfolioCompletionGateCheckIds.has(update.check_id) || !['pending', 'satisfied'].includes(update.current_status) || !Array.isArray(update.evidence_refs))
       || row.target_readiness_status === 'ready_for_review' && row.check_updates.some((update) => update.current_status !== 'satisfied')
+  )
+  const portfolioGateStatusSummaryErrors = portfolioGateStatusSummary.filter((summary) =>
+    !summary.summary_id
+      || !summary.gate_id
+      || !portfolioCompletionGateIds.has(summary.gate_id)
+      || !summary.milestone_id
+      || !portfolioMilestoneIds.has(summary.milestone_id)
+      || !['not_ready_template', 'ready_for_review'].includes(summary.readiness_after)
+      || !Array.isArray(summary.check_summaries)
+      || !Number.isInteger(summary.satisfied_check_count)
+      || !Number.isInteger(summary.pending_check_count)
+      || !summary.next_action
+      || summary.check_summaries.some((check) => !check.check_id || !portfolioCompletionGateCheckIds.has(check.check_id) || !['pending', 'satisfied'].includes(check.after_status))
   )
   const portfolioBriefReadinessErrors = portfolioBriefs.filter((brief) =>
     !brief.completion_gate_id
@@ -4887,6 +4903,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${effectiveSelfStudyPortfolioGateStatusImports.length} learner portfolio gate status import rows; ${portfolioGateStatusImportErrors.length} import reference/readiness errors.`,
     },
     {
+      id: 'self_study_portfolio_gate_status_summary_explains_applied_imports',
+      status: portfolioGateStatusSummaryErrors.length === 0 && portfolioGateStatusSummary.length === portfolioCompletionGates.length && portfolioGateStatusSummary.length > 0 ? 'pass' : 'fail',
+      detail: `${portfolioGateStatusSummary.length} portfolio gate status summary rows; ${portfolioGateStatusSummary.filter((summary) => summary.import_applied).length} imports applied; ${portfolioGateStatusSummaryErrors.length} summary reference errors.`,
+    },
+    {
       id: 'self_study_progress_ledger_links_to_portfolio_completion_gates',
       status: progressLedgerPortfolioGateErrors.length === 0 && progressLedgerWithPortfolioGateAnnotations.length === progressLedger.length && progressLedger.length > 0 ? 'pass' : 'fail',
       detail: `${progressLedgerWithPortfolioGateAnnotations.length} progress ledger rows carry portfolio review gate annotations; ${progressLedgerPortfolioGateErrors.length} annotation reference errors.`,
@@ -5071,6 +5092,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_portfolio_completion_gates: portfolioCompletionGates.length,
       self_study_portfolio_gate_status_template_rows: portfolioGateStatusTemplate.length,
       self_study_portfolio_gate_status_import_rows: effectiveSelfStudyPortfolioGateStatusImports.length,
+      self_study_portfolio_gate_status_summary_rows: portfolioGateStatusSummary.length,
+      self_study_portfolio_gate_status_summary_imports_applied: portfolioGateStatusSummary.filter((summary) => summary.import_applied).length,
       self_study_portfolio_milestones: portfolioMilestones.length,
       self_study_portfolio_briefs: portfolioBriefs.length,
       self_study_portfolio_briefs_with_completion_gate_status: portfolioBriefs.filter((brief) => brief.review_readiness?.status).length,
@@ -5694,6 +5717,8 @@ Overall status: ${validation.status}
 - Self-study portfolio completion gates: ${validation.counts.self_study_portfolio_completion_gates}
 - Self-study portfolio gate status template rows: ${validation.counts.self_study_portfolio_gate_status_template_rows}
 - Self-study portfolio gate status import rows: ${validation.counts.self_study_portfolio_gate_status_import_rows}
+- Self-study portfolio gate status summary rows: ${validation.counts.self_study_portfolio_gate_status_summary_rows}
+- Self-study portfolio gate status summary imports applied: ${validation.counts.self_study_portfolio_gate_status_summary_imports_applied}
 - Self-study portfolio milestones: ${validation.counts.self_study_portfolio_milestones}
 - Self-study portfolio briefs: ${validation.counts.self_study_portfolio_briefs}
 - Self-study portfolio briefs with completion gate status: ${validation.counts.self_study_portfolio_briefs_with_completion_gate_status}
@@ -6994,6 +7019,92 @@ function applySelfStudyPortfolioGateStatusImports(portfolioCompletionGates, stat
   })
 }
 
+function buildSelfStudyPortfolioGateStatusSummary(baseGates, appliedGates, statusImports = []) {
+  const baseByGateId = new Map(baseGates.map((gate) => [gate.gate_id, gate]))
+  const importsByGateId = new Map(statusImports.filter((row) => row.gate_id).map((row) => [row.gate_id, row]))
+  return appliedGates.map((gate) => {
+    const baseGate = baseByGateId.get(gate.gate_id)
+    const imported = importsByGateId.get(gate.gate_id) ?? null
+    const baseChecksById = new Map((baseGate?.gate_checks ?? []).map((check) => [check.check_id, check]))
+    const checkSummaries = (gate.gate_checks ?? []).map((check) => {
+      const baseCheck = baseChecksById.get(check.check_id)
+      return {
+        check_id: check.check_id,
+        label: check.label,
+        before_status: baseCheck?.current_status ?? null,
+        after_status: check.current_status,
+        status_changed: Boolean(baseCheck && baseCheck.current_status !== check.current_status),
+        evidence_refs: check.learner_evidence_refs ?? [],
+        learner_note: check.learner_note ?? '',
+      }
+    })
+    const changedChecks = checkSummaries.filter((check) => check.status_changed)
+    return {
+      summary_id: `gate_status_summary_${gate.gate_id}`,
+      generated_at: retrievedAt,
+      gate_id: gate.gate_id,
+      milestone_id: gate.milestone_id,
+      progress_rollup_id: gate.progress_rollup_id,
+      applied_status_import_id: imported?.import_id ?? null,
+      import_applied: Boolean(imported),
+      readiness_before: baseGate?.current_readiness_status ?? null,
+      readiness_after: gate.current_readiness_status,
+      readiness_changed: Boolean(baseGate && baseGate.current_readiness_status !== gate.current_readiness_status),
+      changed_check_count: changedChecks.length,
+      satisfied_check_count: checkSummaries.filter((check) => check.after_status === 'satisfied').length,
+      pending_check_count: checkSummaries.filter((check) => check.after_status === 'pending').length,
+      changed_checks: changedChecks,
+      blocking_conditions: gate.blocking_conditions ?? [],
+      check_summaries: checkSummaries,
+      next_action: gate.current_readiness_status === 'ready_for_review'
+        ? 'Package the portfolio brief, source excerpt packet, reference packet, and learner evidence for review.'
+        : imported
+          ? 'Resolve remaining pending checks in the learner status import and regenerate the corpus.'
+          : 'Copy the template row into self_study_portfolio_gate_status_import.jsonl, attach evidence_refs, update check statuses, and regenerate.',
+      provenance_note: 'Generated applied-status summary comparing base completion gates with optional learner status imports.',
+    }
+  })
+}
+
+function selfStudyPortfolioGateStatusSummaryMarkdown(statusSummaries) {
+  const lines = [
+    '# RISD Graphic Design Portfolio Gate Status Summary',
+    '',
+    `Generated: ${retrievedAt}`,
+    '',
+    'This report explains how optional learner status imports affected portfolio completion gates. It is generated from the gate template, optional import rows, and current completion gates.',
+    '',
+    `- Summary rows: ${statusSummaries.length}`,
+    `- Imports applied: ${statusSummaries.filter((summary) => summary.import_applied).length}`,
+    `- Gates ready for review: ${statusSummaries.filter((summary) => summary.readiness_after === 'ready_for_review').length}`,
+    `- Gates still blocked: ${statusSummaries.filter((summary) => summary.readiness_after !== 'ready_for_review').length}`,
+    '',
+  ]
+  for (const summary of statusSummaries) {
+    lines.push(`## ${summary.milestone_id}`)
+    lines.push('')
+    lines.push(`- Gate: ${summary.gate_id}`)
+    lines.push(`- Import applied: ${summary.import_applied ? summary.applied_status_import_id : 'none'}`)
+    lines.push(`- Readiness: ${summary.readiness_before} -> ${summary.readiness_after}`)
+    lines.push(`- Changed checks: ${summary.changed_check_count}`)
+    lines.push(`- Satisfied checks: ${summary.satisfied_check_count}`)
+    lines.push(`- Pending checks: ${summary.pending_check_count}`)
+    lines.push(`- Next action: ${summary.next_action}`)
+    if (summary.blocking_conditions.length) {
+      lines.push('- Blocking conditions:')
+      summary.blocking_conditions.forEach((condition) => lines.push(`  - ${condition}`))
+    }
+    lines.push('- Check status:')
+    summary.check_summaries.forEach((check) => {
+      const changed = check.status_changed ? 'changed' : 'unchanged'
+      const evidence = check.evidence_refs.length ? `; evidence: ${check.evidence_refs.join(', ')}` : ''
+      lines.push(`  - ${check.label}: ${check.before_status} -> ${check.after_status} (${changed}${evidence})`)
+    })
+    lines.push('')
+  }
+  return lines.map((line) => line.trimEnd()).join('\n')
+}
+
 function annotateSelfStudyProgressLedgerWithPortfolioGates(progressLedger, portfolioMilestones, portfolioCompletionGates) {
   const milestoneByPacingId = new Map()
   for (const milestone of portfolioMilestones) {
@@ -7909,6 +8020,7 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   const portfolioGateStatusTemplate = buildSelfStudyPortfolioGateStatusTemplate(basePortfolioCompletionGates)
   const portfolioGateStatusImports = loadJsonl(portfolioGateStatusImportPath)
   const portfolioCompletionGates = applySelfStudyPortfolioGateStatusImports(basePortfolioCompletionGates, portfolioGateStatusImports)
+  const portfolioGateStatusSummary = buildSelfStudyPortfolioGateStatusSummary(basePortfolioCompletionGates, portfolioCompletionGates, portfolioGateStatusImports)
   const progressLedgerWithPortfolioGateAnnotations = annotateSelfStudyProgressLedgerWithPortfolioGates(progressLedger, portfolioMilestones, portfolioCompletionGates)
   const portfolioBriefs = buildSelfStudyPortfolioBriefs(selfStudyModules, pacingPlan, portfolioMilestones, portfolioCompletionGates)
   writeJsonl(join(outDir, 'self_study_pacing_plan.jsonl'), pacingPlan)
@@ -7918,6 +8030,8 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   writeJsonl(join(outDir, 'self_study_portfolio_progress_rollups.jsonl'), portfolioProgressRollups)
   writeJsonl(join(outDir, 'self_study_portfolio_completion_gates.jsonl'), portfolioCompletionGates)
   writeJsonl(join(outDir, 'self_study_portfolio_gate_status_template.jsonl'), portfolioGateStatusTemplate)
+  writeJsonl(join(outDir, 'self_study_portfolio_gate_status_summary.jsonl'), portfolioGateStatusSummary)
+  writeFileSync(join(outDir, 'self_study_portfolio_gate_status_summary.md'), selfStudyPortfolioGateStatusSummaryMarkdown(portfolioGateStatusSummary))
   writeJsonl(join(outDir, 'self_study_portfolio_milestones.jsonl'), portfolioMilestones)
   writeJsonl(join(outDir, 'self_study_portfolio_reference_packets.jsonl'), portfolioReferencePackets)
   writeJsonl(join(outDir, 'self_study_portfolio_source_excerpt_packets.jsonl'), portfolioSourceExcerptPackets)
