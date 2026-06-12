@@ -89,6 +89,8 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/self_study_pacing_plan.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_pacing_profiles.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_milestones.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_briefs.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_briefs/*.md`
 - `docs/research-plans/risd-graphic-design-corpus/source_audit.md`
 
 Current seed sources include:
@@ -357,7 +359,7 @@ Acceptance output:
 
 ### Step 9: Generate A Mentor-Style Self-Study Curriculum From Evidence
 
-Status: implemented for evidence-filtered module selection, filtered assignment/reading/schedule display, module-level practice loops, explicit missing-evidence warnings, student/faculty comparison boundaries, a machine-readable `self_study_modules.jsonl` artifact, weekly `self_study_pacing_plan.jsonl`, profile `self_study_pacing_profiles.jsonl`, and portfolio milestone `self_study_portfolio_milestones.jsonl` artifacts, module-grounded `tacit_knowledge_memo.md` sections, per-module confidence scores/explanations, module ordering rationales with near-miss candidates, track-level prerequisite/dependency maps, learner-facing weekly pacing, workload estimates, adjustable compressed/standard/slow pacing profiles, portfolio milestone checkpoints, and validation that generated modules/pacing rows/profiles/milestones cite source IDs, explain selection confidence/order/dependencies, and reference existing assignment/reading/schedule/student-work records. The next improvement should add export-friendly portfolio brief pages that can be rendered independently for each milestone.
+Status: implemented for evidence-filtered module selection, filtered assignment/reading/schedule display, module-level practice loops, explicit missing-evidence warnings, student/faculty comparison boundaries, a machine-readable `self_study_modules.jsonl` artifact, weekly `self_study_pacing_plan.jsonl`, profile `self_study_pacing_profiles.jsonl`, portfolio milestone `self_study_portfolio_milestones.jsonl`, and export-friendly `self_study_portfolio_briefs/*.md` artifacts, module-grounded `tacit_knowledge_memo.md` sections, per-module confidence scores/explanations, module ordering rationales with near-miss candidates, track-level prerequisite/dependency maps, learner-facing weekly pacing, workload estimates, adjustable compressed/standard/slow pacing profiles, portfolio milestone checkpoints, independent portfolio review pages, and validation that generated modules/pacing rows/profiles/milestones/briefs cite source IDs, explain selection confidence/order/dependencies, and reference existing assignment/reading/schedule/student-work records. The next improvement should add per-brief visual/reference packets that bundle public comparison examples and faculty portfolio examples with explicit relationship labels.
 
 Goal: make the corpus usable for the original purpose: tacit catch-up through concrete studio loops.
 
@@ -385,6 +387,7 @@ Acceptance output:
 
 - richer `self_study_curriculum.md`
 - `self_study_modules.jsonl` for downstream rendering without Markdown parsing
+- `self_study_portfolio_briefs.jsonl` plus one standalone Markdown brief per portfolio milestone
 - `tacit_knowledge_memo.md` organized around observed studio practices rather than unsupported generalizations
 
 ### Step 10: Keep Validation, Documentation, And Deployment In Lockstep
@@ -1411,6 +1414,7 @@ Target scripts:
 - `scripts/risd-gd-link-readings.mjs`: normalize citations and run bounded external catalog linking, currently implemented inside `scripts/risd-graphic-design-corpus.mjs --link-readings-only`
 - `scripts/risd-gd-dedupe.mjs`: exact and near-dedupe
 - `scripts/risd-gd-reconstruct.mjs`: produce course packets and tacit memos
+- `scripts/risd-gd-self-study.mjs`: produce self-study modules, pacing plans, portfolio milestones, and standalone portfolio brief pages
 - `scripts/risd-gd-audit.mjs`: validate provenance, missing fields, and source coverage
 
 The current single script can remain during iteration, but these are the intended module boundaries.
@@ -1433,6 +1437,7 @@ Corpus checks:
 - Every source-cluster row points to valid sources and includes a representative source.
 - Every source-version row points to valid fetched current/archive sources when present.
 - Every reconstruction claim cites source IDs.
+- Every self-study portfolio brief maps to a milestone and includes source IDs, review prompts, a review package, and an evidence boundary.
 - Inferred fields are marked.
 - Official course inventory count is reconciled against the RISD course page count.
 - Wayback captures are recorded and selected captures are fetched.
@@ -1503,6 +1508,7 @@ This is a docs/data pipeline, so full dashboard QA may not exercise the corpus d
 - Manually review high-value uncertain sources.
 - Produce a self-study-ready RISD-style curriculum from the evidence.
   - Emit `self_study_curriculum.md` with evidence-bounded studio tracks, reading packets, recreated brief prompts, critique checkpoints, and public comparison sets.
+  - Emit `self_study_portfolio_briefs/*.md` as standalone portfolio review sheets for export or printing.
 
 ## Definition Of Done
 

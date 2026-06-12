@@ -129,6 +129,7 @@ Overall status: pass
 - Self-study pacing rows with workload estimates: 28
 - Self-study pacing profiles: 3
 - Self-study portfolio milestones: 3
+- Self-study portfolio briefs: 3
 
 ## Checks
 
@@ -185,6 +186,7 @@ Overall status: pass
 - PASS self_study_pacing_plan_has_valid_weekly_sequence: 28 pacing rows for 14/14 modules; 28 rows cite assignments, 22 cite readings/resources, 26 cite prerequisite modules, 28 include workload estimates; 0 pacing reference errors; generated mismatch=false.
 - PASS self_study_pacing_profiles_have_valid_groupings: 3 pacing profiles; 0 profile reference errors; generated mismatch=false.
 - PASS self_study_portfolio_milestones_have_valid_review_packages: 3 portfolio milestones; 0 milestone reference errors; generated mismatch=false.
+- PASS self_study_portfolio_briefs_render_independent_pages: 3 portfolio briefs for 3 milestones; 0 brief reference/render errors; generated mismatch=false.
 - PASS official_course_inventory_reconciled: 105 official offerings parsed; RISD page displays 105 results.
 - PASS wayback_captures_recorded: 106 Wayback capture records.
 - PASS course_records_created: 134 course records created.
