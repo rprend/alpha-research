@@ -101,7 +101,7 @@
     "review_queue": 12,
     "review_decisions": 12,
     "resolved_review_decisions": 12,
-    "field_conflicts": 9
+    "field_conflicts": 28
   },
   "checks": [
     {

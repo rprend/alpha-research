@@ -4700,7 +4700,7 @@ function buildReviewDecisions(reviewQueue, { sources = [], syllabi = [], reading
   })
 }
 
-function buildFieldConflicts({ courses, syllabi, sourceClusters }) {
+function buildFieldConflicts({ courses, syllabi, sourceClusters, assignments = [], readings = [], scheduleRows = [] }) {
   const rows = []
   const addConflicts = (records, recordKind, keyFn, fields) => {
     const groups = new Map()
@@ -4734,6 +4734,7 @@ function buildFieldConflicts({ courses, syllabi, sourceClusters }) {
 
   addConflicts(courses, 'course', (course) => course.course_code ?? course.course_title, ['course_title', 'degree_level', 'credits'])
   addConflicts(syllabi, 'syllabus', (syllabus) => syllabus.course_code ?? syllabus.course_title, ['course_title', 'instructor', 'term', 'credits', 'class_time', 'class_location'])
+  rows.push(...buildCourseEvidenceConflicts({ syllabi, assignments, readings, scheduleRows }))
 
   for (const cluster of sourceClusters) {
     const fieldChecks = [
@@ -4762,6 +4763,110 @@ function buildFieldConflicts({ courses, syllabi, sourceClusters }) {
   return rows.sort((a, b) => severityRank(a.severity) - severityRank(b.severity) || a.conflict_id.localeCompare(b.conflict_id))
 }
 
+function buildCourseEvidenceConflicts({ syllabi, assignments, readings, scheduleRows }) {
+  const rows = []
+  const assignmentsBySyllabus = groupBy(assignments, (assignment) => assignment.syllabus_id)
+  const readingsBySyllabus = groupBy(readings, (reading) => reading.syllabus_id)
+  const schedulesBySyllabus = groupBy(scheduleRows, (row) => row.syllabus_id)
+  const syllabiByCourse = groupBy(syllabi, (syllabus) => courseEvidenceConflictKey(syllabus))
+
+  for (const [courseKey, courseSyllabi] of syllabiByCourse) {
+    const comparableSyllabi = courseSyllabi.filter((syllabus) => syllabus.syllabus_id)
+    if (!courseKey || comparableSyllabi.length < 2) continue
+    addEvidenceConflict(rows, {
+      courseKey,
+      field: 'assignment_titles',
+      syllabi: comparableSyllabi,
+      valueFn: (syllabus) => evidenceSetValue(assignmentsBySyllabus.get(syllabus.syllabus_id) ?? [], (assignment) => assignment.title),
+      hint: 'Treat assignment-title differences as possible section, term, or historical prompt variants; preserve distinct prompts until the source boundary is reviewed.',
+    })
+    addEvidenceConflict(rows, {
+      courseKey,
+      field: 'reading_set',
+      syllabi: comparableSyllabi,
+      valueFn: (syllabus) => evidenceSetValue(readingsBySyllabus.get(syllabus.syllabus_id) ?? [], (reading) => reading.canonical_work_id ?? reading.raw_citation ?? reading.title),
+      hint: 'Treat reading-set differences as possible section, term, or syllabus-version variants; prefer direct syllabus evidence for the same term.',
+    })
+    addEvidenceConflict(rows, {
+      courseKey,
+      field: 'schedule_pattern',
+      syllabi: comparableSyllabi,
+      valueFn: (syllabus) => evidenceSetValue(schedulesBySyllabus.get(syllabus.syllabus_id) ?? [], (row) => `${row.date ?? row.week_number ?? ''}|${row.session_title ?? ''}|${row.agenda_excerpt ?? ''}`),
+      hint: 'Treat schedule differences as likely term, section, or archive-version variants; do not collapse weekly structures without matching term and source evidence.',
+    })
+    addEvidenceConflict(rows, {
+      courseKey,
+      field: 'assessment_evidence',
+      syllabi: comparableSyllabi,
+      valueFn: (syllabus) => evidenceTextValue([syllabus.grading_rubric, syllabus.assessment_strategy].filter(Boolean).join(' ')),
+      hint: 'Treat grading and assessment differences as high-value syllabus variants; keep both until the term, section, and source authority are reconciled.',
+    })
+  }
+  return rows
+}
+
+function addEvidenceConflict(rows, { courseKey, field, syllabi, valueFn, hint }) {
+  const evidenceRows = syllabi
+    .map((syllabus) => ({
+      syllabus,
+      value: valueFn(syllabus),
+    }))
+    .filter((row) => row.value)
+  const values = uniq(evidenceRows.map((row) => row.value.summary))
+  if (values.length < 2) return
+  rows.push({
+    conflict_id: `conflict_course_evidence_${slug(courseKey)}_${field}`,
+    record_kind: 'course_evidence',
+    entity_key: courseKey,
+    field,
+    values,
+    record_ids: evidenceRows.map((row) => row.syllabus.syllabus_id),
+    source_ids: uniq(evidenceRows.flatMap((row) => row.syllabus.source_ids ?? [])),
+    severity: conflictSeverity(field, values),
+    resolution_status: 'needs_review',
+    resolution_hint: hint,
+  })
+}
+
+function courseEvidenceConflictKey(syllabus) {
+  return normalizeCourseKey(syllabus.course_code ?? null, syllabus.course_title ?? null)
+}
+
+function evidenceSetValue(rows, valueFn) {
+  const values = uniq(rows.map(valueFn).map(normalizeConflictValue).filter(Boolean))
+  if (!values.length) return null
+  const hash = sha256(Buffer.from(values.slice().sort().join('\n'))).slice(0, 12)
+  const samples = values.slice(0, 4).map((value) => value.length > 90 ? `${value.slice(0, 87)}...` : value)
+  return {
+    hash,
+    summary: `${hash}:${values.length} items:${samples.join(' | ')}`,
+  }
+}
+
+function evidenceTextValue(text) {
+  const normalized = normalizeConflictValue(text)
+  if (!normalized || normalized.length < 30) return null
+  const compact = normalized.toLowerCase().replace(/[^a-z0-9%]+/g, ' ').trim()
+  if (!compact) return null
+  const hash = sha256(Buffer.from(compact)).slice(0, 12)
+  return {
+    hash,
+    summary: `${hash}:${normalized.slice(0, 160)}`,
+  }
+}
+
+function groupBy(rows, keyFn) {
+  const groups = new Map()
+  for (const row of rows) {
+    const key = keyFn(row)
+    if (!key) continue
+    const existing = groups.get(key) ?? []
+    existing.push(row)
+    groups.set(key, existing)
+  }
+  return groups
+}
+
 function normalizeConflictValue(value) {
   if (value === null || value === undefined || value === '') return null
   if (Array.isArray(value)) return value.filter(Boolean).join(' | ') || null
@@ -4769,8 +4874,8 @@ function normalizeConflictValue(value) {
 }
 
 function conflictSeverity(field, values) {
-  if (['course_title', 'credits', 'term'].includes(field)) return 'high'
-  if (['instructor', 'degree_level', 'class_time'].includes(field)) return 'medium'
+  if (['course_title', 'credits', 'term', 'assessment_evidence'].includes(field)) return 'high'
+  if (['instructor', 'degree_level', 'class_time', 'assignment_titles', 'reading_set', 'schedule_pattern'].includes(field)) return 'medium'
   return values.length > 2 ? 'medium' : 'low'
 }
 
@@ -4783,6 +4888,10 @@ function conflictResolutionHint(field) {
     class_time: 'Treat meeting-time differences as section or term variants.',
     class_location: 'Treat location differences as section or term variants.',
     degree_level: 'Prefer official course inventory level.',
+    assignment_titles: 'Treat assignment-title differences as possible section, term, or historical prompt variants.',
+    reading_set: 'Treat reading-set differences as possible section, term, or syllabus-version variants.',
+    schedule_pattern: 'Treat schedule differences as likely term, section, or archive-version variants.',
+    assessment_evidence: 'Treat grading and assessment differences as high-value syllabus variants.',
   }
   return hints[field] ?? 'Inspect sources and preserve variants unless the difference is cosmetic.'
 }
@@ -5663,9 +5772,9 @@ function renderDerivedArtifactsOnly() {
   }
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
-  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
   const courseSitePages = buildCourseSitePages({ sources, syllabi, assignments, readings })
   const scheduleRows = buildScheduleRows({ syllabi, assignments, readings, courseSitePages })
+  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters, assignments, readings, scheduleRows })
   const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork, scheduleRows })
   const coverageSearchQueries = buildCoverageSearchQueries(courseCoverage)
   const facultySearchQueries = buildFacultySearchQueries(faculty, facultyCourseEdges)
@@ -5713,6 +5822,7 @@ async function renderReadingLinksOnly() {
   const syllabi = loadJsonl(join(outDir, 'syllabi.jsonl'))
   const assignments = loadJsonl(join(outDir, 'assignments.jsonl'))
   const existingReadings = loadJsonl(join(outDir, 'readings.jsonl'))
+  const scheduleRows = loadJsonl(join(outDir, 'schedule_rows.jsonl'))
   const searchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
   const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
   const commonCrawlPromotions = loadJsonl(join(outDir, 'common_crawl_promotions.jsonl'))
@@ -5733,10 +5843,10 @@ async function renderReadingLinksOnly() {
   const readingFrequency = buildReadingFrequency(readings)
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
-  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
+  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters, assignments, readings, scheduleRows })
+  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork, scheduleRows })
   const coverageSearchQueries = buildCoverageSearchQueries(courseCoverage)
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, scheduleRows, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries })
   writeJsonl(join(outDir, 'readings.jsonl'), readings)
   writeJsonl(join(outDir, 'reading_frequency.jsonl'), readingFrequency)
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
@@ -5791,7 +5901,7 @@ async function reparseExistingSourcesOnlyMode() {
   const facultyProfileCandidates = loadJsonl(join(outDir, 'faculty_profile_candidates.jsonl'))
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
-  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
+  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters, assignments, readings, scheduleRows })
   const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork, scheduleRows })
   const coverageSearchQueries = buildCoverageSearchQueries(courseCoverage)
   const facultySearchQueries = buildFacultySearchQueries(faculty, facultyCourseEdges)
@@ -5855,6 +5965,7 @@ async function renderSearchApiOnly() {
   const syllabi = loadJsonl(join(outDir, 'syllabi.jsonl'))
   const assignments = loadJsonl(join(outDir, 'assignments.jsonl'))
   const readings = loadJsonl(join(outDir, 'readings.jsonl'))
+  const scheduleRows = loadJsonl(join(outDir, 'schedule_rows.jsonl'))
   const readingFrequency = loadJsonl(join(outDir, 'reading_frequency.jsonl'))
   const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
   const commonCrawlPromotions = loadJsonl(join(outDir, 'common_crawl_promotions.jsonl'))
@@ -5873,8 +5984,8 @@ async function renderSearchApiOnly() {
   }
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
-  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
+  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters, assignments, readings, scheduleRows })
+  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork, scheduleRows })
   const coverageSearchQueries = buildCoverageSearchQueries(courseCoverage)
   const facultySearchQueries = buildFacultySearchQueries(faculty, facultyCourseEdges)
   const liveSearchCandidates = await buildLiveSearchCandidates(coverageSearchQueries, facultySearchQueries)
@@ -6078,7 +6189,7 @@ async function promoteSearchCandidatesOnlyMode() {
   const facultyProfileCandidates = loadJsonl(join(outDir, 'faculty_profile_candidates.jsonl'))
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
-  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
+  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters, assignments, readings, scheduleRows })
   const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
   const coverageSearchQueries = buildCoverageSearchQueries(courseCoverage)
   const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates: updatedSearchCandidates, searchPromotions: allSearchPromotions, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries })
@@ -6150,10 +6261,10 @@ async function renderFacultyPortfolioExamplesOnly() {
   }
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
-  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
+  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters, assignments, readings, scheduleRows })
   const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
   const coverageSearchQueries = buildCoverageSearchQueries(courseCoverage)
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, scheduleRows, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries })
 
   writeJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'), facultyPortfolioExamples)
   writeJson(join(outDir, 'validation.json'), validationWithReview)

@@ -105,7 +105,7 @@ Overall status: pass
 - Review queue rows: 12
 - Review decision rows: 12
 - Resolved generated review decisions: 12
-- Field conflicts: 9
+- Field conflicts: 28
 
 ## Checks
 
