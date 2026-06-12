@@ -2926,7 +2926,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], searchCandidates = [], commonCrawlCandidates = [], commonCrawlPromotions = [], facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], facultyPortfolioExamples = [], sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [] }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], searchCandidates = [], commonCrawlCandidates = [], commonCrawlPromotions = [], facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], facultyPortfolioExamples = [], sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [] }) {
   const sourceIds = new Set(sources.map((source) => source.source_id))
   const syllabusIds = new Set(syllabi.map((syllabus) => syllabus.syllabus_id))
   const failedSourceIds = new Set(sources.filter((source) => source.extraction_status !== 'ok').map((source) => source.source_id))
@@ -3003,6 +3003,9 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const facultyEdgeErrors = facultyCourseEdges.filter((edge) => !edge.edge_id || !facultyIds.has(edge.faculty_id) || edge.source_ids?.some((id) => !sourceIds.has(id)))
   const studentWorkSourceErrors = studentWork.filter((work) => work.source_ids.some((id) => !sourceIds.has(id)))
   const structuredStudentWorkCount = studentWork.filter((work) => work.url && (work.medium || work.project_title || work.project_statement_excerpt || work.assignment_link_confidence || work.visual_standard_notes?.length) && work.evidence_grade).length
+  const courseCoverageErrors = courseCoverage.filter((row) => row.source_ids?.some((id) => !sourceIds.has(id)) || !row.requirements || typeof row.coverage_score !== 'number')
+  const highCoverageCourseCount = courseCoverage.filter((row) => row.coverage_score >= 80).length
+  const lowCoverageCourseCount = courseCoverage.filter((row) => row.coverage_score < 40).length
   const facultyPortfolioExampleErrors = facultyPortfolioExamples.filter((example) => !example.example_id || !example.url || example.source_ids?.some((id) => !sourceIds.has(id)))
   const structuredFacultyPortfolioExampleCount = facultyPortfolioExamples.filter((example) => example.url && example.faculty_name && (example.medium || example.title || example.project_statement_excerpt || example.visual_standard_notes?.length)).length
   const sourceClusterErrors = sourceClusters.filter((cluster) => !cluster.representative_source_id || !cluster.source_ids?.length || cluster.source_ids.some((id) => !sourceIds.has(id)))
@@ -3115,6 +3118,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${structuredStudentWorkCount} student work rows include URL plus medium/project/evidence metadata.`,
     },
     {
+      id: 'course_coverage_matrix_references_valid_sources',
+      status: courseCoverageErrors.length === 0 && courseCoverage.length === courses.length ? 'pass' : courseCoverageErrors.length === 0 ? 'warn' : 'fail',
+      detail: `${courseCoverage.length} course coverage rows for ${courses.length} courses; ${highCoverageCourseCount} at 80+ coverage, ${lowCoverageCourseCount} below 40 coverage, and ${courseCoverageErrors.length} coverage metadata/reference errors.`,
+    },
+    {
       id: 'faculty_portfolio_examples_reference_valid_sources',
       status: facultyPortfolioExampleErrors.length === 0 ? 'pass' : 'fail',
       detail: `${facultyPortfolioExampleErrors.length} faculty portfolio example reference errors across ${facultyPortfolioExamples.length} examples.`,
@@ -3215,6 +3223,9 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       faculty_course_edges: facultyCourseEdges.length,
       student_work: studentWork.length,
       structured_student_work: structuredStudentWorkCount,
+      course_coverage_rows: courseCoverage.length,
+      high_coverage_courses: highCoverageCourseCount,
+      low_coverage_courses: lowCoverageCourseCount,
       faculty_portfolio_examples: facultyPortfolioExamples.length,
       structured_faculty_portfolio_examples: structuredFacultyPortfolioExampleCount,
       source_clusters: sourceClusters.length,
@@ -3593,6 +3604,9 @@ Overall status: ${validation.status}
 - Faculty-course edges: ${validation.counts.faculty_course_edges}
 - Student work rows: ${validation.counts.student_work}
 - Structured student work rows: ${validation.counts.structured_student_work}
+- Course coverage rows: ${validation.counts.course_coverage_rows}
+- Courses at 80+ coverage: ${validation.counts.high_coverage_courses}
+- Courses below 40 coverage: ${validation.counts.low_coverage_courses}
 - Faculty portfolio examples: ${validation.counts.faculty_portfolio_examples}
 - Structured faculty portfolio examples: ${validation.counts.structured_faculty_portfolio_examples}
 - Source clusters: ${validation.counts.source_clusters}
@@ -3931,6 +3945,118 @@ function curriculumPacketKey(packet) {
   return slug(course.course_title ?? course.course_code ?? course.course_id)
 }
 
+const coverageRequirements = [
+  ['course_identity', 'Course code/title/level/credits/term/instructor basics'],
+  ['source_evidence', 'Source type, evidence grade, and source IDs'],
+  ['syllabus_fields', 'Full syllabus fields when available'],
+  ['weekly_schedule', 'Weekly topic and assignment schedule'],
+  ['readings', 'Required/recommended readings'],
+  ['project_briefs', 'Project briefs and deliverables'],
+  ['critique_revision', 'Critique and revision format'],
+  ['grading_assessment', 'Grading rubric or assessment strategy'],
+  ['tools_materials', 'Tools, software, and materials'],
+  ['student_work', 'Linked public student work examples'],
+  ['tacit_skills', 'Tacit skill extraction'],
+]
+
+function requirementStatus(present, partial = false) {
+  if (present) return 'present'
+  if (partial) return 'partial'
+  return 'missing'
+}
+
+function buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork }) {
+  return curriculumCoursePackets({ courses, syllabi, assignments, readings, studentWork }).map((packet) => {
+    const { course, courseSyllabi, courseAssignments, courseReadings, courseStudentWork } = packet
+    const sourceIds = uniq([
+      ...(course.source_ids ?? []),
+      ...courseSyllabi.flatMap((syllabus) => syllabus.source_ids ?? []),
+      ...courseAssignments.flatMap((assignment) => assignment.source_ids ?? []),
+      ...courseReadings.flatMap((reading) => reading.source_ids ?? []),
+      ...courseStudentWork.flatMap((work) => work.source_ids ?? []),
+    ])
+    const tools = uniq([
+      ...courseSyllabi.flatMap((syllabus) => [...(syllabus.tools ?? []), ...(syllabus.materials ?? [])]),
+      ...courseAssignments.flatMap((assignment) => [...(assignment.tools ?? []), ...(assignment.materials ?? [])]),
+    ])
+    const tacitSkills = uniq([
+      ...(course.skills ?? []),
+      ...courseAssignments.flatMap((assignment) => [...(assignment.skills_trained ?? []), assignment.tacit_goal].filter(Boolean)),
+    ])
+    const highValueAssignments = courseAssignments.filter((assignment) => ['high', 'medium'].includes(assignment.assignment_confidence))
+    const longBriefAssignments = courseAssignments.filter((assignment) => (assignment.prompt_excerpt?.split(/\s+/).length ?? 0) >= 45)
+    const critiqueAssignments = courseAssignments.filter((assignment) => assignment.critique_format || assignment.revision_expectation || assignment.critique_questions?.length || /critique|crit|feedback|revise|revision/i.test(assignment.prompt_excerpt ?? ''))
+    const gradingSyllabi = courseSyllabi.filter((syllabus) => syllabus.grading_rubric || syllabus.assessment_strategy)
+    const requirements = {
+      course_identity: requirementStatus(Boolean(course.course_code && course.course_title && (course.degree_level || course.credits || course.term || course.instructor)), Boolean(course.course_code || course.course_title)),
+      source_evidence: requirementStatus(Boolean(sourceIds.length && course.evidence_grade)),
+      syllabus_fields: requirementStatus(courseSyllabi.some((syllabus) => syllabus.raw_excerpts?.length || syllabus.description || syllabus.learning_outcomes?.length), courseSyllabi.length > 0),
+      weekly_schedule: requirementStatus(courseSyllabi.some((syllabus) => syllabus.assignment_schedule?.length || syllabus.topic_outline?.length)),
+      readings: requirementStatus(courseReadings.some((reading) => reading.linking_status !== 'non_citation_fragment'), courseReadings.length > 0),
+      project_briefs: requirementStatus(highValueAssignments.length > 0 && longBriefAssignments.length > 0, highValueAssignments.length > 0 || courseAssignments.length > 0),
+      critique_revision: requirementStatus(critiqueAssignments.length > 0),
+      grading_assessment: requirementStatus(gradingSyllabi.length > 0),
+      tools_materials: requirementStatus(tools.length > 0),
+      student_work: requirementStatus(courseStudentWork.length > 0),
+      tacit_skills: requirementStatus(tacitSkills.length > 0),
+    }
+    const presentCount = Object.values(requirements).filter((status) => status === 'present').length
+    const partialCount = Object.values(requirements).filter((status) => status === 'partial').length
+    const missing = coverageRequirements.filter(([key]) => requirements[key] === 'missing').map(([, label]) => label)
+    const coverageScore = Math.round(((presentCount + partialCount * 0.5) / coverageRequirements.length) * 100)
+    return {
+      coverage_id: `coverage_${slug(course.course_id ?? course.course_code ?? course.course_title ?? sourceIds.join('_'))}`,
+      course_id: course.course_id ?? null,
+      course_code: course.course_code ?? null,
+      course_title: course.course_title ?? null,
+      degree_level: course.degree_level ?? null,
+      evidence_grade: course.evidence_grade ?? null,
+      source_ids: sourceIds,
+      syllabus_count: courseSyllabi.length,
+      assignment_count: courseAssignments.length,
+      high_or_medium_assignment_count: highValueAssignments.length,
+      long_brief_assignment_count: longBriefAssignments.length,
+      reading_count: courseReadings.length,
+      student_work_count: courseStudentWork.length,
+      coverage_score: coverageScore,
+      requirements,
+      missing_requirements: missing,
+      unknowns: missing.map((label) => `${label} not yet recovered from public evidence.`),
+    }
+  })
+}
+
+function courseCoverageMarkdown(rows) {
+  const sorted = [...rows].sort((a, b) => a.coverage_score - b.coverage_score || String(a.course_title ?? '').localeCompare(String(b.course_title ?? '')))
+  const complete = rows.filter((row) => row.coverage_score >= 80).length
+  const thin = rows.filter((row) => row.coverage_score < 40).length
+  const lines = [
+    '# RISD Graphic Design Course Coverage',
+    '',
+    `Generated: ${retrievedAt}`,
+    '',
+    '## Summary',
+    '',
+    `- Courses assessed: ${rows.length}`,
+    `- Courses at 80+ coverage: ${complete}`,
+    `- Courses below 40 coverage: ${thin}`,
+    '',
+    '## Lowest Coverage Courses',
+    '',
+  ]
+  for (const row of sorted.slice(0, 25)) {
+    lines.push(`- ${row.coverage_score}% ${row.course_title ?? row.course_code ?? row.course_id}: ${row.missing_requirements.slice(0, 5).join('; ') || 'No major missing requirements.'}`)
+  }
+  lines.push('')
+  lines.push('## Requirement Legend')
+  lines.push('')
+  for (const [key, label] of coverageRequirements) {
+    lines.push(`- ${key}: ${label}`)
+  }
+  lines.push('')
+  return lines.join('\n')
+}
+
 function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork }) {
   const packets = curriculumCoursePackets({ courses, syllabi, assignments, readings, studentWork })
   const strongPackets = packets.filter((packet) => packet.courseAssignments.length || packet.courseReadings.length || packet.courseSyllabi.some((syllabus) => syllabus.assignment_schedule?.length))
@@ -4090,13 +4216,16 @@ function renderDerivedArtifactsOnly() {
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage })
   writeJsonl(join(outDir, 'assignments.jsonl'), assignments)
   writeJsonl(join(outDir, 'readings.jsonl'), readings)
   writeJsonl(join(outDir, 'reading_frequency.jsonl'), readingFrequency)
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
+  writeJsonl(join(outDir, 'course_coverage.jsonl'), courseCoverage)
+  writeFileSync(join(outDir, 'course_coverage.md'), courseCoverageMarkdown(courseCoverage))
   writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
   writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
@@ -4137,12 +4266,15 @@ async function renderReadingLinksOnly() {
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage })
   writeJsonl(join(outDir, 'readings.jsonl'), readings)
   writeJsonl(join(outDir, 'reading_frequency.jsonl'), readingFrequency)
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
+  writeJsonl(join(outDir, 'course_coverage.jsonl'), courseCoverage)
+  writeFileSync(join(outDir, 'course_coverage.md'), courseCoverageMarkdown(courseCoverage))
   writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
   writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
@@ -4183,7 +4315,8 @@ async function reparseExistingSourcesOnlyMode() {
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage })
   writeJsonl(join(outDir, 'sources.jsonl'), sources)
   writeJsonl(join(outDir, 'course_inventory.jsonl'), courseInventory.offerings)
   writeJsonl(join(outDir, 'courses.jsonl'), courses)
@@ -4199,6 +4332,8 @@ async function reparseExistingSourcesOnlyMode() {
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
+  writeJsonl(join(outDir, 'course_coverage.jsonl'), courseCoverage)
+  writeFileSync(join(outDir, 'course_coverage.md'), courseCoverageMarkdown(courseCoverage))
   writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
   writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
@@ -4275,13 +4410,16 @@ async function renderSearchApiOnly() {
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage })
 
   writeJsonl(join(outDir, 'search_candidates.jsonl'), searchCandidates)
   writeJsonl(join(outDir, 'search_results.jsonl'), searchResults)
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
+  writeJsonl(join(outDir, 'course_coverage.jsonl'), courseCoverage)
+  writeFileSync(join(outDir, 'course_coverage.md'), courseCoverageMarkdown(courseCoverage))
   writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
   writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
@@ -4326,7 +4464,8 @@ async function renderFacultyPortfolioExamplesOnly() {
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage })
 
   writeJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'), facultyPortfolioExamples)
   writeJson(join(outDir, 'validation.json'), validationWithReview)
@@ -4417,7 +4556,8 @@ async function ingestCommonCrawlPromotionsOnly() {
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates: updatedCandidates, commonCrawlPromotions: updatedPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates: updatedCandidates, commonCrawlPromotions: updatedPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage })
 
   writeJsonl(join(outDir, 'sources.jsonl'), sources)
   writeJsonl(join(outDir, 'courses.jsonl'), courses)
@@ -4433,6 +4573,8 @@ async function ingestCommonCrawlPromotionsOnly() {
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
+  writeJsonl(join(outDir, 'course_coverage.jsonl'), courseCoverage)
+  writeFileSync(join(outDir, 'course_coverage.md'), courseCoverageMarkdown(courseCoverage))
   writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
   writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
@@ -4518,7 +4660,8 @@ async function ingestFacultyProfilesOnlyMode() {
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage })
 
   writeJsonl(join(outDir, 'sources.jsonl'), sources)
   writeJsonl(join(outDir, 'faculty.jsonl'), faculty)
@@ -4527,6 +4670,8 @@ async function ingestFacultyProfilesOnlyMode() {
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
+  writeJsonl(join(outDir, 'course_coverage.jsonl'), courseCoverage)
+  writeFileSync(join(outDir, 'course_coverage.md'), courseCoverageMarkdown(courseCoverage))
   writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
   writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
@@ -4675,10 +4820,13 @@ async function main() {
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage })
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
+  writeJsonl(join(outDir, 'course_coverage.jsonl'), courseCoverage)
+  writeFileSync(join(outDir, 'course_coverage.md'), courseCoverageMarkdown(courseCoverage))
   writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
   writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
   writeJson(join(outDir, 'validation.json'), validationWithReview)
