@@ -23,7 +23,9 @@ Overall status: pass
 - Promoted search candidates: 10
 - Imported search candidates: 0
 - Common Crawl candidates: 168
-- Common Crawl fetch candidates: 43
+- Common Crawl fetch candidates: 35
+- Common Crawl promotions: 8
+- Successful Common Crawl promotions: 8
 - Faculty rows: 26
 - Faculty-course edges: 48
 - Student work rows: 41
@@ -52,7 +54,8 @@ Overall status: pass
 - PASS readings_reference_valid_syllabi_and_sources: 0 reading reference errors.
 - PASS readings_have_normalized_work_links: 50 reading snippets linked to 26 canonical works; 38 local catalog matches.
 - PASS search_candidates_have_provenance: 28 search candidates, 10 promoted, 0 imported; 0 candidate reference errors.
-- PASS common_crawl_candidates_have_provenance: 168 Common Crawl candidates, 43 fetch candidates; 0 provenance errors.
+- PASS common_crawl_candidates_have_provenance: 168 Common Crawl candidates, 35 fetch candidates; 0 provenance errors.
+- PASS common_crawl_promotions_reference_candidates: 8 Common Crawl promotions, 8 successful; 0 reference errors.
 - PASS faculty_graph_references_valid_sources: 26 faculty rows and 48 faculty-course edges; 0 reference errors.
 - PASS student_work_reference_valid_sources: 0 student work source reference errors.
 - PASS student_work_has_structured_public_examples: 41 student work rows include URL plus medium/project/evidence metadata.

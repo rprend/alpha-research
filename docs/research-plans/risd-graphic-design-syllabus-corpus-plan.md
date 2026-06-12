@@ -63,6 +63,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/wayback_captures.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/search_candidates.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/common_crawl_candidates.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/common_crawl_promotions.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/review_queue.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/review_decisions.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/field_conflicts.jsonl`
@@ -95,7 +96,7 @@ Known gaps:
 - Citation extraction is heuristic.
 - Assignment extraction is currently snippet-based, not structured enough.
 - Search candidate import is supported through local JSON/JSONL exports, but no live search API provider is wired yet.
-- A bounded Common Crawl candidate pass exists, but candidates are not yet promoted into public fetch/source rows.
+- A bounded Common Crawl candidate and promotion pass exists, but promoted sources are not yet merged into full course packets automatically.
 - Faculty/course edges are derived from existing course evidence, but RISD profile crawling and faculty-portfolio expansion are not implemented yet.
 - Near-duplicate clustering is implemented as a review artifact, but clusters are not yet used to collapse generated course packets.
 - Manual review artifacts exist, but human decisions have not been filled in yet.
@@ -320,6 +321,32 @@ Required fields:
 - `source_type_hint`
 - `relevance_score`
 - `candidate_status`
+- `promoted_source_id`
+- `promotion_fetch_status`
+- `promotion_extraction_status`
+- `error`
+
+### `common_crawl_promotions.jsonl`
+
+One row per Common Crawl candidate promoted into a bounded public fetch attempt.
+
+Required fields:
+
+- `promotion_id`
+- `candidate_id`
+- `promoted_at`
+- `promoted_source_id`
+- `url`
+- `source_type`
+- `authority`
+- `confidence`
+- `fetch_status`
+- `extraction_status`
+- `content_type`
+- `checksum`
+- `title`
+- `text_length`
+- `notes`
 - `error`
 
 ### `faculty_course_edges.jsonl`

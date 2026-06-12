@@ -19,7 +19,9 @@
     "promoted_search_candidates": 10,
     "imported_search_candidates": 0,
     "common_crawl_candidates": 168,
-    "common_crawl_fetch_candidates": 43,
+    "common_crawl_fetch_candidates": 35,
+    "common_crawl_promotions": 8,
+    "successful_common_crawl_promotions": 8,
     "faculty": 26,
     "faculty_course_edges": 48,
     "student_work": 41,
@@ -90,7 +92,12 @@
     {
       "id": "common_crawl_candidates_have_provenance",
       "status": "pass",
-      "detail": "168 Common Crawl candidates, 43 fetch candidates; 0 provenance errors."
+      "detail": "168 Common Crawl candidates, 35 fetch candidates; 0 provenance errors."
+    },
+    {
+      "id": "common_crawl_promotions_reference_candidates",
+      "status": "pass",
+      "detail": "8 Common Crawl promotions, 8 successful; 0 reference errors."
     },
     {
       "id": "faculty_graph_references_valid_sources",
