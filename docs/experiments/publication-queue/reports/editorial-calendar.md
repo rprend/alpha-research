@@ -2,7 +2,7 @@
 
 ## Publish/Edit Queue
 
-1. What A Museum Collection Looks Like When It Becomes Data - Move into polished public draft with chart captions and audit caveats.
+1. What A Museum Collection Looks Like When It Becomes Data - Copyedit from publication handoff; keep chart captions and audit caveats attached.
 2. Canon Drift: A Feasibility Report - Edit as methods/research-agenda post; add charts if useful.
 3. What Counts As A Humanities Dataset? - Edit as methods/research-agenda post; add charts if useful.
 

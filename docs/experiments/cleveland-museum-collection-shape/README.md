@@ -26,6 +26,7 @@ node docs/experiments/cleveland-museum-collection-shape/scripts/build-report.mjs
 node docs/experiments/cleveland-museum-collection-shape/scripts/build-audit-packet.mjs
 node docs/experiments/cleveland-museum-collection-shape/scripts/build-charts.mjs
 node docs/experiments/cleveland-museum-collection-shape/scripts/build-publication-draft.mjs
+node docs/experiments/cleveland-museum-collection-shape/scripts/build-publication-handoff.mjs
 node docs/experiments/cleveland-museum-collection-shape/scripts/check-readiness.mjs
 ```
 
@@ -47,6 +48,8 @@ The scripts write:
 - `reports/work.md`
 - `reports/public-draft.md`
 - `reports/publication-draft.md`
+- `reports/publication-handoff.md`
+- `reports/publication-handoff.json`
 - `reports/readiness.md`
 - `reports/readiness.json`
 - `reports/pipeline-run.json`

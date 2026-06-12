@@ -13,6 +13,7 @@ const steps = [
   ["build-audit-packet.mjs", []],
   ["build-charts.mjs", []],
   ["build-publication-draft.mjs", []],
+  ["build-publication-handoff.mjs", []],
   ["check-readiness.mjs", []],
 ];
 const results = [];

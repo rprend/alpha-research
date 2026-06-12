@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T18:51:01.438Z",
+  "generatedAt": "2026-06-12T18:57:50.212Z",
   "status": "ready-for-editorial-review",
   "checks": [
     {
@@ -43,6 +43,12 @@
       "label": "Audit packet exists for acquisition-date proxy and image/license checks",
       "status": "pass",
       "evidence": "54 review rows; 229 accession-year mismatches"
+    },
+    {
+      "id": "publication-handoff",
+      "label": "Publication handoff exists with chart captions and public-claim checklist",
+      "status": "pass",
+      "evidence": "ready-for-copyedit; 4 chart captions"
     }
   ],
   "nextMoves": [

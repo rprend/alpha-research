@@ -73,6 +73,7 @@ await writeText(path.join(outDir, "publication-queue.csv"), toCsv(rows, [
   "priority_score",
   "recommended_action",
   "draft_path",
+  "handoff_path",
   "result_path",
   "readiness_path",
 ]));
@@ -87,16 +88,19 @@ async function buildRow(experiment) {
   const readinessPath = path.join(reportsDir, "readiness.json");
   const publicationDraftPath = path.join(reportsDir, "publication-draft.md");
   const publicDraftPath = path.join(reportsDir, "public-draft.md");
+  const handoffPath = path.join(reportsDir, "publication-handoff.json");
   const draftPath = await exists(publicationDraftPath) ? publicationDraftPath : publicDraftPath;
   const result = await readOptionalJson(resultPath);
   const readiness = await readOptionalJson(readinessPath);
+  const handoff = await readOptionalJson(handoffPath);
   const draft = await readOptionalText(draftPath);
   const checks = readiness?.checks ?? [];
   const failedChecks = checks.filter((check) => check.status !== "pass");
   const ready = readiness?.status === "ready-for-editorial-review";
   const hasDraft = Boolean(draft?.trim());
+  const hasHandoff = Boolean(handoff);
   const chartCount = await countCharts(reportsDir);
-  const priorityScore = score({ ready, failedChecks, hasDraft, chartCount, experiment });
+  const priorityScore = score({ ready, failedChecks, hasDraft, hasHandoff, chartCount, experiment });
   return {
     id: experiment.id,
     title: experiment.title,
@@ -104,20 +108,23 @@ async function buildRow(experiment) {
     editorial_lane: experiment.editorialLane,
     readiness_status: readiness?.status ?? "missing-readiness",
     priority_score: priorityScore,
-    recommended_action: recommend({ ready, failedChecks, hasDraft, chartCount, experiment }),
+    recommended_action: recommend({ ready, failedChecks, hasDraft, hasHandoff, chartCount, experiment }),
     failed_checks: failedChecks.map((check) => `${check.id}: ${check.evidence}`).join("; "),
     draft_exists: hasDraft,
+    handoff_exists: hasHandoff,
     chart_count: chartCount,
     summary: result?.strongestFinding ?? result?.articleReadiness?.strongestNextMove ?? "",
     draft_path: draftPath,
+    handoff_path: hasHandoff ? handoffPath : "",
     result_path: resultPath,
     readiness_path: readinessPath,
   };
 }
 
-function score({ ready, failedChecks, hasDraft, chartCount, experiment }) {
+function score({ ready, failedChecks, hasDraft, hasHandoff, chartCount, experiment }) {
   let value = ready ? 100 : 20;
   if (hasDraft) value += 10;
+  if (hasHandoff) value += 8;
   if (chartCount) value += Math.min(10, chartCount * 2);
   value -= failedChecks.length * 12;
   if (experiment.editorialLane === "first-public-essay") value += 15;
@@ -125,7 +132,8 @@ function score({ ready, failedChecks, hasDraft, chartCount, experiment }) {
   return value;
 }
 
-function recommend({ ready, failedChecks, chartCount, experiment }) {
+function recommend({ ready, failedChecks, hasHandoff, chartCount, experiment }) {
+  if (ready && experiment.editorialLane === "first-public-essay" && hasHandoff) return "Copyedit from publication handoff; keep chart captions and audit caveats attached.";
   if (ready && experiment.editorialLane === "first-public-essay") return "Move into polished public draft with chart captions and audit caveats.";
   if (ready && chartCount) return "Edit public draft, preserve caveats, and prepare chart-backed post.";
   if (ready) return "Edit as methods/research-agenda post; add charts if useful.";
@@ -195,6 +203,7 @@ function buildQueueMarkdown(queue) {
       `- Lane: ${row.editorial_lane}`,
       `- Status: ${row.readiness_status}`,
       `- Draft: \`${row.draft_path}\``,
+      `- Handoff: ${row.handoff_path ? `\`${row.handoff_path}\`` : "none"}`,
       `- Result: \`${row.result_path}\``,
       `- Readiness: \`${row.readiness_path}\``,
       `- Failed checks: ${row.failed_checks || "none"}`,

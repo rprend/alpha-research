@@ -10,6 +10,7 @@ const reportsDir = path.join(experimentDir, "reports");
 const result = await readJson(path.join(reportsDir, "result.json"));
 const chartManifest = await readOptionalJson(path.join(reportsDir, "charts", "manifest.json"));
 const audit = await readOptionalJson(path.join(reportsDir, "audit-packet.json"));
+const handoff = await readOptionalJson(path.join(reportsDir, "publication-handoff.json"));
 const checks = [
   {
     id: "sample-size",
@@ -52,6 +53,12 @@ const checks = [
     label: "Audit packet exists for acquisition-date proxy and image/license checks",
     status: audit ? "pass" : "needs-work",
     evidence: audit ? `${audit.reviewRows} review rows; ${audit.mismatchRows} accession-year mismatches` : "missing audit packet",
+  },
+  {
+    id: "publication-handoff",
+    label: "Publication handoff exists with chart captions and public-claim checklist",
+    status: handoff?.publishState === "ready-for-copyedit" && handoff?.charts?.length >= 4 ? "pass" : "needs-work",
+    evidence: handoff ? `${handoff.publishState}; ${handoff.charts.length} chart captions` : "missing publication handoff",
   },
 ];
 const status = checks.every((check) => check.status === "pass") ? "ready-for-editorial-review" : "not-ready-for-publication";

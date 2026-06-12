@@ -17,6 +17,7 @@ Implemented:
 - editorial calendar draft
 - ready vs source-work grouping
 - priority scoring from readiness, drafts, charts, and editorial lane
+- publication handoff detection for copyedit-ready essays
 
 Current queue:
 
@@ -27,8 +28,8 @@ Current queue:
 
 Next implementation moves:
 
-- polish the Cleveland public draft into publication copy
-- add chart captions and audit caveats to the first essay
+- copyedit the Cleveland handoff into a first post
+- choose which Cleveland charts to publish
 - resolve source-work blockers for mission statements, museum language, and literature radar
 
 ### Research Backlog And Scout Workflow
@@ -236,6 +237,8 @@ Implemented:
 - `result.json`
 - `work.md`
 - `public-draft.md`
+- `publication-draft.md`
+- publication handoff with chart captions, audit notes, and public-claim checklist
 - readiness gate
 - one-command pipeline runner
 
@@ -288,14 +291,15 @@ Current corpus:
 - 12 acquisition-decade rows
 - 4 chart artifacts
 - audit packet: 54 review rows, including 229 accession-year proxy mismatches across the full sample
+- publication handoff: ready for copyedit with chart captions and claim checklist
 - 87.2% of sampled records have an image
 - readiness: ready for editorial review with single-institution and sample-size caveats
 
 Next implementation moves:
 
 - fetch the full collection or a larger paginated corpus
-- review audit rows before publishing acquisition-decade claims
-- use and caption chart artifacts in publication copy
+- copyedit the publication handoff into the first public post
+- review audit rows before strengthening acquisition-decade claims
 - compare against a second open museum API before cross-institution claims
 
 ## Editorial Formats

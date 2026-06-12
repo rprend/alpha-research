@@ -1,6 +1,6 @@
 # Cleveland Collection Shape Readiness Check
 
-Generated at: 2026-06-12T18:51:01.438Z
+Generated at: 2026-06-12T18:57:50.212Z
 Status: ready-for-editorial-review
 
 | Check | Status | Evidence |
@@ -12,6 +12,7 @@ Status: ready-for-editorial-review
 | Public draft exists and limits claims to one sampled institution | pass | reports/public-draft.md |
 | At least four chart artifacts exist | pass | 4 charts |
 | Audit packet exists for acquisition-date proxy and image/license checks | pass | 54 review rows; 229 accession-year mismatches |
+| Publication handoff exists with chart captions and public-claim checklist | pass | ready-for-copyedit; 4 chart captions |
 
 ## Next Moves
 
