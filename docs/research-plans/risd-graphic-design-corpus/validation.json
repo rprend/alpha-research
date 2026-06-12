@@ -56,6 +56,12 @@
     "coverage_search_queries": 160,
     "faculty_portfolio_examples": 60,
     "structured_faculty_portfolio_examples": 60,
+    "course_site_pages": 85,
+    "course_site_pages_with_classroom_artifacts": 82,
+    "course_site_assignment_pages": 46,
+    "course_site_schedule_pages": 13,
+    "course_site_syllabus_pages": 8,
+    "course_site_pages_with_long_briefs": 34,
     "source_clusters": 13,
     "exact_source_clusters": 2,
     "near_duplicate_source_clusters": 1,
@@ -215,6 +221,16 @@
       "id": "faculty_portfolio_examples_have_structured_metadata",
       "status": "pass",
       "detail": "60 faculty portfolio examples include faculty plus title/medium/statement/visual metadata."
+    },
+    {
+      "id": "course_site_pages_reference_valid_sources",
+      "status": "pass",
+      "detail": "85 course-site page role rows; 0 reference errors."
+    },
+    {
+      "id": "course_site_pages_classify_artifact_roles",
+      "status": "pass",
+      "detail": "8 syllabus pages, 46 assignment/project pages, 13 schedule pages, and 82 pages with classroom artifacts."
     },
     {
       "id": "source_clusters_reference_valid_sources",

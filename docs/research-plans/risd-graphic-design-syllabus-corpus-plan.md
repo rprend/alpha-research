@@ -59,6 +59,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/faculty_course_edges.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/faculty_portfolio_examples.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/student_work.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/course_site_pages.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/course_coverage.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/course_coverage.md`
 - `docs/research-plans/risd-graphic-design-corpus/coverage_search_queries.jsonl`
@@ -180,11 +181,12 @@ Implementation requirements:
    - reading/resource list
    - student work gallery
    - irrelevant page
-3. Extract schedule rows from week/class pages when titles, dates, or agenda bodies are available.
-4. Extract assignment records from complete project pages using heading-bounded blocks.
-5. Parse deliverables, constraints, materials, critique format, revision expectations, and output format from project pages.
-6. Link student-work gallery pages to assignments only when page structure or source text supports the relationship.
-7. Add validation counts for complete assignment briefs versus weak sentence snippets.
+3. Write page-role audit rows to `course_site_pages.jsonl`. Status: implemented.
+4. Extract schedule rows from week/class pages when titles, dates, or agenda bodies are available.
+5. Extract assignment records from complete project pages using heading-bounded blocks.
+6. Parse deliverables, constraints, materials, critique format, revision expectations, and output format from project pages.
+7. Link student-work gallery pages to assignments only when page structure or source text supports the relationship.
+8. Add validation counts for complete assignment briefs versus weak sentence snippets.
 
 ### Step 4: Expand Faculty-Centric Discovery
 
@@ -475,6 +477,38 @@ Required fields:
 - `course_inference_basis`
 - `visual_standard_notes`
 - `evidence_grade`
+
+### `course_site_pages.jsonl`
+
+One row per public course-site, syllabus, assignment, schedule, reading/resource, student-work, or archived page that can support page-role audit and classroom-artifact reconstruction.
+
+Required fields:
+
+- `page_id`
+- `source_id`
+- `url`
+- `page_role`
+- `source_type`
+- `course_code`
+- `course_title`
+- `term`
+- `instructor`
+- `parent_source_id`
+- `crawl_depth`
+- `link_label`
+- `extraction_status`
+- `evidence_grade`
+- `syllabus_ids`
+- `assignment_ids`
+- `reading_ids`
+- `schedule_rows`
+- `weekly_schedule_evidence_rows`
+- `assignment_count`
+- `long_assignment_briefs`
+- `high_confidence_assignments`
+- `reading_count`
+- `normalized_readings`
+- `has_classroom_artifact`
 
 ### `faculty_portfolio_examples.jsonl`
 
