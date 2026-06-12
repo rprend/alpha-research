@@ -15,6 +15,7 @@ const promoteCommonCrawlOnly = process.argv.includes('--promote-common-crawl-onl
 const ingestCommonCrawlOnly = process.argv.includes('--ingest-common-crawl-only')
 const ingestFacultyProfilesOnly = process.argv.includes('--ingest-faculty-profiles-only')
 const facultyPortfolioExamplesOnly = process.argv.includes('--faculty-portfolio-examples-only')
+const linkReadingsOnly = process.argv.includes('--link-readings-only')
 const searchApiOnly = process.argv.includes('--search-api-only')
 const officialCourseMaxPages = 12
 const crawlMaxDepth = 1
@@ -26,6 +27,7 @@ const commonCrawlPromoteLimit = Number(process.env.RISD_GD_CC_PROMOTE_LIMIT ?? 8
 const commonCrawlIngestLimit = Number(process.env.RISD_GD_CC_INGEST_LIMIT ?? 8)
 const facultyProfileIngestLimit = Number(process.env.RISD_GD_FACULTY_PROFILE_INGEST_LIMIT ?? 40)
 const facultyPortfolioExampleLimit = Number(process.env.RISD_GD_FACULTY_PORTFOLIO_EXAMPLE_LIMIT ?? 60)
+const readingLinkLimit = Number(process.env.RISD_GD_READING_LINK_LIMIT ?? 30)
 const searchApiMaxQueries = Number(process.env.RISD_GD_SEARCH_API_MAX_QUERIES ?? 6)
 const searchApiResultsPerQuery = Number(process.env.RISD_GD_SEARCH_API_RESULTS_PER_QUERY ?? 10)
 const searchImportPath = process.env.RISD_GD_SEARCH_IMPORTS ?? join(outDir, 'search_imports.jsonl')
@@ -1947,6 +1949,124 @@ function buildReadingFrequency(readings) {
   return [...byWork.values()].sort((a, b) => b.occurrence_count - a.occurrence_count || a.title.localeCompare(b.title))
 }
 
+function openLibraryQueryForReading(reading) {
+  if (!reading || reading.linking_status === 'non_citation_fragment') return null
+  const title = (reading.title ?? '').replace(/\s+/g, ' ').trim()
+  const author = (reading.author ?? '').replace(/\s+/g, ' ').trim()
+  const raw = (reading.raw_citation ?? '').replace(/\s+/g, ' ').trim()
+  const queryText = title || raw
+  if (!queryText || queryText.length < 8) return null
+  if (/https?:\/\/|website|lecture|slides?|folder|canvas|moodle|blackboard/i.test(queryText)) return null
+  const params = new URLSearchParams({
+    limit: '3',
+    fields: 'key,title,author_name,first_publish_year,publisher,isbn,edition_count',
+  })
+  if (title) {
+    params.set('title', title)
+    if (author) params.set('author', author)
+  } else {
+    params.set('q', queryText)
+  }
+  return `https://openlibrary.org/search.json?${params.toString()}`
+}
+
+function normalizeForMatch(value) {
+  return (value ?? '')
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\b(?:the|a|an|and|of|in|on|for|to|with|by)\b/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function scoreOpenLibraryDoc(reading, doc) {
+  const readingTitle = normalizeForMatch(reading.title ?? reading.raw_citation)
+  const docTitle = normalizeForMatch(doc.title)
+  const readingAuthor = normalizeForMatch(reading.author)
+  const docAuthors = normalizeForMatch((doc.author_name ?? []).join(' '))
+  if (!readingTitle || !docTitle) return 0
+  let score = 0
+  if (docTitle === readingTitle) score += 7
+  if (docTitle.includes(readingTitle) || readingTitle.includes(docTitle)) score += 4
+  const readingTokens = new Set(readingTitle.split(' ').filter((token) => token.length > 2))
+  const docTokens = new Set(docTitle.split(' ').filter((token) => token.length > 2))
+  const overlap = [...readingTokens].filter((token) => docTokens.has(token)).length
+  score += overlap
+  if (readingAuthor && docAuthors) {
+    const authorTokens = readingAuthor.split(' ').filter((token) => token.length > 2)
+    if (authorTokens.some((token) => docAuthors.includes(token))) score += 3
+  }
+  if (reading.publication_year && doc.first_publish_year && String(reading.publication_year) === String(doc.first_publish_year)) score += 1
+  return score
+}
+
+function openLibraryMatchForReading(reading, payload) {
+  const docs = Array.isArray(payload?.docs) ? payload.docs : []
+  const candidates = docs
+    .map((doc) => ({ doc, score: scoreOpenLibraryDoc(reading, doc) }))
+    .filter((row) => row.score >= 5)
+    .sort((a, b) => b.score - a.score)
+  const best = candidates[0]
+  if (!best) return null
+  const workKey = best.doc.key?.startsWith('/works/') ? best.doc.key : null
+  if (!workKey) return null
+  return {
+    external_work_id: `openlibrary:${workKey.replace('/works/', '')}`,
+    external_work_url: `https://openlibrary.org${workKey}`,
+    external_link_provider: 'openlibrary',
+    external_link_status: 'matched',
+    external_link_score: best.score,
+    external_title: best.doc.title ?? null,
+    external_author: Array.isArray(best.doc.author_name) ? best.doc.author_name.slice(0, 4).join('; ') : null,
+    external_first_publish_year: best.doc.first_publish_year ?? null,
+    external_publisher: Array.isArray(best.doc.publisher) ? best.doc.publisher[0] : null,
+    external_isbn: Array.isArray(best.doc.isbn) ? best.doc.isbn[0] : null,
+    external_edition_count: best.doc.edition_count ?? null,
+  }
+}
+
+async function enrichReadingLinks(readings, limit = readingLinkLimit) {
+  const enriched = []
+  let attempted = 0
+  let matched = 0
+  for (const reading of readings) {
+    const row = { ...reading }
+    const queryUrl = openLibraryQueryForReading(row)
+    if (!queryUrl || row.external_link_status === 'matched' || attempted >= limit) {
+      enriched.push(row)
+      continue
+    }
+    attempted += 1
+    try {
+      const response = await fetchWithTimeout(queryUrl, 20000)
+      if (!response.ok) throw new Error(`Open Library HTTP ${response.status}`)
+      const payload = JSON.parse(response.buffer.toString('utf8'))
+      const match = openLibraryMatchForReading(row, payload)
+      if (match) {
+        Object.assign(row, match)
+        row.linking_status = row.linking_status === 'unresolved' ? 'external_catalog_match' : row.linking_status
+        row.canonical_work_id = row.canonical_work_id ?? `work_${slug(`${match.external_title ?? row.title ?? row.raw_citation}_${match.external_author ?? row.author ?? 'unknown'}`)}`
+        if (!row.title && match.external_title) row.title = match.external_title
+        if (!row.author && match.external_author) row.author = match.external_author
+        if (!row.publication_year && match.external_first_publish_year) row.publication_year = String(match.external_first_publish_year)
+        matched += 1
+      } else {
+        row.external_link_provider = 'openlibrary'
+        row.external_link_status = 'no_confident_match'
+      }
+    } catch (error) {
+      row.external_link_provider = 'openlibrary'
+      row.external_link_status = 'lookup_error'
+      row.external_link_error = error.message
+    }
+    enriched.push(row)
+    if (attempted < limit) await new Promise((resolve) => setTimeout(resolve, 1100))
+  }
+  return { readings: enriched, attempted, matched }
+}
+
 function buildFacultyGraph({ sources, courseInventory, syllabi }) {
   const facultyByName = new Map()
   const edges = []
@@ -2731,6 +2851,9 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const readingSourceErrors = readings.filter((reading) => !syllabusIds.has(reading.syllabus_id) || reading.source_ids.some((id) => !sourceIds.has(id)))
   const normalizedReadingCount = readings.filter((reading) => reading.canonical_work_id).length
   const catalogReadingCount = readings.filter((reading) => reading.linking_status === 'local_catalog_match').length
+  const externalCatalogReadingCount = readings.filter((reading) => reading.linking_status === 'external_catalog_match' || reading.external_link_status === 'matched').length
+  const externalCatalogAttemptCount = readings.filter((reading) => reading.external_link_provider).length
+  const externalCatalogErrors = readings.filter((reading) => reading.external_link_provider && (!reading.external_link_status || (reading.external_link_status === 'matched' && !reading.external_work_id)))
   const unresolvedReadingCount = readings.filter((reading) => reading.linking_status === 'unresolved').length
   const nonCitationReadingCount = readings.filter((reading) => reading.linking_status === 'non_citation_fragment').length
   const searchCandidateErrors = searchCandidates.filter((candidate) => !candidate.candidate_id || !candidate.status || candidate.promoted_source_id && !sourceIds.has(candidate.promoted_source_id))
@@ -2817,7 +2940,12 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
     {
       id: 'readings_have_normalized_work_links',
       status: normalizedReadingCount > 0 ? 'pass' : 'warn',
-      detail: `${normalizedReadingCount} reading snippets linked to ${readingFrequency.length} canonical works; ${catalogReadingCount} local catalog matches, ${unresolvedReadingCount} unresolved, ${nonCitationReadingCount} non-citation fragments.`,
+      detail: `${normalizedReadingCount} reading snippets linked to ${readingFrequency.length} canonical works; ${catalogReadingCount} local catalog matches, ${externalCatalogReadingCount} external catalog matches, ${unresolvedReadingCount} unresolved, ${nonCitationReadingCount} non-citation fragments.`,
+    },
+    {
+      id: 'readings_external_links_have_metadata',
+      status: externalCatalogErrors.length === 0 ? (externalCatalogAttemptCount > 0 ? 'pass' : 'warn') : 'fail',
+      detail: `${externalCatalogAttemptCount} Open Library lookup attempts recorded; ${externalCatalogReadingCount} reading snippets have external catalog matches; ${externalCatalogErrors.length} external-link metadata errors.`,
     },
     {
       id: 'search_candidates_have_provenance',
@@ -2931,6 +3059,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       readings: readings.length,
       normalized_readings: normalizedReadingCount,
       local_catalog_readings: catalogReadingCount,
+      external_catalog_readings: externalCatalogReadingCount,
+      external_catalog_attempts: externalCatalogAttemptCount,
       unresolved_readings: unresolvedReadingCount,
       non_citation_reading_fragments: nonCitationReadingCount,
       canonical_reading_works: readingFrequency.length,
@@ -3307,6 +3437,8 @@ Overall status: ${validation.status}
 - Normalized reading snippets: ${validation.counts.normalized_readings}
 - Canonical reading works: ${validation.counts.canonical_reading_works}
 - Local catalog reading matches: ${validation.counts.local_catalog_readings}
+- External catalog reading matches: ${validation.counts.external_catalog_readings}
+- External catalog lookup attempts: ${validation.counts.external_catalog_attempts}
 - Unresolved reading snippets: ${validation.counts.unresolved_readings}
 - Non-citation reading fragments: ${validation.counts.non_citation_reading_fragments}
 - Search candidates: ${validation.counts.search_candidates}
@@ -3842,6 +3974,52 @@ function renderDerivedArtifactsOnly() {
   console.log(`assignments=${assignments.length} phase_structured_assignments=${validationWithReview.counts.phase_structured_assignments} validation=${validationWithReview.status}`)
 }
 
+async function renderReadingLinksOnly() {
+  ensureDir(outDir)
+  const sources = loadJsonl(join(outDir, 'sources.jsonl'))
+  const courseInventoryRows = loadJsonl(join(outDir, 'course_inventory.jsonl'))
+  const courses = loadJsonl(join(outDir, 'courses.jsonl'))
+  const syllabi = loadJsonl(join(outDir, 'syllabi.jsonl'))
+  const assignments = loadJsonl(join(outDir, 'assignments.jsonl'))
+  const existingReadings = loadJsonl(join(outDir, 'readings.jsonl'))
+  const searchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
+  const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
+  const commonCrawlPromotions = loadJsonl(join(outDir, 'common_crawl_promotions.jsonl'))
+  const facultyProfileCandidates = loadJsonl(join(outDir, 'faculty_profile_candidates.jsonl'))
+  const faculty = loadJsonl(join(outDir, 'faculty.jsonl'))
+  const facultyCourseEdges = loadJsonl(join(outDir, 'faculty_course_edges.jsonl'))
+  const studentWork = loadJsonl(join(outDir, 'student_work.jsonl'))
+  const facultyPortfolioExamples = loadJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'))
+  const sourceClusters = loadJsonl(join(outDir, 'source_clusters.jsonl'))
+  const sourceVersions = loadJsonl(join(outDir, 'source_versions.jsonl'))
+  const wayback = loadJsonl(join(outDir, 'wayback_captures.jsonl'))
+  const previousValidation = existsSync(join(outDir, 'validation.json')) ? JSON.parse(readFileSync(join(outDir, 'validation.json'), 'utf8')) : null
+  const courseInventory = {
+    offerings: courseInventoryRows,
+    displayed_count: previousValidation?.counts?.official_course_displayed_count ?? courseInventoryRows.length,
+  }
+  const { readings, attempted, matched } = await enrichReadingLinks(existingReadings)
+  const readingFrequency = buildReadingFrequency(readings)
+  const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
+  const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
+  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+  writeJsonl(join(outDir, 'readings.jsonl'), readings)
+  writeJsonl(join(outDir, 'reading_frequency.jsonl'), readingFrequency)
+  writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
+  writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
+  writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
+  writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
+  writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
+  writeJson(join(outDir, 'validation.json'), validationWithReview)
+  writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
+  writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters }))
+  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
+  writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, studentWork }))
+  console.log(`RISD reading links written to ${outDir}`)
+  console.log(`attempted=${attempted} matched=${matched} external_catalog_readings=${validationWithReview.counts.external_catalog_readings} unresolved=${validationWithReview.counts.unresolved_readings} validation=${validationWithReview.status}`)
+}
+
 async function renderCommonCrawlOnly() {
   ensureDir(outDir)
   const commonCrawlCandidates = await buildCommonCrawlCandidates()
@@ -4194,6 +4372,10 @@ async function main() {
   }
   if (commonCrawlOnly) {
     await renderCommonCrawlOnly()
+    return
+  }
+  if (linkReadingsOnly) {
+    await renderReadingLinksOnly()
     return
   }
   if (renderDerivedOnly) {

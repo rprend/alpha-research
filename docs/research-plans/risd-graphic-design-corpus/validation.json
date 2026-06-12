@@ -17,6 +17,8 @@
     "readings": 135,
     "normalized_readings": 56,
     "local_catalog_readings": 43,
+    "external_catalog_readings": 12,
+    "external_catalog_attempts": 30,
     "unresolved_readings": 45,
     "non_citation_reading_fragments": 34,
     "canonical_reading_works": 30,
@@ -103,7 +105,12 @@
     {
       "id": "readings_have_normalized_work_links",
       "status": "pass",
-      "detail": "56 reading snippets linked to 30 canonical works; 43 local catalog matches, 45 unresolved, 34 non-citation fragments."
+      "detail": "56 reading snippets linked to 30 canonical works; 43 local catalog matches, 12 external catalog matches, 45 unresolved, 34 non-citation fragments."
+    },
+    {
+      "id": "readings_external_links_have_metadata",
+      "status": "pass",
+      "detail": "30 Open Library lookup attempts recorded; 12 reading snippets have external catalog matches; 0 external-link metadata errors."
     },
     {
       "id": "search_candidates_have_provenance",

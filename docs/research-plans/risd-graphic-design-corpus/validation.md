@@ -22,6 +22,8 @@ Overall status: pass
 - Normalized reading snippets: 56
 - Canonical reading works: 30
 - Local catalog reading matches: 43
+- External catalog reading matches: 12
+- External catalog lookup attempts: 30
 - Unresolved reading snippets: 45
 - Non-citation reading fragments: 34
 - Search candidates: 34
@@ -69,7 +71,8 @@ Overall status: pass
 - PASS assignments_have_studio_phase_signals: 502 assignment snippets include assignment type, studio phase, or output-format signals.
 - PASS assignments_have_confidence_boundaries: 65 high, 109 medium, and 328 low confidence assignment rows; 0 boundary metadata errors.
 - PASS readings_reference_valid_syllabi_and_sources: 0 reading reference errors.
-- PASS readings_have_normalized_work_links: 56 reading snippets linked to 30 canonical works; 43 local catalog matches, 45 unresolved, 34 non-citation fragments.
+- PASS readings_have_normalized_work_links: 56 reading snippets linked to 30 canonical works; 43 local catalog matches, 12 external catalog matches, 45 unresolved, 34 non-citation fragments.
+- PASS readings_external_links_have_metadata: 30 Open Library lookup attempts recorded; 12 reading snippets have external catalog matches; 0 external-link metadata errors.
 - PASS search_candidates_have_provenance: 34 search candidates, 10 promoted, 0 imported, 6 live API rows (6 provider-unconfigured); 0 candidate reference errors.
 - PASS common_crawl_candidates_have_provenance: 168 Common Crawl candidates, 35 fetch candidates, 8 ingested; 0 provenance errors.
 - PASS common_crawl_promotions_reference_candidates: 8 Common Crawl promotions, 8 successful, 8 ingested; 0 reference errors.

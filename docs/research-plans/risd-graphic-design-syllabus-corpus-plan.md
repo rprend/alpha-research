@@ -95,7 +95,7 @@ Current seed sources include:
 Known gaps:
 
 - Discovery is still seed-based.
-- Citation extraction is heuristic with local catalog matching and non-citation fragment classification; external API linking is not wired yet.
+- Citation extraction is heuristic with local catalog matching and non-citation fragment classification. A bounded Open Library linking mode is now wired for plausible book citations and records external match metadata directly on reading rows.
 - Assignment extraction is snippet-based with structured signals, confidence, and boundary status; it still needs richer full-brief parsing from long assignment pages.
 - Search candidate import is supported through local JSON/JSONL exports, and a live search API path is wired for Brave or Bing when an API key is present in the environment.
 - A bounded Common Crawl candidate, promotion, and ingestion pass exists, but it is still capped and should be expanded carefully.
@@ -248,6 +248,17 @@ Required fields:
 - `week_or_date`
 - `canonical_work_id`
 - `linking_status`
+- `external_work_id`
+- `external_work_url`
+- `external_link_provider`
+- `external_link_status`
+- `external_link_score`
+- `external_title`
+- `external_author`
+- `external_first_publish_year`
+- `external_publisher`
+- `external_isbn`
+- `external_edition_count`
 
 ### `student_work.jsonl`
 
@@ -724,7 +735,7 @@ Implementation requirements:
 1. Extract raw citation strings from syllabi and reading pages.
 2. Split likely citations into title, author, publisher, and year when possible.
 3. Link citations against public APIs where feasible:
-   - Open Library
+   - Open Library, using `https://openlibrary.org/search.json` with bounded, rate-limited lookup passes and no API key
    - Crossref
    - OpenAlex
    - Wikidata
@@ -807,7 +818,7 @@ Target scripts:
 - `scripts/risd-gd-classify-docs.mjs`: classify fetched documents
 - `scripts/risd-gd-parse-syllabi.mjs`: extract spans and schedule fields
 - `scripts/risd-gd-extract-assignments.mjs`: parse project briefs
-- `scripts/risd-gd-link-readings.mjs`: normalize citations
+- `scripts/risd-gd-link-readings.mjs`: normalize citations and run bounded external catalog linking, currently implemented inside `scripts/risd-graphic-design-corpus.mjs --link-readings-only`
 - `scripts/risd-gd-dedupe.mjs`: exact and near-dedupe
 - `scripts/risd-gd-reconstruct.mjs`: produce course packets and tacit memos
 - `scripts/risd-gd-audit.mjs`: validate provenance, missing fields, and source coverage
