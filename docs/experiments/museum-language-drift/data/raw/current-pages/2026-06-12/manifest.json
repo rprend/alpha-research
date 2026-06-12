@@ -1,0 +1,258 @@
+{
+  "runDate": "2026-06-12",
+  "startedAt": "2026-06-12T18:09:28.446Z",
+  "source": "current public museum pages",
+  "requests": [
+    {
+      "museum": "The Metropolitan Museum of Art",
+      "pageType": "about",
+      "url": "https://www.metmuseum.org/about-the-met",
+      "status": "http-error",
+      "httpStatus": 429,
+      "responsePath": "data/raw/current-pages/2026-06-12/the-metropolitan-museum-of-art-about/index.html"
+    },
+    {
+      "museum": "The British Museum",
+      "pageType": "about",
+      "url": "https://www.britishmuseum.org/about-us",
+      "status": "http-error",
+      "httpStatus": 403,
+      "responsePath": "data/raw/current-pages/2026-06-12/the-british-museum-about/index.html"
+    },
+    {
+      "museum": "Smithsonian National Museum of African American History and Culture",
+      "pageType": "about",
+      "url": "https://nmaahc.si.edu/about",
+      "status": "http-error",
+      "httpStatus": 403,
+      "responsePath": "data/raw/current-pages/2026-06-12/smithsonian-national-museum-of-african-american-history-and-culture-about/index.html"
+    },
+    {
+      "museum": "Museum of Modern Art",
+      "pageType": "about",
+      "url": "https://www.moma.org/about/",
+      "status": "http-error",
+      "httpStatus": 403,
+      "responsePath": "data/raw/current-pages/2026-06-12/museum-of-modern-art-about/index.html"
+    },
+    {
+      "museum": "Tate",
+      "pageType": "about",
+      "url": "https://www.tate.org.uk/about-us",
+      "status": 200,
+      "wordCount": 574,
+      "responsePath": "data/raw/current-pages/2026-06-12/tate-about/index.html"
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "pageType": "about",
+      "url": "https://www.getty.edu/about/",
+      "status": 200,
+      "wordCount": 333,
+      "responsePath": "data/raw/current-pages/2026-06-12/j-paul-getty-museum-about/index.html"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "pageType": "about",
+      "url": "https://www.rijksmuseum.nl/en/about-us",
+      "status": 200,
+      "wordCount": 124,
+      "responsePath": "data/raw/current-pages/2026-06-12/rijksmuseum-about/index.html"
+    },
+    {
+      "museum": "Musée du Louvre",
+      "pageType": "about",
+      "url": "https://www.louvre.fr/en/explore/the-palace",
+      "status": 200,
+      "wordCount": 301,
+      "responsePath": "data/raw/current-pages/2026-06-12/mus-e-du-louvre-about/index.html"
+    },
+    {
+      "museum": "National Gallery of Art",
+      "pageType": "about",
+      "url": "https://www.nga.gov/about.html",
+      "status": "http-error",
+      "httpStatus": 403,
+      "responsePath": "data/raw/current-pages/2026-06-12/national-gallery-of-art-about/index.html"
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "pageType": "about",
+      "url": "https://www.artic.edu/about-us",
+      "status": 200,
+      "wordCount": 293,
+      "responsePath": "data/raw/current-pages/2026-06-12/art-institute-of-chicago-about/index.html"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "pageType": "about",
+      "url": "https://www.vam.ac.uk/info/about-us",
+      "status": 200,
+      "wordCount": 656,
+      "responsePath": "data/raw/current-pages/2026-06-12/victoria-and-albert-museum-about/index.html"
+    },
+    {
+      "museum": "American Museum of Natural History",
+      "pageType": "about",
+      "url": "https://www.amnh.org/about",
+      "status": "http-error",
+      "httpStatus": 403,
+      "responsePath": "data/raw/current-pages/2026-06-12/american-museum-of-natural-history-about/index.html"
+    },
+    {
+      "museum": "The British Museum",
+      "pageType": "provenance",
+      "url": "https://www.britishmuseum.org/about-us/british-museum-story/contested-objects-collection",
+      "status": "http-error",
+      "httpStatus": 403,
+      "responsePath": "data/raw/current-pages/2026-06-12/the-british-museum-provenance/index.html"
+    },
+    {
+      "museum": "The Metropolitan Museum of Art",
+      "pageType": "provenance",
+      "url": "https://www.metmuseum.org/about-the-met/policies-and-documents/provenance-research",
+      "status": "http-error",
+      "httpStatus": 429,
+      "responsePath": "data/raw/current-pages/2026-06-12/the-metropolitan-museum-of-art-provenance/index.html"
+    },
+    {
+      "museum": "Museum of Modern Art",
+      "pageType": "collection",
+      "url": "https://www.moma.org/collection/",
+      "status": "http-error",
+      "httpStatus": 403,
+      "responsePath": "data/raw/current-pages/2026-06-12/museum-of-modern-art-collection/index.html"
+    },
+    {
+      "museum": "Whitney Museum of American Art",
+      "pageType": "about",
+      "url": "https://whitney.org/about",
+      "status": 200,
+      "wordCount": 569,
+      "responsePath": "data/raw/current-pages/2026-06-12/whitney-museum-of-american-art-about/index.html"
+    },
+    {
+      "museum": "San Francisco Museum of Modern Art",
+      "pageType": "about",
+      "url": "https://www.sfmoma.org/about/",
+      "status": 200,
+      "wordCount": 147,
+      "responsePath": "data/raw/current-pages/2026-06-12/san-francisco-museum-of-modern-art-about/index.html"
+    },
+    {
+      "museum": "Museum of Contemporary Art Chicago",
+      "pageType": "about",
+      "url": "https://mcachicago.org/About",
+      "status": 200,
+      "wordCount": 787,
+      "responsePath": "data/raw/current-pages/2026-06-12/museum-of-contemporary-art-chicago-about/index.html"
+    },
+    {
+      "museum": "Walker Art Center",
+      "pageType": "about",
+      "url": "https://walkerart.org/about",
+      "status": 200,
+      "wordCount": 466,
+      "responsePath": "data/raw/current-pages/2026-06-12/walker-art-center-about/index.html"
+    },
+    {
+      "museum": "Cleveland Museum of Art",
+      "pageType": "about",
+      "url": "https://www.clevelandart.org/about",
+      "status": 200,
+      "wordCount": 274,
+      "responsePath": "data/raw/current-pages/2026-06-12/cleveland-museum-of-art-about/index.html"
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "pageType": "about",
+      "url": "https://philamuseum.org/about",
+      "status": 200,
+      "wordCount": 457,
+      "responsePath": "data/raw/current-pages/2026-06-12/philadelphia-museum-of-art-about/index.html"
+    },
+    {
+      "museum": "High Museum of Art",
+      "pageType": "about",
+      "url": "https://high.org/about/",
+      "status": 200,
+      "wordCount": 203,
+      "responsePath": "data/raw/current-pages/2026-06-12/high-museum-of-art-about/index.html"
+    },
+    {
+      "museum": "Natural History Museum London",
+      "pageType": "about",
+      "url": "https://www.nhm.ac.uk/about-us.html",
+      "status": 200,
+      "wordCount": 454,
+      "responsePath": "data/raw/current-pages/2026-06-12/natural-history-museum-london-about/index.html"
+    }
+  ],
+  "errors": [
+    {
+      "museum": "The Metropolitan Museum of Art",
+      "pageType": "about",
+      "url": "https://www.metmuseum.org/about-the-met",
+      "status": 429,
+      "body": "<!DOCTYPE html><html lang=\"en\" data-astro-cid-nbv56vs3> <head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"theme-color\" content=\"#000\"><title>Vercel Security Checkpoint</title><style>.spinner[data-astro-cid-jlpqxutv]{display:flex;flex-direction:column;justify-content:center;align-items:center}.spinner-circle[data-astro-cid-jlpqxutv]{transform-origin:center;animation:spinner-circle-animate 1s step-start infinite}rect[data-astro-cid-jlpqxutv]{fill:var(--ds-gray-900)}@keyframes spinner-circle-animate{0%{transform:rotate(0)}10%{transform:rotate(36deg)}20%{transform:rotate(72deg)}30%{transform:rotate(108deg)}40%{transform:rotate(144deg)}50%{transform:rotate(180deg)}60%{transform:rotate(216deg)}70%{transform:rotate(252deg)}80%{transform:rotate(288deg)}90%{transform:rotate(324deg)}to{transform:rotate(360deg)}}:root{--ds-gray-900: hsla(0, 0%, 40%, 1);--ds-gray-alpha-1000: hsla(0, 0%, 0%, .91);--background-color: hsla(0, 0%, 100%, 1);--li"
+    },
+    {
+      "museum": "The British Museum",
+      "pageType": "about",
+      "url": "https://www.britishmuseum.org/about-us",
+      "status": 403,
+      "body": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-eT2l4En4ITkrdLToUx3RxT&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font"
+    },
+    {
+      "museum": "Smithsonian National Museum of African American History and Culture",
+      "pageType": "about",
+      "url": "https://nmaahc.si.edu/about",
+      "status": 403,
+      "body": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Smithsonian request verification</title>\n    <style>:root {\n  color-scheme: light;\n  --si-blue: #009ade;\n  --si-yellow: #ffcd00;\n  --ink: #101820;\n  --muted: #4d5965;\n  --line: #d7dde3;\n  --surface: #ffffff;\n  --page: #f5f7f8;\n  --focus: #005ea8;\n}\n\n* {\n  box-sizing: border-box;\n}\n\nhtml {\n  min-height: 100%;\n}\n\nbody {\n  min-height: 100vh;\n  margin: 0;\n  background: var(--page);\n  color: var(--ink);\n  font-family: Arial, Helvetica, sans-serif;\n  line-height: 1.5;\n}\n\n.site-shell {\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n\n.brand-bar {\n  border-top: 8px solid var(--si-yellow);\n  background: var(--surface);\n  border-bottom: 1px solid var(--line);\n}\n\n.brand-inner,\n.content,\n.footer-inner {\n  width: min(100% - 32px, 960px);\n  margin: 0 auto;\n}\n\n.brand-inner {\n  min-height: 56px;\n  display: flex;\n  align-items: center"
+    },
+    {
+      "museum": "Museum of Modern Art",
+      "pageType": "about",
+      "url": "https://www.moma.org/about/",
+      "status": 403,
+      "body": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-M9OtwKq8FlxoyP0EdZDWoV&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font"
+    },
+    {
+      "museum": "National Gallery of Art",
+      "pageType": "about",
+      "url": "https://www.nga.gov/about.html",
+      "status": 403,
+      "body": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-SoCW9xz6qDuB0qPzzmCEAR&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font"
+    },
+    {
+      "museum": "American Museum of Natural History",
+      "pageType": "about",
+      "url": "https://www.amnh.org/about",
+      "status": 403,
+      "body": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en-US\" lang=\"en-US\">\n<head>\n    <TITLE>CAPTCHA</TITLE>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n <style>\n.center {\n  display: block;\n  margin: 40px auto;\n  width: 300px;\n}\n.content {\n    font-family:Arial,sans-serif;\n    font-size: 1em;\n    text-align: center;\n}\n.cloudflare {\n    font-family:Arial,sans-serif;\n    font-size: 0.8em;\n    text-align: center;\n    padding-top: 350px;\n}\n</style>\n\n<!--This is captcha.html-->\n \n<meta http-equiv=\"refresh\" content=\"360\"></head>\n<body><img src=\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QCIRXhpZgAATU0AKgAAAAgAAwESAAMAAAABAAEAAAExAAIAAAAjAAAAModpAAQAAAABAAAAVgAAAABBZG9iZSBJbGx1c3RyYXRvciAyNy4xIChNYWNpbnRvc2gpAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAACvKADAAQAAAABAAAAlwAAAAD/4QvjaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4"
+    },
+    {
+      "museum": "The British Museum",
+      "pageType": "provenance",
+      "url": "https://www.britishmuseum.org/about-us/british-museum-story/contested-objects-collection",
+      "status": 403,
+      "body": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-wcfWQSbQLNJbbscz7GHV1r&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font"
+    },
+    {
+      "museum": "The Metropolitan Museum of Art",
+      "pageType": "provenance",
+      "url": "https://www.metmuseum.org/about-the-met/policies-and-documents/provenance-research",
+      "status": 429,
+      "body": "<!DOCTYPE html><html lang=\"en\" data-astro-cid-nbv56vs3> <head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"theme-color\" content=\"#000\"><title>Vercel Security Checkpoint</title><style>.spinner[data-astro-cid-jlpqxutv]{display:flex;flex-direction:column;justify-content:center;align-items:center}.spinner-circle[data-astro-cid-jlpqxutv]{transform-origin:center;animation:spinner-circle-animate 1s step-start infinite}rect[data-astro-cid-jlpqxutv]{fill:var(--ds-gray-900)}@keyframes spinner-circle-animate{0%{transform:rotate(0)}10%{transform:rotate(36deg)}20%{transform:rotate(72deg)}30%{transform:rotate(108deg)}40%{transform:rotate(144deg)}50%{transform:rotate(180deg)}60%{transform:rotate(216deg)}70%{transform:rotate(252deg)}80%{transform:rotate(288deg)}90%{transform:rotate(324deg)}to{transform:rotate(360deg)}}:root{--ds-gray-900: hsla(0, 0%, 40%, 1);--ds-gray-alpha-1000: hsla(0, 0%, 0%, .91);--background-color: hsla(0, 0%, 100%, 1);--li"
+    },
+    {
+      "museum": "Museum of Modern Art",
+      "pageType": "collection",
+      "url": "https://www.moma.org/collection/",
+      "status": 403,
+      "body": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-GpaD38fwMDOwnuxlql6ylF&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font"
+    }
+  ],
+  "finishedAt": "2026-06-12T18:09:34.677Z",
+  "recordCount": 14
+}

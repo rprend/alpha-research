@@ -1,0 +1,550 @@
+{
+  "generatedAt": "2026-06-12T18:09:34.754Z",
+  "pages": 14,
+  "currentPages": 14,
+  "historicalPages": 0,
+  "museums": 14,
+  "pageTypes": [
+    "about"
+  ],
+  "yearRange": {
+    "earliest": 2026,
+    "latest": 2026
+  },
+  "termFamilyTotals": {
+    "access_public": 40,
+    "community_inclusion": 33,
+    "research_scholarship": 15,
+    "decolonization_reckoning": 2,
+    "civilization_world_culture": 0,
+    "provenance_ownership": 0,
+    "restitution_repatriation": 0
+  },
+  "termFamilyByPageType": [
+    {
+      "page_type": "about",
+      "family": "access_public",
+      "pages": 14,
+      "count": 40,
+      "words": 5638,
+      "count_per_1000_words": 7.095
+    },
+    {
+      "page_type": "about",
+      "family": "community_inclusion",
+      "pages": 14,
+      "count": 33,
+      "words": 5638,
+      "count_per_1000_words": 5.853
+    },
+    {
+      "page_type": "about",
+      "family": "research_scholarship",
+      "pages": 14,
+      "count": 15,
+      "words": 5638,
+      "count_per_1000_words": 2.661
+    },
+    {
+      "page_type": "about",
+      "family": "decolonization_reckoning",
+      "pages": 14,
+      "count": 2,
+      "words": 5638,
+      "count_per_1000_words": 0.355
+    },
+    {
+      "page_type": "about",
+      "family": "civilization_world_culture",
+      "pages": 14,
+      "count": 0,
+      "words": 5638,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "about",
+      "family": "provenance_ownership",
+      "pages": 14,
+      "count": 0,
+      "words": 5638,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "about",
+      "family": "restitution_repatriation",
+      "pages": 14,
+      "count": 0,
+      "words": 5638,
+      "count_per_1000_words": 0
+    }
+  ],
+  "sourceInventory": [
+    {
+      "museum": "Tate",
+      "page_type": "about",
+      "status": 200,
+      "word_count": 574,
+      "url": "https://www.tate.org.uk/about-us",
+      "response_path": "data/raw/current-pages/2026-06-12/tate-about/index.html"
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "page_type": "about",
+      "status": 200,
+      "word_count": 333,
+      "url": "https://www.getty.edu/about/",
+      "response_path": "data/raw/current-pages/2026-06-12/j-paul-getty-museum-about/index.html"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "page_type": "about",
+      "status": 200,
+      "word_count": 124,
+      "url": "https://www.rijksmuseum.nl/en/about-us",
+      "response_path": "data/raw/current-pages/2026-06-12/rijksmuseum-about/index.html"
+    },
+    {
+      "museum": "Musée du Louvre",
+      "page_type": "about",
+      "status": 200,
+      "word_count": 301,
+      "url": "https://www.louvre.fr/en/explore/the-palace",
+      "response_path": "data/raw/current-pages/2026-06-12/mus-e-du-louvre-about/index.html"
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "page_type": "about",
+      "status": 200,
+      "word_count": 293,
+      "url": "https://www.artic.edu/about-us",
+      "response_path": "data/raw/current-pages/2026-06-12/art-institute-of-chicago-about/index.html"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "page_type": "about",
+      "status": 200,
+      "word_count": 656,
+      "url": "https://www.vam.ac.uk/info/about-us",
+      "response_path": "data/raw/current-pages/2026-06-12/victoria-and-albert-museum-about/index.html"
+    },
+    {
+      "museum": "Whitney Museum of American Art",
+      "page_type": "about",
+      "status": 200,
+      "word_count": 569,
+      "url": "https://whitney.org/about",
+      "response_path": "data/raw/current-pages/2026-06-12/whitney-museum-of-american-art-about/index.html"
+    },
+    {
+      "museum": "San Francisco Museum of Modern Art",
+      "page_type": "about",
+      "status": 200,
+      "word_count": 147,
+      "url": "https://www.sfmoma.org/about/",
+      "response_path": "data/raw/current-pages/2026-06-12/san-francisco-museum-of-modern-art-about/index.html"
+    },
+    {
+      "museum": "Museum of Contemporary Art Chicago",
+      "page_type": "about",
+      "status": 200,
+      "word_count": 787,
+      "url": "https://mcachicago.org/About",
+      "response_path": "data/raw/current-pages/2026-06-12/museum-of-contemporary-art-chicago-about/index.html"
+    },
+    {
+      "museum": "Walker Art Center",
+      "page_type": "about",
+      "status": 200,
+      "word_count": 466,
+      "url": "https://walkerart.org/about",
+      "response_path": "data/raw/current-pages/2026-06-12/walker-art-center-about/index.html"
+    },
+    {
+      "museum": "Cleveland Museum of Art",
+      "page_type": "about",
+      "status": 200,
+      "word_count": 274,
+      "url": "https://www.clevelandart.org/about",
+      "response_path": "data/raw/current-pages/2026-06-12/cleveland-museum-of-art-about/index.html"
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "page_type": "about",
+      "status": 200,
+      "word_count": 457,
+      "url": "https://philamuseum.org/about",
+      "response_path": "data/raw/current-pages/2026-06-12/philadelphia-museum-of-art-about/index.html"
+    },
+    {
+      "museum": "High Museum of Art",
+      "page_type": "about",
+      "status": 200,
+      "word_count": 203,
+      "url": "https://high.org/about/",
+      "response_path": "data/raw/current-pages/2026-06-12/high-museum-of-art-about/index.html"
+    },
+    {
+      "museum": "Natural History Museum London",
+      "page_type": "about",
+      "status": 200,
+      "word_count": 454,
+      "url": "https://www.nhm.ac.uk/about-us.html",
+      "response_path": "data/raw/current-pages/2026-06-12/natural-history-museum-london-about/index.html"
+    }
+  ],
+  "pagesDetail": [
+    {
+      "museum": "Tate",
+      "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.tate.org.uk/about-us",
+      "status": 200,
+      "words": 574,
+      "text_preview": "About Us | Tate Skip navigation What are you looking for? Try searching for... Hurvin Anderson Ophelia School visits to Tate Tate Modern Lates Tracey Emin DON'T MISS Exhibition Hurvin Anderson Tate Britain Until 23 Aug 2026 £18 / Free for Members --> Exhibition Tracey Emin: A Second Life Tate Modern Until 31 Aug 2026 £20 / Free for Members --> Become a Member About Tate Who we are Our senior staff Our work Working at Tate Business services Get in touch Our mission is to increase the public’s enjoyment and understanding of British art from the 16th century to the present day and of internationa",
+      "snippets": [
+        "tion Our commitment to race equality Tate's commitment to combat racism in our own organisation and in society at large Accessibility Statement for Tate.org.uk Tate's website accessibility statement Policies and Procedures Find our policies inclu",
+        "Tate Who we are Our senior staff Our work Working at Tate Business services Get in touch Our mission is to increase the public’s enjoyment and understanding of British art from the 16th century to the present day and of international modern and c",
+        "and contemporary art International Partnerships Bringing Tate’s collection and expertise to audiences around the world Learning Programmes We explore the role that art and museums play in society, and what positive contribution they can make Conse",
+        "or Tate.org.uk Tate's website accessibility statement Policies and Procedures Find our policies including diversity and inclusion, website, modern slavery and human trafficking Access to Information Find out how we can help when seeking information",
+        "ty Statement for Tate.org.uk Tate's website accessibility statement Policies and Procedures Find our policies including diversity and inclusion, website, modern slavery and human trafficking Access to Information Find out how we can help when seekin"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 4,
+        "community_inclusion": 6,
+        "research_scholarship": 3
+      }
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.getty.edu/about/",
+      "status": 200,
+      "words": 333,
+      "text_preview": "About | Getty Skip to content Sitewide Messages About Our Mission Getty advances art’s meaning and impact—bringing people together to preserve the past, inspire the present, and shape the future. Who We Are Leadership & Governance Meet the leaders who guide the vision and operation of the Trust Trust Officers and Program Directors Board of Trustees Policies & Documents Financial Information Facts & History Learn more about the legacy of businessman and art collector J. Paul Getty Getty Facts Our History Our Programs Getty Research Institute An international center for the study of visual art G",
+      "snippets": [
+        "opportunities Review benefits for Getty staff Join & Give With your support, our exhibitions, special initiatives, and education programs engage and inspire audiences around the world Learn about ways to give LA Arts Community Fire Relief Fund - Le",
+        "cial initiatives, and education programs engage and inspire audiences around the world Learn about ways to give LA Arts Community Fire Relief Fund - Learn about the fund Contact & Connect Stay in touch and connect with Getty Contact & Connect Subscr",
+        "y Learn more about the legacy of businessman and art collector J. Paul Getty Getty Facts Our History Our Programs Getty Research Institute An international center for the study of visual art Getty Conservation Institute Advancing conservation pract",
+        "Getty Facts Our History Our Programs Getty Research Institute An international center for the study of visual art Getty Conservation Institute Advancing conservation practice and building capacity Getty Museum Fostering engagement and understanding of"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 1,
+        "community_inclusion": 1,
+        "research_scholarship": 3
+      }
+    },
+    {
+      "museum": "Rijksmuseum",
+      "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.rijksmuseum.nl/en/about-us",
+      "status": 200,
+      "words": 124,
+      "text_preview": "About us - Rijksmuseum Cookie usage The Rijksmuseum uses cookies. A cookie is a small text file that a website stores on your computer or mobile device when you visit our site. Would you like to know more? Read our cookie policy . Accept No, rather not Home Language Nederlands (Dutch) English (English) Besucherinformationen Service visiteur Informazioni per i visitatori Informacion para los visitantes Informashon pa bishita &#x30D3;&#x30B8;&#x30BF;&#x30FC;&#xB7;&#x30A4;&#x30F3;&#x30D5;&#x30A9;&#x30E1;&#x30FC;&#x30B7;&#x30E7;&#x30F3; &#x6E38;&#x5BA2;&#x4FE1;&#x606F; &#x418;&#x43D;&#x444;&#x43E;",
+      "snippets": [],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 0,
+        "community_inclusion": 0,
+        "research_scholarship": 0
+      }
+    },
+    {
+      "museum": "Musée du Louvre",
+      "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.louvre.fr/en/explore/the-palace",
+      "status": 200,
+      "words": 301,
+      "text_preview": "The palace - From the former palace of the French monarchs to the largest museum in the world The palace - From the former palace of the French monarchs to the largest museum in the world Aller au contenu Search English Langues English Français Español 中文 Louvre - Back to Home Online Boutique Tickets The palace From the former palace of the French monarchs to the largest museum in the world A garden at the heart of the Louvre The Carrousel Garden The Salon Carré The original Salon A pyramid for a symbol Cour Napoléon & Pyramid From the &#x27;Mona Lisa&#x27; to &#x27;The Wedding Feast at Cana&#",
+      "snippets": [
+        "iterranean The Galerie d’Angoulême Shining new light on sculpture Cour Puget and Cour Marly The Splendour of the Second Empire The Napoleon III Apartments To the glory of a queen of France The Galerie Médicis - Temporarily closed The Art of Livin",
+        "and art objects from the 18th century From all corners of the World The Gallery of Five Continents From Royal Garden to Public Park The Tuileries Garden"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 1,
+        "access_public": 1,
+        "community_inclusion": 0,
+        "research_scholarship": 0
+      }
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.artic.edu/about-us",
+      "status": 200,
+      "words": 293,
+      "text_preview": "About Us | The Art Institute of Chicago Skip to Content Menu About Us About Us About Us Mission and History Leadership Departments Financial Reporting Share Founded in 1879, the Art Institute of Chicago is one of the world’s major museums, housing an extraordinary collection of objects from across places, cultures, and time. We are also a place of active learning for all—dedicated to investigation, innovation, education, and dialogue—continually aspiring to greater public service and civic engagement. Mission and History From its founding in 1879 to the present, the Art Institute of Chicago ha",
+      "snippets": [
+        "active learning for all—dedicated to investigation, innovation, education, and dialogue—continually aspiring to greater public service and civic engagement. Mission and History From its founding in 1879 to the present, the Art Institute of Chicag",
+        "ross places, cultures, and time. We are also a place of active learning for all—dedicated to investigation, innovation, education, and dialogue—continually aspiring to greater public service and civic engagement. Mission and History From its foundin",
+        "s, housing an extraordinary collection of objects from across places, cultures, and time. We are also a place of active learning for all—dedicated to investigation, innovation, education, and dialogue—continually aspiring to greater public service",
+        "ith our city and the world. Leadership Deeply committed to sharing the wide spectrum of human creativity with our local communities and the world beyond, the leadership of the museum works collaboratively to continually advance the excellence and acce",
+        "wsletters News and Exhibitions Career Opportunities Families Public Programs K-12 Educator Resources Teen Opportunities Research, Publishing, and Conservation From To S M T W T F S Done Reset Learn more Lorem ipsum Gallery actions Image actions Sha"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 5,
+        "community_inclusion": 1,
+        "research_scholarship": 2
+      }
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.vam.ac.uk/info/about-us",
+      "status": 200,
+      "words": 656,
+      "text_preview": "About us &middot; V&A Skip to main content About us The V&A is a family of museums dedicated to the power of creativity. Our mission is to champion design and creativity in all its forms, advance cultural knowledge, and inspire makers, creators and innovators everywhere. We share a 5,000 year old story of creativity through exhibitions, events, educational programmes, digital experiences, conservation, research and an ever-evolving national collection of over 2.8 million objects spanning every creative discipline. Explore the V&A collections Contact us General enquiries Tel: +44 (0)20 7942 200",
+      "snippets": [
+        "of the original building. In the past 15 years, over 85% of the museum’s public spaces have been transformed, improving access and allowing the collections to be more elegantly and intelligently displayed. Find out more about FuturePlan and how y",
+        "Queen Victoria in 1899, to today's state-of-the-art galleries, the museum has constantly evolved in its collecting and public interpretation of art and design. Its collections span over 5,000 years of human creativity in virtually every medium,",
+        "&A matter to more people and in that context we work to the following six strategic objectives: To create a world class visitor and learning experience across all V&A sites and collections. Focus and deepen the relevance of our collections to the",
+        "ng, touring exhibitions, loans, advice and skills sharing. Our international work brings benefits to the museum and its visitors by enriching our knowledge and expertise - allowing us to make sense of our collections, attracting new audiences, and",
+        "more people and in that context we work to the following six strategic objectives: To create a world class visitor and learning experience across all V&A sites and collections. Focus and deepen the relevance of our collections to the UK creative a"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 9,
+        "community_inclusion": 2,
+        "research_scholarship": 3
+      }
+    },
+    {
+      "museum": "Whitney Museum of American Art",
+      "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://whitney.org/about",
+      "status": 200,
+      "words": 569,
+      "text_preview": "About the Whitney | Whitney Museum of American Art Skip to main content Whitney Museum of American Art Open today: 10:30 am–10 pm Tickets Book Tickets Whitney Biennial Book Tickets Whitney Biennial Book Tickets Become a member Menu Open today: 10:30 am–10 pm Book Tickets Whitney Biennial Book Tickets Whitney Biennial Book Tickets Become a member About the Whitney The Whitney is the only museum dedicated to American art and artists. Gertrude Vanderbilt Whitney founded the Museum in 1930, taking a bold stand for American artists who were often overlooked. Today, our collection features works by ",
+      "snippets": [
+        "Piano-designed building features state-of-the-art galleries and sweeping skyline views of the Statue of Liberty and the Empire State Building from our terraces. After viewing the galleries, visitors can grab a drink and a bite at Studio Bar and F",
+        "olph Hearst Foundation. Support for the Whitney’s general operations is provided by donors to the Museum’s Annual Fund, public funds from the New York State Council on the Arts, a State Agency, The Brown Foundation Inc, of Houston, the Enoch Foun",
+        "ng skyline views of the Statue of Liberty and the Empire State Building from our terraces. After viewing the galleries, visitors can grab a drink and a bite at Studio Bar and Frenchette Bakery or explore neighborhood attractions like the High Line"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 1,
+        "access_public": 2,
+        "community_inclusion": 0,
+        "research_scholarship": 0
+      }
+    },
+    {
+      "museum": "San Francisco Museum of Modern Art",
+      "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.sfmoma.org/about/",
+      "status": 200,
+      "words": 147,
+      "text_preview": "About SFMOMA Skip to content Main navigation Photo: © Henrik Kam About SFMOMA The San Francisco Museum of Modern Art is one of the largest museums of modern and contemporary art in the United States and a thriving cultural center for the Bay Area. Our remarkable collection of painting, sculpture, photography, architecture, design, and media arts, is housed in an LEED Gold-certified building designed by the global architects Snøhetta and Mario Botta. In addition to our seven gallery floors, SFMOMA offers 45,000 square feet of free, art-filled public space open to all. Welcome! Mission Statement",
+      "snippets": [
+        "Snøhetta and Mario Botta. In addition to our seven gallery floors, SFMOMA offers 45,000 square feet of free, art-filled public space open to all. Welcome! Mission Statement SFMOMA believes the art of our time is vital and shares it with passion a",
+        "e unparalleled collections, create exhilarating exhibitions, and develop engaging public programs that connect with our community."
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 2,
+        "community_inclusion": 1,
+        "research_scholarship": 0
+      }
+    },
+    {
+      "museum": "Museum of Contemporary Art Chicago",
+      "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://mcachicago.org/About",
+      "status": 200,
+      "words": 787,
+      "text_preview": "MCA - About | Museum of Contemporary Art Chicago Jump to content Menu About A museum of contemporary art is different from the general art museum where the values of the past are enshrined. Instead it is a place where new ideas are shown and tested. —Essay by MCA founders, “From Dream to Reality,” 1966 The Museum of Contemporary Art Chicago is one of the world’s largest museums dedicated to contemporary art. Here, the public can experience the work and ideas of living artists and understand the historical, social, and cultural context of the art of our time. Since our inception in 1967, it has",
+      "snippets": [
+        "6 The Museum of Contemporary Art Chicago is one of the world’s largest museums dedicated to contemporary art. Here, the public can experience the work and ideas of living artists and understand the historical, social, and cultural context of the",
+        "our inception in 1967, it has been our mission to exhibit new and experimental work in all media, paired with ambitious learning programs. In 1974, the MCA expanded its mission to include collecting and preserving contemporary art for future genera",
+        "t has grown to include more than 2,000 works. The MCA engages audiences of today and tomorrow, working closely with our community to create space for dialogue, learning, and growth. Learn more about who we are, the museum’s commitments, and our Comm",
+        "creative collective experiences. Our partners below include grassroots organizations and historically underrepresented communities and groups. These partners host conversations, workshops, talks, and gatherings that provide space for Chicagoans to co"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 4,
+        "community_inclusion": 5,
+        "research_scholarship": 0
+      }
+    },
+    {
+      "museum": "Walker Art Center",
+      "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://walkerart.org/about",
+      "status": 200,
+      "words": 466,
+      "text_preview": "Walker Art Center | About the Walker Skip to main content Open Today 10AM&ndash;5PM Search What&#8217;s On Visit Art & Artists Walker Visit Join & Give Join & Give Shop Tickets Search Toggle navigation menu Main Menu The Walker Art Center is open 10 am&ndash;5 pm today. Search website Search Shop About the Walker Welcome to the Walker Art Center, a multidisciplinary arts institution located in the heart of Minneapolis. Where out-of-the-ordinary experiences create transformative connections A first date strolls in the shade of a giant blue rooster in the Minneapolis Sculpture Garden . A class d",
+      "snippets": [
+        "t takes a team of nearly 200 full-time employees, plus part-time staff, to cultivate an environment where everybody can access out-of-the-ordinary experiences. Whether our work is public-facing or behind-the-scenes, we elevate our efforts to an a",
+        "Design keeps the Walker at the forefront of aesthetics through exhibitions, events, and initiatives. The Walker&#8217;s Public Engagement, Learning & Impact team brings communities together for experiences with contemporary art, artists, and idea",
+        "lker at the forefront of aesthetics through exhibitions, events, and initiatives. The Walker&#8217;s Public Engagement, Learning & Impact team brings communities together for experiences with contemporary art, artists, and ideas. Our programs spark",
+        "we elevate our efforts to an art form. Interested in becoming part of the Walker Art Center team, where creativity and community come together to inspire change? View Current Openings Annual Report Learn about our impact and insights through the Wa",
+        "supports the creation of groundbreaking work across the visual and performing arts, moving image, and design. We engage communities through a dynamic array of exhibitions , performances , screenings , events, and initiatives. Our multi-acre campus inc"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 4,
+        "community_inclusion": 3,
+        "research_scholarship": 0
+      }
+    },
+    {
+      "museum": "Cleveland Museum of Art",
+      "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.clevelandart.org/about",
+      "status": 200,
+      "words": 274,
+      "text_preview": "About the Museum | Cleveland Museum of Art About the Museum The Cleveland Museum of Art is renowned for the quality and breadth of its collection, which includes more than 63,000 artworks and spans 6,000 years of achievement in the arts. The museum is a significant international forum for exhibitions, scholarship, and performing arts and is a leader in digital innovations. One of the top comprehensive art museums in the nation, recognized for its award-winning Open Access program and free of charge to all, the Cleveland Museum of Art is located in the University Circle neighborhood. Learn More",
+      "snippets": [
+        "r in digital innovations. One of the top comprehensive art museums in the nation, recognized for its award-winning Open Access program and free of charge to all, the Cleveland Museum of Art is located in the University Circle neighborhood. Learn",
+        "r strategic plan formulates a series of initiatives through which the museum will leverage the power of place to deepen visitors’ engagement with art and culture. Read the Strategic Plan Indigenous Peoples and Land Acknowledgment The Cleveland Muse",
+        "leader in digital innovations. One of the top comprehensive art museums in the nation, recognized for its award-winning Open Access program and free of charge to all, the Cleveland Museum of Art is located in the University Circle neighborhood. Learn",
+        "orks and spans 6,000 years of achievement in the arts. The museum is a significant international forum for exhibitions, scholarship, and performing arts and is a leader in digital innovations. One of the top comprehensive art museums in the nation, re"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 3,
+        "community_inclusion": 0,
+        "research_scholarship": 1
+      }
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://philamuseum.org/about",
+      "status": 200,
+      "words": 457,
+      "text_preview": "About | Philadelphia Museum of Art Skip to Main Content Come on down! Expect road closures, delays, and detours due to Parkway activities. Learn more . Open today: 10am-8:45pm Simplify Fonts Membership Buy Tickets Tickets 🔍 Menu Open today: 10am-8:45pm Visit What&#x27;s On Art & Artists Learn Support Search 🔍 Membership Simplify Fonts About We explore how art can shape our worlds Where Art and Community Meet As one of the largest museums in the country, the Philadelphia Museum of Art offers a vibrant campus for both Philadelphians and visitors to enjoy. Our main building is an iconic cultura",
+      "snippets": [
+        "the largest museums in the country, the Philadelphia Museum of Art offers a vibrant campus for both Philadelphians and visitors to enjoy. Our main building is an iconic cultural landmark, best known for the “Rocky Steps” on its East Terrace, which",
+        "arts in general, to an increasing and increasingly diverse audience as a source of delight, illumination, and lifelong learning. Where Curiosity Leads Administration More information about the museum’s Director and Board of Trustees. Learn More Im",
+        "& Artists Learn Support Search 🔍 Membership Simplify Fonts About We explore how art can shape our worlds Where Art and Community Meet As one of the largest museums in the country, the Philadelphia Museum of Art offers a vibrant campus for both Phil",
+        "is constantly growing and evolving. We’re committed to showcasing works by emerging artists and amplifying voices from communities that have been historically underrepresented in museums. These additions spark deeper conversations and reflect our ong",
+        "cally underrepresented in museums. These additions spark deeper conversations and reflect our ongoing journey as a more inclusive and dynamic institution. Join Our Community At the Philadelphia Museum of Art, we believe in “Art for All.” There are a"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 2,
+        "community_inclusion": 6,
+        "research_scholarship": 0
+      }
+    },
+    {
+      "museum": "High Museum of Art",
+      "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://high.org/about/",
+      "status": 200,
+      "words": 203,
+      "text_preview": "About - High Museum of Art About the High Museum of Art People Meet some of the people who make up the High Museum’s team. Learn More Careers Want to join our team? See what positions we have open, and get more information about internships, fellowships, and volunteering. Learn More Press Room Visit our Press Room, where members of the media will find the latest press information about the High’s exhibitions, collections, and programs. Press Room Contact Get in touch. Here’s our mailing address, department phone numbers, and email address for general inquiries. Contact Us History of the High L",
+      "snippets": [
+        "theast and around the world through its distinguished collection, dynamic schedule of special exhibitions, and engaging community-focused programs. Learn more Art and Inclusion At the High, we embrace inclusivity as a core value—and as a measurable",
+        "uished collection, dynamic schedule of special exhibitions, and engaging community-focused programs. Learn more Art and Inclusion At the High, we embrace inclusivity as a core value—and as a measurable objective. In 2020, we released our first Art +"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 0,
+        "community_inclusion": 4,
+        "research_scholarship": 0
+      }
+    },
+    {
+      "museum": "Natural History Museum London",
+      "page_type": "about",
+      "source_layer": "current",
+      "year": 2026,
+      "url": "https://www.nhm.ac.uk/about-us.html",
+      "status": 200,
+      "words": 454,
+      "text_preview": "About us | Natural History Museum About us The Natural History Museum is a world-class visitor attraction and leading science research centre. We use our unique collections and unrivalled expertise to tackle the biggest challenges facing the world today. We care for more than 80 million objects spanning billions of years and welcome more than seven million visitors annually. Our vision and strategy We are creating advocates for the planet. Careers We employ 900 staff in a variety of roles, all united by our vision of a future where people and planet thrive. We need everyone to have the passion",
+      "snippets": [
+        "About us | Natural History Museum About us The Natural History Museum is a world-class visitor attraction and leading science research centre. We use our unique collections and unrivalled expertise to tackle the bi",
+        "he world today. We care for more than 80 million objects spanning billions of years and welcome more than seven million visitors annually. Our vision and strategy We are creating advocates for the planet. Careers We employ 900 staff in a variety of",
+        "ernance Find out about our management, reports, policies, procedures and freedom of information requests. Diversity and inclusion Diversity is one of our critical values. Find how we are making the Museum an inclusive and welcoming space. Our Patron",
+        "rmation requests. Diversity and inclusion Diversity is one of our critical values. Find how we are making the Museum an inclusive and welcoming space. Our Patron Her Royal Highness The Princess of Wales is a Patron of the Museum. Annual reviews Disc",
+        "er planet. Governance Find out about our management, reports, policies, procedures and freedom of information requests. Diversity and inclusion Diversity is one of our critical values. Find how we are making the Museum an inclusive and welcoming spa"
+      ],
+      "term_counts": {
+        "civilization_world_culture": 0,
+        "provenance_ownership": 0,
+        "restitution_repatriation": 0,
+        "decolonization_reckoning": 0,
+        "access_public": 3,
+        "community_inclusion": 4,
+        "research_scholarship": 3
+      }
+    }
+  ],
+  "articleReadiness": {
+    "status": "source-probe",
+    "strongestNextMove": "Add Wayback snapshots and annual-report/exhibition/provenance pages as separate source layers before trend claims."
+  },
+  "caveats": [
+    "This artifact contains current public pages only; it cannot yet support temporal claims.",
+    "About pages, collection pages, and provenance pages are different genres and must not be compared as if they were the same source type.",
+    "Counts identify terms for audit; interpretation requires reading snippets and checking page context."
+  ]
+}

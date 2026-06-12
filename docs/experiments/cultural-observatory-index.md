@@ -27,9 +27,8 @@ Current backlog items:
 
 Next implementation moves:
 
-- run the first scout pass for museum language drift
-- create the museum-language experiment folder
-- source-probe museum current pages, annual reports, and Wayback snapshots
+- expand museum language drift beyond current about pages
+- source-probe museum annual reports, exhibition pages, collection pages, provenance pages, and Wayback snapshots
 - add a readiness gate before any public claims
 
 ### Humanities Literature Radar
@@ -114,6 +113,41 @@ Next implementation moves:
 - add president speeches
 - separate source layers by genre
 - hand-audit snippets before public claims
+
+### Museum Language Drift
+
+Path: `docs/experiments/museum-language-drift/`
+
+Status: current-page source probe with report and readiness gate.
+
+Implemented:
+
+- 23-page museum source allowlist
+- current-page fetcher
+- term-family taxonomy for civilization/world culture, provenance/ownership, restitution/repatriation, decolonization/reckoning, access/public, community/inclusion, and research/scholarship
+- processed page table
+- page-term counts
+- source inventory
+- `report.html`
+- `result.json`
+- `work.md`
+- `public-draft.md`
+- readiness gate
+
+Current corpus:
+
+- 14 current public museum pages collected
+- 14 museums represented
+- current source genre represented: about pages
+- readiness: not ready for publication because historical pages and source-genre breadth are missing
+
+Next implementation moves:
+
+- add museum provenance/repatriation pages that are fetchable without browser challenges
+- add annual reports as a separate source layer
+- add exhibition-description pages as a separate source layer
+- add Wayback snapshots for stable museum pages
+- build a snippet audit packet before public claims
 
 ## Editorial Formats
 

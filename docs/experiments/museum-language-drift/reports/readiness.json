@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-06-12T18:09:34.788Z",
+  "status": "not-ready-for-publication",
+  "checks": [
+    {
+      "id": "current-pages",
+      "label": "At least 12 current museum pages are collected",
+      "status": "pass",
+      "evidence": "14 current pages"
+    },
+    {
+      "id": "museum-coverage",
+      "label": "At least 10 museums are represented",
+      "status": "pass",
+      "evidence": "14 museums"
+    },
+    {
+      "id": "source-genres",
+      "label": "At least three source genres are represented",
+      "status": "needs-work",
+      "evidence": "about"
+    },
+    {
+      "id": "historical-pages",
+      "label": "Historical snapshots exist before temporal claims",
+      "status": "needs-work",
+      "evidence": "0 historical snapshots"
+    },
+    {
+      "id": "public-draft",
+      "label": "Public draft exists and blocks premature claims",
+      "status": "pass",
+      "evidence": "reports/public-draft.md"
+    }
+  ],
+  "nextMoves": [
+    "Add Wayback snapshots for selected current pages and historically stable museum URLs.",
+    "Add annual reports, exhibition pages, collection pages, and provenance pages as source layers.",
+    "Build a snippet audit packet before public claims."
+  ]
+}

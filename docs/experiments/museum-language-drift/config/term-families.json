@@ -1,0 +1,64 @@
+{
+  "civilization_world_culture": [
+    "civilization",
+    "civilisation",
+    "world culture",
+    "world cultures",
+    "global culture",
+    "heritage",
+    "cultural heritage"
+  ],
+  "provenance_ownership": [
+    "provenance",
+    "ownership",
+    "acquisition",
+    "collecting history",
+    "looted",
+    "stolen",
+    "colonial"
+  ],
+  "restitution_repatriation": [
+    "restitution",
+    "repatriation",
+    "return",
+    "returns",
+    "contested objects",
+    "cultural property"
+  ],
+  "decolonization_reckoning": [
+    "decolonization",
+    "decolonisation",
+    "decolonial",
+    "colonialism",
+    "empire",
+    "equity",
+    "repair"
+  ],
+  "access_public": [
+    "access",
+    "public",
+    "visitor",
+    "visitors",
+    "open access",
+    "education",
+    "learning"
+  ],
+  "community_inclusion": [
+    "community",
+    "communities",
+    "inclusion",
+    "inclusive",
+    "diversity",
+    "belonging",
+    "representation"
+  ],
+  "research_scholarship": [
+    "research",
+    "scholarship",
+    "conservation",
+    "curatorial",
+    "archive",
+    "archives",
+    "documentation"
+  ]
+}
