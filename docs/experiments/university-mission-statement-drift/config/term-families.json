@@ -1,0 +1,9 @@
+{
+  "truth_knowledge": ["truth", "knowledge", "wisdom", "inquiry", "learning", "scholarship"],
+  "civic_public": ["citizen", "citizenship", "public", "service", "society", "democracy", "common good"],
+  "innovation_impact": ["innovation", "innovative", "impact", "entrepreneur", "technology", "discovery"],
+  "global_leadership": ["global", "world", "international", "leader", "leadership"],
+  "excellence_prestige": ["excellence", "excellent", "distinguished", "renowned", "premier", "leading"],
+  "inclusion_belonging": ["diversity", "inclusive", "inclusion", "belonging", "equity", "access"],
+  "career_economy": ["career", "professional", "workforce", "economic", "industry", "job"]
+}

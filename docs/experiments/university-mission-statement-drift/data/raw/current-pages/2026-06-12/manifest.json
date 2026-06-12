@@ -1,0 +1,70 @@
+{
+  "runDate": "2026-06-12",
+  "startedAt": "2026-06-12T17:27:27.179Z",
+  "source": "current university about/mission pages",
+  "requests": [
+    {
+      "institution": "Harvard University",
+      "url": "https://www.harvard.edu/about/",
+      "status": 200,
+      "responsePath": "data/raw/current-pages/2026-06-12/harvard-university/index.html"
+    },
+    {
+      "institution": "Stanford University",
+      "url": "https://www.stanford.edu/about/",
+      "status": 200,
+      "responsePath": "data/raw/current-pages/2026-06-12/stanford-university/index.html"
+    },
+    {
+      "institution": "Massachusetts Institute of Technology",
+      "url": "https://www.mit.edu/about/",
+      "status": 200,
+      "responsePath": "data/raw/current-pages/2026-06-12/massachusetts-institute-of-technology/index.html"
+    },
+    {
+      "institution": "Princeton University",
+      "url": "https://www.princeton.edu/meet-princeton",
+      "status": 200,
+      "responsePath": "data/raw/current-pages/2026-06-12/princeton-university/index.html"
+    },
+    {
+      "institution": "Yale University",
+      "url": "https://www.yale.edu/about-yale",
+      "status": 200,
+      "responsePath": "data/raw/current-pages/2026-06-12/yale-university/index.html"
+    },
+    {
+      "institution": "University of California, Berkeley",
+      "url": "https://www.berkeley.edu/about/",
+      "status": 200,
+      "responsePath": "data/raw/current-pages/2026-06-12/university-of-california-berkeley/index.html"
+    },
+    {
+      "institution": "University of Chicago",
+      "url": "https://www.uchicago.edu/who-we-are",
+      "status": 200,
+      "responsePath": "data/raw/current-pages/2026-06-12/university-of-chicago/index.html"
+    },
+    {
+      "institution": "Cornell University",
+      "url": "https://www.cornell.edu/about/",
+      "status": 200,
+      "responsePath": "data/raw/current-pages/2026-06-12/cornell-university/index.html"
+    },
+    {
+      "institution": "University of Pennsylvania",
+      "url": "https://www.upenn.edu/about",
+      "status": 200,
+      "responsePath": "data/raw/current-pages/2026-06-12/university-of-pennsylvania/index.html"
+    },
+    {
+      "institution": "Duke University",
+      "url": "https://duke.edu/about/",
+      "status": 200,
+      "responsePath": "data/raw/current-pages/2026-06-12/duke-university/index.html"
+    }
+  ],
+  "errors": [],
+  "finishedAt": "2026-06-12T17:27:29.681Z",
+  "recordCount": 10
+}

@@ -1,0 +1,225 @@
+{
+  "generatedAt": "2026-06-12T17:27:29.755Z",
+  "runDate": "2026-06-12",
+  "pages": 10,
+  "errors": 0,
+  "termFamilyTotals": {
+    "global_leadership": 77,
+    "civic_public": 37,
+    "truth_knowledge": 35,
+    "innovation_impact": 35,
+    "excellence_prestige": 17,
+    "inclusion_belonging": 12,
+    "career_economy": 6
+  },
+  "institutions": [
+    {
+      "institution": "Harvard University",
+      "words": 583,
+      "term_counts": {
+        "truth_knowledge": 5,
+        "civic_public": 4,
+        "innovation_impact": 0,
+        "global_leadership": 7,
+        "excellence_prestige": 1,
+        "inclusion_belonging": 2,
+        "career_economy": 0
+      },
+      "snippets": [
+        "learn, research, teach, work, and grow—join nearly four centuries of students and scholars in the pursuit of truth, knowledge, and a better world. The people of Harvard Our people are what make Harvard special. Our community",
+        "research, teach, work, and grow—join nearly four centuries of students and scholars in the pursuit of truth, knowledge, and a better world. The people of Harvard Our people are what make Harvard special. Our community comprises",
+        "ore than 100 years the Harvard Gazette has covered campus life, University issues, innovations in science and scholarship, and broader global concerns. Explore the history we&#8217;re making today The greater Harvard community Harv",
+        "ties we reside within, whether in Massachusetts or at our locations abroad. $5.35 million for improvements to public parks and open spaces, neighborhood beautification, streetscape enhancements, public safety initiatives, and",
+        "in the value of knowledge, the power of teaching and research, and the ways that what we do here can benefit society.” President of Harvard University Alan M. Garber Harvard leadership and governance is composed of four compon"
+      ],
+      "url": "https://www.harvard.edu/about/"
+    },
+    {
+      "institution": "Stanford University",
+      "words": 1051,
+      "term_counts": {
+        "truth_knowledge": 7,
+        "civic_public": 9,
+        "innovation_impact": 6,
+        "global_leadership": 17,
+        "excellence_prestige": 4,
+        "inclusion_belonging": 4,
+        "career_economy": 1
+      },
+      "snippets": [
+        "rit of openness and possibility. We believe strongly in the mission of higher education – to create and share knowledge and to prepare students to be curious, to think critically, and to contribute to the world. With world-class",
+        "ideas and discoveries from labs and classrooms out into the world. We strive to foster a culture of expansive inquiry, fresh thinking, searching discussion, and freedom of thought – preparing students for leadership and engaged",
+        "cational offerings. Learn more about academics Encouraging open minds and constructive dialogue Discovery and learning require fresh ideas and open discussion. We strive to foster searching discussion, to listen with curiosity,",
+        "fresh thinking, searching discussion, and freedom of thought – preparing students for leadership and engaged citizenship in the world. Excellence in education across disciplines Stanford provides students the opportunity to en",
+        "fresh thinking, searching discussion, and freedom of thought – preparing students for leadership and engaged citizenship in the world. Excellence in education across disciplines Stanford provides students the opportunity to engage"
+      ],
+      "url": "https://www.stanford.edu/about/"
+    },
+    {
+      "institution": "Massachusetts Institute of Technology",
+      "words": 641,
+      "term_counts": {
+        "truth_knowledge": 0,
+        "civic_public": 3,
+        "innovation_impact": 6,
+        "global_leadership": 6,
+        "excellence_prestige": 1,
+        "inclusion_belonging": 0,
+        "career_economy": 1
+      },
+      "snippets": [
+        "Size 168 acres (0.68 km2) Student residences 20 Playing fields 26 acres (0.11 km2) Gardens + green spaces 40+ Publicly sited works of art 60+ Admissions (Class of 2029) Applicants 29,281 Admits 1,334 Selected Honors Nobel laur",
+        "und the world. Through teaching, research, and innovation, MIT’s exceptional community pursues its mission of service to the nation and the world . Mission and Values Mission Statement MIT Values Your browser does not support t",
+        "IT The MIT community is driven by a shared purpose: to make a better world through education , research , and innovation . We are fun and quirky, inventive and artistic, obsessed with numbers, and welcoming to talented people rega",
+        "About MIT | MIT - Massachusetts Institute of Technology Skip to content ↓ Menu Explore websites, people, and locations Look up people by &ldquo;last name sounds like",
+        "lions of American jobs. At the same time, and without the slightest sense of contradiction, MIT is profoundly global . Our community gains tremendous strength as a magnet for talent from around the world. Through teaching, res"
+      ],
+      "url": "https://www.mit.edu/about/"
+    },
+    {
+      "institution": "Princeton University",
+      "words": 464,
+      "term_counts": {
+        "truth_knowledge": 4,
+        "civic_public": 5,
+        "innovation_impact": 2,
+        "global_leadership": 6,
+        "excellence_prestige": 1,
+        "inclusion_belonging": 0,
+        "career_economy": 0
+      },
+      "snippets": [
+        "ulty, staff and alumni. In Service of Humanity Princeton University is a vibrant community of scholarship and learning that stands in the nation's service and the service of humanity. On campus and around the world, Princetonian",
+        "ur students, faculty, staff and alumni. In Service of Humanity Princeton University is a vibrant community of scholarship and learning that stands in the nation's service and the service of humanity. On campus and around the world,",
+        "is enriched by the wide range of experiences and perspectives of our students, faculty, staff and alumni. In Service of Humanity Princeton University is a vibrant community of scholarship and learning that stands in the nation",
+        "service and the service of humanity. On campus and around the world, Princetonians are making a difference in society. Learn More Facts & Figures 5,826 Undergraduate enrollment 135 New inventions, fiscal year 2025 1,313 Faculty",
+        "mbers have the opportunity to engage in a work environment that values connection and community and making an impact bigger than oneself. Our Leadership Princeton is led by Christopher L. Eisgruber, a constitutional scholar wh"
+      ],
+      "url": "https://www.princeton.edu/meet-princeton"
+    },
+    {
+      "institution": "Yale University",
+      "words": 1003,
+      "term_counts": {
+        "truth_knowledge": 4,
+        "civic_public": 2,
+        "innovation_impact": 5,
+        "global_leadership": 10,
+        "excellence_prestige": 0,
+        "inclusion_belonging": 0,
+        "career_economy": 0
+      },
+      "snippets": [
+        "Additional Navigation About Yale Since its founding in 1701, Yale has been dedicated to expanding and sharing knowledge, inspiring innovation, and preserving cultural and scientific information for future generations. Yale’s reac",
+        "campus. Twelve months a year, Yale students grow vegetables, herbs, berries, fruits, flowers, and more, while learning about sustainable food practices. Learn more West Campus At 136 acres, West Campus is a hub for innovative re",
+        "Art Gallery The Yale University Art Gallery encourages appreciation and understanding of art and its role in society through direct engagement with original works of art. Learn more Woolsey Hall Woolsey Hall, built in 1901 to",
+        "About Yale Since its founding in 1701, Yale has been dedicated to expanding and sharing knowledge, inspiring innovation, and preserving cultural and scientific information for future generations. Yale’s reach is both local and in",
+        "minent buildings on campus. Learn more Evans Hall Evans Hall is a striking modern architectural landmark with innovative classrooms and signature spaces such as a central courtyard, that signal its strong ties to Yale and the glob"
+      ],
+      "url": "https://www.yale.edu/about-yale"
+    },
+    {
+      "institution": "University of California, Berkeley",
+      "words": 239,
+      "term_counts": {
+        "truth_knowledge": 0,
+        "civic_public": 1,
+        "innovation_impact": 0,
+        "global_leadership": 2,
+        "excellence_prestige": 1,
+        "inclusion_belonging": 0,
+        "career_economy": 0
+      },
+      "snippets": [
+        "s campus experience. Visit Ready to see Berkeley for yourself? Find out about daily campus tours, parking and public transportation. Book a tour Campus map Leadership See a complete list of campus administrators and deans, and",
+        "ment for malaria and earthquake science. You might be surprised to learn what Berkeley has contributed to the world. Experience Berkeley Right here, right now. Get a sense for what&#8217;s happening on the ground at Berkeley.",
+        "ey for yourself? Find out about daily campus tours, parking and public transportation. Book a tour Campus map Leadership See a complete list of campus administrators and deans, and find unit-by-unit organizational charts. What hap",
+        "ar students More Numbers &ldquo;Berkeley is a glorious place. Everywhere you turn you find this commitment to excellence.&rdquo; Oliver Williamson, 2009 Nobelist, economics"
+      ],
+      "url": "https://www.berkeley.edu/about/"
+    },
+    {
+      "institution": "University of Chicago",
+      "words": 9,
+      "term_counts": {
+        "truth_knowledge": 0,
+        "civic_public": 0,
+        "innovation_impact": 0,
+        "global_leadership": 0,
+        "excellence_prestige": 0,
+        "inclusion_belonging": 0,
+        "career_economy": 0
+      },
+      "snippets": [],
+      "url": "https://www.uchicago.edu/who-we-are"
+    },
+    {
+      "institution": "Cornell University",
+      "words": 798,
+      "term_counts": {
+        "truth_knowledge": 2,
+        "civic_public": 5,
+        "innovation_impact": 1,
+        "global_leadership": 4,
+        "excellence_prestige": 1,
+        "inclusion_belonging": 1,
+        "career_economy": 1
+      },
+      "snippets": [
+        "nell University Search toggle menu About Cornell Your browser does not support this video. Welcome to Cornell Knowledge for the greater good We have taken to heart the revolutionary spirit that founded our university and encourag",
+        "ch other to pursue unpredicted lines of thinking in order to effect change on local and international scales. Public Engagement Diversity Sustainability Cornell Leadership Cornell Campuses & Locations Pause Slides Main Campus",
+        "excellence in education, research and public engagement have given Cornell a unique history that is rich with innovation and tradition. 1865 Cornell charter signed into law NY State Senate passes the bill that establishes Cornell",
+        "a manner that prioritizes public engagement to help improve the quality of life in our state, the nation, the world. Public Engagement University Factbook --> Cornell Through the Years More than 150 years of excellence in edu",
+        "rsity and encourage each other to pursue unpredicted lines of thinking in order to effect change on local and international scales. Public Engagement Diversity Sustainability Cornell Leadership Cornell Campuses & Locations Pause Slid"
+      ],
+      "url": "https://www.cornell.edu/about/"
+    },
+    {
+      "institution": "University of Pennsylvania",
+      "words": 657,
+      "term_counts": {
+        "truth_knowledge": 8,
+        "civic_public": 3,
+        "innovation_impact": 9,
+        "global_leadership": 14,
+        "excellence_prestige": 3,
+        "inclusion_belonging": 0,
+        "career_economy": 1
+      },
+      "snippets": [
+        "n unparalleled education informed by inclusivity, intellectual rigor, research, and the impetus to create new knowledge to the benefit of individuals and communities around the world. Penn Facts 1740 Year Founded 6,049 Total Facu",
+        "es represented, and cultures supported, on campus. Global Opportunities Whether through study abroad, service learning, or innovative travel initiatives, international experience is an indispensable part of Penn. Global Impact P",
+        "countries represented, and cultures supported, on campus. Global Opportunities Whether through study abroad, service learning, or innovative travel initiatives, international experience is an indispensable part of Penn. Global",
+        "12 schools, enriching student experiences and furthering Penn’s mission to integrate knowledge in service to society. All-grant Financial Aid Penn’s all-grant financial aid policy significantly reduces the burden of debt and,",
+        "community that rises to the challenge. Penn’s academics are boosted by its inherent culture and ecosystem of innovation. You name it, if it’s cutting-edge, the University’s faculty—and students—have their hands in it. Grounded in"
+      ],
+      "url": "https://www.upenn.edu/about"
+    },
+    {
+      "institution": "Duke University",
+      "words": 1107,
+      "term_counts": {
+        "truth_knowledge": 5,
+        "civic_public": 5,
+        "innovation_impact": 6,
+        "global_leadership": 11,
+        "excellence_prestige": 5,
+        "inclusion_belonging": 5,
+        "career_economy": 2
+      },
+      "snippets": [
+        "ads bringing unique perspectives and talents 10,200 graduate and professional students dedicated to advancing knowledge and innovation 4,100 faculty members guiding the next generation as leaders in their fields 47,000 dedicated",
+        "niversity and the world over the next century. look ahead Empower the Boldest Thinkers Transform Teaching and Learning Strengthen Our Campus Community Partner With Purpose Engage a Global Network Empower the Boldest Thinkers Duk",
+        "Price Vincent Price is the 10th President of Duke University, where he is also Walter Hines Page Professor of Public Policy and Political Science in the Sanford School of Public Policy and Trinity College of Arts & Sciences. A",
+        "ng our friends to create new opportunities for growth and discovery to advance our educational, research, and service missions. Our Climate Commitment sustainability Collaboration and Community The Duke Climate Commitment encom",
+        "nique perspectives and talents 10,200 graduate and professional students dedicated to advancing knowledge and innovation 4,100 faculty members guiding the next generation as leaders in their fields 47,000 dedicated staff supportin"
+      ],
+      "url": "https://duke.edu/about/"
+    }
+  ],
+  "nextSteps": [
+    "Add archived snapshots for the same URLs through Wayback or institutional archives.",
+    "Add catalogs, strategic plans, and president inauguration speeches as separate source layers.",
+    "Compare current-page language against historical snapshots by decade."
+  ]
+}
