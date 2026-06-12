@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T21:33:03.041Z",
+  "generatedAt": "2026-06-12T21:37:56.560Z",
   "roadmap": "Archive Signals / The Cultural Observatory",
   "status": "active",
   "trackCount": 6,
@@ -58,7 +58,7 @@
       "id": "canon-narrow-pilot",
       "title": "Canon Drift Narrow Signal Pilot",
       "priority": 5,
-      "status": "planned",
+      "status": "pilot-ready",
       "complete": false,
       "sourceExperiment": "docs/experiments/canon-drift-feasibility/",
       "requiredEvidenceCount": 5,
@@ -101,7 +101,7 @@
     {
       "id": "canon-narrow-pilot",
       "title": "Canon Drift Narrow Signal Pilot",
-      "status": "planned",
+      "status": "pilot-ready",
       "sourceExperiment": "docs/experiments/canon-drift-feasibility/"
     },
     {

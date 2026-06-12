@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "count": 75023,
+    "db_response_time_ms": 319,
+    "page": 1,
+    "per_page": 200,
+    "groups_count": 17,
+    "x_query": {
+      "oql": "works where full text contains (W. E. B. Du Bois)\n  and date >= 2010-01-01\n  and date <= 2026-12-31\ngroup by year",
+      "oqo": {
+        "get_rows": "works",
+        "filter_rows": [
+          {
+            "column_id": "default.search",
+            "value": "W. E. B. Du Bois",
+            "operator": "contains"
+          },
+          {
+            "column_id": "from_publication_date",
+            "value": "2010-01-01"
+          },
+          {
+            "column_id": "to_publication_date",
+            "value": "2026-12-31"
+          }
+        ],
+        "group_by": [
+          {
+            "column_id": "publication_year"
+          }
+        ],
+        "per_page": 200
+      },
+      "url": "/works?filter=default.search:W. E. B. Du Bois,from_publication_date:2010-01-01,to_publication_date:2026-12-31&group_by=publication_year&per_page=200"
+    },
+    "cost_usd": 0.0001
+  },
+  "group_by": [
+    {
+      "key": "2023",
+      "key_display_name": "2023",
+      "count": 8347
+    },
+    {
+      "key": "2024",
+      "key_display_name": "2024",
+      "count": 7210
+    },
+    {
+      "key": "2025",
+      "key_display_name": "2025",
+      "count": 6249
+    },
+    {
+      "key": "2022",
+      "key_display_name": "2022",
+      "count": 5588
+    },
+    {
+      "key": "2021",
+      "key_display_name": "2021",
+      "count": 5489
+    },
+    {
+      "key": "2020",
+      "key_display_name": "2020",
+      "count": 5178
+    },
+    {
+      "key": "2019",
+      "key_display_name": "2019",
+      "count": 4731
+    },
+    {
+      "key": "2018",
+      "key_display_name": "2018",
+      "count": 4288
+    },
+    {
+      "key": "2017",
+      "key_display_name": "2017",
+      "count": 4195
+    },
+    {
+      "key": "2016",
+      "key_display_name": "2016",
+      "count": 3881
+    },
+    {
+      "key": "2015",
+      "key_display_name": "2015",
+      "count": 3536
+    },
+    {
+      "key": "2014",
+      "key_display_name": "2014",
+      "count": 3361
+    },
+    {
+      "key": "2012",
+      "key_display_name": "2012",
+      "count": 2917
+    },
+    {
+      "key": "2013",
+      "key_display_name": "2013",
+      "count": 2906
+    },
+    {
+      "key": "2011",
+      "key_display_name": "2011",
+      "count": 2705
+    },
+    {
+      "key": "2010",
+      "key_display_name": "2010",
+      "count": 2268
+    },
+    {
+      "key": "2026",
+      "key_display_name": "2026",
+      "count": 2174
+    }
+  ]
+}

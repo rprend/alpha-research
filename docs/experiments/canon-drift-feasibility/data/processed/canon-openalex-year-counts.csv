@@ -1,0 +1,103 @@
+author,cohort,year,count,share_of_author_total,source,query,raw_path
+Hannah Arendt,political theory,2010,1957,0.03,OpenAlex,Hannah Arendt,data/raw/openalex-citation-pilot/2026-06-12/hannah-arendt-year-counts.json
+Hannah Arendt,political theory,2011,2198,0.0337,OpenAlex,Hannah Arendt,data/raw/openalex-citation-pilot/2026-06-12/hannah-arendt-year-counts.json
+Hannah Arendt,political theory,2012,2586,0.0397,OpenAlex,Hannah Arendt,data/raw/openalex-citation-pilot/2026-06-12/hannah-arendt-year-counts.json
+Hannah Arendt,political theory,2013,3007,0.0461,OpenAlex,Hannah Arendt,data/raw/openalex-citation-pilot/2026-06-12/hannah-arendt-year-counts.json
+Hannah Arendt,political theory,2014,3049,0.0468,OpenAlex,Hannah Arendt,data/raw/openalex-citation-pilot/2026-06-12/hannah-arendt-year-counts.json
+Hannah Arendt,political theory,2015,3244,0.0498,OpenAlex,Hannah Arendt,data/raw/openalex-citation-pilot/2026-06-12/hannah-arendt-year-counts.json
+Hannah Arendt,political theory,2016,3722,0.0571,OpenAlex,Hannah Arendt,data/raw/openalex-citation-pilot/2026-06-12/hannah-arendt-year-counts.json
+Hannah Arendt,political theory,2017,4017,0.0616,OpenAlex,Hannah Arendt,data/raw/openalex-citation-pilot/2026-06-12/hannah-arendt-year-counts.json
+Hannah Arendt,political theory,2018,4307,0.0661,OpenAlex,Hannah Arendt,data/raw/openalex-citation-pilot/2026-06-12/hannah-arendt-year-counts.json
+Hannah Arendt,political theory,2019,4383,0.0672,OpenAlex,Hannah Arendt,data/raw/openalex-citation-pilot/2026-06-12/hannah-arendt-year-counts.json
+Hannah Arendt,political theory,2020,4651,0.0714,OpenAlex,Hannah Arendt,data/raw/openalex-citation-pilot/2026-06-12/hannah-arendt-year-counts.json
+Hannah Arendt,political theory,2021,4526,0.0694,OpenAlex,Hannah Arendt,data/raw/openalex-citation-pilot/2026-06-12/hannah-arendt-year-counts.json
+Hannah Arendt,political theory,2022,4532,0.0695,OpenAlex,Hannah Arendt,data/raw/openalex-citation-pilot/2026-06-12/hannah-arendt-year-counts.json
+Hannah Arendt,political theory,2023,6081,0.0933,OpenAlex,Hannah Arendt,data/raw/openalex-citation-pilot/2026-06-12/hannah-arendt-year-counts.json
+Hannah Arendt,political theory,2024,5416,0.0831,OpenAlex,Hannah Arendt,data/raw/openalex-citation-pilot/2026-06-12/hannah-arendt-year-counts.json
+Hannah Arendt,political theory,2025,5582,0.0856,OpenAlex,Hannah Arendt,data/raw/openalex-citation-pilot/2026-06-12/hannah-arendt-year-counts.json
+Hannah Arendt,political theory,2026,1927,0.0296,OpenAlex,Hannah Arendt,data/raw/openalex-citation-pilot/2026-06-12/hannah-arendt-year-counts.json
+Jane Austen,19th-century literature,2010,607,0.0377,OpenAlex,Jane Austen,data/raw/openalex-citation-pilot/2026-06-12/jane-austen-year-counts.json
+Jane Austen,19th-century literature,2011,657,0.0408,OpenAlex,Jane Austen,data/raw/openalex-citation-pilot/2026-06-12/jane-austen-year-counts.json
+Jane Austen,19th-century literature,2012,843,0.0523,OpenAlex,Jane Austen,data/raw/openalex-citation-pilot/2026-06-12/jane-austen-year-counts.json
+Jane Austen,19th-century literature,2013,914,0.0567,OpenAlex,Jane Austen,data/raw/openalex-citation-pilot/2026-06-12/jane-austen-year-counts.json
+Jane Austen,19th-century literature,2014,840,0.0521,OpenAlex,Jane Austen,data/raw/openalex-citation-pilot/2026-06-12/jane-austen-year-counts.json
+Jane Austen,19th-century literature,2015,884,0.0549,OpenAlex,Jane Austen,data/raw/openalex-citation-pilot/2026-06-12/jane-austen-year-counts.json
+Jane Austen,19th-century literature,2016,986,0.0612,OpenAlex,Jane Austen,data/raw/openalex-citation-pilot/2026-06-12/jane-austen-year-counts.json
+Jane Austen,19th-century literature,2017,1072,0.0665,OpenAlex,Jane Austen,data/raw/openalex-citation-pilot/2026-06-12/jane-austen-year-counts.json
+Jane Austen,19th-century literature,2018,1043,0.0647,OpenAlex,Jane Austen,data/raw/openalex-citation-pilot/2026-06-12/jane-austen-year-counts.json
+Jane Austen,19th-century literature,2019,1195,0.0742,OpenAlex,Jane Austen,data/raw/openalex-citation-pilot/2026-06-12/jane-austen-year-counts.json
+Jane Austen,19th-century literature,2020,1077,0.0668,OpenAlex,Jane Austen,data/raw/openalex-citation-pilot/2026-06-12/jane-austen-year-counts.json
+Jane Austen,19th-century literature,2021,926,0.0575,OpenAlex,Jane Austen,data/raw/openalex-citation-pilot/2026-06-12/jane-austen-year-counts.json
+Jane Austen,19th-century literature,2022,878,0.0545,OpenAlex,Jane Austen,data/raw/openalex-citation-pilot/2026-06-12/jane-austen-year-counts.json
+Jane Austen,19th-century literature,2023,1200,0.0745,OpenAlex,Jane Austen,data/raw/openalex-citation-pilot/2026-06-12/jane-austen-year-counts.json
+Jane Austen,19th-century literature,2024,1291,0.0801,OpenAlex,Jane Austen,data/raw/openalex-citation-pilot/2026-06-12/jane-austen-year-counts.json
+Jane Austen,19th-century literature,2025,1189,0.0738,OpenAlex,Jane Austen,data/raw/openalex-citation-pilot/2026-06-12/jane-austen-year-counts.json
+Jane Austen,19th-century literature,2026,510,0.0317,OpenAlex,Jane Austen,data/raw/openalex-citation-pilot/2026-06-12/jane-austen-year-counts.json
+Michel Foucault,theory,2010,6105,0.0326,OpenAlex,Michel Foucault,data/raw/openalex-citation-pilot/2026-06-12/michel-foucault-year-counts.json
+Michel Foucault,theory,2011,6694,0.0358,OpenAlex,Michel Foucault,data/raw/openalex-citation-pilot/2026-06-12/michel-foucault-year-counts.json
+Michel Foucault,theory,2012,7829,0.0419,OpenAlex,Michel Foucault,data/raw/openalex-citation-pilot/2026-06-12/michel-foucault-year-counts.json
+Michel Foucault,theory,2013,8970,0.048,OpenAlex,Michel Foucault,data/raw/openalex-citation-pilot/2026-06-12/michel-foucault-year-counts.json
+Michel Foucault,theory,2014,9469,0.0506,OpenAlex,Michel Foucault,data/raw/openalex-citation-pilot/2026-06-12/michel-foucault-year-counts.json
+Michel Foucault,theory,2015,10209,0.0546,OpenAlex,Michel Foucault,data/raw/openalex-citation-pilot/2026-06-12/michel-foucault-year-counts.json
+Michel Foucault,theory,2016,10869,0.0581,OpenAlex,Michel Foucault,data/raw/openalex-citation-pilot/2026-06-12/michel-foucault-year-counts.json
+Michel Foucault,theory,2017,11568,0.0619,OpenAlex,Michel Foucault,data/raw/openalex-citation-pilot/2026-06-12/michel-foucault-year-counts.json
+Michel Foucault,theory,2018,12151,0.065,OpenAlex,Michel Foucault,data/raw/openalex-citation-pilot/2026-06-12/michel-foucault-year-counts.json
+Michel Foucault,theory,2019,12608,0.0674,OpenAlex,Michel Foucault,data/raw/openalex-citation-pilot/2026-06-12/michel-foucault-year-counts.json
+Michel Foucault,theory,2020,13115,0.0701,OpenAlex,Michel Foucault,data/raw/openalex-citation-pilot/2026-06-12/michel-foucault-year-counts.json
+Michel Foucault,theory,2021,12718,0.068,OpenAlex,Michel Foucault,data/raw/openalex-citation-pilot/2026-06-12/michel-foucault-year-counts.json
+Michel Foucault,theory,2022,11874,0.0635,OpenAlex,Michel Foucault,data/raw/openalex-citation-pilot/2026-06-12/michel-foucault-year-counts.json
+Michel Foucault,theory,2023,16619,0.0889,OpenAlex,Michel Foucault,data/raw/openalex-citation-pilot/2026-06-12/michel-foucault-year-counts.json
+Michel Foucault,theory,2024,15031,0.0804,OpenAlex,Michel Foucault,data/raw/openalex-citation-pilot/2026-06-12/michel-foucault-year-counts.json
+Michel Foucault,theory,2025,15892,0.085,OpenAlex,Michel Foucault,data/raw/openalex-citation-pilot/2026-06-12/michel-foucault-year-counts.json
+Michel Foucault,theory,2026,5292,0.0283,OpenAlex,Michel Foucault,data/raw/openalex-citation-pilot/2026-06-12/michel-foucault-year-counts.json
+Toni Morrison,20th-century literature,2010,489,0.0334,OpenAlex,Toni Morrison,data/raw/openalex-citation-pilot/2026-06-12/toni-morrison-year-counts.json
+Toni Morrison,20th-century literature,2011,532,0.0363,OpenAlex,Toni Morrison,data/raw/openalex-citation-pilot/2026-06-12/toni-morrison-year-counts.json
+Toni Morrison,20th-century literature,2012,639,0.0436,OpenAlex,Toni Morrison,data/raw/openalex-citation-pilot/2026-06-12/toni-morrison-year-counts.json
+Toni Morrison,20th-century literature,2013,586,0.04,OpenAlex,Toni Morrison,data/raw/openalex-citation-pilot/2026-06-12/toni-morrison-year-counts.json
+Toni Morrison,20th-century literature,2014,689,0.047,OpenAlex,Toni Morrison,data/raw/openalex-citation-pilot/2026-06-12/toni-morrison-year-counts.json
+Toni Morrison,20th-century literature,2015,734,0.0501,OpenAlex,Toni Morrison,data/raw/openalex-citation-pilot/2026-06-12/toni-morrison-year-counts.json
+Toni Morrison,20th-century literature,2016,733,0.05,OpenAlex,Toni Morrison,data/raw/openalex-citation-pilot/2026-06-12/toni-morrison-year-counts.json
+Toni Morrison,20th-century literature,2017,788,0.0538,OpenAlex,Toni Morrison,data/raw/openalex-citation-pilot/2026-06-12/toni-morrison-year-counts.json
+Toni Morrison,20th-century literature,2018,843,0.0575,OpenAlex,Toni Morrison,data/raw/openalex-citation-pilot/2026-06-12/toni-morrison-year-counts.json
+Toni Morrison,20th-century literature,2019,988,0.0674,OpenAlex,Toni Morrison,data/raw/openalex-citation-pilot/2026-06-12/toni-morrison-year-counts.json
+Toni Morrison,20th-century literature,2020,1111,0.0758,OpenAlex,Toni Morrison,data/raw/openalex-citation-pilot/2026-06-12/toni-morrison-year-counts.json
+Toni Morrison,20th-century literature,2021,1048,0.0715,OpenAlex,Toni Morrison,data/raw/openalex-citation-pilot/2026-06-12/toni-morrison-year-counts.json
+Toni Morrison,20th-century literature,2022,1106,0.0755,OpenAlex,Toni Morrison,data/raw/openalex-citation-pilot/2026-06-12/toni-morrison-year-counts.json
+Toni Morrison,20th-century literature,2023,1476,0.1007,OpenAlex,Toni Morrison,data/raw/openalex-citation-pilot/2026-06-12/toni-morrison-year-counts.json
+Toni Morrison,20th-century literature,2024,1257,0.0858,OpenAlex,Toni Morrison,data/raw/openalex-citation-pilot/2026-06-12/toni-morrison-year-counts.json
+Toni Morrison,20th-century literature,2025,1213,0.0828,OpenAlex,Toni Morrison,data/raw/openalex-citation-pilot/2026-06-12/toni-morrison-year-counts.json
+Toni Morrison,20th-century literature,2026,426,0.0291,OpenAlex,Toni Morrison,data/raw/openalex-citation-pilot/2026-06-12/toni-morrison-year-counts.json
+W. E. B. Du Bois,political thought and literature,2010,2268,0.0302,OpenAlex,W. E. B. Du Bois,data/raw/openalex-citation-pilot/2026-06-12/w-e-b-du-bois-year-counts.json
+W. E. B. Du Bois,political thought and literature,2011,2705,0.0361,OpenAlex,W. E. B. Du Bois,data/raw/openalex-citation-pilot/2026-06-12/w-e-b-du-bois-year-counts.json
+W. E. B. Du Bois,political thought and literature,2012,2917,0.0389,OpenAlex,W. E. B. Du Bois,data/raw/openalex-citation-pilot/2026-06-12/w-e-b-du-bois-year-counts.json
+W. E. B. Du Bois,political thought and literature,2013,2906,0.0387,OpenAlex,W. E. B. Du Bois,data/raw/openalex-citation-pilot/2026-06-12/w-e-b-du-bois-year-counts.json
+W. E. B. Du Bois,political thought and literature,2014,3361,0.0448,OpenAlex,W. E. B. Du Bois,data/raw/openalex-citation-pilot/2026-06-12/w-e-b-du-bois-year-counts.json
+W. E. B. Du Bois,political thought and literature,2015,3536,0.0471,OpenAlex,W. E. B. Du Bois,data/raw/openalex-citation-pilot/2026-06-12/w-e-b-du-bois-year-counts.json
+W. E. B. Du Bois,political thought and literature,2016,3881,0.0517,OpenAlex,W. E. B. Du Bois,data/raw/openalex-citation-pilot/2026-06-12/w-e-b-du-bois-year-counts.json
+W. E. B. Du Bois,political thought and literature,2017,4195,0.0559,OpenAlex,W. E. B. Du Bois,data/raw/openalex-citation-pilot/2026-06-12/w-e-b-du-bois-year-counts.json
+W. E. B. Du Bois,political thought and literature,2018,4288,0.0572,OpenAlex,W. E. B. Du Bois,data/raw/openalex-citation-pilot/2026-06-12/w-e-b-du-bois-year-counts.json
+W. E. B. Du Bois,political thought and literature,2019,4731,0.0631,OpenAlex,W. E. B. Du Bois,data/raw/openalex-citation-pilot/2026-06-12/w-e-b-du-bois-year-counts.json
+W. E. B. Du Bois,political thought and literature,2020,5178,0.069,OpenAlex,W. E. B. Du Bois,data/raw/openalex-citation-pilot/2026-06-12/w-e-b-du-bois-year-counts.json
+W. E. B. Du Bois,political thought and literature,2021,5489,0.0732,OpenAlex,W. E. B. Du Bois,data/raw/openalex-citation-pilot/2026-06-12/w-e-b-du-bois-year-counts.json
+W. E. B. Du Bois,political thought and literature,2022,5588,0.0745,OpenAlex,W. E. B. Du Bois,data/raw/openalex-citation-pilot/2026-06-12/w-e-b-du-bois-year-counts.json
+W. E. B. Du Bois,political thought and literature,2023,8347,0.1113,OpenAlex,W. E. B. Du Bois,data/raw/openalex-citation-pilot/2026-06-12/w-e-b-du-bois-year-counts.json
+W. E. B. Du Bois,political thought and literature,2024,7210,0.0961,OpenAlex,W. E. B. Du Bois,data/raw/openalex-citation-pilot/2026-06-12/w-e-b-du-bois-year-counts.json
+W. E. B. Du Bois,political thought and literature,2025,6249,0.0833,OpenAlex,W. E. B. Du Bois,data/raw/openalex-citation-pilot/2026-06-12/w-e-b-du-bois-year-counts.json
+W. E. B. Du Bois,political thought and literature,2026,2174,0.029,OpenAlex,W. E. B. Du Bois,data/raw/openalex-citation-pilot/2026-06-12/w-e-b-du-bois-year-counts.json
+William Shakespeare,early modern literature,2010,1994,0.0404,OpenAlex,William Shakespeare,data/raw/openalex-citation-pilot/2026-06-12/william-shakespeare-year-counts.json
+William Shakespeare,early modern literature,2011,1987,0.0402,OpenAlex,William Shakespeare,data/raw/openalex-citation-pilot/2026-06-12/william-shakespeare-year-counts.json
+William Shakespeare,early modern literature,2012,2213,0.0448,OpenAlex,William Shakespeare,data/raw/openalex-citation-pilot/2026-06-12/william-shakespeare-year-counts.json
+William Shakespeare,early modern literature,2013,2503,0.0507,OpenAlex,William Shakespeare,data/raw/openalex-citation-pilot/2026-06-12/william-shakespeare-year-counts.json
+William Shakespeare,early modern literature,2014,2600,0.0526,OpenAlex,William Shakespeare,data/raw/openalex-citation-pilot/2026-06-12/william-shakespeare-year-counts.json
+William Shakespeare,early modern literature,2015,2900,0.0587,OpenAlex,William Shakespeare,data/raw/openalex-citation-pilot/2026-06-12/william-shakespeare-year-counts.json
+William Shakespeare,early modern literature,2016,3263,0.066,OpenAlex,William Shakespeare,data/raw/openalex-citation-pilot/2026-06-12/william-shakespeare-year-counts.json
+William Shakespeare,early modern literature,2017,3116,0.0631,OpenAlex,William Shakespeare,data/raw/openalex-citation-pilot/2026-06-12/william-shakespeare-year-counts.json
+William Shakespeare,early modern literature,2018,3396,0.0687,OpenAlex,William Shakespeare,data/raw/openalex-citation-pilot/2026-06-12/william-shakespeare-year-counts.json
+William Shakespeare,early modern literature,2019,3516,0.0711,OpenAlex,William Shakespeare,data/raw/openalex-citation-pilot/2026-06-12/william-shakespeare-year-counts.json
+William Shakespeare,early modern literature,2020,3432,0.0694,OpenAlex,William Shakespeare,data/raw/openalex-citation-pilot/2026-06-12/william-shakespeare-year-counts.json
+William Shakespeare,early modern literature,2021,3046,0.0616,OpenAlex,William Shakespeare,data/raw/openalex-citation-pilot/2026-06-12/william-shakespeare-year-counts.json
+William Shakespeare,early modern literature,2022,3043,0.0616,OpenAlex,William Shakespeare,data/raw/openalex-citation-pilot/2026-06-12/william-shakespeare-year-counts.json
+William Shakespeare,early modern literature,2023,4176,0.0845,OpenAlex,William Shakespeare,data/raw/openalex-citation-pilot/2026-06-12/william-shakespeare-year-counts.json
+William Shakespeare,early modern literature,2024,3632,0.0735,OpenAlex,William Shakespeare,data/raw/openalex-citation-pilot/2026-06-12/william-shakespeare-year-counts.json
+William Shakespeare,early modern literature,2025,3448,0.0698,OpenAlex,William Shakespeare,data/raw/openalex-citation-pilot/2026-06-12/william-shakespeare-year-counts.json
+William Shakespeare,early modern literature,2026,1152,0.0233,OpenAlex,William Shakespeare,data/raw/openalex-citation-pilot/2026-06-12/william-shakespeare-year-counts.json

@@ -1,0 +1,118 @@
+{
+  "runDate": "2026-06-12",
+  "source": "OpenAlex works search grouped by publication_year",
+  "signal": "citation-or-scholarly-discussion",
+  "cohort": "existing six-author canon feasibility cohort",
+  "fromYear": 2010,
+  "toYear": 2026,
+  "sampleSize": 20,
+  "startedAt": "2026-06-12T21:36:58.561Z",
+  "requests": [
+    {
+      "author": "Toni Morrison",
+      "requestType": "year-counts",
+      "url": "https://api.openalex.org/works?search=Toni+Morrison&filter=from_publication_date%3A2010-01-01%2Cto_publication_date%3A2026-12-31&group_by=publication_year&per-page=200",
+      "status": 200,
+      "totalCount": 14658,
+      "groupsCount": 17,
+      "responsePath": "data/raw/openalex-citation-pilot/2026-06-12/toni-morrison-year-counts.json"
+    },
+    {
+      "author": "Toni Morrison",
+      "requestType": "sample-works",
+      "url": "https://api.openalex.org/works?search=Toni+Morrison&filter=from_publication_date%3A2010-01-01%2Cto_publication_date%3A2026-12-31&sort=cited_by_count%3Adesc&per-page=20",
+      "status": 200,
+      "resultCount": 20,
+      "responsePath": "data/raw/openalex-citation-pilot/2026-06-12/toni-morrison-sample-works.json"
+    },
+    {
+      "author": "Jane Austen",
+      "requestType": "year-counts",
+      "url": "https://api.openalex.org/works?search=Jane+Austen&filter=from_publication_date%3A2010-01-01%2Cto_publication_date%3A2026-12-31&group_by=publication_year&per-page=200",
+      "status": 200,
+      "totalCount": 16112,
+      "groupsCount": 17,
+      "responsePath": "data/raw/openalex-citation-pilot/2026-06-12/jane-austen-year-counts.json"
+    },
+    {
+      "author": "Jane Austen",
+      "requestType": "sample-works",
+      "url": "https://api.openalex.org/works?search=Jane+Austen&filter=from_publication_date%3A2010-01-01%2Cto_publication_date%3A2026-12-31&sort=cited_by_count%3Adesc&per-page=20",
+      "status": 200,
+      "resultCount": 20,
+      "responsePath": "data/raw/openalex-citation-pilot/2026-06-12/jane-austen-sample-works.json"
+    },
+    {
+      "author": "William Shakespeare",
+      "requestType": "year-counts",
+      "url": "https://api.openalex.org/works?search=William+Shakespeare&filter=from_publication_date%3A2010-01-01%2Cto_publication_date%3A2026-12-31&group_by=publication_year&per-page=200",
+      "status": 200,
+      "totalCount": 49417,
+      "groupsCount": 17,
+      "responsePath": "data/raw/openalex-citation-pilot/2026-06-12/william-shakespeare-year-counts.json"
+    },
+    {
+      "author": "William Shakespeare",
+      "requestType": "sample-works",
+      "url": "https://api.openalex.org/works?search=William+Shakespeare&filter=from_publication_date%3A2010-01-01%2Cto_publication_date%3A2026-12-31&sort=cited_by_count%3Adesc&per-page=20",
+      "status": 200,
+      "resultCount": 20,
+      "responsePath": "data/raw/openalex-citation-pilot/2026-06-12/william-shakespeare-sample-works.json"
+    },
+    {
+      "author": "W. E. B. Du Bois",
+      "requestType": "year-counts",
+      "url": "https://api.openalex.org/works?search=W.+E.+B.+Du+Bois&filter=from_publication_date%3A2010-01-01%2Cto_publication_date%3A2026-12-31&group_by=publication_year&per-page=200",
+      "status": 200,
+      "totalCount": 75023,
+      "groupsCount": 17,
+      "responsePath": "data/raw/openalex-citation-pilot/2026-06-12/w-e-b-du-bois-year-counts.json"
+    },
+    {
+      "author": "W. E. B. Du Bois",
+      "requestType": "sample-works",
+      "url": "https://api.openalex.org/works?search=W.+E.+B.+Du+Bois&filter=from_publication_date%3A2010-01-01%2Cto_publication_date%3A2026-12-31&sort=cited_by_count%3Adesc&per-page=20",
+      "status": 200,
+      "resultCount": 20,
+      "responsePath": "data/raw/openalex-citation-pilot/2026-06-12/w-e-b-du-bois-sample-works.json"
+    },
+    {
+      "author": "Hannah Arendt",
+      "requestType": "year-counts",
+      "url": "https://api.openalex.org/works?search=Hannah+Arendt&filter=from_publication_date%3A2010-01-01%2Cto_publication_date%3A2026-12-31&group_by=publication_year&per-page=200",
+      "status": 200,
+      "totalCount": 65185,
+      "groupsCount": 17,
+      "responsePath": "data/raw/openalex-citation-pilot/2026-06-12/hannah-arendt-year-counts.json"
+    },
+    {
+      "author": "Hannah Arendt",
+      "requestType": "sample-works",
+      "url": "https://api.openalex.org/works?search=Hannah+Arendt&filter=from_publication_date%3A2010-01-01%2Cto_publication_date%3A2026-12-31&sort=cited_by_count%3Adesc&per-page=20",
+      "status": 200,
+      "resultCount": 20,
+      "responsePath": "data/raw/openalex-citation-pilot/2026-06-12/hannah-arendt-sample-works.json"
+    },
+    {
+      "author": "Michel Foucault",
+      "requestType": "year-counts",
+      "url": "https://api.openalex.org/works?search=Michel+Foucault&filter=from_publication_date%3A2010-01-01%2Cto_publication_date%3A2026-12-31&group_by=publication_year&per-page=200",
+      "status": 200,
+      "totalCount": 187013,
+      "groupsCount": 17,
+      "responsePath": "data/raw/openalex-citation-pilot/2026-06-12/michel-foucault-year-counts.json"
+    },
+    {
+      "author": "Michel Foucault",
+      "requestType": "sample-works",
+      "url": "https://api.openalex.org/works?search=Michel+Foucault&filter=from_publication_date%3A2010-01-01%2Cto_publication_date%3A2026-12-31&sort=cited_by_count%3Adesc&per-page=20",
+      "status": 200,
+      "resultCount": 20,
+      "responsePath": "data/raw/openalex-citation-pilot/2026-06-12/michel-foucault-sample-works.json"
+    }
+  ],
+  "errors": [],
+  "finishedAt": "2026-06-12T21:37:02.317Z",
+  "recordCount": 102,
+  "sampleRecordCount": 120
+}

@@ -1,0 +1,97 @@
+{
+  "generatedAt": "2026-06-12T21:37:02.322Z",
+  "status": "signal-specific-pilot",
+  "corpusTier": "pilot-corpus",
+  "signal": "citation-or-scholarly-discussion",
+  "source": "OpenAlex",
+  "dateRange": {
+    "fromYear": 2010,
+    "toYear": 2026
+  },
+  "authors": [
+    "Toni Morrison",
+    "Jane Austen",
+    "William Shakespeare",
+    "W. E. B. Du Bois",
+    "Hannah Arendt",
+    "Michel Foucault"
+  ],
+  "rawManifest": "data/raw/openalex-citation-pilot/2026-06-12/manifest.json",
+  "yearlyRows": 102,
+  "sampleWorks": 120,
+  "authorSummaries": [
+    {
+      "author": "Toni Morrison",
+      "cohort": "20th-century literature",
+      "totalCount": 14658,
+      "yearsRepresented": 17,
+      "peakYear": "2023",
+      "peakYearCount": 1476,
+      "likelyRelevantSampleWorks": 0,
+      "sampleWorks": 20
+    },
+    {
+      "author": "Jane Austen",
+      "cohort": "19th-century literature",
+      "totalCount": 16112,
+      "yearsRepresented": 17,
+      "peakYear": "2024",
+      "peakYearCount": 1291,
+      "likelyRelevantSampleWorks": 0,
+      "sampleWorks": 20
+    },
+    {
+      "author": "William Shakespeare",
+      "cohort": "early modern literature",
+      "totalCount": 49417,
+      "yearsRepresented": 17,
+      "peakYear": "2023",
+      "peakYearCount": 4176,
+      "likelyRelevantSampleWorks": 0,
+      "sampleWorks": 20
+    },
+    {
+      "author": "W. E. B. Du Bois",
+      "cohort": "political thought and literature",
+      "totalCount": 75023,
+      "yearsRepresented": 17,
+      "peakYear": "2023",
+      "peakYearCount": 8347,
+      "likelyRelevantSampleWorks": 0,
+      "sampleWorks": 20
+    },
+    {
+      "author": "Hannah Arendt",
+      "cohort": "political theory",
+      "totalCount": 65185,
+      "yearsRepresented": 17,
+      "peakYear": "2023",
+      "peakYearCount": 6081,
+      "likelyRelevantSampleWorks": 0,
+      "sampleWorks": 20
+    },
+    {
+      "author": "Michel Foucault",
+      "cohort": "theory",
+      "totalCount": 187013,
+      "yearsRepresented": 17,
+      "peakYear": "2023",
+      "peakYearCount": 16619,
+      "likelyRelevantSampleWorks": 0,
+      "sampleWorks": 20
+    }
+  ],
+  "strongestFinding": "This pilot can compare scholarly-discussion volume for one author cohort over time, but it is not a teaching, anthology, or general canon-rank measure.",
+  "blockersBeforeCanonClaims": [
+    "OpenAlex search counts can include loose mentions, namesakes, author-byline matches, and broad full-text hits.",
+    "Citation/scholarly-discussion volume is one signal layer, not canon status by itself.",
+    "Manual relevance review is required before using individual records as examples.",
+    "Assignment-level claims still require Open Syllabus/export access or a separate public-syllabus corpus."
+  ],
+  "nextActions": [
+    "Manually audit the sample works for each author and label false positives.",
+    "Add normalized author aliases and exclusion terms before larger OpenAlex claims.",
+    "Choose a narrower cohort if the pilot becomes a public essay.",
+    "Keep trend language limited to scholarly discussion unless teaching or anthology layers are added."
+  ]
+}

@@ -28,6 +28,8 @@ Or run step by step:
 ```bash
 node docs/experiments/canon-drift-feasibility/scripts/probe-web-sources.mjs
 node docs/experiments/canon-drift-feasibility/scripts/probe-openalex-authors.mjs
+node docs/experiments/canon-drift-feasibility/scripts/build-openalex-citation-pilot.mjs --from-year=2010 --to-year=2026 --sample-size=20
+node docs/experiments/canon-drift-feasibility/scripts/check-openalex-citation-pilot.mjs
 node docs/experiments/canon-drift-feasibility/scripts/build-report.mjs
 node docs/experiments/canon-drift-feasibility/scripts/build-publication-handoff.mjs
 node docs/experiments/canon-drift-feasibility/scripts/check-readiness.mjs
@@ -39,8 +41,12 @@ The scripts write:
 - `data/raw/openalex-authors/<run-date>/`
 - `data/processed/source-probes.json`
 - `data/processed/feasibility-matrix.csv`
+- `data/processed/canon-openalex-year-counts.csv`
+- `data/processed/canon-openalex-sample-works.csv`
 - `reports/source-inventory.md`
 - `reports/source-inventory.csv`
+- `reports/canon-narrow-pilot.md`
+- `reports/canon-narrow-pilot-readiness.md`
 - `reports/report.html`
 - `reports/result.json`
 - `reports/work.md`

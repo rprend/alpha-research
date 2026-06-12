@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "count": 65185,
+    "db_response_time_ms": 76,
+    "page": 1,
+    "per_page": 200,
+    "groups_count": 17,
+    "x_query": {
+      "oql": "works where full text contains (Hannah Arendt)\n  and date >= 2010-01-01\n  and date <= 2026-12-31\ngroup by year",
+      "oqo": {
+        "get_rows": "works",
+        "filter_rows": [
+          {
+            "column_id": "default.search",
+            "value": "Hannah Arendt",
+            "operator": "contains"
+          },
+          {
+            "column_id": "from_publication_date",
+            "value": "2010-01-01"
+          },
+          {
+            "column_id": "to_publication_date",
+            "value": "2026-12-31"
+          }
+        ],
+        "group_by": [
+          {
+            "column_id": "publication_year"
+          }
+        ],
+        "per_page": 200
+      },
+      "url": "/works?filter=default.search:Hannah Arendt,from_publication_date:2010-01-01,to_publication_date:2026-12-31&group_by=publication_year&per_page=200"
+    },
+    "cost_usd": 0.0001
+  },
+  "group_by": [
+    {
+      "key": "2023",
+      "key_display_name": "2023",
+      "count": 6081
+    },
+    {
+      "key": "2025",
+      "key_display_name": "2025",
+      "count": 5582
+    },
+    {
+      "key": "2024",
+      "key_display_name": "2024",
+      "count": 5416
+    },
+    {
+      "key": "2020",
+      "key_display_name": "2020",
+      "count": 4651
+    },
+    {
+      "key": "2022",
+      "key_display_name": "2022",
+      "count": 4532
+    },
+    {
+      "key": "2021",
+      "key_display_name": "2021",
+      "count": 4526
+    },
+    {
+      "key": "2019",
+      "key_display_name": "2019",
+      "count": 4383
+    },
+    {
+      "key": "2018",
+      "key_display_name": "2018",
+      "count": 4307
+    },
+    {
+      "key": "2017",
+      "key_display_name": "2017",
+      "count": 4017
+    },
+    {
+      "key": "2016",
+      "key_display_name": "2016",
+      "count": 3722
+    },
+    {
+      "key": "2015",
+      "key_display_name": "2015",
+      "count": 3244
+    },
+    {
+      "key": "2014",
+      "key_display_name": "2014",
+      "count": 3049
+    },
+    {
+      "key": "2013",
+      "key_display_name": "2013",
+      "count": 3007
+    },
+    {
+      "key": "2012",
+      "key_display_name": "2012",
+      "count": 2586
+    },
+    {
+      "key": "2011",
+      "key_display_name": "2011",
+      "count": 2198
+    },
+    {
+      "key": "2010",
+      "key_display_name": "2010",
+      "count": 1957
+    },
+    {
+      "key": "2026",
+      "key_display_name": "2026",
+      "count": 1927
+    }
+  ]
+}

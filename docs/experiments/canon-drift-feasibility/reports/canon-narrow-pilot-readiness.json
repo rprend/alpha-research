@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-06-12T21:37:22.845Z",
+  "status": "pilot-ready",
+  "checks": [
+    {
+      "id": "single-signal",
+      "status": "pass",
+      "evidence": "citation-or-scholarly-discussion"
+    },
+    {
+      "id": "author-cohort",
+      "status": "pass",
+      "evidence": "6 authors"
+    },
+    {
+      "id": "year-depth",
+      "status": "pass",
+      "evidence": "102 author-year rows"
+    },
+    {
+      "id": "sample-audit-packet",
+      "status": "pass",
+      "evidence": "120 sample works"
+    },
+    {
+      "id": "raw-manifest",
+      "status": "pass",
+      "evidence": "data/raw/openalex-citation-pilot/2026-06-12/manifest.json"
+    },
+    {
+      "id": "claim-blockers",
+      "status": "pass",
+      "evidence": "4 blockers"
+    }
+  ],
+  "publicationUse": "Can support a narrow methods/pilot note about OpenAlex scholarly-discussion signal only; cannot support teaching, anthology, or general canon-rank claims.",
+  "nextActions": [
+    "Manually label sample works for false positives before public examples.",
+    "Add author aliases and exclusion terms before expanding the signal.",
+    "Add a second source layer before broader canon drift claims."
+  ]
+}

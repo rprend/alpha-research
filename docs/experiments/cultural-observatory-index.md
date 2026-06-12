@@ -340,8 +340,12 @@ Implemented:
 - author cohort config for OpenAlex citation/scholarly-discussion probes
 - web source probe
 - OpenAlex author-search probe
+- OpenAlex scholarly-discussion year-count pilot for the six-author cohort
+- sample-work audit packet for the OpenAlex pilot
 - feasibility matrix
 - source inventory
+- `canon-narrow-pilot.md`
+- `canon-narrow-pilot-readiness.md`
 - `report.html`
 - `result.json`
 - `work.md`
@@ -357,6 +361,11 @@ Current corpus:
 - 13 source probes
 - 11 accessible probes
 - 5 signal types: teaching, anthologization, holdings-or-collections, holdings-or-editions, citation-or-scholarly-discussion
+- narrow pilot signal: OpenAlex citation-or-scholarly-discussion
+- narrow pilot cohort: Toni Morrison, Jane Austen, William Shakespeare, W. E. B. Du Bois, Hannah Arendt, Michel Foucault
+- narrow pilot date range: 2010-2026
+- narrow pilot output: 102 author-year rows and 120 sample works for relevance audit
+- narrow pilot readiness: pilot-ready, with explicit blockers against canon-rank or teaching claims
 - publication handoff: ready for copyedit as a methods piece
 - publication post: `reports/post.md`, a polished feasibility/methods draft
 - post evidence audit: `reports/post-evidence-audit.json`, status `pass`, 21/21 source and signal checks passed
@@ -365,7 +374,8 @@ Current corpus:
 Next implementation moves:
 
 - final editorial review for `reports/post.md`
-- choose one author cohort and one signal for a narrow canon pilot
+- manually label OpenAlex sample works for false positives before public examples
+- add author aliases and exclusion terms before expanding the scholarly-discussion signal
 - resolve Open Syllabus export/access before assignment-level claims
 - add audited anthology tables of contents before anthologization claims
 - add edition-aware normalization before library or anthology trend claims
