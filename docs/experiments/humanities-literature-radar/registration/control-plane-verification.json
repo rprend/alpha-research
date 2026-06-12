@@ -1,0 +1,22 @@
+{
+  "verifiedAt": "2026-06-12T19:57:28.571Z",
+  "origin": "https://alpharesearch.nyc",
+  "datasetId": "humanities-literature-radar",
+  "dataset": {
+    "id": "humanities-literature-radar",
+    "name": "Humanities Literature Radar",
+    "status": "created",
+    "deploymentStatus": "draft",
+    "manifestPath": null,
+    "mode": "public_research_dataset",
+    "sourceType": "public_metadata"
+  },
+  "profile": {
+    "profileReady": true,
+    "briefingMarkdownChars": 3460,
+    "schemaFields": 26,
+    "sampleRows": 10,
+    "updatedAt": "2026-06-12T19:57:28.714Z"
+  },
+  "dashboardUrl": "https://dashboard.alpharesearch.nyc/datasets/humanities-literature-radar"
+}

@@ -1,0 +1,195 @@
+{
+  "primaryKey": "stableWorkId(work)",
+  "rowCount": 1951,
+  "fields": [
+    {
+      "name": "source_name",
+      "types": [
+        "string"
+      ],
+      "example": "hcommons"
+    },
+    {
+      "name": "source_record_id",
+      "types": [
+        "string"
+      ],
+      "example": "tmqt8-ajh44"
+    },
+    {
+      "name": "title",
+      "types": [
+        "string"
+      ],
+      "example": "The Role of Generative Artificial Intelligence in Korean Language Learning: Applications, Challenges, and Instructional Strategies"
+    },
+    {
+      "name": "abstract",
+      "types": [
+        "string"
+      ],
+      "example": "This conceptual narrative review examines the role of generative artificial intelligence (AI) in Korean language learning. The paper synthesizes recent scholarship on AI-assisted language learning, Korean language education, technology acceptance, and educational ethics to develop an analytical framework for responsible classroom use. The review focuses on four dimensions: Korean language skills, Korean-specific linguistic and cultural features, instructional design, and governance risks. The analysis suggests that generative AI can support listening, speaking, reading, and writing when tasks are explicitly designed around Korean phonology, morphology, pragmatics, and learner purposes such as TOPIK preparation, study abroad, employment, and popular-culture engagement. It also identifies challenges in cultural-pragmatic accuracy, hallucinated expressions, assessment validity, data privacy, unequal access, teacher readiness, and learner dependency. The paper concludes that generative AI should function as a mediated learning resource rather than a substitute for teachers, learner judgment, or culturally grounded interaction."
+    },
+    {
+      "name": "publication_date",
+      "types": [
+        "string"
+      ],
+      "example": "2026-12-31"
+    },
+    {
+      "name": "year",
+      "types": [
+        "number",
+        "string"
+      ],
+      "example": "2026"
+    },
+    {
+      "name": "doi",
+      "types": [
+        "string"
+      ],
+      "example": "10.17613/tmqt8-ajh44"
+    },
+    {
+      "name": "url",
+      "types": [
+        "string"
+      ],
+      "example": "https://works.hcommons.org/records/tmqt8-ajh44"
+    },
+    {
+      "name": "open_access_url",
+      "types": [
+        "string"
+      ],
+      "example": "https://works.hcommons.org/records/tmqt8-ajh44"
+    },
+    {
+      "name": "venue_name",
+      "types": [
+        "string"
+      ],
+      "example": "Resp AI Research Lab, CIIOE"
+    },
+    {
+      "name": "publisher",
+      "types": [
+        "string"
+      ],
+      "example": "Resp AI Research Lab, CIIOE"
+    },
+    {
+      "name": "work_type",
+      "types": [
+        "string"
+      ],
+      "example": "Journal article"
+    },
+    {
+      "name": "authors",
+      "types": [
+        "array"
+      ],
+      "example": [
+        "Wu, Yundong"
+      ]
+    },
+    {
+      "name": "institutions",
+      "types": [
+        "array"
+      ],
+      "example": [
+        "Dongshin University"
+      ]
+    },
+    {
+      "name": "concepts",
+      "types": [
+        "array"
+      ],
+      "example": []
+    },
+    {
+      "name": "references",
+      "types": [
+        "array"
+      ],
+      "example": []
+    },
+    {
+      "name": "cited_by_count",
+      "types": [
+        "number"
+      ],
+      "example": 0
+    },
+    {
+      "name": "license",
+      "types": [
+        "string"
+      ],
+      "example": "Creative Commons Attribution Non Commercial No Derivatives 4.0 International"
+    },
+    {
+      "name": "raw_path",
+      "types": [
+        "string"
+      ],
+      "example": "data/raw/hcommons/2026-06-12/ai-humanities-004.json"
+    },
+    {
+      "name": "work_id",
+      "types": [
+        "string"
+      ],
+      "example": "doi:10.17613/tmqt8-ajh44"
+    },
+    {
+      "name": "duplicate_sources",
+      "types": [
+        "array"
+      ],
+      "example": [
+        "hcommons"
+      ]
+    },
+    {
+      "name": "relevance_score",
+      "types": [
+        "number"
+      ],
+      "example": 2
+    },
+    {
+      "name": "disciplines",
+      "types": [
+        "array"
+      ],
+      "example": []
+    },
+    {
+      "name": "methods",
+      "types": [
+        "array"
+      ],
+      "example": []
+    },
+    {
+      "name": "quantitative_signals",
+      "types": [
+        "array"
+      ],
+      "example": []
+    },
+    {
+      "name": "is_quantitative_humanities_candidate",
+      "types": [
+        "boolean"
+      ],
+      "example": false
+    }
+  ]
+}

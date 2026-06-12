@@ -1,0 +1,103 @@
+{
+  "generatedAt": "2026-06-12T19:23:57.160Z",
+  "status": "ready-for-editorial-review",
+  "corpus": {
+    "works": 1951,
+    "recentWorks2024Present": 1155,
+    "quantitativeHumanitiesCandidates": 593,
+    "sources": {
+      "hcommons": 500,
+      "crossref": 500,
+      "arxiv": 19,
+      "doaj": 468,
+      "openalex": 455,
+      "osf-preprints": 9
+    },
+    "years": {
+      "2003": 1,
+      "2005": 1,
+      "2008": 1,
+      "2009": 2,
+      "2010": 6,
+      "2011": 2,
+      "2012": 2,
+      "2013": 2,
+      "2014": 5,
+      "2015": 7,
+      "2016": 26,
+      "2017": 59,
+      "2018": 29,
+      "2019": 35,
+      "2020": 103,
+      "2021": 111,
+      "2022": 145,
+      "2023": 258,
+      "2024": 378,
+      "2025": 477,
+      "2026": 300,
+      "unknown": 1
+    }
+  },
+  "checks": [
+    {
+      "id": "source-diversity",
+      "label": "At least five processed source families are represented",
+      "status": "pass",
+      "evidence": "6 sources: hcommons, crossref, arxiv, doaj, openalex, osf-preprints"
+    },
+    {
+      "id": "corpus-size",
+      "label": "At least 500 deduped works are needed before publication-level field claims",
+      "status": "pass",
+      "evidence": "1951 deduped works"
+    },
+    {
+      "id": "recent-coverage",
+      "label": "At least 200 works from 2024-present are needed for current-field claims",
+      "status": "pass",
+      "evidence": "1155 works from 2024-present"
+    },
+    {
+      "id": "quantitative-candidates",
+      "label": "At least 50 quantitative/computational humanities candidates are identified",
+      "status": "pass",
+      "evidence": "593 candidates"
+    },
+    {
+      "id": "source-manifests",
+      "label": "Every processed source has a raw manifest",
+      "status": "pass",
+      "evidence": "8 manifests"
+    },
+    {
+      "id": "representative-works",
+      "label": "Representative works table has at least 25 rows for manual review",
+      "status": "pass",
+      "evidence": "100 representative rows"
+    },
+    {
+      "id": "topic-labels",
+      "label": "Topic/method/signal table has at least 10 labels",
+      "status": "pass",
+      "evidence": "41 labels"
+    },
+    {
+      "id": "source-caveats",
+      "label": "Public draft remains caveated until broad backfill is complete",
+      "status": "pass",
+      "evidence": "reports/public-draft.md"
+    },
+    {
+      "id": "publication-handoff",
+      "label": "Publication handoff exists with corpus notes and public-claim checklist",
+      "status": "pass",
+      "evidence": "ready-for-copyedit; 1951 works"
+    }
+  ],
+  "nextMoves": [
+    "Copyedit the publication handoff into a field-map post.",
+    "Use DOAJ dumps/OAI-PMH for large open-access harvesting instead of bounded search.",
+    "Expand OSF/SocArXiv and KCWorks beyond bounded keyword search.",
+    "Manually review representative works before publishing field claims."
+  ]
+}

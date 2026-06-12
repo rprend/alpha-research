@@ -1,0 +1,140 @@
+[
+  {
+    "stable_id": "doi:10.17613/tmqt8-ajh44",
+    "title": "The Role of Generative Artificial Intelligence in Korean Language Learning: Applications, Challenges, and Instructional Strategies",
+    "year": "2026",
+    "source_name": "hcommons",
+    "venue_name": "Resp AI Research Lab, CIIOE",
+    "doi": "10.17613/tmqt8-ajh44",
+    "url": "https://works.hcommons.org/records/tmqt8-ajh44",
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "stable_id": "doi:10.17613/jddaq-h8321",
+    "title": "NUISS: A User-Centered Prototype for International Student Administrative Support",
+    "year": "2026",
+    "source_name": "hcommons",
+    "venue_name": "Resp AI Research Lab, CIIOE",
+    "doi": "10.17613/jddaq-h8321",
+    "url": "https://works.hcommons.org/records/jddaq-h8321",
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "stable_id": "doi:10.17613/k13dm-vaq64",
+    "title": "Synthetic Moral Agents or Sophisticated Mimics?",
+    "year": "2026",
+    "source_name": "hcommons",
+    "venue_name": "Resp AI Research Lab, CIIOE",
+    "doi": "10.17613/k13dm-vaq64",
+    "url": "https://works.hcommons.org/records/k13dm-vaq64",
+    "methods": [
+      "large language models",
+      "llms"
+    ],
+    "quantitative_signals": [
+      "large language models",
+      "llms"
+    ],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
+    "stable_id": "doi:10.17613/yc2pd-shr90",
+    "title": "Image Collection of AI-Centered Futuristic Imagination",
+    "year": "2026",
+    "source_name": "hcommons",
+    "venue_name": "Resp AI Research Lab, CIIOE",
+    "doi": "10.17613/yc2pd-shr90",
+    "url": "https://works.hcommons.org/records/yc2pd-shr90",
+    "methods": [],
+    "quantitative_signals": [
+      "computational"
+    ],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
+    "stable_id": "doi:10.17613/vf08e-8z112",
+    "title": "The Verification Budget: Pricing Scientific Credibility Under Near-Zero Generation Costs",
+    "year": "2026",
+    "source_name": "hcommons",
+    "venue_name": "Resp AI Research Lab, CIIOE",
+    "doi": "10.17613/vf08e-8z112",
+    "url": "https://works.hcommons.org/records/vf08e-8z112",
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "stable_id": "doi:10.17613/zkz53-f1270",
+    "title": "\"Undo Send\"",
+    "year": "2026",
+    "source_name": "hcommons",
+    "venue_name": "Resp AI Research Lab, CIIOE",
+    "doi": "10.17613/zkz53-f1270",
+    "url": "https://works.hcommons.org/records/zkz53-f1270",
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "stable_id": "doi:10.17613/25m8n-gy545",
+    "title": "Epistemic Injustice in Generative AI: Probabilistic Generation, Trust Erosion, and the Structural Conditions of Algorithmic Knowledge Harm",
+    "year": "2026",
+    "source_name": "hcommons",
+    "venue_name": "Resp AI Research Lab, CIIOE",
+    "doi": "10.17613/25m8n-gy545",
+    "url": "https://works.hcommons.org/records/25m8n-gy545",
+    "methods": [
+      "large language models",
+      "llm",
+      "llms"
+    ],
+    "quantitative_signals": [
+      "large language models",
+      "llm",
+      "llms"
+    ],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
+    "stable_id": "doi:10.17613/mxnp5-0g716",
+    "title": "What the AI Race Has Given Us and What It Requires Next",
+    "year": "2026",
+    "source_name": "hcommons",
+    "venue_name": "Taylor & Francis",
+    "doi": "10.17613/mxnp5-0g716",
+    "url": "https://works.hcommons.org/records/mxnp5-0g716",
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "stable_id": "doi:10.17613/1a679-x6180",
+    "title": "New Subscription to the Lifelong Plan: How Can You Help Me Today?",
+    "year": "2026",
+    "source_name": "hcommons",
+    "venue_name": "Resp AI Research Lab, CIIOE",
+    "doi": "10.17613/1a679-x6180",
+    "url": "https://works.hcommons.org/records/1a679-x6180",
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "stable_id": "doi:10.17613/qde6b-n9s67",
+    "title": "The Ontological Status of AI-Generated Music: From Stylistic Mimicry to Collaborative Agency",
+    "year": "2026",
+    "source_name": "hcommons",
+    "venue_name": "Resp AI Research Lab, CIIOE",
+    "doi": "10.17613/qde6b-n9s67",
+    "url": "https://works.hcommons.org/records/qde6b-n9s67",
+    "methods": [],
+    "quantitative_signals": [
+      "computational"
+    ],
+    "is_quantitative_humanities_candidate": true
+  }
+]

@@ -1,0 +1,79 @@
+{
+  "datasetId": "humanities-literature-radar",
+  "name": "Humanities Literature Radar",
+  "status": "ready-for-research",
+  "sourceType": "public_metadata",
+  "mode": "public_research_dataset",
+  "mountPath": "/data/datasets/humanities-literature-radar",
+  "manifestPath": "/data/datasets/humanities-literature-radar/manifest.json",
+  "generatedAt": "2026-06-12T19:54:31.378Z",
+  "corpus": {
+    "works": 1951,
+    "recentWorks2024Present": 1155,
+    "quantitativeHumanitiesCandidates": 593,
+    "sources": {
+      "hcommons": 500,
+      "crossref": 500,
+      "arxiv": 19,
+      "doaj": 468,
+      "openalex": 455,
+      "osf-preprints": 9
+    },
+    "years": {
+      "2003": 1,
+      "2005": 1,
+      "2008": 1,
+      "2009": 2,
+      "2010": 6,
+      "2011": 2,
+      "2012": 2,
+      "2013": 2,
+      "2014": 5,
+      "2015": 7,
+      "2016": 26,
+      "2017": 59,
+      "2018": 29,
+      "2019": 35,
+      "2020": 103,
+      "2021": 111,
+      "2022": 145,
+      "2023": 258,
+      "2024": 378,
+      "2025": 477,
+      "2026": 300,
+      "unknown": 1
+    }
+  },
+  "monitor": {
+    "runDate": "2026-06-12",
+    "counts": {
+      "currentWorks": 1951,
+      "newWorks": 1951,
+      "genuinelyNewPublications": 1155,
+      "newlyDiscoveredOldRecords": 796,
+      "changedSources": 6
+    },
+    "resultPath": "runs/2026-06-12/result.json"
+  },
+  "readiness": "ready-for-editorial-review",
+  "files": {
+    "briefing": "dataset_briefing.md",
+    "processedWorks": "processed/works.json",
+    "topics": "processed/topics.json",
+    "result": "reports/result.json",
+    "sourceInventory": "reports/source-inventory.md",
+    "monitorRun": "runs/2026-06-12/"
+  },
+  "suggestedStarterQuestions": [
+    "What are the main topic clusters in AI-and-humanities publishing since 2020?",
+    "Which venues and sources publish computational or quantitative humanities work?",
+    "Which methods are most visible across the corpus?",
+    "Which representative works should be manually reviewed before publishing the first field-map essay?",
+    "What source gaps would change the interpretation most?"
+  ],
+  "limitations": [
+    "This first artifact uses public metadata and abstracts where available, not full-text scholarship.",
+    "Open indexes underrepresent books, chapters, non-English work, and paywalled humanities journals.",
+    "Trend claims require source-coverage checks and manual review of representative works before publication."
+  ]
+}

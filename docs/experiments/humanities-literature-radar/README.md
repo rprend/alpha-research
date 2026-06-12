@@ -59,6 +59,14 @@ node docs/experiments/humanities-literature-radar/scripts/build-monitor-run.mjs 
 
 For later runs, pass the previous processed corpus as `--prior-works=<path>` so the monitor separates newly discovered old records from genuinely new publications against a real baseline.
 
+Build the Alpha Research dataset bundle and control-plane registration payload:
+
+```bash
+node docs/experiments/humanities-literature-radar/scripts/build-dataset-bundle.mjs
+```
+
+The bundle is written to `dataset-bundle/` and is shaped for `/data/datasets/humanities-literature-radar/`. The registration payload is written to `registration/control-plane-registration.json`.
+
 The scripts write:
 
 - `reports/pipeline-run.json`
@@ -85,6 +93,12 @@ The scripts write:
 - `runs/YYYY-MM-DD/report.html`
 - `runs/YYYY-MM-DD/result.json`
 - `runs/YYYY-MM-DD/work.md`
+- `dataset-bundle/manifest.json`
+- `dataset-bundle/dataset_briefing.md`
+- `dataset-bundle/dataset_profile.json`
+- `dataset-bundle/schema.json`
+- `dataset-bundle/sample_rows.json`
+- `registration/control-plane-registration.json`
 
 ## Recurring Monitor
 
@@ -97,6 +111,37 @@ The first bootstrap run is `runs/2026-06-12/`. It compares the current processed
 - 6 source rows in the coverage-change table
 
 After the next broad backfill, run the monitor with a prior processed corpus path. Monitor claims should keep the `changed-sources.csv` table attached because source count changes can reflect crawler limits, API coverage, or indexing lag rather than intellectual trends.
+
+## Dataset Registration
+
+The stable dataset id is `humanities-literature-radar`.
+
+The local dataset bundle mirrors the planned remote mount:
+
+```text
+/data/datasets/humanities-literature-radar/
+  manifest.json
+  dataset_briefing.md
+  dataset_profile.json
+  schema.json
+  sample_rows.json
+  processed/
+  reports/
+  runs/
+```
+
+Upload the local bundle to the shared Modal dataset volume with:
+
+```bash
+python scripts/sync_modal_dataset.py --dataset-id humanities-literature-radar --source docs/experiments/humanities-literature-radar/dataset-bundle --contents --force
+```
+
+Then create/update the control-plane dataset using `registration/control-plane-registration.json`:
+
+- `dataset` payload: create/update `/datasets`
+- `profile` payload: attach `/datasets/humanities-literature-radar/profile`
+
+Dashboard verification should show the dataset detail briefing text from `briefingMarkdown`, and the profile endpoint should return schema and sample rows.
 
 ## Article Standard
 

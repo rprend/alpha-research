@@ -106,6 +106,8 @@ Implemented:
 - `public-draft.md`
 - `publication-handoff.md`
 - `dataset_briefing.md`
+- `dataset-bundle/` Alpha Research dataset bundle
+- `registration/control-plane-registration.json`
 - `runs/2026-06-12/` bootstrap monitor
 - one-command `run-pipeline.mjs` smoke/v1 runner
 
@@ -116,11 +118,13 @@ Current committed corpus:
 - 593 quantitative/computational humanities candidates
 - sources represented in processed records: arXiv, Crossref, OpenAlex, DOAJ, OSF Preprints / SocArXiv, Knowledge Commons Works / Humanities Commons
 - monitor baseline: 1,951 records absent from bootstrap baseline, including 1,155 genuinely new publications and 796 newly discovered old records
+- dataset registration: stable id `humanities-literature-radar`, Modal bundle synced, control-plane profile attached with 26 schema fields and 10 sample rows; CLI dataset row is registered but still `created`/`draft`
 - readiness: ready for editorial review with source-coverage caveats
 
 Next implementation moves:
 
 - copyedit the publication handoff into a field-map post
+- promote the registered literature-radar dataset row from `created`/`draft` to ready through an admin/platform path
 - run the recurring monitor after the next broad backfill with `--prior-works`
 - replace bounded DOAJ search with public dump or OAI-PMH harvest
 - improve NBER extraction or switch to an official metadata route if available

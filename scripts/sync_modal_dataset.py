@@ -13,6 +13,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--volume", default="agent-dataset", help="Modal Volume name.")
     parser.add_argument("--force", action="store_true", help="Overwrite existing files on the Modal Volume.")
     parser.add_argument("--modal-env", default="", help="Optional Modal environment name.")
+    parser.add_argument("--contents", action="store_true", help="Upload the contents of a source directory instead of nesting the directory name.")
     return parser.parse_args()
 
 
@@ -23,13 +24,21 @@ def main() -> int:
         raise SystemExit(f"Source does not exist: {source}")
 
     remote_path = f"/datasets/{args.dataset_id}/"
-    command = ["modal", "volume", "put", args.volume, str(source), remote_path]
-    if args.force:
-        command.append("--force")
-    if args.modal_env:
-        command.extend(["--env", args.modal_env])
-
-    subprocess.run(command, check=True)
+    if args.contents and source.is_dir():
+        for child in sorted(source.iterdir()):
+            command = ["modal", "volume", "put", args.volume, str(child), remote_path]
+            if args.force:
+                command.append("--force")
+            if args.modal_env:
+                command.extend(["--env", args.modal_env])
+            subprocess.run(command, check=True)
+    else:
+        command = ["modal", "volume", "put", args.volume, str(source), remote_path]
+        if args.force:
+            command.append("--force")
+        if args.modal_env:
+            command.extend(["--env", args.modal_env])
+        subprocess.run(command, check=True)
     print(f"Uploaded {source} to Modal volume {args.volume}:{remote_path}")
     return 0
 

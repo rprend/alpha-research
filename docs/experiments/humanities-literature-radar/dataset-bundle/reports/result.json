@@ -1,0 +1,364 @@
+{
+  "generatedAt": "2026-06-12T19:23:57.057Z",
+  "strongestFinding": "The v1 literature radar is large enough for a field-map essay about AI, computational methods, and quantitative humanities signals, but source coverage remains uneven.",
+  "corpus": {
+    "works": 1951,
+    "recentWorks2024Present": 1155,
+    "quantitativeHumanitiesCandidates": 593,
+    "sources": {
+      "hcommons": 500,
+      "crossref": 500,
+      "arxiv": 19,
+      "doaj": 468,
+      "openalex": 455,
+      "osf-preprints": 9
+    },
+    "years": {
+      "2003": 1,
+      "2005": 1,
+      "2008": 1,
+      "2009": 2,
+      "2010": 6,
+      "2011": 2,
+      "2012": 2,
+      "2013": 2,
+      "2014": 5,
+      "2015": 7,
+      "2016": 26,
+      "2017": 59,
+      "2018": 29,
+      "2019": 35,
+      "2020": 103,
+      "2021": 111,
+      "2022": 145,
+      "2023": 258,
+      "2024": 378,
+      "2025": 477,
+      "2026": 300,
+      "unknown": 1
+    }
+  },
+  "topTopics": [
+    {
+      "label": "digital humanities",
+      "kind": "discipline",
+      "count": 363,
+      "representative_titles": "《人工智慧時代的桃花源》The Peach Blossom Spring in the Artificial Intelligence Age | Epistemology and Ontology of AI — New Entry SOTA pre-AGI decade 2020–2030: exploratory dataset analyzing the heuristic geste from Turin to Paris across the centuries, from the epistemic and mathematical roots of Joseph-Louis Lagrange (Turin, 1736) in the eighteenth century through Analytical Mechanics to the ontosemantic extension of the Dorian Codex Protocol for AI and its heuristic mathematical formula H_SAFE, H_safe(t) = T(t) + V(t) − Z(t), proposed by Stefano Dorian Franco (Paris, 1973) in 2025, in the twenty-first century, within the ontosemantic dimension of artificial intelligence — Analysis conducted in June 2026 by the LLM ChatGPT, version GPT-5.5 | Tracing thematic evolution in Ramayana through digital space: an AI-driven bibliometric approach"
+    },
+    {
+      "label": "literature",
+      "kind": "discipline",
+      "count": 292,
+      "representative_titles": "《人工智慧時代的桃花源》The Peach Blossom Spring in the Artificial Intelligence Age | An LLM System for Autonomous Variational Quantum Circuit Design | The Rise of AI-Native Software Engineering: Implications for Practice, Education, and the Future Workforce"
+    },
+    {
+      "label": "philosophy",
+      "kind": "discipline",
+      "count": 234,
+      "representative_titles": "Synthetic Moral Agents or Sophisticated Mimics? | The Risk-Bearing Subject of AI-Related Existential Risk to Humanity: From Species Survival to the Realization of Subjecthood under Conditions of Human Civilization | Before Judgment: Agency, Formation, and the Conditions of Human Interpretation in AI-Mediated Writing"
+    },
+    {
+      "label": "history",
+      "kind": "discipline",
+      "count": 231,
+      "representative_titles": "The Ontological Status of AI-Generated Music: From Stylistic Mimicry to Collaborative Agency | The Rise of AI-Native Software Engineering: Implications for Practice, Education, and the Future Workforce | Epistemology and Ontology of AI — From Lagrange and Hamilton Genre-Shift to Agentic AI Cognitive Safety: Open-Source Framework, LNN, HNN, PINN and SciML within the Dorian Codex H_SAFE(t) = T(t) + V(t) - Z(t), by Stefano Dorian Franco — Independent Research Modules Programme for Master, PhD, Doctoral Level"
+    },
+    {
+      "label": "sociology",
+      "kind": "discipline",
+      "count": 216,
+      "representative_titles": "Spatial Humanities | AI-Produced Humanities Research: On the Dangers of Technical Incrementalism | From Text to Meaning. Historical Humanities in the Age of AI and Interdisciplinarity"
+    },
+    {
+      "label": "political science",
+      "kind": "discipline",
+      "count": 194,
+      "representative_titles": "AI-Augmented Impact Frames: A Closed-Loop Architecture for Purpose-Aligned Decisions | From Prompts to Preferences: An Open-Source Platform for Generative AI-Enhanced Conjoint Analysis | AI-Produced Humanities Research: On the Dangers of Technical Incrementalism"
+    },
+    {
+      "label": "network",
+      "kind": "method",
+      "count": 170,
+      "representative_titles": "Agent-based models for the evolution of morphological alternation patterns | Agent-based models for the evolution of morphological alternation patterns | Tracing thematic evolution in Ramayana through digital space: an AI-driven bibliometric approach"
+    },
+    {
+      "label": "large language models",
+      "kind": "quantitative-signal",
+      "count": 168,
+      "representative_titles": "Synthetic Moral Agents or Sophisticated Mimics? | Synthetic Moral Agents or Sophisticated Mimics? | Epistemic Injustice in Generative AI: Probabilistic Generation, Trust Erosion, and the Structural Conditions of Algorithmic Knowledge Harm"
+    },
+    {
+      "label": "llms",
+      "kind": "quantitative-signal",
+      "count": 122,
+      "representative_titles": "Synthetic Moral Agents or Sophisticated Mimics? | Synthetic Moral Agents or Sophisticated Mimics? | Epistemic Injustice in Generative AI: Probabilistic Generation, Trust Erosion, and the Structural Conditions of Algorithmic Knowledge Harm"
+    },
+    {
+      "label": "linguistics",
+      "kind": "discipline",
+      "count": 109,
+      "representative_titles": "The Grammar of Asymmetric Visibility: AI, Zionism, and the Reallocation of Political Agency | Suffering Without Perpetrators: The Humanitarian Passive in AI-Generated Conflict Discourse | From Text to Meaning. Historical Humanities in the Age of AI and Interdisciplinarity"
+    },
+    {
+      "label": "computational",
+      "kind": "quantitative-signal",
+      "count": 105,
+      "representative_titles": "Image Collection of AI-Centered Futuristic Imagination | The Ontological Status of AI-Generated Music: From Stylistic Mimicry to Collaborative Agency | Agent-based models for the evolution of morphological alternation patterns"
+    },
+    {
+      "label": "llm",
+      "kind": "method",
+      "count": 98,
+      "representative_titles": "Epistemic Injustice in Generative AI: Probabilistic Generation, Trust Erosion, and the Structural Conditions of Algorithmic Knowledge Harm | Epistemic Injustice in Generative AI: Probabilistic Generation, Trust Erosion, and the Structural Conditions of Algorithmic Knowledge Harm | Valid Inference with Synthetic Data via Task Exchangeability"
+    },
+    {
+      "label": "corpus",
+      "kind": "method",
+      "count": 98,
+      "representative_titles": "Mod-Guide: An LLM-based Content Moderation Feedback System to Address Insensitive Speech toward Indigenous Ethnic and Religious Minority Communities | Mod-Guide: An LLM-based Content Moderation Feedback System to Address Insensitive Speech toward Indigenous Ethnic and Religious Minority Communities | MARD: Mirror-Augmented Reasoning Distillation for Mechanism-Level Drug-Drug Interaction Prediction"
+    },
+    {
+      "label": "quantitative",
+      "kind": "quantitative-signal",
+      "count": 91,
+      "representative_titles": "Measuring the Impact of AI-Assisted Language Learning on English Language Education: A Mixed-Methods Study | Developing Soft Skills for the AI Era: A Study of Science Students at Sidi Mohamed Ben Abdellah University | Influence of Teachers' TPACK, AI Utilization, and Students' Metacognitive Practices on Academic Writing among Senior High School Students"
+    },
+    {
+      "label": "economics",
+      "kind": "discipline",
+      "count": 74,
+      "representative_titles": "EconCSLib: AI-Assisted Lean Formalization for Economics & Computation research | AI-Produced Humanities Research: On the Dangers of Technical Incrementalism | Dual Reconfiguration of Education: How AI Reopens the “End of History” Through the Technology–Governance Dual Curve"
+    },
+    {
+      "label": "classification",
+      "kind": "quantitative-signal",
+      "count": 59,
+      "representative_titles": "An LLM System for Autonomous Variational Quantum Circuit Design | MARD: Mirror-Augmented Reasoning Distillation for Mechanism-Level Drug-Drug Interaction Prediction | Suffering Without Perpetrators: The Humanitarian Passive in AI-Generated Conflict Discourse"
+    },
+    {
+      "label": "dataset",
+      "kind": "quantitative-signal",
+      "count": 51,
+      "representative_titles": "VietFashion: Benchmarking Sketch-Text Composed Image Retrieval for Cultural Outfits | TimeLens: On-Device Artifact Recognition with Retrieval-Augmented Question Answering for the Grand Egyptian Museum | AiAWE: An Open-Source LLM Automated Writing Evaluation System Using LoRA-Adapted Instruction-Tuned Models"
+    },
+    {
+      "label": "translation",
+      "kind": "method",
+      "count": 50,
+      "representative_titles": "EconCSLib: AI-Assisted Lean Formalization for Economics & Computation research | Beyond Translation: Can Human-AI Co-Regulation Improve Qira’ah al-Kutub Instruction? | MEANING GRAPHS FOR THE HUMANITIES IN THE AGE OF LLMS: AMR AND UMR AS INTERPRETIVE INFRASTRUCTURE"
+    },
+    {
+      "label": "large language model",
+      "kind": "method",
+      "count": 44,
+      "representative_titles": "RogueAI: A Reverse Turing Test for Detecting Licensed AI Deception in Dialogue | RogueAI: A Reverse Turing Test for Detecting Licensed AI Deception in Dialogue | The End of Code Review: Coding Agents Supersede Human Inspection"
+    },
+    {
+      "label": "spatial",
+      "kind": "method",
+      "count": 40,
+      "representative_titles": "TimeLens: On-Device Artifact Recognition with Retrieval-Augmented Question Answering for the Grand Egyptian Museum | TimeLens: On-Device Artifact Recognition with Retrieval-Augmented Question Answering for the Grand Egyptian Museum | Mapping the body: poetic metaphor and AI imaging in Carol Ann Duffy’s ‘The Map-Woman’"
+    }
+  ],
+  "representativeWorks": [
+    {
+      "title": "LLaMA: Open and Efficient Foundation Language Models",
+      "year": 2023,
+      "venue": "arXiv (Cornell University)",
+      "source": "openalex",
+      "url": "http://arxiv.org/abs/2302.13971",
+      "cited_by_count": 3896,
+      "methods": [],
+      "quantitative_signals": []
+    },
+    {
+      "title": "Artificial Intelligence in Education: A Review",
+      "year": 2020,
+      "venue": "IEEE Access",
+      "source": "openalex",
+      "url": "https://doi.org/10.1109/access.2020.2988510",
+      "cited_by_count": 3427,
+      "methods": [],
+      "quantitative_signals": []
+    },
+    {
+      "title": "GPT-4 Technical Report",
+      "year": 2023,
+      "venue": "arXiv (Cornell University)",
+      "source": "openalex",
+      "url": "http://arxiv.org/abs/2303.08774",
+      "cited_by_count": 2346,
+      "methods": [
+        "large language models",
+        "llms"
+      ],
+      "quantitative_signals": [
+        "large language models",
+        "llms",
+        "quantitative"
+      ]
+    },
+    {
+      "title": "Students’ voices on generative AI: perceptions, benefits, and challenges in higher education",
+      "year": 2023,
+      "venue": "International Journal of Educational Technology in Higher Education",
+      "source": "openalex",
+      "url": "https://doi.org/10.1186/s41239-023-00411-8",
+      "cited_by_count": 1749,
+      "methods": [],
+      "quantitative_signals": []
+    },
+    {
+      "title": "A Review of Artificial Intelligence (AI) in Education from 2010 to 2020",
+      "year": 2021,
+      "venue": "Complexity",
+      "source": "openalex",
+      "url": "https://doi.org/10.1155/2021/8812542",
+      "cited_by_count": 1125,
+      "methods": [
+        "content analysis"
+      ],
+      "quantitative_signals": [
+        "citation",
+        "classification"
+      ]
+    },
+    {
+      "title": "FungalTraits: a user-friendly traits database of fungi and fungus-like stramenopiles",
+      "year": 2020,
+      "venue": "Fungal Diversity",
+      "source": "openalex",
+      "url": "https://doi.org/10.1007/s13225-020-00466-2",
+      "cited_by_count": 1102,
+      "methods": [],
+      "quantitative_signals": [
+        "citation"
+      ]
+    },
+    {
+      "title": "Consumers and Artificial Intelligence: An Experiential Perspective",
+      "year": 2020,
+      "venue": "Journal of Marketing",
+      "source": "openalex",
+      "url": "https://doi.org/10.1177/0022242920953847",
+      "cited_by_count": 1002,
+      "methods": [],
+      "quantitative_signals": [
+        "embedding",
+        "classification"
+      ]
+    },
+    {
+      "title": "Bias in data‐driven artificial intelligence systems—An introductory survey",
+      "year": 2020,
+      "venue": "Wiley Interdisciplinary Reviews Data Mining and Knowledge Discovery",
+      "source": "openalex",
+      "url": "https://doi.org/10.1002/widm.1356",
+      "cited_by_count": 985,
+      "methods": [],
+      "quantitative_signals": []
+    },
+    {
+      "title": "Google Scholar, Microsoft Academic, Scopus, Dimensions, Web of Science, and OpenCitations’ COCI: a multidisciplinary comparison of coverage via citations",
+      "year": 2020,
+      "venue": "Scientometrics",
+      "source": "openalex",
+      "url": "https://doi.org/10.1007/s11192-020-03690-4",
+      "cited_by_count": 919,
+      "methods": [],
+      "quantitative_signals": [
+        "citation"
+      ]
+    },
+    {
+      "title": "Embracing the future of Artificial Intelligence in the classroom: the relevance of AI literacy, prompt engineering, and critical thinking in modern education",
+      "year": 2024,
+      "venue": "International Journal of Educational Technology in Higher Education",
+      "source": "openalex",
+      "url": "https://doi.org/10.1186/s41239-024-00448-3",
+      "cited_by_count": 786,
+      "methods": [],
+      "quantitative_signals": [
+        "embedding"
+      ]
+    },
+    {
+      "title": "The impact of artificial intelligence on learner–instructor interaction in online learning",
+      "year": 2021,
+      "venue": "International Journal of Educational Technology in Higher Education",
+      "source": "openalex",
+      "url": "https://doi.org/10.1186/s41239-021-00292-9",
+      "cited_by_count": 704,
+      "methods": [],
+      "quantitative_signals": []
+    },
+    {
+      "title": "From ChatGPT to ThreatGPT: Impact of Generative AI in Cybersecurity and Privacy",
+      "year": 2023,
+      "venue": "IEEE Access",
+      "source": "openalex",
+      "url": "https://doi.org/10.1109/access.2023.3300381",
+      "cited_by_count": 690,
+      "methods": [],
+      "quantitative_signals": []
+    },
+    {
+      "title": "The impact of Generative AI (GenAI) on practices, policies and research direction in education: a case of ChatGPT and Midjourney",
+      "year": 2023,
+      "venue": "Interactive Learning Environments",
+      "source": "openalex",
+      "url": "https://doi.org/10.1080/10494820.2023.2253861",
+      "cited_by_count": 682,
+      "methods": [],
+      "quantitative_signals": []
+    },
+    {
+      "title": "Knowledge Graphs: Opportunities and Challenges",
+      "year": 2023,
+      "venue": "Artificial Intelligence Review",
+      "source": "openalex",
+      "url": "https://doi.org/10.1007/s10462-023-10465-9",
+      "cited_by_count": 596,
+      "methods": [],
+      "quantitative_signals": []
+    },
+    {
+      "title": "Teachers’ AI digital competencies and twenty-first century skills in the post-pandemic world",
+      "year": 2023,
+      "venue": "Educational Technology Research and Development",
+      "source": "openalex",
+      "url": "https://doi.org/10.1007/s11423-023-10203-6",
+      "cited_by_count": 574,
+      "methods": [],
+      "quantitative_signals": []
+    }
+  ],
+  "nextEssays": [
+    {
+      "title": "The Rise Of AI And The Humanities",
+      "format": "field-map",
+      "why": "The corpus already tracks AI, LLM, computational, and digital-humanities records across scholarly sources."
+    },
+    {
+      "title": "Canon Drift",
+      "format": "moving-canon",
+      "why": "Canon, reception, citation, syllabi, and translation records can seed a broader corpus about cultural memory."
+    },
+    {
+      "title": "What Changed In University Mission Statements?",
+      "format": "what-changed",
+      "why": "This should be run as a separate longitudinal web corpus because it needs institution pages and historical snapshots, not only publication metadata."
+    }
+  ],
+  "caveats": [
+    "This first artifact uses public metadata and abstracts where available, not full-text scholarship.",
+    "Open indexes underrepresent books, chapters, non-English work, and paywalled humanities journals.",
+    "Trend claims require source-coverage checks and manual review of representative works before publication."
+  ],
+  "files": {
+    "sourceInventory": "reports/source-inventory.md",
+    "works": "data/processed/works.json",
+    "topics": "data/processed/topics.json",
+    "representativeWorks": "data/processed/representative-works.csv"
+  }
+}
