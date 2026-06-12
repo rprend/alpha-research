@@ -1,17 +1,87 @@
 {
   "source": "doaj",
   "runDate": "2026-06-12",
-  "startedAt": "2026-06-12T18:04:18.044Z",
-  "finishedAt": "2026-06-12T18:04:18.256Z",
-  "recordCount": 30,
-  "requestCount": 1,
+  "startedAt": "2026-06-12T19:21:40.496Z",
+  "finishedAt": "2026-06-12T19:21:42.536Z",
+  "recordCount": 500,
+  "requestCount": 11,
   "requests": [
     {
       "query": "ai humanities",
       "page": 1,
-      "url": "https://doaj.org/api/search/articles/ai%20humanities?page=1&pageSize=30",
+      "url": "https://doaj.org/api/search/articles/ai%20humanities?page=1&pageSize=50",
       "status": 200,
       "responsePath": "data/raw/doaj/2026-06-12/ai-humanities-001.json"
+    },
+    {
+      "query": "ai humanities",
+      "page": 2,
+      "url": "https://doaj.org/api/search/articles/ai%20humanities?page=2&pageSize=50",
+      "status": 200,
+      "responsePath": "data/raw/doaj/2026-06-12/ai-humanities-002.json"
+    },
+    {
+      "query": "ai humanities",
+      "page": 3,
+      "url": "https://doaj.org/api/search/articles/ai%20humanities?page=3&pageSize=50",
+      "status": 200,
+      "responsePath": "data/raw/doaj/2026-06-12/ai-humanities-003.json"
+    },
+    {
+      "query": "ai humanities",
+      "page": 4,
+      "url": "https://doaj.org/api/search/articles/ai%20humanities?page=4&pageSize=50",
+      "status": 200,
+      "responsePath": "data/raw/doaj/2026-06-12/ai-humanities-004.json"
+    },
+    {
+      "query": "ai humanities",
+      "page": 5,
+      "url": "https://doaj.org/api/search/articles/ai%20humanities?page=5&pageSize=50",
+      "status": 200,
+      "responsePath": "data/raw/doaj/2026-06-12/ai-humanities-005.json"
+    },
+    {
+      "query": "ai humanities",
+      "page": 6,
+      "url": "https://doaj.org/api/search/articles/ai%20humanities?page=6&pageSize=50",
+      "status": 200,
+      "responsePath": "data/raw/doaj/2026-06-12/ai-humanities-006.json"
+    },
+    {
+      "query": "ai humanities",
+      "page": 7,
+      "url": "https://doaj.org/api/search/articles/ai%20humanities?page=7&pageSize=50",
+      "status": 200,
+      "responsePath": "data/raw/doaj/2026-06-12/ai-humanities-007.json"
+    },
+    {
+      "query": "digital humanities",
+      "page": 1,
+      "url": "https://doaj.org/api/search/articles/digital%20humanities?page=1&pageSize=50",
+      "status": 200,
+      "responsePath": "data/raw/doaj/2026-06-12/digital-humanities-001.json"
+    },
+    {
+      "query": "digital humanities",
+      "page": 2,
+      "url": "https://doaj.org/api/search/articles/digital%20humanities?page=2&pageSize=50",
+      "status": 200,
+      "responsePath": "data/raw/doaj/2026-06-12/digital-humanities-002.json"
+    },
+    {
+      "query": "digital humanities",
+      "page": 3,
+      "url": "https://doaj.org/api/search/articles/digital%20humanities?page=3&pageSize=50",
+      "status": 200,
+      "responsePath": "data/raw/doaj/2026-06-12/digital-humanities-003.json"
+    },
+    {
+      "query": "digital humanities",
+      "page": 4,
+      "url": "https://doaj.org/api/search/articles/digital%20humanities?page=4&pageSize=18",
+      "status": 200,
+      "responsePath": "data/raw/doaj/2026-06-12/digital-humanities-004.json"
     }
   ],
   "errors": []

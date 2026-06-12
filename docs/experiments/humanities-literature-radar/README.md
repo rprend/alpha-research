@@ -47,6 +47,7 @@ Normalize and report:
 ```bash
 node docs/experiments/humanities-literature-radar/scripts/normalize-works.mjs
 node docs/experiments/humanities-literature-radar/scripts/build-report.mjs
+node docs/experiments/humanities-literature-radar/scripts/build-publication-handoff.mjs
 node docs/experiments/humanities-literature-radar/scripts/check-readiness.mjs
 ```
 
@@ -65,6 +66,8 @@ The scripts write:
 - `reports/result.json`
 - `reports/work.md`
 - `reports/public-draft.md`
+- `reports/publication-handoff.md`
+- `reports/publication-handoff.json`
 - `reports/readiness.md`
 - `reports/readiness.json`
 

@@ -1,17 +1,31 @@
 {
   "source": "openalex",
   "runDate": "2026-06-12",
-  "startedAt": "2026-06-12T18:04:14.917Z",
-  "finishedAt": "2026-06-12T18:04:16.203Z",
-  "recordCount": 30,
-  "requestCount": 1,
+  "startedAt": "2026-06-12T19:21:26.912Z",
+  "finishedAt": "2026-06-12T19:21:31.546Z",
+  "recordCount": 500,
+  "requestCount": 3,
   "requests": [
     {
       "query": "ai humanities",
       "page": 1,
-      "url": "https://api.openalex.org/works?search=ai+humanities&filter=from_publication_date%3A2020-01-01%2Cto_publication_date%3A2026-06-12&per-page=30&cursor=*&mailto=research%40example.com",
+      "url": "https://api.openalex.org/works?search=ai+humanities&filter=from_publication_date%3A2020-01-01%2Cto_publication_date%3A2026-06-12&per-page=200&cursor=*&mailto=research%40example.com",
       "status": 200,
       "responsePath": "data/raw/openalex/2026-06-12/ai-humanities-001.json"
+    },
+    {
+      "query": "ai humanities",
+      "page": 2,
+      "url": "https://api.openalex.org/works?search=ai+humanities&filter=from_publication_date%3A2020-01-01%2Cto_publication_date%3A2026-06-12&per-page=200&cursor=Ils4Mi40ODY1OTUsIDE2OTU4NTkyMDAwMDAsICdodHRwczovL29wZW5hbGV4Lm9yZy9XNDM4NzMyOTQ1NiddIg%3D%3D&mailto=research%40example.com",
+      "status": 200,
+      "responsePath": "data/raw/openalex/2026-06-12/ai-humanities-002.json"
+    },
+    {
+      "query": "ai humanities",
+      "page": 3,
+      "url": "https://api.openalex.org/works?search=ai+humanities&filter=from_publication_date%3A2020-01-01%2Cto_publication_date%3A2026-06-12&per-page=100&cursor=Ils2MC4wODg4OCwgMTcwOTI1MTIwMDAwMCwgJ2h0dHBzOi8vb3BlbmFsZXgub3JnL1c0MzkzMTY2NDY5J10i&mailto=research%40example.com",
+      "status": 200,
+      "responsePath": "data/raw/openalex/2026-06-12/ai-humanities-003.json"
     }
   ],
   "errors": []

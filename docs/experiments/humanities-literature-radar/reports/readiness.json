@@ -1,28 +1,41 @@
 {
-  "generatedAt": "2026-06-12T18:04:25.359Z",
-  "status": "not-ready-for-publication",
+  "generatedAt": "2026-06-12T19:23:57.160Z",
+  "status": "ready-for-editorial-review",
   "corpus": {
-    "works": 128,
-    "recentWorks2024Present": 75,
-    "quantitativeHumanitiesCandidates": 45,
+    "works": 1951,
+    "recentWorks2024Present": 1155,
+    "quantitativeHumanitiesCandidates": 593,
     "sources": {
-      "hcommons": 30,
-      "arxiv": 1,
-      "crossref": 30,
-      "doaj": 30,
-      "osf-preprints": 9,
-      "openalex": 28
+      "hcommons": 500,
+      "crossref": 500,
+      "arxiv": 19,
+      "doaj": 468,
+      "openalex": 455,
+      "osf-preprints": 9
     },
     "years": {
-      "2018": 1,
-      "2019": 5,
-      "2020": 9,
-      "2021": 4,
-      "2022": 10,
-      "2023": 24,
-      "2024": 21,
-      "2025": 29,
-      "2026": 25
+      "2003": 1,
+      "2005": 1,
+      "2008": 1,
+      "2009": 2,
+      "2010": 6,
+      "2011": 2,
+      "2012": 2,
+      "2013": 2,
+      "2014": 5,
+      "2015": 7,
+      "2016": 26,
+      "2017": 59,
+      "2018": 29,
+      "2019": 35,
+      "2020": 103,
+      "2021": 111,
+      "2022": 145,
+      "2023": 258,
+      "2024": 378,
+      "2025": 477,
+      "2026": 300,
+      "unknown": 1
     }
   },
   "checks": [
@@ -30,25 +43,25 @@
       "id": "source-diversity",
       "label": "At least five processed source families are represented",
       "status": "pass",
-      "evidence": "6 sources: hcommons, arxiv, crossref, doaj, osf-preprints, openalex"
+      "evidence": "6 sources: hcommons, crossref, arxiv, doaj, openalex, osf-preprints"
     },
     {
       "id": "corpus-size",
       "label": "At least 500 deduped works are needed before publication-level field claims",
-      "status": "needs-work",
-      "evidence": "128 deduped works"
+      "status": "pass",
+      "evidence": "1951 deduped works"
     },
     {
       "id": "recent-coverage",
       "label": "At least 200 works from 2024-present are needed for current-field claims",
-      "status": "needs-work",
-      "evidence": "75 works from 2024-present"
+      "status": "pass",
+      "evidence": "1155 works from 2024-present"
     },
     {
       "id": "quantitative-candidates",
       "label": "At least 50 quantitative/computational humanities candidates are identified",
-      "status": "needs-work",
-      "evidence": "45 candidates"
+      "status": "pass",
+      "evidence": "593 candidates"
     },
     {
       "id": "source-manifests",
@@ -66,17 +79,23 @@
       "id": "topic-labels",
       "label": "Topic/method/signal table has at least 10 labels",
       "status": "pass",
-      "evidence": "33 labels"
+      "evidence": "41 labels"
     },
     {
       "id": "source-caveats",
       "label": "Public draft remains caveated until broad backfill is complete",
       "status": "pass",
       "evidence": "reports/public-draft.md"
+    },
+    {
+      "id": "publication-handoff",
+      "label": "Publication handoff exists with corpus notes and public-claim checklist",
+      "status": "pass",
+      "evidence": "ready-for-copyedit; 1951 works"
     }
   ],
   "nextMoves": [
-    "Run the `v1` profile or higher source-specific limits to reach publication-scale corpus size.",
+    "Copyedit the publication handoff into a field-map post.",
     "Use DOAJ dumps/OAI-PMH for large open-access harvesting instead of bounded search.",
     "Expand OSF/SocArXiv and KCWorks beyond bounded keyword search.",
     "Manually review representative works before publishing field claims."

@@ -1,17 +1,80 @@
 {
   "source": "hcommons",
   "runDate": "2026-06-12",
-  "startedAt": "2026-06-12T18:04:21.965Z",
-  "finishedAt": "2026-06-12T18:04:23.121Z",
-  "recordCount": 30,
-  "requestCount": 1,
+  "startedAt": "2026-06-12T19:21:45.778Z",
+  "finishedAt": "2026-06-12T19:22:04.611Z",
+  "recordCount": 500,
+  "requestCount": 10,
   "requests": [
     {
       "query": "ai humanities",
       "page": 1,
-      "url": "https://works.hcommons.org/api/records?q=ai+humanities&size=30&page=1",
+      "url": "https://works.hcommons.org/api/records?q=ai+humanities&size=50&page=1",
       "status": 200,
       "responsePath": "data/raw/hcommons/2026-06-12/ai-humanities-001.json"
+    },
+    {
+      "query": "ai humanities",
+      "page": 2,
+      "url": "https://works.hcommons.org/api/records?q=ai+humanities&size=50&page=2",
+      "status": 200,
+      "responsePath": "data/raw/hcommons/2026-06-12/ai-humanities-002.json"
+    },
+    {
+      "query": "ai humanities",
+      "page": 3,
+      "url": "https://works.hcommons.org/api/records?q=ai+humanities&size=50&page=3",
+      "status": 200,
+      "responsePath": "data/raw/hcommons/2026-06-12/ai-humanities-003.json"
+    },
+    {
+      "query": "ai humanities",
+      "page": 4,
+      "url": "https://works.hcommons.org/api/records?q=ai+humanities&size=50&page=4",
+      "status": 200,
+      "responsePath": "data/raw/hcommons/2026-06-12/ai-humanities-004.json"
+    },
+    {
+      "query": "ai humanities",
+      "page": 5,
+      "url": "https://works.hcommons.org/api/records?q=ai+humanities&size=50&page=5",
+      "status": 200,
+      "responsePath": "data/raw/hcommons/2026-06-12/ai-humanities-005.json"
+    },
+    {
+      "query": "ai humanities",
+      "page": 6,
+      "url": "https://works.hcommons.org/api/records?q=ai+humanities&size=50&page=6",
+      "status": 200,
+      "responsePath": "data/raw/hcommons/2026-06-12/ai-humanities-006.json"
+    },
+    {
+      "query": "ai humanities",
+      "page": 7,
+      "url": "https://works.hcommons.org/api/records?q=ai+humanities&size=50&page=7",
+      "status": 200,
+      "responsePath": "data/raw/hcommons/2026-06-12/ai-humanities-007.json"
+    },
+    {
+      "query": "ai humanities",
+      "page": 8,
+      "url": "https://works.hcommons.org/api/records?q=ai+humanities&size=50&page=8",
+      "status": 200,
+      "responsePath": "data/raw/hcommons/2026-06-12/ai-humanities-008.json"
+    },
+    {
+      "query": "ai humanities",
+      "page": 9,
+      "url": "https://works.hcommons.org/api/records?q=ai+humanities&size=50&page=9",
+      "status": 200,
+      "responsePath": "data/raw/hcommons/2026-06-12/ai-humanities-009.json"
+    },
+    {
+      "query": "ai humanities",
+      "page": 10,
+      "url": "https://works.hcommons.org/api/records?q=ai+humanities&size=50&page=10",
+      "status": 200,
+      "responsePath": "data/raw/hcommons/2026-06-12/ai-humanities-010.json"
     }
   ],
   "errors": []

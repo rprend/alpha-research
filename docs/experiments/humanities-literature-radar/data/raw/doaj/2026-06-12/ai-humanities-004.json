@@ -1,0 +1,3640 @@
+{
+  "total": 332,
+  "page": 4,
+  "pageSize": 50,
+  "timestamp": "2026-06-12T19:21:41.297177Z",
+  "query": "ai humanities",
+  "results": [
+    {
+      "last_updated": "2025-08-19T23:24:59Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.3390/info12110484",
+            "type": "doi"
+          },
+          {
+            "id": "2078-2489",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "number": "11",
+          "country": "CH",
+          "issns": [
+            "2078-2489"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Information"
+        },
+        "month": "11",
+        "keywords": [
+          "dialogue",
+          "neural machine translation",
+          "discourse issue",
+          "benchmark data",
+          "existing approaches",
+          "real-life applications"
+        ],
+        "year": "2021",
+        "start_page": "484",
+        "subject": [
+          {
+            "code": "T58.5-58.64",
+            "scheme": "LCC",
+            "term": "Information technology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Macao Polytechnic Institute, School of Languages and Translation, Macao, China",
+            "name": "Siyou Liu"
+          },
+          {
+            "affiliation": "Department of Portuguese, Faculty of Arts and Humanities, University of Macau, Macao, China",
+            "name": "Yuqi Sun"
+          },
+          {
+            "affiliation": "NLP Centre, AI Lab, Tencent, Shenzhen 518000, China",
+            "name": "Longyue Wang"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.mdpi.com/2078-2489/12/11/484"
+          }
+        ],
+        "abstract": "Recent years have seen a surge of interest in dialogue translation, which is a significant application task for machine translation (MT) technology. However, this has so far not been extensively explored due to its inherent characteristics including data limitation, discourse properties and personality traits. In this article, we give the first comprehensive review of dialogue MT, including well-defined problems (e.g., 4 perspectives), collected resources (e.g., 5 language pairs and 4 sub-domains), representative approaches (e.g., architecture, discourse phenomena and personality) and useful applications (e.g., hotel-booking chat system). After systematical investigation, we also build a state-of-the-art dialogue NMT system by leveraging a breadth of established approaches such as novel architectures, popular pre-training and advanced techniques. Encouragingly, we push the state-of-the-art performance up to 62.7 BLEU points on a commonly-used benchmark by using mBART pre-training. We hope that this survey paper could significantly promote the research in dialogue MT.",
+        "title": "Recent Advances in Dialogue Machine Translation"
+      },
+      "id": "7052ef64d05c4805b4fefd254c1282ed",
+      "created_date": "2021-11-25T17:58:44Z"
+    },
+    {
+      "last_updated": "2026-06-08T04:27:23Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2352-3409",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1016/j.dib.2026.112835",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "66",
+          "number": "",
+          "country": "US",
+          "issns": [
+            "2352-3409"
+          ],
+          "publisher": "Elsevier",
+          "language": [
+            "EN"
+          ],
+          "title": "Data in Brief"
+        },
+        "month": "06",
+        "end_page": "",
+        "keywords": [
+          "Handwoven andean textile",
+          "Peruvian textile iconographies",
+          "Cultural preservation",
+          "Pattern recognition",
+          "Computer vision"
+        ],
+        "year": "2026",
+        "start_page": "112835",
+        "subject": [
+          {
+            "code": "R858-859.7",
+            "scheme": "LCC",
+            "term": "Computer applications to medicine. Medical informatics"
+          },
+          {
+            "code": "Q1-390",
+            "scheme": "LCC",
+            "term": "Science (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Carrera de Ingeniería Informática y de Sistemas, Universidad Nacional San Antonio de Abad del Cusco, Av. de La Cultura 733, 08003 Cusco, Perú",
+            "name": "Gabriela Farfan Enriquez"
+          },
+          {
+            "affiliation": "Carrera de Ingeniería Informática y de Sistemas, Universidad Nacional San Antonio de Abad del Cusco, Av. de La Cultura 733, 08003 Cusco, Perú; Corresponding author.",
+            "name": "Ruben Ancco Peralta"
+          },
+          {
+            "affiliation": "Carrera de Ingeniería de Sistemas, Universidad de Lima, Av. Javier Prado Este 4600, Santiago de Surco 15023, Lima, Perú; Grupo de Investigación en Optimización Combinatoria e Inteligencia Artificial (OPTIMIA), Santiago de Surco 15023, Lima, Perú",
+            "name": "Edwin Jonathan Escobedo Cárdenas"
+          },
+          {
+            "affiliation": "Carrera de Ingeniería de Sistemas, Universidad de Lima, Av. Javier Prado Este 4600, Santiago de Surco 15023, Lima, Perú",
+            "name": "Hernan Nina Hanco"
+          },
+          {
+            "affiliation": "Carrera de Ingeniería Informática y de Sistemas, Universidad Nacional San Antonio de Abad del Cusco, Av. de La Cultura 733, 08003 Cusco, Perú",
+            "name": "Lauro Enciso Rodas"
+          },
+          {
+            "affiliation": "Carrera de Ingeniería Informática y de Sistemas, Universidad Nacional San Antonio de Abad del Cusco, Av. de La Cultura 733, 08003 Cusco, Perú",
+            "name": "Carlos Fernando Montoya Cubas"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://www.sciencedirect.com/science/article/pii/S2352340926003872"
+          }
+        ],
+        "abstract": "This dataset was collected during on-site fieldwork conducted in the district of Chinchero, located in the province of Urubamba, Cusco, Peru, a region internationally recognized for its rich Andean textile tradition rooted in Inca Culture heritage. The dataset comprises high-quality Photographic images of traditional handwoven Andean textile iconographies produced by local artisan communities. These images were captured directly at textile centers where the fabrics are woven, dyed and finished using ancestral techniques measuring authentic representation of colors, textures, and symbolic patterns under natural and controlled conditions.The dataset consists of 1358 images organized into 28 distinct classes, each corresponding to a specific textile iconography characteristic of the Chinchero tradition. The images are provided in a processed and curated format, facilitating organization enables systematic analysis of visual motifs that are often challenging to distinguish due to their intricate geometric patterns and cultural symbolism.The primary reuse potential of this dataset lies in its application to Artificial Intelligence (AI) and Machine Learning (ML) research focused on image classification, pattern recognition, and cultural heritage preservation. Researchers can leverage the dataset to develop and evaluate models capable of identifying and differentiating traditional Andean textile iconographies, addressing the growing difficulty faced by younger generations, local communities, and visitors in recognizing the cultural expressions. Additionally, the dataset supports interdisciplinary research in digital humanities, ethnography, textile studies, and cultural informatics contributing to the documentation and preservation of intangible cultural heritage.By making this dataset publicly available, this work aims to support the development of AI-driven tools for cultural preservation, educational applications, and heritage awareness, while fostering collaboration between researchers, technologists, and local artisan communities to safeguard ancestral knowledge for future generations.",
+        "title": "CHINTEXDB-PERU28: A unique dataset of traditional textile iconographies from Chinchero, Peru for cultural preservation and image recognitionMendeley Data"
+      },
+      "id": "7074e041cde6431d944f6a3e5279a290",
+      "created_date": "2026-05-23T04:52:30Z"
+    },
+    {
+      "last_updated": "2026-04-01T04:57:17Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2575-8314",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1002/pan3.70266",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "8",
+          "number": "4",
+          "country": "GB",
+          "issns": [
+            "2575-8314"
+          ],
+          "publisher": "Wiley",
+          "language": [
+            "EN"
+          ],
+          "title": "People and Nature"
+        },
+        "month": "04",
+        "end_page": "934",
+        "keywords": [
+          "critical AI visual analysis",
+          "digital humanities",
+          "environmental aesthetics",
+          "environmental communication of nature conservation",
+          "rewilding"
+        ],
+        "year": "2026",
+        "start_page": "919",
+        "subject": [
+          {
+            "code": "GF1-900",
+            "scheme": "LCC",
+            "term": "Human ecology. Anthropogeography"
+          },
+          {
+            "code": "QH540-549.5",
+            "scheme": "LCC",
+            "term": "Ecology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Geography and Environment, School of Geosciences University of Aberdeen Aberdeen UK",
+            "name": "Flurina M. Wartmann"
+          },
+          {
+            "affiliation": "Department of Geography and Environment, School of Geosciences University of Aberdeen Aberdeen UK",
+            "name": "Emma Cary"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1002/pan3.70266"
+          }
+        ],
+        "abstract": "Abstract Rewilding has gained significant influence in nature conservation, offering hopeful narratives that address the interconnected challenges of climate change and biodiversity loss while enabling people to reconnect with ‘wildness’ in the Anthropocene. Rewilding powerfully shapes imaginaries of possible futures and is being implemented through numerous projects across the UK. These projects fundamentally transform landscape aesthetics and determine which human and non‐human species are rendered visible, desirable and legitimate in rewilded futures. In this study, we interrogate the aesthetics of rewilding through a qualitative approach that examines visual and textual materials from advocacy organisation websites, their social media accounts on Instagram and artificial intelligence (AI)‐generated representations of rewilding produced by AI chatbots. Our analysis focuses on the framing and content of visual materials, such as what is represented and what is absent, as well as how these materials construct visions of desirable future natures. We find that representations of rewilding focus on conventional nature aesthetics, predominantly excluding aesthetically challenging ecosystem processes, non‐charismatic species and a diversity of people. We argue that visual and textual materials reveal not only how nature is represented in rewilding discourses but also embody normative assumptions about what recovered or rewilded nature should look like. These visual representations act politically by normalising the presence or absence of particular people and activities in landscapes, thereby perpetuating narrow conceptualisations of environmental futures. We discuss how our findings may inform the development of more socially just environmental imaginaries, contributing to more inclusive future land management both in policy and practice. Read the free Plain Language Summary for this article on the Journal blog.",
+        "title": "Digital nature in the AI era: How human and AI‐generated representations shape future visions of rewilding"
+      },
+      "id": "712d2df801a44ef4be5398ab6c3c73af",
+      "created_date": "2026-04-01T04:57:13Z"
+    },
+    {
+      "last_updated": "2025-12-04T07:46:49Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5617/dhnbpub.11219",
+            "type": "doi"
+          },
+          {
+            "id": "2704-1441",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "3",
+          "number": "3",
+          "country": "NO",
+          "issns": [
+            "2704-1441"
+          ],
+          "publisher": "University of Oslo",
+          "language": [
+            "EN"
+          ],
+          "title": "Digital Humanities in the Nordic and Baltic Countries Publications"
+        },
+        "month": "October",
+        "year": "2020",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0002-3887-5342",
+            "affiliation": "Adapt Centre, School of Computing, Dublin City university, Ireland",
+            "name": "Yalemisew Abgaz"
+          },
+          {
+            "affiliation": "Austrian Academy of Sciences, Austria",
+            "name": "Amelie Dorn"
+          },
+          {
+            "affiliation": "Europeana-local Austria, Austria",
+            "name": "Gerda Koch"
+          },
+          {
+            "affiliation": "Austrian Academy of Sciences, Austria",
+            "name": "Jose Luis Preza Diaz"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://journals.uio.no/dhnbpub/article/view/11219"
+          }
+        ],
+        "abstract": "\r\nBoth, historical as well as contemporary images depicting particular aspects of a certain culture, or a certain cultural practice, are widely available in a variety of formats. Typically, historical-cultural images can be found in museums, national archives and libraries both in analogue and digital formats. The Europeana image collection serves as a valuable example of a digital image collection available to the public, that is freely accessible and searchable. A significant amount of the collection, however, does not contain a rich semantic description of the cultural and social aspects represented in the images that would go beyond some metadata like author and title. To enable the enrichment of these images, we propose a project which brings together experts from digital humanities, linguistics, artificial intelligence and semantic web technology. The project aims at analysing the contents of the images with a combination of computer vision, natural language processing and manual curation to represent them with a more descriptive and representative controlled vocabulary. This combination of different types of expertise to address the problem enables us to closely collaborate and learn from each other by taking different roles and perspectives. So far, the collaboration has contributed to the understanding of the detailed requirements from the digital humanities and socio-linguistic perspectives for the representation and processing of cultural images using semantic web technologies, such as multi-disciplinary thesauri, ontologies, computer vision and AI.\r\n",
+        "title": "“A picture is worth a thousand words”? - From Project Inception to First Results"
+      },
+      "id": "71f279dd29da412d9e68eec9c724ed06",
+      "created_date": "2025-12-04T07:46:49Z"
+    },
+    {
+      "last_updated": "2026-02-08T12:22:36Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1007/s40979-026-00213-1",
+            "type": "doi"
+          },
+          {
+            "id": "1833-2595",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "22",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "1833-2595"
+          ],
+          "publisher": "BMC",
+          "language": [
+            "EN"
+          ],
+          "title": "International Journal for Educational Integrity"
+        },
+        "month": "2",
+        "end_page": "18",
+        "keywords": [
+          "Academic integrity",
+          "Generative artificial intelligence",
+          "Artificial intelligence content detection",
+          "Detection bias",
+          "Detection reliability",
+          "English as a Foreign Language (EFL)"
+        ],
+        "year": "2026",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "LB5-3640",
+            "scheme": "LCC",
+            "term": "Theory and practice of education"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Sultan Qaboos University",
+            "name": "Mohammad Hadra"
+          },
+          {
+            "affiliation": "Sultan Qaboos University",
+            "name": "Karleen Cambridge"
+          },
+          {
+            "affiliation": "Sultan Qaboos University",
+            "name": "Mostefa Mesbah"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1007/s40979-026-00213-1"
+          }
+        ],
+        "abstract": "Abstract The rapid adoption of generative AI (GenAI) in higher education has intensified concerns about academic integrity, particularly for institutions serving English as a Foreign Language (EFL) learners. AI content detectors such as Turnitin and Originality are now widely used to identify potential misuse of GenAI in student writing, yet their accuracy, consistency, and fairness remain to be proven. This study evaluates the reliability of these two commercial detectors using a balanced dataset of 192 texts, composed of authentic EFL student writing produced before the widespread availability of GenAI, professional human-authored texts, AI-generated outputs, and hybrid compositions. Detector outputs were categorized into Human, Hybrid, or AI using established thresholding ranges, and performance was assessed using standard classification metrics alongside statistical tests of significance. Results show that Originality outperformed Turnitin in overall accuracy (0.69 vs. 0.61) and macro-average recall (0.60 vs. 0.51). However, both detectors performed poorly on Hybrid texts, an increasingly common form of student writing, indicating substantial difficulty distinguishing mixed authorship. Performance declined significantly as a result of increased text length and genre variation, with both detectors achieving noticeably lower accuracy on scientific writing than on humanities texts. Originality also showed a borderline trend toward higher accuracy on professionally written texts compared to EFL student writing, suggesting potential fairness concerns. Taken together, the findings demonstrate that while AI detectors may serve as supplementary tools—serve only as indicators that prompt further inquiry, their limitations make them unsuitable as the sole basis for decisions regarding academic misconduct. For EFL-focused institutions in particular, over-reliance on machine-based identification risks misclassifying legitimate student work. The study highlights the need for informed human judgment, clearer institutional policies on acceptable AI use, and continued development of equitable detection methods that account for linguistic diversity.",
+        "title": "Evaluating the accuracy and reliability of AI content detectors in academic contexts"
+      },
+      "id": "72031ccf93c745c8a487f26c39b1b850",
+      "created_date": "2026-02-08T12:22:36Z"
+    },
+    {
+      "last_updated": "2025-08-19T22:44:58Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1331-6745",
+            "type": "pissn"
+          },
+          {
+            "id": "1849-0379",
+            "type": "eissn"
+          },
+          {
+            "id": "10.31724/rihjj.49.1.8",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "49",
+          "number": "1",
+          "country": "HR",
+          "issns": [
+            "1331-6745",
+            "1849-0379"
+          ],
+          "publisher": "Institut za hrvatski jezik i jezikoslovlje",
+          "language": [
+            "HR"
+          ],
+          "title": "Rasprave Instituta za Hrvatski Jezik i Jezikoslovlje"
+        },
+        "end_page": "175",
+        "keywords": [
+          "annotation",
+          "explicit",
+          "implicit",
+          "offensive language",
+          "questionnaire",
+          "word embeddings"
+        ],
+        "year": "2023",
+        "start_page": "155",
+        "subject": [
+          {
+            "code": "PG1-9665",
+            "scheme": "LCC",
+            "term": "Slavic languages. Baltic languages. Albanian languages"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "University of Applied Sciences in Konin, Poland",
+            "name": "Barbara Lewandowska-Tomaszczyk"
+          },
+          {
+            "affiliation": "University of Ljubljana, Slovenia",
+            "name": "Slavko Žitnik"
+          },
+          {
+            "affiliation": "Jerusalem Institute of Technology, Israel",
+            "name": "Chaya Liebeskind"
+          },
+          {
+            "affiliation": "Mykolas Romeris University, Vilnius, Lithuania",
+            "name": "Giedre Valunaite Oleskevicienė"
+          },
+          {
+            "affiliation": "University of Gdansk, Poland",
+            "name": "Anna Bączkowska"
+          },
+          {
+            "affiliation": "University of Lodz, Poland",
+            "name": "Paul A. Wilson"
+          },
+          {
+            "affiliation": "University of Applied Sciences in Konin, Poland",
+            "name": "Marcin Trojszczak"
+          },
+          {
+            "affiliation": "Institute for the Croatian Language, Zagreb",
+            "name": "Ivana Brač"
+          },
+          {
+            "affiliation": "Institute for the Croatian Language, Zagreb",
+            "name": "Lobel Filipić"
+          },
+          {
+            "affiliation": "Institute for the Croatian Language, Zagreb",
+            "name": "Ana Ostroški Anić"
+          },
+          {
+            "affiliation": "Masaryk University, Brno, Czech Republic",
+            "name": "Olga Dontcheva-Navratilova"
+          },
+          {
+            "affiliation": "University of Humanities and Economics, Lodz, Poland",
+            "name": "Agnieszka Borowiak"
+          },
+          {
+            "affiliation": "Institute for the Croatian Language, Zagreb",
+            "name": "Kristina Despot"
+          },
+          {
+            "affiliation": "University of Passau, Germany; Institute for AI R&D of Serbia",
+            "name": "Jelena Mitrović"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://hrcak.srce.hr/file/444602"
+          }
+        ],
+        "abstract": "The present paper focuses on the presentation and discussion of aspects of OFFENSIVE LANGUAGE linguistic annotation, including the creation, annotation practice, curation, and evaluation of an OFFENSIVE LANGUAGE annotation taxonomy scheme, that was first proposed in Lewandowska-Tomaszczyk et al. (2021). An extended offensive language ontology comprising 17 categories, structured in terms of 4 hierarchical levels, has been shown to represent the encoding of the defined offensive language schema, trained in terms of non-contextual word embeddings – i.e., Word2Vec and Fast Text, and eventually juxtaposed to the data acquired by using a pair wise training and testing analysis for existing categories in the HateBERT model (Lewandowska-Tomaszczyk et al. submitted). The study reports on the annotation practice in WG 4.1.1. Incivility in media and social media in the context of COST Action CA 18209 European network for Web-centred linguistic data science (Nexus Linguarum) with the INCEpTION tool (https://github.com/inception-project/inception) – a semantic annotation platform offering assistance in the annotation. The results partly support the proposed ontology of explicit offense and positive implicitness types to provide more variance among widely recognized types of figurative language (e.g., metaphorical, metonymic, ironic, etc.). The use of the annotation system and the representation of linguistic data were also evaluated in a series of the annotators’ comments, by means of a questionnaire and an open discussion. The annotation results and the questionnaire showed that for some of the categories there was low or medium inter-annotator agreement, and it was more challenging for annotators to distinguish between category items than between aspect items, with the category items offensive, insulting and abusive being the most difficult in this respect. The need for taxonomic simplification measures on the basis of these results has been recognized for further annotation practices.",
+        "title": "Annotation Scheme and Evaluation: The Case of Offensive Language"
+      },
+      "id": "720887ae6874436f8326e416f921fd57",
+      "created_date": "2024-04-15T18:54:01Z"
+    },
+    {
+      "last_updated": "2025-08-20T00:33:36Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1038/s41597-024-03807-x",
+            "type": "doi"
+          },
+          {
+            "id": "2052-4463",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "11",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "2052-4463"
+          ],
+          "publisher": "Nature Portfolio",
+          "language": [
+            "EN"
+          ],
+          "title": "Scientific Data"
+        },
+        "month": "9",
+        "end_page": "10",
+        "year": "2024",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "Q",
+            "scheme": "LCC",
+            "term": "Science"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Huazhong University of Science and Technology",
+            "name": "Pengjie Wang"
+          },
+          {
+            "affiliation": "Huazhong University of Science and Technology",
+            "name": "Kaile Zhang"
+          },
+          {
+            "affiliation": "The University of Adelaide",
+            "name": "Xinyu Wang"
+          },
+          {
+            "affiliation": "Anyang Normal University",
+            "name": "Shengwei Han"
+          },
+          {
+            "affiliation": "Anyang Normal University",
+            "name": "Yongge Liu"
+          },
+          {
+            "affiliation": "Huazhong University of Science and Technology",
+            "name": "Jinpeng Wan"
+          },
+          {
+            "affiliation": "Huazhong University of Science and Technology",
+            "name": "Haisu Guan"
+          },
+          {
+            "affiliation": "Huazhong University of Science and Technology",
+            "name": "Zhebin Kuang"
+          },
+          {
+            "affiliation": "South China University of Technology",
+            "name": "Lianwen Jin"
+          },
+          {
+            "affiliation": "Huazhong University of Science and Technology",
+            "name": "Xiang Bai"
+          },
+          {
+            "affiliation": "Huazhong University of Science and Technology",
+            "name": "Yuliang Liu"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1038/s41597-024-03807-x"
+          }
+        ],
+        "abstract": "Abstract Oracle bone script, one of the earliest known forms of ancient Chinese writing, presents invaluable research materials for scholars studying the humanities and geography of the Shang Dynasty, dating back 3,000 years. The immense historical and cultural significance of these writings cannot be overstated. However, the passage of time has obscured much of their meaning, presenting a significant challenge in deciphering these ancient texts. With the advent of Artificial Intelligence (AI), employing AI to assist in deciphering Oracle Bone Characters (OBCs) has become a feasible option. Yet, progress in this area has been hindered by a lack of high-quality datasets. To address this issue, this paper details the creation of the HUST-OBC dataset. This dataset encompasses 77,064 images of 1,588 individual deciphered characters and 62,989 images of 9,411 undeciphered characters, with a total of 140,053 images, compiled from diverse sources. The hope is that this dataset could inspire and assist future research in deciphering those unknown OBCs. All the codes and datasets are available at https://github.com/Pengjie-W/HUST-OBC .",
+        "title": "An open dataset for oracle bone character recognition and decipherment"
+      },
+      "id": "722b4a9c608e4844853061ac45cd17b2",
+      "created_date": "2024-09-08T11:13:38Z"
+    },
+    {
+      "last_updated": "2026-06-03T07:41:22Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1080/23311983.2026.2659985",
+            "type": "doi"
+          },
+          {
+            "id": "2331-1983",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "13",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "2331-1983"
+          ],
+          "publisher": "Taylor & Francis Group",
+          "language": [
+            "EN"
+          ],
+          "title": "Cogent Arts & Humanities"
+        },
+        "month": "12",
+        "keywords": [
+          "Artificial intelligence",
+          "thematic evolution",
+          "ramayana",
+          "network algorithms",
+          "bibliometrics",
+          "digital space"
+        ],
+        "year": "2026",
+        "subject": [
+          {
+            "code": "N",
+            "scheme": "LCC",
+            "term": "Fine Arts"
+          },
+          {
+            "code": "NX1-820",
+            "scheme": "LCC",
+            "term": "Arts in general"
+          },
+          {
+            "code": "A",
+            "scheme": "LCC",
+            "term": "General Works"
+          },
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of English, VIT University, Vellore, Tamil Nadu, India",
+            "name": "Ishwaria Prabhakaran"
+          },
+          {
+            "affiliation": "Department of English, VIT University, Vellore, Tamil Nadu, India",
+            "name": "Soumen Mukherjee"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://www.tandfonline.com/doi/10.1080/23311983.2026.2659985"
+          }
+        ],
+        "abstract": "Artificial intelligence plays a crucial role in identifying and analyzing the evolution of themes and research trends in Indian epics, especially the Ramayana. Researchers have sought to expand collaborative study through various themes. This study employs a bibliometric approach by Van Eck and Waltman to map the expanding landscape of Ramayana studies at the intersection of Artificial Intelligence (AI) and the digital humanities. This paper aims to trace the thematic evolution of the Ramayana using image-generation algorithms and articles from the Scopus database. The study analyzed influential authors, journals, countries and collaboration patterns, and conducted keyword analyses of potential articles retrieved through a systematic literature review. The study was supported by the Visualization of Similarities (VOS viewer) and R Studio, tools that facilitated the analysis of Ramayana-related articles. The analysis considered 435 articles from the Scopus database from 2014 to 2025 (as of April). A structured evaluation and analysis of emerging themes related to the epic and their connections to culture and religion across the globe is identified. Keyword co-occurrence, thematic clustering, and a systematic review of the literature reveal dominant research themes in eco-dharma and environmental ethics, performance and visual traditions, gender interpretations, comparative epic studies, and theological readings of Rama. Thus, the study suggests the role of AI in identifying and amplifying the epic in the humanities and in digital space.",
+        "title": "Tracing thematic evolution in Ramayana through digital space: an AI-driven bibliometric approach"
+      },
+      "id": "72f52bdd7fdc4a678f6cbca530df5f41",
+      "created_date": "2026-06-03T07:41:22Z"
+    },
+    {
+      "last_updated": "2025-12-08T12:31:49Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2412-2491",
+            "type": "eissn"
+          },
+          {
+            "id": "10.28925/2412-2491.2025.2516",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "number": "2 (25)",
+          "country": "UA",
+          "issns": [
+            "2412-2491"
+          ],
+          "publisher": "Borys Grinchenko Kyiv Metropolitan University",
+          "language": [
+            "EN",
+            "UK"
+          ],
+          "title": "Філологічні студії"
+        },
+        "month": "12",
+        "end_page": "233",
+        "keywords": [
+          "digital literature",
+          "genre transformation",
+          "electronic poetry",
+          "fanfiction",
+          "multimodality",
+          " transmedia storytelling",
+          "artificial intelligence"
+        ],
+        "year": "2025",
+        "start_page": "220",
+        "subject": [
+          {
+            "code": "P302-302.87",
+            "scheme": "LCC",
+            "term": "Discourse analysis"
+          },
+          {
+            "code": "P98-98.5",
+            "scheme": "LCC",
+            "term": "Computational linguistics. Natural language processing"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0003-3293-3887",
+            "affiliation": "Borys Grinchenko Kyiv Metropolitan University",
+            "name": "Oksana Melnyk"
+          },
+          {
+            "orcid_id": "https://orcid.org/0009-0000-2702-0544",
+            "affiliation": "Borys Grinchenko Kyiv Metropolitan University",
+            "name": "Iryna  Kyselova"
+          },
+          {
+            "orcid_id": "https://orcid.org/0009-0008-8167-5208",
+            "affiliation": "Borys Grinchenko Kyiv Metropolitan University",
+            "name": "Mariia Tereshchuk"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://studiap.kubg.edu.ua/index.php/journal/article/view/586"
+          }
+        ],
+        "abstract": "This article examines the in-depth evolution of literary genres in the digital age, focusing on the impact of digital technologies, hypertextuality, social media platforms, and interactive media on traditional literary forms. The twenty-first century has been characterized by rapid digitalization, which has reshaped not only modes of communication but also the cultural systems through which literature is produced, distributed, and consumed. The shift from print to digital culture has challenged inherited assumptions about the stability of genres and about the very nature of what constitutes literature. By focusing on both continuity and change, the study seeks to demonstrate how the digital environment has opened new creative horizons while simultaneously raising fundamental theoretical questions for literary studies. The analysis foregrounds how classic genres—novel, poetry, and drama—have evolved in digital environments, giving rise to hybrid and experimental formats. Novels, for example, which historically developed as extended prose narratives with complex plots and character development, have been reconfigured into web novels, serialized online fiction, and fanfiction. These forms thrive on digital platforms such as Wattpad or Archive of Our Own, where amateur and professional authors alike experiment with narrative structures, engage readers in direct interaction, and blur the line between production and reception. Poetry, once confined to the printed page, now appears as digital or visual poetry, algorithmically generated verse, or “Instapoetry” disseminated via social networks like Instagram. Such poetry combines text, image, and design in multimodal arrangements, turning reading into an aesthetic experience that is both literary and visual. Drama has also undergone profound changes: traditional theatre is complemented by interactive/VR performances and narrative-driven video games such as Life is Strange or Detroit: Become Human. These forms retain the performative and dialogic core of drama but embed it within immersive environments that demand active participation from audiences. Taken together, these examples reveal that digital literature is not a marginal phenomenon but a central arena where genres are being redefined in real time. Drawing on theoretical approaches from literary studies, cultural studies, and digital humanities, the article highlights the main tendencies in the reshaping of literary genres. Four processes appear particularly crucial. The first is multimodality: the integration of verbal, visual, auditory, and interactive codes within a single work. Unlike traditional literature, which privileges written text, digital literature invites the reader to navigate between modes, thereby altering the experience of meaning-making. The second is interactivity, whereby the reader no longer remains a passive consumer but becomes a co-creator of meaning. Hypertext fiction, branching narratives, and game-based storytelling require choices, decisions, and interpretive engagement that shape the course of the text. The third is transmediality: stories unfold across multiple platforms, with each medium contributing to the expansion of the narrative world. Literary genres thus become nodes within broader media ecosystems, extending from novels to films, video games, fan communities, and virtual reality installations. The fourth is democratization: digital environments lower the barriers to literary production, enabling a wide range of voices, including marginalized communities, to participate in creating and circulating literature. These dynamics show how digital transformation is not merely technical but also cultural and political, redefining the authority of authors, publishers, and critics. The findings underline the dual nature of digital transformation. On the one hand, it expands creative possibilities, fosters experimentation, and increases accessibility. Literature can now be produced collaboratively, disseminated instantly across the globe, and re-imagined through multimedia and interactive affordances. For example, readers may annotate texts, contribute to story development, or remix existing works, creating new genres in the process. On the other hand, digital transformation challenges traditional concepts of authorship, textuality, and canon formation. If authorship becomes distributed among multiple contributors, how do we define originality? If texts are endlessly revisable and fragmentary, what counts as a literary work? If the canon is no longer established by academic institutions but by online communities, how stable are the categories of “classic” and “popular”? These questions point to deep tensions between innovation and tradition, between openness and authority. The article concludes by outlining future perspectives of literary genres in the context of artificial intelligence, virtual reality, and global digital communication. Artificial intelligence already generates poems, short stories, and even novels, raising debates about creativity, authenticity, and human-machine collaboration. While some critics see AI literature as derivative and lacking intentionality, others argue that it opens novel possibilities for aesthetic experimentation, algorithmic creativity, and hybrid authorship. Virtual reality, meanwhile, promises immersive narrative environments where literature merges with architecture, performance, and design. In such contexts, the boundaries between genres blur further, giving rise to interactive theatre, narrative gaming, and embodied storytelling. Global digital communication ensures that these innovations circulate rapidly across cultural and linguistic boundaries, fostering cross-cultural hybridization but also creating challenges of preservation, accessibility, and critical evaluation. Beyond technological innovation, the article stresses that the study of digital literature must be situated within the broader framework of the digital humanities. This interdisciplinary field combines computational tools with humanistic inquiry, enabling large-scale analysis of digital texts, visualization of intertextual patterns, and investigation of online communities. By adopting methods of textual analysis, comparative genre studies, and digital ethnography, researchers can capture the multidimensional processes through which genres evolve in the digital environment. Case studies of platforms such as Wattpad, AO3, and Instagram illustrate how participatory culture not only reshapes literature but also fosters new forms of identity, community, and cultural negotiation. For instance, fanfiction communities challenge canonical authority, amplify marginalized voices, and generate alternative narrative universes. Instapoetry reaches audiences who might never read traditional poetry, democratizing literary culture but also raising questions about commercialization and aesthetic value. Such examples demonstrate that digital genres are simultaneously inclusive and contested, experimental and institutionalized. The article also addresses implications for education and cultural preservation. In classrooms, digital literature can be used to foster critical literacy, creativity, and intercultural competence. By engaging students with multimodal texts, educators can encourage them to analyze the interplay of language, image, and design, as well as the role of interactivity and choice. Digital genres also highlight global perspectives, exposing students to diverse cultural voices and collaborative forms of creativity. At the same time, the ephemerality of digital formats poses significant risks for preservation. Unlike print texts, which can survive for centuries in libraries and archives, digital works may vanish due to platform obsolescence, lack of archival infrastructure, or changes in corporate ownership. Ensuring the survival of digital literature requires sustained institutional commitment to open access, metadata standards, and digital preservation strategies. From a sociocultural perspective, the transformation of genres reflects larger patterns of globalization, cultural hybridity, and identity formation. Online communities are often transnational, bringing together authors and readers from different cultural backgrounds. This diversity enriches literary production but also challenges traditional notions of national literature and linguistic boundaries. Genres such as web novels from East Asia, fanfiction in English, or digital poetry in multilingual formats demonstrate how literary innovation increasingly occurs in cross-cultural spaces. The digital age thus demands new frameworks for comparative literature that move beyond national canons to account for global flows of texts, images, and narratives. In terms of methodology, the article combines close reading of digital texts with contextual analysis of platforms and communities. It emphasizes that literary genres cannot be studied solely as textual categories but must be understood as dynamic cultural practices shaped by technology, institutions, and audiences. The comparative approach highlights both continuity and rupture: web novels recall the seriality of nineteenth-century print culture but innovate through interactivity and reader engagement; Instapoetry resonates with modernist brevity but adapts to the affordances of social media; VR drama inherits the performativity of theatre but situates it within immersive spaces. These comparisons demonstrate that genres are not disappearing in the digital age but rather mutating, hybridizing, and adapting. Finally, the article points toward future directions of research. Longitudinal studies are needed to trace which digital genres persist, which fade, and which transform into new categories. Comparative cross-cultural studies can illuminate differences in how genres evolve in distinct linguistic and cultural contexts. Analyses of authorship and identity can reveal how digital platforms reshape the relationship between creators, audiences, and institutions. Educational research can explore how digital literature fosters literacy, creativity, and intercultural understanding. And theoretical reflection must continue to question how genres are defined, how texts acquire meaning, and how literature functions within a digital, globalized society. In conclusion, the transformation of literary genres in the digital age illustrates a profound cultural shift toward interactivity, inclusivity, and multimodality. The digital environment has expanded the possibilities of literary creation, circulation, and reception, enabling voices once excluded from mainstream publishing to gain visibility. At the same time, it has destabilized inherited concepts of authorship, textuality, and canon formation, forcing scholars, educators, and readers to rethink the foundations of literary culture. As technology continues to evolve—through artificial intelligence, virtual and augmented reality, and global communication networks — literature will remain at the forefront of negotiating the boundaries between human creativity and digital innovation. This ongoing transformation demands critical engagement, interdisciplinary methodologies, and openness to new forms of expression, ensuring that literature retains its role as a vital medium of cultural reflection in the digital century.",
+        "title": "The Transformation of Literary Genres in the Digital Age"
+      },
+      "id": "72f747038b5c47e0b974703c59d6f9d9",
+      "created_date": "2025-12-08T12:31:49Z"
+    },
+    {
+      "last_updated": "2026-06-04T10:30:16Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2491-1437",
+            "type": "eissn"
+          },
+          {
+            "id": "10.4000/16b2j",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "20",
+          "country": "FR",
+          "issns": [
+            "2491-1437"
+          ],
+          "publisher": "Chaire Unesco Pratiques émergentes en technologies et communication pour le développement",
+          "language": [
+            "EN",
+            "ES",
+            "FR",
+            "PT"
+          ],
+          "title": "Communication, Technologies et Développement"
+        },
+        "month": "05",
+        "keywords": [
+          "generative AI",
+          "model opacity",
+          "image analysis",
+          "hermeneutic mediation",
+          "assisted interpretation literacy",
+          "conversational design"
+        ],
+        "year": "2026",
+        "subject": [
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "author": [
+          {
+            "name": "Manel Abdelkefi"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://journals.openedition.org/ctd/17246"
+          }
+        ],
+        "abstract": "This article shows that generative AI systems do not produce genuine visual interpretations. Their outputs are capta, that is, results generated through calculations and statistical correlations, often mistakenly perceived as reliable readings. Drawing on insights from digital humanities and the epistemology of the digital, the study demonstrates how these opaque processes erase the hermeneutic work that normally structures data, giving algorithmic responses a misleading appearance of objectivity. To address these issues, the article proposes a framework of hermeneutic mediation grounded in a literacy of assisted interpretation. This framework combines the exploratory contribution of algorithmic tools with situated human interpretation, within a logic of co‑constructing meaning between the user and the machine.",
+        "title": "L’opacité interprétative dans l’intelligence artificielle générative"
+      },
+      "id": "756aa8f96c2b4bbe9fc12e8979344d00",
+      "created_date": "2026-06-04T10:30:16Z"
+    },
+    {
+      "last_updated": "2025-10-06T22:04:12Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2055-2076",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1177/20552076251383393",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "11",
+          "country": "GB",
+          "issns": [
+            "2055-2076"
+          ],
+          "publisher": "SAGE Publishing",
+          "language": [
+            "EN"
+          ],
+          "title": "Digital Health"
+        },
+        "month": "10",
+        "year": "2025",
+        "subject": [
+          {
+            "code": "R858-859.7",
+            "scheme": "LCC",
+            "term": "Computer applications to medicine. Medical informatics"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "\nFaculty of Humanities and Management, , Kunming, China",
+            "name": "Xue Zhang"
+          },
+          {
+            "affiliation": "\nDepartment of Orthopedic, The Second Hospital Affiliated to Kunming Medical University, Kunming, China",
+            "name": "Ning Lu"
+          },
+          {
+            "affiliation": "\nSheng Ai Houspital of Traditional Chinese Medicine, Kunming, China",
+            "name": "Jing Dai"
+          },
+          {
+            "affiliation": "\nYunnan Provincial Center for Disease Control and Prevention, Kunming, China",
+            "name": "Yunjuan Yang"
+          },
+          {
+            "affiliation": "\nThe First People's Hospital of Yunnan Province, Kunming, China",
+            "name": "Nannan Xu"
+          },
+          {
+            "affiliation": "\nFaculty of Management and Economics, , Kunming, China",
+            "name": "Qi Qi"
+          },
+          {
+            "affiliation": "\nFaculty of Management and Economics, , Kunming, China",
+            "name": "Xuan He"
+          },
+          {
+            "affiliation": "\nFaculty of Humanities and Management, , Kunming, China",
+            "name": "Wei Li"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1177/20552076251383393"
+          }
+        ],
+        "abstract": "Objectives Online media has become an increasingly important part of older adults’ daily lives in the digital era. This study aims to examine the effects of online media use and its frequency on the mental health of older adults in China, with a particular focus on the mediating role of life satisfaction. Methods Using data from the 2020 wave of the China Longitudinal Aging Social Survey (CLASS), this study analyzed a nationally representative sample of 3118 Chinese older adults. A multiple indicators multiple causes (MIMIC) model was employed to assess the impact of both online media use types and usage frequency on mental health. Further mediation analysis was conducted to investigate whether life satisfaction mediates these relationships. Sensitivity analyses were performed using different estimators (maximum likelihood (ML), asymptotic distribution free (ADF), and generalized structural equation model (GSEM)), and robustness was tested with 2016 and 2018 CLASS data. Results Findings show that both online media use and online media use frequency are significantly and positively associated with mental health among Chinese older adults. Specifically, informational media (e.g. News reading app), entertainment platforms (e.g. TikTok and Kwai), and utility tools (e.g. Alipay and Taobao) exhibit strong positive effects, with news reading app showing the most prominent impact. A dose–response pattern was observed: older adults who engage with online media more frequently report better mental health outcomes. Notably, life satisfaction serves as a significant mediator in these relationships, accounting for 12.8% of the total effect of media use and 5.4% of the effect of use frequency on mental health. Conclusion Online media use, especially frequent engagement with digital platforms, enhances older adults’ mental health, not only directly but also indirectly by improving life satisfaction. These results offer valuable empirical evidence for understanding the mechanisms through which digital participation promotes psychological wellbeing in later life and highlight the importance of fostering digital literacy and inclusive media environments for the aging population.",
+        "title": "The effects of online media use on the mental health of Chinese older adults: A multiple indicators multiple causes (MIMIC) model"
+      },
+      "id": "7616d59a443f40aca20e299a8b5e6dd0",
+      "created_date": "2025-10-06T22:04:12Z"
+    },
+    {
+      "last_updated": "2026-02-10T11:30:16Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2101-0609",
+            "type": "eissn"
+          },
+          {
+            "id": "10.4000/ilcea.9066",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "39",
+          "country": "FR",
+          "issns": [
+            "2101-0609"
+          ],
+          "publisher": "UGA Éditions/Université Grenoble Alpes",
+          "language": [
+            "FR"
+          ],
+          "title": "ILCEA"
+        },
+        "month": "03",
+        "keywords": [
+          "research",
+          "digital humanities",
+          "artistic historical book binding",
+          "multidisciplinary",
+          "open data",
+          "artificial intelligence"
+        ],
+        "year": "2020",
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "author": [
+          {
+            "name": "María Helena Vargas Mejía"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://journals.openedition.org/ilcea/9066"
+          }
+        ],
+        "abstract": "The article presents the idea of a project to manage the scattered and various information about artistic historical bookbindings. It exposes the reasons why the study of the ancient book is permanent and why their study and comprehension are a difficult task. It encourages to overcome the isolation of the disciplines that study it, suggesting the multidisciplinary articulation and considering the terminology topic to collect diverse and scattered data. To carry on the project, the text proposes the automated description of artistic historical bookbindings as a digital humanities strategy, to articulate the multiple data detected and produced by researchers of diverse and multiple disciplines. The strategy presents basic considerations to the use of artificial intelligence (AI) to manage the vast quantity of information unlinked from separated fields, considering the importance to link data to their context—past chronological and geographical origins, and from the discipline that generated it—making easier the interpretation of information from other areas or perspectives of study or for the future use of the data.",
+        "title": "Perspectives on the Identification and Description with Artificial Intelligence for Open Access Data of Artistic Historical Bookbindings for Researchers"
+      },
+      "id": "761ec6bd613b44f3843a3ae4ea9aabef",
+      "created_date": "2026-02-10T11:30:16Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:59:04Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2416-5999",
+            "type": "eissn"
+          },
+          {
+            "id": "10.46298/jdmdh.7327",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "2021",
+          "country": "FR",
+          "issns": [
+            "2416-5999"
+          ],
+          "publisher": "Nicolas Turenne",
+          "language": [
+            "EN"
+          ],
+          "title": "Journal of Data Mining and Digital Humanities"
+        },
+        "month": "7",
+        "keywords": [
+          "handwritten text recognition",
+          "machine learning",
+          "optical character recognition",
+          "historical data",
+          "[info.info-cv]computer science [cs]/computer vision and pattern recognition [cs.cv]",
+          "[shs.hist]humanities and social sciences/history",
+          "[info.info-ai]computer science [cs]/artificial intelligence [cs.ai]"
+        ],
+        "year": "2021",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Université de Technologie de Belfort-Montbeliard",
+            "name": "Cyprien Plateau-Holleville"
+          },
+          {
+            "affiliation": "Université de Technologie de Belfort-Montbeliard",
+            "name": "Enzo Bonnot"
+          },
+          {
+            "affiliation": "Connaissance et Intelligence Artificielle Distribuées [Dijon]",
+            "name": "Franck Gechter"
+          },
+          {
+            "affiliation": "Franche-Comté Électronique Mécanique, Thermique et Optique - Sciences et Technologies (UMR 6174)",
+            "name": "Laurent Heyberger"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "https://jdmdh.episciences.org/7327/pdf"
+          }
+        ],
+        "abstract": "Vital records are rich of meaningful historical data concerning city as well as countryside inhabitants that can be used, among others, to study former populations and then reveal the social, economic and demographic characteristics of those populations. However, these studies encounter a main difficulty for collecting the data needed since most of these records are scanned documents that need a manual transcription step in order to gather all the data and start exploiting it from a historical point of view. This step consequently slows down the historical research and is an obstacle to a better knowledge of the population habits depending on their social conditions. Therefore in this paper, we present a modular and self-sufficient analysis pipeline using state-of-the-art algorithms mostly regardless of the document layout that aims to automate this data extraction process.",
+        "title": "French vital records data gathering and analysis through image processing and machine learning algorithms"
+      },
+      "created_date": "2022-11-14T15:21:18Z",
+      "id": "76278c95fabd41729e099ba0dcaa7a67"
+    },
+    {
+      "last_updated": "2025-08-20T00:53:36Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.26116/techreg.2024.009",
+            "type": "doi"
+          },
+          {
+            "id": "2666-139X",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "2024",
+          "country": "NL",
+          "issns": [
+            "2666-139X"
+          ],
+          "publisher": "openjournals.nl",
+          "language": [
+            "EN"
+          ],
+          "title": "Technology and Regulation"
+        },
+        "month": "March",
+        "year": "2024",
+        "subject": [
+          {
+            "code": "QA75.5-76.95",
+            "scheme": "LCC",
+            "term": "Electronic computers. Computer science"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Lecturer in Ethics, AI and Society, Department of Digital Humanities, King’s College London",
+            "name": "Sebastián Lehuedé"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://techreg.org/article/view/12927"
+          }
+        ],
+        "abstract": "\nThe increasing value of data is rendering data extraction ubiquitous. Looking at recent research, I argue that work critical of extractive dynamics can give rise to a ‘double-helix of data extraction’ that exacerbates existing asymmetries by appropriating the means of critique of affected populations. I show how this dynamic might play out in practice by turning to my research on astronomy data in Chile, which adopted a decolonial lens and involved Indigenous activists. Finally, a radical embracement of reflexivity attentive to both positionality and political economy is advocated as a condition for conducting properly critical data studies (CDS), especially in the case of research relying on decolonial approaches. Although reflexivity cannot solve the double helix, it can expose the conditions underpinning research and acknowledge the limitations of research on its own.\n",
+        "title": "The Double Helix of Data Extraction"
+      },
+      "id": "7683095e16c04867bd7097ef410a20df",
+      "created_date": "2024-03-18T11:24:16Z"
+    },
+    {
+      "last_updated": "2025-08-20T02:55:24Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.13136/2281-4582/2024.i24.1584",
+            "type": "doi"
+          },
+          {
+            "id": "2281-4582",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "number": "24",
+          "country": "IT",
+          "issns": [
+            "2281-4582"
+          ],
+          "publisher": "Department of Foreign Languages and Literatures at the University of Verona",
+          "language": [
+            "EN",
+            "IT"
+          ],
+          "title": "Iperstoria"
+        },
+        "month": "December",
+        "keywords": [
+          "Digital Humanities",
+          "Electronic literature",
+          "AI-generated texts",
+          "Hypertexts",
+          "Digital Literature"
+        ],
+        "year": "2024",
+        "subject": [
+          {
+            "code": "PS1-3576",
+            "scheme": "LCC",
+            "term": "American literature"
+          },
+          {
+            "code": "PR1-9680",
+            "scheme": "LCC",
+            "term": "English literature"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0009-0009-5134-929X",
+            "affiliation": "University of Bergamo",
+            "name": "Andrea Pitozzi"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0002-4377-8619",
+            "affiliation": "University of Bergamo",
+            "name": "Mario Verdicchio"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://iperstoria.it/article/view/1584"
+          }
+        ],
+        "abstract": "\nIntroduction to the special section of the Iperstoria issue “Digital/Electronic Literature from the USA: Theories, Forms and Practices.”\n",
+        "title": "Digital/Electronic Literature from the USA: Theories, Forms and Practices"
+      },
+      "id": "769e340a5eb34bb0934d37b4f2829378",
+      "created_date": "2024-12-20T12:13:15Z"
+    },
+    {
+      "last_updated": "2026-04-10T13:03:28Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2059-481X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.5334/johd.490",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "country": "GB",
+          "issns": [
+            "2059-481X"
+          ],
+          "publisher": "Ubiquity Press",
+          "language": [
+            "EN"
+          ],
+          "title": "Journal of Open Humanities Data"
+        },
+        "month": "3",
+        "end_page": "46",
+        "keywords": [
+          "data cleaning",
+          "data reconciliation",
+          "data harmonization",
+          "llms",
+          "benchmarks",
+          "project management"
+        ],
+        "year": "2026",
+        "start_page": "46",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0002-5080-7051",
+            "affiliation": "Discipline of English, School of English, Media, and Creative Arts, University of Galway, Galway",
+            "name": "Erin A. McCarthy"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://account.openhumanitiesdata.metajnl.com/index.php/up-j-johd/article/view/490"
+          }
+        ],
+        "abstract": "This paper introduces a novel AI-assisted pipeline developed to prepare data for the European Research Council-funded project “STEMMA: Systems of Transmitting Early Modern Manuscript Verse, 1475–1700.” Now approaching its midpoint, STEMMA develops and applies a data-driven approach to provide the first comprehensive study of the circulation of early modern English poetry in manuscript. The project began by aggregating and reconciling five of the largest and most authoritative existing datasets about early modern verse circulation. The sheer volume of data, along with the need to preserve early modern English spelling and scribal idiosyncrasies for later analyses, meant that off-the-shelf data cleaning tools like OpenRefine were not fit for purpose. To that end, our software developer created a staged pipeline to aid the removal of duplicates, creation of authorities, reconciliation, and assignment of unique identifiers. The rapid and pragmatic way that this process was developed and deployed means that we did not take the time to benchmark it, nor is it feasible to do so retrospectively. However, this discussion paper records observations from this process and reflects on challenges and bottlenecks as well as opportunities. It points the way toward future benchmarks that are increasingly needed for novel applications of computational methods in the digital humanities. It also briefly considers the relationship between technical benchmarking and research project management.",
+        "title": "Are We There Yet? Notes Towards Benchmarking an Experimental AI-Assisted Workflow for Humanities Data Cleaning and Reconciliation"
+      },
+      "id": "76ba5060e53649289be28fd6ab1d3589",
+      "created_date": "2026-04-10T13:03:28Z"
+    },
+    {
+      "last_updated": "2025-08-20T00:36:15Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2211-3797",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1016/j.rinp.2024.107830",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "62",
+          "number": "",
+          "country": "NL",
+          "issns": [
+            "2211-3797"
+          ],
+          "publisher": "Elsevier",
+          "language": [
+            "EN"
+          ],
+          "title": "Results in Physics"
+        },
+        "month": "07",
+        "end_page": "",
+        "keywords": [
+          "Symmetric airfoil",
+          "Supercritical airfoil",
+          "Compressible Inviscid Flow",
+          "Spalart-Allmaras Turbulence model"
+        ],
+        "year": "2024",
+        "start_page": "107830",
+        "subject": [
+          {
+            "code": "QC1-999",
+            "scheme": "LCC",
+            "term": "Physics"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Mathematics, College of Science and Humanities in Al-Kharj, Prince Sattam Bin Abdulaziz University, Al-Kharj 11942, Saudi Arabia; Saveetha School of Engineering, SIMATS, Chennai, India",
+            "name": "Kottakkaran Sooppy Nisar"
+          },
+          {
+            "affiliation": "Department of aeronautics and astronautics, Institute of Space Technology, Islamabad, Pakistan",
+            "name": "Mamoon Aamir"
+          },
+          {
+            "affiliation": "Department of Applied Mathematics and Statistics, Institute of Space Technology, Islamabad, Pakistan",
+            "name": "Aqsa Zafar Abbasi"
+          },
+          {
+            "affiliation": "Future Technology Research Center, National Yunlin University of Science and Technology, 123 University Road, Section .3, Douliu, Yunlin 64002, Taiwan, R.O.C; Corresponding author.",
+            "name": "Muhammad Asif Zahoor Raja"
+          },
+          {
+            "affiliation": "Department of aeronautics and astronautics, Institute of Space Technology, Islamabad, Pakistan",
+            "name": "Muhammad Umer Sohail"
+          },
+          {
+            "affiliation": "Yuan Ze University, AI Centre, Taoyuan 320, Taiwan",
+            "name": "Muhammad Shoaib"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://www.sciencedirect.com/science/article/pii/S221137972400514X"
+          }
+        ],
+        "abstract": "Studying compressible inviscid flow over symmetric and supercritical airfoils is important because it is useful to understand and maximize aerodynamic performance in a range of industrial contexts. This study addresses the analysis of symmetric and supercritical airfoils for compressible inviscid flow for both time-dependent and stationary scenarios. The primary goal of these simulations’ is to look at how different velocity variations affected certain airfoil parameters. Air is utilized as the material above airfoils. The best fit for these simulations is the Spalart-Allmaras Turbulence model, which shows good agreement over a wider velocity range with published experimental data from other studies. The COMSOL Multiphysics software is used for all the analysis, for angle of attack 0°, temperature 288K, pressure 1bar and the airfoils that are constructed by importing airfoil data file in COMSOL in the form of excel file. On the comparison of compressible inviscid flow, the supercritical airfoil has better results on the basis of velocity magnitude, pressure, vorticity magnitude, shear rate and rotation rate. The results are converging faster in supercritical airfoil than symmetric airfoil. At a zero-degree angle of attack, velocity increases more on the suction side while decreases on the pressure side (bottom). The final solution error for supercritical airfoil is 1.6E-05, while final residual error for “velocity u pressure p” is 1.2E-05. For symmetric airfoil, final solution error is 0.15, although final residual error is 2.6. Based on the error plot, it decreases rapidly in case of supercritical with a range from 100 to 10-4. Additionally, the wall resolution is constructed for both cases i.e., symmetric airfoil and supercritical airfoil. The main result is that ,with the passage of time, the flow is becoming to stationary state. In the end, model validation via comparison with experimental data highlights the validity and applicability of the results.",
+        "title": "Comparative analysis of compressible inviscid flow over symmetric and supercritical airfoil"
+      },
+      "id": "77318ddfe084404e906fd9cf641108b1",
+      "created_date": "2024-06-20T06:48:50Z"
+    },
+    {
+      "last_updated": "2025-08-20T01:47:26Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2416-5999",
+            "type": "eissn"
+          },
+          {
+            "id": "10.46298/jdmdh.10484",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "Historical Documents and...",
+          "country": "FR",
+          "issns": [
+            "2416-5999"
+          ],
+          "publisher": "Nicolas Turenne",
+          "language": [
+            "EN"
+          ],
+          "title": "Journal of Data Mining and Digital Humanities"
+        },
+        "month": "12",
+        "keywords": [
+          "htr for historical documents",
+          "htr for medieval latin manuscripts",
+          "digital diplomatics",
+          "medieval digital studies",
+          "htr for medieval french manuscripts",
+          "medieval charters",
+          "[shs.hist]humanities and social sciences/history",
+          "[info.info-ai]computer science [cs]/artificial intelligence [cs.ai]"
+        ],
+        "year": "2023",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0002-1801-3147",
+            "affiliation": "Université du Luxembourg",
+            "name": "Sergio Torres Aguilar"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0003-0600-0362",
+            "affiliation": "École nationale des chartes",
+            "name": "Vincent Jolivet"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "https://jdmdh.episciences.org/10484/pdf"
+          }
+        ],
+        "abstract": "Handwritten Text Recognition (HTR) techniques aim to accurately recognize sequences of characters in input manuscript images by training artificial intelligence models to capture historical writing features. Efficient HTR models can transform digitized manuscript collections into indexed and quotable corpora, providing valuable research insight for various historical inquiries. However, several challenges must be addressed, including the scarcity of relevant training corpora, the consequential variability introduced by different scribal hands and writing scripts, and the complexity of page layouts. This paper presents two models and one cross-model approach for automatic transcription of Latin and French medieval documentary manuscripts, particularly charters and registers, written between the 12th and 15th centuries and classified into two major writing scripts: Textualis (from the late-11th to 13th century) and Cursiva (from the 13th to the 15th century). The architecture of the models is based on a Convolutional Recurrent Neural Network (CRNN) coupled with a Connectionist Temporal Classification (CTC) loss. The training and evaluation of the models, involving 120k lines of text and almost 1M tokens, were conducted using three available ground-truth corpora : The e-NDP corpus, the Alcar-HOME database and the Himanis project. This paper describes the training architecture and corpora used, while discussing the main training challenges, results, and potential applications of HTR techniques on medieval documentary manuscripts.",
+        "title": "Handwritten Text Recognition for Documentary Medieval Manuscripts"
+      },
+      "created_date": "2024-03-07T16:13:59Z",
+      "id": "77a735f572114a008766674e3b8e207e"
+    },
+    {
+      "last_updated": "2025-08-20T01:56:02Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.22133/mtlj.2024.450533.1317",
+            "type": "doi"
+          },
+          {
+            "id": "2783-3836",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "06",
+          "number": "11",
+          "country": "IR",
+          "issns": [
+            "2783-3836"
+          ],
+          "publisher": "University of Science and Culture",
+          "language": [
+            "FA"
+          ],
+          "title": "حقوق فناوریهای نوین"
+        },
+        "month": "3",
+        "end_page": "251",
+        "keywords": [
+          "artificial intelligence",
+          "legal personality",
+          "modern technology law",
+          "human rights and citizenship"
+        ],
+        "year": "2025",
+        "start_page": "233",
+        "subject": [
+          {
+            "code": "K3840-4375",
+            "scheme": "LCC",
+            "term": "Regulation of industry, trade, and commerce. Occupational law"
+          },
+          {
+            "code": "KBP1-4860",
+            "scheme": "LCC",
+            "term": "Islamic law"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "",
+            "affiliation": " MA. in Supervision and Inspection Management, University of Judicial Sciences and Administrative Services, Tehran, Iran.",
+            "name": "Hossein Khazaei"
+          },
+          {
+            "orcid_id": "",
+            "affiliation": "Assistant prof. of department of public and international law, university of judicial sciences and administrative services, Tehran, Iran.",
+            "name": "Mojtaba Hemmati"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://mtlj.usc.ac.ir/article_212704_ca55fc66fd1f201704aad93e47b60a73.pdf"
+          }
+        ],
+        "abstract": "Artificial intelligence is a emerging phenomenon in the field of technology that, according to scientists' predictions, will significantly transform many aspects of life in the near future and bring about important changes in the course of human existence. With the continuous advancement of technology, questions arise regarding its impacts and roles in everyday life and society. This research aims to answer the fundamental question of the conflicts that artificial intelligence faces with human rights and citizenship if it possesses legal personality, using a descriptive-analytical method and collecting the necessary information and resources through a library-based approach. The findings of the research indicate that, according to researchers and scholars in this field, granting legal personality to artificial intelligence is necessary. They believe that by granting personality, AI entities can become parties to contracts, own property, and bear responsibilities. However, some argue that artificial intelligence should not be granted legal personality, as it would create ambiguity in the boundary between humans and non-humans and it undermines human rights and citizenship with its interferences and conflicts. Therefore, they suggest that AI should remain under human control. Furthermore, this research has proposed models for the legal personality of artificial intelligence, and it has identified the challenges and conflicts that AI faces in relation to human rights and citizenship, such as Automatic performance of military weapons, privacy violations, job displacement, social manipulation, fake news, and more. Solutions to address these challenges have also been outlined.\r\n1. Introduction\r\nThe issue of the legal status of artificial intelligence has gained attention in today's society. In recent years, AI has made significant advancements as machines that imitate human thinking and perform tasks automatically. Consequently, the legal implications of AI are increasingly unknown. The legal status of AI encompasses rights, responsibilities, and accountability. To ensure the responsible and ethical use of AI, its legal status must first be clarified and addressed. Due to the diverse and constantly changing nature of artificial intelligence technologies, defining and classifying AI systems is challenging. The terms and criteria related to AI have not yet been clearly defined. Therefore, such ambiguity makes it difficult to formulate laws and frameworks for AI.\r\nDetermining legal responsibilities for the actions and functions of AI systems is complex. Traditional legal systems assign responsibility based on intention and action. When AI systems become more independent, which individual or entity is responsible for the damages or incidents caused by AI? Thus, when AI systems learn and evolve independently or exhibit behaviors outside of their programming, this issue becomes even more complicated. Ethics and law in artificial intelligence are interconnected. AI systems can impact human lives; therefore, the development and implementation of ethics is essential. The functioning of AI raises concerns regarding fairness, transparency, privacy, and discrimination. Addressing these ethical issues and ensuring that AI systems respect human rights and values necessitates the legal regulation of AI.\r\nInventions and content generated by AI complicate intellectual property rights. The legal status of AI affects trade secrets, copyright ownership, and patentability. Existing legal frameworks must ensure a balance between promoting innovation and protecting creators and innovators in the field of AI. The rapid growth of artificial intelligence and its unique characteristics necessitate a thorough examination of the legal framework. The complexities and threats posed by AI may fall outside current laws. AI may require new ideas, systems, and legal standards to address its specific features and challenges.\r\nIt is essential to consider the legal status of AI at the international level, which requires international cooperation. Data protection and international standards for the development and implementation of AI need coordination within regulatory frameworks across jurisdictions. Conventions, laws, and global frameworks for responsible and ethical AI practices require collaboration. In recent years, there has been significant research focused on AI technology, thus legal discussions must also be addressed. So far, there has been no comprehensive study on the legal status of AI, its interference and conflict with collective human rights and civil rights, the challenges it presents, and potential solutions. Most research conducted has examined its functionality and applications in areas such as insurance, judicial proceedings, healthcare, Islamic studies, and humanities.\r\nTherefore, this study first discusses the differences between artificial intelligence and humans, followed by concepts and definitions of AI to provide a basic understanding for legal professionals (without offering highly specialized definitions). It then addresses the legal status of AI, theories regarding its acceptance or rejection, predictions of personality models for AI, instances where AI may conflict with ethical and human laws, and strategies to prevent such conflicts. The research method used in this article is descriptive-analytical.\r\n \r\n2. Methodology\r\nThis research has been conducted using a descriptive-analytical method, and the necessary information and resources have been collected through library research.\r\n \r\n3. Results and Discussion\r\nIn the future, artificial intelligence will advance significantly and surpass its current position, so considering this, it still requires important research. In addition to opinions that believe AI might replace humans by impersonating their identity and personality, necessitating control, some views suggest this technology will lead to significant benefits for humanity.\r\nAll these discussions can be resolved by establishing laws regarding the granting of personhood to AI. By granting personhood to AI in the form of a general legal status, AI will be able to have rights and obligations through its actions.\r\nFurthermore, if AI causes harm to another person due to its actions, liability may arise. Thus, due to the granting of personhood to AI, it will be able to participate in a case and even act as a lawyer or representative in a lawsuit. However, it should not be forgotten that no matter how advanced AI becomes, it must adhere to certain limitations in its personhood status, similar to legal entities.\r\nIn the context of the legal status of artificial intelligence in Iran, there are currently no definitive regulations. When examining the discussions that have taken place on this subject, some viewpoints consider it appropriate to treat artificial intelligence as an object, grant it legal personality, or recognize it as a non-human, electronic, or artificial person. In fact, all the debates that have occurred in this regard are deemed valuable and important, each providing significant arguments for integrating the concept of artificial intelligence into the legal system.\r\nHowever, following the European Parliament's proposal to allocate electronic personality and important responsibilities, the dimensions of the discussion have changed. Although many issues still remain to be clarified. It is unclear to what extent and in which matters the European Parliament will approve this report. Similarly, apart from recognizing legal personality, there is no clear information regarding the limitations and exceptions of this personality. Therefore, from the perspective of international law, it is essential to urgently develop legal regulations concerning the legal status of artificial intelligence within the United Nations or the European Union.\r\nIn this context, doctrinal discussions and the examination of advantages and disadvantages are the most important data that will facilitate the improvement of legal regulations. In contrast to artificial intelligence, which is becoming systematically more autonomous and intelligent, legal personality must undoubtedly be accepted. However, the concept of such personality should be a unique one for artificial intelligence.\r\n \r\n4. Conclusions and Future Research\r\nIntelligent robots can pose challenges for humans and their human rights, including but not limited to the following: violations of privacy, the potential for the automatic operation of dangerous military weapons, social interventions, and the spread of fake and misleading news and information, increased unemployment and reduced job opportunities, gender and racial discrimination, inequality in matters related to criminal justice, healthcare, hiring, and more. Therefore, it is necessary to devise solutions to address these challenges, which may include diversifying data, ensuring operational transparency, establishing legal and ethical frameworks, government commitments to balance the use of artificial intelligence with the fulfillment and enforcement of the right to work, data protection, respect for privacy, reducing discrimination, collaborating with stakeholders, establishing international legal standards, and fostering international cooperation for the safe development of artificial intelligence. Otherwise, it would be an affirmation of human rights violations by artificial intelligence.",
+        "title": "Assessment of The Potential Interference and Conflict of Artificial Intelligence With Human Rights and Citizenship: Challenges and Solutions"
+      },
+      "id": "794b2138601b4c0facc79a5ede928f2d",
+      "created_date": "2025-04-06T14:59:25Z"
+    },
+    {
+      "last_updated": "2025-08-20T00:40:16Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2416-5999",
+            "type": "eissn"
+          },
+          {
+            "id": "10.46298/jdmdh.9806",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "Historical Documents and...",
+          "country": "FR",
+          "issns": [
+            "2416-5999"
+          ],
+          "publisher": "Nicolas Turenne",
+          "language": [
+            "EN"
+          ],
+          "title": "Journal of Data Mining and Digital Humanities"
+        },
+        "month": "12",
+        "keywords": [
+          "kraken",
+          "layout segmentation",
+          "yolo",
+          "htr",
+          "ocr",
+          "object detection",
+          "historical document",
+          "kraken",
+          "[info.info-ai]computer science [cs]/artificial intelligence [cs.ai]",
+          "[shs]humanities and social sciences"
+        ],
+        "year": "2023",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0003-1852-9204",
+            "affiliation": "École nationale des chartes",
+            "name": "Thibault Clérice"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "https://jdmdh.episciences.org/9806/pdf"
+          }
+        ],
+        "abstract": "Layout Analysis (the identification of zones and their classification) is the first step along line segmentation in Optical Character Recognition and similar tasks. The ability of identifying main body of text from marginal text or running titles makes the difference between extracting the work full text of a digitized book and noisy outputs. We show that most segmenters focus on pixel classification and that polygonization of this output has not been used as a target for the latest competition on historical document (ICDAR 2017 and onwards), despite being the focus in the early 2010s. We propose to shift, for efficiency, the task from a pixel classification-based polygonization to an object detection using isothetic rectangles. We compare the output of Kraken and YOLOv5 in terms of segmentation and show that the later severely outperforms the first on small datasets (1110 samples and below). We release two datasets for training and evaluation on historical documents as well as a new package, YALTAi, which injects YOLOv5 in the segmentation pipeline of Kraken 4.1.",
+        "title": "You Actually Look Twice At it (YALTAi): using an object detection approach instead of region segmentation within the Kraken engine"
+      },
+      "created_date": "2024-03-07T16:13:59Z",
+      "id": "7b25fd07d3b84644b18d14b5ead79025"
+    },
+    {
+      "last_updated": "2025-12-24T03:35:50Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2354-9629",
+            "type": "pissn"
+          },
+          {
+            "id": "2549-1334",
+            "type": "eissn"
+          },
+          {
+            "id": "10.24252/v13i2a7",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "13",
+          "number": "2",
+          "country": "ID",
+          "issns": [
+            "2354-9629",
+            "2549-1334"
+          ],
+          "publisher": "Department of Library Science  Program Studi Ilmu Perpustakaan UIN Alauddin",
+          "language": [
+            "EN",
+            "ID"
+          ],
+          "title": "Khizanah al-Hikmah"
+        },
+        "month": "11",
+        "end_page": "286",
+        "keywords": [
+          "diamond open access",
+          "sinta ranking",
+          "humanities journal",
+          "gemini ai"
+        ],
+        "year": "2025",
+        "start_page": "273",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Universitas Negeri Padang",
+            "name": "Andi Saputra"
+          },
+          {
+            "affiliation": "Universitas Negeri Padang",
+            "name": "Malta Nelisa"
+          },
+          {
+            "affiliation": "Universitas Negeri Padang",
+            "name": "Jeihan Nabila"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://journal.uin-alauddin.ac.id/index.php/khizanah-al-hikmah/article/view/58916"
+          }
+        ],
+        "abstract": "This study examines the influence of open access models, particularly Diamond Open Access (OA), and SINTA rankings on the submission-to-publication duration of accredited humanities journals in Indonesia. It also addresses a notable gap in existing literature regarding publication waiting times within the Indonesian humanities context. Employing a quantitative ex post facto design, the study analyzes a sample of 100 SINTA-accredited humanities journals that published articles in 2024. Submission-to-publication durations (calculated as the number of days between submission and final publication) were extracted using an AI-assisted metadata retrieval tool (Gemini). A total of 2,489 eligible articles were identified. Data were analyzed using descriptive statistics and one-way ANOVA to determine the effects of the independent variables. The findings show that the median submission-to-publication time for Indonesian humanities journals is 125.67 days, with substantial variability ranging from 0 to 991 days. The Diamond OA model does not significantly affect publication duration (Sig. > 0.05), indicating that author-fee-free access does not inherently lengthen editorial processes. Conversely, SINTA rankings show a significant effect (Sig. < 0.05), with journals in higher SINTA tiers tending to have longer publication timelines. This study provides timely empirical evidence regarding factors that shape publication efficiency in Indonesia’s humanities journals—an area previously underexplored. The methodological use of AI for metadata extraction also represents an important contribution. These findings offer practical insights for authors selecting suitable publication venues and for journal publishers seeking to enhance the efficiency of their editorial workflows.",
+        "title": "Measuring Publication Efficiency in Humanities Journals"
+      },
+      "id": "7bcc0081a49649c2bc7194f063ea9c99",
+      "created_date": "2025-12-24T03:35:50Z"
+    },
+    {
+      "last_updated": "2026-04-10T13:03:28Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2059-481X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.5334/johd.491",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "country": "GB",
+          "issns": [
+            "2059-481X"
+          ],
+          "publisher": "Ubiquity Press",
+          "language": [
+            "EN"
+          ],
+          "title": "Journal of Open Humanities Data"
+        },
+        "month": "3",
+        "end_page": "45",
+        "keywords": [
+          "digital humanities",
+          "benchmarking",
+          "named entity recognition",
+          "early modern ireland",
+          "women’s history",
+          "fair data"
+        ],
+        "year": "2026",
+        "start_page": "45",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0001-7760-621X",
+            "affiliation": "School of Histories and Humanities, Trinity College Dublin",
+            "name": "Bronagh Ann McShane"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0002-8982-1678",
+            "affiliation": "WU Vienna University of Economics and Business, Vienna, AT; Grupo Comunicación Humana, Universidad de Pamplona, Pamplona",
+            "name": "Diego Rincon-Yanez"
+          },
+          {
+            "orcid_id": "https://orcid.org/0009-0001-8704-4588",
+            "affiliation": "School of Histories and Humanities, Trinity College Dublin",
+            "name": "Felix Vanden Borre"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0001-9419-7438",
+            "affiliation": "School of Histories and Humanities, Trinity College Dublin",
+            "name": "Jane Ohlmeyer"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0003-1090-3548",
+            "affiliation": "School of Computer Science and Statistics, Trinity College Dublin",
+            "name": "Declan O’Sullivan"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://account.openhumanitiesdata.metajnl.com/index.php/up-j-johd/article/view/491"
+          }
+        ],
+        "abstract": "This article examines how benchmarking digital methods can advance historical research by recovering women’s lives from fragmented and underused archives. It focuses on the Funeral Entries held in the Genealogical Office of the National Library of Ireland, a rich but understudied manuscript collection compiled by the Ulster King of Arms between the late sixteenth and early eighteenth centuries. These records, which document death dates, kinship networks, and social affiliations, contain an unusually high proportion of women for the early modern period (about 38 percent), offering rare insight into gendered experiences of death, family, and memory. The article emerges from the ERC-funded VOICES project, which develops AI-powered approaches to recover women’s voices and experiences from early modern sources (VOICES Project, 2023; https://voicesproject.ie). As part of this work, we present a benchmarking experiment using the Funeral Entries to assess the ability of Handwritten Text Recognition (HTR) and Named Entity Recognition (NER) models to cope with early modern orthography, multilingual naming practices, and manuscript variability. These experiments not only illuminate the constraints of existing tools but also demonstrate how benchmarking can generate reusable workflows, inform the creation of annotated gold standards, and support the production of FAIR-aligned humanities data. Rather than offering a completed dataset, the article argues for the historiographical value of iterative benchmarking. We show how evaluating and refining computational methods reframes questions of archival visibility, evidentiary status, and the interpretive potential of genealogical records, positioning the Funeral Entries not merely as instruments of male lineage but as essential sources for recovering early modern women’s social worlds.",
+        "title": "Digitising Death: Benchmarking Genealogical Data and Recovering Women’s Histories in Early Modern Ireland"
+      },
+      "id": "7c3d05975b3940988ca7013ffa39fb56",
+      "created_date": "2026-04-10T13:03:28Z"
+    },
+    {
+      "last_updated": "2025-08-20T00:16:07Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.48734/akofena.n013.vol.5.30.2024",
+            "type": "doi"
+          },
+          {
+            "id": "2706-6312",
+            "type": "pissn"
+          },
+          {
+            "id": "2708-0633",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "05",
+          "number": "013",
+          "country": "CI",
+          "issns": [
+            "2706-6312",
+            "2708-0633"
+          ],
+          "publisher": "CRAC, INSAAC",
+          "language": [
+            "DE",
+            "EN",
+            "ES",
+            "FR"
+          ],
+          "title": "Akofena"
+        },
+        "month": "9",
+        "year": "2024",
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "",
+            "affiliation": "",
+            "name": "Awatif Manel AZAIZIA & Houssam Eddine MERZOUGUI"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://doi.org/10.48734/akofena.n013.vol.5.30.2024"
+          }
+        ],
+        "abstract": "Abstract : The advancement of technology has significantly changed how stories are told, with the rise of Artificial Intelligence (AI) and the captivating experiences offered by Augmented Reality (AR) and Virtual Reality (VR). These new developments have reshaped storytelling methods into interactive, personalized, and engaging experiences. This study seeks to explore the impact of AI and technologies on narrative techniques through a walkthrough analysis of the Google Arts & Culture app. By examining how these technologies reshape storytelling structures, enhance user engagement, and provide tailored experiences, we aim to gain insights into their influence. The findings demonstrate that AI plays a role in customizing content to create personalized user experiences that keep audiences engaged in the story. Immersive technologies such as AR and VR further enhance this engagement by allowing users to interact with content in ways that were not possible with storytelling methods. These technologies encourage a shift from observation to engagement, creating a more immersive and adaptable narrative space. The study emphasizes that combining AI with technologies on platforms like Google Arts & Culture revolutionizes digital storytelling and introduces new opportunities and challenges for preserving cultural heritage. The results suggest that future studies should focus on exploring how users interact with AI-driven storytelling platforms and assessing the lasting effects of these technologies on involvement and storytelling credibility. This study adds to the conversation about humanities and technology integration, providing valuable perspectives for enhancing upcoming digital narrative platforms.\r\n\r\nKeywords: Digital Storytelling, Artificial Intelligence (AI), Immersive Technologies, User Engagement, Cultural Heritage Preservation.",
+        "title": "Reimagining Digital Narratives: The Role of AI and Immersive Technologies in Transforming Storytelling"
+      },
+      "id": "7c8f506f69374483a8bf591f3ec17a74",
+      "created_date": "2024-08-30T02:39:56Z"
+    },
+    {
+      "last_updated": "2026-05-13T11:33:30Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1931-4744",
+            "type": "eissn"
+          },
+          {
+            "id": "10.20429/ijsotl.2026.200105",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "20",
+          "number": "1",
+          "country": "US",
+          "issns": [
+            "1931-4744"
+          ],
+          "publisher": "Georgia Southern University",
+          "language": [
+            "EN"
+          ],
+          "title": "International Journal for the Scholarship of Teaching and Learning"
+        },
+        "month": "5",
+        "keywords": [
+          "artificial intelligence",
+          "discussion boards",
+          "instructional technology",
+          "packback",
+          "student perceptions",
+          "user experience"
+        ],
+        "year": "2026",
+        "subject": [
+          {
+            "code": "LB5-3640",
+            "scheme": "LCC",
+            "term": "Theory and practice of education"
+          }
+        ],
+        "author": [
+          {
+            "name": "Blake C Colclasure"
+          },
+          {
+            "name": "Jamie Greig"
+          },
+          {
+            "name": "Taylor K. Ruth"
+          },
+          {
+            "name": "Victoria Beasley"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://digitalcommons.georgiasouthern.edu/ij-sotl/vol20/iss1/5"
+          }
+        ],
+        "abstract": "Instructional platforms that incorporate artificial intelligence (AI) are emerging in higher education. Scholarship of teaching and learning should not only examine student learning outcomes from the use of novel AI technologies but should also investigate student perceptions of these technologies. We employed the user experience (UX) framework to investigate students’ UX of the instructional AI-driven platform, Packback, as a mode for online discussion boards. A survey using the User Experience Questionnaire was developed and employed in a general elective arts and humanities undergraduate course offered online and in-person. Data from 96 undergraduate student responses were analyzed and large variability was observed on students’ UX. Overall, findings indicated that students experienced the pragmatic qualities (efficiency, dependability, and perspicuity) of Packback positively. However, students had a neutral experience toward the attractiveness and the hedonic qualities (stimulation and novelty) of Packback. The UX of these qualities were also compared by student characteristics.",
+        "title": "Student Experience of AI-Driven Discussion Boards in an Undergraduate Course"
+      },
+      "id": "7d52c5fb3d9c4ec6a09c1a6063a3b9be",
+      "created_date": "2026-05-13T11:33:30Z"
+    },
+    {
+      "last_updated": "2025-08-19T18:10:58Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.7717/peerj-cs.189",
+            "type": "doi"
+          },
+          {
+            "id": "2376-5992",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "country": "US",
+          "issns": [
+            "2376-5992"
+          ],
+          "publisher": "PeerJ Inc.",
+          "language": [
+            "EN"
+          ],
+          "title": "PeerJ Computer Science"
+        },
+        "month": "4",
+        "keywords": [
+          "Social networks",
+          "Named entity recognition",
+          "Evaluation",
+          "Digital humanities",
+          "Classic and modern literature",
+          "Cultural AI"
+        ],
+        "year": "2019",
+        "start_page": "e189",
+        "subject": [
+          {
+            "code": "QA75.5-76.95",
+            "scheme": "LCC",
+            "term": "Electronic computers. Computer science"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Computer Science, Vrije Universiteit Amsterdam, Amsterdam, The Netherlands",
+            "name": "Niels Dekker"
+          },
+          {
+            "affiliation": "Department of Computer Science, Vrije Universiteit Amsterdam, Amsterdam, The Netherlands",
+            "name": "Tobias Kuhn"
+          },
+          {
+            "affiliation": "DHLab, KNAW Humanities Cluster, Amsterdam, The Netherlands",
+            "name": "Marieke van Erp"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "PDF",
+            "type": "fulltext",
+            "url": "https://peerj.com/articles/cs-189.pdf"
+          },
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://peerj.com/articles/cs-189/"
+          }
+        ],
+        "abstract": "The analysis of literary works has experienced a surge in computer-assisted processing. To obtain insights into the community structures and social interactions portrayed in novels, the creation of social networks from novels has gained popularity. Many methods rely on identifying named entities and relations for the construction of these networks, but many of these tools are not specifically created for the literary domain. Furthermore, many of the studies on information extraction from literature typically focus on 19th and early 20th century source material. Because of this, it is unclear if these techniques are as suitable to modern-day literature as they are to those older novels. We present a study in which we evaluate natural language processing tools for the automatic extraction of social networks from novels as well as their network structure. We find that there are no significant differences between old and modern novels but that both are subject to a large amount of variance. Furthermore, we identify several issues that complicate named entity recognition in our set of novels and we present methods to remedy these. We see this work as a step in creating more culturally-aware AI systems.",
+        "title": "Evaluating named entity recognition tools for extracting social networks from novels"
+      },
+      "created_date": "2019-04-20T16:05:04Z",
+      "id": "7f2ce91ebdaf4519bf344bbca88d7505"
+    },
+    {
+      "last_updated": "2025-08-20T00:41:16Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2214-157X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1016/j.csite.2023.103882",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "53",
+          "number": "",
+          "country": "NL",
+          "issns": [
+            "2214-157X"
+          ],
+          "publisher": "Elsevier",
+          "language": [
+            "EN"
+          ],
+          "title": "Case Studies in Thermal Engineering"
+        },
+        "month": "01",
+        "end_page": "",
+        "keywords": [
+          "Darcy-Forchheimer stretching flow",
+          "AI computing",
+          "Bayesian regularization",
+          "Backpropagation"
+        ],
+        "year": "2024",
+        "start_page": "103882",
+        "subject": [
+          {
+            "code": "TA1-2040",
+            "scheme": "LCC",
+            "term": "Engineering (General). Civil engineering (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Mathematics, College of Science and Humanities in Alkharj, Prince Sattam bin Abdulaziz University, Alkharj, 11942, Saudi Arabia; Corresponding author",
+            "name": "Kottakkaran Sooppy Nisar"
+          },
+          {
+            "affiliation": "Department of Mathematics, COMSATS University Islamabad, Attock Campus, Pakistan",
+            "name": "Muhammad Wajahat Anjum"
+          },
+          {
+            "affiliation": "Future Technology Research Center, National Yunlin University of Science and Technology, 123 University Road, Section .3, Douliou, Yunlin, 64002, Taiwan",
+            "name": "Muhammad Asif Zahoor Raja"
+          },
+          {
+            "affiliation": "Yuan Ze University, AI Center, Taoyuan, 320, Taiwan",
+            "name": "Muhammad Shoaib"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://www.sciencedirect.com/science/article/pii/S2214157X23011887"
+          }
+        ],
+        "abstract": "The use of artificial neural networks (ANNs) to solve complex fluid dynamics problems has revolutionized computational approaches. This article explores novel ANN solutions for fluid problems. ANNs have demonstrated unmatched effectiveness in comprehending and forecasting fluidic behaviors, from mimicking complex fluid flow trends to optimizing structures for dynamics. This study emphasizes the significance of neural networks in revolutionizing our understanding and control of fluidic systems by using ANNs and Bayesian Regularization. This study examined the 3D Darcy-Forchheimer stretching flow (TDDFSF) of nanofluid under convective conditions along with homogeneous and heterogeneous reactions by employing the scheme of Bayesian Regularization with the procedure of backpropagation in neural networks (SBR-BNNs). The flow is influenced by Brownian diffusion, thermophoresis and zero nanoparticles mass flux condition. The PDEs given in this model are converted into nonlinear ODEs. Results from MSE, regression analysis, and error histogram are used to verify the performance of SBR-BNNs. The absolute errors lie in the ranges up to 10−9, which depict the worth of the solver SBR-BNNs. The absolute error measures the discrepancy between the values actually observed and those predicted by the SBR-BNNs model. SBR-BNNs' high precision in TDDFSF models can lead to more effective and reliable solutions.",
+        "title": "Homogeneous-heterogeneous reactions on Darcy-Forchheimer nanofluid flow system"
+      },
+      "id": "7f849f5f0a3b4961bd4d78f6a7faf442",
+      "created_date": "2023-12-20T07:34:29Z"
+    },
+    {
+      "last_updated": "2025-08-20T03:06:41Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2560-9823",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "9",
+          "number": "1",
+          "country": "CA",
+          "issns": [
+            "2560-9823"
+          ],
+          "publisher": "Royal St. George's College",
+          "language": [
+            "EN"
+          ],
+          "title": "The Young Researcher"
+        },
+        "month": "7",
+        "end_page": "37",
+        "keywords": [
+          "chatgpt",
+          "high school",
+          "mixed method",
+          "humanities",
+          "gta (greater toronto area)"
+        ],
+        "year": "2025",
+        "start_page": "18",
+        "subject": [
+          {
+            "code": "A",
+            "scheme": "LCC",
+            "term": "General Works"
+          },
+          {
+            "code": "L",
+            "scheme": "LCC",
+            "term": "Education"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "",
+            "affiliation": "",
+            "name": "Harshavardan Gunasegaran"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://www.theyoungresearcher.com/papers/gunasegaran.pdf"
+          }
+        ],
+        "abstract": "The artificial intelligence program ChatGPT has become increasingly prominent within society, especially in education. It is known for its ability to generate quick responses to prompts, regardless of the discipline. Pre-existing research focuses on issues of AI-related academic integrity, but few identify the motivation for its usage and for what specific tasks. Correlational and thematic analysis was conducted through a mixed-methods approach, in the form of a survey and interviews, identifying the specific tasks for which high school students within the Greater Toronto Area use ChatGPT and their motivations. The results revealed that students primarily use it for writing essays and research papers, based on the time they have to complete an assignment, interest in the course, and character of the assignment (formative vs summative). This research helps humanities teachers and educational policymakers alter their coursework such that students continue to develop the necessary humanities skills despite the growing presence of AI.\r\n",
+        "title": "ChatGPT Usage among Teens in Humanities Courses"
+      },
+      "id": "8019acd7d12b40d6b38e0dfa7eddacc9",
+      "created_date": "2025-08-15T20:36:23Z"
+    },
+    {
+      "last_updated": "2025-08-20T03:18:26Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1017/dap.2024.91",
+            "type": "doi"
+          },
+          {
+            "id": "2632-3249",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "7",
+          "country": "GB",
+          "issns": [
+            "2632-3249"
+          ],
+          "publisher": "Cambridge University Press",
+          "language": [
+            "EN"
+          ],
+          "title": "Data & Policy"
+        },
+        "month": "January",
+        "year": "2025",
+        "subject": [
+          {
+            "code": "T58.5-58.64",
+            "scheme": "LCC",
+            "term": "Information technology"
+          },
+          {
+            "code": "JF20-2112",
+            "scheme": "LCC",
+            "term": "Political institutions and public administration (General)"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0009-0009-5032-6619",
+            "affiliation": "Joint Analysis and Reporting Section, United Nations Assistance Mission in Afghanistan, Kabul, Afghanistan",
+            "name": "Damla Aras"
+          },
+          {
+            "affiliation": "Department of Humanities and Digital Sciences, Tilburg University, Tilburg, The Netherlands Department of Data Science, AI and Robotics, Ministry of Defence of the Netherlands, Apeldoorn, The Netherlands",
+            "name": "Timothy Westlake"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://www.cambridge.org/core/product/identifier/S2632324924000919/type/journal_article"
+          }
+        ],
+        "abstract": "The complex socioeconomic landscape of conflict zones demands innovative approaches to assess and predict vulnerabilities for crafting and implementing effective policies by the United Nations (UN) institutions. This article presents a groundbreaking Augmented Intelligence-driven Prediction Model developed to forecast multidimensional vulnerability levels (MVLs) across Afghanistan. Leveraging a symbiotic fusion of human expertise and machine capabilities (e.g., artificial intelligence), the model demonstrates a predictive accuracy ranging between 70% and 80%. This research not only contributes to enhancing the UN Early Warning (EW) Mechanisms but also underscores the potential of augmented intelligence in addressing intricate challenges in conflict-ridden regions. This article outlines the use of augmented intelligence methodology applied to a use case to predict MVLs in Afghanistan. It discusses the key findings of the pilot project, and further proposes a holistic platform to enhance policy decisions through augmented intelligence, including an EW mechanism to significantly improve EW processes, thereby supporting decision-makers in formulating effective policies and fostering sustainable development within the UN.",
+        "title": "Advancing early warning mechanisms: an augmented intelligence-driven model for predicting multidimensional vulnerability levels in Afghanistan"
+      },
+      "id": "80ad1cdee788468abf2b5a144be15e95",
+      "created_date": "2025-02-14T07:25:01Z"
+    },
+    {
+      "last_updated": "2025-12-15T20:54:49Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1080/2331186X.2025.2588512",
+            "type": "doi"
+          },
+          {
+            "id": "2331-186X",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "2331-186X"
+          ],
+          "publisher": "Taylor & Francis Group",
+          "language": [
+            "EN"
+          ],
+          "title": "Cogent Education"
+        },
+        "month": "12",
+        "keywords": [
+          "Generative AI",
+          "L2 writing",
+          "self-correction",
+          "higher education",
+          "mixed method",
+          "Arts & Humanities"
+        ],
+        "year": "2025",
+        "subject": [
+          {
+            "code": "L7-991",
+            "scheme": "LCC",
+            "term": "Education (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Linguistics and Modern Language Studies, The Education University of Hong Kong, Hong Kong SAR, China",
+            "name": "Boyuan Ren"
+          },
+          {
+            "affiliation": "School of Foreign Studies, Xi’an Jiaotong University, Xi’an, China",
+            "name": "Yanyun Dong"
+          },
+          {
+            "affiliation": "School of Software Engineering, Xi’an Jiaotong University, Xi’an, China",
+            "name": "Boxuan Zhang"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://www.tandfonline.com/doi/10.1080/2331186X.2025.2588512"
+          }
+        ],
+        "abstract": "This study leveraged large language models’ (LLMs) function of mimicking students’ particular errors and generating essays that embed those errors, thereby yielding targeted revision exercises. This research examined how AI-generated feedback and the subsequent error correction exercises influenced undergraduates’ academic writing in an eight-week academic writing course in mainland China, also probing the mediating role of proficiency levels. A convenience sample of 44 English-majors was allocated to an experimental group (n = 25) that received dual interventions tailored to each learner’s recurrent writing problems, or a comparison group (n = 19) that received AI-generated feedback only. Subsequently, a purposive sub-sample of 12 participants was selected for online semi-structured interviews for qualitative insights. The quantitative analysis revealed significant improvements in both groups’ writing after the intervention, with proficiency level moderating the outcomes. Crucially, the experimental group significantly outperformed their comparison counterparts in mid-test. By deploying GPT-4o to simulate students’ recurrent writing errors and generate targeted correction materials, this study informs pedagogy on how LLMs scaffold personalized learning environments, enabling differentiated instruction tailored to the proficiency continuum in academic writing courses.",
+        "title": "From errors to excellence: AI-driven scaffolding for advancing L2 writing skills"
+      },
+      "id": "8136107a67ab4db7abeb22c56365b1e1",
+      "created_date": "2025-11-18T19:34:10Z"
+    },
+    {
+      "last_updated": "2025-08-19T15:55:35Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2076-0787",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3390/h5010017",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "number": "1",
+          "country": "CH",
+          "issns": [
+            "2076-0787"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Humanities"
+        },
+        "month": "3",
+        "keywords": [
+          "technology",
+          "artificial intelligence",
+          "humanity",
+          "humanities",
+          "big data",
+          "parasites",
+          "virus",
+          "bacteria"
+        ],
+        "year": "2016",
+        "start_page": "17",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Département de langue et littérature françaises, McGill University, 845 Rue Sherbrooke W, Montréal, QC H3A 0G4, Canada",
+            "name": "Ollivier Dyens"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "http://www.mdpi.com/2076-0787/5/1/17"
+          }
+        ],
+        "abstract": "What does it mean to be human in the 21st century? The pull of engineering on every aspect of our lives, the impact of machines on how we represent ourselves, the influence of computers on our understanding of free-will, individuality and species, and the effect of microorganisms on our behaviour are so great that one cannot discourse on humanity and humanities without considering their entanglement with technology and with the multiple new dimensions of reality that it opens up. The future of humanities should take into account AI, bacteria, software, viruses (both organic and inorganic), hardware, machine language, parasites, big data, monitors, pixels, swarms systems and the Internet. One cannot think of humanity and humanities as distinct from technology anymore.",
+        "title": "The Human/Machine Humanities: A Proposal"
+      },
+      "created_date": "2016-03-01T16:00:09Z",
+      "id": "81d8b24c8bd84526882996300d7729c0"
+    },
+    {
+      "last_updated": "2025-08-20T02:59:58Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1038/s41746-025-01439-y",
+            "type": "doi"
+          },
+          {
+            "id": "2398-6352",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "8",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "2398-6352"
+          ],
+          "publisher": "Nature Portfolio",
+          "language": [
+            "EN"
+          ],
+          "title": "npj Digital Medicine"
+        },
+        "month": "1",
+        "end_page": "16",
+        "year": "2025",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "R858-859.7",
+            "scheme": "LCC",
+            "term": "Computer applications to medicine. Medical informatics"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "School of Nursing, Shanghai Jiao Tong University",
+            "name": "Yun Hu"
+          },
+          {
+            "affiliation": "Turner Institute for Brain and Mental Health and School of Psychological Sciences, Monash University",
+            "name": "Joshua Wiley"
+          },
+          {
+            "affiliation": "School of Nursing, Shanghai Jiao Tong University",
+            "name": "Lulu Jiang"
+          },
+          {
+            "affiliation": "School of Nursing, Shanghai Jiao Tong University",
+            "name": "Xiyi Wang"
+          },
+          {
+            "affiliation": "School of Nursing, Shanghai Jiao Tong University",
+            "name": "Ran Yi"
+          },
+          {
+            "affiliation": "Renji Hospital Affiliated to Shanghai Jiao Tong University School of Medicine",
+            "name": "Jiehui Xu"
+          },
+          {
+            "affiliation": "School of Nursing, Shanghai Jiao Tong University",
+            "name": "Yanyan Liu"
+          },
+          {
+            "affiliation": "School of Nursing, Shanghai Jiao Tong University",
+            "name": "Aozhou Weng"
+          },
+          {
+            "affiliation": "School of Electronic Information and Electrical Engineering, Shanghai Jiao Tong University",
+            "name": "Futai Zou"
+          },
+          {
+            "affiliation": "School of Nursing, The University of Texas at Austin",
+            "name": "Eun-Ok Im"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1038/s41746-025-01439-y"
+          }
+        ],
+        "abstract": "Abstract Premature frailty is a critical challenge for young breast cancer survivors (YBCSs), impacting their health and perpetuating gender inequality through heightened vulnerability and marginalization. While digital health shows promise in frailty screening, its effectiveness for comprehensively managing frailty remains inconclusive. This randomized controlled trial, registered at the Chinese Clinical Trial Registry (ChiCTR2200058823), tests the “AI-TA” program’s efficacy on premature frailty and quality of life in YBCSs. The intervention group received a gender- and generation-sensitive program combining artificial intelligence interactions and humanities skills. The control group received 12 weeks of online information support. Both groups improved in frailty dimensions (P < 0.05); the intervention group showed notable enhancements in psychological (P = 0.013) and social frailty (P < 0.001). Quality of life also improved more in the intervention group from T1 to T2 (β = 15.384, 95% CI:13.028–17.740, P < 0.001). Results show a gender- and generation-sensitive digital humanistic program can optimize frailty management, promoting survivorship and gender equity.",
+        "title": "Digital humanistic program to manage premature frailty in young breast cancer survivors with gender perspective"
+      },
+      "id": "81e5f62b5660469ab25354f818f5f9b7",
+      "created_date": "2025-01-19T12:39:45Z"
+    },
+    {
+      "last_updated": "2025-08-19T16:55:56Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1690-4524",
+            "type": "pissn"
+          }
+        ],
+        "journal": {
+          "volume": "18",
+          "number": "6",
+          "country": "US",
+          "issns": [
+            "1690-4532",
+            "1690-4524"
+          ],
+          "publisher": "International Institute of Informatics and Cybernetics",
+          "language": [
+            "EN"
+          ],
+          "title": "Journal of Systemics, Cybernetics and Informatics"
+        },
+        "month": "12",
+        "end_page": "30",
+        "keywords": [
+          "intangible cultural heritage",
+          "digital humanities",
+          "sardinian mùrra",
+          "gaming"
+        ],
+        "year": "2020",
+        "start_page": "24",
+        "subject": [
+          {
+            "code": "T58.5-58.64",
+            "scheme": "LCC",
+            "term": "Information technology"
+          },
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "author": [
+          {
+            "name": "Luigi Serra"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "http://www.iiisci.org/Journal/CV$/sci/pdfs/HA036KM20.pdf\n"
+          }
+        ],
+        "abstract": "Human-Machine interaction has always presented fascinating challenges for researchers. In the context of humanities, history and social sciences, games have played an important role in human relations. As UNESCO points out, the dazzling variety of forms taken by traditional games is part of the social practices, rituals and festive events we inherit from our ancestors. In the spirit of safeguarding this cultural richness, digitization of games like the traditional Mediterranean Mùrra (or Morra) could contribute to preserving the rich European cultural heritage. Though there are many regional variants of the game, here we will focus on the Sardinian version. This research project proposal could be developed by computer scientists interested in human-machine interaction as well as by humanists and psychologists interested in human reactions to interfacing with an intelligent machine and negotiating wins and losses with a form of AI. This work could be further developed by scholars in the fields of psychology, sociology, history and cultural anthropology.",
+        "title": "Preservation of Mediterranean Intangible Cultural Heritage Through Virtual Gaming and Informatics: The Case of Sardinian Mùrra"
+      },
+      "id": "81eeb52fe1884557be20c073a89d02c9",
+      "created_date": "2021-03-27T18:09:50Z"
+    },
+    {
+      "last_updated": "2026-03-03T09:08:08Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2491-1437",
+            "type": "eissn"
+          },
+          {
+            "id": "10.4000/ctd.6406",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "11",
+          "country": "FR",
+          "issns": [
+            "2491-1437"
+          ],
+          "publisher": "Chaire Unesco Pratiques émergentes en technologies et communication pour le développement",
+          "language": [
+            "EN",
+            "ES",
+            "FR",
+            "PT"
+          ],
+          "title": "Communication, Technologies et Développement"
+        },
+        "month": "02",
+        "keywords": [
+          "Fantasy",
+          "ignorance",
+          "amalgamation"
+        ],
+        "year": "2022",
+        "subject": [
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "author": [
+          {
+            "name": "Serge Agostinelli"
+          },
+          {
+            "name": "Pierre-Michel Riccio"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://journals.openedition.org/ctd/6406"
+          }
+        ],
+        "abstract": "Only a lack of knowledge of the epistemology of techniques can suggest that intelligent objects resulting in Artificial Intelligence (AI) are decorrelated from social dimensions and neglect human factors. We explain in this contribution how the Humanities and Social Sciences (SHS) have diverted the usefulness of techniques into a technological utilitarianism that distances man from tools. This position is paradoxical when we hope to derive from our relationship to technical objects principles, behaviors, or good practices, which will serve as a foundation or guide to creativity and innovation.",
+        "title": "Et de l’esprit, alors ça, zéro !"
+      },
+      "id": "81f890888c3248d9ac9b35c3364937b5",
+      "created_date": "2026-03-03T09:08:08Z"
+    },
+    {
+      "last_updated": "2025-12-24T15:17:08Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.3390/soc15120349",
+            "type": "doi"
+          },
+          {
+            "id": "2075-4698",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "15",
+          "number": "12",
+          "country": "CH",
+          "issns": [
+            "2075-4698"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Societies"
+        },
+        "month": "12",
+        "keywords": [
+          "scientific practices",
+          "artificial intelligence",
+          "algorithmic awareness",
+          "qualitative method"
+        ],
+        "year": "2025",
+        "start_page": "349",
+        "subject": [
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Political and Social Studies, University of Salerno, 84084 Fisciano, Italy",
+            "name": "Maria Carmela Catone"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.mdpi.com/2075-4698/15/12/349"
+          }
+        ],
+        "abstract": "This study examines the role of algorithms—particularly artificial intelligence—in scientific research processes and how automation intersects with expert knowledge and the autonomy of the researcher. Drawing on 25 qualitative interviews with Italian university scholars in the social sciences and humanities, the research explores how academics either incorporate or resist AI at various stages in their scientific work, the strategies they employ to manage the relationship between professional expertise and algorithmic systems and the forms of trust, caution or scepticism that characterise these interactions. The findings reveal diverse patterns of use, non-use and critical engagement, ranging from instrumental and efficiency-oriented adoption to dialogical experimentation and from identity-based resistance to systemic reflexivity regarding the institutional implications of AI. The study also highlights the need to thoroughly examine the characteristics of disciplinary scientific cultures, while highlighting the importance of promoting algorithmic awareness to support scientific rigour in the digital age.",
+        "title": "Algorithms in Scientific Work: A Qualitative Study of University Research Processes Between Engagement and Critical Reflection"
+      },
+      "id": "8516a4f4ed724e9299fae3df8f7ac359",
+      "created_date": "2025-12-24T15:17:08Z"
+    },
+    {
+      "last_updated": "2025-08-20T01:20:48Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1769-7379",
+            "type": "eissn"
+          },
+          {
+            "id": "10.4000/12xqo",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "24",
+          "country": "FR",
+          "issns": [
+            "1769-7379"
+          ],
+          "publisher": "Université de Lille",
+          "language": [
+            "FR"
+          ],
+          "title": "Methodos"
+        },
+        "month": "12",
+        "year": "2024",
+        "subject": [
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          }
+        ],
+        "author": [
+          {
+            "name": "Roberta Padlina"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://journals.openedition.org/methodos/11206"
+          }
+        ],
+        "title": "Machines, Symbolic AI, and the Semantic Web:What They Are and Why They Matter in the Humanities"
+      },
+      "id": "85c46e20b7ed4e1aba6f65bb3afe6a78",
+      "created_date": "2025-01-30T14:11:12Z"
+    },
+    {
+      "last_updated": "2025-08-19T18:15:41Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2532-8816",
+            "type": "eissn"
+          },
+          {
+            "id": "10.6092/issn.2532-8816/10965",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "4",
+          "number": "8",
+          "country": "IT",
+          "issns": [
+            "2532-8816"
+          ],
+          "publisher": "University of Bologna",
+          "language": [
+            "EN",
+            "IT"
+          ],
+          "title": "Umanistica Digitale"
+        },
+        "month": "5",
+        "year": "2020",
+        "subject": [
+          {
+            "code": "A",
+            "scheme": "LCC",
+            "term": "General Works"
+          },
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Università degli Studi di Bologna",
+            "name": "Stefano Allegrezza"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://umanisticadigitale.unibo.it/article/view/10965"
+          }
+        ],
+        "abstract": "Il presente numero della rivista Umanistica Digitale propone una selezione di contributi presentati al convegno AIUCD 2019 che si è tenuto ad Udine dal 23 al 25 gennaio 2019 ed il cui tema principale è stato “Didattica e ricerca al tempo delle Digital Humanities”. Il convegno annuale dell’Associazione, giunto nel 2019 all’ottava edizione, sta diventando negli anni sempre più un punto di riferimento per il vasto settore delle Digital Humanities, come dimostrato dalle numerose proposte presentate e dalla presenza internazionale assai nutrita. Gli articoli presenti in questo numero, tutti sottoposti a double peer review ai fini della loro accettazione, sono una testimonianza dell’ampio dibattito multidisciplinare svoltosi durante il convegno e che ha visto un’ampia partecipazione da parte della comunità degli studiosi che si riconosce nelle tematiche dell’Associazione.",
+        "title": "Introduzione"
+      },
+      "created_date": "2020-05-19T09:44:33Z",
+      "id": "86284d970032456f91fa61e5ec55a861"
+    },
+    {
+      "last_updated": "2025-08-19T22:55:11Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.13130/2037-3597/13982",
+            "type": "doi"
+          },
+          {
+            "id": "2037-3597",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "number": "1",
+          "country": "IT",
+          "issns": [
+            "2037-3597"
+          ],
+          "publisher": "Milano University Press",
+          "language": [
+            "EN",
+            "IT"
+          ],
+          "title": "Italiano LinguaDue"
+        },
+        "month": "July",
+        "year": "2020",
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          },
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          }
+        ],
+        "author": [
+          {
+            "name": "Eugenio Salvatore"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://riviste.unimi.it/index.php/promoitals/article/view/13982"
+          }
+        ],
+        "abstract": "Il saggio si interroga sul ruolo degli studi universitari nel processo di acquisizione delle competenze linguistiche da parte degli studenti. Il presupposto dello studio è che il mondo accademico non può essere (né sentirsi) escluso dal processo educativo avviato nei cicli precedenti: all’università non giungono infatti studenti con competenze target pre-confezionate, a cui somministrare esclusivamente conoscenze disciplinari. Viceversa, il percorso accademico dovrebbe rappresentare uno degli stadi (l’ultimo) del percorso di studi, assumendosi le proprie responsabilità educative all’interno di un curricolo verticale relativo alle competenze linguistiche. Per questa ragione, nel contributo vengono proposte alcune possibili strategie adottabili nella didattica universitaria per migliorare le competenze di lettura e di scrittura. Il lavoro condotto su questo aspetto può peraltro giovarsi della “maturità” (anagrafica e cognitiva) degli studenti. Per questo appare utile puntare in ambito accademico su un approccio induttivo e su attività che stimolino processi metacognitivi. L’obiettivo dovrebbe essere quello di favorire l’acquisizione all’università di strumenti che permettano ai discenti di “imparare a imparare”, dunque di possedere tecniche e metodi consolidati per giungere anche in autonomia a competenze indispensabili nel mondo del lavoro. Le attività didattiche proposte nel contributo sono sia rivolte a spazi laboratoriali espressamente dedicati alla lettura e soprattutto alla scrittura, sia eventualmente inseribili nel percorso curricolare delle discipline umanistiche. In particolare, le attività sono rivolte agli aspetti che, nella gran parte degli studi sull’argomento, sono ritenuti i più lacunosi negli studenti universitari: la coscienza metalinguistica, la consapevolezza delle differenze tra i registri linguistici, l’estensione del bagaglio lessicale, l’organizzazione testuale.\n\r\n\n \n\r\n\n“learning to learn”: observations on teaching writing at university \n\r\n\nThe essay questions the role of university studies in the process of acquiring language skills by students. The assumption of the study is that the academic world cannot be (nor feel) excluded from the educational process started in the previous cycles: in fact, students with pre-packaged target competences do not come to the university only to receive disciplinary knowledge. On the contrary, the academic path should represent one of the stages (the last) of the study path, assuming its educational responsibilities within a vertical curriculum related to language skills. For this reason, we propose some possible strategies that can be adopted in university teaching to improve reading and writing skills. The work conducted on this aspect can also benefit from the “maturity” (age and cognitive) of the students. For this reason, it seems useful to focus on an inductive approach and activities that stimulate metacognitive processes. The objective should be to promote the acquisition of tools that allow learners to \"learn how to learn\", therefore to possess consolidated techniques and methods to achieve, even independently, indispensable skills in the world of work. The didactic activities proposed are both addressed to lab spaces expressly dedicated to reading and especially writing, and possibly included in the curricular path of the humanities. In particular, the activities address aspects that, in most of the studies on the subject, are considered the most lacking in university students: metalinguistic awareness, knowledge of the differences between linguistic registers, extension of lexical baggage, textual organization.",
+        "title": "“IMPARARE A IMPARARE”: OSSERVAZIONI SULL’INSEGNAMENTO UNIVERSITARIO DELLA SCRITTURA"
+      },
+      "id": "890acac3fc9240af863e8d4be6935462",
+      "created_date": "2020-07-22T09:43:59Z"
+    },
+    {
+      "last_updated": "2026-01-12T05:42:27Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2504-284X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3389/feduc.2025.1690799",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "10",
+          "country": "CH",
+          "issns": [
+            "2504-284X"
+          ],
+          "publisher": "Frontiers Media S.A.",
+          "language": [
+            "EN"
+          ],
+          "title": "Frontiers in Education"
+        },
+        "month": "1",
+        "keywords": [
+          "civic character education",
+          "digital citizenship",
+          "artificial intelligence (AI) in education",
+          "cross-faculty study",
+          "AI-based learning mediation"
+        ],
+        "year": "2026",
+        "subject": [
+          {
+            "code": "L7-991",
+            "scheme": "LCC",
+            "term": "Education (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Universitas Pendidikan Indonesia, Bandung, Indonesia",
+            "name": "Warlim Warlim"
+          },
+          {
+            "affiliation": "Universitas Pendidikan Indonesia, Bandung, Indonesia",
+            "name": "Ridwan Effendi"
+          },
+          {
+            "affiliation": "Universitas Pendidikan Indonesia, Bandung, Indonesia",
+            "name": "Ratna Fitria"
+          },
+          {
+            "affiliation": "Universitas Pendidikan Indonesia, Bandung, Indonesia",
+            "name": "Mujizat Maulana Ibrahim"
+          },
+          {
+            "affiliation": "Universitas Airlangga, Surabaya, Indonesia",
+            "name": "Diah Nur Hadiati"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://www.frontiersin.org/articles/10.3389/feduc.2025.1690799/full"
+          }
+        ],
+        "abstract": "IntroductionDigital transformation has transformed the educational landscape, demanding a reconceptualization of character education within a technological framework aligned with global competency standards. This study examines the effectiveness of AI-enhanced civic character education in developing character competencies and digital citizenship across various disciplinary contexts.MethodsThis mixed-methods experimental study employed a 2 × 2 factorial design involving 240 students from the Faculty of Engineering Education (n = 120) and the Faculty of Language and Literature Education (n = 120). Implementation was conducted over 18 sessions (February–June 2024) using an AI platform integrated with Pancasila values. Data were collected through the Civic Character Scale, the Digital Citizenship Competency Scale, and semi-structured interviews, analyzed using repeated measures ANOVA and structural equation modeling.ResultsAI-enhanced civic character education demonstrated significant effectiveness in improving civic character competencies (d = 0.51) and digital citizenship (d = 0.73) compared to traditional learning. Mediation analysis revealed that digital citizenship served as a fundamental mediating pathway (47.4% of the total effect) between AI engagement and character development. The differences in responses across faculties were significant: engineering students were more responsive to the structured AI feedback system, while humanities students benefited more from the reflective digital citizenship experience.Discussion/ConclusionThis study establishes AI-based civic character education as an effective approach, with differing patterns of mediation across faculties. These findings challenge universal approaches to AI implementation, favoring differentiated strategies that respect epistemological diversity while achieving coherent educational outcomes. The successful integration of Pancasila values demonstrates an educational technology pathway that supports local cultural wisdom. The semester-based implementation provides a replicable template for global adoption with appropriate cultural adaptations.",
+        "title": "Cross-faculty analysis of AI-enhanced civic character education on digital citizenship development"
+      },
+      "id": "89c2f4eed55542068d82dd422e504a6d",
+      "created_date": "2026-01-12T05:42:27Z"
+    },
+    {
+      "last_updated": "2026-01-12T08:23:17Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0869-3617",
+            "type": "pissn"
+          },
+          {
+            "id": "2072-0459",
+            "type": "eissn"
+          },
+          {
+            "id": "10.31992/0869-3617-2025-34-11-145-168",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "34",
+          "number": "11",
+          "country": "RU",
+          "issns": [
+            "0869-3617",
+            "2072-0459"
+          ],
+          "publisher": "Moscow Polytechnic University",
+          "language": [
+            "EN",
+            "RU"
+          ],
+          "title": "Высшее образование в России"
+        },
+        "month": "11",
+        "end_page": "168",
+        "keywords": [
+          "artificial intelligence",
+          "educational environment",
+          "discourse",
+          "bibliometric analysis",
+          "publication activity",
+          "categorical apparatus",
+          "lens"
+        ],
+        "year": "2025",
+        "start_page": "145",
+        "subject": [
+          {
+            "code": "L",
+            "scheme": "LCC",
+            "term": "Education"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Lipetsk State Pedagogical P. Semenov-Tyan-Shansky University",
+            "name": "D. V. Kataev"
+          },
+          {
+            "affiliation": "Lipetsk State Pedagogical P. Semenov-Tyan-Shansky University",
+            "name": "D. A. Belyaev"
+          },
+          {
+            "affiliation": "Lipetsk State Pedagogical P. Semenov-Tyan-Shansky University",
+            "name": "A. N. Tarasov"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://vovr.elpub.ru/jour/article/view/5815"
+          }
+        ],
+        "abstract": "The present study is devoted to a comprehensive analysis of the scientific discourse related to the integration of artificial intelligence (AI) in the educational environment in the period from 2015 to 2025. The relevance of the work is due to the rapid penetration of AI technologies in the educational space, which requires systematization of knowledge about the dynamics of research trends, methodological approaches and conceptual shifts. The scientific novelty lies in the application of a combined methodology combining bibliometric analysis, latent Dirichlet placement (LDA) for topic modeling and statistical methods, which made it possible to identify the structural features of discourse and its evolution. Based on the analysis of 362 articles from the Lens database, 21 thematic areas are identified, reflecting key research focuses ranging from the implementation of AI in school education (K-12) to ethical challenges and anthropocentric models. The results show an exponential growth in publication activity, dominated by technological research, with a lack of representation of socio-humanities disciplines. Geographical analysis revealed the leadership of the USA, UK and China, which emphasizes the regional asymmetry in the study of the problem topical “AI in education”. An important conclusion is the paradigm shift in the perception of AI: from autonomous agents to tools complementing human resources, with an emphasis on the role of the educator and selective application of technologies. It is found that promising directions are shifting towards the analysis of anthropocentric models, personalization of learning and ethical aspects of generative language models. The study contributes to the understanding of structural changes in the scientific discourse of “AI in education” and to the creation of a unified logical contour of problemscalls of modern education, conditioned by the role and prospects of AI systems in education.",
+        "title": "Dynamics of Scientific Discourse on Artificial Intelligence in Education: Bibliometric Analysis and Thematic Modeling"
+      },
+      "created_date": "2025-11-24T08:52:08Z",
+      "id": "8a3b39d4e91b46c3a48d3195c275a3ee"
+    },
+    {
+      "last_updated": "2025-08-19T23:07:49Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2169-3536",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1109/ACCESS.2024.3425497",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "country": "US",
+          "issns": [
+            "2169-3536"
+          ],
+          "publisher": "IEEE",
+          "language": [
+            "EN"
+          ],
+          "title": "IEEE Access"
+        },
+        "end_page": "108040",
+        "keywords": [
+          "Age of information (AoI)",
+          "data acquisition",
+          "deep reinforcement learning (DRL)",
+          "drones",
+          "energy-efficiency",
+          "Internet of Things (IoT)"
+        ],
+        "year": "2024",
+        "start_page": "108000",
+        "subject": [
+          {
+            "code": "TK1-9971",
+            "scheme": "LCC",
+            "term": "Electrical engineering. Electronics. Nuclear engineering"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0002-4078-6066",
+            "affiliation": "Department of Electrical, Electronics and Systems Engineering, Faculty of Engineering and Built Environment, Universiti Kebangsaan Malaysia (UKM), Bangi, Selangor, Malaysia",
+            "name": "Oluwatosin Ahmed Amodu"
+          },
+          {
+            "affiliation": "Become: Technology, Science, AI and Automation Laboratory, Paris, France",
+            "name": "Chedia Jarray"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0002-1169-4226",
+            "affiliation": "Department of Communication Technology and Network, Faculty of Computer Science and Information Technology, Universiti Putra Malaysia (UPM), Serdang, Selangor, Malaysia",
+            "name": "Raja Azlina Raja Mahmood"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0002-9208-1295",
+            "affiliation": "Computer Science Department, College of Science and Humanities, Imam Abdulrahman Bin Faisal University, Jubail, Saudi Arabia",
+            "name": "Huda Althumali"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0002-3983-6919",
+            "affiliation": "Centre for Intelligent Cloud Computing (CICC), Faculty of Information Science and Technology, Multimedia University, Bukit Beruang, Melaka, Malaysia",
+            "name": "Umar Ali Bukar"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0001-9254-2023",
+            "affiliation": "Department of Engineering, School of Engineering and Technology, Sunway University, Bandar Sunway, Selangor Darul Ehsan, Malaysia",
+            "name": "Rosdiadee Nordin"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0002-6593-5603",
+            "affiliation": "Department of Electrical, Electronics and Systems Engineering, Faculty of Engineering and Built Environment, Universiti Kebangsaan Malaysia (UKM), Bangi, Selangor, Malaysia",
+            "name": "Nor Fadzilah Abdullah"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0002-4299-3456",
+            "affiliation": "Faculty of Computer Science, Phenikaa University, Hanoi, Vietnam",
+            "name": "Nguyen Cong Luong"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://ieeexplore.ieee.org/document/10589619/"
+          }
+        ],
+        "abstract": "Deep reinforcement learning (DRL) has emerged as a promising technique for optimizing the deployment of unmanned aerial vehicles (UAVs) for data collection in wireless sensor networks (WSNs) and Internet of Things (IoT) applications. With DRL, UAV trajectory can be optimized, optimal data collection points can be determined, sensor node transmissions can be scheduled efficiently, and irregular traffic patterns can be learned effectively. In view of the significance of DRL for UAV-assisted IoT research in general and, more specifically, its use for time-critical applications, this paper presents a review of the existing literature on UAV-aided data collection for WSN and IoT applications related to the application of DRL to minimize the Age of Information (AoI), a recent metric used to measure the degree of freshness of transmitted information collected in data-gathering applications. This review aims to provide insights into the state-of-the-art techniques, challenges, and opportunities in this domain through an extensive analysis of a sizable range of related research papers in this domain. It discusses application areas of UAV-assisted IoT, such as environmental monitoring, infrastructure inspection, and disaster response. Then, the paper focuses on the proposed works, their optimization objectives, architectures, simulation libraries and complexities of the various DRL-based approaches used. Thereafter discussion, challenges, and some opportunities for future work are provided. The findings of this review serve as a valuable resource for researchers and practitioners, guiding further advancements and innovations in the field of DRL for UAV-aided data collection in WSN and IoT applications.",
+        "title": "Deep Reinforcement Learning for AoI Minimization in UAV-Aided Data Collection for WSN and IoT Applications: A Survey"
+      },
+      "id": "8ba0e34121ee415681c73b8c1d29ee30",
+      "created_date": "2024-08-09T23:01:19Z"
+    },
+    {
+      "last_updated": "2025-08-20T02:21:57Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.3390/publications13020018",
+            "type": "doi"
+          },
+          {
+            "id": "2304-6775",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "13",
+          "number": "2",
+          "country": "CH",
+          "issns": [
+            "2304-6775"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Publications"
+        },
+        "month": "04",
+        "keywords": [
+          "GenAI-driven content personalization in academia",
+          "recommender systems for scientific literature",
+          "generative AI in scholarly publishing",
+          "Large Language Models (LLMs) in academic research",
+          "GenAI-assisted scientific text summarization",
+          "scientific content customization using AI"
+        ],
+        "year": "2025",
+        "start_page": "18",
+        "subject": [
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          },
+          {
+            "code": "ZA3040-5185",
+            "scheme": "LCC",
+            "term": "Information resources (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Institute of Culture Studies, University of Silesia in Katowice, ul. Uniwersytecka 4, 40-007 Katowice, Poland",
+            "name": "Anna Małgorzata Kamińska"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.mdpi.com/2304-6775/13/2/18"
+          }
+        ],
+        "abstract": "The scientific literature is expanding at an unprecedented pace, making it increasingly difficult for researchers, students, and professionals to extract relevant insights efficiently. Traditional academic publishing offers static, one-size-fits-all content that does not cater to the diverse backgrounds, expertise levels, and interests of readers. This paper explores how generative AI can dynamically personalize scholarly content by tailoring summaries and key takeaways to individual user profiles. Nine scientific articles from a single journal issue were used to create the dataset, and prompt engineering was applied to generate tailored insights for exemplary personas: a digital humanities and open science researcher, and a mining and raw materials industry specialist. The effectiveness of AI-generated content modifications in enhancing readability, comprehension, and relevance was evaluated. The results indicate that generative AI can successfully emphasize different aspects of an article, making it more accessible and engaging to specific audiences. However, challenges such as content oversimplification, potential biases, and ethical considerations remain. The implications of AI-powered personalization in scholarly communication are discussed, and future research directions are proposed to refine and optimize AI-driven adaptive reading experiences.",
+        "title": "Tailoring Scientific Knowledge: How Generative AI Personalizes Academic Reading Experiences"
+      },
+      "id": "8ce958c0d0364d5e8dff2ae574443142",
+      "created_date": "2025-06-25T14:21:59Z"
+    },
+    {
+      "last_updated": "2026-02-27T02:37:56Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "3088-8069",
+            "type": "pissn"
+          },
+          {
+            "id": "3088-8115",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "1",
+          "number": "2",
+          "country": "DZ",
+          "issns": [
+            "3088-8069",
+            "3088-8115"
+          ],
+          "publisher": "University of Oran 2 Mohamed Ben Ahmed",
+          "language": [
+            "EN"
+          ],
+          "title": "Studies in Linguistics and Language Education"
+        },
+        "month": "December",
+        "keywords": [
+          "Death of the Author",
+          "AI-Generated Text",
+          "Cognitive Assemblage",
+          "Distributed Authorship",
+          "Literary Authority"
+        ],
+        "year": "2025",
+        "subject": [
+          {
+            "code": "P101-410",
+            "scheme": "LCC",
+            "term": "Language. Linguistic theory. Comparative grammar"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0009-0003-2779-463X",
+            "affiliation": "University of Saba Region, Yemen",
+            "name": "Ahmed Saeed Ahmed Mocbil"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://revue.univ-oran2.dz/slle/index.php/slle/article/view/25"
+          }
+        ],
+        "abstract": "\nThis research project meticulously investigates the profound paradigm shift currently underway in literary authority, transitioning from the traditional human author to the burgeoning influence of intelligent algorithms. It posits that Roland Barthes’s seminal concept of the “death of the author,” a cornerstone of post-structuralist thought, is now being realized quite literally in the contemporary age of artificial intelligence. This study synthesizes literary theory and digital humanities to advance a central argument: the metaphorical “pen” of authorship is no longer held by a human alone. Instead, it is increasingly distributed within a complex “cognitive assemblage” that intricately intertwines human intention, sophisticated algorithmic processes, the inherited knowledge embedded in training data, and the interpretive engagement of the reader. Through a robust methodology encompassing theoretical synthesis and a detailed comparative textual analysis of AI-generated and human-authored works, this research endeavors to comprehensively map this evolving literary landscape.\n",
+        "title": "The Death of the Author, Birth of the Bot: Who Holds the Pen Now?"
+      },
+      "id": "8cf31fc5e4304c4a95f4d160c80cd30c",
+      "created_date": "2026-02-13T01:32:32Z"
+    },
+    {
+      "last_updated": "2025-08-20T02:01:05Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2504-284X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3389/feduc.2025.1571810",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "10",
+          "country": "CH",
+          "issns": [
+            "2504-284X"
+          ],
+          "publisher": "Frontiers Media S.A.",
+          "language": [
+            "EN"
+          ],
+          "title": "Frontiers in Education"
+        },
+        "month": "5",
+        "keywords": [
+          "excellence in learning and teaching",
+          "faculty development",
+          "educational innovation",
+          "academic performance",
+          "student professional development",
+          "higher education evaluation"
+        ],
+        "year": "2025",
+        "subject": [
+          {
+            "code": "L7-991",
+            "scheme": "LCC",
+            "term": "Education (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Center for Excellence in Learning and Teaching, King Saud University, Riyadh, Saudi Arabia",
+            "name": "Ahmad Abdul-Wahhab Shahba"
+          },
+          {
+            "affiliation": "Kayyali Chair for Pharmaceutical Industries, Department of Pharmaceutics, College of Pharmacy, King Saud University, Riyadh, Saudi Arabia",
+            "name": "Ahmad Abdul-Wahhab Shahba"
+          },
+          {
+            "affiliation": "Center for Excellence in Learning and Teaching, King Saud University, Riyadh, Saudi Arabia",
+            "name": "Saud Alkathiri"
+          },
+          {
+            "affiliation": "Department of Curriculum and Instruction, College of Education, King Saud University, Riyadh, Saudi Arabia",
+            "name": "Saud Alkathiri"
+          },
+          {
+            "affiliation": "Center for Excellence in Learning and Teaching, King Saud University, Riyadh, Saudi Arabia",
+            "name": "Elham Alsadoon"
+          },
+          {
+            "affiliation": "Department of Curriculum and Instruction, College of Education, King Saud University, Riyadh, Saudi Arabia",
+            "name": "Elham Alsadoon"
+          },
+          {
+            "affiliation": "Center for Excellence in Learning and Teaching, King Saud University, Riyadh, Saudi Arabia",
+            "name": "Walid Soufan"
+          },
+          {
+            "affiliation": "Department of Plant Production, College of Food and Agriculture Sciences, King Saud University, Riyadh, Saudi Arabia",
+            "name": "Walid Soufan"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://www.frontiersin.org/articles/10.3389/feduc.2025.1571810/full"
+          }
+        ],
+        "abstract": "BackgroundThe landscape of higher education is evolving with an emphasis on teaching excellence and student-centered learning, driven by technological advancements and societal changes. This study aimed to comprehensively evaluate the impact of the grant Program for Excellence in Learning and Teaching (PELT) at King Saud University, the first of its kind in Saudi Arabia.MethodsUsing a mixed-methods approach, the research design combined quantitative and qualitative data collection and analysis techniques. Faculty and student surveys were conducted to assess the program’s impact on teaching practices, student engagement, and skills development. Additionally, student academic performance data, including self-reported PELT course grades and university-reported final exam scores, were analyzed. The study examined the influence of various factors, such as academic discipline and grant theme on the program’s outcomes. Textual feedback from faculty and students was subjected to AI-assisted thematic and sentiment analysis to uncover key themes and insights.ResultsThe PELT program showed a positive impact on faculty’s pedagogical skills, teaching methods, and perceptions of student learning. Faculty members showed a stronger preference for the “Student Professional Development” grant theme, while students valued the “Curriculum and Course Content Development” and “Excellence in Teaching and Assessment Strategies” themes more. The student textual feedback highlighted the need for more dynamic, student-focused, and practically oriented educational approaches. The innovative use of AI-powered sentiment analysis offered valuable complementary insights into student experiences, complementing the traditional survey-based methods. The analysis of student-reported academic performance revealed that PELT course grades were slightly higher than overall GPA, with the Humanities discipline demonstrating significant positive impacts. Importantly, the university-reported score analysis further highlighted that courses emphasizing student-faculty interactions and student-professional development (T2 and T3 themes) showed significantly higher scores in the PELT group compared to the control group, while the T1 (Curriculum and Course Content Development) theme showed the opposite.ConclusionThe study’s findings underscore the importance of aligning educational interventions with approaches that prioritize active learning, collaborative experiences, and authentic student-faculty interactions. Furthermore, this study provides a robust foundation for assessing the impact of faculty development programs and guiding data-driven decisions to enhance the quality of higher education.",
+        "title": "A data-driven evaluation of the grant program for excellence in learning and teaching (PELT): AI-leveraged insights from faculty, students, and academic metrics"
+      },
+      "id": "8e4b21c62d63455bbfd6206d33ee9a82",
+      "created_date": "2025-05-30T14:06:40Z"
+    },
+    {
+      "last_updated": "2025-08-20T03:01:15Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.13136/2281-4582/2024.i24.1517",
+            "type": "doi"
+          },
+          {
+            "id": "2281-4582",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "number": "24",
+          "country": "IT",
+          "issns": [
+            "2281-4582"
+          ],
+          "publisher": "Department of Foreign Languages and Literatures at the University of Verona",
+          "language": [
+            "EN",
+            "IT"
+          ],
+          "title": "Iperstoria"
+        },
+        "month": "December",
+        "keywords": [
+          "Early Modern English",
+          "Literary texts",
+          "Specialized texts",
+          "Intralingual translation",
+          "Modernization",
+          "AI"
+        ],
+        "year": "2024",
+        "subject": [
+          {
+            "code": "PS1-3576",
+            "scheme": "LCC",
+            "term": "American literature"
+          },
+          {
+            "code": "PR1-9680",
+            "scheme": "LCC",
+            "term": "English literature"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0002-6761-2031",
+            "affiliation": "Sapienza University of Rome",
+            "name": "Fabio Ciambella"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://iperstoria.it/article/view/1517"
+          }
+        ],
+        "abstract": "\nThis article examines how Artificial Intelligence (AI) can transform intralingual translation, with a focus on historical varieties, particularly Early Modern English. It explores the foundations of AI-based translation, addressing both the challenges and opportunities of applying this technology to linguistic change over time. Drawing from models in linguistics, natural language processing, and historical linguistics, the study investigates the modernization of Early Modern English, using literary and specialized texts to demonstrate AI’s effectiveness in handling complex vocabulary and syntax. The paper also evaluates AI's impact on fields like historical linguistics and digital humanities, discussing both the benefits and the limitations, such as the risk of anachronism and the need for human oversight. Additionally, it considers how AI-driven translation can contribute to the digitization and accessibility of historical texts, broadening access to linguistic resources and enhancing appreciation for language evolution.\n",
+        "title": "AI-Driven Intralingual Translation across Historical Varieties"
+      },
+      "id": "8e9aa219cb824750af71a6fbb04f0996",
+      "created_date": "2024-12-20T12:13:15Z"
+    },
+    {
+      "last_updated": "2025-08-20T02:48:16Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1057/s41599-025-04469-9",
+            "type": "doi"
+          },
+          {
+            "id": "2662-9992",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "2662-9992"
+          ],
+          "publisher": "Springer Nature",
+          "language": [
+            "EN"
+          ],
+          "title": "Humanities & Social Sciences Communications"
+        },
+        "month": "2",
+        "end_page": "13",
+        "year": "2025",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "H",
+            "scheme": "LCC",
+            "term": "Social Sciences"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Chair of Cartography and Visual Analytics, Technical University of Munich",
+            "name": "Mengyi Wei"
+          },
+          {
+            "affiliation": "Chair of Cartography and Visual Analytics, Technical University of Munich",
+            "name": "Puzhen Zhang"
+          },
+          {
+            "affiliation": "Chair of Cartography and Visual Analytics, Technical University of Munich",
+            "name": "Chuan Chen"
+          },
+          {
+            "affiliation": "Chair of Cartography and Visual Analytics, Technical University of Munich",
+            "name": "Dongsheng Chen"
+          },
+          {
+            "affiliation": "Center for Sustainable Future Mobility (CSFM), ETH Zurich",
+            "name": "Chenyu Zuo"
+          },
+          {
+            "affiliation": "Chair of Cartography and Visual Analytics, Technical University of Munich",
+            "name": "Liqiu Meng"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1057/s41599-025-04469-9"
+          }
+        ],
+        "abstract": "Abstract The ethical issues that arise in the development of AI technologies are closely linked to public engagement. Although Twitter, as an online public sphere, provides a platform for exploring AI ethics discourse, it is difficult for current research to effectively extract fine-grained but meaningful information from the vast amount of social media data. To address this challenge, this paper proposes a research framework for the fine-grained exploration of AI ethics discourse on Twitter. The framework consists of two main parts: (1) combining neural networks with large-scale language models to construct a hierarchically structured topic framework that not only extracts popular topics of public interest, but also highlights smaller, yet significant voices; (2) using narrative metaphors to achieve the integration of fragmented information across levels and topics, ultimately presenting a complete story to help the public better understand the evolution of topics within AI ethics discourse. Our research has revealed that the most significant concern in the current AI ethics discourse is the lag in AI-related laws and ethical guidelines. It also shows that the integration of AI technology with the humanities is essential to promote a good public society. Through cross-level fine-grained mining, this study uncovers information hidden beneath the noise interference, which helps policymakers make targeted adjustments or improvements to policies. In addition, this research framework provides a reference for fine-grained mining of other specific issues in social media data.",
+        "title": "Mapping AI ethics narratives: evidence from Twitter discourse between 2015 and 2022"
+      },
+      "id": "8f0a76153bb74cac97f6b7727a187270",
+      "created_date": "2025-02-16T12:17:27Z"
+    },
+    {
+      "last_updated": "2025-10-03T19:16:13Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5281/zenodo.13822951",
+            "type": "doi"
+          },
+          {
+            "id": "2280-5028",
+            "type": "pissn"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "country": "IT",
+          "issns": [
+            "2280-5028"
+          ],
+          "publisher": "Istituto Teologico Leoniano di Anagni",
+          "language": [
+            "EN",
+            "IT"
+          ],
+          "title": "Theologica Leoniana"
+        },
+        "month": "December",
+        "year": "2023",
+        "subject": [
+          {
+            "code": "BT10-1480",
+            "scheme": "LCC",
+            "term": "Doctrinal Theology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Istituto Teologico Leoniano di Anagni",
+            "name": "Matteo Parente"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://www.itleoniano.it/theologica/index.php/theologica-leoniana/article/view/128"
+          }
+        ],
+        "abstract": "\nSe l’educazione letteraria riveste un ruolo soltanto accessorio nel monachesimo benedettino, la vita di Benedetto da Norcia nel secondo libro dei Dialoghi di Gregorio Magno mostra come sia proprio l’ordinamento monastico della vita intellettuale ai principi teologici della perfezione spirituale a non permettere di escludere la filosofia dai confini culturali dell’alto medioevo latino.\n\n\nHumanities seem to be just an instrumental aspect in Benedictine monasticism as well as in Benedict’s life. Nevertheless, hagiographical, exegetical and epistolary works by Gregory the Great reveal that it’s precisely the monastic orientation of intellectual life to the theological principles of spiritual perfection that defines the dimensions of philosophy in Latin Early Middle Ages.\n",
+        "title": "«Habitavit secum». Benedetto da Norcia e la filosofia nei Dialogi di Gregorio Magno"
+      },
+      "id": "8f143fe88e1145368eb10a13aa3f942e",
+      "created_date": "2025-10-03T19:16:13Z"
+    },
+    {
+      "last_updated": "2026-05-27T08:48:40Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2532-8816",
+            "type": "eissn"
+          },
+          {
+            "id": "10.60923/issn.2532-8816/23570",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "number": "23",
+          "country": "IT",
+          "issns": [
+            "2532-8816"
+          ],
+          "publisher": "University of Bologna",
+          "language": [
+            "EN",
+            "IT"
+          ],
+          "title": "Umanistica Digitale"
+        },
+        "month": "5",
+        "end_page": "194",
+        "keywords": [
+          "digital humanities",
+          "latin poetry",
+          "ai",
+          "computational tools"
+        ],
+        "year": "2026",
+        "start_page": "185",
+        "subject": [
+          {
+            "code": "A",
+            "scheme": "LCC",
+            "term": "General Works"
+          },
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "University of Foggia",
+            "name": "Michele Ciletti"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://umanisticadigitale.unibo.it/article/view/23570"
+          }
+        ],
+        "abstract": "While the field of Digital Humanities has successfully established robust infrastructures for the textual analysis of Latin, the auditory dimension of the language is still largely undeveloped. Specifically, the complex quantitative rhythm and intonation of classical poetry cannot be accurately replicated by Text-to-Speech models. This paper presents a computational workflow designed to bridge this gap, leveraging verified metrical data to produce high-fidelity and prosodically accurate audio recordings. By using the structured XML scansions of the Pedecerto project, the proposed pipeline employs a rule-based pre-processing routine to convert standard orthography into a phonetic script optimized for acoustic modelling. These adapted texts are then fed into a multimodal Large Language Model, which is steered via in-context prompt engineering to observe syllable quantity, ictus placement, pauses, and eventual elision. The technical architecture of this system is detailed, analyzing the specific orthographic interventions and prompts required to overcome the stress-timed bias of contemporary AI models. Finally, the implications of this tool for the wider Digital Humanities ecosystem are discussed, with particular attention to its potential to democratize access to Latin learning, support accessibility, and add new audio layers to existing digital projects and infrastructures.",
+        "title": "Prompting the Muse: Generating Prosodically Accurate Audio of Latin Poetry with Text-to-Speech Large Language Models: A Computational Workflow"
+      },
+      "id": "8f70271505d944f3a3b6de45a0464fd0",
+      "created_date": "2026-05-27T08:48:40Z"
+    },
+    {
+      "last_updated": "2026-01-27T14:34:55Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.3390/h15010017",
+            "type": "doi"
+          },
+          {
+            "id": "2076-0787",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "15",
+          "number": "1",
+          "country": "CH",
+          "issns": [
+            "2076-0787"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Humanities"
+        },
+        "month": "01",
+        "keywords": [
+          "artificial intelligence",
+          "chatbot",
+          "cinema",
+          "computer games",
+          "digital narrative",
+          "electronic literature"
+        ],
+        "year": "2026",
+        "start_page": "17",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Center for Digital Narrative, Department of Linguistic, Literary and Aesthetic Studies, Faculty of Humanities, University of Bergen, NO-5020 Bergen, Norway",
+            "name": "Lina Ruth Harder"
+          },
+          {
+            "affiliation": "Center for Digital Narrative, Department of Linguistic, Literary and Aesthetic Studies, Faculty of Humanities, University of Bergen, NO-5020 Bergen, Norway",
+            "name": "David Jhave Johnston"
+          },
+          {
+            "affiliation": "Center for Digital Narrative, Department of Linguistic, Literary and Aesthetic Studies, Faculty of Humanities, University of Bergen, NO-5020 Bergen, Norway",
+            "name": "Scott Rettberg"
+          },
+          {
+            "affiliation": "Center for Digital Narrative, Department of Information Science and Media Studies, Faculty of Social Sciences, University of Bergen, NO-5020 Bergen, Norway",
+            "name": "Sérgio Galvão Roxo"
+          },
+          {
+            "affiliation": "Center for Digital Narrative, Department of Linguistic, Literary and Aesthetic Studies, Faculty of Humanities, University of Bergen, NO-5020 Bergen, Norway",
+            "name": "Haoyuan Tang"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.mdpi.com/2076-0787/15/1/17"
+          }
+        ],
+        "abstract": "The Extended Digital Narrative (XDN) research project explores how experimental creative practice with emerging technologies generates critical insights into algorithmic narrativity—the intersection of human narrative understanding and computational data processing. This article presents five case studies demonstrating that direct engagement with AI and Extended Reality platforms is essential for humanities research on new genres of digital storytelling. Lina Harder’s <i>Hedy Lamar Chatbot</i> examines how generative AI chatbots construct historical personas, revealing biases in training data and platform constraints. Scott Rettberg’s <i>Republicans in Love</i> investigates text-to-image generation as a writing environment for political satire, documenting rapid changes in AI aesthetics and content moderation. David Jhave Johnston’s <i>Messages to Humanity</i> demonstrates how Runway’s Act-One enables solo filmmaking, collapsing traditional production hierarchies. Haoyuan Tang’s video game project reframes LLM integration by prioritizing player actions over dialogue, challenging assumptions about AI’s role in interactive narratives. Sérgio Galvão Roxo’s <i>Her Name Was Gisberta</i> employs Virtual Reality for social education against transphobia, utilizing perspective-taking techniques for empathy development. These projects demonstrate that practice-based research is not merely artistic production but a vital methodology for understanding how AI and XR platforms shape—and are shaped by—human narrative capacities.",
+        "title": "Extending Digital Narrative with AI, Games, Chatbots, and XR: How Experimental Creative Practice Yields Research Insights"
+      },
+      "id": "90b39ed073ea4b5285cece9bfae5ee9a",
+      "created_date": "2026-01-27T14:34:55Z"
+    },
+    {
+      "last_updated": "2026-06-12T06:31:28Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1411-0199",
+            "type": "pissn"
+          },
+          {
+            "id": "2338-1884",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "23",
+          "number": "1",
+          "country": "ID",
+          "issns": [
+            "1411-0199",
+            "2338-1884"
+          ],
+          "publisher": "Universitas Brawijaya",
+          "language": [
+            "EN",
+            "ID"
+          ],
+          "title": "Wacana: Jurnal Sosial dan Humaniora"
+        },
+        "month": "January",
+        "keywords": [
+          "recruitment",
+          "selection",
+          "educators"
+        ],
+        "year": "2020",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "H",
+            "scheme": "LCC",
+            "term": "Social Sciences"
+          },
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Administration Fakulty, Brawijaya University",
+            "name": "Sutikno Sutikno"
+          },
+          {
+            "name": "Suryono Agus"
+          },
+          {
+            "name": "Endah Setyowati"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://wacana.ub.ac.id/index.php/wacana/article/view/690"
+          }
+        ],
+        "abstract": "The purpose of this research is to describe and analyze the recruitment and selection of teaching staff at Mulawarman University to realize good governance so that they can compete nationally and internationally towards World Class University and face the challenges of the Industrial Revolution 4.0, and are required to master three literacy fields, namely literacy in technology, humanities and artificial intelligence (AI). So universities must be able to have human resources, especially educators who are professional and have international standards. The success in getting professional educators lies in recruitment, selection, training, and development. The problem that arises is that in the recruitment of educators, state universities always get less formation than is needed, while the ratio of lecturers and students must be met. The series of decision making regarding the appointment of contract lecturers carried out by Mulawarman University to meet the ratio of lecturers to students needs to be examined and explored further. The research method used is qualitative, using data collection techniques from interviews, observation and documentation studies as well as using qualitative data analysis of the Spradley model. The findings in the field show that there are two series of recruitment and selection activities, the first is the recruitment and selection for CPNS educators, and the second is for Non-PNS educators through several stages.",
+        "title": "Recruitment and Selection Educators at  Mulawarman University Samarinda East Kalimantan"
+      },
+      "id": "9433dfda0c874e16a1cc5ccb485e11dd",
+      "created_date": "2026-06-06T06:22:14Z"
+    },
+    {
+      "last_updated": "2025-08-19T17:33:32Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2286-2552",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1515/eras-2018-0006",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "11",
+          "number": "17",
+          "country": "PL",
+          "issns": [
+            "2286-2552"
+          ],
+          "publisher": "Sciendo",
+          "language": [
+            "EN"
+          ],
+          "title": "European Review Of Applied Sociology"
+        },
+        "month": "12",
+        "end_page": "15",
+        "keywords": [
+          "artificial intelligence",
+          "risks",
+          "fear",
+          "perceptions"
+        ],
+        "year": "2018",
+        "start_page": "6",
+        "subject": [
+          {
+            "code": "HM401-1281",
+            "scheme": "LCC",
+            "term": "Sociology (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Communication and Foreign Languages, Politehnica University of Timișoara, Romania",
+            "name": "Gherheş Vasile"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://doi.org/10.1515/eras-2018-0006"
+          }
+        ],
+        "abstract": "The study presents the results regarding the attitudes of students from humanities and technical specializations in Timișoara towards the emergence and development of artificial intelligence (AI). The emphasis was on the most likely consequences of the development of artificial intelligence in the future, especially the negative consequences that its development would entail. The method used for data collection was the sociological survey and the information gathering tool was the questionnaire. It was applied to a total of 929 people, ensuring a sample representativity margin of ± 3%. The analysis reveals that the participants in the study predict that due to the emergence and development of AI, in the future, interpersonal relationships will be negatively affected, there will be fewer jobs, economic crises will emerge, it will be used to make intelligent weapons, to increase military conflicts, to take control of humanity and, last but not least, to destroy mankind. The results revealed differences in responses depending on the type of specialization (humanities or technical) and the gender of the respondents.",
+        "title": "Why Are We Afraid of Artificial Intelligence (Ai)?"
+      },
+      "created_date": "2019-03-03T23:41:28Z",
+      "id": "94636598002e464fb2ceef33345c6a69"
+    }
+  ],
+  "prev": "https://doaj.org/api/v4/search/articles/ai%20humanities?page=3&pageSize=50",
+  "next": "https://doaj.org/api/v4/search/articles/ai%20humanities?page=5&pageSize=50",
+  "last": "https://doaj.org/api/v4/search/articles/ai%20humanities?page=7&pageSize=50"
+}

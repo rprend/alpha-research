@@ -1,16 +1,16 @@
 # Work Log
 
-Generated at: 2026-06-12T18:04:25.323Z
+Generated at: 2026-06-12T19:23:57.057Z
 
 ## Inputs
 
-- arxiv: 15 records, 1 requests, manifest `data/raw/arxiv/2026-06-12/manifest.json`
-- crossref: 30 records, 1 requests, manifest `data/raw/crossref/2026-06-12/manifest.json`
+- arxiv: 200 records, 2 requests, manifest `data/raw/arxiv/2026-06-12/manifest.json`
+- crossref: 500 records, 5 requests, manifest `data/raw/crossref/2026-06-12/manifest.json`
 - department-pages: 5 records, 5 requests, manifest `data/raw/department-pages/2026-06-12/manifest.json`
-- doaj: 30 records, 1 requests, manifest `data/raw/doaj/2026-06-12/manifest.json`
-- hcommons: 30 records, 1 requests, manifest `data/raw/hcommons/2026-06-12/manifest.json`
+- doaj: 500 records, 11 requests, manifest `data/raw/doaj/2026-06-12/manifest.json`
+- hcommons: 500 records, 10 requests, manifest `data/raw/hcommons/2026-06-12/manifest.json`
 - nber: 0 records, 6 requests, manifest `data/raw/nber/2026-06-12/manifest.json`
-- openalex: 30 records, 1 requests, manifest `data/raw/openalex/2026-06-12/manifest.json`
+- openalex: 500 records, 3 requests, manifest `data/raw/openalex/2026-06-12/manifest.json`
 - osf-preprints: 11 records, 8 requests, manifest `data/raw/osf-preprints/2026-06-12/manifest.json`
 
 ## Outputs

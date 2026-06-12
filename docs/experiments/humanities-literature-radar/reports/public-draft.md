@@ -8,19 +8,19 @@ A public research site about cultural change should lead with inspectable findin
 
 ## Corpus Note
 
-The current corpus contains 128 deduped records from hcommons, arxiv, crossref, doaj, osf-preprints, openalex. 75 records are dated 2024-present.
+The current corpus contains 1951 deduped records from hcommons, crossref, arxiv, doaj, openalex, osf-preprints. 1155 records are dated 2024-present.
 
 ## Findings To Develop
 
-- 45 records currently show quantitative, computational, corpus, citation, AI, or method signals.
-- The highest-count labels are digital humanities, literature, philosophy, sociology, history.
+- 593 records currently show quantitative, computational, corpus, citation, AI, or method signals.
+- The highest-count labels are digital humanities, literature, philosophy, history, sociology.
 - The strongest near-term essay is a field map of AI and the humanities, followed by canon drift and institutional-language drift.
 
 ## Limitations
 
 - This first artifact uses public metadata and abstracts where available, not full-text scholarship.
 - Open indexes underrepresent books, chapters, non-English work, and paywalled humanities journals.
-- Trend claims require larger backfills and source-coverage checks before publication.
+- Trend claims require source-coverage checks and manual review of representative works before publication.
 
 ## What To Study Next
 

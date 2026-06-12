@@ -54,6 +54,7 @@ const representative = works
 
 const result = {
   generatedAt: new Date().toISOString(),
+  strongestFinding: "The v1 literature radar is large enough for a field-map essay about AI, computational methods, and quantitative humanities signals, but source coverage remains uneven.",
   corpus: {
     works: works.length,
     recentWorks2024Present: recentWorks.length,
@@ -92,7 +93,7 @@ const result = {
   caveats: [
     "This first artifact uses public metadata and abstracts where available, not full-text scholarship.",
     "Open indexes underrepresent books, chapters, non-English work, and paywalled humanities journals.",
-    "Trend claims require larger backfills and source-coverage checks before publication.",
+    "Trend claims require source-coverage checks and manual review of representative works before publication.",
   ],
   files: {
     sourceInventory: "reports/source-inventory.md",

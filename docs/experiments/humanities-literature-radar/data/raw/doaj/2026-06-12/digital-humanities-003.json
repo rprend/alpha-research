@@ -1,0 +1,3505 @@
+{
+  "total": 4602,
+  "page": 3,
+  "pageSize": 50,
+  "timestamp": "2026-06-12T19:21:42.364466Z",
+  "query": "digital humanities",
+  "results": [
+    {
+      "last_updated": "2025-08-20T02:24:17Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2510-1358",
+            "type": "pissn"
+          },
+          {
+            "id": "10.17175/2019_001",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "number": "1",
+          "country": "DE",
+          "issns": [
+            "2510-1358"
+          ],
+          "publisher": "Forschungsverbund Marbach Weimar Wolfenbüttel / Verband Digital Humanities im deutschsprachigen Raum e.V.",
+          "language": [
+            "DE",
+            "EN"
+          ],
+          "title": "Zeitschrift für digitale Geisteswissenschaften"
+        },
+        "month": "1",
+        "keywords": [
+          "digitalisierung",
+          "fachdidaktik",
+          "geschichtsunterricht",
+          "medienpädagogik",
+          "quellenkunde"
+        ],
+        "year": "2019",
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          },
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0002-8927-4387",
+            "name": "Jessica\n                                 Kreutz"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "http://www.zfdg.de/node/274"
+          }
+        ],
+        "abstract": "Historical teaching and learning with digitized sources, dealing with databases\n                     in the context of the digitization strategy – this paper discusses opportunities\n                     and challenges of digital education in the context of teacher training. The\n                     focus is on digital databases that teachers can use to assist their students in\n                     dealing with historical sources through targeted use in history lessons. The\n                     use of digital reproductions of historical sources allows a holistic and\n                     authentic approach to sources, since they can be treated equally as objects,\n                     pictures and texts. The methods of auxiliary sciences, as a branch of history\n                     science, therefore play a central role in history didactics. The aim is not\n                     only to show what added value digital databases have in the process of\n                     historical thinking and learning, but above all how history teachers can use\n                     digitized sources competently, purposefully and responsibly.",
+        "title": "Historisches Lehren und Lernen mit digitalisierten Quellen.\n                        Zum methodischen Umgang mit Datenbanken im Kontext der\n                        Digitalisierungsstrategie"
+      },
+      "id": "06c707318ca743759892fcc318a9fa6a",
+      "created_date": "2022-08-29T08:06:49Z"
+    },
+    {
+      "last_updated": "2026-04-04T04:12:49Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2666-1888",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1016/j.sftr.2026.101836",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "11",
+          "number": "",
+          "country": "GB",
+          "issns": [
+            "2666-1888"
+          ],
+          "publisher": "Elsevier",
+          "language": [
+            "EN"
+          ],
+          "title": "Sustainable Futures"
+        },
+        "month": "06",
+        "end_page": "",
+        "keywords": [
+          "Copulas",
+          "Machine learning",
+          "Crop insurance",
+          "Variable selection",
+          "Yield prediction"
+        ],
+        "year": "2026",
+        "start_page": "101836",
+        "subject": [
+          {
+            "code": "GE1-350",
+            "scheme": "LCC",
+            "term": "Environmental sciences"
+          },
+          {
+            "code": "T",
+            "scheme": "LCC",
+            "term": "Technology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Centre for Applied Climate Sciences, University of Southern Queensland, Toowoomba Queensland, Australia; Faculty of Information Technology, Thanh Do University, Kim Chung, Hoai Duc, Ha Noi, Vietnam; School of Science, Engineering and Digital Technologies, University of Southern Queensland, Toowoomba, Queensland, Australia; Corresponding author.",
+            "name": "Thong Nguyen-Huy"
+          },
+          {
+            "affiliation": "Centre for Applied Climate Sciences, University of Southern Queensland, Toowoomba Queensland, Australia; Africa Rice Center (AfricaRice), Bouaké, Côte d’Ivoire",
+            "name": "Louis Kouadio"
+          },
+          {
+            "affiliation": "Centre for Applied Climate Sciences, University of Southern Queensland, Toowoomba Queensland, Australia; School of Science, Engineering and Digital Technologies, University of Southern Queensland, Toowoomba, Queensland, Australia",
+            "name": "Jarrod Kath"
+          },
+          {
+            "affiliation": "Centre for Applied Climate Sciences, University of Southern Queensland, Toowoomba Queensland, Australia",
+            "name": "Thanh Mai"
+          },
+          {
+            "affiliation": "School of Business, Law, Humanities and Pathways, University of Southern Queensland, Springfield, Queensland, Australia; Centre for Applied Climate Sciences, University of Southern Queensland, Toowoomba Queensland, Australia",
+            "name": "Qingxia (Jenny) Wang"
+          },
+          {
+            "affiliation": "Centre for Agricultural and Rural Development Studies, Tamil Nadu Agricultural University, Coimbatore, Tamil Nadu, India",
+            "name": "Bhuvaneswari Kulanthaivel"
+          },
+          {
+            "affiliation": "Tamil Nadu Agricultural University, Coimbatore, Tamil Nadu, India",
+            "name": "Vellingiri Geethalakshmi"
+          },
+          {
+            "affiliation": "Agro Climate Research Centre, Tamil Nadu Agricultural University, Coimbatore, Tamil Nadu, India",
+            "name": "Manickam Dhasarathan"
+          },
+          {
+            "affiliation": "Agro Climate Research Centre, Tamil Nadu Agricultural University, Coimbatore, Tamil Nadu, India",
+            "name": "Shanmugam Mohan Kumar"
+          },
+          {
+            "affiliation": "Department of Crop Physiology, Tamil Nadu Agricultural University, Coimbatore, Tamil Nadu, India",
+            "name": "Alagarswamy Senthil"
+          },
+          {
+            "affiliation": "Centre for Applied Climate Sciences, University of Southern Queensland, Toowoomba Queensland, Australia; School of Business, Law, Humanities and Pathways, University of Southern Queensland, Springfield, Queensland, Australia",
+            "name": "Shahbaz Mushtaq"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://www.sciencedirect.com/science/article/pii/S2666188826001930"
+          }
+        ],
+        "abstract": "Accurately identifying the most influential predictors for crop yield is critical for the development of risk management tools. This study utilised advanced statistical techniques, namely stepwise selection in the d-vine copula regression and Mean Decrease Accuracy (MDA) in the random forest model, to determine the key climate variables influencing mango yield across 31 districts of Tamil Nadu state, India, between 2008 and 2019. Monthly climate and derived variables, corresponding to the mango growing season (January – June), were extracted from TerraClimate datasets with a spatial resolution of approximately 4 km using the district boundaries. The d-vine copula regression model employed a stepwise selection process to identify the most parsimonious set of predictors, while the RF model used MDA to rank variable importance. Although variations in predictor rankings were observed between the two models, consistent variables, such as Palmer Drought Severity Index (PDSI), minimum temperature (tmin), and actual evapotranspiration (aet), were identified across districts and phenological stages. Notably, PDSI emerged as a key predictor during all mango phenological stages, particularly during flowering and maturation. These findings provide valuable insights for improving climate resilience in mango production, offering a robust framework for the development of risk management tools such as yield forecasting and index-based insurance. The proposed methodology has broader applications in optimising agricultural practices under changing climate conditions.",
+        "title": "Identifying the most influential climate predictors for crop yield using advanced statistical and machine learning models: A case study for mango crop in India"
+      },
+      "id": "06d3f4e63523497dbf8f905e8b3dab41",
+      "created_date": "2026-04-04T04:12:49Z"
+    },
+    {
+      "last_updated": "2025-08-20T00:15:38Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2531-1786",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "8",
+          "country": "ES",
+          "issns": [
+            "2531-1786"
+          ],
+          "publisher": "Universidad Nacional de Educación a Distancia (UNED)",
+          "language": [
+            "EN",
+            "ES",
+            "PT"
+          ],
+          "title": "Revista de Humanidades Digitales"
+        },
+        "month": "November",
+        "keywords": [
+          "Text",
+          "Infrastructure",
+          "Metadata",
+          "Storage",
+          "Encoding"
+        ],
+        "year": "2023",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "State and University Library Göttingen",
+            "name": "José Calvo Tello"
+          },
+          {
+            "affiliation": "State and University Library Göttingen",
+            "name": "Stefan E. Funk"
+          },
+          {
+            "affiliation": "State and University Library Göttingen",
+            "name": "Mathias Goebel"
+          },
+          {
+            "affiliation": "State and University Library Göttingen",
+            "name": "Daniel Kurzawe"
+          },
+          {
+            "affiliation": "Max Weber Foundation",
+            "name": "Nanette Rißler-Pipka"
+          },
+          {
+            "affiliation": "State and University Library Göttingen",
+            "name": "Ubbo Veentjer"
+          },
+          {
+            "affiliation": "State and University Library Göttingen",
+            "name": "Lukas Weimer"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://revistas.uned.es/index.php/RHD/article/view/37994"
+          }
+        ],
+        "abstract": "\nIn this article, we discuss the ways in which Digital Humanities projects organise their resources, and argue for the need to collaborate with specialised services from other institutions for specific tasks, just as research publishers do. More specifically, we argue that libraries have a new central role to play in the publication of research data in repositories. Using the TextGrid Repository (TGR) as an example, we present its main components, its history, its main features, and discuss its advantages and disadvantages in comparison with similar repositories and technologies. We then present its current development within the Text+ consortium, both in the form of new features but also in the integration of existing corpora, making it interesting not only for German literature (as has been the case until now), but also for other traditions, especially Spanish literature.\n",
+        "title": "Between corpora, tools and authority files"
+      },
+      "id": "06d8a4a6d0b34ea0b2e61e865e090716",
+      "created_date": "2023-11-18T12:45:02Z"
+    },
+    {
+      "last_updated": "2025-08-19T16:55:52Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2281-4582",
+            "type": "eissn"
+          },
+          {
+            "id": "10.13136/2281-4582/2018.i12.372",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "0",
+          "number": "12",
+          "country": "IT",
+          "issns": [
+            "2281-4582"
+          ],
+          "publisher": "Department of Foreign Languages and Literatures at the University of Verona",
+          "language": [
+            "EN",
+            "IT"
+          ],
+          "title": "Iperstoria"
+        },
+        "month": "12",
+        "keywords": [
+          "digital humanities",
+          "research methodology",
+          "review"
+        ],
+        "year": "2018",
+        "subject": [
+          {
+            "code": "PS1-3576",
+            "scheme": "LCC",
+            "term": "American literature"
+          },
+          {
+            "code": "PR1-9680",
+            "scheme": "LCC",
+            "term": "English literature"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "University of Verona",
+            "name": "Valeria Franceschi"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://iperstoria.it/article/view/372"
+          }
+        ],
+        "abstract": "Review of Reading Digital Data in the Digital Humanities, edited by Gabriele Griffin e Matt Hayler.",
+        "title": "Reading Digital Data in the Digital Humanities. Edited by Gabriele Griffin e Matt Hayler"
+      },
+      "id": "06e97783f4e04e898a763f6b19170ed9",
+      "created_date": "2021-03-03T10:41:18Z"
+    },
+    {
+      "last_updated": "2025-08-19T22:41:47Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2363-9814",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "8",
+          "number": "4",
+          "country": "DE",
+          "issns": [
+            "2363-9814"
+          ],
+          "publisher": "Verein Deutscher Bibliothekarinnen und Bibliothekare (VDB)",
+          "language": [
+            "DE",
+            "EN"
+          ],
+          "title": "o-bib. Das offene Bibliotheksjournal"
+        },
+        "month": "November",
+        "keywords": [
+          "Forschungsdaten",
+          "Geisteswissenschaften",
+          "Forschungsdatenmanagement",
+          "Humanities",
+          "Universitätsbibliothek Wien"
+        ],
+        "year": "2021",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Universität Wien",
+            "name": "Susanne Blumesberger"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://o-bib-ojs3test.ub.uni-muenchen.de/bib/article/view/5739"
+          }
+        ],
+        "abstract": "Der Beitrag konzentriert sich bewusst auf jene Daten in den Geisteswissenschaften, die sich nicht den Digital Humanities zuordnen lassen und damit nicht schon per se bewusst auf die digitale Dimension des Fachs fokussieren. Spätestens beim Ausfüllen der von den Fördergebern vorgeschriebenen Datenmanagementplänen stellt sich für viele Wissenschafter*innen die Frage, was denn nun in ihrem Fall eigentlich die Forschungsdaten sind, die sie sicher und langfristig verfügbar machen sollen. Handelt es sich dabei um die Texte die verwendet oder produziert werden oder die Bilder, auf die der Text Bezug nimmt? Die fehlende Auseinandersetzung mit Datenmanagement während des Studiums und beim Verfassens der Abschlussarbeit führt nicht nur dazu, dass viele Informationen, die von anderen Forscher*innen weitergenutzt werden könnten, verloren gehen, sondern auch zu Rechtsunsicherheiten und im schlimmsten Fall zu juristischen Problemen. Hier den richtigen Weg zwischen aus Furcht vor juristischen Konsequenzen zurückgehaltenen Informationen und einem möglichst offenen Umgang mit Daten zu finden, ist eine Gratwanderung und bedarf genauer Anleitungen und viel Hintergrundwissen. Wie man als Forschungsdatenmanager*in an Bibliotheken am besten Geisteswissenschaftler*innen dabei hilft „as open as possible, as closed as necessary“ zu agieren, soll im Rahmen des Beitrags andiskutiert werden.\n",
+        "title": "Forschungsdaten in den Geisteswissenschaften"
+      },
+      "id": "06f0da0ff5e644a6bfedc3253c7fa2e8",
+      "created_date": "2023-05-11T03:00:47Z"
+    },
+    {
+      "last_updated": "2025-08-20T00:59:54Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2510-1358",
+            "type": "pissn"
+          },
+          {
+            "id": "10.17175/sb003_011",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "3",
+          "number": "11",
+          "country": "DE",
+          "issns": [
+            "2510-1358"
+          ],
+          "publisher": "Forschungsverbund Marbach Weimar Wolfenbüttel / Verband Digital Humanities im deutschsprachigen Raum e.V.",
+          "language": [
+            "DE",
+            "EN"
+          ],
+          "title": "Zeitschrift für digitale Geisteswissenschaften"
+        },
+        "month": "6",
+        "keywords": [
+          "kunstwissenschaft",
+          "simulation",
+          "dreidimensionales bild"
+        ],
+        "year": "2018",
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          },
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          }
+        ],
+        "author": [
+          {
+            "name": "Jens\n                                 Schröter"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "http://www.zfdg.de/node/251"
+          }
+        ],
+        "abstract": "In October 2002 the project Virtualization of Sculpture.\n                        Reconstruction, Presentation, Installation started in the context of\n                     the DFG-funded Special Research Area Media Upheavals at\n                     the University of Siegen. It ended in 2009. In this project, art history, media\n                     studies, and computer science cooperated in order to ‘virtualize’ the complex\n                     sculptural ensembles of Gianlorenzo Bernini at the Villa Borghese in Rome. With\n                     the help of the scanned sculptures, reconstructed in a virtual model of the\n                     Villa Borghese, research questions in art history as well as regarding the\n                     theory of images were to be answered experimentally. Although the term was\n                     never used in the project itself, it is an early example for the field that is\n                     now called Digital Humanities – in the sense that digital technologies were not\n                     only used for the scientific work, but were also developed in the course of the\n                     project.",
+        "title": "»Virtualisierung von Skulptur«. Ein kurzer\n                        Erfahrungsbericht"
+      },
+      "id": "06f91831028241beb191438de5027938",
+      "created_date": "2022-08-29T08:18:24Z"
+    },
+    {
+      "last_updated": "2025-08-19T16:45:48Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2000-1525",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "9",
+          "number": "2",
+          "country": "SE",
+          "issns": [
+            "2000-1525"
+          ],
+          "publisher": "Linköping University Electronic Press",
+          "language": [
+            "EN"
+          ],
+          "title": "Culture Unbound: Journal of Current Cultural Research"
+        },
+        "month": "October",
+        "keywords": [
+          "Spotify Radio",
+          "digital methods",
+          "music looping",
+          "bot intervention",
+          "reverse engineering"
+        ],
+        "year": "2017",
+        "subject": [
+          {
+            "code": "A",
+            "scheme": "LCC",
+            "term": "General Works"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Umeå University",
+            "name": "Pelle Snickars"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://journal.ep.liu.se/test3212/index.php/CU/article/view/69"
+          }
+        ],
+        "abstract": "Spotify Radio allows users to find new music within Spotify’s vast back-catalogue, offering a potential infinite avenue of discovery. Nevertheless, the radio service has also been disliked and accused of playing the same artists over and over. We decided to set up an experiment with the purpose to explore the possible limitations found within “infinite archives” of music streaming services. Our hypothesis was that Spotify Radio appears to consist of an infinite series of songs. It claims to be personalised and never-ending, yet music seems to be delivered in limited loop patterns. What would such loop patterns look like? Are Spotify Radio’s music loops finite or infinite? How many tracks (or steps) does a normal loop consist of? To answer these research questions, at Umeå University’s digital humanities hub, Humlab, we set up an intervention using 160 bot listeners. Our bots were all Spotify Free users. They literally had no track record and were programmed to listen to different Swedish music from the 1970s. All bots were to document all subsequent tracks played in the radio loop and (inter)act within the Spotify Web client as an obedient bot listener, a liker, a disliker, and a skipper. The article describes different research strategies when dealing with proprietary data. Foremost, however, it empirically recounts the radio looping interventions set up at Humlab. Essentially, the article suggests a set of methodologies for performing humanist inquiry on big data and black-boxed media services that increasingly provide key delivery mechanisms for cultural materials. Spotify serves as a case in point, yet principally any other platform or service could be studied in similar ways. Using bots as research informants can be deployed within a range of different digital scholarship, so this article appeals not only to media or software studies scholars, but also to digitally inclined cultural studies such as the digital humanities.",
+        "title": "More of the Same – On Spotify Radio"
+      },
+      "id": "070f567d1a45438280bbaf6cceedee0b",
+      "created_date": "2021-02-17T09:07:34Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:37:40Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2076-8184",
+            "type": "pissn"
+          }
+        ],
+        "journal": {
+          "volume": "53",
+          "number": "3",
+          "country": "UA",
+          "issns": [
+            "2076-8184"
+          ],
+          "publisher": "Institute for Digitalisation of Education of the NAES of Ukraine",
+          "language": [
+            "EN",
+            "UK"
+          ],
+          "title": "Інформаційні технології і засоби навчання"
+        },
+        "month": "7",
+        "end_page": "17",
+        "keywords": [
+          "humanities",
+          "digital technologies",
+          "ICT",
+          "integration",
+          "digital humanistic pedagogy",
+          "methodological principles",
+          "pedagogical reality",
+          "cognitive and active field",
+          "quality of education"
+        ],
+        "year": "2016",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "LB5-3640",
+            "scheme": "LCC",
+            "term": "Theory and practice of education"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Institute of Information Technologies and Learning Tools of NAES of Ukraine, Kyiv",
+            "name": "Valeriy Yu. Bykov"
+          },
+          {
+            "affiliation": "Institute of Information Technologies and Learning Tools of NAES of Ukraine, Kyiv",
+            "name": "Mariya P. Leshchenko"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "http://journal.iitta.gov.ua/index.php/itlt/article/view/1417"
+          }
+        ],
+        "abstract": "In the article theoretical and methodological principles of digital humanistic pedagogy – the science about the laws of creating a positive integrated educational reality as a result of the convergence of physical and virtual (created using ICT) training spaces (environments) are determined. Based on the use of modern ICT learning activity (formal, nonformal and informal) is at the intersection of two worlds: the real and the virtual. Methodology and research methods of classical pedagogy require review and improvement in the context of current realities of the educational process, needs and interests of all its subjects. The development of digital humanities in the international educational space is analyzed; the content of the new field of pedagogical knowledge as part of digital humanistic is outlined; research methods and directions of current scientific research are defined.",
+        "title": "DIGITAL HUMANISTIC PEDAGOGY: RELEVANT PROBLEMS OF SCIENTIFIC RESEARCH IN THE FIELD OF USING ICT IN EDUCATION"
+      },
+      "created_date": "2017-04-01T10:13:23Z",
+      "id": "070f604d8c584874afe30eef119907bb"
+    },
+    {
+      "last_updated": "2026-01-30T07:59:12Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.21685/2307-5538-2025-4-3",
+            "type": "doi"
+          },
+          {
+            "id": "2307-5538",
+            "type": "pissn"
+          }
+        ],
+        "journal": {
+          "number": "4",
+          "country": "RU",
+          "issns": [
+            "2307-5538"
+          ],
+          "publisher": "Penza State University Publishing House",
+          "language": [
+            "EN",
+            "RU"
+          ],
+          "title": "Измерение, мониторинг, управление, контроль"
+        },
+        "month": "1",
+        "keywords": [
+          "measuring transducer",
+          "compensation",
+          "resource",
+          "reliability",
+          "sensor",
+          "accuracy"
+        ],
+        "year": "2026",
+        "subject": [
+          {
+            "code": "TA1-2040",
+            "scheme": "LCC",
+            "term": "Engineering (General). Civil engineering (General)"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "",
+            "affiliation": "Penza State University",
+            "name": "P.G. Mikhaylov"
+          },
+          {
+            "orcid_id": "",
+            "affiliation": "Gazpromneft-Digital Solutions LLC, Saint Petersburg",
+            "name": "A.P. Mikhaylov"
+          },
+          {
+            "orcid_id": "",
+            "affiliation": "Scientific and production enterprise \"Impulse\", Moscow",
+            "name": "I.N. Paskhin"
+          },
+          {
+            "orcid_id": "",
+            "affiliation": "Russian State University for the Humanities, Moscow",
+            "name": "V.P. Sazonova"
+          },
+          {
+            "orcid_id": "",
+            "affiliation": "Kazakhstan University of Innovative and Telecommunication Systems, Uralsk, Kazakhstan",
+            "name": "A.U. Analiyeva"
+          },
+          {
+            "orcid_id": "",
+            "affiliation": "Penza State University",
+            "name": "A.V. Svetlov"
+          }
+        ],
+        "link": [],
+        "abstract": "Background. Currently, a wide range of technical and special problems are solved by using complex technical systems with metrological support. Depending on the specific task and environmental parameters, these systems can be used in different modes: normal, forced, sleep, etc. Therefore, the problem of developing mathematical models that allow simulating the functioning of complex technical systems in dynamic stationary and quasi-stationary modes is relevant. The article presents a dynamic model and a solution to the problem of managing the periodicity of inspections of a fleet of complex technical systems in order to maximize the readiness factor for use. Materials and methods. The methods of the theory of differential equations and the theory of Markov modeling are applied. The developed dynamic model is based on a system of ordinary differential equations with constant coefficients, describing changes in the probabilities of the system being in its technical states. Results. The analysis of eigenvalues of the matrix of transitions of probabilities from one technical state to another is carried out, allowing to construct estimates of the transition time of dynamic modes to stationary modes and, thus, to determine the expediency of using certain models in solving practical problems. An analytical solution in explicit form is obtained, allowing for arbitrary initial conditions to construct functions of change in probabilities of states and a function of change in the readiness coefficient over time. It is shown that with increasing time, the solution obtained using the dynamic model tends to the solution obtained from the classical stationary model of operation. Numerical estimates of the convergence of the dynamic solution to the stationary solution are obtained. Conclusions. The obtained results together with previously developed methods and models can be used in developing strategies for the application of complex technical systems, such as a fleet of mobile metrological complexes, a fleet of similar technical devices (instruments) installed on complex technical objects operated in different modes and under different conditions. The results can also be used in a decision support system and/or in an intelligent management system for the operation of a fleet of complex technical systems with metrological support.",
+        "title": "IMPROVING THE THEORY AND PRACTICE OF CREATING DESIGNS AND TECHNOLOGIES FOR ELECTRONIC MEASURING DEVICES INTENDED FOR OPERATION IN THE PRESENCE OF INTERFERENCE"
+      },
+      "id": "07135034d4c1436dae73bf9bf48c8f88",
+      "created_date": "2026-01-30T07:59:12Z"
+    },
+    {
+      "last_updated": "2025-10-13T00:00:55Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.47701/frasa.v6i2.5113",
+            "type": "doi"
+          },
+          {
+            "id": "2807-8195",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "6",
+          "number": "2",
+          "country": "ID",
+          "issns": [
+            "2807-8195"
+          ],
+          "publisher": "Universitas Duta Bangsa Surakarta",
+          "language": [
+            "EN"
+          ],
+          "title": "Frasa"
+        },
+        "month": "September",
+        "keywords": [
+          "Storytelling",
+          "Narrative",
+          "Digital Literature",
+          "Literary Entrepreneurship"
+        ],
+        "year": "2025",
+        "subject": [
+          {
+            "code": "PE1-3729",
+            "scheme": "LCC",
+            "term": "English language"
+          },
+          {
+            "code": "PR1-9680",
+            "scheme": "LCC",
+            "term": "English literature"
+          }
+        ],
+        "author": [
+          {
+            "name": "Nur Asiyah"
+          },
+          {
+            "name": "Wildi Adila"
+          },
+          {
+            "name": "Muhammad Rizal"
+          },
+          {
+            "name": "Arya Saputra"
+          },
+          {
+            "name": "Irawan Irawan"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://ojs.udb.ac.id/FRASA/article/view/5113"
+          }
+        ],
+        "abstract": "Storytelling is a strategic tool that conveys meaning in literature and evokes emotional depth, cultural insight, and imaginative expression. In addition, storytelling also drives innovation in various fields such as business and entrepreneurship. However, many students of English literature are unaware that their strengths in narrative thinking can be developed into valuable entrepreneurial skills. This study addresses that gap by designing a storytelling-based Business Model Canvas (BMC) as a learning tool for the Literature and Entrepreneurship course. This study uses Fisher's Narrative Paradigm Theory, which explains Human beings as natural storytellers. Besides, it is supported by Osterwalder's BMC framework. Using a Research and Development (R&D) method adapted from Branch ADDIE, the research produced digital instructional media in the form of videos and an application designed through Canvanizer, Google Sites, and Kodular. These platforms were used to embed narrative thinking into each component of the BMC. The content expert and IT validate the Product. It was tested in a small and a large group trial. Findings show that integrating storytelling into the business modelling process significantly strengthens students' ability to construct and communicate ideas, especially aligning their creativity with practical entrepreneurial thinking. The final product was found to be pedagogically feasible and relevant, contributing to the development of literature students as creative digitalpreneurs. It concludes that narrative approaches can be effectively adapted to entrepreneurship education in the humanities. Therefore, further research suggested exploring cross-disciplinary applications of the model for the long-term impact.\n",
+        "title": "STORYTELLING FOR LITERATURE STUDENTS: NARRATIVE INNOVATION IN BUSINESS MODEL DESIGN"
+      },
+      "id": "071a123b5bca455bb2ed3ef71abc0adb",
+      "created_date": "2025-10-04T00:00:50Z"
+    },
+    {
+      "last_updated": "2025-10-06T14:30:25Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2269-2657",
+            "type": "eissn"
+          },
+          {
+            "id": "10.4000/sdj.3103",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "15",
+          "country": "FR",
+          "issns": [
+            "2269-2657"
+          ],
+          "publisher": "Laboratoire Experice",
+          "language": [
+            "FR"
+          ],
+          "title": "Sciences du Jeu"
+        },
+        "month": "06",
+        "keywords": [
+          "representations",
+          "religions",
+          "mythologies",
+          "receptions",
+          "syncretisms"
+        ],
+        "year": "2021",
+        "subject": [
+          {
+            "code": "GV1-1860",
+            "scheme": "LCC",
+            "term": "Recreation. Leisure"
+          }
+        ],
+        "author": [
+          {
+            "name": "Laurent Di Filippo"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://journals.openedition.org/sdj/3103"
+          }
+        ],
+        "abstract": "Despite the fact that the relations between games and religious facts have quite early been a topic of concern for researchers in French social sciences, like Marcel Mauss and Émile Durkheim, this theme has not developed much in social sciences and humanities (SSH) since then. However, since 2010, a new interest has grown among researchers studying digital games, mostly in the Anglo-Saxon world. After presenting a brief state of the art on those questions, this introduction presents some leads to enter this research field, which has lately gained some new interest : cultural borrowings, syncretism forms, representations of religious elements linked with structuration processes, identification strategies and religions, religious polemics and moral panics, and, lastly, porous borders between playful and religious activities.",
+        "title": "Les multiples dimensions des rapports entre jeux et faits religieux"
+      },
+      "id": "071e71c819364eecb7df0b45f1fbd053",
+      "created_date": "2025-10-06T14:30:25Z"
+    },
+    {
+      "last_updated": "2025-08-20T01:46:22Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2059-481X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.5334/johd.6",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "2",
+          "country": "GB",
+          "issns": [
+            "2059-481X"
+          ],
+          "publisher": "Ubiquity Press",
+          "language": [
+            "EN"
+          ],
+          "title": "Journal of Open Humanities Data"
+        },
+        "month": "11",
+        "end_page": "e2",
+        "keywords": [
+          "literature",
+          "literary forms and genres",
+          "literary criticism",
+          "fiction"
+        ],
+        "year": "2016",
+        "start_page": "e2",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "All, Birkbeck, University of London",
+            "name": "Martin Paul Eve"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://openhumanitiesdata.metajnl.com/articles/6"
+          }
+        ],
+        "abstract": "This dataset represents my work to interpret the variances between the two published editions of David Mitchell’s Cloud Atlas as described in Martin Paul Eve, ‘“You have to keep track of your changes”: The Version Variants and Publishing History of David Mitchell’s 'Cloud Atlas'’, 'Open Library of Humanities', 2(1), http://dx.doi.org/10.16995/olh.82. It was created through a hermeneutic process of cross-comparing the different texts and then marked-up in JSON by hand. Potential re-uses include corrections, further visualization, digital-humanities teaching, and structural analysis.",
+        "title": "JSON-Encoded Textual Variance Between the Published Versions of David Mitchell’s 'Cloud Atlas' in “an Orison of Sonmi ~451”"
+      },
+      "id": "07213974f13e4ca7be915e4fa6e8b1b8",
+      "created_date": "2020-11-12T10:25:12Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:40:35Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0717-3474",
+            "type": "pissn"
+          },
+          {
+            "id": "0719-5702",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "27",
+          "number": "52",
+          "country": "CL",
+          "issns": [
+            "0717-3474",
+            "0719-5702"
+          ],
+          "publisher": "Pontificia Universidad Católica de Chile",
+          "language": [
+            "EN",
+            "ES",
+            "PT"
+          ],
+          "title": "Resonancias"
+        },
+        "month": "6",
+        "end_page": "128",
+        "keywords": [
+          "francisco a. barbieri",
+          "correspondence",
+          "valencia",
+          "social network analysis",
+          "digital humanities"
+        ],
+        "year": "2023",
+        "start_page": "97",
+        "subject": [
+          {
+            "code": "M1-5000",
+            "scheme": "LCC",
+            "term": "Music"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "",
+            "affiliation": "Universidad Internacional de Valencia",
+            "name": "María Ordiñana Gil"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://resonancias.uc.cl/n-52/reconstruccion-y-analisis-de-la-red-social-de-francisco-asenjo-barbieri-en-valencia-espana-a-partir-de-la-correspondencia-1852-1893/"
+          }
+        ],
+        "abstract": "The main focus of this article is to identify and study Francisco Asenjo Barbieri’s links with Valencia (Spain) through his correspondence from a qualitative and quantitative approach. The article presents a graphic reconstruction of his network of correspondents residing in Comunidad Valenciana, analyzing his relationships with them through an intensive study of the letters using the metrics and parameters of Social Network Analysis. Combining these techniques has allowed us to confirm the existence of a network of correspondents and identify its main agents and the groups and subgroups among them. Along with studying the structure and morphology of the resulting network, we have analyzed the motives underlying the correspondence and, therefore, explored the nature and substance of these relationships.  As we will see, Barbieri was able to use the network and establish links to further his name and his work, provide information, and acquire books for his well-known library. On the other hand, his correspondents took advantage of their relationship with him in order to gain his artistic collaboration, flaunt their friendship, and obtain information or intermediation.",
+        "title": "Reconstrucción y análisis de la red social de Francisco Asenjo Barbieri en Valencia (España) a partir de la correspondencia (1852-1893)"
+      },
+      "created_date": "2023-09-14T12:28:45Z",
+      "id": "075c4fa1da9340a39b90be02f1b177fe"
+    },
+    {
+      "last_updated": "2025-11-26T14:55:01Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.3390/heritage8110478",
+            "type": "doi"
+          },
+          {
+            "id": "2571-9408",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "8",
+          "number": "11",
+          "country": "CH",
+          "issns": [
+            "2571-9408"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Heritage"
+        },
+        "month": "11",
+        "keywords": [
+          "ecosystem tourism",
+          "tourism management",
+          "cultural tourism",
+          "photograph",
+          "social media",
+          "authentic"
+        ],
+        "year": "2025",
+        "start_page": "478",
+        "subject": [
+          {
+            "code": "CC1-960",
+            "scheme": "LCC",
+            "term": "Archaeology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "School of Architecture, Art and Design, King Mongkut’s Institute of Technology Ladkrabang (KMITL), Bangkok 10520, Thailand",
+            "name": "Nattapong Manlee"
+          },
+          {
+            "affiliation": "School of Architecture, Art and Design, King Mongkut’s Institute of Technology Ladkrabang (KMITL), Bangkok 10520, Thailand",
+            "name": "Kittichai Kasemsarn"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.mdpi.com/2571-9408/8/11/478"
+          }
+        ],
+        "abstract": "Contemporary cultural tourism faces a critical digital authenticity paradox where social media engagement necessitates platform integration, yet algorithms prioritize engagement-driven content over culturally accurate heritage representations. This systematic review develops an initial framework addressing authenticity preservation challenges through systematic analysis of platform-mediated heritage representation. Following PRISMA guidelines, researchers searched Scopus and ScienceDirect databases for peer-reviewed articles published 2020–2025 using search terms: “Cultural Tourism” AND “Heritage Tourism” AND “Photograph” AND “Social media” AND “Authenticity.” Inclusion criteria encompassed English-language journal articles and conference papers in social sciences, business, management, and humanities. VOSviewer software facilitated bibliometric analysis through keyword co-occurrence mapping with minimum three-occurrence threshold. From 68 articles, analysis revealed five thematic clusters: Ecosystem Tourism, Social Media and Technology, Tourism Management, Authenticity, and Photography & Storytelling, informing an integrated Input-Process-Integration-Output framework. Input encompasses cultural contexts and authenticity evaluation criteria; Process integrates social media dynamics with tourism management strategies; Integration synthesizes authentic contexts through platform-adapted digital storytelling; Output addresses platform-mediated tourist experiences. The framework establishes systematic relationships between heritage preservation and digital platform mechanisms, providing methodological innovation while addressing algorithmic optimization conflicts with heritage preservation, offering practical guidance for tourism organizations navigating Instagram, TikTok, Facebook, and emerging platforms while preserving authentic cultural representation.",
+        "title": "The Authenticity Challenge in Digital and Social Media in Cultural Tourism: A Systematic Literature Review"
+      },
+      "id": "076b8263bd284fa8880a6cb0c9414d74",
+      "created_date": "2025-11-26T14:55:01Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:56:16Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.3390/h13010013",
+            "type": "doi"
+          },
+          {
+            "id": "2076-0787",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "13",
+          "number": "1",
+          "country": "CH",
+          "issns": [
+            "2076-0787"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Humanities"
+        },
+        "month": "01",
+        "keywords": [
+          "Dante",
+          "<i>Divine Comedy</i>",
+          "digital humanities",
+          "podcasts",
+          "Digital Dante",
+          "Open Yale Courses"
+        ],
+        "year": "2024",
+        "start_page": "13",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Comparative Literature Program, College of Humanities and Social Sciences, Louisiana State University, Baton Rouge, LA 70808, USA",
+            "name": "Alexander Eliot Schmid"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.mdpi.com/2076-0787/13/1/13"
+          }
+        ],
+        "abstract": "The digital humanities are rapidly expanding access to scholarly and literary materials once largely confined to the university. No more: now, with free digital resources, like Giuseppe Mazzotta’s lecture series available for free through Open Yale Courses on YouTube, or Teodolinda Barolini’s 54-lecture long “The Dante Course”, also available for free through her Digital Dante website, academic discussions of difficult masterpieces are available to any person with enough bandwidth to handle it. I, too, made a brief foray into the digital humanities, and prior to turning to academic work, I provided a 42-lecture Dante-in-translation course which itself covered the entirety of Dante’s <i>Comedy</i> and sought to offer a less academic, and more accessible series of lectures on Dante than its more academic and more popular predecessors.",
+        "title": "Popularizing <i>Paradiso</i>: On the Difficulties of Podcasting Dante’s Most Academic Canticle"
+      },
+      "id": "076f9c40988342959cb43ad3edecb339",
+      "created_date": "2024-02-23T15:18:55Z"
+    },
+    {
+      "last_updated": "2025-08-20T03:00:43Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0258-2279",
+            "type": "pissn"
+          },
+          {
+            "id": "2219-8237",
+            "type": "eissn"
+          },
+          {
+            "id": "10.4102/lit.v46i1.2049",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "46",
+          "number": "1",
+          "country": "ZA",
+          "issns": [
+            "0258-2279",
+            "2219-8237"
+          ],
+          "publisher": "AOSIS",
+          "language": [
+            "AF",
+            "EN"
+          ],
+          "title": "Literator"
+        },
+        "month": "1",
+        "end_page": "e11",
+        "keywords": [
+          "human language technology",
+          "part-of-speech tagger",
+          "morphological decomposer",
+          "morphological analyser",
+          "zulmorph",
+          "isizulu.net",
+          "google translate."
+        ],
+        "year": "2025",
+        "start_page": "e1",
+        "subject": [
+          {
+            "code": "PL8000-8844",
+            "scheme": "LCC",
+            "term": "African languages and literature"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "South African Centre for Digital Language Resources, Faculty of Humanities, North-West University, Potchefstroom",
+            "name": "Respect Mlambo"
+          },
+          {
+            "affiliation": "South African Centre for Digital Language Resources, Faculty of Humanities, North-West University, Potchefstroom",
+            "name": "Muzi Matfunjwa"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://literator.org.za/index.php/literator/article/view/2049"
+          }
+        ],
+        "abstract": "Human language technology (HLT) contributes to the development of languages by providing various avenues through which languages can be interrogated. Through HLT, diverse questions can be raised and answered scientifically and objectively. In the context of South African indigenous languages (SAIL), several HLT tools support these languages. However, it seems that some language users are unaware of the availability and capabilities of these tools, which contributes to their underutilisation. This study aims to identify and describe briefly some of the HLT tools that support and analyse SAIL. It presents an overview of the open access HLT tools, namely part-of-speech (POS) taggers, morphological decomposers (MDs), morphological analysers (MAs), isiZulu.net, ZulMorph and Google Translate (GT). These tools are crucial in analysing and understanding SAIL, as well as for advancing these languages in the field of HLT. In this study, the researchers anticipate that by raising awareness of the existence of these tools, more users of indigenous languages will be eager to use them.\n\nContribution: This study fills the practical gap in the use of HLT to perform linguistic functions for SAIL. It seems that there is underutilisation of existing HLT tools for SAIL, which might be attributed to language users being unaware of these tools. Therefore, the study aims to identify and describe some HLT tools that support and analyse SAIL. It presents an overview of the open access HLT tools, namely POS taggers, MD, MA, isiZulu.net, ZulMorph and GT. The researchers intend to demonstrate the use of these tools and to raise awareness about their existence.",
+        "title": "Human language technology tools for indigenous South African languages and their potential use"
+      },
+      "id": "077c357948e84e7ba97f486b6ed75156",
+      "created_date": "2025-02-11T13:25:43Z"
+    },
+    {
+      "last_updated": "2025-08-19T19:17:44Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1413-9073",
+            "type": "pissn"
+          },
+          {
+            "id": "2358-4114",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "21",
+          "number": "41",
+          "country": "BR",
+          "issns": [
+            "1413-9073",
+            "2358-4114"
+          ],
+          "publisher": "Universidade Federal Fluminense",
+          "language": [
+            "PT"
+          ],
+          "title": "Gragoatá"
+        },
+        "month": "12",
+        "keywords": [
+          "Digital Humanities",
+          "Latin-American Literature",
+          "Mexican Poetry",
+          "Visual Poetry."
+        ],
+        "year": "2016",
+        "subject": [
+          {
+            "code": "PC1-5498",
+            "scheme": "LCC",
+            "term": "Romanic languages"
+          },
+          {
+            "code": "PQ1-3999",
+            "scheme": "LCC",
+            "term": "French literature - Italian literature - Spanish literature - Portuguese literature"
+          }
+        ],
+        "author": [
+          {
+            "name": "Rodolfo Mata"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "http://www.gragoata.uff.br/index.php/gragoata/article/view/804"
+          }
+        ],
+        "abstract": "This essay describes how the development of two digital projects dealing with the works of the Mexican poet José Juan Tablada affected the nature of the reading and writing practices of the author and other participants. The first project, produced in the years of 1997 and 1998, comprises two CD-ROM’s with two important sets of journalistic chronicles: La Babilonia de Hierro. Crónicas neoyorquinas (1920-1936) (724 chronicles) and México de día y de noche. Crónicas mexicanas (1928-1943) (399 chronicles). The second one resulted in another CD-ROM, José Juan Tablada: letra e imagen (poesía, prosa, obra gráfica y varia documental) (2003), which included Tablada’s graphic archive, his four visual poetry books and other works involving the relationship between word and image. The project also includes a website (www.tablada.unam.mx). The author points out how automated text searches provided by the first CD’s helped in the annotation process of the graphic archive pieces —which encompass watercolors; pencil, charcoal and ball pen drawings; photographs and clippings from reviews and journals—, and how the careful observation of these images revealed information of Tablada’s life and works. This information had remained unattended because the pieces of the archive had been considered almost exclusively in their visual dimension rather than in relation with the literary realm. The author discusses the three modalities of reading —close, hyper and machine reading— proposed by N. Katherine Hayles, in How We Think (2012), and shows how Tablada’s digital research projects lead to practice the two latter reading modalities in a natural and unperceived way. The recollection of the whole experience also demonstrated that hyper reading promoted by the construction of the website resulted in mnemonic modifications that linked the graphic archive images to Tablada’s biographical discourse.\n---\nOriginal in English.",
+        "title": "Digital José Juan Tablada and the genesis of a hyper reading"
+      },
+      "created_date": "2019-03-07T13:54:31Z",
+      "id": "078377923c6b4e35b61f4c175414d3c9"
+    },
+    {
+      "last_updated": "2025-12-04T07:41:05Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5617/dhnbpub.11298",
+            "type": "doi"
+          },
+          {
+            "id": "2704-1441",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "4",
+          "number": "1",
+          "country": "NO",
+          "issns": [
+            "2704-1441"
+          ],
+          "publisher": "University of Oslo",
+          "language": [
+            "EN"
+          ],
+          "title": "Digital Humanities in the Nordic and Baltic Countries Publications"
+        },
+        "month": "October",
+        "year": "2022",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0003-1971-054X",
+            "affiliation": "University of Oulu, Finland",
+            "name": "Marko Jouste"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0002-4727-6704",
+            "affiliation": "University of Oulu, Finland",
+            "name": "Jukka Mettovaara"
+          },
+          {
+            "affiliation": "University of Oulu, Finland",
+            "name": "Petter Morottaja"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0001-8584-3880",
+            "affiliation": "University of Helsinki, Finland",
+            "name": "Niko Partanen"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://journals.uio.no/dhnbpub/article/view/11298"
+          }
+        ],
+        "abstract": "\r\nThis study presents the results of an Aanaar Saami pilot project in the Saami Culture Archive, University of Oulu. The project has established a set of conventions to transcribe and annotate Aanaar Saami recordings in the archive’s collection and created a mechanism through which grammatically annotated but anonymous versions can be imported to the Korp search interface in the Language Bank of Finland. The practices include wide use of Saami language technology, the use of Finnish computational research infrastructure, and they can be extended later to other Saami languages in the archive.\r\n",
+        "title": "Archive Infrastructure and Spoken Language Corpora for Saami Languages in Finland"
+      },
+      "id": "07d32df51a6240e3b214a0eeb3716537",
+      "created_date": "2025-12-04T07:41:05Z"
+    },
+    {
+      "last_updated": "2025-12-04T07:46:47Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5617/dhnbpub.11235",
+            "type": "doi"
+          },
+          {
+            "id": "2704-1441",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "3",
+          "number": "2",
+          "country": "NO",
+          "issns": [
+            "2704-1441"
+          ],
+          "publisher": "University of Oslo",
+          "language": [
+            "EN"
+          ],
+          "title": "Digital Humanities in the Nordic and Baltic Countries Publications"
+        },
+        "month": "May",
+        "year": "2021",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0002-3085-4862",
+            "affiliation": "Helsinki Computational History Group, University of Helsinki",
+            "name": "Jani Marjanen"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0003-2482-0663",
+            "affiliation": "Department of Computer Science, University of Helsinki",
+            "name": "Elaine Zosa"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0002-8453-7221",
+            "affiliation": "Språkbanken, University of Gothenburg",
+            "name": "Simon Hengchen"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0002-0026-9902",
+            "affiliation": "Department of Computer Science, University of Helsinki",
+            "name": "Lidia Pivovarova"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0003-2892-8911",
+            "affiliation": "Helsinki Computational History Group, University of Helsinki",
+            "name": "Mikko  Tolonen"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://journals.uio.no/dhnbpub/article/view/11235"
+          }
+        ],
+        "abstract": "\r\nThis paper addresses methodological issues in diachronic data analysis for historical research. We apply two families of topic models (LDA and DTM) on a relatively large set of historical newspapers, with the aim of capturing and understanding discourse dynamics. Our case study focuses on newspapers and periodicals published in Finland between 1854 and 1917, but our method can easily be transposed to any diachronic data. Our main contributions are a) a combined sampling, training and inference procedure for applying topic models to huge and imbalanced diachronic text collections; b) a discussion on the differences between two topic models for this type of data; c) quantifying topic prominence for a period and thus a generalization of document-wise topic assignment to a discourse level; and d) a discussion of the role of humanistic interpretation with regard to analysing discourse dynamics through topic models.\r\n",
+        "title": "Topic Modelling Discourse Dynamics in Historical Newspapers"
+      },
+      "id": "07d44398f828470c9a9922c6050ce43e",
+      "created_date": "2025-12-04T07:46:47Z"
+    },
+    {
+      "last_updated": "2025-08-19T20:27:16Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1017/S2058631023000429",
+            "type": "doi"
+          },
+          {
+            "id": "2058-6310",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "country": "GB",
+          "issns": [
+            "2058-6310"
+          ],
+          "publisher": "Cambridge University Press",
+          "language": [
+            "EN"
+          ],
+          "title": "The Journal of Classics Teaching"
+        },
+        "end_page": "10",
+        "keywords": [
+          "Photogrammetry",
+          "3D modelling",
+          "Digital Humanities",
+          "heritage",
+          "Metashape",
+          "Blender",
+          "Ultimaker Cura"
+        ],
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "LB5-3640",
+            "scheme": "LCC",
+            "term": "Theory and practice of education"
+          },
+          {
+            "code": "D51-90",
+            "scheme": "LCC",
+            "term": "Ancient history"
+          },
+          {
+            "code": "PA",
+            "scheme": "LCC",
+            "term": "Greek language and literature. Latin language and literature"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Ancient History, Medieval, Palaeography and Diplomacy, Autonomous University of Madrid, Madrid, Spain",
+            "name": "Diego Chapinal-Heras"
+          },
+          {
+            "affiliation": "Department of Prehistory, Ancient History and Archaeology, Complutense University of Madrid, Madrid, Spain",
+            "name": "Carlos Díaz-Sánchez"
+          },
+          {
+            "affiliation": "Dipartimento di Scienze dell’Antichità, Università degli Studi “La Sapienza” di Roma, Rome, Italy",
+            "name": "Sergio España-Chamorro"
+          },
+          {
+            "affiliation": "Department of Prehistory, Ancient History and Archaeology, Complutense University of Madrid, Madrid, Spain",
+            "name": "Natalia Gómez-García"
+          },
+          {
+            "affiliation": "Department of Prehistory, Ancient History and Archaeology, Complutense University of Madrid, Madrid, Spain",
+            "name": "Lucía Pagola-Sánchez"
+          },
+          {
+            "affiliation": "Department of History of Art, Complutense University of Madrid, Madrid, Spain",
+            "name": "Manuel Parada López de Corselas"
+          },
+          {
+            "affiliation": "Independent Scholar",
+            "name": "Manuel Elías Rey-Álvarez Zafiria"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://www.cambridge.org/core/product/identifier/S2058631023000429/type/journal_article"
+          }
+        ],
+        "abstract": "The aim of this contribution is to provide a new methodology regarding the use of photogrammetry and 3D modelling in the classroom. By means of a practicum taught at Complutense University of Madrid and a survey conducted afterwards, we show the different steps of the activity, as well as the reception of the students, who learnt to elaborate 3D figures.",
+        "title": "Photogrammetry and 3D modelling in university teaching. A case study applied to the history degree"
+      },
+      "id": "07ed543ec8504b84b6fb65b3b53577a6",
+      "created_date": "2023-06-06T09:15:26Z"
+    },
+    {
+      "last_updated": "2025-08-19T17:38:23Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2654-9433",
+            "type": "eissn"
+          },
+          {
+            "id": "10.29037/digitalpress.47401",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "7",
+          "country": "ID",
+          "issns": [
+            "2654-9433"
+          ],
+          "publisher": "UGM Digital Press",
+          "language": [
+            "EN"
+          ],
+          "title": "Digital Press Social Sciences and Humanities"
+        },
+        "month": "10",
+        "year": "2021",
+        "start_page": "00011",
+        "subject": [
+          {
+            "code": "B",
+            "scheme": "LCC",
+            "term": "Philosophy. Psychology. Religion"
+          },
+          {
+            "code": "H",
+            "scheme": "LCC",
+            "term": "Social Sciences"
+          }
+        ],
+        "author": [
+          {
+            "name": "Neviyarni Neviyarni"
+          },
+          {
+            "name": "Khairani Khairani"
+          },
+          {
+            "name": "Zikry Latupasjana"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "{'x': 'http://www.crossref.org/schema/4.4.2', 'j': 'http://www.ncbi.nlm.nih.gov/JATS1'}",
+            "type": "fulltext",
+            "url": "https://digitalpress.ugm.ac.id/article/401"
+          }
+        ],
+        "abstract": "This research is based on the many negative impacts that occur as a result of the prolonged Covid-19 pandemic, especially related to learning activities and student development. If not handled, it can be bad for students as national assets. This study aims to describe the resilience of high-school students in the city of Padang in the face of the Covid-19 pandemic. This study uses a descriptive analytical quantitative approach.&nbsp; The research subjects were 499 high-school students as respondents. Research data were collected using resilience instruments, then analyzed using the frequency distribution formula and percentage. The results of the study revealed that 35.87% of students had a high level of resilience, 1.8% in the very high category, but 62.12% of students had a low level of resilience and 0.2% in the very low category. Overall, the resilience condition of high-school students in the city of Padang is on average in the low category. Most students are in a state of worrying about the Covid-19 problem, and students are less able to develop the positive attitude needed in dealing with the Covid-19 pandemic situation. However, students have confidence that they can face and overcome problems related to this pandemic. Thus, the role of Guidance and Counseling teachers is needed to help optimize abilities and improve students' skills in developing positive attitudes in dealing with negative impacts and problems as a result of the Covid-19 pandemic. It especially is related to the ability to learn at home, and social attitudes, such as empathizing and caring about problems that occur in their environment.",
+        "title": "The Resilience of Padang City High School Students during the Covid-19 Pandemic"
+      },
+      "id": "07f2b4aa6123433f974bc21aa67d413e",
+      "created_date": "2021-10-21T00:55:29Z"
+    },
+    {
+      "last_updated": "2025-08-19T21:56:08Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2038-1026",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "10",
+          "number": "1",
+          "country": "IT",
+          "issns": [
+            "2038-1026"
+          ],
+          "publisher": "Firenze University Press",
+          "language": [
+            "EN",
+            "IT"
+          ],
+          "title": "JLIS.it"
+        },
+        "month": "January",
+        "keywords": [
+          "Open Science",
+          "Open Access",
+          "Publishing"
+        ],
+        "year": "2019",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "name": "Elena Giglia"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://www.jlis.it/index.php/jlis/article/view/90"
+          }
+        ],
+        "abstract": "The paper will present OPERAS, a comprehensive infrastructure aimed at providing a pan-European infrastructure to rethink and reshape publishing, discovery and dissemination addressing the specificity and the critical issues of Social Sciences and Humanities (SSH).\nThe paper will try to set the scene examining the status of scholarly communication, the developments of Open Access and Open Science, and the specific demands for SSH. A second part will outline how OPERAS meets these needs, taking care of all the steps of the scholarly communication cycle.\nOPERAS unique approach is to unite researchers, libraries and publishers in a common effort, in order to take back control over scholarly communication. Not merging nor replacing, but nurturing existing realities, OPERAS provides innovative services to bring SSH into Open Science.\nOPERAS is designed to elaborate effective and scalable long-term strategies for the future development of the digital infrastructure and community building needed to innovate scholarly communication in the SSH. OPERAS pervading idea of science as communication holds an immense potential for an inspiring model of Open Science with direct societal impact, based on continuous communication.",
+        "title": "OPERAS: bringing the long tail of Social Sciences and Humanities into Open Science"
+      },
+      "id": "07f766b2db63488fade2b12e8e23c73b",
+      "created_date": "2022-01-27T08:29:59Z"
+    },
+    {
+      "last_updated": "2025-08-19T18:55:28Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2300-6579",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1515/opth-2019-0005",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "number": "1",
+          "country": "PL",
+          "issns": [
+            "2300-6579"
+          ],
+          "publisher": "De Gruyter",
+          "language": [
+            "EN"
+          ],
+          "title": "Open Theology"
+        },
+        "month": "7",
+        "end_page": "79",
+        "keywords": [
+          "digital theology",
+          "systematic theology",
+          "colonizing knowledge",
+          "theological method"
+        ],
+        "year": "2019",
+        "start_page": "66",
+        "subject": [
+          {
+            "code": "BL1-50",
+            "scheme": "LCC",
+            "term": "Religion (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "University of Bonn, Germany;",
+            "name": "Robinson Matthew Ryan"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://doi.org/10.1515/opth-2019-0005"
+          }
+        ],
+        "abstract": "The article examines the disparity in use of digital humanities tools and resources among the theological disciplines, highlighting the question of why systematic theology has struggled to follow the digital turn. The author argues that issues of fairness in access and use of digital resources in knowledge production constitute an important set of concerns for systematic theologians in considering appropriate uses of the digital in their research. The article suggests that there are indeed reasons for methodological innovation in systematic theology in reaction to the digital revolution in humanities research – not, however, toward more plugged-in methods but toward methods embedded in life with the poor, underrepresented, and excluded. Three principles for a methodological “reboot” in systematic theology are given, which offer directions for further research as well as material for debate.",
+        "title": "Embedded, not Plugged-In: Digital Humanities and Fair Participation in Systematic Theological Research"
+      },
+      "created_date": "2019-08-04T09:24:03Z",
+      "id": "080f21e5f1254f66a3674e9768f50a8d"
+    },
+    {
+      "last_updated": "2025-08-19T23:25:54Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.3390/heritage5030084",
+            "type": "doi"
+          },
+          {
+            "id": "2571-9408",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "number": "3",
+          "country": "CH",
+          "issns": [
+            "2571-9408"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Heritage"
+        },
+        "month": "07",
+        "end_page": "1636",
+        "keywords": [
+          "cultural informatics",
+          "CIDOC-CRM",
+          "machine learning",
+          "semantic data management",
+          "digital humanities"
+        ],
+        "year": "2022",
+        "start_page": "1612",
+        "subject": [
+          {
+            "code": "CC1-960",
+            "scheme": "LCC",
+            "term": "Archaeology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Institute of Computer Science, FORTH-ICS, GR-700 13 Heraklion, Greece",
+            "name": "Yannis Tzitzikas"
+          },
+          {
+            "affiliation": "Institute of Computer Science, FORTH-ICS, GR-700 13 Heraklion, Greece",
+            "name": "Michalis Mountantonakis"
+          },
+          {
+            "affiliation": "Institute of Computer Science, FORTH-ICS, GR-700 13 Heraklion, Greece",
+            "name": "Pavlos Fafalios"
+          },
+          {
+            "affiliation": "Institute of Computer Science, FORTH-ICS, GR-700 13 Heraklion, Greece",
+            "name": "Yannis Marketakis"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.mdpi.com/2571-9408/5/3/84"
+          }
+        ],
+        "abstract": "The CIDOC Conceptual Reference Model (CIDOC-CRM) is an ISO Standard ontology for the cultural domain that is used for enabling semantic interoperability between museums, libraries, archives and other cultural institutions. For leveraging CIDOC-CRM, several processes and tasks have to be carried out. It is therefore important to investigate to what extent we can automate these processes in order to facilitate interoperability. For this reason, in this paper, we describe the related tasks, and we survey recent works that apply machine learning (ML) techniques for reducing the costs related to CIDOC-CRM-based compliance and interoperability. In particular, we (a) analyze the main processes and tasks, (b) identify tasks where the recent advances of ML (including Deep Learning) would be beneficial, (c) identify cases where ML has been applied (and the results are successful/promising) and (d) suggest tasks that can benefit from applying ML. Finally, since the approaches that leverage both CIDOC-CRM data and ML are few in number, (e) we introduce our vision for the given topic, and (f) we provide a list of open CIDOC-CRM datasets that can be potentially used for ML tasks.",
+        "title": "CIDOC-CRM and Machine Learning: A Survey and Future Research"
+      },
+      "id": "08342072c9bf4942bc8f847f629e6037",
+      "created_date": "2022-09-22T12:32:37Z"
+    },
+    {
+      "last_updated": "2025-12-04T07:11:20Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5617/dhnbpub.10657",
+            "type": "doi"
+          },
+          {
+            "id": "2704-1441",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "number": "1",
+          "country": "NO",
+          "issns": [
+            "2704-1441"
+          ],
+          "publisher": "University of Oslo",
+          "language": [
+            "EN"
+          ],
+          "title": "Digital Humanities in the Nordic and Baltic Countries Publications"
+        },
+        "month": "February",
+        "year": "2024",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "name": "Elisabeth Maria Magin"
+          },
+          {
+            "name": "Marcus Smith"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://journals.uio.no/dhnbpub/article/view/10657"
+          }
+        ],
+        "abstract": "\n[Revised version. Revision marked in footnote. ]In this article, the basic premises of reading a runic inscription and transferring the data into digital formats are discussed. Particular attention will be on the Runic block in the Unicode standard for digital character encoding, which currently does not suit the needs of the academic runological community. The proposed solution builds upon the existing standard without adding unnecessary additional characters, but with the ability to encode form-variants on top of the base character while retaining backwards compatibility, an approach from which other archaic scripts like Cuneiform or Khitan that suffer of similar encoding issues, could also benefit.\n",
+        "title": "(R)Unicode: Encoding and Sustainability Issues in Runology"
+      },
+      "id": "08437cddf3ed454eac77c7af6a99614f",
+      "created_date": "2025-12-04T07:11:19Z"
+    },
+    {
+      "last_updated": "2025-11-25T12:48:46Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2450-0100",
+            "type": "eissn"
+          },
+          {
+            "id": "1506-9729",
+            "type": "pissn"
+          },
+          {
+            "id": "10.4467/24500100STJ.25.002.22001",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "2025",
+          "number": "1",
+          "country": "PL",
+          "issns": [
+            "1506-9729",
+            "2450-0100"
+          ],
+          "publisher": "Jagiellonian University Press",
+          "language": [
+            "EN",
+            "PL"
+          ],
+          "title": "Studia Judaica"
+        },
+        "month": "11",
+        "end_page": "53",
+        "year": "2025",
+        "start_page": "23",
+        "subject": [
+          {
+            "code": "D",
+            "scheme": "LCC",
+            "term": "History (General) and history of Europe"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0009-0001-9673-8231",
+            "affiliation": "\n                                                    University of Haifa\n                                                ",
+            "name": "Ruthie Kaplan"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "{'x': 'http://www.crossref.org/schema/5.3.1', 'j': 'http://www.ncbi.nlm.nih.gov/JATS1'}",
+            "type": "fulltext",
+            "url": "\n                        https://ejournals.eu/czasopismo/studia-judaica/artykul/spatially-jewish-jewish-life-in-lodz-before-the-holocaust-as-revealed-in-maps-and-spatial-sources\n                    "
+          }
+        ],
+        "abstract": "\n                        \n                            In less than a century, the Jews of Łódź turned from being confined to a small, overcrowded Jewish district to a major partner in forming the industrial town. Nonetheless, this full participation did not last long. When the ghetto gates were open, Łódź Jews left all they had built and moved to the once confined area and its vicinity. This paper brings together new sources, methodologies, and practices from spatial studies and digital humanities. It results in presenting new information and a different perspective on the already researched Jewish community in Łódź. It highlights how Jews contributed to the city’s growth and how living in the industrial town affected the urbanity of the Jewish community in Łódź.\n                        ",
+        "title": "\n                                                    Spatially Jewish: Jewish Life in Łódź before the Holocaust as Revealed in Maps and Spatial Sources\n                                            "
+      },
+      "id": "0852b7afe55d4139a80744da262807f0",
+      "created_date": "2025-11-25T12:48:46Z"
+    },
+    {
+      "last_updated": "2025-08-19T22:33:40Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1746-8256",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "1746-8256"
+          ],
+          "publisher": "University of Edinburgh",
+          "language": [
+            "EN"
+          ],
+          "title": "International Journal of Digital Curation"
+        },
+        "month": "June",
+        "year": "2010",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "name": "Agiatis Benardou"
+          },
+          {
+            "name": "Panos Constantopoulos"
+          },
+          {
+            "name": "Costis Dallas"
+          },
+          {
+            "name": "Dimitris Gavrilis"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "http://129.215.67.233:80/ijdc/article/view/141"
+          }
+        ],
+        "abstract": "This paper reports on research of scholarly research practices and requirements conducted in the context of the Preparing DARIAH European e-Infrastructures project, with a view to ensuring current and future fitness for purpose of the planned digital infrastructure, services and tools. It summarises the findings of earlier research, primarily from the field of human information behaviour as applied in scholarly work, it presents a conceptual perspective informed by cultural-historical activity theory, it introduces briefly a formal conceptual model for scholarly research activity compliant with CIDOC CRM, it describes the plan of work and methodology of an empirical research project based on open-questionnaire interviews with arts and humanities researchers, and presents illustrative examples of segmentation, tagging and initial conceptual analysis of the empirical evidence. Finally, it presents plans for future work, consisting, firstly, of a comprehensive re-analysis of interview segments within the framework of the scholarly research activity model, and, secondly, of the integration of this analysis with the extended digital curation process model we presented in earlier work.",
+        "title": "Understanding the Information Requirements of Arts and Humanities Scholarship"
+      },
+      "id": "0855440de73e4e6e9d366ffa5e6a4220",
+      "created_date": "2023-12-03T18:49:08Z"
+    },
+    {
+      "last_updated": "2025-08-19T17:03:18Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2160-0104",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "number": "5",
+          "country": "US",
+          "issns": [
+            "2160-0104"
+          ],
+          "publisher": "New York City College of Technology",
+          "language": [
+            "EN"
+          ],
+          "title": "NANO"
+        },
+        "month": "7",
+        "keywords": [
+          "digital humanities",
+          "archives",
+          "lesbian studies",
+          "digital archives",
+          "sound files"
+        ],
+        "year": "2014",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          },
+          {
+            "code": "PN1-6790",
+            "scheme": "LCC",
+            "term": "Literature (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Simon Fraser University, BC",
+            "name": "Elise Chenier"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://www.nanocrit.com/issues/issue5/oral-history-and-open-access-fulfilling-promise-democratizing-knowledge"
+          }
+        ],
+        "abstract": "The Archives of Lesbian Oral Testimony (A LOT) is an online digital archive of lesbian oral/aural testimonies housed at the Simon Fraser University Library. A LOT began as a simple preservation project. Many people who interviewed women in the 1980s and 1990s about their experiences as lesbians had not archived their analog tapes. I had access to a lab and funding that would allow me to convert analog tapes to .wav (digital sound) files, and it was this modest task I set out to do in 2010. The deeper I read into the literature on digital humanities, however, the more complex and exciting the project became. In this note I present the ideas that have shaped my thinking about building this archives, the concept for the archives that has evolved, and our overall objectives.",
+        "title": "Oral History and Open Access: Fulfilling the Promise of Democratizing Knowledge"
+      },
+      "created_date": "2017-12-26T18:00:55Z",
+      "id": "085b709d595b4fb6b05627d767c57ed4"
+    },
+    {
+      "last_updated": "2025-12-04T07:46:46Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5617/dhnbpub.11237",
+            "type": "doi"
+          },
+          {
+            "id": "2704-1441",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "3",
+          "number": "2",
+          "country": "NO",
+          "issns": [
+            "2704-1441"
+          ],
+          "publisher": "University of Oslo",
+          "language": [
+            "EN"
+          ],
+          "title": "Digital Humanities in the Nordic and Baltic Countries Publications"
+        },
+        "month": "May",
+        "year": "2021",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Electrical Engineering, Eindhoven University of Technology, Eindhoven, The Netherlands",
+            "name": "Lizeth Gonzalez-Carabarin"
+          },
+          {
+            "affiliation": "Merton College, University of Oxford",
+            "name": "Lisandra S. Costiner"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://journals.uio.no/dhnbpub/article/view/11237"
+          }
+        ],
+        "abstract": "\r\nThis paper outlines a simple and effective clustering and filtering approach for text line detection in challenging illuminated medieval manuscripts from Western Europe. As illuminated medieval manuscripts were copied and illustrated by hand and do not have regular formats, they pose particular difficulties for traditional methods of text line extraction, which have been designed for printed books. This paper introduces an unsupervised learning approach to text line detection in challenging manuscripts based on clustering, using a k-means algorithm with a combination of three salient features that are well-suited for image processing. These are: the gradient in the y-direction, mean values of rows, and grayscale values. The strength of the method lies in its reduced number of features, its computational lightness, low-memory use, transparency at every step of the process, and versatility. It can also be used on a single image, being perpage based, unlike supervised learning approaches which require large training datasets. This stands as an alternative to computationally-heavy algorithms such as neural networks, which have been increasingly used in recent years to solve such task.\r\n",
+        "title": "An Unsupervised Learning Approach to Text Line Detection in Complex Illuminated Medieval Manuscripts"
+      },
+      "id": "085cdbc01cac4783bca102346ab598c3",
+      "created_date": "2025-12-04T07:46:46Z"
+    },
+    {
+      "last_updated": "2025-12-04T07:09:54Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5617/dhnbpub.12305",
+            "type": "doi"
+          },
+          {
+            "id": "2704-1441",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "7",
+          "number": "2",
+          "country": "NO",
+          "issns": [
+            "2704-1441"
+          ],
+          "publisher": "University of Oslo",
+          "language": [
+            "EN"
+          ],
+          "title": "Digital Humanities in the Nordic and Baltic Countries Publications"
+        },
+        "month": "March",
+        "year": "2025",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0002-9079-0282",
+            "affiliation": "Estonian Literary Museum, Estonia & Institute of Art Studies, Folkloristics and Ethnology of the National Academy of Sciences, Ukraine",
+            "name": "Inna Lisniak"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0001-6272-5435",
+            "affiliation": "Institute of Computer Science, University of Tartu",
+            "name": "Anna Aljanaki"
+          },
+          {
+            "affiliation": "b\tInstitute of Art Studies, Folkloristics and Ethnology of the National Academy of Sciences",
+            "name": "Liudmyla Efremova"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://journals.uio.no/dhnbpub/article/view/12305"
+          }
+        ],
+        "abstract": "\nWe present a corpus of 1310 symbolically encoded Ukrainian folk songs in musicXML format with lyrics and metadata, mainly from the West-Central part of Ukraine, the Podillia region (encompassing Vinnytsia, Khmelnytsky oblasts). The corpus consists of three sections: ritual songs (calendar-ritual and family-ritual), non-ritual songs, and children's songs, which are three main types of traditional Ukrainian songs. These songs were collected by Ukrainian ethnomusicologists between 1914 and 2018. Some of the songs were recorded in audio format and transcribed to symbolic format by ethnomusicologists, but most songs (93%) do not have an audio recording in archive. The metadata quality has been significantly enhanced, and the searchability of the corpus has been improved by extracting details concerning song collection (year, location, and ethnomusicologists' names) from natural text descriptions. The lyrics of each song have also been extracted and are presented as a separate part of the corpus. The properties of the corpus are described, different song styles are compared, and new possibilities for using the Ukrainian song corpus in ethnomusicological research through computational methods are discussed.\n",
+        "title": "A Corpus of Ukrainian Folk Songs from Podillia"
+      },
+      "id": "08673da4ae99498ab5e605ff9b17ccce",
+      "created_date": "2025-12-04T07:09:54Z"
+    },
+    {
+      "last_updated": "2025-08-19T19:44:37Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "https://doi.org/10.35305/lt.v25i1.756",
+            "type": "doi"
+          },
+          {
+            "id": "1668-5628",
+            "type": "pissn"
+          },
+          {
+            "id": "2314-2634",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "25",
+          "number": "1",
+          "country": "AR",
+          "issns": [
+            "1668-5628",
+            "2314-2634"
+          ],
+          "publisher": "Universidad Nacional Rosario",
+          "language": [
+            "ES"
+          ],
+          "title": "La Trama de la Comunicación"
+        },
+        "month": "1",
+        "end_page": "29",
+        "keywords": [
+          "comunicación",
+          "ecología de los medios",
+          "redes",
+          "mediación",
+          "fotografía",
+          "communication",
+          "media ecology"
+        ],
+        "year": "2021",
+        "start_page": "15",
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          },
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          },
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0003-0837-4261",
+            "affiliation": "Universidad Estatal Paulista y Universidad de Aveiro",
+            "name": "Denis Renó"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0001-8054-8014",
+            "affiliation": "Universidad de Aveiro",
+            "name": "Oksana Tymoshchuk"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0002-7349-457X",
+            "affiliation": "Universidad de Aveiro",
+            "name": "Ana Margarida Almeida"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0003-1763-8433",
+            "affiliation": "Universidad de Aveiro",
+            "name": "Luis Pedro"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0003-3405-6953",
+            "affiliation": "Universidad de Aveiro",
+            "name": "Fernando Ramos"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0003-1573-7446",
+            "affiliation": "Universidad de Coimbra y Universidad de Aveiro",
+            "name": "Paula Alexandra Silva"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://latrama.fcpolit.unr.edu.ar/index.php/trama/article/view/756/499"
+          }
+        ],
+        "abstract": "[es] Para comprender a las humanidades digitales en profundidad se debe observar su aplicabilidad. Un ejemplo de iniciativa que reúne conceptos de las humanidades digitales es la Aldea de Xisto, desarrollada en Portugal para atraer personas a las olvidadas aldeas de Portugal. Estas aldeas, que tienen por característica una construcción en piedra, vivían una realidad de baja densidad demográfica, a pesar de sus ricos trazos culturales y un inmensurable potencial turístico.Este artículo relata la experiencia de la iniciativa rural, Associação Aldeias do Xisto, que ha adoptado estrategias de hipermediación digital para difundir recursos naturales y potencialidades endógenas regionales desde su plataforma digital, transformándolas en atractivos sitios turísticos y aproximando, no solamente turistas sino también portugueses, a importantes raíces culturales de Portugal. Por tanto, se ha desarrollada una investigación que contempla un estudio de caso compuesto por una entrevista semiestructurada de respuestas abiertas y un análisis cuantitativo de la plataforma. Se observa, con la investigación, que Aldeias do Xisto ha desarrollado en la región un encuentro cultural y social, rompiendo las fronteras entre el pasado y el presente portugués, hacia un futuro con positivos impactos sociales, culturales y ambientales.\r\n [en] To understand the digital humanities in depth, its applicabilit y must be observed. An example of an initiative that brings together concepts from the digital humanities is the Village of Xisto, developed in Portugal to attract people to the forgot ten villages of Portugal. These villages, which are characterized by a stone construction, lived a realit y of low demographic densit y, despite their rich cultural features and an immeasurable tourist potential. This article relates the experience of the rural initiative Associação Aldeias do Xisto, which has adopted digital hypermedia strategies to spread natural resources and regional endogenous potentials from its digital plat form, transforming them into at tractive tourist sites and bringing together not only tourists, but also Portuguese, to important cultural roots of Portugal. Therefore, an investigation has been developed that includes a case study composed of a structured inter view of open responses and a quantitative analysis of the platform. It was found that Aldeias do Xisto has suppor ted a cultural and social en-counter in the region, breaking the boundaries between the Portuguese past and present, towards a future with possible positive social, cultural and environmental impacts.",
+        "title": "Las humanidades digitales y la conexión con las raíces culturales a través de la iniciativa portuguesa Aldeias do Xisto"
+      },
+      "id": "089ca1d3cae14ef0a484206c3d85cec4",
+      "created_date": "2021-05-06T17:08:51Z"
+    },
+    {
+      "last_updated": "2025-08-19T20:24:04Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2673-253X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3389/fdgth.2021.662874",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "3",
+          "country": "CH",
+          "issns": [
+            "2673-253X"
+          ],
+          "publisher": "Frontiers Media S.A.",
+          "language": [
+            "EN"
+          ],
+          "title": "Frontiers in Digital Health"
+        },
+        "month": "5",
+        "keywords": [
+          "IoT",
+          "Smart Cities",
+          "Cost-effectiveness",
+          "modeling",
+          "evaluation"
+        ],
+        "year": "2021",
+        "subject": [
+          {
+            "code": "R",
+            "scheme": "LCC",
+            "term": "Medicine"
+          },
+          {
+            "code": "RA1-1270",
+            "scheme": "LCC",
+            "term": "Public aspects of medicine"
+          },
+          {
+            "code": "QA75.5-76.95",
+            "scheme": "LCC",
+            "term": "Electronic computers. Computer science"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Open Evidence Research Group, Universitat Oberta de Catalunya, Barcelona, Spain",
+            "name": "Nuria Febrer"
+          },
+          {
+            "affiliation": "Open Evidence Research Group, Universitat Oberta de Catalunya, Barcelona, Spain",
+            "name": "Frans Folkvord"
+          },
+          {
+            "affiliation": "Tilburg School of Humanities and Digital Sciences, Communication and Cognition, Tilburg University, Tilburg, Netherlands",
+            "name": "Frans Folkvord"
+          },
+          {
+            "affiliation": "Open Evidence Research Group, Universitat Oberta de Catalunya, Barcelona, Spain",
+            "name": "Francisco Lupiañez-Villanueva"
+          },
+          {
+            "affiliation": "Faculty of Information and Communication Science, Universitat Oberta de Catalunya, Barcelona, Spain",
+            "name": "Francisco Lupiañez-Villanueva"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://www.frontiersin.org/articles/10.3389/fdgth.2021.662874/full"
+          }
+        ],
+        "abstract": "With the ongoing rapid urbanization of city regions and the growing need for (cost-)effective healthcare provision, governments need to address urban challenges with smart city interventions. In this context, impact assessment plays a key role in the decision-making process of assessing cost-effectiveness of Internet of Things–based health service applications in cities, as it identifies the interventions that can obtain the best results for citizens' health and well-being. We present a new methodology to evaluate smart city projects and interventions through the MAFEIP tool, a recent online tool for cost-effectiveness analysis that has been used extensively to test information and communications technology solutions for healthy aging. Resting on the principles of Markov models, the purpose of the MAFEIP tool is to estimate the outcomes of a large variety of social and technological innovations, by providing an early assessment of the likelihood of achieving anticipated impacts through interventions of choice. Thus, the analytical model suggested in this article provides smart city projects with an evidence-based assessment to improve their efficiency and effectivity, by comparing the costs and the efforts invested, with the corresponding results.",
+        "title": "Cost-Effectiveness Assessment of Internet of Things in Smart Cities"
+      },
+      "id": "08a05b9884724e619acece9ee6bd0025",
+      "created_date": "2021-05-24T05:40:43Z"
+    },
+    {
+      "last_updated": "2025-08-20T01:56:34Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2667-3185",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1016/j.ailsci.2024.100115",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "6",
+          "number": "",
+          "country": "NL",
+          "issns": [
+            "2667-3185"
+          ],
+          "publisher": "Elsevier",
+          "language": [
+            "EN"
+          ],
+          "title": "Artificial Intelligence in the Life Sciences"
+        },
+        "month": "12",
+        "end_page": "",
+        "keywords": [
+          "Drug discovery",
+          "Drug repurposing database",
+          "Machine learning",
+          "Drug target affinity prediction",
+          "Drugbank",
+          "Uniprot"
+        ],
+        "year": "2024",
+        "start_page": "100115",
+        "subject": [
+          {
+            "code": "Q1-390",
+            "scheme": "LCC",
+            "term": "Science (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Computer Sciences, School of Digital Sciences and Engineering, Nazarbayev University, Kabanbay batyr 53, Z05H0P9, Astana, Kazakhstan",
+            "name": "Madina Sultanova"
+          },
+          {
+            "affiliation": "Department of Biology, School of Sciences and Humanities, Nazarbayev University, Kabanbay batyr 53, Z05H0P9, Astana, Kazakhstan",
+            "name": "Elizaveta Vinogradova"
+          },
+          {
+            "affiliation": "Department of Computer Sciences, School of Digital Sciences and Engineering, Nazarbayev University, Kabanbay batyr 53, Z05H0P9, Astana, Kazakhstan",
+            "name": "Alisher Amantay"
+          },
+          {
+            "affiliation": "Department of Biology, School of Sciences and Humanities, Nazarbayev University, Kabanbay batyr 53, Z05H0P9, Astana, Kazakhstan",
+            "name": "Ferdinand Molnár"
+          },
+          {
+            "affiliation": "Department of Computer Sciences, School of Digital Sciences and Engineering, Nazarbayev University, Kabanbay batyr 53, Z05H0P9, Astana, Kazakhstan; Corresponding author.",
+            "name": "Siamac Fazli"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://www.sciencedirect.com/science/article/pii/S2667318524000229"
+          }
+        ],
+        "abstract": "The drug development process is costly and time-consuming. Repurposing existing approved drugs, an efficient and cost-effective strategy, involves assessing numerous drug-protein pairs to uncover new interactions. While modern in silico methods enhance scalability, an open database for projected drug-target interactions across the entire human proteome is still lacking. In this work, we introduce an open database of predicted drug-target interactions, termed DTA Atlas, covering the entire human proteome as well as a wide range of marketed drugs, resulting in over 220 million drug-target pairs. The database integrates 4 billion affinity predictions from advanced deep neural networks and offers a user-friendly web interface, enabling users to explore drug-target affinity predictions for the human proteome. To the best of our knowledge, DTA Atlas represents the first comprehensive collection of drug-target binding strength predictions. It is open-source and can serve as an important resource for drug development, drug repurposing, toxicity studies and more.",
+        "title": "DTA Atlas: A massive-scale drug repurposing database"
+      },
+      "id": "08cc79105f91450aa2fc2b137585548c",
+      "created_date": "2024-10-27T04:42:59Z"
+    },
+    {
+      "last_updated": "2025-08-20T02:34:28Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2222-4203",
+            "type": "pissn"
+          }
+        ],
+        "journal": {
+          "number": "2",
+          "country": "UA",
+          "issns": [
+            "2222-4203"
+          ],
+          "publisher": "Vernadsky National Library of Ukraine",
+          "language": [
+            "EN",
+            "PL",
+            "UK"
+          ],
+          "title": "Рукописна та книжкова спадщина України"
+        },
+        "end_page": "247",
+        "keywords": [
+          "manuscript heritage, institute of manuscript of the v.i. vernadskyi national library of ukraine, special historical disciplines, digital resource, historical and cultural heritage of ukraine."
+        ],
+        "year": "2025",
+        "start_page": "229",
+        "subject": [
+          {
+            "code": "CB3-482",
+            "scheme": "LCC",
+            "term": "History of Civilization"
+          }
+        ],
+        "author": [
+          {
+            "name": "Bodak Olha"
+          },
+          {
+            "name": "Horieva Viktoriia"
+          },
+          {
+            "name": "Dubrovina Lyubov"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "\n     http://nbuv.gov.ua/j-pdf/rks_2025_2_14.pdf\n   "
+          }
+        ],
+        "abstract": "The purpose of the work is to reveal the main directions and achievements in the field of studying manuscript heritage from the fonds of the Institute of Manuscript of the V.I. Vernadskyi National Library of Ukraine, which is a national treasure of Ukraine and an important segment of the informational scientific and cultural space of world humanities. Methodology. The research is based on the principles of historicism, scientificity, and objectivity, as well as on the application of methods of analysis, synthesis, and generalization, classification, and systematization, and special historical disciplines. Scientific novelty. New scientific knowledge in the field of the history of science and culture of Ukraine is being brought into scientific circulation, and with the help of special historical disciplines and theoretical generalizations, the resource of sources of manuscript historical and cultural heritage of the 16th-20th centuries, stored in the fonds of the Institute of Manuscript of the V.I. Vernadskyi National Library of Ukraine as a scientific archival and library institution, is beingrevealed. Conclusions. Today, in the context of Russian armed aggression on the territory of Ukraine, an important scientific direction of the V.I. Vernadskyi National Library of Ukraine that requires special attention is the preservation and study of manuscript heritageas an important segment of the national historical and cultural heritage. Manuscript sources of different periods, varieties and languages, monuments of history and culture (manuscript books, official documents, personal archival fonds, collections of historical institutions, etc.) are being studied, which are being included in scientific circulation for the first time and form the basis for further fundamental research into the history, culture, science and education of Ukraine and European countries. The results of the study of the Institute of Manuscript fonds have attracted significant amounts of new information, deepened the theoretical foundations of such special historical disciplines as codicology, paleography, archaeography, archival studies, source studies, as well as important aspects of the specifics of the historical development of manuscript culture and scientific and practical principles of attribution of scientific description of metadata and accounting of manuscript monuments and documents of personal origin, taking into account modern achievements of the humanities and the latest information technologies, the features of creating digital resources and popularizing manuscript sources are revealed.",
+        "title": "Modern research into manuscript heritage of Ukraine in V. I. Vernadskyi National Library of Ukraine (2020-2024): directions and achievements"
+      },
+      "id": "08d227e1eea948bca55ccff44414d5db",
+      "created_date": "2025-05-29T14:03:51Z"
+    },
+    {
+      "last_updated": "2025-08-20T01:06:15Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.3390/heritage7110287",
+            "type": "doi"
+          },
+          {
+            "id": "2571-9408",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "7",
+          "number": "11",
+          "country": "CH",
+          "issns": [
+            "2571-9408"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Heritage"
+        },
+        "month": "10",
+        "end_page": "6136",
+        "keywords": [
+          "cultural heritage",
+          "GenAI",
+          "artificial intelligence",
+          "human-in-the-loop",
+          "bias"
+        ],
+        "year": "2024",
+        "start_page": "6125",
+        "subject": [
+          {
+            "code": "CC1-960",
+            "scheme": "LCC",
+            "term": "Archaeology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Archives, Libraries and Museums (ALM) Centre for Digital Humanities and Social Sciences Uppsala University, P.O. Box 256, SE-751 05 Uppsala, Sweden",
+            "name": "Anna Foka"
+          },
+          {
+            "affiliation": "Centre for Gender Research, Uppsala University, P.O. Box 256, SE-751 05 Uppsala, Sweden",
+            "name": "Gabriele Griffin"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.mdpi.com/2571-9408/7/11/287"
+          }
+        ],
+        "abstract": "Our article AI, cultural heritage, and bias examines the challenges and potential solutions for using machine learning to interpret and classify human memory and cultural heritage artifacts. We argue that bias is inherent in cultural heritage collections (CHCs) and their digital versions and that AI pipelines may amplify this bias. We hypothesise that effective AI methods require vast, well-annotated datasets with structured metadata, which CHCs often lack due to diverse digitisation practices and limited interconnectivity. This paper discusses the definition of bias in CHCs and other datasets, exploring how it stems from training data and insufficient humanities expertise in generative platforms. We conclude that scholarship, guidelines, and policies on AI and CHCs should address bias as both inherent and augmented by AI technologies. We recommend implementing bias mitigation techniques throughout the process, from collection to curation, to support meaningful curation, embrace diversity, and cater to future heritage audiences.",
+        "title": "AI, Cultural Heritage, and Bias: Some Key Queries That Arise from the Use of GenAI"
+      },
+      "id": "08d4cc0317164abe810ab672a459d7c8",
+      "created_date": "2024-11-26T18:05:46Z"
+    },
+    {
+      "last_updated": "2025-12-04T07:11:51Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5617/dhnbpub.11314",
+            "type": "doi"
+          },
+          {
+            "id": "2704-1441",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "4",
+          "number": "1",
+          "country": "NO",
+          "issns": [
+            "2704-1441"
+          ],
+          "publisher": "University of Oslo",
+          "language": [
+            "EN"
+          ],
+          "title": "Digital Humanities in the Nordic and Baltic Countries Publications"
+        },
+        "month": "October",
+        "year": "2022",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0001-8584-3880",
+            "affiliation": "University of Helsinki",
+            "name": "Niko Partanen"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0003-4927-7185",
+            "affiliation": "Uppsala University",
+            "name": "Rogier Blokland"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0002-2397-2860",
+            "affiliation": "University of Eastern Finland",
+            "name": "Michael Rießler"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0002-3076-7929",
+            "affiliation": "University of Helsinki",
+            "name": "Jack Rueter"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://journals.uio.no/dhnbpub/article/view/11314"
+          }
+        ],
+        "abstract": "\r\nTranscriptions in different languages are a ubiquitous data format in linguistics and in many other fields in the humanities. However, the majority of these resources remain both under-used and under-studied. This may be the case even when the materials have been published in print, but is certainly the case for the majority of unpublished transcriptions. Our paper presents a workflow adapted in the research project Language Documentation Meets Language Technology, which combines text recognition, automatic transliteration and forced alignment into a process which allows us to convert earlier transcribed documents to a structure that is comparable with contemporary language documentation corpora. This has complex practical and methodological considerations.\r\n",
+        "title": "Transforming Archived Resources with Language Technology"
+      },
+      "id": "08e8998ca0f24213a0a1c33001eb1211",
+      "created_date": "2025-12-04T07:11:51Z"
+    },
+    {
+      "last_updated": "2025-12-04T07:51:08Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5617/dhnbpub.11041",
+            "type": "doi"
+          },
+          {
+            "id": "2704-1441",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "1",
+          "number": "1",
+          "country": "NO",
+          "issns": [
+            "2704-1441"
+          ],
+          "publisher": "University of Oslo",
+          "language": [
+            "EN"
+          ],
+          "title": "Digital Humanities in the Nordic and Baltic Countries Publications"
+        },
+        "month": "March",
+        "year": "2018",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "University of Georgia",
+            "name": "William Kretzschmar Jr."
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://journals.uio.no/dhnbpub/article/view/11041"
+          }
+        ],
+        "title": "The Fractal Structure of Language"
+      },
+      "id": "08f84476b7484ce580c865227295247f",
+      "created_date": "2025-12-04T07:51:08Z"
+    },
+    {
+      "last_updated": "2025-08-20T01:44:52Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2162-5603",
+            "type": "eissn"
+          },
+          {
+            "id": "10.4000/jtei.790",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "country": "US",
+          "issns": [
+            "2162-5603"
+          ],
+          "publisher": "Text Encoding Initiative Consortium",
+          "language": [
+            "DE",
+            "EN",
+            "ES",
+            "FR",
+            "IT"
+          ],
+          "title": "Journal of the Text Encoding Initiative"
+        },
+        "month": "06",
+        "keywords": [
+          "RDF",
+          "annotation",
+          "Islandora",
+          "CWRCWriter",
+          "SharedCanvas",
+          "Drupal"
+        ],
+        "year": "2013",
+        "subject": [
+          {
+            "code": "QA76.75-76.765",
+            "scheme": "LCC",
+            "term": "Computer software"
+          }
+        ],
+        "author": [
+          {
+            "name": "Kirsta Stapelfeldt"
+          },
+          {
+            "name": "Donald Moses"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://journals.openedition.org/jtei/790"
+          }
+        ],
+        "abstract": "Islandora is an open-source software framework developed since 2006 by the University of Prince Edward Island's Robertson Library. The Islandora framework is designed to ease the management of security and workflow for digital assets, and to help implementers create custom interfaces for display, search, and discovery. Turnkey options are provided via tools and modules (\"solution packs\") designed to support the work of a particular knowledge domain (such as chemistry), a particular content type (such as a digitized newspaper), or a particular task (such as TEI encoding). While it does not yet have native support for TEI, Islandora provides a promising basis on which digital humanities scholars could manage the creation, editing, validation, display, and comparison of TEI-encoded text. UPEI's IslandLives project, with its forthcoming solution pack, provides insight into how an Islandora version 6 installation can support OCR text extraction, automatic structural/semantic encoding of text, and web-based TEI editing and display functions for site administrators. This article introduces the Islandora framework and its suitability for TEI, describes the IslandLives approach in detail, and briefly discusses recent work and future directions for TEI work in Islandora. The authors hope that interested readers may help contribute to the expansion of TEI-related services and features available to be used with Islandora.",
+        "title": "Islandora and TEI: Current and Emerging Applications/Approaches"
+      },
+      "id": "0901b5c6dfcd4af7b91d26ed8ae4cdbc",
+      "created_date": "2025-01-30T13:56:17Z"
+    },
+    {
+      "last_updated": "2025-08-19T22:07:28Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.24193/mjcst.2022.13.07",
+            "type": "doi"
+          },
+          {
+            "id": "2457-8827",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "8",
+          "number": "1",
+          "country": "RO",
+          "issns": [
+            "2457-8827"
+          ],
+          "publisher": "Babes-Bolyai University, Cluj-Napoca",
+          "language": [
+            "EN",
+            "RO"
+          ],
+          "title": "Metacritic Journal for Comparative Studies and Theory"
+        },
+        "month": "7",
+        "end_page": "136",
+        "keywords": [
+          "distant reading",
+          "digital humanities",
+          "romanian literature",
+          "romanian novel",
+          "computational literary studies"
+        ],
+        "year": "2022",
+        "start_page": "126",
+        "subject": [
+          {
+            "code": "PN1-6790",
+            "scheme": "LCC",
+            "term": "Literature (General)"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "",
+            "affiliation": "Babeș-Bolyai University",
+            "name": "Emanuel Modoc"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://www.metacriticjournal.com/article/227/the-digital-curation-of-the-romanian-interwar-novel-1920-1940"
+          }
+        ],
+        "abstract": " In recent years, Romanian literary studies took one of its major methodological turns toward distant reading, using either or both quantitative and computational analysis. While quantitative analysis employed lexicographical instruments such as dictionaries and literary chronologies, computational analysis tried to approach the issue from a “data rich” historical perspective (Katherine Bode), while also attempting to build a digital corpus adapted to computational methods. The following paper attempts to survey the main research projects that deal with the computational analysis of Romanian literature in general and the Romanian novel in particular. The first part of the study undertakes a succinct state-of-the-art on past and ongoing endeavours concerned with digital approaches to the study of Romanian literature, their initial findings and potential. The second part will take a more theoretic approach to some of the key concepts related to data supported literary history. Finally, the last part of the study tackles the main challenges of developing a digital corpus of a local literature and the shortcomings related to this literature’s “locality” in terms of computational approaches and the compatibility of the tools developed by Western research projects.",
+        "title": "The Digital Curation of the Romanian Interwar Novel (1920-1940)"
+      },
+      "id": "0902661e910d443f85113ed38dfdb248",
+      "created_date": "2023-06-19T06:22:32Z"
+    },
+    {
+      "last_updated": "2025-08-20T03:01:02Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1818-4243",
+            "type": "pissn"
+          },
+          {
+            "id": "2079-5939",
+            "type": "eissn"
+          },
+          {
+            "id": "10.21686/1818-4243-2016-1-60-65",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "0",
+          "number": "1",
+          "country": "RU",
+          "issns": [
+            "1818-4243",
+            "2079-5939"
+          ],
+          "publisher": "Plekhanov Russian University of Economics",
+          "language": [
+            "EN",
+            "RU"
+          ],
+          "title": "Открытое образование (Москва)"
+        },
+        "month": "5",
+        "end_page": "65",
+        "keywords": [
+          "knowledge digital divide",
+          "digital natives",
+          "digital immigrants",
+          "personal learning network (pln)",
+          "social networking",
+          "critical thinking",
+          "e-learning",
+          "distributed computing",
+          "on-line resource",
+          "ict"
+        ],
+        "year": "2016",
+        "start_page": "60",
+        "subject": [
+          {
+            "code": "LC8-6691",
+            "scheme": "LCC",
+            "term": "Special aspects of education"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Plekhanov Russian University of Economics (PRUE)",
+            "name": "Sergey S. Khromov"
+          },
+          {
+            "affiliation": "Plekhanov Russian University of Economics (PRUE)",
+            "name": "Kameneva A. Kameneva"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://openedu.rea.ru/jour/article/view/11"
+          }
+        ],
+        "abstract": "The article is dedicated to the necessity of formation and development of digital literacies for the professional, educational and personal purposes. The article also provides a detailed classification of digital literacies and competences.Rapid penetration of information technologies in almost all spheres of our life, including education, and the fact that most ordinary users received unlimited access to the Internet, has led to a rapid rise of the information volume or information explosion and massive changes in the way of communication between people in all spheres and also to forming the information society as one of the leading contemporary social processes. Such changes in socio-economic conditions modified the socio-psychological and psycho-pedagogical portrait of the students, the nature of their participation in educational, professional and social life, as well as the methods of teaching the humanities, computer and natural sciences.The basis of modern educational paradigm are such theoretical concepts as digital literacies, distance learning technologies, information and communication technologies, internet resources, multimedia electronic textbooks, online courses, social networks, Internet resources, individualization and differentiation of learning activities, Personal Learning Network, etc. The importance of improving the educational process through the methodical training of faculty members and tutors, the application of use new technologies in teaching, the formation and development of information and communication competences, digital literacies and knowledge is emphasized.",
+        "title": "MODERN APPROACH TO DIGITAL LITERACY DEVELOPMENT IN EDUCATION"
+      },
+      "created_date": "2016-12-15T10:30:16Z",
+      "id": "090c4eb049cd439788cfeaaa467238c1"
+    },
+    {
+      "last_updated": "2026-04-01T08:30:46Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0867-0633",
+            "type": "pissn"
+          },
+          {
+            "id": "2545-2061",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "1",
+          "country": "PL",
+          "issns": [
+            "0867-0633",
+            "2545-2061"
+          ],
+          "publisher": "The Institute of Literary Research of the Polish Academy of Sciences",
+          "language": [
+            "EN",
+            "PL"
+          ],
+          "title": "Teksty Drugie"
+        },
+        "month": "02",
+        "keywords": [
+          "literary studies",
+          "digital humanities",
+          "distant reading",
+          "Teksty Drugie",
+          "topic modeling"
+        ],
+        "year": "2023",
+        "start_page": "346–364",
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "author": [
+          {
+            "name": "Maciej Maryl"
+          },
+          {
+            "name": "Maciej Eder"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://journals.openedition.org/td/21522"
+          }
+        ],
+        "abstract": "The article analyzes the thematic structure in the issues of the scholarly journal Second Texts, in 1990–2012, using the topic modeling methodology. Based on 1923 articles from this period, the authors obtained and interpreted 120 automatically inferred topics from subsequent issues. The analysis allowed for the identification of permanent and seasonal topics, which appeared with a growing or declining frequency over time. The application of quantitative methods enabled the authors to capture the history of the discipline not so much as a series of distinct phases but rather as a continuous process built from different configurations of co-existing research interests.",
+        "title": "Słowozbiory „Tekstów Drugich”"
+      },
+      "id": "0911607fb0c24ec89129c2aadc1bb04e",
+      "created_date": "2026-04-01T08:30:46Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:58:53Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2416-5999",
+            "type": "eissn"
+          },
+          {
+            "id": "10.46298/jdmdh.3821",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "2017",
+          "number": "Towards a Digital Ecosystem:...",
+          "country": "FR",
+          "issns": [
+            "2416-5999"
+          ],
+          "publisher": "Nicolas Turenne",
+          "language": [
+            "EN"
+          ],
+          "title": "Journal of Data Mining and Digital Humanities"
+        },
+        "month": "8",
+        "keywords": [
+          "allusion",
+          "lucan",
+          "latin epic",
+          "latin love elegy",
+          "intertextuality",
+          "generic enrichment",
+          "tesserae",
+          "[shs.class] humanities and social sciences/classical studies"
+        ],
+        "year": "2017",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Institute for the Study of the Ancient World",
+            "name": "Patrick J. Burns"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "https://jdmdh.episciences.org/3821/pdf"
+          }
+        ],
+        "abstract": "Most intertextuality in classical poetry is unmarked, that is, it lacks objective signposts to make readers aware of the presence of references to existing texts. Intergeneric relationships can pose a particular problem as scholarship has long privileged intertextual relationships between works of the same genre. This paper treats the influence of Latin love elegy on Lucan’s epic poem, Bellum Civile, by looking at two features of unmarked intertextuality: frequency and distribution. I use the Tesserae project to generate a dataset of potential intertexts between Lucan’s epic and the elegies of Tibullus, Propertius, and Ovid, which are then aggregrated and mapped in Lucan’s text. This study draws two conclusions: 1. measurement of intertextual frequency shows that the elegists contribute fewer intertexts than, for example, another epic poem (Virgil’s Aeneid), though far more than the scholarly record on elegiac influence in Lucan would suggest; and 2. mapping the distribution of intertexts confirms previous scholarship on the influence of elegy on the Bellum Civile by showing concentrations of matches, for example, in Pompey and Cornelia’s meeting before Pharsalus (5.722-815) or during the affair between Caesar and Cleopatra (10.53-106). By looking at both frequency and proportion, we can demonstrate systematically the generic enrichment of Lucan’s Bellum Civile with respect to Latin love elegy.",
+        "title": "Measuring and Mapping Intergeneric Allusion in Latin Poetry using Tesserae"
+      },
+      "created_date": "2021-02-22T16:19:10Z",
+      "id": "0913c4a64eec40219e5b81951b9804a1"
+    },
+    {
+      "last_updated": "2025-12-04T07:11:54Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5617/dhnbpub.10650",
+            "type": "doi"
+          },
+          {
+            "id": "2704-1441",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "number": "1",
+          "country": "NO",
+          "issns": [
+            "2704-1441"
+          ],
+          "publisher": "University of Oslo",
+          "language": [
+            "EN"
+          ],
+          "title": "Digital Humanities in the Nordic and Baltic Countries Publications"
+        },
+        "month": "October",
+        "year": "2023",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "name": "Venla Poso"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0001-8678-4683",
+            "name": "Tanja Välisalo"
+          },
+          {
+            "name": "Ida Toivanen"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0003-2456-7223",
+            "name": "Antero Holmila"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0002-4348-8857",
+            "name": "Jari Ojala"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://journals.uio.no/dhnbpub/article/view/10650"
+          }
+        ],
+        "abstract": "\nArchives around the world are digitising their material at a growing speed. The National Archives of Finland launched a mass digitisation process in 2019 aiming to digitise vast amounts of state authority\narchives. In order to improve the access and use of this data by researchers, we present the data transfer process of state authority data and the development of named entity recognition (NER) for enriching and using archival data from state authorities. In this process, we have developed two new named entities that are not included in published NER models for the Finnish language. This work is conducted as part of the DARIAH-FI infrastructure.\n",
+        "title": "Untapped data resources. Applying NER for historical archival records of state authorities"
+      },
+      "id": "09182d32325c43db8ff8bc4f34d43289",
+      "created_date": "2025-12-04T07:11:54Z"
+    },
+    {
+      "last_updated": "2025-08-19T21:00:23Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0584-9888",
+            "type": "pissn"
+          },
+          {
+            "id": "2406-0917",
+            "type": "eissn"
+          },
+          {
+            "id": "10.2298/ZRVI1350025P",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "2013",
+          "number": "50-2",
+          "country": "RS",
+          "issns": [
+            "0584-9888",
+            "2406-0917"
+          ],
+          "publisher": "Institute for Byzantine Studies of the Serbian Academy of Sciences and Arts",
+          "language": [
+            "BG",
+            "DE",
+            "EN",
+            "FR",
+            "RU",
+            "SR"
+          ],
+          "title": "Zbornik Radova Vizantološkog Instituta"
+        },
+        "end_page": "1039",
+        "keywords": [
+          "historical geography",
+          "Digital Humanities",
+          "GIS",
+          "Macedonia"
+        ],
+        "year": "2013",
+        "start_page": "1025",
+        "subject": [
+          {
+            "code": "D",
+            "scheme": "LCC",
+            "term": "History (General) and history of Europe"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Austrian Academy of Sciences, Institute for Medieval Research, Division of Byzantine Research, Vienna, Austria",
+            "name": "Popović St. Mihailo"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "http://www.doiserbia.nb.rs/img/doi/0584-9888/2013/0584-98881302025P.pdf"
+          }
+        ],
+        "abstract": "The article highlights the latest developments in the field of Digital\n   Humanities. It indicates in which ways these technologies are already used in\n   the historical and geographical science throughout the world and how they\n   could be integrated systematically into Byzantine Studies. In the first part\n   of the article international projects, which are based on GIS (Geographic\n   Information Systems), and their links in the World Wide Web are presented. In\n   the second part the author shows on the basis of his scholarly results on the\n   historical geography of Byzantine Macedonia, how medieval written sources can\n   be transferred into digital format in order to achieve a higher level of\n   spatial data analysis. The neglect of this important and recent scholarly\n   approach in the 21st century could lead to the marginalisation of Byzantine\n   Studies in general, and of the historical geography of the Byzantine Empire\n   in particular. [Projekat Ministarstva nauke Republike Srbije, br. 177015:\n   Hrišćanska kultura na Balkanu u srednjem veku: Vizantijsko carstvo, Srbi i\n   Bugari od 9. do 15. veka]",
+        "title": "Are the classical historical geography of the Byzantine world and Gis technology a contradiction? On the usage of contemporary technologies in the humanities"
+      },
+      "created_date": "2014-12-25T12:00:12Z",
+      "id": "0929085de9c14dbd8221cb09ec065b69"
+    },
+    {
+      "last_updated": "2025-08-20T01:20:48Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2162-5603",
+            "type": "eissn"
+          },
+          {
+            "id": "10.4000/jtei.3874",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "14",
+          "country": "US",
+          "issns": [
+            "2162-5603"
+          ],
+          "publisher": "Text Encoding Initiative Consortium",
+          "language": [
+            "DE",
+            "EN",
+            "ES",
+            "FR",
+            "IT"
+          ],
+          "title": "Journal of the Text Encoding Initiative"
+        },
+        "month": "02",
+        "keywords": [
+          "TEI and non-XML technologies",
+          "TEI and beyond: interactions",
+          "interchange",
+          "integrations and interoperability",
+          "TEI environments and infrastructures"
+        ],
+        "year": "2022",
+        "subject": [
+          {
+            "code": "QA76.75-76.765",
+            "scheme": "LCC",
+            "term": "Computer software"
+          }
+        ],
+        "author": [
+          {
+            "name": "Martin Holmes"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://journals.openedition.org/jtei/3874"
+          }
+        ],
+        "abstract": "Both relational databases (RDBs) and XML have strengths and weaknesses as data storage and modeling systems. Most researchers working with historical and literary data in the humanities would argue for the superiority of XML, since it allows unlimited nesting, linking, and complexity. Relational database proponents claim superior querying and processing speed, although recent advances in XML languages and tools have eroded that advantage. Nevertheless, RDBs remain popular and are widely used, particularly in the early stages of projects where resources and metadata are being collected, and projects may end up with both an RDB and an XML document collection. Programmers must then integrate these distinct forms of data when building project outputs. This article discusses the Digital Victorian Periodical Poetry (DVPP) project, where metadata on about 15,000 poems from nineteenth-century periodicals is captured in a MySQL database, and periodically exported to create a TEI file for each poem. Many of the poems are then transcribed and encoded. The canonical source of metadata is the RDB, while the canonical source of textual data is the TEI file. Metadata in the TEI files must be periodically updated from the RDB, without disturbing the textual encoding. Changes to the RDB data may result in changes to the id and filename of the related TEI file, so any existing TEI data is migrated to a new file, and the Subversion repository must be appropriately updated. All of this is done with XSLT and Ant.",
+        "title": "Getting Along with Relational Databases"
+      },
+      "id": "093479488a4e486cbd8d5568352a3435",
+      "created_date": "2025-01-30T13:56:39Z"
+    },
+    {
+      "last_updated": "2025-08-20T01:39:18Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2059-481X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.5334/johd.102",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "9",
+          "country": "GB",
+          "issns": [
+            "2059-481X"
+          ],
+          "publisher": "Ubiquity Press",
+          "language": [
+            "EN"
+          ],
+          "title": "Journal of Open Humanities Data"
+        },
+        "month": "6",
+        "end_page": "6",
+        "keywords": [
+          "german poetry for children",
+          "text corpus",
+          "text analysis",
+          "computational literary studies",
+          "stimulus material"
+        ],
+        "year": "2023",
+        "start_page": "6",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0002-6818-6169",
+            "affiliation": "Department of Book Studies, Johannes Gutenberg-Universität Mainz, Mainz",
+            "name": "Marina Lehmann"
+          },
+          {
+            "orcid_id": "https://orcid.org/0009-0000-5791-6982",
+            "affiliation": "Department of Book Studies, Johannes Gutenberg-Universität Mainz, Mainz",
+            "name": "Anne Heumann"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0002-3676-5879",
+            "affiliation": "Digital Humanities Lab, University of Basel, Basel",
+            "name": "Moniek M. Kuijpers"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0003-0230-2574",
+            "affiliation": "Department of Book Studies, Johannes Gutenberg-Universität Mainz, Mainz",
+            "name": "Gerhard Lauer"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0002-1581-6120",
+            "affiliation": "Department of Education and Psychology, Freie Universität Berlin, Berlin",
+            "name": "Jana Lüdtke"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://account.openhumanitiesdata.metajnl.com/index.php/up-j-johd/article/view/102"
+          }
+        ],
+        "abstract": "We introduce childPoeDE: the first corpus of German poetry for children comprising poems which are still read today and cover a wide range of topics and authors. ChildPoeDE contains poem texts and both poem-level and token-level metadata. Poem-level metadata includes information about the anthologies and authors, quantitative text features, rhyme and lexical richness. Token-level metadata covers word length, position and frequency, parts-of-speech, onomatopoeia and sonority. This corpus can be used for computational text analysis, but also as a source for stimulus material in experimental studies. The corpus metadata is freely accessible via Zenodo. The poem texts are protected by copyright.",
+        "title": "The ChildPoeDE Corpus: 1082 German Children’s Poems for Computational and Experimental Studies on Poetry Reception"
+      },
+      "id": "093d5b4f218b499dafc128034c1947c6",
+      "created_date": "2023-07-18T08:22:59Z"
+    },
+    {
+      "last_updated": "2025-08-19T22:22:37Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2088-7485",
+            "type": "pissn"
+          },
+          {
+            "id": "2684-9313",
+            "type": "eissn"
+          },
+          {
+            "id": "10.35906/equili.v12i2.1563",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "number": "2",
+          "country": "ID",
+          "issns": [
+            "2088-7485",
+            "2684-9313"
+          ],
+          "publisher": "Universitas Muhammadiyah Palopo, Lembaga Penerbitan dan Publikasi Ilmiah (LPPI)",
+          "language": [
+            "ID"
+          ],
+          "title": "Equilibrium: Jurnal Ilmiah Ekonomi, Manajemen dan Akuntansi"
+        },
+        "month": "9",
+        "end_page": "225",
+        "year": "2023",
+        "start_page": "218",
+        "subject": [
+          {
+            "code": "HB71-74",
+            "scheme": "LCC",
+            "term": "Economics as a science"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Universitas Esa Unggul",
+            "name": "iriyanti iriyanti"
+          },
+          {
+            "affiliation": "Universitas Esa Unggul",
+            "name": "Agus Munandar"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://journal.stiem.ac.id/index.php/jureq/article/view/1563"
+          }
+        ],
+        "abstract": "Abstrak\n\nKualitas laporan keuangan di BUMDES sangat penting sebagai bentuk transparansi dan akuntabilitas publik. Penelitian ini mengulas mengenai Penerapan Sistem Informasi untuk Mendukung Peningkatan Kualitas Laporan Keuangan di Badan Usaha Milik Desa (BUMDes) dengan menggunakan metode Systematic Literature Revier (SLR) dengan mengumpulkan artikel yang relevan melalui Google Chrome dengan fokus pada laman Google Scholar sehingga memperoleh total 16 artikel selama tahun 2022 sampai dengan 2023. Hasil dari RQ 1 mengenai metode penelitian memperoleh 4 hasil yaitu Uji Hipotesis, Analisis, Research and Development dan Penyuluhan, Pelatihan, dan Penampingan. Selanjutnya hasil dari RQ 2 mengenai lokasi penelitian memperoleh 15 hasil yaitu Pematang Serai, Makassar, Solomerto, Cemara Asri, Jawa Timur. Karangrejo, Bone, Gianyar, Mara, Sad Adnyana Tunggal, Karo, Tasikmalaya, Lamongan, dan Teja Perceka. Kemudian hasil dari RQ 3 mengenai tahun publikasi memperoleh 2 hasil yaitu tahun 2022 dan tahun 2023. Terakhir hasil dari RQ 4 mengenai media publikasi memperoleh 15 hasil yaitu The International Conference in Business and Economics, Journal of Intelligent Decision Support System (IDSS), Jurnal Akuntansi, Manajemen & Perbankan Syariah, JURPIKAT (Jurnal Pengabdian Kepada Masyarakat), Jurnal Sosial Humaniora Sigli (JSH), Digilib Universitas Bosowa Makassar, Fair Value : Jurnal Ilmiah Akuntansi dan Keuangan, Jurnal of Management & Business, Hita Akuntansi dan Keuangan, Jurnal Ekonomi, Jurnal Pendidikan dan Konseling, Digilib UIN Syarif Hidayatullah, Jurnal Media Komunikasi Ilmu Ekonomi, dan Bernas : Jurnal Pengabdian Kepada Masyarakat.\n\nKata Kunci: Systematic Literature Review (SLR); Penerapan Sistem Informasi; Peningkatan Kualitas Laporan Keuangan; BUMDes.\nAbstract\n\nThe quality of financial reports in Village-Owned Enterprises (BUMDes) is crucial as a form of transparency and public accountability. This research discusses the Implementation of Information Systems to Support the Enhancement of Financial Report Quality in Village-Owned Enterprises (BUMDes) using the Systematic Literature Review (SLR) method. Relevant articles were collected through Google Chrome, with a focus on the Google Scholar platform, resulting in a total of 16 articles from the period 2022 to 2023. The findings of Research Question 1, concerning research methods, yielded four outcomes: Hypothesis Testing, Analysis, Research and Development, and Counseling, Training, and Mentoring. Furthermore, the outcomes of Research Question 2, regarding the research locations, produced 15 results: Pematang Serai, Makassar, Solomerto, Cemara Asri, East Java, Karangrejo, Bone, Gianyar, Mara, Sad Adnyana Tunggal, Karo, Tasikmalaya, Lamongan, and Teja Perceka. Subsequently, the results of Research Question 3, pertaining to the publication years, resulted in two years: 2022 and 2023. Finally, the outcomes of Research Question 4, regarding publication media, encompassed 15 venues: The International Conference in Business and Economics, Journal of Intelligent Decision Support System (IDSS), Journal of Accounting, Management & Islamic Banking, JURPIKAT (Journal of Community Service), JSH (Journal of Social Humanities Sigli), Universitas Bosowa Makassar Digital Library, Fair Value: Scientific Journal of Accounting and Finance, Journal of Management & Business, Hita Accounting and Finance, Journal of Economics, Journal of Education and Counseling, UIN Syarif Hidayatullah Digital Library, Journal of Media Communication in Economics, and Bernas: Journal of Community Service.\n\nKeywords: Systematic Literature Review (SLR); Implementation of Information Systems; Enhancement of Financial Report Quality; BUMDes.",
+        "title": "SYSTEMATIC LITERATURE REVIEW: PENERAPAN SISTEM INFORMASI UNTUK MENDUKUNG PENINGKATAN KUALITAS LAPORAN KEUANGAN DI BADAN USAHA MILIK DESA (BUMDES)"
+      },
+      "id": "096a34fcd2074809ae9237e4357acbfa",
+      "created_date": "2023-09-05T00:25:08Z"
+    },
+    {
+      "last_updated": "2026-03-09T11:05:33Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5617/dhnbpub.13199",
+            "type": "doi"
+          },
+          {
+            "id": "2704-1441",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "8",
+          "number": "1",
+          "country": "NO",
+          "issns": [
+            "2704-1441"
+          ],
+          "publisher": "University of Oslo",
+          "language": [
+            "EN"
+          ],
+          "title": "Digital Humanities in the Nordic and Baltic Countries Publications"
+        },
+        "month": "March",
+        "year": "2026",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Aalborg University, Copenhagen",
+            "name": "Camilla Buur Küseler"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0001-9408-0686",
+            "affiliation": "Aalborg University, Copenhagen",
+            "name": "Florian Meier"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://journals.uio.no/dhnbpub/article/view/13199"
+          }
+        ],
+        "abstract": "\nAs scientific consensus on anthropogenic climate change has solidified, outright denial in political debate has largely given way to more subtle forms of climate change rejection. These so-called climate delay discourses acknowledge the problem yet justify inaction, posing a growing challenge to effective climate communication and policymaking. This study operationalises Lamb et al.’s (2020) typology of climate delay discourses to examine 25 years of Danish parliamentary speeches (1998–2022). Using a keyword-based retrieval method, we identified approximately 34,000 climate change-related speech segments and applied large language models (LLMs) to classify them according to delay discourse categories. We compared zero-shot and few-shot prompting strategies, including variations with chain-of-thought reasoning, to evaluate LLM performance on complex rhetorical classification tasks. Few-shot prompting delivered promising results with respect to both recall and accuracy, while chain-of-thought reasoning provided limited benefits and, in some cases, harmed performance. Temporal and partisan analyses reveal that delay discourses have been consistently present in Danish political debate, with a marked increase in recent years. The most prevalent discourse, all talk, little action, reflects the gap between ambitious climate targets and policy implementation, particularly among governing parties. While right-leaning parties often shift responsibility away from Denmark, left-leaning and green parties more frequently invoke appeals to social justice. Our findings demonstrate both the promise and the limitations of LLMs for large-scale political discourse analysis and provide evidence that climate delay discourses are a routine part of Danish parliamentary debates.\n",
+        "title": "Detecting Climate Delay Discourses in Danish Parliamentary Speeches"
+      },
+      "id": "0977b53fbef8447d986ac851739d2a6b",
+      "created_date": "2026-03-03T11:04:45Z"
+    },
+    {
+      "last_updated": "2025-08-19T17:43:57Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.14765/zzf.dok-1345",
+            "type": "doi"
+          },
+          {
+            "id": "1612-6033",
+            "type": "pissn"
+          },
+          {
+            "id": "1612-6041",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "16 (2019)",
+          "number": "1",
+          "country": "DE",
+          "issns": [
+            "1612-6033",
+            "1612-6041"
+          ],
+          "publisher": "Vandenhoeck & Ruprecht GmbH & Co. KG",
+          "language": [
+            "DE",
+            "EN"
+          ],
+          "title": "Zeithistorische Forschungen"
+        },
+        "month": "6",
+        "end_page": "196",
+        "keywords": [
+          "Digital Humanities",
+          "Digital History",
+          "conceptual history",
+          "GDR",
+          "press history"
+        ],
+        "year": "2019",
+        "start_page": "177",
+        "subject": [
+          {
+            "code": "D1-2009",
+            "scheme": "LCC",
+            "term": "History (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "",
+            "name": "Daniel Burckhardt"
+          },
+          {
+            "affiliation": "",
+            "name": "Alexander Geyken"
+          },
+          {
+            "affiliation": "",
+            "name": "Achim Saupe"
+          },
+          {
+            "affiliation": "",
+            "name": "Thomas Werneke"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://zeithistorische-forschungen.de/1-2019/id=5694"
+          }
+        ],
+        "title": "Distant Reading in der Zeitgeschichte. Möglichkeiten und Grenzen einer computergestützten Historischen Semantik am Beispiel der DDR-Presse"
+      },
+      "created_date": "2019-06-09T18:31:15Z",
+      "id": "0979a949ba9c4cc8aea8e9875547237f"
+    },
+    {
+      "last_updated": "2025-08-19T18:47:00Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5128/ERYa15.08",
+            "type": "doi"
+          },
+          {
+            "id": "1736-2563",
+            "type": "pissn"
+          },
+          {
+            "id": "2228-0677",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "15",
+          "country": "EE",
+          "issns": [
+            "1736-2563",
+            "2228-0677"
+          ],
+          "publisher": "Eesti Rakenduslingvistika Ühing (Estonian Association for Applied Linguistics)",
+          "language": [
+            "EN",
+            "ET"
+          ],
+          "title": "Eesti Rakenduslingvistika Ühingu Aastaraamat"
+        },
+        "month": "5",
+        "end_page": "158",
+        "keywords": [
+          "natural language processing",
+          "automatic morphology",
+          "digital humanities",
+          "corpus linguistics",
+          "databases",
+          "language history",
+          "Estonian"
+        ],
+        "year": "2019",
+        "start_page": "139",
+        "subject": [
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          },
+          {
+            "code": "PH91-98.5",
+            "scheme": "LCC",
+            "term": "Finnic. Baltic-Finnic"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "",
+            "name": "Maarja-Liisa Pilvik"
+          },
+          {
+            "affiliation": "",
+            "name": "Kadri Muischnek"
+          },
+          {
+            "affiliation": "",
+            "name": "Gerth Jaanimäe"
+          },
+          {
+            "affiliation": "",
+            "name": "Liina Lindström"
+          },
+          {
+            "affiliation": "",
+            "name": "Kersti Lust"
+          },
+          {
+            "affiliation": "",
+            "name": "Siim Orasmaa"
+          },
+          {
+            "affiliation": "",
+            "name": "Tõnis Türna"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://arhiiv.rakenduslingvistika.ee/ajakirjad/index.php/aastaraamat/article/view/ERYa15.08"
+          }
+        ],
+        "abstract": "Artikkel käsitleb digitaalse ressursi loomist aastatest 1866–1890 pärinevatest vallakohtuprotokollidest. Vallakohtuprotokollide tekstiandmebaas sisaldab ligi 420 000 sõna XML-märgendusega failides. Tekstid on keeleliselt mitmekesised, keelise kuju põhilised mõjutajad on uue vs. vana kirjaviisi kasutamine, murdelisus ning vallavõi kohtukirjutaja hariduslik ning keeleline taust. Samuti mängivad suurt rolli protokollide sisestamisel tehtud ortograafilised valikud. Tekstide keelelise analüüsi ning märksõnastamise jaoks katsetati automaatset morfoloogilist analüüsi ning nimeüksuste tuvastamist EstNLTK vastavate moodulite abil, hinnati väljundi kvaliteeti ning kaardistati analüüsi parandamise põhilised viisid. Vallakohtute protokollide kättesaadavaks tegemine ja otsitavuse parandamine tekstide keelelise ja temaatilise märgendamise abil aitab luua rikkalikku digitaalset ressurssi, mille kasutajaskonna moodustavad väga erineva tausta ja huvidega inimesed.  \r\n***\r\n\"Creating a digital resource from 19th century communal court minute books\"\r\n\r\nThis article describes an interdisciplinary attempt to create a digital resource from Estonian communal court minute books dating from 1866−1890, with the focus lying on using contemporary natural language processing tools for analyzing archaic language. The database contains nearly 420 000 tokens in XML-tagged files. The texts are linguistically diverse: the parallel use of old and new spelling systems, dialects, and the background of the parish clerk bring about a lot of language variation. There are also differences in the orthographic choices made during the manual insertion of the texts. For the purpose of linguistic analysis and tagging, automatic morphological analysis and named entity recognition was tested using EstNLTK libraries. A closer examination of the output suggested that it is necessary to use both text normalization and tool adaption for improving the quality of automatic analyses. This would result in tools, which would perform better at analyzing similar texts and which could, therefore, be applied in the automatic analysis crowd-sourced material. Making the communal court minute books accessible and searchable by supplying linguistic and topical information creates a rich digital resource which is subject of interest for many disciplines.",
+        "title": "Möistus sai kuulotedu: 19. sajandi vallakohtuprotokollide tekstidest digitaalse ressursi loomine"
+      },
+      "created_date": "2019-05-03T15:56:05Z",
+      "id": "098161f568cc42fdb8244f98b53b787e"
+    }
+  ],
+  "prev": "https://doaj.org/api/v4/search/articles/digital%20humanities?page=2&pageSize=50",
+  "next": "https://doaj.org/api/v4/search/articles/digital%20humanities?page=4&pageSize=50",
+  "last": "https://doaj.org/api/v4/search/articles/digital%20humanities?page=93&pageSize=50"
+}

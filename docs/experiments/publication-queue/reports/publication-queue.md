@@ -1,17 +1,17 @@
 # Cultural Observatory Publication Queue
 
-Generated at: 2026-06-12T19:18:58.569Z
-Ready for editorial review: 4
-Not ready: 2
+Generated at: 2026-06-12T19:23:57.203Z
+Ready for editorial review: 5
+Not ready: 1
 
 | Priority | Title | Status | Action |
 | ---: | --- | --- | --- |
 | 141 | What A Museum Collection Looks Like When It Becomes Data | ready-for-editorial-review | Copyedit from publication handoff; keep chart captions and audit caveats attached. |
 | 126 | Canon Drift: A Feasibility Report | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
+| 118 | The Rise Of AI And The Humanities | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
 | 118 | What Counts As A Humanities Dataset? | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
 | 118 | What Universities Say They Are For | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
 | 6 | The Language Of Museums After Decolonization | not-ready-for-publication | Resolve readiness blockers: historical-pages, audit-flags. |
-| -6 | The Rise Of AI And The Humanities | not-ready-for-publication | Resolve readiness blockers: corpus-size, recent-coverage, quantitative-candidates. |
 
 ## Details
 
@@ -40,6 +40,19 @@ Not ready: 2
 - Failed checks: none
 - Action: Copyedit from publication handoff; preserve source limits and claim checklist.
 - Summary: Canon drift is not one dataset. Teaching, anthologization, citation, and holdings are separate signals that need separate source layers.
+
+### The Rise Of AI And The Humanities
+
+- Format: field-map
+- Lane: field-map
+- Status: ready-for-editorial-review
+- Draft: `docs/experiments/humanities-literature-radar/reports/public-draft.md`
+- Handoff: `docs/experiments/humanities-literature-radar/reports/publication-handoff.json`
+- Result: `docs/experiments/humanities-literature-radar/reports/result.json`
+- Readiness: `docs/experiments/humanities-literature-radar/reports/readiness.json`
+- Failed checks: none
+- Action: Copyedit from publication handoff; preserve source limits and claim checklist.
+- Summary: The v1 literature radar is large enough for a field-map essay about AI, computational methods, and quantitative humanities signals, but source coverage remains uneven.
 
 ### What Counts As A Humanities Dataset?
 
@@ -79,15 +92,3 @@ Not ready: 2
 - Failed checks: historical-pages: 4 historical snapshots; audit-flags: 7 flagged rows
 - Action: Resolve readiness blockers: historical-pages, audit-flags.
 - Summary: Add annual-report/exhibition/provenance pages as separate source layers before trend claims.
-
-### The Rise Of AI And The Humanities
-
-- Format: field-map
-- Lane: field-map
-- Status: not-ready-for-publication
-- Draft: `docs/experiments/humanities-literature-radar/reports/public-draft.md`
-- Handoff: none
-- Result: `docs/experiments/humanities-literature-radar/reports/result.json`
-- Readiness: `docs/experiments/humanities-literature-radar/reports/readiness.json`
-- Failed checks: corpus-size: 128 deduped works; recent-coverage: 75 works from 2024-present; quantitative-candidates: 45 candidates
-- Action: Resolve readiness blockers: corpus-size, recent-coverage, quantitative-candidates.

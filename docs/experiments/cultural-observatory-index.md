@@ -22,17 +22,17 @@ Implemented:
 Current queue:
 
 - 6 tracked essay/research artifacts
-- 4 ready for editorial review
-- 2 not ready for publication
-- 4 copyedit-ready handoff packets
+- 5 ready for editorial review
+- 1 not ready for publication
+- 5 copyedit-ready handoff packets
 - first public essay candidate: What A Museum Collection Looks Like When It Becomes Data
 
 Next implementation moves:
 
 - copyedit the Cleveland handoff into a first post
-- copyedit the mission drift, canon drift, and dataset registry handoffs into posts
+- copyedit the literature radar, mission drift, canon drift, and dataset registry handoffs into posts
 - choose which Cleveland charts to publish
-- resolve source-work blockers for museum language and literature radar
+- resolve source-work blockers for museum language drift
 
 ### Research Backlog And Scout Workflow
 
@@ -87,23 +87,25 @@ Implemented:
 - `result.json`
 - `work.md`
 - `public-draft.md`
+- `publication-handoff.md`
 - `dataset_briefing.md`
 - one-command `run-pipeline.mjs` smoke/v1 runner
 
 Current committed corpus:
 
-- 128 deduped works
-- 75 works dated 2024-present
-- 45 quantitative/computational humanities candidates
+- 1,951 deduped works
+- 1,155 works dated 2024-present
+- 593 quantitative/computational humanities candidates
 - sources represented in processed records: arXiv, Crossref, OpenAlex, DOAJ, OSF Preprints / SocArXiv, Knowledge Commons Works / Humanities Commons
+- readiness: ready for editorial review with source-coverage caveats
 
 Next implementation moves:
 
+- copyedit the publication handoff into a field-map post
 - replace bounded DOAJ search with public dump or OAI-PMH harvest
 - improve NBER extraction or switch to an official metadata route if available
 - expand OSF/SocArXiv beyond bounded title search
 - expand Knowledge Commons Works / Humanities Commons beyond bounded keyword search
-- run a broader 2020-present backfill
 - manually audit representative works
 
 ### University Mission Statement Drift

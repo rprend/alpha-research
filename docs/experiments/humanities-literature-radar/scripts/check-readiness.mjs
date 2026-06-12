@@ -13,6 +13,7 @@ const rawDir = path.join(experimentDir, "data", "raw");
 const result = await readJson(path.join(reportsDir, "result.json"));
 const works = await readJson(path.join(processedDir, "works.json"));
 const topics = await readJson(path.join(processedDir, "topics.json"));
+const handoff = await readOptionalJson(path.join(reportsDir, "publication-handoff.json"));
 const sourceCount = Object.keys(result.corpus.sources ?? {}).length;
 const manifests = await findManifests(rawDir);
 const representativeWorks = await readCsvRows(path.join(processedDir, "representative-works.csv"));
@@ -66,6 +67,12 @@ const checks = [
     status: "pass",
     evidence: "reports/public-draft.md",
   },
+  {
+    id: "publication-handoff",
+    label: "Publication handoff exists with corpus notes and public-claim checklist",
+    status: handoff?.publishState === "ready-for-copyedit" && handoff?.corpus?.works >= 500 ? "pass" : "needs-work",
+    evidence: handoff ? `${handoff.publishState}; ${handoff.corpus.works} works` : "missing publication handoff",
+  },
 ];
 
 const readiness = {
@@ -74,7 +81,7 @@ const readiness = {
   corpus: result.corpus,
   checks,
   nextMoves: [
-    "Run the `v1` profile or higher source-specific limits to reach publication-scale corpus size.",
+    "Copyedit the publication handoff into a field-map post.",
     "Use DOAJ dumps/OAI-PMH for large open-access harvesting instead of bounded search.",
     "Expand OSF/SocArXiv and KCWorks beyond bounded keyword search.",
     "Manually review representative works before publishing field claims.",
@@ -137,4 +144,12 @@ async function findManifests(dir) {
 async function readCsvRows(file) {
   const text = await fs.readFile(file, "utf8");
   return text.trim().split(/\n/).slice(1).filter(Boolean);
+}
+
+async function readOptionalJson(file) {
+  try {
+    return await readJson(file);
+  } catch {
+    return null;
+  }
 }

@@ -1,0 +1,1339 @@
+{
+  "total": 4602,
+  "page": 4,
+  "pageSize": 18,
+  "timestamp": "2026-06-12T19:21:42.504291Z",
+  "query": "digital humanities",
+  "results": [
+    {
+      "last_updated": "2025-08-19T21:19:09Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2673-253X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3389/fdgth.2023.1199635",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "country": "CH",
+          "issns": [
+            "2673-253X"
+          ],
+          "publisher": "Frontiers Media S.A.",
+          "language": [
+            "EN"
+          ],
+          "title": "Frontiers in Digital Health"
+        },
+        "month": "7",
+        "keywords": [
+          "targeted digital",
+          "contact tracing",
+          "COVID-19",
+          "global south",
+          "LMIC",
+          "open-source"
+        ],
+        "year": "2023",
+        "subject": [
+          {
+            "code": "R",
+            "scheme": "LCC",
+            "term": "Medicine"
+          },
+          {
+            "code": "RA1-1270",
+            "scheme": "LCC",
+            "term": "Public aspects of medicine"
+          },
+          {
+            "code": "QA75.5-76.95",
+            "scheme": "LCC",
+            "term": "Electronic computers. Computer science"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Digital One Health Laboratory, The Roslin Institute, College of Medicine and Veterinary Medicine, University of Edinburgh, Edinburgh, United Kingdom",
+            "name": "Adrian Muwonge"
+          },
+          {
+            "affiliation": "Blockchain Technology Laboratory, School of Informatics, University of Edinburgh, Edinburgh, United Kingdom",
+            "name": "Adrian Muwonge"
+          },
+          {
+            "affiliation": "Digital One Health Laboratory, The Roslin Institute, College of Medicine and Veterinary Medicine, University of Edinburgh, Edinburgh, United Kingdom",
+            "name": "Bryan A. Wee"
+          },
+          {
+            "affiliation": "Ministry of Health, Kampala, Uganda",
+            "name": "Ibrahimm Mugerwa"
+          },
+          {
+            "affiliation": "School of Biomedical Sciences, College of Health Sciences, Makerere University, Kampala, Uganda",
+            "name": "Emma Nabunya"
+          },
+          {
+            "affiliation": "College of Humanities and Social Sciences, Makerere University, Kampala, Uganda",
+            "name": "Christine M. Mpyangu"
+          },
+          {
+            "affiliation": "Digital One Health Laboratory, The Roslin Institute, College of Medicine and Veterinary Medicine, University of Edinburgh, Edinburgh, United Kingdom",
+            "name": "Barend M. de C. Bronsvoort"
+          },
+          {
+            "affiliation": "Bodastage Solutions, Kampala, Uganda",
+            "name": "Emmanuel Robert Ssebaggala"
+          },
+          {
+            "affiliation": "Blockchain Technology Laboratory, School of Informatics, University of Edinburgh, Edinburgh, United Kingdom",
+            "name": "Aggelos Kiayias"
+          },
+          {
+            "affiliation": "Department of Anatomy, College of Health Sciences, Makerere University, Kampala, Uganda",
+            "name": "Erisa Mwaka"
+          },
+          {
+            "affiliation": "School of Biomedical Sciences, College of Health Sciences, Makerere University, Kampala, Uganda",
+            "name": "Moses Joloba"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://www.frontiersin.org/articles/10.3389/fdgth.2023.1199635/full"
+          }
+        ],
+        "abstract": "Digital contact tracing presents numerous advantages compared to manual contact tracing methods, especially in terms of enhanced speed and automation. Nevertheless, a lack of comprehensive evaluation regarding functionality, efficiency, benefits, and acceptance within communities remains. Here we primarily focus on the functionality of THEA-GS, an open-source digital contact tracing tool developed through consultation with stakeholders. Additionally, we provide insights from its implementation on a limited sample of haulage drivers in Uganda, serving as a representative case for a low- and middle-income country. THEA-GS comprises two primary components: (a) a smartphone application, and (b) a suite of server-programs responsible for data processing and analysis, including databases and a web-based interface featuring dashboards. In essence, the mobile application records the timestamped location of haulage drivers within the road network and identifies possible transmission hotspots by analyzing factors such as the duration of stops and the communities associated with them. The tool can be integrated with national infrastructure to compare drivers’ diagnostic results and contact structure, thereby generating individual and community risk assessments relative to the road network. During the Omicron-variant wave of the COVID-19 pandemic, a total of 3,270 haulage drivers were enrolled between October 2021 and October 2022. Around 75% of these drivers utilized THEA-GS for approximately two months. Based on an analysis of 3,800 test results, which included 48 positive cases, 125 contacts, and 40 million time-stamped GPS points, THEA-GS shows a significant speed improvement, being approximately 90 times faster than MCT. For instance, the average time from sample collection to notifying a case and their contacts was approximately 70 and 80 min, respectively. The adoption of this tool encountered challenges, mainly due to drivers’ awareness of its purpose and benefits for public health. THEA-GS is a place-based digital contact tracing tool specifically designed to assist National Public Health Institutions in managing infectious disease outbreaks involving the haulage industry as a high-risk group. While its utility, acceptance, and accuracy have not been fully evaluated, our preliminary tests conducted in Uganda indicate the tool’s functionality is robust, but social acceptance and adoption are heavily reliant on establishing trust among users.",
+        "title": "An open-source digital contact tracing system tailored to haulage"
+      },
+      "id": "03b12a3b5a5d4421a0972db57f29edb6",
+      "created_date": "2023-07-19T08:25:56Z"
+    },
+    {
+      "last_updated": "2025-12-04T07:09:54Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5617/dhnbpub.12307",
+            "type": "doi"
+          },
+          {
+            "id": "2704-1441",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "7",
+          "number": "2",
+          "country": "NO",
+          "issns": [
+            "2704-1441"
+          ],
+          "publisher": "University of Oslo",
+          "language": [
+            "EN"
+          ],
+          "title": "Digital Humanities in the Nordic and Baltic Countries Publications"
+        },
+        "month": "March",
+        "year": "2025",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0002-9659-1532",
+            "affiliation": "KTH Royal Institute of Technology & MTM, Swedish Agency for Accessible Media",
+            "name": "Christina Tånnander"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0001-9327-9482",
+            "affiliation": "KTH Royal Institute of Technology",
+            "name": "Jens Edlund"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://journals.uio.no/dhnbpub/article/view/12307"
+          }
+        ],
+        "abstract": "\nWe present Sardin, a Swedish speech-oriented text processing system designed primarily to prepare text for text-to-speech (TTS) synthesis. Sardin processes input documents in XML, EPUB, or TXT formats through multiple modules, ultimately producing an SSML string suitable for use with TTS systems and similar applications. This paper highlights potential applications for Sardin and serves as a demonstration, providing brief descriptions of the system's modules alongside illustrative examples. The modular nature of Sardin makes it suitable for a range of research and development tasks outside of pure TTS synthesis, which is also exemplified in the demonstration.\n",
+        "title": "Demonstration of Sardin, a Swedish Speech-Oriented Text  Processing System"
+      },
+      "id": "03cbdf667ea14ab5bf10dc71a996a663",
+      "created_date": "2025-12-04T07:09:54Z"
+    },
+    {
+      "last_updated": "2025-08-19T20:59:39Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2414-4088",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3390/mti2020025",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "2",
+          "number": "2",
+          "country": "CH",
+          "issns": [
+            "2414-4088"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Multimodal Technologies and Interaction"
+        },
+        "month": "5",
+        "keywords": [
+          "canon",
+          "postdigital",
+          "value assignment processes",
+          "cultural heritage",
+          "Digital Art History",
+          "digital humanities"
+        ],
+        "year": "2018",
+        "start_page": "25",
+        "subject": [
+          {
+            "code": "T",
+            "scheme": "LCC",
+            "term": "Technology"
+          },
+          {
+            "code": "Q",
+            "scheme": "LCC",
+            "term": "Science"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Historia del Arte, Universidad de Málaga, 29016 Málaga, Spain",
+            "name": "Nuria Rodríguez-Ortega"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "http://www.mdpi.com/2414-4088/2/2/25"
+          }
+        ],
+        "abstract": "The range of modes through which the new conditions of the postdigital society is leading to a redefinition of the processes of assigning value, and the values themselves, which have hitherto prevailed in the comprehension of cultural heritage, are diverse and broad. Within this framework of critical inquiry, this paper discusses the mechanisms of canon-formation in the context of the web as the new laboratory of cultural production. It is argued that the main dynamics observed can be elucidated under the form of a triad: hypercanonization, socialdecanonization, and transcanonization. These three processes operate simultaneously interlaced and unfold in dialectical tension between the rise of the new (practices, actors, values, ideas), and the maintenance of the old (those structures that already exist). This paper delves into the paths through which such interlace dynamics and tension might reshape the principles by which canonicity develops, as well as poses open questions about the challenges facing us, which should be discussed in further studies and approaches to the problem.",
+        "title": "Canon, Value, and Cultural Heritage: New Processes of Assigning Value in the Postdigital Realm"
+      },
+      "created_date": "2018-05-11T15:57:57Z",
+      "id": "03cf7539020f455e8b1056d1bf7812d5"
+    },
+    {
+      "last_updated": "2025-08-19T23:38:58Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2416-5999",
+            "type": "eissn"
+          },
+          {
+            "id": "10.46298/jdmdh.6",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "2014",
+          "country": "FR",
+          "issns": [
+            "2416-5999"
+          ],
+          "publisher": "Nicolas Turenne",
+          "language": [
+            "EN"
+          ],
+          "title": "Journal of Data Mining and Digital Humanities"
+        },
+        "month": "6",
+        "keywords": [
+          "computer science - digital libraries",
+          "91f99"
+        ],
+        "year": "2014",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "name": "Kuang-hua Chen"
+          },
+          {
+            "name": "Bi-Shin Hsueh"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "https://jdmdh.episciences.org/6/pdf"
+          }
+        ],
+        "abstract": "This study analyzed references and source papers of the Proceedings of\n2009-2012 International Conference of Digital Archives and Digital Humanities\n(DADH), which was held annually in Taiwan. A total of 59 sources and 1,104\nreferences were investigated, based on descriptive analysis and subject\nanalysis of library practices on cataloguing. Preliminary results showed\nhistorical materials, events, bureaucracies, and people of Taiwan and China in\nthe Qing Dynasty were the major subjects in the tempo-spatial dimensions. The\nsubject-date figure depicted a long-low head and short-high tail curve, which\ndemonstrated both characteristics of research of humanities and application of\ntechnology in digital humanities. The dates of publication of the references\nspanned over 360 years, which shows a long time span in research materials. A\nmajority of the papers (61.41%) were single-authored, which is in line with the\ncommon research practice in the humanities. Books published by general\npublishers were the major type of references, and this was the same as that of\nestablished humanities research. The next step of this study will focus on the\ncomparison of characteristics of both sources and references of international\njournals with those reported in this article.",
+        "title": "Exploring Regional Development of Digital Humanities Research: A Case Study for Taiwan"
+      },
+      "created_date": "2023-09-29T13:55:55Z",
+      "id": "03ef8ae15cf2449cb720df76bd556d02"
+    },
+    {
+      "last_updated": "2025-08-19T21:25:00Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5944/rhd.vol.3.2019.23188",
+            "type": "doi"
+          },
+          {
+            "id": "2531-1786",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "3",
+          "country": "ES",
+          "issns": [
+            "2531-1786"
+          ],
+          "publisher": "Universidad Nacional de Educación a Distancia (UNED)",
+          "language": [
+            "EN",
+            "ES",
+            "PT"
+          ],
+          "title": "Revista de Humanidades Digitales"
+        },
+        "month": "March",
+        "keywords": [
+          "Digital Humanities",
+          "European infrastructures",
+          "cultural diversity",
+          "multidisciplinary collaboration",
+          "Cloud infrastructure"
+        ],
+        "year": "2019",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Austrian Centre for Digital Humanities, Austrian Academy of Sciences (ACDH-OeAW)",
+            "name": "Amelie Dorn"
+          },
+          {
+            "affiliation": "Austrian Centre for Digital Humanities, Austrian Academy of Sciences (ACDH-OeAW)",
+            "name": "Eveline Wandl-Vogt"
+          },
+          {
+            "affiliation": "Ruder Boskovic Institute",
+            "name": "Davor Davidovic"
+          },
+          {
+            "affiliation": "Dipartimento di Fisica e Astronomia & INFN Catania",
+            "name": "Roberto Barbera"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "http://revistas.uned.es/index.php/RHD/article/view/23188"
+          }
+        ],
+        "abstract": "The rapid development of new digital tools and infrastructures in recent years and their application to a variety of disciplines has transformed how we store, access and retrieve information available to us. This has also shaped the ways how knowledge in a diverse cultural context is presented, used and re-used. The exploreAT! project builds upon not only Austrian, but also European cultural identity from the aspect of language, in particular dialects. Unlike standard languages, dialects are in times of globalization under considerable threat of diminishing, and this ultimately poses a risk to the intangible record that is language and through which a history of tangible culture is expressed. In this paper we elaborate on the possibilities digital means and the infrastructure and services of the EGI-Engage project offer in revealing and giving access to unique traditional cultural knowledge contained in a non-standard language resource on the example of the Bavarian dialects in Austria (DBÖ). Digital tools and services allow our heterogeneous corpus of data to be virtually exploited and preserved. The flexibility of the internet allow these data to become not only visible, but searchable and extractable. Through the digitization efforts, and use of European infrastructures the hidden cultural narratives within the data can be uncovered, enriched and shared for the benefit of knowledge society.\n",
+        "title": "Opening up traditional cultural knowledge by means of European infrastructures: the examples of exploreAT! & EGI Engage"
+      },
+      "id": "03f2d4e0cf2f474cb76454098dadeb5f",
+      "created_date": "2020-05-08T15:33:56Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:25:57Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0587-5455",
+            "type": "pissn"
+          },
+          {
+            "id": "1848-9303",
+            "type": "eissn"
+          },
+          {
+            "id": "10.21857/ygjwrcj1ry",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "48",
+          "number": "2",
+          "country": "HR",
+          "issns": [
+            "0587-5455",
+            "1848-9303"
+          ],
+          "publisher": "Hrvatsko muzikološko društvo / Croatian Musicological Society",
+          "language": [
+            "EN",
+            "HR"
+          ],
+          "title": "Arti Musices"
+        },
+        "end_page": "294",
+        "keywords": [
+          "musicology",
+          "digital humanities",
+          "musical sources",
+          "databases",
+          "librarianship",
+          "data exchange"
+        ],
+        "year": "2017",
+        "start_page": "281",
+        "subject": [
+          {
+            "code": "M1-5000",
+            "scheme": "LCC",
+            "term": "Music"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "RISM, Zentralredaktion, Frankfurt am Main, Germany",
+            "name": "Jennifer A. Ward"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://hrcak.srce.hr/file/284216"
+          }
+        ],
+        "abstract": "The online catalogue of the Répertoire International des Sources Musicales (RISM) contains over 1,088,000 records for music manuscripts, imprints, libretti, and treatises. Since the release in 2010, RISM has launched several initiatives to bring musicologists closer to the primary source materials they are researching. The online catalogue attempts to expand the database beyond simply recording the locations of musical sources. With the availability of the RISM data as linked open data, RISM is able to collaborate with other projects in the digital humanities and provide data as a basis for research projects. The release of Muscat, RISM’s open- source specialized software for cataloguing musical sources, has made it easier for RISM project participants to catalogue musical sources. This article will describe how the RISM online catalogue brings musicologists closer to primary source materials and how musicologists can work with RISM using Muscat to facilitate and disseminate their own source-based research.",
+        "title": "Getting Back to the Source, Virtually: RISM as a Tool in the Digital Environment"
+      },
+      "id": "03f58d3a924b4603a4a8251b47c7505b",
+      "created_date": "2024-04-15T14:34:27Z"
+    },
+    {
+      "last_updated": "2026-05-26T15:51:28Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "https://doi.org/10.38159/ehass.20267311",
+            "type": "doi"
+          },
+          {
+            "id": "2720-7722",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "7",
+          "number": "3",
+          "country": "GH",
+          "issns": [
+            "2720-7722"
+          ],
+          "publisher": "Noyam Journals",
+          "language": [
+            "EN"
+          ],
+          "title": "E-Journal of Humanities, Arts and Social Sciences"
+        },
+        "month": "4",
+        "end_page": "802",
+        "keywords": [
+          "transformative paradigm",
+          "methodological innovation",
+          "interdisciplinary research",
+          "digital technologies",
+          "reflexive practice"
+        ],
+        "year": "2026",
+        "start_page": "788",
+        "subject": [
+          {
+            "code": "H",
+            "scheme": "LCC",
+            "term": "Social Sciences"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0001-9830-7040",
+            "affiliation": "University of Venda, South Africa",
+            "name": "Masa Sylvester Motadi"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0001-6852-8264",
+            "affiliation": "Tshwane University of Technology (TUT), Department of Public Affairs",
+            "name": "Tshedza Tshivhasa Sikhwari"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://noyam.org/wp-content/uploads/2026/04/EHASS20267311.pdf"
+          }
+        ],
+        "abstract": "This study examines transformative paradigms as catalysts for advancing problem-solving methodologies in the Social Sciences and Humanities. The primary purpose is to assess existing exploratory and confirmatory methods, evaluate their practical effectiveness, and determine how digital technologies, particularly Amazon Web Services (AWS), enhance methodological innovation. A systematic literature review approach was adopted, synthesising 36 peer-reviewed studies published between 2019 and 2024 through thematic analysis using NVivo software. The methodology enabled the identification of emerging trends in methodological pluralism, interdisciplinarity, and digital integration. The findings reveal that transformative research methods grounded in reflexivity, inclusivity, and technological adaptability significantly improve analytical precision and real-world applicability. Interdisciplinary frameworks combining qualitative and quantitative logic were found to foster robust theoretical development and empirical insight. Furthermore, the integration of digital infrastructures, such as cloud-based analytics, has expanded the capacity for large-scale data processing and global collaboration. The study recommends institutionalising methodological pluralism, ethical digital governance, and researcher training in computational literacy to sustain transformative research ecosystems. Overall, the study contributes to scholarly discourse by conceptualising transformation as a multidimensional process encompassing methodological innovation, digital ethics, and interdisciplinary synthesis. The research offers a framework through which social scientists and humanists can respond more effectively to complex societal challenges by embedding technology, ethics, and inclusivity into the core of research practice.",
+        "title": "Transformative paradigms: Advancing problem-solving methodologies in Social Sciences and Humanities"
+      },
+      "id": "03f5b335fa034f628588cfdf63f9f526",
+      "created_date": "2026-05-26T15:51:28Z"
+    },
+    {
+      "last_updated": "2025-08-20T03:16:47Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1994-5639",
+            "type": "pissn"
+          },
+          {
+            "id": "2310-5828",
+            "type": "eissn"
+          },
+          {
+            "id": "10.17853/1994-5639-2022-6-122-152",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "24",
+          "number": "6",
+          "country": "RU",
+          "issns": [
+            "1994-5639",
+            "2310-5828"
+          ],
+          "publisher": "Russian State Vocational Pedagogical University",
+          "language": [
+            "RU"
+          ],
+          "title": "Образование и наука"
+        },
+        "month": "6",
+        "end_page": "152",
+        "keywords": [
+          "family self-determination",
+          "morality",
+          "moral orientations",
+          "age and psychological approach",
+          "adolescence",
+          "early adulthood"
+        ],
+        "year": "2022",
+        "start_page": "122",
+        "subject": [
+          {
+            "code": "L",
+            "scheme": "LCC",
+            "term": "Education"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Astrakhan State University",
+            "name": "S. V. Merzlyakova"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://www.edscience.ru/jour/article/view/2763"
+          }
+        ],
+        "abstract": "Introduction. The phenomena of the family-demographic crisis in modern society make it necessary to study socio-psychological factors determining the actualisation and development of family self-determination of young people in the context of digital socialisation. Within the framework of digital socialisation, an open and contradictory information space determines the nature of marriage and family ideas, which are the indicative basis for the implementation of family behaviour by young men and women.Aim. The aim of the research is to identify the features of family self-determination of Russian students, who have different moral orientations and personality types in adolescence and early adulthood.Methodology and research methods. The theoretical and methodological basis of the study consists of: cultural-historical theory of psychological development and the doctrine of a psychological age by L. S. Vygotsky; age and psychological approach to the analysis of mental development in ontogenesis; theories of family self-determination of the individual; the concept of personality orientation by B. S. Bratus; concepts of moral self-determination by A. B. Kupreichenko, A. E. Vorobieva, Q. Guo, P. Sun, M. Cai, X. Zhang, K. Song; theories of prosocial behaviour by K. R. Bell, C. J. Showers; L. Kamas, A. Preston. The study involved 490 students, mostly enrolled in the humanities educational programmes. To achieve the goal, the author applied theoretical and methodological analysis of scientific literature; methods of comparison, generalisation, concretisation; psychodiagnostic method and mathematical and statistical methods of data processing.Results. The conducted research has shown that the dominant moral orientation of the personality in adolescence and early adulthood is a peace-building orientation. As a result of comparative analysis of the structural and content characteristics of family self-determination depending on personal moral orientation at different stages of age development, general and specific features were identified. The invariant characteristic is manifested in the fact that in the humanistic orientation there is a high importance of the value of happy family life; in the peace-building orientation – the strength of roles claims in the sphere of social activity for the stability of marriage and family relations, the importance of such marriage motives as self-actualisation and security; the probability of marriage regulated by unproductive feelings of revenge increases in the egocentric orientation. Adolescence is a sensitive period to form a cognitive component of family self-determination of student youth through the development of spiritual and moral sphere. The period of early adulthood is the most sensitive for the development of value-emotional and regulatory-behavioural component of family self-determination as a result of purposeful education of humanistic and peace-building orientation of students’ personality.Scientific novelty of the research lies in the establishment of the connection between the moral orientation of the personality and meaningful characteristics of family self-determination of students in adolescence (17–19 years) and early adulthood (20–22 years).Practical significance. The research materials and findings can be used for creating the education programmes in the organisations of higher education and for planning measures to preserve and develop traditional family values in the youth environment.",
+        "title": "Moral orientations as a factor of family self-determination development of modern students"
+      },
+      "created_date": "2022-09-01T21:19:46Z",
+      "id": "03fbe24bf4d34a5d8c5b2ef7536c96be"
+    },
+    {
+      "last_updated": "2026-05-03T11:53:51Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1186/s40359-026-04407-7",
+            "type": "doi"
+          },
+          {
+            "id": "2050-7283",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "14",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "2050-7283"
+          ],
+          "publisher": "BMC",
+          "language": [
+            "EN"
+          ],
+          "title": "BMC Psychology"
+        },
+        "month": "3",
+        "keywords": [
+          "Adolescent",
+          "social media",
+          "novel psychoactive substance use",
+          "internalizing behavior",
+          "externalizing behavior",
+          "mediation"
+        ],
+        "year": "2026",
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "School of Public Health, College of Health Science and Medicine, Wolaita Sodo University",
+            "name": "Getachew Asmare Adella"
+          },
+          {
+            "affiliation": "Australian Women and Girls’ Health Research Centre, School of Public Health, the University of Queensland",
+            "name": "Dereje G. Gete"
+          },
+          {
+            "affiliation": "School of Science, Engineering and Digital Technologies, University of Southern Queensland",
+            "name": "Zahirul Hoque"
+          },
+          {
+            "affiliation": "School of Business, Law, Humanities and Pathways, University of Southern Queensland",
+            "name": "Rasheda Khanam"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1186/s40359-026-04407-7"
+          }
+        ],
+        "abstract": "Abstract Background This study explores whether internalizing and externalizing behaviors mediate the association between adolescent social media use and novel psychoactive substance (NPS) use in Australia, addressing a gap where counterfactual mediation methods and NPS use have been rarely applied. Methods The study sample included 1605 adolescents from the Longitudinal Survey of Australian Children. We assessed adolescents’ internalizing and externalizing problems using the Strengths and Difficulties Questionnaire. Adolescent NPS use was evaluated by self-reported ever use of synthetic cannabis and other NPS from longitudinal surveys. Social media use was also assessed using self–reported weekday and weekend time use. A causal inference–informed mediation framework was applied to estimate the extent to which internalizing and externalizing problems explained associations between social media use and NPS use. Results Frequent weekday or weekend social media use was associated with a higher likelihood of NPS use compared with infrequent use. Externalizing problems accounted for approximately 8% of the association for weekday social media use and 9% for weekend social media use. Internalizing behaviors did not significantly mediate these associations. Conclusions This study provides insights into the association between adolescent social media use and novel psychoactive substance (NPS) use. Externalizing behaviors statistically accounted for part of this association (potential mediation) for both weekday and weekend use, whereas internalizing behaviors did not. Findings should be interpreted cautiously due to concurrent measurement and potential unmeasured confounding. Despite modest effect sizes, these associations may be relevant at the population level. Externalizing behaviors and digital literacy may be important correlates within broader prevention and risk-reduction frameworks.",
+        "title": "The relation between social media use and novel psychoactive substance use among adolescents – the mediating role of internalizing and externalizing behaviors"
+      },
+      "id": "04147e09d6794b7c9d59da104a4cb5e0",
+      "created_date": "2026-05-03T11:53:51Z"
+    },
+    {
+      "last_updated": "2025-09-13T13:24:17Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5282/o-bib/6116",
+            "type": "doi"
+          },
+          {
+            "id": "2363-9814",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "11",
+          "number": "4",
+          "country": "DE",
+          "issns": [
+            "2363-9814"
+          ],
+          "publisher": "Verein Deutscher Bibliothekarinnen und Bibliothekare (VDB)",
+          "language": [
+            "DE",
+            "EN"
+          ],
+          "title": "o-bib. Das offene Bibliotheksjournal"
+        },
+        "month": "December",
+        "keywords": [
+          "Fachreferat",
+          "Philosophie",
+          "Digital Humanities",
+          "Fachspezifische Vermittlung von Informationskompetenz",
+          "Forschungsnahe Dienste",
+          "Literaturrecherche"
+        ],
+        "year": "2024",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0009-0006-4838-122X",
+            "affiliation": "Universitäts- und Landesbibliothek Düsseldorf",
+            "name": "Christine Wilhelm"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0002-5224-8054",
+            "affiliation": "BIS - Bibliotheks- und Informationssystem der Carl von Ossietzky Universität Oldenburg",
+            "name": "Oliver Schoenbeck"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://o-bib-ojs3test.ub.uni-muenchen.de/bib/article/view/6116"
+          }
+        ],
+        "title": "VDB-Fortbildung für Fachreferent*innen der Philosophie in Oldenburg"
+      },
+      "id": "04148eadd8924e89ad81427f4b606a81",
+      "created_date": "2025-07-17T10:12:19Z"
+    },
+    {
+      "last_updated": "2026-02-26T14:10:25Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.3390/educsci16020261",
+            "type": "doi"
+          },
+          {
+            "id": "2227-7102",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "16",
+          "number": "2",
+          "country": "CH",
+          "issns": [
+            "2227-7102"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Education Sciences"
+        },
+        "month": "02",
+        "keywords": [
+          "augmented reality",
+          "education",
+          "theory of learning",
+          "psychology",
+          "ARCADE framework"
+        ],
+        "year": "2026",
+        "start_page": "261",
+        "subject": [
+          {
+            "code": "L",
+            "scheme": "LCC",
+            "term": "Education"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Human Sciences for Education “Riccardo Massa”, University of Milano-Bicocca, 20126 Milan, Italy",
+            "name": "Federica Pallavicini"
+          },
+          {
+            "affiliation": "Department of Foreign Languages, Literatures and Cultures, University of Bergamo, 24129 Bergamo, Italy",
+            "name": "Patrizia Anesa"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.mdpi.com/2227-7102/16/2/261"
+          }
+        ],
+        "abstract": "Augmented Reality (AR) is transforming education by integrating digital and real-world elements to create immersive and practical learning experiences. AR offers unique benefits in education, such as enhancing student engagement, facilitating understanding of complex concepts through visualizations, and promoting collaborative learning. However, it also faces significant barriers, including high costs, technological limitations, and a lack of standardized evaluation frameworks. Drawing on examples across STEM (Science, Technology, Engineering, and Mathematics), humanities, and arts education, this article highlights how AR can effectively enhance learning outcomes. This narrative review synthesizes recent research on AR in education, drawing on empirical and conceptual studies across different educational levels and domains. Additionally, this paper examines the relationship between AR and major learning theories, presenting relevant case studies and the application of AR across various educational domains and target audiences. The review offers practical recommendations for educators, instructional designers, and researchers aiming to integrate AR into formal and informal learning environments, and introduces the ARCADE framework (Align–Rationale–Configure–Activate–Document–Evolve) as an actionable cycle to guide the design, implementation, and reporting of AR-based educational interventions.",
+        "title": "A Narrative Review on Augmented Reality in Education"
+      },
+      "id": "043438e3a235441392940fbfbb2ebc43",
+      "created_date": "2026-02-26T14:10:25Z"
+    },
+    {
+      "last_updated": "2025-08-19T22:50:05Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2416-5999",
+            "type": "eissn"
+          },
+          {
+            "id": "10.46298/jdmdh.1385",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "2016",
+          "number": "Towards a Digital Ecosystem:...",
+          "country": "FR",
+          "issns": [
+            "2416-5999"
+          ],
+          "publisher": "Nicolas Turenne",
+          "language": [
+            "EN"
+          ],
+          "title": "Journal of Data Mining and Digital Humanities"
+        },
+        "month": "6",
+        "keywords": [
+          "javascript",
+          "python",
+          "mysql",
+          "tei epidoc xml",
+          "greek",
+          "papyri",
+          "linguistic annotation",
+          "treebank",
+          "dependency grammar",
+          "[shs.class] humanities and social sciences/classical studies",
+          "[shs.langue] humanities and social sciences/linguistics",
+          "[shs.stat] humanities and social sciences/methods and statistics"
+        ],
+        "year": "2017",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0001-8531-7055",
+            "affiliation": "Department of World Cultures",
+            "name": "Marja Vierros"
+          },
+          {
+            "affiliation": "Department of World Cultures",
+            "name": "Erik Henriksson"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "https://jdmdh.episciences.org/1385/pdf"
+          }
+        ],
+        "abstract": "Greek documentary papyri form an important direct source for Ancient Greek. It has been exploited surprisingly little in Greek linguistics due to a lack of good tools for searching linguistic structures. This article presents a new tool and digital platform, “Sematia”, which enables transforming the digital texts available in TEI EpiDoc XML format to a format which can be morphologically and syntactically annotated (treebanked), and where the user can add new metadata concerning the text type, writer and handwriting of each act of writing. An important aspect in this process is to take into account the original surviving writing vs. the standardization of language and supplements made by the editors. This is performed by creating two different layers of the same text. The platform is in its early development phase. Ongoing and future developments, such as tagging linguistic variation phenomena as well as queries performed within Sematia, are discussed at the end of the article.",
+        "title": "Preprocessing Greek Papyri for Linguistic Annotation"
+      },
+      "created_date": "2018-06-05T13:12:47Z",
+      "id": "043b6b3b2e31469c8df02c2986b8173f"
+    },
+    {
+      "last_updated": "2025-08-19T18:59:18Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.46430/phen0089",
+            "type": "doi"
+          },
+          {
+            "id": "2397-2068",
+            "type": "pissn"
+          },
+          {
+            "id": "2397-2068",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "9",
+          "country": "GB",
+          "issns": [
+            "2397-2068"
+          ],
+          "publisher": "Editorial Board of the Programming Historian",
+          "language": [
+            "EN"
+          ],
+          "title": "The Programming Historian"
+        },
+        "month": "5",
+        "keywords": [
+          "text analysis",
+          "similarity",
+          "python",
+          "scipy",
+          "digital history",
+          "digital humanities"
+        ],
+        "year": "2020",
+        "subject": [
+          {
+            "code": "D1-2009",
+            "scheme": "LCC",
+            "term": "History (General)"
+          },
+          {
+            "code": "QA76.75-76.765",
+            "scheme": "LCC",
+            "term": "Computer software"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "",
+            "affiliation": "Northwestern University",
+            "name": "John R. Ladd"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://programminghistorian.org/en/lessons/common-similarity-measures"
+          }
+        ],
+        "abstract": "This tutorial will focus on measuring distance among texts by describing the advantages and disadvantages of three of the most common distance measures: city block or “Manhattan” distance, Euclidean distance, and cosine distance. In this lesson, you will learn when to use one measure over another and how to calculate these distances using the SciPy library in Python.",
+        "title": "Understanding and Using Common Similarity Measures for Text Analysis"
+      },
+      "id": "0448ff46ffe5468cb0be7f676ec25d60",
+      "created_date": "2020-09-05T08:23:00Z"
+    },
+    {
+      "last_updated": "2026-03-20T23:21:48Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1918-3666",
+            "type": "eissn"
+          },
+          {
+            "id": "10.16995/dscn.23539",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "country": "GB",
+          "issns": [
+            "1918-3666"
+          ],
+          "publisher": "Open Library of Humanities",
+          "language": [
+            "EN"
+          ],
+          "title": "Digital Studies"
+        },
+        "month": "3",
+        "keywords": [
+          "songwriting",
+          "cultural memory",
+          "sentiment analysis",
+          "digital humanities",
+          "popular music",
+          "écriture de chansons"
+        ],
+        "year": "2026",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "QA75.5-76.95",
+            "scheme": "LCC",
+            "term": "Electronic computers. Computer science"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Computer Science, Lahore University of Management Sciences",
+            "name": "Mohammad Shaharyar Ahsan"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.digitalstudies.org/article/id/23539/"
+          },
+          {
+            "content_type": "application/pdf",
+            "type": "fulltext",
+            "url": "https://www.digitalstudies.org/article/23539/galley/44099/download/"
+          }
+        ],
+        "abstract": "This paper presents a computational framework for analyzing how popular songwriting encodes and reflects cultural memory across seven decades. Using a corpus of 353 Grammy Song of the Year nominees from 1960 to 2025, this study employs a triangulated methodology combining sentiment analysis, lexical structure examination, and musicological feature analysis to trace systematic shifts in songwriting craft. The findings reveal a pronounced affective inversion: the lyrical optimism that peaked in the 1980s has given way to sustained pessimism in the 2010s and 2020s. This emotional shift is accompanied by measurable structural transformations, including increased lexical complexity, declining adherence to grammatical conventions, and heightened emphasis on repetitive hooks designed for viral memorability. Concurrently, analysis of sonic features demonstrates a migration towards high-energy, electronically produced soundscapes. By integrating digital humanities methods with close reading of case studies, this research demonstrates how peer-curated popular music serves as a quantifiable archive of generational sentiment, linguistic evolution, and cultural zeitgeist. The study contributes a replicable mixed-methods approach for understanding songwriting as both artistic craft and cultural artifact, offering insights into how popular music adapts to and reflects the emotional and linguistic landscape of its time.\nCet article propose un cadre computationnel pour analyser la manière dont l’écriture de chansons populaires encode et reflète la mémoire culturelle au cours de sept décennies. En utilisant un corpus de 353 titres nommés pour le Grammy de la chanson de l’année entre 1960 et 2025, cette étude adopte une méthodologie triangulée combinant analyse de sentiment, examen de la structure lexicale et analyse de caractéristiques musicologiques afin de retracer les évolutions systématiques de l’artisanat d’écriture musicale. Les résultats révèlent une inversion affective marquée : l’optimisme lyrique ayant atteint son apogée dans les années 1980 a cédé la place à un pessimisme durable dans les années 2010 et 2020. Ce basculement émotionnel s’accompagne de transformations structurelles mesurables, notamment une complexification lexicale accrue, une diminution de l’adhésion aux conventions grammaticales et une insistance renforcée sur des refrains répétitifs conçus pour favoriser la mémorabilité virale. Parallèlement, l’analyse des caractéristiques sonores met en évidence une migration vers des paysages sonores énergétiques, produits électroniquement. En intégrant des méthodes propres aux humanités numériques à une lecture rapprochée d’études de cas, cette recherche démontre comment la musique populaire choisie par les pairs fonctionne comme une archive quantifiable du sentiment générationnel, de l’évolution linguistique et de l’esprit culturel d’une époque. L’étude propose une approche reproductible, fondée sur des méthodes mixtes, pour comprendre la création de chansons à la fois comme un artisanat artistique et comme un artefact culturel, offrant ainsi des perspectives sur la manière dont la musique populaire s’adapte et reflète le paysage émotionnel et linguistique de son époque.",
+        "title": "Hooked on a Feeling: A Computational Approach Towards Understanding Songwriting as Cultural Memory"
+      },
+      "id": "0479176165e54640b215e373da596b19",
+      "created_date": "2026-03-20T23:21:48Z"
+    },
+    {
+      "last_updated": "2025-08-19T22:57:26Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.3390/app12136665",
+            "type": "doi"
+          },
+          {
+            "id": "2076-3417",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "number": "13",
+          "country": "CH",
+          "issns": [
+            "2076-3417"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Applied Sciences"
+        },
+        "month": "06",
+        "keywords": [
+          "object detection",
+          "object tracking",
+          "video surveillance",
+          "computer vision",
+          "crowd density estimation",
+          "deep learning"
+        ],
+        "year": "2022",
+        "start_page": "6665",
+        "subject": [
+          {
+            "code": "T",
+            "scheme": "LCC",
+            "term": "Technology"
+          },
+          {
+            "code": "TA1-2040",
+            "scheme": "LCC",
+            "term": "Engineering (General). Civil engineering (General)"
+          },
+          {
+            "code": "QH301-705.5",
+            "scheme": "LCC",
+            "term": "Biology (General)"
+          },
+          {
+            "code": "QC1-999",
+            "scheme": "LCC",
+            "term": "Physics"
+          },
+          {
+            "code": "QD1-999",
+            "scheme": "LCC",
+            "term": "Chemistry"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Computer Sciences, College of Computer and Information Sciences, Princess Nourah Bint Abdulrahman University, Riyadh 11671, Saudi Arabia",
+            "name": "Fadwa Alrowais"
+          },
+          {
+            "affiliation": "Department of Information Systems, College of Computing and Information System, Umm Al-Qura University, Mecca 24382, Saudi Arabia",
+            "name": "Saud S. Alotaibi"
+          },
+          {
+            "affiliation": "Department of Computer Science, College of Science & Art at Mahayil, King Khalid University, Abha 62529, Saudi Arabia",
+            "name": "Fahd N. Al-Wesabi"
+          },
+          {
+            "affiliation": "Department of Computer Science, College of Science & Art at Mahayil, King Khalid University, Abha 62529, Saudi Arabia",
+            "name": "Noha Negm"
+          },
+          {
+            "affiliation": "Department of Information Systems, College of Computer and Information Science, Majmaah University, Al-Majmaah 11952, Saudi Arabia",
+            "name": "Rana Alabdan"
+          },
+          {
+            "affiliation": "Department of Information Systems, College of Computer and Information Sciences, Princess Nourah Bint Abdulrahman University, Riyadh 11671, Saudi Arabia",
+            "name": "Radwa Marzouk"
+          },
+          {
+            "affiliation": "Department of Digital Media, Faculty of Computers and Information Technology, Future University in Egypt, New Cairo 11845, Egypt",
+            "name": "Amal S. Mehanna"
+          },
+          {
+            "affiliation": "Department of Computer Science, College of Sciences and Humanities-Aflaj, Prince Sattam bin Abdulaziz University, Al-Kharj 16278, Saudi Arabia",
+            "name": "Mesfer Al Duhayyim"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.mdpi.com/2076-3417/12/13/6665"
+          }
+        ],
+        "abstract": "Object detection is a computer vision based technique which is used to detect instances of semantic objects of a particular class in digital images and videos. Crowd density analysis is one of the commonly utilized applications of object detection. Since crowd density classification techniques face challenges like non-uniform density, occlusion, inter-scene, and intra-scene deviations, convolutional neural network (CNN) models are useful. This paper presents a Metaheuristics with Deep Transfer Learning Enabled Intelligent Crowd Density Detection and Classification (MDTL-ICDDC) model for video surveillance systems. The proposed MDTL-ICDDC technique mostly concentrates on the effective identification and classification of crowd density on video surveillance systems. In order to achieve this, the MDTL-ICDDC model primarily leverages a Salp Swarm Algorithm (SSA) with NASNetLarge model as a feature extraction in which the hyperparameter tuning process is performed by the SSA. Furthermore, a weighted extreme learning machine (WELM) method was utilized for crowd density and classification process. Finally, the krill swarm algorithm (KSA) is applied for an effective parameter optimization process and thereby improves the classification results. The experimental validation of the MDTL-ICDDC approach was carried out with a benchmark dataset, and the outcomes are examined under several aspects. The experimental values indicated that the MDTL-ICDDC system has accomplished enhanced performance over other models such as Gabor, BoW-SRP, Bow-LBP, GLCM-SVM, GoogleNet, and VGGNet.",
+        "title": "Deep Transfer Learning Enabled Intelligent Object Detection for Crowd Density Analysis on Video Surveillance Systems"
+      },
+      "id": "04b807af07e14451a796fd7d3bd5d654",
+      "created_date": "2022-07-08T11:57:40Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:26:58Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1022-2588",
+            "type": "pissn"
+          },
+          {
+            "id": "10.31263/voebm.v72i2.3216",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "72",
+          "number": "2",
+          "country": "AT",
+          "issns": [
+            "1022-2588",
+            "2791-4011"
+          ],
+          "publisher": "Vereinigung Österreichischer Bibliothekarinnen und Bibliothekare",
+          "language": [
+            "DE",
+            "EN"
+          ],
+          "title": "Mitteilungen der Vereinigung Österreichischer Bibliothekarinnen und Bibliothekare"
+        },
+        "month": "12",
+        "end_page": "391",
+        "keywords": [
+          "open science",
+          "federated & inclusive eosc",
+          "research infrastructures",
+          "social science & humanities",
+          "fair data"
+        ],
+        "year": "2019",
+        "start_page": "383",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "CESSDA – Consortium of European Social Science Data Archives",
+            "name": "Ivana Ilijašić Veršić"
+          },
+          {
+            "affiliation": "University of Vienna, AUSSDA – The Austrian Social Science Data Archive",
+            "name": "Julian Ausserhofer"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://journals.univie.ac.at/index.php/voebm/article/view/3216"
+          }
+        ],
+        "abstract": "The EC H2020 cluster project SSHOC aims to provide a full-fledged Social Sciences and Humanities Open Cloud where data, tools, and training are available and accessible for users of SSH data. The focus of the project is determined by the goal to further the innovation of infrastructural support for digital scholarship, to stimulate multidisciplinary collaboration across the various subfields of SSH and beyond, and to increase the potential for societal impact. The intention is to create a European open cloud ecosystem for social sciences and humanities, consisting of an infrastructural and human component. SSHOC will encourage secure environments for sharing and using sensitive and confidential data. It will contribute to the Open Science agenda and realization of the European Open Science Cloud (EOSC), as well as contribute to innovations stemming from the coupling of heterogeneous data types and work on the Interoperability principle of FAIR.",
+        "title": "Social sciences, humanities and their interoperability with the European Open Science Cloud: What is SSHOC?"
+      },
+      "id": "04bea87ff00a4b8ea24ebd19bc90e5af",
+      "created_date": "2020-01-08T16:54:38Z"
+    },
+    {
+      "last_updated": "2025-08-19T19:08:41Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2245-1374",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "7",
+          "number": "13",
+          "country": "DK",
+          "issns": [
+            "1901-5089",
+            "2245-1374"
+          ],
+          "publisher": "Dansk Universitetspædagogisk Netværk",
+          "language": [
+            "DA",
+            "EN"
+          ],
+          "title": "Dansk Universitetspaedagogisk Tidsskrift"
+        },
+        "month": "9",
+        "end_page": "84",
+        "keywords": [
+          "undervisermetro",
+          "undervisningsudvikling",
+          "gode undervisningspraksisser",
+          "netresurse"
+        ],
+        "year": "2012",
+        "start_page": "77",
+        "subject": [
+          {
+            "code": "LC8-6691",
+            "scheme": "LCC",
+            "term": "Special aspects of education"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Center for Undervisningsudvikling og Digitale Medier, Aarhus Universitet",
+            "name": "Lene Tortzen Bager"
+          },
+          {
+            "affiliation": "Center for Undervisningsudvikling og Digitale Medier, Aarhus Universitet",
+            "name": "Peter Stray Jørgensen"
+          },
+          {
+            "affiliation": "Center for Undervisningsudvikling og Digitale Medier, Aarhus Universitet",
+            "name": "Lotte Rienecker"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "http://ojs.statsbiblioteket.dk/index.php/dut/article/view/6300"
+          }
+        ],
+        "abstract": "<p class=\"Abstract\">Undervisermetroen er et studiemiljøprojekt som udspringer af AU’s Studiemiljøundersøgelse 2011, og har pædagogisk kompetenceudvikling af og mere systematisk viden- og god praksisdeling mellem undervisere som formål. Metroen består af underviserbidrag og er konciperet af Lene Tortzen Bager, Gitte Wichmann-Hansen, CUDiM, og projektstyret, samlet og redigeret af Peter Stray Jørgensen, Lotte Rienecker og webredaktører Charlotte Albrechtsen og Anni Pedersen. Projektet er forlænget og udvikles nu videre i hele 2012. Selve metroen er en blivende resurse.</p> <p><span lang=\"EN-US\">”Faculty Metro” is one of over 30 study environment projects at the Faculty of Arts, University of Aarhus, to come out of the study environment investigation, 2011. The purpose is development of teaching competencies and a forum for sharing good teaching and learning practices among faculty. The metro lines and stops contain multimodal good practice descriptions produced by faculty, edited by the Humanities department’s Center for Teaching Development and Digital Media. The idea is conceived by Lene Tortzen Bager and Gitte Wichmann-Hansen. P<a name=\"_GoBack\"></a>edagogical and web crew in 2012 are Peter Stray Jørgensen, Lotte Rienecker, Charlotte Albrechtsen and Anni Pedersen. The metro is a permanent resource.</span></p>",
+        "title": "Undervisermetroen – www.undervisermetro.au.dk"
+      },
+      "created_date": "2013-02-20T09:20:11Z",
+      "id": "04cc2c69e8a4439a866d558bfbfbdb81"
+    },
+    {
+      "last_updated": "2026-03-17T04:34:18Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2468-2276",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1016/j.sciaf.2026.e03257",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "31",
+          "number": "",
+          "country": "NL",
+          "issns": [
+            "2468-2276"
+          ],
+          "publisher": "Elsevier",
+          "language": [
+            "EN"
+          ],
+          "title": "Scientific African"
+        },
+        "month": "03",
+        "end_page": "",
+        "keywords": [
+          "Historical document analysis",
+          "Arabic named entity recognition",
+          "Knowledge graph construction",
+          "Document enhancement",
+          "Multimodal semantic analysis",
+          "Digital humanities"
+        ],
+        "year": "2026",
+        "start_page": "e03257",
+        "subject": [
+          {
+            "code": "Q",
+            "scheme": "LCC",
+            "term": "Science"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Corresponding author.; Engineering Sciences Laboratory, Ibn Zohr University, Faculty of Sciences, Agadir, Morocco",
+            "name": "Hassan Hazimze"
+          },
+          {
+            "affiliation": "Engineering Sciences Laboratory, Ibn Zohr University, Faculty of Sciences, Agadir, Morocco",
+            "name": "Salma Gaou"
+          },
+          {
+            "affiliation": "Engineering Sciences Laboratory, Ibn Zohr University, Faculty of Sciences, Agadir, Morocco",
+            "name": "Khalid Akhlil"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://www.sciencedirect.com/science/article/pii/S2468227626000815"
+          }
+        ],
+        "abstract": "Historical Arabic manuscripts represent invaluable cultural heritage that remains computationally inaccessible due to physical degradation and linguistic complexity. Existing approaches treat document enhancement and semantic analysis as separate stages, limiting their effectiveness on severely degraded texts. This paper introduces a novel multimodal framework that uniquely integrates degradation-aware feature fusion with hierarchical Arabic morphological analysis throughout the entire processing pipeline. Our methodology combines multi-scale document enhancement, specialized named entity recognition, and graph-based relation extraction specifically adapted for Classical Arabic texts. Extensive experiments on the VML-HD dataset demonstrate significant improvements: document enhancement achieves 32.4 dB PSNR and 0.891 SSIM, hierarchical NER attains F1-score of 0.792 (5.5 % improvement), and relation extraction reaches F1-score of 0.683 (4.1 % improvement over baselines). Cross-dataset evaluation shows performance variation across different manuscript collections, with domain adaptation techniques helping to maintain reasonable effectiveness. Our findings indicate that integrating visual and textual features at multiple processing stages supports the analysis of historical Arabic manuscripts. This approach facilitates computational analysis of Arabic manuscript collections, supporting digital humanities and cultural heritage preservation efforts.",
+        "title": "MultiModal-ArabicNER: A deep learning framework for semantic knowledge extraction from degraded historical arabic manuscripts"
+      },
+      "id": "04e07ab66b2046d0817338980778224d",
+      "created_date": "2026-03-17T04:34:18Z"
+    }
+  ],
+  "prev": "https://doaj.org/api/v4/search/articles/digital%20humanities?page=3&pageSize=18",
+  "next": "https://doaj.org/api/v4/search/articles/digital%20humanities?page=5&pageSize=18",
+  "last": "https://doaj.org/api/v4/search/articles/digital%20humanities?page=256&pageSize=18"
+}

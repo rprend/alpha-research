@@ -41,6 +41,7 @@ const steps = [
   ["fetch-department-pages.mjs", [`--limit=${args.departments ?? selected.departments}`, `--run-date=${runDate}`]],
   ["normalize-works.mjs", []],
   ["build-report.mjs", []],
+  ["build-publication-handoff.mjs", []],
   ["check-readiness.mjs", []],
 ];
 const results = [];

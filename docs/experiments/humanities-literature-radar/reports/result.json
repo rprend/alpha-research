@@ -1,152 +1,176 @@
 {
-  "generatedAt": "2026-06-12T18:04:25.323Z",
+  "generatedAt": "2026-06-12T19:23:57.057Z",
+  "strongestFinding": "The v1 literature radar is large enough for a field-map essay about AI, computational methods, and quantitative humanities signals, but source coverage remains uneven.",
   "corpus": {
-    "works": 128,
-    "recentWorks2024Present": 75,
-    "quantitativeHumanitiesCandidates": 45,
+    "works": 1951,
+    "recentWorks2024Present": 1155,
+    "quantitativeHumanitiesCandidates": 593,
     "sources": {
-      "hcommons": 30,
-      "arxiv": 1,
-      "crossref": 30,
-      "doaj": 30,
-      "osf-preprints": 9,
-      "openalex": 28
+      "hcommons": 500,
+      "crossref": 500,
+      "arxiv": 19,
+      "doaj": 468,
+      "openalex": 455,
+      "osf-preprints": 9
     },
     "years": {
-      "2018": 1,
-      "2019": 5,
-      "2020": 9,
-      "2021": 4,
-      "2022": 10,
-      "2023": 24,
-      "2024": 21,
-      "2025": 29,
-      "2026": 25
+      "2003": 1,
+      "2005": 1,
+      "2008": 1,
+      "2009": 2,
+      "2010": 6,
+      "2011": 2,
+      "2012": 2,
+      "2013": 2,
+      "2014": 5,
+      "2015": 7,
+      "2016": 26,
+      "2017": 59,
+      "2018": 29,
+      "2019": 35,
+      "2020": 103,
+      "2021": 111,
+      "2022": 145,
+      "2023": 258,
+      "2024": 378,
+      "2025": 477,
+      "2026": 300,
+      "unknown": 1
     }
   },
   "topTopics": [
     {
       "label": "digital humanities",
       "kind": "discipline",
-      "count": 39,
-      "representative_titles": "Text and Image Studies on AIGC: A Humanities Framework for Interpreting the Cultural and Societal Implications of Generative AI | Engagement | Weekly Writing (with AI)"
+      "count": 363,
+      "representative_titles": "《人工智慧時代的桃花源》The Peach Blossom Spring in the Artificial Intelligence Age | Epistemology and Ontology of AI — New Entry SOTA pre-AGI decade 2020–2030: exploratory dataset analyzing the heuristic geste from Turin to Paris across the centuries, from the epistemic and mathematical roots of Joseph-Louis Lagrange (Turin, 1736) in the eighteenth century through Analytical Mechanics to the ontosemantic extension of the Dorian Codex Protocol for AI and its heuristic mathematical formula H_SAFE, H_safe(t) = T(t) + V(t) − Z(t), proposed by Stefano Dorian Franco (Paris, 1973) in 2025, in the twenty-first century, within the ontosemantic dimension of artificial intelligence — Analysis conducted in June 2026 by the LLM ChatGPT, version GPT-5.5 | Tracing thematic evolution in Ramayana through digital space: an AI-driven bibliometric approach"
     },
     {
       "label": "literature",
       "kind": "discipline",
-      "count": 20,
-      "representative_titles": "Human-AI Co-interpretation: Decoding Traumatic Memory in Dream of the Red Chamber and the Boundaries of the Humanities in the Digital Age — Towards a New Paradigm for Classical Textual Interpretation | AI-Induced Cybersecurity Risks in Healthcare: A Narrative Review of Blockchain-Based Solutions Within a Clinical Risk Management Framework | Reassessing academic integrity in the age of AI: A systematic literature review on AI and academic integrity"
+      "count": 292,
+      "representative_titles": "《人工智慧時代的桃花源》The Peach Blossom Spring in the Artificial Intelligence Age | An LLM System for Autonomous Variational Quantum Circuit Design | The Rise of AI-Native Software Engineering: Implications for Practice, Education, and the Future Workforce"
     },
     {
       "label": "philosophy",
       "kind": "discipline",
-      "count": 19,
-      "representative_titles": "Synthetic Moral Agents or Sophisticated Mimics? | Who Really Uses AI? | Research Constitution — Writing the Rules of Thought"
-    },
-    {
-      "label": "sociology",
-      "kind": "discipline",
-      "count": 18,
-      "representative_titles": "Building AI literacy for humanities students: teaching beyond generative AI | Educating for the AI Era: Harnessing the Wild GenAI Horse through Multiplex AI Humanities and Critical AI Literacy | The Crisis of Artificial Intelligence: A New Digital Humanities Curriculum for Human-Centred AI"
+      "count": 234,
+      "representative_titles": "Synthetic Moral Agents or Sophisticated Mimics? | The Risk-Bearing Subject of AI-Related Existential Risk to Humanity: From Species Survival to the Realization of Subjecthood under Conditions of Human Civilization | Before Judgment: Agency, Formation, and the Conditions of Human Interpretation in AI-Mediated Writing"
     },
     {
       "label": "history",
       "kind": "discipline",
-      "count": 17,
-      "representative_titles": "LUDDITES, ROBOTS, AND CONSOLE COWBOYS: AI AND THE HUMANITIES | Powell.pps: Close &amp; Distant Reading of Primary Sources in Web Archives | Franz Kafka’s “Das Urteil” (1913) as Media History: Writing–Cinema–AI"
+      "count": 231,
+      "representative_titles": "The Ontological Status of AI-Generated Music: From Stylistic Mimicry to Collaborative Agency | The Rise of AI-Native Software Engineering: Implications for Practice, Education, and the Future Workforce | Epistemology and Ontology of AI — From Lagrange and Hamilton Genre-Shift to Agentic AI Cognitive Safety: Open-Source Framework, LNN, HNN, PINN and SciML within the Dorian Codex H_SAFE(t) = T(t) + V(t) - Z(t), by Stefano Dorian Franco — Independent Research Modules Programme for Master, PhD, Doctoral Level"
+    },
+    {
+      "label": "sociology",
+      "kind": "discipline",
+      "count": 216,
+      "representative_titles": "Spatial Humanities | AI-Produced Humanities Research: On the Dangers of Technical Incrementalism | From Text to Meaning. Historical Humanities in the Age of AI and Interdisciplinarity"
     },
     {
       "label": "political science",
       "kind": "discipline",
-      "count": 13,
-      "representative_titles": "Integrating Applied Artificial Intelligence into Non-Technical Master’s Programs: Conceptual Models and Practical Approaches | Embracing the future of Artificial Intelligence in the classroom: the relevance of AI literacy, prompt engineering, and critical thinking in modern education | The Crisis of Artificial Intelligence: A New Digital Humanities Curriculum for Human-Centred AI"
-    },
-    {
-      "label": "large language models",
-      "kind": "quantitative-signal",
-      "count": 12,
-      "representative_titles": "Synthetic Moral Agents or Sophisticated Mimics? | Synthetic Moral Agents or Sophisticated Mimics? | fAIry Tales"
-    },
-    {
-      "label": "computational",
-      "kind": "quantitative-signal",
-      "count": 11,
-      "representative_titles": "AI Ethics in Historical Research: A Framework for Bias Mitigation, Transparency, and Accountability | Opening Ottoman Miniature Collections through Computational Access: Methodological Lessons for Digital Humanities | Trust, Trustworthiness, and the Future of Medical AI: Outcomes of an Interdisciplinary Expert Workshop"
+      "count": 194,
+      "representative_titles": "AI-Augmented Impact Frames: A Closed-Loop Architecture for Purpose-Aligned Decisions | From Prompts to Preferences: An Open-Source Platform for Generative AI-Enhanced Conjoint Analysis | AI-Produced Humanities Research: On the Dangers of Technical Incrementalism"
     },
     {
       "label": "network",
       "kind": "method",
-      "count": 10,
-      "representative_titles": "Opening Ottoman Miniature Collections through Computational Access: Methodological Lessons for Digital Humanities | Opening Ottoman Miniature Collections through Computational Access: Methodological Lessons for Digital Humanities | Countering Fake News on Chinese Social Platforms: Communication Features of Weibo and WeChat"
+      "count": 170,
+      "representative_titles": "Agent-based models for the evolution of morphological alternation patterns | Agent-based models for the evolution of morphological alternation patterns | Tracing thematic evolution in Ramayana through digital space: an AI-driven bibliometric approach"
     },
     {
-      "label": "llm",
-      "kind": "method",
-      "count": 8,
-      "representative_titles": "Valid Inference with Synthetic Data via Task Exchangeability | Valid Inference with Synthetic Data via Task Exchangeability | Who Designs the Future Classroom?: LLM Ecologies, Educational Governance, and Postdigital Imaginaries in China, the United States, and Europe"
-    },
-    {
-      "label": "classification",
+      "label": "large language models",
       "kind": "quantitative-signal",
-      "count": 7,
-      "representative_titles": "Final Portfolio | Artificiali Intelligence and Digital Humanities: Methodological approaches, theories and mtehods | Opening Ottoman Miniature Collections through Computational Access: Methodological Lessons for Digital Humanities"
+      "count": 168,
+      "representative_titles": "Synthetic Moral Agents or Sophisticated Mimics? | Synthetic Moral Agents or Sophisticated Mimics? | Epistemic Injustice in Generative AI: Probabilistic Generation, Trust Erosion, and the Structural Conditions of Algorithmic Knowledge Harm"
     },
     {
       "label": "llms",
       "kind": "quantitative-signal",
-      "count": 6,
-      "representative_titles": "Synthetic Moral Agents or Sophisticated Mimics? | Synthetic Moral Agents or Sophisticated Mimics? | MEANING GRAPHS FOR THE HUMANITIES IN THE AGE OF LLMS: AMR AND UMR AS INTERPRETIVE INFRASTRUCTURE"
-    },
-    {
-      "label": "corpus",
-      "kind": "method",
-      "count": 6,
-      "representative_titles": "Authorship Attribution Revisited: The Problem of Flash Fiction A morphological-based Linguistic Stylometry Approach | Authorship Attribution Revisited: The Problem of Flash Fiction A morphological-based Linguistic Stylometry Approach | Transcribing Foucault’s handwriting with Transkribus Transcrire l'écriture de Foucault avec Transkribus"
+      "count": 122,
+      "representative_titles": "Synthetic Moral Agents or Sophisticated Mimics? | Synthetic Moral Agents or Sophisticated Mimics? | Epistemic Injustice in Generative AI: Probabilistic Generation, Trust Erosion, and the Structural Conditions of Algorithmic Knowledge Harm"
     },
     {
       "label": "linguistics",
       "kind": "discipline",
-      "count": 5,
-      "representative_titles": "Voynich Script as Medieval Pharmaceutical Notation: Latin Case Morphology and Recipe Structure in an Encrypted 15th-Century Antidotarium | Countering Fake News on Chinese Social Platforms: Communication Features of Weibo and WeChat | Fluent but Not Factual: A Comparative Analysis of ChatGPT and Other AI Chatbots’ Proficiency and Originality in Scientific Writing for Humanities"
+      "count": 109,
+      "representative_titles": "The Grammar of Asymmetric Visibility: AI, Zionism, and the Reallocation of Political Agency | Suffering Without Perpetrators: The Humanitarian Passive in AI-Generated Conflict Discourse | From Text to Meaning. Historical Humanities in the Age of AI and Interdisciplinarity"
     },
     {
-      "label": "anthropology",
+      "label": "computational",
+      "kind": "quantitative-signal",
+      "count": 105,
+      "representative_titles": "Image Collection of AI-Centered Futuristic Imagination | The Ontological Status of AI-Generated Music: From Stylistic Mimicry to Collaborative Agency | Agent-based models for the evolution of morphological alternation patterns"
+    },
+    {
+      "label": "llm",
+      "kind": "method",
+      "count": 98,
+      "representative_titles": "Epistemic Injustice in Generative AI: Probabilistic Generation, Trust Erosion, and the Structural Conditions of Algorithmic Knowledge Harm | Epistemic Injustice in Generative AI: Probabilistic Generation, Trust Erosion, and the Structural Conditions of Algorithmic Knowledge Harm | Valid Inference with Synthetic Data via Task Exchangeability"
+    },
+    {
+      "label": "corpus",
+      "kind": "method",
+      "count": 98,
+      "representative_titles": "Mod-Guide: An LLM-based Content Moderation Feedback System to Address Insensitive Speech toward Indigenous Ethnic and Religious Minority Communities | Mod-Guide: An LLM-based Content Moderation Feedback System to Address Insensitive Speech toward Indigenous Ethnic and Religious Minority Communities | MARD: Mirror-Augmented Reasoning Distillation for Mechanism-Level Drug-Drug Interaction Prediction"
+    },
+    {
+      "label": "quantitative",
+      "kind": "quantitative-signal",
+      "count": 91,
+      "representative_titles": "Measuring the Impact of AI-Assisted Language Learning on English Language Education: A Mixed-Methods Study | Developing Soft Skills for the AI Era: A Study of Science Students at Sidi Mohamed Ben Abdellah University | Influence of Teachers' TPACK, AI Utilization, and Students' Metacognitive Practices on Academic Writing among Senior High School Students"
+    },
+    {
+      "label": "economics",
       "kind": "discipline",
-      "count": 4,
-      "representative_titles": "Archiving Virtual Culture: Problems, Challenges and Preservation Strategies | The Crisis of Artificial Intelligence: A New Digital Humanities Curriculum for Human-Centred AI | The impact of Generative AI (GenAI) on practices, policies and research direction in education: a case of ChatGPT and Midjourney"
+      "count": 74,
+      "representative_titles": "EconCSLib: AI-Assisted Lean Formalization for Economics & Computation research | AI-Produced Humanities Research: On the Dangers of Technical Incrementalism | Dual Reconfiguration of Education: How AI Reopens the “End of History” Through the Technology–Governance Dual Curve"
+    },
+    {
+      "label": "classification",
+      "kind": "quantitative-signal",
+      "count": 59,
+      "representative_titles": "An LLM System for Autonomous Variational Quantum Circuit Design | MARD: Mirror-Augmented Reasoning Distillation for Mechanism-Level Drug-Drug Interaction Prediction | Suffering Without Perpetrators: The Humanitarian Passive in AI-Generated Conflict Discourse"
+    },
+    {
+      "label": "dataset",
+      "kind": "quantitative-signal",
+      "count": 51,
+      "representative_titles": "VietFashion: Benchmarking Sketch-Text Composed Image Retrieval for Cultural Outfits | TimeLens: On-Device Artifact Recognition with Retrieval-Augmented Question Answering for the Grand Egyptian Museum | AiAWE: An Open-Source LLM Automated Writing Evaluation System Using LoRA-Adapted Instruction-Tuned Models"
     },
     {
       "label": "translation",
       "kind": "method",
-      "count": 3,
-      "representative_titles": "MEANING GRAPHS FOR THE HUMANITIES IN THE AGE OF LLMS: AMR AND UMR AS INTERPRETIVE INFRASTRUCTURE | Digital Humanities in the Age of AI: Transforming Human Expression and Global Knowledge Sharing | AI Generation and Descriptive Translation Studies"
+      "count": 50,
+      "representative_titles": "EconCSLib: AI-Assisted Lean Formalization for Economics & Computation research | Beyond Translation: Can Human-AI Co-Regulation Improve Qira’ah al-Kutub Instruction? | MEANING GRAPHS FOR THE HUMANITIES IN THE AGE OF LLMS: AMR AND UMR AS INTERPRETIVE INFRASTRUCTURE"
     },
     {
-      "label": "citation",
-      "kind": "quantitative-signal",
-      "count": 3,
-      "representative_titles": "Research Constitution — Writing the Rules of Thought | Mapping artificial intelligence research in higher education toward sustainable development | A Review of Artificial Intelligence (AI) in Education from 2010 to 2020"
+      "label": "large language model",
+      "kind": "method",
+      "count": 44,
+      "representative_titles": "RogueAI: A Reverse Turing Test for Detecting Licensed AI Deception in Dialogue | RogueAI: A Reverse Turing Test for Detecting Licensed AI Deception in Dialogue | The End of Code Review: Coding Agents Supersede Human Inspection"
     },
     {
-      "label": "embedding",
-      "kind": "quantitative-signal",
-      "count": 3,
-      "representative_titles": "AI Ethics in Historical Research: A Framework for Bias Mitigation, Transparency, and Accountability | Embracing the future of Artificial Intelligence in the classroom: the relevance of AI literacy, prompt engineering, and critical thinking in modern education | D-WISE Tool Suite for the Sociology of Knowledge Approach to Discourse"
-    },
-    {
-      "label": "metadata",
-      "kind": "quantitative-signal",
-      "count": 3,
-      "representative_titles": "Opening Ottoman Miniature Collections through Computational Access: Methodological Lessons for Digital Humanities | AI, Cultural Heritage, and Bias: Some Key Queries That Arise from the Use of GenAI | Semantic Annotation of Image Resources in Digital Humanities"
-    },
-    {
-      "label": "content analysis",
-      "kind": "quantitative-signal",
-      "count": 3,
-      "representative_titles": "Countering Fake News on Chinese Social Platforms: Communication Features of Weibo and WeChat | Integrating Applied Artificial Intelligence into Non-Technical Master’s Programs: Conceptual Models and Practical Approaches | A Review of Artificial Intelligence (AI) in Education from 2010 to 2020"
+      "label": "spatial",
+      "kind": "method",
+      "count": 40,
+      "representative_titles": "TimeLens: On-Device Artifact Recognition with Retrieval-Augmented Question Answering for the Grand Egyptian Museum | TimeLens: On-Device Artifact Recognition with Retrieval-Augmented Question Answering for the Grand Egyptian Museum | Mapping the body: poetic metaphor and AI imaging in Carol Ann Duffy’s ‘The Map-Woman’"
     }
   ],
   "representativeWorks": [
+    {
+      "title": "LLaMA: Open and Efficient Foundation Language Models",
+      "year": 2023,
+      "venue": "arXiv (Cornell University)",
+      "source": "openalex",
+      "url": "http://arxiv.org/abs/2302.13971",
+      "cited_by_count": 3896,
+      "methods": [],
+      "quantitative_signals": []
+    },
     {
       "title": "Artificial Intelligence in Education: A Review",
       "year": 2020,
@@ -156,6 +180,23 @@
       "cited_by_count": 3427,
       "methods": [],
       "quantitative_signals": []
+    },
+    {
+      "title": "GPT-4 Technical Report",
+      "year": 2023,
+      "venue": "arXiv (Cornell University)",
+      "source": "openalex",
+      "url": "http://arxiv.org/abs/2303.08774",
+      "cited_by_count": 2346,
+      "methods": [
+        "large language models",
+        "llms"
+      ],
+      "quantitative_signals": [
+        "large language models",
+        "llms",
+        "quantitative"
+      ]
     },
     {
       "title": "Students’ voices on generative AI: perceptions, benefits, and challenges in higher education",
@@ -183,6 +224,53 @@
       ]
     },
     {
+      "title": "FungalTraits: a user-friendly traits database of fungi and fungus-like stramenopiles",
+      "year": 2020,
+      "venue": "Fungal Diversity",
+      "source": "openalex",
+      "url": "https://doi.org/10.1007/s13225-020-00466-2",
+      "cited_by_count": 1102,
+      "methods": [],
+      "quantitative_signals": [
+        "citation"
+      ]
+    },
+    {
+      "title": "Consumers and Artificial Intelligence: An Experiential Perspective",
+      "year": 2020,
+      "venue": "Journal of Marketing",
+      "source": "openalex",
+      "url": "https://doi.org/10.1177/0022242920953847",
+      "cited_by_count": 1002,
+      "methods": [],
+      "quantitative_signals": [
+        "embedding",
+        "classification"
+      ]
+    },
+    {
+      "title": "Bias in data‐driven artificial intelligence systems—An introductory survey",
+      "year": 2020,
+      "venue": "Wiley Interdisciplinary Reviews Data Mining and Knowledge Discovery",
+      "source": "openalex",
+      "url": "https://doi.org/10.1002/widm.1356",
+      "cited_by_count": 985,
+      "methods": [],
+      "quantitative_signals": []
+    },
+    {
+      "title": "Google Scholar, Microsoft Academic, Scopus, Dimensions, Web of Science, and OpenCitations’ COCI: a multidisciplinary comparison of coverage via citations",
+      "year": 2020,
+      "venue": "Scientometrics",
+      "source": "openalex",
+      "url": "https://doi.org/10.1007/s11192-020-03690-4",
+      "cited_by_count": 919,
+      "methods": [],
+      "quantitative_signals": [
+        "citation"
+      ]
+    },
+    {
       "title": "Embracing the future of Artificial Intelligence in the classroom: the relevance of AI literacy, prompt engineering, and critical thinking in modern education",
       "year": 2024,
       "venue": "International Journal of Educational Technology in Higher Education",
@@ -193,6 +281,16 @@
       "quantitative_signals": [
         "embedding"
       ]
+    },
+    {
+      "title": "The impact of artificial intelligence on learner–instructor interaction in online learning",
+      "year": 2021,
+      "venue": "International Journal of Educational Technology in Higher Education",
+      "source": "openalex",
+      "url": "https://doi.org/10.1186/s41239-021-00292-9",
+      "cited_by_count": 704,
+      "methods": [],
+      "quantitative_signals": []
     },
     {
       "title": "From ChatGPT to ThreatGPT: Impact of Generative AI in Cybersecurity and Privacy",
@@ -215,92 +313,22 @@
       "quantitative_signals": []
     },
     {
+      "title": "Knowledge Graphs: Opportunities and Challenges",
+      "year": 2023,
+      "venue": "Artificial Intelligence Review",
+      "source": "openalex",
+      "url": "https://doi.org/10.1007/s10462-023-10465-9",
+      "cited_by_count": 596,
+      "methods": [],
+      "quantitative_signals": []
+    },
+    {
       "title": "Teachers’ AI digital competencies and twenty-first century skills in the post-pandemic world",
       "year": 2023,
       "venue": "Educational Technology Research and Development",
       "source": "openalex",
       "url": "https://doi.org/10.1007/s11423-023-10203-6",
       "cited_by_count": 574,
-      "methods": [],
-      "quantitative_signals": []
-    },
-    {
-      "title": "Learning design to support student-AI collaboration: perspectives of leading teachers for AI in education",
-      "year": 2022,
-      "venue": "Education and Information Technologies",
-      "source": "openalex",
-      "url": "https://doi.org/10.1007/s10639-021-10831-6",
-      "cited_by_count": 538,
-      "methods": [],
-      "quantitative_signals": []
-    },
-    {
-      "title": "Contributions and Risks of Artificial Intelligence (AI) in Building Smarter Cities: Insights from a Systematic Review of the Literature",
-      "year": 2020,
-      "venue": "Energies",
-      "source": "openalex",
-      "url": "https://doi.org/10.3390/en13061473",
-      "cited_by_count": 511,
-      "methods": [],
-      "quantitative_signals": []
-    },
-    {
-      "title": "Impact of AI assistance on student agency",
-      "year": 2023,
-      "venue": "Computers & Education",
-      "source": "openalex",
-      "url": "https://doi.org/10.1016/j.compedu.2023.104967",
-      "cited_by_count": 371,
-      "methods": [],
-      "quantitative_signals": []
-    },
-    {
-      "title": "In search of artificial intelligence (AI) literacy in teacher education: A scoping review",
-      "year": 2024,
-      "venue": "Computers and Education Open",
-      "source": "openalex",
-      "url": "https://doi.org/10.1016/j.caeo.2024.100169",
-      "cited_by_count": 322,
-      "methods": [],
-      "quantitative_signals": []
-    },
-    {
-      "title": "Perceptions and usage of AI chatbots among students in higher education across genders, academic levels and fields of study",
-      "year": 2024,
-      "venue": "Computers and Education Artificial Intelligence",
-      "source": "openalex",
-      "url": "https://doi.org/10.1016/j.caeai.2024.100259",
-      "cited_by_count": 239,
-      "methods": [],
-      "quantitative_signals": []
-    },
-    {
-      "title": "Human-centered AI: The role of Human-centered Design Research in the development of AI",
-      "year": 2020,
-      "venue": "Proceedings of DRS",
-      "source": "openalex",
-      "url": "https://doi.org/10.21606/drs.2020.282",
-      "cited_by_count": 187,
-      "methods": [],
-      "quantitative_signals": []
-    },
-    {
-      "title": "Hello GPT! Goodbye home examination? An exploratory study of AI chatbots impact on university teachers’ assessment practices",
-      "year": 2023,
-      "venue": "Assessment & Evaluation in Higher Education",
-      "source": "openalex",
-      "url": "https://doi.org/10.1080/02602938.2023.2241676",
-      "cited_by_count": 185,
-      "methods": [],
-      "quantitative_signals": []
-    },
-    {
-      "title": "How to cheat on your final paper: Assigning AI for student writing",
-      "year": 2022,
-      "venue": "AI & Society",
-      "source": "openalex",
-      "url": "https://doi.org/10.1007/s00146-022-01397-z",
-      "cited_by_count": 184,
       "methods": [],
       "quantitative_signals": []
     }
@@ -325,7 +353,7 @@
   "caveats": [
     "This first artifact uses public metadata and abstracts where available, not full-text scholarship.",
     "Open indexes underrepresent books, chapters, non-English work, and paywalled humanities journals.",
-    "Trend claims require larger backfills and source-coverage checks before publication."
+    "Trend claims require source-coverage checks and manual review of representative works before publication."
   ],
   "files": {
     "sourceInventory": "reports/source-inventory.md",
