@@ -24,9 +24,11 @@ Overall status: pass
 - Local catalog reading matches: 43
 - Unresolved reading snippets: 45
 - Non-citation reading fragments: 34
-- Search candidates: 28
+- Search candidates: 34
 - Promoted search candidates: 10
 - Imported search candidates: 0
+- Live search API candidates: 6
+- Live search provider-unconfigured rows: 6
 - Common Crawl candidates: 168
 - Common Crawl fetch candidates: 35
 - Ingested Common Crawl candidates: 8
@@ -66,7 +68,7 @@ Overall status: pass
 - PASS assignments_have_confidence_boundaries: 65 high, 109 medium, and 328 low confidence assignment rows; 0 boundary metadata errors.
 - PASS readings_reference_valid_syllabi_and_sources: 0 reading reference errors.
 - PASS readings_have_normalized_work_links: 56 reading snippets linked to 30 canonical works; 43 local catalog matches, 45 unresolved, 34 non-citation fragments.
-- PASS search_candidates_have_provenance: 28 search candidates, 10 promoted, 0 imported; 0 candidate reference errors.
+- PASS search_candidates_have_provenance: 34 search candidates, 10 promoted, 0 imported, 6 live API rows (6 provider-unconfigured); 0 candidate reference errors.
 - PASS common_crawl_candidates_have_provenance: 168 Common Crawl candidates, 35 fetch candidates, 8 ingested; 0 provenance errors.
 - PASS common_crawl_promotions_reference_candidates: 8 Common Crawl promotions, 8 successful, 8 ingested; 0 reference errors.
 - PASS faculty_graph_references_valid_sources: 26 faculty rows and 48 faculty-course edges; 0 reference errors.

@@ -96,7 +96,7 @@ Known gaps:
 - Discovery is still seed-based.
 - Citation extraction is heuristic with local catalog matching and non-citation fragment classification; external API linking is not wired yet.
 - Assignment extraction is snippet-based with structured signals, confidence, and boundary status; it still needs richer full-brief parsing from long assignment pages.
-- Search candidate import is supported through local JSON/JSONL exports, but no live search API provider is wired yet.
+- Search candidate import is supported through local JSON/JSONL exports, and a live search API path is wired for Brave or Bing when an API key is present in the environment.
 - A bounded Common Crawl candidate, promotion, and ingestion pass exists, but it is still capped and should be expanded carefully.
 - Faculty/course edges are derived from course evidence, and bounded RISD faculty-profile candidate discovery/ingestion is implemented. Faculty-portfolio expansion now follows external links from official RISD profile pages, but broader public web search for faculty teaching/course artifacts is still not wired yet.
 - Source clustering is used to group evidence families in generated course packets. Current clusters are mostly related source families rather than exact duplicates, so the generator preserves distinct related pages and still needs stronger near-duplicate collapse once more duplicate evidence appears.
@@ -300,8 +300,10 @@ Required fields:
 - `url`
 - `discovered_at`
 - `source`
+- `provider`
 - `status`
 - `promoted_source_id`
+- `error`
 
 ### `common_crawl_candidates.jsonl`
 
@@ -559,7 +561,7 @@ site:*.squarespace.com "RISD" "Graphic Design" "syllabus"
 Implementation requirements:
 
 1. Add `search_results.jsonl`.
-2. Support imported search exports and, when configured, a search API provider.
+2. Support imported search exports and, when configured through `BRAVE_SEARCH_API_KEY` or `BING_SEARCH_API_KEY`, a search API provider.
 3. Never require secrets in chat; use `~/.codex/scripts/ask-secret.sh` for API keys.
 4. Deduplicate candidate URLs before fetch.
 5. Record query, rank, title, snippet, URL, and discovery date.

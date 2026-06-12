@@ -20,9 +20,11 @@
     "unresolved_readings": 45,
     "non_citation_reading_fragments": 34,
     "canonical_reading_works": 30,
-    "search_candidates": 28,
+    "search_candidates": 34,
     "promoted_search_candidates": 10,
     "imported_search_candidates": 0,
+    "live_search_candidates": 6,
+    "live_search_provider_unconfigured": 6,
     "common_crawl_candidates": 168,
     "common_crawl_fetch_candidates": 35,
     "ingested_common_crawl_candidates": 8,
@@ -104,7 +106,7 @@
     {
       "id": "search_candidates_have_provenance",
       "status": "pass",
-      "detail": "28 search candidates, 10 promoted, 0 imported; 0 candidate reference errors."
+      "detail": "34 search candidates, 10 promoted, 0 imported, 6 live API rows (6 provider-unconfigured); 0 candidate reference errors."
     },
     {
       "id": "common_crawl_candidates_have_provenance",

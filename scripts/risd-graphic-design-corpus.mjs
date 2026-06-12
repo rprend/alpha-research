@@ -14,6 +14,7 @@ const commonCrawlOnly = process.argv.includes('--common-crawl-only')
 const promoteCommonCrawlOnly = process.argv.includes('--promote-common-crawl-only')
 const ingestCommonCrawlOnly = process.argv.includes('--ingest-common-crawl-only')
 const ingestFacultyProfilesOnly = process.argv.includes('--ingest-faculty-profiles-only')
+const searchApiOnly = process.argv.includes('--search-api-only')
 const officialCourseMaxPages = 12
 const crawlMaxDepth = 1
 const crawlMaxLinksPerHost = 20
@@ -23,6 +24,8 @@ const commonCrawlMaxRowsPerQuery = Number(process.env.RISD_GD_CC_MAX_ROWS_PER_QU
 const commonCrawlPromoteLimit = Number(process.env.RISD_GD_CC_PROMOTE_LIMIT ?? 8)
 const commonCrawlIngestLimit = Number(process.env.RISD_GD_CC_INGEST_LIMIT ?? 8)
 const facultyProfileIngestLimit = Number(process.env.RISD_GD_FACULTY_PROFILE_INGEST_LIMIT ?? 40)
+const searchApiMaxQueries = Number(process.env.RISD_GD_SEARCH_API_MAX_QUERIES ?? 6)
+const searchApiResultsPerQuery = Number(process.env.RISD_GD_SEARCH_API_RESULTS_PER_QUERY ?? 10)
 const searchImportPath = process.env.RISD_GD_SEARCH_IMPORTS ?? join(outDir, 'search_imports.jsonl')
 const risdGraphicDesignFacultyUrl = 'https://www.risd.edu/academics/graphic-design/faculty'
 
@@ -351,7 +354,153 @@ function buildSearchResults() {
   }))
 }
 
-function buildSearchCandidates(importedCandidates = [], promotedImported = []) {
+function configuredSearchProvider() {
+  if (process.env.BRAVE_SEARCH_API_KEY) {
+    return {
+      provider: 'brave',
+      endpoint: 'https://api.search.brave.com/res/v1/web/search',
+      key: process.env.BRAVE_SEARCH_API_KEY,
+    }
+  }
+  if (process.env.BING_SEARCH_API_KEY) {
+    return {
+      provider: 'bing',
+      endpoint: 'https://api.bing.microsoft.com/v7.0/search',
+      key: process.env.BING_SEARCH_API_KEY,
+    }
+  }
+  return null
+}
+
+async function querySearchProvider(query, providerConfig) {
+  const endpoint = new URL(providerConfig.endpoint)
+  endpoint.searchParams.set('q', query)
+  if (providerConfig.provider === 'brave') {
+    endpoint.searchParams.set('count', String(searchApiResultsPerQuery))
+    endpoint.searchParams.set('search_lang', 'en')
+  } else if (providerConfig.provider === 'bing') {
+    endpoint.searchParams.set('count', String(searchApiResultsPerQuery))
+    endpoint.searchParams.set('responseFilter', 'Webpages')
+  }
+
+  const headers = providerConfig.provider === 'brave'
+    ? { Accept: 'application/json', 'X-Subscription-Token': providerConfig.key }
+    : { Accept: 'application/json', 'Ocp-Apim-Subscription-Key': providerConfig.key }
+
+  const fetched = await fetchWithRetry(endpoint.toString(), 2, headers)
+  if (!fetched.ok) {
+    return [{
+      query,
+      provider: providerConfig.provider,
+      error: `http_${fetched.status}`,
+    }]
+  }
+  const payload = JSON.parse(fetched.buffer.toString('utf8'))
+  const rows = providerConfig.provider === 'brave'
+    ? payload.web?.results ?? []
+    : payload.webPages?.value ?? []
+  return rows.map((row, index) => ({
+    query,
+    provider: providerConfig.provider,
+    rank: index + 1,
+    title: row.title ?? row.name ?? null,
+    snippet: row.description ?? row.snippet ?? null,
+    url: row.url,
+    error: null,
+  }))
+}
+
+function searchApiUnavailableRows() {
+  return searchQueries.slice(0, searchApiMaxQueries).map((query, index) => ({
+    query,
+    rank: null,
+    title: null,
+    snippet: null,
+    url: null,
+    promoted_source_id: null,
+    discovered_at: retrievedAt,
+    source: 'live_search_api',
+    provider: null,
+    status: 'provider_unconfigured',
+    error: 'Set BRAVE_SEARCH_API_KEY or BING_SEARCH_API_KEY in the environment; do not paste secrets into chat.',
+    candidate_id: `live_search_unconfigured_${String(index + 1).padStart(2, '0')}`,
+  }))
+}
+
+async function buildLiveSearchCandidates() {
+  const providerConfig = configuredSearchProvider()
+  if (!providerConfig) return searchApiUnavailableRows()
+
+  const rawRows = []
+  for (const [index, query] of searchQueries.slice(0, searchApiMaxQueries).entries()) {
+    console.error(`live search ${providerConfig.provider} ${index + 1}/${Math.min(searchQueries.length, searchApiMaxQueries)}: ${query}`)
+    try {
+      rawRows.push(...await querySearchProvider(query, providerConfig))
+    } catch (error) {
+      rawRows.push({
+        query,
+        provider: providerConfig.provider,
+        rank: null,
+        title: null,
+        snippet: null,
+        url: null,
+        error: error.message,
+      })
+    }
+  }
+
+  const candidates = []
+  for (const row of rawRows) {
+    if (row.error || !row.url) {
+      candidates.push({
+        candidate_id: `live_search_${row.provider}_${sha256(Buffer.from(`${row.query}:${row.error ?? 'empty'}`)).slice(0, 10)}`,
+        query: row.query,
+        rank: row.rank,
+        title: row.title,
+        snippet: row.snippet,
+        url: null,
+        discovered_at: retrievedAt,
+        source: 'live_search_api',
+        provider: row.provider,
+        status: 'query_failed',
+        promoted_source_id: null,
+        error: row.error ?? 'missing_url',
+      })
+      continue
+    }
+    const normalized = normalizeSearchCandidate({
+      candidate_id: `live_search_${row.provider}_${sha256(Buffer.from(canonicalUrl(row.url))).slice(0, 10)}`,
+      query: row.query,
+      rank: row.rank,
+      title: row.title,
+      snippet: row.snippet,
+      url: row.url,
+      source: 'live_search_api',
+      status: 'candidate_from_search_api',
+      provider: row.provider,
+      discovered_at: retrievedAt,
+    })
+    if (normalized) {
+      candidates.push({
+        ...normalized,
+        source: 'live_search_api',
+        provider: row.provider,
+        status: 'candidate_from_search_api',
+        error: null,
+      })
+    }
+  }
+
+  const seen = new Set()
+  return candidates.filter((candidate) => {
+    const key = candidate.url ? canonicalUrl(candidate.url) : candidate.candidate_id
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+}
+
+function buildSearchCandidates(importedCandidates = [], promotedImported = [], liveSearchCandidates = []) {
   const promotedByUrl = new Map(promotedImported.map((source) => [canonicalUrl(source.url), source.source_id]))
   const rows = []
   for (const source of searchDiscoveredSources) {
@@ -390,6 +539,7 @@ function buildSearchCandidates(importedCandidates = [], promotedImported = []) {
       promoted_source_id: promotedSourceId,
     })
   }
+  rows.push(...liveSearchCandidates)
   const seen = new Set()
   return rows.filter((row) => {
     const key = row.url ? `${row.source}:${canonicalUrl(row.url)}` : row.candidate_id
@@ -963,7 +1113,7 @@ function inferSkills(text) {
   return checks.filter(([, terms]) => terms.some((term) => lower.includes(term))).map(([skill]) => skill)
 }
 
-async function fetchWithTimeout(url, timeoutMs = 25000) {
+async function fetchWithTimeout(url, timeoutMs = 25000, headers = {}) {
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), timeoutMs)
   try {
@@ -972,6 +1122,7 @@ async function fetchWithTimeout(url, timeoutMs = 25000) {
       headers: {
         'user-agent': 'alpha-research-risd-corpus/0.1 (+public research corpus; contact repository owner)',
         accept: '*/*',
+        ...headers,
       },
     })
     const arrayBuffer = await response.arrayBuffer()
@@ -987,11 +1138,11 @@ async function fetchWithTimeout(url, timeoutMs = 25000) {
   }
 }
 
-async function fetchWithRetry(url, attempts = 3) {
+async function fetchWithRetry(url, attempts = 3, headers = {}) {
   let lastError
   for (let attempt = 1; attempt <= attempts; attempt++) {
     try {
-      return await fetchWithTimeout(url)
+      return await fetchWithTimeout(url, 25000, headers)
     } catch (error) {
       lastError = error
       if (attempt < attempts) await sleep(750 * attempt)
@@ -2520,6 +2671,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const searchCandidateErrors = searchCandidates.filter((candidate) => !candidate.candidate_id || !candidate.status || candidate.promoted_source_id && !sourceIds.has(candidate.promoted_source_id))
   const promotedSearchCandidateCount = searchCandidates.filter((candidate) => candidate.promoted_source_id).length
   const importedSearchCandidateCount = searchCandidates.filter((candidate) => candidate.source === 'imported_search_export').length
+  const liveSearchCandidateCount = searchCandidates.filter((candidate) => candidate.source === 'live_search_api').length
+  const liveSearchProviderUnconfiguredCount = searchCandidates.filter((candidate) => candidate.source === 'live_search_api' && candidate.status === 'provider_unconfigured').length
   const commonCrawlCandidateErrors = commonCrawlCandidates.filter((candidate) => !candidate.candidate_id || !candidate.query_id || !candidate.index_id || !candidate.candidate_status)
   const commonCrawlFetchCandidateCount = commonCrawlCandidates.filter((candidate) => candidate.candidate_status === 'candidate_for_public_fetch').length
   const ingestedCommonCrawlCandidateCount = commonCrawlCandidates.filter((candidate) => candidate.candidate_status === 'ingested_into_corpus').length
@@ -2602,7 +2755,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
     {
       id: 'search_candidates_have_provenance',
       status: searchCandidateErrors.length === 0 && searchCandidates.length > 0 ? 'pass' : searchCandidateErrors.length === 0 ? 'warn' : 'fail',
-      detail: `${searchCandidates.length} search candidates, ${promotedSearchCandidateCount} promoted, ${importedSearchCandidateCount} imported; ${searchCandidateErrors.length} candidate reference errors.`,
+      detail: `${searchCandidates.length} search candidates, ${promotedSearchCandidateCount} promoted, ${importedSearchCandidateCount} imported, ${liveSearchCandidateCount} live API rows (${liveSearchProviderUnconfiguredCount} provider-unconfigured); ${searchCandidateErrors.length} candidate reference errors.`,
     },
     {
       id: 'common_crawl_candidates_have_provenance',
@@ -2707,6 +2860,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       search_candidates: searchCandidates.length,
       promoted_search_candidates: promotedSearchCandidateCount,
       imported_search_candidates: importedSearchCandidateCount,
+      live_search_candidates: liveSearchCandidateCount,
+      live_search_provider_unconfigured: liveSearchProviderUnconfiguredCount,
       common_crawl_candidates: commonCrawlCandidates.length,
       common_crawl_fetch_candidates: commonCrawlFetchCandidateCount,
       ingested_common_crawl_candidates: ingestedCommonCrawlCandidateCount,
@@ -3078,6 +3233,8 @@ Overall status: ${validation.status}
 - Search candidates: ${validation.counts.search_candidates}
 - Promoted search candidates: ${validation.counts.promoted_search_candidates}
 - Imported search candidates: ${validation.counts.imported_search_candidates}
+- Live search API candidates: ${validation.counts.live_search_candidates}
+- Live search provider-unconfigured rows: ${validation.counts.live_search_provider_unconfigured}
 - Common Crawl candidates: ${validation.counts.common_crawl_candidates}
 - Common Crawl fetch candidates: ${validation.counts.common_crawl_fetch_candidates}
 - Ingested Common Crawl candidates: ${validation.counts.ingested_common_crawl_candidates}
@@ -3618,6 +3775,69 @@ async function renderCommonCrawlPromotionOnly() {
   console.log(`new_promotions=${newPromotions.length} total_promotions=${promotions.length} successful_promotions=${promotions.filter((row) => row.extraction_status === 'ok').length} remaining_fetch_candidates=${candidates.filter((row) => row.candidate_status === 'candidate_for_public_fetch').length}`)
 }
 
+async function renderSearchApiOnly() {
+  ensureDir(outDir)
+  const liveSearchCandidates = await buildLiveSearchCandidates()
+  const existingSearchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
+  const retainedCandidates = existingSearchCandidates.filter((candidate) => candidate.source !== 'live_search_api')
+  const searchCandidates = mergeRowsByKey(retainedCandidates, liveSearchCandidates, (candidate) => candidate.candidate_id)
+    .sort((a, b) => String(a.query ?? '').localeCompare(String(b.query ?? '')) || Number(a.rank ?? 9999) - Number(b.rank ?? 9999) || String(a.url ?? '').localeCompare(String(b.url ?? '')))
+  const searchResults = [
+    ...buildSearchResults(),
+    ...liveSearchCandidates.map((candidate) => ({
+      query: candidate.query,
+      rank: candidate.rank,
+      title: candidate.title,
+      snippet: candidate.snippet,
+      url: candidate.url,
+      promoted_source_id: candidate.promoted_source_id ?? null,
+      discovered_at: candidate.discovered_at,
+      status: candidate.status,
+      source: candidate.source,
+      provider: candidate.provider ?? null,
+      error: candidate.error ?? null,
+    })),
+  ]
+
+  const sources = loadJsonl(join(outDir, 'sources.jsonl'))
+  const courseInventoryRows = loadJsonl(join(outDir, 'course_inventory.jsonl'))
+  const courses = loadJsonl(join(outDir, 'courses.jsonl'))
+  const syllabi = loadJsonl(join(outDir, 'syllabi.jsonl'))
+  const assignments = loadJsonl(join(outDir, 'assignments.jsonl'))
+  const readings = loadJsonl(join(outDir, 'readings.jsonl'))
+  const readingFrequency = loadJsonl(join(outDir, 'reading_frequency.jsonl'))
+  const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
+  const commonCrawlPromotions = loadJsonl(join(outDir, 'common_crawl_promotions.jsonl'))
+  const facultyProfileCandidates = loadJsonl(join(outDir, 'faculty_profile_candidates.jsonl'))
+  const faculty = loadJsonl(join(outDir, 'faculty.jsonl'))
+  const facultyCourseEdges = loadJsonl(join(outDir, 'faculty_course_edges.jsonl'))
+  const studentWork = loadJsonl(join(outDir, 'student_work.jsonl'))
+  const sourceClusters = loadJsonl(join(outDir, 'source_clusters.jsonl'))
+  const sourceVersions = loadJsonl(join(outDir, 'source_versions.jsonl'))
+  const wayback = loadJsonl(join(outDir, 'wayback_captures.jsonl'))
+  const previousValidation = existsSync(join(outDir, 'validation.json')) ? JSON.parse(readFileSync(join(outDir, 'validation.json'), 'utf8')) : null
+  const courseInventory = {
+    offerings: courseInventoryRows,
+    displayed_count: previousValidation?.counts?.official_course_displayed_count ?? courseInventoryRows.length,
+  }
+  const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
+  const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
+  const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts })
+
+  writeJsonl(join(outDir, 'search_candidates.jsonl'), searchCandidates)
+  writeJsonl(join(outDir, 'search_results.jsonl'), searchResults)
+  writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
+  writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
+  writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
+  writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
+  writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
+  writeJson(join(outDir, 'validation.json'), validationWithReview)
+  writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
+  console.log(`RISD live search candidates written to ${join(outDir, 'search_candidates.jsonl')}`)
+  console.log(`live_search_candidates=${liveSearchCandidates.length} total_search_candidates=${searchCandidates.length} validation=${validationWithReview.status}`)
+}
+
 async function ingestCommonCrawlPromotionsOnly() {
   ensureDir(outDir)
   const existingSources = loadJsonl(join(outDir, 'sources.jsonl'))
@@ -3822,6 +4042,10 @@ async function ingestFacultyProfilesOnlyMode() {
 
 async function main() {
   ensureDir(outDir)
+  if (searchApiOnly) {
+    await renderSearchApiOnly()
+    return
+  }
   if (ingestFacultyProfilesOnly) {
     await ingestFacultyProfilesOnlyMode()
     return
@@ -3907,7 +4131,9 @@ async function main() {
   const studentWork = buildStudentWork(inspected)
   const sourceClusters = buildSourceClusters(inspected, syllabi, readings)
   const sourceVersions = buildSourceVersions(inspected, wayback)
-  const searchCandidates = buildSearchCandidates(importedSearchCandidates, promotedImportedSearchSources)
+  const existingSearchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
+  const existingLiveSearchCandidates = existingSearchCandidates.filter((candidate) => candidate.source === 'live_search_api')
+  const searchCandidates = buildSearchCandidates(importedSearchCandidates, promotedImportedSearchSources, existingLiveSearchCandidates)
   const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
   const commonCrawlPromotions = loadJsonl(join(outDir, 'common_crawl_promotions.jsonl'))
   const facultyProfileCandidates = loadJsonl(join(outDir, 'faculty_profile_candidates.jsonl'))
@@ -3926,7 +4152,8 @@ async function main() {
   writeJsonl(join(outDir, 'source_versions.jsonl'), sourceVersions)
   writeJsonl(join(outDir, 'wayback_captures.jsonl'), wayback)
   writeJsonl(join(outDir, 'crawl_sources.jsonl'), crawlSeeds)
-  writeJsonl(join(outDir, 'search_results.jsonl'), buildSearchResults())
+  const existingSearchResults = loadJsonl(join(outDir, 'search_results.jsonl')).filter((row) => row.source === 'live_search_api')
+  writeJsonl(join(outDir, 'search_results.jsonl'), [...buildSearchResults(), ...existingSearchResults])
   writeJsonl(join(outDir, 'search_candidates.jsonl'), searchCandidates)
   writeJsonl(join(outDir, 'common_crawl_candidates.jsonl'), commonCrawlCandidates)
   writeJsonl(join(outDir, 'common_crawl_promotions.jsonl'), commonCrawlPromotions)
