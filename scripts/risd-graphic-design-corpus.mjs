@@ -4047,7 +4047,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveArchivePromotions = archivePromotions ?? loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
@@ -4056,6 +4056,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const effectiveStudentWorkAssignmentLinks = studentWorkAssignmentLinks ?? loadJsonl(join(outDir, 'student_work_assignment_links.jsonl'))
   const effectiveSelfStudyModules = selfStudyModules ?? loadJsonl(join(outDir, 'self_study_modules.jsonl'))
   const effectiveSelfStudyPacingPlan = selfStudyPacingPlan ?? []
+  const effectiveSelfStudyPacingProfiles = selfStudyPacingProfiles ?? []
   const effectiveScheduleRows = scheduleRows ?? loadJsonl(join(outDir, 'schedule_rows.jsonl'))
   const effectiveArchiveFetchTargets = archiveFetchTargets ?? loadJsonl(join(outDir, 'archive_fetch_targets.jsonl'))
   const sourceIds = new Set(sources.map((source) => source.source_id))
@@ -4285,6 +4286,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const curriculumModules = effectiveSelfStudyModules.length ? effectiveSelfStudyModules : generatedCurriculumModules
   const generatedPacingPlan = buildSelfStudyPacingPlan(curriculumModules)
   const pacingPlan = effectiveSelfStudyPacingPlan.length ? effectiveSelfStudyPacingPlan : generatedPacingPlan
+  const generatedPacingProfiles = buildSelfStudyPacingProfiles(pacingPlan)
+  const pacingProfiles = effectiveSelfStudyPacingProfiles.length ? effectiveSelfStudyPacingProfiles : generatedPacingProfiles
   const curriculumModulesWithSourceIds = curriculumModules.filter((module) => module.source_ids?.length).length
   const curriculumModulesWithAssignments = curriculumModules.filter((module) => module.assignment_ids?.length).length
   const curriculumModulesWithReadings = curriculumModules.filter((module) => module.reading_ids?.length).length
@@ -4358,9 +4361,29 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const pacingRowsWithAssignments = pacingPlan.filter((row) => row.assignment_id).length
   const pacingRowsWithReadings = pacingPlan.filter((row) => row.reading_ids?.length).length
   const pacingRowsWithPrerequisites = pacingPlan.filter((row) => row.prerequisite_module_ids?.length).length
+  const pacingRowsWithWorkload = pacingPlan.filter((row) =>
+    Number.isFinite(row.workload_estimate?.estimated_hours)
+      && ['light', 'medium', 'heavy'].includes(row.workload_estimate?.workload_band)
+      && row.workload_estimate?.estimate_basis?.length
+  ).length
   const pacingModuleCoverage = new Set(pacingPlan.map((row) => row.module_id)).size
+  const pacingIds = new Set(pacingPlan.map((row) => row.pacing_id))
+  const pacingProfileErrors = pacingProfiles.filter((profile) =>
+    !['compressed', 'standard', 'slow'].includes(profile.profile_id)
+      || !Number.isFinite(profile.estimated_total_hours)
+      || !Number.isInteger(profile.estimated_calendar_weeks)
+      || !profile.weekly_groups?.length
+      || profile.weekly_groups.some((group) =>
+        !Number.isInteger(group.calendar_week)
+          || !group.pacing_ids?.length
+          || group.pacing_ids.some((id) => !pacingIds.has(id))
+          || group.module_ids?.some((id) => !curriculumModuleIds.has(id))
+          || !Number.isFinite(group.estimated_hours)
+      )
+  )
   const curriculumGeneratedMismatch = effectiveSelfStudyModules.length > 0 && effectiveSelfStudyModules.length !== generatedCurriculumModules.length
   const pacingGeneratedMismatch = effectiveSelfStudyPacingPlan.length > 0 && effectiveSelfStudyPacingPlan.length !== generatedPacingPlan.length
+  const pacingProfilesGeneratedMismatch = effectiveSelfStudyPacingProfiles.length > 0 && effectiveSelfStudyPacingProfiles.length !== generatedPacingProfiles.length
   const courseInventoryReconciled = courseInventory.displayed_count > 0 && courseInventory.offerings.length === courseInventory.displayed_count
   const checks = [
     {
@@ -4615,8 +4638,13 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
     },
     {
       id: 'self_study_pacing_plan_has_valid_weekly_sequence',
-      status: pacingPlanReferenceErrors.length === 0 && pacingPlan.length > 0 && pacingModuleCoverage === curriculumModules.length && !pacingGeneratedMismatch ? 'pass' : pacingPlanReferenceErrors.length === 0 && pacingPlan.length > 0 ? 'warn' : 'fail',
-      detail: `${pacingPlan.length} pacing rows for ${pacingModuleCoverage}/${curriculumModules.length} modules; ${pacingRowsWithAssignments} rows cite assignments, ${pacingRowsWithReadings} cite readings/resources, ${pacingRowsWithPrerequisites} cite prerequisite modules; ${pacingPlanReferenceErrors.length} pacing reference errors; generated mismatch=${pacingGeneratedMismatch}.`,
+      status: pacingPlanReferenceErrors.length === 0 && pacingPlan.length > 0 && pacingModuleCoverage === curriculumModules.length && pacingRowsWithWorkload === pacingPlan.length && !pacingGeneratedMismatch ? 'pass' : pacingPlanReferenceErrors.length === 0 && pacingPlan.length > 0 ? 'warn' : 'fail',
+      detail: `${pacingPlan.length} pacing rows for ${pacingModuleCoverage}/${curriculumModules.length} modules; ${pacingRowsWithAssignments} rows cite assignments, ${pacingRowsWithReadings} cite readings/resources, ${pacingRowsWithPrerequisites} cite prerequisite modules, ${pacingRowsWithWorkload} include workload estimates; ${pacingPlanReferenceErrors.length} pacing reference errors; generated mismatch=${pacingGeneratedMismatch}.`,
+    },
+    {
+      id: 'self_study_pacing_profiles_have_valid_groupings',
+      status: pacingProfileErrors.length === 0 && pacingProfiles.length === 3 && !pacingProfilesGeneratedMismatch ? 'pass' : pacingProfileErrors.length === 0 && pacingProfiles.length > 0 ? 'warn' : 'fail',
+      detail: `${pacingProfiles.length} pacing profiles; ${pacingProfileErrors.length} profile reference errors; generated mismatch=${pacingProfilesGeneratedMismatch}.`,
     },
     {
       id: 'official_course_inventory_reconciled',
@@ -4760,6 +4788,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_pacing_rows_with_assignments: pacingRowsWithAssignments,
       self_study_pacing_rows_with_readings: pacingRowsWithReadings,
       self_study_pacing_rows_with_prerequisites: pacingRowsWithPrerequisites,
+      self_study_pacing_rows_with_workload_estimates: pacingRowsWithWorkload,
+      self_study_pacing_profiles: pacingProfiles.length,
     },
     checks,
   }
@@ -5369,6 +5399,8 @@ Overall status: ${validation.status}
 - Self-study pacing rows with assignments: ${validation.counts.self_study_pacing_rows_with_assignments}
 - Self-study pacing rows with readings/resources: ${validation.counts.self_study_pacing_rows_with_readings}
 - Self-study pacing rows with prerequisites: ${validation.counts.self_study_pacing_rows_with_prerequisites}
+- Self-study pacing rows with workload estimates: ${validation.counts.self_study_pacing_rows_with_workload_estimates}
+- Self-study pacing profiles: ${validation.counts.self_study_pacing_profiles}
 
 ## Checks
 
@@ -5628,7 +5660,9 @@ function tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules
   const dependencyRows = selfStudyModules
     .filter((module) => module.module_dependency_map?.dependency_stage)
     .slice(0, 8)
-  const pacingRows = buildSelfStudyPacingPlan(selfStudyModules).slice(0, 12)
+  const allPacingRows = buildSelfStudyPacingPlan(selfStudyModules)
+  const pacingRows = allPacingRows.slice(0, 12)
+  const pacingProfiles = buildSelfStudyPacingProfiles(allPacingRows)
   const missingEvidenceRows = selfStudyModules
     .filter((module) => module.missing_evidence_warnings?.length)
     .slice(0, 10)
@@ -5693,7 +5727,11 @@ ${dependencyRows.length ? dependencyRows.map((module) => {
 
 ## Weekly Pacing Boundaries
 
-${pacingRows.length ? pacingRows.map((row) => `- Week ${row.week_number}: ${row.focus} Output: ${row.expected_output}; checkpoint: ${row.critique_checkpoint}`).join('\n') : '- No weekly pacing rows have been generated yet.'}
+${pacingRows.length ? pacingRows.map((row) => `- Week ${row.week_number}: ${row.focus} Output: ${row.expected_output}; workload: ${row.workload_estimate.estimated_hours}h ${row.workload_estimate.workload_band}; checkpoint: ${row.critique_checkpoint}`).join('\n') : '- No weekly pacing rows have been generated yet.'}
+
+## Pacing Profile Boundaries
+
+${pacingProfiles.length ? pacingProfiles.map((profile) => `- ${profile.label}: ${profile.estimated_calendar_weeks} calendar weeks at about ${profile.target_hours_per_week} target hours/week; ${profile.estimated_total_hours} estimated total hours.`).join('\n') : '- No pacing profiles have been generated yet.'}
 
 ## Critique And Revision
 
@@ -6240,6 +6278,7 @@ function buildSelfStudyPacingPlan(selfStudyModules) {
     const readingIds = (module.reading_ids ?? []).slice(0, 4)
     const scheduleIds = (module.schedule_ids ?? []).slice(0, 3)
     const prerequisiteModuleIds = module.module_dependency_map?.prerequisite_module_ids ?? []
+    const firstWorkload = estimatePacingWorkload({ module, assignment, readingCount: readingIds.length, phase: 'make' })
     rows.push({
       pacing_id: `pace_${String(weekNumber).padStart(2, '0')}_${module.module_id}`,
       week_number: weekNumber,
@@ -6261,10 +6300,12 @@ function buildSelfStudyPacingPlan(selfStudyModules) {
       ],
       expected_output: assignment?.deliverables?.length ? assignment.deliverables.slice(0, 3).join(', ') : 'brief, sketches, and first prototype',
       critique_checkpoint: 'End the week with a written self-critique against recovered constraints and evidence boundaries.',
+      workload_estimate: firstWorkload,
       evidence_basis: 'module_dependency_map_and_selected_assignment',
       source_ids: module.source_ids?.slice(0, 8) ?? [],
     })
     weekNumber += 1
+    const secondWorkload = estimatePacingWorkload({ module, assignment: secondAssignment ?? assignment, readingCount: readingIds.slice(0, 2).length, phase: 'revise' })
     rows.push({
       pacing_id: `pace_${String(weekNumber).padStart(2, '0')}_${module.module_id}`,
       week_number: weekNumber,
@@ -6286,12 +6327,93 @@ function buildSelfStudyPacingPlan(selfStudyModules) {
       ],
       expected_output: secondAssignment?.deliverables?.length ? `revision plus ${secondAssignment.deliverables.slice(0, 3).join(', ')}` : 'revised artifact and critique memo',
       critique_checkpoint: 'Present the revision, list three decisions changed by critique, and record what remains unknown.',
+      workload_estimate: secondWorkload,
       evidence_basis: 'module_dependency_map_and_revision_loop',
       source_ids: module.source_ids?.slice(0, 8) ?? [],
     })
     weekNumber += 1
   }
   return rows
+}
+
+function estimatePacingWorkload({ module, assignment, readingCount, phase }) {
+  const stage = module.module_dependency_map?.dependency_stage ?? 'intermediate_practice'
+  const deliverableCount = assignment?.deliverables?.length ?? 1
+  const hasInteractiveOutput = /interactive|website|time_based|multi_page|publication|identity|system/i.test([assignment?.output_format, assignment?.deliverables?.join(' ')].filter(Boolean).join(' '))
+  const stageHours = { foundation: 5, intermediate_practice: 7, advanced_synthesis: 9 }[stage] ?? 7
+  const phaseHours = phase === 'revise' ? 3 : 5
+  const readingHours = Math.min(readingCount * 1.5, 5)
+  const deliverableHours = Math.min(deliverableCount * 1.5, 5)
+  const complexityHours = hasInteractiveOutput ? 3 : 0
+  const estimatedHours = Math.round(stageHours + phaseHours + readingHours + deliverableHours + complexityHours)
+  return {
+    estimated_hours: estimatedHours,
+    workload_band: estimatedHours >= 18 ? 'heavy' : estimatedHours >= 12 ? 'medium' : 'light',
+    estimate_basis: [
+      `stage:${stage}`,
+      `phase:${phase}`,
+      `readings:${readingCount}`,
+      `deliverables:${deliverableCount}`,
+      hasInteractiveOutput ? 'complex_output:true' : 'complex_output:false',
+    ],
+  }
+}
+
+function buildSelfStudyPacingProfiles(pacingPlan) {
+  const totalHours = pacingPlan.reduce((sum, row) => sum + (row.workload_estimate?.estimated_hours ?? 0), 0)
+  const totalRows = pacingPlan.length
+  const profileSpecs = [
+    { profile_id: 'compressed', label: 'Compressed', rows_per_week: 2, target_hours_per_week: 38 },
+    { profile_id: 'standard', label: 'Standard', rows_per_week: 1, target_hours_per_week: 19 },
+    { profile_id: 'slow', label: 'Slow', rows_per_week: 0.5, target_hours_per_week: 10 },
+  ]
+  return profileSpecs.map((profile) => {
+    const calendarWeeks = profile.rows_per_week >= 1
+      ? Math.ceil(totalRows / profile.rows_per_week)
+      : totalRows * Math.round(1 / profile.rows_per_week)
+    return {
+      profile_id: profile.profile_id,
+      label: profile.label,
+      generated_at: retrievedAt,
+      pacing_row_count: totalRows,
+      module_count: new Set(pacingPlan.map((row) => row.module_id)).size,
+      estimated_total_hours: totalHours,
+      target_hours_per_week: profile.target_hours_per_week,
+      estimated_calendar_weeks: calendarWeeks,
+      row_grouping_rule: profile.rows_per_week >= 1
+        ? `${profile.rows_per_week} pacing row${profile.rows_per_week === 1 ? '' : 's'} per calendar week`
+        : 'one pacing row every two calendar weeks',
+      weekly_groups: groupPacingRowsForProfile(pacingPlan, profile),
+      provenance_note: 'Generated from self_study_pacing_plan workload estimates; adjust manually when recovered syllabi include explicit workload expectations.',
+    }
+  })
+}
+
+function groupPacingRowsForProfile(pacingPlan, profile) {
+  const groups = []
+  if (profile.rows_per_week >= 1) {
+    for (let index = 0; index < pacingPlan.length; index += profile.rows_per_week) {
+      const rows = pacingPlan.slice(index, index + profile.rows_per_week)
+      groups.push(pacingProfileGroup(groups.length + 1, rows))
+    }
+    return groups
+  }
+  let calendarWeek = 1
+  for (const row of pacingPlan) {
+    groups.push(pacingProfileGroup(calendarWeek, [row]))
+    calendarWeek += 2
+  }
+  return groups
+}
+
+function pacingProfileGroup(calendarWeek, rows) {
+  return {
+    calendar_week: calendarWeek,
+    pacing_ids: rows.map((row) => row.pacing_id),
+    module_ids: uniq(rows.map((row) => row.module_id)),
+    estimated_hours: rows.reduce((sum, row) => sum + (row.workload_estimate?.estimated_hours ?? 0), 0),
+    focus: rows.map((row) => row.focus),
+  }
 }
 
 const coverageRequirements = [
@@ -6465,6 +6587,7 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
   const selected = curriculumSelectedPackets(packets)
   const modules = buildSelfStudyModules({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks })
   const pacingPlan = buildSelfStudyPacingPlan(modules)
+  const pacingProfiles = buildSelfStudyPacingProfiles(pacingPlan)
 
   const lines = []
   lines.push('# RISD Graphic Design Self-Study Curriculum')
@@ -6643,10 +6766,17 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
       row.assignment_id ? `assignment: ${row.assignment_id}` : null,
       row.reading_ids?.length ? `readings/resources: ${row.reading_ids.slice(0, 3).join(', ')}` : null,
       row.prerequisite_module_ids?.length ? `prerequisites: ${row.prerequisite_module_ids.join(', ')}` : null,
+      row.workload_estimate ? `${row.workload_estimate.estimated_hours}h ${row.workload_estimate.workload_band}` : null,
     ].filter(Boolean)
     lines.push(`- Week ${row.week_number}: ${row.focus}${tags.length ? ` (${tags.join('; ')})` : ''}`)
     lines.push(`  - Output: ${row.expected_output}`)
     lines.push(`  - Checkpoint: ${row.critique_checkpoint}`)
+  })
+  lines.push('')
+  lines.push('## Pacing Profiles')
+  lines.push('')
+  pacingProfiles.forEach((profile) => {
+    lines.push(`- ${profile.label}: ${profile.estimated_calendar_weeks} calendar weeks, about ${profile.target_hours_per_week} target hours/week, ${profile.estimated_total_hours} estimated total hours (${profile.row_grouping_rule}).`)
   })
   lines.push('')
   lines.push('## Gaps To Preserve')
@@ -6668,7 +6798,9 @@ function writeSelfStudyArtifacts({ courses, syllabi, assignments, readings, sche
 
 function writeSelfStudyModuleArtifacts(selfStudyModules) {
   writeJsonl(join(outDir, 'self_study_modules.jsonl'), selfStudyModules)
-  writeJsonl(join(outDir, 'self_study_pacing_plan.jsonl'), buildSelfStudyPacingPlan(selfStudyModules))
+  const pacingPlan = buildSelfStudyPacingPlan(selfStudyModules)
+  writeJsonl(join(outDir, 'self_study_pacing_plan.jsonl'), pacingPlan)
+  writeJsonl(join(outDir, 'self_study_pacing_profiles.jsonl'), buildSelfStudyPacingProfiles(pacingPlan))
 }
 
 function loadJsonl(path) {

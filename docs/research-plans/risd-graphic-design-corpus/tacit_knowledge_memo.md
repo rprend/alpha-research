@@ -84,18 +84,24 @@ This memo is generated from the first implemented corpus pass. It is strongest w
 
 ## Weekly Pacing Boundaries
 
-- Week 1: Prepare Design Studio 1: read, inspect evidence, and set up the first artifact. Output: book, animation; checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
-- Week 2: Revise and present Design Studio 1. Output: revision plus presentation; checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
-- Week 3: Prepare Web Type: read, inspect evidence, and set up the first artifact. Output: website, animation, typeface; checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
-- Week 4: Revise and present Web Type. Output: revision plus animation; checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
-- Week 5: Prepare Design & Politics: read, inspect evidence, and set up the first artifact. Output: documentation; checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
-- Week 6: Revise and present Design & Politics. Output: revision plus presentation; checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
-- Week 7: Prepare Introduction to Graphic Design: read, inspect evidence, and set up the first artifact. Output: visual identity system; checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
-- Week 8: Revise and present Introduction to Graphic Design. Output: revision plus visual identity system; checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
-- Week 9: Prepare Typography for Nonmajors: read, inspect evidence, and set up the first artifact. Output: poster; checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
-- Week 10: Revise and present Typography for Nonmajors. Output: revised artifact and critique memo; checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
-- Week 11: Prepare Design for Publishing: read, inspect evidence, and set up the first artifact. Output: book; checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
-- Week 12: Revise and present Design for Publishing. Output: revised artifact and critique memo; checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+- Week 1: Prepare Design Studio 1: read, inspect evidence, and set up the first artifact. Output: book, animation; workload: 21h heavy; checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 2: Revise and present Design Studio 1. Output: revision plus presentation; workload: 13h medium; checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+- Week 3: Prepare Web Type: read, inspect evidence, and set up the first artifact. Output: website, animation, typeface; workload: 23h heavy; checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 4: Revise and present Web Type. Output: revision plus animation; workload: 16h medium; checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+- Week 5: Prepare Design & Politics: read, inspect evidence, and set up the first artifact. Output: documentation; workload: 15h medium; checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 6: Revise and present Design & Politics. Output: revision plus presentation; workload: 13h medium; checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+- Week 7: Prepare Introduction to Graphic Design: read, inspect evidence, and set up the first artifact. Output: visual identity system; workload: 20h heavy; checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 8: Revise and present Introduction to Graphic Design. Output: revision plus visual identity system; workload: 16h medium; checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+- Week 9: Prepare Typography for Nonmajors: read, inspect evidence, and set up the first artifact. Output: poster; workload: 18h heavy; checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 10: Revise and present Typography for Nonmajors. Output: revised artifact and critique memo; workload: 16h medium; checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+- Week 11: Prepare Design for Publishing: read, inspect evidence, and set up the first artifact. Output: book; workload: 17h medium; checkpoint: End the week with a written self-critique against recovered constraints and evidence boundaries.
+- Week 12: Revise and present Design for Publishing. Output: revised artifact and critique memo; workload: 15h medium; checkpoint: Present the revision, list three decisions changed by critique, and record what remains unknown.
+
+## Pacing Profile Boundaries
+
+- Compressed: 14 calendar weeks at about 38 target hours/week; 523 estimated total hours.
+- Standard: 28 calendar weeks at about 19 target hours/week; 523 estimated total hours.
+- Slow: 56 calendar weeks at about 10 target hours/week; 523 estimated total hours.
 
 ## Critique And Revision
 
