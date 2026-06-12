@@ -4,6 +4,7 @@ import {
   ensureDir,
   experimentDir,
   extractTitle,
+  cleanHtml,
   readJson,
   slug,
   today,
@@ -21,6 +22,7 @@ const manifest = {
   requests: [],
   errors: [],
 };
+const minWords = Number(process.env.MISSION_DRIFT_MIN_WORDS ?? 80);
 
 await fs.rm(outDir, { recursive: true, force: true });
 await ensureDir(outDir);
@@ -45,23 +47,44 @@ for (const page of pages) {
     continue;
   }
 
-  manifest.requests.push({
-    ...page,
-    status: response.status,
-    responsePath: path.relative(experimentDir, responsePath),
-  });
-
   if (!response.ok) {
     manifest.errors.push({ institution: page.institution, url: page.url, status: response.status, body: body.slice(0, 1000) });
+    manifest.requests.push({
+      ...page,
+      status: "http-error",
+      httpStatus: response.status,
+      responsePath: path.relative(experimentDir, responsePath),
+    });
+    continue;
+  }
+
+  const cleanText = cleanHtml(body);
+  const wordCount = cleanText.split(/\s+/).filter(Boolean).length;
+  if (wordCount < minWords) {
+    manifest.errors.push({ institution: page.institution, url: page.url, status: response.status, wordCount, error: "Fetched page did not meet minimum readable word count" });
+    manifest.requests.push({
+      ...page,
+      status: "quality-failed",
+      httpStatus: response.status,
+      wordCount,
+      responsePath: path.relative(experimentDir, responsePath),
+    });
     continue;
   }
 
   await writeText(responsePath, body);
+  manifest.requests.push({
+    ...page,
+    status: response.status,
+    wordCount,
+    responsePath: path.relative(experimentDir, responsePath),
+  });
   await writeJson(path.join(pageDir, "metadata.json"), {
     ...page,
     fetchedAt: new Date().toISOString(),
     status: response.status,
     bytes: Buffer.byteLength(body),
+    wordCount,
     title: extractTitle(body),
   });
 }

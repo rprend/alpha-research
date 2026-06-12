@@ -88,7 +88,7 @@
     "archive_url": "",
     "timestamp": "",
     "status": 200,
-    "words": 464,
+    "words": 496,
     "text_preview": "Meet Princeton | Princeton University Skip to main content Princeton University Search Search Sites & People &times; Meet Princeton People Are at the Heart of Princeton Princeton is about people. Our University is enriched by the wide range of experiences and perspectives of our students, faculty, staff and alumni. In Service of Humanity Princeton University is a vibrant community of scholarship and learning that stands in the nation's service and the service of humanity. On campus and around the world, Princetonians are making a difference in society. Learn More Facts & Figures 5,826 Undergra",
     "snippets": [
       "ulty, staff and alumni. In Service of Humanity Princeton University is a vibrant community of scholarship and learning that stands in the nation's service and the service of humanity. On campus and around the world, Princetonian",
@@ -142,13 +142,13 @@
     "archive_url": "",
     "timestamp": "",
     "status": 200,
-    "words": 239,
+    "words": 242,
     "text_preview": "About - University of California, Berkeley Toggle navigation About Berkeley The University of California was founded in 1868, born out of a vision in the State Constitution of a university that would &ldquo;contribute even more than California&#8217;s gold to the glory and happiness of advancing generations.&rdquo; By the numbers From faculty awards to the number of books in our libraries, see Berkeley through its facts and figures. History and discoveries The Free Speech Movement, wetsuits, a treatment for malaria and earthquake science. You might be surprised to learn what Berkeley has contr",
     "snippets": [
       "s campus experience. Visit Ready to see Berkeley for yourself? Find out about daily campus tours, parking and public transportation. Book a tour Campus map Leadership See a complete list of campus administrators and deans, and",
       "ment for malaria and earthquake science. You might be surprised to learn what Berkeley has contributed to the world. Experience Berkeley Right here, right now. Get a sense for what&#8217;s happening on the ground at Berkeley.",
       "ey for yourself? Find out about daily campus tours, parking and public transportation. Book a tour Campus map Leadership See a complete list of campus administrators and deans, and find unit-by-unit organizational charts. What hap",
-      "ar students More Numbers &ldquo;Berkeley is a glorious place. Everywhere you turn you find this commitment to excellence.&rdquo; Oliver Williamson, 2009 Nobelist, economics"
+      "ar students More Numbers &ldquo;Berkeley is a glorious place. Everywhere you turn you find this commitment to excellence.&rdquo; Oliver Williamson, 2009 Nobelist, economics https://s.w.org/images/core/emoji/17.0.2/72x72/ https://s"
     ],
     "term_counts": {
       "truth_knowledge": 0,
@@ -168,16 +168,22 @@
     "archive_url": "",
     "timestamp": "",
     "status": 200,
-    "words": 9,
-    "text_preview": "You need to enable JavaScript to run this app.",
-    "snippets": [],
+    "words": 1343,
+    "text_preview": "You need to enable JavaScript to run this app. /identity/externallogin?authenticationType=ShibbolethExtranet&ReturnUrl=%2fidentity%2fexternallogincallback%3fReturnUrl%3d%252f%26sc_site%3dIntranet%26authenticationSource%3dDefault&sc_site=Intranet The University of Chicago is an urban research university that has driven transformative leadership in education since 1890. Our commitment to free and open inquiry draws inspired scholars to our global campuses, where ideas are born that challenge and change the world. about, rhodes scholar, nobel laureate, marshall scholars, pulitzer prize, laureate ",
+    "snippets": [
+      "university that has driven transformative leadership in education since 1890. Our commitment to free and open inquiry draws inspired scholars to our global campuses, where ideas are born that challenge and change the world. abo",
+      "649&iar=0&w=990&hash=254EA9E9AAC03DEA76F537CEDEF2CB3B {0D4BF540-1D24-4522-8640-A3F0382F3D8E} Learn more about scholarship at UChicago Learn more about scholarship at UChicago /UChicago Tenant/www/Home/Research and Scholarship /rese",
+      "y of Chicago. c3241859-d4d8-4be4-9b72-ad0c9824b3aa /sitecore/content/UChicago Tenant/www/Home/Who We Are/Data/Innovation section wrap 97cd8071-06d0-4ccc-8190-209c7c330254 https://www.uchicago.edu/coveo/rest/v6/analytics/sitecore/c",
+      "e-left-cropped-3_2x.jpg?h=1022&iar=0&w=1560&hash=8DF3638398387A05F0FE05A04E6FB0BB Learn more about our global impact {A0834AE4-6813-4EB4-B115-33144CF9F369} /who-we-are/global-impact Learn more about UChicago's global impact 9c",
+      "tics/sitecore/content/uchicago-tenant/uchicago-shared-theme/image-left-right-alignment/left Through research, discovery, and community partnerships, UChicago scholars and students are tackling complex problems&mdash;from solving"
+    ],
     "term_counts": {
-      "truth_knowledge": 0,
+      "truth_knowledge": 17,
       "civic_public": 0,
-      "innovation_impact": 0,
-      "global_leadership": 0,
+      "innovation_impact": 12,
+      "global_leadership": 21,
       "excellence_prestige": 0,
-      "inclusion_belonging": 0,
+      "inclusion_belonging": 11,
       "career_economy": 0
     }
   },
@@ -216,7 +222,7 @@
     "archive_url": "",
     "timestamp": "",
     "status": 200,
-    "words": 657,
+    "words": 665,
     "text_preview": "About | University of Pennsylvania Skip to main content Go to site search Go to primary navigation Go to resources navigation Penn Home Toggle Site Navigation Toggle Site Search Search Search Close About Office of the President Explore the President&#039;s involvement in selected campus and world events, and read about their background and the functions of the office. Trustees & Administration Learn about the people who look after the University’s well-being and oversee its academic and business operations. In Principle and Practice A new strategic framework captures what the world needs most ",
     "snippets": [
       "n unparalleled education informed by inclusivity, intellectual rigor, research, and the impetus to create new knowledge to the benefit of individuals and communities around the world. Penn Facts 1740 Year Founded 6,049 Total Facu",
@@ -351,7 +357,7 @@
     "archive_url": "https://web.archive.org/web/20200314185525id_/https://www.princeton.edu/meet-princeton",
     "timestamp": "20200314185525",
     "status": 200,
-    "words": 573,
+    "words": 577,
     "text_preview": "Meet Princeton | Princeton University Skip to main content Toggle subitems Search Sites & People &times; Meet Princeton People Are at the Heart of Princeton Princeton is about people. Our University is enriched by the wide range of experiences and perspectives of our students, faculty, staff and alumni. In Service of Humanity Princeton University is a vibrant community of scholarship and learning that stands in the nation's service and the service of humanity. On campus and around the world, Princetonians are making a difference in society. Learn More Our People University News University issu",
     "snippets": [
       "ulty, staff and alumni. In Service of Humanity Princeton University is a vibrant community of scholarship and learning that stands in the nation's service and the service of humanity. On campus and around the world, Princetonian",

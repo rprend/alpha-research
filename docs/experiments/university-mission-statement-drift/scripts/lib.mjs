@@ -31,7 +31,9 @@ export function slug(value) {
 }
 
 export function cleanHtml(html) {
-  return String(html)
+  const source = String(html);
+  const embeddedJsonText = extractEmbeddedJsonText(source);
+  return `${source} ${embeddedJsonText}`
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<nav[\s\S]*?<\/nav>/gi, " ")
@@ -43,6 +45,41 @@ export function cleanHtml(html) {
     .replace(/&#39;/g, "'")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+function extractEmbeddedJsonText(html) {
+  const values = [];
+  for (const match of html.matchAll(/<script[^>]+type=["']application\/json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
+    try {
+      collectJsonText(JSON.parse(unescapeJsonScript(match[1])), values);
+    } catch {
+      // Ignore malformed embedded state; regular HTML text extraction still runs.
+    }
+  }
+  return values.join(" ");
+}
+
+function collectJsonText(value, out) {
+  if (typeof value === "string") {
+    const text = value.trim();
+    if (text.length > 20 && /[a-z]/i.test(text)) out.push(text);
+    return;
+  }
+  if (Array.isArray(value)) {
+    for (const item of value) collectJsonText(item, out);
+    return;
+  }
+  if (value && typeof value === "object") {
+    for (const item of Object.values(value)) collectJsonText(item, out);
+  }
+}
+
+function unescapeJsonScript(value) {
+  return String(value)
+    .replace(/&quot;/g, '"')
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">");
 }
 
 export function extractTitle(html) {

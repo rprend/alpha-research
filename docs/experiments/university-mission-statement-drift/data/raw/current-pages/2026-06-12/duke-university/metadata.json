@@ -1,8 +1,9 @@
 {
   "institution": "Duke University",
   "url": "https://duke.edu/about/",
-  "fetchedAt": "2026-06-12T17:31:28.469Z",
+  "fetchedAt": "2026-06-12T17:55:15.696Z",
   "status": 200,
   "bytes": 271889,
+  "wordCount": 1107,
   "title": "About - Duke University"
 }

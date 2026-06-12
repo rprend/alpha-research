@@ -1,8 +1,9 @@
 {
   "institution": "University of Pennsylvania",
   "url": "https://www.upenn.edu/about",
-  "fetchedAt": "2026-06-12T17:31:28.059Z",
+  "fetchedAt": "2026-06-12T17:55:15.076Z",
   "status": 200,
   "bytes": 71214,
+  "wordCount": 665,
   "title": "About | University of Pennsylvania"
 }

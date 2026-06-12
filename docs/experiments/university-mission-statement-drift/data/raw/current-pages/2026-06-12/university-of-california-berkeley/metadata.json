@@ -1,8 +1,9 @@
 {
   "institution": "University of California, Berkeley",
   "url": "https://www.berkeley.edu/about/",
-  "fetchedAt": "2026-06-12T17:31:27.244Z",
+  "fetchedAt": "2026-06-12T17:55:13.893Z",
   "status": 200,
   "bytes": 58460,
+  "wordCount": 242,
   "title": "About - University of California, Berkeley"
 }

@@ -1,8 +1,9 @@
 {
   "institution": "Stanford University",
   "url": "https://www.stanford.edu/about/",
-  "fetchedAt": "2026-06-12T17:31:26.613Z",
+  "fetchedAt": "2026-06-12T17:55:13.373Z",
   "status": 200,
   "bytes": 129664,
+  "wordCount": 1051,
   "title": "Who We Are &#8211; Stanford University"
 }

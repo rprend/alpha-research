@@ -12,7 +12,7 @@ The current artifact contains 10 current pages and 4 historical snapshots coveri
 
 ## Current Baseline
 
-The largest current term families are global_leadership, civic_public, truth_knowledge, innovation_impact.
+The largest current term families are global_leadership, truth_knowledge, innovation_impact, civic_public.
 
 ## What The Longitudinal Evidence Can Support Next
 

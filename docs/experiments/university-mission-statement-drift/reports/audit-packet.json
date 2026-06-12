@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T17:53:20.676Z",
+  "generatedAt": "2026-06-12T17:55:15.788Z",
   "pageCount": 14,
   "rows": [
     {
@@ -42,7 +42,7 @@
       "institution": "Princeton University",
       "source_layer": "current",
       "year": 2026,
-      "words": 464,
+      "words": 496,
       "total_terms": 18,
       "top_families": "global_leadership:6; civic_public:5; truth_knowledge:4",
       "flags": "",
@@ -66,7 +66,7 @@
       "institution": "University of California, Berkeley",
       "source_layer": "current",
       "year": 2026,
-      "words": 239,
+      "words": 242,
       "total_terms": 4,
       "top_families": "global_leadership:2; civic_public:1; excellence_prestige:1",
       "flags": "",
@@ -78,13 +78,13 @@
       "institution": "University of Chicago",
       "source_layer": "current",
       "year": 2026,
-      "words": 9,
-      "total_terms": 0,
-      "top_families": "truth_knowledge:0; civic_public:0; innovation_impact:0",
-      "flags": "short-page; no-snippets",
+      "words": 1343,
+      "total_terms": 61,
+      "top_families": "global_leadership:21; truth_knowledge:17; innovation_impact:12",
+      "flags": "",
       "url": "https://www.uchicago.edu/who-we-are",
-      "snippet_1": "",
-      "snippet_2": ""
+      "snippet_1": "university that has driven transformative leadership in education since 1890. Our commitment to free and open inquiry draws inspired scholars to our global campuses, where ideas are born that challenge and change the world. abo",
+      "snippet_2": "649&iar=0&w=990&hash=254EA9E9AAC03DEA76F537CEDEF2CB3B {0D4BF540-1D24-4522-8640-A3F0382F3D8E} Learn more about scholarship at UChicago Learn more about scholarship at UChicago /UChicago Tenant/www/Home/Research and Scholarship /rese"
     },
     {
       "institution": "Cornell University",
@@ -102,7 +102,7 @@
       "institution": "University of Pennsylvania",
       "source_layer": "current",
       "year": 2026,
-      "words": 657,
+      "words": 665,
       "total_terms": 38,
       "top_families": "global_leadership:14; innovation_impact:9; truth_knowledge:8",
       "flags": "",
@@ -162,7 +162,7 @@
       "institution": "Princeton University",
       "source_layer": "wayback",
       "year": 2020,
-      "words": 573,
+      "words": 577,
       "total_terms": 14,
       "top_families": "civic_public:5; global_leadership:4; truth_knowledge:2",
       "flags": "",

@@ -1,6 +1,6 @@
 # Mission Drift Audit Packet
 
-Generated at: 2026-06-12T17:53:20.677Z
+Generated at: 2026-06-12T17:55:15.788Z
 Pages requiring review: 14
 
 ## Review Instructions
@@ -46,7 +46,7 @@ Pages requiring review: 14
 
 ### Princeton University (current, 2026)
 
-- Words: 464
+- Words: 496
 - Top families: global_leadership:6; civic_public:5; truth_knowledge:4
 - Flags: none
 - URL: https://www.princeton.edu/meet-princeton
@@ -68,7 +68,7 @@ Pages requiring review: 14
 
 ### University of California, Berkeley (current, 2026)
 
-- Words: 239
+- Words: 242
 - Top families: global_leadership:2; civic_public:1; excellence_prestige:1
 - Flags: none
 - URL: https://www.berkeley.edu/about/
@@ -79,14 +79,14 @@ Pages requiring review: 14
 
 ### University of Chicago (current, 2026)
 
-- Words: 9
-- Top families: truth_knowledge:0; civic_public:0; innovation_impact:0
-- Flags: short-page; no-snippets
+- Words: 1343
+- Top families: global_leadership:21; truth_knowledge:17; innovation_impact:12
+- Flags: none
 - URL: https://www.uchicago.edu/who-we-are
 
-_No snippet extracted._
+> university that has driven transformative leadership in education since 1890. Our commitment to free and open inquiry draws inspired scholars to our global campuses, where ideas are born that challenge and change the world. abo
 
-
+> 649&iar=0&w=990&hash=254EA9E9AAC03DEA76F537CEDEF2CB3B {0D4BF540-1D24-4522-8640-A3F0382F3D8E} Learn more about scholarship at UChicago Learn more about scholarship at UChicago /UChicago Tenant/www/Home/Research and Scholarship /rese
 
 ### Cornell University (current, 2026)
 
@@ -101,7 +101,7 @@ _No snippet extracted._
 
 ### University of Pennsylvania (current, 2026)
 
-- Words: 657
+- Words: 665
 - Top families: global_leadership:14; innovation_impact:9; truth_knowledge:8
 - Flags: none
 - URL: https://www.upenn.edu/about
@@ -156,7 +156,7 @@ _No snippet extracted._
 
 ### Princeton University (wayback, 2020)
 
-- Words: 573
+- Words: 577
 - Top families: civic_public:5; global_leadership:4; truth_knowledge:2
 - Flags: none
 - URL: https://web.archive.org/web/20200314185525id_/https://www.princeton.edu/meet-princeton

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T17:35:29.871Z",
+  "generatedAt": "2026-06-12T17:55:15.755Z",
   "pages": 14,
   "currentPages": 10,
   "historicalPages": 4,
@@ -8,12 +8,12 @@
     "latest": 2026
   },
   "currentTermFamilyTotals": {
-    "global_leadership": 77,
+    "global_leadership": 98,
+    "truth_knowledge": 52,
+    "innovation_impact": 47,
     "civic_public": 37,
-    "truth_knowledge": 35,
-    "innovation_impact": 35,
+    "inclusion_belonging": 23,
     "excellence_prestige": 17,
-    "inclusion_belonging": 12,
     "career_economy": 6
   },
   "historicalTermFamilyTotals": {
@@ -87,39 +87,39 @@
       "family": "career_economy",
       "pages": 3,
       "count": 1,
-      "words": 1703,
-      "count_per_1000_words": 0.587
+      "words": 1707,
+      "count_per_1000_words": 0.586
     },
     {
       "year": 2020,
       "family": "civic_public",
       "pages": 3,
       "count": 8,
-      "words": 1703,
-      "count_per_1000_words": 4.698
+      "words": 1707,
+      "count_per_1000_words": 4.687
     },
     {
       "year": 2020,
       "family": "excellence_prestige",
       "pages": 3,
       "count": 3,
-      "words": 1703,
-      "count_per_1000_words": 1.762
+      "words": 1707,
+      "count_per_1000_words": 1.757
     },
     {
       "year": 2020,
       "family": "global_leadership",
       "pages": 3,
       "count": 14,
-      "words": 1703,
-      "count_per_1000_words": 8.221
+      "words": 1707,
+      "count_per_1000_words": 8.202
     },
     {
       "year": 2020,
       "family": "inclusion_belonging",
       "pages": 3,
       "count": 0,
-      "words": 1703,
+      "words": 1707,
       "count_per_1000_words": 0
     },
     {
@@ -127,72 +127,72 @@
       "family": "innovation_impact",
       "pages": 3,
       "count": 13,
-      "words": 1703,
-      "count_per_1000_words": 7.634
+      "words": 1707,
+      "count_per_1000_words": 7.616
     },
     {
       "year": 2020,
       "family": "truth_knowledge",
       "pages": 3,
       "count": 9,
-      "words": 1703,
-      "count_per_1000_words": 5.285
+      "words": 1707,
+      "count_per_1000_words": 5.272
     },
     {
       "year": 2026,
       "family": "career_economy",
       "pages": 10,
       "count": 6,
-      "words": 6552,
-      "count_per_1000_words": 0.916
+      "words": 7929,
+      "count_per_1000_words": 0.757
     },
     {
       "year": 2026,
       "family": "civic_public",
       "pages": 10,
       "count": 37,
-      "words": 6552,
-      "count_per_1000_words": 5.647
+      "words": 7929,
+      "count_per_1000_words": 4.666
     },
     {
       "year": 2026,
       "family": "excellence_prestige",
       "pages": 10,
       "count": 17,
-      "words": 6552,
-      "count_per_1000_words": 2.595
+      "words": 7929,
+      "count_per_1000_words": 2.144
     },
     {
       "year": 2026,
       "family": "global_leadership",
       "pages": 10,
-      "count": 77,
-      "words": 6552,
-      "count_per_1000_words": 11.752
+      "count": 98,
+      "words": 7929,
+      "count_per_1000_words": 12.36
     },
     {
       "year": 2026,
       "family": "inclusion_belonging",
       "pages": 10,
-      "count": 12,
-      "words": 6552,
-      "count_per_1000_words": 1.832
+      "count": 23,
+      "words": 7929,
+      "count_per_1000_words": 2.901
     },
     {
       "year": 2026,
       "family": "innovation_impact",
       "pages": 10,
-      "count": 35,
-      "words": 6552,
-      "count_per_1000_words": 5.342
+      "count": 47,
+      "words": 7929,
+      "count_per_1000_words": 5.928
     },
     {
       "year": 2026,
       "family": "truth_knowledge",
       "pages": 10,
-      "count": 35,
-      "words": 6552,
-      "count_per_1000_words": 5.342
+      "count": 52,
+      "words": 7929,
+      "count_per_1000_words": 6.558
     }
   ],
   "institutions": [
@@ -272,7 +272,7 @@
       "institution": "Princeton University",
       "source_layer": "current",
       "year": 2026,
-      "words": 464,
+      "words": 496,
       "term_counts": {
         "truth_knowledge": 4,
         "civic_public": 5,
@@ -320,7 +320,7 @@
       "institution": "University of California, Berkeley",
       "source_layer": "current",
       "year": 2026,
-      "words": 239,
+      "words": 242,
       "term_counts": {
         "truth_knowledge": 0,
         "civic_public": 1,
@@ -334,7 +334,7 @@
         "s campus experience. Visit Ready to see Berkeley for yourself? Find out about daily campus tours, parking and public transportation. Book a tour Campus map Leadership See a complete list of campus administrators and deans, and",
         "ment for malaria and earthquake science. You might be surprised to learn what Berkeley has contributed to the world. Experience Berkeley Right here, right now. Get a sense for what&#8217;s happening on the ground at Berkeley.",
         "ey for yourself? Find out about daily campus tours, parking and public transportation. Book a tour Campus map Leadership See a complete list of campus administrators and deans, and find unit-by-unit organizational charts. What hap",
-        "ar students More Numbers &ldquo;Berkeley is a glorious place. Everywhere you turn you find this commitment to excellence.&rdquo; Oliver Williamson, 2009 Nobelist, economics"
+        "ar students More Numbers &ldquo;Berkeley is a glorious place. Everywhere you turn you find this commitment to excellence.&rdquo; Oliver Williamson, 2009 Nobelist, economics https://s.w.org/images/core/emoji/17.0.2/72x72/ https://s"
       ],
       "url": "https://www.berkeley.edu/about/",
       "archive_url": ""
@@ -343,17 +343,23 @@
       "institution": "University of Chicago",
       "source_layer": "current",
       "year": 2026,
-      "words": 9,
+      "words": 1343,
       "term_counts": {
-        "truth_knowledge": 0,
+        "truth_knowledge": 17,
         "civic_public": 0,
-        "innovation_impact": 0,
-        "global_leadership": 0,
+        "innovation_impact": 12,
+        "global_leadership": 21,
         "excellence_prestige": 0,
-        "inclusion_belonging": 0,
+        "inclusion_belonging": 11,
         "career_economy": 0
       },
-      "snippets": [],
+      "snippets": [
+        "university that has driven transformative leadership in education since 1890. Our commitment to free and open inquiry draws inspired scholars to our global campuses, where ideas are born that challenge and change the world. abo",
+        "649&iar=0&w=990&hash=254EA9E9AAC03DEA76F537CEDEF2CB3B {0D4BF540-1D24-4522-8640-A3F0382F3D8E} Learn more about scholarship at UChicago Learn more about scholarship at UChicago /UChicago Tenant/www/Home/Research and Scholarship /rese",
+        "y of Chicago. c3241859-d4d8-4be4-9b72-ad0c9824b3aa /sitecore/content/UChicago Tenant/www/Home/Who We Are/Data/Innovation section wrap 97cd8071-06d0-4ccc-8190-209c7c330254 https://www.uchicago.edu/coveo/rest/v6/analytics/sitecore/c",
+        "e-left-cropped-3_2x.jpg?h=1022&iar=0&w=1560&hash=8DF3638398387A05F0FE05A04E6FB0BB Learn more about our global impact {A0834AE4-6813-4EB4-B115-33144CF9F369} /who-we-are/global-impact Learn more about UChicago's global impact 9c",
+        "tics/sitecore/content/uchicago-tenant/uchicago-shared-theme/image-left-right-alignment/left Through research, discovery, and community partnerships, UChicago scholars and students are tackling complex problems&mdash;from solving"
+      ],
       "url": "https://www.uchicago.edu/who-we-are",
       "archive_url": ""
     },
@@ -385,7 +391,7 @@
       "institution": "University of Pennsylvania",
       "source_layer": "current",
       "year": 2026,
-      "words": 657,
+      "words": 665,
       "term_counts": {
         "truth_knowledge": 8,
         "civic_public": 3,
@@ -505,7 +511,7 @@
       "institution": "Princeton University",
       "source_layer": "wayback",
       "year": 2020,
-      "words": 573,
+      "words": 577,
       "term_counts": {
         "truth_knowledge": 2,
         "civic_public": 5,
