@@ -1387,6 +1387,8 @@ function buildAssignments(syllabi) {
         revision_expectation: assignmentSignals.revision_expectation,
         skills_trained: inferSkills(snippet),
         tacit_goal: assignmentSignals.tacit_goal,
+        assignment_confidence: assignmentSignals.assignment_confidence,
+        boundary_status: assignmentSignals.boundary_status,
         evidence_grade: assignmentSignals.evidence_grade,
         source_ids: syllabus.source_ids,
       })
@@ -1525,6 +1527,21 @@ function inferAssignmentSignals(snippet) {
     : null
 
   const tacitGoal = inferTacitGoal(snippet)
+  const boundary = inferAssignmentBoundaryStatus({
+    snippet,
+    lower,
+    deliverables,
+    constraints,
+    materials,
+    tools,
+    studioPhases,
+    critiqueQuestions,
+    assignmentType,
+    outputFormat,
+    critiqueFormat,
+    revisionExpectation,
+    tacitGoal,
+  })
 
   return {
     constraints: uniq(constraints),
@@ -1539,7 +1556,70 @@ function inferAssignmentSignals(snippet) {
     critique_format: critiqueFormat,
     revision_expectation: revisionExpectation,
     tacit_goal: tacitGoal,
-    evidence_grade: deliverables.length || constraints.length || critiqueFormat || revisionExpectation ? 'A' : 'B',
+    assignment_confidence: boundary.assignment_confidence,
+    boundary_status: boundary.boundary_status,
+    evidence_grade: boundary.assignment_confidence === 'high' ? 'A' : boundary.assignment_confidence === 'medium' ? 'B' : 'C',
+  }
+}
+
+function inferAssignmentBoundaryStatus({ snippet, lower, deliverables, constraints, materials, tools, studioPhases, critiqueQuestions, assignmentType, outputFormat, critiqueFormat, revisionExpectation, tacitGoal }) {
+  const trimmed = snippet.trim()
+  const words = trimmed.split(/\s+/).filter(Boolean)
+  const hasBriefMarker = /\b(?:project|assignment|exercise|prompt|brief|core assignment|final|deliverables?|due|submit|present|critique|prototype|make|design|build|draw|write|code|print|document)\b/i.test(trimmed)
+  const hasAdministrativeMarker = /\b(?:grade|grading|attendance|absence|policy|academic code|conduct|permit|hazard|damage|lateness|participation|office hours)\b/i.test(trimmed)
+  const evidenceScore = [
+    deliverables.length > 0,
+    constraints.length > 0,
+    materials.length > 0,
+    tools.length > 0,
+    studioPhases.length >= 2,
+    critiqueQuestions.length > 0,
+    Boolean(outputFormat),
+    Boolean(critiqueFormat),
+    Boolean(revisionExpectation),
+    Boolean(tacitGoal),
+    hasBriefMarker,
+  ].filter(Boolean).length
+
+  if (words.length <= 3 && !deliverables.length && !critiqueFormat) {
+    return {
+      assignment_confidence: 'low',
+      boundary_status: 'fragment_too_short',
+    }
+  }
+  if (hasAdministrativeMarker && evidenceScore < 4) {
+    return {
+      assignment_confidence: 'low',
+      boundary_status: 'administrative_or_policy_fragment',
+    }
+  }
+  if (/^(?:projects?|exercises?|core assignment|semester-long deliverables)$/i.test(trimmed)) {
+    return {
+      assignment_confidence: 'low',
+      boundary_status: 'heading_only_fragment',
+    }
+  }
+  if (assignmentType === 'reading_response' && evidenceScore < 4) {
+    return {
+      assignment_confidence: 'low',
+      boundary_status: 'reading_or_discussion_fragment',
+    }
+  }
+  if (deliverables.length || outputFormat || /^Assignment\s+\d|^Project\s+\d|^Final\b/i.test(trimmed)) {
+    return {
+      assignment_confidence: evidenceScore >= 4 ? 'high' : 'medium',
+      boundary_status: 'bounded_assignment_brief',
+    }
+  }
+  if (critiqueFormat || revisionExpectation || studioPhases.length >= 2 || constraints.length) {
+    return {
+      assignment_confidence: 'medium',
+      boundary_status: 'partial_assignment_evidence',
+    }
+  }
+  return {
+    assignment_confidence: 'low',
+    boundary_status: hasBriefMarker ? 'weak_assignment_signal' : 'contextual_course_fragment',
   }
 }
 
@@ -2384,6 +2464,10 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || assignment.tacit_goal
   ).length
   const phaseStructuredAssignmentCount = assignments.filter((assignment) => assignment.studio_phases?.length || assignment.assignment_type || assignment.output_format).length
+  const highConfidenceAssignmentCount = assignments.filter((assignment) => assignment.assignment_confidence === 'high').length
+  const mediumConfidenceAssignmentCount = assignments.filter((assignment) => assignment.assignment_confidence === 'medium').length
+  const lowConfidenceAssignmentCount = assignments.filter((assignment) => assignment.assignment_confidence === 'low').length
+  const assignmentBoundaryErrors = assignments.filter((assignment) => !assignment.assignment_confidence || !assignment.boundary_status)
   const readingSourceErrors = readings.filter((reading) => !syllabusIds.has(reading.syllabus_id) || reading.source_ids.some((id) => !sourceIds.has(id)))
   const normalizedReadingCount = readings.filter((reading) => reading.canonical_work_id).length
   const catalogReadingCount = readings.filter((reading) => reading.linking_status === 'local_catalog_match').length
@@ -2455,6 +2539,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       id: 'assignments_have_studio_phase_signals',
       status: phaseStructuredAssignmentCount > 0 ? 'pass' : 'warn',
       detail: `${phaseStructuredAssignmentCount} assignment snippets include assignment type, studio phase, or output-format signals.`,
+    },
+    {
+      id: 'assignments_have_confidence_boundaries',
+      status: assignmentBoundaryErrors.length === 0 && (highConfidenceAssignmentCount + mediumConfidenceAssignmentCount) > 0 ? 'pass' : assignmentBoundaryErrors.length === 0 ? 'warn' : 'fail',
+      detail: `${highConfidenceAssignmentCount} high, ${mediumConfidenceAssignmentCount} medium, and ${lowConfidenceAssignmentCount} low confidence assignment rows; ${assignmentBoundaryErrors.length} boundary metadata errors.`,
     },
     {
       id: 'readings_reference_valid_syllabi_and_sources',
@@ -2562,6 +2651,9 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       assignments: assignments.length,
       structured_assignments: structuredAssignmentCount,
       phase_structured_assignments: phaseStructuredAssignmentCount,
+      high_confidence_assignments: highConfidenceAssignmentCount,
+      medium_confidence_assignments: mediumConfidenceAssignmentCount,
+      low_confidence_assignments: lowConfidenceAssignmentCount,
       readings: readings.length,
       normalized_readings: normalizedReadingCount,
       local_catalog_readings: catalogReadingCount,
@@ -2930,6 +3022,9 @@ Overall status: ${validation.status}
 - Assignments: ${validation.counts.assignments}
 - Structured assignment snippets: ${validation.counts.structured_assignments}
 - Studio-phase assignment snippets: ${validation.counts.phase_structured_assignments}
+- High-confidence assignments: ${validation.counts.high_confidence_assignments}
+- Medium-confidence assignments: ${validation.counts.medium_confidence_assignments}
+- Low-confidence assignment fragments: ${validation.counts.low_confidence_assignments}
 - Readings: ${validation.counts.readings}
 - Normalized reading snippets: ${validation.counts.normalized_readings}
 - Canonical reading works: ${validation.counts.canonical_reading_works}

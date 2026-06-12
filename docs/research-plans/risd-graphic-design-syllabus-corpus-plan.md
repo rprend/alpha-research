@@ -95,7 +95,7 @@ Known gaps:
 
 - Discovery is still seed-based.
 - Citation extraction is heuristic with local catalog matching and non-citation fragment classification; external API linking is not wired yet.
-- Assignment extraction is currently snippet-based, not structured enough.
+- Assignment extraction is snippet-based with structured signals, confidence, and boundary status; it still needs richer full-brief parsing from long assignment pages.
 - Search candidate import is supported through local JSON/JSONL exports, but no live search API provider is wired yet.
 - A bounded Common Crawl candidate, promotion, and ingestion pass exists, but it is still capped and should be expanded carefully.
 - Faculty/course edges are derived from course evidence, and bounded RISD faculty-profile candidate discovery/ingestion is implemented. Faculty-portfolio expansion is still capped to curated public hints and should be expanded carefully.
@@ -222,6 +222,8 @@ Required fields:
 - `revision_expectation`
 - `skills_trained`
 - `tacit_goal`
+- `assignment_confidence`
+- `boundary_status`
 - `evidence_grade`
 
 ### `readings.jsonl`

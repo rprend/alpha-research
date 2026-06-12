@@ -11,6 +11,9 @@
     "assignments": 502,
     "structured_assignments": 502,
     "phase_structured_assignments": 502,
+    "high_confidence_assignments": 65,
+    "medium_confidence_assignments": 109,
+    "low_confidence_assignments": 328,
     "readings": 135,
     "normalized_readings": 56,
     "local_catalog_readings": 43,
@@ -82,6 +85,11 @@
       "id": "assignments_have_studio_phase_signals",
       "status": "pass",
       "detail": "502 assignment snippets include assignment type, studio phase, or output-format signals."
+    },
+    {
+      "id": "assignments_have_confidence_boundaries",
+      "status": "pass",
+      "detail": "65 high, 109 medium, and 328 low confidence assignment rows; 0 boundary metadata errors."
     },
     {
       "id": "readings_reference_valid_syllabi_and_sources",

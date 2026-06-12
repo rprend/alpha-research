@@ -15,6 +15,9 @@ Overall status: pass
 - Assignments: 502
 - Structured assignment snippets: 502
 - Studio-phase assignment snippets: 502
+- High-confidence assignments: 65
+- Medium-confidence assignments: 109
+- Low-confidence assignment fragments: 328
 - Readings: 135
 - Normalized reading snippets: 56
 - Canonical reading works: 30
@@ -60,6 +63,7 @@ Overall status: pass
 - PASS assignments_reference_valid_syllabi_and_sources: 0 assignment reference errors.
 - PASS assignments_have_structured_signals: 502 assignment snippets include inferred deliverables, constraints, tools, critique, revision, or tacit goals.
 - PASS assignments_have_studio_phase_signals: 502 assignment snippets include assignment type, studio phase, or output-format signals.
+- PASS assignments_have_confidence_boundaries: 65 high, 109 medium, and 328 low confidence assignment rows; 0 boundary metadata errors.
 - PASS readings_reference_valid_syllabi_and_sources: 0 reading reference errors.
 - PASS readings_have_normalized_work_links: 56 reading snippets linked to 30 canonical works; 43 local catalog matches, 45 unresolved, 34 non-citation fragments.
 - PASS search_candidates_have_provenance: 28 search candidates, 10 promoted, 0 imported; 0 candidate reference errors.
