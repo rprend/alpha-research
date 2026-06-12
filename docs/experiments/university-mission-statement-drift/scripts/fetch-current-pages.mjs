@@ -1,4 +1,5 @@
 import path from "node:path";
+import fs from "node:fs/promises";
 import {
   ensureDir,
   experimentDir,
@@ -21,6 +22,7 @@ const manifest = {
   errors: [],
 };
 
+await fs.rm(outDir, { recursive: true, force: true });
 await ensureDir(outDir);
 
 for (const page of pages) {

@@ -1,71 +1,71 @@
-institution,family,count,matched_terms,url
-Harvard University,truth_knowledge,5,truth; knowledge; scholarship,https://www.harvard.edu/about/
-Harvard University,civic_public,4,public; society,https://www.harvard.edu/about/
-Harvard University,innovation_impact,0,,https://www.harvard.edu/about/
-Harvard University,global_leadership,7,global; world; leadership,https://www.harvard.edu/about/
-Harvard University,excellence_prestige,1,leading,https://www.harvard.edu/about/
-Harvard University,inclusion_belonging,2,inclusion; equity,https://www.harvard.edu/about/
-Harvard University,career_economy,0,,https://www.harvard.edu/about/
-Stanford University,truth_knowledge,7,knowledge; inquiry; learning,https://www.stanford.edu/about/
-Stanford University,civic_public,9,citizen; citizenship; public; service; society; common good,https://www.stanford.edu/about/
-Stanford University,innovation_impact,6,innovation; discovery,https://www.stanford.edu/about/
-Stanford University,global_leadership,17,global; world; international; leadership,https://www.stanford.edu/about/
-Stanford University,excellence_prestige,4,excellence; renowned,https://www.stanford.edu/about/
-Stanford University,inclusion_belonging,4,diversity; access,https://www.stanford.edu/about/
-Stanford University,career_economy,1,career,https://www.stanford.edu/about/
-Massachusetts Institute of Technology,truth_knowledge,0,,https://www.mit.edu/about/
-Massachusetts Institute of Technology,civic_public,3,public; service,https://www.mit.edu/about/
-Massachusetts Institute of Technology,innovation_impact,6,innovation; technology,https://www.mit.edu/about/
-Massachusetts Institute of Technology,global_leadership,6,global; world; leadership,https://www.mit.edu/about/
-Massachusetts Institute of Technology,excellence_prestige,1,distinguished,https://www.mit.edu/about/
-Massachusetts Institute of Technology,inclusion_belonging,0,,https://www.mit.edu/about/
-Massachusetts Institute of Technology,career_economy,1,industry,https://www.mit.edu/about/
-Princeton University,truth_knowledge,4,learning; scholarship,https://www.princeton.edu/meet-princeton
-Princeton University,civic_public,5,service; society,https://www.princeton.edu/meet-princeton
-Princeton University,innovation_impact,2,impact; discovery,https://www.princeton.edu/meet-princeton
-Princeton University,global_leadership,6,world; leadership,https://www.princeton.edu/meet-princeton
-Princeton University,excellence_prestige,1,renowned,https://www.princeton.edu/meet-princeton
-Princeton University,inclusion_belonging,0,,https://www.princeton.edu/meet-princeton
-Princeton University,career_economy,0,,https://www.princeton.edu/meet-princeton
-Yale University,truth_knowledge,4,knowledge; learning,https://www.yale.edu/about-yale
-Yale University,civic_public,2,society,https://www.yale.edu/about-yale
-Yale University,innovation_impact,5,innovation; innovative,https://www.yale.edu/about-yale
-Yale University,global_leadership,10,global; world; international; leadership,https://www.yale.edu/about-yale
-Yale University,excellence_prestige,0,,https://www.yale.edu/about-yale
-Yale University,inclusion_belonging,0,,https://www.yale.edu/about-yale
-Yale University,career_economy,0,,https://www.yale.edu/about-yale
-"University of California, Berkeley",truth_knowledge,0,,https://www.berkeley.edu/about/
-"University of California, Berkeley",civic_public,1,public,https://www.berkeley.edu/about/
-"University of California, Berkeley",innovation_impact,0,,https://www.berkeley.edu/about/
-"University of California, Berkeley",global_leadership,2,world; leadership,https://www.berkeley.edu/about/
-"University of California, Berkeley",excellence_prestige,1,excellence,https://www.berkeley.edu/about/
-"University of California, Berkeley",inclusion_belonging,0,,https://www.berkeley.edu/about/
-"University of California, Berkeley",career_economy,0,,https://www.berkeley.edu/about/
-University of Chicago,truth_knowledge,0,,https://www.uchicago.edu/who-we-are
-University of Chicago,civic_public,0,,https://www.uchicago.edu/who-we-are
-University of Chicago,innovation_impact,0,,https://www.uchicago.edu/who-we-are
-University of Chicago,global_leadership,0,,https://www.uchicago.edu/who-we-are
-University of Chicago,excellence_prestige,0,,https://www.uchicago.edu/who-we-are
-University of Chicago,inclusion_belonging,0,,https://www.uchicago.edu/who-we-are
-University of Chicago,career_economy,0,,https://www.uchicago.edu/who-we-are
-Cornell University,truth_knowledge,2,knowledge,https://www.cornell.edu/about/
-Cornell University,civic_public,5,public,https://www.cornell.edu/about/
-Cornell University,innovation_impact,1,innovation,https://www.cornell.edu/about/
-Cornell University,global_leadership,4,world; international; leadership,https://www.cornell.edu/about/
-Cornell University,excellence_prestige,1,excellence,https://www.cornell.edu/about/
-Cornell University,inclusion_belonging,1,diversity,https://www.cornell.edu/about/
-Cornell University,career_economy,1,professional,https://www.cornell.edu/about/
-University of Pennsylvania,truth_knowledge,8,knowledge; learning,https://www.upenn.edu/about
-University of Pennsylvania,civic_public,3,service; society,https://www.upenn.edu/about
-University of Pennsylvania,innovation_impact,9,innovation; innovative; impact; discovery,https://www.upenn.edu/about
-University of Pennsylvania,global_leadership,14,global; world; international,https://www.upenn.edu/about
-University of Pennsylvania,excellence_prestige,3,excellence; leading,https://www.upenn.edu/about
-University of Pennsylvania,inclusion_belonging,0,,https://www.upenn.edu/about
-University of Pennsylvania,career_economy,1,economic,https://www.upenn.edu/about
-Duke University,truth_knowledge,5,knowledge; learning,https://duke.edu/about/
-Duke University,civic_public,5,public; service,https://duke.edu/about/
-Duke University,innovation_impact,6,innovation; impact; discovery,https://duke.edu/about/
-Duke University,global_leadership,11,global; world; leadership,https://duke.edu/about/
-Duke University,excellence_prestige,5,excellence; leading,https://duke.edu/about/
-Duke University,inclusion_belonging,5,inclusive; inclusion; access,https://duke.edu/about/
-Duke University,career_economy,2,professional,https://duke.edu/about/
+institution,source_layer,year,family,count,count_per_1000_words,matched_terms,url,archive_url
+Harvard University,current,2026,truth_knowledge,5,8.576,truth; knowledge; scholarship,https://www.harvard.edu/about/,
+Harvard University,current,2026,civic_public,4,6.861,public; society,https://www.harvard.edu/about/,
+Harvard University,current,2026,innovation_impact,0,0,,https://www.harvard.edu/about/,
+Harvard University,current,2026,global_leadership,7,12.007,global; world; leadership,https://www.harvard.edu/about/,
+Harvard University,current,2026,excellence_prestige,1,1.715,leading,https://www.harvard.edu/about/,
+Harvard University,current,2026,inclusion_belonging,2,3.431,inclusion; equity,https://www.harvard.edu/about/,
+Harvard University,current,2026,career_economy,0,0,,https://www.harvard.edu/about/,
+Stanford University,current,2026,truth_knowledge,7,6.66,knowledge; inquiry; learning,https://www.stanford.edu/about/,
+Stanford University,current,2026,civic_public,9,8.563,citizen; citizenship; public; service; society; common good,https://www.stanford.edu/about/,
+Stanford University,current,2026,innovation_impact,6,5.709,innovation; discovery,https://www.stanford.edu/about/,
+Stanford University,current,2026,global_leadership,17,16.175,global; world; international; leadership,https://www.stanford.edu/about/,
+Stanford University,current,2026,excellence_prestige,4,3.806,excellence; renowned,https://www.stanford.edu/about/,
+Stanford University,current,2026,inclusion_belonging,4,3.806,diversity; access,https://www.stanford.edu/about/,
+Stanford University,current,2026,career_economy,1,0.951,career,https://www.stanford.edu/about/,
+Massachusetts Institute of Technology,current,2026,truth_knowledge,0,0,,https://www.mit.edu/about/,
+Massachusetts Institute of Technology,current,2026,civic_public,3,4.68,public; service,https://www.mit.edu/about/,
+Massachusetts Institute of Technology,current,2026,innovation_impact,6,9.36,innovation; technology,https://www.mit.edu/about/,
+Massachusetts Institute of Technology,current,2026,global_leadership,6,9.36,global; world; leadership,https://www.mit.edu/about/,
+Massachusetts Institute of Technology,current,2026,excellence_prestige,1,1.56,distinguished,https://www.mit.edu/about/,
+Massachusetts Institute of Technology,current,2026,inclusion_belonging,0,0,,https://www.mit.edu/about/,
+Massachusetts Institute of Technology,current,2026,career_economy,1,1.56,industry,https://www.mit.edu/about/,
+Princeton University,current,2026,truth_knowledge,4,8.621,learning; scholarship,https://www.princeton.edu/meet-princeton,
+Princeton University,current,2026,civic_public,5,10.776,service; society,https://www.princeton.edu/meet-princeton,
+Princeton University,current,2026,innovation_impact,2,4.31,impact; discovery,https://www.princeton.edu/meet-princeton,
+Princeton University,current,2026,global_leadership,6,12.931,world; leadership,https://www.princeton.edu/meet-princeton,
+Princeton University,current,2026,excellence_prestige,1,2.155,renowned,https://www.princeton.edu/meet-princeton,
+Princeton University,current,2026,inclusion_belonging,0,0,,https://www.princeton.edu/meet-princeton,
+Princeton University,current,2026,career_economy,0,0,,https://www.princeton.edu/meet-princeton,
+Yale University,current,2026,truth_knowledge,4,3.988,knowledge; learning,https://www.yale.edu/about-yale,
+Yale University,current,2026,civic_public,2,1.994,society,https://www.yale.edu/about-yale,
+Yale University,current,2026,innovation_impact,5,4.985,innovation; innovative,https://www.yale.edu/about-yale,
+Yale University,current,2026,global_leadership,10,9.97,global; world; international; leadership,https://www.yale.edu/about-yale,
+Yale University,current,2026,excellence_prestige,0,0,,https://www.yale.edu/about-yale,
+Yale University,current,2026,inclusion_belonging,0,0,,https://www.yale.edu/about-yale,
+Yale University,current,2026,career_economy,0,0,,https://www.yale.edu/about-yale,
+"University of California, Berkeley",current,2026,truth_knowledge,0,0,,https://www.berkeley.edu/about/,
+"University of California, Berkeley",current,2026,civic_public,1,4.184,public,https://www.berkeley.edu/about/,
+"University of California, Berkeley",current,2026,innovation_impact,0,0,,https://www.berkeley.edu/about/,
+"University of California, Berkeley",current,2026,global_leadership,2,8.368,world; leadership,https://www.berkeley.edu/about/,
+"University of California, Berkeley",current,2026,excellence_prestige,1,4.184,excellence,https://www.berkeley.edu/about/,
+"University of California, Berkeley",current,2026,inclusion_belonging,0,0,,https://www.berkeley.edu/about/,
+"University of California, Berkeley",current,2026,career_economy,0,0,,https://www.berkeley.edu/about/,
+University of Chicago,current,2026,truth_knowledge,0,0,,https://www.uchicago.edu/who-we-are,
+University of Chicago,current,2026,civic_public,0,0,,https://www.uchicago.edu/who-we-are,
+University of Chicago,current,2026,innovation_impact,0,0,,https://www.uchicago.edu/who-we-are,
+University of Chicago,current,2026,global_leadership,0,0,,https://www.uchicago.edu/who-we-are,
+University of Chicago,current,2026,excellence_prestige,0,0,,https://www.uchicago.edu/who-we-are,
+University of Chicago,current,2026,inclusion_belonging,0,0,,https://www.uchicago.edu/who-we-are,
+University of Chicago,current,2026,career_economy,0,0,,https://www.uchicago.edu/who-we-are,
+Cornell University,current,2026,truth_knowledge,2,2.506,knowledge,https://www.cornell.edu/about/,
+Cornell University,current,2026,civic_public,5,6.266,public,https://www.cornell.edu/about/,
+Cornell University,current,2026,innovation_impact,1,1.253,innovation,https://www.cornell.edu/about/,
+Cornell University,current,2026,global_leadership,4,5.013,world; international; leadership,https://www.cornell.edu/about/,
+Cornell University,current,2026,excellence_prestige,1,1.253,excellence,https://www.cornell.edu/about/,
+Cornell University,current,2026,inclusion_belonging,1,1.253,diversity,https://www.cornell.edu/about/,
+Cornell University,current,2026,career_economy,1,1.253,professional,https://www.cornell.edu/about/,
+University of Pennsylvania,current,2026,truth_knowledge,8,12.177,knowledge; learning,https://www.upenn.edu/about,
+University of Pennsylvania,current,2026,civic_public,3,4.566,service; society,https://www.upenn.edu/about,
+University of Pennsylvania,current,2026,innovation_impact,9,13.699,innovation; innovative; impact; discovery,https://www.upenn.edu/about,
+University of Pennsylvania,current,2026,global_leadership,14,21.309,global; world; international,https://www.upenn.edu/about,
+University of Pennsylvania,current,2026,excellence_prestige,3,4.566,excellence; leading,https://www.upenn.edu/about,
+University of Pennsylvania,current,2026,inclusion_belonging,0,0,,https://www.upenn.edu/about,
+University of Pennsylvania,current,2026,career_economy,1,1.522,economic,https://www.upenn.edu/about,
+Duke University,current,2026,truth_knowledge,5,4.517,knowledge; learning,https://duke.edu/about/,
+Duke University,current,2026,civic_public,5,4.517,public; service,https://duke.edu/about/,
+Duke University,current,2026,innovation_impact,6,5.42,innovation; impact; discovery,https://duke.edu/about/,
+Duke University,current,2026,global_leadership,11,9.937,global; world; leadership,https://duke.edu/about/,
+Duke University,current,2026,excellence_prestige,5,4.517,excellence; leading,https://duke.edu/about/,
+Duke University,current,2026,inclusion_belonging,5,4.517,inclusive; inclusion; access,https://duke.edu/about/,
+Duke University,current,2026,career_economy,2,1.807,professional,https://duke.edu/about/,

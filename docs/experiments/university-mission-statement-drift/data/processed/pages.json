@@ -1,7 +1,11 @@
 [
   {
     "institution": "Harvard University",
+    "source_layer": "current",
+    "year": 2026,
     "url": "https://www.harvard.edu/about/",
+    "archive_url": "",
+    "timestamp": "",
     "status": 200,
     "words": 583,
     "text_preview": "About - Harvard University Skip to main content Harvard University 1 site notification Search Menu Harvard University Close About Harvard Those who join our community—to learn, research, teach, work, and grow—join nearly four centuries of students and scholars in the pursuit of truth, knowledge, and a better world. The people of Harvard Our people are what make Harvard special. Our community comprises many backgrounds, cultures, races, identities, life experiences, perspectives, beliefs, and values. Explore Harvard through our directory Explore data about our community with the Harvard Fact Bo",
@@ -24,7 +28,11 @@
   },
   {
     "institution": "Stanford University",
+    "source_layer": "current",
+    "year": 2026,
     "url": "https://www.stanford.edu/about/",
+    "archive_url": "",
+    "timestamp": "",
     "status": 200,
     "words": 1051,
     "text_preview": "Who We Are &#8211; Stanford University Skip to content Stanford University Search Menu Search term Search Stanford: Web People Search Web Other ways to search: Map Profiles Main Content Who We Are From its founding in California in the late 19th century until today, Stanford has been infused with the American West’s spirit of openness and possibility. We believe strongly in the mission of higher education – to create and share knowledge and to prepare students to be curious, to think critically, and to contribute to the world. With world-class scholars and seven schools located together on a s",
@@ -47,7 +55,11 @@
   },
   {
     "institution": "Massachusetts Institute of Technology",
+    "source_layer": "current",
+    "year": 2026,
     "url": "https://www.mit.edu/about/",
+    "archive_url": "",
+    "timestamp": "",
     "status": 200,
     "words": 641,
     "text_preview": "About MIT | MIT - Massachusetts Institute of Technology Skip to content ↓ Menu Explore websites, people, and locations Look up people by &ldquo;last name sounds like&rdquo; What are you looking for? See More Results Suggestions or feedback? Home About MIT About MIT The MIT community is driven by a shared purpose: to make a better world through education , research , and innovation . We are fun and quirky, inventive and artistic, obsessed with numbers, and welcoming to talented people regardless of where they come from. Founded to accelerate the nation’s industrial revolution, MIT is profoundly",
@@ -70,7 +82,11 @@
   },
   {
     "institution": "Princeton University",
+    "source_layer": "current",
+    "year": 2026,
     "url": "https://www.princeton.edu/meet-princeton",
+    "archive_url": "",
+    "timestamp": "",
     "status": 200,
     "words": 464,
     "text_preview": "Meet Princeton | Princeton University Skip to main content Princeton University Search Search Sites & People &times; Meet Princeton People Are at the Heart of Princeton Princeton is about people. Our University is enriched by the wide range of experiences and perspectives of our students, faculty, staff and alumni. In Service of Humanity Princeton University is a vibrant community of scholarship and learning that stands in the nation's service and the service of humanity. On campus and around the world, Princetonians are making a difference in society. Learn More Facts & Figures 5,826 Undergra",
@@ -93,7 +109,11 @@
   },
   {
     "institution": "Yale University",
+    "source_layer": "current",
+    "year": 2026,
     "url": "https://www.yale.edu/about-yale",
+    "archive_url": "",
+    "timestamp": "",
     "status": 200,
     "words": 1003,
     "text_preview": "About Yale | Yale University Skip to Main Content It looks like you're trying to zoom in on this page. For best results: use the most recent version of your browser, disable your browser's 'zoom text only' setting, and use your browser's default font size settings. To zoom in, use [Ctrl] + [+] in Windows, and [Cmd] + [+] on a Mac. To zoom out, use the keyboard shortcut [Ctrl] + [-] in Windows and [Cmd] + [-] on a Mac. Yale University Search Navigation Info for... Students Faculty Staff Alumni New Haven Community Go Search Explore our campus Old Campus and Harkness Tower Yale’s iconic Old Campu",
@@ -116,7 +136,11 @@
   },
   {
     "institution": "University of California, Berkeley",
+    "source_layer": "current",
+    "year": 2026,
     "url": "https://www.berkeley.edu/about/",
+    "archive_url": "",
+    "timestamp": "",
     "status": 200,
     "words": 239,
     "text_preview": "About - University of California, Berkeley Toggle navigation About Berkeley The University of California was founded in 1868, born out of a vision in the State Constitution of a university that would &ldquo;contribute even more than California&#8217;s gold to the glory and happiness of advancing generations.&rdquo; By the numbers From faculty awards to the number of books in our libraries, see Berkeley through its facts and figures. History and discoveries The Free Speech Movement, wetsuits, a treatment for malaria and earthquake science. You might be surprised to learn what Berkeley has contr",
@@ -138,7 +162,11 @@
   },
   {
     "institution": "University of Chicago",
+    "source_layer": "current",
+    "year": 2026,
     "url": "https://www.uchicago.edu/who-we-are",
+    "archive_url": "",
+    "timestamp": "",
     "status": 200,
     "words": 9,
     "text_preview": "You need to enable JavaScript to run this app.",
@@ -155,7 +183,11 @@
   },
   {
     "institution": "Cornell University",
+    "source_layer": "current",
+    "year": 2026,
     "url": "https://www.cornell.edu/about/",
+    "archive_url": "",
+    "timestamp": "",
     "status": 200,
     "words": 798,
     "text_preview": "About | Cornell University --> Cornell University Search toggle menu About Cornell Your browser does not support this video. Welcome to Cornell Knowledge for the greater good We have taken to heart the revolutionary spirit that founded our university and encourage each other to pursue unpredicted lines of thinking in order to effect change on local and international scales. Public Engagement Diversity Sustainability Cornell Leadership Cornell Campuses & Locations Pause Slides Main Campus Ithaca, NY Main Campus Ithaca, NY Located in Ithaca, NY, Cornell's main campus provides the experience of t",
@@ -178,7 +210,11 @@
   },
   {
     "institution": "University of Pennsylvania",
+    "source_layer": "current",
+    "year": 2026,
     "url": "https://www.upenn.edu/about",
+    "archive_url": "",
+    "timestamp": "",
     "status": 200,
     "words": 657,
     "text_preview": "About | University of Pennsylvania Skip to main content Go to site search Go to primary navigation Go to resources navigation Penn Home Toggle Site Navigation Toggle Site Search Search Search Close About Office of the President Explore the President&#039;s involvement in selected campus and world events, and read about their background and the functions of the office. Trustees & Administration Learn about the people who look after the University’s well-being and oversee its academic and business operations. In Principle and Practice A new strategic framework captures what the world needs most ",
@@ -201,7 +237,11 @@
   },
   {
     "institution": "Duke University",
+    "source_layer": "current",
+    "year": 2026,
     "url": "https://duke.edu/about/",
+    "archive_url": "",
+    "timestamp": "",
     "status": 200,
     "words": 1107,
     "text_preview": "About - Duke University Skip to content Close Menu Close Menu About Duke’s story is being written every day. It’s shaped by bold ideas and a shared commitment to progress. Help write our next chapter. Explore Know What You Need? If you know what you are looking for, please use our search engine. Search Duke Facts What makes us Duke isn’t just in the numbers. It’s in the impact behind them: how we learn, discover and lead. Our Facts and Figures Reflect a University Shaping the Future 16 Nobel laureates are Duke affiliated students or faculty 91% 4 year graduation rate 95% employment rate among ",
@@ -220,6 +260,114 @@
       "excellence_prestige": 5,
       "inclusion_belonging": 5,
       "career_economy": 2
+    }
+  },
+  {
+    "institution": "Stanford University",
+    "source_layer": "wayback",
+    "year": 2010,
+    "url": "https://www.stanford.edu/about/",
+    "archive_url": "https://web.archive.org/web/20100717083844id_/https://www.stanford.edu/about/",
+    "timestamp": "20100717083844",
+    "status": 200,
+    "words": 342,
+    "text_preview": "About Stanford: Stanford University Skip to Content Maps A-Z Index Web People Submit About Stanford Admission Academics Research Life On Campus About Stanford Introduction Located between San Francisco and San Jose in the heart of Silicon Valley, Stanford University is recognized as one of the world's leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the public welfare by exercising an influence on behalf of humanity and civilization.\" Stanford opened its doors in 1891, and more than a century later, it remains dedicated to finding solution",
+    "snippets": [
+      "s leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the public welfare by exercising an influence on behalf of humanity and civilization.\" Stanford opened its doors in 1891",
+      "ly Event Calendar Other Publications Slideshow See Also Video Snapshots Three short videos highlight Stanford innovation, creativity and leadership. Stanford Speak Learn the lingo of \"the Farm.\" Giving to Stanford You can make a d",
+      "en San Francisco and San Jose in the heart of Silicon Valley, Stanford University is recognized as one of the world's leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the",
+      "t remains dedicated to finding solutions to the great challenges of the day and to preparing our students for leadership in today's complex world. Home » About Stanford Stanford Facts & History Stanford Facts and the Annual Report",
+      "rancisco and San Jose in the heart of Silicon Valley, Stanford University is recognized as one of the world's leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the public we"
+    ],
+    "term_counts": {
+      "truth_knowledge": 0,
+      "civic_public": 1,
+      "innovation_impact": 1,
+      "global_leadership": 4,
+      "excellence_prestige": 1,
+      "inclusion_belonging": 0,
+      "career_economy": 0
+    }
+  },
+  {
+    "institution": "Stanford University",
+    "source_layer": "wayback",
+    "year": 2020,
+    "url": "https://www.stanford.edu/about/",
+    "archive_url": "https://web.archive.org/web/20200406234457id_/https://www.stanford.edu/about/",
+    "timestamp": "20200406234457",
+    "status": 200,
+    "words": 377,
+    "text_preview": "About Stanford &#8211; Stanford University --> Skip to content Stanford University Search Menu Latest information about COVID-19 Dismiss alert Search term Search Stanford: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership President Marc Tessier-Lavigne Marc Tessier-Lavigne became Stanford University&#8217;s eleventh president on September 1, 2016. Office of the President Provost Persis Drell Persis Drell is Stan",
+    "snippets": [
+      "ch Stanford: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219",
+      "le Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership Pre",
+      "d: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Le",
+      "Jr., who died of typhoid fever at 15. A History of Stanford Stanford Then & Now Stanford has changed with the world over the last 125+ years, often leading the way with new ideas and discoveries. Here’s a look at Stanford peo",
+      "ry, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership President Marc Tessier-Lavigne Marc Tessier-Lavigne became Stanford University&#8217;s eleventh president on"
+    ],
+    "term_counts": {
+      "truth_knowledge": 2,
+      "civic_public": 0,
+      "innovation_impact": 3,
+      "global_leadership": 2,
+      "excellence_prestige": 1,
+      "inclusion_belonging": 0,
+      "career_economy": 0
+    }
+  },
+  {
+    "institution": "Massachusetts Institute of Technology",
+    "source_layer": "wayback",
+    "year": 2020,
+    "url": "https://www.mit.edu/about/",
+    "archive_url": "https://web.archive.org/web/20200729073348id_/https://www.mit.edu/about/",
+    "timestamp": "20200729073348",
+    "status": 200,
+    "words": 753,
+    "text_preview": "About MIT | MIT - Massachusetts Institute of Technology Skip to content ↓ Menu Search websites, locations, and people What are you looking for? See More Results Suggestions or feedback? Home About MIT About MIT The MIT community is driven by a shared purpose: to make a better world through education , research , and innovation . We are fun and quirky, elite but not elitist, inventive and artistic, obsessed with numbers, and welcoming to talented people regardless of where they come from. Founded to accelerate the nation’s industrial revolution, MIT is profoundly American. With ingenuity and dr",
+    "snippets": [
+      "bles II,” by Mark di Suvero, is part of MIT’s public art collection. Mission The mission of MIT is to advance knowledge and educate students in science, technology, and other areas of scholarship that will best serve the nation a",
+      "on The mission of MIT is to advance knowledge and educate students in science, technology, and other areas of scholarship that will best serve the nation and the world in the 21st century. The Institute is committed to generating,",
+      "Size 166 acres (0.67 km2) Student residences 18 Playing fields 26 acres (0.11 km2) Gardens + green spaces 30+ Publicly sited works of art 60+ Admissions (Class of 2023) Applicants 21,312 Admits 1,427 Selected Honors Nobel laur",
+      "und the world. Through teaching, research, and innovation, MIT’s exceptional community pursues its mission of service to the nation and the world . Your browser does not support the video tag. Key Facts History Incorporated 186",
+      "IT The MIT community is driven by a shared purpose: to make a better world through education , research , and innovation . We are fun and quirky, elite but not elitist, inventive and artistic, obsessed with numbers, and welcoming"
+    ],
+    "term_counts": {
+      "truth_knowledge": 5,
+      "civic_public": 3,
+      "innovation_impact": 8,
+      "global_leadership": 8,
+      "excellence_prestige": 1,
+      "inclusion_belonging": 0,
+      "career_economy": 1
+    }
+  },
+  {
+    "institution": "Princeton University",
+    "source_layer": "wayback",
+    "year": 2020,
+    "url": "https://www.princeton.edu/meet-princeton",
+    "archive_url": "https://web.archive.org/web/20200314185525id_/https://www.princeton.edu/meet-princeton",
+    "timestamp": "20200314185525",
+    "status": 200,
+    "words": 573,
+    "text_preview": "Meet Princeton | Princeton University Skip to main content Toggle subitems Search Sites & People &times; Meet Princeton People Are at the Heart of Princeton Princeton is about people. Our University is enriched by the wide range of experiences and perspectives of our students, faculty, staff and alumni. In Service of Humanity Princeton University is a vibrant community of scholarship and learning that stands in the nation's service and the service of humanity. On campus and around the world, Princetonians are making a difference in society. Learn More Our People University News University issu",
+    "snippets": [
+      "ulty, staff and alumni. In Service of Humanity Princeton University is a vibrant community of scholarship and learning that stands in the nation's service and the service of humanity. On campus and around the world, Princetonian",
+      "ur students, faculty, staff and alumni. In Service of Humanity Princeton University is a vibrant community of scholarship and learning that stands in the nation's service and the service of humanity. On campus and around the world,",
+      "is enriched by the wide range of experiences and perspectives of our students, faculty, staff and alumni. In Service of Humanity Princeton University is a vibrant community of scholarship and learning that stands in the nation",
+      "service and the service of humanity. On campus and around the world, Princetonians are making a difference in society. Learn More Our People University News University issues further COVID-19 guidance, accommodations and criter",
+      "mbers have the opportunity to engage in a work environment that values connection and community and making an impact bigger than oneself. Learn More Our Leadership Princeton is led by Christopher L. Eisgruber, a constitutional"
+    ],
+    "term_counts": {
+      "truth_knowledge": 2,
+      "civic_public": 5,
+      "innovation_impact": 2,
+      "global_leadership": 4,
+      "excellence_prestige": 1,
+      "inclusion_belonging": 0,
+      "career_economy": 0
     }
   }
 ]

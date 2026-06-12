@@ -1,9 +1,13 @@
 {
-  "generatedAt": "2026-06-12T17:27:29.755Z",
-  "runDate": "2026-06-12",
-  "pages": 10,
-  "errors": 0,
-  "termFamilyTotals": {
+  "generatedAt": "2026-06-12T17:35:29.871Z",
+  "pages": 14,
+  "currentPages": 10,
+  "historicalPages": 4,
+  "yearRange": {
+    "earliest": 2010,
+    "latest": 2026
+  },
+  "currentTermFamilyTotals": {
     "global_leadership": 77,
     "civic_public": 37,
     "truth_knowledge": 35,
@@ -12,9 +16,190 @@
     "inclusion_belonging": 12,
     "career_economy": 6
   },
+  "historicalTermFamilyTotals": {
+    "global_leadership": 18,
+    "innovation_impact": 14,
+    "truth_knowledge": 9,
+    "civic_public": 9,
+    "excellence_prestige": 4,
+    "career_economy": 1,
+    "inclusion_belonging": 0
+  },
+  "termFamilyByYear": [
+    {
+      "year": 2010,
+      "family": "career_economy",
+      "pages": 1,
+      "count": 0,
+      "words": 342,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2010,
+      "family": "civic_public",
+      "pages": 1,
+      "count": 1,
+      "words": 342,
+      "count_per_1000_words": 2.924
+    },
+    {
+      "year": 2010,
+      "family": "excellence_prestige",
+      "pages": 1,
+      "count": 1,
+      "words": 342,
+      "count_per_1000_words": 2.924
+    },
+    {
+      "year": 2010,
+      "family": "global_leadership",
+      "pages": 1,
+      "count": 4,
+      "words": 342,
+      "count_per_1000_words": 11.696
+    },
+    {
+      "year": 2010,
+      "family": "inclusion_belonging",
+      "pages": 1,
+      "count": 0,
+      "words": 342,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2010,
+      "family": "innovation_impact",
+      "pages": 1,
+      "count": 1,
+      "words": 342,
+      "count_per_1000_words": 2.924
+    },
+    {
+      "year": 2010,
+      "family": "truth_knowledge",
+      "pages": 1,
+      "count": 0,
+      "words": 342,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2020,
+      "family": "career_economy",
+      "pages": 3,
+      "count": 1,
+      "words": 1703,
+      "count_per_1000_words": 0.587
+    },
+    {
+      "year": 2020,
+      "family": "civic_public",
+      "pages": 3,
+      "count": 8,
+      "words": 1703,
+      "count_per_1000_words": 4.698
+    },
+    {
+      "year": 2020,
+      "family": "excellence_prestige",
+      "pages": 3,
+      "count": 3,
+      "words": 1703,
+      "count_per_1000_words": 1.762
+    },
+    {
+      "year": 2020,
+      "family": "global_leadership",
+      "pages": 3,
+      "count": 14,
+      "words": 1703,
+      "count_per_1000_words": 8.221
+    },
+    {
+      "year": 2020,
+      "family": "inclusion_belonging",
+      "pages": 3,
+      "count": 0,
+      "words": 1703,
+      "count_per_1000_words": 0
+    },
+    {
+      "year": 2020,
+      "family": "innovation_impact",
+      "pages": 3,
+      "count": 13,
+      "words": 1703,
+      "count_per_1000_words": 7.634
+    },
+    {
+      "year": 2020,
+      "family": "truth_knowledge",
+      "pages": 3,
+      "count": 9,
+      "words": 1703,
+      "count_per_1000_words": 5.285
+    },
+    {
+      "year": 2026,
+      "family": "career_economy",
+      "pages": 10,
+      "count": 6,
+      "words": 6552,
+      "count_per_1000_words": 0.916
+    },
+    {
+      "year": 2026,
+      "family": "civic_public",
+      "pages": 10,
+      "count": 37,
+      "words": 6552,
+      "count_per_1000_words": 5.647
+    },
+    {
+      "year": 2026,
+      "family": "excellence_prestige",
+      "pages": 10,
+      "count": 17,
+      "words": 6552,
+      "count_per_1000_words": 2.595
+    },
+    {
+      "year": 2026,
+      "family": "global_leadership",
+      "pages": 10,
+      "count": 77,
+      "words": 6552,
+      "count_per_1000_words": 11.752
+    },
+    {
+      "year": 2026,
+      "family": "inclusion_belonging",
+      "pages": 10,
+      "count": 12,
+      "words": 6552,
+      "count_per_1000_words": 1.832
+    },
+    {
+      "year": 2026,
+      "family": "innovation_impact",
+      "pages": 10,
+      "count": 35,
+      "words": 6552,
+      "count_per_1000_words": 5.342
+    },
+    {
+      "year": 2026,
+      "family": "truth_knowledge",
+      "pages": 10,
+      "count": 35,
+      "words": 6552,
+      "count_per_1000_words": 5.342
+    }
+  ],
   "institutions": [
     {
       "institution": "Harvard University",
+      "source_layer": "current",
+      "year": 2026,
       "words": 583,
       "term_counts": {
         "truth_knowledge": 5,
@@ -32,10 +217,13 @@
         "ties we reside within, whether in Massachusetts or at our locations abroad. $5.35 million for improvements to public parks and open spaces, neighborhood beautification, streetscape enhancements, public safety initiatives, and",
         "in the value of knowledge, the power of teaching and research, and the ways that what we do here can benefit society.” President of Harvard University Alan M. Garber Harvard leadership and governance is composed of four compon"
       ],
-      "url": "https://www.harvard.edu/about/"
+      "url": "https://www.harvard.edu/about/",
+      "archive_url": ""
     },
     {
       "institution": "Stanford University",
+      "source_layer": "current",
+      "year": 2026,
       "words": 1051,
       "term_counts": {
         "truth_knowledge": 7,
@@ -53,10 +241,13 @@
         "fresh thinking, searching discussion, and freedom of thought – preparing students for leadership and engaged citizenship in the world. Excellence in education across disciplines Stanford provides students the opportunity to en",
         "fresh thinking, searching discussion, and freedom of thought – preparing students for leadership and engaged citizenship in the world. Excellence in education across disciplines Stanford provides students the opportunity to engage"
       ],
-      "url": "https://www.stanford.edu/about/"
+      "url": "https://www.stanford.edu/about/",
+      "archive_url": ""
     },
     {
       "institution": "Massachusetts Institute of Technology",
+      "source_layer": "current",
+      "year": 2026,
       "words": 641,
       "term_counts": {
         "truth_knowledge": 0,
@@ -74,10 +265,13 @@
         "About MIT | MIT - Massachusetts Institute of Technology Skip to content ↓ Menu Explore websites, people, and locations Look up people by &ldquo;last name sounds like",
         "lions of American jobs. At the same time, and without the slightest sense of contradiction, MIT is profoundly global . Our community gains tremendous strength as a magnet for talent from around the world. Through teaching, res"
       ],
-      "url": "https://www.mit.edu/about/"
+      "url": "https://www.mit.edu/about/",
+      "archive_url": ""
     },
     {
       "institution": "Princeton University",
+      "source_layer": "current",
+      "year": 2026,
       "words": 464,
       "term_counts": {
         "truth_knowledge": 4,
@@ -95,10 +289,13 @@
         "service and the service of humanity. On campus and around the world, Princetonians are making a difference in society. Learn More Facts & Figures 5,826 Undergraduate enrollment 135 New inventions, fiscal year 2025 1,313 Faculty",
         "mbers have the opportunity to engage in a work environment that values connection and community and making an impact bigger than oneself. Our Leadership Princeton is led by Christopher L. Eisgruber, a constitutional scholar wh"
       ],
-      "url": "https://www.princeton.edu/meet-princeton"
+      "url": "https://www.princeton.edu/meet-princeton",
+      "archive_url": ""
     },
     {
       "institution": "Yale University",
+      "source_layer": "current",
+      "year": 2026,
       "words": 1003,
       "term_counts": {
         "truth_knowledge": 4,
@@ -116,10 +313,13 @@
         "About Yale Since its founding in 1701, Yale has been dedicated to expanding and sharing knowledge, inspiring innovation, and preserving cultural and scientific information for future generations. Yale’s reach is both local and in",
         "minent buildings on campus. Learn more Evans Hall Evans Hall is a striking modern architectural landmark with innovative classrooms and signature spaces such as a central courtyard, that signal its strong ties to Yale and the glob"
       ],
-      "url": "https://www.yale.edu/about-yale"
+      "url": "https://www.yale.edu/about-yale",
+      "archive_url": ""
     },
     {
       "institution": "University of California, Berkeley",
+      "source_layer": "current",
+      "year": 2026,
       "words": 239,
       "term_counts": {
         "truth_knowledge": 0,
@@ -136,10 +336,13 @@
         "ey for yourself? Find out about daily campus tours, parking and public transportation. Book a tour Campus map Leadership See a complete list of campus administrators and deans, and find unit-by-unit organizational charts. What hap",
         "ar students More Numbers &ldquo;Berkeley is a glorious place. Everywhere you turn you find this commitment to excellence.&rdquo; Oliver Williamson, 2009 Nobelist, economics"
       ],
-      "url": "https://www.berkeley.edu/about/"
+      "url": "https://www.berkeley.edu/about/",
+      "archive_url": ""
     },
     {
       "institution": "University of Chicago",
+      "source_layer": "current",
+      "year": 2026,
       "words": 9,
       "term_counts": {
         "truth_knowledge": 0,
@@ -151,10 +354,13 @@
         "career_economy": 0
       },
       "snippets": [],
-      "url": "https://www.uchicago.edu/who-we-are"
+      "url": "https://www.uchicago.edu/who-we-are",
+      "archive_url": ""
     },
     {
       "institution": "Cornell University",
+      "source_layer": "current",
+      "year": 2026,
       "words": 798,
       "term_counts": {
         "truth_knowledge": 2,
@@ -172,10 +378,13 @@
         "a manner that prioritizes public engagement to help improve the quality of life in our state, the nation, the world. Public Engagement University Factbook --> Cornell Through the Years More than 150 years of excellence in edu",
         "rsity and encourage each other to pursue unpredicted lines of thinking in order to effect change on local and international scales. Public Engagement Diversity Sustainability Cornell Leadership Cornell Campuses & Locations Pause Slid"
       ],
-      "url": "https://www.cornell.edu/about/"
+      "url": "https://www.cornell.edu/about/",
+      "archive_url": ""
     },
     {
       "institution": "University of Pennsylvania",
+      "source_layer": "current",
+      "year": 2026,
       "words": 657,
       "term_counts": {
         "truth_knowledge": 8,
@@ -193,10 +402,13 @@
         "12 schools, enriching student experiences and furthering Penn’s mission to integrate knowledge in service to society. All-grant Financial Aid Penn’s all-grant financial aid policy significantly reduces the burden of debt and,",
         "community that rises to the challenge. Penn’s academics are boosted by its inherent culture and ecosystem of innovation. You name it, if it’s cutting-edge, the University’s faculty—and students—have their hands in it. Grounded in"
       ],
-      "url": "https://www.upenn.edu/about"
+      "url": "https://www.upenn.edu/about",
+      "archive_url": ""
     },
     {
       "institution": "Duke University",
+      "source_layer": "current",
+      "year": 2026,
       "words": 1107,
       "term_counts": {
         "truth_knowledge": 5,
@@ -214,12 +426,113 @@
         "ng our friends to create new opportunities for growth and discovery to advance our educational, research, and service missions. Our Climate Commitment sustainability Collaboration and Community The Duke Climate Commitment encom",
         "nique perspectives and talents 10,200 graduate and professional students dedicated to advancing knowledge and innovation 4,100 faculty members guiding the next generation as leaders in their fields 47,000 dedicated staff supportin"
       ],
-      "url": "https://duke.edu/about/"
+      "url": "https://duke.edu/about/",
+      "archive_url": ""
+    },
+    {
+      "institution": "Stanford University",
+      "source_layer": "wayback",
+      "year": 2010,
+      "words": 342,
+      "term_counts": {
+        "truth_knowledge": 0,
+        "civic_public": 1,
+        "innovation_impact": 1,
+        "global_leadership": 4,
+        "excellence_prestige": 1,
+        "inclusion_belonging": 0,
+        "career_economy": 0
+      },
+      "snippets": [
+        "s leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the public welfare by exercising an influence on behalf of humanity and civilization.\" Stanford opened its doors in 1891",
+        "ly Event Calendar Other Publications Slideshow See Also Video Snapshots Three short videos highlight Stanford innovation, creativity and leadership. Stanford Speak Learn the lingo of \"the Farm.\" Giving to Stanford You can make a d",
+        "en San Francisco and San Jose in the heart of Silicon Valley, Stanford University is recognized as one of the world's leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the",
+        "t remains dedicated to finding solutions to the great challenges of the day and to preparing our students for leadership in today's complex world. Home » About Stanford Stanford Facts & History Stanford Facts and the Annual Report",
+        "rancisco and San Jose in the heart of Silicon Valley, Stanford University is recognized as one of the world's leading research and teaching institutions. Leland and Jane Stanford founded the University to \"promote the public we"
+      ],
+      "url": "https://www.stanford.edu/about/",
+      "archive_url": "https://web.archive.org/web/20100717083844id_/https://www.stanford.edu/about/"
+    },
+    {
+      "institution": "Stanford University",
+      "source_layer": "wayback",
+      "year": 2020,
+      "words": 377,
+      "term_counts": {
+        "truth_knowledge": 2,
+        "civic_public": 0,
+        "innovation_impact": 3,
+        "global_leadership": 2,
+        "excellence_prestige": 1,
+        "inclusion_belonging": 0,
+        "career_economy": 0
+      },
+      "snippets": [
+        "ch Stanford: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219",
+        "le Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership Pre",
+        "d: Web People Search Web Other ways to search: Map Profiles Main Content About Stanford A place for learning, discovery, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Le",
+        "Jr., who died of typhoid fever at 15. A History of Stanford Stanford Then & Now Stanford has changed with the world over the last 125+ years, often leading the way with new ideas and discoveries. Here’s a look at Stanford peo",
+        "ry, innovation, expression and discourse Opened in 1891 Located in Stanford, CA 16,424 Students 2,219 Faculty Leadership President Marc Tessier-Lavigne Marc Tessier-Lavigne became Stanford University&#8217;s eleventh president on"
+      ],
+      "url": "https://www.stanford.edu/about/",
+      "archive_url": "https://web.archive.org/web/20200406234457id_/https://www.stanford.edu/about/"
+    },
+    {
+      "institution": "Massachusetts Institute of Technology",
+      "source_layer": "wayback",
+      "year": 2020,
+      "words": 753,
+      "term_counts": {
+        "truth_knowledge": 5,
+        "civic_public": 3,
+        "innovation_impact": 8,
+        "global_leadership": 8,
+        "excellence_prestige": 1,
+        "inclusion_belonging": 0,
+        "career_economy": 1
+      },
+      "snippets": [
+        "bles II,” by Mark di Suvero, is part of MIT’s public art collection. Mission The mission of MIT is to advance knowledge and educate students in science, technology, and other areas of scholarship that will best serve the nation a",
+        "on The mission of MIT is to advance knowledge and educate students in science, technology, and other areas of scholarship that will best serve the nation and the world in the 21st century. The Institute is committed to generating,",
+        "Size 166 acres (0.67 km2) Student residences 18 Playing fields 26 acres (0.11 km2) Gardens + green spaces 30+ Publicly sited works of art 60+ Admissions (Class of 2023) Applicants 21,312 Admits 1,427 Selected Honors Nobel laur",
+        "und the world. Through teaching, research, and innovation, MIT’s exceptional community pursues its mission of service to the nation and the world . Your browser does not support the video tag. Key Facts History Incorporated 186",
+        "IT The MIT community is driven by a shared purpose: to make a better world through education , research , and innovation . We are fun and quirky, elite but not elitist, inventive and artistic, obsessed with numbers, and welcoming"
+      ],
+      "url": "https://www.mit.edu/about/",
+      "archive_url": "https://web.archive.org/web/20200729073348id_/https://www.mit.edu/about/"
+    },
+    {
+      "institution": "Princeton University",
+      "source_layer": "wayback",
+      "year": 2020,
+      "words": 573,
+      "term_counts": {
+        "truth_knowledge": 2,
+        "civic_public": 5,
+        "innovation_impact": 2,
+        "global_leadership": 4,
+        "excellence_prestige": 1,
+        "inclusion_belonging": 0,
+        "career_economy": 0
+      },
+      "snippets": [
+        "ulty, staff and alumni. In Service of Humanity Princeton University is a vibrant community of scholarship and learning that stands in the nation's service and the service of humanity. On campus and around the world, Princetonian",
+        "ur students, faculty, staff and alumni. In Service of Humanity Princeton University is a vibrant community of scholarship and learning that stands in the nation's service and the service of humanity. On campus and around the world,",
+        "is enriched by the wide range of experiences and perspectives of our students, faculty, staff and alumni. In Service of Humanity Princeton University is a vibrant community of scholarship and learning that stands in the nation",
+        "service and the service of humanity. On campus and around the world, Princetonians are making a difference in society. Learn More Our People University News University issues further COVID-19 guidance, accommodations and criter",
+        "mbers have the opportunity to engage in a work environment that values connection and community and making an impact bigger than oneself. Learn More Our Leadership Princeton is led by Christopher L. Eisgruber, a constitutional"
+      ],
+      "url": "https://www.princeton.edu/meet-princeton",
+      "archive_url": "https://web.archive.org/web/20200314185525id_/https://www.princeton.edu/meet-princeton"
     }
   ],
-  "nextSteps": [
-    "Add archived snapshots for the same URLs through Wayback or institutional archives.",
-    "Add catalogs, strategic plans, and president inauguration speeches as separate source layers.",
-    "Compare current-page language against historical snapshots by decade."
+  "articleReadiness": {
+    "status": "longitudinal-baseline",
+    "strongestNextMove": "Audit the archived snippets by hand and add catalogs, strategic plans, and speeches as separate source layers."
+  },
+  "caveats": [
+    "Wayback snapshots preserve page availability, not necessarily stable mission-statement URLs.",
+    "Archived HTML may include navigation, scripts, and template language that should be manually reviewed before publication.",
+    "Counts are directional evidence; public claims need source-stratified excerpts and historical page-type checks."
   ]
 }

@@ -24,14 +24,18 @@ Historical snapshots should be added next through archived pages, catalogs, stra
 
 ```bash
 node docs/experiments/university-mission-statement-drift/scripts/fetch-current-pages.mjs
+node docs/experiments/university-mission-statement-drift/scripts/fetch-wayback-snapshots.mjs --years=2000,2005,2010,2015,2020
 node docs/experiments/university-mission-statement-drift/scripts/build-report.mjs
 ```
 
 Outputs:
 
 - `data/raw/current-pages/YYYY-MM-DD/`
+- `data/raw/wayback-snapshots/YYYY-MM-DD/`
 - `data/processed/pages.json`
 - `data/processed/term-counts.csv`
+- `data/processed/page-term-counts.csv`
+- `data/processed/term-family-by-year.csv`
 - `reports/report.html`
 - `reports/result.json`
 - `reports/work.md`

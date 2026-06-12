@@ -1,0 +1,247 @@
+{
+  "runDate": "2026-06-12",
+  "source": "Internet Archive Wayback Machine",
+  "years": [
+    2010,
+    2020
+  ],
+  "startedAt": "2026-06-12T17:34:07.533Z",
+  "requests": [
+    {
+      "institution": "Harvard University",
+      "url": "https://www.harvard.edu/about/",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "institution": "Harvard University",
+      "url": "https://www.harvard.edu/about/",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "institution": "Stanford University",
+      "url": "https://www.stanford.edu/about/",
+      "year": 2010,
+      "timestamp": "20100717083844",
+      "originalStatus": "200",
+      "archiveUrl": "https://web.archive.org/web/20100717083844id_/https://www.stanford.edu/about/",
+      "status": 200,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/stanford-university/2010/index.html"
+    },
+    {
+      "institution": "Stanford University",
+      "url": "https://www.stanford.edu/about/",
+      "year": 2020,
+      "timestamp": "20200406234457",
+      "originalStatus": "200",
+      "archiveUrl": "https://web.archive.org/web/20200406234457id_/https://www.stanford.edu/about/",
+      "status": 200,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/stanford-university/2020/index.html"
+    },
+    {
+      "institution": "Massachusetts Institute of Technology",
+      "url": "https://www.mit.edu/about/",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "institution": "Massachusetts Institute of Technology",
+      "url": "https://www.mit.edu/about/",
+      "year": 2020,
+      "timestamp": "20200729073348",
+      "originalStatus": "200",
+      "archiveUrl": "https://web.archive.org/web/20200729073348id_/https://www.mit.edu/about/",
+      "status": 200,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/massachusetts-institute-of-technology/2020/index.html"
+    },
+    {
+      "institution": "Princeton University",
+      "url": "https://www.princeton.edu/meet-princeton",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "institution": "Princeton University",
+      "url": "https://www.princeton.edu/meet-princeton",
+      "year": 2020,
+      "timestamp": "20200314185525",
+      "originalStatus": "200",
+      "archiveUrl": "https://web.archive.org/web/20200314185525id_/https://www.princeton.edu/meet-princeton",
+      "status": 200,
+      "responsePath": "data/raw/wayback-snapshots/2026-06-12/princeton-university/2020/index.html"
+    },
+    {
+      "institution": "Yale University",
+      "url": "https://www.yale.edu/about-yale",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "institution": "Yale University",
+      "url": "https://www.yale.edu/about-yale",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "institution": "University of California, Berkeley",
+      "url": "https://www.berkeley.edu/about/",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "institution": "University of California, Berkeley",
+      "url": "https://www.berkeley.edu/about/",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "institution": "University of Chicago",
+      "url": "https://www.uchicago.edu/who-we-are",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "institution": "University of Chicago",
+      "url": "https://www.uchicago.edu/who-we-are",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "institution": "Cornell University",
+      "url": "https://www.cornell.edu/about/",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "institution": "Cornell University",
+      "url": "https://www.cornell.edu/about/",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "institution": "University of Pennsylvania",
+      "url": "https://www.upenn.edu/about",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "institution": "University of Pennsylvania",
+      "url": "https://www.upenn.edu/about",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "institution": "Duke University",
+      "url": "https://duke.edu/about/",
+      "year": 2010,
+      "status": "no-snapshot"
+    },
+    {
+      "institution": "Duke University",
+      "url": "https://duke.edu/about/",
+      "year": 2020,
+      "status": "no-snapshot"
+    }
+  ],
+  "errors": [
+    {
+      "institution": "Harvard University",
+      "url": "https://www.harvard.edu/about/",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "institution": "Harvard University",
+      "url": "https://www.harvard.edu/about/",
+      "year": 2020,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "institution": "Massachusetts Institute of Technology",
+      "url": "https://www.mit.edu/about/",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "institution": "Princeton University",
+      "url": "https://www.princeton.edu/meet-princeton",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "institution": "Yale University",
+      "url": "https://www.yale.edu/about-yale",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "institution": "Yale University",
+      "url": "https://www.yale.edu/about-yale",
+      "year": 2020,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "institution": "University of California, Berkeley",
+      "url": "https://www.berkeley.edu/about/",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "institution": "University of California, Berkeley",
+      "url": "https://www.berkeley.edu/about/",
+      "year": 2020,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "institution": "University of Chicago",
+      "url": "https://www.uchicago.edu/who-we-are",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "institution": "University of Chicago",
+      "url": "https://www.uchicago.edu/who-we-are",
+      "year": 2020,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "institution": "Cornell University",
+      "url": "https://www.cornell.edu/about/",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "institution": "Cornell University",
+      "url": "https://www.cornell.edu/about/",
+      "year": 2020,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "institution": "University of Pennsylvania",
+      "url": "https://www.upenn.edu/about",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "institution": "University of Pennsylvania",
+      "url": "https://www.upenn.edu/about",
+      "year": 2020,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "institution": "Duke University",
+      "url": "https://duke.edu/about/",
+      "year": 2010,
+      "error": "No CDX snapshot found"
+    },
+    {
+      "institution": "Duke University",
+      "url": "https://duke.edu/about/",
+      "year": 2020,
+      "error": "No CDX snapshot found"
+    }
+  ],
+  "finishedAt": "2026-06-12T17:35:29.810Z",
+  "recordCount": 4
+}
