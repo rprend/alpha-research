@@ -59,7 +59,7 @@ Next implementation moves:
 
 - replace failed or low-word-count university second-layer source routes and add commencement speeches
 - replace failed museum second-layer annual-report routes and add more provenance/repatriation targets
-- run the literature-radar broad backfill and recurring monitor
+- run the literature-radar full DOAJ OAI harvest, add resume checkpointing, and remotely verify the promoted bundle
 
 ### Publication Queue
 
@@ -150,6 +150,7 @@ Implemented:
 - OpenAlex fetcher
 - Crossref fetcher
 - DOAJ fetcher
+- DOAJ OAI-PMH article harvester
 - OSF Preprints / SocArXiv fetcher
 - Knowledge Commons Works / Humanities Commons fetcher
 - arXiv fetcher
@@ -181,6 +182,9 @@ Current committed corpus:
 - 593 quantitative/computational humanities candidates
 - sources represented in processed records: arXiv, Crossref, OpenAlex, DOAJ, OSF Preprints / SocArXiv, Knowledge Commons Works / Humanities Commons
 - monitor baseline: 1,951 records absent from bootstrap baseline, including 1,155 genuinely new publications and 796 newly discovered old records
+- broad-backfill route pilot: 7,500 raw DOAJ OAI records from 25 OAI-PMH pages, with humanities/method relevance gating before processed promotion
+- current processed corpus after OAI route pilot: 4,434 deduped works, including 2,512 works dated 2024-present and 965 quantitative/computational humanities candidates
+- v1 comparison after OAI route pilot: 2,483 records absent from the committed v1 baseline, including 1,357 genuinely new publications and 1,126 newly discovered old records
 - dataset registration: stable id `humanities-literature-radar`, Modal bundle synced, control-plane profile attached with 26 schema fields and 10 sample rows, live dataset row promoted to `ready`/`ready` with manifest `/data/datasets/humanities-literature-radar/manifest.json`
 - remote smoke run: `d866dce5-a99b-459f-a932-a0aff4fec638`, status `ready`, with mounted dataset files inspected and valid `report.html`, `result.json`, and `work.md` artifacts returned
 - publication post: `reports/post.md`, a polished field-map draft titled `AI Is Now A Humanities Object`
@@ -192,11 +196,13 @@ Next implementation moves:
 - final editorial review for `reports/post.md`
 - use the remote smoke run as proof that the dataset can support Alpha Research questions from processed source records
 - run the recurring monitor after the next broad backfill with `--prior-works`
-- replace bounded DOAJ search with public dump or OAI-PMH harvest
+- run the DOAJ OAI harvester with a larger or uncapped page budget for the full 2020-present harvest
+- add resume-token checkpointing before long OAI harvests
 - improve NBER extraction or switch to an official metadata route if available
 - expand OSF/SocArXiv beyond bounded title search
 - expand Knowledge Commons Works / Humanities Commons beyond bounded keyword search
 - manually audit representative works
+- rebuild, sync, and remotely verify the Alpha Research dataset bundle after the full harvest
 
 ### University Mission Statement Drift
 

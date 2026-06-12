@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-06-12T21:16:25.648Z",
+  "source": "doaj-oai",
+  "runDate": "2026-06-12",
+  "from": "2020-01-01",
+  "until": "2026-06-12",
+  "maxPages": 25,
+  "pagesFetched": 25,
+  "recordCount": 7500,
+  "manifestPath": "data/raw/doaj-oai/2026-06-12/manifest.json",
+  "route": "https://doaj.org/oai.article?verb=ListRecords&metadataPrefix=oai_dc&from=<YYYY-MM-DD>&until=<YYYY-MM-DD>",
+  "sourceDocs": "https://doaj.org/docs/oai-pmh/",
+  "corpusTier": "pilot-corpus",
+  "nextActions": [
+    "Run without --max-pages, or with a larger page budget, for the full 2020-present DOAJ article harvest.",
+    "Filter and classify harvested Dublin Core records after normalization rather than constraining the fetch to keyword search results.",
+    "Use the manifest request list and resumption-token pagination to resume or audit failed pages."
+  ],
+  "queryTermsNoLongerUsedForFetch": [
+    "ai humanities",
+    "digital humanities",
+    "computational humanities",
+    "cultural analytics",
+    "distant reading",
+    "stylometry",
+    "reception history",
+    "canon formation",
+    "translation studies",
+    "environmental humanities",
+    "public history",
+    "intellectual history",
+    "book history",
+    "archival studies",
+    "museum studies",
+    "classics",
+    "literary studies",
+    "philosophy",
+    "religious studies",
+    "history of ideas",
+    "economic history culture"
+  ]
+}

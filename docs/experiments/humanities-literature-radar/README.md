@@ -36,6 +36,7 @@ Or run sources individually:
 node docs/experiments/humanities-literature-radar/scripts/fetch-openalex.mjs --limit=120
 node docs/experiments/humanities-literature-radar/scripts/fetch-crossref.mjs --limit=120
 node docs/experiments/humanities-literature-radar/scripts/fetch-doaj.mjs --limit=120
+node docs/experiments/humanities-literature-radar/scripts/fetch-doaj-oai.mjs --from=2020-01-01 --until=2026-06-12 --max-pages=25
 node docs/experiments/humanities-literature-radar/scripts/fetch-osf-preprints.mjs --limit=120
 node docs/experiments/humanities-literature-radar/scripts/fetch-hcommons.mjs --limit=120
 node docs/experiments/humanities-literature-radar/scripts/fetch-arxiv.mjs --limit=80
@@ -78,6 +79,9 @@ The scripts write:
 - `data/processed/quantitative-humanities-opportunities.csv`
 - `reports/source-inventory.md`
 - `reports/source-inventory.csv`
+- `reports/doaj-oai-backfill-route.json`
+- `reports/broad-backfill-comparison.md`
+- `reports/broad-backfill-comparison.json`
 - `reports/report.html`
 - `reports/result.json`
 - `reports/work.md`
@@ -111,6 +115,22 @@ The first bootstrap run is `runs/2026-06-12/`. It compares the current processed
 - 6 source rows in the coverage-change table
 
 After the next broad backfill, run the monitor with a prior processed corpus path. Monitor claims should keep the `changed-sources.csv` table attached because source count changes can reflect crawler limits, API coverage, or indexing lag rather than intellectual trends.
+
+## Broad Backfill Route
+
+The first broad-backfill upgrade adds the official DOAJ article OAI-PMH route:
+
+```bash
+node docs/experiments/humanities-literature-radar/scripts/fetch-doaj-oai.mjs --from=2020-01-01 --until=2026-06-12 --max-pages=25
+```
+
+The raw OAI harvest is stored under:
+
+```text
+data/raw/doaj-oai/YYYY-MM-DD/
+```
+
+The current committed run is a 25-page route pilot, not the full DOAJ harvest. It preserves 7,500 raw OAI records, promotes only records with at least one humanities/method relevance signal into the processed works table, and records the v1 comparison in `reports/broad-backfill-comparison.md`.
 
 ## Dataset Registration
 

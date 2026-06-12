@@ -8,12 +8,12 @@ The current committed run is a bounded implementation corpus. It is ready for fi
 
 ## Current Corpus
 
-- 1951 deduped works
-- 1155 works dated 2024-present
-- 593 quantitative/computational humanities candidates
-- processed sources: hcommons, crossref, arxiv, doaj, openalex, osf-preprints
+- 4434 deduped works
+- 2512 works dated 2024-present
+- 965 quantitative/computational humanities candidates
+- processed sources: hcommons, doaj-oai, crossref, arxiv, doaj, openalex, osf-preprints
 - readiness: ready-for-editorial-review
-- bootstrap monitor: 1155 genuinely new publications and 796 newly discovered old records
+- bootstrap monitor: 0 genuinely new publications and 0 newly discovered old records
 
 ## Current Files
 
@@ -37,7 +37,7 @@ Primary work fields include `work_id`, `source_name`, `source_record_id`, `title
 
 ## Current Topic Signals
 
-digital humanities (363), literature (292), philosophy (234), history (231), sociology (216), political science (194), network (170), large language models (168), llms (122), linguistics (109)
+history (1737), literature (921), philosophy (653), sociology (422), digital humanities (364), network (248), corpus (224), political science (205), spatial (194), large language models (186)
 
 ## Known Limitations
 

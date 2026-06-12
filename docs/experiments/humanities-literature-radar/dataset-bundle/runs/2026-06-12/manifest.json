@@ -1,30 +1,30 @@
 {
   "runDate": "2026-06-12",
   "baselineDate": "bootstrap",
-  "generatedAt": "2026-06-12T19:48:49.609Z",
+  "generatedAt": "2026-06-12T21:17:28.434Z",
   "script": "docs/experiments/humanities-literature-radar/scripts/build-monitor-run.mjs",
   "configPath": "config/monitor.yml",
   "baseline": {
-    "source": "bootstrap-empty-baseline",
-    "priorWorks": 0,
-    "currentWorks": 1951
+    "source": "docs/experiments/humanities-literature-radar/dataset-bundle/processed/works.json",
+    "priorWorks": 9063,
+    "currentWorks": 4434
   },
   "policy": {
     "compareKey": "stableWorkId",
     "genuinelyNewPublicationYearMin": 2024
   },
   "counts": {
-    "currentWorks": 1951,
-    "newWorks": 1951,
-    "genuinelyNewPublications": 1155,
-    "newlyDiscoveredOldRecords": 796,
-    "changedSources": 6
+    "currentWorks": 4434,
+    "newWorks": 0,
+    "genuinelyNewPublications": 0,
+    "newlyDiscoveredOldRecords": 0,
+    "changedSources": 7
   },
   "inputs": {
     "works": "data/processed/works.json",
     "result": "reports/result.json",
     "pipelineRun": "reports/pipeline-run.json",
-    "sourceManifestCount": 8
+    "sourceManifestCount": 9
   },
   "outputs": {
     "newWorksJson": "runs/2026-06-12/new-works.json",

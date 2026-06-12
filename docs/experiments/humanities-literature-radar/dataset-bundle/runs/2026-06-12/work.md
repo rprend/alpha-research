@@ -1,8 +1,8 @@
 # Monitor Work Log
 
-Generated at: 2026-06-12T19:48:49.609Z
+Generated at: 2026-06-12T21:17:28.434Z
 Run date: 2026-06-12
-Baseline: bootstrap-empty-baseline
+Baseline: docs/experiments/humanities-literature-radar/dataset-bundle/processed/works.json
 
 ## Commands
 
@@ -18,6 +18,7 @@ node docs/experiments/humanities-literature-radar/scripts/build-monitor-run.mjs 
 - `data/raw/arxiv/2026-06-12/manifest.json`: 200 records, 0 errors
 - `data/raw/crossref/2026-06-12/manifest.json`: 500 records, 0 errors
 - `data/raw/department-pages/2026-06-12/manifest.json`: 5 records, 0 errors
+- `data/raw/doaj-oai/2026-06-12/manifest.json`: 7500 records, 0 errors
 - `data/raw/doaj/2026-06-12/manifest.json`: 500 records, 0 errors
 - `data/raw/hcommons/2026-06-12/manifest.json`: 500 records, 0 errors
 - `data/raw/nber/2026-06-12/manifest.json`: 0 records, 0 errors

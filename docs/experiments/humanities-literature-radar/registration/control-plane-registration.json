@@ -17,7 +17,7 @@
   "profile": {
     "schema": {
       "primaryKey": "stableWorkId(work)",
-      "rowCount": 1951,
+      "rowCount": 4434,
       "fields": [
         {
           "name": "source_name",
@@ -236,122 +236,109 @@
         "is_quantitative_humanities_candidate": false
       },
       {
-        "stable_id": "doi:10.17613/k13dm-vaq64",
-        "title": "Synthetic Moral Agents or Sophisticated Mimics?",
+        "stable_id": "doi:10.1080/01443615.2026.2665633",
+        "title": "Results of breast cancer risk assessment and hereditary cancer genetic testing in community obstetrics and gynaecology practice following a prospective quality Improvement initiative",
         "year": "2026",
-        "source_name": "hcommons",
-        "venue_name": "Resp AI Research Lab, CIIOE",
-        "doi": "10.17613/k13dm-vaq64",
-        "url": "https://works.hcommons.org/records/k13dm-vaq64",
-        "methods": [
-          "large language models",
-          "llms"
-        ],
-        "quantitative_signals": [
-          "large language models",
-          "llms"
-        ],
-        "is_quantitative_humanities_candidate": true
-      },
-      {
-        "stable_id": "doi:10.17613/yc2pd-shr90",
-        "title": "Image Collection of AI-Centered Futuristic Imagination",
-        "year": "2026",
-        "source_name": "hcommons",
-        "venue_name": "Resp AI Research Lab, CIIOE",
-        "doi": "10.17613/yc2pd-shr90",
-        "url": "https://works.hcommons.org/records/yc2pd-shr90",
-        "methods": [],
-        "quantitative_signals": [
-          "computational"
-        ],
-        "is_quantitative_humanities_candidate": true
-      },
-      {
-        "stable_id": "doi:10.17613/vf08e-8z112",
-        "title": "The Verification Budget: Pricing Scientific Credibility Under Near-Zero Generation Costs",
-        "year": "2026",
-        "source_name": "hcommons",
-        "venue_name": "Resp AI Research Lab, CIIOE",
-        "doi": "10.17613/vf08e-8z112",
-        "url": "https://works.hcommons.org/records/vf08e-8z112",
+        "source_name": "doaj-oai",
+        "venue_name": "Journal of Obstetrics and Gynaecology, Vol 46, Iss 1 (2026)",
+        "doi": "10.1080/01443615.2026.2665633",
+        "url": "https://doaj.org/article/39e87053f3854a4a91923d9e02e00fb0",
         "methods": [],
         "quantitative_signals": [],
         "is_quantitative_humanities_candidate": false
       },
       {
-        "stable_id": "doi:10.17613/zkz53-f1270",
-        "title": "\"Undo Send\"",
+        "stable_id": "doi:10.1080/27658511.2026.2672243",
+        "title": "Ecosystem-based adaptation in Lower Northern Thailand: Water policy initiatives from and for small urban communities",
         "year": "2026",
-        "source_name": "hcommons",
-        "venue_name": "Resp AI Research Lab, CIIOE",
-        "doi": "10.17613/zkz53-f1270",
-        "url": "https://works.hcommons.org/records/zkz53-f1270",
+        "source_name": "doaj-oai",
+        "venue_name": "Sustainable Environment, Vol 12, Iss 1 (2026)",
+        "doi": "10.1080/27658511.2026.2672243",
+        "url": "https://doaj.org/article/cbd6b36c48514efb8728d6be310f23cf",
         "methods": [],
         "quantitative_signals": [],
         "is_quantitative_humanities_candidate": false
       },
       {
-        "stable_id": "doi:10.17613/25m8n-gy545",
-        "title": "Epistemic Injustice in Generative AI: Probabilistic Generation, Trust Erosion, and the Structural Conditions of Algorithmic Knowledge Harm",
+        "stable_id": "doi:10.1080/21645698.2026.2672809",
+        "title": "Trust and doubt coexist: an empirical study on the acceptance mechanism of transgenic technology among Chinese youth",
         "year": "2026",
-        "source_name": "hcommons",
-        "venue_name": "Resp AI Research Lab, CIIOE",
-        "doi": "10.17613/25m8n-gy545",
-        "url": "https://works.hcommons.org/records/25m8n-gy545",
-        "methods": [
-          "large language models",
-          "llm",
-          "llms"
-        ],
+        "source_name": "doaj-oai",
+        "venue_name": "GM Crops & Food, Vol 17, Iss 1 (2026)",
+        "doi": "10.1080/21645698.2026.2672809",
+        "url": "https://doaj.org/article/a724380e3b5f4c49bf6f64ac492c87dc",
+        "methods": [],
+        "quantitative_signals": [],
+        "is_quantitative_humanities_candidate": false
+      },
+      {
+        "stable_id": "doi:10.1080/2331186x.2026.2670040",
+        "title": "How do college students weigh the reliability of AI in academic writing?",
+        "year": "2026",
+        "source_name": "doaj-oai",
+        "venue_name": "Cogent Education, Vol 13, Iss 1 (2026)",
+        "doi": "10.1080/2331186X.2026.2670040",
+        "url": "https://doaj.org/article/c18d60d34add4a40a0e4a5751ce9d3e9",
+        "methods": [],
         "quantitative_signals": [
-          "large language models",
-          "llm",
-          "llms"
+          "citation",
+          "quantitative"
         ],
         "is_quantitative_humanities_candidate": true
       },
       {
-        "stable_id": "doi:10.17613/mxnp5-0g716",
-        "title": "What the AI Race Has Given Us and What It Requires Next",
+        "stable_id": "doi:10.1080/2331186x.2026.2666707",
+        "title": "Educational leadership for inclusive education: a systematic literature review",
         "year": "2026",
-        "source_name": "hcommons",
-        "venue_name": "Taylor & Francis",
-        "doi": "10.17613/mxnp5-0g716",
-        "url": "https://works.hcommons.org/records/mxnp5-0g716",
+        "source_name": "doaj-oai",
+        "venue_name": "Cogent Education, Vol 13, Iss 1 (2026)",
+        "doi": "10.1080/2331186X.2026.2666707",
+        "url": "https://doaj.org/article/07bae08957aa4952bca6d612372a4ec4",
         "methods": [],
         "quantitative_signals": [],
         "is_quantitative_humanities_candidate": false
       },
       {
-        "stable_id": "doi:10.17613/1a679-x6180",
-        "title": "New Subscription to the Lifelong Plan: How Can You Help Me Today?",
+        "stable_id": "doi:10.1080/2331186x.2026.2652114",
+        "title": "The impact of artificial intelligence on EFL/ESL students’ willingness to communicate: a systematic literature review (2015–2025)",
         "year": "2026",
-        "source_name": "hcommons",
-        "venue_name": "Resp AI Research Lab, CIIOE",
-        "doi": "10.17613/1a679-x6180",
-        "url": "https://works.hcommons.org/records/1a679-x6180",
+        "source_name": "doaj-oai",
+        "venue_name": "Cogent Education, Vol 13, Iss 1 (2026)",
+        "doi": "10.1080/2331186X.2026.2652114",
+        "url": "https://doaj.org/article/e4d7406c0d4842718861d92ed1b695a4",
         "methods": [],
         "quantitative_signals": [],
         "is_quantitative_humanities_candidate": false
       },
       {
-        "stable_id": "doi:10.17613/qde6b-n9s67",
-        "title": "The Ontological Status of AI-Generated Music: From Stylistic Mimicry to Collaborative Agency",
+        "stable_id": "doi:10.1080/23311932.2026.2659382",
+        "title": "Climate change impacts on agricultural productivity and food security: a policy framework for achieving sustainable development goals in Ghana",
         "year": "2026",
-        "source_name": "hcommons",
-        "venue_name": "Resp AI Research Lab, CIIOE",
-        "doi": "10.17613/qde6b-n9s67",
-        "url": "https://works.hcommons.org/records/qde6b-n9s67",
+        "source_name": "doaj-oai",
+        "venue_name": "Cogent Food & Agriculture, Vol 12, Iss 1 (2026)",
+        "doi": "10.1080/23311932.2026.2659382",
+        "url": "https://doaj.org/article/bf7c8533abd84618a3a01d824048a51c",
         "methods": [],
         "quantitative_signals": [
-          "computational"
+          "regression"
         ],
         "is_quantitative_humanities_candidate": true
+      },
+      {
+        "stable_id": "doi:10.1080/2162402x.2026.2661444",
+        "title": "Novel multiplex immunofluorescence-based tumor inflammation score provides apparent predictive biomarker in a phase I/II study of pembrolizumab with gemcitabine in patients with previously-treated advanced non-small cell lung cancer (NSCLC)",
+        "year": "2026",
+        "source_name": "doaj-oai",
+        "venue_name": "OncoImmunology, Vol 15, Iss 1 (2026)",
+        "doi": "10.1080/2162402X.2026.2661444",
+        "url": "https://doaj.org/article/710d157b465145819245049858a9449e",
+        "methods": [],
+        "quantitative_signals": [],
+        "is_quantitative_humanities_candidate": false
       }
     ],
     "notes": "Generated from the current literature-radar processed corpus. Source coverage caveats are in dataset_briefing.md and reports/result.json.",
-    "briefingMarkdown": "# Humanities Literature Radar Dataset Briefing\n\n## What This Dataset Contains\n\nThis dataset is the source-backed literature-radar corpus for the Cultural Observatory / Archive Signals research program. It collects public metadata about recent humanities and humanities-adjacent scholarship from OpenAlex, Crossref, DOAJ, OSF Preprints / SocArXiv, Knowledge Commons Works / Humanities Commons, arXiv, NBER search pages, and selected public department pages.\n\nThe current committed run is a bounded implementation corpus. It is ready for field-map research and publication drafting with source-coverage caveats, but broad trend claims should wait for larger source backfills and manual audit of representative records.\n\n## Current Corpus\n\n- 1951 deduped works\n- 1155 works dated 2024-present\n- 593 quantitative/computational humanities candidates\n- processed sources: hcommons, crossref, arxiv, doaj, openalex, osf-preprints\n- readiness: ready-for-editorial-review\n- bootstrap monitor: 1155 genuinely new publications and 796 newly discovered old records\n\n## Current Files\n\n- `manifest.json`: dataset bundle manifest\n- `dataset_profile.json`: machine-readable dataset profile\n- `schema.json`: inferred processed-work schema\n- `sample_rows.json`: bounded sample rows for prompt/dashboard context\n- `processed/works.json`: deduped work records\n- `processed/works.csv`: tabular work inventory\n- `processed/topics.json`: heuristic topic/method/signal counts\n- `processed/representative-works.csv`: high-signal works for review\n- `processed/quantitative-humanities-opportunities.csv`: candidate essay/study opportunities\n- `reports/source-inventory.md`: source run summary\n- `reports/result.json`: structured field-map result payload\n- `reports/work.md`: work log and caveats\n- `runs/2026-06-12/`: bootstrap recurring monitor run\n\n## Fields\n\nPrimary work fields include `work_id`, `source_name`, `source_record_id`, `title`, `abstract`, `publication_date`, `year`, `doi`, `url`, `open_access_url`, `venue_name`, `publisher`, `work_type`, `authors`, `institutions`, `concepts`, `references`, `cited_by_count`, `license`, `raw_path`, `disciplines`, `methods`, `quantitative_signals`, and `is_quantitative_humanities_candidate`.\n\n## Current Topic Signals\n\ndigital humanities (363), literature (292), philosophy (234), history (231), sociology (216), political science (194), network (170), large language models (168), llms (122), linguistics (109)\n\n## Known Limitations\n\n- This first artifact uses public metadata and abstracts where available, not full-text scholarship.\n- Open indexes underrepresent books, chapters, non-English work, and paywalled humanities journals.\n- Trend claims require source-coverage checks and manual review of representative works before publication.\n- Public metadata underrepresents books, book chapters, non-English scholarship, and paywalled humanities journals.\n- Department-page records are coverage/enrichment evidence and should not be used to rank departments.\n- Classification is heuristic and needs manual audit before public claims.\n\n## Starter Questions\n\n- What are the main topic clusters in AI-and-humanities publishing since 2020?\n- Which venues and sources publish computational or quantitative humanities work?\n- Which methods are most visible across the corpus?\n- Which representative works should be manually reviewed before publishing the first field-map essay?\n- What source gaps would change the interpretation most?\n",
+    "briefingMarkdown": "# Humanities Literature Radar Dataset Briefing\n\n## What This Dataset Contains\n\nThis dataset is the source-backed literature-radar corpus for the Cultural Observatory / Archive Signals research program. It collects public metadata about recent humanities and humanities-adjacent scholarship from OpenAlex, Crossref, DOAJ, OSF Preprints / SocArXiv, Knowledge Commons Works / Humanities Commons, arXiv, NBER search pages, and selected public department pages.\n\nThe current committed run is a bounded implementation corpus. It is ready for field-map research and publication drafting with source-coverage caveats, but broad trend claims should wait for larger source backfills and manual audit of representative records.\n\n## Current Corpus\n\n- 4434 deduped works\n- 2512 works dated 2024-present\n- 965 quantitative/computational humanities candidates\n- processed sources: hcommons, doaj-oai, crossref, arxiv, doaj, openalex, osf-preprints\n- readiness: ready-for-editorial-review\n- bootstrap monitor: 0 genuinely new publications and 0 newly discovered old records\n\n## Current Files\n\n- `manifest.json`: dataset bundle manifest\n- `dataset_profile.json`: machine-readable dataset profile\n- `schema.json`: inferred processed-work schema\n- `sample_rows.json`: bounded sample rows for prompt/dashboard context\n- `processed/works.json`: deduped work records\n- `processed/works.csv`: tabular work inventory\n- `processed/topics.json`: heuristic topic/method/signal counts\n- `processed/representative-works.csv`: high-signal works for review\n- `processed/quantitative-humanities-opportunities.csv`: candidate essay/study opportunities\n- `reports/source-inventory.md`: source run summary\n- `reports/result.json`: structured field-map result payload\n- `reports/work.md`: work log and caveats\n- `runs/2026-06-12/`: bootstrap recurring monitor run\n\n## Fields\n\nPrimary work fields include `work_id`, `source_name`, `source_record_id`, `title`, `abstract`, `publication_date`, `year`, `doi`, `url`, `open_access_url`, `venue_name`, `publisher`, `work_type`, `authors`, `institutions`, `concepts`, `references`, `cited_by_count`, `license`, `raw_path`, `disciplines`, `methods`, `quantitative_signals`, and `is_quantitative_humanities_candidate`.\n\n## Current Topic Signals\n\nhistory (1737), literature (921), philosophy (653), sociology (422), digital humanities (364), network (248), corpus (224), political science (205), spatial (194), large language models (186)\n\n## Known Limitations\n\n- This first artifact uses public metadata and abstracts where available, not full-text scholarship.\n- Open indexes underrepresent books, chapters, non-English work, and paywalled humanities journals.\n- Trend claims require source-coverage checks and manual review of representative works before publication.\n- Public metadata underrepresents books, book chapters, non-English scholarship, and paywalled humanities journals.\n- Department-page records are coverage/enrichment evidence and should not be used to rank departments.\n- Classification is heuristic and needs manual audit before public claims.\n\n## Starter Questions\n\n- What are the main topic clusters in AI-and-humanities publishing since 2020?\n- Which venues and sources publish computational or quantitative humanities work?\n- Which methods are most visible across the corpus?\n- Which representative works should be manually reviewed before publishing the first field-map essay?\n- What source gaps would change the interpretation most?\n",
     "profile": {
       "datasetId": "humanities-literature-radar",
       "name": "Humanities Literature Radar",
@@ -360,52 +347,63 @@
       "mode": "public_research_dataset",
       "mountPath": "/data/datasets/humanities-literature-radar",
       "manifestPath": "/data/datasets/humanities-literature-radar/manifest.json",
-      "generatedAt": "2026-06-12T19:54:31.378Z",
+      "generatedAt": "2026-06-12T21:17:28.517Z",
       "corpus": {
-        "works": 1951,
-        "recentWorks2024Present": 1155,
-        "quantitativeHumanitiesCandidates": 593,
+        "works": 4434,
+        "recentWorks2024Present": 2512,
+        "quantitativeHumanitiesCandidates": 965,
         "sources": {
           "hcommons": 500,
+          "doaj-oai": 2485,
           "crossref": 500,
           "arxiv": 19,
-          "doaj": 468,
+          "doaj": 466,
           "openalex": 455,
           "osf-preprints": 9
         },
         "years": {
-          "2003": 1,
-          "2005": 1,
-          "2008": 1,
-          "2009": 2,
-          "2010": 6,
-          "2011": 2,
-          "2012": 2,
-          "2013": 2,
-          "2014": 5,
-          "2015": 7,
-          "2016": 26,
-          "2017": 59,
-          "2018": 29,
-          "2019": 35,
-          "2020": 103,
-          "2021": 111,
-          "2022": 145,
-          "2023": 258,
-          "2024": 378,
-          "2025": 477,
-          "2026": 300,
-          "unknown": 1
+          "1996": 1,
+          "1997": 2,
+          "1998": 6,
+          "1999": 7,
+          "2000": 5,
+          "2001": 14,
+          "2002": 18,
+          "2003": 13,
+          "2004": 11,
+          "2005": 17,
+          "2006": 16,
+          "2007": 30,
+          "2008": 32,
+          "2009": 34,
+          "2010": 37,
+          "2011": 37,
+          "2012": 39,
+          "2013": 26,
+          "2014": 55,
+          "2015": 64,
+          "2016": 75,
+          "2017": 108,
+          "2018": 62,
+          "2019": 115,
+          "2020": 174,
+          "2021": 213,
+          "2022": 261,
+          "2023": 434,
+          "2024": 506,
+          "2025": 778,
+          "2026": 1228,
+          "unknown": 16
         }
       },
       "monitor": {
         "runDate": "2026-06-12",
         "counts": {
-          "currentWorks": 1951,
-          "newWorks": 1951,
-          "genuinelyNewPublications": 1155,
-          "newlyDiscoveredOldRecords": 796,
-          "changedSources": 6
+          "currentWorks": 4434,
+          "newWorks": 0,
+          "genuinelyNewPublications": 0,
+          "newlyDiscoveredOldRecords": 0,
+          "changedSources": 7
         },
         "resultPath": "runs/2026-06-12/result.json"
       },
@@ -431,6 +429,6 @@
         "Trend claims require source-coverage checks and manual review of representative works before publication."
       ]
     },
-    "describedAt": "2026-06-12T19:54:31.378Z"
+    "describedAt": "2026-06-12T21:17:28.517Z"
   }
 }

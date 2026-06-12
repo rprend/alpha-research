@@ -63,7 +63,7 @@
       "id": "literature-radar-broad-backfill",
       "title": "Humanities Literature Radar Broad Backfill",
       "priority": 3,
-      "status": "pipeline-ready",
+      "status": "broad-backfill-pilot",
       "sourceExperiment": "docs/experiments/humanities-literature-radar/",
       "why": "The ready dataset and remote smoke run prove the pipeline, but source coverage is still bounded for DOAJ, HCommons, OSF/SocArXiv, and NBER.",
       "requiredSources": [
@@ -81,10 +81,10 @@
         "remote run proof after promotion"
       ],
       "nextActions": [
-        "Replace bounded DOAJ keyword search with public dump or OAI-PMH harvest.",
-        "Run monitor with prior works after the broad backfill.",
+        "Run the DOAJ OAI harvester with a larger or uncapped page budget for the full 2020-present harvest.",
+        "Add resume-token checkpointing before long OAI harvests.",
         "Manually audit representative works before stronger field claims.",
-        "Rebuild and sync the Alpha Research dataset bundle."
+        "Rebuild, sync, and remotely verify the Alpha Research dataset bundle after the full harvest."
       ]
     },
     {

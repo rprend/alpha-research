@@ -40,6 +40,9 @@ for (const file of rawFiles) {
   } else if (rel.includes("data/raw/doaj/") && file.endsWith(".json")) {
     const json = await readJson(file);
     for (const item of json.results ?? []) works.push(fromDoaj(item, rel));
+  } else if (rel.includes("data/raw/doaj-oai/") && file.endsWith(".xml")) {
+    const xml = await fs.readFile(file, "utf8");
+    for (const item of fromDoajOai(xml, rel)) works.push(item);
   } else if (rel.includes("data/raw/osf-preprints/") && file.endsWith(".json")) {
     const json = await readJson(file);
     for (const item of json.data ?? []) works.push(fromOsfPreprint(item, rel));
@@ -84,7 +87,11 @@ const finalWorks = [...deduped.values()]
       is_quantitative_humanities_candidate: labels.methods.length > 0 || labels.quantitativeSignals.length > 0,
     };
   })
-  .filter((work) => work.source_name !== "arxiv" || work.relevance_score >= 2)
+  .filter((work) => {
+    if (work.source_name === "arxiv") return work.relevance_score >= 2;
+    if (work.source_name === "doaj-oai") return work.relevance_score >= 1;
+    return true;
+  })
   .sort((a, b) => String(b.publication_date ?? "").localeCompare(String(a.publication_date ?? "")));
 
 await appendJsonl(normalizedPath, finalWorks);
@@ -207,6 +214,62 @@ function fromDoaj(item, rawPath) {
     license: bib.license?.[0]?.type ?? "",
     raw_path: rawPath,
   };
+}
+
+function fromDoajOai(xml, rawPath) {
+  const records = [];
+  for (const record of xml.matchAll(/<record[\s\S]*?<\/record>/gi)) {
+    const fragment = record[0];
+    if (/<header[^>]*\sstatus=["']deleted["']/i.test(fragment)) continue;
+    const metadata = fragment.match(/<metadata[\s\S]*?<\/metadata>/i)?.[0] ?? "";
+    if (!metadata) continue;
+    const identifiers = dcValues(metadata, "identifier");
+    const doi = identifiers.map(cleanIdentifier).find((identifier) => /^10\.\S+\/\S+/.test(identifier)) ?? "";
+    const url = identifiers.map(cleanIdentifier).find((identifier) => /^https?:\/\//i.test(identifier)) ?? (doi ? `https://doi.org/${doi}` : "");
+    const date = normalizePublicationDate(dcValues(metadata, "date")[0] ?? "");
+    const subjects = dcValues(metadata, "subject")
+      .map((subject) => subject.replace(/^CLASSIFICATION:/i, "").trim())
+      .filter(Boolean);
+    records.push({
+      source_name: "doaj-oai",
+      source_record_id: dcValues(fragment.match(/<header[\s\S]*?<\/header>/i)?.[0] ?? "", "identifier")[0] ?? doi ?? url,
+      title: normalizeWhitespace(dcValues(metadata, "title")[0]),
+      abstract: normalizeWhitespace(dcValues(metadata, "description").join(" ")),
+      publication_date: date,
+      year: date.slice(0, 4),
+      doi,
+      url,
+      open_access_url: url,
+      venue_name: dcValues(metadata, "source")[0] ?? "",
+      publisher: dcValues(metadata, "publisher")[0] ?? "",
+      work_type: dcValues(metadata, "type")[0] ?? "journal-article",
+      authors: dcValues(metadata, "creator"),
+      institutions: [],
+      concepts: subjects,
+      references: [],
+      cited_by_count: 0,
+      license: dcValues(metadata, "rights")[0] ?? "",
+      raw_path: rawPath,
+    });
+  }
+  return records;
+}
+
+function dcValues(xml, tag) {
+  const values = [];
+  const pattern = new RegExp(`<(?:[^:>]+:)?${tag}(?:\\s[^>]*)?>([\\s\\S]*?)<\\/(?:[^:>]+:)?${tag}>`, "gi");
+  for (const match of xml.matchAll(pattern)) {
+    const value = normalizeWhitespace(decodeXml(stripTags(match[1])));
+    if (value) values.push(value);
+  }
+  return values;
+}
+
+function cleanIdentifier(value) {
+  return String(value ?? "")
+    .replace(/^doi:\s*/i, "")
+    .replace(/^https?:\/\/doi\.org\//i, "")
+    .trim();
 }
 
 function fromOsfPreprint(item, rawPath) {

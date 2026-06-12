@@ -24,117 +24,104 @@
     "is_quantitative_humanities_candidate": false
   },
   {
-    "stable_id": "doi:10.17613/k13dm-vaq64",
-    "title": "Synthetic Moral Agents or Sophisticated Mimics?",
+    "stable_id": "doi:10.1080/01443615.2026.2665633",
+    "title": "Results of breast cancer risk assessment and hereditary cancer genetic testing in community obstetrics and gynaecology practice following a prospective quality Improvement initiative",
     "year": "2026",
-    "source_name": "hcommons",
-    "venue_name": "Resp AI Research Lab, CIIOE",
-    "doi": "10.17613/k13dm-vaq64",
-    "url": "https://works.hcommons.org/records/k13dm-vaq64",
-    "methods": [
-      "large language models",
-      "llms"
-    ],
-    "quantitative_signals": [
-      "large language models",
-      "llms"
-    ],
-    "is_quantitative_humanities_candidate": true
-  },
-  {
-    "stable_id": "doi:10.17613/yc2pd-shr90",
-    "title": "Image Collection of AI-Centered Futuristic Imagination",
-    "year": "2026",
-    "source_name": "hcommons",
-    "venue_name": "Resp AI Research Lab, CIIOE",
-    "doi": "10.17613/yc2pd-shr90",
-    "url": "https://works.hcommons.org/records/yc2pd-shr90",
-    "methods": [],
-    "quantitative_signals": [
-      "computational"
-    ],
-    "is_quantitative_humanities_candidate": true
-  },
-  {
-    "stable_id": "doi:10.17613/vf08e-8z112",
-    "title": "The Verification Budget: Pricing Scientific Credibility Under Near-Zero Generation Costs",
-    "year": "2026",
-    "source_name": "hcommons",
-    "venue_name": "Resp AI Research Lab, CIIOE",
-    "doi": "10.17613/vf08e-8z112",
-    "url": "https://works.hcommons.org/records/vf08e-8z112",
+    "source_name": "doaj-oai",
+    "venue_name": "Journal of Obstetrics and Gynaecology, Vol 46, Iss 1 (2026)",
+    "doi": "10.1080/01443615.2026.2665633",
+    "url": "https://doaj.org/article/39e87053f3854a4a91923d9e02e00fb0",
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
   },
   {
-    "stable_id": "doi:10.17613/zkz53-f1270",
-    "title": "\"Undo Send\"",
+    "stable_id": "doi:10.1080/27658511.2026.2672243",
+    "title": "Ecosystem-based adaptation in Lower Northern Thailand: Water policy initiatives from and for small urban communities",
     "year": "2026",
-    "source_name": "hcommons",
-    "venue_name": "Resp AI Research Lab, CIIOE",
-    "doi": "10.17613/zkz53-f1270",
-    "url": "https://works.hcommons.org/records/zkz53-f1270",
+    "source_name": "doaj-oai",
+    "venue_name": "Sustainable Environment, Vol 12, Iss 1 (2026)",
+    "doi": "10.1080/27658511.2026.2672243",
+    "url": "https://doaj.org/article/cbd6b36c48514efb8728d6be310f23cf",
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
   },
   {
-    "stable_id": "doi:10.17613/25m8n-gy545",
-    "title": "Epistemic Injustice in Generative AI: Probabilistic Generation, Trust Erosion, and the Structural Conditions of Algorithmic Knowledge Harm",
+    "stable_id": "doi:10.1080/21645698.2026.2672809",
+    "title": "Trust and doubt coexist: an empirical study on the acceptance mechanism of transgenic technology among Chinese youth",
     "year": "2026",
-    "source_name": "hcommons",
-    "venue_name": "Resp AI Research Lab, CIIOE",
-    "doi": "10.17613/25m8n-gy545",
-    "url": "https://works.hcommons.org/records/25m8n-gy545",
-    "methods": [
-      "large language models",
-      "llm",
-      "llms"
-    ],
+    "source_name": "doaj-oai",
+    "venue_name": "GM Crops & Food, Vol 17, Iss 1 (2026)",
+    "doi": "10.1080/21645698.2026.2672809",
+    "url": "https://doaj.org/article/a724380e3b5f4c49bf6f64ac492c87dc",
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "stable_id": "doi:10.1080/2331186x.2026.2670040",
+    "title": "How do college students weigh the reliability of AI in academic writing?",
+    "year": "2026",
+    "source_name": "doaj-oai",
+    "venue_name": "Cogent Education, Vol 13, Iss 1 (2026)",
+    "doi": "10.1080/2331186X.2026.2670040",
+    "url": "https://doaj.org/article/c18d60d34add4a40a0e4a5751ce9d3e9",
+    "methods": [],
     "quantitative_signals": [
-      "large language models",
-      "llm",
-      "llms"
+      "citation",
+      "quantitative"
     ],
     "is_quantitative_humanities_candidate": true
   },
   {
-    "stable_id": "doi:10.17613/mxnp5-0g716",
-    "title": "What the AI Race Has Given Us and What It Requires Next",
+    "stable_id": "doi:10.1080/2331186x.2026.2666707",
+    "title": "Educational leadership for inclusive education: a systematic literature review",
     "year": "2026",
-    "source_name": "hcommons",
-    "venue_name": "Taylor & Francis",
-    "doi": "10.17613/mxnp5-0g716",
-    "url": "https://works.hcommons.org/records/mxnp5-0g716",
+    "source_name": "doaj-oai",
+    "venue_name": "Cogent Education, Vol 13, Iss 1 (2026)",
+    "doi": "10.1080/2331186X.2026.2666707",
+    "url": "https://doaj.org/article/07bae08957aa4952bca6d612372a4ec4",
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
   },
   {
-    "stable_id": "doi:10.17613/1a679-x6180",
-    "title": "New Subscription to the Lifelong Plan: How Can You Help Me Today?",
+    "stable_id": "doi:10.1080/2331186x.2026.2652114",
+    "title": "The impact of artificial intelligence on EFL/ESL students’ willingness to communicate: a systematic literature review (2015–2025)",
     "year": "2026",
-    "source_name": "hcommons",
-    "venue_name": "Resp AI Research Lab, CIIOE",
-    "doi": "10.17613/1a679-x6180",
-    "url": "https://works.hcommons.org/records/1a679-x6180",
+    "source_name": "doaj-oai",
+    "venue_name": "Cogent Education, Vol 13, Iss 1 (2026)",
+    "doi": "10.1080/2331186X.2026.2652114",
+    "url": "https://doaj.org/article/e4d7406c0d4842718861d92ed1b695a4",
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
   },
   {
-    "stable_id": "doi:10.17613/qde6b-n9s67",
-    "title": "The Ontological Status of AI-Generated Music: From Stylistic Mimicry to Collaborative Agency",
+    "stable_id": "doi:10.1080/23311932.2026.2659382",
+    "title": "Climate change impacts on agricultural productivity and food security: a policy framework for achieving sustainable development goals in Ghana",
     "year": "2026",
-    "source_name": "hcommons",
-    "venue_name": "Resp AI Research Lab, CIIOE",
-    "doi": "10.17613/qde6b-n9s67",
-    "url": "https://works.hcommons.org/records/qde6b-n9s67",
+    "source_name": "doaj-oai",
+    "venue_name": "Cogent Food & Agriculture, Vol 12, Iss 1 (2026)",
+    "doi": "10.1080/23311932.2026.2659382",
+    "url": "https://doaj.org/article/bf7c8533abd84618a3a01d824048a51c",
     "methods": [],
     "quantitative_signals": [
-      "computational"
+      "regression"
     ],
     "is_quantitative_humanities_candidate": true
+  },
+  {
+    "stable_id": "doi:10.1080/2162402x.2026.2661444",
+    "title": "Novel multiplex immunofluorescence-based tumor inflammation score provides apparent predictive biomarker in a phase I/II study of pembrolizumab with gemcitabine in patients with previously-treated advanced non-small cell lung cancer (NSCLC)",
+    "year": "2026",
+    "source_name": "doaj-oai",
+    "venue_name": "OncoImmunology, Vol 15, Iss 1 (2026)",
+    "doi": "10.1080/2162402X.2026.2661444",
+    "url": "https://doaj.org/article/710d157b465145819245049858a9449e",
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
   }
 ]
