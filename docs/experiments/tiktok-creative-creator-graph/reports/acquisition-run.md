@@ -1,9 +1,9 @@
 # Acquisition Run
 
-Generated: 2026-06-12T20:51:58.014Z
+Generated: 2026-06-12T21:05:02.512Z
 
 - Provider: apify
-- Wave: scale_wave_0005
+- Wave: scale_wave_0001
 - Dry run: true
 - Live requested: false
 - Live confirmed: false
@@ -19,5 +19,5 @@ Generated: 2026-06-12T20:51:58.014Z
 
 | Batch | Surface | Target Label | Query | Status | Rows |
 | --- | --- | --- | --- | --- | ---: |
-| category_gap_0050 | category_gap_search | filmmaker | site:tiktok.com/@ "shortfilm" | dry_run | 0 |
-| category_gap_0039 | category_gap_search | actor_performer | site:tiktok.com/@ "actress" | dry_run | 0 |
+| hashtag_0021 | tiktok_hashtag_export | vfx_animation | animation | dry_run | 0 |
+| category_gap_0054 | category_gap_search | cinematographer | site:tiktok.com/@ "cinematographer" | dry_run | 0 |

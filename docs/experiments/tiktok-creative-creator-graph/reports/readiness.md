@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T21:02:22.955Z
+Generated: 2026-06-12T21:05:19.459Z
 
 Complete: false
 
@@ -27,7 +27,7 @@ Complete: false
 - Acquisition runner tasks: 2
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
-- Acquisition run history: 7
+- Acquisition run history: 8
 - Source yield rows: 7
 - Identities: 9
 - Category coverage labels: 5/11
@@ -60,7 +60,7 @@ Complete: false
 - candidate_frontier: pass (68 ranked acquisition candidates generated)
 - acquisition_import_waves: pass (1 acquisition import waves tracked)
 - acquisition_runner: pass (2 runnable of 2 selected provider tasks (dry run))
-- acquisition_run_history: pass (7 acquisition run history rows persisted)
+- acquisition_run_history: pass (8 acquisition run history rows persisted)
 - source_yield: pass (7 source/query yield rows generated)
 - identity_resolution: pass (9 creator identities resolved)
 - category_coverage: pass (5/11 target labels covered)

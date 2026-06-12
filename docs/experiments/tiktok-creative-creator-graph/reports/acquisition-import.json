@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T21:02:22.252Z",
+  "generated_at": "2026-06-12T21:05:18.722Z",
   "input_rows": 6,
   "normalized_rows": 6,
   "skipped_rows": 0,
@@ -16,8 +16,8 @@
   "lineage_providers": {},
   "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-12.jsonl",
   "wave": {
-    "wave_id": "import-2026-06-12T21-02-22-252Z",
-    "generated_at": "2026-06-12T21:02:22.252Z",
+    "wave_id": "import-2026-06-12T21-05-18-722Z",
+    "generated_at": "2026-06-12T21:05:18.722Z",
     "input_rows": 6,
     "normalized_rows": 6,
     "skipped_rows": 0,

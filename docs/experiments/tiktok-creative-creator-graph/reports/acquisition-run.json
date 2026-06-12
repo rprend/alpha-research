@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-12T20:51:58.014Z",
-  "execution_id": "2026-06-12T20-51-58-013Z",
+  "generated_at": "2026-06-12T21:05:02.512Z",
+  "execution_id": "2026-06-12T21-05-02-511Z",
   "provider": "apify",
-  "wave_id": "scale_wave_0005",
+  "wave_id": "scale_wave_0001",
   "wave_found": true,
   "dry_run": true,
   "live_requested": false,
@@ -16,48 +16,50 @@
   "output_rows": 0,
   "results": [
     {
-      "execution_id": "2026-06-12T20-51-58-013Z",
+      "execution_id": "2026-06-12T21-05-02-511Z",
       "provider": "apify",
-      "batch_id": "category_gap_0050",
-      "acquisition_surface": "category_gap_search",
-      "query": "site:tiktok.com/@ \"shortfilm\"",
-      "target_label": "filmmaker",
-      "actor_id": "apify/google-search-scraper",
+      "batch_id": "hashtag_0021",
+      "acquisition_surface": "tiktok_hashtag_export",
+      "query": "animation",
+      "target_label": "vfx_animation",
+      "actor_id": "clockworks/tiktok-scraper",
       "input": {
-        "queries": "site:tiktok.com/@ \"shortfilm\"",
-        "maxPagesPerQuery": 1,
+        "hashtags": [
+          "animation"
+        ],
         "resultsPerPage": 100,
-        "countryCode": "us",
-        "languageCode": "en"
+        "shouldDownloadVideos": false,
+        "shouldDownloadCovers": false,
+        "shouldDownloadSubtitles": false
       },
       "dry_run": true,
-      "started_at": "2026-06-12T20:51:58.014Z",
+      "started_at": "2026-06-12T21:05:02.512Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-12T20:51:58.014Z"
+      "finished_at": "2026-06-12T21:05:02.512Z"
     },
     {
-      "execution_id": "2026-06-12T20-51-58-013Z",
+      "execution_id": "2026-06-12T21-05-02-511Z",
       "provider": "apify",
-      "batch_id": "category_gap_0039",
+      "batch_id": "category_gap_0054",
       "acquisition_surface": "category_gap_search",
-      "query": "site:tiktok.com/@ \"actress\"",
-      "target_label": "actor_performer",
+      "query": "site:tiktok.com/@ \"cinematographer\"",
+      "target_label": "cinematographer",
       "actor_id": "apify/google-search-scraper",
       "input": {
-        "queries": "site:tiktok.com/@ \"actress\"",
+        "queries": "site:tiktok.com/@ \"cinematographer\"",
         "maxPagesPerQuery": 1,
         "resultsPerPage": 100,
         "countryCode": "us",
         "languageCode": "en"
       },
       "dry_run": true,
-      "started_at": "2026-06-12T20:51:58.014Z",
+      "started_at": "2026-06-12T21:05:02.512Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-12T20:51:58.014Z"
+      "finished_at": "2026-06-12T21:05:02.512Z"
     }
   ]
 }

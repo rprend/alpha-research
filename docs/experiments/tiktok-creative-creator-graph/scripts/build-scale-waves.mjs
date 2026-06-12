@@ -53,11 +53,37 @@ function taskScore(task) {
   return priorityScore + yieldScore + gapScore
 }
 
+function firstBatchId(candidate) {
+  return String(candidate.source_batch_ids ?? '').split('|').map((item) => item.trim()).filter(Boolean)[0] ?? ''
+}
+
+function frontierTask(candidate, taskById) {
+  const batchId = firstBatchId(candidate)
+  const task = taskById.get(batchId)
+  return {
+    ...(task ?? {}),
+    batch_id: batchId || task?.batch_id || '',
+    acquisition_surface: candidate.acquisition_surface ?? task?.acquisition_surface ?? '',
+    query: candidate.target ?? task?.query ?? '',
+    priority: candidate.priority ?? task?.priority ?? 5,
+    target_label: candidate.target_label ?? task?.target_label ?? '',
+    target_label_gap: task?.target_label_gap ?? '',
+    expected_output: candidate.expected_output ?? task?.expected_output ?? '',
+    import_target: candidate.import_target ?? task?.import_target ?? '',
+    frontier_rank: candidate.frontier_rank ?? '',
+    frontier_score: candidate.frontier_score ?? '',
+    target_kind: candidate.target_kind ?? '',
+    source_batch_ids: candidate.source_batch_ids ?? '',
+  }
+}
+
 function main() {
   const scalePlan = readJson(join(reportsDir, 'scale-plan.json'), {})
   const reviewPlan = readJson(join(reportsDir, 'review-plan.json'), {})
   const readiness = readJson(join(reportsDir, 'readiness.json'), {})
   const tasks = readJsonl(join(acquisitionDir, 'acquisition_tasks.jsonl'))
+  const taskById = new Map(tasks.map((task) => [task.batch_id, task]))
+  const frontier = readJsonl(join(processedDir, 'candidate_frontier.jsonl'))
   const categoryPlan = readJsonl(join(processedDir, 'review_plan_categories.jsonl'))
 
   const waveCount = Math.max(1, Number(scalePlan?.estimated_work?.import_batches_needed ?? 0))
@@ -69,13 +95,18 @@ function main() {
 
   const sortedTasks = [...tasks].sort((a, b) => taskScore(b) - taskScore(a) || a.batch_id.localeCompare(b.batch_id))
   const highPriorityTasks = sortedTasks.filter((task) => Number(task.priority) <= 2)
-  const fallbackTasks = highPriorityTasks.length ? highPriorityTasks : sortedTasks
+  const frontierTasks = frontier
+    .filter((row) => !row.known_account)
+    .map((row) => frontierTask(row, taskById))
+    .filter((task) => task.batch_id && task.acquisition_surface)
+  const fallbackTasks = frontierTasks.length ? frontierTasks : (highPriorityTasks.length ? highPriorityTasks : sortedTasks)
   const categories = [...categoryPlan].sort((a, b) => Number(a.priority) - Number(b.priority) || Number(b.review_gap) - Number(a.review_gap))
+  const categoryByLabel = new Map(categoryPlan.map((row) => [row.label, row]))
 
   const waves = Array.from({ length: waveCount }).map((_, index) => {
     const primaryTask = cycle(fallbackTasks, index)
     const secondaryTask = cycle(fallbackTasks, index + Math.ceil(fallbackTasks.length / 3))
-    const category = cycle(categories, index)
+    const category = categoryByLabel.get(primaryTask?.target_label) ?? cycle(categories, index)
     const remainingUsefulGapBeforeWave = Math.max(0, usefulGap - (index * estimatedUsefulPerWave))
     const expectedUseful = Math.min(estimatedUsefulPerWave, remainingUsefulGapBeforeWave || estimatedUsefulPerWave)
     const reviewTarget = Math.min(reviewRowsPerWave, Math.max(0, reviewGap - (index * reviewRowsPerWave)))
@@ -86,14 +117,20 @@ function main() {
       target_candidate_accounts: defaultWaveSize,
       expected_useful_creators: expectedUseful,
       review_decision_target: reviewTarget,
-      primary_category: category?.label ?? primaryTask?.target_label ?? '',
-      category_useful_gap: category?.useful_gap ?? primaryTask?.target_label_gap ?? '',
+      primary_category: primaryTask?.target_label || category?.label || '',
+      category_useful_gap: primaryTask?.target_label_gap || category?.useful_gap || '',
       primary_task_id: primaryTask?.batch_id ?? '',
       primary_surface: primaryTask?.acquisition_surface ?? '',
       primary_query: primaryTask?.query ?? '',
+      primary_frontier_rank: primaryTask?.frontier_rank ?? '',
+      primary_frontier_score: primaryTask?.frontier_score ?? '',
+      primary_target_kind: primaryTask?.target_kind ?? '',
       secondary_task_id: secondaryTask?.batch_id ?? '',
       secondary_surface: secondaryTask?.acquisition_surface ?? '',
       secondary_query: secondaryTask?.query ?? '',
+      secondary_frontier_rank: secondaryTask?.frontier_rank ?? '',
+      secondary_frontier_score: secondaryTask?.frontier_score ?? '',
+      secondary_target_kind: secondaryTask?.target_kind ?? '',
       import_target: primaryTask?.import_target ?? 'data/raw/acquisition-results/',
       run_command: `node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --max-tasks=8 --priority-max=2 --wave=${String(index + 1).padStart(4, '0')}`,
       after_import_command: 'node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs',
@@ -113,6 +150,8 @@ function main() {
     review_gap: reviewGap,
     review_rows_per_wave: reviewRowsPerWave,
     source_tasks_available: tasks.length,
+    frontier_targets_available: frontier.length,
+    frontier_targets_used: frontierTasks.length,
     high_priority_source_tasks: highPriorityTasks.length,
     category_focus_rows: categories.length,
     first_waves: waves.slice(0, 20),
@@ -133,14 +172,16 @@ Generated: ${summary.generated_at}
 - Review gap: ${summary.review_gap}
 - Review rows per wave: ${summary.review_rows_per_wave}
 - Source tasks available: ${summary.source_tasks_available}
+- Frontier targets available: ${summary.frontier_targets_available}
+- Frontier targets used: ${summary.frontier_targets_used}
 - High-priority source tasks: ${summary.high_priority_source_tasks}
 - Category focus rows: ${summary.category_focus_rows}
 
 ## First 20 Waves
 
-| Seq | Wave | Category | Candidates | Expected useful | Review target | Surface | Query |
-| ---: | --- | --- | ---: | ---: | ---: | --- | --- |
-${summary.first_waves.map((row) => `| ${row.sequence} | ${row.wave_id} | ${row.primary_category} | ${row.target_candidate_accounts} | ${row.expected_useful_creators} | ${row.review_decision_target} | ${row.primary_surface} | ${row.primary_query} |`).join('\n')}
+| Seq | Wave | Category | Candidates | Expected useful | Review target | Rank | Score | Surface | Query |
+| ---: | --- | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
+${summary.first_waves.map((row) => `| ${row.sequence} | ${row.wave_id} | ${row.primary_category} | ${row.target_candidate_accounts} | ${row.expected_useful_creators} | ${row.review_decision_target} | ${row.primary_frontier_rank || ''} | ${row.primary_frontier_score || ''} | ${row.primary_surface} | ${row.primary_query} |`).join('\n')}
 
 Full queue: \`data/processed/scale_waves.csv\`
 `)
