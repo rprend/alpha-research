@@ -33,6 +33,7 @@ function main() {
   const expansionQueue = readJsonl(join(processedDir, 'expansion_queue.jsonl'))
   const acquisitionTasks = readJsonl(join(processedDir, 'acquisition/acquisition_tasks.jsonl'))
   const acquisitionImportWaves = readJsonl(join(processedDir, 'acquisition_import_waves.jsonl'))
+  const acquisitionRunHistory = readJsonl(join(processedDir, 'acquisition_run_history.jsonl'))
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
   const identities = readJsonl(join(processedDir, 'creator_identities.jsonl'))
   const scaleWaves = readJsonl(join(processedDir, 'scale_waves.jsonl'))
@@ -127,6 +128,11 @@ function main() {
       evidence: acquisitionRun ? `${acquisitionRun.runnable_tasks ?? acquisitionRun.selected_tasks} runnable of ${acquisitionRun.selected_tasks} selected provider tasks (${acquisitionRun.dry_run ? 'dry run' : 'live'})` : 'acquisition runner has not been exercised',
     },
     {
+      id: 'acquisition_run_history',
+      status: acquisitionRunHistory.length > 0 ? 'pass' : 'fail',
+      evidence: `${acquisitionRunHistory.length} acquisition run history rows persisted`,
+    },
+    {
       id: 'source_yield',
       status: sourceYield.length > 0 ? 'pass' : 'fail',
       evidence: `${sourceYield.length} source/query yield rows generated`,
@@ -216,6 +222,7 @@ function main() {
       acquisition_runner_tasks: acquisitionRun?.selected_tasks ?? 0,
       acquisition_runner_runnable_tasks: acquisitionRun?.runnable_tasks ?? acquisitionRun?.selected_tasks ?? 0,
       acquisition_runner_skipped_tasks: acquisitionRun?.skipped_tasks ?? 0,
+      acquisition_run_history: acquisitionRunHistory.length,
       source_yield_rows: sourceYield.length,
       identities: identities.length,
       category_coverage_labels: categoryCoverage?.labels ?? 0,
@@ -266,6 +273,7 @@ Complete: ${summary.complete}
 - Acquisition runner tasks: ${summary.counts.acquisition_runner_tasks}
 - Acquisition runner runnable tasks: ${summary.counts.acquisition_runner_runnable_tasks}
 - Acquisition runner skipped tasks: ${summary.counts.acquisition_runner_skipped_tasks}
+- Acquisition run history: ${summary.counts.acquisition_run_history}
 - Source yield rows: ${summary.counts.source_yield_rows}
 - Identities: ${summary.counts.identities}
 - Category coverage labels: ${summary.counts.category_coverage_covered_labels}/${summary.counts.category_coverage_labels}

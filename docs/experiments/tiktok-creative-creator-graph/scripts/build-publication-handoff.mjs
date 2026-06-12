@@ -37,6 +37,7 @@ function main() {
   const acquisitionBatches = readJson(join(reportsDir, 'acquisition-batches.json'), null)
   const acquisitionRun = readJson(join(reportsDir, 'acquisition-run.json'), null)
   const importWaves = readJsonl(join(processedDir, 'acquisition_import_waves.jsonl'))
+  const acquisitionRunHistory = readJsonl(join(processedDir, 'acquisition_run_history.jsonl'))
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
   const reviewSample = readJsonl(join(processedDir, 'review_sample.jsonl'))
   const reviewPlanCategories = readJsonl(join(processedDir, 'review_plan_categories.jsonl'))
@@ -104,6 +105,7 @@ function main() {
       acquisition_import_waves: counts.acquisition_import_waves ?? importWaves.length,
       acquisition_runner_runnable_tasks: counts.acquisition_runner_runnable_tasks ?? acquisitionRun?.runnable_tasks ?? 0,
       acquisition_runner_skipped_tasks: counts.acquisition_runner_skipped_tasks ?? acquisitionRun?.skipped_tasks ?? 0,
+      acquisition_run_history: counts.acquisition_run_history ?? acquisitionRunHistory.length,
       scale_waves: counts.scale_waves ?? scaleWaves.length,
       wave_ledger_rows: counts.wave_ledger_rows ?? waveLedger.length,
       wave_ledger_planned: counts.wave_ledger_planned ?? waveLedger.filter((row) => row.status === 'planned').length,
@@ -120,6 +122,7 @@ function main() {
       release_verification_complete: Boolean(releaseVerification?.complete),
       readiness_complete: Boolean(readiness?.complete),
       provider_runner_exercised: Boolean(acquisitionRun?.selected_tasks > 0),
+      acquisition_run_history_available: acquisitionRunHistory.length > 0,
       scale_plan_available: Boolean(scalePlan?.estimated_work),
       scale_waves_available: Boolean(scaleWavesReport?.planned_waves > 0 || scaleWaves.length > 0),
       wave_ledger_available: Boolean(waveLedgerReport?.waves > 0 || waveLedger.length > 0),
@@ -139,6 +142,7 @@ function main() {
       refresh_plan: rel(join(reportsDir, 'refresh-plan.json')),
       acquisition_batches: rel(join(reportsDir, 'acquisition-batches.json')),
       acquisition_import_waves: rel(join(processedDir, 'acquisition_import_waves.jsonl')),
+      acquisition_run_history: rel(join(processedDir, 'acquisition_run_history.jsonl')),
       source_yield: rel(join(reportsDir, 'source-yield.json')),
       category_coverage: rel(join(reportsDir, 'category-coverage.json')),
       review_sample: rel(join(processedDir, 'review_sample.csv')),
@@ -201,6 +205,7 @@ ${handoff.objective}
 - Acquisition import waves: ${handoff.current_corpus.acquisition_import_waves}
 - Acquisition runner runnable tasks: ${handoff.current_corpus.acquisition_runner_runnable_tasks}
 - Acquisition runner skipped tasks: ${handoff.current_corpus.acquisition_runner_skipped_tasks}
+- Acquisition run history: ${handoff.current_corpus.acquisition_run_history}
 - Scale waves: ${handoff.current_corpus.scale_waves}
 - Wave ledger rows: ${handoff.current_corpus.wave_ledger_rows}
 - Wave ledger planned: ${handoff.current_corpus.wave_ledger_planned}

@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 const root = process.cwd()
@@ -39,6 +39,10 @@ function writeJson(path, value) {
 
 function writeJsonl(path, rows) {
   writeFileSync(path, rows.map((row) => JSON.stringify(row)).join('\n') + (rows.length ? '\n' : ''))
+}
+
+function appendJsonl(path, row) {
+  appendFileSync(path, `${JSON.stringify(row)}\n`)
 }
 
 function renderTemplate(value, task) {
@@ -225,6 +229,7 @@ async function main() {
   }
 
   writeJson(join(reportsDir, 'acquisition-run.json'), summary)
+  appendJsonl(join(processedDir, 'acquisition_run_history.jsonl'), summary)
   writeFileSync(join(reportsDir, 'acquisition-run.md'), `# Acquisition Run
 
 Generated: ${summary.generated_at}

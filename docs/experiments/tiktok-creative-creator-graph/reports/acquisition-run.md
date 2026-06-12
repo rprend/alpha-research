@@ -1,9 +1,9 @@
 # Acquisition Run
 
-Generated: 2026-06-12T20:41:08.581Z
+Generated: 2026-06-12T20:44:11.896Z
 
 - Provider: apify
-- Wave: scale_wave_0001
+- Wave: scale_wave_0002
 - Dry run: true
 - Selected tasks: 2
 - Runnable tasks: 2
@@ -17,5 +17,5 @@ Generated: 2026-06-12T20:41:08.581Z
 
 | Batch | Surface | Target Label | Query | Status | Rows |
 | --- | --- | --- | --- | --- | ---: |
-| hashtag_0011 | tiktok_hashtag_export | filmmaker | filmmaker | dry_run | 0 |
-| category_gap_0035 | category_gap_search | standup_comedian | site:tiktok.com/@ "stand-up" | dry_run | 0 |
+| hashtag_0012 | tiktok_hashtag_export | filmmaker | shortfilm | dry_run | 0 |
+| category_gap_0036 | category_gap_search | standup_comedian | site:tiktok.com/@ "comedian" | dry_run | 0 |

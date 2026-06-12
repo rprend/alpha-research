@@ -40,27 +40,38 @@ function writeCsv(path, rows) {
 function main() {
   const waves = readJsonl(join(processedDir, 'scale_waves.jsonl'))
   const acquisitionRun = readJson(join(reportsDir, 'acquisition-run.json'), null)
+  const acquisitionRunHistory = readJsonl(join(processedDir, 'acquisition_run_history.jsonl'))
   const importWaves = readJsonl(join(processedDir, 'acquisition_import_waves.jsonl'))
   const reviewSample = readJsonl(join(processedDir, 'review_sample.jsonl'))
 
   const latestRunWave = acquisitionRun?.wave_id || ''
+  const runsByWave = new Map()
+  for (const run of acquisitionRunHistory.filter((row) => row.wave_id)) {
+    const rows = runsByWave.get(run.wave_id) ?? []
+    rows.push(run)
+    runsByWave.set(run.wave_id, rows)
+  }
   const importedBatchIds = new Set(importWaves.flatMap((wave) => String(wave.source_files ?? '').split('|').filter(Boolean)))
   const reviewSampleWaveIds = new Set(reviewSample.map((row) => row.import_wave_id).filter(Boolean))
 
   const ledger = waves.map((wave) => {
-    const wasLatestRun = wave.wave_id === latestRunWave
-    const runRows = wasLatestRun ? acquisitionRun?.output_rows ?? 0 : 0
-    const runStatus = wasLatestRun
-      ? acquisitionRun?.failed > 0 ? 'failed' : acquisitionRun?.dry_run ? 'dry_run' : acquisitionRun?.succeeded > 0 ? 'succeeded' : 'attempted'
+    const runs = runsByWave.get(wave.wave_id) ?? []
+    const latestRun = runs.at(-1)
+    const runRows = runs.reduce((sum, run) => sum + Number(run.output_rows ?? 0), 0)
+    const runStatus = latestRun
+      ? latestRun.failed > 0 ? 'failed' : latestRun.dry_run ? 'dry_run' : latestRun.succeeded > 0 ? 'succeeded' : 'attempted'
       : 'not_started'
     const imported = importedBatchIds.has(`${wave.wave_id}.jsonl`) || importedBatchIds.has(wave.wave_id)
     const needsReview = Number(wave.review_decision_target ?? 0) > 0 && !reviewSampleWaveIds.has(wave.wave_id)
-    const status = imported ? 'imported' : wasLatestRun ? runStatus : 'planned'
+    const status = imported ? 'imported' : latestRun ? runStatus : 'planned'
     return {
       wave_id: wave.wave_id,
       sequence: wave.sequence,
       status,
       run_status: runStatus,
+      run_attempts: runs.length,
+      dry_run_attempts: runs.filter((run) => run.dry_run).length,
+      live_run_attempts: runs.filter((run) => !run.dry_run).length,
       imported,
       needs_review_sample: needsReview,
       target_candidate_accounts: wave.target_candidate_accounts,
@@ -73,7 +84,7 @@ function main() {
       secondary_task_id: wave.secondary_task_id,
       secondary_surface: wave.secondary_surface,
       secondary_query: wave.secondary_query,
-      latest_execution_id: wasLatestRun ? acquisitionRun?.execution_id ?? '' : '',
+      latest_execution_id: latestRun?.execution_id ?? '',
       latest_output_rows: runRows,
       run_command: wave.run_command,
       after_import_command: wave.after_import_command,
@@ -89,6 +100,9 @@ function main() {
     succeeded: ledger.filter((row) => row.status === 'succeeded').length,
     imported: ledger.filter((row) => row.status === 'imported').length,
     failed: ledger.filter((row) => row.status === 'failed').length,
+    run_attempts: ledger.reduce((sum, row) => sum + Number(row.run_attempts ?? 0), 0),
+    dry_run_attempts: ledger.reduce((sum, row) => sum + Number(row.dry_run_attempts ?? 0), 0),
+    live_run_attempts: ledger.reduce((sum, row) => sum + Number(row.live_run_attempts ?? 0), 0),
     review_needed: ledger.filter((row) => row.needs_review_sample).length,
     latest_run_wave: latestRunWave,
     next_ready_wave: nextReady?.wave_id ?? '',
@@ -109,6 +123,9 @@ Generated: ${summary.generated_at}
 - Succeeded: ${summary.succeeded}
 - Imported: ${summary.imported}
 - Failed: ${summary.failed}
+- Run attempts: ${summary.run_attempts}
+- Dry-run attempts: ${summary.dry_run_attempts}
+- Live-run attempts: ${summary.live_run_attempts}
 - Review needed: ${summary.review_needed}
 - Latest run wave: ${summary.latest_run_wave || 'none'}
 - Next ready wave: ${summary.next_ready_wave || 'none'}

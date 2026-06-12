@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-12T20:41:08.581Z",
-  "execution_id": "2026-06-12T20-41-08-580Z",
+  "generated_at": "2026-06-12T20:44:11.896Z",
+  "execution_id": "2026-06-12T20-44-11-896Z",
   "provider": "apify",
-  "wave_id": "scale_wave_0001",
+  "wave_id": "scale_wave_0002",
   "wave_found": true,
   "dry_run": true,
   "selected_tasks": 2,
@@ -14,16 +14,16 @@
   "output_rows": 0,
   "results": [
     {
-      "execution_id": "2026-06-12T20-41-08-580Z",
+      "execution_id": "2026-06-12T20-44-11-896Z",
       "provider": "apify",
-      "batch_id": "hashtag_0011",
+      "batch_id": "hashtag_0012",
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "filmmaker",
+      "query": "shortfilm",
       "target_label": "filmmaker",
       "actor_id": "clockworks/tiktok-scraper",
       "input": {
         "hashtags": [
-          "filmmaker"
+          "shortfilm"
         ],
         "resultsPerPage": 100,
         "shouldDownloadVideos": false,
@@ -31,33 +31,33 @@
         "shouldDownloadSubtitles": false
       },
       "dry_run": true,
-      "started_at": "2026-06-12T20:41:08.580Z",
+      "started_at": "2026-06-12T20:44:11.896Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-12T20:41:08.581Z"
+      "finished_at": "2026-06-12T20:44:11.896Z"
     },
     {
-      "execution_id": "2026-06-12T20-41-08-580Z",
+      "execution_id": "2026-06-12T20-44-11-896Z",
       "provider": "apify",
-      "batch_id": "category_gap_0035",
+      "batch_id": "category_gap_0036",
       "acquisition_surface": "category_gap_search",
-      "query": "site:tiktok.com/@ \"stand-up\"",
+      "query": "site:tiktok.com/@ \"comedian\"",
       "target_label": "standup_comedian",
       "actor_id": "apify/google-search-scraper",
       "input": {
-        "queries": "site:tiktok.com/@ \"stand-up\"",
+        "queries": "site:tiktok.com/@ \"comedian\"",
         "maxPagesPerQuery": 1,
         "resultsPerPage": 100,
         "countryCode": "us",
         "languageCode": "en"
       },
       "dry_run": true,
-      "started_at": "2026-06-12T20:41:08.581Z",
+      "started_at": "2026-06-12T20:44:11.896Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-12T20:41:08.581Z"
+      "finished_at": "2026-06-12T20:44:11.896Z"
     }
   ]
 }

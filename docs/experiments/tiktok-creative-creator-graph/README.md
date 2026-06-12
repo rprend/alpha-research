@@ -59,6 +59,8 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-r
 
 This also updates the acquisition import wave ledger at `data/processed/acquisition_import_waves.jsonl` and `.csv`.
 
+Each provider run also appends a durable execution record to `data/processed/acquisition_run_history.jsonl`; the latest run remains available at `reports/acquisition-run.json`.
+
 Apply human review decisions:
 
 ```bash
@@ -260,6 +262,7 @@ The pipeline writes:
 - `data/processed/category_coverage.csv`
 - `data/processed/acquisition_import_waves.jsonl`
 - `data/processed/acquisition_import_waves.csv`
+- `data/processed/acquisition_run_history.jsonl`
 - `data/processed/review_sample.jsonl`
 - `data/processed/review_sample.csv`
 - `data/processed/review_plan_categories.jsonl`

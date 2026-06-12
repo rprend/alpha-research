@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-12T20:41:16.729Z
+Generated: 2026-06-12T20:44:12.015Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -26,9 +26,10 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Acquisition import waves: 1
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
+- Acquisition run history: 2
 - Scale waves: 1000
 - Wave ledger rows: 1000
-- Wave ledger planned: 999
+- Wave ledger planned: 998
 - Wave ledger imported: 0
 - Wave ledger failed: 0
 - Refresh tasks: 9
@@ -54,6 +55,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - refresh_plan: `docs/experiments/tiktok-creative-creator-graph/reports/refresh-plan.json`
 - acquisition_batches: `docs/experiments/tiktok-creative-creator-graph/reports/acquisition-batches.json`
 - acquisition_import_waves: `docs/experiments/tiktok-creative-creator-graph/data/processed/acquisition_import_waves.jsonl`
+- acquisition_run_history: `docs/experiments/tiktok-creative-creator-graph/data/processed/acquisition_run_history.jsonl`
 - source_yield: `docs/experiments/tiktok-creative-creator-graph/reports/source-yield.json`
 - category_coverage: `docs/experiments/tiktok-creative-creator-graph/reports/category-coverage.json`
 - review_sample: `docs/experiments/tiktok-creative-creator-graph/data/processed/review_sample.csv`
@@ -70,6 +72,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - release_verification_complete: pass
 - readiness_complete: incomplete
 - provider_runner_exercised: pass
+- acquisition_run_history_available: pass
 - scale_plan_available: pass
 - scale_waves_available: pass
 - wave_ledger_available: pass

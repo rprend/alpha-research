@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T20:41:08.661Z
+Generated: 2026-06-12T20:44:11.976Z
 
 Complete: false
 
@@ -24,6 +24,7 @@ Complete: false
 - Acquisition runner tasks: 2
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
+- Acquisition run history: 2
 - Source yield rows: 7
 - Identities: 9
 - Category coverage labels: 5/11
@@ -32,7 +33,7 @@ Complete: false
 - Scale plan import batches: 1000
 - Scale waves: 1000
 - Wave ledger rows: 1000
-- Wave ledger planned: 999
+- Wave ledger planned: 998
 - Wave ledger imported: 0
 - Wave ledger failed: 0
 - Refresh tasks: 9
@@ -51,6 +52,7 @@ Complete: false
 - acquisition_batches: pass (68 acquisition tasks generated)
 - acquisition_import_waves: pass (1 acquisition import waves tracked)
 - acquisition_runner: pass (2 runnable of 2 selected provider tasks (dry run))
+- acquisition_run_history: pass (2 acquisition run history rows persisted)
 - source_yield: pass (7 source/query yield rows generated)
 - identity_resolution: pass (9 creator identities resolved)
 - category_coverage: pass (5/11 target labels covered)
