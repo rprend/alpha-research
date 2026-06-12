@@ -143,6 +143,8 @@
     "self_study_portfolio_reviewer_handoff_ready_rows": 0,
     "self_study_portfolio_reviewer_feedback_template_rows": 3,
     "self_study_portfolio_reviewer_feedback_import_rows": 0,
+    "self_study_portfolio_reviewer_feedback_smoke_fixture_rows": 1,
+    "self_study_portfolio_reviewer_feedback_smoke_ready_suggestions": 1,
     "self_study_portfolio_revision_queue_rows": 9,
     "self_study_portfolio_revision_queue_pending_rows": 9,
     "self_study_portfolio_gate_status_suggestion_rows": 3,
@@ -469,6 +471,11 @@
       "id": "self_study_portfolio_reviewer_feedback_imports_are_valid",
       "status": "pass",
       "detail": "0 reviewer feedback import rows; 0 import reference/action errors."
+    },
+    {
+      "id": "self_study_portfolio_reviewer_feedback_smoke_fixture_round_trips",
+      "status": "pass",
+      "detail": "1 smoke fixture rows; 3 fixture-derived revision rows resolved; 1 smoke gate suggestions ready; 0 smoke errors."
     },
     {
       "id": "self_study_portfolio_revision_queue_tracks_post_review_work",

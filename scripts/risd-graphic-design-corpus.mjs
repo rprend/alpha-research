@@ -4049,7 +4049,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioGateStatusSummary = null, selfStudyPortfolioReviewIndex = null, selfStudyPortfolioReviewerHandoff = null, selfStudyPortfolioReviewerFeedbackTemplate = null, selfStudyPortfolioReviewerFeedbackImports = null, selfStudyPortfolioRevisionQueue = null, selfStudyPortfolioGateStatusSuggestions = null, selfStudyPortfolioEvidenceAttachments = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioGateStatusSummary = null, selfStudyPortfolioReviewIndex = null, selfStudyPortfolioReviewerHandoff = null, selfStudyPortfolioReviewerFeedbackTemplate = null, selfStudyPortfolioReviewerFeedbackImports = null, selfStudyPortfolioReviewerFeedbackSmokeFixture = null, selfStudyPortfolioRevisionQueue = null, selfStudyPortfolioGateStatusSuggestions = null, selfStudyPortfolioEvidenceAttachments = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveArchivePromotions = archivePromotions ?? loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
@@ -4069,6 +4069,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const effectiveSelfStudyPortfolioReviewerHandoff = selfStudyPortfolioReviewerHandoff ?? []
   const effectiveSelfStudyPortfolioReviewerFeedbackTemplate = selfStudyPortfolioReviewerFeedbackTemplate ?? []
   const effectiveSelfStudyPortfolioReviewerFeedbackImports = selfStudyPortfolioReviewerFeedbackImports ?? loadJsonl(portfolioReviewerFeedbackImportPath)
+  const effectiveSelfStudyPortfolioReviewerFeedbackSmokeFixture = selfStudyPortfolioReviewerFeedbackSmokeFixture ?? []
   const effectiveSelfStudyPortfolioRevisionQueue = selfStudyPortfolioRevisionQueue ?? []
   const effectiveSelfStudyPortfolioGateStatusSuggestions = selfStudyPortfolioGateStatusSuggestions ?? []
   const effectiveSelfStudyPortfolioEvidenceAttachments = selfStudyPortfolioEvidenceAttachments ?? []
@@ -4339,10 +4340,14 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const portfolioReviewerHandoff = effectiveSelfStudyPortfolioReviewerHandoff.length ? effectiveSelfStudyPortfolioReviewerHandoff : generatedPortfolioReviewerHandoff
   const generatedPortfolioReviewerFeedbackTemplate = buildSelfStudyPortfolioReviewerFeedbackTemplate(portfolioReviewerHandoff, portfolioEvidenceAttachments)
   const portfolioReviewerFeedbackTemplate = effectiveSelfStudyPortfolioReviewerFeedbackTemplate.length ? effectiveSelfStudyPortfolioReviewerFeedbackTemplate : generatedPortfolioReviewerFeedbackTemplate
+  const generatedPortfolioReviewerFeedbackSmokeFixture = buildSelfStudyPortfolioReviewerFeedbackSmokeFixture(portfolioReviewerFeedbackTemplate)
+  const portfolioReviewerFeedbackSmokeFixture = effectiveSelfStudyPortfolioReviewerFeedbackSmokeFixture.length ? effectiveSelfStudyPortfolioReviewerFeedbackSmokeFixture : generatedPortfolioReviewerFeedbackSmokeFixture
   const generatedPortfolioRevisionQueue = buildSelfStudyPortfolioRevisionQueue(portfolioReviewerHandoff, effectiveSelfStudyPortfolioReviewerFeedbackImports)
   const portfolioRevisionQueue = effectiveSelfStudyPortfolioRevisionQueue.length ? effectiveSelfStudyPortfolioRevisionQueue : generatedPortfolioRevisionQueue
   const generatedPortfolioGateStatusSuggestions = buildSelfStudyPortfolioGateStatusSuggestions(portfolioReviewerHandoff, effectiveSelfStudyPortfolioReviewerFeedbackImports, portfolioCompletionGates, portfolioRevisionQueue, portfolioEvidenceAttachments)
   const portfolioGateStatusSuggestions = effectiveSelfStudyPortfolioGateStatusSuggestions.length ? effectiveSelfStudyPortfolioGateStatusSuggestions : generatedPortfolioGateStatusSuggestions
+  const portfolioSmokeRevisionQueue = buildSelfStudyPortfolioRevisionQueue(portfolioReviewerHandoff, portfolioReviewerFeedbackSmokeFixture)
+  const portfolioSmokeGateStatusSuggestions = buildSelfStudyPortfolioGateStatusSuggestions(portfolioReviewerHandoff, portfolioReviewerFeedbackSmokeFixture, portfolioCompletionGates, portfolioSmokeRevisionQueue, portfolioEvidenceAttachments)
   const progressLedgerWithPortfolioGateAnnotations = annotateSelfStudyProgressLedgerWithPortfolioGates(progressLedger, portfolioMilestones, portfolioCompletionGates)
   const curriculumModulesWithSourceIds = curriculumModules.filter((module) => module.source_ids?.length).length
   const curriculumModulesWithAssignments = curriculumModules.filter((module) => module.assignment_ids?.length).length
@@ -4738,6 +4743,20 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || row.status_updates?.some((update) => !update.check_id || !portfolioCompletionGateCheckIds.has(update.check_id) || !['pending', 'satisfied'].includes(update.current_status) || !Array.isArray(update.evidence_refs))
       || row.revision_items?.some((item) => !item.revision_id || !validPortfolioReviewBlockerTypes.has(item.blocker_type) || !validRevisionPriorities.has(item.priority) || !item.prompt || !Array.isArray(item.evidence_refs) || !validRevisionStatuses.has(item.status))
   )
+  const portfolioReviewerFeedbackSmokeFixtureErrors = portfolioReviewerFeedbackSmokeFixture.filter((row) =>
+    !row.feedback_id
+      || !row.handoff_id
+      || !portfolioReviewerHandoffIds.has(row.handoff_id)
+      || !row.milestone_id
+      || !portfolioMilestoneIds.has(row.milestone_id)
+      || !row.evidence_attachment_manifest_id
+      || !portfolioEvidenceAttachmentManifestIds.has(row.evidence_attachment_manifest_id)
+      || row.outcome !== 'ready_for_review'
+      || !row.status_updates?.length
+      || row.status_updates.some((update) => !update.check_id || !portfolioCompletionGateCheckIds.has(update.check_id) || update.current_status !== 'satisfied' || !Array.isArray(update.evidence_refs) || update.evidence_refs.length === 0 || update.evidence_refs.some((ref) => !portfolioEvidenceAttachmentRefs.has(ref)))
+      || !row.revision_items?.length
+      || row.revision_items.some((item) => !item.revision_id || !validPortfolioReviewBlockerTypes.has(item.blocker_type) || !validRevisionPriorities.has(item.priority) || !item.prompt || !Array.isArray(item.evidence_refs) || item.evidence_refs.length === 0 || item.evidence_refs.some((ref) => !portfolioEvidenceAttachmentRefs.has(ref)) || item.status !== 'resolved')
+  )
   const portfolioRevisionQueueErrors = portfolioRevisionQueue.filter((row) =>
     !row.queue_id
       || !row.handoff_id
@@ -4782,6 +4801,32 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       )
       || row.suggestion_status === 'ready_to_copy' && !row.suggested_gate_status_import
       || !row.next_action
+  )
+  const portfolioSmokeImportedRevisionQueue = portfolioSmokeRevisionQueue.filter((row) => row.source === 'reviewer_feedback_import')
+  const portfolioSmokeRevisionQueueErrors = portfolioSmokeImportedRevisionQueue.filter((row) =>
+    !row.queue_id
+      || !row.handoff_id
+      || !portfolioReviewerHandoffIds.has(row.handoff_id)
+      || !row.milestone_id
+      || !portfolioMilestoneIds.has(row.milestone_id)
+      || row.source !== 'reviewer_feedback_import'
+      || row.status !== 'resolved'
+      || !Array.isArray(row.evidence_refs)
+      || row.evidence_refs.length === 0
+      || row.evidence_refs.some((ref) => !portfolioEvidenceAttachmentRefs.has(ref))
+  )
+  const portfolioSmokeReadyGateSuggestions = portfolioSmokeGateStatusSuggestions.filter((row) => row.suggestion_status === 'ready_to_copy')
+  const portfolioSmokeGateStatusSuggestionErrors = portfolioSmokeGateStatusSuggestions.filter((row) =>
+    !row.suggestion_id
+      || !row.handoff_id
+      || !portfolioReviewerHandoffIds.has(row.handoff_id)
+      || !row.gate_id
+      || !portfolioCompletionGateIds.has(row.gate_id)
+      || row.feedback_id && !row.suggested_gate_status_import
+      || row.suggested_gate_status_import && (
+        row.suggested_gate_status_import.target_readiness_status !== 'ready_for_review'
+          || row.suggested_gate_status_import.check_updates.some((update) => update.current_status !== 'satisfied' || !update.evidence_refs?.length || update.evidence_refs.some((ref) => !portfolioEvidenceAttachmentRefs.has(ref)))
+      )
   )
   const portfolioBriefReadinessErrors = portfolioBriefs.filter((brief) =>
     !brief.completion_gate_id
@@ -5120,6 +5165,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${effectiveSelfStudyPortfolioReviewerFeedbackImports.length} reviewer feedback import rows; ${portfolioReviewerFeedbackImportErrors.length} import reference/action errors.`,
     },
     {
+      id: 'self_study_portfolio_reviewer_feedback_smoke_fixture_round_trips',
+      status: portfolioReviewerFeedbackSmokeFixtureErrors.length === 0 && portfolioSmokeRevisionQueueErrors.length === 0 && portfolioSmokeGateStatusSuggestionErrors.length === 0 && portfolioReviewerFeedbackSmokeFixture.length > 0 && portfolioSmokeImportedRevisionQueue.length > 0 && portfolioSmokeReadyGateSuggestions.length > 0 ? 'pass' : 'fail',
+      detail: `${portfolioReviewerFeedbackSmokeFixture.length} smoke fixture rows; ${portfolioSmokeImportedRevisionQueue.filter((row) => row.status === 'resolved').length} fixture-derived revision rows resolved; ${portfolioSmokeReadyGateSuggestions.length} smoke gate suggestions ready; ${portfolioReviewerFeedbackSmokeFixtureErrors.length + portfolioSmokeRevisionQueueErrors.length + portfolioSmokeGateStatusSuggestionErrors.length} smoke errors.`,
+    },
+    {
       id: 'self_study_portfolio_revision_queue_tracks_post_review_work',
       status: portfolioRevisionQueueErrors.length === 0 && portfolioRevisionQueue.length > 0 ? 'pass' : 'fail',
       detail: `${portfolioRevisionQueue.length} portfolio revision queue rows; ${portfolioRevisionQueue.filter((row) => row.status === 'pending').length} pending; ${portfolioRevisionQueueErrors.length} queue reference/action errors.`,
@@ -5327,6 +5377,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_portfolio_reviewer_handoff_ready_rows: portfolioReviewerHandoff.filter((row) => row.readiness_status === 'ready_for_review').length,
       self_study_portfolio_reviewer_feedback_template_rows: portfolioReviewerFeedbackTemplate.length,
       self_study_portfolio_reviewer_feedback_import_rows: effectiveSelfStudyPortfolioReviewerFeedbackImports.length,
+      self_study_portfolio_reviewer_feedback_smoke_fixture_rows: portfolioReviewerFeedbackSmokeFixture.length,
+      self_study_portfolio_reviewer_feedback_smoke_ready_suggestions: portfolioSmokeReadyGateSuggestions.length,
       self_study_portfolio_revision_queue_rows: portfolioRevisionQueue.length,
       self_study_portfolio_revision_queue_pending_rows: portfolioRevisionQueue.filter((row) => row.status === 'pending').length,
       self_study_portfolio_gate_status_suggestion_rows: portfolioGateStatusSuggestions.length,
@@ -7826,6 +7878,79 @@ function reviewerRevisionPrompt(blockerType) {
   return 'Resolve the reviewer-identified blocker and attach evidence.'
 }
 
+function buildSelfStudyPortfolioReviewerFeedbackSmokeFixture(feedbackTemplates) {
+  const template = feedbackTemplates[0]
+  if (!template) return []
+  return [{
+    feedback_id: `smoke_${template.feedback_id}`,
+    generated_at: retrievedAt,
+    handoff_id: template.handoff_id,
+    review_index_id: template.review_index_id,
+    milestone_id: template.milestone_id,
+    evidence_attachment_manifest_id: template.evidence_attachment_manifest_id,
+    reviewer_name: 'Smoke fixture reviewer',
+    review_date: retrievedAt,
+    outcome: 'ready_for_review',
+    status_updates: (template.status_updates ?? []).map((update) => ({
+      check_id: update.check_id,
+      current_status: 'satisfied',
+      evidence_refs: update.evidence_refs ?? [],
+      reviewer_note: 'Smoke fixture: verifies this gate check can be satisfied with evidence attachment slot refs.',
+    })),
+    revision_items: (template.revision_items ?? []).map((item) => ({
+      revision_id: `smoke_${item.revision_id}`,
+      blocker_type: item.blocker_type,
+      priority: item.priority,
+      prompt: item.prompt,
+      evidence_refs: item.evidence_refs ?? [],
+      owner: item.owner ?? 'learner',
+      status: 'resolved',
+    })),
+    reviewer_notes: 'Smoke fixture generated from the feedback template to prove reviewer feedback imports can drive revision queue and gate status suggestions with real attachment refs.',
+    smoke_fixture: true,
+    provenance_note: 'Generated smoke fixture only; do not copy into the live reviewer feedback import unless intentionally testing with fixture data.',
+  }]
+}
+
+function selfStudyPortfolioReviewerFeedbackSmokeMarkdown({ smokeFixture, smokeRevisionQueue, smokeGateStatusSuggestions }) {
+  const readySuggestions = smokeGateStatusSuggestions.filter((row) => row.suggestion_status === 'ready_to_copy')
+  const resolvedQueueRows = smokeRevisionQueue.filter((row) => row.status === 'resolved')
+  const lines = [
+    '# RISD Graphic Design Reviewer Feedback Import Smoke Fixture',
+    '',
+    `Generated: ${retrievedAt}`,
+    '',
+    'This fixture exercises the reviewer feedback import path with real evidence attachment refs without changing the live learner import file.',
+    '',
+    `- Fixture import rows: ${smokeFixture.length}`,
+    `- Smoke revision queue rows: ${smokeRevisionQueue.length}`,
+    `- Smoke resolved revision rows: ${resolvedQueueRows.length}`,
+    `- Smoke gate suggestions ready to copy: ${readySuggestions.length}`,
+    '',
+  ]
+  smokeFixture.forEach((row) => {
+    lines.push(`## ${row.feedback_id}`)
+    lines.push('')
+    lines.push(`- Milestone: ${row.milestone_id}`)
+    lines.push(`- Handoff: ${row.handoff_id}`)
+    lines.push(`- Evidence attachment manifest: ${row.evidence_attachment_manifest_id}`)
+    lines.push(`- Outcome: ${row.outcome}`)
+    lines.push(`- Satisfied status updates: ${row.status_updates.filter((update) => update.current_status === 'satisfied').length}`)
+    lines.push(`- Resolved revision items: ${row.revision_items.filter((item) => item.status === 'resolved').length}`)
+    lines.push('')
+  })
+  readySuggestions.forEach((row) => {
+    lines.push(`## Ready Suggestion: ${row.suggestion_id}`)
+    lines.push('')
+    lines.push(`- Gate: ${row.gate_id}`)
+    lines.push(`- Suggested import: ${row.suggested_gate_status_import?.import_id ?? 'missing'}`)
+    lines.push(`- Target readiness: ${row.suggested_gate_status_import?.target_readiness_status ?? 'missing'}`)
+    lines.push(`- Check updates: ${row.suggested_gate_status_import?.check_updates?.length ?? 0}`)
+    lines.push('')
+  })
+  return lines.map((line) => line.trimEnd()).join('\n')
+}
+
 function buildSelfStudyPortfolioRevisionQueue(handoffs, feedbackImports = []) {
   const importsByHandoff = new Map(feedbackImports.filter((row) => row.handoff_id).map((row) => [row.handoff_id, row]))
   return handoffs.flatMap((handoff) => {
@@ -8963,9 +9088,12 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   const portfolioReviewIndex = buildSelfStudyPortfolioReviewIndex(portfolioMilestones, portfolioBriefs, portfolioGateStatusSummary, portfolioReferencePackets, portfolioSourceExcerptPackets, portfolioExportManifests)
   const portfolioReviewerHandoff = buildSelfStudyPortfolioReviewerHandoff(portfolioReviewIndex)
   const portfolioReviewerFeedbackTemplate = buildSelfStudyPortfolioReviewerFeedbackTemplate(portfolioReviewerHandoff, portfolioEvidenceAttachments)
+  const portfolioReviewerFeedbackSmokeFixture = buildSelfStudyPortfolioReviewerFeedbackSmokeFixture(portfolioReviewerFeedbackTemplate)
   const portfolioReviewerFeedbackImports = loadJsonl(portfolioReviewerFeedbackImportPath)
   const portfolioRevisionQueue = buildSelfStudyPortfolioRevisionQueue(portfolioReviewerHandoff, portfolioReviewerFeedbackImports)
   const portfolioGateStatusSuggestions = buildSelfStudyPortfolioGateStatusSuggestions(portfolioReviewerHandoff, portfolioReviewerFeedbackImports, portfolioCompletionGates, portfolioRevisionQueue, portfolioEvidenceAttachments)
+  const portfolioSmokeRevisionQueue = buildSelfStudyPortfolioRevisionQueue(portfolioReviewerHandoff, portfolioReviewerFeedbackSmokeFixture)
+  const portfolioSmokeGateStatusSuggestions = buildSelfStudyPortfolioGateStatusSuggestions(portfolioReviewerHandoff, portfolioReviewerFeedbackSmokeFixture, portfolioCompletionGates, portfolioSmokeRevisionQueue, portfolioEvidenceAttachments)
   writeJsonl(join(outDir, 'self_study_pacing_plan.jsonl'), pacingPlan)
   writeJsonl(join(outDir, 'self_study_pacing_profiles.jsonl'), buildSelfStudyPacingProfiles(pacingPlan))
   writeJsonl(join(outDir, 'self_study_progress_ledger.jsonl'), progressLedgerWithPortfolioGateAnnotations)
@@ -8983,6 +9111,8 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   writeFileSync(join(outDir, 'self_study_portfolio_reviewer_handoff.md'), selfStudyPortfolioReviewerHandoffMarkdown(portfolioReviewerHandoff))
   writeJsonl(join(outDir, 'self_study_portfolio_reviewer_feedback_template.jsonl'), portfolioReviewerFeedbackTemplate)
   writeFileSync(join(outDir, 'self_study_portfolio_reviewer_feedback_template.md'), selfStudyPortfolioReviewerFeedbackTemplateMarkdown(portfolioReviewerFeedbackTemplate))
+  writeJsonl(join(outDir, 'self_study_portfolio_reviewer_feedback_smoke_fixture.jsonl'), portfolioReviewerFeedbackSmokeFixture)
+  writeFileSync(join(outDir, 'self_study_portfolio_reviewer_feedback_smoke_fixture.md'), selfStudyPortfolioReviewerFeedbackSmokeMarkdown({ smokeFixture: portfolioReviewerFeedbackSmokeFixture, smokeRevisionQueue: portfolioSmokeRevisionQueue, smokeGateStatusSuggestions: portfolioSmokeGateStatusSuggestions }))
   writeJsonl(join(outDir, 'self_study_portfolio_revision_queue.jsonl'), portfolioRevisionQueue)
   writeFileSync(join(outDir, 'self_study_portfolio_revision_queue.md'), selfStudyPortfolioRevisionQueueMarkdown(portfolioRevisionQueue))
   writeJsonl(join(outDir, 'self_study_portfolio_gate_status_suggestions.jsonl'), portfolioGateStatusSuggestions)
