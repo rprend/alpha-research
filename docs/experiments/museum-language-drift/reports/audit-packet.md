@@ -1,8 +1,8 @@
 # Museum Language Drift Audit Packet
 
-Generated at: 2026-06-12T18:24:48.840Z
-Pages requiring review: 37
-Flagged rows: 7
+Generated at: 2026-06-12T19:36:05.685Z
+Pages requiring review: 40
+Flagged rows: 0
 
 ## Review Instructions
 
@@ -34,17 +34,6 @@ Flagged rows: 7
 > opportunities Review benefits for Getty staff Join & Give With your support, our exhibitions, special initiatives, and education programs engage and inspire audiences around the world Learn about ways to give LA Arts Community Fire Relief Fund - Le
 
 > cial initiatives, and education programs engage and inspire audiences around the world Learn about ways to give LA Arts Community Fire Relief Fund - Learn about the fund Contact & Connect Stay in touch and connect with Getty Contact & Connect Subscr
-
-### Rijksmuseum (about, current, 2026)
-
-- Words: 124
-- Top families: civilization_world_culture:0; provenance_ownership:0; restitution_repatriation:0
-- Flags: short-page; no-snippets; no-taxonomy-signal
-- URL: https://www.rijksmuseum.nl/en/about-us
-
-_No snippet extracted._
-
-
 
 ### Musée du Louvre (about, current, 2026)
 
@@ -89,17 +78,6 @@ _No snippet extracted._
 > Piano-designed building features state-of-the-art galleries and sweeping skyline views of the Statue of Liberty and the Empire State Building from our terraces. After viewing the galleries, visitors can grab a drink and a bite at Studio Bar and F
 
 > olph Hearst Foundation. Support for the Whitney’s general operations is provided by donors to the Museum’s Annual Fund, public funds from the New York State Council on the Arts, a State Agency, The Brown Foundation Inc, of Houston, the Enoch Foun
-
-### San Francisco Museum of Modern Art (about, current, 2026)
-
-- Words: 147
-- Top families: access_public:2; community_inclusion:1; civilization_world_culture:0
-- Flags: short-page
-- URL: https://www.sfmoma.org/about/
-
-> Snøhetta and Mario Botta. In addition to our seven gallery floors, SFMOMA offers 45,000 square feet of free, art-filled public space open to all. Welcome! Mission Statement SFMOMA believes the art of our time is vital and shares it with passion a
-
-> e unparalleled collections, create exhilarating exhibitions, and develop engaging public programs that connect with our community.
 
 ### Museum of Contemporary Art Chicago (about, current, 2026)
 
@@ -167,17 +145,6 @@ _No snippet extracted._
 
 > he world today. We care for more than 80 million objects spanning billions of years and welcome more than seven million visitors annually. Our vision and strategy We are creating advocates for the planet. Careers We employ 900 staff in a variety of
 
-### Tate (collection, current, 2026)
-
-- Words: 671
-- Top families: civilization_world_culture:0; provenance_ownership:0; restitution_repatriation:0
-- Flags: no-snippets
-- URL: https://www.tate.org.uk/art
-
-_No snippet extracted._
-
-
-
 ### J. Paul Getty Museum (education, current, 2026)
 
 - Words: 436
@@ -188,17 +155,6 @@ _No snippet extracted._
 > n in 2026! Find out more News & Stories from Getty Education Read all Back Aboard the Big Yellow School Bus Field trips return to the Getty Villa Museum Nov 11, 2025 Getty Announces Landmark Gift for K-12 School Visit Program The Mia Chandler End
 
 > ebsite : Teen Gallery Guides A paid summer opportunity for high school students to engage deeply with art while guiding visitors Project : Mindfulness in the Museum Mindfulness programs at the Getty Museum foster contemplative visitor experiences
-
-### Rijksmuseum (collection, current, 2026)
-
-- Words: 139
-- Top families: access_public:2; civilization_world_culture:0; provenance_ownership:0
-- Flags: short-page
-- URL: https://www.rijksmuseum.nl/en/rijksstudio
-
-> n der Elsken Thérèse Schwartze Maria van Oosterwijck What do you love? Try the Art Explorer Discover Art works Artworks Visitor stories Get started All visitor stories Ten favorites of my visit 2 March 2026 | 10 artworks Basalt´s studio Mythologie
-
-
 
 ### Rijksmuseum (research, current, 2026)
 
@@ -221,17 +177,6 @@ _No snippet extracted._
 > n the Musée du Louvre and Musée National Eugène-Delacroix. Updated on a daily basis, it is the result of the continuous research and documentation efforts carried out by teams of experts from both museums. See more Explore the collections Architect
 
 > u Louvre and Musée National Eugène-Delacroix. Updated on a daily basis, it is the result of the continuous research and documentation efforts carried out by teams of experts from both museums. See more Explore the collections Architecture & decoration A
-
-### Musée du Louvre (exhibition, current, 2026)
-
-- Words: 133
-- Top families: civilization_world_culture:0; provenance_ownership:0; restitution_repatriation:0
-- Flags: short-page; no-snippets
-- URL: https://www.louvre.fr/en/what-s-on/exhibitions
-
-_No snippet extracted._
-
-
 
 ### Art Institute of Chicago (collection, current, 2026)
 
@@ -376,27 +321,16 @@ _No snippet extracted._
 
 > xtensive collections, world-class facilities and expertise are helping to tackle some of the biggest global challenges. Research Discover how we are using our broad knowledge and cutting-edge techniques to benefit both people and the planet. Collec
 
-### Tate (about, wayback, 2020)
+### J. Paul Getty Museum (about, wayback, 2005)
 
-- Words: 553
-- Top families: community_inclusion:6; access_public:5; research_scholarship:4
+- Words: 260
+- Top families: research_scholarship:13; access_public:4; community_inclusion:1
 - Flags: none
-- URL: https://www.tate.org.uk/about-us
+- URL: http://getty.edu/about/
 
-> er with senior Tate staff, sets our strategic direction Tate Reports Find the latest annual review of Tate's activities Access to Information Find out how we can help when seeking information about Tate Policies and Procedures Find our policies i
+> tty programs. J.Paul Getty Museum The mission of the J. Paul Getty Museum is to delight, inspire, and educate a diverse public through the collection, preservation, exhibition and interpretation of works of art of the highest quality. Research In
 
-> t Tate Jenny Holzer Barbara Hepworth Museum Angelica Kauffman Become a Member About Tate Our mission is to increase the public&rsquo;s enjoyment and understanding of British art from the 16th century to the present day and of international modern
-
-### J. Paul Getty Museum (about, wayback, 2010)
-
-- Words: 132
-- Top families: access_public:1; civilization_world_culture:0; provenance_ownership:0
-- Flags: short-page
-- URL: https://www.getty.edu/about/
-
-> View the 2009 Trust Report Get a behind-the-scenes look at the Getty on our new blog. Visit now! Event Calendar Museum Education Library e-Getty Newsletter Press Room Print this page Site Map Search The J. Paul Getty Trust &#169; J. Paul Getty Trus
-
-
+> o advance conservation in the visual arts. The Institute serves the conservation community through scientific research, education, and training, model field projects, and the dissemination of information. The Getty Foundation The Getty Foundation pr
 
 ### J. Paul Getty Museum (about, wayback, 2015)
 
@@ -409,13 +343,112 @@ _No snippet extracted._
 
 > s) Lectures & Conferences Research Assistance at GCI Information Center Conservation Collection at GRI Library Links to Cultural Heritage Policy Documents Links to Other Conservation Sites Search GCI Search GCI Browse GCI Foundation Our Priorities Current I
 
-### Rijksmuseum (about, wayback, 2020)
+### Museum of Contemporary Art Chicago (about, wayback, 2012)
 
-- Words: 122
-- Top families: civilization_world_culture:0; provenance_ownership:0; restitution_repatriation:0
-- Flags: short-page; no-snippets; no-taxonomy-signal
-- URL: https://www.rijksmuseum.nl/en/about-us
+- Words: 624
+- Top families: access_public:4; community_inclusion:2; research_scholarship:1
+- Flags: none
+- URL: http://www2.mcachicago.org/about/
 
-_No snippet extracted._
+> an. Mission Statement The mission of the MCA is to be an innovative and compelling center of contemporary art where the public can directly experience the work and ideas of living artists, and understand the historical, social, and cultural conte
 
+> y interweaves exhibitions, performances, collections, and educational programs to excite, challenge, and illuminate our visitors and to provide insight into the creative process. The MCA aspires to engage a broad and diverse audience, create a sens
 
+### Natural History Museum London (about, wayback, 2015)
+
+- Words: 204
+- Top families: access_public:3; research_scholarship:1; civilization_world_culture:0
+- Flags: none
+- URL: http://www.nhm.ac.uk/about-us.html
+
+> seum Natural History Museum Open 10.00-17.50 Admission FREE * Become a Member Menu About us The Museum is a world-class visitor attraction and leading science research centre. We use our unique collections and unrivalled expertise to tackle the bi
+
+> e world today. We care for more than 80 million specimens spanning billions of years and welcome more than five million visitors annually. Our vision We aim to challenge how people think about the natural world - its past, present and future. Read
+
+### San Francisco Museum of Modern Art (about, wayback, 2011)
+
+- Words: 502
+- Top families: access_public:6; research_scholarship:3; community_inclusion:1
+- Flags: none
+- URL: http://www.sfmoma.org/about
+
+> mbership Our Collection For Educators Press Room Calendar Hours + Directions Tickets Food + Drink Kids + Families Koret Visitor Education Center Tours Artists Gallery at Fort Mason Currently at SFMOMA Upcoming Exhibitions Upcoming Talks + Events +
+
+> sible for our community. In keeping with those goals, we have recently undertaken a number of projects designed to help visitors get more out of their time with SFMOMA: Opened our new Rooftop Garden, designed by San Francisco-based Jensen Architect
+
+### San Francisco Museum of Modern Art (about, wayback, 2012)
+
+- Words: 398
+- Top families: access_public:6; research_scholarship:3; community_inclusion:1
+- Flags: none
+- URL: http://www.sfmoma.org/about
+
+> essible for our community. Our Mission SFMOMA is dedicated to making the art of our time a vital and meaningful part of public life. For that reason we assemble unparalleled collections, create exhilarating exhibitions, and develop engaging publi
+
+> mbership Our Collection For Educators Press Room Calendar Hours + Directions Tickets Food + Drink Kids + Families Koret Visitor Education Center Tours Artists Gallery at Fort Mason Currently at SFMOMA Upcoming Exhibitions Upcoming Talks + Events +
+
+### Tate (about, wayback, 2020)
+
+- Words: 553
+- Top families: community_inclusion:6; access_public:5; research_scholarship:4
+- Flags: none
+- URL: https://www.tate.org.uk/about-us
+
+> er with senior Tate staff, sets our strategic direction Tate Reports Find the latest annual review of Tate's activities Access to Information Find out how we can help when seeking information about Tate Policies and Procedures Find our policies i
+
+> t Tate Jenny Holzer Barbara Hepworth Museum Angelica Kauffman Become a Member About Tate Our mission is to increase the public&rsquo;s enjoyment and understanding of British art from the 16th century to the present day and of international modern
+
+### Walker Art Center (about, wayback, 2018)
+
+- Words: 540
+- Top families: access_public:5; community_inclusion:3; civilization_world_culture:0
+- Flags: none
+- URL: https://walkerart.org/about
+
+> actices pose, and do so across our many platforms—the gallery, theater stage, garden, cinema, and even the interstitial public spaces of our building and campus. Architecture / Design The Walker embodies progressive design through both the presen
+
+> rce. Learn More Annual Report In June 2017—after eight years of planning and a $76 million capital campaign—we welcomed visitors back to the newly renovated Walker Art Center/Minneapolis Sculpture Garden, with 19 acres, 60 sculptures, summerlong pr
+
+### Walker Art Center (about, wayback, 2019)
+
+- Words: 555
+- Top families: access_public:6; community_inclusion:4; civilization_world_culture:0
+- Flags: none
+- URL: https://walkerart.org/about
+
+> actices pose, and do so across our many platforms—the gallery, theater stage, garden, cinema, and even the interstitial public spaces of our building and campus. Architecture / Design The Walker embodies progressive design through both the presen
+
+> nnual Report After reopening the Minneapolis Sculpture Garden in June 2017, the Walker has welcomed more than 1 million visitors – the most in our history – during the past fiscal year. Audiences of all ages experienced 12 exhibitions, 50-plus perf
+
+### Whitney Museum of American Art (about, wayback, 2009)
+
+- Words: 397
+- Top families: access_public:3; research_scholarship:2; civilization_world_culture:0
+- Flags: none
+- URL: http://www.whitney.org/About
+
+> nd the first museum to undertake a program of collection-sharing (with the San Jose Museum of Art) in order to increase access to its renowned collection. History of the Whitney The Whitney Museum of American Art emerged out of sculptor Gertrude
+
+> itney.org FAQ Skip site navigation Support Membership Visit Exhibitions Film / Performance Collection Calendar & Events Education For Kids / For Teens Watch & Listen Conservation Research Get Involved Shop Feeds & Email Notifications As the preemine
+
+### Whitney Museum of American Art (about, wayback, 2010)
+
+- Words: 397
+- Top families: access_public:3; research_scholarship:2; civilization_world_culture:0
+- Flags: none
+- URL: http://www.whitney.org/About
+
+> nd the first museum to undertake a program of collection-sharing (with the San Jose Museum of Art) in order to increase access to its renowned collection. History of the Whitney The Whitney Museum of American Art emerged out of sculptor Gertrude
+
+> itney.org FAQ Skip site navigation Support Membership Visit Exhibitions Film / Performance Collection Calendar & Events Education For Kids / For Teens Watch & Listen Conservation Research Get Involved Shop Feeds & Email Notifications As the preemine
+
+### Whitney Museum of American Art (about, wayback, 2015)
+
+- Words: 1235
+- Top families: access_public:8; research_scholarship:4; community_inclusion:1
+- Flags: none
+- URL: http://www.whitney.org/About
+
+> For kids ages 4–5 For kids ages 6–10 For kids ages 8–12 Film & Video Screenings Lectures, Talks, Readings Performances Access Programs Member Events Events For You Museum Hours The Whitney is closed in preparation for the opening of our new buil
+
+> 950 1960 1970 1980 1990 2000 2010 Sort by Recently viewed Most collected Shuffle Show only Works on view Watch & Listen Public Programs Families K&ndash;12 For Teachers Teens Community Access Blog --> Everything Audio Guides Artists Exhibitions P

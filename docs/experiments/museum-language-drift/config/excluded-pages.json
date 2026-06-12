@@ -1,0 +1,51 @@
+[
+  {
+    "museum": "Rijksmuseum",
+    "pageType": "about",
+    "sourceLayer": "current",
+    "year": 2026,
+    "reason": "short extracted page with no taxonomy signal"
+  },
+  {
+    "museum": "San Francisco Museum of Modern Art",
+    "pageType": "about",
+    "sourceLayer": "current",
+    "year": 2026,
+    "reason": "short extracted page"
+  },
+  {
+    "museum": "Tate",
+    "pageType": "collection",
+    "sourceLayer": "current",
+    "year": 2026,
+    "reason": "no snippet signal for taxonomy terms"
+  },
+  {
+    "museum": "Rijksmuseum",
+    "pageType": "collection",
+    "sourceLayer": "current",
+    "year": 2026,
+    "reason": "short extracted page"
+  },
+  {
+    "museum": "Musée du Louvre",
+    "pageType": "exhibition",
+    "sourceLayer": "current",
+    "year": 2026,
+    "reason": "short extracted page with no snippet signal"
+  },
+  {
+    "museum": "J. Paul Getty Museum",
+    "pageType": "about",
+    "sourceLayer": "wayback",
+    "year": 2010,
+    "reason": "short archived page"
+  },
+  {
+    "museum": "Rijksmuseum",
+    "pageType": "about",
+    "sourceLayer": "wayback",
+    "year": 2020,
+    "reason": "short archived page with no taxonomy signal"
+  }
+]

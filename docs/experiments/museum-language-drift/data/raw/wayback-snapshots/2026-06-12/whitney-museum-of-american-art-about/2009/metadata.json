@@ -1,0 +1,14 @@
+{
+  "museum": "Whitney Museum of American Art",
+  "pageType": "about",
+  "year": 2009,
+  "url": "http://www.whitney.org/About",
+  "timestamp": "20091202030355",
+  "reason": "Whitney historical about page found through CDX probe",
+  "archiveUrl": "https://web.archive.org/web/20091202030355id_/http://www.whitney.org/About",
+  "status": 200,
+  "bytes": 27407,
+  "wordCount": 397,
+  "title": "Whitney Museum of American Art: About the Whitney",
+  "fetchedAt": "2026-06-12T19:35:59.254Z"
+}

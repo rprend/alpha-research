@@ -1,0 +1,14 @@
+{
+  "museum": "Walker Art Center",
+  "pageType": "about",
+  "year": 2019,
+  "url": "https://walkerart.org/about",
+  "timestamp": "20190205034918",
+  "reason": "Walker historical about page found through CDX probe",
+  "archiveUrl": "https://web.archive.org/web/20190205034918id_/https://walkerart.org/about",
+  "status": 200,
+  "bytes": 57939,
+  "wordCount": 555,
+  "title": "About the Walker Art Center",
+  "fetchedAt": "2026-06-12T19:36:02.068Z"
+}

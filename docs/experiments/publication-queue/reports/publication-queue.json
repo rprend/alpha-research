@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-12T19:23:57.203Z",
+  "generatedAt": "2026-06-12T19:38:15.344Z",
   "itemCount": 6,
-  "readyCount": 5,
-  "notReadyCount": 1,
+  "readyCount": 6,
+  "notReadyCount": 0,
   "rows": [
     {
       "id": "cleveland-museum-collection-shape",
@@ -39,6 +39,24 @@
       "handoff_path": "docs/experiments/canon-drift-feasibility/reports/publication-handoff.json",
       "result_path": "docs/experiments/canon-drift-feasibility/reports/result.json",
       "readiness_path": "docs/experiments/canon-drift-feasibility/reports/readiness.json"
+    },
+    {
+      "id": "museum-language-drift",
+      "title": "The Language Of Museums After Decolonization",
+      "format": "what-changed",
+      "editorial_lane": "longitudinal",
+      "readiness_status": "ready-for-editorial-review",
+      "priority_score": 118,
+      "recommended_action": "Copyedit from publication handoff; preserve source limits and claim checklist.",
+      "failed_checks": "",
+      "draft_exists": true,
+      "handoff_exists": true,
+      "chart_count": 0,
+      "summary": "Add annual-report/exhibition/provenance pages as separate source layers before trend claims.",
+      "draft_path": "docs/experiments/museum-language-drift/reports/public-draft.md",
+      "handoff_path": "docs/experiments/museum-language-drift/reports/publication-handoff.json",
+      "result_path": "docs/experiments/museum-language-drift/reports/result.json",
+      "readiness_path": "docs/experiments/museum-language-drift/reports/readiness.json"
     },
     {
       "id": "humanities-literature-radar",
@@ -93,24 +111,6 @@
       "handoff_path": "docs/experiments/university-mission-statement-drift/reports/publication-handoff.json",
       "result_path": "docs/experiments/university-mission-statement-drift/reports/result.json",
       "readiness_path": "docs/experiments/university-mission-statement-drift/reports/readiness.json"
-    },
-    {
-      "id": "museum-language-drift",
-      "title": "The Language Of Museums After Decolonization",
-      "format": "what-changed",
-      "editorial_lane": "longitudinal",
-      "readiness_status": "not-ready-for-publication",
-      "priority_score": 6,
-      "recommended_action": "Resolve readiness blockers: historical-pages, audit-flags.",
-      "failed_checks": "historical-pages: 4 historical snapshots; audit-flags: 7 flagged rows",
-      "draft_exists": true,
-      "handoff_exists": false,
-      "chart_count": 0,
-      "summary": "Add annual-report/exhibition/provenance pages as separate source layers before trend claims.",
-      "draft_path": "docs/experiments/museum-language-drift/reports/public-draft.md",
-      "handoff_path": "",
-      "result_path": "docs/experiments/museum-language-drift/reports/result.json",
-      "readiness_path": "docs/experiments/museum-language-drift/reports/readiness.json"
     }
   ]
 }

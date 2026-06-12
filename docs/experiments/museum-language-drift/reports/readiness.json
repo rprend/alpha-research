@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-06-12T18:24:48.869Z",
-  "status": "not-ready-for-publication",
+  "generatedAt": "2026-06-12T19:38:15.277Z",
+  "status": "ready-for-editorial-review",
   "checks": [
     {
       "id": "current-pages",
       "label": "At least 12 current museum pages are collected",
       "status": "pass",
-      "evidence": "33 current pages"
+      "evidence": "28 current pages"
     },
     {
       "id": "museum-coverage",
@@ -23,8 +23,8 @@
     {
       "id": "historical-pages",
       "label": "Historical snapshots exist before temporal claims",
-      "status": "needs-work",
-      "evidence": "4 historical snapshots"
+      "status": "pass",
+      "evidence": "12 historical snapshots"
     },
     {
       "id": "public-draft",
@@ -36,19 +36,25 @@
       "id": "audit-packet",
       "label": "Snippet audit packet exists",
       "status": "pass",
-      "evidence": "reports/audit-packet.json (7 flagged rows)"
+      "evidence": "reports/audit-packet.json (0 flagged rows)"
     },
     {
       "id": "audit-flags",
       "label": "No automatic audit flags before publication",
-      "status": "needs-work",
-      "evidence": "7 flagged rows"
+      "status": "pass",
+      "evidence": "0 flagged rows"
+    },
+    {
+      "id": "publication-handoff",
+      "label": "Publication handoff exists with corpus notes and public-claim checklist",
+      "status": "pass",
+      "evidence": "ready-for-copyedit; 12 historical rows"
     }
   ],
   "nextMoves": [
-    "Add Wayback snapshots for selected current pages and historically stable museum URLs.",
-    "Add annual reports, exhibition pages, collection pages, and provenance pages as source layers.",
-    "Build a snippet audit packet before public claims.",
-    "Manually clear audit flags by verifying snippets against source pages."
+    "Copyedit the publication handoff into a source-caveated longitudinal post.",
+    "Add annual reports, exhibition pages, collection pages, and provenance pages as separate source layers.",
+    "Review source snippets by hand before quoting in public copy.",
+    "Build source-genre-specific trend lines before stronger temporal claims."
   ]
 }

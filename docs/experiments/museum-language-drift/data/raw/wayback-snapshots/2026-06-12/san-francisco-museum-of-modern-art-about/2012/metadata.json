@@ -1,0 +1,14 @@
+{
+  "museum": "San Francisco Museum of Modern Art",
+  "pageType": "about",
+  "year": 2012,
+  "url": "http://www.sfmoma.org/about",
+  "timestamp": "20120501000000",
+  "reason": "SFMOMA historical about page verified through exact Wayback fetch",
+  "archiveUrl": "https://web.archive.org/web/20120501000000id_/http://www.sfmoma.org/about",
+  "status": 200,
+  "bytes": 31348,
+  "wordCount": 398,
+  "title": "SFMOMA | About Us",
+  "fetchedAt": "2026-06-12T19:36:00.886Z"
+}

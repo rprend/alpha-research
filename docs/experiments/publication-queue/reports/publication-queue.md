@@ -1,17 +1,17 @@
 # Cultural Observatory Publication Queue
 
-Generated at: 2026-06-12T19:23:57.203Z
-Ready for editorial review: 5
-Not ready: 1
+Generated at: 2026-06-12T19:38:15.344Z
+Ready for editorial review: 6
+Not ready: 0
 
 | Priority | Title | Status | Action |
 | ---: | --- | --- | --- |
 | 141 | What A Museum Collection Looks Like When It Becomes Data | ready-for-editorial-review | Copyedit from publication handoff; keep chart captions and audit caveats attached. |
 | 126 | Canon Drift: A Feasibility Report | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
+| 118 | The Language Of Museums After Decolonization | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
 | 118 | The Rise Of AI And The Humanities | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
 | 118 | What Counts As A Humanities Dataset? | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
 | 118 | What Universities Say They Are For | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
-| 6 | The Language Of Museums After Decolonization | not-ready-for-publication | Resolve readiness blockers: historical-pages, audit-flags. |
 
 ## Details
 
@@ -40,6 +40,19 @@ Not ready: 1
 - Failed checks: none
 - Action: Copyedit from publication handoff; preserve source limits and claim checklist.
 - Summary: Canon drift is not one dataset. Teaching, anthologization, citation, and holdings are separate signals that need separate source layers.
+
+### The Language Of Museums After Decolonization
+
+- Format: what-changed
+- Lane: longitudinal
+- Status: ready-for-editorial-review
+- Draft: `docs/experiments/museum-language-drift/reports/public-draft.md`
+- Handoff: `docs/experiments/museum-language-drift/reports/publication-handoff.json`
+- Result: `docs/experiments/museum-language-drift/reports/result.json`
+- Readiness: `docs/experiments/museum-language-drift/reports/readiness.json`
+- Failed checks: none
+- Action: Copyedit from publication handoff; preserve source limits and claim checklist.
+- Summary: Add annual-report/exhibition/provenance pages as separate source layers before trend claims.
 
 ### The Rise Of AI And The Humanities
 
@@ -79,16 +92,3 @@ Not ready: 1
 - Failed checks: none
 - Action: Copyedit from publication handoff; preserve source limits and claim checklist.
 - Summary: Audit the archived snippets by hand and add catalogs, strategic plans, and speeches as separate source layers.
-
-### The Language Of Museums After Decolonization
-
-- Format: what-changed
-- Lane: longitudinal
-- Status: not-ready-for-publication
-- Draft: `docs/experiments/museum-language-drift/reports/public-draft.md`
-- Handoff: none
-- Result: `docs/experiments/museum-language-drift/reports/result.json`
-- Readiness: `docs/experiments/museum-language-drift/reports/readiness.json`
-- Failed checks: historical-pages: 4 historical snapshots; audit-flags: 7 flagged rows
-- Action: Resolve readiness blockers: historical-pages, audit-flags.
-- Summary: Add annual-report/exhibition/provenance pages as separate source layers before trend claims.

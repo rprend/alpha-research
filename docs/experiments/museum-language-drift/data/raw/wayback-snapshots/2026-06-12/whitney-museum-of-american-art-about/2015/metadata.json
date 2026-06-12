@@ -1,0 +1,14 @@
+{
+  "museum": "Whitney Museum of American Art",
+  "pageType": "about",
+  "year": 2015,
+  "url": "http://www.whitney.org/About",
+  "timestamp": "20150101000000",
+  "reason": "Whitney historical about page verified through exact Wayback fetch",
+  "archiveUrl": "https://web.archive.org/web/20150101000000id_/http://www.whitney.org/About",
+  "status": 200,
+  "bytes": 91503,
+  "wordCount": 1235,
+  "title": "About the Whitney | Whitney Museum of American Art",
+  "fetchedAt": "2026-06-12T19:35:59.918Z"
+}

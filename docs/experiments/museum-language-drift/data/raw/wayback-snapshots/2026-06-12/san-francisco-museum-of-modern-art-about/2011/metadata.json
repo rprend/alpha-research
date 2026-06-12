@@ -1,0 +1,14 @@
+{
+  "museum": "San Francisco Museum of Modern Art",
+  "pageType": "about",
+  "year": 2011,
+  "url": "http://www.sfmoma.org/about",
+  "timestamp": "20110525220849",
+  "reason": "SFMOMA historical about page found through CDX probe",
+  "archiveUrl": "https://web.archive.org/web/20110525220849id_/http://www.sfmoma.org/about",
+  "status": 200,
+  "bytes": 30521,
+  "wordCount": 502,
+  "title": "SFMOMA | About Us",
+  "fetchedAt": "2026-06-12T19:36:00.278Z"
+}

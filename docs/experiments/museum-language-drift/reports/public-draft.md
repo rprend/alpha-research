@@ -8,11 +8,11 @@ Museum language may have shifted from universal civilization and stewardship lan
 
 ## Corpus Note
 
-The current artifact contains 33 current pages and 4 historical snapshots across 14 museums and page types: about, collection, education, exhibition, research.
+The current artifact contains 28 current pages and 12 historical snapshots across 14 museums and page types: about, collection, education, exhibition, research.
 
 ## Current Baseline
 
-The largest term families in the current-page probe are research_scholarship, access_public, community_inclusion, provenance_ownership.
+The largest term families in the current-page probe are access_public, research_scholarship, community_inclusion, provenance_ownership.
 
 ## What The Evidence Cannot Support Yet
 

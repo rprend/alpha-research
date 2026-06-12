@@ -9,6 +9,7 @@ import {
 const reportsDir = path.join(experimentDir, "reports");
 const result = await readJson(path.join(reportsDir, "result.json"));
 const audit = await readOptionalJson(path.join(reportsDir, "audit-packet.json"));
+const handoff = await readOptionalJson(path.join(reportsDir, "publication-handoff.json"));
 
 const checks = [
   {
@@ -53,6 +54,12 @@ const checks = [
     status: audit && audit.flaggedRows === 0 ? "pass" : "needs-work",
     evidence: audit ? `${audit.flaggedRows} flagged rows` : "missing audit packet",
   },
+  {
+    id: "publication-handoff",
+    label: "Publication handoff exists with corpus notes and public-claim checklist",
+    status: handoff?.publishState === "ready-for-copyedit" && handoff?.historicalSnapshotTable?.length >= 12 ? "pass" : "needs-work",
+    evidence: handoff ? `${handoff.publishState}; ${handoff.historicalSnapshotTable.length} historical rows` : "missing publication handoff",
+  },
 ];
 
 const status = checks.every((check) => check.status === "pass") ? "ready-for-editorial-review" : "not-ready-for-publication";
@@ -61,10 +68,10 @@ const readiness = {
   status,
   checks,
   nextMoves: [
-    "Add Wayback snapshots for selected current pages and historically stable museum URLs.",
-    "Add annual reports, exhibition pages, collection pages, and provenance pages as source layers.",
-    "Build a snippet audit packet before public claims.",
-    "Manually clear audit flags by verifying snippets against source pages.",
+    "Copyedit the publication handoff into a source-caveated longitudinal post.",
+    "Add annual reports, exhibition pages, collection pages, and provenance pages as separate source layers.",
+    "Review source snippets by hand before quoting in public copy.",
+    "Build source-genre-specific trend lines before stronger temporal claims.",
   ],
 };
 

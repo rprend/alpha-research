@@ -1,13 +1,14 @@
 {
   "museum": "Rijksmuseum",
   "pageType": "about",
-  "url": "https://www.rijksmuseum.nl/en/about-us",
   "year": 2020,
-  "timestamp": "20201115091217",
-  "archiveUrl": "https://web.archive.org/web/20201115091217id_/https://www.rijksmuseum.nl/en/about-us",
+  "url": "https://www.rijksmuseum.nl/en/about-us",
+  "timestamp": "20200704041047",
+  "reason": "Existing Rijksmuseum historical about page",
+  "archiveUrl": "https://web.archive.org/web/20200704041047id_/https://www.rijksmuseum.nl/en/about-us",
   "status": 200,
   "bytes": 73121,
   "wordCount": 122,
   "title": "About us - Rijksmuseum",
-  "fetchedAt": "2026-06-12T18:23:22.191Z"
+  "fetchedAt": "2026-06-12T19:35:57.873Z"
 }

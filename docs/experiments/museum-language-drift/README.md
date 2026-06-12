@@ -32,8 +32,10 @@ Or run each step individually:
 ```bash
 node docs/experiments/museum-language-drift/scripts/fetch-current-pages.mjs
 node docs/experiments/museum-language-drift/scripts/fetch-wayback-snapshots.mjs
+node docs/experiments/museum-language-drift/scripts/fetch-exact-wayback-snapshots.mjs
 node docs/experiments/museum-language-drift/scripts/build-report.mjs
 node docs/experiments/museum-language-drift/scripts/build-audit-packet.mjs
+node docs/experiments/museum-language-drift/scripts/build-publication-handoff.mjs
 node docs/experiments/museum-language-drift/scripts/check-readiness.mjs
 ```
 
@@ -54,6 +56,8 @@ The scripts write:
 - `reports/audit-packet.md`
 - `reports/audit-packet.csv`
 - `reports/audit-packet.json`
+- `reports/publication-handoff.md`
+- `reports/publication-handoff.json`
 - `reports/readiness.md`
 - `reports/readiness.json`
 

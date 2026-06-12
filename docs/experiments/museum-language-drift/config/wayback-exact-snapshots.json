@@ -1,0 +1,114 @@
+[
+  {
+    "museum": "J. Paul Getty Museum",
+    "pageType": "about",
+    "year": 2005,
+    "url": "http://getty.edu/about/",
+    "timestamp": "20050203003221",
+    "reason": "Getty historical about page found through CDX probe"
+  },
+  {
+    "museum": "J. Paul Getty Museum",
+    "pageType": "about",
+    "year": 2010,
+    "url": "https://www.getty.edu/about/",
+    "timestamp": "20100819002952",
+    "reason": "Existing Getty historical about page"
+  },
+  {
+    "museum": "J. Paul Getty Museum",
+    "pageType": "about",
+    "year": 2015,
+    "url": "https://www.getty.edu/about/",
+    "timestamp": "20151008110153",
+    "reason": "Existing Getty historical about page"
+  },
+  {
+    "museum": "Tate",
+    "pageType": "about",
+    "year": 2020,
+    "url": "https://www.tate.org.uk/about-us",
+    "timestamp": "20200701034455",
+    "reason": "Existing Tate historical about page"
+  },
+  {
+    "museum": "Rijksmuseum",
+    "pageType": "about",
+    "year": 2020,
+    "url": "https://www.rijksmuseum.nl/en/about-us",
+    "timestamp": "20200704041047",
+    "reason": "Existing Rijksmuseum historical about page"
+  },
+  {
+    "museum": "Whitney Museum of American Art",
+    "pageType": "about",
+    "year": 2009,
+    "url": "http://www.whitney.org/About",
+    "timestamp": "20091202030355",
+    "reason": "Whitney historical about page found through CDX probe"
+  },
+  {
+    "museum": "Whitney Museum of American Art",
+    "pageType": "about",
+    "year": 2010,
+    "url": "http://www.whitney.org/About",
+    "timestamp": "20100102125528",
+    "reason": "Whitney historical about page found through CDX probe"
+  },
+  {
+    "museum": "Whitney Museum of American Art",
+    "pageType": "about",
+    "year": 2015,
+    "url": "http://www.whitney.org/About",
+    "timestamp": "20150101000000",
+    "reason": "Whitney historical about page verified through exact Wayback fetch"
+  },
+  {
+    "museum": "San Francisco Museum of Modern Art",
+    "pageType": "about",
+    "year": 2011,
+    "url": "http://www.sfmoma.org/about",
+    "timestamp": "20110525220849",
+    "reason": "SFMOMA historical about page found through CDX probe"
+  },
+  {
+    "museum": "San Francisco Museum of Modern Art",
+    "pageType": "about",
+    "year": 2012,
+    "url": "http://www.sfmoma.org/about",
+    "timestamp": "20120501000000",
+    "reason": "SFMOMA historical about page verified through exact Wayback fetch"
+  },
+  {
+    "museum": "Walker Art Center",
+    "pageType": "about",
+    "year": 2018,
+    "url": "https://walkerart.org/about",
+    "timestamp": "20180216160253",
+    "reason": "Walker historical about page found through CDX probe"
+  },
+  {
+    "museum": "Walker Art Center",
+    "pageType": "about",
+    "year": 2019,
+    "url": "https://walkerart.org/about",
+    "timestamp": "20190205034918",
+    "reason": "Walker historical about page found through CDX probe"
+  },
+  {
+    "museum": "Natural History Museum London",
+    "pageType": "about",
+    "year": 2015,
+    "url": "http://www.nhm.ac.uk/about-us.html",
+    "timestamp": "20150115230354",
+    "reason": "NHM historical about page found through CDX probe"
+  },
+  {
+    "museum": "Museum of Contemporary Art Chicago",
+    "pageType": "about",
+    "year": 2012,
+    "url": "http://www2.mcachicago.org/about/",
+    "timestamp": "20120922192803",
+    "reason": "MCA Chicago historical about page found through CDX probe"
+  }
+]

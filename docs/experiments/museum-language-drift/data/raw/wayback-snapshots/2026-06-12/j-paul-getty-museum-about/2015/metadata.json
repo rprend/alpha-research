@@ -1,13 +1,14 @@
 {
   "museum": "J. Paul Getty Museum",
   "pageType": "about",
-  "url": "https://www.getty.edu/about/",
   "year": 2015,
-  "timestamp": "20150607141730",
-  "archiveUrl": "https://web.archive.org/web/20150607141730id_/https://www.getty.edu/about/",
+  "url": "https://www.getty.edu/about/",
+  "timestamp": "20151008110153",
+  "reason": "Existing Getty historical about page",
+  "archiveUrl": "https://web.archive.org/web/20151008110153id_/https://www.getty.edu/about/",
   "status": 200,
-  "bytes": 52495,
+  "bytes": 52508,
   "wordCount": 466,
   "title": "J. Paul Getty Trust - The Getty",
-  "fetchedAt": "2026-06-12T18:22:54.813Z"
+  "fetchedAt": "2026-06-12T19:35:56.840Z"
 }

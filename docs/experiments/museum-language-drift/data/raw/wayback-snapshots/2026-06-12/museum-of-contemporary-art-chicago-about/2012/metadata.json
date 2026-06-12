@@ -1,0 +1,14 @@
+{
+  "museum": "Museum of Contemporary Art Chicago",
+  "pageType": "about",
+  "year": 2012,
+  "url": "http://www2.mcachicago.org/about/",
+  "timestamp": "20120922192803",
+  "reason": "MCA Chicago historical about page found through CDX probe",
+  "archiveUrl": "https://web.archive.org/web/20120922192803id_/http://www2.mcachicago.org/about/",
+  "status": 200,
+  "bytes": 25414,
+  "wordCount": 624,
+  "title": "About the MCA | MCA Chicago",
+  "fetchedAt": "2026-06-12T19:36:05.498Z"
+}

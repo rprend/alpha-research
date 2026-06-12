@@ -1,0 +1,14 @@
+{
+  "museum": "Natural History Museum London",
+  "pageType": "about",
+  "year": 2015,
+  "url": "http://www.nhm.ac.uk/about-us.html",
+  "timestamp": "20150115230354",
+  "reason": "NHM historical about page found through CDX probe",
+  "archiveUrl": "https://web.archive.org/web/20150115230354id_/http://www.nhm.ac.uk/about-us.html",
+  "status": 200,
+  "bytes": 48050,
+  "wordCount": 204,
+  "title": "About us | Natural History Museum",
+  "fetchedAt": "2026-06-12T19:36:03.713Z"
+}

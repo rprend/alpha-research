@@ -22,17 +22,17 @@ Implemented:
 Current queue:
 
 - 6 tracked essay/research artifacts
-- 5 ready for editorial review
-- 1 not ready for publication
-- 5 copyedit-ready handoff packets
+- 6 ready for editorial review
+- 0 not ready for publication
+- 6 copyedit-ready handoff packets
 - first public essay candidate: What A Museum Collection Looks Like When It Becomes Data
 
 Next implementation moves:
 
 - copyedit the Cleveland handoff into a first post
-- copyedit the literature radar, mission drift, canon drift, and dataset registry handoffs into posts
+- copyedit the literature radar, museum language drift, mission drift, canon drift, and dataset registry handoffs into posts
 - choose which Cleveland charts to publish
-- resolve source-work blockers for museum language drift
+- add second-layer source corpora for the longitudinal posts after the first copyedit pass
 
 ### Research Backlog And Scout Workflow
 
@@ -157,14 +157,16 @@ Next implementation moves:
 
 Path: `docs/experiments/museum-language-drift/`
 
-Status: longitudinal source probe with current pages, sparse Wayback snapshots, report, audit packet, and readiness gate.
+Status: longitudinal source probe with current pages, historical Wayback snapshots, report, audit packet, readiness gate, and publication handoff.
 
 Implemented:
 
 - 42-page museum source allowlist
+- exact excluded-page config for weak extracted rows
 - current-page fetcher
 - Wayback target config
 - Wayback snapshot fetcher
+- exact Wayback snapshot fetcher for hand-curated archived pages
 - one-command source-probe pipeline runner
 - term-family taxonomy for civilization/world culture, provenance/ownership, restitution/repatriation, decolonization/reckoning, access/public, community/inclusion, and research/scholarship
 - processed page table
@@ -175,24 +177,28 @@ Implemented:
 - `result.json`
 - `work.md`
 - `public-draft.md`
+- `publication-handoff.md`
 - audit packet
 - readiness gate
 
 Current corpus:
 
-- 33 current public museum pages collected in the latest run
-- 4 historical Wayback snapshots collected in the latest run; Wayback coverage is sparse and variable
+- 28 current public museum pages after excluding weak extracted rows
+- 12 historical Wayback snapshots from hand-curated archived pages
 - 14 museums represented
-- year range: 2010-2026
+- year range: 2005-2026
 - current source genres represented: about, collection, education, exhibition, and research pages
-- readiness: not ready for publication because historical coverage and audit flags still need work
+- audit packet: 0 flagged rows after weak-page exclusions
+- publication handoff: ready for copyedit as a source-caveated longitudinal post
+- readiness: ready for editorial review with source-layer caveats
 
 Next implementation moves:
 
+- copyedit the publication handoff into a source-caveated longitudinal post
 - add annual reports as a separate source layer
 - add provenance/repatriation pages that are fetchable without browser challenges
-- improve Wayback coverage using historical URLs and source-specific stable paths
-- clear or explain snippet audit flags before public claims
+- build source-genre-specific trend lines before stronger temporal claims
+- review source snippets by hand before quoting
 
 ### Canon Drift Feasibility
 

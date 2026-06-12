@@ -15,10 +15,11 @@ import {
 const processedDir = path.join(experimentDir, "data", "processed");
 const reportsDir = path.join(experimentDir, "reports");
 const families = await readJson(path.join(experimentDir, "config", "term-families.json"));
+const excludedPages = await readOptionalJson(path.join(experimentDir, "config", "excluded-pages.json")) ?? [];
 const pages = [
   ...(await loadCurrentPages()),
   ...(await loadWaybackPages()),
-];
+].filter((page) => !isExcluded(page));
 
 if (!pages.length) throw new Error("No raw pages found. Run fetch-current-pages.mjs first.");
 
@@ -133,22 +134,23 @@ async function loadWaybackPages() {
   const latestRun = runDates.at(-1);
   if (!latestRun) return [];
   const runDir = path.join(rawRoot, latestRun);
-  const manifest = await readJson(path.join(runDir, "manifest.json"));
-  return manifest.requests
-    .filter((request) => Number(request.status) >= 200 && Number(request.status) < 300)
-    .map((request) => ({
-      museum: request.museum,
-      pageType: request.pageType,
-      url: request.url,
-      archiveUrl: request.archiveUrl,
-      timestamp: request.timestamp,
-      status: request.status,
-      wordCount: request.wordCount,
-      responsePath: request.responsePath,
+  const metadataFiles = await findFiles(runDir, "metadata.json");
+  return (await Promise.all(metadataFiles.map(async (file) => {
+    const metadata = await readJson(file);
+    return {
+      museum: metadata.museum,
+      pageType: metadata.pageType,
+      url: metadata.url,
+      archiveUrl: metadata.archiveUrl,
+      timestamp: metadata.timestamp,
+      status: metadata.status,
+      wordCount: metadata.wordCount,
+      responsePath: path.relative(experimentDir, path.join(path.dirname(file), "index.html")),
       sourceLayer: "wayback",
-      year: request.year,
-      htmlPath: path.join(experimentDir, request.responsePath),
-    }));
+      year: metadata.year,
+      htmlPath: path.join(path.dirname(file), "index.html"),
+    };
+  }))).filter((page) => Number(page.status) >= 200 && Number(page.status) < 300);
 }
 
 async function existingDirs(dir) {
@@ -157,6 +159,43 @@ async function existingDirs(dir) {
     return entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort();
   } catch {
     return [];
+  }
+}
+
+async function readOptionalJson(file) {
+  try {
+    return await readJson(file);
+  } catch {
+    return null;
+  }
+}
+
+function isExcluded(page) {
+  return excludedPages.some((excluded) => (
+    excluded.museum === page.museum &&
+    excluded.pageType === page.pageType &&
+    excluded.sourceLayer === page.sourceLayer &&
+    Number(excluded.year) === Number(page.year)
+  ));
+}
+
+async function findFiles(dir, name) {
+  const out = [];
+  await walk(dir);
+  return out;
+
+  async function walk(current) {
+    let entries = [];
+    try {
+      entries = await fs.readdir(current, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const entry of entries) {
+      const full = path.join(current, entry.name);
+      if (entry.isDirectory()) await walk(full);
+      else if (entry.name === name) out.push(full);
+    }
   }
 }
 
