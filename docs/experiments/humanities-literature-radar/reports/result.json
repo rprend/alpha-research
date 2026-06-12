@@ -1,10 +1,11 @@
 {
-  "generatedAt": "2026-06-12T17:43:02.557Z",
+  "generatedAt": "2026-06-12T17:45:28.485Z",
   "corpus": {
-    "works": 98,
-    "recentWorks2024Present": 48,
-    "quantitativeHumanitiesCandidates": 34,
+    "works": 128,
+    "recentWorks2024Present": 75,
+    "quantitativeHumanitiesCandidates": 45,
     "sources": {
+      "hcommons": 30,
       "arxiv": 1,
       "crossref": 30,
       "doaj": 30,
@@ -14,45 +15,45 @@
     "years": {
       "2018": 1,
       "2019": 5,
-      "2020": 8,
+      "2020": 9,
       "2021": 4,
-      "2022": 9,
-      "2023": 23,
-      "2024": 18,
-      "2025": 21,
-      "2026": 9
+      "2022": 10,
+      "2023": 24,
+      "2024": 21,
+      "2025": 29,
+      "2026": 25
     }
   },
   "topTopics": [
     {
       "label": "digital humanities",
       "kind": "discipline",
-      "count": 21,
-      "representative_titles": "Opening Ottoman Miniature Collections through Computational Access: Methodological Lessons for Digital Humanities | AI in Digital Humanities: Using AI-Generated Poetry as a Tool for Literary Studies | Digital Humanities in the Age of AI: Transforming Human Expression and Global Knowledge Sharing"
+      "count": 39,
+      "representative_titles": "Text and Image Studies on AIGC: A Humanities Framework for Interpreting the Cultural and Societal Implications of Generative AI | Engagement | Weekly Writing (with AI)"
     },
     {
       "label": "literature",
       "kind": "discipline",
+      "count": 20,
+      "representative_titles": "Human-AI Co-interpretation: Decoding Traumatic Memory in Dream of the Red Chamber and the Boundaries of the Humanities in the Digital Age — Towards a New Paradigm for Classical Textual Interpretation | AI-Induced Cybersecurity Risks in Healthcare: A Narrative Review of Blockchain-Based Solutions Within a Clinical Risk Management Framework | Reassessing academic integrity in the age of AI: A systematic literature review on AI and academic integrity"
+    },
+    {
+      "label": "philosophy",
+      "kind": "discipline",
       "count": 19,
-      "representative_titles": "AI-Induced Cybersecurity Risks in Healthcare: A Narrative Review of Blockchain-Based Solutions Within a Clinical Risk Management Framework | Reassessing academic integrity in the age of AI: A systematic literature review on AI and academic integrity | Digital Humanities in the Age of AI: Transforming Human Expression and Global Knowledge Sharing"
+      "representative_titles": "Synthetic Moral Agents or Sophisticated Mimics? | Who Really Uses AI? | Research Constitution — Writing the Rules of Thought"
     },
     {
       "label": "sociology",
       "kind": "discipline",
-      "count": 17,
+      "count": 18,
       "representative_titles": "Building AI literacy for humanities students: teaching beyond generative AI | Educating for the AI Era: Harnessing the Wild GenAI Horse through Multiplex AI Humanities and Critical AI Literacy | The Crisis of Artificial Intelligence: A New Digital Humanities Curriculum for Human-Centred AI"
     },
     {
       "label": "history",
       "kind": "discipline",
-      "count": 15,
+      "count": 17,
       "representative_titles": "LUDDITES, ROBOTS, AND CONSOLE COWBOYS: AI AND THE HUMANITIES | Powell.pps: Close &amp; Distant Reading of Primary Sources in Web Archives | Franz Kafka’s “Das Urteil” (1913) as Media History: Writing–Cinema–AI"
-    },
-    {
-      "label": "philosophy",
-      "kind": "discipline",
-      "count": 15,
-      "representative_titles": "Integrating Applied Artificial Intelligence into Non-Technical Master’s Programs: Conceptual Models and Practical Approaches | ‘Anti-essentialism and digital humanities: a defense of the field against epistemological challenges’ | The New Old Logic of AI: A Review of Mark Coeckelbergh’s The Political Philosophy of AI and Calvin Lawrence’s Hidden in White Sight"
     },
     {
       "label": "political science",
@@ -61,22 +62,40 @@
       "representative_titles": "Integrating Applied Artificial Intelligence into Non-Technical Master’s Programs: Conceptual Models and Practical Approaches | Embracing the future of Artificial Intelligence in the classroom: the relevance of AI literacy, prompt engineering, and critical thinking in modern education | The Crisis of Artificial Intelligence: A New Digital Humanities Curriculum for Human-Centred AI"
     },
     {
+      "label": "large language models",
+      "kind": "quantitative-signal",
+      "count": 12,
+      "representative_titles": "Synthetic Moral Agents or Sophisticated Mimics? | Synthetic Moral Agents or Sophisticated Mimics? | fAIry Tales"
+    },
+    {
+      "label": "computational",
+      "kind": "quantitative-signal",
+      "count": 11,
+      "representative_titles": "AI Ethics in Historical Research: A Framework for Bias Mitigation, Transparency, and Accountability | Opening Ottoman Miniature Collections through Computational Access: Methodological Lessons for Digital Humanities | Trust, Trustworthiness, and the Future of Medical AI: Outcomes of an Interdisciplinary Expert Workshop"
+    },
+    {
       "label": "network",
       "kind": "method",
       "count": 10,
       "representative_titles": "Opening Ottoman Miniature Collections through Computational Access: Methodological Lessons for Digital Humanities | Opening Ottoman Miniature Collections through Computational Access: Methodological Lessons for Digital Humanities | Countering Fake News on Chinese Social Platforms: Communication Features of Weibo and WeChat"
     },
     {
-      "label": "computational",
-      "kind": "quantitative-signal",
-      "count": 10,
-      "representative_titles": "Opening Ottoman Miniature Collections through Computational Access: Methodological Lessons for Digital Humanities | Trust, Trustworthiness, and the Future of Medical AI: Outcomes of an Interdisciplinary Expert Workshop | Historical Documents and Automatic Text Recognition: Introduction"
-    },
-    {
       "label": "llm",
       "kind": "method",
+      "count": 8,
+      "representative_titles": "Valid Inference with Synthetic Data via Task Exchangeability | Valid Inference with Synthetic Data via Task Exchangeability | Who Designs the Future Classroom?: LLM Ecologies, Educational Governance, and Postdigital Imaginaries in China, the United States, and Europe"
+    },
+    {
+      "label": "classification",
+      "kind": "quantitative-signal",
+      "count": 7,
+      "representative_titles": "Final Portfolio | Artificiali Intelligence and Digital Humanities: Methodological approaches, theories and mtehods | Opening Ottoman Miniature Collections through Computational Access: Methodological Lessons for Digital Humanities"
+    },
+    {
+      "label": "llms",
+      "kind": "quantitative-signal",
       "count": 6,
-      "representative_titles": "Valid Inference with Synthetic Data via Task Exchangeability | Valid Inference with Synthetic Data via Task Exchangeability | MEANING GRAPHS FOR THE HUMANITIES IN THE AGE OF LLMS: AMR AND UMR AS INTERPRETIVE INFRASTRUCTURE"
+      "representative_titles": "Synthetic Moral Agents or Sophisticated Mimics? | Synthetic Moral Agents or Sophisticated Mimics? | MEANING GRAPHS FOR THE HUMANITIES IN THE AGE OF LLMS: AMR AND UMR AS INTERPRETIVE INFRASTRUCTURE"
     },
     {
       "label": "corpus",
@@ -85,16 +104,10 @@
       "representative_titles": "Authorship Attribution Revisited: The Problem of Flash Fiction A morphological-based Linguistic Stylometry Approach | Authorship Attribution Revisited: The Problem of Flash Fiction A morphological-based Linguistic Stylometry Approach | Transcribing Foucault’s handwriting with Transkribus Transcrire l'écriture de Foucault avec Transkribus"
     },
     {
-      "label": "classification",
-      "kind": "quantitative-signal",
+      "label": "linguistics",
+      "kind": "discipline",
       "count": 5,
-      "representative_titles": "Opening Ottoman Miniature Collections through Computational Access: Methodological Lessons for Digital Humanities | INSTITUTIONAL REGULATION OF USING AI-BASED SERVICES THROUGH THE KANO MODEL: THE CASE OF KHERSON STATE UNIVERSITY | A representation and classification method for collective investor attention in the financial market"
-    },
-    {
-      "label": "large language models",
-      "kind": "quantitative-signal",
-      "count": 4,
-      "representative_titles": "MEANING GRAPHS FOR THE HUMANITIES IN THE AGE OF LLMS: AMR AND UMR AS INTERPRETIVE INFRASTRUCTURE | MEANING GRAPHS FOR THE HUMANITIES IN THE AGE OF LLMS: AMR AND UMR AS INTERPRETIVE INFRASTRUCTURE | Fluent but Not Factual: A Comparative Analysis of ChatGPT and Other AI Chatbots’ Proficiency and Originality in Scientific Writing for Humanities"
+      "representative_titles": "Voynich Script as Medieval Pharmaceutical Notation: Latin Case Morphology and Recipe Structure in an Encrypted 15th-Century Antidotarium | Countering Fake News on Chinese Social Platforms: Communication Features of Weibo and WeChat | Fluent but Not Factual: A Comparative Analysis of ChatGPT and Other AI Chatbots’ Proficiency and Originality in Scientific Writing for Humanities"
     },
     {
       "label": "anthropology",
@@ -109,40 +122,28 @@
       "representative_titles": "MEANING GRAPHS FOR THE HUMANITIES IN THE AGE OF LLMS: AMR AND UMR AS INTERPRETIVE INFRASTRUCTURE | Digital Humanities in the Age of AI: Transforming Human Expression and Global Knowledge Sharing | AI Generation and Descriptive Translation Studies"
     },
     {
+      "label": "citation",
+      "kind": "quantitative-signal",
+      "count": 3,
+      "representative_titles": "Research Constitution — Writing the Rules of Thought | Mapping artificial intelligence research in higher education toward sustainable development | A Review of Artificial Intelligence (AI) in Education from 2010 to 2020"
+    },
+    {
+      "label": "embedding",
+      "kind": "quantitative-signal",
+      "count": 3,
+      "representative_titles": "AI Ethics in Historical Research: A Framework for Bias Mitigation, Transparency, and Accountability | Embracing the future of Artificial Intelligence in the classroom: the relevance of AI literacy, prompt engineering, and critical thinking in modern education | D-WISE Tool Suite for the Sociology of Knowledge Approach to Discourse"
+    },
+    {
       "label": "metadata",
       "kind": "quantitative-signal",
       "count": 3,
       "representative_titles": "Opening Ottoman Miniature Collections through Computational Access: Methodological Lessons for Digital Humanities | AI, Cultural Heritage, and Bias: Some Key Queries That Arise from the Use of GenAI | Semantic Annotation of Image Resources in Digital Humanities"
     },
     {
-      "label": "linguistics",
-      "kind": "discipline",
-      "count": 3,
-      "representative_titles": "Countering Fake News on Chinese Social Platforms: Communication Features of Weibo and WeChat | Fluent but Not Factual: A Comparative Analysis of ChatGPT and Other AI Chatbots’ Proficiency and Originality in Scientific Writing for Humanities | Artificial Intelligence and Medical Humanities"
-    },
-    {
       "label": "content analysis",
       "kind": "quantitative-signal",
       "count": 3,
       "representative_titles": "Countering Fake News on Chinese Social Platforms: Communication Features of Weibo and WeChat | Integrating Applied Artificial Intelligence into Non-Technical Master’s Programs: Conceptual Models and Practical Approaches | A Review of Artificial Intelligence (AI) in Education from 2010 to 2020"
-    },
-    {
-      "label": "quantitative",
-      "kind": "quantitative-signal",
-      "count": 3,
-      "representative_titles": "Explicit or Implicit Digital Humanities? An Examination of Search Strategies to Retrieve Digital Humanities Publications from Large-Scale Scholarly Databases | Fluent but Not Factual: A Comparative Analysis of ChatGPT and Other AI Chatbots’ Proficiency and Originality in Scientific Writing for Humanities | The Science of Culture? Social Computing, Digital Humanities and Cultural Analytics"
-    },
-    {
-      "label": "llms",
-      "kind": "quantitative-signal",
-      "count": 2,
-      "representative_titles": "MEANING GRAPHS FOR THE HUMANITIES IN THE AGE OF LLMS: AMR AND UMR AS INTERPRETIVE INFRASTRUCTURE | MEANING GRAPHS FOR THE HUMANITIES IN THE AGE OF LLMS: AMR AND UMR AS INTERPRETIVE INFRASTRUCTURE"
-    },
-    {
-      "label": "bibliometric",
-      "kind": "method",
-      "count": 2,
-      "representative_titles": "Mapping artificial intelligence research in higher education toward sustainable development | Artificial intelligence adoption in the physical sciences, natural sciences, life sciences, social sciences and the arts and humanities: A bibliometric analysis of research publications from 1960-2021"
     }
   ],
   "representativeWorks": [

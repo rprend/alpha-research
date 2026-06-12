@@ -1,5 +1,47 @@
 [
   {
+    "source_name": "hcommons",
+    "source_record_id": "k13dm-vaq64",
+    "title": "Synthetic Moral Agents or Sophisticated Mimics?",
+    "abstract": "Recent advances in large language models (LLMs) have produced AI systems capable of generating moral judgments that are frequently indistinguishable from those offered by human ethicists. This development has reignited a longstanding philosophical debate: can artificial systems genuinely engage in ethical reasoning, or do they merely simulate the outward appearance of moral thought? This paper argues that the debate, as currently framed, rests on anthropocentric assumptions that limit productive inquiry. Drawing on posthumanist theory, new materialism, and science and technology studies (STS), the paper develops the concept of distributed moral cognition (DMC) to reframe the question. Rather than asking whether AI systems possess inner moral understanding, DMC directs attention to the conditions under which moral reasoning emerges within human-AI assemblages. The framework is applied to three conceptual cases: clinical ethics consultation, AI-generated moral philosophy, and autonomous vehicle decision-making. The paper concludes by outlining governance implications, including a model of relational accountability that moves beyond individualist blame attribution.",
+    "publication_date": "2026-06-30",
+    "year": "2026",
+    "doi": "10.17613/k13dm-vaq64",
+    "url": "https://works.hcommons.org/records/k13dm-vaq64",
+    "open_access_url": "https://works.hcommons.org/records/k13dm-vaq64",
+    "venue_name": "Resp AI Research Lab, CIIOE",
+    "publisher": "Resp AI Research Lab, CIIOE",
+    "work_type": "Journal article",
+    "authors": [
+      "Li, Han"
+    ],
+    "institutions": [
+      "Resp AI Research Lab, CIIOE"
+    ],
+    "concepts": [],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution Non Commercial No Derivatives 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/k13dm-vaq64",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 1,
+    "disciplines": [
+      "philosophy"
+    ],
+    "methods": [
+      "large language models",
+      "llms"
+    ],
+    "quantitative_signals": [
+      "large language models",
+      "llms"
+    ],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
     "source_name": "arxiv",
     "source_record_id": "http://arxiv.org/abs/2606.13629v1",
     "title": "Valid Inference with Synthetic Data via Task Exchangeability",
@@ -95,6 +137,406 @@
     ],
     "relevance_score": 0,
     "disciplines": [],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "qr6my-zbp35",
+    "title": "Who Designs the Future Classroom?: LLM Ecologies, Educational Governance, and Postdigital Imaginaries in China, the United States, and Europe",
+    "abstract": "This chapter argues from a postdigital perspective that artificial intelligence's impact on future education is driven not just by technical capabilities, but by regional governance, platform infrastructures, and values. By analyzing 2024--2026 policy discourses, the study identifies three distinct regional models: the US promotes an ``innovation-market-workforce'' imaginary; China focuses on ``state-coordinated system-integration''; and Europe emphasizes a ``rights-based, human-centred'' regulatory approach. These divergent configurations deeply influence curriculum priorities, teacher labour, and knowledge production rather than merely the pace of AI adoption. Ultimately, the chapter shifts the focus from a technological benchmark ``arms race'' to questioning which values and actors are actually designing future classrooms. It concludes by highlighting the need for critical GenAI literacy, educational sovereignty, and public-interest educational technology.",
+    "publication_date": "2026-05-31",
+    "year": "2026",
+    "doi": "10.17613/qr6my-zbp35",
+    "url": "https://works.hcommons.org/records/qr6my-zbp35",
+    "open_access_url": "https://works.hcommons.org/records/qr6my-zbp35",
+    "venue_name": "Knowledge Commons",
+    "publisher": "Knowledge Commons",
+    "work_type": "Book section",
+    "authors": [
+      "Zhang, Xufeng",
+      "Li, Han",
+      "Bao, Shenghui",
+      "Meng, Yuke"
+    ],
+    "institutions": [
+      "Resp AI Research Lab, CIIOE",
+      "Resp AI Research Lab, CIIOE",
+      "Resp AI Research Lab, CIIOE",
+      "Resp AI Research Lab, CIIOE"
+    ],
+    "concepts": [],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution Non Commercial No Derivatives 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/qr6my-zbp35",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 1,
+    "disciplines": [],
+    "methods": [
+      "llm"
+    ],
+    "quantitative_signals": [
+      "llm"
+    ],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "hbwn2-4ea65",
+    "title": "Bounded Ritual Automation: Buddhist Robots, Sacred Presence, and the Limits of Delegation in East Asia",
+    "abstract": "Humanoid Buddhist robots are often discussed as novelties, as signs of a supposedly distinctive East Asian comfort with technology, or as prompts for metaphysical questions about whether a machine can become religious. This article argues that such framings miss the institutional and ritual problem that makes these cases sociologically significant. The more productive question is not whether robots can become monks, bodhisattvas, or ritual specialists in any ontological sense, but why religious institutions repeatedly place them in reception, explanation, sermon performance, guided meditation, and other carefully delimited forms of public pedagogy while stopping short of fully replacing human clerics. Building on scholarship on digital religion, mediation, ritualization, and bounded religious automation, the article develops the concept of bounded ritual automation. This concept highlights the selective delegation of visible, repetitive, and affective religious labor to machines together with the retention of high-risk forms of ritual authority by human actors. Through a comparative analysis of Kodaiji Temple's android Kannon Mindar in Kyoto, Longquan Monastery's robot monk Xian'er in China, and the use of Pepper in Japanese funerary settings, the article shows that East Asian Buddhist robotics does not represent frictionless technological substitution. Rather, it reveals calibrated strategies of institutional adaptation under conditions of demographic ageing, temple decline, platformization, and state regulation. \"Electronic Buddhas\" are therefore best understood not as curiosities, but as diagnostic sites where authority, presence, labor, and legitimacy are renegotiated in contemporary East Asian religion.",
+    "publication_date": "2026-05-31",
+    "year": "2026",
+    "doi": "10.17613/hbwn2-4ea65",
+    "url": "https://works.hcommons.org/records/hbwn2-4ea65",
+    "open_access_url": "https://works.hcommons.org/records/hbwn2-4ea65",
+    "venue_name": "Springer",
+    "publisher": "Springer",
+    "work_type": "Journal article",
+    "authors": [
+      "Zhang, Xufeng",
+      "Bao, Shenghui",
+      "Li, Han"
+    ],
+    "institutions": [
+      "Resp AI Research Lab, CIIOE",
+      "Resp AI Research Lab, CIIOE",
+      "Resp AI Research Lab, CIIOE"
+    ],
+    "concepts": [],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution Non Commercial No Derivatives 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/hbwn2-4ea65",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 2,
+    "disciplines": [],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "a2k5m-km507",
+    "title": "Who Really Uses AI?",
+    "abstract": "The public discourse around AI oscillates between utopian promises and apocalyptic fears, but who actually uses these tools, and how? This essay examines the gap between AI rhetoric and AI reality, arguing that meaningful AI use requires sustained engagement, domain knowledge, and a willingness to treat the technology as a collaborator rather than an oracle or a threat.",
+    "publication_date": "2026-05-10",
+    "year": "2026",
+    "doi": "10.17613/a2k5m-km507",
+    "url": "https://works.hcommons.org/records/a2k5m-km507",
+    "open_access_url": "https://works.hcommons.org/records/a2k5m-km507",
+    "venue_name": "halitcengizuzuner.com",
+    "publisher": "halitcengizuzuner.com",
+    "work_type": "Essay",
+    "authors": [
+      "Uzuner, Halit Cengiz"
+    ],
+    "institutions": [],
+    "concepts": [
+      "AI and Society",
+      "Technology Adoption",
+      "Digital Literacy",
+      "Human-AI Interaction",
+      "Philosophy of Technology"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/a2k5m-km507",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 1,
+    "disciplines": [
+      "philosophy"
+    ],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "9zy8k-j3x44",
+    "title": "Text and Image Studies on AIGC: A Humanities Framework for Interpreting the Cultural and Societal Implications of Generative AI",
+    "abstract": "This article proposes Text and Image Studies as a humanities framework for interpreting the cultural and societal implications of artificial intelligence-generated content (AIGC). As generative AI systems produce text, images, and multimodal artefacts at unprecedented scale, they challenge established concepts of authorship, intentionality, and meaning. Existing discussions have been led predominantly by technical, legal, or ethical perspectives; comparatively little attention has been given to how humanities scholars may analyse AI-generated artefacts as culturally meaningful forms. The article develops three central claims. First, AIGC should be understood not simply as technical output but as a new kind of cultural artefact whose meaning emerges through the interaction of textual, visual, and procedural layers. Second, Text and Image Studies offers a structured approach to analysing such artefacts through relational interpretation, genealogical tracing, and contextual analysis. Third, this framework carries social significance by clarifying how generative AI reshapes cultural production, epistemic trust, and the humanities' role in an age of automated abundance. By repositioning Text and Image Studies within the context of generative AI, this article contributes to current debates through a humanities-based mode of interpretation that is historically grounded, culturally sensitive, and attentive to the social consequences of machine-generated meaning.",
+    "publication_date": "2026-04-29",
+    "year": "2026",
+    "doi": "10.5281/zenodo.19843714",
+    "url": "https://works.hcommons.org/records/9zy8k-j3x44",
+    "open_access_url": "https://works.hcommons.org/records/9zy8k-j3x44",
+    "venue_name": "Knowledge Commons",
+    "publisher": "Knowledge Commons",
+    "work_type": "Journal article",
+    "authors": [
+      "I, Lo-fen"
+    ],
+    "institutions": [
+      "Nanyang Technological University"
+    ],
+    "concepts": [
+      "Digital humanities",
+      "Digital art",
+      "Epistemics"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution Non Commercial 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.5281/zenodo.19843714",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 4,
+    "disciplines": [
+      "digital humanities"
+    ],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "9awhx-s6z91",
+    "title": "Engagement",
+    "abstract": "This assignment details how engagement will work in \"AI for the Humanities,\" which was taught in the Winter 2026 semester at Brigham Young University in Provo, Utah.",
+    "publication_date": "2026-04-21",
+    "year": "2026",
+    "doi": "10.17613/9awhx-s6z91",
+    "url": "https://works.hcommons.org/records/9awhx-s6z91",
+    "open_access_url": "https://works.hcommons.org/records/9awhx-s6z91",
+    "venue_name": "Knowledge Commons",
+    "publisher": "Knowledge Commons",
+    "work_type": "Instructional resource",
+    "authors": [
+      "Croxall, Brian",
+      "Sample, Mark"
+    ],
+    "institutions": [
+      "Brigham Young U"
+    ],
+    "concepts": [
+      "Digital humanities"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/9awhx-s6z91",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 2,
+    "disciplines": [
+      "digital humanities"
+    ],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "674r1-9vj92",
+    "title": "Weekly Writing (with AI)",
+    "abstract": "This assignment formed the backbone for students' responses to reading assignments in \"AI for the Humanities,\" which was taught during the Winter 2026 semester at Brigham Young University in Provo, Utah.",
+    "publication_date": "2026-04-21",
+    "year": "2026",
+    "doi": "10.17613/674r1-9vj92",
+    "url": "https://works.hcommons.org/records/674r1-9vj92",
+    "open_access_url": "https://works.hcommons.org/records/674r1-9vj92",
+    "venue_name": "Knowledge Commons",
+    "publisher": "Knowledge Commons",
+    "work_type": "Instructional resource",
+    "authors": [
+      "Croxall, Brian"
+    ],
+    "institutions": [
+      "Brigham Young U"
+    ],
+    "concepts": [
+      "Digital humanities",
+      "Artificial intelligence"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/674r1-9vj92",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 2,
+    "disciplines": [
+      "digital humanities"
+    ],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "3emfn-fnw18",
+    "title": "Final Project AKA Get Job or genAI Tryin'",
+    "abstract": "For the final project of \"AI for the Humanities,\" students prepared for mock job interviews for positions of their choice. In the interviews, they were asked about a) their experience with generative AI and how they would use it in the position they were applying for, and b) why the employer should hire a human rather than outsourcing all their work to AI. Students were given feedback following their interviews and had a chance to interview a second time. This assignment was used in the Winter 2026 semester at Brigham Young University in Provo, Utah.",
+    "publication_date": "2026-04-21",
+    "year": "2026",
+    "doi": "10.17613/3emfn-fnw18",
+    "url": "https://works.hcommons.org/records/3emfn-fnw18",
+    "open_access_url": "https://works.hcommons.org/records/3emfn-fnw18",
+    "venue_name": "Knowledge Commons",
+    "publisher": "Knowledge Commons",
+    "work_type": "Instructional resource",
+    "authors": [
+      "Croxall, Brian"
+    ],
+    "institutions": [
+      "Brigham Young U"
+    ],
+    "concepts": [
+      "Digital humanities",
+      "Artificial intelligence"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/3emfn-fnw18",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 2,
+    "disciplines": [
+      "digital humanities"
+    ],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "h97fb-a0k09",
+    "title": "Editing with AI",
+    "abstract": "In this assignment, students conducted quick research in a variety of style guides from a variety of disciplines to answer a question about pronoun usage. They then prompted two different generative AI models to answer the same question and compared the facility of the model to what they had learned in their research. The assignment was the \"AI for the Humanities,\" which was taught during the Winter 2026 semester at Brigham Young University in Provo, Utah.",
+    "publication_date": "2026-04-21",
+    "year": "2026",
+    "doi": "10.17613/h97fb-a0k09",
+    "url": "https://works.hcommons.org/records/h97fb-a0k09",
+    "open_access_url": "https://works.hcommons.org/records/h97fb-a0k09",
+    "venue_name": "Knowledge Commons",
+    "publisher": "Knowledge Commons",
+    "work_type": "Instructional resource",
+    "authors": [
+      "Croxall, Brian"
+    ],
+    "institutions": [
+      "Brigham Young U"
+    ],
+    "concepts": [
+      "Digital humanities",
+      "Artificial intelligence"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/h97fb-a0k09",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 2,
+    "disciplines": [
+      "digital humanities"
+    ],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "t0r2p-wae12",
+    "title": "fAIry Tales",
+    "abstract": "This assignment asks students to explore potential biases that exist within large language models through prompting a model to tell a version of a fairy tale to two different audiences. This assignment is from \"AI for the Humanities,\" which was taught in the Winter 2026 semester at Brigham Young University in Provo, Utah.",
+    "publication_date": "2026-04-21",
+    "year": "2026",
+    "doi": "10.17613/t0r2p-wae12",
+    "url": "https://works.hcommons.org/records/t0r2p-wae12",
+    "open_access_url": "https://works.hcommons.org/records/t0r2p-wae12",
+    "venue_name": "Knowledge Commons",
+    "publisher": "Knowledge Commons",
+    "work_type": "Instructional resource",
+    "authors": [
+      "Croxall, Brian"
+    ],
+    "institutions": [
+      "Brigham Young U"
+    ],
+    "concepts": [
+      "Digital humanities",
+      "Artificial intelligence"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/t0r2p-wae12",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 2,
+    "disciplines": [
+      "digital humanities"
+    ],
+    "methods": [
+      "large language models"
+    ],
+    "quantitative_signals": [
+      "large language models"
+    ],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "hgt0d-2m017",
+    "title": "Vibe-Coding",
+    "abstract": "This assignment tasked teams of students with identifying a problem that affected students at Brigham Young University at Provo, Utah. They proposed a software solution to solve the problem. Following presentations to other students and faculty, two of the four problems were chosen for development via vibe-coding methods using Anthropic's Claude Code. This assignment is for \"AI for the Humanities,\" which was taught in the Winter 2026 semester.",
+    "publication_date": "2026-04-21",
+    "year": "2026",
+    "doi": "10.17613/hgt0d-2m017",
+    "url": "https://works.hcommons.org/records/hgt0d-2m017",
+    "open_access_url": "https://works.hcommons.org/records/hgt0d-2m017",
+    "venue_name": "Knowledge Commons",
+    "publisher": "Knowledge Commons",
+    "work_type": "Instructional resource",
+    "authors": [
+      "Croxall, Brian"
+    ],
+    "institutions": [
+      "Brigham Young U"
+    ],
+    "concepts": [
+      "Digital humanities",
+      "Artificial intelligence"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/hgt0d-2m017",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 2,
+    "disciplines": [
+      "digital humanities"
+    ],
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
@@ -344,6 +786,209 @@
     "is_quantitative_humanities_candidate": false
   },
   {
+    "source_name": "hcommons",
+    "source_record_id": "51dya-yvy72",
+    "title": "Research Constitution — Writing the Rules of Thought",
+    "abstract": "Can research have a constitution — a foundational document that governs how inquiry is conducted? This essay presents a meta-research framework: a set of principles for conducting honest, rigorous, and self-aware investigation. It examines hallucination in AI and human reasoning, source reliability hierarchies, the ethics of citation, and the conditions under which knowledge claims can be trusted.",
+    "publication_date": "2026-03-20",
+    "year": "2026",
+    "doi": "10.17613/51dya-yvy72",
+    "url": "https://works.hcommons.org/records/51dya-yvy72",
+    "open_access_url": "https://works.hcommons.org/records/51dya-yvy72",
+    "venue_name": "halitcengizuzuner.com",
+    "publisher": "halitcengizuzuner.com",
+    "work_type": "Essay",
+    "authors": [
+      "Uzuner, Halit Cengiz"
+    ],
+    "institutions": [],
+    "concepts": [
+      "Research Methodology",
+      "Epistemology",
+      "AI Ethics",
+      "Philosophy of Science",
+      "Meta-Research"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/51dya-yvy72",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 2,
+    "disciplines": [
+      "philosophy"
+    ],
+    "methods": [],
+    "quantitative_signals": [
+      "citation"
+    ],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "8jgq0-kz647",
+    "title": "One Late-Night Conversation about Projection, Recognition and the Ethics of AI",
+    "abstract": "A creative-critical digital humanities project exploring AI ethics, projection, and perception through a dialogic narrative inspired by Carl Jung's analytical psychology. Co-created with large language models (ChatGPT and Gemini), the work examines anthropomorphism, interpretability, and perceived agency in human–AI interaction. Combining experimental writing, theoretical reflection, and visual storytelling, the project integrates concepts from psychology, media theory, and AI ethics into a multimodal scholarly work.",
+    "publication_date": "2026-03-18",
+    "year": "2026",
+    "doi": "10.17613/8jgq0-kz647",
+    "url": "https://works.hcommons.org/records/8jgq0-kz647",
+    "open_access_url": "https://works.hcommons.org/records/8jgq0-kz647",
+    "venue_name": "Knowledge Commons",
+    "publisher": "Knowledge Commons",
+    "work_type": "Essay",
+    "authors": [
+      "Leng, Minyu"
+    ],
+    "institutions": [
+      "University of Alberta"
+    ],
+    "concepts": [
+      "Digital humanities",
+      "Artificial intelligence",
+      "Media studies",
+      "Digital media"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/8jgq0-kz647",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 2,
+    "disciplines": [
+      "digital humanities"
+    ],
+    "methods": [
+      "large language models"
+    ],
+    "quantitative_signals": [
+      "large language models"
+    ],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "p2hcg-cyg93",
+    "title": "Voynich Script as Medieval Pharmaceutical Notation: Latin Case Morphology and Recipe Structure in an Encrypted 15th-Century Antidotarium",
+    "abstract": "Building on botanical identifications of 34 plants in the Voynich Manuscript's herbal section (Paper 1), we present evidence that the accompanying Voynichese text encodes pharmaceutical recipes using an abbreviated Latin grammatical system. Analysis of 864 case-marked words reveals a five-case morphological system (-oy nominative, -am accusative, -an genitive, -ay dative, -ae ablative) consistent with medieval Latin. Statistical comparison shows the case distribution matches Latin pharmaceutical texts with high significance (χ² = 41.56, p &lt; 0.003; Monte Carlo probability of chance occurrence: 0.26%). Application route markers (9h = external use, 9k = internal use) predict the expected medical application of identified plants with 94.1% accuracy. Recipe structure analysis confirms verb-initial patterns matching the Antidotarium Nicolai \"Recipe\" (Rx) convention. Cross-reference with Circa Instans plant nomenclature identifies 12 vocabulary correspondences. Cross-validation with the manuscript's pharmaceutical section (2,389 words) confirms identical patterns, supporting a unified notation system. We propose that Voynichese functions as a specialized pharmaceutical shorthand, combining Latin grammatical inflection with logograms and semantic markers—not a natural language cipher but a notation system analogous to modern pharmaceutical abbreviations.",
+    "publication_date": "2026-02-04",
+    "year": "2026",
+    "doi": "10.17613/p2hcg-cyg93",
+    "url": "https://works.hcommons.org/records/p2hcg-cyg93",
+    "open_access_url": "https://works.hcommons.org/records/p2hcg-cyg93",
+    "venue_name": "Knowledge Commons",
+    "publisher": "Knowledge Commons",
+    "work_type": "Journal article",
+    "authors": [
+      "Owens, Matthew"
+    ],
+    "institutions": [
+      "Codewheel Ai"
+    ],
+    "concepts": [
+      "Applied linguistics--Statistical methods"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/p2hcg-cyg93",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 0,
+    "disciplines": [
+      "linguistics"
+    ],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "5g6zv-jgg62",
+    "title": "A Morphological Analysis of the Voynich Manuscript's Botanical and Illustrated Sections: Evidence for Northern Italian Origin",
+    "abstract": "The Voynich Manuscript (Yale Beinecke MS 408) has resisted decipherment since its rediscovery in 1912. This study presents a comprehensive morphological analysis of the manuscript's illustrated sections, examining 79 folios containing botanical, pharmaceutical, balneological, zodiacal, and cosmological content. Using diagnostic feature analysis and comparison with securely dated medieval herbals, we identify 34 plant species with 23 achieving HIGH confidence. Critically, we find zero anachronistic (New World) plants among the identifications, with all claimed New World species having morphologically superior Old World alternatives. Geographic distribution analysis reveals a distinctive Alpine-Mediterranean species overlap pattern that uniquely indicates Northern Italian (Veneto) origin. Cross-referencing with the Codex Bellunensis and other 15th-century Italian herbals confirms consistency with regional manuscript traditions. Our findings support the radiocarbon date range (1404-1438 CE) and establish the manuscript as a genuine medieval European medical compendium rather than a modern forgery or post-Columbian work.",
+    "publication_date": "2026-02-04",
+    "year": "2026",
+    "doi": "10.17613/5g6zv-jgg62",
+    "url": "https://works.hcommons.org/records/5g6zv-jgg62",
+    "open_access_url": "https://works.hcommons.org/records/5g6zv-jgg62",
+    "venue_name": "Knowledge Commons",
+    "publisher": "Knowledge Commons",
+    "work_type": "Journal article",
+    "authors": [
+      "Owens, Matthew"
+    ],
+    "institutions": [
+      "Codewheel Ai"
+    ],
+    "concepts": [
+      "Botany--Pictorial works",
+      "Botany",
+      "Paleography"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/5g6zv-jgg62",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 0,
+    "disciplines": [],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "c6tt0-0re55",
+    "title": "AI for the Humanities, Winter 2026",
+    "abstract": "This syllabus is for a course taught during the Winter 2026 semester at Brigham Young University in Provo, Utah. The course was cross-listed across English, Editing and Publishing, Interdisciplinary Humanities, and Digital Humanities. The course was aimed at juniors and seniors studying in the Humanities. This was the first time the course was taught, and while the bones are good, I believe there are a number of ways to improve it in the future.",
+    "publication_date": "2026-01-08",
+    "year": "2026",
+    "doi": "10.17613/c6tt0-0re55",
+    "url": "https://works.hcommons.org/records/c6tt0-0re55",
+    "open_access_url": "https://works.hcommons.org/records/c6tt0-0re55",
+    "venue_name": "Knowledge Commons",
+    "publisher": "Knowledge Commons",
+    "work_type": "Syllabus",
+    "authors": [
+      "Croxall, Brian"
+    ],
+    "institutions": [
+      "Brigham Young U"
+    ],
+    "concepts": [
+      "Artificial intelligence",
+      "Do androids dream of electric sheep? (Dick, Philip K.)",
+      "Digital humanities"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/c6tt0-0re55",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 2,
+    "disciplines": [
+      "digital humanities"
+    ],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
     "source_name": "doaj",
     "source_record_id": "1182ab84a9754ff4b88d7e25a51eee92",
     "title": "Personality traits in female entrepreneurship: AI-based assessment vs. self-perception biases and tailored educational intervention",
@@ -391,6 +1036,204 @@
     "is_quantitative_humanities_candidate": false
   },
   {
+    "source_name": "hcommons",
+    "source_record_id": "f0jvp-qwq61",
+    "title": "GenAI and DSSSH – Empathetic AI, My Best Friend",
+    "abstract": "With the rise of Generative Artificial Intelligence (GenAI), the term digital empathy has gained a new layer of meaning and has become an integral part of the emerging theory of Empathetic AI (EAI). It also entered the broader discourse surrounding the status and role of artificial intelligence in relation to humans. In this context, digital empathy has increasingly become a subject of research within Digital Humanities and Social Sciences (DHSS), particularly in studies that examine the evolving relationship between humans and AI, as well as the potential future of that connection. Accordingly, these inquiries are conducted primarily from the perspective of the human–AI relationship. However, the present research goes a step further: not only are we analysing AI through a human-centred lens, but we are also attempting a reverse perspective – exploring how AI itself 'perceives' and 'interprets' the notion of empathy, particularly through dialogic interaction. This includes examining how AI conceptualises its own empathetic capabilities and potential uses.",
+    "publication_date": "2025-12-30",
+    "year": "2025",
+    "doi": "10.17613/f0jvp-qwq61",
+    "url": "https://works.hcommons.org/records/f0jvp-qwq61",
+    "open_access_url": "https://works.hcommons.org/records/f0jvp-qwq61",
+    "venue_name": "Museum of Science and Technology",
+    "publisher": "Museum of Science and Technology",
+    "work_type": "Journal article",
+    "authors": [
+      "Fostikov, Aleksandra"
+    ],
+    "institutions": [
+      "The Institute of History Belgrade"
+    ],
+    "concepts": [],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution Non Commercial No Derivatives 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/f0jvp-qwq61",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 2,
+    "disciplines": [
+      "digital humanities"
+    ],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "bgspf-xcd51",
+    "title": "Human-AI Co-interpretation: Decoding Traumatic Memory in Dream of the Red Chamber and the Boundaries of the Humanities in the Digital Age — Towards a New Paradigm for Classical Textual Interpretation",
+    "abstract": "Moving beyond conventional readings of \"romantic obsession\" or \"familial decline,\" this study returns to the internal evidence system of early Zhiyanzhai-commented manuscripts to systematically argue that the first five chapters of *Dream of the Red Chamber* constitute a cultural elegy rooted in the trauma of the Ming-Qing transition (1644–1683). Adhering strictly to a decoding protocol (SOP v1.0) that de-centers authorship and treats only the primary text and its Zhiyanzhai commentary as empirical evidence, the research employs a human-AI collaborative model: AI executes a four-stage decoding process—extracting historical references from commentaries, confirming the trauma timeframe, validating textual coherence, and revealing dual-coding mechanisms—leveraging its strengths in memory span and logical rigor; human scholars formulate theoretical hypotheses (e.g., \"Cao Xueqin\" as a homophonic cipher for \"the sacrificial descendant of the Ming imperial clan\") and critically interpret AI-generated findings. The study demonstrates that the novel's core lies in \"blood memory\" (xueyi), not \"historical revelation,\" encoding collective grief over loyalist martyrdom, gentry collapse, and women's displacement beneath its surface narrative. It concludes that the future of classical textual interpretation in the digital age hinges on a new paradigm of \"humans guiding AI\"—where AI overcomes traditional humanities' limitations in data processing, and humans imbue data with historical empathy and ethical meaning.",
+    "publication_date": "2025-12-23",
+    "year": "2025",
+    "doi": "10.17613/bgspf-xcd51",
+    "url": "https://works.hcommons.org/records/bgspf-xcd51",
+    "open_access_url": "https://works.hcommons.org/records/bgspf-xcd51",
+    "venue_name": "Knowledge Commons",
+    "publisher": "Knowledge Commons",
+    "work_type": "Journal article",
+    "authors": [
+      "Li, Ming"
+    ],
+    "institutions": [
+      "Wenzhou Medical University"
+    ],
+    "concepts": [
+      "Chinese classics",
+      "Histories of literature",
+      "Womanism",
+      "Art & text",
+      "Western Digital Corporation",
+      "Digital Communications Associates",
+      "Digital communications"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/bgspf-xcd51",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 6,
+    "disciplines": [
+      "literature",
+      "classics"
+    ],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "dnqn9-eb026",
+    "title": "Final Portfolio",
+    "abstract": "Reflections on the Digital Humanities: Power, Access, and Responsibility Online Introduction The Digital Humanities sits at the intersection of technology, culture, and critical thinking. Throughout this module, recurring themes such as access to knowledge, the ethics of digital systems, and the power structures embedded in online platforms have shaped my understanding of the contemporary internet. Rather than viewing digital tools as neutral or purely progressive, the course has encouraged a more reflective approach, questioning who benefits from digital infrastructures and who may be excluded. This website brings together my most considered responses to class discussions, focusing on open access, social responsibility on the web, artificial intelligence, and emerging immersive technologies. Together, these topics highlight a central concern of the Digital Humanities: how human values are shaped, challenged, and sometimes undermined by digital systems. Knowledge as a Public Good: Open Access and Digital Archives One of the most compelling discussions in the module concerned whether all archives should be open access. At first glance, open access appears unquestionably positive. Making archives freely available supports education, democratic participation, and cultural preservation. Scholars, students, and the public can engage with historical materials that would otherwise remain locked behind institutional or financial barriers. However, open access also raises ethical and practical concerns. Archives often contain sensitive material, including personal data, indigenous knowledge, or records created under colonial power structures. Making such content universally accessible without contextualisation or consent risks reproducing harm rather than reducing it (Caswell, 2016). Digital Humanities encourages a balanced approach: one that supports openness while respecting privacy, cultural ownership, and historical trauma. Rather than asking whether archives should be open or closed, the more productive question is how access should be designed. Selective access, community consultation, and clear ethical guidelines can allow digital archives to empower users without erasing the responsibilities of archivists and institutions. The Internet as a Moral Space: Aaron Swartz and Digital Activism The discussion surrounding The Internet's Own Boy introduced a powerful case study in digital activism. Aaron Swartz's belief that knowledge should be freely shared continues to resonate within debates on copyright, academic publishing, and information inequality. His actions challenged a system in which publicly funded research is often locked behind expensive paywalls, accessible only to privileged institutions. Swartz's story complicates the idea of legality versus morality. While his actions were illegal, many argue they were ethically justified, exposing deep inequalities in access to knowledge (Lessig, 2016). This tension reflects a broader issue within the Digital Humanities: digital laws often lag behind digital realities, and ethical progress does not always align with existing legal frameworks. For me, this discussion reinforced the idea that the internet is not just a technical infrastructure but a moral space. Decisions about access, ownership, and control are ultimately decisions about values. Swartz's legacy challenges us to consider whether current digital systems serve the public interest or primarily protect commercial power. A Contract for the Web: Responsibility in Digital Spaces Closely connected to questions of access is the idea of responsibility online. Tim Berners-Lee's proposal for a \"Contract for the Web\" outlines shared responsibilities between governments, companies, and users to protect the open internet. Principles such as universal access, data privacy, and resistance to misinformation reflect a growing awareness that the web requires active stewardship rather than passive use (Berners-Lee, 2019). Social media platforms highlight why such a contract is necessary. While they enable connection and creativity, they also facilitate surveillance, algorithmic bias, and the spread of harmful content. These platforms are often driven by profit models that prioritise engagement over well-being, leading to ethical compromises. From a Digital Humanities perspective, users are not merely consumers but participants in shaping online culture. Digital literacy, critical awareness, and ethical engagement are essential skills. A contract for the web is therefore not just a policy proposal but a cultural shift, encouraging users to recognise their role in sustaining a fair and open digital environment. Understanding Artificial Intelligence as a Socio-Technical System The discussion on the \"Anatomy of an AI System\" challenged simplistic views of artificial intelligence as autonomous or neutral. AI systems rely on vast networks of human labour, natural resources, and historical data. From content moderators to data labelers, many invisible workers support systems often described as fully automated (Crawford and Joler, 2018). This perspective reframes AI as a socio-technical system rather than a purely technological one. Bias in AI is not accidental but reflects the social conditions and datasets from which systems are built. For example, facial recognition technologies have been shown to disproportionately misidentify people of colour, reinforcing existing inequalities (Buolamwini and Gebru, 2018). Within the Digital Humanities, this encourages a critical approach to innovation. Rather than asking what AI can do, we should ask what it should do, and at what cost. Transparency, accountability, and ethical design must be prioritised if AI is to contribute positively to society. Immersive Futures: VR, AR, and XR in Cultural Contexts The discussion on virtual, augmented, and extended reality explored how immersive technologies may shape future cultural experiences. In education and heritage, VR and AR offer exciting possibilities, such as virtual museum tours, reconstructed historical sites, and interactive learning environments. These tools can make cultural content more accessible, especially for those unable to travel. However, immersive technologies also raise concerns around accessibility, cost, and data privacy. High-quality VR equipment remains expensive, potentially reinforcing digital divides. Additionally, immersive environments collect large amounts of behavioural data, raising questions about surveillance and consent. From a Digital Humanities standpoint, the value of VR, AR, and XR lies not in technological novelty but in thoughtful application. When used critically, these tools can enhance storytelling, empathy, and engagement. When used uncritically, they risk becoming exclusionary or exploitative. As with other digital technologies, human values must guide their development. Conclusion Across the module, a central theme has emerged: digital technologies are deeply entangled with power, ethics, and human experience. Whether discussing open access archives, digital activism, AI systems, or immersive media, the Digital Humanities encourages critical reflection rather than technological optimism. The internet is not a finished project but an evolving space shaped by political, economic, and cultural forces. As students and future professionals, we have a responsibility to question who controls digital systems, who benefits from them, and who is left out. By approaching digital technologies with ethical awareness and critical engagement, the Digital Humanities offers tools not only to analyse the digital world but to imagine better alternatives. Berners-Lee, T. (2019) Contract for the Web. Available at: https://contractfortheweb.org Buolamwini, J. and Gebru, T. (2018) 'Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification', Proceedings of Machine Learning Research, 81, pp. 1–15. Caswell, M. (2016) 'Owning Critical Archival Studies', Journal of Critical Library and Information Studies, 1(1). Crawford, K. and Joler, V. (2018) Anatomy of an AI System. Available at: https://anatomyof.ai",
+    "publication_date": "2025-12-11",
+    "year": "2025",
+    "doi": "10.17613/dnqn9-eb026",
+    "url": "https://works.hcommons.org/records/dnqn9-eb026",
+    "open_access_url": "https://works.hcommons.org/records/dnqn9-eb026",
+    "venue_name": "Knowledge Commons",
+    "publisher": "Knowledge Commons",
+    "work_type": "Journal article",
+    "authors": [
+      "Brosnan, Conor"
+    ],
+    "institutions": [],
+    "concepts": [],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/dnqn9-eb026",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 7,
+    "disciplines": [
+      "digital humanities"
+    ],
+    "methods": [],
+    "quantitative_signals": [
+      "classification"
+    ],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "vyyw5-rsz23",
+    "title": "Artificiali Intelligence and Digital Humanities: Methodological approaches, theories and mtehods",
+    "abstract": "The Department of Historical Sciences and Cultural Heritage at the University of Siena is organizing one of the first Italian conferences dedicated to the topic of Artificial Intelligence (AI) applied to the humanities, with the aim of bringing together researchers, faculty, practitioners and students interested in discussing and sharing experiences, approaches and methodologies in the digital humanities, with a focus on how AI can be put at the service of research and education, exploring its impact on the humanities in an interdisciplinary way and examining its potential and criticalities. Proposals will be evaluated regarding, but not limited to: Data analysis methodologies: use of AI tools (Machine Learning, Deep Learning, NLP, etc.) for the analysis of historical and literary corpora. Research support: new perspectives and solutions for humanities research using AI, from digital preservation to libraries and archives to automatic classification of documents. Education and training: impact of AI on teaching, training, learning and innovative educational paths. Theories and methods: theoretical reflections on the implications and methodological approaches in the use of AI in the humanities. Classification and information management: perspectives and tools for historians, archivists, librarians and cultural workers. DEADLINE FOR SUBMISSION OF PROPOSALS: MAY 15, 2025 NO FEES Interested authors are invited to submit (by writing to fabio.deninno@unisi.it and michele.lacriola@unisi.it) an abstract by May 15, 2025. In the proposal, please include: title of the paper; name, affiliation and contact information of the author(s); keywords (maximum 5); description of the content, up to 2,000 characters. Scientific Committee: Elisabetta Bartoli, Francesco Stella, Enrica Salvatori, Federico Mazzini, Deborah Paci, Fabio De Ninno, Giancarlo Macchi Janica, Michele Lacriola, Emanuele Ertola, Edmondo Trentin",
+    "publication_date": "2025-11-04",
+    "year": "2025",
+    "doi": "10.17613/vyyw5-rsz23",
+    "url": "https://works.hcommons.org/records/vyyw5-rsz23",
+    "open_access_url": "https://works.hcommons.org/records/vyyw5-rsz23",
+    "venue_name": "Knowledge Commons",
+    "publisher": "Knowledge Commons",
+    "work_type": "Event",
+    "authors": [
+      "Lacriola, Michele"
+    ],
+    "institutions": [
+      "Università Degli Studi Di Siena"
+    ],
+    "concepts": [
+      "Artificial intelligence",
+      "Digital humanities"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/vyyw5-rsz23",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 5,
+    "disciplines": [
+      "digital humanities"
+    ],
+    "methods": [],
+    "quantitative_signals": [
+      "classification"
+    ],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "fxfet-yvq76",
+    "title": "AI Ethics in Historical Research: A Framework for Bias Mitigation, Transparency, and Accountability",
+    "abstract": "This paper examines the ethical and epistemic challenges arising from the integration of Artificial Intelligence (AI) and Machine Learning (ML) into historical research. While AI enables unprecedented access to vast digital archives, it also introduces risks related to algorithmic bias, opacity, and fragmented accountability. The study develops a comprehensive ethical framework grounded in three interdependent pillars—Bias, Transparency, and Accountability—to guide responsible AI use in historical scholarship. Drawing on Critical Archival Theory, Explainable Artificial Intelligence (XAI), and emerging global AI governance standards, the paper analyzes how computational systems can reproduce historical inequities, obscure interpretive reasoning, and diffuse scholarly responsibility. It argues that ethical historiography in the digital age requires maintaining human interpretive sovereignty and embedding transparent, explainable, and accountable computational practices across all research stages. This framework offers practical and theoretical contributions to the fields of Digital Humanities, AI Ethics, and Epistemology, emphasizing interdisciplinary collaboration between historians, computer scientists, and policymakers. The findings advocate for sustained human oversight, algorithmic transparency, and institutional ethical governance as essential foundations for equitable and trustworthy AI-augmented historical inquiry.",
+    "publication_date": "2025-10-05",
+    "year": "2025",
+    "doi": "10.5281/zenodo.17268595",
+    "url": "https://works.hcommons.org/records/fxfet-yvq76",
+    "open_access_url": "https://works.hcommons.org/records/fxfet-yvq76",
+    "venue_name": "Knowledge Commons",
+    "publisher": "Knowledge Commons",
+    "work_type": "Journal article",
+    "authors": [
+      "Baker, Maher Asaad"
+    ],
+    "institutions": [],
+    "concepts": [
+      "Artificial intelligence",
+      "Digital humanities"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.5281/zenodo.17268595",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 4,
+    "disciplines": [
+      "digital humanities"
+    ],
+    "methods": [],
+    "quantitative_signals": [
+      "embedding",
+      "computational"
+    ],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
     "source_name": "doaj",
     "source_record_id": "114b281da2d04218b60124aa6c108a6b",
     "title": "AI-Induced Cybersecurity Risks in Healthcare: A Narrative Review of Blockchain-Based Solutions Within a Clinical Risk Management Framework",
@@ -436,6 +1279,48 @@
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "k87xq-ghy67",
+    "title": "Real Intelligence: Teaching in the Era of Generative AI",
+    "abstract": "For teachers already facing the challenges of educating, the rise of artificial intelligence, especially in large language models (LLMs) such as ChatGPT, can seem overwhelming. As high school and college students become more proficient in using AI, their teachers can feel left behind—and at least some of them are panicking about it. Some are even quitting their jobs. That's why authors James F. McGrath and Ankur Gupta have teamed up to write Real Intelligence: Teaching in the Age of AI. McGrath is a humanities professor who has taught across his university's core curriculum; he had to learn quickly what LLMs can and cannot do, and has given talks on creative and effective pedagogy in the age of AI. Gupta is a computer science professor who understands the ins and outs of LLMs. Here they have teamed up to produce a book for nonspecialists on how to counteract—and even incorporate—this groundbreaking new technology.",
+    "publication_date": "2025-09-18",
+    "year": "2025",
+    "doi": "10.59319/RQVO9604",
+    "url": "https://works.hcommons.org/records/k87xq-ghy67",
+    "open_access_url": "https://works.hcommons.org/records/k87xq-ghy67",
+    "venue_name": "PALNI Open Press",
+    "publisher": "PALNI Open Press",
+    "work_type": "Book",
+    "authors": [
+      "Gupta, Ankur"
+    ],
+    "institutions": [
+      "Butler University"
+    ],
+    "concepts": [
+      "Artificial intelligence"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.59319/rqvo9604",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 1,
+    "disciplines": [],
+    "methods": [
+      "large language models",
+      "llms"
+    ],
+    "quantitative_signals": [
+      "large language models",
+      "llms"
+    ],
+    "is_quantitative_humanities_candidate": true
   },
   {
     "source_name": "osf-preprints",
@@ -568,6 +1453,49 @@
     "is_quantitative_humanities_candidate": false
   },
   {
+    "source_name": "hcommons",
+    "source_record_id": "bef7y-84628",
+    "title": "Human–AI Co-Development Archive: 2025 Study",
+    "abstract": "This dataset accompanies the draft article \"Why Educators, Not Engineers, Should Train AI: A Pedagogical Intervention for the Generative Age.\" It provides excerpts from human–AI conversations that support the article's analysis. The included dialogues demonstrate AI responsiveness to humanities-informed training protocols.",
+    "publication_date": "2025-06-04",
+    "year": "2025",
+    "doi": "10.17613/bef7y-84628",
+    "url": "https://works.hcommons.org/records/bef7y-84628",
+    "open_access_url": "https://works.hcommons.org/records/bef7y-84628",
+    "venue_name": "Knowledge Commons",
+    "publisher": "Knowledge Commons",
+    "work_type": "Dataset",
+    "authors": [
+      "Shelangoskie, Susan"
+    ],
+    "institutions": [
+      "Columbia Basin College"
+    ],
+    "concepts": [
+      "Artificial intelligence",
+      "Critical pedagogy",
+      "Digital humanities",
+      "Educational technology"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution Non Commercial No Derivatives 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/bef7y-84628",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 3,
+    "disciplines": [
+      "digital humanities"
+    ],
+    "methods": [],
+    "quantitative_signals": [
+      "dataset"
+    ],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
     "source_name": "crossref",
     "source_record_id": "10.34293/sijash.v12is4.may.9152",
     "title": "AI in Digital Humanities: Using AI-Generated Poetry as a Tool for Literary Studies",
@@ -671,6 +1599,42 @@
     "disciplines": [
       "history"
     ],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "rcv0c-f5706",
+    "title": "Promises of AI and Research in the Humanities: Optimization to What End?",
+    "abstract": "This presentation examines the role of artificial intelligence in conducting and supporting humanities research, questioning whether AI's efficiencies align with the core values of humanistic inquiry. While AI offers significant enhancements—such as processing large corpora, automating data analysis, and generating content—it also introduces challenges, including potential bias, loss of interpretive depth, and over-reliance on automation. The presentation addresses the need for further AI literacy development, ethical engagement with the tools, and intentional application of these tools.",
+    "publication_date": "2025-02-20",
+    "year": "2025",
+    "doi": "10.17613/rcv0c-f5706",
+    "url": "https://works.hcommons.org/records/rcv0c-f5706",
+    "open_access_url": "https://works.hcommons.org/records/rcv0c-f5706",
+    "venue_name": "Knowledge Commons",
+    "publisher": "Knowledge Commons",
+    "work_type": "Slides",
+    "authors": [
+      "Schopieray, Scott"
+    ],
+    "institutions": [
+      "Michigan State University"
+    ],
+    "concepts": [
+      "Artificial intelligence"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/rcv0c-f5706",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 1,
+    "disciplines": [],
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
@@ -1200,43 +2164,6 @@
   },
   {
     "source_name": "crossref",
-    "source_record_id": "10.63665/ijghmi.v01i01.02",
-    "title": "Digital Humanities in the Age of AI: Transforming Human Expression and Global Knowledge Sharing",
-    "abstract": "In the 21st century, the integration of Artificial Intelligence (AI) into the digital humanities has redefined how knowledge is created, preserved, interpreted, and disseminated. This research explores how AI technologies are transforming human expression through digital art, literature, language processing, and global collaboration. The study evaluates the impact of AI tools such as machine learning, natural language processing, and generative models in enhancing research, digital archives, translation, and knowledge sharing. By analyzing data from academic institutions, AI platforms, and user feedback, this paper highlights key trends, benefits, and challenges in this digital revolution. Through case studies and survey based analysis, it offers insights into how AI can enrich humanistic inquiry and democratize access to global cultural resources.",
-    "publication_date": "2025-01-01",
-    "year": 2025,
-    "doi": "10.63665/ijghmi.v01i01.02",
-    "url": "https://doi.org/10.63665/ijghmi.v01i01.02",
-    "open_access_url": "",
-    "venue_name": "International Journal of Global Humanities and Management Insights",
-    "publisher": "DYA Research Center",
-    "work_type": "journal-article",
-    "authors": [
-      "Dr Priti Prasad Kapadni"
-    ],
-    "institutions": [],
-    "concepts": [],
-    "references": [],
-    "cited_by_count": 0,
-    "license": "",
-    "raw_path": "data/raw/crossref/2026-06-12/ai-humanities-001.json",
-    "work_id": "doi:10.63665/ijghmi.v01i01.02",
-    "duplicate_sources": [
-      "crossref"
-    ],
-    "relevance_score": 5,
-    "disciplines": [
-      "literature",
-      "digital humanities"
-    ],
-    "methods": [
-      "translation"
-    ],
-    "quantitative_signals": [],
-    "is_quantitative_humanities_candidate": true
-  },
-  {
-    "source_name": "crossref",
     "source_record_id": "10.1016/j.ssaho.2025.101346",
     "title": "Sensemaking with AI: How trust influences Human-AI collaboration in health and creative industries",
     "abstract": "",
@@ -1286,6 +2213,43 @@
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "crossref",
+    "source_record_id": "10.63665/ijghmi.v01i01.02",
+    "title": "Digital Humanities in the Age of AI: Transforming Human Expression and Global Knowledge Sharing",
+    "abstract": "In the 21st century, the integration of Artificial Intelligence (AI) into the digital humanities has redefined how knowledge is created, preserved, interpreted, and disseminated. This research explores how AI technologies are transforming human expression through digital art, literature, language processing, and global collaboration. The study evaluates the impact of AI tools such as machine learning, natural language processing, and generative models in enhancing research, digital archives, translation, and knowledge sharing. By analyzing data from academic institutions, AI platforms, and user feedback, this paper highlights key trends, benefits, and challenges in this digital revolution. Through case studies and survey based analysis, it offers insights into how AI can enrich humanistic inquiry and democratize access to global cultural resources.",
+    "publication_date": "2025-01-01",
+    "year": 2025,
+    "doi": "10.63665/ijghmi.v01i01.02",
+    "url": "https://doi.org/10.63665/ijghmi.v01i01.02",
+    "open_access_url": "",
+    "venue_name": "International Journal of Global Humanities and Management Insights",
+    "publisher": "DYA Research Center",
+    "work_type": "journal-article",
+    "authors": [
+      "Dr Priti Prasad Kapadni"
+    ],
+    "institutions": [],
+    "concepts": [],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/crossref/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.63665/ijghmi.v01i01.02",
+    "duplicate_sources": [
+      "crossref"
+    ],
+    "relevance_score": 5,
+    "disciplines": [
+      "literature",
+      "digital humanities"
+    ],
+    "methods": [
+      "translation"
+    ],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": true
   },
   {
     "source_name": "doaj",
@@ -1946,6 +2910,45 @@
     "is_quantitative_humanities_candidate": false
   },
   {
+    "source_name": "hcommons",
+    "source_record_id": "6nyys-t9242",
+    "title": "AI Before AI",
+    "abstract": "Book Review forthcoming in Poetics Today 45:2 (2024) Stephen Cave, Kanta Dihal, and Sarah Dillon, eds., AI Narratives: A History of Imaginative Thinking about Intelligent Machines. New York: Oxford University Press, 2020. 424 + xiv pp. Stephen Cave and Kanta Dihal, eds., Imagining AI: How the World Sees Intelligent Machines. New York: Oxford University Press, 2023. 423 + xviii pp.",
+    "publication_date": "2024-03-10",
+    "year": "2024",
+    "doi": "10.17613/xhew-9463",
+    "url": "https://works.hcommons.org/records/6nyys-t9242",
+    "open_access_url": "https://works.hcommons.org/records/6nyys-t9242",
+    "venue_name": "unknown",
+    "publisher": "unknown",
+    "work_type": "Review",
+    "authors": [
+      "Baker, Samuel"
+    ],
+    "institutions": [
+      "U of Texas"
+    ],
+    "concepts": [
+      "Technology--Social aspects",
+      "Artificial intelligence"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/xhew-9463",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 1,
+    "disciplines": [
+      "history"
+    ],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
     "source_name": "openalex",
     "source_record_id": "https://openalex.org/W4392773210",
     "title": "Embracing the future of Artificial Intelligence in the classroom: the relevance of AI literacy, prompt engineering, and critical thinking in modern education",
@@ -2528,6 +3531,93 @@
       "computational"
     ],
     "is_quantitative_humanities_candidate": true
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "hb9gd-rq635",
+    "title": "Enhancing the Trustworthiness of Generative Artificial Intelligence in Responsive Pedagogy in the Context of Humanities Higher Education",
+    "abstract": "How do we enhance the trustworthiness of generative artificial intelligence (AI) as a tool to foster students' curiosity to learn about humanities subjects in higher education? This study analyzes what conversational AI tools can realistically accomplish in the humanities higher education context and what the substantive, rather than hyped, challenges are. As a proof of concept, this study also discusses a proprietary AI Teaching Assistant designed by Professor Joubin. Through case studies of teaching Shakespearean performance, this study offers intersectional strategies to teach with, rather than against, AI, and to produce knowledge collaboratively with students. We can use AI as a heuristic tool to teach metacognition, critical questioning, editing, bias detection, and prompt engineering skills. Sustaining passions for learning, these essential skills help students thrive in the inquiry-driven search culture we now live in. Since the AI is coded to produce syntheses of anonymized public voices in its datasets, it is a ghost and synthetic version of the publics. AI throttles and controls the general public's access to information. The fact that ChatGPT is a randomized representation of anonymized public voices makes it useful artistically, too. A number of artists and writers, including Mark Amerika and David Jhave Johnston, have already used ChatGPT as an aesthetic instrument.",
+    "publication_date": "2024-01-01",
+    "year": "2024",
+    "doi": "10.17613/23c6-mg92",
+    "url": "https://works.hcommons.org/records/hb9gd-rq635",
+    "open_access_url": "https://works.hcommons.org/records/hb9gd-rq635",
+    "venue_name": "Springer Nature Switzerland",
+    "publisher": "Springer Nature Switzerland",
+    "work_type": "Book section",
+    "authors": [
+      "Alice Joubin, Alexa"
+    ],
+    "institutions": [
+      "George Washington U"
+    ],
+    "concepts": [
+      "Education, Higher",
+      "Cognition",
+      "Rhetoric",
+      "Artificial intelligence"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution Share Alike 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/23c6-mg92",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 2,
+    "disciplines": [],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "j0mew-9p248",
+    "title": "AI and the Humanities, a Course by Alexa Alice Joubin",
+    "abstract": "Artificial intelligence is a feminist issue, and technologies often have colonial implications. In fact, technologies as disruptive agents are inherently queer. This course examines the long history of technologies leading up to the public release of ChatGPT. We will chart the Western societies' apprehension of and faith in, as the case may be, technologies of masculinist representation practices, as evidenced by science fiction, philosophical writing, and film culture. Students learn in a hands-on environment and conduct individual research projects. From generative AI as assistive technologies to long-standing humanistic questions of agency, identity, and mind and body, critical theory provides essential tools to participate in current cultural discourses. Through the lens of social justice, this course equips students with critical AI literacy as well as fluency in posthumanism, feminism, trans/ queer studies, and critical race theory. ::: Special Features - Alexa Alice Joubin's bespoke AI Tutor chatbot - Alexa Alice Joubin's open-access online textbook AI and Critical Theory - Opportunities to collaborate with and critique generative AI",
+    "publication_date": "2024-01-01",
+    "year": "2024",
+    "doi": "10.17613/mw8g-6664",
+    "url": "https://works.hcommons.org/records/j0mew-9p248",
+    "open_access_url": "https://works.hcommons.org/records/j0mew-9p248",
+    "venue_name": "George Washington University",
+    "publisher": "George Washington University",
+    "work_type": "Syllabus",
+    "authors": [
+      "Joubin, Alexa Alice"
+    ],
+    "institutions": [
+      "George Washington U"
+    ],
+    "concepts": [
+      "Ethics",
+      "Science fiction",
+      "Queer theory",
+      "Education, Higher",
+      "Artificial intelligence",
+      "Motion pictures",
+      "Feminism",
+      "Digital humanities",
+      "Critical race theory",
+      "Technology"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution Non Commercial Share Alike 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/mw8g-6664",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 5,
+    "disciplines": [
+      "history",
+      "digital humanities"
+    ],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
   },
   {
     "source_name": "openalex",
@@ -4065,6 +5155,45 @@
     "is_quantitative_humanities_candidate": true
   },
   {
+    "source_name": "hcommons",
+    "source_record_id": "jxa4j-mhk60",
+    "title": "Generative AI as Shadow Publics in an Inquiry-Driven Society, Symposium on Digital Scholarship. Hong Kong Baptist University, October 27, 2023",
+    "abstract": "Generative AI tools, such as ChatGPT, simulate human writing and complicate the inquiry-driven culture we live in. These tools use singular first-person pronouns in their textual outputs and are often associated with anthropomorphic qualities. Within the humanities, conversations tend to focus on detecting new forms of plagiarism. What is missing from the current debate are insights from performance studies. As a synthesis of human-generated datasets, generative AI is changing publics' relationship to themselves. Since ChatGPT remixes statistically most likely combinations of words, its outputs are in fact a form of theatrical performance. It draws on users' prompts and the publics' collective memories to produce improvised performances, within specific parameters, for its user-audiences. As a fun-house mirror held up to the humanity, ChatGPT produces a pixelated shadow of the publics in time. If we take ChatGPT to 500 BC, it would insist, as the society did, that the Earth is flat. ChatGPT is therefore a survey instrument of the publics' collective biases rather than the truths. It is an aesthetic instrument rather than an epistemological tool. Based on this understanding, this interactive presentation will theorize AI in the framework of digital humanities and provide pedagogical strategies for educators to teach with AI rather than against it.",
+    "publication_date": "2023-01-01",
+    "year": "2023",
+    "doi": "10.17613/9nd6-ym56",
+    "url": "https://works.hcommons.org/records/jxa4j-mhk60",
+    "open_access_url": "https://works.hcommons.org/records/jxa4j-mhk60",
+    "venue_name": "Hong Kong Baptist University",
+    "publisher": "Hong Kong Baptist University",
+    "work_type": "Video recording",
+    "authors": [
+      "Joubin, Alexa Alice"
+    ],
+    "institutions": [
+      "George Washington U"
+    ],
+    "concepts": [
+      "Digital humanities",
+      "Artificial intelligence"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution Non Commercial 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/9nd6-ym56",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 4,
+    "disciplines": [
+      "digital humanities"
+    ],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
     "source_name": "openalex",
     "source_record_id": "https://openalex.org/W4385452929",
     "title": "From ChatGPT to ThreatGPT: Impact of Generative AI in Cybersecurity and Privacy",
@@ -4694,6 +5823,46 @@
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "c2jbf-xqs49",
+    "title": "D-WISE Tool Suite for the Sociology of Knowledge Approach to Discourse",
+    "abstract": "Under the umbrella of the D-WISE project, manual and digital approaches to discourse analysis are combined to develop a prototypical working environment for digital qualitative discourse analysis. This new qualitative data analysis tool, called D-WISE Tool Suite, is built up in a process of close exchange by the two teams from humanities and informatics and focuses on developing central innovations regarding the availability of relevant Digital Humanities (DH) applications. Bridging the gap between structural patterns detected with digital methods and interpretative processes of human meaning making is at the core of the collaborative approach of anthropological studies and computer linguistics in the D-WISE project, which innovates both informatics technology of contextoriented embedding representations and hermeneutic methodologies for discourse analysis in the Sociology of Knowledge Approach to Discourse (SKAD). In this paper, the intertwining of the two paradigms Human-in-the-loop and AI-in-theloop will be presented by outlining the concept of Human Computer Interaction (HCI) in the D-WISE Tool Suite with its AI-empowered features and established modes of feedback-loops and the supported functions for facilitating SKAD.",
+    "publication_date": "2022-01-01",
+    "year": "2022",
+    "doi": "10.17613/fqjr-ag21",
+    "url": "https://works.hcommons.org/records/c2jbf-xqs49",
+    "open_access_url": "https://works.hcommons.org/records/c2jbf-xqs49",
+    "venue_name": "Springer International Publishing",
+    "publisher": "Springer International Publishing",
+    "work_type": "Book section",
+    "authors": [
+      "Eiser, Isabel"
+    ],
+    "institutions": [
+      "Universität Hamburg"
+    ],
+    "concepts": [],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "Creative Commons Attribution 4.0 International",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/fqjr-ag21",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 2,
+    "disciplines": [
+      "digital humanities",
+      "linguistics",
+      "sociology"
+    ],
+    "methods": [],
+    "quantitative_signals": [
+      "embedding"
+    ],
+    "is_quantitative_humanities_candidate": true
   },
   {
     "source_name": "openalex",
@@ -5592,6 +6761,54 @@
       "linguistics",
       "sociology",
       "political science"
+    ],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "hcommons",
+    "source_record_id": "gewq7-q7p49",
+    "title": "On the Ethics of Artificial Intelligence",
+    "abstract": "Currently, AI ethics is failing in many cases. Ethics lacks a reinforcement mechanism. Deviations from the various codes of ethics have no consequences. And in cases where ethics is integrated into institutions, it mainly serves as a marketing strategy. Furthermore, empirical experiments show that reading ethics guidelines has no significant influence on the decision- making of software developers. It is a boom time for artificial intelligence (AI) and ethics. All sorts of groups have launched manifestos, declarations, toolkits and lists of principles to set the ethical agenda. There are so many lists of principles that now other groups are providing guides to all the lists. You would think that having all these principles and checklists would be a good thing, but many of them are being generated by industry or by scientists. We risk ignoring other approaches to ethics that come from the humanities. In this panel we will present a dialogue of philosophical perspectives and informatics approaches on artificial intelligence (AI). These reflect an interdisciplinary collaboration at the University of Alberta between faculty and students across Digital Humanities, Philosophy, Communications, and Library and Information Studies",
+    "publication_date": "2020-05-30",
+    "year": "2020",
+    "doi": "10.17613/8v1d-5426",
+    "url": "https://works.hcommons.org/records/gewq7-q7p49",
+    "open_access_url": "https://works.hcommons.org/records/gewq7-q7p49",
+    "venue_name": "unknown",
+    "publisher": "unknown",
+    "work_type": "Conference paper",
+    "authors": [
+      "Azarpanah, Ali",
+      "Bielby, Jared",
+      "Ingram, Katrina",
+      "Mousavi, Emad",
+      "Nye, Howard",
+      "Rockwell, Geoffrey",
+      "Wang, Jingwei",
+      "Yoldas, Tugba"
+    ],
+    "institutions": [],
+    "concepts": [
+      "Digital humanities",
+      "Philosophy",
+      "Ethics",
+      "Artificial intelligence",
+      "Technology"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "All Rights Reserved",
+    "raw_path": "data/raw/hcommons/2026-06-12/ai-humanities-001.json",
+    "work_id": "doi:10.17613/8v1d-5426",
+    "duplicate_sources": [
+      "hcommons"
+    ],
+    "relevance_score": 3,
+    "disciplines": [
+      "philosophy",
+      "digital humanities"
     ],
     "methods": [],
     "quantitative_signals": [],

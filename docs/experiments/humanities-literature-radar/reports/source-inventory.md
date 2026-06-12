@@ -6,6 +6,7 @@
 | crossref | 2026-06-12 | 30 | 1 | 0 | `data/raw/crossref/2026-06-12/manifest.json` |
 | department-pages | 2026-06-12 | 5 | 5 | 0 | `data/raw/department-pages/2026-06-12/manifest.json` |
 | doaj | 2026-06-12 | 30 | 1 | 0 | `data/raw/doaj/2026-06-12/manifest.json` |
+| hcommons | 2026-06-12 | 30 | 1 | 0 | `data/raw/hcommons/2026-06-12/manifest.json` |
 | nber | 2026-06-12 | 0 | 6 | 0 | `data/raw/nber/2026-06-12/manifest.json` |
 | openalex | 2026-06-12 | 30 | 1 | 0 | `data/raw/openalex/2026-06-12/manifest.json` |
 | osf-preprints | 2026-06-12 | 11 | 8 | 0 | `data/raw/osf-preprints/2026-06-12/manifest.json` |

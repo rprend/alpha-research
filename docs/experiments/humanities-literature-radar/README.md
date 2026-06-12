@@ -35,6 +35,7 @@ node docs/experiments/humanities-literature-radar/scripts/fetch-openalex.mjs --l
 node docs/experiments/humanities-literature-radar/scripts/fetch-crossref.mjs --limit=120
 node docs/experiments/humanities-literature-radar/scripts/fetch-doaj.mjs --limit=120
 node docs/experiments/humanities-literature-radar/scripts/fetch-osf-preprints.mjs --limit=120
+node docs/experiments/humanities-literature-radar/scripts/fetch-hcommons.mjs --limit=120
 node docs/experiments/humanities-literature-radar/scripts/fetch-arxiv.mjs --limit=80
 node docs/experiments/humanities-literature-radar/scripts/fetch-nber.mjs --limit=80
 ```

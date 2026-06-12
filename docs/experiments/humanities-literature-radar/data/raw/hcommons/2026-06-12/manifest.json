@@ -1,0 +1,18 @@
+{
+  "source": "hcommons",
+  "runDate": "2026-06-12",
+  "startedAt": "2026-06-12T17:45:24.473Z",
+  "finishedAt": "2026-06-12T17:45:25.622Z",
+  "recordCount": 30,
+  "requestCount": 1,
+  "requests": [
+    {
+      "query": "ai humanities",
+      "page": 1,
+      "url": "https://works.hcommons.org/api/records?q=ai+humanities&size=30&page=1",
+      "status": 200,
+      "responsePath": "data/raw/hcommons/2026-06-12/ai-humanities-001.json"
+    }
+  ],
+  "errors": []
+}

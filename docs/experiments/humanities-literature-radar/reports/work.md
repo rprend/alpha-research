@@ -1,6 +1,6 @@
 # Work Log
 
-Generated at: 2026-06-12T17:43:02.557Z
+Generated at: 2026-06-12T17:45:28.485Z
 
 ## Inputs
 
@@ -8,6 +8,7 @@ Generated at: 2026-06-12T17:43:02.557Z
 - crossref: 30 records, 1 requests, manifest `data/raw/crossref/2026-06-12/manifest.json`
 - department-pages: 5 records, 5 requests, manifest `data/raw/department-pages/2026-06-12/manifest.json`
 - doaj: 30 records, 1 requests, manifest `data/raw/doaj/2026-06-12/manifest.json`
+- hcommons: 30 records, 1 requests, manifest `data/raw/hcommons/2026-06-12/manifest.json`
 - nber: 0 records, 6 requests, manifest `data/raw/nber/2026-06-12/manifest.json`
 - openalex: 30 records, 1 requests, manifest `data/raw/openalex/2026-06-12/manifest.json`
 - osf-preprints: 11 records, 8 requests, manifest `data/raw/osf-preprints/2026-06-12/manifest.json`

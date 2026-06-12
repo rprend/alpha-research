@@ -27,6 +27,13 @@ sources:
     base_url: https://api.osf.io/v2/preprints/
     raw_path: data/raw/osf-preprints/YYYY-MM-DD/
     notes: Recent preprints from SocArXiv and related OSF providers for humanities-adjacent social science, cultural sociology, political communication, and methods work.
+  - id: hcommons
+    name: Knowledge Commons Works / Humanities Commons
+    role: core
+    access_method: api
+    base_url: https://works.hcommons.org/api/records
+    raw_path: data/raw/hcommons/YYYY-MM-DD/
+    notes: Humanities-focused open repository records, conference papers, datasets, presentations, and preprints from KCWorks/Humanities Commons.
   - id: nber
     name: NBER
     role: supplemental

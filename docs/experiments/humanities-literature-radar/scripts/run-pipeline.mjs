@@ -12,6 +12,7 @@ const profiles = {
     crossref: 40,
     doaj: 40,
     osf: 40,
+    hcommons: 40,
     arxiv: 20,
     nber: 20,
     departments: 5,
@@ -21,6 +22,7 @@ const profiles = {
     crossref: 500,
     doaj: 500,
     osf: 500,
+    hcommons: 500,
     arxiv: 200,
     nber: 200,
     departments: 25,
@@ -33,6 +35,7 @@ const steps = [
   ["fetch-crossref.mjs", [`--limit=${args.crossref ?? selected.crossref}`, `--run-date=${runDate}`]],
   ["fetch-doaj.mjs", [`--limit=${args.doaj ?? selected.doaj}`, `--run-date=${runDate}`]],
   ["fetch-osf-preprints.mjs", [`--limit=${args.osf ?? selected.osf}`, `--run-date=${runDate}`]],
+  ["fetch-hcommons.mjs", [`--limit=${args.hcommons ?? selected.hcommons}`, `--run-date=${runDate}`]],
   ["fetch-arxiv.mjs", [`--limit=${args.arxiv ?? selected.arxiv}`, `--run-date=${runDate}`]],
   ["fetch-nber.mjs", [`--limit=${args.nber ?? selected.nber}`, `--run-date=${runDate}`]],
   ["fetch-department-pages.mjs", [`--limit=${args.departments ?? selected.departments}`, `--run-date=${runDate}`]],
@@ -40,7 +43,7 @@ const steps = [
   ["build-report.mjs", []],
 ];
 const results = [];
-const sourceDirs = ["openalex", "crossref", "doaj", "osf-preprints", "arxiv", "nber", "department-pages"];
+const sourceDirs = ["openalex", "crossref", "doaj", "osf-preprints", "hcommons", "arxiv", "nber", "department-pages"];
 
 for (const source of sourceDirs) {
   await fs.rm(path.join(experimentDir, "data", "raw", source, runDate), { recursive: true, force: true });

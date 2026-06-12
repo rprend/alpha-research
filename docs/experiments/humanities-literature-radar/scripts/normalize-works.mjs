@@ -43,6 +43,9 @@ for (const file of rawFiles) {
   } else if (rel.includes("data/raw/osf-preprints/") && file.endsWith(".json")) {
     const json = await readJson(file);
     for (const item of json.data ?? []) works.push(fromOsfPreprint(item, rel));
+  } else if (rel.includes("data/raw/hcommons/") && file.endsWith(".json")) {
+    const json = await readJson(file);
+    for (const item of json.hits?.hits ?? []) works.push(fromHcommons(item, rel));
   } else if (rel.includes("data/raw/arxiv/") && file.endsWith(".xml")) {
     const xml = await fs.readFile(file, "utf8");
     for (const item of fromArxiv(xml, rel)) works.push(item);
@@ -233,6 +236,35 @@ function fromOsfPreprint(item, rawPath) {
   };
 }
 
+function fromHcommons(item, rawPath) {
+  const meta = item.metadata ?? {};
+  const date = meta.publication_date ?? item.created ?? "";
+  const doi = item.pids?.doi?.identifier ?? "";
+  const urlIdentifier = (meta.identifiers ?? []).find((identifier) => identifier.scheme === "url")?.identifier ?? "";
+  const subjects = (meta.subjects ?? []).map((subject) => subject.subject).filter(Boolean);
+  return {
+    source_name: "hcommons",
+    source_record_id: item.id,
+    title: normalizeWhitespace(meta.title),
+    abstract: stripTags(meta.description ?? ""),
+    publication_date: normalizePublicationDate(date),
+    year: String(date).slice(0, 4),
+    doi,
+    url: item.links?.self_html ?? urlIdentifier,
+    open_access_url: item.links?.self_html ?? urlIdentifier,
+    venue_name: meta.publisher ?? "Knowledge Commons Works",
+    publisher: meta.publisher ?? "Knowledge Commons Works",
+    work_type: meta.resource_type?.title?.en ?? meta.resource_type?.id ?? "repository-record",
+    authors: (meta.creators ?? []).map((creator) => creator.person_or_org?.name).filter(Boolean),
+    institutions: (meta.creators ?? []).flatMap((creator) => (creator.affiliations ?? []).map((affiliation) => affiliation.name)).filter(Boolean),
+    concepts: subjects,
+    references: [],
+    cited_by_count: 0,
+    license: meta.rights?.[0]?.title?.en ?? meta.rights?.[0]?.id ?? "",
+    raw_path: rawPath,
+  };
+}
+
 function fromArxiv(xml, rawPath) {
   return [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].map((match) => {
     const entry = match[1];
@@ -315,6 +347,13 @@ function monthNumber(value) {
   const months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
   const index = months.findIndex((month) => month.startsWith(textValue.slice(0, 3)));
   return index === -1 ? 1 : index + 1;
+}
+
+function normalizePublicationDate(value) {
+  const textValue = String(value ?? "");
+  if (/^\d{4}$/.test(textValue)) return `${textValue}-01-01`;
+  if (/^\d{4}-\d{2}$/.test(textValue)) return `${textValue}-01`;
+  return textValue.slice(0, 10);
 }
 
 function buildTopicRows(items) {

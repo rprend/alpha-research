@@ -4,7 +4,7 @@
   "message-version": "1.0.0",
   "message": {
     "facets": {},
-    "next-cursor": "DnF1ZXJ5VGhlbkZldGNoJAAAAAAXLLXzFjJLRW01QnVyVExLSGxBWmpxbzNRYXcAAAAAOZBK7xZRLW9QTEpHRFI4R2MwRjh5cVVGemlBAAAAAVMnADcWT1piSnhCcUZTZ1MtbGdqSndHd0xzdwAAAAFSoAhlFmVFaGZqREs1VFhpRDVrNjhxWmxXZGcAAAAAFyy18hYyS0VtNUJ1clRMS0hsQVpqcW8zUWF3AAAAAUl9JXgWdXZSSjM5a0VTajI2bnA2N0tJVGdZZwAAAAFPgmopFkNTcEFMQXBqUlotS2NVR2U1ZnBpeWcAAAABUqAIaBZlRWhmakRLNVRYaUQ1azY4cVpsV2RnAAAAAU75j2sWRTVFSzRuOEZTNmVvMF8yOXVKVlJvQQAAAAFPgmoqFkNTcEFMQXBqUlotS2NVR2U1ZnBpeWcAAAABUycANhZPWmJKeEJxRlNnUy1sZ2pKd0d3THN3AAAAAUqzNy0WTkU2UEFBOTFTcjJ5U1M3WkM5b21QUQAAAAFKszcsFk5FNlBBQTkxU3IyeVNTN1pDOW9tUFEAAAABU3buqxYyem9obE83aFRMNnZLRjlTbXFNWkh3AAAAADmRqrEWdjZZNnNLaGdTVktoazI2NWY1MU5BdwAAAAFTdu6sFjJ6b2hsTzdoVEw2dktGOVNtcU1aSHcAAAABU5CYtxZaLVplR0k3U1FBR1VzM0FwYXpfZFpRAAAAAUl9JXkWdXZSSjM5a0VTajI2bnA2N0tJVGdZZwAAAAFKszcvFk5FNlBBQTkxU3IyeVNTN1pDOW9tUFEAAAABSrM3LhZORTZQQUE5MVNyMnlTUzdaQzlvbVBRAAAAAU75j2wWRTVFSzRuOEZTNmVvMF8yOXVKVlJvQQAAAAFSoAhmFmVFaGZqREs1VFhpRDVrNjhxWmxXZGcAAAABTvmPbRZFNUVLNG44RlM2ZW8wXzI5dUpWUm9BAAAAAU75j24WRTVFSzRuOEZTNmVvMF8yOXVKVlJvQQAAAAFPgmorFkNTcEFMQXBqUlotS2NVR2U1ZnBpeWcAAAABSX0lehZ1dlJKMzlrRVNqMjZucDY3S0lUZ1lnAAAAAVMnADgWT1piSnhCcUZTZ1MtbGdqSndHd0xzdwAAAAFTJwA5Fk9aYkp4QnFGU2dTLWxnakp3R3dMc3cAAAABU3burRYyem9obE83aFRMNnZLRjlTbXFNWkh3AAAAAVOQmLgWWi1aZUdJN1NRQUdVczNBcGF6X2RaUQAAAAFhbeBgFlJTLWY0eWlWUThpcVE4bzFER2p3ZFEAAAABU3burhYyem9obE83aFRMNnZLRjlTbXFNWkh3AAAAAVOQmLkWWi1aZUdJN1NRQUdVczNBcGF6X2RaUQAAAAFSoAhnFmVFaGZqREs1VFhpRDVrNjhxWmxXZGcAAAABU5CYuhZaLVplR0k3U1FBR1VzM0FwYXpfZFpRAAAAAUf8onIWTWpkc1RvTlBTMUdQeGFHUVJGLTgwZw==",
+    "next-cursor": "DnF1ZXJ5VGhlbkZldGNoJAAAAAFHgRyTFlV1U25DZFJ2U2JLRVVuNjdsaVhxWkEAAAABR4EclBZVdVNuQ2RSdlNiS0VVbjY3bGlYcVpBAAAAAUf9L-AWTWpkc1RvTlBTMUdQeGFHUVJGLTgwZwAAAAA5kkCgFnY2WTZzS2hnU1ZLaGsyNjVmNTFOQXcAAAABT4L1uBZDU3BBTEFwalJaLUtjVUdlNWZwaXlnAAAAAUl9sUQWdXZSSjM5a0VTajI2bnA2N0tJVGdZZwAAAAFPgvW5FkNTcEFMQXBqUlotS2NVR2U1ZnBpeWcAAAABR_0v4RZNamRzVG9OUFMxR1B4YUdRUkYtODBnAAAAADmQ4RIWUS1vUExKR0RSOEdjMEY4eXFVRnppQQAAAAFPgvW6FkNTcEFMQXBqUlotS2NVR2U1ZnBpeWcAAAAAOZJAoRZ2Nlk2c0toZ1NWS2hrMjY1ZjUxTkF3AAAAAUqzxesWTkU2UEFBOTFTcjJ5U1M3WkM5b21QUQAAAAA5kOEQFlEtb1BMSkdEUjhHYzBGOHlxVUZ6aUEAAAAAOZDhERZRLW9QTEpHRFI4R2MwRjh5cVVGemlBAAAAAVEsjPwWQWhSeXczSFhUNWVPdVVZMC1ZZ3RFZwAAAAFSjZYfFlZlZzlsVzl0VEhTaWVILTQ1RHdvMWcAAAABUSyM-RZBaFJ5dzNIWFQ1ZU91VVkwLVlndEVnAAAAAUl9sUYWdXZSSjM5a0VTajI2bnA2N0tJVGdZZwAAAAFbZZ_tFm9BWFV5WFdIVG8yanctbmtqWDNlclEAAAABYW56LxZSUy1mNHlpVlE4aXFROG8xREdqd2RRAAAAAUf9L-IWTWpkc1RvTlBTMUdQeGFHUVJGLTgwZwAAAAFSoJqmFmVFaGZqREs1VFhpRDVrNjhxWmxXZGcAAAABUSyM-hZBaFJ5dzNIWFQ1ZU91VVkwLVlndEVnAAAAAVtln-4Wb0FYVXlYV0hUbzJqdy1ua2pYM2VyUQAAAAFPgvW7FkNTcEFMQXBqUlotS2NVR2U1ZnBpeWcAAAABSX2xRRZ1dlJKMzlrRVNqMjZucDY3S0lUZ1lnAAAAAUl9sUcWdXZSSjM5a0VTajI2bnA2N0tJVGdZZwAAAAFSjZYgFlZlZzlsVzl0VEhTaWVILTQ1RHdvMWcAAAABR4EclRZVdVNuQ2RSdlNiS0VVbjY3bGlYcVpBAAAAAVORLJIWWi1aZUdJN1NRQUdVczNBcGF6X2RaUQAAAAFHgRyWFlV1U25DZFJ2U2JLRVVuNjdsaVhxWkEAAAABUSyM-xZBaFJ5dzNIWFQ1ZU91VVkwLVlndEVnAAAAAVKNliIWVmVnOWxXOXRUSFNpZUgtNDVEd28xZwAAAAFSjZYhFlZlZzlsVzl0VEhTaWVILTQ1RHdvMWcAAAABU5EskxZaLVplR0k3U1FBR1VzM0FwYXpfZFpRAAAAAUf9L-MWTWpkc1RvTlBTMUdQeGFHUVJGLTgwZw==",
     "total-results": 494737,
     "items": [
       {
@@ -113,7 +113,7 @@
           "date-time": "2025-04-11T02:07:26Z",
           "timestamp": 1744337246000
         },
-        "score": 18.51725,
+        "score": 18.572273,
         "resource": {
           "primary": {
             "URL": "https://scholar.kyobobook.co.kr/article/detail/4050070699396"
@@ -398,7 +398,7 @@
           "date-time": "2026-05-15T00:47:18Z",
           "timestamp": 1778806038000
         },
-        "score": 18.302687,
+        "score": 18.311325,
         "resource": {
           "primary": {
             "URL": "http://journalofhumanitiesai.org/journal/view.php?doi=10.66532/jhai.2026.0003"
@@ -786,7 +786,7 @@
           "date-time": "2026-05-15T00:47:17Z",
           "timestamp": 1778806037000
         },
-        "score": 17.891462,
+        "score": 17.899195,
         "resource": {
           "primary": {
             "URL": "http://journalofhumanitiesai.org/journal/view.php?doi=10.66532/jhai.2026.0008"
@@ -937,7 +937,7 @@
           "date-time": "2026-03-13T02:14:21Z",
           "timestamp": 1773368061000
         },
-        "score": 17.624268,
+        "score": 17.614433,
         "resource": {
           "primary": {
             "URL": "https://mds.marshall.edu/criticalhumanities/vol2/iss1/9"
@@ -1077,7 +1077,7 @@
           "date-time": "2023-09-22T02:21:23Z",
           "timestamp": 1695349283000
         },
-        "score": 17.464073,
+        "score": 17.466894,
         "resource": {
           "primary": {
             "URL": "https://kiss.kstudy.com/Detail/Ar?key=4040445"
@@ -1207,7 +1207,7 @@
           "date-time": "2026-03-13T02:14:08Z",
           "timestamp": 1773368048000
         },
-        "score": 17.393158,
+        "score": 17.38961,
         "resource": {
           "primary": {
             "URL": "https://mds.marshall.edu/criticalhumanities/vol2/iss2/2"
@@ -1251,148 +1251,6 @@
               2024,
               1,
               21
-            ]
-          ]
-        }
-      },
-      {
-        "indexed": {
-          "date-parts": [
-            [
-              2026,
-              4,
-              3
-            ]
-          ],
-          "date-time": "2026-04-03T19:08:21Z",
-          "timestamp": 1775243301305,
-          "version": "3.50.1"
-        },
-        "reference-count": 0,
-        "publisher": "Marshall University",
-        "issue": "1",
-        "content-domain": {
-          "domain": [],
-          "crossmark-restriction": false
-        },
-        "short-container-title": [
-          "Critical Humanities"
-        ],
-        "DOI": "10.33470/2836-3140.1044",
-        "type": "journal-article",
-        "created": {
-          "date-parts": [
-            [
-              2023,
-              12,
-              27
-            ]
-          ],
-          "date-time": "2023-12-27T04:31:38Z",
-          "timestamp": 1703651498000
-        },
-        "source": "Crossref",
-        "is-referenced-by-count": 1,
-        "title": [
-          "Humanities in the time of ChatGPT and other forms of AI"
-        ],
-        "prefix": "10.33470",
-        "volume": "2",
-        "author": [
-          {
-            "given": "Puspa",
-            "family": "Damai",
-            "sequence": "first",
-            "affiliation": [],
-            "role": [
-              {
-                "role": "author",
-                "vocabulary": "crossref"
-              }
-            ]
-          },
-          {
-            "given": "Barbara",
-            "family": "Postema",
-            "sequence": "additional",
-            "affiliation": [],
-            "role": [
-              {
-                "role": "author",
-                "vocabulary": "crossref"
-              }
-            ]
-          }
-        ],
-        "member": "19135",
-        "published-online": {
-          "date-parts": [
-            [
-              2023,
-              12,
-              26
-            ]
-          ]
-        },
-        "container-title": [
-          "Critical Humanities"
-        ],
-        "language": "en",
-        "deposited": {
-          "date-parts": [
-            [
-              2026,
-              3,
-              13
-            ]
-          ],
-          "date-time": "2026-03-13T02:15:04Z",
-          "timestamp": 1773368104000
-        },
-        "score": 16.935104,
-        "resource": {
-          "primary": {
-            "URL": "https://mds.marshall.edu/criticalhumanities/vol2/iss1/1"
-          }
-        },
-        "issued": {
-          "date-parts": [
-            [
-              2023,
-              12,
-              26
-            ]
-          ]
-        },
-        "references-count": 0,
-        "journal-issue": {
-          "issue": "1",
-          "published-online": {
-            "date-parts": [
-              [
-                2023,
-                12,
-                26
-              ]
-            ]
-          }
-        },
-        "URL": "https://doi.org/10.33470/2836-3140.1044",
-        "ISSN": [
-          "2836-3140"
-        ],
-        "issn-type": [
-          {
-            "value": "2836-3140",
-            "type": "electronic"
-          }
-        ],
-        "published": {
-          "date-parts": [
-            [
-              2023,
-              12,
-              26
             ]
           ]
         }
@@ -1907,7 +1765,7 @@
           "date-time": "2025-10-09T16:28:16Z",
           "timestamp": 1760027296000
         },
-        "score": 16.886509,
+        "score": 16.932957,
         "resource": {
           "primary": {
             "URL": "https://www.mdpi.com/2076-0787/14/2/25"
@@ -1953,6 +1811,148 @@
               2025,
               2,
               6
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              3
+            ]
+          ],
+          "date-time": "2026-04-03T19:08:21Z",
+          "timestamp": 1775243301305,
+          "version": "3.50.1"
+        },
+        "reference-count": 0,
+        "publisher": "Marshall University",
+        "issue": "1",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Humanities"
+        ],
+        "DOI": "10.33470/2836-3140.1044",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2023,
+              12,
+              27
+            ]
+          ],
+          "date-time": "2023-12-27T04:31:38Z",
+          "timestamp": 1703651498000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "Humanities in the time of ChatGPT and other forms of AI"
+        ],
+        "prefix": "10.33470",
+        "volume": "2",
+        "author": [
+          {
+            "given": "Puspa",
+            "family": "Damai",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Barbara",
+            "family": "Postema",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "19135",
+        "published-online": {
+          "date-parts": [
+            [
+              2023,
+              12,
+              26
+            ]
+          ]
+        },
+        "container-title": [
+          "Critical Humanities"
+        ],
+        "language": "en",
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              13
+            ]
+          ],
+          "date-time": "2026-03-13T02:15:04Z",
+          "timestamp": 1773368104000
+        },
+        "score": 16.889402,
+        "resource": {
+          "primary": {
+            "URL": "https://mds.marshall.edu/criticalhumanities/vol2/iss1/1"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2023,
+              12,
+              26
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "1",
+          "published-online": {
+            "date-parts": [
+              [
+                2023,
+                12,
+                26
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.33470/2836-3140.1044",
+        "ISSN": [
+          "2836-3140"
+        ],
+        "issn-type": [
+          {
+            "value": "2836-3140",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2023,
+              12,
+              26
             ]
           ]
         }
@@ -3491,7 +3491,7 @@
           "date-time": "2025-06-18T06:33:12Z",
           "timestamp": 1750228392000
         },
-        "score": 16.720592,
+        "score": 16.72006,
         "resource": {
           "primary": {
             "URL": "https://linkinghub.elsevier.com/retrieve/pii/S2590291125001615"
@@ -3641,7 +3641,7 @@
           "date-time": "2026-03-13T02:14:27Z",
           "timestamp": 1773368067000
         },
-        "score": 16.710377,
+        "score": 16.710346,
         "resource": {
           "primary": {
             "URL": "https://mds.marshall.edu/criticalhumanities/vol2/iss1/8"
@@ -3850,7 +3850,7 @@
           "date-time": "2025-06-10T04:17:16Z",
           "timestamp": 1749529036000
         },
-        "score": 16.630272,
+        "score": 16.630299,
         "resource": {
           "primary": {
             "URL": "https://link.springer.com/10.1007/s00146-024-02091-y"
@@ -3963,131 +3963,6 @@
         "indexed": {
           "date-parts": [
             [
-              2024,
-              5,
-              25
-            ]
-          ],
-          "date-time": "2024-05-25T00:27:54Z",
-          "timestamp": 1716596874536
-        },
-        "reference-count": 0,
-        "publisher": "Humanities Research Institute (HRI)",
-        "content-domain": {
-          "domain": [],
-          "crossmark-restriction": false
-        },
-        "short-container-title": [
-          "JAIH"
-        ],
-        "published-print": {
-          "date-parts": [
-            [
-              2024,
-              4,
-              30
-            ]
-          ]
-        },
-        "DOI": "10.46397/jaih.16.4",
-        "type": "journal-article",
-        "created": {
-          "date-parts": [
-            [
-              2024,
-              5,
-              24
-            ]
-          ],
-          "date-time": "2024-05-24T02:34:08Z",
-          "timestamp": 1716518048000
-        },
-        "page": "113-136",
-        "source": "Crossref",
-        "is-referenced-by-count": 0,
-        "title": [
-          "Can AI become an Expert?"
-        ],
-        "prefix": "10.46397",
-        "volume": "16",
-        "author": [
-          {
-            "given": "Hyeongyun",
-            "family": "Kim",
-            "sequence": "first",
-            "affiliation": [],
-            "role": [
-              {
-                "role": "author",
-                "vocabulary": "crossref"
-              }
-            ]
-          }
-        ],
-        "member": "25666",
-        "published-online": {
-          "date-parts": [
-            [
-              2024,
-              4,
-              30
-            ]
-          ]
-        },
-        "container-title": [
-          "Journal of AI Humanities"
-        ],
-        "deposited": {
-          "date-parts": [
-            [
-              2024,
-              5,
-              24
-            ]
-          ],
-          "date-time": "2024-05-24T02:34:14Z",
-          "timestamp": 1716518054000
-        },
-        "score": 16.601158,
-        "resource": {
-          "primary": {
-            "URL": "https://kiss.kstudy.com/Detail/Ar?key=4091807"
-          }
-        },
-        "issued": {
-          "date-parts": [
-            [
-              2024,
-              4,
-              30
-            ]
-          ]
-        },
-        "references-count": 0,
-        "URL": "https://doi.org/10.46397/jaih.16.4",
-        "ISSN": [
-          "2635-4691"
-        ],
-        "issn-type": [
-          {
-            "value": "2635-4691",
-            "type": "print"
-          }
-        ],
-        "published": {
-          "date-parts": [
-            [
-              2024,
-              4,
-              30
-            ]
-          ]
-        }
-      },
-      {
-        "indexed": {
-          "date-parts": [
-            [
               2026,
               5,
               15
@@ -4194,7 +4069,7 @@
           "date-time": "2026-05-15T00:47:18Z",
           "timestamp": 1778806038000
         },
-        "score": 16.588234,
+        "score": 16.606462,
         "resource": {
           "primary": {
             "URL": "http://journalofhumanitiesai.org/journal/view.php?doi=10.66532/jhai.2026.0009"
@@ -4262,6 +4137,131 @@
             }
           }
         ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              5,
+              25
+            ]
+          ],
+          "date-time": "2024-05-25T00:27:54Z",
+          "timestamp": 1716596874536
+        },
+        "reference-count": 0,
+        "publisher": "Humanities Research Institute (HRI)",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "JAIH"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2024,
+              4,
+              30
+            ]
+          ]
+        },
+        "DOI": "10.46397/jaih.16.4",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              5,
+              24
+            ]
+          ],
+          "date-time": "2024-05-24T02:34:08Z",
+          "timestamp": 1716518048000
+        },
+        "page": "113-136",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Can AI become an Expert?"
+        ],
+        "prefix": "10.46397",
+        "volume": "16",
+        "author": [
+          {
+            "given": "Hyeongyun",
+            "family": "Kim",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "25666",
+        "published-online": {
+          "date-parts": [
+            [
+              2024,
+              4,
+              30
+            ]
+          ]
+        },
+        "container-title": [
+          "Journal of AI Humanities"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              5,
+              24
+            ]
+          ],
+          "date-time": "2024-05-24T02:34:14Z",
+          "timestamp": 1716518054000
+        },
+        "score": 16.601177,
+        "resource": {
+          "primary": {
+            "URL": "https://kiss.kstudy.com/Detail/Ar?key=4091807"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2024,
+              4,
+              30
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.46397/jaih.16.4",
+        "ISSN": [
+          "2635-4691"
+        ],
+        "issn-type": [
+          {
+            "value": "2635-4691",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2024,
+              4,
+              30
+            ]
+          ]
+        }
       },
       {
         "indexed": {
@@ -4517,7 +4517,7 @@
           "date-time": "2026-05-15T00:47:20Z",
           "timestamp": 1778806040000
         },
-        "score": 16.527817,
+        "score": 16.486555,
         "resource": {
           "primary": {
             "URL": "http://journalofhumanitiesai.org/journal/view.php?doi=10.66532/jhai.2026.0004"
@@ -4680,7 +4680,7 @@
           "date-time": "2026-03-13T02:14:18Z",
           "timestamp": 1773368058000
         },
-        "score": 16.435024,
+        "score": 16.434721,
         "resource": {
           "primary": {
             "URL": "https://mds.marshall.edu/criticalhumanities/vol2/iss2/1"
@@ -4810,7 +4810,7 @@
           "date-time": "2026-03-13T02:14:31Z",
           "timestamp": 1773368071000
         },
-        "score": 16.416636,
+        "score": 16.416668,
         "resource": {
           "primary": {
             "URL": "https://mds.marshall.edu/criticalhumanities/vol2/iss1/7"
@@ -4986,7 +4986,7 @@
           "date-time": "2026-05-15T00:47:16Z",
           "timestamp": 1778806036000
         },
-        "score": 16.383488,
+        "score": 16.38345,
         "resource": {
           "primary": {
             "URL": "http://journalofhumanitiesai.org/journal/view.php?doi=10.66532/jhai.2026.0001"
@@ -5212,7 +5212,7 @@
           "date-time": "2026-05-08T14:44:35Z",
           "timestamp": 1778251475000
         },
-        "score": 16.357899,
+        "score": 16.348541,
         "resource": {
           "primary": {
             "URL": "https://read.dukeupress.edu/critical-ai/article/doi/10.1215/2834703X-12347699/410010/Artificial-Humanities-A-Fictional-Perspective-on"
@@ -5273,6 +5273,305 @@
               2026,
               4,
               1
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              8,
+              17
+            ]
+          ],
+          "date-time": "2024-08-17T00:11:33Z",
+          "timestamp": 1723853493051
+        },
+        "reference-count": 0,
+        "publisher": "University of Anbar",
+        "issue": "1",
+        "content-domain": {
+          "domain": [
+            "juah.uoanbar.edu.iq"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Al-Anbar University Journal For Humanities"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              1
+            ]
+          ]
+        },
+        "DOI": "10.37653/juah.2022.174719",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2023,
+              7,
+              17
+            ]
+          ],
+          "date-time": "2023-07-17T15:32:43Z",
+          "timestamp": 1689607963000
+        },
+        "page": "22-58",
+        "update-policy": "http://dx.doi.org/10.37653/crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "AI-Hasan Bin AIi AI-Atroosh and his role in the revivaI of AI- AIawia emirate in Tabaristan ( 301 – 316 / 913- 928)"
+        ],
+        "prefix": "10.37653",
+        "volume": "2022",
+        "author": [
+          {
+            "given": "Fawaz",
+            "family": "Jazzaa",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Hamad",
+            "family": "Mohammed",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "14850",
+        "published-online": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              1
+            ]
+          ]
+        },
+        "container-title": [
+          "Al-Anbar University Journal For Humanities"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://juah.uoanbar.edu.iq/article_174719_4118226a8e9198adc9bfada8f8d088d7.pdf",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              8,
+              16
+            ]
+          ],
+          "date-time": "2024-08-16T06:33:29Z",
+          "timestamp": 1723790009000
+        },
+        "score": 16.214771,
+        "resource": {
+          "primary": {
+            "URL": "https://juah.uoanbar.edu.iq/article_174719.html"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              1
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "1",
+          "published-online": {
+            "date-parts": [
+              [
+                2022,
+                3,
+                1
+              ]
+            ]
+          },
+          "published-print": {
+            "date-parts": [
+              [
+                2022,
+                3,
+                1
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.37653/juah.2022.174719",
+        "ISSN": [
+          "2706-6673"
+        ],
+        "issn-type": [
+          {
+            "type": "electronic",
+            "value": "2706-6673"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              3,
+              21
+            ]
+          ],
+          "date-time": "2025-03-21T04:15:13Z",
+          "timestamp": 1742530513798,
+          "version": "3.40.1"
+        },
+        "reference-count": 0,
+        "publisher": "Publishing House Helvetica (Publications)",
+        "issue": "22 (99)",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "HUMANITIES STUDIES"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "DOI": "10.32782/hst-2025-22-99-14",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              3,
+              20
+            ]
+          ],
+          "date-time": "2025-03-20T21:26:41Z",
+          "timestamp": 1742506001000
+        },
+        "page": "132-138",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "IMPLEMENTATION OF ARTIFICIAL INTELLIGENCE (AI) IN THE WORK OF ORGANIZATIONS"
+        ],
+        "prefix": "10.32782",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0003-0058-1848",
+            "authenticated-orcid": false,
+            "given": "OLEKSANDRA",
+            "family": "SOROKINA",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "17914",
+        "published-online": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "container-title": [
+          "HUMANITIES STUDIES"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              3,
+              20
+            ]
+          ],
+          "date-time": "2025-03-20T21:30:39Z",
+          "timestamp": 1742506239000
+        },
+        "score": 16.202734,
+        "resource": {
+          "primary": {
+            "URL": "http://humstudies.com.ua/article/view/325096"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "22 (99)",
+          "published-online": {
+            "date-parts": [
+              [
+                2025
+              ]
+            ]
+          },
+          "published-print": {
+            "date-parts": [
+              [
+                2025
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.32782/hst-2025-22-99-14",
+        "published": {
+          "date-parts": [
+            [
+              2025
             ]
           ]
         }
@@ -5480,7 +5779,7 @@
           "date-time": "2025-10-09T16:50:51Z",
           "timestamp": 1760028651000
         },
-        "score": 16.217943,
+        "score": 16.175423,
         "resource": {
           "primary": {
             "URL": "https://www.mdpi.com/2076-0787/14/3/57"
@@ -5526,305 +5825,6 @@
               2025,
               3,
               11
-            ]
-          ]
-        }
-      },
-      {
-        "indexed": {
-          "date-parts": [
-            [
-              2024,
-              8,
-              17
-            ]
-          ],
-          "date-time": "2024-08-17T00:11:33Z",
-          "timestamp": 1723853493051
-        },
-        "reference-count": 0,
-        "publisher": "University of Anbar",
-        "issue": "1",
-        "content-domain": {
-          "domain": [
-            "juah.uoanbar.edu.iq"
-          ],
-          "crossmark-restriction": false
-        },
-        "short-container-title": [
-          "Al-Anbar University Journal For Humanities"
-        ],
-        "published-print": {
-          "date-parts": [
-            [
-              2022,
-              3,
-              1
-            ]
-          ]
-        },
-        "DOI": "10.37653/juah.2022.174719",
-        "type": "journal-article",
-        "created": {
-          "date-parts": [
-            [
-              2023,
-              7,
-              17
-            ]
-          ],
-          "date-time": "2023-07-17T15:32:43Z",
-          "timestamp": 1689607963000
-        },
-        "page": "22-58",
-        "update-policy": "http://dx.doi.org/10.37653/crossmark_policy",
-        "source": "Crossref",
-        "is-referenced-by-count": 0,
-        "title": [
-          "AI-Hasan Bin AIi AI-Atroosh and his role in the revivaI of AI- AIawia emirate in Tabaristan ( 301 – 316 / 913- 928)"
-        ],
-        "prefix": "10.37653",
-        "volume": "2022",
-        "author": [
-          {
-            "given": "Fawaz",
-            "family": "Jazzaa",
-            "sequence": "first",
-            "affiliation": [],
-            "role": [
-              {
-                "role": "author",
-                "vocabulary": "crossref"
-              }
-            ]
-          },
-          {
-            "given": "Hamad",
-            "family": "Mohammed",
-            "sequence": "additional",
-            "affiliation": [],
-            "role": [
-              {
-                "role": "author",
-                "vocabulary": "crossref"
-              }
-            ]
-          }
-        ],
-        "member": "14850",
-        "published-online": {
-          "date-parts": [
-            [
-              2022,
-              3,
-              1
-            ]
-          ]
-        },
-        "container-title": [
-          "Al-Anbar University Journal For Humanities"
-        ],
-        "language": "en",
-        "link": [
-          {
-            "URL": "https://juah.uoanbar.edu.iq/article_174719_4118226a8e9198adc9bfada8f8d088d7.pdf",
-            "content-type": "unspecified",
-            "content-version": "vor",
-            "intended-application": "similarity-checking"
-          }
-        ],
-        "deposited": {
-          "date-parts": [
-            [
-              2024,
-              8,
-              16
-            ]
-          ],
-          "date-time": "2024-08-16T06:33:29Z",
-          "timestamp": 1723790009000
-        },
-        "score": 16.214745,
-        "resource": {
-          "primary": {
-            "URL": "https://juah.uoanbar.edu.iq/article_174719.html"
-          }
-        },
-        "issued": {
-          "date-parts": [
-            [
-              2022,
-              3,
-              1
-            ]
-          ]
-        },
-        "references-count": 0,
-        "journal-issue": {
-          "issue": "1",
-          "published-online": {
-            "date-parts": [
-              [
-                2022,
-                3,
-                1
-              ]
-            ]
-          },
-          "published-print": {
-            "date-parts": [
-              [
-                2022,
-                3,
-                1
-              ]
-            ]
-          }
-        },
-        "URL": "https://doi.org/10.37653/juah.2022.174719",
-        "ISSN": [
-          "2706-6673"
-        ],
-        "issn-type": [
-          {
-            "type": "electronic",
-            "value": "2706-6673"
-          }
-        ],
-        "published": {
-          "date-parts": [
-            [
-              2022,
-              3,
-              1
-            ]
-          ]
-        }
-      },
-      {
-        "indexed": {
-          "date-parts": [
-            [
-              2025,
-              3,
-              21
-            ]
-          ],
-          "date-time": "2025-03-21T04:15:13Z",
-          "timestamp": 1742530513798,
-          "version": "3.40.1"
-        },
-        "reference-count": 0,
-        "publisher": "Publishing House Helvetica (Publications)",
-        "issue": "22 (99)",
-        "content-domain": {
-          "domain": [],
-          "crossmark-restriction": false
-        },
-        "short-container-title": [
-          "HUMANITIES STUDIES"
-        ],
-        "published-print": {
-          "date-parts": [
-            [
-              2025
-            ]
-          ]
-        },
-        "DOI": "10.32782/hst-2025-22-99-14",
-        "type": "journal-article",
-        "created": {
-          "date-parts": [
-            [
-              2025,
-              3,
-              20
-            ]
-          ],
-          "date-time": "2025-03-20T21:26:41Z",
-          "timestamp": 1742506001000
-        },
-        "page": "132-138",
-        "source": "Crossref",
-        "is-referenced-by-count": 0,
-        "title": [
-          "IMPLEMENTATION OF ARTIFICIAL INTELLIGENCE (AI) IN THE WORK OF ORGANIZATIONS"
-        ],
-        "prefix": "10.32782",
-        "author": [
-          {
-            "ORCID": "https://orcid.org/0000-0003-0058-1848",
-            "authenticated-orcid": false,
-            "given": "OLEKSANDRA",
-            "family": "SOROKINA",
-            "sequence": "first",
-            "affiliation": [],
-            "role": [
-              {
-                "role": "author",
-                "vocabulary": "crossref"
-              }
-            ]
-          }
-        ],
-        "member": "17914",
-        "published-online": {
-          "date-parts": [
-            [
-              2025
-            ]
-          ]
-        },
-        "container-title": [
-          "HUMANITIES STUDIES"
-        ],
-        "deposited": {
-          "date-parts": [
-            [
-              2025,
-              3,
-              20
-            ]
-          ],
-          "date-time": "2025-03-20T21:30:39Z",
-          "timestamp": 1742506239000
-        },
-        "score": 16.207598,
-        "resource": {
-          "primary": {
-            "URL": "http://humstudies.com.ua/article/view/325096"
-          }
-        },
-        "issued": {
-          "date-parts": [
-            [
-              2025
-            ]
-          ]
-        },
-        "references-count": 0,
-        "journal-issue": {
-          "issue": "22 (99)",
-          "published-online": {
-            "date-parts": [
-              [
-                2025
-              ]
-            ]
-          },
-          "published-print": {
-            "date-parts": [
-              [
-                2025
-              ]
-            ]
-          }
-        },
-        "URL": "https://doi.org/10.32782/hst-2025-22-99-14",
-        "published": {
-          "date-parts": [
-            [
-              2025
             ]
           ]
         }
@@ -5956,7 +5956,7 @@
           "date-time": "2025-06-19T06:59:35Z",
           "timestamp": 1750316375000
         },
-        "score": 16.075983,
+        "score": 16.074844,
         "resource": {
           "primary": {
             "URL": "https://shanlaxjournals.in/journals/index.php/sijash/article/view/9152"
@@ -6850,7 +6850,7 @@
           "date-time": "2026-04-28T08:03:52Z",
           "timestamp": 1777363432000
         },
-        "score": 16.070456,
+        "score": 16.07048,
         "resource": {
           "primary": {
             "URL": "https://linkinghub.elsevier.com/retrieve/pii/S2590291125005376"
@@ -7479,7 +7479,7 @@
           "date-time": "2026-06-12T09:43:55Z",
           "timestamp": 1781257435000
         },
-        "score": 16.042747,
+        "score": 16.045177,
         "resource": {
           "primary": {
             "URL": "https://linkinghub.elsevier.com/retrieve/pii/S2590291126004341"
@@ -7638,7 +7638,7 @@
           "date-time": "2023-03-24T11:58:28Z",
           "timestamp": 1679659108000
         },
-        "score": 16.010078,
+        "score": 16.011898,
         "resource": {
           "primary": {
             "URL": "https://kiss.kstudy.com/Detail/Ar?key=3930131"
@@ -8578,7 +8578,7 @@
           "date-time": "2025-06-18T06:27:41Z",
           "timestamp": 1750228061000
         },
-        "score": 15.979227,
+        "score": 15.979256,
         "resource": {
           "primary": {
             "URL": "https://linkinghub.elsevier.com/retrieve/pii/S2590291125000269"
@@ -8740,7 +8740,7 @@
           "date-time": "2026-03-13T02:14:48Z",
           "timestamp": 1773368088000
         },
-        "score": 15.972874,
+        "score": 15.969248,
         "resource": {
           "primary": {
             "URL": "https://mds.marshall.edu/criticalhumanities/vol2/iss1/4"
@@ -8876,7 +8876,7 @@
           "date-time": "2025-01-29T20:11:46Z",
           "timestamp": 1738181506000
         },
-        "score": 15.969934,
+        "score": 15.961807,
         "resource": {
           "primary": {
             "URL": "http://humstudies.com.ua/article/view/321890"
@@ -8912,163 +8912,6 @@
           "date-parts": [
             [
               2024
-            ]
-          ]
-        }
-      },
-      {
-        "indexed": {
-          "date-parts": [
-            [
-              2025,
-              4,
-              22
-            ]
-          ],
-          "date-time": "2025-04-22T04:02:01Z",
-          "timestamp": 1745294521489,
-          "version": "3.40.4"
-        },
-        "reference-count": 0,
-        "publisher": "DYA Research Center",
-        "issue": "01",
-        "content-domain": {
-          "domain": [],
-          "crossmark-restriction": false
-        },
-        "short-container-title": [
-          "IJGHMI"
-        ],
-        "published-print": {
-          "date-parts": [
-            [
-              2025,
-              1,
-              1
-            ]
-          ]
-        },
-        "abstract": "<jats:p>In the 21st century, the integration of Artificial Intelligence (AI) into the digital \nhumanities has redefined how knowledge is created, preserved, interpreted, and \ndisseminated. This research explores how AI technologies are transforming human \nexpression through digital art, literature, language processing, and global \ncollaboration. The study evaluates the impact of AI tools such as machine learning, \nnatural language processing, and generative models in enhancing research, digital \narchives, translation, and knowledge sharing. By analyzing data from academic \ninstitutions, AI platforms, and user feedback, this paper highlights key trends, \nbenefits, and challenges in this digital revolution. Through case studies and survey\nbased analysis, it offers insights into how AI can enrich humanistic inquiry and \ndemocratize access to global cultural resources.</jats:p>",
-        "DOI": "10.63665/ijghmi.v01i01.02",
-        "type": "journal-article",
-        "created": {
-          "date-parts": [
-            [
-              2025,
-              4,
-              21
-            ]
-          ],
-          "date-time": "2025-04-21T09:33:21Z",
-          "timestamp": 1745228001000
-        },
-        "page": "10-22",
-        "source": "Crossref",
-        "is-referenced-by-count": 0,
-        "title": [
-          "Digital Humanities in the Age of AI: Transforming Human Expression and Global Knowledge Sharing"
-        ],
-        "prefix": "10.63665",
-        "volume": "01",
-        "author": [
-          {
-            "given": "Dr Priti Prasad",
-            "family": "Kapadni",
-            "sequence": "first",
-            "affiliation": [],
-            "role": [
-              {
-                "role": "author",
-                "vocabulary": "crossref"
-              }
-            ]
-          }
-        ],
-        "member": "53048",
-        "published-online": {
-          "date-parts": [
-            [
-              2025,
-              1,
-              1
-            ]
-          ]
-        },
-        "container-title": [
-          "International Journal of Global Humanities and Management Insights"
-        ],
-        "original-title": [
-          "Digital Humanities in the Age of AI: Transforming Human Expression and Global Knowledge Sharing"
-        ],
-        "deposited": {
-          "date-parts": [
-            [
-              2025,
-              4,
-              21
-            ]
-          ],
-          "date-time": "2025-04-21T09:33:22Z",
-          "timestamp": 1745228002000
-        },
-        "score": 15.936735,
-        "resource": {
-          "primary": {
-            "URL": "https://www.apexacademiapress.com/Journalss/index.php/IJGHMI/article/view/66"
-          }
-        },
-        "issued": {
-          "date-parts": [
-            [
-              2025,
-              1,
-              1
-            ]
-          ]
-        },
-        "references-count": 0,
-        "journal-issue": {
-          "issue": "01",
-          "published-online": {
-            "date-parts": [
-              [
-                2025,
-                1,
-                1
-              ]
-            ]
-          },
-          "published-print": {
-            "date-parts": [
-              [
-                2025,
-                1,
-                1
-              ]
-            ]
-          }
-        },
-        "URL": "https://doi.org/10.63665/ijghmi.v01i01.02",
-        "ISSN": [
-          "3067-6894",
-          "3067-6916"
-        ],
-        "issn-type": [
-          {
-            "value": "3067-6894",
-            "type": "print"
-          },
-          {
-            "value": "3067-6916",
-            "type": "electronic"
-          }
-        ],
-        "published": {
-          "date-parts": [
-            [
-              2025,
-              1,
-              1
             ]
           ]
         }
@@ -9574,7 +9417,7 @@
           "date-time": "2025-06-18T06:29:22Z",
           "timestamp": 1750228162000
         },
-        "score": 15.920415,
+        "score": 15.922586,
         "resource": {
           "primary": {
             "URL": "https://linkinghub.elsevier.com/retrieve/pii/S2590291125000737"
@@ -9641,6 +9484,163 @@
           }
         ],
         "article-number": "101346"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              4,
+              22
+            ]
+          ],
+          "date-time": "2025-04-22T04:02:01Z",
+          "timestamp": 1745294521489,
+          "version": "3.40.4"
+        },
+        "reference-count": 0,
+        "publisher": "DYA Research Center",
+        "issue": "01",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "IJGHMI"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2025,
+              1,
+              1
+            ]
+          ]
+        },
+        "abstract": "<jats:p>In the 21st century, the integration of Artificial Intelligence (AI) into the digital \nhumanities has redefined how knowledge is created, preserved, interpreted, and \ndisseminated. This research explores how AI technologies are transforming human \nexpression through digital art, literature, language processing, and global \ncollaboration. The study evaluates the impact of AI tools such as machine learning, \nnatural language processing, and generative models in enhancing research, digital \narchives, translation, and knowledge sharing. By analyzing data from academic \ninstitutions, AI platforms, and user feedback, this paper highlights key trends, \nbenefits, and challenges in this digital revolution. Through case studies and survey\nbased analysis, it offers insights into how AI can enrich humanistic inquiry and \ndemocratize access to global cultural resources.</jats:p>",
+        "DOI": "10.63665/ijghmi.v01i01.02",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              4,
+              21
+            ]
+          ],
+          "date-time": "2025-04-21T09:33:21Z",
+          "timestamp": 1745228001000
+        },
+        "page": "10-22",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Digital Humanities in the Age of AI: Transforming Human Expression and Global Knowledge Sharing"
+        ],
+        "prefix": "10.63665",
+        "volume": "01",
+        "author": [
+          {
+            "given": "Dr Priti Prasad",
+            "family": "Kapadni",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "53048",
+        "published-online": {
+          "date-parts": [
+            [
+              2025,
+              1,
+              1
+            ]
+          ]
+        },
+        "container-title": [
+          "International Journal of Global Humanities and Management Insights"
+        ],
+        "original-title": [
+          "Digital Humanities in the Age of AI: Transforming Human Expression and Global Knowledge Sharing"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              4,
+              21
+            ]
+          ],
+          "date-time": "2025-04-21T09:33:22Z",
+          "timestamp": 1745228002000
+        },
+        "score": 15.916445,
+        "resource": {
+          "primary": {
+            "URL": "https://www.apexacademiapress.com/Journalss/index.php/IJGHMI/article/view/66"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              1,
+              1
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "01",
+          "published-online": {
+            "date-parts": [
+              [
+                2025,
+                1,
+                1
+              ]
+            ]
+          },
+          "published-print": {
+            "date-parts": [
+              [
+                2025,
+                1,
+                1
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.63665/ijghmi.v01i01.02",
+        "ISSN": [
+          "3067-6894",
+          "3067-6916"
+        ],
+        "issn-type": [
+          {
+            "value": "3067-6894",
+            "type": "print"
+          },
+          {
+            "value": "3067-6916",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              1,
+              1
+            ]
+          ]
+        }
       }
     ],
     "items-per-page": 30,
