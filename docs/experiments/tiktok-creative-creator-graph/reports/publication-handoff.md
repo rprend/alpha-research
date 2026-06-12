@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-12T20:56:45.870Z
+Generated: 2026-06-12T21:02:22.915Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -23,6 +23,9 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Source yield rows: 7
 - Category coverage: 5/11
 - Acquisition tasks: 68
+- Candidate frontier: 68
+- Candidate frontier handles: 4
+- Candidate frontier queries: 64
 - Acquisition import waves: 1
 - Acquisition import traced rows: 0
 - Acquisition import untraced rows: 6
@@ -61,6 +64,8 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - provider_preflight: `docs/experiments/tiktok-creative-creator-graph/reports/provider-preflight.json`
 - refresh_plan: `docs/experiments/tiktok-creative-creator-graph/reports/refresh-plan.json`
 - acquisition_batches: `docs/experiments/tiktok-creative-creator-graph/reports/acquisition-batches.json`
+- candidate_frontier: `docs/experiments/tiktok-creative-creator-graph/reports/candidate-frontier.json`
+- candidate_frontier_queue: `docs/experiments/tiktok-creative-creator-graph/data/processed/candidate_frontier.csv`
 - acquisition_import: `docs/experiments/tiktok-creative-creator-graph/reports/acquisition-import.json`
 - acquisition_import_waves: `docs/experiments/tiktok-creative-creator-graph/data/processed/acquisition_import_waves.jsonl`
 - acquisition_run_history: `docs/experiments/tiktok-creative-creator-graph/data/processed/acquisition_run_history.jsonl`

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T20:56:45.906Z",
+  "generated_at": "2026-06-12T21:02:22.955Z",
   "complete": false,
   "counts": {
     "accounts": 9,
@@ -16,6 +16,9 @@
     "benchmark_creators": 1,
     "expansion_queue": 4,
     "acquisition_tasks": 68,
+    "candidate_frontier": 68,
+    "candidate_frontier_handles": 4,
+    "candidate_frontier_queries": 64,
     "acquisition_import_waves": 1,
     "acquisition_runner_tasks": 2,
     "acquisition_runner_runnable_tasks": 2,
@@ -85,6 +88,11 @@
       "id": "acquisition_batches",
       "status": "pass",
       "evidence": "68 acquisition tasks generated"
+    },
+    {
+      "id": "candidate_frontier",
+      "status": "pass",
+      "evidence": "68 ranked acquisition candidates generated"
     },
     {
       "id": "acquisition_import_waves",

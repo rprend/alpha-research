@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T20:56:45.906Z
+Generated: 2026-06-12T21:02:22.955Z
 
 Complete: false
 
@@ -20,6 +20,9 @@ Complete: false
 - Benchmark creators: 1
 - Expansion queue: 4
 - Acquisition tasks: 68
+- Candidate frontier: 68
+- Candidate frontier handles: 4
+- Candidate frontier queries: 64
 - Acquisition import waves: 1
 - Acquisition runner tasks: 2
 - Acquisition runner runnable tasks: 2
@@ -54,6 +57,7 @@ Complete: false
 - review_plan: pass (11 category review plan rows generated)
 - expansion_queue: pass (4 expansion targets queued)
 - acquisition_batches: pass (68 acquisition tasks generated)
+- candidate_frontier: pass (68 ranked acquisition candidates generated)
 - acquisition_import_waves: pass (1 acquisition import waves tracked)
 - acquisition_runner: pass (2 runnable of 2 selected provider tasks (dry run))
 - acquisition_run_history: pass (7 acquisition run history rows persisted)

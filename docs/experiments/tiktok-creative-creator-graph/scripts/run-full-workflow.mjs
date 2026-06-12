@@ -71,6 +71,7 @@ function main() {
   steps.push(['build_review_sample', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-review-sample.mjs']])
   steps.push(['build_review_plan', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-review-plan.mjs']])
   steps.push(['build_acquisition_batches', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-acquisition-batches.mjs']])
+  steps.push(['build_candidate_frontier', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-candidate-frontier.mjs']])
   steps.push(['build_release_package', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-release-package.mjs']])
   steps.push(['verify_release_package', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/verify-release-package.mjs']])
   steps.push(['build_scale_plan', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-scale-plan.mjs']])

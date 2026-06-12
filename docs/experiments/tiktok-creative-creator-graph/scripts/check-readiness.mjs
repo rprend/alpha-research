@@ -32,6 +32,7 @@ function main() {
   const benchmarkCreators = readJsonl(join(processedDir, 'benchmark_creators.jsonl'))
   const expansionQueue = readJsonl(join(processedDir, 'expansion_queue.jsonl'))
   const acquisitionTasks = readJsonl(join(processedDir, 'acquisition/acquisition_tasks.jsonl'))
+  const candidateFrontier = readJsonl(join(processedDir, 'candidate_frontier.jsonl'))
   const acquisitionImportWaves = readJsonl(join(processedDir, 'acquisition_import_waves.jsonl'))
   const acquisitionRunHistory = readJsonl(join(processedDir, 'acquisition_run_history.jsonl'))
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
@@ -122,6 +123,11 @@ function main() {
       id: 'acquisition_batches',
       status: acquisitionTasks.length > 0 ? 'pass' : 'fail',
       evidence: `${acquisitionTasks.length} acquisition tasks generated`,
+    },
+    {
+      id: 'candidate_frontier',
+      status: candidateFrontier.length > 0 ? 'pass' : 'fail',
+      evidence: `${candidateFrontier.length} ranked acquisition candidates generated`,
     },
     {
       id: 'acquisition_import_waves',
@@ -229,6 +235,9 @@ function main() {
       benchmark_creators: benchmarkCreators.length,
       expansion_queue: expansionQueue.length,
       acquisition_tasks: acquisitionTasks.length,
+      candidate_frontier: candidateFrontier.length,
+      candidate_frontier_handles: candidateFrontier.filter((row) => row.target_kind === 'handle').length,
+      candidate_frontier_queries: candidateFrontier.filter((row) => ['query', 'search_query', 'hashtag'].includes(row.target_kind)).length,
       acquisition_import_waves: acquisitionImportWaves.length,
       acquisition_runner_tasks: acquisitionRun?.selected_tasks ?? 0,
       acquisition_runner_runnable_tasks: acquisitionRun?.runnable_tasks ?? acquisitionRun?.selected_tasks ?? 0,
@@ -284,6 +293,9 @@ Complete: ${summary.complete}
 - Benchmark creators: ${summary.counts.benchmark_creators}
 - Expansion queue: ${summary.counts.expansion_queue}
 - Acquisition tasks: ${summary.counts.acquisition_tasks}
+- Candidate frontier: ${summary.counts.candidate_frontier}
+- Candidate frontier handles: ${summary.counts.candidate_frontier_handles}
+- Candidate frontier queries: ${summary.counts.candidate_frontier_queries}
 - Acquisition import waves: ${summary.counts.acquisition_import_waves}
 - Acquisition runner tasks: ${summary.counts.acquisition_runner_tasks}
 - Acquisition runner runnable tasks: ${summary.counts.acquisition_runner_runnable_tasks}

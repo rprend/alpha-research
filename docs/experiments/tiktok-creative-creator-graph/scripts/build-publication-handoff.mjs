@@ -36,6 +36,7 @@ function main() {
   const refreshPlan = readJson(join(reportsDir, 'refresh-plan.json'), null)
   const categoryCoverage = readJson(join(reportsDir, 'category-coverage.json'), null)
   const acquisitionBatches = readJson(join(reportsDir, 'acquisition-batches.json'), null)
+  const candidateFrontierReport = readJson(join(reportsDir, 'candidate-frontier.json'), null)
   const acquisitionRun = readJson(join(reportsDir, 'acquisition-run.json'), null)
   const importWaves = readJsonl(join(processedDir, 'acquisition_import_waves.jsonl'))
   const acquisitionRunHistory = readJsonl(join(processedDir, 'acquisition_run_history.jsonl'))
@@ -45,6 +46,7 @@ function main() {
   const scaleWaves = readJsonl(join(processedDir, 'scale_waves.jsonl'))
   const waveLedger = readJsonl(join(processedDir, 'wave_ledger.jsonl'))
   const providerPreflight = readJsonl(join(processedDir, 'provider_preflight.jsonl'))
+  const candidateFrontier = readJsonl(join(processedDir, 'candidate_frontier.jsonl'))
   const reviewDecisions = readJsonl(join(processedDir, 'review_decisions.jsonl'))
 
   const counts = readiness?.counts ?? manifest.counts ?? {}
@@ -106,6 +108,9 @@ function main() {
       source_yield_rows: counts.source_yield_rows ?? sourceYield.length,
       category_coverage: categoryCoverage ? `${categoryCoverage.covered_labels}/${categoryCoverage.labels}` : 'missing',
       acquisition_tasks: counts.acquisition_tasks ?? acquisitionBatches?.tasks ?? 0,
+      candidate_frontier: counts.candidate_frontier ?? candidateFrontier.length,
+      candidate_frontier_handles: counts.candidate_frontier_handles ?? candidateFrontierReport?.handle_targets ?? 0,
+      candidate_frontier_queries: counts.candidate_frontier_queries ?? candidateFrontierReport?.query_targets ?? 0,
       acquisition_import_waves: counts.acquisition_import_waves ?? importWaves.length,
       acquisition_import_lineage_rows: importedLineageRows,
       acquisition_import_untraced_rows: untracedImportRows,
@@ -153,6 +158,8 @@ function main() {
       provider_preflight: rel(join(reportsDir, 'provider-preflight.json')),
       refresh_plan: rel(join(reportsDir, 'refresh-plan.json')),
       acquisition_batches: rel(join(reportsDir, 'acquisition-batches.json')),
+      candidate_frontier: rel(join(reportsDir, 'candidate-frontier.json')),
+      candidate_frontier_queue: rel(join(processedDir, 'candidate_frontier.csv')),
       acquisition_import: rel(join(reportsDir, 'acquisition-import.json')),
       acquisition_import_waves: rel(join(processedDir, 'acquisition_import_waves.jsonl')),
       acquisition_run_history: rel(join(processedDir, 'acquisition_run_history.jsonl')),
@@ -216,6 +223,9 @@ ${handoff.objective}
 - Source yield rows: ${handoff.current_corpus.source_yield_rows}
 - Category coverage: ${handoff.current_corpus.category_coverage}
 - Acquisition tasks: ${handoff.current_corpus.acquisition_tasks}
+- Candidate frontier: ${handoff.current_corpus.candidate_frontier}
+- Candidate frontier handles: ${handoff.current_corpus.candidate_frontier_handles}
+- Candidate frontier queries: ${handoff.current_corpus.candidate_frontier_queries}
 - Acquisition import waves: ${handoff.current_corpus.acquisition_import_waves}
 - Acquisition import traced rows: ${handoff.current_corpus.acquisition_import_lineage_rows}
 - Acquisition import untraced rows: ${handoff.current_corpus.acquisition_import_untraced_rows}

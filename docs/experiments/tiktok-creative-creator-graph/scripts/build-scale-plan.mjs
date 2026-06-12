@@ -45,6 +45,7 @@ function main() {
   const readiness = readJson(join(reportsDir, 'readiness.json'))
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
   const acquisitionTasks = readJsonl(join(processedDir, 'acquisition/acquisition_tasks.jsonl'))
+  const candidateFrontier = readJsonl(join(processedDir, 'candidate_frontier.jsonl'))
   const scores = readJsonl(join(processedDir, 'creator_scores_reviewed.jsonl')).length
     ? readJsonl(join(processedDir, 'creator_scores_reviewed.jsonl'))
     : readJsonl(join(processedDir, 'creator_scores.jsonl'))
@@ -82,12 +83,15 @@ function main() {
       recommended_batch_share: index < 3 ? 0.2 : index < 6 ? 0.1 : 0.05,
     }))
 
-  const nextBatches = acquisitionTasks.slice(0, 25).map((task, index) => ({
+  const nextBatches = (candidateFrontier.length ? candidateFrontier : acquisitionTasks).slice(0, 25).map((task, index) => ({
     sequence: index + 1,
-    batch_id: task.batch_id,
+    batch_id: task.batch_id ?? task.source_batch_ids ?? '',
+    frontier_rank: task.frontier_rank ?? '',
+    frontier_score: task.frontier_score ?? '',
     priority: task.priority,
     acquisition_surface: task.acquisition_surface,
-    query: task.query,
+    query: task.query ?? task.target,
+    target_kind: task.target_kind ?? '',
     expected_output: task.expected_output,
     import_target: task.import_target,
   }))
@@ -122,6 +126,11 @@ function main() {
       import_batches_needed: importBatchesNeeded,
       useful_creators_needed_for_excellent_target: usefulNeededForExcellent,
       review_batches_needed: reviewBatchesNeeded,
+    },
+    candidate_frontier: {
+      targets: candidateFrontier.length,
+      handle_targets: candidateFrontier.filter((row) => row.target_kind === 'handle').length,
+      query_targets: candidateFrontier.filter((row) => ['query', 'search_query', 'hashtag'].includes(row.target_kind)).length,
     },
     ranked_surfaces: rankedSurfaces,
     next_batches: nextBatches,
@@ -167,9 +176,11 @@ ${rankedSurfaces.map((row) => `| ${row.rank} | ${row.source_type} | ${row.source
 
 ## Next Batches
 
-| Seq | Priority | Surface | Query |
-| ---: | ---: | --- | --- |
-${nextBatches.map((row) => `| ${row.sequence} | ${row.priority} | ${row.acquisition_surface} | ${row.query} |`).join('\n')}
+Candidate frontier targets: ${summary.candidate_frontier.targets}
+
+| Seq | Rank | Score | Priority | Surface | Target |
+| ---: | ---: | ---: | ---: | --- | --- |
+${nextBatches.map((row) => `| ${row.sequence} | ${row.frontier_rank || ''} | ${row.frontier_score || ''} | ${row.priority} | ${row.acquisition_surface} | ${row.query} |`).join('\n')}
 `)
 
   console.log(JSON.stringify(summary, null, 2))

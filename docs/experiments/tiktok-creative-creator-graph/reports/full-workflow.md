@@ -1,6 +1,6 @@
 # Full Workflow
 
-Generated: 2026-06-12T20:56:45.910Z
+Generated: 2026-06-12T21:02:22.960Z
 
 Complete: true
 
@@ -15,6 +15,7 @@ Complete: true
 - build_review_sample: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-review-sample.mjs`)
 - build_review_plan: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-review-plan.mjs`)
 - build_acquisition_batches: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-acquisition-batches.mjs`)
+- build_candidate_frontier: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-candidate-frontier.mjs`)
 - build_release_package: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-release-package.mjs`)
 - verify_release_package: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/verify-release-package.mjs`)
 - build_scale_plan: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-scale-plan.mjs`)
