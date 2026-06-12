@@ -1,6 +1,6 @@
 # Acquisition Import
 
-Generated: 2026-06-12T20:28:11.213Z
+Generated: 2026-06-12T20:31:55.064Z
 
 - Input rows: 6
 - Normalized rows: 6
@@ -16,7 +16,7 @@ Generated: 2026-06-12T20:28:11.213Z
 
 ## Wave
 
-- Wave id: import-2026-06-12T20-28-11-213Z
+- Wave id: import-2026-06-12T20-31-55-064Z
 - Source file count: 2
 - Target labels: unclassified=6
 - Surfaces: provider_video_export=3, search_result_export=3
