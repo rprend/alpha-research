@@ -67,6 +67,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/wayback_captures.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/search_candidates.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/search_promotions.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/faculty_search_queries.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/common_crawl_candidates.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/common_crawl_promotions.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/faculty_profile_candidates.jsonl`
@@ -103,7 +104,7 @@ Known gaps:
 - Assignment extraction now combines sentence snippets with bounded long-brief blocks from project, assignment, exercise, deliverable, due, presentation, and critique headings. It still needs richer field-specific parsing from complete assignment pages.
 - Search candidate import is supported through local JSON/JSONL exports, and a live search API path is wired for Brave or Bing when an API key is present in the environment. Coverage-derived gap queries are now treated as first-class search backlog rows and bounded live API inputs while preserving course/gap provenance.
 - A bounded Common Crawl candidate, promotion, and ingestion pass exists, but it is still capped and should be expanded carefully.
-- Faculty/course edges are derived from course evidence, and bounded RISD faculty-profile candidate discovery/ingestion is implemented. Faculty-portfolio expansion now follows external links from official RISD profile pages, but broader public web search for faculty teaching/course artifacts is still not wired yet.
+- Faculty/course edges are derived from course evidence, bounded RISD faculty-profile candidate discovery/ingestion is implemented, and faculty-derived teaching/course artifact queries now feed the search backlog and bounded live-search path. Faculty-portfolio expansion follows external links from official RISD profile pages; discovered faculty teaching artifacts still need actual search-result URLs to promote and classify.
 - Source clustering is used to group evidence families in generated course packets. Current clusters are mostly related source families rather than exact duplicates, so the generator preserves distinct related pages and still needs stronger near-duplicate collapse once more duplicate evidence appears.
 - Manual review artifacts include generated evidence-aware decisions for mechanically resolvable rows. Human review decisions have not been filled in yet.
 - A generated self-study curriculum artifact exists, but it remains bounded by current public evidence and should expand as more course artifacts are recovered.
@@ -191,11 +192,12 @@ Faculty pages are useful as discovery hubs and attribution evidence. They should
 
 Implementation requirements:
 
-1. Use `faculty.jsonl` and `faculty_course_edges.jsonl` to generate faculty-specific search queries.
-2. Search for combinations of faculty name, RISD, course title, course code, syllabus, teaching, project, assignment, and studio.
-3. Add discovered faculty teaching pages and public portfolio/course pages to `faculty_profile_candidates.jsonl` or `search_candidates.jsonl` with explicit candidate source labels.
-4. Promote fetched faculty teaching pages only after classification.
-5. Extract public portfolio examples into `faculty_portfolio_examples.jsonl` for visual/tacit calibration, not as direct course requirements.
+1. Use `faculty.jsonl` and `faculty_course_edges.jsonl` to generate faculty-specific search queries. Status: implemented in `faculty_search_queries.jsonl`.
+2. Add generated faculty queries to `search_candidates.jsonl` as `faculty_query_backlog` rows. Status: implemented.
+3. Search for combinations of faculty name, RISD, course title, course code, syllabus, teaching, project, assignment, and studio.
+4. Add discovered faculty teaching pages and public portfolio/course pages to `faculty_profile_candidates.jsonl` or `search_candidates.jsonl` with explicit candidate source labels.
+5. Promote fetched faculty teaching pages only after classification.
+6. Extract public portfolio examples into `faculty_portfolio_examples.jsonl` for visual/tacit calibration, not as direct course requirements.
 
 Validation requirements:
 
@@ -568,6 +570,25 @@ Required fields:
 - `text_length`
 - `notes`
 - `error`
+
+### `faculty_search_queries.jsonl`
+
+One row per faculty/course-derived public web query intended to find teaching pages, syllabi, project briefs, assignment pages, and studio artifacts.
+
+Required fields:
+
+- `query_id`
+- `query`
+- `faculty_id`
+- `faculty_name`
+- `course_code`
+- `course_title`
+- `term`
+- `query_intent`
+- `priority`
+- `status`
+- `generated_at`
+- `source_edge_id`
 
 ### `common_crawl_candidates.jsonl`
 

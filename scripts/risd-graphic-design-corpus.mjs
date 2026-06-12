@@ -32,6 +32,7 @@ const facultyPortfolioExampleLimit = Number(process.env.RISD_GD_FACULTY_PORTFOLI
 const readingLinkLimit = Number(process.env.RISD_GD_READING_LINK_LIMIT ?? 30)
 const searchApiMaxQueries = Number(process.env.RISD_GD_SEARCH_API_MAX_QUERIES ?? 6)
 const coverageSearchApiMaxQueries = Number(process.env.RISD_GD_COVERAGE_SEARCH_API_MAX_QUERIES ?? 6)
+const facultySearchApiMaxQueries = Number(process.env.RISD_GD_FACULTY_SEARCH_API_MAX_QUERIES ?? 6)
 const searchApiResultsPerQuery = Number(process.env.RISD_GD_SEARCH_API_RESULTS_PER_QUERY ?? 10)
 const searchPromoteLimit = Number(process.env.RISD_GD_SEARCH_PROMOTE_LIMIT ?? 8)
 const searchImportPath = process.env.RISD_GD_SEARCH_IMPORTS ?? join(outDir, 'search_imports.jsonl')
@@ -435,7 +436,22 @@ function coverageQueryMetadata(row) {
   }
 }
 
-function activeSearchQueryRows(coverageSearchQueries = []) {
+function facultyQueryMetadata(row) {
+  return {
+    query_id: row.query_id ?? null,
+    query_source: 'faculty_teaching_query',
+    faculty_id: row.faculty_id ?? null,
+    faculty_name: row.faculty_name ?? null,
+    course_code: row.course_code ?? null,
+    course_title: row.course_title ?? null,
+    term: row.term ?? null,
+    query_intent: row.query_intent ?? null,
+    priority: row.priority ?? null,
+    source_edge_id: row.source_edge_id ?? null,
+  }
+}
+
+function activeSearchQueryRows(coverageSearchQueries = [], facultySearchQueries = []) {
   const rows = []
   const seen = new Set()
   for (const [index, query] of searchQueries.slice(0, searchApiMaxQueries).entries()) {
@@ -457,11 +473,20 @@ function activeSearchQueryRows(coverageSearchQueries = []) {
       ...coverageQueryMetadata(row),
     })
   }
+  for (const row of facultySearchQueries.slice(0, facultySearchApiMaxQueries)) {
+    const key = normalizeSearchQueryText(row.query)
+    if (!key || seen.has(key)) continue
+    seen.add(key)
+    rows.push({
+      query: row.query,
+      ...facultyQueryMetadata(row),
+    })
+  }
   return rows
 }
 
-function searchApiUnavailableRows(coverageSearchQueries = []) {
-  return activeSearchQueryRows(coverageSearchQueries).map((queryRow, index) => ({
+function searchApiUnavailableRows(coverageSearchQueries = [], facultySearchQueries = []) {
+  return activeSearchQueryRows(coverageSearchQueries, facultySearchQueries).map((queryRow, index) => ({
     query: queryRow.query,
     ...queryRow,
     rank: null,
@@ -478,10 +503,10 @@ function searchApiUnavailableRows(coverageSearchQueries = []) {
   }))
 }
 
-async function buildLiveSearchCandidates(coverageSearchQueries = []) {
+async function buildLiveSearchCandidates(coverageSearchQueries = [], facultySearchQueries = []) {
   const providerConfig = configuredSearchProvider()
-  const queryRows = activeSearchQueryRows(coverageSearchQueries)
-  if (!providerConfig) return searchApiUnavailableRows(coverageSearchQueries)
+  const queryRows = activeSearchQueryRows(coverageSearchQueries, facultySearchQueries)
+  if (!providerConfig) return searchApiUnavailableRows(coverageSearchQueries, facultySearchQueries)
 
   const rawRows = []
   for (const [index, queryRow] of queryRows.entries()) {
@@ -518,6 +543,11 @@ async function buildLiveSearchCandidates(coverageSearchQueries = []) {
         coverage_score: row.coverage_score ?? null,
         priority: row.priority ?? null,
         source_coverage_id: row.source_coverage_id ?? null,
+        faculty_id: row.faculty_id ?? null,
+        faculty_name: row.faculty_name ?? null,
+        term: row.term ?? null,
+        query_intent: row.query_intent ?? null,
+        source_edge_id: row.source_edge_id ?? null,
         rank: row.rank,
         title: row.title,
         snippet: row.snippet,
@@ -542,6 +572,11 @@ async function buildLiveSearchCandidates(coverageSearchQueries = []) {
       coverage_score: row.coverage_score ?? null,
       priority: row.priority ?? null,
       source_coverage_id: row.source_coverage_id ?? null,
+      faculty_id: row.faculty_id ?? null,
+      faculty_name: row.faculty_name ?? null,
+      term: row.term ?? null,
+      query_intent: row.query_intent ?? null,
+      source_edge_id: row.source_edge_id ?? null,
       rank: row.rank,
       title: row.title,
       snippet: row.snippet,
@@ -562,6 +597,11 @@ async function buildLiveSearchCandidates(coverageSearchQueries = []) {
         coverage_score: row.coverage_score ?? null,
         priority: row.priority ?? null,
         source_coverage_id: row.source_coverage_id ?? null,
+        faculty_id: row.faculty_id ?? null,
+        faculty_name: row.faculty_name ?? null,
+        term: row.term ?? null,
+        query_intent: row.query_intent ?? null,
+        source_edge_id: row.source_edge_id ?? null,
         source: 'live_search_api',
         provider: row.provider,
         status: 'candidate_from_search_api',
@@ -579,7 +619,7 @@ async function buildLiveSearchCandidates(coverageSearchQueries = []) {
   })
 }
 
-function buildSearchCandidates(importedCandidates = [], promotedImported = [], liveSearchCandidates = [], coverageSearchQueries = []) {
+function buildSearchCandidates(importedCandidates = [], promotedImported = [], liveSearchCandidates = [], coverageSearchQueries = [], facultySearchQueries = []) {
   const promotedByUrl = new Map(promotedImported.map((source) => [canonicalUrl(source.url), source.source_id]))
   const rows = []
   for (const source of searchDiscoveredSources) {
@@ -624,6 +664,22 @@ function buildSearchCandidates(importedCandidates = [], promotedImported = [], l
       promoted_source_id: null,
       error: null,
       ...coverageQueryMetadata(row),
+    })
+  }
+  for (const row of facultySearchQueries) {
+    rows.push({
+      candidate_id: row.query_id,
+      query: row.query,
+      rank: null,
+      title: null,
+      snippet: null,
+      url: null,
+      discovered_at: row.generated_at ?? retrievedAt,
+      source: 'faculty_query_backlog',
+      status: row.status ?? 'pending_search_export_or_api',
+      promoted_source_id: null,
+      error: null,
+      ...facultyQueryMetadata(row),
     })
   }
   for (const candidate of importedCandidates) {
@@ -2463,6 +2519,90 @@ function splitInstructorNames(name) {
     .filter((part) => /^[A-Z][A-Za-z.'-]+(?:\s+[A-Z][A-Za-z.'-]+){1,3}$/.test(part)))
 }
 
+function buildFacultySearchQueries(facultyRows = [], facultyCourseEdges = [], limit = 160) {
+  const facultyById = new Map(facultyRows.map((row) => [row.faculty_id, row]))
+  const queryRows = []
+  const seen = new Set()
+  const addQuery = ({ faculty, edge = null, query, queryIntent, priority = 'medium' }) => {
+    const normalized = normalizeSearchQueryText(query)
+    if (!normalized || seen.has(normalized)) return
+    seen.add(normalized)
+    const edgeKey = edge?.edge_id ?? `faculty_${faculty.faculty_id}`
+    const intentSlug = slug(queryIntent)
+    queryRows.push({
+      query_id: `faculty_query_${slug(edgeKey)}_${intentSlug}_${String(queryRows.length + 1).padStart(3, '0')}`,
+      query,
+      faculty_id: faculty.faculty_id,
+      faculty_name: faculty.name,
+      course_code: edge?.course_code ?? null,
+      course_title: edge?.course_title ?? null,
+      term: edge?.term ?? null,
+      query_intent: queryIntent,
+      priority,
+      status: 'pending_search_export_or_api',
+      generated_at: retrievedAt,
+      source_edge_id: edge?.edge_id ?? null,
+    })
+  }
+
+  const prioritizedEdges = facultyCourseEdges
+    .filter((edge) => edge.faculty_id && facultyById.has(edge.faculty_id))
+    .sort((a, b) => {
+      const gradeRank = { A: 0, B: 1, C: 2, D: 3, E: 4 }
+      return (gradeRank[a.evidence_grade] ?? 9) - (gradeRank[b.evidence_grade] ?? 9)
+        || String(b.term ?? '').localeCompare(String(a.term ?? ''))
+        || String(a.faculty_name).localeCompare(String(b.faculty_name))
+        || String(a.course_title ?? '').localeCompare(String(b.course_title ?? ''))
+    })
+
+  for (const edge of prioritizedEdges) {
+    const faculty = facultyById.get(edge.faculty_id)
+    const coursePart = edge.course_code
+      ? `("${edge.course_title ?? edge.course_code}" OR "${edge.course_code}")`
+      : `"${edge.course_title}"`
+    addQuery({
+      faculty,
+      edge,
+      query: `"${faculty.name}" "RISD" "Graphic Design" ${coursePart} "syllabus"`,
+      queryIntent: 'faculty course syllabus',
+      priority: edge.evidence_grade === 'A' ? 'high' : 'medium',
+    })
+    addQuery({
+      faculty,
+      edge,
+      query: `"${faculty.name}" "RISD" "Graphic Design" ${coursePart} "project"`,
+      queryIntent: 'faculty course project brief',
+      priority: edge.evidence_grade === 'A' ? 'high' : 'medium',
+    })
+    addQuery({
+      faculty,
+      edge,
+      query: `"${faculty.name}" "RISD" "Graphic Design" ${coursePart} "assignment"`,
+      queryIntent: 'faculty course assignment',
+      priority: 'medium',
+    })
+    if (queryRows.length >= limit) break
+  }
+
+  for (const faculty of facultyRows.sort((a, b) => a.name.localeCompare(b.name))) {
+    addQuery({
+      faculty,
+      query: `"${faculty.name}" "RISD" "Graphic Design" teaching`,
+      queryIntent: 'faculty teaching page',
+      priority: faculty.profile_urls?.length ? 'medium' : 'high',
+    })
+    addQuery({
+      faculty,
+      query: `"${faculty.name}" "RISD" "Graphic Design" studio`,
+      queryIntent: 'faculty studio teaching artifact',
+      priority: 'medium',
+    })
+    if (queryRows.length >= limit) break
+  }
+
+  return queryRows.slice(0, limit)
+}
+
 const facultyProfileHints = new Map([
   ['Anther Kiley', ['https://www.risd.edu/academics/graphic-design/faculty/anther-kiley', 'https://antherkiley.com/info.html']],
   ['John Caserta', ['https://johncaserta.com/']],
@@ -3151,8 +3291,9 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], facultyPortfolioExamples = [], sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [] }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], facultyPortfolioExamples = [], sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
+  const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
   const sourceIds = new Set(sources.map((source) => source.source_id))
   const syllabusIds = new Set(syllabi.map((syllabus) => syllabus.syllabus_id))
   const failedSourceIds = new Set(sources.filter((source) => source.extraction_status !== 'ok').map((source) => source.source_id))
@@ -3244,11 +3385,17 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const successfulCommonCrawlPromotions = commonCrawlPromotions.filter((promotion) => promotion.extraction_status === 'ok').length
   const ingestedCommonCrawlPromotions = commonCrawlPromotions.filter((promotion) => promotion.ingestion_status === 'ingested_into_corpus').length
   const facultyIds = new Set(faculty.map((row) => row.faculty_id))
+  const facultyCourseEdgeIds = new Set(facultyCourseEdges.map((row) => row.edge_id))
   const facultyProfileCandidateErrors = facultyProfileCandidates.filter((candidate) => !candidate.candidate_id || !candidate.faculty_id || !facultyIds.has(candidate.faculty_id) || !candidate.url || !candidate.status || candidate.promoted_source_id && !sourceIds.has(candidate.promoted_source_id))
   const ingestedFacultyProfileCandidateCount = facultyProfileCandidates.filter((candidate) => candidate.status === 'ingested_into_corpus').length
   const facultyRowsWithProfileUrls = faculty.filter((row) => row.profile_urls?.length).length
   const facultySourceErrors = faculty.filter((row) => !row.faculty_id || !row.name || row.source_ids?.some((id) => !sourceIds.has(id)))
   const facultyEdgeErrors = facultyCourseEdges.filter((edge) => !edge.edge_id || !facultyIds.has(edge.faculty_id) || edge.source_ids?.some((id) => !sourceIds.has(id)))
+  const facultySearchQueryErrors = effectiveFacultySearchQueries.filter((row) => !row.query_id || !row.query || !row.faculty_id || !facultyIds.has(row.faculty_id) || row.source_edge_id && !facultyCourseEdgeIds.has(row.source_edge_id))
+  const facultySearchBacklogCount = searchCandidates.filter((candidate) => candidate.source === 'faculty_query_backlog').length
+  const facultySearchBacklogErrors = searchCandidates.filter((candidate) => candidate.source === 'faculty_query_backlog' && (!candidate.query_id || !candidate.query || !candidate.faculty_id || !facultyIds.has(candidate.faculty_id) || candidate.source_edge_id && !facultyCourseEdgeIds.has(candidate.source_edge_id)))
+  const liveFacultySearchCandidateCount = searchCandidates.filter((candidate) => candidate.source === 'live_search_api' && candidate.query_source === 'faculty_teaching_query').length
+  const liveFacultySearchErrors = searchCandidates.filter((candidate) => candidate.source === 'live_search_api' && candidate.query_source === 'faculty_teaching_query' && (!candidate.query_id || !candidate.query || !candidate.faculty_id || !facultyIds.has(candidate.faculty_id) || candidate.source_edge_id && !facultyCourseEdgeIds.has(candidate.source_edge_id)))
   const studentWorkSourceErrors = studentWork.filter((work) => work.source_ids.some((id) => !sourceIds.has(id)))
   const structuredStudentWorkCount = studentWork.filter((work) => work.url && (work.medium || work.project_title || work.project_statement_excerpt || work.assignment_link_confidence || work.visual_standard_notes?.length) && work.evidence_grade).length
   const courseLinkedStudentWorkCount = studentWork.filter((work) => work.course_code || work.course_title).length
@@ -3351,6 +3498,21 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       id: 'faculty_graph_references_valid_sources',
       status: facultySourceErrors.length === 0 && facultyEdgeErrors.length === 0 ? 'pass' : 'fail',
       detail: `${faculty.length} faculty rows and ${facultyCourseEdges.length} faculty-course edges; ${facultySourceErrors.length + facultyEdgeErrors.length} reference errors.`,
+    },
+    {
+      id: 'faculty_search_queries_have_provenance',
+      status: facultySearchQueryErrors.length === 0 && effectiveFacultySearchQueries.length > 0 ? 'pass' : facultySearchQueryErrors.length === 0 ? 'warn' : 'fail',
+      detail: `${effectiveFacultySearchQueries.length} faculty-derived search queries with ${facultySearchQueryErrors.length} provenance errors.`,
+    },
+    {
+      id: 'faculty_search_backlog_is_executable',
+      status: facultySearchBacklogErrors.length === 0 && facultySearchBacklogCount === effectiveFacultySearchQueries.length && facultySearchBacklogCount > 0 ? 'pass' : facultySearchBacklogErrors.length === 0 && facultySearchBacklogCount > 0 ? 'warn' : 'fail',
+      detail: `${facultySearchBacklogCount} faculty query backlog rows for ${effectiveFacultySearchQueries.length} generated faculty queries; ${facultySearchBacklogErrors.length} backlog provenance errors.`,
+    },
+    {
+      id: 'live_faculty_search_preserves_provenance',
+      status: liveFacultySearchErrors.length === 0 && liveFacultySearchCandidateCount > 0 ? 'pass' : liveFacultySearchErrors.length === 0 ? 'warn' : 'fail',
+      detail: `${liveFacultySearchCandidateCount} live faculty search rows; ${liveFacultySearchErrors.length} live faculty provenance errors.`,
     },
     {
       id: 'faculty_profile_candidates_have_provenance',
@@ -3496,6 +3658,9 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       faculty_rows_with_profile_urls: facultyRowsWithProfileUrls,
       faculty: faculty.length,
       faculty_course_edges: facultyCourseEdges.length,
+      faculty_search_queries: effectiveFacultySearchQueries.length,
+      faculty_search_backlog_candidates: facultySearchBacklogCount,
+      live_faculty_search_candidates: liveFacultySearchCandidateCount,
       student_work: studentWork.length,
       structured_student_work: structuredStudentWorkCount,
       course_linked_student_work: courseLinkedStudentWorkCount,
@@ -3884,6 +4049,9 @@ Overall status: ${validation.status}
 - Faculty rows with profile URLs: ${validation.counts.faculty_rows_with_profile_urls}
 - Faculty rows: ${validation.counts.faculty}
 - Faculty-course edges: ${validation.counts.faculty_course_edges}
+- Faculty-derived search queries: ${validation.counts.faculty_search_queries}
+- Faculty search backlog candidates: ${validation.counts.faculty_search_backlog_candidates}
+- Live faculty search candidates: ${validation.counts.live_faculty_search_candidates}
 - Student work rows: ${validation.counts.student_work}
 - Structured student work rows: ${validation.counts.structured_student_work}
 - Course-linked student work rows: ${validation.counts.course_linked_student_work}
@@ -4533,7 +4701,7 @@ function renderDerivedArtifactsOnly() {
   const assignments = buildAssignments(syllabi)
   const readings = mergeReadingExternalLinks(buildReadings(syllabi), loadJsonl(join(outDir, 'readings.jsonl')))
   const readingFrequency = buildReadingFrequency(readings)
-  const searchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
+  let searchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
   const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
   const commonCrawlPromotions = loadJsonl(join(outDir, 'common_crawl_promotions.jsonl'))
   const facultyProfileCandidates = loadJsonl(join(outDir, 'faculty_profile_candidates.jsonl'))
@@ -4554,7 +4722,13 @@ function renderDerivedArtifactsOnly() {
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
   const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
   const coverageSearchQueries = buildCoverageSearchQueries(courseCoverage)
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries })
+  const facultySearchQueries = buildFacultySearchQueries(faculty, facultyCourseEdges)
+  const retainedSearchCandidates = searchCandidates.filter((candidate) => !['coverage_query_backlog', 'faculty_query_backlog'].includes(candidate.source))
+  const refreshedBacklogCandidates = buildSearchCandidates([], [], [], coverageSearchQueries, facultySearchQueries)
+    .filter((candidate) => ['coverage_query_backlog', 'faculty_query_backlog'].includes(candidate.source))
+  searchCandidates = mergeRowsByKey(retainedSearchCandidates, refreshedBacklogCandidates, (candidate) => candidate.candidate_id)
+    .sort((a, b) => String(a.query ?? '').localeCompare(String(b.query ?? '')) || String(a.source ?? '').localeCompare(String(b.source ?? '')))
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries, facultySearchQueries })
   writeJsonl(join(outDir, 'assignments.jsonl'), assignments)
   writeJsonl(join(outDir, 'readings.jsonl'), readings)
   writeJsonl(join(outDir, 'reading_frequency.jsonl'), readingFrequency)
@@ -4563,6 +4737,8 @@ function renderDerivedArtifactsOnly() {
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
   writeJsonl(join(outDir, 'course_coverage.jsonl'), courseCoverage)
   writeJsonl(join(outDir, 'coverage_search_queries.jsonl'), coverageSearchQueries)
+  writeJsonl(join(outDir, 'faculty_search_queries.jsonl'), facultySearchQueries)
+  writeJsonl(join(outDir, 'search_candidates.jsonl'), searchCandidates)
   writeFileSync(join(outDir, 'course_coverage.md'), courseCoverageMarkdown(courseCoverage))
   writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
   writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
@@ -4732,11 +4908,13 @@ async function renderSearchApiOnly() {
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
   const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
   const coverageSearchQueries = buildCoverageSearchQueries(courseCoverage)
-  const liveSearchCandidates = await buildLiveSearchCandidates(coverageSearchQueries)
+  const facultySearchQueries = buildFacultySearchQueries(faculty, facultyCourseEdges)
+  const liveSearchCandidates = await buildLiveSearchCandidates(coverageSearchQueries, facultySearchQueries)
   const existingSearchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
-  const retainedCandidates = existingSearchCandidates.filter((candidate) => candidate.source !== 'live_search_api' && candidate.source !== 'coverage_query_backlog')
-  const coverageBacklogCandidates = buildSearchCandidates([], [], [], coverageSearchQueries).filter((candidate) => candidate.source === 'coverage_query_backlog')
-  const searchCandidates = mergeRowsByKey([...retainedCandidates, ...coverageBacklogCandidates], liveSearchCandidates, (candidate) => candidate.candidate_id)
+  const retainedCandidates = existingSearchCandidates.filter((candidate) => candidate.source !== 'live_search_api' && candidate.source !== 'coverage_query_backlog' && candidate.source !== 'faculty_query_backlog')
+  const generatedBacklogCandidates = buildSearchCandidates([], [], [], coverageSearchQueries, facultySearchQueries)
+    .filter((candidate) => ['coverage_query_backlog', 'faculty_query_backlog'].includes(candidate.source))
+  const searchCandidates = mergeRowsByKey([...retainedCandidates, ...generatedBacklogCandidates], liveSearchCandidates, (candidate) => candidate.candidate_id)
     .sort((a, b) => String(a.query ?? '').localeCompare(String(b.query ?? '')) || Number(a.rank ?? 9999) - Number(b.rank ?? 9999) || String(a.url ?? '').localeCompare(String(b.url ?? '')))
   const searchResults = [
     ...buildSearchResults(),
@@ -4750,6 +4928,11 @@ async function renderSearchApiOnly() {
       coverage_score: candidate.coverage_score ?? null,
       priority: candidate.priority ?? null,
       source_coverage_id: candidate.source_coverage_id ?? null,
+      faculty_id: candidate.faculty_id ?? null,
+      faculty_name: candidate.faculty_name ?? null,
+      term: candidate.term ?? null,
+      query_intent: candidate.query_intent ?? null,
+      source_edge_id: candidate.source_edge_id ?? null,
       rank: candidate.rank,
       title: candidate.title,
       snippet: candidate.snippet,
@@ -4762,7 +4945,7 @@ async function renderSearchApiOnly() {
       error: candidate.error ?? null,
     })),
   ]
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries, facultySearchQueries })
 
   writeJsonl(join(outDir, 'search_candidates.jsonl'), searchCandidates)
   writeJsonl(join(outDir, 'search_results.jsonl'), searchResults)
@@ -4771,6 +4954,7 @@ async function renderSearchApiOnly() {
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
   writeJsonl(join(outDir, 'course_coverage.jsonl'), courseCoverage)
   writeJsonl(join(outDir, 'coverage_search_queries.jsonl'), coverageSearchQueries)
+  writeJsonl(join(outDir, 'faculty_search_queries.jsonl'), facultySearchQueries)
   writeFileSync(join(outDir, 'course_coverage.md'), courseCoverageMarkdown(courseCoverage))
   writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
   writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))
@@ -5320,9 +5504,10 @@ async function main() {
   const sourceVersions = buildSourceVersions(inspected, wayback)
   const courseCoverage = buildCourseCoverage({ courses, syllabi, assignments, readings, studentWork })
   const coverageSearchQueries = buildCoverageSearchQueries(courseCoverage)
+  const facultySearchQueries = buildFacultySearchQueries(faculty, facultyCourseEdges)
   const existingSearchCandidates = loadJsonl(join(outDir, 'search_candidates.jsonl'))
   const existingLiveSearchCandidates = existingSearchCandidates.filter((candidate) => candidate.source === 'live_search_api')
-  const searchCandidates = buildSearchCandidates(importedSearchCandidates, promotedImportedSearchSources, existingLiveSearchCandidates, coverageSearchQueries)
+  const searchCandidates = buildSearchCandidates(importedSearchCandidates, promotedImportedSearchSources, existingLiveSearchCandidates, coverageSearchQueries, facultySearchQueries)
   const commonCrawlCandidates = loadJsonl(join(outDir, 'common_crawl_candidates.jsonl'))
   const commonCrawlPromotions = loadJsonl(join(outDir, 'common_crawl_promotions.jsonl'))
   const facultyProfileCandidates = loadJsonl(join(outDir, 'faculty_profile_candidates.jsonl'))
@@ -5352,12 +5537,13 @@ async function main() {
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, facultyPortfolioExamples, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries, facultySearchQueries })
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)
   writeJsonl(join(outDir, 'course_coverage.jsonl'), courseCoverage)
   writeJsonl(join(outDir, 'coverage_search_queries.jsonl'), coverageSearchQueries)
+  writeJsonl(join(outDir, 'faculty_search_queries.jsonl'), facultySearchQueries)
   writeFileSync(join(outDir, 'course_coverage.md'), courseCoverageMarkdown(courseCoverage))
   writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
   writeFileSync(join(outDir, 'needs_followup.md'), needsFollowupMarkdown({ reviewQueue, reviewDecisions, fieldConflicts }))

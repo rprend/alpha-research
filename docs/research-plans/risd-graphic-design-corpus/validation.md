@@ -27,11 +27,11 @@ Overall status: pass
 - External catalog lookup attempts: 30
 - Unresolved reading snippets: 45
 - Non-citation reading fragments: 34
-- Search candidates: 200
+- Search candidates: 366
 - Promoted search candidates: 10
 - Imported search candidates: 0
-- Live search API candidates: 12
-- Live search provider-unconfigured rows: 12
+- Live search API candidates: 18
+- Live search provider-unconfigured rows: 18
 - Coverage search backlog candidates: 160
 - Live coverage search candidates: 6
 - Live coverage provider-unconfigured rows: 6
@@ -48,6 +48,9 @@ Overall status: pass
 - Faculty rows with profile URLs: 26
 - Faculty rows: 26
 - Faculty-course edges: 48
+- Faculty-derived search queries: 160
+- Faculty search backlog candidates: 160
+- Live faculty search candidates: 6
 - Student work rows: 22
 - Structured student work rows: 22
 - Course-linked student work rows: 5
@@ -85,10 +88,13 @@ Overall status: pass
 - PASS readings_reference_valid_syllabi_and_sources: 0 reading reference errors.
 - PASS readings_have_normalized_work_links: 56 reading snippets linked to 30 canonical works; 43 local catalog matches, 12 external catalog matches, 45 unresolved, 34 non-citation fragments.
 - PASS readings_external_links_have_metadata: 30 Open Library lookup attempts recorded; 12 reading snippets have external catalog matches; 0 external-link metadata errors.
-- PASS search_candidates_have_provenance: 200 search candidates, 10 promoted, 0 imported, 12 live API rows (12 provider-unconfigured); 0 candidate reference errors.
+- PASS search_candidates_have_provenance: 366 search candidates, 10 promoted, 0 imported, 18 live API rows (18 provider-unconfigured); 0 candidate reference errors.
 - PASS common_crawl_candidates_have_provenance: 168 Common Crawl candidates, 35 fetch candidates, 8 ingested; 0 provenance errors.
 - PASS common_crawl_promotions_reference_candidates: 8 Common Crawl promotions, 8 successful, 8 ingested; 0 reference errors.
 - PASS faculty_graph_references_valid_sources: 26 faculty rows and 48 faculty-course edges; 0 reference errors.
+- PASS faculty_search_queries_have_provenance: 160 faculty-derived search queries with 0 provenance errors.
+- PASS faculty_search_backlog_is_executable: 160 faculty query backlog rows for 160 generated faculty queries; 0 backlog provenance errors.
+- PASS live_faculty_search_preserves_provenance: 6 live faculty search rows; 0 live faculty provenance errors.
 - PASS faculty_profile_candidates_have_provenance: 47 faculty profile candidates, 45 ingested, 26 faculty rows with profile URLs; 0 reference errors.
 - PASS student_work_reference_valid_sources: 0 student work source reference errors.
 - PASS student_work_has_structured_public_examples: 22 student work rows include URL plus medium/project/evidence metadata; 5 rows include course code/title context.

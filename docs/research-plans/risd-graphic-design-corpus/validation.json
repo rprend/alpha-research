@@ -23,11 +23,11 @@
     "unresolved_readings": 45,
     "non_citation_reading_fragments": 34,
     "canonical_reading_works": 30,
-    "search_candidates": 200,
+    "search_candidates": 366,
     "promoted_search_candidates": 10,
     "imported_search_candidates": 0,
-    "live_search_candidates": 12,
-    "live_search_provider_unconfigured": 12,
+    "live_search_candidates": 18,
+    "live_search_provider_unconfigured": 18,
     "coverage_search_backlog_candidates": 160,
     "live_coverage_search_candidates": 6,
     "live_coverage_search_provider_unconfigured": 6,
@@ -44,6 +44,9 @@
     "faculty_rows_with_profile_urls": 26,
     "faculty": 26,
     "faculty_course_edges": 48,
+    "faculty_search_queries": 160,
+    "faculty_search_backlog_candidates": 160,
+    "live_faculty_search_candidates": 6,
     "student_work": 22,
     "structured_student_work": 22,
     "course_linked_student_work": 5,
@@ -131,7 +134,7 @@
     {
       "id": "search_candidates_have_provenance",
       "status": "pass",
-      "detail": "200 search candidates, 10 promoted, 0 imported, 12 live API rows (12 provider-unconfigured); 0 candidate reference errors."
+      "detail": "366 search candidates, 10 promoted, 0 imported, 18 live API rows (18 provider-unconfigured); 0 candidate reference errors."
     },
     {
       "id": "common_crawl_candidates_have_provenance",
@@ -147,6 +150,21 @@
       "id": "faculty_graph_references_valid_sources",
       "status": "pass",
       "detail": "26 faculty rows and 48 faculty-course edges; 0 reference errors."
+    },
+    {
+      "id": "faculty_search_queries_have_provenance",
+      "status": "pass",
+      "detail": "160 faculty-derived search queries with 0 provenance errors."
+    },
+    {
+      "id": "faculty_search_backlog_is_executable",
+      "status": "pass",
+      "detail": "160 faculty query backlog rows for 160 generated faculty queries; 0 backlog provenance errors."
+    },
+    {
+      "id": "live_faculty_search_preserves_provenance",
+      "status": "pass",
+      "detail": "6 live faculty search rows; 0 live faculty provenance errors."
     },
     {
       "id": "faculty_profile_candidates_have_provenance",
