@@ -125,6 +125,7 @@
     "self_study_pacing_rows_with_workload_estimates": 28,
     "self_study_pacing_profiles": 3,
     "self_study_progress_ledger_rows": 28,
+    "self_study_portfolio_progress_rollups": 3,
     "self_study_portfolio_milestones": 3,
     "self_study_portfolio_briefs": 3,
     "self_study_portfolio_reference_packets": 3,
@@ -396,6 +397,11 @@
       "id": "self_study_progress_ledger_tracks_outputs_revisions_and_warnings",
       "status": "pass",
       "detail": "28 progress ledger rows for 28 pacing rows; 0 ledger reference errors; generated mismatch=false."
+    },
+    {
+      "id": "self_study_portfolio_progress_rollups_connect_ledger_to_manifests",
+      "status": "pass",
+      "detail": "3 portfolio progress rollups for 3 milestones; 0 rollup reference errors; generated mismatch=false."
     },
     {
       "id": "self_study_portfolio_milestones_have_valid_review_packages",

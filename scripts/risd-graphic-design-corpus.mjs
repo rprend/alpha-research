@@ -4047,7 +4047,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveArchivePromotions = archivePromotions ?? loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
@@ -4058,6 +4058,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const effectiveSelfStudyPacingPlan = selfStudyPacingPlan ?? []
   const effectiveSelfStudyPacingProfiles = selfStudyPacingProfiles ?? []
   const effectiveSelfStudyProgressLedger = selfStudyProgressLedger ?? []
+  const effectiveSelfStudyPortfolioProgressRollups = selfStudyPortfolioProgressRollups ?? []
   const effectiveSelfStudyPortfolioMilestones = selfStudyPortfolioMilestones ?? []
   const effectiveSelfStudyPortfolioBriefs = selfStudyPortfolioBriefs ?? []
   const effectiveSelfStudyPortfolioReferencePackets = selfStudyPortfolioReferencePackets ?? []
@@ -4306,6 +4307,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const portfolioSourceExcerptPackets = effectiveSelfStudyPortfolioSourceExcerptPackets.length ? effectiveSelfStudyPortfolioSourceExcerptPackets : generatedPortfolioSourceExcerptPackets
   const generatedPortfolioExportManifests = buildSelfStudyPortfolioExportManifests(portfolioMilestones, portfolioBriefs, portfolioReferencePackets, portfolioSourceExcerptPackets)
   const portfolioExportManifests = effectiveSelfStudyPortfolioExportManifests.length ? effectiveSelfStudyPortfolioExportManifests : generatedPortfolioExportManifests
+  const generatedPortfolioProgressRollups = buildSelfStudyPortfolioProgressRollups(portfolioMilestones, portfolioExportManifests, progressLedger)
+  const portfolioProgressRollups = effectiveSelfStudyPortfolioProgressRollups.length ? effectiveSelfStudyPortfolioProgressRollups : generatedPortfolioProgressRollups
   const curriculumModulesWithSourceIds = curriculumModules.filter((module) => module.source_ids?.length).length
   const curriculumModulesWithAssignments = curriculumModules.filter((module) => module.assignment_ids?.length).length
   const curriculumModulesWithReadings = curriculumModules.filter((module) => module.reading_ids?.length).length
@@ -4402,6 +4405,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || entry.source_ids.some((id) => !sourceIds.has(id))
   )
   const progressLedgerGeneratedMismatch = effectiveSelfStudyProgressLedger.length > 0 && effectiveSelfStudyProgressLedger.length !== generatedProgressLedger.length
+  const progressLedgerIds = new Set(progressLedger.map((entry) => entry.ledger_id))
   const pacingProfileErrors = pacingProfiles.filter((profile) =>
     !['compressed', 'standard', 'slow'].includes(profile.profile_id)
       || !Number.isFinite(profile.estimated_total_hours)
@@ -4512,6 +4516,23 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || manifest.external_tool_payload?.source_ids?.some((sourceId) => !sourceIds.has(sourceId))
   )
   const portfolioExportManifestsGeneratedMismatch = effectiveSelfStudyPortfolioExportManifests.length > 0 && effectiveSelfStudyPortfolioExportManifests.length !== generatedPortfolioExportManifests.length
+  const portfolioExportManifestIds = new Set(portfolioExportManifests.map((manifest) => manifest.manifest_id))
+  const portfolioProgressRollupErrors = portfolioProgressRollups.filter((rollup) =>
+    !rollup.rollup_id
+      || !rollup.milestone_id
+      || !portfolioMilestoneIds.has(rollup.milestone_id)
+      || !rollup.export_manifest_id
+      || !portfolioExportManifestIds.has(rollup.export_manifest_id)
+      || !rollup.ledger_ids?.length
+      || rollup.ledger_ids.some((id) => !progressLedgerIds.has(id))
+      || rollup.pacing_ids?.some((id) => !pacingIds.has(id))
+      || rollup.module_ids?.some((id) => !curriculumModuleIds.has(id))
+      || !rollup.portfolio_output_rollup?.length
+      || !rollup.critique_revision_rollup?.length
+      || !rollup.evidence_warning_rollup
+      || !Number.isFinite(rollup.rollup_totals?.ledger_rows)
+  )
+  const portfolioProgressRollupsGeneratedMismatch = effectiveSelfStudyPortfolioProgressRollups.length > 0 && effectiveSelfStudyPortfolioProgressRollups.length !== generatedPortfolioProgressRollups.length
   const courseInventoryReconciled = courseInventory.displayed_count > 0 && courseInventory.offerings.length === courseInventory.displayed_count
   const checks = [
     {
@@ -4780,6 +4801,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${progressLedger.length} progress ledger rows for ${pacingPlan.length} pacing rows; ${progressLedgerErrors.length} ledger reference errors; generated mismatch=${progressLedgerGeneratedMismatch}.`,
     },
     {
+      id: 'self_study_portfolio_progress_rollups_connect_ledger_to_manifests',
+      status: portfolioProgressRollupErrors.length === 0 && portfolioProgressRollups.length === portfolioMilestones.length && portfolioProgressRollups.length > 0 && !portfolioProgressRollupsGeneratedMismatch ? 'pass' : 'fail',
+      detail: `${portfolioProgressRollups.length} portfolio progress rollups for ${portfolioMilestones.length} milestones; ${portfolioProgressRollupErrors.length} rollup reference errors; generated mismatch=${portfolioProgressRollupsGeneratedMismatch}.`,
+    },
+    {
       id: 'self_study_portfolio_milestones_have_valid_review_packages',
       status: portfolioMilestoneErrors.length === 0 && portfolioMilestones.length > 0 && !portfolioMilestonesGeneratedMismatch ? 'pass' : portfolioMilestoneErrors.length === 0 && portfolioMilestones.length > 0 ? 'warn' : 'fail',
       detail: `${portfolioMilestones.length} portfolio milestones; ${portfolioMilestoneErrors.length} milestone reference errors; generated mismatch=${portfolioMilestonesGeneratedMismatch}.`,
@@ -4949,6 +4975,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_pacing_rows_with_workload_estimates: pacingRowsWithWorkload,
       self_study_pacing_profiles: pacingProfiles.length,
       self_study_progress_ledger_rows: progressLedger.length,
+      self_study_portfolio_progress_rollups: portfolioProgressRollups.length,
       self_study_portfolio_milestones: portfolioMilestones.length,
       self_study_portfolio_briefs: portfolioBriefs.length,
       self_study_portfolio_reference_packets: portfolioReferencePackets.length,
@@ -5566,6 +5593,7 @@ Overall status: ${validation.status}
 - Self-study pacing rows with workload estimates: ${validation.counts.self_study_pacing_rows_with_workload_estimates}
 - Self-study pacing profiles: ${validation.counts.self_study_pacing_profiles}
 - Self-study progress ledger rows: ${validation.counts.self_study_progress_ledger_rows}
+- Self-study portfolio progress rollups: ${validation.counts.self_study_portfolio_progress_rollups}
 - Self-study portfolio milestones: ${validation.counts.self_study_portfolio_milestones}
 - Self-study portfolio briefs: ${validation.counts.self_study_portfolio_briefs}
 - Self-study portfolio reference packets: ${validation.counts.self_study_portfolio_reference_packets}
@@ -6693,6 +6721,56 @@ function selfStudyProgressLedgerMarkdown(progressLedger) {
   return lines.map((line) => line.trimEnd()).join('\n')
 }
 
+function buildSelfStudyPortfolioProgressRollups(portfolioMilestones, portfolioExportManifests, progressLedger) {
+  const manifestByMilestone = new Map(portfolioExportManifests.map((manifest) => [manifest.milestone_id, manifest]))
+  const ledgerByPacing = new Map(progressLedger.map((entry) => [entry.pacing_id, entry]))
+  return portfolioMilestones.map((milestone) => {
+    const manifest = manifestByMilestone.get(milestone.milestone_id)
+    const ledgerRows = (milestone.pacing_ids ?? []).map((id) => ledgerByPacing.get(id)).filter(Boolean)
+    const outputRollup = ledgerRows.map((entry) => ({
+      ledger_id: entry.ledger_id,
+      week_number: entry.week_number,
+      module_id: entry.module_id,
+      expected_output: entry.expected_output,
+      completion_status: entry.completion_status,
+      checklist_item_ids: entry.output_checklist?.map((item) => item.item_id) ?? [],
+    }))
+    const critiqueRollup = ledgerRows.flatMap((entry) => (entry.critique_revision_log ?? []).map((log) => ({
+      ledger_id: entry.ledger_id,
+      log_id: log.log_id,
+      prompt: log.prompt,
+      revision_status: log.revision_status,
+    })))
+    const warningRows = ledgerRows.filter((entry) => entry.unresolved_evidence_warnings?.length)
+    return {
+      rollup_id: `progress_rollup_${milestone.milestone_id}`,
+      generated_at: retrievedAt,
+      milestone_id: milestone.milestone_id,
+      export_manifest_id: manifest?.manifest_id ?? null,
+      title: `${milestone.title} Progress Rollup`,
+      ledger_ids: ledgerRows.map((entry) => entry.ledger_id),
+      pacing_ids: ledgerRows.map((entry) => entry.pacing_id),
+      module_ids: uniq(ledgerRows.map((entry) => entry.module_id)),
+      portfolio_output_rollup: outputRollup,
+      critique_revision_rollup: critiqueRollup,
+      evidence_warning_rollup: {
+        warning_ledger_ids: warningRows.map((entry) => entry.ledger_id),
+        unresolved_warning_count: warningRows.reduce((sum, entry) => sum + (entry.unresolved_evidence_warnings?.length ?? 0), 0),
+        warnings: uniq(warningRows.flatMap((entry) => entry.unresolved_evidence_warnings ?? [])),
+        action: 'Before marking the portfolio milestone complete, copy unresolved warnings into the portfolio brief critique memo or resolve them with stronger public evidence.',
+      },
+      rollup_totals: {
+        ledger_rows: ledgerRows.length,
+        outputs_to_complete: outputRollup.length,
+        critique_revisions_to_log: critiqueRollup.length,
+        unresolved_warning_rows: warningRows.length,
+      },
+      source_ids: uniq(ledgerRows.flatMap((entry) => entry.source_ids ?? [])),
+      provenance_note: 'Generated rollup connecting weekly self-study progress ledger rows to the portfolio milestone export manifest.',
+    }
+  })
+}
+
 function buildSelfStudyPortfolioMilestones(selfStudyModules, pacingPlan) {
   const specs = [
     {
@@ -7546,10 +7624,12 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   const portfolioReferencePackets = buildSelfStudyPortfolioReferencePackets(selfStudyModules, portfolioMilestones, facultyPortfolioExamples)
   const portfolioSourceExcerptPackets = buildSelfStudyPortfolioSourceExcerptPackets(selfStudyModules, portfolioMilestones)
   const portfolioExportManifests = buildSelfStudyPortfolioExportManifests(portfolioMilestones, portfolioBriefs, portfolioReferencePackets, portfolioSourceExcerptPackets)
+  const portfolioProgressRollups = buildSelfStudyPortfolioProgressRollups(portfolioMilestones, portfolioExportManifests, progressLedger)
   writeJsonl(join(outDir, 'self_study_pacing_plan.jsonl'), pacingPlan)
   writeJsonl(join(outDir, 'self_study_pacing_profiles.jsonl'), buildSelfStudyPacingProfiles(pacingPlan))
   writeJsonl(join(outDir, 'self_study_progress_ledger.jsonl'), progressLedger)
   writeFileSync(join(outDir, 'self_study_progress_ledger.md'), selfStudyProgressLedgerMarkdown(progressLedger))
+  writeJsonl(join(outDir, 'self_study_portfolio_progress_rollups.jsonl'), portfolioProgressRollups)
   writeJsonl(join(outDir, 'self_study_portfolio_milestones.jsonl'), portfolioMilestones)
   writeJsonl(join(outDir, 'self_study_portfolio_reference_packets.jsonl'), portfolioReferencePackets)
   writeJsonl(join(outDir, 'self_study_portfolio_source_excerpt_packets.jsonl'), portfolioSourceExcerptPackets)
