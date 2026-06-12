@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-12T21:09:55.489Z
+Generated: 2026-06-12T21:13:56.534Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -18,6 +18,8 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Release useful creators: 6
 - Excellent creators: 1
 - Review sample: 4
+- Review packet rows: 4
+- Review decision template rows: 4
 - Review plan categories: 11
 - Review decisions: 4
 - Source yield rows: 7
@@ -77,6 +79,8 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - source_yield: `docs/experiments/tiktok-creative-creator-graph/reports/source-yield.json`
 - category_coverage: `docs/experiments/tiktok-creative-creator-graph/reports/category-coverage.json`
 - review_sample: `docs/experiments/tiktok-creative-creator-graph/data/processed/review_sample.csv`
+- review_packet: `docs/experiments/tiktok-creative-creator-graph/reports/review-packet.json`
+- review_packet_latest: `docs/experiments/tiktok-creative-creator-graph/data/processed/review_packet_latest.csv`
 - review_plan: `docs/experiments/tiktok-creative-creator-graph/reports/review-plan.json`
 - scale_wave_queue: `docs/experiments/tiktok-creative-creator-graph/data/processed/scale_waves.csv`
 - wave_ledger_queue: `docs/experiments/tiktok-creative-creator-graph/data/processed/wave_ledger.csv`
@@ -90,6 +94,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 
 - release_verification_complete: pass
 - readiness_complete: incomplete
+- review_packet_available: pass
 - provider_runner_exercised: pass
 - acquisition_run_history_available: pass
 - scale_plan_available: pass

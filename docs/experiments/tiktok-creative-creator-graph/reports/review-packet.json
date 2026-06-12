@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-06-12T21:13:56.071Z",
+  "packet_id": "review_packet_20260612",
+  "rows": 4,
+  "decision_template_rows": 4,
+  "packet_csv": "data/processed/review_packets/review_packet_20260612.csv",
+  "decision_template_csv": "data/processed/review_packets/review_packet_20260612-decision-template.csv",
+  "band_counts": {
+    "quality_audit": 3,
+    "borderline": 1
+  },
+  "suggested_decision_counts": {
+    "keep": 3,
+    "maybe": 1
+  }
+}

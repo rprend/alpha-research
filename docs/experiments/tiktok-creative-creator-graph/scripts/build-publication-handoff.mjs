@@ -35,6 +35,7 @@ function main() {
   const providerPreflightReport = readJson(join(reportsDir, 'provider-preflight.json'), null)
   const liveRunManifestReport = readJson(join(reportsDir, 'live-run-manifest.json'), null)
   const refreshPlan = readJson(join(reportsDir, 'refresh-plan.json'), null)
+  const reviewPacketReport = readJson(join(reportsDir, 'review-packet.json'), null)
   const categoryCoverage = readJson(join(reportsDir, 'category-coverage.json'), null)
   const acquisitionBatches = readJson(join(reportsDir, 'acquisition-batches.json'), null)
   const candidateFrontierReport = readJson(join(reportsDir, 'candidate-frontier.json'), null)
@@ -43,6 +44,7 @@ function main() {
   const acquisitionRunHistory = readJsonl(join(processedDir, 'acquisition_run_history.jsonl'))
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
   const reviewSample = readJsonl(join(processedDir, 'review_sample.jsonl'))
+  const reviewPacket = readJsonl(join(processedDir, 'review_packet_latest.jsonl'))
   const reviewPlanCategories = readJsonl(join(processedDir, 'review_plan_categories.jsonl'))
   const scaleWaves = readJsonl(join(processedDir, 'scale_waves.jsonl'))
   const waveLedger = readJsonl(join(processedDir, 'wave_ledger.jsonl'))
@@ -105,6 +107,8 @@ function main() {
       rejected_creators: counts.rejected_accounts ?? manifest.counts?.rejected_creators ?? 0,
       review_queue: counts.review_queue ?? manifest.counts?.review_queue ?? 0,
       review_sample: counts.review_sample ?? reviewSample.length,
+      review_packet_rows: counts.review_packet_rows ?? reviewPacket.length,
+      review_decision_template_rows: counts.review_decision_template_rows ?? reviewPacketReport?.decision_template_rows ?? 0,
       review_plan_categories: counts.review_plan_categories ?? reviewPlanCategories.length,
       review_decisions: currentReview,
       source_yield_rows: counts.source_yield_rows ?? sourceYield.length,
@@ -141,6 +145,7 @@ function main() {
     quality_gates: {
       release_verification_complete: Boolean(releaseVerification?.complete),
       readiness_complete: Boolean(readiness?.complete),
+      review_packet_available: Boolean(reviewPacketReport?.rows > 0 && reviewPacketReport?.decision_template_rows > 0),
       provider_runner_exercised: Boolean(acquisitionRun?.selected_tasks > 0),
       acquisition_run_history_available: acquisitionRunHistory.length > 0,
       scale_plan_available: Boolean(scalePlan?.estimated_work),
@@ -174,6 +179,8 @@ function main() {
       source_yield: rel(join(reportsDir, 'source-yield.json')),
       category_coverage: rel(join(reportsDir, 'category-coverage.json')),
       review_sample: rel(join(processedDir, 'review_sample.csv')),
+      review_packet: rel(join(reportsDir, 'review-packet.json')),
+      review_packet_latest: rel(join(processedDir, 'review_packet_latest.csv')),
       review_plan: rel(join(reportsDir, 'review-plan.json')),
       scale_wave_queue: rel(join(processedDir, 'scale_waves.csv')),
       wave_ledger_queue: rel(join(processedDir, 'wave_ledger.csv')),
@@ -226,6 +233,8 @@ ${handoff.objective}
 - Release useful creators: ${handoff.current_corpus.release_useful_creators}
 - Excellent creators: ${handoff.current_corpus.excellent_creators}
 - Review sample: ${handoff.current_corpus.review_sample}
+- Review packet rows: ${handoff.current_corpus.review_packet_rows}
+- Review decision template rows: ${handoff.current_corpus.review_decision_template_rows}
 - Review plan categories: ${handoff.current_corpus.review_plan_categories}
 - Review decisions: ${handoff.current_corpus.review_decisions}
 - Source yield rows: ${handoff.current_corpus.source_yield_rows}

@@ -27,6 +27,7 @@ function main() {
   const reviewQueue = readJsonl(join(processedDir, 'review_queue.jsonl'))
   const reviewDecisions = readJsonl(join(processedDir, 'review_decisions.jsonl'))
   const reviewSample = readJsonl(join(processedDir, 'review_sample.jsonl'))
+  const reviewPacket = readJsonl(join(processedDir, 'review_packet_latest.jsonl'))
   const reviewPlanCategories = readJsonl(join(processedDir, 'review_plan_categories.jsonl'))
   const acceptedCreators = readJsonl(join(processedDir, 'accepted_creators.jsonl'))
   const benchmarkCreators = readJsonl(join(processedDir, 'benchmark_creators.jsonl'))
@@ -48,6 +49,11 @@ function main() {
   })()
   const liveRunManifestReport = (() => {
     const path = join(reportsDir, 'live-run-manifest.json')
+    if (!existsSync(path)) return null
+    return JSON.parse(readFileSync(path, 'utf8'))
+  })()
+  const reviewPacketReport = (() => {
+    const path = join(reportsDir, 'review-packet.json')
     if (!existsSync(path)) return null
     return JSON.parse(readFileSync(path, 'utf8'))
   })()
@@ -114,6 +120,11 @@ function main() {
       id: 'review_sample',
       status: reviewSample.length > 0 ? 'pass' : 'fail',
       evidence: `${reviewSample.length} sampled accounts ready for review`,
+    },
+    {
+      id: 'review_packet',
+      status: reviewPacket.length > 0 && reviewPacketReport?.decision_template_rows > 0 ? 'pass' : 'fail',
+      evidence: reviewPacketReport ? `${reviewPacketReport.rows} review packet rows and ${reviewPacketReport.decision_template_rows} decision template rows` : 'review packet missing',
     },
     {
       id: 'review_plan',
@@ -240,6 +251,8 @@ function main() {
       rejected_accounts: rejectedAccounts,
       review_queue: reviewQueue.length,
       review_sample: reviewSample.length,
+      review_packet_rows: reviewPacket.length,
+      review_decision_template_rows: reviewPacketReport?.decision_template_rows ?? 0,
       review_plan_categories: reviewPlanCategories.length,
       review_decisions: reviewDecisions.length,
       accepted_creators: acceptedCreators.length,
@@ -301,6 +314,8 @@ Complete: ${summary.complete}
 - Rejected accounts: ${summary.counts.rejected_accounts}
 - Review queue: ${summary.counts.review_queue}
 - Review sample: ${summary.counts.review_sample}
+- Review packet rows: ${summary.counts.review_packet_rows}
+- Review decision template rows: ${summary.counts.review_decision_template_rows}
 - Review plan categories: ${summary.counts.review_plan_categories}
 - Review decisions: ${summary.counts.review_decisions}
 - Accepted creators: ${summary.counts.accepted_creators}

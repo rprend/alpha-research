@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T21:09:55.489Z",
+  "generated_at": "2026-06-12T21:13:56.534Z",
   "dataset_id": "tiktok-creative-creator-graph",
   "title": "TikTok Creative Creator Graph",
   "publish_state": "not-ready-production-data",
@@ -40,6 +40,8 @@
     "rejected_creators": 2,
     "review_queue": 8,
     "review_sample": 4,
+    "review_packet_rows": 4,
+    "review_decision_template_rows": 4,
     "review_plan_categories": 11,
     "review_decisions": 4,
     "source_yield_rows": 7,
@@ -76,6 +78,7 @@
   "quality_gates": {
     "release_verification_complete": true,
     "readiness_complete": false,
+    "review_packet_available": true,
     "provider_runner_exercised": true,
     "acquisition_run_history_available": true,
     "scale_plan_available": true,
@@ -109,6 +112,8 @@
     "source_yield": "docs/experiments/tiktok-creative-creator-graph/reports/source-yield.json",
     "category_coverage": "docs/experiments/tiktok-creative-creator-graph/reports/category-coverage.json",
     "review_sample": "docs/experiments/tiktok-creative-creator-graph/data/processed/review_sample.csv",
+    "review_packet": "docs/experiments/tiktok-creative-creator-graph/reports/review-packet.json",
+    "review_packet_latest": "docs/experiments/tiktok-creative-creator-graph/data/processed/review_packet_latest.csv",
     "review_plan": "docs/experiments/tiktok-creative-creator-graph/reports/review-plan.json",
     "scale_wave_queue": "docs/experiments/tiktok-creative-creator-graph/data/processed/scale_waves.csv",
     "wave_ledger_queue": "docs/experiments/tiktok-creative-creator-graph/data/processed/wave_ledger.csv",

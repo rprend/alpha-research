@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T21:09:55.530Z
+Generated: 2026-06-12T21:13:56.572Z
 
 Complete: false
 
@@ -14,6 +14,8 @@ Complete: false
 - Rejected accounts: 2
 - Review queue: 8
 - Review sample: 4
+- Review packet rows: 4
+- Review decision template rows: 4
 - Review plan categories: 11
 - Review decisions: 4
 - Accepted creators: 6
@@ -57,6 +59,7 @@ Complete: false
 - scoring_coverage: pass (9/9 accounts scored)
 - review_queue: pass (8 accounts queued for review)
 - review_sample: pass (4 sampled accounts ready for review)
+- review_packet: pass (4 review packet rows and 4 decision template rows)
 - review_plan: pass (11 category review plan rows generated)
 - expansion_queue: pass (4 expansion targets queued)
 - acquisition_batches: pass (68 acquisition tasks generated)

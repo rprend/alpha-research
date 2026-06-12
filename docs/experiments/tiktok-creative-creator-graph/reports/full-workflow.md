@@ -1,6 +1,6 @@
 # Full Workflow
 
-Generated: 2026-06-12T21:09:55.534Z
+Generated: 2026-06-12T21:13:56.576Z
 
 Complete: true
 
@@ -13,6 +13,7 @@ Complete: true
 - resolve_identities: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/resolve-identities.mjs`)
 - build_category_coverage: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-category-coverage.mjs`)
 - build_review_sample: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-review-sample.mjs`)
+- build_review_packet: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-review-packet.mjs`)
 - build_review_plan: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-review-plan.mjs`)
 - build_acquisition_batches: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-acquisition-batches.mjs`)
 - build_candidate_frontier: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-candidate-frontier.mjs`)
