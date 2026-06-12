@@ -1,10 +1,10 @@
 # Wave Ledger
 
-Generated: 2026-06-12T21:41:43.856Z
+Generated: 2026-06-12T21:45:47.253Z
 
 - Waves: 1000
-- Planned: 992
-- Dry-run: 8
+- Planned: 990
+- Dry-run: 10
 - Succeeded: 0
 - Imported: 0
 - Imported empty: 0
@@ -12,17 +12,17 @@ Generated: 2026-06-12T21:41:43.856Z
 - Imported output accounts: 0
 - Under-yield imports: 0
 - Empty imports: 0
-- Run attempts: 11
-- Dry-run attempts: 11
+- Run attempts: 14
+- Dry-run attempts: 14
 - Live-run attempts: 0
 - Review needed: 496
-- Latest run wave: scale_wave_0008
-- Next ready wave: scale_wave_0009
+- Latest run wave: scale_wave_0010
+- Next ready wave: scale_wave_0011
 
 Next command:
 
 ```bash
-node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --max-tasks=8 --priority-max=2 --wave=0009
+node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --max-tasks=8 --priority-max=2 --wave=0011
 ```
 
 ## First 20 Rows
@@ -37,8 +37,8 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 | 6 | scale_wave_0006 | dry_run | cinematographer | tiktok_hashtag_export | cinematography | 0 | n/a | 1 |
 | 7 | scale_wave_0007 | dry_run | filmmaker | tiktok_hashtag_export | filmmaker | 0 | n/a | 1 |
 | 8 | scale_wave_0008 | dry_run | filmmaker | tiktok_hashtag_export | shortfilm | 0 | n/a | 1 |
-| 9 | scale_wave_0009 | planned | sketch_comedian | tiktok_hashtag_export | sketchcomedy | 0 | n/a | 1 |
-| 10 | scale_wave_0010 | planned | filmmaker | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" | 0 | n/a | 1 |
+| 9 | scale_wave_0009 | dry_run | sketch_comedian | tiktok_hashtag_export | sketchcomedy | 0 | n/a | 1 |
+| 10 | scale_wave_0010 | dry_run | filmmaker | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" | 0 | n/a | 1 |
 | 11 | scale_wave_0011 | planned | editor | category_gap_search | site:tiktok.com/@ "editing" | 0 | n/a | 1 |
 | 12 | scale_wave_0012 | planned | editor | category_gap_search | site:tiktok.com/@ "editor" | 0 | n/a | 1 |
 | 13 | scale_wave_0013 | planned | editor | search_index | site:tiktok.com/@ "video editor" | 0 | n/a | 1 |

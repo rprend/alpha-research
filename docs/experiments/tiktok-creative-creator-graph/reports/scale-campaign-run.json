@@ -1,0 +1,103 @@
+{
+  "generated_at": "2026-06-12T21:45:11.282Z",
+  "started_at": "2026-06-12T21:45:09.173Z",
+  "mode": "dry_run",
+  "live_confirmed": false,
+  "max_iterations": 2,
+  "waves_per_iteration": 1,
+  "max_cost_usd": 1,
+  "estimated_cost_usd": 0.5,
+  "stop_targets": {
+    "useful_accounts": 50000,
+    "excellent_accounts": 5000,
+    "review_decisions": 500
+  },
+  "stop_reason": "dry_run_complete",
+  "complete": false,
+  "bootstrap": {
+    "id": "bootstrap_full_workflow",
+    "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs",
+    "status": "pass",
+    "started_at": "2026-06-12T21:45:09.174Z",
+    "finished_at": "2026-06-12T21:45:11.089Z",
+    "output_tail": [
+      "        \"      \\\"id\\\": \\\"excellent_account_target\\\",\",",
+      "        \"      \\\"status\\\": \\\"incomplete\\\",\",",
+      "        \"      \\\"evidence\\\": \\\"1/5000 excellent accounts\\\"\",",
+      "        \"    },\",",
+      "        \"    {\",",
+      "        \"      \\\"id\\\": \\\"human_review_target\\\",\",",
+      "        \"      \\\"status\\\": \\\"incomplete\\\",\",",
+      "        \"      \\\"evidence\\\": \\\"4/500 review decisions applied\\\"\",",
+      "        \"    }\",",
+      "        \"  ],\",",
+      "        \"  \\\"remaining\\\": {\",",
+      "        \"    \\\"useful_accounts\\\": 49995,\",",
+      "        \"    \\\"excellent_accounts\\\": 4999,\",",
+      "        \"    \\\"reviewed_accounts\\\": 496\",",
+      "        \"  }\",",
+      "        \"}\"",
+      "      ]",
+      "    }",
+      "  ]",
+      "}"
+    ]
+  },
+  "iterations": [
+    {
+      "sequence": 1,
+      "status": "pass",
+      "mode": "dry_run",
+      "selected_waves": 1,
+      "selected_wave_ids": [
+        "scale_wave_0010"
+      ],
+      "estimated_cost_usd": 0.5,
+      "cumulative_estimated_cost_usd": 0.5,
+      "import_ran": false,
+      "rebuild_ran": false,
+      "counts_after": {
+        "useful_accounts": 5,
+        "excellent_accounts": 1,
+        "review_decisions": 4,
+        "complete": false
+      },
+      "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-live-manifest.mjs --max-waves=1 --max-cost-usd=1.00 --skip-import --skip-rebuild",
+      "result": {
+        "id": "manifest_run_1",
+        "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-live-manifest.mjs --max-waves=1 --max-cost-usd=1.00 --skip-import --skip-rebuild",
+        "status": "pass",
+        "started_at": "2026-06-12T21:45:11.090Z",
+        "finished_at": "2026-06-12T21:45:11.281Z",
+        "output_tail": [
+          "          \"        \\\"maxPagesPerQuery\\\": 1,\",",
+          "          \"        \\\"resultsPerPage\\\": 100,\",",
+          "          \"        \\\"countryCode\\\": \\\"us\\\",\",",
+          "          \"        \\\"languageCode\\\": \\\"en\\\"\",",
+          "          \"      },\",",
+          "          \"      \\\"dry_run\\\": true,\",",
+          "          \"      \\\"started_at\\\": \\\"2026-06-12T21:45:11.244Z\\\",\",",
+          "          \"      \\\"status\\\": \\\"dry_run\\\",\",",
+          "          \"      \\\"output_rows\\\": 0,\",",
+          "          \"      \\\"output_path\\\": \\\"\\\",\",",
+          "          \"      \\\"finished_at\\\": \\\"2026-06-12T21:45:11.244Z\\\"\",",
+          "          \"    }\",",
+          "          \"  ]\",",
+          "          \"}\"",
+          "        ]",
+          "      }",
+          "    }",
+          "  ],",
+          "  \"post_steps\": []",
+          "}"
+        ]
+      }
+    }
+  ],
+  "final_counts": {
+    "useful_accounts": 5,
+    "excellent_accounts": 1,
+    "review_decisions": 4,
+    "complete": false
+  }
+}

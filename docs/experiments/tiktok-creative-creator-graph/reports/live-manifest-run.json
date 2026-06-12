@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T21:41:44.009Z",
+  "generated_at": "2026-06-12T21:45:47.428Z",
   "mode": "dry_run",
   "live_confirmed": false,
   "provider": "apify",
@@ -10,7 +10,7 @@
   "estimated_cost_usd": 0.5,
   "max_cost_usd": 1,
   "selected_wave_ids": [
-    "scale_wave_0009"
+    "scale_wave_0011"
   ],
   "complete": true,
   "import_ran": false,
@@ -18,34 +18,34 @@
   "steps": [
     {
       "kind": "dry_run_wave",
-      "wave_id": "scale_wave_0009",
-      "sequence": 9,
+      "wave_id": "scale_wave_0011",
+      "sequence": 11,
       "estimated_cost_usd": 0.5,
-      "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=9",
+      "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=11",
       "result": {
-        "id": "dry_scale_wave_0009",
-        "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=9",
+        "id": "dry_scale_wave_0011",
+        "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=11",
         "status": "pass",
-        "started_at": "2026-06-12T21:41:43.969Z",
-        "finished_at": "2026-06-12T21:41:44.009Z",
+        "started_at": "2026-06-12T21:45:47.385Z",
+        "finished_at": "2026-06-12T21:45:47.428Z",
         "output_tail": [
           "      \"acquisition_surface\": \"category_gap_search\",",
-          "      \"query\": \"site:tiktok.com/@ \\\"animation\\\"\",",
-          "      \"target_label\": \"vfx_animation\",",
+          "      \"query\": \"site:tiktok.com/@ \\\"comedy sketch\\\"\",",
+          "      \"target_label\": \"sketch_comedian\",",
           "      \"actor_id\": \"apify/google-search-scraper\",",
           "      \"input\": {",
-          "        \"queries\": \"site:tiktok.com/@ \\\"animation\\\"\",",
+          "        \"queries\": \"site:tiktok.com/@ \\\"comedy sketch\\\"\",",
           "        \"maxPagesPerQuery\": 1,",
           "        \"resultsPerPage\": 100,",
           "        \"countryCode\": \"us\",",
           "        \"languageCode\": \"en\"",
           "      },",
           "      \"dry_run\": true,",
-          "      \"started_at\": \"2026-06-12T21:41:44.006Z\",",
+          "      \"started_at\": \"2026-06-12T21:45:47.424Z\",",
           "      \"status\": \"dry_run\",",
           "      \"output_rows\": 0,",
           "      \"output_path\": \"\",",
-          "      \"finished_at\": \"2026-06-12T21:41:44.006Z\"",
+          "      \"finished_at\": \"2026-06-12T21:45:47.424Z\"",
           "    }",
           "  ]",
           "}"

@@ -393,6 +393,8 @@ The pipeline writes:
 - `reports/provider-preflight.json`
 - `reports/live-run-manifest.md`
 - `reports/live-run-manifest.json`
+- `reports/scale-campaign-run.md`
+- `reports/scale-campaign-run.json`
 - `reports/refresh-plan.md`
 - `reports/refresh-plan.json`
 - `reports/publication-handoff.md`
@@ -425,10 +427,11 @@ The pipeline writes:
 22. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-wave-ledger.mjs` to track planned, attempted, imported, and failed waves.
 23. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-provider-preflight.mjs --max-waves=10 --budget-usd=25` before live provider execution.
 24. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-live-run-manifest.mjs` to create the exact dry-run, live-run, import, and rebuild command queue.
-25. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-refresh-plan.mjs` to schedule weekly/monthly/quarterly account refreshes.
-26. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-publication-handoff.mjs` to generate the control-plane handoff package.
-27. Use reviewed accepted/rejected/benchmark outputs to tune sources and scoring.
-28. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
+25. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/run-scale-campaign.mjs --max-iterations=10 --waves-per-iteration=1 --max-cost-usd=25` to validate the bounded campaign sequence, or add `--live --confirm-live` after checking budget and provider credentials.
+26. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-refresh-plan.mjs` to schedule weekly/monthly/quarterly account refreshes.
+27. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-publication-handoff.mjs` to generate the control-plane handoff package.
+28. Use reviewed accepted/rejected/benchmark outputs to tune sources and scoring.
+29. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
 
 ## Current Limitations
 

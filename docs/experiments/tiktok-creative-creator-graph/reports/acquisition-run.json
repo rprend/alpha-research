@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-12T21:41:44.006Z",
-  "execution_id": "2026-06-12T21-41-44-005Z",
+  "generated_at": "2026-06-12T21:45:47.424Z",
+  "execution_id": "2026-06-12T21-45-47-424Z",
   "provider": "apify",
   "env_file_loaded": true,
   "provider_token_available": false,
-  "wave_id": "scale_wave_0009",
+  "wave_id": "scale_wave_0011",
   "wave_found": true,
   "dry_run": true,
   "live_requested": false,
@@ -18,50 +18,48 @@
   "output_rows": 0,
   "results": [
     {
-      "execution_id": "2026-06-12T21-41-44-005Z",
+      "execution_id": "2026-06-12T21-45-47-424Z",
       "provider": "apify",
-      "batch_id": "hashtag_0016",
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "sketchcomedy",
-      "target_label": "sketch_comedian",
-      "actor_id": "clockworks/tiktok-scraper",
-      "input": {
-        "hashtags": [
-          "sketchcomedy"
-        ],
-        "resultsPerPage": 100,
-        "shouldDownloadVideos": false,
-        "shouldDownloadCovers": false,
-        "shouldDownloadSubtitles": false
-      },
-      "dry_run": true,
-      "started_at": "2026-06-12T21:41:44.005Z",
-      "status": "dry_run",
-      "output_rows": 0,
-      "output_path": "",
-      "finished_at": "2026-06-12T21:41:44.005Z"
-    },
-    {
-      "execution_id": "2026-06-12T21-41-44-005Z",
-      "provider": "apify",
-      "batch_id": "category_gap_0060",
+      "batch_id": "category_gap_0029",
       "acquisition_surface": "category_gap_search",
-      "query": "site:tiktok.com/@ \"animation\"",
-      "target_label": "vfx_animation",
+      "query": "site:tiktok.com/@ \"editing\"",
+      "target_label": "editor",
       "actor_id": "apify/google-search-scraper",
       "input": {
-        "queries": "site:tiktok.com/@ \"animation\"",
+        "queries": "site:tiktok.com/@ \"editing\"",
         "maxPagesPerQuery": 1,
         "resultsPerPage": 100,
         "countryCode": "us",
         "languageCode": "en"
       },
       "dry_run": true,
-      "started_at": "2026-06-12T21:41:44.006Z",
+      "started_at": "2026-06-12T21:45:47.424Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-12T21:41:44.006Z"
+      "finished_at": "2026-06-12T21:45:47.424Z"
+    },
+    {
+      "execution_id": "2026-06-12T21-45-47-424Z",
+      "provider": "apify",
+      "batch_id": "category_gap_0053",
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"comedy sketch\"",
+      "target_label": "sketch_comedian",
+      "actor_id": "apify/google-search-scraper",
+      "input": {
+        "queries": "site:tiktok.com/@ \"comedy sketch\"",
+        "maxPagesPerQuery": 1,
+        "resultsPerPage": 100,
+        "countryCode": "us",
+        "languageCode": "en"
+      },
+      "dry_run": true,
+      "started_at": "2026-06-12T21:45:47.424Z",
+      "status": "dry_run",
+      "output_rows": 0,
+      "output_path": "",
+      "finished_at": "2026-06-12T21:45:47.424Z"
     }
   ]
 }

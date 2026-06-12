@@ -60,6 +60,11 @@ function main() {
     if (!existsSync(path)) return null
     return JSON.parse(readFileSync(path, 'utf8'))
   })()
+  const scaleCampaignRun = (() => {
+    const path = join(reportsDir, 'scale-campaign-run.json')
+    if (!existsSync(path)) return null
+    return JSON.parse(readFileSync(path, 'utf8'))
+  })()
   const reviewPacketReport = (() => {
     const path = join(reportsDir, 'review-packet.json')
     if (!existsSync(path)) return null
@@ -247,6 +252,11 @@ function main() {
       evidence: liveManifestRunReport ? `${liveManifestRunReport.selected_waves} ${liveManifestRunReport.mode} wave(s) executed through manifest runner` : 'live manifest runner missing',
     },
     {
+      id: 'scale_campaign_runner',
+      status: scaleCampaignRun?.iterations?.length > 0 && scaleCampaignRun?.bootstrap?.status === 'pass' ? 'pass' : 'fail',
+      evidence: scaleCampaignRun ? `${scaleCampaignRun.iterations.length} ${scaleCampaignRun.mode} iteration(s), stop reason ${scaleCampaignRun.stop_reason}` : 'scale campaign runner missing',
+    },
+    {
       id: 'refresh_plan',
       status: refreshTasks.length > 0 ? 'pass' : 'fail',
       evidence: `${refreshTasks.length} account refresh tasks generated`,
@@ -334,6 +344,10 @@ function main() {
       live_manifest_runner_steps: liveManifestRunSteps.length,
       live_manifest_runner_selected_waves: liveManifestRunReport?.selected_waves ?? 0,
       live_manifest_runner_mode: liveManifestRunReport?.mode ?? '',
+      scale_campaign_iterations: scaleCampaignRun?.iterations?.length ?? 0,
+      scale_campaign_mode: scaleCampaignRun?.mode ?? '',
+      scale_campaign_stop_reason: scaleCampaignRun?.stop_reason ?? '',
+      scale_campaign_estimated_cost_usd: scaleCampaignRun?.estimated_cost_usd ?? 0,
       refresh_tasks: refreshTasks.length,
       publication_handoff: publicationHandoff ? 1 : 0,
     },
@@ -409,6 +423,10 @@ Complete: ${summary.complete}
 - Live manifest runner steps: ${summary.counts.live_manifest_runner_steps}
 - Live manifest runner selected waves: ${summary.counts.live_manifest_runner_selected_waves}
 - Live manifest runner mode: ${summary.counts.live_manifest_runner_mode}
+- Scale campaign iterations: ${summary.counts.scale_campaign_iterations}
+- Scale campaign mode: ${summary.counts.scale_campaign_mode}
+- Scale campaign stop reason: ${summary.counts.scale_campaign_stop_reason}
+- Scale campaign estimated cost: $${summary.counts.scale_campaign_estimated_cost_usd}
 - Refresh tasks: ${summary.counts.refresh_tasks}
 - Publication handoff: ${summary.counts.publication_handoff}
 

@@ -1,11 +1,11 @@
 # Acquisition Run
 
-Generated: 2026-06-12T21:41:44.006Z
+Generated: 2026-06-12T21:45:47.424Z
 
 - Provider: apify
 - Env file loaded: true
 - Provider token available: false
-- Wave: scale_wave_0009
+- Wave: scale_wave_0011
 - Dry run: true
 - Live requested: false
 - Live confirmed: false
@@ -21,5 +21,5 @@ Generated: 2026-06-12T21:41:44.006Z
 
 | Batch | Surface | Target Label | Query | Status | Rows |
 | --- | --- | --- | --- | --- | ---: |
-| hashtag_0016 | tiktok_hashtag_export | sketch_comedian | sketchcomedy | dry_run | 0 |
-| category_gap_0060 | category_gap_search | vfx_animation | site:tiktok.com/@ "animation" | dry_run | 0 |
+| category_gap_0029 | category_gap_search | editor | site:tiktok.com/@ "editing" | dry_run | 0 |
+| category_gap_0053 | category_gap_search | sketch_comedian | site:tiktok.com/@ "comedy sketch" | dry_run | 0 |
