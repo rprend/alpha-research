@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import {
   ensureDir,
+  cleanHtml,
   experimentDir,
   extractTitle,
   readJson,
@@ -14,6 +15,7 @@ import {
 const args = parseArgs();
 const timeoutMs = Number(args.timeout ?? 12000);
 const targetConfig = args.targets ?? "wayback-targets.json";
+const minWords = Number(args["min-words"] ?? process.env.MISSION_DRIFT_MIN_WORDS ?? 80);
 const years = String(args.years ?? "2000,2005,2010,2015,2020")
   .split(",")
   .map((year) => Number(year.trim()))
@@ -64,6 +66,40 @@ for (const target of targets) {
       continue;
     }
 
+    if (!response.ok) {
+      manifest.errors.push({ ...target, year, timestamp: snapshot.timestamp, archiveUrl, status: response.status, body: body.slice(0, 1000) });
+      manifest.requests.push({
+        ...target,
+        year,
+        timestamp: snapshot.timestamp,
+        originalStatus: snapshot.statuscode,
+        archiveUrl,
+        status: "http-error",
+        httpStatus: response.status,
+        responsePath: path.relative(experimentDir, responsePath),
+      });
+      continue;
+    }
+
+    const cleanText = cleanHtml(body);
+    const wordCount = cleanText.split(/\s+/).filter(Boolean).length;
+    if (wordCount < minWords) {
+      manifest.errors.push({ ...target, year, timestamp: snapshot.timestamp, archiveUrl, status: response.status, wordCount, error: "Fetched archived page did not meet minimum readable word count" });
+      manifest.requests.push({
+        ...target,
+        year,
+        timestamp: snapshot.timestamp,
+        originalStatus: snapshot.statuscode,
+        archiveUrl,
+        status: "quality-failed",
+        httpStatus: response.status,
+        wordCount,
+        responsePath: path.relative(experimentDir, responsePath),
+      });
+      continue;
+    }
+
+    await writeText(responsePath, body);
     manifest.requests.push({
       ...target,
       year,
@@ -71,15 +107,9 @@ for (const target of targets) {
       originalStatus: snapshot.statuscode,
       archiveUrl,
       status: response.status,
+      wordCount,
       responsePath: path.relative(experimentDir, responsePath),
     });
-
-    if (!response.ok) {
-      manifest.errors.push({ ...target, year, timestamp: snapshot.timestamp, archiveUrl, status: response.status, body: body.slice(0, 1000) });
-      continue;
-    }
-
-    await writeText(responsePath, body);
     await writeJson(path.join(institutionDir, "metadata.json"), {
       ...target,
       year,
@@ -87,6 +117,7 @@ for (const target of targets) {
       archiveUrl,
       status: response.status,
       bytes: Buffer.byteLength(body),
+      wordCount,
       title: extractTitle(body),
       fetchedAt: new Date().toISOString(),
     });
