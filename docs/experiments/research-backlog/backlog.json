@@ -1,0 +1,152 @@
+{
+  "program": "archive-signals-cultural-observatory",
+  "updated": "2026-06-12",
+  "items": [
+    {
+      "id": "university-mission-statement-drift",
+      "title": "What Universities Say They Are For",
+      "format": "what-changed",
+      "status": "corpus-built",
+      "experimentPath": "docs/experiments/university-mission-statement-drift/",
+      "researchQuestion": "How has the public language universities use to describe their purpose changed over time?",
+      "unitOfAnalysis": "institution-page snapshot",
+      "primarySources": [
+        "current university mission/about pages",
+        "Internet Archive Wayback snapshots"
+      ],
+      "nextSources": [
+        "university catalogs",
+        "strategic plans",
+        "president messages",
+        "commencement speeches"
+      ],
+      "firstRunnableBuild": "Run current-page fetch, Wayback snapshot fetch, report build, audit packet, and readiness gate.",
+      "publicationAngle": "A longitudinal essay about the movement from truth/civic language toward innovation, impact, global, and inclusion language, with careful source-layer caveats.",
+      "qualityRisks": [
+        "Wayback coverage is sparse for exact current URLs",
+        "mission pages move or split across about/value/strategic-plan pages",
+        "short archived pages can produce false term drift"
+      ]
+    },
+    {
+      "id": "ai-and-humanities-field-map",
+      "title": "The Rise Of AI And The Humanities",
+      "format": "field-map",
+      "status": "analysis-ready",
+      "experimentPath": "docs/experiments/humanities-literature-radar/",
+      "researchQuestion": "What are scholars publishing about AI, computation, archives, and quantitative methods in humanities-facing fields?",
+      "unitOfAnalysis": "scholarly work metadata record",
+      "primarySources": [
+        "OpenAlex",
+        "Crossref",
+        "DOAJ",
+        "Knowledge Commons Works / Humanities Commons",
+        "OSF Preprints / SocArXiv",
+        "arXiv"
+      ],
+      "nextSources": [
+        "Project MUSE metadata where available",
+        "JSTOR Data for Research where permitted",
+        "publisher and journal feeds",
+        "conference programs"
+      ],
+      "firstRunnableBuild": "Run humanities literature radar pipeline with broad 2020-present source limits, normalize works, build report, and run readiness gate.",
+      "publicationAngle": "A field-map essay showing where AI and quantitative methods are already entering humanities work, what corpora are being used, and which study directions look underexplored.",
+      "qualityRisks": [
+        "metadata coverage underrepresents books and chapters",
+        "recent-year indexing lag can look like intellectual decline",
+        "keyword searches can overrepresent AI-explicit work and miss implicit computational methods"
+      ]
+    },
+    {
+      "id": "museum-language-after-decolonization",
+      "title": "The Language Of Museums After Decolonization",
+      "format": "what-changed",
+      "status": "idea",
+      "experimentPath": null,
+      "researchQuestion": "How have museums changed public language around civilization, world culture, provenance, restitution, repatriation, and decolonization?",
+      "unitOfAnalysis": "museum page or annual-report section snapshot",
+      "primarySources": [
+        "museum about pages",
+        "exhibition descriptions",
+        "collection pages",
+        "annual reports",
+        "provenance and repatriation pages",
+        "Internet Archive Wayback snapshots"
+      ],
+      "nextSources": [
+        "museum press releases",
+        "education pages",
+        "collection API metadata",
+        "exhibition catalogs where metadata is public"
+      ],
+      "firstRunnableBuild": "Create a 20-museum allowlist, fetch current pages and selected Wayback snapshots for 2000/2010/2015/2020/current, then build term-family tables by source layer.",
+      "publicationAngle": "A longitudinal institutional-language essay about how museums publicly explain ownership, culture, world history, and repair.",
+      "qualityRisks": [
+        "page redesigns can change text independently of institutional ideology",
+        "annual reports and exhibition pages represent different genres",
+        "some museums expose rich collection APIs while others expose only web copy"
+      ]
+    },
+    {
+      "id": "canon-drift-feasibility",
+      "title": "Canon Drift: A Feasibility Report",
+      "format": "moving-canon",
+      "status": "idea",
+      "experimentPath": null,
+      "researchQuestion": "Which sources can credibly measure changes in assigned, anthologized, cited, translated, or held authors over time?",
+      "unitOfAnalysis": "author-work appearance in a syllabus, anthology, citation graph, translation record, or library-holdings record",
+      "primarySources": [
+        "Open Syllabus where available",
+        "public syllabi",
+        "course catalogs",
+        "anthology tables of contents",
+        "OpenAlex citation metadata",
+        "library metadata"
+      ],
+      "nextSources": [
+        "WorldCat-derived metadata where licensing permits",
+        "HathiTrust bibliographic data",
+        "publisher pages",
+        "public reading lists"
+      ],
+      "firstRunnableBuild": "Probe each source type for one author cohort and one institution cohort, then produce a matrix of measurable canon signals and coverage risks.",
+      "publicationAngle": "A methods-forward public essay explaining what canon drift can and cannot be measured from public data before making large claims.",
+      "qualityRisks": [
+        "syllabi are not a representative sample of teaching",
+        "library holdings measure acquisition and preservation, not readership",
+        "anthology editions require careful edition-level normalization"
+      ]
+    },
+    {
+      "id": "what-counts-as-humanities-dataset",
+      "title": "What Counts As A Humanities Dataset?",
+      "format": "research-agenda",
+      "status": "idea",
+      "experimentPath": null,
+      "researchQuestion": "What reusable corpora could support new quantitative humanities essays, and which are ready for immediate analysis?",
+      "unitOfAnalysis": "candidate dataset or corpus",
+      "primarySources": [
+        "public dataset registries",
+        "library and archive APIs",
+        "digital humanities project pages",
+        "data papers",
+        "repository records"
+      ],
+      "nextSources": [
+        "institutional repositories",
+        "Hugging Face datasets",
+        "Zenodo",
+        "Dataverse",
+        "Knowledge Commons"
+      ],
+      "firstRunnableBuild": "Run a research scout over known corpus registries, audit the top 25 candidates, and rank them by access, coverage, licensing, and essay potential.",
+      "publicationAngle": "A practical field guide to humanities datasets that can become public essays, not just academic infrastructure.",
+      "qualityRisks": [
+        "dataset descriptions often overstate completeness",
+        "licenses may allow inspection but not republication",
+        "corpora may require domain-specific normalization before they are analytically useful"
+      ]
+    }
+  ]
+}

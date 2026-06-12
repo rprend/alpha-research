@@ -2040,221 +2040,6 @@
         }
       },
       {
-        "id": "p2hcg-cyg93",
-        "created": "2026-02-04T20:38:18.868085+00:00",
-        "updated": "2026-02-04T20:38:19.028913+00:00",
-        "links": {
-          "self": "https://works.hcommons.org/api/records/p2hcg-cyg93",
-          "self_html": "https://works.hcommons.org/records/p2hcg-cyg93",
-          "self_doi": "https://works.hcommons.org/doi/10.17613/p2hcg-cyg93",
-          "doi": "https://doi.org/10.17613/p2hcg-cyg93",
-          "parent": "https://works.hcommons.org/api/records/asz1z-nax02",
-          "parent_html": "https://works.hcommons.org/records/asz1z-nax02",
-          "parent_doi": "https://works.hcommons.org/doi/10.17613/asz1z-nax02",
-          "self_iiif_manifest": "https://works.hcommons.org/api/iiif/record:p2hcg-cyg93/manifest",
-          "self_iiif_sequence": "https://works.hcommons.org/api/iiif/record:p2hcg-cyg93/sequence/default",
-          "files": "https://works.hcommons.org/api/records/p2hcg-cyg93/files",
-          "media_files": "https://works.hcommons.org/api/records/p2hcg-cyg93/media-files",
-          "archive": "https://works.hcommons.org/api/records/p2hcg-cyg93/files-archive",
-          "archive_media": "https://works.hcommons.org/api/records/p2hcg-cyg93/media-files-archive",
-          "latest": "https://works.hcommons.org/api/records/p2hcg-cyg93/versions/latest",
-          "latest_html": "https://works.hcommons.org/records/p2hcg-cyg93/latest",
-          "draft": "https://works.hcommons.org/api/records/p2hcg-cyg93/draft",
-          "versions": "https://works.hcommons.org/api/records/p2hcg-cyg93/versions",
-          "access_links": "https://works.hcommons.org/api/records/p2hcg-cyg93/access/links",
-          "access_grants": "https://works.hcommons.org/api/records/p2hcg-cyg93/access/grants",
-          "access_users": "https://works.hcommons.org/api/records/p2hcg-cyg93/access/users",
-          "access_groups": "https://works.hcommons.org/api/records/p2hcg-cyg93/access/groups",
-          "access_request": "https://works.hcommons.org/api/records/p2hcg-cyg93/access/request",
-          "access": "https://works.hcommons.org/api/records/p2hcg-cyg93/access",
-          "reserve_doi": "https://works.hcommons.org/api/records/p2hcg-cyg93/draft/pids/doi",
-          "communities": "https://works.hcommons.org/api/records/p2hcg-cyg93/communities",
-          "communities-suggestions": "https://works.hcommons.org/api/records/p2hcg-cyg93/communities-suggestions",
-          "requests": "https://works.hcommons.org/api/records/p2hcg-cyg93/requests"
-        },
-        "revision_id": 5,
-        "parent": {
-          "id": "asz1z-nax02",
-          "access": {
-            "owned_by": {
-              "user": "6293"
-            },
-            "settings": {
-              "allow_user_requests": false,
-              "allow_guest_requests": false,
-              "accept_conditions_text": null,
-              "secret_link_expiration": 0
-            }
-          },
-          "communities": {},
-          "pids": {
-            "doi": {
-              "identifier": "10.17613/asz1z-nax02",
-              "provider": "datacite",
-              "client": "datacite"
-            }
-          }
-        },
-        "versions": {
-          "is_latest": true,
-          "index": 1
-        },
-        "is_published": true,
-        "is_draft": false,
-        "pids": {
-          "doi": {
-            "identifier": "10.17613/p2hcg-cyg93",
-            "provider": "datacite",
-            "client": "datacite"
-          },
-          "oai": {
-            "identifier": "oai:https://works.hcommons.org:p2hcg-cyg93",
-            "provider": "oai"
-          }
-        },
-        "metadata": {
-          "resource_type": {
-            "id": "textDocument-journalArticle",
-            "title": {
-              "de": "Zeitschriftenartikel",
-              "en": "Journal article"
-            }
-          },
-          "creators": [
-            {
-              "person_or_org": {
-                "type": "personal",
-                "name": "Owens, Matthew",
-                "given_name": "Matthew",
-                "family_name": "Owens",
-                "identifiers": [
-                  {
-                    "identifier": "mowens",
-                    "scheme": "kc_username"
-                  }
-                ]
-              },
-              "role": {
-                "id": "author",
-                "title": {
-                  "en": "Author"
-                }
-              },
-              "affiliations": [
-                {
-                  "name": "Codewheel Ai"
-                }
-              ]
-            }
-          ],
-          "title": "Voynich Script as Medieval Pharmaceutical Notation: Latin Case Morphology and Recipe Structure in an Encrypted 15th-Century Antidotarium",
-          "publisher": "Knowledge Commons",
-          "publication_date": "2026-02-04",
-          "subjects": [
-            {
-              "id": "http://id.worldcat.org/fast/811762",
-              "subject": "Applied linguistics--Statistical methods",
-              "scheme": "FAST-topical"
-            }
-          ],
-          "languages": [
-            {
-              "id": "eng",
-              "title": {
-                "en": "English"
-              }
-            }
-          ],
-          "rights": [
-            {
-              "id": "cc-by-4.0",
-              "title": {
-                "en": "Creative Commons Attribution 4.0 International"
-              },
-              "description": {
-                "en": "Allows re-distribution and re-use of a licensed work on the condition that the creator is appropriately credited. Allows re-distribution and creation of derivative works for commercial purposes."
-              },
-              "icon": "cc-by-icon",
-              "props": {
-                "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
-                "scheme": "spdx"
-              }
-            }
-          ],
-          "description": "Building on botanical identifications of 34 plants in the Voynich Manuscript's herbal section (Paper 1), we present evidence that the accompanying Voynichese text encodes pharmaceutical recipes using an abbreviated Latin grammatical system. Analysis of 864 case-marked words reveals a five-case morphological system (-oy nominative, -am accusative, -an genitive, -ay dative, -ae ablative) consistent with medieval Latin. Statistical comparison shows the case distribution matches Latin pharmaceutical texts with high significance (χ² = 41.56, p &lt; 0.003; Monte Carlo probability of chance occurrence: 0.26%). Application route markers (9h = external use, 9k = internal use) predict the expected medical application of identified plants with 94.1% accuracy. Recipe structure analysis confirms verb-initial patterns matching the Antidotarium Nicolai \"Recipe\" (Rx) convention. Cross-reference with Circa Instans plant nomenclature identifies 12 vocabulary correspondences. Cross-validation with the manuscript's pharmaceutical section (2,389 words) confirms identical patterns, supporting a unified notation system. We propose that Voynichese functions as a specialized pharmaceutical shorthand, combining Latin grammatical inflection with logograms and semantic markers—not a natural language cipher but a notation system analogous to modern pharmaceutical abbreviations."
-        },
-        "custom_fields": {
-          "kcr:user_defined_tags": [
-            "Voynich Manuscript",
-            "pharmaceutical notation",
-            "Latin morphology",
-            "medieval pharmacy",
-            "Antidotarium Nicolai"
-          ],
-          "kcr:ai_usage": {
-            "ai_used": true,
-            "ai_description": "Claude (Anthropic) was used as an AI assistant for statistical analysis, literature organization, data processing, and manuscript preparation. All botanical identifications, interpretations, and conclusions were made by the author."
-          }
-        },
-        "access": {
-          "record": "public",
-          "files": "public",
-          "embargo": {
-            "active": false,
-            "reason": null
-          },
-          "status": "open"
-        },
-        "files": {
-          "enabled": true,
-          "order": [],
-          "count": 1,
-          "total_bytes": 52424,
-          "entries": {
-            "paper2_preprint.pdf": {
-              "id": "988121da-9d3a-474b-aee4-be093da0a02a",
-              "checksum": "md5:f8c5b3cb8a49bb7c1d59d0e33b5b5eb8",
-              "ext": "pdf",
-              "size": 52424,
-              "mimetype": "application/pdf",
-              "key": "paper2_preprint.pdf",
-              "metadata": {},
-              "access": {
-                "hidden": false
-              }
-            }
-          }
-        },
-        "media_files": {
-          "enabled": false,
-          "order": [],
-          "count": 0,
-          "total_bytes": 0,
-          "entries": {}
-        },
-        "status": "published",
-        "deletion_status": {
-          "is_deleted": false,
-          "status": "P"
-        },
-        "stats": {
-          "this_version": {
-            "views": 110,
-            "unique_views": 92,
-            "downloads": 68,
-            "unique_downloads": 51,
-            "data_volume": 3564832
-          },
-          "all_versions": {
-            "views": 110,
-            "unique_views": 92,
-            "downloads": 68,
-            "unique_downloads": 51,
-            "data_volume": 3564832
-          }
-        }
-      },
-      {
         "id": "9awhx-s6z91",
         "created": "2026-04-21T19:55:47.862114+00:00",
         "updated": "2026-04-21T19:55:48.067869+00:00",
@@ -2532,6 +2317,221 @@
             "downloads": 41,
             "unique_downloads": 35,
             "data_volume": 2142975
+          }
+        }
+      },
+      {
+        "id": "p2hcg-cyg93",
+        "created": "2026-02-04T20:38:18.868085+00:00",
+        "updated": "2026-02-04T20:38:19.028913+00:00",
+        "links": {
+          "self": "https://works.hcommons.org/api/records/p2hcg-cyg93",
+          "self_html": "https://works.hcommons.org/records/p2hcg-cyg93",
+          "self_doi": "https://works.hcommons.org/doi/10.17613/p2hcg-cyg93",
+          "doi": "https://doi.org/10.17613/p2hcg-cyg93",
+          "parent": "https://works.hcommons.org/api/records/asz1z-nax02",
+          "parent_html": "https://works.hcommons.org/records/asz1z-nax02",
+          "parent_doi": "https://works.hcommons.org/doi/10.17613/asz1z-nax02",
+          "self_iiif_manifest": "https://works.hcommons.org/api/iiif/record:p2hcg-cyg93/manifest",
+          "self_iiif_sequence": "https://works.hcommons.org/api/iiif/record:p2hcg-cyg93/sequence/default",
+          "files": "https://works.hcommons.org/api/records/p2hcg-cyg93/files",
+          "media_files": "https://works.hcommons.org/api/records/p2hcg-cyg93/media-files",
+          "archive": "https://works.hcommons.org/api/records/p2hcg-cyg93/files-archive",
+          "archive_media": "https://works.hcommons.org/api/records/p2hcg-cyg93/media-files-archive",
+          "latest": "https://works.hcommons.org/api/records/p2hcg-cyg93/versions/latest",
+          "latest_html": "https://works.hcommons.org/records/p2hcg-cyg93/latest",
+          "draft": "https://works.hcommons.org/api/records/p2hcg-cyg93/draft",
+          "versions": "https://works.hcommons.org/api/records/p2hcg-cyg93/versions",
+          "access_links": "https://works.hcommons.org/api/records/p2hcg-cyg93/access/links",
+          "access_grants": "https://works.hcommons.org/api/records/p2hcg-cyg93/access/grants",
+          "access_users": "https://works.hcommons.org/api/records/p2hcg-cyg93/access/users",
+          "access_groups": "https://works.hcommons.org/api/records/p2hcg-cyg93/access/groups",
+          "access_request": "https://works.hcommons.org/api/records/p2hcg-cyg93/access/request",
+          "access": "https://works.hcommons.org/api/records/p2hcg-cyg93/access",
+          "reserve_doi": "https://works.hcommons.org/api/records/p2hcg-cyg93/draft/pids/doi",
+          "communities": "https://works.hcommons.org/api/records/p2hcg-cyg93/communities",
+          "communities-suggestions": "https://works.hcommons.org/api/records/p2hcg-cyg93/communities-suggestions",
+          "requests": "https://works.hcommons.org/api/records/p2hcg-cyg93/requests"
+        },
+        "revision_id": 5,
+        "parent": {
+          "id": "asz1z-nax02",
+          "access": {
+            "owned_by": {
+              "user": "6293"
+            },
+            "settings": {
+              "allow_user_requests": false,
+              "allow_guest_requests": false,
+              "accept_conditions_text": null,
+              "secret_link_expiration": 0
+            }
+          },
+          "communities": {},
+          "pids": {
+            "doi": {
+              "identifier": "10.17613/asz1z-nax02",
+              "provider": "datacite",
+              "client": "datacite"
+            }
+          }
+        },
+        "versions": {
+          "is_latest": true,
+          "index": 1
+        },
+        "is_published": true,
+        "is_draft": false,
+        "pids": {
+          "doi": {
+            "identifier": "10.17613/p2hcg-cyg93",
+            "provider": "datacite",
+            "client": "datacite"
+          },
+          "oai": {
+            "identifier": "oai:https://works.hcommons.org:p2hcg-cyg93",
+            "provider": "oai"
+          }
+        },
+        "metadata": {
+          "resource_type": {
+            "id": "textDocument-journalArticle",
+            "title": {
+              "de": "Zeitschriftenartikel",
+              "en": "Journal article"
+            }
+          },
+          "creators": [
+            {
+              "person_or_org": {
+                "type": "personal",
+                "name": "Owens, Matthew",
+                "given_name": "Matthew",
+                "family_name": "Owens",
+                "identifiers": [
+                  {
+                    "identifier": "mowens",
+                    "scheme": "kc_username"
+                  }
+                ]
+              },
+              "role": {
+                "id": "author",
+                "title": {
+                  "en": "Author"
+                }
+              },
+              "affiliations": [
+                {
+                  "name": "Codewheel Ai"
+                }
+              ]
+            }
+          ],
+          "title": "Voynich Script as Medieval Pharmaceutical Notation: Latin Case Morphology and Recipe Structure in an Encrypted 15th-Century Antidotarium",
+          "publisher": "Knowledge Commons",
+          "publication_date": "2026-02-04",
+          "subjects": [
+            {
+              "id": "http://id.worldcat.org/fast/811762",
+              "subject": "Applied linguistics--Statistical methods",
+              "scheme": "FAST-topical"
+            }
+          ],
+          "languages": [
+            {
+              "id": "eng",
+              "title": {
+                "en": "English"
+              }
+            }
+          ],
+          "rights": [
+            {
+              "id": "cc-by-4.0",
+              "title": {
+                "en": "Creative Commons Attribution 4.0 International"
+              },
+              "description": {
+                "en": "Allows re-distribution and re-use of a licensed work on the condition that the creator is appropriately credited. Allows re-distribution and creation of derivative works for commercial purposes."
+              },
+              "icon": "cc-by-icon",
+              "props": {
+                "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+                "scheme": "spdx"
+              }
+            }
+          ],
+          "description": "Building on botanical identifications of 34 plants in the Voynich Manuscript's herbal section (Paper 1), we present evidence that the accompanying Voynichese text encodes pharmaceutical recipes using an abbreviated Latin grammatical system. Analysis of 864 case-marked words reveals a five-case morphological system (-oy nominative, -am accusative, -an genitive, -ay dative, -ae ablative) consistent with medieval Latin. Statistical comparison shows the case distribution matches Latin pharmaceutical texts with high significance (χ² = 41.56, p &lt; 0.003; Monte Carlo probability of chance occurrence: 0.26%). Application route markers (9h = external use, 9k = internal use) predict the expected medical application of identified plants with 94.1% accuracy. Recipe structure analysis confirms verb-initial patterns matching the Antidotarium Nicolai \"Recipe\" (Rx) convention. Cross-reference with Circa Instans plant nomenclature identifies 12 vocabulary correspondences. Cross-validation with the manuscript's pharmaceutical section (2,389 words) confirms identical patterns, supporting a unified notation system. We propose that Voynichese functions as a specialized pharmaceutical shorthand, combining Latin grammatical inflection with logograms and semantic markers—not a natural language cipher but a notation system analogous to modern pharmaceutical abbreviations."
+        },
+        "custom_fields": {
+          "kcr:user_defined_tags": [
+            "Voynich Manuscript",
+            "pharmaceutical notation",
+            "Latin morphology",
+            "medieval pharmacy",
+            "Antidotarium Nicolai"
+          ],
+          "kcr:ai_usage": {
+            "ai_used": true,
+            "ai_description": "Claude (Anthropic) was used as an AI assistant for statistical analysis, literature organization, data processing, and manuscript preparation. All botanical identifications, interpretations, and conclusions were made by the author."
+          }
+        },
+        "access": {
+          "record": "public",
+          "files": "public",
+          "embargo": {
+            "active": false,
+            "reason": null
+          },
+          "status": "open"
+        },
+        "files": {
+          "enabled": true,
+          "order": [],
+          "count": 1,
+          "total_bytes": 52424,
+          "entries": {
+            "paper2_preprint.pdf": {
+              "id": "988121da-9d3a-474b-aee4-be093da0a02a",
+              "checksum": "md5:f8c5b3cb8a49bb7c1d59d0e33b5b5eb8",
+              "ext": "pdf",
+              "size": 52424,
+              "mimetype": "application/pdf",
+              "key": "paper2_preprint.pdf",
+              "metadata": {},
+              "access": {
+                "hidden": false
+              }
+            }
+          }
+        },
+        "media_files": {
+          "enabled": false,
+          "order": [],
+          "count": 0,
+          "total_bytes": 0,
+          "entries": {}
+        },
+        "status": "published",
+        "deletion_status": {
+          "is_deleted": false,
+          "status": "P"
+        },
+        "stats": {
+          "this_version": {
+            "views": 110,
+            "unique_views": 92,
+            "downloads": 68,
+            "unique_downloads": 51,
+            "data_volume": 3564832
+          },
+          "all_versions": {
+            "views": 110,
+            "unique_views": 92,
+            "downloads": 68,
+            "unique_downloads": 51,
+            "data_volume": 3564832
           }
         }
       },
@@ -7945,258 +7945,6 @@
         }
       },
       {
-        "id": "k13dm-vaq64",
-        "created": "2026-03-08T16:36:37.156617+00:00",
-        "updated": "2026-03-09T14:30:18.965061+00:00",
-        "links": {
-          "self": "https://works.hcommons.org/api/records/k13dm-vaq64",
-          "self_html": "https://works.hcommons.org/records/k13dm-vaq64",
-          "self_doi": "https://works.hcommons.org/doi/10.17613/k13dm-vaq64",
-          "doi": "https://doi.org/10.17613/k13dm-vaq64",
-          "parent": "https://works.hcommons.org/api/records/1sc85-q6q79",
-          "parent_html": "https://works.hcommons.org/records/1sc85-q6q79",
-          "parent_doi": "https://works.hcommons.org/doi/10.17613/1sc85-q6q79",
-          "self_iiif_manifest": "https://works.hcommons.org/api/iiif/record:k13dm-vaq64/manifest",
-          "self_iiif_sequence": "https://works.hcommons.org/api/iiif/record:k13dm-vaq64/sequence/default",
-          "files": "https://works.hcommons.org/api/records/k13dm-vaq64/files",
-          "media_files": "https://works.hcommons.org/api/records/k13dm-vaq64/media-files",
-          "archive": "https://works.hcommons.org/api/records/k13dm-vaq64/files-archive",
-          "archive_media": "https://works.hcommons.org/api/records/k13dm-vaq64/media-files-archive",
-          "latest": "https://works.hcommons.org/api/records/k13dm-vaq64/versions/latest",
-          "latest_html": "https://works.hcommons.org/records/k13dm-vaq64/latest",
-          "draft": "https://works.hcommons.org/api/records/k13dm-vaq64/draft",
-          "versions": "https://works.hcommons.org/api/records/k13dm-vaq64/versions",
-          "access_links": "https://works.hcommons.org/api/records/k13dm-vaq64/access/links",
-          "access_grants": "https://works.hcommons.org/api/records/k13dm-vaq64/access/grants",
-          "access_users": "https://works.hcommons.org/api/records/k13dm-vaq64/access/users",
-          "access_groups": "https://works.hcommons.org/api/records/k13dm-vaq64/access/groups",
-          "access_request": "https://works.hcommons.org/api/records/k13dm-vaq64/access/request",
-          "access": "https://works.hcommons.org/api/records/k13dm-vaq64/access",
-          "reserve_doi": "https://works.hcommons.org/api/records/k13dm-vaq64/draft/pids/doi",
-          "communities": "https://works.hcommons.org/api/records/k13dm-vaq64/communities",
-          "communities-suggestions": "https://works.hcommons.org/api/records/k13dm-vaq64/communities-suggestions",
-          "requests": "https://works.hcommons.org/api/records/k13dm-vaq64/requests"
-        },
-        "revision_id": 8,
-        "parent": {
-          "id": "1sc85-q6q79",
-          "access": {
-            "owned_by": {
-              "user": "6068"
-            },
-            "settings": {
-              "allow_user_requests": false,
-              "allow_guest_requests": false,
-              "accept_conditions_text": null,
-              "secret_link_expiration": 0
-            }
-          },
-          "communities": {
-            "ids": [
-              "b88d1390-00d4-4048-839e-3576bc6e33da"
-            ],
-            "default": "b88d1390-00d4-4048-839e-3576bc6e33da",
-            "entries": [
-              {
-                "id": "b88d1390-00d4-4048-839e-3576bc6e33da",
-                "created": "2026-03-06T20:21:32.169243+00:00",
-                "updated": "2026-03-09T14:32:37.554674+00:00",
-                "links": {},
-                "revision_id": 8,
-                "slug": "respai_volume1",
-                "metadata": {
-                  "title": "Review of Resp AI: volume 1",
-                  "type": {
-                    "id": "event",
-                    "title": {
-                      "de": "Event",
-                      "en": "Event"
-                    }
-                  },
-                  "website": "https://pub.respai.de/volume/volume-1-issue-1.html",
-                  "organizations": [
-                    {
-                      "name": "Resp AI Research Lab, CIIOE"
-                    }
-                  ]
-                },
-                "access": {
-                  "visibility": "public",
-                  "members_visibility": "public",
-                  "member_policy": "open",
-                  "record_policy": "open",
-                  "review_policy": "closed"
-                },
-                "deletion_status": {
-                  "is_deleted": false,
-                  "status": "P"
-                },
-                "children": {
-                  "allow": false
-                }
-              }
-            ]
-          },
-          "pids": {
-            "doi": {
-              "identifier": "10.17613/1sc85-q6q79",
-              "provider": "datacite",
-              "client": "datacite"
-            }
-          }
-        },
-        "versions": {
-          "is_latest": true,
-          "index": 1
-        },
-        "is_published": true,
-        "is_draft": false,
-        "pids": {
-          "doi": {
-            "identifier": "10.17613/k13dm-vaq64",
-            "provider": "datacite",
-            "client": "datacite"
-          },
-          "oai": {
-            "identifier": "oai:https://works.hcommons.org:k13dm-vaq64",
-            "provider": "oai"
-          }
-        },
-        "metadata": {
-          "resource_type": {
-            "id": "textDocument-journalArticle",
-            "title": {
-              "de": "Zeitschriftenartikel",
-              "en": "Journal article"
-            }
-          },
-          "creators": [
-            {
-              "person_or_org": {
-                "type": "personal",
-                "name": "Li, Han",
-                "given_name": "Han",
-                "family_name": "Li"
-              },
-              "role": {
-                "id": "author",
-                "title": {
-                  "en": "Author"
-                }
-              },
-              "affiliations": [
-                {
-                  "name": "Resp AI Research Lab, CIIOE"
-                }
-              ]
-            }
-          ],
-          "title": "Synthetic Moral Agents or Sophisticated Mimics?",
-          "publisher": "Resp AI Research Lab, CIIOE",
-          "publication_date": "2026-06-30",
-          "languages": [
-            {
-              "id": "eng",
-              "title": {
-                "en": "English"
-              }
-            }
-          ],
-          "identifiers": [
-            {
-              "identifier": "https://pub.respai.de/articles/1-1/5hli.html",
-              "scheme": "url"
-            }
-          ],
-          "rights": [
-            {
-              "id": "cc-by-nc-nd-4.0",
-              "title": {
-                "en": "Creative Commons Attribution Non Commercial No Derivatives 4.0 International"
-              },
-              "description": {
-                "en": "Allows re-distribution of a licensed work on the condition that the creator is appropriately credited and that the re-distribution is not for commercial purposes. Does not allow distribution of derivative works or transformed versions of the licensed work"
-              },
-              "icon": "cc-by-nc-nd-icon",
-              "props": {
-                "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode",
-                "scheme": "spdx"
-              }
-            }
-          ],
-          "description": "Recent advances in large language models (LLMs) have produced AI systems capable of generating moral judgments that are frequently indistinguishable from those offered by human ethicists. This development has reignited a longstanding philosophical debate: can artificial systems genuinely engage in ethical reasoning, or do they merely simulate the outward appearance of moral thought? This paper argues that the debate, as currently framed, rests on anthropocentric assumptions that limit productive inquiry. Drawing on posthumanist theory, new materialism, and science and technology studies (STS), the paper develops the concept of distributed moral cognition (DMC) to reframe the question. Rather than asking whether AI systems possess inner moral understanding, DMC directs attention to the conditions under which moral reasoning emerges within human-AI assemblages. The framework is applied to three conceptual cases: clinical ethics consultation, AI-generated moral philosophy, and autonomous vehicle decision-making. The paper concludes by outlining governance implications, including a model of relational accountability that moves beyond individualist blame attribution."
-        },
-        "custom_fields": {
-          "journal:journal": {
-            "title": "Review of Resp AI",
-            "issue": "1",
-            "volume": "1",
-            "pages": "33-42",
-            "issn": "3054-5943"
-          },
-          "imprint:imprint": {
-            "place": "Berlin, Germany"
-          }
-        },
-        "access": {
-          "record": "public",
-          "files": "public",
-          "embargo": {
-            "active": false,
-            "reason": null
-          },
-          "status": "open"
-        },
-        "files": {
-          "enabled": true,
-          "order": [],
-          "count": 1,
-          "total_bytes": 371564,
-          "entries": {
-            "is1-5.pdf": {
-              "id": "cdb04a26-3427-4cee-b473-ed5cdac6ccd4",
-              "checksum": "md5:17e83c4f2c3e8cdf85e2b9a051a9d2e0",
-              "ext": "pdf",
-              "size": 371564,
-              "mimetype": "application/pdf",
-              "key": "is1-5.pdf",
-              "metadata": {},
-              "access": {
-                "hidden": false
-              }
-            }
-          }
-        },
-        "media_files": {
-          "enabled": false,
-          "order": [],
-          "count": 0,
-          "total_bytes": 0,
-          "entries": {}
-        },
-        "status": "published",
-        "deletion_status": {
-          "is_deleted": false,
-          "status": "P"
-        },
-        "stats": {
-          "this_version": {
-            "views": 247,
-            "unique_views": 177,
-            "downloads": 65,
-            "unique_downloads": 51,
-            "data_volume": 24151660
-          },
-          "all_versions": {
-            "views": 247,
-            "unique_views": 177,
-            "downloads": 65,
-            "unique_downloads": 51,
-            "data_volume": 24151660
-          }
-        }
-      },
-      {
         "id": "6nyys-t9242",
         "created": "2024-03-10T02:45:32+00:00",
         "updated": "2025-10-13T23:34:23.574200+00:00",
@@ -8646,6 +8394,258 @@
             "downloads": 0,
             "unique_downloads": 0,
             "data_volume": 0
+          }
+        }
+      },
+      {
+        "id": "k13dm-vaq64",
+        "created": "2026-03-08T16:36:37.156617+00:00",
+        "updated": "2026-03-09T14:30:18.965061+00:00",
+        "links": {
+          "self": "https://works.hcommons.org/api/records/k13dm-vaq64",
+          "self_html": "https://works.hcommons.org/records/k13dm-vaq64",
+          "self_doi": "https://works.hcommons.org/doi/10.17613/k13dm-vaq64",
+          "doi": "https://doi.org/10.17613/k13dm-vaq64",
+          "parent": "https://works.hcommons.org/api/records/1sc85-q6q79",
+          "parent_html": "https://works.hcommons.org/records/1sc85-q6q79",
+          "parent_doi": "https://works.hcommons.org/doi/10.17613/1sc85-q6q79",
+          "self_iiif_manifest": "https://works.hcommons.org/api/iiif/record:k13dm-vaq64/manifest",
+          "self_iiif_sequence": "https://works.hcommons.org/api/iiif/record:k13dm-vaq64/sequence/default",
+          "files": "https://works.hcommons.org/api/records/k13dm-vaq64/files",
+          "media_files": "https://works.hcommons.org/api/records/k13dm-vaq64/media-files",
+          "archive": "https://works.hcommons.org/api/records/k13dm-vaq64/files-archive",
+          "archive_media": "https://works.hcommons.org/api/records/k13dm-vaq64/media-files-archive",
+          "latest": "https://works.hcommons.org/api/records/k13dm-vaq64/versions/latest",
+          "latest_html": "https://works.hcommons.org/records/k13dm-vaq64/latest",
+          "draft": "https://works.hcommons.org/api/records/k13dm-vaq64/draft",
+          "versions": "https://works.hcommons.org/api/records/k13dm-vaq64/versions",
+          "access_links": "https://works.hcommons.org/api/records/k13dm-vaq64/access/links",
+          "access_grants": "https://works.hcommons.org/api/records/k13dm-vaq64/access/grants",
+          "access_users": "https://works.hcommons.org/api/records/k13dm-vaq64/access/users",
+          "access_groups": "https://works.hcommons.org/api/records/k13dm-vaq64/access/groups",
+          "access_request": "https://works.hcommons.org/api/records/k13dm-vaq64/access/request",
+          "access": "https://works.hcommons.org/api/records/k13dm-vaq64/access",
+          "reserve_doi": "https://works.hcommons.org/api/records/k13dm-vaq64/draft/pids/doi",
+          "communities": "https://works.hcommons.org/api/records/k13dm-vaq64/communities",
+          "communities-suggestions": "https://works.hcommons.org/api/records/k13dm-vaq64/communities-suggestions",
+          "requests": "https://works.hcommons.org/api/records/k13dm-vaq64/requests"
+        },
+        "revision_id": 8,
+        "parent": {
+          "id": "1sc85-q6q79",
+          "access": {
+            "owned_by": {
+              "user": "6068"
+            },
+            "settings": {
+              "allow_user_requests": false,
+              "allow_guest_requests": false,
+              "accept_conditions_text": null,
+              "secret_link_expiration": 0
+            }
+          },
+          "communities": {
+            "ids": [
+              "b88d1390-00d4-4048-839e-3576bc6e33da"
+            ],
+            "default": "b88d1390-00d4-4048-839e-3576bc6e33da",
+            "entries": [
+              {
+                "id": "b88d1390-00d4-4048-839e-3576bc6e33da",
+                "created": "2026-03-06T20:21:32.169243+00:00",
+                "updated": "2026-03-09T14:32:37.554674+00:00",
+                "links": {},
+                "revision_id": 8,
+                "slug": "respai_volume1",
+                "metadata": {
+                  "title": "Review of Resp AI: volume 1",
+                  "type": {
+                    "id": "event",
+                    "title": {
+                      "de": "Event",
+                      "en": "Event"
+                    }
+                  },
+                  "website": "https://pub.respai.de/volume/volume-1-issue-1.html",
+                  "organizations": [
+                    {
+                      "name": "Resp AI Research Lab, CIIOE"
+                    }
+                  ]
+                },
+                "access": {
+                  "visibility": "public",
+                  "members_visibility": "public",
+                  "member_policy": "open",
+                  "record_policy": "open",
+                  "review_policy": "closed"
+                },
+                "deletion_status": {
+                  "is_deleted": false,
+                  "status": "P"
+                },
+                "children": {
+                  "allow": false
+                }
+              }
+            ]
+          },
+          "pids": {
+            "doi": {
+              "identifier": "10.17613/1sc85-q6q79",
+              "provider": "datacite",
+              "client": "datacite"
+            }
+          }
+        },
+        "versions": {
+          "is_latest": true,
+          "index": 1
+        },
+        "is_published": true,
+        "is_draft": false,
+        "pids": {
+          "doi": {
+            "identifier": "10.17613/k13dm-vaq64",
+            "provider": "datacite",
+            "client": "datacite"
+          },
+          "oai": {
+            "identifier": "oai:https://works.hcommons.org:k13dm-vaq64",
+            "provider": "oai"
+          }
+        },
+        "metadata": {
+          "resource_type": {
+            "id": "textDocument-journalArticle",
+            "title": {
+              "de": "Zeitschriftenartikel",
+              "en": "Journal article"
+            }
+          },
+          "creators": [
+            {
+              "person_or_org": {
+                "type": "personal",
+                "name": "Li, Han",
+                "given_name": "Han",
+                "family_name": "Li"
+              },
+              "role": {
+                "id": "author",
+                "title": {
+                  "en": "Author"
+                }
+              },
+              "affiliations": [
+                {
+                  "name": "Resp AI Research Lab, CIIOE"
+                }
+              ]
+            }
+          ],
+          "title": "Synthetic Moral Agents or Sophisticated Mimics?",
+          "publisher": "Resp AI Research Lab, CIIOE",
+          "publication_date": "2026-06-30",
+          "languages": [
+            {
+              "id": "eng",
+              "title": {
+                "en": "English"
+              }
+            }
+          ],
+          "identifiers": [
+            {
+              "identifier": "https://pub.respai.de/articles/1-1/5hli.html",
+              "scheme": "url"
+            }
+          ],
+          "rights": [
+            {
+              "id": "cc-by-nc-nd-4.0",
+              "title": {
+                "en": "Creative Commons Attribution Non Commercial No Derivatives 4.0 International"
+              },
+              "description": {
+                "en": "Allows re-distribution of a licensed work on the condition that the creator is appropriately credited and that the re-distribution is not for commercial purposes. Does not allow distribution of derivative works or transformed versions of the licensed work"
+              },
+              "icon": "cc-by-nc-nd-icon",
+              "props": {
+                "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode",
+                "scheme": "spdx"
+              }
+            }
+          ],
+          "description": "Recent advances in large language models (LLMs) have produced AI systems capable of generating moral judgments that are frequently indistinguishable from those offered by human ethicists. This development has reignited a longstanding philosophical debate: can artificial systems genuinely engage in ethical reasoning, or do they merely simulate the outward appearance of moral thought? This paper argues that the debate, as currently framed, rests on anthropocentric assumptions that limit productive inquiry. Drawing on posthumanist theory, new materialism, and science and technology studies (STS), the paper develops the concept of distributed moral cognition (DMC) to reframe the question. Rather than asking whether AI systems possess inner moral understanding, DMC directs attention to the conditions under which moral reasoning emerges within human-AI assemblages. The framework is applied to three conceptual cases: clinical ethics consultation, AI-generated moral philosophy, and autonomous vehicle decision-making. The paper concludes by outlining governance implications, including a model of relational accountability that moves beyond individualist blame attribution."
+        },
+        "custom_fields": {
+          "journal:journal": {
+            "title": "Review of Resp AI",
+            "issue": "1",
+            "volume": "1",
+            "pages": "33-42",
+            "issn": "3054-5943"
+          },
+          "imprint:imprint": {
+            "place": "Berlin, Germany"
+          }
+        },
+        "access": {
+          "record": "public",
+          "files": "public",
+          "embargo": {
+            "active": false,
+            "reason": null
+          },
+          "status": "open"
+        },
+        "files": {
+          "enabled": true,
+          "order": [],
+          "count": 1,
+          "total_bytes": 371564,
+          "entries": {
+            "is1-5.pdf": {
+              "id": "cdb04a26-3427-4cee-b473-ed5cdac6ccd4",
+              "checksum": "md5:17e83c4f2c3e8cdf85e2b9a051a9d2e0",
+              "ext": "pdf",
+              "size": 371564,
+              "mimetype": "application/pdf",
+              "key": "is1-5.pdf",
+              "metadata": {},
+              "access": {
+                "hidden": false
+              }
+            }
+          }
+        },
+        "media_files": {
+          "enabled": false,
+          "order": [],
+          "count": 0,
+          "total_bytes": 0,
+          "entries": {}
+        },
+        "status": "published",
+        "deletion_status": {
+          "is_deleted": false,
+          "status": "P"
+        },
+        "stats": {
+          "this_version": {
+            "views": 247,
+            "unique_views": 177,
+            "downloads": 65,
+            "unique_downloads": 51,
+            "data_volume": 24151660
+          },
+          "all_versions": {
+            "views": 247,
+            "unique_views": 177,
+            "downloads": 65,
+            "unique_downloads": 51,
+            "data_volume": 24151660
           }
         }
       }

@@ -4,8 +4,8 @@
   "message-version": "1.0.0",
   "message": {
     "facets": {},
-    "next-cursor": "DnF1ZXJ5VGhlbkZldGNoJAAAAAFHgRyTFlV1U25DZFJ2U2JLRVVuNjdsaVhxWkEAAAABR4EclBZVdVNuQ2RSdlNiS0VVbjY3bGlYcVpBAAAAAUf9L-AWTWpkc1RvTlBTMUdQeGFHUVJGLTgwZwAAAAA5kkCgFnY2WTZzS2hnU1ZLaGsyNjVmNTFOQXcAAAABT4L1uBZDU3BBTEFwalJaLUtjVUdlNWZwaXlnAAAAAUl9sUQWdXZSSjM5a0VTajI2bnA2N0tJVGdZZwAAAAFPgvW5FkNTcEFMQXBqUlotS2NVR2U1ZnBpeWcAAAABR_0v4RZNamRzVG9OUFMxR1B4YUdRUkYtODBnAAAAADmQ4RIWUS1vUExKR0RSOEdjMEY4eXFVRnppQQAAAAFPgvW6FkNTcEFMQXBqUlotS2NVR2U1ZnBpeWcAAAAAOZJAoRZ2Nlk2c0toZ1NWS2hrMjY1ZjUxTkF3AAAAAUqzxesWTkU2UEFBOTFTcjJ5U1M3WkM5b21QUQAAAAA5kOEQFlEtb1BMSkdEUjhHYzBGOHlxVUZ6aUEAAAAAOZDhERZRLW9QTEpHRFI4R2MwRjh5cVVGemlBAAAAAVEsjPwWQWhSeXczSFhUNWVPdVVZMC1ZZ3RFZwAAAAFSjZYfFlZlZzlsVzl0VEhTaWVILTQ1RHdvMWcAAAABUSyM-RZBaFJ5dzNIWFQ1ZU91VVkwLVlndEVnAAAAAUl9sUYWdXZSSjM5a0VTajI2bnA2N0tJVGdZZwAAAAFbZZ_tFm9BWFV5WFdIVG8yanctbmtqWDNlclEAAAABYW56LxZSUy1mNHlpVlE4aXFROG8xREdqd2RRAAAAAUf9L-IWTWpkc1RvTlBTMUdQeGFHUVJGLTgwZwAAAAFSoJqmFmVFaGZqREs1VFhpRDVrNjhxWmxXZGcAAAABUSyM-hZBaFJ5dzNIWFQ1ZU91VVkwLVlndEVnAAAAAVtln-4Wb0FYVXlYV0hUbzJqdy1ua2pYM2VyUQAAAAFPgvW7FkNTcEFMQXBqUlotS2NVR2U1ZnBpeWcAAAABSX2xRRZ1dlJKMzlrRVNqMjZucDY3S0lUZ1lnAAAAAUl9sUcWdXZSSjM5a0VTajI2bnA2N0tJVGdZZwAAAAFSjZYgFlZlZzlsVzl0VEhTaWVILTQ1RHdvMWcAAAABR4EclRZVdVNuQ2RSdlNiS0VVbjY3bGlYcVpBAAAAAVORLJIWWi1aZUdJN1NRQUdVczNBcGF6X2RaUQAAAAFHgRyWFlV1U25DZFJ2U2JLRVVuNjdsaVhxWkEAAAABUSyM-xZBaFJ5dzNIWFQ1ZU91VVkwLVlndEVnAAAAAVKNliIWVmVnOWxXOXRUSFNpZUgtNDVEd28xZwAAAAFSjZYhFlZlZzlsVzl0VEhTaWVILTQ1RHdvMWcAAAABU5EskxZaLVplR0k3U1FBR1VzM0FwYXpfZFpRAAAAAUf9L-MWTWpkc1RvTlBTMUdQeGFHUVJGLTgwZw==",
-    "total-results": 494737,
+    "next-cursor": "DnF1ZXJ5VGhlbkZldGNoJAAAAAFHhZ5aFlV1U25DZFJ2U2JLRVVuNjdsaVhxWkEAAAABR4WeWxZVdVNuQ2RSdlNiS0VVbjY3bGlYcVpBAAAAAUgBs68WTWpkc1RvTlBTMUdQeGFHUVJGLTgwZwAAAAFSpVLYFmVFaGZqREs1VFhpRDVrNjhxWmxXZGcAAAABT4d28xZDU3BBTEFwalJaLUtjVUdlNWZwaXlnAAAAAUmCMesWdXZSSjM5a0VTajI2bnA2N0tJVGdZZwAAAAFPh3b0FkNTcEFMQXBqUlotS2NVR2U1ZnBpeWcAAAABSAGzsBZNamRzVG9OUFMxR1B4YUdRUkYtODBnAAAAAU7-3M8WRTVFSzRuOEZTNmVvMF8yOXVKVlJvQQAAAAFPh3b1FkNTcEFMQXBqUlotS2NVR2U1ZnBpeWcAAAAAOZb5MhZ2Nlk2c0toZ1NWS2hrMjY1ZjUxTkF3AAAAADmW-TEWdjZZNnNLaGdTVktoazI2NWY1MU5BdwAAAAA5lZlmFlEtb1BMSkdEUjhHYzBGOHlxVUZ6aUEAAAAAOZWZZRZRLW9QTEpHRFI4R2MwRjh5cVVGemlBAAAAAVExIHsWQWhSeXczSFhUNWVPdVVZMC1ZZ3RFZwAAAAFSkhu0FlZlZzlsVzl0VEhTaWVILTQ1RHdvMWcAAAABUTEgehZBaFJ5dzNIWFQ1ZU91VVkwLVlndEVnAAAAAUmCMewWdXZSSjM5a0VTajI2bnA2N0tJVGdZZwAAAAFKuGjVFk5FNlBBQTkxU3IyeVNTN1pDOW9tUFEAAAABYXNVGBZSUy1mNHlpVlE4aXFROG8xREdqd2RRAAAAAUgBs7EWTWpkc1RvTlBTMUdQeGFHUVJGLTgwZwAAAAFdSSYWFlN2NFkzT0EzU0hPamsxZUxrRHJWQncAAAABUTEgfBZBaFJ5dzNIWFQ1ZU91VVkwLVlndEVnAAAAAVtqT4sWb0FYVXlYV0hUbzJqdy1ua2pYM2VyUQAAAAFPh3b2FkNTcEFMQXBqUlotS2NVR2U1ZnBpeWcAAAABSYIx7RZ1dlJKMzlrRVNqMjZucDY3S0lUZ1lnAAAAAUmCMe4WdXZSSjM5a0VTajI2bnA2N0tJVGdZZwAAAAFSkhu2FlZlZzlsVzl0VEhTaWVILTQ1RHdvMWcAAAABR4WeXBZVdVNuQ2RSdlNiS0VVbjY3bGlYcVpBAAAAAVOV9F0WWi1aZUdJN1NRQUdVczNBcGF6X2RaUQAAAAFHhZ5dFlV1U25DZFJ2U2JLRVVuNjdsaVhxWkEAAAABUTEgfRZBaFJ5dzNIWFQ1ZU91VVkwLVlndEVnAAAAAVKSG7UWVmVnOWxXOXRUSFNpZUgtNDVEd28xZwAAAAFSkhu3FlZlZzlsVzl0VEhTaWVILTQ1RHdvMWcAAAABU5X0WhZaLVplR0k3U1FBR1VzM0FwYXpfZFpRAAAAAUgBs7IWTWpkc1RvTlBTMUdQeGFHUVJGLTgwZw==",
+    "total-results": 494751,
     "items": [
       {
         "indexed": {
@@ -113,7 +113,7 @@
           "date-time": "2025-04-11T02:07:26Z",
           "timestamp": 1744337246000
         },
-        "score": 18.572273,
+        "score": 18.57238,
         "resource": {
           "primary": {
             "URL": "https://scholar.kyobobook.co.kr/article/detail/4050070699396"
@@ -398,7 +398,7 @@
           "date-time": "2026-05-15T00:47:18Z",
           "timestamp": 1778806038000
         },
-        "score": 18.311325,
+        "score": 18.31128,
         "resource": {
           "primary": {
             "URL": "http://journalofhumanitiesai.org/journal/view.php?doi=10.66532/jhai.2026.0003"
@@ -786,7 +786,7 @@
           "date-time": "2026-05-15T00:47:17Z",
           "timestamp": 1778806037000
         },
-        "score": 17.899195,
+        "score": 17.898819,
         "resource": {
           "primary": {
             "URL": "http://journalofhumanitiesai.org/journal/view.php?doi=10.66532/jhai.2026.0008"
@@ -937,7 +937,7 @@
           "date-time": "2026-03-13T02:14:21Z",
           "timestamp": 1773368061000
         },
-        "score": 17.614433,
+        "score": 17.614334,
         "resource": {
           "primary": {
             "URL": "https://mds.marshall.edu/criticalhumanities/vol2/iss1/9"
@@ -1077,7 +1077,7 @@
           "date-time": "2023-09-22T02:21:23Z",
           "timestamp": 1695349283000
         },
-        "score": 17.466894,
+        "score": 17.466784,
         "resource": {
           "primary": {
             "URL": "https://kiss.kstudy.com/Detail/Ar?key=4040445"
@@ -1207,7 +1207,7 @@
           "date-time": "2026-03-13T02:14:08Z",
           "timestamp": 1773368048000
         },
-        "score": 17.38961,
+        "score": 17.389639,
         "resource": {
           "primary": {
             "URL": "https://mds.marshall.edu/criticalhumanities/vol2/iss2/2"
@@ -1765,7 +1765,7 @@
           "date-time": "2025-10-09T16:28:16Z",
           "timestamp": 1760027296000
         },
-        "score": 16.932957,
+        "score": 16.933067,
         "resource": {
           "primary": {
             "URL": "https://www.mdpi.com/2076-0787/14/2/25"
@@ -1909,7 +1909,7 @@
           "date-time": "2026-03-13T02:15:04Z",
           "timestamp": 1773368104000
         },
-        "score": 16.889402,
+        "score": 16.889278,
         "resource": {
           "primary": {
             "URL": "https://mds.marshall.edu/criticalhumanities/vol2/iss1/1"
@@ -3491,7 +3491,7 @@
           "date-time": "2025-06-18T06:33:12Z",
           "timestamp": 1750228392000
         },
-        "score": 16.72006,
+        "score": 16.719778,
         "resource": {
           "primary": {
             "URL": "https://linkinghub.elsevier.com/retrieve/pii/S2590291125001615"
@@ -3641,7 +3641,7 @@
           "date-time": "2026-03-13T02:14:27Z",
           "timestamp": 1773368067000
         },
-        "score": 16.710346,
+        "score": 16.710379,
         "resource": {
           "primary": {
             "URL": "https://mds.marshall.edu/criticalhumanities/vol2/iss1/8"
@@ -3850,7 +3850,7 @@
           "date-time": "2025-06-10T04:17:16Z",
           "timestamp": 1749529036000
         },
-        "score": 16.630299,
+        "score": 16.63065,
         "resource": {
           "primary": {
             "URL": "https://link.springer.com/10.1007/s00146-024-02091-y"
@@ -3963,6 +3963,131 @@
         "indexed": {
           "date-parts": [
             [
+              2024,
+              5,
+              25
+            ]
+          ],
+          "date-time": "2024-05-25T00:27:54Z",
+          "timestamp": 1716596874536
+        },
+        "reference-count": 0,
+        "publisher": "Humanities Research Institute (HRI)",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "JAIH"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2024,
+              4,
+              30
+            ]
+          ]
+        },
+        "DOI": "10.46397/jaih.16.4",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              5,
+              24
+            ]
+          ],
+          "date-time": "2024-05-24T02:34:08Z",
+          "timestamp": 1716518048000
+        },
+        "page": "113-136",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Can AI become an Expert?"
+        ],
+        "prefix": "10.46397",
+        "volume": "16",
+        "author": [
+          {
+            "given": "Hyeongyun",
+            "family": "Kim",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "25666",
+        "published-online": {
+          "date-parts": [
+            [
+              2024,
+              4,
+              30
+            ]
+          ]
+        },
+        "container-title": [
+          "Journal of AI Humanities"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              5,
+              24
+            ]
+          ],
+          "date-time": "2024-05-24T02:34:14Z",
+          "timestamp": 1716518054000
+        },
+        "score": 16.60099,
+        "resource": {
+          "primary": {
+            "URL": "https://kiss.kstudy.com/Detail/Ar?key=4091807"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2024,
+              4,
+              30
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.46397/jaih.16.4",
+        "ISSN": [
+          "2635-4691"
+        ],
+        "issn-type": [
+          {
+            "value": "2635-4691",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2024,
+              4,
+              30
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
               2026,
               5,
               15
@@ -4069,7 +4194,7 @@
           "date-time": "2026-05-15T00:47:18Z",
           "timestamp": 1778806038000
         },
-        "score": 16.606462,
+        "score": 16.588139,
         "resource": {
           "primary": {
             "URL": "http://journalofhumanitiesai.org/journal/view.php?doi=10.66532/jhai.2026.0009"
@@ -4137,131 +4262,6 @@
             }
           }
         ]
-      },
-      {
-        "indexed": {
-          "date-parts": [
-            [
-              2024,
-              5,
-              25
-            ]
-          ],
-          "date-time": "2024-05-25T00:27:54Z",
-          "timestamp": 1716596874536
-        },
-        "reference-count": 0,
-        "publisher": "Humanities Research Institute (HRI)",
-        "content-domain": {
-          "domain": [],
-          "crossmark-restriction": false
-        },
-        "short-container-title": [
-          "JAIH"
-        ],
-        "published-print": {
-          "date-parts": [
-            [
-              2024,
-              4,
-              30
-            ]
-          ]
-        },
-        "DOI": "10.46397/jaih.16.4",
-        "type": "journal-article",
-        "created": {
-          "date-parts": [
-            [
-              2024,
-              5,
-              24
-            ]
-          ],
-          "date-time": "2024-05-24T02:34:08Z",
-          "timestamp": 1716518048000
-        },
-        "page": "113-136",
-        "source": "Crossref",
-        "is-referenced-by-count": 0,
-        "title": [
-          "Can AI become an Expert?"
-        ],
-        "prefix": "10.46397",
-        "volume": "16",
-        "author": [
-          {
-            "given": "Hyeongyun",
-            "family": "Kim",
-            "sequence": "first",
-            "affiliation": [],
-            "role": [
-              {
-                "role": "author",
-                "vocabulary": "crossref"
-              }
-            ]
-          }
-        ],
-        "member": "25666",
-        "published-online": {
-          "date-parts": [
-            [
-              2024,
-              4,
-              30
-            ]
-          ]
-        },
-        "container-title": [
-          "Journal of AI Humanities"
-        ],
-        "deposited": {
-          "date-parts": [
-            [
-              2024,
-              5,
-              24
-            ]
-          ],
-          "date-time": "2024-05-24T02:34:14Z",
-          "timestamp": 1716518054000
-        },
-        "score": 16.601177,
-        "resource": {
-          "primary": {
-            "URL": "https://kiss.kstudy.com/Detail/Ar?key=4091807"
-          }
-        },
-        "issued": {
-          "date-parts": [
-            [
-              2024,
-              4,
-              30
-            ]
-          ]
-        },
-        "references-count": 0,
-        "URL": "https://doi.org/10.46397/jaih.16.4",
-        "ISSN": [
-          "2635-4691"
-        ],
-        "issn-type": [
-          {
-            "value": "2635-4691",
-            "type": "print"
-          }
-        ],
-        "published": {
-          "date-parts": [
-            [
-              2024,
-              4,
-              30
-            ]
-          ]
-        }
       },
       {
         "indexed": {
@@ -4517,7 +4517,7 @@
           "date-time": "2026-05-15T00:47:20Z",
           "timestamp": 1778806040000
         },
-        "score": 16.486555,
+        "score": 16.48642,
         "resource": {
           "primary": {
             "URL": "http://journalofhumanitiesai.org/journal/view.php?doi=10.66532/jhai.2026.0004"
@@ -4680,7 +4680,7 @@
           "date-time": "2026-03-13T02:14:18Z",
           "timestamp": 1773368058000
         },
-        "score": 16.434721,
+        "score": 16.434813,
         "resource": {
           "primary": {
             "URL": "https://mds.marshall.edu/criticalhumanities/vol2/iss2/1"
@@ -4810,7 +4810,7 @@
           "date-time": "2026-03-13T02:14:31Z",
           "timestamp": 1773368071000
         },
-        "score": 16.416668,
+        "score": 16.416351,
         "resource": {
           "primary": {
             "URL": "https://mds.marshall.edu/criticalhumanities/vol2/iss1/7"
@@ -4986,7 +4986,7 @@
           "date-time": "2026-05-15T00:47:16Z",
           "timestamp": 1778806036000
         },
-        "score": 16.38345,
+        "score": 16.383497,
         "resource": {
           "primary": {
             "URL": "http://journalofhumanitiesai.org/journal/view.php?doi=10.66532/jhai.2026.0001"
@@ -5212,7 +5212,7 @@
           "date-time": "2026-05-08T14:44:35Z",
           "timestamp": 1778251475000
         },
-        "score": 16.348541,
+        "score": 16.34844,
         "resource": {
           "primary": {
             "URL": "https://read.dukeupress.edu/critical-ai/article/doi/10.1215/2834703X-12347699/410010/Artificial-Humanities-A-Fictional-Perspective-on"
@@ -5391,7 +5391,7 @@
           "date-time": "2024-08-16T06:33:29Z",
           "timestamp": 1723790009000
         },
-        "score": 16.214771,
+        "score": 16.214941,
         "resource": {
           "primary": {
             "URL": "https://juah.uoanbar.edu.iq/article_174719.html"
@@ -5536,7 +5536,7 @@
           "date-time": "2025-03-20T21:30:39Z",
           "timestamp": 1742506239000
         },
-        "score": 16.202734,
+        "score": 16.202723,
         "resource": {
           "primary": {
             "URL": "http://humstudies.com.ua/article/view/325096"
@@ -5779,7 +5779,7 @@
           "date-time": "2025-10-09T16:50:51Z",
           "timestamp": 1760028651000
         },
-        "score": 16.175423,
+        "score": 16.1753,
         "resource": {
           "primary": {
             "URL": "https://www.mdpi.com/2076-0787/14/3/57"
@@ -5956,7 +5956,7 @@
           "date-time": "2025-06-19T06:59:35Z",
           "timestamp": 1750316375000
         },
-        "score": 16.074844,
+        "score": 16.0757,
         "resource": {
           "primary": {
             "URL": "https://shanlaxjournals.in/journals/index.php/sijash/article/view/9152"
@@ -6850,7 +6850,7 @@
           "date-time": "2026-04-28T08:03:52Z",
           "timestamp": 1777363432000
         },
-        "score": 16.07048,
+        "score": 16.070654,
         "resource": {
           "primary": {
             "URL": "https://linkinghub.elsevier.com/retrieve/pii/S2590291125005376"
@@ -7479,7 +7479,7 @@
           "date-time": "2026-06-12T09:43:55Z",
           "timestamp": 1781257435000
         },
-        "score": 16.045177,
+        "score": 16.044844,
         "resource": {
           "primary": {
             "URL": "https://linkinghub.elsevier.com/retrieve/pii/S2590291126004341"
@@ -7638,7 +7638,7 @@
           "date-time": "2023-03-24T11:58:28Z",
           "timestamp": 1679659108000
         },
-        "score": 16.011898,
+        "score": 16.01193,
         "resource": {
           "primary": {
             "URL": "https://kiss.kstudy.com/Detail/Ar?key=3930131"
@@ -8578,7 +8578,7 @@
           "date-time": "2025-06-18T06:27:41Z",
           "timestamp": 1750228061000
         },
-        "score": 15.979256,
+        "score": 15.97957,
         "resource": {
           "primary": {
             "URL": "https://linkinghub.elsevier.com/retrieve/pii/S2590291125000269"
@@ -8740,7 +8740,7 @@
           "date-time": "2026-03-13T02:14:48Z",
           "timestamp": 1773368088000
         },
-        "score": 15.969248,
+        "score": 15.969237,
         "resource": {
           "primary": {
             "URL": "https://mds.marshall.edu/criticalhumanities/vol2/iss1/4"
@@ -8876,7 +8876,7 @@
           "date-time": "2025-01-29T20:11:46Z",
           "timestamp": 1738181506000
         },
-        "score": 15.961807,
+        "score": 15.961834,
         "resource": {
           "primary": {
             "URL": "http://humstudies.com.ua/article/view/321890"
@@ -9417,7 +9417,7 @@
           "date-time": "2025-06-18T06:29:22Z",
           "timestamp": 1750228162000
         },
-        "score": 15.922586,
+        "score": 15.922257,
         "resource": {
           "primary": {
             "URL": "https://linkinghub.elsevier.com/retrieve/pii/S2590291125000737"
@@ -9580,7 +9580,7 @@
           "date-time": "2025-04-21T09:33:22Z",
           "timestamp": 1745228002000
         },
-        "score": 15.916445,
+        "score": 15.9165535,
         "resource": {
           "primary": {
             "URL": "https://www.apexacademiapress.com/Journalss/index.php/IJGHMI/article/view/66"

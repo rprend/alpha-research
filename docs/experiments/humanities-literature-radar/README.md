@@ -28,6 +28,8 @@ Fetch a bounded API smoke corpus:
 node docs/experiments/humanities-literature-radar/scripts/run-pipeline.mjs --profile=smoke
 ```
 
+The unified runner fetches sources, normalizes works, builds the report, and writes readiness artifacts.
+
 Or run sources individually:
 
 ```bash

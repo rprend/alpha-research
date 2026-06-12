@@ -4,6 +4,34 @@ The Cultural Observatory / Archive Signals program is a public research and publ
 
 ## Implemented Tracks
 
+### Research Backlog And Scout Workflow
+
+Path: `docs/experiments/research-backlog/`
+
+Status: program queue for turning AI-assisted study proposals into source-probed experiment folders.
+
+Implemented:
+
+- machine-readable study backlog
+- research-scout prompt template
+- audit questions for rejecting weak ideas
+- status vocabulary from `idea` through `publishable` and `blocked`
+
+Current backlog items:
+
+- What Universities Say They Are For
+- The Rise Of AI And The Humanities
+- The Language Of Museums After Decolonization
+- Canon Drift: A Feasibility Report
+- What Counts As A Humanities Dataset?
+
+Next implementation moves:
+
+- run the first scout pass for museum language drift
+- create the museum-language experiment folder
+- source-probe museum current pages, annual reports, and Wayback snapshots
+- add a readiness gate before any public claims
+
 ### Humanities Literature Radar
 
 Path: `docs/experiments/humanities-literature-radar/`

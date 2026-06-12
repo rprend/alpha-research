@@ -1,8 +1,8 @@
 {
   "profile": "smoke",
   "runDate": "2026-06-12",
-  "startedAt": "2026-06-12T17:45:18.610Z",
-  "finishedAt": "2026-06-12T17:45:28.490Z",
+  "startedAt": "2026-06-12T18:04:14.885Z",
+  "finishedAt": "2026-06-12T18:04:25.363Z",
   "steps": [
     {
       "script": "fetch-openalex.mjs",
@@ -10,8 +10,8 @@
         "--limit=30",
         "--run-date=2026-06-12"
       ],
-      "startedAt": "2026-06-12T17:45:18.614Z",
-      "finishedAt": "2026-06-12T17:45:19.244Z",
+      "startedAt": "2026-06-12T18:04:14.888Z",
+      "finishedAt": "2026-06-12T18:04:16.206Z",
       "exitCode": 0,
       "stdout": "Fetched 30 OpenAlex records into docs/experiments/humanities-literature-radar/data/raw/openalex/2026-06-12\n",
       "stderr": ""
@@ -22,8 +22,8 @@
         "--limit=30",
         "--run-date=2026-06-12"
       ],
-      "startedAt": "2026-06-12T17:45:19.245Z",
-      "finishedAt": "2026-06-12T17:45:20.658Z",
+      "startedAt": "2026-06-12T18:04:16.207Z",
+      "finishedAt": "2026-06-12T18:04:18.017Z",
       "exitCode": 0,
       "stdout": "Fetched 30 Crossref records into docs/experiments/humanities-literature-radar/data/raw/crossref/2026-06-12\n",
       "stderr": ""
@@ -34,8 +34,8 @@
         "--limit=30",
         "--run-date=2026-06-12"
       ],
-      "startedAt": "2026-06-12T17:45:20.658Z",
-      "finishedAt": "2026-06-12T17:45:20.944Z",
+      "startedAt": "2026-06-12T18:04:18.017Z",
+      "finishedAt": "2026-06-12T18:04:18.278Z",
       "exitCode": 0,
       "stdout": "Fetched 30 DOAJ records into docs/experiments/humanities-literature-radar/data/raw/doaj/2026-06-12\n",
       "stderr": ""
@@ -46,8 +46,8 @@
         "--limit=30",
         "--run-date=2026-06-12"
       ],
-      "startedAt": "2026-06-12T17:45:20.944Z",
-      "finishedAt": "2026-06-12T17:45:24.437Z",
+      "startedAt": "2026-06-12T18:04:18.278Z",
+      "finishedAt": "2026-06-12T18:04:21.924Z",
       "exitCode": 0,
       "stdout": "Fetched 11 OSF preprint records into docs/experiments/humanities-literature-radar/data/raw/osf-preprints/2026-06-12\n",
       "stderr": ""
@@ -58,8 +58,8 @@
         "--limit=30",
         "--run-date=2026-06-12"
       ],
-      "startedAt": "2026-06-12T17:45:24.437Z",
-      "finishedAt": "2026-06-12T17:45:25.627Z",
+      "startedAt": "2026-06-12T18:04:21.924Z",
+      "finishedAt": "2026-06-12T18:04:23.124Z",
       "exitCode": 0,
       "stdout": "Fetched 30 Humanities Commons records into docs/experiments/humanities-literature-radar/data/raw/hcommons/2026-06-12\n",
       "stderr": ""
@@ -70,8 +70,8 @@
         "--limit=15",
         "--run-date=2026-06-12"
       ],
-      "startedAt": "2026-06-12T17:45:25.628Z",
-      "finishedAt": "2026-06-12T17:45:25.771Z",
+      "startedAt": "2026-06-12T18:04:23.124Z",
+      "finishedAt": "2026-06-12T18:04:23.257Z",
       "exitCode": 0,
       "stdout": "Fetched 15 arXiv records into docs/experiments/humanities-literature-radar/data/raw/arxiv/2026-06-12\n",
       "stderr": ""
@@ -82,8 +82,8 @@
         "--limit=15",
         "--run-date=2026-06-12"
       ],
-      "startedAt": "2026-06-12T17:45:25.771Z",
-      "finishedAt": "2026-06-12T17:45:27.323Z",
+      "startedAt": "2026-06-12T18:04:23.257Z",
+      "finishedAt": "2026-06-12T18:04:24.247Z",
       "exitCode": 0,
       "stdout": "Fetched 0 NBER page references into docs/experiments/humanities-literature-radar/data/raw/nber/2026-06-12\n",
       "stderr": ""
@@ -94,8 +94,8 @@
         "--limit=5",
         "--run-date=2026-06-12"
       ],
-      "startedAt": "2026-06-12T17:45:27.323Z",
-      "finishedAt": "2026-06-12T17:45:28.371Z",
+      "startedAt": "2026-06-12T18:04:24.247Z",
+      "finishedAt": "2026-06-12T18:04:25.224Z",
       "exitCode": 0,
       "stdout": "Fetched 5 department pages into docs/experiments/humanities-literature-radar/data/raw/department-pages/2026-06-12\n",
       "stderr": ""
@@ -103,8 +103,8 @@
     {
       "script": "normalize-works.mjs",
       "args": [],
-      "startedAt": "2026-06-12T17:45:28.371Z",
-      "finishedAt": "2026-06-12T17:45:28.452Z",
+      "startedAt": "2026-06-12T18:04:25.224Z",
+      "finishedAt": "2026-06-12T18:04:25.291Z",
       "exitCode": 0,
       "stdout": "Normalized 146 raw records into 128 deduped works\n",
       "stderr": ""
@@ -112,10 +112,19 @@
     {
       "script": "build-report.mjs",
       "args": [],
-      "startedAt": "2026-06-12T17:45:28.452Z",
-      "finishedAt": "2026-06-12T17:45:28.490Z",
+      "startedAt": "2026-06-12T18:04:25.292Z",
+      "finishedAt": "2026-06-12T18:04:25.328Z",
       "exitCode": 0,
       "stdout": "Built reports for 128 works in docs/experiments/humanities-literature-radar/reports\n",
+      "stderr": ""
+    },
+    {
+      "script": "check-readiness.mjs",
+      "args": [],
+      "startedAt": "2026-06-12T18:04:25.328Z",
+      "finishedAt": "2026-06-12T18:04:25.363Z",
+      "exitCode": 0,
+      "stdout": "Humanities radar readiness: not-ready-for-publication\n",
       "stderr": ""
     }
   ]
