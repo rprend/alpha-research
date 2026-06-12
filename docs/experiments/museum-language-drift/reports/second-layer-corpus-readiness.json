@@ -1,27 +1,27 @@
 {
-  "generatedAt": "2026-06-12T21:11:52.834Z",
+  "generatedAt": "2026-06-12T21:57:25.380Z",
   "runDate": "2026-06-12",
-  "status": "source-probed-needs-replacements",
+  "status": "source-probed",
   "corpusTier": "schema-probe",
-  "pages": 9,
-  "configuredSources": 15,
-  "failedOrExcludedSources": 6,
+  "pages": 19,
+  "configuredSources": 19,
+  "failedOrExcludedSources": 0,
   "pageTypeCounts": {
-    "annual-report": 4,
-    "provenance": 3,
-    "collection-note": 1,
-    "repatriation": 1
+    "annual-report": 6,
+    "provenance": 6,
+    "exhibition": 3,
+    "collection-note": 2,
+    "repatriation": 2
   },
   "museumCounts": {
-    "Art Institute of Chicago": 1,
-    "Cleveland Museum of Art": 1,
-    "J. Paul Getty Museum": 1,
-    "Natural History Museum London": 1,
-    "Philadelphia Museum of Art": 1,
-    "Rijksmuseum": 1,
-    "Tate": 1,
-    "The British Museum": 1,
-    "Victoria and Albert Museum": 1
+    "Philadelphia Museum of Art": 3,
+    "Rijksmuseum": 3,
+    "Tate": 3,
+    "Victoria and Albert Museum": 3,
+    "Art Institute of Chicago": 2,
+    "Cleveland Museum of Art": 2,
+    "J. Paul Getty Museum": 2,
+    "Natural History Museum London": 1
   },
   "missingPageTypes": [],
   "processedFiles": [
@@ -37,265 +37,326 @@
     {
       "page_type": "annual-report",
       "family": "access_public",
-      "pages": 4,
-      "museums": 4,
-      "count": 8,
-      "words": 1591,
-      "count_per_1000_words": 5.028
-    },
-    {
-      "page_type": "annual-report",
-      "family": "civilization_world_culture",
-      "pages": 4,
-      "museums": 4,
-      "count": 0,
-      "words": 1591,
-      "count_per_1000_words": 0
-    },
-    {
-      "page_type": "annual-report",
-      "family": "community_inclusion",
-      "pages": 4,
-      "museums": 4,
-      "count": 0,
-      "words": 1591,
-      "count_per_1000_words": 0
-    },
-    {
-      "page_type": "annual-report",
-      "family": "decolonization_reckoning",
-      "pages": 4,
-      "museums": 4,
-      "count": 0,
-      "words": 1591,
-      "count_per_1000_words": 0
-    },
-    {
-      "page_type": "annual-report",
-      "family": "provenance_ownership",
-      "pages": 4,
-      "museums": 4,
-      "count": 1,
-      "words": 1591,
-      "count_per_1000_words": 0.629
-    },
-    {
-      "page_type": "annual-report",
-      "family": "research_scholarship",
-      "pages": 4,
-      "museums": 4,
-      "count": 6,
-      "words": 1591,
-      "count_per_1000_words": 3.771
-    },
-    {
-      "page_type": "annual-report",
-      "family": "restitution_repatriation",
-      "pages": 4,
-      "museums": 4,
-      "count": 1,
-      "words": 1591,
-      "count_per_1000_words": 0.629
-    },
-    {
-      "page_type": "collection-note",
-      "family": "access_public",
-      "pages": 1,
-      "museums": 1,
-      "count": 1,
-      "words": 270,
-      "count_per_1000_words": 3.704
-    },
-    {
-      "page_type": "collection-note",
-      "family": "civilization_world_culture",
-      "pages": 1,
-      "museums": 1,
-      "count": 0,
-      "words": 270,
-      "count_per_1000_words": 0
-    },
-    {
-      "page_type": "collection-note",
-      "family": "community_inclusion",
-      "pages": 1,
-      "museums": 1,
-      "count": 0,
-      "words": 270,
-      "count_per_1000_words": 0
-    },
-    {
-      "page_type": "collection-note",
-      "family": "decolonization_reckoning",
-      "pages": 1,
-      "museums": 1,
-      "count": 0,
-      "words": 270,
-      "count_per_1000_words": 0
-    },
-    {
-      "page_type": "collection-note",
-      "family": "provenance_ownership",
-      "pages": 1,
-      "museums": 1,
-      "count": 0,
-      "words": 270,
-      "count_per_1000_words": 0
-    },
-    {
-      "page_type": "collection-note",
-      "family": "research_scholarship",
-      "pages": 1,
-      "museums": 1,
-      "count": 1,
-      "words": 270,
-      "count_per_1000_words": 3.704
-    },
-    {
-      "page_type": "collection-note",
-      "family": "restitution_repatriation",
-      "pages": 1,
-      "museums": 1,
-      "count": 0,
-      "words": 270,
-      "count_per_1000_words": 0
-    },
-    {
-      "page_type": "provenance",
-      "family": "access_public",
-      "pages": 3,
-      "museums": 3,
+      "pages": 6,
+      "museums": 6,
       "count": 10,
-      "words": 4070,
-      "count_per_1000_words": 2.457
+      "words": 1997,
+      "count_per_1000_words": 5.008
     },
     {
-      "page_type": "provenance",
+      "page_type": "annual-report",
+      "family": "civilization_world_culture",
+      "pages": 6,
+      "museums": 6,
+      "count": 0,
+      "words": 1997,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "annual-report",
+      "family": "community_inclusion",
+      "pages": 6,
+      "museums": 6,
+      "count": 0,
+      "words": 1997,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "annual-report",
+      "family": "decolonization_reckoning",
+      "pages": 6,
+      "museums": 6,
+      "count": 0,
+      "words": 1997,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "annual-report",
+      "family": "provenance_ownership",
+      "pages": 6,
+      "museums": 6,
+      "count": 1,
+      "words": 1997,
+      "count_per_1000_words": 0.501
+    },
+    {
+      "page_type": "annual-report",
+      "family": "research_scholarship",
+      "pages": 6,
+      "museums": 6,
+      "count": 10,
+      "words": 1997,
+      "count_per_1000_words": 5.008
+    },
+    {
+      "page_type": "annual-report",
+      "family": "restitution_repatriation",
+      "pages": 6,
+      "museums": 6,
+      "count": 4,
+      "words": 1997,
+      "count_per_1000_words": 2.003
+    },
+    {
+      "page_type": "collection-note",
+      "family": "access_public",
+      "pages": 2,
+      "museums": 2,
+      "count": 22,
+      "words": 7108,
+      "count_per_1000_words": 3.095
+    },
+    {
+      "page_type": "collection-note",
+      "family": "civilization_world_culture",
+      "pages": 2,
+      "museums": 2,
+      "count": 4,
+      "words": 7108,
+      "count_per_1000_words": 0.563
+    },
+    {
+      "page_type": "collection-note",
+      "family": "community_inclusion",
+      "pages": 2,
+      "museums": 2,
+      "count": 11,
+      "words": 7108,
+      "count_per_1000_words": 1.548
+    },
+    {
+      "page_type": "collection-note",
+      "family": "decolonization_reckoning",
+      "pages": 2,
+      "museums": 2,
+      "count": 23,
+      "words": 7108,
+      "count_per_1000_words": 3.236
+    },
+    {
+      "page_type": "collection-note",
+      "family": "provenance_ownership",
+      "pages": 2,
+      "museums": 2,
+      "count": 46,
+      "words": 7108,
+      "count_per_1000_words": 6.472
+    },
+    {
+      "page_type": "collection-note",
+      "family": "research_scholarship",
+      "pages": 2,
+      "museums": 2,
+      "count": 13,
+      "words": 7108,
+      "count_per_1000_words": 1.829
+    },
+    {
+      "page_type": "collection-note",
+      "family": "restitution_repatriation",
+      "pages": 2,
+      "museums": 2,
+      "count": 4,
+      "words": 7108,
+      "count_per_1000_words": 0.563
+    },
+    {
+      "page_type": "exhibition",
+      "family": "access_public",
+      "pages": 3,
+      "museums": 3,
+      "count": 3,
+      "words": 2078,
+      "count_per_1000_words": 1.444
+    },
+    {
+      "page_type": "exhibition",
       "family": "civilization_world_culture",
       "pages": 3,
       "museums": 3,
       "count": 0,
-      "words": 4070,
+      "words": 2078,
       "count_per_1000_words": 0
     },
     {
-      "page_type": "provenance",
+      "page_type": "exhibition",
       "family": "community_inclusion",
       "pages": 3,
       "museums": 3,
-      "count": 2,
-      "words": 4070,
-      "count_per_1000_words": 0.491
+      "count": 0,
+      "words": 2078,
+      "count_per_1000_words": 0
     },
     {
-      "page_type": "provenance",
+      "page_type": "exhibition",
       "family": "decolonization_reckoning",
       "pages": 3,
       "museums": 3,
       "count": 0,
-      "words": 4070,
+      "words": 2078,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "exhibition",
+      "family": "provenance_ownership",
+      "pages": 3,
+      "museums": 3,
+      "count": 4,
+      "words": 2078,
+      "count_per_1000_words": 1.925
+    },
+    {
+      "page_type": "exhibition",
+      "family": "research_scholarship",
+      "pages": 3,
+      "museums": 3,
+      "count": 9,
+      "words": 2078,
+      "count_per_1000_words": 4.331
+    },
+    {
+      "page_type": "exhibition",
+      "family": "restitution_repatriation",
+      "pages": 3,
+      "museums": 3,
+      "count": 0,
+      "words": 2078,
+      "count_per_1000_words": 0
+    },
+    {
+      "page_type": "provenance",
+      "family": "access_public",
+      "pages": 6,
+      "museums": 6,
+      "count": 26,
+      "words": 8569,
+      "count_per_1000_words": 3.034
+    },
+    {
+      "page_type": "provenance",
+      "family": "civilization_world_culture",
+      "pages": 6,
+      "museums": 6,
+      "count": 7,
+      "words": 8569,
+      "count_per_1000_words": 0.817
+    },
+    {
+      "page_type": "provenance",
+      "family": "community_inclusion",
+      "pages": 6,
+      "museums": 6,
+      "count": 6,
+      "words": 8569,
+      "count_per_1000_words": 0.7
+    },
+    {
+      "page_type": "provenance",
+      "family": "decolonization_reckoning",
+      "pages": 6,
+      "museums": 6,
+      "count": 0,
+      "words": 8569,
       "count_per_1000_words": 0
     },
     {
       "page_type": "provenance",
       "family": "provenance_ownership",
-      "pages": 3,
-      "museums": 3,
-      "count": 101,
-      "words": 4070,
-      "count_per_1000_words": 24.816
+      "pages": 6,
+      "museums": 6,
+      "count": 207,
+      "words": 8569,
+      "count_per_1000_words": 24.157
     },
     {
       "page_type": "provenance",
       "family": "research_scholarship",
-      "pages": 3,
-      "museums": 3,
-      "count": 89,
-      "words": 4070,
-      "count_per_1000_words": 21.867
+      "pages": 6,
+      "museums": 6,
+      "count": 171,
+      "words": 8569,
+      "count_per_1000_words": 19.956
     },
     {
       "page_type": "provenance",
       "family": "restitution_repatriation",
-      "pages": 3,
-      "museums": 3,
-      "count": 3,
-      "words": 4070,
-      "count_per_1000_words": 0.737
+      "pages": 6,
+      "museums": 6,
+      "count": 13,
+      "words": 8569,
+      "count_per_1000_words": 1.517
     },
     {
       "page_type": "repatriation",
       "family": "access_public",
-      "pages": 1,
-      "museums": 1,
-      "count": 2,
-      "words": 362,
-      "count_per_1000_words": 5.525
+      "pages": 2,
+      "museums": 2,
+      "count": 6,
+      "words": 2382,
+      "count_per_1000_words": 2.519
     },
     {
       "page_type": "repatriation",
       "family": "civilization_world_culture",
-      "pages": 1,
-      "museums": 1,
-      "count": 0,
-      "words": 362,
-      "count_per_1000_words": 0
+      "pages": 2,
+      "museums": 2,
+      "count": 5,
+      "words": 2382,
+      "count_per_1000_words": 2.099
     },
     {
       "page_type": "repatriation",
       "family": "community_inclusion",
-      "pages": 1,
-      "museums": 1,
-      "count": 0,
-      "words": 362,
-      "count_per_1000_words": 0
+      "pages": 2,
+      "museums": 2,
+      "count": 1,
+      "words": 2382,
+      "count_per_1000_words": 0.42
     },
     {
       "page_type": "repatriation",
       "family": "decolonization_reckoning",
-      "pages": 1,
-      "museums": 1,
+      "pages": 2,
+      "museums": 2,
       "count": 0,
-      "words": 362,
+      "words": 2382,
       "count_per_1000_words": 0
     },
     {
       "page_type": "repatriation",
       "family": "provenance_ownership",
-      "pages": 1,
-      "museums": 1,
-      "count": 3,
-      "words": 362,
-      "count_per_1000_words": 8.287
+      "pages": 2,
+      "museums": 2,
+      "count": 23,
+      "words": 2382,
+      "count_per_1000_words": 9.656
     },
     {
       "page_type": "repatriation",
       "family": "research_scholarship",
-      "pages": 1,
-      "museums": 1,
-      "count": 3,
-      "words": 362,
-      "count_per_1000_words": 8.287
+      "pages": 2,
+      "museums": 2,
+      "count": 9,
+      "words": 2382,
+      "count_per_1000_words": 3.778
     },
     {
       "page_type": "repatriation",
       "family": "restitution_repatriation",
-      "pages": 1,
-      "museums": 1,
-      "count": 3,
-      "words": 362,
-      "count_per_1000_words": 8.287
+      "pages": 2,
+      "museums": 2,
+      "count": 22,
+      "words": 2382,
+      "count_per_1000_words": 9.236
     }
   ],
   "blockers": [
-    "Replace failed or low-word-count source routes before publication-scale claims.",
     "Add annual-report PDFs or report landing pages across more museums before annual-report claims.",
     "Add historical snapshots or recurring current snapshots before claiming second-layer change over time.",
     "Keep annual reports, provenance/repatriation pages, exhibitions, and collection notes separate in public claims."
   ],
   "nextActions": [
-    "Replace inaccessible annual-report routes with report index pages, PDFs with extractable text, or archived copies.",
-    "Add provenance and repatriation targets for museums that currently only have annual-report routes.",
+    "Retain the current five-page-type source mix for historical backfill.",
     "Backfill historical snapshots for retained second-layer routes.",
     "Join second-layer page-type outputs into the main readiness gate after manual quote review."
   ]

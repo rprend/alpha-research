@@ -1,0 +1,13 @@
+{
+  "museum": "Art Institute of Chicago",
+  "page_type": "annual-report",
+  "source_layer": "current-second-layer",
+  "url": "https://www.artic.edu/about-us/financial-reporting",
+  "status": 200,
+  "ok": true,
+  "wordCount": 198,
+  "title": "Financial Reporting | The Art Institute of Chicago",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/annual-report/art-institute-of-chicago/index.html",
+  "fetchedAt": "2026-06-12T21:57:23.788Z",
+  "bytes": 189785
+}

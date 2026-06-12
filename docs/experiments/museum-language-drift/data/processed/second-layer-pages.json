@@ -1,34 +1,5 @@
 [
   {
-    "museum": "The British Museum",
-    "page_type": "repatriation",
-    "source_layer": "current-second-layer",
-    "year": 2026,
-    "url": "https://www.britishmuseum.org/about-us/british-museum-story/contested-objects-collection",
-    "archive_url": "",
-    "status": 200,
-    "title": "Contested objects from the collection | British Museum",
-    "words": 362,
-    "text_preview": "Contested objects from the collection | British Museum Skip to main content Please enable JavaScript in your web browser to get the best experience. Menu Hide menu Contested objects from the collection Show image caption Close image caption The horse head sculpture from the Parthenon Frieze in Room 18 The horse head sculpture from the Parthenon on Collection Online Share the page Share on Facebook Share on X (formerly Twitter) Share using email Share on WhatsApp Object statements The British Museum's collection has grown since 1753 and the acquisition of the founding collection of Sir Hans Sloane. Objects have been acquired in a variety of ways . Some objects are subject to questions about, or requests for, return to other countries. Statements on the most frequent requests and information",
-    "snippets": [
-      "enon Sculptures Early shield from Australia Made of bark and wood, find out about this early Australian shield. 1933–45 provenance Learn about research carried out into the provenance of the collection during the period 1933–1945. You may also be int",
-      "ter) Share using email Share on WhatsApp Object statements The British Museum's collection has grown since 1753 and the acquisition of the founding collection of Sir Hans Sloane. Objects have been acquired in a variety of ways . Some objects are subje",
-      "Sloane. Objects have been acquired in a variety of ways . Some objects are subject to questions about, or requests for, return to other countries. Statements on the most frequent requests and information on the current status of the discussions c",
-      "Contested objects from the collection | British Museum Skip to main content Please enable JavaScript in your web browser to get the best",
-      "h Museum is unique in bringing together under one roof the cultures of the world. Press Find the latest press releases, access to images for news reporting, plus how to arrange press photography and news filming at the Museum. About us Find about"
-    ],
-    "raw_path": "data/raw/second-layer-sources/2026-06-12/repatriation/the-british-museum/index.html",
-    "term_counts": {
-      "civilization_world_culture": 0,
-      "provenance_ownership": 3,
-      "restitution_repatriation": 3,
-      "decolonization_reckoning": 0,
-      "access_public": 2,
-      "community_inclusion": 0,
-      "research_scholarship": 3
-    }
-  },
-  {
     "museum": "Tate",
     "page_type": "annual-report",
     "source_layer": "current-second-layer",
@@ -47,6 +18,86 @@
       "civilization_world_culture": 0,
       "provenance_ownership": 1,
       "restitution_repatriation": 0,
+      "decolonization_reckoning": 0,
+      "access_public": 0,
+      "community_inclusion": 0,
+      "research_scholarship": 0
+    }
+  },
+  {
+    "museum": "Tate",
+    "page_type": "exhibition",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://www.tate.org.uk/whats-on",
+    "archive_url": "",
+    "status": 200,
+    "title": "What's On | Tate",
+    "words": 832,
+    "text_preview": "What's On | Tate Skip navigation What are you looking for? Try searching for... Hurvin Anderson Ophelia School visits to Tate Tate Modern Lates Tracey Emin DON'T MISS Exhibition Hurvin Anderson Tate Britain Until 23 Aug 2026 £18 / Free for Members --> Exhibition Tracey Emin: A Second Life Tate Modern Until 31 Aug 2026 £20 / Free for Members --> Become a Member What's on at Tate Featured Tate Britain Hurvin Anderson More info Tate St Ives Aleksandra Kasuba More info Tate Britain James M c Neill Whistler More info Tate Members Free entry to every exhibition Join today Filters Location Tate Britain Tate Modern Tate Liverpool Tate St Ives Close Date Date: --> On now and coming soon Today This weekend Next week From: until Until: Close Type of event Type of event: Exhibitions Collection display",
+    "snippets": [
+      "on displays Films Tours Talks Workshops Private views Members Hours Courses Food and drink Lates Performances Festivals Access Online events Close Audience Audience: Access Families Groups Tate Members Schools and teachers Young people Close Clos",
+      "Le Parc: Light. Colour. Action. Discover seven decades of joyful works by Argentinian artist Julio Le Parc, which turns visitors into active participants Tate Modern 11 June 2026 – 3 May 2027 £15 / Free for Members --> Exhibition Frida: The Making"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/exhibition/tate/index.html",
+    "term_counts": {
+      "civilization_world_culture": 0,
+      "provenance_ownership": 0,
+      "restitution_repatriation": 0,
+      "decolonization_reckoning": 0,
+      "access_public": 3,
+      "community_inclusion": 0,
+      "research_scholarship": 0
+    }
+  },
+  {
+    "museum": "Tate",
+    "page_type": "collection-note",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://www.tate.org.uk/research/tate-papers/35/richard-bells-embassy-reshaping-the-contemporary-art-museum",
+    "archive_url": "",
+    "status": 200,
+    "title": "Richard Bell’s Embassy: Reshaping the Contemporary Art Museum – Tate Papers | Tate",
+    "words": 6838,
+    "text_preview": "Richard Bell’s Embassy: Reshaping the Contemporary Art Museum – Tate Papers | Tate Skip navigation What are you looking for? Try searching for... Hurvin Anderson Ophelia School visits to Tate Tate Modern Lates Tracey Emin DON'T MISS Exhibition Hurvin Anderson Tate Britain Until 23 Aug 2026 £18 / Free for Members --> Exhibition Tracey Emin: A Second Life Tate Modern Until 31 Aug 2026 £20 / Free for Members --> Become a Member Research Tate Papers Tate Papers no.35 Richard Bell’s Embassy : Reshaping the Contemporary Art Museum ISSN 1753-9854 Richard Bell’s Embassy : Reshaping the Contemporary Art Museum Haidy Geismar This article explores how some of the key discourses of the contemporary art museum may be apprehended and reframed from the standpoint of Indigenous contemporary art. Looking a",
+    "snippets": [
+      "visible, or even silenced, within museums in the Global North, and to recognise the rights of people to their cultural heritage that is often held far from their homes in museums around the world. 9 In this essay, I have undertaken a thought exper",
+      "ally less visible, or even silenced, within museums in the Global North, and to recognise the rights of people to their cultural heritage that is often held far from their homes in museums around the world. 9 In this essay, I have undertaken a thought exper",
+      "h rupture or discontinuity, that makes networks productive or viable. 47 For Strathern, property relations and forms of ownership are mechanisms that limit connection: networks are curtailed or blocked by the assertion of ownership, or through other",
+      "at or reframed from the standpoint of Indigenous contemporary art. I begin by examining the wider context in which this acquisition of and research into Bell’s work has taken place, focusing in particular on the decolonial movement in museums and on i",
+      "ocial relations within the museum. 10 The Aboriginal (Tent) Embassy and Bell’s Embassy WHITE INVADERS YOU ARE LIVING ON STOLEN LAND REMEMBER THE LARRAKIA KULAKLUK DARWIN N.T LAND RIGHTS CLAIMS KULAKUK FOR LARRAKIA 700 ACRES WE WUZ ROBBED THIS LAN"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/collection-note/tate/index.html",
+    "term_counts": {
+      "civilization_world_culture": 4,
+      "provenance_ownership": 46,
+      "restitution_repatriation": 4,
+      "decolonization_reckoning": 23,
+      "access_public": 21,
+      "community_inclusion": 11,
+      "research_scholarship": 12
+    }
+  },
+  {
+    "museum": "J. Paul Getty Museum",
+    "page_type": "annual-report",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://www.getty.edu/about/governance/finance.html",
+    "archive_url": "",
+    "status": 200,
+    "title": "Financial Information | Getty",
+    "words": 208,
+    "text_preview": "Financial Information | Getty Skip to content Sitewide Messages Financial Information Leadership & Governance Annual Reporting As a nonprofit private foundation, The J. Paul Getty Trust is an exempt organization under section 501 (c)(3) of the Internal Revenue Code. As a private operating foundation, Getty must file a Form 990-PF with the IRS each year. This annual reporting return provides information on The Trust's mission, programs, and finances, including the fair market value of all assets, an analysis of revenue and expenses, and a complete listing of grants made. Getty's complete Form 990-PF and Form 990-T for the past three (3) fiscal years are available on this page. FY 2025 Form 990-PF FY 2025 Form 990-T FY 2024 Form 990-PF FY 2024 Form 990-T FY 2023 Form 990-PF FY 2023 Form 990-",
+    "snippets": [
+      "ue Code. As a private operating foundation, Getty must file a Form 990-PF with the IRS each year. This annual reporting return provides information on The Trust's mission, programs, and finances, including the fair market value of all assets, an"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/annual-report/j-paul-getty-museum/index.html",
+    "term_counts": {
+      "civilization_world_culture": 0,
+      "provenance_ownership": 0,
+      "restitution_repatriation": 1,
       "decolonization_reckoning": 0,
       "access_public": 0,
       "community_inclusion": 0,
@@ -103,6 +154,93 @@
       "access_public": 0,
       "community_inclusion": 0,
       "research_scholarship": 0
+    }
+  },
+  {
+    "museum": "Rijksmuseum",
+    "page_type": "provenance",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://www.rijksmuseum.nl/en/research/our-research/overarching/second-world-war-provenance-research/the-development-of-provenance-research",
+    "archive_url": "",
+    "status": 200,
+    "title": "The development of provenance research - Rijksmuseum",
+    "words": 892,
+    "text_preview": "The development of provenance research - Rijksmuseum Cookie usage The Rijksmuseum uses cookies. A cookie is a small text file that a website stores on your computer or mobile device when you visit our site. Would you like to know more? Read our cookie policy . Accept No, rather not Second World War provenance research Language Nederlands (Dutch) English (English) Besucherinformationen Service visiteur Informazioni per i visitatori Informacion para los visitantes Informashon pa bishita &#x30D3;&#x30B8;&#x30BF;&#x30FC;&#xB7;&#x30A4;&#x30F3;&#x30D5;&#x30A9;&#x30E1;&#x30FC;&#x30B7;&#x30E7;&#x30F3; &#x6E38;&#x5BA2;&#x4FE1;&#x606F; &#x418;&#x43D;&#x444;&#x43E;&#x440;&#x43C;&#x430;&#x446;&#x438;&#x44F; &#x434;&#x43B;&#x44F; &#x43F;&#x43E;&#x441;&#x435;&#x442;&#x438;&#x442;&#x435;&#x43B;&#x435;&#x",
+    "snippets": [
+      "ns. The results of this national survey, which concluded in 2018, can be accessed via the website of the Dutch Cultural Heritage Agency (RCE) . Since 2012, an expert team of Rijksmuseum staff has been conducting research on objects in the collectio",
+      "collections. The results of this national survey, which concluded in 2018, can be accessed via the website of the Dutch Cultural Heritage Agency (RCE) . Since 2012, an expert team of Rijksmuseum staff has been conducting research on objects in the collectio",
+      "The development of provenance research - Rijksmuseum Cookie usage The Rijksmuseum uses cookies. A cookie is a small text file that a website stores o",
+      "lopment of provenance research The history of provenance research and the Second World War Provenance research into art looted by the Nazi regime gained momentum in the museum world following a major conference held in Washington in 1998. Forty-f",
+      "utes to what visitors get to see and hear about objects in the Rijksmuseum collection, whether in the museum or online. Colonial history The Rijksmuseum is also conducting research into objects whose origins lie in the colonial period ."
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/provenance/rijksmuseum/index.html",
+    "term_counts": {
+      "civilization_world_culture": 2,
+      "provenance_ownership": 18,
+      "restitution_repatriation": 1,
+      "decolonization_reckoning": 0,
+      "access_public": 3,
+      "community_inclusion": 0,
+      "research_scholarship": 24
+    }
+  },
+  {
+    "museum": "Rijksmuseum",
+    "page_type": "repatriation",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://www.rijksmuseum.nl/en/research/our-research/overarching/provenance-research-colonial-collections/restitution",
+    "archive_url": "",
+    "status": 200,
+    "title": "Restitution - Rijksmuseum",
+    "words": 732,
+    "text_preview": "Restitution - Rijksmuseum Cookie usage The Rijksmuseum uses cookies. A cookie is a small text file that a website stores on your computer or mobile device when you visit our site. Would you like to know more? Read our cookie policy . Accept No, rather not Provenance research colonial collections Language Nederlands (Dutch) English (English) Besucherinformationen Service visiteur Informazioni per i visitatori Informacion para los visitantes Informashon pa bishita &#x30D3;&#x30B8;&#x30BF;&#x30FC;&#xB7;&#x30A4;&#x30F3;&#x30D5;&#x30A9;&#x30E1;&#x30FC;&#x30B7;&#x30E7;&#x30F3; &#x6E38;&#x5BA2;&#x4FE1;&#x606F; &#x418;&#x43D;&#x444;&#x43E;&#x440;&#x43C;&#x430;&#x446;&#x438;&#x44F; &#x434;&#x43B;&#x44F; &#x43F;&#x43E;&#x441;&#x435;&#x442;&#x438;&#x442;&#x435;&#x43B;&#x435;&#x439; Login Giftshop Res",
+    "snippets": [
+      "r or mobile device when you visit our site. Would you like to know more? Read our cookie policy . Accept No, rather not Provenance research colonial collections Language Nederlands (Dutch) English (English) Besucherinformationen Service visiteur Info",
+      "hen you visit our site. Would you like to know more? Read our cookie policy . Accept No, rather not Provenance research colonial collections Language Nederlands (Dutch) English (English) Besucherinformationen Service visiteur Informazioni per i vis",
+      "Restitution - Rijksmuseum Cookie usage The Rijksmuseum uses cookies. A cookie is a small text file that a website stores on your co",
+      "d with this matter followed this advice, and by the end of that year the six objects were on display for the Sri Lankan public at the National Museum of Colombo. After more than two-and-a-half centuries, a richly decorated cannon, a gold sabre, a",
+      "itself; the museum serves solely as their custodian. Decisions regarding restitution therefore lie with the Minister of Education, Culture and Science, and not with the Rijksmuseum. The museum is, however, responsible for conducting provenance resea"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/repatriation/rijksmuseum/index.html",
+    "term_counts": {
+      "civilization_world_culture": 0,
+      "provenance_ownership": 14,
+      "restitution_repatriation": 9,
+      "decolonization_reckoning": 0,
+      "access_public": 2,
+      "community_inclusion": 0,
+      "research_scholarship": 3
+    }
+  },
+  {
+    "museum": "Art Institute of Chicago",
+    "page_type": "annual-report",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://www.artic.edu/about-us/financial-reporting",
+    "archive_url": "",
+    "status": 200,
+    "title": "Financial Reporting | The Art Institute of Chicago",
+    "words": 198,
+    "text_preview": "Financial Reporting | The Art Institute of Chicago Skip to Content Menu Financial Reporting About Us Financial Reporting Mission and History Leadership Departments Financial Reporting Archive of Financial Reports Share Thanks to the generosity of our members, donors, volunteers, and friends, every year we are able to grow our global collection, expand our audience engagement, strengthen our exhibition program, and innovate our public programs for all ages. Our annual reports offer a snapshot of each year from July 1 of one year through June 30 of the following, coinciding with the museum’s fiscal calendar. Please see our most recent reports below or our archive for all reports . Audited Financial Statement Download Financial Statement Annual Tax Return Form 990 Annual Tax Return Form 990-T",
+    "snippets": [
+      "cent reports below or our archive for all reports . Audited Financial Statement Download Financial Statement Annual Tax Return Form 990 Annual Tax Return Form 990-T Share Sign up for our enewsletter to receive updates. Email address Subscribe See",
+      "able to grow our global collection, expand our audience engagement, strengthen our exhibition program, and innovate our public programs for all ages. Our annual reports offer a snapshot of each year from July 1 of one year through June 30 of the",
+      "wsletters News and Exhibitions Career Opportunities Families Public Programs K-12 Educator Resources Teen Opportunities Research, Publishing, and Conservation From To S M T W T F S Done Reset Learn more Lorem ipsum Gallery actions Image actions Sha",
+      "ions Career Opportunities Families Public Programs K-12 Educator Resources Teen Opportunities Research, Publishing, and Conservation From To S M T W T F S Done Reset Learn more Lorem ipsum Gallery actions Image actions Share Facebook Twitter Pinterest",
+      "nt Menu Financial Reporting About Us Financial Reporting Mission and History Leadership Departments Financial Reporting Archive of Financial Reports Share Thanks to the generosity of our members, donors, volunteers, and friends, every year we are"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/annual-report/art-institute-of-chicago/index.html",
+    "term_counts": {
+      "civilization_world_culture": 0,
+      "provenance_ownership": 0,
+      "restitution_repatriation": 2,
+      "decolonization_reckoning": 0,
+      "access_public": 2,
+      "community_inclusion": 0,
+      "research_scholarship": 4
     }
   },
   {
@@ -164,6 +302,64 @@
     }
   },
   {
+    "museum": "Victoria and Albert Museum",
+    "page_type": "provenance",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://www.vam.ac.uk/research/projects/provenance-research-at-the-va",
+    "archive_url": "",
+    "status": 200,
+    "title": "Provenance Research at the V&A &middot; Research Project &middot; V&A",
+    "words": 1239,
+    "text_preview": "Provenance Research at the V&A &middot; Research Project &middot; V&A Skip to main content V&A Research Projects Provenance Research at the V&A Provenance Research at the V&A Researching the acquisition and ownership histories of our collections Latest Updates EVENT: Provenance Research Seminar: Reconnecting Knowledge and Heritage EVENT: Bibliomigrancy amongst the Ruins: post-1945 Book Movement // 16-17 April 2026 LINK: Pim Fitzpayne: Early collectors of Thai and Cambodian objects at the V&A(1870s – 1950s) About the Project The V&A is actively engaged in provenance research. We continually seek to learn more about the origins of objects, books and archives in our care, and to share this knowledge openly and transparently. We are particularly committed to examining colonial and Nazi-era pro",
+    "snippets": [
+      "nd ownership histories of our collections Latest Updates EVENT: Provenance Research Seminar: Reconnecting Knowledge and Heritage EVENT: Bibliomigrancy amongst the Ruins: post-1945 Book Movement // 16-17 April 2026 LINK: Pim Fitzpayne: Early collect",
+      "the National Art Library and Archives Aimed at postgraduate researchers with an interest in the ownership histories of cultural heritage artefacts, this study day introduces the V&A’s National Art Library and Archive collections. National Art Library, V&A",
+      "Provenance Research at the V&A &middot; Research Project &middot; V&A Skip to main content V&A Research Projects Provenance Resear",
+      "ent V&A Research Projects Provenance Research at the V&A Provenance Research at the V&A Researching the acquisition and ownership histories of our collections Latest Updates EVENT: Provenance Research Seminar: Reconnecting Knowledge and Heritage EVE",
+      "kip to main content V&A Research Projects Provenance Research at the V&A Provenance Research at the V&A Researching the acquisition and ownership histories of our collections Latest Updates EVENT: Provenance Research Seminar: Reconnecting Knowledge an"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/provenance/victoria-and-albert-museum/index.html",
+    "term_counts": {
+      "civilization_world_culture": 5,
+      "provenance_ownership": 50,
+      "restitution_repatriation": 6,
+      "decolonization_reckoning": 0,
+      "access_public": 5,
+      "community_inclusion": 2,
+      "research_scholarship": 42
+    }
+  },
+  {
+    "museum": "Victoria and Albert Museum",
+    "page_type": "repatriation",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://www.vam.ac.uk/info/restitution-and-repatriation",
+    "archive_url": "",
+    "status": 200,
+    "title": "Restitution and repatriation &middot; V&A",
+    "words": 1650,
+    "text_preview": "Restitution and repatriation &middot; V&A Skip to main content Restitution and repatriation Since the South Kensington Museum (which later became the V&A) opened its doors to the public in 1857, the collections have grown to over 2.7 million items, featuring every conceivable type of object, from all over the world. During the 19th century, in particular, certain items that came to the V&A were acquired in ways that today would be considered unacceptable. The most obvious examples of this are objects forcibly removed from their countries of origin, or whose 'acquisition' suggest other forms of coercion. Today, such objects lie at the heart of important debates concerning how museums should deal appropriately with this difficult inheritance. In a small number of cases, these objects are the",
+    "snippets": [
+      "lso freely accessible to anyone wishing to research the history behind a specific object or group of objects. National Heritage Act 1983 There has been a great deal of interest not only in the origins of the collections, but also in the laws govern",
+      "een accessible online and it is continuously updated on the basis of the museum's archival records. Wherever possible, provenance information is included though the original records do not always contain detailed information. Research into our collec",
+      "monstrance to the museum had acquired it in good faith at auction in 1931, it was determined that he had passed legal ownership to the V&A and that it therefore fell under the provisions of the 1983 National Heritage Act. The V&A curator responsibl",
+      "unacceptable. The most obvious examples of this are objects forcibly removed from their countries of origin, or whose 'acquisition' suggest other forms of coercion. Today, such objects lie at the heart of important debates concerning how museums shou",
+      "campaign against the Abyssinian ruler Tewodros II. The Asante Goldweights display featured items from the gold regalia looted by the British military from the Asante court in Kumasi in 1874. The Concealed Histories display used objects from the G"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/repatriation/victoria-and-albert-museum/index.html",
+    "term_counts": {
+      "civilization_world_culture": 5,
+      "provenance_ownership": 9,
+      "restitution_repatriation": 13,
+      "decolonization_reckoning": 0,
+      "access_public": 4,
+      "community_inclusion": 1,
+      "research_scholarship": 6
+    }
+  },
+  {
     "museum": "Cleveland Museum of Art",
     "page_type": "provenance",
     "source_layer": "current-second-layer",
@@ -193,6 +389,33 @@
     }
   },
   {
+    "museum": "Cleveland Museum of Art",
+    "page_type": "exhibition",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://www.clevelandart.org/whats-on/exhibitions",
+    "archive_url": "",
+    "status": 200,
+    "title": "What&#x27;s On - Exhibitions | Cleveland Museum of Art",
+    "words": 898,
+    "text_preview": "What&#x27;s On - Exhibitions | Cleveland Museum of Art What&#x27;s On What&#x27;s On Categories All Exhibitions Special Events Performances Tours Lectures Classes & Workshops Members Only Filters when where Showing 29 of 29 results Martin Puryear: Nexus Tags For: Martin Puryear: Nexus Special Exhibition Featured Date: Apr 12 – Aug 9, 2026 Location: 003 Special Exhibition Hall, 224B Video Manet & Morisot Tags For: Manet & Morisot Special Exhibition Featured Date: Mar 29 – Jul 5, 2026 Location: 004 Special Exhibition Gallery Pintoricchio Magnified: An Immersive Conservation Experience Tags For: Pintoricchio Magnified: An Immersive Conservation Experience Immersive Exhibition Featured Date: Aug 10, 2025 – Aug 23, 2026 Location: 115 Manuscripts and Textiles Epic of the Northwest Himalayas: Pah",
+    "snippets": [
+      "trait Miniatures Gallery Rotation Date: Feb 20, 2026 – Feb 14, 2027 Location: 203B British Painting and Decorative Arts Provenance: Journeys of Korean Art Tags For: Provenance: Journeys of Korean Art Gallery Rotation Date: May 10, 2026 – Apr 25, 2027",
+      "the Imperial Habsburg Armory In Vienna Gallery Rotation Date: Jun 1, 2025 – Jun 4, 2028 Location: 210A Armor Court New Acquisition: Giambologna’s “Fata Morgana” Tags For: New Acquisition: Giambologna’s “fata Morgana” Gallery Rotation Date: Aug 30, 20",
+      "ition Featured Date: Mar 29 – Jul 5, 2026 Location: 004 Special Exhibition Gallery Pintoricchio Magnified: An Immersive Conservation Experience Tags For: Pintoricchio Magnified: An Immersive Conservation Experience Immersive Exhibition Featured Date: A"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/exhibition/cleveland-museum-of-art/index.html",
+    "term_counts": {
+      "civilization_world_culture": 0,
+      "provenance_ownership": 4,
+      "restitution_repatriation": 0,
+      "decolonization_reckoning": 0,
+      "access_public": 0,
+      "community_inclusion": 0,
+      "research_scholarship": 2
+    }
+  },
+  {
     "museum": "Philadelphia Museum of Art",
     "page_type": "collection-note",
     "source_layer": "current-second-layer",
@@ -216,6 +439,62 @@
       "access_public": 1,
       "community_inclusion": 0,
       "research_scholarship": 1
+    }
+  },
+  {
+    "museum": "Philadelphia Museum of Art",
+    "page_type": "provenance",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://www.philamuseum.org/provenance",
+    "archive_url": "",
+    "status": 200,
+    "title": "Provenance | Philadelphia Museum of Art",
+    "words": 2368,
+    "text_preview": "Provenance | Philadelphia Museum of Art Skip to Main Content Come on down! Expect road closures, delays, and detours due to Parkway activities. Learn more . Open today: 10am-8:45pm Simplify Fonts Membership Buy Tickets Tickets 🔍 Menu Open today: 10am-8:45pm Visit What&#x27;s On Art & Artists Learn Support Search 🔍 Membership Simplify Fonts Provenance Research into provenance, or the history of ownership of an individual work of art, is an essential component of museum practice. This research sheds light on an artwork&#x27;s historical, social, and economic context, revealing the compelling story behind the work. Overview Provenance is an artwork’s history of ownership. Information about the provenance of an individual work of art sheds light on its historical, social, and economic contex",
+    "snippets": [
+      "Provenance | Philadelphia Museum of Art Skip to Main Content Come on down! Expect road closures, delays, and detours due to Parkwa",
+      "Art & Artists Learn Support Search 🔍 Membership Simplify Fonts Provenance Research into provenance, or the history of ownership of an individual work of art, is an essential component of museum practice. This research sheds light on an artwork&#x2",
+      "s of one of the many painful legacies of World War II: the continuing issues surrounding works of art that were stolen, looted, or that otherwise illicitly changed hands in Europe during the Nazi era, from 1933–45. A vast number of art objects we",
+      "awareness of one of the many painful legacies of World War II: the continuing issues surrounding works of art that were stolen, looted, or that otherwise illicitly changed hands in Europe during the Nazi era, from 1933–45. A vast number of art ob",
+      "orced sales from Jewish collections. Following the war, the Allied Forces recovered thousands of these works of art and returned them to their former owners or their heirs. When owners could not be located, because they had fled or perished in th"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/provenance/philadelphia-museum-of-art/index.html",
+    "term_counts": {
+      "civilization_world_culture": 0,
+      "provenance_ownership": 38,
+      "restitution_repatriation": 3,
+      "decolonization_reckoning": 0,
+      "access_public": 8,
+      "community_inclusion": 2,
+      "research_scholarship": 16
+    }
+  },
+  {
+    "museum": "Philadelphia Museum of Art",
+    "page_type": "exhibition",
+    "source_layer": "current-second-layer",
+    "year": 2026,
+    "url": "https://www.philamuseum.org/exhibitions/marcel-duchamp-sources-for-research",
+    "archive_url": "",
+    "status": 200,
+    "title": "Marcel Duchamp | Philadelphia Museum of Art",
+    "words": 348,
+    "text_preview": "Marcel Duchamp | Philadelphia Museum of Art Skip to Main Content Come on down! Expect road closures, delays, and detours due to Parkway activities. Learn more . Open today: 10am-8:45pm Simplify Fonts Membership Buy Tickets Tickets 🔍 Menu Open today: 10am-8:45pm Visit What&#x27;s On Art & Artists Learn Support Search 🔍 Membership Simplify Fonts All Exhibitions Exhibition Marcel Duchamp Sources for Research Erica Zoë Loustau detail: Flock paper and monofilament 2007 When Aug 15, 2009 – Nov 7, 2009 Where Library Reading Room, Perelman Building Tickets About The Philadelphia Museum of Art Archives holds several manuscript collections and institutional records that support research on the artist Marcel Duchamp. In particular, scholars may find intriguing clues to his last major work, Étant do",
+    "snippets": [
+      "n Art & Artists Learn Support Search 🔍 Membership Simplify Fonts All Exhibitions Exhibition Marcel Duchamp Sources for Research Erica Zoë Loustau detail: Flock paper and monofilament 2007 When Aug 15, 2009 – Nov 7, 2009 Where Library Reading Room,",
+      "twenty-year period, from 1946 to 1966, and which was permanently installed in the Museum in 1969. The seeds for Duchamp scholarship were planted in 1950, when Louise and Walter Arensberg donated their outstanding collection of pre-Columbian and modern",
+      "n Aug 15, 2009 – Nov 7, 2009 Where Library Reading Room, Perelman Building Tickets About The Philadelphia Museum of Art Archives holds several manuscript collections and institutional records that support research on the artist Marcel Duchamp. In p"
+    ],
+    "raw_path": "data/raw/second-layer-sources/2026-06-12/exhibition/philadelphia-museum-of-art/index.html",
+    "term_counts": {
+      "civilization_world_culture": 0,
+      "provenance_ownership": 0,
+      "restitution_repatriation": 0,
+      "decolonization_reckoning": 0,
+      "access_public": 0,
+      "community_inclusion": 0,
+      "research_scholarship": 7
     }
   },
   {

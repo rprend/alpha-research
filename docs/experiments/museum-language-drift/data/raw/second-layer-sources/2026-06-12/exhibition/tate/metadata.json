@@ -1,0 +1,13 @@
+{
+  "museum": "Tate",
+  "page_type": "exhibition",
+  "source_layer": "current-second-layer",
+  "url": "https://www.tate.org.uk/whats-on",
+  "status": 200,
+  "ok": true,
+  "wordCount": 832,
+  "title": "What's On | Tate",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/exhibition/tate/index.html",
+  "fetchedAt": "2026-06-12T21:57:20.896Z",
+  "bytes": 168404
+}

@@ -1,0 +1,13 @@
+{
+  "museum": "Cleveland Museum of Art",
+  "page_type": "exhibition",
+  "source_layer": "current-second-layer",
+  "url": "https://www.clevelandart.org/whats-on/exhibitions",
+  "status": 200,
+  "ok": true,
+  "wordCount": 898,
+  "title": "What&#x27;s On - Exhibitions | Cleveland Museum of Art",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/exhibition/cleveland-museum-of-art/index.html",
+  "fetchedAt": "2026-06-12T21:57:25.042Z",
+  "bytes": 222522
+}

@@ -1,76 +1,17 @@
 {
-  "generatedAt": "2026-06-12T21:11:52.737Z",
+  "generatedAt": "2026-06-12T21:57:25.303Z",
   "runDate": "2026-06-12",
-  "configuredSources": 15,
-  "accessibleSources": 9,
-  "errorCount": 6,
+  "configuredSources": 19,
+  "accessibleSources": 19,
+  "errorCount": 0,
   "pageTypeCounts": {
-    "annual-report": 4,
-    "provenance": 3,
-    "collection-note": 1,
-    "repatriation": 1
+    "annual-report": 6,
+    "provenance": 6,
+    "exhibition": 3,
+    "collection-note": 2,
+    "repatriation": 2
   },
   "rows": [
-    {
-      "museum": "The Metropolitan Museum of Art",
-      "page_type": "annual-report",
-      "source_layer": "current-second-layer",
-      "status": 429,
-      "ok": false,
-      "wordCount": 17,
-      "title": "Vercel Security Checkpoint",
-      "url": "https://www.metmuseum.org/about-the-met/annual-reports",
-      "responsePath": "data/raw/second-layer-sources/2026-06-12/annual-report/the-metropolitan-museum-of-art/index.html",
-      "error": "HTTP 429"
-    },
-    {
-      "museum": "The Metropolitan Museum of Art",
-      "page_type": "provenance",
-      "source_layer": "current-second-layer",
-      "status": 429,
-      "ok": false,
-      "wordCount": 17,
-      "title": "Vercel Security Checkpoint",
-      "url": "https://www.metmuseum.org/about-the-met/policies-and-documents/provenance-research",
-      "responsePath": "data/raw/second-layer-sources/2026-06-12/provenance/the-metropolitan-museum-of-art/index.html",
-      "error": "HTTP 429"
-    },
-    {
-      "museum": "The British Museum",
-      "page_type": "annual-report",
-      "source_layer": "current-second-layer",
-      "status": 403,
-      "ok": false,
-      "wordCount": 9,
-      "title": "Just a moment...",
-      "url": "https://www.britishmuseum.org/about-us/governance/annual-reports",
-      "responsePath": "data/raw/second-layer-sources/2026-06-12/annual-report/the-british-museum/index.html",
-      "error": "HTTP 403"
-    },
-    {
-      "museum": "The British Museum",
-      "page_type": "repatriation",
-      "source_layer": "current-second-layer",
-      "status": 200,
-      "ok": true,
-      "wordCount": 362,
-      "title": "Contested objects from the collection | British Museum",
-      "url": "https://www.britishmuseum.org/about-us/british-museum-story/contested-objects-collection",
-      "responsePath": "data/raw/second-layer-sources/2026-06-12/repatriation/the-british-museum/index.html",
-      "error": ""
-    },
-    {
-      "museum": "Museum of Modern Art",
-      "page_type": "annual-report",
-      "source_layer": "current-second-layer",
-      "status": 403,
-      "ok": false,
-      "wordCount": 9,
-      "title": "Just a moment...",
-      "url": "https://www.moma.org/about/annual-reports/",
-      "responsePath": "data/raw/second-layer-sources/2026-06-12/annual-report/museum-of-modern-art/index.html",
-      "error": "HTTP 403"
-    },
     {
       "museum": "Tate",
       "page_type": "annual-report",
@@ -81,6 +22,42 @@
       "title": "Tate Reports | Tate",
       "url": "https://www.tate.org.uk/about-us/tate-reports",
       "responsePath": "data/raw/second-layer-sources/2026-06-12/annual-report/tate/index.html",
+      "error": ""
+    },
+    {
+      "museum": "Tate",
+      "page_type": "exhibition",
+      "source_layer": "current-second-layer",
+      "status": 200,
+      "ok": true,
+      "wordCount": 832,
+      "title": "What's On | Tate",
+      "url": "https://www.tate.org.uk/whats-on",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/exhibition/tate/index.html",
+      "error": ""
+    },
+    {
+      "museum": "Tate",
+      "page_type": "collection-note",
+      "source_layer": "current-second-layer",
+      "status": 200,
+      "ok": true,
+      "wordCount": 6838,
+      "title": "Richard Bell’s Embassy: Reshaping the Contemporary Art Museum – Tate Papers | Tate",
+      "url": "https://www.tate.org.uk/research/tate-papers/35/richard-bells-embassy-reshaping-the-contemporary-art-museum",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/collection-note/tate/index.html",
+      "error": ""
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "page_type": "annual-report",
+      "source_layer": "current-second-layer",
+      "status": 200,
+      "ok": true,
+      "wordCount": 208,
+      "title": "Financial Information | Getty",
+      "url": "https://www.getty.edu/about/governance/finance.html",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/annual-report/j-paul-getty-museum/index.html",
       "error": ""
     },
     {
@@ -108,16 +85,40 @@
       "error": ""
     },
     {
-      "museum": "National Gallery of Art",
+      "museum": "Rijksmuseum",
       "page_type": "provenance",
       "source_layer": "current-second-layer",
-      "status": 403,
-      "ok": false,
-      "wordCount": 9,
-      "title": "Just a moment...",
-      "url": "https://www.nga.gov/artworks/provenance-national-gallery-art",
-      "responsePath": "data/raw/second-layer-sources/2026-06-12/provenance/national-gallery-of-art/index.html",
-      "error": "HTTP 403"
+      "status": 200,
+      "ok": true,
+      "wordCount": 892,
+      "title": "The development of provenance research - Rijksmuseum",
+      "url": "https://www.rijksmuseum.nl/en/research/our-research/overarching/second-world-war-provenance-research/the-development-of-provenance-research",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/provenance/rijksmuseum/index.html",
+      "error": ""
+    },
+    {
+      "museum": "Rijksmuseum",
+      "page_type": "repatriation",
+      "source_layer": "current-second-layer",
+      "status": 200,
+      "ok": true,
+      "wordCount": 732,
+      "title": "Restitution - Rijksmuseum",
+      "url": "https://www.rijksmuseum.nl/en/research/our-research/overarching/provenance-research-colonial-collections/restitution",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/repatriation/rijksmuseum/index.html",
+      "error": ""
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "page_type": "annual-report",
+      "source_layer": "current-second-layer",
+      "status": 200,
+      "ok": true,
+      "wordCount": 198,
+      "title": "Financial Reporting | The Art Institute of Chicago",
+      "url": "https://www.artic.edu/about-us/financial-reporting",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/annual-report/art-institute-of-chicago/index.html",
+      "error": ""
     },
     {
       "museum": "Art Institute of Chicago",
@@ -144,16 +145,28 @@
       "error": ""
     },
     {
-      "museum": "American Museum of Natural History",
-      "page_type": "annual-report",
+      "museum": "Victoria and Albert Museum",
+      "page_type": "provenance",
       "source_layer": "current-second-layer",
-      "status": 403,
-      "ok": false,
-      "wordCount": 24,
-      "title": "CAPTCHA",
-      "url": "https://www.amnh.org/about/annual-report",
-      "responsePath": "data/raw/second-layer-sources/2026-06-12/annual-report/american-museum-of-natural-history/index.html",
-      "error": "HTTP 403"
+      "status": 200,
+      "ok": true,
+      "wordCount": 1239,
+      "title": "Provenance Research at the V&A &middot; Research Project &middot; V&A",
+      "url": "https://www.vam.ac.uk/research/projects/provenance-research-at-the-va",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/provenance/victoria-and-albert-museum/index.html",
+      "error": ""
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "page_type": "repatriation",
+      "source_layer": "current-second-layer",
+      "status": 200,
+      "ok": true,
+      "wordCount": 1650,
+      "title": "Restitution and repatriation &middot; V&A",
+      "url": "https://www.vam.ac.uk/info/restitution-and-repatriation",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/repatriation/victoria-and-albert-museum/index.html",
+      "error": ""
     },
     {
       "museum": "Cleveland Museum of Art",
@@ -168,6 +181,18 @@
       "error": ""
     },
     {
+      "museum": "Cleveland Museum of Art",
+      "page_type": "exhibition",
+      "source_layer": "current-second-layer",
+      "status": 200,
+      "ok": true,
+      "wordCount": 898,
+      "title": "What&#x27;s On - Exhibitions | Cleveland Museum of Art",
+      "url": "https://www.clevelandart.org/whats-on/exhibitions",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/exhibition/cleveland-museum-of-art/index.html",
+      "error": ""
+    },
+    {
       "museum": "Philadelphia Museum of Art",
       "page_type": "collection-note",
       "source_layer": "current-second-layer",
@@ -177,6 +202,30 @@
       "title": "Collection | Philadelphia Museum of Art | Philadelphia Museum of Art",
       "url": "https://philamuseum.org/collection",
       "responsePath": "data/raw/second-layer-sources/2026-06-12/collection-note/philadelphia-museum-of-art/index.html",
+      "error": ""
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "page_type": "provenance",
+      "source_layer": "current-second-layer",
+      "status": 200,
+      "ok": true,
+      "wordCount": 2368,
+      "title": "Provenance | Philadelphia Museum of Art",
+      "url": "https://www.philamuseum.org/provenance",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/provenance/philadelphia-museum-of-art/index.html",
+      "error": ""
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "page_type": "exhibition",
+      "source_layer": "current-second-layer",
+      "status": 200,
+      "ok": true,
+      "wordCount": 348,
+      "title": "Marcel Duchamp | Philadelphia Museum of Art",
+      "url": "https://www.philamuseum.org/exhibitions/marcel-duchamp-sources-for-research",
+      "responsePath": "data/raw/second-layer-sources/2026-06-12/exhibition/philadelphia-museum-of-art/index.html",
       "error": ""
     },
     {

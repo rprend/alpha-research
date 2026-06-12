@@ -1,0 +1,13 @@
+{
+  "museum": "Rijksmuseum",
+  "page_type": "repatriation",
+  "source_layer": "current-second-layer",
+  "url": "https://www.rijksmuseum.nl/en/research/our-research/overarching/provenance-research-colonial-collections/restitution",
+  "status": 200,
+  "ok": true,
+  "wordCount": 732,
+  "title": "Restitution - Rijksmuseum",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/repatriation/rijksmuseum/index.html",
+  "fetchedAt": "2026-06-12T21:57:23.721Z",
+  "bytes": 99368
+}

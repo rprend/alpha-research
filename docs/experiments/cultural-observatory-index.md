@@ -49,7 +49,7 @@ Current roadmap:
 - 1 complete track
 - next implementation queue:
   - University Institutional Language Second-Layer Corpus historical backfill and manual quote review
-  - Museum Annual Report And Provenance Source Layers route replacement and historical backfill
+  - Museum Annual Report And Provenance Source Layers historical backfill and manual quote review
   - Humanities Literature Radar full DOAJ OAI harvest and remote bundle verification
   - Canon Drift Narrow Signal Pilot manual relevance audit
   - Humanities Dataset Registry derived dataset promotion
@@ -57,7 +57,7 @@ Current roadmap:
 Next implementation moves:
 
 - backfill historical snapshots for the four-genre university second-layer corpus
-- replace failed museum second-layer annual-report routes and add more provenance/repatriation targets
+- backfill historical snapshots for the five-page-type museum second-layer corpus
 - run the literature-radar full DOAJ OAI harvest, add resume checkpointing, and remotely verify the promoted bundle
 - promote one accessible dataset-registry file-level corpus into a derived dataset and study folder
 
@@ -279,7 +279,7 @@ Implemented:
 - Wayback target config
 - Wayback snapshot fetcher
 - exact Wayback snapshot fetcher for hand-curated archived pages
-- second-layer source config for annual reports, provenance, repatriation, and collection-note pages
+- second-layer source config for annual reports, provenance, repatriation, exhibition, and collection-note pages
 - second-layer source probe
 - second-layer corpus builder with page-type fields
 - one-command source-probe pipeline runner
@@ -309,10 +309,11 @@ Current corpus:
 - 14 museums represented
 - year range: 2005-2026
 - current source genres represented: about, collection, education, exhibition, and research pages
-- 15 configured second-layer routes across annual-report, provenance, repatriation, and collection-note pages
-- 9 accessible second-layer source snapshots
+- 19 configured second-layer routes across annual-report, provenance, repatriation, exhibition, and collection-note pages
+- 19 accessible second-layer source snapshots
 - second-layer corpus tier: schema-probe
-- second-layer status: source-probed-needs-replacements
+- second-layer status: source-probed
+- second-layer page-type counts: 6 annual-report, 6 provenance, 3 exhibition, 2 collection-note, 2 repatriation
 - audit packet: 0 flagged rows after weak-page exclusions
 - publication handoff: ready for copyedit as a source-caveated longitudinal post
 - publication post: `reports/post.md`, a polished source-layer methods draft
@@ -322,8 +323,7 @@ Current corpus:
 Next implementation moves:
 
 - final editorial review for `reports/post.md`
-- replace inaccessible annual-report routes with report index pages, extractable PDFs, or archived copies
-- add provenance and repatriation targets for museums that currently only have annual-report routes
+- retain the five-page-type current source mix for historical backfill
 - backfill historical snapshots for retained second-layer routes
 - join second-layer page-type outputs into the main readiness gate after manual quote review
 - review source snippets by hand before quoting

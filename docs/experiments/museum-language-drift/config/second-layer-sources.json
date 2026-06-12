@@ -1,39 +1,27 @@
 [
   {
-    "museum": "The Metropolitan Museum of Art",
-    "page_type": "annual-report",
-    "source_layer": "current-second-layer",
-    "url": "https://www.metmuseum.org/about-the-met/annual-reports"
-  },
-  {
-    "museum": "The Metropolitan Museum of Art",
-    "page_type": "provenance",
-    "source_layer": "current-second-layer",
-    "url": "https://www.metmuseum.org/about-the-met/policies-and-documents/provenance-research"
-  },
-  {
-    "museum": "The British Museum",
-    "page_type": "annual-report",
-    "source_layer": "current-second-layer",
-    "url": "https://www.britishmuseum.org/about-us/governance/annual-reports"
-  },
-  {
-    "museum": "The British Museum",
-    "page_type": "repatriation",
-    "source_layer": "current-second-layer",
-    "url": "https://www.britishmuseum.org/about-us/british-museum-story/contested-objects-collection"
-  },
-  {
-    "museum": "Museum of Modern Art",
-    "page_type": "annual-report",
-    "source_layer": "current-second-layer",
-    "url": "https://www.moma.org/about/annual-reports/"
-  },
-  {
     "museum": "Tate",
     "page_type": "annual-report",
     "source_layer": "current-second-layer",
     "url": "https://www.tate.org.uk/about-us/tate-reports"
+  },
+  {
+    "museum": "Tate",
+    "page_type": "exhibition",
+    "source_layer": "current-second-layer",
+    "url": "https://www.tate.org.uk/whats-on"
+  },
+  {
+    "museum": "Tate",
+    "page_type": "collection-note",
+    "source_layer": "current-second-layer",
+    "url": "https://www.tate.org.uk/research/tate-papers/35/richard-bells-embassy-reshaping-the-contemporary-art-museum"
+  },
+  {
+    "museum": "J. Paul Getty Museum",
+    "page_type": "annual-report",
+    "source_layer": "current-second-layer",
+    "url": "https://www.getty.edu/about/governance/finance.html"
   },
   {
     "museum": "J. Paul Getty Museum",
@@ -48,10 +36,22 @@
     "url": "https://www.rijksmuseum.nl/en/organisation/annual-reports"
   },
   {
-    "museum": "National Gallery of Art",
+    "museum": "Rijksmuseum",
     "page_type": "provenance",
     "source_layer": "current-second-layer",
-    "url": "https://www.nga.gov/artworks/provenance-national-gallery-art"
+    "url": "https://www.rijksmuseum.nl/en/research/our-research/overarching/second-world-war-provenance-research/the-development-of-provenance-research"
+  },
+  {
+    "museum": "Rijksmuseum",
+    "page_type": "repatriation",
+    "source_layer": "current-second-layer",
+    "url": "https://www.rijksmuseum.nl/en/research/our-research/overarching/provenance-research-colonial-collections/restitution"
+  },
+  {
+    "museum": "Art Institute of Chicago",
+    "page_type": "annual-report",
+    "source_layer": "current-second-layer",
+    "url": "https://www.artic.edu/about-us/financial-reporting"
   },
   {
     "museum": "Art Institute of Chicago",
@@ -66,10 +66,16 @@
     "url": "https://www.vam.ac.uk/info/reports-strategic-plans-and-policies"
   },
   {
-    "museum": "American Museum of Natural History",
-    "page_type": "annual-report",
+    "museum": "Victoria and Albert Museum",
+    "page_type": "provenance",
     "source_layer": "current-second-layer",
-    "url": "https://www.amnh.org/about/annual-report"
+    "url": "https://www.vam.ac.uk/research/projects/provenance-research-at-the-va"
+  },
+  {
+    "museum": "Victoria and Albert Museum",
+    "page_type": "repatriation",
+    "source_layer": "current-second-layer",
+    "url": "https://www.vam.ac.uk/info/restitution-and-repatriation"
   },
   {
     "museum": "Cleveland Museum of Art",
@@ -78,10 +84,28 @@
     "url": "https://www.clevelandart.org/about-collection/nazi-era-provenance"
   },
   {
+    "museum": "Cleveland Museum of Art",
+    "page_type": "exhibition",
+    "source_layer": "current-second-layer",
+    "url": "https://www.clevelandart.org/whats-on/exhibitions"
+  },
+  {
     "museum": "Philadelphia Museum of Art",
     "page_type": "collection-note",
     "source_layer": "current-second-layer",
     "url": "https://philamuseum.org/collection"
+  },
+  {
+    "museum": "Philadelphia Museum of Art",
+    "page_type": "provenance",
+    "source_layer": "current-second-layer",
+    "url": "https://www.philamuseum.org/provenance"
+  },
+  {
+    "museum": "Philadelphia Museum of Art",
+    "page_type": "exhibition",
+    "source_layer": "current-second-layer",
+    "url": "https://www.philamuseum.org/exhibitions/marcel-duchamp-sources-for-research"
   },
   {
     "museum": "Natural History Museum London",

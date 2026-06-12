@@ -130,9 +130,10 @@ function buildReadiness({ manifest, pages, pageTypeRows }) {
   const failed = manifest.requests.filter((request) => request.ok !== true);
   const pageTypeCounts = countBy(pages, "page_type");
   const museumCounts = countBy(pages, "museum");
-  const requiredPageTypes = ["annual-report", "provenance", "repatriation"];
+  const requiredPageTypes = ["annual-report", "provenance", "repatriation", "exhibition", "collection-note"];
   const missingPageTypes = requiredPageTypes.filter((pageType) => !pageTypeCounts[pageType]);
   const status = failed.length || missingPageTypes.length ? "source-probed-needs-replacements" : "source-probed";
+  const failedLabels = failed.map((request) => `${request.museum} ${request.page_type}`);
   return {
     generatedAt: new Date().toISOString(),
     runDate: manifest.runDate,
@@ -162,8 +163,8 @@ function buildReadiness({ manifest, pages, pageTypeRows }) {
       "Keep annual reports, provenance/repatriation pages, exhibitions, and collection notes separate in public claims.",
     ],
     nextActions: [
-      "Replace inaccessible annual-report routes with report index pages, PDFs with extractable text, or archived copies.",
-      "Add provenance and repatriation targets for museums that currently only have annual-report routes.",
+      ...(failed.length ? [`Replace or archive-backed retry failed routes: ${failedLabels.join("; ")}.`] : ["Retain the current five-page-type source mix for historical backfill."]),
+      ...(missingPageTypes.length ? [`Add accessible routes for missing page types: ${missingPageTypes.join(", ")}.`] : []),
       "Backfill historical snapshots for retained second-layer routes.",
       "Join second-layer page-type outputs into the main readiness gate after manual quote review.",
     ],

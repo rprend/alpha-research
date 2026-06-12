@@ -1,0 +1,13 @@
+{
+  "museum": "J. Paul Getty Museum",
+  "page_type": "annual-report",
+  "source_layer": "current-second-layer",
+  "url": "https://www.getty.edu/about/governance/finance.html",
+  "status": 200,
+  "ok": true,
+  "wordCount": 208,
+  "title": "Financial Information | Getty",
+  "responsePath": "data/raw/second-layer-sources/2026-06-12/annual-report/j-paul-getty-museum/index.html",
+  "fetchedAt": "2026-06-12T21:57:21.374Z",
+  "bytes": 3051712
+}
