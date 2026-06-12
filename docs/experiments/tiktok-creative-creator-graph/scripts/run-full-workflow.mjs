@@ -52,6 +52,7 @@ function main() {
   if (!skipAcquisitionImport) {
     const acquisitionDir = join(experimentDir, 'data/raw/acquisition-results')
     if (existsSync(acquisitionDir)) {
+      steps.push(['preview_acquisition_import', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs', '--preview']])
       steps.push(['import_acquisition_results', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs']])
     }
   }

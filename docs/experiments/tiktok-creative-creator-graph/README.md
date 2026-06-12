@@ -69,6 +69,14 @@ Normalize search/provider acquisition exports into pipeline imports:
 node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs
 ```
 
+Preview a proposed provider/search export before mutating imports or the import wave ledger:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs --preview --input=docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/provider-export.jsonl
+```
+
+The preview writes `reports/acquisition-import-preview.json` and `.md` with input rows, handle extraction rate, duplicate pressure, lineage mapping, a 25-row account sample, and a ready-to-import gate. Defaults require at least 75% normalized rows and at most 35% duplicate normalized rows; tune with `--min-normalized-rate=0.8` or `--max-duplicate-rate=0.25` for stricter import waves.
+
 This also updates the acquisition import wave ledger at `data/processed/acquisition_import_waves.jsonl` and `.csv`, including scale-wave, execution, batch, and provider lineage when the exports came from `run-acquisition-batch.mjs`.
 
 Each provider run also appends a durable execution record to `data/processed/acquisition_run_history.jsonl`; the latest run remains available at `reports/acquisition-run.json`. The importer uses this history to map raw provider files back to the wave and task batch that produced them.

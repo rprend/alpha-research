@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T21:13:56.572Z
+Generated: 2026-06-12T21:18:50.835Z
 
 Complete: false
 
@@ -25,6 +25,8 @@ Complete: false
 - Candidate frontier: 68
 - Candidate frontier handles: 4
 - Candidate frontier queries: 64
+- Acquisition import preview accounts: 3
+- Acquisition import preview ready: false
 - Acquisition import waves: 1
 - Acquisition runner tasks: 2
 - Acquisition runner runnable tasks: 2
@@ -64,6 +66,7 @@ Complete: false
 - expansion_queue: pass (4 expansion targets queued)
 - acquisition_batches: pass (68 acquisition tasks generated)
 - candidate_frontier: pass (68 ranked acquisition candidates generated)
+- acquisition_import_preview: pass (3 preview accounts, import gate not ready)
 - acquisition_import_waves: pass (1 acquisition import waves tracked)
 - acquisition_runner: pass (2 runnable of 2 selected provider tasks (dry run))
 - acquisition_run_history: pass (8 acquisition run history rows persisted)

@@ -1,11 +1,12 @@
 # Full Workflow
 
-Generated: 2026-06-12T21:13:56.576Z
+Generated: 2026-06-12T21:18:50.843Z
 
 Complete: true
 
 ## Steps
 
+- preview_acquisition_import: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs --preview`)
 - import_acquisition_results: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs`)
 - run_pipeline: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/run-pipeline.mjs`)
 - apply_review_decisions: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/apply-review-decisions.mjs`)

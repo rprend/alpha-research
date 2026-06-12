@@ -1,0 +1,82 @@
+{
+  "generated_at": "2026-06-12T21:18:49.835Z",
+  "mode": "preview",
+  "input_rows": 6,
+  "normalized_rows": 6,
+  "skipped_rows": 0,
+  "duplicate_normalized_rows": 3,
+  "output_accounts": 3,
+  "source_files": {
+    "smoke-provider-results.jsonl": 3,
+    "smoke-search-results.jsonl": 3
+  },
+  "mapped_lineage_rows": 0,
+  "unmapped_lineage_rows": 6,
+  "scale_wave_ids": {},
+  "execution_ids": {},
+  "batch_ids": {},
+  "lineage_providers": {},
+  "output_path": "",
+  "quality_gate": {
+    "ready_to_import": false,
+    "normalized_rate": 1,
+    "duplicate_rate": 0.5,
+    "output_rate": 0.5,
+    "min_normalized_rate": 0.75,
+    "max_duplicate_rate": 0.35,
+    "checks": [
+      {
+        "id": "has_rows",
+        "status": "pass",
+        "evidence": "6 input rows"
+      },
+      {
+        "id": "handle_extraction",
+        "status": "pass",
+        "evidence": "100.0% normalized, threshold 75.0%"
+      },
+      {
+        "id": "duplicate_pressure",
+        "status": "fail",
+        "evidence": "50.0% duplicate normalized rows, threshold 35.0%"
+      },
+      {
+        "id": "lineage_mapping",
+        "status": "warn",
+        "evidence": "no provider/wave lineage mapped; acceptable only for ad hoc search exports"
+      }
+    ]
+  },
+  "preview_accounts": [
+    {
+      "handle": "@selahshoots",
+      "display_name": "Selah Shoots",
+      "source_type": "provider_video_export",
+      "source_query": "",
+      "videos": 1,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [],
+      "acquisition_providers": []
+    },
+    {
+      "handle": "@basementbits",
+      "display_name": "Basement Bits",
+      "source_type": "provider_video_export",
+      "source_query": "",
+      "videos": 1,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [],
+      "acquisition_providers": []
+    },
+    {
+      "handle": "@dailyfilmclips",
+      "display_name": "Daily Film Clips",
+      "source_type": "provider_video_export",
+      "source_query": "",
+      "videos": 1,
+      "acquisition_wave_ids": [],
+      "acquisition_batch_ids": [],
+      "acquisition_providers": []
+    }
+  ]
+}

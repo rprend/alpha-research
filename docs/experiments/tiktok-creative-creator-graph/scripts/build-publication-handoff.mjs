@@ -40,6 +40,7 @@ function main() {
   const acquisitionBatches = readJson(join(reportsDir, 'acquisition-batches.json'), null)
   const candidateFrontierReport = readJson(join(reportsDir, 'candidate-frontier.json'), null)
   const acquisitionRun = readJson(join(reportsDir, 'acquisition-run.json'), null)
+  const acquisitionImportPreview = readJson(join(reportsDir, 'acquisition-import-preview.json'), null)
   const importWaves = readJsonl(join(processedDir, 'acquisition_import_waves.jsonl'))
   const acquisitionRunHistory = readJsonl(join(processedDir, 'acquisition_run_history.jsonl'))
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
@@ -117,6 +118,8 @@ function main() {
       candidate_frontier: counts.candidate_frontier ?? candidateFrontier.length,
       candidate_frontier_handles: counts.candidate_frontier_handles ?? candidateFrontierReport?.handle_targets ?? 0,
       candidate_frontier_queries: counts.candidate_frontier_queries ?? candidateFrontierReport?.query_targets ?? 0,
+      acquisition_import_preview_accounts: counts.acquisition_import_preview_accounts ?? acquisitionImportPreview?.output_accounts ?? 0,
+      acquisition_import_preview_ready: counts.acquisition_import_preview_ready ?? Boolean(acquisitionImportPreview?.quality_gate?.ready_to_import),
       acquisition_import_waves: counts.acquisition_import_waves ?? importWaves.length,
       acquisition_import_lineage_rows: importedLineageRows,
       acquisition_import_untraced_rows: untracedImportRows,
@@ -147,6 +150,7 @@ function main() {
       readiness_complete: Boolean(readiness?.complete),
       review_packet_available: Boolean(reviewPacketReport?.rows > 0 && reviewPacketReport?.decision_template_rows > 0),
       provider_runner_exercised: Boolean(acquisitionRun?.selected_tasks > 0),
+      acquisition_import_preview_available: Boolean(acquisitionImportPreview?.input_rows > 0),
       acquisition_run_history_available: acquisitionRunHistory.length > 0,
       scale_plan_available: Boolean(scalePlan?.estimated_work),
       scale_waves_available: Boolean(scaleWavesReport?.planned_waves > 0 || scaleWaves.length > 0),
@@ -174,6 +178,7 @@ function main() {
       candidate_frontier: rel(join(reportsDir, 'candidate-frontier.json')),
       candidate_frontier_queue: rel(join(processedDir, 'candidate_frontier.csv')),
       acquisition_import: rel(join(reportsDir, 'acquisition-import.json')),
+      acquisition_import_preview: rel(join(reportsDir, 'acquisition-import-preview.json')),
       acquisition_import_waves: rel(join(processedDir, 'acquisition_import_waves.jsonl')),
       acquisition_run_history: rel(join(processedDir, 'acquisition_run_history.jsonl')),
       source_yield: rel(join(reportsDir, 'source-yield.json')),
@@ -243,6 +248,8 @@ ${handoff.objective}
 - Candidate frontier: ${handoff.current_corpus.candidate_frontier}
 - Candidate frontier handles: ${handoff.current_corpus.candidate_frontier_handles}
 - Candidate frontier queries: ${handoff.current_corpus.candidate_frontier_queries}
+- Acquisition import preview accounts: ${handoff.current_corpus.acquisition_import_preview_accounts}
+- Acquisition import preview ready: ${handoff.current_corpus.acquisition_import_preview_ready}
 - Acquisition import waves: ${handoff.current_corpus.acquisition_import_waves}
 - Acquisition import traced rows: ${handoff.current_corpus.acquisition_import_lineage_rows}
 - Acquisition import untraced rows: ${handoff.current_corpus.acquisition_import_untraced_rows}

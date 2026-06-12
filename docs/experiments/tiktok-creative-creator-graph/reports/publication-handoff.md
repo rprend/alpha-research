@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-12T21:13:56.534Z
+Generated: 2026-06-12T21:18:50.782Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -28,6 +28,8 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Candidate frontier: 68
 - Candidate frontier handles: 4
 - Candidate frontier queries: 64
+- Acquisition import preview accounts: 3
+- Acquisition import preview ready: false
 - Acquisition import waves: 1
 - Acquisition import traced rows: 0
 - Acquisition import untraced rows: 6
@@ -74,6 +76,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - candidate_frontier: `docs/experiments/tiktok-creative-creator-graph/reports/candidate-frontier.json`
 - candidate_frontier_queue: `docs/experiments/tiktok-creative-creator-graph/data/processed/candidate_frontier.csv`
 - acquisition_import: `docs/experiments/tiktok-creative-creator-graph/reports/acquisition-import.json`
+- acquisition_import_preview: `docs/experiments/tiktok-creative-creator-graph/reports/acquisition-import-preview.json`
 - acquisition_import_waves: `docs/experiments/tiktok-creative-creator-graph/data/processed/acquisition_import_waves.jsonl`
 - acquisition_run_history: `docs/experiments/tiktok-creative-creator-graph/data/processed/acquisition_run_history.jsonl`
 - source_yield: `docs/experiments/tiktok-creative-creator-graph/reports/source-yield.json`
@@ -96,6 +99,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - readiness_complete: incomplete
 - review_packet_available: pass
 - provider_runner_exercised: pass
+- acquisition_import_preview_available: pass
 - acquisition_run_history_available: pass
 - scale_plan_available: pass
 - scale_waves_available: pass

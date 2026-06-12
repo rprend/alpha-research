@@ -1,8 +1,10 @@
 {
-  "generated_at": "2026-06-12T21:13:55.824Z",
+  "generated_at": "2026-06-12T21:18:49.873Z",
+  "mode": "import",
   "input_rows": 6,
   "normalized_rows": 6,
   "skipped_rows": 0,
+  "duplicate_normalized_rows": 3,
   "output_accounts": 3,
   "source_files": {
     "smoke-provider-results.jsonl": 3,
@@ -15,9 +17,39 @@
   "batch_ids": {},
   "lineage_providers": {},
   "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-12.jsonl",
+  "quality_gate": {
+    "ready_to_import": false,
+    "normalized_rate": 1,
+    "duplicate_rate": 0.5,
+    "output_rate": 0.5,
+    "min_normalized_rate": 0.75,
+    "max_duplicate_rate": 0.35,
+    "checks": [
+      {
+        "id": "has_rows",
+        "status": "pass",
+        "evidence": "6 input rows"
+      },
+      {
+        "id": "handle_extraction",
+        "status": "pass",
+        "evidence": "100.0% normalized, threshold 75.0%"
+      },
+      {
+        "id": "duplicate_pressure",
+        "status": "fail",
+        "evidence": "50.0% duplicate normalized rows, threshold 35.0%"
+      },
+      {
+        "id": "lineage_mapping",
+        "status": "warn",
+        "evidence": "no provider/wave lineage mapped; acceptable only for ad hoc search exports"
+      }
+    ]
+  },
   "wave": {
-    "wave_id": "import-2026-06-12T21-13-55-824Z",
-    "generated_at": "2026-06-12T21:13:55.824Z",
+    "wave_id": "import-2026-06-12T21-18-49-874Z",
+    "generated_at": "2026-06-12T21:18:49.873Z",
     "input_rows": 6,
     "normalized_rows": 6,
     "skipped_rows": 0,

@@ -84,6 +84,11 @@ function main() {
     if (!existsSync(path)) return null
     return JSON.parse(readFileSync(path, 'utf8'))
   })()
+  const acquisitionImportPreview = (() => {
+    const path = join(reportsDir, 'acquisition-import-preview.json')
+    if (!existsSync(path)) return null
+    return JSON.parse(readFileSync(path, 'utf8'))
+  })()
 
   const usefulAccounts = scores.filter((row) => ['useful', 'excellent'].includes(row.status)).length
   const excellentAccounts = scores.filter((row) => row.status === 'excellent').length
@@ -145,6 +150,13 @@ function main() {
       id: 'candidate_frontier',
       status: candidateFrontier.length > 0 ? 'pass' : 'fail',
       evidence: `${candidateFrontier.length} ranked acquisition candidates generated`,
+    },
+    {
+      id: 'acquisition_import_preview',
+      status: acquisitionImportPreview?.input_rows > 0 ? 'pass' : 'fail',
+      evidence: acquisitionImportPreview
+        ? `${acquisitionImportPreview.output_accounts} preview accounts, import gate ${acquisitionImportPreview.quality_gate?.ready_to_import ? 'ready' : 'not ready'}`
+        : 'acquisition import preview missing',
     },
     {
       id: 'acquisition_import_waves',
@@ -262,6 +274,8 @@ function main() {
       candidate_frontier: candidateFrontier.length,
       candidate_frontier_handles: candidateFrontier.filter((row) => row.target_kind === 'handle').length,
       candidate_frontier_queries: candidateFrontier.filter((row) => ['query', 'search_query', 'hashtag'].includes(row.target_kind)).length,
+      acquisition_import_preview_accounts: acquisitionImportPreview?.output_accounts ?? 0,
+      acquisition_import_preview_ready: Boolean(acquisitionImportPreview?.quality_gate?.ready_to_import),
       acquisition_import_waves: acquisitionImportWaves.length,
       acquisition_runner_tasks: acquisitionRun?.selected_tasks ?? 0,
       acquisition_runner_runnable_tasks: acquisitionRun?.runnable_tasks ?? acquisitionRun?.selected_tasks ?? 0,
@@ -325,6 +339,8 @@ Complete: ${summary.complete}
 - Candidate frontier: ${summary.counts.candidate_frontier}
 - Candidate frontier handles: ${summary.counts.candidate_frontier_handles}
 - Candidate frontier queries: ${summary.counts.candidate_frontier_queries}
+- Acquisition import preview accounts: ${summary.counts.acquisition_import_preview_accounts}
+- Acquisition import preview ready: ${summary.counts.acquisition_import_preview_ready}
 - Acquisition import waves: ${summary.counts.acquisition_import_waves}
 - Acquisition runner tasks: ${summary.counts.acquisition_runner_tasks}
 - Acquisition runner runnable tasks: ${summary.counts.acquisition_runner_runnable_tasks}

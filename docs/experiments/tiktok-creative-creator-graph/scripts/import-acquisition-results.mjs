@@ -14,6 +14,9 @@ const args = new Map(process.argv.slice(2).map((arg) => {
 }))
 
 const inputPath = args.get('--input') ? join(root, String(args.get('--input'))) : null
+const previewOnly = args.has('--preview') || args.has('--dry-run')
+const minNormalizedRate = Number(args.get('--min-normalized-rate') ?? 0.75)
+const maxDuplicateRate = Number(args.get('--max-duplicate-rate') ?? 0.35)
 const outputPath = args.get('--output')
   ? join(root, String(args.get('--output')))
   : join(importDir, `acquisition-import-${new Date().toISOString().slice(0, 10)}.jsonl`)
@@ -299,6 +302,7 @@ function mergeRows(rows) {
     input_rows: rows.length,
     normalized_rows: 0,
     skipped_rows: 0,
+    duplicate_normalized_rows: 0,
     source_files: {},
     mapped_lineage_rows: 0,
     unmapped_lineage_rows: 0,
@@ -336,6 +340,7 @@ function mergeRows(rows) {
       })
       continue
     }
+    stats.duplicate_normalized_rows += 1
     existing.display_name ||= canonical.display_name
     existing.bio = existing.bio.length >= canonical.bio.length ? existing.bio : canonical.bio
     existing.avatar_url ||= canonical.avatar_url
@@ -356,6 +361,45 @@ function mergeRows(rows) {
     videos: account.videos.slice(0, 50),
   }))
   return { accounts, stats }
+}
+
+function buildQualityGate(stats, accounts) {
+  const normalizedRate = stats.input_rows > 0 ? stats.normalized_rows / stats.input_rows : 0
+  const duplicateRate = stats.normalized_rows > 0 ? stats.duplicate_normalized_rows / stats.normalized_rows : 0
+  const outputRate = stats.input_rows > 0 ? accounts.length / stats.input_rows : 0
+  const checks = [
+    {
+      id: 'has_rows',
+      status: stats.input_rows > 0 ? 'pass' : 'fail',
+      evidence: `${stats.input_rows} input rows`,
+    },
+    {
+      id: 'handle_extraction',
+      status: normalizedRate >= minNormalizedRate ? 'pass' : 'fail',
+      evidence: `${(normalizedRate * 100).toFixed(1)}% normalized, threshold ${(minNormalizedRate * 100).toFixed(1)}%`,
+    },
+    {
+      id: 'duplicate_pressure',
+      status: duplicateRate <= maxDuplicateRate ? 'pass' : 'fail',
+      evidence: `${(duplicateRate * 100).toFixed(1)}% duplicate normalized rows, threshold ${(maxDuplicateRate * 100).toFixed(1)}%`,
+    },
+    {
+      id: 'lineage_mapping',
+      status: stats.mapped_lineage_rows > 0 || stats.input_rows === 0 ? 'pass' : 'warn',
+      evidence: stats.mapped_lineage_rows > 0
+        ? `${stats.mapped_lineage_rows}/${stats.input_rows} rows mapped to provider/wave lineage`
+        : 'no provider/wave lineage mapped; acceptable only for ad hoc search exports',
+    },
+  ]
+  return {
+    ready_to_import: checks.every((check) => check.status !== 'fail'),
+    normalized_rate: normalizedRate,
+    duplicate_rate: duplicateRate,
+    output_rate: outputRate,
+    min_normalized_rate: minNormalizedRate,
+    max_duplicate_rate: maxDuplicateRate,
+    checks,
+  }
 }
 
 function summarizeWave(rows, accounts, stats, report) {
@@ -432,12 +476,13 @@ function main() {
   ensureDir(reportsDir)
   const rows = loadRows()
   const { accounts, stats } = mergeRows(rows)
-  writeJsonl(outputPath, accounts)
   const report = {
     generated_at: new Date().toISOString(),
+    mode: previewOnly ? 'preview' : 'import',
     input_rows: stats.input_rows,
     normalized_rows: stats.normalized_rows,
     skipped_rows: stats.skipped_rows,
+    duplicate_normalized_rows: stats.duplicate_normalized_rows,
     output_accounts: accounts.length,
     source_files: stats.source_files,
     mapped_lineage_rows: stats.mapped_lineage_rows,
@@ -448,6 +493,47 @@ function main() {
     lineage_providers: stats.lineage_providers,
     output_path: outputPath.replace(`${root}/`, ''),
   }
+  report.quality_gate = buildQualityGate(stats, accounts)
+  if (previewOnly) {
+    report.output_path = ''
+    report.preview_accounts = accounts.slice(0, 25).map((account) => ({
+      handle: account.handle,
+      display_name: account.display_name,
+      source_type: account.source_type,
+      source_query: account.source_query,
+      videos: account.videos.length,
+      acquisition_wave_ids: account.acquisition_wave_ids,
+      acquisition_batch_ids: account.acquisition_batch_ids,
+      acquisition_providers: account.acquisition_providers,
+    }))
+    writeJson(join(reportsDir, 'acquisition-import-preview.json'), report)
+    writeFileSync(join(reportsDir, 'acquisition-import-preview.md'), `# Acquisition Import Preview
+
+Generated: ${report.generated_at}
+
+- Input rows: ${report.input_rows}
+- Normalized rows: ${report.normalized_rows}
+- Skipped rows: ${report.skipped_rows}
+- Duplicate normalized rows: ${report.duplicate_normalized_rows}
+- Output accounts if imported: ${report.output_accounts}
+- Ready to import: ${report.quality_gate.ready_to_import ? 'yes' : 'no'}
+- Normalized rate: ${(report.quality_gate.normalized_rate * 100).toFixed(1)}%
+- Duplicate rate: ${(report.quality_gate.duplicate_rate * 100).toFixed(1)}%
+- Mapped lineage rows: ${report.mapped_lineage_rows}
+- Unmapped lineage rows: ${report.unmapped_lineage_rows}
+
+## Checks
+
+${report.quality_gate.checks.map((check) => `- ${check.id}: ${check.status} - ${check.evidence}`).join('\n')}
+
+## Source Files
+
+${Object.entries(report.source_files).map(([file, count]) => `- ${file}: ${count}`).join('\n')}
+`)
+    console.log(JSON.stringify(report, null, 2))
+    return
+  }
+  writeJsonl(outputPath, accounts)
   const wave = summarizeWave(rows, accounts, stats, report)
   const waves = upsertWave(wave)
   report.wave = wave
