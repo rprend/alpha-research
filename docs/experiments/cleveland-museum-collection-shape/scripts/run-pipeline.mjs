@@ -10,6 +10,7 @@ const startedAt = new Date().toISOString();
 const steps = [
   ["fetch-artworks.mjs", [`--run-date=${runDate}`, `--limit=${limit}`, `--page-size=${pageSize}`]],
   ["build-report.mjs", []],
+  ["build-audit-packet.mjs", []],
   ["build-charts.mjs", []],
   ["check-readiness.mjs", []],
 ];

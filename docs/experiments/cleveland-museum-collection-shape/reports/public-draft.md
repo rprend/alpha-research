@@ -18,7 +18,7 @@ A structured museum API turns a collection into analyzable records, but the firs
 
 - This run uses a bounded API sample, not the full collection.
 - Object metadata completeness varies by department, object type, date, culture, and image availability.
-- Accession-number dates are a rough acquisition proxy and need audit before publication claims.
+- Accession-number dates are a rough acquisition proxy; explicit accession_date exists and audit rows identify mismatches before publication claims.
 - One open museum collection cannot stand in for museum collections as a whole.
 
 ## Next Moves

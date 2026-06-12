@@ -243,6 +243,7 @@ Implemented:
 - acquisition-decade table using accession-number year as an audited-risk proxy
 - rights/license and image-availability summaries
 - SVG chart artifacts for departments, creation centuries, acquisition decades, and image availability
+- audit packet for accession-year proxy, explicit accession dates, provenance counts, and image/license checks
 - `report.html`
 - `result.json`
 - `work.md`
@@ -258,13 +259,14 @@ Current corpus:
 - 56 creation-century rows
 - 12 acquisition-decade rows
 - 4 chart artifacts
+- audit packet: 54 review rows, including 229 accession-year proxy mismatches across the full sample
 - 87.2% of sampled records have an image
 - readiness: ready for editorial review with single-institution and sample-size caveats
 
 Next implementation moves:
 
 - fetch the full collection or a larger paginated corpus
-- audit acquisition-year extraction against explicit acquisition/provenance fields
+- review audit rows before publishing acquisition-decade claims
 - use and caption chart artifacts in publication copy
 - compare against a second open museum API before cross-institution claims
 

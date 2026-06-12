@@ -9,6 +9,7 @@ import {
 const reportsDir = path.join(experimentDir, "reports");
 const result = await readJson(path.join(reportsDir, "result.json"));
 const chartManifest = await readOptionalJson(path.join(reportsDir, "charts", "manifest.json"));
+const audit = await readOptionalJson(path.join(reportsDir, "audit-packet.json"));
 const checks = [
   {
     id: "sample-size",
@@ -46,6 +47,12 @@ const checks = [
     status: (chartManifest?.chartCount ?? 0) >= 4 ? "pass" : "needs-work",
     evidence: chartManifest ? `${chartManifest.chartCount} charts` : "missing chart manifest",
   },
+  {
+    id: "audit-packet",
+    label: "Audit packet exists for acquisition-date proxy and image/license checks",
+    status: audit ? "pass" : "needs-work",
+    evidence: audit ? `${audit.reviewRows} review rows; ${audit.mismatchRows} accession-year mismatches` : "missing audit packet",
+  },
 ];
 const status = checks.every((check) => check.status === "pass") ? "ready-for-editorial-review" : "not-ready-for-publication";
 const readiness = {
@@ -54,7 +61,7 @@ const readiness = {
   checks,
   nextMoves: [
     "Fetch the full collection or a larger paginated corpus.",
-    "Audit acquisition-year extraction against explicit provenance/acquisition fields where available.",
+    "Review audit-packet rows before publishing acquisition-decade claims.",
     "Use the generated chart artifacts in the public draft.",
     "Compare with a second open museum API before making cross-institution claims.",
   ],

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T18:42:55.219Z",
+  "generatedAt": "2026-06-12T18:45:58.657Z",
   "source": "Cleveland Museum of Art Open Access API",
   "sampleRecords": 5000,
   "totalAvailable": 68743,
@@ -1087,10 +1087,15 @@
       "creation_date_earliest": 1760,
       "creation_date_latest": 1770,
       "accession_year": 1915,
+      "accession_date": "1916-01-10T00:00:00",
+      "explicit_accession_year": 1916,
+      "accession_year_matches_explicit": false,
       "culture": [
         "America"
       ],
       "technique": "oil on canvas",
+      "creditline": "Gift of the John Huntington Art and Polytechnic Trust",
+      "provenance_entries": 7,
       "share_license_status": "CC0",
       "has_image": true,
       "url": "https://clevelandart.org/art/1915.534"
@@ -1106,10 +1111,15 @@
       "creation_date_earliest": 1882,
       "creation_date_latest": 1883,
       "accession_year": 1921,
+      "accession_date": "1921-11-17T00:00:00",
+      "explicit_accession_year": 1921,
+      "accession_year_matches_explicit": true,
       "culture": [
         "America"
       ],
       "technique": "oil on canvas",
+      "creditline": "Gift of Mrs. Boudinot Keith in memory of  Mr. and Mrs. J. H. Wade",
+      "provenance_entries": 2,
       "share_license_status": "CC0",
       "has_image": true,
       "url": "https://clevelandart.org/art/1921.1239"
@@ -1125,10 +1135,15 @@
       "creation_date_earliest": 1909,
       "creation_date_latest": 1909,
       "accession_year": 1922,
+      "accession_date": "1922-06-09T00:00:00",
+      "explicit_accession_year": 1922,
+      "accession_year_matches_explicit": true,
       "culture": [
         "America"
       ],
       "technique": "oil on canvas",
+      "creditline": "Hinman B. Hurlbut Collection",
+      "provenance_entries": 2,
       "share_license_status": "CC0",
       "has_image": true,
       "url": "https://clevelandart.org/art/1922.1133"
@@ -1144,10 +1159,15 @@
       "creation_date_earliest": 1873,
       "creation_date_latest": 1873,
       "accession_year": 1927,
+      "accession_date": "1927-12-20T00:00:00",
+      "explicit_accession_year": 1927,
+      "accession_year_matches_explicit": true,
       "culture": [
         "America"
       ],
       "technique": "oil on canvas",
+      "creditline": "Hinman B. Hurlbut Collection",
+      "provenance_entries": 2,
       "share_license_status": "CC0",
       "has_image": true,
       "url": "https://clevelandart.org/art/1927.1984"
@@ -1163,10 +1183,15 @@
       "creation_date_earliest": 1896,
       "creation_date_latest": 1908,
       "accession_year": 1928,
+      "accession_date": "1928-01-06T00:00:00",
+      "explicit_accession_year": 1928,
+      "accession_year_matches_explicit": true,
       "culture": [
         "America"
       ],
       "technique": "oil on canvas",
+      "creditline": "Purchase from the J. H. Wade Fund",
+      "provenance_entries": 6,
       "share_license_status": "CC0",
       "has_image": true,
       "url": "https://clevelandart.org/art/1928.8"
@@ -1182,10 +1207,15 @@
       "creation_date_earliest": 1863,
       "creation_date_latest": 1863,
       "accession_year": 1962,
+      "accession_date": "1962-02-17T00:00:00",
+      "explicit_accession_year": 1962,
+      "accession_year_matches_explicit": true,
       "culture": [
         "France, 19th century"
       ],
       "technique": "oil on fabric",
+      "creditline": "Leonard C. Hanna Jr. Fund",
+      "provenance_entries": 4,
       "share_license_status": "CC0",
       "has_image": true,
       "url": "https://clevelandart.org/art/1962.2"
@@ -1201,10 +1231,15 @@
       "creation_date_earliest": 1860,
       "creation_date_latest": 1860,
       "accession_year": 1965,
+      "accession_date": "1965-09-11T00:00:00",
+      "explicit_accession_year": 1965,
+      "accession_year_matches_explicit": true,
       "culture": [
         "America"
       ],
       "technique": "oil on canvas",
+      "creditline": "Mr. and Mrs. William H. Marlatt Fund",
+      "provenance_entries": 15,
       "share_license_status": "CC0",
       "has_image": true,
       "url": "https://clevelandart.org/art/1965.233"
@@ -1220,10 +1255,15 @@
       "creation_date_earliest": 1889,
       "creation_date_latest": 1889,
       "accession_year": 1978,
+      "accession_date": "1978-11-20T00:00:00",
+      "explicit_accession_year": 1978,
+      "accession_year_matches_explicit": true,
       "culture": [
         "France, 19th century"
       ],
       "technique": "oil on fabric",
+      "creditline": "Gift of Mr. and Mrs. William Powell Jones",
+      "provenance_entries": 10,
       "share_license_status": "CC0",
       "has_image": true,
       "url": "https://clevelandart.org/art/1978.63"
@@ -1239,10 +1279,15 @@
       "creation_date_earliest": 1920,
       "creation_date_latest": 1920,
       "accession_year": 1977,
+      "accession_date": "1977-05-10T00:00:00",
+      "explicit_accession_year": 1977,
+      "accession_year_matches_explicit": true,
       "culture": [
         "America"
       ],
       "technique": "oil on canvas",
+      "creditline": "Mr. and Mrs. William H. Marlatt Fund",
+      "provenance_entries": 5,
       "share_license_status": "CC0",
       "has_image": true,
       "url": "https://clevelandart.org/art/1977.43"
@@ -1258,10 +1303,15 @@
       "creation_date_earliest": 1903,
       "creation_date_latest": 1903,
       "accession_year": 1945,
+      "accession_date": "1945-02-21T00:00:00",
+      "explicit_accession_year": 1945,
+      "accession_year_matches_explicit": true,
       "culture": [
         "Spain"
       ],
       "technique": "oil on canvas",
+      "creditline": "Gift of the Hanna Fund",
+      "provenance_entries": 10,
       "share_license_status": "Copyrighted",
       "has_image": false,
       "url": "https://clevelandart.org/art/1945.24"
@@ -1277,10 +1327,15 @@
       "creation_date_earliest": 1889,
       "creation_date_latest": 1889,
       "accession_year": 1947,
+      "accession_date": "1947-07-18T00:00:00",
+      "explicit_accession_year": 1947,
+      "accession_year_matches_explicit": true,
       "culture": [
         "Netherlands"
       ],
       "technique": "oil on fabric",
+      "creditline": "Gift of the Hanna Fund",
+      "provenance_entries": 7,
       "share_license_status": "CC0",
       "has_image": true,
       "url": "https://clevelandart.org/art/1947.209"
@@ -1296,10 +1351,15 @@
       "creation_date_earliest": 1890,
       "creation_date_latest": 1890,
       "accession_year": 1958,
+      "accession_date": "1958-11-29T00:00:00",
+      "explicit_accession_year": 1958,
+      "accession_year_matches_explicit": true,
       "culture": [
         "Netherlands"
       ],
       "technique": "oil on fabric",
+      "creditline": "Bequest of Leonard C. Hanna Jr.",
+      "provenance_entries": 7,
       "share_license_status": "CC0",
       "has_image": true,
       "url": "https://clevelandart.org/art/1958.31"
@@ -1315,10 +1375,15 @@
       "creation_date_earliest": 1838,
       "creation_date_latest": 1838,
       "accession_year": 1917,
+      "accession_date": "1917-02-14T00:00:00",
+      "explicit_accession_year": 1917,
+      "accession_year_matches_explicit": true,
       "culture": [
         "America"
       ],
       "technique": "oil on canvas",
+      "creditline": "Hinman B. Hurlbut Collection",
+      "provenance_entries": 9,
       "share_license_status": "CC0",
       "has_image": true,
       "url": "https://clevelandart.org/art/1917.1335"
@@ -1334,10 +1399,15 @@
       "creation_date_earliest": 1868,
       "creation_date_latest": 1873,
       "accession_year": 1958,
+      "accession_date": "1958-11-29T00:00:00",
+      "explicit_accession_year": 1958,
+      "accession_year_matches_explicit": true,
       "culture": [
         "France, 19th century"
       ],
       "technique": "oil on fabric",
+      "creditline": "Bequest of Leonard C. Hanna Jr.",
+      "provenance_entries": 5,
       "share_license_status": "CC0",
       "has_image": true,
       "url": "https://clevelandart.org/art/1958.39"
@@ -1353,10 +1423,15 @@
       "creation_date_earliest": 1942,
       "creation_date_latest": 1942,
       "accession_year": 1943,
+      "accession_date": "1943-02-03T00:00:00",
+      "explicit_accession_year": 1943,
+      "accession_year_matches_explicit": true,
       "culture": [
         "America"
       ],
       "technique": "oil on canvas",
+      "creditline": "Mr. and Mrs. William H. Marlatt Fund",
+      "provenance_entries": 2,
       "share_license_status": "Copyrighted",
       "has_image": false,
       "url": "https://clevelandart.org/art/1943.60"
@@ -1372,10 +1447,15 @@
       "creation_date_earliest": 1663,
       "creation_date_latest": 1663,
       "accession_year": 1951,
+      "accession_date": "1951-08-09T00:00:00",
+      "explicit_accession_year": 1951,
+      "accession_year_matches_explicit": true,
       "culture": [
         "Netherlands"
       ],
       "technique": "oil on canvas",
+      "creditline": "Gift of the Hanna Fund",
+      "provenance_entries": 6,
       "share_license_status": "CC0",
       "has_image": true,
       "url": "https://clevelandart.org/art/1951.355"
@@ -1391,10 +1471,15 @@
       "creation_date_earliest": 1912,
       "creation_date_latest": 1912,
       "accession_year": 1964,
+      "accession_date": "1964-10-30T00:00:00",
+      "explicit_accession_year": 1964,
+      "accession_year_matches_explicit": true,
       "culture": [
         "America"
       ],
       "technique": "oil on canvas",
+      "creditline": "Gift of Amelia Elizabeth White",
+      "provenance_entries": 1,
       "share_license_status": "CC0",
       "has_image": true,
       "url": "https://clevelandart.org/art/1964.160"
@@ -1410,10 +1495,15 @@
       "creation_date_earliest": 1890,
       "creation_date_latest": 1900,
       "accession_year": 1946,
+      "accession_date": "1946-02-07T00:00:00",
+      "explicit_accession_year": 1946,
+      "accession_year_matches_explicit": true,
       "culture": [
         "France, 19th century"
       ],
       "technique": "oil on fabric",
+      "creditline": "Gift of the Hanna Fund",
+      "provenance_entries": 7,
       "share_license_status": "CC0",
       "has_image": true,
       "url": "https://clevelandart.org/art/1946.83"
@@ -1429,10 +1519,15 @@
       "creation_date_earliest": 1817,
       "creation_date_latest": 1817,
       "accession_year": 1962,
+      "accession_date": "1962-02-17T00:00:00",
+      "explicit_accession_year": 1962,
+      "accession_year_matches_explicit": true,
       "culture": [
         "France, 19th century"
       ],
       "technique": "oil on canvas",
+      "creditline": "Leonard C. Hanna Jr. Fund",
+      "provenance_entries": 9,
       "share_license_status": "CC0",
       "has_image": true,
       "url": "https://clevelandart.org/art/1962.37"
@@ -1448,10 +1543,15 @@
       "creation_date_earliest": 1756,
       "creation_date_latest": 1766,
       "accession_year": 1942,
+      "accession_date": "1942-07-24T00:00:00",
+      "explicit_accession_year": 1942,
+      "accession_year_matches_explicit": true,
       "culture": [
         "England, 18th century"
       ],
       "technique": "oil on canvas",
+      "creditline": "Bequest of John L. Severance",
+      "provenance_entries": 11,
       "share_license_status": "CC0",
       "has_image": true,
       "url": "https://clevelandart.org/art/1942.645"
@@ -1461,7 +1561,7 @@
   "caveats": [
     "This run uses a bounded API sample, not the full collection.",
     "Object metadata completeness varies by department, object type, date, culture, and image availability.",
-    "Accession-number dates are a rough acquisition proxy and need audit before publication claims.",
+    "Accession-number dates are a rough acquisition proxy; explicit accession_date exists and audit rows identify mismatches before publication claims.",
     "One open museum collection cannot stand in for museum collections as a whole."
   ],
   "nextMoves": [

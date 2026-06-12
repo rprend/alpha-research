@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T18:42:55.305Z",
+  "generatedAt": "2026-06-12T18:45:58.797Z",
   "status": "ready-for-editorial-review",
   "checks": [
     {
@@ -37,11 +37,17 @@
       "label": "At least four chart artifacts exist",
       "status": "pass",
       "evidence": "4 charts"
+    },
+    {
+      "id": "audit-packet",
+      "label": "Audit packet exists for acquisition-date proxy and image/license checks",
+      "status": "pass",
+      "evidence": "54 review rows; 229 accession-year mismatches"
     }
   ],
   "nextMoves": [
     "Fetch the full collection or a larger paginated corpus.",
-    "Audit acquisition-year extraction against explicit provenance/acquisition fields where available.",
+    "Review audit-packet rows before publishing acquisition-decade claims.",
     "Use the generated chart artifacts in the public draft.",
     "Compare with a second open museum API before making cross-institution claims."
   ]

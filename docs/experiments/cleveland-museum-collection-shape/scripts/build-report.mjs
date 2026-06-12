@@ -45,7 +45,7 @@ const result = {
   caveats: [
     "This run uses a bounded API sample, not the full collection.",
     "Object metadata completeness varies by department, object type, date, culture, and image availability.",
-    "Accession-number dates are a rough acquisition proxy and need audit before publication claims.",
+    "Accession-number dates are a rough acquisition proxy; explicit accession_date exists and audit rows identify mismatches before publication claims.",
     "One open museum collection cannot stand in for museum collections as a whole.",
   ],
   nextMoves: [
@@ -69,8 +69,13 @@ await writeText(path.join(processedDir, "artworks.csv"), toCsv(artworks, [
   "creation_date_earliest",
   "creation_date_latest",
   "accession_year",
+  "accession_date",
+  "explicit_accession_year",
+  "accession_year_matches_explicit",
   "culture",
   "technique",
+  "creditline",
+  "provenance_entries",
   "share_license_status",
   "has_image",
   "url",
@@ -99,6 +104,7 @@ async function latestRun() {
 
 function normalizeArtwork(item) {
   const accessionYearValue = accessionYear(item.accession_number);
+  const explicitAccessionYear = accessionYear(item.accession_date);
   return {
     id: item.id,
     accession_number: item.accession_number ?? "",
@@ -110,8 +116,13 @@ function normalizeArtwork(item) {
     creation_date_earliest: item.creation_date_earliest ?? "",
     creation_date_latest: item.creation_date_latest ?? "",
     accession_year: accessionYearValue ?? "",
+    accession_date: item.accession_date ?? "",
+    explicit_accession_year: explicitAccessionYear ?? "",
+    accession_year_matches_explicit: explicitAccessionYear && accessionYearValue ? explicitAccessionYear === accessionYearValue : "",
     culture: Array.isArray(item.culture) ? item.culture : [],
     technique: item.technique ?? "",
+    creditline: item.creditline ?? "",
+    provenance_entries: Array.isArray(item.provenance) ? item.provenance.length : 0,
     share_license_status: item.share_license_status ?? "unknown",
     has_image: Boolean(item.images?.web?.url || item.images?.print?.url),
     url: item.url ?? `https://www.clevelandart.org/art/${item.accession_number ?? ""}`,

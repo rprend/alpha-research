@@ -2,8 +2,8 @@
   "runDate": "2026-06-12",
   "limit": 5000,
   "pageSize": 1000,
-  "startedAt": "2026-06-12T18:42:52.980Z",
-  "finishedAt": "2026-06-12T18:42:55.308Z",
+  "startedAt": "2026-06-12T18:45:30.867Z",
+  "finishedAt": "2026-06-12T18:45:33.126Z",
   "steps": [
     {
       "script": "fetch-artworks.mjs",
@@ -12,8 +12,8 @@
         "--limit=5000",
         "--page-size=1000"
       ],
-      "startedAt": "2026-06-12T18:42:52.980Z",
-      "finishedAt": "2026-06-12T18:42:55.065Z",
+      "startedAt": "2026-06-12T18:45:30.867Z",
+      "finishedAt": "2026-06-12T18:45:32.788Z",
       "exitCode": 0,
       "stdout": "Fetched 5000 Cleveland Museum artwork records into docs/experiments/cleveland-museum-collection-shape/data/raw/api/2026-06-12\n",
       "stderr": ""
@@ -21,17 +21,26 @@
     {
       "script": "build-report.mjs",
       "args": [],
-      "startedAt": "2026-06-12T18:42:55.065Z",
-      "finishedAt": "2026-06-12T18:42:55.245Z",
+      "startedAt": "2026-06-12T18:45:32.788Z",
+      "finishedAt": "2026-06-12T18:45:33.008Z",
       "exitCode": 0,
       "stdout": "Built Cleveland collection report for 5000 artwork records\n",
       "stderr": ""
     },
     {
+      "script": "build-audit-packet.mjs",
+      "args": [],
+      "startedAt": "2026-06-12T18:45:33.008Z",
+      "finishedAt": "2026-06-12T18:45:33.056Z",
+      "exitCode": 0,
+      "stdout": "Built Cleveland audit packet with 54 review rows\n",
+      "stderr": ""
+    },
+    {
       "script": "build-charts.mjs",
       "args": [],
-      "startedAt": "2026-06-12T18:42:55.245Z",
-      "finishedAt": "2026-06-12T18:42:55.278Z",
+      "startedAt": "2026-06-12T18:45:33.056Z",
+      "finishedAt": "2026-06-12T18:45:33.092Z",
       "exitCode": 0,
       "stdout": "Built 4 Cleveland collection chart artifacts\n",
       "stderr": ""
@@ -39,8 +48,8 @@
     {
       "script": "check-readiness.mjs",
       "args": [],
-      "startedAt": "2026-06-12T18:42:55.278Z",
-      "finishedAt": "2026-06-12T18:42:55.308Z",
+      "startedAt": "2026-06-12T18:45:33.092Z",
+      "finishedAt": "2026-06-12T18:45:33.126Z",
       "exitCode": 0,
       "stdout": "Cleveland collection readiness: ready-for-editorial-review\n",
       "stderr": ""

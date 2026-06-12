@@ -1,6 +1,6 @@
 # Cleveland Collection Shape Readiness Check
 
-Generated at: 2026-06-12T18:42:55.305Z
+Generated at: 2026-06-12T18:45:58.797Z
 Status: ready-for-editorial-review
 
 | Check | Status | Evidence |
@@ -11,10 +11,11 @@ Status: ready-for-editorial-review
 | License and image-availability summaries exist | pass | 2 license rows; 2 image rows |
 | Public draft exists and limits claims to one sampled institution | pass | reports/public-draft.md |
 | At least four chart artifacts exist | pass | 4 charts |
+| Audit packet exists for acquisition-date proxy and image/license checks | pass | 54 review rows; 229 accession-year mismatches |
 
 ## Next Moves
 
 - Fetch the full collection or a larger paginated corpus.
-- Audit acquisition-year extraction against explicit provenance/acquisition fields where available.
+- Review audit-packet rows before publishing acquisition-decade claims.
 - Use the generated chart artifacts in the public draft.
 - Compare with a second open museum API before making cross-institution claims.
