@@ -10,6 +10,7 @@ This is an export-friendly self-study portfolio brief generated from public RISD
 - Stage: foundation
 - Weeks: 1-8
 - Estimated workload: 137 hours
+- Reference packet: reference_packet_portfolio_milestone_01_foundation_methods
 - Source IDs: src_john_caserta_design_studio_1_2016, src_ds1618_design_studio_archive, src_ds1618_make_book, src_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d, src_archive_ds1618_risd_gd_20170907172955_07012fee, src_archive_johncaserta_com_ds1_2016_html_20180519075904_df7ec518, src_archive_ds1618_risd_gd_book_html_20180922030215_4678ea9c, src_crawl_johncaserta_com_docicons_html_d8852632, src_crawl_ds1618_risd_gd_2016_09_13_unit1_overview_html_2db39d4d, src_crawl_ds1618_risd_gd_2016_09_26_unit2_overview_html_1de519e9, src_crawl_ds1618_risd_gd_2016_10_11_unit3_overview_html_9ed746cf, src_crawl_ds1618_risd_gd_2016_10_25_unit4_overview_html_cfb221b8, src_crawl_ds1618_risd_gd_2016_11_08_unit4_crit_html_d957a68a, src_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224, src_archive_johncaserta_com_docicons_html_20180515235950_74e7c3ed, src_john_caserta_student_work, src_web_type_2022_syllabus, src_crawl_webtype_htmlkitchen_net_schedule_59d96530, src_crawl_webtype_htmlkitchen_net_projects_f21c0c50, src_crawl_webtype_htmlkitchen_net_exercises_8dc7f726, src_crawl_webtype_htmlkitchen_net_projects_project1_a757b534, src_crawl_webtype_htmlkitchen_net_exercises_0_getting_started_459158d5, src_crawl_webtype_htmlkitchen_net_exercises_01_layouts_positioning_697aa92a, src_crawl_webtype_htmlkitchen_net_exercises_02_responsive_f5b20f70
 
 ## Review Focus
@@ -115,6 +116,10 @@ Evidence-backed fundamentals: visible constraints, form decisions, critique resp
 - What changed after critique, and where is the evidence of that change?
 - Which source-grounded readings/resources changed a design decision?
 - Which missing evidence limits the confidence of this portfolio package?
+
+## Reference Packet
+
+Use `reference_packet_portfolio_milestone_01_foundation_methods` from `self_study_portfolio_reference_packets.jsonl` for public student-work and faculty-portfolio examples. Each item is relationship-labeled; do not treat context-only examples as assignment facts.
 
 ## Export Checklist
 

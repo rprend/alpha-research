@@ -10,6 +10,7 @@ This is an export-friendly self-study portfolio brief generated from public RISD
 - Stage: intermediate practice
 - Weeks: 9-28
 - Estimated workload: 124 hours
+- Reference packet: reference_packet_portfolio_milestone_02_typography_systems
 - Source IDs: src_sp19_typography_for_nonmajors, src_sp19_design_for_publishing, src_sp19_mapping_information, src_sp19_type_design
 
 ## Review Focus
@@ -110,6 +111,10 @@ Intermediate systems: typographic control, publication or type artifacts, and do
 - What changed after critique, and where is the evidence of that change?
 - Which source-grounded readings/resources changed a design decision?
 - Which missing evidence limits the confidence of this portfolio package?
+
+## Reference Packet
+
+Use `reference_packet_portfolio_milestone_02_typography_systems` from `self_study_portfolio_reference_packets.jsonl` for public student-work and faculty-portfolio examples. Each item is relationship-labeled; do not treat context-only examples as assignment facts.
 
 ## Export Checklist
 

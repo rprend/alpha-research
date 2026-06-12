@@ -130,6 +130,7 @@ Overall status: pass
 - Self-study pacing profiles: 3
 - Self-study portfolio milestones: 3
 - Self-study portfolio briefs: 3
+- Self-study portfolio reference packets: 3
 
 ## Checks
 
@@ -187,6 +188,7 @@ Overall status: pass
 - PASS self_study_pacing_profiles_have_valid_groupings: 3 pacing profiles; 0 profile reference errors; generated mismatch=false.
 - PASS self_study_portfolio_milestones_have_valid_review_packages: 3 portfolio milestones; 0 milestone reference errors; generated mismatch=false.
 - PASS self_study_portfolio_briefs_render_independent_pages: 3 portfolio briefs for 3 milestones; 0 brief reference/render errors; generated mismatch=false.
+- PASS self_study_portfolio_reference_packets_label_relationships: 3 portfolio reference packets for 3 milestones; 0 packet reference errors; generated mismatch=false.
 - PASS official_course_inventory_reconciled: 105 official offerings parsed; RISD page displays 105 results.
 - PASS wayback_captures_recorded: 106 Wayback capture records.
 - PASS course_records_created: 134 course records created.

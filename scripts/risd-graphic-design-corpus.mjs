@@ -4047,7 +4047,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveArchivePromotions = archivePromotions ?? loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
@@ -4059,6 +4059,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const effectiveSelfStudyPacingProfiles = selfStudyPacingProfiles ?? []
   const effectiveSelfStudyPortfolioMilestones = selfStudyPortfolioMilestones ?? []
   const effectiveSelfStudyPortfolioBriefs = selfStudyPortfolioBriefs ?? []
+  const effectiveSelfStudyPortfolioReferencePackets = selfStudyPortfolioReferencePackets ?? []
   const effectiveScheduleRows = scheduleRows ?? loadJsonl(join(outDir, 'schedule_rows.jsonl'))
   const effectiveArchiveFetchTargets = archiveFetchTargets ?? loadJsonl(join(outDir, 'archive_fetch_targets.jsonl'))
   const sourceIds = new Set(sources.map((source) => source.source_id))
@@ -4294,6 +4295,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const portfolioMilestones = effectiveSelfStudyPortfolioMilestones.length ? effectiveSelfStudyPortfolioMilestones : generatedPortfolioMilestones
   const generatedPortfolioBriefs = buildSelfStudyPortfolioBriefs(curriculumModules, pacingPlan, portfolioMilestones)
   const portfolioBriefs = effectiveSelfStudyPortfolioBriefs.length ? effectiveSelfStudyPortfolioBriefs : generatedPortfolioBriefs
+  const generatedPortfolioReferencePackets = buildSelfStudyPortfolioReferencePackets(curriculumModules, portfolioMilestones, facultyPortfolioExamples)
+  const portfolioReferencePackets = effectiveSelfStudyPortfolioReferencePackets.length ? effectiveSelfStudyPortfolioReferencePackets : generatedPortfolioReferencePackets
   const curriculumModulesWithSourceIds = curriculumModules.filter((module) => module.source_ids?.length).length
   const curriculumModulesWithAssignments = curriculumModules.filter((module) => module.assignment_ids?.length).length
   const curriculumModulesWithReadings = curriculumModules.filter((module) => module.reading_ids?.length).length
@@ -4423,6 +4426,23 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || !brief.markdown?.includes('## Evidence Boundary')
   )
   const portfolioBriefsGeneratedMismatch = effectiveSelfStudyPortfolioBriefs.length > 0 && effectiveSelfStudyPortfolioBriefs.length !== generatedPortfolioBriefs.length
+  const facultyPortfolioExampleIds = new Set(facultyPortfolioExamples.map((example) => example.example_id))
+  const portfolioReferencePacketErrors = portfolioReferencePackets.filter((packet) =>
+    !packet.packet_id
+      || !packet.milestone_id
+      || !portfolioMilestoneIds.has(packet.milestone_id)
+      || !packet.reference_groups?.length
+      || !packet.reference_groups.every((group) => group.relationship_label && group.boundary_note && Array.isArray(group.items))
+      || packet.reference_groups.flatMap((group) => group.items ?? []).some((item) =>
+        !item.reference_id
+          || !item.relationship_label
+          || !item.url
+          || item.source_ids?.some((id) => !sourceIds.has(id))
+          || item.student_work_id && !studentWorkIds.has(item.student_work_id)
+          || item.faculty_portfolio_example_id && !facultyPortfolioExampleIds.has(item.faculty_portfolio_example_id)
+      )
+  )
+  const portfolioReferencePacketsGeneratedMismatch = effectiveSelfStudyPortfolioReferencePackets.length > 0 && effectiveSelfStudyPortfolioReferencePackets.length !== generatedPortfolioReferencePackets.length
   const courseInventoryReconciled = courseInventory.displayed_count > 0 && courseInventory.offerings.length === courseInventory.displayed_count
   const checks = [
     {
@@ -4696,6 +4716,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${portfolioBriefs.length} portfolio briefs for ${portfolioMilestones.length} milestones; ${portfolioBriefErrors.length} brief reference/render errors; generated mismatch=${portfolioBriefsGeneratedMismatch}.`,
     },
     {
+      id: 'self_study_portfolio_reference_packets_label_relationships',
+      status: portfolioReferencePacketErrors.length === 0 && portfolioReferencePackets.length === portfolioMilestones.length && portfolioReferencePackets.length > 0 && !portfolioReferencePacketsGeneratedMismatch ? 'pass' : 'fail',
+      detail: `${portfolioReferencePackets.length} portfolio reference packets for ${portfolioMilestones.length} milestones; ${portfolioReferencePacketErrors.length} packet reference errors; generated mismatch=${portfolioReferencePacketsGeneratedMismatch}.`,
+    },
+    {
       id: 'official_course_inventory_reconciled',
       status: courseInventoryReconciled ? 'pass' : 'warn',
       detail: `${courseInventory.offerings.length} official offerings parsed; RISD page displays ${courseInventory.displayed_count || 'unknown'} results.`,
@@ -4841,6 +4866,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_pacing_profiles: pacingProfiles.length,
       self_study_portfolio_milestones: portfolioMilestones.length,
       self_study_portfolio_briefs: portfolioBriefs.length,
+      self_study_portfolio_reference_packets: portfolioReferencePackets.length,
     },
     checks,
   }
@@ -5454,6 +5480,7 @@ Overall status: ${validation.status}
 - Self-study pacing profiles: ${validation.counts.self_study_pacing_profiles}
 - Self-study portfolio milestones: ${validation.counts.self_study_portfolio_milestones}
 - Self-study portfolio briefs: ${validation.counts.self_study_portfolio_briefs}
+- Self-study portfolio reference packets: ${validation.counts.self_study_portfolio_reference_packets}
 
 ## Checks
 
@@ -6229,6 +6256,7 @@ function buildSelfStudyModules({ courses, syllabi, assignments, readings, schedu
         brief_page_id: link.brief_page_id ?? null,
         comparison_use: link.comparison_use ?? [],
         evidence_grade: link.evidence_grade,
+        source_ids: studentWorkById.get(link.student_work_id)?.source_ids ?? link.source_ids ?? [],
         relationship_note: link.assignment_title ? `assignment: ${link.assignment_title}` : link.brief_page_id ? `brief page: ${link.brief_page_id}` : 'course context',
       }))
       : courseStudentWork
@@ -6242,6 +6270,7 @@ function buildSelfStudyModules({ courses, syllabi, assignments, readings, schedu
           brief_page_id: null,
           comparison_use: ['visual_calibration'],
           evidence_grade: work.evidence_grade,
+          source_ids: work.source_ids ?? [],
           relationship_note: 'course-context evidence only',
         }))
     const sourceIds = uniq([
@@ -6563,6 +6592,7 @@ function buildSelfStudyPortfolioBriefs(selfStudyModules, pacingPlan, portfolioMi
       milestone_id: milestone.milestone_id,
       title: milestone.title,
       output_path: `self_study_portfolio_briefs/${fileName}`,
+      reference_packet_id: `reference_packet_${milestone.milestone_id}`,
       week_range: milestone.week_range ?? [],
       module_ids: milestone.module_ids ?? [],
       pacing_ids: milestone.pacing_ids ?? [],
@@ -6576,6 +6606,93 @@ function buildSelfStudyPortfolioBriefs(selfStudyModules, pacingPlan, portfolioMi
       markdown,
       provenance_note: 'Export-friendly markdown page generated from public corpus milestones; not an official RISD portfolio review sheet.',
     }
+  })
+}
+
+function buildSelfStudyPortfolioReferencePackets(selfStudyModules, portfolioMilestones, facultyPortfolioExamples = []) {
+  const modulesById = new Map(selfStudyModules.map((module) => [module.module_id, module]))
+  return portfolioMilestones.map((milestone) => {
+    const modules = milestone.module_ids.map((id) => modulesById.get(id)).filter(Boolean)
+    const studentReferences = modules
+      .flatMap((module) => (module.comparison_set ?? []).map((comparison) => ({
+        reference_id: `student_${comparison.student_work_id}_${module.module_id}`,
+        relationship_label: comparison.relationship_type,
+        boundary_note: comparison.relationship_type === 'assignment_link'
+          ? 'Public student work is linked to an assignment by recovered evidence.'
+          : comparison.relationship_type === 'brief_page_link'
+            ? 'Public student work is linked to a recovered brief page, not necessarily a complete assignment.'
+            : 'Public student work has course context only; use for visual calibration, not as assignment fact.',
+        module_id: module.module_id,
+        course_title: module.course_title ?? null,
+        student_work_id: comparison.student_work_id,
+        faculty_portfolio_example_id: null,
+        title: comparison.relationship_note ?? comparison.student_work_id,
+        url: comparison.student_work_url,
+        comparison_use: comparison.comparison_use ?? ['visual_calibration'],
+        evidence_grade: comparison.evidence_grade ?? null,
+        source_ids: comparison.source_ids ?? [],
+      })))
+      .filter((item) => item.url)
+    const instructorNames = new Set(modules.flatMap((module) => module.instructor_evidence ?? []).map((name) => String(name).toLowerCase()))
+    const stageTerms = milestone.milestone_stage === 'advanced_synthesis'
+      ? /identity|system|publication|book|motion|interactive|website|politic|public/i
+      : milestone.milestone_stage === 'intermediate_practice'
+        ? /type|typography|book|publication|website|interactive|motion/i
+        : /form|book|website|interface|animation|visual/i
+    const facultyReferences = facultyPortfolioExamples
+      .filter((example) =>
+        instructorNames.has(String(example.faculty_name ?? '').toLowerCase())
+          || stageTerms.test([example.title, example.medium, example.project_statement_excerpt].filter(Boolean).join(' '))
+      )
+      .slice(0, 8)
+      .map((example) => ({
+        reference_id: `faculty_${example.example_id}`,
+        relationship_label: 'faculty_public_portfolio_example_context_only',
+        boundary_note: 'Faculty portfolio example is public visual/professional calibration only; it is not student work and not course evidence unless another source says so.',
+        module_id: null,
+        course_title: null,
+        student_work_id: null,
+        faculty_portfolio_example_id: example.example_id,
+        title: example.title ?? example.faculty_name,
+        url: example.url,
+        comparison_use: ['visual_calibration', 'professional_reference'],
+        evidence_grade: example.evidence_grade ?? null,
+        source_ids: example.source_ids ?? [],
+      }))
+    const referenceGroups = [
+      {
+        group_id: 'public_student_work',
+        relationship_label: 'student_work_public_comparison',
+        boundary_note: 'Use only according to each item relationship label; rejected weak matches are excluded.',
+        items: dedupeReferences(studentReferences).slice(0, 10),
+      },
+      {
+        group_id: 'faculty_portfolio_examples',
+        relationship_label: 'faculty_portfolio_public_context',
+        boundary_note: 'Faculty examples calibrate quality, medium, and public-facing presentation; they do not fill missing syllabi or assignments.',
+        items: dedupeReferences(facultyReferences).slice(0, 8),
+      },
+    ]
+    return {
+      packet_id: `reference_packet_${milestone.milestone_id}`,
+      generated_at: retrievedAt,
+      milestone_id: milestone.milestone_id,
+      title: `${milestone.title} Reference Packet`,
+      relationship_policy: 'Public references are labeled by relationship strength and must not be promoted into course facts without corroborating source evidence.',
+      reference_groups: referenceGroups,
+      source_ids: uniq(referenceGroups.flatMap((group) => group.items.flatMap((item) => item.source_ids ?? []))),
+      provenance_note: 'Generated from self-study module comparison sets and public faculty portfolio examples.',
+    }
+  })
+}
+
+function dedupeReferences(items) {
+  const seen = new Set()
+  return items.filter((item) => {
+    const key = `${item.relationship_label}_${item.url}`
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
   })
 }
 
@@ -6593,6 +6710,7 @@ function portfolioBriefMarkdown({ milestone, modules, pacingRows, reviewPackage,
   lines.push(`- Stage: ${milestone.milestone_stage.replace(/_/g, ' ')}`)
   lines.push(`- Weeks: ${milestone.week_range?.length ? milestone.week_range.join('-') : 'unknown'}`)
   lines.push(`- Estimated workload: ${milestone.estimated_hours} hours`)
+  lines.push(`- Reference packet: reference_packet_${milestone.milestone_id}`)
   lines.push(`- Source IDs: ${sourceIds.join(', ')}`)
   lines.push('')
   lines.push('## Review Focus')
@@ -6630,6 +6748,10 @@ function portfolioBriefMarkdown({ milestone, modules, pacingRows, reviewPackage,
   lines.push('## Critique Prompts')
   lines.push('')
   ;(milestone.review_prompts ?? []).forEach((prompt) => lines.push(`- ${prompt}`))
+  lines.push('')
+  lines.push('## Reference Packet')
+  lines.push('')
+  lines.push(`Use \`reference_packet_${milestone.milestone_id}\` from \`self_study_portfolio_reference_packets.jsonl\` for public student-work and faculty-portfolio examples. Each item is relationship-labeled; do not treat context-only examples as assignment facts.`)
   lines.push('')
   lines.push('## Export Checklist')
   lines.push('')
@@ -7026,21 +7148,23 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
   return lines.map((line) => line.trimEnd()).join('\n')
 }
 
-function writeSelfStudyArtifacts({ courses, syllabi, assignments, readings, scheduleRows = [], studentWork, studentWorkAssignmentLinks = [] }) {
+function writeSelfStudyArtifacts({ courses, syllabi, assignments, readings, scheduleRows = [], studentWork, studentWorkAssignmentLinks = [], facultyPortfolioExamples = [] }) {
   const selfStudyModules = buildSelfStudyModules({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks })
-  writeSelfStudyModuleArtifacts(selfStudyModules)
+  writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExamples)
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
   return selfStudyModules
 }
 
-function writeSelfStudyModuleArtifacts(selfStudyModules) {
+function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExamples = []) {
   writeJsonl(join(outDir, 'self_study_modules.jsonl'), selfStudyModules)
   const pacingPlan = buildSelfStudyPacingPlan(selfStudyModules)
   const portfolioMilestones = buildSelfStudyPortfolioMilestones(selfStudyModules, pacingPlan)
   const portfolioBriefs = buildSelfStudyPortfolioBriefs(selfStudyModules, pacingPlan, portfolioMilestones)
+  const portfolioReferencePackets = buildSelfStudyPortfolioReferencePackets(selfStudyModules, portfolioMilestones, facultyPortfolioExamples)
   writeJsonl(join(outDir, 'self_study_pacing_plan.jsonl'), pacingPlan)
   writeJsonl(join(outDir, 'self_study_pacing_profiles.jsonl'), buildSelfStudyPacingProfiles(pacingPlan))
   writeJsonl(join(outDir, 'self_study_portfolio_milestones.jsonl'), portfolioMilestones)
+  writeJsonl(join(outDir, 'self_study_portfolio_reference_packets.jsonl'), portfolioReferencePackets)
   writeSelfStudyPortfolioBriefFiles(portfolioBriefs)
 }
 
@@ -7073,7 +7197,8 @@ function renderSelfStudyCurriculumOnly() {
   const scheduleRows = loadJsonl(join(outDir, 'schedule_rows.jsonl'))
   const studentWork = loadJsonl(join(outDir, 'student_work.jsonl'))
   const studentWorkAssignmentLinks = loadJsonl(join(outDir, 'student_work_assignment_links.jsonl'))
-  const selfStudyModules = writeSelfStudyArtifacts({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks })
+  const facultyPortfolioExamples = loadJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'))
+  const selfStudyModules = writeSelfStudyArtifacts({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks, facultyPortfolioExamples })
   console.log(`RISD self-study curriculum written to ${join(outDir, 'self_study_curriculum.md')}`)
   console.log(`courses=${courses.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} student_work=${studentWork.length} self_study_modules=${selfStudyModules.length}`)
 }
@@ -7144,7 +7269,7 @@ function renderDerivedArtifactsOnly() {
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
-  writeSelfStudyModuleArtifacts(selfStudyModules)
+  writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExamples)
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
   console.log(`RISD derived artifacts written to ${outDir}`)
   console.log(`assignments=${assignments.length} phase_structured_assignments=${validationWithReview.counts.phase_structured_assignments} validation=${validationWithReview.status}`)
@@ -7196,7 +7321,7 @@ async function renderReadingLinksOnly() {
   writeJson(join(outDir, 'validation.json'), validationWithReview)
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
-  const selfStudyModules = writeSelfStudyArtifacts({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks })
+  const selfStudyModules = writeSelfStudyArtifacts({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks, facultyPortfolioExamples })
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
   console.log(`RISD reading links written to ${outDir}`)
   console.log(`attempted=${attempted} matched=${matched} external_catalog_readings=${validationWithReview.counts.external_catalog_readings} unresolved=${validationWithReview.counts.unresolved_readings} validation=${validationWithReview.status}`)
@@ -7275,7 +7400,7 @@ async function reparseExistingSourcesOnlyMode() {
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
-  writeSelfStudyModuleArtifacts(selfStudyModules)
+  writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExamples)
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
   console.log(`RISD existing sources reparsed into ${outDir}`)
   console.log(`sources=${sources.length} syllabi=${syllabi.length} assignments=${assignments.length} long_assignment_briefs=${validationWithReview.counts.long_assignment_briefs} external_catalog_readings=${validationWithReview.counts.external_catalog_readings} validation=${validationWithReview.status}`)
@@ -7570,7 +7695,7 @@ async function promoteSearchCandidatesOnlyMode() {
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
-  writeSelfStudyModuleArtifacts(selfStudyModules)
+  writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExamples)
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
   console.log(`RISD search promotions written to ${join(outDir, 'search_promotions.jsonl')}`)
   console.log(`new_promotions=${newPromotions.length} successful_promotions=${newPromotions.filter((row) => row.extraction_status === 'ok').length} total_search_promotions=${allSearchPromotions.length} validation=${validationWithReview.status}`)
@@ -7732,7 +7857,7 @@ async function ingestCommonCrawlPromotionsOnly() {
   writeJson(join(outDir, 'validation.json'), validationWithReview)
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters }))
-  const selfStudyModules = writeSelfStudyArtifacts({ courses, syllabi, assignments, readings, studentWork })
+  const selfStudyModules = writeSelfStudyArtifacts({ courses, syllabi, assignments, readings, studentWork, facultyPortfolioExamples })
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
   console.log(`RISD Common Crawl promotions ingested into ${outDir}`)
   console.log(`new_sources=${newSources.length} sources=${sources.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} validation=${validationWithReview.status}`)
@@ -7863,7 +7988,7 @@ async function promoteArchiveTargetsOnlyMode() {
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
-  writeSelfStudyModuleArtifacts(selfStudyModules)
+  writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExamples)
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
   console.log(`RISD archive promotions written to ${join(outDir, 'archive_promotions.jsonl')}`)
   console.log(`new_archive_promotions=${newPromotions.length} successful_archive_promotions=${newPromotions.filter((row) => row.extraction_status === 'ok').length} sources=${sources.length} validation=${validationWithReview.status}`)
@@ -7963,7 +8088,7 @@ async function ingestFacultyProfilesOnlyMode() {
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
-  const selfStudyModules = writeSelfStudyArtifacts({ courses, syllabi, assignments, readings, studentWork })
+  const selfStudyModules = writeSelfStudyArtifacts({ courses, syllabi, assignments, readings, studentWork, facultyPortfolioExamples })
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
   console.log(`RISD faculty profile candidates ingested into ${outDir}`)
   console.log(`new_sources=${newSources.length} candidates=${facultyProfileCandidates.length} ingested_candidates=${facultyProfileCandidates.filter((row) => row.status === 'ingested_into_corpus').length} faculty_profile_rows=${faculty.filter((row) => row.profile_urls?.length).length} validation=${validationWithReview.status}`)
@@ -8143,7 +8268,7 @@ async function main() {
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithSelfStudy }))
   writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
-  writeSelfStudyModuleArtifacts(selfStudyModules)
+  writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExamples)
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
 
   console.log(`RISD corpus artifacts written to ${outDir}`)

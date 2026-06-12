@@ -125,7 +125,8 @@
     "self_study_pacing_rows_with_workload_estimates": 28,
     "self_study_pacing_profiles": 3,
     "self_study_portfolio_milestones": 3,
-    "self_study_portfolio_briefs": 3
+    "self_study_portfolio_briefs": 3,
+    "self_study_portfolio_reference_packets": 3
   },
   "checks": [
     {
@@ -397,6 +398,11 @@
       "id": "self_study_portfolio_briefs_render_independent_pages",
       "status": "pass",
       "detail": "3 portfolio briefs for 3 milestones; 0 brief reference/render errors; generated mismatch=false."
+    },
+    {
+      "id": "self_study_portfolio_reference_packets_label_relationships",
+      "status": "pass",
+      "detail": "3 portfolio reference packets for 3 milestones; 0 packet reference errors; generated mismatch=false."
     },
     {
       "id": "official_course_inventory_reconciled",
