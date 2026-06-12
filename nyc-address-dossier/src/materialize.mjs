@@ -224,6 +224,18 @@ async function run() {
     console.log('mapped oldnyc -> events (nearest-lot, confidence 0.6)');
   }
 
+  // 1940 tax photos (Phase 1 pilot): BBL-keyed natively -> confidence 1.0.
+  const taxMeta = path.join(config.rawDir, 'taxphotos_1940', 'photos.jsonl');
+  if (fs.existsSync(taxMeta)) {
+    await sql(`INSERT INTO events (bbl, address_raw, date_start, kind, payload, source_id, locator, extraction_method, confidence)
+      SELECT bbl, address, DATE '1940-01-01', 'photo',
+             to_json({type: 'tax_photo_1940', title: 'Municipal tax photograph (1939-41)',
+                      photo_url: photo_url, page_url: page_url, credit: credit}),
+             'taxphoto_1940', identifier, 'structured', 1.0
+      FROM read_json('${taxMeta.replace(/'/g, "''")}', format='newline_delimited', union_by_name=true)`);
+    console.log('mapped taxphotos_1940 -> events');
+  }
+
   // Wayback snapshots (Phase 6): curated domain->address mappings, one event per year.
   const waybackDir = path.join(config.rawDir, 'wayback');
   if (fs.existsSync(waybackDir) && fs.readdirSync(waybackDir).some((f) => f.endsWith('.jsonl'))) {

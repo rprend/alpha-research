@@ -55,4 +55,7 @@ data/                raw parts, queue DB, duckdb, logs (gitignored)
   click-a-lot via nearest-centroid; photos render inline.
 
 House rule: **no paid API runs without explicit per-run approval** — everything here runs
-on free endpoints and local compute only.
+on free endpoints and local compute only (the LLM layer is a local Ollama model).
+
+Known gap: `serve.mjs` can die if the materializer swaps `dossier.duckdb` mid-read (native
+handle to a renamed file); just restart it. Fix candidate: serve from a copied snapshot.

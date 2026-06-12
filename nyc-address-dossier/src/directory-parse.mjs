@@ -19,7 +19,7 @@ const FILE = args.file, YEAR = args.year ?? '?', BORO = args.boro ?? '3', SLUG =
 
 // Directory abbreviations -> PAD-style street names. OCR noise is left as-is;
 // geocode rate measures the damage honestly.
-const SUFFIX = { av: 'AVENUE', ave: 'AVENUE', st: 'STREET', pl: 'PLACE', rd: 'ROAD', la: 'LANE', ct: 'COURT', ter: 'TERRACE', pkwy: 'PARKWAY', blvd: 'BOULEVARD', sq: 'SQUARE' };
+const SUFFIX = { av: 'AVENUE', ave: 'AVENUE', st: 'STREET', pl: 'PLACE', pi: 'PLACE', rd: 'ROAD', la: 'LANE', ct: 'COURT', ter: 'TERRACE', pkwy: 'PARKWAY', blvd: 'BOULEVARD', sq: 'SQUARE' };
 const MARKERS = new Set(['h', 'b', 'r']); // home / boards / rooms
 
 // A surname header: short line, no leading dash, mostly uppercase letters.
@@ -98,7 +98,9 @@ async function main() {
            COUNT(*) FILTER (WHERE bbl IS NOT NULL) AS geocoded
     FROM (
       SELECT e.*, (SELECT p.bbl FROM pad_addresses p
-        WHERE p.boro = e.boro AND upper(trim(p.stname)) = e.street_norm
+        WHERE p.boro = e.boro
+          -- directories omit the suffix for well-known streets: try bare + common suffixes
+          AND upper(p.stname) IN (e.street_norm, e.street_norm || ' STREET', e.street_norm || ' AVENUE', e.street_norm || ' PLACE')
           AND TRY_CAST(e.house AS BIGINT) BETWEEN TRY_CAST(p.lhnd AS BIGINT) AND TRY_CAST(p.hhnd AS BIGINT)
         LIMIT 1) AS bbl
       FROM entries e)`)).getRows();
