@@ -232,6 +232,7 @@ Overall status: pass
 - PASS self_study_portfolio_collaborator_handoff_packets_share_review_tasks: 3 collaborator handoff packets; 3 ready to share; 0 packet reference/action errors; generated mismatch=false.
 - PASS self_study_portfolio_collaborator_response_intake_templates_map_replies: 3 collaborator response intake templates; 3 ready for responses; 0 intake reference/target errors; generated mismatch=false.
 - PASS self_study_portfolio_collaborator_response_reconciliation_tracks_followthrough: 3 collaborator response reconciliation rows; 0 with live feedback imports; 3 awaiting responses; 0 reconciliation reference/status errors; generated mismatch=false.
+- PASS self_study_portfolio_collaborator_response_action_queue_turns_checks_into_tasks: 9 collaborator response action rows; 9 pending; 3 high priority; 0 action reference/task errors; generated mismatch=false.
 - PASS self_study_progress_ledger_links_to_portfolio_completion_gates: 28 progress ledger rows carry portfolio review gate annotations; 0 annotation reference errors.
 - PASS self_study_portfolio_briefs_embed_completion_gate_status: 3 portfolio briefs embed completion gate status; 0 readiness reference/render errors.
 - PASS self_study_portfolio_milestones_have_valid_review_packages: 3 portfolio milestones; 0 milestone reference errors; generated mismatch=false.

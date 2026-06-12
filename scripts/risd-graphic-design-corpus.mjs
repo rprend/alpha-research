@@ -4049,7 +4049,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioGateStatusSummary = null, selfStudyPortfolioReviewIndex = null, selfStudyPortfolioReviewerHandoff = null, selfStudyPortfolioReviewerFeedbackTemplate = null, selfStudyPortfolioReviewerFeedbackImports = null, selfStudyPortfolioReviewerFeedbackSmokeFixture = null, selfStudyPortfolioReviewWorkflow = null, selfStudyPortfolioReviewAgendas = null, selfStudyPortfolioReviewDashboard = null, selfStudyPortfolioDecisionPackets = null, selfStudyPortfolioCompletionChecklists = null, selfStudyPortfolioArchiveManifests = null, selfStudyPortfolioArchiveAudit = null, selfStudyPortfolioOperationsSummary = null, selfStudyPortfolioCollaboratorHandoffPackets = null, selfStudyPortfolioCollaboratorResponseIntakeTemplate = null, selfStudyPortfolioCollaboratorResponseReconciliation = null, selfStudyPortfolioRevisionQueue = null, selfStudyPortfolioGateStatusSuggestions = null, selfStudyPortfolioEvidenceAttachments = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioGateStatusSummary = null, selfStudyPortfolioReviewIndex = null, selfStudyPortfolioReviewerHandoff = null, selfStudyPortfolioReviewerFeedbackTemplate = null, selfStudyPortfolioReviewerFeedbackImports = null, selfStudyPortfolioReviewerFeedbackSmokeFixture = null, selfStudyPortfolioReviewWorkflow = null, selfStudyPortfolioReviewAgendas = null, selfStudyPortfolioReviewDashboard = null, selfStudyPortfolioDecisionPackets = null, selfStudyPortfolioCompletionChecklists = null, selfStudyPortfolioArchiveManifests = null, selfStudyPortfolioArchiveAudit = null, selfStudyPortfolioOperationsSummary = null, selfStudyPortfolioCollaboratorHandoffPackets = null, selfStudyPortfolioCollaboratorResponseIntakeTemplate = null, selfStudyPortfolioCollaboratorResponseReconciliation = null, selfStudyPortfolioCollaboratorResponseActionQueue = null, selfStudyPortfolioRevisionQueue = null, selfStudyPortfolioGateStatusSuggestions = null, selfStudyPortfolioEvidenceAttachments = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveArchivePromotions = archivePromotions ?? loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
@@ -4081,6 +4081,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const effectiveSelfStudyPortfolioCollaboratorHandoffPackets = selfStudyPortfolioCollaboratorHandoffPackets ?? []
   const effectiveSelfStudyPortfolioCollaboratorResponseIntakeTemplate = selfStudyPortfolioCollaboratorResponseIntakeTemplate ?? []
   const effectiveSelfStudyPortfolioCollaboratorResponseReconciliation = selfStudyPortfolioCollaboratorResponseReconciliation ?? []
+  const effectiveSelfStudyPortfolioCollaboratorResponseActionQueue = selfStudyPortfolioCollaboratorResponseActionQueue ?? []
   const effectiveSelfStudyPortfolioRevisionQueue = selfStudyPortfolioRevisionQueue ?? []
   const effectiveSelfStudyPortfolioGateStatusSuggestions = selfStudyPortfolioGateStatusSuggestions ?? []
   const effectiveSelfStudyPortfolioEvidenceAttachments = selfStudyPortfolioEvidenceAttachments ?? []
@@ -4391,6 +4392,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
     completionChecklists: portfolioCompletionChecklists,
   })
   const portfolioCollaboratorResponseReconciliation = effectiveSelfStudyPortfolioCollaboratorResponseReconciliation.length ? effectiveSelfStudyPortfolioCollaboratorResponseReconciliation : generatedPortfolioCollaboratorResponseReconciliation
+  const generatedPortfolioCollaboratorResponseActionQueue = buildSelfStudyPortfolioCollaboratorResponseActionQueue(portfolioCollaboratorResponseReconciliation)
+  const portfolioCollaboratorResponseActionQueue = effectiveSelfStudyPortfolioCollaboratorResponseActionQueue.length ? effectiveSelfStudyPortfolioCollaboratorResponseActionQueue : generatedPortfolioCollaboratorResponseActionQueue
   const progressLedgerWithPortfolioGateAnnotations = annotateSelfStudyProgressLedgerWithPortfolioGates(progressLedger, portfolioMilestones, portfolioCompletionGates)
   const curriculumModulesWithSourceIds = curriculumModules.filter((module) => module.source_ids?.length).length
   const curriculumModulesWithAssignments = curriculumModules.filter((module) => module.assignment_ids?.length).length
@@ -5193,6 +5196,30 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || !row.next_owner_action
   )
   const portfolioCollaboratorResponseReconciliationGeneratedMismatch = effectiveSelfStudyPortfolioCollaboratorResponseReconciliation.length > 0 && effectiveSelfStudyPortfolioCollaboratorResponseReconciliation.length !== generatedPortfolioCollaboratorResponseReconciliation.length
+  const portfolioCollaboratorResponseReconciliationIds = new Set(portfolioCollaboratorResponseReconciliation.map((row) => row.reconciliation_id))
+  const validCollaboratorResponseActionKinds = new Set(['paste_response_import', 'collect_signature', 'complete_after_review_checklist', 'regenerate_and_verify'])
+  const validCollaboratorResponseActionStatuses = new Set(['pending', 'complete'])
+  const portfolioCollaboratorResponseActionQueueErrors = portfolioCollaboratorResponseActionQueue.filter((row) =>
+    !row.action_id
+      || !row.reconciliation_id
+      || !portfolioCollaboratorResponseReconciliationIds.has(row.reconciliation_id)
+      || !row.milestone_id
+      || !portfolioMilestoneIds.has(row.milestone_id)
+      || !validCollaboratorResponseActionKinds.has(row.action_kind)
+      || !validCollaboratorResponseActionStatuses.has(row.action_status)
+      || !['learner', 'mentor_reviewer'].includes(row.owner)
+      || !['high', 'medium', 'low'].includes(row.priority)
+      || !Number.isInteger(row.action_order)
+      || row.action_order <= 0
+      || !row.learner_action
+      || !row.verification
+      || !row.target_artifacts?.length
+      || row.target_artifacts.some((artifact) => !artifact.artifact_role || !artifact.artifact_id || !artifact.artifact_path)
+      || !row.source_check_id
+      || !row.next_command
+      || !row.provenance_note
+  )
+  const portfolioCollaboratorResponseActionQueueGeneratedMismatch = effectiveSelfStudyPortfolioCollaboratorResponseActionQueue.length > 0 && effectiveSelfStudyPortfolioCollaboratorResponseActionQueue.length !== generatedPortfolioCollaboratorResponseActionQueue.length
   const portfolioBriefReadinessErrors = portfolioBriefs.filter((brief) =>
     !brief.completion_gate_id
       || !portfolioCompletionGateIds.has(brief.completion_gate_id)
@@ -5600,6 +5627,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${portfolioCollaboratorResponseReconciliation.length} collaborator response reconciliation rows; ${portfolioCollaboratorResponseReconciliation.filter((row) => row.feedback_import_present).length} with live feedback imports; ${portfolioCollaboratorResponseReconciliation.filter((row) => row.reconciliation_status === 'awaiting_response').length} awaiting responses; ${portfolioCollaboratorResponseReconciliationErrors.length} reconciliation reference/status errors; generated mismatch=${portfolioCollaboratorResponseReconciliationGeneratedMismatch}.`,
     },
     {
+      id: 'self_study_portfolio_collaborator_response_action_queue_turns_checks_into_tasks',
+      status: portfolioCollaboratorResponseActionQueueErrors.length === 0 && portfolioCollaboratorResponseActionQueue.length > 0 && !portfolioCollaboratorResponseActionQueueGeneratedMismatch ? 'pass' : 'fail',
+      detail: `${portfolioCollaboratorResponseActionQueue.length} collaborator response action rows; ${portfolioCollaboratorResponseActionQueue.filter((row) => row.action_status === 'pending').length} pending; ${portfolioCollaboratorResponseActionQueue.filter((row) => row.priority === 'high').length} high priority; ${portfolioCollaboratorResponseActionQueueErrors.length} action reference/task errors; generated mismatch=${portfolioCollaboratorResponseActionQueueGeneratedMismatch}.`,
+    },
+    {
       id: 'self_study_progress_ledger_links_to_portfolio_completion_gates',
       status: progressLedgerPortfolioGateErrors.length === 0 && progressLedgerWithPortfolioGateAnnotations.length === progressLedger.length && progressLedger.length > 0 ? 'pass' : 'fail',
       detail: `${progressLedgerWithPortfolioGateAnnotations.length} progress ledger rows carry portfolio review gate annotations; ${progressLedgerPortfolioGateErrors.length} annotation reference errors.`,
@@ -5827,6 +5859,9 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_portfolio_collaborator_response_reconciliation_rows: portfolioCollaboratorResponseReconciliation.length,
       self_study_portfolio_collaborator_response_reconciliation_imported_rows: portfolioCollaboratorResponseReconciliation.filter((row) => row.feedback_import_present).length,
       self_study_portfolio_collaborator_response_reconciliation_awaiting_rows: portfolioCollaboratorResponseReconciliation.filter((row) => row.reconciliation_status === 'awaiting_response').length,
+      self_study_portfolio_collaborator_response_action_queue_rows: portfolioCollaboratorResponseActionQueue.length,
+      self_study_portfolio_collaborator_response_action_queue_pending_rows: portfolioCollaboratorResponseActionQueue.filter((row) => row.action_status === 'pending').length,
+      self_study_portfolio_collaborator_response_action_queue_high_priority_rows: portfolioCollaboratorResponseActionQueue.filter((row) => row.priority === 'high').length,
       self_study_portfolio_milestones: portfolioMilestones.length,
       self_study_portfolio_briefs: portfolioBriefs.length,
       self_study_portfolio_briefs_with_completion_gate_status: portfolioBriefs.filter((brief) => brief.review_readiness?.status).length,
@@ -9543,6 +9578,141 @@ function selfStudyPortfolioCollaboratorResponseReconciliationMarkdown(rows) {
   return lines.map((line) => line.trimEnd()).join('\n')
 }
 
+function buildSelfStudyPortfolioCollaboratorResponseActionQueue(reconciliationRows) {
+  return reconciliationRows.flatMap((row) => {
+    const pendingChecks = (row.reconciliation_checks ?? []).filter((check) => check.status === 'pending')
+    const actions = pendingChecks.map((check, index) => collaboratorResponseActionForCheck(row, check, index + 1))
+    if (row.feedback_import_present && row.decision_packet_ready && row.completion_checklist_ready) {
+      actions.push({
+        action_id: `collaborator_response_action_${row.milestone_id}_04_regenerate_and_verify`,
+        generated_at: retrievedAt,
+        reconciliation_id: row.reconciliation_id,
+        milestone_id: row.milestone_id,
+        action_order: actions.length + 1,
+        action_kind: 'regenerate_and_verify',
+        action_status: 'pending',
+        owner: 'learner',
+        priority: 'low',
+        source_check_id: 'all_reconciliation_checks_satisfied',
+        learner_action: 'Regenerate the RISD corpus and verify dashboard, archive audit, and reconciliation reports remain consistent.',
+        verification: 'Derived artifacts regenerate with validation=pass and the reconciliation row remains ready for archive follow-up.',
+        target_artifacts: [
+          reconciliationArtifact('generator', 'scripts/risd-graphic-design-corpus.mjs', 'scripts/risd-graphic-design-corpus.mjs'),
+          reconciliationArtifact('validation', 'validation.md', 'self_study_portfolio_validation.md'),
+          reconciliationArtifact('reconciliation', row.reconciliation_id, 'self_study_portfolio_collaborator_response_reconciliation.jsonl'),
+        ],
+        next_command: 'node scripts/risd-graphic-design-corpus.mjs --render-derived-only',
+        provenance_note: 'Generated collaborator response action from satisfied reconciliation state.',
+      })
+    }
+    return actions
+  })
+}
+
+function collaboratorResponseActionForCheck(row, check, actionOrder) {
+  if (check.check_id === 'collaborator_response_pasted') {
+    return {
+      action_id: `collaborator_response_action_${row.milestone_id}_01_paste_response_import`,
+      generated_at: retrievedAt,
+      reconciliation_id: row.reconciliation_id,
+      milestone_id: row.milestone_id,
+      action_order: actionOrder,
+      action_kind: 'paste_response_import',
+      action_status: 'pending',
+      owner: 'learner',
+      priority: 'high',
+      source_check_id: check.check_id,
+      learner_action: 'Paste the collaborator response into the intake template, copy approved fields into self_study_portfolio_reviewer_feedback_import.jsonl, and keep only evidence-bounded refs.',
+      verification: 'A live reviewer feedback import exists for the feedback template named by the reconciliation row.',
+      target_artifacts: [
+        reconciliationArtifact('intake_template', row.intake_template_id, 'self_study_portfolio_collaborator_response_intake_template.jsonl'),
+        reconciliationArtifact('feedback_import_or_template', row.feedback_import_id ?? row.feedback_template_id, row.feedback_import_id ? 'self_study_portfolio_reviewer_feedback_import.jsonl' : 'self_study_portfolio_reviewer_feedback_template.jsonl'),
+        reconciliationArtifact('reconciliation', row.reconciliation_id, 'self_study_portfolio_collaborator_response_reconciliation.jsonl'),
+      ],
+      next_command: 'Copy approved intake fields into self_study_portfolio_reviewer_feedback_import.jsonl, then run node scripts/risd-graphic-design-corpus.mjs --render-derived-only.',
+      provenance_note: 'Generated collaborator response action from pending response-pasted reconciliation check.',
+    }
+  }
+  if (check.check_id === 'decision_packet_followup_ready') {
+    return {
+      action_id: `collaborator_response_action_${row.milestone_id}_02_collect_signature`,
+      generated_at: retrievedAt,
+      reconciliation_id: row.reconciliation_id,
+      milestone_id: row.milestone_id,
+      action_order: actionOrder,
+      action_kind: 'collect_signature',
+      action_status: 'pending',
+      owner: 'mentor_reviewer',
+      priority: row.feedback_import_present ? 'high' : 'medium',
+      source_check_id: check.check_id,
+      learner_action: 'Use the decision packet notes draft and imported feedback to collect reviewer signature, learner acknowledgement, review date, and source-boundary notes.',
+      verification: 'The decision packet reaches ready_to_sign after feedback import and review decisions are recorded.',
+      target_artifacts: [
+        reconciliationArtifact('decision_packet', row.decision_packet_id, 'self_study_portfolio_decision_packets.jsonl'),
+        reconciliationArtifact('handoff_packet', row.handoff_packet_id, 'self_study_portfolio_collaborator_handoff_packets.jsonl'),
+        reconciliationArtifact('reconciliation', row.reconciliation_id, 'self_study_portfolio_collaborator_response_reconciliation.jsonl'),
+      ],
+      next_command: 'Complete the decision packet signature fields, then regenerate derived artifacts.',
+      provenance_note: 'Generated collaborator response action from pending decision-packet reconciliation check.',
+    }
+  }
+  return {
+    action_id: `collaborator_response_action_${row.milestone_id}_03_complete_after_review_checklist`,
+    generated_at: retrievedAt,
+    reconciliation_id: row.reconciliation_id,
+    milestone_id: row.milestone_id,
+    action_order: actionOrder,
+    action_kind: 'complete_after_review_checklist',
+    action_status: 'pending',
+    owner: 'learner',
+    priority: row.decision_packet_ready ? 'high' : 'medium',
+    source_check_id: check.check_id,
+    learner_action: 'Complete the after-review checklist actions for feedback import, revision queue resolution, gate status import, regeneration, and dashboard verification.',
+    verification: 'The completion checklist reaches ready_for_after_review and names no unresolved blocking condition for this milestone.',
+    target_artifacts: [
+      reconciliationArtifact('completion_checklist', row.completion_checklist_id, 'self_study_portfolio_completion_checklists.jsonl'),
+      reconciliationArtifact('feedback_import_or_template', row.feedback_import_id ?? row.feedback_template_id, row.feedback_import_id ? 'self_study_portfolio_reviewer_feedback_import.jsonl' : 'self_study_portfolio_reviewer_feedback_template.jsonl'),
+      reconciliationArtifact('reconciliation', row.reconciliation_id, 'self_study_portfolio_collaborator_response_reconciliation.jsonl'),
+    ],
+    next_command: 'Complete checklist follow-through, then run node scripts/risd-graphic-design-corpus.mjs --render-derived-only.',
+    provenance_note: 'Generated collaborator response action from pending completion-checklist reconciliation check.',
+  }
+}
+
+function selfStudyPortfolioCollaboratorResponseActionQueueMarkdown(rows) {
+  const lines = [
+    '# RISD Graphic Design Collaborator Response Action Queue',
+    '',
+    `Generated: ${retrievedAt}`,
+    '',
+    'This queue turns pending collaborator response reconciliation checks into exact learner or mentor/reviewer follow-through tasks.',
+    '',
+    `- Action rows: ${rows.length}`,
+    `- Pending: ${rows.filter((row) => row.action_status === 'pending').length}`,
+    `- High priority: ${rows.filter((row) => row.priority === 'high').length}`,
+    '',
+  ]
+  rows.forEach((row) => {
+    lines.push(`## ${row.action_id}`)
+    lines.push('')
+    lines.push(`- Milestone: ${row.milestone_id}`)
+    lines.push(`- Reconciliation: ${row.reconciliation_id}`)
+    lines.push(`- Order: ${row.action_order}`)
+    lines.push(`- Kind: ${row.action_kind}`)
+    lines.push(`- Owner: ${row.owner}`)
+    lines.push(`- Priority: ${row.priority}`)
+    lines.push(`- Status: ${row.action_status}`)
+    lines.push(`- Source check: ${row.source_check_id}`)
+    lines.push(`- Learner action: ${row.learner_action}`)
+    lines.push(`- Verification: ${row.verification}`)
+    lines.push('- Target artifacts:')
+    row.target_artifacts.forEach((artifact) => lines.push(`  - ${artifact.artifact_role}: ${artifact.artifact_id} (${artifact.artifact_path})`))
+    lines.push(`- Next command: ${row.next_command}`)
+    lines.push('')
+  })
+  return lines.map((line) => line.trimEnd()).join('\n')
+}
+
 function buildSelfStudyPortfolioRevisionQueue(handoffs, feedbackImports = []) {
   const importsByHandoff = new Map(feedbackImports.filter((row) => row.handoff_id).map((row) => [row.handoff_id, row]))
   return handoffs.flatMap((handoff) => {
@@ -10707,6 +10877,7 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
     decisionPackets: portfolioDecisionPackets,
     completionChecklists: portfolioCompletionChecklists,
   })
+  const portfolioCollaboratorResponseActionQueue = buildSelfStudyPortfolioCollaboratorResponseActionQueue(portfolioCollaboratorResponseReconciliation)
   writeJsonl(join(outDir, 'self_study_pacing_plan.jsonl'), pacingPlan)
   writeJsonl(join(outDir, 'self_study_pacing_profiles.jsonl'), buildSelfStudyPacingProfiles(pacingPlan))
   writeJsonl(join(outDir, 'self_study_progress_ledger.jsonl'), progressLedgerWithPortfolioGateAnnotations)
@@ -10752,6 +10923,8 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   writeFileSync(join(outDir, 'self_study_portfolio_collaborator_response_intake_template.md'), selfStudyPortfolioCollaboratorResponseIntakeTemplateMarkdown(portfolioCollaboratorResponseIntakeTemplate))
   writeJsonl(join(outDir, 'self_study_portfolio_collaborator_response_reconciliation.jsonl'), portfolioCollaboratorResponseReconciliation)
   writeFileSync(join(outDir, 'self_study_portfolio_collaborator_response_reconciliation.md'), selfStudyPortfolioCollaboratorResponseReconciliationMarkdown(portfolioCollaboratorResponseReconciliation))
+  writeJsonl(join(outDir, 'self_study_portfolio_collaborator_response_action_queue.jsonl'), portfolioCollaboratorResponseActionQueue)
+  writeFileSync(join(outDir, 'self_study_portfolio_collaborator_response_action_queue.md'), selfStudyPortfolioCollaboratorResponseActionQueueMarkdown(portfolioCollaboratorResponseActionQueue))
   writeJsonl(join(outDir, 'self_study_portfolio_milestones.jsonl'), portfolioMilestones)
   writeJsonl(join(outDir, 'self_study_portfolio_reference_packets.jsonl'), portfolioReferencePackets)
   writeJsonl(join(outDir, 'self_study_portfolio_source_excerpt_packets.jsonl'), portfolioSourceExcerptPackets)
