@@ -16,6 +16,10 @@ function dirSizeBytes(dir) {
 const gb = (b) => (b / 1024 ** 3).toFixed(2);
 
 export function generateStatus(db) {
+  // Milestone 0.5 soak tracking: first supervisor start + restart count.
+  const soak = db.prepare(`SELECT MIN(ts) AS t0, COUNT(*) AS starts FROM events WHERE message LIKE 'supervisor started%'`).get();
+  const errs = db.prepare(`SELECT COUNT(*) AS n FROM events WHERE level = 'error' AND ts > ?`).get(Date.now() - 24 * 3600 * 1000);
+
   const jobs = db.prepare(`
     SELECT j.source, j.status, j.attempts, j.last_error, j.priority,
            c.rows_fetched, c.parts, c.done, c.updated_at AS ckpt_at
@@ -31,6 +35,13 @@ export function generateStatus(db) {
   lines.push('');
   lines.push(`_Generated ${new Date().toISOString()} — regenerated automatically by the supervisor._`);
   lines.push('');
+  if (soak?.t0) {
+    const days = (Date.now() - soak.t0) / 86400000;
+    lines.push(`**Milestone 0.5 soak:** day ${days.toFixed(1)} of 7 since first start `
+      + `(${new Date(soak.t0).toISOString().slice(0, 10)}) · ${soak.starts} supervisor starts · `
+      + `${errs.n} errors in last 24h ${days >= 7 && errs.n === 0 ? '· **SOAK PASSED**' : ''}`);
+    lines.push('');
+  }
   lines.push('| source | status | rows fetched | parts | size | last error |');
   lines.push('|---|---|---|---|---|---|');
   for (const j of jobs) {

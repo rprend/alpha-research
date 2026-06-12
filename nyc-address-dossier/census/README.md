@@ -5,10 +5,14 @@ gate passes** (house rule: mock first; any paid run needs explicit per-run appro
 
 ## Workflow
 
-1. **Pick pilot pages.** Pilot CD is MN CD10 (Harlem). Map pilot addresses to 1950
-   enumeration districts via https://stevemorse.org/census/unified.html, then pull the
-   public-domain page images from https://1950census.archives.gov/ into `fixtures/`
-   (one JSON descriptor per page, `image` pointing at the downloaded scan).
+1. **Pick pilot pages.** Pilot CD is MN CD10 (Harlem). The corridor's 1950 EDs are already
+   identified from NARA's API (2026-06-12) and saved to
+   `~/.nyc-address-dossier/data/derived/pilot-eds.json`:
+   **31-1612, 31-1613** (W 125th at 5th/Lenox, AD 11) and **31-1970, 31-1975**
+   (W 125th at Morningside, AD 13); all 2,445 Manhattan ED descriptions are in
+   `nara-mn-eds.json` for extending coverage. Pull those EDs' public-domain page images
+   from https://1950census.archives.gov/search/?ed=31-1612 into `fixtures/` (one JSON
+   descriptor per page, `image` pointing at the downloaded scan).
 2. **Hand-label gold.** Two annotators independently transcribe each page into
    `gold/<page_id>.json` (same schema as fixtures). Adjudicate disagreements; record
    Cohen's κ per field in `gold/KAPPA.md`. Target: ≥ 20 pages, ~500–1,000 person-rows.
