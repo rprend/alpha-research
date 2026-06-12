@@ -38,6 +38,12 @@ function main() {
   const identities = readJsonl(join(processedDir, 'creator_identities.jsonl'))
   const scaleWaves = readJsonl(join(processedDir, 'scale_waves.jsonl'))
   const waveLedger = readJsonl(join(processedDir, 'wave_ledger.jsonl'))
+  const providerPreflight = readJsonl(join(processedDir, 'provider_preflight.jsonl'))
+  const providerPreflightReport = (() => {
+    const path = join(reportsDir, 'provider-preflight.json')
+    if (!existsSync(path)) return null
+    return JSON.parse(readFileSync(path, 'utf8'))
+  })()
   const categoryCoverage = (() => {
     const path = join(reportsDir, 'category-coverage.json')
     if (!existsSync(path)) return null
@@ -173,6 +179,11 @@ function main() {
       evidence: `${waveLedger.length} wave execution ledger rows generated`,
     },
     {
+      id: 'provider_preflight',
+      status: providerPreflight.length > 0 && providerPreflightReport?.blocked_tasks === 0 && providerPreflightReport?.within_budget ? 'pass' : 'fail',
+      evidence: providerPreflightReport ? `${providerPreflightReport.ready_tasks}/${providerPreflightReport.task_rows} ready provider tasks, budget ${providerPreflightReport.within_budget ? 'ok' : 'exceeded'}` : 'provider preflight missing',
+    },
+    {
       id: 'refresh_plan',
       status: refreshTasks.length > 0 ? 'pass' : 'fail',
       evidence: `${refreshTasks.length} account refresh tasks generated`,
@@ -235,6 +246,10 @@ function main() {
       wave_ledger_planned: waveLedger.filter((row) => row.status === 'planned').length,
       wave_ledger_imported: waveLedger.filter((row) => row.status === 'imported').length,
       wave_ledger_failed: waveLedger.filter((row) => row.status === 'failed').length,
+      provider_preflight_tasks: providerPreflight.length,
+      provider_preflight_ready_tasks: providerPreflightReport?.ready_tasks ?? 0,
+      provider_preflight_blocked_tasks: providerPreflightReport?.blocked_tasks ?? 0,
+      provider_preflight_estimated_cost_usd: providerPreflightReport?.estimated_cost_usd ?? 0,
       refresh_tasks: refreshTasks.length,
       publication_handoff: publicationHandoff ? 1 : 0,
     },
@@ -285,6 +300,10 @@ Complete: ${summary.complete}
 - Wave ledger planned: ${summary.counts.wave_ledger_planned}
 - Wave ledger imported: ${summary.counts.wave_ledger_imported}
 - Wave ledger failed: ${summary.counts.wave_ledger_failed}
+- Provider preflight tasks: ${summary.counts.provider_preflight_tasks}
+- Provider preflight ready tasks: ${summary.counts.provider_preflight_ready_tasks}
+- Provider preflight blocked tasks: ${summary.counts.provider_preflight_blocked_tasks}
+- Provider preflight estimated cost: $${summary.counts.provider_preflight_estimated_cost_usd}
 - Refresh tasks: ${summary.counts.refresh_tasks}
 - Publication handoff: ${summary.counts.publication_handoff}
 

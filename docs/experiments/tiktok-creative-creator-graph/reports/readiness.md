@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T20:44:11.976Z
+Generated: 2026-06-12T20:48:05.402Z
 
 Complete: false
 
@@ -24,7 +24,7 @@ Complete: false
 - Acquisition runner tasks: 2
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
-- Acquisition run history: 2
+- Acquisition run history: 3
 - Source yield rows: 7
 - Identities: 9
 - Category coverage labels: 5/11
@@ -33,9 +33,13 @@ Complete: false
 - Scale plan import batches: 1000
 - Scale waves: 1000
 - Wave ledger rows: 1000
-- Wave ledger planned: 998
+- Wave ledger planned: 997
 - Wave ledger imported: 0
 - Wave ledger failed: 0
+- Provider preflight tasks: 20
+- Provider preflight ready tasks: 20
+- Provider preflight blocked tasks: 0
+- Provider preflight estimated cost: $5
 - Refresh tasks: 9
 - Publication handoff: 1
 
@@ -52,7 +56,7 @@ Complete: false
 - acquisition_batches: pass (68 acquisition tasks generated)
 - acquisition_import_waves: pass (1 acquisition import waves tracked)
 - acquisition_runner: pass (2 runnable of 2 selected provider tasks (dry run))
-- acquisition_run_history: pass (2 acquisition run history rows persisted)
+- acquisition_run_history: pass (3 acquisition run history rows persisted)
 - source_yield: pass (7 source/query yield rows generated)
 - identity_resolution: pass (9 creator identities resolved)
 - category_coverage: pass (5/11 target labels covered)
@@ -61,6 +65,7 @@ Complete: false
 - scale_plan: pass (1000 estimated import batches)
 - scale_waves: pass (1000 executable acquisition waves planned)
 - wave_ledger: pass (1000 wave execution ledger rows generated)
+- provider_preflight: pass (20/20 ready provider tasks, budget ok)
 - refresh_plan: pass (9 account refresh tasks generated)
 - publication_handoff: pass (not-ready-production-data handoff generated)
 - useful_account_target: incomplete (5/50000 useful accounts)

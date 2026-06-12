@@ -127,6 +127,12 @@ Build wave execution ledger:
 node docs/experiments/tiktok-creative-creator-graph/scripts/build-wave-ledger.mjs
 ```
 
+Build provider execution preflight:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/build-provider-preflight.mjs --max-waves=10 --budget-usd=25
+```
+
 Build refresh plan:
 
 ```bash
@@ -271,6 +277,8 @@ The pipeline writes:
 - `data/processed/scale_waves.csv`
 - `data/processed/wave_ledger.jsonl`
 - `data/processed/wave_ledger.csv`
+- `data/processed/provider_preflight.jsonl`
+- `data/processed/provider_preflight.csv`
 - `reports/result.json`
 - `reports/work.md`
 - `reports/readiness.md`
@@ -305,6 +313,8 @@ The pipeline writes:
 - `reports/scale-waves.json`
 - `reports/wave-ledger.md`
 - `reports/wave-ledger.json`
+- `reports/provider-preflight.md`
+- `reports/provider-preflight.json`
 - `reports/refresh-plan.md`
 - `reports/refresh-plan.json`
 - `reports/publication-handoff.md`
@@ -333,10 +343,11 @@ The pipeline writes:
 18. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-scale-plan.mjs` to size the next collection and review wave.
 19. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-scale-waves.mjs` to create the 250-candidate acquisition wave queue.
 20. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-wave-ledger.mjs` to track planned, attempted, imported, and failed waves.
-21. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-refresh-plan.mjs` to schedule weekly/monthly/quarterly account refreshes.
-22. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-publication-handoff.mjs` to generate the control-plane handoff package.
-23. Use reviewed accepted/rejected/benchmark outputs to tune sources and scoring.
-24. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
+21. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-provider-preflight.mjs --max-waves=10 --budget-usd=25` before live provider execution.
+22. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-refresh-plan.mjs` to schedule weekly/monthly/quarterly account refreshes.
+23. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-publication-handoff.mjs` to generate the control-plane handoff package.
+24. Use reviewed accepted/rejected/benchmark outputs to tune sources and scoring.
+25. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
 
 ## Current Limitations
 

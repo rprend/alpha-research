@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T20:44:12.015Z",
+  "generated_at": "2026-06-12T20:48:05.464Z",
   "dataset_id": "tiktok-creative-creator-graph",
   "title": "TikTok Creative Creator Graph",
   "publish_state": "not-ready-production-data",
@@ -48,12 +48,16 @@
     "acquisition_import_waves": 1,
     "acquisition_runner_runnable_tasks": 2,
     "acquisition_runner_skipped_tasks": 0,
-    "acquisition_run_history": 2,
+    "acquisition_run_history": 3,
     "scale_waves": 1000,
     "wave_ledger_rows": 1000,
-    "wave_ledger_planned": 998,
+    "wave_ledger_planned": 997,
     "wave_ledger_imported": 0,
     "wave_ledger_failed": 0,
+    "provider_preflight_tasks": 20,
+    "provider_preflight_ready_tasks": 20,
+    "provider_preflight_blocked_tasks": 0,
+    "provider_preflight_estimated_cost_usd": 5,
     "refresh_tasks": 9
   },
   "target_gaps": {
@@ -69,6 +73,7 @@
     "scale_plan_available": true,
     "scale_waves_available": true,
     "wave_ledger_available": true,
+    "provider_preflight_available": true,
     "refresh_plan_available": true
   },
   "paths": {
@@ -82,6 +87,7 @@
     "scale_plan": "docs/experiments/tiktok-creative-creator-graph/reports/scale-plan.json",
     "scale_waves": "docs/experiments/tiktok-creative-creator-graph/reports/scale-waves.json",
     "wave_ledger": "docs/experiments/tiktok-creative-creator-graph/reports/wave-ledger.json",
+    "provider_preflight": "docs/experiments/tiktok-creative-creator-graph/reports/provider-preflight.json",
     "refresh_plan": "docs/experiments/tiktok-creative-creator-graph/reports/refresh-plan.json",
     "acquisition_batches": "docs/experiments/tiktok-creative-creator-graph/reports/acquisition-batches.json",
     "acquisition_import_waves": "docs/experiments/tiktok-creative-creator-graph/data/processed/acquisition_import_waves.jsonl",
@@ -92,6 +98,7 @@
     "review_plan": "docs/experiments/tiktok-creative-creator-graph/reports/review-plan.json",
     "scale_wave_queue": "docs/experiments/tiktok-creative-creator-graph/data/processed/scale_waves.csv",
     "wave_ledger_queue": "docs/experiments/tiktok-creative-creator-graph/data/processed/wave_ledger.csv",
+    "provider_preflight_queue": "docs/experiments/tiktok-creative-creator-graph/data/processed/provider_preflight.csv",
     "useful_creators": "docs/experiments/tiktok-creative-creator-graph/data/release/useful_creators.csv",
     "benchmark_creators": "docs/experiments/tiktok-creative-creator-graph/data/release/benchmark_creators.csv",
     "review_queue": "docs/experiments/tiktok-creative-creator-graph/data/release/review_queue.csv",

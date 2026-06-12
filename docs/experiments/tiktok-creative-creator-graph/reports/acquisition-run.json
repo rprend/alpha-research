@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-12T20:44:11.896Z",
-  "execution_id": "2026-06-12T20-44-11-896Z",
+  "generated_at": "2026-06-12T20:48:05.258Z",
+  "execution_id": "2026-06-12T20-48-05-257Z",
   "provider": "apify",
-  "wave_id": "scale_wave_0002",
+  "wave_id": "scale_wave_0003",
   "wave_found": true,
   "dry_run": true,
   "selected_tasks": 2,
@@ -14,16 +14,16 @@
   "output_rows": 0,
   "results": [
     {
-      "execution_id": "2026-06-12T20-44-11-896Z",
+      "execution_id": "2026-06-12T20-48-05-257Z",
       "provider": "apify",
-      "batch_id": "hashtag_0012",
+      "batch_id": "hashtag_0016",
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "shortfilm",
-      "target_label": "filmmaker",
+      "query": "sketchcomedy",
+      "target_label": "sketch_comedian",
       "actor_id": "clockworks/tiktok-scraper",
       "input": {
         "hashtags": [
-          "shortfilm"
+          "sketchcomedy"
         ],
         "resultsPerPage": 100,
         "shouldDownloadVideos": false,
@@ -31,33 +31,33 @@
         "shouldDownloadSubtitles": false
       },
       "dry_run": true,
-      "started_at": "2026-06-12T20:44:11.896Z",
+      "started_at": "2026-06-12T20:48:05.258Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-12T20:44:11.896Z"
+      "finished_at": "2026-06-12T20:48:05.258Z"
     },
     {
-      "execution_id": "2026-06-12T20-44-11-896Z",
+      "execution_id": "2026-06-12T20-48-05-257Z",
       "provider": "apify",
-      "batch_id": "category_gap_0036",
+      "batch_id": "category_gap_0037",
       "acquisition_surface": "category_gap_search",
-      "query": "site:tiktok.com/@ \"comedian\"",
-      "target_label": "standup_comedian",
+      "query": "site:tiktok.com/@ \"actor performer\"",
+      "target_label": "actor_performer",
       "actor_id": "apify/google-search-scraper",
       "input": {
-        "queries": "site:tiktok.com/@ \"comedian\"",
+        "queries": "site:tiktok.com/@ \"actor performer\"",
         "maxPagesPerQuery": 1,
         "resultsPerPage": 100,
         "countryCode": "us",
         "languageCode": "en"
       },
       "dry_run": true,
-      "started_at": "2026-06-12T20:44:11.896Z",
+      "started_at": "2026-06-12T20:48:05.258Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-12T20:44:11.896Z"
+      "finished_at": "2026-06-12T20:48:05.258Z"
     }
   ]
 }
