@@ -354,7 +354,7 @@ Acceptance output:
 
 ### Step 9: Generate A Mentor-Style Self-Study Curriculum From Evidence
 
-Status: implemented for evidence-filtered module selection, filtered assignment/reading/schedule display, module-level practice loops, explicit missing-evidence warnings, student/faculty comparison boundaries, a machine-readable `self_study_modules.jsonl` artifact, module-grounded `tacit_knowledge_memo.md` sections, per-module confidence scores/explanations, module ordering rationales with near-miss candidates, and validation that generated modules cite source IDs, explain selection confidence/order, and reference existing assignment/reading/schedule/student-work records. The next improvement should add a track-level prerequisite/dependency map so module order distinguishes foundations, intermediate practice, and advanced synthesis.
+Status: implemented for evidence-filtered module selection, filtered assignment/reading/schedule display, module-level practice loops, explicit missing-evidence warnings, student/faculty comparison boundaries, a machine-readable `self_study_modules.jsonl` artifact, module-grounded `tacit_knowledge_memo.md` sections, per-module confidence scores/explanations, module ordering rationales with near-miss candidates, track-level prerequisite/dependency maps, and validation that generated modules cite source IDs, explain selection confidence/order/dependencies, and reference existing assignment/reading/schedule/student-work records. The next improvement should add a learner-facing weekly pacing plan that turns module dependencies into a sequenced practice calendar.
 
 Goal: make the corpus usable for the original purpose: tacit catch-up through concrete studio loops.
 

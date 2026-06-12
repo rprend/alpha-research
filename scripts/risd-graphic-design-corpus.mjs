@@ -4303,6 +4303,16 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       && module.module_ordering_rationale?.selected_reason
       && Array.isArray(module.module_ordering_rationale?.near_miss_candidates)
   ).length
+  const curriculumModuleIds = new Set(curriculumModules.map((module) => module.module_id).filter(Boolean))
+  const curriculumModulesWithDependencyMaps = curriculumModules.filter((module) =>
+    ['foundation', 'intermediate_practice', 'advanced_synthesis'].includes(module.module_dependency_map?.dependency_stage)
+      && Array.isArray(module.module_dependency_map?.prerequisite_module_ids)
+      && Array.isArray(module.module_dependency_map?.enables_module_ids)
+      && module.module_dependency_map?.dependency_basis?.length
+      && module.module_dependency_map?.dependency_note
+      && module.module_dependency_map.prerequisite_module_ids.every((id) => curriculumModuleIds.has(id))
+      && module.module_dependency_map.enables_module_ids.every((id) => curriculumModuleIds.has(id))
+  ).length
   const curriculumModuleReferenceErrors = curriculumModules.filter((module) =>
     !module.module_id
       || !module.source_ids?.length
@@ -4321,6 +4331,12 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || !Number.isInteger(module.module_ordering_rationale?.track_rank)
       || !['track_quota', 'global_backfill'].includes(module.module_ordering_rationale?.selection_phase)
       || !module.module_ordering_rationale?.selected_reason
+      || !['foundation', 'intermediate_practice', 'advanced_synthesis'].includes(module.module_dependency_map?.dependency_stage)
+      || !Array.isArray(module.module_dependency_map?.prerequisite_module_ids)
+      || !Array.isArray(module.module_dependency_map?.enables_module_ids)
+      || !module.module_dependency_map?.dependency_basis?.length
+      || module.module_dependency_map.prerequisite_module_ids.some((id) => !curriculumModuleIds.has(id))
+      || module.module_dependency_map.enables_module_ids.some((id) => !curriculumModuleIds.has(id))
   )
   const curriculumGeneratedMismatch = effectiveSelfStudyModules.length > 0 && effectiveSelfStudyModules.length !== generatedCurriculumModules.length
   const courseInventoryReconciled = courseInventory.displayed_count > 0 && courseInventory.offerings.length === courseInventory.displayed_count
@@ -4573,7 +4589,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
     {
       id: 'self_study_curriculum_modules_have_grounded_evidence',
       status: curriculumModuleReferenceErrors.length === 0 && !curriculumGeneratedMismatch && curriculumModules.length > 0 && curriculumModulesWithSourceIds === curriculumModules.length && curriculumModulesWithAssignments === curriculumModules.length ? 'pass' : curriculumModuleReferenceErrors.length === 0 && curriculumModules.length > 0 ? 'warn' : 'fail',
-      detail: `${curriculumModules.length} modules; ${curriculumModulesWithAssignments} with filtered assignments, ${curriculumModulesWithReadings} with usable readings/resources, ${curriculumModulesWithSchedule} with schedule rhythm, ${curriculumModulesWithComparison} with comparison evidence, ${curriculumModulesWithUnknowns} with explicit unknowns, ${curriculumModulesWithConfidence} with confidence explanations, ${curriculumModulesWithOrderingRationale} with ordering rationales; ${curriculumModuleReferenceErrors.length} module reference errors; generated mismatch=${curriculumGeneratedMismatch}.`,
+      detail: `${curriculumModules.length} modules; ${curriculumModulesWithAssignments} with filtered assignments, ${curriculumModulesWithReadings} with usable readings/resources, ${curriculumModulesWithSchedule} with schedule rhythm, ${curriculumModulesWithComparison} with comparison evidence, ${curriculumModulesWithUnknowns} with explicit unknowns, ${curriculumModulesWithConfidence} with confidence explanations, ${curriculumModulesWithOrderingRationale} with ordering rationales, ${curriculumModulesWithDependencyMaps} with dependency maps; ${curriculumModuleReferenceErrors.length} module reference errors; generated mismatch=${curriculumGeneratedMismatch}.`,
     },
     {
       id: 'official_course_inventory_reconciled',
@@ -4712,6 +4728,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_modules_with_unknowns: curriculumModulesWithUnknowns,
       self_study_modules_with_confidence_explanations: curriculumModulesWithConfidence,
       self_study_modules_with_ordering_rationales: curriculumModulesWithOrderingRationale,
+      self_study_modules_with_dependency_maps: curriculumModulesWithDependencyMaps,
     },
     checks,
   }
@@ -5316,6 +5333,7 @@ Overall status: ${validation.status}
 - Self-study modules with explicit unknowns: ${validation.counts.self_study_modules_with_unknowns}
 - Self-study modules with confidence explanations: ${validation.counts.self_study_modules_with_confidence_explanations}
 - Self-study modules with ordering rationales: ${validation.counts.self_study_modules_with_ordering_rationales}
+- Self-study modules with dependency maps: ${validation.counts.self_study_modules_with_dependency_maps}
 
 ## Checks
 
@@ -5572,6 +5590,9 @@ function tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules
   const orderingRows = selfStudyModules
     .filter((module) => module.module_ordering_rationale?.selected_reason)
     .slice(0, 8)
+  const dependencyRows = selfStudyModules
+    .filter((module) => module.module_dependency_map?.dependency_stage)
+    .slice(0, 8)
   const missingEvidenceRows = selfStudyModules
     .filter((module) => module.missing_evidence_warnings?.length)
     .slice(0, 10)
@@ -5624,6 +5645,15 @@ ${orderingRows.length ? orderingRows.map((module) => {
   const nearMisses = module.module_ordering_rationale.near_miss_candidates?.slice(0, 2).map((candidate) => `${candidate.course_title ?? candidate.course_code} (${candidate.reason_not_selected})`).join('; ')
   return `- ${module.course_title ?? module.course_code}: ${module.module_ordering_rationale.selected_reason}${nearMisses ? ` Near misses: ${nearMisses}.` : ''}`
 }).join('\n') : '- No module-level ordering rationales have been generated yet.'}
+
+## Dependency Map Boundaries
+
+${dependencyRows.length ? dependencyRows.map((module) => {
+  const map = module.module_dependency_map
+  const prereqs = map.prerequisite_module_ids?.length ? ` prerequisites: ${map.prerequisite_module_ids.join(', ')}` : ' starts a sequence'
+  const enables = map.enables_module_ids?.length ? ` enables: ${map.enables_module_ids.join(', ')}` : ''
+  return `- ${module.course_title ?? module.course_code}: ${map.dependency_stage}${prereqs}${enables}. Basis: ${map.dependency_basis?.slice(0, 3).join('; ')}`
+}).join('\n') : '- No module-level dependency maps have been generated yet.'}
 
 ## Critique And Revision
 
@@ -5740,6 +5770,10 @@ function curriculumCoursePackets({ courses, syllabi, assignments, readings, stud
 function curriculumPacketKey(packet) {
   const course = packet.course
   return slug(course.course_title ?? course.course_code ?? course.course_id)
+}
+
+function selfStudyModuleId(packet, index) {
+  return `self_study_module_${String(index + 1).padStart(2, '0')}_${curriculumPacketKey(packet)}`
 }
 
 function curriculumAssignmentCandidates(assignments) {
@@ -5891,6 +5925,74 @@ function curriculumOrderingRationale({ packet, selected, packets, selectedIndex 
   }
 }
 
+function curriculumDependencyStage({ packet, selectedTrackRank, moduleAssignments, moduleReadings, moduleScheduleRows }) {
+  const assignmentText = moduleAssignments.map((assignment) => [
+    assignment.prompt_excerpt,
+    assignment.output_format,
+    assignment.deliverables?.join(' '),
+    assignment.process_steps?.join(' '),
+  ].filter(Boolean).join(' ')).join(' ')
+  const advancedSignal = /final|portfolio|system|identity|publication|book|website|interactive|motion|video|public|campaign|research/i.test(assignmentText)
+  if (packet.track.track_id === 'foundation_studio' && selectedTrackRank <= 4) return 'foundation'
+  if (advancedSignal && (moduleScheduleRows.length || moduleReadings.length) && selectedTrackRank > 2) return 'advanced_synthesis'
+  return 'intermediate_practice'
+}
+
+function curriculumDependencyMap({ packet, selected, selectedIndex, moduleAssignments, moduleReadings, moduleScheduleRows }) {
+  const moduleKey = curriculumPacketKey(packet)
+  const selectedTrackPackets = selected.filter((candidate) => candidate.track.track_id === packet.track.track_id)
+  const selectedTrackRank = selectedTrackPackets.findIndex((candidate) => curriculumPacketKey(candidate) === moduleKey) + 1
+  const priorSameTrack = selected
+    .slice(0, selectedIndex)
+    .map((candidate, index) => ({ packet: candidate, index }))
+    .filter((candidate) => candidate.packet.track.track_id === packet.track.track_id)
+    .slice(-2)
+  const foundationAnchor = packet.track.track_id === 'foundation_studio'
+    ? []
+    : selected
+      .map((candidate, index) => ({ packet: candidate, index }))
+      .filter((candidate) => candidate.packet.track.track_id === 'foundation_studio')
+      .slice(0, 1)
+  const prerequisiteCandidates = [...foundationAnchor, ...priorSameTrack]
+  const seen = new Set()
+  const prerequisiteModuleIds = prerequisiteCandidates
+    .filter((candidate) => {
+      const key = curriculumPacketKey(candidate.packet)
+      if (key === moduleKey || seen.has(key)) return false
+      seen.add(key)
+      return true
+    })
+    .map((candidate) => selfStudyModuleId(candidate.packet, candidate.index))
+  const nextSameTrack = selected
+    .map((candidate, index) => ({ packet: candidate, index }))
+    .filter((candidate) => candidate.index > selectedIndex && candidate.packet.track.track_id === packet.track.track_id)
+    .slice(0, 2)
+    .map((candidate) => selfStudyModuleId(candidate.packet, candidate.index))
+  const assignmentSkills = uniq(moduleAssignments.flatMap((assignment) => assignment.skills_trained ?? []))
+  const outputFormats = uniq(moduleAssignments.map((assignment) => assignment.output_format).filter(Boolean))
+  const deliverables = uniq(moduleAssignments.flatMap((assignment) => assignment.deliverables ?? [])).slice(0, 8)
+  const stage = curriculumDependencyStage({ packet, selectedTrackRank, moduleAssignments, moduleReadings, moduleScheduleRows })
+  const prerequisiteBasis = [
+    prerequisiteModuleIds.length
+      ? packet.track.track_id === 'foundation_studio'
+        ? 'depends on earlier selected modules in the same track'
+        : 'depends on the foundation anchor plus earlier selected modules in the same track'
+      : 'starts the selected sequence for this track',
+    assignmentSkills.length ? `skill signals: ${assignmentSkills.slice(0, 6).join(', ')}` : null,
+    outputFormats.length ? `output formats: ${outputFormats.slice(0, 4).join(', ')}` : null,
+    deliverables.length ? `deliverables: ${deliverables.slice(0, 6).join(', ')}` : null,
+    moduleScheduleRows.length ? 'schedule rows indicate a repeatable studio rhythm' : null,
+    moduleReadings.length ? 'reading/resource rows support independent preparation' : null,
+  ].filter(Boolean)
+  return {
+    dependency_stage: stage,
+    prerequisite_module_ids: prerequisiteModuleIds,
+    enables_module_ids: nextSameTrack,
+    dependency_basis: prerequisiteBasis,
+    dependency_note: 'Generated for self-study sequencing from public corpus evidence; this is not an official RISD prerequisite map.',
+  }
+}
+
 function curriculumPracticeInstruction(assignment) {
   return {
     assignment_id: assignment.assignment_id,
@@ -6016,8 +6118,9 @@ function buildSelfStudyModules({ courses, syllabi, assignments, readings, schedu
     const primaryAssignment = moduleAssignments[0]
     const confidence = selfStudyModuleConfidence({ course, courseSyllabi, moduleAssignments, moduleReadings, moduleScheduleRows, comparisonSet, moduleUnknowns })
     const orderingRationale = curriculumOrderingRationale({ packet, selected, packets, selectedIndex: index })
+    const dependencyMap = curriculumDependencyMap({ packet, selected, selectedIndex: index, moduleAssignments, moduleReadings, moduleScheduleRows })
     return {
-      module_id: `self_study_module_${String(index + 1).padStart(2, '0')}_${curriculumPacketKey(packet)}`,
+      module_id: selfStudyModuleId(packet, index),
       generated_at: retrievedAt,
       track_id: track.track_id,
       track_title: track.title,
@@ -6031,6 +6134,7 @@ function buildSelfStudyModules({ courses, syllabi, assignments, readings, schedu
       module_confidence_factors: confidence.confidence_factors,
       module_confidence_explanation: confidence.confidence_explanation,
       module_ordering_rationale: orderingRationale,
+      module_dependency_map: dependencyMap,
       source_ids: sourceIds,
       syllabus_ids: courseSyllabi.map((syllabus) => syllabus.syllabus_id),
       instructor_evidence: uniq(courseSyllabi.map((syllabus) => syllabus.instructor).filter(Boolean)),
@@ -6321,7 +6425,9 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
             relationship_note: 'course-context evidence only',
           }))
       const moduleConfidence = selfStudyModuleConfidence({ course, courseSyllabi, moduleAssignments, moduleReadings, moduleScheduleRows, comparisonSet, moduleUnknowns })
-      const orderingRationale = curriculumOrderingRationale({ packet, selected, packets, selectedIndex: selected.findIndex((candidate) => curriculumPacketKey(candidate) === curriculumPacketKey(packet)) })
+      const selectedIndex = selected.findIndex((candidate) => curriculumPacketKey(candidate) === curriculumPacketKey(packet))
+      const orderingRationale = curriculumOrderingRationale({ packet, selected, packets, selectedIndex })
+      const dependencyMap = curriculumDependencyMap({ packet, selected, selectedIndex, moduleAssignments, moduleReadings, moduleScheduleRows })
       lines.push(`#### ${course.course_title ?? course.course_code ?? course.course_id}`)
       lines.push('')
       lines.push(`- Evidence grade: ${course.evidence_grade}`)
@@ -6336,6 +6442,10 @@ function selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, 
           lines.push(`  - ${candidate.course_title ?? candidate.course_code ?? candidate.course_id}: score ${candidate.evidence_score}, ${candidate.assignment_candidate_count} assignment candidates, ${candidate.reason_not_selected.replace(/_/g, ' ')}`)
         })
       }
+      lines.push(`- Dependency stage: ${dependencyMap.dependency_stage.replace(/_/g, ' ')}`)
+      if (dependencyMap.prerequisite_module_ids.length) lines.push(`- Prerequisite modules: ${dependencyMap.prerequisite_module_ids.join(', ')}`)
+      if (dependencyMap.enables_module_ids.length) lines.push(`- Enables next modules: ${dependencyMap.enables_module_ids.join(', ')}`)
+      if (dependencyMap.dependency_basis.length) lines.push(`- Dependency basis: ${dependencyMap.dependency_basis.join('; ')}`)
       lines.push(`- Course code: ${course.course_code ?? 'unknown'}`)
       lines.push(`- Source IDs: ${course.source_ids.join(', ')}`)
       if (courseSyllabi.length) lines.push(`- Syllabus/course artifacts: ${courseSyllabi.map((syllabus) => syllabus.syllabus_id).join(', ')}`)
