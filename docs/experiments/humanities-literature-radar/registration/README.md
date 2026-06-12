@@ -43,6 +43,8 @@ Current verified state:
 
 - Modal bundle synced to `agent-dataset:/datasets/humanities-literature-radar/`
 - Control-plane dataset row exists for `humanities-literature-radar`
+- Dataset row is `status=ready`, `deploymentStatus=ready`
+- Manifest path is `/data/datasets/humanities-literature-radar/manifest.json`
 - Dataset profile is attached with briefing markdown, 26 schema fields, and 10 sample rows
 - Dashboard URL: `https://dashboard.alpharesearch.nyc/datasets/humanities-literature-radar`
 - Ready promotion uses `POST /api/admin/datasets/prebuilt-ready`, authenticated with `ALPHA_RESEARCH_ADMIN_TOKEN`.

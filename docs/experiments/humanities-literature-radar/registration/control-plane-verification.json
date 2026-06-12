@@ -5,11 +5,17 @@
   "dataset": {
     "id": "humanities-literature-radar",
     "name": "Humanities Literature Radar",
-    "status": "created",
-    "deploymentStatus": "draft",
-    "manifestPath": null,
+    "status": "ready",
+    "deploymentStatus": "ready",
+    "manifestPath": "/data/datasets/humanities-literature-radar/manifest.json",
     "mode": "public_research_dataset",
-    "sourceType": "public_metadata"
+    "sourceType": "public_metadata",
+    "volume": {
+      "id": "agent-dataset",
+      "name": "agent-dataset",
+      "region": "modal",
+      "mountPath": "/data/datasets/humanities-literature-radar"
+    }
   },
   "profile": {
     "profileReady": true,
@@ -18,5 +24,7 @@
     "sampleRows": 10,
     "updatedAt": "2026-06-12T19:57:28.714Z"
   },
-  "dashboardUrl": "https://dashboard.alpharesearch.nyc/datasets/humanities-literature-radar"
+  "dashboardUrl": "https://dashboard.alpharesearch.nyc/datasets/humanities-literature-radar",
+  "promotedAt": "2026-06-12T20:04:48.161Z",
+  "promotionEndpoint": "/api/admin/datasets/prebuilt-ready"
 }

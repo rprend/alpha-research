@@ -118,13 +118,13 @@ Current committed corpus:
 - 593 quantitative/computational humanities candidates
 - sources represented in processed records: arXiv, Crossref, OpenAlex, DOAJ, OSF Preprints / SocArXiv, Knowledge Commons Works / Humanities Commons
 - monitor baseline: 1,951 records absent from bootstrap baseline, including 1,155 genuinely new publications and 796 newly discovered old records
-- dataset registration: stable id `humanities-literature-radar`, Modal bundle synced, control-plane profile attached with 26 schema fields and 10 sample rows; CLI dataset row is registered but still `created`/`draft`
+- dataset registration: stable id `humanities-literature-radar`, Modal bundle synced, control-plane profile attached with 26 schema fields and 10 sample rows, live dataset row promoted to `ready`/`ready` with manifest `/data/datasets/humanities-literature-radar/manifest.json`
 - readiness: ready for editorial review with source-coverage caveats
 
 Next implementation moves:
 
 - copyedit the publication handoff into a field-map post
-- promote the registered literature-radar dataset row from `created`/`draft` to ready through an admin/platform path
+- run a remote smoke question against the ready `humanities-literature-radar` dataset and cite processed source records
 - run the recurring monitor after the next broad backfill with `--prior-works`
 - replace bounded DOAJ search with public dump or OAI-PMH harvest
 - improve NBER extraction or switch to an official metadata route if available
