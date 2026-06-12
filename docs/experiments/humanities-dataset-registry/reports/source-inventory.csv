@@ -1,0 +1,16 @@
+id,name,domain,access_mode,access_status,records_or_signals,readiness_bucket,url
+cleveland-art-open-access,Cleveland Museum of Art Open Access API,museum-collections,json-api,accessible,1,ready-now,https://openaccess-api.clevelandart.org/api/artworks/?limit=1
+wikidata,Wikidata,linked-open-data,sparql-and-dumps,accessible,7,ready-now,https://www.wikidata.org/wiki/Wikidata:Data_access
+library-of-congress-digital-collections,Library of Congress Digital Collections,archives-library,json-api,accessible,15,ready-now,https://www.loc.gov/collections/?fo=json
+met-collection-api,Metropolitan Museum of Art Collection API,museum-collections,json-api,accessible,501719,ready-now,https://collectionapi.metmuseum.org/public/collection/v1/objects
+open-syllabus,Open Syllabus,teaching-syllabi,portal-and-exports,accessible,1,ready-now,https://opensyllabus.org/
+project-gutenberg,Project Gutenberg,books-literature,bulk-files-and-catalog,accessible,3,ready-now,https://www.gutenberg.org/
+smithsonian-open-access,Smithsonian Open Access,museum-collections,api-and-bulk,http-error,0,blocked-or-constrained,https://www.si.edu/openaccess
+chronicling-america,Chronicling America,newspapers,json-api,http-error,0,blocked-or-constrained,https://chroniclingamerica.loc.gov/search/pages/results/?andtext=democracy&format=json&rows=1
+dataverse-humanities,Harvard Dataverse Humanities Search,data-repository,json-api,accessible,2,needs-source-work,https://dataverse.harvard.edu/api/search?q=humanities&per_page=1
+knowledge-commons-works,Knowledge Commons Works,scholarly-repository,json-api,accessible,4,needs-source-work,https://works.hcommons.org/api/records?q=digital%20humanities&size=1
+zenodo-humanities,Zenodo Humanities Search,data-repository,json-api,accessible,3,needs-source-work,https://zenodo.org/api/records?q=humanities&size=1
+hathitrust-research-center,HathiTrust Research Center,books-library,research-platform,accessible,0,needs-source-work,https://analytics.hathitrust.org/
+rijksmuseum-api,Rijksmuseum API,museum-collections,json-api,http-error,0,blocked-or-constrained,https://www.rijksmuseum.nl/api/en/collection?key=QF1RZbsp&format=json&ps=1
+internet-archive-metadata,Internet Archive Metadata API,books-media-web,json-api,accessible,0,needs-source-work,https://archive.org/metadata/prideandprejudice00aust_1
+dpla,Digital Public Library of America,aggregated-archives,api-or-portal,http-error,0,blocked-or-constrained,https://dp.la/

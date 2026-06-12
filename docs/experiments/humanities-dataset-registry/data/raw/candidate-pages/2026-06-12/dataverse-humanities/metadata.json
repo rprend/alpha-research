@@ -1,0 +1,22 @@
+{
+  "id": "dataverse-humanities",
+  "name": "Harvard Dataverse Humanities Search",
+  "domain": "data-repository",
+  "url": "https://dataverse.harvard.edu/api/search?q=humanities&per_page=1",
+  "accessMode": "json-api",
+  "licenseClarity": "medium",
+  "structuredData": "high",
+  "timeDepth": "medium",
+  "entityRichness": "medium",
+  "normalizationBurden": "medium",
+  "essayPotential": "medium",
+  "starterQuestion": "Which humanities data deposits exist in Dataverse and how reusable are they?",
+  "qualityRisk": "Metadata quality and file-level accessibility vary by deposit.",
+  "fetchedAt": "2026-06-12T18:33:50.941Z",
+  "status": 200,
+  "bytes": 1413,
+  "title": "Harvard Dataverse Humanities Search",
+  "wordCount": 137,
+  "parsedRecordCount": 2,
+  "parsedRecordCountSource": "json-structure"
+}

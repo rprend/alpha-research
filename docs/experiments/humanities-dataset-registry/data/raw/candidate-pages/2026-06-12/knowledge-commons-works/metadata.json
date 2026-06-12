@@ -1,0 +1,22 @@
+{
+  "id": "knowledge-commons-works",
+  "name": "Knowledge Commons Works",
+  "domain": "scholarly-repository",
+  "url": "https://works.hcommons.org/api/records?q=digital%20humanities&size=1",
+  "accessMode": "json-api",
+  "licenseClarity": "medium",
+  "structuredData": "high",
+  "timeDepth": "medium",
+  "entityRichness": "medium",
+  "normalizationBurden": "medium",
+  "essayPotential": "medium",
+  "starterQuestion": "What methods and topics appear in open humanities repository records?",
+  "qualityRisk": "Repository coverage is field- and community-specific.",
+  "fetchedAt": "2026-06-12T18:33:49.075Z",
+  "status": 200,
+  "bytes": 15812,
+  "title": "Knowledge Commons Works",
+  "wordCount": 188,
+  "parsedRecordCount": 4,
+  "parsedRecordCountSource": "json-structure"
+}

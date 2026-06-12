@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-06-12T18:33:51.043Z",
+  "status": "ready-for-editorial-review",
+  "checks": [
+    {
+      "id": "candidate-count",
+      "label": "At least 12 candidate humanities datasets are ranked",
+      "status": "pass",
+      "evidence": "15 candidates"
+    },
+    {
+      "id": "accessible-candidates",
+      "label": "At least 10 candidates are accessible in the latest probe",
+      "status": "pass",
+      "evidence": "11 accessible candidates"
+    },
+    {
+      "id": "ready-now",
+      "label": "At least 5 candidates are ready-now for first study specs",
+      "status": "pass",
+      "evidence": "6 ready-now candidates"
+    },
+    {
+      "id": "domain-diversity",
+      "label": "Ready-now candidates cover at least three domains",
+      "status": "pass",
+      "evidence": "museum-collections, linked-open-data, archives-library, teaching-syllabi, books-literature"
+    },
+    {
+      "id": "public-draft",
+      "label": "Public draft exists and distinguishes readiness from representativeness",
+      "status": "pass",
+      "evidence": "reports/public-draft.md"
+    }
+  ],
+  "nextMoves": [
+    "Create study specs for the top three ready-now corpora.",
+    "Add file-level and API-pagination probes for the highest-ranked candidates.",
+    "Add licensing notes before any public redistribution of derived data.",
+    "Separate corpus availability from cultural representativeness in every draft."
+  ]
+}

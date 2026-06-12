@@ -190,6 +190,41 @@ Next implementation moves:
 - add audited anthology tables of contents before anthologization claims
 - add edition-aware normalization before library or anthology trend claims
 
+### Humanities Dataset Registry
+
+Path: `docs/experiments/humanities-dataset-registry/`
+
+Status: source-probed research-agenda artifact ready for editorial review.
+
+Implemented:
+
+- candidate dataset registry
+- access and metadata probe
+- readiness scoring model
+- ranked dataset table
+- source inventory
+- `report.html`
+- `result.json`
+- `work.md`
+- `public-draft.md`
+- readiness gate
+- one-command pipeline runner
+
+Current corpus:
+
+- 15 candidate humanities corpora
+- 11 accessible candidates in the latest run
+- 6 ready-now candidates
+- domains represented: museum collections, linked open data, archives/library, teaching syllabi, books/literature, newspapers, data repositories, scholarly repositories, books/library, books/media/web, aggregated archives
+- readiness: ready for editorial review as a research-agenda artifact
+
+Next implementation moves:
+
+- create study specs for the top three ready-now corpora
+- add file-level and pagination probes for the highest-ranked APIs
+- add explicit licensing notes before publishing derived datasets
+- turn one ready-now corpus into a first public essay
+
 ## Editorial Formats
 
 - `what-changed`: longitudinal study of cultural, institutional, scholarly, or semantic change

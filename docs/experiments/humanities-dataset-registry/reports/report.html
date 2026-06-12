@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Humanities Dataset Registry</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.5; margin: 40px auto; max-width: 1120px; color: #1f2933; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0 28px; }
+    th, td { border-bottom: 1px solid #d9e2ec; padding: 8px; text-align: left; vertical-align: top; }
+    th { background: #f0f4f8; }
+    .stat { display: inline-block; border: 1px solid #d9e2ec; padding: 10px 12px; margin: 0 8px 8px 0; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h1>Humanities Dataset Registry</h1>
+  <p>Humanities datasets become essay-ready when they combine public access, structured metadata, clear rights, time depth, and a question that respects coverage bias.</p>
+  <p>
+    <span class="stat"><strong>15</strong> candidates</span>
+    <span class="stat"><strong>11</strong> accessible</span>
+    <span class="stat"><strong>6</strong> ready-now</span>
+  </p>
+  <h2>Ranked Candidates</h2>
+  <table><tr><th>name</th><th>domain</th><th>access_mode</th><th>readiness_score</th><th>readiness_bucket</th><th>starter_question</th><th>quality_risk</th></tr><tr><td>Cleveland Museum of Art Open Access API</td><td>museum-collections</td><td>json-api</td><td>103</td><td>ready-now</td><td>What acquisition, creation-date, and department patterns appear in open museum data?</td><td>One museum collection is analytically rich but institution-specific.</td></tr>
+<tr><td>Wikidata</td><td>linked-open-data</td><td>sparql-and-dumps</td><td>96</td><td>ready-now</td><td>How are authors, artworks, institutions, languages, and movements connected in public linked data?</td><td>Wikidata reflects contributor attention and ontology gaps.</td></tr>
+<tr><td>Library of Congress Digital Collections</td><td>archives-library</td><td>json-api</td><td>93</td><td>ready-now</td><td>Which subjects, formats, and eras dominate digitized public collections?</td><td>Collection metadata reflects digitization and cataloging priorities.</td></tr>
+<tr><td>Metropolitan Museum of Art Collection API</td><td>museum-collections</td><td>json-api</td><td>93</td><td>ready-now</td><td>How do object dates, geographies, departments, and acquisition histories differ across the Met collection?</td><td>Collection API records vary in completeness and public-domain image availability.</td></tr>
+<tr><td>Open Syllabus</td><td>teaching-syllabi</td><td>portal-and-exports</td><td>86</td><td>ready-now</td><td>Which works and authors appear in syllabi across institutions, fields, and time?</td><td>Public access and export terms need explicit review before automated collection.</td></tr>
+<tr><td>Project Gutenberg</td><td>books-literature</td><td>bulk-files-and-catalog</td><td>86</td><td>ready-now</td><td>How do genres, publication dates, and author cohorts shape public-domain literary corpora?</td><td>Public-domain availability is not the same as literary representativeness.</td></tr>
+<tr><td>Smithsonian Open Access</td><td>museum-collections</td><td>api-and-bulk</td><td>83</td><td>blocked-or-constrained</td><td>What kinds of objects are most visible in open museum collection metadata?</td><td>Open access coverage may differ by Smithsonian unit and object type.</td></tr>
+<tr><td>Chronicling America</td><td>newspapers</td><td>json-api</td><td>76</td><td>blocked-or-constrained</td><td>How did terms like democracy, empire, labor, race, or civilization move through newspapers over time?</td><td>OCR quality and newspaper coverage vary by place and period.</td></tr>
+<tr><td>Harvard Dataverse Humanities Search</td><td>data-repository</td><td>json-api</td><td>69</td><td>needs-source-work</td><td>Which humanities data deposits exist in Dataverse and how reusable are they?</td><td>Metadata quality and file-level accessibility vary by deposit.</td></tr>
+<tr><td>Knowledge Commons Works</td><td>scholarly-repository</td><td>json-api</td><td>69</td><td>needs-source-work</td><td>What methods and topics appear in open humanities repository records?</td><td>Repository coverage is field- and community-specific.</td></tr>
+<tr><td>Zenodo Humanities Search</td><td>data-repository</td><td>json-api</td><td>69</td><td>needs-source-work</td><td>What kinds of humanities datasets are deposited in general-purpose repositories?</td><td>Search results mix papers, data, software, and teaching artifacts.</td></tr>
+<tr><td>HathiTrust Research Center</td><td>books-library</td><td>research-platform</td><td>68</td><td>needs-source-work</td><td>What can be measured from extracted features across historical books?</td><td>Access workflows and rights constraints require setup before public artifacts.</td></tr>
+<tr><td>Rijksmuseum API</td><td>museum-collections</td><td>json-api</td><td>63</td><td>blocked-or-constrained</td><td>How do object type, maker, and period patterns appear in a national museum API?</td><td>API key and terms should be reviewed before broad collection.</td></tr>
+<tr><td>Internet Archive Metadata API</td><td>books-media-web</td><td>json-api</td><td>58</td><td>needs-source-work</td><td>How do editions, scans, and metadata clusters form around canonical texts?</td><td>Identifier-level metadata is rich but messy and uneven.</td></tr>
+<tr><td>Digital Public Library of America</td><td>aggregated-archives</td><td>api-or-portal</td><td>45</td><td>blocked-or-constrained</td><td>Which institutions and collection types dominate aggregated cultural metadata?</td><td>Aggregator metadata mixes local schemas and rights statements.</td></tr></table>
+  <h2>Caveats</h2>
+  <ul><li>A dataset being public does not mean it is representative of culture.</li><li>License clarity, API access, and metadata structure are separate readiness dimensions.</li><li>Aggregators can be analytically powerful but mix institutions, schemas, and rights statements.</li><li>Many humanities corpora are useful only after domain-specific normalization.</li></ul>
+</body>
+</html>

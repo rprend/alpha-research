@@ -1,0 +1,22 @@
+{
+  "id": "hathitrust-research-center",
+  "name": "HathiTrust Research Center",
+  "domain": "books-library",
+  "url": "https://analytics.hathitrust.org/",
+  "accessMode": "research-platform",
+  "licenseClarity": "medium",
+  "structuredData": "medium",
+  "timeDepth": "high",
+  "entityRichness": "medium",
+  "normalizationBurden": "high",
+  "essayPotential": "high",
+  "starterQuestion": "What can be measured from extracted features across historical books?",
+  "qualityRisk": "Access workflows and rights constraints require setup before public artifacts.",
+  "fetchedAt": "2026-06-12T18:33:44.796Z",
+  "status": 200,
+  "bytes": 627,
+  "title": "HTRC Analytics",
+  "wordCount": 2,
+  "parsedRecordCount": 0,
+  "parsedRecordCountSource": "rough-page-signal-count"
+}

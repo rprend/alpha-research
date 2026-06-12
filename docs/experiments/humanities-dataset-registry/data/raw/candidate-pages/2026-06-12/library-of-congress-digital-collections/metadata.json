@@ -1,0 +1,22 @@
+{
+  "id": "library-of-congress-digital-collections",
+  "name": "Library of Congress Digital Collections",
+  "domain": "archives-library",
+  "url": "https://www.loc.gov/collections/?fo=json",
+  "accessMode": "json-api",
+  "licenseClarity": "medium",
+  "structuredData": "high",
+  "timeDepth": "high",
+  "entityRichness": "high",
+  "normalizationBurden": "medium",
+  "essayPotential": "high",
+  "starterQuestion": "Which subjects, formats, and eras dominate digitized public collections?",
+  "qualityRisk": "Collection metadata reflects digitization and cataloging priorities.",
+  "fetchedAt": "2026-06-12T18:33:39.451Z",
+  "status": 200,
+  "bytes": 887303,
+  "title": "Library of Congress Digital Collections",
+  "wordCount": 82851,
+  "parsedRecordCount": 15,
+  "parsedRecordCountSource": "json-structure"
+}

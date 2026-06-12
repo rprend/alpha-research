@@ -1,0 +1,22 @@
+{
+  "id": "project-gutenberg",
+  "name": "Project Gutenberg",
+  "domain": "books-literature",
+  "url": "https://www.gutenberg.org/",
+  "accessMode": "bulk-files-and-catalog",
+  "licenseClarity": "high",
+  "structuredData": "medium",
+  "timeDepth": "high",
+  "entityRichness": "medium",
+  "normalizationBurden": "medium",
+  "essayPotential": "high",
+  "starterQuestion": "How do genres, publication dates, and author cohorts shape public-domain literary corpora?",
+  "qualityRisk": "Public-domain availability is not the same as literary representativeness.",
+  "fetchedAt": "2026-06-12T18:33:37.806Z",
+  "status": 200,
+  "bytes": 26033,
+  "title": "Free eBooks | Project Gutenberg",
+  "wordCount": 650,
+  "parsedRecordCount": 3,
+  "parsedRecordCountSource": "rough-page-signal-count"
+}

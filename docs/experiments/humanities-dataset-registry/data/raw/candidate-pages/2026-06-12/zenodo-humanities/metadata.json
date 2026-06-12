@@ -1,0 +1,22 @@
+{
+  "id": "zenodo-humanities",
+  "name": "Zenodo Humanities Search",
+  "domain": "data-repository",
+  "url": "https://zenodo.org/api/records?q=humanities&size=1",
+  "accessMode": "json-api",
+  "licenseClarity": "medium",
+  "structuredData": "high",
+  "timeDepth": "medium",
+  "entityRichness": "medium",
+  "normalizationBurden": "medium",
+  "essayPotential": "medium",
+  "starterQuestion": "What kinds of humanities datasets are deposited in general-purpose repositories?",
+  "qualityRisk": "Search results mix papers, data, software, and teaching artifacts.",
+  "fetchedAt": "2026-06-12T18:33:50.558Z",
+  "status": 200,
+  "bytes": 11292,
+  "title": "Zenodo Humanities Search",
+  "wordCount": 51,
+  "parsedRecordCount": 3,
+  "parsedRecordCountSource": "json-structure"
+}

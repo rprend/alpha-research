@@ -122,8 +122,8 @@
       "id": "what-counts-as-humanities-dataset",
       "title": "What Counts As A Humanities Dataset?",
       "format": "research-agenda",
-      "status": "idea",
-      "experimentPath": null,
+      "status": "analysis-ready",
+      "experimentPath": "docs/experiments/humanities-dataset-registry/",
       "researchQuestion": "What reusable corpora could support new quantitative humanities essays, and which are ready for immediate analysis?",
       "unitOfAnalysis": "candidate dataset or corpus",
       "primarySources": [
@@ -140,7 +140,7 @@
         "Dataverse",
         "Knowledge Commons"
       ],
-      "firstRunnableBuild": "Run a research scout over known corpus registries, audit the top 25 candidates, and rank them by access, coverage, licensing, and essay potential.",
+      "firstRunnableBuild": "Dataset registry pipeline exists for 15 candidate corpora across museum collections, books, newspapers, archives, linked data, repositories, and syllabi. Latest run produced 11 accessible candidates and 6 ready-now candidates.",
       "publicationAngle": "A practical field guide to humanities datasets that can become public essays, not just academic infrastructure.",
       "qualityRisks": [
         "dataset descriptions often overstate completeness",

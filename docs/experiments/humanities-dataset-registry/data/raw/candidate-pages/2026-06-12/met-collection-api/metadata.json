@@ -1,0 +1,22 @@
+{
+  "id": "met-collection-api",
+  "name": "Metropolitan Museum of Art Collection API",
+  "domain": "museum-collections",
+  "url": "https://collectionapi.metmuseum.org/public/collection/v1/objects",
+  "accessMode": "json-api",
+  "licenseClarity": "medium",
+  "structuredData": "high",
+  "timeDepth": "high",
+  "entityRichness": "high",
+  "normalizationBurden": "medium",
+  "essayPotential": "high",
+  "starterQuestion": "How do object dates, geographies, departments, and acquisition histories differ across the Met collection?",
+  "qualityRisk": "Collection API records vary in completeness and public-domain image availability.",
+  "fetchedAt": "2026-06-12T18:33:43.547Z",
+  "status": 200,
+  "bytes": 3426437,
+  "title": "Metropolitan Museum of Art Collection API",
+  "wordCount": 1,
+  "parsedRecordCount": 501719,
+  "parsedRecordCountSource": "json-structure"
+}
