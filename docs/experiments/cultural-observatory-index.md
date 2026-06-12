@@ -2,6 +2,32 @@
 
 The Cultural Observatory / Archive Signals program is a public research and publishing system for data-driven essays about cultural, intellectual, literary, institutional, and scholarly change over time.
 
+## Operating Direction
+
+The program goal is a publishing engine, not a small demo catalog. Small pulls are acceptable for source probes, schema discovery, and smoke tests; public claims should come from broad backfills, full-source harvests where access permits, recurring monitors, or clearly labeled feasibility artifacts.
+
+Working brand direction:
+
+- `Archive Signals` for the essay/newsletter voice.
+- `The Cultural Observatory` for the research-program and dataset wrapper.
+- `quantitative humanities` as a descriptive tag, not the main title.
+
+Current production priorities:
+
+1. Publish from the existing copyedit-ready handoffs.
+2. Upgrade bounded corpora to publication-scale or full-source corpora where the source permits it.
+3. Prove every registered dataset can support remote Alpha Research runs that cite source records.
+4. Convert successful one-off pipelines into recurring monitors.
+5. Use AI research scouts to propose new study directions, then require human source audits before promoting them into experiments.
+
+Scale tiers used across this index:
+
+- `schema-probe`: validates access and fields only.
+- `pilot-corpus`: proves normalization, classification, and chart shape.
+- `publication-corpus`: broad enough to support the stated essay claim.
+- `monitor-corpus`: repeatable publication corpus with a baseline for new or changed records.
+- `full-source-corpus`: all safely accessible records from a source.
+
 ## Implemented Tracks
 
 ### Publication Queue

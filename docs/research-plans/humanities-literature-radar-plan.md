@@ -12,6 +12,27 @@ The first corpus build still matters, but it serves a larger goal: a Substack/si
 
 The default posture is full-scale collection where a source permits it. Small pulls are only for schema probes, smoke tests, and cost/rate-limit validation. Public conclusions should come from broad backfills, recurring monitors, or clearly bounded corpora, not deliberately tiny slices.
 
+## Scale Doctrine
+
+This program should not optimize for toy demonstrations. It should optimize for publishable empirical leverage. A dataset is allowed to be small only when the world is small, the source is bounded, or the essay is explicitly a feasibility note. Otherwise, the expected path is:
+
+1. Probe small to understand schema, access, rate limits, and licensing.
+2. Backfill as broadly as the source safely permits.
+3. Monitor on a recurring cadence.
+4. Publish from the broad corpus, not from the probe.
+
+Use these scale tiers in every study spec:
+
+- `schema-probe`: 10 to 500 records, used only to validate access and fields.
+- `pilot-corpus`: enough records to test normalization, dedupe, classification, and chart shape; not enough for strong public trend claims unless the source itself is narrow.
+- `publication-corpus`: broad enough to support the article's stated claim by year, source, genre, field, or institution.
+- `monitor-corpus`: a publication corpus with a repeatable update path and a baseline for detecting new or changed records.
+- `full-source-corpus`: all records available from a source under the access terms, when technically and legally feasible.
+
+Every public artifact should name which tier it uses. If a piece uses a pilot corpus, the public claim must be framed as "what this source probe shows" or "what a full study should measure," not as a general fact about the field.
+
+The preferred unit of ambition is a season of accumulating corpora, not isolated scripts. Small slices are acceptable as engineering checkpoints; they are not the research product.
+
 ## North Star
 
 Create a publication that can repeatedly answer:
@@ -94,6 +115,21 @@ The publication standard is:
 - state limitations plainly
 - link to reusable artifacts when possible
 - separate what the evidence shows from what it merely suggests
+
+## Product Concept
+
+The output should be a Substack/site plus a reusable research archive. The public brand can be `Archive Signals` or `The Cultural Observatory`, with `quantitative humanities` as the category label rather than the masthead.
+
+The public site should have four durable surfaces:
+
+1. Essays: narrative posts with charts, representative records, limitations, and a clear claim.
+2. Field maps: living pages for domains such as AI and the humanities, museum language, canon drift, or humanities datasets.
+3. Dataset notes: concise data cards for reusable corpora, including source coverage, fields, known gaps, and starter questions.
+4. Research agendas: AI-assisted, human-audited proposals for studies that could expand what the field knows.
+
+Alpha Research is the backend evidence system for those surfaces. It should preserve provenance, run remote analyses, generate artifacts, and make it possible to move from a public sentence back to a record, table, chart, or source inventory.
+
+The first public milestone is not "launch a tool." It is to publish a first season of essays where each post leaves behind a durable dataset or run artifact that makes the next post easier.
 
 ## Operating Thesis
 
@@ -243,6 +279,21 @@ Think in seasons rather than isolated experiments. A plausible first season has 
    - A field-map essay using literature-radar outputs to show where computational and quantitative methods are already active, and where traditional questions could be made measurable.
 
 Each piece should leave behind an experiment folder, source inventory, processed table, report, public draft, and follow-up queue.
+
+## Current Implementation Status
+
+As of 2026-06-12, the program has moved beyond planning. The repository contains a working Cultural Observatory index and multiple article-ready or near article-ready experiment folders:
+
+- `docs/experiments/humanities-literature-radar/`: v1 field-map corpus for AI, computational, and quantitative humanities publishing, with processed records, report, public draft, publication handoff, dataset briefing, dataset bundle, monitor baseline, and Alpha Research control-plane registration.
+- `docs/experiments/university-mission-statement-drift/`: longitudinal current-page plus Wayback source layer for a "What Changed?" essay on institutional language.
+- `docs/experiments/museum-language-drift/`: longitudinal source probe for museum language around civilization, provenance, repatriation, access, community, and research.
+- `docs/experiments/canon-drift-feasibility/`: feasibility artifact for syllabus, anthology, library, and citation signals, framed as a methods piece rather than a premature canon-change claim.
+- `docs/experiments/humanities-dataset-registry/`: research-agenda artifact ranking reusable humanities corpora and generating first runnable study specs.
+- `docs/experiments/cleveland-museum-collection-shape/`: first museum-collection shape essay from an open museum API, currently bounded but with a clear full-collection upgrade path.
+- `docs/experiments/research-backlog/` and `docs/experiments/research-scouts/`: AI-assisted, human-audited proposal workflow.
+- `docs/experiments/publication-queue/`: editorial queue and copyedit handoff surface.
+
+The plan from here should therefore emphasize scale-up, publication polish, recurring monitors, and remote-run proof, not another round of abstract source brainstorming.
 
 ## Alpha Research Role
 
