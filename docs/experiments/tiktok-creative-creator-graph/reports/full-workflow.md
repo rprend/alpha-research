@@ -1,6 +1,6 @@
 # Full Workflow
 
-Generated: 2026-06-12T19:49:24.295Z
+Generated: 2026-06-12T19:52:35.934Z
 
 Complete: true
 
@@ -13,4 +13,5 @@ Complete: true
 - resolve_identities: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/resolve-identities.mjs`)
 - build_acquisition_batches: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-acquisition-batches.mjs`)
 - build_release_package: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-release-package.mjs`)
+- verify_release_package: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/verify-release-package.mjs`)
 - check_readiness: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/check-readiness.mjs`)

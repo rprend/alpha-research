@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T19:49:24.292Z",
+  "generated_at": "2026-06-12T19:52:35.930Z",
   "complete": false,
   "counts": {
     "accounts": 9,
@@ -16,7 +16,8 @@
     "acquisition_tasks": 31,
     "source_yield_rows": 7,
     "identities": 9,
-    "release_useful_creators": 6
+    "release_useful_creators": 6,
+    "release_verification_checks": 44
   },
   "checks": [
     {
@@ -68,6 +69,11 @@
       "id": "release_package",
       "status": "pass",
       "evidence": "6 useful creators exported for release"
+    },
+    {
+      "id": "release_verification",
+      "status": "pass",
+      "evidence": "44 release checks evaluated"
     },
     {
       "id": "useful_account_target",

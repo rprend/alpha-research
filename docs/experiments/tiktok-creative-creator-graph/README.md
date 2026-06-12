@@ -73,6 +73,12 @@ Build release exports:
 node docs/experiments/tiktok-creative-creator-graph/scripts/build-release-package.mjs
 ```
 
+Verify release exports:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/verify-release-package.mjs
+```
+
 Check readiness against the full 50k-account target:
 
 ```bash
@@ -210,6 +216,8 @@ The pipeline writes:
 - `reports/full-workflow.json`
 - `reports/release-package.md`
 - `reports/release-package.json`
+- `reports/release-verification.md`
+- `reports/release-verification.json`
 - `reports/pipeline-run.json`
 
 ## Production Acquisition Loop
@@ -226,8 +234,9 @@ The pipeline writes:
 10. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/analyze-source-yield.mjs` so future acquisition batches prioritize sources and queries that produce useful creators.
 11. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/resolve-identities.mjs` so duplicate risks and cross-platform evidence stay auditable.
 12. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/build-release-package.mjs` to generate stable handoff exports.
-13. Use reviewed accepted/rejected/benchmark outputs to tune sources and scoring.
-14. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
+13. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/verify-release-package.mjs` to validate hashes, row counts, required fields, identity uniqueness, and release/file consistency.
+14. Use reviewed accepted/rejected/benchmark outputs to tune sources and scoring.
+15. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
 
 ## Current Limitations
 

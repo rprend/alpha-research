@@ -33,6 +33,11 @@ function main() {
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
   const identities = readJsonl(join(processedDir, 'creator_identities.jsonl'))
   const releaseUseful = readJsonl(join(experimentDir, 'data/release/useful_creators.jsonl'))
+  const releaseVerification = (() => {
+    const path = join(reportsDir, 'release-verification.json')
+    if (!existsSync(path)) return null
+    return JSON.parse(readFileSync(path, 'utf8'))
+  })()
 
   const usefulAccounts = scores.filter((row) => ['useful', 'excellent'].includes(row.status)).length
   const excellentAccounts = scores.filter((row) => row.status === 'excellent').length
@@ -91,6 +96,11 @@ function main() {
       evidence: `${releaseUseful.length} useful creators exported for release`,
     },
     {
+      id: 'release_verification',
+      status: releaseVerification?.complete ? 'pass' : 'fail',
+      evidence: releaseVerification ? `${releaseVerification.checks?.length ?? 0} release checks evaluated` : 'release verification missing',
+    },
+    {
       id: 'useful_account_target',
       status: usefulAccounts >= targetUsefulAccounts ? 'pass' : 'incomplete',
       evidence: `${usefulAccounts}/${targetUsefulAccounts} useful accounts`,
@@ -127,6 +137,7 @@ function main() {
       source_yield_rows: sourceYield.length,
       identities: identities.length,
       release_useful_creators: releaseUseful.length,
+      release_verification_checks: releaseVerification?.checks?.length ?? 0,
     },
     checks,
     remaining: {
@@ -160,6 +171,7 @@ Complete: ${summary.complete}
 - Source yield rows: ${summary.counts.source_yield_rows}
 - Identities: ${summary.counts.identities}
 - Release useful creators: ${summary.counts.release_useful_creators}
+- Release verification checks: ${summary.counts.release_verification_checks}
 
 ## Checks
 

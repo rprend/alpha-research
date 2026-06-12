@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T19:49:24.292Z
+Generated: 2026-06-12T19:52:35.930Z
 
 Complete: false
 
@@ -21,6 +21,7 @@ Complete: false
 - Source yield rows: 7
 - Identities: 9
 - Release useful creators: 6
+- Release verification checks: 44
 
 ## Checks
 
@@ -34,6 +35,7 @@ Complete: false
 - source_yield: pass (7 source/query yield rows generated)
 - identity_resolution: pass (9 creator identities resolved)
 - release_package: pass (6 useful creators exported for release)
+- release_verification: pass (44 release checks evaluated)
 - useful_account_target: incomplete (5/50000 useful accounts)
 - excellent_account_target: incomplete (1/5000 excellent accounts)
 - human_review_target: incomplete (4/500 review decisions applied)

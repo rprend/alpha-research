@@ -1,0 +1,276 @@
+{
+  "generated_at": "2026-06-12T19:52:35.895Z",
+  "complete": true,
+  "checks": [
+    {
+      "id": "manifest_exists",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "/Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/tiktok-creative-creator-graph/data/release/manifest.json"
+    },
+    {
+      "id": "file_exists:useful_creators.jsonl",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "data/release/useful_creators.jsonl"
+    },
+    {
+      "id": "file_exists:useful_creators.csv",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "data/release/useful_creators.csv"
+    },
+    {
+      "id": "file_exists:benchmark_creators.jsonl",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "data/release/benchmark_creators.jsonl"
+    },
+    {
+      "id": "file_exists:benchmark_creators.csv",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "data/release/benchmark_creators.csv"
+    },
+    {
+      "id": "file_exists:rejected_creators.jsonl",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "data/release/rejected_creators.jsonl"
+    },
+    {
+      "id": "file_exists:rejected_creators.csv",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "data/release/rejected_creators.csv"
+    },
+    {
+      "id": "file_exists:review_queue.csv",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "data/release/review_queue.csv"
+    },
+    {
+      "id": "file_exists:all_scored_creators.csv",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "data/release/all_scored_creators.csv"
+    },
+    {
+      "id": "file_exists:DATA_CARD.md",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "data/release/DATA_CARD.md"
+    },
+    {
+      "id": "sha256:data/release/useful_creators.jsonl",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "expected 4ef7921fc32bb5e698bf57adb734e2fe799a1f86ce213f6061b82c0aa37718c3, actual 4ef7921fc32bb5e698bf57adb734e2fe799a1f86ce213f6061b82c0aa37718c3"
+    },
+    {
+      "id": "row_count:data/release/useful_creators.jsonl",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "expected 6, actual 6"
+    },
+    {
+      "id": "sha256:data/release/useful_creators.csv",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "expected 26227079efb9349eafc5caf7048bbbdde45709bbf7aa924fa42adc4bf7911280, actual 26227079efb9349eafc5caf7048bbbdde45709bbf7aa924fa42adc4bf7911280"
+    },
+    {
+      "id": "row_count:data/release/useful_creators.csv",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "expected 6, actual 6"
+    },
+    {
+      "id": "sha256:data/release/benchmark_creators.jsonl",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "expected c07bcbc935eb729cc05652de365022fe203c7f1d0a7af6c5efc2a95ce11788a0, actual c07bcbc935eb729cc05652de365022fe203c7f1d0a7af6c5efc2a95ce11788a0"
+    },
+    {
+      "id": "row_count:data/release/benchmark_creators.jsonl",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "expected 1, actual 1"
+    },
+    {
+      "id": "sha256:data/release/benchmark_creators.csv",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "expected 6012d3df1e55af70b070b2cba86d1ac72b1dc2677d4c8f0a871466884499f0aa, actual 6012d3df1e55af70b070b2cba86d1ac72b1dc2677d4c8f0a871466884499f0aa"
+    },
+    {
+      "id": "row_count:data/release/benchmark_creators.csv",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "expected 1, actual 1"
+    },
+    {
+      "id": "sha256:data/release/rejected_creators.jsonl",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "expected c13d584c4ba6f1ccaecbc08bcee5f34812e6b9c798106284559a454cb9f8288b, actual c13d584c4ba6f1ccaecbc08bcee5f34812e6b9c798106284559a454cb9f8288b"
+    },
+    {
+      "id": "row_count:data/release/rejected_creators.jsonl",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "expected 2, actual 2"
+    },
+    {
+      "id": "sha256:data/release/rejected_creators.csv",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "expected ba8b93a338277fa924a32e4601f492734cf7ea0221d02f3f543b14c864056c9b, actual ba8b93a338277fa924a32e4601f492734cf7ea0221d02f3f543b14c864056c9b"
+    },
+    {
+      "id": "row_count:data/release/rejected_creators.csv",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "expected 2, actual 2"
+    },
+    {
+      "id": "sha256:data/release/review_queue.csv",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "expected b6aff5ebb5957cebff3525872da4eb7f2631fdb1cbd9344c4fecdb1ef2e08651, actual b6aff5ebb5957cebff3525872da4eb7f2631fdb1cbd9344c4fecdb1ef2e08651"
+    },
+    {
+      "id": "row_count:data/release/review_queue.csv",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "expected 5, actual 5"
+    },
+    {
+      "id": "sha256:data/release/all_scored_creators.csv",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "expected e57ad8e0b6cc474479fa2d8e72e78982695fba7fba5b0e9e95a547bd0a0f0802, actual e57ad8e0b6cc474479fa2d8e72e78982695fba7fba5b0e9e95a547bd0a0f0802"
+    },
+    {
+      "id": "row_count:data/release/all_scored_creators.csv",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "expected 9, actual 9"
+    },
+    {
+      "id": "required_column:identity_id",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "all_scored_creators.csv includes identity_id"
+    },
+    {
+      "id": "required_column:creator_id",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "all_scored_creators.csv includes creator_id"
+    },
+    {
+      "id": "required_column:handle",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "all_scored_creators.csv includes handle"
+    },
+    {
+      "id": "required_column:profile_url",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "all_scored_creators.csv includes profile_url"
+    },
+    {
+      "id": "required_column:primary_label",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "all_scored_creators.csv includes primary_label"
+    },
+    {
+      "id": "required_column:reviewed_status",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "all_scored_creators.csv includes reviewed_status"
+    },
+    {
+      "id": "required_column:overall_usefulness",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "all_scored_creators.csv includes overall_usefulness"
+    },
+    {
+      "id": "required_column:source_type",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "all_scored_creators.csv includes source_type"
+    },
+    {
+      "id": "required_column:duplicate_risk",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "all_scored_creators.csv includes duplicate_risk"
+    },
+    {
+      "id": "useful_statuses_valid",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "0 invalid useful rows"
+    },
+    {
+      "id": "rejected_statuses_valid",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "0 invalid rejected rows"
+    },
+    {
+      "id": "benchmark_statuses_valid",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "0 invalid benchmark rows"
+    },
+    {
+      "id": "canonical_identity_unique",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "0 duplicate canonical identities"
+    },
+    {
+      "id": "identity_present",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "0 rows missing identity_id"
+    },
+    {
+      "id": "score_present",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "0 rows missing overall_usefulness"
+    },
+    {
+      "id": "manifest_useful_count",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "manifest 6, file 6"
+    },
+    {
+      "id": "manifest_benchmark_count",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "manifest 1, file 1"
+    },
+    {
+      "id": "manifest_rejected_count",
+      "status": "pass",
+      "severity": "error",
+      "evidence": "manifest 2, file 2"
+    }
+  ],
+  "counts": {
+    "useful_creators": 6,
+    "benchmark_creators": 1,
+    "rejected_creators": 2,
+    "all_scored_creators": 9
+  }
+}
