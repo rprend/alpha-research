@@ -224,12 +224,28 @@ function main() {
   }
 
   for (const row of expansionQueue.filter((item) => item.priority <= 2).slice(0, maxItems)) {
+    const acquisitionSurface = row.expansion_type === 'resolve_mentioned_creator'
+      ? 'tiktok_profile_export'
+      : row.expansion_type === 'cross_platform_search'
+        ? 'cross_platform_search'
+        : row.expansion_type === 'hashtag_search'
+          ? 'tiktok_hashtag_export'
+          : row.expansion_type === 'yield_replay_search'
+            ? 'search_index'
+            : 'tiktok_creator_neighborhood_export'
+    const expectedOutput = row.expansion_type === 'resolve_mentioned_creator'
+      ? 'public creator profile and recent videos'
+      : row.expansion_type === 'cross_platform_search'
+        ? 'external pages linking to adjacent TikTok creator profiles'
+        : row.expansion_type === 'hashtag_search'
+          ? 'recent public videos and author profiles for adjacent hashtag'
+          : 'mentions, hashtags, collaborators, sounds, and recent videos'
     tasks.push(taskWithSignals({
       batch_id: `graph_${String(sequence).padStart(4, '0')}`,
-      acquisition_surface: row.expansion_type === 'resolve_mentioned_creator' ? 'tiktok_profile_export' : 'tiktok_creator_neighborhood_export',
+      acquisition_surface: acquisitionSurface,
       query: row.target,
       priority: row.priority,
-      expected_output: row.expansion_type === 'resolve_mentioned_creator' ? 'public creator profile and recent videos' : 'mentions, hashtags, collaborators, sounds, and recent videos',
+      expected_output: expectedOutput,
       import_target: 'data/raw/imports/graph-expansion-export.jsonl',
       notes: row.reason,
     }, yields, rubric, coverageByLabel))

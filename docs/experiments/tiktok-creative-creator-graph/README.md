@@ -95,6 +95,12 @@ Analyze which sources and queries produce useful creators:
 node docs/experiments/tiktok-creative-creator-graph/scripts/analyze-source-yield.mjs
 ```
 
+Enrich graph expansion targets from useful creators, bio-link adjacency, hashtags, and high-yield sources:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/build-adjacency-expansion.mjs
+```
+
 Build category coverage and quota gaps:
 
 ```bash

@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-12T21:30:55.656Z
+Generated: 2026-06-12T21:35:16.845Z
 
 ## Targets
 
@@ -42,32 +42,32 @@ Generated: 2026-06-12T21:30:55.656Z
 
 ## Next Batches
 
-Candidate frontier targets: 68
+Candidate frontier targets: 81
 
 | Seq | Rank | Score | Priority | Surface | Target |
 | ---: | ---: | ---: | ---: | --- | --- |
-| 1 | 1 | 80 | 1 | tiktok_hashtag_export | animation |
-| 2 | 2 | 80 | 1 | tiktok_hashtag_export | filmmaker |
-| 3 | 3 | 80 | 1 | tiktok_hashtag_export | shortfilm |
-| 4 | 4 | 80 | 1 | category_gap_search | site:tiktok.com/@ "editing" |
-| 5 | 5 | 80 | 1 | category_gap_search | site:tiktok.com/@ "editor" |
-| 6 | 6 | 80 | 1 | search_index | site:tiktok.com/@ "video editor" |
-| 7 | 7 | 80 | 1 | tiktok_hashtag_export | sketchcomedy |
-| 8 | 8 | 80 | 1 | tiktok_hashtag_export | vfxartist |
-| 9 | 9 | 75 | 1 | category_gap_search | site:tiktok.com/@ "actor performer" |
-| 10 | 10 | 75 | 1 | category_gap_search | site:tiktok.com/@ "actor" |
-| 11 | 11 | 75 | 1 | category_gap_search | site:tiktok.com/@ "actress" |
-| 12 | 12 | 75 | 1 | category_gap_search | site:tiktok.com/@ "comedian" |
-| 13 | 13 | 75 | 1 | category_gap_search | site:tiktok.com/@ "commercial director" |
-| 14 | 14 | 75 | 1 | category_gap_search | site:tiktok.com/@ "directed by" |
-| 15 | 15 | 75 | 1 | category_gap_search | site:tiktok.com/@ "director" |
-| 16 | 16 | 75 | 1 | category_gap_search | site:tiktok.com/@ "performer" |
-| 17 | 17 | 75 | 1 | category_gap_search | site:tiktok.com/@ "stand-up" |
-| 18 | 18 | 75 | 1 | category_gap_search | site:tiktok.com/@ "standup comedian" |
-| 19 | 19 | 75 | 1 | category_gap_search | site:tiktok.com/@ "standup" |
-| 20 | 20 | 75 | 1 | search_index | site:tiktok.com/@ comedian |
-| 21 | 21 | 75 | 1 | tiktok_hashtag_export | standupcomedy |
-| 22 | 22 | 72 | 2 | category_gap_search | site:tiktok.com/@ "animation" |
-| 23 | 23 | 72 | 2 | category_gap_search | site:tiktok.com/@ "cinematographer" |
-| 24 | 24 | 72 | 2 | category_gap_search | site:tiktok.com/@ "comedy sketch" |
-| 25 | 25 | 72 | 2 | category_gap_search | site:tiktok.com/@ "dop" |
+| 1 | 1 | 101 | 1 | search_index | filmmaker short film editing breakdown |
+| 2 | 2 | 90 | 2 | search_index | cinematographer lighting breakdown |
+| 3 | 3 | 89 | 2 | search_index | sketch comedian character comedy |
+| 4 | 4 | 89 | 2 | search_index | vfx artist animation blender |
+| 5 | 5 | 86 | 1 | tiktok_hashtag_export | animation |
+| 6 | 6 | 86 | 1 | tiktok_hashtag_export | cinematography |
+| 7 | 7 | 86 | 1 | tiktok_hashtag_export | filmmaker |
+| 8 | 8 | 86 | 1 | tiktok_hashtag_export | shortfilm |
+| 9 | 9 | 86 | 1 | tiktok_hashtag_export | sketchcomedy |
+| 10 | 10 | 83 | 1 | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" |
+| 11 | 11 | 80 | 1 | category_gap_search | site:tiktok.com/@ "editing" |
+| 12 | 12 | 80 | 1 | category_gap_search | site:tiktok.com/@ "editor" |
+| 13 | 13 | 80 | 1 | search_index | site:tiktok.com/@ "video editor" |
+| 14 | 14 | 80 | 1 | tiktok_hashtag_export | vfxartist |
+| 15 | 15 | 78 | 1 | tiktok_hashtag_export | actor |
+| 16 | 16 | 75 | 1 | category_gap_search | site:tiktok.com/@ "actor performer" |
+| 17 | 17 | 75 | 1 | category_gap_search | site:tiktok.com/@ "actor" |
+| 18 | 18 | 75 | 1 | category_gap_search | site:tiktok.com/@ "actress" |
+| 19 | 19 | 75 | 1 | category_gap_search | site:tiktok.com/@ "comedian" |
+| 20 | 20 | 75 | 1 | category_gap_search | site:tiktok.com/@ "commercial director" |
+| 21 | 21 | 75 | 1 | category_gap_search | site:tiktok.com/@ "directed by" |
+| 22 | 22 | 75 | 1 | category_gap_search | site:tiktok.com/@ "director" |
+| 23 | 23 | 75 | 1 | category_gap_search | site:tiktok.com/@ "performer" |
+| 24 | 24 | 75 | 1 | category_gap_search | site:tiktok.com/@ "stand-up" |
+| 25 | 25 | 75 | 1 | category_gap_search | site:tiktok.com/@ "standup comedian" |

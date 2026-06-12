@@ -92,6 +92,11 @@ function main() {
     if (!existsSync(path)) return null
     return JSON.parse(readFileSync(path, 'utf8'))
   })()
+  const adjacencyExpansion = (() => {
+    const path = join(reportsDir, 'adjacency-expansion.json')
+    if (!existsSync(path)) return null
+    return JSON.parse(readFileSync(path, 'utf8'))
+  })()
   const acquisitionImportPreview = (() => {
     const path = join(reportsDir, 'acquisition-import-preview.json')
     if (!existsSync(path)) return null
@@ -148,6 +153,11 @@ function main() {
       id: 'expansion_queue',
       status: expansionQueue.length > 0 ? 'pass' : 'fail',
       evidence: `${expansionQueue.length} expansion targets queued`,
+    },
+    {
+      id: 'adjacency_expansion',
+      status: adjacencyExpansion?.expansion_rows > 0 ? 'pass' : 'fail',
+      evidence: adjacencyExpansion ? `${adjacencyExpansion.expansion_rows} enriched expansion rows (${adjacencyExpansion.added_rows} added)` : 'adjacency expansion missing',
     },
     {
       id: 'acquisition_batches',
@@ -286,6 +296,8 @@ function main() {
       accepted_creators: acceptedCreators.length,
       benchmark_creators: benchmarkCreators.length,
       expansion_queue: expansionQueue.length,
+      adjacency_expansion_rows: adjacencyExpansion?.expansion_rows ?? 0,
+      adjacency_expansion_added_rows: adjacencyExpansion?.added_rows ?? 0,
       acquisition_tasks: acquisitionTasks.length,
       candidate_frontier: candidateFrontier.length,
       candidate_frontier_handles: candidateFrontier.filter((row) => row.target_kind === 'handle').length,
@@ -360,6 +372,8 @@ Complete: ${summary.complete}
 - Accepted creators: ${summary.counts.accepted_creators}
 - Benchmark creators: ${summary.counts.benchmark_creators}
 - Expansion queue: ${summary.counts.expansion_queue}
+- Adjacency expansion rows: ${summary.counts.adjacency_expansion_rows}
+- Adjacency expansion added rows: ${summary.counts.adjacency_expansion_added_rows}
 - Acquisition tasks: ${summary.counts.acquisition_tasks}
 - Candidate frontier: ${summary.counts.candidate_frontier}
 - Candidate frontier handles: ${summary.counts.candidate_frontier_handles}

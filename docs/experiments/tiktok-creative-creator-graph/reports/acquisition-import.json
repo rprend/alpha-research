@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T21:30:55.104Z",
+  "generated_at": "2026-06-12T21:35:16.344Z",
   "mode": "import",
   "input_rows": 6,
   "normalized_rows": 6,
@@ -48,8 +48,8 @@
     ]
   },
   "wave": {
-    "wave_id": "import-2026-06-12T21-30-55-104Z",
-    "generated_at": "2026-06-12T21:30:55.104Z",
+    "wave_id": "import-2026-06-12T21-35-16-344Z",
+    "generated_at": "2026-06-12T21:35:16.344Z",
     "input_rows": 6,
     "normalized_rows": 6,
     "skipped_rows": 0,

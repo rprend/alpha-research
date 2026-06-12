@@ -1,5 +1,5 @@
 review_sample_id,creator_id,handle,display_name,primary_label,review_band,status,overall_usefulness,review_priority,sample_score,review_reasons,category_useful_gap,category_current_useful,latest_wave_id,profile_url
-review_00001,ani.motionlab,@ani.motionlab,Ani Motion Lab,vfx_animation,quality_audit,useful,67,3,417,high_graph_value_uncertain_quality,4999,1,import-2026-06-12T21-30-55-104Z,https://www.tiktok.com/@ani.motionlab
-review_00002,lucybits,@lucybits,Lucy Bits,sketch_comedian,quality_audit,useful,66,3,416,high_graph_value_uncertain_quality,6999,1,import-2026-06-12T21-30-55-104Z,https://www.tiktok.com/@lucybits
-review_00003,selahshoots,@selahshoots,Selah Shoots,filmmaker,quality_audit,useful,64,3,414,high_graph_value_uncertain_quality,7998,2,import-2026-06-12T21-30-55-104Z,https://www.tiktok.com/@selahshoots
-review_00004,basementbits,@basementbits,Basement Bits,sketch_comedian,borderline,needs_review,58,3,408,threshold_borderline|high_graph_value_uncertain_quality,6999,1,import-2026-06-12T21-30-55-104Z,https://www.tiktok.com/@basementbits
+review_00001,ani.motionlab,@ani.motionlab,Ani Motion Lab,vfx_animation,quality_audit,useful,67,3,417,high_graph_value_uncertain_quality,4999,1,import-2026-06-12T21-35-16-344Z,https://www.tiktok.com/@ani.motionlab
+review_00002,lucybits,@lucybits,Lucy Bits,sketch_comedian,quality_audit,useful,66,3,416,high_graph_value_uncertain_quality,6999,1,import-2026-06-12T21-35-16-344Z,https://www.tiktok.com/@lucybits
+review_00003,selahshoots,@selahshoots,Selah Shoots,filmmaker,quality_audit,useful,64,3,414,high_graph_value_uncertain_quality,7998,2,import-2026-06-12T21-35-16-344Z,https://www.tiktok.com/@selahshoots
+review_00004,basementbits,@basementbits,Basement Bits,sketch_comedian,borderline,needs_review,58,3,408,threshold_borderline|high_graph_value_uncertain_quality,6999,1,import-2026-06-12T21-35-16-344Z,https://www.tiktok.com/@basementbits

@@ -45,6 +45,7 @@ function main() {
   const importWaves = readJsonl(join(processedDir, 'acquisition_import_waves.jsonl'))
   const acquisitionRunHistory = readJsonl(join(processedDir, 'acquisition_run_history.jsonl'))
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
+  const adjacencyExpansion = readJson(join(reportsDir, 'adjacency-expansion.json'), null)
   const reviewSample = readJsonl(join(processedDir, 'review_sample.jsonl'))
   const reviewPacket = readJsonl(join(processedDir, 'review_packet_latest.jsonl'))
   const reviewPacketBatches = readJsonl(join(processedDir, 'review_packet_batches.jsonl'))
@@ -120,6 +121,8 @@ function main() {
       review_decisions: currentReview,
       review_blank_decisions: counts.review_blank_decisions ?? reviewBlankDecisions.length,
       source_yield_rows: counts.source_yield_rows ?? sourceYield.length,
+      adjacency_expansion_rows: counts.adjacency_expansion_rows ?? adjacencyExpansion?.expansion_rows ?? 0,
+      adjacency_expansion_added_rows: counts.adjacency_expansion_added_rows ?? adjacencyExpansion?.added_rows ?? 0,
       category_coverage: categoryCoverage ? `${categoryCoverage.covered_labels}/${categoryCoverage.labels}` : 'missing',
       acquisition_tasks: counts.acquisition_tasks ?? acquisitionBatches?.tasks ?? 0,
       candidate_frontier: counts.candidate_frontier ?? candidateFrontier.length,
@@ -164,6 +167,7 @@ function main() {
       review_packet_available: Boolean(reviewPacketReport?.rows > 0 && reviewPacketReport?.decision_template_rows > 0),
       provider_runner_exercised: Boolean(acquisitionRun?.selected_tasks > 0),
       acquisition_import_preview_available: Boolean(acquisitionImportPreview?.input_rows > 0),
+      adjacency_expansion_available: Boolean(adjacencyExpansion?.expansion_rows > 0),
       acquisition_run_history_available: acquisitionRunHistory.length > 0,
       scale_plan_available: Boolean(scalePlan?.estimated_work),
       scale_waves_available: Boolean(scaleWavesReport?.planned_waves > 0 || scaleWaves.length > 0),
@@ -198,6 +202,7 @@ function main() {
       acquisition_import_waves: rel(join(processedDir, 'acquisition_import_waves.jsonl')),
       acquisition_run_history: rel(join(processedDir, 'acquisition_run_history.jsonl')),
       source_yield: rel(join(reportsDir, 'source-yield.json')),
+      adjacency_expansion: rel(join(reportsDir, 'adjacency-expansion.json')),
       category_coverage: rel(join(reportsDir, 'category-coverage.json')),
       review_sample: rel(join(processedDir, 'review_sample.csv')),
       review_packet: rel(join(reportsDir, 'review-packet.json')),
@@ -263,6 +268,8 @@ ${handoff.objective}
 - Review decisions: ${handoff.current_corpus.review_decisions}
 - Review blank decisions: ${handoff.current_corpus.review_blank_decisions}
 - Source yield rows: ${handoff.current_corpus.source_yield_rows}
+- Adjacency expansion rows: ${handoff.current_corpus.adjacency_expansion_rows}
+- Adjacency expansion added rows: ${handoff.current_corpus.adjacency_expansion_added_rows}
 - Category coverage: ${handoff.current_corpus.category_coverage}
 - Acquisition tasks: ${handoff.current_corpus.acquisition_tasks}
 - Candidate frontier: ${handoff.current_corpus.candidate_frontier}

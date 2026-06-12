@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T21:30:56.027Z
+Generated: 2026-06-12T21:35:17.171Z
 
 Complete: false
 
@@ -23,18 +23,20 @@ Complete: false
 - Review blank decisions: 0
 - Accepted creators: 6
 - Benchmark creators: 1
-- Expansion queue: 4
-- Acquisition tasks: 68
-- Candidate frontier: 68
+- Expansion queue: 22
+- Adjacency expansion rows: 22
+- Adjacency expansion added rows: 18
+- Acquisition tasks: 86
+- Candidate frontier: 81
 - Candidate frontier handles: 4
-- Candidate frontier queries: 64
+- Candidate frontier queries: 77
 - Acquisition import preview accounts: 3
 - Acquisition import preview ready: false
 - Acquisition import waves: 1
 - Acquisition runner tasks: 2
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
-- Acquisition run history: 9
+- Acquisition run history: 10
 - Source yield rows: 7
 - Identities: 9
 - Category coverage labels: 5/11
@@ -43,7 +45,7 @@ Complete: false
 - Scale plan import batches: 1000
 - Scale waves: 1000
 - Wave ledger rows: 1000
-- Wave ledger planned: 995
+- Wave ledger planned: 994
 - Wave ledger imported: 0
 - Wave ledger imported empty: 0
 - Wave ledger failed: 0
@@ -72,13 +74,14 @@ Complete: false
 - review_sample: pass (4 sampled accounts ready for review)
 - review_packet: pass (4 review packet rows, 4 decision template rows, 1 batches)
 - review_plan: pass (11 category review plan rows generated)
-- expansion_queue: pass (4 expansion targets queued)
-- acquisition_batches: pass (68 acquisition tasks generated)
-- candidate_frontier: pass (68 ranked acquisition candidates generated)
+- expansion_queue: pass (22 expansion targets queued)
+- adjacency_expansion: pass (22 enriched expansion rows (18 added))
+- acquisition_batches: pass (86 acquisition tasks generated)
+- candidate_frontier: pass (81 ranked acquisition candidates generated)
 - acquisition_import_preview: pass (3 preview accounts, import gate not ready)
 - acquisition_import_waves: pass (1 acquisition import waves tracked)
 - acquisition_runner: pass (2 runnable of 2 selected provider tasks (dry run))
-- acquisition_run_history: pass (9 acquisition run history rows persisted)
+- acquisition_run_history: pass (10 acquisition run history rows persisted)
 - source_yield: pass (7 source/query yield rows generated)
 - identity_resolution: pass (9 creator identities resolved)
 - category_coverage: pass (5/11 target labels covered)

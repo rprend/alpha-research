@@ -1,5 +1,23 @@
-expansion_type,source_creator_id,target,priority,reason,primary_label,overall_usefulness
-expand_from_creator,maya.shortcuts,@maya.shortcuts,1,high_usefulness_source,filmmaker,89
-expand_from_creator,noahframes,@noahframes,1,high_usefulness_source,cinematographer,73
-expand_from_creator,lucybits,@lucybits,1,high_usefulness_source,sketch_comedian,66
-expand_from_creator,ani.motionlab,@ani.motionlab,1,high_usefulness_source,vfx_animation,67
+expansion_type,source_creator_id,target,priority,reason,primary_label,overall_usefulness,evidence_count
+expand_from_creator,maya.shortcuts,@maya.shortcuts,1,high_usefulness_source,filmmaker,89,1
+hashtag_search,selahshoots,bts,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts,filmmaker,89,2
+hashtag_search,selahshoots,filmmaker,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts|useful_creator_hashtag:@noahframes|useful_creator_hashtag:@lucybits,filmmaker,89,4
+yield_replay_search,,filmmaker short film editing breakdown,1,replay_high_yield_source:manual_seed,,89,1
+hashtag_search,selahshoots,shortfilm,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts,filmmaker,89,2
+cross_platform_search,maya.shortcuts,"site:vimeo.com ""tiktok.com/@"" ""filmmaker""",1,cross_platform_adjacency:vimeo.com,filmmaker,89,1
+expand_from_creator,noahframes,@noahframes,1,high_usefulness_source,cinematographer,73,1
+expand_from_creator,ani.motionlab,@ani.motionlab,1,high_usefulness_source,vfx_animation,67,1
+expand_from_creator,lucybits,@lucybits,1,high_usefulness_source,sketch_comedian,66,1
+yield_replay_search,,cinematographer lighting breakdown,2,replay_high_yield_source:manual_seed,,73,1
+hashtag_search,noahframes,cinematography,2,useful_creator_hashtag:@noahframes,cinematographer,73,1
+hashtag_search,noahframes,lighting,2,useful_creator_hashtag:@noahframes,cinematographer,73,1
+hashtag_search,ani.motionlab,animation,2,useful_creator_hashtag:@ani.motionlab,vfx_animation,67,1
+hashtag_search,ani.motionlab,blender,2,useful_creator_hashtag:@ani.motionlab,vfx_animation,67,1
+cross_platform_search,ani.motionlab,"site:beacons.ai ""tiktok.com/@"" ""vfx animation""",2,cross_platform_adjacency:beacons.ai,vfx_animation,67,1
+hashtag_search,ani.motionlab,vfx,2,useful_creator_hashtag:@ani.motionlab,vfx_animation,67,1
+yield_replay_search,,vfx artist animation blender,2,replay_high_yield_source:manual_seed,,67,1
+hashtag_search,lucybits,actor,2,useful_creator_hashtag:@lucybits,sketch_comedian,66,1
+cross_platform_search,lucybits,"site:youtube.com ""tiktok.com/@"" ""sketch comedian""",2,cross_platform_adjacency:youtube.com,sketch_comedian,66,1
+yield_replay_search,,sketch comedian character comedy,2,replay_high_yield_source:manual_seed,,66,1
+hashtag_search,lucybits,sketchcomedy,2,useful_creator_hashtag:@lucybits,sketch_comedian,66,1
+yield_replay_search,,mentioned by @ani.motionlab,2,replay_high_yield_source:graph_expansion_fixture,,61,1

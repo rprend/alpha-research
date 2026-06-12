@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-12T21:30:55.986Z
+Generated: 2026-06-12T21:35:17.134Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -26,6 +26,8 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Review decisions: 4
 - Review blank decisions: 0
 - Source yield rows: 7
+- Adjacency expansion rows: 22
+- Adjacency expansion added rows: 18
 - Category coverage: 5/11
 - Acquisition tasks: 68
 - Candidate frontier: 68
@@ -38,7 +40,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Acquisition import untraced rows: 6
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
-- Acquisition run history: 8
+- Acquisition run history: 9
 - Scale waves: 1000
 - Wave ledger rows: 1000
 - Wave ledger planned: 995
@@ -91,6 +93,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - acquisition_import_waves: `docs/experiments/tiktok-creative-creator-graph/data/processed/acquisition_import_waves.jsonl`
 - acquisition_run_history: `docs/experiments/tiktok-creative-creator-graph/data/processed/acquisition_run_history.jsonl`
 - source_yield: `docs/experiments/tiktok-creative-creator-graph/reports/source-yield.json`
+- adjacency_expansion: `docs/experiments/tiktok-creative-creator-graph/reports/adjacency-expansion.json`
 - category_coverage: `docs/experiments/tiktok-creative-creator-graph/reports/category-coverage.json`
 - review_sample: `docs/experiments/tiktok-creative-creator-graph/data/processed/review_sample.csv`
 - review_packet: `docs/experiments/tiktok-creative-creator-graph/reports/review-packet.json`
@@ -112,6 +115,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - review_packet_available: pass
 - provider_runner_exercised: pass
 - acquisition_import_preview_available: pass
+- adjacency_expansion_available: pass
 - acquisition_run_history_available: pass
 - scale_plan_available: pass
 - scale_waves_available: pass

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T21:30:56.027Z",
+  "generated_at": "2026-06-12T21:35:17.171Z",
   "complete": false,
   "counts": {
     "accounts": 9,
@@ -19,18 +19,20 @@
     "review_blank_decisions": 0,
     "accepted_creators": 6,
     "benchmark_creators": 1,
-    "expansion_queue": 4,
-    "acquisition_tasks": 68,
-    "candidate_frontier": 68,
+    "expansion_queue": 22,
+    "adjacency_expansion_rows": 22,
+    "adjacency_expansion_added_rows": 18,
+    "acquisition_tasks": 86,
+    "candidate_frontier": 81,
     "candidate_frontier_handles": 4,
-    "candidate_frontier_queries": 64,
+    "candidate_frontier_queries": 77,
     "acquisition_import_preview_accounts": 3,
     "acquisition_import_preview_ready": false,
     "acquisition_import_waves": 1,
     "acquisition_runner_tasks": 2,
     "acquisition_runner_runnable_tasks": 2,
     "acquisition_runner_skipped_tasks": 0,
-    "acquisition_run_history": 9,
+    "acquisition_run_history": 10,
     "source_yield_rows": 7,
     "identities": 9,
     "category_coverage_labels": 11,
@@ -40,7 +42,7 @@
     "scale_plan_import_batches": 1000,
     "scale_waves": 1000,
     "wave_ledger_rows": 1000,
-    "wave_ledger_planned": 995,
+    "wave_ledger_planned": 994,
     "wave_ledger_imported": 0,
     "wave_ledger_imported_empty": 0,
     "wave_ledger_failed": 0,
@@ -103,17 +105,22 @@
     {
       "id": "expansion_queue",
       "status": "pass",
-      "evidence": "4 expansion targets queued"
+      "evidence": "22 expansion targets queued"
+    },
+    {
+      "id": "adjacency_expansion",
+      "status": "pass",
+      "evidence": "22 enriched expansion rows (18 added)"
     },
     {
       "id": "acquisition_batches",
       "status": "pass",
-      "evidence": "68 acquisition tasks generated"
+      "evidence": "86 acquisition tasks generated"
     },
     {
       "id": "candidate_frontier",
       "status": "pass",
-      "evidence": "68 ranked acquisition candidates generated"
+      "evidence": "81 ranked acquisition candidates generated"
     },
     {
       "id": "acquisition_import_preview",
@@ -133,7 +140,7 @@
     {
       "id": "acquisition_run_history",
       "status": "pass",
-      "evidence": "9 acquisition run history rows persisted"
+      "evidence": "10 acquisition run history rows persisted"
     },
     {
       "id": "source_yield",
