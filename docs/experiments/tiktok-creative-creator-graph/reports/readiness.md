@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T20:37:40.148Z
+Generated: 2026-06-12T20:41:08.661Z
 
 Complete: false
 
@@ -31,6 +31,10 @@ Complete: false
 - Release verification checks: 44
 - Scale plan import batches: 1000
 - Scale waves: 1000
+- Wave ledger rows: 1000
+- Wave ledger planned: 999
+- Wave ledger imported: 0
+- Wave ledger failed: 0
 - Refresh tasks: 9
 - Publication handoff: 1
 
@@ -54,6 +58,7 @@ Complete: false
 - release_verification: pass (44 release checks evaluated)
 - scale_plan: pass (1000 estimated import batches)
 - scale_waves: pass (1000 executable acquisition waves planned)
+- wave_ledger: pass (1000 wave execution ledger rows generated)
 - refresh_plan: pass (9 account refresh tasks generated)
 - publication_handoff: pass (not-ready-production-data handoff generated)
 - useful_account_target: incomplete (5/50000 useful accounts)

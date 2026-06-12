@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-12T20:37:40.111Z",
-  "execution_id": "2026-06-12T20-37-40-110Z",
+  "generated_at": "2026-06-12T20:41:08.581Z",
+  "execution_id": "2026-06-12T20-41-08-580Z",
   "provider": "apify",
   "wave_id": "scale_wave_0001",
   "wave_found": true,
@@ -14,7 +14,7 @@
   "output_rows": 0,
   "results": [
     {
-      "execution_id": "2026-06-12T20-37-40-110Z",
+      "execution_id": "2026-06-12T20-41-08-580Z",
       "provider": "apify",
       "batch_id": "hashtag_0011",
       "acquisition_surface": "tiktok_hashtag_export",
@@ -31,14 +31,14 @@
         "shouldDownloadSubtitles": false
       },
       "dry_run": true,
-      "started_at": "2026-06-12T20:37:40.111Z",
+      "started_at": "2026-06-12T20:41:08.580Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-12T20:37:40.111Z"
+      "finished_at": "2026-06-12T20:41:08.581Z"
     },
     {
-      "execution_id": "2026-06-12T20-37-40-110Z",
+      "execution_id": "2026-06-12T20-41-08-580Z",
       "provider": "apify",
       "batch_id": "category_gap_0035",
       "acquisition_surface": "category_gap_search",
@@ -53,11 +53,11 @@
         "languageCode": "en"
       },
       "dry_run": true,
-      "started_at": "2026-06-12T20:37:40.111Z",
+      "started_at": "2026-06-12T20:41:08.581Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-12T20:37:40.111Z"
+      "finished_at": "2026-06-12T20:41:08.581Z"
     }
   ]
 }

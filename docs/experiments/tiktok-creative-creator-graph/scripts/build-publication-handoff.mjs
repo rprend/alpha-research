@@ -31,6 +31,7 @@ function main() {
   const releaseVerification = readJson(join(reportsDir, 'release-verification.json'), null)
   const scalePlan = readJson(join(reportsDir, 'scale-plan.json'), null)
   const scaleWavesReport = readJson(join(reportsDir, 'scale-waves.json'), null)
+  const waveLedgerReport = readJson(join(reportsDir, 'wave-ledger.json'), null)
   const refreshPlan = readJson(join(reportsDir, 'refresh-plan.json'), null)
   const categoryCoverage = readJson(join(reportsDir, 'category-coverage.json'), null)
   const acquisitionBatches = readJson(join(reportsDir, 'acquisition-batches.json'), null)
@@ -40,6 +41,7 @@ function main() {
   const reviewSample = readJsonl(join(processedDir, 'review_sample.jsonl'))
   const reviewPlanCategories = readJsonl(join(processedDir, 'review_plan_categories.jsonl'))
   const scaleWaves = readJsonl(join(processedDir, 'scale_waves.jsonl'))
+  const waveLedger = readJsonl(join(processedDir, 'wave_ledger.jsonl'))
   const reviewDecisions = readJsonl(join(processedDir, 'review_decisions.jsonl'))
 
   const counts = readiness?.counts ?? manifest.counts ?? {}
@@ -103,6 +105,10 @@ function main() {
       acquisition_runner_runnable_tasks: counts.acquisition_runner_runnable_tasks ?? acquisitionRun?.runnable_tasks ?? 0,
       acquisition_runner_skipped_tasks: counts.acquisition_runner_skipped_tasks ?? acquisitionRun?.skipped_tasks ?? 0,
       scale_waves: counts.scale_waves ?? scaleWaves.length,
+      wave_ledger_rows: counts.wave_ledger_rows ?? waveLedger.length,
+      wave_ledger_planned: counts.wave_ledger_planned ?? waveLedger.filter((row) => row.status === 'planned').length,
+      wave_ledger_imported: counts.wave_ledger_imported ?? waveLedger.filter((row) => row.status === 'imported').length,
+      wave_ledger_failed: counts.wave_ledger_failed ?? waveLedger.filter((row) => row.status === 'failed').length,
       refresh_tasks: counts.refresh_tasks ?? refreshPlan?.refresh_tasks ?? 0,
     },
     target_gaps: {
@@ -116,6 +122,7 @@ function main() {
       provider_runner_exercised: Boolean(acquisitionRun?.selected_tasks > 0),
       scale_plan_available: Boolean(scalePlan?.estimated_work),
       scale_waves_available: Boolean(scaleWavesReport?.planned_waves > 0 || scaleWaves.length > 0),
+      wave_ledger_available: Boolean(waveLedgerReport?.waves > 0 || waveLedger.length > 0),
       refresh_plan_available: Boolean(refreshPlan?.refresh_tasks > 0),
     },
     paths: {
@@ -128,6 +135,7 @@ function main() {
       release_verification: rel(join(reportsDir, 'release-verification.json')),
       scale_plan: rel(join(reportsDir, 'scale-plan.json')),
       scale_waves: rel(join(reportsDir, 'scale-waves.json')),
+      wave_ledger: rel(join(reportsDir, 'wave-ledger.json')),
       refresh_plan: rel(join(reportsDir, 'refresh-plan.json')),
       acquisition_batches: rel(join(reportsDir, 'acquisition-batches.json')),
       acquisition_import_waves: rel(join(processedDir, 'acquisition_import_waves.jsonl')),
@@ -136,6 +144,7 @@ function main() {
       review_sample: rel(join(processedDir, 'review_sample.csv')),
       review_plan: rel(join(reportsDir, 'review-plan.json')),
       scale_wave_queue: rel(join(processedDir, 'scale_waves.csv')),
+      wave_ledger_queue: rel(join(processedDir, 'wave_ledger.csv')),
       useful_creators: rel(join(releaseDir, 'useful_creators.csv')),
       benchmark_creators: rel(join(releaseDir, 'benchmark_creators.csv')),
       review_queue: rel(join(releaseDir, 'review_queue.csv')),
@@ -193,6 +202,10 @@ ${handoff.objective}
 - Acquisition runner runnable tasks: ${handoff.current_corpus.acquisition_runner_runnable_tasks}
 - Acquisition runner skipped tasks: ${handoff.current_corpus.acquisition_runner_skipped_tasks}
 - Scale waves: ${handoff.current_corpus.scale_waves}
+- Wave ledger rows: ${handoff.current_corpus.wave_ledger_rows}
+- Wave ledger planned: ${handoff.current_corpus.wave_ledger_planned}
+- Wave ledger imported: ${handoff.current_corpus.wave_ledger_imported}
+- Wave ledger failed: ${handoff.current_corpus.wave_ledger_failed}
 - Refresh tasks: ${handoff.current_corpus.refresh_tasks}
 
 ## Remaining Production Gaps

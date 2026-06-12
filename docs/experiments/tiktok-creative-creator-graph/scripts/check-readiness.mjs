@@ -36,6 +36,7 @@ function main() {
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
   const identities = readJsonl(join(processedDir, 'creator_identities.jsonl'))
   const scaleWaves = readJsonl(join(processedDir, 'scale_waves.jsonl'))
+  const waveLedger = readJsonl(join(processedDir, 'wave_ledger.jsonl'))
   const categoryCoverage = (() => {
     const path = join(reportsDir, 'category-coverage.json')
     if (!existsSync(path)) return null
@@ -161,6 +162,11 @@ function main() {
       evidence: `${scaleWaves.length} executable acquisition waves planned`,
     },
     {
+      id: 'wave_ledger',
+      status: waveLedger.length > 0 ? 'pass' : 'fail',
+      evidence: `${waveLedger.length} wave execution ledger rows generated`,
+    },
+    {
       id: 'refresh_plan',
       status: refreshTasks.length > 0 ? 'pass' : 'fail',
       evidence: `${refreshTasks.length} account refresh tasks generated`,
@@ -218,6 +224,10 @@ function main() {
       release_verification_checks: releaseVerification?.checks?.length ?? 0,
       scale_plan_import_batches: scalePlan?.estimated_work?.import_batches_needed ?? 0,
       scale_waves: scaleWaves.length,
+      wave_ledger_rows: waveLedger.length,
+      wave_ledger_planned: waveLedger.filter((row) => row.status === 'planned').length,
+      wave_ledger_imported: waveLedger.filter((row) => row.status === 'imported').length,
+      wave_ledger_failed: waveLedger.filter((row) => row.status === 'failed').length,
       refresh_tasks: refreshTasks.length,
       publication_handoff: publicationHandoff ? 1 : 0,
     },
@@ -263,6 +273,10 @@ Complete: ${summary.complete}
 - Release verification checks: ${summary.counts.release_verification_checks}
 - Scale plan import batches: ${summary.counts.scale_plan_import_batches}
 - Scale waves: ${summary.counts.scale_waves}
+- Wave ledger rows: ${summary.counts.wave_ledger_rows}
+- Wave ledger planned: ${summary.counts.wave_ledger_planned}
+- Wave ledger imported: ${summary.counts.wave_ledger_imported}
+- Wave ledger failed: ${summary.counts.wave_ledger_failed}
 - Refresh tasks: ${summary.counts.refresh_tasks}
 - Publication handoff: ${summary.counts.publication_handoff}
 

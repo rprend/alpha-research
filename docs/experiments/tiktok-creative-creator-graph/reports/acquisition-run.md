@@ -1,6 +1,6 @@
 # Acquisition Run
 
-Generated: 2026-06-12T20:37:40.111Z
+Generated: 2026-06-12T20:41:08.581Z
 
 - Provider: apify
 - Wave: scale_wave_0001

@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-12T20:37:47.483Z
+Generated: 2026-06-12T20:41:16.729Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -27,6 +27,10 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
 - Scale waves: 1000
+- Wave ledger rows: 1000
+- Wave ledger planned: 999
+- Wave ledger imported: 0
+- Wave ledger failed: 0
 - Refresh tasks: 9
 
 ## Remaining Production Gaps
@@ -46,6 +50,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - release_verification: `docs/experiments/tiktok-creative-creator-graph/reports/release-verification.json`
 - scale_plan: `docs/experiments/tiktok-creative-creator-graph/reports/scale-plan.json`
 - scale_waves: `docs/experiments/tiktok-creative-creator-graph/reports/scale-waves.json`
+- wave_ledger: `docs/experiments/tiktok-creative-creator-graph/reports/wave-ledger.json`
 - refresh_plan: `docs/experiments/tiktok-creative-creator-graph/reports/refresh-plan.json`
 - acquisition_batches: `docs/experiments/tiktok-creative-creator-graph/reports/acquisition-batches.json`
 - acquisition_import_waves: `docs/experiments/tiktok-creative-creator-graph/data/processed/acquisition_import_waves.jsonl`
@@ -54,6 +59,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - review_sample: `docs/experiments/tiktok-creative-creator-graph/data/processed/review_sample.csv`
 - review_plan: `docs/experiments/tiktok-creative-creator-graph/reports/review-plan.json`
 - scale_wave_queue: `docs/experiments/tiktok-creative-creator-graph/data/processed/scale_waves.csv`
+- wave_ledger_queue: `docs/experiments/tiktok-creative-creator-graph/data/processed/wave_ledger.csv`
 - useful_creators: `docs/experiments/tiktok-creative-creator-graph/data/release/useful_creators.csv`
 - benchmark_creators: `docs/experiments/tiktok-creative-creator-graph/data/release/benchmark_creators.csv`
 - review_queue: `docs/experiments/tiktok-creative-creator-graph/data/release/review_queue.csv`
@@ -66,6 +72,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - provider_runner_exercised: pass
 - scale_plan_available: pass
 - scale_waves_available: pass
+- wave_ledger_available: pass
 - refresh_plan_available: pass
 
 ## Registration Constraints
