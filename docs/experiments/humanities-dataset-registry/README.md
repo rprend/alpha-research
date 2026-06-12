@@ -39,15 +39,26 @@ node docs/experiments/humanities-dataset-registry/scripts/build-publication-hand
 node docs/experiments/humanities-dataset-registry/scripts/check-readiness.mjs
 ```
 
+Probe file-level access and redistribution risk for the highest-ranked ready-now corpora:
+
+```bash
+node docs/experiments/humanities-dataset-registry/scripts/probe-file-level-sources.mjs --strict
+```
+
 The scripts write:
 
 - `data/raw/candidate-pages/<run-date>/`
+- `data/raw/file-level-probes/<run-date>/`
 - `data/processed/candidates.json`
 - `data/processed/dataset-rankings.csv`
 - `data/processed/study-specs.json`
 - `data/processed/study-specs.csv`
+- `data/processed/file-level-probes.json`
+- `data/processed/file-level-probes.csv`
 - `reports/source-inventory.md`
 - `reports/source-inventory.csv`
+- `reports/file-level-probes.md`
+- `reports/file-level-probes.json`
 - `reports/report.html`
 - `reports/result.json`
 - `reports/work.md`
@@ -68,3 +79,13 @@ A public essay from this track should distinguish:
 - datasets that are conceptually interesting but too rights-constrained or underdocumented for public claims
 
 The output should be a practical field guide, not a listicle.
+
+## Current File-Level Probe
+
+The latest file-level probe checked five ready-now routes: Wikidata SPARQL, Library of Congress collections JSON, Met Collection object list plus detail samples, Project Gutenberg RDF catalog samples, and Chronicling America page search JSON.
+
+Current status: `file-level-probed`.
+
+- 4 of 5 probes returned accessible structured records or files.
+- Chronicling America returned a 404 on the configured sample route and should stay caveated until a replacement route is verified.
+- Wikidata, Library of Congress, Met Collection, and Project Gutenberg are ready to promote into derived dataset design work, subject to item-level rights fields and source-specific normalization notes.

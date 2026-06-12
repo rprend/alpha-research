@@ -1,6 +1,6 @@
 # Research Production Roadmap Readiness
 
-Generated at: 2026-06-12T21:37:56.560Z
+Generated at: 2026-06-12T21:44:03.644Z
 Status: active
 Complete tracks: 1/6
 
@@ -11,7 +11,7 @@ Complete tracks: 1/6
 | 3 | Humanities Literature Radar Broad Backfill | broad-backfill-pilot | no | `docs/experiments/humanities-literature-radar/` |
 | 4 | Cleveland Museum Full-Collection Backfill | artifact-ready | yes | `docs/experiments/cleveland-museum-collection-shape/` |
 | 5 | Canon Drift Narrow Signal Pilot | pilot-ready | no | `docs/experiments/canon-drift-feasibility/` |
-| 6 | Humanities Dataset Registry File-Level Probes | planned | no | `docs/experiments/humanities-dataset-registry/` |
+| 6 | Humanities Dataset Registry File-Level Probes | file-level-probed | no | `docs/experiments/humanities-dataset-registry/` |
 
 ## Next Implementation Queue
 
@@ -19,4 +19,4 @@ Complete tracks: 1/6
 2. Museum Annual Report And Provenance Source Layers (source-probed)
 3. Humanities Literature Radar Broad Backfill (broad-backfill-pilot)
 4. Canon Drift Narrow Signal Pilot (pilot-ready)
-5. Humanities Dataset Registry File-Level Probes (planned)
+5. Humanities Dataset Registry File-Level Probes (file-level-probed)

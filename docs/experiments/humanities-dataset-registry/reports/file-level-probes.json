@@ -1,0 +1,92 @@
+{
+  "generatedAt": "2026-06-12T21:43:20.742Z",
+  "status": "file-level-probed",
+  "probes": 5,
+  "accessibleProbes": 4,
+  "rows": [
+    {
+      "id": "wikidata-humanities-authors",
+      "candidate_id": "wikidata",
+      "name": "Wikidata humanities author SPARQL sample",
+      "probe_type": "sparql-json",
+      "access_status": "accessible",
+      "http_status": 200,
+      "records_or_files": 25,
+      "sample_fields": "head; head.vars; results; results.bindings; results.bindings.author; results.bindings.author.type; results.bindings.author.value; results.bindings.birth; results.bindings.birth.datatype; results.bindings.birth.type; results.bindings.birth.value; results.bindings.authorLabel; results.bindings.authorLabel.xml:lang; results.bindings.authorLabel.type; results.bindings.authorLabel.value",
+      "license_note": "Wikidata data is CC0; downstream claims must note contributor and ontology bias.",
+      "redistribution": "derived-metadata-ok",
+      "normalization_risk": "structured JSON route; inspect pagination, rights fields, and schema stability before full harvest",
+      "raw_path": "data/raw/file-level-probes/2026-06-12/wikidata-humanities-authors/response.json"
+    },
+    {
+      "id": "loc-digital-collections-page",
+      "candidate_id": "library-of-congress-digital-collections",
+      "name": "Library of Congress collections JSON page",
+      "probe_type": "json-api",
+      "access_status": "accessible",
+      "http_status": 200,
+      "records_or_files": 24,
+      "sample_fields": "breadcrumbs; breadcrumbs.Library of Congress; breadcrumbs.Digital Collections; browse; browse.facets; browse.facets.include; browse.facets.include.field; browse.facets.include.label; browse.sortBy; browse.style; content; content.active; content.link; content.pagination; content.partof; content.results; content.results.access_restricted; content.results.aka; content.results.campaigns; content.results.count; content.results.description; content.results.digitized; content.results.extract_timestamp; content.results.group; content.results.hassegments; content.results.id; content.results.image_url; content.results.index; content.results.item; content.results.item.aka; content.results.item.digitized; content.results.item.formats; content.results.item.html_content; content.results.item.research-centers; content.results.item.shards; content.results.item.status; content.results.item.subjects; content.results.item.title; content.results.item.topics; content.results.item.total",
+      "license_note": "LOC metadata is public, but item rights vary by collection and item.",
+      "redistribution": "metadata-ok-rights-vary",
+      "normalization_risk": "structured JSON route; inspect pagination, rights fields, and schema stability before full harvest",
+      "raw_path": "data/raw/file-level-probes/2026-06-12/loc-digital-collections-page/response.json"
+    },
+    {
+      "id": "met-object-list-and-detail",
+      "candidate_id": "met-collection-api",
+      "name": "Met Collection object list and detail sample",
+      "probe_type": "met-object-detail",
+      "access_status": "accessible",
+      "http_status": 200,
+      "records_or_files": 501719,
+      "sample_fields": "objectID; isHighlight; accessionNumber; accessionYear; isPublicDomain; primaryImage; primaryImageSmall; additionalImages; constituents; department; objectName; title; culture; period; dynasty; reign; portfolio; artistRole; artistPrefix; artistDisplayName; artistDisplayBio; artistSuffix; artistAlphaSort; artistNationality; artistBeginDate; artistEndDate; artistGender; artistWikidata_URL; artistULAN_URL; objectDate; objectBeginDate; objectEndDate; medium; dimensions; measurements; creditLine; geographyType; city; state; county",
+      "license_note": "Met API metadata is public; object image and rights fields vary by object.",
+      "redistribution": "metadata-ok-rights-vary",
+      "normalization_risk": "item fields are rich but object completeness and image rights vary",
+      "raw_path": "data/raw/file-level-probes/2026-06-12/met-object-list-and-detail/objects.json"
+    },
+    {
+      "id": "project-gutenberg-rdf-files",
+      "candidate_id": "project-gutenberg",
+      "name": "Project Gutenberg RDF catalog files sample",
+      "probe_type": "gutenberg-rdf",
+      "access_status": "accessible",
+      "http_status": 200,
+      "records_or_files": 3,
+      "sample_fields": "ebook; publisher; license; issued; rights; downloads; creator; agent; name; birthdate; deathdate; webpage; title; description; marc508; marc520; marc908; language; value; subject; memberOf; alias",
+      "license_note": "Project Gutenberg metadata is reusable; individual texts have Project Gutenberg license and jurisdiction caveats.",
+      "redistribution": "metadata-ok-text-license-review",
+      "normalization_risk": "RDF metadata is structured; text redistribution and edition representativeness need review",
+      "raw_path": "data/raw/file-level-probes/2026-06-12/project-gutenberg-rdf-files/sample-summary.json"
+    },
+    {
+      "id": "chronicling-america-pages",
+      "candidate_id": "chronicling-america",
+      "name": "Chronicling America page-search JSON sample",
+      "probe_type": "json-api",
+      "access_status": "404",
+      "http_status": 404,
+      "records_or_files": 0,
+      "sample_fields": "",
+      "license_note": "Chronicling America metadata and OCR are public access; OCR quality and newspaper rights/coverage vary.",
+      "redistribution": "metadata-and-ocr-ok-with-quality-caveats",
+      "normalization_risk": "blocked or inaccessible route",
+      "raw_path": "data/raw/file-level-probes/2026-06-12/chronicling-america-pages/response.json"
+    }
+  ],
+  "readyForDerivedDataset": [
+    "wikidata",
+    "library-of-congress-digital-collections",
+    "met-collection-api",
+    "project-gutenberg"
+  ],
+  "blockers": [
+    "chronicling-america-pages: 404"
+  ],
+  "nextActions": [
+    "Promote one file-level-ready corpus into a derived dataset folder.",
+    "Add item-level rights fields before publishing derived object/image claims.",
+    "Keep OCR-quality and cataloging-bias caveats attached to newspaper and book metadata probes."
+  ]
+}

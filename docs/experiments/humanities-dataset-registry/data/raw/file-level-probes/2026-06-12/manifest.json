@@ -1,0 +1,144 @@
+{
+  "runDate": "2026-06-12",
+  "source": "humanities dataset file-level probes",
+  "startedAt": "2026-06-12T21:43:01.117Z",
+  "requests": [
+    {
+      "id": "wikidata-humanities-authors",
+      "url": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fauthor%20%3FauthorLabel%20%3Fbirth%20WHERE%20%7B%20%3Fauthor%20wdt%3AP31%20wd%3AQ5%3B%20wdt%3AP106%20wd%3AQ36180.%20OPTIONAL%20%7B%20%3Fauthor%20wdt%3AP569%20%3Fbirth%20%7D%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%20%7D%20LIMIT%2025",
+      "status": 200,
+      "responsePath": "data/raw/file-level-probes/2026-06-12/wikidata-humanities-authors/response.json"
+    },
+    {
+      "id": "loc-digital-collections-page",
+      "url": "https://www.loc.gov/collections/?fo=json&c=25",
+      "status": 200,
+      "responsePath": "data/raw/file-level-probes/2026-06-12/loc-digital-collections-page/response.json"
+    },
+    {
+      "id": "met-object-list-and-detail",
+      "requestType": "object-list",
+      "url": "https://collectionapi.metmuseum.org/public/collection/v1/objects",
+      "status": 200,
+      "responsePath": "data/raw/file-level-probes/2026-06-12/met-object-list-and-detail/objects.json"
+    },
+    {
+      "id": "met-object-list-and-detail",
+      "requestType": "object-detail",
+      "objectId": 1,
+      "url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/1",
+      "status": 200,
+      "responsePath": "data/raw/file-level-probes/2026-06-12/met-object-list-and-detail/object-1.json"
+    },
+    {
+      "id": "met-object-list-and-detail",
+      "requestType": "object-detail",
+      "objectId": 2,
+      "url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/2",
+      "status": 200,
+      "responsePath": "data/raw/file-level-probes/2026-06-12/met-object-list-and-detail/object-2.json"
+    },
+    {
+      "id": "met-object-list-and-detail",
+      "requestType": "object-detail",
+      "objectId": 3,
+      "url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/3",
+      "status": 200,
+      "responsePath": "data/raw/file-level-probes/2026-06-12/met-object-list-and-detail/object-3.json"
+    },
+    {
+      "id": "met-object-list-and-detail",
+      "requestType": "object-detail",
+      "objectId": 4,
+      "url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/4",
+      "status": 200,
+      "responsePath": "data/raw/file-level-probes/2026-06-12/met-object-list-and-detail/object-4.json"
+    },
+    {
+      "id": "met-object-list-and-detail",
+      "requestType": "object-detail",
+      "objectId": 5,
+      "url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/5",
+      "status": 200,
+      "responsePath": "data/raw/file-level-probes/2026-06-12/met-object-list-and-detail/object-5.json"
+    },
+    {
+      "id": "met-object-list-and-detail",
+      "requestType": "object-detail",
+      "objectId": 6,
+      "url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/6",
+      "status": 200,
+      "responsePath": "data/raw/file-level-probes/2026-06-12/met-object-list-and-detail/object-6.json"
+    },
+    {
+      "id": "met-object-list-and-detail",
+      "requestType": "object-detail",
+      "objectId": 7,
+      "url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/7",
+      "status": 200,
+      "responsePath": "data/raw/file-level-probes/2026-06-12/met-object-list-and-detail/object-7.json"
+    },
+    {
+      "id": "met-object-list-and-detail",
+      "requestType": "object-detail",
+      "objectId": 8,
+      "url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/8",
+      "status": 200,
+      "responsePath": "data/raw/file-level-probes/2026-06-12/met-object-list-and-detail/object-8.json"
+    },
+    {
+      "id": "met-object-list-and-detail",
+      "requestType": "object-detail",
+      "objectId": 9,
+      "url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/9",
+      "status": 200,
+      "responsePath": "data/raw/file-level-probes/2026-06-12/met-object-list-and-detail/object-9.json"
+    },
+    {
+      "id": "met-object-list-and-detail",
+      "requestType": "object-detail",
+      "objectId": 10,
+      "url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/10",
+      "status": 200,
+      "responsePath": "data/raw/file-level-probes/2026-06-12/met-object-list-and-detail/object-10.json"
+    },
+    {
+      "id": "project-gutenberg-rdf-files",
+      "requestType": "rdf-sample",
+      "url": "https://www.gutenberg.org/cache/epub/1342/pg1342.rdf",
+      "status": 200,
+      "responsePath": "data/raw/file-level-probes/2026-06-12/project-gutenberg-rdf-files/pg1342.rdf"
+    },
+    {
+      "id": "project-gutenberg-rdf-files",
+      "requestType": "rdf-sample",
+      "url": "https://www.gutenberg.org/cache/epub/84/pg84.rdf",
+      "status": 200,
+      "responsePath": "data/raw/file-level-probes/2026-06-12/project-gutenberg-rdf-files/pg84.rdf"
+    },
+    {
+      "id": "project-gutenberg-rdf-files",
+      "requestType": "rdf-sample",
+      "url": "https://www.gutenberg.org/cache/epub/2701/pg2701.rdf",
+      "status": 200,
+      "responsePath": "data/raw/file-level-probes/2026-06-12/project-gutenberg-rdf-files/pg2701.rdf"
+    },
+    {
+      "id": "chronicling-america-pages",
+      "url": "https://chroniclingamerica.loc.gov/search/pages/results/?andtext=democracy&format=json&rows=25",
+      "status": 404,
+      "responsePath": "data/raw/file-level-probes/2026-06-12/chronicling-america-pages/response.json"
+    }
+  ],
+  "errors": [
+    {
+      "id": "chronicling-america-pages",
+      "url": "https://chroniclingamerica.loc.gov/search/pages/results/?andtext=democracy&format=json&rows=25",
+      "status": 404,
+      "error": "",
+      "body": "<!DOCTYPE html>\n\n\n<html lang=\"en\" class=\"no-js\" prefix=\"lc: http://loc.gov/#\">\n<head>\n\n\n<title>Page Not Found -- 404 -- Library of Congress</title>\n\n\n\n    \n\n\n\n\n<link href='https://www.loc.gov/static/stylesheets/base.css'\n    type='text/css'\n    rel='stylesheet' />\n<link href=\"https://www.loc.gov/static/fonts/OpenSans-Regular.woff2\"\n    rel='preload'\n    as='font'\n    type='font/woff2'\n    crossorigin />\n<link href=\"https://www.loc.gov/static/fonts/OpenSans-Bold.woff2\"\n    rel='preload'\n    as='f"
+    }
+  ],
+  "finishedAt": "2026-06-12T21:43:20.739Z",
+  "recordCount": 4
+}

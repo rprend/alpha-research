@@ -46,20 +46,20 @@ Implemented:
 Current roadmap:
 
 - 6 tracked research-production tracks
-- 0 complete tracks
+- 1 complete track
 - next implementation queue:
-  - Humanities Literature Radar Broad Backfill
-  - Cleveland Museum Full-Collection Backfill
-  - Canon Drift Narrow Signal Pilot
-  - Humanities Dataset Registry File-Level Probes
   - University Institutional Language Second-Layer Corpus route replacement and historical backfill
   - Museum Annual Report And Provenance Source Layers route replacement and historical backfill
+  - Humanities Literature Radar full DOAJ OAI harvest and remote bundle verification
+  - Canon Drift Narrow Signal Pilot manual relevance audit
+  - Humanities Dataset Registry derived dataset promotion
 
 Next implementation moves:
 
 - replace failed or low-word-count university second-layer source routes and add commencement speeches
 - replace failed museum second-layer annual-report routes and add more provenance/repatriation targets
 - run the literature-radar full DOAJ OAI harvest, add resume checkpointing, and remotely verify the promoted bundle
+- promote one accessible dataset-registry file-level corpus into a derived dataset and study folder
 
 ### Publication Queue
 
@@ -384,16 +384,20 @@ Next implementation moves:
 
 Path: `docs/experiments/humanities-dataset-registry/`
 
-Status: source-probed research-agenda artifact ready for editorial review.
+Status: source-probed research-agenda artifact with file-level access probes for ready-now corpora.
 
 Implemented:
 
 - candidate dataset registry
 - access and metadata probe
+- file-level probe config for ready-now source routes
+- file-level probe runner with strict readiness status
 - readiness scoring model
 - ranked dataset table
 - generated study specs for ready-now candidates
 - source inventory
+- `file-level-probes.md`
+- `file-level-probes.json`
 - `report.html`
 - `result.json`
 - `work.md`
@@ -411,6 +415,9 @@ Current corpus:
 - 11 accessible candidates in the latest run
 - 6 ready-now candidates
 - 5 ready-now study specs generated
+- 5 file-level probes configured for Wikidata, Library of Congress, Met Collection, Project Gutenberg, and Chronicling America
+- 4 accessible file-level routes; Chronicling America returned 404 for the configured sample route
+- file-level status: `file-level-probed`
 - domains represented: museum collections, linked open data, archives/library, teaching syllabi, books/literature, newspapers, data repositories, scholarly repositories, books/library, books/media/web, aggregated archives
 - publication handoff: ready for copyedit as a research-agenda piece
 - publication post: `reports/post.md`, a polished research-agenda draft
@@ -420,9 +427,9 @@ Current corpus:
 Next implementation moves:
 
 - final editorial review for `reports/post.md`
-- add file-level and pagination probes for the highest-ranked APIs
-- add explicit licensing notes before publishing derived datasets
-- turn one ready-now corpus into a first public essay
+- replace the failed Chronicling America sample route or move it into a blocked-source memo
+- promote Wikidata, Library of Congress, Met Collection, or Project Gutenberg into a derived dataset folder with manifest, schema, and rights fields
+- turn one ready-now corpus into the next public essay after Cleveland
 
 ### Cleveland Museum Collection Shape
 

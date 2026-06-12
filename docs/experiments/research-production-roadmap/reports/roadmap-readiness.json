@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T21:37:56.560Z",
+  "generatedAt": "2026-06-12T21:44:03.644Z",
   "roadmap": "Archive Signals / The Cultural Observatory",
   "status": "active",
   "trackCount": 6,
@@ -70,11 +70,11 @@
       "id": "dataset-registry-file-level-probes",
       "title": "Humanities Dataset Registry File-Level Probes",
       "priority": 6,
-      "status": "planned",
+      "status": "file-level-probed",
       "complete": false,
       "sourceExperiment": "docs/experiments/humanities-dataset-registry/",
       "requiredEvidenceCount": 5,
-      "nextActionCount": 3,
+      "nextActionCount": 4,
       "missingRequiredEvidenceList": false,
       "missingNextActions": false
     }
@@ -107,7 +107,7 @@
     {
       "id": "dataset-registry-file-level-probes",
       "title": "Humanities Dataset Registry File-Level Probes",
-      "status": "planned",
+      "status": "file-level-probed",
       "sourceExperiment": "docs/experiments/humanities-dataset-registry/"
     }
   ]

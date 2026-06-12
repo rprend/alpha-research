@@ -1,0 +1,54 @@
+[
+  {
+    "id": "wikidata-humanities-authors",
+    "candidate_id": "wikidata",
+    "name": "Wikidata humanities author SPARQL sample",
+    "probe_type": "sparql-json",
+    "url": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fauthor%20%3FauthorLabel%20%3Fbirth%20WHERE%20%7B%20%3Fauthor%20wdt%3AP31%20wd%3AQ5%3B%20wdt%3AP106%20wd%3AQ36180.%20OPTIONAL%20%7B%20%3Fauthor%20wdt%3AP569%20%3Fbirth%20%7D%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%20%7D%20LIMIT%2025",
+    "license_note": "Wikidata data is CC0; downstream claims must note contributor and ontology bias.",
+    "redistribution": "derived-metadata-ok"
+  },
+  {
+    "id": "loc-digital-collections-page",
+    "candidate_id": "library-of-congress-digital-collections",
+    "name": "Library of Congress collections JSON page",
+    "probe_type": "json-api",
+    "url": "https://www.loc.gov/collections/?fo=json&c=25",
+    "license_note": "LOC metadata is public, but item rights vary by collection and item.",
+    "redistribution": "metadata-ok-rights-vary"
+  },
+  {
+    "id": "met-object-list-and-detail",
+    "candidate_id": "met-collection-api",
+    "name": "Met Collection object list and detail sample",
+    "probe_type": "met-object-detail",
+    "url": "https://collectionapi.metmuseum.org/public/collection/v1/objects",
+    "detail_url_template": "https://collectionapi.metmuseum.org/public/collection/v1/objects/{id}",
+    "detail_limit": 10,
+    "license_note": "Met API metadata is public; object image and rights fields vary by object.",
+    "redistribution": "metadata-ok-rights-vary"
+  },
+  {
+    "id": "project-gutenberg-rdf-files",
+    "candidate_id": "project-gutenberg",
+    "name": "Project Gutenberg RDF catalog files sample",
+    "probe_type": "gutenberg-rdf",
+    "url": "https://www.gutenberg.org/cache/epub/feeds/rdf-files.tar.bz2",
+    "sample_urls": [
+      "https://www.gutenberg.org/cache/epub/1342/pg1342.rdf",
+      "https://www.gutenberg.org/cache/epub/84/pg84.rdf",
+      "https://www.gutenberg.org/cache/epub/2701/pg2701.rdf"
+    ],
+    "license_note": "Project Gutenberg metadata is reusable; individual texts have Project Gutenberg license and jurisdiction caveats.",
+    "redistribution": "metadata-ok-text-license-review"
+  },
+  {
+    "id": "chronicling-america-pages",
+    "candidate_id": "chronicling-america",
+    "name": "Chronicling America page-search JSON sample",
+    "probe_type": "json-api",
+    "url": "https://chroniclingamerica.loc.gov/search/pages/results/?andtext=democracy&format=json&rows=25",
+    "license_note": "Chronicling America metadata and OCR are public access; OCR quality and newspaper rights/coverage vary.",
+    "redistribution": "metadata-and-ocr-ok-with-quality-caveats"
+  }
+]
