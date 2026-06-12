@@ -1,4 +1,5 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { createHash } from 'node:crypto'
 import { basename, extname, join } from 'node:path'
 
 const root = process.cwd()
@@ -17,9 +18,8 @@ const inputPath = args.get('--input') ? join(root, String(args.get('--input'))) 
 const previewOnly = args.has('--preview') || args.has('--dry-run')
 const minNormalizedRate = Number(args.get('--min-normalized-rate') ?? 0.75)
 const maxDuplicateRate = Number(args.get('--max-duplicate-rate') ?? 0.35)
-const outputPath = args.get('--output')
-  ? join(root, String(args.get('--output')))
-  : join(importDir, `acquisition-import-${new Date().toISOString().slice(0, 10)}.jsonl`)
+const explicitOutputPath = args.get('--output') ? join(root, String(args.get('--output'))) : null
+const defaultOutputDate = new Date().toISOString().slice(0, 10)
 
 function ensureDir(path) {
   mkdirSync(path, { recursive: true })
@@ -78,7 +78,7 @@ function writeJson(path, value) {
 }
 
 function writeJsonl(path, rows) {
-  writeFileSync(path, rows.map((row) => JSON.stringify(row)).join('\n') + (rows.length ? '\n' : ''))
+  writeFileSync(path, jsonlText(rows))
 }
 
 function writeCsv(path, rows) {
@@ -363,6 +363,23 @@ function mergeRows(rows) {
   return { accounts, stats }
 }
 
+function jsonlText(rows) {
+  return rows.map((row) => JSON.stringify(row)).join('\n') + (rows.length ? '\n' : '')
+}
+
+function hashRows(rows) {
+  return createHash('sha256').update(jsonlText(rows)).digest('hex').slice(0, 12)
+}
+
+function outputPathFor(accounts) {
+  if (explicitOutputPath) return explicitOutputPath
+  const basePath = join(importDir, `acquisition-import-${defaultOutputDate}.jsonl`)
+  if (!existsSync(basePath)) return basePath
+  const nextText = jsonlText(accounts)
+  if (readFileSync(basePath, 'utf8') === nextText) return basePath
+  return join(importDir, `acquisition-import-${defaultOutputDate}-${hashRows(accounts)}.jsonl`)
+}
+
 function buildQualityGate(stats, accounts) {
   const normalizedRate = stats.input_rows > 0 ? stats.normalized_rows / stats.input_rows : 0
   const duplicateRate = stats.normalized_rows > 0 ? stats.duplicate_normalized_rows / stats.normalized_rows : 0
@@ -476,6 +493,7 @@ function main() {
   ensureDir(reportsDir)
   const rows = loadRows()
   const { accounts, stats } = mergeRows(rows)
+  const outputPath = outputPathFor(accounts)
   const report = {
     generated_at: new Date().toISOString(),
     mode: previewOnly ? 'preview' : 'import',

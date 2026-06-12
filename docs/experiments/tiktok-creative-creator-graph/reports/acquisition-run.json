@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-12T21:38:09.035Z",
-  "execution_id": "2026-06-12T21-38-09-034Z",
+  "generated_at": "2026-06-12T21:41:44.006Z",
+  "execution_id": "2026-06-12T21-41-44-005Z",
   "provider": "apify",
   "env_file_loaded": true,
   "provider_token_available": false,
-  "wave_id": "scale_wave_0008",
+  "wave_id": "scale_wave_0009",
   "wave_found": true,
   "dry_run": true,
   "live_requested": false,
@@ -18,16 +18,16 @@
   "output_rows": 0,
   "results": [
     {
-      "execution_id": "2026-06-12T21-38-09-034Z",
+      "execution_id": "2026-06-12T21-41-44-005Z",
       "provider": "apify",
-      "batch_id": "graph_0069",
+      "batch_id": "hashtag_0016",
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "shortfilm",
-      "target_label": "filmmaker",
+      "query": "sketchcomedy",
+      "target_label": "sketch_comedian",
       "actor_id": "clockworks/tiktok-scraper",
       "input": {
         "hashtags": [
-          "shortfilm"
+          "sketchcomedy"
         ],
         "resultsPerPage": 100,
         "shouldDownloadVideos": false,
@@ -35,35 +35,33 @@
         "shouldDownloadSubtitles": false
       },
       "dry_run": true,
-      "started_at": "2026-06-12T21:38:09.035Z",
+      "started_at": "2026-06-12T21:41:44.005Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-12T21:38:09.035Z"
+      "finished_at": "2026-06-12T21:41:44.005Z"
     },
     {
-      "execution_id": "2026-06-12T21-38-09-034Z",
+      "execution_id": "2026-06-12T21-41-44-005Z",
       "provider": "apify",
-      "batch_id": "graph_0066",
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "bts",
-      "target_label": "behind_the_scenes_creator",
-      "actor_id": "clockworks/tiktok-scraper",
+      "batch_id": "category_gap_0060",
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"animation\"",
+      "target_label": "vfx_animation",
+      "actor_id": "apify/google-search-scraper",
       "input": {
-        "hashtags": [
-          "bts"
-        ],
+        "queries": "site:tiktok.com/@ \"animation\"",
+        "maxPagesPerQuery": 1,
         "resultsPerPage": 100,
-        "shouldDownloadVideos": false,
-        "shouldDownloadCovers": false,
-        "shouldDownloadSubtitles": false
+        "countryCode": "us",
+        "languageCode": "en"
       },
       "dry_run": true,
-      "started_at": "2026-06-12T21:38:09.035Z",
+      "started_at": "2026-06-12T21:41:44.006Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-12T21:38:09.035Z"
+      "finished_at": "2026-06-12T21:41:44.006Z"
     }
   ]
 }

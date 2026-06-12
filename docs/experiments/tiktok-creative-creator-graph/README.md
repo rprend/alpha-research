@@ -75,6 +75,8 @@ Normalize search/provider acquisition exports into pipeline imports:
 node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs
 ```
 
+By default, imports write to `data/raw/imports/acquisition-import-YYYY-MM-DD.jsonl`. If that same-day file already exists with different normalized accounts, the importer writes `acquisition-import-YYYY-MM-DD-<content-hash>.jsonl` instead, so a new provider wave cannot overwrite an earlier wave. Reprocessing identical results keeps the existing output path and updates the ledger in place.
+
 Preview a proposed provider/search export before mutating imports or the import wave ledger:
 
 ```bash

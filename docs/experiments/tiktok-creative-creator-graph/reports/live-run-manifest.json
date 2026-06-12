@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T21:38:08.957Z",
+  "generated_at": "2026-06-12T21:41:43.933Z",
   "provider": "apify",
   "readiness_complete": false,
   "preflight_within_budget": true,
@@ -12,33 +12,14 @@
   "estimated_cost_usd": 5,
   "budget_usd": 25,
   "within_budget": true,
-  "next_wave": "scale_wave_0008",
-  "next_dry_run_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=8",
-  "next_live_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --live --confirm-live --max-tasks=2 --priority-max=2 --wave=8",
+  "next_wave": "scale_wave_0009",
+  "next_dry_run_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=9",
+  "next_live_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --live --confirm-live --max-tasks=2 --priority-max=2 --wave=9",
   "after_live_commands": [
     "node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs",
     "node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs"
   ],
   "rows": [
-    {
-      "wave_id": "scale_wave_0008",
-      "sequence": 8,
-      "provider": "apify",
-      "ready": true,
-      "blocked_tasks": 0,
-      "task_count": 2,
-      "batch_ids": "graph_0069|graph_0066",
-      "surfaces": "tiktok_hashtag_export",
-      "target_labels": "filmmaker|behind_the_scenes_creator",
-      "estimated_result_rows": 200,
-      "estimated_cost_usd": 0.5,
-      "dry_run_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=8",
-      "live_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --live --confirm-live --max-tasks=2 --priority-max=2 --wave=8",
-      "import_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs",
-      "rebuild_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs",
-      "first_query": "shortfilm",
-      "second_query": "bts"
-    },
     {
       "wave_id": "scale_wave_0009",
       "sequence": 9,
@@ -209,6 +190,25 @@
       "rebuild_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs",
       "first_query": "site:tiktok.com/@ \"actor\"",
       "second_query": "site:tiktok.com/@ \"sketch comedian\""
+    },
+    {
+      "wave_id": "scale_wave_0018",
+      "sequence": 18,
+      "provider": "apify",
+      "ready": true,
+      "blocked_tasks": 0,
+      "task_count": 2,
+      "batch_ids": "category_gap_0039|search_0003",
+      "surfaces": "category_gap_search|search_index",
+      "target_labels": "actor_performer|sketch_comedian",
+      "estimated_result_rows": 200,
+      "estimated_cost_usd": 0.5,
+      "dry_run_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=18",
+      "live_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --live --confirm-live --max-tasks=2 --priority-max=2 --wave=18",
+      "import_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs",
+      "rebuild_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs",
+      "first_query": "site:tiktok.com/@ \"actress\"",
+      "second_query": "site:tiktok.com/@ \"sketch comedy\""
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T21:38:08.922Z",
+  "generated_at": "2026-06-12T21:41:43.897Z",
   "provider": "apify",
   "max_waves": 10,
   "selected_waves": 10,
@@ -14,42 +14,10 @@
   },
   "estimated_cost_usd": 5,
   "within_budget": true,
-  "next_wave": "scale_wave_0008",
-  "next_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --max-tasks=8 --priority-max=2 --wave=0008",
+  "next_wave": "scale_wave_0009",
+  "next_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --max-tasks=8 --priority-max=2 --wave=0009",
   "blocked_rows": [],
   "first_rows": [
-    {
-      "wave_id": "scale_wave_0008",
-      "sequence": 8,
-      "provider": "apify",
-      "batch_id": "graph_0069",
-      "acquisition_surface": "tiktok_hashtag_export",
-      "target_label": "filmmaker",
-      "query": "shortfilm",
-      "actor_id": "clockworks/tiktok-scraper",
-      "ready": true,
-      "block_reason": "",
-      "requested_limit": 100,
-      "estimated_result_rows": 100,
-      "estimated_cost_usd": 0.25,
-      "input_json": "{\"hashtags\":[\"shortfilm\"],\"resultsPerPage\":100,\"shouldDownloadVideos\":false,\"shouldDownloadCovers\":false,\"shouldDownloadSubtitles\":false}"
-    },
-    {
-      "wave_id": "scale_wave_0008",
-      "sequence": 8,
-      "provider": "apify",
-      "batch_id": "graph_0066",
-      "acquisition_surface": "tiktok_hashtag_export",
-      "target_label": "behind_the_scenes_creator",
-      "query": "bts",
-      "actor_id": "clockworks/tiktok-scraper",
-      "ready": true,
-      "block_reason": "",
-      "requested_limit": 100,
-      "estimated_result_rows": 100,
-      "estimated_cost_usd": 0.25,
-      "input_json": "{\"hashtags\":[\"bts\"],\"resultsPerPage\":100,\"shouldDownloadVideos\":false,\"shouldDownloadCovers\":false,\"shouldDownloadSubtitles\":false}"
-    },
     {
       "wave_id": "scale_wave_0009",
       "sequence": 9,
@@ -337,6 +305,38 @@
       "estimated_result_rows": 100,
       "estimated_cost_usd": 0.25,
       "input_json": "{\"queries\":\"site:tiktok.com/@ \\\"sketch comedian\\\"\",\"maxPagesPerQuery\":1,\"resultsPerPage\":100,\"countryCode\":\"us\",\"languageCode\":\"en\"}"
+    },
+    {
+      "wave_id": "scale_wave_0018",
+      "sequence": 18,
+      "provider": "apify",
+      "batch_id": "category_gap_0039",
+      "acquisition_surface": "category_gap_search",
+      "target_label": "actor_performer",
+      "query": "site:tiktok.com/@ \"actress\"",
+      "actor_id": "apify/google-search-scraper",
+      "ready": true,
+      "block_reason": "",
+      "requested_limit": 100,
+      "estimated_result_rows": 100,
+      "estimated_cost_usd": 0.25,
+      "input_json": "{\"queries\":\"site:tiktok.com/@ \\\"actress\\\"\",\"maxPagesPerQuery\":1,\"resultsPerPage\":100,\"countryCode\":\"us\",\"languageCode\":\"en\"}"
+    },
+    {
+      "wave_id": "scale_wave_0018",
+      "sequence": 18,
+      "provider": "apify",
+      "batch_id": "search_0003",
+      "acquisition_surface": "search_index",
+      "target_label": "sketch_comedian",
+      "query": "site:tiktok.com/@ \"sketch comedy\"",
+      "actor_id": "apify/google-search-scraper",
+      "ready": true,
+      "block_reason": "",
+      "requested_limit": 100,
+      "estimated_result_rows": 100,
+      "estimated_cost_usd": 0.25,
+      "input_json": "{\"queries\":\"site:tiktok.com/@ \\\"sketch comedy\\\"\",\"maxPagesPerQuery\":1,\"resultsPerPage\":100,\"countryCode\":\"us\",\"languageCode\":\"en\"}"
     }
   ]
 }

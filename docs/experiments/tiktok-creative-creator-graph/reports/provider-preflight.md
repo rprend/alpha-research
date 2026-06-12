@@ -1,6 +1,6 @@
 # Provider Preflight
 
-Generated: 2026-06-12T21:38:08.922Z
+Generated: 2026-06-12T21:41:43.897Z
 
 - Provider: apify
 - Selected waves: 10
@@ -12,20 +12,18 @@ Generated: 2026-06-12T21:38:08.922Z
 - Estimated cost: $5
 - Budget: $25
 - Within budget: true
-- Next wave: scale_wave_0008
+- Next wave: scale_wave_0009
 
 Next command:
 
 ```bash
-node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --max-tasks=8 --priority-max=2 --wave=0008
+node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --max-tasks=8 --priority-max=2 --wave=0009
 ```
 
 ## First Rows
 
 | Wave | Batch | Surface | Query | Actor | Ready | Est. rows | Est. cost |
 | --- | --- | --- | --- | --- | --- | ---: | ---: |
-| scale_wave_0008 | graph_0069 | tiktok_hashtag_export | shortfilm | clockworks/tiktok-scraper | true | 100 | $0.25 |
-| scale_wave_0008 | graph_0066 | tiktok_hashtag_export | bts | clockworks/tiktok-scraper | true | 100 | $0.25 |
 | scale_wave_0009 | hashtag_0016 | tiktok_hashtag_export | sketchcomedy | clockworks/tiktok-scraper | true | 100 | $0.25 |
 | scale_wave_0009 | category_gap_0060 | category_gap_search | site:tiktok.com/@ "animation" | apify/google-search-scraper | true | 100 | $0.25 |
 | scale_wave_0010 | graph_0070 | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" | apify/google-search-scraper | true | 100 | $0.25 |
@@ -44,5 +42,7 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 | scale_wave_0016 | category_gap_0050 | category_gap_search | site:tiktok.com/@ "shortfilm" | apify/google-search-scraper | true | 100 | $0.25 |
 | scale_wave_0017 | category_gap_0038 | category_gap_search | site:tiktok.com/@ "actor" | apify/google-search-scraper | true | 100 | $0.25 |
 | scale_wave_0017 | category_gap_0051 | category_gap_search | site:tiktok.com/@ "sketch comedian" | apify/google-search-scraper | true | 100 | $0.25 |
+| scale_wave_0018 | category_gap_0039 | category_gap_search | site:tiktok.com/@ "actress" | apify/google-search-scraper | true | 100 | $0.25 |
+| scale_wave_0018 | search_0003 | search_index | site:tiktok.com/@ "sketch comedy" | apify/google-search-scraper | true | 100 | $0.25 |
 
 Full preflight: `data/processed/provider_preflight.csv`
