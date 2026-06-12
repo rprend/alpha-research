@@ -222,6 +222,7 @@ Overall status: pass
 - PASS self_study_portfolio_revision_queue_tracks_post_review_work: 9 portfolio revision queue rows; 9 pending; 0 queue reference/action errors.
 - PASS self_study_portfolio_gate_status_suggestions_promote_reviewer_feedback: 3 gate status suggestion rows; 0 ready to copy; 0 suggestion reference/readiness errors.
 - PASS self_study_portfolio_review_workflow_sequences_review_steps: 3 review workflow rows; 1 rows link smoke fixtures; 0 workflow reference/sequence errors; generated mismatch=false.
+- PASS self_study_portfolio_review_agendas_script_critique_sessions: 3 review agenda rows; 225 planned critique minutes; 0 agenda reference/sequence errors; generated mismatch=false.
 - PASS self_study_progress_ledger_links_to_portfolio_completion_gates: 28 progress ledger rows carry portfolio review gate annotations; 0 annotation reference errors.
 - PASS self_study_portfolio_briefs_embed_completion_gate_status: 3 portfolio briefs embed completion gate status; 0 readiness reference/render errors.
 - PASS self_study_portfolio_milestones_have_valid_review_packages: 3 portfolio milestones; 0 milestone reference errors; generated mismatch=false.

@@ -1,0 +1,164 @@
+# RISD Graphic Design Review Session Agendas
+
+Generated: 2026-06-12
+
+These agendas compress each portfolio workflow into a timed mentor/reviewer critique script.
+
+- Agendas: 3
+- Total planned minutes: 225
+
+## Foundation Methods Portfolio Review Session Agenda
+
+- Agenda ID: review_agenda_portfolio_milestone_01_foundation_methods
+- Workflow: review_workflow_portfolio_milestone_01_foundation_methods
+- Handoff: reviewer_handoff_portfolio_milestone_01_foundation_methods
+- Duration: 75 minutes
+- Required artifacts:
+  - review_workflow_portfolio_milestone_01_foundation_methods
+  - reviewer_handoff_portfolio_milestone_01_foundation_methods
+  - evidence_attachment_manifest_portfolio_milestone_01_foundation_methods
+  - feedback_reviewer_handoff_portfolio_milestone_01_foundation_methods
+  - gate_status_suggestion_reviewer_handoff_portfolio_milestone_01_foundation_methods
+  - status_import_completion_gate_portfolio_milestone_01_foundation_methods
+  - self_study_portfolio_briefs/portfolio_milestone_01_foundation_methods.md
+  - self_study_portfolio_gate_status_summary.md#gate_status_summary_completion_gate_portfolio_milestone_01_foundation_methods
+  - self_study_portfolio_source_excerpt_packets.jsonl#source_excerpt_packet_portfolio_milestone_01_foundation_methods
+  - self_study_portfolio_reference_packets.jsonl#reference_packet_portfolio_milestone_01_foundation_methods
+  - self_study_portfolio_export_manifests.jsonl#export_manifest_portfolio_milestone_01_foundation_methods
+- Timed script:
+  - 1. Open review packet and confirm evidence boundary. (5 min)
+    - Confirm the learner is presenting public-evidence-bounded work, not claiming private RISD assessment.
+    - Open the portfolio review index row and linked brief/source/reference/export artifacts.
+  - 2. Learner presents final artifacts before process evidence. (12 min)
+    - Ask the learner to present the final artifacts before process evidence.
+    - Stop after the artifact read; defer process explanation until reviewer has recorded first impressions.
+  - 3. Check visible constraints against source-bound evidence. (15 min)
+    - Check the work against the source-bound constraints and explicitly separate observed evidence from inference.
+    - Which constraints are visible in the final artifacts?
+    - What changed after critique, and what evidence proves the change?
+  - 4. Review critique notes, before/after revisions, and decision rationale. (18 min)
+    - Ask what changed after critique and require a before/after example.
+    - Which source-grounded reading, schedule, or assignment detail changed a design decision?
+    - What remains uncertain because the public corpus lacks private classroom material?
+  - 5. Resolve, disclose, or keep each evidence warning as blocking. (10 min)
+    - Discuss each unresolved evidence warning and decide whether it is resolved, disclosed, or still blocking.
+    - Fill final artifact, process, critique, revision, source-boundary, and export package slots before review.
+  - 6. Fill reviewer feedback status updates and revision items. (10 min)
+    - Copy the reviewer feedback template row into the reviewer feedback import file and use only allowed evidence refs.
+    - Regenerate the corpus so reviewer feedback imports become revision queue rows.
+  - 7. Decide whether gate status can be promoted or remains blocked. (5 min)
+    - Use gate status suggestions to copy verified satisfied checks into the learner gate status import.
+    - Regenerate and confirm gate status summary, review index, and portfolio brief reflect the updated readiness state.
+- Capture outputs:
+  - reviewer feedback import row with evidence refs
+  - revision queue rows for unresolved work
+  - gate status suggestion decision
+  - learner gate status import update when all checks are satisfied
+- Post-session actions:
+  - Copy the template row into self_study_portfolio_gate_status_import.jsonl, attach evidence_refs, update check statuses, and regenerate.
+  - Update the learner status import with satisfied checks, evidence refs, and notes before regenerating.
+  - Keep unresolved source boundaries in the next critique memo rather than smoothing them over.
+
+## Typography And Systems Portfolio Review Session Agenda
+
+- Agenda ID: review_agenda_portfolio_milestone_02_typography_systems
+- Workflow: review_workflow_portfolio_milestone_02_typography_systems
+- Handoff: reviewer_handoff_portfolio_milestone_02_typography_systems
+- Duration: 75 minutes
+- Required artifacts:
+  - review_workflow_portfolio_milestone_02_typography_systems
+  - reviewer_handoff_portfolio_milestone_02_typography_systems
+  - evidence_attachment_manifest_portfolio_milestone_02_typography_systems
+  - feedback_reviewer_handoff_portfolio_milestone_02_typography_systems
+  - gate_status_suggestion_reviewer_handoff_portfolio_milestone_02_typography_systems
+  - status_import_completion_gate_portfolio_milestone_02_typography_systems
+  - self_study_portfolio_briefs/portfolio_milestone_02_typography_systems.md
+  - self_study_portfolio_gate_status_summary.md#gate_status_summary_completion_gate_portfolio_milestone_02_typography_systems
+  - self_study_portfolio_source_excerpt_packets.jsonl#source_excerpt_packet_portfolio_milestone_02_typography_systems
+  - self_study_portfolio_reference_packets.jsonl#reference_packet_portfolio_milestone_02_typography_systems
+  - self_study_portfolio_export_manifests.jsonl#export_manifest_portfolio_milestone_02_typography_systems
+- Timed script:
+  - 1. Open review packet and confirm evidence boundary. (5 min)
+    - Confirm the learner is presenting public-evidence-bounded work, not claiming private RISD assessment.
+    - Open the portfolio review index row and linked brief/source/reference/export artifacts.
+  - 2. Learner presents final artifacts before process evidence. (12 min)
+    - Ask the learner to present the final artifacts before process evidence.
+    - Stop after the artifact read; defer process explanation until reviewer has recorded first impressions.
+  - 3. Check visible constraints against source-bound evidence. (15 min)
+    - Check the work against the source-bound constraints and explicitly separate observed evidence from inference.
+    - Which constraints are visible in the final artifacts?
+    - What changed after critique, and what evidence proves the change?
+  - 4. Review critique notes, before/after revisions, and decision rationale. (18 min)
+    - Ask what changed after critique and require a before/after example.
+    - Which source-grounded reading, schedule, or assignment detail changed a design decision?
+    - What remains uncertain because the public corpus lacks private classroom material?
+  - 5. Resolve, disclose, or keep each evidence warning as blocking. (10 min)
+    - Discuss each unresolved evidence warning and decide whether it is resolved, disclosed, or still blocking.
+    - Fill final artifact, process, critique, revision, source-boundary, and export package slots before review.
+  - 6. Fill reviewer feedback status updates and revision items. (10 min)
+    - Copy the reviewer feedback template row into the reviewer feedback import file and use only allowed evidence refs.
+    - Regenerate the corpus so reviewer feedback imports become revision queue rows.
+  - 7. Decide whether gate status can be promoted or remains blocked. (5 min)
+    - Use gate status suggestions to copy verified satisfied checks into the learner gate status import.
+    - Regenerate and confirm gate status summary, review index, and portfolio brief reflect the updated readiness state.
+- Capture outputs:
+  - reviewer feedback import row with evidence refs
+  - revision queue rows for unresolved work
+  - gate status suggestion decision
+  - learner gate status import update when all checks are satisfied
+- Post-session actions:
+  - Copy the template row into self_study_portfolio_gate_status_import.jsonl, attach evidence_refs, update check statuses, and regenerate.
+  - Update the learner status import with satisfied checks, evidence refs, and notes before regenerating.
+  - Keep unresolved source boundaries in the next critique memo rather than smoothing them over.
+
+## Advanced Synthesis Portfolio Review Session Agenda
+
+- Agenda ID: review_agenda_portfolio_milestone_03_advanced_synthesis
+- Workflow: review_workflow_portfolio_milestone_03_advanced_synthesis
+- Handoff: reviewer_handoff_portfolio_milestone_03_advanced_synthesis
+- Duration: 75 minutes
+- Required artifacts:
+  - review_workflow_portfolio_milestone_03_advanced_synthesis
+  - reviewer_handoff_portfolio_milestone_03_advanced_synthesis
+  - evidence_attachment_manifest_portfolio_milestone_03_advanced_synthesis
+  - feedback_reviewer_handoff_portfolio_milestone_03_advanced_synthesis
+  - gate_status_suggestion_reviewer_handoff_portfolio_milestone_03_advanced_synthesis
+  - status_import_completion_gate_portfolio_milestone_03_advanced_synthesis
+  - self_study_portfolio_briefs/portfolio_milestone_03_advanced_synthesis.md
+  - self_study_portfolio_gate_status_summary.md#gate_status_summary_completion_gate_portfolio_milestone_03_advanced_synthesis
+  - self_study_portfolio_source_excerpt_packets.jsonl#source_excerpt_packet_portfolio_milestone_03_advanced_synthesis
+  - self_study_portfolio_reference_packets.jsonl#reference_packet_portfolio_milestone_03_advanced_synthesis
+  - self_study_portfolio_export_manifests.jsonl#export_manifest_portfolio_milestone_03_advanced_synthesis
+- Timed script:
+  - 1. Open review packet and confirm evidence boundary. (5 min)
+    - Confirm the learner is presenting public-evidence-bounded work, not claiming private RISD assessment.
+    - Open the portfolio review index row and linked brief/source/reference/export artifacts.
+  - 2. Learner presents final artifacts before process evidence. (12 min)
+    - Ask the learner to present the final artifacts before process evidence.
+    - Stop after the artifact read; defer process explanation until reviewer has recorded first impressions.
+  - 3. Check visible constraints against source-bound evidence. (15 min)
+    - Check the work against the source-bound constraints and explicitly separate observed evidence from inference.
+    - Which constraints are visible in the final artifacts?
+    - What changed after critique, and what evidence proves the change?
+  - 4. Review critique notes, before/after revisions, and decision rationale. (18 min)
+    - Ask what changed after critique and require a before/after example.
+    - Which source-grounded reading, schedule, or assignment detail changed a design decision?
+    - What remains uncertain because the public corpus lacks private classroom material?
+  - 5. Resolve, disclose, or keep each evidence warning as blocking. (10 min)
+    - Discuss each unresolved evidence warning and decide whether it is resolved, disclosed, or still blocking.
+    - Fill final artifact, process, critique, revision, source-boundary, and export package slots before review.
+  - 6. Fill reviewer feedback status updates and revision items. (10 min)
+    - Copy the reviewer feedback template row into the reviewer feedback import file and use only allowed evidence refs.
+    - Regenerate the corpus so reviewer feedback imports become revision queue rows.
+  - 7. Decide whether gate status can be promoted or remains blocked. (5 min)
+    - Use gate status suggestions to copy verified satisfied checks into the learner gate status import.
+    - Regenerate and confirm gate status summary, review index, and portfolio brief reflect the updated readiness state.
+- Capture outputs:
+  - reviewer feedback import row with evidence refs
+  - revision queue rows for unresolved work
+  - gate status suggestion decision
+  - learner gate status import update when all checks are satisfied
+- Post-session actions:
+  - Copy the template row into self_study_portfolio_gate_status_import.jsonl, attach evidence_refs, update check statuses, and regenerate.
+  - Update the learner status import with satisfied checks, evidence refs, and notes before regenerating.
+  - Keep unresolved source boundaries in the next critique memo rather than smoothing them over.

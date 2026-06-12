@@ -4049,7 +4049,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioGateStatusSummary = null, selfStudyPortfolioReviewIndex = null, selfStudyPortfolioReviewerHandoff = null, selfStudyPortfolioReviewerFeedbackTemplate = null, selfStudyPortfolioReviewerFeedbackImports = null, selfStudyPortfolioReviewerFeedbackSmokeFixture = null, selfStudyPortfolioReviewWorkflow = null, selfStudyPortfolioRevisionQueue = null, selfStudyPortfolioGateStatusSuggestions = null, selfStudyPortfolioEvidenceAttachments = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioGateStatusSummary = null, selfStudyPortfolioReviewIndex = null, selfStudyPortfolioReviewerHandoff = null, selfStudyPortfolioReviewerFeedbackTemplate = null, selfStudyPortfolioReviewerFeedbackImports = null, selfStudyPortfolioReviewerFeedbackSmokeFixture = null, selfStudyPortfolioReviewWorkflow = null, selfStudyPortfolioReviewAgendas = null, selfStudyPortfolioRevisionQueue = null, selfStudyPortfolioGateStatusSuggestions = null, selfStudyPortfolioEvidenceAttachments = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveArchivePromotions = archivePromotions ?? loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
@@ -4071,6 +4071,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const effectiveSelfStudyPortfolioReviewerFeedbackImports = selfStudyPortfolioReviewerFeedbackImports ?? loadJsonl(portfolioReviewerFeedbackImportPath)
   const effectiveSelfStudyPortfolioReviewerFeedbackSmokeFixture = selfStudyPortfolioReviewerFeedbackSmokeFixture ?? []
   const effectiveSelfStudyPortfolioReviewWorkflow = selfStudyPortfolioReviewWorkflow ?? []
+  const effectiveSelfStudyPortfolioReviewAgendas = selfStudyPortfolioReviewAgendas ?? []
   const effectiveSelfStudyPortfolioRevisionQueue = selfStudyPortfolioRevisionQueue ?? []
   const effectiveSelfStudyPortfolioGateStatusSuggestions = selfStudyPortfolioGateStatusSuggestions ?? []
   const effectiveSelfStudyPortfolioEvidenceAttachments = selfStudyPortfolioEvidenceAttachments ?? []
@@ -4351,6 +4352,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const portfolioSmokeGateStatusSuggestions = buildSelfStudyPortfolioGateStatusSuggestions(portfolioReviewerHandoff, portfolioReviewerFeedbackSmokeFixture, portfolioCompletionGates, portfolioSmokeRevisionQueue, portfolioEvidenceAttachments)
   const generatedPortfolioReviewWorkflow = buildSelfStudyPortfolioReviewWorkflow({ reviewIndex: portfolioReviewIndex, evidenceAttachments: portfolioEvidenceAttachments, feedbackTemplates: portfolioReviewerFeedbackTemplate, revisionQueue: portfolioRevisionQueue, gateStatusSuggestions: portfolioGateStatusSuggestions, gateStatusTemplate: portfolioGateStatusTemplate, smokeFixture: portfolioReviewerFeedbackSmokeFixture })
   const portfolioReviewWorkflow = effectiveSelfStudyPortfolioReviewWorkflow.length ? effectiveSelfStudyPortfolioReviewWorkflow : generatedPortfolioReviewWorkflow
+  const generatedPortfolioReviewAgendas = buildSelfStudyPortfolioReviewAgendas(portfolioReviewWorkflow, portfolioReviewerHandoff)
+  const portfolioReviewAgendas = effectiveSelfStudyPortfolioReviewAgendas.length ? effectiveSelfStudyPortfolioReviewAgendas : generatedPortfolioReviewAgendas
   const progressLedgerWithPortfolioGateAnnotations = annotateSelfStudyProgressLedgerWithPortfolioGates(progressLedger, portfolioMilestones, portfolioCompletionGates)
   const curriculumModulesWithSourceIds = curriculumModules.filter((module) => module.source_ids?.length).length
   const curriculumModulesWithAssignments = curriculumModules.filter((module) => module.assignment_ids?.length).length
@@ -4835,6 +4838,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       )
   )
   const portfolioGateStatusSuggestionIds = new Set(portfolioGateStatusSuggestions.map((row) => row.suggestion_id))
+  const portfolioReviewWorkflowIds = new Set(portfolioReviewWorkflow.map((row) => row.workflow_id))
   const validReviewWorkflowStepIds = ['open_review_packet', 'attach_evidence', 'capture_reviewer_feedback', 'regenerate_revision_queue', 'promote_gate_status', 'verify_ready_state']
   const portfolioReviewWorkflowErrors = portfolioReviewWorkflow.filter((workflow) =>
     !workflow.workflow_id
@@ -4860,6 +4864,38 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || !workflow.next_action
   )
   const portfolioReviewWorkflowGeneratedMismatch = effectiveSelfStudyPortfolioReviewWorkflow.length > 0 && effectiveSelfStudyPortfolioReviewWorkflow.length !== generatedPortfolioReviewWorkflow.length
+  const validReviewAgendaBlockIds = ['setup', 'learner_presentation', 'constraint_and_source_check', 'critique_revision_review', 'evidence_gap_decision', 'feedback_capture', 'promotion_decision']
+  const portfolioReviewAgendaErrors = portfolioReviewAgendas.filter((agenda) =>
+    !agenda.agenda_id
+      || !agenda.workflow_id
+      || !portfolioReviewWorkflowIds.has(agenda.workflow_id)
+      || !agenda.handoff_id
+      || !portfolioReviewerHandoffIds.has(agenda.handoff_id)
+      || !agenda.milestone_id
+      || !portfolioMilestoneIds.has(agenda.milestone_id)
+      || !Number.isInteger(agenda.target_duration_minutes)
+      || agenda.target_duration_minutes <= 0
+      || !agenda.required_artifacts?.length
+      || !agenda.required_artifacts.includes(agenda.handoff_id)
+      || !agenda.required_artifacts.some((artifact) => portfolioEvidenceAttachmentManifestIds.has(artifact))
+      || !agenda.required_artifacts.some((artifact) => portfolioReviewerFeedbackTemplateIds.has(artifact))
+      || !agenda.required_artifacts.some((artifact) => portfolioGateStatusSuggestionIds.has(artifact))
+      || !Array.isArray(agenda.timed_blocks)
+      || agenda.timed_blocks.length !== validReviewAgendaBlockIds.length
+      || agenda.timed_blocks.reduce((sum, block) => sum + (block.duration_minutes ?? 0), 0) !== agenda.target_duration_minutes
+      || agenda.timed_blocks.some((block, index) =>
+        block.block_number !== index + 1
+          || block.block_id !== validReviewAgendaBlockIds[index]
+          || !Number.isInteger(block.duration_minutes)
+          || block.duration_minutes <= 0
+          || !block.objective
+          || !block.prompts?.length
+      )
+      || !agenda.capture_outputs?.length
+      || !agenda.post_session_actions?.length
+      || !agenda.smoke_test_note
+  )
+  const portfolioReviewAgendasGeneratedMismatch = effectiveSelfStudyPortfolioReviewAgendas.length > 0 && effectiveSelfStudyPortfolioReviewAgendas.length !== generatedPortfolioReviewAgendas.length
   const portfolioBriefReadinessErrors = portfolioBriefs.filter((brief) =>
     !brief.completion_gate_id
       || !portfolioCompletionGateIds.has(brief.completion_gate_id)
@@ -5217,6 +5253,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${portfolioReviewWorkflow.length} review workflow rows; ${portfolioReviewWorkflow.filter((row) => row.linked_artifacts?.reviewer_feedback_smoke_fixture_id).length} rows link smoke fixtures; ${portfolioReviewWorkflowErrors.length} workflow reference/sequence errors; generated mismatch=${portfolioReviewWorkflowGeneratedMismatch}.`,
     },
     {
+      id: 'self_study_portfolio_review_agendas_script_critique_sessions',
+      status: portfolioReviewAgendaErrors.length === 0 && portfolioReviewAgendas.length === portfolioMilestones.length && portfolioReviewAgendas.length > 0 && !portfolioReviewAgendasGeneratedMismatch ? 'pass' : 'fail',
+      detail: `${portfolioReviewAgendas.length} review agenda rows; ${portfolioReviewAgendas.reduce((sum, agenda) => sum + (agenda.target_duration_minutes ?? 0), 0)} planned critique minutes; ${portfolioReviewAgendaErrors.length} agenda reference/sequence errors; generated mismatch=${portfolioReviewAgendasGeneratedMismatch}.`,
+    },
+    {
       id: 'self_study_progress_ledger_links_to_portfolio_completion_gates',
       status: progressLedgerPortfolioGateErrors.length === 0 && progressLedgerWithPortfolioGateAnnotations.length === progressLedger.length && progressLedger.length > 0 ? 'pass' : 'fail',
       detail: `${progressLedgerWithPortfolioGateAnnotations.length} progress ledger rows carry portfolio review gate annotations; ${progressLedgerPortfolioGateErrors.length} annotation reference errors.`,
@@ -5422,6 +5463,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_portfolio_gate_status_suggestions_ready_to_copy: portfolioGateStatusSuggestions.filter((row) => row.suggestion_status === 'ready_to_copy').length,
       self_study_portfolio_review_workflow_rows: portfolioReviewWorkflow.length,
       self_study_portfolio_review_workflow_rows_with_smoke_fixture: portfolioReviewWorkflow.filter((row) => row.linked_artifacts?.reviewer_feedback_smoke_fixture_id).length,
+      self_study_portfolio_review_agenda_rows: portfolioReviewAgendas.length,
+      self_study_portfolio_review_agenda_total_minutes: portfolioReviewAgendas.reduce((sum, agenda) => sum + (agenda.target_duration_minutes ?? 0), 0),
       self_study_portfolio_milestones: portfolioMilestones.length,
       self_study_portfolio_briefs: portfolioBriefs.length,
       self_study_portfolio_briefs_with_completion_gate_status: portfolioBriefs.filter((brief) => brief.review_readiness?.status).length,
@@ -8082,6 +8125,121 @@ function selfStudyPortfolioReviewWorkflowMarkdown(workflows) {
   return lines.map((line) => line.trimEnd()).join('\n')
 }
 
+function buildSelfStudyPortfolioReviewAgendas(reviewWorkflows, reviewerHandoffs) {
+  const handoffByMilestone = new Map(reviewerHandoffs.map((handoff) => [handoff.milestone_id, handoff]))
+  return reviewWorkflows.map((workflow) => {
+    const handoff = handoffByMilestone.get(workflow.milestone_id)
+    const totalMinutes = 75
+    return {
+      agenda_id: `review_agenda_${workflow.milestone_id}`,
+      generated_at: retrievedAt,
+      workflow_id: workflow.workflow_id,
+      handoff_id: handoff?.handoff_id ?? null,
+      milestone_id: workflow.milestone_id,
+      title: `${workflow.title} Session Agenda`,
+      target_duration_minutes: totalMinutes,
+      reviewer_role: 'external mentor or reviewer',
+      learner_role: 'self-study portfolio presenter',
+      required_artifacts: uniq([
+        workflow.workflow_id,
+        handoff?.handoff_id,
+        workflow.linked_artifacts?.evidence_attachment_manifest_id,
+        workflow.linked_artifacts?.reviewer_feedback_template_id,
+        workflow.linked_artifacts?.gate_status_suggestion_id,
+        workflow.linked_artifacts?.gate_status_template_import_id,
+        ...(handoff?.reviewer_context?.artifact_paths ?? []),
+      ].filter(Boolean)),
+      timed_blocks: [
+        reviewAgendaBlock(1, 'setup', 5, 'Open review packet and confirm evidence boundary.', [
+          'Confirm the learner is presenting public-evidence-bounded work, not claiming private RISD assessment.',
+          workflow.ordered_steps?.[0]?.action ?? 'Open the portfolio review packet.',
+        ]),
+        reviewAgendaBlock(2, 'learner_presentation', 12, 'Learner presents final artifacts before process evidence.', [
+          handoff?.live_review_actions?.[0] ?? 'Ask the learner to present the final artifacts before process evidence.',
+          'Stop after the artifact read; defer process explanation until reviewer has recorded first impressions.',
+        ]),
+        reviewAgendaBlock(3, 'constraint_and_source_check', 15, 'Check visible constraints against source-bound evidence.', [
+          handoff?.live_review_actions?.[2] ?? 'Check the work against recovered constraints and separate observed evidence from inference.',
+          ...(handoff?.critique_prompts ?? []).slice(0, 2),
+        ]),
+        reviewAgendaBlock(4, 'critique_revision_review', 18, 'Review critique notes, before/after revisions, and decision rationale.', [
+          handoff?.live_review_actions?.[1] ?? 'Ask what changed after critique and require a before/after example.',
+          ...(handoff?.critique_prompts ?? []).slice(2, 4),
+        ]),
+        reviewAgendaBlock(5, 'evidence_gap_decision', 10, 'Resolve, disclose, or keep each evidence warning as blocking.', [
+          handoff?.live_review_actions?.[3] ?? 'Confirm unresolved evidence warnings are disclosed or still blocking.',
+          workflow.ordered_steps?.[1]?.action ?? 'Check evidence attachment slots before promotion.',
+        ]),
+        reviewAgendaBlock(6, 'feedback_capture', 10, 'Fill reviewer feedback status updates and revision items.', [
+          workflow.ordered_steps?.[2]?.action ?? 'Capture reviewer feedback with allowed evidence refs.',
+          workflow.ordered_steps?.[3]?.action ?? 'Regenerate revision queue after feedback import.',
+        ]),
+        reviewAgendaBlock(7, 'promotion_decision', 5, 'Decide whether gate status can be promoted or remains blocked.', [
+          workflow.ordered_steps?.[4]?.action ?? 'Promote verified gate status checks.',
+          workflow.ordered_steps?.[5]?.action ?? 'Verify readiness state after regeneration.',
+        ]),
+      ],
+      capture_outputs: [
+        'reviewer feedback import row with evidence refs',
+        'revision queue rows for unresolved work',
+        'gate status suggestion decision',
+        'learner gate status import update when all checks are satisfied',
+      ],
+      post_session_actions: handoff?.post_review_followup ?? [
+        'Update reviewer feedback import and regenerate.',
+        'Update learner gate status import only after evidence-backed checks are satisfied.',
+      ],
+      smoke_test_note: workflow.smoke_test_note,
+      provenance_note: 'Generated time-boxed critique agenda from portfolio review workflow and reviewer handoff artifacts.',
+    }
+  })
+}
+
+function reviewAgendaBlock(blockNumber, block_id, duration_minutes, objective, prompts) {
+  return {
+    block_number: blockNumber,
+    block_id,
+    duration_minutes,
+    objective,
+    prompts: prompts.filter(Boolean),
+  }
+}
+
+function selfStudyPortfolioReviewAgendasMarkdown(agendas) {
+  const lines = [
+    '# RISD Graphic Design Review Session Agendas',
+    '',
+    `Generated: ${retrievedAt}`,
+    '',
+    'These agendas compress each portfolio workflow into a timed mentor/reviewer critique script.',
+    '',
+    `- Agendas: ${agendas.length}`,
+    `- Total planned minutes: ${agendas.reduce((sum, agenda) => sum + (agenda.target_duration_minutes ?? 0), 0)}`,
+    '',
+  ]
+  agendas.forEach((agenda) => {
+    lines.push(`## ${agenda.title}`)
+    lines.push('')
+    lines.push(`- Agenda ID: ${agenda.agenda_id}`)
+    lines.push(`- Workflow: ${agenda.workflow_id}`)
+    lines.push(`- Handoff: ${agenda.handoff_id}`)
+    lines.push(`- Duration: ${agenda.target_duration_minutes} minutes`)
+    lines.push('- Required artifacts:')
+    agenda.required_artifacts.forEach((artifact) => lines.push(`  - ${artifact}`))
+    lines.push('- Timed script:')
+    agenda.timed_blocks.forEach((block) => {
+      lines.push(`  - ${block.block_number}. ${block.objective} (${block.duration_minutes} min)`)
+      block.prompts.forEach((prompt) => lines.push(`    - ${prompt}`))
+    })
+    lines.push('- Capture outputs:')
+    agenda.capture_outputs.forEach((output) => lines.push(`  - ${output}`))
+    lines.push('- Post-session actions:')
+    agenda.post_session_actions.forEach((action) => lines.push(`  - ${action}`))
+    lines.push('')
+  })
+  return lines.map((line) => line.trimEnd()).join('\n')
+}
+
 function buildSelfStudyPortfolioRevisionQueue(handoffs, feedbackImports = []) {
   const importsByHandoff = new Map(feedbackImports.filter((row) => row.handoff_id).map((row) => [row.handoff_id, row]))
   return handoffs.flatMap((handoff) => {
@@ -9226,6 +9384,7 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   const portfolioSmokeRevisionQueue = buildSelfStudyPortfolioRevisionQueue(portfolioReviewerHandoff, portfolioReviewerFeedbackSmokeFixture)
   const portfolioSmokeGateStatusSuggestions = buildSelfStudyPortfolioGateStatusSuggestions(portfolioReviewerHandoff, portfolioReviewerFeedbackSmokeFixture, portfolioCompletionGates, portfolioSmokeRevisionQueue, portfolioEvidenceAttachments)
   const portfolioReviewWorkflow = buildSelfStudyPortfolioReviewWorkflow({ reviewIndex: portfolioReviewIndex, evidenceAttachments: portfolioEvidenceAttachments, feedbackTemplates: portfolioReviewerFeedbackTemplate, revisionQueue: portfolioRevisionQueue, gateStatusSuggestions: portfolioGateStatusSuggestions, gateStatusTemplate: portfolioGateStatusTemplate, smokeFixture: portfolioReviewerFeedbackSmokeFixture })
+  const portfolioReviewAgendas = buildSelfStudyPortfolioReviewAgendas(portfolioReviewWorkflow, portfolioReviewerHandoff)
   writeJsonl(join(outDir, 'self_study_pacing_plan.jsonl'), pacingPlan)
   writeJsonl(join(outDir, 'self_study_pacing_profiles.jsonl'), buildSelfStudyPacingProfiles(pacingPlan))
   writeJsonl(join(outDir, 'self_study_progress_ledger.jsonl'), progressLedgerWithPortfolioGateAnnotations)
@@ -9251,6 +9410,8 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   writeFileSync(join(outDir, 'self_study_portfolio_gate_status_suggestions.md'), selfStudyPortfolioGateStatusSuggestionsMarkdown(portfolioGateStatusSuggestions))
   writeJsonl(join(outDir, 'self_study_portfolio_review_workflow.jsonl'), portfolioReviewWorkflow)
   writeFileSync(join(outDir, 'self_study_portfolio_review_workflow.md'), selfStudyPortfolioReviewWorkflowMarkdown(portfolioReviewWorkflow))
+  writeJsonl(join(outDir, 'self_study_portfolio_review_agendas.jsonl'), portfolioReviewAgendas)
+  writeFileSync(join(outDir, 'self_study_portfolio_review_agendas.md'), selfStudyPortfolioReviewAgendasMarkdown(portfolioReviewAgendas))
   writeJsonl(join(outDir, 'self_study_portfolio_milestones.jsonl'), portfolioMilestones)
   writeJsonl(join(outDir, 'self_study_portfolio_reference_packets.jsonl'), portfolioReferencePackets)
   writeJsonl(join(outDir, 'self_study_portfolio_source_excerpt_packets.jsonl'), portfolioSourceExcerptPackets)

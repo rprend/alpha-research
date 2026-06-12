@@ -151,6 +151,8 @@
     "self_study_portfolio_gate_status_suggestions_ready_to_copy": 0,
     "self_study_portfolio_review_workflow_rows": 3,
     "self_study_portfolio_review_workflow_rows_with_smoke_fixture": 1,
+    "self_study_portfolio_review_agenda_rows": 3,
+    "self_study_portfolio_review_agenda_total_minutes": 225,
     "self_study_portfolio_milestones": 3,
     "self_study_portfolio_briefs": 3,
     "self_study_portfolio_briefs_with_completion_gate_status": 3,
@@ -493,6 +495,11 @@
       "id": "self_study_portfolio_review_workflow_sequences_review_steps",
       "status": "pass",
       "detail": "3 review workflow rows; 1 rows link smoke fixtures; 0 workflow reference/sequence errors; generated mismatch=false."
+    },
+    {
+      "id": "self_study_portfolio_review_agendas_script_critique_sessions",
+      "status": "pass",
+      "detail": "3 review agenda rows; 225 planned critique minutes; 0 agenda reference/sequence errors; generated mismatch=false."
     },
     {
       "id": "self_study_progress_ledger_links_to_portfolio_completion_gates",
