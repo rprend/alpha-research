@@ -189,6 +189,8 @@ Implemented:
 - `result.json`
 - `work.md`
 - `public-draft.md`
+- `post.md`
+- `post-evidence-audit.json`
 - `publication-handoff.md`
 - `dataset_briefing.md`
 
@@ -198,11 +200,13 @@ Current committed corpus:
 - 12 historical Wayback snapshots
 - year range: 2000-2026
 - term families: truth/knowledge, civic/public, innovation/impact, global/leadership, excellence/prestige, inclusion/belonging, career/economy
+- publication post: `reports/post.md`, a polished source-layer methods draft
+- post evidence audit: `reports/post-evidence-audit.json`, status `pass`, 23/23 source, term, year, and audit checks passed
 - readiness: ready for editorial review with source-layer caveats
 
 Next implementation moves:
 
-- copyedit the publication handoff into a longitudinal methods post
+- final editorial review for `reports/post.md`
 - add university catalogs
 - add strategic plans
 - add president speeches

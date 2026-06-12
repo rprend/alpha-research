@@ -1,0 +1,131 @@
+{
+  "generatedAt": "2026-06-12T20:50:16.318Z",
+  "postPath": "docs/experiments/university-mission-statement-drift/reports/post.md",
+  "resultPath": "docs/experiments/university-mission-statement-drift/reports/result.json",
+  "auditPacketPath": "docs/experiments/university-mission-statement-drift/reports/audit-packet.json",
+  "status": "pass",
+  "checkCount": 23,
+  "passedCount": 23,
+  "checks": [
+    {
+      "id": "processed-pages",
+      "status": "pass",
+      "evidence": "22 processed pages"
+    },
+    {
+      "id": "current-pages",
+      "status": "pass",
+      "evidence": "10 current pages"
+    },
+    {
+      "id": "historical-pages",
+      "status": "pass",
+      "evidence": "12 historical pages"
+    },
+    {
+      "id": "year-range",
+      "status": "pass",
+      "evidence": "2000-2026"
+    },
+    {
+      "id": "current-global-leadership",
+      "status": "pass",
+      "evidence": "98"
+    },
+    {
+      "id": "current-truth-knowledge",
+      "status": "pass",
+      "evidence": "52"
+    },
+    {
+      "id": "current-innovation-impact",
+      "status": "pass",
+      "evidence": "47"
+    },
+    {
+      "id": "current-civic-public",
+      "status": "pass",
+      "evidence": "37"
+    },
+    {
+      "id": "current-inclusion-belonging",
+      "status": "pass",
+      "evidence": "23"
+    },
+    {
+      "id": "current-excellence-prestige",
+      "status": "pass",
+      "evidence": "17"
+    },
+    {
+      "id": "current-career-economy",
+      "status": "pass",
+      "evidence": "6"
+    },
+    {
+      "id": "historical-global-leadership",
+      "status": "pass",
+      "evidence": "34"
+    },
+    {
+      "id": "historical-civic-public",
+      "status": "pass",
+      "evidence": "24"
+    },
+    {
+      "id": "historical-truth-knowledge",
+      "status": "pass",
+      "evidence": "20"
+    },
+    {
+      "id": "historical-innovation-impact",
+      "status": "pass",
+      "evidence": "20"
+    },
+    {
+      "id": "historical-excellence-prestige",
+      "status": "pass",
+      "evidence": "11"
+    },
+    {
+      "id": "historical-career-economy",
+      "status": "pass",
+      "evidence": "5"
+    },
+    {
+      "id": "historical-inclusion-belonging",
+      "status": "pass",
+      "evidence": "2"
+    },
+    {
+      "id": "year-2003-pages",
+      "status": "pass",
+      "evidence": "2 pages in 2003"
+    },
+    {
+      "id": "year-2005-pages",
+      "status": "pass",
+      "evidence": "2 pages in 2005"
+    },
+    {
+      "id": "year-2020-pages",
+      "status": "pass",
+      "evidence": "3 pages in 2020"
+    },
+    {
+      "id": "audit-page-count",
+      "status": "pass",
+      "evidence": "22 audit pages"
+    },
+    {
+      "id": "audit-flags",
+      "status": "pass",
+      "evidence": "0 flagged rows"
+    }
+  ],
+  "nextMoves": [
+    "Keep the post framed as a source-layer methods piece, not a broad higher-education trend claim.",
+    "Add catalogs, strategic plans, and speeches as separate source genres before stronger claims.",
+    "Review snippets manually before quoting institutional language in public copy."
+  ]
+}

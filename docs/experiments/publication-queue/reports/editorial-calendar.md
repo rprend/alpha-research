@@ -7,7 +7,7 @@
 3. The Language Of Museums After Decolonization - Final editorial review; representative evidence audit passed.
 4. The Rise Of AI And The Humanities - Final editorial review; representative evidence audit passed.
 5. What Counts As A Humanities Dataset? - Final editorial review; representative evidence audit passed.
-6. What Universities Say They Are For - Copyedit from publication handoff; preserve source limits and claim checklist.
+6. What Universities Say They Are For - Final editorial review; representative evidence audit passed.
 
 ## Source Work Queue
 
