@@ -66,6 +66,10 @@ Overall status: pass
 - Course-site assignment/project pages: 46
 - Course-site schedule pages: 13
 - Course-site pages with long briefs: 34
+- Assignment brief page summaries: 79
+- Assignment brief pages with complete signals: 47
+- Assignment brief pages with critique signals: 47
+- Assignment brief pages with revision signals: 15
 - Source clusters: 13
 - Exact duplicate clusters: 2
 - Near-duplicate source clusters: 1
@@ -113,6 +117,8 @@ Overall status: pass
 - PASS faculty_portfolio_examples_have_structured_metadata: 60 faculty portfolio examples include faculty plus title/medium/statement/visual metadata.
 - PASS course_site_pages_reference_valid_sources: 85 course-site page role rows; 0 reference errors.
 - PASS course_site_pages_classify_artifact_roles: 8 syllabus pages, 46 assignment/project pages, 13 schedule pages, and 82 pages with classroom artifacts.
+- PASS assignment_brief_pages_reference_valid_assignments: 79 assignment brief page rows; 0 assignment/source reference errors.
+- PASS assignment_brief_pages_surface_studio_signals: 47 pages have complete brief signals, 47 include critique signals, and 15 include revision signals.
 - PASS source_clusters_reference_valid_sources: 0 source cluster reference errors across 13 clusters.
 - PASS source_clusters_include_dedup_signals: 2 exact duplicate clusters, 1 near-duplicate text clusters, and 10 related source-family clusters.
 - PASS source_clusters_are_used_for_packet_grouping: 117 course packets include source-cluster grouped evidence families.

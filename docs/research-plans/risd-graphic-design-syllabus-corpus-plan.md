@@ -60,6 +60,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/faculty_portfolio_examples.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/student_work.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/course_site_pages.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/assignment_brief_pages.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/course_coverage.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/course_coverage.md`
 - `docs/research-plans/risd-graphic-design-corpus/coverage_search_queries.jsonl`
@@ -184,9 +185,10 @@ Implementation requirements:
 3. Write page-role audit rows to `course_site_pages.jsonl`. Status: implemented.
 4. Extract schedule rows from week/class pages when titles, dates, or agenda bodies are available.
 5. Extract assignment records from complete project pages using heading-bounded blocks.
-6. Parse deliverables, constraints, materials, critique format, revision expectations, and output format from project pages.
-7. Link student-work gallery pages to assignments only when page structure or source text supports the relationship.
-8. Add validation counts for complete assignment briefs versus weak sentence snippets.
+6. Roll assignment/project pages into `assignment_brief_pages.jsonl` with deliverables, constraints, materials, tools, critique, revision, and representative prompt summaries. Status: implemented.
+7. Parse deliverables, constraints, materials, critique format, revision expectations, and output format from project pages.
+8. Link student-work gallery pages to assignments only when page structure or source text supports the relationship.
+9. Add validation counts for complete assignment briefs versus weak sentence snippets.
 
 ### Step 4: Expand Faculty-Centric Discovery
 
@@ -509,6 +511,41 @@ Required fields:
 - `reading_count`
 - `normalized_readings`
 - `has_classroom_artifact`
+
+### `assignment_brief_pages.jsonl`
+
+One row per course-site page with assignment/project evidence, rolling up the assignment records recovered from that page into a reviewable brief summary.
+
+Required fields:
+
+- `brief_page_id`
+- `source_id`
+- `url`
+- `page_role`
+- `course_code`
+- `course_title`
+- `term`
+- `instructor`
+- `parent_source_id`
+- `evidence_grade`
+- `assignment_ids`
+- `assignment_count`
+- `high_confidence_assignments`
+- `medium_confidence_assignments`
+- `low_confidence_assignments`
+- `long_assignment_briefs`
+- `deliverables`
+- `constraints`
+- `materials`
+- `tools`
+- `studio_phases`
+- `output_formats`
+- `critique_assignment_count`
+- `revision_assignment_count`
+- `tacit_goals`
+- `representative_assignment_ids`
+- `representative_prompts`
+- `has_complete_brief_signal`
 
 ### `faculty_portfolio_examples.jsonl`
 
