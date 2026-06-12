@@ -320,6 +320,8 @@ Implemented:
 - `result.json`
 - `work.md`
 - `public-draft.md`
+- `post.md`
+- `post-evidence-audit.json`
 - `study-specs.md`
 - publication handoff with ready-now examples, editorial frame, and public-claim checklist
 - readiness gate
@@ -333,11 +335,13 @@ Current corpus:
 - 5 ready-now study specs generated
 - domains represented: museum collections, linked open data, archives/library, teaching syllabi, books/literature, newspapers, data repositories, scholarly repositories, books/library, books/media/web, aggregated archives
 - publication handoff: ready for copyedit as a research-agenda piece
+- publication post: `reports/post.md`, a polished research-agenda draft
+- post evidence audit: `reports/post-evidence-audit.json`, status `pass`, 21/21 registry, ready-now, blocked-source, and study-spec checks passed
 - readiness: ready for editorial review as a research-agenda artifact
 
 Next implementation moves:
 
-- copyedit the publication handoff into a research-agenda post
+- final editorial review for `reports/post.md`
 - add file-level and pagination probes for the highest-ranked APIs
 - add explicit licensing notes before publishing derived datasets
 - turn one ready-now corpus into a first public essay

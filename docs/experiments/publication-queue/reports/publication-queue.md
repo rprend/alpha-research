@@ -1,6 +1,6 @@
 # Cultural Observatory Publication Queue
 
-Generated at: 2026-06-12T20:42:45.918Z
+Generated at: 2026-06-12T20:46:52.530Z
 Ready for editorial review: 6
 Not ready: 0
 
@@ -10,7 +10,7 @@ Not ready: 0
 | 149 | Canon Drift: A Feasibility Report | ready-for-editorial-review | Final editorial review; representative evidence audit passed. |
 | 141 | The Language Of Museums After Decolonization | ready-for-editorial-review | Final editorial review; representative evidence audit passed. |
 | 141 | The Rise Of AI And The Humanities | ready-for-editorial-review | Final editorial review; representative evidence audit passed. |
-| 118 | What Counts As A Humanities Dataset? | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
+| 141 | What Counts As A Humanities Dataset? | ready-for-editorial-review | Final editorial review; representative evidence audit passed. |
 | 118 | What Universities Say They Are For | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
 
 ## Details
@@ -80,14 +80,14 @@ Not ready: 0
 - Format: research-agenda
 - Lane: research-agenda
 - Status: ready-for-editorial-review
-- Post: none
-- Post audit: none
-- Draft: `docs/experiments/humanities-dataset-registry/reports/public-draft.md`
+- Post: `docs/experiments/humanities-dataset-registry/reports/post.md`
+- Post audit: `docs/experiments/humanities-dataset-registry/reports/post-evidence-audit.json` (pass)
+- Draft: `docs/experiments/humanities-dataset-registry/reports/post.md`
 - Handoff: `docs/experiments/humanities-dataset-registry/reports/publication-handoff.json`
 - Result: `docs/experiments/humanities-dataset-registry/reports/result.json`
 - Readiness: `docs/experiments/humanities-dataset-registry/reports/readiness.json`
 - Failed checks: none
-- Action: Copyedit from publication handoff; preserve source limits and claim checklist.
+- Action: Final editorial review; representative evidence audit passed.
 - Summary: Humanities datasets become essay-ready when they combine public access, structured metadata, clear rights, time depth, and a question that respects coverage bias.
 
 ### What Universities Say They Are For

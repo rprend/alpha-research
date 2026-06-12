@@ -1,0 +1,122 @@
+{
+  "generatedAt": "2026-06-12T20:46:29.114Z",
+  "postPath": "docs/experiments/humanities-dataset-registry/reports/post.md",
+  "resultPath": "docs/experiments/humanities-dataset-registry/reports/result.json",
+  "sourceInventoryPath": "docs/experiments/humanities-dataset-registry/reports/source-inventory.md",
+  "studySpecsPath": "docs/experiments/humanities-dataset-registry/reports/study-specs.md",
+  "status": "pass",
+  "checkCount": 21,
+  "passedCount": 21,
+  "checks": [
+    {
+      "id": "candidate-count",
+      "status": "pass",
+      "evidence": "15 candidates"
+    },
+    {
+      "id": "accessible-count",
+      "status": "pass",
+      "evidence": "11 accessible candidates"
+    },
+    {
+      "id": "ready-count",
+      "status": "pass",
+      "evidence": "6 ready-now candidates"
+    },
+    {
+      "id": "needs-work-count",
+      "status": "pass",
+      "evidence": "5 needs-work candidates"
+    },
+    {
+      "id": "blocked-count",
+      "status": "pass",
+      "evidence": "4 blocked candidates"
+    },
+    {
+      "id": "ready-now-cleveland-art-open-access",
+      "status": "pass",
+      "evidence": "Cleveland Museum of Art Open Access API; bucket=ready-now; score=103"
+    },
+    {
+      "id": "ready-now-wikidata",
+      "status": "pass",
+      "evidence": "Wikidata; bucket=ready-now; score=96"
+    },
+    {
+      "id": "ready-now-library-of-congress-digital-collections",
+      "status": "pass",
+      "evidence": "Library of Congress Digital Collections; bucket=ready-now; score=93"
+    },
+    {
+      "id": "ready-now-met-collection-api",
+      "status": "pass",
+      "evidence": "Metropolitan Museum of Art Collection API; bucket=ready-now; score=93"
+    },
+    {
+      "id": "ready-now-open-syllabus",
+      "status": "pass",
+      "evidence": "Open Syllabus; bucket=ready-now; score=86"
+    },
+    {
+      "id": "ready-now-project-gutenberg",
+      "status": "pass",
+      "evidence": "Project Gutenberg; bucket=ready-now; score=86"
+    },
+    {
+      "id": "blocked-smithsonian-open-access",
+      "status": "pass",
+      "evidence": "Smithsonian Open Access; bucket=blocked-or-constrained; access=http-error; http=403"
+    },
+    {
+      "id": "blocked-chronicling-america",
+      "status": "pass",
+      "evidence": "Chronicling America; bucket=blocked-or-constrained; access=http-error; http=404"
+    },
+    {
+      "id": "blocked-rijksmuseum-api",
+      "status": "pass",
+      "evidence": "Rijksmuseum API; bucket=blocked-or-constrained; access=http-error; http=410"
+    },
+    {
+      "id": "blocked-dpla",
+      "status": "pass",
+      "evidence": "Digital Public Library of America; bucket=blocked-or-constrained; access=http-error; http=403"
+    },
+    {
+      "id": "study-spec-what-a-museum-collection-looks-like-when-it-becomes-data",
+      "status": "pass",
+      "evidence": "What A Museum Collection Looks Like When It Becomes Data"
+    },
+    {
+      "id": "study-spec-the-public-knowledge-graph-of-culture",
+      "status": "pass",
+      "evidence": "The Public Knowledge Graph Of Culture"
+    },
+    {
+      "id": "study-spec-what-the-library-of-congress-has-digitized",
+      "status": "pass",
+      "evidence": "What The Library Of Congress Has Digitized"
+    },
+    {
+      "id": "study-spec-the-shape-of-the-met-collection",
+      "status": "pass",
+      "evidence": "The Shape Of The Met Collection"
+    },
+    {
+      "id": "study-spec-what-teaching-data-can-and-cannot-tell-us-about-the-canon",
+      "status": "pass",
+      "evidence": "What Teaching Data Can And Cannot Tell Us About The Canon"
+    },
+    {
+      "id": "cleveland-launched-experiment",
+      "status": "pass",
+      "evidence": "Cleveland study spec links launched experiment"
+    }
+  ],
+  "nextMoves": [
+    "Keep scores framed as operational readiness, not cultural importance.",
+    "Review licensing and redistribution before publishing derived datasets.",
+    "Use ready-now candidates as study starts, not as representative samples of culture."
+  ]
+}
