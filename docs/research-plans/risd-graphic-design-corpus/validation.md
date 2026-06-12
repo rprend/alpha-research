@@ -129,10 +129,12 @@ Overall status: pass
 - Self-study pacing rows with workload estimates: 28
 - Self-study pacing profiles: 3
 - Self-study progress ledger rows: 28
+- Self-study progress ledger rows with portfolio gate: 28
 - Self-study portfolio progress rollups: 3
 - Self-study portfolio completion gates: 3
 - Self-study portfolio milestones: 3
 - Self-study portfolio briefs: 3
+- Self-study portfolio briefs with completion gate status: 3
 - Self-study portfolio reference packets: 3
 - Self-study portfolio export manifests: 3
 - Self-study portfolio source excerpt packets: 3
@@ -194,6 +196,8 @@ Overall status: pass
 - PASS self_study_progress_ledger_tracks_outputs_revisions_and_warnings: 28 progress ledger rows for 28 pacing rows; 0 ledger reference errors; generated mismatch=false.
 - PASS self_study_portfolio_progress_rollups_connect_ledger_to_manifests: 3 portfolio progress rollups for 3 milestones; 0 rollup reference errors; generated mismatch=false.
 - PASS self_study_portfolio_completion_gates_define_review_readiness: 3 portfolio completion gates for 3 milestones; 0 gate reference errors; generated mismatch=false.
+- PASS self_study_progress_ledger_links_to_portfolio_completion_gates: 28 progress ledger rows carry portfolio review gate annotations; 0 annotation reference errors.
+- PASS self_study_portfolio_briefs_embed_completion_gate_status: 3 portfolio briefs embed completion gate status; 0 readiness reference/render errors.
 - PASS self_study_portfolio_milestones_have_valid_review_packages: 3 portfolio milestones; 0 milestone reference errors; generated mismatch=false.
 - PASS self_study_portfolio_briefs_render_independent_pages: 3 portfolio briefs for 3 milestones; 0 brief reference/render errors; generated mismatch=false.
 - PASS self_study_portfolio_reference_packets_label_relationships: 3 portfolio reference packets for 3 milestones; 0 packet reference errors; generated mismatch=false.

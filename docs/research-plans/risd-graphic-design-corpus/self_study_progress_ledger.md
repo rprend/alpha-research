@@ -15,6 +15,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_01_self_study_module_01_design_studio_1
 - Expected output: book, animation
 - Completion status: not_started
+- Portfolio milestone: Foundation Methods Portfolio Review (portfolio_milestone_01_foundation_methods)
+- Portfolio completion gate: completion_gate_portfolio_milestone_01_foundation_methods (not_ready_template)
 - Critique prompt: End the week with a written self-critique against recovered constraints and evidence boundaries.
 - Source IDs: src_john_caserta_design_studio_1_2016, src_ds1618_design_studio_archive, src_ds1618_make_book, src_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d, src_archive_ds1618_risd_gd_20170907172955_07012fee, src_archive_johncaserta_com_ds1_2016_html_20180519075904_df7ec518, src_archive_ds1618_risd_gd_book_html_20180922030215_4678ea9c, src_crawl_johncaserta_com_docicons_html_d8852632
 - Output checklist:
@@ -30,6 +32,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_02_self_study_module_01_design_studio_1
 - Expected output: revision plus presentation
 - Completion status: not_started
+- Portfolio milestone: Foundation Methods Portfolio Review (portfolio_milestone_01_foundation_methods)
+- Portfolio completion gate: completion_gate_portfolio_milestone_01_foundation_methods (not_ready_template)
 - Critique prompt: Present the revision, list three decisions changed by critique, and record what remains unknown.
 - Source IDs: src_john_caserta_design_studio_1_2016, src_ds1618_design_studio_archive, src_ds1618_make_book, src_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d, src_archive_ds1618_risd_gd_20170907172955_07012fee, src_archive_johncaserta_com_ds1_2016_html_20180519075904_df7ec518, src_archive_ds1618_risd_gd_book_html_20180922030215_4678ea9c, src_crawl_johncaserta_com_docicons_html_d8852632
 - Output checklist:
@@ -45,6 +49,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_03_self_study_module_02_web_type
 - Expected output: website, animation, typeface
 - Completion status: not_started
+- Portfolio milestone: Foundation Methods Portfolio Review (portfolio_milestone_01_foundation_methods)
+- Portfolio completion gate: completion_gate_portfolio_milestone_01_foundation_methods (not_ready_template)
 - Critique prompt: End the week with a written self-critique against recovered constraints and evidence boundaries.
 - Source IDs: src_web_type_2022_syllabus, src_crawl_webtype_htmlkitchen_net_schedule_59d96530, src_crawl_webtype_htmlkitchen_net_projects_f21c0c50, src_crawl_webtype_htmlkitchen_net_exercises_8dc7f726, src_crawl_webtype_htmlkitchen_net_projects_project1_a757b534, src_crawl_webtype_htmlkitchen_net_exercises_0_getting_started_459158d5, src_crawl_webtype_htmlkitchen_net_exercises_01_layouts_positioning_697aa92a, src_crawl_webtype_htmlkitchen_net_exercises_02_responsive_f5b20f70
 - Output checklist:
@@ -60,6 +66,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_04_self_study_module_02_web_type
 - Expected output: revision plus animation
 - Completion status: not_started
+- Portfolio milestone: Foundation Methods Portfolio Review (portfolio_milestone_01_foundation_methods)
+- Portfolio completion gate: completion_gate_portfolio_milestone_01_foundation_methods (not_ready_template)
 - Critique prompt: Present the revision, list three decisions changed by critique, and record what remains unknown.
 - Source IDs: src_web_type_2022_syllabus, src_crawl_webtype_htmlkitchen_net_schedule_59d96530, src_crawl_webtype_htmlkitchen_net_projects_f21c0c50, src_crawl_webtype_htmlkitchen_net_exercises_8dc7f726, src_crawl_webtype_htmlkitchen_net_projects_project1_a757b534, src_crawl_webtype_htmlkitchen_net_exercises_0_getting_started_459158d5, src_crawl_webtype_htmlkitchen_net_exercises_01_layouts_positioning_697aa92a, src_crawl_webtype_htmlkitchen_net_exercises_02_responsive_f5b20f70
 - Output checklist:
@@ -75,6 +83,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_05_self_study_module_03_design_politics
 - Expected output: documentation
 - Completion status: not_started
+- Portfolio milestone: Foundation Methods Portfolio Review (portfolio_milestone_01_foundation_methods)
+- Portfolio completion gate: completion_gate_portfolio_milestone_01_foundation_methods (not_ready_template)
 - Critique prompt: End the week with a written self-critique against recovered constraints and evidence boundaries.
 - Source IDs: src_designandpolitics_2022_syllabus, src_crawl_designandpolitics_risd_gd_2022_05_13_week12_html_38dd599d, src_crawl_designandpolitics_risd_gd_2022_05_06_week11_html_a2f8e669, src_crawl_designandpolitics_risd_gd_2022_04_29_week10_html_2c78adc6, src_crawl_designandpolitics_risd_gd_2022_04_22_week9_html_d18590af, src_crawl_designandpolitics_risd_gd_2022_04_15_week8_html_c265275c, src_crawl_designandpolitics_risd_gd_2022_04_08_week7_html_66adff35, src_crawl_designandpolitics_risd_gd_2022_03_25_week6_html_0ea8c1e0
 - Output checklist:
@@ -90,6 +100,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_06_self_study_module_03_design_politics
 - Expected output: revision plus presentation
 - Completion status: not_started
+- Portfolio milestone: Foundation Methods Portfolio Review (portfolio_milestone_01_foundation_methods)
+- Portfolio completion gate: completion_gate_portfolio_milestone_01_foundation_methods (not_ready_template)
 - Critique prompt: Present the revision, list three decisions changed by critique, and record what remains unknown.
 - Source IDs: src_designandpolitics_2022_syllabus, src_crawl_designandpolitics_risd_gd_2022_05_13_week12_html_38dd599d, src_crawl_designandpolitics_risd_gd_2022_05_06_week11_html_a2f8e669, src_crawl_designandpolitics_risd_gd_2022_04_29_week10_html_2c78adc6, src_crawl_designandpolitics_risd_gd_2022_04_22_week9_html_d18590af, src_crawl_designandpolitics_risd_gd_2022_04_15_week8_html_c265275c, src_crawl_designandpolitics_risd_gd_2022_04_08_week7_html_66adff35, src_crawl_designandpolitics_risd_gd_2022_03_25_week6_html_0ea8c1e0
 - Output checklist:
@@ -105,6 +117,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_07_self_study_module_04_introduction_to_graphic_design
 - Expected output: visual identity system
 - Completion status: not_started
+- Portfolio milestone: Foundation Methods Portfolio Review (portfolio_milestone_01_foundation_methods)
+- Portfolio completion gate: completion_gate_portfolio_milestone_01_foundation_methods (not_ready_template)
 - Critique prompt: End the week with a written self-critique against recovered constraints and evidence boundaries.
 - Source IDs: src_adam_fein_intro_graphic_design_2021_pdf
 - Output checklist:
@@ -120,6 +134,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_08_self_study_module_04_introduction_to_graphic_design
 - Expected output: revision plus visual identity system
 - Completion status: not_started
+- Portfolio milestone: Foundation Methods Portfolio Review (portfolio_milestone_01_foundation_methods)
+- Portfolio completion gate: completion_gate_portfolio_milestone_01_foundation_methods (not_ready_template)
 - Critique prompt: Present the revision, list three decisions changed by critique, and record what remains unknown.
 - Source IDs: src_adam_fein_intro_graphic_design_2021_pdf
 - Output checklist:
@@ -137,6 +153,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_09_self_study_module_05_typography_for_nonmajors
 - Expected output: poster
 - Completion status: not_started
+- Portfolio milestone: Typography And Systems Portfolio Review (portfolio_milestone_02_typography_systems)
+- Portfolio completion gate: completion_gate_portfolio_milestone_02_typography_systems (not_ready_template)
 - Critique prompt: End the week with a written self-critique against recovered constraints and evidence boundaries.
 - Source IDs: src_sp19_typography_for_nonmajors
 - Output checklist:
@@ -155,6 +173,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_10_self_study_module_05_typography_for_nonmajors
 - Expected output: revised artifact and critique memo
 - Completion status: not_started
+- Portfolio milestone: Typography And Systems Portfolio Review (portfolio_milestone_02_typography_systems)
+- Portfolio completion gate: completion_gate_portfolio_milestone_02_typography_systems (not_ready_template)
 - Critique prompt: Present the revision, list three decisions changed by critique, and record what remains unknown.
 - Source IDs: src_sp19_typography_for_nonmajors
 - Output checklist:
@@ -173,6 +193,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_11_self_study_module_06_design_for_publishing
 - Expected output: book
 - Completion status: not_started
+- Portfolio milestone: Typography And Systems Portfolio Review (portfolio_milestone_02_typography_systems)
+- Portfolio completion gate: completion_gate_portfolio_milestone_02_typography_systems (not_ready_template)
 - Critique prompt: End the week with a written self-critique against recovered constraints and evidence boundaries.
 - Source IDs: src_sp19_design_for_publishing
 - Output checklist:
@@ -191,6 +213,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_12_self_study_module_06_design_for_publishing
 - Expected output: revised artifact and critique memo
 - Completion status: not_started
+- Portfolio milestone: Typography And Systems Portfolio Review (portfolio_milestone_02_typography_systems)
+- Portfolio completion gate: completion_gate_portfolio_milestone_02_typography_systems (not_ready_template)
 - Critique prompt: Present the revision, list three decisions changed by critique, and record what remains unknown.
 - Source IDs: src_sp19_design_for_publishing
 - Output checklist:
@@ -209,6 +233,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_23_self_study_module_12_mapping_information
 - Expected output: animation
 - Completion status: not_started
+- Portfolio milestone: Typography And Systems Portfolio Review (portfolio_milestone_02_typography_systems)
+- Portfolio completion gate: completion_gate_portfolio_milestone_02_typography_systems (not_ready_template)
 - Critique prompt: End the week with a written self-critique against recovered constraints and evidence boundaries.
 - Source IDs: src_sp19_mapping_information
 - Output checklist:
@@ -227,6 +253,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_24_self_study_module_12_mapping_information
 - Expected output: revised artifact and critique memo
 - Completion status: not_started
+- Portfolio milestone: Typography And Systems Portfolio Review (portfolio_milestone_02_typography_systems)
+- Portfolio completion gate: completion_gate_portfolio_milestone_02_typography_systems (not_ready_template)
 - Critique prompt: Present the revision, list three decisions changed by critique, and record what remains unknown.
 - Source IDs: src_sp19_mapping_information
 - Output checklist:
@@ -245,6 +273,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_27_self_study_module_14_type_design
 - Expected output: typeface
 - Completion status: not_started
+- Portfolio milestone: Typography And Systems Portfolio Review (portfolio_milestone_02_typography_systems)
+- Portfolio completion gate: completion_gate_portfolio_milestone_02_typography_systems (not_ready_template)
 - Critique prompt: End the week with a written self-critique against recovered constraints and evidence boundaries.
 - Source IDs: src_sp19_type_design
 - Output checklist:
@@ -263,6 +293,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_28_self_study_module_14_type_design
 - Expected output: revised artifact and critique memo
 - Completion status: not_started
+- Portfolio milestone: Typography And Systems Portfolio Review (portfolio_milestone_02_typography_systems)
+- Portfolio completion gate: completion_gate_portfolio_milestone_02_typography_systems (not_ready_template)
 - Critique prompt: Present the revision, list three decisions changed by critique, and record what remains unknown.
 - Source IDs: src_sp19_type_design
 - Output checklist:
@@ -283,6 +315,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_13_self_study_module_07_typography_iii
 - Expected output: portfolio
 - Completion status: not_started
+- Portfolio milestone: Advanced Synthesis Portfolio Review (portfolio_milestone_03_advanced_synthesis)
+- Portfolio completion gate: completion_gate_portfolio_milestone_03_advanced_synthesis (not_ready_template)
 - Critique prompt: End the week with a written self-critique against recovered constraints and evidence boundaries.
 - Source IDs: src_wayback_typography_iii_syllabus_20210414155049, src_john_caserta_student_work
 - Output checklist:
@@ -299,6 +333,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_14_self_study_module_07_typography_iii
 - Expected output: revision plus portfolio, documentation, pdf
 - Completion status: not_started
+- Portfolio milestone: Advanced Synthesis Portfolio Review (portfolio_milestone_03_advanced_synthesis)
+- Portfolio completion gate: completion_gate_portfolio_milestone_03_advanced_synthesis (not_ready_template)
 - Critique prompt: Present the revision, list three decisions changed by critique, and record what remains unknown.
 - Source IDs: src_wayback_typography_iii_syllabus_20210414155049, src_john_caserta_student_work
 - Output checklist:
@@ -315,6 +351,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_15_self_study_module_08_web_programming
 - Expected output: animation
 - Completion status: not_started
+- Portfolio milestone: Advanced Synthesis Portfolio Review (portfolio_milestone_03_advanced_synthesis)
+- Portfolio completion gate: completion_gate_portfolio_milestone_03_advanced_synthesis (not_ready_template)
 - Critique prompt: End the week with a written self-critique against recovered constraints and evidence boundaries.
 - Source IDs: src_wp15_week_1_concrete_forms, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pocket_pictograms_inspiration_for_assignment_2_3cf16be5, src_crawl_wp15_risd_gd_category_outline_week_1_concrete_forms_4905a205, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_concrete_objects_christian_leborg_f274fe53, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_essay_by_paul_elliman_on_karel_martens_graphic__95641d1a, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_2_draw_found_objects_with_css_4a1e2993
 - Output checklist:
@@ -328,6 +366,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_16_self_study_module_08_web_programming
 - Expected output: revision plus book, animation
 - Completion status: not_started
+- Portfolio milestone: Advanced Synthesis Portfolio Review (portfolio_milestone_03_advanced_synthesis)
+- Portfolio completion gate: completion_gate_portfolio_milestone_03_advanced_synthesis (not_ready_template)
 - Critique prompt: Present the revision, list three decisions changed by critique, and record what remains unknown.
 - Source IDs: src_wp15_week_1_concrete_forms, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pocket_pictograms_inspiration_for_assignment_2_3cf16be5, src_crawl_wp15_risd_gd_category_outline_week_1_concrete_forms_4905a205, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_concrete_objects_christian_leborg_f274fe53, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_essay_by_paul_elliman_on_karel_martens_graphic__95641d1a, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_2_draw_found_objects_with_css_4a1e2993
 - Output checklist:
@@ -341,6 +381,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_17_self_study_module_09_type_two
 - Expected output: presentation
 - Completion status: not_started
+- Portfolio milestone: Advanced Synthesis Portfolio Review (portfolio_milestone_03_advanced_synthesis)
+- Portfolio completion gate: completion_gate_portfolio_milestone_03_advanced_synthesis (not_ready_template)
 - Critique prompt: End the week with a written self-critique against recovered constraints and evidence boundaries.
 - Source IDs: src_type_two_2015_syllabus_pdf
 - Output checklist:
@@ -357,6 +399,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_18_self_study_module_09_type_two
 - Expected output: revision plus portfolio
 - Completion status: not_started
+- Portfolio milestone: Advanced Synthesis Portfolio Review (portfolio_milestone_03_advanced_synthesis)
+- Portfolio completion gate: completion_gate_portfolio_milestone_03_advanced_synthesis (not_ready_template)
 - Critique prompt: Present the revision, list three decisions changed by critique, and record what remains unknown.
 - Source IDs: src_type_two_2015_syllabus_pdf
 - Output checklist:
@@ -373,6 +417,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_19_self_study_module_10_grad_type_1
 - Expected output: book, portfolio, typeface
 - Completion status: not_started
+- Portfolio milestone: Advanced Synthesis Portfolio Review (portfolio_milestone_03_advanced_synthesis)
+- Portfolio completion gate: completion_gate_portfolio_milestone_03_advanced_synthesis (not_ready_template)
 - Critique prompt: End the week with a written self-critique against recovered constraints and evidence boundaries.
 - Source IDs: src_grad_type_1_2014_syllabus_pdf
 - Output checklist:
@@ -388,6 +434,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_20_self_study_module_10_grad_type_1
 - Expected output: revision plus book
 - Completion status: not_started
+- Portfolio milestone: Advanced Synthesis Portfolio Review (portfolio_milestone_03_advanced_synthesis)
+- Portfolio completion gate: completion_gate_portfolio_milestone_03_advanced_synthesis (not_ready_template)
 - Critique prompt: Present the revision, list three decisions changed by critique, and record what remains unknown.
 - Source IDs: src_grad_type_1_2014_syllabus_pdf
 - Output checklist:
@@ -403,6 +451,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_21_self_study_module_11_typography
 - Expected output: presentation
 - Completion status: not_started
+- Portfolio milestone: Advanced Synthesis Portfolio Review (portfolio_milestone_03_advanced_synthesis)
+- Portfolio completion gate: completion_gate_portfolio_milestone_03_advanced_synthesis (not_ready_template)
 - Critique prompt: End the week with a written self-critique against recovered constraints and evidence boundaries.
 - Source IDs: src_risd_graphic_design_courses_page_0, src_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb
 - Output checklist:
@@ -419,6 +469,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_22_self_study_module_11_typography
 - Expected output: revision plus poster
 - Completion status: not_started
+- Portfolio milestone: Advanced Synthesis Portfolio Review (portfolio_milestone_03_advanced_synthesis)
+- Portfolio completion gate: completion_gate_portfolio_milestone_03_advanced_synthesis (not_ready_template)
 - Critique prompt: Present the revision, list three decisions changed by critique, and record what remains unknown.
 - Source IDs: src_risd_graphic_design_courses_page_0, src_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb
 - Output checklist:
@@ -435,6 +487,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_25_self_study_module_13_reframing_the_poster
 - Expected output: poster
 - Completion status: not_started
+- Portfolio milestone: Advanced Synthesis Portfolio Review (portfolio_milestone_03_advanced_synthesis)
+- Portfolio completion gate: completion_gate_portfolio_milestone_03_advanced_synthesis (not_ready_template)
 - Critique prompt: End the week with a written self-critique against recovered constraints and evidence boundaries.
 - Source IDs: src_sp19_reframing_the_poster
 - Output checklist:
@@ -453,6 +507,8 @@ This ledger is a learner-facing tracking template generated from the public-evid
 - Pacing row: pace_26_self_study_module_13_reframing_the_poster
 - Expected output: revised artifact and critique memo
 - Completion status: not_started
+- Portfolio milestone: Advanced Synthesis Portfolio Review (portfolio_milestone_03_advanced_synthesis)
+- Portfolio completion gate: completion_gate_portfolio_milestone_03_advanced_synthesis (not_ready_template)
 - Critique prompt: Present the revision, list three decisions changed by critique, and record what remains unknown.
 - Source IDs: src_sp19_reframing_the_poster
 - Output checklist:

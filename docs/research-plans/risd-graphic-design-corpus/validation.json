@@ -125,10 +125,12 @@
     "self_study_pacing_rows_with_workload_estimates": 28,
     "self_study_pacing_profiles": 3,
     "self_study_progress_ledger_rows": 28,
+    "self_study_progress_ledger_rows_with_portfolio_gate": 28,
     "self_study_portfolio_progress_rollups": 3,
     "self_study_portfolio_completion_gates": 3,
     "self_study_portfolio_milestones": 3,
     "self_study_portfolio_briefs": 3,
+    "self_study_portfolio_briefs_with_completion_gate_status": 3,
     "self_study_portfolio_reference_packets": 3,
     "self_study_portfolio_export_manifests": 3,
     "self_study_portfolio_source_excerpt_packets": 3
@@ -408,6 +410,16 @@
       "id": "self_study_portfolio_completion_gates_define_review_readiness",
       "status": "pass",
       "detail": "3 portfolio completion gates for 3 milestones; 0 gate reference errors; generated mismatch=false."
+    },
+    {
+      "id": "self_study_progress_ledger_links_to_portfolio_completion_gates",
+      "status": "pass",
+      "detail": "28 progress ledger rows carry portfolio review gate annotations; 0 annotation reference errors."
+    },
+    {
+      "id": "self_study_portfolio_briefs_embed_completion_gate_status",
+      "status": "pass",
+      "detail": "3 portfolio briefs embed completion gate status; 0 readiness reference/render errors."
     },
     {
       "id": "self_study_portfolio_milestones_have_valid_review_packages",

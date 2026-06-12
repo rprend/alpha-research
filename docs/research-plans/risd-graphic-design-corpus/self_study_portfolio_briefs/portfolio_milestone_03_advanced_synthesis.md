@@ -17,6 +17,29 @@ This is an export-friendly self-study portfolio brief generated from public RISD
 
 Advanced synthesis: multi-part artifacts, public/contextual systems, technical or editorial constraints, and a portfolio-level critique narrative.
 
+## Review Readiness Gate
+
+- Completion gate: completion_gate_portfolio_milestone_03_advanced_synthesis
+- Current readiness: not_ready_template
+- Gate checks:
+  - [ ] All expected weekly outputs are complete and attached. (pending)
+    - Required evidence: ledger_pace_13_self_study_module_07_typography_iii: portfolio; ledger_pace_14_self_study_module_07_typography_iii: revision plus portfolio, documentation, pdf; ledger_pace_15_self_study_module_08_web_programming: animation; ledger_pace_16_self_study_module_08_web_programming: revision plus book, animation; ledger_pace_17_self_study_module_09_type_two: presentation; ledger_pace_18_self_study_module_09_type_two: revision plus portfolio
+  - [ ] Each weekly critique/revision log includes before, critique, after, and rationale evidence. (pending)
+    - Required evidence: ledger_pace_13_self_study_module_07_typography_iii: End the week with a written self-critique against recovered constraints and evidence boundaries.; ledger_pace_14_self_study_module_07_typography_iii: Present the revision, list three decisions changed by critique, and record what remains unknown.; ledger_pace_15_self_study_module_08_web_programming: End the week with a written self-critique against recovered constraints and evidence boundaries.; ledger_pace_16_self_study_module_08_web_programming: Present the revision, list three decisions changed by critique, and record what remains unknown.; ledger_pace_17_self_study_module_09_type_two: End the week with a written self-critique against recovered constraints and evidence boundaries.; ledger_pace_18_self_study_module_09_type_two: Present the revision, list three decisions changed by critique, and record what remains unknown.
+  - [ ] Unresolved evidence warnings are either resolved with public evidence or disclosed in the portfolio brief. (pending)
+    - Required evidence: grading rubric or assessment strategy not recovered; public comparison work is course-context only or missing; ordered weekly schedule not recovered; critique/revision format only partially evidenced
+  - [ ] Portfolio export manifest package contains the brief, reference packet, source excerpt packet, and source ID manifest. (pending)
+    - Required evidence: export_manifest_portfolio_milestone_03_advanced_synthesis
+- Blocking conditions:
+  - 12 output checklist rows still need learner-supplied completion evidence.
+  - 12 critique/revision logs still need learner-supplied before/after evidence.
+  - 22 unresolved evidence warnings must be disclosed or resolved before review.
+- Ready when:
+  - All gate checks are marked satisfied in the learner-maintained copy of the ledger.
+  - Every output in the rollup has attached artifact/process evidence.
+  - Every critique/revision log has before state, critique notes, after state, and decision rationale.
+  - Evidence warnings are copied into the portfolio brief or resolved with stronger public source evidence.
+
 ## Review Package
 
 - portfolio

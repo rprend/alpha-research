@@ -17,6 +17,29 @@ This is an export-friendly self-study portfolio brief generated from public RISD
 
 Evidence-backed fundamentals: visible constraints, form decisions, critique response, and revised artifacts.
 
+## Review Readiness Gate
+
+- Completion gate: completion_gate_portfolio_milestone_01_foundation_methods
+- Current readiness: not_ready_template
+- Gate checks:
+  - [ ] All expected weekly outputs are complete and attached. (pending)
+    - Required evidence: ledger_pace_01_self_study_module_01_design_studio_1: book, animation; ledger_pace_02_self_study_module_01_design_studio_1: revision plus presentation; ledger_pace_03_self_study_module_02_web_type: website, animation, typeface; ledger_pace_04_self_study_module_02_web_type: revision plus animation; ledger_pace_05_self_study_module_03_design_politics: documentation; ledger_pace_06_self_study_module_03_design_politics: revision plus presentation
+  - [ ] Each weekly critique/revision log includes before, critique, after, and rationale evidence. (pending)
+    - Required evidence: ledger_pace_01_self_study_module_01_design_studio_1: End the week with a written self-critique against recovered constraints and evidence boundaries.; ledger_pace_02_self_study_module_01_design_studio_1: Present the revision, list three decisions changed by critique, and record what remains unknown.; ledger_pace_03_self_study_module_02_web_type: End the week with a written self-critique against recovered constraints and evidence boundaries.; ledger_pace_04_self_study_module_02_web_type: Present the revision, list three decisions changed by critique, and record what remains unknown.; ledger_pace_05_self_study_module_03_design_politics: End the week with a written self-critique against recovered constraints and evidence boundaries.; ledger_pace_06_self_study_module_03_design_politics: Present the revision, list three decisions changed by critique, and record what remains unknown.
+  - [ ] Unresolved evidence warnings are either resolved with public evidence or disclosed in the portfolio brief. (pending)
+    - Required evidence: public comparison work is course-context only or missing
+  - [ ] Portfolio export manifest package contains the brief, reference packet, source excerpt packet, and source ID manifest. (pending)
+    - Required evidence: export_manifest_portfolio_milestone_01_foundation_methods
+- Blocking conditions:
+  - 8 output checklist rows still need learner-supplied completion evidence.
+  - 8 critique/revision logs still need learner-supplied before/after evidence.
+  - 8 unresolved evidence warnings must be disclosed or resolved before review.
+- Ready when:
+  - All gate checks are marked satisfied in the learner-maintained copy of the ledger.
+  - Every output in the rollup has attached artifact/process evidence.
+  - Every critique/revision log has before state, critique notes, after state, and decision rationale.
+  - Evidence warnings are copied into the portfolio brief or resolved with stronger public source evidence.
+
 ## Review Package
 
 - book, animation

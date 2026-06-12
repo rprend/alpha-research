@@ -17,6 +17,29 @@ This is an export-friendly self-study portfolio brief generated from public RISD
 
 Intermediate systems: typographic control, publication or type artifacts, and documented iteration across related prompts.
 
+## Review Readiness Gate
+
+- Completion gate: completion_gate_portfolio_milestone_02_typography_systems
+- Current readiness: not_ready_template
+- Gate checks:
+  - [ ] All expected weekly outputs are complete and attached. (pending)
+    - Required evidence: ledger_pace_09_self_study_module_05_typography_for_nonmajors: poster; ledger_pace_10_self_study_module_05_typography_for_nonmajors: revised artifact and critique memo; ledger_pace_11_self_study_module_06_design_for_publishing: book; ledger_pace_12_self_study_module_06_design_for_publishing: revised artifact and critique memo; ledger_pace_23_self_study_module_12_mapping_information: animation; ledger_pace_24_self_study_module_12_mapping_information: revised artifact and critique memo
+  - [ ] Each weekly critique/revision log includes before, critique, after, and rationale evidence. (pending)
+    - Required evidence: ledger_pace_09_self_study_module_05_typography_for_nonmajors: End the week with a written self-critique against recovered constraints and evidence boundaries.; ledger_pace_10_self_study_module_05_typography_for_nonmajors: Present the revision, list three decisions changed by critique, and record what remains unknown.; ledger_pace_11_self_study_module_06_design_for_publishing: End the week with a written self-critique against recovered constraints and evidence boundaries.; ledger_pace_12_self_study_module_06_design_for_publishing: Present the revision, list three decisions changed by critique, and record what remains unknown.; ledger_pace_23_self_study_module_12_mapping_information: End the week with a written self-critique against recovered constraints and evidence boundaries.; ledger_pace_24_self_study_module_12_mapping_information: Present the revision, list three decisions changed by critique, and record what remains unknown.
+  - [ ] Unresolved evidence warnings are either resolved with public evidence or disclosed in the portfolio brief. (pending)
+    - Required evidence: grading rubric or assessment strategy not recovered; ordered weekly schedule not recovered; critique/revision format only partially evidenced; public comparison work is course-context only or missing; usable reading/resource list not recovered
+  - [ ] Portfolio export manifest package contains the brief, reference packet, source excerpt packet, and source ID manifest. (pending)
+    - Required evidence: export_manifest_portfolio_milestone_02_typography_systems
+- Blocking conditions:
+  - 8 output checklist rows still need learner-supplied completion evidence.
+  - 8 critique/revision logs still need learner-supplied before/after evidence.
+  - 32 unresolved evidence warnings must be disclosed or resolved before review.
+- Ready when:
+  - All gate checks are marked satisfied in the learner-maintained copy of the ledger.
+  - Every output in the rollup has attached artifact/process evidence.
+  - Every critique/revision log has before state, critique notes, after state, and decision rationale.
+  - Evidence warnings are copied into the portfolio brief or resolved with stronger public source evidence.
+
 ## Review Package
 
 - poster
