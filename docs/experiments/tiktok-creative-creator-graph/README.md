@@ -31,6 +31,12 @@ Run the smoke pipeline against the included fixture:
 pnpm run tiktok:creative:smoke
 ```
 
+Run the full local workflow:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs
+```
+
 Build acquisition batches from discovery queries and the latest expansion queue:
 
 ```bash
@@ -186,6 +192,8 @@ The pipeline writes:
 - `reports/review-decisions.json`
 - `reports/source-yield.md`
 - `reports/source-yield.json`
+- `reports/full-workflow.md`
+- `reports/full-workflow.json`
 - `reports/pipeline-run.json`
 
 ## Production Acquisition Loop
