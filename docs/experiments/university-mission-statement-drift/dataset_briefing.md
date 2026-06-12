@@ -24,6 +24,7 @@ The article thesis under test:
 - `reports/result.json`: structured result payload
 - `reports/work.md`: work log
 - `reports/public-draft.md`: public-facing draft scaffold
+- `reports/audit-packet.*`: snippet/source review packet before public claims
 
 ## Term Families
 

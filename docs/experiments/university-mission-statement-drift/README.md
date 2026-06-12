@@ -27,6 +27,7 @@ node docs/experiments/university-mission-statement-drift/scripts/fetch-current-p
 node docs/experiments/university-mission-statement-drift/scripts/discover-wayback-targets.mjs --years=2000,2005,2010,2015,2020
 node docs/experiments/university-mission-statement-drift/scripts/fetch-wayback-snapshots.mjs --years=2000,2005,2010,2015,2020
 node docs/experiments/university-mission-statement-drift/scripts/build-report.mjs
+node docs/experiments/university-mission-statement-drift/scripts/build-audit-packet.mjs
 ```
 
 Outputs:
@@ -42,3 +43,6 @@ Outputs:
 - `reports/result.json`
 - `reports/work.md`
 - `reports/public-draft.md`
+- `reports/audit-packet.md`
+- `reports/audit-packet.csv`
+- `reports/audit-packet.json`
