@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T18:40:35.304Z",
+  "generatedAt": "2026-06-12T18:42:55.219Z",
   "source": "Cleveland Museum of Art Open Access API",
   "sampleRecords": 5000,
   "totalAvailable": 68743,
@@ -1468,7 +1468,7 @@
     "Fetch the full collection or a larger paginated corpus.",
     "Audit accession-number year extraction against explicit acquisition fields where available.",
     "Compare against another open museum API before making cross-institution claims.",
-    "Build charts from department, creation-century, acquisition-decade, and image-availability tables."
+    "Use the generated chart artifacts in the public draft."
   ],
   "rawRunDir": "data/raw/api/2026-06-12"
 }

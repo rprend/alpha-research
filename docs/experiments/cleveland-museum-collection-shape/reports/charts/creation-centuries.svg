@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="1880" viewBox="0 0 980 1880" role="img" aria-label="Creation Century Distribution">
+  <style>
+    .title { font: 700 22px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+    .label { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334e68; }
+    .value { font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #52606d; }
+    .axis { stroke: #bcccdc; stroke-width: 1; }
+  </style>
+  <rect width="100%" height="100%" fill="#ffffff"></rect>
+  <text x="24" y="34" class="title">Creation Century Distribution</text>
+  <line x1="260" y1="44" x2="260" y2="1850" class="axis"></line>
+  <text x="248" y="71" text-anchor="end" class="label">-47th century</text>
+<rect x="260" y="54" width="2.0" height="24" fill="#3b6ea8" rx="2"></rect>
+<text x="270" y="71" class="value">1 (0%)</text>
+<text x="248" y="103" text-anchor="end" class="label">-45th century</text>
+<rect x="260" y="86" width="2.0" height="24" fill="#7a9a01" rx="2"></rect>
+<text x="270" y="103" class="value">1 (0%)</text>
+<text x="248" y="135" text-anchor="end" class="label">-40th century</text>
+<rect x="260" y="118" width="2.0" height="24" fill="#c7532b" rx="2"></rect>
+<text x="270" y="135" class="value">3 (0.1%)</text>
+<text x="248" y="167" text-anchor="end" class="label">-38th century</text>
+<rect x="260" y="150" width="2.0" height="24" fill="#6b5ca5" rx="2"></rect>
+<text x="270" y="167" class="value">1 (0%)</text>
+<text x="248" y="199" text-anchor="end" class="label">-35th century</text>
+<rect x="260" y="182" width="2.0" height="24" fill="#20806d" rx="2"></rect>
+<text x="270" y="199" class="value">3 (0.1%)</text>
+<text x="248" y="231" text-anchor="end" class="label">-33th century</text>
+<rect x="260" y="214" width="2.0" height="24" fill="#b45f96" rx="2"></rect>
+<text x="270" y="231" class="value">2 (0%)</text>
+<text x="248" y="263" text-anchor="end" class="label">-30th century</text>
+<rect x="260" y="246" width="2.0" height="24" fill="#3b6ea8" rx="2"></rect>
+<text x="270" y="263" class="value">2 (0%)</text>
+<text x="248" y="295" text-anchor="end" class="label">-29th century</text>
+<rect x="260" y="278" width="2.0" height="24" fill="#7a9a01" rx="2"></rect>
+<text x="270" y="295" class="value">2 (0%)</text>
+<text x="248" y="327" text-anchor="end" class="label">-28th century</text>
+<rect x="260" y="310" width="2.0" height="24" fill="#c7532b" rx="2"></rect>
+<text x="270" y="327" class="value">1 (0%)</text>
+<text x="248" y="359" text-anchor="end" class="label">-27th century</text>
+<rect x="260" y="342" width="2.0" height="24" fill="#6b5ca5" rx="2"></rect>
+<text x="270" y="359" class="value">1 (0%)</text>
+<text x="248" y="391" text-anchor="end" class="label">-26th century</text>
+<rect x="260" y="374" width="2.0" height="24" fill="#20806d" rx="2"></rect>
+<text x="270" y="391" class="value">1 (0%)</text>
+<text x="248" y="423" text-anchor="end" class="label">-24th century</text>
+<rect x="260" y="406" width="2.6" height="24" fill="#b45f96" rx="2"></rect>
+<text x="270.6344676180022" y="423" class="value">4 (0.1%)</text>
+<text x="248" y="455" text-anchor="end" class="label">-23th century</text>
+<rect x="260" y="438" width="2.0" height="24" fill="#3b6ea8" rx="2"></rect>
+<text x="270" y="455" class="value">1 (0%)</text>
+<text x="248" y="487" text-anchor="end" class="label">-22th century</text>
+<rect x="260" y="470" width="2.0" height="24" fill="#7a9a01" rx="2"></rect>
+<text x="270" y="487" class="value">1 (0%)</text>
+<text x="248" y="519" text-anchor="end" class="label">-21th century</text>
+<rect x="260" y="502" width="2.0" height="24" fill="#c7532b" rx="2"></rect>
+<text x="270" y="519" class="value">2 (0%)</text>
+<text x="248" y="551" text-anchor="end" class="label">-20th century</text>
+<rect x="260" y="534" width="4.0" height="24" fill="#6b5ca5" rx="2"></rect>
+<text x="271.9517014270033" y="551" class="value">6 (0.1%)</text>
+<text x="248" y="583" text-anchor="end" class="label">-19th century</text>
+<rect x="260" y="566" width="2.0" height="24" fill="#20806d" rx="2"></rect>
+<text x="270" y="583" class="value">2 (0%)</text>
+<text x="248" y="615" text-anchor="end" class="label">-18th century</text>
+<rect x="260" y="598" width="2.0" height="24" fill="#b45f96" rx="2"></rect>
+<text x="270" y="615" class="value">3 (0.1%)</text>
+<text x="248" y="647" text-anchor="end" class="label">-16th century</text>
+<rect x="260" y="630" width="2.6" height="24" fill="#3b6ea8" rx="2"></rect>
+<text x="270.6344676180022" y="647" class="value">4 (0.1%)</text>
+<text x="248" y="679" text-anchor="end" class="label">-15th century</text>
+<rect x="260" y="662" width="4.6" height="24" fill="#7a9a01" rx="2"></rect>
+<text x="272.61031833150383" y="679" class="value">7 (0.1%)</text>
+<text x="248" y="711" text-anchor="end" class="label">-14th century</text>
+<rect x="260" y="694" width="4.0" height="24" fill="#c7532b" rx="2"></rect>
+<text x="271.9517014270033" y="711" class="value">6 (0.1%)</text>
+<text x="248" y="743" text-anchor="end" class="label">-13th century</text>
+<rect x="260" y="726" width="14.5" height="24" fill="#6b5ca5" rx="2"></rect>
+<text x="282.48957189901205" y="743" class="value">22 (0.4%)</text>
+<text x="248" y="775" text-anchor="end" class="label">-12th century</text>
+<rect x="260" y="758" width="6.6" height="24" fill="#20806d" rx="2"></rect>
+<text x="274.5861690450055" y="775" class="value">10 (0.2%)</text>
+<text x="248" y="807" text-anchor="end" class="label">-11th century</text>
+<rect x="260" y="790" width="2.0" height="24" fill="#b45f96" rx="2"></rect>
+<text x="270" y="807" class="value">1 (0%)</text>
+<text x="248" y="839" text-anchor="end" class="label">-10th century</text>
+<rect x="260" y="822" width="8.6" height="24" fill="#3b6ea8" rx="2"></rect>
+<text x="276.5620197585071" y="839" class="value">13 (0.3%)</text>
+<text x="248" y="871" text-anchor="end" class="label">-9th century</text>
+<rect x="260" y="854" width="7.9" height="24" fill="#7a9a01" rx="2"></rect>
+<text x="275.9034028540066" y="871" class="value">12 (0.2%)</text>
+<text x="248" y="903" text-anchor="end" class="label">-8th century</text>
+<rect x="260" y="886" width="4.6" height="24" fill="#c7532b" rx="2"></rect>
+<text x="272.61031833150383" y="903" class="value">7 (0.1%)</text>
+<text x="248" y="935" text-anchor="end" class="label">-7th century</text>
+<rect x="260" y="918" width="11.9" height="24" fill="#6b5ca5" rx="2"></rect>
+<text x="279.85510428100986" y="935" class="value">18 (0.4%)</text>
+<text x="248" y="967" text-anchor="end" class="label">-6th century</text>
+<rect x="260" y="950" width="17.1" height="24" fill="#20806d" rx="2"></rect>
+<text x="285.1240395170143" y="967" class="value">26 (0.5%)</text>
+<text x="248" y="999" text-anchor="end" class="label">-5th century</text>
+<rect x="260" y="982" width="44.8" height="24" fill="#b45f96" rx="2"></rect>
+<text x="312.7859495060373" y="999" class="value">68 (1.4%)</text>
+<text x="248" y="1031" text-anchor="end" class="label">-4th century</text>
+<rect x="260" y="1014" width="41.5" height="24" fill="#3b6ea8" rx="2"></rect>
+<text x="309.49286498353456" y="1031" class="value">63 (1.3%)</text>
+<text x="248" y="1063" text-anchor="end" class="label">-3th century</text>
+<rect x="260" y="1046" width="34.9" height="24" fill="#7a9a01" rx="2"></rect>
+<text x="302.9066959385291" y="1063" class="value">53 (1.1%)</text>
+<text x="248" y="1095" text-anchor="end" class="label">-2th century</text>
+<rect x="260" y="1078" width="16.5" height="24" fill="#c7532b" rx="2"></rect>
+<text x="284.46542261251375" y="1095" class="value">25 (0.5%)</text>
+<text x="248" y="1127" text-anchor="end" class="label">-1th century</text>
+<rect x="260" y="1110" width="21.1" height="24" fill="#6b5ca5" rx="2"></rect>
+<text x="289.0757409440176" y="1127" class="value">32 (0.6%)</text>
+<text x="248" y="1159" text-anchor="end" class="label">0th century</text>
+<rect x="260" y="1142" width="11.9" height="24" fill="#20806d" rx="2"></rect>
+<text x="279.85510428100986" y="1159" class="value">18 (0.4%)</text>
+<text x="248" y="1191" text-anchor="end" class="label">1th century</text>
+<rect x="260" y="1174" width="52.0" height="24" fill="#b45f96" rx="2"></rect>
+<text x="320.0307354555434" y="1191" class="value">79 (1.6%)</text>
+<text x="248" y="1223" text-anchor="end" class="label">2th century</text>
+<rect x="260" y="1206" width="17.1" height="24" fill="#3b6ea8" rx="2"></rect>
+<text x="285.1240395170143" y="1223" class="value">26 (0.5%)</text>
+<text x="248" y="1255" text-anchor="end" class="label">3th century</text>
+<rect x="260" y="1238" width="21.1" height="24" fill="#7a9a01" rx="2"></rect>
+<text x="289.0757409440176" y="1255" class="value">32 (0.6%)</text>
+<text x="248" y="1287" text-anchor="end" class="label">4th century</text>
+<rect x="260" y="1270" width="28.3" height="24" fill="#c7532b" rx="2"></rect>
+<text x="296.3205268935236" y="1287" class="value">43 (0.9%)</text>
+<text x="248" y="1319" text-anchor="end" class="label">5th century</text>
+<rect x="260" y="1302" width="22.4" height="24" fill="#6b5ca5" rx="2"></rect>
+<text x="290.3929747530187" y="1319" class="value">34 (0.7%)</text>
+<text x="248" y="1351" text-anchor="end" class="label">6th century</text>
+<rect x="260" y="1334" width="41.5" height="24" fill="#20806d" rx="2"></rect>
+<text x="309.49286498353456" y="1351" class="value">63 (1.3%)</text>
+<text x="248" y="1383" text-anchor="end" class="label">7th century</text>
+<rect x="260" y="1366" width="32.9" height="24" fill="#b45f96" rx="2"></rect>
+<text x="300.93084522502744" y="1383" class="value">50 (1%)</text>
+<text x="248" y="1415" text-anchor="end" class="label">8th century</text>
+<rect x="260" y="1398" width="15.1" height="24" fill="#3b6ea8" rx="2"></rect>
+<text x="283.14818880351265" y="1415" class="value">23 (0.5%)</text>
+<text x="248" y="1447" text-anchor="end" class="label">9th century</text>
+<rect x="260" y="1430" width="29.6" height="24" fill="#7a9a01" rx="2"></rect>
+<text x="297.6377607025247" y="1447" class="value">45 (0.9%)</text>
+<text x="248" y="1479" text-anchor="end" class="label">10th century</text>
+<rect x="260" y="1462" width="600.0" height="24" fill="#c7532b" rx="2"></rect>
+<text x="868" y="1479" class="value">911 (18.2%)</text>
+<text x="248" y="1511" text-anchor="end" class="label">11th century</text>
+<rect x="260" y="1494" width="55.3" height="24" fill="#6b5ca5" rx="2"></rect>
+<text x="323.3238199780461" y="1511" class="value">84 (1.7%)</text>
+<text x="248" y="1543" text-anchor="end" class="label">12th century</text>
+<rect x="260" y="1526" width="59.3" height="24" fill="#20806d" rx="2"></rect>
+<text x="327.2755214050494" y="1543" class="value">90 (1.8%)</text>
+<text x="248" y="1575" text-anchor="end" class="label">13th century</text>
+<rect x="260" y="1558" width="73.1" height="24" fill="#b45f96" rx="2"></rect>
+<text x="341.1064763995609" y="1575" class="value">111 (2.2%)</text>
+<text x="248" y="1607" text-anchor="end" class="label">14th century</text>
+<rect x="260" y="1590" width="83.0" height="24" fill="#3b6ea8" rx="2"></rect>
+<text x="350.9857299670692" y="1607" class="value">126 (2.5%)</text>
+<text x="248" y="1639" text-anchor="end" class="label">15th century</text>
+<rect x="260" y="1622" width="168.6" height="24" fill="#7a9a01" rx="2"></rect>
+<text x="436.60592755214054" y="1639" class="value">256 (5.1%)</text>
+<text x="248" y="1671" text-anchor="end" class="label">16th century</text>
+<rect x="260" y="1654" width="250.9" height="24" fill="#c7532b" rx="2"></rect>
+<text x="518.9330406147092" y="1671" class="value">381 (7.6%)</text>
+<text x="248" y="1703" text-anchor="end" class="label">17th century</text>
+<rect x="260" y="1686" width="243.0" height="24" fill="#6b5ca5" rx="2"></rect>
+<text x="511.0296377607025" y="1703" class="value">369 (7.4%)</text>
+<text x="248" y="1735" text-anchor="end" class="label">18th century</text>
+<rect x="260" y="1718" width="286.5" height="24" fill="#20806d" rx="2"></rect>
+<text x="554.4983534577387" y="1735" class="value">435 (8.7%)</text>
+<text x="248" y="1767" text-anchor="end" class="label">19th century</text>
+<rect x="260" y="1750" width="445.9" height="24" fill="#b45f96" rx="2"></rect>
+<text x="713.8836443468716" y="1767" class="value">677 (13.5%)</text>
+<text x="248" y="1799" text-anchor="end" class="label">20th century</text>
+<rect x="260" y="1782" width="407.7" height="24" fill="#3b6ea8" rx="2"></rect>
+<text x="675.6838638858397" y="1799" class="value">619 (12.4%)</text>
+<text x="248" y="1831" text-anchor="end" class="label">21th century</text>
+<rect x="260" y="1814" width="81.7" height="24" fill="#7a9a01" rx="2"></rect>
+<text x="349.668496158068" y="1831" class="value">124 (2.5%)</text>
+</svg>

@@ -8,6 +8,7 @@ import {
 
 const reportsDir = path.join(experimentDir, "reports");
 const result = await readJson(path.join(reportsDir, "result.json"));
+const chartManifest = await readOptionalJson(path.join(reportsDir, "charts", "manifest.json"));
 const checks = [
   {
     id: "sample-size",
@@ -39,6 +40,12 @@ const checks = [
     status: "pass",
     evidence: "reports/public-draft.md",
   },
+  {
+    id: "chart-artifacts",
+    label: "At least four chart artifacts exist",
+    status: (chartManifest?.chartCount ?? 0) >= 4 ? "pass" : "needs-work",
+    evidence: chartManifest ? `${chartManifest.chartCount} charts` : "missing chart manifest",
+  },
 ];
 const status = checks.every((check) => check.status === "pass") ? "ready-for-editorial-review" : "not-ready-for-publication";
 const readiness = {
@@ -48,7 +55,7 @@ const readiness = {
   nextMoves: [
     "Fetch the full collection or a larger paginated corpus.",
     "Audit acquisition-year extraction against explicit provenance/acquisition fields where available.",
-    "Add chart artifacts for department, creation century, acquisition decade, rights, and image availability.",
+    "Use the generated chart artifacts in the public draft.",
     "Compare with a second open museum API before making cross-institution claims.",
   ],
 };
@@ -76,4 +83,12 @@ await writeText(
 console.log(`Cleveland collection readiness: ${readiness.status}`);
 if (process.argv.includes("--strict") && status !== "ready-for-editorial-review") {
   process.exit(1);
+}
+
+async function readOptionalJson(file) {
+  try {
+    return await readJson(file);
+  } catch {
+    return null;
+  }
 }

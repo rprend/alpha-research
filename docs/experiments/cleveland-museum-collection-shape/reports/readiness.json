@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T18:40:35.359Z",
+  "generatedAt": "2026-06-12T18:42:55.305Z",
   "status": "ready-for-editorial-review",
   "checks": [
     {
@@ -31,12 +31,18 @@
       "label": "Public draft exists and limits claims to one sampled institution",
       "status": "pass",
       "evidence": "reports/public-draft.md"
+    },
+    {
+      "id": "chart-artifacts",
+      "label": "At least four chart artifacts exist",
+      "status": "pass",
+      "evidence": "4 charts"
     }
   ],
   "nextMoves": [
     "Fetch the full collection or a larger paginated corpus.",
     "Audit acquisition-year extraction against explicit provenance/acquisition fields where available.",
-    "Add chart artifacts for department, creation century, acquisition decade, rights, and image availability.",
+    "Use the generated chart artifacts in the public draft.",
     "Compare with a second open museum API before making cross-institution claims."
   ]
 }

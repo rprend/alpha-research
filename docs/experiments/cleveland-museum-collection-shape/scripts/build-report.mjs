@@ -52,7 +52,7 @@ const result = {
     "Fetch the full collection or a larger paginated corpus.",
     "Audit accession-number year extraction against explicit acquisition fields where available.",
     "Compare against another open museum API before making cross-institution claims.",
-    "Build charts from department, creation-century, acquisition-decade, and image-availability tables.",
+    "Use the generated chart artifacts in the public draft.",
   ],
   rawRunDir: path.relative(experimentDir, runDir),
 };
@@ -190,12 +190,16 @@ function buildHtml(result) {
     <span class="stat"><strong>${result.sampleShare}</strong> sample share</span>
   </p>
   <h2>Departments</h2>
+  <img src="charts/departments.svg" alt="Top departments in the sample" width="980">
   ${table(result.departments.slice(0, 15), ["value", "count", "share"])}
   <h2>Creation Centuries</h2>
+  <img src="charts/creation-centuries.svg" alt="Creation century distribution" width="980">
   ${table(result.creationCenturies, ["value", "count", "share"])}
   <h2>Acquisition Decades</h2>
+  <img src="charts/acquisition-decades.svg" alt="Accession-year decade proxy" width="980">
   ${table(result.acquisitionDecades.slice(0, 20), ["value", "count", "share"])}
   <h2>Image Availability</h2>
+  <img src="charts/image-availability.svg" alt="Image availability in the sample" width="980">
   ${table(result.imageAvailability, ["value", "count", "share"])}
 </body>
 </html>
@@ -251,6 +255,7 @@ function buildWorkLog(result) {
     "```bash",
     "node docs/experiments/cleveland-museum-collection-shape/scripts/fetch-artworks.mjs --limit=5000 --page-size=1000",
     "node docs/experiments/cleveland-museum-collection-shape/scripts/build-report.mjs",
+    "node docs/experiments/cleveland-museum-collection-shape/scripts/build-charts.mjs",
     "node docs/experiments/cleveland-museum-collection-shape/scripts/check-readiness.mjs",
     "```",
     "",

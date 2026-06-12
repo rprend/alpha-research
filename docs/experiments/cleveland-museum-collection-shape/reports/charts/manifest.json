@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-06-12T18:42:55.275Z",
+  "chartCount": 4,
+  "charts": [
+    {
+      "id": "departments",
+      "title": "Top Departments In The Sample",
+      "path": "reports/charts/departments.svg",
+      "rows": 12
+    },
+    {
+      "id": "creation-centuries",
+      "title": "Creation Century Distribution",
+      "path": "reports/charts/creation-centuries.svg",
+      "rows": 56
+    },
+    {
+      "id": "acquisition-decades",
+      "title": "Accession-Year Decade Proxy",
+      "path": "reports/charts/acquisition-decades.svg",
+      "rows": 12
+    },
+    {
+      "id": "image-availability",
+      "title": "Image Availability In The Sample",
+      "path": "reports/charts/image-availability.svg",
+      "rows": 2
+    }
+  ]
+}

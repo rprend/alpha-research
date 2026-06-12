@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="152" viewBox="0 0 980 152" role="img" aria-label="Image Availability In The Sample">
+  <style>
+    .title { font: 700 22px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+    .label { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334e68; }
+    .value { font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #52606d; }
+    .axis { stroke: #bcccdc; stroke-width: 1; }
+  </style>
+  <rect width="100%" height="100%" fill="#ffffff"></rect>
+  <text x="24" y="34" class="title">Image Availability In The Sample</text>
+  <line x1="260" y1="44" x2="260" y2="122" class="axis"></line>
+  <text x="248" y="71" text-anchor="end" class="label">has-image</text>
+<rect x="260" y="54" width="600.0" height="24" fill="#3b6ea8" rx="2"></rect>
+<text x="868" y="71" class="value">4360 (87.2%)</text>
+<text x="248" y="103" text-anchor="end" class="label">no-image</text>
+<rect x="260" y="86" width="88.1" height="24" fill="#7a9a01" rx="2"></rect>
+<text x="356.07339449541286" y="103" class="value">640 (12.8%)</text>
+</svg>

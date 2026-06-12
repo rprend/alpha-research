@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="472" viewBox="0 0 980 472" role="img" aria-label="Accession-Year Decade Proxy">
+  <style>
+    .title { font: 700 22px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+    .label { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334e68; }
+    .value { font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #52606d; }
+    .axis { stroke: #bcccdc; stroke-width: 1; }
+  </style>
+  <rect width="100%" height="100%" fill="#ffffff"></rect>
+  <text x="24" y="34" class="title">Accession-Year Decade Proxy</text>
+  <line x1="260" y1="44" x2="260" y2="442" class="axis"></line>
+  <text x="248" y="71" text-anchor="end" class="label">1910s</text>
+<rect x="260" y="54" width="137.4" height="24" fill="#3b6ea8" rx="2"></rect>
+<text x="405.4117647058823" y="71" class="value">292 (5.8%)</text>
+<text x="248" y="103" text-anchor="end" class="label">1920s</text>
+<rect x="260" y="86" width="144.0" height="24" fill="#7a9a01" rx="2"></rect>
+<text x="412" y="103" class="value">306 (6.1%)</text>
+<text x="248" y="135" text-anchor="end" class="label">1930s</text>
+<rect x="260" y="118" width="91.3" height="24" fill="#c7532b" rx="2"></rect>
+<text x="359.29411764705884" y="135" class="value">194 (3.9%)</text>
+<text x="248" y="167" text-anchor="end" class="label">1940s</text>
+<rect x="260" y="150" width="600.0" height="24" fill="#6b5ca5" rx="2"></rect>
+<text x="868" y="167" class="value">1275 (25.5%)</text>
+<text x="248" y="199" text-anchor="end" class="label">1950s</text>
+<rect x="260" y="182" width="208.5" height="24" fill="#20806d" rx="2"></rect>
+<text x="476.47058823529414" y="199" class="value">443 (8.9%)</text>
+<text x="248" y="231" text-anchor="end" class="label">1960s</text>
+<rect x="260" y="214" width="268.2" height="24" fill="#b45f96" rx="2"></rect>
+<text x="536.2352941176471" y="231" class="value">570 (11.4%)</text>
+<text x="248" y="263" text-anchor="end" class="label">1970s</text>
+<rect x="260" y="246" width="202.8" height="24" fill="#3b6ea8" rx="2"></rect>
+<text x="470.8235294117647" y="263" class="value">431 (8.6%)</text>
+<text x="248" y="295" text-anchor="end" class="label">1980s</text>
+<rect x="260" y="278" width="181.6" height="24" fill="#7a9a01" rx="2"></rect>
+<text x="449.6470588235294" y="295" class="value">386 (7.7%)</text>
+<text x="248" y="327" text-anchor="end" class="label">1990s</text>
+<rect x="260" y="310" width="140.2" height="24" fill="#c7532b" rx="2"></rect>
+<text x="408.2352941176471" y="327" class="value">298 (6%)</text>
+<text x="248" y="359" text-anchor="end" class="label">2000s</text>
+<rect x="260" y="342" width="88.5" height="24" fill="#6b5ca5" rx="2"></rect>
+<text x="356.47058823529414" y="359" class="value">188 (3.8%)</text>
+<text x="248" y="391" text-anchor="end" class="label">2010s</text>
+<rect x="260" y="374" width="142.1" height="24" fill="#20806d" rx="2"></rect>
+<text x="410.11764705882354" y="391" class="value">302 (6%)</text>
+<text x="248" y="423" text-anchor="end" class="label">2020s</text>
+<rect x="260" y="406" width="148.2" height="24" fill="#b45f96" rx="2"></rect>
+<text x="416.2352941176471" y="423" class="value">315 (6.3%)</text>
+</svg>

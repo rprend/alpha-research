@@ -23,6 +23,7 @@ Or run step by step:
 ```bash
 node docs/experiments/cleveland-museum-collection-shape/scripts/fetch-artworks.mjs --limit=5000 --page-size=1000
 node docs/experiments/cleveland-museum-collection-shape/scripts/build-report.mjs
+node docs/experiments/cleveland-museum-collection-shape/scripts/build-charts.mjs
 node docs/experiments/cleveland-museum-collection-shape/scripts/check-readiness.mjs
 ```
 
@@ -36,6 +37,7 @@ The scripts write:
 - `data/processed/acquisition-decade-counts.csv`
 - `data/processed/culture-counts.csv`
 - `reports/report.html`
+- `reports/charts/*.svg`
 - `reports/result.json`
 - `reports/work.md`
 - `reports/public-draft.md`

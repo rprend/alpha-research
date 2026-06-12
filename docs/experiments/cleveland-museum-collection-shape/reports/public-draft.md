@@ -26,4 +26,4 @@ A structured museum API turns a collection into analyzable records, but the firs
 - Fetch the full collection or a larger paginated corpus.
 - Audit accession-number year extraction against explicit acquisition fields where available.
 - Compare against another open museum API before making cross-institution claims.
-- Build charts from department, creation-century, acquisition-decade, and image-availability tables.
+- Use the generated chart artifacts in the public draft.
