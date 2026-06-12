@@ -1,14 +1,14 @@
 # RISD Graphic Design Corpus Reconstruction
 
-Generated: 2026-06-11
+Generated: 2026-06-12
 
 ## Coverage Summary
 
-- Sources inspected: 88
-- Course records created: 132
-- Syllabus/course-site records: 74
-- Assignment evidence snippets: 471
-- Reading evidence snippets: 118
+- Sources inspected: 96
+- Course records created: 134
+- Syllabus/course-site records: 82
+- Assignment evidence snippets: 502
+- Reading evidence snippets: 135
 - Student work evidence records: 41
 - Wayback capture records: 106
 
@@ -1505,6 +1505,51 @@ Generated: 2026-06-11
   - Skill training signals: typography.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
+### Graphic Design Courses
+
+- Evidence grade: C
+- Course code: GRAPH2010-01
+- Degree level: unknown
+- Source IDs: src_risd_graphic_design_courses_page_0, src_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb
+- Extracted skill signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
+- Syllabus/course artifact: syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb
+- Instructor: Tom Wedell Location
+- Term: Spring 2026
+- Tools mentioned: Adobe, Adobe Illustrator, After Effects, Figma, HTML/CSS, JavaScript, Keynote
+- Materials mentioned: paper, print output, photography, book binding
+- Policy evidence: The poster has been an archetypal graphic design format since the late 19th century when lithographic printing technology came of age and captured the imagination of artists, bringing their vision into Paris streets. / Students will learn how to capture, manipulate, mix and optimize audio visual material for final production and implementation. / Students will explore formal outcomes related to all stages of thesis development.
+- Weekly/class structure evidence:
+  - Wintersession
+  - Online Info Sessions
+  - Schedule a Tour
+  - Wintersession
+  - Online Info Sessions
+  - Schedule a Tour
+- Reading evidence:
+  - for the poster-as paper and as screen-building on its singular capacity to transform ideas into iconic picture planes; and examining the dynamics of typography and image, both still and in motion (unresolved)
+  - about poster history and contemporary poster design (unresolved)
+  - is an interface for so much of our emotive, interpersonal, industrial, and political lives (unresolved)
+  - using processes such as paper cut-up, copy paste, autocomplete, crowdsourcing, and Natural Language Processing models (unresolved)
+  - - transcription workers, human computers, web moderators, and so on (unresolved)
+  - discussions will further expand on relevant topics (unresolved)
+  - at the intersection of language, identity, and societal conditioning, this course examines the extent to which typography can engage in world building and the production and dissemination of proposals for alternative sys (unresolved)
+  - construction (unresolved)
+- Assignment/critique evidence:
+  - Studio assignments will be supported with presentations and readings about poster history and contemporary poster design. (deliverables: poster; type: reading_response; phases: make; output: static_visual_system; tacit goal: practice explaining and defending design decisions in critique)
+  - In this class, we will explore our contemporary condition through visual-research based projects around self-design, speculative design and design fiction. (constraints: research required; type: project_brief; phases: research, make; tacit goal: ground visual decisions in research and precedent)
+  - Through projects, we will explore questions like, How does the addition of computational ingredients- networks, automation, randomness, etc- affect the visual form and meaning of language? Who produces digitally-based language, and how? (type: project_brief)
+  - Students will create projects through a range of expressions, including but not limited to websites, printed objects, and readings-out-loud. (type: reading_response; phases: make; tacit goal: prototype interactive form and user-facing structure)
+  - Students will be supported if they want to pursue project work through HTML/CSS, p5.js, RiTa.js, Twine, Scratch, or NLP engines like GPT2. (type: project_brief; output: interactive_web_artifact; tacit goal: prototype interactive form and user-facing structure)
+  - Alongside screen-based projects, students will also engage in physical and analog activities to expand their understanding of computational design. (type: project_brief; phases: make)
+  - Weekly student-led presentations and reading discussions will further expand on relevant topics. (type: reading_response; tacit goal: practice explaining and defending design decisions in critique)
+  - Students will learn how to capture, manipulate, mix and optimize audio visual material for final production and implementation. (type: final_project; phases: submit)
+  - Through a series of in-class and multi-week assignments, students will create animated projects that include motion design real-world assignments, as well as experimental exercises, with the goal of exploring intersections between graphic design, story telling, visual composition, and the realms of rhythm and sound. (deliverables: animation; type: exercise; phases: make; output: time_based_screen_artifact)
+  - Each student will propose a long term project, this project will be developed throughout the semester and presented as the final project for the class. (type: final_project; phases: submit; tacit goal: practice explaining and defending design decisions in critique)
+- Tacit reconstruction:
+  - Direct evidence currently supports a course-specific classroom reconstruction.
+  - Skill training signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
 ### Graphic Design for the Web
 
 - Evidence grade: B
@@ -1768,6 +1813,26 @@ Generated: 2026-06-11
   - Skill training signals: typography, motion design, interaction design, image making.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
+### RISD GD | 💐 Spring Talks + Workshops in GD
+
+- Evidence grade: C
+- Course code: unknown
+- Degree level: unknown
+- Source IDs: src_cc_risd_gd_notices_spring_talks_workshops_in_gd_f79eb7cc
+- Extracted skill signals: publication design, interaction design
+- Syllabus/course artifact: syl_cc_risd_gd_notices_spring_talks_workshops_in_gd_f79eb7cc
+- Schedule rows:
+  - Friday, March 21: , 12:00pm
+  - Saturday, March 22: , 12–5pm Creative Web Coding Workshop Open to all students, sign up will be required. →Talk + Book Signing: JON KEY Black, Queer & Untold: A New Archive of Designers, Artists and Trailblazers
+  - Saturday, April 5: , 3pm →Talk: ALICIA MÁRQUEZ
+  - Friday, April 25: , 12pm risd.gd/notices
+- Reading evidence:
+  - Signing: JON KEY (heuristic_title)
+- Tacit reconstruction:
+  - Direct evidence currently supports a course-specific classroom reconstruction.
+  - Skill training signals: publication design, interaction design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
 ### Time, Sequence, & Sound
 
 - Evidence grade: B
@@ -1892,6 +1957,22 @@ Generated: 2026-06-11
   - Skill training signals: typography, publication design, interaction design, critique and revision, research methods, image making.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
+### Typographic Landscapes
+
+- Evidence grade: B
+- Course code: unknown
+- Degree level: unknown
+- Source IDs: src_cc_htmloutput_risd_gd_project_ojus_typelandscapes_1b06208f
+- Extracted skill signals: typography, publication design, interaction design
+- Syllabus/course artifact: syl_cc_htmloutput_risd_gd_project_ojus_typelandscapes_1b06208f
+- Tools mentioned: HTML/CSS
+- Reading evidence:
+  - Order book (unresolved)
+- Tacit reconstruction:
+  - Direct evidence currently supports a course-specific classroom reconstruction.
+  - Skill training signals: typography, publication design, interaction design.
+  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
+
 ### TYPOGRAPHIC MULTIVERSE
 
 - Evidence grade: C
@@ -1934,18 +2015,6 @@ Generated: 2026-06-11
 - Course code: GRAPH3282-01
 - Degree level: unknown
 - Source IDs: src_risd_graphic_design_courses_page_4
-- Extracted skill signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
-- Tacit reconstruction:
-  - Direct evidence currently supports program/catalog-level placement only.
-  - Skill training signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making.
-  - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
-
-### typography
-
-- Evidence grade: C
-- Course code: GRAPH2010-01
-- Degree level: unknown
-- Source IDs: src_risd_graphic_design_courses_page_0
 - Extracted skill signals: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
 - Tacit reconstruction:
   - Direct evidence currently supports program/catalog-level placement only.
@@ -2493,6 +2562,57 @@ Generated: 2026-06-11
   - Week 2: Abstract Forms
   - Week 3: Active Forms
   - Week 4: Putting it Together
+- Syllabus/course artifact: syl_cc_wp15_risd_gd_assignments_assignment_7_single_page_website_ce3ecd92
+- Term: 2015
+- Tools mentioned: HTML/CSS
+- Materials mentioned: photography
+- Weekly/class structure evidence:
+  - For the remainder of class, either:
+  - Put together a one page website that collects your previous work from this class.
+  - Here is a fairly good example from session 1 . make sure also that your work looks good on that page and links to html files and not images.
+  - 4 Activity / Assignments / Week 4: Putting it Together
+  - Classroom
+  - Week 1: Concrete Forms
+- Syllabus/course artifact: syl_cc_wp15_risd_gd_assignments_3a_abstract_shape_seo_jung_lee_kelly_abstract_shape_11afe369
+- Term: 2015
+- Tools mentioned: HTML/CSS
+- Weekly/class structure evidence:
+  - Classroom
+  - Week 1: Concrete Forms
+  - Week 2: Abstract Forms
+  - Week 3: Active Forms
+  - Week 4: Putting it Together
+  - 4-week workshop at RISD GD
+- Syllabus/course artifact: syl_cc_wp15_risd_gd_assignments_5_change_in_relations_change_2_3c1efa27
+- Term: 2015
+- Tools mentioned: HTML/CSS
+- Weekly/class structure evidence:
+  - Classroom
+  - Week 1: Concrete Forms
+  - Week 2: Abstract Forms
+  - Week 3: Active Forms
+  - Week 4: Putting it Together
+  - 4-week workshop at RISD GD
+- Syllabus/course artifact: syl_cc_wp15_risd_gd_assignments_yves_olivier_flag_f6bd828c
+- Term: 2015
+- Tools mentioned: HTML/CSS
+- Weekly/class structure evidence:
+  - Classroom
+  - Week 1: Concrete Forms
+  - Week 2: Abstract Forms
+  - Week 3: Active Forms
+  - Week 4: Putting it Together
+  - 4-week workshop at RISD GD
+- Syllabus/course artifact: syl_cc_wp15_risd_gd_assignments_1_scandinavian_flag_scandinavian_flag_9_e73ad2ba
+- Term: 2015
+- Tools mentioned: HTML/CSS
+- Weekly/class structure evidence:
+  - Classroom
+  - Week 1: Concrete Forms
+  - Week 2: Abstract Forms
+  - Week 3: Active Forms
+  - Week 4: Putting it Together
+  - 4-week workshop at RISD GD
 - Reading evidence:
   - Art of Creative Coding Feb 13, 2015 (heuristic_title)
   - Art of Creative Coding | Web Programming 2015 (unresolved)
@@ -2518,8 +2638,8 @@ Generated: 2026-06-11
 - Evidence grade: B
 - Course code: unknown
 - Degree level: unknown
-- Source IDs: src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pocket_pictograms_inspiration_for_assignment_2_3cf16be5, src_crawl_wp15_risd_gd_category_outline_week_1_concrete_forms_4905a205, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_concrete_objects_christian_leborg_f274fe53, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_essay_by_paul_elliman_on_karel_martens_graphic__95641d1a, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_2_draw_found_objects_with_css_4a1e2993, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_1_make_a_scandinavian_flag_with_css_cb569dec, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_2_css_basics_layout_8224b9f9, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_1_html_basics_a2298300, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_getting_setup_add_users_bios_and_avatars_5a8864e0, src_crawl_wp15_risd_gd_wp_login_php_dd54314d, src_crawl_wp15_risd_gd_category_assignments_116ec5b2, src_crawl_wp15_risd_gd_category_assignments_1_scandinavian_flag_04511d7b, src_crawl_wp15_risd_gd_category_assignments_2_css_drawings_6a79b496, src_crawl_wp15_risd_gd_category_assignments_3a_abstract_shape_87c26db6, src_crawl_wp15_risd_gd_category_assignments_3b_abstract_composition_93bcd461, src_crawl_wp15_risd_gd_category_assignments_4css_patterns_de5ba421, src_crawl_wp15_risd_gd_category_assignments_5_change_in_relations_f57a17f0, src_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c
-- Extracted skill signals: motion design, interaction design, publication design, image making, identity systems
+- Source IDs: src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pocket_pictograms_inspiration_for_assignment_2_3cf16be5, src_crawl_wp15_risd_gd_category_outline_week_1_concrete_forms_4905a205, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_concrete_objects_christian_leborg_f274fe53, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_essay_by_paul_elliman_on_karel_martens_graphic__95641d1a, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_2_draw_found_objects_with_css_4a1e2993, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_1_make_a_scandinavian_flag_with_css_cb569dec, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_2_css_basics_layout_8224b9f9, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_1_html_basics_a2298300, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_getting_setup_add_users_bios_and_avatars_5a8864e0, src_crawl_wp15_risd_gd_wp_login_php_dd54314d, src_crawl_wp15_risd_gd_category_assignments_116ec5b2, src_crawl_wp15_risd_gd_category_assignments_1_scandinavian_flag_04511d7b, src_crawl_wp15_risd_gd_category_assignments_2_css_drawings_6a79b496, src_crawl_wp15_risd_gd_category_assignments_3a_abstract_shape_87c26db6, src_crawl_wp15_risd_gd_category_assignments_3b_abstract_composition_93bcd461, src_crawl_wp15_risd_gd_category_assignments_4css_patterns_de5ba421, src_crawl_wp15_risd_gd_category_assignments_5_change_in_relations_f57a17f0, src_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c, src_cc_wp15_risd_gd_assignments_assignment_7_single_page_website_ce3ecd92, src_cc_wp15_risd_gd_assignments_3a_abstract_shape_seo_jung_lee_kelly_abstract_shape_11afe369, src_cc_wp15_risd_gd_assignments_5_change_in_relations_change_2_3c1efa27, src_cc_wp15_risd_gd_assignments_yves_olivier_flag_f6bd828c, src_cc_wp15_risd_gd_assignments_1_scandinavian_flag_scandinavian_flag_9_e73ad2ba
+- Extracted skill signals: motion design, interaction design, publication design, image making, identity systems, typography
 - Syllabus/course artifact: syl_wp15_week_1_concrete_forms
 - Term: 2015
 - Tools mentioned: HTML/CSS
@@ -2740,6 +2860,57 @@ Generated: 2026-06-11
   - Week 2: Abstract Forms
   - Week 3: Active Forms
   - Week 4: Putting it Together
+- Syllabus/course artifact: syl_cc_wp15_risd_gd_assignments_assignment_7_single_page_website_ce3ecd92
+- Term: 2015
+- Tools mentioned: HTML/CSS
+- Materials mentioned: photography
+- Weekly/class structure evidence:
+  - For the remainder of class, either:
+  - Put together a one page website that collects your previous work from this class.
+  - Here is a fairly good example from session 1 . make sure also that your work looks good on that page and links to html files and not images.
+  - 4 Activity / Assignments / Week 4: Putting it Together
+  - Classroom
+  - Week 1: Concrete Forms
+- Syllabus/course artifact: syl_cc_wp15_risd_gd_assignments_3a_abstract_shape_seo_jung_lee_kelly_abstract_shape_11afe369
+- Term: 2015
+- Tools mentioned: HTML/CSS
+- Weekly/class structure evidence:
+  - Classroom
+  - Week 1: Concrete Forms
+  - Week 2: Abstract Forms
+  - Week 3: Active Forms
+  - Week 4: Putting it Together
+  - 4-week workshop at RISD GD
+- Syllabus/course artifact: syl_cc_wp15_risd_gd_assignments_5_change_in_relations_change_2_3c1efa27
+- Term: 2015
+- Tools mentioned: HTML/CSS
+- Weekly/class structure evidence:
+  - Classroom
+  - Week 1: Concrete Forms
+  - Week 2: Abstract Forms
+  - Week 3: Active Forms
+  - Week 4: Putting it Together
+  - 4-week workshop at RISD GD
+- Syllabus/course artifact: syl_cc_wp15_risd_gd_assignments_yves_olivier_flag_f6bd828c
+- Term: 2015
+- Tools mentioned: HTML/CSS
+- Weekly/class structure evidence:
+  - Classroom
+  - Week 1: Concrete Forms
+  - Week 2: Abstract Forms
+  - Week 3: Active Forms
+  - Week 4: Putting it Together
+  - 4-week workshop at RISD GD
+- Syllabus/course artifact: syl_cc_wp15_risd_gd_assignments_1_scandinavian_flag_scandinavian_flag_9_e73ad2ba
+- Term: 2015
+- Tools mentioned: HTML/CSS
+- Weekly/class structure evidence:
+  - Classroom
+  - Week 1: Concrete Forms
+  - Week 2: Abstract Forms
+  - Week 3: Active Forms
+  - Week 4: Putting it Together
+  - 4-week workshop at RISD GD
 - Reading evidence:
   - Art of Creative Coding Feb 13, 2015 (heuristic_title)
   - Art of Creative Coding | Web Programming 2015 (unresolved)
@@ -2757,7 +2928,7 @@ Generated: 2026-06-11
   - Be introduced to HTML and CSS syntax to help conceptualize future projects (type: project_brief; output: interactive_web_artifact; tacit goal: prototype interactive form and user-facing structure)
 - Tacit reconstruction:
   - Direct evidence currently supports a course-specific classroom reconstruction.
-  - Skill training signals: motion design, interaction design, publication design, image making, identity systems.
+  - Skill training signals: motion design, interaction design, publication design, image making, identity systems, typography.
   - Any missing weekly schedule, grading rubric, or assignment sequence must remain marked as unknown until another syllabus/course artifact is found.
 
 ### Web Type
@@ -3253,6 +3424,14 @@ Generated: 2026-06-11
 - src_crawl_wp15_risd_gd_category_assignments_4css_patterns_de5ba421 (B, assignment_page): https://wp15.risd.gd/category/assignments/4css-patterns/
 - src_crawl_wp15_risd_gd_category_assignments_5_change_in_relations_f57a17f0 (B, assignment_page): https://wp15.risd.gd/category/assignments/5-change-in-relations/
 - src_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c (B, assignment_page): https://wp15.risd.gd/category/assignments/6-responsive-animation/
+- src_cc_htmloutput_risd_gd_project_ojus_typelandscapes_1b06208f (B, assignment_page): https://htmloutput.risd.gd/project-ojus-typelandscapes/
+- src_cc_wp15_risd_gd_assignments_assignment_7_single_page_website_ce3ecd92 (B, assignment_page): https://wp15.risd.gd/assignments/assignment-7-single-page-website/
+- src_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb (C, course_site): https://www.risd.edu/academics/graphic-design/courses
+- src_cc_risd_gd_notices_spring_talks_workshops_in_gd_f79eb7cc (C, course_site): https://risd.gd/notices/spring-talks-workshops-in-gd
+- src_cc_wp15_risd_gd_assignments_3a_abstract_shape_seo_jung_lee_kelly_abstract_shape_11afe369 (B, assignment_page): https://wp15.risd.gd/assignments/3a-abstract-shape/seo-jung-lee-kelly-abstract-shape/
+- src_cc_wp15_risd_gd_assignments_5_change_in_relations_change_2_3c1efa27 (B, assignment_page): https://wp15.risd.gd/assignments/5-change-in-relations/change-2/
+- src_cc_wp15_risd_gd_assignments_yves_olivier_flag_f6bd828c (B, assignment_page): https://wp15.risd.gd/assignments/yves-olivier-flag/
+- src_cc_wp15_risd_gd_assignments_1_scandinavian_flag_scandinavian_flag_9_e73ad2ba (B, assignment_page): https://wp15.risd.gd/assignments/1-scandinavian-flag/scandinavian-flag-9/
 - src_risd_syllabus_guidance (B, official_syllabus_guidance): https://teachingandlearninglab.risd.edu/teaching-support/syllabus-and-course-design
 - src_risd_graphic_design_courses_page_0 (C, official_course_index): https://www.risd.edu/academics/graphic-design/courses?page=0
 - src_risd_graphic_design_courses_page_1 (C, official_course_index): https://www.risd.edu/academics/graphic-design/courses?page=1

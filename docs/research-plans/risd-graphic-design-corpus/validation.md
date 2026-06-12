@@ -1,33 +1,35 @@
 # RISD Graphic Design Corpus Validation
 
-Generated: 2026-06-11
+Generated: 2026-06-12
 
 Overall status: pass
 
 ## Counts
 
-- Sources: 88
-- Courses: 132
+- Sources: 96
+- Courses: 134
 - Official course inventory: 105
 - RISD displayed course count: 105
-- Syllabi/course artifacts: 74
-- Structured syllabus records: 74
-- Assignments: 471
-- Structured assignment snippets: 471
-- Studio-phase assignment snippets: 471
-- Readings: 118
-- Normalized reading snippets: 50
-- Canonical reading works: 26
-- Local catalog reading matches: 38
+- Syllabi/course artifacts: 82
+- Structured syllabus records: 82
+- Assignments: 502
+- Structured assignment snippets: 502
+- Studio-phase assignment snippets: 502
+- Readings: 135
+- Normalized reading snippets: 52
+- Canonical reading works: 27
+- Local catalog reading matches: 39
 - Search candidates: 28
 - Promoted search candidates: 10
 - Imported search candidates: 0
 - Common Crawl candidates: 168
 - Common Crawl fetch candidates: 35
+- Ingested Common Crawl candidates: 8
 - Common Crawl promotions: 8
 - Successful Common Crawl promotions: 8
-- Faculty rows: 26
-- Faculty-course edges: 48
+- Ingested Common Crawl promotions: 8
+- Faculty rows: 27
+- Faculty-course edges: 49
 - Student work rows: 41
 - Structured student work rows: 41
 - Source clusters: 10
@@ -38,25 +40,25 @@ Overall status: pass
 - Fetched archive source comparisons: 1
 - Metadata-only source versions: 27
 - Wayback captures: 106
-- Review queue rows: 10
-- Review decision rows: 10
+- Review queue rows: 12
+- Review decision rows: 12
 - Field conflicts: 6
 
 ## Checks
 
-- PASS sources_have_required_metadata: 88 sources inspected.
+- PASS sources_have_required_metadata: 96 sources inspected.
 - PASS failed_fetches_do_not_create_syllabi: 0 syllabus rows reference failed sources.
 - PASS syllabi_have_course_identity: 0 syllabus rows lack both course code and title.
-- PASS syllabi_have_structured_top_level_fields: 74 syllabus rows include top-level schema fields for schedule, readings, policies, tools, materials, evidence, or raw excerpts.
+- PASS syllabi_have_structured_top_level_fields: 82 syllabus rows include top-level schema fields for schedule, readings, policies, tools, materials, evidence, or raw excerpts.
 - PASS assignments_reference_valid_syllabi_and_sources: 0 assignment reference errors.
-- PASS assignments_have_structured_signals: 471 assignment snippets include inferred deliverables, constraints, tools, critique, revision, or tacit goals.
-- PASS assignments_have_studio_phase_signals: 471 assignment snippets include assignment type, studio phase, or output-format signals.
+- PASS assignments_have_structured_signals: 502 assignment snippets include inferred deliverables, constraints, tools, critique, revision, or tacit goals.
+- PASS assignments_have_studio_phase_signals: 502 assignment snippets include assignment type, studio phase, or output-format signals.
 - PASS readings_reference_valid_syllabi_and_sources: 0 reading reference errors.
-- PASS readings_have_normalized_work_links: 50 reading snippets linked to 26 canonical works; 38 local catalog matches.
+- PASS readings_have_normalized_work_links: 52 reading snippets linked to 27 canonical works; 39 local catalog matches.
 - PASS search_candidates_have_provenance: 28 search candidates, 10 promoted, 0 imported; 0 candidate reference errors.
-- PASS common_crawl_candidates_have_provenance: 168 Common Crawl candidates, 35 fetch candidates; 0 provenance errors.
-- PASS common_crawl_promotions_reference_candidates: 8 Common Crawl promotions, 8 successful; 0 reference errors.
-- PASS faculty_graph_references_valid_sources: 26 faculty rows and 48 faculty-course edges; 0 reference errors.
+- PASS common_crawl_candidates_have_provenance: 168 Common Crawl candidates, 35 fetch candidates, 8 ingested; 0 provenance errors.
+- PASS common_crawl_promotions_reference_candidates: 8 Common Crawl promotions, 8 successful, 8 ingested; 0 reference errors.
+- PASS faculty_graph_references_valid_sources: 27 faculty rows and 49 faculty-course edges; 0 reference errors.
 - PASS student_work_reference_valid_sources: 0 student work source reference errors.
 - PASS student_work_has_structured_public_examples: 41 student work rows include URL plus medium/project/evidence metadata.
 - PASS source_clusters_reference_valid_sources: 0 source cluster reference errors across 10 clusters.
@@ -66,4 +68,4 @@ Overall status: pass
 - PASS manual_review_artifacts_have_valid_references: 0 review decision reference errors and 0 field conflict reference errors.
 - PASS official_course_inventory_reconciled: 105 official offerings parsed; RISD page displays 105 results.
 - PASS wayback_captures_recorded: 106 Wayback capture records.
-- PASS course_records_created: 132 course records created.
+- PASS course_records_created: 134 course records created.

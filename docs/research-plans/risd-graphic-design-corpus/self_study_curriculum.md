@@ -1,17 +1,17 @@
 # RISD Graphic Design Self-Study Curriculum
 
-Generated: 2026-06-11
+Generated: 2026-06-12
 
 ## Evidence Boundary
 
 This curriculum is generated from public RISD Graphic Design corpus artifacts. It is not an official RISD program map and it does not infer private classroom content. Each module names the source-grounded course evidence it uses, then translates recovered assignments, readings, student work, and critique signals into a self-study studio loop.
 
-- Course records considered: 132
-- Syllabus/course-site records considered: 74
-- Assignment evidence snippets considered: 471
-- Reading evidence snippets considered: 118
+- Course records considered: 134
+- Syllabus/course-site records considered: 82
+- Assignment evidence snippets considered: 502
+- Reading evidence snippets considered: 135
 - Public student-work records considered: 41
-- Curriculum modules generated: 16
+- Curriculum modules generated: 19
 
 ## How To Use This
 
@@ -185,7 +185,7 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
 - Evidence grade: B
 - Course code: GRAPH-3188-03
 - Source IDs: src_wp15_week_1_concrete_forms, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69
-- Syllabus/course artifacts: syl_wp15_week_1_concrete_forms, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pocket_pictograms_inspiration_for_assignment_2_3cf16be5, syl_crawl_wp15_risd_gd_category_outline_week_1_concrete_forms_4905a205, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_concrete_objects_christian_leborg_f274fe53, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_essay_by_paul_elliman_on_karel_martens_graphic__95641d1a, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_2_draw_found_objects_with_css_4a1e2993, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_1_make_a_scandinavian_flag_with_css_cb569dec, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_2_css_basics_layout_8224b9f9, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_1_html_basics_a2298300, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_getting_setup_add_users_bios_and_avatars_5a8864e0, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69, syl_crawl_wp15_risd_gd_wp_login_php_dd54314d, syl_crawl_wp15_risd_gd_category_assignments_116ec5b2, syl_crawl_wp15_risd_gd_category_assignments_1_scandinavian_flag_04511d7b, syl_crawl_wp15_risd_gd_category_assignments_2_css_drawings_6a79b496, syl_crawl_wp15_risd_gd_category_assignments_3a_abstract_shape_87c26db6, syl_crawl_wp15_risd_gd_category_assignments_3b_abstract_composition_93bcd461, syl_crawl_wp15_risd_gd_category_assignments_4css_patterns_de5ba421, syl_crawl_wp15_risd_gd_category_assignments_5_change_in_relations_f57a17f0, syl_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c
+- Syllabus/course artifacts: syl_wp15_week_1_concrete_forms, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pocket_pictograms_inspiration_for_assignment_2_3cf16be5, syl_crawl_wp15_risd_gd_category_outline_week_1_concrete_forms_4905a205, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pbs_off_book_art_of_creative_coding_289b1fa7, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_concrete_objects_christian_leborg_f274fe53, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_essay_by_paul_elliman_on_karel_martens_graphic__95641d1a, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_2_draw_found_objects_with_css_4a1e2993, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_assignment_1_make_a_scandinavian_flag_with_css_cb569dec, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_2_css_basics_layout_8224b9f9, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_lesson_1_html_basics_a2298300, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_getting_setup_add_users_bios_and_avatars_5a8864e0, syl_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69, syl_crawl_wp15_risd_gd_wp_login_php_dd54314d, syl_crawl_wp15_risd_gd_category_assignments_116ec5b2, syl_crawl_wp15_risd_gd_category_assignments_1_scandinavian_flag_04511d7b, syl_crawl_wp15_risd_gd_category_assignments_2_css_drawings_6a79b496, syl_crawl_wp15_risd_gd_category_assignments_3a_abstract_shape_87c26db6, syl_crawl_wp15_risd_gd_category_assignments_3b_abstract_composition_93bcd461, syl_crawl_wp15_risd_gd_category_assignments_4css_patterns_de5ba421, syl_crawl_wp15_risd_gd_category_assignments_5_change_in_relations_f57a17f0, syl_crawl_wp15_risd_gd_category_assignments_6_responsive_animation_5116ac2c, syl_cc_wp15_risd_gd_assignments_assignment_7_single_page_website_ce3ecd92, syl_cc_wp15_risd_gd_assignments_3a_abstract_shape_seo_jung_lee_kelly_abstract_shape_11afe369, syl_cc_wp15_risd_gd_assignments_5_change_in_relations_change_2_3c1efa27, syl_cc_wp15_risd_gd_assignments_yves_olivier_flag_f6bd828c, syl_cc_wp15_risd_gd_assignments_1_scandinavian_flag_scandinavian_flag_9_e73ad2ba
 - Tools/software/materials to practice: HTML/CSS
 - Skill targets: publication design, identity systems, motion design, interaction design, image making
 - Reading packet:
@@ -223,6 +223,32 @@ Studio loop: Make a constrained visual system, present it for critique, revise i
   - assignments (suggested): • completion of all assignments (suggested) (type: project_brief)
   - Final Grade will be based on the afore-mentioned Anatomy of a Typeface, Alexander Laws: Final Grade will be based on the afore-mentioned Anatomy of a Typeface, Alexander Lawson (deliverables: typeface; type: final_project; phases: submit)
   - projects: criteria as well as results of projects. (type: project_brief)
+- Mentor-style checkpoint:
+  - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
+
+#### Graphic Design Courses
+
+- Evidence grade: C
+- Course code: GRAPH2010-01
+- Source IDs: src_risd_graphic_design_courses_page_0, src_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb
+- Syllabus/course artifacts: syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb
+- Instructor evidence: Tom Wedell Location
+- Tools/software/materials to practice: Adobe, Adobe Illustrator, After Effects, Figma, HTML/CSS, JavaScript, Keynote
+- Skill targets: typography, publication design, identity systems, motion design, interaction design, critique and revision, research methods, image making
+- Reading packet:
+  - for the poster-as paper and as screen-building on its singular capacity to transform ideas into iconic picture planes; and examining the dynamics of typography and image, both still and in motion (unknown)
+  - about poster history and contemporary poster design (unknown)
+  - is an interface for so much of our emotive, interpersonal, industrial, and political lives (unknown)
+  - using processes such as paper cut-up, copy paste, autocomplete, crowdsourcing, and Natural Language Processing models (unknown)
+  - - transcription workers, human computers, web moderators, and so on (unknown)
+  - discussions will further expand on relevant topics (unknown)
+- Studio briefs to recreate:
+  - assignments will be supported with presentations and readings about poster history and con: Studio assignments will be supported with presentations and readings about poster history and contemporary poster design. (deliverables: poster; type: reading_response; phases: make; output: static_visual_system)
+  - projects around self-design, speculative design and design fiction: In this class, we will explore our contemporary condition through visual-research based projects around self-design, speculative design and design fiction. (constraints: research required; type: project_brief; phases: research, make)
+  - projects, we will explore questions like, How does the addition of computational ingred: Through projects, we will explore questions like, How does the addition of computational ingredients- networks, automation, randomness, etc- affect the visual form and meaning of language? Who produces digitally-based language, and how? (type: project_brief)
+  - projects through a range of expressions, including but not limited to websites, printed: Students will create projects through a range of expressions, including but not limited to websites, printed objects, and readings-out-loud. (type: reading_response; phases: make)
+  - project work through HTML/CSS, p5: Students will be supported if they want to pursue project work through HTML/CSS, p5.js, RiTa.js, Twine, Scratch, or NLP engines like GPT2. (type: project_brief; output: interactive_web_artifact)
+  - projects, students will also engage in physical and analog activities to expand their u: Alongside screen-based projects, students will also engage in physical and analog activities to expand their understanding of computational design. (type: project_brief; phases: make)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 
@@ -323,6 +349,31 @@ Studio loop: Set text under explicit hierarchy, spacing, scale, and sequencing c
   - of contemporary art and design practices (unknown)
 - Studio briefs to recreate:
   - projects, readings, workshops, and presentations we will explore the relevance of netwo: Through projects, readings, workshops, and presentations we will explore the relevance of network technologies in the context of contemporary art and design practices. (type: exercise; phases: make)
+- Mentor-style checkpoint:
+  - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
+
+#### Typographic Landscapes
+
+- Evidence grade: B
+- Course code: unknown
+- Source IDs: src_cc_htmloutput_risd_gd_project_ojus_typelandscapes_1b06208f
+- Syllabus/course artifacts: syl_cc_htmloutput_risd_gd_project_ojus_typelandscapes_1b06208f
+- Tools/software/materials to practice: HTML/CSS
+- Skill targets: typography, publication design, interaction design
+- Reading packet:
+  - Order book (unknown)
+- Mentor-style checkpoint:
+  - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
+
+#### RISD GD | 💐 Spring Talks + Workshops in GD
+
+- Evidence grade: C
+- Course code: unknown
+- Source IDs: src_cc_risd_gd_notices_spring_talks_workshops_in_gd_f79eb7cc
+- Syllabus/course artifacts: syl_cc_risd_gd_notices_spring_talks_workshops_in_gd_f79eb7cc
+- Skill targets: publication design, interaction design
+- Reading packet:
+  - Signing: JON KEY (unknown)
 - Mentor-style checkpoint:
   - What exactly did you make, what constraints did you honor, what changed after critique, and what evidence shows the work improved?
 

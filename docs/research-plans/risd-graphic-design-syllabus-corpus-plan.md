@@ -96,7 +96,7 @@ Known gaps:
 - Citation extraction is heuristic.
 - Assignment extraction is currently snippet-based, not structured enough.
 - Search candidate import is supported through local JSON/JSONL exports, but no live search API provider is wired yet.
-- A bounded Common Crawl candidate and promotion pass exists, but promoted sources are not yet merged into full course packets automatically.
+- A bounded Common Crawl candidate, promotion, and ingestion pass exists, but it is still capped and should be expanded carefully.
 - Faculty/course edges are derived from existing course evidence, but RISD profile crawling and faculty-portfolio expansion are not implemented yet.
 - Near-duplicate clustering is implemented as a review artifact, but clusters are not yet used to collapse generated course packets.
 - Manual review artifacts exist, but human decisions have not been filled in yet.
