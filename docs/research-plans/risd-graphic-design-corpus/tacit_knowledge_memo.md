@@ -10,12 +10,18 @@ This memo is generated from the first implemented corpus pass. It is strongest w
 - Assignment evidence snippets: 671
 - Critique-related snippets: 41
 - Student work records: 22
+- Self-study modules: 14
 
 ## Studio Norms Visible In The Corpus
 
 - Public course artifacts emphasize making through projects, exercises, and critique rather than lecture-only learning.
 - Course evidence points to graphic design as a sequence of material outputs: typography, image, publication, motion, interaction, and identity/system work.
 - RISD's own syllabus guidance frames courses around learning outcomes, assignment design, and assessment clarity, which should be used as the reconstruction standard when a recovered syllabus is partial.
+
+## Module-Derived Studio Loops
+
+- Foundation Studio And Design Process: Design Studio 1: make book, animation; critique/revise: critique referenced in source excerpt; output: time_based_screen_artifact; Web Type: make website, animation, typeface; critique/revise: feedback/review referenced in source excerpt; output: interactive_web_artifact; Design & Politics: make documentation; under constraints: deadline or due date referenced; critique/revise: feedback/review referenced in source excerpt; Introduction to Graphic Design: make visual identity system; under constraints: deadline or due date referenced; critique/revise: critique referenced in source excerpt; output: static_visual_system
+- Typography And Reading Systems: Typography for Nonmajors: make poster; write a critique memo and revise once; output: static_visual_system; Design for Publishing: make book; write a critique memo and revise once; output: multi_page_publication
 
 ## Skill Signals
 
@@ -28,16 +34,50 @@ This memo is generated from the first implemented corpus pass. It is strongest w
 - image making
 - interaction design
 
+## Tangible Practice Instructions
+
+- Design Studio 1: make book, animation; critique/revise: critique referenced in source excerpt; output: time_based_screen_artifact. Evidence: assign_syl_crawl_ds1618_risd_gd_2016_11_08_unit4_crit_html_d957a68a_01; sources: src_john_caserta_design_studio_1_2016, src_ds1618_design_studio_archive, src_ds1618_make_book, src_crawl_ds1618_risd_gd_2016_09_12_ds1syllabus_html_f3c3432d
+- Web Type: make website, animation, typeface; critique/revise: feedback/review referenced in source excerpt; output: interactive_web_artifact. Evidence: assign_syl_crawl_webtype_htmlkitchen_net_exercises_07_input_range_30e67e2f_01; sources: src_web_type_2022_syllabus, src_crawl_webtype_htmlkitchen_net_schedule_59d96530, src_crawl_webtype_htmlkitchen_net_projects_f21c0c50, src_crawl_webtype_htmlkitchen_net_exercises_8dc7f726
+- Design & Politics: make documentation; under constraints: deadline or due date referenced; critique/revise: feedback/review referenced in source excerpt. Evidence: assign_syl_crawl_designandpolitics_risd_gd_2022_05_13_week12_html_38dd599d_02; sources: src_designandpolitics_2022_syllabus, src_crawl_designandpolitics_risd_gd_2022_05_13_week12_html_38dd599d, src_crawl_designandpolitics_risd_gd_2022_05_06_week11_html_a2f8e669, src_crawl_designandpolitics_risd_gd_2022_04_29_week10_html_2c78adc6
+- Introduction to Graphic Design: make visual identity system; under constraints: deadline or due date referenced; critique/revise: critique referenced in source excerpt; output: static_visual_system. Evidence: assign_syl_adam_fein_intro_graphic_design_2021_pdf_29; sources: src_adam_fein_intro_graphic_design_2021_pdf
+- Typography for Nonmajors: make poster; write a critique memo and revise once; output: static_visual_system. Evidence: assign_syl_sp19_typography_for_nonmajors_01; sources: src_sp19_typography_for_nonmajors
+- Design for Publishing: make book; write a critique memo and revise once; output: multi_page_publication. Evidence: assign_syl_sp19_design_for_publishing_01; sources: src_sp19_design_for_publishing
+- Typography III: make portfolio; critique/revise: revision or iterative improvement expected; output: multi_page_publication. Evidence: assign_syl_wayback_typography_iii_syllabus_20210414155049_11; sources: src_wayback_typography_iii_syllabus_20210414155049, src_john_caserta_student_work
+- Web Programming: make animation; under constraints: process documentation required; critique/revise: feedback/review referenced in source excerpt; output: interactive_web_artifact. Evidence: assign_syl_wp15_week_1_concrete_forms_04; sources: src_wp15_week_1_concrete_forms, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_workshop_syllabus_2c26bf69, src_crawl_wp15_risd_gd_outline_week_1_concrete_forms_pocket_pictograms_inspiration_for_assignment_2_3cf16be5, src_crawl_wp15_risd_gd_category_outline_week_1_concrete_forms_4905a205
+- Type Two: make presentation; write a critique memo and revise once; output: presentation. Evidence: assign_syl_type_two_2015_syllabus_pdf_01; sources: src_type_two_2015_syllabus_pdf
+- Grad Type 1: make book, portfolio, typeface; under constraints: process documentation required; critique/revise: revision or iterative improvement expected; output: multi_page_publication. Evidence: assign_syl_grad_type_1_2014_syllabus_pdf_01; sources: src_grad_type_1_2014_syllabus_pdf
+- typography : make presentation; write a critique memo and revise once; output: presentation. Evidence: assign_syl_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb_13; sources: src_risd_graphic_design_courses_page_0, src_cc_www_risd_edu_academics_graphic_design_courses_2a6acbeb
+- Mapping Information: make animation; write a critique memo and revise once; output: time_based_screen_artifact. Evidence: assign_syl_sp19_mapping_information_02; sources: src_sp19_mapping_information
+
 ## Critique And Revision
 
-- final project will consist of designing a visual identity system. The student will receive small group and individual feedback as they progress on projects. COURSE EXPECTATIONS Students are required to attend class regularly and on time in accordance with RISD’s attendance policy. Students will be responsible for completing outside work and managing the deadlines for projects. In class, students are required to participate in discussions and critiques. Students are expected to respect the ideas of their classmates and engage constructively with the work of others. Students should feel welcome to express themselves while also respecting their classmates identities, pronouns, boundaries, etc. I have provided readings to help you with critique in the readings folder.
-- Synchronous elements include student presentations and critique.
-- Every project will end with an open critique.
-- participate in discussions and critiques.
-- I have provided readings to help you with critique in the readings folder.
-- contribution in critiques, weekly progress on projects.
-- Weds, Feb 10 Final Critique Due Visual Identity System
-- Critique Questions Tom Wedell 2016-11-08 / --> 5 Unit 5: Overview & Assignment James Goggin 2016-11-07 / --> etc Design Studio 1 syllabus DS1 team 2016-09-12
+- Design Studio 1: assign_syl_crawl_ds1618_risd_gd_2016_11_08_unit4_crit_html_d957a68a_01 (critique referenced in source excerpt); assign_syl_crawl_ds1618_risd_gd_2016_11_07_unit5_main_html_f6376224_01 (feedback/review referenced in source excerpt)
+- Web Type: assign_syl_crawl_webtype_htmlkitchen_net_exercises_07_input_range_30e67e2f_01 (feedback/review referenced in source excerpt); assign_syl_crawl_webtype_htmlkitchen_net_exercises_07_input_range_30e67e2f_06 (feedback/review referenced in source excerpt)
+- Design & Politics: assign_syl_crawl_designandpolitics_risd_gd_2022_05_13_week12_html_38dd599d_02 (feedback/review referenced in source excerpt); assign_syl_designandpolitics_2022_syllabus_01 (feedback/review referenced in source excerpt)
+- Introduction to Graphic Design: assign_syl_adam_fein_intro_graphic_design_2021_pdf_29 (critique referenced in source excerpt); assign_syl_adam_fein_intro_graphic_design_2021_pdf_01 (group/class critique referenced in source excerpt)
+- Typography III: assign_syl_wayback_typography_iii_syllabus_20210414155049_11 (revision or iterative improvement expected); assign_syl_wayback_typography_iii_syllabus_20210414155049_03 (group/class critique referenced in source excerpt)
+- Web Programming: assign_syl_wp15_week_1_concrete_forms_04 (feedback/review referenced in source excerpt)
+- Type Two: assign_syl_type_two_2015_syllabus_pdf_09 (revision or iterative improvement expected)
+- Grad Type 1: assign_syl_grad_type_1_2014_syllabus_pdf_01 (revision or iterative improvement expected); assign_syl_grad_type_1_2014_syllabus_pdf_08 (revision or iterative improvement expected)
+
+## Comparison Evidence Boundaries
+
+- Design Studio 1: course_context_only work_john_caserta_student_work_01
+- Typography III: course_context_only work_john_caserta_student_work_06
+- Web Programming: course_context_link work_john_caserta_student_work_05
+
+## Missing Evidence To Preserve
+
+- Design Studio 1: public comparison work is course-context only or missing
+- Web Type: public comparison work is course-context only or missing
+- Design & Politics: public comparison work is course-context only or missing
+- Introduction to Graphic Design: public comparison work is course-context only or missing
+- Typography for Nonmajors: grading rubric or assessment strategy not recovered; ordered weekly schedule not recovered; critique/revision format only partially evidenced; public comparison work is course-context only or missing
+- Design for Publishing: grading rubric or assessment strategy not recovered; ordered weekly schedule not recovered; usable reading/resource list not recovered; public comparison work is course-context only or missing
+- Typography III: grading rubric or assessment strategy not recovered; public comparison work is course-context only or missing
+- Type Two: grading rubric or assessment strategy not recovered; public comparison work is course-context only or missing
+- Grad Type 1: public comparison work is course-context only or missing
+- typography : grading rubric or assessment strategy not recovered; public comparison work is course-context only or missing
 
 ## Reconstruction Rule
 

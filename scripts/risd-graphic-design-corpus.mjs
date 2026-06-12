@@ -5522,9 +5522,27 @@ ${searchQueries.map((query) => `- \`${query}\``).join('\n')}
 `
 }
 
-function tacitMemoMarkdown({ syllabi, assignments, studentWork }) {
+function tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules = [] }) {
   const assignmentSkills = uniq(assignments.flatMap((assignment) => assignment.skills_trained))
   const critiqueEvidence = assignments.filter((assignment) => /crit/i.test(assignment.prompt_excerpt))
+  const modulesByTrack = new Map()
+  for (const module of selfStudyModules) {
+    const existing = modulesByTrack.get(module.track_title) ?? []
+    existing.push(module)
+    modulesByTrack.set(module.track_title, existing)
+  }
+  const modulePracticeRows = selfStudyModules
+    .filter((module) => module.practice_instruction?.instruction)
+    .slice(0, 12)
+  const critiqueModuleRows = selfStudyModules
+    .filter((module) => module.assignments?.some((assignment) => assignment.critique_format || assignment.revision_expectation))
+    .slice(0, 10)
+  const comparisonRows = selfStudyModules
+    .filter((module) => module.comparison_set?.length)
+    .slice(0, 8)
+  const missingEvidenceRows = selfStudyModules
+    .filter((module) => module.missing_evidence_warnings?.length)
+    .slice(0, 10)
   return `# RISD Graphic Design Tacit Knowledge Memo
 
 Generated: ${retrievedAt}
@@ -5537,6 +5555,7 @@ This memo is generated from the first implemented corpus pass. It is strongest w
 - Assignment evidence snippets: ${assignments.length}
 - Critique-related snippets: ${critiqueEvidence.length}
 - Student work records: ${studentWork.length}
+- Self-study modules: ${selfStudyModules.length}
 
 ## Studio Norms Visible In The Corpus
 
@@ -5544,13 +5563,35 @@ This memo is generated from the first implemented corpus pass. It is strongest w
 - Course evidence points to graphic design as a sequence of material outputs: typography, image, publication, motion, interaction, and identity/system work.
 - RISD's own syllabus guidance frames courses around learning outcomes, assignment design, and assessment clarity, which should be used as the reconstruction standard when a recovered syllabus is partial.
 
+## Module-Derived Studio Loops
+
+${selfStudyModules.length ? [...modulesByTrack.entries()].map(([trackTitle, modules]) => {
+  const examples = modules.slice(0, 4).map((module) => `${module.course_title ?? module.course_code}: ${module.practice_instruction?.instruction ?? module.studio_loop}`).join('; ')
+  return `- ${trackTitle}: ${examples}`
+}).join('\n') : '- No self-study modules have been generated yet.'}
+
 ## Skill Signals
 
 ${assignmentSkills.length ? assignmentSkills.map((skill) => `- ${skill}`).join('\n') : '- Not enough assignment-level evidence has been extracted yet.'}
 
+## Tangible Practice Instructions
+
+${modulePracticeRows.length ? modulePracticeRows.map((module) => `- ${module.course_title ?? module.course_code}: ${module.practice_instruction.instruction}. Evidence: ${module.practice_instruction.assignment_id}; sources: ${module.source_ids.slice(0, 4).join(', ')}`).join('\n') : '- No module-level practice instructions have been generated yet.'}
+
 ## Critique And Revision
 
-${critiqueEvidence.length ? critiqueEvidence.slice(0, 8).map((assignment) => `- ${assignment.prompt_excerpt}`).join('\n') : '- Critique is expected in studio courses, but this corpus pass has limited direct critique-format evidence.'}
+${critiqueModuleRows.length ? critiqueModuleRows.map((module) => {
+  const critiqueAssignments = module.assignments.filter((assignment) => assignment.critique_format || assignment.revision_expectation).slice(0, 2)
+  return `- ${module.course_title ?? module.course_code}: ${critiqueAssignments.map((assignment) => `${assignment.assignment_id} (${assignment.critique_format ?? assignment.revision_expectation})`).join('; ')}`
+}).join('\n') : critiqueEvidence.length ? critiqueEvidence.slice(0, 8).map((assignment) => `- ${assignment.prompt_excerpt}`).join('\n') : '- Critique is expected in studio courses, but this corpus pass has limited direct critique-format evidence.'}
+
+## Comparison Evidence Boundaries
+
+${comparisonRows.length ? comparisonRows.map((module) => `- ${module.course_title ?? module.course_code}: ${module.comparison_set.map((comparison) => `${comparison.relationship_type} ${comparison.student_work_id}`).join('; ')}`).join('\n') : '- Public student-work comparisons are still sparse; do not treat visual examples as assignment facts unless the relationship type says so.'}
+
+## Missing Evidence To Preserve
+
+${missingEvidenceRows.length ? missingEvidenceRows.map((module) => `- ${module.course_title ?? module.course_code}: ${module.missing_evidence_warnings.join('; ')}`).join('\n') : '- No module-level missing evidence warnings were generated.'}
 
 ## Reconstruction Rule
 
@@ -6269,7 +6310,7 @@ function renderDerivedArtifactsOnly() {
   writeJson(join(outDir, 'validation.json'), validationWithReview)
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
-  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
+  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
   writeJsonl(join(outDir, 'self_study_modules.jsonl'), selfStudyModules)
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
   console.log(`RISD derived artifacts written to ${outDir}`)
@@ -6322,8 +6363,8 @@ async function renderReadingLinksOnly() {
   writeJson(join(outDir, 'validation.json'), validationWithReview)
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
-  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
-  writeSelfStudyArtifacts({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks })
+  const selfStudyModules = writeSelfStudyArtifacts({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks })
+  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
   console.log(`RISD reading links written to ${outDir}`)
   console.log(`attempted=${attempted} matched=${matched} external_catalog_readings=${validationWithReview.counts.external_catalog_readings} unresolved=${validationWithReview.counts.unresolved_readings} validation=${validationWithReview.status}`)
 }
@@ -6400,7 +6441,7 @@ async function reparseExistingSourcesOnlyMode() {
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
-  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
+  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
   writeJsonl(join(outDir, 'self_study_modules.jsonl'), selfStudyModules)
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
   console.log(`RISD existing sources reparsed into ${outDir}`)
@@ -6695,7 +6736,7 @@ async function promoteSearchCandidatesOnlyMode() {
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
-  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
+  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
   writeJsonl(join(outDir, 'self_study_modules.jsonl'), selfStudyModules)
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
   console.log(`RISD search promotions written to ${join(outDir, 'search_promotions.jsonl')}`)
@@ -6858,8 +6899,8 @@ async function ingestCommonCrawlPromotionsOnly() {
   writeJson(join(outDir, 'validation.json'), validationWithReview)
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters }))
-  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
-  writeSelfStudyArtifacts({ courses, syllabi, assignments, readings, studentWork })
+  const selfStudyModules = writeSelfStudyArtifacts({ courses, syllabi, assignments, readings, studentWork })
+  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
   console.log(`RISD Common Crawl promotions ingested into ${outDir}`)
   console.log(`new_sources=${newSources.length} sources=${sources.length} syllabi=${syllabi.length} assignments=${assignments.length} readings=${readings.length} validation=${validationWithReview.status}`)
 }
@@ -6988,7 +7029,7 @@ async function promoteArchiveTargetsOnlyMode() {
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
-  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
+  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
   writeJsonl(join(outDir, 'self_study_modules.jsonl'), selfStudyModules)
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
   console.log(`RISD archive promotions written to ${join(outDir, 'archive_promotions.jsonl')}`)
@@ -7089,8 +7130,8 @@ async function ingestFacultyProfilesOnlyMode() {
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithReview))
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, studentWork, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithReview }))
-  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
-  writeSelfStudyArtifacts({ courses, syllabi, assignments, readings, studentWork })
+  const selfStudyModules = writeSelfStudyArtifacts({ courses, syllabi, assignments, readings, studentWork })
+  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
   console.log(`RISD faculty profile candidates ingested into ${outDir}`)
   console.log(`new_sources=${newSources.length} candidates=${facultyProfileCandidates.length} ingested_candidates=${facultyProfileCandidates.filter((row) => row.status === 'ingested_into_corpus').length} faculty_profile_rows=${faculty.filter((row) => row.profile_urls?.length).length} validation=${validationWithReview.status}`)
 }
@@ -7268,7 +7309,7 @@ async function main() {
   writeFileSync(join(outDir, 'validation.md'), validationMarkdown(validationWithSelfStudy))
   writeFileSync(join(outDir, 'course_reconstruction.md'), reconstructionMarkdown({ sources, courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks, wayback, sourceClusters }))
   writeFileSync(join(outDir, 'source_audit.md'), auditMarkdown({ sources, searchQueries, wayback, validation: validationWithSelfStudy }))
-  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork }))
+  writeFileSync(join(outDir, 'tacit_knowledge_memo.md'), tacitMemoMarkdown({ syllabi, assignments, studentWork, selfStudyModules }))
   writeJsonl(join(outDir, 'self_study_modules.jsonl'), selfStudyModules)
   writeFileSync(join(outDir, 'self_study_curriculum.md'), selfStudyCurriculumMarkdown({ courses, syllabi, assignments, readings, scheduleRows, studentWork, studentWorkAssignmentLinks }))
 
