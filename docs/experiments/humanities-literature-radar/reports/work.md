@@ -1,6 +1,6 @@
 # Work Log
 
-Generated at: 2026-06-12T17:37:16.838Z
+Generated at: 2026-06-12T17:41:26.240Z
 
 ## Inputs
 
@@ -10,6 +10,7 @@ Generated at: 2026-06-12T17:37:16.838Z
 - doaj: 80 records, 2 requests, manifest `data/raw/doaj/2026-06-12/manifest.json`
 - nber: 0 records, 3 requests, manifest `data/raw/nber/2026-06-12/manifest.json`
 - openalex: 80 records, 1 requests, manifest `data/raw/openalex/2026-06-12/manifest.json`
+- osf-preprints: 38 records, 6 requests, manifest `data/raw/osf-preprints/2026-06-12/manifest.json`
 
 ## Outputs
 

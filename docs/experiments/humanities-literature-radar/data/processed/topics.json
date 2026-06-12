@@ -2,8 +2,8 @@
   {
     "label": "digital humanities",
     "kind": "discipline",
-    "count": 48,
-    "representative_titles": "AI in Digital Humanities: Using AI-Generated Poetry as a Tool for Literary Studies | Reaffirming the importance of traditional humanities in the era of AI-enhanced translation and transcultural communication | Humanities in the age of AI"
+    "count": 54,
+    "representative_titles": "Opening Ottoman Miniature Collections through Computational Access: Methodological Lessons for Digital Humanities | AI in Digital Humanities: Using AI-Generated Poetry as a Tool for Literary Studies | Reaffirming the importance of traditional humanities in the era of AI-enhanced translation and transcultural communication"
   },
   {
     "label": "history",
@@ -14,8 +14,14 @@
   {
     "label": "sociology",
     "kind": "discipline",
-    "count": 37,
+    "count": 38,
     "representative_titles": "AI-Produced Humanities Research: On the Dangers of Technical Incrementalism | Beyond Linguistic Proficiency: Emotional, Cognitive, and Cultural Pathways of Generative AI in EFL Well‐Being—A Technology‐Humanities‐Culture Synthesis | Reaffirming the importance of traditional humanities in the era of AI-enhanced translation and transcultural communication"
+  },
+  {
+    "label": "literature",
+    "kind": "discipline",
+    "count": 37,
+    "representative_titles": "An LLM System for Autonomous Variational Quantum Circuit Design | AI-Produced Humanities Research: On the Dangers of Technical Incrementalism | The Public that Engages Invisibly: What Visible Engagement Fails to Capture in Online Political Communication"
   },
   {
     "label": "philosophy",
@@ -24,76 +30,88 @@
     "representative_titles": "AI-Produced Humanities Research: On the Dangers of Technical Incrementalism | Alignment of the Starlings: Learning With Generative AI | Beyond Linguistic Proficiency: Emotional, Cognitive, and Cultural Pathways of Generative AI in EFL Well‐Being—A Technology‐Humanities‐Culture Synthesis"
   },
   {
-    "label": "literature",
-    "kind": "discipline",
-    "count": 32,
-    "representative_titles": "An LLM System for Autonomous Variational Quantum Circuit Design | AI-Produced Humanities Research: On the Dangers of Technical Incrementalism | Reassessing academic integrity in the age of AI: A systematic literature review on AI and academic integrity"
-  },
-  {
-    "label": "llm",
-    "kind": "method",
-    "count": 30,
-    "representative_titles": "Automated reproducibility assessments in the social and behavioral sciences using large language models | Automated reproducibility assessments in the social and behavioral sciences using large language models | Reasoning as Pattern Matching: Shared Mechanisms in Human and LLM Everyday Reasoning"
-  },
-  {
     "label": "political science",
     "kind": "discipline",
-    "count": 30,
+    "count": 31,
     "representative_titles": "AI-Produced Humanities Research: On the Dangers of Technical Incrementalism | <i>Life and Fate</i> and the Public Humanities in the Age of AI | A Preliminary Discussion on Revitalizing Humanities Based General Education in the Era of Generative AI"
   },
   {
-    "label": "network",
-    "kind": "method",
-    "count": 30,
-    "representative_titles": "DATING HISTORICAL DOCUMENTS USING DEEP LEARNING | DATING HISTORICAL DOCUMENTS USING DEEP LEARNING | UltraFast Layer-Resolved Encoding (uFLARE) functional MRI deciphers bidirectional signaling from spontaneous activity"
+    "label": "content analysis",
+    "kind": "quantitative-signal",
+    "count": 22,
+    "representative_titles": "Gaging LLMs’ strengths and weaknesses in political content analysis | The portrayal of libraries as remote workplaces in the general media: A qualitative content analysis | Structured content analysis of open access book policies: European university and research funder approaches"
   },
   {
-    "label": "large language model",
-    "kind": "method",
-    "count": 28,
-    "representative_titles": "Automated reproducibility assessments in the social and behavioral sciences using large language models | Automated reproducibility assessments in the social and behavioral sciences using large language models | Reasoning as Pattern Matching: Shared Mechanisms in Human and LLM Everyday Reasoning"
+    "label": "large language models",
+    "kind": "quantitative-signal",
+    "count": 20,
+    "representative_titles": "Gaging LLMs’ strengths and weaknesses in political content analysis | Gaging LLMs’ strengths and weaknesses in political content analysis | Mod-Guide: An LLM-based Content Moderation Feedback System to Address Insensitive Speech toward Indigenous Ethnic and Religious Minority Communities"
+  },
+  {
+    "label": "llms",
+    "kind": "quantitative-signal",
+    "count": 20,
+    "representative_titles": "Gaging LLMs’ strengths and weaknesses in political content analysis | Gaging LLMs’ strengths and weaknesses in political content analysis | Mod-Guide: An LLM-based Content Moderation Feedback System to Address Insensitive Speech toward Indigenous Ethnic and Religious Minority Communities"
   },
   {
     "label": "corpus",
     "kind": "method",
-    "count": 18,
-    "representative_titles": "Mod-Guide: An LLM-based Content Moderation Feedback System to Address Insensitive Speech toward Indigenous Ethnic and Religious Minority Communities | Mod-Guide: An LLM-based Content Moderation Feedback System to Address Insensitive Speech toward Indigenous Ethnic and Religious Minority Communities | Assessing the accuracy of MT and AI tools in translating humanities or social sciences Arabic research titles into English: Evidence from Google Translate, Gemini, and ChatGPT"
+    "count": 20,
+    "representative_titles": "Mod-Guide: An LLM-based Content Moderation Feedback System to Address Insensitive Speech toward Indigenous Ethnic and Religious Minority Communities | Mod-Guide: An LLM-based Content Moderation Feedback System to Address Insensitive Speech toward Indigenous Ethnic and Religious Minority Communities | Testing Content Analysis through Different Large Language Models: Towards a Gold Standard Protocol"
+  },
+  {
+    "label": "network",
+    "kind": "method",
+    "count": 20,
+    "representative_titles": "UltraFast Layer-Resolved Encoding (uFLARE) functional MRI deciphers bidirectional signaling from spontaneous activity | UltraFast Layer-Resolved Encoding (uFLARE) functional MRI deciphers bidirectional signaling from spontaneous activity | Opening Ottoman Miniature Collections through Computational Access: Methodological Lessons for Digital Humanities"
   },
   {
     "label": "linguistics",
     "kind": "discipline",
-    "count": 16,
-    "representative_titles": "Beyond Linguistic Proficiency: Emotional, Cognitive, and Cultural Pathways of Generative AI in EFL Well‐Being—A Technology‐Humanities‐Culture Synthesis | Countering Fake News on Chinese Social Platforms: Communication Features of Weibo and WeChat | Review: D. de Fazio, P. Ortolano. 2023. La lingua dei meme. Roma: Carocci"
+    "count": 19,
+    "representative_titles": "The development of translation studies as a discipline | Beyond Linguistic Proficiency: Emotional, Cognitive, and Cultural Pathways of Generative AI in EFL Well‐Being—A Technology‐Humanities‐Culture Synthesis | Countering Fake News on Chinese Social Platforms: Communication Features of Weibo and WeChat"
+  },
+  {
+    "label": "llm",
+    "kind": "method",
+    "count": 14,
+    "representative_titles": "Mod-Guide: An LLM-based Content Moderation Feedback System to Address Insensitive Speech toward Indigenous Ethnic and Religious Minority Communities | Mod-Guide: An LLM-based Content Moderation Feedback System to Address Insensitive Speech toward Indigenous Ethnic and Religious Minority Communities | An LLM System for Autonomous Variational Quantum Circuit Design"
+  },
+  {
+    "label": "computational",
+    "kind": "quantitative-signal",
+    "count": 13,
+    "representative_titles": "Gaging LLMs’ strengths and weaknesses in political content analysis | Seeing is making: AI visualisation and genomic prediction | Testing Content Analysis through Different Large Language Models: Towards a Gold Standard Protocol"
   },
   {
     "label": "translation",
     "kind": "method",
     "count": 13,
-    "representative_titles": "EconCSLib: AI-Assisted Lean Formalization for Economics & Computation research | MEANING GRAPHS FOR THE HUMANITIES IN THE AGE OF LLMS: AMR AND UMR AS INTERPRETIVE INFRASTRUCTURE | Reaffirming the importance of traditional humanities in the era of AI-enhanced translation and transcultural communication"
-  },
-  {
-    "label": "computational",
-    "kind": "quantitative-signal",
-    "count": 11,
-    "representative_titles": "Reward Modeling for Multi-Agent Orchestration | IVIE: A Neuro-symbolic Approach to Incremental and Validated Generation of Interactive Fiction Worlds | Seeing is making: AI visualisation and genomic prediction"
+    "representative_titles": "EconCSLib: AI-Assisted Lean Formalization for Economics & Computation research | MEANING GRAPHS FOR THE HUMANITIES IN THE AGE OF LLMS: AMR AND UMR AS INTERPRETIVE INFRASTRUCTURE | The development of translation studies as a discipline"
   },
   {
     "label": "economics",
     "kind": "discipline",
-    "count": 11,
-    "representative_titles": "EconCSLib: AI-Assisted Lean Formalization for Economics & Computation research | AI-Produced Humanities Research: On the Dangers of Technical Incrementalism | Humanities Manifesto in the Age of Generative AI: Saving Humanities in the Posthuman Condition"
+    "count": 12,
+    "representative_titles": "EconCSLib: AI-Assisted Lean Formalization for Economics & Computation research | AI-Produced Humanities Research: On the Dangers of Technical Incrementalism | A pragmatic Analysis of Effective Political Communication from a Relevance-Theoretic Perspective"
   },
   {
     "label": "metadata",
     "kind": "quantitative-signal",
-    "count": 11,
-    "representative_titles": "Large-Scale Metadata Processing for 3D Cultural Heritage Objects | How can we improve the diversity of archival collections with AI? Opportunities, risks, and solutions | Le projet OPTIMICE : une optimisation de la qualité des traductions de métadonnées par la collaboration entre acteurs du monde scientifique et traduction automatique"
+    "count": 12,
+    "representative_titles": "Large-Scale Metadata Processing for 3D Cultural Heritage Objects | Opening Ottoman Miniature Collections through Computational Access: Methodological Lessons for Digital Humanities | How can we improve the diversity of archival collections with AI? Opportunities, risks, and solutions"
   },
   {
     "label": "classification",
     "kind": "quantitative-signal",
-    "count": 9,
-    "representative_titles": "An LLM System for Autonomous Variational Quantum Circuit Design | Large-Scale Metadata Processing for 3D Cultural Heritage Objects | The Readability Paradox: Can We Trust Decisions on AI Detectors?"
+    "count": 11,
+    "representative_titles": "Gaging LLMs’ strengths and weaknesses in political content analysis | An LLM System for Autonomous Variational Quantum Circuit Design | Large-Scale Metadata Processing for 3D Cultural Heritage Objects"
+  },
+  {
+    "label": "quantitative",
+    "kind": "quantitative-signal",
+    "count": 11,
+    "representative_titles": "Trial and Insight: Combining Quantitative Content Analysis and AI for Experimental Stimulus Generation | A pedagogical approach: toward leveraging mathematical modeling and AI to support integrating humanities into STEM education | A Content Analysis of Lesson Starters in English Language YouTube Videos"
   },
   {
     "label": "anthropology",
@@ -102,40 +120,22 @@
     "representative_titles": "Reaffirming the importance of traditional humanities in the era of AI-enhanced translation and transcultural communication | Forum 60: AI in the Social Sciences and Humanities | Reflections on AI in Humanities"
   },
   {
-    "label": "gis",
-    "kind": "method",
-    "count": 8,
-    "representative_titles": "Determining the Copyright Holder for AI-Generated Content: Human Creator, AI System, or Platform? | Heterogeneity and predictors of the effects of AI assistance on radiologists | Increasing Access to Digital Archives Is a Complex Problem, and More Collaboration Between Archivists and Users Is Needed to Enact Solutions"
-  },
-  {
     "label": "spatial",
     "kind": "method",
     "count": 8,
     "representative_titles": "Effect of distance measures on confidences of t-SNE embeddings and its implications on clustering for scRNA-seq data | Effect of distance measures on confidences of t-SNE embeddings and its implications on clustering for scRNA-seq data | Détection automatique des parcelles sur les plans napoléoniens : comparaison de deux méthodes"
   },
   {
-    "label": "dataset",
-    "kind": "quantitative-signal",
-    "count": 7,
-    "representative_titles": "MEANING GRAPHS FOR THE HUMANITIES IN THE AGE OF LLMS: AMR AND UMR AS INTERPRETIVE INFRASTRUCTURE | Large-Scale Metadata Processing for 3D Cultural Heritage Objects | AI in Digital Humanities: Using AI-Generated Poetry as a Tool for Literary Studies"
-  },
-  {
-    "label": "quantitative",
-    "kind": "quantitative-signal",
-    "count": 7,
-    "representative_titles": "The Impact of Generative AI on Critical Thinking: Self-Reported Reductions in Cognitive Effort and Confidence Effects From a Survey of Knowledge Workers | A pedagogical approach: toward leveraging mathematical modeling and AI to support integrating humanities into STEM education | Drivers of generative AI adoption in higher education through the lens of the Theory of Planned Behaviour"
-  },
-  {
-    "label": "topic model",
+    "label": "large language model",
     "kind": "method",
     "count": 6,
-    "representative_titles": "Trends in AI Research in the Field of Humanities: A Topic Modeling Approach Using LDA, BERTopic | Trends in AI Research in the Field of Humanities: A Topic Modeling Approach Using LDA, BERTopic | Debates on European Integration in the Finnish Parliament (Eduskunta) 1990-2020"
+    "representative_titles": "RogueAI: A Reverse Turing Test for Detecting Licensed AI Deception in Dialogue | RogueAI: A Reverse Turing Test for Detecting Licensed AI Deception in Dialogue | “The Sweetheart in the Forest” and the Synthetic Storytellers"
   },
   {
-    "label": "citation",
+    "label": "dataset",
     "kind": "quantitative-signal",
     "count": 5,
-    "representative_titles": "Begging with a Purpose? Testing Behavioural Hallmarks of First-Order Intentionality in Free-ranging Hanuman Langurs | Listening in Sacred Spaces: The Sanctuary of Poseidonia and Selinunte’s Main Urban Sanctuary | A Review of Artificial Intelligence (AI) in Education from 2010 to 2020"
+    "representative_titles": "Testing Content Analysis through Different Large Language Models: Towards a Gold Standard Protocol | Opening Ottoman Miniature Collections through Computational Access: Methodological Lessons for Digital Humanities | The Public that Engages Invisibly: What Visible Engagement Fails to Capture in Online Political Communication"
   },
   {
     "label": "embedding",
@@ -144,16 +144,28 @@
     "representative_titles": "Trends in AI Research in the Field of Humanities: A Topic Modeling Approach Using LDA, BERTopic | Embracing the future of Artificial Intelligence in the classroom: the relevance of AI literacy, prompt engineering, and critical thinking in modern education | A guide for social science journal editors on easing into open science"
   },
   {
+    "label": "regression",
+    "kind": "quantitative-signal",
+    "count": 3,
+    "representative_titles": "A Study on the Impact of AI-Based Educational Environments on the Learning Engagement of International Students: Focusing on Humanistic Learning Experiences | Effect of distance measures on confidences of t-SNE embeddings and its implications on clustering for scRNA-seq data | Mission statements of Latin-American firms: content analysis, readability, and their effect on financial performance"
+  },
+  {
     "label": "art history",
     "kind": "discipline",
     "count": 3,
     "representative_titles": "Digital Humanities and Cultural Heritage in AI and IT-Enabled Environments | Jacopo de’ Barbari’s 'View of Venice' (1500): Image Vehicles Past and Present | Canon, Value, and Cultural Heritage: New Processes of Assigning Value in the Postdigital Realm"
   },
   {
-    "label": "regression",
+    "label": "citation",
     "kind": "quantitative-signal",
+    "count": 3,
+    "representative_titles": "A Review of Artificial Intelligence (AI) in Education from 2010 to 2020 | Artificial intelligence in retail: The AI-enabled value chain | CroALa"
+  },
+  {
+    "label": "close reading",
+    "kind": "method",
     "count": 2,
-    "representative_titles": "A Study on the Impact of AI-Based Educational Environments on the Learning Engagement of International Students: Focusing on Humanistic Learning Experiences | Effect of distance measures on confidences of t-SNE embeddings and its implications on clustering for scRNA-seq data"
+    "representative_titles": "Transcendence of the Human Far Beyond AI—Kafka’s In the Penal Colony and Schopenhauerian Eschatology | The Science of Culture? Social Computing, Digital Humanities and Cultural Analytics"
   },
   {
     "label": "philology",
@@ -162,22 +174,22 @@
     "representative_titles": "Countering Fake News on Chinese Social Platforms: Communication Features of Weibo and WeChat | El projecte Atlantis: recursos digitals per a les lleng&#252;es minoritzades de la UE, recursos per a l&#39;ensenyament del català"
   },
   {
-    "label": "bibliometric",
+    "label": "cultural analytics",
     "kind": "method",
     "count": 2,
-    "representative_titles": "Artificial intelligence adoption in the physical sciences, natural sciences, life sciences, social sciences and the arts and humanities: A bibliometric analysis of research publications from 1960-2021 | Mapping Affinities in Academic Organizations"
-  },
-  {
-    "label": "close reading",
-    "kind": "method",
-    "count": 1,
-    "representative_titles": "Transcendence of the Human Far Beyond AI—Kafka’s In the Penal Colony and Schopenhauerian Eschatology"
+    "representative_titles": "Data Cultures, Culture as Data – Special Issue of Cultural Analytics | The Science of Culture? Social Computing, Digital Humanities and Cultural Analytics"
   },
   {
     "label": "classics",
     "kind": "discipline",
     "count": 1,
     "representative_titles": "A Preliminary Discussion on Revitalizing Humanities Based General Education in the Era of Generative AI"
+  },
+  {
+    "label": "bibliometric",
+    "kind": "method",
+    "count": 1,
+    "representative_titles": "Artificial intelligence adoption in the physical sciences, natural sciences, life sciences, social sciences and the arts and humanities: A bibliometric analysis of research publications from 1960-2021"
   },
   {
     "label": "cultural studies",

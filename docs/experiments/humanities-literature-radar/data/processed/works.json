@@ -1,187 +1,48 @@
 [
   {
-    "source_name": "arxiv",
-    "source_record_id": "http://arxiv.org/abs/2606.13670v1",
-    "title": "Automated reproducibility assessments in the social and behavioral sciences using large language models",
-    "abstract": "Reproducibility in the social and behavioral sciences is typically evaluated by independent researchers who reanalyze the original data to assess whether the published findings can be recovered. However, such approaches are resource-intensive and difficult to scale. Here, we show that large language models (LLMs) can automate reproducibility assessments. Using N=76 published studies with predefined claims from the behavioral and social sciences, we compare LLM-generated analysis with the original findings and human reanalysis. For 7 studies, the LLM could not produce a viable effect size estimate. For the remaining studies, our LLM pipeline recovered the original effect sizes in 41% of studies using a +/-0.05 tolerance in Cohen's d. Further, our LLM pipeline reached the same qualitative conclusion as the original study in 96% of cases, where conclusions indicate whether the reanalysis supports the original claim. For comparison, human reanalysts recovered the original effect sizes in 34% of studies and reached the same qualitative conclusion in 74% of cases. Together, these results show that LLMs can serve as a scalable tool for automated reproducibility assessment and provide a foundation for systematic auditing of empirical results in the social and behavioral sciences.",
-    "publication_date": "2026-06-11",
+    "source_name": "osf-preprints",
+    "source_record_id": "tzrhn_v1",
+    "title": "Gaging LLMs’ strengths and weaknesses in political content analysis",
+    "abstract": "Recent innovation and growth in the capabilities of generative artificial intelligence have opened options for the scholarship of political communication. While large language models (LLMs) have much to offer to improve content analysis workflows in political communication, there is as of yet no consensus regarding which options deliver the best results to the field and scale best computationally. This paper investigates the performance of five distinct classification models across three content analysis tasks of varying complexity: identifying political content, classifying political issues, and detecting stance towards climate policies and movements in news articles. Our automated coding is validated by 36,320 individual human coding decisions. We show that (political) task complexity is a crucial determinant for model selection. While simpler, efficient models perform well on lower to moderate complexity tasks, both proprietary and commercial LLMs exhibit superior performance on the nuanced stance detection task when appropriately instructed. These findings underscore the need to balance performance gains with computational costs and CO2 emissions, advocating for a “frugality approach” to automated coding.",
+    "publication_date": "2026-06-12",
     "year": "2026",
     "doi": "",
-    "url": "http://arxiv.org/abs/2606.13670v1",
-    "open_access_url": "http://arxiv.org/abs/2606.13670v1",
-    "venue_name": "arXiv",
-    "publisher": "arXiv",
+    "url": "https://osf.io/preprints/socarxiv/tzrhn",
+    "open_access_url": "https://osf.io/preprints/socarxiv/tzrhn",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
     "work_type": "preprint",
-    "authors": [
-      "Tobias Holtdirk",
-      "Pietro Marcolongo",
-      "Anna Steinberg Schulten",
-      "Felix Henninger",
-      "Stefan Rose",
-      "Sarah Ball",
-      "Bolei Ma",
-      "Frauke Kreuter",
-      "Markus Weinmann",
-      "Stefan Feuerriegel"
-    ],
+    "authors": [],
     "institutions": [],
     "concepts": [
-      "cs.AI"
+      "automated content analysis",
+      "computational methods",
+      "computational sustainability",
+      "content analyis",
+      "llms",
+      "political communication",
+      "stance detection"
     ],
     "references": [],
     "cited_by_count": 0,
     "license": "",
-    "raw_path": "data/raw/arxiv/2026-06-12/digital-humanities-001.xml",
-    "work_id": "url:http://arxiv.org/abs/2606.13670v1",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/tzrhn",
     "duplicate_sources": [
-      "arxiv"
+      "osf-preprints"
     ],
-    "relevance_score": 2,
+    "relevance_score": 0,
     "disciplines": [],
     "methods": [
-      "large language model",
-      "llm"
+      "large language models",
+      "llms",
+      "content analysis"
     ],
     "quantitative_signals": [
-      "large language model",
-      "llm"
-    ],
-    "is_quantitative_humanities_candidate": true
-  },
-  {
-    "source_name": "arxiv",
-    "source_record_id": "http://arxiv.org/abs/2606.13607v1",
-    "title": "Reasoning as Pattern Matching: Shared Mechanisms in Human and LLM Everyday Reasoning",
-    "abstract": "When large language models (LLMs) fail to generalize or make haphazard errors in reasoning, it is often taken as evidence that LLMs are not truly reasoning, but rather performing a kind of pattern matching. The implication is that people's behavior does not exhibit the same types of failures because human reasoning uses principled and abstract world models. We evaluate human participants and 25 LLMs on their ability to engage in common-sense reasoning about a variety of everyday situations and observe similar patterns of errors in both people and models. We then identify the set of attention heads driving LLM responses and find that these heads implement a form of pattern-matching. These attention heads allow us to predict seemingly inexplicable reasoning errors in people caused by ostensibly irrelevant prompt details. Taken together, our results suggest that everyday causal reasoning in people and LLMs is more consistent with a form of pattern-matching than with abstract world models.",
-    "publication_date": "2026-06-11",
-    "year": "2026",
-    "doi": "",
-    "url": "http://arxiv.org/abs/2606.13607v1",
-    "open_access_url": "http://arxiv.org/abs/2606.13607v1",
-    "venue_name": "arXiv",
-    "publisher": "arXiv",
-    "work_type": "preprint",
-    "authors": [
-      "Zach Studdiford",
-      "Gary Lupyan"
-    ],
-    "institutions": [],
-    "concepts": [
-      "cs.AI"
-    ],
-    "references": [],
-    "cited_by_count": 0,
-    "license": "",
-    "raw_path": "data/raw/arxiv/2026-06-12/digital-humanities-001.xml",
-    "work_id": "url:http://arxiv.org/abs/2606.13607v1",
-    "duplicate_sources": [
-      "arxiv"
-    ],
-    "relevance_score": 2,
-    "disciplines": [],
-    "methods": [
-      "large language model",
-      "llm"
-    ],
-    "quantitative_signals": [
-      "large language model",
-      "llm"
-    ],
-    "is_quantitative_humanities_candidate": true
-  },
-  {
-    "source_name": "arxiv",
-    "source_record_id": "http://arxiv.org/abs/2606.13598v1",
-    "title": "Reward Modeling for Multi-Agent Orchestration",
-    "abstract": "Multi-Agent Systems (MAS) built on Large Language Models (LLMs) require effective orchestration to coordinate specialized agents, yet training such orchestrators is hindered by limited supervision and high computational cost. We propose Orchestration Reward Modeling (OrchRM), a self-supervised framework for evaluating orchestration quality without human annotations. OrchRM leverages intermediate artifacts from multi-agent executions to construct win-lose pairs for Bradley-Terry reward model training. Unlike existing MAS test-time scaling and orchestrator training frameworks that rely on costly sub-agent rollouts, OrchRM operates directly at the orchestration level, enabling efficient and high-performing reward-guided orchestrator training and MAS test-time scaling. OrchRM improves training efficiency by up to 10x in token usage while improving MAS test-time scaling performance by up to 8% in accuracy. These gains consistently transfer across multiple domains, including mathematical reasoning, web-based question answering, and multi-hop reasoning, demonstrating orchestration-level reward modeling as a scalable direction for robust multi-agent orchestration. Code will be available at https://github.com/Wang-ML-Lab/OrchRM.",
-    "publication_date": "2026-06-11",
-    "year": "2026",
-    "doi": "",
-    "url": "http://arxiv.org/abs/2606.13598v1",
-    "open_access_url": "http://arxiv.org/abs/2606.13598v1",
-    "venue_name": "arXiv",
-    "publisher": "arXiv",
-    "work_type": "preprint",
-    "authors": [
-      "King Yeung Tsang",
-      "Zihao Zhao",
-      "Vishal Venkataramani",
-      "Haizhou Shi",
-      "Zixuan Ke",
-      "Semih Yavuz",
-      "Shafiq Joty",
-      "Hao Wang"
-    ],
-    "institutions": [],
-    "concepts": [
-      "cs.AI",
-      "cs.CL",
-      "cs.LG",
-      "cs.MA"
-    ],
-    "references": [],
-    "cited_by_count": 0,
-    "license": "",
-    "raw_path": "data/raw/arxiv/2026-06-12/digital-humanities-001.xml",
-    "work_id": "url:http://arxiv.org/abs/2606.13598v1",
-    "duplicate_sources": [
-      "arxiv"
-    ],
-    "relevance_score": 2,
-    "disciplines": [],
-    "methods": [
-      "large language model",
-      "llm"
-    ],
-    "quantitative_signals": [
-      "large language model",
-      "llm",
+      "classification",
+      "large language models",
+      "llms",
       "computational"
-    ],
-    "is_quantitative_humanities_candidate": true
-  },
-  {
-    "source_name": "arxiv",
-    "source_record_id": "http://arxiv.org/abs/2606.13463v1",
-    "title": "Begging with a Purpose? Testing Behavioural Hallmarks of First-Order Intentionality in Free-ranging Hanuman Langurs",
-    "abstract": "Intentional communication has been studied extensively in primates, yet evidence from free-ranging non-ape species remains limited. Human-directed food-solicitation gestures in Hanuman langurs (Semnopithecus entellus) have recently been described, but whether these behaviours exhibit behavioural hallmarks associated with first-order intentionality remains unknown. Here, we experimentally investigated the presence of these hallmarks in free-ranging Hanuman langurs across six anthropogenic sites in southern West Bengal, India. We conducted 360 experimental and control trials and quantified behavioural markers commonly used to operationalize intentional communication. Experimental trials elicited audience checking, recipient-directed orientation, rapid approach responses, food-solicitation gestures and gestural flexibility, whereas these behaviours were rare or absent in control trials. Differences between experimental and control conditions were significant across all six study sites. Signalling also ceased following food acquisition, consistent with the stopping rule associated with an Apparently Satisfactory Outcome. Our findings demonstrate the presence of multiple behavioural hallmarks linked to first-order intentionality in the human-directed gestural communication of free-ranging Hanuman langurs. These results extend the study of intentionality beyond apes and provide new insights into the evolutionary distribution of intentionality-related traits across primates.",
-    "publication_date": "2026-06-11",
-    "year": "2026",
-    "doi": "",
-    "url": "http://arxiv.org/abs/2606.13463v1",
-    "open_access_url": "http://arxiv.org/abs/2606.13463v1",
-    "venue_name": "arXiv",
-    "publisher": "arXiv",
-    "work_type": "preprint",
-    "authors": [
-      "Dishari Dasgupta",
-      "Shriparna Chattopadhyay",
-      "Sruti Banerjee",
-      "Pratyusha Adhikary",
-      "Akash Dutta",
-      "Manabi Paul",
-      "Anindita Bhadra"
-    ],
-    "institutions": [],
-    "concepts": [
-      "q-bio.OT"
-    ],
-    "references": [],
-    "cited_by_count": 0,
-    "license": "",
-    "raw_path": "data/raw/arxiv/2026-06-12/digital-humanities-001.xml",
-    "work_id": "url:http://arxiv.org/abs/2606.13463v1",
-    "duplicate_sources": [
-      "arxiv"
-    ],
-    "relevance_score": 2,
-    "disciplines": [],
-    "methods": [
-      "llm"
-    ],
-    "quantitative_signals": [
-      "citation",
-      "llm"
     ],
     "is_quantitative_humanities_candidate": true
   },
@@ -222,17 +83,19 @@
     "duplicate_sources": [
       "arxiv"
     ],
-    "relevance_score": 6,
+    "relevance_score": 3,
     "disciplines": [],
     "methods": [
-      "large language model",
+      "large language models",
       "llm",
+      "llms",
       "corpus"
     ],
     "quantitative_signals": [
       "corpus",
-      "large language model",
-      "llm"
+      "large language models",
+      "llm",
+      "llms"
     ],
     "is_quantitative_humanities_candidate": true
   },
@@ -267,105 +130,20 @@
     "duplicate_sources": [
       "arxiv"
     ],
-    "relevance_score": 3,
+    "relevance_score": 2,
     "disciplines": [
       "literature"
     ],
     "methods": [
-      "large language model",
-      "llm"
+      "large language models",
+      "llm",
+      "llms"
     ],
     "quantitative_signals": [
       "classification",
-      "large language model",
-      "llm"
-    ],
-    "is_quantitative_humanities_candidate": true
-  },
-  {
-    "source_name": "arxiv",
-    "source_record_id": "http://arxiv.org/abs/2606.13349v1",
-    "title": "From Passive Generation to Investigation: A Proactive Scientific Peer Review Agent",
-    "abstract": "Large language models (LLMs) have shown promise in automating scientific peer review. However, existing approaches often struggle to generate in-depth reviews supported by concrete evidence. We argue that a key limitation is the lack of flexibility to proactively investigate suspicious parts of a paper based on accumulated evidence, as human reviewers do. In this paper, we explore how to enable an LLM-based review agent to perform such proactive investigation. We find that this can be naturally formulated as a Markov Decision Process (MDP), and propose ProReviewer, a scientific peer review agent that proactively reviews a paper guided by a maintained, structured review log. The structured review log serves as a workspace for the agent to track evidence and intermediate findings collected during review. Experiments show that ProReviewer with an 8B backbone, trained by supervised fine-tuning and optimized by reinforcement learning, achieves the highest average score across five quality dimensions, outperforming prompt-based methods with much larger frontier LLMs by up to 39% and the strongest fine-tuned baseline by 16% relatively. It also attains the highest win rates against baselines in human evaluation.",
-    "publication_date": "2026-06-11",
-    "year": "2026",
-    "doi": "",
-    "url": "http://arxiv.org/abs/2606.13349v1",
-    "open_access_url": "http://arxiv.org/abs/2606.13349v1",
-    "venue_name": "arXiv",
-    "publisher": "arXiv",
-    "work_type": "preprint",
-    "authors": [
-      "Haishuo Fang",
-      "Yue Feng",
-      "Iryna Gurevych"
-    ],
-    "institutions": [],
-    "concepts": [
-      "cs.CL"
-    ],
-    "references": [],
-    "cited_by_count": 0,
-    "license": "",
-    "raw_path": "data/raw/arxiv/2026-06-12/digital-humanities-001.xml",
-    "work_id": "url:http://arxiv.org/abs/2606.13349v1",
-    "duplicate_sources": [
-      "arxiv"
-    ],
-    "relevance_score": 2,
-    "disciplines": [],
-    "methods": [
-      "large language model",
-      "llm"
-    ],
-    "quantitative_signals": [
-      "large language model",
-      "llm"
-    ],
-    "is_quantitative_humanities_candidate": true
-  },
-  {
-    "source_name": "arxiv",
-    "source_record_id": "http://arxiv.org/abs/2606.13348v1",
-    "title": "IVIE: A Neuro-symbolic Approach to Incremental and Validated Generation of Interactive Fiction Worlds",
-    "abstract": "Computational creativity in Interactive Fiction faces a fundamental tension: Large Language Models (LLM) may produce creative narratives but struggle with world coherence, while symbolic systems ensure consistency but lack creative flexibility. We present IVIE (Incremental & Validated Interactive Experiences), a neuro-symbolic approach to generating complete and playable interactive fiction worlds from scratch. Building upon PAYADOR's neuro-symbolic framework, IVIE implements a four-stage incremental generation pipeline that delegates creative decisions--setting and character creation, puzzle design--to LLMs while grounding the world state through symbolic validation. The system generates worlds with interconnected locations, functional items, non-player characters, and coherent puzzles, all structured around a central goal-oriented architecture. Human evaluation shows the approach generates immersive, thematically coherent worlds with high player engagement. Results seem to indicate that the neuro-symbolic approach successfully balances flexibility with narrative coherence: symbolic validation grounds LLM generation without eliminating generative freedom. However, challenges remain: LLM inconsistencies occasionally bypass puzzle constraints, and objective validation gaps allow some structurally impossible goals. We identify key design considerations for future neurosymbolic interactive storytelling systems, particularly regarding LLM capabilities and their limitations.",
-    "publication_date": "2026-06-11",
-    "year": "2026",
-    "doi": "",
-    "url": "http://arxiv.org/abs/2606.13348v1",
-    "open_access_url": "http://arxiv.org/abs/2606.13348v1",
-    "venue_name": "arXiv",
-    "publisher": "arXiv",
-    "work_type": "preprint",
-    "authors": [
-      "Micaela Vaucher",
-      "Santiago Silveira",
-      "Santiago Góngora",
-      "Luis Chiruzzo"
-    ],
-    "institutions": [],
-    "concepts": [
-      "cs.CL",
-      "cs.AI"
-    ],
-    "references": [],
-    "cited_by_count": 0,
-    "license": "",
-    "raw_path": "data/raw/arxiv/2026-06-12/digital-humanities-001.xml",
-    "work_id": "url:http://arxiv.org/abs/2606.13348v1",
-    "duplicate_sources": [
-      "arxiv"
-    ],
-    "relevance_score": 2,
-    "disciplines": [],
-    "methods": [
-      "large language model",
-      "llm"
-    ],
-    "quantitative_signals": [
-      "large language model",
+      "large language models",
       "llm",
-      "computational"
+      "llms"
     ],
     "is_quantitative_humanities_candidate": true
   },
@@ -918,6 +696,36 @@
     "is_quantitative_humanities_candidate": false
   },
   {
+    "source_name": "osf-preprints",
+    "source_record_id": "w9zs8_v1",
+    "title": "Trust Me, I Cite Science: How Political Communication Drawing on Science Affects Message Credibility and Communicator Trustworthiness",
+    "abstract": "The interplay between science and politics is increasingly complex and contentious, especially in times of crises and polarized public debates. Although calls to \"follow the science\" are often invoked in political discourse, science’s role in politics is rarely straightforward, and it is frequently used strategically beyond its informational function. This study examines how science-related political communication influences perceived message credibility and communicator trustworthiness, integrating insights from science communication and political communication research. We empirically test hypotheses across three conceptual dimensions. First, we evaluate the effects of source credibility by comparing communicators (scientists vs. politicians) and their respective uses of evidence. Second, we analyze the impact of different rhetorical strategies employed to communicate the political decision-making process, like highlighting evidence-determined justifications, reasoned processes, or populist appeals. Third, we investigate how science-populist attitudes and pre-existing issue-attitudes moderate these effects. Results of a pre-registered factorial survey experiment (N = 552) show that source credibility and the choice of evidence are primary drivers of perceived credibility and trustworthiness. In contrast, rhetorical strategies related to decision-making processes have no significant effect. Notably, science-populist attitudes strongly influence which epistemic authorities respondents consider legitimate bases for political decisions. These findings reveal tensions at the science-politics nexus between the strategic effectiveness of constructing epistemic authority and the normative democratic demand for political accountability. The study contributes novel empirical insights into how communicative strategies shape trust in science-related political communication, offering implications for safeguarding trust in science and improving the credibility and trustworthiness of political communication in polarized environments.",
+    "publication_date": "2026-05-28",
+    "year": "2026",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/w9zs8",
+    "open_access_url": "https://osf.io/preprints/socarxiv/w9zs8",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-political-communication-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/w9zs8",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 0,
+    "disciplines": [],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
     "source_name": "crossref",
     "source_record_id": "10.1007/s00146-026-03062-1",
     "title": "Book review: Nina Beguš: Artificial humanities: a fictional perspective on language in AI",
@@ -1015,6 +823,43 @@
     "is_quantitative_humanities_candidate": false
   },
   {
+    "source_name": "osf-preprints",
+    "source_record_id": "g6jv8_v1",
+    "title": "The portrayal of libraries as remote workplaces in the general media: A qualitative content analysis",
+    "abstract": "A sample of 52 sources were analyzed to investigate how libraries are portrayed in the general media as spaces for remote workers. Features highlighted as advantageous included meeting rooms, booths, quiet zones, and on-site cafes; Wi-Fi, computers, reprographic services, and suitable desks; the quiet, yet social, comfortable, safe and aesthetically pleasing environment; and libraries’ free access and convenient locations. Disadvantages included crowding and noise levels, insecure belongings, inadequate resources, and limited opening hours. The wide range of positive features suggests that remote workers’ needs are varied and complex, as are the ways in which libraries can meet these needs.",
+    "publication_date": "2026-04-11",
+    "year": "2026",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/g6jv8",
+    "open_access_url": "https://osf.io/preprints/socarxiv/g6jv8",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "library spaces",
+      "media coverage",
+      "remote workers",
+      "teleworkers"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/g6jv8",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 0,
+    "disciplines": [],
+    "methods": [
+      "content analysis"
+    ],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
     "source_name": "openalex",
     "source_record_id": "https://openalex.org/W7152097475",
     "title": "AI-Produced Humanities Research: On the Dangers of Technical Incrementalism",
@@ -1091,7 +936,7 @@
     "duplicate_sources": [
       "openalex"
     ],
-    "relevance_score": 4,
+    "relevance_score": 3,
     "disciplines": [
       "literature",
       "philosophy",
@@ -1100,11 +945,49 @@
       "political science"
     ],
     "methods": [
-      "llm"
+      "llms"
     ],
     "quantitative_signals": [
-      "llm"
+      "llms"
     ],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "bhjuz_v2",
+    "title": "Structured content analysis of open access book policies: European university and research funder approaches",
+    "abstract": "Despite playing a crucial role in making research publications freely accessible for more than two decades, academic research on open access (OA) policies remains limited. Drawing on both a review of existing research and an analysis of 66 recent OA book policies, this study introduces a novel methodological framework for structured policy analysis and maps the current OA book policy landscape in Europe. Our results reveal substantial heterogeneity in the policy environment, with substantial variation both in the presence of policy elements and in their operationalization across policies. This diverse policy environment creates implementation challenges at multiple levels, from researchers managing different requirements to institutions developing support strategies, and publishers adapting their services to meet varied policy demands. Given that OA policies significantly impact research practices at individual, institutional, and national levels, yet systematic evidence remains scarce, our findings emphasize the need for increased research and monitoring in this domain.",
+    "publication_date": "2026-04-08",
+    "year": "2026",
+    "doi": "10.1093/scipol/scag021",
+    "url": "https://osf.io/preprints/socarxiv/bhjuz",
+    "open_access_url": "https://osf.io/preprints/socarxiv/bhjuz",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "europe",
+      "open access",
+      "open access policies",
+      "scholarly publishing",
+      "science policy"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json",
+    "work_id": "doi:10.1093/scipol/scag021",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 0,
+    "disciplines": [],
+    "methods": [
+      "content analysis"
+    ],
+    "quantitative_signals": [],
     "is_quantitative_humanities_candidate": true
   },
   {
@@ -1304,17 +1187,18 @@
     "duplicate_sources": [
       "crossref"
     ],
-    "relevance_score": 4,
+    "relevance_score": 3,
     "disciplines": [],
     "methods": [
       "translation",
-      "large language model",
-      "llm"
+      "large language models",
+      "llm",
+      "llms"
     ],
     "quantitative_signals": [
-      "dataset",
-      "large language model",
-      "llm"
+      "large language models",
+      "llm",
+      "llms"
     ],
     "is_quantitative_humanities_candidate": true
   },
@@ -1378,11 +1262,88 @@
     ],
     "relevance_score": 1,
     "disciplines": [],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "nbdpa_v1",
+    "title": "Testing Content Analysis through Different Large Language Models: Towards a Gold Standard Protocol",
+    "abstract": "This paper proposes a comprehensive assessment of content analysis performed by different Large Language Models (LLMs), in order to develop a gold standard protocol for using LLMs in content analysis research. The study relies on 1,500 cases sampled from a dataset of approximately 4,000 Facebook posts from political leaders in six countries (Italy, Spain, France, Greece, Germany, and the Netherlands), which have been human-coded for 17 variables related to populism content and communication style. The same corpus of Facebook posts and the identical codebook used by human coders—containing variable descriptions and instructions—were applied to four distinct LLMs (six versions): ChatGPT (3.5 and 4o), Gemini 1.5 (flash and pro), Llama 3 (70B), and Mistral Large. The coding has been compared among the LLMs, as well as between the LLMs and human coders. To assess the performance of the LLMs, the consistency between LLMs and human coders was quantified using inter-coder reliability measures. In cases of discrepancies between human and LLM coding, the research team implemented a supervised assessment procedure to identify the correct response, simultaneously verifying the reliability of both human and LLM content analysis. The significance of this research lies in its potential to evaluate the capabilities of various LLMs, particularly in non-English languages, and to establish a standardized protocol for utilizing LLMs in content analysis within political and communication studies. This study aims to advance our understanding of LLMs’ efficacy in replicating human coding processes and their application in multilingual contexts, ultimately contributing to the methodological rigor in the field of computational content analysis.",
+    "publication_date": "2026-03-06",
+    "year": "2026",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/nbdpa",
+    "open_access_url": "https://osf.io/preprints/socarxiv/nbdpa",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/nbdpa",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 2,
+    "disciplines": [],
     "methods": [
-      "network"
+      "large language models",
+      "llm",
+      "llms",
+      "corpus",
+      "content analysis"
     ],
     "quantitative_signals": [
-      "network"
+      "dataset",
+      "corpus",
+      "large language models",
+      "llm",
+      "llms",
+      "computational"
+    ],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "fc4kz_v1",
+    "title": "Trial and Insight: Combining Quantitative Content Analysis and AI for Experimental Stimulus Generation",
+    "abstract": "Experimental communication research has a fundamental bottleneck: Stimuli are known to vary widely in practice, and concerns of statistical power as well as pragmatic resources place strong limits on the complexity of designs. Maximizing external (and internal) validity therefore requires the paradoxical instrument of highly realistic yet theoretically graded stimuli. The complexity involved in the production of media content so far made this goal prohibitively difficult, but Large Language Models (LLMs) promise to change that. Drawing on an existing content analysis codebook focusing on the identification of scandalization in news articles about climate protests, we leverage generative capabilities of LLMs to produce synthetic stimuli satisfying theoretical variations. These stimuli are validated by human and AI coders on perceived authenticity and the effectiveness of producing variations in target variables. Our findings suggest that LLMs are generally effective in generating experimental stimuli and that quality assessments from GPT4o and human raters are largely aligned.",
+    "publication_date": "2026-03-04",
+    "year": "2026",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/fc4kz",
+    "open_access_url": "https://osf.io/preprints/socarxiv/fc4kz",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/fc4kz",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 0,
+    "disciplines": [],
+    "methods": [
+      "large language models",
+      "llms",
+      "content analysis"
+    ],
+    "quantitative_signals": [
+      "large language models",
+      "llms",
+      "quantitative"
     ],
     "is_quantitative_humanities_candidate": true
   },
@@ -1483,11 +1444,10 @@
     "duplicate_sources": [
       "doaj"
     ],
-    "relevance_score": 3,
+    "relevance_score": 2,
     "disciplines": [],
     "methods": [],
     "quantitative_signals": [
-      "dataset",
       "classification",
       "metadata"
     ],
@@ -1691,7 +1651,7 @@
     "duplicate_sources": [
       "crossref"
     ],
-    "relevance_score": 1,
+    "relevance_score": 0,
     "disciplines": [],
     "methods": [],
     "quantitative_signals": [],
@@ -1734,11 +1694,13 @@
     "disciplines": [],
     "methods": [
       "large language model",
-      "llm"
+      "llm",
+      "llms"
     ],
     "quantitative_signals": [
       "large language model",
-      "llm"
+      "llm",
+      "llms"
     ],
     "is_quantitative_humanities_candidate": true
   },
@@ -1770,11 +1732,9 @@
     ],
     "relevance_score": 0,
     "disciplines": [],
-    "methods": [
-      "gis"
-    ],
+    "methods": [],
     "quantitative_signals": [],
-    "is_quantitative_humanities_candidate": true
+    "is_quantitative_humanities_candidate": false
   },
   {
     "source_name": "crossref",
@@ -1807,6 +1767,88 @@
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "vf6ud_v1",
+    "title": "The development of translation studies as a discipline",
+    "abstract": "The article provides a detailed commentary on the development of Western translation thought in the late 20th century, from a subdivision of contrastive linguistics into an independent, dynamically developing discipline within the humanities (translation studies). The author analyzes the theoretical and philosophical preconditions for the change in the scientific and academic status of translation within the Western academic field, the main milestones and key figures of this process. After having summarized the most important theoretical shifts that took place in Western translation thought at the turn of the 20th and 21st centuries, the author comes to the conclusion that since the late 1970s the development paths of Western and Russian translation studies have diverged. In Western translation studies, after the ‘cultural turn’, the concept of ‘neutral’ translation is abandoned in favor of a new politicized view of translation as a tool for shaping cultural identities. The translator, who in the linguistic model was relegated to the modest role of a technical assistant, is seen in the culturally oriented paradigm as a co-author, a fully-fledged subject of political dialogue, capable of resisting the usurpation and ethnocentrism of their own culture. The new Western translation ethics is largely determined by the call to resist the dominants of the target culture and not be afraid of open political activism.",
+    "publication_date": "2025-09-26",
+    "year": "2025",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/vf6ud",
+    "open_access_url": "https://osf.io/preprints/socarxiv/vf6ud",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "cultural turn",
+      "ethnocentrism in translation",
+      "foreignizing translation",
+      "Lawrence Venuti",
+      "linguistics-oriented translation theory",
+      "Maria Tymoczko",
+      "Western translation studies"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-translation-studies-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/vf6ud",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 4,
+    "disciplines": [
+      "linguistics"
+    ],
+    "methods": [
+      "translation"
+    ],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "yb3m9_v1",
+    "title": "Opening Ottoman Miniature Collections through Computational Access: Methodological Lessons for Digital Humanities",
+    "abstract": "Ottoman miniature collections represent a layered cultural heritage that combines artistic, historical, social, and intellectual dimensions. Yet, access to their content is often limited by catalogue records that provide only minimal descriptive information. This discussion paper explores how computational access can expand the study and reuse of such collections by presenting a dataset of 435 Ottoman miniatures, enriched with detailed bibliographic metadata and expert-assigned thematic tags. An original multi-level classification scheme was developed. Tagging was carried out through a custom web interface, preparing the dataset for analysis through thematic network analysis, supervised learning, and unsupervised learning. Thematic co-occurrence analysis revealed clusters such as political figures, religious motifs, and urban settings, demonstrating the interpretive value of tagging beyond traditional cataloguing. Supervised learning with MobileNetV2 achieved 63% training accuracy and 49% validation accuracy, showing the model’s capacity to identify dominant themes while also exposing the limits of small and imbalanced datasets. Unsupervised clustering produced visually coherent groups, but low Silhouette scores and high Davies-Bouldin indices confirmed that thematic boundaries were not strongly separable through visual features alone. The findings highlight the need to combine computational methods with expert knowledge. While supervised approaches support targeted classification and unsupervised approaches enable exploratory insights, both benefit from integration with rich metadata. This study demonstrates how Ottoman miniatures can serve as a model for applying machine learning and network analysis to cultural heritage collections, offering transferable lessons for digital humanities research.",
+    "publication_date": "2025-09-11",
+    "year": "2025",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/yb3m9",
+    "open_access_url": "https://osf.io/preprints/socarxiv/yb3m9",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-digital-humanities-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/yb3m9",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 4,
+    "disciplines": [
+      "digital humanities"
+    ],
+    "methods": [
+      "network"
+    ],
+    "quantitative_signals": [
+      "dataset",
+      "network",
+      "classification",
+      "metadata",
+      "computational"
+    ],
+    "is_quantitative_humanities_candidate": true
   },
   {
     "source_name": "crossref",
@@ -2177,10 +2219,8 @@
       "digital humanities"
     ],
     "methods": [],
-    "quantitative_signals": [
-      "dataset"
-    ],
-    "is_quantitative_humanities_candidate": true
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
   },
   {
     "source_name": "crossref",
@@ -2387,10 +2427,8 @@
     "relevance_score": 0,
     "disciplines": [],
     "methods": [],
-    "quantitative_signals": [
-      "quantitative"
-    ],
-    "is_quantitative_humanities_candidate": true
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
   },
   {
     "source_name": "crossref",
@@ -2659,13 +2697,13 @@
     "duplicate_sources": [
       "doaj"
     ],
-    "relevance_score": 2,
+    "relevance_score": 1,
     "disciplines": [],
     "methods": [
-      "large language model"
+      "large language models"
     ],
     "quantitative_signals": [
-      "large language model"
+      "large language models"
     ],
     "is_quantitative_humanities_candidate": true
   },
@@ -2767,12 +2805,52 @@
     "duplicate_sources": [
       "crossref"
     ],
-    "relevance_score": 4,
+    "relevance_score": 3,
     "disciplines": [],
     "methods": [],
     "quantitative_signals": [
       "metadata",
       "computational"
+    ],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "mv24c_v2",
+    "title": "The Public that Engages Invisibly: What Visible Engagement Fails to Capture in Online Political Communication",
+    "abstract": "Measurements of political polarization online have so far been largely focused on visible traces accessible through platformAPIs,while neglecting invisible traces not recorded or otherwise unavailable via online channels, which can reveal key aspects of political engagement online. Our study aims to address this gap by investigating the polarization measurement bias that arises when only visible engagement is considered. Using a combined dataset that links survey responses with YouTube digital traces froma representative sample of Hungarian Internet users (N=758), we uncover disparities at both user and channel levels. We find that users who visibly engage through commenting are more politically polarized. People tend to comment and subscribe to ideologically concentrated content, while viewing ideologically diverse content. We also notice that ideologically heterogeneous channels are more likely to share viewers than subscribers or commenters. Thus, the segregation of political channels may be overstated or simplified when relying solely on public comment data. Our results suggest that research using only visible engagement may overestimate the extent of polarization and the prevalence of echo chambers online. We highlight the benefits of data donation to address measurement bias in online political communication, and contribute to the polarization literature by providing a fresh evaluation of potential biases in platform-focused research.",
+    "publication_date": "2025-02-19",
+    "year": "2025",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/mv24c",
+    "open_access_url": "https://osf.io/preprints/socarxiv/mv24c",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "Data Donation",
+      "DDP",
+      "Online polarization",
+      "Selection Bias",
+      "Youtube"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-political-communication-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/mv24c",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 1,
+    "disciplines": [
+      "literature"
+    ],
+    "methods": [],
+    "quantitative_signals": [
+      "dataset"
     ],
     "is_quantitative_humanities_candidate": true
   },
@@ -2805,15 +2883,13 @@
     "duplicate_sources": [
       "openalex"
     ],
-    "relevance_score": 5,
+    "relevance_score": 2,
     "disciplines": [
       "history"
     ],
-    "methods": [
-      "translation"
-    ],
+    "methods": [],
     "quantitative_signals": [],
-    "is_quantitative_humanities_candidate": true
+    "is_quantitative_humanities_candidate": false
   },
   {
     "source_name": "crossref",
@@ -3216,7 +3292,7 @@
     "duplicate_sources": [
       "openalex"
     ],
-    "relevance_score": 4,
+    "relevance_score": 3,
     "disciplines": [
       "history",
       "digital humanities"
@@ -3625,7 +3701,7 @@
     "duplicate_sources": [
       "crossref"
     ],
-    "relevance_score": 6,
+    "relevance_score": 5,
     "disciplines": [
       "literature",
       "digital humanities"
@@ -3811,7 +3887,8 @@
     ],
     "methods": [
       "philology",
-      "network"
+      "network",
+      "content analysis"
     ],
     "quantitative_signals": [
       "network"
@@ -3931,13 +4008,10 @@
     "duplicate_sources": [
       "crossref"
     ],
-    "relevance_score": 4,
+    "relevance_score": 3,
     "disciplines": [],
-    "methods": [
-      "topic model"
-    ],
+    "methods": [],
     "quantitative_signals": [
-      "topic model",
       "embedding"
     ],
     "is_quantitative_humanities_candidate": true
@@ -4107,7 +4181,6 @@
     ],
     "methods": [],
     "quantitative_signals": [
-      "dataset",
       "classification"
     ],
     "is_quantitative_humanities_candidate": true
@@ -4296,7 +4369,7 @@
     "duplicate_sources": [
       "crossref"
     ],
-    "relevance_score": 3,
+    "relevance_score": 2,
     "disciplines": [],
     "methods": [],
     "quantitative_signals": [],
@@ -4451,6 +4524,42 @@
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "j4ne8_v1",
+    "title": "A Content Analysis of Lesson Starters in English Language YouTube Videos",
+    "abstract": "This content analysis examines the use of lesson starters in English-language instructional videos on YouTube. Lesson starters, known as icebreakers or warm-up activities, are commonly used to engage learners, create a positive atmosphere, and introduce new topics. This study aims to identify the types of lesson starters used and their effectiveness in engaging learners in English-language learning. The main research question is what is the impact of incorporating effective lesson starters in English-language instructional videos? A thorough review of a sample of English language YouTube videos covering various topics and targeting different proficiency levels will be conducted. The study adopts qualitative and quantitative content analysis to show the effectiveness of lesson starters. The findings will shed light on the prevalence of different lesson starters used in these videos and provide insights into their impact on learners’ engagement and motivation. This research contributes to developing pedagogical practices and resources that enhance the English language learning experience through effective lesson starters, and it can serve as a foundation for further research because of the lack of research in this area.",
+    "publication_date": "2024-08-06",
+    "year": "2024",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/j4ne8",
+    "open_access_url": "https://osf.io/preprints/socarxiv/j4ne8",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "content analysis, lesson starters, English, language, YouTube videos"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/j4ne8",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 0,
+    "disciplines": [],
+    "methods": [
+      "content analysis"
+    ],
+    "quantitative_signals": [
+      "quantitative"
+    ],
+    "is_quantitative_humanities_candidate": true
   },
   {
     "source_name": "openalex",
@@ -4988,22 +5097,55 @@
     "duplicate_sources": [
       "openalex"
     ],
-    "relevance_score": 4,
+    "relevance_score": 2,
     "disciplines": [
       "digital humanities",
       "linguistics",
       "sociology"
     ],
     "methods": [
-      "large language model",
-      "llm"
+      "large language models",
+      "llms"
     ],
     "quantitative_signals": [
-      "large language model",
-      "llm",
+      "large language models",
+      "llms",
       "computational"
     ],
     "is_quantitative_humanities_candidate": true
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "b8yfj_v1",
+    "title": "A pragmatic Analysis of Effective Political Communication from a Relevance-Theoretic Perspective",
+    "abstract": "A substantial aim of political communication is to engage specific groups of citizens through pragmatic policies and various media channels to convey messages and gain the audience’s acceptance effectively. This study investigates political communication as a form of discourse that occurs within political contexts, which involves the exchange of messages among political actors to address and resolve political issues. It is an interdisciplinary field encompassing aspects of psychology, economics, culture, society, and linguistics. This paper aims to give a satisfactory explanation for the question concerning effective communication characteristics: how might politicians utilize them in their speech to be more effective? This pragmatic study in discourse is devoted to analyzing the various effective syntactic structures that arise within political interactions according to Sperber and Wilson’s Theory of Relevance. The contribution of this study is evident as guidelines for further understanding the correlation between language and cognition. The researchers find that politicians seek to cognitively take advantage of the tendency of the audience to strive for relevance. In this way, expectations and attitudes are to be recognized and met by either interlocutors. The focal point of the study is the linguistic and inferential aspects of communication (verbal and non-verbal forms), represented in explicatures and implicatures. The study’s findings exhibit the politicians’ efforts in crafting their utterances optimally to meet the audience’s expectations of relevance, which could be used as an influential method for further studies concerning discourse and communication. This research paper aims to pragmatically exploit the effectiveness of the political interactions (extracts) in the House of Commons (UK parliamentary debates).",
+    "publication_date": "2024-03-29",
+    "year": "2024",
+    "doi": "10.24093/awej/vol15no1.7",
+    "url": "https://doi.org/10.24093/awej/vol15no1.7",
+    "open_access_url": "https://osf.io/preprints/socarxiv/b8yfj",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-political-communication-001.json",
+    "work_id": "doi:10.24093/awej/vol15no1.7",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 1,
+    "disciplines": [
+      "linguistics",
+      "economics"
+    ],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
   },
   {
     "source_name": "openalex",
@@ -5124,6 +5266,38 @@
     "quantitative_signals": [
       "quantitative"
     ],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "m5r3h_v1",
+    "title": "Goodbye Human Annotators? Content Analysis of Policy Debates using ChatGPT",
+    "abstract": "Content analysis is a valuable tool for analysing policy discourse, but annotation by humans is costly and time-consuming. ChatGPT is a potentially valuable tool to automate content analysis for policy debates, largely replacing human annotators. We evaluate ChatGPT’s ability to classify documents using argument descriptions, by comparing its performance with human annotators for two policy debates: the Universal Basic Income debate on Dutch Twitter (2014-2016) and the pension reforms debate in German newspapers (1993-2001). We use the most current API (GPT-4 Turbo) and user interface version (GPT-4) and evaluate multiple performance metrics (accuracy, precision and recall). ChatGPT is highly reliability and accurate in classifying pre-defined arguments across datasets. However, precision and recall are much lower, and vary strongly between arguments. These results hold for both datasets, despite differences in language and media type. Moreover, the cutoff method proposed in this paper may aid researchers in navigating the trade-off between detection and noise. Overall, we do not (yet) recommend a blind application of ChatGPT to classify arguments in policy debates. Those interested in adopting this tool should manually validate bot classifications before using them in further analyses. At least for now, human annotators are here to stay.",
+    "publication_date": "2024-03-20",
+    "year": "2024",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/m5r3h",
+    "open_access_url": "https://osf.io/preprints/socarxiv/m5r3h",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/m5r3h",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 0,
+    "disciplines": [],
+    "methods": [
+      "content analysis"
+    ],
+    "quantitative_signals": [],
     "is_quantitative_humanities_candidate": true
   },
   {
@@ -5551,13 +5725,9 @@
     "disciplines": [
       "history"
     ],
-    "methods": [
-      "network"
-    ],
-    "quantitative_signals": [
-      "network"
-    ],
-    "is_quantitative_humanities_candidate": true
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
   },
   {
     "source_name": "openalex",
@@ -5661,11 +5831,9 @@
     ],
     "relevance_score": 0,
     "disciplines": [],
-    "methods": [
-      "gis"
-    ],
+    "methods": [],
     "quantitative_signals": [],
-    "is_quantitative_humanities_candidate": true
+    "is_quantitative_humanities_candidate": false
   },
   {
     "source_name": "openalex",
@@ -5906,6 +6074,50 @@
     "disciplines": [
       "political science"
     ],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "pq4yf_v1",
+    "title": "Comparing Political Communication: A 2023 Update",
+    "abstract": "In order to examine political communication comparatively, this chapter argues for a dynamic-systemic perspective. For this purpose, it outlines the model of a \"political communication ecosystem.\" On this basis, the chapter first explains (a) institutional country differences in the relationship between politics and the media and (b) cultural country differences in the relationship between politicians and journalists. It then goes on to explain how prototypical styles and message types of (a) politicians as communicators and (b) media as communicators differ in a cross-country comparison. Finally, it explains the differences between countries in (a) the news consumption of national audiences and (b) the impact of political communication on these audiences. Taking into account recent research findings on social media, populism, disinformation, and the Ukraine invasion, the chapter concludes with implications for comparative political communication from Western and non-Western perspectives.",
+    "publication_date": "2024-01-27",
+    "year": "2024",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/pq4yf",
+    "open_access_url": "https://osf.io/preprints/socarxiv/pq4yf",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "comparative politics",
+      "comparative research",
+      "election campaigning",
+      "international comparison",
+      "journalism cultures",
+      "media effects",
+      "media systems",
+      "media use",
+      "misinformation",
+      "news",
+      "political communication",
+      "political communication system",
+      "social media"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-political-communication-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/pq4yf",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 1,
+    "disciplines": [],
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
@@ -6171,7 +6383,7 @@
     "duplicate_sources": [
       "doaj"
     ],
-    "relevance_score": 2,
+    "relevance_score": 1,
     "disciplines": [
       "literature"
     ],
@@ -7200,7 +7412,7 @@
     "duplicate_sources": [
       "openalex"
     ],
-    "relevance_score": 4,
+    "relevance_score": 3,
     "disciplines": [
       "philosophy",
       "linguistics",
@@ -7301,20 +7513,57 @@
     "duplicate_sources": [
       "openalex"
     ],
-    "relevance_score": 4,
+    "relevance_score": 3,
     "disciplines": [
       "philosophy",
       "linguistics",
       "sociology"
     ],
     "methods": [
-      "large language model"
+      "large language model",
+      "large language models"
     ],
     "quantitative_signals": [
       "large language model",
-      "computational",
+      "large language models",
       "quantitative"
     ],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "v8txj_v1",
+    "title": "AMMICO, an AI-based Media and Misinformation Content Analysis Tool",
+    "abstract": "ammico (AI-based Media and Misinformation Content Analysis Tool) is a publicly available software package written in Python 3, whose purpose is the simultaneous evaluation of the text and graphical content of image files. After describing the software features, we provide an assessment of its performance using a multi country, multi-language data set containing COVID-19 social media disinformation posts. We conclude by highlighting the tool’s advantages for communication research.",
+    "publication_date": "2023-10-13",
+    "year": "2023",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/v8txj",
+    "open_access_url": "https://osf.io/preprints/socarxiv/v8txj",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "Automated text extraction",
+      "Automated visual analysis",
+      "Computer vision"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/v8txj",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 0,
+    "disciplines": [],
+    "methods": [
+      "content analysis"
+    ],
+    "quantitative_signals": [],
     "is_quantitative_humanities_candidate": true
   },
   {
@@ -7864,15 +8113,13 @@
     "duplicate_sources": [
       "doaj"
     ],
-    "relevance_score": 6,
+    "relevance_score": 4,
     "disciplines": [
       "digital humanities"
     ],
-    "methods": [
-      "gis"
-    ],
+    "methods": [],
     "quantitative_signals": [],
-    "is_quantitative_humanities_candidate": true
+    "is_quantitative_humanities_candidate": false
   },
   {
     "source_name": "crossref",
@@ -7960,6 +8207,44 @@
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "k3zfm_v1",
+    "title": "Explicit or Implicit Digital Humanities? An Examination of Search Strategies to Retrieve Digital Humanities Publications from Large-Scale Scholarly Databases",
+    "abstract": "As a growing research field, digital humanities (DH) is receiving increasing attention from quantitative science studies using standardized scholarly databases. However, one of the challenges of this new line of research is how to select the query strategy to produce a representative sample of the field. In this research, we analyzed the differences between two publication samples acquired from the Dimensions database using two sampling approaches, namely, the keyword search and a DH journal list. These two samples, we argue, offer two distinct ways to understand the conceptual landscape of digital humanities, i.e., the implicit DH and explicit DH, and contribute to building a more comprehensive representation of the digital humanities research domain. We identified notable differences between the publication samples from these two query strategies, especially the fact that these two samples have a very small overlap of publications, and they also have different disciplinary orientations. Our findings indicate that future quantitative studies analyzing DH publications should use more inclusive methods to cover both the implicit and explicit types of DH contributions. Moreover, we also discussed how our findings contribute to a deeper understanding of the disciplinary composition of DH, an interdisciplinary research field.",
+    "publication_date": "2023-08-08",
+    "year": "2023",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/k3zfm",
+    "open_access_url": "https://osf.io/preprints/socarxiv/k3zfm",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "digital humanities",
+      "interdisciplinarity",
+      "scholarly database"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-digital-humanities-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/k3zfm",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 2,
+    "disciplines": [
+      "digital humanities"
+    ],
+    "methods": [],
+    "quantitative_signals": [
+      "quantitative"
+    ],
+    "is_quantitative_humanities_candidate": true
   },
   {
     "source_name": "openalex",
@@ -8263,11 +8548,9 @@
     ],
     "relevance_score": 0,
     "disciplines": [],
-    "methods": [
-      "gis"
-    ],
+    "methods": [],
     "quantitative_signals": [],
-    "is_quantitative_humanities_candidate": true
+    "is_quantitative_humanities_candidate": false
   },
   {
     "source_name": "openalex",
@@ -8440,7 +8723,7 @@
     "duplicate_sources": [
       "openalex"
     ],
-    "relevance_score": 4,
+    "relevance_score": 3,
     "disciplines": [
       "literature",
       "philosophy",
@@ -8588,6 +8871,46 @@
     "is_quantitative_humanities_candidate": true
   },
   {
+    "source_name": "osf-preprints",
+    "source_record_id": "kzgcy_v1",
+    "title": "What Big Data Sounds Like, The Hermeneutic Significance of the Arts for Big Data in Digital Humanities",
+    "abstract": "In recent scholarly past much attention has been called to the reductive nature of big data analysis regimes and to questions of the perceived but misleading neutral nature of large scale data and algorithms. This paper investigates a particular case of such issues and the frictional process of interfacing big data (analysis) and the hermeneutically geared humanities. We examine in particular the affordances produced by the re-introduction of the artist in a scientific environment.",
+    "publication_date": "2023-04-20",
+    "year": "2023",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/kzgcy",
+    "open_access_url": "https://osf.io/preprints/socarxiv/kzgcy",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "Archives",
+      "Big Data",
+      "Digital Humanitie",
+      "Hermeneutics",
+      "Humanities",
+      "Meertens Institute",
+      "Sounds"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-digital-humanities-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/kzgcy",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 2,
+    "disciplines": [
+      "digital humanities"
+    ],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
     "source_name": "openalex",
     "source_record_id": "https://openalex.org/W4327810158",
     "title": "GPT-4 Technical Report",
@@ -8633,15 +8956,15 @@
     "duplicate_sources": [
       "openalex"
     ],
-    "relevance_score": 2,
+    "relevance_score": 0,
     "disciplines": [],
     "methods": [
-      "large language model",
-      "llm"
+      "large language models",
+      "llms"
     ],
     "quantitative_signals": [
-      "large language model",
-      "llm",
+      "large language models",
+      "llms",
       "quantitative"
     ],
     "is_quantitative_humanities_candidate": true
@@ -9262,13 +9585,11 @@
     "duplicate_sources": [
       "doaj"
     ],
-    "relevance_score": 2,
+    "relevance_score": 1,
     "disciplines": [],
     "methods": [],
-    "quantitative_signals": [
-      "citation"
-    ],
-    "is_quantitative_humanities_candidate": true
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
   },
   {
     "source_name": "doaj",
@@ -9652,7 +9973,7 @@
     "duplicate_sources": [
       "doaj"
     ],
-    "relevance_score": 3,
+    "relevance_score": 2,
     "disciplines": [],
     "methods": [
       "corpus"
@@ -9777,6 +10098,84 @@
     "is_quantitative_humanities_candidate": false
   },
   {
+    "source_name": "osf-preprints",
+    "source_record_id": "2dj7c_v1",
+    "title": "Figures, and Charts, and Tables, Oh My!: A Content Analysis of Textbook Data Visualizations",
+    "abstract": "Textbooks offer instructors an opportunity to promote data visualization and statistical literacy throughout the sociology curriculum. In this study, we examined 463 data visualizations from 27 textbooks for Introduction to Sociology, Social Problems, and intermediate elective courses to illuminate the range of data visualizations and their use of statistical data and numerical variables. We find that textbooks rely on a narrow range of data visualizations (e.g., bar/column charts and tables) and statistical data (e.g., percentages), and numerical variables (e.g., age). Introduction to Sociology textbooks used more data visualizations, and Social Problems textbooks incorporated more types of statistics. In contrast, intermediate-level textbooks presented more measures of central tendency. Overall, our results suggest textbooks could better integrate a broader range of figures, statistical data, and numerical variables. We conclude with resources for integrating data visualization in instruction.",
+    "publication_date": "2022-09-13",
+    "year": "2022",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/2dj7c",
+    "open_access_url": "https://osf.io/preprints/socarxiv/2dj7c",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "data literacy",
+      "data visualization",
+      "research consumption",
+      "statistical literacy",
+      "table reading",
+      "textbooks"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/2dj7c",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 0,
+    "disciplines": [
+      "sociology"
+    ],
+    "methods": [
+      "content analysis"
+    ],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "jbemr_v1",
+    "title": "Relational Practice of Canadian Academic Librarians: Exploratory Content Analysis using Relational-Cultural Theory",
+    "abstract": "There is increasing recognition that relational practice, such as building community and team building, is an important facet for Canadian academic librarians. This study measures the visibility of relational practice of Canadian academic librarians. Job postings from The Partnership Job Board were collected for a six-month period beginning in July 2021. Job postings were analyzed using deductive content analysis, utilizing a framework based on relational-cultural theory. The framework, developed by Fletcher (1998) and modified by Arellano Douglas &amp; Gadsby (2019), identifies relational practice as falling into four categories: preserving, mutual empowerment, emotional strategizing, and creating team. The authors find while there is mention of relational practice in the job postings, further visibility is needed to accurately reflect this aspect of Canadian academic librarian work. Emotional strategizing (51.7% of job postings with one or more mention) and creating team (47.2%) are the most visible relational practices, while preserving (7.9%) is hardly mentioned. There is far less mutual empowerment for practicing librarians (9%) compared to librarians in management positions (57%). While the visibility of relational practice increases as the highest credential offered at the post-secondary institution increases, this trend is not seen for mutual empowerment at Canadian Ph.D./doctorate-granting institutions. There is a need to increase visibility of relational practice in Canadian academic librarian job postings, and by extension, all academic librarianship.",
+    "publication_date": "2022-09-02",
+    "year": "2022",
+    "doi": "10.1016/j.acalib.2022.102593",
+    "url": "https://doi.org/10.1016/j.acalib.2022.102593",
+    "open_access_url": "https://osf.io/preprints/socarxiv/jbemr",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "academic libraries",
+      "community",
+      "relational-cultural theory",
+      "relational practice"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json",
+    "work_id": "doi:10.1016/j.acalib.2022.102593",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 1,
+    "disciplines": [],
+    "methods": [
+      "content analysis"
+    ],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
     "source_name": "crossref",
     "source_record_id": "10.46397/jaih.11.4",
     "title": "Exploring the Direction of Korean Education for the Cultivating AI Literacy - Focusing on ‘AI-based Convergence Innovation Future Education’",
@@ -9807,6 +10206,46 @@
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "fvsg3_v1",
+    "title": "Representation of Culture in EFL Textbooks: A Linguistic and Content Analysis of My Book of English",
+    "abstract": "This study explores the representation of culture in My Book of English, a second-generation English-language book for the first-year middle school in Algeria. Based on both content and a linguistic analysis method, our objective was to demonstrate the cultural significance of some representational choices. The notion of ideology was exploited in this study to examine the part that language takes in perpetuating ideas about culture, multiculturality, diversity, nationalism, and identity. According to the findings, cultural and social representations capture both the tendencies of cultural heritage preservation and the promotion of innovation and change. The analysis demonstrates that My Book of English acknowledges, to a certain extent, the role that English plays in the processes of internationalization and globalism. However, as a foreign language material, the book exaggeratedly highlights the source culture, making it difficult for the learners to transcend national boundaries.",
+    "publication_date": "2022-07-19",
+    "year": "2022",
+    "doi": "10.24093/awej/vol13no2.19",
+    "url": "https://doi.org/10.24093/awej/vol13no2.19",
+    "open_access_url": "https://osf.io/preprints/socarxiv/fvsg3",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "Algerian EFL textbook",
+      "culture",
+      "diversity",
+      "ideology",
+      "multiculturality",
+      "My Book of English",
+      "representations"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json",
+    "work_id": "doi:10.24093/awej/vol13no2.19",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 2,
+    "disciplines": [],
+    "methods": [
+      "content analysis"
+    ],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": true
   },
   {
     "source_name": "openalex",
@@ -9933,18 +10372,16 @@
     "duplicate_sources": [
       "doaj"
     ],
-    "relevance_score": 2,
+    "relevance_score": 1,
     "disciplines": [
       "history"
     ],
     "methods": [
-      "network",
-      "topic model"
+      "network"
     ],
     "quantitative_signals": [
       "dataset",
       "network",
-      "topic model",
       "metadata",
       "computational"
     ],
@@ -9989,6 +10426,47 @@
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "trvcy_v1",
+    "title": "Performance and Configuration of Artificial Intelligence in Business Education Learning Analytics Applications. A Content Analysis-Based Approach.",
+    "abstract": "Learning analytics represent a promising approach for fostering personalized learning processes. Most applications of this technology currently do not use textual data for providing information on learning, or for deriving recommendations for further development. This paper presents the results of three studies aiming to make textual information usable. In the first study, the iota concept is introduced as a new content analysis measure to evaluate inter-coder reliability. The main advantage of this new concept is that it provides a reliability estimation for every single category, allowing deeper insight into the quality of textual analysis. The second study simulates the process of content analysis, comparing the new iota concept with well-established measures (e.g., Krippendorff’s alpha, percentage agreement). The results show that the new concept covers the true reliability of a coding scheme, and is not affected by the number of coders or categories, the sample size, or the distribution of data. Furthermore, cut-off values are derived for judging the quality of the analysis. The third study uses the new concept, analyzing the performance of different artificial intelligence (AI) approaches for interpreting textual data based on 90 different constructs. The texts used here were either created by apprentices, students, and pupils, or were taken from vocational textbooks. The paper shows that AI can reliably interpret textual information for learning purposes, and also provides recommendations for optimal AI configuration.",
+    "publication_date": "2022-03-23",
+    "year": "2022",
+    "doi": "10.3389/feduc.2022.818365",
+    "url": "https://doi.org/10.3389/feduc.2022.818365",
+    "open_access_url": "https://osf.io/preprints/socarxiv/trvcy",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "artificial intelligence",
+      "content analysis",
+      "decision trees",
+      "hyperparameter",
+      "learning analytics",
+      "neural net",
+      "random forest",
+      "reliability"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json",
+    "work_id": "doi:10.3389/feduc.2022.818365",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 1,
+    "disciplines": [],
+    "methods": [
+      "content analysis"
+    ],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": true
   },
   {
     "source_name": "openalex",
@@ -10100,6 +10578,45 @@
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "jtyr3_v1",
+    "title": "From virus to viral: Content analysis of HIV-related Twitter messages among young men in the U.S.",
+    "abstract": "Adolescents and young adults account for over 21% of new HIV infections in the U.S. with the majority of new cases among young men. As social media is an important information source integral to the lives of youth, our study illuminated the discourse around HIV among this group by examining the most retweeted and favorited tweets (n = 472) among 24,600 HIV-related tweets from young male Twitter users (ages 13-24) in the U.S. From content analysis, three themes arose: 1) othering, 2) politics and activism, 3) risk and wellness. Othering tweets involved alienating LGBTQIA+ individuals and people with HIV through stigmatizing jokes and insults. Politics and activism tweets discussed awareness, stigma, HIV criminalization, violence, LGBTQIA+ and women’s rights. Risk and wellness tweets discussed risk behaviors for sexually transmitted infections (STIs) (e.g., condomless sex, transactional sex, multiple sexual partners), or safer sex and preventive practices (e.g., PrEP, condom use, achieving undetectable viral load, medication adherence, STI testing). The themes illustrated the double-edged nature of social media, with both harmful and health-promoting messages. Twitter and other social media provide novel tools to inform and disseminate health communication. Future HIV prevention interventions should counter the stigma, misinformation, and risk-promoting messages prevalent on Twitter.",
+    "publication_date": "2022-02-19",
+    "year": "2022",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/jtyr3",
+    "open_access_url": "https://osf.io/preprints/socarxiv/jtyr3",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "health promotion",
+      "HIV",
+      "stigma",
+      "Twitter",
+      "viral message",
+      "young men"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/jtyr3",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 0,
+    "disciplines": [],
+    "methods": [
+      "content analysis"
+    ],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": true
   },
   {
     "source_name": "openalex",
@@ -10595,11 +11112,9 @@
       "literature",
       "digital humanities"
     ],
-    "methods": [
-      "gis"
-    ],
+    "methods": [],
     "quantitative_signals": [],
-    "is_quantitative_humanities_candidate": true
+    "is_quantitative_humanities_candidate": false
   },
   {
     "source_name": "doaj",
@@ -11041,7 +11556,7 @@
     "duplicate_sources": [
       "openalex"
     ],
-    "relevance_score": 4,
+    "relevance_score": 3,
     "disciplines": [
       "digital humanities",
       "political science"
@@ -11161,7 +11676,7 @@
     "duplicate_sources": [
       "openalex"
     ],
-    "relevance_score": 3,
+    "relevance_score": 2,
     "disciplines": [
       "literature"
     ],
@@ -11372,6 +11887,48 @@
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "qs6mp_v1",
+    "title": "Self-removal of long-acting reversible contraception: A content analysis of YouTube videos",
+    "abstract": "Objective: To explore publicly available information about the self-removal of long-acting reversible contraception (LARC) on a popular video-sharing website. Study Design: We conducted a comprehensive keyword search of YouTube videos related to self-removal of long-acting reversible contraception (LARC)—namely intrauterine devices (IUDs) and implants. We analyzed video content to explore demographic characteristics, method and duration of LARC use, and motivations and experiences of self-removal. Results: Our keyword search identified 58 videos that met the criteria for inclusion, including 48 videos that featured individuals who removed an IUD and 10 who removed an implant. Collectively, videos had over 4 million views. We identified most video creators as white (53.4%), 31% as Black, and 14.3% as Latinx. Reasons for LARC discontinuation included negative side effects, fear of potential side effects, and desire for pregnancy. Users were motivated to remove their own device by both preferences and barriers to formal care. Fifty-six individuals (96.6%) successfully removed their device, and most described their experience in positive terms related to the ease of removal. Conclusion: This study builds upon prior research by describing publicly available information about LARC self-removal. The over-representation of Black women in our sample may reflect a higher prevalence of LARC self-removal among this population. Positive experiences of self-removal and high levels of viewer engagement with online videos suggest a greater need for provider counseling on LARC removal at the time of insertion. Implications: Prior to LARC insertion, patients should be made aware of any financial requirements for discontinuation. Provider counseling for self-removal at the time of insertion will likely minimize health risks and affirm patient reproductive autonomy.",
+    "publication_date": "2021-06-02",
+    "year": "2021",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/qs6mp",
+    "open_access_url": "https://osf.io/preprints/socarxiv/qs6mp",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "content analysis",
+      "contraceptive attitudes",
+      "discontinuation",
+      "implant",
+      "IUD",
+      "LARC",
+      "online",
+      "Self-removal",
+      "videos"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/qs6mp",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 0,
+    "disciplines": [],
+    "methods": [
+      "content analysis"
+    ],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": true
   },
   {
     "source_name": "openalex",
@@ -11642,6 +12199,46 @@
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "bjya9_v1",
+    "title": "SCANning for truth. Scholars’ and practitioners’ perceptions on the use(fulness) of Scientific Content Analysis in detecting deception during police interviews",
+    "abstract": "SCAN (Scientific Content Analysis) is an analytic method that claims to detect deception in written statements. Although the validity of SCAN is contested in literature, various (law enforcement) agencies across the globe are trained in using the technique. To date it remains unknown how the technique is perceived and to what extent it is used in practice. Based on a scoping review and an open- and closed-ended survey, we identified practitioners’ and scholars’ prevailing perceptions on the use(fulness) of SCAN. Data were collected from 48 participants (35 practitioners and 13 scholars). Key findings illuminate a discrepancy between practitioners and academics. While practitioners position themselves positively towards SCAN, academics urge for a complete disappearance of the technique. Practitioners apply an incomplete, personalized version of SCAN. Since SCAN is not applied in its originally designed form and existing research demonstrates the technique has important shortcomings, we advise practitioners to abandon SCAN altogether.",
+    "publication_date": "2021-04-08",
+    "year": "2021",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/bjya9",
+    "open_access_url": "https://osf.io/preprints/socarxiv/bjya9",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "content based credibility assessment",
+      "investigative interviewing",
+      "lie detection",
+      "SCAN",
+      "verbal credibility assessment"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/bjya9",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 1,
+    "disciplines": [
+      "literature"
+    ],
+    "methods": [
+      "content analysis"
+    ],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": true
   },
   {
     "source_name": "openalex",
@@ -11945,17 +12542,14 @@
     "duplicate_sources": [
       "doaj"
     ],
-    "relevance_score": 4,
+    "relevance_score": 3,
     "disciplines": [
       "history",
       "digital humanities",
       "linguistics"
     ],
-    "methods": [
-      "topic model"
-    ],
+    "methods": [],
     "quantitative_signals": [
-      "topic model",
       "embedding"
     ],
     "is_quantitative_humanities_candidate": true
@@ -12243,7 +12837,9 @@
     ],
     "relevance_score": 1,
     "disciplines": [],
-    "methods": [],
+    "methods": [
+      "content analysis"
+    ],
     "quantitative_signals": [
       "citation",
       "classification"
@@ -12367,6 +12963,76 @@
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "vc9jb_v1",
+    "title": "COVID-19 vaccination hesitancy, misinformation and conspiracy theories on social media: A content analysis of Twitter data",
+    "abstract": "Background: The coronavirus disease (COVID-19) pandemic has caused a significant burden of mortality and morbidity. A vaccine will be the most effective global preventive strategy to end the pandemic. Studies have maintained that exposure to negative sentiments related to vaccination on social media increase vaccine hesitancy and refusal. Despite the influence social media has on vaccination behavior, there is a lack of studies exploring the public's exposure to misinformation, conspiracy theories, and concerns on Twitter regarding a potential COVID-19 vaccination. Objective: The study aims to identify the major thematic areas about a potential COVID-19 vaccination based on the contents of Twitter data. Method: We retrieved 1,286,659 publicly available tweets posted within the timeline of July 19, 2020, to August 19, 2020, leveraging the Twint package. Following the extraction, we used Latent Dirichlet Allocation for topic modelling and identified 20 topics discussed in the tweets. We selected 4,868 tweets with the highest probability of belonging in the specific cluster and manually labeled as positive, negative, neutral, or irrelevant. The negative tweets were further assigned to a theme and subtheme based on the content Result: The negative tweets were further categorized into 7 major themes: \"safety and effectiveness,” \"misinformation,” \"conspiracy theories,” \"mistrust of scientists and governments,” \"lack of intent to get a COVID-19 vaccine,” \"freedom of choice,\" and \"religious beliefs. Negative tweets predominantly consisted of misleading statements (n=424) that immunization against coronavirus is unnecessary as the survival rate is high. The second most prevalent theme to emerge was tweets constituting safety and effectiveness related concerns (n=276) regarding the side effects of a potential vaccine developed at an unprecedented speed. Conclusion: Our findings suggest a need to formulate a large-scale vaccine communication plan that will address the safety concerns and debunk the misinformation and conspiracy theories spreading across social media platforms, increasing the public's acceptance of a COVID-19 vaccination.",
+    "publication_date": "2020-12-11",
+    "year": "2020",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/vc9jb",
+    "open_access_url": "https://osf.io/preprints/socarxiv/vc9jb",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/vc9jb",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 0,
+    "disciplines": [],
+    "methods": [
+      "content analysis"
+    ],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "vfqhn_v1",
+    "title": "Food shortages, stockpiling and panic buying ahead of Brexit as reported by the British media: a mixed methods content analysis",
+    "abstract": "Background: Government documents warn that if the UK and EU have not negotiated a trade deal by 31 December 2020 the UK could experience increased food prices and possible food shortages. The media have an important role in influencing recipients’ behaviour by promoting reassurance or anxiety on this issue. This study examines how food supply and demand, in the context of Brexit, has been portrayed by the British media. Methods: A mixed methods content analysis of articles reporting on food supply and demand in the context of Brexit, in three daily newspapers, between 01 January 2015 and 31 January 2020. Results: Five themes emerged: food shortages and panic buying (appearing in 96% of articles); food supply chain disruption (86%); economic impacts of Brexit (80%); preparation and stockpiling by the government and food sector (63%) and preparation and stockpiling by individuals (22%). Conclusion: Government messaging reported by the media sought to reassure the public that there will be no food shortages under a no-deal Brexit. These reassurances contradicted warnings from the food sector and leaked government reports of reduced availability of food items. These contradictory messages may have undermined trust in the government, potentially influencing stockpiling behaviour at the individual level.",
+    "publication_date": "2020-11-24",
+    "year": "2020",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/vfqhn",
+    "open_access_url": "https://osf.io/preprints/socarxiv/vfqhn",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "Brexit",
+      "food panic buying",
+      "Food shortages",
+      "food stockpiling",
+      "mixed methods content analysis"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/vfqhn",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 0,
+    "disciplines": [],
+    "methods": [
+      "content analysis"
+    ],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": true
   },
   {
     "source_name": "openalex",
@@ -12703,11 +13369,9 @@
       "sociology",
       "political science"
     ],
-    "methods": [
-      "gis"
-    ],
+    "methods": [],
     "quantitative_signals": [],
-    "is_quantitative_humanities_candidate": true
+    "is_quantitative_humanities_candidate": false
   },
   {
     "source_name": "openalex",
@@ -13082,10 +13746,8 @@
       "political science"
     ],
     "methods": [],
-    "quantitative_signals": [
-      "dataset"
-    ],
-    "is_quantitative_humanities_candidate": true
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
   },
   {
     "source_name": "doaj",
@@ -13251,6 +13913,47 @@
     "methods": [],
     "quantitative_signals": [],
     "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "d2kb6_v1",
+    "title": "Ain’t No Way Around It: Why We Need to Be Clear About What We Mean by “Digital Humanities”",
+    "abstract": "Digital humanities (DH) has gained the dubious reputation of struggling to define itself. Articles trying to define DH have become something of a genre—however, more often than not the conclusions boil down to “DH is undefinable” or even “DH must not be defined.” A question that is rarely addressed, though, is *why* DH is supposedly undefinable. In this paper we argue that this is not because it would be, for example, particularly difficult to come up with a definition or because unlike most other fields, DH would not benefit from delimiting its domain, but rather because the majority of researchers that self-identify as “DH scholars” are actively opposing a definition. This is due to the fact that they understand DH as “contemporary humanities,” i.e., humanities using contemporary tools, not a new discipline. While legitimate, this view is irreconcilable with the understanding of DH as the development and application of a new—computational—methodology in the humanities. We therefore come to the conclusion that there is ultimately no way around clearly delimiting these two opposing views; we propose to use the term “computational humanities” to refer to the latter field, and we present a concise definition.",
+    "publication_date": "2020-04-14",
+    "year": "2020",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/d2kb6",
+    "open_access_url": "https://osf.io/preprints/socarxiv/d2kb6",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "academic disciplines",
+      "computational humanities",
+      "definition",
+      "digital humanities",
+      "formal models",
+      "terminology"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-digital-humanities-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/d2kb6",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 3,
+    "disciplines": [
+      "digital humanities"
+    ],
+    "methods": [],
+    "quantitative_signals": [
+      "computational"
+    ],
+    "is_quantitative_humanities_candidate": true
   },
   {
     "source_name": "openalex",
@@ -13598,10 +14301,9 @@
       "cultural studies"
     ],
     "methods": [
-      "network"
+      "content analysis"
     ],
     "quantitative_signals": [
-      "network",
       "classification"
     ],
     "is_quantitative_humanities_candidate": true
@@ -13642,7 +14344,7 @@
     "duplicate_sources": [
       "doaj"
     ],
-    "relevance_score": 2,
+    "relevance_score": 1,
     "disciplines": [],
     "methods": [],
     "quantitative_signals": [],
@@ -13678,7 +14380,7 @@
     "duplicate_sources": [
       "doaj"
     ],
-    "relevance_score": 3,
+    "relevance_score": 2,
     "disciplines": [
       "digital humanities"
     ],
@@ -13729,13 +14431,9 @@
       "digital humanities",
       "anthropology"
     ],
-    "methods": [
-      "network"
-    ],
-    "quantitative_signals": [
-      "network"
-    ],
-    "is_quantitative_humanities_candidate": true
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
   },
   {
     "source_name": "doaj",
@@ -13934,6 +14632,44 @@
     "is_quantitative_humanities_candidate": false
   },
   {
+    "source_name": "osf-preprints",
+    "source_record_id": "975g2_v1",
+    "title": "Data Cultures, Culture as Data – Special Issue of Cultural Analytics",
+    "abstract": "Data have become pervasive in research in the humanities and the social sciences. New areas, objects, and situations for study have developed; and new methods for working with data are shepherded by new epistemologies and (potential) paradigm shifts. But data didn't just happen to us. We have happened to data. In every field, scholars are drawing boundaries between data and humans as if making meaning with data is innocent work. But these boundaries are never innocent. Questions are emerging about the relationships of culture to data—urgent questions that focus on the codification (or code-ification) of social and cultural bias and the erosion of human agency, subjectivity, and identity.",
+    "publication_date": "2019-05-01",
+    "year": "2019",
+    "doi": "10.22148/16.035",
+    "url": "https://doi.org/10.22148/16.035",
+    "open_access_url": "https://osf.io/preprints/socarxiv/975g2",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "cultural analytics",
+      "data cultures",
+      "digital humanities"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-cultural-analytics-001.json",
+    "work_id": "doi:10.22148/16.035",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 5,
+    "disciplines": [
+      "digital humanities"
+    ],
+    "methods": [
+      "cultural analytics"
+    ],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
     "source_name": "doaj",
     "source_record_id": "03f2d4e0cf2f474cb76454098dadeb5f",
     "title": "Opening up traditional cultural knowledge by means of European infrastructures: the examples of exploreAT! & EGI Engage",
@@ -13981,6 +14717,45 @@
       "corpus"
     ],
     "is_quantitative_humanities_candidate": true
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "vjzer_v1",
+    "title": "The POPC Citizen: Political Information in the Fourth Age of Political Communication",
+    "abstract": "The goal of this chapter is to describe how the POPC environment operates in tandem with personal characteristics to influence people’s exposure to and processing of political information. In describing the political consequences of the POPC phenomenon we take a social-psychological perspective and focus on the individual level (for a more sociological perspective see the chapter by Vromen, Loader, and Xenos, this volume). We sketch the psychological contours of the contemporary “POPC citizen” and outline recent developments in citizens’ use of mobile information and communication technologies (ICTs) for political information, which have consequences for their individual civic competencies as well as democracy at large.",
+    "publication_date": "2019-02-12",
+    "year": "2019",
+    "doi": "10.4324/9781315276472",
+    "url": "https://doi.org/10.4324/9781315276472",
+    "open_access_url": "https://osf.io/preprints/socarxiv/vjzer",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "communication",
+      "media ecology",
+      "mobile devices",
+      "news audiences",
+      "online news",
+      "political behavior",
+      "political information",
+      "social media"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-political-communication-001.json",
+    "work_id": "doi:10.4324/9781315276472",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 0,
+    "disciplines": [],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
   },
   {
     "source_name": "doaj",
@@ -14170,12 +14945,167 @@
       "linguistics"
     ],
     "methods": [
-      "network",
       "corpus"
     ],
     "quantitative_signals": [
-      "corpus",
-      "network"
+      "corpus"
+    ],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "j23ds_v1",
+    "title": "Mission statements of Latin-American firms: content analysis, readability, and their effect on financial performance",
+    "abstract": "Mission statements (MSs) are one of the most widespread managerial practices. However, a deeper understanding of the relationship between MS characteristics and a firm’s financial performance is needed. This study proposes a qualitative and quantitative analysis of MS characteristics (i.e., key words and readability) for Latin-American firms and their relationship to financial performance. MS content is evaluated using content analysis software, and the relationship between MS readability and financial performance is examined using regression analysis. The results of the content analysis suggest differences among industries and an international trend toward isomorphism regarding key terms. The results of the quantitative analysis revealed a positive relationship between MS readability and return on assets and return on equity. These results suggest a positive impact of the MS on a company’s long-term financial performance, highlighting the importance of having a readable MS.",
+    "publication_date": "2018-11-10",
+    "year": "2018",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/j23ds",
+    "open_access_url": "https://osf.io/preprints/socarxiv/j23ds",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "Content Analysis",
+      "Financial Performance",
+      "Latin America",
+      "Mission statements",
+      "Planning",
+      "Strategy"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/j23ds",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 0,
+    "disciplines": [],
+    "methods": [
+      "content analysis"
+    ],
+    "quantitative_signals": [
+      "regression",
+      "quantitative"
+    ],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "g7j4u_v1",
+    "title": "Fonts of Potential: Areas for Typographic Research in Political Communication",
+    "abstract": "As the prevalence of digital technologies has increased, so too has the prevalence of graphically designed content. In particular, typography has emerged as an increasingly important tool for visual communication. In recent years, political actors have seized upon the expressive potential of typography to communicate their messages, to support their campaign efforts, and to establish viable brand identities. However, researchers have been slow to address the new role typography plays in the processes of political communication. Therefore, this article both synthesizes and proposes key areas for research on typography in political communication. Drawing on extant literature across the fields of design, communication, and political science, this article identifies the ways in which typography contributes to the communicative and organizational aims of political actors, demonstrates these contributions with examples from recent political campaigns, and concludes by pointing toward unanswered questions for future studies to address.",
+    "publication_date": "2018-10-09",
+    "year": "2018",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/g7j4u",
+    "open_access_url": "https://osf.io/preprints/socarxiv/g7j4u",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "branding",
+      "campaigns",
+      "graphic design",
+      "political communication",
+      "typography"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-political-communication-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/g7j4u",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 1,
+    "disciplines": [
+      "literature",
+      "political science"
+    ],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "q38my_v1",
+    "title": "Cognitive Style, Selectivity, and Reinforcement: Toward Clarifying the Role of Political Ideology in the Reception of Political Communication",
+    "abstract": "This essay examines the importance of political ideology for the occurrence of political communication effects on the individual level. It is a common assumption in this research area that people tend to be selective about the political information they expose themselves to and also to selectively process it. Selective exposure and selective perception processes are mainly based on the dominant political orientation of the recipient, which usually leads to a reinforcement of preexisting political perceptions and attitudes. We review recent research on selective exposure and perceptions and argue for greater involvement of findings in social psychology regarding differences in cognitive styles that underlie individual policy orientations and justify why and how these findings can promote the study of partisan selectivity in the reception of political communication. We conclude by highlighting theoretical and methodological perspectives arising from the proposed extension of research on selectivity in the process of receiving political communication. [Publication of this chapter in the public domain courtesy of Frank &amp; Timme publishers. Publisher website: http://www.frank-timme.de/verlag/verlagsprogramm/buch/verlagsprogramm/kathrin-mokmichael-stahl-hg-politische-kommunikation-heute/]",
+    "publication_date": "2018-09-06",
+    "year": "2018",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/q38my",
+    "open_access_url": "https://osf.io/preprints/socarxiv/q38my",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "communication",
+      "motivated reasoning",
+      "political behavior",
+      "political communication",
+      "political psychology",
+      "selective exposure"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-political-communication-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/q38my",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 1,
+    "disciplines": [],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "b2y79_v1",
+    "title": "The Science of Culture? Social Computing, Digital Humanities and Cultural Analytics",
+    "abstract": "I developed the concept of cultural analytics in 2005 to refer to \"the analysis of massive cultural datasets and flows using computational and visualization techniques.\" In 2007 we established a research lab (Software Studies Initiative, softwarestudies.com) to start working on practical projects. The following are the examples of theoretical and practical questions that are driving our research: What does it mean to represent \"culture\" by \"data\"? What are the unique possibilities offered by computational analysis of large cultural data in contrast to qualitative methods used in humanities and social science? How can we use quantitative techniques to study the key cultural form of our era — interactive media? How can we combine computational analysis and visualization of large cultural data with qualitative methods, including \"close reading\"? (In other words, how does one combine analysis of larger patterns with the analysis of individual artifacts and their details?) How can computational analysis do justice to variability and diversity of cultural artifacts and processes, rather than focusing on the \"typical\" and \"most popular\"? Eight years later, the work of our lab has become only a tiny portion of a very large body of research. Thousands of researchers have already published tens of thousands of papers analyzing patterns in massive cultural datasets. First, there are data describing the activity on the most popular social networks (Flickr, Instagram, YouTube, Twitter, etc.), user-created content shared on these networks (tweets, images, video, etc.), and also users' interactions with this content (likes, favorites, reports, comments). Second, researchers have also started to analyze particular professional cultural areas and historical periods, such as website design, fashion photography, twentieth-century popular music, nineteenth-century literature, etc. This work is carried out in two newly developed fields — social computing and digital humanities.",
+    "publication_date": "2018-08-23",
+    "year": "2018",
+    "doi": "10.22148/16.004",
+    "url": "https://doi.org/10.22148/16.004",
+    "open_access_url": "https://osf.io/preprints/socarxiv/b2y79",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-cultural-analytics-001.json",
+    "work_id": "doi:10.22148/16.004",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 7,
+    "disciplines": [
+      "literature",
+      "digital humanities"
+    ],
+    "methods": [
+      "close reading",
+      "cultural analytics"
+    ],
+    "quantitative_signals": [
+      "computational",
+      "quantitative"
     ],
     "is_quantitative_humanities_candidate": true
   },
@@ -14265,6 +15195,42 @@
     "is_quantitative_humanities_candidate": true
   },
   {
+    "source_name": "osf-preprints",
+    "source_record_id": "58u4c_v1",
+    "title": "Election campaigning on social media: Politicians, audiences and the mediation of political communication on Facebook and Twitter",
+    "abstract": "Although considerable research has concentrated on online campaigning, it is still unclear how politicians use different social media platforms in political communication. Focusing on the German federal election campaign 2013, this article investigates whether election candidates address the topics most important to the mass audience and to which extent their communication is shaped by the characteristics of Facebook and Twitter. Based on open-ended responses from a representative survey conducted during the election campaign, we train a human-interpretable Bayesian language model to identify political topics. Applying the model to social media messages of candidates and their direct audiences, we find that both prioritize different topics than the mass audience. The analysis also shows that politicians use Facebook and Twitter for different purposes. We relate the various findings to the mediation of political communication on social media induced by the particular characteristics of audiences and sociotechnical environments.",
+    "publication_date": "2018-01-26",
+    "year": "2018",
+    "doi": "10.1080/10584609.2017.1334728",
+    "url": "https://doi.org/10.1080/10584609.2017.1334728",
+    "open_access_url": "https://osf.io/preprints/socarxiv/58u4c",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "cross-media analysis",
+      "language models",
+      "online campaigning",
+      "social media",
+      "text analysis"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-political-communication-001.json",
+    "work_id": "doi:10.1080/10584609.2017.1334728",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 0,
+    "disciplines": [],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
     "source_name": "doaj",
     "source_record_id": "00ab7abea8b74c53931f2e1743aec0bf",
     "title": "Mapping Affinities in Academic Organizations",
@@ -14300,11 +15266,10 @@
     "duplicate_sources": [
       "doaj"
     ],
-    "relevance_score": 1,
+    "relevance_score": 0,
     "disciplines": [],
     "methods": [
-      "network",
-      "bibliometric"
+      "network"
     ],
     "quantitative_signals": [
       "network"
@@ -14533,6 +15498,88 @@
     "is_quantitative_humanities_candidate": false
   },
   {
+    "source_name": "osf-preprints",
+    "source_record_id": "xawyf_v1",
+    "title": "A Framework for Critical-Empiricist Research in Political Communication",
+    "abstract": "Empirical research on political communication can play an important role in informing debates about the democratic value of various political communication processes. However, the degree to which political communication researchers can live up to this task depends on how systematically they relate their empirical investigations to concerns formulated in normative conceptions of democracy. In this paper, I present a framework for the empirical normative analysis of political communication. Based on the two core research procedures of normative assessment and empirical validation, it provides a model of the relations between normative and empirical research and a template for the empirical study of normatively relevant aspects of political communication. The paper systematizes the relations between normative theory and empirical reality, and discusses the two core procedures for empirical researchers to productively bridge the two. The framework is supposed to foster systematic exchanges between empirical studies of political communication and normative democratic theory and clarify the contribution of empirical studies to democratic theory, practice, and reform. It also implicates additional justification for greater use of controlled experimental research and cross-context comparative studies.",
+    "publication_date": "2017-06-08",
+    "year": "2017",
+    "doi": "",
+    "url": "https://osf.io/preprints/socarxiv/xawyf",
+    "open_access_url": "https://osf.io/preprints/socarxiv/xawyf",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "communication",
+      "democracy",
+      "democratic theory",
+      "empirical validation",
+      "normative analysis",
+      "normative assessment",
+      "normative theory",
+      "political communication",
+      "public sphere",
+      "research design"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-political-communication-001.json",
+    "work_id": "url:https://osf.io/preprints/socarxiv/xawyf",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 0,
+    "disciplines": [],
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
+  },
+  {
+    "source_name": "osf-preprints",
+    "source_record_id": "udfa6_v1",
+    "title": "Content Analysis of the Pedagogical Content Knowledge in the Curriculum of Yemeni EFL Teacher Education Programme",
+    "abstract": "This study aims to analyse the pedagogical content knowledge (PCK) in the current curriculum of the English teacher education programme (ETEP) at a Faculty of Education in a Yemeni University. PCK and teaching competencies take shape within the initial preparation of ETEP in which student teachers spenda long time receiving knowledge and understanding the teaching context before they practically experience teaching at schools. During their BA study, students are required to study 49 courses which can be categorised into four main components: skills, linguistics, literature and professional. This study analyses the content of the curriculum courses so as tovisualise the way student teachers translate what they have learned into pedagogical practices during their teaching practices. In this study, the curriculum content of ETEP is qualitatively analysed using the inductive approach. Categories emerged from the analysis demonstrate various aspects of student teachers’ PCK. The analysis reveals that the pedagogical skills courses are not enough to enhance and strengthen the student teachers’ PCK needed to be reflected in their teaching practices. The findings show that the curriculum lacks courses necessary to provide student teachers with basic knowledge and pedagogical principles which are of vital significance to demonstrate their understanding before they are practically engaged in the teaching experience.",
+    "publication_date": "2017-04-06",
+    "year": "2017",
+    "doi": "10.24093/awej/vol8no1.19",
+    "url": "https://doi.org/10.24093/awej/vol8no1.19",
+    "open_access_url": "https://osf.io/preprints/socarxiv/udfa6",
+    "venue_name": "SocArXiv",
+    "publisher": "Center for Open Science",
+    "work_type": "preprint",
+    "authors": [],
+    "institutions": [],
+    "concepts": [
+      "curriculum",
+      "EFL teacher education programme",
+      "pedagogical content knowledge",
+      "teaching practice",
+      "Yemen"
+    ],
+    "references": [],
+    "cited_by_count": 0,
+    "license": "",
+    "raw_path": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json",
+    "work_id": "doi:10.24093/awej/vol8no1.19",
+    "duplicate_sources": [
+      "osf-preprints"
+    ],
+    "relevance_score": 1,
+    "disciplines": [
+      "literature",
+      "linguistics"
+    ],
+    "methods": [
+      "content analysis"
+    ],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": true
+  },
+  {
     "source_name": "doaj",
     "source_record_id": "013040e3ce824fdda1750cdcd228dd7c",
     "title": "Archaeological Map of the Czech Republic. Current state and future visions of virtual research tools in the Czech Republic",
@@ -14574,14 +15621,9 @@
     "disciplines": [
       "digital humanities"
     ],
-    "methods": [
-      "network",
-      "gis"
-    ],
-    "quantitative_signals": [
-      "network"
-    ],
-    "is_quantitative_humanities_candidate": true
+    "methods": [],
+    "quantitative_signals": [],
+    "is_quantitative_humanities_candidate": false
   },
   {
     "source_name": "doaj",
@@ -14621,11 +15663,9 @@
     "disciplines": [
       "digital humanities"
     ],
-    "methods": [
-      "gis"
-    ],
+    "methods": [],
     "quantitative_signals": [],
-    "is_quantitative_humanities_candidate": true
+    "is_quantitative_humanities_candidate": false
   },
   {
     "source_name": "doaj",
@@ -14783,7 +15823,7 @@
     "duplicate_sources": [
       "doaj"
     ],
-    "relevance_score": 4,
+    "relevance_score": 3,
     "disciplines": [
       "literature",
       "history"
@@ -14824,7 +15864,7 @@
     "duplicate_sources": [
       "doaj"
     ],
-    "relevance_score": 5,
+    "relevance_score": 4,
     "disciplines": [
       "history",
       "digital humanities"

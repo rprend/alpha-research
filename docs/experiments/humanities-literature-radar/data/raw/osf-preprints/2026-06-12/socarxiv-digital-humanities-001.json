@@ -1,0 +1,980 @@
+{
+  "data": [
+    {
+      "id": "yb3m9_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2025-09-09T07:26:51.156839",
+        "date_modified": "2025-09-11T08:15:06.146441",
+        "date_published": "2025-09-11T08:14:41.431518",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "Opening Ottoman Miniature Collections through Computational Access: Methodological Lessons for Digital Humanities",
+        "description": "Ottoman miniature collections represent a layered cultural heritage that combines artistic, historical, social, and intellectual dimensions. Yet, access to their content is often limited by catalogue records that provide only minimal descriptive information. This discussion paper explores how computational access can expand the study and reuse of such collections by presenting a dataset of 435 Ottoman miniatures, enriched with detailed bibliographic metadata and expert-assigned thematic tags. An original multi-level classification scheme was developed. Tagging was carried out through a custom web interface, preparing the dataset for analysis through thematic network analysis, supervised learning, and unsupervised learning.\nThematic co-occurrence analysis revealed clusters such as political figures, religious motifs, and urban settings, demonstrating the interpretive value of tagging beyond traditional cataloguing. Supervised learning with MobileNetV2 achieved 63% training accuracy and 49% validation accuracy, showing the model’s capacity to identify dominant themes while also exposing the limits of small and imbalanced datasets. Unsupervised clustering produced visually coherent groups, but low Silhouette scores and high Davies-Bouldin indices confirmed that thematic boundaries were not strongly separable through visual features alone.\nThe findings highlight the need to combine computational methods with expert knowledge. While supervised approaches support targeted classification and unsupervised approaches enable exploratory insights, both benefit from integration with rich metadata. This study demonstrates how Ottoman miniatures can serve as a model for applying machine learning and network analysis to cultural heritage collections, offering transferable lessons for digital humanities research.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [],
+          "year": null
+        },
+        "tags": [],
+        "preprint_doi_created": "2025-09-11T08:15:06.120108",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2025-09-11T08:14:41.431518",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": null,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "available",
+        "why_no_data": null,
+        "data_links": [
+          "https://doi.org/10.6084/m9.figshare.29979262.v1"
+        ],
+        "has_prereg_links": "not_applicable",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d96",
+              "text": "Other Social and Behavioral Sciences"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76dd4",
+              "text": "Library and Information Science"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/yb3m9_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/yb3m9_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/yb3m9_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/yb3m9_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "yb3m9_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/yb3m9_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/yb3m9_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/60bf992258510b0009a5a9a6/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "60bf992258510b0009a5a9a6",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/yb3m9_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/68bfd6c88b3ae3a0ef5d8222/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "68bfd6c88b3ae3a0ef5d8222",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/yb3m9_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/yb3m9_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/yb3m9_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/yb3m9_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/yb3m9_v1/",
+        "html": "https://osf.io/preprints/socarxiv/yb3m9_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/yb3m9_v1",
+        "iri": "https://osf.io/yb3m9"
+      }
+    },
+    {
+      "id": "k3zfm_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2023-08-06T01:36:38.102955",
+        "date_modified": "2023-08-09T05:02:42.791945",
+        "date_published": "2023-08-08T10:15:45.280905",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "Explicit or Implicit Digital Humanities? An Examination of Search Strategies to Retrieve Digital Humanities Publications from Large-Scale Scholarly Databases",
+        "description": "As a growing research field, digital humanities (DH) is receiving increasing attention from quantitative science studies using standardized scholarly databases. However, one of the challenges of this new line of research is how to select the query strategy to produce a representative sample of the field.  In this research, we analyzed the differences between two publication samples acquired from the Dimensions database using two sampling approaches, namely, the keyword search and a DH journal list. These two samples, we argue, offer two distinct ways to understand the conceptual landscape of digital humanities, i.e., the implicit DH and explicit DH, and contribute to building a more comprehensive representation of the digital humanities research domain. We identified notable differences between the publication samples from these two query strategies, especially the fact that these two samples have a very small overlap of publications, and they also have different disciplinary orientations. Our findings indicate that future quantitative studies analyzing DH publications should use more inclusive methods to cover both the implicit and explicit types of DH contributions. Moreover, we also discussed how our findings contribute to a deeper understanding of the disciplinary composition of DH, an interdisciplinary research field.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            ""
+          ],
+          "year": "2023"
+        },
+        "tags": [
+          "digital humanities",
+          "interdisciplinarity",
+          "scholarly database"
+        ],
+        "preprint_doi_created": "2023-08-09T05:02:42.777870",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2023-08-08T10:15:45.280905",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "no",
+        "why_no_data": "We are using a standardized scholarly database and the query method is clearly described in the publication.",
+        "data_links": [],
+        "has_prereg_links": "no",
+        "why_no_prereg": "No preregistration is needed for this research.",
+        "prereg_links": [],
+        "prereg_link_info": "",
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d96",
+              "text": "Other Social and Behavioral Sciences"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/k3zfm_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/k3zfm_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/k3zfm_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/k3zfm_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "k3zfm_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/k3zfm_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/k3zfm_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/60bf983b58510b0009a5a9a4/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "60bf983b58510b0009a5a9a4",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/k3zfm_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/64cef92cc7ab293447d4e0c1/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "64cef92cc7ab293447d4e0c1",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/k3zfm_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/k3zfm_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/k3zfm_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/k3zfm_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/k3zfm_v1/",
+        "html": "https://osf.io/preprints/socarxiv/k3zfm_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/k3zfm",
+        "iri": "https://osf.io/k3zfm"
+      }
+    },
+    {
+      "id": "kzgcy_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2023-04-16T12:07:31.315098",
+        "date_modified": "2023-04-21T05:04:41.700216",
+        "date_published": "2023-04-20T08:51:40.784878",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "What Big Data Sounds Like, The Hermeneutic Significance of the Arts for  Big Data in Digital Humanities",
+        "description": "In recent scholarly past much attention has been called to the reductive nature of big data analysis regimes and to questions of the perceived but misleading neutral nature of large scale data and algorithms. This paper investigates a particular case of such issues and the frictional process of interfacing big data (analysis) and the hermeneutically geared humanities. We examine in particular the affordances produced by the re-introduction of the artist in a scientific environment.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            ""
+          ],
+          "year": "2023"
+        },
+        "tags": [
+          "Archives",
+          "Big Data",
+          "Digital Humanitie",
+          "Hermeneutics",
+          "Humanities",
+          "Meertens Institute",
+          "Sounds"
+        ],
+        "preprint_doi_created": "2023-04-21T05:04:41.684050",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2023-04-20T08:51:40.784878",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "not_applicable",
+        "why_no_data": null,
+        "data_links": [],
+        "has_prereg_links": "no",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": "",
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d96",
+              "text": "Other Social and Behavioral Sciences"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/kzgcy_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/kzgcy_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/kzgcy_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/kzgcy_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "kzgcy_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/kzgcy_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/kzgcy_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/60bf99e058510b0009a5a9a9/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "60bf99e058510b0009a5a9a9",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/kzgcy_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/643be5076a8c0f26f5511f4a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "643be5076a8c0f26f5511f4a",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/kzgcy_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/kzgcy_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/kzgcy_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/kzgcy_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/kzgcy_v1/",
+        "html": "https://osf.io/preprints/socarxiv/kzgcy_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/kzgcy",
+        "iri": "https://osf.io/kzgcy"
+      }
+    },
+    {
+      "id": "d2kb6_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2020-04-14T20:03:16.502278",
+        "date_modified": "2020-06-11T10:13:28.603564",
+        "date_published": "2020-04-14T20:17:14.089787",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "Ain’t No Way Around It: Why We Need to Be Clear About What We Mean by “Digital Humanities”",
+        "description": "Digital humanities (DH) has gained the dubious reputation of struggling to define itself.  Articles trying to define DH have become something of a genre—however, more often than not the conclusions boil down to “DH is undefinable” or even “DH must not be defined.”  A question that is rarely addressed, though, is *why* DH is supposedly undefinable.  In this paper we argue that this is not because it would be, for example, particularly difficult to come up with a definition or because unlike most other fields, DH would not benefit from delimiting its domain, but rather because the majority of researchers that self-identify as “DH scholars” are actively opposing a definition.  This is due to the fact that they understand DH as “contemporary humanities,” i.e., humanities using contemporary tools, not a new discipline.  While legitimate, this view is irreconcilable with the understanding of DH as the development and application of a new—computational—methodology in the humanities.  We therefore come to the conclusion that there is ultimately no way around clearly delimiting these two opposing views; we propose to use the term “computational humanities” to refer to the latter field, and we present a concise definition.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            ""
+          ],
+          "year": "2020"
+        },
+        "tags": [
+          "academic disciplines",
+          "computational humanities",
+          "definition",
+          "digital humanities",
+          "formal models",
+          "terminology"
+        ],
+        "preprint_doi_created": "2020-04-15T05:02:30.137223",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2020-04-14T20:17:14.089787",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "not_applicable",
+        "why_no_data": null,
+        "data_links": [],
+        "has_prereg_links": null,
+        "why_no_prereg": null,
+        "prereg_links": null,
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d96",
+              "text": "Other Social and Behavioral Sciences"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/d2kb6_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/d2kb6_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/d2kb6_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/d2kb6_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "d2kb6_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/d2kb6_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/d2kb6_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/d2kb6_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/5e961713f13535044fd5354c/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "5e961713f13535044fd5354c",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/d2kb6_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/d2kb6_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/d2kb6_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/d2kb6_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/d2kb6_v1/",
+        "html": "https://osf.io/preprints/socarxiv/d2kb6_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/d2kb6",
+        "iri": "https://osf.io/d2kb6"
+      }
+    },
+    {
+      "id": "b2y79_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2018-08-22T22:36:26.259049",
+        "date_modified": "2018-08-23T20:56:01.217125",
+        "date_published": "2018-08-23T20:55:39.065387",
+        "original_publication_date": "2016-05-23T04:00:00",
+        "custom_publication_citation": null,
+        "doi": "10.22148/16.004",
+        "title": "The Science of Culture? Social Computing, Digital Humanities and Cultural Analytics",
+        "description": "I developed the concept of cultural analytics in 2005 to refer to \"the analysis of massive cultural datasets and flows using computational and visualization techniques.\" In 2007 we established a research lab (Software Studies Initiative, softwarestudies.com) to start working on practical projects. The following are the examples of theoretical and practical questions that are driving our research:\n\nWhat does it mean to represent \"culture\" by \"data\"? What are the unique possibilities offered by computational analysis of large cultural data in contrast to qualitative methods used in humanities and social science? How can we use quantitative techniques to study the key cultural form of our era — interactive media? How can we combine computational analysis and visualization of large cultural data with qualitative methods, including \"close reading\"? (In other words, how does one combine analysis of larger patterns with the analysis of individual artifacts and their details?)  How can computational analysis do justice to variability and diversity of cultural artifacts and processes, rather than focusing on the \"typical\" and \"most popular\"?\n\nEight years later, the work of our lab has become only a tiny portion of a very large body of research. Thousands of researchers have already published tens of thousands of papers analyzing patterns in massive cultural datasets. First, there are data describing the activity on the most popular social networks (Flickr, Instagram, YouTube, Twitter, etc.), user-created content shared on these networks (tweets, images, video, etc.), and also users' interactions with this content (likes, favorites, reports, comments). Second, researchers have also started to analyze particular professional cultural areas and historical periods, such as website design, fashion photography, twentieth-century popular music, nineteenth-century literature, etc. This work is carried out in two newly developed fields — social computing and digital humanities.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            ""
+          ],
+          "year": "2018"
+        },
+        "tags": [],
+        "preprint_doi_created": "2018-08-23T20:56:01.205595",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2018-08-23T20:55:39.065387",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": null,
+        "conflict_of_interest_statement": null,
+        "has_data_links": null,
+        "why_no_data": null,
+        "data_links": null,
+        "has_prereg_links": null,
+        "why_no_prereg": null,
+        "prereg_links": null,
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d96",
+              "text": "Other Social and Behavioral Sciences"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/b2y79_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/b2y79_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/b2y79_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/b2y79_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "b2y79_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/b2y79_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/nodes/94wqp/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/b2y79_v1/relationships/node/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "94wqp",
+            "type": "nodes"
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/b2y79_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/5b7de5698c6d9f001bae1638/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "5b7de5698c6d9f001bae1638",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/b2y79_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/b2y79_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/b2y79_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/b2y79_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/b2y79_v1/",
+        "html": "https://osf.io/preprints/socarxiv/b2y79_v1/",
+        "doi": "https://doi.org/10.22148/16.004",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/b2y79",
+        "iri": "https://osf.io/b2y79"
+      }
+    }
+  ],
+  "links": {
+    "first": null,
+    "last": null,
+    "prev": null,
+    "next": null,
+    "meta": {
+      "total": 5,
+      "per_page": 50
+    }
+  },
+  "meta": {
+    "version": "2.0"
+  }
+}

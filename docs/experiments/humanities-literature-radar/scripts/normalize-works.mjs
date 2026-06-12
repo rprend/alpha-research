@@ -6,6 +6,7 @@ import {
   decodeXml,
   ensureDir,
   experimentDir,
+  hasTerm,
   listFiles,
   normalizeWhitespace,
   readJson,
@@ -39,6 +40,9 @@ for (const file of rawFiles) {
   } else if (rel.includes("data/raw/doaj/") && file.endsWith(".json")) {
     const json = await readJson(file);
     for (const item of json.results ?? []) works.push(fromDoaj(item, rel));
+  } else if (rel.includes("data/raw/osf-preprints/") && file.endsWith(".json")) {
+    const json = await readJson(file);
+    for (const item of json.data ?? []) works.push(fromOsfPreprint(item, rel));
   } else if (rel.includes("data/raw/arxiv/") && file.endsWith(".xml")) {
     const xml = await fs.readFile(file, "utf8");
     for (const item of fromArxiv(xml, rel)) works.push(item);
@@ -198,6 +202,33 @@ function fromDoaj(item, rawPath) {
     references: [],
     cited_by_count: 0,
     license: bib.license?.[0]?.type ?? "",
+    raw_path: rawPath,
+  };
+}
+
+function fromOsfPreprint(item, rawPath) {
+  const attrs = item.attributes ?? {};
+  const date = attrs.date_published ?? attrs.original_publication_date ?? attrs.date_created ?? "";
+  const provider = item.relationships?.provider?.links?.related?.href?.split("/").filter(Boolean).at(-1) ?? "osf";
+  return {
+    source_name: "osf-preprints",
+    source_record_id: item.id,
+    title: normalizeWhitespace(attrs.title),
+    abstract: normalizeWhitespace(attrs.description),
+    publication_date: String(date).slice(0, 10),
+    year: String(date).slice(0, 4),
+    doi: attrs.doi ?? "",
+    url: attrs.preprint_doi_created && attrs.doi ? `https://doi.org/${attrs.doi}` : `https://osf.io/preprints/${provider}/${String(item.id).split("_")[0]}`,
+    open_access_url: `https://osf.io/preprints/${provider}/${String(item.id).split("_")[0]}`,
+    venue_name: provider === "socarxiv" ? "SocArXiv" : "OSF Preprints",
+    publisher: "Center for Open Science",
+    work_type: "preprint",
+    authors: [],
+    institutions: [],
+    concepts: (attrs.tags ?? []).map((tag) => String(tag)),
+    references: [],
+    cited_by_count: 0,
+    license: attrs.license_record?.name ?? "",
     raw_path: rawPath,
   };
 }
@@ -404,6 +435,6 @@ function relevanceScore(work) {
     "llm",
     "topic model",
   ];
-  return humanitiesTerms.filter((term) => haystack.includes(term)).length +
-    methodTerms.filter((term) => haystack.includes(term)).length;
+  return humanitiesTerms.filter((term) => hasTerm(haystack, term)).length +
+    methodTerms.filter((term) => hasTerm(haystack, term)).length;
 }

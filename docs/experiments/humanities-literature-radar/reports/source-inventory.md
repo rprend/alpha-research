@@ -8,3 +8,4 @@
 | doaj | 2026-06-12 | 80 | 2 | 0 | `data/raw/doaj/2026-06-12/manifest.json` |
 | nber | 2026-06-12 | 0 | 3 | 0 | `data/raw/nber/2026-06-12/manifest.json` |
 | openalex | 2026-06-12 | 80 | 1 | 0 | `data/raw/openalex/2026-06-12/manifest.json` |
+| osf-preprints | 2026-06-12 | 38 | 6 | 0 | `data/raw/osf-preprints/2026-06-12/manifest.json` |

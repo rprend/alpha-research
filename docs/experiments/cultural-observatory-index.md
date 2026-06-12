@@ -16,6 +16,7 @@ Implemented:
 - OpenAlex fetcher
 - Crossref fetcher
 - DOAJ fetcher
+- OSF Preprints / SocArXiv fetcher
 - arXiv fetcher
 - NBER search-page fetcher
 - department-page fetcher
@@ -32,17 +33,17 @@ Implemented:
 
 Current committed corpus:
 
-- 226 deduped works
-- 111 works dated 2024-present
-- 92 quantitative/computational humanities candidates
-- sources represented in processed records: arXiv, Crossref, OpenAlex, DOAJ
+- 255 deduped works
+- 118 works dated 2024-present
+- 96 quantitative/computational humanities candidates
+- sources represented in processed records: arXiv, Crossref, OpenAlex, DOAJ, OSF Preprints / SocArXiv
 
 Next implementation moves:
 
 - replace bounded DOAJ search with public dump or OAI-PMH harvest
 - improve NBER extraction or switch to an official metadata route if available
-- add SocArXiv / OSF metadata
 - add Humanities Commons metadata
+- expand OSF/SocArXiv beyond bounded title search
 - run a broader 2020-present backfill
 - manually audit representative works
 

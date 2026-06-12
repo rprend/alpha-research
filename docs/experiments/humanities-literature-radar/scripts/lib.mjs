@@ -62,9 +62,12 @@ export const taxonomy = {
     "gis",
     "spatial",
     "large language model",
+    "large language models",
     "llm",
+    "llms",
     "bibliometric",
     "corpus",
+    "content analysis",
   ],
   quantitativeSignals: [
     "dataset",
@@ -79,7 +82,9 @@ export const taxonomy = {
     "spatial",
     "metadata",
     "large language model",
+    "large language models",
     "llm",
+    "llms",
     "computational",
     "quantitative",
   ],
@@ -179,9 +184,9 @@ export function decodeXml(value) {
 export function classifyWork(work) {
   const haystack = `${work.title ?? ""} ${work.abstract ?? ""} ${(work.concepts ?? []).join(" ")}`.toLowerCase();
   const labels = {
-    disciplines: taxonomy.disciplines.filter((label) => haystack.includes(label)),
-    methods: taxonomy.methods.filter((label) => haystack.includes(label)),
-    quantitativeSignals: taxonomy.quantitativeSignals.filter((label) => haystack.includes(label)),
+    disciplines: taxonomy.disciplines.filter((label) => hasTerm(haystack, label)),
+    methods: taxonomy.methods.filter((label) => hasTerm(haystack, label)),
+    quantitativeSignals: taxonomy.quantitativeSignals.filter((label) => hasTerm(haystack, label)),
   };
   if (haystack.includes("distant reading")) labels.methods.push("distant reading");
   if (haystack.includes("digital humanities")) labels.disciplines.push("digital humanities");
@@ -189,6 +194,11 @@ export function classifyWork(work) {
   labels.methods = [...new Set(labels.methods)];
   labels.quantitativeSignals = [...new Set(labels.quantitativeSignals)];
   return labels;
+}
+
+export function hasTerm(haystack, term) {
+  const escaped = String(term).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`(^|[^a-z0-9])${escaped}([^a-z0-9]|$)`, "i").test(haystack);
 }
 
 export function stableWorkId(work) {

@@ -1,0 +1,59 @@
+{
+  "source": "osf-preprints",
+  "runDate": "2026-06-12",
+  "startedAt": "2026-06-12T17:40:11.892Z",
+  "finishedAt": "2026-06-12T17:40:17.106Z",
+  "recordCount": 38,
+  "requestCount": 6,
+  "requests": [
+    {
+      "provider": "socarxiv",
+      "query": "digital humanities",
+      "page": 1,
+      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=digital+humanities&page%5Bsize%5D=50",
+      "status": 200,
+      "responsePath": "data/raw/osf-preprints/2026-06-12/socarxiv-digital-humanities-001.json"
+    },
+    {
+      "provider": "socarxiv",
+      "query": "cultural analytics",
+      "page": 1,
+      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=cultural+analytics&page%5Bsize%5D=50",
+      "status": 200,
+      "responsePath": "data/raw/osf-preprints/2026-06-12/socarxiv-cultural-analytics-001.json"
+    },
+    {
+      "provider": "socarxiv",
+      "query": "reception history",
+      "page": 1,
+      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=reception+history&page%5Bsize%5D=50",
+      "status": 200,
+      "responsePath": "data/raw/osf-preprints/2026-06-12/socarxiv-reception-history-001.json"
+    },
+    {
+      "provider": "socarxiv",
+      "query": "translation studies",
+      "page": 1,
+      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=translation+studies&page%5Bsize%5D=50",
+      "status": 200,
+      "responsePath": "data/raw/osf-preprints/2026-06-12/socarxiv-translation-studies-001.json"
+    },
+    {
+      "provider": "socarxiv",
+      "query": "political communication",
+      "page": 1,
+      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=political+communication&page%5Bsize%5D=50",
+      "status": 200,
+      "responsePath": "data/raw/osf-preprints/2026-06-12/socarxiv-political-communication-001.json"
+    },
+    {
+      "provider": "socarxiv",
+      "query": "content analysis",
+      "page": 1,
+      "url": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=socarxiv&filter%5Btitle%5D=content+analysis&page%5Bsize%5D=50",
+      "status": 200,
+      "responsePath": "data/raw/osf-preprints/2026-06-12/socarxiv-content-analysis-001.json"
+    }
+  ],
+  "errors": []
+}

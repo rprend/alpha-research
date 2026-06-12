@@ -20,6 +20,13 @@ sources:
     base_url: https://export.arxiv.org/api/query
     raw_path: data/raw/arxiv/YYYY-MM-DD/
     notes: Computational humanities, NLP-for-humanities, authorship, archive, and cultural analytics methods.
+  - id: osf-preprints
+    name: OSF Preprints / SocArXiv
+    role: supplemental
+    access_method: api
+    base_url: https://api.osf.io/v2/preprints/
+    raw_path: data/raw/osf-preprints/YYYY-MM-DD/
+    notes: Recent preprints from SocArXiv and related OSF providers for humanities-adjacent social science, cultural sociology, political communication, and methods work.
   - id: nber
     name: NBER
     role: supplemental

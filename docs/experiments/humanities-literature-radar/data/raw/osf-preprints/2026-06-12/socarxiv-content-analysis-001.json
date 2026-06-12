@@ -1,0 +1,4107 @@
+{
+  "data": [
+    {
+      "id": "tzrhn_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2026-06-12T08:53:48.323212",
+        "date_modified": "2026-06-12T09:08:49.516243",
+        "date_published": "2026-06-12T09:08:49.491162",
+        "original_publication_date": "2026-06-09T22:00:00",
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "Gaging LLMs’ strengths and weaknesses in political content analysis",
+        "description": "Recent innovation and growth in the capabilities of generative artificial intelligence have opened options for the scholarship of political communication. While large language models (LLMs) have much to offer to improve content analysis workflows in political communication, there is as of yet no consensus regarding which options deliver the best results to the field and scale best computationally. This paper investigates the performance of five distinct classification models across three content analysis tasks of varying complexity: identifying political content, classifying political issues, and detecting stance towards climate policies and movements in news articles. Our automated coding is validated by 36,320 individual human coding decisions. We show that (political) task complexity is a crucial determinant for model selection. While simpler, efficient models perform well on lower to moderate complexity tasks, both proprietary and commercial LLMs exhibit superior performance on the nuanced stance detection task when appropriately instructed. These findings underscore the need to balance performance gains with computational costs and CO2 emissions, advocating for a “frugality approach” to automated coding.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [],
+          "year": null
+        },
+        "tags": [
+          "automated content analysis",
+          "computational methods",
+          "computational sustainability",
+          "content analyis",
+          "llms",
+          "political communication",
+          "stance detection"
+        ],
+        "preprint_doi_created": null,
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2026-06-12T09:08:49.491162",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "not_applicable",
+        "why_no_data": null,
+        "data_links": [],
+        "has_prereg_links": "not_applicable",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76daf",
+              "text": "Political Science"
+            },
+            {
+              "id": "5a8c80f8c698300375c76db1",
+              "text": "Models and Methods"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e11",
+              "text": "Journalism Studies"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e18",
+              "text": "Social Media"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e1d",
+              "text": "Social Influence and Political Communication"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/tzrhn_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/tzrhn_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/tzrhn_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/tzrhn_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "tzrhn_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/tzrhn_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/nodes/ac4pv/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/tzrhn_v1/relationships/node/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "ac4pv",
+            "type": "nodes"
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/tzrhn_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/6a2bc9debb263e177e30a355/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "6a2bc9debb263e177e30a355",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/tzrhn_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/tzrhn_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/tzrhn_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/tzrhn_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/tzrhn_v1/",
+        "html": "https://osf.io/preprints/socarxiv/tzrhn_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/tzrhn_v1",
+        "iri": "https://osf.io/tzrhn"
+      }
+    },
+    {
+      "id": "g6jv8_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2026-04-11T02:40:14.913332",
+        "date_modified": "2026-04-11T14:15:48.694732",
+        "date_published": "2026-04-11T14:15:48.661219",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "The portrayal of libraries as remote workplaces in the general media: A qualitative content analysis",
+        "description": "A sample of 52 sources were analyzed to investigate how libraries are portrayed in the general media as spaces for remote workers. Features highlighted as advantageous included meeting rooms, booths, quiet zones, and on-site cafes; Wi-Fi, computers, reprographic services, and suitable desks; the quiet, yet social, comfortable, safe and aesthetically pleasing environment; and libraries’ free access and convenient locations. Disadvantages included crowding and noise levels, insecure belongings, inadequate resources, and limited opening hours. The wide range of positive features suggests that remote workers’ needs are varied and complex, as are the ways in which libraries can meet these needs.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [],
+          "year": null
+        },
+        "tags": [
+          "library spaces",
+          "media coverage",
+          "remote workers",
+          "teleworkers"
+        ],
+        "preprint_doi_created": null,
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2026-04-11T14:15:48.661219",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "no",
+        "why_no_data": "We will make the data openly available once the paper is published",
+        "data_links": [],
+        "has_prereg_links": "not_applicable",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76dd4",
+              "text": "Library and Information Science"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/g6jv8_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/g6jv8_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/g6jv8_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/g6jv8_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "g6jv8_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/g6jv8_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/g6jv8_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/g6jv8_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/69d9b4d15d34b44fcce74734/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "69d9b4d15d34b44fcce74734",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/g6jv8_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/g6jv8_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/g6jv8_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/g6jv8_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/g6jv8_v1/",
+        "html": "https://osf.io/preprints/socarxiv/g6jv8_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/g6jv8_v1",
+        "iri": "https://osf.io/g6jv8"
+      }
+    },
+    {
+      "id": "bhjuz_v2",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2026-04-08T07:37:22.169399",
+        "date_modified": "2026-04-08T09:05:22.457623",
+        "date_published": "2026-04-08T09:05:22.381886",
+        "original_publication_date": "2026-03-25T22:00:00",
+        "custom_publication_citation": null,
+        "doi": "10.1093/scipol/scag021",
+        "title": "Structured content analysis of open access book policies: European university and research funder approaches",
+        "description": "Despite playing a crucial role in making research publications freely accessible for more than two decades, academic research on open access (OA) policies remains limited. Drawing on both a review of existing research and an analysis of 66 recent OA book policies, this study introduces a novel methodological framework for structured policy analysis and maps the current OA book policy landscape in Europe. Our results reveal substantial heterogeneity in the policy environment, with substantial variation both in the presence of policy elements and in their operationalization across policies. This diverse policy environment creates implementation challenges at multiple levels, from researchers managing different requirements to institutions developing support strategies, and publishers adapting their services to meet varied policy demands. Given that OA policies significantly impact research practices at individual, institutional, and national levels, yet systematic evidence remains scarce, our findings emphasize the need for increased research and monitoring in this domain.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [],
+          "year": null
+        },
+        "tags": [
+          "europe",
+          "open access",
+          "open access policies",
+          "scholarly publishing",
+          "science policy"
+        ],
+        "preprint_doi_created": null,
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2026-04-08T09:05:22.381886",
+        "version": 2,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "available",
+        "why_no_data": null,
+        "data_links": [
+          "https://doi.org/10.5281/zenodo.15869223"
+        ],
+        "has_prereg_links": "no",
+        "why_no_prereg": "Study not preregistered",
+        "prereg_links": [],
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76dd4",
+              "text": "Library and Information Science"
+            },
+            {
+              "id": "5a8c80f8c698300375c76dd5",
+              "text": "Scholarly Publishing"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76dd4",
+              "text": "Library and Information Science"
+            },
+            {
+              "id": "5a8c80f8c698300375c76dd9",
+              "text": "Scholarly Communication"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v2/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v2/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v2/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v2/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "bhjuz_v2",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v2/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/nodes/ep5dq/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v2/relationships/node/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "ep5dq",
+            "type": "nodes"
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v2/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/69d605fda6f88249de39ee7f/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "69d605fda6f88249de39ee7f",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v2/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v2/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v2/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v2/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/bhjuz_v2/",
+        "html": "https://osf.io/preprints/socarxiv/bhjuz_v2/",
+        "doi": "https://doi.org/10.1093/scipol/scag021",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/bhjuz_v2",
+        "iri": "https://osf.io/bhjuz"
+      }
+    },
+    {
+      "id": "nbdpa_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2026-03-05T15:08:03.059409",
+        "date_modified": "2026-03-06T09:12:10.135524",
+        "date_published": "2026-03-06T09:12:10.105982",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "Testing Content Analysis through Different Large Language Models: Towards a Gold Standard Protocol",
+        "description": "This paper proposes a comprehensive assessment of content analysis performed by different Large Language Models (LLMs), in order to develop a gold standard protocol for using LLMs in content analysis research. The study relies on 1,500 cases sampled from a dataset of approximately 4,000 Facebook posts from political leaders in six countries (Italy, Spain, France, Greece, Germany, and the Netherlands), which have been human-coded for 17 variables related to populism content and communication style. The same corpus of Facebook posts and the identical codebook used by human coders—containing variable descriptions and instructions—were applied to four distinct LLMs (six versions): ChatGPT (3.5 and 4o), Gemini 1.5 (flash and pro), Llama 3 (70B), and Mistral Large. The coding has been compared among the LLMs, as well as between the LLMs and human coders. To assess the performance of the LLMs, the consistency between LLMs and human coders was quantified using inter-coder reliability measures. In cases of discrepancies between human and LLM coding, the research team implemented a supervised assessment procedure to identify the correct response, simultaneously verifying the reliability of both human and LLM content analysis. The significance of this research lies in its potential to evaluate the capabilities of various LLMs, particularly in non-English languages, and to establish a standardized protocol for utilizing LLMs in content analysis within political and communication studies. This study aims to advance our understanding of LLMs’ efficacy in replicating human coding processes and their application in multilingual contexts, ultimately contributing to the methodological rigor in the field of computational content analysis.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [],
+          "year": null
+        },
+        "tags": [],
+        "preprint_doi_created": null,
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2026-03-06T09:12:10.105982",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "not_applicable",
+        "why_no_data": null,
+        "data_links": [],
+        "has_prereg_links": "not_applicable",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76daf",
+              "text": "Political Science"
+            },
+            {
+              "id": "5a8c80f8c698300375c76db1",
+              "text": "Models and Methods"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e18",
+              "text": "Social Media"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e1e",
+              "text": "Mass Communication"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80fac698300375c76e20",
+              "text": "Sociology"
+            },
+            {
+              "id": "5a8c80fac698300375c76e2c",
+              "text": "Methodology"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/nbdpa_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/nbdpa_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/nbdpa_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/nbdpa_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "nbdpa_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/nbdpa_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/nbdpa_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/nbdpa_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/69a99c5bdd3b5b2ce659d2ef/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "69a99c5bdd3b5b2ce659d2ef",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/nbdpa_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/nbdpa_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/nbdpa_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/nbdpa_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/nbdpa_v1/",
+        "html": "https://osf.io/preprints/socarxiv/nbdpa_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/nbdpa_v1",
+        "iri": "https://osf.io/nbdpa"
+      }
+    },
+    {
+      "id": "fc4kz_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2026-03-04T15:48:23.205585",
+        "date_modified": "2026-03-04T20:42:57.186797",
+        "date_published": "2026-03-04T20:42:57.155229",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "Trial and Insight: Combining Quantitative Content Analysis and AI for Experimental Stimulus Generation",
+        "description": "Experimental communication research has a fundamental bottleneck: Stimuli are known to vary widely in practice, and concerns of statistical power as well as pragmatic resources place strong limits on the complexity of designs. Maximizing external (and internal) validity therefore requires the paradoxical instrument of highly realistic yet theoretically graded stimuli. The complexity involved in the production of media content so far made this goal prohibitively difficult, but Large Language Models (LLMs) promise to change that. Drawing on an existing content analysis codebook focusing on the identification of scandalization in news articles about climate protests, we leverage generative capabilities of LLMs to produce synthetic stimuli satisfying theoretical variations. These stimuli are validated by human and AI coders on perceived authenticity and the effectiveness of producing variations in target variables. Our findings suggest that LLMs are generally effective in generating experimental stimuli and that quality assessments from GPT4o and human raters are largely aligned.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [],
+          "year": null
+        },
+        "tags": [],
+        "preprint_doi_created": null,
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2026-03-04T20:42:57.155229",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "no",
+        "why_no_data": "Currently not available. Inquiries regarding data access may be directed to the corresponding author.",
+        "data_links": [],
+        "has_prereg_links": "no",
+        "why_no_prereg": "This work was not preregistered.",
+        "prereg_links": [],
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fc4kz_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fc4kz_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fc4kz_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fc4kz_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "fc4kz_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fc4kz_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/nodes/hu9a3/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/fc4kz_v1/relationships/node/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "hu9a3",
+            "type": "nodes"
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fc4kz_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/69a8545be98f4abf74e7d383/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "69a8545be98f4abf74e7d383",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fc4kz_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fc4kz_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fc4kz_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/fc4kz_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/fc4kz_v1/",
+        "html": "https://osf.io/preprints/socarxiv/fc4kz_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/fc4kz_v1",
+        "iri": "https://osf.io/fc4kz"
+      }
+    },
+    {
+      "id": "bhjuz_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2025-07-22T08:53:11.585404",
+        "date_modified": "2026-04-08T07:40:42.372242",
+        "date_published": "2025-07-23T08:20:15.472138",
+        "original_publication_date": "2026-03-25T22:00:00",
+        "custom_publication_citation": "Lisa Matthias, Nataliia Bazeliuk, Mikael Laakso, Structured content analysis of open access book policies: European university and research funder approaches, Science and Public Policy, 2026;, scag021, https://doi.org/10.1093/scipol/scag021",
+        "doi": "10.1093/scipol/scag021",
+        "title": "Structured content analysis of open access book policies: European university and research funder approaches",
+        "description": "Despite playing a crucial role in making research publications freely accessible for more than two decades, academic research on open access (OA) policies remains limited. Drawing on both a review of existing research and an analysis of 66 recent OA book policies, this study introduces a novel methodological framework for structured policy analysis and maps the current OA book policy landscape in Europe. Our results reveal substantial heterogeneity in the policy environment, with substantial variation both in the presence of policy elements and in their operationalization across policies. This diverse policy environment creates implementation challenges at multiple levels, from researchers managing different requirements to institutions developing support strategies, and publishers adapting their services to meet varied policy demands. Given that OA policies significantly impact research practices at individual, institutional, and national levels, yet systematic evidence remains scarce, our findings emphasize the need for increased research and monitoring in this domain.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [],
+          "year": null
+        },
+        "tags": [
+          "europe",
+          "open access",
+          "open access policies",
+          "scholarly publishing",
+          "science policy"
+        ],
+        "preprint_doi_created": "2025-07-23T08:21:22.495631",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2025-07-23T08:20:15.472138",
+        "version": 1,
+        "is_latest_version": false,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "available",
+        "why_no_data": null,
+        "data_links": [
+          "https://doi.org/10.5281/zenodo.15869223"
+        ],
+        "has_prereg_links": "no",
+        "why_no_prereg": "Study not preregistered",
+        "prereg_links": [],
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76dd4",
+              "text": "Library and Information Science"
+            },
+            {
+              "id": "5a8c80f8c698300375c76dd5",
+              "text": "Scholarly Publishing"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76dd4",
+              "text": "Library and Information Science"
+            },
+            {
+              "id": "5a8c80f8c698300375c76dd9",
+              "text": "Scholarly Communication"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "bhjuz_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/nodes/ep5dq/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v1/relationships/node/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "ep5dq",
+            "type": "nodes"
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/687f519b4b4ed12cae0eafc4/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "687f519b4b4ed12cae0eafc4",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/bhjuz_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/bhjuz_v1/",
+        "html": "https://osf.io/preprints/socarxiv/bhjuz_v1/",
+        "doi": "https://doi.org/10.1093/scipol/scag021",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/bhjuz_v1",
+        "iri": "https://osf.io/bhjuz"
+      }
+    },
+    {
+      "id": "j4ne8_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2024-08-05T01:36:53.499396",
+        "date_modified": "2024-08-06T04:56:42.307025",
+        "date_published": "2024-08-06T04:56:24.644514",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "A Content Analysis of Lesson Starters in English Language YouTube Videos",
+        "description": "This content analysis examines the use of lesson starters in English-language instructional videos on YouTube. Lesson starters, known as icebreakers or warm-up activities, are commonly used to engage learners, create a positive atmosphere, and introduce new topics. This study aims to identify the types of lesson starters used and their effectiveness in engaging learners in English-language learning. The main research question is what is the impact of incorporating effective lesson starters in English-language instructional videos?  A thorough review of a sample of English language YouTube videos covering various topics and targeting different proficiency levels will be conducted. The study adopts qualitative and quantitative content analysis to show the effectiveness of lesson starters. The findings will shed light on the prevalence of different lesson starters used in these videos and provide insights into their impact on learners’ engagement and motivation. This research contributes to developing pedagogical practices and resources that enhance the English language learning experience through effective lesson starters, and it can serve as a foundation for further research because of the lack of research in this area.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [],
+          "year": null
+        },
+        "tags": [
+          "content analysis, lesson starters, English, language, YouTube videos"
+        ],
+        "preprint_doi_created": "2024-08-06T04:56:42.294583",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2024-08-06T04:56:24.644514",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": null,
+        "conflict_of_interest_statement": null,
+        "has_data_links": null,
+        "why_no_data": null,
+        "data_links": null,
+        "has_prereg_links": null,
+        "why_no_prereg": null,
+        "prereg_links": null,
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d96",
+              "text": "Other Social and Behavioral Sciences"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/j4ne8_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/j4ne8_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/j4ne8_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/j4ne8_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "j4ne8_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/j4ne8_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/j4ne8_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/60bf983b58510b0009a5a9a4/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "60bf983b58510b0009a5a9a4",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/j4ne8_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/66b02cc3877b4ec99893309f/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "66b02cc3877b4ec99893309f",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/j4ne8_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/j4ne8_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/j4ne8_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/j4ne8_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/j4ne8_v1/",
+        "html": "https://osf.io/preprints/socarxiv/j4ne8_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/j4ne8",
+        "iri": "https://osf.io/j4ne8"
+      }
+    },
+    {
+      "id": "m5r3h_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2024-03-14T09:23:37.421456",
+        "date_modified": "2024-03-22T09:02:21.157257",
+        "date_published": "2024-03-20T16:05:07.082079",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "Goodbye Human Annotators? Content Analysis of Policy Debates using ChatGPT",
+        "description": "Content analysis is a valuable tool for analysing policy discourse, but annotation by humans is costly and time-consuming. ChatGPT is a potentially valuable tool to automate content analysis for policy debates, largely replacing human annotators. We evaluate ChatGPT’s ability to classify documents using argument descriptions, by comparing its performance with human annotators for two policy debates: the Universal Basic Income debate on Dutch Twitter (2014-2016) and the pension reforms debate in German newspapers (1993-2001). We use the most current API (GPT-4 Turbo) and user interface version (GPT-4) and evaluate multiple performance metrics (accuracy, precision and recall). ChatGPT is highly reliability and accurate in classifying pre-defined arguments across datasets. However, precision and recall are much lower, and vary strongly between arguments. These results hold for both datasets, despite differences in language and media type. Moreover, the cutoff method proposed in this paper may aid researchers in navigating the trade-off between detection and noise. Overall, we do not (yet) recommend a blind application of ChatGPT to classify arguments in policy debates. Those interested in adopting this tool should manually validate bot classifications before using them in further analyses. At least for now, human annotators are here to stay.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            ""
+          ],
+          "year": "2024"
+        },
+        "tags": [],
+        "preprint_doi_created": "2024-03-22T09:02:21.132210",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2024-03-20T16:05:07.082079",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "available",
+        "why_no_data": null,
+        "data_links": [
+          "https://osf.io/mr5d2/"
+        ],
+        "has_prereg_links": "no",
+        "why_no_prereg": "--",
+        "prereg_links": [],
+        "prereg_link_info": "",
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76daf",
+              "text": "Political Science"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80fac698300375c76e20",
+              "text": "Sociology"
+            },
+            {
+              "id": "5a8c80fac698300375c76e3f",
+              "text": "Political Sociology"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/m5r3h_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/m5r3h_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/m5r3h_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/m5r3h_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "m5r3h_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/m5r3h_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/nodes/mr5d2/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/m5r3h_v1/relationships/node/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "mr5d2",
+            "type": "nodes"
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/60bf983b58510b0009a5a9a4/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "60bf983b58510b0009a5a9a4",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/m5r3h_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/65f2c21f85203710ef8803e0/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "65f2c21f85203710ef8803e0",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/m5r3h_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/m5r3h_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/m5r3h_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/m5r3h_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/m5r3h_v1/",
+        "html": "https://osf.io/preprints/socarxiv/m5r3h_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/m5r3h",
+        "iri": "https://osf.io/m5r3h"
+      }
+    },
+    {
+      "id": "v8txj_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2023-10-12T12:46:42.350677",
+        "date_modified": "2024-10-09T15:31:09.977949",
+        "date_published": "2023-10-13T08:18:22.452130",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "AMMICO, an AI-based Media and Misinformation Content Analysis Tool",
+        "description": "ammico (AI-based Media and Misinformation Content Analysis Tool) is a publicly available software package written in Python 3, whose purpose is the simultaneous evaluation of the text and graphical content of image files. After describing the software features, we provide an assessment of its performance using a multi country, multi-language data set containing COVID-19 social media disinformation posts. We conclude by highlighting the tool’s advantages for communication research.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            ""
+          ],
+          "year": "2023"
+        },
+        "tags": [
+          "Automated text extraction",
+          "Automated visual analysis",
+          "Computer vision"
+        ],
+        "preprint_doi_created": "2023-10-14T05:02:40.804404",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2023-10-13T08:18:22.452130",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "available",
+        "why_no_data": null,
+        "data_links": [
+          "https://ssciwr.github.io/AMMICO/build/html/index.html",
+          "https://doi.org/10.57967/hf/0603",
+          "https://doi.org/10.17605/OSF.IO/4V3S7"
+        ],
+        "has_prereg_links": "not_applicable",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76daf",
+              "text": "Political Science"
+            },
+            {
+              "id": "5a8c80f8c698300375c76db1",
+              "text": "Models and Methods"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0f",
+              "text": "Communication Technology and New Media"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/v8txj_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/v8txj_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/v8txj_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/v8txj_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "v8txj_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/v8txj_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/nodes/4v3s7/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/v8txj_v1/relationships/node/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "4v3s7",
+            "type": "nodes"
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/60bf983b58510b0009a5a9a4/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "60bf983b58510b0009a5a9a4",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/v8txj_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/6527eab813d27b023094c870/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "6527eab813d27b023094c870",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/v8txj_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/v8txj_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/v8txj_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/v8txj_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/v8txj_v1/",
+        "html": "https://osf.io/preprints/socarxiv/v8txj_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/v8txj",
+        "iri": "https://osf.io/v8txj"
+      }
+    },
+    {
+      "id": "2dj7c_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2022-09-12T14:42:48.436151",
+        "date_modified": "2023-08-03T11:04:38.931891",
+        "date_published": "2022-09-13T10:50:34.730207",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "Figures, and Charts, and Tables, Oh My!: A Content Analysis of Textbook Data Visualizations",
+        "description": "Textbooks offer instructors an opportunity to promote data visualization and statistical literacy throughout the sociology curriculum. In this study, we examined 463 data visualizations from 27 textbooks for Introduction to Sociology, Social Problems, and intermediate elective courses to illuminate the range of data visualizations and their use of statistical data and numerical variables. We find that textbooks rely on a narrow range of data visualizations (e.g., bar/column charts and tables) and statistical data (e.g., percentages), and numerical variables (e.g., age). Introduction to Sociology textbooks used more data visualizations, and Social Problems textbooks incorporated more types of statistics. In contrast, intermediate-level textbooks presented more measures of central tendency. Overall, our results suggest textbooks could better integrate a broader range of figures, statistical data, and numerical variables. We conclude with resources for integrating data visualization in instruction.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            ""
+          ],
+          "year": "2022"
+        },
+        "tags": [
+          "data literacy",
+          "data visualization",
+          "research consumption",
+          "statistical literacy",
+          "table reading",
+          "textbooks"
+        ],
+        "preprint_doi_created": "2022-09-14T05:01:43.213466",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2022-09-13T10:50:34.730207",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "no",
+        "why_no_data": "The data comes from textbook and is therefore, protected by copyright prevening sharing.",
+        "data_links": [],
+        "has_prereg_links": "no",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": "",
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80fac698300375c76e20",
+              "text": "Sociology"
+            },
+            {
+              "id": "5a8c80fac698300375c76e50",
+              "text": "Other Sociology"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/2dj7c_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/2dj7c_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/2dj7c_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/2dj7c_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "2dj7c_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/2dj7c_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/nodes/jk5w3/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/2dj7c_v1/relationships/node/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "jk5w3",
+            "type": "nodes"
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/2dj7c_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/631f456c582f8c050088c550/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "631f456c582f8c050088c550",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/2dj7c_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/2dj7c_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/2dj7c_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/2dj7c_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/2dj7c_v1/",
+        "html": "https://osf.io/preprints/socarxiv/2dj7c_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/2dj7c",
+        "iri": "https://osf.io/2dj7c"
+      }
+    },
+    {
+      "id": "jbemr_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2022-09-02T13:25:16.937705",
+        "date_modified": "2025-03-26T18:56:22.572718",
+        "date_published": "2022-09-02T13:50:09.916755",
+        "original_publication_date": "2022-09-07T05:00:00",
+        "custom_publication_citation": null,
+        "doi": "10.1016/j.acalib.2022.102593",
+        "title": "Relational Practice of Canadian Academic Librarians: Exploratory Content Analysis using Relational-Cultural Theory",
+        "description": "There is increasing recognition that relational practice, such as building community and team building, is an important facet for Canadian academic librarians. This study measures the visibility of relational practice of Canadian academic librarians. Job postings from The Partnership Job Board were collected for a six-month period beginning in July 2021. Job postings were analyzed using deductive content analysis, utilizing a framework based on relational-cultural theory. The framework, developed by Fletcher (1998) and modified by Arellano Douglas &amp; Gadsby (2019), identifies relational practice as falling into four categories: preserving, mutual empowerment, emotional strategizing, and creating team. The authors find while there is mention of relational practice in the job postings, further visibility is needed to accurately reflect this aspect of Canadian academic librarian work. Emotional strategizing (51.7% of job postings with one or more mention) and creating team (47.2%) are the most visible relational practices, while preserving (7.9%) is hardly mentioned. There is far less mutual empowerment for practicing librarians (9%) compared to librarians in management positions (57%). While the visibility of relational practice increases as the highest credential offered at the post-secondary institution increases, this trend is not seen for mutual empowerment at Canadian Ph.D./doctorate-granting institutions. There is a need to increase visibility of relational practice in Canadian academic librarian job postings, and by extension, all academic librarianship.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            ""
+          ],
+          "year": "2022"
+        },
+        "tags": [
+          "academic libraries",
+          "community",
+          "relational-cultural theory",
+          "relational practice"
+        ],
+        "preprint_doi_created": "2025-03-26T18:56:22.534171",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2022-09-02T13:50:09.916755",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "available",
+        "why_no_data": null,
+        "data_links": [
+          "https://osf.io/9nf6v/"
+        ],
+        "has_prereg_links": "not_applicable",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": "",
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76dd4",
+              "text": "Library and Information Science"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/jbemr_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/jbemr_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/jbemr_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/jbemr_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "jbemr_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/jbemr_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/nodes/9nf6v/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/jbemr_v1/relationships/node/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "9nf6v",
+            "type": "nodes"
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/60bf992258510b0009a5a9a6/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "60bf992258510b0009a5a9a6",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/jbemr_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/6312043f09a8520383d9e947/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "6312043f09a8520383d9e947",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/jbemr_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/jbemr_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/jbemr_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/jbemr_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/jbemr_v1/",
+        "html": "https://osf.io/preprints/socarxiv/jbemr_v1/",
+        "doi": "https://doi.org/10.1016/j.acalib.2022.102593",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/jbemr_v1",
+        "iri": "https://osf.io/jbemr"
+      }
+    },
+    {
+      "id": "fvsg3_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2022-07-17T04:02:07.064098",
+        "date_modified": "2022-07-19T12:06:22.171256",
+        "date_published": "2022-07-19T12:05:58.128681",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": "10.24093/awej/vol13no2.19",
+        "title": "Representation of Culture in EFL Textbooks: A Linguistic and Content Analysis of My Book of English",
+        "description": "This study explores the representation of culture in My Book of English, a second-generation English-language book for the first-year middle school in Algeria. Based on both content and a linguistic analysis method, our objective was to demonstrate the cultural significance of some representational choices. The notion of ideology was exploited in this study to examine the part that language takes in perpetuating ideas about culture, multiculturality, diversity, nationalism, and identity. According to the findings, cultural and social representations capture both the tendencies of cultural heritage preservation and the promotion of innovation and change. The analysis demonstrates that My Book of English acknowledges, to a certain extent, the role that English plays in the processes of internationalization and globalism. However, as a foreign language material, the book exaggeratedly highlights the source culture, making it difficult for the learners to transcend national boundaries.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            ""
+          ],
+          "year": "2022"
+        },
+        "tags": [
+          "Algerian EFL textbook",
+          "culture",
+          "diversity",
+          "ideology",
+          "multiculturality",
+          "My Book of English",
+          "representations"
+        ],
+        "preprint_doi_created": "2022-07-19T12:06:22.149161",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2022-07-19T12:05:58.128681",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "not_applicable",
+        "why_no_data": null,
+        "data_links": [],
+        "has_prereg_links": "not_applicable",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": "",
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d96",
+              "text": "Other Social and Behavioral Sciences"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fvsg3_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fvsg3_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fvsg3_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fvsg3_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "fvsg3_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fvsg3_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/fvsg3_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fvsg3_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/62d389c1779f1725f8070c26/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "62d389c1779f1725f8070c26",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fvsg3_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fvsg3_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fvsg3_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/fvsg3_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/fvsg3_v1/",
+        "html": "https://osf.io/preprints/socarxiv/fvsg3_v1/",
+        "doi": "https://doi.org/10.24093/awej/vol13no2.19",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/fvsg3",
+        "iri": "https://osf.io/fvsg3"
+      }
+    },
+    {
+      "id": "trvcy_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2022-03-22T10:15:13.570660",
+        "date_modified": "2022-05-23T08:53:40.939515",
+        "date_published": "2022-03-23T13:21:21.837973",
+        "original_publication_date": "2022-05-22T22:00:00",
+        "custom_publication_citation": null,
+        "doi": "10.3389/feduc.2022.818365",
+        "title": "Performance and Configuration of Artificial Intelligence in Business Education Learning Analytics Applications.  A Content Analysis-Based Approach.",
+        "description": "Learning analytics represent a promising approach for fostering personalized learning processes. Most applications of this technology currently do not use textual data for providing information on learning, or for deriving recommendations for further development. This paper presents the results of three studies aiming to make textual information usable. In the first study, the iota concept is introduced as a new content analysis measure to evaluate inter-coder reliability. The main advantage of this new concept is that it provides a reliability estimation for every single category, allowing deeper insight into the quality of textual analysis. The second study simulates the process of content analysis, comparing the new iota concept with well-established measures (e.g., Krippendorff’s alpha, percentage agreement). The results show that the new concept covers the true reliability of a coding scheme, and is not affected by the number of coders or categories, the sample size, or the distribution of data. Furthermore, cut-off values are derived for judging the quality of the analysis. The third study uses the new concept, analyzing the performance of different artificial intelligence (AI) approaches for interpreting textual data based on 90 different constructs. The texts used here were either created by apprentices, students, and pupils, or were taken from vocational textbooks. The paper shows that AI can reliably interpret textual information for learning purposes, and also provides recommendations for optimal AI configuration.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            ""
+          ],
+          "year": "2022"
+        },
+        "tags": [
+          "artificial intelligence",
+          "content analysis",
+          "decision trees",
+          "hyperparameter",
+          "learning analytics",
+          "neural net",
+          "random forest",
+          "reliability"
+        ],
+        "preprint_doi_created": "2022-03-23T13:22:01.484200",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2022-03-23T13:21:21.837973",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "not_applicable",
+        "why_no_data": null,
+        "data_links": [],
+        "has_prereg_links": "not_applicable",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": "",
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f6c698300375c76d4e",
+              "text": "Education"
+            },
+            {
+              "id": "5a8c80f6c698300375c76d4f",
+              "text": "Vocational Education"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76df4",
+              "text": "Science and Technology Studies"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/trvcy_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/trvcy_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/trvcy_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/trvcy_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "trvcy_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/trvcy_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/trvcy_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/5ad7979bc69830002d8190e3/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "5ad7979bc69830002d8190e3",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/trvcy_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/6239a1b4d2262f08162c122d/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "6239a1b4d2262f08162c122d",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/trvcy_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/trvcy_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/trvcy_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/trvcy_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/trvcy_v1/",
+        "html": "https://osf.io/preprints/socarxiv/trvcy_v1/",
+        "doi": "https://doi.org/10.3389/feduc.2022.818365",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/trvcy",
+        "iri": "https://osf.io/trvcy"
+      }
+    },
+    {
+      "id": "jtyr3_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2022-02-18T00:36:49.811434",
+        "date_modified": "2022-09-16T01:12:29.183968",
+        "date_published": "2022-02-19T16:10:40.066130",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "From virus to viral: Content analysis of HIV-related Twitter messages among young men in the U.S.",
+        "description": "Adolescents and young adults account for over 21% of new HIV infections in the U.S. with the majority of new cases among young men. As social media is an important information source integral to the lives of youth, our study illuminated the discourse around HIV among this group by examining the most retweeted and favorited tweets (n = 472) among 24,600 HIV-related tweets from young male Twitter users (ages 13-24) in the U.S. From content analysis, three themes arose: 1) othering, 2) politics and activism, 3) risk and wellness. Othering tweets involved alienating LGBTQIA+ individuals and people with HIV through stigmatizing jokes and insults. Politics and activism tweets discussed awareness, stigma, HIV criminalization, violence, LGBTQIA+ and women’s rights. Risk and wellness tweets discussed risk behaviors for sexually transmitted infections (STIs) (e.g., condomless sex, transactional sex, multiple sexual partners), or safer sex and preventive practices (e.g., PrEP, condom use, achieving undetectable viral load, medication adherence, STI testing). The themes illustrated the double-edged nature of social media, with both harmful and health-promoting messages. Twitter and other social media provide novel tools to inform and disseminate health communication. Future HIV prevention interventions should counter the stigma, misinformation, and risk-promoting messages prevalent on Twitter.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            ""
+          ],
+          "year": "2022"
+        },
+        "tags": [
+          "health promotion",
+          "HIV",
+          "stigma",
+          "Twitter",
+          "viral message",
+          "young men"
+        ],
+        "preprint_doi_created": "2022-02-19T16:11:01.750097",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2022-02-19T16:10:40.066130",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "no",
+        "why_no_data": null,
+        "data_links": [],
+        "has_prereg_links": "not_applicable",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": "",
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e16",
+              "text": "Health Communication"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/jtyr3_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/jtyr3_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/jtyr3_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/jtyr3_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "jtyr3_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/jtyr3_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/jtyr3_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/60bf99e058510b0009a5a9a9/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "60bf99e058510b0009a5a9a9",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/jtyr3_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/620eea285e7bc20061b8a5c8/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "620eea285e7bc20061b8a5c8",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/jtyr3_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/jtyr3_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/jtyr3_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/jtyr3_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/jtyr3_v1/",
+        "html": "https://osf.io/preprints/socarxiv/jtyr3_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/jtyr3",
+        "iri": "https://osf.io/jtyr3"
+      }
+    },
+    {
+      "id": "qs6mp_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2021-06-02T02:12:31.795666",
+        "date_modified": "2021-06-02T17:22:24.747318",
+        "date_published": "2021-06-02T17:20:28.508697",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "Self-removal of long-acting reversible contraception: A content analysis of YouTube videos",
+        "description": "Objective: To explore publicly available information about the self-removal of long-acting reversible contraception (LARC) on a popular video-sharing website. \nStudy Design: We conducted a comprehensive keyword search of YouTube videos related to self-removal of long-acting reversible contraception (LARC)—namely intrauterine devices (IUDs) and implants. We analyzed video content to explore demographic characteristics, method and duration of LARC use, and motivations and experiences of self-removal. \nResults: Our keyword search identified 58 videos that met the criteria for inclusion, including 48 videos that featured individuals who removed an IUD and 10 who removed an implant. Collectively, videos had over 4 million views. We identified most video creators as white (53.4%), 31% as Black, and 14.3% as Latinx. Reasons for LARC discontinuation included negative side effects, fear of potential side effects, and desire for pregnancy. Users were motivated to remove their own device by both preferences and barriers to formal care. Fifty-six individuals (96.6%) successfully removed their device, and most described their experience in positive terms related to the ease of removal. \nConclusion: This study builds upon prior research by describing publicly available information about LARC self-removal. The over-representation of Black women in our sample may reflect a higher prevalence of LARC self-removal among this population. Positive experiences of self-removal and high levels of viewer engagement with online videos suggest a greater need for provider counseling on LARC removal at the time of insertion. \nImplications: Prior to LARC insertion, patients should be made aware of any financial requirements for discontinuation. Provider counseling for self-removal at the time of insertion will likely minimize health risks and affirm patient reproductive autonomy.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            "Kathleen Broussard and Andréa Becker"
+          ],
+          "year": "2021"
+        },
+        "tags": [
+          "content analysis",
+          "contraceptive attitudes",
+          "discontinuation",
+          "implant",
+          "IUD",
+          "LARC",
+          "online",
+          "Self-removal",
+          "videos"
+        ],
+        "preprint_doi_created": "2021-06-02T17:22:24.726376",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2021-06-02T17:20:28.508697",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "available",
+        "why_no_data": null,
+        "data_links": [
+          "https://www.youtube.com"
+        ],
+        "has_prereg_links": "not_applicable",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": "",
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80fac698300375c76e20",
+              "text": "Sociology"
+            },
+            {
+              "id": "5a8c80fac698300375c76e4e",
+              "text": "Medical Sociology"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/qs6mp_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/qs6mp_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/qs6mp_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/qs6mp_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "qs6mp_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/qs6mp_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/qs6mp_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e965/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e965",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/qs6mp_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/60b6e9149096b7024b63e392/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "60b6e9149096b7024b63e392",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/qs6mp_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/qs6mp_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/qs6mp_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/qs6mp_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/qs6mp_v1/",
+        "html": "https://osf.io/preprints/socarxiv/qs6mp_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/qs6mp",
+        "iri": "https://osf.io/qs6mp"
+      }
+    },
+    {
+      "id": "bjya9_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2021-04-08T10:28:20.077821",
+        "date_modified": "2021-04-08T12:02:01.325508",
+        "date_published": "2021-04-08T12:01:34.817599",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "SCANning for truth. Scholars’ and practitioners’ perceptions on the use(fulness) of Scientific Content Analysis in detecting deception during police interviews",
+        "description": "SCAN (Scientific Content Analysis) is an analytic method that claims to detect deception in written statements. Although the validity of SCAN is contested in literature, various (law enforcement) agencies across the globe are trained in using the technique. To date it remains unknown how the technique is perceived and to what extent it is used in practice. Based on a scoping review and an open- and closed-ended survey, we identified practitioners’ and scholars’ prevailing perceptions on the use(fulness) of SCAN. Data were collected from 48 participants (35 practitioners and 13 scholars). Key findings illuminate a discrepancy between practitioners and academics. While practitioners position themselves positively towards SCAN, academics urge for a complete disappearance of the technique. Practitioners apply an incomplete, personalized version of SCAN. Since SCAN is not applied in its originally designed form and existing research demonstrates the technique has important shortcomings, we advise practitioners to abandon SCAN altogether.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            ""
+          ],
+          "year": "2021"
+        },
+        "tags": [
+          "content based credibility assessment",
+          "investigative interviewing",
+          "lie detection",
+          "SCAN",
+          "verbal credibility assessment"
+        ],
+        "preprint_doi_created": "2021-04-08T12:02:01.290491",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2021-04-08T12:01:34.817599",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "not_applicable",
+        "why_no_data": null,
+        "data_links": [],
+        "has_prereg_links": "not_applicable",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": "",
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76db8",
+              "text": "Legal Studies"
+            },
+            {
+              "id": "5a8c80f8c698300375c76dbb",
+              "text": "Criminology and Criminal Justice"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bjya9_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bjya9_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bjya9_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bjya9_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "bjya9_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bjya9_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/bjya9_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bjya9_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/606edb1bf2ad330346a7d33f/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "606edb1bf2ad330346a7d33f",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bjya9_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bjya9_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/bjya9_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/bjya9_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/bjya9_v1/",
+        "html": "https://osf.io/preprints/socarxiv/bjya9_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/bjya9",
+        "iri": "https://osf.io/bjya9"
+      }
+    },
+    {
+      "id": "vc9jb_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2020-12-10T13:09:36.873534",
+        "date_modified": "2022-08-26T17:45:31.370467",
+        "date_published": "2020-12-11T17:55:08.051686",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "COVID-19 vaccination hesitancy, misinformation and conspiracy theories on social media: A content analysis of Twitter data",
+        "description": "Background: The coronavirus disease (COVID-19) pandemic has caused a significant burden of mortality and morbidity. A vaccine will be the most effective global preventive strategy to end the pandemic. Studies have maintained that exposure to negative sentiments related to vaccination on social media increase vaccine hesitancy and refusal.  Despite the influence social media has on vaccination behavior, there is a lack of studies exploring the public's exposure to misinformation, conspiracy theories, and concerns on Twitter regarding a potential COVID-19 vaccination. \nObjective: The study aims to identify the major thematic areas about a potential COVID-19 vaccination based on the contents of Twitter data.  \nMethod: We retrieved 1,286,659 publicly available tweets posted within the timeline of July 19, 2020, to August 19, 2020, leveraging the Twint package. Following the extraction, we used Latent Dirichlet Allocation for topic modelling and identified 20 topics discussed in the tweets. We selected 4,868 tweets with the highest probability of belonging in the specific cluster and manually labeled as positive, negative, neutral, or irrelevant. The negative tweets were further assigned to a theme and subtheme based on the content\nResult: The negative tweets were further categorized into 7 major themes: \"safety and effectiveness,” \"misinformation,” \"conspiracy theories,” \"mistrust of scientists and governments,” \"lack of intent to get a COVID-19 vaccine,” \"freedom of choice,\" and \"religious beliefs.  Negative tweets predominantly consisted of misleading statements (n=424) that immunization against coronavirus is unnecessary as the survival rate is high. The second most prevalent theme to emerge was tweets constituting safety and effectiveness related concerns (n=276) regarding the side effects of a potential vaccine developed at an unprecedented speed. \nConclusion: Our findings suggest a need to formulate a large-scale vaccine communication plan that will address the safety concerns and debunk the misinformation and conspiracy theories spreading across social media platforms, increasing the public's acceptance of a COVID-19 vaccination.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            ""
+          ],
+          "year": "2020"
+        },
+        "tags": [],
+        "preprint_doi_created": "2020-12-11T17:56:21.848971",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2020-12-11T17:55:08.051686",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "not_applicable",
+        "why_no_data": null,
+        "data_links": [],
+        "has_prereg_links": "no",
+        "why_no_prereg": "None.",
+        "prereg_links": [],
+        "prereg_link_info": "",
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d96",
+              "text": "Other Social and Behavioral Sciences"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vc9jb_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vc9jb_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vc9jb_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vc9jb_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "vc9jb_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vc9jb_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/vc9jb_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vc9jb_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/5fd21e140694b700b9f3897c/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "5fd21e140694b700b9f3897c",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vc9jb_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vc9jb_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vc9jb_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/vc9jb_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/vc9jb_v1/",
+        "html": "https://osf.io/preprints/socarxiv/vc9jb_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/vc9jb",
+        "iri": "https://osf.io/vc9jb"
+      }
+    },
+    {
+      "id": "vfqhn_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2020-11-23T09:39:41.594467",
+        "date_modified": "2022-02-11T10:08:07.692768",
+        "date_published": "2020-11-24T06:40:04.181138",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "Food shortages, stockpiling and panic buying ahead of Brexit as reported by the British media: a mixed methods content analysis",
+        "description": "Background: Government documents warn that if the UK and EU have not negotiated a trade deal by 31 December 2020 the UK could experience increased food prices and possible food shortages. The media have an important role in influencing recipients’ behaviour by promoting reassurance or anxiety on this issue. This study examines how food supply and demand, in the context of Brexit, has been portrayed by the British media.\nMethods: A mixed methods content analysis of articles reporting on food supply and demand in the context of Brexit, in three daily newspapers, between 01 January 2015 and 31 January 2020.\nResults: Five themes emerged: food shortages and panic buying (appearing in 96% of articles); food supply chain disruption (86%); economic impacts of Brexit (80%); preparation and stockpiling by the government and food sector (63%) and preparation and stockpiling by individuals (22%).\nConclusion: Government messaging reported by the media sought to reassure the public that there will be no food shortages under a no-deal Brexit. These reassurances contradicted warnings from the food sector and leaked government reports of reduced availability of food items. These contradictory messages may have undermined trust in the government, potentially influencing stockpiling behaviour at the individual level.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            ""
+          ],
+          "year": "2020"
+        },
+        "tags": [
+          "Brexit",
+          "food panic buying",
+          "Food shortages",
+          "food stockpiling",
+          "mixed methods content analysis"
+        ],
+        "preprint_doi_created": "2020-11-24T06:40:22.558335",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2020-11-24T06:40:04.181138",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "no",
+        "why_no_data": "Data is a media analysis of daily UK newspapers which were accessed from the electronic archive of Nexis UK database (www.nexis.com)",
+        "data_links": [],
+        "has_prereg_links": "no",
+        "why_no_prereg": "As this is a mixed methods analysis preregistration was not deemed necessary",
+        "prereg_links": [],
+        "prereg_link_info": "",
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d85",
+              "text": "Food Studies"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76ddb",
+              "text": "Public Affairs, Public Policy and Public Administration"
+            },
+            {
+              "id": "5a8c80f9c698300375c76de2",
+              "text": "Health Policy"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vfqhn_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vfqhn_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vfqhn_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vfqhn_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "vfqhn_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vfqhn_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/vfqhn_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vfqhn_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/5fbb8363def8eb04fde74218/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "5fbb8363def8eb04fde74218",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vfqhn_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vfqhn_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vfqhn_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/vfqhn_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/vfqhn_v1/",
+        "html": "https://osf.io/preprints/socarxiv/vfqhn_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/vfqhn",
+        "iri": "https://osf.io/vfqhn"
+      }
+    },
+    {
+      "id": "j23ds_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2018-11-10T11:35:56.859274",
+        "date_modified": "2018-11-10T18:57:25.080909",
+        "date_published": "2018-11-10T18:57:00.727568",
+        "original_publication_date": "2018-11-10T05:00:00",
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "Mission statements of Latin-American firms: content analysis, readability, and their effect on financial performance",
+        "description": "Mission statements (MSs) are one of the most widespread managerial practices. However, a deeper understanding of the relationship between MS characteristics and a firm’s financial performance is needed. This study proposes a qualitative and quantitative analysis of MS characteristics (i.e., key words and readability) for Latin-American firms and their relationship to financial performance. MS content is evaluated using content analysis software, and the relationship between MS readability and financial performance is examined using regression analysis. The results of the content analysis suggest differences among industries and an international trend toward isomorphism regarding key terms. The results of the quantitative analysis revealed a positive relationship between MS readability and return on assets and return on equity. These results suggest a positive impact of the MS on a company’s long-term financial performance, highlighting the importance of having a readable MS.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            "The authors"
+          ],
+          "year": "2018"
+        },
+        "tags": [
+          "Content Analysis",
+          "Financial Performance",
+          "Latin America",
+          "Mission statements",
+          "Planning",
+          "Strategy"
+        ],
+        "preprint_doi_created": "2018-11-10T18:57:25.045857",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2018-11-10T18:57:00.727568",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": null,
+        "conflict_of_interest_statement": null,
+        "has_data_links": null,
+        "why_no_data": null,
+        "data_links": null,
+        "has_prereg_links": null,
+        "why_no_prereg": null,
+        "prereg_links": null,
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76dbe",
+              "text": "Economics"
+            },
+            {
+              "id": "5a8c80f8c698300375c76dbf",
+              "text": "Finance"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/j23ds_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/j23ds_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/j23ds_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/j23ds_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "j23ds_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/j23ds_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/nodes/ubt96/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/j23ds_v1/relationships/node/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "ubt96",
+            "type": "nodes"
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e965/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e965",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/j23ds_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/5be6c29bd354e900167adedb/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "5be6c29bd354e900167adedb",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/j23ds_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/j23ds_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/j23ds_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/j23ds_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/j23ds_v1/",
+        "html": "https://osf.io/preprints/socarxiv/j23ds_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/j23ds",
+        "iri": "https://osf.io/j23ds"
+      }
+    },
+    {
+      "id": "udfa6_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2017-04-06T05:55:41.094462",
+        "date_modified": "2018-07-02T10:55:09.689726",
+        "date_published": "2017-04-06T05:59:26.771661",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": "10.24093/awej/vol8no1.19",
+        "title": "Content Analysis of the Pedagogical Content Knowledge in the Curriculum of Yemeni EFL Teacher Education Programme",
+        "description": "This study aims to analyse the pedagogical content knowledge (PCK) in the current curriculum of the English teacher education programme (ETEP) at a Faculty of Education in a Yemeni University. PCK and teaching competencies take shape within the initial preparation of ETEP in which student teachers spenda long time receiving knowledge and understanding the teaching context before they practically experience teaching at schools. During their BA study, students are required to study 49 courses which can be categorised into four main components: skills, linguistics, literature and professional. This study analyses the content of the curriculum courses so as tovisualise the way student teachers translate what they have learned into pedagogical practices during their teaching practices. In this study, the curriculum content of ETEP is qualitatively analysed using the inductive approach. Categories emerged from the analysis demonstrate various aspects of student teachers’ PCK. The analysis reveals that the pedagogical skills courses are not enough to enhance and strengthen the student teachers’ PCK needed to be reflected in their teaching practices. The findings show that the curriculum lacks courses necessary to provide student teachers with basic knowledge and pedagogical principles which are of vital significance to demonstrate their understanding before they are practically engaged in the teaching experience.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [],
+          "year": "2017"
+        },
+        "tags": [
+          "curriculum",
+          "EFL teacher education programme",
+          "pedagogical content knowledge",
+          "teaching practice",
+          "Yemen"
+        ],
+        "preprint_doi_created": "2018-07-02T10:55:09.680694",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2017-04-06T05:59:26.771661",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": null,
+        "conflict_of_interest_statement": null,
+        "has_data_links": null,
+        "why_no_data": null,
+        "data_links": null,
+        "has_prereg_links": null,
+        "why_no_prereg": null,
+        "prereg_links": null,
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d96",
+              "text": "Other Social and Behavioral Sciences"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/udfa6_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/udfa6_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/udfa6_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/udfa6_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "udfa6_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/udfa6_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/nodes/34ab7/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/udfa6_v1/relationships/node/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "34ab7",
+            "type": "nodes"
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/udfa6_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/58e5d85b9ad5a100466bd5a8/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "58e5d85b9ad5a100466bd5a8",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/udfa6_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/udfa6_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/udfa6_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/udfa6_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/udfa6_v1/",
+        "html": "https://osf.io/preprints/socarxiv/udfa6_v1/",
+        "doi": "https://doi.org/10.24093/awej/vol8no1.19",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/udfa6",
+        "iri": "https://osf.io/udfa6"
+      }
+    }
+  ],
+  "links": {
+    "first": null,
+    "last": null,
+    "prev": null,
+    "next": null,
+    "meta": {
+      "total": 20,
+      "per_page": 50
+    }
+  },
+  "meta": {
+    "version": "2.0"
+  }
+}

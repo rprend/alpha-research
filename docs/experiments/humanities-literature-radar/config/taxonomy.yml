@@ -29,6 +29,11 @@ methods:
   - ai llm assisted humanities
   - bibliometrics
   - corpus linguistics
+  - large language model
+  - large language models
+  - llm
+  - llms
+  - content analysis
 
 editorial_formats:
   what-changed:
@@ -43,7 +48,6 @@ editorial_formats:
 quantitative_signals:
   - dataset
   - corpus
-  - model
   - network
   - citation
   - topic model
@@ -54,5 +58,8 @@ quantitative_signals:
   - spatial analysis
   - metadata
   - large language model
+  - large language models
+  - llm
+  - llms
   - computational
   - quantitative

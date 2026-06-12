@@ -1,0 +1,208 @@
+{
+  "data": [
+    {
+      "id": "vf6ud_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2025-09-18T13:05:49.934239",
+        "date_modified": "2025-09-26T07:21:23.535391",
+        "date_published": "2025-09-26T07:21:11.612116",
+        "original_publication_date": "2025-09-16T21:00:00",
+        "custom_publication_citation": "Starodumova, E. N. (2025). The development of translation studies as a discipline. Shagi / Steps, 11(3), 251–264. EDN: VUQWTS. (In Russian).",
+        "doi": "",
+        "title": "The development of translation studies as a discipline",
+        "description": "The article provides a detailed commentary on the development of Western translation thought in the late 20th century, from a subdivision of contrastive linguistics into an independent, dynamically developing discipline within the humanities (translation studies). The author analyzes the theoretical and philosophical preconditions for the change in the scientific and academic status of translation within the Western academic field, the main milestones and key figures of this process. After having summarized the most important theoretical shifts that took place in Western translation thought at the turn of the 20th and 21st centuries, the author comes to the conclusion that since the late 1970s the development paths of Western and Russian translation studies have diverged. In Western translation studies, after the ‘cultural turn’, the concept of ‘neutral’ translation is abandoned in favor of a new politicized view of translation as a tool for shaping cultural identities. The translator, who in the linguistic model was relegated to the modest role of a technical assistant, is seen in the culturally oriented paradigm as a co-author, a fully-fledged subject of political dialogue, capable of resisting the usurpation and ethnocentrism of their own culture. The new Western translation ethics is largely determined by the call to resist the dominants of the target culture and not be afraid of open political activism.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [],
+          "year": null
+        },
+        "tags": [
+          "cultural turn",
+          "ethnocentrism in translation",
+          "foreignizing translation",
+          "Lawrence Venuti",
+          "linguistics-oriented translation theory",
+          "Maria Tymoczko",
+          "Western translation studies"
+        ],
+        "preprint_doi_created": "2025-09-26T07:21:23.504085",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2025-09-26T07:21:11.612116",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": null,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "not_applicable",
+        "why_no_data": null,
+        "data_links": [],
+        "has_prereg_links": "not_applicable",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d96",
+              "text": "Other Social and Behavioral Sciences"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vf6ud_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vf6ud_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vf6ud_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vf6ud_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "vf6ud_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vf6ud_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/vf6ud_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vf6ud_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/68cc03c9461032622453d9d9/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "68cc03c9461032622453d9d9",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vf6ud_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vf6ud_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vf6ud_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/vf6ud_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/vf6ud_v1/",
+        "html": "https://osf.io/preprints/socarxiv/vf6ud_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/vf6ud_v1",
+        "iri": "https://osf.io/vf6ud"
+      }
+    }
+  ],
+  "links": {
+    "first": null,
+    "last": null,
+    "prev": null,
+    "next": null,
+    "meta": {
+      "total": 1,
+      "per_page": 50
+    }
+  },
+  "meta": {
+    "version": "2.0"
+  }
+}

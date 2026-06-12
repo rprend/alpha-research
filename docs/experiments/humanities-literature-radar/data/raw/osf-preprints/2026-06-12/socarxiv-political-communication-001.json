@@ -1,0 +1,2223 @@
+{
+  "data": [
+    {
+      "id": "w9zs8_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2026-05-28T09:20:58.447718",
+        "date_modified": "2026-05-28T10:12:42.466042",
+        "date_published": "2026-05-28T10:12:42.416548",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "Trust Me, I Cite Science: How Political Communication Drawing on Science Affects Message Credibility and Communicator Trustworthiness",
+        "description": "The interplay between science and politics is increasingly complex and contentious, especially in times of crises and polarized public debates. Although calls to \"follow the science\" are often invoked in political discourse, science’s role in politics is rarely straightforward, and it is frequently used strategically beyond its informational function. This study examines how science-related political communication influences perceived message credibility and communicator trustworthiness, integrating insights from science communication and political communication research. \nWe empirically test hypotheses across three conceptual dimensions. First, we evaluate the effects of source credibility by comparing communicators (scientists vs. politicians) and their respective uses of evidence. Second, we analyze the impact of different rhetorical strategies employed to communicate the political decision-making process, like highlighting evidence-determined justifications, reasoned processes, or populist appeals. Third, we investigate how science-populist attitudes and pre-existing issue-attitudes moderate these effects. \nResults of a pre-registered factorial survey experiment (N = 552) show that source credibility and the choice of evidence are primary drivers of perceived credibility and trustworthiness. In contrast, rhetorical strategies related to decision-making processes have no significant effect. Notably, science-populist attitudes strongly influence which epistemic authorities respondents consider legitimate bases for political decisions. \nThese findings reveal tensions at the science-politics nexus between the strategic effectiveness of constructing epistemic authority and the normative democratic demand for political accountability. The study contributes novel empirical insights into how communicative strategies shape trust in science-related political communication, offering implications for safeguarding trust in science and improving the credibility and trustworthiness of political communication in polarized environments.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [],
+          "year": null
+        },
+        "tags": [],
+        "preprint_doi_created": null,
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2026-05-28T10:12:42.416548",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "available",
+        "why_no_data": null,
+        "data_links": [
+          "https://doi.org/10.17605/OSF.IO/BA97W"
+        ],
+        "has_prereg_links": "available",
+        "why_no_prereg": null,
+        "prereg_links": [
+          "https://doi.org/10.17605/OSF.IO/YK6HT"
+        ],
+        "prereg_link_info": "prereg_both",
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76daf",
+              "text": "Political Science"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/w9zs8_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/w9zs8_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/w9zs8_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/w9zs8_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "w9zs8_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/w9zs8_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/nodes/ba97w/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/w9zs8_v1/relationships/node/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "ba97w",
+            "type": "nodes"
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/w9zs8_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/6a180909b8a189e9271c14c2/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "6a180909b8a189e9271c14c2",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/w9zs8_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/w9zs8_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/w9zs8_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/w9zs8_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/w9zs8_v1/",
+        "html": "https://osf.io/preprints/socarxiv/w9zs8_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/w9zs8_v1",
+        "iri": "https://osf.io/w9zs8"
+      }
+    },
+    {
+      "id": "mv24c_v2",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2025-02-17T12:55:49.224528",
+        "date_modified": "2025-02-19T09:30:24.517893",
+        "date_published": "2025-02-19T09:28:17.902384",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "The Public that Engages Invisibly: What Visible Engagement Fails to Capture in Online Political Communication",
+        "description": "Measurements of political polarization online have so far been largely focused on visible traces accessible through platformAPIs,while neglecting invisible traces not recorded or otherwise unavailable via online channels, which can reveal key aspects of political engagement online. Our study aims to address this gap by investigating the polarization measurement bias that arises when only visible engagement is considered. Using a combined dataset that links survey responses with YouTube digital traces froma representative sample of Hungarian Internet users (N=758), we uncover disparities at both user and channel levels.\nWe find that users who visibly engage through commenting are more politically polarized. People tend to comment and subscribe to ideologically concentrated content, while viewing\nideologically diverse content. We also notice that ideologically heterogeneous channels are more likely to share viewers than subscribers or commenters. Thus, the segregation of\npolitical channels may be overstated or simplified when relying solely on public comment data. Our results suggest that research using only visible engagement may overestimate the extent of polarization and the prevalence of echo chambers online. We highlight the benefits of data donation to address measurement bias in online political communication, and contribute to the polarization literature by providing a fresh evaluation of potential biases in platform-focused research.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [],
+          "year": null
+        },
+        "tags": [
+          "Data Donation",
+          "DDP",
+          "Online polarization",
+          "Selection Bias",
+          "Youtube"
+        ],
+        "preprint_doi_created": "2025-02-19T09:30:24.441895",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2025-02-19T09:28:17.902384",
+        "version": 2,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "no",
+        "why_no_data": "Data will be available in the near future",
+        "data_links": [],
+        "has_prereg_links": "no",
+        "why_no_prereg": "This was an explanatory study",
+        "prereg_links": [],
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80fac698300375c76e20",
+              "text": "Sociology"
+            },
+            {
+              "id": "5a8c80fac698300375c76e2c",
+              "text": "Methodology"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80fac698300375c76e20",
+              "text": "Sociology"
+            },
+            {
+              "id": "5a8c80fac698300375c76e34",
+              "text": "Communication, Information Technologies, and Media Sociology"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80fac698300375c76e20",
+              "text": "Sociology"
+            },
+            {
+              "id": "5a8c80fac698300375c76e3f",
+              "text": "Political Sociology"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v2/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v2/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v2/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v2/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "mv24c_v2",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v2/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v2/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96c/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96c",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v2/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/67b3322feb0474049f19f20a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "67b3322feb0474049f19f20a",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v2/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v2/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v2/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v2/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/mv24c_v2/",
+        "html": "https://osf.io/preprints/socarxiv/mv24c_v2/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/mv24c_v2",
+        "iri": "https://osf.io/mv24c"
+      }
+    },
+    {
+      "id": "mv24c_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2024-08-26T09:59:04.346129",
+        "date_modified": "2024-10-28T13:25:17.943738",
+        "date_published": "2024-08-29T09:55:44.694037",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "The Public that Engages Invisibly: What Visible Engagement Fails to Capture in Online Political Communication",
+        "description": "Measurements of political polarization online have so far been largely focused on visible traces accessible through platformAPIs,while neglecting invisible traces not recorded or otherwise unavailable via online channels, which can reveal key aspects of political engagement online. Our study aims to address this gap by investigating the polarization measurement bias that arises when only visible engagement is considered. Using a combined dataset that links survey responses with YouTube digital traces froma representative sample of Hungarian Internet users (N=758), we uncover disparities at both user and channel levels.\nWe find that users who visibly engage through commenting are more politically polarized. People tend to comment and subscribe to ideologically concentrated content, while viewing\nideologically diverse content. We also notice that ideologically heterogeneous channels are more likely to share viewers than subscribers or commenters. Thus, the segregation of\npolitical channels may be overstated or simplified when relying solely on public comment data. Our results suggest that research using only visible engagement may overestimate the extent of polarization and the prevalence of echo chambers online. We highlight the benefits of data donation to address measurement bias in online political communication, and contribute to the polarization literature by providing a fresh evaluation of potential biases in platform-focused research.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [],
+          "year": null
+        },
+        "tags": [
+          "Data Donation",
+          "DDP",
+          "Online polarization",
+          "Selection Bias",
+          "Youtube"
+        ],
+        "preprint_doi_created": "2024-08-29T09:56:03.392342",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2024-08-29T09:55:44.694037",
+        "version": 1,
+        "is_latest_version": false,
+        "has_coi": null,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "no",
+        "why_no_data": "Data will be available in the near future",
+        "data_links": [],
+        "has_prereg_links": "no",
+        "why_no_prereg": "This was an explanatory study",
+        "prereg_links": [],
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80fac698300375c76e20",
+              "text": "Sociology"
+            },
+            {
+              "id": "5a8c80fac698300375c76e2c",
+              "text": "Methodology"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80fac698300375c76e20",
+              "text": "Sociology"
+            },
+            {
+              "id": "5a8c80fac698300375c76e34",
+              "text": "Communication, Information Technologies, and Media Sociology"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80fac698300375c76e20",
+              "text": "Sociology"
+            },
+            {
+              "id": "5a8c80fac698300375c76e3f",
+              "text": "Political Sociology"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "mv24c_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96c/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96c",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/66cc51f8e33676c0058c94c4/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "66cc51f8e33676c0058c94c4",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/mv24c_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/mv24c_v1/",
+        "html": "https://osf.io/preprints/socarxiv/mv24c_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/mv24c",
+        "iri": "https://osf.io/mv24c"
+      }
+    },
+    {
+      "id": "b8yfj_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2024-03-25T20:27:43.395049",
+        "date_modified": "2024-03-29T12:13:40.803103",
+        "date_published": "2024-03-29T12:13:19.300166",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": "10.24093/awej/vol15no1.7",
+        "title": "A pragmatic Analysis of Effective Political Communication from a Relevance-Theoretic Perspective",
+        "description": "A substantial aim of political communication is to engage specific groups of citizens through pragmatic policies and various media channels to convey messages and gain the audience’s acceptance effectively. This study investigates political communication as a form of discourse that occurs within political contexts, which involves the exchange of messages among political actors to address and resolve political issues. It is an interdisciplinary field encompassing aspects of psychology, economics, culture, society, and linguistics. This paper aims to give a satisfactory explanation for the question concerning effective communication characteristics: how might politicians utilize them in their speech to be more effective? This pragmatic study in discourse is devoted to analyzing the various effective syntactic structures that arise within political interactions according to Sperber and Wilson’s Theory of Relevance. The contribution of this study is evident as guidelines for further understanding the correlation between language and cognition. The researchers find that politicians seek to cognitively take advantage of the tendency of the audience to strive for relevance. In this way, expectations and attitudes are to be recognized and met by either interlocutors. The focal point of the study is the linguistic and inferential aspects of communication (verbal and non-verbal forms), represented in explicatures and implicatures. The study’s findings exhibit the politicians’ efforts in crafting their utterances optimally to meet the audience’s expectations of relevance, which could be used as an influential method for further studies concerning discourse and communication.  This research paper aims to pragmatically exploit the effectiveness of the political interactions (extracts) in the House of Commons (UK parliamentary debates).",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            ""
+          ],
+          "year": "2024"
+        },
+        "tags": [],
+        "preprint_doi_created": "2024-03-29T12:13:40.784288",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2024-03-29T12:13:19.300166",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "not_applicable",
+        "why_no_data": null,
+        "data_links": [],
+        "has_prereg_links": "not_applicable",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": "",
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d96",
+              "text": "Other Social and Behavioral Sciences"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/b8yfj_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/b8yfj_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/b8yfj_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/b8yfj_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "b8yfj_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/b8yfj_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/b8yfj_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/60bf983b58510b0009a5a9a4/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "60bf983b58510b0009a5a9a4",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/b8yfj_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/6601de4247b789033c5e546f/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "6601de4247b789033c5e546f",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/b8yfj_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/b8yfj_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/b8yfj_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/b8yfj_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/b8yfj_v1/",
+        "html": "https://osf.io/preprints/socarxiv/b8yfj_v1/",
+        "doi": "https://doi.org/10.24093/awej/vol15no1.7",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/b8yfj",
+        "iri": "https://osf.io/b8yfj"
+      }
+    },
+    {
+      "id": "pq4yf_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2024-01-27T17:13:28.428918",
+        "date_modified": "2024-01-28T05:00:42.939748",
+        "date_published": "2024-01-27T19:58:20.524049",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "Comparing Political Communication: A 2023 Update",
+        "description": "In order to examine political communication comparatively, this chapter argues for a dynamic-systemic perspective. For this purpose, it outlines the model of a \"political communication ecosystem.\" On this basis, the chapter first explains (a) institutional country differences in the relationship between politics and the media and (b) cultural country differences in the relationship between politicians and journalists. It then goes on to explain how prototypical styles and message types of (a) politicians as communicators and (b) media as communicators differ in a cross-country comparison. Finally, it explains the differences between countries in (a) the news consumption of national audiences and (b) the impact of political communication on these audiences. Taking into account recent research findings on social media, populism, disinformation, and the Ukraine invasion, the chapter concludes with implications for comparative political communication from Western and non-Western perspectives.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            "for the present preprint: authors; for the finally published version: OUP"
+          ],
+          "year": "2023"
+        },
+        "tags": [
+          "comparative politics",
+          "comparative research",
+          "election campaigning",
+          "international comparison",
+          "journalism cultures",
+          "media effects",
+          "media systems",
+          "media use",
+          "misinformation",
+          "news",
+          "political communication",
+          "political communication system",
+          "social media"
+        ],
+        "preprint_doi_created": "2024-01-28T05:00:42.922846",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2024-01-27T19:58:20.524049",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "not_applicable",
+        "why_no_data": null,
+        "data_links": [],
+        "has_prereg_links": "not_applicable",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": "",
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e1d",
+              "text": "Social Influence and Political Communication"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/pq4yf_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/pq4yf_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/pq4yf_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/pq4yf_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "pq4yf_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/pq4yf_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/pq4yf_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e965/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e965",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/pq4yf_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/65b539bc4aa63c095cdf17a2/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "65b539bc4aa63c095cdf17a2",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/pq4yf_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/pq4yf_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/pq4yf_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/pq4yf_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/pq4yf_v1/",
+        "html": "https://osf.io/preprints/socarxiv/pq4yf_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/pq4yf",
+        "iri": "https://osf.io/pq4yf"
+      }
+    },
+    {
+      "id": "vjzer_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2019-02-12T11:23:14.143129",
+        "date_modified": "2019-02-14T16:41:47.942714",
+        "date_published": "2019-02-12T11:51:06.422554",
+        "original_publication_date": "2017-07-27T23:00:00",
+        "custom_publication_citation": null,
+        "doi": "10.4324/9781315276472",
+        "title": "The POPC Citizen: Political Information in the Fourth Age of Political Communication",
+        "description": "The goal of this chapter is to describe how the POPC environment operates in tandem with personal characteristics to influence people’s exposure to and processing of political information. In describing the political consequences of the POPC phenomenon we take a social-psychological perspective and focus on the individual level (for a more sociological perspective see the chapter by Vromen, Loader, and Xenos, this volume). We sketch the psychological contours of the contemporary “POPC citizen” and outline recent developments in citizens’ use of mobile information and communication technologies (ICTs) for political information, which have consequences for their individual civic competencies as well as democracy at large.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            "Taylor &amp; Francis/Routledge"
+          ],
+          "year": "2018"
+        },
+        "tags": [
+          "communication",
+          "media ecology",
+          "mobile devices",
+          "news audiences",
+          "online news",
+          "political behavior",
+          "political information",
+          "social media"
+        ],
+        "preprint_doi_created": "2019-02-12T11:52:08.404418",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2019-02-12T11:51:06.422554",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": null,
+        "conflict_of_interest_statement": null,
+        "has_data_links": null,
+        "why_no_data": null,
+        "data_links": null,
+        "has_prereg_links": null,
+        "why_no_prereg": null,
+        "prereg_links": null,
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d98",
+              "text": "Psychology"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76daf",
+              "text": "Political Science"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vjzer_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vjzer_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vjzer_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vjzer_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "vjzer_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vjzer_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/vjzer_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e965/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e965",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vjzer_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/5c62aca676653c001a2bbfdc/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "5c62aca676653c001a2bbfdc",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vjzer_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vjzer_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/vjzer_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/vjzer_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/vjzer_v1/",
+        "html": "https://osf.io/preprints/socarxiv/vjzer_v1/",
+        "doi": "https://doi.org/10.4324/9781315276472",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/vjzer",
+        "iri": "https://osf.io/vjzer"
+      }
+    },
+    {
+      "id": "g7j4u_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2018-10-08T21:14:18.771693",
+        "date_modified": "2025-04-23T01:23:21.181831",
+        "date_published": "2018-10-09T12:57:03.555761",
+        "original_publication_date": "2016-09-14T04:00:00",
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "Fonts of Potential: Areas for Typographic Research in Political Communication",
+        "description": "As the prevalence of digital technologies has increased, so too has the prevalence of graphically designed content. In particular, typography has emerged as an increasingly important tool for visual communication. In recent years, political actors have seized upon the expressive potential of typography to communicate their messages, to support their campaign efforts, and to establish viable brand identities. However, researchers have been slow to address the new role typography plays in the processes of political communication. Therefore, this article both synthesizes and proposes key areas for research on typography in political communication. Drawing on extant literature across the fields of design, communication, and political science, this article identifies the ways in which typography contributes to the communicative and organizational aims of political actors, demonstrates these contributions with examples from recent political campaigns, and concludes by pointing toward unanswered questions for future studies to address.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            "Thomas J Billard"
+          ],
+          "year": "2018"
+        },
+        "tags": [
+          "branding",
+          "campaigns",
+          "graphic design",
+          "political communication",
+          "typography"
+        ],
+        "preprint_doi_created": "2025-04-23T01:23:21.144632",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2018-10-09T12:57:03.555761",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": null,
+        "conflict_of_interest_statement": null,
+        "has_data_links": null,
+        "why_no_data": null,
+        "data_links": null,
+        "has_prereg_links": null,
+        "why_no_prereg": null,
+        "prereg_links": null,
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d96",
+              "text": "Other Social and Behavioral Sciences"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e10",
+              "text": "Public Relations and Advertising"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e13",
+              "text": "Critical and Cultural Studies"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e1a",
+              "text": "Graphic Communications"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e1b",
+              "text": "Speech and Rhetorical Studies"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e1d",
+              "text": "Social Influence and Political Communication"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/g7j4u_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/g7j4u_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/g7j4u_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/g7j4u_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "g7j4u_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/g7j4u_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/nodes/49crg/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/g7j4u_v1/relationships/node/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "49crg",
+            "type": "nodes"
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e965/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e965",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/g7j4u_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/5bbbc8a9cbf33d0016b397dc/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "5bbbc8a9cbf33d0016b397dc",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/g7j4u_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/g7j4u_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/g7j4u_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/g7j4u_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/g7j4u_v1/",
+        "html": "https://osf.io/preprints/socarxiv/g7j4u_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/g7j4u_v1",
+        "iri": "https://osf.io/g7j4u"
+      }
+    },
+    {
+      "id": "q38my_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2018-09-06T16:18:04.563499",
+        "date_modified": "2018-11-04T15:23:02.702901",
+        "date_published": "2018-09-06T16:39:03.779179",
+        "original_publication_date": "2010-06-29T22:00:00",
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "Cognitive Style, Selectivity, and Reinforcement: Toward Clarifying the Role of Political Ideology in the Reception of Political Communication",
+        "description": "This essay examines the importance of political ideology for the occurrence of political communication effects on the individual level. It is a common assumption in this research area that people tend to be selective about the political information they expose themselves to and also to selectively process it. Selective exposure and selective perception processes are mainly based on the dominant political orientation of the recipient, which usually leads to a reinforcement of preexisting political perceptions and attitudes. We review recent research on selective exposure and perceptions and argue for greater involvement of findings in social psychology regarding differences in cognitive styles that underlie individual policy orientations and justify why and how these findings can promote the study of partisan selectivity in the reception of political communication. We conclude by highlighting theoretical and methodological perspectives arising from the proposed extension of research on selectivity in the process of receiving political communication. [Publication of this chapter in the public domain courtesy of Frank &amp; Timme publishers. Publisher website: http://www.frank-timme.de/verlag/verlagsprogramm/buch/verlagsprogramm/kathrin-mokmichael-stahl-hg-politische-kommunikation-heute/]",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            "Frank und Timme"
+          ],
+          "year": "2010"
+        },
+        "tags": [
+          "communication",
+          "motivated reasoning",
+          "political behavior",
+          "political communication",
+          "political psychology",
+          "selective exposure"
+        ],
+        "preprint_doi_created": "2018-09-06T16:40:41.718838",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2018-09-06T16:39:03.779179",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": null,
+        "conflict_of_interest_statement": null,
+        "has_data_links": null,
+        "why_no_data": null,
+        "data_links": null,
+        "has_prereg_links": null,
+        "why_no_prereg": null,
+        "prereg_links": null,
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d98",
+              "text": "Psychology"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76daf",
+              "text": "Political Science"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/q38my_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/q38my_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/q38my_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/q38my_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "q38my_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/q38my_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/nodes/g7r6p/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/q38my_v1/relationships/node/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "g7r6p",
+            "type": "nodes"
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e965/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e965",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/q38my_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/5b91533be39d950015cc715e/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "5b91533be39d950015cc715e",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/q38my_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/q38my_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/q38my_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/q38my_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/q38my_v1/",
+        "html": "https://osf.io/preprints/socarxiv/q38my_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/q38my",
+        "iri": "https://osf.io/q38my"
+      }
+    },
+    {
+      "id": "58u4c_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2018-01-26T13:29:34.538871",
+        "date_modified": "2022-09-19T20:53:38.190950",
+        "date_published": "2018-01-26T14:17:00.429835",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": "10.1080/10584609.2017.1334728",
+        "title": "Election campaigning on social media: Politicians, audiences and the mediation of political communication on Facebook and Twitter",
+        "description": "Although considerable research has concentrated on online campaigning, it is still unclear how politicians use different social media platforms in political communication. Focusing on the German federal election campaign 2013, this article investigates whether election candidates address the topics most important to the mass audience and to which extent their communication is shaped by the characteristics of Facebook and Twitter. Based on open-ended responses from a representative survey conducted during the election campaign, we train a human-interpretable Bayesian language model to identify political topics. Applying the model to social media messages of candidates and their direct audiences, we find that both prioritize different topics than the mass audience. The analysis also shows that politicians use Facebook and Twitter for different purposes. We relate the various findings to the mediation of political communication on social media induced by the particular characteristics of audiences and sociotechnical environments.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            ""
+          ],
+          "year": "2018"
+        },
+        "tags": [
+          "cross-media analysis",
+          "language models",
+          "online campaigning",
+          "social media",
+          "text analysis"
+        ],
+        "preprint_doi_created": "2018-07-02T11:36:48.306445",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2018-01-26T14:17:00.429835",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": null,
+        "conflict_of_interest_statement": null,
+        "has_data_links": null,
+        "why_no_data": null,
+        "data_links": null,
+        "has_prereg_links": null,
+        "why_no_prereg": null,
+        "prereg_links": null,
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f7c698300375c76d96",
+              "text": "Other Social and Behavioral Sciences"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76daf",
+              "text": "Political Science"
+            },
+            {
+              "id": "5a8c80f8c698300375c76db1",
+              "text": "Models and Methods"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76df4",
+              "text": "Science and Technology Studies"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0f",
+              "text": "Communication Technology and New Media"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e18",
+              "text": "Social Media"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/58u4c_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/58u4c_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/58u4c_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/58u4c_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "58u4c_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/58u4c_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/nodes/5uhv6/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/58u4c_v1/relationships/node/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "5uhv6",
+            "type": "nodes"
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/58u4c_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/5a6b2d3d3623a3000c6534ec/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "5a6b2d3d3623a3000c6534ec",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/58u4c_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/58u4c_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/58u4c_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/58u4c_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/58u4c_v1/",
+        "html": "https://osf.io/preprints/socarxiv/58u4c_v1/",
+        "doi": "https://doi.org/10.1080/10584609.2017.1334728",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/58u4c",
+        "iri": "https://osf.io/58u4c"
+      }
+    },
+    {
+      "id": "xawyf_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2017-06-08T12:40:50.207969",
+        "date_modified": "2020-02-25T18:26:18.824895",
+        "date_published": "2017-06-08T12:42:39.051441",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "A Framework for Critical-Empiricist Research in Political Communication",
+        "description": "Empirical research on political communication can play an important role in informing debates about the democratic value of various political communication processes. However, the degree to which political communication researchers can live up to this task depends on how systematically they relate their empirical investigations to concerns formulated in normative conceptions of democracy. In this paper, I present a framework for the empirical normative analysis of political communication. Based on the two core research procedures of normative assessment and empirical validation, it provides a model of the relations between normative and empirical research and a template for the empirical study of normatively relevant aspects of political communication. The paper systematizes the relations between normative theory and empirical reality, and discusses the two core procedures for empirical researchers to productively bridge the two. The framework is supposed to foster systematic exchanges between empirical studies of political communication and normative democratic theory and clarify the contribution of empirical studies to democratic theory, practice, and reform. It also implicates additional justification for greater use of controlled experimental research and cross-context comparative studies.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            "Eike Mark Rinke"
+          ],
+          "year": "2017"
+        },
+        "tags": [
+          "communication",
+          "democracy",
+          "democratic theory",
+          "empirical validation",
+          "normative analysis",
+          "normative assessment",
+          "normative theory",
+          "political communication",
+          "public sphere",
+          "research design"
+        ],
+        "preprint_doi_created": "2018-07-02T10:59:31.224763",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2017-06-08T12:42:39.051441",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": null,
+        "conflict_of_interest_statement": null,
+        "has_data_links": null,
+        "why_no_data": null,
+        "data_links": null,
+        "has_prereg_links": null,
+        "why_no_prereg": null,
+        "prereg_links": null,
+        "prereg_link_info": null,
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f8c698300375c76daf",
+              "text": "Political Science"
+            }
+          ],
+          [
+            {
+              "id": "5a8c80f7c698300375c76d84",
+              "text": "Social and Behavioral Sciences"
+            },
+            {
+              "id": "5a8c80f9c698300375c76e0d",
+              "text": "Communication"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/xawyf_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/xawyf_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/xawyf_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/xawyf_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "xawyf_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/xawyf_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/nodes/8u5vb/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/xawyf_v1/relationships/node/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "8u5vb",
+            "type": "nodes"
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "socarxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/xawyf_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/593945d1594d90023458e4b5/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "593945d1594d90023458e4b5",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/xawyf_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/xawyf_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/xawyf_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/xawyf_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/xawyf_v1/",
+        "html": "https://osf.io/preprints/socarxiv/xawyf_v1/",
+        "preprint_doi": "https://doi.org/10.31235/osf.io/xawyf",
+        "iri": "https://osf.io/xawyf"
+      }
+    }
+  ],
+  "links": {
+    "first": null,
+    "last": null,
+    "prev": null,
+    "next": null,
+    "meta": {
+      "total": 10,
+      "per_page": 50
+    }
+  },
+  "meta": {
+    "version": "2.0"
+  }
+}

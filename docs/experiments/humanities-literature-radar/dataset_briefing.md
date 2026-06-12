@@ -7,6 +7,7 @@ This dataset is the first source-backed corpus for the Cultural Observatory / Ar
 - OpenAlex
 - Crossref
 - DOAJ
+- OSF Preprints / SocArXiv
 - arXiv
 - NBER search pages
 - selected public department and digital-humanities pages
@@ -28,6 +29,13 @@ The current committed run is a bounded implementation corpus, not the final broa
 - `reports/result.json`: structured result payload
 - `reports/work.md`: work log and caveats
 - `reports/public-draft.md`: public-facing draft scaffold
+
+Current processed corpus summary:
+
+- 255 deduped works
+- 118 works dated 2024-present
+- 96 quantitative/computational humanities candidates
+- processed sources: OpenAlex, Crossref, DOAJ, OSF Preprints / SocArXiv, and arXiv
 
 ## Fields
 
@@ -63,6 +71,7 @@ Primary work fields include:
 - The current run is intentionally bounded and should be expanded before public trend claims.
 - Public metadata underrepresents books, book chapters, non-English scholarship, and paywalled humanities journals.
 - DOAJ API search is appropriate for bounded discovery; large-scale DOAJ harvesting should use public dumps or OAI-PMH.
+- OSF/SocArXiv coverage currently comes from bounded title searches, not a complete provider harvest.
 - arXiv records are filtered for humanities relevance, but some technical false positives may remain.
 - Department-page records are coverage/enrichment evidence and should not be used to rank departments.
 - Classification is heuristic and needs manual audit before publication.
