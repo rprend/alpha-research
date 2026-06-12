@@ -68,6 +68,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/coverage_search_queries.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/source_clusters.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/source_versions.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/archive_fetch_targets.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/wayback_captures.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/search_candidates.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/search_promotions.jsonl`
@@ -235,6 +236,8 @@ Acceptance output:
 
 ### Step 5: Expand Archive And Common Crawl Recovery
 
+Status: implemented for Wayback capture metadata, source-version comparison rows, Common Crawl candidate/promotion artifacts, and a ranked archive fetch target queue. Archive target rows now identify the best public captures to fetch next by source, academic-term-start timing, course/artifact language, current fetch status, and existing archive-source coverage. Full archive capture fetching and promotion into `sources.jsonl` remains the next bounded implementation step.
+
 Goal: recover vanished course sites, older project prompts, and historical schedule/readings evidence.
 
 Implementation requirements:
@@ -246,17 +249,20 @@ Implementation requirements:
 5. Preserve original URL, capture timestamp, current-source relationship, text similarity, changed keywords, and substantive-change hints in `source_versions.jsonl`.
 6. Expand the bounded Common Crawl pass for known domains and high-priority missing coverage gaps without making routine renders unbounded.
 7. Keep historical course sections and materially different assignment versions separate.
+8. Maintain `archive_fetch_targets.jsonl` as the bounded queue for selected Wayback captures before fetching. Each target must record the current source relationship, capture timestamp, replay/memento URLs, priority score, selection reason, target status, and whether it is already represented by a fetched archive source.
 
 Validation requirements:
 
 - Every archive-derived source must cite original URL and capture timestamp.
 - `source_versions.jsonl` must connect current and archived records.
 - Duplicate captures with no substantive classroom difference should be clustered or marked cosmetic.
+- Archive fetch targets must reference existing sources and source-version rows, include replay/memento URLs, include a selection reason, and report high-priority, pending, and term-aligned counts.
 
 Acceptance output:
 
 - fetched archive sources where currently only capture metadata exists
 - archive-derived course-site pages, assignments, readings, or schedule rows when evidence is present
+- `archive_fetch_targets.jsonl` showing which captures should be fetched first and why
 
 ### Step 6: Upgrade Deduplication, Versioning, And Conflict Handling
 
@@ -958,6 +964,42 @@ Required fields:
 - `removed_archive_keywords`
 - `substantive_change_hint`
 - `evidence_grade`
+
+### `archive_fetch_targets.jsonl`
+
+One row per selected Wayback capture to fetch or audit next. This is a bounded priority queue, not a claim that the capture has already been ingested as evidence.
+
+Required fields:
+
+- `target_id`
+- `source_id`
+- `current_url`
+- `current_status`
+- `source_type`
+- `course_code`
+- `course_title`
+- `term`
+- `capture_timestamp`
+- `capture_year`
+- `capture_month`
+- `original_url`
+- `memento_url`
+- `replay_url`
+- `mimetype`
+- `digest`
+- `priority_score`
+- `priority`
+- `selection_reason`
+- `academic_term_start_aligned`
+- `comparison_status`
+- `existing_archive_source_ids`
+- `target_status`
+- `evidence_grade`
+
+Target statuses:
+
+- `pending_archive_fetch`: selected capture should be fetched, parsed, and classified in a bounded archive run.
+- `already_fetched_archive_source`: selected capture is already represented by a fetched archive-derived source.
 
 ### `review_decisions.jsonl`
 

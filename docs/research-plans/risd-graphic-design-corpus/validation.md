@@ -93,6 +93,10 @@ Overall status: pass
 - Source versions: 28
 - Fetched archive source comparisons: 1
 - Metadata-only source versions: 27
+- Archive fetch targets: 75
+- High-priority archive fetch targets: 23
+- Pending archive fetch targets: 75
+- Term-aligned archive fetch targets: 25
 - Wayback captures: 106
 - Review queue rows: 11
 - Review decision rows: 11
@@ -144,6 +148,8 @@ Overall status: pass
 - PASS source_clusters_are_used_for_packet_grouping: 117 course packets include source-cluster grouped evidence families.
 - PASS source_versions_reference_valid_sources: 0 source version reference errors across 28 version rows.
 - PASS source_versions_record_wayback_comparisons: 1 fetched archive comparisons and 27 metadata-only version rows.
+- PASS archive_fetch_targets_reference_valid_sources: 75 archive fetch targets, 75 pending, 0 target reference errors.
+- PASS archive_fetch_targets_prioritize_term_starts: 23 high-priority archive targets; 25 captures align with January/February/May/September term-start months.
 - PASS manual_review_artifacts_have_valid_references: 11 generated review decisions resolved, 0 review decision reference errors, and 0 field conflict reference errors.
 - PASS official_course_inventory_reconciled: 105 official offerings parsed; RISD page displays 105 results.
 - PASS wayback_captures_recorded: 106 Wayback capture records.

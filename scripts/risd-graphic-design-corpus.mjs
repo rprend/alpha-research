@@ -3559,6 +3559,92 @@ function buildSourceVersions(inspected, wayback) {
   return rows.sort((a, b) => a.source_id.localeCompare(b.source_id))
 }
 
+function buildArchiveFetchTargets({ sources, wayback, sourceVersions }) {
+  const sourceById = new Map(sources.map((source) => [source.source_id, source]))
+  const versionBySourceId = new Map(sourceVersions.map((version) => [version.source_id, version]))
+  const capturesBySource = new Map()
+  for (const capture of wayback) {
+    const existing = capturesBySource.get(capture.source_id) ?? []
+    existing.push(capture)
+    capturesBySource.set(capture.source_id, existing)
+  }
+
+  const targets = []
+  for (const [sourceId, captures] of capturesBySource) {
+    const source = sourceById.get(sourceId)
+    const version = versionBySourceId.get(sourceId)
+    if (!source || !version) continue
+    const ranked = captures
+      .map((capture) => {
+        const score = archiveCapturePriorityScore({ source, capture, version })
+        return {
+          capture,
+          score,
+          reason: archiveCaptureSelectionReason({ source, capture, version, score }),
+        }
+      })
+      .sort((a, b) => b.score - a.score || a.capture.timestamp.localeCompare(b.capture.timestamp))
+      .slice(0, 3)
+    for (const { capture, score, reason } of ranked) {
+      const alreadyFetched = (version?.fetched_archive_source_ids ?? []).some((id) => id.includes(capture.timestamp))
+      targets.push({
+        target_id: `archive_target_${slug(sourceId)}_${capture.timestamp}`,
+        source_id: sourceId,
+        current_url: source?.url ?? version?.current_url ?? null,
+        current_status: source?.extraction_status ?? version?.current_status ?? null,
+        source_type: source?.source_type ?? null,
+        course_code: source?.course_code ?? null,
+        course_title: source?.course_title ?? null,
+        term: source?.term ?? null,
+        capture_timestamp: capture.timestamp,
+        capture_year: Number(String(capture.timestamp).slice(0, 4)) || null,
+        capture_month: Number(String(capture.timestamp).slice(4, 6)) || null,
+        original_url: capture.original,
+        memento_url: capture.memento_url,
+        replay_url: capture.replay_url,
+        mimetype: capture.mimetype ?? null,
+        digest: capture.digest ?? null,
+        priority_score: score,
+        priority: score >= 9 ? 'high' : score >= 6 ? 'medium' : 'low',
+        selection_reason: reason,
+        academic_term_start_aligned: isAcademicTermStartCapture(capture.timestamp),
+        comparison_status: version?.comparison_status ?? null,
+        existing_archive_source_ids: version?.fetched_archive_source_ids ?? [],
+        target_status: alreadyFetched ? 'already_fetched_archive_source' : 'pending_archive_fetch',
+        evidence_grade: source?.confidence ?? version?.evidence_grade ?? null,
+      })
+    }
+  }
+  return targets.sort((a, b) => b.priority_score - a.priority_score || a.source_id.localeCompare(b.source_id) || a.capture_timestamp.localeCompare(b.capture_timestamp))
+}
+
+function archiveCapturePriorityScore({ source, capture, version }) {
+  const combined = `${source?.url ?? ''} ${source?.title ?? ''} ${source?.source_type ?? ''} ${source?.course_title ?? ''}`.toLowerCase()
+  let score = 0
+  if (isAcademicTermStartCapture(capture.timestamp)) score += 4
+  if (/syllabus|assignment|project|schedule|week|course|studio|type|typography|graphic/.test(combined)) score += 3
+  if (['syllabus_pdf', 'syllabus_html', 'assignment_page', 'schedule_page', 'course_site'].includes(source?.source_type)) score += 2
+  if (version?.comparison_status === 'metadata_only') score += 2
+  if (source?.extraction_status !== 'ok') score += 2
+  if (/student|gallery|work/.test(combined)) score += 1
+  return score
+}
+
+function archiveCaptureSelectionReason({ source, capture, version, score }) {
+  const reasons = []
+  if (isAcademicTermStartCapture(capture.timestamp)) reasons.push('capture near academic term start')
+  if (version?.comparison_status === 'metadata_only') reasons.push('source has capture metadata but no fetched archive comparison')
+  if (source?.extraction_status !== 'ok') reasons.push('current source extraction failed or was incomplete')
+  if (['syllabus_pdf', 'syllabus_html', 'assignment_page', 'schedule_page', 'course_site'].includes(source?.source_type)) reasons.push(`classroom artifact source type: ${source.source_type}`)
+  if (!reasons.length) reasons.push(`ranked by archive priority score ${score}`)
+  return reasons.join('; ')
+}
+
+function isAcademicTermStartCapture(timestamp) {
+  const month = Number(String(timestamp).slice(4, 6))
+  return [1, 2, 5, 9].includes(month)
+}
+
 function versionKeywords(text) {
   const lower = text.toLowerCase()
   const checks = [
@@ -3802,13 +3888,14 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
   const effectiveCourseSitePages = courseSitePages ?? loadJsonl(join(outDir, 'course_site_pages.jsonl'))
   const effectiveAssignmentBriefPages = assignmentBriefPages ?? loadJsonl(join(outDir, 'assignment_brief_pages.jsonl'))
   const effectiveStudentWorkAssignmentLinks = studentWorkAssignmentLinks ?? loadJsonl(join(outDir, 'student_work_assignment_links.jsonl'))
   const effectiveScheduleRows = scheduleRows ?? loadJsonl(join(outDir, 'schedule_rows.jsonl'))
+  const effectiveArchiveFetchTargets = archiveFetchTargets ?? loadJsonl(join(outDir, 'archive_fetch_targets.jsonl'))
   const sourceIds = new Set(sources.map((source) => source.source_id))
   const syllabusIds = new Set(syllabi.map((syllabus) => syllabus.syllabus_id))
   const failedSourceIds = new Set(sources.filter((source) => source.extraction_status !== 'ok').map((source) => source.source_id))
@@ -3982,6 +4069,21 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const sourceVersionErrors = sourceVersions.filter((version) => !version.source_id || !version.version_id || version.current_source_id && !sourceIds.has(version.current_source_id) || version.fetched_archive_source_ids?.some((id) => !sourceIds.has(id)))
   const fetchedArchiveVersionCount = sourceVersions.filter((version) => version.comparison_status === 'fetched_archive_compared').length
   const metadataOnlyVersionCount = sourceVersions.filter((version) => version.comparison_status === 'metadata_only').length
+  const sourceVersionIds = new Set(sourceVersions.map((version) => version.source_id))
+  const archiveFetchTargetErrors = effectiveArchiveFetchTargets.filter((target) =>
+    !target.target_id
+      || !target.source_id
+      || !sourceIds.has(target.source_id)
+      || !sourceVersionIds.has(target.source_id)
+      || !target.capture_timestamp
+      || !target.memento_url
+      || !target.replay_url
+      || !target.selection_reason
+      || !target.target_status
+  )
+  const highPriorityArchiveFetchTargetCount = effectiveArchiveFetchTargets.filter((target) => target.priority === 'high').length
+  const pendingArchiveFetchTargetCount = effectiveArchiveFetchTargets.filter((target) => target.target_status === 'pending_archive_fetch').length
+  const termAlignedArchiveFetchTargetCount = effectiveArchiveFetchTargets.filter((target) => target.academic_term_start_aligned).length
   const exactSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type.startsWith('exact')).length
   const nearDuplicateSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type === 'near_duplicate_text').length
   const relatedSourceClusterCount = sourceClusters.filter((cluster) => cluster.cluster_type === 'related_source_family').length
@@ -4208,6 +4310,16 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${fetchedArchiveVersionCount} fetched archive comparisons and ${metadataOnlyVersionCount} metadata-only version rows.`,
     },
     {
+      id: 'archive_fetch_targets_reference_valid_sources',
+      status: archiveFetchTargetErrors.length === 0 && effectiveArchiveFetchTargets.length > 0 ? 'pass' : archiveFetchTargetErrors.length === 0 ? 'warn' : 'fail',
+      detail: `${effectiveArchiveFetchTargets.length} archive fetch targets, ${pendingArchiveFetchTargetCount} pending, ${archiveFetchTargetErrors.length} target reference errors.`,
+    },
+    {
+      id: 'archive_fetch_targets_prioritize_term_starts',
+      status: termAlignedArchiveFetchTargetCount > 0 && highPriorityArchiveFetchTargetCount > 0 ? 'pass' : effectiveArchiveFetchTargets.length > 0 ? 'warn' : 'fail',
+      detail: `${highPriorityArchiveFetchTargetCount} high-priority archive targets; ${termAlignedArchiveFetchTargetCount} captures align with January/February/May/September term-start months.`,
+    },
+    {
       id: 'manual_review_artifacts_have_valid_references',
       status: reviewDecisionErrors.length === 0 && fieldConflictErrors.length === 0 ? 'pass' : 'fail',
       detail: `${resolvedReviewDecisionCount} generated review decisions resolved, ${reviewDecisionErrors.length} review decision reference errors, and ${fieldConflictErrors.length} field conflict reference errors.`,
@@ -4321,6 +4433,10 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       source_versions: sourceVersions.length,
       fetched_archive_source_versions: fetchedArchiveVersionCount,
       metadata_only_source_versions: metadataOnlyVersionCount,
+      archive_fetch_targets: effectiveArchiveFetchTargets.length,
+      high_priority_archive_fetch_targets: highPriorityArchiveFetchTargetCount,
+      pending_archive_fetch_targets: pendingArchiveFetchTargetCount,
+      term_aligned_archive_fetch_targets: termAlignedArchiveFetchTargetCount,
       wayback: wayback.length,
       review_queue: reviewQueue.length,
       review_decisions: reviewDecisions.length,
@@ -4737,6 +4853,10 @@ Overall status: ${validation.status}
 - Source versions: ${validation.counts.source_versions}
 - Fetched archive source comparisons: ${validation.counts.fetched_archive_source_versions}
 - Metadata-only source versions: ${validation.counts.metadata_only_source_versions}
+- Archive fetch targets: ${validation.counts.archive_fetch_targets}
+- High-priority archive fetch targets: ${validation.counts.high_priority_archive_fetch_targets}
+- Pending archive fetch targets: ${validation.counts.pending_archive_fetch_targets}
+- Term-aligned archive fetch targets: ${validation.counts.term_aligned_archive_fetch_targets}
 - Wayback captures: ${validation.counts.wayback}
 - Review queue rows: ${validation.counts.review_queue}
 - Review decision rows: ${validation.counts.review_decisions}
@@ -5459,12 +5579,13 @@ function renderDerivedArtifactsOnly() {
   const facultySearchQueries = buildFacultySearchQueries(faculty, facultyCourseEdges)
   const assignmentBriefPages = buildAssignmentBriefPages({ courseSitePages, assignments })
   const studentWorkAssignmentLinks = buildStudentWorkAssignmentLinks({ studentWork, assignmentBriefPages, assignments, courseSitePages })
+  const archiveFetchTargets = buildArchiveFetchTargets({ sources, wayback, sourceVersions })
   const retainedSearchCandidates = searchCandidates.filter((candidate) => !['coverage_query_backlog', 'faculty_query_backlog'].includes(candidate.source))
   const refreshedBacklogCandidates = buildSearchCandidates([], [], [], coverageSearchQueries, facultySearchQueries)
     .filter((candidate) => ['coverage_query_backlog', 'faculty_query_backlog'].includes(candidate.source))
   searchCandidates = mergeRowsByKey(retainedSearchCandidates, refreshedBacklogCandidates, (candidate) => candidate.candidate_id)
     .sort((a, b) => String(a.query ?? '').localeCompare(String(b.query ?? '')) || String(a.source ?? '').localeCompare(String(b.source ?? '')))
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, scheduleRows, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, studentWorkAssignmentLinks, facultyPortfolioExamples, courseSitePages, assignmentBriefPages, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries, facultySearchQueries })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, scheduleRows, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, studentWorkAssignmentLinks, facultyPortfolioExamples, courseSitePages, assignmentBriefPages, archiveFetchTargets, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries, facultySearchQueries })
   writeJsonl(join(outDir, 'assignments.jsonl'), assignments)
   writeJsonl(join(outDir, 'readings.jsonl'), readings)
   writeJsonl(join(outDir, 'reading_frequency.jsonl'), readingFrequency)
@@ -5478,6 +5599,7 @@ function renderDerivedArtifactsOnly() {
   writeJsonl(join(outDir, 'schedule_rows.jsonl'), scheduleRows)
   writeJsonl(join(outDir, 'assignment_brief_pages.jsonl'), assignmentBriefPages)
   writeJsonl(join(outDir, 'student_work_assignment_links.jsonl'), studentWorkAssignmentLinks)
+  writeJsonl(join(outDir, 'archive_fetch_targets.jsonl'), archiveFetchTargets)
   writeJsonl(join(outDir, 'search_candidates.jsonl'), searchCandidates)
   writeFileSync(join(outDir, 'course_coverage.md'), courseCoverageMarkdown(courseCoverage))
   writeFileSync(join(outDir, 'review_queue.md'), reviewQueueMarkdown(reviewQueue))
@@ -6256,6 +6378,7 @@ async function main() {
   const facultyPortfolioExamples = loadJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'))
   const sourceClusters = buildSourceClusters(inspected, syllabi, readings)
   const sourceVersions = buildSourceVersions(inspected, wayback)
+  const archiveFetchTargets = buildArchiveFetchTargets({ sources, wayback, sourceVersions })
   const courseSitePages = buildCourseSitePages({ sources, syllabi, assignments, readings })
   const scheduleRows = buildScheduleRows({ syllabi, assignments, readings, courseSitePages })
   const assignmentBriefPages = buildAssignmentBriefPages({ courseSitePages, assignments })
@@ -6283,6 +6406,7 @@ async function main() {
   writeJsonl(join(outDir, 'faculty_portfolio_examples.jsonl'), facultyPortfolioExamples)
   writeJsonl(join(outDir, 'source_clusters.jsonl'), sourceClusters)
   writeJsonl(join(outDir, 'source_versions.jsonl'), sourceVersions)
+  writeJsonl(join(outDir, 'archive_fetch_targets.jsonl'), archiveFetchTargets)
   writeJsonl(join(outDir, 'wayback_captures.jsonl'), wayback)
   writeJsonl(join(outDir, 'crawl_sources.jsonl'), crawlSeeds)
   const existingSearchResults = loadJsonl(join(outDir, 'search_results.jsonl')).filter((row) => row.source === 'live_search_api')
@@ -6295,7 +6419,7 @@ async function main() {
   const reviewQueue = buildReviewQueue({ sources, courseInventory, syllabi, readings })
   const reviewDecisions = buildReviewDecisions(reviewQueue, { sources, syllabi, readings })
   const fieldConflicts = buildFieldConflicts({ courses, syllabi, sourceClusters })
-  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, scheduleRows, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, studentWorkAssignmentLinks, facultyPortfolioExamples, courseSitePages, assignmentBriefPages, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries, facultySearchQueries })
+  const validationWithReview = validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency, scheduleRows, searchCandidates, commonCrawlCandidates, commonCrawlPromotions, facultyProfileCandidates, faculty, facultyCourseEdges, studentWork, studentWorkAssignmentLinks, facultyPortfolioExamples, courseSitePages, assignmentBriefPages, archiveFetchTargets, sourceClusters, sourceVersions, wayback, reviewQueue, reviewDecisions, fieldConflicts, courseCoverage, coverageSearchQueries, facultySearchQueries })
   writeJsonl(join(outDir, 'review_queue.jsonl'), reviewQueue)
   writeJsonl(join(outDir, 'review_decisions.jsonl'), reviewDecisions)
   writeJsonl(join(outDir, 'field_conflicts.jsonl'), fieldConflicts)

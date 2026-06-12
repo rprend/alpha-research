@@ -89,6 +89,10 @@
     "source_versions": 28,
     "fetched_archive_source_versions": 1,
     "metadata_only_source_versions": 27,
+    "archive_fetch_targets": 75,
+    "high_priority_archive_fetch_targets": 23,
+    "pending_archive_fetch_targets": 75,
+    "term_aligned_archive_fetch_targets": 25,
     "wayback": 106,
     "review_queue": 11,
     "review_decisions": 11,
@@ -310,6 +314,16 @@
       "id": "source_versions_record_wayback_comparisons",
       "status": "pass",
       "detail": "1 fetched archive comparisons and 27 metadata-only version rows."
+    },
+    {
+      "id": "archive_fetch_targets_reference_valid_sources",
+      "status": "pass",
+      "detail": "75 archive fetch targets, 75 pending, 0 target reference errors."
+    },
+    {
+      "id": "archive_fetch_targets_prioritize_term_starts",
+      "status": "pass",
+      "detail": "23 high-priority archive targets; 25 captures align with January/February/May/September term-start months."
     },
     {
       "id": "manual_review_artifacts_have_valid_references",
