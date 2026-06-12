@@ -4047,7 +4047,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveArchivePromotions = archivePromotions ?? loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
@@ -4061,6 +4061,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const effectiveSelfStudyPortfolioBriefs = selfStudyPortfolioBriefs ?? []
   const effectiveSelfStudyPortfolioReferencePackets = selfStudyPortfolioReferencePackets ?? []
   const effectiveSelfStudyPortfolioExportManifests = selfStudyPortfolioExportManifests ?? []
+  const effectiveSelfStudyPortfolioSourceExcerptPackets = selfStudyPortfolioSourceExcerptPackets ?? []
   const effectiveScheduleRows = scheduleRows ?? loadJsonl(join(outDir, 'schedule_rows.jsonl'))
   const effectiveArchiveFetchTargets = archiveFetchTargets ?? loadJsonl(join(outDir, 'archive_fetch_targets.jsonl'))
   const sourceIds = new Set(sources.map((source) => source.source_id))
@@ -4298,7 +4299,9 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const portfolioBriefs = effectiveSelfStudyPortfolioBriefs.length ? effectiveSelfStudyPortfolioBriefs : generatedPortfolioBriefs
   const generatedPortfolioReferencePackets = buildSelfStudyPortfolioReferencePackets(curriculumModules, portfolioMilestones, facultyPortfolioExamples)
   const portfolioReferencePackets = effectiveSelfStudyPortfolioReferencePackets.length ? effectiveSelfStudyPortfolioReferencePackets : generatedPortfolioReferencePackets
-  const generatedPortfolioExportManifests = buildSelfStudyPortfolioExportManifests(portfolioMilestones, portfolioBriefs, portfolioReferencePackets)
+  const generatedPortfolioSourceExcerptPackets = buildSelfStudyPortfolioSourceExcerptPackets(curriculumModules, portfolioMilestones)
+  const portfolioSourceExcerptPackets = effectiveSelfStudyPortfolioSourceExcerptPackets.length ? effectiveSelfStudyPortfolioSourceExcerptPackets : generatedPortfolioSourceExcerptPackets
+  const generatedPortfolioExportManifests = buildSelfStudyPortfolioExportManifests(portfolioMilestones, portfolioBriefs, portfolioReferencePackets, portfolioSourceExcerptPackets)
   const portfolioExportManifests = effectiveSelfStudyPortfolioExportManifests.length ? effectiveSelfStudyPortfolioExportManifests : generatedPortfolioExportManifests
   const curriculumModulesWithSourceIds = curriculumModules.filter((module) => module.source_ids?.length).length
   const curriculumModulesWithAssignments = curriculumModules.filter((module) => module.assignment_ids?.length).length
@@ -4448,6 +4451,27 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const portfolioReferencePacketsGeneratedMismatch = effectiveSelfStudyPortfolioReferencePackets.length > 0 && effectiveSelfStudyPortfolioReferencePackets.length !== generatedPortfolioReferencePackets.length
   const portfolioBriefIds = new Set(portfolioBriefs.map((brief) => brief.brief_id))
   const portfolioReferencePacketIds = new Set(portfolioReferencePackets.map((packet) => packet.packet_id))
+  const portfolioSourceExcerptPacketIds = new Set(portfolioSourceExcerptPackets.map((packet) => packet.packet_id))
+  const portfolioSourceExcerptPacketErrors = portfolioSourceExcerptPackets.filter((packet) =>
+    !packet.packet_id
+      || !packet.milestone_id
+      || !portfolioMilestoneIds.has(packet.milestone_id)
+      || !packet.excerpt_groups?.length
+      || !packet.excerpt_groups.every((group) => group.group_id && group.evidence_role && Array.isArray(group.items))
+      || packet.excerpt_groups.flatMap((group) => group.items ?? []).some((item) =>
+        !item.excerpt_id
+          || !item.excerpt_text
+          || !item.evidence_role
+          || !item.source_ids?.length
+          || item.source_ids.some((sourceId) => !sourceIds.has(sourceId))
+          || item.assignment_id && !assignmentIds.has(item.assignment_id)
+          || item.reading_id && !readingIds.has(item.reading_id)
+          || item.schedule_id && !effectiveScheduleRowIds.has(item.schedule_id)
+      )
+      || !packet.source_ids?.length
+      || packet.source_ids.some((sourceId) => !sourceIds.has(sourceId))
+  )
+  const portfolioSourceExcerptPacketsGeneratedMismatch = effectiveSelfStudyPortfolioSourceExcerptPackets.length > 0 && effectiveSelfStudyPortfolioSourceExcerptPackets.length !== generatedPortfolioSourceExcerptPackets.length
   const portfolioExportManifestErrors = portfolioExportManifests.filter((manifest) =>
     !manifest.manifest_id
       || !manifest.milestone_id
@@ -4456,9 +4480,12 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       || !portfolioBriefIds.has(manifest.brief_id)
       || !manifest.reference_packet_id
       || !portfolioReferencePacketIds.has(manifest.reference_packet_id)
+      || !manifest.source_excerpt_packet_id
+      || !portfolioSourceExcerptPacketIds.has(manifest.source_excerpt_packet_id)
       || !manifest.export_files?.length
       || !manifest.export_files.some((file) => file.file_role === 'portfolio_brief_markdown' && file.path)
       || !manifest.export_files.some((file) => file.file_role === 'reference_packet_jsonl_row' && file.path)
+      || !manifest.export_files.some((file) => file.file_role === 'source_excerpt_packet_jsonl_row' && file.path)
       || !manifest.source_id_manifest?.length
       || manifest.source_id_manifest.some((sourceId) => !sourceIds.has(sourceId))
       || !manifest.print_packet_order?.length
@@ -4744,6 +4771,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${portfolioReferencePackets.length} portfolio reference packets for ${portfolioMilestones.length} milestones; ${portfolioReferencePacketErrors.length} packet reference errors; generated mismatch=${portfolioReferencePacketsGeneratedMismatch}.`,
     },
     {
+      id: 'self_study_portfolio_source_excerpt_packets_carry_evidence_context',
+      status: portfolioSourceExcerptPacketErrors.length === 0 && portfolioSourceExcerptPackets.length === portfolioMilestones.length && portfolioSourceExcerptPackets.length > 0 && !portfolioSourceExcerptPacketsGeneratedMismatch ? 'pass' : 'fail',
+      detail: `${portfolioSourceExcerptPackets.length} source excerpt packets for ${portfolioMilestones.length} milestones; ${portfolioSourceExcerptPacketErrors.length} packet reference errors; generated mismatch=${portfolioSourceExcerptPacketsGeneratedMismatch}.`,
+    },
+    {
       id: 'self_study_portfolio_export_manifests_package_briefs_and_sources',
       status: portfolioExportManifestErrors.length === 0 && portfolioExportManifests.length === portfolioMilestones.length && portfolioExportManifests.length > 0 && !portfolioExportManifestsGeneratedMismatch ? 'pass' : 'fail',
       detail: `${portfolioExportManifests.length} export manifests for ${portfolioMilestones.length} milestones; ${portfolioExportManifestErrors.length} manifest reference errors; generated mismatch=${portfolioExportManifestsGeneratedMismatch}.`,
@@ -4896,6 +4928,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_portfolio_briefs: portfolioBriefs.length,
       self_study_portfolio_reference_packets: portfolioReferencePackets.length,
       self_study_portfolio_export_manifests: portfolioExportManifests.length,
+      self_study_portfolio_source_excerpt_packets: portfolioSourceExcerptPackets.length,
     },
     checks,
   }
@@ -5511,6 +5544,7 @@ Overall status: ${validation.status}
 - Self-study portfolio briefs: ${validation.counts.self_study_portfolio_briefs}
 - Self-study portfolio reference packets: ${validation.counts.self_study_portfolio_reference_packets}
 - Self-study portfolio export manifests: ${validation.counts.self_study_portfolio_export_manifests}
+- Self-study portfolio source excerpt packets: ${validation.counts.self_study_portfolio_source_excerpt_packets}
 
 ## Checks
 
@@ -6726,16 +6760,126 @@ function dedupeReferences(items) {
   })
 }
 
-function buildSelfStudyPortfolioExportManifests(portfolioMilestones, portfolioBriefs, portfolioReferencePackets) {
+function buildSelfStudyPortfolioSourceExcerptPackets(selfStudyModules, portfolioMilestones) {
+  const modulesById = new Map(selfStudyModules.map((module) => [module.module_id, module]))
+  return portfolioMilestones.map((milestone) => {
+    const modules = milestone.module_ids.map((id) => modulesById.get(id)).filter(Boolean)
+    const assignmentItems = modules.flatMap((module) => (module.assignments ?? []).slice(0, 4).map((assignment) => ({
+      excerpt_id: `excerpt_${milestone.milestone_id}_${assignment.assignment_id}`,
+      evidence_role: 'assignment_brief_excerpt',
+      module_id: module.module_id,
+      course_title: module.course_title ?? null,
+      assignment_id: assignment.assignment_id,
+      reading_id: null,
+      schedule_id: null,
+      source_ids: assignment.source_ids ?? [],
+      excerpt_text: compactExcerpt(assignment.prompt_excerpt),
+      evidence_note: [assignment.title, assignment.output_format, assignment.critique_format ?? assignment.revision_expectation].filter(Boolean).join('; ') || 'selected assignment evidence excerpt',
+    })))
+    const readingItems = modules.flatMap((module) => (module.readings ?? []).slice(0, 3).map((reading) => ({
+      excerpt_id: `excerpt_${milestone.milestone_id}_${reading.reading_id}`,
+      evidence_role: 'reading_resource_excerpt',
+      module_id: module.module_id,
+      course_title: module.course_title ?? null,
+      assignment_id: null,
+      reading_id: reading.reading_id,
+      schedule_id: null,
+      source_ids: reading.source_ids ?? [],
+      excerpt_text: compactExcerpt(reading.title ?? reading.raw_citation),
+      evidence_note: [reading.author, reading.citation_type, reading.reading_context].filter(Boolean).join('; ') || 'selected reading/resource evidence',
+    })))
+    const scheduleItems = modules.flatMap((module) => (module.schedule_rows ?? []).slice(0, 2).map((row) => ({
+      excerpt_id: `excerpt_${milestone.milestone_id}_${row.schedule_id}`,
+      evidence_role: 'schedule_rhythm_excerpt',
+      module_id: module.module_id,
+      course_title: module.course_title ?? null,
+      assignment_id: null,
+      reading_id: null,
+      schedule_id: row.schedule_id,
+      source_ids: [row.source_id].filter(Boolean),
+      excerpt_text: compactExcerpt(row.agenda_excerpt ?? row.session_title),
+      evidence_note: [row.date, row.week_number ? `week ${row.week_number}` : null, row.critique_signal ? 'critique signal' : null, row.workshop_signal ? 'workshop signal' : null].filter(Boolean).join('; ') || 'selected schedule evidence',
+    })))
+    const boundaryItems = modules.flatMap((module) => (module.missing_evidence_warnings ?? []).slice(0, 3).map((warning, index) => ({
+      excerpt_id: `excerpt_${milestone.milestone_id}_${module.module_id}_boundary_${index + 1}`,
+      evidence_role: 'missing_evidence_boundary',
+      module_id: module.module_id,
+      course_title: module.course_title ?? null,
+      assignment_id: null,
+      reading_id: null,
+      schedule_id: null,
+      source_ids: module.source_ids?.slice(0, 3) ?? [],
+      excerpt_text: compactExcerpt(warning),
+      evidence_note: 'explicit unknown preserved in generated module',
+    })))
+    const excerptGroups = [
+      {
+        group_id: 'assignment_brief_excerpts',
+        evidence_role: 'assignment_brief_excerpt',
+        boundary_note: 'Short excerpts from selected assignment evidence; use source IDs for full context.',
+        items: dedupeExcerptItems(assignmentItems).slice(0, 18),
+      },
+      {
+        group_id: 'reading_resource_excerpts',
+        evidence_role: 'reading_resource_excerpt',
+        boundary_note: 'Short reading/resource labels from selected module packets; not full copyrighted readings.',
+        items: dedupeExcerptItems(readingItems).slice(0, 14),
+      },
+      {
+        group_id: 'schedule_rhythm_excerpts',
+        evidence_role: 'schedule_rhythm_excerpt',
+        boundary_note: 'Short schedule excerpts showing studio rhythm, critique, or workshop signals.',
+        items: dedupeExcerptItems(scheduleItems).slice(0, 10),
+      },
+      {
+        group_id: 'missing_evidence_boundaries',
+        evidence_role: 'missing_evidence_boundary',
+        boundary_note: 'Generated unknowns that must remain visible in exported study packets.',
+        items: dedupeExcerptItems(boundaryItems).slice(0, 12),
+      },
+    ].filter((group) => group.items.length)
+    return {
+      packet_id: `source_excerpt_packet_${milestone.milestone_id}`,
+      generated_at: retrievedAt,
+      milestone_id: milestone.milestone_id,
+      title: `${milestone.title} Source Excerpt Packet`,
+      excerpt_policy: 'Short source-context excerpts are included for study navigation only; reopen source IDs for complete context and do not infer missing private course material.',
+      excerpt_groups: excerptGroups,
+      source_ids: uniq(excerptGroups.flatMap((group) => group.items.flatMap((item) => item.source_ids ?? []))),
+      provenance_note: 'Generated from selected self-study module assignments, readings, schedule rows, and explicit missing-evidence warnings.',
+    }
+  })
+}
+
+function compactExcerpt(value, limit = 360) {
+  const text = String(value ?? '').replace(/\s+/g, ' ').trim()
+  if (text.length <= limit) return text
+  return `${text.slice(0, limit - 1).trim()}…`
+}
+
+function dedupeExcerptItems(items) {
+  const seen = new Set()
+  return items.filter((item) => {
+    const key = `${item.evidence_role}_${item.excerpt_text}_${item.module_id}`
+    if (!item.excerpt_text || seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+}
+
+function buildSelfStudyPortfolioExportManifests(portfolioMilestones, portfolioBriefs, portfolioReferencePackets, portfolioSourceExcerptPackets = []) {
   const briefByMilestone = new Map(portfolioBriefs.map((brief) => [brief.milestone_id, brief]))
   const referencePacketByMilestone = new Map(portfolioReferencePackets.map((packet) => [packet.milestone_id, packet]))
+  const sourceExcerptPacketByMilestone = new Map(portfolioSourceExcerptPackets.map((packet) => [packet.milestone_id, packet]))
   return portfolioMilestones.map((milestone) => {
     const brief = briefByMilestone.get(milestone.milestone_id)
     const referencePacket = referencePacketByMilestone.get(milestone.milestone_id)
+    const sourceExcerptPacket = sourceExcerptPacketByMilestone.get(milestone.milestone_id)
     const sourceIds = uniq([
       ...(milestone.source_ids ?? []),
       ...(brief?.source_ids ?? []),
       ...(referencePacket?.source_ids ?? []),
+      ...(sourceExcerptPacket?.source_ids ?? []),
     ])
     const assignmentIds = uniq([
       ...(milestone.assignment_ids ?? []),
@@ -6752,6 +6896,7 @@ function buildSelfStudyPortfolioExportManifests(portfolioMilestones, portfolioBr
       title: `${milestone.title} Export Manifest`,
       brief_id: brief?.brief_id ?? null,
       reference_packet_id: referencePacket?.packet_id ?? null,
+      source_excerpt_packet_id: sourceExcerptPacket?.packet_id ?? null,
       export_files: [
         {
           file_role: 'portfolio_brief_markdown',
@@ -6773,10 +6918,18 @@ function buildSelfStudyPortfolioExportManifests(portfolioMilestones, portfolioBr
           media_type: 'application/jsonl',
           use: 'relationship-labeled public visual/reference examples',
         },
+        {
+          file_role: 'source_excerpt_packet_jsonl_row',
+          path: 'self_study_portfolio_source_excerpt_packets.jsonl',
+          row_id: sourceExcerptPacket?.packet_id ?? null,
+          media_type: 'application/jsonl',
+          use: 'short source-context excerpts for study navigation',
+        },
       ],
       print_packet_order: [
         'portfolio_brief_markdown',
         'reference_packet_jsonl_row',
+        'source_excerpt_packet_jsonl_row',
         'source_id_manifest',
       ],
       source_id_manifest: sourceIds,
@@ -6785,6 +6938,7 @@ function buildSelfStudyPortfolioExportManifests(portfolioMilestones, portfolioBr
         title: milestone.title,
         brief_path: brief?.output_path ?? null,
         reference_packet_id: referencePacket?.packet_id ?? null,
+        source_excerpt_packet_id: sourceExcerptPacket?.packet_id ?? null,
         week_range: milestone.week_range ?? [],
         module_ids: milestone.module_ids ?? [],
         assignment_ids: assignmentIds,
@@ -7263,11 +7417,13 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   const portfolioMilestones = buildSelfStudyPortfolioMilestones(selfStudyModules, pacingPlan)
   const portfolioBriefs = buildSelfStudyPortfolioBriefs(selfStudyModules, pacingPlan, portfolioMilestones)
   const portfolioReferencePackets = buildSelfStudyPortfolioReferencePackets(selfStudyModules, portfolioMilestones, facultyPortfolioExamples)
-  const portfolioExportManifests = buildSelfStudyPortfolioExportManifests(portfolioMilestones, portfolioBriefs, portfolioReferencePackets)
+  const portfolioSourceExcerptPackets = buildSelfStudyPortfolioSourceExcerptPackets(selfStudyModules, portfolioMilestones)
+  const portfolioExportManifests = buildSelfStudyPortfolioExportManifests(portfolioMilestones, portfolioBriefs, portfolioReferencePackets, portfolioSourceExcerptPackets)
   writeJsonl(join(outDir, 'self_study_pacing_plan.jsonl'), pacingPlan)
   writeJsonl(join(outDir, 'self_study_pacing_profiles.jsonl'), buildSelfStudyPacingProfiles(pacingPlan))
   writeJsonl(join(outDir, 'self_study_portfolio_milestones.jsonl'), portfolioMilestones)
   writeJsonl(join(outDir, 'self_study_portfolio_reference_packets.jsonl'), portfolioReferencePackets)
+  writeJsonl(join(outDir, 'self_study_portfolio_source_excerpt_packets.jsonl'), portfolioSourceExcerptPackets)
   writeJsonl(join(outDir, 'self_study_portfolio_export_manifests.jsonl'), portfolioExportManifests)
   writeSelfStudyPortfolioBriefFiles(portfolioBriefs)
 }

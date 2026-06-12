@@ -132,6 +132,7 @@ Overall status: pass
 - Self-study portfolio briefs: 3
 - Self-study portfolio reference packets: 3
 - Self-study portfolio export manifests: 3
+- Self-study portfolio source excerpt packets: 3
 
 ## Checks
 
@@ -190,6 +191,7 @@ Overall status: pass
 - PASS self_study_portfolio_milestones_have_valid_review_packages: 3 portfolio milestones; 0 milestone reference errors; generated mismatch=false.
 - PASS self_study_portfolio_briefs_render_independent_pages: 3 portfolio briefs for 3 milestones; 0 brief reference/render errors; generated mismatch=false.
 - PASS self_study_portfolio_reference_packets_label_relationships: 3 portfolio reference packets for 3 milestones; 0 packet reference errors; generated mismatch=false.
+- PASS self_study_portfolio_source_excerpt_packets_carry_evidence_context: 3 source excerpt packets for 3 milestones; 0 packet reference errors; generated mismatch=false.
 - PASS self_study_portfolio_export_manifests_package_briefs_and_sources: 3 export manifests for 3 milestones; 0 manifest reference errors; generated mismatch=false.
 - PASS official_course_inventory_reconciled: 105 official offerings parsed; RISD page displays 105 results.
 - PASS wayback_captures_recorded: 106 Wayback capture records.

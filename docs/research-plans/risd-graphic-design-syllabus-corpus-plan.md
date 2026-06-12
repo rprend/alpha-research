@@ -90,6 +90,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/self_study_pacing_profiles.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_milestones.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_reference_packets.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_source_excerpt_packets.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_export_manifests.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_briefs.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/self_study_portfolio_briefs/*.md`
@@ -361,7 +362,7 @@ Acceptance output:
 
 ### Step 9: Generate A Mentor-Style Self-Study Curriculum From Evidence
 
-Status: implemented for evidence-filtered module selection, filtered assignment/reading/schedule display, module-level practice loops, explicit missing-evidence warnings, student/faculty comparison boundaries, a machine-readable `self_study_modules.jsonl` artifact, weekly `self_study_pacing_plan.jsonl`, profile `self_study_pacing_profiles.jsonl`, portfolio milestone `self_study_portfolio_milestones.jsonl`, relationship-labeled `self_study_portfolio_reference_packets.jsonl`, optional printable/export `self_study_portfolio_export_manifests.jsonl`, and export-friendly `self_study_portfolio_briefs/*.md` artifacts, module-grounded `tacit_knowledge_memo.md` sections, per-module confidence scores/explanations, module ordering rationales with near-miss candidates, track-level prerequisite/dependency maps, learner-facing weekly pacing, workload estimates, adjustable compressed/standard/slow pacing profiles, portfolio milestone checkpoints, independent portfolio review pages, and validation that generated modules/pacing rows/profiles/milestones/briefs/reference packets/export manifests cite source IDs, explain selection confidence/order/dependencies, label student-work and faculty-example relationships, and reference existing assignment/reading/schedule/student-work/faculty-example records. The next improvement should add per-milestone source excerpt packets so export packages can carry short source context without reopening every JSONL row.
+Status: implemented for evidence-filtered module selection, filtered assignment/reading/schedule display, module-level practice loops, explicit missing-evidence warnings, student/faculty comparison boundaries, a machine-readable `self_study_modules.jsonl` artifact, weekly `self_study_pacing_plan.jsonl`, profile `self_study_pacing_profiles.jsonl`, portfolio milestone `self_study_portfolio_milestones.jsonl`, relationship-labeled `self_study_portfolio_reference_packets.jsonl`, per-milestone `self_study_portfolio_source_excerpt_packets.jsonl`, optional printable/export `self_study_portfolio_export_manifests.jsonl`, and export-friendly `self_study_portfolio_briefs/*.md` artifacts, module-grounded `tacit_knowledge_memo.md` sections, per-module confidence scores/explanations, module ordering rationales with near-miss candidates, track-level prerequisite/dependency maps, learner-facing weekly pacing, workload estimates, adjustable compressed/standard/slow pacing profiles, portfolio milestone checkpoints, independent portfolio review pages, and validation that generated modules/pacing rows/profiles/milestones/briefs/reference packets/source excerpt packets/export manifests cite source IDs, explain selection confidence/order/dependencies, label student-work and faculty-example relationships, carry short assignment/reading/schedule evidence context, and reference existing assignment/reading/schedule/student-work/faculty-example records. The next improvement should add a learner-facing progress ledger that records completed module outputs, critique revisions, and unresolved evidence warnings across the pacing plan.
 
 Goal: make the corpus usable for the original purpose: tacit catch-up through concrete studio loops.
 
@@ -391,6 +392,7 @@ Acceptance output:
 - `self_study_modules.jsonl` for downstream rendering without Markdown parsing
 - `self_study_portfolio_briefs.jsonl` plus one standalone Markdown brief per portfolio milestone
 - `self_study_portfolio_reference_packets.jsonl` with relationship-labeled student-work and faculty-portfolio examples
+- `self_study_portfolio_source_excerpt_packets.jsonl` with short source-context excerpts for each portfolio milestone
 - `self_study_portfolio_export_manifests.jsonl` for packaging each brief, reference packet, and source ID manifest into external study tools
 - `tacit_knowledge_memo.md` organized around observed studio practices rather than unsupported generalizations
 
@@ -1444,6 +1446,7 @@ Corpus checks:
 - Every self-study portfolio brief maps to a milestone and includes source IDs, review prompts, a review package, and an evidence boundary.
 - Every self-study portfolio reference packet labels whether each item is assignment-linked student work, course-context student work, or context-only faculty portfolio evidence.
 - Every self-study portfolio export manifest maps one milestone to its brief page, reference packet row, source ID manifest, and external tool payload.
+- Every self-study portfolio source excerpt packet carries short assignment, reading/resource, schedule, and missing-evidence excerpts with valid source IDs.
 - Inferred fields are marked.
 - Official course inventory count is reconciled against the RISD course page count.
 - Wayback captures are recorded and selected captures are fetched.
@@ -1516,6 +1519,7 @@ This is a docs/data pipeline, so full dashboard QA may not exercise the corpus d
   - Emit `self_study_curriculum.md` with evidence-bounded studio tracks, reading packets, recreated brief prompts, critique checkpoints, and public comparison sets.
   - Emit `self_study_portfolio_briefs/*.md` as standalone portfolio review sheets for export or printing.
   - Emit `self_study_portfolio_reference_packets.jsonl` with relationship-labeled public reference examples for each portfolio milestone.
+  - Emit `self_study_portfolio_source_excerpt_packets.jsonl` with short evidence-context excerpts for each portfolio milestone.
   - Emit `self_study_portfolio_export_manifests.jsonl` to package each brief page with its reference packet and source IDs.
 
 ## Definition Of Done
