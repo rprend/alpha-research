@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T21:22:34.555Z
+Generated: 2026-06-12T21:25:02.175Z
 
 Complete: false
 
@@ -18,6 +18,7 @@ Complete: false
 - Review decision template rows: 4
 - Review plan categories: 11
 - Review decisions: 4
+- Review blank decisions: 0
 - Accepted creators: 6
 - Benchmark creators: 1
 - Expansion queue: 4

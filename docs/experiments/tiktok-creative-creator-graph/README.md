@@ -87,6 +87,8 @@ Apply human review decisions:
 node docs/experiments/tiktok-creative-creator-graph/scripts/apply-review-decisions.mjs
 ```
 
+Completed reviewer inputs can be either the decision template (`handle,decision,reviewer,notes`) or the full review packet CSV with `reviewer_decision` and `reviewer_notes` filled in. Blank decision rows are skipped and reported in `data/processed/review_blank_decisions.jsonl`.
+
 Analyze which sources and queries produce useful creators:
 
 ```bash

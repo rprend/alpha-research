@@ -53,6 +53,7 @@ function main() {
   const liveRunManifest = readJsonl(join(processedDir, 'live_run_manifest.jsonl'))
   const candidateFrontier = readJsonl(join(processedDir, 'candidate_frontier.jsonl'))
   const reviewDecisions = readJsonl(join(processedDir, 'review_decisions.jsonl'))
+  const reviewBlankDecisions = readJsonl(join(processedDir, 'review_blank_decisions.jsonl'))
 
   const counts = readiness?.counts ?? manifest.counts ?? {}
   const targetUseful = 50000
@@ -112,6 +113,7 @@ function main() {
       review_decision_template_rows: counts.review_decision_template_rows ?? reviewPacketReport?.decision_template_rows ?? 0,
       review_plan_categories: counts.review_plan_categories ?? reviewPlanCategories.length,
       review_decisions: currentReview,
+      review_blank_decisions: counts.review_blank_decisions ?? reviewBlankDecisions.length,
       source_yield_rows: counts.source_yield_rows ?? sourceYield.length,
       category_coverage: categoryCoverage ? `${categoryCoverage.covered_labels}/${categoryCoverage.labels}` : 'missing',
       acquisition_tasks: counts.acquisition_tasks ?? acquisitionBatches?.tasks ?? 0,
@@ -245,6 +247,7 @@ ${handoff.objective}
 - Review decision template rows: ${handoff.current_corpus.review_decision_template_rows}
 - Review plan categories: ${handoff.current_corpus.review_plan_categories}
 - Review decisions: ${handoff.current_corpus.review_decisions}
+- Review blank decisions: ${handoff.current_corpus.review_blank_decisions}
 - Source yield rows: ${handoff.current_corpus.source_yield_rows}
 - Category coverage: ${handoff.current_corpus.category_coverage}
 - Acquisition tasks: ${handoff.current_corpus.acquisition_tasks}

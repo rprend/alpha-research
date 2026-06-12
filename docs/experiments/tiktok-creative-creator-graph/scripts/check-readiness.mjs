@@ -26,6 +26,7 @@ function main() {
   const scores = readJsonl(join(processedDir, 'creator_scores.jsonl'))
   const reviewQueue = readJsonl(join(processedDir, 'review_queue.jsonl'))
   const reviewDecisions = readJsonl(join(processedDir, 'review_decisions.jsonl'))
+  const reviewBlankDecisions = readJsonl(join(processedDir, 'review_blank_decisions.jsonl'))
   const reviewSample = readJsonl(join(processedDir, 'review_sample.jsonl'))
   const reviewPacket = readJsonl(join(processedDir, 'review_packet_latest.jsonl'))
   const reviewPlanCategories = readJsonl(join(processedDir, 'review_plan_categories.jsonl'))
@@ -267,6 +268,7 @@ function main() {
       review_decision_template_rows: reviewPacketReport?.decision_template_rows ?? 0,
       review_plan_categories: reviewPlanCategories.length,
       review_decisions: reviewDecisions.length,
+      review_blank_decisions: reviewBlankDecisions.length,
       accepted_creators: acceptedCreators.length,
       benchmark_creators: benchmarkCreators.length,
       expansion_queue: expansionQueue.length,
@@ -335,6 +337,7 @@ Complete: ${summary.complete}
 - Review decision template rows: ${summary.counts.review_decision_template_rows}
 - Review plan categories: ${summary.counts.review_plan_categories}
 - Review decisions: ${summary.counts.review_decisions}
+- Review blank decisions: ${summary.counts.review_blank_decisions}
 - Accepted creators: ${summary.counts.accepted_creators}
 - Benchmark creators: ${summary.counts.benchmark_creators}
 - Expansion queue: ${summary.counts.expansion_queue}

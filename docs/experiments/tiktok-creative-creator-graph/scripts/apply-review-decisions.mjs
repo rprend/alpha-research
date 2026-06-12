@@ -131,6 +131,14 @@ function canonicalDecision(value) {
   return decision || 'maybe'
 }
 
+function rawDecisionFor(row) {
+  return row.decision ?? row.reviewer_decision ?? row.review_decision ?? row.status_decision ?? ''
+}
+
+function hasDecision(row) {
+  return String(rawDecisionFor(row) ?? '').trim() !== ''
+}
+
 function main() {
   ensureDir(processedDir)
   ensureDir(reportsDir)
@@ -144,25 +152,35 @@ function main() {
 
   const decisions = []
   const missing = []
+  const blank = []
   for (const row of reviewRows) {
+    if (!hasDecision(row)) {
+      blank.push({
+        handle: normalizeHandle(row.handle ?? row.profile_url ?? row.url) ?? row.handle ?? '',
+        source_file: row._source_file,
+      })
+      continue
+    }
     const handle = normalizeHandle(row.handle ?? row.profile_url ?? row.url)
     const account = handle ? accountByHandle.get(handle) : null
     if (!account) {
       missing.push({
         handle: handle ?? row.handle ?? '',
-        decision: canonicalDecision(row.decision),
+        decision: canonicalDecision(rawDecisionFor(row)),
         source_file: row._source_file,
-        notes: row.notes ?? '',
+        notes: row.notes ?? row.reviewer_notes ?? '',
       })
       continue
     }
     decisions.push({
       creator_id: account.id,
       handle: account.handle,
-      decision: canonicalDecision(row.decision),
+      decision: canonicalDecision(rawDecisionFor(row)),
       reviewer: row.reviewer ?? 'unknown',
-      notes: row.notes ?? '',
+      notes: row.notes ?? row.reviewer_notes ?? '',
       source_file: row._source_file,
+      packet_id: row.packet_id ?? '',
+      review_row_id: row.review_row_id ?? '',
       reviewed_at: row.reviewed_at ?? new Date().toISOString(),
     })
   }
@@ -229,6 +247,7 @@ function main() {
 
   writeJsonl(join(processedDir, 'review_decisions.jsonl'), decisions)
   writeJsonl(join(processedDir, 'review_missing_accounts.jsonl'), missing)
+  writeJsonl(join(processedDir, 'review_blank_decisions.jsonl'), blank)
   writeJsonl(join(processedDir, 'creator_scores_reviewed.jsonl'), reviewedScores)
   writeCsv(join(processedDir, 'creator_scores_reviewed.csv'), reviewedScores)
   writeJsonl(join(processedDir, 'accepted_creators.jsonl'), accepted)
@@ -239,6 +258,7 @@ function main() {
     generated_at: new Date().toISOString(),
     review_rows: reviewRows.length,
     applied_decisions: decisions.length,
+    blank_decisions: blank.length,
     missing_accounts: missing.length,
     accepted_creators: accepted.length,
     rejected_creators: rejected.length,
@@ -255,6 +275,7 @@ Generated: ${summary.generated_at}
 
 - Review rows: ${summary.review_rows}
 - Applied decisions: ${summary.applied_decisions}
+- Blank decisions skipped: ${summary.blank_decisions}
 - Missing accounts: ${summary.missing_accounts}
 - Accepted creators: ${summary.accepted_creators}
 - Rejected creators: ${summary.rejected_creators}

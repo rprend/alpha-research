@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T21:22:34.515Z",
+  "generated_at": "2026-06-12T21:25:02.134Z",
   "dataset_id": "tiktok-creative-creator-graph",
   "title": "TikTok Creative Creator Graph",
   "publish_state": "not-ready-production-data",
@@ -44,6 +44,7 @@
     "review_decision_template_rows": 4,
     "review_plan_categories": 11,
     "review_decisions": 4,
+    "review_blank_decisions": 0,
     "source_yield_rows": 7,
     "category_coverage": "5/11",
     "acquisition_tasks": 68,
