@@ -1,0 +1,17 @@
+{
+  "name": "nyc-address-dossier",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Autonomous harvester + per-BBL dossier builder for the NYC Address Dossier plan",
+  "scripts": {
+    "seed": "node --experimental-sqlite src/seed.mjs",
+    "supervisor": "node --experimental-sqlite src/supervisor.mjs",
+    "status": "node --experimental-sqlite src/status.mjs",
+    "materialize": "node --experimental-sqlite src/materialize.mjs",
+    "dossier": "node --experimental-sqlite src/dossier.mjs"
+  },
+  "dependencies": {
+    "@duckdb/node-api": "^1.3.4-alpha.27"
+  }
+}

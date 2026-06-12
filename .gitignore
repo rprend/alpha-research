@@ -12,6 +12,9 @@ dist
 dist-ssr
 .wrangler
 *.local
+.env
+.env.*
+!.env.example
 docs/experiments/gutenberg-semantic-benchmark/config/local.json
 
 # Editor directories and files
@@ -35,3 +38,8 @@ skills-lock.json
 docs/experiments/gutenberg-semantic-benchmark/.local/
 docs/experiments/gutenberg-semantic-benchmark/high_recall/
 gutenberg-label-review/
+
+# NYC address dossier harvester
+nyc-address-dossier/data/
+nyc-address-dossier/node_modules/
+nyc-address-dossier/status.md
