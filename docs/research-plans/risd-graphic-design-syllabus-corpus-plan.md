@@ -61,6 +61,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/student_work.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/course_coverage.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/course_coverage.md`
+- `docs/research-plans/risd-graphic-design-corpus/coverage_search_queries.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/source_clusters.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/source_versions.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/wayback_captures.jsonl`

@@ -45,6 +45,7 @@
     "course_coverage_rows": 134,
     "high_coverage_courses": 8,
     "low_coverage_courses": 112,
+    "coverage_search_queries": 160,
     "faculty_portfolio_examples": 60,
     "structured_faculty_portfolio_examples": 60,
     "source_clusters": 13,
@@ -161,6 +162,11 @@
       "id": "course_coverage_matrix_references_valid_sources",
       "status": "pass",
       "detail": "134 course coverage rows for 134 courses; 8 at 80+ coverage, 112 below 40 coverage, and 0 coverage metadata/reference errors."
+    },
+    {
+      "id": "coverage_search_queries_have_gap_provenance",
+      "status": "pass",
+      "detail": "160 coverage-derived search queries with 0 provenance errors."
     },
     {
       "id": "faculty_portfolio_examples_reference_valid_sources",
