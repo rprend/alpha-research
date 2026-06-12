@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-06-12T22:06:48.808Z",
+  "generated_at": "2026-06-12T22:10:27.442Z",
   "objective": "TikTok creative creator graph release package",
   "counts": {
-    "accounts": 241,
-    "identities": 241,
+    "accounts": 529,
+    "identities": 523,
     "useful_creators": 7,
     "benchmark_creators": 1,
     "rejected_creators": 2,
-    "review_queue": 237
+    "review_queue": 525
   },
   "readiness": {
-    "generated_at": "2026-06-12T22:06:32.849Z",
+    "generated_at": "2026-06-12T22:06:49.363Z",
     "complete": false,
     "counts": {
       "accounts": 241,
-      "videos": 17,
+      "videos": 14,
       "edges": 52,
       "useful_accounts": 6,
       "excellent_accounts": 1,
@@ -30,12 +30,12 @@
       "review_blank_decisions": 0,
       "accepted_creators": 7,
       "benchmark_creators": 1,
-      "expansion_queue": 24,
-      "adjacency_expansion_rows": 24,
+      "expansion_queue": 23,
+      "adjacency_expansion_rows": 23,
       "adjacency_expansion_added_rows": 18,
-      "acquisition_tasks": 88,
-      "candidate_frontier": 83,
-      "candidate_frontier_handles": 6,
+      "acquisition_tasks": 87,
+      "candidate_frontier": 82,
+      "candidate_frontier_handles": 5,
       "candidate_frontier_queries": 77,
       "acquisition_import_preview_accounts": 235,
       "acquisition_import_preview_ready": true,
@@ -44,7 +44,7 @@
       "acquisition_runner_runnable_tasks": 2,
       "acquisition_runner_skipped_tasks": 0,
       "acquisition_run_history": 15,
-      "source_yield_rows": 11,
+      "source_yield_rows": 9,
       "identities": 241,
       "category_coverage_labels": 11,
       "category_coverage_covered_labels": 5,
@@ -86,7 +86,7 @@
       {
         "id": "video_metadata",
         "status": "pass",
-        "evidence": "17 videos ingested"
+        "evidence": "14 videos ingested"
       },
       {
         "id": "graph_edges",
@@ -121,22 +121,22 @@
       {
         "id": "expansion_queue",
         "status": "pass",
-        "evidence": "24 expansion targets queued"
+        "evidence": "23 expansion targets queued"
       },
       {
         "id": "adjacency_expansion",
         "status": "pass",
-        "evidence": "24 enriched expansion rows (18 added)"
+        "evidence": "23 enriched expansion rows (18 added)"
       },
       {
         "id": "acquisition_batches",
         "status": "pass",
-        "evidence": "88 acquisition tasks generated"
+        "evidence": "87 acquisition tasks generated"
       },
       {
         "id": "candidate_frontier",
         "status": "pass",
-        "evidence": "83 ranked acquisition candidates generated"
+        "evidence": "82 ranked acquisition candidates generated"
       },
       {
         "id": "acquisition_import_preview",
@@ -161,7 +161,7 @@
       {
         "id": "source_yield",
         "status": "pass",
-        "evidence": "11 source/query yield rows generated"
+        "evidence": "9 source/query yield rows generated"
       },
       {
         "id": "identity_resolution",
@@ -283,13 +283,13 @@
     },
     {
       "path": "data/release/review_queue.csv",
-      "rows": 237,
-      "sha256": "7d4c871bb157941319f1943635544566b9d93c8c1d9641585359ac7b574f56cb"
+      "rows": 525,
+      "sha256": "40f6fa179dd89026533cc85743877aca1c53a35b0b504ee41710b520d59eea23"
     },
     {
       "path": "data/release/all_scored_creators.csv",
-      "rows": 241,
-      "sha256": "8fe3292da86d8b77f6ee269d05e30689880b03ff939e9bee42c80c11c21903bb"
+      "rows": 529,
+      "sha256": "8e091a6fdeb826f65fe436c266d0854f7837182a479734e444b2ccb6eaae1cfe"
     }
   ]
 }

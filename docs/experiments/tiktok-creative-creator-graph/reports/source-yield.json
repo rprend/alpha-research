@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T22:06:48.453Z",
+  "generated_at": "2026-06-12T22:10:27.064Z",
   "sources": 9,
   "best_sources": [
     {
@@ -79,7 +79,7 @@
     },
     {
       "source_type": "provider_video_export",
-      "source_name": "acquisition-import-2026-06-12-88ead51127c9.jsonl",
+      "source_name": "acquisition-import-2026-06-12-628087c63b17.jsonl",
       "source_query": "",
       "creators_seen": 3,
       "useful_creators": 2,
@@ -109,9 +109,9 @@
     },
     {
       "source_type": "acquisition_export",
-      "source_name": "acquisition-import-2026-06-12-88ead51127c9.jsonl",
+      "source_name": "acquisition-import-2026-06-12-628087c63b17.jsonl",
       "source_query": "",
-      "creators_seen": 232,
+      "creators_seen": 520,
       "useful_creators": 0,
       "excellent_creators": 0,
       "rejected_creators": 0,
@@ -120,7 +120,7 @@
       "rejection_rate": 0,
       "average_usefulness": 13.1,
       "yield_score": 6,
-      "top_labels": "filmmaker:101; sketch_comedian:49; standup_comedian:49; film_educator:20; cinematographer:5"
+      "top_labels": "vfx_animation:139; filmmaker:116; behind_the_scenes_creator:95; sketch_comedian:65; creative_technologist:43"
     },
     {
       "source_type": "search_seed",
@@ -141,9 +141,9 @@
   "weak_sources": [
     {
       "source_type": "acquisition_export",
-      "source_name": "acquisition-import-2026-06-12-88ead51127c9.jsonl",
+      "source_name": "acquisition-import-2026-06-12-628087c63b17.jsonl",
       "source_query": "",
-      "creators_seen": 232,
+      "creators_seen": 520,
       "useful_creators": 0,
       "excellent_creators": 0,
       "rejected_creators": 0,
@@ -152,7 +152,7 @@
       "rejection_rate": 0,
       "average_usefulness": 13.1,
       "yield_score": 6,
-      "top_labels": "filmmaker:101; sketch_comedian:49; standup_comedian:49; film_educator:20; cinematographer:5"
+      "top_labels": "vfx_animation:139; filmmaker:116; behind_the_scenes_creator:95; sketch_comedian:65; creative_technologist:43"
     },
     {
       "source_type": "search_seed",
@@ -170,5 +170,5 @@
       "top_labels": "reject:1"
     }
   ],
-  "total_seen": 241
+  "total_seen": 529
 }

@@ -1,36 +1,37 @@
 {
-  "run_id": "2026-06-12T22-06-48-367Z",
-  "generated_at": "2026-06-12T22:06:48.374Z",
+  "run_id": "2026-06-12T22-10-26-956Z",
+  "generated_at": "2026-06-12T22:10:26.971Z",
   "target_useful_accounts": 50000,
   "smoke": false,
   "counts": {
-    "accounts": 241,
+    "accounts": 529,
     "videos": 14,
     "edges": 52,
     "useful_accounts": 6,
     "excellent_accounts": 1,
-    "review_queue": 239,
+    "review_queue": 527,
     "expansion_queue": 5
   },
   "status_counts": {
-    "needs_review": 233,
+    "needs_review": 521,
     "useful": 5,
     "reject": 2,
     "excellent": 1
   },
   "primary_label_counts": {
-    "sketch_comedian": 51,
-    "standup_comedian": 49,
+    "sketch_comedian": 67,
+    "standup_comedian": 33,
     "cinematographer": 6,
-    "filmmaker": 103,
-    "film_educator": 20,
-    "vfx_animation": 3,
-    "behind_the_scenes_creator": 3,
-    "editor": 1,
+    "director": 5,
+    "editor": 9,
+    "filmmaker": 118,
+    "vfx_animation": 140,
+    "creative_technologist": 44,
+    "film_educator": 8,
+    "actor_performer": 1,
+    "behind_the_scenes_creator": 95,
     "unclear": 1,
-    "director": 1,
-    "reject": 2,
-    "creative_technologist": 1
+    "reject": 2
   },
   "readiness": {
     "seed_intake_ready": true,

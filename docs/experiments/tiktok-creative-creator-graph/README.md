@@ -52,12 +52,13 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/build-candidate-fron
 Run no-token public editorial list acquisition:
 
 ```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/run-editorial-list-import.mjs --list-sources
 node docs/experiments/tiktok-creative-creator-graph/scripts/run-editorial-list-import.mjs
 node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs
 node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs
 ```
 
-The editorial list importer fetches configured public list pages, extracts TikTok account handles from source-local TikTok account fields, writes raw rows to `data/raw/acquisition-results/`, and preserves source URL, source query, rank, target label, provider, execution id, and batch id. It is intended for no-secret seed expansion and provenance capture; it does not emulate the TikTok app.
+The editorial list importer fetches configured public list pages from `config/editorial-list-sources.json`, extracts TikTok account handles from source-local TikTok account fields, writes raw rows to `data/raw/acquisition-results/`, and preserves source URL, source query, rank, target label, provider, execution id, and batch id. It is intended for no-secret seed expansion and provenance capture; it does not emulate the TikTok app. Use `--sources=feedspot_movie_tiktok_2026,feedspot_comedy_tiktok_2026` to run a subset or `--source-config=path/to/sources.json` to test a new registry.
 
 Execute or dry-run provider acquisition batches:
 

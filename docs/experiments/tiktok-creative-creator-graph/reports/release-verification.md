@@ -1,6 +1,6 @@
 # Release Verification
 
-Generated: 2026-06-12T22:06:48.850Z
+Generated: 2026-06-12T22:10:27.488Z
 
 Complete: true
 
@@ -9,7 +9,7 @@ Complete: true
 - Useful creators: 7
 - Benchmark creators: 1
 - Rejected creators: 2
-- All scored creators: 241
+- All scored creators: 529
 
 ## Checks
 
@@ -35,10 +35,10 @@ Complete: true
 - row_count:data/release/rejected_creators.jsonl: pass (expected 2, actual 2)
 - sha256:data/release/rejected_creators.csv: pass (expected 7fd6e7a144fce69ce1ad307da51c0e901d853b64d43b021c034367ad23972e17, actual 7fd6e7a144fce69ce1ad307da51c0e901d853b64d43b021c034367ad23972e17)
 - row_count:data/release/rejected_creators.csv: pass (expected 2, actual 2)
-- sha256:data/release/review_queue.csv: pass (expected 7d4c871bb157941319f1943635544566b9d93c8c1d9641585359ac7b574f56cb, actual 7d4c871bb157941319f1943635544566b9d93c8c1d9641585359ac7b574f56cb)
-- row_count:data/release/review_queue.csv: pass (expected 237, actual 237)
-- sha256:data/release/all_scored_creators.csv: pass (expected 8fe3292da86d8b77f6ee269d05e30689880b03ff939e9bee42c80c11c21903bb, actual 8fe3292da86d8b77f6ee269d05e30689880b03ff939e9bee42c80c11c21903bb)
-- row_count:data/release/all_scored_creators.csv: pass (expected 241, actual 241)
+- sha256:data/release/review_queue.csv: pass (expected 40f6fa179dd89026533cc85743877aca1c53a35b0b504ee41710b520d59eea23, actual 40f6fa179dd89026533cc85743877aca1c53a35b0b504ee41710b520d59eea23)
+- row_count:data/release/review_queue.csv: pass (expected 525, actual 525)
+- sha256:data/release/all_scored_creators.csv: pass (expected 8e091a6fdeb826f65fe436c266d0854f7837182a479734e444b2ccb6eaae1cfe, actual 8e091a6fdeb826f65fe436c266d0854f7837182a479734e444b2ccb6eaae1cfe)
+- row_count:data/release/all_scored_creators.csv: pass (expected 529, actual 529)
 - required_column:identity_id: pass (all_scored_creators.csv includes identity_id)
 - required_column:creator_id: pass (all_scored_creators.csv includes creator_id)
 - required_column:handle: pass (all_scored_creators.csv includes handle)

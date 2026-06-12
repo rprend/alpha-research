@@ -1,48 +1,53 @@
 {
-  "generated_at": "2026-06-12T22:06:48.295Z",
+  "generated_at": "2026-06-12T22:10:26.837Z",
   "mode": "preview",
-  "input_rows": 238,
-  "normalized_rows": 238,
+  "input_rows": 526,
+  "normalized_rows": 526,
   "skipped_rows": 0,
   "duplicate_normalized_rows": 3,
-  "output_accounts": 235,
+  "output_accounts": 523,
   "source_files": {
-    "2026-06-12T22-06-00-391Z-editorial-list-import.jsonl": 211,
+    "2026-06-12T22-10-19-433Z-editorial-list-import.jsonl": 499,
     "editorial-list-seeds-2026-06-12.jsonl": 21,
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
-  "mapped_lineage_rows": 232,
+  "mapped_lineage_rows": 520,
   "unmapped_lineage_rows": 6,
   "scale_wave_ids": {},
   "execution_ids": {
-    "2026-06-12T22-06-00-391Z": 211
+    "2026-06-12T22-10-19-433Z": 499
   },
   "batch_ids": {
     "feedspot_comedy_tiktok_2026": 99,
     "feedspot_movie_tiktok_2026": 96,
     "feedspot_horror_tiktok_2026": 16,
+    "feedspot_digital_art_tiktok_2026": 100,
+    "feedspot_new_york_art_tiktok_2026": 41,
+    "feedspot_music_technology_tiktok_2026": 48,
+    "feedspot_barcelona_photography_tiktok_2026": 2,
+    "feedspot_aviation_tiktok_2026": 97,
     "editorial_izea_filmmakers_2026_06_12": 8,
     "editorial_shutterstock_filmmakers_2026_06_12": 8,
     "editorial_shesources_women_film_2026_06_12": 5
   },
   "lineage_providers": {
-    "editorial_list_public_web": 211,
+    "editorial_list_public_web": 499,
     "editorial_web": 21
   },
   "output_path": "",
   "quality_gate": {
     "ready_to_import": true,
     "normalized_rate": 1,
-    "duplicate_rate": 0.012605042016806723,
-    "output_rate": 0.9873949579831933,
+    "duplicate_rate": 0.005703422053231939,
+    "output_rate": 0.9942965779467681,
     "min_normalized_rate": 0.75,
     "max_duplicate_rate": 0.35,
     "checks": [
       {
         "id": "has_rows",
         "status": "pass",
-        "evidence": "238 input rows"
+        "evidence": "526 input rows"
       },
       {
         "id": "handle_extraction",
@@ -52,12 +57,12 @@
       {
         "id": "duplicate_pressure",
         "status": "pass",
-        "evidence": "1.3% duplicate normalized rows, threshold 35.0%"
+        "evidence": "0.6% duplicate normalized rows, threshold 35.0%"
       },
       {
         "id": "lineage_mapping",
         "status": "pass",
-        "evidence": "232/238 rows mapped to provider/wave lineage"
+        "evidence": "520/526 rows mapped to provider/wave lineage"
       }
     ]
   },

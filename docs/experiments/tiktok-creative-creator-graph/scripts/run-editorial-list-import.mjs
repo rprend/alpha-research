@@ -1,10 +1,11 @@
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
-import { basename, join } from 'node:path'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { join } from 'node:path'
 
 const root = process.cwd()
 const experimentDir = join(root, 'docs/experiments/tiktok-creative-creator-graph')
 const acquisitionResultsDir = join(experimentDir, 'data/raw/acquisition-results')
 const reportsDir = join(experimentDir, 'reports')
+const defaultSourceConfigPath = join(experimentDir, 'config/editorial-list-sources.json')
 
 const args = new Map(process.argv.slice(2).map((arg) => {
   const [key, ...rest] = arg.split('=')
@@ -13,34 +14,22 @@ const args = new Map(process.argv.slice(2).map((arg) => {
 
 const maxRowsPerSource = Number(args.get('--max-rows-per-source') ?? 100)
 const dryRun = args.has('--dry-run')
+const listSources = args.has('--list-sources')
 const provider = 'editorial_list_public_web'
 const executionId = new Date().toISOString().replace(/[:.]/g, '-')
-
-const sources = [
-  {
-    id: 'feedspot_comedy_tiktok_2026',
-    url: 'https://creators.feedspot.com/comedy_tiktok_influencers/',
-    source_query: 'FeedSpot Top Comedy TikTok Influencers 2026',
-    target_label: 'sketch_comedian',
-    fallback_label: 'standup_comedian',
-    source_name: 'FeedSpot Comedy TikTokers',
-  },
-  {
-    id: 'feedspot_movie_tiktok_2026',
-    url: 'https://creators.feedspot.com/movie_tiktok_influencers/',
-    source_query: 'FeedSpot Top Movie TikTok Influencers 2026',
-    target_label: 'film_educator',
-    fallback_label: 'filmmaker',
-    source_name: 'FeedSpot Movie TikTokers',
-  },
-  {
-    id: 'feedspot_horror_tiktok_2026',
-    url: 'https://creators.feedspot.com/horror_tiktok_influencers/',
-    source_query: 'FeedSpot Top Horror TikTok Influencers 2026',
-    target_label: 'filmmaker',
-    fallback_label: 'film_educator',
-    source_name: 'FeedSpot Horror TikTokers',
-  },
+const sourceConfigPath = args.get('--source-config') ? join(root, String(args.get('--source-config'))) : defaultSourceConfigPath
+const keywordLabelRules = [
+  ['cinematographer', /\b(cinematograph|photograph|camera|lighting|drone|aerial|shot on|sony|canon|fuji|film look)\b/i],
+  ['vfx_animation', /\b(vfx|visual effects|animation|animator|3d|blender|cgi|motion graphics|digital art|illustrat|character design)\b/i],
+  ['editor', /\b(editor|editing|edit|post[-\s]?production|color grading|davinci|premiere|after effects)\b/i],
+  ['director', /\b(director|directed by|commercial director|film director|music video director)\b/i],
+  ['filmmaker', /\b(filmmaker|film|movie|short film|screen|cinema|horror|tv|video creator|documentary)\b/i],
+  ['film_educator', /\b(review|explained|breakdown|learn|tutorial|education|teacher|tips|how to|analysis)\b/i],
+  ['standup_comedian', /\b(stand[-\s]?up|comedian|comedy special|tour|netflix special)\b/i],
+  ['sketch_comedian', /\b(sketch|comedy|parody|character|funny|humor|improv)\b/i],
+  ['actor_performer', /\b(actor|actress|performer|theater|theatre|voice actor)\b/i],
+  ['creative_technologist', /\b(technology|producer|music producer|sound design|creative tech|software|ai|generative|interactive|tools)\b/i],
+  ['behind_the_scenes_creator', /\b(behind the scenes|bts|making of|process|build|setup|workflow)\b/i],
 ]
 
 function ensureDir(path) {
@@ -53,6 +42,25 @@ function writeJson(path, value) {
 
 function writeJsonl(path, rows) {
   writeFileSync(path, rows.map((row) => JSON.stringify(row)).join('\n') + (rows.length ? '\n' : ''))
+}
+
+function readJson(path) {
+  return JSON.parse(readFileSync(path, 'utf8'))
+}
+
+function loadSources() {
+  if (!existsSync(sourceConfigPath)) throw new Error(`Editorial list source config not found: ${sourceConfigPath}`)
+  const value = readJson(sourceConfigPath)
+  if (!Array.isArray(value)) throw new Error(`Editorial list source config must be an array: ${sourceConfigPath}`)
+  return value.map((source) => {
+    for (const key of ['id', 'url', 'source_query', 'target_label', 'source_name']) {
+      if (!source[key]) throw new Error(`Editorial list source is missing ${key}: ${JSON.stringify(source)}`)
+    }
+    return {
+      ...source,
+      fallback_label: source.fallback_label ?? source.target_label,
+    }
+  })
 }
 
 function decodeEntities(value) {
@@ -138,6 +146,14 @@ function extractFollowers(section) {
   return parseFollowers(stripTags(match?.[1] ?? ''))
 }
 
+function labelForSourceRow(source, section, bio, displayName) {
+  const text = `${source.source_query} ${source.source_name} ${displayName} ${bio} ${stripTags(section)}`.toLowerCase()
+  for (const [label, pattern] of keywordLabelRules) {
+    if (pattern.test(text)) return label
+  }
+  return source.fallback_label ?? source.target_label
+}
+
 function extractRowsFromHtml(source, html) {
   const rows = []
   const seen = new Set()
@@ -146,14 +162,13 @@ function extractRowsFromHtml(source, html) {
     if (!handle || seen.has(handle)) continue
     seen.add(handle)
     const displayName = extractName(section) || handle.slice(1)
+    const bio = extractBio(section)
     const followerCount = extractFollowers(section)
-    const targetLabel = /stand[-\s]?up|comedian|comedy|sketch/i.test(section)
-      ? source.target_label
-      : source.fallback_label
+    const targetLabel = labelForSourceRow(source, section, bio, displayName)
     rows.push({
       handle,
       display_name: displayName,
-      bio: extractBio(section),
+      bio,
       profile_url: `https://www.tiktok.com/${handle}`,
       follower_count: followerCount,
       source_type: 'editorial_list',
@@ -187,10 +202,26 @@ async function main() {
   ensureDir(acquisitionResultsDir)
   ensureDir(reportsDir)
 
+  const sources = loadSources()
+  if (listSources) {
+    console.log(JSON.stringify({
+      source_config_path: sourceConfigPath.replace(`${root}/`, ''),
+      sources: sources.map((source) => ({
+        id: source.id,
+        target_label: source.target_label,
+        fallback_label: source.fallback_label,
+        url: source.url,
+      })),
+    }, null, 2))
+    return
+  }
+
   const selectedSourceIds = String(args.get('--sources') ?? '').split(',').map((item) => item.trim()).filter(Boolean)
   const selectedSources = selectedSourceIds.length
     ? sources.filter((source) => selectedSourceIds.includes(source.id))
     : sources
+  const missingSourceIds = selectedSourceIds.filter((id) => !selectedSources.some((source) => source.id === id))
+  if (missingSourceIds.length) throw new Error(`Unknown editorial list source id(s): ${missingSourceIds.join(', ')}`)
   const outputPath = join(acquisitionResultsDir, `${executionId}-editorial-list-import.jsonl`)
   const outputRows = []
   const sourceReports = []

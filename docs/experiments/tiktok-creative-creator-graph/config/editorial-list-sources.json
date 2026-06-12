@@ -1,0 +1,66 @@
+[
+  {
+    "id": "feedspot_comedy_tiktok_2026",
+    "url": "https://creators.feedspot.com/comedy_tiktok_influencers/",
+    "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+    "target_label": "sketch_comedian",
+    "fallback_label": "standup_comedian",
+    "source_name": "FeedSpot Comedy TikTokers"
+  },
+  {
+    "id": "feedspot_movie_tiktok_2026",
+    "url": "https://creators.feedspot.com/movie_tiktok_influencers/",
+    "source_query": "FeedSpot Top Movie TikTok Influencers 2026",
+    "target_label": "film_educator",
+    "fallback_label": "filmmaker",
+    "source_name": "FeedSpot Movie TikTokers"
+  },
+  {
+    "id": "feedspot_horror_tiktok_2026",
+    "url": "https://creators.feedspot.com/horror_tiktok_influencers/",
+    "source_query": "FeedSpot Top Horror TikTok Influencers 2026",
+    "target_label": "filmmaker",
+    "fallback_label": "film_educator",
+    "source_name": "FeedSpot Horror TikTokers"
+  },
+  {
+    "id": "feedspot_digital_art_tiktok_2026",
+    "url": "https://creators.feedspot.com/digital_art_tiktok_influencers/",
+    "source_query": "FeedSpot Top Digital Art TikTok Influencers 2026",
+    "target_label": "vfx_animation",
+    "fallback_label": "creative_technologist",
+    "source_name": "FeedSpot Digital Art TikTokers"
+  },
+  {
+    "id": "feedspot_new_york_art_tiktok_2026",
+    "url": "https://creators.feedspot.com/new_york_art_tiktok_influencers/",
+    "source_query": "FeedSpot Top New York Art TikTok Influencers 2026",
+    "target_label": "creative_technologist",
+    "fallback_label": "vfx_animation",
+    "source_name": "FeedSpot New York Art TikTokers"
+  },
+  {
+    "id": "feedspot_music_technology_tiktok_2026",
+    "url": "https://creators.feedspot.com/music_technology_tiktok_influencers/",
+    "source_query": "FeedSpot Top Music Technology TikTok Influencers 2026",
+    "target_label": "creative_technologist",
+    "fallback_label": "editor",
+    "source_name": "FeedSpot Music Technology TikTokers"
+  },
+  {
+    "id": "feedspot_barcelona_photography_tiktok_2026",
+    "url": "https://creators.feedspot.com/barcelona_photography_tiktok_influencers/",
+    "source_query": "FeedSpot Top Barcelona Photography TikTok Influencers 2026",
+    "target_label": "cinematographer",
+    "fallback_label": "filmmaker",
+    "source_name": "FeedSpot Barcelona Photography TikTokers"
+  },
+  {
+    "id": "feedspot_aviation_tiktok_2026",
+    "url": "https://creators.feedspot.com/aviation_tiktok_influencers/",
+    "source_query": "FeedSpot Top Aviation TikTok Influencers 2026",
+    "target_label": "filmmaker",
+    "fallback_label": "behind_the_scenes_creator",
+    "source_name": "FeedSpot Aviation TikTokers"
+  }
+]
