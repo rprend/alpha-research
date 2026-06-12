@@ -1,0 +1,156 @@
+{
+  "generatedAt": "2026-06-12T20:42:23.693Z",
+  "postPath": "docs/experiments/museum-language-drift/reports/post.md",
+  "resultPath": "docs/experiments/museum-language-drift/reports/result.json",
+  "auditPacketPath": "docs/experiments/museum-language-drift/reports/audit-packet.json",
+  "status": "pass",
+  "checkCount": 28,
+  "passedCount": 28,
+  "checks": [
+    {
+      "id": "processed-pages",
+      "status": "pass",
+      "evidence": "40 processed pages"
+    },
+    {
+      "id": "current-pages",
+      "status": "pass",
+      "evidence": "28 current pages"
+    },
+    {
+      "id": "historical-pages",
+      "status": "pass",
+      "evidence": "12 historical pages"
+    },
+    {
+      "id": "museum-count",
+      "status": "pass",
+      "evidence": "14 museums"
+    },
+    {
+      "id": "year-range",
+      "status": "pass",
+      "evidence": "2005-2026"
+    },
+    {
+      "id": "page-types",
+      "status": "pass",
+      "evidence": "about, collection, education, exhibition, research"
+    },
+    {
+      "id": "term-access-public",
+      "status": "pass",
+      "evidence": "143"
+    },
+    {
+      "id": "term-research-scholarship",
+      "status": "pass",
+      "evidence": "134"
+    },
+    {
+      "id": "term-community-inclusion",
+      "status": "pass",
+      "evidence": "54"
+    },
+    {
+      "id": "term-provenance-ownership",
+      "status": "pass",
+      "evidence": "9"
+    },
+    {
+      "id": "term-civilization-world-culture",
+      "status": "pass",
+      "evidence": "4"
+    },
+    {
+      "id": "term-restitution-repatriation",
+      "status": "pass",
+      "evidence": "3"
+    },
+    {
+      "id": "term-decolonization-reckoning",
+      "status": "pass",
+      "evidence": "3"
+    },
+    {
+      "id": "about-page-count",
+      "status": "pass",
+      "evidence": "13 about pages"
+    },
+    {
+      "id": "collection-page-count",
+      "status": "pass",
+      "evidence": "8 collection pages"
+    },
+    {
+      "id": "research-page-count",
+      "status": "pass",
+      "evidence": "3 research pages"
+    },
+    {
+      "id": "about-access-public",
+      "status": "pass",
+      "evidence": "97"
+    },
+    {
+      "id": "about-research-scholarship",
+      "status": "pass",
+      "evidence": "68"
+    },
+    {
+      "id": "about-community-inclusion",
+      "status": "pass",
+      "evidence": "52"
+    },
+    {
+      "id": "collection-research-scholarship",
+      "status": "pass",
+      "evidence": "25"
+    },
+    {
+      "id": "collection-provenance-ownership",
+      "status": "pass",
+      "evidence": "4"
+    },
+    {
+      "id": "collection-restitution-repatriation",
+      "status": "pass",
+      "evidence": "2"
+    },
+    {
+      "id": "research-research-scholarship",
+      "status": "pass",
+      "evidence": "31"
+    },
+    {
+      "id": "research-provenance-ownership",
+      "status": "pass",
+      "evidence": "4"
+    },
+    {
+      "id": "historical-2012-pages",
+      "status": "pass",
+      "evidence": "2 pages in 2012"
+    },
+    {
+      "id": "historical-2015-pages",
+      "status": "pass",
+      "evidence": "3 pages in 2015"
+    },
+    {
+      "id": "audit-page-count",
+      "status": "pass",
+      "evidence": "40 audit pages"
+    },
+    {
+      "id": "audit-flags",
+      "status": "pass",
+      "evidence": "0 flagged rows"
+    }
+  ],
+  "nextMoves": [
+    "Keep the post framed as a source-layer probe, not a museum-practice claim.",
+    "Add annual reports and provenance pages as separate source layers before stronger trend claims.",
+    "Review snippets manually before quoting source language in public copy."
+  ]
+}

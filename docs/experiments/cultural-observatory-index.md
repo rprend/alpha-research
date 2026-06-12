@@ -233,6 +233,8 @@ Implemented:
 - `result.json`
 - `work.md`
 - `public-draft.md`
+- `post.md`
+- `post-evidence-audit.json`
 - `publication-handoff.md`
 - audit packet
 - readiness gate
@@ -246,11 +248,13 @@ Current corpus:
 - current source genres represented: about, collection, education, exhibition, and research pages
 - audit packet: 0 flagged rows after weak-page exclusions
 - publication handoff: ready for copyedit as a source-caveated longitudinal post
+- publication post: `reports/post.md`, a polished source-layer methods draft
+- post evidence audit: `reports/post-evidence-audit.json`, status `pass`, 28/28 source, term, genre, and audit checks passed
 - readiness: ready for editorial review with source-layer caveats
 
 Next implementation moves:
 
-- copyedit the publication handoff into a source-caveated longitudinal post
+- final editorial review for `reports/post.md`
 - add annual reports as a separate source layer
 - add provenance/repatriation pages that are fetchable without browser challenges
 - build source-genre-specific trend lines before stronger temporal claims

@@ -1,6 +1,6 @@
 # Cultural Observatory Publication Queue
 
-Generated at: 2026-06-12T20:38:57.765Z
+Generated at: 2026-06-12T20:42:45.918Z
 Ready for editorial review: 6
 Not ready: 0
 
@@ -8,8 +8,8 @@ Not ready: 0
 | ---: | --- | --- | --- |
 | 164 | What A Museum Collection Looks Like When It Becomes Data | ready-for-editorial-review | Final editorial review; representative evidence audit passed. |
 | 149 | Canon Drift: A Feasibility Report | ready-for-editorial-review | Final editorial review; representative evidence audit passed. |
+| 141 | The Language Of Museums After Decolonization | ready-for-editorial-review | Final editorial review; representative evidence audit passed. |
 | 141 | The Rise Of AI And The Humanities | ready-for-editorial-review | Final editorial review; representative evidence audit passed. |
-| 118 | The Language Of Museums After Decolonization | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
 | 118 | What Counts As A Humanities Dataset? | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
 | 118 | What Universities Say They Are For | ready-for-editorial-review | Copyedit from publication handoff; preserve source limits and claim checklist. |
 
@@ -45,6 +45,21 @@ Not ready: 0
 - Action: Final editorial review; representative evidence audit passed.
 - Summary: Canon drift is not one dataset. Teaching, anthologization, citation, and holdings are separate signals that need separate source layers.
 
+### The Language Of Museums After Decolonization
+
+- Format: what-changed
+- Lane: longitudinal
+- Status: ready-for-editorial-review
+- Post: `docs/experiments/museum-language-drift/reports/post.md`
+- Post audit: `docs/experiments/museum-language-drift/reports/post-evidence-audit.json` (pass)
+- Draft: `docs/experiments/museum-language-drift/reports/post.md`
+- Handoff: `docs/experiments/museum-language-drift/reports/publication-handoff.json`
+- Result: `docs/experiments/museum-language-drift/reports/result.json`
+- Readiness: `docs/experiments/museum-language-drift/reports/readiness.json`
+- Failed checks: none
+- Action: Final editorial review; representative evidence audit passed.
+- Summary: Add annual-report/exhibition/provenance pages as separate source layers before trend claims.
+
 ### The Rise Of AI And The Humanities
 
 - Format: field-map
@@ -59,21 +74,6 @@ Not ready: 0
 - Failed checks: none
 - Action: Final editorial review; representative evidence audit passed.
 - Summary: The v1 literature radar is large enough for a field-map essay about AI, computational methods, and quantitative humanities signals, but source coverage remains uneven.
-
-### The Language Of Museums After Decolonization
-
-- Format: what-changed
-- Lane: longitudinal
-- Status: ready-for-editorial-review
-- Post: none
-- Post audit: none
-- Draft: `docs/experiments/museum-language-drift/reports/public-draft.md`
-- Handoff: `docs/experiments/museum-language-drift/reports/publication-handoff.json`
-- Result: `docs/experiments/museum-language-drift/reports/result.json`
-- Readiness: `docs/experiments/museum-language-drift/reports/readiness.json`
-- Failed checks: none
-- Action: Copyedit from publication handoff; preserve source limits and claim checklist.
-- Summary: Add annual-report/exhibition/provenance pages as separate source layers before trend claims.
 
 ### What Counts As A Humanities Dataset?
 
