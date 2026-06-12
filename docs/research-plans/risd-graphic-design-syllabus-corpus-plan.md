@@ -59,6 +59,7 @@ Current generated artifacts:
 - `docs/research-plans/risd-graphic-design-corpus/faculty_course_edges.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/faculty_portfolio_examples.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/student_work.jsonl`
+- `docs/research-plans/risd-graphic-design-corpus/student_work_assignment_links.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/course_site_pages.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/assignment_brief_pages.jsonl`
 - `docs/research-plans/risd-graphic-design-corpus/course_coverage.jsonl`
@@ -113,146 +114,171 @@ Known gaps:
 
 ## Next Implementation Steps
 
-These steps are the immediate build plan. They should be implemented in order because each step increases the crawler's ability to find missing classroom artifacts without weakening provenance.
+The crawler now has the first Open Syllabus-style spine: seed and imported sources, bounded search backlogs, faculty-derived discovery queries, Common Crawl candidate ingestion, course-site page roles, assignment brief rollups, source families, archive metadata, validation, and generated curriculum outputs. The remaining work is to turn the recovered evidence into a denser classroom reconstruction layer without weakening provenance.
 
-### Step 1: Make Coverage Queries Operational
+Implement the following slices in order. Each slice must update `scripts/risd-graphic-design-corpus.mjs`, regenerate the affected artifacts, add validation checks, and update this plan when the behavior changes.
 
-Status: implemented for backlog generation, bounded live-search input, provider-unconfigured audit rows, and validation reporting.
+### Step 1: Link Public Student Work To Course And Assignment Evidence
 
-`coverage_search_queries.jsonl` is a generated gap list and executable discovery input.
-
-Implementation requirements:
-
-1. Load `coverage_search_queries.jsonl` during normal render and `--search-api-only` runs.
-2. Add each coverage query to `search_candidates.jsonl` as a backlog row with:
-   - `source: "coverage_query_backlog"`
-   - `status: "pending_search_export_or_api"`
-   - `query_id`
-   - `course_code`
-   - `course_title`
-   - `missing_requirement`
-   - `coverage_score`
-   - `priority`
-   - `source_coverage_id`
-3. De-duplicate coverage queries against static query seeds by normalized query text.
-4. Preserve gap provenance on every downstream live-search candidate and provider-unconfigured row.
-5. Add validation checks for:
-   - coverage query rows present in `search_candidates.jsonl`
-   - every coverage backlog row linked to a valid `course_coverage.jsonl` row
-   - every live coverage candidate preserving `missing_requirement`
-6. Keep the live API pass bounded with a separate limit such as `RISD_GD_COVERAGE_SEARCH_API_MAX_QUERIES`, defaulting low enough to be safe for routine runs.
-
-Expected artifact changes:
-
-- `search_candidates.jsonl` should contain both generic query backlog rows and coverage-gap backlog rows.
-- `validation.md` should report coverage backlog count, live coverage candidate count, and provider-unconfigured coverage count.
-
-### Step 2: Promote Search Results Into Fetchable Sources
-
-Search results should not remain a separate pile of URLs. They should enter the same source, classification, and extraction pipeline as curated seeds.
+Goal: make public student work useful as a tacit comparison set while avoiding unsupported claims about which assignment produced a project.
 
 Implementation requirements:
 
-1. Add or extend a promotion pass that selects high-confidence `search_candidates.jsonl` rows.
-2. Promotion criteria should prefer public URLs that contain course codes, RISD Graphic Design terms, syllabus/project/schedule language, or known faculty/course domains.
-3. Fetch promoted URLs with the existing source fetcher and rate limits.
-4. Classify promoted sources before creating syllabus, assignment, reading, faculty, or student-work rows.
-5. Store `promoted_source_id`, fetch status, extraction status, and rejection reason on the original search candidate row.
-6. Do not promote private, login-gated, paywalled, or ambiguous personal data sources.
+1. Add `student_work_assignment_links.jsonl` as a derived artifact.
+2. Build links from `student_work.jsonl`, `assignment_brief_pages.jsonl`, `assignments.jsonl`, and `course_site_pages.jsonl`.
+3. Emit one row per defensible relationship, not one row per possible fuzzy match.
+4. Allow three levels of relationship:
+   - `assignment_link`: the source page or page structure explicitly ties a student artifact to an assignment/project prompt.
+   - `brief_page_link`: the source provides course context and the work sits inside a course page or gallery connected to an assignment/project page.
+   - `course_context_link`: the source provides course code, title, term, or instructor, but no exact assignment boundary.
+5. Require `link_confidence`, `evidence_basis`, and `evidence_grade` on every row.
+6. Preserve `student_work_id`, `student_work_url`, `source_ids`, `course_code`, `course_title`, `term`, `instructor`, `brief_page_id`, `assignment_id`, and `assignment_title` when known.
+7. Carry `visual_standard_notes` forward from the student-work row and add short `comparison_use` notes such as `visual_calibration`, `deliverable_reference`, `process_reference`, or `critique_reference`.
+8. Do not infer a student-work assignment link from title similarity alone.
 
 Validation requirements:
 
-- Promoted search candidates must point to real `sources.jsonl` rows.
-- Failed promotions must remain visible as rejected candidates rather than disappearing.
-- No failed fetch may create syllabus, assignment, or reading records.
+- Every `student_work_id` must exist in `student_work.jsonl`.
+- Every non-null `assignment_id` must exist in `assignments.jsonl`.
+- Every non-null `brief_page_id` must exist in `assignment_brief_pages.jsonl`.
+- Validation must report counts for course-context links, brief-page links, assignment links, and rejected weak matches.
 
-### Step 3: Expand Recursive Course-Site Parsing
+Acceptance output:
 
-The highest-value tacit knowledge is usually inside course-site project pages, schedule pages, and critique prompts, not only in top-level syllabi.
+- `student_work_assignment_links.jsonl`
+- validation rows proving referential integrity and link-confidence boundaries
+- generated reconstruction/curriculum sections that use linked student work only as comparison evidence, not as assignment requirements
 
-Implementation requirements:
+### Step 2: Extract Explicit Schedule Rows From Course-Site Pages
 
-1. Crawl each recovered public course domain within a conservative same-site depth limit.
-2. Detect and classify page roles:
-   - syllabus
-   - weekly schedule
-   - class session page
-   - project brief
-   - exercise
-   - reading/resource list
-   - student work gallery
-   - irrelevant page
-3. Write page-role audit rows to `course_site_pages.jsonl`. Status: implemented.
-4. Extract schedule rows from week/class pages when titles, dates, or agenda bodies are available.
-5. Extract assignment records from complete project pages using heading-bounded blocks.
-6. Roll assignment/project pages into `assignment_brief_pages.jsonl` with deliverables, constraints, materials, tools, critique, revision, and representative prompt summaries. Status: implemented.
-7. Parse deliverables, constraints, materials, critique format, revision expectations, and output format from project pages.
-8. Link student-work gallery pages to assignments only when page structure or source text supports the relationship.
-9. Add validation counts for complete assignment briefs versus weak sentence snippets.
-
-### Step 4: Expand Faculty-Centric Discovery
-
-Faculty pages are useful as discovery hubs and attribution evidence. They should not be overinterpreted as syllabi unless they contain classroom artifacts.
+Goal: move from syllabus-level schedule snippets to reusable week/class/session rows.
 
 Implementation requirements:
 
-1. Use `faculty.jsonl` and `faculty_course_edges.jsonl` to generate faculty-specific search queries. Status: implemented in `faculty_search_queries.jsonl`.
-2. Add generated faculty queries to `search_candidates.jsonl` as `faculty_query_backlog` rows. Status: implemented.
-3. Search for combinations of faculty name, RISD, course title, course code, syllabus, teaching, project, assignment, and studio.
-4. Add discovered faculty teaching pages and public portfolio/course pages to `faculty_profile_candidates.jsonl` or `search_candidates.jsonl` with explicit candidate source labels.
-5. Promote fetched faculty teaching pages only after classification.
-6. Extract public portfolio examples into `faculty_portfolio_examples.jsonl` for visual/tacit calibration, not as direct course requirements.
+1. Add a `schedule_rows.jsonl` artifact.
+2. Extract rows from syllabus tables, week pages, class-session pages, outline pages, and dated agenda bodies.
+3. Preserve `schedule_id`, `source_id`, `page_id`, `syllabus_id`, `course_code`, `course_title`, `term`, `instructor`, `week_number`, `date`, `session_title`, `agenda_excerpt`, `due_assignment_ids`, `reading_ids`, `critique_signal`, `workshop_signal`, `evidence_grade`, and `boundary_status`.
+4. Link rows to assignments and readings only when the source text contains due, read, critique, review, workshop, or class-session context.
+5. Keep partial schedule evidence with explicit missing fields instead of discarding it.
+6. Feed schedule rows into `course_reconstruction.md` and `self_study_curriculum.md`.
 
 Validation requirements:
 
-- Faculty-derived candidates must retain `faculty_id`.
-- Faculty portfolio examples must remain separate from student work and assignment evidence.
-- Faculty profile sources may support attribution, but course reconstruction must still prefer syllabus/course-site evidence.
+- Every row must reference an existing source.
+- Linked assignments and readings must exist.
+- Validation must separate table-derived, page-title-derived, and agenda-body-derived rows.
 
-### Step 5: Deepen Archive Recovery
+Acceptance output:
 
-Archive recovery should target missing syllabi, course-site pages, and historical assignment prompts.
+- `schedule_rows.jsonl`
+- course packets with ordered week/session evidence where available
+- coverage scores that improve the `weekly_schedule` requirement only when schedule rows exist
 
-Implementation requirements:
+### Step 3: Deepen Assignment Brief Parsing Into Field-Level Records
 
-1. Query Wayback CDX for every source URL, course-site root, search candidate URL, and known faculty teaching URL.
-2. Select captures near academic term starts and around known course terms.
-3. Fetch selected captures when public and parseable.
-4. Store current/archive relationships in `source_versions.jsonl`.
-5. Compare archived pages against current pages for changed schedules, assignments, readings, and faculty.
-6. Promote archived captures into source rows only when they contain recoverable classroom evidence.
-
-Validation requirements:
-
-- Every archived source must preserve its original URL and capture timestamp.
-- Archive-derived records must cite archive source IDs.
-- Substantive historical variants should be kept; cosmetic duplicates should be clustered.
-
-### Step 6: Strengthen Deduplication And Conflict Handling
-
-As discovery expands, duplicate pages and conflicting course metadata will increase.
+Goal: convert long assignment blocks into structured studio objects that answer what the student must make, under what constraints, with what critique loop.
 
 Implementation requirements:
 
-1. Upgrade source clustering from related source families to exact and near-duplicate groups.
-2. Cluster by canonical URL, checksum, normalized text similarity, course code, term, instructor, assignment schedule hash, and reading set hash.
-3. Keep distinct historical versions and different course sections.
-4. Add `field_conflicts.jsonl` rows for contradictory course code, title, instructor, term, credits, schedule, or reading evidence.
-5. Prefer higher-authority evidence during reconstruction, but keep lower-authority evidence available for review.
+1. Extend assignment extraction from complete project pages using heading-bounded and list-bounded parsing.
+2. Parse field-level arrays for `deliverables`, `constraints`, `materials`, `tools`, `process_steps`, `submission_requirements`, `critique_questions`, `revision_expectation`, `grading_criteria`, `output_format`, and `skills_trained`.
+3. Add `assignment_boundary_evidence` with the heading text, URL fragment when available, and source excerpt.
+4. Promote high-confidence assignment rows only when the assignment boundary is explicit enough to separate one prompt from neighboring content.
+5. Retain low-confidence fragments, but exclude them from curriculum assignment lists unless a complete-brief signal is present.
+6. Add `assignment_brief_pages.jsonl` counts to course coverage so complete brief pages improve `project_briefs`, `critique_revision`, and `tools_materials` requirements.
 
 Validation requirements:
 
-- Clusters must list representative source IDs.
+- High-confidence assignments must have at least one deliverable, constraint, tool/material, critique, revision, or output-format signal.
+- Long brief rows must cite source IDs and boundary evidence.
+- Course packets must distinguish complete assignment briefs from weak snippets.
+
+Acceptance output:
+
+- richer `assignments.jsonl`
+- richer `assignment_brief_pages.jsonl`
+- course reconstruction sections that show tangible project mechanics rather than only prompt excerpts
+
+### Step 4: Promote Search And Faculty Discovery Results Into Sources
+
+Goal: close the loop from backlog rows to fetched, classified, parseable sources.
+
+Implementation requirements:
+
+1. Keep `coverage_search_queries.jsonl` and `faculty_search_queries.jsonl` as executable search backlogs.
+2. In `--search-api-only`, run bounded Brave or Bing searches for static, coverage-derived, and faculty-derived queries.
+3. In `--promote-search-only`, score URL-bearing search candidates and write `search_promotions.jsonl`.
+4. Promotion criteria should prioritize public course pages, syllabi, project briefs, schedules, reading lists, known faculty domains, `risd.gd`, `risd.edu`, GitHub course repos, and public PDF/HTML artifacts.
+5. Promotion must reject login walls, private drives, admin pages, checkout pages, generic marketing pages, and ambiguous personal data pages.
+6. Promoted rows must enter `sources.jsonl` and then pass through the same classification and extraction path as curated seeds.
+7. Failed fetches and rejected candidates must remain auditable in promotion rows.
+
+Validation requirements:
+
+- Every successful promotion must reference an existing `sources.jsonl` row.
+- Every rejected promotion must include a rejection reason.
+- No failed or rejected candidate may create syllabus, assignment, reading, faculty, or student-work records.
+
+Acceptance output:
+
+- nonzero promoted search results when URL-bearing search exports or API results are available
+- regenerated source, course-site, assignment, reading, and coverage artifacts from promoted sources
+
+### Step 5: Expand Archive And Common Crawl Recovery
+
+Goal: recover vanished course sites, older project prompts, and historical schedule/readings evidence.
+
+Implementation requirements:
+
+1. Query Wayback CDX for every source URL, course-site root, promoted search URL, faculty teaching URL, and known course domain.
+2. Select captures near academic term starts: September, January, February, and May.
+3. Fetch selected captures only when public and parseable.
+4. Promote archive captures into `sources.jsonl` only when they contain classroom evidence.
+5. Preserve original URL, capture timestamp, current-source relationship, text similarity, changed keywords, and substantive-change hints in `source_versions.jsonl`.
+6. Expand the bounded Common Crawl pass for known domains and high-priority missing coverage gaps without making routine renders unbounded.
+7. Keep historical course sections and materially different assignment versions separate.
+
+Validation requirements:
+
+- Every archive-derived source must cite original URL and capture timestamp.
+- `source_versions.jsonl` must connect current and archived records.
+- Duplicate captures with no substantive classroom difference should be clustered or marked cosmetic.
+
+Acceptance output:
+
+- fetched archive sources where currently only capture metadata exists
+- archive-derived course-site pages, assignments, readings, or schedule rows when evidence is present
+
+### Step 6: Upgrade Deduplication, Versioning, And Conflict Handling
+
+Goal: prevent expanded discovery from silently merging different sections, terms, instructors, or assignment variants.
+
+Implementation requirements:
+
+1. Upgrade `source_clusters.jsonl` from related-source families to explicit `exact_duplicate`, `near_duplicate`, `historical_version`, and `related_family` cluster types.
+2. Cluster by canonical URL, checksum, normalized text similarity, title similarity, course code, term, instructor, assignment schedule hash, reading-set hash, and page role.
+3. Keep distinct historical versions, different course sections, and different assignment revisions.
+4. Expand `field_conflicts.jsonl` for contradictory course code, title, instructor, term, credits, schedule, reading, assignment title, and assessment evidence.
+5. Add conflict resolution hints based on source authority and recency, but keep lower-authority evidence visible.
+
+Validation requirements:
+
+- Clusters must list representative source IDs and member source IDs.
 - Course packets must not silently merge contradictory terms or instructors.
-- Conflict rows must include all source IDs needed for review.
+- Every conflict row must include enough record IDs and source IDs for manual review.
 
-### Step 7: Improve Manual Review And Tacit Reconstruction
+Acceptance output:
 
-The corpus should surface the uncertain, high-value classroom artifacts for human review instead of pretending the extraction is complete.
+- more precise source clusters
+- conflict reports that explain why a course packet has unresolved metadata
+
+### Step 7: Add Review Workflow For High-Value Uncertainty
+
+Goal: route the uncertain but useful classroom artifacts into a human-review loop instead of hiding them in generated prose.
 
 Implementation requirements:
 
-1. Prioritize `review_queue.jsonl` by expected reconstruction value:
+1. Prioritize `review_queue.jsonl` by reconstruction value:
    - full syllabus
    - complete project page
    - weekly schedule
@@ -261,24 +287,75 @@ Implementation requirements:
    - linked student work
    - faculty teaching page
    - social commentary
-2. Add review prompts that ask for concrete corrections:
-   - course identity
-   - assignment boundary
-   - deliverables
-   - critique format
-   - tacit skill
-   - evidence grade
+2. Add structured review prompts for course identity, assignment boundary, deliverables, critique format, tacit skill, evidence grade, and parser action.
 3. Apply `review_decisions.jsonl` during reconstruction.
 4. Keep generated decisions separate from human decisions.
 5. Regenerate `course_reconstruction.md`, `tacit_knowledge_memo.md`, and `self_study_curriculum.md` from reviewed evidence.
 
 Validation requirements:
 
-- Applied review decisions must cite the reviewed row and reviewer decision ID.
-- Human-reviewed fields should be distinguishable from inferred fields.
-- Self-study curriculum sections must cite source IDs and mark missing evidence.
+- Applied decisions must cite `review_id` and `decision_id`.
+- Human-reviewed fields must be distinguishable from inferred fields.
+- Rejected review decisions must not affect reconstruction.
 
-### Step 8: Keep Validation, Documentation, And Deployment In Lockstep
+Acceptance output:
+
+- review queue sorted by value and uncertainty
+- reconstruction docs that explicitly mark reviewed, inferred, and missing evidence
+
+### Step 8: Improve Reading Citation Linking And Resource Semantics
+
+Goal: separate true bibliographic readings from resource links, videos, talks, software documentation, and inspiration references.
+
+Implementation requirements:
+
+1. Preserve current local catalog and bounded Open Library linking.
+2. Add citation-type classification for book, article, essay, video, website, tool documentation, slide deck, inspiration reference, and non-reading resource.
+3. Store `reading_context` such as `required`, `recommended`, `inspiration`, `technical_reference`, `lecture_support`, or `assignment_resource`.
+4. Link readings to `schedule_rows.jsonl` and `assignments.jsonl` when the source says a reading supports a week, lecture, project, or critique.
+5. Do not download or redistribute copyrighted readings.
+
+Validation requirements:
+
+- Bibliographic rows and non-bibliographic resource rows must be distinguishable.
+- External work links must include provider, status, score, and matched metadata.
+- Reading links to assignments or schedule rows must reference existing records.
+
+Acceptance output:
+
+- cleaner `readings.jsonl`
+- course packets that show what to read, what to reference, and what to use as tool documentation
+
+### Step 9: Generate A Mentor-Style Self-Study Curriculum From Evidence
+
+Goal: make the corpus usable for the original purpose: tacit catch-up through concrete studio loops.
+
+Implementation requirements:
+
+1. Generate curriculum modules from high-confidence course packets first.
+2. For each module, include:
+   - source-grounded course evidence
+   - tangible assignment loop
+   - required or recommended readings/resources
+   - critique/revision loop
+   - public student-work or faculty-work comparison set when available
+   - missing evidence warnings
+3. Never invent private syllabus content, rubrics, or readings.
+4. Convert inferred tacit knowledge into clearly marked practice instructions such as "make X, under Y constraints, compare against Z, revise after critique."
+5. Add a module-level evidence grade and source ID list.
+
+Validation requirements:
+
+- Every curriculum module must cite source IDs.
+- Every assignment in the curriculum must come from `assignments.jsonl` or `assignment_brief_pages.jsonl`.
+- Every student-work comparison must come from `student_work_assignment_links.jsonl`, `student_work.jsonl`, or `faculty_portfolio_examples.jsonl` with the relationship marked.
+
+Acceptance output:
+
+- richer `self_study_curriculum.md`
+- `tacit_knowledge_memo.md` organized around observed studio practices rather than unsupported generalizations
+
+### Step 10: Keep Validation, Documentation, And Deployment In Lockstep
 
 Every implementation slice must update the corpus artifacts and the design document when behavior changes.
 
@@ -479,6 +556,40 @@ Required fields:
 - `course_inference_basis`
 - `visual_standard_notes`
 - `evidence_grade`
+
+### `student_work_assignment_links.jsonl`
+
+One row per defensible relationship between a public student-work artifact and recovered course, assignment, or assignment-brief evidence. This artifact supports comparison and tacit calibration; it must not turn weak visual/title similarity into a factual assignment claim.
+
+Required fields:
+
+- `link_id`
+- `student_work_id`
+- `student_work_url`
+- `source_ids`
+- `relationship_type`
+- `link_confidence`
+- `evidence_basis`
+- `course_code`
+- `course_title`
+- `term`
+- `instructor`
+- `brief_page_id`
+- `assignment_id`
+- `assignment_title`
+- `brief_page_url`
+- `assignment_source_ids`
+- `visual_standard_notes`
+- `comparison_use`
+- `rejection_reason`
+- `evidence_grade`
+
+Relationship types:
+
+- `assignment_link`: explicit assignment/project relationship in source evidence.
+- `brief_page_link`: public work is connected to a course-site page or gallery that has assignment/project evidence.
+- `course_context_link`: source evidence supports course context but not exact assignment identity.
+- `rejected_weak_match`: candidate relationship rejected because evidence is only fuzzy title, visual, or keyword similarity.
 
 ### `course_site_pages.jsonl`
 
