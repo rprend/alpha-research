@@ -4049,7 +4049,7 @@ function buildCourseInventory(inspected) {
   }
 }
 
-function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioGateStatusSummary = null, selfStudyPortfolioReviewIndex = null, selfStudyPortfolioReviewerHandoff = null, selfStudyPortfolioReviewerFeedbackTemplate = null, selfStudyPortfolioReviewerFeedbackImports = null, selfStudyPortfolioRevisionQueue = null, selfStudyPortfolioGateStatusSuggestions = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
+function validateCorpus({ sources, courses, courseInventory, syllabi, assignments, readings, readingFrequency = [], scheduleRows = null, searchCandidates = [], searchPromotions = null, commonCrawlCandidates = [], commonCrawlPromotions = [], archivePromotions = null, facultyProfileCandidates = [], faculty = [], facultyCourseEdges = [], studentWork = [], studentWorkAssignmentLinks = null, selfStudyModules = null, selfStudyPacingPlan = null, selfStudyPacingProfiles = null, selfStudyProgressLedger = null, selfStudyPortfolioProgressRollups = null, selfStudyPortfolioCompletionGates = null, selfStudyPortfolioGateStatusImports = null, selfStudyPortfolioGateStatusTemplate = null, selfStudyPortfolioGateStatusSummary = null, selfStudyPortfolioReviewIndex = null, selfStudyPortfolioReviewerHandoff = null, selfStudyPortfolioReviewerFeedbackTemplate = null, selfStudyPortfolioReviewerFeedbackImports = null, selfStudyPortfolioRevisionQueue = null, selfStudyPortfolioGateStatusSuggestions = null, selfStudyPortfolioEvidenceAttachments = null, selfStudyPortfolioMilestones = null, selfStudyPortfolioBriefs = null, selfStudyPortfolioReferencePackets = null, selfStudyPortfolioExportManifests = null, selfStudyPortfolioSourceExcerptPackets = null, facultyPortfolioExamples = [], courseSitePages = null, assignmentBriefPages = null, archiveFetchTargets = null, sourceClusters = [], sourceVersions = [], wayback, reviewQueue = [], reviewDecisions = [], fieldConflicts = [], courseCoverage = [], coverageSearchQueries = [], facultySearchQueries = null }) {
   const effectiveSearchPromotions = searchPromotions ?? loadJsonl(join(outDir, 'search_promotions.jsonl'))
   const effectiveArchivePromotions = archivePromotions ?? loadJsonl(join(outDir, 'archive_promotions.jsonl'))
   const effectiveFacultySearchQueries = facultySearchQueries ?? loadJsonl(join(outDir, 'faculty_search_queries.jsonl'))
@@ -4071,6 +4071,7 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const effectiveSelfStudyPortfolioReviewerFeedbackImports = selfStudyPortfolioReviewerFeedbackImports ?? loadJsonl(portfolioReviewerFeedbackImportPath)
   const effectiveSelfStudyPortfolioRevisionQueue = selfStudyPortfolioRevisionQueue ?? []
   const effectiveSelfStudyPortfolioGateStatusSuggestions = selfStudyPortfolioGateStatusSuggestions ?? []
+  const effectiveSelfStudyPortfolioEvidenceAttachments = selfStudyPortfolioEvidenceAttachments ?? []
   const effectiveSelfStudyPortfolioMilestones = selfStudyPortfolioMilestones ?? []
   const effectiveSelfStudyPortfolioBriefs = selfStudyPortfolioBriefs ?? []
   const effectiveSelfStudyPortfolioReferencePackets = selfStudyPortfolioReferencePackets ?? []
@@ -4326,6 +4327,8 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const portfolioGateStatusTemplate = effectiveSelfStudyPortfolioGateStatusTemplate.length ? effectiveSelfStudyPortfolioGateStatusTemplate : generatedPortfolioGateStatusTemplate
   const generatedPortfolioCompletionGates = applySelfStudyPortfolioGateStatusImports(generatedBasePortfolioCompletionGates, effectiveSelfStudyPortfolioGateStatusImports)
   const portfolioCompletionGates = effectiveSelfStudyPortfolioCompletionGates.length ? effectiveSelfStudyPortfolioCompletionGates : generatedPortfolioCompletionGates
+  const generatedPortfolioEvidenceAttachments = buildSelfStudyPortfolioEvidenceAttachments(portfolioMilestones, portfolioProgressRollups, portfolioCompletionGates, portfolioExportManifests)
+  const portfolioEvidenceAttachments = effectiveSelfStudyPortfolioEvidenceAttachments.length ? effectiveSelfStudyPortfolioEvidenceAttachments : generatedPortfolioEvidenceAttachments
   const generatedPortfolioGateStatusSummary = buildSelfStudyPortfolioGateStatusSummary(generatedBasePortfolioCompletionGates, portfolioCompletionGates, effectiveSelfStudyPortfolioGateStatusImports)
   const portfolioGateStatusSummary = effectiveSelfStudyPortfolioGateStatusSummary.length ? effectiveSelfStudyPortfolioGateStatusSummary : generatedPortfolioGateStatusSummary
   const generatedPortfolioBriefs = buildSelfStudyPortfolioBriefs(curriculumModules, pacingPlan, portfolioMilestones, portfolioCompletionGates)
@@ -4583,6 +4586,39 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
   const portfolioCompletionGatesGeneratedMismatch = effectiveSelfStudyPortfolioCompletionGates.length > 0 && effectiveSelfStudyPortfolioCompletionGates.length !== generatedPortfolioCompletionGates.length
   const portfolioCompletionGateIds = new Set(portfolioCompletionGates.map((gate) => gate.gate_id))
   const portfolioCompletionGateCheckIds = new Set(portfolioCompletionGates.flatMap((gate) => (gate.gate_checks ?? []).map((check) => check.check_id)))
+  const validEvidenceAttachmentRoles = new Set(['final_artifact', 'process_evidence', 'critique_notes', 'revision_proof', 'source_boundary_memo', 'export_package_file'])
+  const validEvidenceAttachmentStatuses = new Set(['missing', 'attached'])
+  const progressLedgerCritiqueLogIds = new Set(progressLedger.flatMap((entry) => (entry.critique_revision_log ?? []).map((log) => log.log_id)))
+  const portfolioEvidenceAttachmentErrors = portfolioEvidenceAttachments.filter((manifest) =>
+    !manifest.attachment_manifest_id
+      || !manifest.milestone_id
+      || !portfolioMilestoneIds.has(manifest.milestone_id)
+      || !manifest.progress_rollup_id
+      || !portfolioProgressRollupIds.has(manifest.progress_rollup_id)
+      || !manifest.completion_gate_id
+      || !portfolioCompletionGateIds.has(manifest.completion_gate_id)
+      || !manifest.export_manifest_id
+      || !portfolioExportManifestIds.has(manifest.export_manifest_id)
+      || !manifest.attachment_slots?.length
+      || new Set(manifest.attachment_slots.map((slot) => slot.slot_id)).size !== manifest.attachment_slots.length
+      || manifest.attachment_slots.some((slot) =>
+        !slot.slot_id
+          || !validEvidenceAttachmentRoles.has(slot.slot_role)
+          || !slot.required_for_gate_check_id
+          || !portfolioCompletionGateCheckIds.has(slot.required_for_gate_check_id)
+          || !validEvidenceAttachmentStatuses.has(slot.attachment_status)
+          || slot.ledger_id && !progressLedgerIds.has(slot.ledger_id)
+          || slot.critique_log_id && !progressLedgerCritiqueLogIds.has(slot.critique_log_id)
+          || slot.attachment_status === 'attached' && !slot.local_path && !slot.attachment_uri
+          || !slot.reviewer_evidence_ref
+      )
+      || !manifest.gate_check_coverage?.length
+      || manifest.gate_check_coverage.some((coverage) => !coverage.check_id || !portfolioCompletionGateCheckIds.has(coverage.check_id) || !Array.isArray(coverage.slot_ids) || coverage.slot_ids.length === 0)
+      || !Number.isInteger(manifest.manifest_totals?.slots)
+      || manifest.manifest_totals.slots !== manifest.attachment_slots.length
+      || !manifest.import_instructions?.length
+  )
+  const portfolioEvidenceAttachmentsGeneratedMismatch = effectiveSelfStudyPortfolioEvidenceAttachments.length > 0 && effectiveSelfStudyPortfolioEvidenceAttachments.length !== generatedPortfolioEvidenceAttachments.length
   const portfolioGateStatusTemplateErrors = portfolioGateStatusTemplate.filter((row) =>
     !row.import_id
       || !row.gate_id
@@ -5032,6 +5068,11 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       detail: `${portfolioCompletionGates.length} portfolio completion gates for ${portfolioMilestones.length} milestones; ${portfolioCompletionGateErrors.length} gate reference errors; generated mismatch=${portfolioCompletionGatesGeneratedMismatch}.`,
     },
     {
+      id: 'self_study_portfolio_evidence_attachments_cover_gate_checks',
+      status: portfolioEvidenceAttachmentErrors.length === 0 && portfolioEvidenceAttachments.length === portfolioMilestones.length && portfolioEvidenceAttachments.length > 0 && !portfolioEvidenceAttachmentsGeneratedMismatch ? 'pass' : 'fail',
+      detail: `${portfolioEvidenceAttachments.length} evidence attachment manifests; ${portfolioEvidenceAttachments.reduce((sum, manifest) => sum + (manifest.manifest_totals?.slots ?? 0), 0)} attachment slots; ${portfolioEvidenceAttachmentErrors.length} manifest reference/coverage errors; generated mismatch=${portfolioEvidenceAttachmentsGeneratedMismatch}.`,
+    },
+    {
       id: 'self_study_portfolio_gate_status_template_targets_valid_checks',
       status: portfolioGateStatusTemplateErrors.length === 0 && portfolioGateStatusTemplate.length === portfolioCompletionGates.length && portfolioGateStatusTemplate.length > 0 ? 'pass' : 'fail',
       detail: `${portfolioGateStatusTemplate.length} portfolio gate status template rows; ${portfolioGateStatusTemplateErrors.length} template reference errors.`,
@@ -5259,6 +5300,9 @@ function validateCorpus({ sources, courses, courseInventory, syllabi, assignment
       self_study_progress_ledger_rows_with_portfolio_gate: progressLedgerWithPortfolioGateAnnotations.filter((entry) => entry.portfolio_review?.completion_gate_id).length,
       self_study_portfolio_progress_rollups: portfolioProgressRollups.length,
       self_study_portfolio_completion_gates: portfolioCompletionGates.length,
+      self_study_portfolio_evidence_attachment_manifests: portfolioEvidenceAttachments.length,
+      self_study_portfolio_evidence_attachment_slots: portfolioEvidenceAttachments.reduce((sum, manifest) => sum + (manifest.manifest_totals?.slots ?? 0), 0),
+      self_study_portfolio_missing_evidence_attachment_slots: portfolioEvidenceAttachments.reduce((sum, manifest) => sum + (manifest.manifest_totals?.missing_attachment_slots ?? 0), 0),
       self_study_portfolio_gate_status_template_rows: portfolioGateStatusTemplate.length,
       self_study_portfolio_gate_status_import_rows: effectiveSelfStudyPortfolioGateStatusImports.length,
       self_study_portfolio_gate_status_summary_rows: portfolioGateStatusSummary.length,
@@ -7156,6 +7200,125 @@ function buildSelfStudyPortfolioCompletionGates(portfolioProgressRollups) {
   })
 }
 
+function buildSelfStudyPortfolioEvidenceAttachments(portfolioMilestones, progressRollups, completionGates, exportManifests) {
+  const rollupByMilestone = new Map(progressRollups.map((rollup) => [rollup.milestone_id, rollup]))
+  const gateByMilestone = new Map(completionGates.map((gate) => [gate.milestone_id, gate]))
+  const manifestByMilestone = new Map(exportManifests.map((manifest) => [manifest.milestone_id, manifest]))
+  return portfolioMilestones.map((milestone) => {
+    const rollup = rollupByMilestone.get(milestone.milestone_id)
+    const gate = gateByMilestone.get(milestone.milestone_id)
+    const manifest = manifestByMilestone.get(milestone.milestone_id)
+    const outputSlots = (rollup?.portfolio_output_rollup ?? []).flatMap((item) => [
+      portfolioEvidenceAttachmentSlot({
+        milestoneId: milestone.milestone_id,
+        ledgerId: item.ledger_id,
+        slotRole: 'final_artifact',
+        title: `Final artifact for week ${item.week_number}`,
+        requiredForGateCheckId: `${rollup.rollup_id}_outputs_complete`,
+        expectedEvidence: item.expected_output,
+      }),
+      portfolioEvidenceAttachmentSlot({
+        milestoneId: milestone.milestone_id,
+        ledgerId: item.ledger_id,
+        slotRole: 'process_evidence',
+        title: `Process evidence for week ${item.week_number}`,
+        requiredForGateCheckId: `${rollup.rollup_id}_outputs_complete`,
+        expectedEvidence: item.checklist_item_ids?.join(', ') ?? 'process checklist evidence',
+      }),
+    ])
+    const critiqueSlots = (rollup?.critique_revision_rollup ?? []).flatMap((item) => [
+      portfolioEvidenceAttachmentSlot({
+        milestoneId: milestone.milestone_id,
+        ledgerId: item.ledger_id,
+        logId: item.log_id,
+        slotRole: 'critique_notes',
+        title: `Critique notes for ${item.log_id}`,
+        requiredForGateCheckId: `${rollup.rollup_id}_critique_revisions_logged`,
+        expectedEvidence: item.prompt,
+      }),
+      portfolioEvidenceAttachmentSlot({
+        milestoneId: milestone.milestone_id,
+        ledgerId: item.ledger_id,
+        logId: item.log_id,
+        slotRole: 'revision_proof',
+        title: `Before/after revision proof for ${item.log_id}`,
+        requiredForGateCheckId: `${rollup.rollup_id}_critique_revisions_logged`,
+        expectedEvidence: 'before state, after state, and decision rationale',
+      }),
+    ])
+    const warningSlots = (rollup?.evidence_warning_rollup?.warnings ?? []).map((warning, index) => portfolioEvidenceAttachmentSlot({
+      milestoneId: milestone.milestone_id,
+      slotRole: 'source_boundary_memo',
+      title: `Evidence boundary memo ${index + 1}`,
+      requiredForGateCheckId: `${rollup.rollup_id}_warnings_resolved_or_disclosed`,
+      expectedEvidence: warning,
+    }))
+    const exportSlots = (manifest?.export_files ?? []).map((file) => portfolioEvidenceAttachmentSlot({
+      milestoneId: milestone.milestone_id,
+      slotRole: 'export_package_file',
+      title: file.file_role,
+      requiredForGateCheckId: `${rollup?.rollup_id}_export_manifest_packaged`,
+      expectedEvidence: file.path,
+      defaultPath: file.path,
+    }))
+    const attachmentSlots = [...outputSlots, ...critiqueSlots, ...warningSlots, ...exportSlots]
+    return {
+      attachment_manifest_id: `evidence_attachment_manifest_${milestone.milestone_id}`,
+      generated_at: retrievedAt,
+      milestone_id: milestone.milestone_id,
+      progress_rollup_id: rollup?.rollup_id ?? null,
+      completion_gate_id: gate?.gate_id ?? null,
+      export_manifest_id: manifest?.manifest_id ?? null,
+      title: `${milestone.title} Evidence Attachment Manifest`,
+      attachment_slots: attachmentSlots,
+      gate_check_coverage: (gate?.gate_checks ?? []).map((check) => ({
+        check_id: check.check_id,
+        label: check.label,
+        slot_ids: attachmentSlots.filter((slot) => slot.required_for_gate_check_id === check.check_id).map((slot) => slot.slot_id),
+      })),
+      manifest_totals: {
+        slots: attachmentSlots.length,
+        missing_attachment_slots: attachmentSlots.filter((slot) => slot.attachment_status === 'missing').length,
+        learner_supplied_slots: attachmentSlots.filter((slot) => slot.attachment_status === 'attached').length,
+      },
+      import_instructions: [
+        'Copy this row into a learner-maintained evidence attachment tracker and fill attachment_uri or local_path for each slot.',
+        'Use stable file paths or URLs that can be copied into reviewer feedback evidence_refs and gate status imports.',
+        'Do not mark a completion gate ready until every required gate check has attached evidence slots.',
+      ],
+      provenance_note: 'Generated learner evidence attachment manifest from portfolio rollups, completion gates, and export manifests.',
+    }
+  })
+}
+
+function portfolioEvidenceAttachmentSlot({ milestoneId, ledgerId = null, logId = null, slotRole, title, requiredForGateCheckId, expectedEvidence, defaultPath = null }) {
+  const contextId = [ledgerId, logId, slotRole, defaultPath ?? title].filter(Boolean).join('_') || slotRole
+  const slotId = `attachment_${milestoneId}_${slug(contextId)}`
+  return {
+    slot_id: slotId,
+    slot_role: slotRole,
+    title,
+    ledger_id: ledgerId,
+    critique_log_id: logId,
+    required_for_gate_check_id: requiredForGateCheckId,
+    expected_evidence: expectedEvidence,
+    attachment_status: defaultPath ? 'attached' : 'missing',
+    attachment_uri: '',
+    local_path: defaultPath ?? '',
+    media_type: inferAttachmentMediaType(defaultPath),
+    reviewer_evidence_ref: defaultPath ? `${slotId}:${defaultPath}` : slotId,
+  }
+}
+
+function inferAttachmentMediaType(path) {
+  if (!path) return 'unknown'
+  if (/\.md$/i.test(path)) return 'text/markdown'
+  if (/\.jsonl?$/i.test(path)) return 'application/json'
+  if (/\.pdf$/i.test(path)) return 'application/pdf'
+  if (/\.(png|jpg|jpeg|gif|webp)$/i.test(path)) return 'image/*'
+  return 'application/octet-stream'
+}
+
 function buildSelfStudyPortfolioGateStatusTemplate(portfolioCompletionGates) {
   return portfolioCompletionGates.map((gate) => ({
     import_id: `status_import_${gate.gate_id}`,
@@ -7290,6 +7453,40 @@ function selfStudyPortfolioGateStatusSummaryMarkdown(statusSummaries) {
       const changed = check.status_changed ? 'changed' : 'unchanged'
       const evidence = check.evidence_refs.length ? `; evidence: ${check.evidence_refs.join(', ')}` : ''
       lines.push(`  - ${check.label}: ${check.before_status} -> ${check.after_status} (${changed}${evidence})`)
+    })
+    lines.push('')
+  }
+  return lines.map((line) => line.trimEnd()).join('\n')
+}
+
+function selfStudyPortfolioEvidenceAttachmentsMarkdown(manifests) {
+  const lines = [
+    '# RISD Graphic Design Portfolio Evidence Attachment Manifest',
+    '',
+    `Generated: ${retrievedAt}`,
+    '',
+    'Use these rows as the stable evidence map for learner portfolio review. Fill missing attachment URIs or local paths before copying evidence refs into reviewer feedback or gate status imports.',
+    '',
+    `- Manifests: ${manifests.length}`,
+    `- Attachment slots: ${manifests.reduce((sum, manifest) => sum + (manifest.manifest_totals?.slots ?? 0), 0)}`,
+    `- Missing learner evidence slots: ${manifests.reduce((sum, manifest) => sum + (manifest.manifest_totals?.missing_attachment_slots ?? 0), 0)}`,
+    '',
+  ]
+  for (const manifest of manifests) {
+    lines.push(`## ${manifest.title}`)
+    lines.push('')
+    lines.push(`- Manifest ID: ${manifest.attachment_manifest_id}`)
+    lines.push(`- Milestone: ${manifest.milestone_id}`)
+    lines.push(`- Completion gate: ${manifest.completion_gate_id}`)
+    lines.push(`- Export manifest: ${manifest.export_manifest_id}`)
+    lines.push(`- Slots: ${manifest.manifest_totals.slots}`)
+    lines.push(`- Missing attachment slots: ${manifest.manifest_totals.missing_attachment_slots}`)
+    lines.push('- Gate check coverage:')
+    manifest.gate_check_coverage.forEach((coverage) => lines.push(`  - ${coverage.check_id}: ${coverage.slot_ids.length} slot${coverage.slot_ids.length === 1 ? '' : 's'}`))
+    lines.push('- Attachment slots:')
+    manifest.attachment_slots.forEach((slot) => {
+      const location = slot.local_path || slot.attachment_uri || 'missing'
+      lines.push(`  - ${slot.slot_id}: ${slot.slot_role}; ${slot.attachment_status}; ${location}`)
     })
     lines.push('')
   }
@@ -8699,6 +8896,7 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   const portfolioGateStatusTemplate = buildSelfStudyPortfolioGateStatusTemplate(basePortfolioCompletionGates)
   const portfolioGateStatusImports = loadJsonl(portfolioGateStatusImportPath)
   const portfolioCompletionGates = applySelfStudyPortfolioGateStatusImports(basePortfolioCompletionGates, portfolioGateStatusImports)
+  const portfolioEvidenceAttachments = buildSelfStudyPortfolioEvidenceAttachments(portfolioMilestones, portfolioProgressRollups, portfolioCompletionGates, portfolioExportManifests)
   const portfolioGateStatusSummary = buildSelfStudyPortfolioGateStatusSummary(basePortfolioCompletionGates, portfolioCompletionGates, portfolioGateStatusImports)
   const progressLedgerWithPortfolioGateAnnotations = annotateSelfStudyProgressLedgerWithPortfolioGates(progressLedger, portfolioMilestones, portfolioCompletionGates)
   const portfolioBriefs = buildSelfStudyPortfolioBriefs(selfStudyModules, pacingPlan, portfolioMilestones, portfolioCompletionGates)
@@ -8714,6 +8912,8 @@ function writeSelfStudyModuleArtifacts(selfStudyModules, facultyPortfolioExample
   writeFileSync(join(outDir, 'self_study_progress_ledger.md'), selfStudyProgressLedgerMarkdown(progressLedgerWithPortfolioGateAnnotations))
   writeJsonl(join(outDir, 'self_study_portfolio_progress_rollups.jsonl'), portfolioProgressRollups)
   writeJsonl(join(outDir, 'self_study_portfolio_completion_gates.jsonl'), portfolioCompletionGates)
+  writeJsonl(join(outDir, 'self_study_portfolio_evidence_attachments.jsonl'), portfolioEvidenceAttachments)
+  writeFileSync(join(outDir, 'self_study_portfolio_evidence_attachments.md'), selfStudyPortfolioEvidenceAttachmentsMarkdown(portfolioEvidenceAttachments))
   writeJsonl(join(outDir, 'self_study_portfolio_gate_status_template.jsonl'), portfolioGateStatusTemplate)
   writeJsonl(join(outDir, 'self_study_portfolio_gate_status_summary.jsonl'), portfolioGateStatusSummary)
   writeFileSync(join(outDir, 'self_study_portfolio_gate_status_summary.md'), selfStudyPortfolioGateStatusSummaryMarkdown(portfolioGateStatusSummary))

@@ -210,6 +210,7 @@ Overall status: pass
 - PASS self_study_progress_ledger_tracks_outputs_revisions_and_warnings: 28 progress ledger rows for 28 pacing rows; 0 ledger reference errors; generated mismatch=false.
 - PASS self_study_portfolio_progress_rollups_connect_ledger_to_manifests: 3 portfolio progress rollups for 3 milestones; 0 rollup reference errors; generated mismatch=false.
 - PASS self_study_portfolio_completion_gates_define_review_readiness: 3 portfolio completion gates for 3 milestones; 0 gate reference errors; generated mismatch=false.
+- PASS self_study_portfolio_evidence_attachments_cover_gate_checks: 3 evidence attachment manifests; 134 attachment slots; 0 manifest reference/coverage errors; generated mismatch=false.
 - PASS self_study_portfolio_gate_status_template_targets_valid_checks: 3 portfolio gate status template rows; 0 template reference errors.
 - PASS self_study_portfolio_gate_status_imports_are_safe_to_apply: 0 learner portfolio gate status import rows; 0 import reference/readiness errors.
 - PASS self_study_portfolio_gate_status_summary_explains_applied_imports: 3 portfolio gate status summary rows; 0 imports applied; 0 summary reference errors.
