@@ -1,32 +1,32 @@
 # TikTok Creative Creator Graph Run
 
-Generated: 2026-06-12T19:24:23.417Z
+Generated: 2026-06-12T19:33:27.673Z
 
 ## Summary
 
-- Accounts: 6
-- Videos: 8
-- Graph edges: 40
-- Useful accounts: 4
+- Accounts: 9
+- Videos: 11
+- Graph edges: 52
+- Useful accounts: 5
 - Excellent accounts: 1
-- Review queue: 5
+- Review queue: 8
 - Expansion queue: 4
-- Target: 4
-- Target status: met
+- Target: 50000
+- Target status: 49995 more useful accounts needed
 
 ## Status Counts
 
+- useful: 4
+- needs_review: 2
+- reject: 2
 - excellent: 1
-- useful: 3
-- reject: 1
-- needs_review: 1
 
 ## Primary Labels
 
-- filmmaker: 1
+- filmmaker: 2
+- sketch_comedian: 2
+- reject: 2
 - cinematographer: 1
-- sketch_comedian: 1
-- reject: 1
 - vfx_animation: 1
 - creative_technologist: 1
 
@@ -38,7 +38,10 @@ Generated: 2026-06-12T19:24:23.417Z
 | @noahframes | cinematographer | 73 | useful |
 | @ani.motionlab | vfx_animation | 67 | useful |
 | @lucybits | sketch_comedian | 66 | useful |
+| @selahshoots | filmmaker | 64 | useful |
 | @renderjules | creative_technologist | 61 | needs_review |
+| @basementbits | sketch_comedian | 58 | needs_review |
+| @dailyfilmclips | reject | 0 | reject |
 | @clipvaultcinema | reject | 0 | reject |
 
 ## Next Expansion Targets
@@ -55,7 +58,10 @@ Generated: 2026-06-12T19:24:23.417Z
 | Handle | Label | Score | Reasons |
 | --- | --- | ---: | --- |
 | @maya.shortcuts | filmmaker | 89 | benchmark_candidate |
+| @dailyfilmclips | reject | 0 | repost_risk |
 | @clipvaultcinema | reject | 0 | repost_risk |
 | @ani.motionlab | vfx_animation | 67 | high_graph_value_uncertain_quality |
 | @lucybits | sketch_comedian | 66 | high_graph_value_uncertain_quality |
+| @selahshoots | filmmaker | 64 | high_graph_value_uncertain_quality |
 | @renderjules | creative_technologist | 61 | threshold_borderline; high_graph_value_uncertain_quality |
+| @basementbits | sketch_comedian | 58 | threshold_borderline; high_graph_value_uncertain_quality |

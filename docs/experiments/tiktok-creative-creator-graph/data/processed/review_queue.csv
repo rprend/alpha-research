@@ -1,6 +1,9 @@
 creator_id,handle,display_name,primary_label,overall_usefulness,status,review_priority,review_reasons,profile_url
 maya.shortcuts,@maya.shortcuts,Maya Shortcuts,filmmaker,89,excellent,1,benchmark_candidate,https://www.tiktok.com/@maya.shortcuts
+dailyfilmclips,@dailyfilmclips,Daily Film Clips,reject,0,reject,2,repost_risk,https://www.tiktok.com/@dailyfilmclips
 clipvaultcinema,@clipvaultcinema,Clip Vault Cinema,reject,0,reject,2,repost_risk,https://www.tiktok.com/@clipvaultcinema
 ani.motionlab,@ani.motionlab,Ani Motion Lab,vfx_animation,67,useful,3,high_graph_value_uncertain_quality,https://www.tiktok.com/@ani.motionlab
 lucybits,@lucybits,Lucy Bits,sketch_comedian,66,useful,3,high_graph_value_uncertain_quality,https://www.tiktok.com/@lucybits
+selahshoots,@selahshoots,Selah Shoots,filmmaker,64,useful,3,high_graph_value_uncertain_quality,https://www.tiktok.com/@selahshoots
 renderjules,@renderjules,Render Jules,creative_technologist,61,needs_review,3,"threshold_borderline,high_graph_value_uncertain_quality",https://www.tiktok.com/@renderjules
+basementbits,@basementbits,Basement Bits,sketch_comedian,58,needs_review,3,"threshold_borderline,high_graph_value_uncertain_quality",https://www.tiktok.com/@basementbits

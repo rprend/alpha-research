@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-06-12T19:29:12.453Z",
+  "generated_at": "2026-06-12T19:33:28.203Z",
   "complete": false,
   "counts": {
-    "accounts": 6,
-    "videos": 8,
-    "edges": 40,
-    "useful_accounts": 4,
+    "accounts": 9,
+    "videos": 11,
+    "edges": 52,
+    "useful_accounts": 5,
     "excellent_accounts": 1,
-    "rejected_accounts": 1,
-    "review_queue": 5,
+    "rejected_accounts": 2,
+    "review_queue": 8,
     "expansion_queue": 4,
     "acquisition_tasks": 31
   },
@@ -16,27 +16,27 @@
     {
       "id": "seed_intake",
       "status": "pass",
-      "evidence": "6 accounts ingested"
+      "evidence": "9 accounts ingested"
     },
     {
       "id": "video_metadata",
       "status": "pass",
-      "evidence": "8 videos ingested"
+      "evidence": "11 videos ingested"
     },
     {
       "id": "graph_edges",
       "status": "pass",
-      "evidence": "40 graph edges generated"
+      "evidence": "52 graph edges generated"
     },
     {
       "id": "scoring_coverage",
       "status": "pass",
-      "evidence": "6/6 accounts scored"
+      "evidence": "9/9 accounts scored"
     },
     {
       "id": "review_queue",
       "status": "pass",
-      "evidence": "5 accounts queued for review"
+      "evidence": "8 accounts queued for review"
     },
     {
       "id": "expansion_queue",
@@ -51,7 +51,7 @@
     {
       "id": "useful_account_target",
       "status": "incomplete",
-      "evidence": "4/50000 useful accounts"
+      "evidence": "5/50000 useful accounts"
     },
     {
       "id": "excellent_account_target",
@@ -61,12 +61,12 @@
     {
       "id": "human_review_target",
       "status": "incomplete",
-      "evidence": "5/500 accounts available for review"
+      "evidence": "8/500 accounts available for review"
     }
   ],
   "remaining": {
-    "useful_accounts": 49996,
+    "useful_accounts": 49995,
     "excellent_accounts": 4999,
-    "reviewed_accounts": 495
+    "reviewed_accounts": 492
   }
 }

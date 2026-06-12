@@ -37,6 +37,12 @@ Build acquisition batches from discovery queries and the latest expansion queue:
 pnpm run tiktok:creative:acquisition
 ```
 
+Normalize search/provider acquisition exports into pipeline imports:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs
+```
+
 Check readiness against the full 50k-account target:
 
 ```bash
@@ -90,6 +96,44 @@ Recommended video fields:
 }
 ```
 
+## Acquisition Result Import Shape
+
+Raw acquisition exports should land in `data/raw/acquisition-results/`. The importer accepts common search-result and provider-video rows.
+
+Search result rows:
+
+```json
+{
+  "query": "site:tiktok.com/@ \"short film\"",
+  "url": "https://www.tiktok.com/@example",
+  "title": "Example Creator on TikTok",
+  "snippet": "Short films and production diaries #shortfilm #director"
+}
+```
+
+Provider video rows:
+
+```json
+{
+  "authorMeta": {
+    "name": "example",
+    "nickName": "Example Creator",
+    "signature": "Writer/director. Short films.",
+    "fans": 7200,
+    "heart": 180000
+  },
+  "webVideoUrl": "https://www.tiktok.com/@example/video/123",
+  "text": "Blocking a scene #shortfilm #filmmaker",
+  "createTimeISO": "2026-05-30T12:00:00.000Z",
+  "playCount": 32000,
+  "diggCount": 4100,
+  "commentCount": 115,
+  "shareCount": 370,
+  "hashtags": [{"name": "shortfilm"}],
+  "mentions": ["@othercreator"]
+}
+```
+
 ## Outputs
 
 The pipeline writes:
@@ -111,6 +155,8 @@ The pipeline writes:
 - `reports/readiness.json`
 - `reports/acquisition-batches.md`
 - `reports/acquisition-batches.json`
+- `reports/acquisition-import.md`
+- `reports/acquisition-import.json`
 - `reports/pipeline-run.json`
 
 ## Production Acquisition Loop
@@ -120,8 +166,11 @@ The pipeline writes:
 3. Run the pipeline.
 4. Use `expansion_queue` to resolve mentioned creators and expand from high-usefulness accounts.
 5. Run `pnpm run tiktok:creative:acquisition` to turn discovery queries and graph targets into source-specific acquisition tasks.
-6. Use `review_queue` to correct labels, reject aggregators, and mark benchmarks.
-7. Re-import new accounts and rerun until `reports/readiness.json` shows at least 50,000 useful accounts.
+6. Put completed search/API/provider exports in `data/raw/acquisition-results/`.
+7. Run `node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs`.
+8. Rerun `pnpm run tiktok:creative`.
+9. Use `review_queue` to correct labels, reject aggregators, and mark benchmarks.
+10. Repeat until `reports/readiness.json` shows at least 50,000 useful accounts.
 
 ## Current Limitations
 
