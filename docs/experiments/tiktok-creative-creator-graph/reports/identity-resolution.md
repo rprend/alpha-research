@@ -1,11 +1,11 @@
 # Identity Resolution
 
-Generated: 2026-06-13T02:55:50.453Z
+Generated: 2026-06-13T03:01:57.155Z
 
-- Accounts: 1929
-- Identities: 1898
-- Duplicate risk clusters: 24
-- Identity evidence rows: 6052
+- Accounts: 2298
+- Identities: 2242
+- Duplicate risk clusters: 39
+- Identity evidence rows: 7159
 - High-confidence external links: 269
 
 ## Duplicate Risk Queue
@@ -21,18 +21,19 @@ Generated: 2026-06-13T02:55:50.453Z
 | creator_identity_8cdaa8016926 | 2 | @twan_graphic_design; @twanmvsic | shared identity key |
 | creator_identity_34cfe18e1721 | 2 | @kellydigitaldrawing; @kellyandbooks | shared identity key |
 | creator_identity_d43881e80411 | 2 | @hungryartistny; @just_call_me_juss_ | shared identity key |
-| creator_identity_650a679edb5c | 2 | @artbysmashley; @ashleynoellereads | shared identity key |
+| creator_identity_ab4430316a32 | 3 | @artbysmashley; @ashleynoellereads; @hexesandhorrors | shared identity key |
+| creator_identity_bf96dd46e397 | 2 | @thecommercialpilot; @dndmattb | shared identity key |
 | creator_identity_63ee06049a85 | 2 | @pilotmaria; @curlyysenpai | shared identity key |
 | creator_identity_8ac7a7c4eb61 | 2 | @pilotdanielav; @daniel.walker_ | shared identity key |
 | creator_identity_bf5e27c8547c | 2 | @danielmartinilo; @darksotmusician | shared identity key |
 | creator_identity_1fbfa20d1d44 | 2 | @thesommerset; @kayreadwhat | shared identity key |
 | creator_identity_af741baee68c | 2 | @meesesgaming; @emilybookedup | shared identity key |
 | creator_identity_2131063926c4 | 3 | @annas.books; @milkfeddd; @notannareportsnews | shared identity key |
+| creator_identity_f1ef17755c13 | 2 | @giselles.library; @giselleweddingplanner | shared identity key |
 | creator_identity_caf5db861c57 | 2 | @kristinasensual; @astrokristina | shared identity key |
 | creator_identity_e0a5718622e1 | 2 | @laurens.little.library; @laurenzsideyt | shared identity key |
-| creator_identity_c0644f3e6acd | 3 | @lidoffadaffodil; @polewithsam; @thenursesam1 | shared identity key |
+| creator_identity_85bda95e29ec | 5 | @lidoffadaffodil; @polewithsam; @thenursesam1; @pizzaqueensam; @halloweenhappysam | shared identity key |
 | creator_identity_9b4da398c891 | 2 | @dylanreadsbooks13; @maxdaprince1 | shared identity key |
 | creator_identity_a3ac2fd02069 | 2 | @megan.b.reads; @thereadingrainbow | shared identity key |
-| creator_identity_3e475bd05204 | 2 | @animecreator246; @__anime_creator__ | shared identity key |
-| creator_identity_77d3f02d1b34 | 3 | @kidlitboom; @mariedoesstuff; @labskillsacademy | shared identity key |
-| creator_identity_a3539efdace8 | 2 | @andythechef; @andyhafell | shared identity key |
+| creator_identity_853db05bc6b0 | 2 | @juliaandherbooks; @wedding_planner_diary | shared identity key |
+| creator_identity_c52098aa7701 | 3 | @_rachelreadsbooks; @alwaysspookyseason; @rachii_roo | shared identity key |

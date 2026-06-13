@@ -310,5 +310,85 @@
     "target_label": "creative_technologist",
     "fallback_label": "film_educator",
     "source_name": "FeedSpot Virtual TikTokers"
+  },
+  {
+    "id": "feedspot_audiophile_tiktok_2026",
+    "url": "https://creators.feedspot.com/audiophile_tiktok_influencers/",
+    "source_query": "FeedSpot Audiophile TikTok Influencers 2026",
+    "target_label": "creative_technologist",
+    "fallback_label": "film_educator",
+    "source_name": "FeedSpot Audiophile TikTokers"
+  },
+  {
+    "id": "feedspot_dnd_tiktok_2026",
+    "url": "https://creators.feedspot.com/dnd_tiktok_influencers/",
+    "source_query": "FeedSpot DnD TikTok Influencers 2026",
+    "target_label": "screenwriter",
+    "fallback_label": "actor_performer",
+    "source_name": "FeedSpot DnD TikTokers"
+  },
+  {
+    "id": "feedspot_flight_simulation_tiktok_2026",
+    "url": "https://creators.feedspot.com/flight_simulation_tiktok_influencers/",
+    "source_query": "FeedSpot Flight Simulation TikTok Influencers 2026",
+    "target_label": "creative_technologist",
+    "fallback_label": "filmmaker",
+    "source_name": "FeedSpot Flight Simulation TikTokers"
+  },
+  {
+    "id": "feedspot_halloween_tiktok_2026",
+    "url": "https://creators.feedspot.com/halloween_tiktok_influencers/",
+    "source_query": "FeedSpot Halloween TikTok Influencers 2026",
+    "target_label": "vfx_animation",
+    "fallback_label": "behind_the_scenes_creator",
+    "source_name": "FeedSpot Halloween TikTokers"
+  },
+  {
+    "id": "feedspot_opera_tiktok_2026",
+    "url": "https://creators.feedspot.com/opera_tiktok_influencers/",
+    "source_query": "FeedSpot Opera TikTok Influencers 2026",
+    "target_label": "actor_performer",
+    "fallback_label": "film_educator",
+    "source_name": "FeedSpot Opera TikTokers"
+  },
+  {
+    "id": "feedspot_quilting_tiktok_2026",
+    "url": "https://creators.feedspot.com/quilting_tiktok_influencers/",
+    "source_query": "FeedSpot Quilting TikTok Influencers 2026",
+    "target_label": "behind_the_scenes_creator",
+    "fallback_label": "vfx_animation",
+    "source_name": "FeedSpot Quilting TikTokers"
+  },
+  {
+    "id": "feedspot_robotics_tiktok_2026",
+    "url": "https://creators.feedspot.com/robotics_tiktok_influencers/",
+    "source_query": "FeedSpot Robotics TikTok Influencers 2026",
+    "target_label": "creative_technologist",
+    "fallback_label": "film_educator",
+    "source_name": "FeedSpot Robotics TikTokers"
+  },
+  {
+    "id": "feedspot_rpg_tiktok_2026",
+    "url": "https://creators.feedspot.com/rpg_tiktok_influencers/",
+    "source_query": "FeedSpot RPG TikTok Influencers 2026",
+    "target_label": "screenwriter",
+    "fallback_label": "creative_technologist",
+    "source_name": "FeedSpot RPG TikTokers"
+  },
+  {
+    "id": "feedspot_space_tiktok_2026",
+    "url": "https://creators.feedspot.com/space_tiktok_influencers/",
+    "source_query": "FeedSpot Space TikTok Influencers 2026",
+    "target_label": "film_educator",
+    "fallback_label": "creative_technologist",
+    "source_name": "FeedSpot Space TikTokers"
+  },
+  {
+    "id": "feedspot_wedding_tiktok_2026",
+    "url": "https://creators.feedspot.com/wedding_tiktok_influencers/",
+    "source_query": "FeedSpot Wedding TikTok Influencers 2026",
+    "target_label": "filmmaker",
+    "fallback_label": "behind_the_scenes_creator",
+    "source_name": "FeedSpot Wedding TikTokers"
   }
 ]

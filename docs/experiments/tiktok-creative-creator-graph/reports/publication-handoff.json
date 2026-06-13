@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T02:55:51.767Z",
+  "generated_at": "2026-06-13T03:01:58.517Z",
   "dataset_id": "tiktok-creative-creator-graph",
   "title": "TikTok Creative Creator Graph",
   "publish_state": "not-ready-production-data",
@@ -32,7 +32,7 @@
   "current_corpus": {
     "accounts": 1929,
     "identities": 1898,
-    "videos": 41,
+    "videos": 38,
     "graph_edges": 395,
     "useful_creators": 7,
     "release_useful_creators": 2,
@@ -56,10 +56,10 @@
     "candidate_frontier_handles": 7,
     "candidate_frontier_queries": 80,
     "acquisition_import_preview_accounts": 1924,
-    "acquisition_import_preview_ready": false,
-    "acquisition_import_waves": 20,
-    "acquisition_import_lineage_rows": 35927,
-    "acquisition_import_untraced_rows": 114,
+    "acquisition_import_preview_ready": true,
+    "acquisition_import_waves": 21,
+    "acquisition_import_lineage_rows": 39830,
+    "acquisition_import_untraced_rows": 120,
     "acquisition_runner_runnable_tasks": 2,
     "acquisition_runner_skipped_tasks": 0,
     "acquisition_run_history": 17,
@@ -212,22 +212,22 @@
     {
       "path": "data/release/rejected_creators.jsonl",
       "rows": 2,
-      "sha256": "2c18ce9769d4e39a2e3146154ee5d0875a6271798a99e850d356681d17ff7944"
+      "sha256": "4fd3be8f9e475a130d01795c71be21a34ddc92ba219c07af4dde3c952f180a7c"
     },
     {
       "path": "data/release/rejected_creators.csv",
       "rows": 2,
-      "sha256": "19cfca79d3c6a7929fc44d93cd1c02d596f078c4431b03501b3746fd039fbcc1"
+      "sha256": "fa85c45655a294cbdae0fe9568d41f2947c82ae59c62ca3f538fad79777f844c"
     },
     {
       "path": "data/release/review_queue.csv",
-      "rows": 1925,
-      "sha256": "efead87ce3a52e8fb33b963bc6bda6406c6b31362b56f3377d694ab83dfd3419"
+      "rows": 2294,
+      "sha256": "efd10b6eede9fad8f527f5b734a4bc752f3df8677c04927408f81ad36599361f"
     },
     {
       "path": "data/release/all_scored_creators.csv",
-      "rows": 1929,
-      "sha256": "d30f8c885ec5bd62b4ac1d2d9b0092a35887c5ccc41bd4cbe4628188a2efe5c6"
+      "rows": 2298,
+      "sha256": "74accec6226746b8965428f4201dbf4b8c079e8757a676a7745342e43985ebba"
     }
   ],
   "registration_constraints": [

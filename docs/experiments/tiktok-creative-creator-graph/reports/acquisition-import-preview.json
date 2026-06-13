@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-13T02:55:49.892Z",
+  "generated_at": "2026-06-13T03:01:56.540Z",
   "mode": "preview",
-  "input_rows": 3157,
-  "normalized_rows": 3157,
+  "input_rows": 3533,
+  "normalized_rows": 3533,
   "skipped_rows": 0,
-  "duplicate_normalized_rows": 1233,
-  "output_accounts": 1924,
+  "duplicate_normalized_rows": 1240,
+  "output_accounts": 2293,
   "source_files": {
     "2026-06-12T22-10-19-433Z-editorial-list-import.jsonl": 499,
     "2026-06-13T00-11-50-106Z-editorial-list-import.jsonl": 1662,
@@ -15,11 +15,12 @@
     "2026-06-13T01-35-53-442Z-public-profile-enrichment.jsonl": 252,
     "2026-06-13T01-42-59-960Z-editorial-list-import.jsonl": 209,
     "2026-06-13T02-51-58-774Z-brightdata-profile-sample.jsonl": 29,
+    "2026-06-13T03-01-43-663Z-editorial-list-import.jsonl": 376,
     "editorial-list-seeds-2026-06-12.jsonl": 21,
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
-  "mapped_lineage_rows": 3151,
+  "mapped_lineage_rows": 3527,
   "unmapped_lineage_rows": 6,
   "scale_wave_ids": {},
   "execution_ids": {
@@ -30,7 +31,8 @@
     "2026-06-13T01-31-21-859Z": 185,
     "2026-06-13T01-35-53-442Z": 252,
     "2026-06-13T01-42-59-960Z": 209,
-    "2026-06-13T02-51-58-774Z": 29
+    "2026-06-13T02-51-58-774Z": 29,
+    "2026-06-13T03-01-43-663Z": 376
   },
   "batch_ids": {
     "feedspot_comedy_tiktok_2026": 198,
@@ -76,12 +78,22 @@
     "public_profile_enrichment_2026-06-13T01-31-21-859Z": 185,
     "public_profile_enrichment_2026-06-13T01-35-53-442Z": 252,
     "brightdata_tiktok_profiles_github_sample": 29,
+    "feedspot_audiophile_tiktok_2026": 11,
+    "feedspot_dnd_tiktok_2026": 60,
+    "feedspot_flight_simulation_tiktok_2026": 40,
+    "feedspot_halloween_tiktok_2026": 33,
+    "feedspot_opera_tiktok_2026": 20,
+    "feedspot_quilting_tiktok_2026": 40,
+    "feedspot_robotics_tiktok_2026": 25,
+    "feedspot_rpg_tiktok_2026": 16,
+    "feedspot_space_tiktok_2026": 31,
+    "feedspot_wedding_tiktok_2026": 100,
     "editorial_izea_filmmakers_2026_06_12": 8,
     "editorial_shutterstock_filmmakers_2026_06_12": 8,
     "editorial_shesources_women_film_2026_06_12": 5
   },
   "lineage_providers": {
-    "editorial_list_public_web": 2579,
+    "editorial_list_public_web": 2955,
     "tiktok_public_profile_html": 522,
     "brightdata_public_github_sample": 29,
     "editorial_web": 21
@@ -90,8 +102,8 @@
   "quality_gate": {
     "ready_to_import": true,
     "normalized_rate": 1,
-    "duplicate_rate": 0.3905606588533418,
-    "output_rate": 0.6094393411466582,
+    "duplicate_rate": 0.35097650721766205,
+    "output_rate": 0.649023492782338,
     "min_normalized_rate": 0.75,
     "max_duplicate_rate": 0.35,
     "effective_duplicate_threshold": 0.55,
@@ -100,7 +112,7 @@
       {
         "id": "has_rows",
         "status": "pass",
-        "evidence": "3157 input rows"
+        "evidence": "3533 input rows"
       },
       {
         "id": "handle_extraction",
@@ -110,12 +122,12 @@
       {
         "id": "duplicate_pressure",
         "status": "pass",
-        "evidence": "39.1% duplicate normalized rows, threshold 55.0% (metadata overlay)"
+        "evidence": "35.1% duplicate normalized rows, threshold 55.0% (metadata overlay)"
       },
       {
         "id": "lineage_mapping",
         "status": "pass",
-        "evidence": "3151/3157 rows mapped to provider/wave lineage"
+        "evidence": "3527/3533 rows mapped to provider/wave lineage"
       }
     ]
   },

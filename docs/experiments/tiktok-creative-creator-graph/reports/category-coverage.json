@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T02:55:50.492Z",
+  "generated_at": "2026-06-13T03:01:57.202Z",
   "target_useful_creators": 50000,
   "labels": 11,
   "covered_labels": 5,
@@ -18,7 +18,7 @@
     {
       "label": "filmmaker",
       "target_useful_creators": 8000,
-      "current_primary_accounts": 138,
+      "current_primary_accounts": 182,
       "useful_primary_accounts": 2,
       "excellent_primary_accounts": 2,
       "secondary_mentions": 3,
@@ -40,7 +40,7 @@
     {
       "label": "cinematographer",
       "target_useful_creators": 5000,
-      "current_primary_accounts": 18,
+      "current_primary_accounts": 19,
       "useful_primary_accounts": 1,
       "excellent_primary_accounts": 1,
       "secondary_mentions": 0,
@@ -51,7 +51,7 @@
     {
       "label": "editor",
       "target_useful_creators": 5000,
-      "current_primary_accounts": 56,
+      "current_primary_accounts": 66,
       "useful_primary_accounts": 0,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 2,
@@ -62,7 +62,7 @@
     {
       "label": "vfx_animation",
       "target_useful_creators": 5000,
-      "current_primary_accounts": 348,
+      "current_primary_accounts": 383,
       "useful_primary_accounts": 1,
       "excellent_primary_accounts": 1,
       "secondary_mentions": 1,
@@ -73,7 +73,7 @@
     {
       "label": "sketch_comedian",
       "target_useful_creators": 7000,
-      "current_primary_accounts": 111,
+      "current_primary_accounts": 115,
       "useful_primary_accounts": 2,
       "excellent_primary_accounts": 2,
       "secondary_mentions": 1,
@@ -84,7 +84,7 @@
     {
       "label": "standup_comedian",
       "target_useful_creators": 4000,
-      "current_primary_accounts": 58,
+      "current_primary_accounts": 59,
       "useful_primary_accounts": 0,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 1,
@@ -95,7 +95,7 @@
     {
       "label": "actor_performer",
       "target_useful_creators": 4000,
-      "current_primary_accounts": 18,
+      "current_primary_accounts": 76,
       "useful_primary_accounts": 0,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 2,
@@ -106,7 +106,7 @@
     {
       "label": "film_educator",
       "target_useful_creators": 3000,
-      "current_primary_accounts": 589,
+      "current_primary_accounts": 656,
       "useful_primary_accounts": 0,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 3,
@@ -117,7 +117,7 @@
     {
       "label": "behind_the_scenes_creator",
       "target_useful_creators": 3000,
-      "current_primary_accounts": 159,
+      "current_primary_accounts": 266,
       "useful_primary_accounts": 0,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 1,
@@ -128,7 +128,7 @@
     {
       "label": "creative_technologist",
       "target_useful_creators": 2000,
-      "current_primary_accounts": 403,
+      "current_primary_accounts": 445,
       "useful_primary_accounts": 1,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 0,

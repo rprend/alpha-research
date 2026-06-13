@@ -1,10 +1,10 @@
 # Editorial Source Discovery
 
-Generated: 2026-06-13T02:50:06.311Z
+Generated: 2026-06-13T03:00:16.959Z
 
-- Index URL: https://creators.feedspot.com/recent_changes_creators/
+- Index URL: https://creators.feedspot.com/
 - Dry run: false
-- Extracted TikTok list links: 240
+- Extracted TikTok list links: 228
 - Existing configured sources: 39
 - New candidate sources: 0
 - Minimum score: 20
