@@ -1,24 +1,24 @@
 # TikTok Creative Creator Graph Run
 
-Generated: 2026-06-13T06:54:59.476Z
+Generated: 2026-06-13T07:15:46.946Z
 
 ## Summary
 
 - Accounts: 39570
-- Videos: 28432
-- Graph edges: 59949
-- Useful accounts: 7570
-- Excellent accounts: 4712
+- Videos: 43346
+- Graph edges: 61167
+- Useful accounts: 7591
+- Excellent accounts: 4825
 - Review queue: 39570
-- Expansion queue: 7411
+- Expansion queue: 7412
 - Target: 50000
-- Target status: 42430 more useful accounts needed
+- Target status: 42409 more useful accounts needed
 
 ## Status Counts
 
-- useful: 2858
-- needs_review: 31961
-- excellent: 4712
+- useful: 2766
+- needs_review: 31940
+- excellent: 4825
 - reject: 39
 
 ## Primary Labels
@@ -40,26 +40,26 @@ Generated: 2026-06-13T06:54:59.476Z
 
 | Handle | Label | Score | Status |
 | --- | --- | ---: | --- |
-| @ana.coreana | vfx_animation | 98 | excellent |
-| @davidbeck | vfx_animation | 98 | excellent |
-| @aaronmyarbrough | editor | 98 | excellent |
-| @albina_yessenkeldina | editor | 98 | excellent |
-| @alpha_challenges | editor | 98 | excellent |
-| @btsjk.jin.namv | editor | 98 | excellent |
-| @callmeasophie | editor | 98 | excellent |
-| @capcutplantillas_0 | editor | 98 | excellent |
-| @cat.dc | editor | 98 | excellent |
-| @chujozza | editor | 98 | excellent |
-| @ewcgrandville | editor | 98 | excellent |
-| @jasoncoffee | behind_the_scenes_creator | 98 | excellent |
-| @nba | behind_the_scenes_creator | 98 | excellent |
-| @neffatibrothers | behind_the_scenes_creator | 98 | excellent |
-| @theresavandamstylist | behind_the_scenes_creator | 98 | excellent |
-| @xpresstvmounting | behind_the_scenes_creator | 98 | excellent |
-| @aliviadonai | behind_the_scenes_creator | 98 | excellent |
-| @ascetic.motivation | behind_the_scenes_creator | 98 | excellent |
-| @bob.reese | behind_the_scenes_creator | 98 | excellent |
-| @btsjerseymikes | behind_the_scenes_creator | 98 | excellent |
+| @ana.coreana | vfx_animation | 100 | excellent |
+| @davidbeck | vfx_animation | 100 | excellent |
+| @aaronmyarbrough | editor | 100 | excellent |
+| @callmeasophie | editor | 100 | excellent |
+| @ewcgrandville | editor | 100 | excellent |
+| @jasoncoffee | behind_the_scenes_creator | 100 | excellent |
+| @nba | behind_the_scenes_creator | 100 | excellent |
+| @neffatibrothers | behind_the_scenes_creator | 100 | excellent |
+| @theresavandamstylist | behind_the_scenes_creator | 100 | excellent |
+| @xpresstvmounting | behind_the_scenes_creator | 100 | excellent |
+| @mariahandbill | filmmaker | 100 | excellent |
+| @aliviadonai | behind_the_scenes_creator | 100 | excellent |
+| @bob.reese | behind_the_scenes_creator | 100 | excellent |
+| @drool_jewel | behind_the_scenes_creator | 100 | excellent |
+| @gabby_murrayy | behind_the_scenes_creator | 100 | excellent |
+| @gordonramsayofficial | behind_the_scenes_creator | 100 | excellent |
+| @joshuamonis | creative_technologist | 100 | excellent |
+| @kaayywrightt | behind_the_scenes_creator | 100 | excellent |
+| @mariya.usan | behind_the_scenes_creator | 100 | excellent |
+| @okaycoolgigi | behind_the_scenes_creator | 100 | excellent |
 
 ## Next Expansion Targets
 
@@ -95,28 +95,28 @@ Generated: 2026-06-13T06:54:59.476Z
 
 | Handle | Label | Score | Reasons |
 | --- | --- | ---: | --- |
-| @ana.coreana | vfx_animation | 98 | benchmark_candidate; strong_public_source_candidate |
-| @davidbeck | vfx_animation | 98 | benchmark_candidate; strong_public_source_candidate |
-| @aaronmyarbrough | editor | 98 | benchmark_candidate; strong_public_source_candidate |
-| @albina_yessenkeldina | editor | 98 | benchmark_candidate; strong_public_source_candidate |
-| @alpha_challenges | editor | 98 | benchmark_candidate; strong_public_source_candidate |
-| @btsjk.jin.namv | editor | 98 | benchmark_candidate; strong_public_source_candidate |
-| @callmeasophie | editor | 98 | benchmark_candidate; strong_public_source_candidate |
-| @capcutplantillas_0 | editor | 98 | benchmark_candidate; strong_public_source_candidate |
-| @cat.dc | editor | 98 | benchmark_candidate; strong_public_source_candidate |
-| @chujozza | editor | 98 | benchmark_candidate; strong_public_source_candidate |
-| @ewcgrandville | editor | 98 | benchmark_candidate; strong_public_source_candidate |
-| @jasoncoffee | behind_the_scenes_creator | 98 | benchmark_candidate; strong_public_source_candidate |
-| @nba | behind_the_scenes_creator | 98 | benchmark_candidate; strong_public_source_candidate |
-| @neffatibrothers | behind_the_scenes_creator | 98 | benchmark_candidate; strong_public_source_candidate |
-| @theresavandamstylist | behind_the_scenes_creator | 98 | benchmark_candidate; strong_public_source_candidate |
-| @xpresstvmounting | behind_the_scenes_creator | 98 | benchmark_candidate; strong_public_source_candidate |
-| @aliviadonai | behind_the_scenes_creator | 98 | benchmark_candidate; strong_public_source_candidate |
-| @ascetic.motivation | behind_the_scenes_creator | 98 | benchmark_candidate; strong_public_source_candidate |
-| @bob.reese | behind_the_scenes_creator | 98 | benchmark_candidate; strong_public_source_candidate |
-| @btsjerseymikes | behind_the_scenes_creator | 98 | benchmark_candidate; strong_public_source_candidate |
-| @carlys_cookbook | behind_the_scenes_creator | 98 | benchmark_candidate; strong_public_source_candidate |
-| @cilia.ghass | behind_the_scenes_creator | 98 | benchmark_candidate; strong_public_source_candidate |
-| @gabby_murrayy | behind_the_scenes_creator | 98 | benchmark_candidate; strong_public_source_candidate |
-| @gordonramsayofficial | behind_the_scenes_creator | 98 | benchmark_candidate; strong_public_source_candidate |
-| @hotartgirl2 | behind_the_scenes_creator | 98 | benchmark_candidate; strong_public_source_candidate |
+| @ana.coreana | vfx_animation | 100 | benchmark_candidate; strong_public_source_candidate |
+| @davidbeck | vfx_animation | 100 | benchmark_candidate; strong_public_source_candidate |
+| @aaronmyarbrough | editor | 100 | benchmark_candidate; strong_public_source_candidate |
+| @callmeasophie | editor | 100 | benchmark_candidate; strong_public_source_candidate |
+| @ewcgrandville | editor | 100 | benchmark_candidate; strong_public_source_candidate |
+| @jasoncoffee | behind_the_scenes_creator | 100 | benchmark_candidate; strong_public_source_candidate |
+| @nba | behind_the_scenes_creator | 100 | benchmark_candidate; strong_public_source_candidate |
+| @neffatibrothers | behind_the_scenes_creator | 100 | benchmark_candidate; strong_public_source_candidate |
+| @theresavandamstylist | behind_the_scenes_creator | 100 | benchmark_candidate; strong_public_source_candidate |
+| @xpresstvmounting | behind_the_scenes_creator | 100 | benchmark_candidate; strong_public_source_candidate |
+| @mariahandbill | filmmaker | 100 | benchmark_candidate; strong_public_source_candidate |
+| @aliviadonai | behind_the_scenes_creator | 100 | benchmark_candidate; strong_public_source_candidate |
+| @bob.reese | behind_the_scenes_creator | 100 | benchmark_candidate; strong_public_source_candidate |
+| @drool_jewel | behind_the_scenes_creator | 100 | benchmark_candidate; strong_public_source_candidate |
+| @gabby_murrayy | behind_the_scenes_creator | 100 | benchmark_candidate; strong_public_source_candidate |
+| @gordonramsayofficial | behind_the_scenes_creator | 100 | benchmark_candidate; strong_public_source_candidate |
+| @joshuamonis | creative_technologist | 100 | benchmark_candidate; strong_public_source_candidate |
+| @kaayywrightt | behind_the_scenes_creator | 100 | benchmark_candidate; strong_public_source_candidate |
+| @mariya.usan | behind_the_scenes_creator | 100 | benchmark_candidate; strong_public_source_candidate |
+| @okaycoolgigi | behind_the_scenes_creator | 100 | benchmark_candidate; strong_public_source_candidate |
+| @paky__official | behind_the_scenes_creator | 100 | benchmark_candidate; strong_public_source_candidate |
+| @samuelgrubbs | behind_the_scenes_creator | 100 | benchmark_candidate; strong_public_source_candidate |
+| @shamekiaaaa | behind_the_scenes_creator | 100 | benchmark_candidate; strong_public_source_candidate |
+| @turmc0 | behind_the_scenes_creator | 100 | benchmark_candidate; strong_public_source_candidate |
+| @vikki.swan | behind_the_scenes_creator | 100 | benchmark_candidate; strong_public_source_candidate |

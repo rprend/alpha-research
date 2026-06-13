@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T06:55:04.340Z",
+  "generated_at": "2026-06-13T07:15:52.102Z",
   "targets": {
     "useful_creators": 50000,
     "excellent_creators": 5000,
@@ -17,22 +17,22 @@
     "review_decisions": 496
   },
   "planning_assumptions": {
-    "observed_useful_rate": 0.191,
-    "planning_useful_rate": 0.191,
-    "observed_excellent_rate_among_useful": 0.622,
+    "observed_useful_rate": 0.192,
+    "planning_useful_rate": 0.192,
+    "observed_excellent_rate_among_useful": 0.636,
     "planning_excellent_rate_among_useful": 0.1,
     "import_batch_size": 250
   },
   "estimated_work": {
-    "candidate_accounts_needed": 261351,
-    "import_batches_needed": 1046,
+    "candidate_accounts_needed": 260628,
+    "import_batches_needed": 1043,
     "useful_creators_needed_for_excellent_target": 49990,
     "review_batches_needed": 2
   },
   "candidate_frontier": {
-    "targets": 541,
-    "handle_targets": 167,
-    "query_targets": 374
+    "targets": 413,
+    "handle_targets": 88,
+    "query_targets": 325
   },
   "ranked_surfaces": [
     {
@@ -134,7 +134,7 @@
       "frontier_score": 92,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "apartment",
+      "query": "4kprojector",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -146,7 +146,7 @@
       "frontier_score": 92,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "arianagrande",
+      "query": "africa",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -158,7 +158,7 @@
       "frontier_score": 92,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "chilis",
+      "query": "arianagrande",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -170,7 +170,7 @@
       "frontier_score": 92,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "chilistripledipper",
+      "query": "artistsoftiktok",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -182,7 +182,7 @@
       "frontier_score": 92,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "core",
+      "query": "black",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -194,7 +194,7 @@
       "frontier_score": 92,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "doctor",
+      "query": "core",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -206,7 +206,7 @@
       "frontier_score": 92,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "for",
+      "query": "danceinstructor",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -218,7 +218,7 @@
       "frontier_score": 92,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "funny",
+      "query": "delancy",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -229,10 +229,10 @@
       "frontier_rank": 9,
       "frontier_score": 92,
       "priority": 1,
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "johnnydepp",
+      "acquisition_surface": "cross_platform_search",
+      "query": "site:vimeo.com \"tiktok.com/@\" \"filmmaker\"",
       "target_kind": "query",
-      "expected_output": "recent public videos and author profiles for adjacent hashtag",
+      "expected_output": "external pages linking to adjacent TikTok creator profiles",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
@@ -242,7 +242,7 @@
       "frontier_score": 92,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "lgbt",
+      "query": "swag",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -254,7 +254,7 @@
       "frontier_score": 92,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "lukadoncic",
+      "query": "tiktoker",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -266,7 +266,7 @@
       "frontier_score": 92,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "mavericks",
+      "query": "top10",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -278,7 +278,7 @@
       "frontier_score": 92,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "organization",
+      "query": "trippledipper",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -287,10 +287,10 @@
       "sequence": 14,
       "batch_id": "",
       "frontier_rank": 14,
-      "frontier_score": 92,
+      "frontier_score": 90,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "piano",
+      "query": "couple",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -299,10 +299,10 @@
       "sequence": 15,
       "batch_id": "",
       "frontier_rank": 15,
-      "frontier_score": 92,
+      "frontier_score": 90,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "prank",
+      "query": "stitch",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -311,34 +311,34 @@
       "sequence": 16,
       "batch_id": "",
       "frontier_rank": 16,
-      "frontier_score": 92,
+      "frontier_score": 87,
       "priority": 1,
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "projector",
+      "acquisition_surface": "search_index",
+      "query": "behind the scenes|bts|making of|how i made|on set|setup|process|tutorial|breakdown|how to|film analysis|camera tips|lighting setup",
       "target_kind": "query",
-      "expected_output": "recent public videos and author profiles for adjacent hashtag",
+      "expected_output": "mentions, hashtags, collaborators, sounds, and recent videos",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
       "sequence": 17,
-      "batch_id": "",
+      "batch_id": "hashtag_0011",
       "frontier_rank": 17,
-      "frontier_score": 92,
+      "frontier_score": 87,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "projectorscreen",
+      "query": "filmmaker",
       "target_kind": "query",
-      "expected_output": "recent public videos and author profiles for adjacent hashtag",
-      "import_target": "data/raw/imports/graph-expansion-export.jsonl"
+      "expected_output": "recent public videos and author profiles for hashtag",
+      "import_target": "data/raw/imports/hashtag-export.jsonl"
     },
     {
       "sequence": 18,
       "batch_id": "",
       "frontier_rank": 18,
-      "frontier_score": 92,
+      "frontier_score": 86,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "relatable",
+      "query": "comediante",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -347,10 +347,10 @@
       "sequence": 19,
       "batch_id": "",
       "frontier_rank": 19,
-      "frontier_score": 92,
+      "frontier_score": 86,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "reto",
+      "query": "comedy",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -359,10 +359,10 @@
       "sequence": 20,
       "batch_id": "",
       "frontier_rank": 20,
-      "frontier_score": 92,
+      "frontier_score": 86,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "roomdecor",
+      "query": "fypdong",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -371,10 +371,10 @@
       "sequence": 21,
       "batch_id": "",
       "frontier_rank": 21,
-      "frontier_score": 92,
+      "frontier_score": 85,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "roommakeover",
+      "query": "apple",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -383,10 +383,10 @@
       "sequence": 22,
       "batch_id": "",
       "frontier_rank": 22,
-      "frontier_score": 92,
+      "frontier_score": 85,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "shelterstories",
+      "query": "cat",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -395,34 +395,34 @@
       "sequence": 23,
       "batch_id": "",
       "frontier_rank": 23,
-      "frontier_score": 92,
+      "frontier_score": 85,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "skitok",
+      "query": "video",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
       "sequence": 24,
-      "batch_id": "",
+      "batch_id": "graph_0208",
       "frontier_rank": 24,
-      "frontier_score": 92,
+      "frontier_score": 83,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "swag",
+      "query": "apartment",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
       "sequence": 25,
-      "batch_id": "",
+      "batch_id": "graph_0230",
       "frontier_rank": 25,
-      "frontier_score": 92,
+      "frontier_score": 83,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "tiktoker",
+      "query": "chilis",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"

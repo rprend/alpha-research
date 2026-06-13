@@ -1,33 +1,33 @@
 {
-  "generated_at": "2026-06-13T06:55:02.757Z",
+  "generated_at": "2026-06-13T07:15:50.461Z",
   "tasks": 314,
-  "useful_creators_available_for_expansion": 7570,
+  "useful_creators_available_for_expansion": 7591,
   "source_yield_rows": 1560,
   "category_coverage_rows": 11,
   "priority_counts": {
-    "1": 260,
-    "2": 49,
+    "1": 261,
+    "2": 48,
     "3": 5
   },
   "surface_counts": {
-    "tiktok_creator_neighborhood_export": 167,
-    "tiktok_hashtag_export": 94,
-    "cross_platform_search": 6,
+    "tiktok_creator_neighborhood_export": 88,
+    "tiktok_hashtag_export": 163,
+    "cross_platform_search": 16,
     "category_gap_search": 37,
     "search_index": 10
   },
   "target_label_counts": {
-    "unclassified": 222,
-    "behind_the_scenes_creator": 17,
-    "cinematographer": 11,
-    "vfx_animation": 10,
-    "film_educator": 7,
-    "editor": 8,
-    "creative_technologist": 5,
+    "unclassified": 209,
+    "behind_the_scenes_creator": 23,
+    "cinematographer": 10,
+    "vfx_animation": 14,
+    "film_educator": 9,
+    "editor": 9,
     "standup_comedian": 8,
-    "filmmaker": 10,
-    "sketch_comedian": 7,
-    "director": 4,
+    "creative_technologist": 5,
+    "director": 5,
+    "filmmaker": 9,
+    "sketch_comedian": 8,
     "actor_performer": 5
   }
 }

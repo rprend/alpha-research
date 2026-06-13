@@ -1,61 +1,61 @@
 # Candidate Frontier
 
-Generated: 2026-06-13T06:55:02.953Z
+Generated: 2026-06-13T07:15:50.654Z
 
-- Candidates: 541
-- Handle targets: 167
-- Query targets: 374
-- Known account targets: 167
+- Candidates: 413
+- Handle targets: 88
+- Query targets: 325
+- Known account targets: 88
 
 ## Surfaces
 
-- tiktok_hashtag_export: 320
+- tiktok_hashtag_export: 261
+- cross_platform_search: 16
 - search_index: 11
-- cross_platform_search: 6
 - category_gap_search: 37
-- tiktok_creator_neighborhood_export: 167
+- tiktok_creator_neighborhood_export: 88
 
 ## Target Labels
 
+- filmmaker: 27
 - sketch_comedian: 16
-- filmmaker: 32
-- cinematographer: 18
-- director: 8
-- unclassified: 169
-- standup_comedian: 10
-- vfx_animation: 44
-- actor_performer: 10
-- behind_the_scenes_creator: 183
-- editor: 36
-- film_educator: 10
+- cinematographer: 14
+- unclassified: 92
+- standup_comedian: 11
+- vfx_animation: 31
+- director: 6
+- behind_the_scenes_creator: 135
+- editor: 42
+- film_educator: 28
+- actor_performer: 6
 - creative_technologist: 5
 
 ## Top Candidates
 
 | Rank | Score | Priority | Kind | Surface | Label | Target |
 | ---: | ---: | ---: | --- | --- | --- | --- |
-| 1 | 92 | 1 | query | tiktok_hashtag_export | sketch_comedian | apartment |
-| 2 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | arianagrande |
-| 3 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | chilis |
-| 4 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | chilistripledipper |
-| 5 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | core |
-| 6 | 92 | 1 | query | tiktok_hashtag_export | sketch_comedian | doctor |
-| 7 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | for |
-| 8 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | funny |
-| 9 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | johnnydepp |
-| 10 | 92 | 1 | query | tiktok_hashtag_export | sketch_comedian | lgbt |
-| 11 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | lukadoncic |
-| 12 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | mavericks |
-| 13 | 92 | 1 | query | tiktok_hashtag_export | sketch_comedian | organization |
-| 14 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | piano |
-| 15 | 92 | 1 | query | tiktok_hashtag_export | sketch_comedian | prank |
-| 16 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | projector |
-| 17 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | projectorscreen |
-| 18 | 92 | 1 | query | tiktok_hashtag_export | sketch_comedian | relatable |
-| 19 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | reto |
-| 20 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | roomdecor |
-| 21 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | roommakeover |
-| 22 | 92 | 1 | query | tiktok_hashtag_export | sketch_comedian | shelterstories |
-| 23 | 92 | 1 | query | tiktok_hashtag_export | sketch_comedian | skitok |
-| 24 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | swag |
-| 25 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | tiktoker |
+| 1 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | 4kprojector |
+| 2 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | africa |
+| 3 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | arianagrande |
+| 4 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | artistsoftiktok |
+| 5 | 92 | 1 | query | tiktok_hashtag_export | sketch_comedian | black |
+| 6 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | core |
+| 7 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | danceinstructor |
+| 8 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | delancy |
+| 9 | 92 | 1 | query | cross_platform_search | filmmaker | site:vimeo.com "tiktok.com/@" "filmmaker" |
+| 10 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | swag |
+| 11 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | tiktoker |
+| 12 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | top10 |
+| 13 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | trippledipper |
+| 14 | 90 | 1 | query | tiktok_hashtag_export | cinematographer | couple |
+| 15 | 90 | 1 | query | tiktok_hashtag_export | cinematographer | stitch |
+| 16 | 87 | 1 | query | search_index | unclassified | behind the scenes\|bts\|making of\|how i made\|on set\|setup\|process\|tutorial\|breakdown\|how to\|film analysis\|camera tips\|lighting setup |
+| 17 | 87 | 1 | query | tiktok_hashtag_export | filmmaker | filmmaker |
+| 18 | 86 | 1 | query | tiktok_hashtag_export | standup_comedian | comediante |
+| 19 | 86 | 1 | query | tiktok_hashtag_export | standup_comedian | comedy |
+| 20 | 86 | 1 | query | tiktok_hashtag_export | standup_comedian | fypdong |
+| 21 | 85 | 1 | query | tiktok_hashtag_export | vfx_animation | apple |
+| 22 | 85 | 1 | query | tiktok_hashtag_export | vfx_animation | cat |
+| 23 | 85 | 1 | query | tiktok_hashtag_export | vfx_animation | video |
+| 24 | 83 | 1 | query | tiktok_hashtag_export | sketch_comedian | apartment |
+| 25 | 83 | 1 | query | tiktok_hashtag_export | filmmaker | chilis |

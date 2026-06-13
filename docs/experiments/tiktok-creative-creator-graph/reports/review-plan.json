@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T06:55:02.678Z",
+  "generated_at": "2026-06-13T07:15:50.383Z",
   "target_review_decisions": 500,
   "current_review_decisions": 4,
   "review_gap": 496,
@@ -16,7 +16,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 7037,
+      "useful_gap": 7035,
       "priority": 2
     },
     {
@@ -43,7 +43,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 3913,
+      "useful_gap": 3912,
       "priority": 2
     },
     {
@@ -68,9 +68,9 @@
       "label": "actor_performer",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 14,
+      "current_sample_rows": 17,
       "review_gap": 25,
-      "useful_gap": 3330,
+      "useful_gap": 3313,
       "priority": 2
     },
     {
@@ -104,9 +104,9 @@
       "label": "creative_technologist",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 11,
+      "current_sample_rows": 8,
       "review_gap": 25,
-      "useful_gap": 1949,
+      "useful_gap": 1948,
       "priority": 2
     }
   ],

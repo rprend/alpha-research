@@ -1,6 +1,6 @@
 # Provider Preflight
 
-Generated: 2026-06-13T06:55:06.235Z
+Generated: 2026-06-13T07:15:53.333Z
 
 - Provider: apify
 - Provider viability: missing_token
@@ -29,25 +29,25 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 
 | Wave | Batch | Surface | Query | Actor | Ready | Viability | Est. rows | Est. cost |
 | --- | --- | --- | --- | --- | --- | --- | ---: | ---: |
-| scale_wave_0001 | graph_0125 | tiktok_hashtag_export | filmmaker | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0001 | graph_0117 | tiktok_hashtag_export | btsevents | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0002 | graph_0161 | tiktok_hashtag_export | shortfilm | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0002 | graph_0118 | tiktok_hashtag_export | btsjungkook | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0003 | graph_0313 | tiktok_hashtag_export | 4kprojector | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0003 | graph_0119 | tiktok_hashtag_export | burrata | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0004 | graph_0184 | tiktok_hashtag_export | marvelrivals | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0004 | graph_0124 | tiktok_hashtag_export | fast | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0005 | graph_0152 | tiktok_hashtag_export | parati | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0005 | graph_0132 | tiktok_hashtag_export | glassart | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0006 | graph_0160 | tiktok_hashtag_export | satisfying | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0006 | graph_0134 | tiktok_hashtag_export | hairstylist | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0007 | graph_0162 | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0007 | graph_0140 | tiktok_hashtag_export | jerseymikes | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0008 | graph_0186 | tiktok_hashtag_export | viernes | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0008 | graph_0141 | tiktok_hashtag_export | jerseymikessubs | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0009 | graph_0114 | tiktok_hashtag_export | basketball | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0009 | graph_0142 | tiktok_hashtag_export | jesuslovesyou | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0010 | graph_0120 | tiktok_hashtag_export | capcut | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0010 | graph_0143 | tiktok_hashtag_export | jesuswillneverleaveyounorforsakeyou | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0001 | hashtag_0011 | tiktok_hashtag_export | filmmaker | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0001 | graph_0222 | tiktok_hashtag_export | bangtan | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0002 | graph_0208 | tiktok_hashtag_export | apartment | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0002 | graph_0223 | tiktok_hashtag_export | batangquiapo | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0003 | graph_0230 | tiktok_hashtag_export | chilis | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0003 | graph_0224 | tiktok_hashtag_export | beeswaxwraps | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0004 | graph_0231 | tiktok_hashtag_export | chilistripledipper | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0004 | graph_0097 | tiktok_hashtag_export | bts | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0005 | graph_0239 | tiktok_hashtag_export | doctor | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0005 | graph_0225 | tiktok_hashtag_export | btsarmy | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0006 | graph_0277 | tiktok_hashtag_export | lgbt | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0006 | graph_0226 | tiktok_hashtag_export | burrata | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0007 | graph_0280 | tiktok_hashtag_export | lukadoncic | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0007 | graph_0227 | tiktok_hashtag_export | ceramicafria | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0008 | graph_0283 | tiktok_hashtag_export | mavericks | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0008 | graph_0228 | tiktok_hashtag_export | charcoaldrawing | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0009 | graph_0290 | tiktok_hashtag_export | organization | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0009 | graph_0229 | tiktok_hashtag_export | charosantos | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0010 | graph_0118 | tiktok_hashtag_export | parati | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0010 | graph_0232 | tiktok_hashtag_export | cocomartin | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
 
 Full preflight: `data/processed/provider_preflight.csv`

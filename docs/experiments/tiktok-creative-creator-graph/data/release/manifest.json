@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-06-13T06:55:03.558Z",
+  "generated_at": "2026-06-13T07:15:51.302Z",
   "objective": "TikTok creative creator graph release package",
   "counts": {
     "accounts": 39570,
-    "identities": 38674,
+    "identities": 38667,
     "useful_creators": 2,
     "benchmark_creators": 1,
     "rejected_creators": 2,
     "review_queue": 39566
   },
   "readiness": {
-    "generated_at": "2026-06-13T06:52:49.001Z",
+    "generated_at": "2026-06-13T07:10:32.892Z",
     "complete": false,
     "counts": {
       "accounts": 39570,
-      "videos": 20975,
-      "edges": 59949,
-      "useful_accounts": 7565,
-      "excellent_accounts": 4370,
+      "videos": 35889,
+      "edges": 60910,
+      "useful_accounts": 7590,
+      "excellent_accounts": 4815,
       "rejected_accounts": 39,
       "review_queue": 39570,
       "review_sample": 250,
@@ -37,27 +37,27 @@
       "adjacency_expansion_rows": 500,
       "adjacency_expansion_added_rows": 0,
       "acquisition_tasks": 314,
-      "candidate_frontier": 533,
-      "candidate_frontier_handles": 148,
-      "candidate_frontier_queries": 385,
+      "candidate_frontier": 414,
+      "candidate_frontier_handles": 88,
+      "candidate_frontier_queries": 326,
       "acquisition_import_preview_accounts": 39565,
       "acquisition_import_preview_ready": false,
-      "acquisition_import_waves": 50,
+      "acquisition_import_waves": 52,
       "acquisition_runner_tasks": 50,
       "acquisition_runner_runnable_tasks": 39,
       "acquisition_runner_skipped_tasks": 11,
       "acquisition_run_history": 19,
       "source_yield_rows": 1560,
-      "identities": 38674,
+      "identities": 38668,
       "category_coverage_labels": 11,
       "category_coverage_covered_labels": 11,
       "release_useful_creators": 2,
       "source_policy": 1,
       "release_verification_checks": 44,
-      "scale_plan_import_batches": 1047,
-      "scale_waves": 1047,
-      "wave_ledger_rows": 1047,
-      "wave_ledger_planned": 1047,
+      "scale_plan_import_batches": 1043,
+      "scale_waves": 1043,
+      "wave_ledger_rows": 1043,
+      "wave_ledger_planned": 1043,
       "wave_ledger_dry_run_only": 11,
       "wave_ledger_imported": 0,
       "wave_ledger_imported_empty": 0,
@@ -66,30 +66,30 @@
       "wave_ledger_under_yield_imports": 0,
       "external_lead_packet_assignments": 200,
       "external_lead_packet_requested_leads": 50000,
-      "external_lead_auto_complete_files_written": 25,
-      "external_lead_auto_complete_existing_files_skipped": 24,
-      "external_lead_auto_complete_routed_rows": 10166,
+      "external_lead_auto_complete_files_written": 15,
+      "external_lead_auto_complete_existing_files_skipped": 22,
+      "external_lead_auto_complete_routed_rows": 6181,
       "external_lead_template_files": 200,
       "external_lead_template_rows": 50000,
-      "external_lead_worklist_items": 904,
+      "external_lead_worklist_items": 957,
       "external_lead_worklist_lead_quota": 50000,
-      "external_lead_work_item_template_files": 904,
+      "external_lead_work_item_template_files": 957,
       "external_lead_work_item_template_rows": 50000,
       "external_lead_work_item_merge_input_files": 0,
       "external_lead_work_item_merge_output_files": 0,
       "external_lead_work_item_merge_unique_valid_rows": 0,
       "external_lead_work_item_merge_unknown_files": 0,
-      "external_lead_packet_completed_files": 336,
-      "external_lead_packet_import_ready_assignments": 49,
+      "external_lead_packet_completed_files": 369,
+      "external_lead_packet_import_ready_assignments": 37,
       "external_lead_packet_no_valid_handles_assignments": 0,
-      "external_lead_packet_valid_leads": 10898,
-      "external_lead_packet_lead_fill_ratio": 0.218,
-      "external_lead_packet_ready_files": 49,
-      "external_lead_packet_already_imported_ready_files": 24,
-      "external_lead_packet_pending_import_files": 25,
-      "external_lead_packet_imported_files": 25,
+      "external_lead_packet_valid_leads": 7642,
+      "external_lead_packet_lead_fill_ratio": 0.153,
+      "external_lead_packet_ready_files": 37,
+      "external_lead_packet_already_imported_ready_files": 22,
+      "external_lead_packet_pending_import_files": 15,
+      "external_lead_packet_imported_files": 15,
       "external_lead_packet_import_failed_files": 0,
-      "external_lead_packet_import_output_rows": 5919,
+      "external_lead_packet_import_output_rows": 3094,
       "provider_preflight_tasks": 20,
       "provider_preflight_ready_tasks": 0,
       "provider_preflight_blocked_tasks": 20,
@@ -117,12 +117,12 @@
       {
         "id": "video_metadata",
         "status": "pass",
-        "evidence": "20975 videos ingested"
+        "evidence": "35889 videos ingested"
       },
       {
         "id": "graph_edges",
         "status": "pass",
-        "evidence": "59949 graph edges generated"
+        "evidence": "60910 graph edges generated"
       },
       {
         "id": "scoring_coverage",
@@ -177,7 +177,7 @@
       {
         "id": "candidate_frontier",
         "status": "pass",
-        "evidence": "533 ranked acquisition candidates generated"
+        "evidence": "414 ranked acquisition candidates generated"
       },
       {
         "id": "acquisition_import_preview",
@@ -187,7 +187,7 @@
       {
         "id": "acquisition_import_waves",
         "status": "pass",
-        "evidence": "50 acquisition import waves tracked"
+        "evidence": "52 acquisition import waves tracked"
       },
       {
         "id": "acquisition_runner",
@@ -207,7 +207,7 @@
       {
         "id": "identity_resolution",
         "status": "pass",
-        "evidence": "38674 creator identities resolved"
+        "evidence": "38668 creator identities resolved"
       },
       {
         "id": "category_coverage",
@@ -232,17 +232,17 @@
       {
         "id": "scale_plan",
         "status": "pass",
-        "evidence": "1047 estimated import batches"
+        "evidence": "1043 estimated import batches"
       },
       {
         "id": "scale_waves",
         "status": "pass",
-        "evidence": "1047 executable acquisition waves planned"
+        "evidence": "1043 executable acquisition waves planned"
       },
       {
         "id": "wave_ledger",
         "status": "pass",
-        "evidence": "1047 wave execution ledger rows generated"
+        "evidence": "1043 wave execution ledger rows generated"
       },
       {
         "id": "external_lead_packet",
@@ -257,7 +257,7 @@
       {
         "id": "external_lead_auto_complete",
         "status": "pass",
-        "evidence": "25 files written, 24 existing files skipped, 10166 routed rows"
+        "evidence": "15 files written, 22 existing files skipped, 6181 routed rows"
       },
       {
         "id": "external_lead_templates",
@@ -267,12 +267,12 @@
       {
         "id": "external_lead_worklist",
         "status": "pass",
-        "evidence": "904 source work items, 50000 lead quota"
+        "evidence": "957 source work items, 50000 lead quota"
       },
       {
         "id": "external_lead_work_item_templates",
         "status": "pass",
-        "evidence": "904 work-item templates, 50000 rows"
+        "evidence": "957 work-item templates, 50000 rows"
       },
       {
         "id": "external_lead_work_item_merge",
@@ -282,12 +282,12 @@
       {
         "id": "external_lead_progress",
         "status": "pass",
-        "evidence": "49/200 import-ready assignments, 10898 valid leads"
+        "evidence": "37/200 import-ready assignments, 7642 valid leads"
       },
       {
         "id": "external_lead_packet_import",
         "status": "pass",
-        "evidence": "25 imported this run, 24 already imported, 25 pending, 0 failed"
+        "evidence": "15 imported this run, 22 already imported, 15 pending, 0 failed"
       },
       {
         "id": "provider_preflight",
@@ -322,17 +322,17 @@
       {
         "id": "publication_handoff_freshness",
         "status": "pass",
-        "evidence": "handoff accounts 39570/39570, identities 38674/38674, videos 20975/20975, import waves 50/50, source yield 1560/1560"
+        "evidence": "handoff accounts 39570/39570, identities 38668/38668, videos 35889/35889, import waves 52/52, source yield 1560/1560"
       },
       {
         "id": "useful_account_target",
         "status": "incomplete",
-        "evidence": "7565/50000 useful accounts"
+        "evidence": "7590/50000 useful accounts"
       },
       {
         "id": "excellent_account_target",
         "status": "incomplete",
-        "evidence": "4370/5000 excellent accounts"
+        "evidence": "4815/5000 excellent accounts"
       },
       {
         "id": "human_review_target",
@@ -341,8 +341,8 @@
       }
     ],
     "remaining": {
-      "useful_accounts": 42435,
-      "excellent_accounts": 630,
+      "useful_accounts": 42410,
+      "excellent_accounts": 185,
       "reviewed_accounts": 496
     }
   },
@@ -370,22 +370,22 @@
     {
       "path": "data/release/rejected_creators.jsonl",
       "rows": 2,
-      "sha256": "051d7a2afb2c6a4e87928d2b9788e63e4320b629fa87fc6d4d4279ab20d2d218"
+      "sha256": "71b10ab1e2e2d3294b188f38761a64012eddac6d132cac4eaf09248d95e6577a"
     },
     {
       "path": "data/release/rejected_creators.csv",
       "rows": 2,
-      "sha256": "69529d5ac9a6d47cc2edd1fce5037ed365b40713ccfdfb23b2b8696938b17ee5"
+      "sha256": "89b3ab4a6b7731751a634cbe42602ff96448e282bd17cb9dbb09658ef5e4b60a"
     },
     {
       "path": "data/release/review_queue.csv",
       "rows": 39566,
-      "sha256": "2f60adf5ff6059628525c281168914bad16920bc4dd0d45dff6b0fb4a545144f"
+      "sha256": "379f9c3ba91b5ac517db1bf66be2f3fece8fd0e30b2d5b02821bd6812ff49189"
     },
     {
       "path": "data/release/all_scored_creators.csv",
       "rows": 39570,
-      "sha256": "79ada9293eec34e9a5adf96e83ab95d905022c5267be3bff3108676c92fa8680"
+      "sha256": "bb2446d0fc3873b6f302aae8283f4b802ceb03319965e4d791c7fd82887a65b3"
     }
   ]
 }

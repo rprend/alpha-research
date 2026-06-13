@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-13T06:55:04.340Z
+Generated: 2026-06-13T07:15:52.102Z
 
 ## Targets
 
@@ -17,16 +17,16 @@ Generated: 2026-06-13T06:55:04.340Z
 
 ## Estimated Work
 
-- Candidate accounts needed: 261351
-- Import batches needed at 250 candidates per batch: 1046
+- Candidate accounts needed: 260628
+- Import batches needed at 250 candidates per batch: 1043
 - Useful creators needed for excellent target: 49990
 - Review batches needed: 2
 
 ## Planning Assumptions
 
-- Observed useful rate: 0.191
-- Planning useful rate: 0.191
-- Observed excellent rate among useful: 0.622
+- Observed useful rate: 0.192
+- Planning useful rate: 0.192
+- Observed excellent rate among useful: 0.636
 - Planning excellent rate among useful: 0.1
 
 ## Top Surfaces
@@ -46,32 +46,32 @@ Generated: 2026-06-13T06:55:04.340Z
 
 ## Next Batches
 
-Candidate frontier targets: 541
+Candidate frontier targets: 413
 
 | Seq | Rank | Score | Priority | Surface | Target |
 | ---: | ---: | ---: | ---: | --- | --- |
-| 1 | 1 | 92 | 1 | tiktok_hashtag_export | apartment |
-| 2 | 2 | 92 | 1 | tiktok_hashtag_export | arianagrande |
-| 3 | 3 | 92 | 1 | tiktok_hashtag_export | chilis |
-| 4 | 4 | 92 | 1 | tiktok_hashtag_export | chilistripledipper |
-| 5 | 5 | 92 | 1 | tiktok_hashtag_export | core |
-| 6 | 6 | 92 | 1 | tiktok_hashtag_export | doctor |
-| 7 | 7 | 92 | 1 | tiktok_hashtag_export | for |
-| 8 | 8 | 92 | 1 | tiktok_hashtag_export | funny |
-| 9 | 9 | 92 | 1 | tiktok_hashtag_export | johnnydepp |
-| 10 | 10 | 92 | 1 | tiktok_hashtag_export | lgbt |
-| 11 | 11 | 92 | 1 | tiktok_hashtag_export | lukadoncic |
-| 12 | 12 | 92 | 1 | tiktok_hashtag_export | mavericks |
-| 13 | 13 | 92 | 1 | tiktok_hashtag_export | organization |
-| 14 | 14 | 92 | 1 | tiktok_hashtag_export | piano |
-| 15 | 15 | 92 | 1 | tiktok_hashtag_export | prank |
-| 16 | 16 | 92 | 1 | tiktok_hashtag_export | projector |
-| 17 | 17 | 92 | 1 | tiktok_hashtag_export | projectorscreen |
-| 18 | 18 | 92 | 1 | tiktok_hashtag_export | relatable |
-| 19 | 19 | 92 | 1 | tiktok_hashtag_export | reto |
-| 20 | 20 | 92 | 1 | tiktok_hashtag_export | roomdecor |
-| 21 | 21 | 92 | 1 | tiktok_hashtag_export | roommakeover |
-| 22 | 22 | 92 | 1 | tiktok_hashtag_export | shelterstories |
-| 23 | 23 | 92 | 1 | tiktok_hashtag_export | skitok |
-| 24 | 24 | 92 | 1 | tiktok_hashtag_export | swag |
-| 25 | 25 | 92 | 1 | tiktok_hashtag_export | tiktoker |
+| 1 | 1 | 92 | 1 | tiktok_hashtag_export | 4kprojector |
+| 2 | 2 | 92 | 1 | tiktok_hashtag_export | africa |
+| 3 | 3 | 92 | 1 | tiktok_hashtag_export | arianagrande |
+| 4 | 4 | 92 | 1 | tiktok_hashtag_export | artistsoftiktok |
+| 5 | 5 | 92 | 1 | tiktok_hashtag_export | black |
+| 6 | 6 | 92 | 1 | tiktok_hashtag_export | core |
+| 7 | 7 | 92 | 1 | tiktok_hashtag_export | danceinstructor |
+| 8 | 8 | 92 | 1 | tiktok_hashtag_export | delancy |
+| 9 | 9 | 92 | 1 | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" |
+| 10 | 10 | 92 | 1 | tiktok_hashtag_export | swag |
+| 11 | 11 | 92 | 1 | tiktok_hashtag_export | tiktoker |
+| 12 | 12 | 92 | 1 | tiktok_hashtag_export | top10 |
+| 13 | 13 | 92 | 1 | tiktok_hashtag_export | trippledipper |
+| 14 | 14 | 90 | 1 | tiktok_hashtag_export | couple |
+| 15 | 15 | 90 | 1 | tiktok_hashtag_export | stitch |
+| 16 | 16 | 87 | 1 | search_index | behind the scenes|bts|making of|how i made|on set|setup|process|tutorial|breakdown|how to|film analysis|camera tips|lighting setup |
+| 17 | 17 | 87 | 1 | tiktok_hashtag_export | filmmaker |
+| 18 | 18 | 86 | 1 | tiktok_hashtag_export | comediante |
+| 19 | 19 | 86 | 1 | tiktok_hashtag_export | comedy |
+| 20 | 20 | 86 | 1 | tiktok_hashtag_export | fypdong |
+| 21 | 21 | 85 | 1 | tiktok_hashtag_export | apple |
+| 22 | 22 | 85 | 1 | tiktok_hashtag_export | cat |
+| 23 | 23 | 85 | 1 | tiktok_hashtag_export | video |
+| 24 | 24 | 83 | 1 | tiktok_hashtag_export | apartment |
+| 25 | 25 | 83 | 1 | tiktok_hashtag_export | chilis |

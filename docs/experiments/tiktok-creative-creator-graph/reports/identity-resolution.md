@@ -1,17 +1,18 @@
 # Identity Resolution
 
-Generated: 2026-06-13T06:55:01.483Z
+Generated: 2026-06-13T07:15:49.136Z
 
 - Accounts: 39570
-- Identities: 38674
-- Duplicate risk clusters: 572
-- Identity evidence rows: 119339
-- High-confidence external links: 1544
+- Identities: 38667
+- Duplicate risk clusters: 576
+- Identity evidence rows: 120359
+- High-confidence external links: 2564
 
 ## Duplicate Risk Queue
 
 | Identity | Accounts | Handles | Reason |
 | --- | ---: | --- | --- |
+| creator_identity_18629f6c56e2 | 2 | @kingbach; @snowd4y | shared identity key |
 | creator_identity_1acf1211b94d | 2 | @matt_rife; @matt_rifeprivatechatt | shared identity key |
 | creator_identity_0a698d9b43b6 | 5 | @ventureswithmia; @strangerthing.digitalart; @mias.bookcase; @miatroshyka; @floofysocials | shared identity key |
 | creator_identity_a921eec26d62 | 2 | @imtropicaljoe; @joseriverapayan | shared identity key |
@@ -36,4 +37,3 @@ Generated: 2026-06-13T06:55:01.483Z
 | creator_identity_c7d6a01099a0 | 3 | @digitalart_bysofia; @sofasaurus.crochet; @sofeditsae | shared identity key |
 | creator_identity_41b057aa985c | 2 | @digitalartmpinsta; @marioworldwide | shared identity key |
 | creator_identity_8cdaa8016926 | 2 | @twan_graphic_design; @twanmvsic | shared identity key |
-| creator_identity_6bdfb7b6ee04 | 3 | @kellydigitaldrawing; @kellyandbooks; @kellyannestone | shared identity key |

@@ -1,11 +1,11 @@
-{"label":"filmmaker","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":7037,"priority":2}
+{"label":"filmmaker","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":7035,"priority":2}
 {"label":"sketch_comedian","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":6816,"priority":2}
 {"label":"cinematographer","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":4630,"priority":2}
-{"label":"director","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":3913,"priority":2}
+{"label":"director","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":3912,"priority":2}
 {"label":"standup_comedian","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":3854,"priority":2}
 {"label":"vfx_animation","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":3504,"priority":2}
-{"label":"actor_performer","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":14,"review_gap":25,"useful_gap":3330,"priority":2}
+{"label":"actor_performer","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":17,"review_gap":25,"useful_gap":3313,"priority":2}
 {"label":"behind_the_scenes_creator","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":2647,"priority":2}
 {"label":"editor","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":2469,"priority":2}
 {"label":"film_educator","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":2281,"priority":2}
-{"label":"creative_technologist","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":11,"review_gap":25,"useful_gap":1949,"priority":2}
+{"label":"creative_technologist","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":8,"review_gap":25,"useful_gap":1948,"priority":2}
