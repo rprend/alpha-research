@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T16:09:39.366Z",
+  "generated_at": "2026-06-13T16:15:44.761Z",
   "source_count": 31,
   "source_classes": {
     "conference-programs": 3,
@@ -17,36 +17,29 @@
   "source_ids_with_local_documents": [
     "cleveland-museum-open-access",
     "crossref-humanities",
+    "doaj-humanities",
+    "internet-archive-metadata",
+    "journal-digital-humanities-quarterly",
     "library-of-congress",
     "met-collection-api",
+    "nber-culture-history",
     "openalex-humanities",
     "project-gutenberg",
+    "public-books",
     "stanford-humanities-departments",
     "uchicago-humanities-departments",
     "wikidata-cultural-entities",
     "yale-humanities-departments"
   ],
-  "source_count_with_local_documents": 10,
+  "source_count_with_local_documents": 15,
   "local_records": {
-    "source_documents": 84,
-    "works": 40,
+    "source_documents": 134,
+    "works": 80,
     "objects": 30,
     "pages": 4,
-    "rights": 84
+    "rights": 134
   },
   "sources_without_local_documents": [
-    {
-      "source_id": "doaj-humanities",
-      "source_class": "scholarly-metadata",
-      "ingest_status": "planned",
-      "redistribution_status": "metadata-ok"
-    },
-    {
-      "source_id": "internet-archive-metadata",
-      "source_class": "open-text-metadata",
-      "ingest_status": "planned",
-      "redistribution_status": "metadata-only"
-    },
     {
       "source_id": "hathitrust-bibliographic-metadata",
       "source_class": "open-text-metadata",
@@ -114,18 +107,6 @@
       "redistribution_status": "metadata-only"
     },
     {
-      "source_id": "journal-digital-humanities-quarterly",
-      "source_class": "journals-and-reviews",
-      "ingest_status": "planned",
-      "redistribution_status": "local-analysis-only"
-    },
-    {
-      "source_id": "public-books",
-      "source_class": "journals-and-reviews",
-      "ingest_status": "planned",
-      "redistribution_status": "local-analysis-only"
-    },
-    {
       "source_id": "lareviewofbooks",
       "source_class": "journals-and-reviews",
       "ingest_status": "planned",
@@ -136,12 +117,6 @@
       "source_class": "syllabi-teaching-corpora",
       "ingest_status": "blocked",
       "redistribution_status": "blocked-or-needs-review"
-    },
-    {
-      "source_id": "nber-culture-history",
-      "source_class": "humanities-adjacent-policy-history",
-      "ingest_status": "planned",
-      "redistribution_status": "metadata-only"
     },
     {
       "source_id": "ssrn-humanities-adjacent",

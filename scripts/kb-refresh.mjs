@@ -3,6 +3,7 @@ import { spawnSync } from "node:child_process";
 const commands = [
   ["node", ["scripts/kb-validate.mjs"]],
   ["node", ["scripts/kb-inventory-existing.mjs"]],
+  ["node", ["scripts/kb-ingest-web-metadata.mjs", "--limit=10"]],
   ["node", ["scripts/kb-build-analytical-tables.mjs"]],
   ["node", ["scripts/kb-audit-coverage.mjs"]],
   ["node", ["scripts/kb-build-search-index.mjs"]],

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T16:09:39.448Z",
+  "generated_at": "2026-06-13T16:15:45.225Z",
   "status": "phase-2-staging-active",
   "source_count": 31,
   "source_classes": {
@@ -60,7 +60,7 @@
         "file": "works.jsonl",
         "path": "data/knowledge-base/processed/works.jsonl",
         "exists": true,
-        "bytes": 22433
+        "bytes": 58249
       },
       {
         "file": "objects.jsonl",
@@ -84,13 +84,13 @@
         "file": "source_documents.jsonl",
         "path": "data/knowledge-base/processed/source_documents.jsonl",
         "exists": true,
-        "bytes": 39994
+        "bytes": 81445
       },
       {
         "file": "rights.jsonl",
         "path": "data/knowledge-base/processed/rights.jsonl",
         "exists": true,
-        "bytes": 30275
+        "bytes": 50382
       }
     ]
   },
@@ -103,7 +103,7 @@
         "file": "works.csv",
         "path": "data/knowledge-base/processed/works.csv",
         "exists": true,
-        "bytes": 10150
+        "bytes": 23231
       },
       {
         "file": "objects.csv",
@@ -127,24 +127,24 @@
         "file": "source_documents.csv",
         "path": "data/knowledge-base/processed/source_documents.csv",
         "exists": true,
-        "bytes": 20855
+        "bytes": 54899
       },
       {
         "file": "rights.csv",
         "path": "data/knowledge-base/processed/rights.csv",
         "exists": true,
-        "bytes": 19788
+        "bytes": 32945
       },
       {
         "file": "knowledge-base.sqlite",
         "path": "data/knowledge-base/processed/knowledge-base.sqlite",
         "exists": true,
-        "bytes": 163840
+        "bytes": 241664
       }
     ]
   },
   "local_files": {
-    "raw_count": 20,
+    "raw_count": 30,
     "text_count": 24,
     "index_count": 1
   },

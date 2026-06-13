@@ -4,6 +4,7 @@ import {
   indexesDir,
   processedDir,
   readJsonl,
+  rootDir,
   writeJson,
 } from "./kb-lib.mjs";
 
@@ -28,23 +29,31 @@ const stopwords = new Set([
 
 const rows = await readJsonl(sourceDocumentsPath);
 const pages = await readJsonl(path.join(processedDir, "pages.jsonl"));
-const documents = rows.map((row, index) => ({
+const documents = await Promise.all(rows.map(async (row, index) => ({
   doc_id: row.local_id || `doc-${index}`,
   source_id: row.source_id || "",
   title: row.title || "",
   source_url: row.source_url || "",
   type: row.type || "",
-  text: [row.title, row.type, row.venue, row.department, row.description, row.subjects?.join?.(" ")]
-    .filter(Boolean)
-    .join(" "),
-})).concat(pages.map((row, index) => ({
+  text_path: row.text_path || "",
+  text: [
+    row.title,
+    row.type,
+    row.venue,
+    row.department,
+    row.description,
+    row.subjects?.join?.(" "),
+    await textPreview(row.text_path),
+  ].filter(Boolean).join(" "),
+}))).then((docs) => docs.concat(pages.map((row, index) => ({
   doc_id: row.local_id || `page-${index}`,
   source_id: row.source_id || "",
   title: row.title || "",
   source_url: row.source_url || "",
   type: row.page_type || "department-page",
+  text_path: row.text_path || "",
   text: [row.school, row.department, row.page_type, row.title].filter(Boolean).join(" "),
-})));
+}))));
 
 const postings = new Map();
 for (const doc of documents) {
@@ -65,6 +74,7 @@ const index = {
     title: doc.title,
     source_url: doc.source_url,
     type: doc.type,
+    text_path: doc.text_path,
   }])),
   postings: Object.fromEntries(Array.from(postings.entries()).sort(([a], [b]) => a.localeCompare(b))),
 };
@@ -77,4 +87,14 @@ function tokenize(value) {
     .toLowerCase()
     .split(/[^a-z0-9]+/)
     .filter((term) => term.length > 2 && !stopwords.has(term));
+}
+
+async function textPreview(textPath) {
+  if (!textPath) return "";
+  try {
+    const text = await fs.readFile(path.join(rootDir, textPath), "utf8");
+    return text.slice(0, 50_000);
+  } catch {
+    return "";
+  }
 }

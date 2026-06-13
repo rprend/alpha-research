@@ -1,0 +1,687 @@
+{
+  "total": 4605,
+  "page": 1,
+  "pageSize": 10,
+  "timestamp": "2026-06-13T16:14:54.218850Z",
+  "query": "digital humanities",
+  "results": [
+    {
+      "last_updated": "2025-08-19T16:01:09Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.13128/LEA-1824-484x-22348",
+            "type": "doi"
+          },
+          {
+            "id": "1824-484X",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "6",
+          "country": "IT",
+          "issns": [
+            "1824-484X"
+          ],
+          "publisher": "Firenze University Press",
+          "language": [
+            "EN",
+            "IT"
+          ],
+          "title": "Lea"
+        },
+        "month": "December",
+        "keywords": [
+          "comparative literature",
+          "digital humanities",
+          "ecocriticism",
+          "ecofeminism"
+        ],
+        "year": "2017",
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "author": [
+          {
+            "name": "Diego Salvadori"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://oajournals.fupress.net/index.php/bsfm-lea/article/view/7765"
+          }
+        ],
+        "abstract": "In this article we present the database Dove/nondove, which aims aims to collect and list the texts of female authors who’ve wrote about places and spaces. The goal is to create a global hypertext, monitoring the evolution of specific themes (landscape and environment, pollution and ecological crisis, human non-human relation) in the Feminine literature.",
+        "title": "Dove/non dove. \"Il parco virtuale\": una nota esplicativa"
+      },
+      "created_date": "2018-09-17T08:21:56Z",
+      "id": "000353e7c7cd4a8a90fe8e09a10f3333"
+    },
+    {
+      "last_updated": "2026-05-26T13:52:37Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.3390/land15050751",
+            "type": "doi"
+          },
+          {
+            "id": "2073-445X",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "15",
+          "number": "5",
+          "country": "CH",
+          "issns": [
+            "2073-445X"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Land"
+        },
+        "month": "04",
+        "keywords": [
+          "3D models",
+          "data space",
+          "data enrichment"
+        ],
+        "year": "2026",
+        "start_page": "751",
+        "subject": [
+          {
+            "code": "S",
+            "scheme": "LCC",
+            "term": "Agriculture"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Digital Humanities, Friedrich-Schiller-Universität Jena, 07743 Jena, Germany",
+            "name": "Sander Münster"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.mdpi.com/2073-445X/15/5/751"
+          }
+        ],
+        "abstract": "Large-scale datasets such as Objaverse or ShapeNet and repositories such as Sketchfab have been compiled for 3D content. Within the European 3DBigDataSpace project, a consortium of 10 partners assess open licensed 3D models to select and retrieve those models representing cultural heritage objects in Europe to aggregate them into the European Data Space. A key component of this work is the classification and geolocalization of 3D content, with mesh models viewable via different viewers and tested in different scenarios such as museum exhibitions, cultural tourism, or education. This article makes four principal contributions: (1) a current empirical overview of the global distribution and linguistic coverage of large-scale 3D heritage datasets; (2) a comparative evaluation of text-based and image-based methods for geocoding and semantic classification; (3) an analysis of data quality challenges specific to uncurated 3D heritage collections; and (4) a discussion of the implications of user-generated content for definitions of digital cultural heritage.",
+        "title": "Large-Scale Metadata Processing for 3D Cultural Heritage Objects"
+      },
+      "id": "001b11963d83417caf7179b8db7d02d6",
+      "created_date": "2026-05-26T13:52:37Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:34:02Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1755-1560",
+            "type": "eissn"
+          },
+          {
+            "id": "10.16995/ntn.437",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "0",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "1755-1560"
+          ],
+          "publisher": "Open Library of Humanities",
+          "language": [
+            "EN"
+          ],
+          "title": "19"
+        },
+        "month": "10",
+        "year": "2005",
+        "subject": [
+          {
+            "code": "D204-475",
+            "scheme": "LCC",
+            "term": "Modern history, 1453-"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "",
+            "name": "James Mussell"
+          },
+          {
+            "affiliation": "",
+            "name": "Suzanne Paylor"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "http://19.bbk.ac.uk/article/id/1624/"
+          },
+          {
+            "content_type": "application/pdf",
+            "type": "fulltext",
+            "url": "http://19.bbk.ac.uk/article/1624/galley/1894/download/"
+          }
+        ],
+        "abstract": "This paper reflects on attempts, past and present, to map the mighty maze of periodical literature. The Nineteenth-Century Serials Edition Project (ncse), seeks to achieve two key objectives. First the ncse project responds to the pressing need to preserve fragile printed items in ways which maintain their integrity as historical material objects. Electronic editions offer to new opportunities to re-present such material in a way that is, for the first time, comprehensive and freely available. ncse will create an electronic edition of six nineteenth--century periodicals. Second, ncse, aims to formulate and implement new ways of realising our current scholarly conceptualisation of these materials in electronic form. At a time when new digital editions promise to revolutionise the way resource users across the humanities work with their materials this paper explores timely questions about the role of the scholar in this process.",
+        "title": "Mapping the \"Mighty Maze\": Nineteenth-Century Serials                     Edition"
+      },
+      "id": "0052ba72d61e4feb9518e893e45c8f9b",
+      "created_date": "2024-06-19T09:36:29Z"
+    },
+    {
+      "last_updated": "2025-08-19T16:42:48Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.7577/formakademisk.187",
+            "type": "doi"
+          },
+          {
+            "id": "1890-9515",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "3",
+          "number": "1",
+          "country": "NO",
+          "issns": [
+            "1890-9515"
+          ],
+          "publisher": "Formakademisk, Oslo",
+          "language": [
+            "DA",
+            "EN",
+            "NB",
+            "NN",
+            "SV"
+          ],
+          "title": "FORMakademisk"
+        },
+        "month": "July",
+        "year": "2010",
+        "subject": [
+          {
+            "code": "NX1-820",
+            "scheme": "LCC",
+            "term": "Arts in general"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Dr. Førsteammanuensis / professor II UiO / AHO",
+            "name": "Andrew Morrison"
+          },
+          {
+            "name": "Alex Davies"
+          },
+          {
+            "name": "Geska Brečević"
+          },
+          {
+            "name": "Idunn Sem"
+          },
+          {
+            "name": "Tim Boykett"
+          },
+          {
+            "name": "Robert Brečević"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://journals.hioa.no/index.php/formakademisk/article/view/187"
+          }
+        ],
+        "abstract": "This article takes up the concept of performativity prevalent in the  humanities and applies it to the design of installation arts in mixed  reality mode. Based on the design, development and public access to two  specific works, the concept is related to a form of research by design.  We argue that the concept of performativity may be further usefully  employed in investigations (design and research, artistic and public)  into digital arts where complex intersections between concepts,  technologies, dramaturgy, media and participant actions are in flux and  together constitute the emergence and experience of a work. Theories of  performativity are related to these two works in an argument that  further suggests there is room in research by design to also include  ‘performative design’. The article is the result of a wide-ranging  interdisciplinary collaboration and aims to convey some sense of that in  its reporting style, content and analysis.",
+        "title": "Designing performativity for mixed reality installations"
+      },
+      "created_date": "2013-05-30T08:34:06Z",
+      "id": "0059d14296954a8d88c9017daedbfdfb"
+    },
+    {
+      "last_updated": "2026-05-10T11:34:09Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1038/s41467-026-71506-9",
+            "type": "doi"
+          },
+          {
+            "id": "2041-1723",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "17",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "2041-1723"
+          ],
+          "publisher": "Nature Portfolio",
+          "language": [
+            "EN"
+          ],
+          "title": "Nature Communications"
+        },
+        "month": "5",
+        "year": "2026",
+        "subject": [
+          {
+            "code": "Q",
+            "scheme": "LCC",
+            "term": "Science"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Champalimaud Research, Champalimaud Foundation",
+            "name": "Joana Carvalho"
+          },
+          {
+            "affiliation": "Champalimaud Research, Champalimaud Foundation",
+            "name": "Francisca F. Fernandes"
+          },
+          {
+            "affiliation": "Champalimaud Research, Champalimaud Foundation",
+            "name": "Mafalda Valente"
+          },
+          {
+            "affiliation": "Department of Intelligent Systems, Research Center for Cognitive Science and Artificial Intelligence, Tilburg School of Humanities and Digital Sciences, Tilburg University",
+            "name": "Koen V. Haak"
+          },
+          {
+            "affiliation": "Champalimaud Research, Champalimaud Foundation",
+            "name": "Noam Shemesh"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1038/s41467-026-71506-9"
+          }
+        ],
+        "abstract": "Abstract Deciphering the directionality of information flow in cortical circuits is essential for understanding brain dynamics, learning, and neuroplasticity after injury. However, current noninvasive methods cannot distinguish bottom-up from top-down signals across entire networks, including deep brain regions. Here, we present UltraFast Layer-Resolved Encoding (uFLARE) that combines ultrafast-fMRI with a Layer-based Connective Field (lCF) model to disentangle bottom-up from top-down signaling. Our findings reveal that lCF size, an indicator of information integration, differentiates bottom-up and top-down activity through distinct layer-specific connectivity patterns during spontaneous activity, challenging the previous suggestions that bottom-up signals are solely stimulus-driven. Bottom-up connectivity follows an inverted U-shape, peaking in layer IV, while top-down exhibits a U-shaped pattern, with peaks in layers I and VI. These profiles generalize across sensory pathways (visual, somatosensory, and motor) and reveal injury-induced network reorganization, such as LGN bypassing V1 to provide direct bottom-up input to higher visual areas.",
+        "title": "UltraFast Layer-Resolved Encoding (uFLARE) functional MRI deciphers bidirectional signaling from spontaneous activity"
+      },
+      "id": "007ff6e36f9b4fa8a57dd3376fce4bb3",
+      "created_date": "2026-05-10T11:34:09Z"
+    },
+    {
+      "last_updated": "2025-12-04T07:41:07Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5617/dhnbpub.11285",
+            "type": "doi"
+          },
+          {
+            "id": "2704-1441",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "4",
+          "number": "1",
+          "country": "NO",
+          "issns": [
+            "2704-1441"
+          ],
+          "publisher": "University of Oslo",
+          "language": [
+            "EN"
+          ],
+          "title": "Digital Humanities in the Nordic and Baltic Countries Publications"
+        },
+        "month": "October",
+        "year": "2022",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "University of Copenhagen, Denmark",
+            "name": "Jens Bjerring-Hansen"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0001-8714-1911",
+            "affiliation": "University of Aarhus, Denmark",
+            "name": "Ross Deans Kristensen-McLachlan"
+          },
+          {
+            "affiliation": "University of Copenhagen, Denmark",
+            "name": "Philip Diderichsen"
+          },
+          {
+            "affiliation": "University of Copenhagen, Denmark",
+            "name": "Dorte Haltrup Hansen"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://journals.uio.no/dhnbpub/article/view/11285"
+          }
+        ],
+        "abstract": "\r\nIn this paper we present an OCR correction pipeline for 19th century printed Danish fraktur (gothic/blackletter). The work has been carried out at the University of Copenhagen in relation to a research project involving digital explorations of a corpus of some 900 Danish and Norwegian novels from 1870 to 1899, totalling app. 65 million words. Roughly 25% of these novels are printed in the traditional fraktur font, which was almost totally dominating in the beginning of the 19th century. These texts are important culturally, since they represent mostly forgotten, popular novels, however they pose technical and methodological challenges in terms of processing the text from printed page to digital corpus. In order to provide the best possible material for digital literary analysis as well as more linguistic studies, we designed an OCR correction pipeline for the fraktur part of the corpus consisting of several different heuristic correction steps, with reference to a gold standard. The first step is a preprocessing step which takes care of obvious and unambiguous OCR errors. In the second step we align our primary OCR output candidate (the output from Tesseract using the Fraktur.traineddata pretrained OCR model) with several other OCR output candidates and perform selective correction with reference to these. Especially the Danish “æ” and “ø” characters can be successfully recovered with reference to the Danish, non-fraktur dan.traineddata Tesseract model. Finally, in the third step, we employ the SymSpell spell checker to perform spelling correction backed by a word form dictionary hand-crafted from various relevant sources. The pipeline reduces the word error rate by 7.6 percentage points from 10.5% (89.5% correctly recognized word forms) to 2.8% (97.2% correctly recognized word forms) - an improvement of almost 73%. The character error rate (CER) similarly decreased from 1.94% to 0.54%.\r\n",
+        "title": "Mending Fractured Texts"
+      },
+      "id": "00835040fcf44cf2b039a898ae5efa4d",
+      "created_date": "2025-12-04T07:41:07Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:44:21Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1918-3666",
+            "type": "eissn"
+          },
+          {
+            "id": "10.16995/dscn.108",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "1",
+          "number": "2",
+          "country": "GB",
+          "issns": [
+            "1918-3666"
+          ],
+          "publisher": "Open Library of Humanities",
+          "language": [
+            "EN"
+          ],
+          "title": "Digital Studies"
+        },
+        "month": "6",
+        "keywords": [
+          "cyber-infrastructure",
+          "Canadian census",
+          "microdata",
+          "databases",
+          "digital project / cyber-infrastructure",
+          "recensement canadienne"
+        ],
+        "year": "2009",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "QA75.5-76.95",
+            "scheme": "LCC",
+            "term": "Electronic computers. Computer science"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "University of Ottawa",
+            "name": "Adam J. Green"
+          },
+          {
+            "affiliation": "Memorial University of Newfoundland",
+            "name": "Robert C. H. Sweeny"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.digitalstudies.org/article/id/7197/"
+          }
+        ],
+        "abstract": "None",
+        "title": "The Canadian Century Research Infrastructure: Enabling Humanities and Social Science Research in the Digital Age"
+      },
+      "id": "0097c2129e724a579e926fe07d6ad6a8",
+      "created_date": "2024-06-19T08:58:42Z"
+    },
+    {
+      "last_updated": "2025-08-20T02:25:21Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2510-1358",
+            "type": "eissn"
+          },
+          {
+            "id": "10.17175/2019_008_v2",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "number": "07",
+          "country": "DE",
+          "issns": [
+            "2510-1358"
+          ],
+          "publisher": "Forschungsverbund Marbach Weimar Wolfenbüttel / Verband Digital Humanities im deutschsprachigen Raum e.V.",
+          "language": [
+            "DE",
+            "EN"
+          ],
+          "title": "Zeitschrift für digitale Geisteswissenschaften"
+        },
+        "month": "12",
+        "keywords": [
+          "gefühl",
+          "hermeneutik",
+          "literaturwissenschaft",
+          "netzwerkanalyse (soziologie)",
+          "textanalyse"
+        ],
+        "year": "2019",
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          },
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0001-6822-6709",
+            "affiliation": "Universität Stuttgart, Institut für Maschinelle\n         Sprachverarbeitung",
+            "name": "Evgeny Kim"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0002-2014-6619",
+            "affiliation": "Universität Stuttgart, Institut für Maschinelle\n         Sprachverarbeitung",
+            "name": "Roman Klinger"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "http://www.zfdg.de/node/285"
+          }
+        ],
+        "abstract": "Emotions are a crucial part of compelling narratives: literature tells us\n                            about people with goals, desires, passions, and intentions. Emotion\n                            analysis is part of the broader and larger field of sentiment analysis,\n                            and receives increasing attention in literary studies. In the past, the\n                            affective dimension of literature was mainly studied in the context of\n                            literary hermeneutics. However, with the emergence of the research field\n                            known as Digital Humanities (DH), some studies of emotions in a literary\n                            context have taken a computational turn. Given the fact that DH is still\n                            being formed as a field, this direction of research can be rendered\n                            relatively new. In this survey, we offer an overview of the existing\n                            body of research on emotion analysis as applied to literature. The\n                            research under review deals with a variety of topics including tracking\n                            dramatic changes of a plot development, network analysis of a literary\n                            text, and understanding the emotionality of texts, among other topics.\n                            Based on this review, we point to a set of remaining challenges that\n                            constitute promising future research directions.",
+        "title": "A Survey on Sentiment and Emotion Analysis for\n                                Computational Literary Studies"
+      },
+      "created_date": "2022-08-29T07:59:52Z",
+      "id": "009c736460784d699a56a32cbdde4cfb"
+    },
+    {
+      "last_updated": "2025-08-19T16:51:59Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1860-7950",
+            "type": "pissn"
+          },
+          {
+            "id": "10.18452/21412",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "number": "36",
+          "country": "DE",
+          "issns": [
+            "1860-7950"
+          ],
+          "publisher": "Institut für Bibliothekswissenschaft Berlin",
+          "language": [
+            "DE",
+            "EN"
+          ],
+          "title": "Library Ideas"
+        },
+        "month": "12",
+        "keywords": [
+          "library",
+          "open access",
+          "sustainability",
+          "support",
+          "organisational structure",
+          "research infrastructure",
+          "bibliothek",
+          "open access",
+          "nachhaltigkeit",
+          "organisationsstruktur",
+          "forschungsinfrastruktur"
+        ],
+        "year": "2019",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          }
+        ],
+        "author": [
+          {
+            "name": "Andrea Bertino"
+          },
+          {
+            "name": "Jan Rohden"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://libreas.eu/ausgabe36/bertino/"
+          }
+        ],
+        "abstract": "Die Nachhaltigkeit einer digitalen Forschungsinfrastruktur hängt nicht nur von Technik, sondern vor allem von dem Vertrauen ihrer NutzerInnen ab. Dieses Vertrauen wiederum resultiert insbesondere aus dem erkennbaren Mehrwert, den die Angebote der Forschungsinfrastruktur den NutzerInnen bieten können. Um diesen Mehrwert dauerhaft bieten zu können, müssen die Dienste einer Virtuellen Infrastruktur nicht nur kontinuierlich weiterentwickelt werden, sondern es ist auch notwendig, dass die NutzerInnen bei allen mit der Verwendung der Angebote verbundenen Fragen unterstützt werden. Der vorliegende Beitrag skizziert ein Modell, um fortlaufende Weiterentwicklung und nutzerfreundliche Unterstützungsangebote der Infrastruktur zu vereinen. Die Grundlage dafür bildet eine Neubetrachtung des Helpdesks von DARIAH-DE, der deutschen Beteiligung an der europäischen Forschungsinfrastruktur DARIAH-EU (Digital Research Infrastructure for the Arts and Humanities).",
+        "title": "Support, Bedarfserhebung, Wissensvermittlung: Der DARIAH-DE Helpdesk"
+      },
+      "id": "009e39deac724aeda502008cd524867c",
+      "created_date": "2020-06-08T06:23:57Z"
+    },
+    {
+      "last_updated": "2025-08-20T03:22:31Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1994-5639",
+            "type": "pissn"
+          },
+          {
+            "id": "2310-5828",
+            "type": "eissn"
+          },
+          {
+            "id": "10.17853/1994-5639-2020-10-90-115",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "22",
+          "number": "10",
+          "country": "RU",
+          "issns": [
+            "1994-5639",
+            "2310-5828"
+          ],
+          "publisher": "Russian State Vocational Pedagogical University",
+          "language": [
+            "RU"
+          ],
+          "title": "Образование и наука"
+        },
+        "month": "12",
+        "end_page": "115",
+        "keywords": [
+          "digitalisation of education",
+          "pandemic",
+          "distance education",
+          "humanitarian resistance",
+          "humanism",
+          "trauma theory",
+          "mobilisation",
+          "social networks",
+          "mass media"
+        ],
+        "year": "2020",
+        "start_page": "90",
+        "subject": [
+          {
+            "code": "L",
+            "scheme": "LCC",
+            "term": "Education"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Educational Strategies Institute",
+            "name": "I. Ya. Murzina"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://www.edscience.ru/jour/article/view/1898"
+          }
+        ],
+        "abstract": "Introduction. In the context of a pandemic, significant transformations in education have occurred: the urgent shift to new forms of learning and digitalisation of the learning process have become a challenge to the traditional understanding of education as a public good, based on humanistic grounds. In the media and social networks, there was a public debate over the prospects of the education for several months. The disparity in opinions and not always accurate determination of the positions of the authors of numerous publications highlight the need for analysing the situation in modern education from the standpoint of axiology and cultural studies.Aim. The present publication is aimed to consider the current changes in education in the conditions of digitalisation and to identify the potential of humanistic pedagogy.Methodology and research methods. The study is based on an interdisciplinary methodology, which integrates the achievements of the humanities and social sciences. The method of cluster analysis, content analysis in the mass media and social media, supplemented by group identification analysis, were employed.Research results. According to the findings of the present study, it was concluded that the contemporary processes in Russian education can be described from the point of view of trauma theory. The author introduces the concept of “humanitarian resistance”, which is referred to the forms of symbolic protest, based on the values of humanism, national and cultural traditions, and non-violence. Furthermore, the author proposes a primary classification of the forms of humanitarian resistance in Russian education, including worldview, axiological, socio-psychological and pedagogical aspects. In the current article, the essence of each aspect is disclosed on specific examples.Scientific novelty of the conducted research lies in the theoretical justification of the analysis of current educational practices from a philosophical and cultural point of view. The introduction of new categories into scientific circulation allows for an adequate description of the current processes in education. The article is debatable, involving the discussion on the problems of education as a public good and the teacher as a bearer of the humanistic tradition in terms of digitalisation.Practical significance of the research consists in the possibility of using its results to determine the prospects of educational policy in the digital society, as well as to develop the strategies and to select teacher training routes in new conditions.",
+        "title": "Humanitarian resistance in the context of digitalisation of education"
+      },
+      "created_date": "2021-01-13T17:16:13Z",
+      "id": "00a29a4f77d54b9b9fc27b10736e6877"
+    }
+  ],
+  "next": "https://doaj.org/api/v4/search/articles/digital%20humanities?page=2&pageSize=10",
+  "last": "https://doaj.org/api/v4/search/articles/digital%20humanities?page=461&pageSize=10"
+}

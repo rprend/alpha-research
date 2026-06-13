@@ -40,6 +40,7 @@ const requiredPackageScripts = [
   'kb:tables',
   'kb:ingest:departments',
   'kb:import:gutenberg',
+  'kb:ingest:web',
   'kb:search',
   'kb:audit',
   'kb:refresh',
@@ -119,6 +120,7 @@ assert(existsSync(join(root, 'scripts/kb-build-search-index.mjs')), 'Missing loc
 assert(existsSync(join(root, 'scripts/kb-build-analytical-tables.mjs')), 'Missing local humanities KB analytical table script.')
 assert(existsSync(join(root, 'scripts/kb-ingest-department-pages.mjs')), 'Missing local humanities KB department page ingest script.')
 assert(existsSync(join(root, 'scripts/kb-import-gutenberg-local.mjs')), 'Missing local humanities KB Gutenberg local import script.')
+assert(existsSync(join(root, 'scripts/kb-ingest-web-metadata.mjs')), 'Missing local humanities KB web metadata ingest script.')
 assert(existsSync(join(root, 'scripts/kb-search.mjs')), 'Missing local humanities KB search script.')
 assert(existsSync(join(root, 'scripts/kb-audit-coverage.mjs')), 'Missing local humanities KB coverage audit script.')
 assert(existsSync(join(root, 'scripts/kb-refresh.mjs')), 'Missing local humanities KB refresh script.')

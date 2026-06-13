@@ -22,6 +22,7 @@ pnpm kb:inventory
 pnpm kb:ingest:core
 pnpm kb:ingest:departments
 pnpm kb:import:gutenberg
+pnpm kb:ingest:web
 pnpm kb:tables
 pnpm kb:index
 pnpm kb:audit
@@ -56,5 +57,7 @@ Current normalized staging outputs:
 - `indexes/source-documents-keyword-index.json`
 
 The KB also imports a bounded local Project Gutenberg text sample from the existing Gutenberg experiment cache and stores extracted public department-page text for local analysis.
+
+The web metadata ingest adds bounded local records for DOAJ, Internet Archive, NBER, Public Books, and Digital Humanities Quarterly when their public routes respond. Failed routes are retained in `audits/failed-routes.jsonl`.
 
 This does not claim full local acquisition yet. Sources with `ingest_status` of `planned` or `seeded-from-experiment` still need dedicated ingest jobs before they can support broad claims. The staging JSONL/CSV/SQLite files are the current local analytical layer. Parquet/DuckDB output still requires adding a Parquet writer or DuckDB dependency.
