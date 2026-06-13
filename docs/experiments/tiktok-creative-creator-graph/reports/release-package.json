@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T02:22:05.416Z",
+  "generated_at": "2026-06-13T02:25:09.000Z",
   "objective": "TikTok creative creator graph release package",
   "counts": {
     "accounts": 1900,
@@ -10,7 +10,7 @@
     "review_queue": 1896
   },
   "readiness": {
-    "generated_at": "2026-06-13T02:18:22.975Z",
+    "generated_at": "2026-06-13T02:22:06.285Z",
     "complete": false,
     "counts": {
       "accounts": 1900,
@@ -62,6 +62,8 @@
       "wave_ledger_under_yield_imports": 0,
       "external_lead_packet_assignments": 120,
       "external_lead_packet_requested_leads": 30000,
+      "external_lead_template_files": 120,
+      "external_lead_template_rows": 30000,
       "external_lead_packet_completed_files": 0,
       "external_lead_packet_import_ready_assignments": 0,
       "external_lead_packet_valid_leads": 0,
@@ -214,6 +216,11 @@
         "id": "external_lead_packet",
         "status": "pass",
         "evidence": "120 assignments requesting 30000 leads"
+      },
+      {
+        "id": "external_lead_templates",
+        "status": "pass",
+        "evidence": "120 templates, 30000 rows"
       },
       {
         "id": "external_lead_progress",

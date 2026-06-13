@@ -381,6 +381,7 @@ function main() {
       external_lead_template_rows: externalLeadTemplates?.total_template_rows ?? 0,
       external_lead_packet_completed_files: externalLeadProgress?.completed_files_seen ?? 0,
       external_lead_packet_import_ready_assignments: externalLeadProgress?.import_ready_assignments ?? 0,
+      external_lead_packet_no_valid_handles_assignments: externalLeadProgress?.no_valid_handles_assignments ?? 0,
       external_lead_packet_valid_leads: externalLeadProgress?.valid_leads ?? 0,
       external_lead_packet_lead_fill_ratio: externalLeadProgress?.lead_fill_ratio ?? 0,
       external_lead_packet_ready_files: externalLeadPacketImport?.ready_files ?? 0,
@@ -475,6 +476,7 @@ Complete: ${summary.complete}
 - External lead template rows: ${summary.counts.external_lead_template_rows}
 - External lead packet completed files: ${summary.counts.external_lead_packet_completed_files}
 - External lead packet import-ready assignments: ${summary.counts.external_lead_packet_import_ready_assignments}
+- External lead packet no-valid-handles assignments: ${summary.counts.external_lead_packet_no_valid_handles_assignments}
 - External lead packet valid leads: ${summary.counts.external_lead_packet_valid_leads}
 - External lead packet lead fill ratio: ${summary.counts.external_lead_packet_lead_fill_ratio}
 - External lead packet ready files: ${summary.counts.external_lead_packet_ready_files}

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T02:22:06.285Z",
+  "generated_at": "2026-06-13T02:25:10.079Z",
   "complete": false,
   "counts": {
     "accounts": 1900,
@@ -55,6 +55,7 @@
     "external_lead_template_rows": 30000,
     "external_lead_packet_completed_files": 0,
     "external_lead_packet_import_ready_assignments": 0,
+    "external_lead_packet_no_valid_handles_assignments": 0,
     "external_lead_packet_valid_leads": 0,
     "external_lead_packet_lead_fill_ratio": 0,
     "external_lead_packet_ready_files": 0,

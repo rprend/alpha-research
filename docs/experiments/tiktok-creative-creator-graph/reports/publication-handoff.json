@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T02:22:06.198Z",
+  "generated_at": "2026-06-13T02:25:09.987Z",
   "dataset_id": "tiktok-creative-creator-graph",
   "title": "TikTok Creative Creator Graph",
   "publish_state": "not-ready-production-data",
@@ -73,6 +73,7 @@
     "external_lead_template_rows": 30000,
     "external_lead_packet_completed_files": 0,
     "external_lead_packet_import_ready_assignments": 0,
+    "external_lead_packet_no_valid_handles_assignments": 0,
     "external_lead_packet_valid_leads": 0,
     "external_lead_packet_ready_files": 0,
     "external_lead_packet_pending_import_files": 0,

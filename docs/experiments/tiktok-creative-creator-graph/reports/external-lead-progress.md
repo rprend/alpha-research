@@ -1,12 +1,13 @@
 # External Lead Progress
 
-Generated: 2026-06-13T02:22:05.922Z
+Generated: 2026-06-13T02:25:09.684Z
 
 - Packet assignments: 120
 - Completed files seen: 0
 - Import-ready assignments: 0
 - Not started assignments: 120
 - Needs-fix assignments: 0
+- No-valid-handles assignments: 0
 - Under-minimum ready assignments: 0
 - Ready-to-import assignments: 0
 - Valid leads: 0

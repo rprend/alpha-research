@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-13T02:22:06.285Z
+Generated: 2026-06-13T02:25:10.079Z
 
 Complete: false
 
@@ -58,6 +58,7 @@ Complete: false
 - External lead template rows: 30000
 - External lead packet completed files: 0
 - External lead packet import-ready assignments: 0
+- External lead packet no-valid-handles assignments: 0
 - External lead packet valid leads: 0
 - External lead packet lead fill ratio: 0
 - External lead packet ready files: 0

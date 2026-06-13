@@ -152,6 +152,7 @@ function main() {
       external_lead_template_rows: externalLeadTemplates?.total_template_rows ?? 0,
       external_lead_packet_completed_files: externalLeadProgress?.completed_files_seen ?? 0,
       external_lead_packet_import_ready_assignments: externalLeadProgress?.import_ready_assignments ?? 0,
+      external_lead_packet_no_valid_handles_assignments: externalLeadProgress?.no_valid_handles_assignments ?? 0,
       external_lead_packet_valid_leads: externalLeadProgress?.valid_leads ?? 0,
       external_lead_packet_ready_files: externalLeadPacketImport?.ready_files ?? 0,
       external_lead_packet_pending_import_files: externalLeadPacketImport?.pending_files ?? 0,
@@ -331,6 +332,7 @@ ${handoff.objective}
 - External lead template rows: ${handoff.current_corpus.external_lead_template_rows}
 - External lead packet completed files: ${handoff.current_corpus.external_lead_packet_completed_files}
 - External lead packet import-ready assignments: ${handoff.current_corpus.external_lead_packet_import_ready_assignments}
+- External lead packet no-valid-handles assignments: ${handoff.current_corpus.external_lead_packet_no_valid_handles_assignments}
 - External lead packet valid leads: ${handoff.current_corpus.external_lead_packet_valid_leads}
 - External lead packet ready files: ${handoff.current_corpus.external_lead_packet_ready_files}
 - External lead packet pending import files: ${handoff.current_corpus.external_lead_packet_pending_import_files}

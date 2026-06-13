@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-13T02:22:06.198Z
+Generated: 2026-06-13T02:25:09.987Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -51,6 +51,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - External lead template rows: 30000
 - External lead packet completed files: 0
 - External lead packet import-ready assignments: 0
+- External lead packet no-valid-handles assignments: 0
 - External lead packet valid leads: 0
 - External lead packet ready files: 0
 - External lead packet pending import files: 0

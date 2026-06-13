@@ -134,12 +134,20 @@ function evaluateAssignment(assignment, completedFiles) {
   const duplicateHandles = Math.max(0, handles.length - uniqueHandles.size)
   const validRows = rows.filter((row) => normalizeHandle(row.handle ?? row.username ?? row.profile_url ?? row.url)).length
   const minimum = Number(assignment.minimum_accepted_leads || assignment.lead_target || 1)
-  const importReady = missingColumns.length === 0 && validRows > 0
-  const status = !importReady
+  const hasRequiredColumns = missingColumns.length === 0
+  const importReady = hasRequiredColumns && validRows > 0
+  const status = !hasRequiredColumns
     ? 'needs_fix'
-    : validRows >= minimum
-      ? 'ready_to_import'
-      : 'under_minimum_ready'
+    : validRows === 0
+      ? 'no_valid_handles'
+      : validRows >= minimum
+        ? 'ready_to_import'
+        : 'under_minimum_ready'
+  const nextAction = (() => {
+    if (!hasRequiredColumns) return `Fix missing columns for ${assignment.completed_file_name}: ${missingColumns.join(', ')}`
+    if (!validRows) return `Add TikTok handles or profile_url values to ${assignment.completed_file_name}`
+    return importReady ? assignment.import_command : `Add ${minimum - validRows} more valid leads or import as under-minimum ready`
+  })()
 
   return {
     ...assignment,
@@ -151,7 +159,7 @@ function evaluateAssignment(assignment, completedFiles) {
     missing_required_columns: missingColumns.join('|'),
     import_ready: importReady,
     progress_ratio: Number((validRows / Math.max(1, Number(assignment.lead_target || 1))).toFixed(3)),
-    next_action: importReady ? assignment.import_command : `Fix missing columns for ${assignment.completed_file_name}: ${missingColumns.join(', ')}`,
+    next_action: nextAction,
   }
 }
 
@@ -184,6 +192,7 @@ function main() {
     import_ready_assignments: readyRows.length,
     not_started_assignments: byStatus.not_started ?? 0,
     needs_fix_assignments: byStatus.needs_fix ?? 0,
+    no_valid_handles_assignments: byStatus.no_valid_handles ?? 0,
     under_minimum_ready_assignments: byStatus.under_minimum_ready ?? 0,
     ready_to_import_assignments: byStatus.ready_to_import ?? 0,
     valid_leads: rows.reduce((sum, row) => sum + Number(row.valid_rows || 0), 0),
@@ -209,6 +218,7 @@ Generated: ${summary.generated_at}
 - Import-ready assignments: ${summary.import_ready_assignments}
 - Not started assignments: ${summary.not_started_assignments}
 - Needs-fix assignments: ${summary.needs_fix_assignments}
+- No-valid-handles assignments: ${summary.no_valid_handles_assignments}
 - Under-minimum ready assignments: ${summary.under_minimum_ready_assignments}
 - Ready-to-import assignments: ${summary.ready_to_import_assignments}
 - Valid leads: ${summary.valid_leads}
