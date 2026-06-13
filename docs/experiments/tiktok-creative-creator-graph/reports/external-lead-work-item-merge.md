@@ -1,10 +1,10 @@
 # External Lead Work Item Merge
 
-Generated: 2026-06-13T07:48:09.757Z
+Generated: 2026-06-13T11:01:21.206Z
 
 - Work-item completed directory: `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-items-completed`
 - Assignment completed directory: `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed`
-- Known work items: 956
+- Known work items: 837
 - Input files: 0
 - Merged input files: 0
 - Unknown work-item files: 0

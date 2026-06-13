@@ -386,8 +386,10 @@ function classifyAndScore(accounts, videos, edges, rubric) {
     const highRankSource = rankedEditorialSource && bestSourceRank <= 25
     const midRankSource = rankedEditorialSource && bestSourceRank <= 75
     const hasAudienceEvidence = Number(account.follower_count ?? 0) > 0
+    const hasMeaningfulAudienceEvidence = Number(account.follower_count ?? 0) >= 10000
     const publicProfileVideoCount = toNumber(account.video_count)
     const hasPublicProfileActivity = publicProfileVideoCount > 0
+    const hasSubstantialPublicProfileActivity = publicProfileVideoCount >= 100
     const recentDays = account.last_post_at ? daysSince(account.last_post_at) : Infinity
     const videoCount = creatorVideos.length
     const uniqueHashtags = new Set(creatorVideos.flatMap((video) => video.hashtags).filter((tag) => !rubric.low_signal_hashtags.includes(tag))).size
@@ -436,6 +438,9 @@ function classifyAndScore(accounts, videos, edges, rubric) {
     const publicSourceEvidence = primaryLabel === 'reject'
       ? 0
       : Math.min(100, (rankedEditorialSource ? 35 : 0) + (highRankSource ? 20 : 0) + Math.min(25, sourceCount * 8) + (hasAudienceEvidence ? 8 : 0) + (hasPublicProfileActivity ? 16 : 0))
+    const activeProfileEvidence = primaryLabel === 'reject'
+      ? 0
+      : Math.min(100, (sourcePrimaryLabel ? 36 : 0) + (hasSubstantialPublicProfileActivity ? 38 : 0) + (hasMeaningfulAudienceEvidence ? 16 : 0) + (sourceCount > 1 ? 10 : 0))
     const repostRisk = Math.min(100, rejectHits.length * 35 + (text.includes('credit to owner') ? 45 : 0) + (/\bclips?\b/i.test(text) ? 30 : 0))
     const weighted = (
       creativeSignal * rubric.weights.creative_signal
@@ -446,6 +451,7 @@ function classifyAndScore(accounts, videos, edges, rubric) {
       + recency * rubric.weights.recency
       + crossPlatformEvidence * rubric.weights.cross_platform_evidence
       + publicSourceEvidence * (rubric.weights.public_source_evidence ?? 0)
+      + activeProfileEvidence * (rubric.weights.active_profile_evidence ?? 0)
     )
     const overallUsefulness = Math.max(0, Math.min(100, weighted - repostRisk * 0.35))
     const status = primaryLabel === 'reject'
@@ -482,6 +488,7 @@ function classifyAndScore(accounts, videos, edges, rubric) {
       graph_value: Math.round(graphValue),
       cross_platform_evidence: Math.round(crossPlatformEvidence),
       public_source_evidence: Math.round(publicSourceEvidence),
+      active_profile_evidence: Math.round(activeProfileEvidence),
       public_profile_video_count: publicProfileVideoCount,
       repost_risk: Math.round(repostRisk),
       overall_usefulness: Math.round(overallUsefulness),

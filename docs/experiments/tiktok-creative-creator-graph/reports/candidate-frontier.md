@@ -1,61 +1,61 @@
 # Candidate Frontier
 
-Generated: 2026-06-13T07:48:24.155Z
+Generated: 2026-06-13T11:01:39.699Z
 
-- Candidates: 412
-- Handle targets: 89
-- Query targets: 323
-- Known account targets: 89
+- Candidates: 314
+- Handle targets: 250
+- Query targets: 64
+- Known account targets: 250
 
 ## Surfaces
 
-- tiktok_hashtag_export: 259
-- cross_platform_search: 16
-- search_index: 11
+- tiktok_hashtag_export: 12
 - category_gap_search: 37
-- tiktok_creator_neighborhood_export: 89
+- search_index: 10
+- cross_platform_search: 5
+- tiktok_creator_neighborhood_export: 250
 
 ## Target Labels
 
-- filmmaker: 27
-- sketch_comedian: 16
-- cinematographer: 14
-- unclassified: 93
-- standup_comedian: 11
-- vfx_animation: 30
-- director: 6
-- behind_the_scenes_creator: 135
-- editor: 42
-- film_educator: 27
+- filmmaker: 7
+- sketch_comedian: 7
+- standup_comedian: 7
+- vfx_animation: 10
+- cinematographer: 5
+- director: 4
+- editor: 3
+- film_educator: 4
+- creative_technologist: 4
+- unclassified: 248
+- behind_the_scenes_creator: 9
 - actor_performer: 6
-- creative_technologist: 5
 
 ## Top Candidates
 
 | Rank | Score | Priority | Kind | Surface | Label | Target |
 | ---: | ---: | ---: | --- | --- | --- | --- |
-| 1 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | 4kprojector |
-| 2 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | africa |
-| 3 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | arianagrande |
-| 4 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | artistsoftiktok |
-| 5 | 92 | 1 | query | tiktok_hashtag_export | sketch_comedian | black |
-| 6 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | core |
-| 7 | 92 | 1 | query | cross_platform_search | filmmaker | site:vimeo.com "tiktok.com/@" "filmmaker" |
-| 8 | 92 | 1 | query | tiktok_hashtag_export | sketch_comedian | skitok |
-| 9 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | swag |
-| 10 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | tiktoker |
-| 11 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | tistheseasoning |
-| 12 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | top10 |
-| 13 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | trippledipper |
-| 14 | 90 | 1 | query | tiktok_hashtag_export | cinematographer | couple |
-| 15 | 90 | 1 | query | tiktok_hashtag_export | cinematographer | stitch |
-| 16 | 87 | 1 | query | search_index | unclassified | behind the scenes\|bts\|making of\|how i made\|on set\|setup\|process\|tutorial\|breakdown\|how to\|film analysis\|camera tips\|lighting setup |
-| 17 | 87 | 1 | query | tiktok_hashtag_export | filmmaker | filmmaker |
-| 18 | 86 | 1 | query | tiktok_hashtag_export | filmmaker | behindthescenes |
-| 19 | 86 | 1 | query | tiktok_hashtag_export | standup_comedian | comediante |
-| 20 | 86 | 1 | query | tiktok_hashtag_export | standup_comedian | comedy |
-| 21 | 86 | 1 | query | tiktok_hashtag_export | standup_comedian | fypdong |
-| 22 | 85 | 1 | query | tiktok_hashtag_export | vfx_animation | apple |
-| 23 | 85 | 1 | query | tiktok_hashtag_export | vfx_animation | cat |
-| 24 | 85 | 1 | query | tiktok_hashtag_export | vfx_animation | video |
-| 25 | 83 | 1 | query | tiktok_hashtag_export | sketch_comedian | apartment |
+| 1 | 85 | 1 | query | tiktok_hashtag_export | filmmaker | filmmaker |
+| 2 | 80 | 1 | query | tiktok_hashtag_export | filmmaker | shortfilm |
+| 3 | 76 | 1 | query | tiktok_hashtag_export | sketch_comedian | sketchcomedy |
+| 4 | 72 | 1 | query | tiktok_hashtag_export | standup_comedian | standupcomedy |
+| 5 | 72 | 2 | search_query | category_gap_search | filmmaker | site:tiktok.com/@ "filmmaker" |
+| 6 | 72 | 2 | search_query | search_index | filmmaker | site:tiktok.com/@ "short film" |
+| 7 | 72 | 2 | search_query | category_gap_search | filmmaker | site:tiktok.com/@ "shortfilm" |
+| 8 | 72 | 2 | search_query | search_index | filmmaker | site:tiktok.com/@ filmmaker |
+| 9 | 68 | 1 | query | tiktok_hashtag_export | vfx_animation | animation |
+| 10 | 68 | 1 | query | tiktok_hashtag_export | vfx_animation | vfxartist |
+| 11 | 68 | 2 | search_query | category_gap_search | sketch_comedian | site:tiktok.com/@ "comedy sketch" |
+| 12 | 68 | 2 | search_query | category_gap_search | sketch_comedian | site:tiktok.com/@ "sketch comedian" |
+| 13 | 68 | 2 | search_query | search_index | sketch_comedian | site:tiktok.com/@ "sketch comedy" |
+| 14 | 68 | 2 | search_query | category_gap_search | sketch_comedian | site:tiktok.com/@ "sketch" |
+| 15 | 68 | 2 | search_query | search_index | sketch_comedian | site:tiktok.com/@ actor "sketch" |
+| 16 | 64 | 2 | search_query | category_gap_search | standup_comedian | site:tiktok.com/@ "comedian" |
+| 17 | 64 | 2 | search_query | category_gap_search | standup_comedian | site:tiktok.com/@ "stand-up" |
+| 18 | 64 | 2 | search_query | category_gap_search | standup_comedian | site:tiktok.com/@ "standup comedian" |
+| 19 | 64 | 2 | search_query | category_gap_search | standup_comedian | site:tiktok.com/@ "standup" |
+| 20 | 64 | 2 | search_query | search_index | standup_comedian | site:tiktok.com/@ comedian |
+| 21 | 64 | 3 | query | cross_platform_search | filmmaker | site:instagram.com "tiktok.com/@" "filmmaker" |
+| 22 | 63 | 2 | search_query | category_gap_search | cinematographer | site:tiktok.com/@ "cinematographer" |
+| 23 | 63 | 2 | search_query | category_gap_search | director | site:tiktok.com/@ "commercial director" |
+| 24 | 63 | 2 | search_query | category_gap_search | director | site:tiktok.com/@ "directed by" |
+| 25 | 63 | 2 | search_query | category_gap_search | director | site:tiktok.com/@ "director" |

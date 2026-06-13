@@ -1,5 +1,5 @@
 {
-  "version": "2026-06-12",
+  "version": "2026-06-13",
   "primary_labels": [
     "filmmaker",
     "director",
@@ -47,7 +47,8 @@
     "consistency": 0.1,
     "recency": 0.05,
     "cross_platform_evidence": 0.05,
-    "public_source_evidence": 0.1
+    "public_source_evidence": 0.1,
+    "active_profile_evidence": 0.08
   },
   "thresholds": {
     "useful": 62,

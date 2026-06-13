@@ -1,11 +1,11 @@
 # Acquisition Run
 
-Generated: 2026-06-13T07:48:27.073Z
+Generated: 2026-06-13T11:01:43.244Z
 
 - Provider: public_web
 - Env file loaded: true
 - Provider token available: false
-- Wave: scale_wave_0001
+- Wave: scale_wave_0021
 - Dry run: true
 - Live requested: false
 - Live confirmed: false
@@ -23,5 +23,5 @@ Generated: 2026-06-13T07:48:27.073Z
 
 | Batch | Surface | Target Label | Query | Status | Rows |
 | --- | --- | --- | --- | --- | ---: |
-| hashtag_0011 | tiktok_hashtag_export | filmmaker | filmmaker | dry_run | 0 |
-| graph_0224 | tiktok_hashtag_export | behind_the_scenes_creator | batangquiapo | dry_run | 0 |
+| search_0005 | search_index | cinematographer | site:tiktok.com/@ cinematographer | dry_run | 0 |
+| search_0007 | search_index | vfx_animation | site:tiktok.com/@ "vfx artist" | dry_run | 0 |

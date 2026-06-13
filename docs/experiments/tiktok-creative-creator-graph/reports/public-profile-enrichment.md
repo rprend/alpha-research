@@ -1,114 +1,114 @@
 # Public Profile Enrichment
 
-Generated: 2026-06-13T07:44:17.278Z
+Generated: 2026-06-13T11:01:10.636Z
 
 - Provider: tiktok_public_profile_html
 - Dry run: false
-- Selected profiles: 1000
-- Output rows: 336
-- Output path: docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T07-41-56-628Z-public-profile-enrichment.jsonl
-- Succeeded profiles: 336
-- Failed profiles: 664
+- Selected profiles: 3000
+- Output rows: 2672
+- Output path: docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T08-12-39-866Z-public-profile-enrichment.jsonl
+- Succeeded profiles: 2672
+- Failed profiles: 328
 
 ## Profiles
 
 - @maya.shortcuts: failed, missing_video_count_review_queue_priority_1, prior 98
-- @basementbits: failed, missing_video_count_review_queue_priority_1, prior 94
+- @basementbits: failed, missing_video_count_review_queue_priority_1, prior 95
 - @selahshoots: failed, missing_video_count_review_queue_priority_1, prior 92
+- @noahframes: failed, missing_video_count_review_queue_priority_1, prior 87
 - @ani.motionlab: failed, missing_video_count_review_queue_priority_1, prior 87
-- @noahframes: failed, missing_video_count_review_queue_priority_1, prior 86
 - @renderjules: failed, missing_video_count_review_queue_priority_3, prior 78
-- @appletechmx2.0: succeeded, review_queue_priority_1, prior 93
-- @ariadneahg: succeeded, review_queue_priority_1, prior 93
-- @brainbreakdowns: failed, review_queue_priority_1, prior 93
-- @evegreenberg: succeeded, review_queue_priority_1, prior 93
-- @itscassiethorpe: succeeded, review_queue_priority_1, prior 93
-- @madeby.marsha: succeeded, review_queue_priority_1, prior 93
-- @madtwinzofficial: succeeded, review_queue_priority_1, prior 93
-- @meg02340: succeeded, review_queue_priority_1, prior 93
-- @mralves10: succeeded, review_queue_priority_1, prior 93
-- @thatslowkey.raggedy: succeeded, review_queue_priority_1, prior 93
-- @yoel_203: succeeded, review_queue_priority_1, prior 93
-- @hairbycamerync: succeeded, review_queue_priority_1, prior 93
-- @jakyglz25: succeeded, review_queue_priority_1, prior 93
-- @jeannette.r_: succeeded, review_queue_priority_1, prior 93
-- @jwd__1_2_3: failed, review_queue_priority_1, prior 93
-- @kokahamamonta2: failed, review_queue_priority_1, prior 93
-- @lalalover_edits: failed, review_queue_priority_1, prior 93
-- @lalapoong: failed, review_queue_priority_1, prior 93
-- @leiny_fitness: failed, review_queue_priority_1, prior 93
-- @llvrpogue: failed, review_queue_priority_1, prior 93
-- @lofixx_y: failed, review_queue_priority_1, prior 93
-- @lugo1947: failed, review_queue_priority_1, prior 93
-- @lukluk__o: failed, review_queue_priority_1, prior 93
-- @lyricsbydan: failed, review_queue_priority_1, prior 93
-- @malikfaraz5124: failed, review_queue_priority_1, prior 93
-- @mc_wasdoomed: failed, review_queue_priority_1, prior 93
-- @melomadethists: failed, review_queue_priority_1, prior 93
-- @memeceno: failed, review_queue_priority_1, prior 93
-- @micket_o: failed, review_queue_priority_1, prior 93
-- @mr4qh: failed, review_queue_priority_1, prior 93
-- @mstar_cr_: failed, review_queue_priority_1, prior 93
-- @myunfilteredmind_: failed, review_queue_priority_1, prior 93
-- @newrisesa: failed, review_queue_priority_1, prior 93
-- @notxander_13_21: failed, review_queue_priority_1, prior 93
-- @ayah.capcut: failed, review_queue_priority_1, prior 92
-- @erixk-: failed, review_queue_priority_1, prior 92
-- @omgitsgeraldhuston: failed, review_queue_priority_1, prior 92
-- @dean_videography: failed, review_queue_priority_1, prior 92
-- @stealurs: failed, review_queue_priority_1, prior 92
-- @hydras.deadliest.assasin: failed, review_queue_priority_1, prior 92
-- @refinedambition_: failed, review_queue_priority_1, prior 92
-- @zbluues: failed, review_queue_priority_1, prior 92
-- @goated.aeppp: succeeded, review_queue_priority_1, prior 92
-- @_robzzz_: failed, review_queue_priority_1, prior 92
-- @kyanpepper22: failed, review_queue_priority_1, prior 92
-- @steves.ae: succeeded, review_queue_priority_1, prior 92
-- @gulovskyedits: failed, review_queue_priority_1, prior 92
-- @krisxeditz: failed, review_queue_priority_1, prior 92
-- @capcutjaz04: failed, review_queue_priority_1, prior 92
-- @olin_florida: failed, review_queue_priority_1, prior 92
-- @modernfamilybestie: failed, review_queue_priority_1, prior 92
-- @joshiferseverlark: failed, review_queue_priority_1, prior 92
-- @graysvfx_: failed, review_queue_priority_1, prior 92
-- @idetectiveauthor: failed, review_queue_priority_1, prior 92
-- @chrissiesedits: failed, review_queue_priority_1, prior 92
-- @fi1tz: failed, review_queue_priority_1, prior 92
-- @ohybrid: failed, review_queue_priority_1, prior 92
-- @bill_wyers11: failed, review_queue_priority_1, prior 92
-- @..dailymemepacks: failed, review_queue_priority_1, prior 92
-- @.hy6ri: failed, review_queue_priority_1, prior 92
-- @hassadoxarg: failed, review_queue_priority_1, prior 92
-- @houseofhighlights: failed, review_queue_priority_1, prior 92
-- @sh0m3less: failed, review_queue_priority_1, prior 92
-- @cinefty: failed, review_queue_priority_1, prior 92
-- @seoyoung.bts: failed, review_queue_priority_1, prior 92
-- @vivijoonie: failed, review_queue_priority_1, prior 92
-- @yorthv.jk: failed, review_queue_priority_1, prior 92
-- @ammluar: failed, review_queue_priority_1, prior 92
-- @aprlcltyyy: failed, review_queue_priority_1, prior 92
-- @armaniblanco: failed, review_queue_priority_1, prior 92
-- @skyandtami: failed, review_queue_priority_1, prior 92
-- @thehoneyyfamily: failed, review_queue_priority_1, prior 92
-- @lud_mcu: failed, review_queue_priority_1, prior 92
-- @mika.zaynalova: failed, review_queue_priority_1, prior 92
-- @miya..bhai.71: failed, review_queue_priority_1, prior 92
-- @daenskitchen: failed, review_queue_priority_1, prior 91
-- @yayadove: failed, review_queue_priority_1, prior 91
-- @geekinedit: failed, review_queue_priority_1, prior 91
-- @..miandme: failed, review_queue_priority_1, prior 91
-- @..spiderbill: failed, review_queue_priority_1, prior 91
-- @.gweter: failed, review_queue_priority_1, prior 91
-- @.mcduffiemedia: failed, review_queue_priority_1, prior 91
-- @11lllin: failed, review_queue_priority_1, prior 91
-- @1r3fj2: failed, review_queue_priority_1, prior 91
-- @2000slegend: failed, review_queue_priority_1, prior 91
-- @_cscedit: failed, review_queue_priority_1, prior 91
-- @_parkereditz: failed, review_queue_priority_1, prior 91
-- @_parthedits.___: failed, review_queue_priority_1, prior 91
-- @add1media: failed, review_queue_priority_1, prior 91
-- @adventureswithcolleen: failed, review_queue_priority_1, prior 91
-- @ae.clix: failed, review_queue_priority_1, prior 91
-- @ae_k47: failed, review_queue_priority_1, prior 91
-- @aepfy: failed, review_queue_priority_1, prior 91
-- @aevqsa: failed, review_queue_priority_1, prior 91
+- @fiinka_: failed, missing_video_count_review_queue_priority_3, prior 49
+- @igorjansen: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @diegoortizoficial: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @constantinerousouli: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @karla_moltsen: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @isa.thorlacius: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @mjcolomaofficial: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @adrian1escalona: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @octaviomier: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @soyorlandosantana: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @gerardo_arturoficial: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @javiluna: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @juanlecanda_: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @robinvegamx: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @robertowohlmuth: failed, missing_video_count_review_queue_priority_3, prior 49
+- @jitscruz: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @nourelnabawyofficial: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @monsurasak_ms: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @yogui_sebastiantames: failed, missing_video_count_review_queue_priority_3, prior 49
+- @sumeyyeaydogannn_: failed, missing_video_count_review_queue_priority_3, prior 49
+- @chiendormant: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @mmio_kudo30: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @kanameendo: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @moeka_nozaki: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @miyuky_way: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @nabinluhagun123: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @aliasistio: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @iamaerolcarmelo.on.ig: failed, missing_video_count_review_queue_priority_3, prior 49
+- @pnatarovofficial: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @takamichi.sato: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @manato_izumi: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @emilianochincoya: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @tylerlawrencegray: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @chaseliefeld: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @gabrieloxguevaraa: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @passyngah: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @rozowoo: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @lukas.urkijo: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @fridaurbinaa: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @minidanielang: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @lidoredri1: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @rafalo94: failed, missing_video_count_review_queue_priority_3, prior 49
+- @john_flores00: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @nnoc_music: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @mr.abedgreen: failed, missing_video_count_review_queue_priority_3, prior 49
+- @jetdelgado_: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @_pjrosario: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @hikaru_nishimoto1231: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @carladogliani: failed, missing_video_count_review_queue_priority_3, prior 49
+- @issa_0401: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @akaneiro1228: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @kotopiyo_days: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @gennosuke_809: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @jun_ishiduki: failed, missing_video_count_review_queue_priority_3, prior 49
+- @pelican.007: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @hayashi_ryunosk: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @khalid_ruiz: failed, missing_video_count_review_queue_priority_3, prior 49
+- @suzukifumina75: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @6505923977482108930: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @akunyan621: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @yoshitsuguabe: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @seonquintos06: failed, missing_video_count_review_queue_priority_3, prior 49
+- @jonathanfierroherrera: failed, missing_video_count_review_queue_priority_3, prior 49
+- @yuzuha_saeki: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @trevorbell_: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @reelrodman: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @mrcymandanteonig: failed, missing_video_count_review_queue_priority_3, prior 49
+- @saviourxxramos: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @nakamura_yuna: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @fadhlimasoot: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @bel__moreira: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @lorenzigio: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @elnickreal: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @juancarlosgalano: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @callinaliang: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @itsmarisadavila: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @leodott: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @quiddie: failed, missing_video_count_review_queue_priority_3, prior 49
+- @emiliotrevino_: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @y_nakamaru_94: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @finlay.hartinger: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @itskikilim: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @tylertennn: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @anagarcesd: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @xaviilock: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @alexaarchu: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @cesar.c: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @mohammedwrya: failed, missing_video_count_review_queue_priority_3, prior 49
+- @chxnyixin: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @xuanniiex: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @karlaesquivelc: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @masaki_suguru: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @ryuchannel29: succeeded, missing_video_count_review_queue_priority_3, prior 49
+- @omi.natsuki.official: failed, missing_video_count_review_queue_priority_3, prior 49

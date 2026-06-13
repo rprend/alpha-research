@@ -1,16 +1,45 @@
 {
-  "generated_at": "2026-06-13T07:48:26.788Z",
+  "generated_at": "2026-06-13T11:01:42.953Z",
   "dry_run": false,
   "force": false,
   "max_files": 1000,
   "status_rows": 200,
-  "ready_files": 39,
-  "already_imported_ready_files": 39,
-  "pending_files": 0,
-  "imported_files": 0,
+  "ready_files": 61,
+  "already_imported_ready_files": 59,
+  "pending_files": 2,
+  "imported_files": 2,
   "failed_files": 0,
-  "output_rows": 0,
+  "output_rows": 500,
   "ledger_path": "docs/experiments/tiktok-creative-creator-graph/data/processed/external_lead_packet_imports.jsonl",
-  "results": [],
+  "results": [
+    {
+      "assignment_id": "external_packet_0026",
+      "completed_file_name": "0026-actor_performer.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0026-actor_performer.csv",
+      "sha256": "95b193b0ee9cf3d2016bbc01d2e09f31534d079aa049edea4bd0925184f49fdb",
+      "file_size_bytes": 53680,
+      "status": "imported",
+      "generated_at": "2026-06-13T11:01:42.920Z",
+      "output_rows": 250,
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T11-01-42-913Z-external-lead-list.jsonl",
+      "target_label_counts": {
+        "actor_performer": 250
+      }
+    },
+    {
+      "assignment_id": "external_packet_0154",
+      "completed_file_name": "0154-actor_performer.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0154-actor_performer.csv",
+      "sha256": "33582e14297e1c72a9e69b9fabc7941ec84429d81e6842731d383ba2edd5a85b",
+      "file_size_bytes": 53377,
+      "status": "imported",
+      "generated_at": "2026-06-13T11:01:42.952Z",
+      "output_rows": 250,
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T11-01-42-946Z-external-lead-list.jsonl",
+      "target_label_counts": {
+        "actor_performer": 250
+      }
+    }
+  ],
   "next_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs && node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs"
 }

@@ -1,6 +1,6 @@
 # Live Manifest Run
 
-Generated: 2026-06-13T07:48:27.076Z
+Generated: 2026-06-13T11:01:43.247Z
 
 - Mode: dry_run
 - Provider: public_web
@@ -16,7 +16,7 @@ Generated: 2026-06-13T07:48:27.076Z
 
 ## Wave Steps
 
-- scale_wave_0001: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --provider=public_web --dry-run --max-tasks=2 --priority-max=2 --wave=1`)
+- scale_wave_0021: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --provider=public_web --dry-run --max-tasks=2 --priority-max=2 --wave=21`)
 
 ## Post Steps
 

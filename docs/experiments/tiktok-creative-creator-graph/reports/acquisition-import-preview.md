@@ -1,24 +1,24 @@
 # Acquisition Import Preview
 
-Generated: 2026-06-13T07:48:11.735Z
+Generated: 2026-06-13T11:01:23.410Z
 
-- Input rows: 173409
-- Normalized rows: 173409
+- Input rows: 191689
+- Normalized rows: 191689
 - Skipped rows: 0
-- Duplicate normalized rows: 133838
-- Output accounts if imported: 39571
+- Duplicate normalized rows: 152115
+- Output accounts if imported: 39574
 - Ready to import: no
 - Normalized rate: 100.0%
-- Duplicate rate: 77.2%
-- Mapped lineage rows: 173403
+- Duplicate rate: 79.4%
+- Mapped lineage rows: 191683
 - Unmapped lineage rows: 6
 
 ## Checks
 
-- has_rows: pass - 173409 input rows
+- has_rows: pass - 191689 input rows
 - handle_extraction: pass - 100.0% normalized, threshold 75.0%
-- duplicate_pressure: fail - 77.2% duplicate normalized rows, threshold 65.0% (metadata overlay)
-- lineage_mapping: pass - 173403/173409 rows mapped to provider/wave lineage
+- duplicate_pressure: fail - 79.4% duplicate normalized rows, threshold 65.0% (metadata overlay)
+- lineage_mapping: pass - 191683/191689 rows mapped to provider/wave lineage
 
 ## Source Files
 
@@ -441,6 +441,67 @@ Generated: 2026-06-13T07:48:11.735Z
 - 2026-06-13T07-41-45-511Z-external-lead-list.jsonl: 87
 - 2026-06-13T07-41-45-541Z-external-lead-list.jsonl: 250
 - 2026-06-13T07-41-56-628Z-public-profile-enrichment.jsonl: 336
+- 2026-06-13T07-52-21-617Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-52-21-655Z-external-lead-list.jsonl: 186
+- 2026-06-13T07-52-21-689Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-52-21-724Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-52-21-759Z-external-lead-list.jsonl: 88
+- 2026-06-13T07-52-21-791Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-52-21-826Z-external-lead-list.jsonl: 233
+- 2026-06-13T07-52-21-860Z-external-lead-list.jsonl: 192
+- 2026-06-13T07-52-21-896Z-external-lead-list.jsonl: 119
+- 2026-06-13T07-52-21-929Z-external-lead-list.jsonl: 87
+- 2026-06-13T07-52-21-962Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-52-21-998Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-52-22-034Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-52-22-069Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-52-22-105Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-52-22-139Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-52-22-173Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-52-22-207Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-53-45-096Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-53-45-135Z-external-lead-list.jsonl: 157
+- 2026-06-13T07-53-45-173Z-external-lead-list.jsonl: 233
+- 2026-06-13T07-53-45-210Z-external-lead-list.jsonl: 88
+- 2026-06-13T07-53-45-245Z-external-lead-list.jsonl: 119
+- 2026-06-13T07-53-45-280Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-53-45-316Z-external-lead-list.jsonl: 87
+- 2026-06-13T07-53-45-351Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-53-45-388Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-53-45-425Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-53-45-462Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-53-45-497Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-53-45-532Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-53-45-567Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-53-45-601Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-53-45-639Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-53-45-674Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-56-53-673Z-external-lead-list.jsonl: 119
+- 2026-06-13T07-56-53-705Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-56-53-738Z-external-lead-list.jsonl: 87
+- 2026-06-13T07-56-53-768Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-56-53-800Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-56-53-833Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-56-53-867Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-56-53-901Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-56-53-934Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-56-53-967Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-56-54-000Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-56-54-032Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-56-54-065Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-56-54-098Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-56-54-131Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-56-54-163Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-56-54-198Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-56-54-231Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-56-54-264Z-external-lead-list.jsonl: 52
+- 2026-06-13T07-56-54-294Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-56-54-327Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-56-54-359Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-58-13-728Z-public-profile-enrichment.jsonl: 2511
+- 2026-06-13T08-12-28-135Z-external-lead-list.jsonl: 250
+- 2026-06-13T08-12-28-168Z-external-lead-list.jsonl: 250
+- 2026-06-13T08-12-39-866Z-public-profile-enrichment.jsonl: 2672
 - editorial-list-seeds-2026-06-12.jsonl: 21
 - smoke-provider-results.jsonl: 3
 - smoke-search-results.jsonl: 3

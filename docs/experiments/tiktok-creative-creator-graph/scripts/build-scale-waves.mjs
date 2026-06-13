@@ -50,7 +50,88 @@ function taskScore(task) {
   const priorityScore = 10 - Number(task.priority || 5)
   const yieldScore = Number(task.yield_score || 0) / 10
   const gapScore = Math.min(10, Number(task.target_label_gap || 0) / 1000)
-  return priorityScore + yieldScore + gapScore
+  return priorityScore + yieldScore + gapScore + creativeIntentScore(task) - noisyQueryPenalty(task)
+}
+
+function creativeIntentScore(task) {
+  const query = String(task.query ?? '').toLowerCase()
+  const label = String(task.target_label ?? '').toLowerCase()
+  const text = `${query} ${label}`
+  const strongTerms = [
+    'filmmaker',
+    'filmmaking',
+    'shortfilm',
+    'short film',
+    'cinematographer',
+    'cinematography',
+    'director',
+    'videographer',
+    'editor',
+    'videoeditor',
+    'video editor',
+    'vfx',
+    'animation',
+    'animator',
+    'motiongraphics',
+    'motion graphics',
+    'sketchcomedy',
+    'sketch comedy',
+    'standup',
+    'stand up',
+    'comedian',
+    'behindthescenes',
+    'behind the scenes',
+    'bts',
+  ]
+  const mediumTerms = [
+    'camera',
+    'lighting',
+    'colorgrade',
+    'color grade',
+    'aftereffects',
+    'after effects',
+    'premierepro',
+    'premiere pro',
+    'davinci',
+    'screenwriter',
+    'screenwriting',
+    'actor',
+    'performer',
+    'creator',
+    'tutorial',
+  ]
+  const strong = strongTerms.some((term) => text.includes(term)) ? 15 : 0
+  const medium = mediumTerms.some((term) => text.includes(term)) ? 6 : 0
+  const surface = task.acquisition_surface === 'cross_platform_search' || task.acquisition_surface === 'category_gap_search' ? 4 : 0
+  return strong + medium + surface
+}
+
+function noisyQueryPenalty(task) {
+  const query = String(task.query ?? '').toLowerCase().replace(/^#|^@/, '')
+  const noisyExact = new Set([
+    'apartment',
+    'artist',
+    'basketball',
+    'chilis',
+    'chilistripledipper',
+    'doctor',
+    'food',
+    'fyp',
+    'lgbt',
+    'like',
+    'love',
+    'mavericks',
+    'organization',
+    'satisfying',
+    'tiktok',
+    'trending',
+    'viral',
+    'viralvideo',
+  ])
+  if (noisyExact.has(query)) return 20
+  if (/btsarmy|jungkook|jeonjungkook|jerseymikes|gravityfalls|jesus|doglife|homedecor/.test(query)) return 15
+  if (query.length <= 3 && !['bts', 'vfx'].includes(query)) return 10
+  return 0
 }
 
 function firstBatchId(candidate) {
@@ -99,13 +180,14 @@ function main() {
     .filter((row) => !row.known_account)
     .map((row) => frontierTask(row, taskById))
     .filter((task) => task.batch_id && task.acquisition_surface)
+    .sort((a, b) => taskScore(b) - taskScore(a) || Number(a.frontier_rank || 999999) - Number(b.frontier_rank || 999999) || a.batch_id.localeCompare(b.batch_id))
   const fallbackTasks = frontierTasks.length ? frontierTasks : (highPriorityTasks.length ? highPriorityTasks : sortedTasks)
   const categories = [...categoryPlan].sort((a, b) => Number(a.priority) - Number(b.priority) || Number(b.review_gap) - Number(a.review_gap))
   const categoryByLabel = new Map(categoryPlan.map((row) => [row.label, row]))
 
   const waves = Array.from({ length: waveCount }).map((_, index) => {
-    const primaryTask = cycle(fallbackTasks, index)
-    const secondaryTask = cycle(fallbackTasks, index + Math.ceil(fallbackTasks.length / 3))
+    const primaryTask = cycle(fallbackTasks, index * 2)
+    const secondaryTask = cycle(fallbackTasks, (index * 2) + 1)
     const category = categoryByLabel.get(primaryTask?.target_label) ?? cycle(categories, index)
     const remainingUsefulGapBeforeWave = Math.max(0, usefulGap - (index * estimatedUsefulPerWave))
     const expectedUseful = Math.min(estimatedUsefulPerWave, remainingUsefulGapBeforeWave || estimatedUsefulPerWave)

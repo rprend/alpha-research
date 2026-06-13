@@ -1,44 +1,41 @@
 # Adjacency Expansion
 
-Generated: 2026-06-13T07:48:21.857Z
+Generated: 2026-06-13T11:01:37.059Z
 
-- Base rows: 7418
+- Base rows: 11744
 - Expansion rows: 500
 - Added rows: 0
 
 ## Types
 
-- expand_from_creator: 236
-- hashtag_search: 251
-- cross_platform_search: 12
-- yield_replay_search: 1
+- expand_from_creator: 500
 
 ## Top Rows
 
 | Type | Priority | Target | Reason |
 | --- | ---: | --- | --- |
-| expand_from_creator | 1 | @aaronmyarbrough | high_usefulness_source |
-| expand_from_creator | 1 | @aliviadonai | high_usefulness_source |
-| expand_from_creator | 1 | @ana.coreana | high_usefulness_source |
-| expand_from_creator | 1 | @bob.reese | high_usefulness_source |
-| expand_from_creator | 1 | @callmeasophie | high_usefulness_source |
-| expand_from_creator | 1 | @davidbeck | high_usefulness_source |
-| expand_from_creator | 1 | @drool_jewel | high_usefulness_source |
-| expand_from_creator | 1 | @ewcgrandville | high_usefulness_source |
-| expand_from_creator | 1 | @gabby_murrayy | high_usefulness_source |
-| expand_from_creator | 1 | @gordonramsayofficial | high_usefulness_source |
-| expand_from_creator | 1 | @jasoncoffee | high_usefulness_source |
-| expand_from_creator | 1 | @joshuamonis | high_usefulness_source |
-| expand_from_creator | 1 | @kaayywrightt | high_usefulness_source |
-| expand_from_creator | 1 | @mariahandbill | high_usefulness_source |
-| expand_from_creator | 1 | @mariya.usan | high_usefulness_source |
-| expand_from_creator | 1 | @nba | high_usefulness_source |
-| expand_from_creator | 1 | @neffatibrothers | high_usefulness_source |
-| expand_from_creator | 1 | @okaycoolgigi | high_usefulness_source |
-| expand_from_creator | 1 | @paky__official | high_usefulness_source |
-| expand_from_creator | 1 | @samuelgrubbs | high_usefulness_source |
-| expand_from_creator | 1 | @shamekiaaaa | high_usefulness_source |
-| expand_from_creator | 1 | @theresavandamstylist | high_usefulness_source |
-| expand_from_creator | 1 | @turmc0 | high_usefulness_source |
-| expand_from_creator | 1 | @vikki.swan | high_usefulness_source |
-| expand_from_creator | 1 | @wonguy | high_usefulness_source |
+| expand_from_creator | 1 | @__tengens4thwife | high_usefulness_source |
+| expand_from_creator | 1 | @_.am0n._ | high_usefulness_source |
+| expand_from_creator | 1 | @_ale.cdl_ | high_usefulness_source |
+| expand_from_creator | 1 | @_apajuelo | high_usefulness_source |
+| expand_from_creator | 1 | @_balling.wrld_ | high_usefulness_source |
+| expand_from_creator | 1 | @_biyince.tips | high_usefulness_source |
+| expand_from_creator | 1 | @_daisyfromhtx | high_usefulness_source |
+| expand_from_creator | 1 | @_editsco_ | high_usefulness_source |
+| expand_from_creator | 1 | @_editsdetodo503 | high_usefulness_source |
+| expand_from_creator | 1 | @_ianstnr_ | high_usefulness_source |
+| expand_from_creator | 1 | @_juju102 | high_usefulness_source |
+| expand_from_creator | 1 | @_lacebakes_ | high_usefulness_source |
+| expand_from_creator | 1 | @_meraaa8 | high_usefulness_source |
+| expand_from_creator | 1 | @_nigerianprince | high_usefulness_source |
+| expand_from_creator | 1 | @_rabbitkim_official_ | high_usefulness_source |
+| expand_from_creator | 1 | @_skimaskasmr | high_usefulness_source |
+| expand_from_creator | 1 | @_theskyjade | high_usefulness_source |
+| expand_from_creator | 1 | @.acemin | high_usefulness_source |
+| expand_from_creator | 1 | @.animals.edit_ | high_usefulness_source |
+| expand_from_creator | 1 | @.ccslvt | high_usefulness_source |
+| expand_from_creator | 1 | @.dailydepphead | high_usefulness_source |
+| expand_from_creator | 1 | @.fortnostalgia | high_usefulness_source |
+| expand_from_creator | 1 | @.gmx8 | high_usefulness_source |
+| expand_from_creator | 1 | @.hannahbrown | high_usefulness_source |
+| expand_from_creator | 1 | @.imako | high_usefulness_source |

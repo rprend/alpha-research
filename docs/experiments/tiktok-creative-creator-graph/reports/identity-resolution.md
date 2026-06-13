@@ -1,18 +1,18 @@
 # Identity Resolution
 
-Generated: 2026-06-13T07:48:22.518Z
+Generated: 2026-06-13T11:01:37.787Z
 
-- Accounts: 39576
-- Identities: 38668
-- Duplicate risk clusters: 578
-- Identity evidence rows: 121089
-- High-confidence external links: 3276
+- Accounts: 39579
+- Identities: 38651
+- Duplicate risk clusters: 581
+- Identity evidence rows: 123388
+- High-confidence external links: 5567
 
 ## Duplicate Risk Queue
 
 | Identity | Accounts | Handles | Reason |
 | --- | ---: | --- | --- |
-| creator_identity_18629f6c56e2 | 2 | @kingbach; @snowd4y | shared identity key |
+| creator_identity_c7dc0fe0aaf5 | 6 | @kingbach; @snowd4y; @michaeldcohen; @nuha_bahrin; @zionhwang; @victorianiro.official | shared identity key |
 | creator_identity_1acf1211b94d | 2 | @matt_rife; @matt_rifeprivatechatt | shared identity key |
 | creator_identity_0a698d9b43b6 | 5 | @ventureswithmia; @strangerthing.digitalart; @mias.bookcase; @miatroshyka; @floofysocials | shared identity key |
 | creator_identity_a921eec26d62 | 2 | @imtropicaljoe; @joseriverapayan | shared identity key |
@@ -30,10 +30,10 @@ Generated: 2026-06-13T07:48:22.518Z
 | creator_identity_f3d7a2794a25 | 3 | @by.annie.n; @typeskusuo; @urfavvvanniee | shared identity key |
 | creator_identity_e903baeabd24 | 3 | @kss_design; @iamksenia; @thatksenia | shared identity key |
 | creator_identity_0d20630c6e61 | 4 | @daylightillustrations; @thekidlitmama; @elilacz; @mizmaxie_ | shared identity key |
-| creator_identity_9c94e29da99d | 2 | @laladigitalart; @lala | shared identity key |
+| creator_identity_720ddcb87b56 | 2 | @laladigitalart; @lala | shared identity key |
 | creator_identity_514229db8887 | 2 | @digitalartbyjuliette; @juliettefreire | shared identity key |
 | creator_identity_4d35f13f5c5c | 4 | @elliexdigitalart; @xellie.edits; @nodawt; @larueslvr | shared identity key |
 | creator_identity_9b5bf099239b | 3 | @digitalart_queen; @livinglunacreations; @miss_ipkiss_reads | shared identity key |
 | creator_identity_c7d6a01099a0 | 3 | @digitalart_bysofia; @sofasaurus.crochet; @sofeditsae | shared identity key |
-| creator_identity_41b057aa985c | 2 | @digitalartmpinsta; @marioworldwide | shared identity key |
+| creator_identity_af3ea26475d3 | 2 | @digitalartmpinsta; @marioworldwide | shared identity key |
 | creator_identity_8cdaa8016926 | 2 | @twan_graphic_design; @twanmvsic | shared identity key |

@@ -1,6 +1,6 @@
 # Learning Candidate Shortlist
 
-Generated: 2026-06-13T07:48:23.035Z
+Generated: 2026-06-13T11:01:38.386Z
 
 - Requested rows: 5000
 - Output rows: 5000
@@ -15,17 +15,17 @@ This is a prioritization artifact, not a production release gate. A row means th
 
 ## Labels
 
-- filmmaker: 837
-- vfx_animation: 599
-- behind_the_scenes_creator: 286
-- director: 42
-- actor_performer: 60
-- editor: 2096
-- standup_comedian: 91
-- sketch_comedian: 148
-- film_educator: 704
+- standup_comedian: 92
+- filmmaker: 842
+- director: 44
+- editor: 2062
+- actor_performer: 66
+- vfx_animation: 610
+- behind_the_scenes_creator: 282
+- sketch_comedian: 146
+- film_educator: 699
+- cinematographer: 110
 - creative_technologist: 47
-- cinematographer: 90
 
 Primary files:
 

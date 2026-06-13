@@ -1,149 +1,16 @@
 {
-  "generated_at": "2026-06-13T07:48:21.857Z",
-  "base_rows": 7418,
+  "generated_at": "2026-06-13T11:01:37.059Z",
+  "base_rows": 11744,
   "expansion_rows": 500,
   "added_rows": 0,
   "type_counts": {
-    "expand_from_creator": 236,
-    "hashtag_search": 251,
-    "cross_platform_search": 12,
-    "yield_replay_search": 1
+    "expand_from_creator": 500
   },
   "top_rows": [
     {
       "expansion_type": "expand_from_creator",
-      "source_creator_id": "aaronmyarbrough",
-      "target": "@aaronmyarbrough",
-      "priority": 1,
-      "reason": "high_usefulness_source",
-      "primary_label": "editor",
-      "overall_usefulness": 100,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "expand_from_creator",
-      "source_creator_id": "aliviadonai",
-      "target": "@aliviadonai",
-      "priority": 1,
-      "reason": "high_usefulness_source",
-      "primary_label": "behind_the_scenes_creator",
-      "overall_usefulness": 100,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "expand_from_creator",
-      "source_creator_id": "ana.coreana",
-      "target": "@ana.coreana",
-      "priority": 1,
-      "reason": "high_usefulness_source",
-      "primary_label": "vfx_animation",
-      "overall_usefulness": 100,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "expand_from_creator",
-      "source_creator_id": "bob.reese",
-      "target": "@bob.reese",
-      "priority": 1,
-      "reason": "high_usefulness_source",
-      "primary_label": "behind_the_scenes_creator",
-      "overall_usefulness": 100,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "expand_from_creator",
-      "source_creator_id": "callmeasophie",
-      "target": "@callmeasophie",
-      "priority": 1,
-      "reason": "high_usefulness_source",
-      "primary_label": "editor",
-      "overall_usefulness": 100,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "expand_from_creator",
-      "source_creator_id": "davidbeck",
-      "target": "@davidbeck",
-      "priority": 1,
-      "reason": "high_usefulness_source",
-      "primary_label": "vfx_animation",
-      "overall_usefulness": 100,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "expand_from_creator",
-      "source_creator_id": "drool_jewel",
-      "target": "@drool_jewel",
-      "priority": 1,
-      "reason": "high_usefulness_source",
-      "primary_label": "behind_the_scenes_creator",
-      "overall_usefulness": 100,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "expand_from_creator",
-      "source_creator_id": "ewcgrandville",
-      "target": "@ewcgrandville",
-      "priority": 1,
-      "reason": "high_usefulness_source",
-      "primary_label": "editor",
-      "overall_usefulness": 100,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "expand_from_creator",
-      "source_creator_id": "gabby_murrayy",
-      "target": "@gabby_murrayy",
-      "priority": 1,
-      "reason": "high_usefulness_source",
-      "primary_label": "behind_the_scenes_creator",
-      "overall_usefulness": 100,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "expand_from_creator",
-      "source_creator_id": "gordonramsayofficial",
-      "target": "@gordonramsayofficial",
-      "priority": 1,
-      "reason": "high_usefulness_source",
-      "primary_label": "behind_the_scenes_creator",
-      "overall_usefulness": 100,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "expand_from_creator",
-      "source_creator_id": "jasoncoffee",
-      "target": "@jasoncoffee",
-      "priority": 1,
-      "reason": "high_usefulness_source",
-      "primary_label": "behind_the_scenes_creator",
-      "overall_usefulness": 100,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "expand_from_creator",
-      "source_creator_id": "joshuamonis",
-      "target": "@joshuamonis",
-      "priority": 1,
-      "reason": "high_usefulness_source",
-      "primary_label": "creative_technologist",
-      "overall_usefulness": 100,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "expand_from_creator",
-      "source_creator_id": "kaayywrightt",
-      "target": "@kaayywrightt",
-      "priority": 1,
-      "reason": "high_usefulness_source",
-      "primary_label": "behind_the_scenes_creator",
-      "overall_usefulness": 100,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "expand_from_creator",
-      "source_creator_id": "mariahandbill",
-      "target": "@mariahandbill",
+      "source_creator_id": "__tengens4thwife",
+      "target": "@__tengens4thwife",
       "priority": 1,
       "reason": "high_usefulness_source",
       "primary_label": "filmmaker",
@@ -152,8 +19,168 @@
     },
     {
       "expansion_type": "expand_from_creator",
-      "source_creator_id": "mariya.usan",
-      "target": "@mariya.usan",
+      "source_creator_id": "_.am0n._",
+      "target": "@_.am0n._",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "editor",
+      "overall_usefulness": 100,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "_ale.cdl_",
+      "target": "@_ale.cdl_",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "editor",
+      "overall_usefulness": 100,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "_apajuelo",
+      "target": "@_apajuelo",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "film_educator",
+      "overall_usefulness": 100,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "_balling.wrld_",
+      "target": "@_balling.wrld_",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "editor",
+      "overall_usefulness": 100,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "_biyince.tips",
+      "target": "@_biyince.tips",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "editor",
+      "overall_usefulness": 100,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "_daisyfromhtx",
+      "target": "@_daisyfromhtx",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "editor",
+      "overall_usefulness": 100,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "_editsco_",
+      "target": "@_editsco_",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "editor",
+      "overall_usefulness": 100,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "_editsdetodo503",
+      "target": "@_editsdetodo503",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "editor",
+      "overall_usefulness": 100,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "_ianstnr_",
+      "target": "@_ianstnr_",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "sketch_comedian",
+      "overall_usefulness": 100,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "_juju102",
+      "target": "@_juju102",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "filmmaker",
+      "overall_usefulness": 100,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "_lacebakes_",
+      "target": "@_lacebakes_",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "filmmaker",
+      "overall_usefulness": 100,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "_meraaa8",
+      "target": "@_meraaa8",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "editor",
+      "overall_usefulness": 100,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "_nigerianprince",
+      "target": "@_nigerianprince",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "creative_technologist",
+      "overall_usefulness": 100,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "_rabbitkim_official_",
+      "target": "@_rabbitkim_official_",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "editor",
+      "overall_usefulness": 100,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "_skimaskasmr",
+      "target": "@_skimaskasmr",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "editor",
+      "overall_usefulness": 100,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "_theskyjade",
+      "target": "@_theskyjade",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "editor",
+      "overall_usefulness": 100,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": ".acemin",
+      "target": "@.acemin",
       "priority": 1,
       "reason": "high_usefulness_source",
       "primary_label": "behind_the_scenes_creator",
@@ -162,8 +189,28 @@
     },
     {
       "expansion_type": "expand_from_creator",
-      "source_creator_id": "nba",
-      "target": "@nba",
+      "source_creator_id": ".animals.edit_",
+      "target": "@.animals.edit_",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "editor",
+      "overall_usefulness": 100,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": ".ccslvt",
+      "target": "@.ccslvt",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "editor",
+      "overall_usefulness": 100,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": ".dailydepphead",
+      "target": "@.dailydepphead",
       "priority": 1,
       "reason": "high_usefulness_source",
       "primary_label": "behind_the_scenes_creator",
@@ -172,91 +219,41 @@
     },
     {
       "expansion_type": "expand_from_creator",
-      "source_creator_id": "neffatibrothers",
-      "target": "@neffatibrothers",
+      "source_creator_id": ".fortnostalgia",
+      "target": "@.fortnostalgia",
       "priority": 1,
       "reason": "high_usefulness_source",
-      "primary_label": "behind_the_scenes_creator",
+      "primary_label": "editor",
       "overall_usefulness": 100,
       "evidence_count": 1
     },
     {
       "expansion_type": "expand_from_creator",
-      "source_creator_id": "okaycoolgigi",
-      "target": "@okaycoolgigi",
+      "source_creator_id": ".gmx8",
+      "target": "@.gmx8",
       "priority": 1,
       "reason": "high_usefulness_source",
-      "primary_label": "behind_the_scenes_creator",
+      "primary_label": "editor",
       "overall_usefulness": 100,
       "evidence_count": 1
     },
     {
       "expansion_type": "expand_from_creator",
-      "source_creator_id": "paky__official",
-      "target": "@paky__official",
+      "source_creator_id": ".hannahbrown",
+      "target": "@.hannahbrown",
       "priority": 1,
       "reason": "high_usefulness_source",
-      "primary_label": "behind_the_scenes_creator",
+      "primary_label": "film_educator",
       "overall_usefulness": 100,
       "evidence_count": 1
     },
     {
       "expansion_type": "expand_from_creator",
-      "source_creator_id": "samuelgrubbs",
-      "target": "@samuelgrubbs",
+      "source_creator_id": ".imako",
+      "target": "@.imako",
       "priority": 1,
       "reason": "high_usefulness_source",
-      "primary_label": "behind_the_scenes_creator",
-      "overall_usefulness": 100,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "expand_from_creator",
-      "source_creator_id": "shamekiaaaa",
-      "target": "@shamekiaaaa",
-      "priority": 1,
-      "reason": "high_usefulness_source",
-      "primary_label": "behind_the_scenes_creator",
-      "overall_usefulness": 100,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "expand_from_creator",
-      "source_creator_id": "theresavandamstylist",
-      "target": "@theresavandamstylist",
-      "priority": 1,
-      "reason": "high_usefulness_source",
-      "primary_label": "behind_the_scenes_creator",
-      "overall_usefulness": 100,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "expand_from_creator",
-      "source_creator_id": "turmc0",
-      "target": "@turmc0",
-      "priority": 1,
-      "reason": "high_usefulness_source",
-      "primary_label": "behind_the_scenes_creator",
-      "overall_usefulness": 100,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "expand_from_creator",
-      "source_creator_id": "vikki.swan",
-      "target": "@vikki.swan",
-      "priority": 1,
-      "reason": "high_usefulness_source",
-      "primary_label": "behind_the_scenes_creator",
-      "overall_usefulness": 100,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "expand_from_creator",
-      "source_creator_id": "wonguy",
-      "target": "@wonguy",
-      "priority": 1,
-      "reason": "high_usefulness_source",
-      "primary_label": "behind_the_scenes_creator",
+      "primary_label": "editor",
       "overall_usefulness": 100,
       "evidence_count": 1
     }

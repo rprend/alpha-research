@@ -1,11 +1,11 @@
 # Live Run Manifest
 
-Generated: 2026-06-13T07:48:27.013Z
+Generated: 2026-06-13T11:01:43.186Z
 
 - Provider: public_web
 - Provider viability: zero_yield_observed
 - Provider token available: true
-- Provider zero-yield runs: 4
+- Provider zero-yield runs: 24
 - Runnable waves: 10
 - Blocked waves: 0
 - Task rows: 20
@@ -13,13 +13,13 @@ Generated: 2026-06-13T07:48:27.013Z
 - Estimated cost: $5
 - Budget: $25
 - Within budget: true
-- Next wave: scale_wave_0001
+- Next wave: scale_wave_0021
 
 ## Next Commands
 
 ```bash
-node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --provider=public_web --dry-run --max-tasks=2 --priority-max=2 --wave=1
-node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --provider=public_web --live --confirm-live --max-tasks=2 --priority-max=2 --wave=1
+node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --provider=public_web --dry-run --max-tasks=2 --priority-max=2 --wave=21
+node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --provider=public_web --live --confirm-live --max-tasks=2 --priority-max=2 --wave=21
 node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs
 node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs
 ```
@@ -28,15 +28,15 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mj
 
 | Seq | Wave | Tasks | Cost | Rows | Surfaces | Labels | First query |
 | ---: | --- | ---: | ---: | ---: | --- | --- | --- |
-| 1 | scale_wave_0001 | 2 | $0.5 | 200 | tiktok_hashtag_export | filmmaker|behind_the_scenes_creator | filmmaker |
-| 2 | scale_wave_0002 | 2 | $0.5 | 200 | tiktok_hashtag_export |  | behindthescenes |
-| 3 | scale_wave_0003 | 2 | $0.5 | 200 | tiktok_hashtag_export | behind_the_scenes_creator | apartment |
-| 4 | scale_wave_0004 | 2 | $0.5 | 200 | tiktok_hashtag_export | behind_the_scenes_creator | chilis |
-| 5 | scale_wave_0005 | 2 | $0.5 | 200 | tiktok_hashtag_export |  | chilistripledipper |
-| 6 | scale_wave_0006 | 2 | $0.5 | 200 | tiktok_hashtag_export |  | doctor |
-| 7 | scale_wave_0007 | 2 | $0.5 | 200 | tiktok_hashtag_export |  | lgbt |
-| 8 | scale_wave_0008 | 2 | $0.5 | 200 | tiktok_hashtag_export | behind_the_scenes_creator | lukadoncic |
-| 9 | scale_wave_0009 | 2 | $0.5 | 200 | tiktok_hashtag_export | behind_the_scenes_creator | mavericks |
-| 10 | scale_wave_0010 | 2 | $0.5 | 200 | tiktok_hashtag_export |  | organization |
+| 21 | scale_wave_0021 | 2 | $0.5 | 200 | search_index | cinematographer|vfx_animation | site:tiktok.com/@ cinematographer |
+| 22 | scale_wave_0022 | 2 | $0.5 | 200 | search_index|tiktok_hashtag_export | editor | site:tiktok.com/@ "video editor" |
+| 23 | scale_wave_0023 | 2 | $0.5 | 200 | tiktok_hashtag_export|category_gap_search | film_educator | cinematography |
+| 24 | scale_wave_0024 | 2 | $0.5 | 200 | category_gap_search | behind_the_scenes_creator|actor_performer | site:tiktok.com/@ "on set" |
+| 25 | scale_wave_0025 | 2 | $0.5 | 200 | category_gap_search | actor_performer | site:tiktok.com/@ "actor" |
+| 26 | scale_wave_0026 | 2 | $0.5 | 200 | category_gap_search|cross_platform_search | actor_performer | site:tiktok.com/@ "performer" |
+| 27 | scale_wave_0027 | 2 | $0.5 | 200 | category_gap_search | film_educator | site:tiktok.com/@ "film education" |
+| 28 | scale_wave_0028 | 2 | $0.5 | 200 | category_gap_search | film_educator|creative_technologist | site:tiktok.com/@ "film school" |
+| 29 | scale_wave_0029 | 2 | $0.5 | 200 | category_gap_search | creative_technologist | site:tiktok.com/@ "creative technologist" |
+| 30 | scale_wave_0030 | 2 | $0.5 | 200 | category_gap_search|tiktok_hashtag_export | creative_technologist | site:tiktok.com/@ "runway" |
 
 Queue: `data/processed/live_run_manifest.csv`
