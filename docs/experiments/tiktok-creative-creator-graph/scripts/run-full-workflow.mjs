@@ -84,6 +84,7 @@ function main() {
   steps.push(['build_scale_waves', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-scale-waves.mjs']])
   steps.push(['build_wave_ledger', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-wave-ledger.mjs']])
   steps.push(['build_external_lead_acquisition_packet', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-acquisition-packet.mjs']])
+  steps.push(['build_external_lead_templates', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-templates.mjs']])
   steps.push(['build_external_lead_progress', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-progress.mjs']])
   steps.push(['build_provider_preflight', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-provider-preflight.mjs']])
   steps.push(['build_live_run_manifest', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-live-run-manifest.mjs']])

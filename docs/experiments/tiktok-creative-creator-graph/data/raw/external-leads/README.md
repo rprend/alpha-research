@@ -12,6 +12,14 @@ The packet files are:
 - `acquisition-packet.jsonl`: the same assignments for automation.
 - `category-targets.csv`: category gaps and search hints.
 
+Generate fillable per-assignment CSV templates with:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-templates.mjs
+```
+
+Templates are written to `data/raw/external-leads/templates/`. Copy a template into `data/raw/external-leads/completed/`, keep the same filename, and fill the blank profile fields. Templates intentionally live outside `completed/` so blank rows cannot be imported accidentally.
+
 Track completed assignment files with:
 
 ```bash

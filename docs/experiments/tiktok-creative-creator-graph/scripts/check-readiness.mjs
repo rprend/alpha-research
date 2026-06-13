@@ -117,6 +117,11 @@ function main() {
     if (!existsSync(path)) return null
     return JSON.parse(readFileSync(path, 'utf8'))
   })()
+  const externalLeadTemplates = (() => {
+    const path = join(reportsDir, 'external-lead-templates.json')
+    if (!existsSync(path)) return null
+    return JSON.parse(readFileSync(path, 'utf8'))
+  })()
   const externalLeadPacketImport = (() => {
     const path = join(reportsDir, 'external-lead-packet-import.json')
     if (!existsSync(path)) return null
@@ -257,6 +262,11 @@ function main() {
       evidence: externalLeadAcquisitionPacket ? `${externalLeadAcquisitionPacket.assignment_rows} assignments requesting ${externalLeadAcquisitionPacket.total_requested_leads} leads` : 'external lead acquisition packet missing',
     },
     {
+      id: 'external_lead_templates',
+      status: externalLeadTemplates?.templates === externalLeadAcquisitionPacket?.assignment_rows ? 'pass' : 'fail',
+      evidence: externalLeadTemplates ? `${externalLeadTemplates.templates} templates, ${externalLeadTemplates.total_template_rows} rows` : 'external lead templates missing',
+    },
+    {
       id: 'external_lead_progress',
       status: externalLeadProgress?.packet_assignments > 0 ? 'pass' : 'fail',
       evidence: externalLeadProgress ? `${externalLeadProgress.import_ready_assignments}/${externalLeadProgress.packet_assignments} import-ready assignments, ${externalLeadProgress.valid_leads} valid leads` : 'external lead progress missing',
@@ -367,6 +377,8 @@ function main() {
       wave_ledger_under_yield_imports: waveLedger.filter((row) => row.import_yield_status === 'under_yield').length,
       external_lead_packet_assignments: externalLeadAcquisitionPacket?.assignment_rows ?? 0,
       external_lead_packet_requested_leads: externalLeadAcquisitionPacket?.total_requested_leads ?? 0,
+      external_lead_template_files: externalLeadTemplates?.templates ?? 0,
+      external_lead_template_rows: externalLeadTemplates?.total_template_rows ?? 0,
       external_lead_packet_completed_files: externalLeadProgress?.completed_files_seen ?? 0,
       external_lead_packet_import_ready_assignments: externalLeadProgress?.import_ready_assignments ?? 0,
       external_lead_packet_valid_leads: externalLeadProgress?.valid_leads ?? 0,
@@ -459,6 +471,8 @@ Complete: ${summary.complete}
 - Wave ledger under-yield imports: ${summary.counts.wave_ledger_under_yield_imports}
 - External lead packet assignments: ${summary.counts.external_lead_packet_assignments}
 - External lead packet requested leads: ${summary.counts.external_lead_packet_requested_leads}
+- External lead template files: ${summary.counts.external_lead_template_files}
+- External lead template rows: ${summary.counts.external_lead_template_rows}
 - External lead packet completed files: ${summary.counts.external_lead_packet_completed_files}
 - External lead packet import-ready assignments: ${summary.counts.external_lead_packet_import_ready_assignments}
 - External lead packet valid leads: ${summary.counts.external_lead_packet_valid_leads}

@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-13T02:18:22.889Z
+Generated: 2026-06-13T02:22:06.198Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -47,6 +47,8 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - External lead packet assignments: 120
 - External lead packet requested leads: 30000
 - External lead packet category rows: 11
+- External lead template files: 120
+- External lead template rows: 30000
 - External lead packet completed files: 0
 - External lead packet import-ready assignments: 0
 - External lead packet valid leads: 0
@@ -110,6 +112,8 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - external_lead_list_readme: `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/README.md`
 - external_lead_list_importer: `docs/experiments/tiktok-creative-creator-graph/scripts/import-external-lead-list.mjs`
 - external_lead_acquisition_packet: `docs/experiments/tiktok-creative-creator-graph/reports/external-lead-acquisition-packet.json`
+- external_lead_templates: `docs/experiments/tiktok-creative-creator-graph/reports/external-lead-templates.json`
+- external_lead_template_dir: `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates`
 - external_lead_progress: `docs/experiments/tiktok-creative-creator-graph/reports/external-lead-progress.json`
 - external_lead_progress_queue: `docs/experiments/tiktok-creative-creator-graph/data/processed/external_lead_packet_status.csv`
 - external_lead_packet_import: `docs/experiments/tiktok-creative-creator-graph/reports/external-lead-packet-import.json`

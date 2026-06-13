@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-13T02:18:22.975Z
+Generated: 2026-06-13T02:22:06.285Z
 
 Complete: false
 
@@ -54,6 +54,8 @@ Complete: false
 - Wave ledger under-yield imports: 0
 - External lead packet assignments: 120
 - External lead packet requested leads: 30000
+- External lead template files: 120
+- External lead template rows: 30000
 - External lead packet completed files: 0
 - External lead packet import-ready assignments: 0
 - External lead packet valid leads: 0
@@ -107,6 +109,7 @@ Complete: false
 - scale_waves: pass (10000 executable acquisition waves planned)
 - wave_ledger: pass (10000 wave execution ledger rows generated)
 - external_lead_packet: pass (120 assignments requesting 30000 leads)
+- external_lead_templates: pass (120 templates, 30000 rows)
 - external_lead_progress: pass (0/120 import-ready assignments, 0 valid leads)
 - external_lead_packet_import: pass (0 imported, 0 pending, 0 failed)
 - provider_preflight: fail (0/20 ready provider tasks, budget ok)

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T02:18:22.262Z",
+  "generated_at": "2026-06-13T02:22:05.416Z",
   "objective": "TikTok creative creator graph release package",
   "counts": {
     "accounts": 1900,
@@ -10,7 +10,7 @@
     "review_queue": 1896
   },
   "readiness": {
-    "generated_at": "2026-06-13T02:13:57.702Z",
+    "generated_at": "2026-06-13T02:18:22.975Z",
     "complete": false,
     "counts": {
       "accounts": 1900,
@@ -66,6 +66,11 @@
       "external_lead_packet_import_ready_assignments": 0,
       "external_lead_packet_valid_leads": 0,
       "external_lead_packet_lead_fill_ratio": 0,
+      "external_lead_packet_ready_files": 0,
+      "external_lead_packet_pending_import_files": 0,
+      "external_lead_packet_imported_files": 0,
+      "external_lead_packet_import_failed_files": 0,
+      "external_lead_packet_import_output_rows": 0,
       "provider_preflight_tasks": 20,
       "provider_preflight_ready_tasks": 0,
       "provider_preflight_blocked_tasks": 20,
@@ -214,6 +219,11 @@
         "id": "external_lead_progress",
         "status": "pass",
         "evidence": "0/120 import-ready assignments, 0 valid leads"
+      },
+      {
+        "id": "external_lead_packet_import",
+        "status": "pass",
+        "evidence": "0 imported, 0 pending, 0 failed"
       },
       {
         "id": "provider_preflight",
