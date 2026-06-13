@@ -1,225 +1,267 @@
 {
-  "generated_at": "2026-06-13T06:33:27.157Z",
+  "generated_at": "2026-06-13T06:55:06.037Z",
   "dry_run": false,
   "force": false,
   "max_files": 1000,
   "status_rows": 200,
-  "ready_files": 58,
-  "already_imported_ready_files": 43,
-  "pending_files": 15,
-  "imported_files": 15,
+  "ready_files": 46,
+  "already_imported_ready_files": 28,
+  "pending_files": 18,
+  "imported_files": 18,
   "failed_files": 0,
-  "output_rows": 3718,
+  "output_rows": 3901,
   "ledger_path": "docs/experiments/tiktok-creative-creator-graph/data/processed/external_lead_packet_imports.jsonl",
   "results": [
     {
+      "assignment_id": "external_packet_0009",
+      "completed_file_name": "0009-cinematographer.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0009-cinematographer.csv",
+      "sha256": "7ac2b09f6dc73a775820c053a0b96bbc99d700e42b1889cf5e86de9ef01179f1",
+      "file_size_bytes": 24054,
+      "status": "imported",
+      "generated_at": "2026-06-13T06:55:05.476Z",
+      "output_rows": 87,
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-55-05-470Z-external-lead-list.jsonl",
+      "target_label_counts": {
+        "cinematographer": 87
+      }
+    },
+    {
+      "assignment_id": "external_packet_0019",
+      "completed_file_name": "0019-vfx_animation.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0019-vfx_animation.csv",
+      "sha256": "3bd6dd1b886ced3d4ffe315259336a9352a44258a4a6cb159fd8b70fa65d95b1",
+      "file_size_bytes": 73299,
+      "status": "imported",
+      "generated_at": "2026-06-13T06:55:05.510Z",
+      "output_rows": 250,
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-55-05-503Z-external-lead-list.jsonl",
+      "target_label_counts": {
+        "vfx_animation": 250
+      }
+    },
+    {
+      "assignment_id": "external_packet_0020",
+      "completed_file_name": "0020-standup_comedian.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0020-standup_comedian.csv",
+      "sha256": "9f53164e5b71d23163721edd69e98ebb572be62a0b520b6c53b42b163124340f",
+      "file_size_bytes": 29888,
+      "status": "imported",
+      "generated_at": "2026-06-13T06:55:05.542Z",
+      "output_rows": 119,
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-55-05-536Z-external-lead-list.jsonl",
+      "target_label_counts": {
+        "standup_comedian": 119
+      }
+    },
+    {
       "assignment_id": "external_packet_0032",
-      "completed_file_name": "0032-film_educator.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0032-film_educator.csv",
+      "completed_file_name": "0032-actor_performer.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0032-actor_performer.csv",
+      "sha256": "dbde89dbd76b0c825410ca124d93dbab3b7b9a02fed7796b97b08e457b86c4d6",
+      "file_size_bytes": 59305,
+      "status": "imported",
+      "generated_at": "2026-06-13T06:55:05.574Z",
+      "output_rows": 250,
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-55-05-567Z-external-lead-list.jsonl",
+      "target_label_counts": {
+        "actor_performer": 250
+      }
+    },
+    {
+      "assignment_id": "external_packet_0035",
+      "completed_file_name": "0035-sketch_comedian.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0035-sketch_comedian.csv",
+      "sha256": "218c7c36144321572d187136adced1fd6746690a0783ff74147698d8daf4e1f3",
+      "file_size_bytes": 42186,
+      "status": "imported",
+      "generated_at": "2026-06-13T06:55:05.606Z",
+      "output_rows": 125,
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-55-05-600Z-external-lead-list.jsonl",
+      "target_label_counts": {
+        "sketch_comedian": 125
+      }
+    },
+    {
+      "assignment_id": "external_packet_0076",
+      "completed_file_name": "0076-editor.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0076-editor.csv",
+      "sha256": "fcb965c46cb91bed723c4de7122dbabd6302fe47010ca2801d6efa39ef3095cb",
+      "file_size_bytes": 25204,
+      "status": "imported",
+      "generated_at": "2026-06-13T06:55:05.638Z",
+      "output_rows": 87,
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-55-05-633Z-external-lead-list.jsonl",
+      "target_label_counts": {
+        "editor": 87
+      }
+    },
+    {
+      "assignment_id": "external_packet_0095",
+      "completed_file_name": "0095-film_educator.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0095-film_educator.csv",
       "sha256": "e1919b38de62c9d55b7233e947ba5db3271b1a370e06ea649070db5b046408f7",
       "file_size_bytes": 77630,
       "status": "imported",
-      "generated_at": "2026-06-13T06:33:26.691Z",
+      "generated_at": "2026-06-13T06:55:05.673Z",
       "output_rows": 250,
-      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-33-26-683Z-external-lead-list.jsonl",
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-55-05-665Z-external-lead-list.jsonl",
       "target_label_counts": {
         "film_educator": 250
       }
     },
     {
-      "assignment_id": "external_packet_0033",
-      "completed_file_name": "0033-film_educator.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0033-film_educator.csv",
+      "assignment_id": "external_packet_0096",
+      "completed_file_name": "0096-film_educator.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0096-film_educator.csv",
       "sha256": "4fc0dd430b66ce51b087f77ff9359c6941f804d7e3aaf2904f4767073615b107",
       "file_size_bytes": 72183,
       "status": "imported",
-      "generated_at": "2026-06-13T06:33:26.724Z",
+      "generated_at": "2026-06-13T06:55:05.707Z",
       "output_rows": 250,
-      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-33-26-716Z-external-lead-list.jsonl",
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-55-05-699Z-external-lead-list.jsonl",
       "target_label_counts": {
         "film_educator": 250
       }
     },
     {
-      "assignment_id": "external_packet_0034",
-      "completed_file_name": "0034-film_educator.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0034-film_educator.csv",
+      "assignment_id": "external_packet_0097",
+      "completed_file_name": "0097-film_educator.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0097-film_educator.csv",
       "sha256": "69b137595a711ce1b7bc4fd2867314f39cd56a496b147f902db56a6c2483ecb3",
       "file_size_bytes": 68563,
       "status": "imported",
-      "generated_at": "2026-06-13T06:33:26.758Z",
+      "generated_at": "2026-06-13T06:55:05.740Z",
       "output_rows": 250,
-      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-33-26-751Z-external-lead-list.jsonl",
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-55-05-733Z-external-lead-list.jsonl",
       "target_label_counts": {
         "film_educator": 250
       }
     },
     {
-      "assignment_id": "external_packet_0038",
-      "completed_file_name": "0038-director.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0038-director.csv",
+      "assignment_id": "external_packet_0098",
+      "completed_file_name": "0098-film_educator.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0098-film_educator.csv",
+      "sha256": "8a4131c19ab054f42ae728408dfd2d9f3c3dc1d021ebe80901ad3fc2534bea8c",
+      "file_size_bytes": 58486,
+      "status": "imported",
+      "generated_at": "2026-06-13T06:55:05.773Z",
+      "output_rows": 250,
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-55-05-766Z-external-lead-list.jsonl",
+      "target_label_counts": {
+        "film_educator": 250
+      }
+    },
+    {
+      "assignment_id": "external_packet_0099",
+      "completed_file_name": "0099-film_educator.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0099-film_educator.csv",
+      "sha256": "4db5cdf23eef15a04367c23bfc09972bea456b8df3b61c522c4bb58e23a29bf7",
+      "file_size_bytes": 52711,
+      "status": "imported",
+      "generated_at": "2026-06-13T06:55:05.806Z",
+      "output_rows": 250,
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-55-05-799Z-external-lead-list.jsonl",
+      "target_label_counts": {
+        "film_educator": 250
+      }
+    },
+    {
+      "assignment_id": "external_packet_0101",
+      "completed_file_name": "0101-director.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0101-director.csv",
       "sha256": "74b979023a956f9a601a971c6021ef764294a71aa038d7c570a9f4453a96327a",
       "file_size_bytes": 58414,
       "status": "imported",
-      "generated_at": "2026-06-13T06:33:26.790Z",
+      "generated_at": "2026-06-13T06:55:05.839Z",
       "output_rows": 233,
-      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-33-26-783Z-external-lead-list.jsonl",
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-55-05-832Z-external-lead-list.jsonl",
       "target_label_counts": {
         "director": 233
       }
     },
     {
-      "assignment_id": "external_packet_0049",
-      "completed_file_name": "0049-actor_performer.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0049-actor_performer.csv",
-      "sha256": "95b193b0ee9cf3d2016bbc01d2e09f31534d079aa049edea4bd0925184f49fdb",
-      "file_size_bytes": 53680,
-      "status": "imported",
-      "generated_at": "2026-06-13T06:33:26.822Z",
-      "output_rows": 250,
-      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-33-26-815Z-external-lead-list.jsonl",
-      "target_label_counts": {
-        "actor_performer": 250
-      }
-    },
-    {
-      "assignment_id": "external_packet_0050",
-      "completed_file_name": "0050-actor_performer.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0050-actor_performer.csv",
+      "assignment_id": "external_packet_0115",
+      "completed_file_name": "0115-actor_performer.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0115-actor_performer.csv",
       "sha256": "bdcd542f0fe1029c64153d45afb5ce98f5058e642f7c18f33a466c1d0c268546",
       "file_size_bytes": 52209,
       "status": "imported",
-      "generated_at": "2026-06-13T06:33:26.855Z",
+      "generated_at": "2026-06-13T06:55:05.872Z",
       "output_rows": 250,
-      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-33-26-849Z-external-lead-list.jsonl",
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-55-05-865Z-external-lead-list.jsonl",
       "target_label_counts": {
         "actor_performer": 250
       }
     },
     {
-      "assignment_id": "external_packet_0051",
-      "completed_file_name": "0051-actor_performer.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0051-actor_performer.csv",
+      "assignment_id": "external_packet_0116",
+      "completed_file_name": "0116-actor_performer.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0116-actor_performer.csv",
       "sha256": "763c07bbfaa1989a8917f6980f09d9ce773adff3895fe67cf858f273f8ef1565",
       "file_size_bytes": 51984,
       "status": "imported",
-      "generated_at": "2026-06-13T06:33:26.889Z",
+      "generated_at": "2026-06-13T06:55:05.904Z",
       "output_rows": 250,
-      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-33-26-882Z-external-lead-list.jsonl",
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-55-05-897Z-external-lead-list.jsonl",
       "target_label_counts": {
         "actor_performer": 250
       }
     },
     {
-      "assignment_id": "external_packet_0052",
-      "completed_file_name": "0052-actor_performer.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0052-actor_performer.csv",
-      "sha256": "331c12801e6ee66ec198eba2d99d5d436c85b467f727be93aecb7245c018e985",
-      "file_size_bytes": 51723,
-      "status": "imported",
-      "generated_at": "2026-06-13T06:33:26.921Z",
-      "output_rows": 250,
-      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-33-26-915Z-external-lead-list.jsonl",
-      "target_label_counts": {
-        "actor_performer": 250
-      }
-    },
-    {
-      "assignment_id": "external_packet_0104",
-      "completed_file_name": "0104-film_educator.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0104-film_educator.csv",
-      "sha256": "febdd716884502085d4ffe905f262b851227d226b55ce0f7573fbec60b81547c",
-      "file_size_bytes": 52164,
-      "status": "imported",
-      "generated_at": "2026-06-13T06:33:26.954Z",
-      "output_rows": 250,
-      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-33-26-948Z-external-lead-list.jsonl",
-      "target_label_counts": {
-        "film_educator": 250
-      }
-    },
-    {
-      "assignment_id": "external_packet_0105",
-      "completed_file_name": "0105-film_educator.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0105-film_educator.csv",
+      "assignment_id": "external_packet_0130",
+      "completed_file_name": "0130-film_educator.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0130-film_educator.csv",
       "sha256": "3d40ea67fa2b94ce4f6410e11d25875a5a6b02ddcd63f32cae122c6b82f1eb1a",
       "file_size_bytes": 54191,
       "status": "imported",
-      "generated_at": "2026-06-13T06:33:26.988Z",
+      "generated_at": "2026-06-13T06:55:05.937Z",
       "output_rows": 250,
-      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-33-26-981Z-external-lead-list.jsonl",
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-55-05-930Z-external-lead-list.jsonl",
       "target_label_counts": {
         "film_educator": 250
       }
     },
     {
-      "assignment_id": "external_packet_0106",
-      "completed_file_name": "0106-film_educator.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0106-film_educator.csv",
-      "sha256": "2d9298b387844c3e086cde3fa9aea84be55f259c53d973999947a22b340e8e2e",
-      "file_size_bytes": 67049,
-      "status": "imported",
-      "generated_at": "2026-06-13T06:33:27.022Z",
-      "output_rows": 250,
-      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-33-27-015Z-external-lead-list.jsonl",
-      "target_label_counts": {
-        "film_educator": 250
-      }
-    },
-    {
-      "assignment_id": "external_packet_0107",
-      "completed_file_name": "0107-film_educator.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0107-film_educator.csv",
+      "assignment_id": "external_packet_0132",
+      "completed_file_name": "0132-film_educator.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0132-film_educator.csv",
       "sha256": "de381052db795c4044a5dbbfa9e1031f637491385340945aa870d26a5190dab6",
       "file_size_bytes": 108005,
       "status": "imported",
-      "generated_at": "2026-06-13T06:33:27.057Z",
+      "generated_at": "2026-06-13T06:55:05.972Z",
       "output_rows": 250,
-      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-33-27-048Z-external-lead-list.jsonl",
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-55-05-963Z-external-lead-list.jsonl",
       "target_label_counts": {
         "film_educator": 250
       }
     },
     {
-      "assignment_id": "external_packet_0124",
-      "completed_file_name": "0124-actor_performer.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0124-actor_performer.csv",
-      "sha256": "33582e14297e1c72a9e69b9fabc7941ec84429d81e6842731d383ba2edd5a85b",
-      "file_size_bytes": 53377,
+      "assignment_id": "external_packet_0139",
+      "completed_file_name": "0139-actor_performer.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0139-actor_performer.csv",
+      "sha256": "d9634fbc0923489a4abc2dabc58a2f4205567eaac0ff5a97ae1c5a3120766dd5",
+      "file_size_bytes": 52560,
       "status": "imported",
-      "generated_at": "2026-06-13T06:33:27.090Z",
+      "generated_at": "2026-06-13T06:55:06.004Z",
       "output_rows": 250,
-      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-33-27-083Z-external-lead-list.jsonl",
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-55-05-998Z-external-lead-list.jsonl",
       "target_label_counts": {
         "actor_performer": 250
       }
     },
     {
-      "assignment_id": "external_packet_0141",
-      "completed_file_name": "0141-actor_performer.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0141-actor_performer.csv",
-      "sha256": "2b3a1425853a9fc04dcf793d03be50c3cd4f51cf3fb575e056b997ec2efeb17d",
-      "file_size_bytes": 52095,
+      "assignment_id": "external_packet_0142",
+      "completed_file_name": "0142-film_educator.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0142-film_educator.csv",
+      "sha256": "2ec95880a375e9600c0cef7eccb8109d2dfe86a1359f870aabbc1641b7da9d13",
+      "file_size_bytes": 54403,
       "status": "imported",
-      "generated_at": "2026-06-13T06:33:27.124Z",
+      "generated_at": "2026-06-13T06:55:06.037Z",
       "output_rows": 250,
-      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-33-27-117Z-external-lead-list.jsonl",
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-55-06-030Z-external-lead-list.jsonl",
       "target_label_counts": {
-        "actor_performer": 250
-      }
-    },
-    {
-      "assignment_id": "external_packet_0176",
-      "completed_file_name": "0176-film_educator.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0176-film_educator.csv",
-      "sha256": "6597691f75a50762de1567d21e46d4b7ee070f09b84f3bdea39afd5d6c12a609",
-      "file_size_bytes": 53123,
-      "status": "imported",
-      "generated_at": "2026-06-13T06:33:27.157Z",
-      "output_rows": 235,
-      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-33-27-149Z-external-lead-list.jsonl",
-      "target_label_counts": {
-        "film_educator": 235
+        "film_educator": 250
       }
     }
   ],

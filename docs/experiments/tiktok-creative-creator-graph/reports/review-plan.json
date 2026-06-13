@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T06:33:24.032Z",
+  "generated_at": "2026-06-13T06:55:02.678Z",
   "target_review_decisions": 500,
   "current_review_decisions": 4,
   "review_gap": 496,
@@ -11,21 +11,12 @@
   "category_minimum": 25,
   "category_rows": [
     {
-      "label": "film_educator",
-      "target_review_decisions": 25,
-      "reviewed_decisions": 0,
-      "current_sample_rows": 25,
-      "review_gap": 25,
-      "useful_gap": 3000,
-      "priority": 1
-    },
-    {
       "label": "filmmaker",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 7887,
+      "useful_gap": 7037,
       "priority": 2
     },
     {
@@ -34,16 +25,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 6994,
-      "priority": 2
-    },
-    {
-      "label": "editor",
-      "target_review_decisions": 25,
-      "reviewed_decisions": 0,
-      "current_sample_rows": 25,
-      "review_gap": 25,
-      "useful_gap": 4999,
+      "useful_gap": 6816,
       "priority": 2
     },
     {
@@ -52,16 +34,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 4928,
-      "priority": 2
-    },
-    {
-      "label": "vfx_animation",
-      "target_review_decisions": 25,
-      "reviewed_decisions": 0,
-      "current_sample_rows": 25,
-      "review_gap": 25,
-      "useful_gap": 4015,
+      "useful_gap": 4630,
       "priority": 2
     },
     {
@@ -70,7 +43,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 3949,
+      "useful_gap": 3913,
       "priority": 2
     },
     {
@@ -79,34 +52,61 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 3924,
+      "useful_gap": 3854,
+      "priority": 2
+    },
+    {
+      "label": "vfx_animation",
+      "target_review_decisions": 25,
+      "reviewed_decisions": 0,
+      "current_sample_rows": 25,
+      "review_gap": 25,
+      "useful_gap": 3504,
       "priority": 2
     },
     {
       "label": "actor_performer",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 25,
+      "current_sample_rows": 14,
       "review_gap": 25,
-      "useful_gap": 3352,
+      "useful_gap": 3330,
       "priority": 2
     },
     {
       "label": "behind_the_scenes_creator",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 23,
+      "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 2990,
+      "useful_gap": 2647,
+      "priority": 2
+    },
+    {
+      "label": "editor",
+      "target_review_decisions": 25,
+      "reviewed_decisions": 0,
+      "current_sample_rows": 25,
+      "review_gap": 25,
+      "useful_gap": 2469,
+      "priority": 2
+    },
+    {
+      "label": "film_educator",
+      "target_review_decisions": 25,
+      "reviewed_decisions": 0,
+      "current_sample_rows": 25,
+      "review_gap": 25,
+      "useful_gap": 2281,
       "priority": 2
     },
     {
       "label": "creative_technologist",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 0,
+      "current_sample_rows": 11,
       "review_gap": 25,
-      "useful_gap": 1999,
+      "useful_gap": 1949,
       "priority": 2
     }
   ],

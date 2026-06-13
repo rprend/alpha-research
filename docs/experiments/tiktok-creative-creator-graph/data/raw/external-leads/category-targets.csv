@@ -1,12 +1,12 @@
 target_label,target_useful_creators,current_primary_accounts,useful_primary_accounts,useful_gap,recommended_priority,search_hints
-film_educator,3000,1583,0,3000,1,film tutorial | shot breakdown | film school | cinema analysis | camera tutorial
-filmmaker,8000,7002,113,7887,2,short film | filmmaker | film director | film set | shot breakdown | #filmmaker | #shortfilm
-sketch_comedian,7000,3526,6,6994,2,sketch comedy | character comedy | improv | comedy sketch | original sketch
-editor,5000,3167,1,4999,2,video editor | editing breakdown | DaVinci Resolve | Premiere Pro | color grading
-cinematographer,5000,1720,72,4928,2,cinematographer | dp | dop | lighting breakdown | camera test | #cinematography
-vfx_animation,5000,2125,985,4015,2,vfx artist | animator | Blender | motion graphics | visual effects | #vfxartist
-director,4000,1499,51,3949,2,director reel | music video director | commercial director | directed by | writer director
-standup_comedian,4000,790,76,3924,2,standup comedian | stand-up | open mic | crowd work | comedy club
-actor_performer,4000,8662,648,3352,2,actor | performer | monologue | self tape | improv
-behind_the_scenes_creator,3000,2352,10,2990,2,behind the scenes | on set | set life | production diary | film crew
-creative_technologist,2000,1738,1,1999,2,ai video | Runway | Pika | creative coding | generative ai filmmaker
+filmmaker,8000,7818,963,7037,2,short film | filmmaker | film director | film set | shot breakdown | #filmmaker | #shortfilm
+sketch_comedian,7000,3687,184,6816,2,sketch comedy | character comedy | improv | comedy sketch | original sketch
+cinematographer,5000,2013,370,4630,2,cinematographer | dp | dop | lighting breakdown | camera test | #cinematography
+director,4000,1526,87,3913,2,director reel | music video director | commercial director | directed by | writer director
+standup_comedian,4000,858,146,3854,2,standup comedian | stand-up | open mic | crowd work | comedy club
+vfx_animation,5000,2616,1496,3504,2,vfx artist | animator | Blender | motion graphics | visual effects | #vfxartist
+actor_performer,4000,8662,670,3330,2,actor | performer | monologue | self tape | improv
+behind_the_scenes_creator,3000,2688,353,2647,2,behind the scenes | on set | set life | production diary | film crew
+editor,5000,5588,2531,2469,2,video editor | editing breakdown | DaVinci Resolve | Premiere Pro | color grading
+film_educator,3000,2297,719,2281,2,film tutorial | shot breakdown | film school | cinema analysis | camera tutorial
+creative_technologist,2000,1778,51,1949,2,ai video | Runway | Pika | creative coding | generative ai filmmaker

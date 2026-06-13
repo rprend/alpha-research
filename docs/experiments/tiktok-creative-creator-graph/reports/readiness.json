@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-06-13T06:33:28.677Z",
+  "generated_at": "2026-06-13T06:55:08.016Z",
   "complete": false,
   "counts": {
-    "accounts": 34168,
-    "videos": 101,
-    "edges": 2086,
-    "useful_accounts": 1963,
-    "excellent_accounts": 6,
-    "rejected_accounts": 4,
-    "review_queue": 34168,
+    "accounts": 39570,
+    "videos": 28432,
+    "edges": 59949,
+    "useful_accounts": 7570,
+    "excellent_accounts": 4712,
+    "rejected_accounts": 39,
+    "review_queue": 39570,
     "review_sample": 250,
     "review_packet_rows": 250,
     "review_decision_template_rows": 250,
@@ -24,29 +24,29 @@
     "benchmark_creators": 1,
     "expansion_queue": 500,
     "adjacency_expansion_rows": 500,
-    "adjacency_expansion_added_rows": 25,
+    "adjacency_expansion_added_rows": 0,
     "acquisition_tasks": 314,
-    "candidate_frontier": 321,
-    "candidate_frontier_handles": 237,
-    "candidate_frontier_queries": 84,
-    "acquisition_import_preview_accounts": 34163,
+    "candidate_frontier": 541,
+    "candidate_frontier_handles": 167,
+    "candidate_frontier_queries": 374,
+    "acquisition_import_preview_accounts": 39565,
     "acquisition_import_preview_ready": false,
-    "acquisition_import_waves": 46,
+    "acquisition_import_waves": 51,
     "acquisition_runner_tasks": 50,
     "acquisition_runner_runnable_tasks": 39,
     "acquisition_runner_skipped_tasks": 11,
     "acquisition_run_history": 19,
-    "source_yield_rows": 1488,
-    "identities": 33277,
+    "source_yield_rows": 1560,
+    "identities": 38674,
     "category_coverage_labels": 11,
-    "category_coverage_covered_labels": 10,
+    "category_coverage_covered_labels": 11,
     "release_useful_creators": 2,
     "source_policy": 1,
     "release_verification_checks": 44,
-    "scale_plan_import_batches": 3075,
-    "scale_waves": 3075,
-    "wave_ledger_rows": 3075,
-    "wave_ledger_planned": 3075,
+    "scale_plan_import_batches": 1046,
+    "scale_waves": 1046,
+    "wave_ledger_rows": 1046,
+    "wave_ledger_planned": 1046,
     "wave_ledger_dry_run_only": 11,
     "wave_ledger_imported": 0,
     "wave_ledger_imported_empty": 0,
@@ -55,30 +55,30 @@
     "wave_ledger_under_yield_imports": 0,
     "external_lead_packet_assignments": 200,
     "external_lead_packet_requested_leads": 50000,
-    "external_lead_auto_complete_files_written": 15,
-    "external_lead_auto_complete_existing_files_skipped": 43,
-    "external_lead_auto_complete_routed_rows": 12166,
+    "external_lead_auto_complete_files_written": 18,
+    "external_lead_auto_complete_existing_files_skipped": 28,
+    "external_lead_auto_complete_routed_rows": 8681,
     "external_lead_template_files": 200,
     "external_lead_template_rows": 50000,
-    "external_lead_worklist_items": 846,
+    "external_lead_worklist_items": 937,
     "external_lead_worklist_lead_quota": 50000,
-    "external_lead_work_item_template_files": 846,
+    "external_lead_work_item_template_files": 937,
     "external_lead_work_item_template_rows": 50000,
     "external_lead_work_item_merge_input_files": 0,
     "external_lead_work_item_merge_output_files": 0,
     "external_lead_work_item_merge_unique_valid_rows": 0,
     "external_lead_work_item_merge_unknown_files": 0,
-    "external_lead_packet_completed_files": 248,
-    "external_lead_packet_import_ready_assignments": 58,
+    "external_lead_packet_completed_files": 354,
+    "external_lead_packet_import_ready_assignments": 46,
     "external_lead_packet_no_valid_handles_assignments": 0,
-    "external_lead_packet_valid_leads": 13030,
-    "external_lead_packet_lead_fill_ratio": 0.261,
-    "external_lead_packet_ready_files": 58,
-    "external_lead_packet_already_imported_ready_files": 43,
-    "external_lead_packet_pending_import_files": 15,
-    "external_lead_packet_imported_files": 15,
+    "external_lead_packet_valid_leads": 9706,
+    "external_lead_packet_lead_fill_ratio": 0.194,
+    "external_lead_packet_ready_files": 46,
+    "external_lead_packet_already_imported_ready_files": 28,
+    "external_lead_packet_pending_import_files": 18,
+    "external_lead_packet_imported_files": 18,
     "external_lead_packet_import_failed_files": 0,
-    "external_lead_packet_import_output_rows": 3718,
+    "external_lead_packet_import_output_rows": 3901,
     "provider_preflight_tasks": 20,
     "provider_preflight_ready_tasks": 0,
     "provider_preflight_blocked_tasks": 20,
@@ -94,34 +94,34 @@
     "scale_campaign_mode": "dry_run",
     "scale_campaign_stop_reason": "dry_run_complete",
     "scale_campaign_estimated_cost_usd": 0.5,
-    "refresh_tasks": 34168,
+    "refresh_tasks": 39570,
     "publication_handoff": 1
   },
   "checks": [
     {
       "id": "seed_intake",
       "status": "pass",
-      "evidence": "34168 accounts ingested"
+      "evidence": "39570 accounts ingested"
     },
     {
       "id": "video_metadata",
       "status": "pass",
-      "evidence": "101 videos ingested"
+      "evidence": "28432 videos ingested"
     },
     {
       "id": "graph_edges",
       "status": "pass",
-      "evidence": "2086 graph edges generated"
+      "evidence": "59949 graph edges generated"
     },
     {
       "id": "scoring_coverage",
       "status": "pass",
-      "evidence": "34168/34168 accounts scored"
+      "evidence": "39570/39570 accounts scored"
     },
     {
       "id": "review_queue",
       "status": "pass",
-      "evidence": "34168 accounts queued for review"
+      "evidence": "39570 accounts queued for review"
     },
     {
       "id": "review_sample",
@@ -156,7 +156,7 @@
     {
       "id": "adjacency_expansion",
       "status": "pass",
-      "evidence": "500 enriched expansion rows (25 added)"
+      "evidence": "500 enriched expansion rows (0 added)"
     },
     {
       "id": "acquisition_batches",
@@ -166,17 +166,17 @@
     {
       "id": "candidate_frontier",
       "status": "pass",
-      "evidence": "321 ranked acquisition candidates generated"
+      "evidence": "541 ranked acquisition candidates generated"
     },
     {
       "id": "acquisition_import_preview",
       "status": "pass",
-      "evidence": "34163 preview accounts, import gate not ready"
+      "evidence": "39565 preview accounts, import gate not ready"
     },
     {
       "id": "acquisition_import_waves",
       "status": "pass",
-      "evidence": "46 acquisition import waves tracked"
+      "evidence": "51 acquisition import waves tracked"
     },
     {
       "id": "acquisition_runner",
@@ -191,17 +191,17 @@
     {
       "id": "source_yield",
       "status": "pass",
-      "evidence": "1488 source/query yield rows generated"
+      "evidence": "1560 source/query yield rows generated"
     },
     {
       "id": "identity_resolution",
       "status": "pass",
-      "evidence": "33277 creator identities resolved"
+      "evidence": "38674 creator identities resolved"
     },
     {
       "id": "category_coverage",
       "status": "pass",
-      "evidence": "10/11 target labels covered"
+      "evidence": "11/11 target labels covered"
     },
     {
       "id": "release_package",
@@ -221,17 +221,17 @@
     {
       "id": "scale_plan",
       "status": "pass",
-      "evidence": "3075 estimated import batches"
+      "evidence": "1046 estimated import batches"
     },
     {
       "id": "scale_waves",
       "status": "pass",
-      "evidence": "3075 executable acquisition waves planned"
+      "evidence": "1046 executable acquisition waves planned"
     },
     {
       "id": "wave_ledger",
       "status": "pass",
-      "evidence": "3075 wave execution ledger rows generated"
+      "evidence": "1046 wave execution ledger rows generated"
     },
     {
       "id": "external_lead_packet",
@@ -246,7 +246,7 @@
     {
       "id": "external_lead_auto_complete",
       "status": "pass",
-      "evidence": "15 files written, 43 existing files skipped, 12166 routed rows"
+      "evidence": "18 files written, 28 existing files skipped, 8681 routed rows"
     },
     {
       "id": "external_lead_templates",
@@ -256,12 +256,12 @@
     {
       "id": "external_lead_worklist",
       "status": "pass",
-      "evidence": "846 source work items, 50000 lead quota"
+      "evidence": "937 source work items, 50000 lead quota"
     },
     {
       "id": "external_lead_work_item_templates",
       "status": "pass",
-      "evidence": "846 work-item templates, 50000 rows"
+      "evidence": "937 work-item templates, 50000 rows"
     },
     {
       "id": "external_lead_work_item_merge",
@@ -271,12 +271,12 @@
     {
       "id": "external_lead_progress",
       "status": "pass",
-      "evidence": "58/200 import-ready assignments, 13030 valid leads"
+      "evidence": "46/200 import-ready assignments, 9706 valid leads"
     },
     {
       "id": "external_lead_packet_import",
       "status": "pass",
-      "evidence": "15 imported this run, 43 already imported, 15 pending, 0 failed"
+      "evidence": "18 imported this run, 28 already imported, 18 pending, 0 failed"
     },
     {
       "id": "provider_preflight",
@@ -301,7 +301,7 @@
     {
       "id": "refresh_plan",
       "status": "pass",
-      "evidence": "34168 account refresh tasks generated"
+      "evidence": "39570 account refresh tasks generated"
     },
     {
       "id": "publication_handoff",
@@ -311,17 +311,17 @@
     {
       "id": "publication_handoff_freshness",
       "status": "pass",
-      "evidence": "handoff accounts 34168/34168, identities 33277/33277, videos 101/101, import waves 46/46, source yield 1488/1488"
+      "evidence": "handoff accounts 39570/39570, identities 38674/38674, videos 28432/28432, import waves 51/51, source yield 1560/1560"
     },
     {
       "id": "useful_account_target",
       "status": "incomplete",
-      "evidence": "1963/50000 useful accounts"
+      "evidence": "7570/50000 useful accounts"
     },
     {
       "id": "excellent_account_target",
       "status": "incomplete",
-      "evidence": "6/5000 excellent accounts"
+      "evidence": "4712/5000 excellent accounts"
     },
     {
       "id": "human_review_target",
@@ -330,8 +330,8 @@
     }
   ],
   "remaining": {
-    "useful_accounts": 48037,
-    "excellent_accounts": 4994,
+    "useful_accounts": 42430,
+    "excellent_accounts": 288,
     "reviewed_accounts": 496
   }
 }

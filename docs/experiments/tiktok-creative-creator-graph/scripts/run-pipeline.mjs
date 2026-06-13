@@ -281,7 +281,19 @@ function normalizeRows(rows) {
     best_source_rank: account.best_source_rank === Infinity ? '' : account.best_source_rank,
   }))
 
-  return { accounts, videos, sources }
+  const sourceMap = new Map()
+  for (const source of sources) {
+    const key = [
+      source.creator_id,
+      source.source_type,
+      source.source_name,
+      source.source_query,
+      source.source_url,
+    ].join('|')
+    if (!sourceMap.has(key)) sourceMap.set(key, source)
+  }
+
+  return { accounts, videos, sources: Array.from(sourceMap.values()) }
 }
 
 function buildEdges(accounts, videos, rubric) {

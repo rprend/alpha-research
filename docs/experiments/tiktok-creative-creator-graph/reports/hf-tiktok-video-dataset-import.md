@@ -1,6 +1,6 @@
 # Hugging Face TikTok Video Dataset Import
 
-Generated: 2026-06-13T03:46:20.158Z
+Generated: 2026-06-13T06:37:34.227Z
 
 - Provider: huggingface_dataset_viewer
 - Dry run: false
@@ -12,7 +12,7 @@ Generated: 2026-06-13T03:46:20.158Z
 - Input video rows scanned: 2060
 - Output creator rows: 1
 - Skipped rows: 2050
-- Output path: docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T03-46-15-007Z-hf-tiktok-video-dataset.jsonl
+- Output path: docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-36-28-998Z-hf-tiktok-video-dataset.jsonl
 
 ## Target Labels
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T06:33:25.598Z",
+  "generated_at": "2026-06-13T06:55:04.230Z",
   "complete": true,
   "checks": [
     {
@@ -114,7 +114,7 @@
       "id": "sha256:data/release/rejected_creators.jsonl",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected c0fd81096a9718fd438adb5e5c3bb892b510fa957eac693cf99c8038d8ea5975, actual c0fd81096a9718fd438adb5e5c3bb892b510fa957eac693cf99c8038d8ea5975"
+      "evidence": "expected 051d7a2afb2c6a4e87928d2b9788e63e4320b629fa87fc6d4d4279ab20d2d218, actual 051d7a2afb2c6a4e87928d2b9788e63e4320b629fa87fc6d4d4279ab20d2d218"
     },
     {
       "id": "row_count:data/release/rejected_creators.jsonl",
@@ -126,7 +126,7 @@
       "id": "sha256:data/release/rejected_creators.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 5b934c008c5b25e50113538ebc1412a13a36b5fe100fd7f41b33bd429f490709, actual 5b934c008c5b25e50113538ebc1412a13a36b5fe100fd7f41b33bd429f490709"
+      "evidence": "expected 69529d5ac9a6d47cc2edd1fce5037ed365b40713ccfdfb23b2b8696938b17ee5, actual 69529d5ac9a6d47cc2edd1fce5037ed365b40713ccfdfb23b2b8696938b17ee5"
     },
     {
       "id": "row_count:data/release/rejected_creators.csv",
@@ -138,25 +138,25 @@
       "id": "sha256:data/release/review_queue.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 72b28f6bd3d04d9b793edca01eb030b3d9df5a875215a37a3d7b68c9b88624be, actual 72b28f6bd3d04d9b793edca01eb030b3d9df5a875215a37a3d7b68c9b88624be"
+      "evidence": "expected 2f60adf5ff6059628525c281168914bad16920bc4dd0d45dff6b0fb4a545144f, actual 2f60adf5ff6059628525c281168914bad16920bc4dd0d45dff6b0fb4a545144f"
     },
     {
       "id": "row_count:data/release/review_queue.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 34164, actual 34164"
+      "evidence": "expected 39566, actual 39566"
     },
     {
       "id": "sha256:data/release/all_scored_creators.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 0fdebabe0d5dca1f6696557f8d704ec8cb7bf3c138ed0b542deb980f57685983, actual 0fdebabe0d5dca1f6696557f8d704ec8cb7bf3c138ed0b542deb980f57685983"
+      "evidence": "expected 79ada9293eec34e9a5adf96e83ab95d905022c5267be3bff3108676c92fa8680, actual 79ada9293eec34e9a5adf96e83ab95d905022c5267be3bff3108676c92fa8680"
     },
     {
       "id": "row_count:data/release/all_scored_creators.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 34168, actual 34168"
+      "evidence": "expected 39570, actual 39570"
     },
     {
       "id": "required_column:identity_id",
@@ -271,6 +271,6 @@
     "useful_creators": 2,
     "benchmark_creators": 1,
     "rejected_creators": 2,
-    "all_scored_creators": 34168
+    "all_scored_creators": 39570
   }
 }

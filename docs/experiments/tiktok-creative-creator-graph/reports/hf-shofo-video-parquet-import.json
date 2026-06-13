@@ -1,0 +1,1551 @@
+{
+  "generated_at": "2026-06-13T06:52:16.935Z",
+  "execution_id": "2026-06-13T06-50-27-654Z",
+  "provider": "huggingface_dataset_parquet",
+  "dataset": "Shofo/shofo-tiktok-general-small",
+  "parquet_alias": "hf://datasets/Shofo/shofo-tiktok-general-small/metadata.parquet",
+  "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+  "source_license": "other",
+  "source_use_note": "Candidate acquisition only; inspect dataset card/license before production release use.",
+  "dry_run": false,
+  "max_rows": 10000,
+  "max_rows_per_label": 1500,
+  "offset_per_label": 3000,
+  "output_rows": 1198,
+  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-50-27-654Z-hf-shofo-video-parquet.jsonl",
+  "target_label_counts": {
+    "editor": 1198
+  },
+  "label_reports": [
+    {
+      "target_label": "vfx_animation",
+      "status": "succeeded",
+      "keywords": [
+        "vfx",
+        "visual effects",
+        "aftereffects",
+        "after effects",
+        "animation",
+        "animator",
+        "motion graphics",
+        "cgi",
+        "blender"
+      ],
+      "raw_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T06:50:27.654Z",
+      "finished_at": "2026-06-13T06:50:37.656Z"
+    },
+    {
+      "target_label": "editor",
+      "status": "succeeded",
+      "keywords": [
+        "video editor",
+        "editor",
+        "edit breakdown",
+        "editing",
+        "velocityedit",
+        "capcut",
+        "premiere pro",
+        "davinci"
+      ],
+      "raw_rows": 1348,
+      "unique_rows_added": 1198,
+      "started_at": "2026-06-13T06:50:37.656Z",
+      "finished_at": "2026-06-13T06:50:47.510Z"
+    },
+    {
+      "target_label": "cinematographer",
+      "status": "succeeded",
+      "keywords": [
+        "cinematography",
+        "cinematic",
+        "camera",
+        "lighting",
+        "shot on",
+        "videographer",
+        "film look"
+      ],
+      "raw_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T06:50:47.510Z",
+      "finished_at": "2026-06-13T06:50:57.245Z"
+    },
+    {
+      "target_label": "filmmaker",
+      "status": "succeeded",
+      "keywords": [
+        "filmmaker",
+        "short film",
+        "shortfilm",
+        "movie",
+        "documentary",
+        "screenwriter",
+        "music video"
+      ],
+      "raw_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T06:50:57.245Z",
+      "finished_at": "2026-06-13T06:51:07.106Z"
+    },
+    {
+      "target_label": "director",
+      "status": "succeeded",
+      "keywords": [
+        "director",
+        "directed by",
+        "film director",
+        "music video director",
+        "commercial director"
+      ],
+      "raw_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T06:51:07.106Z",
+      "finished_at": "2026-06-13T06:51:16.813Z"
+    },
+    {
+      "target_label": "behind_the_scenes_creator",
+      "status": "succeeded",
+      "keywords": [
+        "behind the scenes",
+        "bts",
+        "making of",
+        "how i made",
+        "on set",
+        "setup",
+        "process"
+      ],
+      "raw_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T06:51:16.813Z",
+      "finished_at": "2026-06-13T06:51:35.994Z"
+    },
+    {
+      "target_label": "sketch_comedian",
+      "status": "succeeded",
+      "keywords": [
+        "sketch comedy",
+        "comedy sketch",
+        "skit",
+        "parody",
+        "improv"
+      ],
+      "raw_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T06:51:35.994Z",
+      "finished_at": "2026-06-13T06:51:45.745Z"
+    },
+    {
+      "target_label": "standup_comedian",
+      "status": "succeeded",
+      "keywords": [
+        "stand up",
+        "standup",
+        "stand-up",
+        "comedian",
+        "open mic",
+        "crowd work"
+      ],
+      "raw_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T06:51:45.745Z",
+      "finished_at": "2026-06-13T06:51:57.418Z"
+    },
+    {
+      "target_label": "film_educator",
+      "status": "succeeded",
+      "keywords": [
+        "tutorial",
+        "breakdown",
+        "how to",
+        "film analysis",
+        "camera tips",
+        "lighting setup"
+      ],
+      "raw_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T06:51:57.418Z",
+      "finished_at": "2026-06-13T06:52:07.064Z"
+    },
+    {
+      "target_label": "creative_technologist",
+      "status": "succeeded",
+      "keywords": [
+        "ai video",
+        "runway",
+        "pika",
+        "unreal engine",
+        "creative coding",
+        "comfyui",
+        "generative ai"
+      ],
+      "raw_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T06:52:07.064Z",
+      "finished_at": "2026-06-13T06:52:16.931Z"
+    }
+  ],
+  "first_rows": [
+    {
+      "handle": "@nuclearmissle7",
+      "profile_url": "https://www.tiktok.com/@nuclearmissle7",
+      "display_name": "nuclearmissle7",
+      "bio": "draft from nearly 2 years ago i’m not as slow anymore 🙏 #foryoupage #foryou #fyp #trending #xybca #roblox #viral #adoptme #omgpage #edit #disney100 #Minecraft #disney #bloxburg #capcut",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 5,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 1,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@nuclearmissle7/video/7326213303263300896",
+          "caption": "slides,swings😭#godzillaispookie #foryoupage #foryou #fyp #trending #xybca #roblox #viral #adoptme #omgpage #edit #disney100 #Minecraft #disney #bloxburg #capcut",
+          "posted_at": "2024-01-20 16:09:54+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "godzillaispookie",
+            "foryoupage",
+            "foryou",
+            "fyp",
+            "trending",
+            "xybca",
+            "roblox",
+            "viral",
+            "adoptme",
+            "omgpage",
+            "edit",
+            "disney100",
+            "minecraft",
+            "disney",
+            "bloxburg",
+            "capcut"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        },
+        {
+          "url": "https://www.tiktok.com/@nuclearmissle7/video/7333996339480628512",
+          "caption": "mr krabs i have an idea!!!!😇😇#godzillaispookie #foryoupage #foryou #fyp #trending #xybca #roblox #viral #adoptme #omgpage #edit #disney100 #Minecraft #disney #bloxburg #capcut",
+          "posted_at": "2024-02-10 15:32:03+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "godzillaispookie",
+            "foryoupage",
+            "foryou",
+            "fyp",
+            "trending",
+            "xybca",
+            "roblox",
+            "viral",
+            "adoptme",
+            "omgpage",
+            "edit",
+            "disney100",
+            "minecraft",
+            "disney",
+            "bloxburg",
+            "capcut"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        },
+        {
+          "url": "https://www.tiktok.com/@nuclearmissle7/video/7390774725552737568",
+          "caption": "hows nobody in the bg video not piss laughing😭 #emo #foryoupage #foryou #fyp #trending #xybca #roblox #viral #adoptme #omgpage #edit #disney100 #Minecraft #disney #bloxburg #capcut",
+          "posted_at": "2024-07-12 15:40:54+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "emo",
+            "foryoupage",
+            "foryou",
+            "fyp",
+            "trending",
+            "xybca",
+            "roblox",
+            "viral",
+            "adoptme",
+            "omgpage",
+            "edit",
+            "disney100",
+            "minecraft",
+            "disney",
+            "bloxburg",
+            "capcut"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        },
+        {
+          "url": "https://www.tiktok.com/@nuclearmissle7/video/7476448468760808726",
+          "caption": "draft from nearly 2 years ago i’m not as slow anymore 🙏 #foryoupage #foryou #fyp #trending #xybca #roblox #viral #adoptme #omgpage #edit #disney100 #Minecraft #disney #bloxburg #capcut",
+          "posted_at": "2025-02-28 12:38:34+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "foryoupage",
+            "foryou",
+            "fyp",
+            "trending",
+            "xybca",
+            "roblox",
+            "viral",
+            "adoptme",
+            "omgpage",
+            "edit",
+            "disney100",
+            "minecraft",
+            "disney",
+            "bloxburg",
+            "capcut"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        },
+        {
+          "url": "https://www.tiktok.com/@nuclearmissle7/video/7488475925420559638",
+          "caption": "this little dog 🥺🥰#foryoupage #foryou #fyp #trending #xybca #roblox #viral #adoptme #omgpage #edit #disney100 #Minecraft #disney #bloxburg #capcut",
+          "posted_at": "2025-04-01 22:31:19+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "foryoupage",
+            "foryou",
+            "fyp",
+            "trending",
+            "xybca",
+            "roblox",
+            "viral",
+            "adoptme",
+            "omgpage",
+            "edit",
+            "disney100",
+            "minecraft",
+            "disney",
+            "bloxburg",
+            "capcut"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@nuevo_regimen_mexicano",
+      "profile_url": "https://www.tiktok.com/@nuevo_regimen_mexicano",
+      "display_name": "nuevo_regimen_mexicano",
+      "bio": "#zyxcba #fouryoupage #viralvideo #viral #parati #tiktok #CapCut #Stopmotion #mexico #china #russia @mexicanhistory1",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 2,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@nuevo_regimen_mexicano/video/7219420227556101382",
+          "caption": "#zyxcba #fouryoupage #viralvideo #viral #parati #tiktok #CapCut #Stopmotion #mexico #china #russia @mexicanhistory1",
+          "posted_at": "2023-04-07 21:17:42+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "zyxcba",
+            "fouryoupage",
+            "viralvideo",
+            "viral",
+            "parati",
+            "tiktok",
+            "capcut",
+            "stopmotion",
+            "mexico",
+            "china",
+            "russia"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@nukenabilacn",
+      "profile_url": "https://www.tiktok.com/@nukenabilacn",
+      "display_name": "nukenabilacn",
+      "bio": "Softboy, anak teknik, ramah, baik, suka membantu dan memperbaiki... 😃❤️#handymanny #gentleman #childhoodcrush #CapCut",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 3,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@nukenabilacn/video/7313900960219270406",
+          "caption": "Softboy, anak teknik, ramah, baik, suka membantu dan memperbaiki... 😃❤️#handymanny #gentleman #childhoodcrush #CapCut",
+          "posted_at": "2023-12-18 11:51:11+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "handymanny",
+            "gentleman",
+            "childhoodcrush",
+            "capcut"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@nununanaa15",
+      "profile_url": "https://www.tiktok.com/@nununanaa15",
+      "display_name": "nununanaa15",
+      "bio": "waktu masuk ruang isolasi. sambil dengerin takbrian diluar, sambil ngusapin anak, tentu sambil nangis sesegukan. Alhamdulillah udah lewat, jangan lagi ya Allah 😭🤲🏻 #eczema #eksim #anakeksim #anakeczema #eksimsurvivor #parentsoftiktok #anaksakit #fypシ゚viral🖤tiktok☆♡ #CapCut",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 4,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@nununanaa15/video/7359603613376744709",
+          "caption": "waktu masuk ruang isolasi. sambil dengerin takbrian diluar, sambil ngusapin anak, tentu sambil nangis sesegukan. Alhamdulillah udah lewat, jangan lagi ya Allah 😭🤲🏻 #eczema #eksim #anakeksim #anakeczema #eksimsurvivor #parentsoftiktok #anaksakit #fypシ゚viral🖤tiktok☆♡ #CapCut",
+          "posted_at": "2024-04-19 15:40:49+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "eczema",
+            "eksim",
+            "anakeksim",
+            "anakeczema",
+            "eksimsurvivor",
+            "parentsoftiktok",
+            "anaksakit",
+            "fypシ",
+            "capcut"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@nurhanerzurumluo5",
+      "profile_url": "https://www.tiktok.com/@nurhanerzurumluo5",
+      "display_name": "nurhanerzurumluo5",
+      "bio": "bro this shi is to funny😂😂😂#fypシ #fyp #viral #Meme #funny #CapCut",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 5,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@nurhanerzurumluo5/video/7404169243178093857",
+          "caption": "bro this shi is to funny😂😂😂#fypシ #fyp #viral #Meme #funny #CapCut",
+          "posted_at": "2024-08-17 17:58:19+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "fypシ",
+            "fyp",
+            "viral",
+            "meme",
+            "funny",
+            "capcut"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@nursam.emenemen",
+      "profile_url": "https://www.tiktok.com/@nursam.emenemen",
+      "display_name": "nursam.emenemen",
+      "bio": "astaghfirullah ibuk😭#pastikanfyp #indonesia #viral #capcut #memestiktok #fyppppppppppppppppppppppp #fyp #fypシ #meme #short #pecintasholawat #pengajianlucu #pengajian #mama",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 6,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@nursam.emenemen/video/7437011002647956744",
+          "caption": "astaghfirullah ibuk😭#pastikanfyp #indonesia #viral #capcut #memestiktok #fyppppppppppppppppppppppp #fyp #fypシ #meme #short #pecintasholawat #pengajianlucu #pengajian #mama",
+          "posted_at": "2024-11-14 06:01:04+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "pastikanfyp",
+            "indonesia",
+            "viral",
+            "capcut",
+            "memestiktok",
+            "fyppppppppppppppppppppppp",
+            "fyp",
+            "fypシ",
+            "meme",
+            "short",
+            "pecintasholawat",
+            "pengajianlucu",
+            "pengajian",
+            "mama"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@nuttysp0rts",
+      "profile_url": "https://www.tiktok.com/@nuttysp0rts",
+      "display_name": "nuttysp0rts",
+      "bio": "Hell Nah #CapCut #biral #edit #tuff #anthonyedwards #nbaplayoffs #ant #viral #viralvideo #hellnah #fire #timberwolves #goat #NBA #basketball",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 7,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@nuttysp0rts/video/7506676094100360494",
+          "caption": "Hell Nah #CapCut #biral #edit #tuff #anthonyedwards #nbaplayoffs #ant #viral #viralvideo #hellnah #fire #timberwolves #goat #NBA #basketball",
+          "posted_at": "2025-05-20 23:37:22+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "capcut",
+            "biral",
+            "edit",
+            "tuff",
+            "anthonyedwards",
+            "nbaplayoffs",
+            "ant",
+            "viral",
+            "viralvideo",
+            "hellnah",
+            "fire",
+            "timberwolves",
+            "goat",
+            "nba",
+            "basketball"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@nvrmii",
+      "profile_url": "https://www.tiktok.com/@nvrmii",
+      "display_name": "nvrmii",
+      "bio": "“We saw no signs” 😭😭 #trends #edit #editor #animation #funny #foryou #foryoupage #CapCut",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 8,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@nvrmii/video/7499931328255626527",
+          "caption": "“We saw no signs” 😭😭 #trends #edit #editor #animation #funny #foryou #foryoupage #CapCut",
+          "posted_at": "2025-05-02 19:24:25+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "trends",
+            "edit",
+            "editor",
+            "animation",
+            "funny",
+            "foryou",
+            "foryoupage",
+            "capcut"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@nyahsalomee",
+      "profile_url": "https://www.tiktok.com/@nyahsalomee",
+      "display_name": "nyahsalomee",
+      "bio": "#strawberry #fruit #amerika #amerikan #CapCut #foryou #viral #trend #karls #erdbeeren #sommer #real",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 9,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@nyahsalomee/video/7389734241774357792",
+          "caption": "#strawberry #fruit #amerika #amerikan #CapCut #foryou #viral #trend #karls #erdbeeren #sommer #real",
+          "posted_at": "2024-07-09 20:23:07+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "strawberry",
+            "fruit",
+            "amerika",
+            "amerikan",
+            "capcut",
+            "foryou",
+            "viral",
+            "trend",
+            "karls",
+            "erdbeeren",
+            "sommer",
+            "real"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@nyash1_",
+      "profile_url": "https://www.tiktok.com/@nyash1_",
+      "display_name": "nyash1_",
+      "bio": "#anime #edit #animeedit #fyp #fypシ #fypage #foryoupage #foryou #trend #trending #viral #CapCut",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 10,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@nyash1_/video/6982513790839573765",
+          "caption": "#anime #edit #animeedit #fyp #fypシ #fypage #foryoupage #foryou #trend #trending #viral #CapCut",
+          "posted_at": "2021-07-08 11:19:47+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "anime",
+            "edit",
+            "animeedit",
+            "fyp",
+            "fypシ",
+            "fypage",
+            "foryoupage",
+            "foryou",
+            "trend",
+            "trending",
+            "viral",
+            "capcut"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@nycx.zz",
+      "profile_url": "https://www.tiktok.com/@nycx.zz",
+      "display_name": "nycx.zz",
+      "bio": "Album cover☠️🌹 #fyp #albumcover #trend #CapCut",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 11,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@nycx.zz/video/7197203916281400582",
+          "caption": "Album cover☠️🌹 #fyp #albumcover #trend #CapCut",
+          "posted_at": "2023-02-07 00:27:05+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "fyp",
+            "albumcover",
+            "trend",
+            "capcut"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@nyklleyton",
+      "profile_url": "https://www.tiktok.com/@nyklleyton",
+      "display_name": "nyklleyton",
+      "bio": "I actually loves these #CapCut #foryou #fyp #foryoupage #futties #sanchez #homes #footballers #footballtiktok",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 12,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@nyklleyton/video/7397187811318762784",
+          "caption": "I actually loves these #CapCut #foryou #fyp #foryoupage #futties #sanchez #homes #footballers #footballtiktok",
+          "posted_at": "2024-07-29 22:26:51+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "capcut",
+            "foryou",
+            "fyp",
+            "foryoupage",
+            "futties",
+            "sanchez",
+            "homes",
+            "footballers",
+            "footballtiktok"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@nylonfrance",
+      "profile_url": "https://www.tiktok.com/@nylonfrance",
+      "display_name": "nylonfrance",
+      "bio": "Rosé et Bruno Mars ont enflammé la scène des #MAMAAwards avec la toute première performance live de 'APT'. Une prestation légendaire qui a littéralement déchaîné la foule et marqué les esprits ! #2024MAMA #2024MAMAAWARDS #MNET #KPOP #ROSE #APT #BRUNOMARS @Bruno Mars #CapCut",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 13,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@nylonfrance/video/7440075176995278113",
+          "caption": "Rosé et Bruno Mars ont enflammé la scène des #MAMAAwards avec la toute première performance live de 'APT'. Une prestation légendaire qui a littéralement déchaîné la foule et marqué les esprits ! #2024MAMA #2024MAMAAWARDS #MNET #KPOP #ROSE #APT #BRUNOMARS @Bruno Mars #CapCut",
+          "posted_at": "2024-11-22 12:11:47+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "mamaawards",
+            "2024mama",
+            "2024mamaawards",
+            "mnet",
+            "kpop",
+            "rose",
+            "apt",
+            "brunomars",
+            "capcut"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@oakley2299",
+      "profile_url": "https://www.tiktok.com/@oakley2299",
+      "display_name": "oakley2299",
+      "bio": "IM going to go insane #jjk #toji #tojiedit #tojifushiguroedit #jujutsukaisen #jujutsukaisenedit #jjkseason2 #tojifushiguro #CapCut",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 14,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@oakley2299/video/7300964777625505070",
+          "caption": "IM going to go insane #jjk #toji #tojiedit #tojifushiguroedit #jujutsukaisen #jujutsukaisenedit #jjkseason2 #tojifushiguro #CapCut",
+          "posted_at": "2023-11-13 15:12:29+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "jjk",
+            "toji",
+            "tojiedit",
+            "tojifushiguroedit",
+            "jujutsukaisen",
+            "jujutsukaisenedit",
+            "jjkseason2",
+            "tojifushiguro",
+            "capcut"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@oaoshane",
+      "profile_url": "https://www.tiktok.com/@oaoshane",
+      "display_name": "oaoshane",
+      "bio": "⭐️#capcut #viral",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 15,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@oaoshane/video/7349197910799650081",
+          "caption": "⭐️#capcut #viral",
+          "posted_at": "2024-03-22 14:41:29+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "capcut",
+            "viral"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@obsessiondepp_",
+      "profile_url": "https://www.tiktok.com/@obsessiondepp_",
+      "display_name": "obsessiondepp_",
+      "bio": "she served it to us on a silver platter🙄#johnnydepp #johnchristopherdepp #johndepp #neverfeartruth #foryoupage #CapCut #foryou #perte",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 16,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@obsessiondepp_/video/7185193025688112390",
+          "caption": "she served it to us on a silver platter🙄#johnnydepp #johnchristopherdepp #johndepp #neverfeartruth #foryoupage #CapCut #foryou #perte",
+          "posted_at": "2023-01-05 15:38:41+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "johnnydepp",
+            "johnchristopherdepp",
+            "johndepp",
+            "neverfeartruth",
+            "foryoupage",
+            "capcut",
+            "foryou",
+            "perte"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@obxeedit_",
+      "profile_url": "https://www.tiktok.com/@obxeedit_",
+      "display_name": "obxeedit_",
+      "bio": "#CapCut Hi I have time of poste 😼 #likepls❤️ #New #pourtoi #wednesday #jennaortega #fp #foryou #hunterdoohan",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 17,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@obxeedit_/video/7170352940140612869",
+          "caption": "#CapCut Hi I have time of poste 😼 #likepls❤️ #New #pourtoi #wednesday #jennaortega #fp #foryou #hunterdoohan",
+          "posted_at": "2022-11-26 15:51:35+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "capcut",
+            "likepls",
+            "new",
+            "pourtoi",
+            "wednesday",
+            "jennaortega",
+            "fp",
+            "foryou",
+            "hunterdoohan"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@octavioredmusic",
+      "profile_url": "https://www.tiktok.com/@octavioredmusic",
+      "display_name": "octavioredmusic",
+      "bio": "#duet with @Antony dime tu number sun decir tú nombre HUMOR Y COMEDIA CON OCTAVIO RED #foryou #viral #fyp #octaviored #funny #humor #tiktok #lol #laugh #parati #comedy #tiktok #funnyvideos #reaccion #reaction #duo #comedia #nombres #CapCut",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 18,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@octavioredmusic/video/7164186075483737386",
+          "caption": "#duet with @Antony dime tu number sun decir tú nombre HUMOR Y COMEDIA CON OCTAVIO RED #foryou #viral #fyp #octaviored #funny #humor #tiktok #lol #laugh #parati #comedy #tiktok #funnyvideos #reaccion #reaction #duo #comedia #nombres #CapCut",
+          "posted_at": "2022-11-10 01:01:06+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "duet",
+            "foryou",
+            "viral",
+            "fyp",
+            "octaviored",
+            "funny",
+            "humor",
+            "tiktok",
+            "lol",
+            "laugh",
+            "parati",
+            "comedy",
+            "funnyvideos",
+            "reaccion",
+            "reaction",
+            "duo",
+            "comedia",
+            "nombres",
+            "capcut"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@oddsbandit",
+      "profile_url": "https://www.tiktok.com/@oddsbandit",
+      "display_name": "oddsbandit",
+      "bio": "What is actually happening here?😂 #redcardfootball #footballinjury #footballtiktok #foryou #CapCut",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 19,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@oddsbandit/video/7143646379724786949",
+          "caption": "What is actually happening here?😂 #redcardfootball #footballinjury #footballtiktok #foryou #CapCut",
+          "posted_at": "2022-09-15 16:36:28+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "redcardfootball",
+            "footballinjury",
+            "footballtiktok",
+            "foryou",
+            "capcut"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@odernow999",
+      "profile_url": "https://www.tiktok.com/@odernow999",
+      "display_name": "odernow999",
+      "bio": "Funny moments 😂😂😂 #CapCut #relax #fyp #funnytiktok #funnyanimals #viral #funny #funnymoments #fypシ #fun #tiktoktrending #funnyvideos #tiktoknews",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 3,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 20,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@odernow999/video/7141363293347663147",
+          "caption": "Funny moments 😂😂😂 #CapCut #relax #fyp #funnytiktok #funnyanimals #viral #funny #funnymoments #fypシ #fun #tiktoktrending #funnyvideos #tiktoknews",
+          "posted_at": "2022-09-09 12:56:57+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "capcut",
+            "relax",
+            "fyp",
+            "funnytiktok",
+            "funnyanimals",
+            "viral",
+            "funny",
+            "funnymoments",
+            "fypシ",
+            "fun",
+            "tiktoktrending",
+            "funnyvideos",
+            "tiktoknews"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        },
+        {
+          "url": "https://www.tiktok.com/@odernow999/video/7142091652667051307",
+          "caption": "Funny moments 😳😂😂 #fyp #fun #funnytiktok #funnymoments #funnyvideos #fypシ #relax #funnyvideos #viral #CapCut",
+          "posted_at": "2022-09-11 12:03:30+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "fyp",
+            "fun",
+            "funnytiktok",
+            "funnymoments",
+            "funnyvideos",
+            "fypシ",
+            "relax",
+            "viral",
+            "capcut"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        },
+        {
+          "url": "https://www.tiktok.com/@odernow999/video/7143607400661273902",
+          "caption": "Funny moments 😂😂😂 #DrPepperTuitionContest #CapCut #funnyvideos #funnymoments #ChewTheVibes #funny #viral #tiktoknews #tiktoktrending #fypシ #lmao",
+          "posted_at": "2022-09-15 14:05:24+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "drpeppertuitioncontest",
+            "capcut",
+            "funnyvideos",
+            "funnymoments",
+            "chewthevibes",
+            "funny",
+            "viral",
+            "tiktoknews",
+            "tiktoktrending",
+            "fypシ",
+            "lmao"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@odessa2340",
+      "profile_url": "https://www.tiktok.com/@odessa2340",
+      "display_name": "odessa2340",
+      "bio": "In another universe maybe #CapCut #fyp #goldenbrown #victorianera #foryoupage",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 21,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@odessa2340/video/7548421491050728711",
+          "caption": "In another universe maybe #CapCut #fyp #goldenbrown #victorianera #foryoupage",
+          "posted_at": "2025-09-10 11:30:39+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "capcut",
+            "fyp",
+            "goldenbrown",
+            "victorianera",
+            "foryoupage"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@officialcadenteneycke",
+      "profile_url": "https://www.tiktok.com/@officialcadenteneycke",
+      "display_name": "officialcadenteneycke",
+      "bio": "260K is insane!!!!!! I cant even believe that we hit that already! Thank you for all the support! #trend #dwarfism #Lifestyle #student #wednesday",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 22,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@officialcadenteneycke/video/7208361831260376325",
+          "caption": "260K is insane!!!!!! I cant even believe that we hit that already! Thank you for all the support! #trend #dwarfism #Lifestyle #student #wednesday",
+          "posted_at": "2023-03-09 02:05:37+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "trend",
+            "dwarfism",
+            "lifestyle",
+            "student",
+            "wednesday"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@ohvlux",
+      "profile_url": "https://www.tiktok.com/@ohvlux",
+      "display_name": "ohvlux",
+      "bio": "You can now put your own date when you are going back to school #foryou #CapCut #templatecapcut #viral #relatable #school",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 2,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 23,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@ohvlux/video/7393067386397625643",
+          "caption": "You can now put your own date when you are going back to school #foryou #CapCut #templatecapcut #viral #relatable #school",
+          "posted_at": "2024-07-18 19:57:24+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "foryou",
+            "capcut",
+            "templatecapcut",
+            "viral",
+            "relatable",
+            "school"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        },
+        {
+          "url": "https://www.tiktok.com/@ohvlux/video/7394378344256638254",
+          "caption": "gta san andreas real template. #CapCut #template #viral #foryou #gta #gtasanandreas",
+          "posted_at": "2024-07-22 08:44:47+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "capcut",
+            "template",
+            "viral",
+            "foryou",
+            "gta",
+            "gtasanandreas"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@ojitoss.bonitoss",
+      "profile_url": "https://www.tiktok.com/@ojitoss.bonitoss",
+      "display_name": "ojitoss.bonitoss",
+      "bio": "A esto me refiero ♥️♥️♥️ #tevolveriaaelegir #tiktok #viral #fyp #capcut #fypシ #fypシ゚viral",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 24,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@ojitoss.bonitoss/video/7514779564191567135",
+          "caption": "A esto me refiero ♥️♥️♥️ #tevolveriaaelegir #tiktok #viral #fyp #capcut #fypシ #fypシ゚viral",
+          "posted_at": "2025-06-11 19:43:02+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "tevolveriaaelegir",
+            "tiktok",
+            "viral",
+            "fyp",
+            "capcut",
+            "fypシ"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    },
+    {
+      "handle": "@okamana777",
+      "profile_url": "https://www.tiktok.com/@okamana777",
+      "display_name": "okamana777",
+      "bio": "#CapCut #CapCut #CapCut #trending #fy #obssessed #capcuttemplate #viral #GlowUp #capcuttemplate #capcutapp #fyp",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 1,
+      "source_type": "hf_shofo_video_parquet",
+      "source_name": "Hugging Face Shofo TikTok general small",
+      "source_url": "https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small",
+      "source_query": "video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_video_dataset",
+      "provider": "huggingface_dataset_parquet",
+      "provider_execution_id": "2026-06-13T06-50-27-654Z",
+      "batch_id": "hf_shofo_editor",
+      "rank": 25,
+      "videos": [
+        {
+          "url": "https://www.tiktok.com/@okamana777/video/7204025258783837445",
+          "caption": "#CapCut #CapCut #CapCut #trending #fy #obssessed #capcuttemplate #viral #GlowUp #capcuttemplate #capcutapp #fyp",
+          "posted_at": "2023-02-25 09:37:26+00:00",
+          "view_count": 0,
+          "like_count": 0,
+          "comment_count": 0,
+          "share_count": 0,
+          "hashtags": [
+            "capcut",
+            "trending",
+            "fy",
+            "obssessed",
+            "capcuttemplate",
+            "viral",
+            "glowup",
+            "capcutapp",
+            "fyp"
+          ],
+          "mentions": [],
+          "sound_id": "",
+          "sound_title": ""
+        }
+      ]
+    }
+  ]
+}

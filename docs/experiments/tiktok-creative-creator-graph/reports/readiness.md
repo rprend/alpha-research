@@ -1,18 +1,18 @@
 # Readiness
 
-Generated: 2026-06-13T06:33:28.677Z
+Generated: 2026-06-13T06:55:08.016Z
 
 Complete: false
 
 ## Counts
 
-- Accounts: 34168
-- Videos: 101
-- Graph edges: 2086
-- Useful accounts: 1963
-- Excellent accounts: 6
-- Rejected accounts: 4
-- Review queue: 34168
+- Accounts: 39570
+- Videos: 28432
+- Graph edges: 59949
+- Useful accounts: 7570
+- Excellent accounts: 4712
+- Rejected accounts: 39
+- Review queue: 39570
 - Review sample: 250
 - Review packet rows: 250
 - Review decision template rows: 250
@@ -25,28 +25,28 @@ Complete: false
 - Benchmark creators: 1
 - Expansion queue: 500
 - Adjacency expansion rows: 500
-- Adjacency expansion added rows: 25
+- Adjacency expansion added rows: 0
 - Acquisition tasks: 314
-- Candidate frontier: 321
-- Candidate frontier handles: 237
-- Candidate frontier queries: 84
-- Acquisition import preview accounts: 34163
+- Candidate frontier: 541
+- Candidate frontier handles: 167
+- Candidate frontier queries: 374
+- Acquisition import preview accounts: 39565
 - Acquisition import preview ready: false
-- Acquisition import waves: 46
+- Acquisition import waves: 51
 - Acquisition runner tasks: 50
 - Acquisition runner runnable tasks: 39
 - Acquisition runner skipped tasks: 11
 - Acquisition run history: 19
-- Source yield rows: 1488
-- Identities: 33277
-- Category coverage labels: 10/11
+- Source yield rows: 1560
+- Identities: 38674
+- Category coverage labels: 11/11
 - Release useful creators: 2
 - Source policy: present
 - Release verification checks: 44
-- Scale plan import batches: 3075
-- Scale waves: 3075
-- Wave ledger rows: 3075
-- Wave ledger planned: 3075
+- Scale plan import batches: 1046
+- Scale waves: 1046
+- Wave ledger rows: 1046
+- Wave ledger planned: 1046
 - Wave ledger dry-run only: 11
 - Wave ledger imported: 0
 - Wave ledger imported empty: 0
@@ -55,30 +55,30 @@ Complete: false
 - Wave ledger under-yield imports: 0
 - External lead packet assignments: 200
 - External lead packet requested leads: 50000
-- External lead auto-complete files written: 15
-- External lead auto-complete existing files skipped: 43
-- External lead auto-complete routed rows: 12166
+- External lead auto-complete files written: 18
+- External lead auto-complete existing files skipped: 28
+- External lead auto-complete routed rows: 8681
 - External lead template files: 200
 - External lead template rows: 50000
-- External lead worklist items: 846
+- External lead worklist items: 937
 - External lead worklist lead quota: 50000
-- External lead work-item template files: 846
+- External lead work-item template files: 937
 - External lead work-item template rows: 50000
 - External lead work-item merge input files: 0
 - External lead work-item merge output files: 0
 - External lead work-item merge unique valid rows: 0
 - External lead work-item merge unknown files: 0
-- External lead packet completed files: 248
-- External lead packet import-ready assignments: 58
+- External lead packet completed files: 354
+- External lead packet import-ready assignments: 46
 - External lead packet no-valid-handles assignments: 0
-- External lead packet valid leads: 13030
-- External lead packet lead fill ratio: 0.261
-- External lead packet ready files: 58
-- External lead packet already-imported ready files: 43
-- External lead packet pending import files: 15
-- External lead packet imported files: 15
+- External lead packet valid leads: 9706
+- External lead packet lead fill ratio: 0.194
+- External lead packet ready files: 46
+- External lead packet already-imported ready files: 28
+- External lead packet pending import files: 18
+- External lead packet imported files: 18
 - External lead packet import failed files: 0
-- External lead packet import output rows: 3718
+- External lead packet import output rows: 3901
 - Provider preflight tasks: 20
 - Provider preflight ready tasks: 0
 - Provider preflight blocked tasks: 20
@@ -93,60 +93,60 @@ Complete: false
 - Scale campaign mode: dry_run
 - Scale campaign stop reason: dry_run_complete
 - Scale campaign estimated cost: $0.5
-- Refresh tasks: 34168
+- Refresh tasks: 39570
 - Publication handoff: 1
 
 ## Checks
 
-- seed_intake: pass (34168 accounts ingested)
-- video_metadata: pass (101 videos ingested)
-- graph_edges: pass (2086 graph edges generated)
-- scoring_coverage: pass (34168/34168 accounts scored)
-- review_queue: pass (34168 accounts queued for review)
+- seed_intake: pass (39570 accounts ingested)
+- video_metadata: pass (28432 videos ingested)
+- graph_edges: pass (59949 graph edges generated)
+- scoring_coverage: pass (39570/39570 accounts scored)
+- review_queue: pass (39570 accounts queued for review)
 - review_sample: pass (250 sampled accounts ready for review)
 - review_packet: pass (250 review packet rows, 250 decision template rows, 1 batches)
 - review_plan: pass (11 category review plan rows generated)
 - learning_candidate_shortlist: pass (5000 candidate accounts prioritized for learning-value review)
 - learning_review_packet: pass (1000 learning review rows across 10 batches)
 - expansion_queue: pass (500 expansion targets queued)
-- adjacency_expansion: pass (500 enriched expansion rows (25 added))
+- adjacency_expansion: pass (500 enriched expansion rows (0 added))
 - acquisition_batches: pass (314 acquisition tasks generated)
-- candidate_frontier: pass (321 ranked acquisition candidates generated)
-- acquisition_import_preview: pass (34163 preview accounts, import gate not ready)
-- acquisition_import_waves: pass (46 acquisition import waves tracked)
+- candidate_frontier: pass (541 ranked acquisition candidates generated)
+- acquisition_import_preview: pass (39565 preview accounts, import gate not ready)
+- acquisition_import_waves: pass (51 acquisition import waves tracked)
 - acquisition_runner: pass (39 runnable of 50 selected provider tasks (live))
 - acquisition_run_history: pass (19 acquisition run history rows persisted)
-- source_yield: pass (1488 source/query yield rows generated)
-- identity_resolution: pass (33277 creator identities resolved)
-- category_coverage: pass (10/11 target labels covered)
+- source_yield: pass (1560 source/query yield rows generated)
+- identity_resolution: pass (38674 creator identities resolved)
+- category_coverage: pass (11/11 target labels covered)
 - release_package: pass (2 useful creators exported for release)
 - source_policy: pass (source policy covers sources, release fields, safety, retention, and provenance)
 - release_verification: pass (44 release checks evaluated)
-- scale_plan: pass (3075 estimated import batches)
-- scale_waves: pass (3075 executable acquisition waves planned)
-- wave_ledger: pass (3075 wave execution ledger rows generated)
+- scale_plan: pass (1046 estimated import batches)
+- scale_waves: pass (1046 executable acquisition waves planned)
+- wave_ledger: pass (1046 wave execution ledger rows generated)
 - external_lead_packet: pass (200 assignments requesting 50000 leads)
 - external_lead_packet_scale: pass (50000/50000 requested leads across 200/200 assignments)
-- external_lead_auto_complete: pass (15 files written, 43 existing files skipped, 12166 routed rows)
+- external_lead_auto_complete: pass (18 files written, 28 existing files skipped, 8681 routed rows)
 - external_lead_templates: pass (200 templates, 50000 rows)
-- external_lead_worklist: pass (846 source work items, 50000 lead quota)
-- external_lead_work_item_templates: pass (846 work-item templates, 50000 rows)
+- external_lead_worklist: pass (937 source work items, 50000 lead quota)
+- external_lead_work_item_templates: pass (937 work-item templates, 50000 rows)
 - external_lead_work_item_merge: pass (0 work-item files, 0 assignment files, 0 unique valid rows)
-- external_lead_progress: pass (58/200 import-ready assignments, 13030 valid leads)
-- external_lead_packet_import: pass (15 imported this run, 43 already imported, 15 pending, 0 failed)
+- external_lead_progress: pass (46/200 import-ready assignments, 9706 valid leads)
+- external_lead_packet_import: pass (18 imported this run, 28 already imported, 18 pending, 0 failed)
 - provider_preflight: fail (0/20 ready provider tasks, budget ok)
 - live_run_manifest: fail (0/10 runnable live waves, estimated cost $0)
 - live_manifest_runner: fail (0 dry_run wave(s) executed through manifest runner)
 - scale_campaign_runner: pass (1 dry_run iteration(s), stop reason dry_run_complete)
-- refresh_plan: pass (34168 account refresh tasks generated)
+- refresh_plan: pass (39570 account refresh tasks generated)
 - publication_handoff: pass (not-ready-production-data handoff generated)
-- publication_handoff_freshness: pass (handoff accounts 34168/34168, identities 33277/33277, videos 101/101, import waves 46/46, source yield 1488/1488)
-- useful_account_target: incomplete (1963/50000 useful accounts)
-- excellent_account_target: incomplete (6/5000 excellent accounts)
+- publication_handoff_freshness: pass (handoff accounts 39570/39570, identities 38674/38674, videos 28432/28432, import waves 51/51, source yield 1560/1560)
+- useful_account_target: incomplete (7570/50000 useful accounts)
+- excellent_account_target: incomplete (4712/5000 excellent accounts)
 - human_review_target: incomplete (4/500 review decisions applied)
 
 ## Remaining To Full Goal
 
-- Useful accounts: 48037
-- Excellent accounts: 4994
+- Useful accounts: 42430
+- Excellent accounts: 288
 - Reviewable accounts: 496

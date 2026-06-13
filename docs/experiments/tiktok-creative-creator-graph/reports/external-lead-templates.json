@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T06:33:26.086Z",
+  "generated_at": "2026-06-13T06:55:04.782Z",
   "templates": 200,
   "total_template_rows": 50000,
   "template_dir": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates",
@@ -17,29 +17,29 @@
     },
     {
       "assignment_id": "external_packet_0002",
-      "target_label": "actor_performer",
-      "source_query": "actor",
-      "primary_source_url": "https://www.tiktok.com/tag/actor",
+      "target_label": "filmmaker",
+      "source_query": "shortfilm",
+      "primary_source_url": "https://www.tiktok.com/tag/shortfilm",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0002-actor_performer.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0002-actor_performer.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0002-filmmaker.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0002-filmmaker.csv"
     },
     {
       "assignment_id": "external_packet_0003",
-      "target_label": "cinematographer",
-      "source_query": "cinematography",
-      "primary_source_url": "https://www.tiktok.com/tag/cinematography",
+      "target_label": "filmmaker",
+      "source_query": "4kprojector",
+      "primary_source_url": "https://www.tiktok.com/tag/4kprojector",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0003-cinematographer.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0003-cinematographer.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0003-filmmaker.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0003-filmmaker.csv"
     },
     {
       "assignment_id": "external_packet_0004",
       "target_label": "filmmaker",
-      "source_query": "shortfilm",
-      "primary_source_url": "https://www.tiktok.com/tag/shortfilm",
+      "source_query": "marvelrivals",
+      "primary_source_url": "https://www.tiktok.com/tag/marvelrivals",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0004-filmmaker.csv",
@@ -48,8 +48,8 @@
     {
       "assignment_id": "external_packet_0005",
       "target_label": "sketch_comedian",
-      "source_query": "sketchcomedy",
-      "primary_source_url": "https://www.tiktok.com/tag/sketchcomedy",
+      "source_query": "parati",
+      "primary_source_url": "https://www.tiktok.com/tag/parati",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0005-sketch_comedian.csv",
@@ -57,13 +57,13 @@
     },
     {
       "assignment_id": "external_packet_0006",
-      "target_label": "cinematographer",
-      "source_query": "lighting",
-      "primary_source_url": "https://www.tiktok.com/tag/lighting",
+      "target_label": "filmmaker",
+      "source_query": "satisfying",
+      "primary_source_url": "https://www.tiktok.com/tag/satisfying",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0006-cinematographer.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0006-cinematographer.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0006-filmmaker.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0006-filmmaker.csv"
     },
     {
       "assignment_id": "external_packet_0007",
@@ -77,89 +77,89 @@
     },
     {
       "assignment_id": "external_packet_0008",
-      "target_label": "sketch_comedian",
-      "source_query": "site:youtube.com \"tiktok.com/@\" \"sketch comedian\"",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=site%3Ayoutube.com%20tiktok.com%2F%40%20sketch%20comedian",
+      "target_label": "filmmaker",
+      "source_query": "viernes",
+      "primary_source_url": "https://www.tiktok.com/tag/viernes",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0008-sketch_comedian.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0008-sketch_comedian.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0008-filmmaker.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0008-filmmaker.csv"
     },
     {
       "assignment_id": "external_packet_0009",
-      "target_label": "vfx_animation",
-      "source_query": "animation",
-      "primary_source_url": "https://www.tiktok.com/tag/animation",
+      "target_label": "cinematographer",
+      "source_query": "basketball",
+      "primary_source_url": "https://www.tiktok.com/tag/basketball",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0009-vfx_animation.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0009-vfx_animation.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0009-cinematographer.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0009-cinematographer.csv"
     },
     {
       "assignment_id": "external_packet_0010",
-      "target_label": "vfx_animation",
-      "source_query": "blender",
-      "primary_source_url": "https://www.tiktok.com/tag/blender",
+      "target_label": "cinematographer",
+      "source_query": "capcut",
+      "primary_source_url": "https://www.tiktok.com/tag/capcut",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0010-vfx_animation.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0010-vfx_animation.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0010-cinematographer.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0010-cinematographer.csv"
     },
     {
       "assignment_id": "external_packet_0011",
-      "target_label": "vfx_animation",
-      "source_query": "site:beacons.ai \"tiktok.com/@\" \"vfx animation\"",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=site%3Abeacons.ai%20tiktok.com%2F%40%20vfx%20animation",
+      "target_label": "cinematographer",
+      "source_query": "greenscreen",
+      "primary_source_url": "https://www.tiktok.com/tag/greenscreen",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0011-vfx_animation.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0011-vfx_animation.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0011-cinematographer.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0011-cinematographer.csv"
     },
     {
       "assignment_id": "external_packet_0012",
-      "target_label": "vfx_animation",
-      "source_query": "vfx",
-      "primary_source_url": "https://www.tiktok.com/tag/vfx",
+      "target_label": "cinematographer",
+      "source_query": "love",
+      "primary_source_url": "https://www.tiktok.com/tag/love",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0012-vfx_animation.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0012-vfx_animation.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0012-cinematographer.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0012-cinematographer.csv"
     },
     {
       "assignment_id": "external_packet_0013",
-      "target_label": "standup_comedian",
-      "source_query": "standupcomedy",
-      "primary_source_url": "https://www.tiktok.com/tag/standupcomedy",
+      "target_label": "cinematographer",
+      "source_query": "marvelrivalsdeadpool",
+      "primary_source_url": "https://www.tiktok.com/tag/marvelrivalsdeadpool",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0013-standup_comedian.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0013-standup_comedian.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0013-cinematographer.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0013-cinematographer.csv"
     },
     {
       "assignment_id": "external_packet_0014",
-      "target_label": "vfx_animation",
-      "source_query": "vfxartist",
-      "primary_source_url": "https://www.tiktok.com/tag/vfxartist",
+      "target_label": "cinematographer",
+      "source_query": "tiktok",
+      "primary_source_url": "https://www.tiktok.com/tag/tiktok",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0014-vfx_animation.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0014-vfx_animation.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0014-cinematographer.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0014-cinematographer.csv"
     },
     {
       "assignment_id": "external_packet_0015",
-      "target_label": "behind_the_scenes_creator",
-      "source_query": "bts",
-      "primary_source_url": "https://www.tiktok.com/tag/bts",
+      "target_label": "cinematographer",
+      "source_query": "trending",
+      "primary_source_url": "https://www.tiktok.com/tag/trending",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0015-behind_the_scenes_creator.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0015-behind_the_scenes_creator.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0015-cinematographer.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0015-cinematographer.csv"
     },
     {
       "assignment_id": "external_packet_0016",
       "target_label": "cinematographer",
-      "source_query": "site:tiktok.com/@ \"cinematographer\"",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=cinematographer",
+      "source_query": "tutorial",
+      "primary_source_url": "https://www.tiktok.com/tag/tutorial",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0016-cinematographer.csv",
@@ -167,43 +167,43 @@
     },
     {
       "assignment_id": "external_packet_0017",
-      "target_label": "sketch_comedian",
-      "source_query": "site:tiktok.com/@ \"comedy sketch\"",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=comedy%20sketch",
+      "target_label": "behind_the_scenes_creator",
+      "source_query": "artist",
+      "primary_source_url": "https://www.tiktok.com/tag/artist",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0017-sketch_comedian.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0017-sketch_comedian.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0017-behind_the_scenes_creator.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0017-behind_the_scenes_creator.csv"
     },
     {
       "assignment_id": "external_packet_0018",
-      "target_label": "cinematographer",
-      "source_query": "site:tiktok.com/@ \"dop\"",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=dop",
+      "target_label": "sketch_comedian",
+      "source_query": "sketchcomedy",
+      "primary_source_url": "https://www.tiktok.com/tag/sketchcomedy",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0018-cinematographer.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0018-cinematographer.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0018-sketch_comedian.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0018-sketch_comedian.csv"
     },
     {
       "assignment_id": "external_packet_0019",
-      "target_label": "cinematographer",
-      "source_query": "site:tiktok.com/@ \"dp\"",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=dp",
+      "target_label": "vfx_animation",
+      "source_query": "behindthescenes",
+      "primary_source_url": "https://www.tiktok.com/tag/behindthescenes",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0019-cinematographer.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0019-cinematographer.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0019-vfx_animation.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0019-vfx_animation.csv"
     },
     {
       "assignment_id": "external_packet_0020",
-      "target_label": "editor",
-      "source_query": "site:tiktok.com/@ \"editing\"",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=editing",
+      "target_label": "standup_comedian",
+      "source_query": "fypdong",
+      "primary_source_url": "https://www.tiktok.com/tag/fypdong",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0020-editor.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0020-editor.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0020-standup_comedian.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0020-standup_comedian.csv"
     }
   ]
 }

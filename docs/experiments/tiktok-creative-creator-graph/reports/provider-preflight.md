@@ -1,6 +1,6 @@
 # Provider Preflight
 
-Generated: 2026-06-13T06:33:27.370Z
+Generated: 2026-06-13T06:55:06.235Z
 
 - Provider: apify
 - Provider viability: missing_token
@@ -29,25 +29,25 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 
 | Wave | Batch | Surface | Query | Actor | Ready | Viability | Est. rows | Est. cost |
 | --- | --- | --- | --- | --- | --- | --- | ---: | ---: |
-| scale_wave_0001 | graph_0067 | tiktok_hashtag_export | filmmaker | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0001 | category_gap_0034 | category_gap_search | site:tiktok.com/@ "sketch comedian" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0002 | graph_0071 | tiktok_hashtag_export | actor | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0002 | search_0003 | search_index | site:tiktok.com/@ "sketch comedy" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0003 | graph_0080 | tiktok_hashtag_export | cinematography | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0003 | category_gap_0035 | category_gap_search | site:tiktok.com/@ "sketch" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0004 | graph_0068 | tiktok_hashtag_export | shortfilm | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0004 | search_0006 | search_index | site:tiktok.com/@ "video editor" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0005 | graph_0072 | tiktok_hashtag_export | sketchcomedy | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0005 | search_0008 | search_index | site:tiktok.com/@ actor "sketch" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0006 | graph_0081 | tiktok_hashtag_export | lighting | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0006 | search_0005 | search_index | site:tiktok.com/@ cinematographer | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0007 | graph_0069 | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0007 | search_0001 | search_index | site:tiktok.com/@ filmmaker | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0008 | graph_0083 | cross_platform_search | site:youtube.com "tiktok.com/@" "sketch comedian" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0008 | category_gap_0030 | category_gap_search | site:tiktok.com/@ "film education" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0009 | graph_0075 | tiktok_hashtag_export | animation | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0009 | category_gap_0028 | category_gap_search | site:tiktok.com/@ "film educator" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0010 | graph_0076 | tiktok_hashtag_export | blender | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0010 | category_gap_0029 | category_gap_search | site:tiktok.com/@ "film school" | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0001 | graph_0125 | tiktok_hashtag_export | filmmaker | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0001 | graph_0117 | tiktok_hashtag_export | btsevents | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0002 | graph_0161 | tiktok_hashtag_export | shortfilm | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0002 | graph_0118 | tiktok_hashtag_export | btsjungkook | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0003 | graph_0313 | tiktok_hashtag_export | 4kprojector | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0003 | graph_0119 | tiktok_hashtag_export | burrata | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0004 | graph_0184 | tiktok_hashtag_export | marvelrivals | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0004 | graph_0124 | tiktok_hashtag_export | fast | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0005 | graph_0152 | tiktok_hashtag_export | parati | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0005 | graph_0132 | tiktok_hashtag_export | glassart | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0006 | graph_0160 | tiktok_hashtag_export | satisfying | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0006 | graph_0134 | tiktok_hashtag_export | hairstylist | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0007 | graph_0162 | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0007 | graph_0140 | tiktok_hashtag_export | jerseymikes | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0008 | graph_0186 | tiktok_hashtag_export | viernes | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0008 | graph_0141 | tiktok_hashtag_export | jerseymikessubs | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0009 | graph_0114 | tiktok_hashtag_export | basketball | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0009 | graph_0142 | tiktok_hashtag_export | jesuslovesyou | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0010 | graph_0120 | tiktok_hashtag_export | capcut | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0010 | graph_0143 | tiktok_hashtag_export | jesuswillneverleaveyounorforsakeyou | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
 
 Full preflight: `data/processed/provider_preflight.csv`

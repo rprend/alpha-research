@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-13T03:46:20.158Z",
-  "execution_id": "2026-06-13T03-46-15-007Z",
+  "generated_at": "2026-06-13T06:37:34.227Z",
+  "execution_id": "2026-06-13T06-36-28-998Z",
   "provider": "huggingface_dataset_viewer",
   "dry_run": false,
   "dataset": "datahiveai/Tiktok-Videos",
@@ -9,7 +9,7 @@
   "source_url": "https://huggingface.co/datasets/datahiveai/Tiktok-Videos",
   "source_license": "cc-by-nc-4.0",
   "source_use_note": "Candidate acquisition only; non-commercial license requires review before production release use.",
-  "max_rows": 50000,
+  "max_rows": 20000,
   "page_size": 100,
   "request_delay_ms": 50,
   "max_retries": 4,
@@ -17,7 +17,7 @@
   "input_rows": 2060,
   "output_rows": 1,
   "skipped_rows": 2050,
-  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T03-46-15-007Z-hf-tiktok-video-dataset.jsonl",
+  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-36-28-998Z-hf-tiktok-video-dataset.jsonl",
   "target_label_counts": {
     "filmmaker": 1
   },
@@ -42,7 +42,7 @@
       ],
       "acquisition_surface": "public_dataset_sample",
       "provider": "huggingface_dataset_viewer",
-      "provider_execution_id": "2026-06-13T03-46-15-007Z",
+      "provider_execution_id": "2026-06-13T06-36-28-998Z",
       "batch_id": "hf_datahiveai_tiktok_videos_default_train",
       "rank": 1,
       "example_video_urls": "https://www.tiktok.com/@zachking/video/6638058572401872133|https://www.tiktok.com/@zachking/video/6853443815143951621|https://www.tiktok.com/@zachking/video/6864604556639161605|https://www.tiktok.com/@zachking/video/7018249930967960837|https://www.tiktok.com/@zachking/video/7227146522977111338"

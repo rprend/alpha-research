@@ -242,6 +242,22 @@ function canonicalFromProvider(row) {
   const caption = row.text ?? row.caption ?? row.description ?? ''
   const videoUrl = row.webVideoUrl ?? row.video_url ?? row.url ?? ''
   const profileUrl = row.profile_url ?? `https://www.tiktok.com/${handle}`
+  const embeddedVideos = asArray(row.videos).map((video) => {
+    const videoCaption = video.caption ?? video.description ?? ''
+    return {
+      url: video.url ?? video.video_url ?? '',
+      caption: videoCaption,
+      posted_at: video.posted_at ?? video.create_time ?? video.date ?? null,
+      view_count: toNumber(video.view_count ?? video.views),
+      like_count: toNumber(video.like_count ?? video.likes),
+      comment_count: toNumber(video.comment_count ?? video.comments),
+      share_count: toNumber(video.share_count ?? video.shares),
+      hashtags: normalizeHashtags(video.hashtags, videoCaption),
+      mentions: Array.from(new Set([...asArray(video.mentions).map(normalizeHandle).filter(Boolean), ...extractMentions(videoCaption)])),
+      sound_id: video.sound_id ?? video.music_id ?? '',
+      sound_title: video.sound_title ?? video.music_title ?? '',
+    }
+  })
   return {
     handle,
     display_name: author.nickName ?? author.nickname ?? row.display_name ?? row.name ?? handle.slice(1),
@@ -265,7 +281,9 @@ function canonicalFromProvider(row) {
     source_actor_id: row._source_actor_id ?? '',
     target_label: targetLabelsFor(row)[0] ?? '',
     source_target_labels: targetLabelsFor(row),
-    videos: videoUrl || caption
+    videos: embeddedVideos.length
+      ? embeddedVideos
+      : videoUrl || caption
       ? [{
           url: videoUrl,
           caption,
@@ -339,7 +357,7 @@ function mergeRows(rows) {
     if (row._source_execution_id) stats.execution_ids[row._source_execution_id] = (stats.execution_ids[row._source_execution_id] ?? 0) + 1
     if (row._source_batch_id) stats.batch_ids[row._source_batch_id] = (stats.batch_ids[row._source_batch_id] ?? 0) + 1
     if (row._source_provider) stats.lineage_providers[row._source_provider] = (stats.lineage_providers[row._source_provider] ?? 0) + 1
-    const canonical = (row.authorMeta || row.author || row.webVideoUrl || row.playCount != null)
+    const canonical = (row.authorMeta || row.author || row.webVideoUrl || row.playCount != null || asArray(row.videos).length)
       ? canonicalFromProvider(row)
       : canonicalFromSearch(row)
     if (!canonical) {

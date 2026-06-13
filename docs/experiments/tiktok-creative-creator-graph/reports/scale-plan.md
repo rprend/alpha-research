@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-13T06:33:25.693Z
+Generated: 2026-06-13T06:55:04.340Z
 
 ## Targets
 
@@ -10,68 +10,68 @@ Generated: 2026-06-13T06:33:25.693Z
 
 ## Current
 
-- Accounts: 30177
+- Accounts: 39570
 - Useful creators: 2
 - Excellent creators: 1
 - Review decisions: 4
 
 ## Estimated Work
 
-- Candidate accounts needed: 768615
-- Import batches needed at 250 candidates per batch: 3075
-- Useful creators needed for excellent target: 249950
+- Candidate accounts needed: 261351
+- Import batches needed at 250 candidates per batch: 1046
+- Useful creators needed for excellent target: 49990
 - Review batches needed: 2
 
 ## Planning Assumptions
 
-- Observed useful rate: 0.065
-- Planning useful rate: 0.065
-- Observed excellent rate among useful: 0.003
-- Planning excellent rate among useful: 0.02
+- Observed useful rate: 0.191
+- Planning useful rate: 0.191
+- Observed excellent rate among useful: 0.622
+- Planning excellent rate among useful: 0.1
 
 ## Top Surfaces
 
 | Rank | Surface | Query | Yield | Useful rate | Rejection rate |
 | ---: | --- | --- | ---: | ---: | ---: |
-| 1 | wikidata_profile | actor | 100 | 0.025 | 0 |
-| 2 | hf_tikfly_top_kol | creative technologist|ai artist|generative ai|creative coder|game developer|ar creator|vr creator | 100 | 1 | 0 |
-| 3 | wikidata_profile | comedian | 100 | 0.139 | 0 |
-| 4 | wikidata_profile | artist | 100 | 0.44 | 0 |
-| 5 | editorial_list | FeedSpot Top Pop Music TikTok Influencers 2026 | 100 | 0.441 | 0 |
-| 6 | wikidata_profile | dancer | 100 | 0.106 | 0 |
-| 7 | wikidata_profile | actor|dancer | 100 | 0.175 | 0 |
-| 8 | editorial_list | FeedSpot Top Lego TikTok Influencers 2026 | 100 | 0.458 | 0 |
-| 9 | wikidata_profile | voice actor | 100 | 0.078 | 0 |
-| 10 | wikidata_profile | singer|record producer|songwriter|rapper | 100 | 0.692 | 0 |
+| 1 | hf_shofo_video_parquet | video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci | 100 | 0.993 | 0.007 |
+| 2 | hf_shofo_video_parquet | filmmaker|short film|shortfilm|movie|documentary|screenwriter|music video | 100 | 0.996 | 0.004 |
+| 3 | hf_tikfly_top_kol | animator|animation|vfx|visual effects|motion designer|3d artist|cgi | 100 | 0.542 | 0 |
+| 4 | hf_shofo_video_parquet | tutorial|breakdown|how to|film analysis|camera tips|lighting setup | 100 | 1 | 0 |
+| 5 | hf_shofo_video_parquet | vfx|visual effects|aftereffects|after effects|animation|animator|motion graphics|cgi|blender | 100 | 0.995 | 0.005 |
+| 6 | hf_shofo_video_parquet | behind the scenes|bts|making of|how i made|on set|setup|process | 100 | 0.993 | 0.007 |
+| 7 | hf_shofo_video_parquet | cinematography|cinematic|camera|lighting|shot on|videographer|film look | 100 | 0.99 | 0.007 |
+| 8 | hf_shofo_video_parquet | sketch comedy|comedy sketch|skit|parody|improv | 100 | 0.979 | 0.021 |
+| 9 | hf_tikfly_top_kol | video editor|editor|editing|after effects|premiere pro|capcut | 100 | 0.035 | 0.001 |
+| 10 | hf_shofo_video_parquet | stand up|standup|stand-up|comedian|open mic|crowd work | 100 | 1 | 0 |
 
 ## Next Batches
 
-Candidate frontier targets: 321
+Candidate frontier targets: 541
 
 | Seq | Rank | Score | Priority | Surface | Target |
 | ---: | ---: | ---: | ---: | --- | --- |
-| 1 | 1 | 106 | 1 | tiktok_hashtag_export | filmmaker |
-| 2 | 2 | 95 | 1 | tiktok_hashtag_export | actor |
-| 3 | 3 | 86 | 1 | tiktok_hashtag_export | cinematography |
-| 4 | 4 | 86 | 1 | tiktok_hashtag_export | shortfilm |
-| 5 | 5 | 86 | 1 | tiktok_hashtag_export | sketchcomedy |
-| 6 | 6 | 83 | 1 | tiktok_hashtag_export | lighting |
-| 7 | 7 | 83 | 1 | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" |
-| 8 | 8 | 83 | 1 | cross_platform_search | site:youtube.com "tiktok.com/@" "sketch comedian" |
-| 9 | 9 | 81 | 1 | tiktok_hashtag_export | animation |
-| 10 | 10 | 79 | 2 | search_index | artist |
-| 11 | 11 | 79 | 2 | search_index | comedian |
-| 12 | 12 | 79 | 2 | search_index | FeedSpot Top Children Book TikTok Influencers 2026 |
-| 13 | 13 | 79 | 2 | search_index | FeedSpot Top Comedy TikTok Influencers 2026 |
-| 14 | 14 | 79 | 2 | search_index | FeedSpot Top Gaming TikTok Influencers 2026 |
-| 15 | 15 | 79 | 2 | search_index | FeedSpot Top Latin Music TikTok Influencers 2026 |
-| 16 | 16 | 79 | 2 | search_index | FeedSpot Top Lego TikTok Influencers 2026 |
-| 17 | 17 | 79 | 2 | search_index | FeedSpot Top Pop Music TikTok Influencers 2026 |
-| 18 | 18 | 79 | 2 | search_index | film director |
-| 19 | 19 | 79 | 2 | search_index | film producer |
-| 20 | 20 | 79 | 2 | search_index | screenwriter|comedian |
-| 21 | 21 | 79 | 2 | search_index | voice actor |
-| 22 | 22 | 78 | 1 | tiktok_hashtag_export | blender |
-| 23 | 23 | 78 | 1 | cross_platform_search | site:beacons.ai "tiktok.com/@" "vfx animation" |
-| 24 | 24 | 78 | 1 | tiktok_hashtag_export | vfx |
-| 25 | 25 | 75 | 1 | tiktok_hashtag_export | standupcomedy |
+| 1 | 1 | 92 | 1 | tiktok_hashtag_export | apartment |
+| 2 | 2 | 92 | 1 | tiktok_hashtag_export | arianagrande |
+| 3 | 3 | 92 | 1 | tiktok_hashtag_export | chilis |
+| 4 | 4 | 92 | 1 | tiktok_hashtag_export | chilistripledipper |
+| 5 | 5 | 92 | 1 | tiktok_hashtag_export | core |
+| 6 | 6 | 92 | 1 | tiktok_hashtag_export | doctor |
+| 7 | 7 | 92 | 1 | tiktok_hashtag_export | for |
+| 8 | 8 | 92 | 1 | tiktok_hashtag_export | funny |
+| 9 | 9 | 92 | 1 | tiktok_hashtag_export | johnnydepp |
+| 10 | 10 | 92 | 1 | tiktok_hashtag_export | lgbt |
+| 11 | 11 | 92 | 1 | tiktok_hashtag_export | lukadoncic |
+| 12 | 12 | 92 | 1 | tiktok_hashtag_export | mavericks |
+| 13 | 13 | 92 | 1 | tiktok_hashtag_export | organization |
+| 14 | 14 | 92 | 1 | tiktok_hashtag_export | piano |
+| 15 | 15 | 92 | 1 | tiktok_hashtag_export | prank |
+| 16 | 16 | 92 | 1 | tiktok_hashtag_export | projector |
+| 17 | 17 | 92 | 1 | tiktok_hashtag_export | projectorscreen |
+| 18 | 18 | 92 | 1 | tiktok_hashtag_export | relatable |
+| 19 | 19 | 92 | 1 | tiktok_hashtag_export | reto |
+| 20 | 20 | 92 | 1 | tiktok_hashtag_export | roomdecor |
+| 21 | 21 | 92 | 1 | tiktok_hashtag_export | roommakeover |
+| 22 | 22 | 92 | 1 | tiktok_hashtag_export | shelterstories |
+| 23 | 23 | 92 | 1 | tiktok_hashtag_export | skitok |
+| 24 | 24 | 92 | 1 | tiktok_hashtag_export | swag |
+| 25 | 25 | 92 | 1 | tiktok_hashtag_export | tiktoker |

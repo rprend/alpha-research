@@ -15,9 +15,11 @@ const dataset = String(args.get('--dataset') ?? 'datahiveai/Tiktok-Videos')
 const config = String(args.get('--config') ?? 'default')
 const split = String(args.get('--split') ?? 'train')
 const maxRows = Number(args.get('--max-rows') ?? 5000)
+const startOffset = Number(args.get('--start-offset') ?? 0)
 const pageSize = Math.min(100, Math.max(1, Number(args.get('--page-size') ?? 100)))
 const maxCreators = Number(args.get('--max-creators') ?? 2000)
 const dryRun = args.has('--dry-run')
+const failOnFetchError = args.has('--fail-on-fetch-error')
 const executionId = new Date().toISOString().replace(/[:.]/g, '-')
 const provider = 'huggingface_dataset_viewer'
 const requestDelayMs = Number(args.get('--request-delay-ms') ?? 250)
@@ -29,6 +31,12 @@ const datasetMetadata = {
     source_url: 'https://huggingface.co/datasets/datahiveai/Tiktok-Videos',
     source_license: 'cc-by-nc-4.0',
     source_use_note: 'Candidate acquisition only; non-commercial license requires review before production release use.',
+  },
+  'Shofo/shofo-tiktok-general-small': {
+    source_name: 'Hugging Face Shofo TikTok general small',
+    source_url: 'https://huggingface.co/datasets/Shofo/shofo-tiktok-general-small',
+    source_license: 'other',
+    source_use_note: 'Candidate acquisition only; inspect dataset card/license before production release use.',
   },
 }
 
@@ -103,8 +111,51 @@ function scrubText(value) {
     .trim()
 }
 
+function asArray(value) {
+  if (Array.isArray(value)) return value.filter((item) => item != null && item !== '')
+  if (value == null || value === '') return []
+  if (typeof value === 'string') {
+    const trimmed = value.trim()
+    if (!trimmed) return []
+    if (trimmed.startsWith('[')) {
+      try {
+        return JSON.parse(trimmed)
+      } catch {
+        return [trimmed]
+      }
+    }
+    return trimmed.split(/[|;]/).map((item) => item.trim()).filter(Boolean)
+  }
+  return [value]
+}
+
+function normalizeHashtags(value, text) {
+  const explicit = asArray(value).map((tag) => {
+    if (typeof tag === 'object' && tag) return String(tag.hashtag_name ?? tag.name ?? tag.title ?? '').replace(/^#/, '').toLowerCase()
+    return String(tag).replace(/^#/, '').toLowerCase()
+  }).filter(Boolean)
+  const caption = String(text ?? '').match(/#[\p{L}\p{N}_-]+/gu)?.map((tag) => tag.slice(1).toLowerCase()) ?? []
+  return Array.from(new Set([...explicit, ...caption]))
+}
+
+function rowText(row) {
+  return [
+    row.description,
+    row.desc,
+    row.transcript,
+    row.gpt_summary,
+    row.topic,
+    row.sticker_text,
+    row.hashtags,
+    row.url,
+    row.web_url,
+    row.author_unique_id,
+    row.creator,
+  ].join(' ')
+}
+
 function labelsFor(row) {
-  const text = `${row.description ?? ''} ${row.url ?? ''} ${row.author_unique_id ?? ''}`
+  const text = rowText(row)
   if (rejectRules.some((pattern) => pattern.test(text))) return []
   if (!highConfidenceRules.some((pattern) => pattern.test(text))) return []
   const labels = []
@@ -125,11 +176,12 @@ function mergeCreator(existing, candidate) {
     target_label: existing.target_label,
     source_query: Array.from(new Set(`${existing.source_query}|${candidate.source_query}`.split('|').filter(Boolean))).slice(0, 5).join('|'),
     example_video_urls: Array.from(new Set([...(existing.example_video_urls ?? []), ...(candidate.example_video_urls ?? [])])).slice(0, 5),
+    videos: [...(existing.videos ?? []), ...(candidate.videos ?? [])].slice(0, 25),
   }
 }
 
 function normalizeRow(row, index) {
-  const handle = normalizeHandle(row.author_unique_id || row.url)
+  const handle = normalizeHandle(row.author_unique_id || row.creator || row.web_url || row.url)
   if (!handle) return null
   const labels = labelsFor(row)
   if (!labels.length) return null
@@ -139,7 +191,10 @@ function normalizeRow(row, index) {
     source_license: 'unknown',
     source_use_note: 'Candidate acquisition only; confirm dataset license and provenance before production release use.',
   }
-  const description = scrubText(row.description ?? '')
+  const description = scrubText(row.description ?? row.desc ?? row.transcript ?? row.gpt_summary ?? '')
+  const caption = scrubText(row.description ?? row.desc ?? '')
+  const videoUrl = row.web_url ?? row.url ?? ''
+  const postedAt = row.create_time ?? row.create_date ?? row.date_posted ?? null
   return {
     handle,
     profile_url: `https://www.tiktok.com/${handle}`,
@@ -160,6 +215,21 @@ function normalizeRow(row, index) {
     batch_id: `hf_${dataset.replace(/[^a-z0-9]+/gi, '_').toLowerCase()}_${config}_${split}`,
     rank: index + 1,
     example_video_urls: row.url ? [row.url] : [],
+    videos: videoUrl || caption
+      ? [{
+          url: videoUrl,
+          caption,
+          posted_at: postedAt,
+          view_count: toNumber(row.play_count),
+          like_count: toNumber(row.digg_count),
+          comment_count: toNumber(row.comment_count),
+          share_count: toNumber(row.share_count),
+          hashtags: normalizeHashtags(row.hashtags, caption),
+          mentions: [],
+          sound_id: row.music_id ?? '',
+          sound_title: row.music_title ?? '',
+        }]
+      : [],
   }
 }
 
@@ -178,7 +248,8 @@ async function fetchRows(offset) {
       },
     })
     if (response.ok) return response.json()
-    if (response.status !== 429 || attempt === maxRetries) {
+    const retryable = response.status === 429 || response.status >= 500
+    if (!retryable || attempt === maxRetries) {
       throw new Error(`Hugging Face rows request failed ${response.status} at offset ${offset}`)
     }
     const retryAfter = Number(response.headers.get('retry-after') ?? 0)
@@ -196,9 +267,17 @@ async function main() {
   let inputRows = 0
   let skippedRows = 0
   let lastOffset = 0
+  let fetchError = ''
 
-  for (let offset = 0; offset < maxRows && creators.size < maxCreators; offset += pageSize) {
-    const payload = await fetchRows(offset)
+  for (let offset = Math.max(0, startOffset); offset < startOffset + maxRows && creators.size < maxCreators; offset += pageSize) {
+    let payload
+    try {
+      payload = await fetchRows(offset)
+    } catch (error) {
+      fetchError = error.message
+      if (failOnFetchError || creators.size === 0) throw error
+      break
+    }
     const rows = Array.isArray(payload.rows) ? payload.rows : []
     if (!rows.length) break
     lastOffset = offset
@@ -237,10 +316,12 @@ async function main() {
     source_license: metadata.source_license ?? 'unknown',
     source_use_note: metadata.source_use_note ?? 'Candidate acquisition only; confirm dataset license and provenance before production release use.',
     max_rows: maxRows,
+    start_offset: startOffset,
     page_size: pageSize,
     request_delay_ms: requestDelayMs,
     max_retries: maxRetries,
     last_offset: lastOffset,
+    fetch_error: fetchError,
     input_rows: inputRows,
     output_rows: outputRows.length,
     skipped_rows: skippedRows,
@@ -267,6 +348,9 @@ Generated: ${summary.generated_at}
 - Input video rows scanned: ${summary.input_rows}
 - Output creator rows: ${summary.output_rows}
 - Skipped rows: ${summary.skipped_rows}
+- Start offset: ${summary.start_offset}
+- Last offset: ${summary.last_offset}
+- Fetch error: ${summary.fetch_error || 'none'}
 - Output path: ${summary.output_path || 'none'}
 
 ## Target Labels

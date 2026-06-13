@@ -1,44 +1,44 @@
 # Adjacency Expansion
 
-Generated: 2026-06-13T06:33:22.054Z
+Generated: 2026-06-13T06:55:00.887Z
 
-- Base rows: 475
+- Base rows: 7411
 - Expansion rows: 500
-- Added rows: 25
+- Added rows: 0
 
 ## Types
 
-- expand_from_creator: 475
-- hashtag_search: 10
-- cross_platform_search: 3
-- yield_replay_search: 12
+- expand_from_creator: 186
+- hashtag_search: 312
+- cross_platform_search: 1
+- yield_replay_search: 1
 
 ## Top Rows
 
 | Type | Priority | Target | Reason |
 | --- | ---: | --- | --- |
-| expand_from_creator | 1 | @maya.shortcuts | high_usefulness_source |
-| hashtag_search | 1 | bts | useful_creator_hashtag:@selahshoots; useful_creator_hashtag:@maya.shortcuts |
-| hashtag_search | 1 | filmmaker | useful_creator_hashtag:@selahshoots; useful_creator_hashtag:@basementbits; useful_creator_hashtag:@lucybits; useful_creator_hashtag:@maya.shortcuts; useful_creator_hashtag:@noahframes |
-| hashtag_search | 1 | shortfilm | useful_creator_hashtag:@selahshoots; useful_creator_hashtag:@maya.shortcuts |
-| cross_platform_search | 1 | site:vimeo.com "tiktok.com/@" "filmmaker" | cross_platform_adjacency:vimeo.com |
-| expand_from_creator | 1 | @basementbits | high_usefulness_source |
-| hashtag_search | 1 | actor | useful_creator_hashtag:@basementbits; useful_creator_hashtag:@lucybits |
-| hashtag_search | 1 | sketchcomedy | useful_creator_hashtag:@basementbits; useful_creator_hashtag:@lucybits |
-| expand_from_creator | 1 | @selahshoots | high_usefulness_source |
-| expand_from_creator | 1 | @ani.motionlab | high_usefulness_source |
-| hashtag_search | 1 | animation | useful_creator_hashtag:@ani.motionlab |
-| hashtag_search | 1 | blender | useful_creator_hashtag:@ani.motionlab |
-| cross_platform_search | 1 | site:beacons.ai "tiktok.com/@" "vfx animation" | cross_platform_adjacency:beacons.ai |
-| hashtag_search | 1 | vfx | useful_creator_hashtag:@ani.motionlab; useful_creator_hashtag:@renderjules |
-| expand_from_creator | 1 | @noahframes | high_usefulness_source |
-| hashtag_search | 1 | cinematography | useful_creator_hashtag:@noahframes |
-| hashtag_search | 1 | lighting | useful_creator_hashtag:@noahframes |
-| expand_from_creator | 1 | @lucybits | high_usefulness_source |
-| cross_platform_search | 1 | site:youtube.com "tiktok.com/@" "sketch comedian" | cross_platform_adjacency:youtube.com |
-| expand_from_creator | 1 | @renderjules | high_usefulness_source |
-| expand_from_creator | 1 | @fluffyguy | high_usefulness_source |
-| expand_from_creator | 1 | @butchhartman | high_usefulness_source |
-| expand_from_creator | 1 | @craigdavid | high_usefulness_source |
-| expand_from_creator | 1 | @dondiablo | high_usefulness_source |
-| expand_from_creator | 1 | @fatboyslimofficial | high_usefulness_source |
+| expand_from_creator | 1 | @aaronmyarbrough | high_usefulness_source |
+| expand_from_creator | 1 | @albina_yessenkeldina | high_usefulness_source |
+| expand_from_creator | 1 | @aliviadonai | high_usefulness_source |
+| expand_from_creator | 1 | @alpha_challenges | high_usefulness_source |
+| expand_from_creator | 1 | @ana.coreana | high_usefulness_source |
+| expand_from_creator | 1 | @ascetic.motivation | high_usefulness_source |
+| expand_from_creator | 1 | @bob.reese | high_usefulness_source |
+| expand_from_creator | 1 | @btsjerseymikes | high_usefulness_source |
+| expand_from_creator | 1 | @btsjk.jin.namv | high_usefulness_source |
+| expand_from_creator | 1 | @callmeasophie | high_usefulness_source |
+| expand_from_creator | 1 | @capcutplantillas_0 | high_usefulness_source |
+| expand_from_creator | 1 | @carlys_cookbook | high_usefulness_source |
+| expand_from_creator | 1 | @cat.dc | high_usefulness_source |
+| expand_from_creator | 1 | @chujozza | high_usefulness_source |
+| expand_from_creator | 1 | @cilia.ghass | high_usefulness_source |
+| expand_from_creator | 1 | @davidbeck | high_usefulness_source |
+| expand_from_creator | 1 | @ewcgrandville | high_usefulness_source |
+| expand_from_creator | 1 | @gabby_murrayy | high_usefulness_source |
+| expand_from_creator | 1 | @gordonramsayofficial | high_usefulness_source |
+| expand_from_creator | 1 | @hotartgirl2 | high_usefulness_source |
+| expand_from_creator | 1 | @imacdemon | high_usefulness_source |
+| expand_from_creator | 1 | @jasoncoffee | high_usefulness_source |
+| expand_from_creator | 1 | @joshuamonis | high_usefulness_source |
+| expand_from_creator | 1 | @kaayywrightt | high_usefulness_source |
+| expand_from_creator | 1 | @mamaterese | high_usefulness_source |
