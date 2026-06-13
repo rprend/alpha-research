@@ -1,6 +1,6 @@
 # Learning Review Packet
 
-Generated: 2026-06-13T04:21:02.543Z
+Generated: 2026-06-13T04:25:33.472Z
 
 - Packet id: learning_review_20260613
 - Rows: 1000
@@ -13,27 +13,24 @@ This packet is sourced from `learning_candidate_shortlist` and is meant for fast
 
 ## Tiers
 
-- review_first: 141
-- strong_candidate: 713
-- medium_candidate: 146
+- review_first: 1000
 
 ## Suggested Decisions
 
+- keep: 995
 - excellent_benchmark: 5
-- keep: 849
-- maybe: 146
 
 ## Batches
 
 | Seq | Batch | Rows | Tiers | Decision template |
 | ---: | --- | ---: | --- | --- |
 | 1 | learning_batch_0001 | 100 | review_first | `data/processed/learning_review_packets/learning_review_20260613-learning_batch_0001-decision-template.csv` |
-| 2 | learning_batch_0002 | 100 | review_first, strong_candidate | `data/processed/learning_review_packets/learning_review_20260613-learning_batch_0002-decision-template.csv` |
-| 3 | learning_batch_0003 | 100 | strong_candidate | `data/processed/learning_review_packets/learning_review_20260613-learning_batch_0003-decision-template.csv` |
-| 4 | learning_batch_0004 | 100 | strong_candidate | `data/processed/learning_review_packets/learning_review_20260613-learning_batch_0004-decision-template.csv` |
-| 5 | learning_batch_0005 | 100 | strong_candidate | `data/processed/learning_review_packets/learning_review_20260613-learning_batch_0005-decision-template.csv` |
-| 6 | learning_batch_0006 | 100 | strong_candidate | `data/processed/learning_review_packets/learning_review_20260613-learning_batch_0006-decision-template.csv` |
-| 7 | learning_batch_0007 | 100 | strong_candidate | `data/processed/learning_review_packets/learning_review_20260613-learning_batch_0007-decision-template.csv` |
-| 8 | learning_batch_0008 | 100 | strong_candidate | `data/processed/learning_review_packets/learning_review_20260613-learning_batch_0008-decision-template.csv` |
-| 9 | learning_batch_0009 | 100 | strong_candidate, medium_candidate | `data/processed/learning_review_packets/learning_review_20260613-learning_batch_0009-decision-template.csv` |
-| 10 | learning_batch_0010 | 100 | medium_candidate | `data/processed/learning_review_packets/learning_review_20260613-learning_batch_0010-decision-template.csv` |
+| 2 | learning_batch_0002 | 100 | review_first | `data/processed/learning_review_packets/learning_review_20260613-learning_batch_0002-decision-template.csv` |
+| 3 | learning_batch_0003 | 100 | review_first | `data/processed/learning_review_packets/learning_review_20260613-learning_batch_0003-decision-template.csv` |
+| 4 | learning_batch_0004 | 100 | review_first | `data/processed/learning_review_packets/learning_review_20260613-learning_batch_0004-decision-template.csv` |
+| 5 | learning_batch_0005 | 100 | review_first | `data/processed/learning_review_packets/learning_review_20260613-learning_batch_0005-decision-template.csv` |
+| 6 | learning_batch_0006 | 100 | review_first | `data/processed/learning_review_packets/learning_review_20260613-learning_batch_0006-decision-template.csv` |
+| 7 | learning_batch_0007 | 100 | review_first | `data/processed/learning_review_packets/learning_review_20260613-learning_batch_0007-decision-template.csv` |
+| 8 | learning_batch_0008 | 100 | review_first | `data/processed/learning_review_packets/learning_review_20260613-learning_batch_0008-decision-template.csv` |
+| 9 | learning_batch_0009 | 100 | review_first | `data/processed/learning_review_packets/learning_review_20260613-learning_batch_0009-decision-template.csv` |
+| 10 | learning_batch_0010 | 100 | review_first | `data/processed/learning_review_packets/learning_review_20260613-learning_batch_0010-decision-template.csv` |

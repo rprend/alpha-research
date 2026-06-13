@@ -1,6 +1,6 @@
 # Review Plan
 
-Generated: 2026-06-13T04:21:02.805Z
+Generated: 2026-06-13T04:25:33.760Z
 
 - Target review decisions: 500
 - Current review decisions: 4
@@ -21,13 +21,13 @@ Generated: 2026-06-13T04:21:02.805Z
 | Label | Target reviews | Reviewed | Current sample | Gap | Useful gap | Priority |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | editor | 25 | 0 | 25 | 25 | 5000 | 1 |
-| director | 25 | 0 | 25 | 25 | 4000 | 1 |
-| standup_comedian | 25 | 0 | 25 | 25 | 4000 | 1 |
-| actor_performer | 25 | 0 | 25 | 25 | 4000 | 1 |
 | film_educator | 25 | 0 | 25 | 25 | 3000 | 1 |
 | behind_the_scenes_creator | 25 | 0 | 25 | 25 | 3000 | 1 |
-| filmmaker | 25 | 0 | 25 | 25 | 7998 | 2 |
-| sketch_comedian | 25 | 0 | 25 | 25 | 6998 | 2 |
-| cinematographer | 25 | 0 | 24 | 25 | 4999 | 2 |
-| vfx_animation | 25 | 0 | 25 | 25 | 4999 | 2 |
+| filmmaker | 25 | 0 | 25 | 25 | 7993 | 2 |
+| sketch_comedian | 25 | 0 | 25 | 25 | 6996 | 2 |
+| cinematographer | 25 | 0 | 25 | 25 | 4999 | 2 |
+| vfx_animation | 25 | 0 | 25 | 25 | 4966 | 2 |
+| director | 25 | 0 | 25 | 25 | 3994 | 2 |
+| standup_comedian | 25 | 0 | 25 | 25 | 3986 | 2 |
+| actor_performer | 25 | 0 | 25 | 25 | 3960 | 2 |
 | creative_technologist | 25 | 0 | 0 | 25 | 1999 | 2 |

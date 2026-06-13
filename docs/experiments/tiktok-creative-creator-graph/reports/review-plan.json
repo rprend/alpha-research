@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T04:21:02.805Z",
+  "generated_at": "2026-06-13T04:25:33.760Z",
   "target_review_decisions": 500,
   "current_review_decisions": 4,
   "review_gap": 496,
@@ -17,33 +17,6 @@
       "current_sample_rows": 25,
       "review_gap": 25,
       "useful_gap": 5000,
-      "priority": 1
-    },
-    {
-      "label": "director",
-      "target_review_decisions": 25,
-      "reviewed_decisions": 0,
-      "current_sample_rows": 25,
-      "review_gap": 25,
-      "useful_gap": 4000,
-      "priority": 1
-    },
-    {
-      "label": "standup_comedian",
-      "target_review_decisions": 25,
-      "reviewed_decisions": 0,
-      "current_sample_rows": 25,
-      "review_gap": 25,
-      "useful_gap": 4000,
-      "priority": 1
-    },
-    {
-      "label": "actor_performer",
-      "target_review_decisions": 25,
-      "reviewed_decisions": 0,
-      "current_sample_rows": 25,
-      "review_gap": 25,
-      "useful_gap": 4000,
       "priority": 1
     },
     {
@@ -70,7 +43,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 7998,
+      "useful_gap": 7993,
       "priority": 2
     },
     {
@@ -79,14 +52,14 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 6998,
+      "useful_gap": 6996,
       "priority": 2
     },
     {
       "label": "cinematographer",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 24,
+      "current_sample_rows": 25,
       "review_gap": 25,
       "useful_gap": 4999,
       "priority": 2
@@ -97,7 +70,34 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 4999,
+      "useful_gap": 4966,
+      "priority": 2
+    },
+    {
+      "label": "director",
+      "target_review_decisions": 25,
+      "reviewed_decisions": 0,
+      "current_sample_rows": 25,
+      "review_gap": 25,
+      "useful_gap": 3994,
+      "priority": 2
+    },
+    {
+      "label": "standup_comedian",
+      "target_review_decisions": 25,
+      "reviewed_decisions": 0,
+      "current_sample_rows": 25,
+      "review_gap": 25,
+      "useful_gap": 3986,
+      "priority": 2
+    },
+    {
+      "label": "actor_performer",
+      "target_review_decisions": 25,
+      "reviewed_decisions": 0,
+      "current_sample_rows": 25,
+      "review_gap": 25,
+      "useful_gap": 3960,
       "priority": 2
     },
     {

@@ -1,6 +1,6 @@
 # Wave Ledger
 
-Generated: 2026-06-13T04:21:03.553Z
+Generated: 2026-06-13T04:25:34.565Z
 
 - Waves: 10000
 - Planned: 10000
@@ -34,24 +34,24 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 | Seq | Wave | Status | Category | Surface | Query | Imported accounts | Yield | Review target |
 | ---: | --- | --- | --- | --- | --- | ---: | --- | ---: |
 | 1 | scale_wave_0001 | planned | filmmaker | tiktok_hashtag_export | filmmaker | 0 | n/a | 1 |
-| 2 | scale_wave_0002 | planned | filmmaker | search_index | filmmaker short film editing breakdown | 0 | n/a | 1 |
-| 3 | scale_wave_0003 | planned | cinematographer | search_index | cinematographer lighting breakdown | 0 | n/a | 1 |
-| 4 | scale_wave_0004 | planned | sketch_comedian | search_index | sketch comedian character comedy | 0 | n/a | 1 |
-| 5 | scale_wave_0005 | planned | vfx_animation | search_index | vfx artist animation blender | 0 | n/a | 1 |
-| 6 | scale_wave_0006 | planned | actor_performer | tiktok_hashtag_export | actor | 0 | n/a | 1 |
-| 7 | scale_wave_0007 | planned | vfx_animation | tiktok_hashtag_export | animation | 0 | n/a | 1 |
-| 8 | scale_wave_0008 | planned | cinematographer | tiktok_hashtag_export | cinematography | 0 | n/a | 1 |
-| 9 | scale_wave_0009 | planned | filmmaker | tiktok_hashtag_export | shortfilm | 0 | n/a | 1 |
-| 10 | scale_wave_0010 | planned | sketch_comedian | tiktok_hashtag_export | sketchcomedy | 0 | n/a | 1 |
-| 11 | scale_wave_0011 | planned | vfx_animation | tiktok_hashtag_export | blender | 0 | n/a | 1 |
-| 12 | scale_wave_0012 | planned | cinematographer | tiktok_hashtag_export | lighting | 0 | n/a | 1 |
-| 13 | scale_wave_0013 | planned | vfx_animation | cross_platform_search | site:beacons.ai "tiktok.com/@" "vfx animation" | 0 | n/a | 1 |
-| 14 | scale_wave_0014 | planned | filmmaker | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" | 0 | n/a | 1 |
-| 15 | scale_wave_0015 | planned | sketch_comedian | cross_platform_search | site:youtube.com "tiktok.com/@" "sketch comedian" | 0 | n/a | 1 |
-| 16 | scale_wave_0016 | planned | vfx_animation | tiktok_hashtag_export | vfx | 0 | n/a | 1 |
-| 17 | scale_wave_0017 | planned | editor | category_gap_search | site:tiktok.com/@ "editing" | 0 | n/a | 1 |
-| 18 | scale_wave_0018 | planned | editor | category_gap_search | site:tiktok.com/@ "editor" | 0 | n/a | 1 |
-| 19 | scale_wave_0019 | planned | editor | search_index | site:tiktok.com/@ "video editor" | 0 | n/a | 1 |
-| 20 | scale_wave_0020 | planned | vfx_animation | tiktok_hashtag_export | vfxartist | 0 | n/a | 1 |
+| 2 | scale_wave_0002 | planned | actor_performer | tiktok_hashtag_export | actor | 0 | n/a | 1 |
+| 3 | scale_wave_0003 | planned | editor | search_index | FeedSpot Top Children Book TikTok Influencers 2026 | 0 | n/a | 1 |
+| 4 | scale_wave_0004 | planned | editor | search_index | FeedSpot Top Comedy TikTok Influencers 2026 | 0 | n/a | 1 |
+| 5 | scale_wave_0005 | planned | editor | search_index | FeedSpot Top Dance TikTok Influencers 2026 | 0 | n/a | 1 |
+| 6 | scale_wave_0006 | planned | editor | search_index | FeedSpot Top Entertainment TikTok Influencers 2026 | 0 | n/a | 1 |
+| 7 | scale_wave_0007 | planned | editor | search_index | FeedSpot Top Gaming TikTok Influencers 2026 | 0 | n/a | 1 |
+| 8 | scale_wave_0008 | planned | editor | search_index | FeedSpot Top Latin Music TikTok Influencers 2026 | 0 | n/a | 1 |
+| 9 | scale_wave_0009 | planned | editor | search_index | FeedSpot Top Lego TikTok Influencers 2026 | 0 | n/a | 1 |
+| 10 | scale_wave_0010 | planned | editor | search_index | FeedSpot Top Mobile Gaming TikTok Influencers 2026 | 0 | n/a | 1 |
+| 11 | scale_wave_0011 | planned | editor | search_index | FeedSpot Top Music TikTok Influencers 2026 | 0 | n/a | 1 |
+| 12 | scale_wave_0012 | planned | editor | search_index | FeedSpot Top New York Art TikTok Influencers 2026 | 0 | n/a | 1 |
+| 13 | scale_wave_0013 | planned | editor | search_index | FeedSpot Top Pop Music TikTok Influencers 2026 | 0 | n/a | 1 |
+| 14 | scale_wave_0014 | planned | actor_performer | search_index | actor|dancer | 0 | n/a | 1 |
+| 15 | scale_wave_0015 | planned | standup_comedian | search_index | comedian | 0 | n/a | 1 |
+| 16 | scale_wave_0016 | planned | standup_comedian | search_index | comedian|stand-up comedian | 0 | n/a | 1 |
+| 17 | scale_wave_0017 | planned | standup_comedian | search_index | comedian|voice actor | 0 | n/a | 1 |
+| 18 | scale_wave_0018 | planned | director | search_index | film director | 0 | n/a | 1 |
+| 19 | scale_wave_0019 | planned | director | search_index | screenwriter|comedian|voice actor|film director|film producer|stand-up comedian | 0 | n/a | 1 |
+| 20 | scale_wave_0020 | planned | actor_performer | search_index | voice actor | 0 | n/a | 1 |
 
 Full ledger: `data/processed/wave_ledger.csv`

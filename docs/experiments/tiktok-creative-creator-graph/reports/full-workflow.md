@@ -1,6 +1,6 @@
 # Full Workflow
 
-Generated: 2026-06-13T04:21:04.710Z
+Generated: 2026-06-13T04:25:36.108Z
 
 Complete: true
 
@@ -35,6 +35,9 @@ Complete: true
 - build_external_lead_worklist: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-worklist.mjs`)
 - build_external_lead_work_item_templates: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-work-item-templates.mjs`)
 - build_external_lead_templates: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-templates.mjs`)
+- auto_complete_external_lead_packet_after_replan: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/auto-complete-external-lead-packet.mjs`)
+- build_external_lead_progress_after_replan: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-progress.mjs`)
+- import_replanned_external_lead_packet: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/import-ready-external-lead-packet.mjs`)
 - smoke_external_lead_work_items: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/smoke-external-lead-work-items.mjs`)
 - build_external_lead_progress: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-progress.mjs`)
 - build_provider_preflight: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-provider-preflight.mjs`)

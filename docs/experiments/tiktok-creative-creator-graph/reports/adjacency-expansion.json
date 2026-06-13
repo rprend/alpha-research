@@ -1,25 +1,15 @@
 {
-  "generated_at": "2026-06-13T04:21:01.989Z",
-  "base_rows": 7,
-  "expansion_rows": 28,
-  "added_rows": 21,
+  "generated_at": "2026-06-13T04:25:32.875Z",
+  "base_rows": 38,
+  "expansion_rows": 83,
+  "added_rows": 45,
   "type_counts": {
-    "yield_replay_search": 6,
-    "expand_from_creator": 7,
+    "expand_from_creator": 38,
     "hashtag_search": 12,
-    "cross_platform_search": 3
+    "cross_platform_search": 9,
+    "yield_replay_search": 24
   },
   "top_rows": [
-    {
-      "expansion_type": "yield_replay_search",
-      "source_creator_id": "",
-      "target": "review_queue_priority_1",
-      "priority": 1,
-      "reason": "replay_high_yield_source:public_profile_enrichment",
-      "primary_label": "",
-      "overall_usefulness": 1360,
-      "evidence_count": 1
-    },
     {
       "expansion_type": "expand_from_creator",
       "source_creator_id": "maya.shortcuts",
@@ -38,7 +28,7 @@
       "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts",
       "primary_label": "filmmaker",
       "overall_usefulness": 98,
-      "evidence_count": 21
+      "evidence_count": 22
     },
     {
       "expansion_type": "hashtag_search",
@@ -48,17 +38,7 @@
       "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits|useful_creator_hashtag:@maya.shortcuts|useful_creator_hashtag:@noahframes",
       "primary_label": "filmmaker",
       "overall_usefulness": 98,
-      "evidence_count": 43
-    },
-    {
-      "expansion_type": "yield_replay_search",
-      "source_creator_id": "",
-      "target": "filmmaker short film editing breakdown",
-      "priority": 1,
-      "reason": "replay_high_yield_source:manual_seed",
-      "primary_label": "",
-      "overall_usefulness": 98,
-      "evidence_count": 1
+      "evidence_count": 45
     },
     {
       "expansion_type": "hashtag_search",
@@ -68,7 +48,7 @@
       "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts",
       "primary_label": "filmmaker",
       "overall_usefulness": 98,
-      "evidence_count": 21
+      "evidence_count": 22
     },
     {
       "expansion_type": "cross_platform_search",
@@ -98,7 +78,7 @@
       "reason": "useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits",
       "primary_label": "sketch_comedian",
       "overall_usefulness": 94,
-      "evidence_count": 21
+      "evidence_count": 22
     },
     {
       "expansion_type": "hashtag_search",
@@ -108,7 +88,7 @@
       "reason": "useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits",
       "primary_label": "sketch_comedian",
       "overall_usefulness": 94,
-      "evidence_count": 21
+      "evidence_count": 22
     },
     {
       "expansion_type": "expand_from_creator",
@@ -171,32 +151,12 @@
       "evidence_count": 2
     },
     {
-      "expansion_type": "yield_replay_search",
-      "source_creator_id": "",
-      "target": "vfx artist animation blender",
-      "priority": 1,
-      "reason": "replay_high_yield_source:manual_seed",
-      "primary_label": "",
-      "overall_usefulness": 87,
-      "evidence_count": 1
-    },
-    {
       "expansion_type": "expand_from_creator",
       "source_creator_id": "noahframes",
       "target": "@noahframes",
       "priority": 1,
       "reason": "high_usefulness_source",
       "primary_label": "cinematographer",
-      "overall_usefulness": 86,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "yield_replay_search",
-      "source_creator_id": "",
-      "target": "cinematographer lighting breakdown",
-      "priority": 1,
-      "reason": "replay_high_yield_source:manual_seed",
-      "primary_label": "",
       "overall_usefulness": 86,
       "evidence_count": 1
     },
@@ -241,16 +201,6 @@
       "evidence_count": 1
     },
     {
-      "expansion_type": "yield_replay_search",
-      "source_creator_id": "",
-      "target": "sketch comedian character comedy",
-      "priority": 1,
-      "reason": "replay_high_yield_source:manual_seed",
-      "primary_label": "",
-      "overall_usefulness": 85,
-      "evidence_count": 1
-    },
-    {
       "expansion_type": "expand_from_creator",
       "source_creator_id": "renderjules",
       "target": "@renderjules",
@@ -258,6 +208,56 @@
       "reason": "high_usefulness_source",
       "primary_label": "creative_technologist",
       "overall_usefulness": 78,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "fluffyguy",
+      "target": "@fluffyguy",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "standup_comedian",
+      "overall_usefulness": 77,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "kevinjamesofficial",
+      "target": "@kevinjamesofficial",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "filmmaker",
+      "overall_usefulness": 73,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "ben_brainard",
+      "target": "@ben_brainard",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "standup_comedian",
+      "overall_usefulness": 72,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "devonrodriguezart",
+      "target": "@devonrodriguezart",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "vfx_animation",
+      "overall_usefulness": 72,
+      "evidence_count": 1
+    },
+    {
+      "expansion_type": "expand_from_creator",
+      "source_creator_id": "jalaiahharmon",
+      "target": "@jalaiahharmon",
+      "priority": 1,
+      "reason": "high_usefulness_source",
+      "primary_label": "vfx_animation",
+      "overall_usefulness": 72,
       "evidence_count": 1
     }
   ]

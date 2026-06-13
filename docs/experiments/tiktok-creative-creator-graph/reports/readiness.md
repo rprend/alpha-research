@@ -1,15 +1,15 @@
 # Readiness
 
-Generated: 2026-06-13T04:21:56.018Z
+Generated: 2026-06-13T04:28:08.987Z
 
 Complete: false
 
 ## Counts
 
 - Accounts: 10837
-- Videos: 68
+- Videos: 71
 - Graph edges: 639
-- Useful accounts: 7
+- Useful accounts: 107
 - Excellent accounts: 6
 - Rejected accounts: 2
 - Review queue: 10837
@@ -23,23 +23,23 @@ Complete: false
 - Review blank decisions: 0
 - Accepted creators: 2
 - Benchmark creators: 1
-- Expansion queue: 28
-- Adjacency expansion rows: 28
-- Adjacency expansion added rows: 21
-- Acquisition tasks: 92
-- Candidate frontier: 87
-- Candidate frontier handles: 7
-- Candidate frontier queries: 80
+- Expansion queue: 83
+- Adjacency expansion rows: 83
+- Adjacency expansion added rows: 45
+- Acquisition tasks: 147
+- Candidate frontier: 141
+- Candidate frontier handles: 38
+- Candidate frontier queries: 103
 - Acquisition import preview accounts: 10832
 - Acquisition import preview ready: false
-- Acquisition import waves: 35
+- Acquisition import waves: 36
 - Acquisition runner tasks: 2
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
 - Acquisition run history: 17
 - Source yield rows: 905
 - Identities: 10686
-- Category coverage labels: 5/11
+- Category coverage labels: 8/11
 - Release useful creators: 2
 - Source policy: present
 - Release verification checks: 44
@@ -60,15 +60,15 @@ Complete: false
 - External lead auto-complete routed rows: 10808
 - External lead template files: 200
 - External lead template rows: 50000
-- External lead worklist items: 850
+- External lead worklist items: 833
 - External lead worklist lead quota: 50000
-- External lead work-item template files: 850
+- External lead work-item template files: 833
 - External lead work-item template rows: 50000
 - External lead work-item merge input files: 0
 - External lead work-item merge output files: 0
 - External lead work-item merge unique valid rows: 0
 - External lead work-item merge unknown files: 0
-- External lead packet completed files: 50
+- External lead packet completed files: 98
 - External lead packet import-ready assignments: 50
 - External lead packet no-valid-handles assignments: 0
 - External lead packet valid leads: 10808
@@ -99,7 +99,7 @@ Complete: false
 ## Checks
 
 - seed_intake: pass (10837 accounts ingested)
-- video_metadata: pass (68 videos ingested)
+- video_metadata: pass (71 videos ingested)
 - graph_edges: pass (639 graph edges generated)
 - scoring_coverage: pass (10837/10837 accounts scored)
 - review_queue: pass (10837 accounts queued for review)
@@ -108,17 +108,17 @@ Complete: false
 - review_plan: pass (11 category review plan rows generated)
 - learning_candidate_shortlist: pass (5000 candidate accounts prioritized for learning-value review)
 - learning_review_packet: pass (1000 learning review rows across 10 batches)
-- expansion_queue: pass (28 expansion targets queued)
-- adjacency_expansion: pass (28 enriched expansion rows (21 added))
-- acquisition_batches: pass (92 acquisition tasks generated)
-- candidate_frontier: pass (87 ranked acquisition candidates generated)
+- expansion_queue: pass (83 expansion targets queued)
+- adjacency_expansion: pass (83 enriched expansion rows (45 added))
+- acquisition_batches: pass (147 acquisition tasks generated)
+- candidate_frontier: pass (141 ranked acquisition candidates generated)
 - acquisition_import_preview: pass (10832 preview accounts, import gate not ready)
-- acquisition_import_waves: pass (35 acquisition import waves tracked)
+- acquisition_import_waves: pass (36 acquisition import waves tracked)
 - acquisition_runner: pass (2 runnable of 2 selected provider tasks (dry run))
 - acquisition_run_history: pass (17 acquisition run history rows persisted)
 - source_yield: pass (905 source/query yield rows generated)
 - identity_resolution: pass (10686 creator identities resolved)
-- category_coverage: pass (5/11 target labels covered)
+- category_coverage: pass (8/11 target labels covered)
 - release_package: pass (2 useful creators exported for release)
 - source_policy: pass (source policy covers sources, release fields, safety, retention, and provenance)
 - release_verification: pass (44 release checks evaluated)
@@ -129,8 +129,8 @@ Complete: false
 - external_lead_packet_scale: pass (50000/50000 requested leads across 200/200 assignments)
 - external_lead_auto_complete: pass (0 files written, 50 existing files skipped, 10808 routed rows)
 - external_lead_templates: pass (200 templates, 50000 rows)
-- external_lead_worklist: pass (850 source work items, 50000 lead quota)
-- external_lead_work_item_templates: pass (850 work-item templates, 50000 rows)
+- external_lead_worklist: pass (833 source work items, 50000 lead quota)
+- external_lead_work_item_templates: pass (833 work-item templates, 50000 rows)
 - external_lead_work_item_merge: pass (0 work-item files, 0 assignment files, 0 unique valid rows)
 - external_lead_progress: pass (50/200 import-ready assignments, 10808 valid leads)
 - external_lead_packet_import: pass (0 imported this run, 50 already imported, 0 pending, 0 failed)
@@ -140,13 +140,13 @@ Complete: false
 - scale_campaign_runner: pass (1 dry_run iteration(s), stop reason dry_run_complete)
 - refresh_plan: pass (10837 account refresh tasks generated)
 - publication_handoff: pass (not-ready-production-data handoff generated)
-- publication_handoff_freshness: pass (handoff accounts 10837/10837, identities 10686/10686, videos 68/68, import waves 35/35, source yield 905/905)
-- useful_account_target: incomplete (7/50000 useful accounts)
+- publication_handoff_freshness: pass (handoff accounts 10837/10837, identities 10686/10686, videos 71/71, import waves 36/36, source yield 905/905)
+- useful_account_target: incomplete (107/50000 useful accounts)
 - excellent_account_target: incomplete (6/5000 excellent accounts)
 - human_review_target: incomplete (4/500 review decisions applied)
 
 ## Remaining To Full Goal
 
-- Useful accounts: 49993
+- Useful accounts: 49893
 - Excellent accounts: 4994
 - Reviewable accounts: 496

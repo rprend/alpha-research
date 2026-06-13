@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T04:21:03.181Z",
+  "generated_at": "2026-06-13T04:25:34.180Z",
   "objective": "TikTok creative creator graph release package",
   "counts": {
     "accounts": 10837,
@@ -10,13 +10,13 @@
     "review_queue": 10833
   },
   "readiness": {
-    "generated_at": "2026-06-13T04:20:03.305Z",
+    "generated_at": "2026-06-13T04:25:07.531Z",
     "complete": false,
     "counts": {
       "accounts": 10837,
       "videos": 68,
       "edges": 639,
-      "useful_accounts": 7,
+      "useful_accounts": 107,
       "excellent_accounts": 6,
       "rejected_accounts": 2,
       "review_queue": 10837,
@@ -33,13 +33,13 @@
       "review_blank_decisions": 0,
       "accepted_creators": 2,
       "benchmark_creators": 1,
-      "expansion_queue": 28,
-      "adjacency_expansion_rows": 28,
-      "adjacency_expansion_added_rows": 21,
-      "acquisition_tasks": 92,
-      "candidate_frontier": 87,
-      "candidate_frontier_handles": 7,
-      "candidate_frontier_queries": 80,
+      "expansion_queue": 83,
+      "adjacency_expansion_rows": 83,
+      "adjacency_expansion_added_rows": 45,
+      "acquisition_tasks": 147,
+      "candidate_frontier": 141,
+      "candidate_frontier_handles": 38,
+      "candidate_frontier_queries": 103,
       "acquisition_import_preview_accounts": 10832,
       "acquisition_import_preview_ready": false,
       "acquisition_import_waves": 35,
@@ -50,7 +50,7 @@
       "source_yield_rows": 905,
       "identities": 10686,
       "category_coverage_labels": 11,
-      "category_coverage_covered_labels": 5,
+      "category_coverage_covered_labels": 8,
       "release_useful_creators": 2,
       "source_policy": 1,
       "release_verification_checks": 44,
@@ -66,26 +66,30 @@
       "wave_ledger_under_yield_imports": 0,
       "external_lead_packet_assignments": 200,
       "external_lead_packet_requested_leads": 50000,
+      "external_lead_auto_complete_files_written": 0,
+      "external_lead_auto_complete_existing_files_skipped": 50,
+      "external_lead_auto_complete_routed_rows": 10808,
       "external_lead_template_files": 200,
       "external_lead_template_rows": 50000,
-      "external_lead_worklist_items": 850,
+      "external_lead_worklist_items": 833,
       "external_lead_worklist_lead_quota": 50000,
-      "external_lead_work_item_template_files": 850,
+      "external_lead_work_item_template_files": 833,
       "external_lead_work_item_template_rows": 50000,
       "external_lead_work_item_merge_input_files": 0,
       "external_lead_work_item_merge_output_files": 0,
       "external_lead_work_item_merge_unique_valid_rows": 0,
       "external_lead_work_item_merge_unknown_files": 0,
       "external_lead_packet_completed_files": 50,
-      "external_lead_packet_import_ready_assignments": 50,
+      "external_lead_packet_import_ready_assignments": 2,
       "external_lead_packet_no_valid_handles_assignments": 0,
-      "external_lead_packet_valid_leads": 10808,
-      "external_lead_packet_lead_fill_ratio": 0.216,
+      "external_lead_packet_valid_leads": 500,
+      "external_lead_packet_lead_fill_ratio": 0.01,
       "external_lead_packet_ready_files": 50,
-      "external_lead_packet_pending_import_files": 50,
-      "external_lead_packet_imported_files": 50,
+      "external_lead_packet_already_imported_ready_files": 50,
+      "external_lead_packet_pending_import_files": 0,
+      "external_lead_packet_imported_files": 0,
       "external_lead_packet_import_failed_files": 0,
-      "external_lead_packet_import_output_rows": 10808,
+      "external_lead_packet_import_output_rows": 0,
       "provider_preflight_tasks": 20,
       "provider_preflight_ready_tasks": 0,
       "provider_preflight_blocked_tasks": 20,
@@ -158,22 +162,22 @@
       {
         "id": "expansion_queue",
         "status": "pass",
-        "evidence": "28 expansion targets queued"
+        "evidence": "83 expansion targets queued"
       },
       {
         "id": "adjacency_expansion",
         "status": "pass",
-        "evidence": "28 enriched expansion rows (21 added)"
+        "evidence": "83 enriched expansion rows (45 added)"
       },
       {
         "id": "acquisition_batches",
         "status": "pass",
-        "evidence": "92 acquisition tasks generated"
+        "evidence": "147 acquisition tasks generated"
       },
       {
         "id": "candidate_frontier",
         "status": "pass",
-        "evidence": "87 ranked acquisition candidates generated"
+        "evidence": "141 ranked acquisition candidates generated"
       },
       {
         "id": "acquisition_import_preview",
@@ -208,7 +212,7 @@
       {
         "id": "category_coverage",
         "status": "pass",
-        "evidence": "5/11 target labels covered"
+        "evidence": "8/11 target labels covered"
       },
       {
         "id": "release_package",
@@ -251,6 +255,11 @@
         "evidence": "50000/50000 requested leads across 200/200 assignments"
       },
       {
+        "id": "external_lead_auto_complete",
+        "status": "pass",
+        "evidence": "0 files written, 50 existing files skipped, 10808 routed rows"
+      },
+      {
         "id": "external_lead_templates",
         "status": "pass",
         "evidence": "200 templates, 50000 rows"
@@ -258,12 +267,12 @@
       {
         "id": "external_lead_worklist",
         "status": "pass",
-        "evidence": "850 source work items, 50000 lead quota"
+        "evidence": "833 source work items, 50000 lead quota"
       },
       {
         "id": "external_lead_work_item_templates",
         "status": "pass",
-        "evidence": "850 work-item templates, 50000 rows"
+        "evidence": "833 work-item templates, 50000 rows"
       },
       {
         "id": "external_lead_work_item_merge",
@@ -273,12 +282,12 @@
       {
         "id": "external_lead_progress",
         "status": "pass",
-        "evidence": "50/200 import-ready assignments, 10808 valid leads"
+        "evidence": "2/200 import-ready assignments, 500 valid leads"
       },
       {
         "id": "external_lead_packet_import",
         "status": "pass",
-        "evidence": "50 imported, 50 pending, 0 failed"
+        "evidence": "0 imported this run, 50 already imported, 0 pending, 0 failed"
       },
       {
         "id": "provider_preflight",
@@ -318,7 +327,7 @@
       {
         "id": "useful_account_target",
         "status": "incomplete",
-        "evidence": "7/50000 useful accounts"
+        "evidence": "107/50000 useful accounts"
       },
       {
         "id": "excellent_account_target",
@@ -332,7 +341,7 @@
       }
     ],
     "remaining": {
-      "useful_accounts": 49993,
+      "useful_accounts": 49893,
       "excellent_accounts": 4994,
       "reviewed_accounts": 496
     }
@@ -361,22 +370,22 @@
     {
       "path": "data/release/rejected_creators.jsonl",
       "rows": 2,
-      "sha256": "5fe06c6419bf6e37179ae7cb349a726ab557c20fad6236795f0d1913c166c867"
+      "sha256": "d8a02a9272c38ded396da6508f1a42543b92bd2ab354b9420b4141cbc051c7e1"
     },
     {
       "path": "data/release/rejected_creators.csv",
       "rows": 2,
-      "sha256": "47abc5e27e31ae2ec14bf822cb6acdcf0c2818924caba897c99d7e008b72b054"
+      "sha256": "910f354f8768150f8873bb1aedc822a2dc3de657fe2698de5f691aaeec5327a3"
     },
     {
       "path": "data/release/review_queue.csv",
       "rows": 10833,
-      "sha256": "bfb88379800392a7cae4ef62b4b025641479535e3ebe5a0c650c3e683e8e0c83"
+      "sha256": "a334a42fe64256d2bf82eb66f5960fc1d4f66d13c50263ff7eddc9171b56277f"
     },
     {
       "path": "data/release/all_scored_creators.csv",
       "rows": 10837,
-      "sha256": "20356f23c24e290216be87aef13c987c00eed718602132d51ec59e55cb40dfea"
+      "sha256": "8b54b09f2f9efa327feb08f862bcec7c1822d88db52a2df701aa5b4ce5c82dc2"
     }
   ]
 }

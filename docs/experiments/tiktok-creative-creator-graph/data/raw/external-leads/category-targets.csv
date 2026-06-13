@@ -1,12 +1,12 @@
 target_label,target_useful_creators,current_primary_accounts,useful_primary_accounts,useful_gap,recommended_priority,search_hints
 editor,5000,89,0,5000,1,video editor | editing breakdown | DaVinci Resolve | Premiere Pro | color grading
-director,4000,273,0,4000,1,director reel | music video director | commercial director | directed by | writer director
-standup_comedian,4000,119,0,4000,1,standup comedian | stand-up | open mic | crowd work | comedy club
-actor_performer,4000,3855,0,4000,1,actor | performer | monologue | self tape | improv
-film_educator,3000,2055,0,3000,1,film tutorial | shot breakdown | film school | cinema analysis | camera tutorial
-behind_the_scenes_creator,3000,272,0,3000,1,behind the scenes | on set | set life | production diary | film crew
-filmmaker,8000,442,2,7998,2,short film | filmmaker | film director | film set | shot breakdown | #filmmaker | #shortfilm
-sketch_comedian,7000,611,2,6998,2,sketch comedy | character comedy | improv | comedy sketch | original sketch
-cinematographer,5000,88,1,4999,2,cinematographer | dp | dop | lighting breakdown | camera test | #cinematography
-vfx_animation,5000,742,1,4999,2,vfx artist | animator | Blender | motion graphics | visual effects | #vfxartist
-creative_technologist,2000,2288,1,1999,2,ai video | Runway | Pika | creative coding | generative ai filmmaker
+film_educator,3000,1807,0,3000,1,film tutorial | shot breakdown | film school | cinema analysis | camera tutorial
+behind_the_scenes_creator,3000,265,0,3000,1,behind the scenes | on set | set life | production diary | film crew
+filmmaker,8000,583,7,7993,2,short film | filmmaker | film director | film set | shot breakdown | #filmmaker | #shortfilm
+sketch_comedian,7000,329,4,6996,2,sketch comedy | character comedy | improv | comedy sketch | original sketch
+cinematographer,5000,53,1,4999,2,cinematographer | dp | dop | lighting breakdown | camera test | #cinematography
+vfx_animation,5000,748,34,4966,2,vfx artist | animator | Blender | motion graphics | visual effects | #vfxartist
+director,4000,283,6,3994,2,director reel | music video director | commercial director | directed by | writer director
+standup_comedian,4000,184,14,3986,2,standup comedian | stand-up | open mic | crowd work | comedy club
+actor_performer,4000,4553,40,3960,2,actor | performer | monologue | self tape | improv
+creative_technologist,2000,1941,1,1999,2,ai video | Runway | Pika | creative coding | generative ai filmmaker

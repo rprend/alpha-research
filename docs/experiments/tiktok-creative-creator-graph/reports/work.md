@@ -1,40 +1,39 @@
 # TikTok Creative Creator Graph Run
 
-Generated: 2026-06-13T04:21:01.384Z
+Generated: 2026-06-13T04:25:32.213Z
 
 ## Summary
 
 - Accounts: 10837
-- Videos: 68
+- Videos: 71
 - Graph edges: 639
-- Useful accounts: 7
+- Useful accounts: 107
 - Excellent accounts: 6
 - Review queue: 10837
-- Expansion queue: 7
+- Expansion queue: 38
 - Target: 50000
-- Target status: 49993 more useful accounts needed
+- Target status: 49893 more useful accounts needed
 
 ## Status Counts
 
-- needs_review: 10828
+- useful: 101
+- needs_review: 10728
 - excellent: 6
 - reject: 2
-- useful: 1
 
 ## Primary Labels
 
-- sketch_comedian: 611
-- standup_comedian: 119
-- actor_performer: 3855
-- cinematographer: 88
-- director: 273
+- actor_performer: 4553
+- sketch_comedian: 329
+- standup_comedian: 184
+- filmmaker: 583
+- cinematographer: 53
+- director: 283
 - editor: 89
-- filmmaker: 442
-- vfx_animation: 742
-- creative_technologist: 2288
-- film_educator: 2055
-- behind_the_scenes_creator: 272
-- unclear: 1
+- vfx_animation: 748
+- creative_technologist: 1941
+- film_educator: 1807
+- behind_the_scenes_creator: 265
 - reject: 2
 
 ## Top Accounts
@@ -48,31 +47,49 @@ Generated: 2026-06-13T04:21:01.384Z
 | @noahframes | cinematographer | 86 | excellent |
 | @lucybits | sketch_comedian | 85 | excellent |
 | @renderjules | creative_technologist | 78 | useful |
-| @samy.chaffai | editor | 54 | needs_review |
-| @idannaiditz19 | standup_comedian | 53 | needs_review |
-| @jamesmarriott | cinematographer | 52 | needs_review |
-| @ben_brainard | standup_comedian | 50 | needs_review |
-| @kimberly.loaiza | creative_technologist | 50 | needs_review |
-| @oohlalola | cinematographer | 50 | needs_review |
-| @morgannbook | film_educator | 50 | needs_review |
-| @authorcarriea | cinematographer | 50 | needs_review |
-| @katvoltage | film_educator | 50 | needs_review |
-| @realegdaily | cinematographer | 50 | needs_review |
-| @mensnonnojp | actor_performer | 50 | needs_review |
-| @comediandre | standup_comedian | 48 | needs_review |
-| @mycanimationsextra | vfx_animation | 48 | needs_review |
+| @fluffyguy | standup_comedian | 77 | useful |
+| @kevinjamesofficial | filmmaker | 73 | useful |
+| @ben_brainard | standup_comedian | 72 | useful |
+| @devonrodriguezart | vfx_animation | 72 | useful |
+| @jlo | actor_performer | 72 | useful |
+| @jalaiahharmon | vfx_animation | 72 | useful |
+| @xtina | director | 70 | useful |
+| @kingbach | actor_performer | 69 | useful |
+| @jeffdunham | standup_comedian | 69 | useful |
+| @joshjohnsoncomedy | standup_comedian | 69 | useful |
+| @jessicakirson | standup_comedian | 69 | useful |
+| @itsjojosiwa | standup_comedian | 69 | useful |
+| @matt_rife | standup_comedian | 68 | useful |
 
 ## Next Expansion Targets
 
 | Type | Target | Priority | Reason |
 | --- | --- | ---: | --- |
+| expand_from_creator | @kingbach | 1 | high_usefulness_source |
+| expand_from_creator | @matt_rife | 1 | high_usefulness_source |
+| expand_from_creator | @fluffyguy | 1 | high_usefulness_source |
+| expand_from_creator | @jeffdunham | 1 | high_usefulness_source |
+| expand_from_creator | @kevinjamesofficial | 1 | high_usefulness_source |
+| expand_from_creator | @ben_brainard | 1 | high_usefulness_source |
+| expand_from_creator | @joshjohnsoncomedy | 1 | high_usefulness_source |
+| expand_from_creator | @jessicakirson | 1 | high_usefulness_source |
+| expand_from_creator | @devonrodriguezart | 1 | high_usefulness_source |
+| expand_from_creator | @hungryartistny | 1 | high_usefulness_source |
+| expand_from_creator | @zachking | 1 | high_usefulness_source |
 | expand_from_creator | @selahshoots | 1 | high_usefulness_source |
 | expand_from_creator | @basementbits | 1 | high_usefulness_source |
-| expand_from_creator | @lucybits | 1 | high_usefulness_source |
-| expand_from_creator | @maya.shortcuts | 1 | high_usefulness_source |
-| expand_from_creator | @noahframes | 1 | high_usefulness_source |
-| expand_from_creator | @ani.motionlab | 1 | high_usefulness_source |
-| expand_from_creator | @renderjules | 1 | high_usefulness_source |
+| expand_from_creator | @jlo | 1 | high_usefulness_source |
+| expand_from_creator | @xtina | 1 | high_usefulness_source |
+| expand_from_creator | @kesha | 1 | high_usefulness_source |
+| expand_from_creator | @anitta | 1 | high_usefulness_source |
+| expand_from_creator | @luca.lego | 1 | high_usefulness_source |
+| expand_from_creator | @thelegomommy | 1 | high_usefulness_source |
+| expand_from_creator | @youcancallmekait | 1 | high_usefulness_source |
+| expand_from_creator | @kaileemcoleman | 1 | high_usefulness_source |
+| expand_from_creator | @itsjojosiwa | 1 | high_usefulness_source |
+| expand_from_creator | @ninja | 1 | high_usefulness_source |
+| expand_from_creator | @poki | 1 | high_usefulness_source |
+| expand_from_creator | @myth | 1 | high_usefulness_source |
 
 ## Human Review Queue
 
@@ -87,19 +104,19 @@ Generated: 2026-06-13T04:21:01.384Z
 | @dailyfilmclips | reject | 0 | repost_risk |
 | @clipvaultcinema | reject | 0 | repost_risk |
 | @renderjules | creative_technologist | 78 | strong_public_source_candidate |
-| @samy.chaffai | editor | 54 | threshold_borderline; strong_public_source_candidate |
-| @idannaiditz19 | standup_comedian | 53 | threshold_borderline; strong_public_source_candidate |
-| @jamesmarriott | cinematographer | 52 | threshold_borderline; strong_public_source_candidate |
-| @ben_brainard | standup_comedian | 50 | threshold_borderline; strong_public_source_candidate |
-| @kimberly.loaiza | creative_technologist | 50 | threshold_borderline; strong_public_source_candidate |
-| @oohlalola | cinematographer | 50 | threshold_borderline; strong_public_source_candidate |
-| @morgannbook | film_educator | 50 | threshold_borderline; strong_public_source_candidate |
-| @authorcarriea | cinematographer | 50 | threshold_borderline; strong_public_source_candidate |
-| @katvoltage | film_educator | 50 | threshold_borderline; strong_public_source_candidate |
-| @realegdaily | cinematographer | 50 | threshold_borderline; strong_public_source_candidate |
-| @mensnonnojp | actor_performer | 50 | threshold_borderline; strong_public_source_candidate |
-| @comediandre | standup_comedian | 48 | threshold_borderline; strong_public_source_candidate |
-| @mycanimationsextra | vfx_animation | 48 | threshold_borderline; strong_public_source_candidate |
-| @hungryartistny | vfx_animation | 48 | threshold_borderline; strong_public_source_candidate |
-| @joshvfx | vfx_animation | 48 | threshold_borderline; strong_public_source_candidate |
-| @clairefraiseauthor | film_educator | 48 | threshold_borderline; strong_public_source_candidate |
+| @fluffyguy | standup_comedian | 77 | strong_public_source_candidate |
+| @kevinjamesofficial | filmmaker | 73 | strong_public_source_candidate |
+| @ben_brainard | standup_comedian | 72 | strong_public_source_candidate |
+| @devonrodriguezart | vfx_animation | 72 | strong_public_source_candidate |
+| @jlo | actor_performer | 72 | strong_public_source_candidate |
+| @jalaiahharmon | vfx_animation | 72 | strong_public_source_candidate |
+| @xtina | director | 70 | strong_public_source_candidate |
+| @kingbach | actor_performer | 69 | strong_public_source_candidate |
+| @jeffdunham | standup_comedian | 69 | strong_public_source_candidate |
+| @joshjohnsoncomedy | standup_comedian | 69 | strong_public_source_candidate |
+| @jessicakirson | standup_comedian | 69 | strong_public_source_candidate |
+| @itsjojosiwa | standup_comedian | 69 | strong_public_source_candidate |
+| @matt_rife | standup_comedian | 68 | strong_public_source_candidate |
+| @anitta | actor_performer | 68 | strong_public_source_candidate |
+| @ninja | vfx_animation | 68 | strong_public_source_candidate |
+| @myth | vfx_animation | 68 | strong_public_source_candidate |

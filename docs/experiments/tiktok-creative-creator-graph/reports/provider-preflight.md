@@ -1,6 +1,6 @@
 # Provider Preflight
 
-Generated: 2026-06-13T04:21:04.136Z
+Generated: 2026-06-13T04:25:35.512Z
 
 - Provider: apify
 - Provider viability: missing_token
@@ -29,25 +29,25 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 
 | Wave | Batch | Surface | Query | Actor | Ready | Viability | Est. rows | Est. cost |
 | --- | --- | --- | --- | --- | --- | --- | ---: | ---: |
-| scale_wave_0001 | graph_0068 | tiktok_hashtag_export | filmmaker | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0001 | category_gap_0030 | category_gap_search | site:tiktok.com/@ "director" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0002 | graph_0069 | search_index | filmmaker short film editing breakdown | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0002 | category_gap_0040 | category_gap_search | site:tiktok.com/@ "performer" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0003 | graph_0083 | search_index | cinematographer lighting breakdown | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0003 | category_gap_0035 | category_gap_search | site:tiktok.com/@ "stand-up" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0004 | graph_0088 | search_index | sketch comedian character comedy | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0004 | category_gap_0033 | category_gap_search | site:tiktok.com/@ "standup comedian" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0005 | graph_0081 | search_index | vfx artist animation blender | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0005 | category_gap_0034 | category_gap_search | site:tiktok.com/@ "standup" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0006 | graph_0073 | tiktok_hashtag_export | actor | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0006 | search_0004 | search_index | site:tiktok.com/@ comedian | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0007 | graph_0077 | tiktok_hashtag_export | animation | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0007 | hashtag_0017 | tiktok_hashtag_export | standupcomedy | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0008 | graph_0084 | tiktok_hashtag_export | cinematography | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0008 | graph_0092 | search_index | mentioned by @ani.motionlab | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0009 | graph_0070 | tiktok_hashtag_export | shortfilm | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0009 | graph_0067 | tiktok_hashtag_export | bts | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0010 | graph_0074 | tiktok_hashtag_export | sketchcomedy | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0010 | category_gap_0060 | category_gap_search | site:tiktok.com/@ "animation" | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0001 | graph_0067 | tiktok_hashtag_export | filmmaker | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0001 | graph_0129 | search_index | film producer | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0002 | graph_0071 | tiktok_hashtag_export | actor | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0002 | graph_0137 | search_index | influencer | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0003 | graph_0119 | search_index | FeedSpot Top Children Book TikTok Influencers 2026 | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0003 | graph_0138 | search_index | Internet celebrity | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0004 | graph_0117 | search_index | FeedSpot Top Comedy TikTok Influencers 2026 | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0004 | graph_0139 | search_index | vlogger|online streamer | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0005 | graph_0127 | search_index | FeedSpot Top Dance TikTok Influencers 2026 | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0005 | hashtag_0017 | tiktok_hashtag_export | standupcomedy | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0006 | graph_0122 | search_index | FeedSpot Top Entertainment TikTok Influencers 2026 | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0006 | graph_0144 | cross_platform_search | site:instagram.com "tiktok.com/@" "vfx animation" | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0007 | graph_0120 | search_index | FeedSpot Top Gaming TikTok Influencers 2026 | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0007 | graph_0142 | cross_platform_search | site:linktr.ee "tiktok.com/@" "vfx animation" | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0008 | graph_0124 | search_index | FeedSpot Top Latin Music TikTok Influencers 2026 | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0008 | graph_0147 | cross_platform_search | site:youtube.com "tiktok.com/@" "vfx animation" | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0009 | graph_0118 | search_index | FeedSpot Top Lego TikTok Influencers 2026 | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0009 | graph_0066 | tiktok_hashtag_export | bts | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0010 | graph_0121 | search_index | FeedSpot Top Mobile Gaming TikTok Influencers 2026 | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0010 | category_gap_0049 | category_gap_search | site:tiktok.com/@ "animation" | apify/google-search-scraper | false | missing_token | 0 | $0 |
 
 Full preflight: `data/processed/provider_preflight.csv`

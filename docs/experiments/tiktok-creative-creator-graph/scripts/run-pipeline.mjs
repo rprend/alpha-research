@@ -144,6 +144,9 @@ function compactText(account, videos) {
   return [
     account.display_name,
     account.bio,
+    ...asArray(account.source_labels),
+    ...asArray(account.source_names),
+    ...asArray(account.source_queries),
     ...videos.map((video) => video.caption),
     ...videos.flatMap((video) => video.hashtags),
     ...asArray(account.bio_links),
