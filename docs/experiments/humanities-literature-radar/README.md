@@ -36,7 +36,7 @@ Or run sources individually:
 node docs/experiments/humanities-literature-radar/scripts/fetch-openalex.mjs --limit=120
 node docs/experiments/humanities-literature-radar/scripts/fetch-crossref.mjs --limit=120
 node docs/experiments/humanities-literature-radar/scripts/fetch-doaj.mjs --limit=120
-node docs/experiments/humanities-literature-radar/scripts/fetch-doaj-oai.mjs --from=2020-01-01 --until=2026-06-12 --max-pages=25
+node docs/experiments/humanities-literature-radar/scripts/fetch-doaj-oai.mjs --from=2020-01-01 --until=2026-06-12 --max-pages=100 --resume=true
 node docs/experiments/humanities-literature-radar/scripts/fetch-osf-preprints.mjs --limit=120
 node docs/experiments/humanities-literature-radar/scripts/fetch-hcommons.mjs --limit=120
 node docs/experiments/humanities-literature-radar/scripts/fetch-arxiv.mjs --limit=80
@@ -108,20 +108,27 @@ The scripts write:
 
 The monitor is configured in `config/monitor.yml`.
 
-The first bootstrap run is `runs/2026-06-12/`. It compares the current processed corpus against an empty baseline and classifies all 1,951 current records as absent from baseline:
+The first bootstrap run is `runs/2026-06-12/`. It originally compared the pre-backfill processed corpus against an empty baseline and classified 1,951 records as absent from baseline:
 
 - 1,155 genuinely new publications in the configured current window
 - 796 newly discovered old records
 - 6 source rows in the coverage-change table
 
+The current broad-backfill monitor comparison uses `data/interim/baselines/works-before-doaj-oai-100-page-2026-06-12.json` as the prior processed corpus and records the 100-page DOAJ OAI expansion:
+
+- 7,362 current deduped works
+- 2,929 records absent from the 25-page baseline
+- 2,514 genuinely new publications
+- 415 newly discovered old records
+
 After the next broad backfill, run the monitor with a prior processed corpus path. Monitor claims should keep the `changed-sources.csv` table attached because source count changes can reflect crawler limits, API coverage, or indexing lag rather than intellectual trends.
 
 ## Broad Backfill Route
 
-The first broad-backfill upgrade adds the official DOAJ article OAI-PMH route:
+The broad-backfill upgrade uses the official DOAJ article OAI-PMH route with a local checkpoint:
 
 ```bash
-node docs/experiments/humanities-literature-radar/scripts/fetch-doaj-oai.mjs --from=2020-01-01 --until=2026-06-12 --max-pages=25
+node docs/experiments/humanities-literature-radar/scripts/fetch-doaj-oai.mjs --from=2020-01-01 --until=2026-06-12 --max-pages=100 --resume=true
 ```
 
 The raw OAI harvest is stored under:
@@ -130,7 +137,7 @@ The raw OAI harvest is stored under:
 data/raw/doaj-oai/YYYY-MM-DD/
 ```
 
-The current committed run is a 25-page route pilot, not the full DOAJ harvest. It preserves 7,500 raw OAI records, promotes only records with at least one humanities/method relevance signal into the processed works table, and records the v1 comparison in `reports/broad-backfill-comparison.md`.
+The current committed run is a 100-page broad backfill, not the full DOAJ harvest. It preserves 30,000 raw OAI records, writes `data/raw/doaj-oai/YYYY-MM-DD/checkpoint.json` for resume/audit, promotes only records with at least one humanities/method relevance signal into the processed works table, and records the comparison in `reports/broad-backfill-comparison.md`.
 
 ## Dataset Registration
 
@@ -162,6 +169,8 @@ Then create/update the control-plane dataset using `registration/control-plane-r
 - `profile` payload: attach `/datasets/humanities-literature-radar/profile`
 
 Dashboard verification should show the dataset detail briefing text from `briefingMarkdown`, and the profile endpoint should return schema and sample rows.
+
+The refreshed 7,362-work bundle was remote-verified by Alpha Research run `1bed0948-e36b-4eb9-a0d6-918f2937d0b2`. The remote agent inspected the mounted dataset under `/data/datasets/humanities-literature-radar/`, recomputed 7,362 total works, 5,025 works dated 2024-present, 1,997 quantitative/computational candidates, and 5,418 DOAJ OAI records, then returned valid `report.html`, `result.json`, and `work.md` artifacts.
 
 ## Article Standard
 

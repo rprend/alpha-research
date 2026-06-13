@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-06-12T21:17:37.440Z",
+  "generatedAt": "2026-06-12T22:05:04.810Z",
   "runDate": "2026-06-12",
-  "strongestFinding": "Monitor found 2483 records absent from the prior baseline, including 1357 genuinely new publications.",
+  "strongestFinding": "Monitor found 2929 records absent from the prior baseline, including 2514 genuinely new publications.",
   "counts": {
-    "currentWorks": 4434,
-    "newWorks": 2483,
-    "genuinelyNewPublications": 1357,
-    "newlyDiscoveredOldRecords": 1126,
+    "currentWorks": 7362,
+    "newWorks": 2929,
+    "genuinelyNewPublications": 2514,
+    "newlyDiscoveredOldRecords": 415,
     "changedSources": 7
   },
   "sourceCoverage": [
@@ -15,8 +15,8 @@
       "currentRecords": 19,
       "priorRecords": 19,
       "delta": 0,
-      "currentShare": 0.0043,
-      "priorShare": 0.0097,
+      "currentShare": 0.0026,
+      "priorShare": 0.0043,
       "coverageNote": "stable count"
     },
     {
@@ -24,26 +24,26 @@
       "currentRecords": 500,
       "priorRecords": 500,
       "delta": 0,
-      "currentShare": 0.1128,
-      "priorShare": 0.2563,
+      "currentShare": 0.0679,
+      "priorShare": 0.1128,
       "coverageNote": "stable count"
     },
     {
       "source": "doaj",
-      "currentRecords": 466,
-      "priorRecords": 468,
-      "delta": -2,
-      "currentShare": 0.1051,
-      "priorShare": 0.2399,
+      "currentRecords": 461,
+      "priorRecords": 466,
+      "delta": -5,
+      "currentShare": 0.0626,
+      "priorShare": 0.1051,
       "coverageNote": "source count changed; inspect manifests before interpreting as trend"
     },
     {
       "source": "doaj-oai",
-      "currentRecords": 2485,
-      "priorRecords": 0,
-      "delta": 2485,
-      "currentShare": 0.5604,
-      "priorShare": 0,
+      "currentRecords": 5418,
+      "priorRecords": 2485,
+      "delta": 2933,
+      "currentShare": 0.7359,
+      "priorShare": 0.5604,
       "coverageNote": "source count changed; inspect manifests before interpreting as trend"
     },
     {
@@ -51,8 +51,8 @@
       "currentRecords": 500,
       "priorRecords": 500,
       "delta": 0,
-      "currentShare": 0.1128,
-      "priorShare": 0.2563,
+      "currentShare": 0.0679,
+      "priorShare": 0.1128,
       "coverageNote": "stable count"
     },
     {
@@ -60,8 +60,8 @@
       "currentRecords": 455,
       "priorRecords": 455,
       "delta": 0,
-      "currentShare": 0.1026,
-      "priorShare": 0.2332,
+      "currentShare": 0.0618,
+      "priorShare": 0.1026,
       "coverageNote": "stable count"
     },
     {
@@ -69,432 +69,432 @@
       "currentRecords": 9,
       "priorRecords": 9,
       "delta": 0,
-      "currentShare": 0.002,
-      "priorShare": 0.0046,
+      "currentShare": 0.0012,
+      "priorShare": 0.002,
       "coverageNote": "stable count"
     }
   ],
   "newnessBreakdown": {
-    "genuinely-new-publication": 1357,
-    "newly-discovered-old-record": 1126
+    "genuinely-new-publication": 2514,
+    "newly-discovered-old-record": 415
   },
   "topNewSources": [
     {
       "label": "doaj-oai",
-      "count": 2483
+      "count": 2929
     }
   ],
   "topNewMethods": [
     {
       "label": "translation",
-      "count": 82
-    },
-    {
-      "label": "spatial",
-      "count": 77
-    },
-    {
-      "label": "corpus",
-      "count": 63
+      "count": 208
     },
     {
       "label": "network",
-      "count": 39
-    },
-    {
-      "label": "bibliometric",
-      "count": 14
-    },
-    {
-      "label": "canon",
-      "count": 13
-    },
-    {
-      "label": "large language model",
-      "count": 11
+      "count": 139
     },
     {
       "label": "philology",
-      "count": 10
+      "count": 112
     },
     {
-      "label": "large language models",
-      "count": 9
+      "label": "spatial",
+      "count": 106
     },
     {
-      "label": "llm",
-      "count": 9
+      "label": "corpus",
+      "count": 67
+    },
+    {
+      "label": "bibliometric",
+      "count": 59
     },
     {
       "label": "content analysis",
-      "count": 7
+      "count": 47
     },
     {
-      "label": "gis",
-      "count": 5
+      "label": "large language models",
+      "count": 45
+    },
+    {
+      "label": "llm",
+      "count": 41
     },
     {
       "label": "llms",
-      "count": 4
+      "count": 32
+    },
+    {
+      "label": "large language model",
+      "count": 29
+    },
+    {
+      "label": "canon",
+      "count": 10
+    },
+    {
+      "label": "gis",
+      "count": 9
     },
     {
       "label": "close reading",
-      "count": 3
+      "count": 4
     },
     {
-      "label": "topic model",
-      "count": 2
+      "label": "distant reading",
+      "count": 1
     }
   ],
   "notableNewWorks": [
     {
-      "stable_id": "url:https://doaj.org/article/c36f6bf3e1a14e28ade231001b3809a5",
-      "title": "¿Obras o sueldos? Los límites de la gestión municipal en Chile. El caso de Concepción (1935-1963)",
-      "year": "2026",
-      "publication_date": "2026-03-01",
-      "source": "doaj-oai",
-      "venue": "Historia Regional, Iss 58, Pp 1-14 (2026)",
-      "doi": "",
-      "url": "https://doaj.org/article/c36f6bf3e1a14e28ade231001b3809a5",
-      "is_quantitative_humanities_candidate": false,
-      "methods": "",
-      "quantitative_signals": "",
-      "newness_type": "genuinely-new-publication"
-    },
-    {
-      "stable_id": "doi:10.4000/164vy",
-      "title": "¿Un anarquismo ‘de ida y vuelta’? La militancia libertaria en Francia como factor de politización y radicalización de la juventud de los sesenta-setenta",
+      "stable_id": "doi:10.35305/rp.v18i47.1039",
+      "title": "¿Existió una cultura fascista? Ritual, espectáculo y modernidad en estudios recientes sobre el fascismo italiano",
       "year": "2026",
       "publication_date": "2026-04-01",
       "source": "doaj-oai",
-      "venue": "Cahiers de Civilisation Espagnole Contemporaine, Vol 35 (2026)",
-      "doi": "10.4000/164vy",
-      "url": "https://doaj.org/article/94f504adbd5c4cf4a10f61cf987efdf2",
+      "venue": "Páginas, Vol 18, Iss 47 (2026)",
+      "doi": "10.35305/rp.v18i47.1039",
+      "url": "https://doaj.org/article/d42af20fd234414ebe67849e164c9314",
       "is_quantitative_humanities_candidate": false,
       "methods": "",
       "quantitative_signals": "",
       "newness_type": "genuinely-new-publication"
     },
     {
-      "stable_id": "doi:10.17161/jis.v19i2.24148",
-      "title": "‘I Think. I Play. Therefore, I Am:’ How Precollege Experiences, Intersecting Identities, and College Microsystems Impact Belonging and Academic Self-Efficacy for Black Women’s Basketball College Athletes at PWIs",
+      "stable_id": "doi:10.19137/praxiseducativa-2026-300210",
+      "title": "¿No tengo un sope? : Relacionalidades parentales en la tradición pública del conocimiento",
       "year": "2026",
       "publication_date": "2026-05-01",
       "source": "doaj-oai",
-      "venue": "Journal of Intercollegiate Sport, Vol 19, Iss 2 (2026)",
-      "doi": "10.17161/jis.v19i2.24148",
-      "url": "https://doaj.org/article/f04258ae63dd448abf52fbe9c3f145a6",
+      "venue": "Praxis Educativa, Vol 30, Iss 2 (2026)",
+      "doi": "10.19137/praxiseducativa-2026-300210",
+      "url": "https://doaj.org/article/fd00d7afa2ec4b86a96f2a6cd9d9e3ae",
       "is_quantitative_humanities_candidate": false,
       "methods": "",
       "quantitative_signals": "",
       "newness_type": "genuinely-new-publication"
     },
     {
-      "stable_id": "url:https://doaj.org/article/0356865a60524f71bcdb3fcc4f088cdf",
-      "title": "“A fin de que se eduquen y no padezcan necesidad”. Infancia en la Casa de la Doctrina de Pamplona (1792-1798)",
-      "year": "2026",
-      "publication_date": "2026-02-01",
-      "source": "doaj-oai",
-      "venue": "Historia Regional, Iss 58, Pp 1-18 (2026)",
-      "doi": "",
-      "url": "https://doaj.org/article/0356865a60524f71bcdb3fcc4f088cdf",
-      "is_quantitative_humanities_candidate": false,
-      "methods": "",
-      "quantitative_signals": "",
-      "newness_type": "genuinely-new-publication"
-    },
-    {
-      "stable_id": "doi:10.11606/extraprensa2026.244911",
-      "title": "“Apesar das metáforas...”: incidências na poesia de Patativa do Assaré e Antônio Francisco Teixeira de Melo",
+      "stable_id": "doi:10.57027/eikasia.136.1360",
+      "title": "¿Qué es el amor?",
       "year": "2026",
       "publication_date": "2026-05-01",
       "source": "doaj-oai",
-      "venue": "Extraprensa, Vol 20, Iss 00 (2026)",
-      "doi": "10.11606/extraprensa2026.244911",
-      "url": "https://doaj.org/article/6dd754bfc1c54403b4ade4b14b8edb39",
+      "venue": "Eikasía, Iss 136, Pp 91-108 (2026)",
+      "doi": "10.57027/eikasia.136.1360",
+      "url": "https://doaj.org/article/bcd5aaea54684f7f8a5a8f8543c64e85",
       "is_quantitative_humanities_candidate": false,
       "methods": "",
       "quantitative_signals": "",
       "newness_type": "genuinely-new-publication"
     },
     {
-      "stable_id": "doi:10.3384/ijal.1652-8670.6104",
-      "title": "“Behind every visit is a life, my life”: Listening to home care recipients through oral history",
+      "stable_id": "doi:10.7557/1.15.1.8298",
+      "title": "'Lengua franca' y 'lengua cosmopolitana: precisiones conceptuales para el caso del español",
       "year": "2026",
       "publication_date": "2026-05-01",
       "source": "doaj-oai",
-      "venue": "International Journal of Ageing and Later Life (2026)",
-      "doi": "10.3384/ijal.1652-8670.6104",
-      "url": "https://doaj.org/article/438573b533e34d55ae1699e54ce086bd",
-      "is_quantitative_humanities_candidate": false,
-      "methods": "",
-      "quantitative_signals": "",
-      "newness_type": "genuinely-new-publication"
-    },
-    {
-      "stable_id": "doi:10.4000/166g5",
-      "title": "“Flooding Waters Were a Cautious Gift”: Indigenous Knowledge and Environmental Memory in Leslie Marmon Silko’s and Ofelia Zepeda’s Storied Landscapes",
-      "year": "2026",
-      "publication_date": "2026-04-01",
-      "source": "doaj-oai",
-      "venue": "European Journal of American Studies, Vol 21, Iss 1 (2026)",
-      "doi": "10.4000/166g5",
-      "url": "https://doaj.org/article/0af91b82de9d4255baaf5a065fbd8c36",
-      "is_quantitative_humanities_candidate": false,
-      "methods": "",
-      "quantitative_signals": "",
-      "newness_type": "genuinely-new-publication"
-    },
-    {
-      "stable_id": "doi:10.4000/161xj",
-      "title": "“If It Means Lives Lost That is How it Must Be”: The Ethics of Strike Action in the NHS, from the Winter of Discontent to the Nurses’ Strike of 2022-2023",
-      "year": "2026",
-      "publication_date": "2026-04-01",
-      "source": "doaj-oai",
-      "venue": "Revue Française de Civilisation Britannique, Vol 31, Iss 1 (2026)",
-      "doi": "10.4000/161xj",
-      "url": "https://doaj.org/article/8b0f78baf9e7450a82c04f8b6c447084",
-      "is_quantitative_humanities_candidate": false,
-      "methods": "",
-      "quantitative_signals": "",
-      "newness_type": "genuinely-new-publication"
-    },
-    {
-      "stable_id": "doi:10.4000/160ft",
-      "title": "“In my wood to dwell”: Margaret Cavendish’s Ecocritical Thinking and her Uses of Allegory in Poetry",
-      "year": "2026",
-      "publication_date": "2026-03-01",
-      "source": "doaj-oai",
-      "venue": "Etudes Epistémè, Vol 48 (2026)",
-      "doi": "10.4000/160ft",
-      "url": "https://doaj.org/article/f9cad24941ba480c93da4f24d474b902",
-      "is_quantitative_humanities_candidate": false,
-      "methods": "",
-      "quantitative_signals": "",
-      "newness_type": "genuinely-new-publication"
-    },
-    {
-      "stable_id": "doi:10.26907/2541-7738.2026.1.7-19",
-      "title": "“Invisible” or “inaccessible”: The problem of contacting the king in the Achaemenid Empire",
-      "year": "2026",
-      "publication_date": "2026-03-01",
-      "source": "doaj-oai",
-      "venue": "Ученые записки Казанского университета: Серия Гуманитарные науки, Vol 168, Iss 1, Pp 7-19 (2026)",
-      "doi": "10.26907/2541-7738.2026.1.7-19",
-      "url": "https://doaj.org/article/941bb61c584c4935bfec0a7b43e61f6c",
-      "is_quantitative_humanities_candidate": false,
-      "methods": "",
-      "quantitative_signals": "",
-      "newness_type": "genuinely-new-publication"
-    },
-    {
-      "stable_id": "doi:10.1136/bmjph-2025-004261",
-      "title": "“It is the foundation for the child”: a qualitative study examining caregiver perspectives on the Nurturing Care Framework in Kenya and Botswana",
-      "year": "2026",
-      "publication_date": "2026-05-01",
-      "source": "doaj-oai",
-      "venue": "BMJ Public Health, Vol 4, Iss 2 (2026)",
-      "doi": "10.1136/bmjph-2025-004261",
-      "url": "https://doaj.org/article/c27171f78fc247409d0116d181270f03",
-      "is_quantitative_humanities_candidate": false,
-      "methods": "",
-      "quantitative_signals": "",
-      "newness_type": "genuinely-new-publication"
-    },
-    {
-      "stable_id": "doi:10.52320/dav.v23i1.424",
-      "title": "\"Plastic-Free\" University: An Analysis of Student Feedback on Plastic-Free Approach to University Life",
-      "year": "2026",
-      "publication_date": "2026-05-01",
-      "source": "doaj-oai",
-      "venue": "Darnios Aplinkos Vystymas, Vol 23, Iss 1 (2026)",
-      "doi": "10.52320/dav.v23i1.424",
-      "url": "https://doaj.org/article/d6d8ba02447e4aa8a5346a83f3263ceb",
-      "is_quantitative_humanities_candidate": false,
-      "methods": "",
-      "quantitative_signals": "",
-      "newness_type": "genuinely-new-publication"
-    },
-    {
-      "stable_id": "doi:10.4000/161xh",
-      "title": "“The Interests of All Exploited People Are the Same”: An Analysis of Orwell’s Socialist Perspective",
-      "year": "2026",
-      "publication_date": "2026-04-01",
-      "source": "doaj-oai",
-      "venue": "Revue Française de Civilisation Britannique, Vol 31, Iss 1 (2026)",
-      "doi": "10.4000/161xh",
-      "url": "https://doaj.org/article/c587f9c5ab2942d88173691c3e161220",
-      "is_quantitative_humanities_candidate": false,
-      "methods": "",
-      "quantitative_signals": "",
-      "newness_type": "genuinely-new-publication"
-    },
-    {
-      "stable_id": "doi:10.4000/161mk",
-      "title": "“There is another isle in my collection, the memory of which besieges me”: The Island as a Creative Archive in R. L. Stevenson’s Works",
-      "year": "2026",
-      "publication_date": "2026-04-01",
-      "source": "doaj-oai",
-      "venue": "Études Écossaises, Vol 25 (2026)",
-      "doi": "10.4000/161mk",
-      "url": "https://doaj.org/article/32672e6fca844f7191b8d1e89e4db1a0",
-      "is_quantitative_humanities_candidate": false,
-      "methods": "",
-      "quantitative_signals": "",
-      "newness_type": "genuinely-new-publication"
-    },
-    {
-      "stable_id": "doi:10.4000/161xk",
-      "title": "“They shall not pass!”: British Anti-fascists and the Politics of Violence",
-      "year": "2026",
-      "publication_date": "2026-04-01",
-      "source": "doaj-oai",
-      "venue": "Revue Française de Civilisation Britannique, Vol 31, Iss 1 (2026)",
-      "doi": "10.4000/161xk",
-      "url": "https://doaj.org/article/b87975e591f9437a92e3b2d9abe82f8d",
-      "is_quantitative_humanities_candidate": false,
-      "methods": "",
-      "quantitative_signals": "",
-      "newness_type": "genuinely-new-publication"
-    },
-    {
-      "stable_id": "doi:10.4000/166g3",
-      "title": "“We Were Always More than Things”: Intergenerational Trauma, Indigenous Relationality, and Decolonial Storytelling in Mona Susan Power’s A Council of Dolls",
-      "year": "2026",
-      "publication_date": "2026-04-01",
-      "source": "doaj-oai",
-      "venue": "European Journal of American Studies, Vol 21, Iss 1 (2026)",
-      "doi": "10.4000/166g3",
-      "url": "https://doaj.org/article/3fe75c71bdc741dc821613108884bc36",
-      "is_quantitative_humanities_candidate": false,
-      "methods": "",
-      "quantitative_signals": "",
-      "newness_type": "genuinely-new-publication"
-    },
-    {
-      "stable_id": "doi:10.4000/1662h",
-      "title": "« Ce n’est pas du tout un roman, mais alors pas du tout. C’est vraiment de la littérature. »",
-      "year": "2026",
-      "publication_date": "2026-05-01",
-      "source": "doaj-oai",
-      "venue": "Contextes, Vol 37 (2026)",
-      "doi": "10.4000/1662h",
-      "url": "https://doaj.org/article/955bb22039574fbfab7d82f96373f204",
-      "is_quantitative_humanities_candidate": false,
-      "methods": "",
-      "quantitative_signals": "",
-      "newness_type": "genuinely-new-publication"
-    },
-    {
-      "stable_id": "doi:10.4000/1650a",
-      "title": "« Cultiver » les panneaux solaires : reconfiguration des stratégies d’appropriation foncière dans la transition énergétique colombienne",
-      "year": "2026",
-      "publication_date": "2026-04-01",
-      "source": "doaj-oai",
-      "venue": "L'Espace Politique, Vol 57 (2026)",
-      "doi": "10.4000/1650a",
-      "url": "https://doaj.org/article/368427ab2d404d72971f8d811cccfbac",
-      "is_quantitative_humanities_candidate": false,
-      "methods": "",
-      "quantitative_signals": "",
-      "newness_type": "genuinely-new-publication"
-    },
-    {
-      "stable_id": "doi:10.4000/160cd",
-      "title": "« D’ennemis à amis » : appropriations des relations franco-allemandes et mises en récit de soi par les « Malgré-Nous »",
-      "year": "2026",
-      "publication_date": "2026-03-01",
-      "source": "doaj-oai",
-      "venue": "Tr@jectoires, Vol 19 (2026)",
-      "doi": "10.4000/160cd",
-      "url": "https://doaj.org/article/fd31e599d11240aeb493c0d3d86c1c17",
-      "is_quantitative_humanities_candidate": false,
-      "methods": "",
-      "quantitative_signals": "",
-      "newness_type": "genuinely-new-publication"
-    },
-    {
-      "stable_id": "doi:10.4000/1650r",
-      "title": "« De la bonne et de la mauvaise littérature »",
-      "year": "2026",
-      "publication_date": "2026-05-01",
-      "source": "doaj-oai",
-      "venue": "Continents manuscrits, Vol 27 (2026)",
-      "doi": "10.4000/1650r",
-      "url": "https://doaj.org/article/3bf16e187a9b4a77893526603357bfba",
-      "is_quantitative_humanities_candidate": false,
-      "methods": "",
-      "quantitative_signals": "",
-      "newness_type": "genuinely-new-publication"
-    },
-    {
-      "stable_id": "doi:10.4000/165c4",
-      "title": "« Sic, tout est sic. »",
-      "year": "2026",
-      "publication_date": "2026-04-01",
-      "source": "doaj-oai",
-      "venue": "Contextes, Vol 37 (2026)",
-      "doi": "10.4000/165c4",
-      "url": "https://doaj.org/article/1bef949cdc65432481b908520224ae13",
-      "is_quantitative_humanities_candidate": false,
-      "methods": "",
-      "quantitative_signals": "",
-      "newness_type": "genuinely-new-publication"
-    },
-    {
-      "stable_id": "doi:10.4000/1650c",
-      "title": "« Tout a commencé un soir de tempête. » Chroniques géolégales du contentieux énergétique sur l’île de Sein",
-      "year": "2026",
-      "publication_date": "2026-04-01",
-      "source": "doaj-oai",
-      "venue": "L'Espace Politique, Vol 57 (2026)",
-      "doi": "10.4000/1650c",
-      "url": "https://doaj.org/article/6ddbe518e1b24c5bbf727729058129da",
+      "venue": "Borealis: An International Journal of Hispanic Linguistics, Vol 15, Iss 1 (2026)",
+      "doi": "10.7557/1.15.1.8298",
+      "url": "https://doaj.org/article/7ee9c6d81e9e482f9687319e2b077957",
       "is_quantitative_humanities_candidate": true,
-      "methods": "network; spatial",
-      "quantitative_signals": "network; spatial",
+      "methods": "philology",
+      "quantitative_signals": "",
       "newness_type": "genuinely-new-publication"
     },
     {
-      "stable_id": "doi:10.4000/165c0",
-      "title": "« Un écart permanent d’avec tout ce qu’on dit » : une politique des figures",
+      "stable_id": "doi:10.1186/s12992-026-01197-w",
+      "title": "‘Pride not profit’: A commercial determinants of Indigenous health case study from Australia",
+      "year": "2026",
+      "publication_date": "2026-03-01",
+      "source": "doaj-oai",
+      "venue": "Globalization and Health, Vol 22, Iss 1 (2026)",
+      "doi": "10.1186/s12992-026-01197-w",
+      "url": "https://doaj.org/article/4a234c5fce5a4e63a07eafd5218bb0a0",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.1515/opphil-2025-0117",
+      "title": "“Auditioning” Ontology: Ambient Realism and the Practice of Critique",
       "year": "2026",
       "publication_date": "2026-05-01",
       "source": "doaj-oai",
-      "venue": "Contextes, Vol 37 (2026)",
-      "doi": "10.4000/165c0",
-      "url": "https://doaj.org/article/f5893a538d4a4ccdab8edc2b92dc9f4d",
+      "venue": "Open Philosophy, Vol 9, Iss 1, Pp 213-394 (2026)",
+      "doi": "10.1515/opphil-2025-0117",
+      "url": "https://doaj.org/article/d03a879884f04257b3ce10d3208bb098",
+      "is_quantitative_humanities_candidate": true,
+      "methods": "spatial",
+      "quantitative_signals": "spatial",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.13125/ch/7034",
+      "title": "\"Beyond the Post-Colonial Gaze\" (P. Furia)",
+      "year": "2026",
+      "publication_date": "2026-05-01",
+      "source": "doaj-oai",
+      "venue": "Critical Hermeneutics, Vol 10, Iss special (2026)",
+      "doi": "10.13125/CH/7034",
+      "url": "https://doaj.org/article/3c1765421c894adc8560b7e3cf474829",
       "is_quantitative_humanities_candidate": false,
       "methods": "",
       "quantitative_signals": "",
       "newness_type": "genuinely-new-publication"
     },
     {
-      "stable_id": "url:https://doaj.org/article/9aa870b248bb4f5b85da5657f99d55b9",
-      "title": "(Re)construyendo el Juicio a las Juntas. Argentina, 1985 (Mitre, 2022): el pasado en imágenes",
+      "stable_id": "doi:10.1186/s13756-026-01734-7",
+      "title": "“Everyone in this together”: a qualitative study on mothers as partners in infection prevention in a neonatal unit in Botswana",
       "year": "2026",
-      "publication_date": "2026-04-01",
+      "publication_date": "2026-03-01",
       "source": "doaj-oai",
-      "venue": "Historia Regional, Iss 58, Pp 1-14 (2026)",
-      "doi": "",
-      "url": "https://doaj.org/article/9aa870b248bb4f5b85da5657f99d55b9",
+      "venue": "Antimicrobial Resistance and Infection Control, Vol 15, Iss 1 (2026)",
+      "doi": "10.1186/s13756-026-01734-7",
+      "url": "https://doaj.org/article/1aa8c70ddfd64aa48e0a59a70edbd314",
       "is_quantitative_humanities_candidate": false,
       "methods": "",
       "quantitative_signals": "",
       "newness_type": "genuinely-new-publication"
     },
     {
-      "stable_id": "doi:10.4000/163cl",
-      "title": "(Re)dire le genre : éléments de présentation",
+      "stable_id": "doi:10.1186/s12905-026-04418-x",
+      "title": "“I feel more comfortable with a female doctor”: gender preference, cultural context, and health experiences of young Syrian migrant women in Turkey",
       "year": "2026",
-      "publication_date": "2026-04-01",
+      "publication_date": "2026-03-01",
       "source": "doaj-oai",
-      "venue": "Corela, Vol 44 (2026)",
-      "doi": "10.4000/163cl",
-      "url": "https://doaj.org/article/71aba405b916409fb5a0dd8e1e20f15e",
+      "venue": "BMC Women's Health, Vol 26, Iss 1 (2026)",
+      "doi": "10.1186/s12905-026-04418-x",
+      "url": "https://doaj.org/article/bc8f0e4d14cd476889184008b02444db",
       "is_quantitative_humanities_candidate": false,
       "methods": "",
       "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.1186/s12904-026-02079-z",
+      "title": "“It sounds unfamiliar, yet appealing”: a qualitative study on perceptions of a good death and hospice care needs among older adults in remote rural China",
+      "year": "2026",
+      "publication_date": "2026-03-01",
+      "source": "doaj-oai",
+      "venue": "BMC Palliative Care, Vol 25, Iss 1 (2026)",
+      "doi": "10.1186/s12904-026-02079-z",
+      "url": "https://doaj.org/article/c9549ad06c844beab2faa231a3a177b8",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.1186/s12910-026-01447-x",
+      "title": "“It’s a complicated issue”: exploring perspectives on Reddit from 2016 to 2024 about the American Psychiatric Association’s Goldwater Rule and the ethics of public-professional mental health commentary",
+      "year": "2026",
+      "publication_date": "2026-03-01",
+      "source": "doaj-oai",
+      "venue": "BMC Medical Ethics, Vol 27, Iss 1 (2026)",
+      "doi": "10.1186/s12910-026-01447-x",
+      "url": "https://doaj.org/article/b3b20062538f4eddbc8cf18f4e196711",
+      "is_quantitative_humanities_candidate": true,
+      "methods": "large language model; corpus",
+      "quantitative_signals": "dataset; corpus; large language model",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.2478/njms-2026-0003",
+      "title": "“Like a small trip back to the GDR”? East German evaluations of the television serial Weissensee and its authenticity in a dynamic discourse landscape",
+      "year": "2026",
+      "publication_date": "2026-03-01",
+      "source": "doaj-oai",
+      "venue": "Nordic Journal of Media Studies, Vol 8, Iss 1, Pp 41-58 (2026)",
+      "doi": "10.2478/njms-2026-0003",
+      "url": "https://doaj.org/article/00aa42cd6b6345cebe6bc0c445acaa27",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.1186/s12245-026-01194-1",
+      "title": "“Mad honey and the heart: a case report of transient bradycardia and hypotension from Nepal”",
+      "year": "2026",
+      "publication_date": "2026-03-01",
+      "source": "doaj-oai",
+      "venue": "International Journal of Emergency Medicine, Vol 19, Iss 1 (2026)",
+      "doi": "10.1186/s12245-026-01194-1",
+      "url": "https://doaj.org/article/b2e049bae90d48fc9df1fdfd43c08e94",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.2196/84935",
+      "title": "“Optimizing Learning in Integrated Curriculum”—Comparative Effectiveness of Online and Face-to-Face Formative Assessments: Mixed Methods Study",
+      "year": "2026",
+      "publication_date": "2026-05-01",
+      "source": "doaj-oai",
+      "venue": "JMIR Medical Education, Vol 12, Pp e84935-e84935 (2026)",
+      "doi": "10.2196/84935",
+      "url": "https://doaj.org/article/cdba43d118d54a78bb3c33aedfb5a963",
+      "is_quantitative_humanities_candidate": true,
+      "methods": "",
+      "quantitative_signals": "quantitative",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.1057/s41599-026-06974-x",
+      "title": "“They are battling a different war”: A corpus-based comparative study on war metaphor in COVID-19 discourse in China and U.S.",
+      "year": "2026",
+      "publication_date": "2026-03-01",
+      "source": "doaj-oai",
+      "venue": "Humanities & Social Sciences Communications, Vol 13, Iss 1 (2026)",
+      "doi": "10.1057/s41599-026-06974-x",
+      "url": "https://doaj.org/article/7ecc9cc998724fbd8710245931f9d209",
+      "is_quantitative_humanities_candidate": true,
+      "methods": "corpus",
+      "quantitative_signals": "corpus",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.3389/fpsyg.2026.1776122",
+      "title": "“Who Are You”: development of a holistic, social-emotionally grounded curriculum framework using the Delphi technique",
+      "year": "2026",
+      "publication_date": "2026-05-01",
+      "source": "doaj-oai",
+      "venue": "Frontiers in Psychology, Vol 17 (2026)",
+      "doi": "10.3389/fpsyg.2026.1776122",
+      "url": "https://doaj.org/article/2ec448e92f8d42fa80b14064e70dfb2f",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.1186/s13058-026-02267-y",
+      "title": "[68Ga]Ga-labeled fibroblast activation protein inhibitor PET/CT for monitoring neoadjuvant chemotherapy responses in breast cancer subtypes",
+      "year": "2026",
+      "publication_date": "2026-03-01",
+      "source": "doaj-oai",
+      "venue": "Breast Cancer Research, Vol 28, Iss 1 (2026)",
+      "doi": "10.1186/s13058-026-02267-y",
+      "url": "https://doaj.org/article/36104034f1754fd3a2c63ce3c311846c",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.1016/j.recot.2026.02.004",
+      "title": "[Artículo traducido] Fallo del tratamiento conservador en fracturas facetarias cervicales: el impacto de la ruptura discal en una serie retrospectiva",
+      "year": "2026",
+      "publication_date": "2026-05-01",
+      "source": "doaj-oai",
+      "venue": "Revista Española de Cirugía Ortopédica y Traumatología, Vol 70, Iss 3, Pp T219-T224 (2026)",
+      "doi": "10.1016/j.recot.2026.02.004",
+      "url": "https://doaj.org/article/2226a1a8b4584263a04d40bcff0e49c4",
+      "is_quantitative_humanities_candidate": true,
+      "methods": "",
+      "quantitative_signals": "classification",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.1016/j.recot.2026.02.011",
+      "title": "[Translated article] Clinical and radiological study of the final outcome of Legg-Calvé-Perthes disease",
+      "year": "2026",
+      "publication_date": "2026-05-01",
+      "source": "doaj-oai",
+      "venue": "Revista Española de Cirugía Ortopédica y Traumatología, Vol 70, Iss 3, Pp T258-T265 (2026)",
+      "doi": "10.1016/j.recot.2026.02.011",
+      "url": "https://doaj.org/article/28e8aff0c49c47ecba7a4ecf9264efea",
+      "is_quantitative_humanities_candidate": true,
+      "methods": "",
+      "quantitative_signals": "classification; regression",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.1016/j.recot.2026.02.012",
+      "title": "[Translated article] Survival of tantalum-coated stems in primary hip arthroplasty during long term follow-up: A retrospective study",
+      "year": "2026",
+      "publication_date": "2026-05-01",
+      "source": "doaj-oai",
+      "venue": "Revista Española de Cirugía Ortopédica y Traumatología, Vol 70, Iss 3, Pp T190-T199 (2026)",
+      "doi": "10.1016/j.recot.2026.02.012",
+      "url": "https://doaj.org/article/71b7870f82684b5bb4a644f87b9bf2b4",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.25894/ijfae.3307",
+      "title": "#IJFAEAfrica: Advancing Life Saving First Aid Training across Africa",
+      "year": "2026",
+      "publication_date": "2026-05-01",
+      "source": "doaj-oai",
+      "venue": "International Journal of First Aid Education, Vol 9, Iss 1 (2026)",
+      "doi": "10.25894/ijfae.3307",
+      "url": "https://doaj.org/article/b895c7ad94664918a8b72720f7910c60",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.3390/cells15090805",
+      "title": "<i>Paraclostridium tenue</i> Exhibits Antitumor Activity Through Generating Antitumor Metabolites and Modulating Gut Microbiota",
+      "year": "2026",
+      "publication_date": "2026-04-01",
+      "source": "doaj-oai",
+      "venue": "Cells, Vol 15, Iss 9, p 805 (2026)",
+      "doi": "10.3390/cells15090805",
+      "url": "https://doaj.org/article/f744d9f4acef4ace83597c81f0eddaa2",
+      "is_quantitative_humanities_candidate": true,
+      "methods": "translation",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.1016/j.scienta.2026.114822",
+      "title": "1-Methylcyclopropene maintains quality, secondary metabolites and antioxidant capacity of red-fleshed kiwifruits during cold storage",
+      "year": "2026",
+      "publication_date": "2026-04-01",
+      "source": "doaj-oai",
+      "venue": "Scientia Horticulturae, Vol 361, Iss , Pp 114822- (2026)",
+      "doi": "10.1016/j.scienta.2026.114822",
+      "url": "https://doaj.org/article/ab6844b869aa418e982451c04388958e",
+      "is_quantitative_humanities_candidate": false,
+      "methods": "",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.1186/s43094-026-00982-z",
+      "title": "3D bioprinting: current status and future prospects in tissue and organ regeneration",
+      "year": "2026",
+      "publication_date": "2026-05-01",
+      "source": "doaj-oai",
+      "venue": "Future Journal of Pharmaceutical Sciences, Vol 12, Iss 1 (2026)",
+      "doi": "10.1186/s43094-026-00982-z",
+      "url": "https://doaj.org/article/208093584e534d1789b1f1bfd67311df",
+      "is_quantitative_humanities_candidate": true,
+      "methods": "translation",
+      "quantitative_signals": "",
+      "newness_type": "genuinely-new-publication"
+    },
+    {
+      "stable_id": "doi:10.3390/rs18091335",
+      "title": "3D Radiometric Thermography Mosaics with Low-Cost Mobile Sensor Stack",
+      "year": "2026",
+      "publication_date": "2026-04-01",
+      "source": "doaj-oai",
+      "venue": "Remote Sensing, Vol 18, Iss 9, p 1335 (2026)",
+      "doi": "10.3390/rs18091335",
+      "url": "https://doaj.org/article/919a57933e72457aa98044e7ef28b1e3",
+      "is_quantitative_humanities_candidate": true,
+      "methods": "translation; spatial",
+      "quantitative_signals": "spatial",
       "newness_type": "genuinely-new-publication"
     }
   ],

@@ -1,174 +1,175 @@
 {
-  "generatedAt": "2026-06-12T21:17:28.182Z",
+  "generatedAt": "2026-06-12T22:05:04.469Z",
   "strongestFinding": "The v1 literature radar is large enough for a field-map essay about AI, computational methods, and quantitative humanities signals, but source coverage remains uneven.",
   "corpus": {
-    "works": 4434,
-    "recentWorks2024Present": 2512,
-    "quantitativeHumanitiesCandidates": 965,
+    "works": 7362,
+    "recentWorks2024Present": 5025,
+    "quantitativeHumanitiesCandidates": 1997,
     "sources": {
       "hcommons": 500,
-      "doaj-oai": 2485,
+      "doaj-oai": 5418,
       "crossref": 500,
       "arxiv": 19,
-      "doaj": 466,
+      "doaj": 461,
       "openalex": 455,
       "osf-preprints": 9
     },
     "years": {
-      "1996": 1,
-      "1997": 2,
-      "1998": 6,
+      "1995": 1,
+      "1996": 3,
+      "1997": 3,
+      "1998": 8,
       "1999": 7,
-      "2000": 5,
-      "2001": 14,
-      "2002": 18,
-      "2003": 13,
-      "2004": 11,
-      "2005": 17,
-      "2006": 16,
-      "2007": 30,
-      "2008": 32,
-      "2009": 34,
-      "2010": 37,
-      "2011": 37,
-      "2012": 39,
-      "2013": 26,
-      "2014": 55,
-      "2015": 64,
-      "2016": 75,
-      "2017": 108,
-      "2018": 62,
-      "2019": 115,
-      "2020": 174,
-      "2021": 213,
-      "2022": 261,
-      "2023": 434,
-      "2024": 506,
-      "2025": 778,
-      "2026": 1228,
-      "unknown": 16
+      "2000": 6,
+      "2001": 15,
+      "2002": 29,
+      "2003": 20,
+      "2004": 14,
+      "2005": 54,
+      "2006": 24,
+      "2007": 36,
+      "2008": 37,
+      "2009": 51,
+      "2010": 58,
+      "2011": 40,
+      "2012": 45,
+      "2013": 35,
+      "2014": 56,
+      "2015": 70,
+      "2016": 80,
+      "2017": 138,
+      "2018": 83,
+      "2019": 175,
+      "2020": 202,
+      "2021": 226,
+      "2022": 297,
+      "2023": 505,
+      "2024": 602,
+      "2025": 1174,
+      "2026": 3249,
+      "unknown": 19
     }
   },
   "topTopics": [
     {
       "label": "history",
       "kind": "discipline",
-      "count": 1737,
+      "count": 2262,
       "representative_titles": "Results of breast cancer risk assessment and hereditary cancer genetic testing in community obstetrics and gynaecology practice following a prospective quality Improvement initiative | Scrolling away from the news: how news overload drives avoidance and curation in the UAE | Memeification of Walid in Indonesian digital space: Reinterpreting Malaysia’s Bidaah through memes"
     },
     {
       "label": "literature",
       "kind": "discipline",
-      "count": 921,
+      "count": 2045,
       "representative_titles": "Ecosystem-based adaptation in Lower Northern Thailand: Water policy initiatives from and for small urban communities | Educational leadership for inclusive education: a systematic literature review | The impact of artificial intelligence on EFL/ESL students’ willingness to communicate: a systematic literature review (2015–2025)"
     },
     {
       "label": "philosophy",
       "kind": "discipline",
-      "count": 653,
-      "representative_titles": "Synthetic Moral Agents or Sophisticated Mimics? | The Risk-Bearing Subject of AI-Related Existential Risk to Humanity: From Species Survival to the Realization of Subjecthood under Conditions of Human Civilization | Before Judgment: Agency, Formation, and the Conditions of Human Interpretation in AI-Mediated Writing"
-    },
-    {
-      "label": "sociology",
-      "kind": "discipline",
-      "count": 422,
-      "representative_titles": "From Inferior to Superior: Reversing the Stereotype About East African Runners (1954-1966) | Polynesian Performances in France: Spaces of Ethnic Reassertion and Racial Reconfiguration | « De la bonne et de la mauvaise littérature »"
-    },
-    {
-      "label": "digital humanities",
-      "kind": "discipline",
-      "count": 364,
-      "representative_titles": "《人工智慧時代的桃花源》The Peach Blossom Spring in the Artificial Intelligence Age | Epistemology and Ontology of AI — New Entry SOTA pre-AGI decade 2020–2030: exploratory dataset analyzing the heuristic geste from Turin to Paris across the centuries, from the epistemic and mathematical roots of Joseph-Louis Lagrange (Turin, 1736) in the eighteenth century through Analytical Mechanics to the ontosemantic extension of the Dorian Codex Protocol for AI and its heuristic mathematical formula H_SAFE, H_safe(t) = T(t) + V(t) − Z(t), proposed by Stefano Dorian Franco (Paris, 1973) in 2025, in the twenty-first century, within the ontosemantic dimension of artificial intelligence — Analysis conducted in June 2026 by the LLM ChatGPT, version GPT-5.5 | Tracing thematic evolution in Ramayana through digital space: an AI-driven bibliometric approach"
+      "count": 759,
+      "representative_titles": "Steiner's trinitarian view and the philosophy of mind: A critique of Kuhn's landscape of consciousness taxonomy | Synthetic Moral Agents or Sophisticated Mimics? | The Risk-Bearing Subject of AI-Related Existential Risk to Humanity: From Species Survival to the Realization of Subjecthood under Conditions of Human Civilization"
     },
     {
       "label": "network",
       "kind": "method",
-      "count": 248,
-      "representative_titles": "Mapping global research on compensation in social science from 2015 to 2024: a bibliometric analysis | Mapping global research on compensation in social science from 2015 to 2024: a bibliometric analysis | Agent-based models for the evolution of morphological alternation patterns"
+      "count": 524,
+      "representative_titles": "Mapping global research on compensation in social science from 2015 to 2024: a bibliometric analysis | Mapping global research on compensation in social science from 2015 to 2024: a bibliometric analysis | Enhancing decentralized community energy systems through an auction-theoretic transactive market framework for efficient demand response and renewable integration"
     },
     {
-      "label": "corpus",
-      "kind": "method",
-      "count": 224,
-      "representative_titles": "Mod-Guide: An LLM-based Content Moderation Feedback System to Address Insensitive Speech toward Indigenous Ethnic and Religious Minority Communities | Mod-Guide: An LLM-based Content Moderation Feedback System to Address Insensitive Speech toward Indigenous Ethnic and Religious Minority Communities | MARD: Mirror-Augmented Reasoning Distillation for Mechanism-Level Drug-Drug Interaction Prediction"
-    },
-    {
-      "label": "political science",
+      "label": "sociology",
       "kind": "discipline",
-      "count": 205,
-      "representative_titles": "AI-Augmented Impact Frames: A Closed-Loop Architecture for Purpose-Aligned Decisions | From Prompts to Preferences: An Open-Source Platform for Generative AI-Enhanced Conjoint Analysis | The End of an Era"
+      "count": 471,
+      "representative_titles": "Contexts of Violence against Physicians in the Health System: A Grounded Theory Study in Ahvaz Medical Centers | Israel, Iran, and Peace in the Middle East: An Analysis of Identity Formation, Enemy Construction, and the Logic of Expansionism | Reconfiguring Agricultural Export Strategies in the Context of International Market Volatility: Manageri-al Perspectives"
     },
     {
       "label": "spatial",
       "kind": "method",
-      "count": 194,
-      "representative_titles": "TimeLens: On-Device Artifact Recognition with Retrieval-Augmented Question Answering for the Grand Egyptian Museum | TimeLens: On-Device Artifact Recognition with Retrieval-Augmented Question Answering for the Grand Egyptian Museum | Energy system modeling in South and Southeast Asia: Progress, gaps, and opportunities"
+      "count": 406,
+      "representative_titles": "Spatial networks and the public life of coffeehouses in 18th-century Damascus | Spatial networks and the public life of coffeehouses in 18th-century Damascus | TimeLens: On-Device Artifact Recognition with Retrieval-Augmented Question Answering for the Grand Egyptian Museum"
     },
     {
-      "label": "large language models",
-      "kind": "quantitative-signal",
-      "count": 186,
-      "representative_titles": "Synthetic Moral Agents or Sophisticated Mimics? | Synthetic Moral Agents or Sophisticated Mimics? | Epistemic Injustice in Generative AI: Probabilistic Generation, Trust Erosion, and the Structural Conditions of Algorithmic Knowledge Harm"
+      "label": "digital humanities",
+      "kind": "discipline",
+      "count": 366,
+      "representative_titles": "《人工智慧時代的桃花源》The Peach Blossom Spring in the Artificial Intelligence Age | Epistemology and Ontology of AI — New Entry SOTA pre-AGI decade 2020–2030: exploratory dataset analyzing the heuristic geste from Turin to Paris across the centuries, from the epistemic and mathematical roots of Joseph-Louis Lagrange (Turin, 1736) in the eighteenth century through Analytical Mechanics to the ontosemantic extension of the Dorian Codex Protocol for AI and its heuristic mathematical formula H_SAFE, H_safe(t) = T(t) + V(t) − Z(t), proposed by Stefano Dorian Franco (Paris, 1973) in 2025, in the twenty-first century, within the ontosemantic dimension of artificial intelligence — Analysis conducted in June 2026 by the LLM ChatGPT, version GPT-5.5 | Tracing thematic evolution in Ramayana through digital space: an AI-driven bibliometric approach"
+    },
+    {
+      "label": "corpus",
+      "kind": "method",
+      "count": 358,
+      "representative_titles": "Documenting resistance and memory: a decade of Docudays UA films (2014–2024) | Documenting resistance and memory: a decade of Docudays UA films (2014–2024) | Endoscopic grading of gastric intestinal metaplasia and microvascular pattern for assessing gastric cancer risk: a prospective study"
     },
     {
       "label": "translation",
       "kind": "method",
-      "count": 132,
-      "representative_titles": "Artificial Intelligence-Powered Multimodal Approaches for Depression and Anxiety Detection: A Review | MicroRNA expression profiles in abdominal aortic aneurysms: A systematic review of potential diagnostic and prognostic biomarkers | Integrative multi-omics analyses reveal the molecular mechanisms of lysozyme in alleviating hepatic lipid accumulation in post-peak laying quail"
+      "count": 340,
+      "representative_titles": "Artificial Intelligence-Powered Multimodal Approaches for Depression and Anxiety Detection: A Review | The mRNA architecture of the translation termination site primes programmed stop codon readthrough events in Drosophila | Evaluating Malat1-derived 3’end sequences for functional transgene expression in human cells using synthetic mRNA delivery"
     },
     {
       "label": "quantitative",
       "kind": "quantitative-signal",
-      "count": 131,
-      "representative_titles": "How do college students weigh the reliability of AI in academic writing? | Measuring the Impact of AI-Assisted Language Learning on English Language Education: A Mixed-Methods Study | Developing Soft Skills for the AI Era: A Study of Science Students at Sidi Mohamed Ben Abdellah University"
+      "count": 292,
+      "representative_titles": "How do college students weigh the reliability of AI in academic writing? | Factors contributing to resilience amongst adolescent girls in artisanal and small-scale mining communities in Ghana and Uganda | Results of the epidemiological measurement of endemics, epidemics, and pandemics"
+    },
+    {
+      "label": "large language models",
+      "kind": "quantitative-signal",
+      "count": 276,
+      "representative_titles": "Synthetic Moral Agents or Sophisticated Mimics? | Synthetic Moral Agents or Sophisticated Mimics? | Epistemic Injustice in Generative AI: Probabilistic Generation, Trust Erosion, and the Structural Conditions of Algorithmic Knowledge Harm"
     },
     {
       "label": "linguistics",
       "kind": "discipline",
-      "count": 131,
+      "count": 262,
       "representative_titles": "The Grammar of Asymmetric Visibility: AI, Zionism, and the Reallocation of Political Agency | Suffering Without Perpetrators: The Humanitarian Passive in AI-Generated Conflict Discourse | Quantitative Aspekte der Modalpartikelverwendung."
     },
     {
-      "label": "llms",
-      "kind": "quantitative-signal",
-      "count": 130,
-      "representative_titles": "Synthetic Moral Agents or Sophisticated Mimics? | Synthetic Moral Agents or Sophisticated Mimics? | Epistemic Injustice in Generative AI: Probabilistic Generation, Trust Erosion, and the Structural Conditions of Algorithmic Knowledge Harm"
+      "label": "political science",
+      "kind": "discipline",
+      "count": 216,
+      "representative_titles": "AI-Augmented Impact Frames: A Closed-Loop Architecture for Purpose-Aligned Decisions | From Prompts to Preferences: An Open-Source Platform for Generative AI-Enhanced Conjoint Analysis | The End of an Era"
     },
     {
       "label": "llm",
       "kind": "method",
-      "count": 116,
+      "count": 198,
       "representative_titles": "Epistemic Injustice in Generative AI: Probabilistic Generation, Trust Erosion, and the Structural Conditions of Algorithmic Knowledge Harm | Epistemic Injustice in Generative AI: Probabilistic Generation, Trust Erosion, and the Structural Conditions of Algorithmic Knowledge Harm | Valid Inference with Synthetic Data via Task Exchangeability"
     },
     {
-      "label": "computational",
+      "label": "llms",
       "kind": "quantitative-signal",
-      "count": 112,
-      "representative_titles": "Image Collection of AI-Centered Futuristic Imagination | The Ontological Status of AI-Generated Music: From Stylistic Mimicry to Collaborative Agency | Agent-based models for the evolution of morphological alternation patterns"
-    },
-    {
-      "label": "economics",
-      "kind": "discipline",
-      "count": 101,
-      "representative_titles": "EconCSLib: AI-Assisted Lean Formalization for Economics & Computation research | Economic Security and UK Trade Policy | Analysis of the Indonesian Government's Policy on High Rice Prices Amid Abundant Supply from the Perspective of Islamic Economics"
+      "count": 194,
+      "representative_titles": "Synthetic Moral Agents or Sophisticated Mimics? | Synthetic Moral Agents or Sophisticated Mimics? | Epistemic Injustice in Generative AI: Probabilistic Generation, Trust Erosion, and the Structural Conditions of Algorithmic Knowledge Harm"
     },
     {
       "label": "classification",
       "kind": "quantitative-signal",
-      "count": 84,
-      "representative_titles": "An LLM System for Autonomous Variational Quantum Circuit Design | MARD: Mirror-Augmented Reasoning Distillation for Mechanism-Level Drug-Drug Interaction Prediction | Suffering Without Perpetrators: The Humanitarian Passive in AI-Generated Conflict Discourse"
+      "count": 189,
+      "representative_titles": "Israel, Iran, and Peace in the Middle East: An Analysis of Identity Formation, Enemy Construction, and the Logic of Expansionism | Steiner's trinitarian view and the philosophy of mind: A critique of Kuhn's landscape of consciousness taxonomy | An LLM System for Autonomous Variational Quantum Circuit Design"
     },
     {
-      "label": "anthropology",
-      "kind": "discipline",
-      "count": 71,
-      "representative_titles": "From soil to stream: modeling the catchment-scale hydrological effects of increased soil organic carbon | Seismo-acoustic and GNSS observations of a record-breaking Black Sea storm: repurposing geophysical sensors for environmental monitoring | Accès, trajectoires et résultats de la réunification familiale : une analyse des disparités raciales en protection de la jeunesse"
+      "label": "regression",
+      "kind": "quantitative-signal",
+      "count": 175,
+      "representative_titles": "Climate change impacts on agricultural productivity and food security: a policy framework for achieving sustainable development goals in Ghana | Factors contributing to resilience amongst adolescent girls in artisanal and small-scale mining communities in Ghana and Uganda | The prevalence and predictors of previous prostate cancer screening among men attending primary healthcare centers in Riyadh, Saudi Arabia"
     },
     {
-      "label": "large language model",
+      "label": "computational",
+      "kind": "quantitative-signal",
+      "count": 175,
+      "representative_titles": "The mRNA architecture of the translation termination site primes programmed stop codon readthrough events in Drosophila | Enhancing decentralized community energy systems through an auction-theoretic transactive market framework for efficient demand response and renewable integration | Image Collection of AI-Centered Futuristic Imagination"
+    },
+    {
+      "label": "dataset",
+      "kind": "quantitative-signal",
+      "count": 150,
+      "representative_titles": "Documenting resistance and memory: a decade of Docudays UA films (2014–2024) | VietFashion: Benchmarking Sketch-Text Composed Image Retrieval for Cultural Outfits | TimeLens: On-Device Artifact Recognition with Retrieval-Augmented Question Answering for the Grand Egyptian Museum"
+    },
+    {
+      "label": "philology",
       "kind": "method",
-      "count": 66,
-      "representative_titles": "RogueAI: A Reverse Turing Test for Detecting Licensed AI Deception in Dialogue | RogueAI: A Reverse Turing Test for Detecting Licensed AI Deception in Dialogue | The End of Code Review: Coding Agents Supersede Human Inspection"
+      "count": 149,
+      "representative_titles": "For the Love of Writing: Song Lyrics Featuring Literary Activities by Shen Cai (1752–?) | On the Properties and Benefits of Coffee | Imre Baski: Crimean Tatar Folktales as Collected by Ignác Kúnos (1860–1945)"
     }
   ],
   "representativeWorks": [

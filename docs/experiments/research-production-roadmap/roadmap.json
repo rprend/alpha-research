@@ -61,9 +61,9 @@
       "id": "literature-radar-broad-backfill",
       "title": "Humanities Literature Radar Broad Backfill",
       "priority": 3,
-      "status": "broad-backfill-pilot",
+      "status": "remote-verified-broad-backfill",
       "sourceExperiment": "docs/experiments/humanities-literature-radar/",
-      "why": "The ready dataset and remote smoke run prove the pipeline, but source coverage is still bounded for DOAJ, HCommons, OSF/SocArXiv, and NBER.",
+      "why": "The refreshed 7,362-work dataset has been built, synced, promoted, and remote-verified, but source coverage is still imbalanced toward DOAJ OAI and bounded for HCommons, OSF/SocArXiv, and NBER.",
       "requiredSources": [
         "DOAJ dump or OAI-PMH route",
         "expanded Knowledge Commons Works / HCommons query coverage",
@@ -76,13 +76,12 @@
         "dedupe report comparing v1 and broad backfill",
         "monitor run using --prior-works",
         "updated dataset bundle",
-        "remote run proof after promotion"
+        "remote run proof after promotion: 1bed0948-e36b-4eb9-a0d6-918f2937d0b2"
       ],
       "nextActions": [
-        "Run the DOAJ OAI harvester with a larger or uncapped page budget for the full 2020-present harvest.",
-        "Add resume-token checkpointing before long OAI harvests.",
+        "Continue the DOAJ OAI harvester with --resume=true beyond the 100-page checkpoint if a fuller source harvest is needed.",
         "Manually audit representative works before stronger field claims.",
-        "Rebuild, sync, and remotely verify the Alpha Research dataset bundle after the full harvest."
+        "Expand Knowledge Commons Works, OSF/SocArXiv, and NBER routes to reduce source-family imbalance."
       ]
     },
     {

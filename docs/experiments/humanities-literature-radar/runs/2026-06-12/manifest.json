@@ -1,23 +1,23 @@
 {
   "runDate": "2026-06-12",
   "baselineDate": "bootstrap",
-  "generatedAt": "2026-06-12T21:17:37.440Z",
+  "generatedAt": "2026-06-12T22:05:04.810Z",
   "script": "docs/experiments/humanities-literature-radar/scripts/build-monitor-run.mjs",
   "configPath": "config/monitor.yml",
   "baseline": {
-    "source": "docs/experiments/humanities-literature-radar/data/interim/baselines/works-before-doaj-oai-2026-06-12.json",
-    "priorWorks": 1951,
-    "currentWorks": 4434
+    "source": "docs/experiments/humanities-literature-radar/data/interim/baselines/works-before-doaj-oai-100-page-2026-06-12.json",
+    "priorWorks": 4434,
+    "currentWorks": 7362
   },
   "policy": {
     "compareKey": "stableWorkId",
     "genuinelyNewPublicationYearMin": 2024
   },
   "counts": {
-    "currentWorks": 4434,
-    "newWorks": 2483,
-    "genuinelyNewPublications": 1357,
-    "newlyDiscoveredOldRecords": 1126,
+    "currentWorks": 7362,
+    "newWorks": 2929,
+    "genuinelyNewPublications": 2514,
+    "newlyDiscoveredOldRecords": 415,
     "changedSources": 7
   },
   "inputs": {

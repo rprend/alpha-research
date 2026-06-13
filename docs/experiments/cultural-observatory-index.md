@@ -50,7 +50,7 @@ Current roadmap:
 - next implementation queue:
   - University Institutional Language Second-Layer Corpus historical backfill and manual quote review
   - Museum Annual Report And Provenance Source Layers historical backfill and manual quote review
-  - Humanities Literature Radar full DOAJ OAI harvest and remote bundle verification
+  - Humanities Literature Radar representative-work audit and non-DOAJ source expansion
   - Canon Drift Narrow Signal Pilot manual relevance audit
   - Humanities Dataset Registry derived dataset promotion
 
@@ -58,7 +58,7 @@ Next implementation moves:
 
 - backfill historical snapshots for the four-genre university second-layer corpus
 - backfill historical snapshots for the five-page-type museum second-layer corpus
-- run the literature-radar full DOAJ OAI harvest, add resume checkpointing, and remotely verify the promoted bundle
+- manually audit representative literature-radar works and expand non-DOAJ source routes
 - promote one accessible dataset-registry file-level corpus into a derived dataset and study folder
 
 ### Publication Queue
@@ -175,18 +175,16 @@ Implemented:
 - `runs/2026-06-12/` bootstrap monitor
 - one-command `run-pipeline.mjs` smoke/v1 runner
 
-Current committed corpus:
+Current corpus:
 
-- 1,951 deduped works
-- 1,155 works dated 2024-present
-- 593 quantitative/computational humanities candidates
-- sources represented in processed records: arXiv, Crossref, OpenAlex, DOAJ, OSF Preprints / SocArXiv, Knowledge Commons Works / Humanities Commons
-- monitor baseline: 1,951 records absent from bootstrap baseline, including 1,155 genuinely new publications and 796 newly discovered old records
-- broad-backfill route pilot: 7,500 raw DOAJ OAI records from 25 OAI-PMH pages, with humanities/method relevance gating before processed promotion
-- current processed corpus after OAI route pilot: 4,434 deduped works, including 2,512 works dated 2024-present and 965 quantitative/computational humanities candidates
-- v1 comparison after OAI route pilot: 2,483 records absent from the committed v1 baseline, including 1,357 genuinely new publications and 1,126 newly discovered old records
+- broad-backfill route: 30,000 raw DOAJ OAI records from 100 OAI-PMH pages, with checkpoint/resume metadata and humanities/method relevance gating before processed promotion
+- current processed corpus after broad OAI route: 7,362 deduped works, including 5,025 works dated 2024-present and 1,997 quantitative/computational humanities candidates
+- sources represented in processed records: DOAJ OAI, arXiv, Crossref, OpenAlex, DOAJ, OSF Preprints / SocArXiv, Knowledge Commons Works / Humanities Commons
+- pre-backfill baseline: 1,951 deduped works, including 1,155 works dated 2024-present and 593 quantitative/computational humanities candidates
+- comparison against the 25-page broad-backfill baseline: 2,929 records absent from baseline, including 2,514 genuinely new publications and 415 newly discovered old records
 - dataset registration: stable id `humanities-literature-radar`, Modal bundle synced, control-plane profile attached with 26 schema fields and 10 sample rows, live dataset row promoted to `ready`/`ready` with manifest `/data/datasets/humanities-literature-radar/manifest.json`
-- remote smoke run: `d866dce5-a99b-459f-a932-a0aff4fec638`, status `ready`, with mounted dataset files inspected and valid `report.html`, `result.json`, and `work.md` artifacts returned
+- refreshed remote smoke run: `1bed0948-e36b-4eb9-a0d6-918f2937d0b2`, status `ready`, with mounted dataset files inspected and valid `report.html`, `result.json`, and `work.md` artifacts returned
+- remote proof counts: 7,362 total works, 5,025 works dated 2024-present, 1,997 quantitative/computational candidates, and 5,418 DOAJ OAI records recomputed from `/data/datasets/humanities-literature-radar/processed/works.json`
 - publication post: `reports/post.md`, a polished field-map draft titled `AI Is Now A Humanities Object`
 - post evidence audit: `reports/post-evidence-audit.json`, status `pass`, 4/4 representative citations matched processed source records
 - readiness: ready for editorial review with source-coverage caveats
@@ -194,10 +192,8 @@ Current committed corpus:
 Next implementation moves:
 
 - final editorial review for `reports/post.md`
-- use the remote smoke run as proof that the dataset can support Alpha Research questions from processed source records
-- run the recurring monitor after the next broad backfill with `--prior-works`
-- run the DOAJ OAI harvester with a larger or uncapped page budget for the full 2020-present harvest
-- add resume-token checkpointing before long OAI harvests
+- use remote smoke run `1bed0948-e36b-4eb9-a0d6-918f2937d0b2` as proof that the refreshed dataset can support Alpha Research questions from processed source records
+- continue the DOAJ OAI harvester with `--resume=true` beyond the 100-page checkpoint if a fuller source harvest is needed
 - improve NBER extraction or switch to an official metadata route if available
 - expand OSF/SocArXiv beyond bounded title search
 - expand Knowledge Commons Works / Humanities Commons beyond bounded keyword search

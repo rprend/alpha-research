@@ -1,35 +1,48 @@
 {
   "datasetId": "humanities-literature-radar",
-  "checkedAt": "2026-06-12T20:18:37Z",
+  "checkedAt": "2026-06-12T22:14:44Z",
   "dashboardUrl": "https://dashboard.alpharesearch.nyc/datasets/humanities-literature-radar",
   "successfulRun": {
-    "id": "d866dce5-a99b-459f-a932-a0aff4fec638",
+    "id": "1bed0948-e36b-4eb9-a0d6-918f2937d0b2",
     "status": "ready",
     "title": "Humanities Literature Radar Smoke Test",
-    "createdAt": "2026-06-12T20:15:16.660Z",
-    "updatedAt": "2026-06-12T20:18:37.276Z",
-    "runUrl": "https://dashboard.alpharesearch.nyc/runs/d866dce5-a99b-459f-a932-a0aff4fec638",
+    "createdAt": "2026-06-12T22:10:44.689Z",
+    "updatedAt": "2026-06-12T22:14:44.170Z",
+    "runUrl": "https://dashboard.alpharesearch.nyc/?view=runs&runId=1bed0948-e36b-4eb9-a0d6-918f2937d0b2#run-1bed0948-e36b-4eb9-a0d6-918f2937d0b2",
     "outputPreview": "Remote agent run completed with 6 deliverable artifact(s)."
   },
-  "priorFailedRun": {
-    "id": "d7b685ae-e6f2-4942-a18e-73103edec4ff",
-    "status": "failed",
-    "failureMode": "Remote agent could read the mounted dataset and write artifacts, but result.json missed generic quality fields required by scripts/run_remote_agent.py.",
-    "missingRequiredFields": [
-      "answer",
-      "claims",
-      "evidence",
-      "confidence",
-      "limitations",
-      "sourceDatasetIds"
-    ]
-  },
+  "priorFailedRuns": [
+    {
+      "id": "d7b685ae-e6f2-4942-a18e-73103edec4ff",
+      "status": "failed",
+      "failureMode": "Remote agent could read the mounted dataset and write artifacts, but result.json missed generic quality fields required by scripts/run_remote_agent.py.",
+      "missingRequiredFields": [
+        "answer",
+        "claims",
+        "evidence",
+        "confidence",
+        "limitations",
+        "sourceDatasetIds"
+      ]
+    },
+    {
+      "id": "cb61607d-a7b8-41d1-9f8b-4783d0b84870",
+      "status": "failed",
+      "failureMode": "Remote agent verified the refreshed 7,362-work mounted dataset but wrote object-shaped evidence/tables fields that failed the generic artifact schema."
+    }
+  ],
   "filesInspectedByRemoteRun": [
     "/data/datasets/humanities-literature-radar/manifest.json",
     "/data/datasets/humanities-literature-radar/dataset_briefing.md",
+    "/data/datasets/humanities-literature-radar/dataset_profile.json",
+    "/data/datasets/humanities-literature-radar/schema.json",
+    "/data/datasets/humanities-literature-radar/sample_rows.json",
     "/data/datasets/humanities-literature-radar/processed/works.json",
     "/data/datasets/humanities-literature-radar/processed/topics.json",
-    "/data/datasets/humanities-literature-radar/processed/representative-works.csv"
+    "/data/datasets/humanities-literature-radar/reports/result.json",
+    "/data/datasets/humanities-literature-radar/reports/source-inventory.md",
+    "/data/datasets/humanities-literature-radar/runs/2026-06-12/result.json",
+    "/data/datasets/humanities-literature-radar/runs/2026-06-12/changed-sources.csv"
   ],
   "artifactContract": {
     "requiredDeliverables": [
@@ -51,94 +64,107 @@
       "evidence",
       "confidence",
       "limitations",
-      "sourceDatasetIds"
+      "sourceDatasetIds",
+      "tables"
     ],
     "claimCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 5,
+    "tableCount": 1,
     "sourceDatasetIds": [
       "humanities-literature-radar"
     ]
   },
   "artifacts": [
     {
-      "id": "42841af0-097f-4e19-b5ce-8d467ddaa0f5",
+      "id": "ee4eebc2-8136-4d90-a128-ff5998963fc4",
       "type": "html_report",
       "title": "report.html"
     },
     {
-      "id": "f53e38e9-0be0-4a5a-9f7c-d59e88d2ac0b",
+      "id": "90e4b718-53da-4600-9dcc-f71a6f805bcc",
       "type": "structured_result",
       "title": "result.json"
     },
     {
-      "id": "7cca0016-dd1d-40ba-8885-2f4acfae8739",
+      "id": "f06867fa-d42a-4f02-9f85-d3e8778b3769",
       "type": "file",
       "title": "work.md"
     },
     {
-      "id": "7ebceb22-d3dc-477c-9dae-dfbb6e1ddf31",
+      "id": "4b358c79-a57f-426a-9a32-c54855aaba94",
       "type": "remote_agent_summary",
       "title": "Remote Agent Summary"
     },
     {
-      "id": "9898b47e-9d68-4b74-a584-6a4ebe777b36",
+      "id": "73daafd7-47d8-404a-ba01-b0376c7fcaed",
       "type": "remote_agent_transcript",
       "title": "Remote Agent Transcript"
     }
   ],
-  "remoteAnswer": "AI/LLM-assisted humanities and quantitative/computational humanities are clearly active in the Humanities Literature Radar corpus: 8.5% of 2024-2026 works reference LLMs and 32.8% employ quantitative or computational methods, with growth concentrated after 2023 and distributed across journals, repositories, and preprints.",
+  "remoteAnswer": "Mounted dataset matches expected size and share metrics; smoke test passes.",
   "remoteCounts": {
-    "totalWorks": 1951,
-    "works2024Present": 1155,
-    "quantitativeOrComputationalCandidates": 593,
-    "aiLlmWorksOverall": 119,
-    "aiLlmWorks2024Present": 98,
-    "quantitativeOrComputationalWorks2024Present": 379
+    "totalWorks": 7362,
+    "works2024Present": 5025,
+    "works2024PresentShare": 0.683,
+    "quantitativeOrComputationalCandidates": 1997,
+    "quantitativeOrComputationalShare": 0.271,
+    "doajOaiRecords": 5418,
+    "doajOaiShare": 0.736
   },
-  "representativeEvidence": [
+  "sourceDistribution": [
     {
-      "id": "E1",
-      "title": "AI Does Not Hallucinate — The Unverifying Human Does",
+      "source": "doaj-oai",
+      "total": 5418,
+      "recent": 3877,
+      "quant": 1407
+    },
+    {
       "source": "hcommons",
-      "year": 2026,
-      "doi": "10.17613/17py8-2kq58",
-      "url": "https://works.hcommons.org/records/17py8-2kq58"
+      "total": 500,
+      "recent": 255,
+      "quant": 115
     },
     {
-      "id": "E4",
-      "title": "AI-Driven Generation of Old English: A Framework for Low-Resource Languages",
-      "source": "doaj",
-      "year": 2026,
-      "doi": "10.3390/bdcc10050145",
-      "url": "https://www.mdpi.com/2504-2289/10/5/145"
-    },
-    {
-      "id": "E6",
-      "title": "AI-Produced Humanities Research: On the Dangers of Technical Incrementalism",
-      "source": "openalex",
-      "year": 2026,
-      "doi": "10.1007/s13347-026-01085-6",
-      "url": "https://doi.org/10.1007/s13347-026-01085-6"
-    },
-    {
-      "id": "E9",
-      "title": "Are We There Yet? Notes Towards Benchmarking an Experimental AI-Assisted Workflow for Humanities Data Cleaning and Reconciliation",
       "source": "crossref",
-      "year": 2026,
-      "doi": "10.5334/johd.490",
-      "url": "https://doi.org/10.5334/johd.490"
+      "total": 500,
+      "recent": 414,
+      "quant": 103
+    },
+    {
+      "source": "doaj",
+      "total": 461,
+      "recent": 257,
+      "quant": 226
+    },
+    {
+      "source": "openalex",
+      "total": 455,
+      "recent": 201,
+      "quant": 119
+    },
+    {
+      "source": "arxiv",
+      "total": 19,
+      "recent": 19,
+      "quant": 19
+    },
+    {
+      "source": "osf-preprints",
+      "total": 9,
+      "recent": 2,
+      "quant": 8
     }
   ],
   "acceptanceEvidence": [
-    "The ready control-plane dataset mounted at /data/datasets/humanities-literature-radar/ for a remote run.",
-    "The remote agent inspected manifest, briefing, works, topics, and representative-work files from the mounted dataset.",
-    "The remote agent answered a field-map question using mounted source records only.",
+    "The ready control-plane dataset mounted at /data/datasets/humanities-literature-radar/ for a remote run after the 100-page DOAJ OAI backfill.",
+    "The remote agent inspected manifest, briefing, profile, schema, sample rows, processed works/topics, report, source inventory, and monitor outputs from the mounted dataset.",
+    "The remote agent recomputed 7,362 total works, 5,025 works dated 2024-present, 1,997 quantitative/computational candidates, and 5,418 DOAJ-OAI records from processed/works.json.",
     "The remote agent produced report.html, result.json, and work.md.",
-    "result.json passed the generic research artifact schema requirement with non-empty claims and evidence."
+    "result.json passed the generic research artifact schema requirement with non-empty array-shaped claims, evidence, and tables."
   ],
   "nextMoves": [
-    "Copyedit the publication handoff into the first field-map post.",
-    "Use the remote smoke artifact as the dataset-ready proof in publication and dashboard notes.",
+    "Manually audit representative DOAJ-OAI records before stronger field claims.",
+    "Expand Knowledge Commons Works, OSF/SocArXiv, OpenAlex/Crossref, and NBER routes to reduce source-family imbalance.",
     "Run the recurring monitor after the next broad backfill with --prior-works."
   ]
 }

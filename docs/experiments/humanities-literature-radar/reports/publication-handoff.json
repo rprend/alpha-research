@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-06-12T21:17:28.226Z",
+  "generatedAt": "2026-06-12T22:05:04.515Z",
   "title": "The Rise Of AI And The Humanities",
   "publishState": "ready-for-copyedit",
   "readinessStatus": "ready-for-editorial-review",
   "format": "field-map",
   "thesis": "The first literature-radar corpus is large enough to support a field-map essay about AI, computational methods, and quantitative humanities signals, while still requiring source-coverage caveats.",
   "corpus": {
-    "works": 4434,
-    "recentWorks2024Present": 2512,
-    "quantitativeHumanitiesCandidates": 965,
+    "works": 7362,
+    "recentWorks2024Present": 5025,
+    "quantitativeHumanitiesCandidates": 1997,
     "sourceCount": 7,
     "sources": [
       {
         "source": "doaj-oai",
-        "count": 2485
+        "count": 5418
       },
       {
         "source": "hcommons",
@@ -25,7 +25,7 @@
       },
       {
         "source": "doaj",
-        "count": 466
+        "count": 461
       },
       {
         "source": "openalex",
@@ -41,7 +41,7 @@
       }
     ],
     "yearRange": {
-      "earliest": "1996",
+      "earliest": "1995",
       "latest": "2026"
     },
     "representativeRows": 100,
@@ -57,14 +57,14 @@
     "opportunities": "docs/experiments/humanities-literature-radar/data/processed/quantitative-humanities-opportunities.csv"
   },
   "evidenceSummary": [
-    "4,434 deduped works across 7 source families.",
-    "2,512 works dated 2024-present.",
-    "965 quantitative/computational humanities candidates.",
+    "7,362 deduped works across 7 source families.",
+    "5,025 works dated 2024-present.",
+    "1,997 quantitative/computational humanities candidates.",
     "100 representative rows available for manual review.",
     "5 opportunity rows available for next-study selection."
   ],
   "publicClaimChecklist": [
-    "Say this is a metadata corpus of 4,434 deduped records, not full-text scholarship.",
+    "Say this is a metadata corpus of 7,362 deduped records, not full-text scholarship.",
     "Name source families and their uneven coverage before making field-level claims.",
     "Use 2024-present counts for current-field language, not older backfill counts.",
     "Frame topic and method labels as heuristic classifications until manually audited.",

@@ -4,16 +4,16 @@
 
 This dataset is the source-backed literature-radar corpus for the Cultural Observatory / Archive Signals research program. It collects public metadata about recent humanities and humanities-adjacent scholarship from OpenAlex, Crossref, DOAJ, OSF Preprints / SocArXiv, Knowledge Commons Works / Humanities Commons, arXiv, NBER search pages, and selected public department pages.
 
-The current committed run is a bounded implementation corpus. It is ready for field-map research and publication drafting with source-coverage caveats, but broad trend claims should wait for larger source backfills and manual audit of representative records.
+The current committed run includes a broad DOAJ OAI backfill plus bounded companion sources. It is ready for field-map research and publication drafting with source-coverage caveats, but broad trend claims still need manual audit of representative records and further expansion of non-DOAJ source families.
 
 ## Current Corpus
 
-- 4434 deduped works
-- 2512 works dated 2024-present
-- 965 quantitative/computational humanities candidates
+- 7362 deduped works
+- 5025 works dated 2024-present
+- 1997 quantitative/computational humanities candidates
 - processed sources: hcommons, doaj-oai, crossref, arxiv, doaj, openalex, osf-preprints
 - readiness: ready-for-editorial-review
-- bootstrap monitor: 0 genuinely new publications and 0 newly discovered old records
+- monitor: 2514 genuinely new publications and 415 newly discovered old records versus the configured baseline
 
 ## Current Files
 
@@ -37,7 +37,7 @@ Primary work fields include `work_id`, `source_name`, `source_record_id`, `title
 
 ## Current Topic Signals
 
-history (1737), literature (921), philosophy (653), sociology (422), digital humanities (364), network (248), corpus (224), political science (205), spatial (194), large language models (186)
+history (2262), literature (2045), philosophy (759), network (524), sociology (471), spatial (406), digital humanities (366), corpus (358), translation (340), quantitative (292)
 
 ## Known Limitations
 

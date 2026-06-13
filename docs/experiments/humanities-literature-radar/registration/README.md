@@ -49,32 +49,18 @@ Current verified state:
 - Dashboard URL: `https://dashboard.alpharesearch.nyc/datasets/humanities-literature-radar`
 - Ready promotion uses `POST /api/admin/datasets/prebuilt-ready`, authenticated with `ALPHA_RESEARCH_ADMIN_TOKEN`.
 
-## Remote Smoke Run
+## Remote Smoke Proof
 
-The dataset-ready acceptance check is complete.
+The refreshed broad-backfill bundle is verified by Alpha Research run `1bed0948-e36b-4eb9-a0d6-918f2937d0b2`.
 
-- Successful run: `d866dce5-a99b-459f-a932-a0aff4fec638`
-- Run URL: `https://dashboard.alpharesearch.nyc/runs/d866dce5-a99b-459f-a932-a0aff4fec638`
-- Status: `ready`
-- Finished: `2026-06-12T20:18:37.276Z`
-- Evidence file: `remote-smoke-run.json`
+Remote proof:
 
-The remote agent mounted and inspected:
+- mounted dataset path: `/data/datasets/humanities-literature-radar/`
+- status: `ready`
+- total works recomputed from `processed/works.json`: 7,362
+- works dated 2024-present: 5,025
+- quantitative/computational humanities candidates: 1,997
+- DOAJ OAI records: 5,418
+- required artifacts returned: `report.html`, `result.json`, `work.md`
 
-- `/data/datasets/humanities-literature-radar/manifest.json`
-- `/data/datasets/humanities-literature-radar/dataset_briefing.md`
-- `/data/datasets/humanities-literature-radar/processed/works.json`
-- `/data/datasets/humanities-literature-radar/processed/topics.json`
-- `/data/datasets/humanities-literature-radar/processed/representative-works.csv`
-
-It produced the required artifact bundle:
-
-- `report.html`: `42841af0-097f-4e19-b5ce-8d467ddaa0f5`
-- `result.json`: `f53e38e9-0be0-4a5a-9f7c-d59e88d2ac0b`
-- `work.md`: `7cca0016-dd1d-40ba-8885-2f4acfae8739`
-
-`result.json` included the required generic research fields: `answer`, `claims`, `evidence`, `confidence`, `limitations`, and `sourceDatasetIds`. The run returned 3 claims, 10 evidence records, and `sourceDatasetIds=["humanities-literature-radar"]`.
-
-The smoke answer found 1,951 works, 1,155 works dated 2024-present, 593 quantitative/computational humanities candidates, 98 AI/LLM works dated 2024-present, and 379 quantitative/computational works dated 2024-present.
-
-Prior failed run `d7b685ae-e6f2-4942-a18e-73103edec4ff` proved the dataset mount was readable but failed artifact validation because `result.json` omitted the generic required fields. The successful run fixed the prompt and artifact schema.
+The machine-readable proof is stored in `remote-smoke-run.json`.

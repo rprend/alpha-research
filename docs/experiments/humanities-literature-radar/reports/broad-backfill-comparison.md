@@ -1,8 +1,8 @@
 # Humanities Literature Radar Broad Backfill Comparison
 
-Generated at: 2026-06-12T21:18:18.097Z
-Status: broad-backfill-pilot-built
-Corpus tier: pilot-corpus
+Generated at: 2026-06-12T22:05:04.878Z
+Status: broad-backfill-built
+Corpus tier: broad-backfill-corpus
 
 ## DOAJ OAI Route
 
@@ -10,33 +10,37 @@ Corpus tier: pilot-corpus
 - Source docs: https://doaj.org/docs/oai-pmh/
 - Run date: 2026-06-12
 - Window: 2020-01-01 through 2026-06-12
-- Pages fetched: 25
-- Raw records: 7500
+- Pages fetched: 100
+- Raw records: 30000
 - Manifest: `data/raw/doaj-oai/2026-06-12/manifest.json`
+- Checkpoint: `data/raw/doaj-oai/2026-06-12/checkpoint.json`
+- Resume mode: yes
 
 ## Processed Corpus After Relevance Gate
 
-- Deduped works: 4434
-- Works dated 2024-present: 2512
-- Quantitative/computational humanities candidates: 965
-- DOAJ OAI processed records: 2485
+- Deduped works: 7362
+- Works dated 2024-present: 5025
+- Quantitative/computational humanities candidates: 1997
+- DOAJ OAI processed records: 5418
 
 ## Baseline Comparison
 
-- Current works: 4434
-- New works versus v1 baseline: 2483
-- Genuinely new publications: 1357
-- Newly discovered old records: 1126
+- Baseline: `docs/experiments/humanities-literature-radar/data/interim/baselines/works-before-doaj-oai-100-page-2026-06-12.json`
+- Current works: 7362
+- New works versus baseline: 2929
+- Genuinely new publications: 2514
+- Newly discovered old records: 415
 - Monitor run: `runs/2026-06-12/result.json`
 
 ## Quality Gate
 
 - DOAJ OAI records require relevance_score >= 1 before entering processed works.
-- This is a broad DOAJ route pilot, not a full DOAJ harvest. Public field claims should keep source coverage caveats until the full OAI harvest and manual representative-work audit are complete.
+- The OAI route uses source-level pagination rather than keyword search, so public field claims must keep source-coverage and relevance-gate caveats attached.
+- Representative DOAJ OAI records still need manual audit before stronger field claims.
 
 ## Next Actions
 
-- Run the DOAJ OAI harvester with a larger or uncapped page budget for the full 2020-present harvest.
-- Add a resume token/checkpoint mode before long harvests.
-- Manually audit representative DOAJ OAI works after the full harvest.
-- Promote the refreshed dataset bundle and run a remote Alpha Research proof after promotion.
+- Continue the DOAJ OAI harvest with --resume=true beyond the current page budget if a fuller source harvest is needed.
+- Manually audit representative DOAJ OAI records before publishing examples.
+- Rebuild, sync, and remotely verify the Alpha Research dataset bundle after promotion.
+- Expand Knowledge Commons Works, OSF/SocArXiv, and NBER routes to reduce source-family imbalance.

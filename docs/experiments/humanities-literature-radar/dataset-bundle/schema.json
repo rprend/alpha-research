@@ -1,6 +1,6 @@
 {
   "primaryKey": "stableWorkId(work)",
-  "rowCount": 4434,
+  "rowCount": 7362,
   "fields": [
     {
       "name": "source_name",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T21:57:45.663Z",
+  "generatedAt": "2026-06-13T00:13:21.934Z",
   "roadmap": "Archive Signals / The Cultural Observatory",
   "status": "active",
   "trackCount": 6,
@@ -34,11 +34,11 @@
       "id": "literature-radar-broad-backfill",
       "title": "Humanities Literature Radar Broad Backfill",
       "priority": 3,
-      "status": "broad-backfill-pilot",
+      "status": "remote-verified-broad-backfill",
       "complete": false,
       "sourceExperiment": "docs/experiments/humanities-literature-radar/",
       "requiredEvidenceCount": 5,
-      "nextActionCount": 4,
+      "nextActionCount": 3,
       "missingRequiredEvidenceList": false,
       "missingNextActions": false
     },
@@ -95,7 +95,7 @@
     {
       "id": "literature-radar-broad-backfill",
       "title": "Humanities Literature Radar Broad Backfill",
-      "status": "broad-backfill-pilot",
+      "status": "remote-verified-broad-backfill",
       "sourceExperiment": "docs/experiments/humanities-literature-radar/"
     },
     {

@@ -1,0 +1,616 @@
+{
+  "source": "doaj-oai",
+  "runDate": "2026-06-12",
+  "from": "2020-01-01",
+  "until": "2026-06-12",
+  "maxPages": 100,
+  "updatedAt": "2026-06-12T22:03:39.281Z",
+  "completed": true,
+  "lastFetchedPage": 100,
+  "nextPage": 101,
+  "resumptionToken": "eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMzAwMDAsICJhIjogWyIyMDI2LTA1LTA5VDIxOjA5OjU5WiIsIDFdfQ==",
+  "recordCount": 30000,
+  "requests": [
+    {
+      "page": 1,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&metadataPrefix=oai_dc&from=2020-01-01&until=2026-06-12",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0001.xml"
+    },
+    {
+      "page": 2,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMzAwLCAiYSI6IFsiMjAyNi0wNS0xM1QxNjoxMTowNloiLCAzXX0%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0002.xml"
+    },
+    {
+      "page": 3,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogNjAwLCAiYSI6IFsiMjAyNi0wNS0xM1QxNjowOToyMloiLCAxXX0%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0003.xml"
+    },
+    {
+      "page": 4,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogOTAwLCAiYSI6IFsiMjAyNi0wNS0xM1QxNToxODowMFoiLCAxXX0%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0004.xml"
+    },
+    {
+      "page": 5,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTIwMCwgImEiOiBbIjIwMjYtMDUtMTNUMTQ6MzA6MzNaIiwgODVdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0005.xml"
+    },
+    {
+      "page": 6,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTUwMCwgImEiOiBbIjIwMjYtMDUtMTNUMTM6MzY6MzRaIiwgNF19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0006.xml"
+    },
+    {
+      "page": 7,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTgwMCwgImEiOiBbIjIwMjYtMDUtMTNUMTM6MzI6MTJaIiwgMV19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0007.xml"
+    },
+    {
+      "page": 8,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjEwMCwgImEiOiBbIjIwMjYtMDUtMTNUMTM6MzE6MDBaIiwgNF19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0008.xml"
+    },
+    {
+      "page": 9,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjQwMCwgImEiOiBbIjIwMjYtMDUtMTNUMTM6Mjk6NDNaIiwgMl19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0009.xml"
+    },
+    {
+      "page": 10,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjcwMCwgImEiOiBbIjIwMjYtMDUtMTNUMTM6MjU6MDFaIiwgMV19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0010.xml"
+    },
+    {
+      "page": 11,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMzAwMCwgImEiOiBbIjIwMjYtMDUtMTNUMTM6MTQ6NTBaIiwgMl19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0011.xml"
+    },
+    {
+      "page": 12,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMzMwMCwgImEiOiBbIjIwMjYtMDUtMTNUMTM6MDk6MzZaIiwgMV19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0012.xml"
+    },
+    {
+      "page": 13,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMzYwMCwgImEiOiBbIjIwMjYtMDUtMTNUMTM6MDc6NTRaIiwgMV19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0013.xml"
+    },
+    {
+      "page": 14,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMzkwMCwgImEiOiBbIjIwMjYtMDUtMTNUMTI6NTg6NTFaIiwgM119",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0014.xml"
+    },
+    {
+      "page": 15,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogNDIwMCwgImEiOiBbIjIwMjYtMDUtMTNUMTE6Mjk6NDRaIiwgMV19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0015.xml"
+    },
+    {
+      "page": 16,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogNDUwMCwgImEiOiBbIjIwMjYtMDUtMTNUMDk6Mjc6NTJaIiwgNjVdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0016.xml"
+    },
+    {
+      "page": 17,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogNDgwMCwgImEiOiBbIjIwMjYtMDUtMTNUMDg6NDE6MjFaIiwgM119",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0017.xml"
+    },
+    {
+      "page": 18,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogNTEwMCwgImEiOiBbIjIwMjYtMDUtMTNUMDc6NTI6MjNaIiwgNDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0018.xml"
+    },
+    {
+      "page": 19,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogNTQwMCwgImEiOiBbIjIwMjYtMDUtMTNUMDY6NTc6NTJaIiwgM119",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0019.xml"
+    },
+    {
+      "page": 20,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogNTcwMCwgImEiOiBbIjIwMjYtMDUtMTNUMDU6NTM6MDdaIiwgNF19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0020.xml"
+    },
+    {
+      "page": 21,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogNjAwMCwgImEiOiBbIjIwMjYtMDUtMTNUMDU6MDA6MDhaIiwgMl19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0021.xml"
+    },
+    {
+      "page": 22,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogNjMwMCwgImEiOiBbIjIwMjYtMDUtMTNUMDQ6MjY6MTdaIiwgMl19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0022.xml"
+    },
+    {
+      "page": 23,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogNjYwMCwgImEiOiBbIjIwMjYtMDUtMTNUMDM6MTA6NDBaIiwgMTZdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0023.xml"
+    },
+    {
+      "page": 24,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogNjkwMCwgImEiOiBbIjIwMjYtMDUtMTNUMDE6NDU6MzBaIiwgMl19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0024.xml"
+    },
+    {
+      "page": 25,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogNzIwMCwgImEiOiBbIjIwMjYtMDUtMTNUMDA6MTQ6NDNaIiwgMl19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0025.xml"
+    },
+    {
+      "page": 26,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogNzUwMCwgImEiOiBbIjIwMjYtMDUtMTJUMjM6MDA6MTZaIiwgMl19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0026.xml"
+    },
+    {
+      "page": 27,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogNzgwMCwgImEiOiBbIjIwMjYtMDUtMTJUMTg6MTQ6MTVaIiwgNV19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0027.xml"
+    },
+    {
+      "page": 28,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogODEwMCwgImEiOiBbIjIwMjYtMDUtMTJUMTg6MTI6NTZaIiwgMV19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0028.xml"
+    },
+    {
+      "page": 29,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogODQwMCwgImEiOiBbIjIwMjYtMDUtMTJUMTY6MzY6MTZaIiwgOTddfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0029.xml"
+    },
+    {
+      "page": 30,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogODcwMCwgImEiOiBbIjIwMjYtMDUtMTJUMTU6MDg6MTRaIiwgM119",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0030.xml"
+    },
+    {
+      "page": 31,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogOTAwMCwgImEiOiBbIjIwMjYtMDUtMTJUMTM6NTA6MDlaIiwgMl19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0031.xml"
+    },
+    {
+      "page": 32,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogOTMwMCwgImEiOiBbIjIwMjYtMDUtMTJUMTM6NDk6MTlaIiwgMV19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0032.xml"
+    },
+    {
+      "page": 33,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogOTYwMCwgImEiOiBbIjIwMjYtMDUtMTJUMTM6NDg6MjdaIiwgMV19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0033.xml"
+    },
+    {
+      "page": 34,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogOTkwMCwgImEiOiBbIjIwMjYtMDUtMTJUMTM6NDc6MzdaIiwgNl19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0034.xml"
+    },
+    {
+      "page": 35,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTAyMDAsICJhIjogWyIyMDI2LTA1LTEyVDEzOjQ2OjQ2WiIsIDVdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0035.xml"
+    },
+    {
+      "page": 36,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTA1MDAsICJhIjogWyIyMDI2LTA1LTEyVDEzOjQ1OjQ5WiIsIDJdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0036.xml"
+    },
+    {
+      "page": 37,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTA4MDAsICJhIjogWyIyMDI2LTA1LTEyVDEzOjQ0OjUyWiIsIDVdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0037.xml"
+    },
+    {
+      "page": 38,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTExMDAsICJhIjogWyIyMDI2LTA1LTEyVDEzOjQ0OjAwWiIsIDldfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0038.xml"
+    },
+    {
+      "page": 39,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTE0MDAsICJhIjogWyIyMDI2LTA1LTEyVDEzOjQzOjA4WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0039.xml"
+    },
+    {
+      "page": 40,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTE3MDAsICJhIjogWyIyMDI2LTA1LTEyVDEzOjQyOjA1WiIsIDRdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0040.xml"
+    },
+    {
+      "page": 41,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTIwMDAsICJhIjogWyIyMDI2LTA1LTEyVDEzOjQwOjU3WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0041.xml"
+    },
+    {
+      "page": 42,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTIzMDAsICJhIjogWyIyMDI2LTA1LTEyVDEzOjAwOjQxWiIsIDJdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0042.xml"
+    },
+    {
+      "page": 43,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTI2MDAsICJhIjogWyIyMDI2LTA1LTEyVDEyOjA0OjAyWiIsIDEyOV19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0043.xml"
+    },
+    {
+      "page": 44,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTI5MDAsICJhIjogWyIyMDI2LTA1LTEyVDEyOjA0OjAwWiIsIDEyN119",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0044.xml"
+    },
+    {
+      "page": 45,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTMyMDAsICJhIjogWyIyMDI2LTA1LTEyVDEwOjQzOjQ1WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0045.xml"
+    },
+    {
+      "page": 46,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTM1MDAsICJhIjogWyIyMDI2LTA1LTEyVDA5OjIxOjQ4WiIsIDI1XX0%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0046.xml"
+    },
+    {
+      "page": 47,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTM4MDAsICJhIjogWyIyMDI2LTA1LTEyVDA5OjAzOjA1WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0047.xml"
+    },
+    {
+      "page": 48,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTQxMDAsICJhIjogWyIyMDI2LTA1LTEyVDA4OjI1OjE2WiIsIDZdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0048.xml"
+    },
+    {
+      "page": 49,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTQ0MDAsICJhIjogWyIyMDI2LTA1LTEyVDA3OjM5OjQxWiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0049.xml"
+    },
+    {
+      "page": 50,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTQ3MDAsICJhIjogWyIyMDI2LTA1LTEyVDA2OjAxOjE4WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0050.xml"
+    },
+    {
+      "page": 51,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTUwMDAsICJhIjogWyIyMDI2LTA1LTEyVDA1OjE3OjUzWiIsIDI3XX0%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0051.xml"
+    },
+    {
+      "page": 52,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTUzMDAsICJhIjogWyIyMDI2LTA1LTEyVDA0OjIwOjUxWiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0052.xml"
+    },
+    {
+      "page": 53,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTU2MDAsICJhIjogWyIyMDI2LTA1LTEyVDAyOjQ1OjQ5WiIsIDZdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0053.xml"
+    },
+    {
+      "page": 54,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTU5MDAsICJhIjogWyIyMDI2LTA1LTExVDIzOjAwOjE0WiIsIDJdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0054.xml"
+    },
+    {
+      "page": 55,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTYyMDAsICJhIjogWyIyMDI2LTA1LTExVDIwOjQ1OjU2WiIsIDNdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0055.xml"
+    },
+    {
+      "page": 56,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTY1MDAsICJhIjogWyIyMDI2LTA1LTExVDE5OjIwOjI3WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0056.xml"
+    },
+    {
+      "page": 57,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTY4MDAsICJhIjogWyIyMDI2LTA1LTExVDE2OjI0OjI3WiIsIDJdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0057.xml"
+    },
+    {
+      "page": 58,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTcxMDAsICJhIjogWyIyMDI2LTA1LTExVDE1OjA3OjAzWiIsIDk1XX0%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0058.xml"
+    },
+    {
+      "page": 59,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTc0MDAsICJhIjogWyIyMDI2LTA1LTExVDE1OjA3OjAxWiIsIDg4XX0%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0059.xml"
+    },
+    {
+      "page": 60,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTc3MDAsICJhIjogWyIyMDI2LTA1LTExVDE0OjUxOjU3WiIsIDJdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0060.xml"
+    },
+    {
+      "page": 61,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTgwMDAsICJhIjogWyIyMDI2LTA1LTExVDE0OjIyOjI2WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0061.xml"
+    },
+    {
+      "page": 62,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTgzMDAsICJhIjogWyIyMDI2LTA1LTExVDEyOjAzOjMyWiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0062.xml"
+    },
+    {
+      "page": 63,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTg2MDAsICJhIjogWyIyMDI2LTA1LTExVDEwOjAwOjU3WiIsIDJdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0063.xml"
+    },
+    {
+      "page": 64,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTg5MDAsICJhIjogWyIyMDI2LTA1LTExVDA5OjI4OjM5WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0064.xml"
+    },
+    {
+      "page": 65,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTkyMDAsICJhIjogWyIyMDI2LTA1LTExVDA5OjA5OjU4WiIsIDddfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0065.xml"
+    },
+    {
+      "page": 66,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTk1MDAsICJhIjogWyIyMDI2LTA1LTExVDA4OjAyOjE5WiIsIDU3XX0%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0066.xml"
+    },
+    {
+      "page": 67,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMTk4MDAsICJhIjogWyIyMDI2LTA1LTExVDA4OjAyOjE3WiIsIDkzXX0%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0067.xml"
+    },
+    {
+      "page": 68,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjAxMDAsICJhIjogWyIyMDI2LTA1LTExVDA4OjAyOjE1WiIsIDEyN119",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0068.xml"
+    },
+    {
+      "page": 69,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjA0MDAsICJhIjogWyIyMDI2LTA1LTExVDA4OjAyOjEyWiIsIDQxXX0%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0069.xml"
+    },
+    {
+      "page": 70,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjA3MDAsICJhIjogWyIyMDI2LTA1LTExVDA4OjAyOjEwWiIsIDkwXX0%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0070.xml"
+    },
+    {
+      "page": 71,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjEwMDAsICJhIjogWyIyMDI2LTA1LTExVDA4OjAyOjA4WiIsIDEyMF19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0071.xml"
+    },
+    {
+      "page": 72,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjEzMDAsICJhIjogWyIyMDI2LTA1LTExVDA4OjAyOjA1WiIsIDMwXX0%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0072.xml"
+    },
+    {
+      "page": 73,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjE2MDAsICJhIjogWyIyMDI2LTA1LTExVDA3OjIxOjA5WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0073.xml"
+    },
+    {
+      "page": 74,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjE5MDAsICJhIjogWyIyMDI2LTA1LTExVDA2OjE3OjE2WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0074.xml"
+    },
+    {
+      "page": 75,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjIyMDAsICJhIjogWyIyMDI2LTA1LTExVDA1OjI5OjA1WiIsIDVdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0075.xml"
+    },
+    {
+      "page": 76,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjI1MDAsICJhIjogWyIyMDI2LTA1LTExVDAyOjIyOjM3WiIsIDJdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0076.xml"
+    },
+    {
+      "page": 77,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjI4MDAsICJhIjogWyIyMDI2LTA1LTEwVDE5OjM5OjM0WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0077.xml"
+    },
+    {
+      "page": 78,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjMxMDAsICJhIjogWyIyMDI2LTA1LTEwVDE4OjEzOjEwWiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0078.xml"
+    },
+    {
+      "page": 79,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjM0MDAsICJhIjogWyIyMDI2LTA1LTEwVDE3OjMxOjE5WiIsIDhdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0079.xml"
+    },
+    {
+      "page": 80,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjM3MDAsICJhIjogWyIyMDI2LTA1LTEwVDEyOjAxOjMxWiIsIDE0XX0%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0080.xml"
+    },
+    {
+      "page": 81,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjQwMDAsICJhIjogWyIyMDI2LTA1LTEwVDEyOjAxOjI4WiIsIDEzXX0%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0081.xml"
+    },
+    {
+      "page": 82,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjQzMDAsICJhIjogWyIyMDI2LTA1LTEwVDEyOjAxOjI2WiIsIDc1XX0%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0082.xml"
+    },
+    {
+      "page": 83,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjQ2MDAsICJhIjogWyIyMDI2LTA1LTEwVDEyOjAxOjI0WiIsIDExMV19",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0083.xml"
+    },
+    {
+      "page": 84,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjQ5MDAsICJhIjogWyIyMDI2LTA1LTEwVDEyOjAxOjIxWiIsIDcxXX0%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0084.xml"
+    },
+    {
+      "page": 85,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjUyMDAsICJhIjogWyIyMDI2LTA1LTEwVDExOjQ4OjE2WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0085.xml"
+    },
+    {
+      "page": 86,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjU1MDAsICJhIjogWyIyMDI2LTA1LTEwVDExOjQ0OjM2WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0086.xml"
+    },
+    {
+      "page": 87,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjU4MDAsICJhIjogWyIyMDI2LTA1LTEwVDExOjQxOjA1WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0087.xml"
+    },
+    {
+      "page": 88,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjYxMDAsICJhIjogWyIyMDI2LTA1LTEwVDExOjM3OjM2WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0088.xml"
+    },
+    {
+      "page": 89,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjY0MDAsICJhIjogWyIyMDI2LTA1LTEwVDExOjM0OjE1WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0089.xml"
+    },
+    {
+      "page": 90,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjY3MDAsICJhIjogWyIyMDI2LTA1LTEwVDExOjMwOjQ1WiIsIDJdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0090.xml"
+    },
+    {
+      "page": 91,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjcwMDAsICJhIjogWyIyMDI2LTA1LTEwVDExOjI2OjU2WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0091.xml"
+    },
+    {
+      "page": 92,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjczMDAsICJhIjogWyIyMDI2LTA1LTEwVDExOjIzOjI1WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0092.xml"
+    },
+    {
+      "page": 93,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjc2MDAsICJhIjogWyIyMDI2LTA1LTEwVDExOjE5OjU3WiIsIDJdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0093.xml"
+    },
+    {
+      "page": 94,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjc5MDAsICJhIjogWyIyMDI2LTA1LTEwVDExOjE1OjQ3WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0094.xml"
+    },
+    {
+      "page": 95,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjgyMDAsICJhIjogWyIyMDI2LTA1LTEwVDExOjEyOjEzWiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0095.xml"
+    },
+    {
+      "page": 96,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjg1MDAsICJhIjogWyIyMDI2LTA1LTEwVDExOjA4OjQyWiIsIDJdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0096.xml"
+    },
+    {
+      "page": 97,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjg4MDAsICJhIjogWyIyMDI2LTA1LTEwVDExOjA0OjU2WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0097.xml"
+    },
+    {
+      "page": 98,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjkxMDAsICJhIjogWyIyMDI2LTA1LTEwVDA3OjM2OjU5WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0098.xml"
+    },
+    {
+      "page": 99,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjk0MDAsICJhIjogWyIyMDI2LTA1LTEwVDA0OjIyOjMzWiIsIDNdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0099.xml"
+    },
+    {
+      "page": 100,
+      "url": "https://doaj.org/oai.article?verb=ListRecords&resumptionToken=eyJtIjogIm9haV9kYyIsICJmIjogIjIwMjAtMDEtMDEiLCAidSI6ICIyMDI2LTA1LTEzVDIyOjAxOjEzWiIsICJuIjogMjk3MDAsICJhIjogWyIyMDI2LTA1LTEwVDAwOjA3OjQ5WiIsIDFdfQ%3D%3D",
+      "status": 200,
+      "responsePath": "data/raw/doaj-oai/2026-06-12/records-0100.xml"
+    }
+  ],
+  "errors": []
+}

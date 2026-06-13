@@ -17,7 +17,7 @@
   "profile": {
     "schema": {
       "primaryKey": "stableWorkId(work)",
-      "rowCount": 4434,
+      "rowCount": 7362,
       "fields": [
         {
           "name": "source_name",
@@ -338,7 +338,7 @@
       }
     ],
     "notes": "Generated from the current literature-radar processed corpus. Source coverage caveats are in dataset_briefing.md and reports/result.json.",
-    "briefingMarkdown": "# Humanities Literature Radar Dataset Briefing\n\n## What This Dataset Contains\n\nThis dataset is the source-backed literature-radar corpus for the Cultural Observatory / Archive Signals research program. It collects public metadata about recent humanities and humanities-adjacent scholarship from OpenAlex, Crossref, DOAJ, OSF Preprints / SocArXiv, Knowledge Commons Works / Humanities Commons, arXiv, NBER search pages, and selected public department pages.\n\nThe current committed run is a bounded implementation corpus. It is ready for field-map research and publication drafting with source-coverage caveats, but broad trend claims should wait for larger source backfills and manual audit of representative records.\n\n## Current Corpus\n\n- 4434 deduped works\n- 2512 works dated 2024-present\n- 965 quantitative/computational humanities candidates\n- processed sources: hcommons, doaj-oai, crossref, arxiv, doaj, openalex, osf-preprints\n- readiness: ready-for-editorial-review\n- bootstrap monitor: 0 genuinely new publications and 0 newly discovered old records\n\n## Current Files\n\n- `manifest.json`: dataset bundle manifest\n- `dataset_profile.json`: machine-readable dataset profile\n- `schema.json`: inferred processed-work schema\n- `sample_rows.json`: bounded sample rows for prompt/dashboard context\n- `processed/works.json`: deduped work records\n- `processed/works.csv`: tabular work inventory\n- `processed/topics.json`: heuristic topic/method/signal counts\n- `processed/representative-works.csv`: high-signal works for review\n- `processed/quantitative-humanities-opportunities.csv`: candidate essay/study opportunities\n- `reports/source-inventory.md`: source run summary\n- `reports/result.json`: structured field-map result payload\n- `reports/work.md`: work log and caveats\n- `runs/2026-06-12/`: bootstrap recurring monitor run\n\n## Fields\n\nPrimary work fields include `work_id`, `source_name`, `source_record_id`, `title`, `abstract`, `publication_date`, `year`, `doi`, `url`, `open_access_url`, `venue_name`, `publisher`, `work_type`, `authors`, `institutions`, `concepts`, `references`, `cited_by_count`, `license`, `raw_path`, `disciplines`, `methods`, `quantitative_signals`, and `is_quantitative_humanities_candidate`.\n\n## Current Topic Signals\n\nhistory (1737), literature (921), philosophy (653), sociology (422), digital humanities (364), network (248), corpus (224), political science (205), spatial (194), large language models (186)\n\n## Known Limitations\n\n- This first artifact uses public metadata and abstracts where available, not full-text scholarship.\n- Open indexes underrepresent books, chapters, non-English work, and paywalled humanities journals.\n- Trend claims require source-coverage checks and manual review of representative works before publication.\n- Public metadata underrepresents books, book chapters, non-English scholarship, and paywalled humanities journals.\n- Department-page records are coverage/enrichment evidence and should not be used to rank departments.\n- Classification is heuristic and needs manual audit before public claims.\n\n## Starter Questions\n\n- What are the main topic clusters in AI-and-humanities publishing since 2020?\n- Which venues and sources publish computational or quantitative humanities work?\n- Which methods are most visible across the corpus?\n- Which representative works should be manually reviewed before publishing the first field-map essay?\n- What source gaps would change the interpretation most?\n",
+    "briefingMarkdown": "# Humanities Literature Radar Dataset Briefing\n\n## What This Dataset Contains\n\nThis dataset is the source-backed literature-radar corpus for the Cultural Observatory / Archive Signals research program. It collects public metadata about recent humanities and humanities-adjacent scholarship from OpenAlex, Crossref, DOAJ, OSF Preprints / SocArXiv, Knowledge Commons Works / Humanities Commons, arXiv, NBER search pages, and selected public department pages.\n\nThe current committed run includes a broad DOAJ OAI backfill plus bounded companion sources. It is ready for field-map research and publication drafting with source-coverage caveats, but broad trend claims still need manual audit of representative records and further expansion of non-DOAJ source families.\n\n## Current Corpus\n\n- 7362 deduped works\n- 5025 works dated 2024-present\n- 1997 quantitative/computational humanities candidates\n- processed sources: hcommons, doaj-oai, crossref, arxiv, doaj, openalex, osf-preprints\n- readiness: ready-for-editorial-review\n- monitor: 2514 genuinely new publications and 415 newly discovered old records versus the configured baseline\n\n## Current Files\n\n- `manifest.json`: dataset bundle manifest\n- `dataset_profile.json`: machine-readable dataset profile\n- `schema.json`: inferred processed-work schema\n- `sample_rows.json`: bounded sample rows for prompt/dashboard context\n- `processed/works.json`: deduped work records\n- `processed/works.csv`: tabular work inventory\n- `processed/topics.json`: heuristic topic/method/signal counts\n- `processed/representative-works.csv`: high-signal works for review\n- `processed/quantitative-humanities-opportunities.csv`: candidate essay/study opportunities\n- `reports/source-inventory.md`: source run summary\n- `reports/result.json`: structured field-map result payload\n- `reports/work.md`: work log and caveats\n- `runs/2026-06-12/`: bootstrap recurring monitor run\n\n## Fields\n\nPrimary work fields include `work_id`, `source_name`, `source_record_id`, `title`, `abstract`, `publication_date`, `year`, `doi`, `url`, `open_access_url`, `venue_name`, `publisher`, `work_type`, `authors`, `institutions`, `concepts`, `references`, `cited_by_count`, `license`, `raw_path`, `disciplines`, `methods`, `quantitative_signals`, and `is_quantitative_humanities_candidate`.\n\n## Current Topic Signals\n\nhistory (2262), literature (2045), philosophy (759), network (524), sociology (471), spatial (406), digital humanities (366), corpus (358), translation (340), quantitative (292)\n\n## Known Limitations\n\n- This first artifact uses public metadata and abstracts where available, not full-text scholarship.\n- Open indexes underrepresent books, chapters, non-English work, and paywalled humanities journals.\n- Trend claims require source-coverage checks and manual review of representative works before publication.\n- Public metadata underrepresents books, book chapters, non-English scholarship, and paywalled humanities journals.\n- Department-page records are coverage/enrichment evidence and should not be used to rank departments.\n- Classification is heuristic and needs manual audit before public claims.\n\n## Starter Questions\n\n- What are the main topic clusters in AI-and-humanities publishing since 2020?\n- Which venues and sources publish computational or quantitative humanities work?\n- Which methods are most visible across the corpus?\n- Which representative works should be manually reviewed before publishing the first field-map essay?\n- What source gaps would change the interpretation most?\n",
     "profile": {
       "datasetId": "humanities-literature-radar",
       "name": "Humanities Literature Radar",
@@ -347,62 +347,63 @@
       "mode": "public_research_dataset",
       "mountPath": "/data/datasets/humanities-literature-radar",
       "manifestPath": "/data/datasets/humanities-literature-radar/manifest.json",
-      "generatedAt": "2026-06-12T21:17:28.517Z",
+      "generatedAt": "2026-06-12T22:05:32.983Z",
       "corpus": {
-        "works": 4434,
-        "recentWorks2024Present": 2512,
-        "quantitativeHumanitiesCandidates": 965,
+        "works": 7362,
+        "recentWorks2024Present": 5025,
+        "quantitativeHumanitiesCandidates": 1997,
         "sources": {
           "hcommons": 500,
-          "doaj-oai": 2485,
+          "doaj-oai": 5418,
           "crossref": 500,
           "arxiv": 19,
-          "doaj": 466,
+          "doaj": 461,
           "openalex": 455,
           "osf-preprints": 9
         },
         "years": {
-          "1996": 1,
-          "1997": 2,
-          "1998": 6,
+          "1995": 1,
+          "1996": 3,
+          "1997": 3,
+          "1998": 8,
           "1999": 7,
-          "2000": 5,
-          "2001": 14,
-          "2002": 18,
-          "2003": 13,
-          "2004": 11,
-          "2005": 17,
-          "2006": 16,
-          "2007": 30,
-          "2008": 32,
-          "2009": 34,
-          "2010": 37,
-          "2011": 37,
-          "2012": 39,
-          "2013": 26,
-          "2014": 55,
-          "2015": 64,
-          "2016": 75,
-          "2017": 108,
-          "2018": 62,
-          "2019": 115,
-          "2020": 174,
-          "2021": 213,
-          "2022": 261,
-          "2023": 434,
-          "2024": 506,
-          "2025": 778,
-          "2026": 1228,
-          "unknown": 16
+          "2000": 6,
+          "2001": 15,
+          "2002": 29,
+          "2003": 20,
+          "2004": 14,
+          "2005": 54,
+          "2006": 24,
+          "2007": 36,
+          "2008": 37,
+          "2009": 51,
+          "2010": 58,
+          "2011": 40,
+          "2012": 45,
+          "2013": 35,
+          "2014": 56,
+          "2015": 70,
+          "2016": 80,
+          "2017": 138,
+          "2018": 83,
+          "2019": 175,
+          "2020": 202,
+          "2021": 226,
+          "2022": 297,
+          "2023": 505,
+          "2024": 602,
+          "2025": 1174,
+          "2026": 3249,
+          "unknown": 19
         }
       },
       "monitor": {
         "runDate": "2026-06-12",
         "counts": {
-          "currentWorks": 4434,
-          "newWorks": 0,
-          "genuinelyNewPublications": 0,
-          "newlyDiscoveredOldRecords": 0,
+          "currentWorks": 7362,
+          "newWorks": 2929,
+          "genuinelyNewPublications": 2514,
+          "newlyDiscoveredOldRecords": 415,
           "changedSources": 7
         },
         "resultPath": "runs/2026-06-12/result.json"
@@ -429,6 +430,6 @@
         "Trend claims require source-coverage checks and manual review of representative works before publication."
       ]
     },
-    "describedAt": "2026-06-12T21:17:28.517Z"
+    "describedAt": "2026-06-12T22:05:32.983Z"
   }
 }

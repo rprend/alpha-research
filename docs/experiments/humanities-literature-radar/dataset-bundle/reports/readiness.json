@@ -1,52 +1,53 @@
 {
-  "generatedAt": "2026-06-12T21:17:28.300Z",
+  "generatedAt": "2026-06-12T22:05:04.619Z",
   "status": "ready-for-editorial-review",
   "corpus": {
-    "works": 4434,
-    "recentWorks2024Present": 2512,
-    "quantitativeHumanitiesCandidates": 965,
+    "works": 7362,
+    "recentWorks2024Present": 5025,
+    "quantitativeHumanitiesCandidates": 1997,
     "sources": {
       "hcommons": 500,
-      "doaj-oai": 2485,
+      "doaj-oai": 5418,
       "crossref": 500,
       "arxiv": 19,
-      "doaj": 466,
+      "doaj": 461,
       "openalex": 455,
       "osf-preprints": 9
     },
     "years": {
-      "1996": 1,
-      "1997": 2,
-      "1998": 6,
+      "1995": 1,
+      "1996": 3,
+      "1997": 3,
+      "1998": 8,
       "1999": 7,
-      "2000": 5,
-      "2001": 14,
-      "2002": 18,
-      "2003": 13,
-      "2004": 11,
-      "2005": 17,
-      "2006": 16,
-      "2007": 30,
-      "2008": 32,
-      "2009": 34,
-      "2010": 37,
-      "2011": 37,
-      "2012": 39,
-      "2013": 26,
-      "2014": 55,
-      "2015": 64,
-      "2016": 75,
-      "2017": 108,
-      "2018": 62,
-      "2019": 115,
-      "2020": 174,
-      "2021": 213,
-      "2022": 261,
-      "2023": 434,
-      "2024": 506,
-      "2025": 778,
-      "2026": 1228,
-      "unknown": 16
+      "2000": 6,
+      "2001": 15,
+      "2002": 29,
+      "2003": 20,
+      "2004": 14,
+      "2005": 54,
+      "2006": 24,
+      "2007": 36,
+      "2008": 37,
+      "2009": 51,
+      "2010": 58,
+      "2011": 40,
+      "2012": 45,
+      "2013": 35,
+      "2014": 56,
+      "2015": 70,
+      "2016": 80,
+      "2017": 138,
+      "2018": 83,
+      "2019": 175,
+      "2020": 202,
+      "2021": 226,
+      "2022": 297,
+      "2023": 505,
+      "2024": 602,
+      "2025": 1174,
+      "2026": 3249,
+      "unknown": 19
     }
   },
   "checks": [
@@ -60,19 +61,19 @@
       "id": "corpus-size",
       "label": "At least 500 deduped works are needed before publication-level field claims",
       "status": "pass",
-      "evidence": "4434 deduped works"
+      "evidence": "7362 deduped works"
     },
     {
       "id": "recent-coverage",
       "label": "At least 200 works from 2024-present are needed for current-field claims",
       "status": "pass",
-      "evidence": "2512 works from 2024-present"
+      "evidence": "5025 works from 2024-present"
     },
     {
       "id": "quantitative-candidates",
       "label": "At least 50 quantitative/computational humanities candidates are identified",
       "status": "pass",
-      "evidence": "965 candidates"
+      "evidence": "1997 candidates"
     },
     {
       "id": "source-manifests",
@@ -102,7 +103,7 @@
       "id": "publication-handoff",
       "label": "Publication handoff exists with corpus notes and public-claim checklist",
       "status": "pass",
-      "evidence": "ready-for-copyedit; 4434 works"
+      "evidence": "ready-for-copyedit; 7362 works"
     }
   ],
   "nextMoves": [
