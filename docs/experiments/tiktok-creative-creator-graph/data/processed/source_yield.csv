@@ -1,14 +1,14 @@
 source_type,source_name,source_query,creators_seen,useful_creators,excellent_creators,rejected_creators,reviewed_creators,usefulness_rate,rejection_rate,average_usefulness,yield_score,top_labels
-hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci,2330,2314,1890,16,0,0.993,0.007,84.6,100,editor:2314; reject:16
-hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,filmmaker|short film|shortfilm|movie|documentary|screenwriter|music video,735,732,663,3,0,0.996,0.004,86.2,100,filmmaker:732; reject:3
+hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci,2330,2314,1890,16,0,0.993,0.007,84.7,100,editor:2314; reject:16
+hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,filmmaker|short film|shortfilm|movie|documentary|screenwriter|music video,735,732,663,3,0,0.996,0.004,86.3,100,filmmaker:732; reject:3
 hf_tikfly_top_kol,Hugging Face Tikfly TikTok Top KOL dataset,animator|animation|vfx|visual effects|motion designer|3d artist|cgi,1324,718,35,0,0,0.542,0,63.4,100,vfx_animation:1324
-hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,tutorial|breakdown|how to|film analysis|camera tips|lighting setup,692,692,666,0,0,1,0,89.1,100,film_educator:692
+hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,tutorial|breakdown|how to|film analysis|camera tips|lighting setup,692,692,666,0,0,1,0,89.2,100,film_educator:692
 hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,vfx|visual effects|aftereffects|after effects|animation|animator|motion graphics|cgi|blender,402,400,373,2,0,0.995,0.005,87.5,100,vfx_animation:400; reject:2
-hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,behind the scenes|bts|making of|how i made|on set|setup|process,296,294,243,2,0,0.993,0.007,88.4,100,behind_the_scenes_creator:294; reject:2
-hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,cinematography|cinematic|camera|lighting|shot on|videographer|film look,293,290,160,2,0,0.99,0.007,78.2,100,cinematographer:291; reject:2
-hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,sketch comedy|comedy sketch|skit|parody|improv,141,138,97,3,0,0.979,0.021,81.6,100,sketch_comedian:138; reject:3
+hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,behind the scenes|bts|making of|how i made|on set|setup|process,296,294,245,2,0,0.993,0.007,88.4,100,behind_the_scenes_creator:294; reject:2
+hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,cinematography|cinematic|camera|lighting|shot on|videographer|film look,293,290,160,2,0,0.99,0.007,78.3,100,cinematographer:291; reject:2
+hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,sketch comedy|comedy sketch|skit|parody|improv,141,138,97,3,0,0.979,0.021,81.7,100,sketch_comedian:138; reject:3
 hf_tikfly_top_kol,Hugging Face Tikfly TikTok Top KOL dataset,video editor|editor|editing|after effects|premiere pro|capcut,3086,109,100,2,0,0.035,0.001,54.1,100,editor:3084; reject:2
-hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,stand up|standup|stand-up|comedian|open mic|crowd work,58,58,49,0,0,1,0,84.6,100,standup_comedian:58
+hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,stand up|standup|stand-up|comedian|open mic|crowd work,58,58,49,0,0,1,0,84.7,100,standup_comedian:58
 hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,vfx|visual effects|aftereffects|after effects|animation|animator|motion graphics|cgi|blender|filmmaker|short film|shortfilm|movie|documentary|screenwriter|music video,57,57,57,0,0,1,0,90.2,100,vfx_animation:57
 hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,ai video|runway|pika|unreal engine|creative coding|comfyui|generative ai,45,44,41,1,0,0.978,0.022,84.8,100,creative_technologist:44; reject:1
 hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,filmmaker|short film|shortfilm|movie|documentary|screenwriter|music video|tutorial|breakdown|how to|film analysis|camera tips|lighting setup,28,28,28,0,0,1,0,91.9,100,filmmaker:28
@@ -60,6 +60,7 @@ hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,cinematography|ci
 hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,filmmaker|short film|shortfilm|movie|documentary|screenwriter|music video|behind the scenes|bts|making of|how i made|on set|setup|process|stand up|standup|stand-up|comedian|open mic|crowd work,1,1,1,0,0,1,0,97,92,filmmaker:1
 hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,behind the scenes|bts|making of|how i made|on set|setup|process|sketch comedy|comedy sketch|skit|parody|improv|tutorial|breakdown|how to|film analysis|camera tips|lighting setup,1,1,1,0,0,1,0,97,92,sketch_comedian:1
 hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,behind the scenes|bts|making of|how i made|on set|setup|process|stand up|standup|stand-up|comedian|open mic|crowd work,1,1,1,0,0,1,0,98,92,standup_comedian:1
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|artist|filmmaker|film director|film producer|film editor|YouTuber,1,1,1,0,0,1,0,96,91,filmmaker:1
 hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,vfx|visual effects|aftereffects|after effects|animation|animator|motion graphics|cgi|blender|filmmaker|short film|shortfilm|movie|documentary|screenwriter|music video|tutorial|breakdown|how to|film analysis,1,1,1,0,0,1,0,95,91,vfx_animation:1
 hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,vfx|visual effects|aftereffects|after effects|animation|animator|motion graphics|cgi|blender|director|directed by|film director|music video director|commercial director,1,1,1,0,0,1,0,95,91,director:1
 hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,cinematography|cinematic|camera|lighting|shot on|videographer|film look|filmmaker|short film|shortfilm|movie|documentary|screenwriter|music video|director|directed by|film director|music video director|commercial director,1,1,1,0,0,1,0,95,91,director:1
@@ -81,9 +82,11 @@ manual_seed,smoke-seeds.jsonl,sketch comedian character comedy,1,1,1,0,0,1,0,85,
 wikidata_profile,Wikidata TikTok username property P7085,painter|YouTuber|content creator,1,1,1,0,0,1,0,82,85,vfx_animation:1
 hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,vfx|visual effects|aftereffects|after effects|animation|animator|motion graphics|cgi|blender|stand up|standup|stand-up|comedian|open mic|crowd work,1,1,1,0,0,1,0,81,84,vfx_animation:1
 hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,filmmaker|short film|shortfilm|movie|documentary|screenwriter|music video|ai video|runway|pika|unreal engine|creative coding|comfyui|generative ai,1,1,1,0,0,1,0,79,84,creative_technologist:1
+public_dataset_sample,Hugging Face subashdvorak/tiktok-formatted-story-v2,behind_the_scenes_creator|filmmaker|cinematographer|vfx_animation,1,1,1,0,0,1,0,78,83,vfx_animation:1
 graph_expansion_fixture,smoke-seeds.jsonl,mentioned by @ani.motionlab,1,1,0,0,1,1,0,78,78,creative_technologist:1
 hf_tikfly_top_kol,Hugging Face Tikfly TikTok Top KOL dataset,cinematographer|cinematography|videographer|dp|camera operator|lighting,1638,87,6,0,0,0.053,0,60.3,77,cinematographer:1624; filmmaker:14
 wikidata_profile,Wikidata TikTok username property P7085,screenwriter|actor|comedian|voice actor|film producer|dancer|stand-up comedian,1,1,0,0,0,1,0,77,75,standup_comedian:1
+public_dataset_sample,Hugging Face subashdvorak/tiktok-formatted-story-v2,filmmaker|cinematographer|editor,1,1,0,0,0,1,0,77,75,vfx_animation:1
 wikidata_profile,Wikidata TikTok username property P7085,painter|voice actor|film director|film producer,1,1,0,0,0,1,0,75,74,director:1
 wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator|painter|voice actor|film director|film producer|YouTuber,1,1,0,0,0,1,0,75,74,vfx_animation:1
 wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator|film director|voice actor|film producer,1,1,0,0,0,1,0,75,74,vfx_animation:1
@@ -242,6 +245,7 @@ wikidata_profile,Wikidata TikTok username property P7085,cinematographer|animato
 wikidata_profile,Wikidata TikTok username property P7085,screenwriter|actor|animator|television director|voice actor|film director,1,1,0,0,0,1,0,68,71,vfx_animation:1
 wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|film actor|stand-up comedian,1,1,0,0,0,1,0,68,71,standup_comedian:1
 wikidata_profile,Wikidata TikTok username property P7085,comedian|dancer,1,1,0,0,0,1,0,68,71,standup_comedian:1
+public_dataset_sample,Hugging Face subashdvorak/tiktok-formatted-story-v2,filmmaker|film_educator|behind_the_scenes_creator|editor,1,1,0,0,0,1,0,68,71,vfx_animation:1
 wikidata_profile,Wikidata TikTok username property P7085,composer|disc jockey|singer|record producer|musician|songwriter,4,4,0,0,0,1,0,67.5,70,actor_performer:4
 wikidata_profile,Wikidata TikTok username property P7085,composer|singer|singer-songwriter|musician|songwriter|guitarist|recording artist,4,4,0,0,0,1,0,66.8,70,actor_performer:4
 wikidata_profile,Wikidata TikTok username property P7085,singer|record producer|singer-songwriter|musician,3,3,0,0,0,1,0,66,70,actor_performer:3
@@ -258,7 +262,6 @@ wikidata_profile,Wikidata TikTok username property P7085,screenwriter|actor|come
 wikidata_profile,Wikidata TikTok username property P7085,animator|illustrator|comics artist,1,1,0,0,0,1,0,66,70,vfx_animation:1
 wikidata_profile,Wikidata TikTok username property P7085,graphic designer|content creator,1,1,0,0,0,1,0,66,70,vfx_animation:1
 wikidata_profile,Wikidata TikTok username property P7085,comedian|stand-up comedian|TikToker,1,1,0,0,0,1,0,67,70,standup_comedian:1
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|artist|filmmaker|film director|film producer|film editor|YouTuber,1,1,0,0,0,1,0,67,70,filmmaker:1
 wikidata_profile,Wikidata TikTok username property P7085,artist|graphic designer|film director|film producer,1,1,0,0,0,1,0,66,70,filmmaker:1
 wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|vlogger|YouTuber,1,1,0,0,0,1,0,66,70,actor_performer:1
 wikidata_profile,Wikidata TikTok username property P7085,filmmaker|visual artist,1,1,0,0,0,1,0,66,70,filmmaker:1
@@ -396,6 +399,7 @@ wikidata_profile,Wikidata TikTok username property P7085,actor|comedian|televisi
 wikidata_profile,Wikidata TikTok username property P7085,comedian|television director|film actor,1,1,0,0,0,1,0,65,69,actor_performer:1
 wikidata_profile,Wikidata TikTok username property P7085,voice actor|dancer,1,1,0,0,0,1,0,65,69,actor_performer:1
 wikidata_profile,Wikidata TikTok username property P7085,screenwriter|actor|comedian|television director|stage actor|voice actor|film director|film producer|film actor,1,1,0,0,0,1,0,64,69,filmmaker:1
+public_dataset_sample,Hugging Face subashdvorak/tiktok-formatted-story-v2,filmmaker,1,1,0,0,0,1,0,64,69,filmmaker:1
 wikidata_profile,Wikidata TikTok username property P7085,composer|singer|singer-songwriter|songwriter,3,3,0,0,0,1,0,62.7,68,actor_performer:3
 wikidata_profile,Wikidata TikTok username property P7085,artist|influencer,2,2,0,0,0,1,0,63,68,vfx_animation:2
 wikidata_profile,Wikidata TikTok username property P7085,graphic designer|influencer|YouTuber|online streamer,1,1,0,0,0,1,0,63,68,vfx_animation:1
@@ -446,7 +450,7 @@ wikidata_profile,Wikidata TikTok username property P7085,composer|musician|songw
 wikidata_profile,Wikidata TikTok username property P7085,actor|voice actor|film actor|stand-up comedian,1,1,0,0,0,1,0,62,68,standup_comedian:1
 wikidata_profile,Wikidata TikTok username property P7085,screenwriter|actor|comedian|television director|film director|stand-up comedian,1,1,0,0,0,1,0,63,68,standup_comedian:1
 wikidata_profile,Wikidata TikTok username property P7085,screenwriter|actor|cinematographer|television director|film director|film producer|film editor,1,1,0,0,0,1,0,63,68,filmmaker:1
-public_editorial_page,TikTok Newsroom Showbiz List 2022,TikTok Showbiz List entertainment creators 2022,36,9,4,0,0,0.25,0,56.5,67,vfx_animation:14; filmmaker:9; actor_performer:6; director:4; sketch_comedian:2
+public_editorial_page,TikTok Newsroom Showbiz List 2022,TikTok Showbiz List entertainment creators 2022,36,9,4,0,0,0.25,0,56.6,67,vfx_animation:14; filmmaker:9; actor_performer:6; director:4; sketch_comedian:2
 wikidata_profile,Wikidata TikTok username property P7085,singer|record producer|songwriter,12,11,0,0,0,0.917,0,64.8,66,actor_performer:12
 editorial_list,FeedSpot Comedy TikTokers,FeedSpot Top Comedy TikTok Influencers 2026,99,17,4,0,0,0.172,0,57.8,65,sketch_comedian:51; standup_comedian:37; filmmaker:6; actor_performer:4; cinematographer:1
 provider_video_export,unknown,,3,2,2,1,1,0.667,0.333,62,65,filmmaker:1; sketch_comedian:1; reject:1
@@ -455,6 +459,7 @@ wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|s
 hf_tikfly_top_kol,Hugging Face Tikfly TikTok Top KOL dataset,screenwriter|writer|storyteller|author|script writer|scripts,3778,5,5,0,0,0.001,0,53.1,64,filmmaker:3777; vfx_animation:1
 wikidata_profile,Wikidata TikTok username property P7085,actor,2656,79,5,0,0,0.03,0,48.8,63,actor_performer:2619; vfx_animation:16; filmmaker:8; standup_comedian:7; cinematographer:6
 wikidata_profile,Wikidata TikTok username property P7085,composer|singer|singer-songwriter|musician|songwriter,6,5,0,0,0,0.833,0,64.8,63,actor_performer:6
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|actor|film director|film producer|film editor,2,1,1,0,0,0.5,0,78.5,63,filmmaker:2
 wikidata_profile,Wikidata TikTok username property P7085,composer|disc jockey|record producer,13,11,0,0,0,0.846,0,63.6,62,actor_performer:13
 wikidata_profile,Wikidata TikTok username property P7085,composer|disc jockey|record producer|musician,14,11,0,0,0,0.786,0,63.7,60,actor_performer:14
 wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|voice actor|film producer,4,3,0,0,0,0.75,0,66.5,60,filmmaker:4
@@ -484,7 +489,7 @@ editorial_list,FeedSpot Pop Music TikTokers,FeedSpot Top Pop Music TikTok Influe
 hf_tikfly_top_kol,Hugging Face Tikfly TikTok Top KOL dataset,filmmaker|film maker|short film|shortfilm|director of photography|documentary filmmaker,679,27,3,0,0,0.04,0,56.9,51,filmmaker:679
 editorial_list,FeedSpot Gaming TikTokers,FeedSpot Top Gaming TikTok Influencers 2026,55,12,2,0,0,0.218,0,58.1,51,vfx_animation:49; behind_the_scenes_creator:3; actor_performer:1; filmmaker:1; editor:1
 wikidata_profile,Wikidata TikTok username property P7085,composer|singer|record producer,12,7,0,0,0,0.583,0,61.9,51,actor_performer:12
-editorial_list,FeedSpot Latin Music TikTokers,FeedSpot Top Latin Music TikTok Influencers 2026,28,12,1,0,0,0.429,0,56,50,actor_performer:16; creative_technologist:7; standup_comedian:4; editor:1
+editorial_list,FeedSpot Latin Music TikTokers,FeedSpot Top Latin Music TikTok Influencers 2026,28,12,1,0,0,0.429,0,56.1,50,actor_performer:16; creative_technologist:7; standup_comedian:4; editor:1
 wikidata_profile,Wikidata TikTok username property P7085,composer|singer|singer-songwriter|lyricist,9,5,0,0,0,0.556,0,60.9,50,actor_performer:9
 wikidata_profile,Wikidata TikTok username property P7085,screenwriter|actor|comedian,9,5,0,0,0,0.556,0,61.7,50,actor_performer:8; standup_comedian:1
 wikidata_profile,Wikidata TikTok username property P7085,illustrator|videographer,2,1,0,0,0,0.5,0,67,50,vfx_animation:2
@@ -498,7 +503,6 @@ wikidata_profile,Wikidata TikTok username property P7085,composer|singer|musicia
 wikidata_profile,Wikidata TikTok username property P7085,composer|singer|singer-songwriter|songwriter|guitarist,2,1,0,0,0,0.5,0,63.5,49,actor_performer:2
 wikidata_profile,Wikidata TikTok username property P7085,record producer|musician|songwriter|rapper,2,1,0,0,0,0.5,0,63.5,49,actor_performer:2
 wikidata_profile,Wikidata TikTok username property P7085,actor|film director|dancer,2,1,0,0,0,0.5,0,63.5,49,director:2
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|actor|film director|film producer|film editor,2,1,0,0,0,0.5,0,64,49,filmmaker:2
 wikidata_profile,Wikidata TikTok username property P7085,actor|comedian|stand-up comedian,10,5,0,0,0,0.5,0,62.1,48,standup_comedian:10
 wikidata_profile,Wikidata TikTok username property P7085,record producer|singer-songwriter,8,4,0,0,0,0.5,0,61.6,48,actor_performer:8
 wikidata_profile,Wikidata TikTok username property P7085,composer|singer|musician|songwriter,8,4,0,0,0,0.5,0,61.3,48,actor_performer:8
@@ -517,6 +521,7 @@ wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice acto
 wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|television director|voice actor|film director|film producer,2,1,0,0,0,0.5,0,62.5,48,filmmaker:2
 wikidata_profile,Wikidata TikTok username property P7085,painter|designer,2,1,0,0,0,0.5,0,61.5,48,vfx_animation:2
 wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator|voice actor|YouTuber,2,1,0,0,0,0.5,0,62,48,vfx_animation:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director|film producer|film editor,4,1,1,0,0,0.25,0,67.8,48,filmmaker:4
 wikidata_profile,Wikidata TikTok username property P7085,screenwriter|television director|film director|comedian|voice actor|film producer,2,1,0,0,0,0.5,0,62.5,48,filmmaker:2
 wikidata_profile,Wikidata TikTok username property P7085,cinematographer|animator,2,1,0,0,0,0.5,0,61.5,48,vfx_animation:2
 wikidata_profile,Wikidata TikTok username property P7085,screenwriter|cinematographer|television director|film director|film producer|film editor,2,1,0,0,0,0.5,0,62,48,filmmaker:2
@@ -565,7 +570,7 @@ wikidata_profile,Wikidata TikTok username property P7085,visual artist,20,7,0,0,
 wikidata_profile,Wikidata TikTok username property P7085,composer|singer|songwriter,11,4,0,0,0,0.364,0,60.5,42,actor_performer:11
 wikidata_profile,Wikidata TikTok username property P7085,actor|voice actor|dancer|film actor,11,4,0,0,0,0.364,0,60.6,42,actor_performer:11
 wikidata_profile,Wikidata TikTok username property P7085,voice actor|stand-up comedian,5,2,0,0,0,0.4,0,58.4,42,standup_comedian:5
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|TikToker,4,1,1,0,0,0.25,0,53,42,actor_performer:2; creative_technologist:2
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|TikToker,4,1,1,0,0,0.25,0,53.8,42,actor_performer:2; creative_technologist:2
 wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|fashion designer,2,1,0,0,0,0.5,0,49,42,actor_performer:1; creative_technologist:1
 wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|online streamer|TikToker,2,1,0,0,0,0.5,0,49,42,actor_performer:1; creative_technologist:1
 wikidata_profile,Wikidata TikTok username property P7085,actor|film producer|dancer,3,1,0,0,0,0.333,0,64.7,42,actor_performer:2; filmmaker:1
@@ -609,14 +614,13 @@ wikidata_profile,Wikidata TikTok username property P7085,comedian|television dir
 hf_shofo_video_parquet,Hugging Face Shofo TikTok general small,cinematography|cinematic|camera|lighting|shot on|videographer|film look|director|directed by|film director|music video director|commercial director,2,1,1,1,0,0.5,0.5,52.5,39,director:1; reject:1
 editorial_list,FeedSpot Children Book TikTokers,FeedSpot Top Children Book TikTok Influencers 2026,57,17,0,0,0,0.298,0,56.9,38,vfx_animation:46; film_educator:4; editor:3; sketch_comedian:1; creative_technologist:1
 wikidata_profile,Wikidata TikTok username property P7085,screenwriter|actor|film director,14,4,0,0,0,0.286,0,59,38,filmmaker:13; director:1
-wikidata_profile,Wikidata TikTok username property P7085,influencer|TikToker,46,3,2,0,0,0.065,0,42.7,38,creative_technologist:29; actor_performer:15; filmmaker:2
+wikidata_profile,Wikidata TikTok username property P7085,influencer|TikToker,46,3,2,0,0,0.065,0,42.8,38,creative_technologist:29; actor_performer:15; filmmaker:2
 public_editorial_page,TikTok Newsroom Awards UK Ireland 2025 Winners,TikTok Awards UK Ireland 2025 winners,47,2,2,0,0,0.043,0,45.3,38,actor_performer:27; creative_technologist:15; filmmaker:4; film_educator:1
 wikidata_profile,Wikidata TikTok username property P7085,composer|record producer|musician,7,2,0,0,0,0.286,0,59.1,38,actor_performer:7
 wikidata_profile,Wikidata TikTok username property P7085,actor|voice actor|film director|film producer|film actor,7,2,0,0,0,0.286,0,59.4,38,director:5; filmmaker:2
 wikidata_profile,Wikidata TikTok username property P7085,animator|illustrator,4,1,0,0,0,0.25,0,60.5,37,vfx_animation:4
 wikidata_profile,Wikidata TikTok username property P7085,graphic designer|illustrator,4,1,0,0,0,0.25,0,61,37,vfx_animation:4
 wikidata_profile,Wikidata TikTok username property P7085,comics artist,4,1,0,0,0,0.25,0,59,37,vfx_animation:4
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director|film producer|film editor,4,1,0,0,0,0.25,0,60.5,37,filmmaker:4
 wikidata_profile,Wikidata TikTok username property P7085,composer|singer-songwriter,4,1,0,0,0,0.25,0,59.5,37,actor_performer:4
 wikidata_profile,Wikidata TikTok username property P7085,composer|disc jockey|DJ producer,4,1,0,0,0,0.25,0,60.3,37,actor_performer:4
 wikidata_profile,Wikidata TikTok username property P7085,singer-songwriter|seiyū,3,1,0,0,0,0.333,0,53.7,37,actor_performer:3
@@ -641,6 +645,7 @@ wikidata_profile,Wikidata TikTok username property P7085,animator,22,4,0,0,0,0.1
 editorial_list,FeedSpot Digital Art TikTokers,FeedSpot Top Digital Art TikTok Influencers 2026,100,3,1,0,0,0.03,0,54.5,34,vfx_animation:99; editor:1
 editorial_list,FeedSpot Entertainment TikTokers,FeedSpot Top Entertainment TikTok Influencers 2026,38,3,1,0,0,0.079,0,49.7,34,sketch_comedian:34; filmmaker:3; editor:1
 public_editorial_page,TikTok Newsroom Discover List 2026 Global,TikTok Discover List 2026 creators to watch,48,2,2,0,0,0.042,0,35.7,34,film_educator:38; filmmaker:4; creative_technologist:3; actor_performer:2; sketch_comedian:1
+editorial_list_seed,unknown,IZEA 10 Filmmakers to Follow on TikTok,8,1,1,0,0,0.125,0,46.4,34,filmmaker:7; director:1
 editorial_list_seed,unknown,Shutterstock TikTok filmmakers to follow,8,1,1,0,0,0.125,0,46,34,filmmaker:7; vfx_animation:1
 wikidata_profile,Wikidata TikTok username property P7085,vlogger|YouTuber|Twitch streamer|online streamer,3,1,0,0,0,0.333,0,45.7,34,film_educator:2; vfx_animation:1
 wikidata_profile,Wikidata TikTok username property P7085,teacher|influencer,3,1,0,0,0,0.333,0,46,34,film_educator:2; actor_performer:1
@@ -838,6 +843,7 @@ wikidata_profile,Wikidata TikTok username property P7085,screenwriter|television
 wikidata_profile,Wikidata TikTok username property P7085,comedian|actor|film actor,1,0,0,0,0,0,0,61,27,actor_performer:1
 wikidata_profile,Wikidata TikTok username property P7085,actor|comedian|stage actor|voice actor|film actor,1,0,0,0,0,0,0,61,27,actor_performer:1
 wikidata_profile,Wikidata TikTok username property P7085,screenwriter|actor|comedian|television director|voice actor|film director|film producer|film actor,1,0,0,0,0,0,0,61,27,filmmaker:1
+public_dataset_sample,Hugging Face subashdvorak/tiktok-formatted-story-v2,behind_the_scenes_creator|filmmaker,1,0,0,0,0,0,0,60,27,filmmaker:1
 wikidata_profile,Wikidata TikTok username property P7085,voice actor,245,23,0,0,0,0.094,0,50.5,26,actor_performer:241; filmmaker:2; cinematographer:1; vfx_animation:1
 wikidata_profile,Wikidata TikTok username property P7085,film director,169,13,0,0,0,0.077,0,50.9,26,director:166; filmmaker:3
 hf_tikfly_top_kol,Hugging Face Tikfly TikTok Top KOL dataset,stand up comedian|standup comedian|stand-up comedian|comic,556,5,0,0,0,0.009,0,56.7,26,standup_comedian:556
@@ -846,7 +852,7 @@ wikidata_profile,Wikidata TikTok username property P7085,screenwriter,54,4,0,0,0
 wikidata_profile,Wikidata TikTok username property P7085,designer,21,3,0,0,0,0.143,0,45.8,26,creative_technologist:11; actor_performer:8; director:1; filmmaker:1
 wikidata_profile,Wikidata TikTok username property P7085,stand-up comedian,61,3,0,0,0,0.049,0,54,26,standup_comedian:61
 wikidata_profile,Wikidata TikTok username property P7085,comedian|YouTuber,25,2,0,0,0,0.08,0,50.8,26,actor_performer:12; sketch_comedian:12; vfx_animation:1
-public_editorial_page,TikTok Newsroom Discover List 2022,TikTok Discover List 2022 creators,35,2,1,0,0,0.057,0,35.3,26,film_educator:29; vfx_animation:2; creative_technologist:2; actor_performer:1; filmmaker:1
+public_editorial_page,TikTok Newsroom Discover List 2022,TikTok Discover List 2022 creators,35,2,1,0,0,0.057,0,35.4,26,film_educator:29; vfx_animation:2; creative_technologist:2; actor_performer:1; filmmaker:1
 wikidata_profile,Wikidata TikTok username property P7085,influencer|vlogger|TikToker,5,1,0,0,0,0.2,0,40.6,26,creative_technologist:4; actor_performer:1
 wikidata_profile,Wikidata TikTok username property P7085,film director|YouTuber,8,1,0,0,0,0.125,0,47.6,26,director:8
 public_editorial_page,TikTok Newsroom Awards Australia 2025 Nominees,TikTok Awards Australia 2025 nominees,67,1,1,0,0,0.015,0,39.1,26,creative_technologist:34; actor_performer:10; filmmaker:9; sketch_comedian:8; film_educator:4
@@ -1041,7 +1047,6 @@ wikidata_profile,Wikidata TikTok username property P7085,film director|dancer|fi
 wikidata_profile,Wikidata TikTok username property P7085,stage actor|stand-up comedian,1,0,0,0,0,0,0,55,25,standup_comedian:1
 wikidata_profile,Wikidata TikTok username property P7085,actor|voice actor,71,3,0,0,0,0.042,0,49.7,24,actor_performer:69; cinematographer:1; filmmaker:1
 editorial_list,FeedSpot Horror TikTokers,FeedSpot Top Horror TikTok Influencers 2026,16,1,0,0,0,0.063,0,46.8,24,filmmaker:15; editor:1
-editorial_list_seed,unknown,IZEA 10 Filmmakers to Follow on TikTok,8,1,0,0,0,0.125,0,42.8,24,filmmaker:7; director:1
 wikidata_profile,Wikidata TikTok username property P7085,singer-songwriter|musician,34,1,0,0,0,0.029,0,49.6,24,actor_performer:34
 wikidata_profile,Wikidata TikTok username property P7085,singer-songwriter|rapper,23,1,0,0,0,0.043,0,50.1,24,actor_performer:23
 wikidata_profile,Wikidata TikTok username property P7085,actor|stage actor|voice actor|film actor,17,1,0,0,0,0.059,0,48.6,24,actor_performer:17
@@ -1126,9 +1131,10 @@ wikidata_profile,Wikidata TikTok username property P7085,actor|television direct
 wikidata_profile,Wikidata TikTok username property P7085,actor|comedian|stage actor|film actor,1,0,0,0,0,0,0,51,23,actor_performer:1
 wikidata_profile,Wikidata TikTok username property P7085,film director|film producer|stage actor|film actor,1,0,0,0,0,0,0,51,23,director:1
 wikidata_profile,Wikidata TikTok username property P7085,voice actor|film producer|actor|film actor,1,0,0,0,0,0,0,52,23,actor_performer:1
+public_dataset_sample,Hugging Face subashdvorak/tiktok-formatted-story-v2,cinematographer|filmmaker|film_educator,1,0,0,0,0,0,0,50,23,filmmaker:1
 wikidata_profile,Wikidata TikTok username property P7085,vlogger|YouTuber,44,3,0,0,0,0.068,0,42.2,22,actor_performer:24; film_educator:16; filmmaker:2; cinematographer:1; creative_technologist:1
 wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|content creator,14,1,0,0,0,0.071,0,41.8,22,creative_technologist:10; actor_performer:4
-public_editorial_page,TikTok Newsroom Awards US 2025 Winners,TikTok Awards US 2025 winners,20,1,0,0,0,0.05,0,45.3,22,actor_performer:15; creative_technologist:3; filmmaker:1; behind_the_scenes_creator:1
+public_editorial_page,TikTok Newsroom Awards US 2025 Winners,TikTok Awards US 2025 winners,20,1,0,0,0,0.05,0,45.4,22,actor_performer:15; creative_technologist:3; filmmaker:1; behind_the_scenes_creator:1
 wikidata_profile,Wikidata TikTok username property P7085,television personality,37,1,0,0,0,0.027,0,47,22,actor_performer:36; vfx_animation:1
 wikidata_profile,Wikidata TikTok username property P7085,YouTuber|stand-up comedian,3,0,0,0,0,0,0,48.3,22,standup_comedian:3
 wikidata_profile,Wikidata TikTok username property P7085,television director,8,0,0,0,0,0,0,48.3,22,actor_performer:5; director:2; filmmaker:1
@@ -1413,7 +1419,7 @@ public_editorial_page,TikTok Newsroom Awards UK Ireland 2025 Nominees,TikTok Awa
 public_editorial_page,TikTok Newsroom Awards Australia 2023 Nominees,TikTok Awards Australia 2023 nominees,23,0,0,0,0,0,0,41,18,actor_performer:9; creative_technologist:8; sketch_comedian:4; filmmaker:2
 public_editorial_page,TikTok Newsroom Creator Spotlight LKB Photography,creator spotlight photographer visual storytelling,1,0,0,0,0,0,0,40,18,cinematographer:1
 public_editorial_page,TikTok Newsroom Creator Spotlight Taylor Cassidy,creator spotlight educational series storytelling creator,3,0,0,0,0,0,0,40,18,filmmaker:3
-public_editorial_page,TikTok Newsroom Creator Spotlight Chewkz,creator spotlight comedy filmmaker Cannes,4,0,0,0,0,0,0,39,18,filmmaker:4
+public_editorial_page,TikTok Newsroom Creator Spotlight Chewkz,creator spotlight comedy filmmaker Cannes,4,0,0,0,0,0,0,39.8,18,filmmaker:4
 wikidata_profile,Wikidata TikTok username property P7085,writer,242,0,0,0,0,0,0,40.4,18,filmmaker:242
 wikidata_profile,Wikidata TikTok username property P7085,writer|blogger,9,0,0,0,0,0,0,40.8,18,filmmaker:9
 wikidata_profile,Wikidata TikTok username property P7085,disc jockey|record producer,37,0,0,0,0,0,0,39.3,18,creative_technologist:33; filmmaker:4

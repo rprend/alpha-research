@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T07:15:50.383Z",
+  "generated_at": "2026-06-13T07:25:54.093Z",
   "target_review_decisions": 500,
   "current_review_decisions": 4,
   "review_gap": 496,
@@ -16,7 +16,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 7035,
+      "useful_gap": 7034,
       "priority": 2
     },
     {
@@ -61,7 +61,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 3504,
+      "useful_gap": 3501,
       "priority": 2
     },
     {

@@ -1,19 +1,22 @@
 # Hugging Face TikTok Video Dataset Import
 
-Generated: 2026-06-13T06:37:34.227Z
+Generated: 2026-06-13T07:25:28.133Z
 
 - Provider: huggingface_dataset_viewer
 - Dry run: false
-- Dataset: datahiveai/Tiktok-Videos
+- Dataset: subashdvorak/tiktok-story-data2
 - Config/split: default/train
-- Source URL: https://huggingface.co/datasets/datahiveai/Tiktok-Videos
-- Source license: cc-by-nc-4.0
-- Source use note: Candidate acquisition only; non-commercial license requires review before production release use.
-- Input video rows scanned: 2060
-- Output creator rows: 1
-- Skipped rows: 2050
-- Output path: docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-36-28-998Z-hf-tiktok-video-dataset.jsonl
+- Source URL: https://huggingface.co/datasets/subashdvorak/tiktok-story-data2
+- Source license: unknown
+- Source use note: Candidate acquisition only; confirm dataset license and provenance before production release use.
+- Input video rows scanned: 641
+- Output creator rows: 0
+- Skipped rows: 641
+- Start offset: 0
+- Last offset: 600
+- Fetch error: none
+- Output path: none
 
 ## Target Labels
 
-- filmmaker: 1
+- None

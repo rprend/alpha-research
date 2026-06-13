@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-13T07:15:48.085Z",
-  "sources": 1560,
+  "generated_at": "2026-06-13T07:25:51.623Z",
+  "sources": 1566,
   "best_sources": [
     {
       "source_type": "hf_shofo_video_parquet",
@@ -13,7 +13,7 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0.993,
       "rejection_rate": 0.007,
-      "average_usefulness": 84.6,
+      "average_usefulness": 84.7,
       "yield_score": 100,
       "top_labels": "editor:2314; reject:16"
     },
@@ -28,7 +28,7 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0.996,
       "rejection_rate": 0.004,
-      "average_usefulness": 86.2,
+      "average_usefulness": 86.3,
       "yield_score": 100,
       "top_labels": "filmmaker:732; reject:3"
     },
@@ -58,7 +58,7 @@
       "reviewed_creators": 0,
       "usefulness_rate": 1,
       "rejection_rate": 0,
-      "average_usefulness": 89.1,
+      "average_usefulness": 89.2,
       "yield_score": 100,
       "top_labels": "film_educator:692"
     },
@@ -83,7 +83,7 @@
       "source_query": "behind the scenes|bts|making of|how i made|on set|setup|process",
       "creators_seen": 296,
       "useful_creators": 294,
-      "excellent_creators": 243,
+      "excellent_creators": 245,
       "rejected_creators": 2,
       "reviewed_creators": 0,
       "usefulness_rate": 0.993,
@@ -103,7 +103,7 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0.99,
       "rejection_rate": 0.007,
-      "average_usefulness": 78.2,
+      "average_usefulness": 78.3,
       "yield_score": 100,
       "top_labels": "cinematographer:291; reject:2"
     },
@@ -118,7 +118,7 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0.979,
       "rejection_rate": 0.021,
-      "average_usefulness": 81.6,
+      "average_usefulness": 81.7,
       "yield_score": 100,
       "top_labels": "sketch_comedian:138; reject:3"
     },
@@ -148,7 +148,7 @@
       "reviewed_creators": 0,
       "usefulness_rate": 1,
       "rejection_rate": 0,
-      "average_usefulness": 84.6,
+      "average_usefulness": 84.7,
       "yield_score": 100,
       "top_labels": "standup_comedian:58"
     }
@@ -305,5 +305,5 @@
       "top_labels": "actor_performer:1"
     }
   ],
-  "total_seen": 39570
+  "total_seen": 39576
 }

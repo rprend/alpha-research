@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T07:15:50.654Z",
+  "generated_at": "2026-06-13T07:25:54.371Z",
   "candidates": 413,
   "handle_targets": 88,
   "query_targets": 325,
@@ -13,12 +13,12 @@
     "tiktok_creator_neighborhood_export": 88
   },
   "target_label_counts": {
-    "filmmaker": 27,
+    "filmmaker": 28,
     "sketch_comedian": 16,
     "cinematographer": 14,
     "unclassified": 92,
     "standup_comedian": 11,
-    "vfx_animation": 31,
+    "vfx_animation": 30,
     "director": 6,
     "behind_the_scenes_creator": 135,
     "editor": 42,
@@ -353,6 +353,25 @@
     {
       "frontier_rank": 18,
       "frontier_score": 86,
+      "target": "behindthescenes",
+      "target_kind": "query",
+      "acquisition_surface": "tiktok_hashtag_export",
+      "priority": 1,
+      "target_label": "filmmaker",
+      "source_type": "multi_source",
+      "evidence_count": 3,
+      "known_account": false,
+      "expected_output": "recent public videos and author profiles for adjacent hashtag",
+      "import_target": "data/raw/imports/graph-expansion-export.jsonl",
+      "source_batch_ids": "graph_0096|hashtag_0022",
+      "source_reasons": "useful_creator_hashtag:@zachking|useful_creator_hashtag:@daniverdari|useful_creator_hashtag:@sariaalto|useful_creator_hashtag:@dasrund|useful_creator_hashtag:@thisisjonadaniel|useful_creator_hashtag:@goldilocksgoods|useful_creator_hashtag:@itsfrydays|useful_creator_hashtag:@samuelgrubbs|Export public hashtag results with author, caption, posted_at, metrics, hashtags, mentions, and sound metadata.",
+      "yield_score": "",
+      "usefulness_rate": "",
+      "rejection_rate": ""
+    },
+    {
+      "frontier_rank": 19,
+      "frontier_score": 86,
       "target": "comediante",
       "target_kind": "query",
       "acquisition_surface": "tiktok_hashtag_export",
@@ -370,7 +389,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 19,
+      "frontier_rank": 20,
       "frontier_score": 86,
       "target": "comedy",
       "target_kind": "query",
@@ -389,7 +408,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 20,
+      "frontier_rank": 21,
       "frontier_score": 86,
       "target": "fypdong",
       "target_kind": "query",
@@ -408,7 +427,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 21,
+      "frontier_rank": 22,
       "frontier_score": 85,
       "target": "apple",
       "target_kind": "query",
@@ -427,7 +446,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 22,
+      "frontier_rank": 23,
       "frontier_score": 85,
       "target": "cat",
       "target_kind": "query",
@@ -446,7 +465,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 23,
+      "frontier_rank": 24,
       "frontier_score": 85,
       "target": "video",
       "target_kind": "query",
@@ -465,7 +484,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 24,
+      "frontier_rank": 25,
       "frontier_score": 83,
       "target": "apartment",
       "target_kind": "query",
@@ -484,7 +503,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 25,
+      "frontier_rank": 26,
       "frontier_score": 83,
       "target": "chilis",
       "target_kind": "query",
@@ -503,7 +522,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 26,
+      "frontier_rank": 27,
       "frontier_score": 83,
       "target": "chilistripledipper",
       "target_kind": "query",
@@ -522,7 +541,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 27,
+      "frontier_rank": 28,
       "frontier_score": 83,
       "target": "doctor",
       "target_kind": "query",
@@ -541,7 +560,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 28,
+      "frontier_rank": 29,
       "frontier_score": 83,
       "target": "lgbt",
       "target_kind": "query",
@@ -560,7 +579,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 29,
+      "frontier_rank": 30,
       "frontier_score": 83,
       "target": "lukadoncic",
       "target_kind": "query",
@@ -579,7 +598,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 30,
+      "frontier_rank": 31,
       "frontier_score": 83,
       "target": "mavericks",
       "target_kind": "query",
@@ -598,7 +617,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 31,
+      "frontier_rank": 32,
       "frontier_score": 83,
       "target": "organization",
       "target_kind": "query",
@@ -617,7 +636,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 32,
+      "frontier_rank": 33,
       "frontier_score": 83,
       "target": "parati",
       "target_kind": "query",
@@ -636,7 +655,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 33,
+      "frontier_rank": 34,
       "frontier_score": 83,
       "target": "reto",
       "target_kind": "query",
@@ -655,7 +674,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 34,
+      "frontier_rank": 35,
       "frontier_score": 83,
       "target": "satisfying",
       "target_kind": "query",
@@ -674,7 +693,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 35,
+      "frontier_rank": 36,
       "frontier_score": 83,
       "target": "shelterstories",
       "target_kind": "query",
@@ -693,7 +712,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 36,
+      "frontier_rank": 37,
       "frontier_score": 83,
       "target": "shortfilm",
       "target_kind": "query",
@@ -712,7 +731,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 37,
+      "frontier_rank": 38,
       "frontier_score": 83,
       "target": "site:linktr.ee \"tiktok.com/@\" \"filmmaker\"",
       "target_kind": "query",
@@ -731,7 +750,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 38,
+      "frontier_rank": 39,
       "frontier_score": 83,
       "target": "site:linktr.ee \"tiktok.com/@\" \"sketch comedian\"",
       "target_kind": "query",
@@ -750,7 +769,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 39,
+      "frontier_rank": 40,
       "frontier_score": 83,
       "target": "site:youtube.com \"tiktok.com/@\" \"filmmaker\"",
       "target_kind": "query",
@@ -769,7 +788,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 40,
+      "frontier_rank": 41,
       "frontier_score": 83,
       "target": "skitok",
       "target_kind": "query",
@@ -788,7 +807,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 41,
+      "frontier_rank": 42,
       "frontier_score": 81,
       "target": "basketball",
       "target_kind": "query",
@@ -807,7 +826,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 42,
+      "frontier_rank": 43,
       "frontier_score": 81,
       "target": "capcut",
       "target_kind": "query",
@@ -826,7 +845,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 43,
+      "frontier_rank": 44,
       "frontier_score": 81,
       "target": "greenscreen",
       "target_kind": "query",
@@ -845,7 +864,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 44,
+      "frontier_rank": 45,
       "frontier_score": 81,
       "target": "homedecor",
       "target_kind": "query",
@@ -864,7 +883,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 45,
+      "frontier_rank": 46,
       "frontier_score": 81,
       "target": "love",
       "target_kind": "query",
@@ -883,7 +902,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 46,
+      "frontier_rank": 47,
       "frontier_score": 81,
       "target": "site:beacons.ai \"tiktok.com/@\" \"director\"",
       "target_kind": "query",
@@ -902,7 +921,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 47,
+      "frontier_rank": 48,
       "frontier_score": 81,
       "target": "tiktok",
       "target_kind": "query",
@@ -921,7 +940,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 48,
+      "frontier_rank": 49,
       "frontier_score": 81,
       "target": "trending",
       "target_kind": "query",
@@ -940,7 +959,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 49,
+      "frontier_rank": 50,
       "frontier_score": 81,
       "target": "tutorial",
       "target_kind": "query",
@@ -954,25 +973,6 @@
       "import_target": "data/raw/imports/graph-expansion-export.jsonl",
       "source_batch_ids": "graph_0139",
       "source_reasons": "useful_creator_hashtag:@youneszarou|useful_creator_hashtag:@joshrichards|useful_creator_hashtag:@winchumbo|useful_creator_hashtag:@the_4_couleurs|useful_creator_hashtag:@syl_foisy|useful_creator_hashtag:@direct_glow|useful_creator_hashtag:@ciara_borgards|useful_creator_hashtag:@davidddodle|useful_creator_hashtag:@mullahmugzie|useful_creator_hashtag:@team_minecraft_build|useful_creator_hashtag:@kvy3m|useful_creator_hashtag:@cilia.ghass|useful_creator_hashtag:@gabby_murrayy|useful_creator_hashtag:@joshuamonis|useful_creator_hashtag:@miso_ara|useful_creator_hashtag:@paky__official|useful_creator_hashtag:@realhyperman|useful_creator_hashtag:@abdullah.pak|useful_creator_hashtag:@alejandraosunag|useful_creator_hashtag:@alexxaanndria|useful_creator_hashtag:@ali.friseurr|useful_creator_hashtag:@archiemc|useful_creator_hashtag:@arianalee99|useful_creator_hashtag:@arianteo|useful_creator_hashtag:@aut1798p|useful_creator_hashtag:@aysatofficiel|useful_creator_hashtag:@beauty.sofiita|useful_creator_hashtag:@capitanyolotroll|useful_creator_hashtag:@christendugger|useful_creator_hashtag:@fresajapomex|useful_creator_hashtag:@garzonricardoc|useful_creator_hashtag:@globosvianci|useful_creator_hashtag:@hey_m1ch1|useful_creator_hashtag:@ideatimes|useful_creator_hashtag:@isabelgiannuzzi|useful_creator_hashtag:@keeganevansphoto|useful_creator_hashtag:@kevinwilliam046|useful_creator_hashtag:@khantech360|useful_creator_hashtag:@lapresatwins|useful_creator_hashtag:@letwins|useful_creator_hashtag:@lifeofhugoo|useful_creator_hashtag:@loswaikiki|useful_creator_hashtag:@loypaula|useful_creator_hashtag:@maga.castagno|useful_creator_hashtag:@martamie|useful_creator_hashtag:@miukolman|useful_creator_hashtag:@mrs.maska|useful_creator_hashtag:@nafritwins53|useful_creator_hashtag:@ohhsopaige|useful_creator_hashtag:@ourfire|useful_creator_hashtag:@pollerocho|useful_creator_hashtag:@primalolita|useful_creator_hashtag:@rain_zia|useful_creator_hashtag:@robbyandpenny|useful_creator_hashtag:@romangrytsko|useful_creator_hashtag:@ryzingspins|useful_creator_hashtag:@skyandtami|useful_creator_hashtag:@slanderford69|useful_creator_hashtag:@soltani.imed|useful_creator_hashtag:@strqnger_cc|useful_creator_hashtag:@sweet.tee27|useful_creator_hashtag:@taylor.eisert|useful_creator_hashtag:@taylorred|useful_creator_hashtag:@tocinococo123|useful_creator_hashtag:@twinmelody|useful_creator_hashtag:@ukrainianboy_28|useful_creator_hashtag:@valen_reyesss|useful_creator_hashtag:@vinodh__airborne|useful_creator_hashtag:@yoel_203",
-      "yield_score": "",
-      "usefulness_rate": "",
-      "rejection_rate": ""
-    },
-    {
-      "frontier_rank": 50,
-      "frontier_score": 80,
-      "target": "3ot713",
-      "target_kind": "query",
-      "acquisition_surface": "tiktok_hashtag_export",
-      "priority": 1,
-      "target_label": "behind_the_scenes_creator",
-      "source_type": "graph_expansion",
-      "evidence_count": 1,
-      "known_account": false,
-      "expected_output": "recent public videos and author profiles for adjacent hashtag",
-      "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "",
-      "source_reasons": "useful_creator_hashtag:@3ot713",
       "yield_score": "",
       "usefulness_rate": "",
       "rejection_rate": ""

@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-13T07:15:52.102Z
+Generated: 2026-06-13T07:25:55.864Z
 
 ## Targets
 
@@ -17,8 +17,8 @@ Generated: 2026-06-13T07:15:52.102Z
 
 ## Estimated Work
 
-- Candidate accounts needed: 260628
-- Import batches needed at 250 candidates per batch: 1043
+- Candidate accounts needed: 260490
+- Import batches needed at 250 candidates per batch: 1042
 - Useful creators needed for excellent target: 49990
 - Review batches needed: 2
 
@@ -67,11 +67,11 @@ Candidate frontier targets: 413
 | 15 | 15 | 90 | 1 | tiktok_hashtag_export | stitch |
 | 16 | 16 | 87 | 1 | search_index | behind the scenes|bts|making of|how i made|on set|setup|process|tutorial|breakdown|how to|film analysis|camera tips|lighting setup |
 | 17 | 17 | 87 | 1 | tiktok_hashtag_export | filmmaker |
-| 18 | 18 | 86 | 1 | tiktok_hashtag_export | comediante |
-| 19 | 19 | 86 | 1 | tiktok_hashtag_export | comedy |
-| 20 | 20 | 86 | 1 | tiktok_hashtag_export | fypdong |
-| 21 | 21 | 85 | 1 | tiktok_hashtag_export | apple |
-| 22 | 22 | 85 | 1 | tiktok_hashtag_export | cat |
-| 23 | 23 | 85 | 1 | tiktok_hashtag_export | video |
-| 24 | 24 | 83 | 1 | tiktok_hashtag_export | apartment |
-| 25 | 25 | 83 | 1 | tiktok_hashtag_export | chilis |
+| 18 | 18 | 86 | 1 | tiktok_hashtag_export | behindthescenes |
+| 19 | 19 | 86 | 1 | tiktok_hashtag_export | comediante |
+| 20 | 20 | 86 | 1 | tiktok_hashtag_export | comedy |
+| 21 | 21 | 86 | 1 | tiktok_hashtag_export | fypdong |
+| 22 | 22 | 85 | 1 | tiktok_hashtag_export | apple |
+| 23 | 23 | 85 | 1 | tiktok_hashtag_export | cat |
+| 24 | 24 | 85 | 1 | tiktok_hashtag_export | video |
+| 25 | 25 | 83 | 1 | tiktok_hashtag_export | apartment |

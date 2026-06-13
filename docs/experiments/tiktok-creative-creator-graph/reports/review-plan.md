@@ -1,6 +1,6 @@
 # Review Plan
 
-Generated: 2026-06-13T07:15:50.383Z
+Generated: 2026-06-13T07:25:54.093Z
 
 - Target review decisions: 500
 - Current review decisions: 4
@@ -20,12 +20,12 @@ Generated: 2026-06-13T07:15:50.383Z
 
 | Label | Target reviews | Reviewed | Current sample | Gap | Useful gap | Priority |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| filmmaker | 25 | 0 | 25 | 25 | 7035 | 2 |
+| filmmaker | 25 | 0 | 25 | 25 | 7034 | 2 |
 | sketch_comedian | 25 | 0 | 25 | 25 | 6816 | 2 |
 | cinematographer | 25 | 0 | 25 | 25 | 4630 | 2 |
 | director | 25 | 0 | 25 | 25 | 3912 | 2 |
 | standup_comedian | 25 | 0 | 25 | 25 | 3854 | 2 |
-| vfx_animation | 25 | 0 | 25 | 25 | 3504 | 2 |
+| vfx_animation | 25 | 0 | 25 | 25 | 3501 | 2 |
 | actor_performer | 25 | 0 | 17 | 25 | 3313 | 2 |
 | behind_the_scenes_creator | 25 | 0 | 25 | 25 | 2647 | 2 |
 | editor | 25 | 0 | 25 | 25 | 2469 | 2 |

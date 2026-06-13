@@ -1,16 +1,87 @@
 {
-  "generated_at": "2026-06-13T07:15:53.139Z",
+  "generated_at": "2026-06-13T07:25:57.116Z",
   "dry_run": false,
   "force": false,
   "max_files": 1000,
   "status_rows": 200,
-  "ready_files": 37,
-  "already_imported_ready_files": 37,
-  "pending_files": 0,
-  "imported_files": 0,
+  "ready_files": 35,
+  "already_imported_ready_files": 30,
+  "pending_files": 5,
+  "imported_files": 5,
   "failed_files": 0,
-  "output_rows": 0,
+  "output_rows": 1050,
   "ledger_path": "docs/experiments/tiktok-creative-creator-graph/data/processed/external_lead_packet_imports.jsonl",
-  "results": [],
+  "results": [
+    {
+      "assignment_id": "external_packet_0003",
+      "completed_file_name": "0003-sketch_comedian.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0003-sketch_comedian.csv",
+      "sha256": "913f0207ba790b905fa05a52d80b42447038a04fe2f6659520f101a85cd62249",
+      "file_size_bytes": 62289,
+      "status": "imported",
+      "generated_at": "2026-06-13T07:25:56.985Z",
+      "output_rows": 250,
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T07-25-56-978Z-external-lead-list.jsonl",
+      "target_label_counts": {
+        "sketch_comedian": 250
+      }
+    },
+    {
+      "assignment_id": "external_packet_0007",
+      "completed_file_name": "0007-sketch_comedian.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0007-sketch_comedian.csv",
+      "sha256": "218c7c36144321572d187136adced1fd6746690a0783ff74147698d8daf4e1f3",
+      "file_size_bytes": 42186,
+      "status": "imported",
+      "generated_at": "2026-06-13T07:25:57.017Z",
+      "output_rows": 125,
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T07-25-57-011Z-external-lead-list.jsonl",
+      "target_label_counts": {
+        "sketch_comedian": 125
+      }
+    },
+    {
+      "assignment_id": "external_packet_0025",
+      "completed_file_name": "0025-director.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0025-director.csv",
+      "sha256": "74b979023a956f9a601a971c6021ef764294a71aa038d7c570a9f4453a96327a",
+      "file_size_bytes": 58414,
+      "status": "imported",
+      "generated_at": "2026-06-13T07:25:57.050Z",
+      "output_rows": 233,
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T07-25-57-043Z-external-lead-list.jsonl",
+      "target_label_counts": {
+        "director": 233
+      }
+    },
+    {
+      "assignment_id": "external_packet_0029",
+      "completed_file_name": "0029-behind_the_scenes_creator.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0029-behind_the_scenes_creator.csv",
+      "sha256": "43234c1847af17a7cb4d3fb60c8648fe36447d602803338d9b863453b195f317",
+      "file_size_bytes": 74428,
+      "status": "imported",
+      "generated_at": "2026-06-13T07:25:57.083Z",
+      "output_rows": 250,
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T07-25-57-075Z-external-lead-list.jsonl",
+      "target_label_counts": {
+        "behind_the_scenes_creator": 250
+      }
+    },
+    {
+      "assignment_id": "external_packet_0036",
+      "completed_file_name": "0036-vfx_animation.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0036-vfx_animation.csv",
+      "sha256": "105f94d6398d07ed8c78c7aac4fa2d7818d4a83b1765e1e3472ed76b8247a8d7",
+      "file_size_bytes": 63440,
+      "status": "imported",
+      "generated_at": "2026-06-13T07:25:57.115Z",
+      "output_rows": 192,
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T07-25-57-108Z-external-lead-list.jsonl",
+      "target_label_counts": {
+        "vfx_animation": 192
+      }
+    }
+  ],
   "next_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs && node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs"
 }

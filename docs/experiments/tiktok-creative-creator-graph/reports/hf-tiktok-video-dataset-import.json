@@ -1,51 +1,25 @@
 {
-  "generated_at": "2026-06-13T06:37:34.227Z",
-  "execution_id": "2026-06-13T06-36-28-998Z",
+  "generated_at": "2026-06-13T07:25:28.133Z",
+  "execution_id": "2026-06-13T07-25-24-603Z",
   "provider": "huggingface_dataset_viewer",
   "dry_run": false,
-  "dataset": "datahiveai/Tiktok-Videos",
+  "dataset": "subashdvorak/tiktok-story-data2",
   "config": "default",
   "split": "train",
-  "source_url": "https://huggingface.co/datasets/datahiveai/Tiktok-Videos",
-  "source_license": "cc-by-nc-4.0",
-  "source_use_note": "Candidate acquisition only; non-commercial license requires review before production release use.",
-  "max_rows": 20000,
+  "source_url": "https://huggingface.co/datasets/subashdvorak/tiktok-story-data2",
+  "source_license": "unknown",
+  "source_use_note": "Candidate acquisition only; confirm dataset license and provenance before production release use.",
+  "max_rows": 800,
+  "start_offset": 0,
   "page_size": 100,
   "request_delay_ms": 50,
   "max_retries": 4,
-  "last_offset": 2000,
-  "input_rows": 2060,
-  "output_rows": 1,
-  "skipped_rows": 2050,
-  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-36-28-998Z-hf-tiktok-video-dataset.jsonl",
-  "target_label_counts": {
-    "filmmaker": 1
-  },
-  "first_rows": [
-    {
-      "handle": "@zachking",
-      "profile_url": "https://www.tiktok.com/@zachking",
-      "display_name": "zachking",
-      "bio": "Everyone was asking how I made the indoor camping video, so here you go! Like if you want to see more #bts like this ❤️ #behindthescenes",
-      "follower_count": 0,
-      "likes_count": 7800000,
-      "video_count": 10,
-      "source_type": "public_dataset_sample",
-      "source_name": "Hugging Face datahiveai/Tiktok-Videos",
-      "source_url": "https://huggingface.co/datasets/datahiveai/Tiktok-Videos",
-      "source_query": "filmmaker|behind_the_scenes_creator|vfx_animation",
-      "target_label": "filmmaker",
-      "source_target_labels": [
-        "filmmaker",
-        "behind_the_scenes_creator",
-        "vfx_animation"
-      ],
-      "acquisition_surface": "public_dataset_sample",
-      "provider": "huggingface_dataset_viewer",
-      "provider_execution_id": "2026-06-13T06-36-28-998Z",
-      "batch_id": "hf_datahiveai_tiktok_videos_default_train",
-      "rank": 1,
-      "example_video_urls": "https://www.tiktok.com/@zachking/video/6638058572401872133|https://www.tiktok.com/@zachking/video/6853443815143951621|https://www.tiktok.com/@zachking/video/6864604556639161605|https://www.tiktok.com/@zachking/video/7018249930967960837|https://www.tiktok.com/@zachking/video/7227146522977111338"
-    }
-  ]
+  "last_offset": 600,
+  "fetch_error": "",
+  "input_rows": 641,
+  "output_rows": 0,
+  "skipped_rows": 641,
+  "output_path": "",
+  "target_label_counts": {},
+  "first_rows": []
 }

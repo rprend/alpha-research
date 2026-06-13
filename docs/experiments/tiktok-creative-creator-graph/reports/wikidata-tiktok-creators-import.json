@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-13T06:13:12.353Z",
-  "execution_id": "2026-06-13T06-12-52-374Z",
+  "generated_at": "2026-06-13T07:19:33.414Z",
+  "execution_id": "2026-06-13T07-18-59-358Z",
   "provider": "wikidata_sparql",
   "dry_run": false,
   "source_url": "https://www.wikidata.org/wiki/Property:P7085",
@@ -81,25 +81,25 @@
     "Q12330954",
     "Q622807"
   ],
-  "sparql_limit": 50000,
+  "sparql_limit": 40000,
   "max_retries": 3,
-  "input_rows": 28237,
-  "output_rows": 12608,
-  "skipped_rows": 572,
-  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-12-52-374Z-wikidata-tiktok-creators.jsonl",
+  "input_rows": 28236,
+  "output_rows": 10000,
+  "skipped_rows": 465,
+  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T07-18-59-358Z-wikidata-tiktok-creators.jsonl",
   "target_label_counts": {
-    "actor_performer": 8191,
-    "creative_technologist": 1481,
-    "screenwriter": 967,
-    "film_educator": 966,
-    "editor": 10,
-    "vfx_animation": 209,
-    "cinematographer": 101,
-    "behind_the_scenes_creator": 218,
-    "director": 77,
-    "sketch_comedian": 309,
-    "standup_comedian": 26,
-    "filmmaker": 53
+    "actor_performer": 6652,
+    "creative_technologist": 1134,
+    "screenwriter": 694,
+    "filmmaker": 39,
+    "film_educator": 758,
+    "editor": 7,
+    "vfx_animation": 139,
+    "director": 57,
+    "cinematographer": 72,
+    "behind_the_scenes_creator": 186,
+    "sketch_comedian": 243,
+    "standup_comedian": 19
   },
   "first_rows": [
     {
@@ -123,7 +123,7 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q33999|wikidata_Q36834|wikidata_Q177220|wikidata_Q183945|wikidata_Q639669|wikidata_Q753110|wikidata_Q855091|wikidata_Q2252262",
       "external_ids": "http://www.wikidata.org/entity/Q73463",
       "rank": 1
@@ -152,7 +152,7 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q36834|wikidata_Q177220|wikidata_Q183945|wikidata_Q639669|wikidata_Q753110|wikidata_Q1028181|wikidata_Q2526255|wikidata_Q3455803|wikidata_Q3922505|wikidata_Q8246794",
       "external_ids": "http://www.wikidata.org/entity/Q117970",
       "rank": 2
@@ -177,7 +177,7 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q33999|wikidata_Q177220|wikidata_Q753110",
       "external_ids": "http://www.wikidata.org/entity/Q138824",
       "rank": 3
@@ -201,7 +201,7 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q177220",
       "external_ids": "http://www.wikidata.org/entity/Q165911",
       "rank": 4
@@ -226,34 +226,10 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q33999|wikidata_Q2405480|wikidata_Q2526255|wikidata_Q5716684|wikidata_Q10800557",
       "external_ids": "http://www.wikidata.org/entity/Q183439",
       "rank": 5
-    },
-    {
-      "handle": "@carmenelectra",
-      "profile_url": "https://www.tiktok.com/@carmenelectra",
-      "display_name": "Carmen Electra",
-      "bio": "American actress, model, and singer",
-      "follower_count": 0,
-      "likes_count": 0,
-      "video_count": 0,
-      "verified": false,
-      "source_type": "wikidata_profile",
-      "source_name": "Wikidata TikTok username property P7085",
-      "source_url": "http://www.wikidata.org/entity/Q185122",
-      "source_query": "actor|voice actor|dancer|film actor|singer|musician|rapper",
-      "target_label": "actor_performer",
-      "source_target_labels": [
-        "actor_performer"
-      ],
-      "acquisition_surface": "structured_public_profile_graph",
-      "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
-      "batch_id": "wikidata_Q33999|wikidata_Q2405480|wikidata_Q5716684|wikidata_Q10800557|wikidata_Q177220|wikidata_Q639669|wikidata_Q2252262",
-      "external_ids": "http://www.wikidata.org/entity/Q185122",
-      "rank": 6
     },
     {
       "handle": "@reba",
@@ -274,10 +250,10 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q33999|wikidata_Q177220|wikidata_Q2405480|wikidata_Q55960555",
       "external_ids": "http://www.wikidata.org/entity/Q229430",
-      "rank": 7
+      "rank": 6
     },
     {
       "handle": "@mirandalambert",
@@ -298,10 +274,10 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q177220|wikidata_Q488205|wikidata_Q639669|wikidata_Q855091|wikidata_Q55960555",
       "external_ids": "http://www.wikidata.org/entity/Q231233",
-      "rank": 8
+      "rank": 7
     },
     {
       "handle": "@willow",
@@ -323,10 +299,10 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q33999|wikidata_Q177220|wikidata_Q488205|wikidata_Q639669|wikidata_Q5716684|wikidata_Q10800557|wikidata_Q36834|wikidata_Q183945|wikidata_Q55960555",
       "external_ids": "http://www.wikidata.org/entity/Q298209",
-      "rank": 9
+      "rank": 8
     },
     {
       "handle": "@afrojack",
@@ -349,9 +325,33 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q36834|wikidata_Q130857|wikidata_Q183945|wikidata_Q639669|wikidata_Q753110",
       "external_ids": "http://www.wikidata.org/entity/Q349041",
+      "rank": 9
+    },
+    {
+      "handle": "@bogdanraczynski",
+      "profile_url": "https://www.tiktok.com/@bogdanraczynski",
+      "display_name": "Bogdan Raczynski",
+      "bio": "Polish-American electronic musician",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 0,
+      "verified": false,
+      "source_type": "wikidata_profile",
+      "source_name": "Wikidata TikTok username property P7085",
+      "source_url": "http://www.wikidata.org/entity/Q368745",
+      "source_query": "disc jockey",
+      "target_label": "creative_technologist",
+      "source_target_labels": [
+        "creative_technologist"
+      ],
+      "acquisition_surface": "structured_public_profile_graph",
+      "provider": "wikidata_sparql",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
+      "batch_id": "wikidata_Q130857",
+      "external_ids": "http://www.wikidata.org/entity/Q368745",
       "rank": 10
     },
     {
@@ -375,7 +375,7 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q33999|wikidata_Q2252262|wikidata_Q2405480|wikidata_Q2526255|wikidata_Q3282637|wikidata_Q10800557",
       "external_ids": "http://www.wikidata.org/entity/Q738253",
       "rank": 11
@@ -400,7 +400,7 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q130857|wikidata_Q183945|wikidata_Q639669|wikidata_Q2252262",
       "external_ids": "http://www.wikidata.org/entity/Q1154079",
       "rank": 12
@@ -417,7 +417,7 @@
       "source_type": "wikidata_profile",
       "source_name": "Wikidata TikTok username property P7085",
       "source_url": "http://www.wikidata.org/entity/Q5644523",
-      "source_query": "singer|record producer|songwriter|actor",
+      "source_query": "actor|singer|record producer|songwriter",
       "target_label": "actor_performer",
       "source_target_labels": [
         "actor_performer",
@@ -426,10 +426,34 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
-      "batch_id": "wikidata_Q177220|wikidata_Q183945|wikidata_Q753110|wikidata_Q33999",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
+      "batch_id": "wikidata_Q33999|wikidata_Q177220|wikidata_Q183945|wikidata_Q753110",
       "external_ids": "http://www.wikidata.org/entity/Q5644523",
       "rank": 13
+    },
+    {
+      "handle": "@farina",
+      "profile_url": "https://www.tiktok.com/@farina",
+      "display_name": "Fariana",
+      "bio": "Colombian singer, rapper and actress",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 0,
+      "verified": false,
+      "source_type": "wikidata_profile",
+      "source_name": "Wikidata TikTok username property P7085",
+      "source_url": "http://www.wikidata.org/entity/Q5856042",
+      "source_query": "actor|singer|musician|rapper|dancer",
+      "target_label": "actor_performer",
+      "source_target_labels": [
+        "actor_performer"
+      ],
+      "acquisition_surface": "structured_public_profile_graph",
+      "provider": "wikidata_sparql",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
+      "batch_id": "wikidata_Q33999|wikidata_Q177220|wikidata_Q639669|wikidata_Q2252262|wikidata_Q5716684",
+      "external_ids": "http://www.wikidata.org/entity/Q5856042",
+      "rank": 14
     },
     {
       "handle": "@patricermusic",
@@ -450,10 +474,10 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q177220",
       "external_ids": "http://www.wikidata.org/entity/Q7145413",
-      "rank": 14
+      "rank": 15
     },
     {
       "handle": "@mastercorbuzier",
@@ -476,10 +500,10 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q33999|wikidata_Q947873|wikidata_Q2526255",
       "external_ids": "http://www.wikidata.org/entity/Q7475753",
-      "rank": 15
+      "rank": 16
     },
     {
       "handle": "@kamalaharris",
@@ -500,10 +524,10 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q36180",
       "external_ids": "http://www.wikidata.org/entity/Q10853588",
-      "rank": 16
+      "rank": 17
     },
     {
       "handle": "@dumbfoundead",
@@ -524,10 +548,34 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q2252262|wikidata_Q2405480",
       "external_ids": "http://www.wikidata.org/entity/Q11233915",
-      "rank": 17
+      "rank": 18
+    },
+    {
+      "handle": "@sch",
+      "profile_url": "https://www.tiktok.com/@sch",
+      "display_name": "SCH",
+      "bio": "French rapper (born 1993)",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 0,
+      "verified": false,
+      "source_type": "wikidata_profile",
+      "source_name": "Wikidata TikTok username property P7085",
+      "source_url": "http://www.wikidata.org/entity/Q24286772",
+      "source_query": "composer|singer|musician|rapper",
+      "target_label": "actor_performer",
+      "source_target_labels": [
+        "actor_performer"
+      ],
+      "acquisition_surface": "structured_public_profile_graph",
+      "provider": "wikidata_sparql",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
+      "batch_id": "wikidata_Q36834|wikidata_Q177220|wikidata_Q639669|wikidata_Q2252262",
+      "external_ids": "http://www.wikidata.org/entity/Q24286772",
+      "rank": 19
     },
     {
       "handle": "@russ",
@@ -548,10 +596,10 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q36834|wikidata_Q177220|wikidata_Q639669|wikidata_Q2252262",
       "external_ids": "http://www.wikidata.org/entity/Q26706877",
-      "rank": 18
+      "rank": 20
     },
     {
       "handle": "@pauldarbos",
@@ -573,34 +621,10 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q33999|wikidata_Q2906862",
       "external_ids": "http://www.wikidata.org/entity/Q28361946",
-      "rank": 19
-    },
-    {
-      "handle": "@askryrnk",
-      "profile_url": "https://www.tiktok.com/@askryrnk",
-      "display_name": "Yuri Asakura",
-      "bio": "Japanese idol singer",
-      "follower_count": 0,
-      "likes_count": 0,
-      "video_count": 0,
-      "verified": false,
-      "source_type": "wikidata_profile",
-      "source_name": "Wikidata TikTok username property P7085",
-      "source_url": "http://www.wikidata.org/entity/Q34857065",
-      "source_query": "singer",
-      "target_label": "actor_performer",
-      "source_target_labels": [
-        "actor_performer"
-      ],
-      "acquisition_surface": "structured_public_profile_graph",
-      "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
-      "batch_id": "wikidata_Q177220",
-      "external_ids": "http://www.wikidata.org/entity/Q34857065",
-      "rank": 20
+      "rank": 21
     },
     {
       "handle": "@grandson",
@@ -622,10 +646,10 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q177220|wikidata_Q753110|wikidata_Q2252262",
       "external_ids": "http://www.wikidata.org/entity/Q56274788",
-      "rank": 21
+      "rank": 22
     },
     {
       "handle": "@fletcher",
@@ -646,10 +670,10 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q177220",
       "external_ids": "http://www.wikidata.org/entity/Q61996247",
-      "rank": 22
+      "rank": 23
     },
     {
       "handle": "@bela",
@@ -671,10 +695,10 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q33999|wikidata_Q177220|wikidata_Q947873",
       "external_ids": "http://www.wikidata.org/entity/Q62108279",
-      "rank": 23
+      "rank": 24
     },
     {
       "handle": "@snot",
@@ -696,33 +720,9 @@
       ],
       "acquisition_surface": "structured_public_profile_graph",
       "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
+      "provider_execution_id": "2026-06-13T07-18-59-358Z",
       "batch_id": "wikidata_Q177220|wikidata_Q753110|wikidata_Q2252262",
       "external_ids": "http://www.wikidata.org/entity/Q63996025",
-      "rank": 24
-    },
-    {
-      "handle": "@gaileyfrey",
-      "profile_url": "https://www.tiktok.com/@gaileyfrey",
-      "display_name": "Sarah Gailey",
-      "bio": "American author (1990-)",
-      "follower_count": 0,
-      "likes_count": 0,
-      "video_count": 0,
-      "verified": false,
-      "source_type": "wikidata_profile",
-      "source_name": "Wikidata TikTok username property P7085",
-      "source_url": "http://www.wikidata.org/entity/Q64748209",
-      "source_query": "writer",
-      "target_label": "screenwriter",
-      "source_target_labels": [
-        "screenwriter"
-      ],
-      "acquisition_surface": "structured_public_profile_graph",
-      "provider": "wikidata_sparql",
-      "provider_execution_id": "2026-06-13T06-12-52-374Z",
-      "batch_id": "wikidata_Q36180",
-      "external_ids": "http://www.wikidata.org/entity/Q64748209",
       "rank": 25
     }
   ]

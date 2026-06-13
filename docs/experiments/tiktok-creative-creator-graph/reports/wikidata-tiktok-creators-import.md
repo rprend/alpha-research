@@ -1,6 +1,6 @@
 # Wikidata TikTok Creators Import
 
-Generated: 2026-06-13T06:13:12.353Z
+Generated: 2026-06-13T07:19:33.414Z
 
 - Provider: wikidata_sparql
 - Dry run: false
@@ -10,22 +10,22 @@ Generated: 2026-06-13T06:13:12.353Z
 - Broad performers included: true
 - Creator-native occupations included: true
 - Expanded creative occupations included: true
-- Input rows: 28237
-- Output creator rows: 12608
-- Skipped rows: 572
-- Output path: docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-12-52-374Z-wikidata-tiktok-creators.jsonl
+- Input rows: 28236
+- Output creator rows: 10000
+- Skipped rows: 465
+- Output path: docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T07-18-59-358Z-wikidata-tiktok-creators.jsonl
 
 ## Target Labels
 
-- actor_performer: 8191
-- creative_technologist: 1481
-- screenwriter: 967
-- film_educator: 966
-- editor: 10
-- vfx_animation: 209
-- cinematographer: 101
-- behind_the_scenes_creator: 218
-- director: 77
-- sketch_comedian: 309
-- standup_comedian: 26
-- filmmaker: 53
+- actor_performer: 6652
+- creative_technologist: 1134
+- screenwriter: 694
+- filmmaker: 39
+- film_educator: 758
+- editor: 7
+- vfx_animation: 139
+- director: 57
+- cinematographer: 72
+- behind_the_scenes_creator: 186
+- sketch_comedian: 243
+- standup_comedian: 19

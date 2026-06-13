@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T07:15:52.102Z",
+  "generated_at": "2026-06-13T07:25:55.864Z",
   "targets": {
     "useful_creators": 50000,
     "excellent_creators": 5000,
@@ -24,8 +24,8 @@
     "import_batch_size": 250
   },
   "estimated_work": {
-    "candidate_accounts_needed": 260628,
-    "import_batches_needed": 1043,
+    "candidate_accounts_needed": 260490,
+    "import_batches_needed": 1042,
     "useful_creators_needed_for_excellent_target": 49990,
     "review_batches_needed": 2
   },
@@ -333,12 +333,12 @@
     },
     {
       "sequence": 18,
-      "batch_id": "",
+      "batch_id": "graph_0096|hashtag_0022",
       "frontier_rank": 18,
       "frontier_score": 86,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "comediante",
+      "query": "behindthescenes",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -350,7 +350,7 @@
       "frontier_score": 86,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "comedy",
+      "query": "comediante",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -362,7 +362,7 @@
       "frontier_score": 86,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "fypdong",
+      "query": "comedy",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -371,10 +371,10 @@
       "sequence": 21,
       "batch_id": "",
       "frontier_rank": 21,
-      "frontier_score": 85,
+      "frontier_score": 86,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "apple",
+      "query": "fypdong",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -386,7 +386,7 @@
       "frontier_score": 85,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "cat",
+      "query": "apple",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -398,31 +398,31 @@
       "frontier_score": 85,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "video",
+      "query": "cat",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
       "sequence": 24,
-      "batch_id": "graph_0208",
+      "batch_id": "",
       "frontier_rank": 24,
-      "frontier_score": 83,
+      "frontier_score": 85,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "apartment",
+      "query": "video",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
       "sequence": 25,
-      "batch_id": "graph_0230",
+      "batch_id": "graph_0208",
       "frontier_rank": 25,
       "frontier_score": 83,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "chilis",
+      "query": "apartment",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"

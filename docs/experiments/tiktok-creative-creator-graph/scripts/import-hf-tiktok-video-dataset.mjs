@@ -140,17 +140,35 @@ function normalizeHashtags(value, text) {
 
 function rowText(row) {
   return [
+    row.Caption,
+    row.caption,
     row.description,
     row.desc,
     row.transcript,
     row.gpt_summary,
+    row.agentic_story,
+    row.story,
+    row.characters,
+    row.narration_or_voiceover,
+    row.transition_and_pacing,
+    row.transitions_and_pacing,
+    row.visible_texts_or_brandings,
+    row.mood_and_tone,
+    row.domain,
+    row.audience_targeting,
+    row.call_to_action,
+    row.product_or_service_details,
+    row.cultural_relevance_and_seasonality,
+    ...asArray(row.conversations).map((message) => typeof message === 'object' && message ? message.value : message),
     row.topic,
     row.sticker_text,
     row.hashtags,
     row.url,
     row.web_url,
+    row.videoUrl,
     row.author_unique_id,
     row.creator,
+    row.username,
   ].join(' ')
 }
 
@@ -181,7 +199,7 @@ function mergeCreator(existing, candidate) {
 }
 
 function normalizeRow(row, index) {
-  const handle = normalizeHandle(row.author_unique_id || row.creator || row.web_url || row.url)
+  const handle = normalizeHandle(row.author_unique_id || row.creator || row.username || row.web_url || row.videoUrl || row.url)
   if (!handle) return null
   const labels = labelsFor(row)
   if (!labels.length) return null
@@ -191,18 +209,20 @@ function normalizeRow(row, index) {
     source_license: 'unknown',
     source_use_note: 'Candidate acquisition only; confirm dataset license and provenance before production release use.',
   }
-  const description = scrubText(row.description ?? row.desc ?? row.transcript ?? row.gpt_summary ?? '')
-  const caption = scrubText(row.description ?? row.desc ?? '')
-  const videoUrl = row.web_url ?? row.url ?? ''
-  const postedAt = row.create_time ?? row.create_date ?? row.date_posted ?? null
+  const description = scrubText(row.description ?? row.desc ?? row.Caption ?? row.caption ?? row.transcript ?? row.gpt_summary ?? row.story ?? row.agentic_story ?? '')
+  const caption = scrubText(row.description ?? row.desc ?? row.Caption ?? row.caption ?? row.story ?? '')
+  const videoUrl = row.web_url ?? row.videoUrl ?? row.url ?? ''
+  const postedAt = row.create_time ?? row.createTime ?? row.create_date ?? row.date_posted ?? row.uploaded_at ?? null
   return {
     handle,
     profile_url: `https://www.tiktok.com/${handle}`,
     display_name: handle.slice(1),
     bio: description,
-    follower_count: 0,
-    likes_count: toNumber(row.digg_count),
+    follower_count: toNumber(row.followersCount ?? row.follower_count),
+    following_count: toNumber(row.followingCount ?? row.following_count),
+    likes_count: toNumber(row.digg_count ?? row.likesCount ?? row.LikesCount),
     video_count: 1,
+    verified: Boolean(row.isVerifiedAccount === true || row.isVerifiedAccount === 'true'),
     source_type: 'public_dataset_sample',
     source_name: metadata.source_name,
     source_url: metadata.source_url,
@@ -220,10 +240,10 @@ function normalizeRow(row, index) {
           url: videoUrl,
           caption,
           posted_at: postedAt,
-          view_count: toNumber(row.play_count),
-          like_count: toNumber(row.digg_count),
-          comment_count: toNumber(row.comment_count),
-          share_count: toNumber(row.share_count),
+          view_count: toNumber(row.play_count ?? row.playCount),
+          like_count: toNumber(row.digg_count ?? row.likesCount ?? row.LikesCount),
+          comment_count: toNumber(row.comment_count ?? row.commentCount),
+          share_count: toNumber(row.share_count ?? row.shareCount),
           hashtags: normalizeHashtags(row.hashtags, caption),
           mentions: [],
           sound_id: row.music_id ?? '',

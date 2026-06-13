@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-06-13T07:15:49.285Z",
+  "generated_at": "2026-06-13T07:25:52.936Z",
   "target_useful_creators": 50000,
   "labels": 11,
   "covered_labels": 11,
   "uncovered_labels": [],
   "review_decisions": 4,
-  "total_useful_primary_accounts": 7591,
-  "total_useful_gap": 42409,
+  "total_useful_primary_accounts": 7595,
+  "total_useful_gap": 42405,
   "rows": [
     {
       "label": "filmmaker",
       "target_useful_creators": 8000,
-      "current_primary_accounts": 7818,
-      "useful_primary_accounts": 965,
-      "excellent_primary_accounts": 774,
-      "secondary_mentions": 9881,
+      "current_primary_accounts": 7821,
+      "useful_primary_accounts": 966,
+      "excellent_primary_accounts": 775,
+      "secondary_mentions": 9884,
       "reviewed_primary_accounts": 1,
-      "useful_gap": 7035,
+      "useful_gap": 7034,
       "recommended_priority": 2
     },
     {
@@ -25,7 +25,7 @@
       "current_primary_accounts": 1526,
       "useful_primary_accounts": 88,
       "excellent_primary_accounts": 32,
-      "secondary_mentions": 913,
+      "secondary_mentions": 915,
       "reviewed_primary_accounts": 0,
       "useful_gap": 3912,
       "recommended_priority": 2
@@ -36,7 +36,7 @@
       "current_primary_accounts": 2013,
       "useful_primary_accounts": 370,
       "excellent_primary_accounts": 168,
-      "secondary_mentions": 504,
+      "secondary_mentions": 508,
       "reviewed_primary_accounts": 0,
       "useful_gap": 4630,
       "recommended_priority": 2
@@ -55,12 +55,12 @@
     {
       "label": "vfx_animation",
       "target_useful_creators": 5000,
-      "current_primary_accounts": 2616,
-      "useful_primary_accounts": 1496,
-      "excellent_primary_accounts": 513,
+      "current_primary_accounts": 2619,
+      "useful_primary_accounts": 1499,
+      "excellent_primary_accounts": 514,
       "secondary_mentions": 113,
       "reviewed_primary_accounts": 0,
-      "useful_gap": 3504,
+      "useful_gap": 3501,
       "recommended_priority": 2
     },
     {
@@ -91,7 +91,7 @@
       "current_primary_accounts": 8662,
       "useful_primary_accounts": 687,
       "excellent_primary_accounts": 17,
-      "secondary_mentions": 674,
+      "secondary_mentions": 676,
       "reviewed_primary_accounts": 0,
       "useful_gap": 3313,
       "recommended_priority": 2
@@ -102,7 +102,7 @@
       "current_primary_accounts": 2297,
       "useful_primary_accounts": 719,
       "excellent_primary_accounts": 693,
-      "secondary_mentions": 3807,
+      "secondary_mentions": 3808,
       "reviewed_primary_accounts": 0,
       "useful_gap": 2281,
       "recommended_priority": 2
@@ -112,8 +112,8 @@
       "target_useful_creators": 3000,
       "current_primary_accounts": 2688,
       "useful_primary_accounts": 353,
-      "excellent_primary_accounts": 290,
-      "secondary_mentions": 81,
+      "excellent_primary_accounts": 292,
+      "secondary_mentions": 82,
       "reviewed_primary_accounts": 0,
       "useful_gap": 2647,
       "recommended_priority": 2

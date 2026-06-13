@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-06-13T07:15:53.029Z",
+  "generated_at": "2026-06-13T07:25:56.843Z",
   "dry_run": false,
   "overwrite": false,
   "assignments_seen": 200,
-  "files_written": 0,
-  "existing_files_skipped": 37,
-  "routed_rows": 6181,
+  "files_written": 5,
+  "existing_files_skipped": 30,
+  "routed_rows": 6187,
   "labels": {
     "sketch_comedian": 625,
     "standup_comedian": 119,
     "director": 233,
     "editor": 87,
-    "filmmaker": 404,
+    "filmmaker": 407,
     "vfx_animation": 692,
     "creative_technologist": 2302,
     "film_educator": 2735,
     "actor_performer": 7737,
-    "behind_the_scenes_creator": 434,
-    "cinematographer": 87
+    "behind_the_scenes_creator": 436,
+    "cinematographer": 88
   },
   "file_reports": [
     {
@@ -32,9 +32,9 @@
     },
     {
       "assignment_id": "external_packet_0002",
-      "target_label": "sketch_comedian",
-      "completed_file_name": "0002-sketch_comedian.csv",
-      "selected_rows": 250,
+      "target_label": "filmmaker",
+      "completed_file_name": "0002-filmmaker.csv",
+      "selected_rows": 157,
       "lead_target": 250,
       "wrote_file": false,
       "skipped_existing_file": true,
@@ -42,13 +42,13 @@
     },
     {
       "assignment_id": "external_packet_0003",
-      "target_label": "filmmaker",
-      "completed_file_name": "0003-filmmaker.csv",
-      "selected_rows": 154,
+      "target_label": "sketch_comedian",
+      "completed_file_name": "0003-sketch_comedian.csv",
+      "selected_rows": 250,
       "lead_target": 250,
-      "wrote_file": false,
-      "skipped_existing_file": true,
-      "output_path": ""
+      "wrote_file": true,
+      "skipped_existing_file": false,
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0003-sketch_comedian.csv"
     },
     {
       "assignment_id": "external_packet_0004",
@@ -62,8 +62,18 @@
     },
     {
       "assignment_id": "external_packet_0005",
+      "target_label": "filmmaker",
+      "completed_file_name": "0005-filmmaker.csv",
+      "selected_rows": 0,
+      "lead_target": 250,
+      "wrote_file": false,
+      "skipped_existing_file": false,
+      "output_path": ""
+    },
+    {
+      "assignment_id": "external_packet_0006",
       "target_label": "sketch_comedian",
-      "completed_file_name": "0005-sketch_comedian.csv",
+      "completed_file_name": "0006-sketch_comedian.csv",
       "selected_rows": 250,
       "lead_target": 250,
       "wrote_file": false,
@@ -71,24 +81,14 @@
       "output_path": ""
     },
     {
-      "assignment_id": "external_packet_0006",
+      "assignment_id": "external_packet_0007",
       "target_label": "sketch_comedian",
-      "completed_file_name": "0006-sketch_comedian.csv",
+      "completed_file_name": "0007-sketch_comedian.csv",
       "selected_rows": 125,
       "lead_target": 250,
-      "wrote_file": false,
-      "skipped_existing_file": true,
-      "output_path": ""
-    },
-    {
-      "assignment_id": "external_packet_0007",
-      "target_label": "filmmaker",
-      "completed_file_name": "0007-filmmaker.csv",
-      "selected_rows": 0,
-      "lead_target": 250,
-      "wrote_file": false,
+      "wrote_file": true,
       "skipped_existing_file": false,
-      "output_path": ""
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0007-sketch_comedian.csv"
     },
     {
       "assignment_id": "external_packet_0008",
@@ -102,12 +102,12 @@
     },
     {
       "assignment_id": "external_packet_0009",
-      "target_label": "sketch_comedian",
-      "completed_file_name": "0009-sketch_comedian.csv",
+      "target_label": "filmmaker",
+      "completed_file_name": "0009-filmmaker.csv",
       "selected_rows": 0,
       "lead_target": 250,
       "wrote_file": false,
-      "skipped_existing_file": true,
+      "skipped_existing_file": false,
       "output_path": ""
     },
     {
@@ -122,8 +122,8 @@
     },
     {
       "assignment_id": "external_packet_0011",
-      "target_label": "filmmaker",
-      "completed_file_name": "0011-filmmaker.csv",
+      "target_label": "sketch_comedian",
+      "completed_file_name": "0011-sketch_comedian.csv",
       "selected_rows": 0,
       "lead_target": 250,
       "wrote_file": false,
@@ -142,8 +142,8 @@
     },
     {
       "assignment_id": "external_packet_0013",
-      "target_label": "sketch_comedian",
-      "completed_file_name": "0013-sketch_comedian.csv",
+      "target_label": "filmmaker",
+      "completed_file_name": "0013-filmmaker.csv",
       "selected_rows": 0,
       "lead_target": 250,
       "wrote_file": false,
@@ -152,8 +152,8 @@
     },
     {
       "assignment_id": "external_packet_0014",
-      "target_label": "filmmaker",
-      "completed_file_name": "0014-filmmaker.csv",
+      "target_label": "sketch_comedian",
+      "completed_file_name": "0014-sketch_comedian.csv",
       "selected_rows": 0,
       "lead_target": 250,
       "wrote_file": false,
@@ -172,8 +172,8 @@
     },
     {
       "assignment_id": "external_packet_0016",
-      "target_label": "sketch_comedian",
-      "completed_file_name": "0016-sketch_comedian.csv",
+      "target_label": "filmmaker",
+      "completed_file_name": "0016-filmmaker.csv",
       "selected_rows": 0,
       "lead_target": 250,
       "wrote_file": false,
@@ -182,8 +182,18 @@
     },
     {
       "assignment_id": "external_packet_0017",
+      "target_label": "sketch_comedian",
+      "completed_file_name": "0017-sketch_comedian.csv",
+      "selected_rows": 0,
+      "lead_target": 250,
+      "wrote_file": false,
+      "skipped_existing_file": true,
+      "output_path": ""
+    },
+    {
+      "assignment_id": "external_packet_0018",
       "target_label": "filmmaker",
-      "completed_file_name": "0017-filmmaker.csv",
+      "completed_file_name": "0018-filmmaker.csv",
       "selected_rows": 0,
       "lead_target": 250,
       "wrote_file": false,
@@ -191,30 +201,20 @@
       "output_path": ""
     },
     {
-      "assignment_id": "external_packet_0018",
+      "assignment_id": "external_packet_0019",
       "target_label": "sketch_comedian",
-      "completed_file_name": "0018-sketch_comedian.csv",
+      "completed_file_name": "0019-sketch_comedian.csv",
       "selected_rows": 0,
       "lead_target": 250,
       "wrote_file": false,
-      "skipped_existing_file": true,
-      "output_path": ""
-    },
-    {
-      "assignment_id": "external_packet_0019",
-      "target_label": "cinematographer",
-      "completed_file_name": "0019-cinematographer.csv",
-      "selected_rows": 87,
-      "lead_target": 250,
-      "wrote_file": false,
-      "skipped_existing_file": true,
+      "skipped_existing_file": false,
       "output_path": ""
     },
     {
       "assignment_id": "external_packet_0020",
       "target_label": "cinematographer",
       "completed_file_name": "0020-cinematographer.csv",
-      "selected_rows": 0,
+      "selected_rows": 88,
       "lead_target": 250,
       "wrote_file": false,
       "skipped_existing_file": true,
@@ -252,23 +252,23 @@
     },
     {
       "assignment_id": "external_packet_0024",
-      "target_label": "director",
-      "completed_file_name": "0024-director.csv",
-      "selected_rows": 233,
-      "lead_target": 250,
-      "wrote_file": false,
-      "skipped_existing_file": true,
-      "output_path": ""
-    },
-    {
-      "assignment_id": "external_packet_0025",
       "target_label": "cinematographer",
-      "completed_file_name": "0025-cinematographer.csv",
+      "completed_file_name": "0024-cinematographer.csv",
       "selected_rows": 0,
       "lead_target": 250,
       "wrote_file": false,
       "skipped_existing_file": false,
       "output_path": ""
+    },
+    {
+      "assignment_id": "external_packet_0025",
+      "target_label": "director",
+      "completed_file_name": "0025-director.csv",
+      "selected_rows": 233,
+      "lead_target": 250,
+      "wrote_file": true,
+      "skipped_existing_file": false,
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0025-director.csv"
     },
     {
       "assignment_id": "external_packet_0026",
@@ -292,29 +292,29 @@
     },
     {
       "assignment_id": "external_packet_0028",
-      "target_label": "behind_the_scenes_creator",
-      "completed_file_name": "0028-behind_the_scenes_creator.csv",
-      "selected_rows": 250,
+      "target_label": "cinematographer",
+      "completed_file_name": "0028-cinematographer.csv",
+      "selected_rows": 0,
       "lead_target": 250,
       "wrote_file": false,
-      "skipped_existing_file": true,
+      "skipped_existing_file": false,
       "output_path": ""
     },
     {
       "assignment_id": "external_packet_0029",
-      "target_label": "sketch_comedian",
-      "completed_file_name": "0029-sketch_comedian.csv",
-      "selected_rows": 0,
+      "target_label": "behind_the_scenes_creator",
+      "completed_file_name": "0029-behind_the_scenes_creator.csv",
+      "selected_rows": 250,
       "lead_target": 250,
-      "wrote_file": false,
-      "skipped_existing_file": true,
-      "output_path": ""
+      "wrote_file": true,
+      "skipped_existing_file": false,
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0029-behind_the_scenes_creator.csv"
     },
     {
       "assignment_id": "external_packet_0030",
-      "target_label": "vfx_animation",
-      "completed_file_name": "0030-vfx_animation.csv",
-      "selected_rows": 250,
+      "target_label": "sketch_comedian",
+      "completed_file_name": "0030-sketch_comedian.csv",
+      "selected_rows": 0,
       "lead_target": 250,
       "wrote_file": false,
       "skipped_existing_file": true,
@@ -364,7 +364,7 @@
       "assignment_id": "external_packet_0035",
       "target_label": "vfx_animation",
       "completed_file_name": "0035-vfx_animation.csv",
-      "selected_rows": 192,
+      "selected_rows": 250,
       "lead_target": 250,
       "wrote_file": false,
       "skipped_existing_file": true,
@@ -374,11 +374,11 @@
       "assignment_id": "external_packet_0036",
       "target_label": "vfx_animation",
       "completed_file_name": "0036-vfx_animation.csv",
-      "selected_rows": 0,
+      "selected_rows": 192,
       "lead_target": 250,
-      "wrote_file": false,
+      "wrote_file": true,
       "skipped_existing_file": false,
-      "output_path": ""
+      "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0036-vfx_animation.csv"
     },
     {
       "assignment_id": "external_packet_0037",
@@ -684,7 +684,7 @@
       "assignment_id": "external_packet_0067",
       "target_label": "behind_the_scenes_creator",
       "completed_file_name": "0067-behind_the_scenes_creator.csv",
-      "selected_rows": 184,
+      "selected_rows": 186,
       "lead_target": 250,
       "wrote_file": false,
       "skipped_existing_file": true,

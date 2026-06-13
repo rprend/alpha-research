@@ -1,10 +1,10 @@
 target_label,target_useful_creators,current_primary_accounts,useful_primary_accounts,useful_gap,recommended_priority,search_hints
-filmmaker,8000,7818,965,7035,2,short film | filmmaker | film director | film set | shot breakdown | #filmmaker | #shortfilm
+filmmaker,8000,7821,966,7034,2,short film | filmmaker | film director | film set | shot breakdown | #filmmaker | #shortfilm
 sketch_comedian,7000,3687,184,6816,2,sketch comedy | character comedy | improv | comedy sketch | original sketch
 cinematographer,5000,2013,370,4630,2,cinematographer | dp | dop | lighting breakdown | camera test | #cinematography
 director,4000,1526,88,3912,2,director reel | music video director | commercial director | directed by | writer director
 standup_comedian,4000,858,146,3854,2,standup comedian | stand-up | open mic | crowd work | comedy club
-vfx_animation,5000,2616,1496,3504,2,vfx artist | animator | Blender | motion graphics | visual effects | #vfxartist
+vfx_animation,5000,2619,1499,3501,2,vfx artist | animator | Blender | motion graphics | visual effects | #vfxartist
 actor_performer,4000,8662,687,3313,2,actor | performer | monologue | self tape | improv
 behind_the_scenes_creator,3000,2688,353,2647,2,behind the scenes | on set | set life | production diary | film crew
 editor,5000,5588,2531,2469,2,video editor | editing breakdown | DaVinci Resolve | Premiere Pro | color grading

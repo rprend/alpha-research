@@ -1,6 +1,6 @@
 # Candidate Frontier
 
-Generated: 2026-06-13T07:15:50.654Z
+Generated: 2026-06-13T07:25:54.371Z
 
 - Candidates: 413
 - Handle targets: 88
@@ -17,12 +17,12 @@ Generated: 2026-06-13T07:15:50.654Z
 
 ## Target Labels
 
-- filmmaker: 27
+- filmmaker: 28
 - sketch_comedian: 16
 - cinematographer: 14
 - unclassified: 92
 - standup_comedian: 11
-- vfx_animation: 31
+- vfx_animation: 30
 - director: 6
 - behind_the_scenes_creator: 135
 - editor: 42
@@ -51,11 +51,11 @@ Generated: 2026-06-13T07:15:50.654Z
 | 15 | 90 | 1 | query | tiktok_hashtag_export | cinematographer | stitch |
 | 16 | 87 | 1 | query | search_index | unclassified | behind the scenes\|bts\|making of\|how i made\|on set\|setup\|process\|tutorial\|breakdown\|how to\|film analysis\|camera tips\|lighting setup |
 | 17 | 87 | 1 | query | tiktok_hashtag_export | filmmaker | filmmaker |
-| 18 | 86 | 1 | query | tiktok_hashtag_export | standup_comedian | comediante |
-| 19 | 86 | 1 | query | tiktok_hashtag_export | standup_comedian | comedy |
-| 20 | 86 | 1 | query | tiktok_hashtag_export | standup_comedian | fypdong |
-| 21 | 85 | 1 | query | tiktok_hashtag_export | vfx_animation | apple |
-| 22 | 85 | 1 | query | tiktok_hashtag_export | vfx_animation | cat |
-| 23 | 85 | 1 | query | tiktok_hashtag_export | vfx_animation | video |
-| 24 | 83 | 1 | query | tiktok_hashtag_export | sketch_comedian | apartment |
-| 25 | 83 | 1 | query | tiktok_hashtag_export | filmmaker | chilis |
+| 18 | 86 | 1 | query | tiktok_hashtag_export | filmmaker | behindthescenes |
+| 19 | 86 | 1 | query | tiktok_hashtag_export | standup_comedian | comediante |
+| 20 | 86 | 1 | query | tiktok_hashtag_export | standup_comedian | comedy |
+| 21 | 86 | 1 | query | tiktok_hashtag_export | standup_comedian | fypdong |
+| 22 | 85 | 1 | query | tiktok_hashtag_export | vfx_animation | apple |
+| 23 | 85 | 1 | query | tiktok_hashtag_export | vfx_animation | cat |
+| 24 | 85 | 1 | query | tiktok_hashtag_export | vfx_animation | video |
+| 25 | 83 | 1 | query | tiktok_hashtag_export | sketch_comedian | apartment |

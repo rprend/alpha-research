@@ -1,24 +1,24 @@
 # Acquisition Import Preview
 
-Generated: 2026-06-13T07:15:40.602Z
+Generated: 2026-06-13T07:25:42.700Z
 
-- Input rows: 158872
-- Normalized rows: 158872
+- Input rows: 168937
+- Normalized rows: 168937
 - Skipped rows: 0
-- Duplicate normalized rows: 119307
-- Output accounts if imported: 39565
+- Duplicate normalized rows: 129366
+- Output accounts if imported: 39571
 - Ready to import: no
 - Normalized rate: 100.0%
-- Duplicate rate: 75.1%
-- Mapped lineage rows: 158866
+- Duplicate rate: 76.6%
+- Mapped lineage rows: 168931
 - Unmapped lineage rows: 6
 
 ## Checks
 
-- has_rows: pass - 158872 input rows
+- has_rows: pass - 168937 input rows
 - handle_extraction: pass - 100.0% normalized, threshold 75.0%
-- duplicate_pressure: fail - 75.1% duplicate normalized rows, threshold 65.0% (metadata overlay)
-- lineage_mapping: pass - 158866/158872 rows mapped to provider/wave lineage
+- duplicate_pressure: fail - 76.6% duplicate normalized rows, threshold 65.0% (metadata overlay)
+- lineage_mapping: pass - 168931/168937 rows mapped to provider/wave lineage
 
 ## Source Files
 
@@ -423,6 +423,12 @@ Generated: 2026-06-13T07:15:40.602Z
 - 2026-06-13T07-10-30-874Z-external-lead-list.jsonl: 250
 - 2026-06-13T07-10-30-906Z-external-lead-list.jsonl: 250
 - 2026-06-13T07-10-46-804Z-public-profile-enrichment.jsonl: 656
+- 2026-06-13T07-18-59-358Z-wikidata-tiktok-creators.jsonl: 10000
+- 2026-06-13T07-20-16-711Z-public-editorial-pages.jsonl: 50
+- 2026-06-13T07-22-59-305Z-hf-tiktok-video-dataset.jsonl: 1
+- 2026-06-13T07-25-07-733Z-hf-tiktok-video-dataset.jsonl: 6
+- 2026-06-13T07-25-15-616Z-hf-tiktok-video-dataset.jsonl: 4
+- 2026-06-13T07-25-20-172Z-hf-tiktok-video-dataset.jsonl: 4
 - editorial-list-seeds-2026-06-12.jsonl: 21
 - smoke-provider-results.jsonl: 3
 - smoke-search-results.jsonl: 3
