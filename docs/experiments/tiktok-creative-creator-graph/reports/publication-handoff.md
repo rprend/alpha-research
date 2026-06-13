@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-13T01:59:16.596Z
+Generated: 2026-06-13T02:03:01.985Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -96,6 +96,8 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - acquisition_import_preview: `docs/experiments/tiktok-creative-creator-graph/reports/acquisition-import-preview.json`
 - acquisition_import_waves: `docs/experiments/tiktok-creative-creator-graph/data/processed/acquisition_import_waves.jsonl`
 - acquisition_run_history: `docs/experiments/tiktok-creative-creator-graph/data/processed/acquisition_run_history.jsonl`
+- external_lead_list_readme: `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/README.md`
+- external_lead_list_importer: `docs/experiments/tiktok-creative-creator-graph/scripts/import-external-lead-list.mjs`
 - source_yield: `docs/experiments/tiktok-creative-creator-graph/reports/source-yield.json`
 - adjacency_expansion: `docs/experiments/tiktok-creative-creator-graph/reports/adjacency-expansion.json`
 - category_coverage: `docs/experiments/tiktok-creative-creator-graph/reports/category-coverage.json`
@@ -141,6 +143,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 ## Next Actions
 
 - Acquire and import 49993 more useful creators through provider/search/graph batches.
+- Use data/raw/external-leads plus import-external-lead-list.mjs for contractor, directory, search-tool, or manually sourced TikTok profile lists.
 - Do not rely on the current public Bing HTML path as a scale source until it produces nonzero handles; latest public_web run yielded 0 rows.
 - Add 4994 more excellent creators for benchmark-quality coverage.
 - Collect 496 more human review decisions before production claims.

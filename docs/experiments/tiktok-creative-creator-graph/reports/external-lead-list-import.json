@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-06-13T02:02:58.752Z",
+  "execution_id": "2026-06-13T02-02-58-752Z",
+  "provider": "external_lead_list",
+  "dry_run": true,
+  "input_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/example.csv",
+  "input_rows": 1,
+  "output_rows": 1,
+  "skipped_rows": 0,
+  "output_path": "",
+  "target_label_counts": {
+    "filmmaker": 1
+  },
+  "first_rows": [
+    {
+      "handle": "@examplecreator",
+      "profile_url": "https://www.tiktok.com/@examplecreator",
+      "display_name": "Example Creator",
+      "bio": "Short film breakdowns and editing notes",
+      "follower_count": 0,
+      "likes_count": 0,
+      "video_count": 0,
+      "verified": false,
+      "bio_links": [],
+      "source_type": "external_lead_list",
+      "source_name": "Example external lead list",
+      "source_url": "https://example.com",
+      "source_query": "example query",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "acquisition_surface": "external_lead_list",
+      "provider": "external_lead_list",
+      "provider_execution_id": "2026-06-13T02-02-58-752Z",
+      "batch_id": "external_leads_2026-06-13T02-02-58-752Z",
+      "rank": 1,
+      "external_input_file": "example.csv"
+    }
+  ]
+}

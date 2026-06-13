@@ -208,6 +208,8 @@ function main() {
       acquisition_import_preview: rel(join(reportsDir, 'acquisition-import-preview.json')),
       acquisition_import_waves: rel(join(processedDir, 'acquisition_import_waves.jsonl')),
       acquisition_run_history: rel(join(processedDir, 'acquisition_run_history.jsonl')),
+      external_lead_list_readme: rel(join(experimentDir, 'data/raw/external-leads/README.md')),
+      external_lead_list_importer: rel(join(experimentDir, 'scripts/import-external-lead-list.mjs')),
       source_yield: rel(join(reportsDir, 'source-yield.json')),
       adjacency_expansion: rel(join(reportsDir, 'adjacency-expansion.json')),
       category_coverage: rel(join(reportsDir, 'category-coverage.json')),
@@ -234,6 +236,7 @@ function main() {
     ],
     next_actions: [
       `Acquire and import ${Math.max(0, targetUseful - currentUseful)} more useful creators through provider/search/graph batches.`,
+      'Use data/raw/external-leads plus import-external-lead-list.mjs for contractor, directory, search-tool, or manually sourced TikTok profile lists.',
       'Do not rely on the current public Bing HTML path as a scale source until it produces nonzero handles; latest public_web run yielded 0 rows.',
       `Add ${Math.max(0, targetExcellent - currentExcellent)} more excellent creators for benchmark-quality coverage.`,
       `Collect ${Math.max(0, targetReview - currentReview)} more human review decisions before production claims.`,
