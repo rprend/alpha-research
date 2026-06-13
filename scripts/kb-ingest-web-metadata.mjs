@@ -40,7 +40,7 @@ const ingests = [
   },
   {
     source_id: "wayback-machine-cdx",
-    access_route: `https://web.archive.org/cdx?url=${encodeURIComponent("english.yale.edu")}&from=2000&to=2026&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=${limit}`,
+    access_route: `https://web.archive.org/cdx?url=${encodeURIComponent("english.yale.edu/*")}&from=2020&to=2026&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=${limit}`,
     format: "json",
     normalize: normalizeWayback,
   },

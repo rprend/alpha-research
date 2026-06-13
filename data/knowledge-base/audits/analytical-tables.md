@@ -1,15 +1,15 @@
 # KB Analytical Tables
 
-Generated at: 2026-06-13T16:15:44.536Z
+Generated at: 2026-06-13T16:25:38.537Z
 
 | Table | Rows | CSV |
 | --- | ---: | --- |
-| works | 80 | `data/knowledge-base/processed/works.csv` |
-| objects | 30 | `data/knowledge-base/processed/objects.csv` |
-| pages | 4 | `data/knowledge-base/processed/pages.csv` |
+| works | 699 | `data/knowledge-base/processed/works.csv` |
+| objects | 54 | `data/knowledge-base/processed/objects.csv` |
+| pages | 33 | `data/knowledge-base/processed/pages.csv` |
 | departments | 4 | `data/knowledge-base/processed/departments.csv` |
-| source_documents | 134 | `data/knowledge-base/processed/source_documents.csv` |
-| rights | 134 | `data/knowledge-base/processed/rights.csv` |
+| source_documents | 816 | `data/knowledge-base/processed/source_documents.csv` |
+| rights | 816 | `data/knowledge-base/processed/rights.csv` |
 
 ## SQLite
 

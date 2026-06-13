@@ -1,9 +1,10 @@
 {
-  "generated_at": "2026-06-13T16:15:44.761Z",
-  "source_count": 31,
+  "generated_at": "2026-06-13T16:25:38.627Z",
+  "source_count": 33,
   "source_classes": {
     "conference-programs": 3,
     "cultural-collections": 4,
+    "experiment-derived": 2,
     "humanities-adjacent-policy-history": 2,
     "journals-and-reviews": 6,
     "linked-open-data": 1,
@@ -18,26 +19,34 @@
     "cleveland-museum-open-access",
     "crossref-humanities",
     "doaj-humanities",
+    "harvard-humanities-departments",
+    "humanities-centers-public-pages",
+    "humanities-literature-radar",
     "internet-archive-metadata",
     "journal-digital-humanities-quarterly",
     "library-of-congress",
     "met-collection-api",
+    "museum-language-drift",
     "nber-culture-history",
     "openalex-humanities",
+    "princeton-humanities-departments",
     "project-gutenberg",
     "public-books",
     "stanford-humanities-departments",
     "uchicago-humanities-departments",
+    "wayback-machine-cdx",
     "wikidata-cultural-entities",
     "yale-humanities-departments"
   ],
-  "source_count_with_local_documents": 15,
+  "source_count_with_local_documents": 21,
+  "unregistered_source_ids_with_local_documents": [],
+  "unregistered_source_count_with_local_documents": 0,
   "local_records": {
-    "source_documents": 134,
-    "works": 80,
-    "objects": 30,
-    "pages": 4,
-    "rights": 134
+    "source_documents": 816,
+    "works": 699,
+    "objects": 54,
+    "pages": 33,
+    "rights": 816
   },
   "sources_without_local_documents": [
     {
@@ -51,18 +60,6 @@
       "source_class": "cultural-collections",
       "ingest_status": "planned",
       "redistribution_status": "metadata-ok"
-    },
-    {
-      "source_id": "harvard-humanities-departments",
-      "source_class": "university-department-web",
-      "ingest_status": "seeded-from-experiment",
-      "redistribution_status": "local-analysis-only"
-    },
-    {
-      "source_id": "princeton-humanities-departments",
-      "source_class": "university-department-web",
-      "ingest_status": "planned",
-      "redistribution_status": "local-analysis-only"
     },
     {
       "source_id": "columbia-humanities-departments",
@@ -123,18 +120,6 @@
       "source_class": "humanities-adjacent-policy-history",
       "ingest_status": "planned",
       "redistribution_status": "metadata-only"
-    },
-    {
-      "source_id": "wayback-machine-cdx",
-      "source_class": "web-archives",
-      "ingest_status": "seeded-from-experiment",
-      "redistribution_status": "metadata-only"
-    },
-    {
-      "source_id": "humanities-centers-public-pages",
-      "source_class": "university-department-web",
-      "ingest_status": "planned",
-      "redistribution_status": "local-analysis-only"
     }
   ]
 }

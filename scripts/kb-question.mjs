@@ -1,6 +1,8 @@
 import path from "node:path";
 import {
   loadRegistry,
+  processedDir,
+  readJsonl,
   rootDir,
   slug,
   writeJson,
@@ -13,11 +15,17 @@ if (!question) {
 }
 
 const registry = await loadRegistry();
+const sourceDocuments = await readJsonl(path.join(processedDir, "source_documents.jsonl"));
+const localDocumentCounts = countBy(sourceDocuments, "source_id");
 const terms = tokenize(question);
 const scored = registry.sources
-  .map((source) => ({ source, score: scoreSource(source, terms) }))
+  .map((source) => ({
+    source,
+    local_document_count: localDocumentCounts[source.source_id] ?? 0,
+    score: scoreSource(source, terms, localDocumentCounts[source.source_id] ?? 0),
+  }))
   .filter((entry) => entry.score > 0)
-  .sort((a, b) => b.score - a.score || a.source.source_id.localeCompare(b.source.source_id))
+  .sort((a, b) => b.score - a.score || b.local_document_count - a.local_document_count || a.source.source_id.localeCompare(b.source.source_id))
   .slice(0, 12);
 
 const questionSlug = slug(question).slice(0, 80) || "question";
@@ -25,11 +33,12 @@ const outDir = path.join(rootDir, "docs", "research-briefs", questionSlug);
 const sourceMap = {
   generated_at: new Date().toISOString(),
   question,
-  matched_sources: scored.map(({ source, score }) => ({
+  matched_sources: scored.map(({ source, score, local_document_count }) => ({
     source_id: source.source_id,
     name: source.name,
     source_class: source.source_class,
     score,
+    local_document_count,
     ingest_status: source.ingest_status,
     redistribution_status: source.redistribution_status,
     metadata_allowed: source.metadata_allowed,
@@ -55,7 +64,7 @@ function tokenize(value) {
   );
 }
 
-function scoreSource(source, terms) {
+function scoreSource(source, terms, localDocumentCount) {
   const haystack = [
     source.source_id,
     source.name,
@@ -70,6 +79,9 @@ function scoreSource(source, terms) {
   for (const term of terms) {
     if (haystack.includes(term)) score += 1;
   }
+  if (localDocumentCount > 0) score += 3;
+  if (localDocumentCount >= 10) score += 1;
+  if (localDocumentCount >= 100) score += 1;
   if (source.ingest_status === "seeded-from-experiment") score += 2;
   if (source.ingest_status === "active") score += 3;
   if (source.ingest_status === "blocked") score -= 2;
@@ -77,16 +89,24 @@ function scoreSource(source, terms) {
 }
 
 function renderBrief(sourceMap) {
+  const localEvidence = sourceMap.matched_sources.filter((source) => source.local_document_count > 0);
+  const plannedLeads = sourceMap.matched_sources.filter((source) => source.local_document_count === 0);
   return [
     `# Local KB Brief: ${sourceMap.question}`,
     "",
     `Generated at: ${sourceMap.generated_at}`,
     "",
-    "## Relevant Local Sources",
+    "## Local Evidence Sources",
     "",
-    sourceMap.matched_sources.length
-      ? sourceMap.matched_sources.map((source) => `- ${source.source_id} (${source.source_class}, ${source.ingest_status}, ${source.redistribution_status})`).join("\n")
-      : "No registry sources matched this question yet.",
+    localEvidence.length
+      ? localEvidence.map((source) => `- ${source.source_id}: ${source.local_document_count} local docs (${source.source_class}, ${source.ingest_status}, ${source.redistribution_status})`).join("\n")
+      : "No matched source has local documents yet.",
+    "",
+    "## Planned Or Missing Leads",
+    "",
+    plannedLeads.length
+      ? plannedLeads.map((source) => `- ${source.source_id} (${source.source_class}, ${source.ingest_status}, ${source.redistribution_status})`).join("\n")
+      : "No matched planned leads without local documents.",
     "",
     "## What Can Be Checked Locally First",
     "",
@@ -120,7 +140,7 @@ function renderQueries(sourceMap) {
 
 function renderMissingData(sourceMap) {
   const blocked = sourceMap.matched_sources.filter((source) => source.ingest_status === "blocked");
-  const planned = sourceMap.matched_sources.filter((source) => source.ingest_status === "planned");
+  const planned = sourceMap.matched_sources.filter((source) => source.ingest_status === "planned" && source.local_document_count === 0);
   return [
     `# Missing Data: ${sourceMap.question}`,
     "",
@@ -137,4 +157,13 @@ function renderMissingData(sourceMap) {
     "Promote the highest-scoring planned source into a source-specific ingest only after checking rights, robots, expected fields, and whether an existing experiment artifact already covers the question.",
     "",
   ].join("\n");
+}
+
+function countBy(rows, key) {
+  const counts = {};
+  for (const row of rows) {
+    const value = row[key] ?? "unknown";
+    counts[value] = (counts[value] ?? 0) + 1;
+  }
+  return counts;
 }

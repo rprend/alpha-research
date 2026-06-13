@@ -559,6 +559,42 @@
       "known_risks": ["site heterogeneity", "copyrighted page text", "center list maintenance"],
       "last_checked_at": "2026-06-13",
       "ingest_status": "planned"
+    },
+    {
+      "source_id": "humanities-literature-radar",
+      "name": "Humanities Literature Radar Experiment Seeds",
+      "source_class": "experiment-derived",
+      "homepage_url": "docs/experiments/humanities-literature-radar/",
+      "access_routes": ["docs/experiments/humanities-literature-radar/data/processed/works.json"],
+      "license": "Inherited from original metadata sources recorded in the experiment output",
+      "redistribution_status": "metadata-ok",
+      "full_text_allowed": false,
+      "metadata_allowed": true,
+      "robots_or_terms_notes": "Use as local seed metadata only; broad replacement should come from source-specific OpenAlex, Crossref, DOAJ, Humanities Commons, and arXiv routes.",
+      "update_cadence": "manual-review",
+      "expected_fields": ["source_name", "source_record_id", "title", "year", "venue", "doi", "url", "abstract"],
+      "research_use_cases": ["literature radar bootstrapping", "field map prototypes", "question workbench examples"],
+      "known_risks": ["experiment-derived sampling", "source-specific rights vary", "contains non-humanities false positives", "should not be mistaken for broad source coverage"],
+      "last_checked_at": "2026-06-13",
+      "ingest_status": "seeded-from-experiment"
+    },
+    {
+      "source_id": "museum-language-drift",
+      "name": "Museum Language Drift Experiment Seeds",
+      "source_class": "experiment-derived",
+      "homepage_url": "docs/experiments/museum-language-drift/",
+      "access_routes": ["docs/experiments/museum-language-drift/data/processed/second-layer-pages.json"],
+      "license": "Public web page metadata and snippets; copyright retained by source institutions",
+      "redistribution_status": "local-analysis-only",
+      "full_text_allowed": false,
+      "metadata_allowed": true,
+      "robots_or_terms_notes": "Use as local-analysis seed records only; broad replacement should use per-museum route manifests and terms review.",
+      "update_cadence": "manual-review",
+      "expected_fields": ["museum", "page_type", "year", "url", "archive_url", "title", "text_preview"],
+      "research_use_cases": ["museum language drift prototypes", "public culture essay seeds", "Wayback route planning"],
+      "known_risks": ["experiment-derived sampling", "copyrighted page text", "historical capture gaps", "should not be mistaken for collection-wide museum metadata"],
+      "last_checked_at": "2026-06-13",
+      "ingest_status": "seeded-from-experiment"
     }
   ]
 }

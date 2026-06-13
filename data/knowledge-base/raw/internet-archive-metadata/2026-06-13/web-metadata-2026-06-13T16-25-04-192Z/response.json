@@ -1,0 +1,155 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 41,
+    "params": {
+      "query": "subject:humanities AND mediatype:texts",
+      "qin": "subject:(humanities) AND mediatype:(texts)",
+      "fields": "identifier,title,creator,date,collection,licenseurl",
+      "wt": "json",
+      "rows": 10,
+      "start": 0
+    }
+  },
+  "response": {
+    "numFound": 18503,
+    "start": 0,
+    "docs": [
+      {
+        "collection": [
+          "internetarchivebooks",
+          "americana",
+          "printdisabled",
+          "bpljordan-ol",
+          "universityofcoloradoboulder-ol",
+          "universityofoklahoma-ol",
+          "uslprototype"
+        ],
+        "creator": "Moore, Martha (Martha A.)",
+        "date": "1995-01-01T00:00:00Z",
+        "identifier": "undermermaidange00moor",
+        "title": "Under the mermaid angel"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Egorova, Olʹga",
+        "date": "2005-01-01T00:00:00Z",
+        "identifier": "rozovaiapantera0000egor",
+        "title": "Rozovai͡a pantera"
+      },
+      {
+        "collection": [
+          "opensource"
+        ],
+        "identifier": "at-this-college-the-english-dept.-is-out.-human-narratives-is-in.-the-new-york-times",
+        "title": "At This College, The English Dept. Is Out. ‘ Human Narratives’ Is In. The New York Times"
+      },
+      {
+        "collection": [
+          "trent_university",
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-a29",
+          "fav-hae89",
+          "fav-mmos",
+          "fav-stratbot",
+          "ambslibrary-ol",
+          "barryuniversity-ol",
+          "binghamton-ol",
+          "cua-ol",
+          "dartmouthlibrary-ol",
+          "drakeuniversity-ol",
+          "framingham-ol",
+          "gwulibraries-ol",
+          "ithacacollege-ol",
+          "johnshopkins-ol",
+          "kalamazoocollege-ol",
+          "randolph-macon-college-ol",
+          "riceuniversity-ol",
+          "rochester-ol",
+          "unb-ol",
+          "uni-ol",
+          "universityofarizona-ol",
+          "universityofcoloradoboulder-ol",
+          "universityofoklahoma-ol"
+        ],
+        "creator": "Natanson, Maurice Alexander, 1924-",
+        "date": "1973-01-01T00:00:00Z",
+        "identifier": "phenomenologysoc0000nata",
+        "title": "Phenomenology and the social sciences"
+      },
+      {
+        "collection": [
+          "pub_american-academy-of-religion-journal",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1942-05-01T00:00:00Z",
+        "identifier": "sim_american-academy-of-religion-journal_1942-05_10_2",
+        "title": "The Journal of Bible and Religion 1942-05: Vol 10 Iss 2"
+      },
+      {
+        "collection": [
+          "pub_american-scholar",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "2006-01-01T00:00:00Z",
+        "identifier": "sim_american-scholar_2006_75_index",
+        "title": "The American Scholar 2006: Vol 75 Index"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Roshchina, Natalii͡a",
+        "date": "2005-01-01T00:00:00Z",
+        "identifier": "plachpalacha0000rosh",
+        "title": "Plach palacha"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "printdisabled",
+          "fav-mmehmetsahin"
+        ],
+        "creator": "Ward, Steven C",
+        "date": "1996-01-01T00:00:00Z",
+        "identifier": "reconfiguringtru0000ward",
+        "title": "Reconfiguring truth : postmodernism, science studies, and the search for a new model of knowledge"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-acrz",
+          "delawarecountydistrictlibrary-ol",
+          "openlibrary-d-ol",
+          "uslprototype"
+        ],
+        "creator": "Marina Endicott",
+        "date": "2010-01-01T00:00:00Z",
+        "identifier": "goodtofault00endi",
+        "title": "Good to a fault"
+      },
+      {
+        "collection": [
+          "pub_daedalus",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1957-05-01T00:00:00Z",
+        "identifier": "sim_daedalus_1957-05_86_3",
+        "title": "Daedalus 1957-05: Vol 86 Iss 3"
+      }
+    ]
+  }
+}

@@ -19,13 +19,22 @@ const works = await readJsonl(path.join(processedDir, "works.jsonl"));
 const objects = await readJsonl(path.join(processedDir, "objects.jsonl"));
 const freshness = sourceFreshness(sources);
 
-const sourceIdsWithLocalDocs = new Set(sourceDocuments.map((row) => row.source_id));
+const registrySourceIds = new Set(sources.map((source) => source.source_id));
+const sourceIdsWithLocalDocs = new Set(sourceDocuments.map((row) => row.source_id).filter(Boolean));
+const registeredSourceIdsWithLocalDocs = Array.from(sourceIdsWithLocalDocs)
+  .filter((sourceId) => registrySourceIds.has(sourceId))
+  .sort();
+const unregisteredSourceIdsWithLocalDocs = Array.from(sourceIdsWithLocalDocs)
+  .filter((sourceId) => !registrySourceIds.has(sourceId))
+  .sort();
 const coverage = {
   generated_at: new Date().toISOString(),
   source_count: sources.length,
   source_classes: countBy(sources, "source_class"),
-  source_ids_with_local_documents: Array.from(sourceIdsWithLocalDocs).sort(),
-  source_count_with_local_documents: sourceIdsWithLocalDocs.size,
+  source_ids_with_local_documents: registeredSourceIdsWithLocalDocs,
+  source_count_with_local_documents: registeredSourceIdsWithLocalDocs.length,
+  unregistered_source_ids_with_local_documents: unregisteredSourceIdsWithLocalDocs,
+  unregistered_source_count_with_local_documents: unregisteredSourceIdsWithLocalDocs.length,
   local_records: {
     source_documents: sourceDocuments.length,
     works: works.length,
@@ -74,10 +83,17 @@ function renderCoverage(coverage) {
     "",
     `Generated at: ${coverage.generated_at}`,
     `Sources with local documents: ${coverage.source_count_with_local_documents}/${coverage.source_count}`,
+    `Unregistered local source IDs: ${coverage.unregistered_source_count_with_local_documents}`,
     "",
     "## Local Records",
     "",
     ...Object.entries(coverage.local_records).map(([key, value]) => `- ${key}: ${value}`),
+    "",
+    "## Unregistered Local Source IDs",
+    "",
+    ...(coverage.unregistered_source_ids_with_local_documents.length
+      ? coverage.unregistered_source_ids_with_local_documents.map((sourceId) => `- ${sourceId}`)
+      : ["No unregistered local source IDs."]),
     "",
     "## Sources Without Local Documents",
     "",

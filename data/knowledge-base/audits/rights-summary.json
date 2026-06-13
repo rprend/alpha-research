@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-06-13T16:15:44.761Z",
-  "rights_rows": 134,
+  "generated_at": "2026-06-13T16:25:38.627Z",
+  "rights_rows": 816,
   "registry_redistribution_statuses": {
     "blocked-or-needs-review": 1,
     "derived-metadata-ok": 1,
-    "local-analysis-only": 10,
-    "metadata-ok": 7,
+    "local-analysis-only": 11,
+    "metadata-ok": 8,
     "metadata-only": 11,
     "public-domain-text-ok": 1
   },
   "local_redistribution_statuses": {
     "derived-metadata-ok": 10,
-    "local-analysis-only": 24,
-    "metadata-ok": 60,
-    "metadata-only": 20,
+    "local-analysis-only": 77,
+    "metadata-ok": 679,
+    "metadata-only": 30,
     "public-domain-text-ok": 20
   },
   "local_full_text_allowed_count": 20,
-  "local_metadata_allowed_count": 134,
+  "local_metadata_allowed_count": 816,
   "local_quote_statuses": {
-    "metadata-only-no-quotes": 30,
-    "needs-review": 24,
+    "metadata-only-no-quotes": 659,
+    "needs-review": 77,
     "quote-public-domain": 20,
     "unknown": 60
   }

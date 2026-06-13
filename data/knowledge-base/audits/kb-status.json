@@ -1,10 +1,11 @@
 {
-  "generated_at": "2026-06-13T16:15:45.225Z",
+  "generated_at": "2026-06-13T16:25:38.773Z",
   "status": "phase-2-staging-active",
-  "source_count": 31,
+  "source_count": 33,
   "source_classes": {
     "conference-programs": 3,
     "cultural-collections": 4,
+    "experiment-derived": 2,
     "humanities-adjacent-policy-history": 2,
     "journals-and-reviews": 6,
     "linked-open-data": 1,
@@ -18,17 +19,17 @@
   "ingest_statuses": {
     "blocked": 1,
     "planned": 21,
-    "seeded-from-experiment": 9
+    "seeded-from-experiment": 11
   },
   "redistribution_statuses": {
     "blocked-or-needs-review": 1,
     "derived-metadata-ok": 1,
-    "local-analysis-only": 10,
-    "metadata-ok": 7,
+    "local-analysis-only": 11,
+    "metadata-ok": 8,
     "metadata-only": 11,
     "public-domain-text-ok": 1
   },
-  "metadata_allowed_count": 30,
+  "metadata_allowed_count": 32,
   "full_text_allowed_count": 1,
   "stale_source_count": 0,
   "stale_sources": [],
@@ -60,19 +61,19 @@
         "file": "works.jsonl",
         "path": "data/knowledge-base/processed/works.jsonl",
         "exists": true,
-        "bytes": 58249
+        "bytes": 1274830
       },
       {
         "file": "objects.jsonl",
         "path": "data/knowledge-base/processed/objects.jsonl",
         "exists": true,
-        "bytes": 11770
+        "bytes": 45700
       },
       {
         "file": "pages.jsonl",
         "path": "data/knowledge-base/processed/pages.jsonl",
         "exists": true,
-        "bytes": 2030
+        "bytes": 15635
       },
       {
         "file": "departments.jsonl",
@@ -84,13 +85,13 @@
         "file": "source_documents.jsonl",
         "path": "data/knowledge-base/processed/source_documents.jsonl",
         "exists": true,
-        "bytes": 81445
+        "bytes": 1378482
       },
       {
         "file": "rights.jsonl",
         "path": "data/knowledge-base/processed/rights.jsonl",
         "exists": true,
-        "bytes": 50382
+        "bytes": 332262
       }
     ]
   },
@@ -103,19 +104,19 @@
         "file": "works.csv",
         "path": "data/knowledge-base/processed/works.csv",
         "exists": true,
-        "bytes": 23231
+        "bytes": 265054
       },
       {
         "file": "objects.csv",
         "path": "data/knowledge-base/processed/objects.csv",
         "exists": true,
-        "bytes": 6608
+        "bytes": 14560
       },
       {
         "file": "pages.csv",
         "path": "data/knowledge-base/processed/pages.csv",
         "exists": true,
-        "bytes": 1545
+        "bytes": 10895
       },
       {
         "file": "departments.csv",
@@ -127,24 +128,24 @@
         "file": "source_documents.csv",
         "path": "data/knowledge-base/processed/source_documents.csv",
         "exists": true,
-        "bytes": 54899
+        "bytes": 1180287
       },
       {
         "file": "rights.csv",
         "path": "data/knowledge-base/processed/rights.csv",
         "exists": true,
-        "bytes": 32945
+        "bytes": 220027
       },
       {
         "file": "knowledge-base.sqlite",
         "path": "data/knowledge-base/processed/knowledge-base.sqlite",
         "exists": true,
-        "bytes": 241664
+        "bytes": 2514944
       }
     ]
   },
   "local_files": {
-    "raw_count": 30,
+    "raw_count": 40,
     "text_count": 24,
     "index_count": 1
   },

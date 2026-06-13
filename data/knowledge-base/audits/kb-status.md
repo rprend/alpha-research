@@ -1,8 +1,8 @@
 # Local Humanities Knowledge Base Status
 
-Generated at: 2026-06-13T16:15:45.225Z
+Generated at: 2026-06-13T16:25:38.773Z
 Status: phase-2-staging-active
-Sources: 31
+Sources: 33
 
 ## Source Classes
 
@@ -10,6 +10,7 @@ Sources: 31
 | --- | ---: |
 | conference-programs | 3 |
 | cultural-collections | 4 |
+| experiment-derived | 2 |
 | humanities-adjacent-policy-history | 2 |
 | journals-and-reviews | 6 |
 | linked-open-data | 1 |
@@ -26,7 +27,7 @@ Sources: 31
 | --- | ---: |
 | blocked | 1 |
 | planned | 21 |
-| seeded-from-experiment | 9 |
+| seeded-from-experiment | 11 |
 
 ## Rights Coverage
 
@@ -34,8 +35,8 @@ Sources: 31
 | --- | ---: |
 | blocked-or-needs-review | 1 |
 | derived-metadata-ok | 1 |
-| local-analysis-only | 10 |
-| metadata-ok | 7 |
+| local-analysis-only | 11 |
+| metadata-ok | 8 |
 | metadata-only | 11 |
 | public-domain-text-ok | 1 |
 
@@ -44,7 +45,7 @@ Sources: 31
 - Processed tables: 0/12
 - Processed staging JSONL: 6/6
 - Analytical CSV/SQLite: 7/7
-- Raw files: 30
+- Raw files: 40
 - Text files: 24
 - Index files: 1
 

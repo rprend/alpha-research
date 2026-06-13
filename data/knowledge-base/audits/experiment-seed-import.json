@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-06-13T16:25:38.426Z",
+  "sources": [
+    {
+      "source": "docs/experiments/university-mission-statement-drift/data/processed/second-layer-pages.json",
+      "rows": 29
+    },
+    {
+      "source": "docs/experiments/museum-language-drift/data/processed/second-layer-pages.json",
+      "rows": 24
+    },
+    {
+      "source": "docs/experiments/humanities-literature-radar/data/processed/works.json",
+      "rows": 500,
+      "capped": true
+    },
+    {
+      "source": "docs/experiments/canon-drift-feasibility/data/processed/canon-openalex-sample-works.json",
+      "rows": 120
+    }
+  ]
+}
