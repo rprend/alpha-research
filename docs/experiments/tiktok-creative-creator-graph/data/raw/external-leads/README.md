@@ -20,6 +20,14 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-
 
 This writes `reports/external-lead-progress.md` and `data/processed/external_lead_packet_status.csv`, including missing files, malformed files, underfilled files, duplicate handles, and import-ready commands.
 
+Import every ready, not-yet-imported completed assignment file with:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/import-ready-external-lead-packet.mjs
+```
+
+The importer writes `reports/external-lead-packet-import.md` and an import ledger at `data/processed/external_lead_packet_imports.jsonl`, keyed by completed filename and SHA-256 so unchanged files are not imported repeatedly.
+
 Drop externally sourced TikTok creator leads here as `.csv`, `.json`, or `.jsonl`, then normalize them with:
 
 ```bash

@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-06-13T02:18:21.334Z",
+  "dry_run": false,
+  "force": false,
+  "max_files": 1000,
+  "status_rows": 120,
+  "ready_files": 0,
+  "already_imported_ready_files": 0,
+  "pending_files": 0,
+  "imported_files": 0,
+  "failed_files": 0,
+  "output_rows": 0,
+  "ledger_path": "docs/experiments/tiktok-creative-creator-graph/data/processed/external_lead_packet_imports.jsonl",
+  "results": [],
+  "next_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs && node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs"
+}

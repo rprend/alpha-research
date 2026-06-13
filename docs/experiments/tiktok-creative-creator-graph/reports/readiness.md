@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-13T02:13:57.702Z
+Generated: 2026-06-13T02:18:22.975Z
 
 Complete: false
 
@@ -58,6 +58,11 @@ Complete: false
 - External lead packet import-ready assignments: 0
 - External lead packet valid leads: 0
 - External lead packet lead fill ratio: 0
+- External lead packet ready files: 0
+- External lead packet pending import files: 0
+- External lead packet imported files: 0
+- External lead packet import failed files: 0
+- External lead packet import output rows: 0
 - Provider preflight tasks: 20
 - Provider preflight ready tasks: 0
 - Provider preflight blocked tasks: 20
@@ -103,6 +108,7 @@ Complete: false
 - wave_ledger: pass (10000 wave execution ledger rows generated)
 - external_lead_packet: pass (120 assignments requesting 30000 leads)
 - external_lead_progress: pass (0/120 import-ready assignments, 0 valid leads)
+- external_lead_packet_import: pass (0 imported, 0 pending, 0 failed)
 - provider_preflight: fail (0/20 ready provider tasks, budget ok)
 - live_run_manifest: fail (0/10 runnable live waves, estimated cost $0)
 - live_manifest_runner: fail (0 dry_run wave(s) executed through manifest runner)

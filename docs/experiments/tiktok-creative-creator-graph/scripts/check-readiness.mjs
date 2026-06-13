@@ -117,6 +117,11 @@ function main() {
     if (!existsSync(path)) return null
     return JSON.parse(readFileSync(path, 'utf8'))
   })()
+  const externalLeadPacketImport = (() => {
+    const path = join(reportsDir, 'external-lead-packet-import.json')
+    if (!existsSync(path)) return null
+    return JSON.parse(readFileSync(path, 'utf8'))
+  })()
 
   const usefulAccounts = scores.filter((row) => ['useful', 'excellent'].includes(row.status)).length
   const excellentAccounts = scores.filter((row) => row.status === 'excellent').length
@@ -257,6 +262,11 @@ function main() {
       evidence: externalLeadProgress ? `${externalLeadProgress.import_ready_assignments}/${externalLeadProgress.packet_assignments} import-ready assignments, ${externalLeadProgress.valid_leads} valid leads` : 'external lead progress missing',
     },
     {
+      id: 'external_lead_packet_import',
+      status: externalLeadPacketImport && Number(externalLeadPacketImport.failed_files ?? 0) === 0 ? 'pass' : 'fail',
+      evidence: externalLeadPacketImport ? `${externalLeadPacketImport.imported_files} imported, ${externalLeadPacketImport.pending_files} pending, ${externalLeadPacketImport.failed_files} failed` : 'external lead packet import missing',
+    },
+    {
       id: 'provider_preflight',
       status: providerPreflight.length > 0 && providerPreflightReport?.blocked_tasks === 0 && providerPreflightReport?.within_budget ? 'pass' : 'fail',
       evidence: providerPreflightReport ? `${providerPreflightReport.ready_tasks}/${providerPreflightReport.task_rows} ready provider tasks, budget ${providerPreflightReport.within_budget ? 'ok' : 'exceeded'}` : 'provider preflight missing',
@@ -361,6 +371,11 @@ function main() {
       external_lead_packet_import_ready_assignments: externalLeadProgress?.import_ready_assignments ?? 0,
       external_lead_packet_valid_leads: externalLeadProgress?.valid_leads ?? 0,
       external_lead_packet_lead_fill_ratio: externalLeadProgress?.lead_fill_ratio ?? 0,
+      external_lead_packet_ready_files: externalLeadPacketImport?.ready_files ?? 0,
+      external_lead_packet_pending_import_files: externalLeadPacketImport?.pending_files ?? 0,
+      external_lead_packet_imported_files: externalLeadPacketImport?.imported_files ?? 0,
+      external_lead_packet_import_failed_files: externalLeadPacketImport?.failed_files ?? 0,
+      external_lead_packet_import_output_rows: externalLeadPacketImport?.output_rows ?? 0,
       provider_preflight_tasks: providerPreflight.length,
       provider_preflight_ready_tasks: providerPreflightReport?.ready_tasks ?? 0,
       provider_preflight_blocked_tasks: providerPreflightReport?.blocked_tasks ?? 0,
@@ -448,6 +463,11 @@ Complete: ${summary.complete}
 - External lead packet import-ready assignments: ${summary.counts.external_lead_packet_import_ready_assignments}
 - External lead packet valid leads: ${summary.counts.external_lead_packet_valid_leads}
 - External lead packet lead fill ratio: ${summary.counts.external_lead_packet_lead_fill_ratio}
+- External lead packet ready files: ${summary.counts.external_lead_packet_ready_files}
+- External lead packet pending import files: ${summary.counts.external_lead_packet_pending_import_files}
+- External lead packet imported files: ${summary.counts.external_lead_packet_imported_files}
+- External lead packet import failed files: ${summary.counts.external_lead_packet_import_failed_files}
+- External lead packet import output rows: ${summary.counts.external_lead_packet_import_output_rows}
 - Provider preflight tasks: ${summary.counts.provider_preflight_tasks}
 - Provider preflight ready tasks: ${summary.counts.provider_preflight_ready_tasks}
 - Provider preflight blocked tasks: ${summary.counts.provider_preflight_blocked_tasks}
