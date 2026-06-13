@@ -13,6 +13,7 @@ const args = new Map(process.argv.slice(2).map((arg) => {
 }))
 
 const maxRowsPerSource = Number(args.get('--max-rows-per-source') ?? 250)
+const maxRetries = Number(args.get('--max-retries') ?? 3)
 const dryRun = args.has('--dry-run')
 const sourceConfigPath = args.get('--source-config') ? join(root, String(args.get('--source-config'))) : defaultSourceConfigPath
 const executionId = new Date().toISOString().replace(/[:.]/g, '-')
@@ -170,15 +171,28 @@ function rowsFromHtml(source, html) {
   return rows
 }
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
 async function fetchSource(source) {
-  const response = await fetch(source.url, {
-    headers: {
-      'user-agent': 'Mozilla/5.0 (compatible; alpha-research-public-editorial-page-import/1.0)',
-      accept: 'text/html,application/xhtml+xml',
-    },
-  })
-  if (!response.ok) throw new Error(`${source.id} request failed ${response.status}`)
-  return response.text()
+  let lastError = null
+  for (let attempt = 1; attempt <= maxRetries; attempt += 1) {
+    try {
+      const response = await fetch(source.url, {
+        headers: {
+          'user-agent': 'Mozilla/5.0 (compatible; alpha-research-public-editorial-page-import/1.0)',
+          accept: 'text/html,application/xhtml+xml',
+        },
+      })
+      if (!response.ok) throw new Error(`${source.id} request failed ${response.status}`)
+      return response.text()
+    } catch (error) {
+      lastError = error
+      if (attempt < maxRetries) await sleep(1000 * attempt)
+    }
+  }
+  throw lastError
 }
 
 async function main() {
@@ -234,6 +248,7 @@ async function main() {
     dry_run: dryRun,
     source_config_path: sourceConfigPath.replace(`${root}/`, ''),
     selected_sources: sources.length,
+    max_retries: maxRetries,
     output_rows: outputRows.length,
     output_path: dryRun || !outputRows.length ? '' : outputPath.replace(`${root}/`, ''),
     succeeded_sources: sourceReports.filter((row) => row.status === 'succeeded').length,

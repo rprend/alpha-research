@@ -1,13 +1,13 @@
 # Readiness
 
-Generated: 2026-06-13T04:28:08.987Z
+Generated: 2026-06-13T05:12:24.729Z
 
 Complete: false
 
 ## Counts
 
 - Accounts: 10837
-- Videos: 71
+- Videos: 77
 - Graph edges: 639
 - Useful accounts: 107
 - Excellent accounts: 6
@@ -32,7 +32,7 @@ Complete: false
 - Candidate frontier queries: 103
 - Acquisition import preview accounts: 10832
 - Acquisition import preview ready: false
-- Acquisition import waves: 36
+- Acquisition import waves: 38
 - Acquisition runner tasks: 2
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
@@ -99,7 +99,7 @@ Complete: false
 ## Checks
 
 - seed_intake: pass (10837 accounts ingested)
-- video_metadata: pass (71 videos ingested)
+- video_metadata: pass (77 videos ingested)
 - graph_edges: pass (639 graph edges generated)
 - scoring_coverage: pass (10837/10837 accounts scored)
 - review_queue: pass (10837 accounts queued for review)
@@ -113,7 +113,7 @@ Complete: false
 - acquisition_batches: pass (147 acquisition tasks generated)
 - candidate_frontier: pass (141 ranked acquisition candidates generated)
 - acquisition_import_preview: pass (10832 preview accounts, import gate not ready)
-- acquisition_import_waves: pass (36 acquisition import waves tracked)
+- acquisition_import_waves: pass (38 acquisition import waves tracked)
 - acquisition_runner: pass (2 runnable of 2 selected provider tasks (dry run))
 - acquisition_run_history: pass (17 acquisition run history rows persisted)
 - source_yield: pass (905 source/query yield rows generated)
@@ -140,7 +140,7 @@ Complete: false
 - scale_campaign_runner: pass (1 dry_run iteration(s), stop reason dry_run_complete)
 - refresh_plan: pass (10837 account refresh tasks generated)
 - publication_handoff: pass (not-ready-production-data handoff generated)
-- publication_handoff_freshness: pass (handoff accounts 10837/10837, identities 10686/10686, videos 71/71, import waves 36/36, source yield 905/905)
+- publication_handoff_freshness: pass (handoff accounts 10837/10837, identities 10686/10686, videos 77/77, import waves 38/38, source yield 905/905)
 - useful_account_target: incomplete (107/50000 useful accounts)
 - excellent_account_target: incomplete (6/5000 excellent accounts)
 - human_review_target: incomplete (4/500 review decisions applied)

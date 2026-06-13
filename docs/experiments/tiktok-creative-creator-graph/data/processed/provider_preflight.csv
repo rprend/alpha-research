@@ -7,7 +7,7 @@ scale_wave_0003,3,apify,graph_0119,search_index,editor,FeedSpot Top Children Boo
 scale_wave_0003,3,apify,graph_0138,search_index,,Internet celebrity,apify/google-search-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
 scale_wave_0004,4,apify,graph_0117,search_index,editor,FeedSpot Top Comedy TikTok Influencers 2026,apify/google-search-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
 scale_wave_0004,4,apify,graph_0139,search_index,,vlogger|online streamer,apify/google-search-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0005,5,apify,graph_0127,search_index,editor,FeedSpot Top Dance TikTok Influencers 2026,apify/google-search-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
+scale_wave_0005,5,apify,graph_0128,search_index,editor,FeedSpot Top Dance TikTok Influencers 2026,apify/google-search-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
 scale_wave_0005,5,apify,hashtag_0017,tiktok_hashtag_export,standup_comedian,standupcomedy,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
 scale_wave_0006,6,apify,graph_0122,search_index,editor,FeedSpot Top Entertainment TikTok Influencers 2026,apify/google-search-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
 scale_wave_0006,6,apify,graph_0144,cross_platform_search,vfx_animation,"site:instagram.com ""tiktok.com/@"" ""vfx animation""",apify/google-search-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,

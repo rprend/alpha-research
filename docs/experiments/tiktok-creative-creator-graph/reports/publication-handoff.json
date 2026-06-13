@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T04:25:35.947Z",
+  "generated_at": "2026-06-13T05:12:24.396Z",
   "dataset_id": "tiktok-creative-creator-graph",
   "title": "TikTok Creative Creator Graph",
   "publish_state": "not-ready-production-data",
@@ -32,7 +32,7 @@
   "current_corpus": {
     "accounts": 10837,
     "identities": 10686,
-    "videos": 71,
+    "videos": 77,
     "graph_edges": 639,
     "useful_creators": 107,
     "release_useful_creators": 2,
@@ -57,9 +57,9 @@
     "candidate_frontier_queries": 103,
     "acquisition_import_preview_accounts": 10832,
     "acquisition_import_preview_ready": false,
-    "acquisition_import_waves": 36,
-    "acquisition_import_lineage_rows": 276464,
-    "acquisition_import_untraced_rows": 180,
+    "acquisition_import_waves": 38,
+    "acquisition_import_lineage_rows": 382984,
+    "acquisition_import_untraced_rows": 192,
     "acquisition_runner_runnable_tasks": 2,
     "acquisition_runner_skipped_tasks": 0,
     "acquisition_run_history": 17,
@@ -219,22 +219,22 @@
     {
       "path": "data/release/rejected_creators.jsonl",
       "rows": 2,
-      "sha256": "d8a02a9272c38ded396da6508f1a42543b92bd2ab354b9420b4141cbc051c7e1"
+      "sha256": "1a840f0e649ff750e077aa1d2a7ee37fa878b2cd3d5599685580a72b489d07d9"
     },
     {
       "path": "data/release/rejected_creators.csv",
       "rows": 2,
-      "sha256": "910f354f8768150f8873bb1aedc822a2dc3de657fe2698de5f691aaeec5327a3"
+      "sha256": "921a432a15c1095187c3cea6ecd5f3f44b7d682d09c0660d62b7b58d4dc0d559"
     },
     {
       "path": "data/release/review_queue.csv",
       "rows": 10833,
-      "sha256": "a334a42fe64256d2bf82eb66f5960fc1d4f66d13c50263ff7eddc9171b56277f"
+      "sha256": "8ceef927feaa94f992c7009109d5433d68e8e5f3dc9017994ff3c19809cb6247"
     },
     {
       "path": "data/release/all_scored_creators.csv",
       "rows": 10837,
-      "sha256": "8b54b09f2f9efa327feb08f862bcec7c1822d88db52a2df701aa5b4ce5c82dc2"
+      "sha256": "b8cda0931bde12e1d8149c9e5529ca7a3f6d3a87d903847d0240c18f6058ce00"
     }
   ],
   "registration_constraints": [

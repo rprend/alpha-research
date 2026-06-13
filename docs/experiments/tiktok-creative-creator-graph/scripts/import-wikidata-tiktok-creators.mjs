@@ -12,6 +12,8 @@ const args = new Map(process.argv.slice(2).map((arg) => {
 }))
 
 const maxRows = Number(args.get('--max-rows') ?? 5000)
+const sparqlLimit = Number(args.get('--sparql-limit') ?? Math.min(20000, Math.max(1, maxRows * 4)))
+const maxRetries = Number(args.get('--max-retries') ?? 3)
 const dryRun = args.has('--dry-run')
 const includeBroadPerformers = args.has('--include-broad-performers')
 const includeCreatorNative = args.has('--include-creator-native')
@@ -116,22 +118,35 @@ function sparqlQuery() {
     wdt:P106 ?occupation.
   OPTIONAL { ?item schema:description ?description FILTER(LANG(?description) = "en") }
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
-} LIMIT ${Math.max(1, maxRows * 4)}`
+} LIMIT ${Math.max(1, sparqlLimit)}`
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 async function fetchRows() {
   const url = new URL('https://query.wikidata.org/sparql')
   url.searchParams.set('format', 'json')
   url.searchParams.set('query', sparqlQuery())
-  const response = await fetch(url, {
-    headers: {
-      'user-agent': 'alpha-research-tiktok-creator-graph/1.0 (research; github.com/rprend/alpha-research)',
-      accept: 'application/sparql-results+json',
-    },
-  })
-  if (!response.ok) throw new Error(`Wikidata SPARQL request failed ${response.status}`)
-  const payload = await response.json()
-  return payload.results?.bindings ?? []
+  let lastError = null
+  for (let attempt = 1; attempt <= maxRetries; attempt += 1) {
+    try {
+      const response = await fetch(url, {
+        headers: {
+          'user-agent': 'alpha-research-tiktok-creator-graph/1.0 (research; github.com/rprend/alpha-research)',
+          accept: 'application/sparql-results+json',
+        },
+      })
+      if (!response.ok) throw new Error(`Wikidata SPARQL request failed ${response.status}`)
+      const payload = await response.json()
+      return payload.results?.bindings ?? []
+    } catch (error) {
+      lastError = error
+      if (attempt < maxRetries) await sleep(1000 * attempt)
+    }
+  }
+  throw lastError
 }
 
 function bindingValue(binding, key) {
@@ -221,6 +236,8 @@ async function main() {
     include_broad_performers: includeBroadPerformers,
     include_creator_native: includeCreatorNative,
     occupation_qids: occupationConfigs().map((occupation) => occupation.qid),
+    sparql_limit: sparqlLimit,
+    max_retries: maxRetries,
     input_rows: bindings.length,
     output_rows: outputRows.length,
     skipped_rows: skippedRows,

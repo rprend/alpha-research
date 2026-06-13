@@ -1,6 +1,6 @@
 # Provider Preflight
 
-Generated: 2026-06-13T04:25:35.512Z
+Generated: 2026-06-13T05:12:23.983Z
 
 - Provider: apify
 - Provider viability: missing_token
@@ -37,7 +37,7 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 | scale_wave_0003 | graph_0138 | search_index | Internet celebrity | apify/google-search-scraper | false | missing_token | 0 | $0 |
 | scale_wave_0004 | graph_0117 | search_index | FeedSpot Top Comedy TikTok Influencers 2026 | apify/google-search-scraper | false | missing_token | 0 | $0 |
 | scale_wave_0004 | graph_0139 | search_index | vlogger|online streamer | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0005 | graph_0127 | search_index | FeedSpot Top Dance TikTok Influencers 2026 | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0005 | graph_0128 | search_index | FeedSpot Top Dance TikTok Influencers 2026 | apify/google-search-scraper | false | missing_token | 0 | $0 |
 | scale_wave_0005 | hashtag_0017 | tiktok_hashtag_export | standupcomedy | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
 | scale_wave_0006 | graph_0122 | search_index | FeedSpot Top Entertainment TikTok Influencers 2026 | apify/google-search-scraper | false | missing_token | 0 | $0 |
 | scale_wave_0006 | graph_0144 | cross_platform_search | site:instagram.com "tiktok.com/@" "vfx animation" | apify/google-search-scraper | false | missing_token | 0 | $0 |

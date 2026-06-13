@@ -1,6 +1,6 @@
 # External Lead Templates
 
-Generated: 2026-06-13T04:25:34.943Z
+Generated: 2026-06-13T05:12:23.429Z
 
 - Templates: 200
 - Total template rows: 50000

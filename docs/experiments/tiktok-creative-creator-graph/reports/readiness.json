@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-13T04:28:08.987Z",
+  "generated_at": "2026-06-13T05:12:24.729Z",
   "complete": false,
   "counts": {
     "accounts": 10837,
-    "videos": 71,
+    "videos": 77,
     "edges": 639,
     "useful_accounts": 107,
     "excellent_accounts": 6,
@@ -31,7 +31,7 @@
     "candidate_frontier_queries": 103,
     "acquisition_import_preview_accounts": 10832,
     "acquisition_import_preview_ready": false,
-    "acquisition_import_waves": 36,
+    "acquisition_import_waves": 38,
     "acquisition_runner_tasks": 2,
     "acquisition_runner_runnable_tasks": 2,
     "acquisition_runner_skipped_tasks": 0,
@@ -106,7 +106,7 @@
     {
       "id": "video_metadata",
       "status": "pass",
-      "evidence": "71 videos ingested"
+      "evidence": "77 videos ingested"
     },
     {
       "id": "graph_edges",
@@ -176,7 +176,7 @@
     {
       "id": "acquisition_import_waves",
       "status": "pass",
-      "evidence": "36 acquisition import waves tracked"
+      "evidence": "38 acquisition import waves tracked"
     },
     {
       "id": "acquisition_runner",
@@ -311,7 +311,7 @@
     {
       "id": "publication_handoff_freshness",
       "status": "pass",
-      "evidence": "handoff accounts 10837/10837, identities 10686/10686, videos 71/71, import waves 36/36, source yield 905/905"
+      "evidence": "handoff accounts 10837/10837, identities 10686/10686, videos 77/77, import waves 38/38, source yield 905/905"
     },
     {
       "id": "useful_account_target",

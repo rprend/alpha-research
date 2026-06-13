@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T04:25:34.428Z",
+  "generated_at": "2026-06-13T05:12:22.954Z",
   "targets": {
     "useful_creators": 50000,
     "excellent_creators": 5000,
@@ -177,7 +177,7 @@
     },
     {
       "sequence": 5,
-      "batch_id": "graph_0127",
+      "batch_id": "graph_0128",
       "frontier_rank": 5,
       "frontier_score": 103,
       "priority": 1,
@@ -309,7 +309,7 @@
     },
     {
       "sequence": 16,
-      "batch_id": "graph_0128",
+      "batch_id": "graph_0127",
       "frontier_rank": 16,
       "frontier_score": 98,
       "priority": 1,
