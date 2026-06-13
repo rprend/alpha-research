@@ -18,6 +18,7 @@ const indexUrl = String(args.get('--index-url') ?? defaultIndexUrl)
 const maxCandidates = Number(args.get('--max-candidates') ?? 100)
 const minScore = Number(args.get('--min-score') ?? 20)
 const dryRun = args.has('--dry-run')
+const allowUnlabeled = args.has('--allow-unlabeled')
 
 const labelRules = [
   ['vfx_animation', /\b(animation|anime|animator|digital art|illustrat|visual|vfx|3d|motion|comic|manga|character)\b/i],
@@ -218,6 +219,7 @@ async function main() {
     }))
   const candidates = discovered
     .filter((candidate) => !candidate.already_configured)
+    .filter((candidate) => allowUnlabeled || candidate.target_label)
     .filter((candidate) => candidate.score >= minScore)
     .sort((a, b) => b.score - a.score || a.id.localeCompare(b.id))
     .slice(0, maxCandidates)
@@ -243,6 +245,7 @@ async function main() {
     discovered_relevant_sources: discovered.filter((row) => row.score >= minScore).length,
     new_candidate_sources: candidates.length,
     min_score: minScore,
+    allow_unlabeled: allowUnlabeled,
     max_candidates: maxCandidates,
     label_counts: candidates.reduce((acc, row) => {
       acc[row.target_label] = (acc[row.target_label] ?? 0) + 1

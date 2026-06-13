@@ -1,0 +1,77 @@
+{
+  "version": "2026-06-13",
+  "queries": [
+    {
+      "id": "tiktok_filmmaker_profiles",
+      "query": "site:tiktok.com/@ (filmmaker OR director OR cinematographer) -jobs -template",
+      "target_label": "filmmaker",
+      "source_name": "Public web search TikTok filmmaker profiles"
+    },
+    {
+      "id": "tiktok_short_film_profiles",
+      "query": "site:tiktok.com/@ \"short film\" \"TikTok\"",
+      "target_label": "filmmaker",
+      "source_name": "Public web search short film profiles"
+    },
+    {
+      "id": "tiktok_cinematography_profiles",
+      "query": "site:tiktok.com/@ (cinematographer OR cinematography OR \"lighting breakdown\" OR \"camera test\")",
+      "target_label": "cinematographer",
+      "source_name": "Public web search cinematography profiles"
+    },
+    {
+      "id": "tiktok_video_editor_profiles",
+      "query": "site:tiktok.com/@ (\"video editor\" OR \"davinci resolve\" OR \"premiere pro\" OR \"editing breakdown\")",
+      "target_label": "editor",
+      "source_name": "Public web search editor profiles"
+    },
+    {
+      "id": "tiktok_vfx_animation_profiles",
+      "query": "site:tiktok.com/@ (vfx OR animator OR blender OR \"motion design\" OR \"visual effects\")",
+      "target_label": "vfx_animation",
+      "source_name": "Public web search VFX animation profiles"
+    },
+    {
+      "id": "tiktok_sketch_comedy_profiles",
+      "query": "site:tiktok.com/@ (\"sketch comedy\" OR \"character comedy\" OR improv)",
+      "target_label": "sketch_comedian",
+      "source_name": "Public web search sketch comedy profiles"
+    },
+    {
+      "id": "tiktok_standup_profiles",
+      "query": "site:tiktok.com/@ (standup OR \"stand-up\" OR comedian OR \"comedy club\")",
+      "target_label": "standup_comedian",
+      "source_name": "Public web search standup profiles"
+    },
+    {
+      "id": "tiktok_actor_performer_profiles",
+      "query": "site:tiktok.com/@ (actor OR actress OR performer OR monologue OR audition)",
+      "target_label": "actor_performer",
+      "source_name": "Public web search actor performer profiles"
+    },
+    {
+      "id": "linktree_filmmaker_tiktok_links",
+      "query": "site:linktr.ee \"tiktok.com/@\" (filmmaker OR director OR cinematographer OR comedian)",
+      "target_label": "filmmaker",
+      "source_name": "Public web search Linktree creator links"
+    },
+    {
+      "id": "beacons_creator_tiktok_links",
+      "query": "site:beacons.ai \"tiktok.com/@\" (filmmaker OR comedian OR actor OR editor OR vfx)",
+      "target_label": "creative_technologist",
+      "source_name": "Public web search Beacons creator links"
+    },
+    {
+      "id": "youtube_creator_tiktok_links",
+      "query": "site:youtube.com \"tiktok.com/@\" (filmmaker OR cinematographer OR \"sketch comedy\" OR vfx)",
+      "target_label": "film_educator",
+      "source_name": "Public web search YouTube creator TikTok links"
+    },
+    {
+      "id": "portfolio_tiktok_creator_links",
+      "query": "\"tiktok.com/@\" (\"portfolio\" OR \"director\" OR \"cinematographer\" OR \"video editor\" OR \"vfx artist\")",
+      "target_label": "filmmaker",
+      "source_name": "Public web search portfolio creator links"
+    }
+  ]
+}

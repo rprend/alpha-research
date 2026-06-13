@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T00:39:09.194Z",
+  "generated_at": "2026-06-13T00:49:27.519Z",
   "index_url": "https://creators.feedspot.com/recent_changes_creators/",
   "dry_run": false,
   "extracted_links": 240,
@@ -7,6 +7,7 @@
   "discovered_relevant_sources": 37,
   "new_candidate_sources": 4,
   "min_score": 20,
+  "allow_unlabeled": false,
   "max_candidates": 80,
   "label_counts": {
     "actor_performer": 1,

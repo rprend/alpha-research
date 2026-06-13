@@ -1,0 +1,134 @@
+{
+  "generated_at": "2026-06-13T00:49:29.819Z",
+  "execution_id": "2026-06-13T00-49-27-735Z",
+  "provider": "bing_html",
+  "dry_run": false,
+  "selected_queries": 12,
+  "output_rows": 0,
+  "output_path": "",
+  "succeeded_queries": 12,
+  "failed_queries": 0,
+  "first_rows": [],
+  "queries": [
+    {
+      "query_id": "tiktok_filmmaker_profiles",
+      "query": "site:tiktok.com/@ (filmmaker OR director OR cinematographer) -jobs -template",
+      "target_label": "filmmaker",
+      "status": "succeeded",
+      "extracted_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T00:49:27.737Z",
+      "finished_at": "2026-06-13T00:49:28.025Z"
+    },
+    {
+      "query_id": "tiktok_short_film_profiles",
+      "query": "site:tiktok.com/@ \"short film\" \"TikTok\"",
+      "target_label": "filmmaker",
+      "status": "succeeded",
+      "extracted_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T00:49:28.025Z",
+      "finished_at": "2026-06-13T00:49:28.246Z"
+    },
+    {
+      "query_id": "tiktok_cinematography_profiles",
+      "query": "site:tiktok.com/@ (cinematographer OR cinematography OR \"lighting breakdown\" OR \"camera test\")",
+      "target_label": "cinematographer",
+      "status": "succeeded",
+      "extracted_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T00:49:28.246Z",
+      "finished_at": "2026-06-13T00:49:28.356Z"
+    },
+    {
+      "query_id": "tiktok_video_editor_profiles",
+      "query": "site:tiktok.com/@ (\"video editor\" OR \"davinci resolve\" OR \"premiere pro\" OR \"editing breakdown\")",
+      "target_label": "editor",
+      "status": "succeeded",
+      "extracted_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T00:49:28.356Z",
+      "finished_at": "2026-06-13T00:49:28.515Z"
+    },
+    {
+      "query_id": "tiktok_vfx_animation_profiles",
+      "query": "site:tiktok.com/@ (vfx OR animator OR blender OR \"motion design\" OR \"visual effects\")",
+      "target_label": "vfx_animation",
+      "status": "succeeded",
+      "extracted_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T00:49:28.515Z",
+      "finished_at": "2026-06-13T00:49:28.622Z"
+    },
+    {
+      "query_id": "tiktok_sketch_comedy_profiles",
+      "query": "site:tiktok.com/@ (\"sketch comedy\" OR \"character comedy\" OR improv)",
+      "target_label": "sketch_comedian",
+      "status": "succeeded",
+      "extracted_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T00:49:28.622Z",
+      "finished_at": "2026-06-13T00:49:28.768Z"
+    },
+    {
+      "query_id": "tiktok_standup_profiles",
+      "query": "site:tiktok.com/@ (standup OR \"stand-up\" OR comedian OR \"comedy club\")",
+      "target_label": "standup_comedian",
+      "status": "succeeded",
+      "extracted_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T00:49:28.768Z",
+      "finished_at": "2026-06-13T00:49:28.895Z"
+    },
+    {
+      "query_id": "tiktok_actor_performer_profiles",
+      "query": "site:tiktok.com/@ (actor OR actress OR performer OR monologue OR audition)",
+      "target_label": "actor_performer",
+      "status": "succeeded",
+      "extracted_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T00:49:28.895Z",
+      "finished_at": "2026-06-13T00:49:29.039Z"
+    },
+    {
+      "query_id": "linktree_filmmaker_tiktok_links",
+      "query": "site:linktr.ee \"tiktok.com/@\" (filmmaker OR director OR cinematographer OR comedian)",
+      "target_label": "filmmaker",
+      "status": "succeeded",
+      "extracted_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T00:49:29.039Z",
+      "finished_at": "2026-06-13T00:49:29.293Z"
+    },
+    {
+      "query_id": "beacons_creator_tiktok_links",
+      "query": "site:beacons.ai \"tiktok.com/@\" (filmmaker OR comedian OR actor OR editor OR vfx)",
+      "target_label": "creative_technologist",
+      "status": "succeeded",
+      "extracted_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T00:49:29.293Z",
+      "finished_at": "2026-06-13T00:49:29.419Z"
+    },
+    {
+      "query_id": "youtube_creator_tiktok_links",
+      "query": "site:youtube.com \"tiktok.com/@\" (filmmaker OR cinematographer OR \"sketch comedy\" OR vfx)",
+      "target_label": "film_educator",
+      "status": "succeeded",
+      "extracted_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T00:49:29.419Z",
+      "finished_at": "2026-06-13T00:49:29.554Z"
+    },
+    {
+      "query_id": "portfolio_tiktok_creator_links",
+      "query": "\"tiktok.com/@\" (\"portfolio\" OR \"director\" OR \"cinematographer\" OR \"video editor\" OR \"vfx artist\")",
+      "target_label": "filmmaker",
+      "status": "succeeded",
+      "extracted_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T00:49:29.554Z",
+      "finished_at": "2026-06-13T00:49:29.819Z"
+    }
+  ]
+}

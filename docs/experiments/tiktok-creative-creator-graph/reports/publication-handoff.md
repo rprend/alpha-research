@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-13T00:39:25.127Z
+Generated: 2026-06-13T00:49:47.707Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -10,9 +10,9 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 
 ## Current Corpus
 
-- Accounts: 1692
-- Identities: 1667
-- Videos: 17
+- Accounts: 1900
+- Identities: 1870
+- Videos: 20
 - Graph edges: 52
 - Useful creators: 7
 - Release useful creators: 2
@@ -25,7 +25,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Review plan categories: 11
 - Review decisions: 4
 - Review blank decisions: 0
-- Source yield rows: 46
+- Source yield rows: 50
 - Adjacency expansion rows: 27
 - Adjacency expansion added rows: 20
 - Category coverage: 5/11
@@ -33,17 +33,17 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Candidate frontier: 86
 - Candidate frontier handles: 7
 - Candidate frontier queries: 79
-- Acquisition import preview accounts: 1686
+- Acquisition import preview accounts: 1894
 - Acquisition import preview ready: true
-- Acquisition import waves: 10
+- Acquisition import waves: 11
 - Acquisition import traced rows: 7216
 - Acquisition import untraced rows: 66
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
 - Acquisition run history: 15
-- Scale waves: 9999
-- Wave ledger rows: 9999
-- Wave ledger planned: 9999
+- Scale waves: 10000
+- Wave ledger rows: 10000
+- Wave ledger planned: 10000
 - Wave ledger imported: 0
 - Wave ledger imported empty: 0
 - Wave ledger failed: 0
@@ -59,7 +59,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Live manifest runner steps: 1
 - Live manifest runner selected waves: 1
 - Live manifest runner mode: dry_run
-- Refresh tasks: 1692
+- Refresh tasks: 1900
 
 ## Remaining Production Gaps
 
